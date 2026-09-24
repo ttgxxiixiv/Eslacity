@@ -22,6 +22,7 @@ export interface DayRow {
   reviews: number;
   lessons: number;
   grammarLessons: number;
+  goalMet?: boolean;
 }
 
 export interface MetaRow {

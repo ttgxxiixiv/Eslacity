@@ -4,13 +4,18 @@ import type { Settings } from './settings';
 import { useCity } from './city';
 import { useProgress } from './progress';
 import { useSettings } from './settings';
+import { useMotivation, type MotivationData } from './motivation';
 
 export async function bootstrap(): Promise<void> {
-  const [cards, buildings, meta, day, grammar] = await Promise.all([
+  // Просим браузер не вычищать IndexedDB при нехватке места: иначе прогресс может пропасть.
+  navigator.storage?.persist?.().catch(() => {});
+
+  const since = dayKey(Date.now() - 14 * 86_400_000);
+  const [cards, buildings, meta, days, grammar] = await Promise.all([
     db.cards.toArray(),
     db.buildings.toArray(),
     db.meta.toArray(),
-    db.days.get(dayKey(Date.now())),
+    db.days.where('date').aboveOrEqual(since).toArray(),
     db.grammar.toArray(),
   ]);
   const m = Object.fromEntries(meta.map((r) => [r.key, r.value]));
@@ -22,9 +27,12 @@ export async function bootstrap(): Promise<void> {
     await db.buildings.put(cafe);
   }
 
-  useProgress.getState().hydrate({ cards, day, xpTotal: (m.xpTotal as number) ?? 0, grammar });
+  useProgress.getState().hydrate({ cards, days, xpTotal: (m.xpTotal as number) ?? 0, grammar });
   useCity.getState().hydrate({ coins: (m.coins as number) ?? 0, buildings });
   useSettings.getState().hydrate(m.settings as Partial<Settings> | undefined);
+  useMotivation.getState().hydrate(m.motivation as Partial<MotivationData> | undefined);
+  useMotivation.getState().settle();
+  useMotivation.getState().evaluate();
 }
 
 export async function resetProgress(): Promise<void> {

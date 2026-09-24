@@ -34,6 +34,8 @@ function checkArticle(w: Word, form: string, where: string, out: Issue[]) {
 export function validateWords(files: { name: string; data: LocationWords }[]): Issue[] {
   const out: Issue[] = [];
   const ids = new Map<string, string>();
+  // Одно испанское слово в двух локациях с разным переводом путает варианты ответа.
+  const globalEs = new Map<string, string>();
 
   for (const { name, data } of files) {
     const where = name;
@@ -98,7 +100,9 @@ export function validateWords(files: { name: string; data: LocationWords }[]): I
 
       if (w.example && !empty(w.example.es)) {
         const ex = stripAccents(normalize(w.example.es));
-        const core = stripAccents(splitArticle(w.es).core);
+        let core = stripAccents(splitArticle(w.es).core);
+        // Возвратный глагол: bañarse → bañar, в примере будет bañarnos.
+        if (w.pos === 'verb' && core.endsWith('se')) core = core.slice(0, -2);
         const stem = core.length > 4 ? core.slice(0, core.length - 2) : core;
         if (!ex.includes(stem)) {
           out.push({ level: 'warning', where: at, msg: `в примере нет слова "${w.es}"` });
@@ -107,6 +111,12 @@ export function validateWords(files: { name: string; data: LocationWords }[]): I
 
       perLevel.set(w.level, (perLevel.get(w.level) ?? 0) + 1);
     });
+
+    for (const [key, id] of esSeen) {
+      const other = globalEs.get(key);
+      if (other) out.push({ level: 'warning', where, msg: `"${key}" уже есть в другой локации (${other})` });
+      else globalEs.set(key, id);
+    }
 
     for (const [lvl, n] of perLevel) {
       if (n < 10 || n > 12) out.push({ level: 'error', where, msg: `уровень ${lvl}: ${n} слов, нужно 10-12` });

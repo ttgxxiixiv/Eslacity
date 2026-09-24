@@ -2,15 +2,19 @@ import { create } from 'zustand';
 import { db, emptyDay, type DayRow, type GrammarRow } from '../db/db';
 import { persist } from '../db/persist';
 import { dayKey, newCard, review, type Grade, type SrsCard } from '../domain/srs';
+import { useMotivation } from './motivation';
+import { useSettings } from './settings';
 
-type DayPatch = Partial<Omit<DayRow, 'date'>>;
+type DayPatch = Partial<Omit<DayRow, 'date' | 'goalMet'>>;
 
 interface ProgressState {
   cards: Record<string, SrsCard>;
   day: DayRow;
+  /** Последние дни (для недельного челленджа и графика). */
+  days: Record<string, DayRow>;
   xpTotal: number;
   grammar: Record<string, GrammarRow>;
-  hydrate(p: { cards: SrsCard[]; day: DayRow | undefined; xpTotal: number; grammar: GrammarRow[] }): void;
+  hydrate(p: { cards: SrsCard[]; days: DayRow[]; xpTotal: number; grammar: GrammarRow[] }): void;
   /** Отметить урок грамматики пройденным. Возвращает true, если пройден впервые. */
   completeGrammar(lessonId: string, score: number, now?: number): boolean;
   /** Проставить оценки SM-2. Новые слова получают карточку. */
@@ -27,13 +31,16 @@ function today(day: DayRow, now = Date.now()): DayRow {
 export const useProgress = create<ProgressState>((set, get) => ({
   cards: {},
   day: emptyDay(dayKey(Date.now())),
+  days: {},
   xpTotal: 0,
   grammar: {},
 
-  hydrate({ cards, day, xpTotal, grammar }) {
+  hydrate({ cards, days, xpTotal, grammar }) {
+    const key = dayKey(Date.now());
     set({
       cards: Object.fromEntries(cards.map((c) => [c.wordId, c])),
-      day: day ?? emptyDay(dayKey(Date.now())),
+      day: days.find((d) => d.date === key) ?? emptyDay(key),
+      days: Object.fromEntries(days.map((d) => [d.date, d])),
       xpTotal,
       grammar: Object.fromEntries(grammar.map((g) => [g.lessonId, g])),
     });
@@ -79,7 +86,10 @@ export const useProgress = create<ProgressState>((set, get) => ({
   bumpDay(patch) {
     const d = { ...today(get().day) };
     for (const [k, v] of Object.entries(patch) as [keyof DayPatch, number][]) d[k] += v;
-    set({ day: d });
+    const reached = !d.goalMet && d.xp >= useSettings.getState().dailyGoal;
+    if (reached) d.goalMet = true;
+    set({ day: d, days: { ...get().days, [d.date]: d } });
     persist(() => db.days.put(d));
+    if (reached) useMotivation.getState().onGoalMet();
   },
 }));

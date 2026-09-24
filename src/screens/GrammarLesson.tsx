@@ -11,6 +11,9 @@ import { afterPaint } from '../lib/afterPaint';
 import { speak } from '../audio/tts';
 import { useCity } from '../store/city';
 import { useProgress } from '../store/progress';
+import { useMotivation } from '../store/motivation';
+import type { Achievement } from '../domain/achievements';
+import { AchievementLines } from '../components/LessonResult';
 import { type Feedback, FeedbackSheet } from '../components/FeedbackSheet';
 import { Md } from '../components/Md';
 import { Button, Screen, SpeakButton, TopBar } from '../components/ui';
@@ -147,6 +150,7 @@ export function GrammarLessonScreen() {
   const [picked, setPicked] = useState<number | null>(null);
   const [fb, setFb] = useState<Feedback | null>(null);
   const [earned, setEarned] = useState({ xp: 0, coins: 0 });
+  const [ach, setAch] = useState<Achievement[]>([]);
 
   if (!lesson || !run) return <div className="p-6">Урок не найден</div>;
   if (phase === 'theory') return <Theory lesson={lesson} onStart={() => setPhase('practice')} />;
@@ -171,6 +175,7 @@ export function GrammarLessonScreen() {
             <div className="text-sm text-stone-500">монет</div>
           </div>
         </div>
+        <AchievementLines list={ach} />
         <div className="flex-1" />
         <Button className="mt-8" onClick={() => nav('/grammar', { replace: true })}>
           Готово
@@ -221,6 +226,7 @@ export function GrammarLessonScreen() {
       useCity.getState().addCoins(bonus);
       setEarned((e) => ({ ...e, coins: e.coins + bonus }));
       setRun({ ...run, index: nextIndex });
+      setAch(useMotivation.getState().evaluate());
       setPhase('done');
       return;
     }

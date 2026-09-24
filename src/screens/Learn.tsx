@@ -8,6 +8,8 @@ import { buildLearnSteps, buildReviewSteps, type SessionState, type Step } from 
 import { lessonParts, levelWords } from '../domain/levels';
 import { useCity } from '../store/city';
 import { useProgress } from '../store/progress';
+import { useMotivation } from '../store/motivation';
+import type { Achievement } from '../domain/achievements';
 import { LessonPlayer, type LessonTotals } from '../components/LessonPlayer';
 import { LessonResult } from '../components/LessonResult';
 
@@ -25,7 +27,7 @@ export function LearnScreen({ practice = false }: { practice?: boolean }) {
   const part = Number(params.part ?? 0);
   const nav = useNavigate();
   const [ready, setReady] = useState<Ready | null>(null);
-  const [result, setResult] = useState<{ s: SessionState; totals: LessonTotals; bonus: number } | null>(null);
+  const [result, setResult] = useState<{ s: SessionState; totals: LessonTotals; bonus: number; ach: Achievement[] } | null>(null);
 
   useEffect(() => {
     loadLocation(id).then((pool) => {
@@ -45,6 +47,7 @@ export function LearnScreen({ practice = false }: { practice?: boolean }) {
         session={result.s}
         totals={result.totals}
         bonusCoins={result.bonus}
+        achievements={result.ach}
         words={ready.words}
         onDone={() => nav(`/loc/${id}`, { replace: true })}
       />
@@ -71,7 +74,7 @@ export function LearnScreen({ practice = false }: { practice?: boolean }) {
           progress.bumpDay({ lessons: 1, newWords });
           useCity.getState().addCoins(bonus);
         }
-        setResult({ s, totals, bonus });
+        setResult({ s, totals, bonus, ach: useMotivation.getState().evaluate() });
       }}
     />
   );

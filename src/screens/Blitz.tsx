@@ -8,6 +8,9 @@ import { afterPaint } from '../lib/afterPaint';
 import { speak } from '../audio/tts';
 import { useProgress } from '../store/progress';
 import { useSettings } from '../store/settings';
+import { useMotivation } from '../store/motivation';
+import type { Achievement } from '../domain/achievements';
+import { AchievementLines } from '../components/LessonResult';
 import { Button, Screen, SpeakButton, TopBar } from '../components/ui';
 
 interface Question extends ChoiceData {
@@ -30,6 +33,7 @@ export function BlitzScreen() {
   const scoreRef = useRef(0);
   const best = useSettings((s) => s.blitzBest);
   const [newBest, setNewBest] = useState(false);
+  const [ach, setAch] = useState<Achievement[]>([]);
 
   useEffect(() => {
     const ids = Object.keys(useProgress.getState().cards);
@@ -58,6 +62,7 @@ export function BlitzScreen() {
         s.update({ blitzBest: final });
         setNewBest(true);
       }
+      setAch(useMotivation.getState().evaluate());
     });
   };
 
@@ -77,6 +82,7 @@ export function BlitzScreen() {
     scoreRef.current = 0;
     setMisses([]);
     setNewBest(false);
+    setAch([]);
     endAt.current = Date.now() + LESSON.blitzSeconds * 1000;
     nextQuestion();
     setPhase('play');
@@ -145,6 +151,7 @@ export function BlitzScreen() {
               ))}
             </ul>
           )}
+          <AchievementLines list={ach} />
           <div className="flex-1" />
           <Button className="mt-6" onClick={start}>
             Ещё раз

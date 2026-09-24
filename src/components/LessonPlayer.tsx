@@ -10,6 +10,7 @@ import {
 } from '../domain/lessonQueue';
 import { useCity } from '../store/city';
 import { useProgress } from '../store/progress';
+import { useMotivation } from '../store/motivation';
 import { BuildPhrase } from './exercises/BuildPhrase';
 import { Choice } from './exercises/Choice';
 import { Intro } from './exercises/Intro';
@@ -68,6 +69,7 @@ export function LessonPlayer({ steps, words, pool, onFinish, onExit }: Props) {
       if (f.speakText && o.verdict !== 'wrong') speak(f.speakText);
       useProgress.getState().addXp(xp);
       useCity.getState().addCoins(coins);
+      if (step.kind === 'type') useMotivation.getState().recordTyped(o.verdict === 'correct');
     });
   };
 

@@ -9,6 +9,9 @@ import { BlitzScreen } from './screens/Blitz';
 import { SettingsScreen } from './screens/Settings';
 import { GrammarMap } from './screens/GrammarMap';
 import { GrammarLessonScreen } from './screens/GrammarLesson';
+import { ProfileScreen } from './screens/Profile';
+import { WordsScreen } from './screens/Words';
+import { useMotivation } from './store/motivation';
 
 function TabLayout() {
   const tab = ({ isActive }: { isActive: boolean }) =>
@@ -29,8 +32,8 @@ function TabLayout() {
           <NavLink to="/review" className={tab}>
             <span className="text-xl">🔁</span>Повтор
           </NavLink>
-          <NavLink to="/settings" className={tab}>
-            <span className="text-xl">⚙️</span>Настройки
+          <NavLink to="/profile" className={tab}>
+            <span className="text-xl">👤</span>Профиль
           </NavLink>
         </div>
       </nav>
@@ -46,6 +49,10 @@ export default function App() {
     bootstrap()
       .then(() => setReady(true))
       .catch((e: Error) => setError(e.message));
+    // Новый день мог начаться, пока приложение было в фоне.
+    const onVisible = () => document.visibilityState === 'visible' && useMotivation.getState().settle();
+    document.addEventListener('visibilitychange', onVisible);
+    return () => document.removeEventListener('visibilitychange', onVisible);
   }, []);
 
   if (error) return <div className="p-6 text-bad">Не удалось открыть хранилище: {error}</div>;
@@ -57,14 +64,16 @@ export default function App() {
         <Route element={<TabLayout />}>
           <Route path="/" element={<Home />} />
           <Route path="/loc/:id" element={<LocationScreen />} />
-          <Route path="/settings" element={<SettingsScreen />} />
           <Route path="/grammar" element={<GrammarMap />} />
+          <Route path="/profile" element={<ProfileScreen />} />
         </Route>
         <Route path="/grammar/:id" element={<GrammarLessonScreen />} />
         <Route path="/review" element={<ReviewScreen />} />
+        <Route path="/settings" element={<SettingsScreen />} />
         <Route path="/learn/:id/:level/:part" element={<LearnScreen />} />
         <Route path="/practice/:id/:level" element={<LearnScreen practice />} />
         <Route path="/blitz" element={<BlitzScreen />} />
+        <Route path="/words" element={<WordsScreen />} />
       </Routes>
     </HashRouter>
   );

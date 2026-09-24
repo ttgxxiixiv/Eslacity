@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { VARIANT, VARIANTS } from '../config';
 import { currentVoice, speak, ttsSupported } from '../audio/tts';
 import { resetProgress } from '../store/bootstrap';
+import { downloadJson, exportBackup, importBackup, parseBackup } from '../db/backup';
 import { useSettings, type Settings } from '../store/settings';
 import { Button, Screen, TopBar } from '../components/ui';
 
@@ -13,7 +14,7 @@ export function SettingsScreen() {
 
   return (
     <Screen>
-      <TopBar title="Настройки" back={false} />
+      <TopBar title="Настройки" />
       <div className="flex flex-col gap-4 px-5 pb-6">
         <section className="rounded-3xl bg-white p-4 shadow-sm">
           <h2 className="font-bold">Дневная цель</h2>
@@ -71,7 +72,37 @@ export function SettingsScreen() {
 
         <section className="rounded-3xl bg-white p-4 shadow-sm">
           <h2 className="font-bold">Прогресс</h2>
-          <p className="mt-1 text-sm text-stone-500">Хранится только на этом устройстве.</p>
+          <p className="mt-1 text-sm text-stone-500">
+            Хранится только на этом устройстве. Сохраните файл, чтобы перенести прогресс на другой телефон.
+          </p>
+          <Button
+            variant="secondary"
+            className="mt-3 w-full"
+            onClick={async () => downloadJson(await exportBackup(), `eslacity-${new Date().toISOString().slice(0, 10)}.json`)}
+          >
+            Сохранить в файл
+          </Button>
+          <label className="press mt-2 block w-full cursor-pointer rounded-2xl border border-stone-300 bg-white px-5 py-3.5 text-center font-semibold">
+            Загрузить из файла
+            <input
+              type="file"
+              accept="application/json,.json"
+              className="hidden"
+              onChange={async (e) => {
+                const file = e.target.files?.[0];
+                e.target.value = '';
+                if (!file) return;
+                try {
+                  const b = parseBackup(await file.text());
+                  if (!confirm(`Заменить текущий прогресс копией от ${b.exportedAt.slice(0, 10)}?`)) return;
+                  await importBackup(b);
+                  location.reload();
+                } catch (err) {
+                  alert((err as Error).message);
+                }
+              }}
+            />
+          </label>
           <Button
             variant="secondary"
             className="mt-3 w-full !text-bad"

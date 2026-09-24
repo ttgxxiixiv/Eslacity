@@ -7,6 +7,8 @@ import { seeded } from '../domain/generators';
 import { buildReviewSteps, type SessionState, type Step } from '../domain/lessonQueue';
 import { dueCards } from '../domain/srs';
 import { useProgress } from '../store/progress';
+import { useMotivation } from '../store/motivation';
+import type { Achievement } from '../domain/achievements';
 import { LessonPlayer, type LessonTotals } from '../components/LessonPlayer';
 import { LessonResult } from '../components/LessonResult';
 import { Screen, TopBar } from '../components/ui';
@@ -20,7 +22,7 @@ interface Ready {
 export function ReviewScreen() {
   const nav = useNavigate();
   const [ready, setReady] = useState<Ready | null>(null);
-  const [result, setResult] = useState<{ s: SessionState; totals: LessonTotals } | null>(null);
+  const [result, setResult] = useState<{ s: SessionState; totals: LessonTotals; ach: Achievement[] } | null>(null);
 
   useEffect(() => {
     const cards = useProgress.getState().cards;
@@ -48,6 +50,7 @@ export function ReviewScreen() {
         title="Повторение завершено"
         session={result.s}
         totals={result.totals}
+        achievements={result.ach}
         words={ready.words}
         onDone={() => nav('/', { replace: true })}
       />
@@ -82,7 +85,7 @@ export function ReviewScreen() {
       }}
       onFinish={(s, totals) => {
         save(s);
-        setResult({ s, totals });
+        setResult({ s, totals, ach: useMotivation.getState().evaluate() });
       }}
     />
   );

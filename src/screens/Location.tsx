@@ -10,6 +10,7 @@ import { isLearned, learnedCount, lessonParts, levelWords, maxContentLevel } fro
 import { dayNumber } from '../domain/srs';
 import { useCity } from '../store/city';
 import { useProgress } from '../store/progress';
+import { useMotivation } from '../store/motivation';
 import { Button, SpeakButton, TopBar, Screen } from '../components/ui';
 
 function dueLabel(due: number) {
@@ -92,10 +93,15 @@ export function LocationScreen() {
                       <Button
                         className="mt-3 w-full"
                         disabled={!prevDone || coins < cost}
-                        onClick={() => upgrade(id)}
+                        onClick={() => upgrade(id) && useMotivation.getState().evaluate()}
                       >
                         {lvl === 1 ? 'Открыть' : 'Улучшить'} за 🪙 {cost}
                       </Button>
+                      {lw.length > 0 && (
+                        <p className="mt-3 text-sm leading-relaxed text-stone-500">
+                          {lw.length} слов: {lw.map((w) => w.es).join(', ')}
+                        </p>
+                      )}
                     </>
                   )}
                 </section>
