@@ -1,0 +1,122 @@
+{
+  "id": "a1.08-articulos-indefinidos",
+  "district": "A1",
+  "order": 8,
+  "title": "Артикли un, una, unos, unas",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Неопределённый артикль значит «какой-то, один». Им вводят новый предмет: **Hay un bar** — есть (какой-то) бар. Unos, unas — «несколько, какие-то»."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Род",
+        "Ед. число",
+        "Мн. число"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "м. р.",
+            "un vaso",
+            "unos vasos"
+          ]
+        },
+        {
+          "cells": [
+            "ж. р.",
+            "una taza",
+            "unas tazas"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "text",
+      "md": "Сначала предмет вводят с неопределённым артиклем, потом называют с определённым: Tengo **un** perro. **El** perro se llama Toby."
+    },
+    {
+      "kind": "tip",
+      "md": "Un и una совпадают с числом «один»: un café — один кофе или какой-то кофе. Перед ударным a- тоже **un**: un aula."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Quiero un café.",
+      "ru": "Я хочу кофе."
+    },
+    {
+      "es": "Hay una farmacia aquí.",
+      "ru": "Здесь есть аптека."
+    },
+    {
+      "es": "Tengo unos amigos en Madrid.",
+      "ru": "У меня есть друзья в Мадриде."
+    },
+    {
+      "es": "Es una ciudad bonita.",
+      "ru": "Это красивый город."
+    }
+  ],
+  "exercises": [
+    {
+      "kind": "choose",
+      "prompt": "Артикль для «ciudad» (какой-то город):",
+      "options": [
+        "una",
+        "un",
+        "la"
+      ],
+      "answer": 0,
+      "explain": "ciudad женского рода: una ciudad."
+    },
+    {
+      "kind": "choose",
+      "prompt": "«Несколько яблок»:",
+      "options": [
+        "unas manzanas",
+        "unos manzanas",
+        "una manzanas"
+      ],
+      "answer": 0,
+      "explain": "manzana женского рода, множественное число: unas."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Hay ___ banco en esta calle.",
+      "ru": "На этой улице есть банк.",
+      "options": [
+        "un",
+        "una",
+        "el"
+      ],
+      "answer": 0,
+      "explain": "После hay — неопределённый артикль: новый, ещё не упомянутый предмет."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Tengo ___ hermana.",
+      "ru": "У меня есть сестра.",
+      "options": [
+        "una",
+        "un",
+        "la"
+      ],
+      "answer": 0,
+      "explain": "hermana женского рода: una."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "После hay обычно ставят определённый артикль: Hay el banco.",
+      "answer": false,
+      "explain": "Hay + un, una, число или без артикля."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "«Unos» может значить «несколько».",
+      "answer": true,
+      "explain": "Unos amigos — несколько друзей."
+    }
+  ]
+}

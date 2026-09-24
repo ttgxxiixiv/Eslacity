@@ -6,11 +6,12 @@ import { useProgress } from './progress';
 import { useSettings } from './settings';
 
 export async function bootstrap(): Promise<void> {
-  const [cards, buildings, meta, day] = await Promise.all([
+  const [cards, buildings, meta, day, grammar] = await Promise.all([
     db.cards.toArray(),
     db.buildings.toArray(),
     db.meta.toArray(),
     db.days.get(dayKey(Date.now())),
+    db.grammar.toArray(),
   ]);
   const m = Object.fromEntries(meta.map((r) => [r.key, r.value]));
 
@@ -21,7 +22,7 @@ export async function bootstrap(): Promise<void> {
     await db.buildings.put(cafe);
   }
 
-  useProgress.getState().hydrate({ cards, day, xpTotal: (m.xpTotal as number) ?? 0 });
+  useProgress.getState().hydrate({ cards, day, xpTotal: (m.xpTotal as number) ?? 0, grammar });
   useCity.getState().hydrate({ coins: (m.coins as number) ?? 0, buildings });
   useSettings.getState().hydrate(m.settings as Partial<Settings> | undefined);
 }

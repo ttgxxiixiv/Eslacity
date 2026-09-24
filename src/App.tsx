@@ -7,6 +7,8 @@ import { LearnScreen } from './screens/Learn';
 import { ReviewScreen } from './screens/Review';
 import { BlitzScreen } from './screens/Blitz';
 import { SettingsScreen } from './screens/Settings';
+import { GrammarMap } from './screens/GrammarMap';
+import { GrammarLessonScreen } from './screens/GrammarLesson';
 
 function TabLayout() {
   const tab = ({ isActive }: { isActive: boolean }) =>
@@ -20,6 +22,9 @@ function TabLayout() {
         <div className="mx-auto flex max-w-md">
           <NavLink to="/" end className={tab}>
             <span className="text-xl">🏙️</span>Город
+          </NavLink>
+          <NavLink to="/grammar" className={tab}>
+            <span className="text-xl">📘</span>Грамматика
           </NavLink>
           <NavLink to="/review" className={tab}>
             <span className="text-xl">🔁</span>Повтор
@@ -53,7 +58,9 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/loc/:id" element={<LocationScreen />} />
           <Route path="/settings" element={<SettingsScreen />} />
+          <Route path="/grammar" element={<GrammarMap />} />
         </Route>
+        <Route path="/grammar/:id" element={<GrammarLessonScreen />} />
         <Route path="/review" element={<ReviewScreen />} />
         <Route path="/learn/:id/:level/:part" element={<LearnScreen />} />
         <Route path="/practice/:id/:level" element={<LearnScreen practice />} />

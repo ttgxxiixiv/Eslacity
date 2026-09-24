@@ -1,0 +1,132 @@
+{
+  "id": "a1.09-plural",
+  "district": "A1",
+  "order": 9,
+  "title": "Множественное число",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Слово на гласную получает **-s**: casa → casas. На согласную — **-es**: ciudad → ciudades. На -z — **-ces**: lápiz → lápices."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Правило",
+        "Ед. число",
+        "Мн. число"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "гласная + s",
+            "el libro",
+            "los libros"
+          ]
+        },
+        {
+          "cells": [
+            "согласная + es",
+            "el hotel",
+            "los hoteles"
+          ]
+        },
+        {
+          "cells": [
+            "-z → -ces",
+            "la luz",
+            "las luces"
+          ]
+        },
+        {
+          "cells": [
+            "-ión → -iones",
+            "la estación",
+            "las estaciones"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Ударение на -ión во множественном числе исчезает: estación → estaciones, avión → aviones. Слова на безударное -s не меняются: el lunes → los lunes."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Dos cafés, por favor.",
+      "ru": "Два кофе, пожалуйста."
+    },
+    {
+      "es": "Los hoteles son caros.",
+      "ru": "Отели дорогие."
+    },
+    {
+      "es": "Las estaciones están lejos.",
+      "ru": "Вокзалы далеко."
+    },
+    {
+      "es": "Hay tres lápices.",
+      "ru": "Здесь три карандаша."
+    }
+  ],
+  "exercises": [
+    {
+      "kind": "choose",
+      "prompt": "Мн. ч. от «el pez» (рыба):",
+      "options": [
+        "los peces",
+        "los pezes",
+        "los pezs"
+      ],
+      "answer": 0,
+      "explain": "-z меняется на -ces."
+    },
+    {
+      "kind": "choose",
+      "prompt": "Мн. ч. от «la canción»:",
+      "options": [
+        "las canciones",
+        "las canciónes",
+        "las cancións"
+      ],
+      "answer": 0,
+      "explain": "Согласная + es, ударение исчезает."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Quiero dos ___.",
+      "ru": "Я хочу два тоста.",
+      "options": [
+        "tostadas",
+        "tostadaes",
+        "tostada"
+      ],
+      "answer": 0,
+      "explain": "На гласную: + s."
+    },
+    {
+      "kind": "gap",
+      "sentence": "En la ciudad hay muchos ___.",
+      "ru": "В городе много отелей.",
+      "options": [
+        "hoteles",
+        "hotels",
+        "hotel"
+      ],
+      "answer": 0,
+      "explain": "На согласную: + es."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "Мн. ч. от «el lunes» — «los lunes».",
+      "answer": true,
+      "explain": "Слова на безударное -s не меняются."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "Мн. ч. от «el avión» — «los aviónes».",
+      "answer": false,
+      "explain": "Правильно aviones, без ударения."
+    }
+  ]
+}

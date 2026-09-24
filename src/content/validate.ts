@@ -151,9 +151,15 @@ export function validateGrammar(files: { name: string; data: GrammarLesson }[]):
     }
 
     if ((l.exercises?.length ?? 0) < 3) out.push({ level: 'error', where: at, msg: 'меньше 3 упражнений' });
-    const kinds = new Set((l.exercises ?? []).map((e) => e.kind));
-    for (const k of ['choose', 'gap', 'truefalse']) {
-      if (!kinds.has(k as never)) out.push({ level: 'error', where: at, msg: `нет упражнения типа ${k}` });
+    // Типы заданий должны остаться и без vosotros (вариант es-419).
+    for (const [label, list] of [
+      ['', l.exercises ?? []],
+      [' (es-419)', (l.exercises ?? []).filter((e) => e.region !== 'es')],
+    ] as const) {
+      const kinds = new Set(list.map((e) => e.kind));
+      for (const k of ['choose', 'gap', 'truefalse']) {
+        if (!kinds.has(k as never)) out.push({ level: 'error', where: at, msg: `нет упражнения типа ${k}${label}` });
+      }
     }
     (l.exercises ?? []).forEach((e, i) => {
       const w = `${at} упр.${i + 1}`;

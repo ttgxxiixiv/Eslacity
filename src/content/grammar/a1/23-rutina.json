@@ -1,0 +1,139 @@
+{
+  "id": "a1.23-rutina",
+  "district": "A1",
+  "order": 23,
+  "title": "Возвратные глаголы в распорядке дня",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Распорядок дня почти целиком из возвратных глаголов."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Глагол",
+        "Перевод",
+        "yo"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "despertarse",
+            "просыпаться",
+            "me despierto"
+          ]
+        },
+        {
+          "cells": [
+            "levantarse",
+            "вставать",
+            "me levanto"
+          ]
+        },
+        {
+          "cells": [
+            "ducharse",
+            "принимать душ",
+            "me ducho"
+          ]
+        },
+        {
+          "cells": [
+            "vestirse",
+            "одеваться",
+            "me visto"
+          ]
+        },
+        {
+          "cells": [
+            "acostarse",
+            "ложиться спать",
+            "me acuesto"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Despertarse, vestirse и acostarse меняют гласную корня: e → ie, e → i, o → ue (me despierto, me visto, me acuesto). В «nosotros» корень не меняется: nos despertamos, nos acostamos."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Me despierto a las siete.",
+      "ru": "Я просыпаюсь в семь."
+    },
+    {
+      "es": "Me ducho y me visto.",
+      "ru": "Я принимаю душ и одеваюсь."
+    },
+    {
+      "es": "Nos acostamos a las once.",
+      "ru": "Мы ложимся спать в одиннадцать."
+    },
+    {
+      "es": "¿A qué hora te levantas?",
+      "ru": "Во сколько ты встаёшь?"
+    }
+  ],
+  "exercises": [
+    {
+      "kind": "choose",
+      "prompt": "«Я ложусь спать»:",
+      "options": [
+        "Me acuesto.",
+        "Me acosto.",
+        "Se acuesto."
+      ],
+      "answer": 0,
+      "explain": "acostarse: o → ue, yo → me acuesto."
+    },
+    {
+      "kind": "choose",
+      "prompt": "«Она принимает душ»:",
+      "options": [
+        "Se ducha.",
+        "Me ducha.",
+        "Se duchas."
+      ],
+      "answer": 0,
+      "explain": "ella → se ducha."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Nosotros nos ___ a las ocho.",
+      "ru": "Мы просыпаемся в восемь.",
+      "options": [
+        "despertamos",
+        "despiertamos",
+        "despierta"
+      ],
+      "answer": 0,
+      "explain": "В nosotros корень не меняется."
+    },
+    {
+      "kind": "gap",
+      "sentence": "¿A qué hora te ___?",
+      "ru": "Во сколько ты ложишься спать?",
+      "options": [
+        "acuestas",
+        "acostas",
+        "acuesta"
+      ],
+      "answer": 0,
+      "explain": "tú → te acuestas."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "«Me visto» значит «Я одеваюсь».",
+      "answer": true,
+      "explain": "vestirse → me visto."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "Во всех лицах у acostarse корень меняется на -ue-.",
+      "answer": false,
+      "explain": "Кроме nosotros и vosotros: nos acostamos."
+    }
+  ]
+}

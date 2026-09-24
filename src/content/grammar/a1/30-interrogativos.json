@@ -1,0 +1,163 @@
+{
+  "id": "a1.30-interrogativos",
+  "district": "A1",
+  "order": 30,
+  "title": "Вопросительные слова",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Вопрос обрамляют знаки **¿…?** с двух сторон. Все вопросительные слова пишутся с ударением."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Испанский",
+        "Русский"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "¿Qué?",
+            "что? какой?"
+          ]
+        },
+        {
+          "cells": [
+            "¿Quién? / ¿Quiénes?",
+            "кто?"
+          ]
+        },
+        {
+          "cells": [
+            "¿Dónde?",
+            "где?"
+          ]
+        },
+        {
+          "cells": [
+            "¿Adónde?",
+            "куда?"
+          ]
+        },
+        {
+          "cells": [
+            "¿De dónde?",
+            "откуда?"
+          ]
+        },
+        {
+          "cells": [
+            "¿Cuándo?",
+            "когда?"
+          ]
+        },
+        {
+          "cells": [
+            "¿Cómo?",
+            "как?"
+          ]
+        },
+        {
+          "cells": [
+            "¿Por qué?",
+            "почему?"
+          ]
+        },
+        {
+          "cells": [
+            "¿Cuánto? / ¿Cuánta?",
+            "сколько?"
+          ]
+        },
+        {
+          "cells": [
+            "¿Cuál? / ¿Cuáles?",
+            "какой (из)? который?"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "**¿Por qué?** — почему, два слова. **Porque** — потому что, одно слово без ударения. ¿Cuánto? согласуется: ¿cuántos años?, ¿cuántas horas?"
+    }
+  ],
+  "examples": [
+    {
+      "es": "¿Cómo te llamas?",
+      "ru": "Как тебя зовут?"
+    },
+    {
+      "es": "¿Dónde vives?",
+      "ru": "Где ты живёшь?"
+    },
+    {
+      "es": "¿Por qué estudias español? —Porque me gusta.",
+      "ru": "Почему ты учишь испанский? — Потому что мне нравится."
+    },
+    {
+      "es": "¿Cuántas personas hay?",
+      "ru": "Сколько здесь человек?"
+    }
+  ],
+  "exercises": [
+    {
+      "kind": "choose",
+      "prompt": "«Откуда ты?»",
+      "options": [
+        "¿De dónde eres?",
+        "¿Adónde eres?",
+        "¿Dónde de eres?"
+      ],
+      "answer": 0,
+      "explain": "Откуда — de dónde."
+    },
+    {
+      "kind": "choose",
+      "prompt": "«Почему?»",
+      "options": [
+        "¿Por qué?",
+        "¿Porqué?",
+        "¿Porque?"
+      ],
+      "answer": 0,
+      "explain": "Вопрос — два слова: por qué."
+    },
+    {
+      "kind": "gap",
+      "sentence": "¿___ años tienes?",
+      "ru": "Сколько тебе лет?",
+      "options": [
+        "Cuántos",
+        "Cuántas",
+        "Qué"
+      ],
+      "answer": 0,
+      "explain": "año мужского рода: cuántos."
+    },
+    {
+      "kind": "gap",
+      "sentence": "¿___ es tu cumpleaños?",
+      "ru": "Когда у тебя день рождения?",
+      "options": [
+        "Cuándo",
+        "Cuánto",
+        "Dónde"
+      ],
+      "answer": 0,
+      "explain": "Когда — cuándo."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "Вопросительные слова пишутся с ударением: qué, dónde, cómo.",
+      "answer": true,
+      "explain": "Ударение отличает их от que, donde, como."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "«Porque» значит «почему».",
+      "answer": false,
+      "explain": "porque — потому что, por qué — почему."
+    }
+  ]
+}

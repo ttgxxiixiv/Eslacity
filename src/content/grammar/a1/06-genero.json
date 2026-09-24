@@ -1,0 +1,142 @@
+{
+  "id": "a1.06-genero",
+  "district": "A1",
+  "order": 6,
+  "title": "Род существительных",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "У каждого существительного есть род, мужской или женский. Обычно слова на **-o** мужского рода, на **-a** женского: el libro, la casa."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Окончание",
+        "Род",
+        "Примеры"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "-o",
+            "м. р.",
+            "el vaso, el perro"
+          ]
+        },
+        {
+          "cells": [
+            "-a",
+            "ж. р.",
+            "la taza, la mesa"
+          ]
+        },
+        {
+          "cells": [
+            "-ción, -sión",
+            "ж. р.",
+            "la estación, la televisión"
+          ]
+        },
+        {
+          "cells": [
+            "-dad, -tad",
+            "ж. р.",
+            "la ciudad, la libertad"
+          ]
+        },
+        {
+          "cells": [
+            "-or",
+            "м. р.",
+            "el color, el señor"
+          ]
+        },
+        {
+          "cells": [
+            "-e или согласная",
+            "запоминать",
+            "el café, la leche, el pan, la sal"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Исключения: **el día**, **el mapa**, **el problema**, **la mano**, **la foto**, **la radio**. Поэтому слова учим сразу с артиклем."
+    }
+  ],
+  "examples": [
+    {
+      "es": "El día es largo.",
+      "ru": "День длинный."
+    },
+    {
+      "es": "La mano está fría.",
+      "ru": "Рука холодная."
+    },
+    {
+      "es": "La estación está cerca.",
+      "ru": "Вокзал рядом."
+    },
+    {
+      "es": "El problema es grave.",
+      "ru": "Проблема серьёзная."
+    }
+  ],
+  "exercises": [
+    {
+      "kind": "choose",
+      "prompt": "Выберите правильный вариант:",
+      "options": [
+        "la ciudad",
+        "el ciudad"
+      ],
+      "answer": 0,
+      "explain": "Слова на -dad женского рода."
+    },
+    {
+      "kind": "choose",
+      "prompt": "Выберите правильный вариант:",
+      "options": [
+        "el problema",
+        "la problema"
+      ],
+      "answer": 0,
+      "explain": "Исключение: problema, tema, sistema, programa — мужского рода."
+    },
+    {
+      "kind": "gap",
+      "sentence": "___ foto es muy bonita.",
+      "ru": "Фото очень красивое.",
+      "options": [
+        "La",
+        "El"
+      ],
+      "answer": 0,
+      "explain": "la foto — сокращение от la fotografía, поэтому женского рода."
+    },
+    {
+      "kind": "gap",
+      "sentence": "___ día es muy largo.",
+      "ru": "День очень длинный.",
+      "options": [
+        "El",
+        "La"
+      ],
+      "answer": 0,
+      "explain": "el día — исключение, мужского рода."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "Слова на -ción всегда женского рода.",
+      "answer": true,
+      "explain": "la canción, la estación, la información."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "«Leche» мужского рода, потому что оканчивается на -e.",
+      "answer": false,
+      "explain": "la leche — женского. Слова на -e бывают обоих родов, их запоминают."
+    }
+  ]
+}

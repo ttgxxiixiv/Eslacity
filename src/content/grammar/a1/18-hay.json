@@ -1,0 +1,133 @@
+{
+  "id": "a1.18-hay",
+  "district": "A1",
+  "order": 18,
+  "title": "Hay",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "**Hay** — «есть, имеется». Одна форма и для единственного, и для множественного числа: hay un bar, hay dos bares."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Испанский",
+        "Русский"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Hay un banco aquí.",
+            "Здесь есть банк."
+          ]
+        },
+        {
+          "cells": [
+            "Hay muchas tiendas.",
+            "Есть много магазинов."
+          ]
+        },
+        {
+          "cells": [
+            "No hay leche.",
+            "Молока нет."
+          ]
+        },
+        {
+          "cells": [
+            "¿Hay wifi?",
+            "Есть вайфай?"
+          ]
+        },
+        {
+          "cells": [
+            "¿Qué hay?",
+            "Что есть? Что там?"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "После hay — неопределённый артикль, число или вообще без артикля: hay un, hay tres, hay agua. «Hay el» и «hay la» не бывает."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Hay una farmacia cerca.",
+      "ru": "Рядом есть аптека."
+    },
+    {
+      "es": "¿Hay mesa para dos?",
+      "ru": "Есть столик на двоих?"
+    },
+    {
+      "es": "En la nevera no hay leche.",
+      "ru": "В холодильнике нет молока."
+    },
+    {
+      "es": "Hay tres personas en la cola.",
+      "ru": "В очереди три человека."
+    }
+  ],
+  "exercises": [
+    {
+      "kind": "choose",
+      "prompt": "«Здесь есть два кафе»:",
+      "options": [
+        "Aquí hay dos cafés.",
+        "Aquí hayn dos cafés.",
+        "Aquí están dos cafés."
+      ],
+      "answer": 0,
+      "explain": "hay не меняется по числу."
+    },
+    {
+      "kind": "choose",
+      "prompt": "«Хлеба нет»:",
+      "options": [
+        "No hay pan.",
+        "No hay el pan.",
+        "No es pan."
+      ],
+      "answer": 0,
+      "explain": "После hay без определённого артикля."
+    },
+    {
+      "kind": "gap",
+      "sentence": "En mi calle ___ un supermercado.",
+      "ru": "На моей улице есть супермаркет.",
+      "options": [
+        "hay",
+        "está",
+        "es"
+      ],
+      "answer": 0,
+      "explain": "Есть ли что-то (новый предмет с un) — hay."
+    },
+    {
+      "kind": "gap",
+      "sentence": "¿___ un cajero por aquí?",
+      "ru": "Здесь поблизости есть банкомат?",
+      "options": [
+        "Hay",
+        "Está",
+        "Es"
+      ],
+      "answer": 0,
+      "explain": "Вопрос о наличии — hay."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "Во множественном числе говорят «han»: Han muchas tiendas.",
+      "answer": false,
+      "explain": "Всегда hay: hay muchas tiendas."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "«No hay problema» значит «Без проблем».",
+      "answer": true,
+      "explain": "Буквально «нет проблемы»."
+    }
+  ]
+}

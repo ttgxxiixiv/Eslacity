@@ -1,0 +1,147 @@
+{
+  "id": "a1.02-ser",
+  "district": "A1",
+  "order": 2,
+  "title": "Ser: спряжение",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "**Ser** — «быть» в смысле «кто это, что это, какой он»: имя, национальность, профессия, характер. Глагол неправильный, формы нужно запомнить."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Местоимение",
+        "ser"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "yo",
+            "soy"
+          ]
+        },
+        {
+          "cells": [
+            "tú",
+            "eres"
+          ]
+        },
+        {
+          "cells": [
+            "él / ella / usted",
+            "es"
+          ]
+        },
+        {
+          "cells": [
+            "nosotros",
+            "somos"
+          ]
+        },
+        {
+          "cells": [
+            "vosotros",
+            "sois"
+          ],
+          "region": "es"
+        },
+        {
+          "cells": [
+            "ellos / ellas / ustedes",
+            "son"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "В русском «быть» в настоящем времени пропадает: «Я студент». В испанском глагол обязателен: **Soy estudiante**."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Soy Marta.",
+      "ru": "Я Марта."
+    },
+    {
+      "es": "Eres muy simpático.",
+      "ru": "Ты очень милый."
+    },
+    {
+      "es": "Ellos son hermanos.",
+      "ru": "Они братья."
+    },
+    {
+      "es": "¿Usted es el médico?",
+      "ru": "Вы врач?"
+    }
+  ],
+  "exercises": [
+    {
+      "kind": "choose",
+      "prompt": "Форма ser для «nosotros»:",
+      "options": [
+        "somos",
+        "sois",
+        "son"
+      ],
+      "answer": 0,
+      "explain": "nosotros somos."
+    },
+    {
+      "kind": "choose",
+      "prompt": "Форма ser для «ellos»:",
+      "options": [
+        "son",
+        "es",
+        "somos"
+      ],
+      "answer": 0,
+      "explain": "ellos son."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Tú ___ mi amigo.",
+      "ru": "Ты мой друг.",
+      "options": [
+        "eres",
+        "es",
+        "soy"
+      ],
+      "answer": 0,
+      "explain": "tú eres."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Madrid ___ la capital de España.",
+      "ru": "Мадрид — столица Испании.",
+      "options": [
+        "es",
+        "son",
+        "está"
+      ],
+      "answer": 0,
+      "explain": "Мадрид — «он», 3-е лицо единственного числа. Определение (что это такое) — ser."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "«Yo es estudiante» — правильная фраза.",
+      "answer": false,
+      "explain": "С yo нужна форма soy: Yo soy estudiante."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "«Vosotros sois» — правильная форма ser.",
+      "answer": true,
+      "explain": "vosotros sois.",
+      "region": "es"
+    },
+    {
+      "kind": "truefalse",
+      "statement": "«Ustedes son» — правильная форма ser.",
+      "answer": true,
+      "explain": "Ustedes спрягается как ellos: son."
+    }
+  ]
+}

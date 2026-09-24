@@ -1,0 +1,140 @@
+{
+  "id": "a1.14-tener",
+  "district": "A1",
+  "order": 14,
+  "title": "Tener",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "**Tener** — «иметь». По-русски «у меня есть», по-испански «я имею»: **Tengo un hermano**."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Местоимение",
+        "tener"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "yo",
+            "tengo"
+          ]
+        },
+        {
+          "cells": [
+            "tú",
+            "tienes"
+          ]
+        },
+        {
+          "cells": [
+            "él / ella / usted",
+            "tiene"
+          ]
+        },
+        {
+          "cells": [
+            "nosotros",
+            "tenemos"
+          ]
+        },
+        {
+          "cells": [
+            "vosotros",
+            "tenéis"
+          ],
+          "region": "es"
+        },
+        {
+          "cells": [
+            "ellos / ellas / ustedes",
+            "tienen"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "В tienes, tiene, tienen корень меняется: e → ie. У «yo» особая форма tengo."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Tengo dos hermanos.",
+      "ru": "У меня два брата."
+    },
+    {
+      "es": "¿Tienes coche?",
+      "ru": "У тебя есть машина?"
+    },
+    {
+      "es": "No tenemos tiempo.",
+      "ru": "У нас нет времени."
+    },
+    {
+      "es": "La casa tiene un jardín.",
+      "ru": "При доме есть сад."
+    }
+  ],
+  "exercises": [
+    {
+      "kind": "choose",
+      "prompt": "Форма «yo» от tener:",
+      "options": [
+        "tengo",
+        "teno",
+        "tiene"
+      ],
+      "answer": 0,
+      "explain": "yo tengo."
+    },
+    {
+      "kind": "choose",
+      "prompt": "Форма «ellos» от tener:",
+      "options": [
+        "tienen",
+        "tenen",
+        "tienden"
+      ],
+      "answer": 0,
+      "explain": "ellos tienen, с ie в корне."
+    },
+    {
+      "kind": "gap",
+      "sentence": "¿___ hermanos?",
+      "ru": "У тебя есть братья или сёстры?",
+      "options": [
+        "Tienes",
+        "Tiene",
+        "Tengo"
+      ],
+      "answer": 0,
+      "explain": "tú tienes."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Nosotros ___ un perro.",
+      "ru": "У нас есть собака.",
+      "options": [
+        "tenemos",
+        "tienemos",
+        "tienen"
+      ],
+      "answer": 0,
+      "explain": "В nosotros корень не меняется: tenemos."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "«У меня есть машина» = «Tengo un coche».",
+      "answer": true,
+      "explain": "tener = иметь."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "«Ella tene un gato» — правильно.",
+      "answer": false,
+      "explain": "ella tiene."
+    }
+  ]
+}

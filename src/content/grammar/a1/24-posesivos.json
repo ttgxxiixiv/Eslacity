@@ -1,0 +1,132 @@
+{
+  "id": "a1.24-posesivos",
+  "district": "A1",
+  "order": 24,
+  "title": "Притяжательные: mi, tu, su",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Притяжательные стоят перед существительным и согласуются с ним в числе: **mi** casa, **mis** casas."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Чей",
+        "Ед. число",
+        "Мн. число"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "мой",
+            "mi",
+            "mis"
+          ]
+        },
+        {
+          "cells": [
+            "твой",
+            "tu",
+            "tus"
+          ]
+        },
+        {
+          "cells": [
+            "его, её, ваш (usted)",
+            "su",
+            "sus"
+          ]
+        },
+        {
+          "cells": [
+            "их, ваш (ustedes)",
+            "su",
+            "sus"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "**Tu** (твой) без ударения, **tú** (ты) с ударением. Su многозначно: su coche — его, её, их или ваша машина. Если непонятно, чей: el coche de Ana."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Mi hermano vive en Sevilla.",
+      "ru": "Мой брат живёт в Севилье."
+    },
+    {
+      "es": "¿Es tu móvil?",
+      "ru": "Это твой телефон?"
+    },
+    {
+      "es": "Sus hijos son muy simpáticos.",
+      "ru": "Её дети очень милые."
+    },
+    {
+      "es": "Mis padres están en casa.",
+      "ru": "Мои родители дома."
+    }
+  ],
+  "exercises": [
+    {
+      "kind": "choose",
+      "prompt": "«Мои друзья»:",
+      "options": [
+        "mis amigos",
+        "mi amigos",
+        "mios amigos"
+      ],
+      "answer": 0,
+      "explain": "Множественное число: mis."
+    },
+    {
+      "kind": "choose",
+      "prompt": "«Её машина»:",
+      "options": [
+        "su coche",
+        "sus coche",
+        "tu coche"
+      ],
+      "answer": 0,
+      "explain": "Её — su, машина одна."
+    },
+    {
+      "kind": "gap",
+      "sentence": "¿Dónde están ___ llaves?",
+      "ru": "Где твои ключи?",
+      "options": [
+        "tus",
+        "tu",
+        "tú"
+      ],
+      "answer": 0,
+      "explain": "Ключей много: tus."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Ana y ___ marido viven aquí.",
+      "ru": "Ана и её муж живут здесь.",
+      "options": [
+        "su",
+        "sus",
+        "mi"
+      ],
+      "answer": 0,
+      "explain": "Её муж — su."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "«Tu» и «tú» — одно и то же слово.",
+      "answer": false,
+      "explain": "tu — твой, tú — ты."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "«Su casa» может значить «ваш дом», если говорим с usted.",
+      "answer": true,
+      "explain": "su — и его, и её, и ваш."
+    }
+  ]
+}

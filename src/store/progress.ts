@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import { db, emptyDay, type DayRow } from '../db/db';
+import { db, emptyDay, type DayRow, type GrammarRow } from '../db/db';
 import { persist } from '../db/persist';
 import { dayKey, newCard, review, type Grade, type SrsCard } from '../domain/srs';
 
@@ -9,7 +9,10 @@ interface ProgressState {
   cards: Record<string, SrsCard>;
   day: DayRow;
   xpTotal: number;
-  hydrate(p: { cards: SrsCard[]; day: DayRow | undefined; xpTotal: number }): void;
+  grammar: Record<string, GrammarRow>;
+  hydrate(p: { cards: SrsCard[]; day: DayRow | undefined; xpTotal: number; grammar: GrammarRow[] }): void;
+  /** Отметить урок грамматики пройденным. Возвращает true, если пройден впервые. */
+  completeGrammar(lessonId: string, score: number, now?: number): boolean;
   /** Проставить оценки SM-2. Новые слова получают карточку. */
   applyGrades(grades: Record<string, Grade>, now?: number): { newWords: number };
   addXp(n: number): void;
@@ -25,13 +28,28 @@ export const useProgress = create<ProgressState>((set, get) => ({
   cards: {},
   day: emptyDay(dayKey(Date.now())),
   xpTotal: 0,
+  grammar: {},
 
-  hydrate({ cards, day, xpTotal }) {
+  hydrate({ cards, day, xpTotal, grammar }) {
     set({
       cards: Object.fromEntries(cards.map((c) => [c.wordId, c])),
       day: day ?? emptyDay(dayKey(Date.now())),
       xpTotal,
+      grammar: Object.fromEntries(grammar.map((g) => [g.lessonId, g])),
     });
+  },
+
+  completeGrammar(lessonId, score, now = Date.now()) {
+    const prev = get().grammar[lessonId];
+    const row: GrammarRow = {
+      lessonId,
+      completedAt: prev?.completedAt ?? now,
+      bestScore: Math.max(prev?.bestScore ?? 0, score),
+    };
+    set({ grammar: { ...get().grammar, [lessonId]: row } });
+    get().bumpDay({ grammarLessons: 1 });
+    persist(() => db.grammar.put(row));
+    return !prev;
   },
 
   applyGrades(grades, now = Date.now()) {

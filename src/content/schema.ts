@@ -59,10 +59,12 @@ export type TheoryBlock =
       rows: { cells: string[]; region?: 'es' }[];
     };
 
-export type GrammarExercise =
-  | { kind: 'choose'; prompt: string; ru?: string; options: string[]; answer: number; explain: string }
-  | { kind: 'gap'; sentence: string; ru: string; options: string[]; answer: number; explain: string }
-  | { kind: 'truefalse'; statement: string; ru?: string; answer: boolean; explain: string };
+/** region: 'es' — только для испанского варианта (формы vosotros). */
+export type GrammarExercise = { explain: string; region?: 'es' } & (
+  | { kind: 'choose'; prompt: string; ru?: string; options: string[]; answer: number }
+  | { kind: 'gap'; sentence: string; ru: string; options: string[]; answer: number }
+  | { kind: 'truefalse'; statement: string; ru?: string; answer: boolean }
+);
 
 export interface GrammarLesson {
   id: string;

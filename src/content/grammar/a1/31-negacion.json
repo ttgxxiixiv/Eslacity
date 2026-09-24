@@ -1,0 +1,139 @@
+{
+  "id": "a1.31-negacion",
+  "district": "A1",
+  "order": 31,
+  "title": "Отрицание",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Отрицание **no** ставится перед глаголом: **No hablo** alemán. Если есть местоимение me, te, se, no стоит перед ним: **No me gusta**."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Слово",
+        "Перевод",
+        "Пример"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "no",
+            "не, нет",
+            "No tengo coche."
+          ]
+        },
+        {
+          "cells": [
+            "nunca",
+            "никогда",
+            "Nunca como carne."
+          ]
+        },
+        {
+          "cells": [
+            "nada",
+            "ничего",
+            "No quiero nada."
+          ]
+        },
+        {
+          "cells": [
+            "nadie",
+            "никто",
+            "No hay nadie."
+          ]
+        },
+        {
+          "cells": [
+            "tampoco",
+            "тоже не",
+            "Yo tampoco."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Двойное отрицание в испанском — норма, как в русском: **No** veo **nada** — не вижу ничего. Если nunca или nadie стоит перед глаголом, no не нужно: Nunca bebo café = No bebo café nunca."
+    }
+  ],
+  "examples": [
+    {
+      "es": "No hablo francés.",
+      "ru": "Я не говорю по-французски."
+    },
+    {
+      "es": "No me gusta el calor.",
+      "ru": "Я не люблю жару."
+    },
+    {
+      "es": "Aquí no hay nadie.",
+      "ru": "Здесь никого нет."
+    },
+    {
+      "es": "Nunca llego tarde.",
+      "ru": "Я никогда не опаздываю."
+    }
+  ],
+  "exercises": [
+    {
+      "kind": "choose",
+      "prompt": "«Я ничего не понимаю»:",
+      "options": [
+        "No comprendo nada.",
+        "Comprendo nada.",
+        "No comprendo algo."
+      ],
+      "answer": 0,
+      "explain": "Двойное отрицание: no … nada."
+    },
+    {
+      "kind": "choose",
+      "prompt": "«Мне не нравится»:",
+      "options": [
+        "No me gusta.",
+        "Me no gusta.",
+        "Me gusta no."
+      ],
+      "answer": 0,
+      "explain": "no стоит перед me."
+    },
+    {
+      "kind": "gap",
+      "sentence": "No hay ___ en la oficina.",
+      "ru": "В офисе никого нет.",
+      "options": [
+        "nadie",
+        "nada",
+        "nunca"
+      ],
+      "answer": 0,
+      "explain": "никто — nadie."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Yo ___ tengo hermanos.",
+      "ru": "У меня нет братьев и сестёр.",
+      "options": [
+        "no",
+        "nada",
+        "ni"
+      ],
+      "answer": 0,
+      "explain": "Простое отрицание перед глаголом — no."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "«Nunca bebo café» — правильная фраза без no.",
+      "answer": true,
+      "explain": "nunca перед глаголом заменяет no."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "«No veo nada» — ошибка, потому что в ней два отрицания.",
+      "answer": false,
+      "explain": "Двойное отрицание в испанском — норма."
+    }
+  ]
+}

@@ -1,0 +1,129 @@
+{
+  "id": "a1.05-ser-estar",
+  "district": "A1",
+  "order": 5,
+  "title": "Ser или estar",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Грубое правило: **ser** — что это и какое оно по сути, **estar** — где оно и в каком состоянии сейчас."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "ser",
+        "estar"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "кто, что: Es un libro.",
+            "где: El libro está aquí."
+          ]
+        },
+        {
+          "cells": [
+            "происхождение: Soy de Kazán.",
+            "самочувствие: Estoy bien."
+          ]
+        },
+        {
+          "cells": [
+            "профессия: Es médica.",
+            "временное: Está enferma."
+          ]
+        },
+        {
+          "cells": [
+            "характер: Es alegre.",
+            "настроение: Está contento."
+          ]
+        },
+        {
+          "cells": [
+            "время: Son las tres.",
+            "результат: La tienda está cerrada."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Некоторые прилагательные меняют смысл: **es aburrido** — он скучный человек, **está aburrido** — ему сейчас скучно."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Soy rusa, pero estoy en Madrid.",
+      "ru": "Я русская, но сейчас в Мадриде."
+    },
+    {
+      "es": "La sopa está fría.",
+      "ru": "Суп остыл."
+    },
+    {
+      "es": "Mi hermano es alto.",
+      "ru": "Мой брат высокий."
+    },
+    {
+      "es": "Hoy estoy muy contento.",
+      "ru": "Сегодня я очень доволен."
+    }
+  ],
+  "exercises": [
+    {
+      "kind": "choose",
+      "prompt": "«Он болен (сейчас)»:",
+      "options": [
+        "Está enfermo.",
+        "Es enfermo."
+      ],
+      "answer": 0,
+      "explain": "Болезнь — временное состояние, значит estar."
+    },
+    {
+      "kind": "choose",
+      "prompt": "«Она учительница»:",
+      "options": [
+        "Es profesora.",
+        "Está profesora."
+      ],
+      "answer": 0,
+      "explain": "Профессия — ser."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Hoy ___ muy cansada.",
+      "ru": "Сегодня я очень устала.",
+      "options": [
+        "estoy",
+        "soy"
+      ],
+      "answer": 0,
+      "explain": "Усталость — состояние: estar."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Barcelona ___ en Cataluña.",
+      "ru": "Барселона находится в Каталонии.",
+      "options": [
+        "está",
+        "es"
+      ],
+      "answer": 0,
+      "explain": "Местонахождение — estar, даже если город никуда не денется."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "«Es aburrido» и «está aburrido» значат одно и то же.",
+      "answer": false,
+      "explain": "Es aburrido — он скучный, está aburrido — ему скучно."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "Время говорят с ser: Son las cinco.",
+      "answer": true,
+      "explain": "Который час — всегда ser."
+    }
+  ]
+}

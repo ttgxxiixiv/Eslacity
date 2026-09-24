@@ -1,0 +1,177 @@
+{
+  "id": "a1.25-nuestro-vuestro",
+  "district": "A1",
+  "order": 25,
+  "title": "Притяжательные: nuestro, vuestro",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "**Nuestro** (наш) меняется и по роду, и по числу, в отличие от mi, tu, su."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Род и число",
+        "наш"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "м. р., ед. ч.",
+            "nuestro piso"
+          ]
+        },
+        {
+          "cells": [
+            "ж. р., ед. ч.",
+            "nuestra casa"
+          ]
+        },
+        {
+          "cells": [
+            "м. р., мн. ч.",
+            "nuestros hijos"
+          ]
+        },
+        {
+          "cells": [
+            "ж. р., мн. ч.",
+            "nuestras hijas"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Род и число",
+        "ваш (на «ты», нескольким)"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "м. р., ед. ч.",
+            "vuestro piso"
+          ],
+          "region": "es"
+        },
+        {
+          "cells": [
+            "ж. р., ед. ч.",
+            "vuestra casa"
+          ],
+          "region": "es"
+        },
+        {
+          "cells": [
+            "м. р., мн. ч.",
+            "vuestros hijos"
+          ],
+          "region": "es"
+        },
+        {
+          "cells": [
+            "ж. р., мн. ч.",
+            "vuestras hijas"
+          ],
+          "region": "es"
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Согласуется с тем, **что** принадлежит, а не с владельцем: nuestra casa (casa женского рода), даже если «мы» — двое мужчин."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Nuestra casa es pequeña.",
+      "ru": "Наш дом маленький."
+    },
+    {
+      "es": "Nuestros amigos viven en Málaga.",
+      "ru": "Наши друзья живут в Малаге."
+    },
+    {
+      "es": "Nuestro hijo tiene diez años.",
+      "ru": "Нашему сыну десять лет."
+    },
+    {
+      "es": "Nuestras vecinas son muy amables.",
+      "ru": "Наши соседки очень любезные."
+    }
+  ],
+  "exercises": [
+    {
+      "kind": "choose",
+      "prompt": "«Наша квартира» (el piso):",
+      "options": [
+        "nuestro piso",
+        "nuestra piso",
+        "nuestros piso"
+      ],
+      "answer": 0,
+      "explain": "piso мужского рода: nuestro."
+    },
+    {
+      "kind": "choose",
+      "prompt": "«Наши сумки» (la bolsa):",
+      "options": [
+        "nuestras bolsas",
+        "nuestros bolsas",
+        "nuestra bolsas"
+      ],
+      "answer": 0,
+      "explain": "Женский род, множественное число: nuestras."
+    },
+    {
+      "kind": "gap",
+      "sentence": "___ ciudad es muy bonita.",
+      "ru": "Наш город очень красивый.",
+      "options": [
+        "Nuestra",
+        "Nuestro",
+        "Nuestros"
+      ],
+      "answer": 0,
+      "explain": "la ciudad женского рода."
+    },
+    {
+      "kind": "gap",
+      "sentence": "___ hijos estudian en Madrid.",
+      "ru": "Наши сыновья учатся в Мадриде.",
+      "options": [
+        "Nuestros",
+        "Nuestras",
+        "Nuestro"
+      ],
+      "answer": 0,
+      "explain": "hijos — мужской род, множественное число."
+    },
+    {
+      "kind": "gap",
+      "sentence": "¿Es ___ perro, chicos?",
+      "ru": "Ребята, это ваша собака?",
+      "options": [
+        "vuestro",
+        "vuestra",
+        "vuestros"
+      ],
+      "answer": 0,
+      "explain": "el perro мужского рода: vuestro.",
+      "region": "es"
+    },
+    {
+      "kind": "truefalse",
+      "statement": "«Nuestra» согласуется с родом того, кто владеет.",
+      "answer": false,
+      "explain": "С родом того, что принадлежит."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "«Mis» и «tus» не меняются по роду.",
+      "answer": true,
+      "explain": "mis libros, mis casas."
+    }
+  ]
+}

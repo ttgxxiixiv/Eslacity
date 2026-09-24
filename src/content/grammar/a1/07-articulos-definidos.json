@@ -1,0 +1,122 @@
+{
+  "id": "a1.07-articulos-definidos",
+  "district": "A1",
+  "order": 7,
+  "title": "Артикли el, la, los, las",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Определённый артикль указывает на конкретный или уже известный предмет. Он согласуется с существительным в роде и числе."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Род",
+        "Ед. число",
+        "Мн. число"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "м. р.",
+            "el libro",
+            "los libros"
+          ]
+        },
+        {
+          "cells": [
+            "ж. р.",
+            "la casa",
+            "las casas"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "text",
+      "md": "Предлоги сливаются с el: **a + el = al**, **de + el = del**. Voy al mercado. Vengo del banco. С la не сливаются: a la, de la."
+    },
+    {
+      "kind": "tip",
+      "md": "Перед женским словом с ударным a- в единственном числе ставят **el**: el agua, el aula. Слово остаётся женским: el agua fría, las aguas."
+    }
+  ],
+  "examples": [
+    {
+      "es": "El café está caliente.",
+      "ru": "Кофе горячий."
+    },
+    {
+      "es": "Las naranjas son dulces.",
+      "ru": "Апельсины сладкие."
+    },
+    {
+      "es": "Voy al mercado.",
+      "ru": "Я иду на рынок."
+    },
+    {
+      "es": "Es el coche del profesor.",
+      "ru": "Это машина учителя."
+    }
+  ],
+  "exercises": [
+    {
+      "kind": "choose",
+      "prompt": "Артикль для «naranjas»:",
+      "options": [
+        "las",
+        "los",
+        "la"
+      ],
+      "answer": 0,
+      "explain": "naranja женского рода, во множественном числе: las."
+    },
+    {
+      "kind": "choose",
+      "prompt": "Как правильно?",
+      "options": [
+        "el agua fría",
+        "la agua fría",
+        "el agua frío"
+      ],
+      "answer": 0,
+      "explain": "el из-за ударного a-, но слово женское: fría."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Vamos ___ parque.",
+      "ru": "Мы идём в парк.",
+      "options": [
+        "al",
+        "a el",
+        "a la"
+      ],
+      "answer": 0,
+      "explain": "a + el сливаются в al."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Es la casa ___ médico.",
+      "ru": "Это дом врача.",
+      "options": [
+        "del",
+        "de el",
+        "de la"
+      ],
+      "answer": 0,
+      "explain": "de + el сливаются в del."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "«Los mesas» — правильно.",
+      "answer": false,
+      "explain": "mesa женского рода: las mesas."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "«A la» сливается в одно слово так же, как «a el».",
+      "answer": false,
+      "explain": "Сливаются только a + el и de + el."
+    }
+  ]
+}

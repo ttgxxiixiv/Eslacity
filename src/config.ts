@@ -16,6 +16,7 @@ export const VARIANTS: Record<Variant, { voices: string[]; vosotros: boolean; la
 export const ECONOMY = {
   coinPerCorrect: 1,
   lessonBonus: 15,
+  grammarBonus: 10,
   incomePerLevelPerHour: 2,
   incomeCapHours: 8,
   upgradeFactor: 0.8,

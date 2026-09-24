@@ -1,0 +1,117 @@
+{
+  "id": "a1.19-hay-estar",
+  "district": "A1",
+  "order": 19,
+  "title": "Hay или estar",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "**Hay** вводит новый, неизвестный предмет: есть ли он вообще. **Estar** говорит, где находится уже известный, конкретный предмет."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "hay",
+        "estar"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "¿Hay un banco por aquí? — Здесь есть банк?",
+            "¿Dónde está el banco? — Где банк?"
+          ]
+        },
+        {
+          "cells": [
+            "hay + un, una, число, без артикля",
+            "el, la, mi, tu, имя + está"
+          ]
+        },
+        {
+          "cells": [
+            "Hay dos hoteles.",
+            "Los hoteles están en el centro."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Проверка: если перед словом el, la, mi, tu или имя — нужен estar. Если un, una, число или ничего — hay."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Hay un museo en el centro.",
+      "ru": "В центре есть музей."
+    },
+    {
+      "es": "El museo está en el centro.",
+      "ru": "Музей находится в центре."
+    },
+    {
+      "es": "¿Dónde está mi móvil?",
+      "ru": "Где мой телефон?"
+    },
+    {
+      "es": "Hay agua en la mesa.",
+      "ru": "На столе есть вода."
+    }
+  ],
+  "exercises": [
+    {
+      "kind": "choose",
+      "prompt": "«Где аптека?»",
+      "options": [
+        "¿Dónde está la farmacia?",
+        "¿Dónde hay la farmacia?"
+      ],
+      "answer": 0,
+      "explain": "Конкретная аптека (la) — estar."
+    },
+    {
+      "kind": "choose",
+      "prompt": "«Здесь есть аптека?»",
+      "options": [
+        "¿Hay una farmacia aquí?",
+        "¿Está una farmacia aquí?"
+      ],
+      "answer": 0,
+      "explain": "Есть ли вообще (una) — hay."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Mis llaves ___ en la mesa.",
+      "ru": "Мои ключи на столе.",
+      "options": [
+        "están",
+        "hay"
+      ],
+      "answer": 0,
+      "explain": "mis llaves — конкретные ключи: estar."
+    },
+    {
+      "kind": "gap",
+      "sentence": "En la mesa ___ unas llaves.",
+      "ru": "На столе лежат (какие-то) ключи.",
+      "options": [
+        "hay",
+        "están"
+      ],
+      "answer": 0,
+      "explain": "unas llaves — неизвестные ключи: hay."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "«Hay el hotel en la plaza» — правильно.",
+      "answer": false,
+      "explain": "С el — estar: El hotel está en la plaza."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "С именами собственными используют estar: Madrid está en el centro de España.",
+      "answer": true,
+      "explain": "Имя — конкретный предмет."
+    }
+  ]
+}

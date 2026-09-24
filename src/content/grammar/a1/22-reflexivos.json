@@ -1,0 +1,140 @@
+{
+  "id": "a1.22-reflexivos",
+  "district": "A1",
+  "order": 22,
+  "title": "Возвратные глаголы: llamarse, levantarse",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Возвратные глаголы в словаре пишутся с **-se**: llamarse, levantarse. Как русские на -ся. При спряжении -se становится местоимением перед глаголом: **me** llamo, **te** llamas."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Местоимение",
+        "llamarse"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "yo",
+            "me llamo"
+          ]
+        },
+        {
+          "cells": [
+            "tú",
+            "te llamas"
+          ]
+        },
+        {
+          "cells": [
+            "él / ella / usted",
+            "se llama"
+          ]
+        },
+        {
+          "cells": [
+            "nosotros",
+            "nos llamamos"
+          ]
+        },
+        {
+          "cells": [
+            "vosotros",
+            "os llamáis"
+          ],
+          "region": "es"
+        },
+        {
+          "cells": [
+            "ellos / ellas / ustedes",
+            "se llaman"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "«Меня зовут Анна» = **Me llamo Anna**, буквально «я называю себя Анна». Вопрос: ¿Cómo te llamas?"
+    }
+  ],
+  "examples": [
+    {
+      "es": "Me llamo Olga.",
+      "ru": "Меня зовут Ольга."
+    },
+    {
+      "es": "¿Cómo se llama usted?",
+      "ru": "Как вас зовут?"
+    },
+    {
+      "es": "Me levanto a las siete.",
+      "ru": "Я встаю в семь."
+    },
+    {
+      "es": "Mi hijo se llama Pablo.",
+      "ru": "Моего сына зовут Пабло."
+    }
+  ],
+  "exercises": [
+    {
+      "kind": "choose",
+      "prompt": "«Как тебя зовут?»",
+      "options": [
+        "¿Cómo te llamas?",
+        "¿Cómo se llamas?",
+        "¿Cómo llamas?"
+      ],
+      "answer": 0,
+      "explain": "tú → te llamas."
+    },
+    {
+      "kind": "choose",
+      "prompt": "Форма «nosotros» от levantarse:",
+      "options": [
+        "nos levantamos",
+        "se levantamos",
+        "levantamos nos"
+      ],
+      "answer": 0,
+      "explain": "nosotros → nos + глагол."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Yo ___ llamo Iván.",
+      "ru": "Меня зовут Иван.",
+      "options": [
+        "me",
+        "te",
+        "se"
+      ],
+      "answer": 0,
+      "explain": "yo → me."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Ellos se ___ muy temprano.",
+      "ru": "Они встают очень рано.",
+      "options": [
+        "levantan",
+        "levanta",
+        "levantamos"
+      ],
+      "answer": 0,
+      "explain": "ellos → se levantan."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "«Se» — местоимение для él, ella, usted, ellos и ustedes.",
+      "answer": true,
+      "explain": "se llama, se llaman."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "«Yo se llamo Pedro» — правильно.",
+      "answer": false,
+      "explain": "Yo me llamo Pedro."
+    }
+  ]
+}

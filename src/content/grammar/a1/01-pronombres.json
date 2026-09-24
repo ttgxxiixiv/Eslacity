@@ -1,0 +1,165 @@
+{
+  "id": "a1.01-pronombres",
+  "district": "A1",
+  "order": 1,
+  "title": "Личные местоимения",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "В испанском местоимение-подлежащее часто опускают: окончание глагола и так показывает, кто действует. **Hablo** = я говорю. Местоимение ставят для ясности или акцента."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Испанский",
+        "Русский"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "yo",
+            "я"
+          ]
+        },
+        {
+          "cells": [
+            "tú",
+            "ты"
+          ]
+        },
+        {
+          "cells": [
+            "él / ella",
+            "он / она"
+          ]
+        },
+        {
+          "cells": [
+            "usted",
+            "вы (вежливо, одному)"
+          ]
+        },
+        {
+          "cells": [
+            "nosotros / nosotras",
+            "мы"
+          ]
+        },
+        {
+          "cells": [
+            "vosotros / vosotras",
+            "вы (на «ты», нескольким)"
+          ],
+          "region": "es"
+        },
+        {
+          "cells": [
+            "ellos / ellas",
+            "они"
+          ]
+        },
+        {
+          "cells": [
+            "ustedes",
+            "вы (вежливо или нескольким)"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "**Usted** и **ustedes** спрягаются как 3-е лицо: usted habla, ustedes hablan. Формы на -as (nosotras, ellas) только для полностью женских групп. Если в группе есть хоть один мужчина: nosotros, ellos."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Yo soy Ana.",
+      "ru": "Я Ана."
+    },
+    {
+      "es": "¿Tú eres de Moscú?",
+      "ru": "Ты из Москвы?"
+    },
+    {
+      "es": "Ella es profesora.",
+      "ru": "Она учительница."
+    },
+    {
+      "es": "Nosotros somos amigos.",
+      "ru": "Мы друзья."
+    }
+  ],
+  "exercises": [
+    {
+      "kind": "choose",
+      "prompt": "Как сказать «мы» о группе, где есть хотя бы один мужчина?",
+      "options": [
+        "nosotros",
+        "nosotras",
+        "vosotros"
+      ],
+      "answer": 0,
+      "explain": "Смешанная группа всегда в мужском роде: nosotros."
+    },
+    {
+      "kind": "choose",
+      "prompt": "Вежливое «вы» одному человеку:",
+      "options": [
+        "usted",
+        "tú",
+        "vosotros"
+      ],
+      "answer": 0,
+      "explain": "Usted — вежливая форма для одного человека, глагол при ней в 3-м лице."
+    },
+    {
+      "kind": "gap",
+      "sentence": "___ es mi hermana.",
+      "ru": "Она моя сестра.",
+      "options": [
+        "Ella",
+        "Él",
+        "Yo"
+      ],
+      "answer": 0,
+      "explain": "Сестра — женщина, значит ella."
+    },
+    {
+      "kind": "gap",
+      "sentence": "___ somos estudiantes.",
+      "ru": "Мы студенты.",
+      "options": [
+        "Nosotros",
+        "Ellos",
+        "Tú"
+      ],
+      "answer": 0,
+      "explain": "Somos — форма глагола ser для «мы»."
+    },
+    {
+      "kind": "gap",
+      "sentence": "¿___ sois de Rusia?",
+      "ru": "Вы (ребята) из России?",
+      "options": [
+        "Vosotros",
+        "Ustedes",
+        "Nosotros"
+      ],
+      "answer": 0,
+      "explain": "Sois — форма для vosotros.",
+      "region": "es"
+    },
+    {
+      "kind": "truefalse",
+      "statement": "«Ellas» можно сказать о группе из двух женщин и одного мужчины.",
+      "answer": false,
+      "explain": "Если в группе есть хотя бы один мужчина, говорят ellos."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "Местоимение yo часто опускают: «Hablo español».",
+      "answer": true,
+      "explain": "Окончание -o уже показывает, что говорит «я»."
+    }
+  ]
+}

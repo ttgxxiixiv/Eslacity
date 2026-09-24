@@ -1,0 +1,145 @@
+{
+  "id": "a1.28-hora",
+  "district": "A1",
+  "order": 28,
+  "title": "Который час",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Вопрос: **¿Qué hora es?** Ответ с ser: **Es la una** (для часа), **Son las dos, las tres…** для остальных."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Время",
+        "Испанский"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "1:00",
+            "Es la una."
+          ]
+        },
+        {
+          "cells": [
+            "3:00",
+            "Son las tres."
+          ]
+        },
+        {
+          "cells": [
+            "3:15",
+            "Son las tres y cuarto."
+          ]
+        },
+        {
+          "cells": [
+            "3:30",
+            "Son las tres y media."
+          ]
+        },
+        {
+          "cells": [
+            "3:45",
+            "Son las cuatro menos cuarto."
+          ]
+        },
+        {
+          "cells": [
+            "3:50",
+            "Son las cuatro menos diez."
+          ]
+        },
+        {
+          "cells": [
+            "12:00",
+            "Son las doce."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "До половины — **y** (плюс), после половины — **menos** (без) от следующего часа: 4:40 = las cinco menos veinte. Уточнение: de la mañana (утра), de la tarde (дня, вечера), de la noche (ночи)."
+    }
+  ],
+  "examples": [
+    {
+      "es": "¿Qué hora es? —Son las nueve.",
+      "ru": "Который час? — Девять."
+    },
+    {
+      "es": "Es la una y media.",
+      "ru": "Половина второго."
+    },
+    {
+      "es": "Son las siete menos cuarto.",
+      "ru": "Без четверти семь."
+    },
+    {
+      "es": "Son las diez de la noche.",
+      "ru": "Десять вечера."
+    }
+  ],
+  "exercises": [
+    {
+      "kind": "choose",
+      "prompt": "2:30:",
+      "options": [
+        "Son las dos y media.",
+        "Es las dos y media.",
+        "Son las dos y medio."
+      ],
+      "answer": 0,
+      "explain": "Два часа — son las dos, половина — y media."
+    },
+    {
+      "kind": "choose",
+      "prompt": "1:15:",
+      "options": [
+        "Es la una y cuarto.",
+        "Son las una y cuarto.",
+        "Es la uno y cuarto."
+      ],
+      "answer": 0,
+      "explain": "Для часа — es la una."
+    },
+    {
+      "kind": "gap",
+      "sentence": "___ las cinco y diez.",
+      "ru": "Пять часов десять минут.",
+      "options": [
+        "Son",
+        "Es",
+        "Está"
+      ],
+      "answer": 0,
+      "explain": "Для всех часов, кроме одного, — son."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Son las ocho ___ cuarto.",
+      "ru": "Без четверти восемь.",
+      "options": [
+        "menos",
+        "y",
+        "de"
+      ],
+      "answer": 0,
+      "explain": "После половины — menos."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "«Son las seis menos veinte» — это 5:40.",
+      "answer": true,
+      "explain": "Шесть без двадцати."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "Для часа говорят «Son la una».",
+      "answer": false,
+      "explain": "Es la una."
+    }
+  ]
+}

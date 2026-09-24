@@ -1,0 +1,154 @@
+{
+  "id": "a1.13-presente-ir",
+  "district": "A1",
+  "order": 13,
+  "title": "Presente: глаголы на -ir",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Глаголы на **-ir** спрягаются как на -er везде, кроме «мы» и «вы»: viv**imos**, viv**ís**."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Местоимение",
+        "vivir (жить)",
+        "Окончание"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "yo",
+            "vivo",
+            "-o"
+          ]
+        },
+        {
+          "cells": [
+            "tú",
+            "vives",
+            "-es"
+          ]
+        },
+        {
+          "cells": [
+            "él / ella / usted",
+            "vive",
+            "-e"
+          ]
+        },
+        {
+          "cells": [
+            "nosotros",
+            "vivimos",
+            "-imos"
+          ]
+        },
+        {
+          "cells": [
+            "vosotros",
+            "vivís",
+            "-ís"
+          ],
+          "region": "es"
+        },
+        {
+          "cells": [
+            "ellos / ellas / ustedes",
+            "viven",
+            "-en"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Так же: escribir (писать), abrir (открывать), recibir (получать), subir (подниматься)."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Vivo en Moscú.",
+      "ru": "Я живу в Москве."
+    },
+    {
+      "es": "¿Dónde vives?",
+      "ru": "Где ты живёшь?"
+    },
+    {
+      "es": "Escribimos un correo.",
+      "ru": "Мы пишем письмо."
+    },
+    {
+      "es": "La tienda abre a las diez.",
+      "ru": "Магазин открывается в десять."
+    }
+  ],
+  "exercises": [
+    {
+      "kind": "choose",
+      "prompt": "Форма «nosotros» от vivir:",
+      "options": [
+        "vivimos",
+        "vivemos",
+        "viven"
+      ],
+      "answer": 0,
+      "explain": "У глаголов на -ir: -imos."
+    },
+    {
+      "kind": "choose",
+      "prompt": "Форма «ella» от escribir:",
+      "options": [
+        "escribe",
+        "escriba",
+        "escribi"
+      ],
+      "answer": 0,
+      "explain": "ella → -e: escribe."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Nosotros ___ en un piso pequeño.",
+      "ru": "Мы живём в маленькой квартире.",
+      "options": [
+        "vivimos",
+        "vivemos",
+        "viven"
+      ],
+      "answer": 0,
+      "explain": "nosotros → -imos."
+    },
+    {
+      "kind": "gap",
+      "sentence": "El banco ___ a las nueve.",
+      "ru": "Банк открывается в девять.",
+      "options": [
+        "abre",
+        "abra",
+        "abrimos"
+      ],
+      "answer": 0,
+      "explain": "Банк — «он»: abre."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "У глаголов на -ir и -er одинаковые окончания во всех лицах.",
+      "answer": false,
+      "explain": "Отличаются nosotros и vosotros: comemos, но vivimos."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "«Vosotros vivís» — правильная форма.",
+      "answer": true,
+      "explain": "vosotros → -ís.",
+      "region": "es"
+    },
+    {
+      "kind": "truefalse",
+      "statement": "«Ellos viven» — правильная форма.",
+      "answer": true,
+      "explain": "ellos → -en."
+    }
+  ]
+}
