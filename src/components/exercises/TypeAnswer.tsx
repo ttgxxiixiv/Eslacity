@@ -1,0 +1,79 @@
+import { useRef, useState } from 'react';
+import { checkTyped, type CheckResult } from '../../domain/answer';
+import { AccentBar } from '../AccentBar';
+import { Button, genderLabel } from '../ui';
+import type { ExerciseProps } from './types';
+
+const REASON_NOTE: Record<NonNullable<CheckResult['reason']>, string> = {
+  accent: 'Обратите внимание на ударение.',
+  typo: 'Опечатка в одной букве.',
+  article: 'Существительное учим вместе с артиклем.',
+};
+
+export function TypeAnswer({ step, words, locked, onAnswer }: ExerciseProps<'type'>) {
+  const word = words[step.wordId];
+  const [value, setValue] = useState('');
+  const [result, setResult] = useState<CheckResult | null>(null);
+  const input = useRef<HTMLInputElement>(null);
+
+  const insert = (ch: string) => {
+    const el = input.current;
+    if (!el) return;
+    const start = el.selectionStart ?? value.length;
+    const end = el.selectionEnd ?? value.length;
+    const next = value.slice(0, start) + ch + value.slice(end);
+    setValue(next);
+    requestAnimationFrame(() => el.setSelectionRange(start + ch.length, start + ch.length));
+  };
+
+  const submit = () => {
+    if (locked || !value.trim()) return;
+    const r = checkTyped(value, [word.es, ...(word.alt ?? [])]);
+    setResult(r);
+    const title = r.verdict === 'almost' ? 'Почти' : undefined;
+    const note = r.reason ? REASON_NOTE[r.reason] : undefined;
+    onAnswer({ verdict: r.verdict }, { title, note, answer: r.verdict === 'correct' ? word.es : r.expected });
+  };
+
+  const tone =
+    result === null ? 'border-stone-300' : result.verdict === 'correct' ? 'border-ok' : result.verdict === 'almost' ? 'border-almost' : 'border-bad';
+
+  return (
+    <div className="flex flex-1 flex-col">
+      <div className="text-sm font-medium text-stone-500">Напишите по-испански</div>
+      <div className="mt-6 text-3xl font-bold">{word.ru}</div>
+      {word.pos === 'noun' && (
+        <div className="mt-1 text-sm text-stone-500">с артиклем · {genderLabel(word.gender)}</div>
+      )}
+      <form
+        className="mt-6 flex flex-col gap-3"
+        onSubmit={(e) => {
+          e.preventDefault();
+          submit();
+        }}
+      >
+        <AccentBar onKey={insert} disabled={locked} />
+        <input
+          ref={input}
+          autoFocus
+          value={value}
+          onChange={(e) => setValue(e.target.value)}
+          readOnly={locked}
+          lang="es"
+          autoCapitalize="off"
+          autoCorrect="off"
+          autoComplete="off"
+          spellCheck={false}
+          enterKeyHint="done"
+          className={`h-14 rounded-2xl border-2 bg-white px-4 text-xl outline-none focus:border-brand ${tone}`}
+          placeholder="Ответ"
+        />
+        {!locked && (
+          <Button type="submit" disabled={!value.trim()} className="w-full">
+            Проверить
+          </Button>
+        )}
+      </form>
+    </div>
+  );
+}
