@@ -3,15 +3,27 @@ import { db, type BuildingRow } from '../db/db';
 import { persist } from '../db/persist';
 import { LOCATION_BY_ID } from '../content/locations';
 import type { LocationId } from '../content/schema';
-import { upgradeCost } from '../domain/economy';
+import { collectIncome, upgradeCost } from '../domain/economy';
 
 interface CityState {
   coins: number;
   buildings: Partial<Record<LocationId, BuildingRow>>;
   hydrate(p: { coins: number; buildings: BuildingRow[] }): void;
   addCoins(n: number): void;
-  /** Улучшить здание на 1 уровень. false, если не хватает монет. */
-  upgrade(id: LocationId): boolean;
+  /** Открыть здание или улучшить на 1 уровень. false, если не хватает монет. */
+  upgrade(id: LocationId, now?: number): boolean;
+  /** Собрать доход с одного здания. Возвращает число монет. */
+  collect(id: LocationId, now?: number): number;
+  collectAll(now?: number): number;
+}
+
+function save(coins: number, rows: BuildingRow[]) {
+  persist(() =>
+    db.transaction('rw', db.meta, db.buildings, async () => {
+      await db.meta.put({ key: 'coins', value: coins });
+      await db.buildings.bulkPut(rows);
+    }),
+  );
 }
 
 export const useCity = create<CityState>((set, get) => ({
@@ -29,21 +41,50 @@ export const useCity = create<CityState>((set, get) => ({
     persist(() => db.meta.put({ key: 'coins', value: coins }));
   },
 
-  upgrade(id) {
+  upgrade(id, now = Date.now()) {
     const b = get().buildings[id];
     const level = b?.level ?? 0;
     if (level >= 5) return false;
-    const cost = level === 0 ? LOCATION_BY_ID[id].unlockCost : upgradeCost(LOCATION_BY_ID[id], level + 1);
-    const { coins } = get();
+    const cost = upgradeCost(LOCATION_BY_ID[id], level + 1);
+    // Накопленное по старой ставке забираем до улучшения, чтобы новая ставка не считалась задним числом.
+    const income = b ? collectIncome(b, now) : { coins: 0, lastCollectedAt: now };
+    const coins = get().coins + income.coins;
     if (coins < cost) return false;
-    const row: BuildingRow = { locationId: id, level: level + 1, lastCollectedAt: b?.lastCollectedAt ?? Date.now() };
+    const row: BuildingRow = { locationId: id, level: level + 1, lastCollectedAt: income.lastCollectedAt };
     set({ coins: coins - cost, buildings: { ...get().buildings, [id]: row } });
-    persist(() =>
-      db.transaction('rw', db.meta, db.buildings, async () => {
-        await db.meta.put({ key: 'coins', value: coins - cost });
-        await db.buildings.put(row);
-      }),
-    );
+    save(coins - cost, [row]);
     return true;
+  },
+
+  collect(id, now = Date.now()) {
+    const b = get().buildings[id];
+    if (!b) return 0;
+    const r = collectIncome(b, now);
+    if (!r.coins) return 0;
+    const row = { ...b, lastCollectedAt: r.lastCollectedAt };
+    const coins = get().coins + r.coins;
+    set({ coins, buildings: { ...get().buildings, [id]: row } });
+    save(coins, [row]);
+    return r.coins;
+  },
+
+  collectAll(now = Date.now()) {
+    const rows: BuildingRow[] = [];
+    let total = 0;
+    const buildings = { ...get().buildings };
+    for (const b of Object.values(buildings)) {
+      if (!b) continue;
+      const r = collectIncome(b, now);
+      if (!r.coins) continue;
+      total += r.coins;
+      const row = { ...b, lastCollectedAt: r.lastCollectedAt };
+      buildings[b.locationId] = row;
+      rows.push(row);
+    }
+    if (!total) return 0;
+    const coins = get().coins + total;
+    set({ coins, buildings });
+    save(coins, rows);
+    return total;
   },
 }));

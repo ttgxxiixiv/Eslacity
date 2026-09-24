@@ -58,3 +58,12 @@ button {
   transform-origin: left;
   animation: drain linear forwards;
 }
+
+@keyframes float-up {
+  from { transform: translateY(0); opacity: 1; }
+  to { transform: translateY(-28px); opacity: 0; }
+}
+.float-up {
+  animation: float-up 700ms ease-out forwards;
+  pointer-events: none;
+}

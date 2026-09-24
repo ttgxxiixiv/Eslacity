@@ -1,16 +1,13 @@
 import { useMemo } from 'react';
 import { Link } from 'react-router-dom';
-import { LOCATIONS } from '../content/locations';
-import { hasContent } from '../content';
 import { dueCards } from '../domain/srs';
-import { useCity } from '../store/city';
+import { CityGrid } from '../components/CityGrid';
 import { useProgress } from '../store/progress';
 import { StatsBar } from '../components/Stats';
 import { Screen } from '../components/ui';
 
 export function Home() {
   const cards = useProgress((s) => s.cards);
-  const buildings = useCity((s) => s.buildings);
   const due = useMemo(() => dueCards(Object.values(cards), Date.now()).length, [cards]);
   const learned = Object.keys(cards).length;
 
@@ -37,30 +34,7 @@ export function Home() {
         </Link>
       </div>
 
-      <h2 className="px-5 pt-6 pb-2 font-semibold text-stone-600">Город</h2>
-      <div className="grid grid-cols-4 gap-2 px-5">
-        {LOCATIONS.map((l) => {
-          const lvl = buildings[l.id]?.level ?? 0;
-          const active = hasContent(l.id);
-          const inner = (
-            <>
-              <span className={`text-3xl ${lvl ? '' : 'opacity-40 grayscale'}`}>{l.emoji}</span>
-              <span className="mt-1 line-clamp-1 text-[11px] leading-tight">{l.ru}</span>
-              {lvl > 0 && <span className="text-[10px] text-stone-500">ур. {lvl}</span>}
-            </>
-          );
-          const cls = 'flex aspect-square flex-col items-center justify-center rounded-2xl bg-white p-1 text-center shadow-sm';
-          return active ? (
-            <Link key={l.id} to={`/loc/${l.id}`} className={`press ${cls}`}>
-              {inner}
-            </Link>
-          ) : (
-            <div key={l.id} className={`${cls} opacity-60`}>
-              {inner}
-            </div>
-          );
-        })}
-      </div>
+      <CityGrid />
     </Screen>
   );
 }

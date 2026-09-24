@@ -3,7 +3,9 @@ import { Link, useParams } from 'react-router-dom';
 import { LOCATION_BY_ID } from '../content/locations';
 import { loadLocation } from '../content';
 import type { LocationId, Word } from '../content/schema';
-import { upgradeCost } from '../domain/economy';
+import { ECONOMY } from '../config';
+import { incomeRate, isFull, pendingIncome, upgradeCost } from '../domain/economy';
+import { useNow } from '../lib/useNow';
 import { isLearned, learnedCount, lessonParts, levelWords, maxContentLevel } from '../domain/levels';
 import { dayNumber } from '../domain/srs';
 import { useCity } from '../store/city';
@@ -15,6 +17,33 @@ function dueLabel(due: number) {
   if (d <= 0) return 'повторить сегодня';
   if (d === 1) return 'завтра';
   return `через ${d} дн.`;
+}
+
+function IncomeCard({ id, level }: { id: LocationId; level: number }) {
+  const now = useNow();
+  const b = useCity((s) => s.buildings[id]);
+  const collect = useCity((s) => s.collect);
+  if (!b || !level) {
+    return (
+      <p className="rounded-2xl bg-orange-50 px-4 py-3 text-sm text-stone-600">
+        Открытое здание приносит {incomeRate(1)} 🪙 в час, копится до {ECONOMY.incomeCapHours} часов.
+      </p>
+    );
+  }
+  const pending = pendingIncome(b, now);
+  return (
+    <div className="flex items-center gap-3 rounded-2xl bg-white px-4 py-3 shadow-sm">
+      <div className="flex-1 text-sm">
+        <div className="font-semibold">Доход: {incomeRate(level)} 🪙 в час</div>
+        <div className="text-stone-500">
+          {isFull(b, now) ? 'Хранилище полное, соберите монеты' : `Копится до ${ECONOMY.incomeCapHours} часов`}
+        </div>
+      </div>
+      <Button variant="secondary" className="!px-4 !py-2" disabled={!pending} onClick={() => collect(id)}>
+        +{pending} 🪙
+      </Button>
+    </div>
+  );
 }
 
 export function LocationScreen() {
@@ -40,6 +69,7 @@ export function LocationScreen() {
       <TopBar title={`${meta.emoji} ${meta.ru}`} right={<span className="pr-3 font-semibold">🪙 {coins}</span>} />
       {!words ? null : (
         <div className="flex flex-col gap-4 px-5 pb-6">
+          <IncomeCard id={id} level={level} />
           {levels.map((lvl) => {
             const lw = levelWords(words, lvl);
             const open = lvl <= level;
@@ -64,7 +94,7 @@ export function LocationScreen() {
                         disabled={!prevDone || coins < cost}
                         onClick={() => upgrade(id)}
                       >
-                        Улучшить за 🪙 {cost}
+                        {lvl === 1 ? 'Открыть' : 'Улучшить'} за 🪙 {cost}
                       </Button>
                     </>
                   )}
