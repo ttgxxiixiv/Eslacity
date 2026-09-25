@@ -2,6 +2,9 @@ import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import './index.css';
 import App from './App';
+import { initUpdates } from './lib/update';
+
+initUpdates();
 
 // После обновления приложения старая вкладка может запросить чанк, которого уже нет
 // (например, слова ещё не открытой локации). Перезагружаемся на новую версию.

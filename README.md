@@ -17,3 +17,5 @@ npm run build      # валидация + typecheck + сборка в dist/
 `npx tsx scripts/make-icons.ts` пересоздаёт иконки в `public/icons`.
 
 Вариант испанского (Испания / Латинская Америка) переключается в `src/config.ts`. План и схемы данных: `docs/PLAN.md`, отчёты по этапам: `docs/STAGES.md`, аудит и список улучшений: `docs/AUDIT.md`.
+
+Версия: поле `version` в `package.json`. При выпуске поднимите версию и добавьте запись в `src/content/changelog.ts`: её покажет раздел «О приложении».

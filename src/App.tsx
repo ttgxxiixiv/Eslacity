@@ -13,6 +13,7 @@ import { ProfileScreen } from './screens/Profile';
 import { WordsScreen } from './screens/Words';
 import { useMotivation } from './store/motivation';
 import { ErrorBoundary } from './components/ErrorBoundary';
+import { UpdateBanner } from './components/UpdateBanner';
 
 /** Новый экран открывается сверху, а не с прокруткой предыдущего. */
 function ScrollToTop() {
@@ -29,6 +30,7 @@ function TabLayout() {
       <div className="pb-20">
         <Outlet />
       </div>
+      <UpdateBanner />
       <nav className="fixed inset-x-0 bottom-0 z-10 border-t border-stone-200 bg-white pb-[env(safe-area-inset-bottom)]">
         <div className="mx-auto flex max-w-md">
           <NavLink to="/" end className={tab}>

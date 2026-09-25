@@ -10,6 +10,7 @@ import { useMotivation } from '../store/motivation';
 import { useProgress } from '../store/progress';
 import { useSettings } from '../store/settings';
 import { Button, Screen, TopBar } from '../components/ui';
+import { CURRENT } from '../lib/update';
 
 const WEEKDAYS = ['пн', 'вт', 'ср', 'чт', 'пт', 'сб', 'вс'];
 
@@ -139,6 +140,10 @@ export function ProfileScreen() {
             })}
           </ul>
         </section>
+
+        <Link to="/settings" className="press py-2 text-center text-sm text-stone-400">
+          Версия {CURRENT.version} · о приложении и обновления →
+        </Link>
       </div>
     </Screen>
   );

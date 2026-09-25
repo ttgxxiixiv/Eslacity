@@ -6,6 +6,7 @@ import { downloadJson, exportBackup, importBackup, parseBackup } from '../db/bac
 import { useSettings, type Settings } from '../store/settings';
 import { useProgress } from '../store/progress';
 import { Button, Screen, TopBar } from '../components/ui';
+import { AboutApp } from '../components/AboutApp';
 
 const GOALS: Settings['dailyGoal'][] = [50, 100, 150, 250];
 
@@ -74,6 +75,8 @@ export function SettingsScreen() {
             </>
           )}
         </section>
+
+        <AboutApp />
 
         <section className="rounded-3xl bg-white p-4 shadow-sm">
           <h2 className="font-bold">Прогресс</h2>
