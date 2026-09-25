@@ -170,8 +170,8 @@ export function BlitzScreen() {
         <button type="button" onClick={() => finish(scoreRef.current)} className="press h-10 w-10 text-xl text-stone-500" aria-label="Закончить">
           ✕
         </button>
-        <div className="h-3 flex-1 overflow-hidden rounded-full bg-stone-200">
-          <div className="drain h-full w-full rounded-full bg-amber-500" style={{ animationDuration: `${LESSON.blitzSeconds}s` }} />
+        <div className="h-3.5 flex-1 overflow-hidden rounded bg-wood p-[2px]">
+          <div className="drain h-full w-full rounded-sm bg-gold" style={{ animationDuration: `${LESSON.blitzSeconds}s` }} />
         </div>
         <div className="w-10 text-right text-xl font-bold tabular-nums">{score}</div>
       </div>

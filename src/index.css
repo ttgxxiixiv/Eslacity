@@ -1,15 +1,54 @@
 @import "tailwindcss";
+@import "@fontsource/tiny5/latin-400.css";
+@import "@fontsource/tiny5/cyrillic-400.css";
 
+/*
+ * Тема в духе RPG: пергамент, тёмное дерево, королевский синий и золото.
+ * Серую шкалу stone и белый цвет Tailwind переопределяем тёплыми оттенками пергамента,
+ * поэтому все экраны меняются без правки каждого класса.
+ */
 @theme {
-  --color-brand: #c2410c;
-  --color-brand-dark: #9a3412;
-  --color-ok: #15803d;
-  --color-okbg: #dcfce7;
-  --color-almost: #b45309;
-  --color-almostbg: #fef3c7;
-  --color-bad: #be123c;
-  --color-badbg: #ffe4e6;
+  --color-brand: #2d5596;
+  --color-brand-dark: #1d3a6b;
+  --color-gold: #e0b43c;
+  --color-gold-dark: #9c7414;
+  --color-wood: #3b2a1a;
+  --color-wood-light: #5a4128;
+  --color-grass: #5d9b3a;
+  --color-ok: #2e7d32;
+  --color-okbg: #d9ecc4;
+  --color-almost: #a1600a;
+  --color-almostbg: #f6e2a8;
+  --color-bad: #b3261e;
+  --color-badbg: #f4cfc0;
+
+  --color-white: #fbf4de;
+  --color-stone-50: #f4e8c8;
+  --color-stone-100: #ecdcb3;
+  --color-stone-200: #dfca98;
+  --color-stone-300: #c4a672;
+  --color-stone-400: #93754d;
+  --color-stone-500: #75593a;
+  --color-stone-600: #5c452d;
+  --color-stone-700: #483623;
+  --color-stone-800: #36291b;
+  --color-stone-900: #261d13;
+  --color-orange-50: #f8ebc4;
+  --color-orange-100: #f1dc9c;
+
+  /* Рамки вместо мягких теней: панель пергамента в деревянной окантовке. */
+  --shadow-sm: inset 0 0 0 2px #a8875a, 0 3px 0 0 #8a6a40;
+  --shadow: inset 0 0 0 2px #7a5a30, 0 2px 0 0 #5a4020;
+  --shadow-md: inset 0 0 0 2px #e0b43c, inset 0 0 0 4px #1d3a6b, 0 4px 0 0 #14294d;
+  --shadow-lg: inset 0 0 0 2px #e0b43c, 0 4px 0 0 #1a120a;
+
+  --radius-lg: 6px;
+  --radius-xl: 8px;
+  --radius-2xl: 10px;
+  --radius-3xl: 12px;
+
   --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-pixel: "Tiny5", system-ui, sans-serif;
 }
 
 :root {
@@ -17,10 +56,78 @@
   -webkit-tap-highlight-color: transparent;
 }
 
-html, body {
-  background: #fafaf9;
-  color: #1c1917;
+html {
+  background: #e9d8ab;
+}
+
+body {
+  /* Пергамент: светлый центр, потемнее к краям. */
+  background: radial-gradient(ellipse at 50% 30%, #f6ecd0 0%, #ecdcb3 60%, #dcc58f 100%) #e9d8ab;
+  min-height: 100dvh;
+  color: #261d13;
   overscroll-behavior-y: none;
+}
+
+/*
+ * У пиксельного шрифта одно начертание: искусственный жирный размыл бы пиксели.
+ * Заглавные, потому что строчные кириллические буквы в нём читаются хуже (е похожа на є).
+ */
+h1, h2, .font-pixel {
+  font-family: var(--font-pixel);
+  font-weight: 400;
+  font-synthesis: none;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* Карта города: трава и тропинки между участками. */
+.overworld {
+  background-color: #5d9b3a;
+  background-image:
+    radial-gradient(circle at 20% 30%, #6fb046 0 2px, transparent 3px),
+    radial-gradient(circle at 70% 80%, #4d8a2e 0 2px, transparent 3px),
+    radial-gradient(circle at 85% 20%, #6fb046 0 1.5px, transparent 2.5px);
+  background-size: 34px 34px, 46px 46px, 28px 28px;
+  box-shadow: inset 0 0 0 3px #3b2a1a, inset 0 0 0 6px #7a5a30, 0 4px 0 0 #2a1d10;
+}
+.plot {
+  box-shadow: inset 0 0 0 2px #7a5a30, 0 3px 0 0 #3f5f22;
+}
+.plot-open {
+  background: linear-gradient(#fbf4de, #efdfb5);
+}
+.plot-locked {
+  background: repeating-linear-gradient(45deg, #4a6e34 0 6px, #43652f 6px 12px);
+  box-shadow: inset 0 0 0 2px #2f4a20, 0 3px 0 0 #2f4a20;
+  color: #f4e8c8;
+}
+
+/* Диалоговое окно, как в старых RPG. */
+.dialog-box {
+  background: rgba(22, 26, 48, 0.94);
+  color: #f7f1e1;
+  box-shadow: inset 0 0 0 2px #f7f1e1, inset 0 0 0 4px rgba(22, 26, 48, 0.94), inset 0 0 0 6px #e0b43c;
+}
+
+/* Сердечки прогресса дня. */
+.heart {
+  width: 18px;
+  height: 16px;
+}
+
+@keyframes bob {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(4px); }
+}
+.bob {
+  animation: bob 1.2s ease-in-out infinite;
+}
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.2; }
+}
+.blink {
+  animation: blink 1s steps(2, jump-none) infinite;
 }
 
 button, a, input, [role="button"] {
@@ -47,6 +154,7 @@ button {
 
 @media (prefers-reduced-motion: reduce) {
   .press, .sheet { transition: none; }
+  .bob, .blink { animation: none; }
   .press:active { transform: none; }
 }
 

@@ -55,9 +55,9 @@ export function GrammarMap() {
                     </span>
                   </div>
                   <p className="text-sm text-stone-500">{d.subtitle}</p>
-                  <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-stone-100">
+                  <div className="mt-2 h-2.5 overflow-hidden rounded-sm bg-wood p-[2px]">
                     <div
-                      className="h-full w-full origin-left rounded-full bg-ok"
+                      className="h-full w-full origin-left rounded-sm bg-gold"
                       style={{ transform: `scaleX(${passed / lessons.length})` }}
                     />
                   </div>

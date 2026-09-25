@@ -133,9 +133,9 @@ export function LessonPlayer({ steps, words, pool, onFinish, onExit }: Props) {
         >
           ✕
         </button>
-        <div className="h-3 flex-1 overflow-hidden rounded-full bg-stone-200">
+        <div className="h-3.5 flex-1 overflow-hidden rounded bg-wood p-[2px]">
           <div
-            className="h-full w-full origin-left rounded-full bg-brand"
+            className="h-full w-full origin-left rounded-sm bg-gold"
             style={{ transform: `scaleX(${progress})`, transition: 'transform 200ms ease-out' }}
           />
         </div>

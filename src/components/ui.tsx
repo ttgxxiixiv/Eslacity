@@ -5,20 +5,31 @@ import { speak } from '../audio/tts';
 type Variant = 'primary' | 'secondary' | 'ghost';
 
 const VARIANT_CLASS: Record<Variant, string> = {
-  primary: 'bg-brand text-white shadow-sm disabled:bg-stone-300 disabled:text-stone-500',
-  secondary: 'bg-white text-stone-800 border border-stone-300 disabled:text-stone-400',
+  // Синяя кнопка в золотой рамке с «ступенькой» снизу, как в старых RPG-меню.
+  primary: 'bg-brand text-white shadow-md disabled:bg-stone-300 disabled:text-stone-500 disabled:shadow-sm',
+  secondary: 'bg-white text-stone-800 shadow-sm disabled:text-stone-400',
   ghost: 'text-stone-600',
 };
 
+/** Есть ли в подписи цифры: в пиксельном шрифте они читаются плохо (6 похожа на б). */
+function hasDigits(node: ReactNode): boolean {
+  if (typeof node === 'string' || typeof node === 'number') return /\d/.test(String(node));
+  if (Array.isArray(node)) return node.some(hasDigits);
+  return false;
+}
+
 export function Button({
-  variant = 'primary', className = '', ...rest
+  variant = 'primary', className = '', children, ...rest
 }: ButtonHTMLAttributes<HTMLButtonElement> & { variant?: Variant }) {
+  const font = hasDigits(children) ? 'text-base font-bold' : 'font-pixel text-lg';
   return (
     <button
       type="button"
-      className={`press rounded-2xl px-5 py-3.5 text-base font-semibold ${VARIANT_CLASS[variant]} ${className}`}
+      className={`press rounded-xl px-5 py-3.5 ${font} ${VARIANT_CLASS[variant]} ${className}`}
       {...rest}
-    />
+    >
+      {children}
+    </button>
   );
 }
 
@@ -32,7 +43,7 @@ export function SpeakButton({ text, className = '', size = 'md' }: { text: strin
         e.stopPropagation();
         speak(text);
       }}
-      className={`press inline-flex shrink-0 items-center justify-center rounded-full bg-orange-100 text-brand ${s} ${className}`}
+      className={`press inline-flex shrink-0 items-center justify-center rounded-full bg-orange-100 text-brand shadow-sm ${s} ${className}`}
     >
       🔊
     </button>
@@ -42,13 +53,13 @@ export function SpeakButton({ text, className = '', size = 'md' }: { text: strin
 export function TopBar({ title, back = true, right }: { title?: ReactNode; back?: boolean; right?: ReactNode }) {
   const nav = useNavigate();
   return (
-    <header className="sticky top-0 z-10 flex h-14 items-center gap-2 bg-stone-50/95 px-2">
+    <header className="sticky top-0 z-10 flex h-14 items-center gap-2 border-b-2 border-stone-300 bg-stone-50/95 px-2">
       {back && (
         <button type="button" aria-label="Назад" onClick={() => nav(-1)} className="press h-10 w-10 rounded-full text-xl">
           ←
         </button>
       )}
-      <h1 className="flex-1 truncate px-2 text-lg font-bold">{title}</h1>
+      <h1 className="flex-1 truncate px-2 text-xl font-bold">{title}</h1>
       {right}
     </header>
   );

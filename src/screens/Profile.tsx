@@ -98,9 +98,9 @@ export function ProfileScreen() {
             <span className="text-sm text-stone-500">🪙 {challenge.reward}</span>
           </div>
           <p className="mt-1">{challenge.text}</p>
-          <div className="mt-3 h-2.5 overflow-hidden rounded-full bg-stone-200">
+          <div className="mt-3 h-2.5 overflow-hidden rounded bg-wood p-[2px]">
             <div
-              className="h-full w-full origin-left rounded-full bg-brand"
+              className="h-full w-full origin-left rounded-sm bg-gold"
               style={{ transform: `scaleX(${Math.min(1, progress / challenge.target)})` }}
             />
           </div>

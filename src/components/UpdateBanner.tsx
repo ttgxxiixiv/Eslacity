@@ -8,7 +8,7 @@ export function UpdateBanner() {
   if (status !== 'available' && status !== 'updating' && status !== 'failed') return null;
   return (
     <div className="fixed inset-x-0 bottom-[calc(4rem+env(safe-area-inset-bottom))] z-10 mx-auto max-w-md px-3 pb-2">
-      <div className="flex items-center gap-3 rounded-2xl bg-stone-900 px-4 py-3 text-white shadow-lg">
+      <div className="dialog-box flex items-center gap-3 rounded-xl px-4 py-3">
         <div className="flex-1 text-sm">
           {status === 'updating'
             ? 'Скачиваю обновление…'
@@ -20,7 +20,7 @@ export function UpdateBanner() {
           type="button"
           disabled={status === 'updating'}
           onClick={() => apply()}
-          className="press rounded-xl bg-brand px-3 py-1.5 text-sm font-semibold disabled:opacity-60"
+          className="press rounded-lg bg-gold px-3 py-1.5 font-pixel text-sm text-wood disabled:opacity-60"
         >
           {status === 'failed' ? 'Ещё раз' : 'Обновить'}
         </button>

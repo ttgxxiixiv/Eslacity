@@ -23,7 +23,7 @@ const rng = seeded(Date.now());
 function Theory({ lesson, onStart }: { lesson: Lesson; onStart: () => void }) {
   return (
     <Screen>
-      <TopBar title={lesson.title} />
+      <TopBar title={<span className="font-sans text-lg font-bold tracking-normal normal-case">{lesson.title}</span>} />
       <div className="flex flex-col gap-4 px-5 pb-8 text-[17px] leading-relaxed">
         {lesson.theory.map((b, i) => {
           if (b.kind === 'text') return <Md key={i} text={b.md} />;
@@ -278,9 +278,9 @@ function LessonRunner({ lesson }: { lesson: Lesson }) {
         <button type="button" aria-label="Выйти" onClick={() => nav(-1)} className="press h-10 w-10 rounded-full text-xl text-stone-500">
           ✕
         </button>
-        <div className="h-3 flex-1 overflow-hidden rounded-full bg-stone-200">
+        <div className="h-3.5 flex-1 overflow-hidden rounded bg-wood p-[2px]">
           <div
-            className="h-full w-full origin-left rounded-full bg-brand"
+            className="h-full w-full origin-left rounded-sm bg-gold"
             style={{ transform: `scaleX(${progress})`, transition: 'transform 200ms ease-out' }}
           />
         </div>

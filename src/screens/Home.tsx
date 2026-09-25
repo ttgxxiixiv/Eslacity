@@ -51,7 +51,7 @@ function ContinueCard({ step }: { step: NextStep }) {
   if (step.kind === 'done') {
     return (
       <div className="rounded-3xl bg-white px-5 py-4 shadow-sm">
-        <div className="text-lg font-bold">Город построен</div>
+        <h2 className="text-lg font-bold">Город построен</h2>
         <div className="text-sm text-stone-500">Все уроки пройдены, осталось повторять</div>
       </div>
     );
@@ -73,13 +73,14 @@ function ContinueCard({ step }: { step: NextStep }) {
     <Link
       to={to}
       data-testid="continue"
-      className="press flex items-center justify-between gap-3 rounded-3xl bg-brand px-5 py-4 text-white shadow-md"
+      className="press flex items-center justify-between gap-3 rounded-xl bg-brand px-5 py-4 text-white shadow-md"
     >
       <div className="min-w-0">
-        <div className="text-lg font-bold">Продолжить</div>
+        <div className="font-pixel text-xs tracking-widest text-gold uppercase">Текущий квест</div>
+        <div className="font-pixel text-2xl font-bold">Продолжить</div>
         <div className="text-sm opacity-90">{sub}</div>
       </div>
-      <div className="text-3xl" aria-hidden>
+      <div className="bob font-pixel text-3xl text-gold" aria-hidden>
         ▶
       </div>
     </Link>
@@ -118,34 +119,34 @@ export function Home() {
   return (
     <Screen>
       <StatsBar />
-      <div className="px-5 pt-5">
+      <div className="px-3 pt-4">
         {/* Пока слова грузятся, держим место, чтобы экран не прыгал. */}
-        {step ? <ContinueCard step={step} /> : <div className="h-[84px] rounded-3xl bg-stone-200" />}
+        {step ? <ContinueCard step={step} /> : <div className="h-[104px] rounded-xl bg-stone-200" />}
         {nextGrammar && (
           <Link
             to={`/grammar/${nextGrammar.id}`}
-            className="press mt-3 flex items-center justify-between gap-3 rounded-2xl bg-white px-5 py-3 shadow-sm"
+            className="press mt-3 flex items-center justify-between gap-3 rounded-xl bg-white px-5 py-3 shadow-sm"
           >
-            <span className="min-w-0 truncate font-semibold">📘 {nextGrammar.title}</span>
-            <span className="shrink-0 text-sm text-stone-500">{nextGrammar.district}</span>
+            <span className="min-w-0 truncate font-semibold">📜 {nextGrammar.title}</span>
+            <span className="shrink-0 text-sm font-semibold text-stone-500">{nextGrammar.district}</span>
           </Link>
         )}
         <Link
           to="/review"
-          className="press mt-3 flex items-center justify-between rounded-2xl bg-white px-5 py-3 shadow-sm"
+          className="press mt-3 flex items-center justify-between rounded-xl bg-white px-5 py-3 shadow-sm"
         >
           <div>
-            <div className="font-semibold">Повторить</div>
+            <div className="font-pixel text-lg">Повторить</div>
             <div className="text-sm text-stone-500">{due ? `${due} слов на сегодня` : 'На сегодня всё повторено'}</div>
           </div>
           <div className={`text-3xl font-bold tabular-nums ${due ? 'text-brand' : 'text-stone-400'}`}>{due}</div>
         </Link>
         <Link
           to="/blitz"
-          className="press mt-3 flex items-center justify-between rounded-2xl bg-white px-5 py-3 shadow-sm"
+          className="press mt-3 flex items-center justify-between rounded-xl bg-white px-5 py-3 shadow-sm"
         >
-          <span className="font-semibold">⚡ Блиц 60 секунд</span>
-          <span className="text-sm text-stone-500">{learned} слов в запасе</span>
+          <span className="font-pixel text-lg">⚡ Блиц</span>
+          <span className="text-sm text-stone-500">60 секунд · {learned} слов в запасе</span>
         </Link>
       </div>
 

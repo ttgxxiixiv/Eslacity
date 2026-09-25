@@ -88,8 +88,8 @@ export default defineConfig({
         scope: './',
         display: 'standalone',
         orientation: 'portrait',
-        background_color: '#fafaf9',
-        theme_color: '#c2410c',
+        background_color: '#e9d8ab',
+        theme_color: '#3b2a1a',
         icons: [
           { src: 'icons/icon-192.png', sizes: '192x192', type: 'image/png' },
           { src: 'icons/icon-512.png', sizes: '512x512', type: 'image/png' },
@@ -98,7 +98,7 @@ export default defineConfig({
       },
       workbox: {
         // Весь контент (слова, уроки) лежит в JS-чанках, так что после первой загрузки всё работает офлайн.
-        globPatterns: ['**/*.{js,css,html,svg,png,webmanifest}'],
+        globPatterns: ['**/*.{js,css,html,svg,png,webmanifest,woff2}'],
         navigateFallback: 'index.html',
         cleanupOutdatedCaches: true,
       },
