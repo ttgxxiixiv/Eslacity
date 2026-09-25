@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { HashRouter, NavLink, Outlet, Route, Routes, useLocation } from 'react-router-dom';
+import { HashRouter, Outlet, Route, Routes, useLocation } from 'react-router-dom';
 import { bootstrap } from './store/bootstrap';
 import { Home } from './screens/Home';
 import { LocationScreen } from './screens/Location';
@@ -14,6 +14,7 @@ import { WordsScreen } from './screens/Words';
 import { useMotivation } from './store/motivation';
 import { ErrorBoundary } from './components/ErrorBoundary';
 import { UpdateBanner } from './components/UpdateBanner';
+import { NavBar } from './components/NavBar';
 
 /** Новый экран открывается сверху, а не с прокруткой предыдущего. */
 function ScrollToTop() {
@@ -27,33 +28,13 @@ function ScrollToTop() {
 }
 
 function TabLayout() {
-  // Нижнее меню как панель инвентаря: активный раздел в золотой ячейке.
-  const tab = ({ isActive }: { isActive: boolean }) =>
-    `press flex flex-1 flex-col items-center gap-0.5 rounded-lg py-1.5 font-pixel text-xs ${
-      isActive ? 'bg-wood-light text-gold shadow-[inset_0_0_0_2px_#e0b43c]' : 'text-stone-200'
-    }`;
   return (
     <>
-      <div className="pb-20">
+      <div className="pb-40">
         <Outlet />
       </div>
       <UpdateBanner />
-      <nav className="fixed inset-x-0 bottom-0 z-10 border-t-4 border-wood-light bg-wood pb-[env(safe-area-inset-bottom)]">
-        <div className="mx-auto flex max-w-md gap-1.5 px-2 py-1.5">
-          <NavLink to="/" end className={tab}>
-            <span className="text-xl">🏙️</span>Город
-          </NavLink>
-          <NavLink to="/grammar" className={tab}>
-            <span className="text-xl">📘</span>Грамматика
-          </NavLink>
-          <NavLink to="/review" className={tab}>
-            <span className="text-xl">🔁</span>Повтор
-          </NavLink>
-          <NavLink to="/profile" className={tab}>
-            <span className="text-xl">👤</span>Профиль
-          </NavLink>
-        </div>
-      </nav>
+      <NavBar />
     </>
   );
 }
