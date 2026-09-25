@@ -1,3 +1,4 @@
+import { L } from '../../lang';
 import { useState } from 'react';
 import { SpeakButton } from '../ui';
 import { CantListen, ListenControls } from './ListenControls';
@@ -18,7 +19,7 @@ export function Choice({ step, words, locked, onAnswer, onCantListen }: Exercise
   return (
     <div className="flex flex-1 flex-col">
       <div className="text-sm font-medium text-stone-500">
-        {listen ? 'Что вы услышали?' : esToRu ? 'Выберите перевод' : 'Как сказать по-испански?'}
+        {listen ? 'Что вы услышали?' : esToRu ? 'Выберите перевод' : `Как сказать ${L.adverb}?`}
       </div>
       {listen ? (
         <ListenControls text={word.es} />

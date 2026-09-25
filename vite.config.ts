@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react';
 import tailwindcss from '@tailwindcss/vite';
 import { VitePWA } from 'vite-plugin-pwa';
 import { execSync } from 'node:child_process';
-import { readFileSync, readdirSync } from 'node:fs';
+import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 
 // Данные о сборке: показываются в настройках и лежат в version.json для проверки обновлений.
@@ -18,15 +18,21 @@ function gitCommit(): string {
 }
 const BUILD = { version: pkg.version, commit: gitCommit(), builtAt: new Date().toISOString() };
 
-// Индекс уроков грамматики для карты: только id, район, номер и название.
-// Сами уроки грузятся лениво, по чанку на район.
-const GRAMMAR_DIR = join(import.meta.dirname, 'src', 'content', 'grammar');
+// Индекс уроков грамматики для карты: только язык, id, район, номер и название.
+// Сами уроки грузятся лениво, по чанку на язык и район.
+const CONTENT_DIR = join(import.meta.dirname, 'src', 'content');
+const grammarDirs = () =>
+  readdirSync(CONTENT_DIR, { withFileTypes: true })
+    .filter((e) => e.isDirectory() && existsSync(join(CONTENT_DIR, e.name, 'grammar')))
+    .map((e) => ({ lang: e.name, dir: join(CONTENT_DIR, e.name, 'grammar') }));
 function grammarIndex() {
-  const out: { id: string; district: string; order: number; title: string }[] = [];
-  for (const d of readdirSync(GRAMMAR_DIR)) {
-    for (const f of readdirSync(join(GRAMMAR_DIR, d)).filter((x) => x.endsWith('.json'))) {
-      const l = JSON.parse(readFileSync(join(GRAMMAR_DIR, d, f), 'utf8'));
-      out.push({ id: l.id, district: l.district, order: l.order, title: l.title });
+  const out: { lang: string; id: string; district: string; order: number; title: string }[] = [];
+  for (const { lang, dir } of grammarDirs()) {
+    for (const d of readdirSync(dir)) {
+      for (const f of readdirSync(join(dir, d)).filter((x) => x.endsWith('.json'))) {
+        const l = JSON.parse(readFileSync(join(dir, d, f), 'utf8'));
+        out.push({ lang, id: l.id, district: l.district, order: l.order, title: l.title });
+      }
     }
   }
   return out;
@@ -45,9 +51,12 @@ export default defineConfig({
           groups: [
             { name: 'vendor', test: /node_modules[\\/]/ },
             {
-              // Один чанк на район грамматики: grammar-a1, grammar-b11…
-              name: (id) => id.match(/content[\\/]grammar[\\/]([^\\/]+)[\\/]/)?.[1].replace(/^/, 'grammar-') ?? null,
-              test: /content[\\/]grammar[\\/][^\\/]+[\\/][^\\/]+\.json$/,
+              // Один чанк на язык и район грамматики: grammar-es-a1, grammar-it-b11…
+              name: (id) => {
+                const m = id.match(/content[\\/]([^\\/]+)[\\/]grammar[\\/]([^\\/]+)[\\/]/);
+                return m ? `grammar-${m[1]}-${m[2]}` : null;
+              },
+              test: /content[\\/][^\\/]+[\\/]grammar[\\/][^\\/]+[\\/][^\\/]+\.json$/,
             },
           ],
         },
@@ -64,7 +73,7 @@ export default defineConfig({
       },
       load(id) {
         if (id !== '\0virtual:grammar-index') return null;
-        for (const d of readdirSync(GRAMMAR_DIR)) this.addWatchFile(join(GRAMMAR_DIR, d));
+        for (const { dir } of grammarDirs()) for (const d of readdirSync(dir)) this.addWatchFile(join(dir, d));
         return `export default ${JSON.stringify(grammarIndex())};`;
       },
     },

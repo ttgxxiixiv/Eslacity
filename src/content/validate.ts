@@ -1,4 +1,5 @@
 import { normalize, splitArticle, stripAccents } from '../domain/answer';
+import type { Lang } from '../lang';
 import { LOCATION_IDS, type GrammarLesson, type LocationWords, type Word } from './schema';
 
 export interface Issue {
@@ -18,8 +19,39 @@ const STRESSED_A = new Set([
 
 const empty = (v: unknown) => typeof v !== 'string' || v.trim() === '';
 
-function checkArticle(w: Word, form: string, where: string, out: Issue[]) {
-  const { article, core } = splitArticle(form);
+// Итальянский: lo/gli перед s+согласная, z, gn, ps, x, y; l' перед гласной.
+// Перед h (заимствования) бывает и так и так: la hostess, l'home banking.
+const IT_LO = /^(s[^aeiouàèéìòù]|z|gn|ps|x|y)/;
+const IT_VOWEL = /^[aeiouàèéìòù]/;
+
+function checkArticleIt(w: Word, form: string, where: string, out: Issue[]) {
+  const { article, core } = splitArticle(form, 'it');
+  const all = ['il', 'lo', 'la', "l'", 'i', 'gli', 'le'];
+  if (!article || !all.includes(article)) {
+    out.push({ level: 'error', where, msg: `существительное без определённого артикля: "${form}"` });
+    return;
+  }
+  const expected = w.gender === 'f' ? ['la', "l'", 'le'] : ['il', 'lo', "l'", 'i', 'gli'];
+  if (!expected.includes(article)) {
+    out.push({ level: 'error', where, msg: `артикль "${article}" не совпадает с родом ${w.gender}` });
+    return;
+  }
+  if (core.startsWith('h')) return;
+  const vowel = IT_VOWEL.test(core);
+  const lo = IT_LO.test(core);
+  let want: string | null = null;
+  if (article === "l'" && !vowel) want = w.gender === 'f' ? 'la' : lo ? 'lo' : 'il';
+  if ((article === 'il' || article === 'lo' || article === 'la') && vowel) want = "l'";
+  if (article === 'il' && lo) want = 'lo';
+  if (article === 'lo' && !lo && !vowel) want = 'il';
+  if (article === 'i' && (vowel || lo)) want = 'gli';
+  if (article === 'gli' && !vowel && !lo) want = 'i';
+  if (want) out.push({ level: 'error', where, msg: `перед "${core}" нужен артикль "${want}", а не "${article}"` });
+}
+
+function checkArticle(w: Word, form: string, where: string, out: Issue[], lang: Lang = 'es') {
+  if (lang === 'it') return checkArticleIt(w, form, where, out);
+  const { article, core } = splitArticle(form, 'es');
   if (!article || !['el', 'la', 'los', 'las'].includes(article)) {
     out.push({ level: 'error', where, msg: `существительное без определённого артикля: "${form}"` });
     return;
@@ -31,7 +63,7 @@ function checkArticle(w: Word, form: string, where: string, out: Issue[]) {
   }
 }
 
-export function validateWords(files: { name: string; data: LocationWords }[]): Issue[] {
+export function validateWords(files: { name: string; data: LocationWords }[], lang: Lang = 'es'): Issue[] {
   const out: Issue[] = [];
   const ids = new Map<string, string>();
   // Одно испанское слово в двух локациях с разным переводом путает варианты ответа.
@@ -86,13 +118,13 @@ export function validateWords(files: { name: string; data: LocationWords }[]): I
         if (w.gender !== 'm' && w.gender !== 'f') {
           out.push({ level: 'error', where: at, msg: 'у существительного нет рода' });
         } else {
-          checkArticle(w, w.es, at, out);
-          if (w.latam) checkArticle(w, w.latam, `${at} (latam)`, out);
-          for (const a of w.alt ?? []) checkArticle(w, a, `${at} (alt)`, out);
+          checkArticle(w, w.es, at, out, lang);
+          if (w.latam) checkArticle(w, w.latam, `${at} (latam)`, out, lang);
+          for (const a of w.alt ?? []) checkArticle(w, a, `${at} (alt)`, out, lang);
         }
       } else {
         if (w.gender) out.push({ level: 'warning', where: at, msg: 'род у не-существительного' });
-        if (w.pos !== 'phrase' && splitArticle(w.es).article) {
+        if (w.pos !== 'phrase' && w.es.includes(' ') && splitArticle(w.es, lang).article) {
           out.push({ level: 'error', where: at, msg: `артикль у части речи ${w.pos}` });
         }
       }
@@ -102,10 +134,12 @@ export function validateWords(files: { name: string; data: LocationWords }[]): I
 
       if (w.example && !empty(w.example.es)) {
         const ex = stripAccents(normalize(w.example.es));
-        let core = stripAccents(splitArticle(w.es).core);
-        // Возвратный глагол: bañarse → bañar, в примере будет bañarnos.
-        if (w.pos === 'verb' && core.endsWith('se')) core = core.slice(0, -2);
-        const stem = core.length > 4 ? core.slice(0, core.length - 2) : core;
+        let core = stripAccents(splitArticle(w.es, lang).core);
+        // Возвратный глагол: bañarse → bañar, lavarsi → lavar; в примере будет bañarnos, mi lavo.
+        if (w.pos === 'verb' && core.endsWith(lang === 'it' ? 'si' : 'se')) core = core.slice(0, -2);
+        // У итальянских глаголов окончание длиннее: parlare → parl.
+        const cut = lang === 'it' && w.pos === 'verb' && core.length > 5 ? 3 : 2;
+        const stem = core.length > 4 ? core.slice(0, core.length - cut) : core;
         if (!ex.includes(stem)) {
           out.push({ level: 'warning', where: at, msg: `в примере нет слова "${w.es}"` });
         }
@@ -133,7 +167,7 @@ export function validateWords(files: { name: string; data: LocationWords }[]): I
   return out;
 }
 
-export function validateGrammar(files: { name: string; data: GrammarLesson }[]): Issue[] {
+export function validateGrammar(files: { name: string; data: GrammarLesson }[], lang: Lang = 'es'): Issue[] {
   const out: Issue[] = [];
   const ids = new Map<string, string>();
   const orders = new Map<string, string>();
@@ -173,10 +207,10 @@ export function validateGrammar(files: { name: string; data: GrammarLesson }[]):
 
     if ((l.exercises?.length ?? 0) < 3) out.push({ level: 'error', where: at, msg: 'меньше 3 упражнений' });
     // Типы заданий должны остаться и без vosotros (вариант es-419).
-    for (const [label, list] of [
-      ['', l.exercises ?? []],
-      [' (es-419)', (l.exercises ?? []).filter((e) => e.region !== 'es')],
-    ] as const) {
+    const variants: [string, typeof l.exercises][] = [['', l.exercises ?? []]];
+    if (lang === 'es') variants.push([' (es-419)', (l.exercises ?? []).filter((e) => e.region !== 'es')]);
+    else if ((l.exercises ?? []).some((e) => e.region)) out.push({ level: 'error', where: at, msg: 'region бывает только у испанских уроков' });
+    for (const [label, list] of variants) {
       const kinds = new Set(list.map((e) => e.kind));
       for (const k of ['choose', 'gap', 'truefalse']) {
         if (!kinds.has(k as never)) out.push({ level: 'error', where: at, msg: `нет упражнения типа ${k}${label}` });

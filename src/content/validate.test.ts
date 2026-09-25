@@ -35,3 +35,19 @@ describe('validateWords', () => {
     expect(errors(tenWords().slice(0, 9)).join()).toMatch(/9 слов/);
   });
 });
+
+describe('validateWords, итальянский', () => {
+  const it10 = (first: Partial<Word>) =>
+    Array.from({ length: 10 }, (_, i) =>
+      base(i, { es: `la parola${i}`, example: { es: `È la parola${i}.`, ru: 'пример' }, ...(i === 0 ? first : {}) }),
+    );
+  const itErrors = (words: Word[]) => validateWords(file(words), 'it').filter((x) => x.level === 'error').map((x) => x.msg);
+  it('чистый контент без ошибок', () => {
+    expect(itErrors(it10({}))).toEqual([]);
+  });
+  it('l\' перед гласной, lo перед s+согласной', () => {
+    expect(itErrors(it10({ es: 'la acqua', example: { es: "L'acqua.", ru: 'вода' } })).join()).toMatch(/нужен артикль "l'"/);
+    expect(itErrors(it10({ es: 'il zucchero', gender: 'm', example: { es: 'Lo zucchero.', ru: 'сахар' } })).join()).toMatch(/нужен артикль "lo"/);
+    expect(itErrors(it10({ es: "l'acqua", example: { es: "L'acqua è fredda.", ru: 'вода' } }))).toEqual([]);
+  });
+});

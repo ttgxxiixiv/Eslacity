@@ -99,3 +99,23 @@ describe('answerLetters', () => {
     expect(answerLetters('señor').letters).toContain('ñ');
   });
 });
+
+describe('итальянский', () => {
+  it('артикли il/lo/la/l\', i/gli/le и слитные l\'/un\'', () => {
+    expect(splitArticle("l'acqua", 'it')).toEqual({ article: "l'", core: 'acqua' });
+    expect(splitArticle('lo zucchero', 'it')).toEqual({ article: 'lo', core: 'zucchero' });
+    expect(splitArticle('gli spaghetti', 'it')).toEqual({ article: 'gli', core: 'spaghetti' });
+    expect(splitArticle("un'amica", 'it')).toEqual({ article: "un'", core: 'amica' });
+    expect(splitArticle('il caffè', 'es')).toEqual({ article: null, core: 'il caffè' });
+  });
+  it('апостроф с телефонной клавиатуры и пробел после l\'', () => {
+    expect(normalize('L’acqua')).toBe("l'acqua");
+    expect(normalize("l' acqua")).toBe("l'acqua");
+    expect(normalize("un po' di pane")).toBe("un po' di pane");
+  });
+  it('буквы для ввода: апостроф и итальянские ударения', () => {
+    expect(answerLetters("l'acqua", 'it')).toEqual({ letters: ['a', 'c', 'l', 'q', 'u', "'"], space: false });
+    expect(answerLetters('il caffè', 'it').letters).toContain('è');
+    expect(stripAccents('città perché')).toBe('citta perche');
+  });
+});

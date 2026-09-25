@@ -1,6 +1,7 @@
 import Dexie, { type Table } from 'dexie';
 import type { LocationId } from '../content/schema';
 import type { SrsCard } from '../domain/srs';
+import { L } from '../lang';
 
 export interface BuildingRow {
   locationId: LocationId;
@@ -38,7 +39,8 @@ class EslaDB extends Dexie {
   meta!: Table<MetaRow, string>;
 
   constructor() {
-    super('eslacity');
+    // У каждого языка своя база: у испанского прежнее имя, чтобы прогресс сохранился.
+    super(L.db);
     this.version(1).stores({
       cards: 'wordId, due',
       buildings: 'locationId',

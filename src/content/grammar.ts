@@ -1,5 +1,6 @@
 import INDEX from 'virtual:grammar-index';
 import { VARIANT, VARIANTS } from '../config';
+import { LANG } from '../lang';
 import { forVariant } from '../domain/grammar';
 import type { District, GrammarLesson } from './schema';
 
@@ -11,14 +12,14 @@ export interface LessonMeta {
   title: string;
 }
 
-export const GRAMMAR: LessonMeta[] = INDEX.slice().sort((a, b) => a.order - b.order);
+export const GRAMMAR: LessonMeta[] = INDEX.filter((l) => l.lang === LANG).sort((a, b) => a.order - b.order);
 
-// Уроки лежат в отдельных чанках по районам и загружаются при открытии.
-const loaders = import.meta.glob<GrammarLesson>('./grammar/*/*.json', { import: 'default' });
+// Уроки лежат в отдельных чанках по языкам и районам и загружаются при открытии.
+const loaders = import.meta.glob<GrammarLesson>('./*/grammar/*/*.json', { import: 'default' });
 const loaderById = new Map<string, () => Promise<GrammarLesson>>();
 for (const [path, load] of Object.entries(loaders)) {
-  const [, folder, file] = path.match(/\/grammar\/([^/]+)\/(.+)\.json$/)!;
-  loaderById.set(`${folder}.${file}`, load);
+  const [, lang, folder, file] = path.match(/^\.\/([^/]+)\/grammar\/([^/]+)\/(.+)\.json$/)!;
+  if (lang === LANG) loaderById.set(`${folder}.${file}`, load);
 }
 
 const cache = new Map<string, GrammarLesson>();
@@ -28,7 +29,7 @@ export async function loadLesson(id: string): Promise<GrammarLesson | undefined>
   if (hit) return hit;
   const load = loaderById.get(id);
   if (!load) return undefined;
-  const lesson = forVariant(await load(), VARIANTS[VARIANT].vosotros);
+  const lesson = forVariant(await load(), LANG !== 'es' || VARIANTS[VARIANT].vosotros);
   cache.set(id, lesson);
   return lesson;
 }
@@ -37,13 +38,26 @@ export function hasLesson(id: string): boolean {
   return loaderById.has(id);
 }
 
-export const DISTRICTS: { id: District; title: string; subtitle: string }[] = [
-  { id: 'A1', title: 'A1', subtitle: 'Первые шаги' },
-  { id: 'A2', title: 'A2', subtitle: 'Прошедшие времена, местоимения, сравнения' },
-  { id: 'B1.1', title: 'B1.1', subtitle: 'Будущее, условное наклонение, subjuntivo' },
-  { id: 'B1.2', title: 'B1.2', subtitle: 'Условные предложения, косвенная речь, se' },
-  { id: 'B2', title: 'B2', subtitle: 'Сложные времена subjuntivo, согласование времён' },
-];
+const SUBTITLES: Record<typeof LANG, Record<District, string>> = {
+  es: {
+    A1: 'Первые шаги',
+    A2: 'Прошедшие времена, местоимения, сравнения',
+    'B1.1': 'Будущее, условное наклонение, subjuntivo',
+    'B1.2': 'Условные предложения, косвенная речь, se',
+    B2: 'Сложные времена subjuntivo, согласование времён',
+  },
+  it: {
+    A1: 'Первые шаги',
+    A2: 'Passato prossimo, imperfetto, местоимения',
+    'B1.1': 'Будущее, condizionale, congiuntivo',
+    'B1.2': 'Условные предложения, косвенная речь, si',
+    B2: 'Congiuntivo imperfetto и trapassato, согласование времён',
+  },
+};
+
+export const DISTRICTS: { id: District; title: string; subtitle: string }[] = (
+  ['A1', 'A2', 'B1.1', 'B1.2', 'B2'] as District[]
+).map((id) => ({ id, title: id, subtitle: SUBTITLES[LANG][id] }));
 
 export function lessonsOf(d: District): LessonMeta[] {
   return GRAMMAR.filter((l) => l.district === d);

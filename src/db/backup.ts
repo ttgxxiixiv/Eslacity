@@ -1,4 +1,5 @@
 import { db } from './db';
+import { L, LANG, LANGS, type Lang } from '../lang';
 
 const TABLES = ['cards', 'buildings', 'grammar', 'days', 'meta'] as const;
 
@@ -6,12 +7,20 @@ export interface Backup {
   app: 'eslacity';
   version: 1;
   exportedAt: string;
+  /** Язык курса. В старых копиях поля нет: это испанский. */
+  lang?: Lang;
   data: Record<(typeof TABLES)[number], unknown[]>;
 }
 
 export async function exportBackup(): Promise<Backup> {
   const entries = await Promise.all(TABLES.map(async (t) => [t, await db.table(t).toArray()] as const));
-  return { app: 'eslacity', version: 1, exportedAt: new Date().toISOString(), data: Object.fromEntries(entries) as Backup['data'] };
+  return {
+    app: 'eslacity',
+    version: 1,
+    exportedAt: new Date().toISOString(),
+    lang: LANG,
+    data: Object.fromEntries(entries) as Backup['data'],
+  };
 }
 
 export function downloadJson(obj: unknown, filename: string) {
@@ -28,6 +37,10 @@ export function parseBackup(text: string): Backup {
   const b = JSON.parse(text) as Backup;
   if (b?.app !== 'eslacity' || b.version !== 1 || typeof b.data !== 'object') throw new Error('Это не файл прогресса Eslacity');
   for (const t of TABLES) if (!Array.isArray(b.data[t])) throw new Error(`В файле нет таблицы ${t}`);
+  const lang = b.lang ?? 'es';
+  if (lang !== LANG) {
+    throw new Error(`Это прогресс курса «${LANGS[lang].name}», а сейчас открыт «${L.name}». Переключите язык в настройках.`);
+  }
   return b;
 }
 

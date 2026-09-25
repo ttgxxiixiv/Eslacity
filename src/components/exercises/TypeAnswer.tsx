@@ -1,3 +1,4 @@
+import { L, LANG } from '../../lang';
 import { useRef, useState } from 'react';
 import { answerLetters, checkTyped, type CheckResult } from '../../domain/answer';
 import { AccentBar } from '../AccentBar';
@@ -55,7 +56,7 @@ export function TypeAnswer({ step, words, locked, onAnswer, onCantListen }: Exer
 
   return (
     <div className="flex flex-1 flex-col">
-      <div className="text-sm font-medium text-stone-500">{dictation ? 'Напишите, что услышали' : 'Напишите по-испански'}</div>
+      <div className="text-sm font-medium text-stone-500">{dictation ? 'Напишите, что услышали' : `Напишите ${L.adverb}`}</div>
       {dictation ? (
         <ListenControls text={word.es} />
       ) : (
@@ -80,7 +81,7 @@ export function TypeAnswer({ step, words, locked, onAnswer, onCantListen }: Exer
           value={value}
           onChange={(e) => setValue(e.target.value)}
           readOnly={locked}
-          lang="es"
+          lang={LANG}
           autoCapitalize="off"
           autoCorrect="off"
           autoComplete="off"

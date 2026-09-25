@@ -1,19 +1,21 @@
 import { VARIANT } from '../config';
+import { LANG } from '../lang';
 import type { LocationId, LocationWords, Word } from './schema';
 
-const modules = import.meta.glob<LocationWords>('./words/*.json', { import: 'default' });
+// Слова всех языков лежат в src/content/<язык>/words; загружаются только слова выбранного языка.
+const modules = import.meta.glob<LocationWords>('./*/words/*.json', { import: 'default' });
 
 const loaderById = new Map<LocationId, () => Promise<LocationWords>>();
 for (const [path, load] of Object.entries(modules)) {
-  const id = path.match(/\/([^/]+)\.json$/)![1] as LocationId;
-  loaderById.set(id, load);
+  const [, lang, id] = path.match(/^\.\/([^/]+)\/words\/([^/]+)\.json$/)!;
+  if (lang === LANG) loaderById.set(id as LocationId, load);
 }
 
 const cache = new Map<LocationId, Word[]>();
 const byId = new Map<string, Word>();
 
 function resolve(w: Word): Word {
-  if (VARIANT === 'es-419' && w.latam) return { ...w, es: w.latam, alt: undefined };
+  if (LANG === 'es' && VARIANT === 'es-419' && w.latam) return { ...w, es: w.latam, alt: undefined };
   return w;
 }
 

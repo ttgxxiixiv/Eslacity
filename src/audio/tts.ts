@@ -1,4 +1,5 @@
 import { VARIANT, VARIANTS } from '../config';
+import { L, LANG } from '../lang';
 import { useSettings } from '../store/settings';
 
 let voice: SpeechSynthesisVoice | null = null;
@@ -10,13 +11,17 @@ function norm(lang: string) {
   return lang.replace('_', '-').toLowerCase();
 }
 
+function preferredVoices(): string[] {
+  return LANG === 'es' ? VARIANTS[VARIANT].voices : L.voices;
+}
+
 function pickVoice() {
   const voices = speechSynthesis.getVoices();
   if (voices.length) voicesLoaded = true;
-  const prefs = VARIANTS[VARIANT].voices.map(norm);
+  const prefs = preferredVoices().map(norm);
   voice =
     prefs.map((p) => voices.find((v) => norm(v.lang) === p)).find(Boolean) ??
-    voices.find((v) => norm(v.lang).startsWith('es')) ??
+    voices.find((v) => norm(v.lang).startsWith(L.voicePrefix)) ??
     null;
 }
 
@@ -39,8 +44,8 @@ let current: SpeechSynthesisUtterance | null = null;
 export function speak(text: string, rate = useSettings.getState().speechRate): void {
   if (!supported || !text) return;
   const u = new SpeechSynthesisUtterance(text);
-  // Если голоса ещё не загрузились, Android всё равно выберет испанский по lang.
-  u.lang = voice?.lang ?? VARIANTS[VARIANT].voices[0];
+  // Если голоса ещё не загрузились, Android всё равно выберет голос по lang.
+  u.lang = voice?.lang ?? preferredVoices()[0];
   if (voice) u.voice = voice;
   u.rate = rate;
   u.onend = () => {
@@ -58,7 +63,7 @@ export function speak(text: string, rate = useSettings.getState().speechRate): v
 
 /** Можно ли сейчас давать задания на слух. */
 export function listeningEnabled(now = Date.now()): boolean {
-  // Если голоса загрузились, а испанского среди них нет, звук будет молчать: заданий на слух не даём.
+  // Если голоса загрузились, а голоса изучаемого языка среди них нет, звук будет молчать: заданий на слух не даём.
   return supported && now >= useSettings.getState().listenOffUntil && (!voicesLoaded || voice !== null);
 }
 
@@ -68,6 +73,6 @@ export function pauseListening(hours = 1): void {
 }
 
 /** true/false, когда список голосов загружен; null, пока неизвестно. */
-export function hasSpanishVoice(): boolean | null {
+export function hasLangVoice(): boolean | null {
   return voicesLoaded ? voice !== null : null;
 }

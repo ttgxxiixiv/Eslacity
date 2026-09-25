@@ -1,5 +1,5 @@
 import type { Word } from '../content/schema';
-import { splitArticle } from './answer';
+import { definiteArticles, splitArticle } from './answer';
 
 export type Rng = () => number;
 
@@ -81,7 +81,10 @@ export function makeScramble(word: Word, rng: Rng): ScrambleData {
   let letters = shuffle(chars, rng);
   for (let i = 0; i < 10 && letters.join('') === core; i++) letters = shuffle(chars, rng);
   let articles: string[] | null = null;
-  if (article) articles = article === 'los' || article === 'las' ? ['los', 'las'] : ['el', 'la'];
+  if (article) {
+    const { singular, plural } = definiteArticles();
+    articles = plural.includes(article) ? plural : singular;
+  }
   return { articles, article, core, letters };
 }
 

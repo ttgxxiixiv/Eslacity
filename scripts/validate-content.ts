@@ -1,6 +1,7 @@
 import { readdirSync, readFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { validateGrammar, validateWords, type Issue } from '../src/content/validate';
+import type { Lang } from '../src/lang';
 
 const root = join(import.meta.dirname, '..', 'src', 'content');
 
@@ -19,27 +20,34 @@ function readJson<T>(dir: string): { name: string; data: T }[] {
     });
 }
 
-const words = readJson<Parameters<typeof validateWords>[0][number]['data']>(join(root, 'words'));
-const grammarDir = join(root, 'grammar');
-const grammar = existsSync(grammarDir)
-  ? readdirSync(grammarDir).flatMap((d) =>
-      readJson<Parameters<typeof validateGrammar>[0][number]['data']>(join(grammarDir, d)).map((f) => ({
-        ...f,
-        name: `${d}/${f.name}`,
-      })),
-    )
-  : [];
+const issues: Issue[] = [];
+const summary: string[] = [];
+const langs = readdirSync(root, { withFileTypes: true })
+  .filter((e) => e.isDirectory() && existsSync(join(root, e.name, 'words')))
+  .map((e) => e.name as Lang);
 
-const issues: Issue[] = [...validateWords(words), ...validateGrammar(grammar)];
+for (const lang of langs) {
+  const words = readJson<Parameters<typeof validateWords>[0][number]['data']>(join(root, lang, 'words'));
+  const grammarDir = join(root, lang, 'grammar');
+  const grammar = existsSync(grammarDir)
+    ? readdirSync(grammarDir).flatMap((d) =>
+        readJson<Parameters<typeof validateGrammar>[0][number]['data']>(join(grammarDir, d)).map((f) => ({
+          ...f,
+          name: `${d}/${f.name}`,
+        })),
+      )
+    : [];
+  const tag = (list: Issue[]) => list.map((i) => ({ ...i, where: `${lang}/${i.where}` }));
+  issues.push(...tag(validateWords(words, lang)), ...tag(validateGrammar(grammar, lang)));
+  const wordCount = words.reduce((n, f) => n + f.data.words.length, 0);
+  summary.push(`${lang}: ${words.length} локаций, ${wordCount} слов, ${grammar.length} уроков`);
+}
+
 const errors = issues.filter((i) => i.level === 'error');
 const warnings = issues.filter((i) => i.level === 'warning');
 
 for (const i of warnings) console.warn(`⚠ ${i.where}: ${i.msg}`);
 for (const i of errors) console.error(`✗ ${i.where}: ${i.msg}`);
 
-const wordCount = words.reduce((n, f) => n + f.data.words.length, 0);
-console.log(
-  `Контент: ${words.length} локаций, ${wordCount} слов, ${grammar.length} уроков грамматики. ` +
-    `Ошибок: ${errors.length}, предупреждений: ${warnings.length}.`,
-);
+console.log(`Контент: ${summary.join('; ')}. Ошибок: ${errors.length}, предупреждений: ${warnings.length}.`);
 process.exit(errors.length ? 1 : 0);

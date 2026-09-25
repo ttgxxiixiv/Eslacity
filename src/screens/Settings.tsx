@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { VARIANT, VARIANTS } from '../config';
-import { currentVoice, hasSpanishVoice, speak, ttsSupported } from '../audio/tts';
+import { currentVoice, hasLangVoice, speak, ttsSupported } from '../audio/tts';
+import { L, LANG, LANGS, switchLang, type Lang } from '../lang';
 import { resetProgress } from '../store/bootstrap';
 import { downloadJson, exportBackup, importBackup, parseBackup } from '../db/backup';
 import { useSettings, type Settings } from '../store/settings';
@@ -9,6 +10,11 @@ import { Button, Screen, TopBar } from '../components/ui';
 import { AboutApp } from '../components/AboutApp';
 
 const GOALS: Settings['dailyGoal'][] = [50, 100, 150, 250];
+
+const SAMPLE: Record<Lang, string> = {
+  es: '¡Hola! ¿Qué tal? Un café con leche, por favor.',
+  it: 'Ciao! Come stai? Un caffè, per favore.',
+};
 
 export function SettingsScreen() {
   const { speechRate, dailyGoal, listenOffUntil, update } = useSettings();
@@ -20,6 +26,30 @@ export function SettingsScreen() {
     <Screen>
       <TopBar title="Настройки" />
       <div className="flex flex-col gap-4 px-5 pb-6">
+        <section className="rounded-3xl bg-white p-4 shadow-sm">
+          <h2 className="font-bold">Язык курса</h2>
+          <div className="mt-3 grid grid-cols-2 gap-2">
+            {(Object.keys(LANGS) as Lang[]).map((id) => (
+              <button
+                key={id}
+                type="button"
+                aria-pressed={id === LANG}
+                onClick={() => switchLang(id)}
+                className={`press flex items-center justify-center gap-2 rounded-xl border-2 py-2.5 font-semibold ${
+                  id === LANG ? 'border-brand bg-orange-50 text-brand' : 'border-stone-200'
+                }`}
+              >
+                <span className="text-xl">{LANGS[id].flag}</span>
+                {LANGS[id].name}
+              </button>
+            ))}
+          </div>
+          <p className="mt-2 text-sm text-stone-500">
+            У каждого языка свой город, слова, монеты и стрик. При переключении приложение перезапустится, прогресс
+            другого языка сохранится.
+          </p>
+        </section>
+
         <section className="rounded-3xl bg-white p-4 shadow-sm">
           <h2 className="font-bold">Дневная цель</h2>
           <div className="mt-3 grid grid-cols-4 gap-2">
@@ -65,7 +95,7 @@ export function SettingsScreen() {
                 variant="secondary"
                 className="mt-2 w-full"
                 onClick={() => {
-                  speak('¡Hola! ¿Qué tal? Un café con leche, por favor.');
+                  speak(SAMPLE[LANG]);
                   setVoiceName(currentVoice()?.name);
                 }}
               >
@@ -84,14 +114,14 @@ export function SettingsScreen() {
                   className="h-6 w-11 accent-[var(--color-brand)]"
                 />
               </label>
-              {hasSpanishVoice() === false && (
+              {hasLangVoice() === false && (
                 <p className="mt-2 rounded-xl bg-amber-50 px-3 py-2 text-sm text-amber-800">
-                  В системе нет испанского голоса, поэтому задания на слух не показываются. Android: Настройки → Синтез речи →
-                  Google → установить голос «Испанский (Испания)».
+                  В системе нет голоса для {L.genitive}, поэтому задания на слух не показываются. {L.voiceHint}
                 </p>
               )}
               <p className="mt-2 text-sm text-stone-500">
-                Голос: {voiceName ?? 'системный по умолчанию'} · вариант: {VARIANTS[VARIANT].label}
+                Голос: {voiceName ?? 'системный по умолчанию'}
+                {LANG === 'es' && ` · вариант: ${VARIANTS[VARIANT].label}`}
               </p>
             </>
           )}
@@ -107,7 +137,7 @@ export function SettingsScreen() {
           <Button
             variant="secondary"
             className="mt-3 w-full"
-            onClick={async () => downloadJson(await exportBackup(), `eslacity-${new Date().toISOString().slice(0, 10)}.json`)}
+            onClick={async () => downloadJson(await exportBackup(), `eslacity-${LANG}-${new Date().toISOString().slice(0, 10)}.json`)}
           >
             Сохранить в файл
           </Button>
