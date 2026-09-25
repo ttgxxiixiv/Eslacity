@@ -18,7 +18,11 @@ import { UpdateBanner } from './components/UpdateBanner';
 /** Новый экран открывается сверху, а не с прокруткой предыдущего. */
 function ScrollToTop() {
   const { pathname } = useLocation();
-  useEffect(() => window.scrollTo(0, 0), [pathname]);
+  // Фигурные скобки обязательны: в новом Chrome scrollTo возвращает Promise,
+  // и React пытался бы вызвать его как функцию очистки при смене экрана.
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
   return null;
 }
 
