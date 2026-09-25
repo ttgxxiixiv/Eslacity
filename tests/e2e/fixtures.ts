@@ -103,6 +103,30 @@ export async function seedXp(page: Page, lang: Lang, xp: number) {
   await expect(page.getByTestId('continue')).toBeVisible();
 }
 
+export interface LoggedAnswer {
+  itemId: string;
+  kind: string;
+  verdict: string;
+  mode: string;
+  ms: number;
+}
+
+/** Прочитать журнал ответов из базы языка. */
+export function readAnswers(page: Page, lang: Lang): Promise<LoggedAnswer[]> {
+  return page.evaluate(
+    (db) =>
+      new Promise<LoggedAnswer[]>((resolve, reject) => {
+        const r = indexedDB.open(db);
+        r.onerror = () => reject(r.error);
+        r.onsuccess = () => {
+          const q = r.result.transaction('answers').objectStore('answers').getAll();
+          q.onsuccess = () => resolve(q.result);
+        };
+      }),
+    DB[lang],
+  );
+}
+
 export interface PlayResult {
   kinds: Record<string, number>;
   verdicts: Record<string, number>;

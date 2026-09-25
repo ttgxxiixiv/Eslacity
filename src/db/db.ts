@@ -1,6 +1,7 @@
 import Dexie, { type Table } from 'dexie';
 import type { LocationId } from '../content/schema';
 import type { SrsCard } from '../domain/srs';
+import type { AnswerRecord } from '../domain/answerLog';
 import { L } from '../lang';
 
 export interface BuildingRow {
@@ -37,6 +38,7 @@ class EslaDB extends Dexie {
   grammar!: Table<GrammarRow, string>;
   days!: Table<DayRow, string>;
   meta!: Table<MetaRow, string>;
+  answers!: Table<AnswerRecord, number>;
 
   constructor() {
     // У каждого языка своя база: у испанского прежнее имя, чтобы прогресс сохранился.
@@ -47,6 +49,10 @@ class EslaDB extends Dexie {
       grammar: 'lessonId',
       days: 'date',
       meta: 'key',
+    });
+    // Версия 2: журнал ответов. Остальные таблицы не меняются, переносить нечего.
+    this.version(2).stores({
+      answers: '++id, ts, itemId, mode',
     });
   }
 }

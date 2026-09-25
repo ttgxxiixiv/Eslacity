@@ -1,5 +1,5 @@
 import { expect, test } from '@playwright/test';
-import { LANGS, loadWords, openApp, playWords, seedDueCards } from './fixtures';
+import { LANGS, loadWords, openApp, playWords, readAnswers, seedDueCards } from './fixtures';
 
 for (const lang of LANGS) {
   test.describe(lang, () => {
@@ -9,6 +9,7 @@ for (const lang of LANGS) {
       await seedDueCards(page, lang, ids);
       await page.goto('./#/review');
       await playWords(page, lang, /повторение завершено/i);
+      await expect.poll(async () => (await readAnswers(page, lang)).filter((a) => a.mode === 'review').length).toBeGreaterThanOrEqual(10);
       await page.goto('./#/');
       await expect(page.getByText('На сегодня всё повторено')).toBeVisible();
     });
@@ -25,6 +26,9 @@ for (const lang of LANGS) {
       }
       await page.getByRole('button', { name: 'Закончить' }).click();
       await expect(page.getByText('Ещё раз')).toBeVisible();
+      const log = (await readAnswers(page, lang)).filter((a) => a.mode === 'blitz');
+      expect(log).toHaveLength(5);
+      expect(log.every((a) => /^blitz-(es-ru|ru-es)$/.test(a.kind))).toBe(true);
     });
   });
 }

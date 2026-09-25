@@ -84,6 +84,7 @@ export function ReviewScreen() {
       steps={ready.steps}
       words={ready.words}
       pool={ready.pool}
+      mode="review"
       onExit={(s) => {
         // Ответы уже данные сохраняем, остальные слова останутся на сегодня.
         save(s);

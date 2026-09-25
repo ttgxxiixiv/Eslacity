@@ -14,6 +14,18 @@ describe('резервная копия', () => {
     expect(await db.cards.get('cafe.te')).toMatchObject({ due: 5 });
     expect((await db.meta.get('coins'))?.value).toBe(42);
   });
+  it('журнал ответов попадает в копию, а старая копия без него загружается', async () => {
+    await db.answers.add({ ts: 5, itemId: 'cafe.te', kind: 'type', verdict: 'correct', mode: 'learn', ms: 800 });
+    const b = await exportBackup();
+    expect(b.data.answers).toHaveLength(1);
+
+    const { answers: _drop, ...oldData } = b.data;
+    const old = parseBackup(JSON.stringify({ ...b, data: oldData }));
+    await importBackup(old);
+    expect(await db.answers.count()).toBe(0);
+    expect(await db.cards.get('cafe.te')).toBeDefined();
+  });
+
   it('отклоняет чужой файл', () => {
     expect(() => parseBackup('{"foo":1}')).toThrow(/не файл прогресса/);
   });

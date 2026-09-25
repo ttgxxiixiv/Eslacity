@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { ECONOMY, XP } from '../config';
 import type { Word } from '../content/schema';
 import { afterPaint } from '../lib/afterPaint';
@@ -11,6 +11,8 @@ import {
 import { useCity } from '../store/city';
 import { useProgress } from '../store/progress';
 import { useMotivation } from '../store/motivation';
+import { logAnswer } from '../db/answers';
+import { type AnswerMode, answerMs } from '../domain/answerLog';
 import { BuildPhrase } from './exercises/BuildPhrase';
 import { Choice } from './exercises/Choice';
 import { Intro } from './exercises/Intro';
@@ -29,6 +31,8 @@ interface Props {
   steps: Step[];
   words: Record<string, Word>;
   pool: Word[];
+  /** Для журнала ответов: урок, тренировка или повторение. */
+  mode: AnswerMode;
   onFinish(s: SessionState, totals: LessonTotals): void;
   onExit(s: SessionState): void;
 }
@@ -44,13 +48,18 @@ function defaultFeedback(step: Step, words: Record<string, Word>, o: Outcome): F
   return { verdict: o.verdict, title: TITLES[o.verdict], answer: w.es, sub: `${w.ru}${g}`, speakText: w.es };
 }
 
-export function LessonPlayer({ steps, words, pool, onFinish, onExit }: Props) {
+export function LessonPlayer({ steps, words, pool, mode, onFinish, onExit }: Props) {
   const [session, setSession] = useState(() => startSession(steps));
   const [fb, setFb] = useState<Feedback | null>(null);
   const [totals, setTotals] = useState<LessonTotals>({ xp: 0, coins: 0 });
   const finished = useRef(false);
 
   const step = session.steps[session.index];
+  // Когда показано текущее задание: время ответа идёт в журнал.
+  const shownAt = useRef(Date.now());
+  useEffect(() => {
+    shownAt.current = Date.now();
+  }, [step?.id]);
 
   const retry = (s: Step): Step | null => {
     if (s.kind === 'match' || s.kind === 'intro') return null;
@@ -64,6 +73,13 @@ export function LessonPlayer({ steps, words, pool, onFinish, onExit }: Props) {
     const f = { ...defaultFeedback(step, words, o), ...defined };
     setFb(f);
     setSession((s) => recordAnswer(s, o, retry));
+    const now = Date.now();
+    const ms = answerMs(shownAt.current, now);
+    if (step.kind === 'match') {
+      for (const id of step.wordIds) logAnswer({ itemId: id, kind: 'match', verdict: o.perWord?.[id] ?? o.verdict, mode, ms }, now);
+    } else if (step.kind !== 'intro') {
+      logAnswer({ itemId: step.wordId, kind: step.kind, verdict: o.verdict, mode, ms }, now);
+    }
     const xp = o.verdict === 'correct' ? XP.correct : o.verdict === 'almost' ? XP.almost : 0;
     const coins = o.verdict === 'wrong' ? 0 : ECONOMY.coinPerCorrect;
     setTotals((t) => ({ xp: t.xp + xp, coins: t.coins + coins }));

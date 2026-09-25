@@ -1,4 +1,5 @@
 import { db, type BuildingRow } from '../db/db';
+import { pruneAnswers } from '../db/answers';
 import { dayKey } from '../domain/srs';
 import type { Settings } from './settings';
 import { useCity } from './city';
@@ -33,6 +34,8 @@ export async function bootstrap(): Promise<void> {
   useMotivation.getState().hydrate(m.motivation as Partial<MotivationData> | undefined);
   useMotivation.getState().settle();
   useMotivation.getState().evaluate();
+  // Старые записи журнала убираются в фоне: запуску они не нужны.
+  pruneAnswers().catch((e) => console.error('Не удалось почистить журнал ответов', e));
 }
 
 export async function resetProgress(): Promise<void> {

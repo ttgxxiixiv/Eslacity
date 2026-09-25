@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { ECONOMY, XP } from '../config';
 import { hasLesson, loadLesson } from '../content/grammar';
@@ -12,6 +12,8 @@ import { speak } from '../audio/tts';
 import { useCity } from '../store/city';
 import { useProgress } from '../store/progress';
 import { useMotivation } from '../store/motivation';
+import { logAnswer } from '../db/answers';
+import { answerMs, grammarItemId } from '../domain/answerLog';
 import type { Achievement } from '../domain/achievements';
 import { AchievementLines } from '../components/LessonResult';
 import { type Feedback, FeedbackSheet } from '../components/FeedbackSheet';
@@ -178,6 +180,11 @@ function LessonRunner({ lesson }: { lesson: Lesson }) {
   const [fb, setFb] = useState<Feedback | null>(null);
   const [earned, setEarned] = useState({ xp: 0, coins: 0 });
   const [ach, setAch] = useState<Achievement[]>([]);
+  const shownAt = useRef(Date.now());
+  const itemKey = run.queue[run.index]?.id;
+  useEffect(() => {
+    shownAt.current = Date.now();
+  }, [itemKey, phase]);
 
   if (phase === 'theory') {
     const start = () => {
@@ -242,6 +249,19 @@ function LessonRunner({ lesson }: { lesson: Lesson }) {
       speakText: spoken,
     });
     setRun(answerGrammar(run, ok, rng));
+    // Номер упражнения в уроке. Для испанского варианта es-ES он совпадает с номером в файле;
+    // для es-419 часть упражнений скрыта, и номера сойдутся после задачи 3.3 (id в контенте).
+    const now = Date.now();
+    logAnswer(
+      {
+        itemId: grammarItemId(lesson.id, lesson.exercises.indexOf(ex)),
+        kind: `grammar-${ex.kind}`,
+        verdict: ok ? 'correct' : 'wrong',
+        mode: 'grammar',
+        ms: answerMs(shownAt.current, now),
+      },
+      now,
+    );
     const firstTry = ok && !item.retry;
     const xp = firstTry ? XP.correct : 0;
     const coins = firstTry ? ECONOMY.coinPerCorrect : 0;

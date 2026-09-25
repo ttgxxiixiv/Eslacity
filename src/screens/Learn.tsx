@@ -72,6 +72,7 @@ function LearnRun({ id, level, part, practice }: { id: LocationId; level: number
       steps={ready.steps}
       words={ready.words}
       pool={ready.pool}
+      mode={practice ? 'practice' : 'learn'}
       onExit={() => {
         if (practice || confirm('Выйти из урока? Новые слова не сохранятся.')) nav(-1);
       }}

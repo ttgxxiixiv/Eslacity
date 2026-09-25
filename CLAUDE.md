@@ -26,7 +26,7 @@ React 19, Vite 8 (rolldown), TypeScript, Tailwind v4, Zustand, Dexie (IndexedDB)
 - `vite.config.ts` строит виртуальный модуль `virtual:grammar-index` (индекс уроков для карты) и режет уроки на чанки по языку и району.
 - `src/domain/` — чистая логика без React и базы: проверка ответов (`answer.ts`), SM-2 (`srs.ts`), очередь заданий урока (`lessonQueue.ts`), генераторы заданий, экономика города, стрик, достижения, уровень героя (`heroLevel.ts`). Всё, что можно, пишется здесь и покрывается тестами рядом (`*.test.ts`).
 - `src/store/` — Zustand-хранилища. Запись в базу идёт через `persist()` из `src/db/persist.ts`. Загрузка при старте: `src/store/bootstrap.ts`.
-- `src/db/db.ts` — Dexie. У каждого языка своя база: `eslacity` (испанский, прежнее имя) и `eslacity-it`. Таблицы: `cards`, `buildings`, `grammar`, `days`, `meta`. Резервная копия: `src/db/backup.ts`.
+- `src/db/db.ts` — Dexie. У каждого языка своя база: `eslacity` (испанский, прежнее имя) и `eslacity-it`. Таблицы: `cards`, `buildings`, `grammar`, `days`, `meta`, с версии базы 2 — `answers` (журнал ответов: `src/domain/answerLog.ts`, запись через `logAnswer` из `src/db/answers.ts`, хранится 90 дней). Резервная копия: `src/db/backup.ts`, таблицы, которых нет в старых копиях, в ней необязательные.
 - `src/screens/` — экраны, `src/components/` — общие компоненты и задания (`components/exercises/`).
 - `src/audio/tts.ts` — озвучка через speechSynthesis с выбором голоса языка.
 - `src/lib/update.ts` — проверка и установка новой версии (service worker).

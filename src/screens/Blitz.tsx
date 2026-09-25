@@ -1,4 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
+import { logAnswer } from '../db/answers';
+import { answerMs } from '../domain/answerLog';
 import { useNavigate } from 'react-router-dom';
 import { LESSON, XP } from '../config';
 import { wordsByIds } from '../content';
@@ -31,6 +33,7 @@ export function BlitzScreen() {
   const [misses, setMisses] = useState<Word[]>([]);
   const endAt = useRef(0);
   const scoreRef = useRef(0);
+  const shownAt = useRef(0);
   const best = useSettings((s) => s.blitzBest);
   const [newBest, setNewBest] = useState(false);
   const [ach, setAch] = useState<Achievement[]>([]);
@@ -49,6 +52,7 @@ export function BlitzScreen() {
     const word = learned[Math.floor(rng() * learned.length)];
     const dir = rng() < 0.5 ? 'es-ru' : 'ru-es';
     setQ({ word, dir, ...makeChoice(word, pool, dir, rng) });
+    shownAt.current = Date.now();
     setPicked(null);
   };
 
@@ -91,6 +95,11 @@ export function BlitzScreen() {
   const pick = (i: number) => {
     if (!q || picked !== null) return;
     setPicked(i);
+    const now = Date.now();
+    logAnswer(
+      { itemId: q.word.id, kind: `blitz-${q.dir}`, verdict: i === q.answer ? 'correct' : 'wrong', mode: 'blitz', ms: answerMs(shownAt.current, now) },
+      now,
+    );
     if (i === q.answer) setScore(++scoreRef.current);
     else setMisses((m) => (m.some((w) => w.id === q.word.id) ? m : [...m, q.word]));
     if (q.dir === 'ru-es' && i === q.answer) afterPaint(() => speak(q.word.es));
