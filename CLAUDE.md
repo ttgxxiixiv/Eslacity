@@ -10,6 +10,7 @@ PWA для изучения испанского и итальянского с 
 npm run dev        # локальный сервер Vite
 npm test           # vitest, все юнит-тесты
 npm run validate   # проверка контента обоих языков (слова, грамматика)
+npm run vocab      # отчёт о словаре: покрытие частотного списка, docs/vocab/<язык>.md
 npm run build      # validate + tsc + vite build, результат в dist/
 ```
 
@@ -23,6 +24,7 @@ React 19, Vite 8 (rolldown), TypeScript, Tailwind v4, Zustand, Dexie (IndexedDB)
 
 - `src/lang.ts` — язык курса (`es` | `it`) и его свойства: голоса, артикли, имя базы. Язык читается из `localStorage['eslacity.lang']` при запуске, смена языка перезагружает приложение.
 - `src/content/<язык>/words/<локация>.json` — слова (поле `es` исторически означает «форма на изучаемом языке» для любого языка). `src/content/<язык>/grammar/<район>/*.json` — уроки. Схема: `src/content/schema.ts`, валидатор: `src/content/validate.ts` и `scripts/validate-content.ts`.
+- План словаря: `src/content/vocabPlan.ts` (числа из `docs/GAME.md`). Частотные списки лемм лежат в `scripts/data/` (строит `scripts/build-freq.ts`, источники и лицензии в шапке файлов), в сборку не попадают. После добавления слов запускать `npm run vocab`, он пересобирает `docs/vocab/<язык>.md`.
 - `vite.config.ts` строит виртуальный модуль `virtual:grammar-index` (индекс уроков для карты) и режет уроки на чанки по языку и району.
 - `src/domain/` — чистая логика без React и базы: проверка ответов (`answer.ts`), SM-2 (`srs.ts`), очередь заданий урока (`lessonQueue.ts`), генераторы заданий, экономика города, стрик, достижения, уровень героя (`heroLevel.ts`). Всё, что можно, пишется здесь и покрывается тестами рядом (`*.test.ts`).
 - `src/store/` — Zustand-хранилища. Запись в базу идёт через `persist()` из `src/db/persist.ts`. Загрузка при старте: `src/store/bootstrap.ts`.

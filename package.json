@@ -1,11 +1,12 @@
 {
   "name": "eslacity",
   "private": true,
-  "version": "2.2.0",
+  "version": "2.2.1",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "validate": "tsx scripts/validate-content.ts",
+    "vocab": "tsx scripts/vocab-report.ts",
     "build": "npm run validate && tsc && vite build",
     "preview": "vite preview",
     "test": "vitest run",

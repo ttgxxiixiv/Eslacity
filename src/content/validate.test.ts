@@ -51,3 +51,16 @@ describe('validateWords, итальянский', () => {
     expect(itErrors(it10({ es: "l'acqua", example: { es: "L'acqua è fredda.", ru: 'вода' } }))).toEqual([]);
   });
 });
+
+describe('validateWords, план словаря', () => {
+  const all = (words: Word[]) => validateWords(file(words));
+  it('уровень 1 больше 12 слов — предупреждение, уровень 5 до 30 — можно', () => {
+    const w = Array.from({ length: 13 }, (_, i) => base(i));
+    expect(all(w).filter((x) => x.level === 'warning').map((x) => x.msg).join()).toMatch(/по плану не больше 12/);
+    const five = Array.from({ length: 30 }, (_, i) => base(i, { level: 5, cefr: 'B1' }));
+    expect(all(five).filter((x) => /по плану|нужно/.test(x.msg))).toEqual([]);
+  });
+  it('меньше 10 слов в уровне — ошибка', () => {
+    expect(errors(Array.from({ length: 9 }, (_, i) => base(i))).join()).toMatch(/не меньше 10/);
+  });
+});

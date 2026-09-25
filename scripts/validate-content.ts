@@ -2,6 +2,7 @@ import { readdirSync, readFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { validateGrammar, validateWords, type Issue } from '../src/content/validate';
 import type { Lang } from '../src/lang';
+import { PLAN_TOTAL } from '../src/content/vocabPlan';
 
 const root = join(import.meta.dirname, '..', 'src', 'content');
 
@@ -40,7 +41,7 @@ for (const lang of langs) {
   const tag = (list: Issue[]) => list.map((i) => ({ ...i, where: `${lang}/${i.where}` }));
   issues.push(...tag(validateWords(words, lang)), ...tag(validateGrammar(grammar, lang)));
   const wordCount = words.reduce((n, f) => n + f.data.words.length, 0);
-  summary.push(`${lang}: ${words.length} локаций, ${wordCount} слов, ${grammar.length} уроков`);
+  summary.push(`${lang}: ${words.length} локаций, слов: ${wordCount} из плана ${PLAN_TOTAL}, ${grammar.length} уроков`);
 }
 
 const errors = issues.filter((i) => i.level === 'error');

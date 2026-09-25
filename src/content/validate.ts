@@ -1,5 +1,6 @@
 import { normalize, splitArticle, stripAccents } from '../domain/answer';
 import type { Lang } from '../lang';
+import { PLACE_LEVEL_MAX } from './vocabPlan';
 import { LOCATION_IDS, type GrammarLesson, type LocationWords, type Word } from './schema';
 
 export interface Issue {
@@ -161,7 +162,9 @@ export function validateWords(files: { name: string; data: LocationWords }[], la
     }
 
     for (const [lvl, n] of perLevel) {
-      if (n < 10 || n > 12) out.push({ level: 'error', where, msg: `уровень ${lvl}: ${n} слов, нужно 10-12` });
+      const max = PLACE_LEVEL_MAX[lvl] ?? 12;
+      if (n < 10) out.push({ level: 'error', where, msg: `уровень ${lvl}: ${n} слов, нужно не меньше 10` });
+      else if (n > max) out.push({ level: 'warning', where, msg: `уровень ${lvl}: ${n} слов, по плану не больше ${max}` });
     }
   }
   return out;
