@@ -8,7 +8,7 @@ import { buildLearnSteps, buildReviewSteps, type SessionState, type Step } from 
 import { lessonParts, levelWords } from '../domain/levels';
 import { useCity } from '../store/city';
 import { useProgress } from '../store/progress';
-import { useMotivation } from '../store/motivation';
+import { syncAndEvaluate } from '../store/motivation';
 import { listeningEnabled } from '../audio/tts';
 import { lessonEvent, type MedalGain } from '../domain/medals';
 import { LessonPlayer, type LessonTotals } from '../components/LessonPlayer';
@@ -90,7 +90,7 @@ function LearnRun({ id, level, part, practice }: { id: LocationId; level: number
             useCity.getState().addCoins(bonus);
           }
         }
-        setResult({ s, totals, bonus, ach: useMotivation.getState().evaluate(Date.now(), lessonEvent(s)) });
+        setResult({ s, totals, bonus, ach: syncAndEvaluate(Date.now(), lessonEvent(s)) });
       }}
     />
   );

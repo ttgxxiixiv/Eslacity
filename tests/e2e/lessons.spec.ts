@@ -63,7 +63,7 @@ for (const lang of LANGS) {
       await expect(grammarLine).toContainText('1 / 10 уроков до камня');
       await expect(grammarLine.getByRole('img', { name: 'Знаток правил, дерево' })).toBeVisible();
       await expect(grammarLine.getByRole('img', { name: 'Знаток правил, камень: ещё нет' })).toBeVisible();
-      await expect(hall.locator('[data-line=cartographer]')).toContainText('Откроется с картой странствий');
+      await expect(hall.locator('[data-line=friend]')).toContainText('Откроется, когда в городе появятся жители');
       await expect(hall.getByRole('img', { name: 'Без единой ошибки' })).toBeVisible();
       // Ночью добавится ещё «Полночный путник», поэтому скрытых четыре или пять.
       expect(await hall.getByRole('img', { name: 'Тайная медаль' }).count()).toBeGreaterThanOrEqual(4);

@@ -39,6 +39,8 @@ export interface MedalCounters {
   /** Верные ответы в заданиях на слух за всё время. */
   listenCorrect: number;
   freezesUsed: number;
+  /** Полученные обрывки карты во всех главах. */
+  fragments: number;
 }
 
 export type LineId =
@@ -62,8 +64,7 @@ export const LINES: MedalLine[] = [
   { id: 'words', title: 'Словесник', counts: 'закреплённые слова', thresholds: [10, 100, 500, 1200, 2200, 3000], unit: ['слово', 'слова', 'слов'], value: (c) => c.wordsSolid },
   { id: 'streak', title: 'Упорство', counts: 'лучший стрик, дней', thresholds: [3, 7, 14, 30, 100, 365], unit: ['день', 'дня', 'дней'], value: (c) => c.streakBest },
   { id: 'grammar', title: 'Знаток правил', counts: 'пройденные уроки грамматики', thresholds: [1, 10, 31, 62, 100, 132], unit: ['урок', 'урока', 'уроков'], value: (c) => c.grammarDone },
-  // Включится с обрывками карты (этап 2).
-  { id: 'cartographer', title: 'Картограф', counts: 'собранные обрывки карты', thresholds: [1, 5, 25, 50, 75, 100], unit: ['обрывок', 'обрывка', 'обрывков'], value: null },
+  { id: 'cartographer', title: 'Картограф', counts: 'собранные обрывки карты', thresholds: [1, 5, 25, 50, 75, 100], unit: ['обрывок', 'обрывка', 'обрывков'], value: (c) => c.fragments },
   // Включится с репутацией жителей (этап 4).
   { id: 'friend', title: 'Друг города', counts: 'жители с отношением «Друг» и выше', thresholds: [1, 3, 7, 12, 17, 20], unit: ['житель', 'жителя', 'жителей'], value: null },
   // Включится с поручениями (этап 4).

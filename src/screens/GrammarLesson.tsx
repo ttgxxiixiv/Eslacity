@@ -11,7 +11,7 @@ import { afterPaint } from '../lib/afterPaint';
 import { speak } from '../audio/tts';
 import { useCity } from '../store/city';
 import { useProgress } from '../store/progress';
-import { useMotivation } from '../store/motivation';
+import { syncAndEvaluate } from '../store/motivation';
 import { logAnswer } from '../db/answers';
 import { answerMs, grammarItemId } from '../domain/answerLog';
 import type { MedalGain } from '../domain/medals';
@@ -283,7 +283,7 @@ function LessonRunner({ lesson }: { lesson: Lesson }) {
       useCity.getState().addCoins(bonus);
       setEarned((e) => ({ ...e, coins: e.coins + bonus }));
       setRun({ ...run, index: nextIndex });
-      setAch(useMotivation.getState().evaluate(Date.now(), { perfectLesson: run.firstTry === run.total, lessonAt: Date.now() }));
+      setAch(syncAndEvaluate(Date.now(), { perfectLesson: run.firstTry === run.total, lessonAt: Date.now() }));
       setPhase('done');
       return;
     }

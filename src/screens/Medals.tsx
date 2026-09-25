@@ -7,7 +7,6 @@ import { medalCounters, useMotivation } from '../store/motivation';
 
 /** Когда включатся линии, для которых ещё нет систем. */
 const SOON: Partial<Record<LineId, string>> = {
-  cartographer: 'Откроется с картой странствий',
   friend: 'Откроется, когда в городе появятся жители',
   courier: 'Откроется с поручениями жителей',
   trials: 'Откроется с испытаниями мест и стражей',

@@ -29,6 +29,28 @@ export function loadWords(lang: Lang) {
   };
 }
 
+/** id слов места на указанных уровнях. */
+export function wordIdsOf(lang: Lang, location: string, levels: number[]): string[] {
+  const data = JSON.parse(readFileSync(join(CONTENT, lang, 'words', `${location}.json`), 'utf8')) as { words: { id: string; level: number }[] };
+  return data.words.filter((w) => levels.includes(w.level)).map((w) => w.id);
+}
+
+/** Прочитать запись из таблицы meta базы языка. */
+export function readMeta<T>(page: Page, lang: Lang, key: string): Promise<T | undefined> {
+  return page.evaluate(
+    ({ db, k }) =>
+      new Promise<T | undefined>((resolve, reject) => {
+        const r = indexedDB.open(db);
+        r.onerror = () => reject(r.error);
+        r.onsuccess = () => {
+          const q = r.result.transaction('meta').objectStore('meta').get(k);
+          q.onsuccess = () => resolve(q.result?.value);
+        };
+      }),
+    { db: DB[lang], k: key },
+  );
+}
+
 type Exercise =
   | { kind: 'choose'; prompt: string; options: string[]; answer: number }
   | { kind: 'gap'; sentence: string; options: string[]; answer: number }

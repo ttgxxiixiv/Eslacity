@@ -7,6 +7,8 @@ import { useCity } from './city';
 import { useProgress } from './progress';
 import { useSettings } from './settings';
 import { useMotivation, type MotivationData } from './motivation';
+import { useJourney } from './journey';
+import type { JourneyRecord } from '../domain/chapters';
 
 export async function bootstrap(): Promise<void> {
   // Просим браузер не вычищать IndexedDB при нехватке места: иначе прогресс может пропасть.
@@ -34,6 +36,9 @@ export async function bootstrap(): Promise<void> {
   useSettings.getState().hydrate(m.settings as Partial<Settings> | undefined);
   useMotivation.getState().hydrate(m.motivation as Partial<MotivationData> | undefined);
   useMotivation.getState().settle();
+  useJourney.getState().hydrate(m.journey as Partial<JourneyRecord> | undefined);
+  // Перенос: при первом запуске обрывки и печати выдаются по уже пройденному.
+  useJourney.getState().sync();
   if (useMotivation.getState().listenCorrect === null) {
     // Перенос: счётчик «Слушателя» появился в 2.3.0, до этого верные ответы на слух есть только в журнале.
     const heard = await db.answers.filter((r) => isListening(r.kind) && r.verdict === 'correct').count();

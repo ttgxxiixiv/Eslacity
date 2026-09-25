@@ -1,5 +1,5 @@
 import { expect, test } from '@playwright/test';
-import { answerGrammar, LANGS, loadLesson, openApp, seedXp } from './fixtures';
+import { answerGrammar, LANGS, loadLesson, openApp, readMeta, seedDueCards, seedXp, wordIdsOf } from './fixtures';
 
 test('переключение языка сохраняет прогресс каждого курса', async ({ page }) => {
   await openApp(page, 'es');
@@ -23,6 +23,23 @@ test('переключение языка сохраняет прогресс к
 
 for (const lang of LANGS) {
   test.describe(lang, () => {
+    test('обрывок карты за слова главы в месте и медаль «Картограф»', async ({ page }) => {
+      await openApp(page, lang);
+      // Все слова уровней 1–2 кафе и половина рынка: обрывок главы I только у кафе.
+      const market = wordIdsOf(lang, 'market', [1, 2]);
+      await seedDueCards(page, lang, [...wordIdsOf(lang, 'cafe', [1, 2]), ...market.slice(0, market.length / 2)]);
+      await expect
+        .poll(async () => Object.keys((await readMeta<{ fragments: Record<string, number> }>(page, lang, 'journey'))?.fragments ?? {}))
+        .toEqual(['1:cafe']);
+      await page.goto('./#/medals');
+      const line = page.getByTestId('medals').locator('[data-line=cartographer]');
+      await expect(line).toContainText('Дерево');
+      await expect(line).toContainText('1 / 5 обрывков до камня');
+      // Повторный запуск ничего не добавляет.
+      await page.reload();
+      await expect(line).toContainText('1 / 5 обрывков до камня');
+    });
+
     test('нижнее меню: переходы и картинка своего языка', async ({ page }) => {
       await openApp(page, lang);
       await expect(page.locator('nav img')).toHaveAttribute('src', new RegExp(`nav-${lang}`));

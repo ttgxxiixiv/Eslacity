@@ -10,6 +10,8 @@ import {
 import { dayNumber } from '../domain/srs';
 import { canBuyFreeze, EMPTY_STREAK, registerGoal, settleStreak, type StreakState } from '../domain/streak';
 import { useCity } from './city';
+import { useJourney } from './journey';
+import { fragmentCount } from '../domain/chapters';
 import { useProgress } from './progress';
 import { useSettings } from './settings';
 
@@ -74,6 +76,7 @@ export function medalCounters(): MedalCounters {
     buildingLevels: Object.values(useCity.getState().buildings).reduce((n, b) => n + (b?.level ?? 0), 0),
     listenCorrect: s.listenCorrect ?? 0,
     freezesUsed: s.streak.freezesUsed,
+    fragments: fragmentCount(useJourney.getState()),
   };
 }
 
@@ -151,3 +154,11 @@ export const useMotivation = create<MotivationState>((set, get) => {
     },
   };
 });
+
+/**
+ * Итог урока: сначала выдать обрывки карты (от них зависит «Картограф»), потом проверить медали.
+ */
+export function syncAndEvaluate(now = Date.now(), event: MedalEvent = {}): MedalGain[] {
+  useJourney.getState().sync(now);
+  return useMotivation.getState().evaluate(now, event);
+}

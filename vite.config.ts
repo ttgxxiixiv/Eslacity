@@ -38,6 +38,25 @@ function grammarIndex() {
   return out;
 }
 
+// Индекс слов для пути: какие слова в каком уровне места (id без префикса места, чтобы индекс был легче).
+// Сами слова грузятся по местам.
+const wordDirs = () =>
+  readdirSync(CONTENT_DIR, { withFileTypes: true })
+    .filter((e) => e.isDirectory() && existsSync(join(CONTENT_DIR, e.name, 'words')))
+    .map((e) => ({ lang: e.name, dir: join(CONTENT_DIR, e.name, 'words') }));
+function wordIndex() {
+  const out: Record<string, Record<string, Record<number, string[]>>> = {};
+  for (const { lang, dir } of wordDirs()) {
+    const byLoc: Record<string, Record<number, string[]>> = (out[lang] = {});
+    for (const f of readdirSync(dir).filter((x) => x.endsWith('.json'))) {
+      const data = JSON.parse(readFileSync(join(dir, f), 'utf8')) as { location: string; words: { id: string; level: number }[] };
+      const levels: Record<number, string[]> = (byLoc[data.location] = {});
+      for (const w of data.words) (levels[w.level] ??= []).push(w.id.slice(data.location.length + 1));
+    }
+  }
+  return out;
+}
+
 export default defineConfig({
   base: './',
   define: {
@@ -75,6 +94,17 @@ export default defineConfig({
         if (id !== '\0virtual:grammar-index') return null;
         for (const { dir } of grammarDirs()) for (const d of readdirSync(dir)) this.addWatchFile(join(dir, d));
         return `export default ${JSON.stringify(grammarIndex())};`;
+      },
+    },
+    {
+      name: 'word-index',
+      resolveId(id) {
+        return id === 'virtual:word-index' ? '\0virtual:word-index' : null;
+      },
+      load(id) {
+        if (id !== '\0virtual:word-index') return null;
+        for (const { dir } of wordDirs()) this.addWatchFile(dir);
+        return `export default ${JSON.stringify(wordIndex())};`;
       },
     },
     {
