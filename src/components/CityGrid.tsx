@@ -1,27 +1,24 @@
 import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import cityMap from '../assets/city.webp';
 import { LOCATIONS } from '../content/locations';
 import { hasContent } from '../content';
 import type { LocationMeta } from '../content/schema';
 import { isFull, pendingIncome } from '../domain/economy';
-import {
-  COLS, PLOT, ROAD, type Point, door, mapHeight, pathLength, plotOrigin, roadX, roadY, route, rowsFor,
-} from '../domain/townMap';
+import { MAP_H, MAP_W, type Point, door, labelCenter, pathLength, plotRect, route } from '../domain/townMap';
 import { useCity } from '../store/city';
 import { useNow } from '../lib/useNow';
 import { HeroSprite } from './Hero';
 
-const ROWS = rowsFor(LOCATIONS.length);
-const H = mapHeight(ROWS);
-/** Скорость героя в долях ширины карты в секунду и предел длительности прогулки. */
-const SPEED = 140;
+/** Скорость героя в пикселях картинки в секунду и предел длительности прогулки. */
+const SPEED = 1200;
 const MAX_WALK_MS = 1200;
 const HERO_KEY = 'eslacity.hero';
 
-// Вертикальные размеры переводим в проценты высоты карты.
-const pctY = (y: number) => `${(y / H) * 100}%`;
+const pctX = (x: number) => `${(x / MAP_W) * 100}%`;
+const pctY = (y: number) => `${(y / MAP_H) * 100}%`;
 // Слой героя размером с карту: translate в процентах считается от его размеров, то есть от карты.
-const heroTransform = (p: Point) => `translate(${p.x}%, ${(p.y / H) * 100}%)`;
+const heroTransform = (p: Point) => `translate(${pctX(p.x)}, ${pctY(p.y)})`;
 
 function loadHero(): number {
   try {
@@ -43,7 +40,15 @@ function saveHero(i: number) {
 const reducedMotion = () =>
   typeof matchMedia !== 'undefined' && matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-function Tile({ meta, index, now, onGo }: { meta: LocationMeta; index: number; now: number; onGo: (i: number) => void }) {
+/** Табличка поверх нарисованной строки со звёздами или ценой: показывает настоящий уровень или цену. */
+const LABEL_W = 118;
+const LABEL_H = 40;
+
+/**
+ * Здание на карте: прозрачная кнопка поверх нарисованного участка.
+ * Название нарисовано на картинке, для экранных читалок оно продублировано скрытым текстом.
+ */
+function Building({ meta, index, now, onGo }: { meta: LocationMeta; index: number; now: number; onGo: (i: number) => void }) {
   const collect = useCity((s) => s.collect);
   const [float, setFloat] = useState<{ key: number; n: number } | null>(null);
   const b = useCity((s) => s.buildings[meta.id]);
@@ -53,33 +58,41 @@ function Tile({ meta, index, now, onGo }: { meta: LocationMeta; index: number; n
   const pending = b ? pendingIncome(b, now) : 0;
   const full = b ? isFull(b, now) : false;
   const affordable = !level && coins >= meta.unlockCost;
-  const o = plotOrigin(index);
+  const r = plotRect(index);
+  const lc = labelCenter(index);
 
   return (
-    <div className="absolute" style={{ left: `${o.x}%`, top: pctY(o.y), width: `${PLOT}%`, height: pctY(PLOT) }}>
+    <>
       <button
         type="button"
         disabled={!available}
         onClick={() => onGo(index)}
-        className={`press plot flex h-full w-full flex-col items-center justify-center rounded-md p-0.5 text-center ${
-          level ? 'plot-open' : 'plot-locked'
-        } ${available ? '' : 'opacity-50'}`}
+        className="building absolute rounded-lg"
+        style={{ left: pctX(r.x), top: pctY(r.y), width: pctX(r.w), height: pctY(r.h) }}
       >
-        <span className={`text-2xl leading-none ${level ? '' : 'opacity-50 grayscale'}`}>{meta.emoji}</span>
-        <span className="mt-1 line-clamp-1 max-w-full font-pixel text-[10px] leading-tight">{meta.ru}</span>
+        <span className="sr-only">
+          {meta.ru}, {level ? `уровень ${level}` : `закрыто, цена ${meta.unlockCost} монет`}
+        </span>
+      </button>
+      <div
+        aria-hidden
+        className={`map-label pointer-events-none absolute flex items-center justify-center rounded-full ${affordable ? 'map-label-ready' : ''}`}
+        style={{
+          left: pctX(lc.x - LABEL_W / 2),
+          top: pctY(lc.y - LABEL_H / 2),
+          width: pctX(LABEL_W),
+          height: pctY(LABEL_H),
+        }}
+      >
         {level > 0 ? (
-          <span className="text-[9px] leading-tight tracking-tight text-gold-dark">
-            {'★'.repeat(level)}
-            <span className="text-stone-300">{'★'.repeat(5 - level)}</span>
-          </span>
-        ) : available ? (
-          <span className={`mt-0.5 rounded px-1 text-[10px] leading-tight font-bold ${affordable ? 'bg-gold text-wood' : 'text-stone-200'}`}>
-            🪙 {meta.unlockCost}
+          <span className="text-[10px] leading-none tracking-tight">
+            <span className="text-gold">{'★'.repeat(level)}</span>
+            <span className="text-stone-500">{'★'.repeat(5 - level)}</span>
           </span>
         ) : (
-          <span className="text-[10px] text-stone-200">скоро</span>
+          <span className="text-[10px] leading-none font-bold">🪙 {meta.unlockCost}</span>
         )}
-      </button>
+      </div>
       {pending > 0 && (
         <button
           type="button"
@@ -91,42 +104,23 @@ function Tile({ meta, index, now, onGo }: { meta: LocationMeta; index: number; n
             setFloat({ key, n });
             setTimeout(() => setFloat((f) => (f?.key === key ? null : f)), 750);
           }}
-          className={`press absolute -top-2 -right-2 z-10 flex h-6 min-w-6 items-center justify-center rounded-full px-1 text-[11px] font-bold shadow ${
+          className={`press absolute z-10 flex h-6 min-w-6 -translate-x-3/4 translate-y-1 items-center justify-center rounded-full px-1 text-[11px] font-bold shadow ${
             full ? 'bg-gold text-wood' : 'bg-amber-100 text-amber-800'
           }`}
+          style={{ left: pctX(r.x + r.w), top: pctY(r.y) }}
         >
           +{pending}
         </button>
       )}
       {float && (
-        <span key={float.key} className="float-up absolute -top-4 right-0 z-10 text-sm font-bold text-gold [text-shadow:0_1px_0_#1a120a]">
+        <span
+          key={float.key}
+          className="float-up absolute z-10 -translate-x-full text-sm font-bold text-gold [text-shadow:0_1px_0_#1a120a]"
+          style={{ left: pctX(r.x + r.w), top: pctY(r.y) }}
+        >
           +{float.n} 🪙
         </span>
       )}
-    </div>
-  );
-}
-
-/** Дороги: под каждым рядом и между столбцами. */
-function Roads() {
-  const rows = Array.from({ length: ROWS }, (_, r) => r);
-  const cols = Array.from({ length: COLS + 1 }, (_, c) => c);
-  return (
-    <>
-      {cols.map((c) => (
-        <div
-          key={`v${c}`}
-          className="road absolute"
-          style={{ left: `${roadX(c) - ROAD / 2}%`, width: `${ROAD}%`, top: pctY(ROAD), bottom: 0 }}
-        />
-      ))}
-      {rows.map((r) => (
-        <div
-          key={`h${r}`}
-          className="road absolute inset-x-0"
-          style={{ top: pctY(roadY(r) - ROAD / 2), height: pctY(ROAD) }}
-        />
-      ))}
     </>
   );
 }
@@ -223,13 +217,11 @@ export function CityGrid() {
           ))}
         </div>
       </div>
-      {/* Карта без обрезки: у правого края герой немного выходит на рамку. Лишнее обрезает секция. */}
-      <div className="overworld relative isolate mt-2 rounded-md" style={{ aspectRatio: `100 / ${H}` }}>
-        <Roads />
+      <div className="relative isolate mt-2" style={{ aspectRatio: `${MAP_W} / ${MAP_H}` }}>
+        <img src={cityMap} alt="" draggable={false} className="absolute inset-0 h-full w-full select-none" />
         {LOCATIONS.map((l, i) => (
-          <Tile key={l.id} meta={l} index={i} now={now} onGo={go} />
+          <Building key={l.id} meta={l} index={i} now={now} onGo={go} />
         ))}
-        <div className="map-frame pointer-events-none absolute inset-0 z-30 rounded-md" />
         <div
           ref={layer}
           data-testid="hero"

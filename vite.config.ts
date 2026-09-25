@@ -98,7 +98,7 @@ export default defineConfig({
       },
       workbox: {
         // Весь контент (слова, уроки) лежит в JS-чанках, так что после первой загрузки всё работает офлайн.
-        globPatterns: ['**/*.{js,css,html,svg,png,webmanifest,woff2}'],
+        globPatterns: ['**/*.{js,css,html,svg,png,webp,webmanifest,woff2}'],
         navigateFallback: 'index.html',
         cleanupOutdatedCaches: true,
       },
