@@ -15,6 +15,7 @@ import { useMotivation } from './store/motivation';
 import { ErrorBoundary } from './components/ErrorBoundary';
 import { UpdateBanner } from './components/UpdateBanner';
 import { NavBar } from './components/NavBar';
+import { LevelUpToast } from './components/HeroLevel';
 
 /** Новый экран открывается сверху, а не с прокруткой предыдущего. */
 function ScrollToTop() {
@@ -60,6 +61,7 @@ export default function App() {
     <ErrorBoundary>
     <HashRouter>
       <ScrollToTop />
+      <LevelUpToast />
       <Routes>
         <Route element={<TabLayout />}>
           <Route path="/" element={<Home />} />

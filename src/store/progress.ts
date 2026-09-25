@@ -4,6 +4,7 @@ import { persist } from '../db/persist';
 import { dayKey, newCard, review, type Grade, type SrsCard } from '../domain/srs';
 import { useMotivation } from './motivation';
 import { useSettings } from './settings';
+import { heroLevel } from '../domain/heroLevel';
 
 type DayPatch = Partial<Omit<DayRow, 'date' | 'goalMet'>>;
 
@@ -13,6 +14,8 @@ interface ProgressState {
   /** Последние дни (для недельного челленджа и графика). */
   days: Record<string, DayRow>;
   xpTotal: number;
+  /** Уровень, на который только что перешёл персонаж: для поздравления. */
+  levelUp: number | null;
   grammar: Record<string, GrammarRow>;
   hydrate(p: { cards: SrsCard[]; days: DayRow[]; xpTotal: number; grammar: GrammarRow[] }): void;
   /** Отметить урок грамматики пройденным. Возвращает true, если пройден впервые. */
@@ -22,6 +25,7 @@ interface ProgressState {
   /** Удалить карточки слов, которых больше нет в контенте. */
   dropCards(ids: string[]): void;
   addXp(n: number): void;
+  clearLevelUp(): void;
   bumpDay(patch: DayPatch): void;
 }
 
@@ -35,6 +39,7 @@ export const useProgress = create<ProgressState>((set, get) => ({
   day: emptyDay(dayKey(Date.now())),
   days: {},
   xpTotal: 0,
+  levelUp: null,
   grammar: {},
 
   hydrate({ cards, days, xpTotal, grammar }) {
@@ -88,10 +93,16 @@ export const useProgress = create<ProgressState>((set, get) => ({
 
   addXp(n) {
     if (!n) return;
+    const before = heroLevel(get().xpTotal).level;
     const xpTotal = get().xpTotal + n;
-    set({ xpTotal });
+    const after = heroLevel(xpTotal).level;
+    set(after > before ? { xpTotal, levelUp: after } : { xpTotal });
     get().bumpDay({ xp: n });
     persist(() => db.meta.put({ key: 'xpTotal', value: xpTotal }));
+  },
+
+  clearLevelUp() {
+    set({ levelUp: null });
   },
 
   bumpDay(patch) {

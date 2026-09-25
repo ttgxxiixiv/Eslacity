@@ -209,3 +209,15 @@ button {
   animation: float-up 700ms ease-out forwards;
   pointer-events: none;
 }
+
+/* Поздравление с новым уровнем: выезжает сверху. */
+.level-up {
+  animation: level-up-in 300ms ease-out;
+}
+@keyframes level-up-in {
+  from { transform: translateY(-120%); opacity: 0; }
+  to { transform: none; opacity: 1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .level-up { animation: none; }
+}

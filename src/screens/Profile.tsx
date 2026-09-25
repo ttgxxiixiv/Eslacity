@@ -11,6 +11,7 @@ import { useProgress } from '../store/progress';
 import { useSettings } from '../store/settings';
 import { Button, Screen, TopBar } from '../components/ui';
 import { CURRENT } from '../lib/update';
+import { LevelCard } from '../components/HeroLevel';
 
 const WEEKDAYS = ['пн', 'вт', 'ср', 'чт', 'пт', 'сб', 'вс'];
 
@@ -51,6 +52,7 @@ export function ProfileScreen() {
         }
       />
       <div className="flex flex-col gap-4 px-5 pb-6">
+        <LevelCard />
         <section className="flex items-center gap-4 rounded-3xl bg-white p-4 shadow-sm">
           <div className={`text-5xl ${alive ? '' : 'grayscale'}`}>🔥</div>
           <div className="flex-1">

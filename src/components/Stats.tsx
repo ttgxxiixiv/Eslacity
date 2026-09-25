@@ -4,6 +4,7 @@ import { useSettings } from '../store/settings';
 import { dayKey, dayNumber } from '../domain/srs';
 import { isAlive } from '../domain/streak';
 import { useMotivation } from '../store/motivation';
+import { LevelBadge } from './HeroLevel';
 
 const HEARTS = 5;
 
@@ -40,7 +41,7 @@ function Heart({ fill }: { fill: number }) {
   );
 }
 
-/** Верхняя панель в духе RPG: кошелёк, огонь стрика и сердечки дневной цели. */
+/** Верхняя панель в духе RPG: кошелёк, огонь стрика, уровень персонажа и сердечки дневной цели. */
 export function StatsBar() {
   const coins = useCity((s) => s.coins);
   const day = useProgress((s) => s.day);
@@ -62,7 +63,10 @@ export function StatsBar() {
           <span className={alive ? '' : 'grayscale'}>🔥</span>
           <span className="tabular-nums">{alive ? streak.count : 0}</span>
         </div>
-        <div className="ml-auto flex flex-col items-end" title="Дневная цель">
+        <div className="ml-auto">
+          <LevelBadge />
+        </div>
+        <div className="flex flex-col items-end" title="Дневная цель">
           <div className="flex gap-0.5" aria-label={`Дневная цель: ${xp} из ${goal} XP`}>
             {Array.from({ length: HEARTS }, (_, i) => (
               <Heart key={i} fill={Math.max(0, Math.min(2, halves - i * 2)) / 2} />
