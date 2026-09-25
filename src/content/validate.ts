@@ -13,7 +13,7 @@ const CEFR = new Set(['A1', 'A2', 'B1']);
 // Женский род, но с артиклем el из-за ударного a- (el agua, el aula).
 const STRESSED_A = new Set([
   'agua', 'aula', 'arma', 'área', 'alma', 'ala', 'ave', 'hambre', 'hacha', 'águila', 'ancla', 'asma',
-  'hada', 'haba', 'acta', 'arpa', 'aguas',
+  'hada', 'haba', 'acta', 'arpa', 'aguas', 'alta',
 ]);
 
 const empty = (v: unknown) => typeof v !== 'string' || v.trim() === '';

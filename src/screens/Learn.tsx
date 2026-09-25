@@ -30,13 +30,15 @@ export function LearnScreen({ practice = false }: { practice?: boolean }) {
   const [result, setResult] = useState<{ s: SessionState; totals: LessonTotals; bonus: number; ach: Achievement[] } | null>(null);
 
   useEffect(() => {
-    loadLocation(id).then((pool) => {
+    loadLocation(id).then((all) => {
+      // Варианты ответа только из уже открытых уровней: незнакомое слово среди вариантов подсказывает ответ.
+      const pool = all.filter((w) => w.level <= level);
       const lw = levelWords(pool, level);
       const lessonWords = practice ? lw : (lessonParts(lw)[part] ?? []);
       const rng = seeded(Date.now());
       const cards = useProgress.getState().cards;
       const steps = practice ? buildReviewSteps(lessonWords, cards, pool, rng) : buildLearnSteps(lessonWords, pool, rng);
-      setReady({ steps, pool, lessonWords, words: Object.fromEntries(pool.map((w) => [w.id, w])) });
+      setReady({ steps, pool, lessonWords, words: Object.fromEntries(all.map((w) => [w.id, w])) });
     });
   }, [id, level, part, practice]);
 

@@ -30,9 +30,12 @@ export function ReviewScreen() {
     const ids = due.map((c) => c.wordId);
     (async () => {
       const words = await wordsByIds(ids);
-      const pool = await loadLocations(ids.map(locationOfWord));
+      const loaded = await loadLocations(ids.map(locationOfWord));
+      // Варианты ответа из выученных слов, если их хватает на четыре варианта.
+      const known = loaded.filter((w) => w.id in cards);
+      const pool = known.length >= 8 ? known : loaded;
       const steps = buildReviewSteps(words, cards, pool, seeded(Date.now()));
-      setReady({ steps, pool, words: Object.fromEntries(pool.map((w) => [w.id, w])) });
+      setReady({ steps, pool, words: Object.fromEntries(loaded.map((w) => [w.id, w])) });
     })();
   }, []);
 
