@@ -88,8 +88,34 @@ h1, h2, .font-pixel {
     radial-gradient(circle at 70% 80%, #4d8a2e 0 2px, transparent 3px),
     radial-gradient(circle at 85% 20%, #6fb046 0 1.5px, transparent 2.5px);
   background-size: 34px 34px, 46px 46px, 28px 28px;
-  box-shadow: inset 0 0 0 3px #3b2a1a, inset 0 0 0 6px #7a5a30, 0 4px 0 0 #2a1d10;
+  box-shadow: 0 4px 0 0 #2a1d10;
 }
+/* Рамка поверх дорог и участков, иначе крайние дороги её перекрывают. */
+.map-frame {
+  box-shadow: inset 0 0 0 3px #3b2a1a, inset 0 0 0 6px #7a5a30;
+}
+.road {
+  background-color: #c9a468;
+  background-image: radial-gradient(circle at 30% 40%, #b48f55 0 1px, transparent 1.5px);
+  background-size: 9px 9px;
+}
+
+/* Герой: два кадра ног и лёгкое покачивание при ходьбе. */
+@keyframes hero-a {
+  0%, 49.9% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+@keyframes hero-b {
+  0%, 49.9% { opacity: 0; }
+  50%, 100% { opacity: 1; }
+}
+@keyframes hero-bob {
+  0%, 49.9% { transform: translateY(0); }
+  50%, 100% { transform: translateY(-0.5px); }
+}
+.hero-frame-a { animation: hero-a 280ms infinite; }
+.hero-frame-b { animation: hero-b 280ms infinite; }
+.hero-bob { animation: hero-bob 280ms infinite; }
 .plot {
   box-shadow: inset 0 0 0 2px #7a5a30, 0 3px 0 0 #3f5f22;
 }
