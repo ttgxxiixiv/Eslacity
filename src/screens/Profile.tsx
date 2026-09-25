@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ECONOMY } from '../config';
-import { ACHIEVEMENTS } from '../domain/achievements';
+import { ACTIVE_LINES, currentTier, nextThreshold, SECRETS, TIER_INFO, TIERS } from '../domain/medals';
 import { challengeFor, weekKey, weeklyProgress } from '../domain/goals';
 import { dayKey, dayNumber } from '../domain/srs';
 import { canBuyFreeze, isAlive } from '../domain/streak';
 import { useCity } from '../store/city';
-import { useMotivation } from '../store/motivation';
+import { medalCounters, useMotivation } from '../store/motivation';
 import { useProgress } from '../store/progress';
 import { useSettings } from '../store/settings';
 import { Button, Screen, TopBar } from '../components/ui';
@@ -19,7 +19,7 @@ export function ProfileScreen() {
   const now = Date.now();
   const today = dayNumber(now);
   const streak = useMotivation((s) => s.streak);
-  const unlocked = useMotivation((s) => s.achievements);
+  const medals = useMotivation((s) => s.medals);
   const weeklyClaimed = useMotivation((s) => s.weeklyClaimed);
   const coins = useCity((s) => s.coins);
   const days = useProgress((s) => s.days);
@@ -122,32 +122,54 @@ export function ProfileScreen() {
           <span className="text-stone-500">{Object.keys(cards).length} →</span>
         </Link>
 
-        <section className="rounded-3xl bg-white p-4 shadow-sm">
-          <div className="flex items-baseline justify-between">
-            <h2 className="font-bold">Достижения</h2>
-            <span className="text-sm text-stone-500">
-              {Object.keys(unlocked).length}/{ACHIEVEMENTS.length}
-            </span>
-          </div>
-          <ul className="mt-3 grid grid-cols-3 gap-2">
-            {ACHIEVEMENTS.map((a) => {
-              const got = !!unlocked[a.id];
-              return (
-                <li key={a.id} className={`rounded-2xl p-2 text-center ${got ? 'bg-amber-50' : 'bg-stone-50'}`}>
-                  <div className={`text-3xl ${got ? '' : 'opacity-30 grayscale'}`}>{a.emoji}</div>
-                  <div className={`mt-1 text-xs leading-tight font-semibold ${got ? '' : 'text-stone-400'}`}>{a.title}</div>
-                  <div className="mt-0.5 text-[10px] leading-tight text-stone-500">{a.text}</div>
-                </li>
-              );
-            })}
-          </ul>
-        </section>
+        <MedalList medals={medals} />
 
         <Link to="/settings" className="press py-2 text-center text-sm text-stone-400">
           Версия {CURRENT.version} · о приложении и обновления →
         </Link>
       </div>
     </Screen>
+  );
+}
+
+/** Медали текстом. Зал медалей с картинками — задача 1.3. */
+function MedalList({ medals }: { medals: ReturnType<typeof useMotivation.getState>['medals'] }) {
+  const counters = medalCounters();
+  const got = ACTIVE_LINES.reduce((n, l) => n + Object.keys(medals.lines[l.id] ?? {}).length, 0);
+  const secrets = SECRETS.filter((x) => medals.secrets[x.id] !== undefined);
+  return (
+    <section className="rounded-3xl bg-white p-4 shadow-sm" data-testid="medals">
+      <div className="flex items-baseline justify-between">
+        <h2 className="font-bold">Медали</h2>
+        <span className="text-sm text-stone-500">
+          {got}/{ACTIVE_LINES.length * TIERS.length}
+        </span>
+      </div>
+      <ul className="mt-3 divide-y divide-stone-100">
+        {ACTIVE_LINES.map((l) => {
+          const tier = currentTier(medals.lines[l.id]);
+          const value = l.value!(counters);
+          const next = nextThreshold(l, value);
+          return (
+            <li key={l.id} className="flex items-baseline justify-between gap-3 py-2">
+              <div>
+                <div className="font-semibold">{l.title}</div>
+                <div className="text-xs text-stone-500">{l.counts}</div>
+              </div>
+              <div className="text-right text-sm">
+                <div className={tier ? 'font-semibold text-amber-700' : 'text-stone-400'}>{tier ? TIER_INFO[tier].ru : 'нет'}</div>
+                <div className="text-xs text-stone-500">
+                  {next ? `${value} / ${next.at} до ступени «${TIER_INFO[next.tier].ru}»` : `${value}, все ступени`}
+                </div>
+              </div>
+            </li>
+          );
+        })}
+      </ul>
+      <p className="mt-2 text-sm text-stone-500">
+        Тайные медали: {secrets.length ? secrets.map((x) => `«${x.title}»`).join(', ') : 'пока ни одной'}
+      </p>
+    </section>
   );
 }
 

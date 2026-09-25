@@ -12,7 +12,7 @@ import { useCity } from '../store/city';
 import { useProgress } from '../store/progress';
 import { useMotivation } from '../store/motivation';
 import { logAnswer } from '../db/answers';
-import { type AnswerMode, answerMs } from '../domain/answerLog';
+import { type AnswerMode, answerMs, isListening } from '../domain/answerLog';
 import { BuildPhrase } from './exercises/BuildPhrase';
 import { Choice } from './exercises/Choice';
 import { Intro } from './exercises/Intro';
@@ -89,6 +89,7 @@ export function LessonPlayer({ steps, words, pool, mode, onFinish, onExit }: Pro
       useProgress.getState().addXp(xp);
       useCity.getState().addCoins(coins);
       if (isTyped(step.kind)) useMotivation.getState().recordTyped(o.verdict === 'correct');
+      if (isListening(step.kind) && o.verdict === 'correct') useMotivation.getState().recordListening();
     });
   };
 

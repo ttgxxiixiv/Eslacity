@@ -11,8 +11,8 @@ import { speak } from '../audio/tts';
 import { useProgress } from '../store/progress';
 import { useSettings } from '../store/settings';
 import { useMotivation } from '../store/motivation';
-import type { Achievement } from '../domain/achievements';
-import { AchievementLines } from '../components/LessonResult';
+import type { MedalGain } from '../domain/medals';
+import { MedalLines } from '../components/LessonResult';
 import { Button, Screen, SpeakButton, TopBar } from '../components/ui';
 
 interface Question extends ChoiceData {
@@ -36,7 +36,7 @@ export function BlitzScreen() {
   const shownAt = useRef(0);
   const best = useSettings((s) => s.blitzBest);
   const [newBest, setNewBest] = useState(false);
-  const [ach, setAch] = useState<Achievement[]>([]);
+  const [ach, setAch] = useState<MedalGain[]>([]);
 
   useEffect(() => {
     const ids = Object.keys(useProgress.getState().cards);
@@ -160,7 +160,7 @@ export function BlitzScreen() {
               ))}
             </ul>
           )}
-          <AchievementLines list={ach} />
+          <MedalLines list={ach} />
           <div className="flex-1" />
           <Button className="mt-6" onClick={start}>
             Ещё раз

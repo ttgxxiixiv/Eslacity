@@ -14,8 +14,8 @@ import { useProgress } from '../store/progress';
 import { useMotivation } from '../store/motivation';
 import { logAnswer } from '../db/answers';
 import { answerMs, grammarItemId } from '../domain/answerLog';
-import type { Achievement } from '../domain/achievements';
-import { AchievementLines } from '../components/LessonResult';
+import type { MedalGain } from '../domain/medals';
+import { MedalLines } from '../components/LessonResult';
 import { type Feedback, FeedbackSheet } from '../components/FeedbackSheet';
 import { Md } from '../components/Md';
 import { Button, Screen, SpeakButton, TopBar } from '../components/ui';
@@ -179,7 +179,7 @@ function LessonRunner({ lesson }: { lesson: Lesson }) {
   const [picked, setPicked] = useState<number | null>(null);
   const [fb, setFb] = useState<Feedback | null>(null);
   const [earned, setEarned] = useState({ xp: 0, coins: 0 });
-  const [ach, setAch] = useState<Achievement[]>([]);
+  const [ach, setAch] = useState<MedalGain[]>([]);
   const shownAt = useRef(Date.now());
   const itemKey = run.queue[run.index]?.id;
   useEffect(() => {
@@ -219,7 +219,7 @@ function LessonRunner({ lesson }: { lesson: Lesson }) {
             <div className="text-sm text-stone-500">монет</div>
           </div>
         </div>
-        <AchievementLines list={ach} />
+        <MedalLines list={ach} />
         <div className="flex-1" />
         <Button className="mt-8" onClick={() => nav('/grammar', { replace: true })}>
           Готово
@@ -283,7 +283,7 @@ function LessonRunner({ lesson }: { lesson: Lesson }) {
       useCity.getState().addCoins(bonus);
       setEarned((e) => ({ ...e, coins: e.coins + bonus }));
       setRun({ ...run, index: nextIndex });
-      setAch(useMotivation.getState().evaluate());
+      setAch(useMotivation.getState().evaluate(Date.now(), { perfectLesson: run.firstTry === run.total, lessonAt: Date.now() }));
       setPhase('done');
       return;
     }

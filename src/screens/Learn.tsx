@@ -10,7 +10,7 @@ import { useCity } from '../store/city';
 import { useProgress } from '../store/progress';
 import { useMotivation } from '../store/motivation';
 import { listeningEnabled } from '../audio/tts';
-import type { Achievement } from '../domain/achievements';
+import { lessonEvent, type MedalGain } from '../domain/medals';
 import { LessonPlayer, type LessonTotals } from '../components/LessonPlayer';
 import { LessonResult } from '../components/LessonResult';
 
@@ -33,7 +33,7 @@ export function LearnScreen({ practice = false }: { practice?: boolean }) {
 function LearnRun({ id, level, part, practice }: { id: LocationId; level: number; part: number; practice: boolean }) {
   const nav = useNavigate();
   const [ready, setReady] = useState<Ready | null>(null);
-  const [result, setResult] = useState<{ s: SessionState; totals: LessonTotals; bonus: number; ach: Achievement[] } | null>(null);
+  const [result, setResult] = useState<{ s: SessionState; totals: LessonTotals; bonus: number; ach: MedalGain[] } | null>(null);
 
   useEffect(() => {
     loadLocation(id).then((all) => {
@@ -58,7 +58,7 @@ function LearnRun({ id, level, part, practice }: { id: LocationId; level: number
         session={result.s}
         totals={result.totals}
         bonusCoins={result.bonus}
-        achievements={result.ach}
+        medals={result.ach}
         words={ready.words}
         onDone={() => nav(`/loc/${id}`, { replace: true })}
       />
@@ -90,7 +90,7 @@ function LearnRun({ id, level, part, practice }: { id: LocationId; level: number
             useCity.getState().addCoins(bonus);
           }
         }
-        setResult({ s, totals, bonus, ach: useMotivation.getState().evaluate() });
+        setResult({ s, totals, bonus, ach: useMotivation.getState().evaluate(Date.now(), lessonEvent(s)) });
       }}
     />
   );

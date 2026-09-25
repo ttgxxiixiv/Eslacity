@@ -34,6 +34,9 @@ for (const lang of LANGS) {
       }
       await expect(page.getByText(/урок пройден/i)).toBeVisible();
       await expect(page.getByText('100%')).toBeVisible();
+      // Первый урок грамматики — деревянная ступень «Знатока правил», урок без ошибок — тайная медаль.
+      await expect(page.getByText('Деревянная медаль «Знаток правил»')).toBeVisible();
+      await expect(page.getByText('Тайная медаль «Без единой ошибки»')).toBeVisible();
       await expect.poll(async () => (await readAnswers(page, lang)).length).toBe(lesson.exercises.length);
       const log = await readAnswers(page, lang);
       expect(log.every((a) => a.mode === 'grammar' && a.verdict === 'correct' && a.kind.startsWith('grammar-'))).toBe(true);
@@ -44,6 +47,11 @@ for (const lang of LANGS) {
       await page.getByRole('button', { name: /перечитать теорию/i }).click();
       await page.getByRole('button', { name: /к упражнениям/i }).click();
       await expect(page.locator('button.min-h-14').first()).toBeVisible();
+      // В профиле медаль видна текстом, тайная тоже.
+      await page.goto('./#/profile');
+      const medals = page.getByTestId('medals');
+      await expect(medals.locator('li').filter({ hasText: 'Знаток правил' })).toContainText('Дерево');
+      await expect(medals).toContainText('«Без единой ошибки»');
     });
   });
 }

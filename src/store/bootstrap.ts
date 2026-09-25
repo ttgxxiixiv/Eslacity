@@ -1,5 +1,6 @@
 import { db, type BuildingRow } from '../db/db';
 import { pruneAnswers } from '../db/answers';
+import { isListening } from '../domain/answerLog';
 import { dayKey } from '../domain/srs';
 import type { Settings } from './settings';
 import { useCity } from './city';
@@ -33,6 +34,12 @@ export async function bootstrap(): Promise<void> {
   useSettings.getState().hydrate(m.settings as Partial<Settings> | undefined);
   useMotivation.getState().hydrate(m.motivation as Partial<MotivationData> | undefined);
   useMotivation.getState().settle();
+  if (useMotivation.getState().listenCorrect === null) {
+    // Перенос: счётчик «Слушателя» появился в 2.3.0, до этого верные ответы на слух есть только в журнале.
+    const heard = await db.answers.filter((r) => isListening(r.kind) && r.verdict === 'correct').count();
+    useMotivation.getState().initListening(heard);
+  }
+  // Первая проверка после обновления переносит старые достижения в ступени медалей и выдаёт награды один раз.
   useMotivation.getState().evaluate();
   // Старые записи журнала убираются в фоне: запуску они не нужны.
   pruneAnswers().catch((e) => console.error('Не удалось почистить журнал ответов', e));

@@ -1,6 +1,5 @@
 import { describe, expect, it } from 'vitest';
 import type { DayRow } from '../db/db';
-import { ACHIEVEMENTS, newlyUnlocked, type AchievementCtx } from './achievements';
 import { challengeFor, weekStart, weeklyProgress, WEEKLY_TEMPLATES } from './goals';
 import { dayNumber } from './srs';
 import { canBuyFreeze, EMPTY_STREAK, isAlive, registerGoal, settleStreak } from './streak';
@@ -79,25 +78,5 @@ describe('недельный челлендж', () => {
     ];
     expect(weeklyProgress(WEEKLY_TEMPLATES[0], rows, today)).toBe(17);
     expect(weeklyProgress(WEEKLY_TEMPLATES[3], rows, today)).toBe(2);
-  });
-});
-
-describe('достижения', () => {
-  const zero: AchievementCtx = {
-    learnedWords: 0, openBuildings: 1, totalBuildings: 20, maxBuildingLevel: 1, streakBest: 0, weekReviews: 0,
-    grammarDone: 0, grammarA1Total: 31, blitzBest: 0, typedBest: 0, freezesUsed: 0,
-  };
-  it('от 15 до 20 достижений, id уникальны', () => {
-    expect(ACHIEVEMENTS.length).toBeGreaterThanOrEqual(15);
-    expect(ACHIEVEMENTS.length).toBeLessThanOrEqual(20);
-    expect(new Set(ACHIEVEMENTS.map((a) => a.id)).size).toBe(ACHIEVEMENTS.length);
-  });
-  it('на старте ничего не открыто', () => {
-    expect(newlyUnlocked(zero, {})).toEqual([]);
-  });
-  it('открывает новые и не повторяет открытые', () => {
-    const ctx = { ...zero, learnedWords: 60 };
-    expect(newlyUnlocked(ctx, {}).map((a) => a.id)).toEqual(['word-1', 'word-50']);
-    expect(newlyUnlocked(ctx, { 'word-1': 1 }).map((a) => a.id)).toEqual(['word-50']);
   });
 });
