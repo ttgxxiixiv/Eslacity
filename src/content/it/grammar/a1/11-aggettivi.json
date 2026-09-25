@@ -1,0 +1,136 @@
+{
+  "id": "a1.11-aggettivi",
+  "district": "A1",
+  "order": 11,
+  "title": "Согласование прилагательных",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Прилагательное согласуется с существительным в роде и числе. Обычно оно стоит **после** существительного: una casa grande."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Тип",
+        "м. р. ед.",
+        "ж. р. ед.",
+        "м. р. мн.",
+        "ж. р. мн."
+      ],
+      "rows": [
+        {
+          "cells": [
+            "на -o",
+            "rosso",
+            "rossa",
+            "rossi",
+            "rosse"
+          ]
+        },
+        {
+          "cells": [
+            "на -e",
+            "grande",
+            "grande",
+            "grandi",
+            "grandi"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Если в группе есть слова обоих родов, прилагательное ставят в мужской род: il libro e la penna sono nuovi. Некоторые частые прилагательные стоят перед существительным: bello, buono, grande, piccolo — una bella giornata."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Una macchina rossa.",
+      "ru": "Красная машина."
+    },
+    {
+      "es": "Gli occhi verdi.",
+      "ru": "Зелёные глаза."
+    },
+    {
+      "es": "Le scarpe nuove sono comode.",
+      "ru": "Новые туфли удобные."
+    },
+    {
+      "es": "Un ragazzo simpatico.",
+      "ru": "Симпатичный парень."
+    }
+  ],
+  "exercises": [
+    {
+      "kind": "choose",
+      "prompt": "«Белые рубашки»:",
+      "options": [
+        "le camicie bianche",
+        "le camicie bianchi",
+        "le camicie bianca"
+      ],
+      "answer": 0,
+      "explain": "Женский род, множественное: -e."
+    },
+    {
+      "kind": "choose",
+      "prompt": "«Зелёная дверь»:",
+      "options": [
+        "la porta verde",
+        "la porta verda",
+        "la porta verdi"
+      ],
+      "answer": 0,
+      "explain": "Verde на -e: одинаково в мужском и женском роде."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Le case sono ___.",
+      "ru": "Дома старые.",
+      "options": [
+        "vecchie",
+        "vecchi",
+        "vecchia"
+      ],
+      "answer": 0,
+      "explain": "Case — ж. р. мн.: vecchie."
+    },
+    {
+      "kind": "gap",
+      "sentence": "I libri sono ___.",
+      "ru": "Книги интересные.",
+      "options": [
+        "interessanti",
+        "interessante",
+        "interessanta"
+      ],
+      "answer": 0,
+      "explain": "На -e во множественном: -i."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Il pane e la pasta sono ___.",
+      "ru": "Хлеб и паста свежие.",
+      "options": [
+        "freschi",
+        "fresche",
+        "fresco"
+      ],
+      "answer": 0,
+      "explain": "Смешанная группа — мужской род множественного числа."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "«Una casa grande» — правильно.",
+      "answer": true,
+      "explain": "Grande одинаково для обоих родов."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "«Le ragazze sono simpatici» — правильно.",
+      "answer": false,
+      "explain": "Ragazze — ж. р.: simpatiche."
+    }
+  ]
+}

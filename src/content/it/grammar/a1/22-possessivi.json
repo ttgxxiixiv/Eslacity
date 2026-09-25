@@ -1,0 +1,172 @@
+{
+  "id": "a1.22-possessivi",
+  "district": "A1",
+  "order": 22,
+  "title": "Притяжательные: il mio, la mia",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Притяжательное согласуется с тем, **чем** владеют, а не с владельцем. И обычно стоит с артиклем: **il mio** libro, **la mia** casa."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Чей",
+        "м. р. ед.",
+        "ж. р. ед.",
+        "м. р. мн.",
+        "ж. р. мн."
+      ],
+      "rows": [
+        {
+          "cells": [
+            "мой",
+            "il mio",
+            "la mia",
+            "i miei",
+            "le mie"
+          ]
+        },
+        {
+          "cells": [
+            "твой",
+            "il tuo",
+            "la tua",
+            "i tuoi",
+            "le tue"
+          ]
+        },
+        {
+          "cells": [
+            "его / её / Ваш",
+            "il suo",
+            "la sua",
+            "i suoi",
+            "le sue"
+          ]
+        },
+        {
+          "cells": [
+            "наш",
+            "il nostro",
+            "la nostra",
+            "i nostri",
+            "le nostre"
+          ]
+        },
+        {
+          "cells": [
+            "ваш",
+            "il vostro",
+            "la vostra",
+            "i vostri",
+            "le vostre"
+          ]
+        },
+        {
+          "cells": [
+            "их",
+            "il loro",
+            "la loro",
+            "i loro",
+            "le loro"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "**Suo** значит и «его», и «её»: la sua macchina — его или её машина, зависит от контекста. **Loro** не меняется."
+    }
+  ],
+  "examples": [
+    {
+      "es": "La mia casa è piccola.",
+      "ru": "Мой дом маленький."
+    },
+    {
+      "es": "Dov'è il tuo telefono?",
+      "ru": "Где твой телефон?"
+    },
+    {
+      "es": "Marco e la sua ragazza.",
+      "ru": "Марко и его девушка."
+    },
+    {
+      "es": "I nostri amici arrivano.",
+      "ru": "Наши друзья приезжают."
+    }
+  ],
+  "exercises": [
+    {
+      "kind": "choose",
+      "prompt": "«Его машина»:",
+      "options": [
+        "la sua macchina",
+        "il suo macchina",
+        "la lui macchina"
+      ],
+      "answer": 0,
+      "explain": "Macchina — ж. р.: la sua."
+    },
+    {
+      "kind": "choose",
+      "prompt": "«Их дети»:",
+      "options": [
+        "i loro figli",
+        "i lori figli",
+        "i suoi figli"
+      ],
+      "answer": 0,
+      "explain": "Loro не изменяется: i loro."
+    },
+    {
+      "kind": "gap",
+      "sentence": "___ chiavi sono sul tavolo.",
+      "ru": "Мои ключи на столе.",
+      "options": [
+        "Le mie",
+        "I miei",
+        "La mia"
+      ],
+      "answer": 0,
+      "explain": "Chiavi — ж. р. мн.: le mie."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Anna cerca ___ libro.",
+      "ru": "Анна ищет свою книгу.",
+      "options": [
+        "il suo",
+        "la sua",
+        "il loro"
+      ],
+      "answer": 0,
+      "explain": "Libro — м. р.: il suo."
+    },
+    {
+      "kind": "gap",
+      "sentence": "È ___ macchina, signor Rossi?",
+      "ru": "Это Ваша машина, синьор Росси?",
+      "options": [
+        "la Sua",
+        "il Suo",
+        "la tua"
+      ],
+      "answer": 0,
+      "explain": "Вежливо — la Sua."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "«La sua casa» может значить «его дом».",
+      "answer": true,
+      "explain": "Suo/sua согласуется с предметом, а не с владельцем."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "«I loros amici» — правильная форма.",
+      "answer": false,
+      "explain": "Loro неизменяемо: i loro amici."
+    }
+  ]
+}

@@ -1,0 +1,139 @@
+{
+  "id": "a1.26-ora",
+  "district": "A1",
+  "order": 26,
+  "title": "Который час",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Спрашивают **Che ora è?** или **Che ore sono?** Отвечают **sono le** + число: Sono le tre. Для часа, полудня и полуночи — **è**: È l'una, È mezzogiorno, È mezzanotte."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Итальянский",
+        "Русский"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Sono le tre e dieci.",
+            "Три часа десять минут."
+          ]
+        },
+        {
+          "cells": [
+            "Sono le quattro e un quarto.",
+            "Четверть пятого."
+          ]
+        },
+        {
+          "cells": [
+            "Sono le cinque e mezza.",
+            "Половина шестого."
+          ]
+        },
+        {
+          "cells": [
+            "Sono le sei meno un quarto.",
+            "Без четверти шесть."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "После половины часто говорят с **meno**: Sono le otto meno dieci = без десяти восемь. В официальном расписании используют 24 часа: le diciotto e trenta."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Che ore sono? — Sono le due.",
+      "ru": "Который час? — Два часа."
+    },
+    {
+      "es": "È l'una e mezza.",
+      "ru": "Половина второго."
+    },
+    {
+      "es": "Sono le nove meno cinque.",
+      "ru": "Без пяти девять."
+    },
+    {
+      "es": "È mezzogiorno.",
+      "ru": "Полдень."
+    }
+  ],
+  "exercises": [
+    {
+      "kind": "choose",
+      "prompt": "«Час дня»:",
+      "options": [
+        "È l'una.",
+        "Sono le una.",
+        "È la una."
+      ],
+      "answer": 0,
+      "explain": "Для часа — è l'una."
+    },
+    {
+      "kind": "choose",
+      "prompt": "«Половина четвёртого»:",
+      "options": [
+        "Sono le tre e mezza.",
+        "Sono le quattro e mezza.",
+        "Sono le tre meno mezza."
+      ],
+      "answer": 0,
+      "explain": "Три и половина — половина четвёртого."
+    },
+    {
+      "kind": "gap",
+      "sentence": "___ le sette.",
+      "ru": "Семь часов.",
+      "options": [
+        "Sono",
+        "È",
+        "Ci sono"
+      ],
+      "answer": 0,
+      "explain": "Для чисел больше одного — sono le."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Sono le dieci ___ un quarto.",
+      "ru": "Без четверти десять.",
+      "options": [
+        "meno",
+        "e",
+        "più"
+      ],
+      "answer": 0,
+      "explain": "Без — meno."
+    },
+    {
+      "kind": "gap",
+      "sentence": "È ___.",
+      "ru": "Полночь.",
+      "options": [
+        "mezzanotte",
+        "mezzogiorno",
+        "mezza"
+      ],
+      "answer": 0,
+      "explain": "Полночь — mezzanotte."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "«Sono le due e un quarto» — четверть третьего.",
+      "answer": true,
+      "explain": "Два часа и четверть."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "«Sono l'una» — правильно.",
+      "answer": false,
+      "explain": "È l'una."
+    }
+  ]
+}

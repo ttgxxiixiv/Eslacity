@@ -1,0 +1,144 @@
+{
+  "id": "a1.09-articoli-indeterminativi",
+  "district": "A1",
+  "order": 9,
+  "title": "Неопределённые артикли",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Неопределённый артикль значит «какой-то, один»: **un** libro — книга (какая-то). Выбирается по тем же правилам, что определённый."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Артикль",
+        "Когда",
+        "Пример"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "un",
+            "м. р., перед согласной и гласной",
+            "un libro, un amico"
+          ]
+        },
+        {
+          "cells": [
+            "uno",
+            "м. р., перед s+согласная, z, gn, ps",
+            "uno studente, uno zaino"
+          ]
+        },
+        {
+          "cells": [
+            "una",
+            "ж. р., перед согласной",
+            "una casa"
+          ]
+        },
+        {
+          "cells": [
+            "un'",
+            "ж. р., перед гласной",
+            "un'amica"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "В мужском роде перед гласной апострофа нет: **un amico**. Апостроф только в женском: **un'amica**. По апострофу можно узнать род."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Ho un fratello.",
+      "ru": "У меня есть брат."
+    },
+    {
+      "es": "C'è uno sconto.",
+      "ru": "Есть скидка."
+    },
+    {
+      "es": "Vorrei una birra.",
+      "ru": "Я бы хотел пиво."
+    },
+    {
+      "es": "È un'idea fantastica.",
+      "ru": "Это отличная идея."
+    }
+  ],
+  "exercises": [
+    {
+      "kind": "choose",
+      "prompt": "Как правильно?",
+      "options": [
+        "un amico",
+        "un'amico",
+        "uno amico"
+      ],
+      "answer": 0,
+      "explain": "Мужской род перед гласной: un, без апострофа."
+    },
+    {
+      "kind": "choose",
+      "prompt": "Как правильно?",
+      "options": [
+        "un'isola",
+        "un isola",
+        "una isola"
+      ],
+      "answer": 0,
+      "explain": "Женский род перед гласной: un'."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Prendo ___ spremuta.",
+      "ru": "Я возьму свежевыжатый сок.",
+      "options": [
+        "una",
+        "uno",
+        "un'"
+      ],
+      "answer": 0,
+      "explain": "Женский род перед согласной: una."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Cerco ___ zaino nuovo.",
+      "ru": "Я ищу новый рюкзак.",
+      "options": [
+        "uno",
+        "un",
+        "una"
+      ],
+      "answer": 0,
+      "explain": "Перед z — uno."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Ho ___ appuntamento alle tre.",
+      "ru": "У меня встреча в три.",
+      "options": [
+        "un",
+        "un'",
+        "uno"
+      ],
+      "answer": 0,
+      "explain": "Appuntamento мужского рода: un без апострофа."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "«Un'amico» — правильное написание.",
+      "answer": false,
+      "explain": "Апостроф только в женском роде: un amico, un'amica."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "«Uno psicologo» — правильно.",
+      "answer": true,
+      "explain": "Перед ps — uno."
+    }
+  ]
+}

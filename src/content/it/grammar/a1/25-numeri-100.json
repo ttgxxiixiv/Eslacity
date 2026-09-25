@@ -1,0 +1,133 @@
+{
+  "id": "a1.25-numeri-100",
+  "district": "A1",
+  "order": 25,
+  "title": "Числа от 20 до 1000",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Десятки: venti, trenta, quaranta, cinquanta, sessanta, settanta, ottanta, novanta, cento. Единицы пишутся слитно: ventidue, trentacinque."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Правило",
+        "Пример"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "перед uno и otto гласная десятка выпадает",
+            "ventuno, ventotto, trentuno"
+          ]
+        },
+        {
+          "cells": [
+            "сотни",
+            "duecento, trecento"
+          ]
+        },
+        {
+          "cells": [
+            "тысяча / тысячи",
+            "mille / duemila"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Числа пишут одним словом: 345 = trecentoquarantacinque. Mille во множественном — **mila**: duemila, tremila."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Ho trentun anni.",
+      "ru": "Мне тридцать один год."
+    },
+    {
+      "es": "Costa cinquanta euro.",
+      "ru": "Стоит пятьдесят евро."
+    },
+    {
+      "es": "Sono nata nel duemila.",
+      "ru": "Я родилась в двухтысячном году."
+    },
+    {
+      "es": "Il biglietto costa centoventi euro.",
+      "ru": "Билет стоит сто двадцать евро."
+    }
+  ],
+  "exercises": [
+    {
+      "kind": "choose",
+      "prompt": "28 по-итальянски:",
+      "options": [
+        "ventotto",
+        "ventiotto",
+        "venteotto"
+      ],
+      "answer": 0,
+      "explain": "Перед otto гласная выпадает."
+    },
+    {
+      "kind": "choose",
+      "prompt": "3000 по-итальянски:",
+      "options": [
+        "tremila",
+        "tremille",
+        "tre mille"
+      ],
+      "answer": 0,
+      "explain": "Mille → mila."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Ha ___ anni.",
+      "ru": "Ему сорок лет.",
+      "options": [
+        "quaranta",
+        "quattordici",
+        "quattrocento"
+      ],
+      "answer": 0,
+      "explain": "40 — quaranta."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Abito al numero ___.",
+      "ru": "Я живу в доме номер шестьдесят.",
+      "options": [
+        "sessanta",
+        "settanta",
+        "sedici"
+      ],
+      "answer": 0,
+      "explain": "60 — sessanta."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Il volo costa ___ euro.",
+      "ru": "Перелёт стоит двести евро.",
+      "options": [
+        "duecento",
+        "duecenti",
+        "due cento"
+      ],
+      "answer": 0,
+      "explain": "Сотни пишутся слитно: duecento."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "21 — «ventuno».",
+      "answer": true,
+      "explain": "Перед uno гласная выпадает."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "90 — «nonanta».",
+      "answer": false,
+      "explain": "90 — novanta."
+    }
+  ]
+}

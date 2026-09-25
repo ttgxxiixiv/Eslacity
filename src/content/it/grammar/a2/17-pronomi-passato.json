@@ -1,0 +1,139 @@
+{
+  "id": "a2.17-pronomi-passato",
+  "district": "A2",
+  "order": 17,
+  "title": "Местоимения в прошедшем времени",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Если перед passato prossimo стоит прямое местоимение **lo, la, li, le**, participio согласуется с ним: **L'ho vista** = Я её видел."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Местоимение",
+        "Пример"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "lo",
+            "L'ho visto. (его)"
+          ]
+        },
+        {
+          "cells": [
+            "la",
+            "L'ho vista. (её)"
+          ]
+        },
+        {
+          "cells": [
+            "li",
+            "Li ho visti. (их, м.)"
+          ]
+        },
+        {
+          "cells": [
+            "le",
+            "Le ho viste. (их, ж.)"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Lo и la перед h сокращаются: l'ho, l'hai. Li и le не сокращаются. С косвенными местоимениями (gli, le) согласования нет: Le ho scritto (Я написал ей)."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Hai visto la mostra? — Sì, l'ho vista.",
+      "ru": "Ты видел выставку? — Да, видел."
+    },
+    {
+      "es": "I biglietti? Li ho comprati ieri.",
+      "ru": "Билеты? Я купил их вчера."
+    },
+    {
+      "es": "Le chiavi? Le ho perse.",
+      "ru": "Ключи? Я их потерял."
+    },
+    {
+      "es": "Hai chiamato Marco? — Sì, l'ho chiamato.",
+      "ru": "Ты звонил Марко? — Да."
+    }
+  ],
+  "exercises": [
+    {
+      "kind": "choose",
+      "prompt": "«Пиццу я её съел»:",
+      "options": [
+        "L'ho mangiata.",
+        "L'ho mangiato.",
+        "La ho mangiato."
+      ],
+      "answer": 0,
+      "explain": "La → l', participio -a."
+    },
+    {
+      "kind": "choose",
+      "prompt": "«Письма? Я их написал»:",
+      "options": [
+        "Le ho scritte.",
+        "Le ho scritto.",
+        "L'ho scritte."
+      ],
+      "answer": 0,
+      "explain": "Lettere — ж. р. мн., согласование -e."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Le foto? Le ho ___ io.",
+      "ru": "Фотографии? Их сделал я.",
+      "options": [
+        "fatte",
+        "fatto",
+        "fatti"
+      ],
+      "answer": 0,
+      "explain": "Foto — ж. р. мн."
+    },
+    {
+      "kind": "gap",
+      "sentence": "I libri? ___ ho letti tutti.",
+      "ru": "Книги? Я их все прочитал.",
+      "options": [
+        "Li",
+        "Le",
+        "Gli"
+      ],
+      "answer": 0,
+      "explain": "Libri — м. р. мн.: li."
+    },
+    {
+      "kind": "gap",
+      "sentence": "A Maria ho ___ un messaggio.",
+      "ru": "Марии я написал сообщение.",
+      "options": [
+        "scritto",
+        "scritta",
+        "scritti"
+      ],
+      "answer": 0,
+      "explain": "С косвенным дополнением согласования нет."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "«Li ho visti» — я видел их (мужчин или смешанную группу).",
+      "answer": true,
+      "explain": "Li — м. р. мн., participio -i."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "«L'ho vista» может значить «я видел его».",
+      "answer": false,
+      "explain": "Vista — женский род, значит «её»."
+    }
+  ]
+}

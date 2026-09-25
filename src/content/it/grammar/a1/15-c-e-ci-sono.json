@@ -1,0 +1,139 @@
+{
+  "id": "a1.15-c-e-ci-sono",
+  "district": "A1",
+  "order": 15,
+  "title": "C'è и ci sono",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "**C'è** (есть, имеется) — с единственным числом, **ci sono** — со множественным. Так говорят о наличии чего-то где-то."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Итальянский",
+        "Русский"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "C'è un bar qui vicino.",
+            "Здесь рядом есть бар."
+          ]
+        },
+        {
+          "cells": [
+            "Ci sono due farmacie.",
+            "Есть две аптеки."
+          ]
+        },
+        {
+          "cells": [
+            "Non c'è latte.",
+            "Молока нет."
+          ]
+        },
+        {
+          "cells": [
+            "C'è Marco?",
+            "Марко здесь?"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Чтобы сказать, где находится конкретный предмет, используют essere: Il bar è in piazza. C'è — когда предмет упоминается впервые: In piazza c'è un bar."
+    }
+  ],
+  "examples": [
+    {
+      "es": "C'è un problema.",
+      "ru": "Есть проблема."
+    },
+    {
+      "es": "Ci sono molti turisti.",
+      "ru": "Много туристов."
+    },
+    {
+      "es": "In frigo non c'è niente.",
+      "ru": "В холодильнике ничего нет."
+    },
+    {
+      "es": "Scusi, c'è un bagno?",
+      "ru": "Простите, здесь есть туалет?"
+    }
+  ],
+  "exercises": [
+    {
+      "kind": "choose",
+      "prompt": "«Там много людей»:",
+      "options": [
+        "Ci sono molte persone.",
+        "C'è molte persone.",
+        "Sono molte persone."
+      ],
+      "answer": 0,
+      "explain": "Множественное число — ci sono."
+    },
+    {
+      "kind": "choose",
+      "prompt": "«Где вокзал?»",
+      "options": [
+        "Dov'è la stazione?",
+        "Dove c'è la stazione?",
+        "Dove ci sono la stazione?"
+      ],
+      "answer": 0,
+      "explain": "Для конкретного, известного предмета — essere."
+    },
+    {
+      "kind": "gap",
+      "sentence": "In camera ___ due letti.",
+      "ru": "В номере две кровати.",
+      "options": [
+        "ci sono",
+        "c'è",
+        "sono"
+      ],
+      "answer": 0,
+      "explain": "Два предмета — ci sono."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Scusi, ___ un bancomat qui?",
+      "ru": "Простите, здесь есть банкомат?",
+      "options": [
+        "c'è",
+        "ci sono",
+        "è"
+      ],
+      "answer": 0,
+      "explain": "Один предмет, упоминается впервые — c'è."
+    },
+    {
+      "kind": "gap",
+      "sentence": "La farmacia ___ in via Roma.",
+      "ru": "Аптека на улице Рима.",
+      "options": [
+        "è",
+        "c'è",
+        "ci sono"
+      ],
+      "answer": 0,
+      "explain": "Конкретная известная аптека — è."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "«Non c'è pane» значит «Хлеба нет».",
+      "answer": true,
+      "explain": "Отрицание: non c'è."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "«C'è tre bambini» — правильно.",
+      "answer": false,
+      "explain": "Множественное: ci sono tre bambini."
+    }
+  ]
+}

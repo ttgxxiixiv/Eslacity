@@ -1,0 +1,144 @@
+{
+  "id": "a1.10-plurale",
+  "district": "A1",
+  "order": 10,
+  "title": "Множественное число",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Множественное число образуется сменой окончания."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Единственное",
+        "Множественное",
+        "Пример"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "-o (м. р.)",
+            "-i",
+            "il libro → i libri"
+          ]
+        },
+        {
+          "cells": [
+            "-a (ж. р.)",
+            "-e",
+            "la casa → le case"
+          ]
+        },
+        {
+          "cells": [
+            "-e (оба рода)",
+            "-i",
+            "il fiore → i fiori, la chiave → le chiavi"
+          ]
+        },
+        {
+          "cells": [
+            "ударная гласная, согласная",
+            "не меняется",
+            "la città → le città, il bar → i bar"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Слова на -ca/-ga получают h, чтобы сохранить звук: l'amica → le amiche, la riga → le righe. Исключения: l'uomo → gli uomini, l'uovo → le uova, la mano → le mani."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Ho due fratelli.",
+      "ru": "У меня два брата."
+    },
+    {
+      "es": "Le case sono belle.",
+      "ru": "Дома красивые."
+    },
+    {
+      "es": "Compro tre chiavi.",
+      "ru": "Я покупаю три ключа."
+    },
+    {
+      "es": "Le città italiane sono antiche.",
+      "ru": "Итальянские города древние."
+    }
+  ],
+  "exercises": [
+    {
+      "kind": "choose",
+      "prompt": "Множественное от «il caffè»:",
+      "options": [
+        "i caffè",
+        "i caffèi",
+        "i caffi"
+      ],
+      "answer": 0,
+      "explain": "Слова с ударной гласной на конце не меняются."
+    },
+    {
+      "kind": "choose",
+      "prompt": "Множественное от «l'amica»:",
+      "options": [
+        "le amiche",
+        "le amice",
+        "le amici"
+      ],
+      "answer": 0,
+      "explain": "-ca → -che."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Due ___, per favore.",
+      "ru": "Два пива, пожалуйста.",
+      "options": [
+        "birre",
+        "birri",
+        "birra"
+      ],
+      "answer": 0,
+      "explain": "-a → -e."
+    },
+    {
+      "kind": "gap",
+      "sentence": "I ___ sono in giardino.",
+      "ru": "Цветы в саду.",
+      "options": [
+        "fiori",
+        "fiore",
+        "fiora"
+      ],
+      "answer": 0,
+      "explain": "-e → -i."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Compro sei ___.",
+      "ru": "Я покупаю шесть яиц.",
+      "options": [
+        "uova",
+        "uovi",
+        "uove"
+      ],
+      "answer": 0,
+      "explain": "Особая форма: l'uovo → le uova."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "Множественное от «il bar» — «i bar».",
+      "answer": true,
+      "explain": "Слова на согласную не меняются."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "Множественное от «l'uomo» — «gli uomi».",
+      "answer": false,
+      "explain": "Особая форма: gli uomini."
+    }
+  ]
+}

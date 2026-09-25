@@ -1,0 +1,139 @@
+{
+  "id": "a1.23-possessivi-famiglia",
+  "district": "A1",
+  "order": 23,
+  "title": "Притяжательные с родственниками",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "С названиями родственников в **единственном числе** артикль перед притяжательным не ставят: **mio** padre, **mia** sorella. Во множественном числе артикль нужен: **i miei** fratelli."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Без артикля",
+        "С артиклем"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "mio padre",
+            "i miei genitori"
+          ]
+        },
+        {
+          "cells": [
+            "mia madre",
+            "le mie sorelle"
+          ]
+        },
+        {
+          "cells": [
+            "tuo fratello",
+            "il mio fratellino"
+          ]
+        },
+        {
+          "cells": [
+            "sua moglie",
+            "la loro figlia"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Артикль возвращается, если есть уменьшительное или прилагательное (il mio fratellino, la mia cara zia) и всегда с **loro** (la loro madre)."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Mio padre è ingegnere.",
+      "ru": "Мой отец инженер."
+    },
+    {
+      "es": "Tua sorella è simpatica.",
+      "ru": "Твоя сестра симпатичная."
+    },
+    {
+      "es": "I miei nonni abitano in campagna.",
+      "ru": "Мои бабушка и дедушка живут в деревне."
+    },
+    {
+      "es": "La loro figlia studia a Bologna.",
+      "ru": "Их дочь учится в Болонье."
+    }
+  ],
+  "exercises": [
+    {
+      "kind": "choose",
+      "prompt": "«Моя мама»:",
+      "options": [
+        "mia madre",
+        "la mia madre",
+        "mio madre"
+      ],
+      "answer": 0,
+      "explain": "С родственником в единственном числе — без артикля."
+    },
+    {
+      "kind": "choose",
+      "prompt": "«Мои братья»:",
+      "options": [
+        "i miei fratelli",
+        "miei fratelli",
+        "il mio fratelli"
+      ],
+      "answer": 0,
+      "explain": "Во множественном — с артиклем."
+    },
+    {
+      "kind": "gap",
+      "sentence": "___ fratello lavora a Milano.",
+      "ru": "Мой брат работает в Милане.",
+      "options": [
+        "Mio",
+        "Il mio",
+        "Mia"
+      ],
+      "answer": 0,
+      "explain": "Без артикля."
+    },
+    {
+      "kind": "gap",
+      "sentence": "___ madre è molto giovane.",
+      "ru": "Их мама очень молодая.",
+      "options": [
+        "La loro",
+        "Loro",
+        "Sua loro"
+      ],
+      "answer": 0,
+      "explain": "С loro артикль всегда."
+    },
+    {
+      "kind": "gap",
+      "sentence": "___ cugine vengono domani.",
+      "ru": "Мои двоюродные сёстры приедут завтра.",
+      "options": [
+        "Le mie",
+        "Mie",
+        "Mia"
+      ],
+      "answer": 0,
+      "explain": "Множественное — с артиклем."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "«La mia sorella» — обычная форма.",
+      "answer": false,
+      "explain": "С родственниками в единственном числе: mia sorella."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "«Il mio fratellino» пишется с артиклем.",
+      "answer": true,
+      "explain": "Уменьшительная форма возвращает артикль."
+    }
+  ]
+}

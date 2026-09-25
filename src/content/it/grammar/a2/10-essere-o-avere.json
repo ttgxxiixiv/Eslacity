@@ -1,0 +1,133 @@
+{
+  "id": "a2.10-essere-o-avere",
+  "district": "A2",
+  "order": 10,
+  "title": "Essere или avere?",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Правило в целом: если у глагола есть прямое дополнение (что? кого?), берём **avere**. Движение туда-сюда, изменение состояния, возвратные глаголы — **essere**."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "С avere",
+        "С essere"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "mangiare, comprare, vedere",
+            "andare, venire, arrivare"
+          ]
+        },
+        {
+          "cells": [
+            "fare, dire, scrivere",
+            "nascere, morire, diventare"
+          ]
+        },
+        {
+          "cells": [
+            "dormire, lavorare, camminare",
+            "piacere, costare, succedere"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Некоторые глаголы меняют вспомогательный по смыслу: **Ho finito** il lavoro (закончил работу), но **Il film è finito** (фильм закончился). Так же cominciare, passare, cambiare. Camminare и correre без цели — с avere."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Ho comprato il pane.",
+      "ru": "Я купил хлеб."
+    },
+    {
+      "es": "È successo qualcosa?",
+      "ru": "Что-то случилось?"
+    },
+    {
+      "es": "Il concerto è cominciato alle nove.",
+      "ru": "Концерт начался в девять."
+    },
+    {
+      "es": "Ho cominciato un nuovo lavoro.",
+      "ru": "Я начал новую работу."
+    }
+  ],
+  "exercises": [
+    {
+      "kind": "choose",
+      "prompt": "«Мне понравился фильм»:",
+      "options": [
+        "Il film mi è piaciuto.",
+        "Il film mi ha piaciuto.",
+        "Il film mi è piaciuta."
+      ],
+      "answer": 0,
+      "explain": "Piacere — с essere, согласование с film."
+    },
+    {
+      "kind": "choose",
+      "prompt": "«Сколько это стоило?»",
+      "options": [
+        "Quanto è costato?",
+        "Quanto ha costato?",
+        "Quanto è costata?"
+      ],
+      "answer": 0,
+      "explain": "Costare — с essere."
+    },
+    {
+      "kind": "gap",
+      "sentence": "La lezione ___ finita alle dieci.",
+      "ru": "Урок закончился в десять.",
+      "options": [
+        "è",
+        "ha",
+        "sono"
+      ],
+      "answer": 0,
+      "explain": "Закончился сам — essere."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Io ___ finito i compiti.",
+      "ru": "Я закончил домашнее задание.",
+      "options": [
+        "ho",
+        "sono",
+        "è"
+      ],
+      "answer": 0,
+      "explain": "Закончил что-то — avere."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Ieri ___ camminato per tre ore.",
+      "ru": "Вчера я гулял три часа.",
+      "options": [
+        "ho",
+        "sono",
+        "è"
+      ],
+      "answer": 0,
+      "explain": "Camminare — с avere."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "Piacere в прошедшем времени идёт с essere.",
+      "answer": true,
+      "explain": "Mi è piaciuto."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "«Sono mangiato» — правильно.",
+      "answer": false,
+      "explain": "Mangiare — с avere: ho mangiato."
+    }
+  ]
+}

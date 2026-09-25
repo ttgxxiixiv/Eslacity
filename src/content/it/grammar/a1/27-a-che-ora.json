@@ -1,0 +1,157 @@
+{
+  "id": "a1.27-a-che-ora",
+  "district": "A1",
+  "order": 27,
+  "title": "В котором часу. Дни недели",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "«Во сколько?» — **A che ora?** Отвечают **alle** + число: alle otto, **all'una**, **a mezzogiorno**."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "День",
+        "Итальянский"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "понедельник",
+            "lunedì"
+          ]
+        },
+        {
+          "cells": [
+            "вторник",
+            "martedì"
+          ]
+        },
+        {
+          "cells": [
+            "среда",
+            "mercoledì"
+          ]
+        },
+        {
+          "cells": [
+            "четверг",
+            "giovedì"
+          ]
+        },
+        {
+          "cells": [
+            "пятница",
+            "venerdì"
+          ]
+        },
+        {
+          "cells": [
+            "суббота",
+            "sabato"
+          ]
+        },
+        {
+          "cells": [
+            "воскресенье",
+            "domenica"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Дни пишутся с маленькой буквы. «В понедельник» — просто lunedì, без предлога. «По понедельникам» — il lunedì. Domenica женского рода, остальные мужского."
+    }
+  ],
+  "examples": [
+    {
+      "es": "A che ora apre il museo?",
+      "ru": "Во сколько открывается музей?"
+    },
+    {
+      "es": "La lezione è alle nove.",
+      "ru": "Урок в девять."
+    },
+    {
+      "es": "Lunedì vado dal dentista.",
+      "ru": "В понедельник я иду к стоматологу."
+    },
+    {
+      "es": "Il sabato dormo fino a tardi.",
+      "ru": "По субботам я сплю допоздна."
+    }
+  ],
+  "exercises": [
+    {
+      "kind": "choose",
+      "prompt": "«В час дня»:",
+      "options": [
+        "all'una",
+        "alle una",
+        "a una"
+      ],
+      "answer": 0,
+      "explain": "Перед una — all'."
+    },
+    {
+      "kind": "choose",
+      "prompt": "«По воскресеньям»:",
+      "options": [
+        "la domenica",
+        "il domenica",
+        "in domenica"
+      ],
+      "answer": 0,
+      "explain": "Domenica женского рода: la domenica."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Il film comincia ___ otto.",
+      "ru": "Фильм начинается в восемь.",
+      "options": [
+        "alle",
+        "a",
+        "in"
+      ],
+      "answer": 0,
+      "explain": "Во столько-то — alle."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Ci vediamo ___ mezzogiorno.",
+      "ru": "Встретимся в полдень.",
+      "options": [
+        "a",
+        "alle",
+        "al"
+      ],
+      "answer": 0,
+      "explain": "С mezzogiorno — просто a."
+    },
+    {
+      "kind": "gap",
+      "sentence": "___ lavoro fino alle sei.",
+      "ru": "По пятницам я работаю до шести.",
+      "options": [
+        "Il venerdì",
+        "Venerdì",
+        "In venerdì"
+      ],
+      "answer": 0,
+      "explain": "Регулярно — с артиклем."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "Дни недели пишутся с большой буквы.",
+      "answer": false,
+      "explain": "Lunedì, martedì — с маленькой."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "«Martedì vado a Roma» — «Во вторник я еду в Рим».",
+      "answer": true,
+      "explain": "Без предлога."
+    }
+  ]
+}

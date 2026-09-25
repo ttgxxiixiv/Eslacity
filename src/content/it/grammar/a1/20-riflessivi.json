@@ -1,0 +1,151 @@
+{
+  "id": "a1.20-riflessivi",
+  "district": "A1",
+  "order": 20,
+  "title": "Возвратные глаголы",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Возвратные глаголы в словаре оканчиваются на **-si**: lavarsi, alzarsi, chiamarsi. При спряжении перед глаголом ставится местоимение: mi, ti, si, ci, vi, si."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Лицо",
+        "chiamarsi"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "io",
+            "mi chiamo"
+          ]
+        },
+        {
+          "cells": [
+            "tu",
+            "ti chiami"
+          ]
+        },
+        {
+          "cells": [
+            "lui / lei",
+            "si chiama"
+          ]
+        },
+        {
+          "cells": [
+            "noi",
+            "ci chiamiamo"
+          ]
+        },
+        {
+          "cells": [
+            "voi",
+            "vi chiamate"
+          ]
+        },
+        {
+          "cells": [
+            "loro",
+            "si chiamano"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "С инфинитивом местоимение можно присоединить в конце: Devo alzarmi presto = Mi devo alzare presto."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Mi chiamo Olga.",
+      "ru": "Меня зовут Ольга."
+    },
+    {
+      "es": "Come ti chiami?",
+      "ru": "Как тебя зовут?"
+    },
+    {
+      "es": "Ci vediamo domani.",
+      "ru": "Увидимся завтра."
+    },
+    {
+      "es": "Si lavano le mani.",
+      "ru": "Они моют руки."
+    }
+  ],
+  "exercises": [
+    {
+      "kind": "choose",
+      "prompt": "«Как Вас зовут?» (вежливо):",
+      "options": [
+        "Come si chiama?",
+        "Come ti chiami?",
+        "Come vi chiamate?"
+      ],
+      "answer": 0,
+      "explain": "Lei — si chiama."
+    },
+    {
+      "kind": "choose",
+      "prompt": "«Нам нужно встать рано»:",
+      "options": [
+        "Dobbiamo alzarci presto.",
+        "Dobbiamo alzarsi presto.",
+        "Dobbiamo ci alzare presto."
+      ],
+      "answer": 0,
+      "explain": "Местоимение соответствует лицу: alzarci."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Io ___ sveglio alle sette.",
+      "ru": "Я просыпаюсь в семь.",
+      "options": [
+        "mi",
+        "ti",
+        "si"
+      ],
+      "answer": 0,
+      "explain": "Io — mi."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Voi ___ divertite?",
+      "ru": "Вам весело?",
+      "options": [
+        "vi",
+        "ci",
+        "si"
+      ],
+      "answer": 0,
+      "explain": "Voi — vi."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Loro ___ vestono in fretta.",
+      "ru": "Они быстро одеваются.",
+      "options": [
+        "si",
+        "ci",
+        "vi"
+      ],
+      "answer": 0,
+      "explain": "Loro — si."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "«Mi chiamo Anna» — буквально «я называю себя Анна».",
+      "answer": true,
+      "explain": "Возвратный глагол chiamarsi."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "Форма «si» используется только с lui и lei.",
+      "answer": false,
+      "explain": "Si — также loro и вежливое Lei."
+    }
+  ]
+}

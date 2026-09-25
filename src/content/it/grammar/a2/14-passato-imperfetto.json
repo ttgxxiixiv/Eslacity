@@ -1,0 +1,133 @@
+{
+  "id": "a2.14-passato-imperfetto",
+  "district": "A2",
+  "order": 14,
+  "title": "Passato prossimo или imperfetto",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "**Passato prossimo** — событие, законченное действие (что произошло). **Imperfetto** — фон, обстановка, процесс (что было, как было). Часто они в одной фразе: фон в imperfetto, событие в passato prossimo."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Imperfetto (фон)",
+        "Passato prossimo (событие)"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Mentre camminavo,",
+            "ho visto un amico."
+          ]
+        },
+        {
+          "cells": [
+            "Era tardi",
+            "e sono tornato a casa."
+          ]
+        },
+        {
+          "cells": [
+            "Dormivo",
+            "quando è arrivato il messaggio."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Точное число раз или точный срок — passato prossimo: Sono stato a Roma tre volte. Ho vissuto a Parigi due anni."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Ieri faceva caldo e siamo andati al mare.",
+      "ru": "Вчера было жарко, и мы пошли на море."
+    },
+    {
+      "es": "Quando sono entrato, tutti parlavano.",
+      "ru": "Когда я вошёл, все разговаривали."
+    },
+    {
+      "es": "Ho abitato a Milano per cinque anni.",
+      "ru": "Я прожил в Милане пять лет."
+    },
+    {
+      "es": "Da giovane lavoravo in un bar.",
+      "ru": "В молодости я работал в баре."
+    }
+  ],
+  "exercises": [
+    {
+      "kind": "choose",
+      "prompt": "«Я прожил в Риме два года» (закончено):",
+      "options": [
+        "Ho abitato a Roma per due anni.",
+        "Abitavo a Roma per due anni.",
+        "Abito a Roma da due anni."
+      ],
+      "answer": 0,
+      "explain": "Точный срок в прошлом — passato prossimo."
+    },
+    {
+      "kind": "choose",
+      "prompt": "«Было холодно» (описание):",
+      "options": [
+        "Faceva freddo.",
+        "Ha fatto freddo.",
+        "Fa freddo."
+      ],
+      "answer": 0,
+      "explain": "Фон — imperfetto."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Mentre ___ la doccia, è andata via la luce.",
+      "ru": "Пока я принимал душ, выключили свет.",
+      "options": [
+        "facevo",
+        "ho fatto",
+        "faccio"
+      ],
+      "answer": 0,
+      "explain": "Процесс — imperfetto."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Ieri ___ un libro intero.",
+      "ru": "Вчера я прочитал целую книгу.",
+      "options": [
+        "ho letto",
+        "leggevo",
+        "leggo"
+      ],
+      "answer": 0,
+      "explain": "Законченное действие — passato prossimo."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Quando ___ piccola, avevo paura del buio.",
+      "ru": "Когда я была маленькой, я боялась темноты.",
+      "options": [
+        "ero",
+        "sono stata",
+        "sono"
+      ],
+      "answer": 0,
+      "explain": "Описание прошлого — imperfetto."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "В фразе «Dormivo quando è suonata la sveglia» фон — dormivo.",
+      "answer": true,
+      "explain": "Процесс в imperfetto, событие в passato prossimo."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "«Sono stato a Londra tre volte» можно сказать в imperfetto.",
+      "answer": false,
+      "explain": "Точное число раз — passato prossimo."
+    }
+  ]
+}

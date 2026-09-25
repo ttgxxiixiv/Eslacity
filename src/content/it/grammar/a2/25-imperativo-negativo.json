@@ -1,0 +1,144 @@
+{
+  "id": "a2.25-imperativo-negativo",
+  "district": "A2",
+  "order": 25,
+  "title": "Отрицательное повелительное",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Запрет для **tu** — **non + инфинитив**: Non parlare! Non mangiare! Для остальных лиц просто non перед обычной формой: Non parlate! Non parli! (Lei)."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Лицо",
+        "Утверждение",
+        "Отрицание"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "tu",
+            "parla!",
+            "non parlare!"
+          ]
+        },
+        {
+          "cells": [
+            "Lei",
+            "parli!",
+            "non parli!"
+          ]
+        },
+        {
+          "cells": [
+            "noi",
+            "parliamo!",
+            "non parliamo!"
+          ]
+        },
+        {
+          "cells": [
+            "voi",
+            "parlate!",
+            "non parlate!"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Частые запреты: Non toccare! (не трогай), Non preoccuparti! (не волнуйся), Non ti preoccupare! — оба варианта правильны."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Non dimenticare le chiavi!",
+      "ru": "Не забудь ключи!"
+    },
+    {
+      "es": "Non fumate qui!",
+      "ru": "Не курите здесь!"
+    },
+    {
+      "es": "Non si preoccupi, signora.",
+      "ru": "Не волнуйтесь, синьора."
+    },
+    {
+      "es": "Non aprire la finestra!",
+      "ru": "Не открывай окно!"
+    }
+  ],
+  "exercises": [
+    {
+      "kind": "choose",
+      "prompt": "«Не беги!» (tu):",
+      "options": [
+        "Non correre!",
+        "Non corri!",
+        "Non corra!"
+      ],
+      "answer": 0,
+      "explain": "Для tu — non + инфинитив."
+    },
+    {
+      "kind": "choose",
+      "prompt": "«Не волнуйтесь!» (voi):",
+      "options": [
+        "Non preoccupatevi!",
+        "Non preoccuparvi voi!",
+        "Non vi preoccupare!"
+      ],
+      "answer": 0,
+      "explain": "Voi: non + форма voi."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Non ___ tardi!",
+      "ru": "Не опаздывай!",
+      "options": [
+        "arrivare",
+        "arriva",
+        "arrivi"
+      ],
+      "answer": 0,
+      "explain": "Tu: non + инфинитив."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Bambini, non ___ la palla in casa!",
+      "ru": "Дети, не кидайте мяч в доме!",
+      "options": [
+        "lanciate",
+        "lanciare",
+        "lancia"
+      ],
+      "answer": 0,
+      "explain": "Voi: non + форма voi."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Signore, non ___ qui!",
+      "ru": "Синьор, не паркуйтесь здесь!",
+      "options": [
+        "parcheggi",
+        "parcheggiare",
+        "parcheggia"
+      ],
+      "answer": 0,
+      "explain": "Lei: non + вежливая форма."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "«Non mangia!» — правильный запрет для tu.",
+      "answer": false,
+      "explain": "Для tu: Non mangiare!"
+    },
+    {
+      "kind": "truefalse",
+      "statement": "«Non fate rumore!» — правильный запрет для voi.",
+      "answer": true,
+      "explain": "Non + форма voi."
+    }
+  ]
+}

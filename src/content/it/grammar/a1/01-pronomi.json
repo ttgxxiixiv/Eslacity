@@ -1,0 +1,157 @@
+{
+  "id": "a1.01-pronomi",
+  "district": "A1",
+  "order": 1,
+  "title": "Личные местоимения",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "В итальянском местоимение-подлежащее обычно опускают: окончание глагола и так показывает, кто действует. **Parlo** = я говорю. Местоимение ставят для ясности или акцента."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Итальянский",
+        "Русский"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "io",
+            "я"
+          ]
+        },
+        {
+          "cells": [
+            "tu",
+            "ты"
+          ]
+        },
+        {
+          "cells": [
+            "lui / lei",
+            "он / она"
+          ]
+        },
+        {
+          "cells": [
+            "Lei",
+            "Вы (вежливо, одному)"
+          ]
+        },
+        {
+          "cells": [
+            "noi",
+            "мы"
+          ]
+        },
+        {
+          "cells": [
+            "voi",
+            "вы"
+          ]
+        },
+        {
+          "cells": [
+            "loro",
+            "они"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Вежливое **Lei** пишется с большой буквы и спрягается как 3-е лицо: Lei parla = Вы говорите. Io пишется с маленькой буквы, если не стоит в начале предложения."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Io sono Marco.",
+      "ru": "Я Марко."
+    },
+    {
+      "es": "Tu sei di Mosca?",
+      "ru": "Ты из Москвы?"
+    },
+    {
+      "es": "Lei è professoressa.",
+      "ru": "Она учительница."
+    },
+    {
+      "es": "Noi siamo amici.",
+      "ru": "Мы друзья."
+    }
+  ],
+  "exercises": [
+    {
+      "kind": "choose",
+      "prompt": "Вежливое «Вы» одному человеку:",
+      "options": [
+        "Lei",
+        "tu",
+        "voi"
+      ],
+      "answer": 0,
+      "explain": "Lei с большой буквы, глагол при нём в 3-м лице."
+    },
+    {
+      "kind": "choose",
+      "prompt": "Как сказать «они»?",
+      "options": [
+        "loro",
+        "lui",
+        "voi"
+      ],
+      "answer": 0,
+      "explain": "Loro — «они» для любой группы."
+    },
+    {
+      "kind": "gap",
+      "sentence": "___ è mia sorella.",
+      "ru": "Она моя сестра.",
+      "options": [
+        "Lei",
+        "Lui",
+        "Io"
+      ],
+      "answer": 0,
+      "explain": "Сестра — женщина, значит lei."
+    },
+    {
+      "kind": "gap",
+      "sentence": "___ siamo studenti.",
+      "ru": "Мы студенты.",
+      "options": [
+        "Noi",
+        "Loro",
+        "Tu"
+      ],
+      "answer": 0,
+      "explain": "Siamo — форма essere для «мы»."
+    },
+    {
+      "kind": "gap",
+      "sentence": "___ siete di Roma?",
+      "ru": "Вы (ребята) из Рима?",
+      "options": [
+        "Voi",
+        "Loro",
+        "Noi"
+      ],
+      "answer": 0,
+      "explain": "Siete — форма для voi."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "Местоимение io часто опускают: «Parlo italiano».",
+      "answer": true,
+      "explain": "Окончание -o уже показывает, что говорит «я»."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "Вежливое Lei спрягается как 2-е лицо: Lei parli.",
+      "answer": false,
+      "explain": "Lei спрягается как 3-е лицо: Lei parla."
+    }
+  ]
+}

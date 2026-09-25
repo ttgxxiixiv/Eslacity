@@ -1,0 +1,144 @@
+{
+  "id": "a1.07-articoli-determinativi",
+  "district": "A1",
+  "order": 7,
+  "title": "Определённые артикли: единственное число",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Артикль ставят перед существительным и выбирают по роду и по первой букве следующего слова."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Артикль",
+        "Когда",
+        "Пример"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "il",
+            "м. р., перед согласной",
+            "il libro"
+          ]
+        },
+        {
+          "cells": [
+            "lo",
+            "м. р., перед s+согласная, z, gn, ps, y",
+            "lo studente, lo zaino"
+          ]
+        },
+        {
+          "cells": [
+            "l'",
+            "м. и ж. р., перед гласной",
+            "l'amico, l'acqua"
+          ]
+        },
+        {
+          "cells": [
+            "la",
+            "ж. р., перед согласной",
+            "la casa"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Смотрят на букву сразу после артикля, даже если это прилагательное: **lo** zaino, но **il** vecchio zaino (перед v); **il** libro, но **lo** stesso libro (перед st)."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Il caffè è pronto.",
+      "ru": "Кофе готов."
+    },
+    {
+      "es": "Lo zucchero è finito.",
+      "ru": "Сахар закончился."
+    },
+    {
+      "es": "L'albergo è in centro.",
+      "ru": "Отель в центре."
+    },
+    {
+      "es": "La porta è aperta.",
+      "ru": "Дверь открыта."
+    }
+  ],
+  "exercises": [
+    {
+      "kind": "choose",
+      "prompt": "Какой артикль у «zaino»?",
+      "options": [
+        "lo",
+        "il",
+        "la"
+      ],
+      "answer": 0,
+      "explain": "Перед z мужской артикль lo."
+    },
+    {
+      "kind": "choose",
+      "prompt": "Какой артикль у «acqua»?",
+      "options": [
+        "l'",
+        "la",
+        "lo"
+      ],
+      "answer": 0,
+      "explain": "Перед гласной la сокращается до l'."
+    },
+    {
+      "kind": "gap",
+      "sentence": "___ specchio è rotto.",
+      "ru": "Зеркало разбито.",
+      "options": [
+        "Lo",
+        "Il",
+        "L'"
+      ],
+      "answer": 0,
+      "explain": "Перед s+согласная — lo."
+    },
+    {
+      "kind": "gap",
+      "sentence": "___ amica di Marco è simpatica.",
+      "ru": "Подруга Марко симпатичная.",
+      "options": [
+        "L'",
+        "La",
+        "Lo"
+      ],
+      "answer": 0,
+      "explain": "Перед гласной — l', и для женского рода тоже."
+    },
+    {
+      "kind": "gap",
+      "sentence": "___ tavolo è grande.",
+      "ru": "Стол большой.",
+      "options": [
+        "Il",
+        "Lo",
+        "La"
+      ],
+      "answer": 0,
+      "explain": "Мужской род перед согласной — il."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "Перед «psicologo» ставится lo.",
+      "answer": true,
+      "explain": "Lo psicologo: перед ps — lo."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "«La isola» — правильная форма.",
+      "answer": false,
+      "explain": "Перед гласной: l'isola."
+    }
+  ]
+}

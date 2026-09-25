@@ -1,0 +1,144 @@
+{
+  "id": "a1.06-genere",
+  "district": "A1",
+  "order": 6,
+  "title": "Род существительных",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "У каждого существительного есть род: мужской или женский. Чаще всего его видно по окончанию."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Окончание",
+        "Род",
+        "Пример"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "-o",
+            "мужской",
+            "il libro, il tavolo"
+          ]
+        },
+        {
+          "cells": [
+            "-a",
+            "женский",
+            "la casa, la porta"
+          ]
+        },
+        {
+          "cells": [
+            "-e",
+            "любой, запоминать",
+            "il pane, la chiave"
+          ]
+        },
+        {
+          "cells": [
+            "-zione, -tà",
+            "женский",
+            "la stazione, la città"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Исключения: **la mano** (рука, женский), **il problema**, **il programma**, **il cinema** (мужские на -a). Слова на согласную обычно мужские заимствования: il bar, lo sport."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Il libro è nuovo.",
+      "ru": "Книга новая."
+    },
+    {
+      "es": "La chiave è sul tavolo.",
+      "ru": "Ключ на столе."
+    },
+    {
+      "es": "La stazione è lontana.",
+      "ru": "Вокзал далеко."
+    },
+    {
+      "es": "Il problema è grave.",
+      "ru": "Проблема серьёзная."
+    }
+  ],
+  "exercises": [
+    {
+      "kind": "choose",
+      "prompt": "Какого рода слово «città»?",
+      "options": [
+        "женского",
+        "мужского",
+        "среднего"
+      ],
+      "answer": 0,
+      "explain": "Слова на -tà женского рода."
+    },
+    {
+      "kind": "choose",
+      "prompt": "Какое слово мужского рода?",
+      "options": [
+        "problema",
+        "mano",
+        "casa"
+      ],
+      "answer": 0,
+      "explain": "Il problema — исключение, мужской род на -a."
+    },
+    {
+      "kind": "gap",
+      "sentence": "___ mano è fredda.",
+      "ru": "Рука холодная.",
+      "options": [
+        "La",
+        "Il",
+        "Lo"
+      ],
+      "answer": 0,
+      "explain": "La mano — женский род, хотя на -o."
+    },
+    {
+      "kind": "gap",
+      "sentence": "___ pane è fresco.",
+      "ru": "Хлеб свежий.",
+      "options": [
+        "Il",
+        "La",
+        "L'"
+      ],
+      "answer": 0,
+      "explain": "Pane мужского рода."
+    },
+    {
+      "kind": "gap",
+      "sentence": "___ stazione è qui.",
+      "ru": "Вокзал здесь.",
+      "options": [
+        "La",
+        "Il",
+        "Lo"
+      ],
+      "answer": 0,
+      "explain": "Слова на -zione женского рода."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "Все слова на -e мужского рода.",
+      "answer": false,
+      "explain": "На -e бывают обоих родов: il pane, la chiave."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "«Il cinema» — мужской род.",
+      "answer": true,
+      "explain": "Cinema — сокращение от cinematografo, мужской род."
+    }
+  ]
+}

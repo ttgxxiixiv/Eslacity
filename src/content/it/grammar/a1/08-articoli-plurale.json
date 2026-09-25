@@ -1,0 +1,151 @@
+{
+  "id": "a1.08-articoli-plurale",
+  "district": "A1",
+  "order": 8,
+  "title": "Определённые артикли: множественное число",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Во множественном числе у мужского рода два артикля: **i** и **gli**, у женского один: **le**."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Единственное",
+        "Множественное",
+        "Пример"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "il",
+            "i",
+            "il libro → i libri"
+          ]
+        },
+        {
+          "cells": [
+            "lo",
+            "gli",
+            "lo studente → gli studenti"
+          ]
+        },
+        {
+          "cells": [
+            "l' (м. р.)",
+            "gli",
+            "l'amico → gli amici"
+          ]
+        },
+        {
+          "cells": [
+            "la",
+            "le",
+            "la casa → le case"
+          ]
+        },
+        {
+          "cells": [
+            "l' (ж. р.)",
+            "le",
+            "l'amica → le amiche"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Gli ставится там же, где lo и l' в мужском роде: перед гласной, s+согласной, z, gn, ps. Le не сокращается: le amiche."
+    }
+  ],
+  "examples": [
+    {
+      "es": "I bambini giocano.",
+      "ru": "Дети играют."
+    },
+    {
+      "es": "Gli studenti studiano.",
+      "ru": "Студенты занимаются."
+    },
+    {
+      "es": "Gli amici arrivano stasera.",
+      "ru": "Друзья приезжают сегодня вечером."
+    },
+    {
+      "es": "Le chiavi sono qui.",
+      "ru": "Ключи здесь."
+    }
+  ],
+  "exercises": [
+    {
+      "kind": "choose",
+      "prompt": "Множественное к «l'albero»:",
+      "options": [
+        "gli alberi",
+        "i alberi",
+        "le alberi"
+      ],
+      "answer": 0,
+      "explain": "Мужской род перед гласной: gli."
+    },
+    {
+      "kind": "choose",
+      "prompt": "Множественное к «la finestra»:",
+      "options": [
+        "le finestre",
+        "i finestre",
+        "gli finestre"
+      ],
+      "answer": 0,
+      "explain": "Женский род: le."
+    },
+    {
+      "kind": "gap",
+      "sentence": "___ zaini sono pesanti.",
+      "ru": "Рюкзаки тяжёлые.",
+      "options": [
+        "Gli",
+        "I",
+        "Le"
+      ],
+      "answer": 0,
+      "explain": "Перед z — gli."
+    },
+    {
+      "kind": "gap",
+      "sentence": "___ ragazzi sono simpatici.",
+      "ru": "Ребята симпатичные.",
+      "options": [
+        "I",
+        "Gli",
+        "Le"
+      ],
+      "answer": 0,
+      "explain": "Перед обычной согласной — i."
+    },
+    {
+      "kind": "gap",
+      "sentence": "___ amiche di Sara sono qui.",
+      "ru": "Подруги Сары здесь.",
+      "options": [
+        "Le",
+        "Gli",
+        "L'"
+      ],
+      "answer": 0,
+      "explain": "Женский род во множественном — le, без сокращения."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "Множественное от «lo zio» — «gli zii».",
+      "answer": true,
+      "explain": "Lo → gli."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "«I studenti» — правильная форма.",
+      "answer": false,
+      "explain": "Перед s+согласная: gli studenti."
+    }
+  ]
+}

@@ -1,0 +1,145 @@
+{
+  "id": "a1.29-negazione",
+  "district": "A1",
+  "order": 29,
+  "title": "Отрицание",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Отрицание **non** ставится перед глаголом: Non parlo tedesco. Если перед глаголом стоят местоимения, non идёт перед ними: Non lo so."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Итальянский",
+        "Русский"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "non ... niente / nulla",
+            "ничего"
+          ]
+        },
+        {
+          "cells": [
+            "non ... nessuno",
+            "никто, никого"
+          ]
+        },
+        {
+          "cells": [
+            "non ... mai",
+            "никогда"
+          ]
+        },
+        {
+          "cells": [
+            "non ... più",
+            "больше не"
+          ]
+        },
+        {
+          "cells": [
+            "non ... ancora",
+            "ещё не"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Двойное отрицание в итальянском нормально, как в русском: Non vedo niente = Я ничего не вижу. Если niente или nessuno стоят в начале, non не нужно: Nessuno lo sa."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Non capisco.",
+      "ru": "Я не понимаю."
+    },
+    {
+      "es": "Non mangio mai la carne.",
+      "ru": "Я никогда не ем мясо."
+    },
+    {
+      "es": "Non c'è nessuno.",
+      "ru": "Никого нет."
+    },
+    {
+      "es": "Non fumo più.",
+      "ru": "Я больше не курю."
+    }
+  ],
+  "exercises": [
+    {
+      "kind": "choose",
+      "prompt": "«Я ничего не знаю»:",
+      "options": [
+        "Non so niente.",
+        "So niente.",
+        "Non so nessuno."
+      ],
+      "answer": 0,
+      "explain": "Non + niente."
+    },
+    {
+      "kind": "choose",
+      "prompt": "«Я ещё не поел»:",
+      "options": [
+        "Non ho ancora mangiato.",
+        "Non ho più mangiato.",
+        "Ho mai mangiato."
+      ],
+      "answer": 0,
+      "explain": "Ещё не — non ... ancora."
+    },
+    {
+      "kind": "gap",
+      "sentence": "___ lo so.",
+      "ru": "Я не знаю.",
+      "options": [
+        "Non",
+        "Niente",
+        "Mai"
+      ],
+      "answer": 0,
+      "explain": "Non перед местоимением lo."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Non vado ___ in discoteca.",
+      "ru": "Я никогда не хожу на дискотеку.",
+      "options": [
+        "mai",
+        "niente",
+        "nessuno"
+      ],
+      "answer": 0,
+      "explain": "Никогда — mai."
+    },
+    {
+      "kind": "gap",
+      "sentence": "___ mi chiama.",
+      "ru": "Мне никто не звонит.",
+      "options": [
+        "Nessuno",
+        "Non nessuno",
+        "Niente"
+      ],
+      "answer": 0,
+      "explain": "Nessuno в начале — без non."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "«Non vedo niente» — неправильно, потому что два отрицания.",
+      "answer": false,
+      "explain": "В итальянском двойное отрицание — норма."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "«Non fumo più» значит «Я больше не курю».",
+      "answer": true,
+      "explain": "Non ... più — больше не."
+    }
+  ]
+}

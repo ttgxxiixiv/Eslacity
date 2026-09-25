@@ -1,0 +1,158 @@
+{
+  "id": "a1.14-presente-ire",
+  "district": "A1",
+  "order": 14,
+  "title": "Presente: глаголы на -ire",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Третья группа — глаголы на **-ire**. У части из них (capire, finire, preferire, pulire) между основой и окончанием появляется **-isc-** в io, tu, lui, loro."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Лицо",
+        "dormire",
+        "capire"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "io",
+            "dormo",
+            "capisco"
+          ]
+        },
+        {
+          "cells": [
+            "tu",
+            "dormi",
+            "capisci"
+          ]
+        },
+        {
+          "cells": [
+            "lui / lei",
+            "dorme",
+            "capisce"
+          ]
+        },
+        {
+          "cells": [
+            "noi",
+            "dormiamo",
+            "capiamo"
+          ]
+        },
+        {
+          "cells": [
+            "voi",
+            "dormite",
+            "capite"
+          ]
+        },
+        {
+          "cells": [
+            "loro",
+            "dormono",
+            "capiscono"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Без -isc-: dormire, partire, sentire, aprire, offrire. С -isc-: capire, finire, preferire, pulire, spedire. В словаре это не видно, глаголы нужно запоминать."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Dormo otto ore.",
+      "ru": "Я сплю восемь часов."
+    },
+    {
+      "es": "Non capisco.",
+      "ru": "Я не понимаю."
+    },
+    {
+      "es": "Il treno parte alle sei.",
+      "ru": "Поезд отправляется в шесть."
+    },
+    {
+      "es": "Preferisci il tè o il caffè?",
+      "ru": "Ты предпочитаешь чай или кофе?"
+    }
+  ],
+  "exercises": [
+    {
+      "kind": "choose",
+      "prompt": "Io + finire:",
+      "options": [
+        "finisco",
+        "fino",
+        "finisci"
+      ],
+      "answer": 0,
+      "explain": "Finire берёт -isc-: finisco."
+    },
+    {
+      "kind": "choose",
+      "prompt": "Noi + capire:",
+      "options": [
+        "capiamo",
+        "capisciamo",
+        "capiscono"
+      ],
+      "answer": 0,
+      "explain": "У noi и voi -isc- нет."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Il film ___ alle dieci.",
+      "ru": "Фильм заканчивается в десять.",
+      "options": [
+        "finisce",
+        "fine",
+        "finisci"
+      ],
+      "answer": 0,
+      "explain": "Lui + finire: finisce."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Voi ___ bene?",
+      "ru": "Вы хорошо спите?",
+      "options": [
+        "dormite",
+        "dormete",
+        "dormiscono"
+      ],
+      "answer": 0,
+      "explain": "Voi: -ite."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Loro ___ la finestra.",
+      "ru": "Они открывают окно.",
+      "options": [
+        "aprono",
+        "apriscono",
+        "apre"
+      ],
+      "answer": 0,
+      "explain": "Aprire без -isc-."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "Io + partire = partisco.",
+      "answer": false,
+      "explain": "Partire без -isc-: parto."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "-isc- не появляется в формах noi и voi.",
+      "answer": true,
+      "explain": "Capiamo, capite."
+    }
+  ]
+}

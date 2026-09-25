@@ -1,0 +1,139 @@
+{
+  "id": "a2.19-ci",
+  "district": "A2",
+  "order": 19,
+  "title": "Частица ci",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "**Ci** заменяет место: «туда, там». Vai a Roma? — Sì, **ci** vado domani. Ещё ci заменяет «a + что-то» с глаголами вроде pensare a, credere a."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Вопрос",
+        "Ответ с ci"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Sei mai stato a Venezia?",
+            "Sì, ci sono stato due volte."
+          ]
+        },
+        {
+          "cells": [
+            "Quando vai in banca?",
+            "Ci vado domani."
+          ]
+        },
+        {
+          "cells": [
+            "Pensi al lavoro?",
+            "Sì, ci penso sempre."
+          ]
+        },
+        {
+          "cells": [
+            "Credi agli oroscopi?",
+            "No, non ci credo."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Ci входит в устойчивые выражения: **c'è / ci sono**, **ci vuole** (нужно, требуется), **ci vediamo** (увидимся), **ci sono** (понял, я на месте)."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Vieni al cinema? — Sì, ci vengo.",
+      "ru": "Пойдёшь в кино? — Да, пойду."
+    },
+    {
+      "es": "Abito a Milano da anni, ci sto bene.",
+      "ru": "Я давно живу в Милане, мне там хорошо."
+    },
+    {
+      "es": "Ci penso io!",
+      "ru": "Я этим займусь!"
+    },
+    {
+      "es": "Non ci credo!",
+      "ru": "Не может быть!"
+    }
+  ],
+  "exercises": [
+    {
+      "kind": "choose",
+      "prompt": "«Ты был в Неаполе?» — «Да, был»:",
+      "options": [
+        "Sì, ci sono stato.",
+        "Sì, ne sono stato.",
+        "Sì, lo sono stato."
+      ],
+      "answer": 0,
+      "explain": "Место — ci."
+    },
+    {
+      "kind": "choose",
+      "prompt": "«Я этим займусь»:",
+      "options": [
+        "Ci penso io.",
+        "Ne penso io.",
+        "Lo penso io."
+      ],
+      "answer": 0,
+      "explain": "Pensare a qualcosa → ci penso."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Vai spesso al mare? — Sì, ___ vado ogni estate.",
+      "ru": "Часто ездишь на море? — Да, каждое лето.",
+      "options": [
+        "ci",
+        "ne",
+        "lo"
+      ],
+      "answer": 0,
+      "explain": "Место — ci."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Credi ai fantasmi? — No, non ___ credo.",
+      "ru": "Веришь в привидений? — Нет.",
+      "options": [
+        "ci",
+        "ne",
+        "li"
+      ],
+      "answer": 0,
+      "explain": "Credere a → ci."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Per Roma ___ vogliono tre ore.",
+      "ru": "До Рима нужно три часа.",
+      "options": [
+        "ci",
+        "ne",
+        "si"
+      ],
+      "answer": 0,
+      "explain": "Ci vuole / ci vogliono — требуется."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "«Ci vediamo» значит «увидимся».",
+      "answer": true,
+      "explain": "Устойчивое выражение."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "Ci заменяет количество: «Ci ho due».",
+      "answer": false,
+      "explain": "Количество — ne: Ne ho due."
+    }
+  ]
+}
