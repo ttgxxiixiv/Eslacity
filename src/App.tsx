@@ -30,7 +30,7 @@ function ScrollToTop() {
 function TabLayout() {
   return (
     <>
-      <div className="pb-40">
+      <div className="pb-44">
         <Outlet />
       </div>
       <UpdateBanner />

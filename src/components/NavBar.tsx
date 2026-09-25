@@ -1,80 +1,67 @@
-import { NavLink } from 'react-router-dom';
-import { NavIcon, type NavIconName } from './NavIcons';
-import { PixelArt } from './PixelArt';
+import { Link, useLocation } from 'react-router-dom';
+import nav0 from '../assets/nav/nav-0.webp';
+import nav1 from '../assets/nav/nav-1.webp';
+import nav2 from '../assets/nav/nav-2.webp';
+import nav3 from '../assets/nav/nav-3.webp';
 
-const TABS: { to: string; label: string; icon: NavIconName; end?: boolean }[] = [
-  { to: '/', label: 'Город', icon: 'map', end: true },
-  { to: '/grammar', label: 'Грамматика', icon: 'book' },
-  { to: '/review', label: 'Повтор', icon: 'hourglass' },
-  { to: '/profile', label: 'Профиль', icon: 'hero' },
+// Меню — картинка по макету (768×278) в четырёх вариантах: в каждом подсвечен свой раздел.
+const W = 768;
+const H = 278;
+/** Верх ячеек на картинке; выше — полоса с рунами и медальоном. */
+const TILE_TOP = 96;
+const TABS = [
+  { to: '/', label: 'Город', x0: 0, x1: 189 },
+  { to: '/grammar', label: 'Грамматика', x0: 191, x1: 383 },
+  { to: '/review', label: 'Повтор', x0: 385, x1: 577 },
+  { to: '/profile', label: 'Профиль', x0: 580, x1: 768 },
 ];
+const IMAGES = [nav0, nav1, nav2, nav3];
 
-// Руны на каменной полосе: испанские буквы, которых нет в русском.
-const RUNES = ['á, ñ', '¿ ¡', 'é, ó', 'ü, í'];
+function activeTab(pathname: string): number {
+  if (pathname.startsWith('/grammar')) return 1;
+  if (pathname.startsWith('/review')) return 2;
+  if (pathname.startsWith('/profile')) return 3;
+  return 0;
+}
 
-// Плющ, свисающий с каменной полосы.
-const VINE = [
-  '..LLL.....',
-  '.LlLLL....',
-  '..LLsLL...',
-  '....s.LL..',
-  '...LsLlL..',
-  '..LlLs....',
-  '...LLs....',
-  '.....s.LL.',
-  '....LsLlL.',
-  '...LlLs...',
-  '....LLs...',
-  '......s...',
-  '.....LsL..',
-  '....LlLL..',
-  '.....LL...',
-];
-const VINE_COLORS = { L: '#4f9a3a', l: '#7cc25a', s: '#2f6a28' };
-
-/** Нижнее меню: каменная панель с рунами и четырьмя ячейками, активная светится синим. */
+/**
+ * Нижнее меню. Все четыре картинки лежат друг на друге, видна одна:
+ * при смене раздела ничего не загружается и меню не мигает.
+ */
 export function NavBar() {
+  const { pathname } = useLocation();
+  const active = activeTab(pathname);
   return (
-    <nav className="stone-panel fixed inset-x-0 bottom-0 z-10 pb-[env(safe-area-inset-bottom)]">
-      <div className="relative mx-auto max-w-md px-1.5 pt-1.5 pb-1.5">
-        <div aria-hidden className="flex gap-1">
-          {RUNES.map((r) => (
-            <div key={r} className="stone-slab rune flex h-7 flex-1 items-center justify-center rounded-sm text-sm">
-              {r}
-            </div>
-          ))}
-        </div>
-        <div aria-hidden className="pointer-events-none absolute top-0 left-0.5 z-10">
-          <PixelArt rows={VINE} colors={VINE_COLORS} size={30} />
-        </div>
-        <div aria-hidden className="pointer-events-none absolute top-0 left-[24%] z-10">
-          <PixelArt rows={VINE} colors={VINE_COLORS} size={26} />
-        </div>
-        <div className="mt-1.5 flex gap-1.5">
-          {TABS.map((t) => (
-            <NavLink
-              key={t.to}
-              to={t.to}
-              end={t.end}
-              className={({ isActive }) =>
-                `press nav-slot flex flex-1 flex-col items-center justify-end gap-1 rounded-md pt-2 pb-1.5 ${isActive ? 'nav-slot-active' : ''}`
-              }
-            >
-              {({ isActive }) => (
-                <>
-                  {isActive && (
-                    <span aria-hidden className="nav-sparkles">
-                      ✦ ✧
-                    </span>
-                  )}
-                  <NavIcon name={t.icon} size={t.icon === 'hero' ? 36 : 48} />
-                  <span className="nav-label font-pixel text-[11px] leading-none">{t.label}</span>
-                </>
-              )}
-            </NavLink>
-          ))}
-        </div>
+    <nav className="pointer-events-none fixed inset-x-0 bottom-0 z-10">
+      <div className="nav-art relative mx-auto max-w-md" style={{ aspectRatio: `${W} / ${H}` }}>
+        {IMAGES.map((src, i) => (
+          <img
+            key={src}
+            src={src}
+            alt=""
+            draggable={false}
+            className="absolute inset-0 h-full w-full select-none"
+            style={{ opacity: i === active ? 1 : 0 }}
+          />
+        ))}
+        {TABS.map((t, i) => (
+          <Link
+            key={t.to}
+            to={t.to}
+            aria-label={t.label}
+            aria-current={i === active ? 'page' : undefined}
+            className="nav-hit pointer-events-auto absolute"
+            style={{
+              left: `${(t.x0 / W) * 100}%`,
+              width: `${((t.x1 - t.x0) / W) * 100}%`,
+              top: `${(TILE_TOP / H) * 100}%`,
+              bottom: 0,
+            }}
+          />
+        ))}
       </div>
+      {/* Под системной полосой жестов — тот же камень, что у нижнего края меню. */}
+      <div className="h-[env(safe-area-inset-bottom)] bg-[#4a3d33]" />
     </nav>
   );
 }

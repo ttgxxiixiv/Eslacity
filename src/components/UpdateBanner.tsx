@@ -7,7 +7,7 @@ export function UpdateBanner() {
   const apply = useUpdate((s) => s.apply);
   if (status !== 'available' && status !== 'updating' && status !== 'failed') return null;
   return (
-    <div className="fixed inset-x-0 bottom-[calc(8.75rem+env(safe-area-inset-bottom))] z-10 mx-auto max-w-md px-3 pb-2">
+    <div className="fixed inset-x-0 bottom-[calc(9.5rem+env(safe-area-inset-bottom))] z-10 mx-auto max-w-md px-3 pb-2">
       <div className="dialog-box flex items-center gap-3 rounded-xl px-4 py-3">
         <div className="flex-1 text-sm">
           {status === 'updating'
