@@ -1,0 +1,63 @@
+import { expect, test } from '@playwright/test';
+import { answerGrammar, LANGS, loadLesson, openApp, seedXp } from './fixtures';
+
+test('переключение языка сохраняет прогресс каждого курса', async ({ page }) => {
+  await openApp(page, 'es');
+  await seedXp(page, 'es', 500);
+  await page.goto('./#/profile');
+  await expect(page.getByText('всего 500 XP')).toBeVisible();
+
+  await page.goto('./#/settings');
+  await Promise.all([page.waitForEvent('load'), page.getByRole('button', { name: /итальянский/i }).click()]);
+  await expect(page.getByTestId('continue')).toBeVisible();
+  expect(await page.evaluate(() => localStorage.getItem('eslacity.lang'))).toBe('it');
+  await page.goto('./#/profile');
+  await expect(page.getByText('всего 0 XP')).toBeVisible();
+
+  await page.goto('./#/settings');
+  await Promise.all([page.waitForEvent('load'), page.getByRole('button', { name: /испанский/i }).click()]);
+  await expect(page.getByTestId('continue')).toBeVisible();
+  await page.goto('./#/profile');
+  await expect(page.getByText('всего 500 XP')).toBeVisible();
+});
+
+for (const lang of LANGS) {
+  test.describe(lang, () => {
+    test('нижнее меню: переходы и картинка своего языка', async ({ page }) => {
+      await openApp(page, lang);
+      await expect(page.locator('nav img')).toHaveAttribute('src', new RegExp(`nav-${lang}`));
+      for (const [label, hash] of [['Грамматика', '#/grammar'], ['Профиль', '#/profile'], ['Город', '#/']] as const) {
+        await page.getByRole('link', { name: label }).click();
+        await expect(page).toHaveURL(new RegExp(`${hash.replace('/', '\\/')}$`));
+      }
+    });
+
+    test('поздравление с новым уровнем', async ({ page }) => {
+      await openApp(page, lang);
+      await seedXp(page, lang, 92);
+      const lesson = lang === 'es' ? loadLesson('es', 'a1', '02-ser') : loadLesson('it', 'a1', '02-essere');
+      await page.goto(`./#/grammar/${lesson.id}`);
+      await page.getByRole('button', { name: /к упражнениям/i }).click();
+      // Два верных ответа по 5 XP: 92 → 102, это второй уровень.
+      for (let i = 0; i < 2; i++) {
+        await answerGrammar(page, lesson);
+        if (i === 0) await page.getByRole('button', { name: /дальше/i }).click();
+      }
+      await expect(page.getByText('Новый уровень')).toBeVisible();
+    });
+
+    test('офлайн после первой загрузки', async ({ page, context }) => {
+      await openApp(page, lang);
+      await page.evaluate(() => navigator.serviceWorker.ready.then(() => true));
+      await page.waitForTimeout(500);
+      await context.setOffline(true);
+      await page.reload();
+      await expect(page.getByTestId('continue')).toBeVisible();
+      // Слова и уроки грамматики лежат в отдельных чанках: они тоже должны быть в кэше.
+      await page.goto('./#/loc/police');
+      await expect(page.getByText('Уровень 1').first()).toBeVisible();
+      await page.goto(`./#/grammar/${lang === 'es' ? 'b2.20-marcadores' : 'b2.20-segnali-discorsivi'}`);
+      await expect(page.getByRole('button', { name: /к упражнениям/i })).toBeVisible();
+    });
+  });
+}
