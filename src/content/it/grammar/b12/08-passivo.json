@@ -1,0 +1,139 @@
+{
+  "id": "b12.08-passivo",
+  "district": "B1.2",
+  "order": 8,
+  "title": "Пассив с essere",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "**Пассив** — действие направлено на подлежащее: Il libro **è scritto** da Calvino. Образуется: **essere** в нужном времени + **participio**, который согласуется с подлежащим. Кто действует — **da**."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Время",
+        "Пассив"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "presente",
+            "La casa è venduta."
+          ]
+        },
+        {
+          "cells": [
+            "passato prossimo",
+            "La casa è stata venduta."
+          ]
+        },
+        {
+          "cells": [
+            "futuro",
+            "La casa sarà venduta."
+          ]
+        },
+        {
+          "cells": [
+            "imperfetto",
+            "La casa era venduta."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "В passato prossimo два participio: **è stata venduta** (stato согласуется тоже). Da сливается с артиклем: dal, dalla, dai."
+    }
+  ],
+  "examples": [
+    {
+      "es": "La Divina Commedia è stata scritta da Dante.",
+      "ru": "«Божественная комедия» написана Данте."
+    },
+    {
+      "es": "Il museo è visitato da molti turisti.",
+      "ru": "Музей посещают многие туристы."
+    },
+    {
+      "es": "Il ladro è stato arrestato ieri.",
+      "ru": "Вора арестовали вчера."
+    },
+    {
+      "es": "I risultati saranno pubblicati domani.",
+      "ru": "Результаты опубликуют завтра."
+    }
+  ],
+  "exercises": [
+    {
+      "kind": "choose",
+      "prompt": "«Письмо было отправлено вчера»:",
+      "options": [
+        "La lettera è stata spedita ieri.",
+        "La lettera è stato spedito ieri.",
+        "La lettera ha stata spedita ieri."
+      ],
+      "answer": 0,
+      "explain": "Согласование: stata spedita."
+    },
+    {
+      "kind": "choose",
+      "prompt": "«кем?» в пассиве — предлог:",
+      "options": [
+        "da",
+        "di",
+        "per"
+      ],
+      "answer": 0,
+      "explain": "Da: scritto da Dante."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Il Colosseo è ___ visitato da milioni di persone.",
+      "ru": "Колизей посещают миллионы людей.",
+      "options": [
+        "stato",
+        "stata",
+        "stati"
+      ],
+      "answer": 0,
+      "explain": "Colosseo — м. р. ед.: è stato visitato."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Le finestre sono state ___.",
+      "ru": "Окна открыли.",
+      "options": [
+        "aperte",
+        "aperti",
+        "aperto"
+      ],
+      "answer": 0,
+      "explain": "Finestre — ж. р. мн."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Il quadro è stato dipinto ___ Leonardo.",
+      "ru": "Картина написана Леонардо.",
+      "options": [
+        "da",
+        "di",
+        "per"
+      ],
+      "answer": 0,
+      "explain": "Кем — da."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "В пассиве participio согласуется с подлежащим.",
+      "answer": true,
+      "explain": "La casa è venduta, i libri sono venduti."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "«La mela è mangiata di Marco» — правильно.",
+      "answer": false,
+      "explain": "Кем — da: da Marco."
+    }
+  ]
+}

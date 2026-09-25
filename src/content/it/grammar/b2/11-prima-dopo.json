@@ -1,0 +1,133 @@
+{
+  "id": "b2.11-prima-dopo",
+  "district": "B2",
+  "order": 11,
+  "title": "Prima di / prima che, dopo che",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "«Прежде чем» с тем же подлежащим — **prima di** + инфинитив: Mangio **prima di uscire**. С разными подлежащими — **prima che** + congiuntivo: Esco **prima che arrivino**."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Одно подлежащее",
+        "Разные подлежащие"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "prima di partire",
+            "prima che tu parta"
+          ]
+        },
+        {
+          "cells": [
+            "dopo aver mangiato",
+            "dopo che hai mangiato"
+          ]
+        },
+        {
+          "cells": [
+            "senza dire niente",
+            "senza che nessuno dica niente"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "**Dopo che** требует индикатива, а не congiuntivo: Dopo che sei partito, ho pianto. Congiuntivo нужен только после prima che."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Lavati le mani prima di mangiare.",
+      "ru": "Помой руки перед едой."
+    },
+    {
+      "es": "Torniamo a casa prima che faccia buio.",
+      "ru": "Вернёмся домой, пока не стемнело."
+    },
+    {
+      "es": "Dopo che hai finito, chiamami.",
+      "ru": "Когда закончишь, позвони мне."
+    },
+    {
+      "es": "È uscito senza salutare.",
+      "ru": "Он ушёл, не попрощавшись."
+    }
+  ],
+  "exercises": [
+    {
+      "kind": "choose",
+      "prompt": "«Позвони мне, прежде чем уедешь» (ты сам уезжаешь):",
+      "options": [
+        "Chiamami prima di partire.",
+        "Chiamami prima che parti.",
+        "Chiamami prima partire."
+      ],
+      "answer": 0,
+      "explain": "Одно подлежащее — prima di + инфинитив."
+    },
+    {
+      "kind": "choose",
+      "prompt": "«После того как они ушли, мы поужинали»:",
+      "options": [
+        "Dopo che sono andati via, abbiamo cenato.",
+        "Dopo che siano andati via, abbiamo cenato.",
+        "Dopo andare via, abbiamo cenato."
+      ],
+      "answer": 0,
+      "explain": "Dopo che + индикатив."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Finisco il lavoro prima che ___ i bambini.",
+      "ru": "Я закончу работу до того, как вернутся дети.",
+      "options": [
+        "tornino",
+        "tornano",
+        "tornare"
+      ],
+      "answer": 0,
+      "explain": "Prima che + congiuntivo."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Prima ___ decidere, pensaci bene.",
+      "ru": "Прежде чем решать, хорошенько подумай.",
+      "options": [
+        "di",
+        "che",
+        "a"
+      ],
+      "answer": 0,
+      "explain": "Prima di + инфинитив."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Dopo che ___ arrivato, ti ho chiamato.",
+      "ru": "После того как я приехал, я тебе позвонил.",
+      "options": [
+        "sono",
+        "sia",
+        "fossi"
+      ],
+      "answer": 0,
+      "explain": "Dopo che + индикатив."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "После «dopo che» ставится congiuntivo.",
+      "answer": false,
+      "explain": "Индикатив: dopo che sei partito."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "«Prima che tu parta» — congiuntivo, потому что подлежащие разные.",
+      "answer": true,
+      "explain": "Prima che + congiuntivo."
+    }
+  ]
+}

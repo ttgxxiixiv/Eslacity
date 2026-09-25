@@ -1,0 +1,139 @@
+{
+  "id": "b12.10-gerundio",
+  "district": "B1.2",
+  "order": 10,
+  "title": "Gerundio: обстоятельство",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "**Gerundio** без stare работает как русское деепричастие: **Camminando**, ho visto un amico (Гуляя, я увидел друга). Может значить время, причину, способ, условие."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Значение",
+        "Пример"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "время (когда)",
+            "Tornando a casa, ho comprato il pane."
+          ]
+        },
+        {
+          "cells": [
+            "способ (как)",
+            "Ho imparato l'italiano guardando film."
+          ]
+        },
+        {
+          "cells": [
+            "причина (почему)",
+            "Essendo stanco, sono andato a letto."
+          ]
+        },
+        {
+          "cells": [
+            "условие (если)",
+            "Studiando, supererai l'esame."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Подлежащее gerundio должно совпадать с подлежащим главной части. **Gerundio passato** — действие раньше: **Avendo finito** il lavoro, è uscito = Закончив работу, он вышел."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Leggendo si impara.",
+      "ru": "Читая, учишься."
+    },
+    {
+      "es": "Ho trovato lavoro cercando su internet.",
+      "ru": "Я нашёл работу, поискав в интернете."
+    },
+    {
+      "es": "Essendo in ritardo, ha preso un taxi.",
+      "ru": "Опаздывая, он взял такси."
+    },
+    {
+      "es": "Avendo mangiato troppo, stava male.",
+      "ru": "Переев, он плохо себя чувствовал."
+    }
+  ],
+  "exercises": [
+    {
+      "kind": "choose",
+      "prompt": "«Закончив работу, я пошёл домой»:",
+      "options": [
+        "Avendo finito il lavoro, sono andato a casa.",
+        "Finendo il lavoro, sono andato a casa prima.",
+        "Finito avendo il lavoro, sono andato a casa."
+      ],
+      "answer": 0,
+      "explain": "Действие раньше — gerundio passato."
+    },
+    {
+      "kind": "choose",
+      "prompt": "«Я выучил испанский, путешествуя»:",
+      "options": [
+        "Ho imparato lo spagnolo viaggiando.",
+        "Ho imparato lo spagnolo a viaggiare.",
+        "Ho imparato lo spagnolo per viaggiare."
+      ],
+      "answer": 0,
+      "explain": "Способ — gerundio."
+    },
+    {
+      "kind": "gap",
+      "sentence": "___ in ritardo, ho perso l'inizio del film.",
+      "ru": "Придя поздно, я пропустил начало фильма.",
+      "options": [
+        "Arrivando",
+        "Arrivai",
+        "Arrivare"
+      ],
+      "answer": 0,
+      "explain": "Gerundio."
+    },
+    {
+      "kind": "gap",
+      "sentence": "___ stanca, Maria è rimasta a casa.",
+      "ru": "Будучи уставшей, Мария осталась дома.",
+      "options": [
+        "Essendo",
+        "Stata",
+        "Essere"
+      ],
+      "answer": 0,
+      "explain": "Essere → essendo."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Si impara una lingua ___.",
+      "ru": "Язык учат, разговаривая.",
+      "options": [
+        "parlando",
+        "parlato",
+        "parlare"
+      ],
+      "answer": 0,
+      "explain": "Способ — gerundio."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "«Avendo finito» — gerundio passato.",
+      "answer": true,
+      "explain": "Avendo + participio."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "Gerundio от «fare» — «fando».",
+      "answer": false,
+      "explain": "Facendo."
+    }
+  ]
+}

@@ -1,0 +1,139 @@
+{
+  "id": "b2.17-discorso-indiretto-domande",
+  "district": "B2",
+  "order": 17,
+  "title": "Косвенные вопросы",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Косвенный вопрос вводится вопросительным словом или **se** (ли): Mi chiedo **se** verrà. Non so **dove** abiti. После вопросов в прошлом времена сдвигаются, как в косвенной речи."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Прямой вопрос",
+        "Косвенный вопрос"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "«Dove abiti?»",
+            "Mi ha chiesto dove abitavo."
+          ]
+        },
+        {
+          "cells": [
+            "«Vieni?»",
+            "Mi ha chiesto se venivo (se sarei venuto)."
+          ]
+        },
+        {
+          "cells": [
+            "«Cosa hai fatto?»",
+            "Mi ha chiesto cosa avevo fatto."
+          ]
+        },
+        {
+          "cells": [
+            "«Quando parti?»",
+            "Non so quando parta / parte."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "В косвенных вопросах congiuntivo придаёт речи книжность и оттенок сомнения: Non so dove **sia** (в разговоре чаще: dove è). Оба варианта правильны."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Mi chiedo se sia la scelta giusta.",
+      "ru": "Я спрашиваю себя, правильный ли это выбор."
+    },
+    {
+      "es": "Non so chi abbia chiamato.",
+      "ru": "Я не знаю, кто звонил."
+    },
+    {
+      "es": "Mi ha chiesto quanti anni avevo.",
+      "ru": "Он спросил, сколько мне лет."
+    },
+    {
+      "es": "Vorrei sapere a che ora apre il museo.",
+      "ru": "Я бы хотел узнать, во сколько открывается музей."
+    }
+  ],
+  "exercises": [
+    {
+      "kind": "choose",
+      "prompt": "«Придёшь?» → «Он спросил, приду ли я»:",
+      "options": [
+        "Mi ha chiesto se sarei venuto.",
+        "Mi ha chiesto che vengo.",
+        "Mi ha chiesto se vieni."
+      ],
+      "answer": 0,
+      "explain": "Вопрос без вопросительного слова — se; будущее в прошлом — condizionale passato."
+    },
+    {
+      "kind": "choose",
+      "prompt": "«Где ты живёшь?» → «Она спросила, где я живу»:",
+      "options": [
+        "Mi ha chiesto dove abitavo.",
+        "Mi ha chiesto dove abiti.",
+        "Mi ha chiesto se dove abitavo."
+      ],
+      "answer": 0,
+      "explain": "Presente → imperfetto."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Non so ___ domani piove.",
+      "ru": "Не знаю, пойдёт ли завтра дождь.",
+      "options": [
+        "se",
+        "che",
+        "quando"
+      ],
+      "answer": 0,
+      "explain": "«Ли» — se."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Mi ha chiesto cosa ___ fatto il giorno prima.",
+      "ru": "Он спросил, что я делал накануне.",
+      "options": [
+        "avevo",
+        "ho",
+        "avrei"
+      ],
+      "answer": 0,
+      "explain": "Passato prossimo → trapassato."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Vorrei sapere quanto ___ il biglietto.",
+      "ru": "Я бы хотел узнать, сколько стоит билет.",
+      "options": [
+        "costa",
+        "costare",
+        "costato"
+      ],
+      "answer": 0,
+      "explain": "Вопрос о факте — индикатив подходит."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "«Ли» в косвенном вопросе — «se».",
+      "answer": true,
+      "explain": "Non so se viene."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "В косвенных вопросах congiuntivo — грубая ошибка.",
+      "answer": false,
+      "explain": "Congiuntivo возможен и звучит книжно: Non so dove sia."
+    }
+  ]
+}

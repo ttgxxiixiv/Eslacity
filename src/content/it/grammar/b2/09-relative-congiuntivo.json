@@ -1,0 +1,133 @@
+{
+  "id": "b2.09-relative-congiuntivo",
+  "district": "B2",
+  "order": 9,
+  "title": "Congiuntivo в относительных придаточных",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Если мы ищем или описываем кого-то **неопределённого** (существует ли он — неизвестно), в придаточном ставится congiuntivo: Cerco una casa **che abbia** il giardino."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Индикатив (известно)",
+        "Congiuntivo (ищем, неизвестно)"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Ho una casa che ha il giardino.",
+            "Cerco una casa che abbia il giardino."
+          ]
+        },
+        {
+          "cells": [
+            "Conosco qualcuno che parla russo.",
+            "Cerco qualcuno che parli russo."
+          ]
+        },
+        {
+          "cells": [
+            "È il film che mi piace.",
+            "È il film più bello che abbia mai visto."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "После превосходной степени и слов **l'unico, il solo, il primo** часто ставят congiuntivo: È la persona più gentile **che io conosca**. Отрицание существования — тоже: Non c'è nessuno **che sappia** rispondere."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Cerchiamo un ristorante che sia aperto a mezzanotte.",
+      "ru": "Мы ищем ресторан, который открыт в полночь."
+    },
+    {
+      "es": "Non conosco nessuno che parli giapponese.",
+      "ru": "Я не знаю никого, кто говорит по-японски."
+    },
+    {
+      "es": "È il libro più interessante che abbia mai letto.",
+      "ru": "Это самая интересная книга, которую я читал."
+    },
+    {
+      "es": "Hai un amico che possa aiutarci?",
+      "ru": "У тебя есть друг, который может нам помочь?"
+    }
+  ],
+  "exercises": [
+    {
+      "kind": "choose",
+      "prompt": "«Ищу секретаршу, которая говорит по-английски»:",
+      "options": [
+        "Cerco una segretaria che parli inglese.",
+        "Cerco una segretaria che parla inglese.",
+        "Cerco una segretaria parlare inglese."
+      ],
+      "answer": 0,
+      "explain": "Ищем неизвестного — congiuntivo."
+    },
+    {
+      "kind": "choose",
+      "prompt": "«У меня есть сосед, который говорит по-русски»:",
+      "options": [
+        "Ho un vicino che parla russo.",
+        "Ho un vicino che parli russo.",
+        "Ho un vicino parlando russo."
+      ],
+      "answer": 0,
+      "explain": "Известный человек — индикатив."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Non c'è nessuno che ___ la risposta.",
+      "ru": "Никто не знает ответа.",
+      "options": [
+        "sappia",
+        "sa",
+        "sapeva"
+      ],
+      "answer": 0,
+      "explain": "Отрицание существования — congiuntivo."
+    },
+    {
+      "kind": "gap",
+      "sentence": "È la città più bella che io ___ mai visto.",
+      "ru": "Это самый красивый город, который я видел.",
+      "options": [
+        "abbia",
+        "ho",
+        "avessi"
+      ],
+      "answer": 0,
+      "explain": "После превосходной — congiuntivo."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Cerco un appartamento che ___ vicino al centro.",
+      "ru": "Ищу квартиру недалеко от центра.",
+      "options": [
+        "sia",
+        "sarà",
+        "fosse stato"
+      ],
+      "answer": 0,
+      "explain": "Ищем — congiuntivo."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "«Cerco qualcuno che mi aiuti» — congiuntivo, потому что человек пока неизвестен.",
+      "answer": true,
+      "explain": "Неопределённость."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "После превосходной степени congiuntivo запрещён.",
+      "answer": false,
+      "explain": "Наоборот, часто используется: il più bello che abbia visto."
+    }
+  ]
+}

@@ -1,0 +1,139 @@
+{
+  "id": "b12.07-discorso-indiretto-passato",
+  "district": "B1.2",
+  "order": 7,
+  "title": "Косвенная речь в прошлом",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Если вводный глагол в прошлом (**ha detto, disse, diceva**), времена сдвигаются в прошлое."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Прямая речь",
+        "Косвенная речь (ha detto che...)"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "presente: «Sono stanco»",
+            "imperfetto: era stanco"
+          ]
+        },
+        {
+          "cells": [
+            "passato prossimo: «Ho finito»",
+            "trapassato: aveva finito"
+          ]
+        },
+        {
+          "cells": [
+            "futuro: «Verrò»",
+            "condizionale passato: sarebbe venuto"
+          ]
+        },
+        {
+          "cells": [
+            "congiuntivo presente: «Penso che sia...»",
+            "congiuntivo imperfetto: pensava che fosse"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "«Будущее в прошлом» по-итальянски — **condizionale passato**: Ha detto che sarebbe venuto = Он сказал, что придёт. По-русски тут будущее время, это частая ошибка."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Ha detto che era stanco.",
+      "ru": "Он сказал, что устал."
+    },
+    {
+      "es": "Mi ha scritto che aveva trovato lavoro.",
+      "ru": "Она написала мне, что нашла работу."
+    },
+    {
+      "es": "Hanno detto che sarebbero arrivati alle otto.",
+      "ru": "Они сказали, что приедут в восемь."
+    },
+    {
+      "es": "Mi ha chiesto dove abitavo.",
+      "ru": "Он спросил меня, где я живу."
+    }
+  ],
+  "exercises": [
+    {
+      "kind": "choose",
+      "prompt": "«Он сказал, что позвонит»:",
+      "options": [
+        "Ha detto che avrebbe chiamato.",
+        "Ha detto che chiamerà.",
+        "Ha detto che chiamerebbe."
+      ],
+      "answer": 0,
+      "explain": "Будущее в прошлом — condizionale passato."
+    },
+    {
+      "kind": "choose",
+      "prompt": "«Vivo a Roma», ha detto →",
+      "options": [
+        "Ha detto che viveva a Roma.",
+        "Ha detto che vive a Roma io.",
+        "Ha detto che ha vissuto a Roma."
+      ],
+      "answer": 0,
+      "explain": "Presente → imperfetto."
+    },
+    {
+      "kind": "gap",
+      "sentence": "«Ho perso il treno» — Ha detto che ___ perso il treno.",
+      "ru": "Он сказал, что опоздал на поезд.",
+      "options": [
+        "aveva",
+        "abbia",
+        "avrebbe"
+      ],
+      "answer": 0,
+      "explain": "Passato prossimo → trapassato."
+    },
+    {
+      "kind": "gap",
+      "sentence": "«Partirò domani» — Ha detto che ___ il giorno dopo.",
+      "ru": "Она сказала, что уедет на следующий день.",
+      "options": [
+        "sarebbe partita",
+        "partirà",
+        "partirebbe"
+      ],
+      "answer": 0,
+      "explain": "Futuro → condizionale passato."
+    },
+    {
+      "kind": "gap",
+      "sentence": "«Sono contento» — Ha detto che ___ contento.",
+      "ru": "Он сказал, что доволен.",
+      "options": [
+        "era",
+        "sia",
+        "fosse"
+      ],
+      "answer": 0,
+      "explain": "Presente → imperfetto."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "«Ha detto che verrà» — строгая норма для «он сказал, что придёт».",
+      "answer": false,
+      "explain": "По норме: Ha detto che sarebbe venuto."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "«Domani» в косвенной речи в прошлом часто меняется на «il giorno dopo».",
+      "answer": true,
+      "explain": "Сдвигаются и указатели времени."
+    }
+  ]
+}

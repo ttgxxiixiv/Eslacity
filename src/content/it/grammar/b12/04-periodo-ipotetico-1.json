@@ -1,0 +1,139 @@
+{
+  "id": "b12.04-periodo-ipotetico-1",
+  "district": "B1.2",
+  "order": 4,
+  "title": "Реальные условия",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Если условие реально и выполнимо — **se + presente**, в главной части presente, futuro или повелительное: **Se piove, resto a casa.**"
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Условие",
+        "Следствие"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Se hai tempo,",
+            "vieni da me."
+          ]
+        },
+        {
+          "cells": [
+            "Se piove,",
+            "restiamo a casa."
+          ]
+        },
+        {
+          "cells": [
+            "Se studierai,",
+            "supererai l'esame."
+          ]
+        },
+        {
+          "cells": [
+            "Se vuoi,",
+            "ti accompagno."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Можно поставить futuro в обе части: Se verrai, sarò contento. Нельзя ставить futuro или condizionale после se в этом типе, как и в русском «если»."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Se hai fame, c'è la pizza.",
+      "ru": "Если ты голоден, есть пицца."
+    },
+    {
+      "es": "Se arrivi tardi, chiamami.",
+      "ru": "Если опоздаешь, позвони мне."
+    },
+    {
+      "es": "Se finisco presto, vengo al cinema.",
+      "ru": "Если закончу рано, приду в кино."
+    },
+    {
+      "es": "Se partirete domani, arriverete sabato.",
+      "ru": "Если выедете завтра, приедете в субботу."
+    }
+  ],
+  "exercises": [
+    {
+      "kind": "choose",
+      "prompt": "«Если будет хорошая погода, пойдём на море»:",
+      "options": [
+        "Se fa bel tempo, andiamo al mare.",
+        "Se farebbe bel tempo, andiamo al mare.",
+        "Se fa bel tempo, andremmo al mare."
+      ],
+      "answer": 0,
+      "explain": "Реальное условие — presente."
+    },
+    {
+      "kind": "choose",
+      "prompt": "Какая форма невозможна после «se» в реальном условии?",
+      "options": [
+        "condizionale",
+        "presente",
+        "futuro"
+      ],
+      "answer": 0,
+      "explain": "Condizionale после se не ставят."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Se ___ stanco, riposati.",
+      "ru": "Если ты устал, отдохни.",
+      "options": [
+        "sei",
+        "saresti",
+        "fossi"
+      ],
+      "answer": 0,
+      "explain": "Реальное условие — presente."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Se mi chiami, ___.",
+      "ru": "Если позвонишь мне, я приду.",
+      "options": [
+        "vengo",
+        "verrei",
+        "venissi"
+      ],
+      "answer": 0,
+      "explain": "Главная часть — presente или futuro."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Se ___ presto, prendiamo il treno delle otto.",
+      "ru": "Если выйдем рано, сядем на поезд в восемь.",
+      "options": [
+        "usciamo",
+        "uscissimo",
+        "usciremmo"
+      ],
+      "answer": 0,
+      "explain": "Реальное условие — presente."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "«Se piove, resto a casa» — реальное условие.",
+      "answer": true,
+      "explain": "Presente в обеих частях."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "«Se avrei tempo, vengo» — правильно.",
+      "answer": false,
+      "explain": "После se не бывает condizionale: Se ho tempo, vengo."
+    }
+  ]
+}

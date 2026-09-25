@@ -1,0 +1,165 @@
+{
+  "id": "b12.14-passato-remoto",
+  "district": "B1.2",
+  "order": 14,
+  "title": "Passato remoto",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "**Passato remoto** — прошедшее время для далёких событий, истории и литературы: Dante **nacque** nel 1265. В разговоре на севере Италии его почти не используют, на юге — чаще. Для чтения книг его нужно узнавать."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Лицо",
+        "parlare",
+        "credere",
+        "dormire"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "io",
+            "parlai",
+            "credei / credetti",
+            "dormii"
+          ]
+        },
+        {
+          "cells": [
+            "tu",
+            "parlasti",
+            "credesti",
+            "dormisti"
+          ]
+        },
+        {
+          "cells": [
+            "lui / lei",
+            "parlò",
+            "credé / credette",
+            "dormì"
+          ]
+        },
+        {
+          "cells": [
+            "noi",
+            "parlammo",
+            "credemmo",
+            "dormimmo"
+          ]
+        },
+        {
+          "cells": [
+            "voi",
+            "parlaste",
+            "credeste",
+            "dormiste"
+          ]
+        },
+        {
+          "cells": [
+            "loro",
+            "parlarono",
+            "crederono / credettero",
+            "dormirono"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Частые неправильные формы (3-е лицо): essere → **fu**, avere → **ebbe**, fare → **fece**, dire → **disse**, venire → **venne**, vedere → **vide**, nascere → **nacque**."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Colombo arrivò in America nel 1492.",
+      "ru": "Колумб прибыл в Америку в 1492 году."
+    },
+    {
+      "es": "Leonardo nacque a Vinci.",
+      "ru": "Леонардо родился в Винчи."
+    },
+    {
+      "es": "C'era una volta un re che ebbe tre figlie.",
+      "ru": "Жил-был король, у которого было три дочери."
+    },
+    {
+      "es": "Garibaldi fu un eroe.",
+      "ru": "Гарибальди был героем."
+    }
+  ],
+  "exercises": [
+    {
+      "kind": "choose",
+      "prompt": "Passato remoto от «essere», lui:",
+      "options": [
+        "fu",
+        "fue",
+        "era stato"
+      ],
+      "answer": 0,
+      "explain": "Неправильная форма: fu."
+    },
+    {
+      "kind": "choose",
+      "prompt": "Когда обычно используют passato remoto?",
+      "options": [
+        "в истории и литературе",
+        "для вчерашних событий",
+        "для планов"
+      ],
+      "answer": 0,
+      "explain": "Для далёкого прошлого и в книгах."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Dante ___ la Divina Commedia.",
+      "ru": "Данте написал «Божественную комедию».",
+      "options": [
+        "scrisse",
+        "scrivé",
+        "scrivò"
+      ],
+      "answer": 0,
+      "explain": "Scrivere → scrisse."
+    },
+    {
+      "kind": "gap",
+      "sentence": "I Romani ___ molte strade.",
+      "ru": "Римляне построили много дорог.",
+      "options": [
+        "costruirono",
+        "costruirno",
+        "costruivano"
+      ],
+      "answer": 0,
+      "explain": "-ire → -irono."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Il re ___ tre figlie.",
+      "ru": "У короля было три дочери.",
+      "options": [
+        "ebbe",
+        "avé",
+        "aveva avuto"
+      ],
+      "answer": 0,
+      "explain": "Avere → ebbe."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "«Nacque» — passato remoto от «nascere».",
+      "answer": true,
+      "explain": "Nascere → nacque."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "В разговоре о вчерашнем дне обычно используют passato remoto.",
+      "answer": false,
+      "explain": "Для недавнего — passato prossimo."
+    }
+  ]
+}

@@ -1,0 +1,133 @@
+{
+  "id": "b12.09-si-passivante",
+  "district": "B1.2",
+  "order": 9,
+  "title": "Si passivante",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Пассив в разговорной речи часто передают через **si** + глагол в 3-м лице, как безличное: **Si vende** casa = Продаётся дом. **Si parlano** molte lingue = Говорят на многих языках. Глагол согласуется с существительным."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Единственное",
+        "Множественное"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Si affitta un appartamento.",
+            "Si affittano appartamenti."
+          ]
+        },
+        {
+          "cells": [
+            "Si cerca un cameriere.",
+            "Si cercano camerieri."
+          ]
+        },
+        {
+          "cells": [
+            "Si è venduta la casa.",
+            "Si sono vendute le case."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "В passato prossimo si passivante идёт с essere и participio согласуется: Si è parlato molto. Si sono fatte molte cose. Исполнителя (da chi) здесь не называют."
+    }
+  ],
+  "examples": [
+    {
+      "es": "In Svizzera si parlano quattro lingue.",
+      "ru": "В Швейцарии говорят на четырёх языках."
+    },
+    {
+      "es": "Qui si vendono biglietti per il concerto.",
+      "ru": "Здесь продаются билеты на концерт."
+    },
+    {
+      "es": "Come si prepara il risotto?",
+      "ru": "Как готовят ризотто?"
+    },
+    {
+      "es": "Si sono venduti tutti i biglietti.",
+      "ru": "Все билеты проданы."
+    }
+  ],
+  "exercises": [
+    {
+      "kind": "choose",
+      "prompt": "«Сдаются комнаты»:",
+      "options": [
+        "Si affittano camere.",
+        "Si affitta camere.",
+        "Si affittare camere."
+      ],
+      "answer": 0,
+      "explain": "Camere — множественное."
+    },
+    {
+      "kind": "choose",
+      "prompt": "«Все билеты продали» (si passivante):",
+      "options": [
+        "Si sono venduti tutti i biglietti.",
+        "Si è venduto tutti i biglietti.",
+        "Si hanno venduti tutti i biglietti."
+      ],
+      "answer": 0,
+      "explain": "Essere + согласование."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Qui si ___ solo in contanti.",
+      "ru": "Здесь платят только наличными.",
+      "options": [
+        "paga",
+        "pagano",
+        "paghiamo"
+      ],
+      "answer": 0,
+      "explain": "Без существительного во множ. — единственное."
+    },
+    {
+      "kind": "gap",
+      "sentence": "In questo negozio si ___ scarpe italiane.",
+      "ru": "В этом магазине продаётся итальянская обувь.",
+      "options": [
+        "vendono",
+        "vende",
+        "venduti"
+      ],
+      "answer": 0,
+      "explain": "Scarpe — множественное."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Si ___ discusso a lungo.",
+      "ru": "Долго обсуждали.",
+      "options": [
+        "è",
+        "ha",
+        "sono"
+      ],
+      "answer": 0,
+      "explain": "Si в passato prossimo — с essere."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "«Si parla italiano» — пример si passivante.",
+      "answer": true,
+      "explain": "Говорят по-итальянски."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "В конструкции с si обычно называют, кем выполнено действие (da...).",
+      "answer": false,
+      "explain": "Исполнителя не называют."
+    }
+  ]
+}

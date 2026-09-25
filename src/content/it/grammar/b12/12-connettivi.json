@@ -1,0 +1,161 @@
+{
+  "id": "b12.12-connettivi",
+  "district": "B1.2",
+  "order": 12,
+  "title": "Связки",
+  "theory": [
+    {
+      "kind": "table",
+      "head": [
+        "Связка",
+        "Значение",
+        "Пример"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "però / ma",
+            "но",
+            "È caro, però è bello."
+          ]
+        },
+        {
+          "cells": [
+            "invece",
+            "а, наоборот",
+            "Io lavoro, lui invece dorme."
+          ]
+        },
+        {
+          "cells": [
+            "quindi / perciò",
+            "поэтому",
+            "Piove, quindi resto a casa."
+          ]
+        },
+        {
+          "cells": [
+            "infatti",
+            "и правда, действительно",
+            "Ero stanco, infatti ho dormito dieci ore."
+          ]
+        },
+        {
+          "cells": [
+            "anzi",
+            "более того, наоборот",
+            "Non è brutto, anzi è bellissimo."
+          ]
+        },
+        {
+          "cells": [
+            "inoltre",
+            "кроме того",
+            "È economico, inoltre è comodo."
+          ]
+        },
+        {
+          "cells": [
+            "comunque",
+            "тем не менее, в любом случае",
+            "È difficile, comunque ci provo."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "**Infatti** не значит «на самом деле» в смысле противопоставления, это подтверждение сказанного. Противопоставление — **in realtà**: Sembra facile, in realtà è difficile."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Volevo uscire, però pioveva.",
+      "ru": "Я хотел выйти, но шёл дождь."
+    },
+    {
+      "es": "Ha studiato molto, infatti ha preso trenta.",
+      "ru": "Он много занимался, и правда получил тридцать."
+    },
+    {
+      "es": "Non sono stanco, anzi ho voglia di ballare!",
+      "ru": "Я не устал, наоборот, хочу танцевать!"
+    },
+    {
+      "es": "Sembra giovane, in realtà ha cinquant'anni.",
+      "ru": "Выглядит молодо, а на самом деле ему пятьдесят."
+    }
+  ],
+  "exercises": [
+    {
+      "kind": "choose",
+      "prompt": "«Он болен, поэтому не пришёл»:",
+      "options": [
+        "È malato, quindi non è venuto.",
+        "È malato, invece non è venuto.",
+        "È malato, anzi non è venuto."
+      ],
+      "answer": 0,
+      "explain": "Следствие — quindi."
+    },
+    {
+      "kind": "choose",
+      "prompt": "Какая связка подтверждает сказанное?",
+      "options": [
+        "infatti",
+        "invece",
+        "però"
+      ],
+      "answer": 0,
+      "explain": "Infatti — «и действительно»."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Io amo il mare, mia moglie ___ preferisce la montagna.",
+      "ru": "Я люблю море, а моя жена предпочитает горы.",
+      "options": [
+        "invece",
+        "infatti",
+        "quindi"
+      ],
+      "answer": 0,
+      "explain": "Противопоставление — invece."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Non è caro, ___ è molto economico.",
+      "ru": "Это не дорого, наоборот, очень дёшево.",
+      "options": [
+        "anzi",
+        "inoltre",
+        "perciò"
+      ],
+      "answer": 0,
+      "explain": "Anzi — более того, наоборот."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Sembra semplice, ___ è complicato.",
+      "ru": "Кажется просто, а на самом деле сложно.",
+      "options": [
+        "in realtà",
+        "infatti",
+        "quindi"
+      ],
+      "answer": 0,
+      "explain": "Противопоставление реальности — in realtà."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "«Infatti» значит «на самом деле, в противоположность».",
+      "answer": false,
+      "explain": "Infatti — подтверждение. Противоположность — in realtà."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "«Quindi» и «perciò» значат «поэтому».",
+      "answer": true,
+      "explain": "Оба выражают следствие."
+    }
+  ]
+}

@@ -1,0 +1,127 @@
+{
+  "id": "b2.05-periodo-misto",
+  "district": "B2",
+  "order": 5,
+  "title": "Смешанные условные предложения",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Иногда условие относится к прошлому, а следствие — к настоящему, или наоборот. Тогда времена смешиваются."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Схема",
+        "Пример"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "прошлое → настоящее",
+            "Se avessi studiato medicina, ora sarei medico."
+          ]
+        },
+        {
+          "cells": [
+            "настоящее → прошлое",
+            "Se fossi più coraggioso, gli avrei parlato."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Смотрите на смысл каждой части: условие в прошлом — congiuntivo trapassato; постоянное свойство в настоящем — congiuntivo imperfetto; следствие сейчас — condizionale presente; следствие тогда — condizionale passato."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Se fossi partito ieri, adesso sarei a Parigi.",
+      "ru": "Если бы я уехал вчера, сейчас был бы в Париже."
+    },
+    {
+      "es": "Se avessi dormito di più, non sarei così stanco.",
+      "ru": "Если бы я больше спал, не был бы таким уставшим."
+    },
+    {
+      "es": "Se parlassi inglese, avrei accettato quel lavoro.",
+      "ru": "Если бы я говорил по-английски, я бы согласился на ту работу."
+    },
+    {
+      "es": "Se non fosse così timido, l'avrebbe invitata.",
+      "ru": "Не будь он таким робким, он бы её пригласил."
+    }
+  ],
+  "exercises": [
+    {
+      "kind": "choose",
+      "prompt": "«Если бы я поел, сейчас не был бы голоден»:",
+      "options": [
+        "Se avessi mangiato, ora non avrei fame.",
+        "Se mangiassi, ora non avrei avuto fame.",
+        "Se ho mangiato, ora non ho fame stato."
+      ],
+      "answer": 0,
+      "explain": "Прошлое условие + следствие сейчас."
+    },
+    {
+      "kind": "choose",
+      "prompt": "«Будь я смелее, я бы тогда ему ответил»:",
+      "options": [
+        "Se fossi più coraggioso, gli avrei risposto.",
+        "Se fossi stato più coraggioso ora, gli rispondo.",
+        "Se sarei più coraggioso, gli risponderei."
+      ],
+      "answer": 0,
+      "explain": "Постоянное свойство + следствие в прошлом."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Se ___ la sveglia, ora non saremmo in ritardo.",
+      "ru": "Если бы мы поставили будильник, сейчас бы не опаздывали.",
+      "options": [
+        "avessimo messo",
+        "mettessimo",
+        "avremmo messo"
+      ],
+      "answer": 0,
+      "explain": "Условие в прошлом."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Se avessi vinto la lotteria, adesso ___ in una villa.",
+      "ru": "Если бы я выиграл в лотерею, сейчас жил бы на вилле.",
+      "options": [
+        "vivrei",
+        "avrei vissuto",
+        "vivessi"
+      ],
+      "answer": 0,
+      "explain": "Следствие сейчас — condizionale presente."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Se ___ più alto, avrei giocato a basket.",
+      "ru": "Будь я выше, я бы играл в баскетбол.",
+      "options": [
+        "fossi",
+        "ero",
+        "sarei"
+      ],
+      "answer": 0,
+      "explain": "Постоянное свойство — congiuntivo imperfetto."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "В смешанном условном предложении времена частей могут относиться к разным моментам.",
+      "answer": true,
+      "explain": "Условие в прошлом, следствие сейчас."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "«Se avessi studiato, ora sarei medico» — ошибка, потому что времена разные.",
+      "answer": false,
+      "explain": "Это правильное смешанное условие."
+    }
+  ]
+}

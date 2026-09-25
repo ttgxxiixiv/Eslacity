@@ -1,0 +1,137 @@
+{
+  "id": "b2.12-passivo-venire-andare",
+  "district": "B2",
+  "order": 12,
+  "title": "Пассив с venire и andare",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Кроме essere, пассив образуют с **venire** и **andare**. **Venire** + participio подчёркивает процесс: La porta **viene chiusa** alle otto (дверь закрывают в восемь). **Andare** + participio значит «должно быть сделано»: Il modulo **va compilato** (бланк нужно заполнить)."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Конструкция",
+        "Значение",
+        "Пример"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "essere + participio",
+            "обычный пассив",
+            "Il museo è chiuso."
+          ]
+        },
+        {
+          "cells": [
+            "venire + participio",
+            "процесс, регулярное действие",
+            "Il museo viene chiuso alle sei."
+          ]
+        },
+        {
+          "cells": [
+            "andare + participio",
+            "необходимость",
+            "Il biglietto va timbrato."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Venire и andare в этом значении используются только в простых временах (не в passato prossimo). Participio согласуется с подлежащим: Le lettere vanno spedite."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Il pane viene sfornato ogni mattina.",
+      "ru": "Хлеб выпекают каждое утро."
+    },
+    {
+      "es": "Questa medicina va presa a stomaco pieno.",
+      "ru": "Это лекарство нужно принимать после еды."
+    },
+    {
+      "es": "Le finestre vengono pulite ogni settimana.",
+      "ru": "Окна моют каждую неделю."
+    },
+    {
+      "es": "I rifiuti vanno differenziati.",
+      "ru": "Отходы нужно сортировать."
+    }
+  ],
+  "exercises": [
+    {
+      "kind": "choose",
+      "prompt": "«Билет нужно прокомпостировать»:",
+      "options": [
+        "Il biglietto va timbrato.",
+        "Il biglietto viene timbrato già.",
+        "Il biglietto è andato timbrato."
+      ],
+      "answer": 0,
+      "explain": "Необходимость — andare + participio."
+    },
+    {
+      "kind": "choose",
+      "prompt": "«Письма разносят по утрам»:",
+      "options": [
+        "Le lettere vengono consegnate la mattina.",
+        "Le lettere vanno consegnato la mattina.",
+        "Le lettere vengono consegnato la mattina."
+      ],
+      "answer": 0,
+      "explain": "Процесс — venire, согласование: consegnate."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Il vino bianco ___ servito freddo.",
+      "ru": "Белое вино нужно подавать холодным.",
+      "options": [
+        "va",
+        "vanno",
+        "è andato"
+      ],
+      "answer": 0,
+      "explain": "Необходимость — va."
+    },
+    {
+      "kind": "gap",
+      "sentence": "La cena viene ___ alle otto.",
+      "ru": "Ужин подают в восемь.",
+      "options": [
+        "servita",
+        "servito",
+        "servite"
+      ],
+      "answer": 0,
+      "explain": "Cena — ж. р."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Queste regole ___ rispettate.",
+      "ru": "Эти правила нужно соблюдать.",
+      "options": [
+        "vanno",
+        "va",
+        "sono andate"
+      ],
+      "answer": 0,
+      "explain": "Необходимость — vanno."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "«Il modulo va compilato» значит «Бланк нужно заполнить».",
+      "answer": true,
+      "explain": "Andare + participio — необходимость."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "Venire в пассиве часто используют в passato prossimo: «è venuto chiuso».",
+      "answer": false,
+      "explain": "Venire в пассиве — только в простых временах."
+    }
+  ]
+}

@@ -1,0 +1,145 @@
+{
+  "id": "b12.01-congiuntivo-congiunzioni",
+  "district": "B1.2",
+  "order": 1,
+  "title": "Congiuntivo после союзов",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Некоторые союзы всегда требуют congiuntivo: **perché** (чтобы), **affinché** (чтобы), **benché / sebbene** (хотя), **prima che** (прежде чем), **a meno che** (если только не), **purché** (при условии, что), **senza che** (без того чтобы)."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Союз",
+        "Пример"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "perché / affinché",
+            "Te lo dico perché tu lo sappia."
+          ]
+        },
+        {
+          "cells": [
+            "benché / sebbene",
+            "Benché sia tardi, resto."
+          ]
+        },
+        {
+          "cells": [
+            "prima che",
+            "Partiamo prima che piova."
+          ]
+        },
+        {
+          "cells": [
+            "purché",
+            "Vengo, purché tu mi aspetti."
+          ]
+        },
+        {
+          "cells": [
+            "senza che",
+            "È uscito senza che nessuno lo vedesse."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "**Perché** + индикатив значит «потому что», + congiuntivo — «чтобы». Если подлежащее одно, вместо che-конструкции берут инфинитив: prima di partire, per capire, senza dire niente."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Benché piova, usciamo.",
+      "ru": "Хотя идёт дождь, мы выходим."
+    },
+    {
+      "es": "Parlo piano perché tutti capiscano.",
+      "ru": "Я говорю медленно, чтобы все поняли."
+    },
+    {
+      "es": "Torna prima che faccia buio.",
+      "ru": "Вернись, пока не стемнело."
+    },
+    {
+      "es": "Ti presto la macchina, purché tu stia attento.",
+      "ru": "Одолжу тебе машину, при условии, что будешь осторожен."
+    }
+  ],
+  "exercises": [
+    {
+      "kind": "choose",
+      "prompt": "«Хотя он устал, он работает»:",
+      "options": [
+        "Benché sia stanco, lavora.",
+        "Benché è stanco, lavora.",
+        "Benché essere stanco, lavora."
+      ],
+      "answer": 0,
+      "explain": "Benché + congiuntivo."
+    },
+    {
+      "kind": "choose",
+      "prompt": "«Я позвоню до того, как уеду» (я сам):",
+      "options": [
+        "Ti chiamo prima di partire.",
+        "Ti chiamo prima che parta.",
+        "Ti chiamo prima che parto."
+      ],
+      "answer": 0,
+      "explain": "Одно подлежащее — prima di + инфинитив."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Ti spiego tutto affinché tu ___.",
+      "ru": "Я всё тебе объясню, чтобы ты понял.",
+      "options": [
+        "capisca",
+        "capisci",
+        "capire"
+      ],
+      "answer": 0,
+      "explain": "Affinché + congiuntivo."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Esco, a meno che non ___.",
+      "ru": "Я выйду, если только не пойдёт дождь.",
+      "options": [
+        "piova",
+        "piove",
+        "pioverà"
+      ],
+      "answer": 0,
+      "explain": "A meno che + congiuntivo."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Resto a casa perché ___ stanco.",
+      "ru": "Я остаюсь дома, потому что устал.",
+      "options": [
+        "sono",
+        "sia",
+        "essere"
+      ],
+      "answer": 0,
+      "explain": "Perché = потому что — индикатив."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "«Sebbene» требует congiuntivo.",
+      "answer": true,
+      "explain": "Sebbene sia difficile..."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "«Perché» всегда требует congiuntivo.",
+      "answer": false,
+      "explain": "В значении «потому что» — индикатив."
+    }
+  ]
+}

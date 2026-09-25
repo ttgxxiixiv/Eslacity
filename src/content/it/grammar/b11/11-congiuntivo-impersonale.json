@@ -1,0 +1,145 @@
+{
+  "id": "b11.11-congiuntivo-impersonale",
+  "district": "B1.1",
+  "order": 11,
+  "title": "Congiuntivo после безличных выражений",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "После безличных выражений с оценкой — **è importante che, è necessario che, bisogna che, è meglio che, è possibile che** — ставится congiuntivo."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Выражение",
+        "Пример"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "è importante che",
+            "È importante che tu dorma."
+          ]
+        },
+        {
+          "cells": [
+            "è necessario che",
+            "È necessario che paghiate oggi."
+          ]
+        },
+        {
+          "cells": [
+            "bisogna che",
+            "Bisogna che partiamo presto."
+          ]
+        },
+        {
+          "cells": [
+            "è meglio che",
+            "È meglio che tu non venga."
+          ]
+        },
+        {
+          "cells": [
+            "è possibile che",
+            "È possibile che piova."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Если речь обо всех вообще, без конкретного лица, — просто инфинитив без che: È importante dormire (важно спать). Выражения факта (è vero che, è chiaro che) — без congiuntivo."
+    }
+  ],
+  "examples": [
+    {
+      "es": "È importante che tu faccia sport.",
+      "ru": "Важно, чтобы ты занимался спортом."
+    },
+    {
+      "es": "Bisogna che qualcuno lo aiuti.",
+      "ru": "Нужно, чтобы кто-то ему помог."
+    },
+    {
+      "es": "È possibile che arrivino in ritardo.",
+      "ru": "Возможно, они опоздают."
+    },
+    {
+      "es": "È meglio prenotare.",
+      "ru": "Лучше забронировать."
+    }
+  ],
+  "exercises": [
+    {
+      "kind": "choose",
+      "prompt": "«Важно, чтобы вы пришли вовремя»:",
+      "options": [
+        "È importante che arriviate in orario.",
+        "È importante che arrivate in orario.",
+        "È importante arrivate in orario."
+      ],
+      "answer": 0,
+      "explain": "Оценка + che + congiuntivo."
+    },
+    {
+      "kind": "choose",
+      "prompt": "«Лучше выйти пораньше» (вообще):",
+      "options": [
+        "È meglio uscire presto.",
+        "È meglio che uscire presto.",
+        "È meglio che esca presto noi."
+      ],
+      "answer": 0,
+      "explain": "Без конкретного лица — инфинитив."
+    },
+    {
+      "kind": "gap",
+      "sentence": "È necessario che tu ___ il modulo.",
+      "ru": "Нужно, чтобы ты заполнил бланк.",
+      "options": [
+        "compili",
+        "compila",
+        "compilare"
+      ],
+      "answer": 0,
+      "explain": "-are → -i."
+    },
+    {
+      "kind": "gap",
+      "sentence": "È possibile che ___ sciopero domani.",
+      "ru": "Возможно, завтра будет забастовка.",
+      "options": [
+        "ci sia",
+        "c'è",
+        "ci sono"
+      ],
+      "answer": 0,
+      "explain": "Essere → sia."
+    },
+    {
+      "kind": "gap",
+      "sentence": "È chiaro che lui ___ ragione.",
+      "ru": "Ясно, что он прав.",
+      "options": [
+        "ha",
+        "abbia",
+        "avere"
+      ],
+      "answer": 0,
+      "explain": "Факт — индикатив."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "После «è vero che» нужен congiuntivo.",
+      "answer": false,
+      "explain": "Это факт: È vero che è tardi."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "«È meglio che tu non venga» — правильно.",
+      "answer": true,
+      "explain": "Оценка + congiuntivo."
+    }
+  ]
+}

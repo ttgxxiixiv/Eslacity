@@ -1,0 +1,154 @@
+{
+  "id": "b2.18-causa-conseguenza",
+  "district": "B2",
+  "order": 18,
+  "title": "Причина и следствие",
+  "theory": [
+    {
+      "kind": "table",
+      "head": [
+        "Связка",
+        "Значение",
+        "Пример"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "perché",
+            "потому что",
+            "Resto a casa perché piove."
+          ]
+        },
+        {
+          "cells": [
+            "siccome / dato che / poiché",
+            "так как (в начале)",
+            "Siccome piove, resto a casa."
+          ]
+        },
+        {
+          "cells": [
+            "visto che",
+            "раз уж",
+            "Visto che sei qui, aiutami."
+          ]
+        },
+        {
+          "cells": [
+            "quindi / perciò / dunque",
+            "поэтому",
+            "Piove, quindi resto a casa."
+          ]
+        },
+        {
+          "cells": [
+            "così ... che / tanto ... che",
+            "так ... что",
+            "Era così stanco che si è addormentato."
+          ]
+        },
+        {
+          "cells": [
+            "per cui",
+            "так что, из-за чего",
+            "Ero in ritardo, per cui ho preso un taxi."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "**Siccome** ставят в начале фразы, **perché** — после главной части. «Perché piove, resto a casa» звучит неестественно: лучше Siccome piove..."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Siccome non avevo fame, non ho cenato.",
+      "ru": "Так как я не был голоден, я не ужинал."
+    },
+    {
+      "es": "Dato che sei stanco, guido io.",
+      "ru": "Раз ты устал, поведу я."
+    },
+    {
+      "es": "Faceva così caldo che non riuscivo a dormire.",
+      "ru": "Было так жарко, что я не мог уснуть."
+    },
+    {
+      "es": "Ha perso il treno, per cui è arrivato tardi.",
+      "ru": "Он опоздал на поезд, поэтому приехал поздно."
+    }
+  ],
+  "exercises": [
+    {
+      "kind": "choose",
+      "prompt": "«Так как было поздно, мы ушли» (в начале):",
+      "options": [
+        "Siccome era tardi, siamo andati via.",
+        "Perché era tardi, siamo andati via.",
+        "Quindi era tardi, siamo andati via."
+      ],
+      "answer": 0,
+      "explain": "В начале — siccome."
+    },
+    {
+      "kind": "choose",
+      "prompt": "«Он так устал, что уснул»:",
+      "options": [
+        "Era così stanco che si è addormentato.",
+        "Era così stanco perché si è addormentato.",
+        "Era tanto stanco quindi si è addormentato."
+      ],
+      "answer": 0,
+      "explain": "Così ... che."
+    },
+    {
+      "kind": "gap",
+      "sentence": "___ sei qui, mangia con noi.",
+      "ru": "Раз уж ты здесь, поешь с нами.",
+      "options": [
+        "Visto che",
+        "Quindi",
+        "Per cui"
+      ],
+      "answer": 0,
+      "explain": "Visto che — раз уж."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Ho finito i soldi, ___ non posso uscire.",
+      "ru": "У меня кончились деньги, так что я не могу выйти.",
+      "options": [
+        "quindi",
+        "siccome",
+        "dato che"
+      ],
+      "answer": 0,
+      "explain": "Следствие — quindi."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Il film era ___ noioso che sono uscito.",
+      "ru": "Фильм был настолько скучным, что я вышел.",
+      "options": [
+        "così",
+        "molto",
+        "perché"
+      ],
+      "answer": 0,
+      "explain": "Così ... che."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "«Siccome» обычно стоит в начале фразы.",
+      "answer": true,
+      "explain": "Siccome piove, resto a casa."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "«Quindi» вводит причину.",
+      "answer": false,
+      "explain": "Quindi вводит следствие."
+    }
+  ]
+}
