@@ -2,6 +2,8 @@ import { VARIANT, VARIANTS } from '../config';
 import { useSettings } from '../store/settings';
 
 let voice: SpeechSynthesisVoice | null = null;
+/** Список голосов уже загружен (на Android он приходит с задержкой). */
+let voicesLoaded = false;
 const supported = typeof window !== 'undefined' && 'speechSynthesis' in window;
 
 function norm(lang: string) {
@@ -10,6 +12,7 @@ function norm(lang: string) {
 
 function pickVoice() {
   const voices = speechSynthesis.getVoices();
+  if (voices.length) voicesLoaded = true;
   const prefs = VARIANTS[VARIANT].voices.map(norm);
   voice =
     prefs.map((p) => voices.find((v) => norm(v.lang) === p)).find(Boolean) ??
@@ -55,10 +58,16 @@ export function speak(text: string, rate = useSettings.getState().speechRate): v
 
 /** Можно ли сейчас давать задания на слух. */
 export function listeningEnabled(now = Date.now()): boolean {
-  return supported && now >= useSettings.getState().listenOffUntil;
+  // Если голоса загрузились, а испанского среди них нет, звук будет молчать: заданий на слух не даём.
+  return supported && now >= useSettings.getState().listenOffUntil && (!voicesLoaded || voice !== null);
 }
 
 /** «Не могу слушать»: задания на слух заменяются обычными на час. */
 export function pauseListening(hours = 1): void {
   useSettings.getState().update({ listenOffUntil: Date.now() + hours * 3_600_000 });
+}
+
+/** true/false, когда список голосов загружен; null, пока неизвестно. */
+export function hasSpanishVoice(): boolean | null {
+  return voicesLoaded ? voice !== null : null;
 }

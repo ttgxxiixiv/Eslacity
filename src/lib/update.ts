@@ -3,7 +3,7 @@ import { registerSW } from 'virtual:pwa-register';
 
 export const CURRENT: BuildInfo = __APP_BUILD__;
 
-type Status = 'idle' | 'checking' | 'latest' | 'available' | 'offline' | 'error' | 'updating';
+type Status = 'idle' | 'checking' | 'latest' | 'available' | 'offline' | 'error' | 'failed' | 'updating';
 
 interface UpdateState {
   status: Status;
@@ -46,28 +46,36 @@ export const useUpdate = create<UpdateState>((set, get) => ({
   async apply() {
     set({ status: 'updating' });
     const reg = registration;
-    if (reg && !reg.waiting) {
-      // Новая версия ещё не скачана: запрашиваем и ждём до 15 секунд.
+    // Страница не под управлением service worker (первый запуск): обычная перезагрузка
+    // и так загрузит новую версию из сети.
+    if (!reg || !navigator.serviceWorker.controller) {
+      location.reload();
+      return;
+    }
+    const activeBefore = reg.active;
+    if (!reg.waiting) {
+      // Новая версия ещё не скачана: запрашиваем и ждём до минуты (около 1 МБ на медленной сети).
       await reg.update().catch(() => {});
       await new Promise<void>((resolve) => {
-        const done = () => resolve();
-        const timer = setTimeout(done, 15_000);
+        const timer = setTimeout(resolve, 60_000);
+        const done = () => {
+          clearTimeout(timer);
+          resolve();
+        };
         const watch = (sw: ServiceWorker | null) =>
           sw?.addEventListener('statechange', () => {
-            if (sw.state === 'installed') {
-              clearTimeout(timer);
-              done();
-            }
+            if (sw.state === 'installed' || sw.state === 'activated') done();
           });
-        if (reg.waiting) {
-          clearTimeout(timer);
-          done();
-        } else if (reg.installing) watch(reg.installing);
+        if (reg.waiting || reg.active !== activeBefore) done();
+        else if (reg.installing) watch(reg.installing);
         else reg.addEventListener('updatefound', () => watch(reg.installing), { once: true });
       });
     }
-    if (reg?.waiting) await updateSW(true);
-    else location.reload();
+    if (reg.waiting) await updateSW(true);
+    // Новая версия уже активировалась сама: достаточно перезагрузки.
+    else if (reg.active !== activeBefore) location.reload();
+    // Перезагрузка без скачанной версии открыла бы ту же старую: сообщаем и даём повторить.
+    else set({ status: 'failed' });
   },
 }));
 

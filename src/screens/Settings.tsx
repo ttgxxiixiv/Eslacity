@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { VARIANT, VARIANTS } from '../config';
-import { currentVoice, speak, ttsSupported } from '../audio/tts';
+import { currentVoice, hasSpanishVoice, speak, ttsSupported } from '../audio/tts';
 import { resetProgress } from '../store/bootstrap';
 import { downloadJson, exportBackup, importBackup, parseBackup } from '../db/backup';
 import { useSettings, type Settings } from '../store/settings';
@@ -84,6 +84,12 @@ export function SettingsScreen() {
                   className="h-6 w-11 accent-[var(--color-brand)]"
                 />
               </label>
+              {hasSpanishVoice() === false && (
+                <p className="mt-2 rounded-xl bg-amber-50 px-3 py-2 text-sm text-amber-800">
+                  В системе нет испанского голоса, поэтому задания на слух не показываются. Android: Настройки → Синтез речи →
+                  Google → установить голос «Испанский (Испания)».
+                </p>
+              )}
               <p className="mt-2 text-sm text-stone-500">
                 Голос: {voiceName ?? 'системный по умолчанию'} · вариант: {VARIANTS[VARIANT].label}
               </p>

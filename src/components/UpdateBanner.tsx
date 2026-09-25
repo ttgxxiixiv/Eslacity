@@ -5,12 +5,16 @@ export function UpdateBanner() {
   const status = useUpdate((s) => s.status);
   const remote = useUpdate((s) => s.remote);
   const apply = useUpdate((s) => s.apply);
-  if (status !== 'available' && status !== 'updating') return null;
+  if (status !== 'available' && status !== 'updating' && status !== 'failed') return null;
   return (
     <div className="fixed inset-x-0 bottom-[calc(4rem+env(safe-area-inset-bottom))] z-10 mx-auto max-w-md px-3 pb-2">
       <div className="flex items-center gap-3 rounded-2xl bg-stone-900 px-4 py-3 text-white shadow-lg">
         <div className="flex-1 text-sm">
-          {status === 'updating' ? 'Обновляю…' : `Доступно обновление${remote ? ` ${remote.version}` : ''}`}
+          {status === 'updating'
+            ? 'Скачиваю обновление…'
+            : status === 'failed'
+              ? 'Не удалось скачать обновление'
+              : `Доступно обновление${remote ? ` ${remote.version}` : ''}`}
         </div>
         <button
           type="button"
@@ -18,7 +22,7 @@ export function UpdateBanner() {
           onClick={() => apply()}
           className="press rounded-xl bg-brand px-3 py-1.5 text-sm font-semibold disabled:opacity-60"
         >
-          Обновить
+          {status === 'failed' ? 'Ещё раз' : 'Обновить'}
         </button>
       </div>
     </div>
