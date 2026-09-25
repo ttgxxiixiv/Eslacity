@@ -80,23 +80,11 @@ h1, h2, .font-pixel {
   text-transform: uppercase;
 }
 
-/* Здание на карте: прозрачная кнопка поверх картинки, при нажатии участок подсвечивается. */
-.building::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  background: rgba(255, 236, 170, 0.28);
-  box-shadow: inset 0 0 0 2px #e0b43c;
-  opacity: 0;
-  transition: opacity 80ms ease-out;
-}
-.building:active::after,
-.building:focus-visible::after {
-  opacity: 1;
-}
+/* Здание на карте: прозрачная кнопка поверх картинки, без подсветки при нажатии.
+   Рамка только при переходе с клавиатуры. */
 .building:focus-visible {
-  outline: none;
+  outline: 2px solid #e0b43c;
+  outline-offset: -2px;
 }
 
 /* Открытое здание: участок из освещённой картинки, края растворяются в основе. */
@@ -142,22 +130,10 @@ h1, h2, .font-pixel {
 .hero-frame-b { animation: hero-b 280ms infinite; }
 .hero-bob { animation: hero-bob 280ms infinite; }
 
-/* Нижнее меню-картинка: при нажатии ячейка подсвечивается. */
-.nav-hit::after {
-  content: "";
-  position: absolute;
-  inset: 4px;
-  border-radius: 6px;
-  background: rgba(255, 236, 170, 0.22);
-  opacity: 0;
-  transition: opacity 80ms ease-out;
-}
-.nav-hit:active::after,
-.nav-hit:focus-visible::after {
-  opacity: 1;
-}
+/* Нижнее меню-картинка: без подсветки при нажатии, рамка только при переходе с клавиатуры. */
 .nav-hit:focus-visible {
-  outline: none;
+  outline: 2px solid #e0b43c;
+  outline-offset: -4px;
 }
 
 /* Диалоговое окно, как в старых RPG. */
