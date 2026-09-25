@@ -1,0 +1,125 @@
+{
+  "id": "b2.12-antes-despues",
+  "district": "B2",
+  "order": 12,
+  "title": "Antes de que, después de que, hasta que",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "**Antes de que** требует subjuntivo всегда. **Después de que** и **hasta que** — subjuntivo о будущем, индикатив о прошлом и привычке. Если подлежащее одно, удобнее инфинитив: antes de salir, después de comer."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Союз",
+        "Будущее",
+        "Прошлое"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "antes de que",
+            "Llámame antes de que salga.",
+            "Me llamó antes de que saliera."
+          ]
+        },
+        {
+          "cells": [
+            "después de que",
+            "Hablaremos después de que termine.",
+            "Hablamos después de que terminó."
+          ]
+        },
+        {
+          "cells": [
+            "hasta que",
+            "Espera hasta que vuelva.",
+            "Esperé hasta que volvió."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Одно лицо — инфинитив: **Antes de salir**, apaga la luz (ты выходишь, ты выключаешь). Разные лица — que + subjuntivo: Apaga la luz **antes de que salga** yo."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Tenemos que irnos antes de que llueva.",
+      "ru": "Нам надо уйти до того, как пойдёт дождь."
+    },
+    {
+      "es": "No me iré hasta que me lo expliques.",
+      "ru": "Я не уйду, пока ты мне не объяснишь."
+    },
+    {
+      "es": "Después de comer, damos un paseo.",
+      "ru": "После обеда мы гуляем."
+    },
+    {
+      "es": "Esperé hasta que llegó el autobús.",
+      "ru": "Я ждал, пока не пришёл автобус."
+    }
+  ],
+  "exercises": [
+    {
+      "kind": "choose",
+      "prompt": "«Позвони мне до того, как уедешь»:",
+      "options": [
+        "Llámame antes de irte.",
+        "Llámame antes de que te vas.",
+        "Llámame antes que irte."
+      ],
+      "answer": 0,
+      "explain": "Одно лицо — antes de + инфинитив."
+    },
+    {
+      "kind": "choose",
+      "prompt": "«Я подожду, пока ты не вернёшься»:",
+      "options": [
+        "Esperaré hasta que vuelvas.",
+        "Esperaré hasta que vuelves.",
+        "Esperaré hasta volverás."
+      ],
+      "answer": 0,
+      "explain": "hasta que о будущем — subjuntivo."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Salimos antes de que ___ la lluvia.",
+      "ru": "Мы вышли до того, как начался дождь.",
+      "options": [
+        "empezara",
+        "empezó",
+        "empieza"
+      ],
+      "answer": 0,
+      "explain": "antes de que + subjuntivo всегда, в прошлом — imperfecto."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Ayer esperé hasta que ___ el último tren.",
+      "ru": "Вчера я ждал до последнего поезда.",
+      "options": [
+        "salió",
+        "saliera",
+        "salga"
+      ],
+      "answer": 0,
+      "explain": "hasta que о прошлом — индикатив."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "После «antes de que» всегда ставят subjuntivo.",
+      "answer": true,
+      "explain": "Даже о прошлом."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "«Después de que llegó, cenamos» — ошибка: нужен subjuntivo.",
+      "answer": false,
+      "explain": "О прошлом после después de que — индикатив."
+    }
+  ]
+}

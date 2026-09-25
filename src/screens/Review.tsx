@@ -8,6 +8,7 @@ import { buildReviewSteps, type SessionState, type Step } from '../domain/lesson
 import { dueCards } from '../domain/srs';
 import { useProgress } from '../store/progress';
 import { useMotivation } from '../store/motivation';
+import { listeningEnabled } from '../audio/tts';
 import type { Achievement } from '../domain/achievements';
 import { LessonPlayer, type LessonTotals } from '../components/LessonPlayer';
 import { LessonResult } from '../components/LessonResult';
@@ -36,7 +37,7 @@ export function ReviewScreen() {
       // Варианты ответа из выученных слов, если их хватает на четыре варианта.
       const known = loaded.filter((w) => w.id in cards);
       const pool = known.length >= 8 ? known : loaded;
-      const steps = buildReviewSteps(words, cards, pool, seeded(Date.now()));
+      const steps = buildReviewSteps(words, cards, pool, seeded(Date.now()), { listening: listeningEnabled() });
       setReady({ steps, pool, words: Object.fromEntries(loaded.map((w) => [w.id, w])) });
     })();
   }, []);

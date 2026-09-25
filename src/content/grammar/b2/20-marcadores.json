@@ -1,0 +1,146 @@
+{
+  "id": "b2.20-marcadores",
+  "district": "B2",
+  "order": 20,
+  "title": "Маркеры речи: es decir, o sea, de hecho",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Маркеры помогают строить речь: объяснить (**es decir, o sea**), подтвердить (**de hecho**), сменить тему (**por cierto**), подвести итог (**en definitiva, en resumen**), уступить (**en cualquier caso, de todas formas**)."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Маркер",
+        "Функция",
+        "Пример"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "es decir",
+            "пояснение",
+            "Llega el martes, es decir, pasado mañana."
+          ]
+        },
+        {
+          "cells": [
+            "o sea",
+            "пояснение (разг.)",
+            "No tengo dinero, o sea, no voy."
+          ]
+        },
+        {
+          "cells": [
+            "de hecho",
+            "подтверждение",
+            "Me gusta Sevilla; de hecho, quiero vivir allí."
+          ]
+        },
+        {
+          "cells": [
+            "por cierto",
+            "кстати",
+            "Por cierto, ¿has visto a Ana?"
+          ]
+        },
+        {
+          "cells": [
+            "en cualquier caso",
+            "в любом случае",
+            "En cualquier caso, te llamo mañana."
+          ]
+        },
+        {
+          "cells": [
+            "en definitiva",
+            "в итоге",
+            "En definitiva, fue un buen año."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "**O sea** очень частый в разговоре, иногда просто как слово-паразит. В письменной речи лучше **es decir**."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Somos cinco, es decir, necesitamos dos coches.",
+      "ru": "Нас пятеро, то есть нужно две машины."
+    },
+    {
+      "es": "De hecho, ya lo sabía.",
+      "ru": "Вообще-то я уже знал."
+    },
+    {
+      "es": "Por cierto, mañana es festivo.",
+      "ru": "Кстати, завтра выходной."
+    },
+    {
+      "es": "De todas formas, gracias por intentarlo.",
+      "ru": "В любом случае спасибо за попытку."
+    }
+  ],
+  "exercises": [
+    {
+      "kind": "choose",
+      "prompt": "«Кстати, ты видел Педро?»",
+      "options": [
+        "Por cierto, ¿has visto a Pedro?",
+        "Es decir, ¿has visto a Pedro?",
+        "En definitiva, ¿has visto a Pedro?"
+      ],
+      "answer": 0,
+      "explain": "Смена темы — por cierto."
+    },
+    {
+      "kind": "choose",
+      "prompt": "«То есть» (пояснение, письменно):",
+      "options": [
+        "es decir",
+        "por cierto",
+        "de hecho"
+      ],
+      "answer": 0,
+      "explain": "Пояснение — es decir."
+    },
+    {
+      "kind": "gap",
+      "sentence": "No me gusta el frío; ___, nunca voy a la montaña en invierno.",
+      "ru": "Я не люблю холод; собственно, зимой я никогда не езжу в горы.",
+      "options": [
+        "de hecho",
+        "por cierto",
+        "en cambio"
+      ],
+      "answer": 0,
+      "explain": "Подтверждение — de hecho."
+    },
+    {
+      "kind": "gap",
+      "sentence": "No sé si vendrá. En cualquier ___, empezamos a las ocho.",
+      "ru": "Не знаю, придёт ли он. В любом случае начинаем в восемь.",
+      "options": [
+        "caso",
+        "forma",
+        "hecho"
+      ],
+      "answer": 0,
+      "explain": "en cualquier caso."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "«O sea» — разговорный вариант «es decir».",
+      "answer": true,
+      "explain": "То есть, значит."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "«Por cierto» значит «конечно».",
+      "answer": false,
+      "explain": "Por cierto — кстати."
+    }
+  ]
+}

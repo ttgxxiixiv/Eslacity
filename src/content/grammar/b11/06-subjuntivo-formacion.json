@@ -1,0 +1,154 @@
+{
+  "id": "b11.06-subjuntivo-formacion",
+  "district": "B1.1",
+  "order": 6,
+  "title": "Presente de subjuntivo: образование",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "**Presente de subjuntivo** — наклонение желаний, сомнений и эмоций. Берём форму **yo** настоящего времени, убираем -o и добавляем «чужие» окончания: у -ar — **-e**, у -er и -ir — **-a**."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Местоимение",
+        "hablar",
+        "comer",
+        "vivir"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "yo",
+            "hable",
+            "coma",
+            "viva"
+          ]
+        },
+        {
+          "cells": [
+            "tú",
+            "hables",
+            "comas",
+            "vivas"
+          ]
+        },
+        {
+          "cells": [
+            "él / ella / usted",
+            "hable",
+            "coma",
+            "viva"
+          ]
+        },
+        {
+          "cells": [
+            "nosotros",
+            "hablemos",
+            "comamos",
+            "vivamos"
+          ]
+        },
+        {
+          "cells": [
+            "vosotros",
+            "habléis",
+            "comáis",
+            "viváis"
+          ],
+          "region": "es"
+        },
+        {
+          "cells": [
+            "ellos / ellas / ustedes",
+            "hablen",
+            "coman",
+            "vivan"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Основа от yo сохраняет неправильности: tengo → **tenga**, hago → **haga**, conozco → **conozca**. Формы для usted в повелительном наклонении — это те же формы subjuntivo."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Quiero que hables con él.",
+      "ru": "Я хочу, чтобы ты поговорил с ним."
+    },
+    {
+      "es": "Espero que comas bien.",
+      "ru": "Надеюсь, ты хорошо питаешься."
+    },
+    {
+      "es": "Es necesario que vivamos cerca.",
+      "ru": "Нам необходимо жить рядом."
+    },
+    {
+      "es": "Ojalá llegue a tiempo.",
+      "ru": "Хоть бы он успел."
+    }
+  ],
+  "exercises": [
+    {
+      "kind": "choose",
+      "prompt": "Subjuntivo «tú» от trabajar:",
+      "options": [
+        "trabajes",
+        "trabajas",
+        "trabajarás"
+      ],
+      "answer": 0,
+      "explain": "У -ar окончание -es."
+    },
+    {
+      "kind": "choose",
+      "prompt": "Subjuntivo «ellos» от escribir:",
+      "options": [
+        "escriban",
+        "escriben",
+        "escribían"
+      ],
+      "answer": 0,
+      "explain": "У -ir окончание -an."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Quiero que ___ la verdad.",
+      "ru": "Я хочу, чтобы ты сказал правду.",
+      "options": [
+        "digas",
+        "dices",
+        "decir"
+      ],
+      "answer": 0,
+      "explain": "decir: yo digo → digas."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Es importante que ___ temprano.",
+      "ru": "Важно, чтобы мы пришли рано.",
+      "options": [
+        "lleguemos",
+        "llegamos",
+        "llegaremos"
+      ],
+      "answer": 0,
+      "explain": "llegar → lleguemos: g → gu перед e."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "Subjuntivo строится от формы yo настоящего времени.",
+      "answer": true,
+      "explain": "tengo → tenga, hago → haga."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "У глаголов на -ar в subjuntivo окончание -a.",
+      "answer": false,
+      "explain": "У -ar окончания на -e: hable, hables."
+    }
+  ]
+}

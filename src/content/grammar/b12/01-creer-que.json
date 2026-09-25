@@ -1,0 +1,126 @@
+{
+  "id": "b12.01-creer-que",
+  "district": "B1.2",
+  "order": 1,
+  "title": "Creo que или no creo que",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "После **creo que, pienso que, me parece que** ставим индикатив: мы утверждаем. После **no creo que, no pienso que, dudo que** — subjuntivo: мы сомневаемся."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Утверждение (индикатив)",
+        "Сомнение (subjuntivo)"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Creo que es verdad.",
+            "No creo que sea verdad."
+          ]
+        },
+        {
+          "cells": [
+            "Pienso que viene.",
+            "No pienso que venga."
+          ]
+        },
+        {
+          "cells": [
+            "Me parece que está bien.",
+            "No me parece que esté bien."
+          ]
+        },
+        {
+          "cells": [
+            "Es verdad que llueve.",
+            "Dudo que llueva."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Так же: **es cierto que, está claro que** — индикатив; **no es cierto que, es posible que, puede que** — subjuntivo."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Creo que tienes razón.",
+      "ru": "Думаю, ты прав."
+    },
+    {
+      "es": "No creo que llegue a tiempo.",
+      "ru": "Не думаю, что он успеет."
+    },
+    {
+      "es": "Dudo que sea tan fácil.",
+      "ru": "Сомневаюсь, что это так просто."
+    },
+    {
+      "es": "Es posible que llueva mañana.",
+      "ru": "Возможно, завтра будет дождь."
+    }
+  ],
+  "exercises": [
+    {
+      "kind": "choose",
+      "prompt": "«Не думаю, что он придёт»:",
+      "options": [
+        "No creo que venga.",
+        "No creo que viene.",
+        "No creo venga."
+      ],
+      "answer": 0,
+      "explain": "Сомнение — subjuntivo."
+    },
+    {
+      "kind": "choose",
+      "prompt": "«Думаю, что это хорошая идея»:",
+      "options": [
+        "Creo que es una buena idea.",
+        "Creo que sea una buena idea."
+      ],
+      "answer": 0,
+      "explain": "Утверждение — индикатив."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Dudo que ___ tan caro.",
+      "ru": "Сомневаюсь, что это так дорого.",
+      "options": [
+        "sea",
+        "es",
+        "será"
+      ],
+      "answer": 0,
+      "explain": "После dudo que — subjuntivo."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Está claro que ___ razón.",
+      "ru": "Ясно, что ты прав.",
+      "options": [
+        "tienes",
+        "tengas",
+        "tener"
+      ],
+      "answer": 0,
+      "explain": "Уверенность — индикатив."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "После «es posible que» ставят subjuntivo.",
+      "answer": true,
+      "explain": "Возможность — не факт."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "После «creo que» обычно ставят subjuntivo.",
+      "answer": false,
+      "explain": "Creo que + индикатив."
+    }
+  ]
+}

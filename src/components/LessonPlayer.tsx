@@ -2,11 +2,11 @@ import { useRef, useState } from 'react';
 import { ECONOMY, XP } from '../config';
 import type { Word } from '../content/schema';
 import { afterPaint } from '../lib/afterPaint';
-import { speak } from '../audio/tts';
+import { pauseListening, speak } from '../audio/tts';
 import { seeded } from '../domain/generators';
 import {
   type Outcome, type SessionState, type Step,
-  advance, isFinished, makeStep, recordAnswer, startSession,
+  advance, isFinished, isTyped, makeStep, recordAnswer, startSession, withoutListening,
 } from '../domain/lessonQueue';
 import { useCity } from '../store/city';
 import { useProgress } from '../store/progress';
@@ -59,7 +59,9 @@ export function LessonPlayer({ steps, words, pool, onFinish, onExit }: Props) {
 
   const answer = (o: Outcome, extra?: Partial<Feedback>) => {
     // Сначала визуальный ответ.
-    const f = { ...defaultFeedback(step, words, o), ...extra };
+    // Поля extra со значением undefined не должны затирать стандартные (например, заголовок «Верно!»).
+    const defined = Object.fromEntries(Object.entries(extra ?? {}).filter(([, v]) => v !== undefined));
+    const f = { ...defaultFeedback(step, words, o), ...defined };
     setFb(f);
     setSession((s) => recordAnswer(s, o, retry));
     const xp = o.verdict === 'correct' ? XP.correct : o.verdict === 'almost' ? XP.almost : 0;
@@ -70,7 +72,7 @@ export function LessonPlayer({ steps, words, pool, onFinish, onExit }: Props) {
       if (f.speakText && o.verdict !== 'wrong') speak(f.speakText);
       useProgress.getState().addXp(xp);
       useCity.getState().addCoins(coins);
-      if (step.kind === 'type') useMotivation.getState().recordTyped(o.verdict === 'correct');
+      if (isTyped(step.kind)) useMotivation.getState().recordTyped(o.verdict === 'correct');
     });
   };
 
@@ -82,6 +84,12 @@ export function LessonPlayer({ steps, words, pool, onFinish, onExit }: Props) {
       finished.current = true;
       onFinish(s, totals);
     }
+  };
+
+  // «Не могу слушать»: оставшиеся задания на слух становятся обычными, на час вперёд тоже.
+  const cantListen = () => {
+    pauseListening();
+    setSession((s) => ({ ...s, steps: withoutListening(s.steps) }));
   };
 
   if (!step) return null;
@@ -96,7 +104,8 @@ export function LessonPlayer({ steps, words, pool, onFinish, onExit }: Props) {
       break;
     case 'choice-es-ru':
     case 'choice-ru-es':
-      body = <Choice step={step} words={words} locked={locked} onAnswer={answer} />;
+    case 'listen-choice':
+      body = <Choice step={step} words={words} locked={locked} onAnswer={answer} onCantListen={cantListen} />;
       break;
     case 'scramble':
       body = <Scramble step={step} words={words} locked={locked} onAnswer={answer} />;
@@ -108,7 +117,8 @@ export function LessonPlayer({ steps, words, pool, onFinish, onExit }: Props) {
       body = <MatchPairs step={step} words={words} locked={locked} onAnswer={answer} />;
       break;
     case 'type':
-      body = <TypeAnswer step={step} words={words} locked={locked} onAnswer={answer} />;
+    case 'listen-type':
+      body = <TypeAnswer step={step} words={words} locked={locked} onAnswer={answer} onCantListen={cantListen} />;
       break;
   }
 

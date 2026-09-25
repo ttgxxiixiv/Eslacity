@@ -1,0 +1,125 @@
+{
+  "id": "b2.06-condicionales-mixtas",
+  "district": "B2",
+  "order": 6,
+  "title": "Смешанные условные предложения",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Условие и следствие могут относиться к разному времени. Прошлое условие → настоящее следствие: Si **hubiera estudiado** medicina, ahora **sería** médico. Постоянное условие → прошлое следствие: Si **fuera** más cuidadoso, no **habría perdido** las llaves."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Условие",
+        "Следствие",
+        "Перевод"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Si hubiera aceptado el trabajo,",
+            "ahora viviría en Madrid.",
+            "Если бы я согласился на ту работу, сейчас жил бы в Мадриде."
+          ]
+        },
+        {
+          "cells": [
+            "Si no hubiera llovido,",
+            "ahora estaríamos en la playa.",
+            "Если бы не было дождя, мы бы сейчас были на пляже."
+          ]
+        },
+        {
+          "cells": [
+            "Si hablara inglés,",
+            "habría conseguido ese puesto.",
+            "Если бы я говорил по-английски, я бы получил ту должность."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Смотрите на время каждой части отдельно: прошлое — hubiera / habría + причастие, настоящее — imperfecto de subjuntivo / condicional."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Si me hubieras escuchado, ahora no tendrías este problema.",
+      "ru": "Если бы ты меня послушал, сейчас у тебя не было бы этой проблемы."
+    },
+    {
+      "es": "Si fuera más valiente, se lo habría dicho.",
+      "ru": "Будь я смелее, я бы ему сказал."
+    },
+    {
+      "es": "Si hubiera nacido en España, hablaría sin acento.",
+      "ru": "Если бы я родился в Испании, я бы говорил без акцента."
+    },
+    {
+      "es": "Si tuviera coche, habría venido antes.",
+      "ru": "Если бы у меня была машина, я бы приехал раньше."
+    }
+  ],
+  "exercises": [
+    {
+      "kind": "choose",
+      "prompt": "«Если бы я тогда купил квартиру, сейчас был бы богат»:",
+      "options": [
+        "Si hubiera comprado el piso, ahora sería rico.",
+        "Si compraba el piso, ahora sería rico.",
+        "Si habría comprado el piso, ahora fuera rico."
+      ],
+      "answer": 0,
+      "explain": "Прошлое условие — hubiera, настоящее следствие — condicional."
+    },
+    {
+      "kind": "choose",
+      "prompt": "«Будь я внимательнее, я бы не ошибся»:",
+      "options": [
+        "Si fuera más atento, no me habría equivocado.",
+        "Si sería más atento, no me habría equivocado.",
+        "Si soy más atento, no me habré equivocado."
+      ],
+      "answer": 0,
+      "explain": "Постоянное условие — imperfecto de subjuntivo, прошлое следствие — habría."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Si ___ nacido en Madrid, ahora sería del Real Madrid.",
+      "ru": "Если бы я родился в Мадриде, я бы сейчас болел за «Реал».",
+      "options": [
+        "hubiera",
+        "habría",
+        "fuera"
+      ],
+      "answer": 0,
+      "explain": "Прошлое условие — hubiera."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Si me hubieras avisado, ahora ___ aquí contigo.",
+      "ru": "Если бы ты меня предупредил, я бы сейчас был здесь с тобой.",
+      "options": [
+        "estaría",
+        "habría estado",
+        "estuviera"
+      ],
+      "answer": 0,
+      "explain": "Следствие в настоящем — condicional simple."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "В одном условном предложении могут сочетаться разные времена.",
+      "answer": true,
+      "explain": "Прошлое условие и настоящее следствие."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "«Si habría estudiado» — правильная форма условия.",
+      "answer": false,
+      "explain": "После si — hubiera estudiado."
+    }
+  ]
+}

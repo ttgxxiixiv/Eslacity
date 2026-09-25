@@ -1,0 +1,121 @@
+{
+  "id": "b2.13-pasiva-ser",
+  "district": "B2",
+  "order": 13,
+  "title": "Пассив с ser",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Пассив с **ser + причастие**: подлежащее — то, над чем совершили действие. **La catedral fue construida en el siglo XV.** Причастие согласуется с подлежащим, исполнитель вводится через **por**."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Актив",
+        "Пассив"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Cervantes escribió el Quijote.",
+            "El Quijote fue escrito por Cervantes."
+          ]
+        },
+        {
+          "cells": [
+            "La policía detuvo a dos hombres.",
+            "Dos hombres fueron detenidos por la policía."
+          ]
+        },
+        {
+          "cells": [
+            "Van a abrir el museo en mayo.",
+            "El museo será abierto en mayo."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "В разговоре пассив с ser звучит книжно. Там чаще говорят активом или с se: **Se construyó** en el siglo XV. В новостях и истории пассив с ser обычен."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Este puente fue construido por los romanos.",
+      "ru": "Этот мост построили римляне."
+    },
+    {
+      "es": "Las entradas fueron vendidas en una hora.",
+      "ru": "Билеты раскупили за час."
+    },
+    {
+      "es": "El ganador será anunciado mañana.",
+      "ru": "Победителя объявят завтра."
+    },
+    {
+      "es": "La ciudad fue fundada en 1535.",
+      "ru": "Город основан в 1535 году."
+    }
+  ],
+  "exercises": [
+    {
+      "kind": "choose",
+      "prompt": "«Книга была написана в 1605 году»:",
+      "options": [
+        "El libro fue escrito en 1605.",
+        "El libro fue escrita en 1605.",
+        "El libro estuvo escrito en 1605."
+      ],
+      "answer": 0,
+      "explain": "ser + причастие, согласуется с libro."
+    },
+    {
+      "kind": "choose",
+      "prompt": "«Дома были проданы»:",
+      "options": [
+        "Las casas fueron vendidas.",
+        "Las casas fueron vendido.",
+        "Las casas fue vendidas."
+      ],
+      "answer": 0,
+      "explain": "Женский род, множественное число."
+    },
+    {
+      "kind": "gap",
+      "sentence": "La película fue dirigida ___ Almodóvar.",
+      "ru": "Фильм снят Альмодоваром.",
+      "options": [
+        "por",
+        "de",
+        "para"
+      ],
+      "answer": 0,
+      "explain": "Исполнитель — por."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Los ladrones fueron ___ ayer.",
+      "ru": "Воров задержали вчера.",
+      "options": [
+        "detenidos",
+        "detenido",
+        "detenidas"
+      ],
+      "answer": 0,
+      "explain": "ladrones — мужской род, мн. ч."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "В пассиве с ser причастие согласуется с подлежащим.",
+      "answer": true,
+      "explain": "la catedral fue construida."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "Исполнитель в пассиве вводится предлогом para.",
+      "answer": false,
+      "explain": "Предлогом por."
+    }
+  ]
+}

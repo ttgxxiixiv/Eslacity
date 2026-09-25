@@ -1,0 +1,127 @@
+{
+  "id": "b12.06-si-real",
+  "district": "B1.2",
+  "order": 6,
+  "title": "Si + настоящее время",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Реальное условие: **si + настоящее время**, а в главной части — настоящее, будущее или приказ. Si tienes tiempo, **llámame**."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Si + настоящее",
+        "Главная часть"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Si llueve,",
+            "no salimos."
+          ]
+        },
+        {
+          "cells": [
+            "Si estudias,",
+            "aprobarás."
+          ]
+        },
+        {
+          "cells": [
+            "Si tienes hambre,",
+            "come algo."
+          ]
+        },
+        {
+          "cells": [
+            "Si vienes,",
+            "te enseño la ciudad."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "После **si** в этом значении не бывает ни futuro, ни presente de subjuntivo: не «si lloverá» и не «si llueva», а **si llueve**."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Si quieres, te ayudo.",
+      "ru": "Если хочешь, я помогу."
+    },
+    {
+      "es": "Si llegas tarde, no te esperaremos.",
+      "ru": "Если опоздаешь, мы тебя не будем ждать."
+    },
+    {
+      "es": "Si tienes preguntas, escríbeme.",
+      "ru": "Если будут вопросы, пиши."
+    },
+    {
+      "es": "Si hace buen tiempo, vamos a la playa.",
+      "ru": "Если будет хорошая погода, пойдём на пляж."
+    }
+  ],
+  "exercises": [
+    {
+      "kind": "choose",
+      "prompt": "«Если будет дождь, мы останемся дома»:",
+      "options": [
+        "Si llueve, nos quedamos en casa.",
+        "Si lloverá, nos quedamos en casa.",
+        "Si llueva, nos quedamos en casa."
+      ],
+      "answer": 0,
+      "explain": "После si — настоящее время."
+    },
+    {
+      "kind": "choose",
+      "prompt": "«Если хочешь, приходи»:",
+      "options": [
+        "Si quieres, ven.",
+        "Si querrás, ven.",
+        "Si quieras, ven."
+      ],
+      "answer": 0,
+      "explain": "После si — настоящее время."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Si ___ tiempo, te llamo.",
+      "ru": "Если будет время, позвоню.",
+      "options": [
+        "tengo",
+        "tendré",
+        "tenga"
+      ],
+      "answer": 0,
+      "explain": "После si — настоящее время."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Si estudias, ___ el examen.",
+      "ru": "Если будешь заниматься, сдашь экзамен.",
+      "options": [
+        "aprobarás",
+        "apruebes",
+        "aprobaras"
+      ],
+      "answer": 0,
+      "explain": "В главной части — будущее."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "После si в реальном условии ставят настоящее время.",
+      "answer": true,
+      "explain": "Si llueve, si tienes…"
+    },
+    {
+      "kind": "truefalse",
+      "statement": "«Si tendré dinero, compraré un coche» — правильно.",
+      "answer": false,
+      "explain": "Si tengo dinero…"
+    }
+  ]
+}

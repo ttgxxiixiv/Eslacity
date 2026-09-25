@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import type { Word } from '../content/schema';
 import { seeded } from './generators';
 import {
-  advance, buildLearnSteps, buildReviewSteps, isFinished, makeStep, recordAnswer, startSession, type Step,
+  advance, buildLearnSteps, buildReviewSteps, isFinished, makeStep, recordAnswer, startSession, withoutListening, type Step,
 } from './lessonQueue';
 import { makeChoice, makeScramble, makePhrase, phraseTokens } from './generators';
 
@@ -52,6 +52,30 @@ describe('генераторы', () => {
     expect(p.answer).toEqual(['muchas', 'gracias', 'señor']);
     expect(p.tokens.slice().sort()).toEqual(p.answer.slice().sort());
     expect(p.tokens).not.toEqual(p.answer);
+  });
+});
+
+describe('задания на слух', () => {
+  it('урок включает выбор на слух и диктант', () => {
+    const kinds = buildLearnSteps(words.slice(0, 5), words, seeded(11)).map((s) => s.kind);
+    expect(kinds).toContain('listen-choice');
+    expect(kinds.filter((k) => k === 'listen-type')).toHaveLength(2);
+  });
+  it('без звука заданий на слух нет', () => {
+    const learn = buildLearnSteps(words.slice(0, 5), words, seeded(12), { listening: false });
+    const review = buildReviewSteps(words, {}, words, seeded(13), { listening: false });
+    expect([...learn, ...review].some((s) => s.kind.startsWith('listen'))).toBe(false);
+  });
+  it('«Не могу слушать» превращает задания в обычные', () => {
+    const steps = withoutListening(buildLearnSteps(words.slice(0, 5), words, seeded(14)));
+    expect(steps.some((s) => s.kind.startsWith('listen'))).toBe(false);
+    const choice = steps.find((s) => s.kind === 'choice-es-ru');
+    expect(choice && 'options' in choice && choice.options).toHaveLength(4);
+  });
+  it('диктант оценивается как ввод', () => {
+    let s = startSession([makeStep('listen-type', words[0], words, seeded(15))]);
+    s = recordAnswer(s, { verdict: 'correct' }, () => null);
+    expect(s.grades['cafe.cafe']).toBe(5);
   });
 });
 

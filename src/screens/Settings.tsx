@@ -11,7 +11,9 @@ import { AboutApp } from '../components/AboutApp';
 const GOALS: Settings['dailyGoal'][] = [50, 100, 150, 250];
 
 export function SettingsScreen() {
-  const { speechRate, dailyGoal, update } = useSettings();
+  const { speechRate, dailyGoal, listenOffUntil, update } = useSettings();
+  const listenOn = listenOffUntil <= Date.now();
+  const pausedHour = !listenOn && listenOffUntil < Number.MAX_SAFE_INTEGER;
   const [voiceName, setVoiceName] = useState(() => currentVoice()?.name);
 
   return (
@@ -69,6 +71,19 @@ export function SettingsScreen() {
               >
                 🔊 Проверить голос
               </Button>
+              <label className="mt-3 flex items-center justify-between gap-3">
+                <span>
+                  Задания на слух
+                  {pausedHour && <span className="block text-xs text-stone-500">выключены на час кнопкой «Не могу слушать»</span>}
+                </span>
+                <input
+                  type="checkbox"
+                  role="switch"
+                  checked={listenOn}
+                  onChange={(e) => update({ listenOffUntil: e.target.checked ? 0 : Number.MAX_SAFE_INTEGER })}
+                  className="h-6 w-11 accent-[var(--color-brand)]"
+                />
+              </label>
               <p className="mt-2 text-sm text-stone-500">
                 Голос: {voiceName ?? 'системный по умолчанию'} · вариант: {VARIANTS[VARIANT].label}
               </p>

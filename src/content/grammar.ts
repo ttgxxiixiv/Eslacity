@@ -13,9 +13,10 @@ export const GRAMMAR_BY_ID = Object.fromEntries(GRAMMAR.map((l) => [l.id, l]));
 
 export const DISTRICTS: { id: District; title: string; subtitle: string }[] = [
   { id: 'A1', title: 'A1', subtitle: 'Первые шаги' },
-  { id: 'A2', title: 'A2', subtitle: 'Прошедшее время, сравнения' },
-  { id: 'B1.1', title: 'B1.1', subtitle: 'Subjuntivo, будущее' },
-  { id: 'B1.2', title: 'B1.2', subtitle: 'Условное наклонение, связность речи' },
+  { id: 'A2', title: 'A2', subtitle: 'Прошедшие времена, местоимения, сравнения' },
+  { id: 'B1.1', title: 'B1.1', subtitle: 'Будущее, условное наклонение, subjuntivo' },
+  { id: 'B1.2', title: 'B1.2', subtitle: 'Условные предложения, косвенная речь, se' },
+  { id: 'B2', title: 'B2', subtitle: 'Сложные времена subjuntivo, согласование времён' },
 ];
 
 export function lessonsOf(d: District): GrammarLesson[] {

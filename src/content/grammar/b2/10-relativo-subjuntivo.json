@@ -1,0 +1,120 @@
+{
+  "id": "b2.10-relativo-subjuntivo",
+  "district": "B2",
+  "order": 10,
+  "title": "Subjuntivo в определительных",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Если описываем предмет, который **ищем** или который, возможно, **не существует**, ставим subjuntivo: Busco un piso que **tenga** terraza. Если предмет известен — индикатив: Tengo un piso que **tiene** terraza."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Известное (индикатив)",
+        "Неизвестное или несуществующее (subjuntivo)"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Conozco a alguien que habla ruso.",
+            "Busco a alguien que hable ruso."
+          ]
+        },
+        {
+          "cells": [
+            "Hay un bar que abre a las seis.",
+            "¿Hay algún bar que abra a las seis?"
+          ]
+        },
+        {
+          "cells": [
+            "Tengo un amigo que sabe cocinar.",
+            "No tengo ningún amigo que sepa cocinar."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "После **no hay nadie que**, **no hay nada que**, **no conozco a nadie que** — всегда subjuntivo: No hay nadie que lo sepa."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Busco un trabajo que me guste.",
+      "ru": "Я ищу работу, которая мне понравится."
+    },
+    {
+      "es": "No hay nadie que me entienda.",
+      "ru": "Никто меня не понимает."
+    },
+    {
+      "es": "¿Conoces a alguien que tenga coche?",
+      "ru": "Ты знаешь кого-нибудь, у кого есть машина?"
+    },
+    {
+      "es": "Quiero un hotel que esté cerca de la playa.",
+      "ru": "Я хочу отель недалеко от пляжа."
+    }
+  ],
+  "exercises": [
+    {
+      "kind": "choose",
+      "prompt": "«Я ищу квартиру, где есть лифт»:",
+      "options": [
+        "Busco un piso que tenga ascensor.",
+        "Busco un piso que tiene ascensor.",
+        "Busco un piso que tendrá ascensor."
+      ],
+      "answer": 0,
+      "explain": "Ищем, ещё не нашли — subjuntivo."
+    },
+    {
+      "kind": "choose",
+      "prompt": "«У меня есть друг, который говорит по-китайски»:",
+      "options": [
+        "Tengo un amigo que habla chino.",
+        "Tengo un amigo que hable chino."
+      ],
+      "answer": 0,
+      "explain": "Известный человек — индикатив."
+    },
+    {
+      "kind": "gap",
+      "sentence": "No hay nadie que ___ la respuesta.",
+      "ru": "Никто не знает ответа.",
+      "options": [
+        "sepa",
+        "sabe",
+        "sabrá"
+      ],
+      "answer": 0,
+      "explain": "После no hay nadie que — subjuntivo."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Necesito a alguien que me ___ con la mudanza.",
+      "ru": "Мне нужен кто-то, кто поможет с переездом.",
+      "options": [
+        "ayude",
+        "ayuda",
+        "ayudó"
+      ],
+      "answer": 0,
+      "explain": "Неизвестный человек — subjuntivo."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "«Busco un libro que es interesante» — правильная фраза о книге, которую ещё ищут.",
+      "answer": false,
+      "explain": "Ищем — subjuntivo: que sea interesante."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "После «no hay nada que» ставят subjuntivo.",
+      "answer": true,
+      "explain": "No hay nada que me guste."
+    }
+  ]
+}

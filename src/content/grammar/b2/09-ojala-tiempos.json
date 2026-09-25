@@ -1,0 +1,144 @@
+{
+  "id": "b2.09-ojala-tiempos",
+  "district": "B2",
+  "order": 9,
+  "title": "Ojalá с разными временами",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Время после **ojalá** показывает, насколько желание реально. **Presente** — возможно; **imperfecto** — маловероятно или невозможно сейчас; **pluscuamperfecto** — упущено в прошлом."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Время",
+        "Пример",
+        "Перевод"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "presente de subjuntivo",
+            "Ojalá venga mañana.",
+            "Хоть бы он пришёл завтра (вполне возможно)."
+          ]
+        },
+        {
+          "cells": [
+            "perfecto de subjuntivo",
+            "Ojalá haya aprobado.",
+            "Хоть бы он сдал (уже известно, но не мне)."
+          ]
+        },
+        {
+          "cells": [
+            "imperfecto de subjuntivo",
+            "Ojalá estuvieras aquí.",
+            "Жаль, что тебя здесь нет."
+          ]
+        },
+        {
+          "cells": [
+            "pluscuamperfecto de subjuntivo",
+            "Ojalá hubieras venido.",
+            "Жаль, что ты не пришёл."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Ojalá с imperfecto часто переводится как «жаль, что не…» или «вот бы»: Ojalá **tuviera** más tiempo — вот бы у меня было больше времени."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Ojalá haga buen tiempo el sábado.",
+      "ru": "Хоть бы в субботу была хорошая погода."
+    },
+    {
+      "es": "Ojalá supiera cantar.",
+      "ru": "Вот бы я умел петь."
+    },
+    {
+      "es": "Ojalá no hubiera dicho eso.",
+      "ru": "Зря я это сказал."
+    },
+    {
+      "es": "Ojalá te haya gustado.",
+      "ru": "Надеюсь, тебе понравилось."
+    }
+  ],
+  "exercises": [
+    {
+      "kind": "choose",
+      "prompt": "«Вот бы я жил у моря» (сейчас не живу):",
+      "options": [
+        "Ojalá viviera junto al mar.",
+        "Ojalá vivo junto al mar.",
+        "Ojalá viví junto al mar."
+      ],
+      "answer": 0,
+      "explain": "Нереальное сейчас — imperfecto de subjuntivo."
+    },
+    {
+      "kind": "choose",
+      "prompt": "«Жаль, что я не поехал с вами»:",
+      "options": [
+        "Ojalá hubiera ido con vosotros.",
+        "Ojalá fui con vosotros.",
+        "Ojalá vaya con vosotros."
+      ],
+      "answer": 0,
+      "explain": "Упущенное прошлое — pluscuamperfecto de subjuntivo.",
+      "region": "es"
+    },
+    {
+      "kind": "choose",
+      "prompt": "«Жаль, что я не поехал с ними»:",
+      "options": [
+        "Ojalá hubiera ido con ellos.",
+        "Ojalá fui con ellos.",
+        "Ojalá vaya con ellos."
+      ],
+      "answer": 0,
+      "explain": "Упущенное прошлое — pluscuamperfecto de subjuntivo."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Ojalá mañana no ___.",
+      "ru": "Хоть бы завтра не было дождя.",
+      "options": [
+        "llueva",
+        "lloviera",
+        "llueve"
+      ],
+      "answer": 0,
+      "explain": "Реальная возможность — presente de subjuntivo."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Ojalá ___ más dinero.",
+      "ru": "Вот бы у меня было больше денег.",
+      "options": [
+        "tuviera",
+        "tengo",
+        "tenía"
+      ],
+      "answer": 0,
+      "explain": "Маловероятное сейчас — imperfecto de subjuntivo."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "«Ojalá estuvieras aquí» значит «жаль, что тебя здесь нет».",
+      "answer": true,
+      "explain": "Imperfecto — нереальное сейчас."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "После ojalá можно поставить индикатив: ojalá viene.",
+      "answer": false,
+      "explain": "Только subjuntivo."
+    }
+  ]
+}

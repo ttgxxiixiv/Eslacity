@@ -1,0 +1,139 @@
+{
+  "id": "b11.14-relativos",
+  "district": "B1.1",
+  "order": 14,
+  "title": "Que, donde, lo que, quien",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Относительные слова связывают части предложения. **Que** — самое частое, и «который», и «что». **Donde** — «где». **Lo que** — «то, что». **Quien** — «кто», о людях, обычно после предлога."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Слово",
+        "Пример",
+        "Перевод"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "que",
+            "El libro que leo es bueno.",
+            "Книга, которую я читаю, хорошая."
+          ]
+        },
+        {
+          "cells": [
+            "que",
+            "La chica que vive aquí es rusa.",
+            "Девушка, которая здесь живёт, русская."
+          ]
+        },
+        {
+          "cells": [
+            "donde",
+            "La casa donde nací.",
+            "Дом, где я родился."
+          ]
+        },
+        {
+          "cells": [
+            "lo que",
+            "No entiendo lo que dices.",
+            "Не понимаю, что ты говоришь."
+          ]
+        },
+        {
+          "cells": [
+            "con quien",
+            "El amigo con quien viajo.",
+            "Друг, с которым я путешествую."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "«То, что» — всегда **lo que**: Lo que necesito es dormir — то, что мне нужно, это сон."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Es el restaurante que te recomendé.",
+      "ru": "Это ресторан, который я тебе советовал."
+    },
+    {
+      "es": "Esta es la ciudad donde vivo.",
+      "ru": "Это город, где я живу."
+    },
+    {
+      "es": "Haz lo que quieras.",
+      "ru": "Делай, что хочешь."
+    },
+    {
+      "es": "La persona con quien hablé era muy amable.",
+      "ru": "Человек, с которым я говорил, был очень любезен."
+    }
+  ],
+  "exercises": [
+    {
+      "kind": "choose",
+      "prompt": "«Не понимаю, что ты говоришь»:",
+      "options": [
+        "No entiendo lo que dices.",
+        "No entiendo que dices.",
+        "No entiendo el que dices."
+      ],
+      "answer": 0,
+      "explain": "«То, что» — lo que."
+    },
+    {
+      "kind": "choose",
+      "prompt": "«Город, где я родился»:",
+      "options": [
+        "la ciudad donde nací",
+        "la ciudad que nací",
+        "la ciudad lo que nací"
+      ],
+      "answer": 0,
+      "explain": "Место — donde."
+    },
+    {
+      "kind": "gap",
+      "sentence": "El chico ___ vive arriba es muy simpático.",
+      "ru": "Парень, который живёт наверху, очень приятный.",
+      "options": [
+        "que",
+        "quien",
+        "lo que"
+      ],
+      "answer": 0,
+      "explain": "Без предлога — que."
+    },
+    {
+      "kind": "gap",
+      "sentence": "___ más me gusta de España es la comida.",
+      "ru": "Больше всего в Испании мне нравится еда.",
+      "options": [
+        "Lo que",
+        "Que",
+        "Quien"
+      ],
+      "answer": 0,
+      "explain": "«То, что» — lo que."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "«Que» может относиться и к людям, и к предметам.",
+      "answer": true,
+      "explain": "el libro que…, la chica que…"
+    },
+    {
+      "kind": "truefalse",
+      "statement": "«То, что» переводится просто «que».",
+      "answer": false,
+      "explain": "Правильно lo que."
+    }
+  ]
+}

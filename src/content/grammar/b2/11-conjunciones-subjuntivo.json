@@ -1,0 +1,139 @@
+{
+  "id": "b2.11-conjunciones-subjuntivo",
+  "district": "B2",
+  "order": 11,
+  "title": "A no ser que, con tal de que, por mucho que",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Некоторые союзы всегда требуют subjuntivo: **a no ser que** / **a menos que** (если только не), **con tal de que** / **siempre que** (при условии что), **en caso de que** (в случае если), **por mucho que** / **por más que** (сколько бы ни)."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Союз",
+        "Пример",
+        "Перевод"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "a no ser que",
+            "Iré, a no ser que llueva.",
+            "Я пойду, если только не будет дождя."
+          ]
+        },
+        {
+          "cells": [
+            "con tal de que",
+            "Te lo presto con tal de que me lo devuelvas.",
+            "Одолжу, при условии что вернёшь."
+          ]
+        },
+        {
+          "cells": [
+            "siempre que",
+            "Puedes venir siempre que avises.",
+            "Можешь прийти, если предупредишь."
+          ]
+        },
+        {
+          "cells": [
+            "en caso de que",
+            "En caso de que haya problemas, llámame.",
+            "Если будут проблемы, звони."
+          ]
+        },
+        {
+          "cells": [
+            "por mucho que",
+            "Por mucho que estudie, no lo entiendo.",
+            "Сколько бы я ни учил, не понимаю."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "**Siempre que** с индикативом значит «каждый раз, когда»: Siempre que viene, trae flores. С subjuntivo — «при условии что»."
+    }
+  ],
+  "examples": [
+    {
+      "es": "No saldré a menos que me llames.",
+      "ru": "Я не выйду, если ты не позвонишь."
+    },
+    {
+      "es": "Haré lo que sea con tal de que seas feliz.",
+      "ru": "Я сделаю что угодно, лишь бы ты был счастлив."
+    },
+    {
+      "es": "Por más que lo intento, no puedo.",
+      "ru": "Как ни стараюсь, не могу."
+    },
+    {
+      "es": "Lleva paraguas en caso de que llueva.",
+      "ru": "Возьми зонт на случай дождя."
+    }
+  ],
+  "exercises": [
+    {
+      "kind": "choose",
+      "prompt": "«Я приду, если только не заболею»:",
+      "options": [
+        "Vendré, a no ser que me ponga enfermo.",
+        "Vendré, a no ser que me pongo enfermo.",
+        "Vendré, a no ser me ponga enfermo."
+      ],
+      "answer": 0,
+      "explain": "a no ser que + subjuntivo."
+    },
+    {
+      "kind": "choose",
+      "prompt": "«Возьми ключи на случай, если меня не будет»:",
+      "options": [
+        "Llévate las llaves en caso de que no esté.",
+        "Llévate las llaves en caso de que no estoy.",
+        "Llévate las llaves en caso que no estaré."
+      ],
+      "answer": 0,
+      "explain": "en caso de que + subjuntivo."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Te lo cuento con tal de que no se lo ___ a nadie.",
+      "ru": "Расскажу, при условии что ты никому не скажешь.",
+      "options": [
+        "digas",
+        "dices",
+        "dirás"
+      ],
+      "answer": 0,
+      "explain": "con tal de que + subjuntivo."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Por mucho que ___, no lo vas a convencer.",
+      "ru": "Сколько бы ты ни настаивал, ты его не убедишь.",
+      "options": [
+        "insistas",
+        "insistes",
+        "insistir"
+      ],
+      "answer": 0,
+      "explain": "por mucho que + subjuntivo."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "«Siempre que» с индикативом значит «каждый раз, когда».",
+      "answer": true,
+      "explain": "Siempre que viene, trae flores."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "После «a menos que» ставят индикатив.",
+      "answer": false,
+      "explain": "a menos que + subjuntivo."
+    }
+  ]
+}

@@ -1,0 +1,127 @@
+{
+  "id": "b11.08-subjuntivo-deseos",
+  "district": "B1.1",
+  "order": 8,
+  "title": "Subjuntivo после желаний",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Если в главной части **желание** или **требование**, а подлежащие разные, во второй части нужен subjuntivo: **Quiero que vengas**. Если подлежащее одно, нужен инфинитив: **Quiero venir**."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Одно лицо (инфинитив)",
+        "Разные лица (que + subjuntivo)"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Quiero descansar.",
+            "Quiero que descanses."
+          ]
+        },
+        {
+          "cells": [
+            "Espero aprobar.",
+            "Espero que apruebes."
+          ]
+        },
+        {
+          "cells": [
+            "Prefiero ir en tren.",
+            "Prefiero que vayamos en tren."
+          ]
+        },
+        {
+          "cells": [
+            "Necesito dormir.",
+            "Necesito que duermas."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "**Ojalá** — «хоть бы, дай бог» — всегда с subjuntivo: Ojalá no llueva."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Quiero que me llames mañana.",
+      "ru": "Я хочу, чтобы ты позвонил мне завтра."
+    },
+    {
+      "es": "Espero que te guste el regalo.",
+      "ru": "Надеюсь, тебе понравится подарок."
+    },
+    {
+      "es": "Ojalá tengas suerte.",
+      "ru": "Желаю тебе удачи."
+    },
+    {
+      "es": "Mis padres prefieren que estudie medicina.",
+      "ru": "Родители хотят, чтобы я изучал медицину."
+    }
+  ],
+  "exercises": [
+    {
+      "kind": "choose",
+      "prompt": "«Я хочу, чтобы ты пришёл»:",
+      "options": [
+        "Quiero que vengas.",
+        "Quiero que vienes.",
+        "Quiero venir."
+      ],
+      "answer": 0,
+      "explain": "Разные лица — que + subjuntivo."
+    },
+    {
+      "kind": "choose",
+      "prompt": "«Я хочу прийти»:",
+      "options": [
+        "Quiero venir.",
+        "Quiero que vengo.",
+        "Quiero que venir."
+      ],
+      "answer": 0,
+      "explain": "Подлежащее одно — инфинитив."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Ojalá no ___ mañana.",
+      "ru": "Хоть бы завтра не было дождя.",
+      "options": [
+        "llueva",
+        "llueve",
+        "lloverá"
+      ],
+      "answer": 0,
+      "explain": "После ojalá — subjuntivo."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Espero que te ___ la película.",
+      "ru": "Надеюсь, тебе понравится фильм.",
+      "options": [
+        "guste",
+        "gusta",
+        "gustará"
+      ],
+      "answer": 0,
+      "explain": "После espero que — subjuntivo."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "После ojalá используют subjuntivo.",
+      "answer": true,
+      "explain": "Ojalá venga."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "«Quiero que yo vaya» — нормальная фраза.",
+      "answer": false,
+      "explain": "Подлежащее одно — инфинитив: Quiero ir."
+    }
+  ]
+}

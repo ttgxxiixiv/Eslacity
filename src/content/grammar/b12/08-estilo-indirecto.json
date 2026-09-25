@@ -1,0 +1,133 @@
+{
+  "id": "b12.08-estilo-indirecto",
+  "district": "B1.2",
+  "order": 8,
+  "title": "Косвенная речь в настоящем",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Если пересказываем **сейчас** (dice que), времена не меняются, меняются только лица и местоимения: «Estoy cansado» → Dice que **está** cansado."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Прямая речь",
+        "Косвенная речь"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "«Tengo hambre.»",
+            "Dice que tiene hambre."
+          ]
+        },
+        {
+          "cells": [
+            "«Vendré mañana.»",
+            "Dice que vendrá mañana."
+          ]
+        },
+        {
+          "cells": [
+            "«¿Estás bien?»",
+            "Pregunta si estoy bien."
+          ]
+        },
+        {
+          "cells": [
+            "«¿Dónde vives?»",
+            "Pregunta dónde vivo."
+          ]
+        },
+        {
+          "cells": [
+            "«Llámame.»",
+            "Dice que lo llame."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Вопрос без вопросительного слова вводится **si** («ли»): Pregunta **si** vienes. Приказ в косвенной речи становится **que + subjuntivo**: «Ven» → Dice que vengas."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Ana dice que está enferma.",
+      "ru": "Ана говорит, что заболела."
+    },
+    {
+      "es": "Mi madre pregunta si vas a venir.",
+      "ru": "Мама спрашивает, придёшь ли ты."
+    },
+    {
+      "es": "El médico dice que descanses.",
+      "ru": "Врач говорит, чтобы ты отдыхал."
+    },
+    {
+      "es": "Me pregunta qué hora es.",
+      "ru": "Он спрашивает меня, который час."
+    }
+  ],
+  "exercises": [
+    {
+      "kind": "choose",
+      "prompt": "«Ven mañana» → Dice que…",
+      "options": [
+        "Dice que vengas mañana.",
+        "Dice que vienes mañana.",
+        "Dice que ven mañana."
+      ],
+      "answer": 0,
+      "explain": "Приказ → que + subjuntivo."
+    },
+    {
+      "kind": "choose",
+      "prompt": "«¿Tienes coche?» → Pregunta…",
+      "options": [
+        "Pregunta si tengo coche.",
+        "Pregunta que si tenga coche.",
+        "Pregunta tengo coche."
+      ],
+      "answer": 0,
+      "explain": "Вопрос без вопросительного слова — si."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Pedro dice que ___ cansado.",
+      "ru": "Педро говорит, что устал.",
+      "options": [
+        "está",
+        "esté",
+        "estuvo"
+      ],
+      "answer": 0,
+      "explain": "Сообщение в настоящем — время не меняется."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Te pregunta ___ quieres café.",
+      "ru": "Он спрашивает, хочешь ли ты кофе.",
+      "options": [
+        "si",
+        "que",
+        "qué"
+      ],
+      "answer": 0,
+      "explain": "Вопрос «да или нет» — si."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "Если глагол сообщения в настоящем, времена в косвенной речи не меняются.",
+      "answer": true,
+      "explain": "Dice que tiene hambre."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "Приказ в косвенной речи передаётся индикативом: Dice que vienes.",
+      "answer": false,
+      "explain": "Приказ — subjuntivo: Dice que vengas."
+    }
+  ]
+}

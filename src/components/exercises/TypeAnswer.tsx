@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react';
 import { checkTyped, type CheckResult } from '../../domain/answer';
 import { AccentBar } from '../AccentBar';
+import { CantListen, ListenControls } from './ListenControls';
 import { Button, genderLabel } from '../ui';
 import type { ExerciseProps } from './types';
 
@@ -10,7 +11,8 @@ const REASON_NOTE: Record<NonNullable<CheckResult['reason']>, string> = {
   article: 'Существительное учим вместе с артиклем.',
 };
 
-export function TypeAnswer({ step, words, locked, onAnswer }: ExerciseProps<'type'>) {
+export function TypeAnswer({ step, words, locked, onAnswer, onCantListen }: ExerciseProps<'type' | 'listen-type'> & { onCantListen?: () => void }) {
+  const dictation = step.kind === 'listen-type';
   const word = words[step.wordId];
   const [value, setValue] = useState('');
   const [result, setResult] = useState<CheckResult | null>(null);
@@ -40,10 +42,16 @@ export function TypeAnswer({ step, words, locked, onAnswer }: ExerciseProps<'typ
 
   return (
     <div className="flex flex-1 flex-col">
-      <div className="text-sm font-medium text-stone-500">Напишите по-испански</div>
-      <div className="mt-6 text-3xl font-bold">{word.ru}</div>
-      {word.pos === 'noun' && (
-        <div className="mt-1 text-sm text-stone-500">с артиклем · {genderLabel(word.gender)}</div>
+      <div className="text-sm font-medium text-stone-500">{dictation ? 'Напишите, что услышали' : 'Напишите по-испански'}</div>
+      {dictation ? (
+        <ListenControls text={word.es} />
+      ) : (
+        <>
+          <div className="mt-6 text-3xl font-bold">{word.ru}</div>
+          {word.pos === 'noun' && (
+            <div className="mt-1 text-sm text-stone-500">с артиклем · {genderLabel(word.gender)}</div>
+          )}
+        </>
       )}
       <form
         className="mt-6 flex flex-col gap-3"
@@ -74,6 +82,7 @@ export function TypeAnswer({ step, words, locked, onAnswer }: ExerciseProps<'typ
           </Button>
         )}
       </form>
+      {dictation && !locked && onCantListen && <CantListen onClick={onCantListen} />}
     </div>
   );
 }

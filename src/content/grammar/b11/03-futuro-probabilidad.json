@@ -1,0 +1,132 @@
+{
+  "id": "b11.03-futuro-probabilidad",
+  "district": "B1.1",
+  "order": 3,
+  "title": "Futuro для предположений",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Futuro выражает ещё и **предположение о настоящем**: ¿Dónde está Ana? — **Estará** en casa (наверное, дома). По-русски — «наверное», «должно быть»."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Уверенно",
+        "Предположение",
+        "Перевод"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Son las ocho.",
+            "Serán las ocho.",
+            "Сейчас, наверное, около восьми."
+          ]
+        },
+        {
+          "cells": [
+            "Tiene 40 años.",
+            "Tendrá 40 años.",
+            "Ему, наверное, лет сорок."
+          ]
+        },
+        {
+          "cells": [
+            "Está cansado.",
+            "Estará cansado.",
+            "Он, должно быть, устал."
+          ]
+        },
+        {
+          "cells": [
+            "Hay tráfico.",
+            "Habrá tráfico.",
+            "Наверное, пробки."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Вопрос с futuro звучит как рассуждение вслух: **¿Qué hora será?** — «Интересно, который час?»"
+    }
+  ],
+  "examples": [
+    {
+      "es": "No contesta. Estará ocupado.",
+      "ru": "Не отвечает. Наверное, занят."
+    },
+    {
+      "es": "¿Quién será a estas horas?",
+      "ru": "Кто бы это мог быть в такое время?"
+    },
+    {
+      "es": "Tendrá unos treinta años.",
+      "ru": "Ему, наверное, около тридцати."
+    },
+    {
+      "es": "Habrá un problema con el tren.",
+      "ru": "Наверное, какая-то проблема с поездом."
+    }
+  ],
+  "exercises": [
+    {
+      "kind": "choose",
+      "prompt": "«Наверное, он дома»:",
+      "options": [
+        "Estará en casa.",
+        "Está en casa.",
+        "Estuvo en casa."
+      ],
+      "answer": 0,
+      "explain": "Предположение о настоящем — futuro."
+    },
+    {
+      "kind": "choose",
+      "prompt": "«Интересно, сколько это стоит?»",
+      "options": [
+        "¿Cuánto costará?",
+        "¿Cuánto cuesta?",
+        "¿Cuánto costó?"
+      ],
+      "answer": 0,
+      "explain": "Рассуждение вслух о настоящем — futuro."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Ana no ha venido. ___ enferma.",
+      "ru": "Ана не пришла. Наверное, заболела.",
+      "options": [
+        "Estará",
+        "Está",
+        "Estuvo"
+      ],
+      "answer": 0,
+      "explain": "Предположение — futuro."
+    },
+    {
+      "kind": "gap",
+      "sentence": "—¿Qué hora es? —No sé, ___ las diez.",
+      "ru": "— Который час? — Не знаю, наверное, около десяти.",
+      "options": [
+        "serán",
+        "son",
+        "eran"
+      ],
+      "answer": 0,
+      "explain": "Предположение о времени — serán."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "«Serán las cinco» может значить «Наверное, сейчас пять».",
+      "answer": true,
+      "explain": "Futuro предположения."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "Futuro никогда не говорит о настоящем.",
+      "answer": false,
+      "explain": "Futuro выражает предположение о настоящем."
+    }
+  ]
+}

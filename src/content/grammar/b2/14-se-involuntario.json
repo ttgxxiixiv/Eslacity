@@ -1,0 +1,133 @@
+{
+  "id": "b2.14-se-involuntario",
+  "district": "B2",
+  "order": 14,
+  "title": "Невольное se: se me olvidó",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Когда что-то случилось **нечаянно**, испанцы говорят так, будто это произошло само: **Se me olvidó** — у меня забылось, я забыл. Конструкция: se + me/te/le… + глагол, согласованный с предметом."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Пример",
+        "Перевод"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Se me olvidó la cartera.",
+            "Я забыл кошелёк."
+          ]
+        },
+        {
+          "cells": [
+            "Se me olvidaron las llaves.",
+            "Я забыл ключи."
+          ]
+        },
+        {
+          "cells": [
+            "Se le cayó el vaso.",
+            "Он уронил стакан."
+          ]
+        },
+        {
+          "cells": [
+            "Se nos rompió la lavadora.",
+            "У нас сломалась стиральная машина."
+          ]
+        },
+        {
+          "cells": [
+            "Se te ha perdido el móvil.",
+            "Ты потерял телефон."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Глагол согласуется с тем, что забыли или уронили, а не с человеком: se me olvid**ó** la llave, se me olvid**aron** las llaves."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Perdona, se me olvidó llamarte.",
+      "ru": "Прости, я забыл тебе позвонить."
+    },
+    {
+      "es": "Se me cayó el café en la camisa.",
+      "ru": "Я пролил кофе на рубашку."
+    },
+    {
+      "es": "A Ana se le perdieron las gafas.",
+      "ru": "Ана потеряла очки."
+    },
+    {
+      "es": "Se nos acabó la leche.",
+      "ru": "У нас закончилось молоко."
+    }
+  ],
+  "exercises": [
+    {
+      "kind": "choose",
+      "prompt": "«Я забыл пароль»:",
+      "options": [
+        "Se me olvidó la contraseña.",
+        "Me se olvidó la contraseña.",
+        "Se me olvidé la contraseña."
+      ],
+      "answer": 0,
+      "explain": "se + me + глагол в 3-м лице."
+    },
+    {
+      "kind": "choose",
+      "prompt": "«Он уронил ключи»:",
+      "options": [
+        "Se le cayeron las llaves.",
+        "Se le cayó las llaves.",
+        "Le se cayeron las llaves."
+      ],
+      "answer": 0,
+      "explain": "Глагол согласуется с llaves."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Se me ___ los documentos en casa.",
+      "ru": "Я забыл документы дома.",
+      "options": [
+        "olvidaron",
+        "olvidó",
+        "olvidé"
+      ],
+      "answer": 0,
+      "explain": "documentos — множественное число."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Se ___ rompió el coche en la autopista.",
+      "ru": "У нас сломалась машина на трассе.",
+      "options": [
+        "nos",
+        "me",
+        "les"
+      ],
+      "answer": 0,
+      "explain": "У нас — nos."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "В «se me olvidó» глагол согласуется с тем, что забыли.",
+      "answer": true,
+      "explain": "se me olvidaron las llaves."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "«Me se cayó» — правильный порядок.",
+      "answer": false,
+      "explain": "Se идёт первым: se me cayó."
+    }
+  ]
+}

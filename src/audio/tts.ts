@@ -52,3 +52,13 @@ export function speak(text: string, rate = useSettings.getState().speechRate): v
     speechSynthesis.speak(u);
   }
 }
+
+/** Можно ли сейчас давать задания на слух. */
+export function listeningEnabled(now = Date.now()): boolean {
+  return supported && now >= useSettings.getState().listenOffUntil;
+}
+
+/** «Не могу слушать»: задания на слух заменяются обычными на час. */
+export function pauseListening(hours = 1): void {
+  useSettings.getState().update({ listenOffUntil: Date.now() + hours * 3_600_000 });
+}

@@ -47,7 +47,7 @@ export interface LocationMeta {
   unlockCost: number;
 }
 
-export type District = 'A1' | 'A2' | 'B1.1' | 'B1.2';
+export type District = 'A1' | 'A2' | 'B1.1' | 'B1.2' | 'B2';
 
 export type TheoryBlock =
   | { kind: 'text'; md: string }

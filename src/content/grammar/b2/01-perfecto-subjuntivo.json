@@ -1,0 +1,147 @@
+{
+  "id": "b2.01-perfecto-subjuntivo",
+  "district": "B2",
+  "order": 1,
+  "title": "Pretérito perfecto de subjuntivo",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "**Perfecto de subjuntivo** — это **haya + причастие**. Он нужен там, где требуется subjuntivo, но речь о уже совершённом действии: No creo que **haya llegado** — не думаю, что он уже приехал."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Местоимение",
+        "haber",
+        "пример"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "yo",
+            "haya",
+            "haya comido"
+          ]
+        },
+        {
+          "cells": [
+            "tú",
+            "hayas",
+            "hayas terminado"
+          ]
+        },
+        {
+          "cells": [
+            "él / ella / usted",
+            "haya",
+            "haya salido"
+          ]
+        },
+        {
+          "cells": [
+            "nosotros",
+            "hayamos",
+            "hayamos visto"
+          ]
+        },
+        {
+          "cells": [
+            "vosotros",
+            "hayáis",
+            "hayáis hecho"
+          ],
+          "region": "es"
+        },
+        {
+          "cells": [
+            "ellos / ellas / ustedes",
+            "hayan",
+            "hayan llegado"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Ещё одно частое употребление — будущее, завершённое к моменту: **Cuando hayas terminado**, llámame — когда закончишь (уже закончишь), позвони."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Espero que hayas descansado.",
+      "ru": "Надеюсь, ты отдохнул."
+    },
+    {
+      "es": "No creo que lo hayan entendido.",
+      "ru": "Не думаю, что они это поняли."
+    },
+    {
+      "es": "Me alegra que hayas venido.",
+      "ru": "Я рад, что ты пришёл."
+    },
+    {
+      "es": "Cuando hayas terminado, avísame.",
+      "ru": "Когда закончишь, скажи мне."
+    }
+  ],
+  "exercises": [
+    {
+      "kind": "choose",
+      "prompt": "«Не думаю, что он уже пришёл»:",
+      "options": [
+        "No creo que haya llegado.",
+        "No creo que ha llegado.",
+        "No creo que hubo llegado."
+      ],
+      "answer": 0,
+      "explain": "Сомнение о совершённом действии — haya + причастие."
+    },
+    {
+      "kind": "choose",
+      "prompt": "«Надеюсь, ты хорошо поспал»:",
+      "options": [
+        "Espero que hayas dormido bien.",
+        "Espero que has dormido bien.",
+        "Espero que dormiste bien."
+      ],
+      "answer": 0,
+      "explain": "После espero que — subjuntivo, о прошлом — haya."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Me alegro de que ___ aprobado.",
+      "ru": "Я рад, что ты сдал.",
+      "options": [
+        "hayas",
+        "has",
+        "habías"
+      ],
+      "answer": 0,
+      "explain": "Чувство по поводу совершённого — hayas."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Cuando ___ terminado, puedes irte.",
+      "ru": "Когда закончите, можете идти.",
+      "options": [
+        "hayas",
+        "has",
+        "habrás"
+      ],
+      "answer": 0,
+      "explain": "Будущее после cuando — subjuntivo: hayas terminado."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "Perfecto de subjuntivo образуется из haya + причастие.",
+      "answer": true,
+      "explain": "haya comido, hayan llegado."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "«Dudo que ha venido» — правильно.",
+      "answer": false,
+      "explain": "После dudo que — subjuntivo: haya venido."
+    }
+  ]
+}

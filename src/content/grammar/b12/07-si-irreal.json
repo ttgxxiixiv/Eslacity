@@ -1,0 +1,127 @@
+{
+  "id": "b12.07-si-irreal",
+  "district": "B1.2",
+  "order": 7,
+  "title": "Si + imperfecto de subjuntivo",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Нереальное или маловероятное условие: **si + imperfecto de subjuntivo**, а в главной части — **condicional**. Si **tuviera** dinero, **compraría** una casa."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Si + imperfecto de subjuntivo",
+        "Condicional"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Si tuviera tiempo,",
+            "aprendería a tocar la guitarra."
+          ]
+        },
+        {
+          "cells": [
+            "Si fuera tú,",
+            "no lo haría."
+          ]
+        },
+        {
+          "cells": [
+            "Si viviera en España,",
+            "hablaría mejor."
+          ]
+        },
+        {
+          "cells": [
+            "Si pudiera,",
+            "te ayudaría."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "После si никогда не бывает condicional: не «si tendría», а **si tuviera**. «Если бы я был тобой» — **si yo fuera tú**."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Si tuviera más tiempo, leería más.",
+      "ru": "Если бы у меня было больше времени, я бы больше читал."
+    },
+    {
+      "es": "¿Qué harías si ganaras la lotería?",
+      "ru": "Что бы ты сделал, если бы выиграл в лотерею?"
+    },
+    {
+      "es": "Si fuera rico, viajaría por todo el mundo.",
+      "ru": "Если бы я был богат, я бы объездил весь мир."
+    },
+    {
+      "es": "Si no lloviera, iríamos a la playa.",
+      "ru": "Если бы не было дождя, мы бы пошли на пляж."
+    }
+  ],
+  "exercises": [
+    {
+      "kind": "choose",
+      "prompt": "«Если бы у меня были деньги, я бы купил дом»:",
+      "options": [
+        "Si tuviera dinero, compraría una casa.",
+        "Si tendría dinero, compraría una casa.",
+        "Si tengo dinero, compraría una casa."
+      ],
+      "answer": 0,
+      "explain": "Si + imperfecto de subjuntivo, затем condicional."
+    },
+    {
+      "kind": "choose",
+      "prompt": "«Что бы ты сделал на моём месте?»",
+      "options": [
+        "¿Qué harías si fueras yo?",
+        "¿Qué harás si eres yo?",
+        "¿Qué harías si serías yo?"
+      ],
+      "answer": 0,
+      "explain": "Нереальное условие."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Si ___ más tiempo, aprendería alemán.",
+      "ru": "Если бы у меня было больше времени, я бы выучил немецкий.",
+      "options": [
+        "tuviera",
+        "tendría",
+        "tengo"
+      ],
+      "answer": 0,
+      "explain": "После si — imperfecto de subjuntivo."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Si pudiera, te ___.",
+      "ru": "Если бы мог, я бы тебе помог.",
+      "options": [
+        "ayudaría",
+        "ayudara",
+        "ayudo"
+      ],
+      "answer": 0,
+      "explain": "В главной части — condicional."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "После si можно поставить condicional: si tendría.",
+      "answer": false,
+      "explain": "После si — imperfecto de subjuntivo: si tuviera."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "«Si fuera tú» значит «если бы я был тобой».",
+      "answer": true,
+      "explain": "ser → fuera."
+    }
+  ]
+}

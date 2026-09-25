@@ -1,0 +1,139 @@
+{
+  "id": "b2.18-causa-consecuencia",
+  "district": "B2",
+  "order": 18,
+  "title": "Причина и следствие",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Причина: **porque** (потому что), **como** (так как, в начале фразы), **ya que** / **puesto que** (поскольку), **debido a** (из-за). Следствие: **por eso**, **así que**, **de modo que**, **de ahí que** (+ subjuntivo)."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Связка",
+        "Пример",
+        "Перевод"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "como",
+            "Como llovía, nos quedamos en casa.",
+            "Так как шёл дождь, мы остались дома."
+          ]
+        },
+        {
+          "cells": [
+            "ya que",
+            "Ya que estás aquí, ayúdame.",
+            "Раз уж ты здесь, помоги мне."
+          ]
+        },
+        {
+          "cells": [
+            "debido a",
+            "El vuelo se retrasó debido a la niebla.",
+            "Рейс задержали из-за тумана."
+          ]
+        },
+        {
+          "cells": [
+            "por eso",
+            "Estaba enfermo; por eso no vino.",
+            "Он болел, поэтому не пришёл."
+          ]
+        },
+        {
+          "cells": [
+            "de ahí que",
+            "Vive lejos; de ahí que llegue tarde.",
+            "Он живёт далеко, отсюда и опоздания."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "**Como** в значении «так как» стоит только в начале предложения. В середине говорят porque: No vino porque estaba enfermo."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Como no tenía dinero, no fui de viaje.",
+      "ru": "Так как у меня не было денег, я не поехал."
+    },
+    {
+      "es": "Puesto que nadie se opone, empezamos.",
+      "ru": "Раз никто не возражает, начинаем."
+    },
+    {
+      "es": "Hubo retrasos debido a la huelga.",
+      "ru": "Из-за забастовки были задержки."
+    },
+    {
+      "es": "No dormí, así que estoy cansado.",
+      "ru": "Я не спал, так что устал."
+    }
+  ],
+  "exercises": [
+    {
+      "kind": "choose",
+      "prompt": "«Так как было поздно, мы взяли такси» (в начале фразы):",
+      "options": [
+        "Como era tarde, cogimos un taxi.",
+        "Porque era tarde, cogimos un taxi.",
+        "De ahí que era tarde, cogimos un taxi."
+      ],
+      "answer": 0,
+      "explain": "Причина в начале фразы — como."
+    },
+    {
+      "kind": "choose",
+      "prompt": "«Из-за дождя»:",
+      "options": [
+        "debido a la lluvia",
+        "debido la lluvia",
+        "debido de la lluvia"
+      ],
+      "answer": 0,
+      "explain": "debido a."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Trabaja mucho; de ahí que ___ cansado.",
+      "ru": "Он много работает, отсюда и усталость.",
+      "options": [
+        "esté",
+        "está",
+        "estará"
+      ],
+      "answer": 0,
+      "explain": "de ahí que + subjuntivo."
+    },
+    {
+      "kind": "gap",
+      "sentence": "___ ya estamos todos, podemos empezar.",
+      "ru": "Раз все уже здесь, можем начинать.",
+      "options": [
+        "Ya que",
+        "Así que",
+        "Por eso"
+      ],
+      "answer": 0,
+      "explain": "Причина — ya que."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "«Como» в значении «так как» ставят в начале предложения.",
+      "answer": true,
+      "explain": "Como llovía, …"
+    },
+    {
+      "kind": "truefalse",
+      "statement": "После «de ahí que» ставят индикатив.",
+      "answer": false,
+      "explain": "de ahí que + subjuntivo."
+    }
+  ]
+}

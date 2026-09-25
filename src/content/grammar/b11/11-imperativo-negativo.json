@@ -1,0 +1,153 @@
+{
+  "id": "b11.11-imperativo-negativo",
+  "district": "B1.1",
+  "order": 11,
+  "title": "Отрицательный повелительный",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Отрицательный приказ всегда строится из **subjuntivo**: no + subjuntivo. Для tú: **no hables**, **no comas**, **no vayas**."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Инфинитив",
+        "Делай (tú)",
+        "Не делай (tú)",
+        "Не делайте (usted)"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "hablar",
+            "habla",
+            "no hables",
+            "no hable"
+          ]
+        },
+        {
+          "cells": [
+            "comer",
+            "come",
+            "no comas",
+            "no coma"
+          ]
+        },
+        {
+          "cells": [
+            "ir",
+            "ve",
+            "no vayas",
+            "no vaya"
+          ]
+        },
+        {
+          "cells": [
+            "hacer",
+            "haz",
+            "no hagas",
+            "no haga"
+          ]
+        },
+        {
+          "cells": [
+            "decir",
+            "di",
+            "no digas",
+            "no diga"
+          ]
+        },
+        {
+          "cells": [
+            "ser",
+            "sé",
+            "no seas",
+            "no sea"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Местоимения в отрицательном приказе стоят **перед** глаголом: Dímelo → **No me lo digas**. Siéntate → **No te sientes**."
+    }
+  ],
+  "examples": [
+    {
+      "es": "No hables tan alto.",
+      "ru": "Не говори так громко."
+    },
+    {
+      "es": "No te preocupes.",
+      "ru": "Не волнуйся."
+    },
+    {
+      "es": "No me lo digas.",
+      "ru": "Не говори мне этого."
+    },
+    {
+      "es": "No toque, por favor.",
+      "ru": "Не трогайте, пожалуйста."
+    }
+  ],
+  "exercises": [
+    {
+      "kind": "choose",
+      "prompt": "«Не ходи туда» (tú):",
+      "options": [
+        "No vayas allí.",
+        "No ve allí.",
+        "No vas allí."
+      ],
+      "answer": 0,
+      "explain": "no + subjuntivo: vayas."
+    },
+    {
+      "kind": "choose",
+      "prompt": "«Не волнуйся»:",
+      "options": [
+        "No te preocupes.",
+        "No preocúpate.",
+        "No te preocupas."
+      ],
+      "answer": 0,
+      "explain": "Местоимение перед глаголом, глагол в subjuntivo."
+    },
+    {
+      "kind": "gap",
+      "sentence": "No ___ la puerta, por favor.",
+      "ru": "Не закрывай дверь, пожалуйста.",
+      "options": [
+        "cierres",
+        "cierra",
+        "cierras"
+      ],
+      "answer": 0,
+      "explain": "no + subjuntivo: cierres."
+    },
+    {
+      "kind": "gap",
+      "sentence": "No me ___ esperando.",
+      "ru": "Не заставляй меня ждать.",
+      "options": [
+        "tengas",
+        "tienes",
+        "ten"
+      ],
+      "answer": 0,
+      "explain": "no + subjuntivo: tengas."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "Отрицательный приказ для tú совпадает с subjuntivo.",
+      "answer": true,
+      "explain": "no hables, no comas."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "«No dímelo» — правильный отрицательный приказ.",
+      "answer": false,
+      "explain": "No me lo digas."
+    }
+  ]
+}

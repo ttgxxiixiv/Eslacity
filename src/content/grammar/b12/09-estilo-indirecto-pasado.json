@@ -1,0 +1,133 @@
+{
+  "id": "b12.09-estilo-indirecto-pasado",
+  "district": "B1.2",
+  "order": 9,
+  "title": "Косвенная речь в прошлом",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Если глагол сообщения в прошлом (**dijo que**), времена сдвигаются на шаг назад."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Прямая речь",
+        "Dijo que…"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "presente: «Estoy cansado.»",
+            "imperfecto: estaba cansado."
+          ]
+        },
+        {
+          "cells": [
+            "indefinido: «Llegué tarde.»",
+            "pluscuamperfecto: había llegado tarde."
+          ]
+        },
+        {
+          "cells": [
+            "perfecto: «He comido.»",
+            "pluscuamperfecto: había comido."
+          ]
+        },
+        {
+          "cells": [
+            "futuro: «Vendré.»",
+            "condicional: vendría."
+          ]
+        },
+        {
+          "cells": [
+            "приказ: «Ven.»",
+            "imperfecto de subjuntivo: que viniera."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Меняются и слова времени и места: hoy → aquel día, mañana → al día siguiente, aquí → allí. В разговоре indefinido часто оставляют без сдвига: Dijo que llegó tarde — тоже нормально."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Me dijo que estaba cansado.",
+      "ru": "Он сказал мне, что устал."
+    },
+    {
+      "es": "Ana dijo que vendría al día siguiente.",
+      "ru": "Ана сказала, что придёт на следующий день."
+    },
+    {
+      "es": "Me preguntó si había comido.",
+      "ru": "Он спросил, поел ли я."
+    },
+    {
+      "es": "El profesor nos dijo que estudiáramos.",
+      "ru": "Учитель сказал нам заниматься."
+    }
+  ],
+  "exercises": [
+    {
+      "kind": "choose",
+      "prompt": "«Tengo frío» → Dijo que…",
+      "options": [
+        "tenía frío",
+        "tendría frío",
+        "tuviera frío"
+      ],
+      "answer": 0,
+      "explain": "presente → imperfecto."
+    },
+    {
+      "kind": "choose",
+      "prompt": "«Iré a la fiesta» → …",
+      "options": [
+        "Dijo que iría a la fiesta.",
+        "Dijo que fuera a la fiesta.",
+        "Dijo que fue a la fiesta."
+      ],
+      "answer": 0,
+      "explain": "futuro → condicional."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Me pidió que la ___.",
+      "ru": "Она попросила, чтобы я ей позвонил.",
+      "options": [
+        "llamara",
+        "llamo",
+        "llamaré"
+      ],
+      "answer": 0,
+      "explain": "Просьба в прошлом — imperfecto de subjuntivo."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Dijo que ya ___ comido.",
+      "ru": "Он сказал, что уже поел.",
+      "options": [
+        "había",
+        "ha",
+        "habría"
+      ],
+      "answer": 0,
+      "explain": "perfecto → pluscuamperfecto."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "«Vendré» в косвенной речи в прошлом становится «vendría».",
+      "answer": true,
+      "explain": "futuro → condicional."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "После «dijo que» времена всегда остаются прежними.",
+      "answer": false,
+      "explain": "Обычно сдвигаются на шаг назад."
+    }
+  ]
+}

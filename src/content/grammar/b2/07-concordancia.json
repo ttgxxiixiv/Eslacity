@@ -1,0 +1,139 @@
+{
+  "id": "b2.07-concordancia",
+  "district": "B2",
+  "order": 7,
+  "title": "Согласование времён с subjuntivo",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Время subjuntivo зависит от главной части. Главная часть в настоящем или будущем — **presente de subjuntivo**. В прошлом или в condicional — **imperfecto de subjuntivo**."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Главная часть",
+        "Придаточное"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Quiero que…",
+            "vengas."
+          ]
+        },
+        {
+          "cells": [
+            "Querré que…",
+            "vengas."
+          ]
+        },
+        {
+          "cells": [
+            "Quería que…",
+            "vinieras."
+          ]
+        },
+        {
+          "cells": [
+            "Quise que…",
+            "vinieras."
+          ]
+        },
+        {
+          "cells": [
+            "Me gustaría que…",
+            "vinieras."
+          ]
+        },
+        {
+          "cells": [
+            "Te he pedido que…",
+            "vengas."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "После перфекта (he pedido) обычно ставят presente de subjuntivo, потому что период связан с настоящим."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Te pido que me ayudes.",
+      "ru": "Прошу тебя помочь мне."
+    },
+    {
+      "es": "Te pedí que me ayudaras.",
+      "ru": "Я просил тебя помочь мне."
+    },
+    {
+      "es": "Me gustaría que vinieras.",
+      "ru": "Мне бы хотелось, чтобы ты пришёл."
+    },
+    {
+      "es": "Era importante que lo supieras.",
+      "ru": "Было важно, чтобы ты это знал."
+    }
+  ],
+  "exercises": [
+    {
+      "kind": "choose",
+      "prompt": "«Я хотел, чтобы ты остался»:",
+      "options": [
+        "Quería que te quedaras.",
+        "Quería que te quedes.",
+        "Quiero que te quedaras."
+      ],
+      "answer": 0,
+      "explain": "Главная часть в прошлом — imperfecto de subjuntivo."
+    },
+    {
+      "kind": "choose",
+      "prompt": "«Мне бы хотелось, чтобы было тепло»:",
+      "options": [
+        "Me gustaría que hiciera calor.",
+        "Me gustaría que haga calor.",
+        "Me gustaría que hace calor."
+      ],
+      "answer": 0,
+      "explain": "После condicional — imperfecto de subjuntivo."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Le dije que ___ más despacio.",
+      "ru": "Я сказал ему говорить медленнее.",
+      "options": [
+        "hablara",
+        "hable",
+        "habla"
+      ],
+      "answer": 0,
+      "explain": "Главная часть в прошлом — hablara."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Espero que ___ bien el viaje.",
+      "ru": "Надеюсь, поездка пройдёт хорошо.",
+      "options": [
+        "vaya",
+        "fuera",
+        "va"
+      ],
+      "answer": 0,
+      "explain": "Главная часть в настоящем — presente de subjuntivo."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "После condicional в главной части ставят imperfecto de subjuntivo.",
+      "answer": true,
+      "explain": "Me gustaría que vinieras."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "«Quería que vengas» — нормативная фраза.",
+      "answer": false,
+      "explain": "Quería que vinieras."
+    }
+  ]
+}

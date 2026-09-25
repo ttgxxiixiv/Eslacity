@@ -1,0 +1,127 @@
+{
+  "id": "b11.15-estar-participio",
+  "district": "B1.1",
+  "order": 15,
+  "title": "Estar + причастие",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "**Estar + причастие** описывает **состояние-результат**: la puerta **está cerrada** — дверь закрыта. Причастие здесь ведёт себя как прилагательное и согласуется в роде и числе."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Действие",
+        "Результат"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Cierro la puerta.",
+            "La puerta está cerrada."
+          ]
+        },
+        {
+          "cells": [
+            "Rompió el vaso.",
+            "El vaso está roto."
+          ]
+        },
+        {
+          "cells": [
+            "Han abierto la tienda.",
+            "La tienda está abierta."
+          ]
+        },
+        {
+          "cells": [
+            "Terminé los deberes.",
+            "Los deberes están terminados."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Сравните: **he cerrado** la puerta — я закрыл (действие, причастие не меняется) и la puerta está **cerrada** — закрыта (состояние, причастие согласуется)."
+    }
+  ],
+  "examples": [
+    {
+      "es": "El museo está cerrado los lunes.",
+      "ru": "По понедельникам музей закрыт."
+    },
+    {
+      "es": "Las ventanas están abiertas.",
+      "ru": "Окна открыты."
+    },
+    {
+      "es": "Estoy muy cansado.",
+      "ru": "Я очень устал."
+    },
+    {
+      "es": "La cena ya está hecha.",
+      "ru": "Ужин уже готов."
+    }
+  ],
+  "exercises": [
+    {
+      "kind": "choose",
+      "prompt": "«Окна открыты»:",
+      "options": [
+        "Las ventanas están abiertas.",
+        "Las ventanas están abierto.",
+        "Las ventanas son abiertas."
+      ],
+      "answer": 0,
+      "explain": "Состояние — estar, причастие согласуется: abiertas."
+    },
+    {
+      "kind": "choose",
+      "prompt": "«Стакан разбит»:",
+      "options": [
+        "El vaso está roto.",
+        "El vaso está rompido.",
+        "El vaso es roto."
+      ],
+      "answer": 0,
+      "explain": "romper → roto; состояние — estar."
+    },
+    {
+      "kind": "gap",
+      "sentence": "La tienda está ___ hasta las diez.",
+      "ru": "Магазин открыт до десяти.",
+      "options": [
+        "abierta",
+        "abierto",
+        "abrida"
+      ],
+      "answer": 0,
+      "explain": "la tienda — женский род: abierta."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Mis hermanas están ___.",
+      "ru": "Мои сёстры устали.",
+      "options": [
+        "cansadas",
+        "cansados",
+        "cansada"
+      ],
+      "answer": 0,
+      "explain": "Женский род, множественное число."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "В «estar + причастие» причастие согласуется с подлежащим.",
+      "answer": true,
+      "explain": "la puerta está cerrada, los libros están cerrados."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "«He cerrada la puerta» — правильно.",
+      "answer": false,
+      "explain": "С haber причастие не меняется: he cerrado."
+    }
+  ]
+}

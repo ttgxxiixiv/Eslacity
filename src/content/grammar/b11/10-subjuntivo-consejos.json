@@ -1,0 +1,139 @@
+{
+  "id": "b11.10-subjuntivo-consejos",
+  "district": "B1.1",
+  "order": 10,
+  "title": "Subjuntivo после советов и оценок",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Советы, просьбы и оценки тоже требуют subjuntivo: **Te recomiendo que** descanses. **Es importante que** lo sepas."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Выражение",
+        "Пример"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "te recomiendo que",
+            "Te recomiendo que pruebes la paella."
+          ]
+        },
+        {
+          "cells": [
+            "te pido que",
+            "Te pido que me ayudes."
+          ]
+        },
+        {
+          "cells": [
+            "te aconsejo que",
+            "Te aconsejo que no vayas."
+          ]
+        },
+        {
+          "cells": [
+            "es importante que",
+            "Es importante que llegues pronto."
+          ]
+        },
+        {
+          "cells": [
+            "es necesario que",
+            "Es necesario que traigas el pasaporte."
+          ]
+        },
+        {
+          "cells": [
+            "es mejor que",
+            "Es mejor que esperemos."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Оценка без конкретного лица — инфинитив: Es importante **dormir** bien. С конкретным лицом — que + subjuntivo: Es importante **que duermas** bien."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Te recomiendo que veas esta película.",
+      "ru": "Советую тебе посмотреть этот фильм."
+    },
+    {
+      "es": "Les pido que hablen más bajo.",
+      "ru": "Прошу вас говорить тише."
+    },
+    {
+      "es": "Es mejor que lo hagas hoy.",
+      "ru": "Лучше сделай это сегодня."
+    },
+    {
+      "es": "Es necesario reservar con antelación.",
+      "ru": "Нужно бронировать заранее."
+    }
+  ],
+  "exercises": [
+    {
+      "kind": "choose",
+      "prompt": "«Советую тебе отдохнуть»:",
+      "options": [
+        "Te aconsejo que descanses.",
+        "Te aconsejo que descansas.",
+        "Te aconsejo descansas."
+      ],
+      "answer": 0,
+      "explain": "После te aconsejo que — subjuntivo."
+    },
+    {
+      "kind": "choose",
+      "prompt": "«Важно хорошо спать» (вообще, для всех):",
+      "options": [
+        "Es importante dormir bien.",
+        "Es importante que dormir bien.",
+        "Es importante que duermo bien."
+      ],
+      "answer": 0,
+      "explain": "Без конкретного лица — инфинитив."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Te pido que no se lo ___ a nadie.",
+      "ru": "Прошу тебя никому об этом не говорить.",
+      "options": [
+        "digas",
+        "dices",
+        "decir"
+      ],
+      "answer": 0,
+      "explain": "После te pido que — subjuntivo."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Es mejor que ___ un taxi.",
+      "ru": "Нам лучше взять такси.",
+      "options": [
+        "cojamos",
+        "cogemos",
+        "coger"
+      ],
+      "answer": 0,
+      "explain": "С конкретным лицом — que + subjuntivo."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "«Es necesario que traigas el pasaporte» — правильно.",
+      "answer": true,
+      "explain": "traer → traigo → traigas."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "После «te recomiendo que» ставят индикатив.",
+      "answer": false,
+      "explain": "Совет — subjuntivo."
+    }
+  ]
+}

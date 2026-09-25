@@ -1,0 +1,147 @@
+{
+  "id": "b2.04-condicional-compuesto",
+  "district": "B2",
+  "order": 4,
+  "title": "Condicional compuesto",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "**Condicional compuesto** — **habría + причастие**. Говорит о том, что могло бы случиться, но не случилось: Yo **habría hecho** lo mismo. И о предположении о прошлом до другого прошлого: **Habrían salido** ya — наверное, они уже ушли (тогда)."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Местоимение",
+        "haber",
+        "пример"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "yo",
+            "habría",
+            "habría ido"
+          ]
+        },
+        {
+          "cells": [
+            "tú",
+            "habrías",
+            "habrías dicho"
+          ]
+        },
+        {
+          "cells": [
+            "él / ella / usted",
+            "habría",
+            "habría hecho"
+          ]
+        },
+        {
+          "cells": [
+            "nosotros",
+            "habríamos",
+            "habríamos visto"
+          ]
+        },
+        {
+          "cells": [
+            "vosotros",
+            "habríais",
+            "habríais venido"
+          ],
+          "region": "es"
+        },
+        {
+          "cells": [
+            "ellos / ellas / ustedes",
+            "habrían",
+            "habrían llegado"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Частые фразы: **Me habría gustado** — мне бы хотелось (но не получилось); **Yo en tu lugar lo habría hecho** — на твоём месте я бы это сделал."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Me habría gustado verte.",
+      "ru": "Мне бы хотелось тебя увидеть."
+    },
+    {
+      "es": "Yo no lo habría hecho así.",
+      "ru": "Я бы так не сделал."
+    },
+    {
+      "es": "Con más tiempo, habríamos terminado.",
+      "ru": "Будь у нас больше времени, мы бы закончили."
+    },
+    {
+      "es": "Cuando llegué, ya se habrían ido.",
+      "ru": "Когда я пришёл, они, наверное, уже ушли."
+    }
+  ],
+  "exercises": [
+    {
+      "kind": "choose",
+      "prompt": "«Я бы на твоём месте позвонил»:",
+      "options": [
+        "Yo en tu lugar habría llamado.",
+        "Yo en tu lugar habré llamado.",
+        "Yo en tu lugar hubiera llamando."
+      ],
+      "answer": 0,
+      "explain": "Нереализованное прошлое — habría + причастие."
+    },
+    {
+      "kind": "choose",
+      "prompt": "«Мне бы хотелось поехать»:",
+      "options": [
+        "Me habría gustado ir.",
+        "Me habré gustado ir.",
+        "Me había gustado ir."
+      ],
+      "answer": 0,
+      "explain": "habría gustado."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Sin tu ayuda no lo ___ conseguido.",
+      "ru": "Без твоей помощи я бы не справился.",
+      "options": [
+        "habría",
+        "habré",
+        "he"
+      ],
+      "answer": 0,
+      "explain": "Нереальное прошлое — habría."
+    },
+    {
+      "kind": "gap",
+      "sentence": "¿Tú qué ___ hecho?",
+      "ru": "А ты что бы сделал?",
+      "options": [
+        "habrías",
+        "habrás",
+        "has"
+      ],
+      "answer": 0,
+      "explain": "tú → habrías."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "Condicional compuesto образуется из habría + причастие.",
+      "answer": true,
+      "explain": "habría ido, habrían llegado."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "«Habría hecho» говорит о действии, которое точно случилось.",
+      "answer": false,
+      "explain": "О том, что могло бы случиться, но не случилось."
+    }
+  ]
+}

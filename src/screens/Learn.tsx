@@ -9,6 +9,7 @@ import { lessonParts, levelWords } from '../domain/levels';
 import { useCity } from '../store/city';
 import { useProgress } from '../store/progress';
 import { useMotivation } from '../store/motivation';
+import { listeningEnabled } from '../audio/tts';
 import type { Achievement } from '../domain/achievements';
 import { LessonPlayer, type LessonTotals } from '../components/LessonPlayer';
 import { LessonResult } from '../components/LessonResult';
@@ -37,7 +38,10 @@ export function LearnScreen({ practice = false }: { practice?: boolean }) {
       const lessonWords = practice ? lw : (lessonParts(lw)[part] ?? []);
       const rng = seeded(Date.now());
       const cards = useProgress.getState().cards;
-      const steps = practice ? buildReviewSteps(lessonWords, cards, pool, rng) : buildLearnSteps(lessonWords, pool, rng);
+      const opts = { listening: listeningEnabled() };
+      const steps = practice
+        ? buildReviewSteps(lessonWords, cards, pool, rng, opts)
+        : buildLearnSteps(lessonWords, pool, rng, opts);
       setReady({ steps, pool, lessonWords, words: Object.fromEntries(all.map((w) => [w.id, w])) });
     });
   }, [id, level, part, practice]);

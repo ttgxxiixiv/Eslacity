@@ -13,7 +13,10 @@ export type Step =
   | ({ id: string; kind: 'scramble'; wordId: string } & ScrambleData)
   | ({ id: string; kind: 'phrase'; wordId: string } & PhraseData)
   | ({ id: string; kind: 'match' } & MatchData)
-  | { id: string; kind: 'type'; wordId: string };
+  | { id: string; kind: 'type'; wordId: string }
+  // На слух: слово звучит, текста нет. Выбор перевода или диктант.
+  | ({ id: string; kind: 'listen-choice'; wordId: string } & ChoiceData)
+  | { id: string; kind: 'listen-type'; wordId: string };
 
 export type StepKind = Step['kind'];
 
@@ -24,6 +27,16 @@ export interface Outcome {
 }
 
 type SingleKind = Exclude<StepKind, 'match'>;
+
+export interface BuildOptions {
+  /** false — без заданий на слух (нет синтеза речи или пользователь не может слушать). */
+  listening?: boolean;
+}
+
+/** Задания, где ответ вводится с клавиатуры: для оценки SM-2 и серии «без опечаток». */
+export function isTyped(kind: StepKind): boolean {
+  return kind === 'type' || kind === 'listen-type';
+}
 
 export function makeStep(kind: SingleKind, word: Word, pool: Word[], rng: Rng): Step {
   const id = nextId();
@@ -42,43 +55,72 @@ export function makeStep(kind: SingleKind, word: Word, pool: Word[], rng: Rng): 
       return { id, kind, wordId: word.id, ...makePhrase(word, rng) };
     case 'type':
       return { id, kind, wordId: word.id };
+    case 'listen-choice':
+      return { id, kind, wordId: word.id, ...makeChoice(word, pool, 'es-ru', rng) };
+    case 'listen-type':
+      return { id, kind, wordId: word.id };
   }
+}
+
+/** Заменить задания на слух обычными: выбор перевода по тексту и ввод по переводу. */
+export function withoutListening(steps: Step[]): Step[] {
+  return steps.map((s) => {
+    if (s.kind === 'listen-choice') return { ...s, kind: 'choice-es-ru' };
+    if (s.kind === 'listen-type') return { ...s, kind: 'type' };
+    return s;
+  });
 }
 
 /**
  * Урок новых слов: знакомство + узнавание, пары, средний шаг (выбор/буквы/фраза),
  * в конце ввод с клавиатуры. От лёгкого к трудному.
  */
-export function buildLearnSteps(words: Word[], pool: Word[], rng: Rng): Step[] {
+export function buildLearnSteps(words: Word[], pool: Word[], rng: Rng, opts: BuildOptions = {}): Step[] {
+  const listening = opts.listening ?? true;
   const steps: Step[] = [];
   for (const w of words) {
     steps.push(makeStep('intro', w, pool, rng));
     steps.push(makeStep('choice-es-ru', w, pool, rng));
   }
   if (words.length >= 3) steps.push({ id: nextId(), kind: 'match', ...makeMatch(words, rng) });
-  const middle: SingleKind[] = ['choice-ru-es', 'scramble', 'phrase'];
-  shuffle(words, rng).forEach((w, i) => steps.push(makeStep(middle[i % 3], w, pool, rng)));
+  const middle: SingleKind[] = listening
+    ? ['choice-ru-es', 'listen-choice', 'scramble', 'phrase']
+    : ['choice-ru-es', 'scramble', 'phrase'];
+  shuffle(words, rng).forEach((w, i) => steps.push(makeStep(middle[i % middle.length], w, pool, rng)));
+  // Диктант по одному-двум словам перед вводом по переводу.
+  if (listening) {
+    for (const w of shuffle(words, rng).slice(0, words.length >= 4 ? 2 : 1)) {
+      steps.push(makeStep('listen-type', w, pool, rng));
+    }
+  }
   for (const w of shuffle(words, rng)) steps.push(makeStep('type', w, pool, rng));
   return steps;
 }
 
 /** Тип упражнения для повторения зависит от того, насколько слово закрепилось. */
-export function reviewKind(card: SrsCard | undefined, i: number): SingleKind {
+export function reviewKind(card: SrsCard | undefined, i: number, listening = true): SingleKind {
   const interval = card?.interval ?? 0;
-  if (interval <= 1) return (['choice-ru-es', 'scramble', 'choice-es-ru'] as const)[i % 3];
-  if (interval < 7) return (['phrase', 'type', 'choice-ru-es'] as const)[i % 3];
-  return 'type';
+  const fresh: SingleKind[] = ['choice-ru-es', 'scramble', 'choice-es-ru', 'listen-choice'];
+  const middle: SingleKind[] = ['phrase', 'type', 'choice-ru-es', 'listen-type'];
+  const pick = (list: SingleKind[]) => {
+    const l = listening ? list : list.filter((k) => !k.startsWith('listen'));
+    return l[i % l.length];
+  };
+  if (interval <= 1) return pick(fresh);
+  if (interval < 7) return pick(middle);
+  return listening && i % 4 === 3 ? 'listen-type' : 'type';
 }
 
 export function buildReviewSteps(
-  words: Word[], cards: Record<string, SrsCard>, pool: Word[], rng: Rng,
+  words: Word[], cards: Record<string, SrsCard>, pool: Word[], rng: Rng, opts: BuildOptions = {},
 ): Step[] {
+  const listening = opts.listening ?? true;
   const steps: Step[] = [];
   if (words.length >= 5) {
     const weakest = words.slice().sort((a, b) => (cards[a.id]?.ef ?? 2.5) - (cards[b.id]?.ef ?? 2.5));
     steps.push({ id: nextId(), kind: 'match', ...makeMatch(weakest.slice(0, 5), rng) });
   }
-  shuffle(words, rng).forEach((w, i) => steps.push(makeStep(reviewKind(cards[w.id], i), w, pool, rng)));
+  shuffle(words, rng).forEach((w, i) => steps.push(makeStep(reviewKind(cards[w.id], i, listening), w, pool, rng)));
   return steps;
 }
 
@@ -117,7 +159,7 @@ export function recordAnswer(
   if (step.kind === 'match') {
     for (const id of step.wordIds) lower(grades, id, gradeFor(outcome.perWord?.[id] ?? 'correct', false));
   } else {
-    lower(grades, step.wordId, gradeFor(outcome.verdict, step.kind === 'type'));
+    lower(grades, step.wordId, gradeFor(outcome.verdict, isTyped(step.kind)));
   }
 
   if (outcome.verdict === 'correct') next.correct++;
