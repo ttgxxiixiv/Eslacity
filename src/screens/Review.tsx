@@ -30,6 +30,8 @@ export function ReviewScreen() {
     const ids = due.map((c) => c.wordId);
     (async () => {
       const words = await wordsByIds(ids);
+      const found = new Set(words.map((w) => w.id));
+      useProgress.getState().dropCards(ids.filter((wid) => !found.has(wid)));
       const loaded = await loadLocations(ids.map(locationOfWord));
       // Варианты ответа из выученных слов, если их хватает на четыре варианта.
       const known = loaded.filter((w) => w.id in cards);

@@ -4,7 +4,7 @@ import { seeded } from './generators';
 import {
   advance, buildLearnSteps, buildReviewSteps, isFinished, makeStep, recordAnswer, startSession, type Step,
 } from './lessonQueue';
-import { makeChoice, makeScramble, makePhrase } from './generators';
+import { makeChoice, makeScramble, makePhrase, phraseTokens } from './generators';
 
 const w = (id: string, es: string, ru: string, extra: Partial<Word> = {}): Word => ({
   id: `cafe.${id}`, es, ru, pos: 'noun', gender: 'm', level: 1, cefr: 'A1',
@@ -41,6 +41,10 @@ describe('генераторы', () => {
     expect(s.article).toBe('la');
     expect(s.letters.slice().sort()).toEqual([...'taza'].sort());
     expect(s.letters.join('')).not.toBe('taza');
+  });
+
+  it('фраза: тире в диалоге не попадает на плитки', () => {
+    expect(phraseTokens('¿Algo más? —No, gracias.')).toEqual(['algo', 'más', 'No', 'gracias']);
   });
 
   it('фраза: только слова примера, в другом порядке', () => {

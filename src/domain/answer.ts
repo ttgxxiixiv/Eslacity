@@ -13,7 +13,7 @@ export interface CheckResult {
 export const DEFINITE_ARTICLES = ['el', 'la', 'los', 'las'] as const;
 const ARTICLES = new Set<string>([...DEFINITE_ARTICLES, 'un', 'una', 'unos', 'unas']);
 
-const PUNCT = /[¿¡?!.,;:"«»()…]/g;
+const PUNCT = /[¿¡?!.,;:"«»()…—–]/g;
 
 /** Регистр, пунктуация (включая ¿¡), лишние пробелы. Ударения сохраняются. */
 export function normalize(s: string): string {

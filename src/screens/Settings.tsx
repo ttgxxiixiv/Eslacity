@@ -4,6 +4,7 @@ import { currentVoice, speak, ttsSupported } from '../audio/tts';
 import { resetProgress } from '../store/bootstrap';
 import { downloadJson, exportBackup, importBackup, parseBackup } from '../db/backup';
 import { useSettings, type Settings } from '../store/settings';
+import { useProgress } from '../store/progress';
 import { Button, Screen, TopBar } from '../components/ui';
 
 const GOALS: Settings['dailyGoal'][] = [50, 100, 150, 250];
@@ -23,7 +24,11 @@ export function SettingsScreen() {
               <button
                 key={g}
                 type="button"
-                onClick={() => update({ dailyGoal: g })}
+                onClick={() => {
+                  update({ dailyGoal: g });
+                  // Если XP за сегодня уже хватает на новую цель, стрик засчитывается сразу.
+                  useProgress.getState().bumpDay({});
+                }}
                 className={`press rounded-xl border-2 py-2.5 font-semibold ${
                   dailyGoal === g ? 'border-brand bg-orange-50 text-brand' : 'border-stone-200'
                 }`}

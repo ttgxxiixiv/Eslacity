@@ -70,11 +70,15 @@ export function LearnScreen({ practice = false }: { practice?: boolean }) {
         const progress = useProgress.getState();
         let bonus = 0;
         // Тренировка уже выученного уровня не трогает SRS, чтобы не сбивать интервалы.
+        // Повтор уже пройденного урока тоже не трогает интервалы выученных слов и не даёт бонус.
         if (!practice) {
-          const { newWords } = progress.applyGrades(s.grades);
-          bonus = ECONOMY.lessonBonus;
-          progress.bumpDay({ lessons: 1, newWords });
-          useCity.getState().addCoins(bonus);
+          const fresh = Object.fromEntries(Object.entries(s.grades).filter(([wid]) => !(wid in progress.cards)));
+          const { newWords } = progress.applyGrades(fresh);
+          if (newWords) {
+            bonus = ECONOMY.lessonBonus;
+            progress.bumpDay({ lessons: 1, newWords });
+            useCity.getState().addCoins(bonus);
+          }
         }
         setResult({ s, totals, bonus, ach: useMotivation.getState().evaluate() });
       }}

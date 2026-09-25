@@ -19,6 +19,8 @@ interface ProgressState {
   completeGrammar(lessonId: string, score: number, now?: number): boolean;
   /** Проставить оценки SM-2. Новые слова получают карточку. */
   applyGrades(grades: Record<string, Grade>, now?: number): { newWords: number };
+  /** Удалить карточки слов, которых больше нет в контенте. */
+  dropCards(ids: string[]): void;
   addXp(n: number): void;
   bumpDay(patch: DayPatch): void;
 }
@@ -54,7 +56,8 @@ export const useProgress = create<ProgressState>((set, get) => ({
       bestScore: Math.max(prev?.bestScore ?? 0, score),
     };
     set({ grammar: { ...get().grammar, [lessonId]: row } });
-    get().bumpDay({ grammarLessons: 1 });
+    // В недельный челлендж идут только новые уроки, иначе один урок можно пройти пять раз.
+    if (!prev) get().bumpDay({ grammarLessons: 1 });
     persist(() => db.grammar.put(row));
     return !prev;
   },
@@ -73,6 +76,14 @@ export const useProgress = create<ProgressState>((set, get) => ({
     set({ cards });
     if (changed.length) persist(() => db.cards.bulkPut(changed));
     return { newWords };
+  },
+
+  dropCards(ids) {
+    if (!ids.length) return;
+    const cards = { ...get().cards };
+    for (const id of ids) delete cards[id];
+    set({ cards });
+    persist(() => db.cards.bulkDelete(ids));
   },
 
   addXp(n) {

@@ -7,6 +7,9 @@ describe('normalize', () => {
     expect(normalize('¡Hola!')).toBe('hola');
     expect(normalize('El Café')).toBe('el café');
   });
+  it('убирает тире из диалогов', () => {
+    expect(normalize('—No, gracias.')).toBe('no gracias');
+  });
   it('сохраняет ударения', () => {
     expect(normalize('está')).toBe('está');
   });

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { ECONOMY, XP } from '../config';
 import type { Word } from '../content/schema';
 import { afterPaint } from '../lib/afterPaint';
@@ -48,6 +48,7 @@ export function LessonPlayer({ steps, words, pool, onFinish, onExit }: Props) {
   const [session, setSession] = useState(() => startSession(steps));
   const [fb, setFb] = useState<Feedback | null>(null);
   const [totals, setTotals] = useState<LessonTotals>({ xp: 0, coins: 0 });
+  const finished = useRef(false);
 
   const step = session.steps[session.index];
 
@@ -77,7 +78,10 @@ export function LessonPlayer({ steps, words, pool, onFinish, onExit }: Props) {
     const s = advance(session);
     setFb(null);
     setSession(s);
-    if (isFinished(s)) onFinish(s, totals);
+    if (isFinished(s) && !finished.current) {
+      finished.current = true;
+      onFinish(s, totals);
+    }
   };
 
   if (!step) return null;

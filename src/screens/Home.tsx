@@ -1,6 +1,7 @@
 import { useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { dueCards } from '../domain/srs';
+import { useNow } from '../lib/useNow';
 import { CityGrid } from '../components/CityGrid';
 import { useProgress } from '../store/progress';
 import { StatsBar } from '../components/Stats';
@@ -8,7 +9,9 @@ import { Screen } from '../components/ui';
 
 export function Home() {
   const cards = useProgress((s) => s.cards);
-  const due = useMemo(() => dueCards(Object.values(cards), Date.now()).length, [cards]);
+  // Счётчик пересчитывается и после полуночи, если приложение не закрывали.
+  const now = useNow(60_000);
+  const due = useMemo(() => dueCards(Object.values(cards), now).length, [cards, now]);
   const learned = Object.keys(cards).length;
 
   return (

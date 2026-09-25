@@ -159,7 +159,18 @@ export function GrammarLessonScreen() {
   const [ach, setAch] = useState<Achievement[]>([]);
 
   if (!lesson || !run) return <div className="p-6">Урок не найден</div>;
-  if (phase === 'theory') return <Theory lesson={lesson} onStart={() => setPhase('practice')} />;
+  if (phase === 'theory') {
+    const start = () => {
+      // После «Перечитать теорию» очередь уже пройдена: начинаем заново.
+      if (run.index >= run.queue.length) {
+        setRun(startGrammar(buildGrammarQueue(lesson.exercises, rng)));
+        setEarned({ xp: 0, coins: 0 });
+        setAch([]);
+      }
+      setPhase('practice');
+    };
+    return <Theory lesson={lesson} onStart={start} />;
+  }
 
   if (phase === 'done') {
     const score = grammarScore(run);

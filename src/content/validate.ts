@@ -51,6 +51,8 @@ export function validateWords(files: { name: string; data: LocationWords }[]): I
     }
 
     const esSeen = new Map<string, string>();
+    // Одинаковый перевод в одном уровне делает упражнение «пары» неоднозначным.
+    const ruSeen = new Map<string, string>();
     const perLevel = new Map<number, number>();
 
     data.words.forEach((w, i) => {
@@ -107,6 +109,12 @@ export function validateWords(files: { name: string; data: LocationWords }[]): I
         if (!ex.includes(stem)) {
           out.push({ level: 'warning', where: at, msg: `в примере нет слова "${w.es}"` });
         }
+      }
+
+      if (!empty(w.ru)) {
+        const rk = `${w.level}:${w.ru.trim().toLowerCase()}`;
+        if (ruSeen.has(rk)) out.push({ level: 'warning', where: at, msg: `тот же перевод «${w.ru}», что у ${ruSeen.get(rk)}` });
+        else ruSeen.set(rk, w.id);
       }
 
       perLevel.set(w.level, (perLevel.get(w.level) ?? 0) + 1);

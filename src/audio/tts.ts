@@ -30,13 +30,25 @@ export function currentVoice(): SpeechSynthesisVoice | null {
   return voice;
 }
 
+// Ссылка на текущую фразу: иначе Chrome может собрать её сборщиком мусора и оборвать звук.
+let current: SpeechSynthesisUtterance | null = null;
+
 export function speak(text: string, rate = useSettings.getState().speechRate): void {
   if (!supported || !text) return;
-  speechSynthesis.cancel();
   const u = new SpeechSynthesisUtterance(text);
   // Если голоса ещё не загрузились, Android всё равно выберет испанский по lang.
   u.lang = voice?.lang ?? VARIANTS[VARIANT].voices[0];
   if (voice) u.voice = voice;
   u.rate = rate;
-  speechSynthesis.speak(u);
+  u.onend = () => {
+    if (current === u) current = null;
+  };
+  current = u;
+  if (speechSynthesis.speaking || speechSynthesis.pending) {
+    // В Chrome speak() сразу после cancel() иногда молча теряется.
+    speechSynthesis.cancel();
+    setTimeout(() => current === u && speechSynthesis.speak(u), 60);
+  } else {
+    speechSynthesis.speak(u);
+  }
 }

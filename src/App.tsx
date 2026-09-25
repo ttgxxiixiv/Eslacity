@@ -12,6 +12,7 @@ import { GrammarLessonScreen } from './screens/GrammarLesson';
 import { ProfileScreen } from './screens/Profile';
 import { WordsScreen } from './screens/Words';
 import { useMotivation } from './store/motivation';
+import { ErrorBoundary } from './components/ErrorBoundary';
 
 /** Новый экран открывается сверху, а не с прокруткой предыдущего. */
 function ScrollToTop() {
@@ -66,6 +67,7 @@ export default function App() {
   if (!ready) return <div className="flex min-h-dvh items-center justify-center text-4xl">☕</div>;
 
   return (
+    <ErrorBoundary>
     <HashRouter>
       <ScrollToTop />
       <Routes>
@@ -84,5 +86,6 @@ export default function App() {
         <Route path="/words" element={<WordsScreen />} />
       </Routes>
     </HashRouter>
+    </ErrorBoundary>
   );
 }

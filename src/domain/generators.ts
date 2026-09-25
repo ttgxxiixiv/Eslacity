@@ -90,7 +90,7 @@ export interface PhraseData {
   answer: string[];
 }
 
-const PHRASE_PUNCT = /[¿¡?!.,;:"«»()…]/g;
+const PHRASE_PUNCT = /[¿¡?!.,;:"«»()…—–]/g;
 
 export function phraseTokens(sentence: string): string[] {
   const t = sentence.replace(PHRASE_PUNCT, ' ').split(/\s+/).filter(Boolean);

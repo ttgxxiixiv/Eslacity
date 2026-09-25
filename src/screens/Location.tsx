@@ -55,6 +55,10 @@ export function LocationScreen() {
   const level = useCity((s) => s.buildings[id]?.level ?? 0);
   const coins = useCity((s) => s.coins);
   const upgrade = useCity((s) => s.upgrade);
+  const building = useCity((s) => s.buildings[id]);
+  const now = useNow();
+  // При улучшении накопленный доход здания собирается автоматически, поэтому он тоже в счёт.
+  const available = coins + (building ? pendingIncome(building, now) : 0);
 
   useEffect(() => {
     loadLocation(id).then(setWords);
@@ -92,7 +96,7 @@ export function LocationScreen() {
                       )}
                       <Button
                         className="mt-3 w-full"
-                        disabled={!prevDone || coins < cost}
+                        disabled={!prevDone || available < cost}
                         onClick={() => upgrade(id) && useMotivation.getState().evaluate()}
                       >
                         {lvl === 1 ? 'Открыть' : 'Улучшить'} за 🪙 {cost}
