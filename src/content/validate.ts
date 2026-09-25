@@ -144,6 +144,9 @@ export function validateGrammar(files: { name: string; data: GrammarLesson }[]):
       if (empty(l[f])) out.push({ level: 'error', where: at, msg: `пустое поле ${f}` });
     }
     if (ids.has(l.id)) out.push({ level: 'error', where: at, msg: `дубль id, уже есть в ${ids.get(l.id)}` });
+    // Загрузчик находит урок по id, поэтому id обязан совпадать с путём: a1/01-x.json → a1.01-x.
+    const expectedId = name.replace(/\.json$/, '').replace('/', '.');
+    if (l.id !== expectedId) out.push({ level: 'error', where: at, msg: `id "${l.id}" не совпадает с путём (${expectedId})` });
     ids.set(l.id, name);
     const ok = `${l.district}:${l.order}`;
     if (orders.has(ok)) out.push({ level: 'error', where: at, msg: `дубль order, уже есть в ${orders.get(ok)}` });

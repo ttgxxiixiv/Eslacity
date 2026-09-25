@@ -5,3 +5,8 @@ interface BuildInfo {
 }
 
 declare const __APP_BUILD__: BuildInfo;
+
+declare module 'virtual:grammar-index' {
+  const index: { id: string; district: import('./content/schema').District; order: number; title: string }[];
+  export default index;
+}

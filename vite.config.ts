@@ -3,7 +3,8 @@ import react from '@vitejs/plugin-react';
 import tailwindcss from '@tailwindcss/vite';
 import { VitePWA } from 'vite-plugin-pwa';
 import { execSync } from 'node:child_process';
-import { readFileSync } from 'node:fs';
+import { readFileSync, readdirSync } from 'node:fs';
+import { join } from 'node:path';
 
 // Данные о сборке: показываются в настройках и лежат в version.json для проверки обновлений.
 const pkg = JSON.parse(readFileSync(new URL('./package.json', import.meta.url), 'utf8')) as { version: string };
@@ -17,6 +18,20 @@ function gitCommit(): string {
 }
 const BUILD = { version: pkg.version, commit: gitCommit(), builtAt: new Date().toISOString() };
 
+// Индекс уроков грамматики для карты: только id, район, номер и название.
+// Сами уроки грузятся лениво, по чанку на район.
+const GRAMMAR_DIR = join(import.meta.dirname, 'src', 'content', 'grammar');
+function grammarIndex() {
+  const out: { id: string; district: string; order: number; title: string }[] = [];
+  for (const d of readdirSync(GRAMMAR_DIR)) {
+    for (const f of readdirSync(join(GRAMMAR_DIR, d)).filter((x) => x.endsWith('.json'))) {
+      const l = JSON.parse(readFileSync(join(GRAMMAR_DIR, d, f), 'utf8'));
+      out.push({ id: l.id, district: l.district, order: l.order, title: l.title });
+    }
+  }
+  return out;
+}
+
 export default defineConfig({
   base: './',
   define: {
@@ -27,7 +42,14 @@ export default defineConfig({
       output: {
         // Зависимости меняются реже кода приложения: отдельный чанк лучше кэшируется.
         codeSplitting: {
-          groups: [{ name: 'vendor', test: /node_modules[\\/]/ }],
+          groups: [
+            { name: 'vendor', test: /node_modules[\\/]/ },
+            {
+              // Один чанк на район грамматики: grammar-a1, grammar-b11…
+              name: (id) => id.match(/content[\\/]grammar[\\/]([^\\/]+)[\\/]/)?.[1].replace(/^/, 'grammar-') ?? null,
+              test: /content[\\/]grammar[\\/][^\\/]+[\\/][^\\/]+\.json$/,
+            },
+          ],
         },
       },
     },
@@ -35,6 +57,17 @@ export default defineConfig({
   plugins: [
     react(),
     tailwindcss(),
+    {
+      name: 'grammar-index',
+      resolveId(id) {
+        return id === 'virtual:grammar-index' ? '\0virtual:grammar-index' : null;
+      },
+      load(id) {
+        if (id !== '\0virtual:grammar-index') return null;
+        for (const d of readdirSync(GRAMMAR_DIR)) this.addWatchFile(join(GRAMMAR_DIR, d));
+        return `export default ${JSON.stringify(grammarIndex())};`;
+      },
+    },
     {
       name: 'version-json',
       generateBundle() {

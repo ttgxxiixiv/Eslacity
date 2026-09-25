@@ -1,7 +1,7 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { ECONOMY, XP } from '../config';
-import { GRAMMAR_BY_ID } from '../content/grammar';
+import { hasLesson, loadLesson } from '../content/grammar';
 import type { GrammarLesson as Lesson } from '../content/schema';
 import {
   answerGrammar, buildGrammarQueue, grammarScore, startGrammar, type GrammarItem, type GrammarRun,
@@ -148,17 +148,37 @@ function ItemView({ item, picked, onPick }: { item: GrammarItem; picked: number 
 
 export function GrammarLessonScreen() {
   const id = useParams().id!;
+  const [lesson, setLesson] = useState<Lesson | null | undefined>(undefined);
+
+  useEffect(() => {
+    let alive = true;
+    setLesson(undefined);
+    if (!hasLesson(id)) {
+      setLesson(null);
+      return;
+    }
+    loadLesson(id).then((l) => alive && setLesson(l ?? null));
+    return () => {
+      alive = false;
+    };
+  }, [id]);
+
+  // Пока грузится чанк района (обычно доли секунды), экран пустой, как у уроков слов.
+  if (lesson === undefined) return null;
+  if (lesson === null) return <div className="p-6">Урок не найден</div>;
+  return <LessonRunner key={lesson.id} lesson={lesson} />;
+}
+
+function LessonRunner({ lesson }: { lesson: Lesson }) {
   const nav = useNavigate();
-  const lesson = GRAMMAR_BY_ID[id];
   const [phase, setPhase] = useState<'theory' | 'practice' | 'done'>('theory');
-  const initial = useMemo(() => (lesson ? startGrammar(buildGrammarQueue(lesson.exercises, rng)) : null), [lesson]);
-  const [run, setRun] = useState<GrammarRun | null>(initial);
+  const initial = useMemo(() => startGrammar(buildGrammarQueue(lesson.exercises, rng)), [lesson]);
+  const [run, setRun] = useState<GrammarRun>(initial);
   const [picked, setPicked] = useState<number | null>(null);
   const [fb, setFb] = useState<Feedback | null>(null);
   const [earned, setEarned] = useState({ xp: 0, coins: 0 });
   const [ach, setAch] = useState<Achievement[]>([]);
 
-  if (!lesson || !run) return <div className="p-6">Урок не найден</div>;
   if (phase === 'theory') {
     const start = () => {
       // После «Перечитать теорию» очередь уже пройдена: начинаем заново.
