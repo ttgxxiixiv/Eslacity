@@ -1,5 +1,6 @@
 import type { Word } from '../content/schema';
 import { gainTitle, type MedalGain } from '../domain/medals';
+import { Medal } from './Medal';
 import type { SessionState } from '../domain/lessonQueue';
 import type { LessonTotals } from './LessonPlayer';
 import { Button, SpeakButton } from './ui';
@@ -69,7 +70,7 @@ export function MedalLines({ list }: { list: MedalGain[] }) {
     <ul className="mt-6 flex flex-col gap-2">
       {list.map((g) => (
         <li key={g.kind === 'line' ? `${g.line.id}.${g.tier}` : g.secret.id} className="flex items-center gap-3 rounded-2xl bg-amber-50 px-4 py-3">
-          <span className="text-2xl" aria-hidden>🏅</span>
+          {g.kind === 'line' ? <Medal icon={g.line.id} tier={g.tier} /> : <Medal icon="secret" tier="gold" />}
           <div className="flex-1">
             <div className="text-sm text-amber-700">Новая медаль</div>
             <div className="font-semibold">{gainTitle(g)}</div>

@@ -12,6 +12,7 @@ import { useSettings } from '../store/settings';
 import { Button, Screen, TopBar } from '../components/ui';
 import { CURRENT } from '../lib/update';
 import { LevelCard } from '../components/HeroLevel';
+import { Medal } from '../components/Medal';
 
 const WEEKDAYS = ['пн', 'вт', 'ср', 'чт', 'пт', 'сб', 'вс'];
 
@@ -151,15 +152,16 @@ function MedalList({ medals }: { medals: ReturnType<typeof useMotivation.getStat
           const value = l.value!(counters);
           const next = nextThreshold(l, value);
           return (
-            <li key={l.id} className="flex items-baseline justify-between gap-3 py-2">
-              <div>
+            <li key={l.id} className="flex items-center justify-between gap-3 py-2">
+              <Medal icon={l.id} tier={tier} label={tier ? `${l.title}: ${TIER_INFO[tier].ru}` : `${l.title}: ещё нет`} />
+              <div className="flex-1">
                 <div className="font-semibold">{l.title}</div>
                 <div className="text-xs text-stone-500">{l.counts}</div>
               </div>
               <div className="text-right text-sm">
                 <div className={tier ? 'font-semibold text-amber-700' : 'text-stone-400'}>{tier ? TIER_INFO[tier].ru : 'нет'}</div>
                 <div className="text-xs text-stone-500">
-                  {next ? `${value} / ${next.at} до ступени «${TIER_INFO[next.tier].ru}»` : `${value}, все ступени`}
+                  {next ? `${value} / ${next.at} → ${TIER_INFO[next.tier].ru}` : `${value}, все ступени`}
                 </div>
               </div>
             </li>

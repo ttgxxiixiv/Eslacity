@@ -51,6 +51,8 @@ for (const lang of LANGS) {
       await page.goto('./#/profile');
       const medals = page.getByTestId('medals');
       await expect(medals.locator('li').filter({ hasText: 'Знаток правил' })).toContainText('Дерево');
+      await expect(medals.getByRole('img', { name: 'Знаток правил: Дерево' })).toBeVisible();
+      await expect(medals.getByRole('img', { name: 'Словесник: ещё нет' })).toBeVisible();
       await expect(medals).toContainText('«Без единой ошибки»');
     });
   });

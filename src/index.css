@@ -186,9 +186,20 @@ button {
   transition: transform 160ms ease-out, opacity 160ms ease-out;
 }
 
+/* Искры бриллиантовой медали. */
+.medal-sparkle {
+  animation: medal-sparkle 2.1s steps(1) infinite;
+}
+@keyframes medal-sparkle {
+  0%, 60% { opacity: 0; }
+  61%, 80% { opacity: 1; }
+  81%, 100% { opacity: 0.4; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .press, .sheet { transition: none; }
   .bob, .blink { animation: none; }
+  .medal-sparkle { animation: none; opacity: 0.8; }
   .press:active { transform: none; }
 }
 
