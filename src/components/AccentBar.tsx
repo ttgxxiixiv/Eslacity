@@ -1,24 +1,53 @@
 /**
- * Кнопки над полем ввода: только особые буквы, которые есть в правильном ответе.
- * preventDefault на pointerdown не даёт полю потерять фокус,
+ * Кнопки над полем ввода: все буквы правильного ответа по одному разу, ниже пробел
+ * (если слов несколько) и «стереть». preventDefault на pointerdown не даёт полю потерять фокус,
  * иначе на телефоне клавиатура пряталась бы после каждого нажатия.
  */
-export function AccentBar({ keys, onKey, disabled }: { keys: string[]; onKey: (ch: string) => void; disabled?: boolean }) {
+export function AccentBar({
+  keys, space, onKey, onBackspace, disabled,
+}: {
+  keys: string[];
+  space?: boolean;
+  onKey: (ch: string) => void;
+  onBackspace: () => void;
+  disabled?: boolean;
+}) {
   if (!keys.length) return null;
+  const cls = 'press h-11 rounded-lg bg-white text-lg font-medium shadow-sm disabled:opacity-50';
+  const keep = (e: React.PointerEvent) => e.preventDefault();
   return (
-    <div className="flex gap-1">
-      {keys.map((k) => (
+    <div className="flex flex-col gap-1.5">
+      <div className="flex flex-wrap gap-1.5">
+        {keys.map((k) => (
+          <button key={k} type="button" disabled={disabled} onPointerDown={keep} onClick={() => onKey(k)} className={`${cls} w-11`}>
+            {k}
+          </button>
+        ))}
+      </div>
+      <div className="flex gap-1.5">
+        {space && (
+          <button
+            type="button"
+            aria-label="Пробел"
+            disabled={disabled}
+            onPointerDown={keep}
+            onClick={() => onKey(' ')}
+            className={`${cls} flex-1 text-sm text-stone-500`}
+          >
+            пробел
+          </button>
+        )}
         <button
-          key={k}
           type="button"
+          aria-label="Стереть"
           disabled={disabled}
-          onPointerDown={(e) => e.preventDefault()}
-          onClick={() => onKey(k)}
-          className="press h-11 w-11 rounded-lg border border-stone-300 bg-white text-lg font-medium disabled:opacity-50"
+          onPointerDown={keep}
+          onClick={onBackspace}
+          className={`${cls} w-16 ${space ? '' : 'ml-auto'}`}
         >
-          {k}
+          ⌫
         </button>
-      ))}
+      </div>
     </div>
   );
 }

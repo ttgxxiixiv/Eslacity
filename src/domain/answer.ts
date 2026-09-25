@@ -92,10 +92,12 @@ export function checkTyped(input: string, accepted: string[]): CheckResult {
   return best;
 }
 
-const SPECIAL = ['á', 'é', 'í', 'ó', 'ú', 'ñ', 'ü', '¿', '¡'];
-
-/** Особые буквы испанского, которые встречаются в ответе: только их показываем над полем ввода. */
-export function specialChars(answer: string): string[] {
+/**
+ * Буквы правильного ответа для кнопок над полем ввода: каждая по одному разу,
+ * по алфавиту (порядок не подсказывает слово). Знаки препинания не нужны: проверка их не учитывает.
+ */
+export function answerLetters(answer: string): { letters: string[]; space: boolean } {
   const s = answer.toLowerCase();
-  return SPECIAL.filter((ch) => s.includes(ch));
+  const letters = [...new Set(s.match(/\p{L}/gu) ?? [])].sort((a, b) => a.localeCompare(b, 'es'));
+  return { letters, space: /\s/.test(s.trim()) };
 }

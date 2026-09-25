@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { checkTyped, levenshtein, normalize, specialChars, splitArticle, stripAccents } from './answer';
+import { checkTyped, levenshtein, normalize, answerLetters, splitArticle, stripAccents } from './answer';
 
 describe('normalize', () => {
   it('убирает регистр, ¿¡ и пунктуацию, схлопывает пробелы', () => {
@@ -89,11 +89,13 @@ describe('checkTyped', () => {
   });
 });
 
-describe('specialChars', () => {
-  it('только буквы из ответа, в постоянном порядке', () => {
-    expect(specialChars('el café con leche')).toEqual(['é']);
-    expect(specialChars('¿Qué tal, señor?')).toEqual(['é', 'ñ', '¿']);
-    expect(specialChars('Él está')).toEqual(['á', 'é']);
-    expect(specialChars('la mesa')).toEqual([]);
+describe('answerLetters', () => {
+  it('все буквы ответа по одному разу, по алфавиту', () => {
+    expect(answerLetters('el plátano')).toEqual({ letters: ['a', 'á', 'e', 'l', 'n', 'o', 'p', 't'], space: true });
+    expect(answerLetters('el té').letters).toEqual(['e', 'é', 'l', 't']);
+  });
+  it('без знаков препинания и пробела, если слово одно', () => {
+    expect(answerLetters('¿Qué?')).toEqual({ letters: ['é', 'q', 'u'], space: false });
+    expect(answerLetters('señor').letters).toContain('ñ');
   });
 });

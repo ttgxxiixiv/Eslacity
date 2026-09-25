@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react';
-import { checkTyped, specialChars, type CheckResult } from '../../domain/answer';
+import { answerLetters, checkTyped, type CheckResult } from '../../domain/answer';
 import { AccentBar } from '../AccentBar';
 import { CantListen, ListenControls } from './ListenControls';
 import { Button, genderLabel } from '../ui';
@@ -27,6 +27,19 @@ export function TypeAnswer({ step, words, locked, onAnswer, onCantListen }: Exer
     setValue(next);
     requestAnimationFrame(() => el.setSelectionRange(start + ch.length, start + ch.length));
   };
+
+  // Стирает выделение или букву перед курсором.
+  const backspace = () => {
+    const el = input.current;
+    if (!el) return;
+    const end = el.selectionEnd ?? value.length;
+    const start = el.selectionStart ?? value.length;
+    const from = start === end ? Math.max(0, start - 1) : start;
+    setValue(value.slice(0, from) + value.slice(end));
+    requestAnimationFrame(() => el.setSelectionRange(from, from));
+  };
+
+  const keys = answerLetters(word.es);
 
   const submit = () => {
     if (locked || !value.trim()) return;
@@ -60,7 +73,7 @@ export function TypeAnswer({ step, words, locked, onAnswer, onCantListen }: Exer
           submit();
         }}
       >
-        <AccentBar keys={specialChars(word.es)} onKey={insert} disabled={locked} />
+        <AccentBar keys={keys.letters} space={keys.space} onKey={insert} onBackspace={backspace} disabled={locked} />
         <input
           ref={input}
           autoFocus
