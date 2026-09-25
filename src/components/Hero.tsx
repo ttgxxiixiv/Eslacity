@@ -1,30 +1,31 @@
-// Пиксельный герой 12×16: зелёная шапка и туника, как у героя старых приключенческих игр.
+// Путник из нижнего меню в миниатюре 12×16: капюшон, тёмное лицо, коричневый плащ и фонарь.
 // Два кадра ходьбы отличаются только ногами; кадры переключаются через opacity.
 const BODY = [
   '....KKKK....',
-  '...KGGGGK...',
-  '..KGGGGGGKK.',
-  '.KGGGGGGGGGK',
-  '.KHSSSSSSHK.',
-  '.KSSKSSKSSK.',
-  '..KSSSSSSK..',
-  '...KKSSKK...',
-  '..KGGGGGGK..',
-  '.KSGGBBGGSK.',
-  '.KSGGGGGGSK.',
-  '..KGGGGGGK..',
-  '..KgGKKGgK..',
+  '...KCCCCK...',
+  '..KCCCCCCK..',
+  '..KCFFFFCK..',
+  '..KCFFFFCK..',
+  '..KCcFFcCK..',
+  '.KCCCccCCCK.',
+  '.KCcCCCCcCK.',
+  'KCCcCCCCcCKK',
+  'KCCcCCCCcCKY',
+  'KCCcCCCCcCKY',
+  '.KCcCCCCcCK.',
+  '.KCcCCCCcCK.',
+  '.KCCCCCCCCK.',
 ];
-const LEGS_A = ['..KBBK.KBBK.', '..KBBK.KBBK.', '...KK...KK..'];
-const LEGS_B = ['...KBBKKBBK.', '...KBBK.KK..', '....KK......'];
+const LEGS_A = ['..KBK..KBK..', '..KK....KK..'];
+const LEGS_B = ['...KBKKBK...', '...KK..KK...'];
 
 const COLORS: Record<string, string> = {
-  K: '#1a120a',
-  G: '#3f9a2f',
-  g: '#2a6420',
-  S: '#f2c28a',
-  H: '#d49a2a',
-  B: '#6b4423',
+  K: '#1f140c',
+  C: '#7a4a26',
+  c: '#5a3418',
+  F: '#1a120c',
+  B: '#3a2616',
+  Y: '#ffcc4a',
 };
 
 function cells(rows: string[], y0: number) {
