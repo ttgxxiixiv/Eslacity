@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react';
-import { checkTyped, type CheckResult } from '../../domain/answer';
+import { checkTyped, specialChars, type CheckResult } from '../../domain/answer';
 import { AccentBar } from '../AccentBar';
 import { CantListen, ListenControls } from './ListenControls';
 import { Button, genderLabel } from '../ui';
@@ -60,7 +60,7 @@ export function TypeAnswer({ step, words, locked, onAnswer, onCantListen }: Exer
           submit();
         }}
       >
-        <AccentBar onKey={insert} disabled={locked} />
+        <AccentBar keys={specialChars(word.es)} onKey={insert} disabled={locked} />
         <input
           ref={input}
           autoFocus

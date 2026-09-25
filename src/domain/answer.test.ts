@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { checkTyped, levenshtein, normalize, splitArticle, stripAccents } from './answer';
+import { checkTyped, levenshtein, normalize, specialChars, splitArticle, stripAccents } from './answer';
 
 describe('normalize', () => {
   it('убирает регистр, ¿¡ и пунктуацию, схлопывает пробелы', () => {
@@ -86,5 +86,14 @@ describe('checkTyped', () => {
 
   it('пустой ввод неверен', () => {
     expect(ok('   ', 'el té')).toBe('wrong');
+  });
+});
+
+describe('specialChars', () => {
+  it('только буквы из ответа, в постоянном порядке', () => {
+    expect(specialChars('el café con leche')).toEqual(['é']);
+    expect(specialChars('¿Qué tal, señor?')).toEqual(['é', 'ñ', '¿']);
+    expect(specialChars('Él está')).toEqual(['á', 'é']);
+    expect(specialChars('la mesa')).toEqual([]);
   });
 });
