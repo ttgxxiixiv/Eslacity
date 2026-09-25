@@ -99,6 +99,20 @@ h1, h2, .font-pixel {
   outline: none;
 }
 
+/* Открытое здание: участок из освещённой картинки, края растворяются в основе. */
+.lit-plot {
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 10px, #000 calc(100% - 10px), transparent),
+    linear-gradient(to bottom, transparent, #000 10px, #000 calc(100% - 10px), transparent);
+  -webkit-mask-composite: source-in;
+  mask-image: linear-gradient(to right, transparent, #000 10px, #000 calc(100% - 10px), transparent),
+    linear-gradient(to bottom, transparent, #000 10px, #000 calc(100% - 10px), transparent);
+  mask-composite: intersect;
+}
+/* Закрытое здание слегка затемнено. */
+.map-locked {
+  background: rgba(22, 16, 34, 0.38);
+}
+
 /* Табличка со звёздами или ценой поверх нарисованной строки. */
 .map-label {
   background: rgba(38, 28, 18, 0.9);

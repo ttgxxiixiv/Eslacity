@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import cityMap from '../assets/city.webp';
+import cityLit from '../assets/city-lit.webp';
 import { LOCATIONS } from '../content/locations';
 import { hasContent } from '../content';
 import type { LocationMeta } from '../content/schema';
@@ -40,6 +41,36 @@ function saveHero(i: number) {
 const reducedMotion = () =>
   typeof matchMedia !== 'undefined' && matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+/** Запас вокруг участка для освещённой версии: захватывает свечение на мостовой. */
+const GLOW = 24;
+
+/**
+ * Кусок освещённой картинки на месте участка. Картинка того же размера и с той же разметкой,
+ * поэтому достаточно показать её фоном с нужным масштабом и сдвигом.
+ */
+function LitPlot({ index }: { index: number }) {
+  const p = plotRect(index);
+  const x0 = Math.max(0, p.x - GLOW);
+  const y0 = Math.max(0, p.y - GLOW);
+  const r = { x: x0, y: y0, w: Math.min(MAP_W, p.x + p.w + GLOW) - x0, h: Math.min(MAP_H, p.y + p.h + GLOW) - y0 };
+  return (
+    <div
+      aria-hidden
+      className="lit-plot pointer-events-none absolute"
+      style={{
+        left: pctX(r.x),
+        top: pctY(r.y),
+        width: pctX(r.w),
+        height: pctY(r.h),
+        backgroundImage: `url(${cityLit})`,
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: `${(MAP_W / r.w) * 100}% ${(MAP_H / r.h) * 100}%`,
+        backgroundPosition: `${(r.x / (MAP_W - r.w)) * 100}% ${(r.y / (MAP_H - r.h)) * 100}%`,
+      }}
+    />
+  );
+}
+
 /** Табличка поверх нарисованной строки со звёздами или ценой: показывает настоящий уровень или цену. */
 const LABEL_W = 118;
 const LABEL_H = 40;
@@ -63,6 +94,15 @@ function Building({ meta, index, now, onGo }: { meta: LocationMeta; index: numbe
 
   return (
     <>
+      {level > 0 ? (
+        <LitPlot index={index} />
+      ) : (
+        <div
+          aria-hidden
+          className="map-locked pointer-events-none absolute rounded-lg"
+          style={{ left: pctX(r.x), top: pctY(r.y), width: pctX(r.w), height: pctY(r.h) }}
+        />
+      )}
       <button
         type="button"
         disabled={!available}
