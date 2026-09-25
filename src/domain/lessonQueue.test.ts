@@ -43,10 +43,11 @@ describe('генераторы', () => {
     expect(s.letters.join('')).not.toBe('taza');
   });
 
-  it('фраза: ответ из токенов примера плюс лишние слова', () => {
-    const p = makePhrase(words[5], words, seeded(4));
+  it('фраза: только слова примера, в другом порядке', () => {
+    const p = makePhrase(words[5], seeded(4));
     expect(p.answer).toEqual(['muchas', 'gracias', 'señor']);
-    expect(p.tokens.length).toBeGreaterThan(p.answer.length);
+    expect(p.tokens.slice().sort()).toEqual(p.answer.slice().sort());
+    expect(p.tokens).not.toEqual(p.answer);
   });
 });
 

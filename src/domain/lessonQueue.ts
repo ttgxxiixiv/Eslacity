@@ -39,7 +39,7 @@ export function makeStep(kind: SingleKind, word: Word, pool: Word[], rng: Rng): 
       return { id, kind, wordId: word.id, ...makeScramble(word, rng) };
     case 'phrase':
       if (!canPhrase(word)) return makeStep('choice-ru-es', word, pool, rng);
-      return { id, kind, wordId: word.id, ...makePhrase(word, pool, rng) };
+      return { id, kind, wordId: word.id, ...makePhrase(word, rng) };
     case 'type':
       return { id, kind, wordId: word.id };
   }

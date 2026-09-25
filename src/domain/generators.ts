@@ -103,22 +103,12 @@ export function canPhrase(word: Word): boolean {
   return n >= 3 && n <= 9;
 }
 
-export function makePhrase(word: Word, pool: Word[], rng: Rng): PhraseData {
+/** Только слова самой фразы, без лишних: перемешаны так, чтобы порядок не совпадал с ответом. */
+export function makePhrase(word: Word, rng: Rng): PhraseData {
   const answer = phraseTokens(word.example.es);
-  const own = new Set(answer.map((t) => t.toLowerCase()));
-  const extra: string[] = [];
-  for (const w of shuffle(pool, rng)) {
-    if (w.id === word.id) continue;
-    for (const t of phraseTokens(w.example.es)) {
-      const low = t.toLowerCase();
-      if (!own.has(low) && !extra.includes(low) && low.length > 1) {
-        extra.push(low);
-        break;
-      }
-    }
-    if (extra.length === 2) break;
-  }
-  return { answer, tokens: shuffle([...answer, ...extra], rng) };
+  let tokens = shuffle(answer, rng);
+  for (let i = 0; i < 10 && tokens.join(' ') === answer.join(' '); i++) tokens = shuffle(answer, rng);
+  return { answer, tokens };
 }
 
 export interface MatchData {
