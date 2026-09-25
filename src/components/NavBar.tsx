@@ -1,10 +1,10 @@
 import { Link, useLocation } from 'react-router-dom';
-import nav0 from '../assets/nav/nav-0.webp';
-import nav1 from '../assets/nav/nav-1.webp';
-import nav2 from '../assets/nav/nav-2.webp';
-import nav3 from '../assets/nav/nav-3.webp';
+import navEs from '../assets/nav/nav-es.webp';
+import navIt from '../assets/nav/nav-it.webp';
+import { LANG } from '../lang';
 
-// Меню — картинка по макету (768×288, сверху дорисован купол медальона) в четырёх вариантах: в каждом подсвечен свой раздел.
+// Меню — картинка по макету (768×288, сверху купол медальона). Ячейки всегда каменные,
+// выбранный раздел не подсвечивается. Картинки отличаются только глазом: у каждого языка свой флаг.
 const W = 768;
 const H = 288;
 /** Верх ячеек на картинке; выше — полоса с рунами и медальоном. */
@@ -15,7 +15,7 @@ const TABS = [
   { to: '/review', label: 'Повтор', x0: 385, x1: 577 },
   { to: '/profile', label: 'Профиль', x0: 580, x1: 768 },
 ];
-const IMAGES = [nav0, nav1, nav2, nav3];
+const IMAGE = LANG === 'it' ? navIt : navEs;
 
 function activeTab(pathname: string): number {
   if (pathname.startsWith('/grammar')) return 1;
@@ -24,26 +24,13 @@ function activeTab(pathname: string): number {
   return 0;
 }
 
-/**
- * Нижнее меню. Все четыре картинки лежат друг на друге, видна одна:
- * при смене раздела ничего не загружается и меню не мигает.
- */
 export function NavBar() {
   const { pathname } = useLocation();
   const active = activeTab(pathname);
   return (
     <nav className="pointer-events-none fixed inset-x-0 bottom-0 z-10">
       <div className="nav-art relative mx-auto max-w-md" style={{ aspectRatio: `${W} / ${H}` }}>
-        {IMAGES.map((src, i) => (
-          <img
-            key={src}
-            src={src}
-            alt=""
-            draggable={false}
-            className="absolute inset-0 h-full w-full select-none"
-            style={{ opacity: i === active ? 1 : 0 }}
-          />
-        ))}
+        <img src={IMAGE} alt="" draggable={false} className="absolute inset-0 h-full w-full select-none" />
         {TABS.map((t, i) => (
           <Link
             key={t.to}
