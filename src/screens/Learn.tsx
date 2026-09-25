@@ -26,6 +26,11 @@ export function LearnScreen({ practice = false }: { practice?: boolean }) {
   const id = params.id as LocationId;
   const level = Number(params.level);
   const part = Number(params.part ?? 0);
+  // Другой урок — новый экран: иначе от прошлого урока остались бы очередь заданий и итог.
+  return <LearnRun key={`${practice}/${id}/${level}/${part}`} id={id} level={level} part={part} practice={practice} />;
+}
+
+function LearnRun({ id, level, part, practice }: { id: LocationId; level: number; part: number; practice: boolean }) {
   const nav = useNavigate();
   const [ready, setReady] = useState<Ready | null>(null);
   const [result, setResult] = useState<{ s: SessionState; totals: LessonTotals; bonus: number; ach: Achievement[] } | null>(null);

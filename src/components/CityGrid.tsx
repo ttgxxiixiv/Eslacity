@@ -10,11 +10,13 @@ import { MAP_H, MAP_W, type Point, door, labelCenter, pathLength, plotRect, rout
 import { useCity } from '../store/city';
 import { useNow } from '../lib/useNow';
 import { HeroSprite } from './Hero';
+import { LANG } from '../lang';
 
 /** Скорость героя в пикселях картинки в секунду и предел длительности прогулки. */
 const SPEED = 1200;
 const MAX_WALK_MS = 1200;
-const HERO_KEY = 'eslacity.hero';
+// У каждого языка свой город, поэтому и место героя своё. У испанского ключ прежний.
+const HERO_KEY = LANG === 'es' ? 'eslacity.hero' : `eslacity.hero.${LANG}`;
 
 const pctX = (x: number) => `${(x / MAP_W) * 100}%`;
 const pctY = (y: number) => `${(y / MAP_H) * 100}%`;

@@ -166,7 +166,7 @@ export function SettingsScreen() {
             variant="secondary"
             className="mt-3 w-full !text-bad"
             onClick={() => {
-              if (confirm('Удалить весь прогресс? Это нельзя отменить.')) resetProgress();
+              if (confirm(`Удалить весь прогресс курса «${L.name}»? Это нельзя отменить. Прогресс других языков останется.`)) resetProgress();
             }}
           >
             Сбросить прогресс
