@@ -1,0 +1,137 @@
+{
+  "id": "a2.06-demostrativos",
+  "district": "A2",
+  "order": 6,
+  "title": "Указательные: este, ese, aquel",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Три степени удалённости: **este** — рядом со мной, **ese** — рядом с тобой или чуть дальше, **aquel** — далеко от обоих."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Род и число",
+        "рядом",
+        "чуть дальше",
+        "далеко"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "м. р., ед. ч.",
+            "este",
+            "ese",
+            "aquel"
+          ]
+        },
+        {
+          "cells": [
+            "ж. р., ед. ч.",
+            "esta",
+            "esa",
+            "aquella"
+          ]
+        },
+        {
+          "cells": [
+            "м. р., мн. ч.",
+            "estos",
+            "esos",
+            "aquellos"
+          ]
+        },
+        {
+          "cells": [
+            "ж. р., мн. ч.",
+            "estas",
+            "esas",
+            "aquellas"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Средний род **esto, eso, aquello** — для неизвестного предмета или ситуации: ¿Qué es esto? Наречия места в той же логике: aquí, ahí, allí."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Este café está frío.",
+      "ru": "Этот кофе холодный."
+    },
+    {
+      "es": "¿Qué es eso?",
+      "ru": "Что это такое?"
+    },
+    {
+      "es": "Aquella casa es de mis abuelos.",
+      "ru": "Тот дом принадлежит моим бабушке и дедушке."
+    },
+    {
+      "es": "Quiero estas manzanas.",
+      "ru": "Я хочу эти яблоки."
+    }
+  ],
+  "exercises": [
+    {
+      "kind": "choose",
+      "prompt": "«Эти туфли» (рядом со мной):",
+      "options": [
+        "estos zapatos",
+        "estas zapatos",
+        "este zapatos"
+      ],
+      "answer": 0,
+      "explain": "zapatos — мужской род, множественное число: estos."
+    },
+    {
+      "kind": "choose",
+      "prompt": "«Что это?» (о непонятном предмете)",
+      "options": [
+        "¿Qué es esto?",
+        "¿Qué es este?",
+        "¿Qué es esta?"
+      ],
+      "answer": 0,
+      "explain": "Для неизвестного предмета — средний род esto."
+    },
+    {
+      "kind": "gap",
+      "sentence": "___ montaña de allí es muy alta.",
+      "ru": "Та гора вдалеке очень высокая.",
+      "options": [
+        "Aquella",
+        "Aquel",
+        "Aquellas"
+      ],
+      "answer": 0,
+      "explain": "Далеко, женский род, единственное число: aquella."
+    },
+    {
+      "kind": "gap",
+      "sentence": "¿Te gusta ___ camisa que llevo?",
+      "ru": "Тебе нравится эта рубашка, что на мне?",
+      "options": [
+        "esta",
+        "este",
+        "estos"
+      ],
+      "answer": 0,
+      "explain": "Рядом со мной, женский род: esta."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "«Ese» указывает на предмет рядом с собеседником.",
+      "answer": true,
+      "explain": "este — у меня, ese — у тебя."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "«Esto» можно поставить перед существительным: esto libro.",
+      "answer": false,
+      "explain": "Перед существительным — este libro. Esto употребляется без существительного."
+    }
+  ]
+}

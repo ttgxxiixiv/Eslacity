@@ -1,0 +1,139 @@
+{
+  "id": "a2.11-perifrasis",
+  "district": "A2",
+  "order": 11,
+  "title": "Acabar de, empezar a, volver a, soler",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Полезные конструкции с инфинитивом: **acabar de** — только что, **empezar a** — начинать, **volver a** — снова, **soler** — обычно, **dejar de** — перестать."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Конструкция",
+        "Значение",
+        "Пример"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "acabar de + инфинитив",
+            "только что",
+            "Acabo de llegar."
+          ]
+        },
+        {
+          "cells": [
+            "empezar a + инфинитив",
+            "начинать",
+            "Empiezo a trabajar a las nueve."
+          ]
+        },
+        {
+          "cells": [
+            "volver a + инфинитив",
+            "снова, ещё раз",
+            "Vuelvo a leer el libro."
+          ]
+        },
+        {
+          "cells": [
+            "soler + инфинитив",
+            "обычно",
+            "Suelo desayunar en casa."
+          ]
+        },
+        {
+          "cells": [
+            "dejar de + инфинитив",
+            "перестать",
+            "Quiero dejar de fumar."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Soler спрягается как poder (o → ue): suelo, sueles, suele. **Acabo de comer** — я только что поел, хотя глагол в настоящем времени."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Acabo de ver a tu hermano.",
+      "ru": "Я только что видел твоего брата."
+    },
+    {
+      "es": "Suelo ir al gimnasio por la mañana.",
+      "ru": "Обычно я хожу в спортзал утром."
+    },
+    {
+      "es": "Empieza a llover.",
+      "ru": "Начинается дождь."
+    },
+    {
+      "es": "Vuelvo a llamar mañana.",
+      "ru": "Я перезвоню завтра."
+    }
+  ],
+  "exercises": [
+    {
+      "kind": "choose",
+      "prompt": "«Я только что пришёл»:",
+      "options": [
+        "Acabo de llegar.",
+        "Acabo llegar.",
+        "Acabo a llegar."
+      ],
+      "answer": 0,
+      "explain": "acabar de + инфинитив."
+    },
+    {
+      "kind": "choose",
+      "prompt": "«Обычно я обедаю в два»:",
+      "options": [
+        "Suelo comer a las dos.",
+        "Solo comer a las dos.",
+        "Suelo a comer a las dos."
+      ],
+      "answer": 0,
+      "explain": "soler + инфинитив, без предлога."
+    },
+    {
+      "kind": "gap",
+      "sentence": "El niño empieza ___ hablar.",
+      "ru": "Ребёнок начинает говорить.",
+      "options": [
+        "a",
+        "de",
+        "que"
+      ],
+      "answer": 0,
+      "explain": "empezar a + инфинитив."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Quiero dejar ___ fumar.",
+      "ru": "Я хочу бросить курить.",
+      "options": [
+        "de",
+        "a",
+        "que"
+      ],
+      "answer": 0,
+      "explain": "dejar de + инфинитив."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "«Vuelvo a leer el libro» значит «Я возвращаюсь, чтобы почитать книгу».",
+      "answer": false,
+      "explain": "volver a + инфинитив — снова: я перечитываю книгу."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "«Solemos cenar tarde» значит «Мы обычно ужинаем поздно».",
+      "answer": true,
+      "explain": "soler — обычно, по привычке."
+    }
+  ]
+}

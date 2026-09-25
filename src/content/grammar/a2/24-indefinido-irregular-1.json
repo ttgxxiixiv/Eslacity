@@ -1,0 +1,161 @@
+{
+  "id": "a2.24-indefinido-irregular-1",
+  "district": "A2",
+  "order": 24,
+  "title": "Indefinido: ser, ir, estar, tener, hacer",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Самые частые неправильные глаголы в indefinido. У **ser** и **ir** одинаковые формы, смысл понятен из контекста: fui a Madrid — я ездил в Мадрид; fue un día bonito — это был хороший день."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Местоимение",
+        "ser / ir",
+        "estar",
+        "tener",
+        "hacer"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "yo",
+            "fui",
+            "estuve",
+            "tuve",
+            "hice"
+          ]
+        },
+        {
+          "cells": [
+            "tú",
+            "fuiste",
+            "estuviste",
+            "tuviste",
+            "hiciste"
+          ]
+        },
+        {
+          "cells": [
+            "él / ella / usted",
+            "fue",
+            "estuvo",
+            "tuvo",
+            "hizo"
+          ]
+        },
+        {
+          "cells": [
+            "nosotros",
+            "fuimos",
+            "estuvimos",
+            "tuvimos",
+            "hicimos"
+          ]
+        },
+        {
+          "cells": [
+            "vosotros",
+            "fuisteis",
+            "estuvisteis",
+            "tuvisteis",
+            "hicisteis"
+          ],
+          "region": "es"
+        },
+        {
+          "cells": [
+            "ellos / ellas / ustedes",
+            "fueron",
+            "estuvieron",
+            "tuvieron",
+            "hicieron"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "У неправильных глаголов в yo и él **нет ударения**: tuve, estuvo, hice. В hizo пишется z, чтобы сохранить звук."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Ayer fui al cine.",
+      "ru": "Вчера я ходил в кино."
+    },
+    {
+      "es": "La fiesta fue muy divertida.",
+      "ru": "Вечеринка была очень весёлой."
+    },
+    {
+      "es": "Estuvimos en Granada en mayo.",
+      "ru": "Мы были в Гранаде в мае."
+    },
+    {
+      "es": "¿Qué hiciste el fin de semana?",
+      "ru": "Что ты делал в выходные?"
+    }
+  ],
+  "exercises": [
+    {
+      "kind": "choose",
+      "prompt": "«Я ходил в кино» (ir):",
+      "options": [
+        "Fui al cine.",
+        "Fue al cine.",
+        "Fuí al cine."
+      ],
+      "answer": 0,
+      "explain": "yo fui, без ударения."
+    },
+    {
+      "kind": "choose",
+      "prompt": "Форма «él» от hacer:",
+      "options": [
+        "hizo",
+        "hació",
+        "hico"
+      ],
+      "answer": 0,
+      "explain": "hacer → hizo."
+    },
+    {
+      "kind": "gap",
+      "sentence": "El sábado ___ que trabajar.",
+      "ru": "В субботу мне пришлось работать.",
+      "options": [
+        "tuve",
+        "tení",
+        "tuvé"
+      ],
+      "answer": 0,
+      "explain": "tener → tuve, без ударения."
+    },
+    {
+      "kind": "gap",
+      "sentence": "¿Dónde ___ ayer por la tarde?",
+      "ru": "Где ты был вчера вечером?",
+      "options": [
+        "estuviste",
+        "estuvistes",
+        "estuvo"
+      ],
+      "answer": 0,
+      "explain": "tú → estuviste, без -s на конце."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "«Fue» может значить и «был», и «ходил».",
+      "answer": true,
+      "explain": "У ser и ir одинаковые формы."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "«Tuvé» пишется с ударением.",
+      "answer": false,
+      "explain": "tuve, без ударения."
+    }
+  ]
+}

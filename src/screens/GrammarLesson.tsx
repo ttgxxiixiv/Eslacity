@@ -35,14 +35,18 @@ function Theory({ lesson, onStart }: { lesson: Lesson; onStart: () => void }) {
               </div>
             );
           }
+          // Широкие таблицы (спряжение в нескольких временах) плотнее и листаются вбок.
+          const wide = b.head.length >= 4;
+          const cell = wide ? 'px-2.5 py-2' : 'px-4 py-2';
           return (
-            <div key={i} className="overflow-x-auto rounded-2xl bg-white shadow-sm">
+            <div key={i}>
+            <div className="overflow-x-auto rounded-2xl bg-white shadow-sm">
               {b.caption && <div className="px-4 pt-3 text-sm font-semibold text-stone-500">{b.caption}</div>}
-              <table className="w-full text-left text-[15px]">
+              <table className={`w-full text-left ${wide ? 'text-sm' : 'text-[15px]'}`}>
                 <thead>
                   <tr className="border-b border-stone-200 text-stone-500">
                     {b.head.map((h, j) => (
-                      <th key={j} className="px-4 py-2 font-medium">
+                      <th key={j} className={`${cell} font-medium`}>
                         {h}
                       </th>
                     ))}
@@ -52,7 +56,7 @@ function Theory({ lesson, onStart }: { lesson: Lesson; onStart: () => void }) {
                   {b.rows.map((r, j) => (
                     <tr key={j} className="border-b border-stone-100 last:border-0">
                       {r.cells.map((c, k) => (
-                        <td key={k} className={`px-4 py-2 ${k === 1 ? 'font-semibold' : ''}`}>
+                        <td key={k} className={`${cell} ${k === 1 ? 'font-semibold' : ''} ${wide && k > 0 ? 'whitespace-nowrap' : ''}`}>
                           {c}
                         </td>
                       ))}
@@ -60,6 +64,8 @@ function Theory({ lesson, onStart }: { lesson: Lesson; onStart: () => void }) {
                   ))}
                 </tbody>
               </table>
+            </div>
+            {wide && <p className="mt-1 px-2 text-right text-xs text-stone-400">таблицу можно листать вбок →</p>}
             </div>
           );
         })}

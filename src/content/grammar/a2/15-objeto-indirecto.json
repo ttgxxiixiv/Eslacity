@@ -1,0 +1,147 @@
+{
+  "id": "a2.15-objeto-indirecto",
+  "district": "A2",
+  "order": 15,
+  "title": "Косвенное дополнение: le, les",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Косвенное дополнение отвечает на вопрос **кому**: Le doy el libro a Ana — даю ей книгу. Формы: me, te, **le**, nos, os, **les**."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Кому",
+        "Местоимение",
+        "Пример"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "мне",
+            "me",
+            "Me da un regalo."
+          ]
+        },
+        {
+          "cells": [
+            "тебе",
+            "te",
+            "Te escribo."
+          ]
+        },
+        {
+          "cells": [
+            "ему, ей, вам",
+            "le",
+            "Le digo la verdad."
+          ]
+        },
+        {
+          "cells": [
+            "нам",
+            "nos",
+            "Nos traen la cuenta."
+          ]
+        },
+        {
+          "cells": [
+            "вам (vosotros)",
+            "os",
+            "Os mando una foto."
+          ],
+          "region": "es"
+        },
+        {
+          "cells": [
+            "им, вам",
+            "les",
+            "Les explico el problema."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Обычно le и les дублируют адресата: **Le** doy el libro **a Pedro**. Это нормально и даже обязательно. Глаголы с косвенным дополнением: dar, decir, escribir, mandar, preguntar, explicar."
+    }
+  ],
+  "examples": [
+    {
+      "es": "¿Me pasas la sal?",
+      "ru": "Передашь мне соль?"
+    },
+    {
+      "es": "Le escribo a mi madre.",
+      "ru": "Я пишу маме."
+    },
+    {
+      "es": "Les explico el camino.",
+      "ru": "Я объясню им дорогу."
+    },
+    {
+      "es": "¿Qué te pasa?",
+      "ru": "Что с тобой?"
+    }
+  ],
+  "exercises": [
+    {
+      "kind": "choose",
+      "prompt": "«Я говорю ему правду»:",
+      "options": [
+        "Le digo la verdad.",
+        "Lo digo la verdad.",
+        "Les digo la verdad."
+      ],
+      "answer": 0,
+      "explain": "Кому — le (одному)."
+    },
+    {
+      "kind": "choose",
+      "prompt": "«Они пишут нам»:",
+      "options": [
+        "Nos escriben.",
+        "Les escriben.",
+        "Nos escribimos."
+      ],
+      "answer": 0,
+      "explain": "Нам — nos, глагол в форме ellos."
+    },
+    {
+      "kind": "gap",
+      "sentence": "___ doy el regalo a mis padres.",
+      "ru": "Я дарю подарок родителям.",
+      "options": [
+        "Les",
+        "Le",
+        "Los"
+      ],
+      "answer": 0,
+      "explain": "Родителям — им: les."
+    },
+    {
+      "kind": "gap",
+      "sentence": "¿___ traes un vaso de agua?",
+      "ru": "Принесёшь мне стакан воды?",
+      "options": [
+        "Me",
+        "Te",
+        "Le"
+      ],
+      "answer": 0,
+      "explain": "Мне — me."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "«Le» может значить «ему», «ей» и «вам».",
+      "answer": true,
+      "explain": "Поэтому часто добавляют a él, a ella, a usted."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "«Le doy el libro a Pedro» — ошибка, потому что le лишнее.",
+      "answer": false,
+      "explain": "Дублирование нормально и правильно."
+    }
+  ]
+}

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { HashRouter, NavLink, Outlet, Route, Routes } from 'react-router-dom';
+import { HashRouter, NavLink, Outlet, Route, Routes, useLocation } from 'react-router-dom';
 import { bootstrap } from './store/bootstrap';
 import { Home } from './screens/Home';
 import { LocationScreen } from './screens/Location';
@@ -12,6 +12,13 @@ import { GrammarLessonScreen } from './screens/GrammarLesson';
 import { ProfileScreen } from './screens/Profile';
 import { WordsScreen } from './screens/Words';
 import { useMotivation } from './store/motivation';
+
+/** Новый экран открывается сверху, а не с прокруткой предыдущего. */
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  useEffect(() => window.scrollTo(0, 0), [pathname]);
+  return null;
+}
 
 function TabLayout() {
   const tab = ({ isActive }: { isActive: boolean }) =>
@@ -60,6 +67,7 @@ export default function App() {
 
   return (
     <HashRouter>
+      <ScrollToTop />
       <Routes>
         <Route element={<TabLayout />}>
           <Route path="/" element={<Home />} />

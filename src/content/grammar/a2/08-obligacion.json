@@ -1,0 +1,125 @@
+{
+  "id": "a2.08-obligacion",
+  "district": "A2",
+  "order": 8,
+  "title": "Tener que, hay que, deber",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Три способа сказать «надо». **Tener que** — мне (тебе, ему) надо. **Hay que** — нужно вообще, безлично. **Deber** — следует, должен (совет или долг)."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Конструкция",
+        "Значение",
+        "Пример"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "tener que + инфинитив",
+            "мне надо",
+            "Tengo que trabajar."
+          ]
+        },
+        {
+          "cells": [
+            "hay que + инфинитив",
+            "нужно (всем)",
+            "Hay que llevar pasaporte."
+          ]
+        },
+        {
+          "cells": [
+            "deber + инфинитив",
+            "следует",
+            "Debes descansar."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "**Hay que** не спрягается и не имеет подлежащего: Hay que comprar pan — надо купить хлеб. После **deber** que не ставят: Debes descansar."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Tengo que estudiar esta noche.",
+      "ru": "Мне надо заниматься сегодня вечером."
+    },
+    {
+      "es": "Hay que reservar mesa.",
+      "ru": "Столик нужно бронировать."
+    },
+    {
+      "es": "Debes ir al médico.",
+      "ru": "Тебе следует пойти к врачу."
+    },
+    {
+      "es": "Tenemos que salir ya.",
+      "ru": "Нам пора выходить."
+    }
+  ],
+  "exercises": [
+    {
+      "kind": "choose",
+      "prompt": "«В музее нужно соблюдать тишину» (правило для всех):",
+      "options": [
+        "Hay que estar en silencio.",
+        "Hay estar en silencio.",
+        "Hay que estoy en silencio."
+      ],
+      "answer": 0,
+      "explain": "Безличное «нужно» — hay que + инфинитив."
+    },
+    {
+      "kind": "choose",
+      "prompt": "«Мне надо позвонить маме»:",
+      "options": [
+        "Tengo que llamar a mi madre.",
+        "Tengo llamar a mi madre.",
+        "Tengo que llamo a mi madre."
+      ],
+      "answer": 0,
+      "explain": "tener que + инфинитив."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Mañana Ana ___ que madrugar.",
+      "ru": "Завтра Ане надо рано вставать.",
+      "options": [
+        "tiene",
+        "hay",
+        "debe"
+      ],
+      "answer": 0,
+      "explain": "С подлежащим — tener que. После deber que не ставят."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Para entrar ___ que pagar.",
+      "ru": "Чтобы войти, нужно заплатить.",
+      "options": [
+        "hay",
+        "está",
+        "es"
+      ],
+      "answer": 0,
+      "explain": "Безличное «нужно» — hay que."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "После deber ставят que: Debes que descansar.",
+      "answer": false,
+      "explain": "Debes descansar, без que."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "«Hay que» не меняется по лицам.",
+      "answer": true,
+      "explain": "Это безличная конструкция."
+    }
+  ]
+}

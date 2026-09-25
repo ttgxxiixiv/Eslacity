@@ -1,0 +1,139 @@
+{
+  "id": "a2.16-se-lo",
+  "district": "A2",
+  "order": 16,
+  "title": "Два местоимения: se lo",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Если в фразе оба местоимения, сначала идёт косвенное (кому), потом прямое (что): **Me lo** das. Если оба в 3-м лице, le или les превращается в **se**: не «le lo», а **se lo**."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Кому + что",
+        "Пример",
+        "Перевод"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "me lo",
+            "Me lo dice.",
+            "Он мне это говорит."
+          ]
+        },
+        {
+          "cells": [
+            "te la",
+            "Te la doy.",
+            "Даю её тебе."
+          ]
+        },
+        {
+          "cells": [
+            "se lo (le + lo)",
+            "Se lo explico.",
+            "Объясняю это ему."
+          ]
+        },
+        {
+          "cells": [
+            "se las (les + las)",
+            "Se las mando.",
+            "Отправляю их им."
+          ]
+        },
+        {
+          "cells": [
+            "nos los",
+            "Nos los traen.",
+            "Нам их приносят."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Se lo может значить «ему», «ей», «вам», «им». Если нужно уточнить, добавляют: Se lo doy **a ella**."
+    }
+  ],
+  "examples": [
+    {
+      "es": "¿Me das el número? —Sí, te lo doy.",
+      "ru": "Дашь мне номер? — Да, дам."
+    },
+    {
+      "es": "¿Le das el libro a Ana? —Sí, se lo doy.",
+      "ru": "Ты дашь книгу Ане? — Да, дам."
+    },
+    {
+      "es": "Nos lo explica el profesor.",
+      "ru": "Нам это объясняет учитель."
+    },
+    {
+      "es": "¿La cuenta? Se la traigo ahora.",
+      "ru": "Счёт? Сейчас принесу вам."
+    }
+  ],
+  "exercises": [
+    {
+      "kind": "choose",
+      "prompt": "¿Le das las llaves a Juan? —Sí, ___ doy.",
+      "options": [
+        "se las",
+        "le las",
+        "se los"
+      ],
+      "answer": 0,
+      "explain": "le + las → se las."
+    },
+    {
+      "kind": "choose",
+      "prompt": "¿Me prestas el coche? —Sí, ___ presto.",
+      "options": [
+        "te lo",
+        "lo te",
+        "te la"
+      ],
+      "answer": 0,
+      "explain": "Сначала кому (te), потом что (lo)."
+    },
+    {
+      "kind": "gap",
+      "sentence": "¿Y el regalo para tus padres? ___ doy mañana.",
+      "ru": "А подарок родителям? Отдам им завтра.",
+      "options": [
+        "Se lo",
+        "Les lo",
+        "Se los"
+      ],
+      "answer": 0,
+      "explain": "les + lo → se lo; подарок один."
+    },
+    {
+      "kind": "gap",
+      "sentence": "El camarero ___ trae el menú.",
+      "ru": "Официант приносит нам меню.",
+      "options": [
+        "nos",
+        "nos lo",
+        "les"
+      ],
+      "answer": 0,
+      "explain": "Меню названо, значит нужно только nos."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "«Le lo digo» — правильно.",
+      "answer": false,
+      "explain": "le + lo → se lo: Se lo digo."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "Сначала идёт косвенное местоимение, потом прямое: me lo.",
+      "answer": true,
+      "explain": "Кому, потом что."
+    }
+  ]
+}

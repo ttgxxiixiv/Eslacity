@@ -1,0 +1,126 @@
+{
+  "id": "a2.29-indefinido-imperfecto",
+  "district": "A2",
+  "order": 29,
+  "title": "Indefinido или imperfecto",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "В рассказе о прошлом **indefinido** двигает сюжет: что произошло. **Imperfecto** рисует фон: какая была обстановка, что происходило в тот момент."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Imperfecto (фон)",
+        "Indefinido (событие)"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Hacía sol…",
+            "…y fuimos a la playa."
+          ]
+        },
+        {
+          "cells": [
+            "Mientras cenábamos…",
+            "…sonó el teléfono."
+          ]
+        },
+        {
+          "cells": [
+            "Estaba cansado…",
+            "…y me acosté pronto."
+          ]
+        },
+        {
+          "cells": [
+            "Cuando era niño…",
+            "…me rompí el brazo."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Проверка: если можно спросить «и что потом?», это событие, нужен indefinido. Если это описание «каким было», нужен imperfecto."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Cuando llegué, todos dormían.",
+      "ru": "Когда я пришёл, все спали."
+    },
+    {
+      "es": "Leía un libro cuando sonó el teléfono.",
+      "ru": "Я читал книгу, когда зазвонил телефон."
+    },
+    {
+      "es": "Como hacía frío, no salimos.",
+      "ru": "Так как было холодно, мы не вышли."
+    },
+    {
+      "es": "Estaba en casa y vino mi hermano.",
+      "ru": "Я был дома, и пришёл брат."
+    }
+  ],
+  "exercises": [
+    {
+      "kind": "choose",
+      "prompt": "«Когда я вышел, шёл дождь»:",
+      "options": [
+        "Cuando salí, llovía.",
+        "Cuando salía, llovió.",
+        "Cuando salí, llovió."
+      ],
+      "answer": 0,
+      "explain": "Выход — событие (indefinido), дождь — фон (imperfecto)."
+    },
+    {
+      "kind": "choose",
+      "prompt": "«Я смотрел телевизор, когда пришла Ана»:",
+      "options": [
+        "Veía la tele cuando llegó Ana.",
+        "Vi la tele cuando llegaba Ana."
+      ],
+      "answer": 0,
+      "explain": "Фон — veía, событие — llegó."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Mientras ___, empezó a llover.",
+      "ru": "Пока мы гуляли, начался дождь.",
+      "options": [
+        "paseábamos",
+        "paseamos",
+        "pasearon"
+      ],
+      "answer": 0,
+      "explain": "После mientras — процесс-фон: imperfecto."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Ayer ___ un accidente en mi calle.",
+      "ru": "Вчера на моей улице произошла авария.",
+      "options": [
+        "hubo",
+        "había",
+        "hay"
+      ],
+      "answer": 0,
+      "explain": "Событие в прошлом — indefinido от haber: hubo."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "Фон событий в рассказе обычно в imperfecto.",
+      "answer": true,
+      "explain": "Обстановка, погода, состояние."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "«Mientras» обычно вводит действие в indefinido.",
+      "answer": false,
+      "explain": "Mientras + imperfecto: действие-фон."
+    }
+  ]
+}

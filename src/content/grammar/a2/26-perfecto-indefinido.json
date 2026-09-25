@@ -1,0 +1,136 @@
+{
+  "id": "a2.26-perfecto-indefinido",
+  "district": "A2",
+  "order": 26,
+  "title": "Perfecto или indefinido",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "В Испании выбор зависит от периода. Если он **ещё идёт** (hoy, esta semana, este año), нужен перфект. Если **закончился** (ayer, la semana pasada, en 2020), нужен indefinido."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Perfecto",
+        "Indefinido"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "hoy he trabajado",
+            "ayer trabajé"
+          ]
+        },
+        {
+          "cells": [
+            "esta semana he ido",
+            "la semana pasada fui"
+          ]
+        },
+        {
+          "cells": [
+            "este año hemos viajado",
+            "el año pasado viajamos"
+          ]
+        },
+        {
+          "cells": [
+            "ya he comido",
+            "comí a las dos"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Если назван точный момент в прошлом, всегда indefinido: Llegué **a las ocho**. В Латинской Америке indefinido используют и для «сегодня»."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Hoy he comido paella, pero ayer comí pescado.",
+      "ru": "Сегодня я ел паэлью, а вчера рыбу."
+    },
+    {
+      "es": "Este mes ha llovido mucho.",
+      "ru": "В этом месяце было много дождей."
+    },
+    {
+      "es": "El mes pasado estuve enfermo.",
+      "ru": "В прошлом месяце я болел."
+    },
+    {
+      "es": "¿Has visto a Pedro hoy?",
+      "ru": "Ты видел Педро сегодня?"
+    }
+  ],
+  "exercises": [
+    {
+      "kind": "choose",
+      "prompt": "«Вчера я работал до восьми»:",
+      "options": [
+        "Ayer trabajé hasta las ocho.",
+        "Ayer he trabajado hasta las ocho."
+      ],
+      "answer": 0,
+      "explain": "Ayer — закрытый период: indefinido."
+    },
+    {
+      "kind": "choose",
+      "prompt": "«В 2019 году мы жили в Мадриде»:",
+      "options": [
+        "En 2019 vivimos en Madrid.",
+        "En 2019 hemos vivido en Madrid."
+      ],
+      "answer": 0,
+      "explain": "Год с датой — закрытый период: indefinido."
+    },
+    {
+      "kind": "choose",
+      "prompt": "«Сегодня я встал рано» (как говорят в Испании):",
+      "options": [
+        "Hoy me he levantado temprano.",
+        "Hoy me levanté temprano."
+      ],
+      "answer": 0,
+      "explain": "Период «сегодня» не закончился — в Испании перфект.",
+      "region": "es"
+    },
+    {
+      "kind": "gap",
+      "sentence": "La semana pasada ___ al teatro.",
+      "ru": "На прошлой неделе мы ходили в театр.",
+      "options": [
+        "fuimos",
+        "hemos ido",
+        "vamos"
+      ],
+      "answer": 0,
+      "explain": "La semana pasada — закрытый период."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Este año ___ mucho.",
+      "ru": "В этом году я много путешествовал.",
+      "options": [
+        "he viajado",
+        "viajo",
+        "viajaba"
+      ],
+      "answer": 0,
+      "explain": "Este año ещё идёт — перфект."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "С «ayer» используют indefinido.",
+      "answer": true,
+      "explain": "Вчера — закрытый период."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "«En 2015 he estado en Roma» — нормальная фраза в Испании.",
+      "answer": false,
+      "explain": "С датой в прошлом — indefinido: estuve."
+    }
+  ]
+}

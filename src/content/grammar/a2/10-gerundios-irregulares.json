@@ -1,0 +1,139 @@
+{
+  "id": "a2.10-gerundios-irregulares",
+  "district": "A2",
+  "order": 10,
+  "title": "Неправильные герундии",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "У глаголов на -ir с чередованием корень меняется и в герундии: pedir → p**i**diendo, dormir → d**u**rmiendo. Если перед окончанием стоит гласная, -iendo превращается в **-yendo**: leer → le**yendo**."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Инфинитив",
+        "Герундий"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "pedir",
+            "pidiendo"
+          ]
+        },
+        {
+          "cells": [
+            "decir",
+            "diciendo"
+          ]
+        },
+        {
+          "cells": [
+            "dormir",
+            "durmiendo"
+          ]
+        },
+        {
+          "cells": [
+            "leer",
+            "leyendo"
+          ]
+        },
+        {
+          "cells": [
+            "oír",
+            "oyendo"
+          ]
+        },
+        {
+          "cells": [
+            "ir",
+            "yendo"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Возвратное местоимение можно поставить перед estar или присоединить к герундию: **Me estoy duchando** = **Estoy duchándome**. Во втором случае появляется письменное ударение."
+    }
+  ],
+  "examples": [
+    {
+      "es": "El bebé está durmiendo.",
+      "ru": "Малыш спит."
+    },
+    {
+      "es": "¿Qué estás leyendo?",
+      "ru": "Что ты читаешь?"
+    },
+    {
+      "es": "Me estoy vistiendo.",
+      "ru": "Я одеваюсь."
+    },
+    {
+      "es": "No entiendo lo que estás diciendo.",
+      "ru": "Я не понимаю, что ты говоришь."
+    }
+  ],
+  "exercises": [
+    {
+      "kind": "choose",
+      "prompt": "Герундий от leer:",
+      "options": [
+        "leyendo",
+        "leiendo",
+        "lendo"
+      ],
+      "answer": 0,
+      "explain": "Между гласными -iendo → -yendo."
+    },
+    {
+      "kind": "choose",
+      "prompt": "Герундий от dormir:",
+      "options": [
+        "durmiendo",
+        "dormiendo",
+        "duermiendo"
+      ],
+      "answer": 0,
+      "explain": "o → u: durmiendo."
+    },
+    {
+      "kind": "gap",
+      "sentence": "¿Qué estás ___?",
+      "ru": "Что ты говоришь?",
+      "options": [
+        "diciendo",
+        "deciendo",
+        "dicendo"
+      ],
+      "answer": 0,
+      "explain": "decir: e → i, diciendo."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Estoy ___ un café.",
+      "ru": "Я заказываю кофе.",
+      "options": [
+        "pidiendo",
+        "pediendo",
+        "pedido"
+      ],
+      "answer": 0,
+      "explain": "pedir: e → i, pidiendo."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "«Me estoy duchando» и «Estoy duchándome» значат одно и то же.",
+      "answer": true,
+      "explain": "Местоимение может стоять в любом из двух мест."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "Герундий от ir — «iendo».",
+      "answer": false,
+      "explain": "Правильно yendo."
+    }
+  ]
+}

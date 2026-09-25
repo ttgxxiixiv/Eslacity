@@ -1,0 +1,147 @@
+{
+  "id": "a2.20-perfecto-formacion",
+  "district": "A2",
+  "order": 20,
+  "title": "Pretérito perfecto: образование",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "**Pretérito perfecto** — прошедшее, связанное с настоящим: сегодня, на этой неделе, за всю жизнь. Образуется так: **haber** в настоящем + **причастие**: he comido."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Местоимение",
+        "haber",
+        "Пример"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "yo",
+            "he",
+            "he hablado"
+          ]
+        },
+        {
+          "cells": [
+            "tú",
+            "has",
+            "has comido"
+          ]
+        },
+        {
+          "cells": [
+            "él / ella / usted",
+            "ha",
+            "ha vivido"
+          ]
+        },
+        {
+          "cells": [
+            "nosotros",
+            "hemos",
+            "hemos hablado"
+          ]
+        },
+        {
+          "cells": [
+            "vosotros",
+            "habéis",
+            "habéis comido"
+          ],
+          "region": "es"
+        },
+        {
+          "cells": [
+            "ellos / ellas / ustedes",
+            "han",
+            "han vivido"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Причастие: -ar → **-ado**, -er/-ir → **-ido**. Оно не меняется: ella ha comido, ellos han comido. Между haber и причастием ничего не ставят: no lo **he visto**."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Hoy he trabajado mucho.",
+      "ru": "Сегодня я много работал."
+    },
+    {
+      "es": "¿Has comido ya?",
+      "ru": "Ты уже поел?"
+    },
+    {
+      "es": "Hemos terminado el trabajo.",
+      "ru": "Мы закончили работу."
+    },
+    {
+      "es": "Mis padres han llegado.",
+      "ru": "Мои родители приехали."
+    }
+  ],
+  "exercises": [
+    {
+      "kind": "choose",
+      "prompt": "Форма haber для «nosotros»:",
+      "options": [
+        "hemos",
+        "habemos",
+        "han"
+      ],
+      "answer": 0,
+      "explain": "nosotros hemos."
+    },
+    {
+      "kind": "choose",
+      "prompt": "Причастие от vivir:",
+      "options": [
+        "vivido",
+        "vivado",
+        "viviendo"
+      ],
+      "answer": 0,
+      "explain": "-ir → -ido. Viviendo — герундий."
+    },
+    {
+      "kind": "gap",
+      "sentence": "Esta mañana ___ desayunado tarde.",
+      "ru": "Сегодня утром я поздно позавтракал.",
+      "options": [
+        "he",
+        "ha",
+        "has"
+      ],
+      "answer": 0,
+      "explain": "yo he."
+    },
+    {
+      "kind": "gap",
+      "sentence": "¿Ustedes ___ terminado?",
+      "ru": "Вы закончили?",
+      "options": [
+        "han",
+        "has",
+        "ha"
+      ],
+      "answer": 0,
+      "explain": "ustedes — как ellos: han."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "Причастие меняется по роду: ella ha comida.",
+      "answer": false,
+      "explain": "Причастие не меняется: ella ha comido."
+    },
+    {
+      "kind": "truefalse",
+      "statement": "«He hablado» — перфект от hablar для yo.",
+      "answer": true,
+      "explain": "he + hablado."
+    }
+  ]
+}
