@@ -32,6 +32,10 @@ const EMPTY: MotivationData = {
 };
 
 interface MotivationState extends MotivationData {
+  /** Медали, которые ждут вручения на экране (не сохраняются). */
+  awards: MedalGain[];
+  /** Убрать показанную плашку вручения. */
+  dismissAward(): void;
   hydrate(d: Partial<MotivationData> | undefined): void;
   settle(now?: number): void;
   onGoalMet(now?: number): void;
@@ -45,9 +49,9 @@ interface MotivationState extends MotivationData {
   initListening(count: number): void;
   /**
    * Проверить медали, записать новые ступени и выдать монеты. Возвращает только что полученные.
-   * event — итог урока для тайных медалей.
+   * event — итог урока для тайных медалей. announce: false — без плашки вручения (перенос при запуске).
    */
-  evaluate(now?: number, event?: MedalEvent): MedalGain[];
+  evaluate(now?: number, event?: MedalEvent, announce?: boolean): MedalGain[];
 }
 
 function save(s: MotivationData) {
@@ -81,6 +85,11 @@ export const useMotivation = create<MotivationState>((set, get) => {
 
   return {
     ...EMPTY,
+    awards: [],
+
+    dismissAward() {
+      set({ awards: get().awards.slice(1) });
+    },
 
     hydrate(d) {
       set({ ...EMPTY, ...d, streak: { ...EMPTY_STREAK, ...d?.streak }, medals: { lines: {}, secrets: {}, ...d?.medals } });
@@ -131,10 +140,11 @@ export const useMotivation = create<MotivationState>((set, get) => {
       if (get().listenCorrect === null) update({ listenCorrect: count });
     },
 
-    evaluate(now = Date.now(), event = {}) {
+    evaluate(now = Date.now(), event = {}, announce = true) {
       const gains = medalGains(medalCounters(), get().medals, event);
       if (gains.length) {
         update({ medals: applyGains(get().medals, gains, now) });
+        if (announce) set({ awards: [...get().awards, ...gains] });
         useCity.getState().addCoins(gainsReward(gains));
       }
       return gains;

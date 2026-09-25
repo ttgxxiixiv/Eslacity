@@ -28,6 +28,7 @@ beforeEach(() => {
   useCity.getState().hydrate({ coins: 100, buildings: [{ locationId: 'cafe', level: 2, lastCollectedAt: 0 }] });
   useSettings.getState().hydrate({ blitzBest: 0 });
   useMotivation.getState().hydrate(OLD as never);
+  useMotivation.setState({ awards: [] });
 });
 
 describe('перенос достижений в медали', () => {
@@ -43,6 +44,11 @@ describe('перенос достижений в медали', () => {
     expect(got).toEqual(['words.wood', 'streak.wood', 'streak.stone', 'typed.wood', 'typed.stone', 'builder.wood', 'saved-streak']);
     expect(useCity.getState().coins).toBe(100 + 10 + 10 + 25 + 10 + 25 + 10 + 50);
 
+    expect(useMotivation.getState().awards).toHaveLength(7);
+    useMotivation.getState().dismissAward();
+    const first = useMotivation.getState().awards[0];
+    expect(first.kind === 'line' ? `${first.line.id}.${first.tier}` : first.secret.id).toBe('streak.wood');
+    expect(useMotivation.getState().awards).toHaveLength(6);
     expect(useMotivation.getState().evaluate(2000)).toEqual([]);
     expect(useCity.getState().coins).toBe(240);
     expect(useMotivation.getState().medals.lines.streak).toEqual({ wood: 1000, stone: 1000 });
@@ -56,6 +62,11 @@ describe('перенос достижений в медали', () => {
     useMotivation.getState().recordListening();
     const gains = useMotivation.getState().evaluate(1000);
     expect(gains.some((g) => g.kind === 'line' && g.line.id === 'listener' && g.tier === 'wood')).toBe(true);
+  });
+
+  it('перенос при запуске без плашек вручения', () => {
+    expect(useMotivation.getState().evaluate(1000, {}, false)).toHaveLength(7);
+    expect(useMotivation.getState().awards).toEqual([]);
   });
 
   it('тайные медали урока', () => {

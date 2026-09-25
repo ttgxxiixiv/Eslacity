@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ECONOMY } from '../config';
-import { ACTIVE_LINES, currentTier, nextThreshold, SECRETS, TIER_INFO, TIERS } from '../domain/medals';
+import { ACTIVE_LINES, bestMedals, TIER_INFO, TIERS } from '../domain/medals';
 import { challengeFor, weekKey, weeklyProgress } from '../domain/goals';
 import { dayKey, dayNumber } from '../domain/srs';
 import { canBuyFreeze, isAlive } from '../domain/streak';
 import { useCity } from '../store/city';
-import { medalCounters, useMotivation } from '../store/motivation';
+import { useMotivation } from '../store/motivation';
 import { useProgress } from '../store/progress';
 import { useSettings } from '../store/settings';
 import { Button, Screen, TopBar } from '../components/ui';
@@ -21,6 +21,7 @@ export function ProfileScreen() {
   const today = dayNumber(now);
   const streak = useMotivation((s) => s.streak);
   const medals = useMotivation((s) => s.medals);
+  const best = bestMedals(medals);
   const weeklyClaimed = useMotivation((s) => s.weeklyClaimed);
   const coins = useCity((s) => s.coins);
   const days = useProgress((s) => s.days);
@@ -54,6 +55,20 @@ export function ProfileScreen() {
       />
       <div className="flex flex-col gap-4 px-5 pb-6">
         <LevelCard />
+        <Link to="/medals" className="press flex items-center gap-3 rounded-3xl bg-white p-4 shadow-sm" data-testid="best-medals">
+          <div className="flex-1">
+            <div className="font-bold">Зал медалей</div>
+            <div className="text-sm text-stone-500 tabular-nums">
+              {ACTIVE_LINES.reduce((n, l) => n + Object.keys(medals.lines[l.id] ?? {}).length, 0)}/{ACTIVE_LINES.length * TIERS.length}
+            </div>
+          </div>
+          {best.length ? (
+            best.map((b) => <Medal key={b.line.id} icon={b.line.id} tier={b.tier} size={48} label={`${b.line.title}: ${TIER_INFO[b.tier].ru}`} />)
+          ) : (
+            <span className="text-sm text-stone-400">пока нет медалей</span>
+          )}
+          <span className="text-stone-500">→</span>
+        </Link>
         <section className="flex items-center gap-4 rounded-3xl bg-white p-4 shadow-sm">
           <div className={`text-5xl ${alive ? '' : 'grayscale'}`}>🔥</div>
           <div className="flex-1">
@@ -123,55 +138,12 @@ export function ProfileScreen() {
           <span className="text-stone-500">{Object.keys(cards).length} →</span>
         </Link>
 
-        <MedalList medals={medals} />
 
         <Link to="/settings" className="press py-2 text-center text-sm text-stone-400">
           Версия {CURRENT.version} · о приложении и обновления →
         </Link>
       </div>
     </Screen>
-  );
-}
-
-/** Медали текстом. Зал медалей с картинками — задача 1.3. */
-function MedalList({ medals }: { medals: ReturnType<typeof useMotivation.getState>['medals'] }) {
-  const counters = medalCounters();
-  const got = ACTIVE_LINES.reduce((n, l) => n + Object.keys(medals.lines[l.id] ?? {}).length, 0);
-  const secrets = SECRETS.filter((x) => medals.secrets[x.id] !== undefined);
-  return (
-    <section className="rounded-3xl bg-white p-4 shadow-sm" data-testid="medals">
-      <div className="flex items-baseline justify-between">
-        <h2 className="font-bold">Медали</h2>
-        <span className="text-sm text-stone-500">
-          {got}/{ACTIVE_LINES.length * TIERS.length}
-        </span>
-      </div>
-      <ul className="mt-3 divide-y divide-stone-100">
-        {ACTIVE_LINES.map((l) => {
-          const tier = currentTier(medals.lines[l.id]);
-          const value = l.value!(counters);
-          const next = nextThreshold(l, value);
-          return (
-            <li key={l.id} className="flex items-center justify-between gap-3 py-2">
-              <Medal icon={l.id} tier={tier} label={tier ? `${l.title}: ${TIER_INFO[tier].ru}` : `${l.title}: ещё нет`} />
-              <div className="flex-1">
-                <div className="font-semibold">{l.title}</div>
-                <div className="text-xs text-stone-500">{l.counts}</div>
-              </div>
-              <div className="text-right text-sm">
-                <div className={tier ? 'font-semibold text-amber-700' : 'text-stone-400'}>{tier ? TIER_INFO[tier].ru : 'нет'}</div>
-                <div className="text-xs text-stone-500">
-                  {next ? `${value} / ${next.at} → ${TIER_INFO[next.tier].ru}` : `${value}, все ступени`}
-                </div>
-              </div>
-            </li>
-          );
-        })}
-      </ul>
-      <p className="mt-2 text-sm text-stone-500">
-        Тайные медали: {secrets.length ? secrets.map((x) => `«${x.title}»`).join(', ') : 'пока ни одной'}
-      </p>
-    </section>
   );
 }
 

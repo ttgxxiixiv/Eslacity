@@ -40,7 +40,7 @@ export async function bootstrap(): Promise<void> {
     useMotivation.getState().initListening(heard);
   }
   // Первая проверка после обновления переносит старые достижения в ступени медалей и выдаёт награды один раз.
-  useMotivation.getState().evaluate();
+  useMotivation.getState().evaluate(Date.now(), {}, false);
   // Старые записи журнала убираются в фоне: запуску они не нужны.
   pruneAnswers().catch((e) => console.error('Не удалось почистить журнал ответов', e));
 }

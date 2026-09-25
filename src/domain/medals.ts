@@ -7,14 +7,24 @@ export type Tier = 'wood' | 'stone' | 'bronze' | 'silver' | 'gold' | 'diamond';
 
 export const TIERS: Tier[] = ['wood', 'stone', 'bronze', 'silver', 'gold', 'diamond'];
 
-export const TIER_INFO: Record<Tier, { ru: string; adj: string; reward: number }> = {
-  wood: { ru: 'Дерево', adj: 'Деревянная', reward: 10 },
-  stone: { ru: 'Камень', adj: 'Каменная', reward: 25 },
-  bronze: { ru: 'Бронза', adj: 'Бронзовая', reward: 50 },
-  silver: { ru: 'Серебро', adj: 'Серебряная', reward: 100 },
-  gold: { ru: 'Золото', adj: 'Золотая', reward: 200 },
-  diamond: { ru: 'Бриллиант', adj: 'Бриллиантовая', reward: 500 },
+/** gen — «до серебра». color — цвет рамки плашки вручения. */
+export const TIER_INFO: Record<Tier, { ru: string; adj: string; gen: string; reward: number; color: string }> = {
+  wood: { ru: 'Дерево', adj: 'Деревянная', gen: 'дерева', reward: 10, color: '#8a5a2b' },
+  stone: { ru: 'Камень', adj: 'Каменная', gen: 'камня', reward: 25, color: '#8f8b84' },
+  bronze: { ru: 'Бронза', adj: 'Бронзовая', gen: 'бронзы', reward: 50, color: '#b8733a' },
+  silver: { ru: 'Серебро', adj: 'Серебряная', gen: 'серебра', reward: 100, color: '#c3c9d1' },
+  gold: { ru: 'Золото', adj: 'Золотая', gen: 'золота', reward: 200, color: '#e0b43c' },
+  diamond: { ru: 'Бриллиант', adj: 'Бриллиантовая', gen: 'бриллианта', reward: 500, color: '#7fd8f0' },
 };
+
+/** Русское множественное число: plural(5, ['слово', 'слова', 'слов']). */
+export function plural(n: number, forms: [string, string, string]): string {
+  const m10 = n % 10;
+  const m100 = n % 100;
+  if (m10 === 1 && m100 !== 11) return forms[0];
+  if (m10 >= 2 && m10 <= 4 && (m100 < 12 || m100 > 14)) return forms[1];
+  return forms[2];
+}
 
 /** Счётчики, по которым считаются линии. Будущие системы добавят свои поля. */
 export interface MedalCounters {
@@ -42,28 +52,30 @@ export interface MedalLine {
   counts: string;
   /** Пороги ступеней от дерева до бриллианта. */
   thresholds: [number, number, number, number, number, number];
+  /** Единица счётчика для строки прогресса: «312 / 500 слов до бронзы». */
+  unit: [string, string, string];
   /** Счётчик линии. null — система ещё не сделана, линия выключена. */
   value: ((c: MedalCounters) => number) | null;
 }
 
 export const LINES: MedalLine[] = [
-  { id: 'words', title: 'Словесник', counts: 'закреплённые слова', thresholds: [10, 100, 500, 1200, 2200, 3000], value: (c) => c.wordsSolid },
-  { id: 'streak', title: 'Упорство', counts: 'лучший стрик, дней', thresholds: [3, 7, 14, 30, 100, 365], value: (c) => c.streakBest },
-  { id: 'grammar', title: 'Знаток правил', counts: 'пройденные уроки грамматики', thresholds: [1, 10, 31, 62, 100, 132], value: (c) => c.grammarDone },
+  { id: 'words', title: 'Словесник', counts: 'закреплённые слова', thresholds: [10, 100, 500, 1200, 2200, 3000], unit: ['слово', 'слова', 'слов'], value: (c) => c.wordsSolid },
+  { id: 'streak', title: 'Упорство', counts: 'лучший стрик, дней', thresholds: [3, 7, 14, 30, 100, 365], unit: ['день', 'дня', 'дней'], value: (c) => c.streakBest },
+  { id: 'grammar', title: 'Знаток правил', counts: 'пройденные уроки грамматики', thresholds: [1, 10, 31, 62, 100, 132], unit: ['урок', 'урока', 'уроков'], value: (c) => c.grammarDone },
   // Включится с обрывками карты (этап 2).
-  { id: 'cartographer', title: 'Картограф', counts: 'собранные обрывки карты', thresholds: [1, 5, 25, 50, 75, 100], value: null },
+  { id: 'cartographer', title: 'Картограф', counts: 'собранные обрывки карты', thresholds: [1, 5, 25, 50, 75, 100], unit: ['обрывок', 'обрывка', 'обрывков'], value: null },
   // Включится с репутацией жителей (этап 4).
-  { id: 'friend', title: 'Друг города', counts: 'жители с отношением «Друг» и выше', thresholds: [1, 3, 7, 12, 17, 20], value: null },
+  { id: 'friend', title: 'Друг города', counts: 'жители с отношением «Друг» и выше', thresholds: [1, 3, 7, 12, 17, 20], unit: ['житель', 'жителя', 'жителей'], value: null },
   // Включится с поручениями (этап 4).
-  { id: 'courier', title: 'Посыльный', counts: 'выполненные поручения', thresholds: [1, 10, 50, 150, 400, 1000], value: null },
-  { id: 'blitz', title: 'Молния', counts: 'лучший результат блица', thresholds: [10, 20, 30, 40, 50, 60], value: (c) => c.blitzBest },
-  { id: 'typed', title: 'Твёрдая рука', counts: 'верных вводов подряд', thresholds: [5, 10, 20, 35, 50, 100], value: (c) => c.typedBest },
-  { id: 'builder', title: 'Строитель', counts: 'сумма уровней зданий', thresholds: [2, 10, 25, 50, 75, 100], value: (c) => c.buildingLevels },
+  { id: 'courier', title: 'Посыльный', counts: 'выполненные поручения', thresholds: [1, 10, 50, 150, 400, 1000], unit: ['поручение', 'поручения', 'поручений'], value: null },
+  { id: 'blitz', title: 'Молния', counts: 'лучший результат блица', thresholds: [10, 20, 30, 40, 50, 60], unit: ['ответ', 'ответа', 'ответов'], value: (c) => c.blitzBest },
+  { id: 'typed', title: 'Твёрдая рука', counts: 'верных вводов подряд', thresholds: [5, 10, 20, 35, 50, 100], unit: ['ввод', 'ввода', 'вводов'], value: (c) => c.typedBest },
+  { id: 'builder', title: 'Строитель', counts: 'сумма уровней зданий', thresholds: [2, 10, 25, 50, 75, 100], unit: ['уровень', 'уровня', 'уровней'], value: (c) => c.buildingLevels },
   // Включится с испытаниями мест и стражей (этап 5).
-  { id: 'trials', title: 'Испытатель', counts: 'пройденные испытания мест и стражей', thresholds: [1, 5, 25, 50, 80, 105], value: null },
-  { id: 'listener', title: 'Слушатель', counts: 'верные задания на слух', thresholds: [10, 50, 200, 500, 1000, 2500], value: (c) => c.listenCorrect },
+  { id: 'trials', title: 'Испытатель', counts: 'пройденные испытания мест и стражей', thresholds: [1, 5, 25, 50, 80, 105], unit: ['испытание', 'испытания', 'испытаний'], value: null },
+  { id: 'listener', title: 'Слушатель', counts: 'верные задания на слух', thresholds: [10, 50, 200, 500, 1000, 2500], unit: ['ответ', 'ответа', 'ответов'], value: (c) => c.listenCorrect },
   // Включится с Лабиринтом Эха (глава V).
-  { id: 'echo', title: 'Эхо', counts: 'выражения, сказанные в другом регистре', thresholds: [1, 10, 30, 80, 150, 300], value: null },
+  { id: 'echo', title: 'Эхо', counts: 'выражения, сказанные в другом регистре', thresholds: [1, 10, 30, 80, 150, 300], unit: ['выражение', 'выражения', 'выражений'], value: null },
 ];
 
 export const ACTIVE_LINES = LINES.filter((l) => l.value);
@@ -171,6 +183,25 @@ export function applyGains(state: MedalsState, gains: MedalGain[], now: number):
 }
 
 export const gainsReward = (gains: MedalGain[]) => gains.reduce((n, g) => n + g.reward, 0);
+
+/** Строка прогресса: «312 / 500 слов до бронзы» или «3000 слов, все ступени». */
+export function progressText(line: MedalLine, value: number): string {
+  const next = nextThreshold(line, value);
+  if (!next) return `${value} ${plural(value, line.unit)}, все ступени`;
+  return `${value} / ${next.at} ${plural(next.at, line.unit)} до ${TIER_INFO[next.tier].gen}`;
+}
+
+/** Лучшие медали для профиля: выше ступень, при равенстве раньше полученная. */
+export function bestMedals(state: MedalsState, n = 3): { line: MedalLine; tier: Tier }[] {
+  return LINES.flatMap((line) => {
+    const rec = state.lines[line.id];
+    const tier = currentTier(rec);
+    return tier ? [{ line, tier, at: rec![tier]! }] : [];
+  })
+    .sort((a, b) => TIERS.indexOf(b.tier) - TIERS.indexOf(a.tier) || a.at - b.at)
+    .slice(0, n)
+    .map(({ line, tier }) => ({ line, tier }));
+}
 
 /** Подпись для списка: «Бронзовая медаль «Словесник»». */
 export function gainTitle(g: MedalGain): string {

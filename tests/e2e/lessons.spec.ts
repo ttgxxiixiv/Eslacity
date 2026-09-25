@@ -35,8 +35,13 @@ for (const lang of LANGS) {
       await expect(page.getByText(/урок пройден/i)).toBeVisible();
       await expect(page.getByText('100%')).toBeVisible();
       // Первый урок грамматики — деревянная ступень «Знатока правил», урок без ошибок — тайная медаль.
-      await expect(page.getByText('Деревянная медаль «Знаток правил»')).toBeVisible();
-      await expect(page.getByText('Тайная медаль «Без единой ошибки»')).toBeVisible();
+      const results = page.getByRole('listitem');
+      await expect(results.filter({ hasText: 'Деревянная медаль «Знаток правил»' })).toBeVisible();
+      await expect(results.filter({ hasText: 'Тайная медаль «Без единой ошибки»' })).toBeVisible();
+      // Вручение: плашки по очереди, сначала ступень линии, потом тайная медаль.
+      const award = page.getByTestId('medal-award');
+      await expect(award).toContainText('Деревянная медаль «Знаток правил»', { timeout: 10_000 });
+      await expect(award).toContainText('Тайная медаль «Без единой ошибки»', { timeout: 10_000 });
       await expect.poll(async () => (await readAnswers(page, lang)).length).toBe(lesson.exercises.length);
       const log = await readAnswers(page, lang);
       expect(log.every((a) => a.mode === 'grammar' && a.verdict === 'correct' && a.kind.startsWith('grammar-'))).toBe(true);
@@ -47,13 +52,21 @@ for (const lang of LANGS) {
       await page.getByRole('button', { name: /перечитать теорию/i }).click();
       await page.getByRole('button', { name: /к упражнениям/i }).click();
       await expect(page.locator('button.min-h-14').first()).toBeVisible();
-      // В профиле медаль видна текстом, тайная тоже.
+      // Профиль: лучшая медаль рядом с уровнем, из неё переход в зал медалей.
       await page.goto('./#/profile');
-      const medals = page.getByTestId('medals');
-      await expect(medals.locator('li').filter({ hasText: 'Знаток правил' })).toContainText('Дерево');
-      await expect(medals.getByRole('img', { name: 'Знаток правил: Дерево' })).toBeVisible();
-      await expect(medals.getByRole('img', { name: 'Словесник: ещё нет' })).toBeVisible();
-      await expect(medals).toContainText('«Без единой ошибки»');
+      const best = page.getByTestId('best-medals');
+      await expect(best.getByRole('img', { name: 'Знаток правил: Дерево' })).toBeVisible();
+      await best.click();
+      const hall = page.getByTestId('medals');
+      const grammarLine = hall.locator('[data-line=grammar]');
+      await expect(grammarLine).toContainText('Дерево');
+      await expect(grammarLine).toContainText('1 / 10 уроков до камня');
+      await expect(grammarLine.getByRole('img', { name: 'Знаток правил, дерево' })).toBeVisible();
+      await expect(grammarLine.getByRole('img', { name: 'Знаток правил, камень: ещё нет' })).toBeVisible();
+      await expect(hall.locator('[data-line=cartographer]')).toContainText('Откроется с картой странствий');
+      await expect(hall.getByRole('img', { name: 'Без единой ошибки' })).toBeVisible();
+      // Ночью добавится ещё «Полночный путник», поэтому скрытых четыре или пять.
+      expect(await hall.getByRole('img', { name: 'Тайная медаль' }).count()).toBeGreaterThanOrEqual(4);
     });
   });
 }

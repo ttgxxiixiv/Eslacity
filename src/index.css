@@ -229,6 +229,16 @@ button {
   from { transform: translateY(-120%); opacity: 0; }
   to { transform: none; opacity: 1; }
 }
+/* Вспышка при вручении бриллианта. */
+.medal-flash {
+  background: radial-gradient(circle at 50% 12%, #e8fcff 0%, rgba(127, 216, 240, 0.5) 35%, transparent 70%);
+  animation: medal-flash 900ms ease-out forwards;
+}
+@keyframes medal-flash {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
 @media (prefers-reduced-motion: reduce) {
   .level-up { animation: none; }
+  .medal-flash { display: none; }
 }

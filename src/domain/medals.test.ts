@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import {
-  ACTIVE_LINES, applyGains, currentTier, gainsReward, gainTitle, isMidnight, LINES, medalGains, nextThreshold,
+  ACTIVE_LINES, applyGains, bestMedals, currentTier, gainsReward, gainTitle, isMidnight, LINES, medalGains, nextThreshold, plural, progressText,
   SECRETS, tierFor, TIERS, type MedalCounters, type MedalsState,
 } from './medals';
 
@@ -72,5 +72,32 @@ describe('тайные медали', () => {
   });
   it('будущие тайные медали пока не выдаются', () => {
     expect(SECRETS.filter((s) => s.test).map((s) => s.id)).toEqual(['saved-streak', 'flawless', 'midnight']);
+  });
+});
+
+describe('подписи и лучшие медали', () => {
+  it('строка прогресса с единицей и ступенью в родительном падеже', () => {
+    expect(progressText(line('words'), 312)).toBe('312 / 500 слов до бронзы');
+    expect(progressText(line('streak'), 0)).toBe('0 / 3 дня до дерева');
+    expect(progressText(line('grammar'), 0)).toBe('0 / 1 урок до дерева');
+    expect(progressText(line('typed'), 120)).toBe('120 вводов, все ступени');
+  });
+  it('русское множественное число', () => {
+    expect([1, 2, 5, 11, 21, 22, 112].map((n) => plural(n, ['слово', 'слова', 'слов']))).toEqual(
+      ['слово', 'слова', 'слов', 'слов', 'слово', 'слова', 'слов'],
+    );
+  });
+  it('три лучшие: выше ступень, при равенстве раньше полученная', () => {
+    const st: MedalsState = {
+      lines: {
+        words: { wood: 5 },
+        streak: { wood: 1, stone: 2, bronze: 9 },
+        typed: { wood: 1, stone: 3 },
+        blitz: { wood: 1, stone: 2 },
+      },
+      secrets: {},
+    };
+    expect(bestMedals(st).map((b) => `${b.line.id}.${b.tier}`)).toEqual(['streak.bronze', 'blitz.stone', 'typed.stone']);
+    expect(bestMedals(empty)).toEqual([]);
   });
 });

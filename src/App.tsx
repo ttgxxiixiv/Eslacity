@@ -16,6 +16,8 @@ import { ErrorBoundary } from './components/ErrorBoundary';
 import { UpdateBanner } from './components/UpdateBanner';
 import { NavBar } from './components/NavBar';
 import { LevelUpToast } from './components/HeroLevel';
+import { MedalAward } from './components/MedalAward';
+import { MedalsScreen } from './screens/Medals';
 
 /** Новый экран открывается сверху, а не с прокруткой предыдущего. */
 function ScrollToTop() {
@@ -62,12 +64,14 @@ export default function App() {
     <HashRouter>
       <ScrollToTop />
       <LevelUpToast />
+      <MedalAward />
       <Routes>
         <Route element={<TabLayout />}>
           <Route path="/" element={<Home />} />
           <Route path="/loc/:id" element={<LocationScreen />} />
           <Route path="/grammar" element={<GrammarMap />} />
           <Route path="/profile" element={<ProfileScreen />} />
+          <Route path="/medals" element={<MedalsScreen />} />
         </Route>
         <Route path="/grammar/:id" element={<GrammarLessonScreen />} />
         <Route path="/review" element={<ReviewScreen />} />
