@@ -79,3 +79,38 @@ export interface GrammarLesson {
   exercises: GrammarExercise[];
   region?: 'es';
 }
+
+/** Детали портрета жителя поверх одежды и причёски. */
+export type NpcExtra =
+  | 'apron' | 'glasses' | 'headphones' | 'chefhat' | 'mustache' | 'beard' | 'cap'
+  | 'tie' | 'headband' | 'badge' | 'stethoscope';
+
+export interface NpcLook {
+  /** Тон кожи 1–4, от светлого к тёмному. */
+  skin: 1 | 2 | 3 | 4;
+  hair: string;
+  style: 'short' | 'long' | 'bun' | 'curly' | 'bald';
+  outfit: string;
+  pants: string;
+  extra: NpcExtra[];
+}
+
+/** Житель места: свой в каждом языке. */
+export interface Npc {
+  id: string;
+  name: string;
+  location: LocationId;
+  role: string;
+  gender: 'm' | 'f';
+  /** Характер одной строкой: для будущих диалогов и миссий. */
+  character: string;
+  /** Приветствие на изучаемом языке (поле es) и перевод. */
+  greeting: Example;
+  /** Голос: высота и скорость речи для speechSynthesis. */
+  voice: { pitch: number; rate: number };
+  look: NpcLook;
+}
+
+export interface NpcsFile {
+  npcs: Npc[];
+}

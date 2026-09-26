@@ -1,7 +1,7 @@
 import { normalize, splitArticle, stripAccents } from '../domain/answer';
 import type { Lang } from '../lang';
 import { PLACE_LEVEL_MAX } from './vocabPlan';
-import { LOCATION_IDS, type GrammarLesson, type LocationWords, type Word } from './schema';
+import { LOCATION_IDS, type GrammarLesson, type LocationWords, type NpcsFile, type Word } from './schema';
 
 export interface Issue {
   level: 'error' | 'warning';
@@ -238,5 +238,39 @@ export function validateGrammar(files: { name: string; data: GrammarLesson }[], 
       } else if (empty(e.prompt)) out.push({ level: 'error', where: w, msg: 'пустой prompt' });
     });
   }
+  return out;
+}
+
+const NPC_STYLES = new Set(['short', 'long', 'bun', 'curly', 'bald']);
+const NPC_EXTRAS = new Set(['apron', 'glasses', 'headphones', 'chefhat', 'mustache', 'beard', 'cap', 'tie', 'headband', 'badge', 'stethoscope']);
+const COLOR = /^#[0-9a-f]{6}$/i;
+
+/** Жители: по одному на каждое место, уникальные id, заполненные поля, голос и портрет в допустимых пределах. */
+export function validateNpcs(file: NpcsFile | undefined): Issue[] {
+  const out: Issue[] = [];
+  const where = 'npcs.json';
+  if (!file?.npcs?.length) return [{ level: 'error', where, msg: 'нет жителей' }];
+  const ids = new Set<string>();
+  const places = new Map<string, string>();
+  for (const n of file.npcs) {
+    const at = `${where} ${n.id ?? '?'}`;
+    for (const f of ['id', 'name', 'role', 'character'] as const) if (empty(n[f])) out.push({ level: 'error', where: at, msg: `пустое поле ${f}` });
+    if (empty(n.greeting?.es) || empty(n.greeting?.ru)) out.push({ level: 'error', where: at, msg: 'пустое приветствие' });
+    if (ids.has(n.id)) out.push({ level: 'error', where: at, msg: 'дубль id' });
+    ids.add(n.id);
+    if (!(LOCATION_IDS as readonly string[]).includes(n.location)) out.push({ level: 'error', where: at, msg: `неизвестное место "${n.location}"` });
+    else if (places.has(n.location)) out.push({ level: 'error', where: at, msg: `в месте ${n.location} уже живёт ${places.get(n.location)}` });
+    else places.set(n.location, n.id);
+    if (n.gender !== 'm' && n.gender !== 'f') out.push({ level: 'error', where: at, msg: `пол "${n.gender}"` });
+    const { pitch, rate } = n.voice ?? {};
+    if (!(pitch >= 0.5 && pitch <= 1.5) || !(rate >= 0.7 && rate <= 1.3)) out.push({ level: 'error', where: at, msg: 'голос вне пределов (pitch 0.5–1.5, rate 0.7–1.3)' });
+    const lk = n.look;
+    if (!lk || ![1, 2, 3, 4].includes(lk.skin) || !NPC_STYLES.has(lk.style) || !COLOR.test(lk.hair) || !COLOR.test(lk.outfit) || !COLOR.test(lk.pants)) {
+      out.push({ level: 'error', where: at, msg: 'неверный портрет (look)' });
+    } else {
+      for (const e of lk.extra) if (!NPC_EXTRAS.has(e)) out.push({ level: 'error', where: at, msg: `неизвестная деталь портрета "${e}"` });
+    }
+  }
+  for (const loc of LOCATION_IDS) if (!places.has(loc)) out.push({ level: 'error', where, msg: `в месте ${loc} нет жителя` });
   return out;
 }

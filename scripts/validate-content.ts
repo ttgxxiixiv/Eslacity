@@ -1,6 +1,7 @@
 import { readdirSync, readFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
-import { validateGrammar, validateWords, type Issue } from '../src/content/validate';
+import { validateGrammar, validateNpcs, validateWords, type Issue } from '../src/content/validate';
+import type { NpcsFile } from '../src/content/schema';
 import type { Lang } from '../src/lang';
 import { PLAN_TOTAL } from '../src/content/vocabPlan';
 
@@ -39,9 +40,11 @@ for (const lang of langs) {
       )
     : [];
   const tag = (list: Issue[]) => list.map((i) => ({ ...i, where: `${lang}/${i.where}` }));
-  issues.push(...tag(validateWords(words, lang)), ...tag(validateGrammar(grammar, lang)));
+  const npcsPath = join(root, lang, 'npcs.json');
+  const npcs = existsSync(npcsPath) ? (JSON.parse(readFileSync(npcsPath, 'utf8')) as NpcsFile) : undefined;
+  issues.push(...tag(validateWords(words, lang)), ...tag(validateGrammar(grammar, lang)), ...tag(validateNpcs(npcs)));
   const wordCount = words.reduce((n, f) => n + f.data.words.length, 0);
-  summary.push(`${lang}: ${words.length} локаций, слов: ${wordCount} из плана ${PLAN_TOTAL}, ${grammar.length} уроков`);
+  summary.push(`${lang}: ${words.length} локаций, слов: ${wordCount} из плана ${PLAN_TOTAL}, ${grammar.length} уроков, ${npcs?.npcs.length ?? 0} жителей`);
 }
 
 const errors = issues.filter((i) => i.level === 'error');

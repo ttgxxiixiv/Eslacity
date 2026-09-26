@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import type { LocationWords, Word } from './schema';
-import { validateWords } from './validate';
+import { validateNpcs, validateWords } from './validate';
+import { LOCATION_IDS, type NpcsFile } from './schema';
 
 const base = (i: number, extra: Partial<Word> = {}): Word => ({
   id: `cafe.w${i}`, es: `la palabra${i}`, ru: `слово ${i}`, pos: 'noun', gender: 'f', level: 1, cefr: 'A1',
@@ -62,5 +63,36 @@ describe('validateWords, план словаря', () => {
   });
   it('меньше 10 слов в уровне — ошибка', () => {
     expect(errors(Array.from({ length: 9 }, (_, i) => base(i))).join()).toMatch(/не меньше 10/);
+  });
+});
+
+describe('validateNpcs', () => {
+  const npc = (location: string, id = location) => ({
+    id, name: 'Имя', location, role: 'роль', gender: 'f', character: 'характер',
+    greeting: { es: '¡Hola!', ru: 'Привет!' }, voice: { pitch: 1, rate: 1 },
+    look: { skin: 2, hair: '#112233', style: 'bun', outfit: '#445566', pants: '#778899', extra: ['apron'] },
+  });
+  const all = () => LOCATION_IDS.map((l) => npc(l));
+  const errs = (npcs: unknown[]) => validateNpcs({ npcs } as NpcsFile).map((x) => x.msg).join('; ');
+
+  it('по жителю на каждое место — без ошибок', () => {
+    expect(validateNpcs({ npcs: all() } as NpcsFile)).toEqual([]);
+  });
+  it('пропущенное место, дубль места и id', () => {
+    const list = all().slice(1);
+    expect(errs(list)).toMatch(/в месте cafe нет жителя/);
+    expect(errs([...all(), npc('cafe', 'x')])).toMatch(/уже живёт/);
+    expect(errs([...all().slice(1), npc('cafe', 'market')])).toMatch(/дубль id/);
+  });
+  it('голос, портрет и пустые поля', () => {
+    const list = all();
+    list[0] = { ...npc('cafe'), voice: { pitch: 3, rate: 1 } };
+    list[1] = { ...npc('market'), look: { ...npc('market').look, extra: ['crown'] } };
+    list[2] = { ...npc('supermarket'), name: ' ', greeting: { es: '', ru: 'x' } };
+    const e = errs(list);
+    expect(e).toMatch(/голос вне пределов/);
+    expect(e).toMatch(/неизвестная деталь портрета "crown"/);
+    expect(e).toMatch(/пустое поле name/);
+    expect(e).toMatch(/пустое приветствие/);
   });
 });

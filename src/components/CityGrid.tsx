@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import cityMap from '../assets/city.webp';
 import cityLit from '../assets/city-lit.webp';
 import { LOCATIONS } from '../content/locations';
+import { NPC_BY_LOCATION } from '../content/npcs';
+import { NpcPortrait } from './NpcPortrait';
 import { hasContent } from '../content';
 import type { LocationMeta } from '../content/schema';
 import { isFull, pendingIncome } from '../domain/economy';
@@ -93,6 +95,7 @@ function Building({ meta, index, now, onGo }: { meta: LocationMeta; index: numbe
   const affordable = !level && coins >= meta.unlockCost;
   const r = plotRect(index);
   const lc = labelCenter(index);
+  const npc = NPC_BY_LOCATION[meta.id];
 
   return (
     <>
@@ -135,6 +138,17 @@ function Building({ meta, index, now, onGo }: { meta: LocationMeta; index: numbe
           <span className="text-[10px] leading-none font-bold">🪙 {meta.unlockCost}</span>
         )}
       </div>
+      {level > 0 && npc && (
+        // Житель стоит у своего здания, пока место открыто.
+        <div
+          aria-hidden
+          className="pointer-events-none absolute z-[5]"
+          style={{ left: pctX(r.x + 2), top: pctY(r.y + r.h - 54) }}
+          data-testid={`npc-${meta.id}`}
+        >
+          <NpcPortrait look={npc.look} size={27} />
+        </div>
+      )}
       {pending > 0 && (
         <button
           type="button"

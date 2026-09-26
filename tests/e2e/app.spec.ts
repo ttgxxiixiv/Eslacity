@@ -25,6 +25,25 @@ test('переключение языка сохраняет прогресс к
 
 for (const lang of LANGS) {
   test.describe(lang, () => {
+    test('жители: портрет и приветствие в месте, фигурка у открытого здания', async ({ page }) => {
+      const npcs = JSON.parse(readFileSync(join(import.meta.dirname, '..', '..', 'src', 'content', lang, 'npcs.json'), 'utf8')).npcs as {
+        name: string; location: string; greeting: { es: string; ru: string };
+      }[];
+      const cafe = npcs.find((n) => n.location === 'cafe')!;
+      await openApp(page, lang);
+      // Кафе открыто с начала — житель стоит у здания; рынок закрыт — там никого.
+      await expect(page.getByTestId('npc-cafe')).toHaveCount(1);
+      await expect(page.getByTestId('npc-market')).toHaveCount(0);
+
+      await page.goto('./#/loc/cafe');
+      const card = page.getByTestId('npc-card');
+      await expect(card).toContainText(cafe.name);
+      await expect(card).toContainText(cafe.greeting.ru);
+      await expect(card.getByRole('img', { name: new RegExp(`^${cafe.name}`) })).toBeVisible();
+      await card.getByRole('button', { name: /Послушать/ }).click();
+      await expect.poll(() => page.evaluate(() => (window as unknown as { __said: string[] }).__said.at(-1))).toBe(cafe.greeting.es);
+    });
+
     test('словарный запас в профиле: без фраз, закреплённые отдельно', async ({ page }) => {
       await openApp(page, lang);
       const words = JSON.parse(readFileSync(join(import.meta.dirname, '..', '..', 'src', 'content', lang, 'words', 'cafe.json'), 'utf8'))

@@ -9,6 +9,8 @@ import { useNow } from '../lib/useNow';
 import { isLearned, learnedCount, lessonParts, levelWords, maxContentLevel } from '../domain/levels';
 import { chapterById, chapterOfLevel, isLevelOpen } from '../domain/chapters';
 import { useJourney } from '../store/journey';
+import { NPC_BY_LOCATION } from '../content/npcs';
+import { NpcCard } from '../components/NpcCard';
 import { dayNumber } from '../domain/srs';
 import { useCity } from '../store/city';
 import { useProgress } from '../store/progress';
@@ -77,6 +79,7 @@ export function LocationScreen() {
       <TopBar title={`${meta.emoji} ${meta.ru}`} right={<span className="pr-3 font-semibold">🪙 {coins}</span>} />
       {!words ? null : (
         <div className="flex flex-col gap-4 px-5 pb-6">
+          {NPC_BY_LOCATION[id] && <NpcCard npc={NPC_BY_LOCATION[id]!} />}
           <IncomeCard id={id} level={level} />
           {levels.map((lvl) => {
             const lw = levelWords(words, lvl);

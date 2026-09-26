@@ -41,13 +41,15 @@ export function currentVoice(): SpeechSynthesisVoice | null {
 // Ссылка на текущую фразу: иначе Chrome может собрать её сборщиком мусора и оборвать звук.
 let current: SpeechSynthesisUtterance | null = null;
 
-export function speak(text: string, rate = useSettings.getState().speechRate): void {
+/** Сказать текст голосом языка. pitch — высота голоса (у жителей своя). */
+export function speak(text: string, rate = useSettings.getState().speechRate, pitch = 1): void {
   if (!supported || !text) return;
   const u = new SpeechSynthesisUtterance(text);
   // Если голоса ещё не загрузились, Android всё равно выберет голос по lang.
   u.lang = voice?.lang ?? preferredVoices()[0];
   if (voice) u.voice = voice;
   u.rate = rate;
+  u.pitch = pitch;
   u.onend = () => {
     if (current === u) current = null;
   };
