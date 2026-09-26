@@ -7,6 +7,8 @@ import { ECONOMY } from '../config';
 import { incomeRate, isFull, pendingIncome, upgradeCost } from '../domain/economy';
 import { useNow } from '../lib/useNow';
 import { isLearned, learnedCount, lessonParts, levelWords, maxContentLevel } from '../domain/levels';
+import { chapterById, chapterOfLevel, isLevelOpen } from '../domain/chapters';
+import { useJourney } from '../store/journey';
 import { dayNumber } from '../domain/srs';
 import { useCity } from '../store/city';
 import { useProgress } from '../store/progress';
@@ -56,6 +58,7 @@ export function LocationScreen() {
   const coins = useCity((s) => s.coins);
   const upgrade = useCity((s) => s.upgrade);
   const building = useCity((s) => s.buildings[id]);
+  const opened = useJourney((s) => s.opened);
   const now = useNow();
   // При улучшении накопленный доход здания собирается автоматически, поэтому он тоже в счёт.
   const available = coins + (building ? pendingIncome(building, now) : 0);
@@ -77,7 +80,8 @@ export function LocationScreen() {
           <IncomeCard id={id} level={level} />
           {levels.map((lvl) => {
             const lw = levelWords(words, lvl);
-            const open = lvl <= level;
+            const chapterOpen = isLevelOpen(lvl, opened);
+            const open = lvl <= level && chapterOpen;
             const prevDone = lvl === 1 || isLearned(levelWords(words, lvl - 1), cards);
             const isNext = lvl === level + 1;
             const cost = isNext ? (lvl === 1 ? meta.unlockCost : upgradeCost(meta, lvl)) : 0;
@@ -89,7 +93,12 @@ export function LocationScreen() {
                     <h2 className="font-bold text-stone-500">Уровень {lvl}</h2>
                     {lvl > maxLevel && <span className="text-sm text-stone-400">скоро</span>}
                   </div>
-                  {isNext && lvl <= maxLevel && (
+                  {lvl <= maxLevel && !chapterOpen && (
+                    <p className="mt-1 text-sm text-stone-500" data-testid="chapter-lock">
+                      Откроется в главе {chapterOfLevel(lvl)?.roman}: сначала соберите карту главы {chapterById((chapterOfLevel(lvl)?.id ?? 2) - 1)?.roman}.
+                    </p>
+                  )}
+                  {isNext && lvl <= maxLevel && chapterOpen && (
                     <>
                       {!prevDone && (
                         <p className="mt-1 text-sm text-stone-500">Сначала пройдите все уроки уровня {lvl - 1}.</p>

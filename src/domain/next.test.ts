@@ -58,3 +58,34 @@ describe('кнопка «Продолжить»', () => {
     expect(recentLocation({})).toBeUndefined();
   });
 });
+
+describe('«Продолжить» и закрытые главы', () => {
+  // Глава I — уровни 1–2, глава II — 3–4.
+  const open1 = (level: number) => level <= 2;
+  const chapterOf = (level: number) => (level <= 2 ? 1 : 2);
+  const all = (loc: string) => ({ id: loc, ru: loc, emoji: '', unlockCost: 0 }) as LocationMeta;
+
+  it('не ведёт в урок закрытого уровня, даже если здание прокачано', () => {
+    const cafe = words('cafe', 3);
+    const s = nextStep({
+      locations: [all('cafe')], levels: { cafe: 3 }, words: { cafe }, cards: learn(cafe.slice(0, 20)), coins: 0, isLevelOpen: open1, chapterOf,
+    });
+    expect(s).toEqual({ kind: 'chapter', next: 2 });
+  });
+
+  it('не предлагает улучшить здание до уровня закрытой главы, открытие нового места важнее', () => {
+    const cafe = words('cafe', 3);
+    const s = nextStep({
+      locations: locs, levels: { cafe: 2 }, words: { cafe }, cards: learn(cafe.slice(0, 20)), coins: 500, isLevelOpen: open1, chapterOf,
+    });
+    expect(s).toMatchObject({ kind: 'unlock', loc: 'market' });
+  });
+
+  it('всё открытое пройдено — ждём следующую главу', () => {
+    const cafe = words('cafe', 3);
+    const s = nextStep({
+      locations: [all('cafe')], levels: { cafe: 2 }, words: { cafe }, cards: learn(cafe.slice(0, 20)), coins: 500, isLevelOpen: open1, chapterOf,
+    });
+    expect(s).toEqual({ kind: 'chapter', next: 2 });
+  });
+});

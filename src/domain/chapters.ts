@@ -62,6 +62,8 @@ export interface JourneyInput {
 export interface JourneyRecord {
   fragments: Record<string, number>;
   seals: Record<string, number>;
+  /** Открытая глава. Нет — прогресс из версии до 2.7.0, глава считается переносом (`startedChapter`). */
+  openedChapter?: ChapterId;
 }
 
 export const EMPTY_JOURNEY: JourneyRecord = { fragments: {}, seals: {} };
@@ -155,8 +157,40 @@ export function recordAwards(rec: JourneyRecord, awards: JourneyAward[], now: nu
     if (a.kind === 'fragment') fragments[fragmentKey(a.chapter, a.location)] = now;
     else seals[String(a.chapter)] = now;
   }
-  return { fragments, seals };
+  return { ...rec, fragments, seals };
 }
 
 /** Всего полученных обрывков по всем главам: счётчик медали «Картограф». */
 export const fragmentCount = (rec: JourneyRecord) => Object.keys(rec.fragments).length;
+
+/** Глава, в которую входит уровень слов места. */
+export const chapterOfLevel = (level: number): Chapter | undefined => CHAPTERS.find((c) => c.levels.includes(level));
+
+/** Глава, в которую входит район грамматики. */
+export const chapterOfDistrict = (district: string): Chapter | undefined => CHAPTERS.find((c) => c.districts.includes(district));
+
+/**
+ * Открытая глава: следующая открывается, когда собрана карта предыдущей. Уже открытая не закрывается.
+ * Материал открытых глав доступен, следующих — нет.
+ */
+export function openedChapter(stored: number | undefined, state: JourneyState): ChapterId {
+  return Math.max(stored ?? 1, state.current) as ChapterId;
+}
+
+export const isLevelOpen = (level: number, opened: number) => (chapterOfLevel(level)?.id ?? 99) <= opened;
+export const isDistrictOpen = (district: string, opened: number) => (chapterOfDistrict(district)?.id ?? 99) <= opened;
+
+/**
+ * Перенос для игроков, у которых прогресс был до глав: глава не ниже любого начатого материала,
+ * чтобы после обновления ничего не закрылось. Начатым считается выученное слово уровня, пройденный урок
+ * района и здание, прокачанное до уровня главы.
+ */
+export function startedChapter(p: { wordLevels: number[]; doneDistricts: string[]; buildingLevels: number[] }): ChapterId {
+  const ids = [
+    1,
+    ...p.wordLevels.map((l) => chapterOfLevel(l)?.id ?? 1),
+    ...p.doneDistricts.map((d) => chapterOfDistrict(d)?.id ?? 1),
+    ...p.buildingLevels.map((l) => chapterOfLevel(l)?.id ?? 1),
+  ];
+  return Math.max(...ids) as ChapterId;
+}

@@ -3,11 +3,15 @@ import { beforeEach, describe, expect, it } from 'vitest';
 import { WORD_LEVELS } from '../content/wordIndex';
 import type { SrsCard } from '../domain/srs';
 import { currentJourney, useJourney } from './journey';
+import { useCity } from './city';
 import { useProgress } from './progress';
+import { lessonsOf } from '../content/grammar';
 
 const card = (wordId: string) => ({ wordId, ef: 2.5, interval: 1, reps: 1, due: 0, lapses: 0, learnedAt: 0, lastReviewedAt: 0 }) as SrsCard;
 
 beforeEach(() => {
+  useProgress.getState().hydrate({ cards: [], days: [], xpTotal: 0, grammar: [] });
+  useCity.getState().hydrate({ coins: 0, buildings: [{ locationId: 'cafe', level: 1, lastCollectedAt: 0 }] });
   useJourney.getState().hydrate(undefined);
 });
 
@@ -32,5 +36,37 @@ describe('путь по настоящему контенту', () => {
     useProgress.getState().hydrate({ cards: [], days: [], xpTotal: 0, grammar: [] });
     expect(useJourney.getState()).toMatchObject({ fragments: {}, seals: {} });
     expect(currentJourney().current).toBe(1);
+  });
+});
+
+describe('открытая глава', () => {
+  const row = (lessonId: string) => ({ lessonId, completedAt: 1, bestScore: 100 });
+
+  it('новый игрок: открыта глава I, после записи она сохраняется', () => {
+    expect(useJourney.getState().opened).toBe(1);
+    useJourney.getState().sync(1);
+    expect(useJourney.getState().openedChapter).toBe(1);
+  });
+
+  it('перенос: пройденные уроки A2 открывают главу II, ничего не закрывается', () => {
+    const a2 = lessonsOf('A2').slice(0, 3).map((l) => row(l.id));
+    useProgress.getState().hydrate({ cards: [], days: [], xpTotal: 0, grammar: [row(lessonsOf('A1')[0].id), ...a2] });
+    // Данные версии 2.6.0: путь есть, открытой главы нет.
+    useJourney.getState().hydrate({ fragments: {}, seals: {} });
+    expect(useJourney.getState().opened).toBe(2);
+    useJourney.getState().sync(1);
+    expect(useJourney.getState().openedChapter).toBe(2);
+  });
+
+  it('перенос: здание, прокачанное до уровня 5, открывает главу III', () => {
+    useCity.getState().hydrate({ coins: 0, buildings: [{ locationId: 'cafe', level: 5, lastCollectedAt: 0 }] });
+    useJourney.getState().hydrate(undefined);
+    expect(useJourney.getState().opened).toBe(3);
+  });
+
+  it('записанная глава берётся как есть, без пересчёта', () => {
+    useCity.getState().hydrate({ coins: 0, buildings: [{ locationId: 'cafe', level: 5, lastCollectedAt: 0 }] });
+    useJourney.getState().hydrate({ fragments: {}, seals: {}, openedChapter: 1 });
+    expect(useJourney.getState().opened).toBe(1);
   });
 });

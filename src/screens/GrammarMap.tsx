@@ -3,12 +3,16 @@ import { Link } from 'react-router-dom';
 import { DISTRICTS, lessonsOf } from '../content/grammar';
 import type { District } from '../content/schema';
 import { useProgress } from '../store/progress';
+import { useJourney } from '../store/journey';
+import { chapterById, chapterOfDistrict, isDistrictOpen } from '../domain/chapters';
 import { Screen, TopBar } from '../components/ui';
 
 export function GrammarMap() {
   const done = useProgress((s) => s.grammar);
-  // По умолчанию раскрыт первый район, где есть непройденные уроки.
-  const current = DISTRICTS.find((d) => lessonsOf(d.id).some((l) => !done[l.id]))?.id ?? 'A1';
+  const opened = useJourney((s) => s.opened);
+  // По умолчанию раскрыт первый открытый район, где есть непройденные уроки.
+  const current =
+    DISTRICTS.find((d) => isDistrictOpen(d.id, opened) && lessonsOf(d.id).some((l) => !done[l.id]))?.id ?? 'A1';
   const [open, setOpen] = useState<Set<District>>(() => new Set([current]));
 
   const toggle = (id: District) =>
@@ -33,6 +37,21 @@ export function GrammarMap() {
                   <span className="text-sm">скоро</span>
                 </div>
                 <p className="text-sm">{d.subtitle}</p>
+              </section>
+            );
+          }
+          if (!isDistrictOpen(d.id, opened)) {
+            const ch = chapterOfDistrict(d.id);
+            return (
+              <section key={d.id} className="rounded-3xl border-2 border-dashed border-stone-300 p-4 text-stone-500" data-testid="district-lock">
+                <div className="flex items-baseline justify-between">
+                  <h2 className="text-lg font-bold">Район {d.title}</h2>
+                  <span className="text-sm">🔒 глава {ch?.roman}</span>
+                </div>
+                <p className="text-sm">{d.subtitle}</p>
+                <p className="mt-1 text-sm">
+                  Откроется в главе {ch?.roman}, когда будет собрана карта главы {ch && chapterById(ch.id - 1)?.roman}.
+                </p>
               </section>
             );
           }

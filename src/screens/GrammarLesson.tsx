@@ -12,6 +12,8 @@ import { speak } from '../audio/tts';
 import { useCity } from '../store/city';
 import { useProgress } from '../store/progress';
 import { syncAndEvaluate } from '../store/motivation';
+import { useJourney } from '../store/journey';
+import { chapterOfDistrict, isDistrictOpen } from '../domain/chapters';
 import { logAnswer } from '../db/answers';
 import { answerMs, grammarItemId } from '../domain/answerLog';
 import type { MedalGain } from '../domain/medals';
@@ -151,6 +153,7 @@ function ItemView({ item, picked, onPick }: { item: GrammarItem; picked: number 
 export function GrammarLessonScreen() {
   const id = useParams().id!;
   const [lesson, setLesson] = useState<Lesson | null | undefined>(undefined);
+  const opened = useJourney((s) => s.opened);
 
   useEffect(() => {
     let alive = true;
@@ -168,6 +171,16 @@ export function GrammarLessonScreen() {
   // Пока грузится чанк района (обычно доли секунды), экран пустой, как у уроков слов.
   if (lesson === undefined) return null;
   if (lesson === null) return <div className="p-6">Урок не найден</div>;
+  if (!isDistrictOpen(lesson.district, opened)) {
+    return (
+      <Screen>
+        <TopBar title={lesson.title} />
+        <p className="px-5 py-6 text-stone-600" data-testid="district-lock">
+          Этот урок откроется в главе {chapterOfDistrict(lesson.district)?.roman}.
+        </p>
+      </Screen>
+    );
+  }
   return <LessonRunner key={lesson.id} lesson={lesson} />;
 }
 

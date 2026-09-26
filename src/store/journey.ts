@@ -5,12 +5,15 @@ import { WORD_LEVELS } from '../content/wordIndex';
 import { db } from '../db/db';
 import { persist } from '../db/persist';
 import {
-  CHAPTERS, EMPTY_JOURNEY, journeyState, newAwards, recordAwards,
-  type JourneyAward, type JourneyInput, type JourneyRecord, type JourneyState,
+  CHAPTERS, EMPTY_JOURNEY, journeyState, newAwards, openedChapter, recordAwards, startedChapter,
+  type ChapterId, type JourneyAward, type JourneyInput, type JourneyRecord, type JourneyState,
 } from '../domain/chapters';
+import { useCity } from './city';
 import { useProgress } from './progress';
 
 interface JourneyStore extends JourneyRecord {
+  /** Открытая глава: её уровни слов и районы грамматики доступны, следующих — нет. */
+  opened: ChapterId;
   hydrate(d: Partial<JourneyRecord> | undefined): void;
   /** Записать обрывки и печати, условия которых выполнены. Возвращает только что полученные. */
   sync(now?: number): JourneyAward[];
@@ -31,22 +34,41 @@ export function journeyInput(): JourneyInput {
 
 export const useJourney = create<JourneyStore>((set, get) => ({
   ...EMPTY_JOURNEY,
+  opened: 1,
 
   hydrate(d) {
-    set({ fragments: { ...d?.fragments }, seals: { ...d?.seals } });
+    const rec: JourneyRecord = { fragments: { ...d?.fragments }, seals: { ...d?.seals } };
+    // Прогресс до версии 2.7.0: глава не ниже всего, что уже начато, чтобы ничего не закрылось.
+    rec.openedChapter = d?.openedChapter ?? startedChapter(startedInput());
+    set({ ...rec, opened: rec.openedChapter });
   },
 
   sync(now = Date.now()) {
-    const { fragments, seals } = get();
-    const awards = newAwards(journeyState(journeyInput(), { fragments, seals }));
-    if (awards.length) {
-      const next = recordAwards({ fragments, seals }, awards, now);
-      set(next);
-      persist(() => db.meta.put({ key: 'journey', value: next }));
-    }
+    const { fragments, seals, openedChapter: prev } = get();
+    const state = journeyState(journeyInput(), { fragments, seals });
+    const awards = newAwards(state);
+    const rec = recordAwards({ fragments, seals, openedChapter: prev }, awards, now);
+    const after = journeyState(journeyInput(), rec);
+    rec.openedChapter = openedChapter(prev, after);
+    set({ ...rec, opened: rec.openedChapter });
+    // Записываем и при первом запуске, чтобы перенесённая глава сохранилась.
+    persist(() => db.meta.put({ key: 'journey', value: rec }));
     return awards;
   },
 }));
+
+/** Что игрок уже начал: для переноса открытой главы. */
+function startedInput() {
+  const p = useProgress.getState();
+  const levelOf = new Map<string, number>();
+  for (const levels of Object.values(WORD_LEVELS)) for (const [lvl, ids] of Object.entries(levels)) for (const id of ids) levelOf.set(id, Number(lvl));
+  const districtOf = new Map(CHAPTERS.flatMap((c) => c.districts).flatMap((d) => lessonsOf(d as never).map((l) => [l.id, d] as const)));
+  return {
+    wordLevels: Object.keys(p.cards).map((id) => levelOf.get(id) ?? 1),
+    doneDistricts: Object.keys(p.grammar).map((id) => districtOf.get(id) ?? 'A1'),
+    buildingLevels: Object.values(useCity.getState().buildings).map((b) => b?.level ?? 0),
+  };
+}
 
 /** Текущее состояние пути: для экранов карты и главной. */
 export function currentJourney(): JourneyState {

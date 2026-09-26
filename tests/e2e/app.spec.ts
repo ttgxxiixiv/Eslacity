@@ -73,7 +73,10 @@ for (const lang of LANGS) {
       // Слова и уроки грамматики лежат в отдельных чанках: они тоже должны быть в кэше.
       await page.goto('./#/loc/police');
       await expect(page.getByText('Уровень 1').first()).toBeVisible();
+      // Урок B2 закрыт до главы IV, но экран с замком тоже грузит чанк урока.
       await page.goto(`./#/grammar/${lang === 'es' ? 'b2.20-marcadores' : 'b2.20-segnali-discorsivi'}`);
+      await expect(page.getByTestId('district-lock')).toContainText('откроется в главе IV');
+      await page.goto(`./#/grammar/${lang === 'es' ? 'a1.02-ser' : 'a1.02-essere'}`);
       await expect(page.getByRole('button', { name: /к упражнениям/i })).toBeVisible();
     });
   });

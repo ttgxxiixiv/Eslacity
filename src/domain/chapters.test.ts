@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import {
-  CHAPTERS, CONDITIONS, EMPTY_JOURNEY, fragmentCount, journeyState, newAwards, recordAwards, type JourneyInput,
+  chapterOfDistrict, chapterOfLevel, CHAPTERS, CONDITIONS, EMPTY_JOURNEY, fragmentCount, isDistrictOpen, isLevelOpen,
+  journeyState, newAwards, openedChapter, recordAwards, startedChapter, type JourneyInput,
 } from './chapters';
 
 // Три места вместо двадцати: логика от числа мест не зависит.
@@ -78,5 +79,34 @@ describe('состояние пути', () => {
     expect(market).toMatchObject({ got: false, ready: false, missing: ['mission'] });
     expect(s.chapters[0].fragments).toBe(1);
     expect(newAwards(s)).toEqual([]);
+  });
+});
+
+describe('открытая глава', () => {
+  it('следующая открывается, когда собрана карта предыдущей, и не закрывается', () => {
+    const empty = journeyState(input([]), EMPTY_JOURNEY);
+    expect(openedChapter(undefined, empty)).toBe(1);
+    const learned = LOCS.flatMap((loc) => chapterWords(1, loc));
+    const done = journeyState(input(learned, ['a1.1', 'a1.2']), EMPTY_JOURNEY);
+    expect(openedChapter(1, done)).toBe(2);
+    // Перенос дал главу III: она остаётся, даже если карта I не собрана.
+    expect(openedChapter(3, empty)).toBe(3);
+  });
+
+  it('уровни и районы открытой главы доступны, следующей — нет', () => {
+    expect([1, 2, 3, 5].map((l) => isLevelOpen(l, 1))).toEqual([true, true, false, false]);
+    expect([3, 4, 5].map((l) => isLevelOpen(l, 2))).toEqual([true, true, false]);
+    expect(['A1', 'A2', 'B1.1', 'B1.2'].map((d) => isDistrictOpen(d, 2))).toEqual([true, true, false, false]);
+    expect(isDistrictOpen('B1.2', 3)).toBe(true);
+    expect(chapterOfLevel(5)?.roman).toBe('III');
+    expect(chapterOfDistrict('B1.1')?.roman).toBe('III');
+  });
+
+  it('перенос: глава не ниже начатого материала', () => {
+    expect(startedChapter({ wordLevels: [], doneDistricts: [], buildingLevels: [1] })).toBe(1);
+    expect(startedChapter({ wordLevels: [1, 2], doneDistricts: ['A1', 'A2'], buildingLevels: [2] })).toBe(2);
+    expect(startedChapter({ wordLevels: [1], doneDistricts: [], buildingLevels: [3] })).toBe(2);
+    expect(startedChapter({ wordLevels: [5], doneDistricts: ['A1'], buildingLevels: [5] })).toBe(3);
+    expect(startedChapter({ wordLevels: [], doneDistricts: ['B1.2'], buildingLevels: [] })).toBe(3);
   });
 });

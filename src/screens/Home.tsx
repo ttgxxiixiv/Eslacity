@@ -5,6 +5,8 @@ import { DISTRICTS, lessonsOf } from '../content/grammar';
 import { LOCATION_BY_ID, LOCATIONS } from '../content/locations';
 import type { LocationId, Word } from '../content/schema';
 import { type NextStep, nextStep, recentLocation } from '../domain/next';
+import { chapterById, chapterOfLevel, isDistrictOpen, isLevelOpen } from '../domain/chapters';
+import { useJourney } from '../store/journey';
 import { dueCards } from '../domain/srs';
 import { useNow } from '../lib/useNow';
 import { CityGrid } from '../components/CityGrid';
@@ -48,6 +50,18 @@ function newWordsLabel(n: number) {
 }
 
 function ContinueCard({ step }: { step: NextStep }) {
+  if (step.kind === 'chapter') {
+    const next = chapterById(step.next);
+    const prev = chapterById(step.next - 1);
+    return (
+      <div className="rounded-3xl bg-white px-5 py-4 shadow-sm" data-testid="chapter-wait">
+        <h2 className="text-lg font-bold">Глава {prev?.roman} почти пройдена</h2>
+        <div className="text-sm text-stone-500">
+          Соберите все обрывки карты и печать главы {prev?.roman}, чтобы открыть главу {next?.roman}: {next?.land}.
+        </div>
+      </div>
+    );
+  }
   if (step.kind === 'done') {
     return (
       <div className="rounded-3xl bg-white px-5 py-4 shadow-sm">
@@ -92,6 +106,7 @@ export function Home() {
   const grammar = useProgress((s) => s.grammar);
   const buildings = useCity((s) => s.buildings);
   const coins = useCity((s) => s.coins);
+  const opened = useJourney((s) => s.opened);
   // Счётчик пересчитывается и после полуночи, если приложение не закрывали.
   const now = useNow(60_000);
   const due = useMemo(() => dueCards(Object.values(cards), now).length, [cards, now]);
@@ -105,16 +120,21 @@ export function Home() {
   const step = useMemo(() => {
     if (!words) return null;
     const levels = Object.fromEntries(open.map((id) => [id, buildings[id]!.level]));
-    return nextStep({ locations: LOCATIONS, levels, words, cards, coins, recent: recentLocation(cards) });
-  }, [words, open, buildings, cards, coins]);
+    return nextStep({
+      locations: LOCATIONS, levels, words, cards, coins, recent: recentLocation(cards),
+      isLevelOpen: (l) => isLevelOpen(l, opened),
+      chapterOf: (l) => chapterOfLevel(l)?.id ?? 99,
+    });
+  }, [words, open, buildings, cards, coins, opened]);
 
   const nextGrammar = useMemo(() => {
     for (const d of DISTRICTS) {
+      if (!isDistrictOpen(d.id, opened)) break;
       const l = lessonsOf(d.id).find((x) => !grammar[x.id]);
       if (l) return { ...l, district: d.title };
     }
     return null;
-  }, [grammar]);
+  }, [grammar, opened]);
 
   return (
     <Screen>
