@@ -52,6 +52,83 @@ export function lemmaOf(token: string, forms: Map<string, string>, lang: string)
 export const lemmasIn = (text: string, forms: Map<string, string>, lang: string) =>
   tokens(text).map((t) => lemmaOf(t, forms, lang));
 
+/** Уроки грамматики в том объёме, который нужен для лемм: теория, примеры, задания. */
+export interface LessonText {
+  theory: ({ kind: 'table'; rows: { cells: string[] }[] } | { kind: 'text' | 'tip'; md: string })[];
+  examples: { es: string }[];
+  exercises: ({ kind: 'choose'; prompt: string; options: string[] } | { kind: 'gap'; sentence: string; options: string[] } | { kind: 'truefalse'; statement: string })[];
+}
+
+type Lem = (s: string) => string[];
+
+/** Что учит грамматика: формы из таблиц и вариантов ответа уроков. */
+export function grammarLemmas(lessons: LessonText[], lem: Lem): Set<string> {
+  return new Set(
+    lessons.flatMap((l) => [
+      ...l.theory.flatMap((b) => (b.kind === 'table' ? b.rows.flatMap((r) => r.cells.flatMap(lem)) : [])),
+      ...l.exercises.flatMap((e) => ('options' in e ? e.options.flatMap(lem) : [])),
+    ]),
+  );
+}
+
+/** Где угодно в тексте курса: слова, их примеры, теория, примеры и задания уроков. */
+export function anywhereLemmas(words: { es: string; alt?: string[]; example: { es: string } }[], lessons: LessonText[], lem: Lem): Set<string> {
+  return new Set([
+    ...words.flatMap((w) => [w.es, ...(w.alt ?? []), w.example.es].flatMap(lem)),
+    ...grammarLemmas(lessons, lem),
+    ...lessons.flatMap((l) => [
+      ...l.theory.flatMap((b) => (b.kind === 'table' ? [] : lem(b.md))),
+      ...l.examples.flatMap((x) => lem(x.es)),
+      ...l.exercises.flatMap((e) => lem(e.kind === 'choose' ? e.prompt : e.kind === 'gap' ? e.sentence : e.statement)),
+    ]),
+  ]);
+}
+
+/**
+ * Словарь для фраз мест (задача 4.1): с какого уровня места известна лемма, что учит грамматика
+ * и служебные слова, которые встречаются в курсе.
+ */
+export interface Lexicon {
+  /** Лемма → самый низкий уровень места, где она есть среди слов. */
+  wordLevel: Map<string, number>;
+  grammar: Set<string>;
+  anywhere: Set<string>;
+  service: Set<string>;
+}
+
+export function buildLexicon(
+  words: { es: string; alt?: string[]; level: number; example: { es: string } }[],
+  lessons: LessonText[],
+  freq: FreqEntry[],
+  lem: Lem,
+): Lexicon {
+  const wordLevel = new Map<string, number>();
+  for (const w of words) {
+    for (const l of [w.es, ...(w.alt ?? [])].flatMap(lem)) wordLevel.set(l, Math.min(wordLevel.get(l) ?? Infinity, w.level));
+  }
+  return {
+    wordLevel,
+    grammar: grammarLemmas(lessons, lem),
+    anywhere: anywhereLemmas(words, lessons, lem),
+    service: new Set(freq.filter((e) => e.service).map((e) => e.lemma)),
+  };
+}
+
+/**
+ * Слова фразы, которые игрок к этому уровню ещё не знает: леммы нет среди слов мест уровня не выше,
+ * её не учит грамматика, и это не служебное слово, знакомое по текстам курса. Грамматика считается
+ * известной целиком: уровень урока к уровню места не привязан.
+ */
+export function uncoveredWords(text: string, level: number, lex: Lexicon, forms: Map<string, string>, lang: string): string[] {
+  const out: string[] = [];
+  for (const t of tokens(text)) {
+    const l = lemmaOf(t, forms, lang);
+    const known = (lex.wordLevel.get(l) ?? Infinity) <= level || lex.grammar.has(l) || (lex.service.has(l) && lex.anywhere.has(l));
+    if (!known && !out.includes(t)) out.push(t);
+  }
+  return out;
+}
+
 export interface Coverage {
   /** Частотный список без шума: служебные леммы, которых нет нигде в тексте курса, выброшены. */
   ranked: FreqEntry[];

@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { coverage, lemmaOf, lemmasIn, parseFreq, parseLemmas, share, tokens } from './vocab-lib';
+import { buildLexicon, coverage, lemmaOf, lemmasIn, parseFreq, parseLemmas, share, tokens, uncoveredWords } from './vocab-lib';
 
 const freq = parseFreq(['# шапка', '1\tel\t100\t?', '2\tser\t90\t', '3\tjohn\t80\t?', '4\tcasa\t70\t', '5\tque\t60\t?', '6\tperro\t50\t'].join('\n'));
 const forms = parseLemmas(['# шапка', 'es\tser', 'la\tel', 'casas\tcasa'].join('\n'));
@@ -44,5 +44,29 @@ describe('покрытие', () => {
   it('доля покрытых среди первых n', () => {
     expect(share(cov, 3)).toEqual({ words: 1, total: 3, n: 3 });
     expect(share(cov, 100)).toEqual({ words: 1, total: 4, n: 5 });
+  });
+});
+
+describe('словарь для фраз', () => {
+  const lem = (t: string) => lemmasIn(t, forms, 'es');
+  const lesson = {
+    theory: [{ kind: 'table' as const, rows: [{ cells: ['es', 'la'] }] }],
+    examples: [{ es: 'Que sí.' }],
+    exercises: [],
+  };
+  const lex = buildLexicon(
+    [{ es: 'la casa', level: 1, example: { es: 'Es la casa.' } }, { es: 'el perro', level: 3, example: { es: 'El perro.' } }],
+    [lesson],
+    freq,
+    lem,
+  );
+  it('слово известно с уровня места, грамматика и служебные слова — всегда', () => {
+    expect(lex.wordLevel.get('casa')).toBe(1);
+    expect(uncoveredWords('Es la casa', 1, lex, forms, 'es')).toEqual([]);
+    expect(uncoveredWords('que el perro', 2, lex, forms, 'es')).toEqual(['perro']);
+    expect(uncoveredWords('que el perro', 3, lex, forms, 'es')).toEqual([]);
+  });
+  it('незнакомое слово и служебное, которого нет в курсе', () => {
+    expect(uncoveredWords('La casas de John', 1, lex, forms, 'es')).toEqual(['de', 'john']);
   });
 });

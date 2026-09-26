@@ -138,3 +138,27 @@ export type Chronicler = Omit<Npc, 'location'>;
 
 /** Откуда грузятся слова: место или свиток главы (`scroll1`). */
 export type WordSource = LocationId | `scroll${number}`;
+
+/**
+ * Готовая фраза ситуации: то, что герой говорит жителю места (docs/GAME.md, этап «Сюжетные миссии»).
+ * Необязательные слова — в скобках: «(Yo) quiero un café». Фразы в словарный запас не входят.
+ */
+export interface Phrase {
+  /** `ph:<место>.<slug>`: приставка, как у правил, чтобы фраза не смешалась со словами места. */
+  id: string;
+  es: string;
+  ru: string;
+  /** Уровень места, с которого фраза доступна (1–7). */
+  level: number;
+  /** Другие верные варианты, тоже со скобками. */
+  alt?: string[];
+  /** Пояснение: когда так говорят, чем вариант отличается. */
+  note?: string;
+  /** id урока грамматики, на котором держится фраза. */
+  grammar?: string;
+}
+
+export interface LocationPhrases {
+  location: LocationId;
+  phrases: Phrase[];
+}

@@ -9,7 +9,7 @@ import { existsSync, readdirSync, readFileSync, writeFileSync, mkdirSync } from 
 import { join } from 'node:path';
 import type { GrammarLesson, LocationWords, ScrollFile } from '../src/content/schema';
 import { CHAPTERS, COVERAGE_GOAL, PLAN_TOTAL, VOCAB_GOAL, chapterOfLevel } from '../src/content/vocabPlan';
-import { BANDS, coverage, lemmasIn, parseFreq, parseLemmas, share } from './vocab-lib';
+import { anywhereLemmas, BANDS, coverage, grammarLemmas, lemmasIn, parseFreq, parseLemmas, share } from './vocab-lib';
 
 const root = join(import.meta.dirname, '..');
 const content = join(root, 'src', 'content');
@@ -40,23 +40,8 @@ function report(lang: string): string {
 
   // Что считается выученным: слова мест целиком (и слова внутри фраз), формы из таблиц и вариантов ответа уроков.
   const wordSet = new Set(words.flatMap((w) => [w.es, ...(w.alt ?? [])].flatMap(lem)));
-  const grammarSet = new Set(
-    lessons.flatMap((l) => [
-      ...l.theory.flatMap((b) => (b.kind === 'table' ? b.rows.flatMap((r) => r.cells.flatMap(lem)) : [])),
-      ...l.exercises.flatMap((e) => ('options' in e ? e.options.flatMap(lem) : [])),
-    ]),
-  );
-  // Где угодно в тексте курса: примеры слов, теория, примеры и задания уроков.
-  const anywhere = new Set([
-    ...wordSet,
-    ...grammarSet,
-    ...words.flatMap((w) => lem(w.example.es)),
-    ...lessons.flatMap((l) => [
-      ...l.theory.flatMap((b) => (b.kind === 'table' ? [] : lem(b.md))),
-      ...l.examples.flatMap((x) => lem(x.es)),
-      ...l.exercises.flatMap((e) => lem(e.kind === 'choose' ? e.prompt : e.kind === 'gap' ? e.sentence : e.statement)),
-    ]),
-  ]);
+  const grammarSet = grammarLemmas(lessons, lem);
+  const anywhere = anywhereLemmas(words, lessons, lem);
   const cov = coverage(freq, { words: wordSet, grammar: grammarSet, anywhere });
 
   // Повторы: одна и та же лемма как отдельное слово в разных местах.

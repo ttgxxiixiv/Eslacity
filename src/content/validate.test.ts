@@ -2,8 +2,8 @@ import { describe, expect, it } from 'vitest';
 import type { LocationWords, Word } from './schema';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { validateChronicler, validateGrammar, validateNpcs, validateScrolls, validateWords } from './validate';
-import { LOCATION_IDS, type Chronicler, type GrammarLesson, type NpcsFile, type ScrollFile } from './schema';
+import { validateChronicler, validateGrammar, validateNpcs, validatePhrases, validateScrolls, validateWords } from './validate';
+import { LOCATION_IDS, type Chronicler, type GrammarLesson, type LocationPhrases, type NpcsFile, type Phrase, type ScrollFile } from './schema';
 
 const base = (i: number, extra: Partial<Word> = {}): Word => ({
   id: `cafe.w${i}`, es: `la palabra${i}`, ru: `слово ${i}`, pos: 'noun', gender: 'f', level: 1, cefr: 'A1',
@@ -180,5 +180,42 @@ describe('validateChronicler', () => {
     expect(validateChronicler(n, undefined).map((x) => x.msg).join()).toMatch(/location лишнее/);
     const npcs = { npcs: [{ ...real('es'), location: 'cafe' }] } as NpcsFile;
     expect(validateChronicler(real('es'), npcs).map((x) => x.msg).join()).toMatch(/уже занят/);
+  });
+});
+
+describe('validatePhrases', () => {
+  const ph = (slug: string, es: string, extra: Partial<Phrase> = {}): Phrase => ({ id: `ph:cafe.${slug}`, es, ru: slug, level: 1, ...extra });
+  const run = (phrases: Phrase[], checks = {}) =>
+    validatePhrases([{ name: 'cafe.json', data: { location: 'cafe', phrases } as LocationPhrases }], checks);
+  const errs = (phrases: Phrase[], checks = {}) => run(phrases, checks).filter((x) => x.level === 'error').map((x) => x.msg).join('; ');
+
+  it('чистые фразы без ошибок', () => {
+    expect(run([ph('cafe', 'Un café, por favor.'), ph('quiero', '(Yo) quiero un té.', { alt: ['Un té, por favor.'], grammar: 'a1.12' })], { lessons: new Set(['a1.12']) })).toEqual([]);
+  });
+  it('id, уровень, урок, пустые поля', () => {
+    const e = errs([ph('a', 'Hola', { id: 'cafe.a', level: 8, grammar: 'x' }), ph('b', ' ', { ru: '' })], { lessons: new Set() });
+    expect(e).toMatch(/начинаться с "ph:cafe\."/);
+    expect(e).toMatch(/уровень 8/);
+    expect(e).toMatch(/нет урока грамматики "x"/);
+    expect(e).toMatch(/пустое поле es/);
+    expect(e).toMatch(/пустое поле ru/);
+  });
+  it('скобки и длина', () => {
+    expect(errs([ph('a', '((Yo)) quiero')])).toMatch(/вложенные скобки/);
+    expect(errs([ph('a', 'uno dos tres cuatro cinco seis siete ocho nueve diez once (doce trece)')])).toMatch(/13 слов, не больше 12/);
+  });
+  it('вариант одной фразы совпадает с другой — ошибка, со своим alt — нет', () => {
+    expect(errs([ph('a', '(Yo) quiero un té.'), ph('b', 'Quiero un té')])).toMatch(/вариант «Quiero un té» уже есть у ph:cafe\.a/);
+    expect(errs([ph('a', '(Yo) quiero un té.', { alt: ['Quiero un té.'] })])).toBe('');
+  });
+  it('непокрытые слова — предупреждение с уровнем', () => {
+    const w = run([ph('a', 'Una bicicleta roja', { level: 2 })], { uncovered: (t: string) => (t.includes('bicicleta') ? ['bicicleta'] : []) });
+    expect(w).toEqual([{ level: 'warning', where: 'phrases/cafe.json#0 ph:cafe.a', msg: 'es: нет в словаре уровня 2 и ниже: bicicleta' }]);
+  });
+  it('образцы кафе обоих языков проходят', () => {
+    for (const lang of ['es', 'it']) {
+      const data = JSON.parse(readFileSync(join(import.meta.dirname, lang, 'phrases', 'cafe.json'), 'utf8')) as LocationPhrases;
+      expect(validatePhrases([{ name: 'cafe.json', data }])).toEqual([]);
+    }
   });
 });
