@@ -91,6 +91,10 @@ export function anywhereLemmas(words: { es: string; alt?: string[]; example: { e
 export interface Lexicon {
   /** Лемма → самый низкий уровень места, где она есть среди слов. */
   wordLevel: Map<string, number>;
+  /** Основа слова (без окончания) → уровень: узнаёт формы, которых нет в таблице лемм. */
+  stemLevel: Map<string, number>;
+  /** Основы глаголов → уровень: спряжённая форма начинается с основы (cobrar → cobra, portare → portate). */
+  verbLevel: Map<string, number>;
   grammar: Set<string>;
   anywhere: Set<string>;
   service: Set<string>;
@@ -103,27 +107,58 @@ export function buildLexicon(
   lem: Lem,
 ): Lexicon {
   const wordLevel = new Map<string, number>();
+  const stemLevel = new Map<string, number>();
+  const verbLevel = new Map<string, number>();
+  const put = (m: Map<string, number>, k: string, lvl: number) => m.set(k, Math.min(m.get(k) ?? Infinity, lvl));
   for (const w of words) {
-    for (const l of [w.es, ...(w.alt ?? [])].flatMap(lem)) wordLevel.set(l, Math.min(wordLevel.get(l) ?? Infinity, w.level));
+    for (const l of [w.es, ...(w.alt ?? [])].flatMap(lem)) {
+      put(wordLevel, l, w.level);
+      put(stemLevel, stemOf(l), w.level);
+      const verb = plain(l).match(/^(.{4,})(?:ar|er|ir|are|ere|ire)$/);
+      if (verb) put(verbLevel, verb[1], w.level);
+    }
   }
   return {
     wordLevel,
+    stemLevel,
+    verbLevel,
     grammar: grammarLemmas(lessons, lem),
     anywhere: anywhereLemmas(words, lessons, lem),
     service: new Set(freq.filter((e) => e.service).map((e) => e.lemma)),
   };
 }
 
+const plain = (s: string) => s.normalize('NFD').replace(/\p{M}/gu, '').replace(/'$/, '');
+
 /**
- * Слова фразы, которые игрок к этому уровню ещё не знает: леммы нет среди слов мест уровня не выше,
- * её не учит грамматика, и это не служебное слово, знакомое по текстам курса. Грамматика считается
+ * Основа формы для сравнения без таблицы лемм: без ударений, апострофа элизии, множественного -s/-es
+ * и конечной гласной. melocotones → melocoton, llena → llen, ciliegie → ciliegi, quant' → quant.
+ */
+export function stemOf(token: string): string {
+  let t = plain(token);
+  if (t.length > 3 && t.endsWith('es')) t = t.slice(0, -2);
+  else if (t.length > 3 && t.endsWith('s')) t = t.slice(0, -1);
+  return t.length > 3 ? t.replace(/[aeiou]$/, '') : t;
+}
+
+/**
+ * Слова фразы, которые игрок к этому уровню ещё не знает: леммы нет среди слов мест уровня не выше
+ * (ни в таблице лемм, ни по основе, ни как спряжённый глагол), её не учит грамматика, и это не служебное
+ * слово, знакомое по текстам курса. Грамматика считается
  * известной целиком: уровень урока к уровню места не привязан.
  */
 export function uncoveredWords(text: string, level: number, lex: Lexicon, forms: Map<string, string>, lang: string): string[] {
   const out: string[] = [];
   for (const t of tokens(text)) {
     const l = lemmaOf(t, forms, lang);
-    const known = (lex.wordLevel.get(l) ?? Infinity) <= level || lex.grammar.has(l) || (lex.service.has(l) && lex.anywhere.has(l));
+    const stem = stemOf(t);
+    const verb = [...plain(t)].some((_, i) => i >= 4 && (lex.verbLevel.get(plain(t).slice(0, i)) ?? Infinity) <= level);
+    const known =
+      (lex.wordLevel.get(l) ?? Infinity) <= level ||
+      (lex.stemLevel.get(stem) ?? Infinity) <= level ||
+      verb ||
+      lex.grammar.has(l) ||
+      (lex.service.has(l) && lex.anywhere.has(l));
     if (!known && !out.includes(t)) out.push(t);
   }
   return out;

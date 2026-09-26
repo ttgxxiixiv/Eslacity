@@ -7,6 +7,13 @@ export interface Release {
 // Новые версии сверху. Версия первой записи должна совпадать с package.json (проверяется тестом).
 export const CHANGELOG: Release[] = [
   {
+    version: '2.21.0',
+    date: '2026-09-26',
+    notes: [
+      'Готовые фразы для кафе, рынка, супермаркета, ресторана и дома: по 25 на место на каждом языке, от «Un café, por favor» до «¿Me da la hoja de reclamaciones?». В игре они появятся вместе с сюжетными миссиями.',
+    ],
+  },
+  {
     version: '2.20.2',
     date: '2026-09-26',
     notes: [

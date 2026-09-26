@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { buildLexicon, coverage, lemmaOf, lemmasIn, parseFreq, parseLemmas, share, tokens, uncoveredWords } from './vocab-lib';
+import { buildLexicon, coverage, stemOf, lemmaOf, lemmasIn, parseFreq, parseLemmas, share, tokens, uncoveredWords } from './vocab-lib';
 
 const freq = parseFreq(['# шапка', '1\tel\t100\t?', '2\tser\t90\t', '3\tjohn\t80\t?', '4\tcasa\t70\t', '5\tque\t60\t?', '6\tperro\t50\t'].join('\n'));
 const forms = parseLemmas(['# шапка', 'es\tser', 'la\tel', 'casas\tcasa'].join('\n'));
@@ -68,5 +68,28 @@ describe('словарь для фраз', () => {
   });
   it('незнакомое слово и служебное, которого нет в курсе', () => {
     expect(uncoveredWords('La casas de John', 1, lex, forms, 'es')).toEqual(['de', 'john']);
+  });
+});
+
+describe('формы без таблицы лемм', () => {
+  it('основа: множественное, род, ударение, элизия', () => {
+    expect(stemOf('melocotones')).toBe(stemOf('melocotón'));
+    expect(stemOf('llena')).toBe(stemOf('lleno'));
+    expect(stemOf('ciliegie')).toBe(stemOf('ciliegia'));
+    expect(stemOf("quant'")).toBe(stemOf('quanto'));
+    expect(stemOf('ecológicos')).toBe(stemOf('ecológico'));
+  });
+  it('формы узнаются на своём уровне, спряжённый глагол — по основе', () => {
+    const lex = buildLexicon(
+      [{ es: 'el melocotón', level: 3, example: { es: 'x' } }, { es: 'cobrar', level: 4, example: { es: 'x' } }],
+      [],
+      [],
+      (t) => lemmasIn(t, new Map(), 'es'),
+    );
+    const miss = (t: string, l: number) => uncoveredWords(t, l, lex, new Map(), 'es');
+    expect(miss('melocotones', 3)).toEqual([]);
+    expect(miss('melocotones', 2)).toEqual(['melocotones']);
+    expect(miss('cobra cobramos', 4)).toEqual([]);
+    expect(miss('cobra', 3)).toEqual(['cobra']);
   });
 });

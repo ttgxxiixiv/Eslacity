@@ -219,3 +219,17 @@ describe('validatePhrases', () => {
     }
   });
 });
+
+describe('фразы мест: пачки контента', () => {
+  // Места с готовыми фразами: по 5 на каждый уровень 1–5 в обоих языках (задача 4.2).
+  const DONE = ['cafe', 'market', 'supermarket', 'restaurant', 'home'];
+  it('по пять фраз на уровень, одинаково в обоих языках', () => {
+    for (const lang of ['es', 'it']) {
+      for (const loc of DONE) {
+        const data = JSON.parse(readFileSync(join(import.meta.dirname, lang, 'phrases', `${loc}.json`), 'utf8')) as LocationPhrases;
+        const perLevel = [1, 2, 3, 4, 5].map((l) => data.phrases.filter((p) => p.level === l).length);
+        expect(perLevel, `${lang}/${loc}`).toEqual([5, 5, 5, 5, 5]);
+      }
+    }
+  });
+});
