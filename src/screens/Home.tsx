@@ -60,7 +60,7 @@ function newWordsLabel(n: number) {
 /** Золотая стрелка квеста: объёмный наконечник с вырезом, светлая грань сверху, тёмная снизу. Покачивается. */
 function QuestArrow() {
   return (
-    <svg viewBox="0 0 40 36" className="bob h-9 w-10 shrink-0" aria-hidden>
+    <svg viewBox="0 0 40 36" className="bob h-8 w-9 shrink-0" aria-hidden>
       <defs>
         <linearGradient id="qa-top" x1="0" y1="0" x2="0" y2="1">
           <stop offset="0" stopColor="#fff4c2" />
@@ -79,6 +79,17 @@ function QuestArrow() {
   );
 }
 
+/** Белая подпись квеста: строки по смыслу, длинная строка переносится по словам. */
+function QuestLines({ lines }: { lines: string[] }) {
+  return (
+    <div className="quest-text text-[13px] leading-snug">
+      {lines.map((l) => (
+        <div key={l}>{l}</div>
+      ))}
+    </div>
+  );
+}
+
 function ContinueCard({ step }: { step: NextStep }) {
   if (step.kind === 'chapter') {
     const next = chapterById(step.next);
@@ -93,10 +104,11 @@ function ContinueCard({ step }: { step: NextStep }) {
     );
   }
   if (step.kind === 'errands') {
+    const words = `${step.due} ${plural(step.due, ['слово', 'слова', 'слов'])}`;
     const sub =
       step.reason === 'limit'
-        ? `Новых слов на сегодня хватит. Жители просят помочь вспомнить: ${step.due} ${plural(step.due, ['слово', 'слова', 'слов'])}`
-        : `Накопилось ${step.due} ${plural(step.due, ['слово', 'слова', 'слов'])} к повтору — сначала помогите жителям`;
+        ? ['Новых слов на сегодня хватит.', `Жители просят помочь вспомнить: ${words}`]
+        : [`Накопилось ${words} к повтору.`, 'Сначала помогите жителям'];
     const then = step.then.kind === 'learn' ? step.then : null;
     return (
       <div>
@@ -104,12 +116,12 @@ function ContinueCard({ step }: { step: NextStep }) {
           to="/errands"
           data-testid="continue"
           data-kind="errands"
-          className="press quest-card flex min-h-[124px] items-center justify-between gap-3 rounded-xl px-3 py-2 text-white"
+          className="press quest-card flex min-h-[124px] items-center justify-between gap-1.5 rounded-xl py-2 pr-1 pl-3 text-white"
         >
           <div className="min-w-0">
             <div className="quest-gold font-pixel text-xs tracking-widest uppercase">Текущий квест</div>
             <div className="quest-gold font-pixel text-2xl font-bold">Поручения</div>
-            <div className="quest-text text-sm">{sub}</div>
+            <QuestLines lines={sub} />
           </div>
           <QuestArrow />
         </Link>
@@ -135,37 +147,38 @@ function ContinueCard({ step }: { step: NextStep }) {
   }
   const meta = LOCATION_BY_ID[step.loc];
   let to: string;
-  let sub: string;
+  // Подпись по строкам: каждая мысль с новой строки, без разделителей, которые рвут строку посередине.
+  let sub: string[];
   let npc: Npc | undefined;
   let label = 'Текущий квест';
   if (step.kind === 'learn') {
     to = `/learn/${step.loc}/${step.level}/${step.part}`;
-    sub = `${meta.emoji} ${meta.ru} · уровень ${step.level} · урок ${step.part + 1}`;
+    sub = [`${meta.emoji} ${meta.ru}`, `уровень ${step.level}, урок ${step.part + 1}`];
     if (step.newWords) {
       // Урок новых слов — просьба жителя места.
       npc = NPC_BY_LOCATION[step.loc];
       if (npc) {
         label = `Просьба: ${npc.name}`;
-        sub = `Выучить ${step.newWords} ${newWordsLabel(step.newWords)} · ${meta.emoji} ${meta.ru}, урок ${step.part + 1}`;
-      } else sub += ` · ${step.newWords} ${newWordsLabel(step.newWords)}`;
+        sub = [`Выучить ${step.newWords} ${newWordsLabel(step.newWords)}`, `${meta.emoji} ${meta.ru}, урок ${step.part + 1}`];
+      } else sub.push(`${step.newWords} ${newWordsLabel(step.newWords)}`);
     }
   } else {
     to = `/loc/${step.loc}`;
     const what = step.kind === 'upgrade' ? `улучшить до уровня ${step.toLevel}` : 'открыть';
-    sub = `${meta.emoji} ${meta.ru}: ${what} за 🪙 ${step.cost}`;
-    if (step.missing) sub += `, не хватает ${step.missing}`;
+    sub = [`${meta.emoji} ${meta.ru}: ${what} за 🪙 ${step.cost}`];
+    if (step.missing) sub.push(`Не хватает ${step.missing}`);
   }
   return (
     <Link
       to={to}
       data-testid="continue"
-      className="press quest-card flex min-h-[124px] items-center justify-between gap-3 rounded-xl px-3 py-2 text-white"
+      className="press quest-card flex min-h-[124px] items-center justify-between gap-1.5 rounded-xl py-2 pr-1 pl-3 text-white"
     >
-      {npc && <NpcPortrait look={npc.look} size={54} className="-my-1" />}
+      {npc && <NpcPortrait look={npc.look} size={44} className="-ml-1 shrink-0" />}
       <div className="min-w-0 flex-1">
         <div className="quest-gold font-pixel text-xs tracking-widest uppercase">{label}</div>
-        <div className={`quest-gold font-pixel font-bold ${npc ? 'text-xl' : 'text-2xl'}`}>Продолжить</div>
-        <div className="quest-text text-sm">{sub}</div>
+        <div className={`quest-gold font-pixel font-bold whitespace-nowrap ${npc ? 'text-lg' : 'text-2xl'}`}>Продолжить</div>
+        <QuestLines lines={sub} />
       </div>
       <QuestArrow />
     </Link>
@@ -275,7 +288,7 @@ export function Home() {
             to="/journey-map"
             aria-label="Карта странствий"
             data-testid="map-button"
-            className="press w-[74px] shrink-0 self-start"
+            className="press w-[68px] shrink-0 self-start"
           >
             {/* Надпись «Карта» нарисована на картинке, для экранного диктора — aria-label. */}
             <img src={mapButton} alt="" width={316} height={639} className="block h-auto w-full drop-shadow-md" />

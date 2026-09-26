@@ -1,6 +1,13 @@
 @import "tailwindcss";
 @import "@fontsource/tiny5/latin-400.css";
-@import "@fontsource/tiny5/cyrillic-400.css";
+/* Кириллица Tiny5 с исправленными Ь, Ъ, Ы (брюшко в четыре пикселя): scripts/patch-tiny5.py. */
+@font-face {
+  font-family: 'Tiny5';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url('./assets/fonts/tiny5-cyrillic-400-normal.woff2') format('woff2'), url('./assets/fonts/tiny5-cyrillic-400-normal.woff') format('woff');
+}
 
 /*
  * Тема в духе RPG: пергамент, тёмное дерево, королевский синий и золото.
