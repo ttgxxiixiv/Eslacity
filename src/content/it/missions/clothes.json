@@ -1,0 +1,27 @@
+{
+  "location": "clothes",
+  "missions": [
+    {
+      "id": "ms:clothes.1",
+      "chapter": 1,
+      "npc": "chiara",
+      "scene": "sc:clothes.1",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Oggi cerchiamo vestiti per la montagna. Cosa ti serve?", "ru": "Сегодня подбираем одежду для гор. Что тебе нужно?", "next": "coat"},
+        "coat": {"kind": "answer", "task": "Спросите, есть ли пальто.", "branches": [{"phrase": "ph:clothes.avete-cappotti", "next": "coatsay"}], "wrong": {"es": "Avete del pane? Qui vendiamo vestiti, non pane.", "ru": "Хлеб есть? Мы тут продаём одежду, а не хлеб."}},
+        "coatsay": {"kind": "say", "es": "Questo cappotto nero è molto bello. Vuoi vederlo?", "ru": "Это чёрное пальто очень красивое. Хочешь посмотреть?", "next": "try"},
+        "try": {"kind": "answer", "task": "Спросите, можно ли примерить.", "branches": [{"phrase": "ph:clothes.posso-provarlo", "next": "trysay"}], "wrong": {"es": "Mangiare il cappotto? No, no! Si prova, non si mangia.", "ru": "Съесть пальто? Нет-нет! Его примеряют, а не едят."}},
+        "trysay": {"kind": "say", "es": "Va bene. Come ti sta?", "ru": "Хорошо. Как сидит?", "next": "big"},
+        "big": {"kind": "answer", "task": "Скажите, что вам велико.", "branches": [{"phrase": "ph:clothes.sta-grande", "next": "bigsay"}], "wrong": {"es": "Piccolo? No, no: ti sta grande.", "ru": "Маловато? Нет-нет: оно тебе велико."}},
+        "bigsay": {"kind": "say", "es": "Hai ragione, è molto grande. Ne ho uno più piccolo, nero.", "ru": "Ты прав, оно слишком большое. Есть поменьше, чёрное.", "next": "color"},
+        "color": {"kind": "answer", "task": "Спросите, есть ли такое же синего цвета.", "branches": [{"phrase": "ph:clothes.ce-avete-blu", "next": "colorsay"}], "wrong": {"es": "In rosso? In montagna, meglio di no!", "ru": "Красное? В горах — лучше не надо!"}},
+        "colorsay": {"kind": "say", "es": "Eccolo, in blu. Ti sta benissimo.", "ru": "Вот, синее. Тебе очень идёт.", "next": "sale"},
+        "sale": {"kind": "answer", "task": "Спросите, есть ли сейчас скидки.", "branches": [{"phrase": "ph:clothes.ci-sono-saldi", "next": "salesay"}], "wrong": {"es": "Ci sono dei gatti? No, qui ci sono solo vestiti.", "ru": "Кошки есть? Нет, тут только одежда."}},
+        "salesay": {"kind": "say", "es": "Sì, ci sono i saldi: per te, venti euro. Altro?", "ru": "Да, скидки есть: для тебя — двадцать евро. Что-нибудь ещё?", "next": "shoes"},
+        "shoes": {"kind": "answer", "task": "Скажите, что вам нужны ещё туфли.", "branches": [{"phrase": "ph:clothes.servono-delle-scarpe", "next": "end"}], "wrong": {"es": "Ti serve un letto? Qui non vendo letti.", "ru": "Тебе нужна кровать? Кроватей я не продаю."}},
+        "end": {"kind": "say", "es": "Per la montagna, queste scarpe. E prendi il pezzo della mappa. In montagna fa freddo, e adesso hai il cappotto.", "ru": "Для гор — вот эти ботинки. И держи обрывок карты. В горах холодно, а у тебя теперь есть пальто."}
+      }
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "location": "school",
+  "scenes": [
+    {
+      "id": "sc:school.1",
+      "chapter": 1,
+      "npc": "elena",
+      "lines": [
+        {"who": "npc", "es": "¡Buenos días! ¿Empezamos la clase?", "ru": "Доброе утро! Начнём урок?"},
+        {"who": "hero", "es": "Buenos días. Hoy tengo una pregunta.", "ru": "Доброе утро. Сегодня у меня вопрос."},
+        {"who": "npc", "es": "Muy bien. Las preguntas siempre son buenas.", "ru": "Очень хорошо. Вопросы — это всегда хорошо."},
+        {"who": "hero", "es": "¿Usted sabe algo del mapa?", "ru": "Вы что-нибудь знаете о карте?"},
+        {"who": "npc", "es": "Tengo un trozo. Mira: aquí hay unas palabras.", "ru": "У меня есть обрывок. Смотри: здесь какие-то слова."},
+        {"who": "hero", "es": "No entiendo esta palabra.", "ru": "Я не понимаю это слово."},
+        {"who": "npc", "es": "Es español muy viejo. Dice: «Solo quien habla, pasa».", "ru": "Это очень старый испанский. Здесь написано: «Пройдёт только тот, кто говорит»."},
+        {"who": "hero", "es": "¿Pasa? ¿A dónde?", "ru": "Пройдёт? Куда?"},
+        {"who": "npc", "es": "A la Bóveda. En la puerta, alguien hace preguntas. Solo pasa quien sabe las respuestas.", "ru": "В Хранилище. У двери кто-то задаёт вопросы. Пройдёт только тот, кто знает ответы."},
+        {"who": "hero", "es": "Tengo que estudiar mucho.", "ru": "Мне нужно много учиться."},
+        {"who": "npc", "es": "Por eso estás aquí. ¡Empezamos!", "ru": "Поэтому ты здесь. Начинаем!"}
+      ],
+      "questions": [
+        {"q": "С чем герой пришёл на урок?", "options": ["С вопросом", "С экзаменом", "С новой тетрадью"], "answer": 0},
+        {"q": "Что написано на обрывке?", "options": ["«Пройдёт только тот, кто говорит»", "«Дорога идёт к морю»", "«Карта лежит в банке»"], "answer": 0},
+        {"q": "Кто ждёт у двери Хранилища?", "options": ["Почтальон", "Кто-то, кто задаёт вопросы", "Никого нет"], "answer": 1},
+        {"q": "Что решает герой?", "options": ["Бросить поиски", "Купить новую карту", "Много учиться"], "answer": 2}
+      ],
+      "gloss": {"trozo": "обрывок", "bóveda": "Хранилище"}
+    }
+  ]
+}

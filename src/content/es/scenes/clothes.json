@@ -1,0 +1,30 @@
+{
+  "location": "clothes",
+  "scenes": [
+    {
+      "id": "sc:clothes.1",
+      "chapter": 1,
+      "npc": "marta",
+      "lines": [
+        {"who": "npc", "es": "¡Buenos días! Esa camisa te sienta muy bien.", "ru": "Доброе утро! Эта рубашка тебе очень идёт."},
+        {"who": "hero", "es": "Gracias. Necesito ropa para un viaje.", "ru": "Спасибо. Мне нужна одежда для поездки."},
+        {"who": "npc", "es": "¿Un viaje? ¿A dónde vas?", "ru": "Поездка? Куда ты едешь?"},
+        {"who": "hero", "es": "A las montañas. Busco el camino del mapa.", "ru": "В горы. Я ищу дорогу с карты."},
+        {"who": "npc", "es": "En las montañas hace mucho frío. Necesitas un abrigo.", "ru": "В горах очень холодно. Тебе нужно пальто."},
+        {"who": "hero", "es": "¿Tienen abrigos?", "ru": "У вас есть пальто?"},
+        {"who": "npc", "es": "Tengo uno muy viejo, de mi madre. Mira, en el abrigo hay algo.", "ru": "У меня есть одно очень старое, мамино. Смотри, в пальто что-то есть."},
+        {"who": "hero", "es": "¿Algo? ¡Es un trozo del mapa!", "ru": "Что-то? Это обрывок карты!"},
+        {"who": "npc", "es": "¡No lo sabía! Mi madre nunca dijo nada.", "ru": "Я и не знала! Мама никогда ничего не говорила."},
+        {"who": "hero", "es": "¿Me lo puedo probar?", "ru": "Можно примерить?"},
+        {"who": "npc", "es": "No, es muy grande para ti. Te busco un abrigo bonito. Y el trozo... después hablamos.", "ru": "Нет, оно тебе велико. Подберу тебе красивое пальто. А обрывок... потом поговорим."}
+      ],
+      "questions": [
+        {"q": "Куда собирается герой?", "options": ["На море", "В горы", "В аэропорт"], "answer": 1},
+        {"q": "Почему герою нужно пальто?", "options": ["В горах очень холодно", "Идёт дождь", "Старое порвалось"], "answer": 0},
+        {"q": "Где нашёлся обрывок карты?", "options": ["В старом пальто", "В коробке с обувью", "На кассе"], "answer": 0},
+        {"q": "Почему Марта не даёт герою старое пальто?", "options": ["Оно слишком дорогое", "Оно ему велико", "Оно мамино, и его нельзя продавать"], "answer": 1}
+      ],
+      "gloss": {"trozo": "обрывок"}
+    }
+  ]
+}

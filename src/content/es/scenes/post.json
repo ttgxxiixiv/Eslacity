@@ -1,0 +1,30 @@
+{
+  "location": "post",
+  "scenes": [
+    {
+      "id": "sc:post.1",
+      "chapter": 1,
+      "npc": "rafa",
+      "lines": [
+        {"who": "npc", "es": "¡Buenos días! Tengo una carta para ti.", "ru": "Доброе утро! У меня для тебя письмо."},
+        {"who": "hero", "es": "¿Para mí? ¿De quién?", "ru": "Мне? От кого?"},
+        {"who": "npc", "es": "No lo sé. No lo dice.", "ru": "Не знаю. Не написано."},
+        {"who": "hero", "es": "¿Tú conoces bien la ciudad?", "ru": "Ты хорошо знаешь город?"},
+        {"who": "npc", "es": "Conozco cada casa y cada calle. Llevo las cartas en bicicleta, muy rápido.", "ru": "Я знаю каждый дом и каждую улицу. Развожу письма на велосипеде, очень быстро."},
+        {"who": "hero", "es": "¿Sabes quién tiene trozos del mapa?", "ru": "Ты знаешь, у кого обрывки карты?"},
+        {"who": "npc", "es": "Cada lugar de la ciudad tiene uno. Veinte lugares, veinte trozos.", "ru": "У каждого места в городе по одному. Двадцать мест — двадцать обрывков."},
+        {"who": "hero", "es": "¿Y tú tienes uno?", "ru": "А у тебя есть?"},
+        {"who": "npc", "es": "Tengo el trozo de correos. Ahora tengo prisa: ¡cien cartas hoy!", "ru": "У меня обрывок почты. А сейчас я спешу: сегодня сто писем!"},
+        {"who": "hero", "es": "¿Y la carta?", "ru": "А письмо?"},
+        {"who": "npc", "es": "¡Ábrela en casa! ¡Hasta mañana!", "ru": "Открой дома! До завтра!"}
+      ],
+      "questions": [
+        {"q": "Что почтальон принёс герою?", "options": ["Письмо, неизвестно от кого", "Посылку от мамы", "Счёт из банка"], "answer": 0},
+        {"q": "На чём Рафа развозит письма?", "options": ["На машине", "На велосипеде", "Пешком"], "answer": 1},
+        {"q": "Сколько обрывков карты в городе?", "options": ["Пять", "Десять", "Двадцать"], "answer": 2},
+        {"q": "Почему почтальон торопится?", "options": ["Сегодня у него сто писем", "Он опаздывает на поезд", "Скоро дождь"], "answer": 0}
+      ],
+      "gloss": {"trozo": "обрывок", "trozos": "обрывки"}
+    }
+  ]
+}

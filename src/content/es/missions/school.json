@@ -1,0 +1,27 @@
+{
+  "location": "school",
+  "missions": [
+    {
+      "id": "ms:school.1",
+      "chapter": 1,
+      "npc": "elena",
+      "scene": "sc:school.1",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Hoy en clase leemos el trozo del mapa. ¿Estás listo?", "ru": "Сегодня на уроке читаем обрывок карты. Готов?", "next": "pen"},
+        "pen": {"kind": "answer", "task": "Спросите, есть ли у неё ручка.", "branches": [{"phrase": "ph:school.tienes-boligrafo", "next": "pensay"}], "wrong": {"es": "¿Un plátano? Para escribir, mejor un bolígrafo.", "ru": "Банан? Писать лучше ручкой."}},
+        "pensay": {"kind": "say", "es": "Toma. Mira el trozo. Aquí hay una palabra muy vieja.", "ru": "Держи. Посмотри на обрывок. Здесь очень старое слово.", "next": "word"},
+        "word": {"kind": "answer", "task": "Скажите, что не понимаете это слово.", "branches": [{"phrase": "ph:school.no-entiendo-esta", "next": "wordsay"}], "wrong": {"es": "¿Quieres decir «no entiendo esta palabra»?", "ru": "Ты хочешь сказать «я не понимаю это слово»?"}},
+        "wordsay": {"kind": "say", "es": "La palabra es «entra». Solo entra quien habla el idioma.", "ru": "Это слово — «входит». Входит только тот, кто говорит на языке.", "next": "repeat"},
+        "repeat": {"kind": "answer", "task": "Попросите повторить.", "branches": [{"phrase": "ph:school.puede-repetir", "next": "repsay"}], "wrong": {"es": "¿Un examen ahora? No, no, hoy no hay examen.", "ru": "Экзамен сейчас? Нет-нет, сегодня экзамена нет."}},
+        "repsay": {"kind": "say", "es": "Despacio: solo entra quien habla el idioma.", "ru": "Медленно: входит только тот, кто говорит на языке.", "next": "write"},
+        "write": {"kind": "answer", "task": "Спросите, как это пишется.", "branches": [{"phrase": "ph:school.como-se-escribe", "next": "writesay"}], "wrong": {"es": "¿Cómo se come? Las palabras no se comen.", "ru": "Как это едят? Слова не едят."}},
+        "writesay": {"kind": "say", "es": "Se escribe como se dice. Escríbelo en tu cuaderno.", "ru": "Пишется так, как слышится. Запиши в тетрадь.", "next": "nb"},
+        "nb": {"kind": "answer", "task": "Спросите, где ваша тетрадь.", "branches": [{"phrase": "ph:school.donde-esta-cuaderno", "next": "nbsay"}], "wrong": {"es": "¿Quieres decir «dónde está mi cuaderno»?", "ru": "Ты хочешь сказать «где моя тетрадь»?"}},
+        "nbsay": {"kind": "say", "es": "Está en tu mochila, como siempre. ¿Alguna pregunta?", "ru": "В твоём рюкзаке, как всегда. Есть вопросы?", "next": "q"},
+        "q": {"kind": "answer", "task": "Скажите, что у вас есть вопрос.", "branches": [{"phrase": "ph:school.tengo-pregunta", "next": "end"}], "wrong": {"es": "¿Tienes hambre? Después de la clase comemos.", "ru": "Проголодался? Поедим после урока."}},
+        "end": {"kind": "say", "es": "¿Quieres saber quién está en la puerta de la Bóveda? Nadie lo sabe. Toma el trozo. Un día vas a entender el mapa.", "ru": "Хочешь знать, кто у двери Хранилища? Никто не знает. Возьми обрывок. Однажды ты поймёшь эту карту."}
+      }
+    }
+  ]
+}

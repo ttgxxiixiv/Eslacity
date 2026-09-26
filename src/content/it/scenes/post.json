@@ -1,0 +1,30 @@
+{
+  "location": "post",
+  "scenes": [
+    {
+      "id": "sc:post.1",
+      "chapter": 1,
+      "npc": "enzo",
+      "lines": [
+        {"who": "npc", "es": "C'è una lettera per te!", "ru": "У меня для тебя письмо!"},
+        {"who": "hero", "es": "Per me? Di chi?", "ru": "Мне? От кого?"},
+        {"who": "npc", "es": "Non lo so. Non c'è scritto.", "ru": "Не знаю. Не написано."},
+        {"who": "hero", "es": "Tu conosci bene la città?", "ru": "Ты хорошо знаешь город?"},
+        {"who": "npc", "es": "Conosco ogni casa e ogni strada. Porto le lettere in Vespa, molto veloce.", "ru": "Я знаю каждый дом и каждую улицу. Развожу письма на «Веспе», очень быстро."},
+        {"who": "hero", "es": "Sai chi ha i pezzi della mappa?", "ru": "Ты знаешь, у кого обрывки карты?"},
+        {"who": "npc", "es": "Ogni posto della città ne ha uno. Venti posti, venti pezzi.", "ru": "У каждого места в городе по одному. Двадцать мест — двадцать обрывков."},
+        {"who": "hero", "es": "E tu ne hai uno?", "ru": "А у тебя есть?"},
+        {"who": "npc", "es": "Ho il pezzo della posta. Adesso devo andare: cento lettere oggi!", "ru": "У меня обрывок почты. А сейчас мне пора: сегодня сто писем!"},
+        {"who": "hero", "es": "E la lettera?", "ru": "А письмо?"},
+        {"who": "npc", "es": "Aprila a casa! A domani!", "ru": "Открой дома! До завтра!"}
+      ],
+      "questions": [
+        {"q": "Что почтальон принёс герою?", "options": ["Письмо, неизвестно от кого", "Посылку от мамы", "Счёт из банка"], "answer": 0},
+        {"q": "На чём Энцо развозит письма?", "options": ["На машине", "На «Веспе»", "Пешком"], "answer": 1},
+        {"q": "Сколько обрывков карты в городе?", "options": ["Пять", "Десять", "Двадцать"], "answer": 2},
+        {"q": "Почему почтальон торопится?", "options": ["Сегодня у него сто писем", "Он опаздывает на поезд", "Скоро дождь"], "answer": 0}
+      ],
+      "gloss": {"pezzo": "обрывок", "pezzi": "обрывки", "vespa": "«Веспа», мотороллер"}
+    }
+  ]
+}

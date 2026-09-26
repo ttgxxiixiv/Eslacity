@@ -1,0 +1,30 @@
+{
+  "location": "clothes",
+  "scenes": [
+    {
+      "id": "sc:clothes.1",
+      "chapter": 1,
+      "npc": "chiara",
+      "lines": [
+        {"who": "npc", "es": "Quella camicia ti sta benissimo!", "ru": "Эта рубашка тебе очень идёт!"},
+        {"who": "hero", "es": "Grazie. Mi servono dei vestiti per un viaggio.", "ru": "Спасибо. Мне нужна одежда для поездки."},
+        {"who": "npc", "es": "Un viaggio? Dove vai?", "ru": "Поездка? Куда ты едешь?"},
+        {"who": "hero", "es": "In montagna. Cerco la strada della mappa.", "ru": "В горы. Я ищу дорогу с карты."},
+        {"who": "npc", "es": "In montagna fa molto freddo. Ti serve un cappotto.", "ru": "В горах очень холодно. Тебе нужно пальто."},
+        {"who": "hero", "es": "Avete dei cappotti?", "ru": "У вас есть пальто?"},
+        {"who": "npc", "es": "Ne ho uno molto vecchio, di mia madre. Guarda, nel cappotto c'è qualcosa.", "ru": "У меня есть одно очень старое, мамино. Смотри, в пальто что-то есть."},
+        {"who": "hero", "es": "Qualcosa? È un pezzo della mappa!", "ru": "Что-то? Это обрывок карты!"},
+        {"who": "npc", "es": "Non lo sapevo! Mia madre non ha mai detto niente.", "ru": "Я и не знала! Мама никогда ничего не говорила."},
+        {"who": "hero", "es": "Posso provarlo?", "ru": "Можно примерить?"},
+        {"who": "npc", "es": "No, ti sta grande. Ti cerco un bel cappotto. E il pezzo... ne parliamo dopo.", "ru": "Нет, оно тебе велико. Подберу тебе красивое пальто. А обрывок... потом поговорим."}
+      ],
+      "questions": [
+        {"q": "Куда собирается герой?", "options": ["На море", "В горы", "В аэропорт"], "answer": 1},
+        {"q": "Почему герою нужно пальто?", "options": ["В горах очень холодно", "Идёт дождь", "Старое порвалось"], "answer": 0},
+        {"q": "Где нашёлся обрывок карты?", "options": ["В старом пальто", "В коробке с обувью", "На кассе"], "answer": 0},
+        {"q": "Почему Кьяра не даёт герою старое пальто?", "options": ["Оно слишком дорогое", "Оно ему велико", "Оно мамино, и его нельзя продавать"], "answer": 1}
+      ],
+      "gloss": {"pezzo": "обрывок"}
+    }
+  ]
+}

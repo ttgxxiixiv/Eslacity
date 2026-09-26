@@ -1,0 +1,30 @@
+{
+  "location": "bank",
+  "scenes": [
+    {
+      "id": "sc:bank.1",
+      "chapter": 1,
+      "npc": "ferri",
+      "lines": [
+        {"who": "npc", "es": "Come posso aiutarla?", "ru": "Чем могу помочь?"},
+        {"who": "hero", "es": "Cerco un pezzo della mappa. La banca ne ha uno?", "ru": "Я ищу обрывок карты. У банка есть такой?"},
+        {"who": "npc", "es": "La banca ne ha uno, in cassaforte.", "ru": "У банка есть один, в сейфе."},
+        {"who": "hero", "es": "Me lo può dare?", "ru": "Можете мне его отдать?"},
+        {"who": "npc", "es": "Ci sono delle regole. Senza conto, niente.", "ru": "Есть правила. Без счёта — ничего."},
+        {"who": "hero", "es": "Allora vorrei aprire un conto.", "ru": "Тогда я хочу открыть счёт."},
+        {"who": "npc", "es": "Molto bene. Lei firma qui, qui e qui.", "ru": "Очень хорошо. Вы расписываетесь здесь, здесь и здесь."},
+        {"who": "hero", "es": "Quante firme!", "ru": "Сколько подписей!"},
+        {"who": "npc", "es": "In banca, le firme sono importanti.", "ru": "В банке подписи — это важно."},
+        {"who": "hero", "es": "E il Caveau della mappa? È come una banca?", "ru": "А Хранилище с карты? Оно как банк?"},
+        {"who": "npc", "es": "Dicono che è la cassaforte più grande del mondo. E non ha una chiave: ha delle domande.", "ru": "Говорят, это самый большой сейф в мире. И у него нет ключа: у него вопросы."}
+      ],
+      "questions": [
+        {"q": "Где банк хранит обрывок?", "options": ["В сейфе", "У кассира в кармане", "На почте"], "answer": 0},
+        {"q": "Какое у Ферри первое правило?", "options": ["Без счёта — ничего", "Сначала кофе", "Без очереди не входить"], "answer": 0},
+        {"q": "Сколько раз надо расписаться?", "options": ["Один", "Два", "Три"], "answer": 2},
+        {"q": "Что говорят о Хранилище?", "options": ["Что это обычный банк", "Что это самый большой сейф, и вместо ключа у него вопросы", "Что его давно нет"], "answer": 1}
+      ],
+      "gloss": {"pezzo": "обрывок", "caveau": "Хранилище", "cassaforte": "сейф", "regole": "правила"}
+    }
+  ]
+}

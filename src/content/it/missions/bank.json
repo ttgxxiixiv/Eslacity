@@ -1,0 +1,25 @@
+{
+  "location": "bank",
+  "missions": [
+    {
+      "id": "ms:bank.1",
+      "chapter": 1,
+      "npc": "ferri",
+      "scene": "sc:bank.1",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Lei ha già un conto, molto bene. Cosa desidera fare oggi?", "ru": "У вас уже есть счёт, очень хорошо. Что желаете сделать сегодня?", "next": "money"},
+        "money": {"kind": "answer", "task": "Скажите, что хотите положить деньги на счёт.", "branches": [{"phrase": "ph:bank.vorrei-versare-soldi", "next": "msay"}], "wrong": {"es": "Vuole comprare la banca? La banca non si vende.", "ru": "Хотите купить банк? Банк не продаётся."}},
+        "msay": {"kind": "say", "es": "Molto bene. Carta o contanti?", "ru": "Очень хорошо. Карта или наличные?", "next": "cash"},
+        "cash": {"kind": "answer", "task": "Скажите, что у вас только наличные.", "branches": [{"phrase": "ph:bank.ho-solo-contanti", "next": "cashsay"}], "wrong": {"es": "Ha solo fame? In banca non si mangia.", "ru": "Только голод? В банке не едят."}},
+        "cashsay": {"kind": "say", "es": "Contanti. Bene. Venti euro sul suo conto.", "ru": "Наличные. Хорошо. Двадцать евро на ваш счёт.", "next": "saldo"},
+        "saldo": {"kind": "answer", "task": "Спросите, какой у вас баланс.", "branches": [{"phrase": "ph:bank.qual-mio-saldo", "next": "saldosay"}], "wrong": {"es": "La mia casa? Questo non si chiede.", "ru": "Мой дом? Об этом не спрашивают."}},
+        "saldosay": {"kind": "say", "es": "Il suo saldo: venti euro. Adesso, il pezzo della mappa: serve una firma.", "ru": "Ваш баланс: двадцать евро. Теперь обрывок карты: нужна подпись.", "next": "sign"},
+        "sign": {"kind": "answer", "task": "Спросите, где вам расписаться.", "branches": [{"phrase": "ph:bank.dove-devo-firmare", "next": "signsay"}], "wrong": {"es": "Dove deve dormire? A casa sua, non in banca.", "ru": "Где вам спать? Дома, а не в банке."}},
+        "signsay": {"kind": "say", "es": "Qui. E qui. E qui. Altro?", "ru": "Здесь. И здесь. И здесь. Что-нибудь ещё?", "next": "fee"},
+        "fee": {"kind": "answer", "task": "Спросите, какая комиссия.", "branches": [{"phrase": "ph:bank.quant-commissione", "next": "end"}], "wrong": {"es": "Quanto costa un caffè? Questo, al bar.", "ru": "Сколько стоит кофе? Это вам в бар."}},
+        "end": {"kind": "say", "es": "Per lei, niente. In banca è così: chi parla italiano non paga. Ecco il suo pezzo della mappa. E un consiglio: il Caveau non si apre con la chiave, si apre con le parole.", "ru": "Для вас — ничего. В банке так заведено: кто говорит по-итальянски, не платит. Вот ваш обрывок карты. И совет: Хранилище открывается не ключом, а словами."}
+      }
+    }
+  ]
+}

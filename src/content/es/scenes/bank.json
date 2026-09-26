@@ -1,0 +1,30 @@
+{
+  "location": "bank",
+  "scenes": [
+    {
+      "id": "sc:bank.1",
+      "chapter": 1,
+      "npc": "gomez",
+      "lines": [
+        {"who": "npc", "es": "Buenos días. ¿En qué puedo ayudarle?", "ru": "Добрый день. Чем могу помочь?"},
+        {"who": "hero", "es": "Busco un trozo del mapa. ¿El banco tiene uno?", "ru": "Я ищу обрывок карты. У банка есть такой?"},
+        {"who": "npc", "es": "El banco tiene uno, en la caja fuerte.", "ru": "У банка есть один, в сейфе."},
+        {"who": "hero", "es": "¿Me lo puede dar?", "ru": "Можете мне его отдать?"},
+        {"who": "npc", "es": "Hay reglas. Regla uno: sin cuenta, nada.", "ru": "Есть правила. Правило номер один: без счёта — ничего."},
+        {"who": "hero", "es": "Quiero abrir una cuenta.", "ru": "Я хочу открыть счёт."},
+        {"who": "npc", "es": "Muy bien. Regla dos: usted firma aquí, aquí y aquí.", "ru": "Очень хорошо. Правило номер два: вы расписываетесь здесь, здесь и здесь."},
+        {"who": "hero", "es": "¡Cuántas firmas!", "ru": "Сколько подписей!"},
+        {"who": "npc", "es": "En el banco, las firmas son importantes.", "ru": "В банке подписи — это важно."},
+        {"who": "hero", "es": "¿Y la Bóveda del mapa? ¿Es como un banco?", "ru": "А Хранилище с карты? Оно как банк?"},
+        {"who": "npc", "es": "Dicen que es la caja fuerte más grande del mundo. Y no tiene llave: tiene preguntas.", "ru": "Говорят, это самый большой сейф в мире. И у него нет ключа: у него вопросы."}
+      ],
+      "questions": [
+        {"q": "Где банк хранит обрывок?", "options": ["В сейфе", "У кассира в кармане", "На почте"], "answer": 0},
+        {"q": "Какое у Гомеса первое правило?", "options": ["Без счёта — ничего", "Сначала кофе", "Без очереди не входить"], "answer": 0},
+        {"q": "Сколько раз надо расписаться?", "options": ["Один", "Два", "Три"], "answer": 2},
+        {"q": "Что говорят о Хранилище?", "options": ["Что это обычный банк", "Что это самый большой сейф, и вместо ключа у него вопросы", "Что его давно нет"], "answer": 1}
+      ],
+      "gloss": {"trozo": "обрывок", "bóveda": "Хранилище", "regla": "правило", "reglas": "правила"}
+    }
+  ]
+}

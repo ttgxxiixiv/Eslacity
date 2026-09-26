@@ -1,0 +1,30 @@
+{
+  "location": "pharmacy",
+  "scenes": [
+    {
+      "id": "sc:pharmacy.1",
+      "chapter": 1,
+      "npc": "bruno",
+      "lines": [
+        {"who": "npc", "es": "Cosa le serve?", "ru": "Что вам нужно?"},
+        {"who": "hero", "es": "Niente medicine. Cerco la mappa. Dicono che lei sa molte cose.", "ru": "Никаких лекарств. Я ищу карту. Говорят, вы много знаете."},
+        {"who": "npc", "es": "So molto. E so che l'Elisir non è una medicina.", "ru": "Знаю много. И знаю, что Эликсир — не лекарство."},
+        {"who": "hero", "es": "E cos'è?", "ru": "А что это?"},
+        {"who": "npc", "es": "Chi beve l'Elisir parla italiano come noi. E non si vende in farmacia.", "ru": "Кто выпьет Эликсир, заговорит по-итальянски, как мы. И в аптеке его не продают."},
+        {"who": "hero", "es": "Lei ha un pezzo della mappa?", "ru": "У вас есть обрывок карты?"},
+        {"who": "npc", "es": "Ce l'ho qui, nell'armadio, con le ricette.", "ru": "Он у меня здесь, в шкафу, с рецептами."},
+        {"who": "hero", "es": "Me lo dà?", "ru": "Отдадите его мне?"},
+        {"who": "npc", "es": "Piano, giovane. Prima: come sta?", "ru": "Не спешите, молодой человек. Сначала: как вы себя чувствуете?"},
+        {"who": "hero", "es": "Ho mal di testa.", "ru": "У меня болит голова."},
+        {"who": "npc", "es": "Bene. Cominciamo dalla testa.", "ru": "Хорошо. Начнём с головы."}
+      ],
+      "questions": [
+        {"q": "Что аптекарь говорит об Эликсире?", "options": ["Это не лекарство", "Это вкусный сок", "Его продают в аптеке"], "answer": 0},
+        {"q": "Что умеет тот, кто выпьет Эликсир?", "options": ["Никогда не болеет", "Говорит по-итальянски", "Видит в темноте"], "answer": 1},
+        {"q": "Где лежит обрывок аптекаря?", "options": ["В кармане пальто", "На почте", "В шкафу с рецептами"], "answer": 2},
+        {"q": "Что болит у героя?", "options": ["Горло", "Голова", "Живот"], "answer": 1}
+      ],
+      "gloss": {"pezzo": "обрывок", "elisir": "Эликсир"}
+    }
+  ]
+}

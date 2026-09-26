@@ -1,0 +1,25 @@
+{
+  "location": "post",
+  "missions": [
+    {
+      "id": "ms:post.1",
+      "chapter": 1,
+      "npc": "rafa",
+      "scene": "sc:post.1",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "¡Rápido, rápido! ¿Qué necesitas? Tengo prisa.", "ru": "Быстрее, быстрее! Что тебе нужно? Я спешу.", "next": "stamp"},
+        "stamp": {"kind": "answer", "task": "Попросите марку для этого письма.", "branches": [{"phrase": "ph:post.sello-para-esta", "next": "stampsay"}], "wrong": {"es": "¿Un helado? Esto es correos, no la playa.", "ru": "Мороженое? Это почта, а не пляж."}},
+        "stampsay": {"kind": "say", "es": "Un euro. ¿Algo más? ¡Rápido!", "ru": "Один евро. Что-нибудь ещё? Быстрее!", "next": "env"},
+        "env": {"kind": "answer", "task": "Спросите, есть ли конверты.", "branches": [{"phrase": "ph:post.tiene-sobres", "next": "envsay"}], "wrong": {"es": "¿Sopa? ¡No! Sobres, no sopa.", "ru": "Суп? Нет! Конверты, а не суп."}},
+        "envsay": {"kind": "say", "es": "Aquí tienes un sobre. ¿Y ese paquete?", "ru": "Вот конверт. А что с этой посылкой?", "next": "pack"},
+        "pack": {"kind": "answer", "task": "Спросите, сколько стоит отправить посылку.", "branches": [{"phrase": "ph:post.cuanto-cuesta-enviar", "next": "packsay"}], "wrong": {"es": "¿Cuánto cuesta mi bicicleta? ¡No se vende!", "ru": "Сколько стоит мой велосипед? Он не продаётся!"}},
+        "packsay": {"kind": "say", "es": "Cinco euros. ¿Normal o urgente?", "ru": "Пять евро. Обычная или срочная?", "next": "urg"},
+        "urg": {"kind": "answer", "task": "Скажите, что хотите отправить срочно.", "branches": [{"phrase": "ph:post.quiero-enviarlo-urgente", "next": "urgsay"}], "wrong": {"es": "¿Muy despacio? ¡Yo no sé ir despacio!", "ru": "Очень медленно? Я не умею медленно!"}},
+        "urgsay": {"kind": "say", "es": "¡Urgente, como yo! Son ocho euros.", "ru": "Срочно, как я! С тебя восемь евро.", "next": "sign"},
+        "sign": {"kind": "answer", "task": "Спросите, где расписаться.", "branches": [{"phrase": "ph:post.donde-firmo", "next": "end"}], "wrong": {"es": "¿Dónde vivo? Siempre en la bicicleta.", "ru": "Где я живу? Всегда на велосипеде."}},
+        "end": {"kind": "say", "es": "Aquí. Y toma, esto es para ti: el trozo del mapa de correos. Y la carta... perdón, la abrí. Dentro hay una palabra: «Ven». Alguien te espera, viajero.", "ru": "Здесь. И держи, это тебе: обрывок карты почты. А письмо... прости, я его открыл. Внутри одно слово: «Приходи». Кто-то тебя ждёт, путешественник."}
+      }
+    }
+  ]
+}

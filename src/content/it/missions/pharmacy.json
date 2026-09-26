@@ -1,0 +1,26 @@
+{
+  "location": "pharmacy",
+  "missions": [
+    {
+      "id": "ms:pharmacy.1",
+      "chapter": 1,
+      "npc": "bruno",
+      "scene": "sc:pharmacy.1",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Andiamo piano. Cosa le serve oggi?", "ru": "Давайте не спеша. Что вам сегодня нужно?", "next": "pain"},
+        "pain": {"kind": "answer", "task": "Скажите, что у вас болит голова или живот.", "branches": [{"phrase": "ph:pharmacy.ho-mal-testa", "next": "headsay"}, {"phrase": "ph:pharmacy.fa-male-stomaco", "next": "stomsay"}], "wrong": {"es": "Male ai piedi? Lei dice piedi, ma si tocca la testa.", "ru": "Болят ноги? Вы говорите «ноги», а держитесь за голову."}},
+        "headsay": {"kind": "say", "es": "Mal di testa. Bene. Ha la febbre?", "ru": "Болит голова. Хорошо. Температура есть?", "next": "fever"},
+        "stomsay": {"kind": "say", "es": "Mal di stomaco. Bene. Ha la febbre?", "ru": "Болит живот. Хорошо. Температура есть?", "next": "fever"},
+        "fever": {"kind": "answer", "task": "Скажите, что у вас температура.", "branches": [{"phrase": "ph:pharmacy.ho-febbre", "next": "feversay"}], "wrong": {"es": "Fame? Per questo non serve la farmacia.", "ru": "Голод? Для этого аптека не нужна."}},
+        "feversay": {"kind": "say", "es": "Trentotto. Ecco: una pastiglia per la febbre, una ogni otto ore.", "ru": "Тридцать восемь. Вот: таблетка от температуры, по одной каждые восемь часов.", "next": "throat"},
+        "throat": {"kind": "answer", "task": "Скажите, что у вас болит горло.", "branches": [{"phrase": "ph:pharmacy.fa-male-gola", "next": "throatsay"}], "wrong": {"es": "Le fanno male i capelli? I capelli non fanno male, giovane.", "ru": "Болят волосы? Волосы не болят, молодой человек."}},
+        "throatsay": {"kind": "say", "es": "La gola. Molto bene. Ha la ricetta del medico?", "ru": "Горло. Очень хорошо. У вас есть рецепт от врача?", "next": "recipe"},
+        "recipe": {"kind": "answer", "task": "Скажите, что у вас есть рецепт.", "branches": [{"phrase": "ph:pharmacy.ho-ricetta", "next": "recsay"}], "wrong": {"es": "Una bicicletta? Qui serve una ricetta, non una bicicletta.", "ru": "Велосипед? Мне тут нужен рецепт, а не велосипед."}},
+        "recsay": {"kind": "say", "es": "Bene. Con la ricetta, questo sciroppo. Due volte al giorno.", "ru": "Хорошо. По рецепту — этот сироп. Два раза в день.", "next": "vit"},
+        "vit": {"kind": "answer", "task": "Спросите, есть ли витамины.", "branches": [{"phrase": "ph:pharmacy.ha-delle-vitamine", "next": "end"}], "wrong": {"es": "Ha del vino? Questa è una farmacia, giovane!", "ru": "У вас есть вино? Это аптека, молодой человек!"}},
+        "end": {"kind": "say", "es": "Queste vitamine sono buone per il viaggio. E nell'armadio, con le ricette... il suo pezzo della mappa. Si ricordi: l'Elisir non è una medicina.", "ru": "Эти витамины хороши в дорогу. А в шкафу, с рецептами... ваш обрывок карты. Помните: Эликсир — не лекарство."}
+      }
+    }
+  ]
+}
