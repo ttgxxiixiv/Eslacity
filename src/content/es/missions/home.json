@@ -22,6 +22,26 @@
         "clean": {"kind": "answer", "task": "Скажите, что сегодня вам нужно убрать дом.", "branches": [{"phrase": "ph:home.hoy-tengo-limpiar", "next": "end"}], "wrong": {"es": "¿Hoy tienes que dormir? Antes come, después duerme.", "ru": "Сегодня тебе надо спать? Сначала поешь, потом спи."}},
         "end": {"kind": "say", "es": "¿Limpiar? ¡Antes se come! Y toma: mi trozo del mapa. Ahora eres mi vecino, y los vecinos se ayudan.", "ru": "Убирать? Сначала едят! И держи: мой обрывок карты. Теперь ты мой сосед, а соседи помогают друг другу."}
       }
+    },
+    {
+      "id": "ms:home.2",
+      "chapter": 2,
+      "npc": "pilar",
+      "scene": "sc:home.2",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "¡Qué tormenta! Te traigo sopa. ¿Todo bien en tu piso?", "ru": "Какая гроза! Я принесла тебе суп. У тебя в квартире всё в порядке?", "next": "heat"},
+        "heat": {"kind": "answer", "task": "Скажите, что отопление не работает.", "branches": [{"phrase": "ph:home.calefaccion-no-funciona", "next": "heatsay"}], "wrong": {"es": "¿La lavadora canta? ¡Las lavadoras no cantan!", "ru": "Стиральная машина поёт? Стиральные машины не поют!"}},
+        "heatsay": {"kind": "say", "es": "Con tormenta, nunca funciona. Toma, una manta de mi madre.", "ru": "В грозу оно никогда не работает. Держи, мамино одеяло.", "next": "water"},
+        "water": {"kind": "answer", "task": "Скажите, что на полу вода.", "branches": [{"phrase": "ph:home.hay-agua-suelo", "next": "watersay"}], "wrong": {"es": "¿Hay un gato en el suelo? Es mi gato, viene conmigo.", "ru": "На полу кошка? Это мой кот, он со мной."}},
+        "watersay": {"kind": "say", "es": "¡Es la ventana! Ya está cerrada. Ahora, la sopa.", "ru": "Это окно! Всё, закрыла. Теперь суп.", "next": "micro"},
+        "micro": {"kind": "answer", "task": "Спросите, есть ли на кухне микроволновка.", "branches": [{"phrase": "ph:home.hay-microondas-cocina", "next": "microsay"}], "wrong": {"es": "¿Hay un lobo en la cocina? ¡No, hombre, solo sopa!", "ru": "На кухне волк? Да нет же, только суп!"}},
+        "microsay": {"kind": "say", "es": "Claro, cerca de la nevera. ¡Qué rica está la sopa!", "ru": "Конечно, рядом с холодильником. Какой вкусный суп!", "next": "dishes"},
+        "dishes": {"kind": "answer", "task": "Попросите её помочь помыть посуду.", "branches": [{"phrase": "ph:home.ayudas-fregar", "next": "dishsay"}], "wrong": {"es": "¿Me ayudas a bailar? ¡Con esta tormenta, no!", "ru": "Потанцуем? В такую грозу — нет!"}},
+        "dishsay": {"kind": "say", "es": "Claro. Tú lavas y yo te cuento una historia de mi pueblo.", "ru": "Конечно. Ты моешь, а я расскажу тебе историю про мою деревню.", "next": "light"},
+        "light": {"kind": "answer", "task": "Попросите выключить свет, чтобы увидеть горы в грозу.", "branches": [{"phrase": "ph:home.apaga-luz", "next": "end"}], "wrong": {"es": "¿Abrir la puerta? ¡No, con este viento no!", "ru": "Открыть дверь? Нет, в такой ветер — нет!"}},
+        "end": {"kind": "say", "es": "Mira por la ventana. ¿Ves la luz arriba, en la montaña? Allí está la torre. Toma mi trozo del mapa de las montañas. Y recuerda: el guardián pregunta qué hiciste.", "ru": "Посмотри в окно. Видишь свет наверху, в горах? Там башня. Держи мой обрывок карты гор. И помни: страж спрашивает, что ты сделал."}
+      }
     }
   ]
 }

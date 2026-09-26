@@ -25,6 +25,31 @@
         {"q": "Где обрывок Маттео?", "options": ["Дома", "На кассе", "В третьем ряду"], "answer": 1}
       ],
       "gloss": {"pezzi": "обрывки", "pezzo": "обрывок", "caveau": "Хранилище", "elisir": "Эликсир"}
+    },
+    {
+      "id": "sc:supermarket.2",
+      "chapter": 2,
+      "npc": "matteo",
+      "lines": [
+        {"who": "npc", "es": "Il viaggiatore! Adesso vai in montagna?", "ru": "А, путешественник! Теперь идёшь в горы?"},
+        {"who": "hero", "es": "Mi serve una torcia.", "ru": "Мне нужен фонарик."},
+        {"who": "npc", "es": "Mi dispiace. Ieri un uomo ha comprato venti torce.", "ru": "Извини. Вчера один человек купил двадцать фонариков — все, что были."},
+        {"who": "hero", "es": "Venti? Chi era?", "ru": "Двадцать? Кто это был?"},
+        {"who": "npc", "es": "Non ha detto il suo nome. Aveva un mantello grigio e ha pagato con monete molto vecchie.", "ru": "Имени не сказал. Был в сером плаще и заплатил очень старыми монетами."},
+        {"who": "hero", "es": "Monete vecchie?", "ru": "Старыми монетами?"},
+        {"who": "npc", "es": "Guarda. Questa moneta ha cento anni.", "ru": "Смотри. Этой монете сто лет."},
+        {"who": "hero", "es": "Che strano! Ha detto qualcosa?", "ru": "Как странно! Он что-нибудь сказал?"},
+        {"who": "npc", "es": "Ha detto solo: «La nebbia scende presto». E se ne è andato.", "ru": "Сказал только: «Скоро спустится туман». И ушёл."},
+        {"who": "hero", "es": "Prima pensavi che la mappa fosse una leggenda.", "ru": "Раньше ты думал, что карта — это легенда."},
+        {"who": "npc", "es": "Prima. Adesso non sono così sicuro.", "ru": "Раньше. А теперь я уже не так уверен."}
+      ],
+      "questions": [
+        {"q": "Что хотел купить герой?", "options": ["Фонарик", "Сыр", "Карту"], "answer": 0},
+        {"q": "Кто купил все фонарики?", "options": ["Томмазо", "Человек в сером плаще", "Роза"], "answer": 1},
+        {"q": "Чем он заплатил?", "options": ["Картой магазина", "Очень старыми монетами", "Ничем"], "answer": 1},
+        {"q": "Что он сказал?", "options": ["«Скоро спустится туман»", "«Башня закрыта»", "«Я вернусь завтра»"], "answer": 0}
+      ],
+      "gloss": {"torcia": "фонарик", "torce": "фонарики", "mantello": "плащ", "monete": "монеты", "moneta": "монета"}
     }
   ]
 }

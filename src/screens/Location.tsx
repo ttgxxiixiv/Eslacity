@@ -122,17 +122,19 @@ export function LocationScreen() {
               .map((m) => {
                 const rec = missionRecords[m.id];
                 const open = missionOpen(rep, m.chapter);
-                const status = rec?.done ? '✓ выполнена' : open ? (rec?.attempts ? `ответы: ${MODE_WORD[modeForAttempt(rec.attempts + 1)]}` : 'новая') : 'нужны отношения «Приятель»';
-                const cls = 'flex items-center justify-between rounded-2xl px-4 py-3 shadow-sm';
+                const state = rec?.done ? '✓ выполнена' : open ? (rec?.attempts ? `ответы: ${MODE_WORD[modeForAttempt(rec.attempts + 1)]}` : 'новая') : 'нужны отношения «Приятель»';
+                // У места по миссии на главу: глава в подписи, как у разговоров.
+                const status = `глава ${chapterById(m.chapter)?.roman} · ${state}`;
+                const cls = 'flex items-center justify-between gap-3 rounded-2xl px-4 py-3 shadow-sm';
                 return open ? (
                   <Link key={m.id} to={`/mission/${encodeURIComponent(m.id)}`} data-testid="mission-link" className={`press ${cls} ${rec?.done ? 'bg-okbg' : 'bg-orange-50'}`}>
-                    <span className="font-semibold">⭐ Миссия: {npc.name}</span>
-                    <span className="text-sm text-stone-500">{status} →</span>
+                    <span className="shrink-0 font-semibold">⭐ Миссия: {npc.name}</span>
+                    <span className="text-right text-sm text-stone-500">{status} →</span>
                   </Link>
                 ) : (
                   <div key={m.id} data-testid="mission-link" className={`${cls} border-2 border-dashed border-stone-300`}>
-                    <span className="font-semibold text-stone-500">⭐ Миссия: {npc.name}</span>
-                    <span className="text-sm text-stone-400">{status}</span>
+                    <span className="shrink-0 font-semibold text-stone-500">⭐ Миссия: {npc.name}</span>
+                    <span className="text-right text-sm text-stone-400">{status}</span>
                   </div>
                 );
               })}

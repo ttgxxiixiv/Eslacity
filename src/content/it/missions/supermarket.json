@@ -23,6 +23,28 @@
         "ticket": {"kind": "answer", "task": "Попросите чек.", "branches": [{"phrase": "ph:supermarket.da-scontrino", "next": "end"}], "wrong": {"es": "Un taxi? Io non ho la macchina. Vuoi lo scontrino?", "ru": "Такси? У меня нет машины. Тебе чек?"}},
         "end": {"kind": "say", "es": "Ecco lo scontrino. E questo... il pezzo della mappa. Mia madre dice che il Caveau è dietro le montagne. E se non è una leggenda?", "ru": "Вот чек. И вот... обрывок карты. Мама говорит, что Хранилище за горами. А вдруг это не легенда?"}
       }
+    },
+    {
+      "id": "ms:supermarket.2",
+      "chapter": 2,
+      "npc": "matteo",
+      "scene": "sc:supermarket.2",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Non ho torce, ma ho qualcosa da mangiare per la strada. Cosa cerchi?", "ru": "Фонариков нет, но есть еда в дорогу. Что ищешь?", "next": "tuna"},
+        "tuna": {"kind": "answer", "task": "Спросите, где тунец.", "branches": [{"phrase": "ph:supermarket.dov-tonno", "next": "tunasay"}], "wrong": {"es": "Dov'è il lupo? In montagna, non nel mio supermercato!", "ru": "Где волк? В горах, а не в моём магазине!"}},
+        "tunasay": {"kind": "say", "es": "Nella corsia quattro. Il tonno è buono per la strada.", "ru": "В четвёртом ряду. Тунец хорош в дорогу.", "next": "water"},
+        "water": {"kind": "answer", "task": "Спросите, есть ли газированная вода.", "branches": [{"phrase": "ph:supermarket.avete-acqua-frizzante", "next": "watersay"}], "wrong": {"es": "Acqua della luna? Abbiamo solo l'acqua di qui.", "ru": "Лунная вода? У нас только местная."}},
+        "watersay": {"kind": "say", "es": "Sì, prendi due bottiglie.", "ru": "Да, возьми две бутылки.", "next": "bread"},
+        "bread": {"kind": "answer", "task": "Спросите, где хлебный отдел.", "branches": [{"phrase": "ph:supermarket.dov-panetteria", "next": "breadsay"}], "wrong": {"es": "Dov'è casa mia? Non lo so, viaggiatore.", "ru": "Где мой дом? Не знаю, путешественник."}},
+        "breadsay": {"kind": "say", "es": "Vicino alla cassa. Il pane di oggi è ancora caldo. E uno yogurt?", "ru": "Рядом с кассой. Сегодняшний хлеб ещё тёплый. А йогурт?", "next": "yog"},
+        "yog": {"kind": "answer", "task": "Скажите, что этот йогурт просрочен.", "branches": [{"phrase": "ph:supermarket.questo-yogurt-scaduto", "next": "yogsay"}], "wrong": {"es": "Lo yogurt è triste? Gli yogurt non sono tristi.", "ru": "Йогурт грустный? Йогурты не грустят."}},
+        "yogsay": {"kind": "say", "es": "Hai ragione! È di una settimana fa. Prendi questo.", "ru": "Ты прав! Он недельной давности. Возьми вот этот.", "next": "price"},
+        "price": {"kind": "answer", "task": "Спросите, сколько стоит этот товар.", "branches": [{"phrase": "ph:supermarket.che-prezzo-ha", "next": "pricesay"}], "wrong": {"es": "Quanti anni ho? Venti. E allora?", "ru": "Сколько мне лет? Двадцать. И что?"}},
+        "pricesay": {"kind": "say", "es": "Tre euro. È una buona marca.", "ru": "Три евро. Хорошая марка.", "next": "disc"},
+        "disc": {"kind": "answer", "task": "Спросите, есть ли скидка на эту марку.", "branches": [{"phrase": "ph:supermarket.c-uno-sconto", "next": "end"}], "wrong": {"es": "C'è uno sconto sull'uomo con il mantello? Magari!", "ru": "Скидка на человека в плаще? Если бы!"}},
+        "end": {"kind": "say", "es": "Per il viaggiatore della mappa, c'è lo sconto. E ti do il mio pezzo della mappa della montagna. Se vedi l'uomo con il mantello grigio, chiedigli da dove vengono le sue monete.", "ru": "Для путешественника с картой скидка есть. И вот тебе мой обрывок карты гор. Если увидишь человека в сером плаще, спроси, откуда у него монеты."}
+      }
     }
   ]
 }

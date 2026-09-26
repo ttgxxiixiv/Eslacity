@@ -23,6 +23,28 @@
         "dessert": {"kind": "answer", "task": "Спросите, что есть на десерт.", "branches": [{"phrase": "ph:restaurant.hay-postre", "next": "end"}], "wrong": {"es": "¿Más sopa? Bueno, si quieres... y después, el postre.", "ru": "Ещё супа? Ну, если хочешь... а потом десерт."}},
         "end": {"kind": "say", "es": "Hoy hay tarta de chocolate. Y para ti, algo más: el trozo del mapa de mi madre. El viajero de antes no hablaba español. Tú, sí.", "ru": "Сегодня шоколадный торт. И для тебя кое-что ещё: обрывок карты моей мамы. Прежний путешественник не говорил по-испански. А ты говоришь."}
       }
+    },
+    {
+      "id": "ms:restaurant.2",
+      "chapter": 2,
+      "npc": "paco",
+      "scene": "sc:restaurant.2",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "¡Pasa! Hoy cocino para los viajeros de la montaña. ¿Qué quieres?", "ru": "Заходи! Сегодня готовлю для тех, кто идёт в горы. Что будешь?", "next": "first"},
+        "first": {"kind": "answer", "task": "Спросите, что есть на первое, или какие есть тапас.", "branches": [{"phrase": "ph:restaurant.hay-primero", "next": "firstsay"}, {"phrase": "ph:restaurant.tapas-tienen", "next": "firstsay"}], "wrong": {"es": "¿Qué hay de postre? ¡Primero se come la comida!", "ru": "Что на десерт? Сначала едят основное!"}},
+        "firstsay": {"kind": "say", "es": "Sopa de montaña o croquetas de la casa.", "ru": "Горный суп или наши крокеты.", "next": "croq"},
+        "croq": {"kind": "answer", "task": "Попросите порцию крокетов.", "branches": [{"phrase": "ph:restaurant.racion-croquetas", "next": "croqsay"}], "wrong": {"es": "¿Una ración de piedras? ¡Mis croquetas no son piedras!", "ru": "Порцию камней? Мои крокеты — не камни!"}},
+        "croqsay": {"kind": "say", "es": "Una ración. ¿Y para beber?", "ru": "Одна порция. А пить?", "next": "water"},
+        "water": {"kind": "answer", "task": "Попросите графин воды.", "branches": [{"phrase": "ph:restaurant.jarra-agua", "next": "watersay"}], "wrong": {"es": "¿Una jarra de sopa? La sopa, en el plato.", "ru": "Графин супа? Суп подают в тарелке."}},
+        "watersay": {"kind": "say", "es": "Agua fría de la montaña. Y aquí tienes la sopa.", "ru": "Холодная горная вода. А вот и суп.", "next": "spicy"},
+        "spicy": {"kind": "answer", "task": "Спросите, острое ли это.", "branches": [{"phrase": "ph:restaurant.picante", "next": "spicysay"}], "wrong": {"es": "¿Es tu cumpleaños? Entonces, ¡postre gratis!", "ru": "У тебя день рождения? Тогда десерт бесплатно!"}},
+        "spicysay": {"kind": "say", "es": "Un poco. En la montaña hace frío, y la sopa te da calor.", "ru": "Немного. В горах холодно, а суп согревает.", "next": "salt"},
+        "salt": {"kind": "answer", "task": "Попробуйте суп и скажите, что он пересолен.", "branches": [{"phrase": "ph:restaurant.sopa-esta-demasiado", "next": "saltsay"}], "wrong": {"es": "¿Está fría? ¡Imposible! Mira: sale humo.", "ru": "Холодный? Невозможно! Смотри: пар идёт."}},
+        "saltsay": {"kind": "say", "es": "¿Salada? ¿¡Mi sopa!? ... Bueno, tienes razón. Hoy estoy nervioso por Tomás. Te traigo otra.", "ru": "Пересолен? Мой суп?! ... Ладно, ты прав. Я сегодня волнуюсь из-за Томаса. Принесу другой.", "next": "special"},
+        "special": {"kind": "answer", "task": "Спросите, какое у них фирменное блюдо.", "branches": [{"phrase": "ph:restaurant.cual-especialidad-casa", "next": "end"}], "wrong": {"es": "¿Cuál es mi nombre? ¡Paco, como siempre!", "ru": "Как меня зовут? Пако, как всегда!"}},
+        "end": {"kind": "say", "es": "La paella, claro. Y hoy, algo más especial: mi trozo del mapa de las montañas. Si encuentras a Tomás, dile que aquí tiene su sopa.", "ru": "Паэлья, конечно. А сегодня кое-что особенное: мой обрывок карты гор. Если найдёшь Томаса, скажи, что суп его ждёт."}
+      }
     }
   ]
 }

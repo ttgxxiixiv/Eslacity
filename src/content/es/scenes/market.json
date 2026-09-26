@@ -25,6 +25,31 @@
         {"q": "Где сейчас этот обрывок?", "options": ["В коробке у Кармен", "В банке", "На почте"], "answer": 0}
       ],
       "gloss": {"cariño": "дорогуша", "ay": "ах", "trozo": "обрывок"}
+    },
+    {
+      "id": "sc:market.2",
+      "chapter": 2,
+      "npc": "carmen",
+      "lines": [
+        {"who": "npc", "es": "¡Cariño! ¿Has probado este queso? Es de los pastores de las montañas.", "ru": "Дорогуша! Пробовал этот сыр? Он от горных пастухов."},
+        {"who": "hero", "es": "¿Los pastores vienen al mercado?", "ru": "Пастухи приходят на рынок?"},
+        {"who": "npc", "es": "Bajan cada semana. Traen queso y noticias.", "ru": "Спускаются каждую неделю. Приносят сыр и новости."},
+        {"who": "hero", "es": "¿Qué noticias?", "ru": "Какие новости?"},
+        {"who": "npc", "es": "La semana pasada me contaron algo raro. Vieron a Tomás, el hermano de tu amiga del café.", "ru": "На прошлой неделе рассказали странное. Они видели Томаса, брата твоей подруги из кафе."},
+        {"who": "hero", "es": "¿Dónde lo vieron?", "ru": "Где они его видели?"},
+        {"who": "npc", "es": "Subía a la torre con un hombre. Nadie lo conoce. Llevaba una capa gris.", "ru": "Он поднимался к башне с каким-то человеком. Того никто не знает. На нём был серый плащ."},
+        {"who": "hero", "es": "¿Quién era ese hombre?", "ru": "Кто это был?"},
+        {"who": "npc", "es": "Nadie lo sabe. No habló con nadie.", "ru": "Никто не знает. Он ни с кем не говорил."},
+        {"who": "hero", "es": "Tengo que decírselo a su hermana.", "ru": "Надо сказать его сестре."},
+        {"who": "npc", "es": "Espera. Antes, prueba el queso.", "ru": "Подожди. Сначала попробуй сыр."}
+      ],
+      "questions": [
+        {"q": "Откуда сыр у Кармен?", "options": ["От горных пастухов", "Из супермаркета", "Из-за моря"], "answer": 0},
+        {"q": "Как часто пастухи спускаются в город?", "options": ["Каждый день", "Каждую неделю", "Раз в год"], "answer": 1},
+        {"q": "Кого видели пастухи?", "options": ["Летописца", "Томаса, брата Лолы", "Стража"], "answer": 1},
+        {"q": "Как выглядел незнакомец?", "options": ["В сером плаще", "В красной шляпе", "С собакой"], "answer": 0}
+      ],
+      "gloss": {"cariño": "дорогуша", "pastores": "пастухи", "capa": "плащ"}
     }
   ]
 }

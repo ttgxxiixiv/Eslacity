@@ -23,6 +23,28 @@
         "bill": {"kind": "answer", "task": "Попросите счёт.", "branches": [{"phrase": "ph:cafe.la-cuenta", "next": "bye"}], "wrong": {"es": "¿Otro café? ¡Ya tienes café!", "ru": "Ещё кофе? У тебя уже есть кофе!"}},
         "bye": {"kind": "say", "es": "Son tres euros. ¡Hablas muy bien! Hasta mañana.", "ru": "С тебя три евро. Ты отлично говоришь! До завтра."}
       }
+    },
+    {
+      "id": "ms:cafe.2",
+      "chapter": 2,
+      "npc": "lola",
+      "scene": "sc:cafe.2",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Antes del viaje, un buen desayuno. ¿Dónde te sientas?", "ru": "Перед дорогой — хороший завтрак. Куда сядешь?", "next": "table"},
+        "table": {"kind": "answer", "task": "Спросите, свободен ли этот столик.", "branches": [{"phrase": "ph:cafe.esta-libre-esta", "next": "tablesay"}], "wrong": {"es": "¿Está libre el perro? No, el perro es del vecino.", "ru": "Собака свободна? Нет, это соседская собака."}},
+        "tablesay": {"kind": "say", "es": "Sí, siéntate. ¿Qué vas a tomar?", "ru": "Да, садись. Что будешь?", "next": "order"},
+        "order": {"kind": "answer", "task": "Закажите завтрак или кофе с каплей молока и тост.", "branches": [{"phrase": "ph:cafe.quiero-pedir-desayuno", "next": "ordersay"}, {"phrase": "ph:cafe.cortado-tostada", "next": "ordersay"}], "wrong": {"es": "¿Sopa de pescado? ¿A las ocho de la mañana?", "ru": "Рыбный суп? В восемь утра?"}},
+        "ordersay": {"kind": "say", "es": "Muy bien. Y para el camino, ¿quieres algo caliente?", "ru": "Хорошо. А в дорогу хочешь чего-нибудь горячего?", "next": "choc"},
+        "choc": {"kind": "answer", "task": "Попросите горячий шоколад.", "branches": [{"phrase": "ph:cafe.chocolate-caliente", "next": "chocsay"}], "wrong": {"es": "¿Un helado? ¡En las montañas hace frío!", "ru": "Мороженое? В горах холодно!"}},
+        "chocsay": {"kind": "say", "es": "Chocolate caliente, como a Tomás. Le gustaba mucho.", "ru": "Горячий шоколад, как Томасу. Он его очень любил.", "next": "napkin"},
+        "napkin": {"kind": "answer", "task": "Попросите салфетку.", "branches": [{"phrase": "ph:cafe.trae-servilleta", "next": "napkinsay"}], "wrong": {"es": "¿Te traigo una manta? Tranquilo, aquí no hace frío.", "ru": "Принести тебе одеяло? Спокойно, здесь не холодно."}},
+        "napkinsay": {"kind": "say", "es": "Toma. Y mira: esta es la última carta de Tomás.", "ru": "Держи. И смотри: это последнее письмо Томаса.", "next": "plug"},
+        "plug": {"kind": "answer", "task": "Спросите, есть ли здесь розетка: телефону нужен заряд.", "branches": [{"phrase": "ph:cafe.hay-enchufe-aqui", "next": "plugsay"}], "wrong": {"es": "¿Hay un lobo aquí? No, los lobos están en las montañas.", "ru": "Здесь волк? Нет, волки в горах."}},
+        "plugsay": {"kind": "say", "es": "Allí, cerca de la ventana. En las montañas, el teléfono no funciona, ¿sabes?", "ru": "Вон там, у окна. В горах телефон не работает, знаешь?", "next": "pay"},
+        "pay": {"kind": "answer", "task": "Попросите счёт или скажите, что сегодня угощаете вы.", "branches": [{"phrase": "ph:cafe.cobra", "next": "end"}, {"phrase": "ph:cafe.hoy-invito", "next": "end"}], "wrong": {"es": "¿Me das tu mochila? No, gracias, tengo una.", "ru": "Отдаёшь мне свой рюкзак? Нет, спасибо, у меня есть."}},
+        "end": {"kind": "say", "es": "Hoy no pagas nada. Y una cosa: si ves a Tomás en la niebla, llámalo. Él siempre decía: en la niebla, solo la voz te guía. Toma mi trozo del mapa de las montañas.", "ru": "Сегодня ты ничего не платишь. И вот что: если увидишь Томаса в тумане, позови его. Он всегда говорил: в тумане ведёт только голос. Держи мой обрывок карты гор."}
+      }
     }
   ]
 }

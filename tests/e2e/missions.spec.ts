@@ -1,27 +1,27 @@
 import { readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { expect, test, type Page } from '@playwright/test';
-import { LANGS, loadPhraseData, openApp, phraseFull, readMeta, seedDueCards, wordIdsOf, type Lang } from './fixtures';
+import { DB, LANGS, loadPhraseData, openApp, phraseFull, readMeta, seedDueCards, wordIdsOf, type Lang } from './fixtures';
 
 const CONTENT = join(import.meta.dirname, '..', '..', 'src', 'content');
 type Node = { kind: 'say' } | { kind: 'answer'; task: string; branches: { phrase: string }[]; wrong: { es: string } };
 
-function missionData(lang: Lang, place = 'cafe') {
-  const m = JSON.parse(readFileSync(join(CONTENT, lang, 'missions', `${place}.json`), 'utf8')).missions[0] as { nodes: Record<string, Node> };
+function missionData(lang: Lang, place = 'cafe', id = `ms:${place}.1`) {
+  const m = (JSON.parse(readFileSync(join(CONTENT, lang, 'missions', `${place}.json`), 'utf8')).missions as { id: string; nodes: Record<string, Node> }[]).find((x) => x.id === id)!;
   const answers = Object.values(m.nodes).filter((n): n is Extract<Node, { kind: 'answer' }> => n.kind === 'answer');
   const phrases = new Map(loadPhraseData(lang, place).map((p) => [p.id, p.es]));
   return { answers, phrases };
 }
 
-/** Места, у которых есть миссия в контенте языка. */
-const missionPlaces = (lang: Lang) =>
+/** Все миссии контента языка: место и id. */
+const allMissions = (lang: Lang) =>
   readdirSync(join(CONTENT, lang, 'missions'))
     .filter((f) => f.endsWith('.json'))
-    .map((f) => f.replace(/\.json$/, ''));
+    .flatMap((f) => (JSON.parse(readFileSync(join(CONTENT, lang, 'missions', f), 'utf8')).missions as { id: string }[]).map((m) => ({ place: f.replace(/\.json$/, ''), id: m.id })));
 
 /** Пройти сцену-вступление и диалог. wrongAt — номера ответов (с 0), где герой ошибается. */
-async function playMission(page: Page, lang: Lang, wrongAt: number[] = [], place = 'cafe') {
-  const { answers, phrases } = missionData(lang, place);
+async function playMission(page: Page, lang: Lang, wrongAt: number[] = [], place = 'cafe', id?: string) {
+  const { answers, phrases } = missionData(lang, place, id);
   while (!(await page.getByText('Ответить жителю').count())) await page.getByTestId('scene-next').click();
   await page.getByTestId('scene-next').click();
   let n = 0;
@@ -71,17 +71,50 @@ for (const lang of LANGS) {
       await expect(page.getByTestId('mission-link')).toContainText('✓ выполнена');
     });
 
-    test('миссии главы I всех мест проходятся выбором без ошибок', async ({ page }) => {
-      test.setTimeout(120_000);
+    test('все миссии контента проходятся выбором без ошибок', async ({ page }) => {
+      test.setTimeout(240_000);
       await openApp(page, lang);
-      for (const place of missionPlaces(lang)) {
-        await page.goto(`./#/mission/ms%3A${place}.1`);
-        await playMission(page, lang, [], place);
-        const { answers } = missionData(lang, place);
-        await expect(page.getByTestId('mission-result'), place).toContainText(`Верных ответов: ${answers.length} из ${answers.length} (100%)`);
+      for (const { place, id } of allMissions(lang)) {
+        await page.goto(`./#/mission/${encodeURIComponent(id)}`);
+        await playMission(page, lang, [], place, id);
+        const { answers } = missionData(lang, place, id);
+        await expect(page.getByTestId('mission-result'), id).toContainText(`Верных ответов: ${answers.length} из ${answers.length} (100%)`);
       }
       const done = Object.keys((await readMeta<Record<string, unknown>>(page, lang, 'missions')) ?? {}).sort();
-      expect(done).toEqual(missionPlaces(lang).map((p) => `ms:${p}.1`).sort());
+      expect(done).toEqual(allMissions(lang).map((m) => m.id).sort());
+    });
+
+    test('глава II открыта: в кафе две миссии, миссия главы II ждёт отношений «Приятель»', async ({ page }) => {
+      await openApp(page, lang);
+      const npc = { es: 'lola', it: 'giulia' }[lang];
+      const seed = (rep: number) =>
+        page.evaluate(
+          ({ db, npc, rep }) =>
+            new Promise<void>((resolve) => {
+              const r = indexedDB.open(db);
+              r.onsuccess = () => {
+                const tx = r.result.transaction('meta', 'readwrite');
+                tx.objectStore('meta').put({ key: 'journey', value: { fragments: {}, seals: {}, openedChapter: 2, celebrated: 2 } });
+                tx.objectStore('meta').put({ key: 'errands', value: { day: 0, active: [], last: {}, done: 0, rep: { [npc]: rep } } });
+                tx.oncomplete = () => resolve();
+              };
+            }),
+          { db: DB[lang], npc, rep },
+        );
+      await seed(2);
+      await page.goto('./#/loc/cafe');
+      await page.reload();
+      const links = page.getByTestId('mission-link');
+      await expect(links).toHaveCount(2);
+      await expect(links.nth(0)).toContainText('глава I · новая');
+      await expect(links.nth(1)).toContainText('глава II · нужны отношения «Приятель»');
+      await expect(links.nth(1)).not.toHaveAttribute('href');
+      await seed(5);
+      await page.reload();
+      await expect(links.nth(1)).toContainText('глава II · новая');
+      await links.nth(1).click();
+      await expect(page).toHaveURL(/#\/mission\/ms%3Acafe\.2$/);
+      await expect(page.getByTestId('scene-current')).toBeVisible();
     });
 
     test('миссия: две ошибки — реакция жителя, не засчитана, второе прохождение со сборкой из плиток', async ({ page }) => {

@@ -25,6 +25,31 @@
         {"q": "Почему карту разорвали?", "options": ["Люди ссорились из-за неё", "Её уронили в воду", "Её съела собака"], "answer": 0}
       ],
       "gloss": {"trozo": "обрывок", "trozos": "обрывки", "peleaba": "ссорились"}
+    },
+    {
+      "id": "sc:home.2",
+      "chapter": 2,
+      "npc": "pilar",
+      "lines": [
+        {"who": "npc", "es": "¡Buenos días! Hoy hace frío. ¿Has comido?", "ru": "Доброе утро! Сегодня холодно. Ты поел?"},
+        {"who": "hero", "es": "Gracias. Mañana subo a las montañas.", "ru": "Спасибо. Завтра я иду в горы."},
+        {"who": "npc", "es": "¡Las montañas! Yo nací allí, en un pueblo del paso.", "ru": "Горы! Я там родилась, в деревне на перевале."},
+        {"who": "hero", "es": "¿De verdad? ¿Cómo era?", "ru": "Правда? Какой она была?"},
+        {"who": "npc", "es": "Pequeño y bonito. Pero una noche hubo una tormenta terrible, y bajamos a la ciudad.", "ru": "Маленькой и красивой. Но однажды ночью была страшная гроза, и все мы спустились в город."},
+        {"who": "hero", "es": "¿Y el pueblo?", "ru": "А деревня?"},
+        {"who": "npc", "es": "Ahora está vacío. Solo quedan las piedras y el viento.", "ru": "Теперь она пустая. Остались только камни и ветер."},
+        {"who": "hero", "es": "¿Usted conoce la torre?", "ru": "Вы знаете башню?"},
+        {"who": "npc", "es": "Mi madre decía que el guardián de la torre no pregunta palabras. Pregunta qué hiciste.", "ru": "Мама говорила, что страж башни не спрашивает слова. Он спрашивает, что ты сделал."},
+        {"who": "hero", "es": "¿Qué hice?", "ru": "Что я сделал?"},
+        {"who": "npc", "es": "Tu camino, en pasado. Así que dime: ¿qué hiciste ayer?", "ru": "Твой путь, в прошедшем времени. Так что скажи: что ты делал вчера?"}
+      ],
+      "questions": [
+        {"q": "Где родилась Пилар?", "options": ["В деревне на перевале", "В городе у моря", "В столице"], "answer": 0},
+        {"q": "Почему люди ушли из деревни?", "options": ["Там не было работы", "Была страшная гроза", "Пришли волки"], "answer": 1},
+        {"q": "Что осталось в деревне?", "options": ["Только камни и ветер", "Старый магазин", "Пастухи"], "answer": 0},
+        {"q": "О чём спрашивает страж башни?", "options": ["О словах", "О том, что ты сделал", "О деньгах"], "answer": 1}
+      ],
+      "gloss": {"pueblo": "деревня", "paso": "перевал", "torre": "башня", "hubo": "была"}
     }
   ]
 }

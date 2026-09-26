@@ -23,6 +23,31 @@
         {"q": "Где герой заплатит?", "options": ["У барной стойки", "Дома", "На террасе"], "answer": 2}
       ],
       "gloss": {"ciao": "привет", "allora": "тогда", "certo": "конечно"}
+    },
+    {
+      "id": "sc:cafe.2",
+      "chapter": 2,
+      "npc": "giulia",
+      "lines": [
+        {"who": "npc", "es": "Oggi sei molto serio. Vai in montagna?", "ru": "Ты сегодня очень серьёзный. Идёшь в горы?"},
+        {"who": "hero", "es": "Ieri il guardiano mi ha dato il sigillo. Adesso cerco la strada per la montagna.", "ru": "Вчера страж отдал мне печать. Теперь я ищу дорогу в горы."},
+        {"who": "npc", "es": "Mio fratello Tommaso fa la guida in montagna. Conosce ogni sentiero.", "ru": "Мой брат Томмазо — проводник в горах. Он знает каждую тропу."},
+        {"who": "hero", "es": "Che bello! E dove è adesso?", "ru": "Отлично! А где он сейчас?"},
+        {"who": "npc", "es": "Non lo so. Da un mese non scrive. Prima mi scriveva ogni settimana.", "ru": "Не знаю. Он не пишет уже месяц. Раньше писал каждую неделю."},
+        {"who": "hero", "es": "Dove è andato?", "ru": "Куда он ушёл?"},
+        {"who": "npc", "es": "Mi ha detto che andava alla torre del passo. Lì vive il secondo guardiano.", "ru": "Сказал, что идёт к башне на перевале. Там живёт второй страж."},
+        {"who": "hero", "es": "C'è un secondo guardiano?", "ru": "Есть и второй страж?"},
+        {"who": "npc", "es": "Ogni terra ha il suo guardiano. E in montagna ci sono nebbia e tempeste.", "ru": "У каждой земли свой страж. А в горах туман и грозы."},
+        {"who": "hero", "es": "Se vedo Tommaso, gli dico di scriverti.", "ru": "Если увижу Томмазо, скажу ему, чтобы написал тебе."},
+        {"who": "npc", "es": "Grazie. Prendi, una cioccolata calda. Per il freddo.", "ru": "Спасибо. Держи горячий шоколад. От холода."}
+      ],
+      "questions": [
+        {"q": "Кто брат Джулии?", "options": ["Горный проводник", "Повар", "Почтальон"], "answer": 0},
+        {"q": "Почему Джулия волнуется?", "options": ["Брат месяц не пишет", "Кафе закрывается", "Пропала печать"], "answer": 0},
+        {"q": "Куда пошёл Томмазо?", "options": ["К морю", "К башне на перевале", "В столицу"], "answer": 1},
+        {"q": "Кто живёт в башне?", "options": ["Летописец", "Второй страж", "Пастухи"], "answer": 1}
+      ],
+      "gloss": {"tommaso": "Томмазо (имя)", "guida": "проводник", "passo": "перевал", "torre": "башня", "sigillo": "печать"}
     }
   ]
 }

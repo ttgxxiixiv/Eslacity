@@ -21,6 +21,28 @@
         "bag": {"kind": "answer", "task": "Попросите пакет.", "branches": [{"phrase": "ph:market.da-bolsa", "next": "end"}], "wrong": {"es": "¿Te doy una casa? No, cariño, solo una bolsa.", "ru": "Дать тебе дом? Нет, дорогуша, только пакет."}},
         "end": {"kind": "say", "es": "Aquí tienes la bolsa. ¡Hablas muy bien! Mi madre decía: el mapa lleva a la Bóveda del Elixir. Toma, este trozo es para ti.", "ru": "Вот пакет. Ты отлично говоришь! Мама говорила: карта ведёт к Хранилищу Эликсира. Держи, этот обрывок — тебе."}
       }
+    },
+    {
+      "id": "ms:market.2",
+      "chapter": 2,
+      "npc": "carmen",
+      "scene": "sc:market.2",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "¡Cariño! Para las montañas necesitas buena comida. ¿Qué te pongo?", "ru": "Дорогуша! В горы нужна хорошая еда. Что тебе положить?", "next": "buy"},
+        "buy": {"kind": "answer", "task": "Попросите килограмм моркови или спросите, есть ли чеснок.", "branches": [{"phrase": "ph:market.pongame-kilo-zanahorias", "next": "buysay"}, {"phrase": "ph:market.tiene-ajo", "next": "buysay"}], "wrong": {"es": "¿Un kilo de piedras? Las piedras están en las montañas.", "ru": "Килограмм камней? Камни — это в горах."}},
+        "buysay": {"kind": "say", "es": "Aquí tienes. ¿Y el queso de los pastores?", "ru": "Держи. А сыр от пастухов?", "next": "taste"},
+        "taste": {"kind": "answer", "task": "Спросите, можно ли попробовать.", "branches": [{"phrase": "ph:market.puedo-probar", "next": "tastesay"}], "wrong": {"es": "¿Puedo cantar? Canta, y compra también.", "ru": "Можно спеть? Пой, но и покупай."}},
+        "tastesay": {"kind": "say", "es": "¡Prueba, prueba! ¿Rico? ¿Y fruta para el camino?", "ru": "Пробуй, пробуй! Вкусно? А фрукты в дорогу?", "next": "season"},
+        "season": {"kind": "answer", "task": "Спросите, какие фрукты сейчас по сезону.", "branches": [{"phrase": "ph:market.fruta-temporada", "next": "seasonsay"}], "wrong": {"es": "¿Qué hora es? ¡Hora de comprar fruta!", "ru": "Который час? Время покупать фрукты!"}},
+        "seasonsay": {"kind": "say", "es": "Las cerezas. Mira qué rojas.", "ru": "Черешня. Смотри, какая красная.", "next": "cherry"},
+        "cherry": {"kind": "answer", "task": "Попросите полкило черешни.", "branches": [{"phrase": "ph:market.medio-kilo-cerezas", "next": "cherrysay"}], "wrong": {"es": "¿Medio kilo de sal? Esto es fruta.", "ru": "Полкило соли? Это фрукты."}},
+        "cherrysay": {"kind": "say", "es": "Medio kilo. Son de cerca de las montañas.", "ru": "Полкило. Она из-под самых гор.", "next": "peach"},
+        "peach": {"kind": "answer", "task": "Спросите, откуда эти персики.", "branches": [{"phrase": "ph:market.donde-son-melocotones", "next": "peachsay"}], "wrong": {"es": "¿De dónde soy yo? ¡De aquí, del mercado!", "ru": "Откуда я? Отсюда, с рынка!"}},
+        "peachsay": {"kind": "say", "es": "También de las montañas. ¿Algo más?", "ru": "Тоже с гор. Что-нибудь ещё?", "next": "done"},
+        "done": {"kind": "answer", "task": "Скажите, что больше ничего не нужно, и поблагодарите.", "branches": [{"phrase": "ph:market.nada-mas-gracias", "next": "end"}], "wrong": {"es": "¿Comprar el mercado? No, eso no se vende.", "ru": "Купить рынок? Нет, он не продаётся."}},
+        "end": {"kind": "say", "es": "Son ocho euros. Y escucha: los pastores dicen que en la torre hay luz por la noche. Alguien vive allí. Toma mi trozo del mapa de las montañas.", "ru": "С тебя восемь евро. И послушай: пастухи говорят, что в башне по ночам горит свет. Там кто-то живёт. Держи мой обрывок карты гор."}
+      }
     }
   ]
 }

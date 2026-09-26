@@ -25,6 +25,31 @@
         {"q": "Где герой заплатит?", "options": ["У барной стойки", "Дома", "На террасе"], "answer": 2}
       ],
       "gloss": {"hola": "привет", "sí": "да", "entonces": "тогда", "claro": "конечно"}
+    },
+    {
+      "id": "sc:cafe.2",
+      "chapter": 2,
+      "npc": "lola",
+      "lines": [
+        {"who": "npc", "es": "¡Buenos días! Hoy estás muy serio. ¿Vas a las montañas?", "ru": "Доброе утро! Ты сегодня очень серьёзный. Идёшь в горы?"},
+        {"who": "hero", "es": "Ayer el guardián me dio el sello. Ahora busco el camino de las montañas.", "ru": "Вчера страж отдал мне печать. Теперь я ищу дорогу в горы."},
+        {"who": "npc", "es": "Mi hermano Tomás es guía en las montañas. Conoce cada camino.", "ru": "Мой брат Томас — проводник в горах. Он знает каждую тропу."},
+        {"who": "hero", "es": "¡Qué bien! ¿Dónde está ahora?", "ru": "Отлично! А где он сейчас?"},
+        {"who": "npc", "es": "No lo sé. Hace un mes que no escribe. Antes me escribía cada semana.", "ru": "Не знаю. Он не пишет уже месяц. Раньше писал каждую неделю."},
+        {"who": "hero", "es": "¿Adónde fue?", "ru": "Куда он ушёл?"},
+        {"who": "npc", "es": "Me dijo que iba a la torre del paso. Allí vive el segundo guardián.", "ru": "Сказал, что идёт к башне на перевале. Там живёт второй страж."},
+        {"who": "hero", "es": "¿Hay un segundo guardián?", "ru": "Есть и второй страж?"},
+        {"who": "npc", "es": "Cada tierra tiene su guardián. Y en las montañas hay niebla y tormentas.", "ru": "У каждой земли свой страж. А в горах туман и грозы."},
+        {"who": "hero", "es": "Si veo a Tomás, le digo que te escriba.", "ru": "Если увижу Томаса, скажу ему, чтобы написал тебе."},
+        {"who": "npc", "es": "Gracias. Toma, un chocolate caliente. Para el frío.", "ru": "Спасибо. Держи горячий шоколад. От холода."}
+      ],
+      "questions": [
+        {"q": "Кто брат Лолы?", "options": ["Горный проводник", "Повар", "Почтальон"], "answer": 0},
+        {"q": "Почему Лола волнуется?", "options": ["Брат месяц не пишет", "Кафе закрывается", "Пропала печать"], "answer": 0},
+        {"q": "Куда пошёл Томас?", "options": ["К морю", "К башне на перевале", "В столицу"], "answer": 1},
+        {"q": "Кто живёт в башне?", "options": ["Летописец", "Второй страж", "Пастухи"], "answer": 1}
+      ],
+      "gloss": {"guía": "проводник", "paso": "перевал", "torre": "башня"}
     }
   ]
 }

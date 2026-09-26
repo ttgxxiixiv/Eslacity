@@ -25,6 +25,31 @@
         {"q": "Где сейчас этот обрывок?", "options": ["В ящике у Розы", "В банке", "На почте"], "answer": 0}
       ],
       "gloss": {"tesoro": "сокровище", "pezzo": "обрывок"}
+    },
+    {
+      "id": "sc:market.2",
+      "chapter": 2,
+      "npc": "rosa",
+      "lines": [
+        {"who": "npc", "es": "Tesoro! Hai assaggiato questo formaggio? È dei pastori della montagna.", "ru": "Сокровище! Пробовал этот сыр? Он от горных пастухов."},
+        {"who": "hero", "es": "I pastori vengono al mercato?", "ru": "Пастухи приходят на рынок?"},
+        {"who": "npc", "es": "Scendono ogni settimana. Portano formaggio e notizie.", "ru": "Спускаются каждую неделю. Приносят сыр и новости."},
+        {"who": "hero", "es": "Quali notizie?", "ru": "Какие новости?"},
+        {"who": "npc", "es": "Una settimana fa mi hanno detto una cosa strana. Hanno visto Tommaso, il fratello della tua amica del bar.", "ru": "На прошлой неделе рассказали странное. Они видели Томмазо, брата твоей подруги из кафе."},
+        {"who": "hero", "es": "Dove l'hanno visto?", "ru": "Где они его видели?"},
+        {"who": "npc", "es": "Saliva alla torre con un uomo. Nessuno lo conosce. Aveva un mantello grigio.", "ru": "Он поднимался к башне с каким-то человеком. Того никто не знает. На нём был серый плащ."},
+        {"who": "hero", "es": "Chi era quell'uomo?", "ru": "Кто это был?"},
+        {"who": "npc", "es": "Nessuno lo sa. Non ha parlato con nessuno.", "ru": "Никто не знает. Он ни с кем не говорил."},
+        {"who": "hero", "es": "Devo dirlo a sua sorella.", "ru": "Надо сказать его сестре."},
+        {"who": "npc", "es": "Aspetta. Prima, assaggia il formaggio.", "ru": "Подожди. Сначала попробуй сыр."}
+      ],
+      "questions": [
+        {"q": "Откуда сыр у Розы?", "options": ["От горных пастухов", "Из супермаркета", "Из-за моря"], "answer": 0},
+        {"q": "Как часто пастухи спускаются в город?", "options": ["Каждый день", "Каждую неделю", "Раз в год"], "answer": 1},
+        {"q": "Кого видели пастухи?", "options": ["Летописца", "Томмазо, брата Джулии", "Стража"], "answer": 1},
+        {"q": "Как выглядел незнакомец?", "options": ["В сером плаще", "В красной шляпе", "С собакой"], "answer": 0}
+      ],
+      "gloss": {"tommaso": "Томмазо (имя)", "tesoro": "сокровище", "pastori": "пастухи", "mantello": "плащ"}
     }
   ]
 }

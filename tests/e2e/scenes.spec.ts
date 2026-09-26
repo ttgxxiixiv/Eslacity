@@ -53,13 +53,15 @@ for (const lang of LANGS) {
       await expect(page).toHaveURL(/#\/loc\/cafe$/);
     });
 
-    test('сцены главы I всех мест: реплики по порядку и все ответы верные', async ({ page }) => {
-      test.setTimeout(120_000);
+    test('все сцены контента: реплики по порядку и все ответы верные', async ({ page }) => {
+      test.setTimeout(240_000);
       await openApp(page, lang);
-      for (const file of readdirSync(join(CONTENT, lang, 'scenes')).filter((f) => f.endsWith('.json'))) {
-        const place = file.replace(/\.json$/, '');
-        const sc = JSON.parse(readFileSync(join(CONTENT, lang, 'scenes', file), 'utf8')).scenes[0] as typeof scene;
-        await page.goto(`./#/scene/sc%3A${place}.1`);
+      const all = readdirSync(join(CONTENT, lang, 'scenes'))
+        .filter((f) => f.endsWith('.json'))
+        .flatMap((f) => JSON.parse(readFileSync(join(CONTENT, lang, 'scenes', f), 'utf8')).scenes as (typeof scene & { id: string })[]);
+      for (const sc of all) {
+        const place = sc.id;
+        await page.goto(`./#/scene/${encodeURIComponent(sc.id)}`);
         for (let i = 0; i < sc.lines.length; i++) {
           await expect(page.getByTestId('scene-current'), place).toContainText(sc.lines[i].es);
           await page.getByTestId('scene-next').click();

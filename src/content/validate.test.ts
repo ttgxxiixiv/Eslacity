@@ -317,7 +317,8 @@ describe('validateMissions', () => {
       const data = JSON.parse(readFileSync(join(import.meta.dirname, lang, 'missions', 'cafe.json'), 'utf8')) as LocationMissions;
       const ph = JSON.parse(readFileSync(join(import.meta.dirname, lang, 'phrases', 'cafe.json'), 'utf8')) as LocationPhrases;
       const out = validateMissions([{ name: 'cafe.json', data }], {
-        residents: { cafe: data.missions[0].npc }, phrases: { cafe: ph.phrases }, scenes: new Set(['sc:cafe.1']),
+        residents: { cafe: data.missions[0].npc }, phrases: { cafe: ph.phrases },
+        scenes: new Set((JSON.parse(readFileSync(join(import.meta.dirname, lang, 'scenes', 'cafe.json'), 'utf8')) as LocationScenes).scenes.map((sc) => sc.id)),
       });
       expect(out).toEqual([]);
     }

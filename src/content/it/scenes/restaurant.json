@@ -25,6 +25,31 @@
         {"q": "Почему прежний путешественник не получил обрывки?", "options": ["Потерял карту", "Не заплатил за обед", "Не говорил по-итальянски"], "answer": 2}
       ],
       "gloss": {"pezzo": "обрывок", "caveau": "Хранилище"}
+    },
+    {
+      "id": "sc:restaurant.2",
+      "chapter": 2,
+      "npc": "salvatore",
+      "lines": [
+        {"who": "npc", "es": "Entra, entra! Oggi ho la zuppa di montagna.", "ru": "Заходи, заходи! Сегодня у меня горный суп."},
+        {"who": "hero", "es": "Zuppa di montagna?", "ru": "Горный суп?"},
+        {"who": "npc", "es": "È la zuppa che ho cucinato per Tommaso prima del suo viaggio.", "ru": "Этот суп я варил Томмазо перед его походом."},
+        {"who": "hero", "es": "Tommaso è stato qui?", "ru": "Томмазо был здесь?"},
+        {"who": "npc", "es": "Un mese fa. Ha mangiato due piatti e mi ha parlato del suo viaggio.", "ru": "Месяц назад. Съел две тарелки и рассказал про свой поход."},
+        {"who": "hero", "es": "E cosa ti ha detto?", "ru": "И что он сказал?"},
+        {"who": "npc", "es": "Voleva salire alla torre. Mi ha detto: «Nella nebbia, ti guida solo la voce».", "ru": "Хотел подняться к башне. Сказал мне: «В тумане ведёт только голос»."},
+        {"who": "hero", "es": "E cosa c'è dietro la torre?", "ru": "А что за башней?"},
+        {"who": "npc", "es": "Tommaso dice che dalla torre si vede la sabbia. Tanta sabbia che brilla come l'acqua.", "ru": "Томмазо говорит, что с башни виден песок. Много песка, который блестит, как вода."},
+        {"who": "hero", "es": "Sabbia in montagna?", "ru": "Песок в горах?"},
+        {"who": "npc", "es": "Non in montagna: dietro. Questo lo vedrai tu. Mangia!", "ru": "Не в горах — за ними. Это ты увидишь сам. Ешь!"}
+      ],
+      "questions": [
+        {"q": "Какой суп сегодня у Сальваторе?", "options": ["Рыбный", "Горный", "Томатный"], "answer": 1},
+        {"q": "Когда Томмазо был в ресторане?", "options": ["Вчера", "Месяц назад", "Год назад"], "answer": 1},
+        {"q": "Что говорил Томмазо о тумане?", "options": ["В тумане ведёт только голос", "В тумане лучше спать", "В тумане нужен фонарик"], "answer": 0},
+        {"q": "Что видно с башни?", "options": ["Море", "Город", "Блестящий песок"], "answer": 2}
+      ],
+      "gloss": {"tommaso": "Томмазо (имя)", "nebbia": "туман", "torre": "башня", "sabbia": "песок", "brilla": "блестит"}
     }
   ]
 }
