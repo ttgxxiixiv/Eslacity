@@ -1,9 +1,9 @@
-import { isRuleId, isScrollId } from './itemId';
+import { isPhraseId, isRuleId, isScrollId, placeOfPhrase } from './itemId';
 import { plural } from './medals';
 
 /**
  * Поручения жителей (docs/GAME.md, «Жители и миссии»): главный способ повторять. Каждый день три поручения
- * от разных жителей открытых мест. Поручение собирается из карточек места, которые пора повторить,
+ * от разных жителей открытых мест. Поручение собирается из карточек места (слова и фразы), которые пора повторить,
  * у учительницы школы — из правил грамматики, у Летописца — из слов свитков. Если таких мало, добираются самые трудные карточки.
  * Поручения не сгорают: невыполненное переходит на следующий день.
  */
@@ -65,10 +65,11 @@ const placeOf = (id: string) => id.split('.')[0];
 /** Самые трудные: больше провалов, выше сложность. */
 const harder = (a: ErrandCard, b: ErrandCard) => b.lapses - a.lapses || (b.difficulty ?? 0) - (a.difficulty ?? 0);
 
-/** Карточка подходит поручению: правило, слово свитка или слово места. */
+/** Карточка подходит поручению: правило, слово свитка, слово или фраза места. */
 function belongs(kind: Errand['kind'], location: string, id: string): boolean {
   if (kind === 'rules') return isRuleId(id);
   if (kind === 'scroll') return isScrollId(id);
+  if (isPhraseId(id)) return placeOfPhrase(id) === location;
   return !isRuleId(id) && placeOf(id) === location;
 }
 

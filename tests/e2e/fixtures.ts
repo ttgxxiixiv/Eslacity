@@ -257,3 +257,61 @@ export async function answerGrammar(page: Page, lesson: { exercises: Exercise[] 
   await expect(page.getByRole('button', { name: /дальше/i })).toBeVisible();
   return ex.id;
 }
+
+interface PhraseData {
+  id: string;
+  es: string;
+  ru: string;
+  level: number;
+}
+
+/** Фразы места из контента. */
+export function loadPhraseData(lang: Lang, place: string): PhraseData[] {
+  return JSON.parse(readFileSync(join(CONTENT, lang, 'phrases', `${place}.json`), 'utf8')).phrases;
+}
+
+/** Фраза целиком без скобок, как её показывает приложение. */
+export const phraseFull = (es: string) => es.replace(/[()]/g, '').replace(/\s+/g, ' ').trim();
+const phraseTiles = (es: string) => {
+  const t = phraseFull(es).replace(/[¿¡?!.,;:"«»()…—–]/g, ' ').split(/\s+/).filter(Boolean);
+  if (t[0] !== t[0].toUpperCase()) t[0] = t[0].toLowerCase();
+  return t;
+};
+
+/** Пройти урок или повторение фраз места, отвечая правильно на каждое задание. */
+export async function playPhrases(page: Page, lang: Lang, place: string, done: RegExp): Promise<Record<string, number>> {
+  const phrases = loadPhraseData(lang, place);
+  const byRu = (ru: string) => phrases.find((p) => p.ru === ru)!;
+  const kinds: Record<string, number> = {};
+  const label = page.locator('[data-testid=phrase-run] .text-sm.font-medium.text-stone-500').first();
+  for (let i = 0; i < 80; i++) {
+    if (await page.getByText(done).count()) return kinds;
+    const kind = (await label.textContent({ timeout: 3000 }).catch(() => null))?.trim();
+    if (!kind) continue;
+    kinds[kind] = (kinds[kind] ?? 0) + 1;
+    if (kind === 'Новая фраза') {
+      await page.getByRole('button', { name: 'Понятно' }).click();
+      continue;
+    }
+    const p = byRu(((await page.getByTestId('phrase-prompt').textContent()) ?? '').trim());
+    if (kind === 'Выберите фразу') {
+      await page.locator('button.min-h-14').filter({ hasText: exact(phraseFull(p.es)) }).click();
+    } else if (kind === 'Соберите фразу из плиток') {
+      for (const t of phraseTiles(p.es)) {
+        await page.getByTestId('phrase-tiles').locator('button:not([disabled])').filter({ hasText: exact(t) }).first().click();
+      }
+      await page.getByRole('button', { name: 'Проверить' }).click();
+    } else if (kind.startsWith('Напишите фразу')) {
+      await page.locator('input').fill(phraseFull(p.es).replace("'", '’ '));
+      await page.getByRole('button', { name: 'Проверить' }).click();
+    } else {
+      throw new Error(`Неизвестное задание фразы: «${kind}»`);
+    }
+    const next = page.getByRole('button', { name: /дальше/i });
+    await expect(next).toBeVisible();
+    const fb = (await page.locator('.sheet[aria-live]').textContent()) ?? '';
+    if (!/верно!/i.test(fb)) throw new Error(`Фраза не засчитана: «${kind}» / «${p.es}»: ${fb}`);
+    await next.click();
+  }
+  throw new Error('Фразы не закончились');
+}

@@ -2,7 +2,9 @@ import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { LOCATION_BY_ID } from '../content/locations';
 import { loadLocation } from '../content';
-import type { LocationId, Word } from '../content/schema';
+import type { LocationId, Phrase, Word } from '../content/schema';
+import { loadPhrases } from '../content/phrases';
+import { fullPhrase } from '../domain/phrase';
 import { ECONOMY } from '../config';
 import { incomeRate, isFull, pendingIncome, upgradeCost } from '../domain/economy';
 import { useNow } from '../lib/useNow';
@@ -58,6 +60,7 @@ export function LocationScreen() {
   const id = useParams().id as LocationId;
   const meta = LOCATION_BY_ID[id];
   const [words, setWords] = useState<Word[] | null>(null);
+  const [phrases, setPhrases] = useState<Phrase[]>([]);
   const cards = useProgress((s) => s.cards);
   const level = useCity((s) => s.buildings[id]?.level ?? 0);
   const coins = useCity((s) => s.coins);
@@ -72,6 +75,7 @@ export function LocationScreen() {
 
   useEffect(() => {
     loadLocation(id).then(setWords);
+    loadPhrases(id).then(setPhrases);
   }, [id]);
 
   if (!meta) return <div className="p-6">Нет такой локации</div>;
@@ -176,6 +180,7 @@ export function LocationScreen() {
                     Тренировка уровня
                   </Link>
                 )}
+                <PhraseBlock place={id} level={lvl} phrases={phrases.filter((p) => p.level === lvl)} wordsDone={done} npcName={npc?.name} cards={cards} />
                 <ul className="mt-3 divide-y divide-stone-100">
                   {lw.map((w) => (
                     <li key={w.id} className="flex items-center gap-3 py-2">
@@ -196,5 +201,56 @@ export function LocationScreen() {
         </div>
       )}
     </Screen>
+  );
+}
+
+/** Фразы уровня: житель учит, как здесь говорят. Открываются, когда выучены слова уровня. */
+function PhraseBlock({ place, level, phrases, wordsDone, npcName, cards }: {
+  place: LocationId;
+  level: number;
+  phrases: Phrase[];
+  wordsDone: boolean;
+  npcName?: string;
+  cards: Record<string, { due: number }>;
+}) {
+  if (!phrases.length) return null;
+  const learned = phrases.filter((p) => p.id in cards).length;
+  const fresh = phrases.length - learned;
+  return (
+    <div className="mt-3 rounded-2xl bg-orange-50 p-3" data-testid="phrase-block">
+      <div className="flex items-center justify-between">
+        <h3 className="font-semibold">💬 Как здесь говорят</h3>
+        <span className="text-sm text-stone-500 tabular-nums">
+          {learned}/{phrases.length} фраз
+        </span>
+      </div>
+      {!wordsDone ? (
+        <p className="mt-1 text-sm text-stone-500">Фразы откроются, когда выучены слова уровня.</p>
+      ) : (
+        <>
+          <Link
+            to={`/phrases/${place}/${level}`}
+            data-testid="phrase-lesson"
+            className={`press mt-2 block rounded-2xl px-3 py-3 text-center font-semibold ${fresh ? 'bg-brand text-white' : 'border border-stone-300'}`}
+          >
+            {fresh ? `${npcName ? `${npcName} учит` : 'Выучить'}: ${fresh} ${plural(fresh, ['фраза', 'фразы', 'фраз'])}` : 'Повторить фразы уровня'}
+          </Link>
+          {learned > 0 && (
+            <ul className="mt-2 divide-y divide-orange-100">
+              {phrases.filter((p) => p.id in cards).map((p) => (
+                <li key={p.id} className="flex items-center gap-3 py-2">
+                  <div className="min-w-0 flex-1">
+                    <div className="font-semibold">{p.es}</div>
+                    <div className="text-sm text-stone-500">{p.ru}</div>
+                  </div>
+                  <span className="text-xs text-stone-400">{dueLabel(cards[p.id].due)}</span>
+                  <SpeakButton text={fullPhrase(p.es)} />
+                </li>
+              ))}
+            </ul>
+          )}
+        </>
+      )}
+    </div>
   );
 }

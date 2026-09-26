@@ -7,7 +7,7 @@ import { NPC_BY_LOCATION } from '../content/npcs';
 import { useErrands } from '../store/errands';
 import { useProgress } from '../store/progress';
 import { errandSignal } from '../domain/errands';
-import { isRuleId } from '../domain/itemId';
+import { isPhraseId, isRuleId, placeOfPhrase } from '../domain/itemId';
 import { dueCards } from '../domain/srs';
 import { NpcPortrait } from './NpcPortrait';
 import { hasContent } from '../content';
@@ -224,7 +224,10 @@ export function CityGrid() {
     const due = dueCards(Object.values(cards), now);
     const out: Record<string, number> = {};
     for (const e of errands) {
-      const n = e.kind === 'rules' ? due.filter((c) => isRuleId(c.wordId)).length : due.filter((c) => c.wordId.startsWith(`${e.location}.`)).length;
+      const n =
+        e.kind === 'rules'
+          ? due.filter((c) => isRuleId(c.wordId)).length
+          : due.filter((c) => c.wordId.startsWith(`${e.location}.`) || (isPhraseId(c.wordId) && placeOfPhrase(c.wordId) === e.location)).length;
       out[e.location] = errandSignal(true, n);
     }
     return out;

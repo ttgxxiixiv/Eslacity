@@ -1,5 +1,6 @@
 import { LESSON } from '../config';
 import { LANG, LANGS, type Lang } from '../lang';
+import { expandOptional, fullPhrase } from './phrase';
 
 export type Verdict = 'correct' | 'almost' | 'wrong';
 
@@ -115,6 +116,31 @@ export function checkTyped(input: string, accepted: string[]): CheckResult {
     if (best.verdict === 'wrong' && !best.reason && r.reason) best = r;
   }
   return best;
+}
+
+/** Одна опечатка допускается на каждые столько букв фразы: «un cafe por favr» — почти. */
+export const PHRASE_LETTERS_PER_TYPO = 8;
+
+/**
+ * Проверка фразы, сказанной героем (задача 4.3). Верны все варианты: с необязательными словами в скобках
+ * и без них, и каждый `alt`. Регистр и пунктуация не важны. Без ударений — «почти»; опечатки — «почти»,
+ * если их не больше одной на 8 букв (фраза короче 8 букв опечаток не прощает). Показываем фразу целиком.
+ */
+export function checkPhrase(input: string, phrase: { es: string; alt?: string[] }): CheckResult {
+  const expected = fullPhrase(phrase.es);
+  const got = normalize(input);
+  const wrong: CheckResult = { verdict: 'wrong', expected };
+  if (!got) return wrong;
+  const variants = [phrase.es, ...(phrase.alt ?? [])].flatMap(expandOptional).map(normalize);
+  if (variants.includes(got)) return { verdict: 'correct', expected };
+  const plain = stripAccents(got);
+  if (variants.some((v) => stripAccents(v) === plain)) return { verdict: 'almost', expected, reason: 'accent' };
+  for (const v of variants) {
+    const target = stripAccents(v);
+    const allowed = Math.floor(target.replace(/[^\p{L}]/gu, '').length / PHRASE_LETTERS_PER_TYPO);
+    if (allowed > 0 && levenshtein(plain, target) <= allowed) return { verdict: 'almost', expected, reason: 'typo' };
+  }
+  return wrong;
 }
 
 /**

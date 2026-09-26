@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { checkTyped, levenshtein, normalize, answerLetters, splitArticle, stripAccents } from './answer';
+import { checkTyped, levenshtein, normalize, answerLetters, splitArticle, stripAccents, checkPhrase } from './answer';
 
 describe('normalize', () => {
   it('убирает регистр, ¿¡ и пунктуацию, схлопывает пробелы', () => {
@@ -117,5 +117,31 @@ describe('итальянский', () => {
     expect(answerLetters("l'acqua", 'it')).toEqual({ letters: ['a', 'c', 'l', 'q', 'u', "'"], space: false });
     expect(answerLetters('il caffè', 'it').letters).toContain('è');
     expect(stripAccents('città perché')).toBe('citta perche');
+  });
+});
+
+describe('checkPhrase', () => {
+  const te = { es: '(Yo) quiero un té con leche.', alt: ['Un té con leche, por favor.'] };
+  it('все варианты со скобками и alt верны, пунктуация и регистр не важны', () => {
+    expect(checkPhrase('yo quiero un té con leche', te)).toMatchObject({ verdict: 'correct', expected: 'Yo quiero un té con leche.' });
+    expect(checkPhrase('Quiero un té con leche!!', te).verdict).toBe('correct');
+    expect(checkPhrase('un té con leche por favor', te).verdict).toBe('correct');
+  });
+  it('без ударения — почти', () => {
+    expect(checkPhrase('quiero un te con leche', te)).toMatchObject({ verdict: 'almost', reason: 'accent' });
+  });
+  it('одна опечатка на 8 букв — почти, больше — неверно', () => {
+    // «quiero un té con leche» — 18 букв: две опечатки прощаются, три — нет.
+    expect(checkPhrase('quiero un té con lecje', te)).toMatchObject({ verdict: 'almost', reason: 'typo' });
+    expect(checkPhrase('quero un té con lecje', te).verdict).toBe('almost');
+    expect(checkPhrase('quero un té cn lecje', te).verdict).toBe('wrong');
+  });
+  it('короткая фраза опечаток не прощает, другая фраза неверна', () => {
+    expect(checkPhrase('Hla', { es: 'Hola' }).verdict).toBe('wrong');
+    expect(checkPhrase('La cuenta, por favor', { es: 'Un café, por favor.' }).verdict).toBe('wrong');
+    expect(checkPhrase('', te).verdict).toBe('wrong');
+  });
+  it('итальянский апостроф с телефона', () => {
+    expect(checkPhrase('Un bicchiere d’ acqua, per favore', { es: "Un bicchiere d'acqua, per favore." }).verdict).toBe('correct');
   });
 });

@@ -4,6 +4,7 @@ import { bootstrap } from './store/bootstrap';
 import { Home } from './screens/Home';
 import { LocationScreen } from './screens/Location';
 import { LearnScreen } from './screens/Learn';
+import { PhraseLessonScreen } from './screens/PhraseLesson';
 import { ReviewScreen } from './screens/Review';
 import { BlitzScreen } from './screens/Blitz';
 import { SettingsScreen } from './screens/Settings';
@@ -91,6 +92,7 @@ export default function App() {
         <Route path="/settings" element={<SettingsScreen />} />
         <Route path="/learn/:id/:level/:part" element={<LearnScreen />} />
         <Route path="/practice/:id/:level" element={<LearnScreen practice />} />
+        <Route path="/phrases/:id/:level" element={<PhraseLessonScreen />} />
         <Route path="/blitz" element={<BlitzScreen />} />
         <Route path="/words" element={<WordsScreen />} />
       </Routes>

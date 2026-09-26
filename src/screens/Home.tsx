@@ -239,11 +239,12 @@ export function Home() {
   // Счётчик пересчитывается и после полуночи, если приложение не закрывали.
   const now = useNow(60_000);
   const dueSplit = useMemo(() => splitCards(dueCards(Object.values(cards), now)), [cards, now]);
-  const due = dueSplit.words.length + dueSplit.rules.length;
+  const due = dueSplit.words.length + dueSplit.rules.length + dueSplit.phrases.length;
   const dueText = [
     dueSplit.words.length ? `${dueSplit.words.length} ${plural(dueSplit.words.length, ['слово', 'слова', 'слов'])}` : '',
+    dueSplit.phrases.length ? `${dueSplit.phrases.length} ${plural(dueSplit.phrases.length, ['фраза', 'фразы', 'фраз'])}` : '',
     dueSplit.rules.length ? `${dueSplit.rules.length} ${plural(dueSplit.rules.length, ['правило', 'правила', 'правил'])}` : '',
-  ].filter(Boolean).join(' и ');
+  ].filter(Boolean).reduce((acc, part, i, all) => (i === 0 ? part : `${acc}${i === all.length - 1 ? ' и ' : ', '}${part}`), '');
   const learned = useMemo(() => wordIds(Object.keys(cards)).length, [cards]);
 
   const open = useMemo(

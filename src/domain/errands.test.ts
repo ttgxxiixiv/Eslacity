@@ -25,6 +25,10 @@ describe('сборка поручения', () => {
     expect(items).toHaveLength(8);
     expect(items.slice(0, 3)).toEqual(['cafe.a', 'cafe.c', 'cafe.w3']);
   });
+  it('фразы места идут в поручение его жителя, чужие — нет', () => {
+    const cards = [card('cafe.te', T), card('ph:cafe.un-cafe', T - 2), card('ph:market.kilo', T), card('cafe.agua', T + 3)];
+    expect(errandItems('words', 'cafe', cards, T).items).toEqual(['ph:cafe.un-cafe', 'cafe.te', 'cafe.agua']);
+  });
   it('учительница собирает правила из всех уроков', () => {
     const cards = [card('g:a1.02-ser.1', T), card('g:a2.01-x.3', T - 1), card('school.lapiz', T)];
     expect(errandItems('rules', 'school', cards, T).items).toEqual(['g:a2.01-x.3', 'g:a1.02-ser.1']);

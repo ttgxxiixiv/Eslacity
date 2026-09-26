@@ -1,3 +1,4 @@
+import { wordIds } from '../domain/itemId';
 import { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ECONOMY } from '../config';
@@ -153,7 +154,7 @@ export function ProfileScreen() {
 
         <Link to="/words" className="press flex items-center justify-between rounded-3xl bg-white p-4 shadow-sm">
           <span className="font-bold">📖 Мои слова</span>
-          <span className="text-stone-500">{Object.keys(cards).length} →</span>
+          <span className="text-stone-500">{wordIds(Object.keys(cards)).length} →</span>
         </Link>
 
 

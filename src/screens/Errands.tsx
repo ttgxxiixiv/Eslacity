@@ -7,7 +7,7 @@ import { speak } from '../audio/tts';
 import { NpcPortrait } from '../components/NpcPortrait';
 import { Button, Screen, TopBar } from '../components/ui';
 import { errandReward, errandText, type Errand } from '../domain/errands';
-import { isRuleId, splitCards } from '../domain/itemId';
+import { isPhraseId, isRuleId, isWordId, splitCards } from '../domain/itemId';
 import { plural } from '../domain/medals';
 import { dueCards } from '../domain/srs';
 import { L } from '../lang';
@@ -31,7 +31,7 @@ export function ErrandsScreen() {
     useErrands.getState().refresh();
   }, []);
   const due = useMemo(() => splitCards(dueCards(Object.values(cards), Date.now())), [cards]);
-  const dueTotal = due.words.length + due.rules.length;
+  const dueTotal = due.words.length + due.rules.length + due.phrases.length;
 
   return (
     <Screen>
@@ -103,7 +103,7 @@ export function ErrandScreen() {
   return (
     <ReviewRun
       title="Поручение выполнено"
-      pick={() => ({ words: snapshot.items.filter((x) => !isRuleId(x)), rules: snapshot.items.filter(isRuleId) })}
+      pick={() => ({ words: snapshot.items.filter(isWordId), rules: snapshot.items.filter(isRuleId), phrases: snapshot.items.filter(isPhraseId) })}
       onComplete={() => {
         const reward = useErrands.getState().complete(snapshot.id);
         if (npc) speak(L.thanks.es, useSettings.getState().speechRate * npc.voice.rate, npc.voice.pitch);

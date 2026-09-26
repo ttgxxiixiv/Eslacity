@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { exerciseOf, isRuleId, lessonOfExercise, ruleCardId, splitCards, wordCards, wordIds } from './itemId';
+import { exerciseOf, isPhraseId, isRuleId, isWordId, lessonOfExercise, placeOfPhrase, ruleCardId, splitCards, wordCards, wordIds } from './itemId';
 import { grammarItemId } from './answerLog';
 import { vocabulary } from './vocabulary';
 import { recentLocation } from './next';
@@ -31,6 +31,24 @@ describe('карточки слов и правил', () => {
       'cafe.te': card('cafe.te', { learnedAt: 1 }),
       'g:a1.02-ser.1': card('g:a1.02-ser.1', { learnedAt: 99 }),
     };
+    expect(vocabulary(rec, () => false)).toEqual({ learned: 1, solid: 1 });
+    expect(recentLocation(rec)).toBe('cafe');
+  });
+});
+
+describe('карточки фраз', () => {
+  const list = [card('cafe.te'), card('ph:cafe.un-cafe'), card('g:a1.02-ser.1')];
+  it('фраза — отдельный вид карточки, не слово и не правило', () => {
+    expect(isPhraseId('ph:cafe.un-cafe')).toBe(true);
+    expect(isWordId('ph:cafe.un-cafe')).toBe(false);
+    expect(isRuleId('ph:cafe.un-cafe')).toBe(false);
+    expect(placeOfPhrase('ph:cafe.un-cafe')).toBe('cafe');
+    const { words, rules, phrases } = splitCards(list);
+    expect([words, rules, phrases].map((l) => l.map((c) => c.wordId))).toEqual([['cafe.te'], ['g:a1.02-ser.1'], ['ph:cafe.un-cafe']]);
+    expect(wordIds(list.map((c) => c.wordId))).toEqual(['cafe.te']);
+  });
+  it('в словарный запас и «последнее место» фразы не входят', () => {
+    const rec = Object.fromEntries(list.map((c, i) => [c.wordId, { ...c, learnedAt: i }]));
     expect(vocabulary(rec, () => false)).toEqual({ learned: 1, solid: 1 });
     expect(recentLocation(rec)).toBe('cafe');
   });
