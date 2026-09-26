@@ -25,6 +25,31 @@
         {"q": "Куда ведёт дорога на карте?", "options": ["К морю", "В аэропорт", "Мимо озера в горы"], "answer": 2}
       ],
       "gloss": {"palomas": "голуби", "completo": "целый", "bóveda": "Хранилище"}
+    },
+    {
+      "id": "sc:park.2",
+      "chapter": 2,
+      "npc": "manolo",
+      "lines": [
+        {"who": "npc", "es": "Buenos días, joven. Siéntate. Tengo que contarte algo.", "ru": "Доброе утро, молодой человек. Садись. Мне нужно тебе кое-что рассказать."},
+        {"who": "hero", "es": "¿Qué pasó?", "ru": "Что случилось?"},
+        {"who": "npc", "es": "Ayer un hombre se sentó en este banco. Llevaba una capa gris.", "ru": "Вчера на эту скамейку сел человек. На нём был серый плащ."},
+        {"who": "hero", "es": "¡El hombre de la capa! ¿Qué hizo?", "ru": "Человек в плаще! Что он делал?"},
+        {"who": "npc", "es": "Dio pan a los patos y me preguntó por la voz de la niebla.", "ru": "Кормил уток хлебом и спросил меня про голос в тумане."},
+        {"who": "hero", "es": "¿Y usted qué le dijo?", "ru": "А вы что ему сказали?"},
+        {"who": "npc", "es": "Nada. Porque lo conocí. Lo vi aquí, en este banco, hace cincuenta años.", "ru": "Ничего. Потому что я его узнал. Я видел его здесь, на этой самой скамейке, пятьдесят лет назад."},
+        {"who": "hero", "es": "¿Hace cincuenta años? ¿Y cómo está ahora?", "ru": "Пятьдесят лет назад? И какой он теперь?"},
+        {"who": "npc", "es": "No cambió. Tiene la cara de antes y la capa de antes. No es más viejo.", "ru": "Он не изменился. То же лицо, тот же плащ. Он не постарел."},
+        {"who": "hero", "es": "Eso es imposible.", "ru": "Это невозможно."},
+        {"who": "npc", "es": "En las montañas, joven, lo imposible pasa cada día.", "ru": "В горах, молодой человек, невозможное случается каждый день."}
+      ],
+      "questions": [
+        {"q": "Кого видел Маноло вчера?", "options": ["Томаса", "Человека в сером плаще", "Летописца"], "answer": 1},
+        {"q": "Что делал этот человек?", "options": ["Кормил уток и спрашивал про голос в тумане", "Катался на велосипеде", "Играл в шары"], "answer": 0},
+        {"q": "Когда Маноло видел его впервые?", "options": ["Неделю назад", "Пятьдесят лет назад", "Вчера"], "answer": 1},
+        {"q": "Что странного в этом человеке?", "options": ["Он не постарел", "Он не говорит", "Он очень высокий"], "answer": 0}
+      ],
+      "gloss": {"capa": "плащ", "banco": "скамейка", "patos": "утки", "niebla": "туман"}
     }
   ]
 }

@@ -22,6 +22,28 @@
         "shoes": {"kind": "answer", "task": "Скажите, что вам нужны ещё туфли.", "branches": [{"phrase": "ph:clothes.servono-delle-scarpe", "next": "end"}], "wrong": {"es": "Ti serve un letto? Qui non vendo letti.", "ru": "Тебе нужна кровать? Кроватей я не продаю."}},
         "end": {"kind": "say", "es": "Per la montagna, queste scarpe. E prendi il pezzo della mappa. In montagna fa freddo, e adesso hai il cappotto.", "ru": "Для гор — вот эти ботинки. И держи обрывок карты. В горах холодно, а у тебя теперь есть пальто."}
       }
+    },
+    {
+      "id": "ms:clothes.2",
+      "chapter": 2,
+      "npc": "chiara",
+      "scene": "sc:clothes.2",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Ti vestiamo per la torre. Da dove cominciamo?", "ru": "Давай оденем тебя для башни. С чего начнём?", "next": "hat"},
+        "hat": {"kind": "answer", "task": "Спросите, есть ли зимняя шапка.", "branches": [{"phrase": "ph:clothes.avete-berretto-inverno", "next": "hatsay"}], "wrong": {"es": "Un cappello da spiaggia? Nella torre c'è la neve!", "ru": "Пляжная шляпа? В башне снег!"}},
+        "hatsay": {"kind": "say", "es": "Questo berretto è molto buono. E per il collo?", "ru": "Эта шапка очень хорошая. А для шеи?", "next": "scarf"},
+        "scarf": {"kind": "answer", "task": "Спросите, где шарфы.", "branches": [{"phrase": "ph:clothes.dove-sono-sciarpe", "next": "scarfsay"}], "wrong": {"es": "Dove sono le scarpe da ballo? Non vai a ballare, vai a salire!", "ru": "Где туфли для танцев? Ты не танцевать идёшь, а подниматься!"}},
+        "scarfsay": {"kind": "say", "es": "Qui. Prendine una rossa, come Tommaso. Prova anche questo maglione.", "ru": "Вот здесь. Возьми красный, как у Томмазо. Примерь ещё этот свитер.", "next": "fit"},
+        "fit": {"kind": "answer", "task": "Спросите, как на вас сидит.", "branches": [{"phrase": "ph:clothes.come-sta", "next": "fitsay"}], "wrong": {"es": "Che ore sono? È ora di provare i vestiti.", "ru": "Который час? Время примерять одежду."}},
+        "fitsay": {"kind": "say", "es": "Mmm... Un po' piccolo, no?", "ru": "Хм... Маловат, нет?", "next": "tight"},
+        "tight": {"kind": "answer", "task": "Скажите, что слишком узко.", "branches": [{"phrase": "ph:clothes.troppo-stretto", "next": "tightsay"}], "wrong": {"es": "Troppo bello? Questo non esiste.", "ru": "Слишком красиво? Такого не бывает."}},
+        "tightsay": {"kind": "say", "es": "Hai ragione. Prendi una taglia più grande. È molto caldo.", "ru": "Ты прав. Возьми на размер больше. Он очень тёплый.", "next": "cotton"},
+        "cotton": {"kind": "answer", "task": "Спросите, из хлопка ли он.", "branches": [{"phrase": "ph:clothes.cotone", "next": "cottonsay"}], "wrong": {"es": "È di cioccolato? No, non si mangia!", "ru": "Он из шоколада? Нет, его не едят!"}},
+        "cottonsay": {"kind": "say", "es": "No, è di lana. Per la montagna, meglio. Altro?", "ru": "Нет, из шерсти. Для гор так лучше. Что-нибудь ещё?", "next": "boots"},
+        "boots": {"kind": "answer", "task": "Спросите, продаются ли сапоги со скидкой.", "branches": [{"phrase": "ph:clothes.stivali-sono-saldo", "next": "end"}], "wrong": {"es": "Gli stivali cantano? No, ma sono molto buoni.", "ru": "Сапоги поют? Нет, но они очень хорошие."}},
+        "end": {"kind": "say", "es": "Per te, sì. Ed ecco gli stivali di Tommaso: portaglieli. Prendi anche il mio pezzo della mappa della montagna. Cerca la sciarpa rossa nella nebbia.", "ru": "Для тебя — да. А вот сапоги Томмазо: отнеси их ему. И возьми мой обрывок карты гор. Ищи в тумане красный шарф."}
+      }
     }
   ]
 }

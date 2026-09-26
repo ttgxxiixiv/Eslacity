@@ -25,6 +25,31 @@
         {"q": "Что решает герой?", "options": ["Бросить поиски", "Купить новую карту", "Много учиться"], "answer": 2}
       ],
       "gloss": {"pezzo": "обрывок", "caveau": "Хранилище", "dante": "Данте, великий итальянский поэт"}
+    },
+    {
+      "id": "sc:school.2",
+      "chapter": 2,
+      "npc": "anna",
+      "lines": [
+        {"who": "npc", "es": "Ho la lettera di Tommaso. Sua sorella me l'ha data ieri.", "ru": "У меня письмо Томмазо. Его сестра вчера мне его дала."},
+        {"who": "hero", "es": "Cosa dice la lettera?", "ru": "Что в письме?"},
+        {"who": "npc", "es": "Ascolta: «Sono arrivato nella nebbia. La nebbia parla. Io rispondo al passato».", "ru": "Слушай: «Я дошёл до тумана. Туман говорит. Я отвечаю в прошедшем времени»."},
+        {"who": "hero", "es": "La nebbia parla?", "ru": "Туман говорит?"},
+        {"who": "npc", "es": "Credo che sia la voce del guardiano. Chiede cosa hai fatto, e tu rispondi al passato.", "ru": "Думаю, это голос стража. Он спрашивает, что ты сделал, а ты отвечаешь в прошедшем времени."},
+        {"who": "hero", "es": "Come diceva la mia vicina.", "ru": "Как говорила моя соседка."},
+        {"who": "npc", "es": "Sì, come lei. E guarda sotto: la lettera cambia.", "ru": "Да, как она. И посмотри внизу: письмо меняется."},
+        {"who": "hero", "es": "Cosa succede sotto?", "ru": "А что внизу?"},
+        {"who": "npc", "es": "Qui ha scritto un uomo diverso. Dice solo: «Sta bene. Aspetta».", "ru": "Здесь писал другой человек. Там только: «С ним всё хорошо. Жди»."},
+        {"who": "hero", "es": "Chi?", "ru": "Кто?"},
+        {"who": "npc", "es": "Non lo so. Per questo oggi studiamo il passato. Cominciamo!", "ru": "Не знаю. Поэтому сегодня учим прошедшее время. Начинаем!"}
+      ],
+      "questions": [
+        {"q": "Чьё письмо читает Анна?", "options": ["Письмо Томмазо", "Письмо Летописца", "Письмо стража"], "answer": 0},
+        {"q": "Что делает туман в письме?", "options": ["Говорит", "Поёт", "Молчит"], "answer": 0},
+        {"q": "Как нужно отвечать стражу?", "options": ["Шёпотом", "В прошедшем времени", "Письменно"], "answer": 1},
+        {"q": "Что странного в конце письма?", "options": ["Его дописал другой человек", "Оно пустое", "Оно на другом языке"], "answer": 0}
+      ],
+      "gloss": {"tommaso": "Томмазо (имя)", "nebbia": "туман", "sotto": "внизу"}
     }
   ]
 }

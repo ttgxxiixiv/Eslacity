@@ -20,6 +20,26 @@
         "nice": {"kind": "answer", "task": "Скажите, какой красивый парк или как здесь спокойно.", "branches": [{"phrase": "ph:park.bonito-parque", "next": "end"}, {"phrase": "ph:park.aqui-se-esta", "next": "end"}], "wrong": {"es": "¿Malo? ¡Joven, este es el parque más bonito de la ciudad!", "ru": "Плохой? Молодой человек, это самый красивый парк в городе!"}},
         "end": {"kind": "say", "es": "Tienes razón. Toma, mi trozo del mapa. El camino va a las montañas. Yo soy viejo, y tú eres joven. ¡Buen viaje!", "ru": "Ты прав. Держи мой обрывок карты. Дорога идёт в горы. Я старый, а ты молодой. Счастливого пути!"}
       }
+    },
+    {
+      "id": "ms:park.2",
+      "chapter": 2,
+      "npc": "manolo",
+      "scene": "sc:park.2",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Buenos días, joven. Hoy damos un paseo por el lago. Quiero ver si vuelve el hombre de la capa.", "ru": "Доброе утро, молодой человек. Сегодня прогуляемся у озера. Хочу посмотреть, не вернётся ли человек в плаще.", "next": "weather"},
+        "weather": {"kind": "answer", "task": "Скажите, что погода хорошая для пикника.", "branches": [{"phrase": "ph:park.hace-buen-tiempo", "next": "weathersay"}], "wrong": {"es": "¿Hace frío para nadar? ¡Hoy no nadamos, joven!", "ru": "Холодно для купания? Сегодня мы не плаваем, молодой человек!"}},
+        "weathersay": {"kind": "say", "es": "Un picnic, sí. Tengo pan y queso. ¿Dónde nos sentamos?", "ru": "Пикник — да. У меня есть хлеб и сыр. Куда сядем?", "next": "grass"},
+        "grass": {"kind": "answer", "task": "Спросите, можно ли сесть на газон.", "branches": [{"phrase": "ph:park.podemos-sentarnos-cesped", "next": "grasssay"}], "wrong": {"es": "¿Sentarnos en el lago? Mejor en la hierba, joven.", "ru": "Сесть в озеро? Лучше на траву, молодой человек."}},
+        "grasssay": {"kind": "say", "es": "Claro, aquí. Mira el lago. ¿Ves los patos?", "ru": "Конечно, вот здесь. Посмотри на озеро. Видишь уток?", "next": "ducks"},
+        "ducks": {"kind": "answer", "task": "Скажите, что утки на озере голодные.", "branches": [{"phrase": "ph:park.patos-lago-tienen", "next": "duckssay"}], "wrong": {"es": "¿Los patos están tristes? No, joven, están esperando el pan.", "ru": "Утки грустные? Нет, молодой человек, они ждут хлеба."}},
+        "duckssay": {"kind": "say", "es": "Toma pan para ellos. Así lo hacía el hombre de la capa.", "ru": "Возьми хлеба для них. Так делал человек в плаще.", "next": "squirrel"},
+        "squirrel": {"kind": "answer", "task": "Покажите Маноло белку на ветке.", "branches": [{"phrase": "ph:park.mira-ardilla-rama", "next": "sqsay"}], "wrong": {"es": "¿Un lobo en el árbol? ¡Los lobos no suben a los árboles!", "ru": "Волк на дереве? Волки не лазают по деревьям!"}},
+        "sqsay": {"kind": "say", "es": "Qué bonita. Uy, mira el cielo: está muy oscuro.", "ru": "Какая красивая. Ой, посмотри на небо: совсем тёмное.", "next": "rain"},
+        "rain": {"kind": "answer", "task": "Скажите, что сейчас пойдёт дождь, и спросите, есть ли у него зонт.", "branches": [{"phrase": "ph:park.va-llover-tienes", "next": "end"}], "wrong": {"es": "¿Va a nevar? En verano, no. Pero sí va a llover.", "ru": "Пойдёт снег? Летом нет. А вот дождь — будет."}},
+        "end": {"kind": "say", "es": "Tengo paraguas. Vamos a casa. El hombre no vino. Pero toma mi trozo del mapa de las montañas. Si lo ves, mira su cara: tiene la cara de hace cincuenta años.", "ru": "Зонт у меня есть. Пошли домой. Человек не пришёл. Но держи мой обрывок карты гор. Если увидишь его, посмотри на лицо: оно такое же, как пятьдесят лет назад."}
+      }
     }
   ]
 }

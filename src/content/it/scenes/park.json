@@ -25,6 +25,31 @@
         {"q": "Куда ведёт дорога на карте?", "options": ["К морю", "В аэропорт", "Мимо озера в горы"], "answer": 2}
       ],
       "gloss": {"eh": "а", "bocce": "бочче (игра в шары)", "caveau": "Хранилище", "lontano": "далеко"}
+    },
+    {
+      "id": "sc:park.2",
+      "chapter": 2,
+      "npc": "gino",
+      "lines": [
+        {"who": "npc", "es": "Giovane, siediti. Devo dirti una cosa.", "ru": "Молодой человек, садись. Мне нужно тебе кое-что сказать."},
+        {"who": "hero", "es": "Cosa è successo?", "ru": "Что случилось?"},
+        {"who": "npc", "es": "Ieri un uomo si è seduto su questa panchina. Aveva un mantello grigio.", "ru": "Вчера на эту скамейку сел человек. На нём был серый плащ."},
+        {"who": "hero", "es": "L'uomo con il mantello! Cosa ha fatto?", "ru": "Человек в плаще! Что он делал?"},
+        {"who": "npc", "es": "Ha dato il pane alle anatre e mi ha chiesto della voce nella nebbia.", "ru": "Кормил уток хлебом и спросил меня про голос в тумане."},
+        {"who": "hero", "es": "E lei cosa gli ha detto?", "ru": "А вы что ему сказали?"},
+        {"who": "npc", "es": "Niente. Perché l'ho riconosciuto. L'ho visto qui, su questa panchina, cinquanta anni fa.", "ru": "Ничего. Потому что я его узнал. Я видел его здесь, на этой скамейке, пятьдесят лет назад."},
+        {"who": "hero", "es": "Cinquanta anni fa? E com'è adesso?", "ru": "Пятьдесят лет назад? И какой он теперь?"},
+        {"who": "npc", "es": "Non è cambiato. La faccia di prima, il mantello di prima. Non è più vecchio.", "ru": "Он не изменился. То же лицо, тот же плащ. Он не постарел."},
+        {"who": "hero", "es": "È impossibile.", "ru": "Это невозможно."},
+        {"who": "npc", "es": "In montagna, giovane, l'impossibile succede ogni giorno.", "ru": "В горах, молодой человек, невозможное случается каждый день."}
+      ],
+      "questions": [
+        {"q": "Кого видел Джино вчера?", "options": ["Томмазо", "Человека в сером плаще", "Летописца"], "answer": 1},
+        {"q": "Что делал этот человек?", "options": ["Кормил уток и спрашивал про голос в тумане", "Катался на велосипеде", "Играл в бочче"], "answer": 0},
+        {"q": "Когда Джино видел его впервые?", "options": ["Неделю назад", "Пятьдесят лет назад", "Вчера"], "answer": 1},
+        {"q": "Что странного в этом человеке?", "options": ["Он не постарел", "Он не говорит", "Он очень высокий"], "answer": 0}
+      ],
+      "gloss": {"mantello": "плащ", "panchina": "скамейка", "anatre": "утки", "nebbia": "туман", "riconosciuto": "узнал"}
     }
   ]
 }

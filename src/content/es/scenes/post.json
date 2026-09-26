@@ -25,6 +25,31 @@
         {"q": "Почему почтальон торопится?", "options": ["Сегодня у него сто писем", "Он опаздывает на поезд", "Скоро дождь"], "answer": 0}
       ],
       "gloss": {"trozo": "обрывок", "trozos": "обрывки"}
+    },
+    {
+      "id": "sc:post.2",
+      "chapter": 2,
+      "npc": "rafa",
+      "lines": [
+        {"who": "npc", "es": "¡Viajero! ¡Rápido! Tienes un paquete. Viene de las montañas.", "ru": "Путешественник! Быстрее! Тебе посылка. Она с гор."},
+        {"who": "hero", "es": "¿De las montañas? ¿Quién lo manda?", "ru": "С гор? Кто её прислал?"},
+        {"who": "npc", "es": "Solo dice: «De tu amigo de la torre».", "ru": "Там только: «От твоего друга из башни»."},
+        {"who": "hero", "es": "¿De la torre? ¡Es Tomás!", "ru": "Из башни? Это Томас!"},
+        {"who": "npc", "es": "Puede ser. Es frágil. Ábrelo despacio.", "ru": "Может быть. Она хрупкая. Открывай медленно."},
+        {"who": "hero", "es": "Hay una brújula. Y una nota.", "ru": "Там компас. И записка."},
+        {"who": "npc", "es": "¿Qué dice la nota?", "ru": "Что в записке?"},
+        {"who": "hero", "es": "Dice: «Sigue la voz».", "ru": "Там написано: «Иди на голос»."},
+        {"who": "npc", "es": "¡Tomás está vivo! Voy a casa de su hermana.", "ru": "Томас жив! Бегу к его сестре."},
+        {"who": "hero", "es": "Ve rápido. Yo sigo aquí.", "ru": "Беги быстрее. Я пока здесь."},
+        {"who": "npc", "es": "¡Voy! Nadie es más rápido que yo.", "ru": "Бегу! Быстрее меня никого нет."}
+      ],
+      "questions": [
+        {"q": "Откуда пришла посылка?", "options": ["С гор", "Из столицы", "Из-за моря"], "answer": 0},
+        {"q": "Как подписана посылка?", "options": ["Полным именем", "«От твоего друга из башни»", "Никак"], "answer": 1},
+        {"q": "Что лежит в посылке?", "options": ["Компас и записка", "Фонарик", "Красный шарф"], "answer": 0},
+        {"q": "Что написано в записке?", "options": ["«Жди меня»", "«Иди на голос»", "«Не ходи в горы»"], "answer": 1}
+      ],
+      "gloss": {"brújula": "компас", "nota": "записка", "frágil": "хрупкая", "sigue": "иди за", "vivo": "жив"}
     }
   ]
 }

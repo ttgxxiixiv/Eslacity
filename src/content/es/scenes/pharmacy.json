@@ -25,6 +25,31 @@
         {"q": "Что болит у героя?", "options": ["Горло", "Голова", "Живот"], "answer": 1}
       ],
       "gloss": {"trozo": "обрывок", "elixir": "Эликсир"}
+    },
+    {
+      "id": "sc:pharmacy.2",
+      "chapter": 2,
+      "npc": "ernesto",
+      "lines": [
+        {"who": "npc", "es": "Buenas tardes. Ya sé por qué viene. Las montañas, ¿verdad?", "ru": "Добрый день. Я уже знаю, зачем вы пришли. Горы, верно?"},
+        {"who": "hero", "es": "¿Qué necesito para el viaje?", "ru": "Что мне нужно в дорогу?"},
+        {"who": "npc", "es": "Como Tomás. Él compró pastillas para el mareo y una venda.", "ru": "Как Томасу. Он купил таблетки от головокружения и бинт."},
+        {"who": "hero", "es": "¿El mareo?", "ru": "Головокружение?"},
+        {"who": "npc", "es": "Arriba, el aire es diferente. Mucha gente se marea en la torre.", "ru": "Наверху воздух другой. У многих в башне кружится голова."},
+        {"who": "hero", "es": "¿Vino también el hombre de la capa gris?", "ru": "А человек в сером плаще тоже приходил?"},
+        {"who": "npc", "es": "Vino. No compró nada. Me hizo una pregunta muy rara.", "ru": "Приходил. Ничего не купил. Задал мне очень странный вопрос."},
+        {"who": "hero", "es": "¿Qué pregunta?", "ru": "Какой вопрос?"},
+        {"who": "npc", "es": "Me preguntó: «¿En qué año estamos?». Como si no lo supiera.", "ru": "Спросил: «Какой сейчас год?». Будто не знал."},
+        {"who": "hero", "es": "¡Qué raro!", "ru": "Как странно!"},
+        {"who": "npc", "es": "Muy raro. Pero yo solo vendo medicamentos, no respuestas.", "ru": "Очень странно. Но я продаю лекарства, а не ответы."}
+      ],
+      "questions": [
+        {"q": "Что купил Томас в аптеке?", "options": ["Таблетки от головокружения и бинт", "Витамины", "Крем от солнца"], "answer": 0},
+        {"q": "Почему в башне кружится голова?", "options": ["Там шумно", "Наверху другой воздух", "Там нет еды"], "answer": 1},
+        {"q": "Что сделал человек в плаще?", "options": ["Купил лекарства", "Спросил, какой сейчас год", "Ничего не сказал"], "answer": 1},
+        {"q": "Что говорит аптекарь в конце?", "options": ["Он продаёт лекарства, а не ответы", "Он пойдёт в горы", "Он знает этого человека"], "answer": 0}
+      ],
+      "gloss": {"mareo": "головокружение", "marea": "кружится голова", "capa": "плащ", "supiera": "знал бы"}
     }
   ]
 }

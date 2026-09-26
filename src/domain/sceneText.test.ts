@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { sceneWords, wordTranslation } from './sceneText';
+import { sceneChunks, sceneWords, wordTranslation } from './sceneText';
 
 describe('реплика по словам', () => {
   it('слова и знаки, ключ строчными', () => {
@@ -14,6 +14,10 @@ describe('реплика по словам', () => {
   });
   it('итальянский апостроф элизии остаётся у слова', () => {
     expect(sceneWords('Un bicchiere d’acqua').filter((p) => 'word' in p).map((p) => ('key' in p ? p.key : ''))).toEqual(['un', 'bicchiere', "d'", 'acqua']);
+  });
+  it('слово после апострофа элизии в одной группе со словом перед ним', () => {
+    const groups = sceneChunks("In montagna, l'impossibile succede.").map((c) => ('words' in c ? c.words.map((w) => w.key).join('+') : '_'));
+    expect(groups).toEqual(['in', '_', 'montagna', '_', "l'+impossibile", '_', 'succede']);
   });
   it('перевод: автор сцены важнее словаря', () => {
     expect(wordTranslation('claro', { claro: 'конечно' }, { claro: 'ясный' })).toBe('конечно');

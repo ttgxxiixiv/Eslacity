@@ -25,6 +25,31 @@
         {"q": "Почему Марта не даёт герою старое пальто?", "options": ["Оно слишком дорогое", "Оно ему велико", "Оно мамино, и его нельзя продавать"], "answer": 1}
       ],
       "gloss": {"trozo": "обрывок"}
+    },
+    {
+      "id": "sc:clothes.2",
+      "chapter": 2,
+      "npc": "marta",
+      "lines": [
+        {"who": "npc", "es": "¡Buenos días! ¿Ropa para las montañas? Ya tienes abrigo. Ahora necesitas más.", "ru": "Доброе утро! Одежда для гор? Пальто у тебя уже есть. Теперь нужно ещё кое-что."},
+        {"who": "hero", "es": "¿Qué más?", "ru": "Что ещё?"},
+        {"who": "npc", "es": "Botas, gorro y bufanda. Como Tomás. Él vino aquí antes de su viaje.", "ru": "Сапоги, шапка и шарф. Как у Томаса. Он приходил сюда перед походом."},
+        {"who": "hero", "es": "¿Qué compró Tomás?", "ru": "Что купил Томас?"},
+        {"who": "npc", "es": "Una bufanda roja. Me dijo: «En la niebla, lo rojo se ve de lejos».", "ru": "Красный шарф. Сказал мне: «В тумане красное видно издалека»."},
+        {"who": "hero", "es": "Una bufanda roja... Es importante.", "ru": "Красный шарф... Это важно."},
+        {"who": "npc", "es": "Y pidió unas botas de invierno. Pero no vino a buscarlas.", "ru": "И заказал зимние сапоги. Но так и не пришёл за ними."},
+        {"who": "hero", "es": "¿Todavía están aquí?", "ru": "Они всё ещё здесь?"},
+        {"who": "npc", "es": "Aquí están. Llévaselas tú, cuando lo encuentres.", "ru": "Вот они. Отнеси их ему, когда найдёшь."},
+        {"who": "hero", "es": "Se las llevo.", "ru": "Отнесу."},
+        {"who": "npc", "es": "Y para ti, algo de abrigo también. En la torre hace mucho frío.", "ru": "А тебе тоже нужно что-то тёплое. В башне очень холодно."}
+      ],
+      "questions": [
+        {"q": "Что купил Томас перед походом?", "options": ["Красный шарф", "Серый плащ", "Белые носки"], "answer": 0},
+        {"q": "Зачем Томасу красный шарф?", "options": ["Он любит красный цвет", "В тумане красное видно издалека", "Это подарок сестре"], "answer": 1},
+        {"q": "Что Томас не забрал?", "options": ["Шапку", "Зимние сапоги", "Пальто"], "answer": 1},
+        {"q": "Что просит Марта?", "options": ["Отнести сапоги Томасу", "Купить пальто", "Вернуть шарф"], "answer": 0}
+      ],
+      "gloss": {"bufanda": "шарф", "botas": "сапоги", "gorro": "шапка", "llévaselas": "отнеси их ему"}
     }
   ]
 }

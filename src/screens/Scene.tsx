@@ -7,7 +7,7 @@ import type { Scene, SceneLine } from '../content/schema';
 import { logAnswer } from '../db/answers';
 import { seeded, shuffle } from '../domain/generators';
 import { plural } from '../domain/medals';
-import { sceneWords, wordTranslation } from '../domain/sceneText';
+import { sceneChunks, wordTranslation } from '../domain/sceneText';
 import { NpcPortrait } from '../components/NpcPortrait';
 import { Button, Screen, TopBar } from '../components/ui';
 import { useSettings } from '../store/settings';
@@ -102,22 +102,27 @@ export function SceneTalk({ scene, place, lastLabel, onDone }: { scene: Scene; p
                 >
                   <div className="text-xs text-stone-500">{hero ? 'Вы' : speaker?.name}</div>
                   <div className="text-lg leading-snug">
-                    {sceneWords(l.es).map((p, k) =>
-                      'word' in p ? (
-                        // Слово со знаками вокруг не переносится по частям: «mappa?» не превращается в «mappa» и «?» на новой строке.
+                    {sceneChunks(l.es).map((c, k) =>
+                      'words' in c ? (
+                        // Слово со знаками вокруг не переносится по частям: «mappa?» не превращается в «mappa» и «?» на новой строке,
+                        // «l'» не отрывается от следующего слова.
                         <span key={k} className="whitespace-nowrap">
-                          {p.pre}
-                          <button
-                            type="button"
-                            className="rounded underline decoration-stone-300 decoration-dotted underline-offset-4 hover:bg-orange-100"
-                            onClick={() => setWord({ word: p.word, ru: wordTranslation(p.key, scene.gloss, scene.auto) })}
-                          >
-                            {p.word}
-                          </button>
-                          {p.post}
+                          {c.words.map((p, j) => (
+                            <span key={j}>
+                              {p.pre}
+                              <button
+                                type="button"
+                                className="rounded underline decoration-stone-300 decoration-dotted underline-offset-4 hover:bg-orange-100"
+                                onClick={() => setWord({ word: p.word, ru: wordTranslation(p.key, scene.gloss, scene.auto) })}
+                              >
+                                {p.word}
+                              </button>
+                              {p.post}
+                            </span>
+                          ))}
                         </span>
                       ) : (
-                        <span key={k}>{p.text}</span>
+                        <span key={k}>{c.text}</span>
                       ),
                     )}
                   </div>

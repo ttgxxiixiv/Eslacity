@@ -22,6 +22,28 @@
         "q": {"kind": "answer", "task": "Скажите, что у вас есть вопрос.", "branches": [{"phrase": "ph:school.tengo-pregunta", "next": "end"}], "wrong": {"es": "¿Tienes hambre? Después de la clase comemos.", "ru": "Проголодался? Поедим после урока."}},
         "end": {"kind": "say", "es": "¿Quieres saber quién está en la puerta de la Bóveda? Nadie lo sabe. Toma el trozo. Un día vas a entender el mapa.", "ru": "Хочешь знать, кто у двери Хранилища? Никто не знает. Возьми обрывок. Однажды ты поймёшь эту карту."}
       }
+    },
+    {
+      "id": "ms:school.2",
+      "chapter": 2,
+      "npc": "elena",
+      "scene": "sc:school.2",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Hoy tenemos una clase especial. Antes de la torre, un examen de pasado.", "ru": "Сегодня у нас особый урок. Перед башней — экзамен по прошедшему времени.", "next": "subject"},
+        "subject": {"kind": "answer", "task": "Спросите, какой сейчас предмет.", "branches": [{"phrase": "ph:school.asignatura-tenemos-ahora", "next": "subjsay"}], "wrong": {"es": "¿Qué hora tenemos? La hora del examen.", "ru": "Который час? Время экзамена."}},
+        "subjsay": {"kind": "say", "es": "Español: el pasado. Primera pregunta: ¿qué hiciste ayer?", "ru": "Испанский: прошедшее время. Первый вопрос: что ты делал вчера?", "next": "dict"},
+        "dict": {"kind": "answer", "task": "Спросите, есть ли в классе словарь.", "branches": [{"phrase": "ph:school.hay-diccionario-aula", "next": "dictsay"}], "wrong": {"es": "¿Hay un lobo en el aula? No, solo alumnos.", "ru": "В классе волк? Нет, только ученики."}},
+        "dictsay": {"kind": "say", "es": "Hay uno, pero hoy sin diccionario. Escribe tu respuesta.", "ru": "Есть, но сегодня без словаря. Напиши свой ответ.", "next": "fix"},
+        "fix": {"kind": "answer", "task": "Попросите её проверить ваш ответ.", "branches": [{"phrase": "ph:school.puede-corregir-respuesta", "next": "fixsay"}], "wrong": {"es": "¿Puedo comer mi respuesta? Las respuestas no se comen.", "ru": "Можно съесть мой ответ? Ответы не едят."}},
+        "fixsay": {"kind": "say", "es": "A ver... Hay un pequeño error.", "ru": "Посмотрим... Есть маленькая ошибка.", "next": "err"},
+        "err": {"kind": "answer", "task": "Спросите, где ошибка.", "branches": [{"phrase": "ph:school.donde-esta-error", "next": "errsay"}], "wrong": {"es": "¿Dónde está el recreo? Después del examen.", "ru": "Где перемена? После экзамена."}},
+        "errsay": {"kind": "say", "es": "Aquí: «yo fui», no «yo fue». ¿Lo ves?", "ru": "Вот: «yo fui», а не «yo fue». Видишь?", "next": "ex"},
+        "ex": {"kind": "answer", "task": "Попросите объяснить на примере.", "branches": [{"phrase": "ph:school.lo-puede-explicar", "next": "exsay"}], "wrong": {"es": "¿Me lo puede cantar? No, cantar no. Explicar, sí.", "ru": "Можете это спеть? Нет, петь не буду. Объяснить — да."}},
+        "exsay": {"kind": "say", "es": "Claro: «Ayer yo fui al parque. Tomás fue a la torre». ¿Entiendes?", "ru": "Конечно: «Вчера я ходил в парк. Томас ходил к башне». Понимаешь?", "next": "pass"},
+        "pass": {"kind": "answer", "task": "Спросите, сдан ли экзамен.", "branches": [{"phrase": "ph:school.he-aprobado-examen", "next": "end"}], "wrong": {"es": "¿He perdido el tren? No, estás en clase.", "ru": "Я опоздал на поезд? Нет, ты на уроке."}},
+        "end": {"kind": "say", "es": "Has aprobado. Tu nota: un nueve. Y tu premio: mi trozo del mapa de las montañas. Cuando la niebla te pregunte, contesta en pasado.", "ru": "Сдал. Твоя оценка — девять. А награда — мой обрывок карты гор. Когда туман спросит тебя, отвечай в прошедшем времени."}
+      }
     }
   ]
 }

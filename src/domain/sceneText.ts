@@ -40,6 +40,23 @@ export function sceneWords(line: string): ScenePiece[] {
   return out;
 }
 
+type SceneWord = Extract<ScenePiece, { word: string }>;
+
+/**
+ * Реплика кусками для вывода: пробелы отдельно, слова — группами, которые не переносятся.
+ * Слово с апострофом элизии держится вместе со следующим: «l'» и «impossibile» не расходятся по строкам.
+ */
+export function sceneChunks(line: string): ({ text: string } | { words: SceneWord[] })[] {
+  const out: ({ text: string } | { words: SceneWord[] })[] = [];
+  for (const p of sceneWords(line)) {
+    const last = out[out.length - 1];
+    if (!('word' in p)) out.push(p);
+    else if (last && 'words' in last && last.words[last.words.length - 1].word.endsWith("'")) last.words.push(p);
+    else out.push({ words: [p] });
+  }
+  return out;
+}
+
 /** Перевод слова сцены: сначала перевод автора сцены, потом словарь курса. */
 export function wordTranslation(key: string, gloss: Record<string, string> | undefined, auto: Record<string, string> | undefined): string | undefined {
   return gloss?.[key] ?? auto?.[key];

@@ -20,6 +20,26 @@
         "sign": {"kind": "answer", "task": "Спросите, где расписаться.", "branches": [{"phrase": "ph:post.dove-firmo", "next": "end"}], "wrong": {"es": "Dove abito? Sempre sulla Vespa.", "ru": "Где я живу? Всегда на «Веспе»."}},
         "end": {"kind": "say", "es": "Qui. E prendi, questo è per te: il pezzo della mappa della posta. E la lettera... scusa, l'ho aperta. C'è una parola: «Vieni». Qualcuno ti aspetta, viaggiatore.", "ru": "Здесь. И держи, это тебе: обрывок карты почты. А письмо... прости, я его открыл. Там одно слово: «Приходи». Кто-то тебя ждёт, путешественник."}
       }
+    },
+    {
+      "id": "ms:post.2",
+      "chapter": 2,
+      "npc": "enzo",
+      "scene": "sc:post.2",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Per ritirare il pacco, bisogna fare tutto bene. Cosa ti serve?", "ru": "Чтобы забрать посылку, нужно всё сделать как следует. Что тебе нужно?", "next": "notice"},
+        "notice": {"kind": "answer", "task": "Скажите, что у вас извещение о посылке, или что вам нужно забрать посылку.", "branches": [{"phrase": "ph:post.ho-avviso-pacco", "next": "noticesay"}, {"phrase": "ph:post.devo-ritirare-pacco", "next": "noticesay"}], "wrong": {"es": "Vuoi un gelato? No, vuoi un pacco.", "ru": "Хочешь мороженое? Нет, ты хочешь посылку."}},
+        "noticesay": {"kind": "say", "es": "Benissimo. A nome di chi?", "ru": "Отлично. На чьё имя?", "next": "name"},
+        "name": {"kind": "answer", "task": "Скажите, что посылка на ваше имя.", "branches": [{"phrase": "ph:post.mio-nome", "next": "namesay"}], "wrong": {"es": "A nome del cane? I cani non ricevono pacchi.", "ru": "На имя собаки? Собаки посылок не получают."}},
+        "namesay": {"kind": "say", "es": "Mi serve un documento.", "ru": "Мне нужен документ.", "next": "id"},
+        "id": {"kind": "answer", "task": "Дайте удостоверение личности.", "branches": [{"phrase": "ph:post.ecco-mia-carta", "next": "idsay"}], "wrong": {"es": "La tua foto al mare? Molto bella, ma mi serve un documento.", "ru": "Твоя фотография с моря? Очень красивая, но мне нужен документ."}},
+        "idsay": {"kind": "say", "es": "Grazie. E questo foglio.", "ru": "Спасибо. И вот этот лист.", "next": "form"},
+        "form": {"kind": "answer", "task": "Спросите, нужно ли это заполнить.", "branches": [{"phrase": "ph:post.devo-compilare-questo", "next": "formsay"}], "wrong": {"es": "Devo ballare questo? No, compilarlo!", "ru": "Мне нужно это станцевать? Нет, заполнить!"}},
+        "formsay": {"kind": "say", "es": "Sì, qui e qui. Presto, presto.", "ru": "Да, вот здесь и здесь. Быстрее, быстрее.", "next": "track"},
+        "track": {"kind": "answer", "task": "Попросите трек-номер, чтобы узнать, откуда посылка.", "branches": [{"phrase": "ph:post.da-codice-tracciamento", "next": "end"}], "wrong": {"es": "Ti do la mia Vespa? Mai! Ma posso darti il codice.", "ru": "Отдать тебе «Веспу»? Никогда! Но код могу дать."}},
+        "end": {"kind": "say", "es": "Eccolo. Guarda: il pacco è partito dalla torre tre giorni fa. E prendi il mio pezzo della mappa della montagna. Segui la voce, viaggiatore.", "ru": "Вот он. Смотри: посылка ушла из башни три дня назад. И держи мой обрывок карты гор. Иди на голос, путешественник."}
+      }
     }
   ]
 }

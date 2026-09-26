@@ -25,6 +25,31 @@
         {"q": "Что болит у героя?", "options": ["Горло", "Голова", "Живот"], "answer": 1}
       ],
       "gloss": {"pezzo": "обрывок", "elisir": "Эликсир"}
+    },
+    {
+      "id": "sc:pharmacy.2",
+      "chapter": 2,
+      "npc": "bruno",
+      "lines": [
+        {"who": "npc", "es": "So già perché è venuto. La montagna, vero?", "ru": "Я уже знаю, зачем вы пришли. Горы, верно?"},
+        {"who": "hero", "es": "Cosa mi serve per il viaggio?", "ru": "Что мне нужно в дорогу?"},
+        {"who": "npc", "es": "Come a Tommaso. Lui ha comprato delle pastiglie per la nausea e una benda.", "ru": "Как Томмазо. Он купил таблетки от тошноты и бинт."},
+        {"who": "hero", "es": "La nausea?", "ru": "Тошноты?"},
+        {"who": "npc", "es": "Lassù l'aria è diversa. Molte persone stanno male nella torre.", "ru": "Наверху воздух другой. Многим в башне становится плохо."},
+        {"who": "hero", "es": "È venuto anche l'uomo con il mantello grigio?", "ru": "А человек в сером плаще тоже приходил?"},
+        {"who": "npc", "es": "È venuto. Non ha comprato niente. Mi ha fatto una domanda molto strana.", "ru": "Приходил. Ничего не купил. Задал мне очень странный вопрос."},
+        {"who": "hero", "es": "Quale domanda?", "ru": "Какой вопрос?"},
+        {"who": "npc", "es": "Mi ha chiesto: «In che anno siamo?». Come se non lo sapesse.", "ru": "Спросил: «Какой сейчас год?». Будто не знал."},
+        {"who": "hero", "es": "Che strano!", "ru": "Как странно!"},
+        {"who": "npc", "es": "Molto strano. Ma io vendo medicine, non so niente di anni.", "ru": "Очень странно. Но я продаю лекарства, а в годах ничего не понимаю."}
+      ],
+      "questions": [
+        {"q": "Что купил Томмазо в аптеке?", "options": ["Таблетки от тошноты и бинт", "Витамины", "Крем от солнца"], "answer": 0},
+        {"q": "Почему в башне становится плохо?", "options": ["Там шумно", "Наверху другой воздух", "Там нет еды"], "answer": 1},
+        {"q": "Что сделал человек в плаще?", "options": ["Купил лекарства", "Спросил, какой сейчас год", "Ничего не сказал"], "answer": 1},
+        {"q": "Что говорит аптекарь в конце?", "options": ["Он продаёт лекарства и в этом не разбирается", "Он пойдёт в горы", "Он знает этого человека"], "answer": 0}
+      ],
+      "gloss": {"tommaso": "Томмазо (имя)", "nausea": "тошнота", "lassù": "там наверху", "mantello": "плащ", "sapesse": "знал бы"}
     }
   ]
 }

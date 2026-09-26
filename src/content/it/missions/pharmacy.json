@@ -21,6 +21,28 @@
         "vit": {"kind": "answer", "task": "Спросите, есть ли витамины.", "branches": [{"phrase": "ph:pharmacy.ha-delle-vitamine", "next": "end"}], "wrong": {"es": "Ha del vino? Questa è una farmacia, giovane!", "ru": "У вас есть вино? Это аптека, молодой человек!"}},
         "end": {"kind": "say", "es": "Queste vitamine sono buone per il viaggio. E nell'armadio, con le ricette... il suo pezzo della mappa. Si ricordi: l'Elisir non è una medicina.", "ru": "Эти витамины хороши в дорогу. А в шкафу, с рецептами... ваш обрывок карты. Помните: Эликсир — не лекарство."}
       }
+    },
+    {
+      "id": "ms:pharmacy.2",
+      "chapter": 2,
+      "npc": "bruno",
+      "scene": "sc:pharmacy.2",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Andiamo con ordine. Una farmacia per la montagna. Cosa le serve prima?", "ru": "Давайте по порядку. Аптечка для гор. Что вам нужно сначала?", "next": "bandage"},
+        "bandage": {"kind": "answer", "task": "Скажите, что вам нужен бинт.", "branches": [{"phrase": "ph:pharmacy.serve-benda", "next": "bandsay"}], "wrong": {"es": "Una benda per il cane? Il cane non va in montagna.", "ru": "Бинт для собаки? Собака в горы не идёт."}},
+        "bandsay": {"kind": "say", "es": "Una benda. Bene. E come si sente adesso?", "ru": "Бинт. Хорошо. А как вы себя сейчас чувствуете?", "next": "dizzy"},
+        "dizzy": {"kind": "answer", "task": "Скажите, что вас тошнит (вы только что ели на бегу).", "branches": [{"phrase": "ph:pharmacy.ho-nausea", "next": "dizzysay"}], "wrong": {"es": "È innamorato? Questo non si cura in farmacia.", "ru": "Влюблены? Это в аптеке не лечат."}},
+        "dizzysay": {"kind": "say", "es": "Nausea già qui... Nella torre, peggio. Prenda queste gocce.", "ru": "Тошнит уже здесь... В башне будет хуже. Возьмите эти капли.", "next": "drops"},
+        "drops": {"kind": "answer", "task": "Спросите, сколько капель принимать.", "branches": [{"phrase": "ph:pharmacy.quante-gocce-devo", "next": "dropssay"}], "wrong": {"es": "Quante montagne ci sono? Tante. Ma chieda delle gocce.", "ru": "Сколько там гор? Много. Но спросите про капли."}},
+        "dropssay": {"kind": "say", "es": "Dieci gocce, due volte al giorno.", "ru": "Десять капель два раза в день.", "next": "fast"},
+        "fast": {"kind": "answer", "task": "Спросите, нужно ли принимать натощак.", "branches": [{"phrase": "ph:pharmacy.si-prende-digiuno", "next": "fastsay"}], "wrong": {"es": "Si prende con il vino? Con il vino, mai!", "ru": "Принимать с вином? С вином — никогда!"}},
+        "fastsay": {"kind": "say", "es": "No. Meglio con il cibo.", "ru": "Нет. Лучше во время еды.", "next": "side"},
+        "side": {"kind": "answer", "task": "Спросите, есть ли побочные эффекты.", "branches": [{"phrase": "ph:pharmacy.ha-effetti-collaterali", "next": "sidesay"}], "wrong": {"es": "Ha effetti speciali? Questo non è il cinema, giovane.", "ru": "Есть спецэффекты? Это не кино, молодой человек."}},
+        "sidesay": {"kind": "say", "es": "Un po' di sonno. Niente di più.", "ru": "Немного клонит в сон. Больше ничего.", "next": "recipe"},
+        "recipe": {"kind": "answer", "task": "Спросите, можно ли купить это без рецепта.", "branches": [{"phrase": "ph:pharmacy.si-puo-comprare", "next": "end"}], "wrong": {"es": "Si può comprare la farmacia? No, giovane, non si vende.", "ru": "Можно купить аптеку? Нет, молодой человек, она не продаётся."}},
+        "end": {"kind": "say", "es": "Si può. E con le gocce, il mio pezzo della mappa della montagna. Se vede l'uomo con il mantello, gli dica in che anno siamo.", "ru": "Можно. А вместе с каплями — мой обрывок карты гор. Если увидите человека в плаще, скажите ему, какой сейчас год."}
+      }
     }
   ]
 }

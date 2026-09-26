@@ -25,6 +25,31 @@
         {"q": "Что решает герой?", "options": ["Бросить поиски", "Купить новую карту", "Много учиться"], "answer": 2}
       ],
       "gloss": {"trozo": "обрывок", "bóveda": "Хранилище"}
+    },
+    {
+      "id": "sc:school.2",
+      "chapter": 2,
+      "npc": "elena",
+      "lines": [
+        {"who": "npc", "es": "¡Buenos días! Tengo la carta de Tomás. Su hermana me la dio ayer.", "ru": "Доброе утро! У меня письмо Томаса. Его сестра вчера мне его дала."},
+        {"who": "hero", "es": "¿Qué dice la carta?", "ru": "Что в письме?"},
+        {"who": "npc", "es": "Escuchad: «Llegué a la niebla. La niebla habla. Yo le contesto en pasado».", "ru": "Слушайте: «Я дошёл до тумана. Туман говорит. Я отвечаю в прошедшем времени»."},
+        {"who": "hero", "es": "¿La niebla habla?", "ru": "Туман говорит?"},
+        {"who": "npc", "es": "Creo que es la voz del guardián. Pregunta qué hiciste, y tú contestas en pasado.", "ru": "Думаю, это голос стража. Он спрашивает, что ты сделал, а ты отвечаешь в прошедшем времени."},
+        {"who": "hero", "es": "Como decía mi vecina.", "ru": "Как говорила моя соседка."},
+        {"who": "npc", "es": "Eso es. Y mira abajo: la carta cambia.", "ru": "Вот именно. И посмотри внизу: письмо меняется."},
+        {"who": "hero", "es": "¿Qué pasa abajo?", "ru": "А что внизу?"},
+        {"who": "npc", "es": "Aquí escribió un hombre diferente. Solo dice: «Está bien. Espera».", "ru": "Здесь писал другой человек. Там только: «С ним всё хорошо. Жди»."},
+        {"who": "hero", "es": "¿Quién?", "ru": "Кто?"},
+        {"who": "npc", "es": "No lo sé. Por eso hoy estudiamos el pasado. ¡Empezamos!", "ru": "Не знаю. Поэтому сегодня учим прошедшее время. Начинаем!"}
+      ],
+      "questions": [
+        {"q": "Чьё письмо читает Елена?", "options": ["Письмо Томаса", "Письмо Летописца", "Письмо стража"], "answer": 0},
+        {"q": "Что делает туман в письме?", "options": ["Говорит", "Поёт", "Молчит"], "answer": 0},
+        {"q": "Как нужно отвечать стражу?", "options": ["Шёпотом", "В прошедшем времени", "Письменно"], "answer": 1},
+        {"q": "Что странного в конце письма?", "options": ["Его дописал другой человек", "Оно пустое", "Оно на другом языке"], "answer": 0}
+      ],
+      "gloss": {"abajo": "внизу", "escuchad": "слушайте", "contesto": "отвечаю", "contestas": "отвечаешь"}
     }
   ]
 }

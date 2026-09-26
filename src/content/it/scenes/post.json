@@ -25,6 +25,31 @@
         {"q": "Почему почтальон торопится?", "options": ["Сегодня у него сто писем", "Он опаздывает на поезд", "Скоро дождь"], "answer": 0}
       ],
       "gloss": {"pezzo": "обрывок", "pezzi": "обрывки", "vespa": "«Веспа», мотороллер"}
+    },
+    {
+      "id": "sc:post.2",
+      "chapter": 2,
+      "npc": "enzo",
+      "lines": [
+        {"who": "npc", "es": "Viaggiatore! Presto! Hai un pacco. Viene dalla montagna.", "ru": "Путешественник! Быстрее! Тебе посылка. Она с гор."},
+        {"who": "hero", "es": "Dalla montagna? Chi lo manda?", "ru": "С гор? Кто её прислал?"},
+        {"who": "npc", "es": "Dice solo: «Dal tuo amico della torre».", "ru": "Там только: «От твоего друга из башни»."},
+        {"who": "hero", "es": "Dalla torre? È Tommaso!", "ru": "Из башни? Это Томмазо!"},
+        {"who": "npc", "es": "Può essere. È fragile. Aprilo piano.", "ru": "Может быть. Она хрупкая. Открывай медленно."},
+        {"who": "hero", "es": "C'è una bussola. E un biglietto.", "ru": "Там компас. И записка."},
+        {"who": "npc", "es": "Cosa dice il biglietto?", "ru": "Что в записке?"},
+        {"who": "hero", "es": "Dice: «Segui la voce».", "ru": "Там написано: «Иди на голос»."},
+        {"who": "npc", "es": "Tommaso è vivo! Vado a casa di sua sorella.", "ru": "Томмазо жив! Бегу к его сестре."},
+        {"who": "hero", "es": "Vai presto. Io resto qui.", "ru": "Беги быстрее. Я пока здесь."},
+        {"who": "npc", "es": "Vado! Nessuno è più veloce di me.", "ru": "Бегу! Быстрее меня никого нет."}
+      ],
+      "questions": [
+        {"q": "Откуда пришла посылка?", "options": ["С гор", "Из столицы", "Из-за моря"], "answer": 0},
+        {"q": "Как подписана посылка?", "options": ["Полным именем", "«От твоего друга из башни»", "Никак"], "answer": 1},
+        {"q": "Что лежит в посылке?", "options": ["Компас и записка", "Фонарик", "Красный шарф"], "answer": 0},
+        {"q": "Что написано в записке?", "options": ["«Жди меня»", "«Иди на голос»", "«Не ходи в горы»"], "answer": 1}
+      ],
+      "gloss": {"tommaso": "Томмазо (имя)", "bussola": "компас", "biglietto": "записка", "fragile": "хрупкая", "segui": "иди за", "vivo": "жив"}
     }
   ]
 }
