@@ -1,0 +1,30 @@
+{
+  "location": "cafe",
+  "scenes": [
+    {
+      "id": "sc:cafe.1",
+      "chapter": 1,
+      "npc": "lola",
+      "lines": [
+        {"who": "npc", "es": "¡Hola! ¿Qué quieres tomar?", "ru": "Привет! Что будешь пить?"},
+        {"who": "hero", "es": "Un café con leche, por favor.", "ru": "Кофе с молоком, пожалуйста."},
+        {"who": "npc", "es": "¿Frío o caliente?", "ru": "Холодный или горячий?"},
+        {"who": "hero", "es": "Caliente. Y un vaso de agua.", "ru": "Горячий. И стакан воды."},
+        {"who": "npc", "es": "¿Quieres azúcar?", "ru": "Сахар хочешь?"},
+        {"who": "hero", "es": "No, gracias. ¿Tienes tostadas?", "ru": "Нет, спасибо. У тебя есть тосты?"},
+        {"who": "npc", "es": "Sí, y hoy hay un pastel muy rico.", "ru": "Да, а сегодня есть очень вкусный пирог."},
+        {"who": "hero", "es": "Entonces una tostada y el pastel.", "ru": "Тогда тост и пирог."},
+        {"who": "npc", "es": "Muy bien. Aquí tienes. Son cinco euros.", "ru": "Хорошо. Вот, держи. С тебя пять евро."},
+        {"who": "hero", "es": "¿Puedo pagar en la terraza?", "ru": "Можно заплатить на террасе?"},
+        {"who": "npc", "es": "Claro. El camarero va a la terraza con la cuenta.", "ru": "Конечно. Официант подойдёт на террасу со счётом."}
+      ],
+      "questions": [
+        {"q": "Что пьёт герой?", "options": ["Горячий кофе с молоком", "Холодный чай", "Апельсиновый сок"], "answer": 0},
+        {"q": "Что ещё берёт герой?", "options": ["Тост и пирог", "Только воду", "Печенье"], "answer": 0},
+        {"q": "Сколько стоит заказ?", "options": ["Два евро", "Пять евро", "Десять евро"], "answer": 1},
+        {"q": "Где герой заплатит?", "options": ["У барной стойки", "Дома", "На террасе"], "answer": 2}
+      ],
+      "gloss": {"hola": "привет", "sí": "да", "entonces": "тогда", "claro": "конечно"}
+    }
+  ]
+}

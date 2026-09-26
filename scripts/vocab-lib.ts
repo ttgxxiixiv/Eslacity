@@ -169,21 +169,72 @@ function knownVerb(token: string, level: number, verbs: Map<string, number>): bo
  * слово, знакомое по текстам курса. Грамматика считается
  * известной целиком: уровень урока к уровню места не привязан.
  */
+/** Знает ли игрок слово к этому уровню: см. `uncoveredWords`. */
+export function isKnownWord(t: string, level: number, lex: Lexicon, forms: Map<string, string>, lang: string): boolean {
+  const l = lemmaOf(t, forms, lang);
+  return (
+    (lex.wordLevel.get(l) ?? Infinity) <= level ||
+    (lex.stemLevel.get(stemOf(t)) ?? Infinity) <= level ||
+    knownVerb(t, level, lex.verbLevel) ||
+    lex.grammar.has(l) ||
+    (lex.service.has(l) && lex.anywhere.has(l))
+  );
+}
+
 export function uncoveredWords(text: string, level: number, lex: Lexicon, forms: Map<string, string>, lang: string): string[] {
   const out: string[] = [];
-  for (const t of tokens(text)) {
-    const l = lemmaOf(t, forms, lang);
-    const stem = stemOf(t);
-    const verb = knownVerb(t, level, lex.verbLevel);
-    const known =
-      (lex.wordLevel.get(l) ?? Infinity) <= level ||
-      (lex.stemLevel.get(stem) ?? Infinity) <= level ||
-      verb ||
-      lex.grammar.has(l) ||
-      (lex.service.has(l) && lex.anywhere.has(l));
-    if (!known && !out.includes(t)) out.push(t);
-  }
+  for (const t of tokens(text)) if (!isKnownWord(t, level, lex, forms, lang) && !out.includes(t)) out.push(t);
   return out;
+}
+
+/** Покрытие текста сцены: всего слов (с повторами) и незнакомые (тоже с повторами, для доли). */
+export function textCoverage(text: string, level: number, lex: Lexicon, forms: Map<string, string>, lang: string): { total: number; unknown: string[] } {
+  const all = tokens(text);
+  return { total: all.length, unknown: all.filter((t) => !isKnownWord(t, level, lex, forms, lang)) };
+}
+
+const ARTICLES = new Set(['el', 'la', 'los', 'las', 'un', 'una', 'il', 'lo', 'i', 'gli', 'le', "l'", "un'", 'uno']);
+
+/**
+ * Перевод слова текста по словарю курса: по лемме, по основе, спряжённый глагол — по основе инфинитива.
+ * Из нескольких слов с той же леммой берётся слово самого низкого уровня. Для нажатия на слово в сцене.
+ */
+export function glossIndex(
+  words: { es: string; alt?: string[]; ru: string; level: number }[],
+  forms: Map<string, string>,
+  lang: string,
+): (token: string) => string | undefined {
+  const byLemma = new Map<string, { ru: string; level: number }>();
+  const byStem = new Map<string, { ru: string; level: number }>();
+  const verbs = new Map<string, { ru: string; level: number }>();
+  const put = (m: Map<string, { ru: string; level: number }>, k: string, v: { ru: string; level: number }) => {
+    if ((m.get(k)?.level ?? Infinity) > v.level) m.set(k, v);
+  };
+  for (const w of words) {
+    const v = { ru: w.ru, level: w.level };
+    // Только однословные слова (артикль не в счёт): у словосочетаний «abrir una cuenta», «ida y vuelta»
+    // отдельные слова значат другое, и «un» не должно переводиться как «открыть счёт».
+    const single = [w.es, ...(w.alt ?? [])].map((x) => tokens(x)).filter((t) => t.length === 1 || (t.length === 2 && ARTICLES.has(t[0])));
+    for (const l of single.map((t) => lemmaOf(t[t.length - 1], forms, lang))) {
+      put(byLemma, l, v);
+      put(byStem, stemOf(l), v);
+      const verb = plain(l).match(/^(.{2,})(?:ar|er|ir|are|ere|ire)$/);
+      if (verb) put(verbs, verb[1], v);
+    }
+  }
+  const levels = new Map([...verbs].map(([k, v]) => [k, v.level]));
+  return (token) => {
+    const t = token.toLowerCase();
+    // По основе — только слова от четырёх букв: иначе «per» совпало бы с «pera», а «te» с «tè».
+    const hit = byLemma.get(lemmaOf(t, forms, lang)) ?? (plain(t).length >= 4 ? byStem.get(stemOf(t)) : undefined);
+    if (hit) return hit.ru;
+    const p = plain(t);
+    for (let i = p.length - 1; i >= 2; i--) {
+      const v = verbs.get(p.slice(0, i));
+      if (v && knownVerb(t, v.level, levels)) return v.ru;
+    }
+    return undefined;
+  };
 }
 
 export interface Coverage {

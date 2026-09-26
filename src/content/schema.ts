@@ -162,3 +162,39 @@ export interface LocationPhrases {
   location: LocationId;
   phrases: Phrase[];
 }
+
+/** Реплика сцены: `npc` — житель сцены, `hero` — герой, или id другого жителя. */
+export interface SceneLine {
+  who: string;
+  es: string;
+  ru: string;
+}
+
+/** Вопрос на понимание: по-русски, первый вариант не обязательно верный — верный по `answer`. */
+export interface SceneQuestion {
+  q: string;
+  options: string[];
+  answer: number;
+}
+
+/**
+ * Сцена: разговор с жителем места в главе (docs/GAME.md, «Жители и миссии»). Основа сюжетной миссии (4.5).
+ * `gloss` — перевод слов, которых нет в словаре мест: их показывает нажатие на слово.
+ */
+export interface Scene {
+  /** `sc:<место>.<глава>` */
+  id: string;
+  chapter: number;
+  /** id жителя места. */
+  npc: string;
+  lines: SceneLine[];
+  questions: SceneQuestion[];
+  gloss?: Record<string, string>;
+  /** Переводы слов реплик из словаря курса: достраиваются при сборке (vite), в JSON их нет. */
+  auto?: Record<string, string>;
+}
+
+export interface LocationScenes {
+  location: LocationId;
+  scenes: Scene[];
+}

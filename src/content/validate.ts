@@ -2,7 +2,7 @@ import { normalize, splitArticle, stripAccents } from '../domain/answer';
 import type { Lang } from '../lang';
 import { CHAPTERS as PLAN, PLACE_LEVEL_MAX } from './vocabPlan';
 import { expandOptional, fullPhrase, optionalError, PHRASE_MAX_WORDS, PHRASE_PREFIX, phraseWords } from '../domain/phrase';
-import { LOCATION_IDS, type Chronicler, type GrammarLesson, type LocationPhrases, type LocationWords, type NpcsFile, type ScrollFile, type Word } from './schema';
+import { LOCATION_IDS, type Chronicler, type GrammarLesson, type LocationPhrases, type LocationScenes, type LocationWords, type NpcsFile, type ScrollFile, type Word } from './schema';
 
 export interface Issue {
   level: 'error' | 'warning';
@@ -432,4 +432,86 @@ export function validatePhrases(files: { name: string; data: LocationPhrases }[]
     });
   }
   return out;
+}
+
+/** Доля незнакомых слов в сцене, выше которой сцена не проходит проверку. */
+export const SCENE_UNKNOWN_MAX = 0.07;
+
+export interface SceneChecks {
+  /** Место → id его жителя. */
+  residents: Record<string, string>;
+  /** Слова реплик: всего и незнакомые к уровню главы (с повторами, строчными). */
+  coverage?: (text: string, level: number) => { total: number; unknown: string[] };
+}
+
+export interface SceneReport {
+  scenes: number;
+  words: number;
+  unknown: number;
+}
+
+/**
+ * Сцены мест: `scenes/<место>.json`. id `sc:<место>.<глава>`, житель — житель этого места, реплики героя и жителей,
+ * вопросы на понимание. Незнакомых слов (не из словаря мест уровней главы и ниже и не из грамматики) не больше 7%,
+ * каждое такое слово переведено в `gloss`, иначе нажатие на него ничего не покажет.
+ */
+export function validateScenes(files: { name: string; data: LocationScenes }[], checks: SceneChecks): { issues: Issue[]; report: SceneReport } {
+  const out: Issue[] = [];
+  const report: SceneReport = { scenes: 0, words: 0, unknown: 0 };
+  const ids = new Set<string>();
+  const npcIds = new Set(Object.values(checks.residents));
+  for (const { name, data } of files) {
+    if (!LOCATION_IDS.includes(data.location)) out.push({ level: 'error', where: name, msg: `неизвестное место "${data.location}"` });
+    if (`${data.location}.json` !== name) out.push({ level: 'error', where: name, msg: `имя файла не совпадает с location "${data.location}"` });
+    if (!Array.isArray(data.scenes) || !data.scenes.length) {
+      out.push({ level: 'error', where: name, msg: 'нет сцен' });
+      continue;
+    }
+    for (const sc of data.scenes) {
+      const at = `scenes/${name} ${sc.id ?? '?'}`;
+      report.scenes++;
+      if (sc.id !== `sc:${data.location}.${sc.chapter}`) out.push({ level: 'error', where: at, msg: `id должен быть "sc:${data.location}.${sc.chapter}"` });
+      if (ids.has(sc.id)) out.push({ level: 'error', where: at, msg: 'дубль id' });
+      ids.add(sc.id);
+      const plan = PLAN[sc.chapter - 1];
+      if (!plan) out.push({ level: 'error', where: at, msg: `глава ${sc.chapter}` });
+      if (sc.npc !== checks.residents[data.location]) out.push({ level: 'error', where: at, msg: `житель "${sc.npc}", в этом месте живёт "${checks.residents[data.location]}"` });
+      const lines = sc.lines ?? [];
+      if (lines.length < 2) out.push({ level: 'error', where: at, msg: 'меньше двух реплик' });
+      if (!lines.some((l) => l.who === 'npc')) out.push({ level: 'error', where: at, msg: 'житель не говорит ни одной реплики' });
+      lines.forEach((l, i) => {
+        if (l.who !== 'npc' && l.who !== 'hero' && !npcIds.has(l.who)) out.push({ level: 'error', where: `${at} #${i}`, msg: `кто говорит: "${l.who}"` });
+        if (empty(l.es) || empty(l.ru)) out.push({ level: 'error', where: `${at} #${i}`, msg: 'пустая реплика или перевод' });
+      });
+      const qs = sc.questions ?? [];
+      if (!qs.length) out.push({ level: 'error', where: at, msg: 'нет вопросов на понимание' });
+      qs.forEach((q, i) => {
+        const opts = q.options ?? [];
+        if (empty(q.q)) out.push({ level: 'error', where: `${at} вопрос ${i + 1}`, msg: 'пустой вопрос' });
+        if (opts.length < 2 || opts.length > 4 || opts.some(empty) || new Set(opts).size !== opts.length) {
+          out.push({ level: 'error', where: `${at} вопрос ${i + 1}`, msg: 'нужно 2–4 разных варианта' });
+        }
+        if (!Number.isInteger(q.answer) || q.answer < 0 || q.answer >= opts.length) out.push({ level: 'error', where: `${at} вопрос ${i + 1}`, msg: `ответ ${q.answer}` });
+      });
+      const text = lines.map((l) => l.es).join(' ');
+      const gloss = Object.fromEntries(Object.entries(sc.gloss ?? {}).map(([k, v]) => [k.toLowerCase(), v]));
+      for (const [k, v] of Object.entries(gloss)) {
+        if (empty(v)) out.push({ level: 'error', where: at, msg: `пустой перевод в gloss: "${k}"` });
+        if (!normalize(text).split(' ').includes(normalize(k))) out.push({ level: 'warning', where: at, msg: `слова "${k}" из gloss нет в репликах` });
+      }
+      if (plan && checks.coverage) {
+        const level = Math.max(...plan.levels);
+        const cov = checks.coverage(text, level);
+        report.words += cov.total;
+        report.unknown += cov.unknown.length;
+        const share = cov.total ? cov.unknown.length / cov.total : 0;
+        if (share > SCENE_UNKNOWN_MAX) {
+          out.push({ level: 'error', where: at, msg: `незнакомых слов ${Math.round(share * 100)}% (${[...new Set(cov.unknown)].join(', ')}), не больше ${Math.round(SCENE_UNKNOWN_MAX * 100)}%` });
+        }
+        const bare = [...new Set(cov.unknown)].filter((t) => !gloss[t]);
+        if (bare.length) out.push({ level: 'warning', where: at, msg: `нет в словаре уровня ${level} и в gloss: ${bare.join(', ')}` });
+      }
+    }
+  }
+  return { issues: out, report };
 }

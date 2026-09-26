@@ -2,8 +2,9 @@ import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { LOCATION_BY_ID } from '../content/locations';
 import { loadLocation } from '../content';
-import type { LocationId, Phrase, Word } from '../content/schema';
+import type { LocationId, Phrase, Scene, Word } from '../content/schema';
 import { loadPhrases } from '../content/phrases';
+import { loadScenes } from '../content/scenes';
 import { fullPhrase } from '../domain/phrase';
 import { ECONOMY } from '../config';
 import { incomeRate, isFull, pendingIncome, upgradeCost } from '../domain/economy';
@@ -61,6 +62,7 @@ export function LocationScreen() {
   const meta = LOCATION_BY_ID[id];
   const [words, setWords] = useState<Word[] | null>(null);
   const [phrases, setPhrases] = useState<Phrase[]>([]);
+  const [scenes, setScenes] = useState<Scene[]>([]);
   const cards = useProgress((s) => s.cards);
   const level = useCity((s) => s.buildings[id]?.level ?? 0);
   const coins = useCity((s) => s.coins);
@@ -76,6 +78,7 @@ export function LocationScreen() {
   useEffect(() => {
     loadLocation(id).then(setWords);
     loadPhrases(id).then(setPhrases);
+    loadScenes(id).then(setScenes);
   }, [id]);
 
   if (!meta) return <div className="p-6">Нет такой локации</div>;
@@ -89,6 +92,20 @@ export function LocationScreen() {
       {!words ? null : (
         <div className="flex flex-col gap-4 px-5 pb-6">
           {npc && <NpcCard npc={npc} rep={rep} />}
+          {npc && level > 0 &&
+            scenes
+              .filter((sc) => sc.chapter <= opened)
+              .map((sc) => (
+                <Link
+                  key={sc.id}
+                  to={`/scene/${encodeURIComponent(sc.id)}`}
+                  data-testid="scene-link"
+                  className="press flex items-center justify-between rounded-2xl bg-white px-4 py-3 shadow-sm"
+                >
+                  <span className="font-semibold">💬 Разговор: {npc.name}</span>
+                  <span className="text-sm text-stone-500">глава {chapterById(sc.chapter)?.roman} →</span>
+                </Link>
+              ))}
           <IncomeCard id={id} level={level} />
           {levels.map((lvl) => {
             const lw = levelWords(words, lvl);

@@ -2,8 +2,8 @@ import { describe, expect, it } from 'vitest';
 import type { LocationWords, Word } from './schema';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { validateChronicler, validateGrammar, validateNpcs, validatePhrases, validateScrolls, validateWords } from './validate';
-import { LOCATION_IDS, type Chronicler, type GrammarLesson, type LocationPhrases, type NpcsFile, type Phrase, type ScrollFile } from './schema';
+import { validateChronicler, validateGrammar, validateNpcs, validatePhrases, validateScenes, validateScrolls, validateWords } from './validate';
+import { LOCATION_IDS, type Chronicler, type GrammarLesson, type LocationPhrases, type LocationScenes, type NpcsFile, type Phrase, type Scene, type ScrollFile } from './schema';
 
 const base = (i: number, extra: Partial<Word> = {}): Word => ({
   id: `cafe.w${i}`, es: `la palabra${i}`, ru: `слово ${i}`, pos: 'noun', gender: 'f', level: 1, cefr: 'A1',
@@ -231,5 +231,39 @@ describe('фразы мест: контент', () => {
         expect(perLevel, `${lang}/${loc}`).toEqual([5, 5, 5, 5, 5]);
       }
     }
+  });
+});
+
+describe('validateScenes', () => {
+  const scene = (extra: Partial<Scene> = {}): Scene => ({
+    id: 'sc:cafe.1', chapter: 1, npc: 'lola',
+    lines: [{ who: 'npc', es: 'Hola, ¿un café?', ru: 'Привет, кофе?' }, { who: 'hero', es: 'Sí, gracias.', ru: 'Да, спасибо.' }],
+    questions: [{ q: 'Что будет герой?', options: ['Кофе', 'Чай'], answer: 0 }],
+    ...extra,
+  });
+  const residents = { cafe: 'lola', market: 'rosa' };
+  const run = (sc: Scene, coverage?: (t: string) => { total: number; unknown: string[] }) =>
+    validateScenes([{ name: 'cafe.json', data: { location: 'cafe', scenes: [sc] } as LocationScenes }], { residents, coverage });
+  const errs = (sc: Scene) => run(sc).issues.filter((x) => x.level === 'error').map((x) => x.msg).join('; ');
+
+  it('чистая сцена без ошибок', () => {
+    expect(run(scene()).issues).toEqual([]);
+  });
+  it('id, глава, житель, реплики, вопросы', () => {
+    expect(errs(scene({ id: 'cafe.1' }))).toMatch(/id должен быть "sc:cafe\.1"/);
+    expect(errs(scene({ npc: 'rosa' }))).toMatch(/в этом месте живёт "lola"/);
+    expect(errs(scene({ lines: [{ who: 'hero', es: 'Hola', ru: 'Привет' }, { who: 'ghost', es: 'x', ru: '' }] }))).toMatch(/житель не говорит.*кто говорит: "ghost".*пустая реплика/);
+    expect(errs(scene({ questions: [{ q: 'Что?', options: ['Кофе'], answer: 3 }] }))).toMatch(/2–4 разных варианта.*ответ 3/);
+    expect(errs(scene({ lines: [{ who: 'rosa', es: 'Hola', ru: 'Привет' }, { who: 'npc', es: 'Hola', ru: 'Привет' }] }))).toBe('');
+  });
+  it('незнакомых больше 7% — ошибка, без перевода в gloss — предупреждение', () => {
+    const cov = () => ({ total: 20, unknown: ['hola', 'hola'] });
+    const r = run(scene(), cov);
+    expect(r.issues.map((x) => x.msg)).toEqual(['незнакомых слов 10% (hola), не больше 7%', 'нет в словаре уровня 2 и в gloss: hola']);
+    expect(r.report).toEqual({ scenes: 1, words: 20, unknown: 2 });
+    expect(run(scene({ gloss: { hola: 'привет' } }), () => ({ total: 30, unknown: ['hola'] })).issues).toEqual([]);
+  });
+  it('лишнее слово в gloss — предупреждение', () => {
+    expect(run(scene({ gloss: { adiós: 'пока' } })).issues[0].msg).toMatch(/слова "adiós" из gloss нет/);
   });
 });

@@ -5,6 +5,7 @@ import { VitePWA } from 'vite-plugin-pwa';
 import { execSync } from 'node:child_process';
 import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
+import { glossIndex, parseLemmas, tokens } from './scripts/vocab-lib';
 
 // Данные о сборке: показываются в настройках и лежат в version.json для проверки обновлений.
 const pkg = JSON.parse(readFileSync(new URL('./package.json', import.meta.url), 'utf8')) as { version: string };
@@ -84,6 +85,37 @@ function scrollIndex() {
   return out;
 }
 
+/**
+ * Перевод слов сцены по нажатию: при сборке к каждой сцене добавляется `auto` — слово реплики → перевод
+ * из словаря курса (по лемме, основе, спряжению). Таблицы лемм остаются в scripts/data и в приложение не попадают.
+ */
+const glossers = new Map<string, (t: string) => string | undefined>();
+function glosser(lang: string) {
+  let g = glossers.get(lang);
+  if (!g) {
+    const read = (dir: string) =>
+      existsSync(dir) ? readdirSync(dir).filter((f) => f.endsWith('.json')).flatMap((f) => JSON.parse(readFileSync(join(dir, f), 'utf8')).words) : [];
+    const words = [...read(join(CONTENT_DIR, lang, 'words')), ...read(join(CONTENT_DIR, lang, 'scrolls'))];
+    const forms = parseLemmas(readFileSync(join(import.meta.dirname, 'scripts', 'data', `lemmas-${lang}.tsv`), 'utf8'));
+    g = glossIndex(words, forms, lang);
+    glossers.set(lang, g);
+  }
+  return g;
+}
+function withAutoGloss(code: string, lang: string): string {
+  const data = JSON.parse(code) as { scenes: { lines: { es: string }[]; gloss?: Record<string, string>; auto?: Record<string, string> }[] };
+  const g = glosser(lang);
+  for (const sc of data.scenes) {
+    const auto: Record<string, string> = {};
+    for (const t of sc.lines.flatMap((l) => tokens(l.es))) {
+      const ru = sc.gloss?.[t] ? undefined : g(t);
+      if (ru) auto[t] = ru;
+    }
+    sc.auto = auto;
+  }
+  return JSON.stringify(data);
+}
+
 export default defineConfig({
   base: './',
   define: {
@@ -112,6 +144,14 @@ export default defineConfig({
   plugins: [
     react(),
     tailwindcss(),
+    {
+      name: 'scene-gloss',
+      enforce: 'pre',
+      transform(code, id) {
+        const m = id.match(/content[\\/]([^\\/]+)[\\/]scenes[\\/][^\\/]+\.json$/);
+        return m ? { code: withAutoGloss(code, m[1]), map: null } : null;
+      },
+    },
     {
       name: 'grammar-index',
       resolveId(id) {

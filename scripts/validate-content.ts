@@ -1,11 +1,11 @@
 import { readdirSync, readFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
-import { validateChronicler, validateGrammar, validateNpcs, validatePhrases, validateScrolls, validateWords, type Issue } from '../src/content/validate';
-import type { Chronicler, GrammarLesson, LocationPhrases, NpcsFile, ScrollFile } from '../src/content/schema';
+import { validateChronicler, validateGrammar, validateNpcs, validatePhrases, validateScenes, validateScrolls, validateWords, type Issue } from '../src/content/validate';
+import type { Chronicler, GrammarLesson, LocationPhrases, LocationScenes, NpcsFile, ScrollFile } from '../src/content/schema';
 import type { Lang } from '../src/lang';
 import { CHAPTERS, PLAN_TOTAL } from '../src/content/vocabPlan';
 import { plural } from '../src/domain/medals';
-import { buildLexicon, lemmasIn, parseFreq, parseLemmas, uncoveredWords } from './vocab-lib';
+import { buildLexicon, lemmasIn, parseFreq, parseLemmas, textCoverage, uncoveredWords } from './vocab-lib';
 
 const root = join(import.meta.dirname, '..', 'src', 'content');
 
@@ -25,6 +25,11 @@ function readJson<T>(dir: string): { name: string; data: T }[] {
 }
 
 const issues: Issue[] = [];
+
+function sceneSummary(r: { scenes: number; words: number; unknown: number }): string {
+  const share = r.words ? Math.round((r.unknown / r.words) * 1000) / 10 : 0;
+  return `${r.scenes} ${plural(r.scenes, ['сцена', 'сцены', 'сцен'])} (незнакомых слов ${share}%)`;
+}
 const summary: string[] = [];
 const langs = readdirSync(root, { withFileTypes: true })
   .filter((e) => e.isDirectory() && existsSync(join(root, e.name, 'words')))
@@ -61,7 +66,14 @@ for (const lang of langs) {
     freq,
     (t) => lemmasIn(t, forms, lang),
   );
+  // Сцены: доля незнакомых слов к уровню главы, отчёт покрытия в итоговой строке.
+  const scenes = readJson<LocationScenes>(join(root, lang, 'scenes'));
+  const sceneCheck = validateScenes(scenes, {
+    residents: Object.fromEntries((npcs?.npcs ?? []).map((n) => [n.location, n.id])),
+    coverage: (text, level) => textCoverage(text, level, lexicon, forms, lang),
+  });
   issues.push(
+    ...tag(sceneCheck.issues),
     ...tag(validateWords(words, lang)),
     ...tag(
       validatePhrases(phrases, {
@@ -78,7 +90,7 @@ for (const lang of langs) {
   const scrollCount = scrolls.reduce((n, f) => n + f.data.words.length, 0);
   const phraseCount = phrases.reduce((n, f) => n + f.data.phrases.length, 0);
   summary.push(
-    `${lang}: ${words.length} локаций, слов: ${placeCount + scrollCount} (из них в свитках ${scrollCount}) из плана ${PLAN_TOTAL}, ${grammar.length} уроков, ${phraseCount} ${plural(phraseCount, ['фраза', 'фразы', 'фраз'])}, ${npcs?.npcs.length ?? 0} жителей`,
+    `${lang}: ${words.length} локаций, слов: ${placeCount + scrollCount} (из них в свитках ${scrollCount}) из плана ${PLAN_TOTAL}, ${grammar.length} уроков, ${phraseCount} ${plural(phraseCount, ['фраза', 'фразы', 'фраз'])}, ${sceneSummary(sceneCheck.report)}, ${npcs?.npcs.length ?? 0} жителей`,
   );
 }
 

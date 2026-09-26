@@ -1,0 +1,28 @@
+{
+  "location": "cafe",
+  "scenes": [
+    {
+      "id": "sc:cafe.1",
+      "chapter": 1,
+      "npc": "giulia",
+      "lines": [
+        {"who": "npc", "es": "Ciao! Cosa prendi?", "ru": "Привет! Что будешь?"},
+        {"who": "hero", "es": "Un caffè, per favore. E un bicchiere d'acqua.", "ru": "Кофе, пожалуйста. И стакан воды."},
+        {"who": "npc", "es": "Vuoi lo zucchero?", "ru": "Сахар хочешь?"},
+        {"who": "hero", "es": "No, grazie. Avete dei cornetti?", "ru": "Нет, спасибо. У вас есть круассаны?"},
+        {"who": "npc", "es": "Sì, e oggi c'è anche una torta molto buona.", "ru": "Да, а сегодня есть ещё очень вкусный торт."},
+        {"who": "hero", "es": "Allora prendo un cornetto e la torta.", "ru": "Тогда возьму круассан и торт."},
+        {"who": "npc", "es": "Bene. Ecco a te. Sono cinque euro.", "ru": "Хорошо. Вот, держи. С тебя пять евро."},
+        {"who": "hero", "es": "Posso pagare in terrazza?", "ru": "Можно заплатить на террасе?"},
+        {"who": "npc", "es": "Certo. Il cameriere viene in terrazza con il conto.", "ru": "Конечно. Официант подойдёт на террасу со счётом."}
+      ],
+      "questions": [
+        {"q": "Что пьёт герой?", "options": ["Кофе и воду", "Чай с молоком", "Апельсиновый сок"], "answer": 0},
+        {"q": "Что ещё берёт герой?", "options": ["Печенье", "Круассан и торт", "Бутерброд"], "answer": 1},
+        {"q": "Сколько стоит заказ?", "options": ["Два евро", "Пять евро", "Десять евро"], "answer": 1},
+        {"q": "Где герой заплатит?", "options": ["У барной стойки", "Дома", "На террасе"], "answer": 2}
+      ],
+      "gloss": {"ciao": "привет", "allora": "тогда", "certo": "конечно"}
+    }
+  ]
+}
