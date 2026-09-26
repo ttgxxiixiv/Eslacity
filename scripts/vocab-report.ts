@@ -7,7 +7,7 @@
  */
 import { existsSync, readdirSync, readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { join } from 'node:path';
-import type { GrammarLesson, LocationWords } from '../src/content/schema';
+import type { GrammarLesson, LocationWords, ScrollFile } from '../src/content/schema';
 import { CHAPTERS, COVERAGE_GOAL, PLAN_TOTAL, VOCAB_GOAL, chapterOfLevel } from '../src/content/vocabPlan';
 import { BANDS, coverage, lemmasIn, parseFreq, parseLemmas, share } from './vocab-lib';
 
@@ -24,7 +24,14 @@ function report(lang: string): string {
   const files = readdirSync(join(content, lang, 'words'))
     .filter((f) => f.endsWith('.json'))
     .map((f) => read<LocationWords>(join(content, lang, 'words', f)));
-  const words = files.flatMap((f) => f.words.map((w) => ({ ...w, place: f.location })));
+  const placeWords = files.flatMap((f) => f.words.map((w) => ({ ...w, place: f.location as string })));
+  const scrollDir = join(content, lang, 'scrolls');
+  const scrolls = existsSync(scrollDir)
+    ? readdirSync(scrollDir).filter((f) => f.endsWith('.json')).map((f) => read<ScrollFile>(join(scrollDir, f)))
+    : [];
+  const scrollWords = scrolls.flatMap((f) => f.words.map((w) => ({ ...w, place: `scroll${f.chapter}` })));
+  // Слова свитков считаются вместе со словами мест: покрытие, повторы, CEFR.
+  const words = [...placeWords, ...scrollWords];
 
   const grammarDir = join(content, lang, 'grammar');
   const lessons = readdirSync(grammarDir).flatMap((d) =>
@@ -62,9 +69,9 @@ function report(lang: string): string {
   }
   const repeats = [...byLemma].filter(([, v]) => v.length > 1);
 
-  const count = <K extends string | number>(key: (w: (typeof words)[number]) => K) => {
+  const count = <K extends string | number>(key: (w: (typeof words)[number]) => K, list = words) => {
     const m = new Map<K, number>();
-    for (const w of words) m.set(key(w), (m.get(key(w)) ?? 0) + 1);
+    for (const w of list) m.set(key(w), (m.get(key(w)) ?? 0) + 1);
     return [...m].sort(([a], [b]) => String(a).localeCompare(String(b)));
   };
   const s1 = share(cov, 1000);
@@ -73,16 +80,19 @@ function report(lang: string): string {
 
   const out: string[] = [];
   const log = (s = '') => out.push(s);
-  log(`Слов в курсе: ${words.length} из плана ${PLAN_TOTAL} (цель ${VOCAB_GOAL}), уникальных лемм среди слов мест: ${wordSet.size}.`);
+  log(`Слов в курсе: ${words.length} из плана ${PLAN_TOTAL} (цель ${VOCAB_GOAL}), уникальных лемм среди слов мест и свитков: ${wordSet.size}.`);
   log(
     `По главам: ${CHAPTERS.map((c) => {
-      const n = words.filter((w) => chapterOfLevel(w.level) === c).length;
+      const n = placeWords.filter((w) => chapterOfLevel(w.level) === c).length;
       return `${c.chapter} ${n}/${c.places}`;
-    }).join(', ')}. Свитки: 0/${CHAPTERS.reduce((n, c) => n + c.scroll, 0)}.`,
+    }).join(', ')}. Свитки: ${CHAPTERS.map((c, i) => {
+      const n = scrolls.find((f) => f.chapter === i + 1)?.words.length ?? 0;
+      return `${c.chapter} ${n}/${c.scroll}`;
+    }).join(', ')}.`,
   );
-  log(`По уровням мест: ${count((w) => w.level).map(([k, v]) => `${k}: ${v}`).join(', ')}.`);
+  log(`По уровням мест: ${count((w) => w.level, placeWords).map(([k, v]) => `${k}: ${v}`).join(', ')}.`);
   log(`По CEFR: ${count((w) => w.cefr).map(([k, v]) => `${k}: ${v}`).join(', ')}.`);
-  log(`Повторы лемм между словами мест: ${repeats.length}.`);
+  log(`Повторы лемм между словами мест и свитков: ${repeats.length}.`);
   for (const [l, v] of repeats) log(`  ${l}: ${v.join('; ')}`);
   log();
   log(`Покрытие частотного списка (шум выброшен: ${cov.noise} лемм):`);

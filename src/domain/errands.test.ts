@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import {
-  errandItems, errandReward, errandSignal, errandText, planErrands, type ErrandCard, type PlanInput,
+  errandItems, errandReward, errandSignal, errandText, planErrands, SCROLL_PLACE, type ErrandCard, type PlanInput,
 } from './errands';
 
 const T = 1000;
@@ -73,6 +73,29 @@ describe('план на день', () => {
     const [e] = planErrands(input(cards, { places: ['cafe'] }));
     const plan = planErrands(input(cards.slice(0, 2), { places: ['cafe'], active: [e], today: T + 1 }));
     expect(plan).toEqual([]);
+  });
+});
+
+describe('поручение Летописца', () => {
+  const withScroll = { places: ['cafe', 'market', 'park', 'bank', SCROLL_PLACE] };
+  const cities = [...place('cafe', 12, 10), ...place('market', 12, 8), ...place('park', 12, 6)];
+
+  it('собирается из слов свитков, а не мест', () => {
+    const cards = [...place('scroll1', 10, 3), ...place('cafe', 10, 10), card('g:a1.02-ser.1', T)];
+    const { items, due } = errandItems('scroll', SCROLL_PLACE, cards, T);
+    expect(due).toBe(3);
+    expect(items).toHaveLength(8);
+    expect(items.every((id) => id.startsWith('scroll1.'))).toBe(true);
+  });
+  it('свитку пора повториться — поручение Летописца среди трёх, первым', () => {
+    const plan = planErrands(input([...cities, ...place('scroll1', 12, 1)], withScroll));
+    expect(plan).toHaveLength(3);
+    expect(plan[0]).toMatchObject({ location: SCROLL_PLACE, kind: 'scroll' });
+    expect(plan.map((e) => e.location)).toEqual([SCROLL_PLACE, 'cafe', 'market']);
+  });
+  it('повторять нечего — Летописец не просит, даже если слов свитка много', () => {
+    const plan = planErrands(input([...cities, ...place('scroll1', 12, 0)], withScroll));
+    expect(plan.map((e) => e.location)).not.toContain(SCROLL_PLACE);
   });
 });
 

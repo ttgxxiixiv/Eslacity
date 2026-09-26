@@ -2,8 +2,8 @@ import { describe, expect, it } from 'vitest';
 import type { LocationWords, Word } from './schema';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { validateGrammar, validateNpcs, validateWords } from './validate';
-import { LOCATION_IDS, type GrammarLesson, type NpcsFile } from './schema';
+import { validateChronicler, validateGrammar, validateNpcs, validateScrolls, validateWords } from './validate';
+import { LOCATION_IDS, type Chronicler, type GrammarLesson, type NpcsFile, type ScrollFile } from './schema';
 
 const base = (i: number, extra: Partial<Word> = {}): Word => ({
   id: `cafe.w${i}`, es: `la palabra${i}`, ru: `слово ${i}`, pos: 'noun', gender: 'f', level: 1, cefr: 'A1',
@@ -124,5 +124,54 @@ describe('validateGrammar: id упражнений', () => {
     expect(e).toMatch(/нет id: запустите/);
     expect(e).toMatch(/не вида a1\.02-ser\.<номер>/);
     expect(e).toMatch(/дубль id a1\.02-ser\.3/);
+  });
+});
+
+describe('validateScrolls', () => {
+  const sw = (slug: string, extra: Partial<Word> = {}): Word => ({
+    id: `scroll1.${slug}`, es: `el ${slug}`, ru: slug, pos: 'noun', gender: 'm', level: 1, cefr: 'A1',
+    example: { es: `Es el ${slug}.`, ru: 'пример' }, ...extra,
+  });
+  const scroll = (words: Word[], chapter = 1, name = `${chapter}.json`) => [{ name, data: { chapter, words } as ScrollFile }];
+  const errs = (words: Word[], chapter?: number, name?: string) =>
+    validateScrolls(scroll(words, chapter, name), file(tenWords())).filter((x) => x.level === 'error').map((x) => x.msg).join('; ');
+
+  it('чистый свиток без ошибок', () => {
+    expect(errs([sw('mapa'), sw('mundo')])).toBe('');
+  });
+  it('слово места и дубль внутри свитка — ошибки', () => {
+    expect(errs([sw('x', { es: 'la palabra3', gender: 'f' })])).toMatch(/уже есть: cafe\.w3/);
+    expect(errs([sw('mapa'), sw('mapa')])).toMatch(/дубль id/);
+  });
+  it('чужой префикс, уровень, CEFR главы и имя файла', () => {
+    expect(errs([sw('mapa', { id: 'cafe.mapa' })])).toMatch(/начинаться с "scroll1\."/);
+    expect(errs([sw('mapa', { level: 2 })])).toMatch(/level всегда 1/);
+    expect(errs([sw('mapa', { cefr: 'A2' })])).toMatch(/у главы I — A1/);
+    expect(errs([sw('mapa')], 1, '2.json')).toMatch(/имя файла/);
+  });
+  it('слов больше плана — ошибка', () => {
+    const many = Array.from({ length: 61 }, (_, i) => sw(`w${i}`));
+    expect(errs(many)).toMatch(/61 слов, по плану не больше 60/);
+  });
+  it('настоящие свитки обоих языков проходят', () => {
+    for (const lang of ['es', 'it'] as const) {
+      const data = JSON.parse(readFileSync(join(import.meta.dirname, lang, 'scrolls', '1.json'), 'utf8')) as ScrollFile;
+      expect(validateScrolls([{ name: '1.json', data }], [], lang)).toEqual([]);
+    }
+  });
+});
+
+describe('validateChronicler', () => {
+  const real = (lang: string) => JSON.parse(readFileSync(join(import.meta.dirname, lang, 'chronicler.json'), 'utf8')) as Chronicler;
+  it('Летописец обоих языков проходит', () => {
+    expect(validateChronicler(real('es'), undefined)).toEqual([]);
+    expect(validateChronicler(real('it'), undefined)).toEqual([]);
+  });
+  it('нет файла, место и занятый id — ошибки', () => {
+    expect(validateChronicler(undefined, undefined)[0].msg).toMatch(/нет Летописца/);
+    const n = { ...real('es'), location: 'cafe' } as Chronicler;
+    expect(validateChronicler(n, undefined).map((x) => x.msg).join()).toMatch(/location лишнее/);
+    const npcs = { npcs: [{ ...real('es'), location: 'cafe' }] } as NpcsFile;
+    expect(validateChronicler(real('es'), npcs).map((x) => x.msg).join()).toMatch(/уже занят/);
   });
 });

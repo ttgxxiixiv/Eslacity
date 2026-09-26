@@ -23,4 +23,6 @@ declare module 'virtual:word-index' {
   export default index;
   /** Язык → id слов с частью речи phrase. */
   export const PHRASES: Record<string, string[]>;
+  /** Язык → глава → id слов свитка земли. */
+  export const SCROLLS: Record<string, Record<number, string[]>>;
 }

@@ -1,7 +1,7 @@
 import { readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { expect, test, type Page } from '@playwright/test';
-import { DB, LANGS, openApp, readMeta, seedDueCards, wordIdsOf, type Lang } from './fixtures';
+import { DB, LANGS, openApp, readMeta, scrollIdsOf, seedDueCards, wordIdsOf, type Lang } from './fixtures';
 
 const CONTENT = join(import.meta.dirname, '..', '..', 'src', 'content');
 /** id уроков района: папка a2 → a2.<файл>. */
@@ -114,7 +114,17 @@ for (const lang of LANGS) {
       await seedDueCards(page, lang, places.flatMap((p) => wordIdsOf(lang, p, [1, 2])));
       await put(page, lang, 'grammar', lessonIds(lang, 'a1').map((lessonId) => ({ lessonId, completedAt: 1, bestScore: 90 })));
 
+      // Обрывки и уроки есть, но свиток земли не выучен: печати нет, сцены нет.
       const scene = page.getByTestId('chapter-scene');
+      const scroll = scrollIdsOf(lang, 1);
+      await expect(page.getByTestId('journey-line')).toContainText(`Печать: осталось ${scroll.length} слов свитка`);
+      await expect(scene).toHaveCount(0);
+      await page.goto('./#/journey-map');
+      await page.getByRole('button', { name: /Печать главы/ }).click();
+      await expect(page.getByTestId('seal-scroll')).toContainText(`осталось выучить ${scroll.length} слов из ${scroll.length}, их просит Летописец`);
+      await page.goto('./#/');
+      await seedDueCards(page, lang, scroll);
+
       await expect(scene).toBeVisible();
       await expect(page.getByTestId('scene-title')).toContainText('Странник', { timeout: 8000 });
       await expect(page.getByTestId('scene-title')).toContainText('открыта глава II, Горный перевал');

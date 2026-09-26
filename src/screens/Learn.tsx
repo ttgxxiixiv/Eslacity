@@ -2,7 +2,8 @@ import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { ECONOMY } from '../config';
 import { loadLocation } from '../content';
-import type { LocationId, Word } from '../content/schema';
+import type { Word, WordSource } from '../content/schema';
+import { isScrollId } from '../domain/itemId';
 import { seeded } from '../domain/generators';
 import { buildLearnSteps, buildReviewSteps, type SessionState, type Step } from '../domain/lessonQueue';
 import { lessonParts, levelWords } from '../domain/levels';
@@ -23,14 +24,14 @@ interface Ready {
 
 export function LearnScreen({ practice = false }: { practice?: boolean }) {
   const params = useParams();
-  const id = params.id as LocationId;
+  const id = params.id as WordSource;
   const level = Number(params.level);
   const part = Number(params.part ?? 0);
   // Другой урок — новый экран: иначе от прошлого урока остались бы очередь заданий и итог.
   return <LearnRun key={`${practice}/${id}/${level}/${part}`} id={id} level={level} part={part} practice={practice} />;
 }
 
-function LearnRun({ id, level, part, practice }: { id: LocationId; level: number; part: number; practice: boolean }) {
+function LearnRun({ id, level, part, practice }: { id: WordSource; level: number; part: number; practice: boolean }) {
   const nav = useNavigate();
   const [ready, setReady] = useState<Ready | null>(null);
   const [result, setResult] = useState<{ s: SessionState; totals: LessonTotals; bonus: number; ach: MedalGain[] } | null>(null);
@@ -60,7 +61,8 @@ function LearnRun({ id, level, part, practice }: { id: LocationId; level: number
         bonusCoins={result.bonus}
         medals={result.ach}
         words={ready.words}
-        onDone={() => nav(`/loc/${id}`, { replace: true })}
+        // Урок свитка — просьба Летописца: возвращаемся к нему на карту странствий.
+        onDone={() => nav(isScrollId(id) ? '/journey-map' : `/loc/${id}`, { replace: true })}
       />
     );
   }

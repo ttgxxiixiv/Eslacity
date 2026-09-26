@@ -125,3 +125,16 @@ export interface Npc {
 export interface NpcsFile {
   npcs: Npc[];
 }
+
+/** Свиток земли: общие слова главы без места (docs/GAME.md, «Словарный запас»). Их просит выучить Летописец. */
+export interface ScrollFile {
+  chapter: number;
+  /** id вида `scroll<глава>.<slug>`, level не используется (всегда 1), cefr — уровень главы. */
+  words: Word[];
+}
+
+/** Летописец: житель без места, идёт по пути рядом с героем. Поручения — слова свитков. */
+export type Chronicler = Omit<Npc, 'location'>;
+
+/** Откуда грузятся слова: место или свиток главы (`scroll1`). */
+export type WordSource = LocationId | `scroll${number}`;

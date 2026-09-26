@@ -6,6 +6,7 @@ import { LOCATIONS } from '../content/locations';
 import { fragmentKey, type ChapterId, type ChapterState, type PlaceState } from '../domain/chapters';
 import { plural } from '../domain/medals';
 import { Button, Screen, TopBar } from '../components/ui';
+import { ChroniclerPanel } from '../components/ChroniclerPanel';
 import { cellCenter, cellOf, cellPolygon, MAP_H, MAP_W, SEAL } from '../components/journeyArt';
 import { useCity } from '../store/city';
 import { currentJourney, useJourney } from '../store/journey';
@@ -157,6 +158,16 @@ export function Road({ state, current, shown, opened, onPick }: {
         <rect x="3" y="2" width="4" height="3" fill="#f1c9a0" />
         <rect x="0" y="14" width="3" height="2" fill={DARK} />
         <rect x="7" y="14" width="3" height="2" fill={DARK} />
+        {/* Летописец идёт следом: лиловый балахон, седая борода, под мышкой свиток. */}
+        <g transform="translate(12 2)" aria-label="Летописец" data-testid="road-chronicler">
+          <rect x="2" y="0" width="6" height="2" fill="#d9d4c5" />
+          <rect x="2" y="2" width="6" height="3" fill="#e0ad84" />
+          <rect x="2" y="4" width="6" height="3" fill="#d9d4c5" />
+          <rect x="1" y="6" width="8" height="8" fill="#6b4f8a" />
+          <rect x="7" y="8" width="4" height="3" fill="#f1dfb0" />
+          <rect x="1" y="14" width="3" height="2" fill={DARK} />
+          <rect x="6" y="14" width="3" height="2" fill={DARK} />
+        </g>
       </g>
     </svg>
   );
@@ -304,6 +315,8 @@ export function JourneyMapScreen() {
 
           <Details ch={ch} picked={picked} fragmentsAt={fragments} buildings={buildings} />
         </section>
+
+        <ChroniclerPanel opened={opened} />
       </div>
     </Screen>
   );
@@ -324,14 +337,27 @@ function Details({ ch, picked, fragmentsAt, buildings }: {
     return (
       <div className="mt-3 rounded-xl bg-stone-50 p-3" data-testid="map-details">
         <div className="font-semibold">Печать главы {ch.chapter.roman}</div>
-        <p className="text-sm text-stone-600">
-          {s.got
-            ? 'Печать получена.'
-            : s.lessons === 0
-              ? 'Уроки этой главы ещё пишутся.'
-              : `Пройдите уроки грамматики района ${ch.chapter.districts.join(' и ')}: осталось ${s.lessonsLeft} из ${s.lessons}.`}
-        </p>
-        {!s.got && s.lessons > 0 && (
+        {s.got ? (
+          <p className="text-sm text-stone-600">Печать получена.</p>
+        ) : (
+          <>
+            <p className="text-sm text-stone-600">
+              {s.lessons === 0
+                ? 'Уроки этой главы ещё пишутся.'
+                : s.lessonsLeft
+                  ? `Пройдите уроки грамматики района ${ch.chapter.districts.join(' и ')}: осталось ${s.lessonsLeft} из ${s.lessons}.`
+                  : `Уроки района ${ch.chapter.districts.join(' и ')} пройдены.`}
+            </p>
+            {s.scroll > 0 && (
+              <p className="mt-1 text-sm text-stone-600" data-testid="seal-scroll">
+                {s.scrollLeft
+                  ? `Свиток земли: осталось выучить ${s.scrollLeft} ${plural(s.scrollLeft, ['слово', 'слова', 'слов'])} из ${s.scroll}, их просит Летописец.`
+                  : 'Свиток земли выучен.'}
+              </p>
+            )}
+          </>
+        )}
+        {!s.got && s.lessonsLeft > 0 && (
           <Button className="mt-2 w-full" onClick={() => nav('/grammar')}>
             К грамматике
           </Button>

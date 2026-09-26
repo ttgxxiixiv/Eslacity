@@ -171,7 +171,11 @@ function JourneyLine() {
     const words = `${goal.wordsLeft} ${plural(goal.wordsLeft, ['слово', 'слова', 'слов'])}`;
     next = goal.open ? `${meta.emoji} ${meta.ru}: осталось ${words}` : `${meta.emoji} ${meta.ru}: откройте место, ${words}`;
   } else if (goal?.kind === 'seal') {
-    next = `Печать: осталось ${goal.lessonsLeft} ${plural(goal.lessonsLeft, ['урок', 'урока', 'уроков'])} ${ch.chapter.districts.join(' и ')}`;
+    const parts = [
+      goal.lessonsLeft ? `${goal.lessonsLeft} ${plural(goal.lessonsLeft, ['урок', 'урока', 'уроков'])} ${ch.chapter.districts.join(' и ')}` : '',
+      goal.scrollLeft ? `${goal.scrollLeft} ${plural(goal.scrollLeft, ['слово', 'слова', 'слов'])} свитка` : '',
+    ].filter(Boolean);
+    next = `Печать: осталось ${parts.join(' и ')}`;
   }
 
   return (

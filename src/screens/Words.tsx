@@ -51,7 +51,7 @@ export function WordsScreen() {
             const loc = LOCATION_BY_ID[w.id.split('.')[0] as LocationId];
             return (
               <li key={w.id} className="flex items-center gap-3 px-4 py-2.5">
-                <span title={loc?.ru}>{loc?.emoji}</span>
+                <span title={loc?.ru ?? 'свиток земли'}>{loc?.emoji ?? '📜'}</span>
                 <div className="min-w-0 flex-1">
                   <div className="font-semibold">{w.es}</div>
                   <div className="truncate text-sm text-stone-500">{w.ru}</div>

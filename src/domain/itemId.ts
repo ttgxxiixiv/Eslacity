@@ -32,3 +32,9 @@ export function wordCards<T>(cards: Record<string, T>): Record<string, T> {
 
 /** id слов среди id карточек. */
 export const wordIds = (ids: Iterable<string>): string[] => [...ids].filter((id) => !isRuleId(id));
+
+/** Слова свитков земель: `scroll1.mapa`. Свиток главы загружается как отдельное «место» `scroll1`. */
+export const isScrollId = (id: string): boolean => /^scroll\d+(\.|$)/.test(id);
+
+/** Ключ свитка главы: `scroll1`. */
+export const scrollKey = (chapter: number) => `scroll${chapter}` as const;

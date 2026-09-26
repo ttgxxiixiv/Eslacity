@@ -21,7 +21,11 @@ interface Word {
 /** Все слова языка: чтобы ответить на задание по тому, что показано на экране. */
 export function loadWords(lang: Lang) {
   const dir = join(CONTENT, lang, 'words');
-  const words: Word[] = readdirSync(dir).flatMap((f) => JSON.parse(readFileSync(join(dir, f), 'utf8')).words);
+  const scrolls = join(CONTENT, lang, 'scrolls');
+  const words: Word[] = [
+    ...readdirSync(dir).flatMap((f) => JSON.parse(readFileSync(join(dir, f), 'utf8')).words),
+    ...readdirSync(scrolls).flatMap((f) => JSON.parse(readFileSync(join(scrolls, f), 'utf8')).words),
+  ];
   return {
     byRu: new Map(words.map((w) => [w.ru, w])),
     byEs: new Map(words.map((w) => [w.es, w])),
@@ -33,6 +37,12 @@ export function loadWords(lang: Lang) {
 export function wordIdsOf(lang: Lang, location: string, levels: number[]): string[] {
   const data = JSON.parse(readFileSync(join(CONTENT, lang, 'words', `${location}.json`), 'utf8')) as { words: { id: string; level: number }[] };
   return data.words.filter((w) => levels.includes(w.level)).map((w) => w.id);
+}
+
+/** id слов свитка главы. */
+export function scrollIdsOf(lang: Lang, chapter: number): string[] {
+  const data = JSON.parse(readFileSync(join(CONTENT, lang, 'scrolls', `${chapter}.json`), 'utf8')) as { words: { id: string }[] };
+  return data.words.map((w) => w.id);
 }
 
 /** Прочитать запись из таблицы meta базы языка. */

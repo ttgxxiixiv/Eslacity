@@ -2,7 +2,7 @@ import { useMemo } from 'react';
 import { create } from 'zustand';
 import { lessonsOf } from '../content/grammar';
 import { LOCATIONS } from '../content/locations';
-import { WORD_LEVELS } from '../content/wordIndex';
+import { SCROLL_WORDS, WORD_LEVELS } from '../content/wordIndex';
 import { db } from '../db/db';
 import { persist } from '../db/persist';
 import {
@@ -33,6 +33,7 @@ export function journeyInput(): JourneyInput {
     isLearned: (id) => id in p.cards,
     lessons: Object.fromEntries(districts.map((d) => [d, lessonsOf(d as never).map((l) => l.id)])),
     isLessonDone: (id) => !!p.grammar[id],
+    scrolls: SCROLL_WORDS,
   };
 }
 

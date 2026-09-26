@@ -1,12 +1,16 @@
-import type { Npc } from '../content/schema';
+import type { Chronicler } from '../content/schema';
+import type { ReactNode } from 'react';
 import { speak } from '../audio/tts';
 import { greetingFor, nextRank, rankOf } from '../domain/reputation';
 import { plural } from '../domain/medals';
 import { useSettings } from '../store/settings';
 import { NpcPortrait } from './NpcPortrait';
 
-/** Житель в шапке места: портрет, имя, отношения с героем, приветствие на языке курса его голосом. */
-export function NpcCard({ npc, rep = 0 }: { npc: Npc; rep?: number }) {
+/**
+ * Житель в шапке места: портрет, имя, отношения с героем, приветствие на языке курса его голосом.
+ * Им же показан Летописец на карте странствий (у него нет здания, скидки нет).
+ */
+export function NpcCard({ npc, rep = 0, children }: { npc: Chronicler; rep?: number; children?: ReactNode }) {
   const greeting = greetingFor(npc.greeting, npc.warm, rep);
   const rank = rankOf(rep);
   const next = nextRank(rep);
@@ -54,7 +58,8 @@ export function NpcCard({ npc, rep = 0 }: { npc: Npc; rep?: number }) {
           <span className="text-xs text-stone-500">ближе некуда</span>
         )}
       </div>
-      {rank.discount > 0 && <p className="mt-1 text-xs text-stone-500">Скидка на улучшение здания: {Math.round(rank.discount * 100)}%</p>}
+      {rank.discount > 0 && 'location' in npc && <p className="mt-1 text-xs text-stone-500">Скидка на улучшение здания: {Math.round(rank.discount * 100)}%</p>}
+      {children}
     </section>
   );
 }

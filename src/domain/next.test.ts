@@ -56,6 +56,8 @@ describe('кнопка «Продолжить»', () => {
   it('последняя локация по времени изучения', () => {
     expect(recentLocation({ 'cafe.a': { learnedAt: 5 }, 'market.b': { learnedAt: 9 } })).toBe('market');
     expect(recentLocation({})).toBeUndefined();
+    // Слово свитка не место: берётся последнее слово места.
+    expect(recentLocation({ 'cafe.a': { learnedAt: 5 }, 'scroll1.mapa': { learnedAt: 9 } })).toBe('cafe');
   });
 });
 

@@ -1,10 +1,10 @@
-import { isRuleId } from './itemId';
+import { isRuleId, isScrollId } from './itemId';
 import { plural } from './medals';
 
 /**
  * Поручения жителей (docs/GAME.md, «Жители и миссии»): главный способ повторять. Каждый день три поручения
  * от разных жителей открытых мест. Поручение собирается из карточек места, которые пора повторить,
- * у учительницы школы — из правил грамматики. Если таких мало, добираются самые трудные карточки.
+ * у учительницы школы — из правил грамматики, у Летописца — из слов свитков. Если таких мало, добираются самые трудные карточки.
  * Поручения не сгорают: невыполненное переходит на следующий день.
  */
 
@@ -15,6 +15,11 @@ export const ERRAND_MAX = 12;
 export const ERRAND_FLOOR = 4;
 /** Место учительницы: её поручения — правила грамматики. */
 export const RULES_PLACE = 'school';
+/**
+ * «Место» Летописца: здания у него нет, поручения — слова свитков земель. Когда у свитков есть карточки
+ * к повторению, его поручение обязательно среди трёх.
+ */
+export const SCROLL_PLACE = 'chronicler';
 
 export interface Errand {
   /** `<день>:<место>` — одно поручение места в день. */
@@ -26,7 +31,7 @@ export interface Errand {
   items: string[];
   /** Какая из формулировок жителя. */
   phrase: number;
-  kind: 'words' | 'rules';
+  kind: 'words' | 'rules' | 'scroll';
 }
 
 export interface ErrandCard {
@@ -60,12 +65,19 @@ const placeOf = (id: string) => id.split('.')[0];
 /** Самые трудные: больше провалов, выше сложность. */
 const harder = (a: ErrandCard, b: ErrandCard) => b.lapses - a.lapses || (b.difficulty ?? 0) - (a.difficulty ?? 0);
 
+/** Карточка подходит поручению: правило, слово свитка или слово места. */
+function belongs(kind: Errand['kind'], location: string, id: string): boolean {
+  if (kind === 'rules') return isRuleId(id);
+  if (kind === 'scroll') return isScrollId(id);
+  return !isRuleId(id) && placeOf(id) === location;
+}
+
 /**
- * Карточки поручения: слова места или все правила. Сначала те, что пора повторить (самые просроченные),
+ * Карточки поручения: слова места, все правила или все слова свитков. Сначала те, что пора повторить (самые просроченные),
  * потом самые трудные, пока не наберётся восемь.
  */
 export function errandItems(kind: Errand['kind'], location: string, cards: ErrandCard[], today: number): { items: string[]; due: number } {
-  const own = cards.filter((c) => (kind === 'rules' ? isRuleId(c.wordId) : !isRuleId(c.wordId) && placeOf(c.wordId) === location));
+  const own = cards.filter((c) => belongs(kind, location, c.wordId));
   const due = own.filter((c) => c.due <= today).sort((a, b) => a.due - b.due || harder(a, b));
   const items = due.slice(0, ERRAND_MAX).map((c) => c.wordId);
   if (items.length < ERRAND_MIN) {
@@ -94,12 +106,14 @@ export function planErrands({ today, places, cards, active, last, phrases }: Pla
     .filter((p) => !busy.has(p))
     .map((location) => {
       // Учительница даёт правила, если они есть; иначе, как все, слова своего места.
-      const kind: Errand['kind'] = location === RULES_PLACE && hasRules ? 'rules' : 'words';
+      const kind: Errand['kind'] = location === SCROLL_PLACE ? 'scroll' : location === RULES_PLACE && hasRules ? 'rules' : 'words';
       const { items, due } = errandItems(kind, location, cards, today);
       const since = Math.min(7, today - (last[location] ?? today - 7));
-      return { location, items, due, kind, score: due + since * 1.5 + hash(`${today}:${location}`) };
+      // Летописец приходит, только когда свитку пора повториться, и тогда его поручение первое.
+      const first = kind === 'scroll' ? 1000 : 0;
+      return { location, items, due, kind, score: first + due + since * 1.5 + hash(`${today}:${location}`) };
     })
-    .filter((c) => c.items.length >= ERRAND_FLOOR)
+    .filter((c) => c.items.length >= ERRAND_FLOOR && (c.kind !== 'scroll' || c.due > 0))
     .sort((a, b) => b.score - a.score);
   const fresh = candidates.slice(0, Math.max(0, ERRANDS_PER_DAY - kept.length)).map((c) => ({
     id: `${today}:${c.location}`,

@@ -1,7 +1,7 @@
 import { normalize, splitArticle, stripAccents } from '../domain/answer';
 import type { Lang } from '../lang';
-import { PLACE_LEVEL_MAX } from './vocabPlan';
-import { LOCATION_IDS, type GrammarLesson, type LocationWords, type NpcsFile, type Word } from './schema';
+import { CHAPTERS as PLAN, PLACE_LEVEL_MAX } from './vocabPlan';
+import { LOCATION_IDS, type Chronicler, type GrammarLesson, type LocationWords, type NpcsFile, type ScrollFile, type Word } from './schema';
 
 export interface Issue {
   level: 'error' | 'warning';
@@ -64,6 +64,55 @@ function checkArticle(w: Word, form: string, where: string, out: Issue[], lang: 
   }
 }
 
+/** Проверки одного слова: поля, часть речи, артикль и род, пример содержит слово. Общие для мест и свитков. */
+function checkWord(w: Word, at: string, lang: Lang, out: Issue[]) {
+  for (const f of ['id', 'es', 'ru', 'pos', 'cefr'] as const) {
+    if (empty(w[f])) out.push({ level: 'error', where: at, msg: `пустое поле ${f}` });
+  }
+  if (!w.example || empty(w.example.es) || empty(w.example.ru)) {
+    out.push({ level: 'error', where: at, msg: 'пустой пример' });
+  }
+  if (![1, 2, 3, 4, 5].includes(w.level)) out.push({ level: 'error', where: at, msg: `уровень ${w.level}` });
+  if (!POS.has(w.pos)) out.push({ level: 'error', where: at, msg: `часть речи "${w.pos}"` });
+  if (!CEFR.has(w.cefr)) out.push({ level: 'error', where: at, msg: `CEFR "${w.cefr}"` });
+  if (empty(w.id) || empty(w.es)) return;
+
+  if (w.es !== w.es.trim() || /\s{2,}/.test(w.es)) {
+    out.push({ level: 'error', where: at, msg: 'лишние пробелы в es' });
+  }
+
+  if (w.pos === 'noun') {
+    if (w.gender !== 'm' && w.gender !== 'f') {
+      out.push({ level: 'error', where: at, msg: 'у существительного нет рода' });
+    } else {
+      checkArticle(w, w.es, at, out, lang);
+      if (w.latam) checkArticle(w, w.latam, `${at} (latam)`, out, lang);
+      for (const a of w.alt ?? []) checkArticle(w, a, `${at} (alt)`, out, lang);
+    }
+  } else {
+    if (w.gender) out.push({ level: 'warning', where: at, msg: 'род у не-существительного' });
+    if (w.pos !== 'phrase' && w.es.includes(' ') && splitArticle(w.es, lang).article) {
+      out.push({ level: 'error', where: at, msg: `артикль у части речи ${w.pos}` });
+    }
+  }
+
+  for (const a of w.alt ?? []) if (empty(a)) out.push({ level: 'error', where: at, msg: 'пустой alt' });
+  if (w.latam !== undefined && empty(w.latam)) out.push({ level: 'error', where: at, msg: 'пустой latam' });
+
+  if (w.example && !empty(w.example.es)) {
+    const ex = stripAccents(normalize(w.example.es));
+    let core = stripAccents(splitArticle(w.es, lang).core);
+    // Возвратный глагол: bañarse → bañar, lavarsi → lavar; в примере будет bañarnos, mi lavo.
+    if (w.pos === 'verb' && core.endsWith(lang === 'it' ? 'si' : 'se')) core = core.slice(0, -2);
+    // У итальянских глаголов окончание длиннее: parlare → parl.
+    const cut = lang === 'it' && w.pos === 'verb' && core.length > 5 ? 3 : 2;
+    const stem = core.length > 4 ? core.slice(0, core.length - cut) : core;
+    if (!ex.includes(stem)) {
+      out.push({ level: 'warning', where: at, msg: `в примере нет слова "${w.es}"` });
+    }
+  }
+}
+
 export function validateWords(files: { name: string; data: LocationWords }[], lang: Lang = 'es'): Issue[] {
   const out: Issue[] = [];
   const ids = new Map<string, string>();
@@ -90,15 +139,7 @@ export function validateWords(files: { name: string; data: LocationWords }[], la
 
     data.words.forEach((w, i) => {
       const at = `${name}#${i} ${w.id ?? '?'}`;
-      for (const f of ['id', 'es', 'ru', 'pos', 'cefr'] as const) {
-        if (empty(w[f])) out.push({ level: 'error', where: at, msg: `пустое поле ${f}` });
-      }
-      if (!w.example || empty(w.example.es) || empty(w.example.ru)) {
-        out.push({ level: 'error', where: at, msg: 'пустой пример' });
-      }
-      if (![1, 2, 3, 4, 5].includes(w.level)) out.push({ level: 'error', where: at, msg: `уровень ${w.level}` });
-      if (!POS.has(w.pos)) out.push({ level: 'error', where: at, msg: `часть речи "${w.pos}"` });
-      if (!CEFR.has(w.cefr)) out.push({ level: 'error', where: at, msg: `CEFR "${w.cefr}"` });
+      checkWord(w, at, lang, out);
       if (empty(w.id) || empty(w.es)) return;
 
       if (!w.id.startsWith(`${data.location}.`)) {
@@ -110,41 +151,6 @@ export function validateWords(files: { name: string; data: LocationWords }[], la
       const key = normalize(w.es);
       if (esSeen.has(key)) out.push({ level: 'error', where: at, msg: `дубль "${w.es}" (${esSeen.get(key)})` });
       esSeen.set(key, w.id);
-
-      if (w.es !== w.es.trim() || /\s{2,}/.test(w.es)) {
-        out.push({ level: 'error', where: at, msg: 'лишние пробелы в es' });
-      }
-
-      if (w.pos === 'noun') {
-        if (w.gender !== 'm' && w.gender !== 'f') {
-          out.push({ level: 'error', where: at, msg: 'у существительного нет рода' });
-        } else {
-          checkArticle(w, w.es, at, out, lang);
-          if (w.latam) checkArticle(w, w.latam, `${at} (latam)`, out, lang);
-          for (const a of w.alt ?? []) checkArticle(w, a, `${at} (alt)`, out, lang);
-        }
-      } else {
-        if (w.gender) out.push({ level: 'warning', where: at, msg: 'род у не-существительного' });
-        if (w.pos !== 'phrase' && w.es.includes(' ') && splitArticle(w.es, lang).article) {
-          out.push({ level: 'error', where: at, msg: `артикль у части речи ${w.pos}` });
-        }
-      }
-
-      for (const a of w.alt ?? []) if (empty(a)) out.push({ level: 'error', where: at, msg: 'пустой alt' });
-      if (w.latam !== undefined && empty(w.latam)) out.push({ level: 'error', where: at, msg: 'пустой latam' });
-
-      if (w.example && !empty(w.example.es)) {
-        const ex = stripAccents(normalize(w.example.es));
-        let core = stripAccents(splitArticle(w.es, lang).core);
-        // Возвратный глагол: bañarse → bañar, lavarsi → lavar; в примере будет bañarnos, mi lavo.
-        if (w.pos === 'verb' && core.endsWith(lang === 'it' ? 'si' : 'se')) core = core.slice(0, -2);
-        // У итальянских глаголов окончание длиннее: parlare → parl.
-        const cut = lang === 'it' && w.pos === 'verb' && core.length > 5 ? 3 : 2;
-        const stem = core.length > 4 ? core.slice(0, core.length - cut) : core;
-        if (!ex.includes(stem)) {
-          out.push({ level: 'warning', where: at, msg: `в примере нет слова "${w.es}"` });
-        }
-      }
 
       if (!empty(w.ru)) {
         const rk = `${w.level}:${w.ru.trim().toLowerCase()}`;
@@ -251,6 +257,29 @@ const NPC_STYLES = new Set(['short', 'long', 'bun', 'curly', 'bald']);
 const NPC_EXTRAS = new Set(['apron', 'glasses', 'headphones', 'chefhat', 'mustache', 'beard', 'cap', 'tie', 'headband', 'badge', 'stethoscope']);
 const COLOR = /^#[0-9a-f]{6}$/i;
 
+/** Общие проверки жителя и Летописца: поля, голос, формулировки поручений, тёплые приветствия, портрет. */
+function checkNpc(n: Chronicler, at: string, noun: string, out: Issue[]) {
+  for (const f of ['id', 'name', 'role', 'character'] as const) if (empty(n[f])) out.push({ level: 'error', where: at, msg: `пустое поле ${f}` });
+  if (empty(n.greeting?.es) || empty(n.greeting?.ru)) out.push({ level: 'error', where: at, msg: 'пустое приветствие' });
+  if (n.gender !== 'm' && n.gender !== 'f') out.push({ level: 'error', where: at, msg: `пол "${n.gender}"` });
+  const { pitch, rate } = n.voice ?? {};
+  if (!(pitch >= 0.5 && pitch <= 1.5) || !(rate >= 0.7 && rate <= 1.3)) out.push({ level: 'error', where: at, msg: 'голос вне пределов (pitch 0.5–1.5, rate 0.7–1.3)' });
+  const er = n.errands ?? [];
+  if (er.length < 3 || er.length > 4) out.push({ level: 'error', where: at, msg: `формулировок поручения ${er.length}, нужно 3–4` });
+  for (const t of er) {
+    if (empty(t) || !t.includes('{n}') || !t.includes(noun)) out.push({ level: 'error', where: at, msg: `поручение без {n} или ${noun}: «${t}»` });
+  }
+  if (n.warm?.length !== 3 || n.warm.some((w) => empty(w?.es) || empty(w?.ru))) {
+    out.push({ level: 'error', where: at, msg: 'нужно 3 тёплых приветствия (warm) с переводом' });
+  }
+  const lk = n.look;
+  if (!lk || ![1, 2, 3, 4].includes(lk.skin) || !NPC_STYLES.has(lk.style) || !COLOR.test(lk.hair) || !COLOR.test(lk.outfit) || !COLOR.test(lk.pants)) {
+    out.push({ level: 'error', where: at, msg: 'неверный портрет (look)' });
+  } else {
+    for (const e of lk.extra) if (!NPC_EXTRAS.has(e)) out.push({ level: 'error', where: at, msg: `неизвестная деталь портрета "${e}"` });
+  }
+}
+
 /** Жители: по одному на каждое место, уникальные id, заполненные поля, голос и портрет в допустимых пределах. */
 export function validateNpcs(file: NpcsFile | undefined): Issue[] {
   const out: Issue[] = [];
@@ -260,32 +289,68 @@ export function validateNpcs(file: NpcsFile | undefined): Issue[] {
   const places = new Map<string, string>();
   for (const n of file.npcs) {
     const at = `${where} ${n.id ?? '?'}`;
-    for (const f of ['id', 'name', 'role', 'character'] as const) if (empty(n[f])) out.push({ level: 'error', where: at, msg: `пустое поле ${f}` });
-    if (empty(n.greeting?.es) || empty(n.greeting?.ru)) out.push({ level: 'error', where: at, msg: 'пустое приветствие' });
+    checkNpc(n, at, n.location === 'school' ? '{правил}' : '{слов}', out);
     if (ids.has(n.id)) out.push({ level: 'error', where: at, msg: 'дубль id' });
     ids.add(n.id);
     if (!(LOCATION_IDS as readonly string[]).includes(n.location)) out.push({ level: 'error', where: at, msg: `неизвестное место "${n.location}"` });
     else if (places.has(n.location)) out.push({ level: 'error', where: at, msg: `в месте ${n.location} уже живёт ${places.get(n.location)}` });
     else places.set(n.location, n.id);
-    if (n.gender !== 'm' && n.gender !== 'f') out.push({ level: 'error', where: at, msg: `пол "${n.gender}"` });
-    const { pitch, rate } = n.voice ?? {};
-    if (!(pitch >= 0.5 && pitch <= 1.5) || !(rate >= 0.7 && rate <= 1.3)) out.push({ level: 'error', where: at, msg: 'голос вне пределов (pitch 0.5–1.5, rate 0.7–1.3)' });
-    const er = n.errands ?? [];
-    if (er.length < 3 || er.length > 4) out.push({ level: 'error', where: at, msg: `формулировок поручения ${er.length}, нужно 3–4` });
-    const noun = n.location === 'school' ? '{правил}' : '{слов}';
-    for (const t of er) {
-      if (empty(t) || !t.includes('{n}') || !t.includes(noun)) out.push({ level: 'error', where: at, msg: `поручение без {n} или ${noun}: «${t}»` });
-    }
-    if (n.warm?.length !== 3 || n.warm.some((w) => empty(w?.es) || empty(w?.ru))) {
-      out.push({ level: 'error', where: at, msg: 'нужно 3 тёплых приветствия (warm) с переводом' });
-    }
-    const lk = n.look;
-    if (!lk || ![1, 2, 3, 4].includes(lk.skin) || !NPC_STYLES.has(lk.style) || !COLOR.test(lk.hair) || !COLOR.test(lk.outfit) || !COLOR.test(lk.pants)) {
-      out.push({ level: 'error', where: at, msg: 'неверный портрет (look)' });
-    } else {
-      for (const e of lk.extra) if (!NPC_EXTRAS.has(e)) out.push({ level: 'error', where: at, msg: `неизвестная деталь портрета "${e}"` });
-    }
   }
   for (const loc of LOCATION_IDS) if (!places.has(loc)) out.push({ level: 'error', where, msg: `в месте ${loc} нет жителя` });
+  return out;
+}
+
+/** Летописец: те же проверки, что у жителя, но без места; поручения — слова свитка. */
+export function validateChronicler(n: Chronicler | undefined, npcs: NpcsFile | undefined): Issue[] {
+  const where = 'chronicler.json';
+  if (!n) return [{ level: 'error', where, msg: 'нет Летописца' }];
+  const out: Issue[] = [];
+  checkNpc(n, where, '{слов}', out);
+  if ('location' in n) out.push({ level: 'error', where, msg: 'у Летописца нет места, поле location лишнее' });
+  if (npcs?.npcs.some((x) => x.id === n.id)) out.push({ level: 'error', where, msg: `id "${n.id}" уже занят жителем` });
+  return out;
+}
+
+/**
+ * Свитки земель: файл `<глава>.json`, id `scroll<глава>.<slug>`, CEFR главы. Слово свитка не повторяет слово места
+ * и другого свитка (ни id, ни форма), число слов не больше плана `vocabPlan.ts`.
+ */
+export function validateScrolls(files: { name: string; data: ScrollFile }[], places: { name: string; data: LocationWords }[], lang: Lang = 'es'): Issue[] {
+  const out: Issue[] = [];
+  const ids = new Map<string, string>();
+  const forms = new Map<string, string>();
+  for (const { data } of places) {
+    for (const w of data.words ?? []) {
+      if (!empty(w.id)) ids.set(w.id, w.id);
+      if (!empty(w.es)) forms.set(normalize(w.es), w.id);
+    }
+  }
+  for (const { name, data } of files) {
+    const plan = PLAN[data.chapter - 1];
+    if (!plan) {
+      out.push({ level: 'error', where: name, msg: `неизвестная глава ${data.chapter}` });
+      continue;
+    }
+    if (`${data.chapter}.json` !== name) out.push({ level: 'error', where: name, msg: `имя файла не совпадает с главой ${data.chapter}` });
+    if (!Array.isArray(data.words) || !data.words.length) {
+      out.push({ level: 'error', where: name, msg: 'нет слов' });
+      continue;
+    }
+    if (data.words.length > plan.scroll) out.push({ level: 'error', where: name, msg: `${data.words.length} слов, по плану не больше ${plan.scroll}` });
+    const prefix = `scroll${data.chapter}.`;
+    data.words.forEach((w, i) => {
+      const at = `scrolls/${name}#${i} ${w.id ?? '?'}`;
+      checkWord(w, at, lang, out);
+      if (empty(w.id) || empty(w.es)) return;
+      if (!w.id.startsWith(prefix)) out.push({ level: 'error', where: at, msg: `id должен начинаться с "${prefix}"` });
+      if (w.level !== 1) out.push({ level: 'error', where: at, msg: 'у слова свитка level всегда 1' });
+      if (w.cefr !== plan.cefr) out.push({ level: 'error', where: at, msg: `CEFR ${w.cefr}, у главы ${plan.chapter} — ${plan.cefr}` });
+      if (ids.has(w.id)) out.push({ level: 'error', where: at, msg: 'дубль id' });
+      ids.set(w.id, w.id);
+      const key = normalize(w.es);
+      if (forms.has(key)) out.push({ level: 'error', where: at, msg: `"${w.es}" уже есть: ${forms.get(key)}` });
+      forms.set(key, w.id);
+    });
+  }
   return out;
 }

@@ -43,14 +43,14 @@ export type FragmentCondition = 'words' | 'mission' | 'trial';
 export type Conditions = { fragment: Record<FragmentCondition, boolean>; seal: Record<SealCondition, boolean> };
 
 /**
- * Условия печати земли. Пока стражей нет, печать даётся за все уроки района грамматики.
- * `scroll` — свиток земли выучен (задача про свитки), `guardian` — испытание стража (этап «Испытания»).
+ * Условия печати земли. Пока стражей нет, печать даётся за все уроки района грамматики и выученный свиток земли
+ * (слова, которые просит Летописец). `guardian` — испытание стража (этап «Испытания»).
  */
 export type SealCondition = 'grammar' | 'scroll' | 'guardian';
 
 export const CONDITIONS: Conditions = {
   fragment: { words: true, mission: false, trial: false },
-  seal: { grammar: true, scroll: false, guardian: false },
+  seal: { grammar: true, scroll: true, guardian: false },
 };
 
 /** Всё, что нужно знать о контенте и прогрессе для расчёта пути. */
@@ -63,6 +63,8 @@ export interface JourneyInput {
   /** Район → id уроков грамматики. */
   lessons: Record<string, string[]>;
   isLessonDone(lessonId: string): boolean;
+  /** Глава → id слов свитка земли. Свитка может не быть: тогда условие выполнено. */
+  scrolls: Record<number, string[]>;
 }
 
 /** Полученное: ключ → время получения. Полученное не отнимается, даже если условия стали строже. */
@@ -97,7 +99,16 @@ export interface ChapterState {
   places: PlaceState[];
   /** Сколько обрывков получено или готово к получению. */
   fragments: number;
-  seal: { got: boolean; ready: boolean; lessons: number; lessonsLeft: number; missing: SealCondition[] };
+  seal: {
+    got: boolean;
+    ready: boolean;
+    lessons: number;
+    lessonsLeft: number;
+    /** Слов в свитке земли и сколько ещё не выучено. */
+    scroll: number;
+    scrollLeft: number;
+    missing: SealCondition[];
+  };
   /** Все обрывки и печать: карта земли собрана. */
   complete: boolean;
 }
@@ -130,10 +141,16 @@ export function journeyState(input: JourneyInput, rec: JourneyRecord, cond: Cond
     const lessonsLeft = lessonIds.filter((id) => !input.isLessonDone(id)).length;
     const missing: SealCondition[] = [];
     if (cond.seal.grammar && (lessonIds.length === 0 || lessonsLeft > 0)) missing.push('grammar');
-    if (cond.seal.scroll) missing.push('scroll');
+    const scrollIds = input.scrolls[chapter.id] ?? [];
+    const scrollLeft = scrollIds.filter((id) => !input.isLearned(id)).length;
+    // Свитка главы ещё нет в контенте — условие не мешает печати.
+    if (cond.seal.scroll && scrollLeft > 0) missing.push('scroll');
     if (cond.seal.guardian) missing.push('guardian');
     const got = rec.seals[String(chapter.id)] !== undefined;
-    const seal = { got, ready: !got && missing.length === 0, lessons: lessonIds.length, lessonsLeft, missing: got ? [] : missing };
+    const seal = {
+      got, ready: !got && missing.length === 0, lessons: lessonIds.length, lessonsLeft,
+      scroll: scrollIds.length, scrollLeft, missing: got ? [] : missing,
+    };
     const fragments = places.filter((p) => p.got || p.ready).length;
     return {
       chapter,
@@ -223,7 +240,7 @@ export function sceneToShow(completed: number, celebrated: number | undefined): 
 
 export type NearestGoal =
   | { kind: 'place'; location: string; wordsLeft: number; open: boolean }
-  | { kind: 'seal'; lessonsLeft: number }
+  | { kind: 'seal'; lessonsLeft: number; scrollLeft: number }
   | null;
 
 /**
@@ -235,6 +252,8 @@ export function nearestGoal(ch: ChapterState, isOpen: (location: string) => bool
   const open = left.filter((p) => isOpen(p.location)).sort((a, b) => a.wordsLeft - b.wordsLeft);
   const pick = open[0] ?? left[0];
   if (pick) return { kind: 'place', location: pick.location, wordsLeft: pick.wordsLeft, open: isOpen(pick.location) };
-  if (!ch.seal.got && !ch.seal.ready && ch.seal.lessons > 0) return { kind: 'seal', lessonsLeft: ch.seal.lessonsLeft };
+  if (!ch.seal.got && !ch.seal.ready && (ch.seal.lessons > 0 || ch.seal.scrollLeft > 0)) {
+    return { kind: 'seal', lessonsLeft: ch.seal.lessonsLeft, scrollLeft: ch.seal.scrollLeft };
+  }
   return null;
 }

@@ -69,6 +69,21 @@ function wordIndex() {
   return out;
 }
 
+/** Слова свитков земель по языкам и главам: язык → глава → id. */
+function scrollIndex() {
+  const out: Record<string, Record<number, string[]>> = {};
+  for (const { lang } of wordDirs()) {
+    const dir = join(CONTENT_DIR, lang, 'scrolls');
+    const byChapter: Record<number, string[]> = (out[lang] = {});
+    if (!existsSync(dir)) continue;
+    for (const f of readdirSync(dir).filter((x) => x.endsWith('.json'))) {
+      const data = JSON.parse(readFileSync(join(dir, f), 'utf8')) as { chapter: number; words: { id: string }[] };
+      byChapter[data.chapter] = data.words.map((w) => w.id);
+    }
+  }
+  return out;
+}
+
 export default defineConfig({
   base: './',
   define: {
@@ -115,8 +130,15 @@ export default defineConfig({
       },
       load(id) {
         if (id !== '\0virtual:word-index') return null;
-        for (const { dir } of wordDirs()) this.addWatchFile(dir);
-        return `export default ${JSON.stringify(wordIndex())};\nexport const PHRASES = ${JSON.stringify(phraseIndex())};`;
+        for (const { lang, dir } of wordDirs()) {
+          this.addWatchFile(dir);
+          if (existsSync(join(CONTENT_DIR, lang, 'scrolls'))) this.addWatchFile(join(CONTENT_DIR, lang, 'scrolls'));
+        }
+        return [
+          `export default ${JSON.stringify(wordIndex())};`,
+          `export const PHRASES = ${JSON.stringify(phraseIndex())};`,
+          `export const SCROLLS = ${JSON.stringify(scrollIndex())};`,
+        ].join('\n');
       },
     },
     {

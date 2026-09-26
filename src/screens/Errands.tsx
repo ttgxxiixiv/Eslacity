@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { LOCATION_BY_ID } from '../content/locations';
-import { NPC_BY_LOCATION } from '../content/npcs';
+import { npcFor } from '../content/npcs';
 import type { LocationId } from '../content/schema';
 import { speak } from '../audio/tts';
 import { NpcPortrait } from '../components/NpcPortrait';
@@ -18,7 +18,7 @@ import { ReviewRun } from './Review';
 
 /** Текст просьбы жителя по поручению. */
 export function errandRequest(e: Errand): string {
-  const npc = NPC_BY_LOCATION[e.location as LocationId];
+  const npc = npcFor(e.location);
   const t = npc?.errands[e.phrase % npc.errands.length] ?? 'Помоги мне: {n} {слов}.';
   return errandText(t, e.items.length);
 }
@@ -39,7 +39,7 @@ export function ErrandsScreen() {
       <div className="flex flex-col gap-3 px-4 pb-6">
         <p className="text-sm text-stone-500">Жители просят помочь им вспомнить слова. Поручения не сгорают: невыполненные дождутся завтра.</p>
         {active.map((e) => {
-          const npc = NPC_BY_LOCATION[e.location as LocationId];
+          const npc = npcFor(e.location);
           const place = LOCATION_BY_ID[e.location as LocationId];
           const reward = errandReward(e);
           return (
@@ -52,7 +52,7 @@ export function ErrandsScreen() {
               {npc && <NpcPortrait look={npc.look} size={72} />}
               <div className="min-w-0 flex-1">
                 <div className="text-sm text-stone-500">
-                  <span className="font-bold text-stone-800">{npc?.name}</span> · {place?.emoji} {place?.ru}
+                  <span className="font-bold text-stone-800">{npc?.name}</span> · {place ? `${place.emoji} ${place.ru}` : '📜 свиток земли'}
                 </div>
                 <p className="mt-1 leading-snug" data-testid="errand-text">
                   {errandRequest(e)}
@@ -99,7 +99,7 @@ export function ErrandScreen() {
       </Screen>
     );
   }
-  const npc = NPC_BY_LOCATION[snapshot.location as LocationId];
+  const npc = npcFor(snapshot.location);
   return (
     <ReviewRun
       title="Поручение выполнено"
