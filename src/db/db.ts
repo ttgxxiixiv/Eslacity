@@ -1,6 +1,6 @@
 import Dexie, { type Table } from 'dexie';
 import type { LocationId } from '../content/schema';
-import type { SrsCard } from '../domain/srs';
+import { fromSm2, type SrsCard } from '../domain/srs';
 import type { AnswerRecord } from '../domain/answerLog';
 import { L } from '../lang';
 
@@ -54,6 +54,17 @@ class EslaDB extends Dexie {
     this.version(2).stores({
       answers: '++id, ts, itemId, mode',
     });
+    // Версия 3: повторение по FSRS. Карточки получают стабильность и сложность из полей SM-2, срок не меняется.
+    this.version(3)
+      .stores({})
+      .upgrade((tx) =>
+        tx
+          .table('cards')
+          .toCollection()
+          .modify((c: SrsCard) => {
+            Object.assign(c, fromSm2(c));
+          }),
+      );
   }
 }
 

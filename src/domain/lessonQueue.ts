@@ -117,7 +117,8 @@ export function buildReviewSteps(
   const listening = opts.listening ?? true;
   const steps: Step[] = [];
   if (words.length >= 5) {
-    const weakest = words.slice().sort((a, b) => (cards[a.id]?.ef ?? 2.5) - (cards[b.id]?.ef ?? 2.5));
+    // Самые трудные по FSRS — в «пары» в начале повторения.
+    const weakest = words.slice().sort((a, b) => (cards[b.id]?.difficulty ?? 0) - (cards[a.id]?.difficulty ?? 0));
     steps.push({ id: nextId(), kind: 'match', ...makeMatch(weakest.slice(0, 5), rng) });
   }
   shuffle(words, rng).forEach((w, i) => steps.push(makeStep(reviewKind(cards[w.id], i, listening), w, pool, rng)));

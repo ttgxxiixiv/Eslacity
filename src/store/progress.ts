@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 import { db, emptyDay, type DayRow, type GrammarRow } from '../db/db';
 import { persist } from '../db/persist';
-import { dayKey, newCard, review, type Grade, type SrsCard } from '../domain/srs';
+import { dayKey, fromSm2, newCard, review, type Grade, type SrsCard } from '../domain/srs';
 import { useMotivation } from './motivation';
 import { useSettings } from './settings';
 import { heroLevel } from '../domain/heroLevel';
@@ -45,7 +45,8 @@ export const useProgress = create<ProgressState>((set, get) => ({
   hydrate({ cards, days, xpTotal, grammar }) {
     const key = dayKey(Date.now());
     set({
-      cards: Object.fromEntries(cards.map((c) => [c.wordId, c])),
+      // Карточки из старых резервных копий приходят без полей FSRS: достраиваем при загрузке.
+      cards: Object.fromEntries(cards.map((c) => [c.wordId, fromSm2(c)])),
       day: days.find((d) => d.date === key) ?? emptyDay(key),
       days: Object.fromEntries(days.map((d) => [d.date, d])),
       xpTotal,

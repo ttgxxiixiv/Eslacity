@@ -7,18 +7,19 @@ import { SOLID_INTERVAL_DAYS } from './medals';
  */
 export interface Vocabulary {
   learned: number;
-  /** Помнится надёжно: пока интервал SM-2 не меньше 21 дня, после задачи 3.2 — стабильность FSRS. */
+  /** Помнится надёжно: стабильность FSRS не меньше 21 дня. */
   solid: number;
 }
 
-export function vocabulary(cards: Record<string, { interval: number }>, isPhrase: (id: string) => boolean): Vocabulary {
+export function vocabulary(cards: Record<string, { stability?: number; interval: number }>, isPhrase: (id: string) => boolean): Vocabulary {
   let learned = 0;
   let solid = 0;
   for (const [id, c] of Object.entries(cards)) {
     // Правила грамматики карточек не создают; фразы мест и выражения в запас не входят.
     if (isPhrase(id)) continue;
     learned++;
-    if (c.interval >= SOLID_INTERVAL_DAYS) solid++;
+    // Карточка без стабильности (до переноса на FSRS) считается по интервалу.
+    if ((c.stability ?? c.interval) >= SOLID_INTERVAL_DAYS) solid++;
   }
   return { learned, solid };
 }

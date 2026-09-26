@@ -5,7 +5,7 @@ import { exportBackup, importBackup, parseBackup } from './backup';
 
 describe('резервная копия', () => {
   it('экспорт → импорт восстанавливает данные', async () => {
-    await db.cards.put({ wordId: 'cafe.te', ef: 2.5, interval: 1, reps: 1, due: 5, lapses: 0, learnedAt: 1, lastReviewedAt: 1 });
+    await db.cards.put({ wordId: 'cafe.te', ef: 2.5, interval: 1, stability: 1, difficulty: 5, state: 2, reps: 1, due: 5, lapses: 0, learnedAt: 1, lastReviewedAt: 1 });
     await db.meta.put({ key: 'coins', value: 42 });
     const b = parseBackup(JSON.stringify(await exportBackup()));
     await db.cards.clear();
@@ -28,5 +28,16 @@ describe('резервная копия', () => {
 
   it('отклоняет чужой файл', () => {
     expect(() => parseBackup('{"foo":1}')).toThrow(/не файл прогресса/);
+  });
+  it('старая копия с карточками SM-2 загружается и переводится в FSRS', async () => {
+    const old = {
+      app: 'eslacity', version: 1, exportedAt: 1,
+      data: {
+        cards: [{ wordId: 'cafe.leche', ef: 1.3, interval: 12, reps: 4, due: 77, lapses: 1, learnedAt: 1, lastReviewedAt: 2 }],
+        buildings: [], grammar: [], days: [], meta: [],
+      },
+    };
+    await importBackup(parseBackup(JSON.stringify(old)));
+    expect(await db.cards.get('cafe.leche')).toMatchObject({ due: 77, interval: 12, stability: 12, difficulty: 9, state: 2 });
   });
 });

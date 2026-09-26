@@ -5,8 +5,8 @@ import { describe, expect, it } from 'vitest';
 const T = 1_700_000_000_000;
 const DAY = 86_400_000;
 
-describe('база версии 2', () => {
-  it('открывает базу версии 1 без потерь и добавляет журнал', async () => {
+describe('обновление базы', () => {
+  it('открывает базу версии 1 без потерь, добавляет журнал и переводит карточки в FSRS', async () => {
     // База в том виде, в каком она была до журнала ответов.
     const old = new Dexie('eslacity');
     old.version(1).stores({ cards: 'wordId, due', buildings: 'locationId', grammar: 'lessonId', days: 'date', meta: 'key' });
@@ -16,11 +16,11 @@ describe('база версии 2', () => {
     old.close();
 
     const { db } = await import('./db');
-    expect(await db.cards.get('cafe.te')).toMatchObject({ interval: 6, due: 100 });
+    expect(await db.cards.get('cafe.te')).toMatchObject({ interval: 6, due: 100, stability: 6, difficulty: 5, state: 2 });
     expect((await db.meta.get('coins'))?.value).toBe(77);
     expect(await db.grammar.get('a1.02-ser')).toMatchObject({ bestScore: 90 });
     expect(await db.answers.count()).toBe(0);
-    expect(db.verno).toBe(2);
+    expect(db.verno).toBe(3);
   });
 
   it('чистка убирает записи старше 90 дней и лишние сверх лимита', async () => {

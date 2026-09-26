@@ -1,3 +1,4 @@
+import { fromSm2, type SrsCard } from '../domain/srs';
 import { db } from './db';
 import { L, LANG, LANGS, type Lang } from '../lang';
 
@@ -53,7 +54,9 @@ export async function importBackup(b: Backup): Promise<void> {
   await db.transaction('rw', TABLES.map((t) => db.table(t)), async () => {
     for (const t of TABLES) {
       await db.table(t).clear();
-      await db.table(t).bulkPut(b.data[t] ?? []);
+      const rows = (b.data[t] ?? []) as unknown[];
+      // Копии до версии 2.13.0 хранят карточки SM-2: переводим их в FSRS так же, как при обновлении базы.
+      await db.table(t).bulkPut(t === 'cards' ? (rows as SrsCard[]).map(fromSm2) : rows);
     }
   });
 }
