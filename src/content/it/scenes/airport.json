@@ -1,0 +1,30 @@
+{
+  "location": "airport",
+  "scenes": [
+    {
+      "id": "sc:airport.1",
+      "chapter": 1,
+      "npc": "luca",
+      "lines": [
+        {"who": "npc", "es": "Il passaporto, per favore. Dove va?", "ru": "Паспорт, пожалуйста. Куда летите?"},
+        {"who": "hero", "es": "Oggi non parto. Cerco un pezzo della mappa.", "ru": "Сегодня я никуда не лечу. Я ищу обрывок карты."},
+        {"who": "npc", "es": "Il viaggiatore della mappa! Anch'io viaggio molto. Guarda le mie calamite.", "ru": "Путешественник с картой! Я тоже много путешествую. Смотри, мои магнитики."},
+        {"who": "hero", "es": "Quante! Da dove vengono?", "ru": "Сколько их! Откуда они?"},
+        {"who": "npc", "es": "Da molte città del mondo.", "ru": "Из многих городов мира."},
+        {"who": "hero", "es": "E il signore dell'azienda?", "ru": "А синьор из компании?"},
+        {"who": "npc", "es": "È partito ieri, con l'aereo delle otto. Nessuno gli ha venduto un pezzo.", "ru": "Улетел вчера, самолётом в восемь. Никто не продал ему обрывок."},
+        {"who": "hero", "es": "Benissimo!", "ru": "Отлично!"},
+        {"who": "npc", "es": "Dall'aereo, ho visto le montagne. Dopo il guardiano, la strada va molto in alto.", "ru": "Из самолёта я видел горы. За стражем дорога уходит высоко."},
+        {"who": "hero", "es": "E com'è lassù?", "ru": "А как там наверху?"},
+        {"who": "npc", "es": "Alto e con tanto vento. Porta un cappotto.", "ru": "Высоко и очень ветрено. Возьми пальто."}
+      ],
+      "questions": [
+        {"q": "Что собирает Лука?", "options": ["Марки", "Магнитики", "Билеты"], "answer": 1},
+        {"q": "Что стало с синьором из компании?", "options": ["Улетел: никто не продал ему обрывок", "Купил все обрывки", "Остался в отеле"], "answer": 0},
+        {"q": "Что Лука видел из самолёта?", "options": ["Море", "Горы и дорогу за стражем", "Хранилище"], "answer": 1},
+        {"q": "Что советует Лука?", "options": ["Взять пальто", "Лететь самолётом", "Остаться в городе"], "answer": 0}
+      ],
+      "gloss": {"pezzo": "обрывок", "calamite": "магнитики", "guardiano": "страж", "lassù": "там наверху"}
+    }
+  ]
+}

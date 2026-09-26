@@ -1,0 +1,26 @@
+{
+  "location": "hospital",
+  "missions": [
+    {
+      "id": "ms:hospital.1",
+      "chapter": 1,
+      "npc": "ruiz",
+      "scene": "sc:hospital.1",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Buenos días. Hoy el paciente es usted. ¿Qué le pasa?", "ru": "Добрый день. Сегодня пациент — вы. Что с вами?", "next": "pain"},
+        "pain": {"kind": "answer", "task": "Скажите, что у вас, кажется, сломана рука или что вам трудно дышать.", "branches": [{"phrase": "ph:hospital.creo-tengo-brazo", "next": "armsay"}, {"phrase": "ph:hospital.no-puedo-respirar", "next": "breathsay"}], "wrong": {"es": "¿Le duele el pelo? El pelo no duele. Dígame otra vez.", "ru": "Болят волосы? Волосы не болят. Скажите ещё раз."}},
+        "armsay": {"kind": "say", "es": "El brazo... A ver. ¿Aquí le duele?", "ru": "Рука... Посмотрим. Здесь болит?", "next": "xray"},
+        "breathsay": {"kind": "say", "es": "Respire despacio. Muy bien. ¿Y el brazo? Está rojo.", "ru": "Дышите медленно. Хорошо. А рука? Она красная.", "next": "xray"},
+        "xray": {"kind": "answer", "task": "Спросите, нужен ли вам рентген.", "branches": [{"phrase": "ph:hospital.necesito-radiografia", "next": "xsay"}], "wrong": {"es": "¿Una pizza? Aquí no hay pizza. Aquí hay médicos.", "ru": "Пицца? Здесь нет пиццы. Здесь врачи."}},
+        "xsay": {"kind": "say", "es": "Sí, vamos a ver el brazo por dentro.", "ru": "Да, посмотрим руку изнутри.", "next": "grave"},
+        "grave": {"kind": "answer", "task": "Спросите, серьёзно ли это.", "branches": [{"phrase": "ph:hospital.grave", "next": "gravesay"}], "wrong": {"es": "¿Es un gato? No, es su brazo.", "ru": "Это кошка? Нет, это ваша рука."}},
+        "gravesay": {"kind": "say", "es": "No es grave. El brazo no está roto. Una semana sin deporte.", "ru": "Ничего серьёзного. Рука не сломана. Неделя без спорта.", "next": "ins"},
+        "ins": {"kind": "answer", "task": "Скажите, что у вас есть медицинская страховка.", "branches": [{"phrase": "ph:hospital.tengo-seguro-medico", "next": "inssay"}], "wrong": {"es": "¿Tiene hambre? Primero el brazo, después la comida.", "ru": "Проголодались? Сначала рука, потом еда."}},
+        "inssay": {"kind": "say", "es": "Muy bien. ¿Y ahora? ¿Cómo está?", "ru": "Очень хорошо. А сейчас? Как вы?", "next": "better"},
+        "better": {"kind": "answer", "task": "Скажите, что вам уже лучше, и поблагодарите.", "branches": [{"phrase": "ph:hospital.ya-estoy-mejor", "next": "end"}], "wrong": {"es": "¿Está peor? Siéntese, por favor, y respire.", "ru": "Хуже? Садитесь, пожалуйста, и дышите."}},
+        "end": {"kind": "say", "es": "Me alegro. Tome mi trozo del mapa. El Cronista dice que usted ayuda a los vecinos. Yo lo veo: hoy ha ayudado a su médico.", "ru": "Я рада. Возьмите мой обрывок карты. Летописец говорит, что вы помогаете соседям. Я это вижу: сегодня вы помогли своему врачу."}
+      }
+    }
+  ]
+}

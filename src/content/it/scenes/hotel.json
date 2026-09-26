@@ -1,0 +1,30 @@
+{
+  "location": "hotel",
+  "scenes": [
+    {
+      "id": "sc:hotel.1",
+      "chapter": 1,
+      "npc": "elisa",
+      "lines": [
+        {"who": "npc", "es": "Ha una prenotazione?", "ru": "У вас есть бронь?"},
+        {"who": "hero", "es": "Sì. Lei parla molte lingue?", "ru": "Да. Вы говорите на многих языках?"},
+        {"who": "npc", "es": "Cinque. Ma con lei, solo italiano: così impara.", "ru": "На пяти. Но с вами — только по-итальянски: так вы научитесь."},
+        {"who": "hero", "es": "Benissimo. Ci sono molti viaggiatori in albergo?", "ru": "Отлично. В отеле много путешественников?"},
+        {"who": "npc", "es": "Oggi c'è un signore di un'azienda. Vuole comprare i pezzi della mappa.", "ru": "Сегодня здесь синьор из одной компании. Хочет купить обрывки карты."},
+        {"who": "hero", "es": "L'azienda! E parla italiano?", "ru": "Та самая компания! А он говорит по-итальянски?"},
+        {"who": "npc", "es": "No. Parla solo di soldi.", "ru": "Нет. Он говорит только о деньгах."},
+        {"who": "hero", "es": "Lei ha un pezzo?", "ru": "У вас есть обрывок?"},
+        {"who": "npc", "es": "Ne ho uno. A lui non lo vendo.", "ru": "Есть. Ему я его не продам."},
+        {"who": "hero", "es": "E a me?", "ru": "А мне?"},
+        {"who": "npc", "es": "A lei, domani. Adesso, a dormire: è tardi.", "ru": "Вам — завтра. А сейчас спать: уже поздно."}
+      ],
+      "questions": [
+        {"q": "На скольких языках говорит Элиза?", "options": ["На двух", "На пяти", "Только на итальянском"], "answer": 1},
+        {"q": "Кто остановился в отеле?", "options": ["Летописец", "Синьор из компании, которая скупает обрывки", "Мама Федерики"], "answer": 1},
+        {"q": "О чём говорит этот синьор?", "options": ["Только о деньгах", "О горах", "О погоде"], "answer": 0},
+        {"q": "Когда Элиза отдаст обрывок герою?", "options": ["Никогда", "Сейчас", "Завтра"], "answer": 2}
+      ],
+      "gloss": {"lingue": "языки", "pezzo": "обрывок", "pezzi": "обрывки"}
+    }
+  ]
+}

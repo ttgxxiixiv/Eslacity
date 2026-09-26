@@ -1,0 +1,30 @@
+{
+  "location": "hospital",
+  "scenes": [
+    {
+      "id": "sc:hospital.1",
+      "chapter": 1,
+      "npc": "ruiz",
+      "lines": [
+        {"who": "npc", "es": "Buenos días. ¿Cómo se encuentra hoy?", "ru": "Добрый день. Как вы себя чувствуете сегодня?"},
+        {"who": "hero", "es": "Bien, gracias. ¿Está aquí el señor de la empresa?", "ru": "Хорошо, спасибо. Здесь лежит сеньор из компании?"},
+        {"who": "npc", "es": "Está en la habitación cuatro. Se cayó en el camino a las montañas.", "ru": "Он в четвёртой палате. Упал на дороге в горы."},
+        {"who": "hero", "es": "¿Quería llegar al guardián?", "ru": "Он хотел дойти до стража?"},
+        {"who": "npc", "es": "Sin mapa y sin palabras. El guardián no le abrió.", "ru": "Без карты и без слов. Страж ему не открыл."},
+        {"who": "hero", "es": "¿Y usted sabe quién escribe las cartas con «Ven»?", "ru": "А вы знаете, кто пишет письма с «Приходи»?"},
+        {"who": "npc", "es": "Lo sé: el Cronista. Estuvo aquí ayer.", "ru": "Знаю: Летописец. Он был здесь вчера."},
+        {"who": "hero", "es": "¿El Cronista? ¿Por qué?", "ru": "Летописец? Зачем?"},
+        {"who": "npc", "es": "Busca a quien ayuda a los vecinos. Solo esa persona puede llegar a la Bóveda.", "ru": "Он ищет того, кто помогает соседям. Только такой человек дойдёт до Хранилища."},
+        {"who": "hero", "es": "¿Usted tiene un trozo del mapa?", "ru": "У вас есть обрывок карты?"},
+        {"who": "npc", "es": "Lo tengo. Y ahora, siéntese: el médico soy yo.", "ru": "Есть. А теперь садитесь: врач здесь я."}
+      ],
+      "questions": [
+        {"q": "Что случилось с сеньором из компании?", "options": ["Он упал на дороге в горы", "Он улетел", "Он купил обрывок"], "answer": 0},
+        {"q": "Почему страж ему не открыл?", "options": ["Было поздно", "У него не было ни карты, ни слов", "Он пришёл без билета"], "answer": 1},
+        {"q": "Кто пишет письма «Приходи»?", "options": ["Компания", "Страж", "Летописец"], "answer": 2},
+        {"q": "Кого ищет Летописец?", "options": ["Того, кто помогает соседям", "Самого быстрого", "Того, у кого больше денег"], "answer": 0}
+      ],
+      "gloss": {"trozo": "обрывок", "cayó": "упал", "guardián": "страж", "cronista": "Летописец", "bóveda": "Хранилище"}
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "location": "police",
+  "scenes": [
+    {
+      "id": "sc:police.1",
+      "chapter": 1,
+      "npc": "rinaldi",
+      "lines": [
+        {"who": "npc", "es": "Tutto a posto?", "ru": "Всё в порядке?"},
+        {"who": "hero", "es": "Cerco il pezzo della mappa della polizia.", "ru": "Я ищу обрывок карты полиции."},
+        {"who": "npc", "es": "Ce l'ho io. E ho una domanda: chi è l'azienda?", "ru": "Он у меня. А у меня вопрос: кто такая эта компания?"},
+        {"who": "hero", "es": "Non lo so. Voleva comprare la mappa.", "ru": "Не знаю. Она хотела купить карту."},
+        {"who": "npc", "es": "L'azienda non è un'azienda. Era il guardiano.", "ru": "Эта компания — вовсе не компания. Это был страж."},
+        {"who": "hero", "es": "Il guardiano? Perché?", "ru": "Страж? Зачем?"},
+        {"who": "npc", "es": "Voleva sapere se la città vende la mappa. Nessuno l'ha venduta.", "ru": "Он хотел узнать, продаст ли город карту. Никто не продал."},
+        {"who": "hero", "es": "E il signore dell'ospedale?", "ru": "А синьор из больницы?"},
+        {"who": "npc", "es": "Lavora per il guardiano. Adesso sta meglio.", "ru": "Он работает на стража. Ему уже лучше."},
+        {"who": "hero", "es": "E adesso cosa succede?", "ru": "И что теперь?"},
+        {"who": "npc", "es": "Adesso, tu. Il guardiano ti aspetta, fuori dalla città.", "ru": "А теперь — ты. Страж ждёт тебя за городом."}
+      ],
+      "questions": [
+        {"q": "Что это за компания, которая скупала обрывки?", "options": ["Большой банк", "Никакая: это был страж", "Компания из аэропорта"], "answer": 1},
+        {"q": "Зачем страж это устроил?", "options": ["Хотел узнать, продаст ли город карту", "Хотел разбогатеть", "Хотел найти Летописца"], "answer": 0},
+        {"q": "Сколько жителей продали обрывок?", "options": ["Никто", "Один", "Половина"], "answer": 0},
+        {"q": "Кто теперь ждёт героя?", "options": ["Синьор из больницы", "Страж за городом", "Летописец на вокзале"], "answer": 1}
+      ],
+      "gloss": {"pezzo": "обрывок", "guardiano": "страж"}
+    }
+  ]
+}

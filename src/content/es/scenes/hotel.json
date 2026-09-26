@@ -1,0 +1,30 @@
+{
+  "location": "hotel",
+  "scenes": [
+    {
+      "id": "sc:hotel.1",
+      "chapter": 1,
+      "npc": "isabel",
+      "lines": [
+        {"who": "npc", "es": "Buenas noches. ¿Tiene reserva?", "ru": "Добрый вечер. У вас есть бронь?"},
+        {"who": "hero", "es": "Tengo reserva. ¿Usted habla muchos idiomas?", "ru": "Есть. Вы говорите на многих языках?"},
+        {"who": "npc", "es": "Hablo cinco. Con usted, solo español: así aprende.", "ru": "На пяти. С вами — только по-испански: так вы научитесь."},
+        {"who": "hero", "es": "Muy bien. ¿Hay muchos viajeros en el hotel?", "ru": "Отлично. В отеле много путешественников?"},
+        {"who": "npc", "es": "Hoy hay un señor de una empresa. Quiere comprar los trozos del mapa.", "ru": "Сегодня здесь сеньор из одной компании. Хочет купить обрывки карты."},
+        {"who": "hero", "es": "¡La empresa! ¿Y habla español?", "ru": "Та самая компания! А он говорит по-испански?"},
+        {"who": "npc", "es": "No. Solo habla de dinero.", "ru": "Нет. Он говорит только о деньгах."},
+        {"who": "hero", "es": "¿Usted tiene un trozo?", "ru": "У вас есть обрывок?"},
+        {"who": "npc", "es": "Tengo uno. A él no se lo vendo.", "ru": "Есть. Ему я его не продам."},
+        {"who": "hero", "es": "¿Y a mí?", "ru": "А мне?"},
+        {"who": "npc", "es": "A usted, mañana. Ahora, a dormir: es tarde.", "ru": "Вам — завтра. А сейчас спать: уже поздно."}
+      ],
+      "questions": [
+        {"q": "На скольких языках говорит Исабель?", "options": ["На двух", "На пяти", "Только на испанском"], "answer": 1},
+        {"q": "Кто остановился в отеле?", "options": ["Летописец", "Сеньор из компании, которая скупает обрывки", "Мама Сары"], "answer": 1},
+        {"q": "О чём говорит этот сеньор?", "options": ["Только о деньгах", "О горах", "О погоде"], "answer": 0},
+        {"q": "Когда Исабель отдаст обрывок герою?", "options": ["Никогда", "Сейчас", "Завтра"], "answer": 2}
+      ],
+      "gloss": {"trozo": "обрывок", "trozos": "обрывки"}
+    }
+  ]
+}

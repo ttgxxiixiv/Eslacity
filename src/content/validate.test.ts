@@ -323,3 +323,19 @@ describe('validateMissions', () => {
     }
   });
 });
+
+describe('сцены и миссии главы I: контент', () => {
+  // У каждого из 20 мест в обоих языках есть сцена и сюжетная миссия главы I с жителем этого места (задача 4.6).
+  it('у каждого места сцена sc:<место>.1 и миссия ms:<место>.1', () => {
+    for (const lang of ['es', 'it']) {
+      const npcs = (JSON.parse(readFileSync(join(import.meta.dirname, lang, 'npcs.json'), 'utf8')) as NpcsFile).npcs;
+      for (const loc of LOCATION_IDS) {
+        const scenes = (JSON.parse(readFileSync(join(import.meta.dirname, lang, 'scenes', `${loc}.json`), 'utf8')) as LocationScenes).scenes;
+        const missions = (JSON.parse(readFileSync(join(import.meta.dirname, lang, 'missions', `${loc}.json`), 'utf8')) as LocationMissions).missions;
+        const npc = npcs.find((n) => n.location === loc)?.id;
+        expect(scenes.find((s) => s.id === `sc:${loc}.1`)?.npc, `${lang}/${loc}`).toBe(npc);
+        expect(missions.find((m) => m.id === `ms:${loc}.1`)?.scene, `${lang}/${loc}`).toBe(`sc:${loc}.1`);
+      }
+    }
+  });
+});

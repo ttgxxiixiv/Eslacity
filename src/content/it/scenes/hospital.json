@@ -1,0 +1,30 @@
+{
+  "location": "hospital",
+  "scenes": [
+    {
+      "id": "sc:hospital.1",
+      "chapter": 1,
+      "npc": "conti",
+      "lines": [
+        {"who": "npc", "es": "Come si sente oggi?", "ru": "Как вы себя чувствуете сегодня?"},
+        {"who": "hero", "es": "Bene, grazie. Qui c'è il signore dell'azienda?", "ru": "Хорошо, спасибо. Здесь лежит синьор из компании?"},
+        {"who": "npc", "es": "È nella camera quattro. È caduto sulla strada per la montagna.", "ru": "Он в четвёртой палате. Упал на дороге в горы."},
+        {"who": "hero", "es": "Voleva arrivare al guardiano?", "ru": "Он хотел дойти до стража?"},
+        {"who": "npc", "es": "Senza mappa e senza parole. Il guardiano non gli ha aperto.", "ru": "Без карты и без слов. Страж ему не открыл."},
+        {"who": "hero", "es": "E lei sa chi scrive le lettere con «Vieni»?", "ru": "А вы знаете, кто пишет письма с «Приходи»?"},
+        {"who": "npc", "es": "Lo so: il Cronista. Ieri era qui.", "ru": "Знаю: Летописец. Вчера он был здесь."},
+        {"who": "hero", "es": "Il Cronista? Perché?", "ru": "Летописец? Зачем?"},
+        {"who": "npc", "es": "Cerca chi aiuta i vicini. Solo quella persona può arrivare al Caveau.", "ru": "Он ищет того, кто помогает соседям. Только такой человек дойдёт до Хранилища."},
+        {"who": "hero", "es": "Lei ha un pezzo della mappa?", "ru": "У вас есть обрывок карты?"},
+        {"who": "npc", "es": "Ce l'ho. E adesso si sieda: il medico sono io.", "ru": "Есть. А теперь садитесь: врач здесь я."}
+      ],
+      "questions": [
+        {"q": "Что случилось с синьором из компании?", "options": ["Он упал на дороге в горы", "Он улетел", "Он купил обрывок"], "answer": 0},
+        {"q": "Почему страж ему не открыл?", "options": ["Было поздно", "У него не было ни карты, ни слов", "Он пришёл без билета"], "answer": 1},
+        {"q": "Кто пишет письма «Приходи»?", "options": ["Компания", "Страж", "Летописец"], "answer": 2},
+        {"q": "Кого ищет Летописец?", "options": ["Того, кто помогает соседям", "Самого быстрого", "Того, у кого больше денег"], "answer": 0}
+      ],
+      "gloss": {"pezzo": "обрывок", "caduto": "упал", "guardiano": "страж", "cronista": "Летописец", "caveau": "Хранилище"}
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "location": "hospital",
+  "missions": [
+    {
+      "id": "ms:hospital.1",
+      "chapter": 1,
+      "npc": "conti",
+      "scene": "sc:hospital.1",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Oggi il paziente è lei. Cosa succede?", "ru": "Сегодня пациент — вы. Что случилось?", "next": "pain"},
+        "pain": {"kind": "answer", "task": "Скажите, что у вас, кажется, сломана рука или что вам трудно дышать.", "branches": [{"phrase": "ph:hospital.credo-avere-braccio", "next": "armsay"}, {"phrase": "ph:hospital.non-riesco-respirare", "next": "breathsay"}], "wrong": {"es": "Le fanno male i capelli? I capelli non fanno male. Me lo dica di nuovo.", "ru": "Болят волосы? Волосы не болят. Скажите ещё раз."}},
+        "armsay": {"kind": "say", "es": "Il braccio... Vediamo. Le fa male qui?", "ru": "Рука... Посмотрим. Здесь болит?", "next": "xray"},
+        "breathsay": {"kind": "say", "es": "Respiri piano. Molto bene. E il braccio? È rosso.", "ru": "Дышите медленно. Хорошо. А рука? Она красная.", "next": "xray"},
+        "xray": {"kind": "answer", "task": "Спросите, нужен ли вам рентген.", "branches": [{"phrase": "ph:hospital.serve-radiografia", "next": "xsay"}], "wrong": {"es": "Una pizza? Qui non c'è la pizza. Qui ci sono i medici.", "ru": "Пицца? Здесь нет пиццы. Здесь врачи."}},
+        "xsay": {"kind": "say", "es": "Sì, vediamo il braccio da vicino.", "ru": "Да, посмотрим руку поближе.", "next": "grave"},
+        "grave": {"kind": "answer", "task": "Спросите, серьёзно ли это.", "branches": [{"phrase": "ph:hospital.grave", "next": "gravesay"}], "wrong": {"es": "È un gatto? No, è il suo braccio.", "ru": "Это кошка? Нет, это ваша рука."}},
+        "gravesay": {"kind": "say", "es": "Non è grave. Il braccio non è rotto. Una settimana senza sport.", "ru": "Ничего серьёзного. Рука не сломана. Неделя без спорта.", "next": "ins"},
+        "ins": {"kind": "answer", "task": "Скажите, что у вас есть медицинская страховка.", "branches": [{"phrase": "ph:hospital.ho-assicurazione-sanitaria", "next": "inssay"}], "wrong": {"es": "Ha fame? Prima il braccio, poi il pranzo.", "ru": "Проголодались? Сначала рука, потом обед."}},
+        "inssay": {"kind": "say", "es": "Molto bene. E adesso? Come sta?", "ru": "Очень хорошо. А сейчас? Как вы?", "next": "better"},
+        "better": {"kind": "answer", "task": "Скажите, что вам уже лучше, и поблагодарите.", "branches": [{"phrase": "ph:hospital.sto-meglio-grazie", "next": "end"}], "wrong": {"es": "Sta peggio? Si sieda, per favore, e respiri.", "ru": "Хуже? Садитесь, пожалуйста, и дышите."}},
+        "end": {"kind": "say", "es": "Sono contenta. Prenda il mio pezzo della mappa. Il Cronista dice che lei aiuta i vicini. Lo vedo: oggi ha aiutato il suo medico.", "ru": "Я рада. Возьмите мой обрывок карты. Летописец говорит, что вы помогаете соседям. Я это вижу: сегодня вы помогли своему врачу."}
+      }
+    }
+  ]
+}

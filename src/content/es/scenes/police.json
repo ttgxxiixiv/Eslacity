@@ -1,0 +1,30 @@
+{
+  "location": "police",
+  "scenes": [
+    {
+      "id": "sc:police.1",
+      "chapter": 1,
+      "npc": "vega",
+      "lines": [
+        {"who": "npc", "es": "Buenas. ¿Puedo ayudar?", "ru": "Добрый день. Чем могу помочь?"},
+        {"who": "hero", "es": "Busco el trozo del mapa de la policía.", "ru": "Я ищу обрывок карты полиции."},
+        {"who": "npc", "es": "Lo tengo. Y tengo una pregunta: ¿quién es la empresa?", "ru": "Он у меня. А у меня вопрос: кто такая эта компания?"},
+        {"who": "hero", "es": "No lo sé. Quería comprar el mapa.", "ru": "Не знаю. Она хотела купить карту."},
+        {"who": "npc", "es": "La empresa no es una empresa. Era el guardián.", "ru": "Эта компания — вовсе не компания. Это был страж."},
+        {"who": "hero", "es": "¿El guardián? ¿Por qué?", "ru": "Страж? Зачем?"},
+        {"who": "npc", "es": "Quería saber si la ciudad vende el mapa. Nadie lo vendió.", "ru": "Он хотел узнать, продаст ли город карту. Никто не продал."},
+        {"who": "hero", "es": "¿Y el señor del hospital?", "ru": "А сеньор из больницы?"},
+        {"who": "npc", "es": "Trabaja para el guardián. Ya está mejor.", "ru": "Он работает на стража. Ему уже лучше."},
+        {"who": "hero", "es": "¿Y ahora qué pasa?", "ru": "И что теперь?"},
+        {"who": "npc", "es": "Ahora, tú. El guardián te espera, fuera de la ciudad.", "ru": "А теперь — ты. Страж ждёт тебя за городом."}
+      ],
+      "questions": [
+        {"q": "Что это за компания, которая скупала обрывки?", "options": ["Большой банк", "Никакая: это был страж", "Компания из аэропорта"], "answer": 1},
+        {"q": "Зачем страж это устроил?", "options": ["Хотел узнать, продаст ли город карту", "Хотел разбогатеть", "Хотел найти Летописца"], "answer": 0},
+        {"q": "Сколько жителей продали обрывок?", "options": ["Никто", "Один", "Половина"], "answer": 0},
+        {"q": "Кто теперь ждёт героя?", "options": ["Сеньор из больницы", "Страж за городом", "Летописец на вокзале"], "answer": 1}
+      ],
+      "gloss": {"trozo": "обрывок", "guardián": "страж"}
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "location": "hotel",
+  "missions": [
+    {
+      "id": "ms:hotel.1",
+      "chapter": 1,
+      "npc": "isabel",
+      "scene": "sc:hotel.1",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Buenos días. Hoy le doy una habitación y mi trozo del mapa. ¿Qué necesita?", "ru": "Доброе утро. Сегодня я дам вам номер и мой обрывок карты. Что вам нужно?", "next": "room"},
+        "room": {"kind": "answer", "task": "Попросите двухместный номер.", "branches": [{"phrase": "ph:hotel.habitacion-doble", "next": "roomsay"}], "wrong": {"es": "¿Una cama para el perro? Aquí no aceptamos perros.", "ru": "Кровать для собаки? Мы не принимаем собак."}},
+        "roomsay": {"kind": "say", "es": "Habitación siete. ¿Algo más?", "ru": "Номер семь. Что-нибудь ещё?", "next": "breakfast"},
+        "breakfast": {"kind": "answer", "task": "Спросите, включён ли завтрак.", "branches": [{"phrase": "ph:hotel.desayuno-esta-incluido", "next": "bsay"}], "wrong": {"es": "¿La cena en la cama? No, señor, la cena es en el restaurante.", "ru": "Ужин в постель? Нет, сеньор, ужин в ресторане."}},
+        "bsay": {"kind": "say", "es": "Incluido, de siete a diez.", "ru": "Включён, с семи до десяти.", "next": "floor"},
+        "floor": {"kind": "answer", "task": "Спросите, на каком этаже ваш номер.", "branches": [{"phrase": "ph:hotel.planta-esta-habitacion", "next": "floorsay"}], "wrong": {"es": "¿En qué playa? Esto es un hotel, no la playa.", "ru": "На каком пляже? Это отель, а не пляж."}},
+        "floorsay": {"kind": "say", "es": "En la planta tres.", "ru": "На третьем этаже.", "next": "lift"},
+        "lift": {"kind": "answer", "task": "Спросите, где лифт.", "branches": [{"phrase": "ph:hotel.donde-esta-ascensor", "next": "liftsay"}], "wrong": {"es": "¿El tren? El tren está en la estación, no en mi hotel.", "ru": "Поезд? Поезд на вокзале, а не в моём отеле."}},
+        "liftsay": {"kind": "say", "es": "A la derecha. Buenas noches.", "ru": "Справа. Спокойной ночи.", "next": "noise"},
+        "noise": {"kind": "answer", "task": "Утром пожалуйтесь, что в номере очень шумно.", "branches": [{"phrase": "ph:hotel.habitacion-muy-ruidosa", "next": "noisesay"}], "wrong": {"es": "¿Está sucia? No, no: está muy limpia. ¿Otra cosa?", "ru": "Грязно? Нет-нет, там очень чисто. Что-то другое?"}},
+        "noisesay": {"kind": "say", "es": "Lo sé. Es el señor de la ocho: habla por teléfono de noche. Quiere comprar trozos del mapa.", "ru": "Знаю. Это сеньор из восьмого: говорит по телефону по ночам. Хочет купить обрывки карты.", "next": "blanket"},
+        "blanket": {"kind": "answer", "task": "Попросите ещё одно одеяло.", "branches": [{"phrase": "ph:hotel.da-manta-mas", "next": "end"}], "wrong": {"es": "¿Una manzana más? Tome, pero es para el desayuno.", "ru": "Ещё одно яблоко? Держите, но это к завтраку."}},
+        "end": {"kind": "say", "es": "Aquí tiene. Y aquí tiene mi trozo del mapa. Al señor de la ocho, nada: con dinero no se habla español.", "ru": "Держите. И вот мой обрывок карты. Сеньору из восьмого — ничего: за деньги по-испански не заговоришь."}
+      }
+    }
+  ]
+}

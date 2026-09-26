@@ -1,0 +1,25 @@
+{
+  "location": "airport",
+  "missions": [
+    {
+      "id": "ms:airport.1",
+      "chapter": 1,
+      "npc": "leo",
+      "scene": "sc:airport.1",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Hoy hay un vuelo corto sobre las montañas. ¿Vienes? El pasaporte, por favor.", "ru": "Сегодня короткий полёт над горами. Полетишь? Паспорт, пожалуйста.", "next": "pass"},
+        "pass": {"kind": "answer", "task": "Отдайте паспорт.", "branches": [{"phrase": "ph:airport.aqui-tiene-pasaporte", "next": "passsay"}], "wrong": {"es": "¿Un helado? Aquí necesito el pasaporte, no un helado.", "ru": "Мороженое? Мне нужен паспорт, а не мороженое."}},
+        "passsay": {"kind": "say", "es": "Gracias. ¿Y la maleta?", "ru": "Спасибо. А чемодан?", "next": "bag"},
+        "bag": {"kind": "answer", "task": "Спросите, где сдать багаж.", "branches": [{"phrase": "ph:airport.donde-puedo-facturar", "next": "bagsay"}], "wrong": {"es": "¿Facturar tu cama? ¡Qué idea!", "ru": "Сдать в багаж кровать? Ну и мысль!"}},
+        "bagsay": {"kind": "say", "es": "Allí, a la izquierda. Después, el control.", "ru": "Вон там, слева. Потом досмотр.", "next": "sec"},
+        "sec": {"kind": "answer", "task": "Спросите, где досмотр.", "branches": [{"phrase": "ph:airport.donde-esta-control", "next": "secsay"}], "wrong": {"es": "¿El control del tren? Esto es un aeropuerto, no una estación.", "ru": "Контроль в поезде? Это аэропорт, а не вокзал."}},
+        "secsay": {"kind": "say", "es": "Todo recto. Y después, a la puerta.", "ru": "Прямо. А потом к выходу на посадку.", "next": "gate"},
+        "gate": {"kind": "answer", "task": "Спросите, какой выход на посадку или где второй терминал.", "branches": [{"phrase": "ph:airport.cual-puerta-embarque", "next": "gatesay"}, {"phrase": "ph:airport.donde-esta-terminal", "next": "gatesay"}], "wrong": {"es": "¿La puerta de tu casa? No, la puerta del avión.", "ru": "Дверь твоего дома? Нет, выход к самолёту."}},
+        "gatesay": {"kind": "say", "es": "Terminal dos, puerta tres.", "ru": "Второй терминал, выход три.", "next": "time"},
+        "time": {"kind": "answer", "task": "Спросите, во сколько взлетает самолёт.", "branches": [{"phrase": "ph:airport.hora-despega-avion", "next": "end"}], "wrong": {"es": "¿A qué hora comemos? En el avión, a las nueve.", "ru": "Во сколько обед? В самолёте, в девять."}},
+        "end": {"kind": "say", "es": "A las ocho. Mira por la ventana: allí están las montañas y el camino. Toma mi trozo del mapa. Y un imán, para tu viaje.", "ru": "В восемь. Смотри в окно: вон горы и дорога. Держи мой обрывок карты. И магнитик — в дорогу."}
+      }
+    }
+  ]
+}

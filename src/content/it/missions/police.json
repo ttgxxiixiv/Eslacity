@@ -1,0 +1,27 @@
+{
+  "location": "police",
+  "missions": [
+    {
+      "id": "ms:police.1",
+      "chapter": 1,
+      "npc": "rinaldi",
+      "scene": "sc:police.1",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Attento, viaggiatore! Quel ragazzo corre con il tuo borsellino.", "ru": "Осторожно, путешественник! Этот парень бежит с твоим кошельком.", "next": "shout"},
+        "shout": {"kind": "answer", "task": "Позовите на помощь: вор!", "branches": [{"phrase": "ph:police.aiuto-ladro", "next": "shoutsay"}], "wrong": {"es": "Dove posso parcheggiare? Non è il momento!", "ru": "Где припарковаться? Сейчас не до этого!"}},
+        "shoutsay": {"kind": "say", "es": "Preso! Tranquillo. Andiamo al commissariato.", "ru": "Попался! Спокойно. Идём в участок.", "next": "station"},
+        "station": {"kind": "answer", "task": "Спросите, где полицейский участок.", "branches": [{"phrase": "ph:police.dov-commissariato", "next": "stationsay"}], "wrong": {"es": "Dov'è la spiaggia? Oggi no, viaggiatore: oggi, il commissariato.", "ru": "Где пляж? Не сегодня, путешественник: сегодня участок."}},
+        "stationsay": {"kind": "say", "es": "Qui vicino. Eccoci. Cosa è successo?", "ru": "Здесь рядом. Вот мы и пришли. Что случилось?", "next": "rob"},
+        "rob": {"kind": "answer", "task": "Скажите, что у вас украли кошелёк.", "branches": [{"phrase": "ph:police.hanno-rubato-borsellino", "next": "robsay"}], "wrong": {"es": "Ti hanno rubato il cane? No, il cane è qui. Cos'altro?", "ru": "У тебя украли собаку? Нет, собака здесь. Что ещё?"}},
+        "robsay": {"kind": "say", "es": "Ecco il tuo borsellino. E i documenti?", "ru": "Вот твой кошелёк. А документы?", "next": "docs"},
+        "docs": {"kind": "answer", "task": "Скажите, что потеряли документы.", "branches": [{"phrase": "ph:police.ho-perso-miei", "next": "docsay"}], "wrong": {"es": "Hai perso il treno? Questo è alla stazione.", "ru": "Опоздал на поезд? Это на вокзал."}},
+        "docsay": {"kind": "say", "es": "Sono nel borsellino. Vuoi denunciare il furto?", "ru": "Они в кошельке. Хочешь заявить о краже?", "next": "denounce"},
+        "denounce": {"kind": "answer", "task": "Скажите, что хотите заявить о краже.", "branches": [{"phrase": "ph:police.vorrei-denunciare-furto", "next": "densay"}], "wrong": {"es": "Una multa? No, oggi niente multa per te.", "ru": "Штраф? Нет, сегодня тебе штрафа нет."}},
+        "densay": {"kind": "say", "es": "Molto bene. Firma qui. Altro?", "ru": "Хорошо. Распишись здесь. Что-нибудь ещё?", "next": "help"},
+        "help": {"kind": "answer", "task": "Попросите его помочь вам.", "branches": [{"phrase": "ph:police.puo-aiutare", "next": "end"}], "wrong": {"es": "Un incidente? No, non c'è nessun incidente. Chiedi di nuovo.", "ru": "Авария? Нет, никакой аварии. Спроси ещё раз."}},
+        "end": {"kind": "say", "es": "Certo. Ecco il mio pezzo della mappa. Venti pezzi e il sigillo: il sigillo ce l'ha il guardiano. Ti aspetta fuori dalla città, viaggiatore.", "ru": "Конечно. Вот мой обрывок карты. Двадцать обрывков и печать: печать у стража. Он ждёт тебя за городом, путешественник."}
+      }
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "location": "airport",
+  "scenes": [
+    {
+      "id": "sc:airport.1",
+      "chapter": 1,
+      "npc": "leo",
+      "lines": [
+        {"who": "npc", "es": "Su pasaporte, por favor. ¿A dónde viaja?", "ru": "Ваш паспорт, пожалуйста. Куда летите?"},
+        {"who": "hero", "es": "Hoy no viajo. Busco un trozo del mapa.", "ru": "Сегодня я никуда не лечу. Я ищу обрывок карты."},
+        {"who": "npc", "es": "¡El viajero del mapa! Yo también viajo mucho. Mira mis imanes.", "ru": "Путешественник с картой! Я тоже много путешествую. Смотри, мои магнитики."},
+        {"who": "hero", "es": "¡Cuántos! ¿De dónde son?", "ru": "Сколько их! Откуда они?"},
+        {"who": "npc", "es": "De muchas ciudades del mundo.", "ru": "Из многих городов мира."},
+        {"who": "hero", "es": "¿Y el señor de la empresa?", "ru": "А сеньор из компании?"},
+        {"who": "npc", "es": "Se fue ayer, en el avión de las ocho. Nadie le vendió un trozo.", "ru": "Улетел вчера, самолётом в восемь. Никто не продал ему обрывок."},
+        {"who": "hero", "es": "¡Muy bien!", "ru": "Отлично!"},
+        {"who": "npc", "es": "Desde el avión, yo vi las montañas. Detrás del guardián, el camino va muy alto.", "ru": "Из самолёта я видел горы. За стражем дорога уходит высоко."},
+        {"who": "hero", "es": "¿Y cómo es allí?", "ru": "А какая там дорога?"},
+        {"who": "npc", "es": "Alto y con mucho viento. Lleva un abrigo.", "ru": "Высоко и очень ветрено. Возьми пальто."}
+      ],
+      "questions": [
+        {"q": "Что собирает Лео?", "options": ["Марки", "Магнитики", "Билеты"], "answer": 1},
+        {"q": "Что стало с сеньором из компании?", "options": ["Улетел: никто не продал ему обрывок", "Купил все обрывки", "Остался в отеле"], "answer": 0},
+        {"q": "Что Лео видел из самолёта?", "options": ["Море", "Горы и дорогу за стражем", "Хранилище"], "answer": 1},
+        {"q": "Что советует Лео?", "options": ["Взять пальто", "Лететь самолётом", "Остаться в городе"], "answer": 0}
+      ],
+      "gloss": {"trozo": "обрывок", "imanes": "магнитики", "guardián": "страж"}
+    }
+  ]
+}
