@@ -26,6 +26,8 @@ export interface NextInput {
   isLevelOpen?: (level: number) => boolean;
   /** Глава уровня: чтобы сказать, какая глава нужна дальше. */
   chapterOf?: (level: number) => number;
+  /** Цена улучшения с учётом скидки жителя места. По умолчанию без скидки. */
+  discount?: (loc: LocationId, cost: number) => number;
 }
 
 /**
@@ -33,7 +35,7 @@ export interface NextInput {
  * затем улучшение здания с выученным уровнем, затем открытие нового здания.
  */
 export function nextStep({
-  locations, levels, words, cards, coins, recent, isLevelOpen = () => true, chapterOf = () => 1,
+  locations, levels, words, cards, coins, recent, isLevelOpen = () => true, chapterOf = () => 1, discount = (_, c) => c,
 }: NextInput): NextStep {
   const order = recent ? [recent, ...locations.map((l) => l.id).filter((id) => id !== recent)] : locations.map((l) => l.id);
   const meta = Object.fromEntries(locations.map((l) => [l.id, l])) as Record<LocationId, LocationMeta>;
@@ -68,7 +70,7 @@ export function nextStep({
       blocked = Math.min(blocked ?? Infinity, chapterOf(lvl + 1));
       continue;
     }
-    const cost = upgradeCost(meta[id], lvl + 1);
+    const cost = discount(id, upgradeCost(meta[id], lvl + 1));
     return { kind: 'upgrade', loc: id, toLevel: lvl + 1, cost, missing: Math.max(0, cost - coins) };
   }
 

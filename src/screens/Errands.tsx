@@ -119,6 +119,12 @@ export function ErrandScreen() {
                   +{reward.coins} 🪙 · репутация +{reward.rep}
                 </div>
               )}
+              {reward?.rankUp && (
+                <div className="mt-1 text-sm font-semibold text-ok" data-testid="rank-up">
+                  Отношения стали ближе: {reward.rankUp.ru}
+                  {reward.rankUp.discount > 0 ? `, скидка ${Math.round(reward.rankUp.discount * 100)}% на улучшение здания` : ''}
+                </div>
+              )}
             </div>
           </div>
         );

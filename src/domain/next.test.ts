@@ -89,3 +89,14 @@ describe('«Продолжить» и закрытые главы', () => {
     expect(s).toEqual({ kind: 'chapter', next: 2 });
   });
 });
+
+describe('«Продолжить» и скидка жителя', () => {
+  it('цена улучшения — со скидкой', () => {
+    const cafe = words('cafe', 3);
+    const s = nextStep({
+      locations: locs, levels: { cafe: 1 }, words: { cafe }, cards: learn(cafe.slice(0, 10)), coins: 30,
+      discount: (_, c) => Math.round(c * 0.9),
+    });
+    expect(s).toEqual({ kind: 'upgrade', loc: 'cafe', toLevel: 2, cost: 72, missing: 42 });
+  });
+});

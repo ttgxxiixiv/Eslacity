@@ -7,6 +7,9 @@ import type { LocationId, Word } from '../content/schema';
 import { type NextStep, nextStep, recentLocation } from '../domain/next';
 import { chapterById, chapterOfLevel, isDistrictOpen, isLevelOpen, nearestGoal } from '../domain/chapters';
 import { plural } from '../domain/medals';
+import { discountedCost } from '../domain/reputation';
+import { useErrands } from '../store/errands';
+import { NPC_BY_LOCATION } from '../content/npcs';
 import { currentJourney, useJourney } from '../store/journey';
 import { dueCards } from '../domain/srs';
 import { splitCards, wordIds } from '../domain/itemId';
@@ -149,6 +152,7 @@ export function Home() {
   const buildings = useCity((s) => s.buildings);
   const coins = useCity((s) => s.coins);
   const opened = useJourney((s) => s.opened);
+  const rep = useErrands((s) => s.rep);
   // Счётчик пересчитывается и после полуночи, если приложение не закрывали.
   const now = useNow(60_000);
   const dueSplit = useMemo(() => splitCards(dueCards(Object.values(cards), now)), [cards, now]);
@@ -171,8 +175,9 @@ export function Home() {
       locations: LOCATIONS, levels, words, cards, coins, recent: recentLocation(cards),
       isLevelOpen: (l) => isLevelOpen(l, opened),
       chapterOf: (l) => chapterOfLevel(l)?.id ?? 99,
+      discount: (loc, cost) => discountedCost(cost, rep[NPC_BY_LOCATION[loc]?.id ?? ''] ?? 0),
     });
-  }, [words, open, buildings, cards, coins, opened]);
+  }, [words, open, buildings, cards, coins, opened, rep]);
 
   const nextGrammar = useMemo(() => {
     for (const d of DISTRICTS) {

@@ -43,6 +43,8 @@ export interface MedalCounters {
   fragments: number;
   /** Выполненные поручения жителей. */
   errands: number;
+  /** Жители с отношением «Друг» и выше. */
+  friends: number;
 }
 
 export type LineId =
@@ -67,8 +69,7 @@ export const LINES: MedalLine[] = [
   { id: 'streak', title: 'Упорство', counts: 'лучший стрик, дней', thresholds: [3, 7, 14, 30, 100, 365], unit: ['день', 'дня', 'дней'], value: (c) => c.streakBest },
   { id: 'grammar', title: 'Знаток правил', counts: 'пройденные уроки грамматики', thresholds: [1, 10, 31, 62, 100, 132], unit: ['урок', 'урока', 'уроков'], value: (c) => c.grammarDone },
   { id: 'cartographer', title: 'Картограф', counts: 'собранные обрывки карты', thresholds: [1, 5, 25, 50, 75, 100], unit: ['обрывок', 'обрывка', 'обрывков'], value: (c) => c.fragments },
-  // Включится с репутацией жителей (этап 4).
-  { id: 'friend', title: 'Друг города', counts: 'жители с отношением «Друг» и выше', thresholds: [1, 3, 7, 12, 17, 20], unit: ['житель', 'жителя', 'жителей'], value: null },
+  { id: 'friend', title: 'Друг города', counts: 'жители с отношением «Друг» и выше', thresholds: [1, 3, 7, 12, 17, 20], unit: ['житель', 'жителя', 'жителей'], value: (c) => c.friends },
   { id: 'courier', title: 'Посыльный', counts: 'выполненные поручения', thresholds: [1, 10, 50, 150, 400, 1000], unit: ['поручение', 'поручения', 'поручений'], value: (c) => c.errands },
   { id: 'blitz', title: 'Молния', counts: 'лучший результат блица', thresholds: [10, 20, 30, 40, 50, 60], unit: ['ответ', 'ответа', 'ответов'], value: (c) => c.blitzBest },
   { id: 'typed', title: 'Твёрдая рука', counts: 'верных вводов подряд', thresholds: [5, 10, 20, 35, 50, 100], unit: ['ввод', 'ввода', 'вводов'], value: (c) => c.typedBest },

@@ -5,6 +5,7 @@ import type { LocationId } from '../content/schema';
 import { db } from '../db/db';
 import { persist } from '../db/persist';
 import { errandReward, planErrands, type Errand } from '../domain/errands';
+import { rankIndex, RANKS, type Rank } from '../domain/reputation';
 import { dayNumber } from '../domain/srs';
 import { useCity } from './city';
 import { useProgress } from './progress';
@@ -28,7 +29,7 @@ interface ErrandsState extends ErrandsData {
   /** Собрать поручения на сегодня, если день сменился. */
   refresh(now?: number): void;
   /** Поручение выполнено: награда и репутация. Возвращает награду или null, если поручения уже нет. */
-  complete(id: string, now?: number): { coins: number; rep: number } | null;
+  complete(id: string, now?: number): { coins: number; rep: number; rankUp: Rank | null } | null;
 }
 
 function save(s: ErrandsData) {
@@ -70,10 +71,12 @@ export const useErrands = create<ErrandsState>((set, get) => ({
     if (!e) return null;
     const reward = errandReward(e);
     const npc = NPC_BY_LOCATION[e.location as LocationId];
-    const rep = npc ? { ...s.rep, [npc.id]: (s.rep[npc.id] ?? 0) + reward.rep } : s.rep;
+    const before = npc ? (s.rep[npc.id] ?? 0) : 0;
+    const rep = npc ? { ...s.rep, [npc.id]: before + reward.rep } : s.rep;
     set({ active: s.active.filter((x) => x.id !== id), done: s.done + 1, rep });
     useCity.getState().addCoins(reward.coins);
     save(get());
-    return reward;
+    const after = rankIndex(before + reward.rep);
+    return { ...reward, rankUp: npc && after > rankIndex(before) ? RANKS[after] : null };
   },
 }));

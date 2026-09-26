@@ -72,6 +72,7 @@ describe('validateNpcs', () => {
   const npc = (location: string, id = location) => ({
     id, name: 'Имя', location, role: 'роль', gender: 'f', character: 'характер',
     greeting: { es: '¡Hola!', ru: 'Привет!' }, voice: { pitch: 1, rate: 1 },
+    warm: [{ es: 'a', ru: 'а' }, { es: 'b', ru: 'б' }, { es: 'c', ru: 'в' }],
     errands: location === 'school' ? ['a {n} {правил}', 'b {n} {правил}', 'c {n} {правил}'] : ['a {n} {слов}', 'b {n} {слов}', 'c {n} {слов}'],
     look: { skin: 2, hair: '#112233', style: 'bun', outfit: '#445566', pants: '#778899', extra: ['apron'] },
   });

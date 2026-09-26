@@ -11,6 +11,8 @@ import { chapterById, chapterOfLevel, isLevelOpen } from '../domain/chapters';
 import { useJourney } from '../store/journey';
 import { NPC_BY_LOCATION } from '../content/npcs';
 import { NpcCard } from '../components/NpcCard';
+import { useErrands } from '../store/errands';
+import { discountedCost } from '../domain/reputation';
 import { dayNumber } from '../domain/srs';
 import { useCity } from '../store/city';
 import { useProgress } from '../store/progress';
@@ -61,6 +63,8 @@ export function LocationScreen() {
   const upgrade = useCity((s) => s.upgrade);
   const building = useCity((s) => s.buildings[id]);
   const opened = useJourney((s) => s.opened);
+  const npc = NPC_BY_LOCATION[id];
+  const rep = useErrands((s) => (npc ? (s.rep[npc.id] ?? 0) : 0));
   const now = useNow();
   // При улучшении накопленный доход здания собирается автоматически, поэтому он тоже в счёт.
   const available = coins + (building ? pendingIncome(building, now) : 0);
@@ -79,7 +83,7 @@ export function LocationScreen() {
       <TopBar title={`${meta.emoji} ${meta.ru}`} right={<span className="pr-3 font-semibold">🪙 {coins}</span>} />
       {!words ? null : (
         <div className="flex flex-col gap-4 px-5 pb-6">
-          {NPC_BY_LOCATION[id] && <NpcCard npc={NPC_BY_LOCATION[id]!} />}
+          {npc && <NpcCard npc={npc} rep={rep} />}
           <IncomeCard id={id} level={level} />
           {levels.map((lvl) => {
             const lw = levelWords(words, lvl);
@@ -87,7 +91,8 @@ export function LocationScreen() {
             const open = lvl <= level && chapterOpen;
             const prevDone = lvl === 1 || isLearned(levelWords(words, lvl - 1), cards);
             const isNext = lvl === level + 1;
-            const cost = isNext ? (lvl === 1 ? meta.unlockCost : upgradeCost(meta, lvl)) : 0;
+            const fullCost = isNext ? (lvl === 1 ? meta.unlockCost : upgradeCost(meta, lvl)) : 0;
+            const cost = isNext && lvl > 1 ? discountedCost(fullCost, rep) : fullCost;
 
             if (!open) {
               return (
@@ -109,10 +114,15 @@ export function LocationScreen() {
                       <Button
                         className="mt-3 w-full"
                         disabled={!prevDone || available < cost}
-                        onClick={() => upgrade(id) && useMotivation.getState().evaluate()}
+                        onClick={() => upgrade(id, Date.now(), rep) && useMotivation.getState().evaluate()}
                       >
                         {lvl === 1 ? 'Открыть' : 'Улучшить'} за 🪙 {cost}
                       </Button>
+                      {cost < fullCost && (
+                        <p className="mt-1 text-center text-sm text-amber-700" data-testid="rep-discount">
+                          Скидка от {npc?.name}: вместо {fullCost} — {cost}
+                        </p>
+                      )}
                       {lw.length > 0 && (
                         <p className="mt-3 text-sm leading-relaxed text-stone-500">
                           {lw.length} слов: {lw.map((w) => w.es).join(', ')}

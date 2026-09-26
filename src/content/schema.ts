@@ -118,6 +118,8 @@ export interface Npc {
    * У учительницы школы — про правила.
    */
   errands: string[];
+  /** Тёплые приветствия по репутации: Приятель, Друг, Верный друг. */
+  warm: Example[];
 }
 
 export interface NpcsFile {

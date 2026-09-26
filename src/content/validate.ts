@@ -276,6 +276,9 @@ export function validateNpcs(file: NpcsFile | undefined): Issue[] {
     for (const t of er) {
       if (empty(t) || !t.includes('{n}') || !t.includes(noun)) out.push({ level: 'error', where: at, msg: `поручение без {n} или ${noun}: «${t}»` });
     }
+    if (n.warm?.length !== 3 || n.warm.some((w) => empty(w?.es) || empty(w?.ru))) {
+      out.push({ level: 'error', where: at, msg: 'нужно 3 тёплых приветствия (warm) с переводом' });
+    }
     const lk = n.look;
     if (!lk || ![1, 2, 3, 4].includes(lk.skin) || !NPC_STYLES.has(lk.style) || !COLOR.test(lk.hair) || !COLOR.test(lk.outfit) || !COLOR.test(lk.pants)) {
       out.push({ level: 'error', where: at, msg: 'неверный портрет (look)' });

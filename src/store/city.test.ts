@@ -1,6 +1,8 @@
 import 'fake-indexeddb/auto';
 import { beforeEach, describe, expect, it } from 'vitest';
 import { useCity } from './city';
+import { upgradeCost } from '../domain/economy';
+import { LOCATION_BY_ID } from '../content/locations';
 
 const H = 3_600_000;
 const T = 1_700_000_000_000;
@@ -47,5 +49,17 @@ describe('город', () => {
       ],
     });
     expect(useCity.getState().collectAll(T + 3 * H)).toBe(6 + 12);
+  });
+});
+
+describe('скидка жителя', () => {
+  it('улучшение со скидкой по репутации, открытие по полной цене', () => {
+    useCity.getState().addCoins(1000);
+    expect(useCity.getState().upgrade('market', T, 20)).toBe(true);
+    expect(useCity.getState().coins).toBe(1000 - 60);
+    const before = useCity.getState().coins;
+    expect(useCity.getState().upgrade('market', T, 20)).toBe(true);
+    // У Верного друга скидка 15%.
+    expect(before - useCity.getState().coins).toBe(Math.round(upgradeCost(LOCATION_BY_ID.market, 2) * 0.85));
   });
 });
