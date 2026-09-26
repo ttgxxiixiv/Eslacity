@@ -63,7 +63,11 @@ export type TheoryBlock =
     };
 
 /** region: 'es' — только для испанского варианта (формы vosotros). */
-export type GrammarExercise = { explain: string; region?: 'es' } & (
+/**
+ * id — устойчивый номер упражнения `<lessonId>.<n>`: проставляется скриптом `scripts/add-exercise-ids.ts`
+ * и никогда не пересчитывается, по нему журнал ответов и повторение правил помнят историю.
+ */
+export type GrammarExercise = { id: string; explain: string; region?: 'es' } & (
   | { kind: 'choose'; prompt: string; ru?: string; options: string[]; answer: number }
   | { kind: 'gap'; sentence: string; ru: string; options: string[]; answer: number }
   | { kind: 'truefalse'; statement: string; ru?: string; answer: boolean }

@@ -219,8 +219,14 @@ export function validateGrammar(files: { name: string; data: GrammarLesson }[], 
         if (!kinds.has(k as never)) out.push({ level: 'error', where: at, msg: `нет упражнения типа ${k}${label}` });
       }
     }
+    const exIds = new Set<string>();
+    const idForm = new RegExp(`^${l.id?.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\.[1-9]\\d*$`);
     (l.exercises ?? []).forEach((e, i) => {
       const w = `${at} упр.${i + 1}`;
+      if (empty(e.id)) out.push({ level: 'error', where: w, msg: 'нет id: запустите npx tsx scripts/add-exercise-ids.ts' });
+      else if (!idForm.test(e.id)) out.push({ level: 'error', where: w, msg: `id "${e.id}" не вида ${l.id}.<номер>` });
+      else if (exIds.has(e.id)) out.push({ level: 'error', where: w, msg: `дубль id ${e.id}` });
+      exIds.add(e.id);
       if (empty(e.explain)) out.push({ level: 'error', where: w, msg: 'нет explain' });
       if (e.kind === 'truefalse') {
         if (empty(e.statement) || typeof e.answer !== 'boolean') out.push({ level: 'error', where: w, msg: 'битое верно/неверно' });

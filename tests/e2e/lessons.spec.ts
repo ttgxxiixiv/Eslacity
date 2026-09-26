@@ -47,7 +47,9 @@ for (const lang of LANGS) {
       expect(log.every((a) => a.mode === 'grammar' && a.verdict === 'correct' && a.kind.startsWith('grammar-'))).toBe(true);
       // Каждое упражнение урока записано под своим номером.
       expect(new Set(log.map((a) => a.itemId)).size).toBe(lesson.exercises.length);
-      expect(log.map((a) => a.itemId).sort()).toEqual(lesson.exercises.map((_, i) => `g:${lesson.id}.${i + 1}`).sort());
+      // Под устойчивым id из контента, и он совпадает с прежней нумерацией по порядку в файле.
+      expect(log.map((a) => a.itemId).sort()).toEqual(lesson.exercises.map((e) => `g:${e.id}`).sort());
+      expect(lesson.exercises.map((e) => e.id)).toEqual(lesson.exercises.map((_, i) => `${lesson.id}.${i + 1}`));
       // Раньше после перечитывания теории экран падал.
       await page.getByRole('button', { name: /перечитать теорию/i }).click();
       await page.getByRole('button', { name: /к упражнениям/i }).click();

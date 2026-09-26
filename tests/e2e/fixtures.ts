@@ -51,10 +51,11 @@ export function readMeta<T>(page: Page, lang: Lang, key: string): Promise<T | un
   );
 }
 
-type Exercise =
+type Exercise = { id: string } & (
   | { kind: 'choose'; prompt: string; options: string[]; answer: number }
   | { kind: 'gap'; sentence: string; options: string[]; answer: number }
-  | { kind: 'truefalse'; statement: string; answer: boolean };
+  | { kind: 'truefalse'; statement: string; answer: boolean }
+);
 
 export function loadLesson(lang: Lang, district: string, file: string): { id: string; exercises: Exercise[] } {
   return JSON.parse(readFileSync(join(CONTENT, lang, 'grammar', district, `${file}.json`), 'utf8'));

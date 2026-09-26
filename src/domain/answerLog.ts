@@ -35,11 +35,11 @@ export function answerMs(shownAt: number, now: number): number {
 }
 
 /**
- * Id упражнения грамматики: номер по порядку в файле урока, с единицы.
- * Задача 3.3 в docs/ROADMAP.md проставит такие же id прямо в контенте.
+ * Запись упражнения грамматики в журнале: `g:` и устойчивый id из контента (`a1.02-ser.3`).
+ * До версии 2.14.0 номер брался по порядку в файле — id в контенте проставлены по тому же правилу, записи совпадают.
  */
-export function grammarItemId(lessonId: string, index: number): string {
-  return `g:${lessonId}.${index + 1}`;
+export function grammarItemId(exerciseId: string): string {
+  return `g:${exerciseId}`;
 }
 
 export interface AnswerSummary {

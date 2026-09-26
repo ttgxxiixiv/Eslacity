@@ -12,9 +12,9 @@ const lesson: GrammarLesson = {
   ],
   examples: [],
   exercises: [
-    { kind: 'choose', prompt: 'yo', options: ['soy', 'es', 'eres'], answer: 0, explain: '' },
-    { kind: 'gap', sentence: 'Vosotros ___', ru: '', options: ['sois', 'son'], answer: 0, explain: '', region: 'es' },
-    { kind: 'truefalse', statement: 'x', answer: false, explain: '' },
+    { id: 'a1.test.1', kind: 'choose', prompt: 'yo', options: ['soy', 'es', 'eres'], answer: 0, explain: '' },
+    { id: 'a1.test.2', kind: 'gap', sentence: 'Vosotros ___', ru: '', options: ['sois', 'son'], answer: 0, explain: '', region: 'es' },
+    { id: 'a1.test.3', kind: 'truefalse', statement: 'x', answer: false, explain: '' },
   ],
 };
 
@@ -25,6 +25,8 @@ describe('грамматика', () => {
     const t = l.theory[1];
     expect(t.kind === 'table' && t.rows.map((r) => r.cells[0])).toEqual(['yo']);
     expect(l.exercises.map((e) => e.kind)).toEqual(['choose', 'truefalse']);
+    // Без упражнений vosotros номера остальных не сдвигаются: журнал пишет их под теми же id.
+    expect(l.exercises.map((e) => e.id)).toEqual(['a1.test.1', 'a1.test.3']);
     expect(forVariant(lesson, true)).toBe(lesson);
   });
 

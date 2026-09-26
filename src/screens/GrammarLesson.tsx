@@ -267,7 +267,7 @@ function LessonRunner({ lesson }: { lesson: Lesson }) {
     const now = Date.now();
     logAnswer(
       {
-        itemId: grammarItemId(lesson.id, lesson.exercises.indexOf(ex)),
+        itemId: grammarItemId(ex.id),
         kind: `grammar-${ex.kind}`,
         verdict: ok ? 'correct' : 'wrong',
         mode: 'grammar',
