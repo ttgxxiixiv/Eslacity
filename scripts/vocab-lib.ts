@@ -114,7 +114,7 @@ export function buildLexicon(
     for (const l of [w.es, ...(w.alt ?? [])].flatMap(lem)) {
       put(wordLevel, l, w.level);
       put(stemLevel, stemOf(l), w.level);
-      const verb = plain(l).match(/^(.{4,})(?:ar|er|ir|are|ere|ire)$/);
+      const verb = plain(l).match(/^(.{2,})(?:ar|er|ir|are|ere|ire)$/);
       if (verb) put(verbLevel, verb[1], w.level);
     }
   }
@@ -138,7 +138,29 @@ export function stemOf(token: string): string {
   let t = plain(token);
   if (t.length > 3 && t.endsWith('es')) t = t.slice(0, -2);
   else if (t.length > 3 && t.endsWith('s')) t = t.slice(0, -1);
-  return t.length > 3 ? t.replace(/[aeiou]$/, '') : t;
+  if (t.length > 3) t = t.replace(/[aeiou]$/, '');
+  // Итальянское -io/-ia во множественном теряет i: riccio → ricci, ciliegia → ciliegie.
+  return t.length > 4 ? t.replace(/i$/, '') : t;
+}
+
+/** Окончания спряжения для коротких основ, где сравнение по началу слова ошибалось бы: lav-a, lav-amos. */
+const VERB_ENDINGS = /^(?:o|as|a|amos|ais|an|es|e|emos|eis|en|imos|is|i|iamo|ate|ete|ite|ano|ono|ando|endo|iendo|ado|ido|ato|uto|ito)$/;
+/** Инфинитив с приклеенным местоимением: teñirme → teñ-ir, tingermi → ting-er. */
+const CLITIC = /^(.+?)(?:ar|er|ir)(?:me|te|se|nos|os|lo|la|los|las|le|les|mi|ti|si|ci|vi|li|ne)$/;
+
+/** Спряжённая форма или инфинитив с местоимением знакомого глагола: основа известна на этом уровне. */
+function knownVerb(token: string, level: number, verbs: Map<string, number>): boolean {
+  const t = plain(token);
+  const known = (stem: string) => (verbs.get(stem) ?? Infinity) <= level;
+  const clitic = t.match(CLITIC);
+  if (clitic && known(clitic[1])) return true;
+  for (let i = 2; i < t.length; i++) {
+    const stem = t.slice(0, i);
+    if (!known(stem)) continue;
+    // Длинная основа: форма просто начинается с неё (cobra, portate). Короткая — только с окончанием спряжения.
+    if (i >= 4 || VERB_ENDINGS.test(t.slice(i))) return true;
+  }
+  return false;
 }
 
 /**
@@ -152,7 +174,7 @@ export function uncoveredWords(text: string, level: number, lex: Lexicon, forms:
   for (const t of tokens(text)) {
     const l = lemmaOf(t, forms, lang);
     const stem = stemOf(t);
-    const verb = [...plain(t)].some((_, i) => i >= 4 && (lex.verbLevel.get(plain(t).slice(0, i)) ?? Infinity) <= level);
+    const verb = knownVerb(t, level, lex.verbLevel);
     const known =
       (lex.wordLevel.get(l) ?? Infinity) <= level ||
       (lex.stemLevel.get(stem) ?? Infinity) <= level ||

@@ -7,6 +7,13 @@ export interface Release {
 // Новые версии сверху. Версия первой записи должна совпадать с package.json (проверяется тестом).
 export const CHANGELOG: Release[] = [
   {
+    version: '2.23.0',
+    date: '2026-09-26',
+    notes: [
+      'Готовые фразы для банка, парикмахерской, спортзала, вокзала и пляжа: по 25 на место на каждом языке, от «¿Dónde hay un cajero automático?» до «¿Nos damos un chapuzón?». Фразы есть уже у 15 мест из 20.',
+    ],
+  },
+  {
     version: '2.22.0',
     date: '2026-09-26',
     notes: [

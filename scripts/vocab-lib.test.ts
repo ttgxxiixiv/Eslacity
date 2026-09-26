@@ -78,10 +78,16 @@ describe('формы без таблицы лемм', () => {
     expect(stemOf('ciliegie')).toBe(stemOf('ciliegia'));
     expect(stemOf("quant'")).toBe(stemOf('quanto'));
     expect(stemOf('ecológicos')).toBe(stemOf('ecológico'));
+    expect(stemOf('ricci')).toBe(stemOf('riccio'));
   });
   it('формы узнаются на своём уровне, спряжённый глагол — по основе', () => {
     const lex = buildLexicon(
-      [{ es: 'el melocotón', level: 3, example: { es: 'x' } }, { es: 'cobrar', level: 4, example: { es: 'x' } }],
+      [
+        { es: 'el melocotón', level: 3, example: { es: 'x' } },
+        { es: 'cobrar', level: 4, example: { es: 'x' } },
+        { es: 'lavar', level: 1, example: { es: 'x' } },
+        { es: 'teñirse', level: 2, example: { es: 'x' } },
+      ],
       [],
       [],
       (t) => lemmasIn(t, new Map(), 'es'),
@@ -91,5 +97,9 @@ describe('формы без таблицы лемм', () => {
     expect(miss('melocotones', 2)).toEqual(['melocotones']);
     expect(miss('cobra cobramos', 4)).toEqual([]);
     expect(miss('cobra', 3)).toEqual(['cobra']);
+    // Короткая основа — только с окончанием спряжения, не любое слово на «lav».
+    expect(miss('lava lavamos', 1)).toEqual([]);
+    expect(miss('lavabo', 1)).toEqual(['lavabo']);
+    expect(miss('teñirme', 2)).toEqual([]);
   });
 });

@@ -222,7 +222,7 @@ describe('validatePhrases', () => {
 
 describe('фразы мест: пачки контента', () => {
   // Места с готовыми фразами: по 5 на каждый уровень 1–5 в обоих языках (задача 4.2).
-  const DONE = ['cafe', 'market', 'supermarket', 'restaurant', 'home', 'park', 'clothes', 'pharmacy', 'school', 'post'];
+  const DONE = ['cafe', 'market', 'supermarket', 'restaurant', 'home', 'park', 'clothes', 'pharmacy', 'school', 'post', 'bank', 'barber', 'gym', 'station', 'beach'];
   it('по пять фраз на уровень, одинаково в обоих языках', () => {
     for (const lang of ['es', 'it']) {
       for (const loc of DONE) {

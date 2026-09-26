@@ -670,3 +670,14 @@
 - После пачки фразы перечитаны, исправлены: «Mi sta grande» вместо дословного «È molto grande per me», «Mi presti la gomma?» вместо «Mi dai…», «Qui si sta molto tranquilli», «Il mio pacco è andato smarrito», перевод «Посылка на моё имя» вместо непонятного без контекста «Она на моё имя».
 
 Проверено: валидатор без ошибок и предупреждений, тест полноты фраз теперь покрывает 10 мест обоих языков.
+
+## Версия 2.23.0. Фразы мест, пачка 3
+
+Задача 4.2 из `docs/ROADMAP.md`, третья пачка: банк, парикмахерская, спортзал, вокзал, пляж. По 5 фраз на уровень 1–5 в каждом месте, 125 фраз на язык, всего 375 на язык в 15 местах.
+
+- Банк: наличные, перевод, счёт, вклады («Necesito sacar dinero», «Mi hanno bloccato la carta», «¿Qué tipo de interés tiene el plazo fijo?»). Парикмахерская: стрижка, окрашивание, запись («Solo las puntas, por favor», «Vorrei tingermi di biondo», «Solo un ritocco alla radice»). Спортзал: абонемент, тренировки, травмы («¿Cuánto cuesta el abono?», «Prima bisogna riscaldarsi», «Mi è venuto un crampo»). Вокзал: билеты, пересадки, забастовка («Un billete de ida y vuelta», «Dove si timbra il biglietto?», «¿Hay huelga de trenes hoy?»). Пляж: купание, солнце, море («¿Es peligroso bañarse aquí?», «Beviamo qualcosa al chiosco?», «Ci facciamo un tuffo?»).
+- «Mi sono scottato la schiena» дано с вариантом для героини («scottata»).
+- Проверка покрытия доработана: у коротких глагольных основ (lavar → lava) форма узнаётся по окончанию спряжения, а не по началу слова, чтобы «lavabo» не засчитывался за «lavar»; инфинитив с приклеенным местоимением узнаётся по глаголу (teñirme → teñirse, tingermi → tingersi); итальянское множественное от -io узнаётся по основе (ricci → riccio). Настоящие пропуски переписаны: «recuerdo» (корень меняется) → «He olvidado mi PIN», «sábado» → «para mañana», «rimettermi» → «tornare in forma».
+- После пачки фразы перечитаны, исправлены: «¿Me puede afeitar?» вместо избыточного «¿Me afeita la barba?», «¿Vamos al paseo marítimo?» вместо повтора «paseo por el paseo», «Resto sulla riva».
+
+Проверено: валидатор без ошибок и предупреждений, юнит-тесты коротких глаголов и местоимений, тест полноты фраз покрывает 15 мест обоих языков.
