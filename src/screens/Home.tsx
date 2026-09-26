@@ -22,7 +22,6 @@ import { useProgress } from '../store/progress';
 import { useMissions } from '../store/missions';
 import { StatsBar } from '../components/Stats';
 import { Screen } from '../components/ui';
-import mapButton from '../assets/home/map-button.webp';
 
 type WordsMap = Partial<Record<LocationId, Word[]>>;
 
@@ -91,6 +90,21 @@ function QuestLines({ lines }: { lines: string[] }) {
   );
 }
 
+/** Под карточкой поручений: учить новые слова, не дожидаясь повторения. Вне ряда с кнопкой карты, чтобы она равнялась карточке. */
+function LearnAnyway({ step }: { step: NextStep }) {
+  if (step.kind !== 'errands' || step.then.kind !== 'learn') return null;
+  const then = step.then;
+  return (
+    <Link
+      to={`/learn/${then.loc}/${then.level}/${then.part}`}
+      className="mt-1.5 block text-center text-stone-700 underline underline-offset-2"
+      data-testid="learn-anyway"
+    >
+      Всё равно учить новые слова
+    </Link>
+  );
+}
+
 function ContinueCard({ step }: { step: NextStep }) {
   if (step.kind === 'chapter') {
     const next = chapterById(step.next);
@@ -110,32 +124,20 @@ function ContinueCard({ step }: { step: NextStep }) {
       step.reason === 'limit'
         ? ['Новых слов на сегодня хватит.', `Жители просят помочь вспомнить: ${words}`]
         : [`Накопилось ${words} к повтору.`, 'Сначала помогите жителям'];
-    const then = step.then.kind === 'learn' ? step.then : null;
     return (
-      <div>
-        <Link
-          to="/errands"
-          data-testid="continue"
-          data-kind="errands"
-          className="press quest-card flex min-h-[124px] items-center justify-between gap-1.5 rounded-xl py-2 pr-1 pl-3 text-white"
-        >
-          <div className="min-w-0">
-            <div className="quest-gold font-pixel text-xs tracking-widest uppercase">Текущий квест</div>
-            <div className="quest-gold font-pixel text-2xl font-bold">Поручения</div>
-            <QuestLines lines={sub} />
-          </div>
-          <QuestArrow />
-        </Link>
-        {then && (
-          <Link
-            to={`/learn/${then.loc}/${then.level}/${then.part}`}
-            className="mt-1.5 block text-center text-stone-700 underline underline-offset-2"
-            data-testid="learn-anyway"
-          >
-            Всё равно учить новые слова
-          </Link>
-        )}
-      </div>
+      <Link
+        to="/errands"
+        data-testid="continue"
+        data-kind="errands"
+        className="press quest-card flex min-h-[124px] items-center justify-between gap-1.5 rounded-xl py-2 pr-1 pl-3 text-white"
+      >
+        <div className="min-w-0">
+          <div className="quest-gold font-pixel text-xs tracking-widest uppercase">Текущий квест</div>
+          <div className="quest-gold font-pixel text-2xl font-bold">Поручения</div>
+          <QuestLines lines={sub} />
+        </div>
+        <QuestArrow />
+      </Link>
     );
   }
   if (step.kind === 'done') {
@@ -295,12 +297,12 @@ export function Home() {
             to="/journey-map"
             aria-label="Карта странствий"
             data-testid="map-button"
-            className="press w-[68px] shrink-0 self-start"
+            className="press map-button block w-[68px] shrink-0 self-stretch"
           >
-            {/* Надпись «Карта» нарисована на картинке, для экранного диктора — aria-label. */}
-            <img src={mapButton} alt="" width={316} height={639} className="block h-auto w-full drop-shadow-md" />
+            {/* Надпись «Карта» нарисована на картинке (фон в index.css), для экранного диктора — aria-label. */}
           </Link>
         </div>
+        {step && <LearnAnyway step={step} />}
         <JourneyLine />
         {nextGrammar && (
           <Link

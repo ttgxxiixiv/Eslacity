@@ -43,6 +43,9 @@ for (const lang of LANGS) {
       await expect(cont).toHaveAttribute('data-kind', 'errands');
       await expect(cont).toContainText('Новых слов на сегодня хватит');
       await expect(page.getByTestId('learn-anyway')).toHaveAttribute('href', /#\/learn\/cafe\/1\/0$/);
+      // Кнопка карты по высоте равна карточке квеста, ссылка «Всё равно учить» под ними не растягивает её.
+      const cardH = (await cont.boundingBox())!.height;
+      expect(Math.abs((await page.getByTestId('map-button').boundingBox())!.height - cardH)).toBeLessThan(1);
 
       // Лимит 20 в настройках: снова урок.
       await page.goto('./#/settings');

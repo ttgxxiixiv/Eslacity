@@ -298,7 +298,7 @@ button {
 .quest-card {
   border: 10px solid transparent;
   border-image: url('./assets/home/quest-frame.webp') 32 / 10px stretch;
-  background: #1d3a6b url('./assets/home/quest-marble.webp') center / cover no-repeat;
+  background: #0f2344 url('./assets/home/quest-marble.webp') center / cover no-repeat;
   background-clip: padding-box;
   filter: drop-shadow(0 3px 2px rgb(38 29 19 / 0.35));
 }
@@ -313,4 +313,18 @@ button {
 /* Белый текст на мраморе: лёгкая тень, чтобы прожилки не мешали читать. */
 .quest-text {
   text-shadow: 0 1px 2px rgb(10 20 45 / 0.9);
+}
+
+/*
+ * Кнопка карты на главной: по высоте равна блоку слева. Картинка режется через border-image:
+ * верх с картой и низ с надписью не искажаются, растягивается только полоса досок между ними.
+ * Ширина кнопки 68px, поэтому толщины частей — срезы картинки (316px), умноженные на 68/316.
+ */
+.map-button {
+  border-style: solid;
+  border-color: transparent;
+  border-width: 80px 0 36px 0;
+  border-image: url('./assets/home/map-button.webp') 372 0 169 0 fill / 80px 0 36px 0 stretch;
+  min-height: 124px;
+  filter: drop-shadow(0 3px 2px rgb(38 29 19 / 0.35));
 }
