@@ -17,9 +17,11 @@ import { UpdateBanner } from './components/UpdateBanner';
 import { NavBar } from './components/NavBar';
 import { LevelUpToast } from './components/HeroLevel';
 import { MedalAward } from './components/MedalAward';
+import { useErrands } from './store/errands';
 import { ChapterScene } from './components/ChapterScene';
 import { MedalsScreen } from './screens/Medals';
 import { JourneyMapScreen } from './screens/JourneyMap';
+import { ErrandScreen, ErrandsScreen } from './screens/Errands';
 
 /** Новый экран открывается сверху, а не с прокруткой предыдущего. */
 function ScrollToTop() {
@@ -55,7 +57,11 @@ export default function App() {
       .then(() => setReady(true))
       .catch((e: Error) => setError(e.message));
     // Новый день мог начаться, пока приложение было в фоне.
-    const onVisible = () => document.visibilityState === 'visible' && useMotivation.getState().settle();
+    const onVisible = () => {
+      if (document.visibilityState !== 'visible') return;
+      useMotivation.getState().settle();
+      useErrands.getState().refresh();
+    };
     document.addEventListener('visibilitychange', onVisible);
     return () => document.removeEventListener('visibilitychange', onVisible);
   }, []);
@@ -77,9 +83,11 @@ export default function App() {
           <Route path="/profile" element={<ProfileScreen />} />
           <Route path="/medals" element={<MedalsScreen />} />
           <Route path="/journey-map" element={<JourneyMapScreen />} />
+          <Route path="/errands" element={<ErrandsScreen />} />
         </Route>
         <Route path="/grammar/:id" element={<GrammarLessonScreen />} />
         <Route path="/review" element={<ReviewScreen />} />
+        <Route path="/errand/:id" element={<ErrandScreen />} />
         <Route path="/settings" element={<SettingsScreen />} />
         <Route path="/learn/:id/:level/:part" element={<LearnScreen />} />
         <Route path="/practice/:id/:level" element={<LearnScreen practice />} />

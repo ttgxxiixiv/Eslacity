@@ -1,9 +1,14 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import cityMap from '../assets/city.webp';
 import cityLit from '../assets/city-lit.webp';
 import { LOCATIONS } from '../content/locations';
 import { NPC_BY_LOCATION } from '../content/npcs';
+import { useErrands } from '../store/errands';
+import { useProgress } from '../store/progress';
+import { errandSignal } from '../domain/errands';
+import { isRuleId } from '../domain/itemId';
+import { dueCards } from '../domain/srs';
 import { NpcPortrait } from './NpcPortrait';
 import { hasContent } from '../content';
 import type { LocationMeta } from '../content/schema';
@@ -83,7 +88,7 @@ const LABEL_H = 40;
  * Здание на карте: прозрачная кнопка поверх нарисованного участка.
  * Название нарисовано на картинке, для экранных читалок оно продублировано скрытым текстом.
  */
-function Building({ meta, index, now, onGo }: { meta: LocationMeta; index: number; now: number; onGo: (i: number) => void }) {
+function Building({ meta, index, now, onGo, signal }: { meta: LocationMeta; index: number; now: number; onGo: (i: number) => void; signal: number }) {
   const collect = useCity((s) => s.collect);
   const [float, setFloat] = useState<{ key: number; n: number } | null>(null);
   const b = useCity((s) => s.buildings[meta.id]);
@@ -138,6 +143,17 @@ function Building({ meta, index, now, onGo }: { meta: LocationMeta; index: numbe
           <span className="text-[10px] leading-none font-bold">🪙 {meta.unlockCost}</span>
         )}
       </div>
+      {signal > 0 && (
+        // Житель ждёт с поручением: «!» тем ярче, чем больше карточек места пора повторить.
+        <span
+          aria-hidden
+          data-testid={`errand-sign-${meta.id}`}
+          className={`errand-sign errand-sign-${signal} pointer-events-none absolute z-10 flex h-6 w-6 -translate-x-1/2 items-center justify-center rounded-full font-pixel text-base font-bold`}
+          style={{ left: pctX(r.x + 22), top: pctY(r.y + r.h - 100) }}
+        >
+          !
+        </span>
+      )}
       {level > 0 && npc && (
         // Житель стоит у своего здания, пока место открыто.
         <div
@@ -197,6 +213,18 @@ export function CityGrid() {
   useEffect(() => () => walk.current?.anim?.cancel(), []);
 
   const total = Object.values(buildings).reduce((n, b) => n + (b ? pendingIncome(b, now) : 0), 0);
+  const errands = useErrands((s) => s.active);
+  const cards = useProgress((s) => s.cards);
+  // Знаки поручений: у каких мест ждёт житель и сколько карточек места пора повторить.
+  const signals = useMemo(() => {
+    const due = dueCards(Object.values(cards), now);
+    const out: Record<string, number> = {};
+    for (const e of errands) {
+      const n = e.kind === 'rules' ? due.filter((c) => isRuleId(c.wordId)).length : due.filter((c) => c.wordId.startsWith(`${e.location}.`)).length;
+      out[e.location] = errandSignal(true, n);
+    }
+    return out;
+  }, [errands, cards, now]);
 
   const showFloat = (n: number) => {
     if (!n) return;
@@ -276,7 +304,7 @@ export function CityGrid() {
       <div className="relative isolate mt-2" style={{ aspectRatio: `${MAP_W} / ${MAP_H}` }}>
         <img src={cityMap} alt="" draggable={false} className="absolute inset-0 h-full w-full select-none" />
         {LOCATIONS.map((l, i) => (
-          <Building key={l.id} meta={l} index={i} now={now} onGo={go} />
+          <Building key={l.id} meta={l} index={i} now={now} onGo={go} signal={signals[l.id] ?? 0} />
         ))}
         <div
           ref={layer}

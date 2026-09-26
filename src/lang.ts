@@ -28,6 +28,8 @@ export interface LangInfo {
   indefinite: string[];
   /** Как установить голос на Android. */
   voiceHint: string;
+  /** Спасибо жителя за выполненное поручение: на языке курса и перевод. */
+  thanks: { es: string; ru: string };
 }
 
 export const LANGS: Record<Lang, LangInfo> = {
@@ -45,6 +47,7 @@ export const LANGS: Record<Lang, LangInfo> = {
     plural: ['los', 'las'],
     indefinite: ['un', 'una', 'unos', 'unas'],
     voiceHint: 'Android: Настройки → Синтез речи → Google → установить голос «Испанский (Испания)».',
+    thanks: { es: '¡Muchas gracias! Eres un sol.', ru: 'Большое спасибо! Ты просто солнце.' },
   },
   it: {
     id: 'it',
@@ -60,6 +63,7 @@ export const LANGS: Record<Lang, LangInfo> = {
     plural: ['i', 'gli', 'le'],
     indefinite: ['un', 'uno', 'una', "un'"],
     voiceHint: 'Android: Настройки → Синтез речи → Google → установить голос «Итальянский (Италия)».',
+    thanks: { es: 'Grazie mille! Sei un tesoro.', ru: 'Огромное спасибо! Ты просто сокровище.' },
   },
 };
 

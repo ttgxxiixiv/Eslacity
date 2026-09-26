@@ -11,6 +11,7 @@ import { dayNumber } from '../domain/srs';
 import { canBuyFreeze, EMPTY_STREAK, registerGoal, settleStreak, type StreakState } from '../domain/streak';
 import { useCity } from './city';
 import { useJourney } from './journey';
+import { useErrands } from './errands';
 import { vocabulary } from '../domain/vocabulary';
 import { PHRASE_IDS } from '../content/wordIndex';
 import { fragmentCount } from '../domain/chapters';
@@ -80,6 +81,7 @@ export function medalCounters(): MedalCounters {
     listenCorrect: s.listenCorrect ?? 0,
     freezesUsed: s.streak.freezesUsed,
     fragments: fragmentCount(useJourney.getState()),
+    errands: useErrands.getState().done,
   };
 }
 

@@ -270,6 +270,12 @@ export function validateNpcs(file: NpcsFile | undefined): Issue[] {
     if (n.gender !== 'm' && n.gender !== 'f') out.push({ level: 'error', where: at, msg: `пол "${n.gender}"` });
     const { pitch, rate } = n.voice ?? {};
     if (!(pitch >= 0.5 && pitch <= 1.5) || !(rate >= 0.7 && rate <= 1.3)) out.push({ level: 'error', where: at, msg: 'голос вне пределов (pitch 0.5–1.5, rate 0.7–1.3)' });
+    const er = n.errands ?? [];
+    if (er.length < 3 || er.length > 4) out.push({ level: 'error', where: at, msg: `формулировок поручения ${er.length}, нужно 3–4` });
+    const noun = n.location === 'school' ? '{правил}' : '{слов}';
+    for (const t of er) {
+      if (empty(t) || !t.includes('{n}') || !t.includes(noun)) out.push({ level: 'error', where: at, msg: `поручение без {n} или ${noun}: «${t}»` });
+    }
     const lk = n.look;
     if (!lk || ![1, 2, 3, 4].includes(lk.skin) || !NPC_STYLES.has(lk.style) || !COLOR.test(lk.hair) || !COLOR.test(lk.outfit) || !COLOR.test(lk.pants)) {
       out.push({ level: 'error', where: at, msg: 'неверный портрет (look)' });

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, type ReactNode } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { LESSON } from '../config';
 import { loadLocations, locationOfWord, wordsByIds } from '../content';
@@ -7,7 +7,7 @@ import type { GrammarExercise, Word } from '../content/schema';
 import { seeded } from '../domain/generators';
 import { exerciseOf, lessonOfExercise, splitCards } from '../domain/itemId';
 import { buildReviewSteps, startSession, type SessionState, type Step } from '../domain/lessonQueue';
-import { dueCards } from '../domain/srs';
+import { dueCards, type SrsCard } from '../domain/srs';
 import { useProgress } from '../store/progress';
 import { useMotivation } from '../store/motivation';
 import { listeningEnabled } from '../audio/tts';
@@ -42,9 +42,32 @@ async function loadRules(cardIds: string[]): Promise<{ found: Ready['rules']; mi
   return { found, missing };
 }
 
+/** Что повторять: id карточек слов и правил. */
+export type PickCards = (cards: Record<string, SrsCard>) => { words: string[]; rules: string[] };
+
+/** Общее повторение: карточки, которые пора повторить. */
+const dueToday: PickCards = (cards) => {
+  const { words, rules } = splitCards(dueCards(Object.values(cards), Date.now()));
+  return { words: words.slice(0, LESSON.reviewBatch).map((c) => c.wordId), rules: rules.slice(0, RULES_PER_REVIEW).map((c) => c.wordId) };
+};
+
 export function ReviewScreen() {
+  return <ReviewRun pick={dueToday} />;
+}
+
+/**
+ * Прохождение повторения: сначала слова, потом правила, общий итог. Им же проходятся поручения жителей:
+ * `pick` выбирает карточки, `onComplete` вызывается один раз, когда всё пройдено до конца, и может вернуть
+ * блок для итога (благодарность жителя).
+ */
+export function ReviewRun({ pick, title = 'Повторение завершено', onComplete }: {
+  pick: PickCards;
+  title?: string;
+  onComplete?: () => ReactNode;
+}) {
   const nav = useNavigate();
   const [ready, setReady] = useState<Ready | null>(null);
+  const [completeExtra, setCompleteExtra] = useState<ReactNode>(null);
   const [phase, setPhase] = useState<'words' | 'rules' | 'done'>('words');
   const [wordsResult, setWordsResult] = useState<{ s: SessionState; totals: LessonTotals } | null>(null);
   const [rulesResult, setRulesResult] = useState<RuleResult>(EMPTY_RULES);
@@ -53,12 +76,12 @@ export function ReviewScreen() {
   useEffect(() => {
     const cards = useProgress.getState().cards;
     // Слова и правила ищутся по-разному: карточку правила нельзя удалить как «слово, которого нет».
-    const { words: dueWords, rules: dueRules } = splitCards(dueCards(Object.values(cards), Date.now()));
-    const ids = dueWords.slice(0, LESSON.reviewBatch).map((c) => c.wordId);
+    const picked = pick(cards);
+    const ids = picked.words;
     (async () => {
       const words = await wordsByIds(ids);
       const found = new Set(words.map((w) => w.id));
-      const rules = await loadRules(dueRules.slice(0, RULES_PER_REVIEW).map((c) => c.wordId));
+      const rules = await loadRules(picked.rules);
       useProgress.getState().dropCards([...ids.filter((wid) => !found.has(wid)), ...rules.missing]);
       const loaded = await loadLocations(ids.map(locationOfWord));
       // Варианты ответа из выученных слов, если их хватает на четыре варианта.
@@ -87,6 +110,8 @@ export function ReviewScreen() {
   const finish = (words: { s: SessionState; totals: LessonTotals } | null, rules: RuleResult) => {
     const s = words?.s ?? startSession([]);
     const all = { correct: s.correct + rules.correct, almost: s.almost, wrong: s.wrong + rules.wrong };
+    // Поручение засчитывается до медалей: «Посыльный» считает выполненные поручения.
+    if (onComplete) setCompleteExtra(onComplete());
     setAch(useMotivation.getState().evaluate(Date.now(), lessonEvent(all)));
     setPhase('done');
   };
@@ -99,18 +124,21 @@ export function ReviewScreen() {
     const rulesTotal = rulesResult.correct + rulesResult.wrong;
     return (
       <LessonResult
-        title="Повторение завершено"
+        title={title}
         // Итог по словам и правилам вместе; слова с ошибками — только слова.
         session={{ ...s, correct: s.correct + rulesResult.correct, wrong: s.wrong + rulesResult.wrong }}
         totals={{ xp: totals.xp + rulesResult.xp, coins: totals.coins + rulesResult.coins }}
         medals={ach}
         words={ready.words}
         extra={
-          rulesTotal > 0 ? (
-            <p className="mt-4 rounded-2xl bg-white px-4 py-3 shadow-sm" data-testid="rules-summary">
-              📜 Правила: {rulesResult.correct} из {rulesTotal} верно
-            </p>
-          ) : undefined
+          <>
+            {completeExtra}
+            {rulesTotal > 0 && (
+              <p className="mt-4 rounded-2xl bg-white px-4 py-3 shadow-sm" data-testid="rules-summary">
+                📜 Правила: {rulesResult.correct} из {rulesTotal} верно
+              </p>
+            )}
+          </>
         }
         onDone={() => nav('/', { replace: true })}
       />

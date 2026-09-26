@@ -263,3 +263,28 @@ button {
   .hero-walk, .scene-piece { transition: none; }
   .scene-fade { animation: none; }
 }
+
+/* Знак «!» над зданием с поручением: чем больше карточек ждёт, тем ярче. */
+.errand-sign {
+  background: #f1dfb0;
+  color: #5c452d;
+  border: 2px solid #5c452d;
+  box-shadow: 0 1px 0 #1a120a;
+}
+.errand-sign-2 {
+  background: #e0b43c;
+  color: #3b2a1a;
+}
+.errand-sign-3 {
+  background: #e2352b;
+  color: #fbf4de;
+  border-color: #7a1a14;
+  animation: errand-pulse 1.4s ease-in-out infinite;
+}
+@keyframes errand-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .errand-sign-3 { animation: none; }
+}

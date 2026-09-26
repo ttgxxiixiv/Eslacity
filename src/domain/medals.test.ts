@@ -5,7 +5,7 @@ import {
 } from './medals';
 
 const zero: MedalCounters = {
-  wordsSolid: 0, streakBest: 0, grammarDone: 0, blitzBest: 0, typedBest: 0, buildingLevels: 1, listenCorrect: 0, freezesUsed: 0, fragments: 0,
+  wordsSolid: 0, streakBest: 0, grammarDone: 0, blitzBest: 0, typedBest: 0, buildingLevels: 1, listenCorrect: 0, freezesUsed: 0, fragments: 0, errands: 0,
 };
 const empty: MedalsState = { lines: {}, secrets: {} };
 const line = (id: string) => LINES.find((l) => l.id === id)!;
@@ -13,10 +13,10 @@ const ids = (c: MedalCounters, st = empty, e = {}) =>
   medalGains(c, st, e).map((g) => (g.kind === 'line' ? `${g.line.id}.${g.tier}` : g.secret.id));
 
 describe('линии медалей', () => {
-  it('12 линий по шесть растущих порогов, включены восемь', () => {
+  it('12 линий по шесть растущих порогов, включены девять', () => {
     expect(LINES).toHaveLength(12);
     for (const l of LINES) for (let i = 1; i < 6; i++) expect(l.thresholds[i]).toBeGreaterThan(l.thresholds[i - 1]);
-    expect(ACTIVE_LINES.map((l) => l.id)).toEqual(['words', 'streak', 'grammar', 'cartographer', 'blitz', 'typed', 'builder', 'listener']);
+    expect(ACTIVE_LINES.map((l) => l.id)).toEqual(['words', 'streak', 'grammar', 'cartographer', 'courier', 'blitz', 'typed', 'builder', 'listener']);
   });
   it('пороги Словесника ведут к 3000', () => {
     expect(line('words').thresholds).toEqual([10, 100, 500, 1200, 2200, 3000]);

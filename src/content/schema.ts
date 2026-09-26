@@ -113,6 +113,11 @@ export interface Npc {
   /** Голос: высота и скорость речи для speechSynthesis. */
   voice: { pitch: number; rate: number };
   look: NpcLook;
+  /**
+   * 3–4 формулировки поручения голосом жителя: {n} — число заданий, {слов} или {правил} — слово в нужной форме.
+   * У учительницы школы — про правила.
+   */
+  errands: string[];
 }
 
 export interface NpcsFile {

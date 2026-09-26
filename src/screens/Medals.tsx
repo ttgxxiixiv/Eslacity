@@ -8,7 +8,6 @@ import { medalCounters, useMotivation } from '../store/motivation';
 /** Когда включатся линии, для которых ещё нет систем. */
 const SOON: Partial<Record<LineId, string>> = {
   friend: 'Откроется, когда в городе появятся жители',
-  courier: 'Откроется с поручениями жителей',
   trials: 'Откроется с испытаниями мест и стражей',
   echo: 'Откроется в Лабиринте Эха',
 };

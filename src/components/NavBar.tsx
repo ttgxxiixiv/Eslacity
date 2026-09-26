@@ -12,14 +12,14 @@ const TILE_TOP = 106;
 const TABS = [
   { to: '/', label: 'Город', x0: 0, x1: 189 },
   { to: '/grammar', label: 'Грамматика', x0: 191, x1: 383 },
-  { to: '/review', label: 'Повтор', x0: 385, x1: 577 },
+  { to: '/errands', label: 'Повтор', x0: 385, x1: 577 },
   { to: '/profile', label: 'Профиль', x0: 580, x1: 768 },
 ];
 const IMAGE = LANG === 'it' ? navIt : navEs;
 
 function activeTab(pathname: string): number {
   if (pathname.startsWith('/grammar')) return 1;
-  if (pathname.startsWith('/review')) return 2;
+  if (pathname.startsWith('/review') || pathname.startsWith('/errand')) return 2;
   if (pathname.startsWith('/profile')) return 3;
   return 0;
 }
