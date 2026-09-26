@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import {
   chapterOfDistrict, chapterOfLevel, CHAPTERS, CONDITIONS, EMPTY_JOURNEY, fragmentCount, isDistrictOpen, isLevelOpen,
   completedChapters, heroTitle, journeyState, newAwards, openedChapter, recordAwards, sceneToShow, startedChapter,
-  TITLE_START, type JourneyInput,
+  nearestGoal, TITLE_START, type JourneyInput,
 } from './chapters';
 
 // Три места вместо двадцати: логика от числа мест не зависит.
@@ -133,5 +133,22 @@ describe('титулы и сцена перехода', () => {
     expect(sceneToShow(1, 1)).toBeNull();
     expect(sceneToShow(3, 1)).toBe(2);
     expect(sceneToShow(5, 5)).toBeNull();
+  });
+});
+
+describe('ближайший обрывок', () => {
+  it('из открытых мест — где меньше всего слов осталось', () => {
+    const learned = [...chapterWords(1, 'cafe'), 'market.l1a', 'market.l1b', 'market.l2a'];
+    const ch = journeyState(input(learned), EMPTY_JOURNEY).chapters[0];
+    expect(nearestGoal(ch, (l) => l !== 'park')).toEqual({ kind: 'place', location: 'market', wordsLeft: 1, open: true });
+  });
+  it('если открытых нет — первое закрытое место по порядку', () => {
+    const ch = journeyState(input([]), EMPTY_JOURNEY).chapters[0];
+    expect(nearestGoal(ch, () => false)).toEqual({ kind: 'place', location: 'cafe', wordsLeft: 4, open: false });
+  });
+  it('все обрывки есть — печать, всё собрано — ничего', () => {
+    const learned = LOCS.flatMap((loc) => chapterWords(1, loc));
+    expect(nearestGoal(journeyState(input(learned, ['a1.1']), EMPTY_JOURNEY).chapters[0], () => true)).toEqual({ kind: 'seal', lessonsLeft: 1 });
+    expect(nearestGoal(journeyState(input(learned, ['a1.1', 'a1.2']), EMPTY_JOURNEY).chapters[0], () => true)).toBeNull();
   });
 });

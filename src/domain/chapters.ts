@@ -220,3 +220,21 @@ export function sceneToShow(completed: number, celebrated: number | undefined): 
   const next = (celebrated ?? 0) + 1;
   return completed >= next && next <= CHAPTERS.length ? (next as ChapterId) : null;
 }
+
+export type NearestGoal =
+  | { kind: 'place'; location: string; wordsLeft: number; open: boolean }
+  | { kind: 'seal'; lessonsLeft: number }
+  | null;
+
+/**
+ * Ближайший обрывок главы для строки «Путь» на главной: из открытых мест то, где осталось меньше всего слов,
+ * иначе первое закрытое место по порядку города. Когда все обрывки есть — печать.
+ */
+export function nearestGoal(ch: ChapterState, isOpen: (location: string) => boolean): NearestGoal {
+  const left = ch.places.filter((p) => !p.got && !p.ready && p.words > 0);
+  const open = left.filter((p) => isOpen(p.location)).sort((a, b) => a.wordsLeft - b.wordsLeft);
+  const pick = open[0] ?? left[0];
+  if (pick) return { kind: 'place', location: pick.location, wordsLeft: pick.wordsLeft, open: isOpen(pick.location) };
+  if (!ch.seal.got && !ch.seal.ready && ch.seal.lessons > 0) return { kind: 'seal', lessonsLeft: ch.seal.lessonsLeft };
+  return null;
+}

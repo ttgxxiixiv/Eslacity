@@ -84,6 +84,25 @@ for (const lang of LANGS) {
       await expect(page.getByText('Глава ещё закрыта.')).toBeVisible();
     });
 
+    test('строка «Путь» на главной: глава, обрывки и ближайший обрывок', async ({ page }) => {
+      await openApp(page, lang);
+      const line = page.getByTestId('journey-line');
+      const cafe = wordIdsOf(lang, 'cafe', [1, 2]);
+      await expect(line).toContainText('Глава I · 0 / 20 обрывков');
+      await expect(line).toContainText(`Кафе: осталось ${cafe.length} слов`);
+
+      // Кафе выучено наполовину — ближайшим остаётся кафе, с меньшим остатком.
+      await seedDueCards(page, lang, cafe.slice(0, 10));
+      await expect(line).toContainText(`Кафе: осталось ${cafe.length - 10} слов`);
+
+      // Кафе выучено целиком: обрывок есть, дальше рынок, который ещё закрыт.
+      await seedDueCards(page, lang, cafe);
+      await expect(line).toContainText('Глава I · 1 / 20 обрывков');
+      await expect(line).toContainText(`Рынок: откройте место, ${wordIdsOf(lang, 'market', [1, 2]).length} слов`);
+      await line.click();
+      await expect(page).toHaveURL(/#\/journey-map$/);
+    });
+
     test('карта главы I собрана: сцена перехода один раз и титул Странник', async ({ page }) => {
       await openApp(page, lang);
       await expect(page.getByTestId('chapter-scene')).toHaveCount(0);

@@ -5,8 +5,9 @@ import { DISTRICTS, lessonsOf } from '../content/grammar';
 import { LOCATION_BY_ID, LOCATIONS } from '../content/locations';
 import type { LocationId, Word } from '../content/schema';
 import { type NextStep, nextStep, recentLocation } from '../domain/next';
-import { chapterById, chapterOfLevel, isDistrictOpen, isLevelOpen } from '../domain/chapters';
-import { useJourney } from '../store/journey';
+import { chapterById, chapterOfLevel, isDistrictOpen, isLevelOpen, nearestGoal } from '../domain/chapters';
+import { plural } from '../domain/medals';
+import { currentJourney, useJourney } from '../store/journey';
 import { dueCards } from '../domain/srs';
 import { useNow } from '../lib/useNow';
 import { CityGrid } from '../components/CityGrid';
@@ -101,6 +102,46 @@ function ContinueCard({ step }: { step: NextStep }) {
   );
 }
 
+/** Строка «Путь» под «Продолжить»: глава, собранные обрывки и ближайший обрывок. Ведёт на карту странствий. */
+function JourneyLine() {
+  const fragments = useJourney((s) => s.fragments);
+  const seals = useJourney((s) => s.seals);
+  const cards = useProgress((s) => s.cards);
+  const grammar = useProgress((s) => s.grammar);
+  const buildings = useCity((s) => s.buildings);
+  const journey = useMemo(() => currentJourney(), [fragments, seals, cards, grammar]);
+  const ch = journey.chapters[journey.current - 1];
+  const got = ch.places.filter((p) => p.got).length;
+  const goal = nearestGoal(ch, (loc) => (buildings[loc as LocationId]?.level ?? 0) > 0);
+
+  let next = '';
+  if (goal?.kind === 'place') {
+    const meta = LOCATION_BY_ID[goal.location as LocationId];
+    const words = `${goal.wordsLeft} ${plural(goal.wordsLeft, ['слово', 'слова', 'слов'])}`;
+    next = goal.open ? `${meta.emoji} ${meta.ru}: осталось ${words}` : `${meta.emoji} ${meta.ru}: откройте место, ${words}`;
+  } else if (goal?.kind === 'seal') {
+    next = `Печать: осталось ${goal.lessonsLeft} ${plural(goal.lessonsLeft, ['урок', 'урока', 'уроков'])} ${ch.chapter.districts.join(' и ')}`;
+  }
+
+  return (
+    <Link
+      to="/journey-map"
+      data-testid="journey-line"
+      className="press mt-2 flex items-center justify-between gap-3 rounded-xl border-2 border-dashed border-stone-300 bg-orange-50 px-4 py-2"
+    >
+      <div className="min-w-0">
+        <div className="text-sm font-semibold">
+          {journey.finished ? 'Все карты собраны' : `Глава ${ch.chapter.roman} · ${got} / ${ch.places.length} обрывков`}
+        </div>
+        {next && <div className="truncate text-xs text-stone-500">{next}</div>}
+      </div>
+      <span className="shrink-0 text-stone-500" aria-hidden>
+        🗺️ →
+      </span>
+    </Link>
+  );
+}
+
 export function Home() {
   const cards = useProgress((s) => s.cards);
   const grammar = useProgress((s) => s.grammar);
@@ -157,6 +198,7 @@ export function Home() {
             <span className="font-pixel text-sm">Карта</span>
           </Link>
         </div>
+        <JourneyLine />
         {nextGrammar && (
           <Link
             to={`/grammar/${nextGrammar.id}`}
