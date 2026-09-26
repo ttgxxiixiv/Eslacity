@@ -283,3 +283,27 @@ button {
 @media (prefers-reduced-motion: reduce) {
   .errand-sign-3 { animation: none; }
 }
+
+/*
+ * Карточка текущего квеста на главной: синий мрамор с золотыми прожилками в золотой рамке с рунами.
+ * Рамка растягивается через border-image (углы не искажаются), мрамор лежит внутри рамки.
+ */
+.quest-card {
+  border: 10px solid transparent;
+  border-image: url('./assets/home/quest-frame.webp') 32 / 10px stretch;
+  background: #1d3a6b url('./assets/home/quest-marble.webp') center / cover no-repeat;
+  background-clip: padding-box;
+  filter: drop-shadow(0 3px 2px rgb(38 29 19 / 0.35));
+}
+/* Золотые пиксельные надписи с тёмной тенью, как на макете. */
+.quest-gold {
+  background: linear-gradient(180deg, #fff1b8 0%, #f3cf6a 45%, #c8912c 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 2px 0 #1a120a);
+}
+/* Белый текст на мраморе: лёгкая тень, чтобы прожилки не мешали читать. */
+.quest-text {
+  text-shadow: 0 1px 2px rgb(10 20 45 / 0.9);
+}

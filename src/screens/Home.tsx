@@ -21,6 +21,7 @@ import { useCity } from '../store/city';
 import { useProgress } from '../store/progress';
 import { StatsBar } from '../components/Stats';
 import { Screen } from '../components/ui';
+import mapButton from '../assets/home/map-button.webp';
 
 type WordsMap = Partial<Record<LocationId, Word[]>>;
 
@@ -56,6 +57,28 @@ function newWordsLabel(n: number) {
   return 'новых слов';
 }
 
+/** Золотая стрелка квеста: объёмный наконечник с вырезом, светлая грань сверху, тёмная снизу. Покачивается. */
+function QuestArrow() {
+  return (
+    <svg viewBox="0 0 40 36" className="bob h-9 w-10 shrink-0" aria-hidden>
+      <defs>
+        <linearGradient id="qa-top" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stopColor="#fff4c2" />
+          <stop offset="1" stopColor="#e9bb4f" />
+        </linearGradient>
+        <linearGradient id="qa-bottom" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stopColor="#c8912c" />
+          <stop offset="1" stopColor="#7a5410" />
+        </linearGradient>
+      </defs>
+      <path d="M4 4 L37 19 L4 34 L12 19 Z" fill="#1a120a" opacity="0.55" transform="translate(1.5 2)" />
+      <path d="M3 2 L36 17 L12 17 Z" fill="url(#qa-top)" />
+      <path d="M12 17 L36 17 L3 32 Z" fill="url(#qa-bottom)" />
+      <path d="M3 2 L36 17 L3 32 L12 17 Z" fill="none" stroke="#5c3d08" strokeWidth="1.4" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
 function ContinueCard({ step }: { step: NextStep }) {
   if (step.kind === 'chapter') {
     const next = chapterById(step.next);
@@ -81,21 +104,19 @@ function ContinueCard({ step }: { step: NextStep }) {
           to="/errands"
           data-testid="continue"
           data-kind="errands"
-          className="press flex items-center justify-between gap-3 rounded-xl bg-brand px-5 py-4 text-white shadow-md"
+          className="press quest-card flex min-h-[124px] items-center justify-between gap-3 rounded-xl px-3 py-2 text-white"
         >
           <div className="min-w-0">
-            <div className="font-pixel text-xs tracking-widest text-gold uppercase">Текущий квест</div>
-            <div className="font-pixel text-2xl font-bold">Поручения</div>
-            <div className="text-sm opacity-90">{sub}</div>
+            <div className="quest-gold font-pixel text-xs tracking-widest uppercase">Текущий квест</div>
+            <div className="quest-gold font-pixel text-2xl font-bold">Поручения</div>
+            <div className="quest-text text-sm">{sub}</div>
           </div>
-          <div className="bob font-pixel text-3xl text-gold" aria-hidden>
-            ▶
-          </div>
+          <QuestArrow />
         </Link>
         {then && (
           <Link
             to={`/learn/${then.loc}/${then.level}/${then.part}`}
-            className="mt-1 block text-center text-sm text-stone-500 underline"
+            className="mt-1.5 block text-center text-stone-700 underline underline-offset-2"
             data-testid="learn-anyway"
           >
             Всё равно учить новые слова
@@ -138,17 +159,15 @@ function ContinueCard({ step }: { step: NextStep }) {
     <Link
       to={to}
       data-testid="continue"
-      className="press flex items-center justify-between gap-3 rounded-xl bg-brand px-5 py-4 text-white shadow-md"
+      className="press quest-card flex min-h-[124px] items-center justify-between gap-3 rounded-xl px-3 py-2 text-white"
     >
       {npc && <NpcPortrait look={npc.look} size={54} className="-my-1" />}
       <div className="min-w-0 flex-1">
-        <div className="font-pixel text-xs tracking-widest text-gold uppercase">{label}</div>
-        <div className="font-pixel text-2xl font-bold">Продолжить</div>
-        <div className="text-sm opacity-90">{sub}</div>
+        <div className="quest-gold font-pixel text-xs tracking-widest uppercase">{label}</div>
+        <div className={`quest-gold font-pixel font-bold ${npc ? 'text-xl' : 'text-2xl'}`}>Продолжить</div>
+        <div className="quest-text text-sm">{sub}</div>
       </div>
-      <div className="bob font-pixel text-3xl text-gold" aria-hidden>
-        ▶
-      </div>
+      <QuestArrow />
     </Link>
   );
 }
@@ -250,18 +269,16 @@ export function Home() {
         {/* Пока слова грузятся, держим место, чтобы экран не прыгал. */}
         <div className="flex gap-2">
           <div className="min-w-0 flex-1">
-            {step ? <ContinueCard step={step} /> : <div className="h-[104px] rounded-xl bg-stone-200" />}
+            {step ? <ContinueCard step={step} /> : <div className="h-[124px] rounded-xl bg-stone-200" />}
           </div>
           <Link
             to="/journey-map"
             aria-label="Карта странствий"
             data-testid="map-button"
-            className="press flex w-20 shrink-0 flex-col items-center justify-center gap-1 rounded-xl border-2 border-wood bg-orange-50 shadow-md"
+            className="press w-[74px] shrink-0 self-start"
           >
-            <span className="text-3xl" aria-hidden>
-              🗺️
-            </span>
-            <span className="font-pixel text-sm">Карта</span>
+            {/* Надпись «Карта» нарисована на картинке, для экранного диктора — aria-label. */}
+            <img src={mapButton} alt="" width={316} height={639} className="block h-auto w-full drop-shadow-md" />
           </Link>
         </div>
         <JourneyLine />
