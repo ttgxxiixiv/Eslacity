@@ -1,7 +1,7 @@
 import { readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { expect, test, type Page } from '@playwright/test';
-import { DB, LANGS, openApp, readMeta, type Lang } from './fixtures';
+import { DB, LANGS, openApp, readMeta, seedDueCards, wordIdsOf, type Lang } from './fixtures';
 
 const CONTENT = join(import.meta.dirname, '..', '..', 'src', 'content');
 /** id уроков района: папка a2 → a2.<файл>. */
@@ -50,6 +50,38 @@ for (const lang of LANGS) {
       await expect(locks.nth(1)).toContainText('Откроется в главе II: сначала соберите карту главы I.');
       await expect(locks.nth(2)).toContainText('Откроется в главе III: сначала соберите карту главы II.');
       await expect(page.getByRole('heading', { name: 'Уровень 2' })).toBeVisible();
+    });
+
+    test('карта странствий: вход с главной и из профиля, обрывок и что не хватает', async ({ page }) => {
+      await openApp(page, lang);
+      await page.getByTestId('map-button').click();
+      await expect(page).toHaveURL(/#\/journey-map$/);
+      await expect(page.getByTestId('fragments-count')).toHaveText('0 / 20');
+      await expect(page.getByTestId('hero')).toBeVisible();
+
+      await page.goto('./#/');
+      await seedDueCards(page, lang, wordIdsOf(lang, 'cafe', [1, 2]));
+      await page.goto('./#/profile');
+      await expect(page.getByTestId('profile-map')).toContainText('Глава I · 1 / 20 обрывков');
+      await page.getByTestId('profile-map').click();
+      await expect(page.getByTestId('fragments-count')).toHaveText('1 / 20');
+      const map = page.getByTestId('land-map');
+      await expect(map.locator('[data-got="1"]')).toHaveCount(1);
+
+      await map.getByRole('button', { name: /^Кафе: обрывок получен/ }).click();
+      await expect(page.getByTestId('map-details')).toContainText('Обрывок получен');
+      const market = wordIdsOf(lang, 'market', [1, 2]).length;
+      await map.getByRole('button', { name: /^Рынок: обрывка нет/ }).click();
+      await expect(page.getByTestId('map-details')).toContainText(`место ещё не открыто, осталось выучить ${market} слов`);
+      await page.getByRole('button', { name: /Перейти: Рынок/ }).click();
+      await expect(page).toHaveURL(/#\/loc\/market$/);
+
+      // Печать и соседние главы на дороге.
+      await page.goto('./#/journey-map');
+      await page.getByRole('button', { name: /Печать главы/ }).click();
+      await expect(page.getByTestId('map-details')).toContainText('осталось 31 из 31');
+      await page.getByRole('button', { name: /Глава II: Горный перевал/ }).click();
+      await expect(page.getByText('Глава ещё закрыта.')).toBeVisible();
     });
 
     test('прогресс до обновления с пройденными уроками A2: ничего не закрылось', async ({ page }) => {

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ECONOMY } from '../config';
 import { ACTIVE_LINES, bestMedals, TIER_INFO, TIERS } from '../domain/medals';
@@ -7,6 +7,8 @@ import { dayKey, dayNumber } from '../domain/srs';
 import { canBuyFreeze, isAlive } from '../domain/streak';
 import { useCity } from '../store/city';
 import { useMotivation } from '../store/motivation';
+import { currentJourney, useJourney } from '../store/journey';
+import { chapterById } from '../domain/chapters';
 import { useProgress } from '../store/progress';
 import { useSettings } from '../store/settings';
 import { Button, Screen, TopBar } from '../components/ui';
@@ -27,6 +29,8 @@ export function ProfileScreen() {
   const days = useProgress((s) => s.days);
   const cards = useProgress((s) => s.cards);
   const goal = useSettings((s) => s.dailyGoal);
+  const fragments = useJourney((s) => s.fragments);
+  const journey = useMemo(() => currentJourney(), [fragments, cards]);
   const [claimed, setClaimed] = useState(0);
 
   const alive = isAlive(streak, today);
@@ -55,6 +59,18 @@ export function ProfileScreen() {
       />
       <div className="flex flex-col gap-4 px-5 pb-6">
         <LevelCard />
+        <Link to="/journey-map" className="press flex items-center gap-3 rounded-3xl bg-white p-4 shadow-sm" data-testid="profile-map">
+          <span className="text-3xl" aria-hidden>
+            🗺️
+          </span>
+          <div className="flex-1">
+            <div className="font-bold">Карта странствий</div>
+            <div className="text-sm text-stone-500 tabular-nums">
+              Глава {chapterById(journey.current)?.roman} · {journey.chapters[journey.current - 1].places.filter((p) => p.got).length} / 20 обрывков
+            </div>
+          </div>
+          <span className="text-stone-500">→</span>
+        </Link>
         <Link to="/medals" className="press flex items-center gap-3 rounded-3xl bg-white p-4 shadow-sm" data-testid="best-medals">
           <div className="flex-1">
             <div className="font-bold">Зал медалей</div>

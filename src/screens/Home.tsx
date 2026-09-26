@@ -141,7 +141,22 @@ export function Home() {
       <StatsBar />
       <div className="px-3 pt-4">
         {/* Пока слова грузятся, держим место, чтобы экран не прыгал. */}
-        {step ? <ContinueCard step={step} /> : <div className="h-[104px] rounded-xl bg-stone-200" />}
+        <div className="flex gap-2">
+          <div className="min-w-0 flex-1">
+            {step ? <ContinueCard step={step} /> : <div className="h-[104px] rounded-xl bg-stone-200" />}
+          </div>
+          <Link
+            to="/journey-map"
+            aria-label="Карта странствий"
+            data-testid="map-button"
+            className="press flex w-20 shrink-0 flex-col items-center justify-center gap-1 rounded-xl border-2 border-wood bg-orange-50 shadow-md"
+          >
+            <span className="text-3xl" aria-hidden>
+              🗺️
+            </span>
+            <span className="font-pixel text-sm">Карта</span>
+          </Link>
+        </div>
         {nextGrammar && (
           <Link
             to={`/grammar/${nextGrammar.id}`}

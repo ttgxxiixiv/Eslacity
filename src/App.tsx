@@ -18,6 +18,7 @@ import { NavBar } from './components/NavBar';
 import { LevelUpToast } from './components/HeroLevel';
 import { MedalAward } from './components/MedalAward';
 import { MedalsScreen } from './screens/Medals';
+import { JourneyMapScreen } from './screens/JourneyMap';
 
 /** Новый экран открывается сверху, а не с прокруткой предыдущего. */
 function ScrollToTop() {
@@ -72,6 +73,7 @@ export default function App() {
           <Route path="/grammar" element={<GrammarMap />} />
           <Route path="/profile" element={<ProfileScreen />} />
           <Route path="/medals" element={<MedalsScreen />} />
+          <Route path="/journey-map" element={<JourneyMapScreen />} />
         </Route>
         <Route path="/grammar/:id" element={<GrammarLessonScreen />} />
         <Route path="/review" element={<ReviewScreen />} />
