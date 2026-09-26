@@ -659,3 +659,14 @@
 - После пачки фразы перечитаны целиком, неестественные исправлены: вежливое «¿Me da la hoja de reclamaciones?» вместо «Quiero la hoja…», «Aquí está la cocina» вместо «La cocina está aquí», «Vengo aquí a desconectar» вместо повисшего «Necesito desconectar», порядок слов в «¿Está agotada la leche?» и «È esaurito il latte?», перевод без рода в «Можно я выберу помидоры?».
 
 Проверено: валидатор без ошибок и предупреждений, юнит-тесты основы и спряжения, тест полноты пачки (по 5 фраз на уровень в каждом месте обоих языков).
+
+## Версия 2.22.0. Фразы мест, пачка 2
+
+Задача 4.2 из `docs/ROADMAP.md`, вторая пачка: парк, одежда, аптека, школа, почта. По 5 фраз на уровень 1–5 в каждом месте, 125 фраз на язык, всего 250 на язык в 10 местах.
+
+- Парк: прогулка и природа, от «Vamos a pasear por el parque» до «¿Cuándo florecen las rosas?» / «Quando fioriscono le rose?». Одежда: примерка и возврат («¿Me lo puedo probar?», «Mi sta grande», «Quiero devolver estos pantalones», «Potete accorciare i pantaloni?»). Аптека: жалобы на здоровье и вопросы о лекарстве («Me duele la garganta», «Si prende a digiuno?», «Dov'è la farmacia di turno?»). Школа: вопросы учителю («¿Puede repetir, por favor?», «Me lo può spiegare con un esempio?», «¿A qué hora es la tutoría?»). Почта: отправка, получение и жалоба («Un sello para esta carta», «Devo ritirare un pacco», «Il mio pacco è andato smarrito»).
+- Где говорящий называет свой род, дан второй вариант: «Estoy mareado» / «Estoy mareada».
+- Проверка покрытия с первого прогона дала одно предупреждение («C» в «vitamina C»), фраза заменена на «¿Tiene vitaminas?».
+- После пачки фразы перечитаны, исправлены: «Mi sta grande» вместо дословного «È molto grande per me», «Mi presti la gomma?» вместо «Mi dai…», «Qui si sta molto tranquilli», «Il mio pacco è andato smarrito», перевод «Посылка на моё имя» вместо непонятного без контекста «Она на моё имя».
+
+Проверено: валидатор без ошибок и предупреждений, тест полноты фраз теперь покрывает 10 мест обоих языков.
