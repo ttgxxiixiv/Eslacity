@@ -1,4 +1,4 @@
-import INDEX from 'virtual:word-index';
+import INDEX, { PHRASES } from 'virtual:word-index';
 import { LANG } from '../lang';
 
 /** Место → уровень → id слов выбранного языка. Сами слова грузятся по местам (`loadLocation`). */
@@ -8,3 +8,6 @@ export const WORD_LEVELS: Record<string, Record<number, string[]>> = Object.from
     Object.fromEntries(Object.entries(levels).map(([lvl, slugs]) => [lvl, slugs.map((s) => `${loc}.${s}`)])),
   ]),
 );
+
+/** id фраз выбранного языка: в словарный запас они не входят. */
+export const PHRASE_IDS: ReadonlySet<string> = new Set(PHRASES[LANG] ?? []);

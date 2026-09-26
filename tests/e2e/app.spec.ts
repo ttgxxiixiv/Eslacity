@@ -1,5 +1,7 @@
+import { readFileSync } from 'node:fs';
+import { join } from 'node:path';
 import { expect, test } from '@playwright/test';
-import { answerGrammar, LANGS, loadLesson, openApp, readMeta, seedDueCards, seedXp, wordIdsOf } from './fixtures';
+import { answerGrammar, DB, LANGS, loadLesson, openApp, readMeta, seedDueCards, seedXp, wordIdsOf } from './fixtures';
 
 test('переключение языка сохраняет прогресс каждого курса', async ({ page }) => {
   await openApp(page, 'es');
@@ -23,6 +25,36 @@ test('переключение языка сохраняет прогресс к
 
 for (const lang of LANGS) {
   test.describe(lang, () => {
+    test('словарный запас в профиле: без фраз, закреплённые отдельно', async ({ page }) => {
+      await openApp(page, lang);
+      const words = JSON.parse(readFileSync(join(import.meta.dirname, '..', '..', 'src', 'content', lang, 'words', 'cafe.json'), 'utf8'))
+        .words as { id: string; pos: string; level: number }[];
+      const taken = words.filter((w) => w.level <= 2);
+      const plain = taken.filter((w) => w.pos !== 'phrase');
+      expect(taken.length).toBeGreaterThan(plain.length);
+      // Пять слов закреплены (интервал 30 дней), остальные только выучены; фразы тоже выучены, но не считаются.
+      await page.evaluate(
+        ({ db, rows }) =>
+          new Promise<void>((resolve) => {
+            const r = indexedDB.open(db);
+            r.onsuccess = () => {
+              const tx = r.result.transaction('cards', 'readwrite');
+              for (const [id, interval] of rows) {
+                tx.objectStore('cards').put({ wordId: id, ef: 2.5, interval, reps: 3, due: Date.now() + 86_400_000, lapses: 0, learnedAt: 1, lastReviewedAt: 1 });
+              }
+              tx.oncomplete = () => resolve();
+            };
+          }),
+        { db: DB[lang], rows: taken.map((w) => [w.id, plain.slice(0, 5).includes(w) ? 30 : 1] as const) },
+      );
+      await page.reload();
+      await expect(page.getByTestId('continue')).toBeVisible();
+      await page.goto('./#/profile');
+      await expect(page.getByTestId('vocab-text')).toContainText(`${plain.length} слов`);
+      await expect(page.getByTestId('vocab-text')).toContainText('из них 5 закреплено');
+      await expect(page.getByTestId('vocab-card').getByRole('progressbar')).toHaveAttribute('aria-valuenow', String(plain.length));
+    });
+
     test('обрывок карты за слова главы в месте и медаль «Картограф»', async ({ page }) => {
       await openApp(page, lang);
       // Все слова уровней 1–2 кафе и половина рынка: обрывок главы I только у кафе.

@@ -15,6 +15,7 @@ import { Button, Screen, TopBar } from '../components/ui';
 import { CURRENT } from '../lib/update';
 import { LevelCard } from '../components/HeroLevel';
 import { Medal } from '../components/Medal';
+import { VocabCard } from '../components/VocabCard';
 
 const WEEKDAYS = ['пн', 'вт', 'ср', 'чт', 'пт', 'сб', 'вс'];
 
@@ -59,6 +60,7 @@ export function ProfileScreen() {
       />
       <div className="flex flex-col gap-4 px-5 pb-6">
         <LevelCard />
+        <VocabCard />
         <Link to="/journey-map" className="press flex items-center gap-3 rounded-3xl bg-white p-4 shadow-sm" data-testid="profile-map">
           <span className="text-3xl" aria-hidden>
             🗺️

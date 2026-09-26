@@ -4,13 +4,15 @@ import { db } from '../db/db';
 import { persist } from '../db/persist';
 import { challengeFor, weekKey, weeklyProgress } from '../domain/goals';
 import {
-  applyGains, gainsReward, medalGains, SOLID_INTERVAL_DAYS,
+  applyGains, gainsReward, medalGains,
   type MedalCounters, type MedalEvent, type MedalGain, type MedalsState,
 } from '../domain/medals';
 import { dayNumber } from '../domain/srs';
 import { canBuyFreeze, EMPTY_STREAK, registerGoal, settleStreak, type StreakState } from '../domain/streak';
 import { useCity } from './city';
 import { useJourney } from './journey';
+import { vocabulary } from '../domain/vocabulary';
+import { PHRASE_IDS } from '../content/wordIndex';
 import { fragmentCount } from '../domain/chapters';
 import { useProgress } from './progress';
 import { useSettings } from './settings';
@@ -68,7 +70,8 @@ export function medalCounters(): MedalCounters {
   const p = useProgress.getState();
   const s = useMotivation.getState();
   return {
-    wordsSolid: Object.values(p.cards).filter((c) => c.interval >= SOLID_INTERVAL_DAYS).length,
+    // Словесник считает тот же словарный запас, что и профиль: без фраз мест.
+    wordsSolid: vocabulary(p.cards, (id) => PHRASE_IDS.has(id)).solid,
     streakBest: s.streak.best,
     grammarDone: Object.keys(p.grammar).length,
     blitzBest: useSettings.getState().blitzBest,

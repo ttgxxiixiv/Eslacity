@@ -44,6 +44,18 @@ const wordDirs = () =>
   readdirSync(CONTENT_DIR, { withFileTypes: true })
     .filter((e) => e.isDirectory() && existsSync(join(CONTENT_DIR, e.name, 'words')))
     .map((e) => ({ lang: e.name, dir: join(CONTENT_DIR, e.name, 'words') }));
+/** id фраз по языкам: словарный запас считается без них. */
+function phraseIndex() {
+  const out: Record<string, string[]> = {};
+  for (const { lang, dir } of wordDirs()) {
+    out[lang] = readdirSync(dir)
+      .filter((x) => x.endsWith('.json'))
+      .flatMap((f) => (JSON.parse(readFileSync(join(dir, f), 'utf8')) as { words: { id: string; pos: string }[] }).words)
+      .filter((w) => w.pos === 'phrase')
+      .map((w) => w.id);
+  }
+  return out;
+}
 function wordIndex() {
   const out: Record<string, Record<string, Record<number, string[]>>> = {};
   for (const { lang, dir } of wordDirs()) {
@@ -104,7 +116,7 @@ export default defineConfig({
       load(id) {
         if (id !== '\0virtual:word-index') return null;
         for (const { dir } of wordDirs()) this.addWatchFile(dir);
-        return `export default ${JSON.stringify(wordIndex())};`;
+        return `export default ${JSON.stringify(wordIndex())};\nexport const PHRASES = ${JSON.stringify(phraseIndex())};`;
       },
     },
     {
