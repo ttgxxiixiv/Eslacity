@@ -231,14 +231,19 @@ export async function playWords(page: Page, lang: Lang, done: RegExp): Promise<P
   throw new Error('Урок не закончился за 120 шагов');
 }
 
-/** Ответить правильно на текущее задание урока грамматики по данным урока. */
-export async function answerGrammar(page: Page, lesson: { exercises: Exercise[] }) {
+/**
+ * Ответить на текущее задание урока грамматики по данным урока: правильно или, если `wrong`, нарочно неверно.
+ * Возвращает id упражнения.
+ */
+export async function answerGrammar(page: Page, lesson: { exercises: Exercise[] }, wrong = false): Promise<string> {
   const text = squash((await page.locator('.text-2xl.leading-snug').first().textContent()) ?? '');
   const ex = lesson.exercises.find((e) =>
     e.kind === 'choose' ? squash(e.prompt) === text : e.kind === 'gap' ? squash(e.sentence.replace('___', '')) === text : squash(e.statement) === text,
   );
   if (!ex) throw new Error(`Задание не найдено в уроке: ${text}`);
   const right = ex.kind === 'truefalse' ? (ex.answer ? 'Верно' : 'Неверно') : ex.options[ex.answer];
-  await page.locator('button.min-h-14').filter({ hasText: exact(right) }).click();
+  const other = ex.kind === 'truefalse' ? (ex.answer ? 'Неверно' : 'Верно') : ex.options.find((_, i) => i !== ex.answer)!;
+  await page.locator('button.min-h-14').filter({ hasText: exact(wrong ? other : right) }).click();
   await expect(page.getByRole('button', { name: /дальше/i })).toBeVisible();
+  return ex.id;
 }

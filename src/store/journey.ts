@@ -10,6 +10,7 @@ import {
   type ChapterId, type JourneyAward, type JourneyInput, type JourneyRecord, type JourneyState,
 } from '../domain/chapters';
 import { useCity } from './city';
+import { wordIds } from '../domain/itemId';
 import { useProgress } from './progress';
 
 interface JourneyStore extends JourneyRecord {
@@ -87,7 +88,7 @@ function startedInput() {
   for (const levels of Object.values(WORD_LEVELS)) for (const [lvl, ids] of Object.entries(levels)) for (const id of ids) levelOf.set(id, Number(lvl));
   const districtOf = new Map(CHAPTERS.flatMap((c) => c.districts).flatMap((d) => lessonsOf(d as never).map((l) => [l.id, d] as const)));
   return {
-    wordLevels: Object.keys(p.cards).map((id) => levelOf.get(id) ?? 1),
+    wordLevels: wordIds(Object.keys(p.cards)).map((id) => levelOf.get(id) ?? 1),
     doneDistricts: Object.keys(p.grammar).map((id) => districtOf.get(id) ?? 'A1'),
     buildingLevels: Object.values(useCity.getState().buildings).map((b) => b?.level ?? 0),
   };

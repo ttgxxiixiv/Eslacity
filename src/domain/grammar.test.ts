@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import type { GrammarLesson } from '../content/schema';
 import { seeded } from './generators';
-import { answerGrammar, buildGrammarQueue, forVariant, grammarScore, startGrammar } from './grammar';
+import { answerGrammar, buildGrammarQueue, forVariant, grammarScore, rulesForReview, startGrammar } from './grammar';
 
 const lesson: GrammarLesson = {
   id: 'a1.test', district: 'A1', order: 1, title: 'Тест',
@@ -50,5 +50,29 @@ describe('грамматика', () => {
     r = answerGrammar(r, false, rng);
     expect(r.queue).toHaveLength(4);
     expect(grammarScore(r)).toBe(67);
+  });
+});
+
+describe('правила в повторение', () => {
+  const ex = (n: number) => ({ id: `a1.t.${n}`, kind: 'truefalse' as const, statement: 's', answer: true, explain: '' });
+  const list = [1, 2, 3, 4, 5, 6].map(ex);
+
+  it('ошибки идут с оценкой 1, случайные верные добирают до трёх', () => {
+    const r = rulesForReview(list, new Set(['a1.t.2']), new Set(), seeded(1));
+    expect(r).toHaveLength(3);
+    expect(r[0]).toEqual({ exerciseId: 'a1.t.2', grade: 1 });
+    expect(r.slice(1).every((x) => x.grade === 4 && x.exerciseId !== 'a1.t.2')).toBe(true);
+  });
+  it('ошибок больше трёх — берутся все ошибки, случайных нет', () => {
+    const r = rulesForReview(list, new Set(['a1.t.1', 'a1.t.3', 'a1.t.4', 'a1.t.6']), new Set(), seeded(1));
+    expect(r.map((x) => x.grade)).toEqual([1, 1, 1, 1]);
+  });
+  it('у урока уже три карточки — при повторе добавляются только ошибки', () => {
+    const three = new Set(['a1.t.1', 'a1.t.2', 'a1.t.3']);
+    expect(rulesForReview(list, new Set(), three, seeded(1))).toEqual([]);
+    expect(rulesForReview(list, new Set(['a1.t.5']), three, seeded(1))).toEqual([{ exerciseId: 'a1.t.5', grade: 1 }]);
+    const one = rulesForReview(list, new Set(), new Set(['a1.t.1']), seeded(1));
+    expect(one).toHaveLength(2);
+    expect(one.some((x) => x.exerciseId === 'a1.t.1')).toBe(false);
   });
 });

@@ -2,9 +2,11 @@ import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { LESSON } from '../config';
 import { loadLocations, locationOfWord, wordsByIds } from '../content';
-import type { Word } from '../content/schema';
+import { loadLesson } from '../content/grammar';
+import type { GrammarExercise, Word } from '../content/schema';
 import { seeded } from '../domain/generators';
-import { buildReviewSteps, type SessionState, type Step } from '../domain/lessonQueue';
+import { exerciseOf, lessonOfExercise, splitCards } from '../domain/itemId';
+import { buildReviewSteps, startSession, type SessionState, type Step } from '../domain/lessonQueue';
 import { dueCards } from '../domain/srs';
 import { useProgress } from '../store/progress';
 import { useMotivation } from '../store/motivation';
@@ -12,58 +14,110 @@ import { listeningEnabled } from '../audio/tts';
 import { lessonEvent, type MedalGain } from '../domain/medals';
 import { LessonPlayer, type LessonTotals } from '../components/LessonPlayer';
 import { LessonResult } from '../components/LessonResult';
+import { EMPTY_RULES, RuleReview, type RuleResult } from '../components/RuleReview';
 import { Screen, TopBar } from '../components/ui';
 
 interface Ready {
   steps: Step[];
   words: Record<string, Word>;
   pool: Word[];
+  rules: { cardId: string; ex: GrammarExercise }[];
+}
+
+/** Правил за одно повторение не больше этого: основное в повторении — слова. */
+const RULES_PER_REVIEW = 8;
+
+/** Упражнения для карточек правил. Упражнения, которых больше нет в уроках (или скрытые вариантом), не найдутся. */
+async function loadRules(cardIds: string[]): Promise<{ found: Ready['rules']; missing: string[] }> {
+  const lessons = new Map<string, Awaited<ReturnType<typeof loadLesson>>>();
+  for (const id of new Set(cardIds.map((c) => lessonOfExercise(exerciseOf(c))))) lessons.set(id, await loadLesson(id));
+  const found: Ready['rules'] = [];
+  const missing: string[] = [];
+  for (const cardId of cardIds) {
+    const exId = exerciseOf(cardId);
+    const ex = lessons.get(lessonOfExercise(exId))?.exercises.find((e) => e.id === exId);
+    if (ex) found.push({ cardId, ex });
+    else missing.push(cardId);
+  }
+  return { found, missing };
 }
 
 export function ReviewScreen() {
   const nav = useNavigate();
   const [ready, setReady] = useState<Ready | null>(null);
-  const [result, setResult] = useState<{ s: SessionState; totals: LessonTotals; ach: MedalGain[] } | null>(null);
+  const [phase, setPhase] = useState<'words' | 'rules' | 'done'>('words');
+  const [wordsResult, setWordsResult] = useState<{ s: SessionState; totals: LessonTotals } | null>(null);
+  const [rulesResult, setRulesResult] = useState<RuleResult>(EMPTY_RULES);
+  const [ach, setAch] = useState<MedalGain[]>([]);
 
   useEffect(() => {
     const cards = useProgress.getState().cards;
-    const due = dueCards(Object.values(cards), Date.now()).slice(0, LESSON.reviewBatch);
-    const ids = due.map((c) => c.wordId);
+    // Слова и правила ищутся по-разному: карточку правила нельзя удалить как «слово, которого нет».
+    const { words: dueWords, rules: dueRules } = splitCards(dueCards(Object.values(cards), Date.now()));
+    const ids = dueWords.slice(0, LESSON.reviewBatch).map((c) => c.wordId);
     (async () => {
       const words = await wordsByIds(ids);
       const found = new Set(words.map((w) => w.id));
-      useProgress.getState().dropCards(ids.filter((wid) => !found.has(wid)));
+      const rules = await loadRules(dueRules.slice(0, RULES_PER_REVIEW).map((c) => c.wordId));
+      useProgress.getState().dropCards([...ids.filter((wid) => !found.has(wid)), ...rules.missing]);
       const loaded = await loadLocations(ids.map(locationOfWord));
       // Варианты ответа из выученных слов, если их хватает на четыре варианта.
       const known = loaded.filter((w) => w.id in cards);
       const pool = known.length >= 8 ? known : loaded;
       const steps = buildReviewSteps(words, cards, pool, seeded(Date.now()), { listening: listeningEnabled() });
-      setReady({ steps, pool, words: Object.fromEntries(loaded.map((w) => [w.id, w])) });
+      setReady({ steps, pool, words: Object.fromEntries(loaded.map((w) => [w.id, w])), rules: rules.found });
+      if (!steps.length) setPhase('rules');
     })();
   }, []);
 
-  const save = (s: SessionState) => {
+  const saveWords = (s: SessionState) => {
     const graded = Object.keys(s.grades).length;
     if (!graded) return;
     const p = useProgress.getState();
     p.applyGrades(s.grades);
     p.bumpDay({ reviews: graded });
   };
+  const saveRules = (r: RuleResult) => {
+    const graded = Object.keys(r.grades).length;
+    if (!graded) return;
+    const p = useProgress.getState();
+    p.applyGrades(r.grades);
+    p.bumpDay({ reviews: graded });
+  };
+  const finish = (words: { s: SessionState; totals: LessonTotals } | null, rules: RuleResult) => {
+    const s = words?.s ?? startSession([]);
+    const all = { correct: s.correct + rules.correct, almost: s.almost, wrong: s.wrong + rules.wrong };
+    setAch(useMotivation.getState().evaluate(Date.now(), lessonEvent(all)));
+    setPhase('done');
+  };
 
-  if (result && ready) {
+  if (!ready) return null;
+
+  if (phase === 'done') {
+    const s = wordsResult?.s ?? startSession([]);
+    const totals = wordsResult?.totals ?? { xp: 0, coins: 0 };
+    const rulesTotal = rulesResult.correct + rulesResult.wrong;
     return (
       <LessonResult
         title="Повторение завершено"
-        session={result.s}
-        totals={result.totals}
-        medals={result.ach}
+        // Итог по словам и правилам вместе; слова с ошибками — только слова.
+        session={{ ...s, correct: s.correct + rulesResult.correct, wrong: s.wrong + rulesResult.wrong }}
+        totals={{ xp: totals.xp + rulesResult.xp, coins: totals.coins + rulesResult.coins }}
+        medals={ach}
         words={ready.words}
+        extra={
+          rulesTotal > 0 ? (
+            <p className="mt-4 rounded-2xl bg-white px-4 py-3 shadow-sm" data-testid="rules-summary">
+              📜 Правила: {rulesResult.correct} из {rulesTotal} верно
+            </p>
+          ) : undefined
+        }
         onDone={() => nav('/', { replace: true })}
       />
     );
   }
-  if (!ready) return null;
-  if (!ready.steps.length) {
+
+  if (!ready.steps.length && !ready.rules.length) {
     return (
       <Screen>
         <TopBar title="Повторение" />
@@ -79,6 +133,23 @@ export function ReviewScreen() {
     );
   }
 
+  if (phase === 'rules') {
+    return (
+      <RuleReview
+        rules={ready.rules}
+        onExit={(r) => {
+          saveRules(r);
+          nav(-1);
+        }}
+        onFinish={(r) => {
+          saveRules(r);
+          setRulesResult(r);
+          finish(wordsResult, r);
+        }}
+      />
+    );
+  }
+
   return (
     <LessonPlayer
       steps={ready.steps}
@@ -87,12 +158,15 @@ export function ReviewScreen() {
       mode="review"
       onExit={(s) => {
         // Ответы уже данные сохраняем, остальные слова останутся на сегодня.
-        save(s);
+        saveWords(s);
         nav(-1);
       }}
       onFinish={(s, totals) => {
-        save(s);
-        setResult({ s, totals, ach: useMotivation.getState().evaluate(Date.now(), lessonEvent(s)) });
+        saveWords(s);
+        setWordsResult({ s, totals });
+        // После слов — правила, если они есть.
+        if (ready.rules.length) setPhase('rules');
+        else finish({ s, totals }, EMPTY_RULES);
       }}
     />
   );

@@ -1,5 +1,6 @@
 import type { LocationId, LocationMeta, Word } from '../content/schema';
 import { upgradeCost } from './economy';
+import { isRuleId } from './itemId';
 import { isLearned, lessonParts, levelWords, maxContentLevel } from './levels';
 
 export type NextStep =
@@ -80,6 +81,9 @@ export function nextStep({
 /** Локация, где последним выучено слово. */
 export function recentLocation(cards: Record<string, { learnedAt: number }>): LocationId | undefined {
   let best: { id: string; t: number } | null = null;
-  for (const [id, c] of Object.entries(cards)) if (!best || c.learnedAt > best.t) best = { id, t: c.learnedAt };
+  for (const [id, c] of Object.entries(cards)) {
+    if (isRuleId(id)) continue;
+    if (!best || c.learnedAt > best.t) best = { id, t: c.learnedAt };
+  }
   return best ? (best.id.split('.')[0] as LocationId) : undefined;
 }

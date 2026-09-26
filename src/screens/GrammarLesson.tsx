@@ -4,7 +4,7 @@ import { ECONOMY, XP } from '../config';
 import { hasLesson, loadLesson } from '../content/grammar';
 import type { GrammarLesson as Lesson } from '../content/schema';
 import {
-  answerGrammar, buildGrammarQueue, grammarScore, startGrammar, type GrammarItem, type GrammarRun,
+  answerGrammar, buildGrammarQueue, grammarScore, rulesForReview, startGrammar, type GrammarRun,
 } from '../domain/grammar';
 import { seeded } from '../domain/generators';
 import { afterPaint } from '../lib/afterPaint';
@@ -16,10 +16,12 @@ import { useJourney } from '../store/journey';
 import { chapterOfDistrict, isDistrictOpen } from '../domain/chapters';
 import { logAnswer } from '../db/answers';
 import { answerMs, grammarItemId } from '../domain/answerLog';
+import { lessonOfExercise, ruleCardId, isRuleId, exerciseOf } from '../domain/itemId';
 import type { MedalGain } from '../domain/medals';
 import { MedalLines } from '../components/LessonResult';
 import { type Feedback, FeedbackSheet } from '../components/FeedbackSheet';
 import { Md } from '../components/Md';
+import { fillGap, GrammarItemView } from '../components/exercises/GrammarItem';
 import { Button, Screen, SpeakButton, TopBar } from '../components/ui';
 
 const rng = seeded(Date.now());
@@ -94,62 +96,6 @@ function Theory({ lesson, onStart }: { lesson: Lesson; onStart: () => void }) {
   );
 }
 
-function fillGap(sentence: string, word: string) {
-  return sentence.replace('___', word);
-}
-
-function ItemView({ item, picked, onPick }: { item: GrammarItem; picked: number | null; onPick: (i: number) => void }) {
-  const { ex } = item;
-  const shownWord = picked === null ? null : item.options[picked];
-  return (
-    <div className="flex flex-1 flex-col">
-      <div className="text-sm font-medium text-stone-500">
-        {ex.kind === 'choose' ? 'Выберите форму' : ex.kind === 'gap' ? 'Заполните пропуск' : 'Верно или неверно?'}
-      </div>
-      <div className="mt-5 text-2xl leading-snug font-bold">
-        {ex.kind === 'choose' && ex.prompt}
-        {ex.kind === 'truefalse' && ex.statement}
-        {ex.kind === 'gap' &&
-          ex.sentence.split('___').map((part, i) => (
-            <span key={i}>
-              {i > 0 && (
-                <span
-                  className={`mx-1 inline-block min-w-16 border-b-4 text-center ${
-                    shownWord === null ? 'border-stone-300' : picked === item.answer ? 'border-ok text-ok' : 'border-bad text-bad'
-                  }`}
-                >
-                  {shownWord ?? ' '}
-                </span>
-              )}
-              {part}
-            </span>
-          ))}
-      </div>
-      {'ru' in ex && ex.ru && <div className="mt-2 text-stone-500">{ex.ru}</div>}
-      <div className={`mt-8 grid gap-3 ${ex.kind === 'truefalse' ? 'grid-cols-2' : ''}`}>
-        {item.options.map((o, i) => {
-          let cls = 'bg-white border-stone-300';
-          if (picked !== null) {
-            if (i === item.answer) cls = 'bg-okbg border-ok text-ok';
-            else if (i === picked) cls = 'bg-badbg border-bad text-bad';
-            else cls = 'bg-white border-stone-200 opacity-60';
-          }
-          return (
-            <button
-              key={i}
-              type="button"
-              onClick={() => onPick(i)}
-              className={`press min-h-14 rounded-2xl border-2 px-4 py-3 text-lg font-medium ${ex.kind === 'truefalse' ? 'text-center' : 'text-left'} ${cls}`}
-            >
-              {o}
-            </button>
-          );
-        })}
-      </div>
-    </div>
-  );
-}
-
 export function GrammarLessonScreen() {
   const id = useParams().id!;
   const [lesson, setLesson] = useState<Lesson | null | undefined>(undefined);
@@ -194,6 +140,8 @@ function LessonRunner({ lesson }: { lesson: Lesson }) {
   const [earned, setEarned] = useState({ xp: 0, coins: 0 });
   const [ach, setAch] = useState<MedalGain[]>([]);
   const shownAt = useRef(Date.now());
+  // Упражнения, где ошиблись с первой попытки: они пойдут в повторение.
+  const wrongFirst = useRef(new Set<string>());
   const itemKey = run.queue[run.index]?.id;
   useEffect(() => {
     shownAt.current = Date.now();
@@ -204,6 +152,7 @@ function LessonRunner({ lesson }: { lesson: Lesson }) {
       // После «Перечитать теорию» очередь уже пройдена: начинаем заново.
       if (run.index >= run.queue.length) {
         setRun(startGrammar(buildGrammarQueue(lesson.exercises, rng)));
+        wrongFirst.current = new Set();
         setEarned({ xp: 0, coins: 0 });
         setAch([]);
       }
@@ -262,8 +211,7 @@ function LessonRunner({ lesson }: { lesson: Lesson }) {
       speakText: spoken,
     });
     setRun(answerGrammar(run, ok, rng));
-    // Номер упражнения в уроке. Для испанского варианта es-ES он совпадает с номером в файле;
-    // для es-419 часть упражнений скрыта, и номера сойдутся после задачи 3.3 (id в контенте).
+    if (!ok && !item.retry) wrongFirst.current.add(ex.id);
     const now = Date.now();
     logAnswer(
       {
@@ -291,7 +239,14 @@ function LessonRunner({ lesson }: { lesson: Lesson }) {
     setFb(null);
     setPicked(null);
     if (nextIndex >= run.queue.length) {
-      const first = useProgress.getState().completeGrammar(lesson.id, grammarScore(run));
+      const progress = useProgress.getState();
+      const first = progress.completeGrammar(lesson.id, grammarScore(run));
+      // Правила в повторение: ошибки и случайные до трёх карточек на урок.
+      const already = new Set(
+        Object.keys(progress.cards).filter((id) => isRuleId(id)).map(exerciseOf).filter((e) => lessonOfExercise(e) === lesson.id),
+      );
+      const picks = rulesForReview(lesson.exercises, wrongFirst.current, already, rng);
+      if (picks.length) progress.applyGrades(Object.fromEntries(picks.map((p) => [ruleCardId(p.exerciseId), p.grade])));
       const bonus = first ? ECONOMY.grammarBonus : 0;
       useCity.getState().addCoins(bonus);
       setEarned((e) => ({ ...e, coins: e.coins + bonus }));
@@ -319,7 +274,7 @@ function LessonRunner({ lesson }: { lesson: Lesson }) {
         </div>
       </div>
       <div key={item.id} className={`flex flex-1 flex-col pt-2 ${fb ? 'pb-64' : ''}`}>
-        <ItemView item={item} picked={picked} onPick={pick} />
+        <GrammarItemView item={item} picked={picked} onPick={pick} />
       </div>
       <FeedbackSheet fb={fb} onNext={next} />
     </div>

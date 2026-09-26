@@ -1,4 +1,5 @@
 import { CHAPTERS, PLAN_TOTAL, VOCAB_GOAL } from '../content/vocabPlan';
+import { isRuleId } from './itemId';
 import { SOLID_INTERVAL_DAYS } from './medals';
 
 /**
@@ -15,8 +16,8 @@ export function vocabulary(cards: Record<string, { stability?: number; interval:
   let learned = 0;
   let solid = 0;
   for (const [id, c] of Object.entries(cards)) {
-    // Правила грамматики карточек не создают; фразы мест и выражения в запас не входят.
-    if (isPhrase(id)) continue;
+    // Правила грамматики (карточки g:), фразы мест и выражения в запас не входят.
+    if (isRuleId(id) || isPhrase(id)) continue;
     learned++;
     // Карточка без стабильности (до переноса на FSRS) считается по интервалу.
     if ((c.stability ?? c.interval) >= SOLID_INTERVAL_DAYS) solid++;

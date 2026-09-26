@@ -1,4 +1,5 @@
 import type { Verdict } from './answer';
+import { ruleCardId } from './itemId';
 
 /**
  * Журнал ответов: каждая попытка в любом задании. По нему считаются точность, медали,
@@ -39,7 +40,7 @@ export function answerMs(shownAt: number, now: number): number {
  * До версии 2.14.0 номер брался по порядку в файле — id в контенте проставлены по тому же правилу, записи совпадают.
  */
 export function grammarItemId(exerciseId: string): string {
-  return `g:${exerciseId}`;
+  return ruleCardId(exerciseId);
 }
 
 export interface AnswerSummary {

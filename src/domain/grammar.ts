@@ -66,3 +66,24 @@ export function answerGrammar(run: GrammarRun, correct: boolean, rng: Rng): Gram
 export function grammarScore(run: GrammarRun): number {
   return run.total ? Math.round((run.firstTry / run.total) * 100) : 0;
 }
+
+/** Сколько упражнений урока держать в повторении. */
+export const RULES_PER_LESSON = 3;
+
+/**
+ * Какие упражнения урока попадают в повторение и с какой оценкой: все, где ошиблись с первой попытки
+ * (оценка 1, вернутся завтра), и случайные верные, пока у урока не наберётся три карточки (оценка 4).
+ * `already` — упражнения урока, у которых карточка уже есть: при повторном прохождении урока случайные
+ * не добавляются сверх трёх и не берутся из уже повторяемых.
+ */
+export function rulesForReview(
+  exercises: GrammarExercise[], wrong: ReadonlySet<string>, already: ReadonlySet<string>, rng: Rng,
+): { exerciseId: string; grade: 1 | 4 }[] {
+  const out: { exerciseId: string; grade: 1 | 4 }[] = exercises.filter((e) => wrong.has(e.id)).map((e) => ({ exerciseId: e.id, grade: 1 }));
+  const room = RULES_PER_LESSON - new Set([...already, ...wrong]).size;
+  if (room > 0) {
+    const rest = shuffle(exercises.filter((e) => !wrong.has(e.id) && !already.has(e.id)), rng).slice(0, room);
+    out.push(...rest.map((e) => ({ exerciseId: e.id, grade: 4 as const })));
+  }
+  return out;
+}

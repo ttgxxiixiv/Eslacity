@@ -9,6 +9,7 @@ import { chapterById, chapterOfLevel, isDistrictOpen, isLevelOpen, nearestGoal }
 import { plural } from '../domain/medals';
 import { currentJourney, useJourney } from '../store/journey';
 import { dueCards } from '../domain/srs';
+import { splitCards, wordIds } from '../domain/itemId';
 import { useNow } from '../lib/useNow';
 import { CityGrid } from '../components/CityGrid';
 import { useCity } from '../store/city';
@@ -150,8 +151,13 @@ export function Home() {
   const opened = useJourney((s) => s.opened);
   // Счётчик пересчитывается и после полуночи, если приложение не закрывали.
   const now = useNow(60_000);
-  const due = useMemo(() => dueCards(Object.values(cards), now).length, [cards, now]);
-  const learned = Object.keys(cards).length;
+  const dueSplit = useMemo(() => splitCards(dueCards(Object.values(cards), now)), [cards, now]);
+  const due = dueSplit.words.length + dueSplit.rules.length;
+  const dueText = [
+    dueSplit.words.length ? `${dueSplit.words.length} ${plural(dueSplit.words.length, ['слово', 'слова', 'слов'])}` : '',
+    dueSplit.rules.length ? `${dueSplit.rules.length} ${plural(dueSplit.rules.length, ['правило', 'правила', 'правил'])}` : '',
+  ].filter(Boolean).join(' и ');
+  const learned = useMemo(() => wordIds(Object.keys(cards)).length, [cards]);
 
   const open = useMemo(
     () => LOCATIONS.filter((l) => (buildings[l.id]?.level ?? 0) > 0).map((l) => l.id),
@@ -214,7 +220,7 @@ export function Home() {
         >
           <div>
             <div className="font-pixel text-lg">Повторить</div>
-            <div className="text-sm text-stone-500">{due ? `${due} слов на сегодня` : 'На сегодня всё повторено'}</div>
+            <div className="text-sm text-stone-500">{due ? `${dueText} на сегодня` : 'На сегодня всё повторено'}</div>
           </div>
           <div className={`text-3xl font-bold tabular-nums ${due ? 'text-brand' : 'text-stone-400'}`}>{due}</div>
         </Link>

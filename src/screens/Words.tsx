@@ -1,3 +1,4 @@
+import { wordIds } from '../domain/itemId';
 import { L } from '../lang';
 import { useEffect, useMemo, useState } from 'react';
 import { wordsByIds } from '../content';
@@ -22,7 +23,7 @@ export function WordsScreen() {
   const today = dayNumber(Date.now());
 
   useEffect(() => {
-    wordsByIds(Object.keys(cards)).then(setWords);
+    wordsByIds(wordIds(Object.keys(cards))).then(setWords);
   }, [cards]);
 
   const list = useMemo(() => {

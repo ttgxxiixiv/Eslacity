@@ -1,3 +1,4 @@
+import { wordIds } from '../domain/itemId';
 import { useEffect, useRef, useState } from 'react';
 import { logAnswer } from '../db/answers';
 import { answerMs } from '../domain/answerLog';
@@ -39,7 +40,7 @@ export function BlitzScreen() {
   const [ach, setAch] = useState<MedalGain[]>([]);
 
   useEffect(() => {
-    const ids = Object.keys(useProgress.getState().cards);
+    const ids = wordIds(Object.keys(useProgress.getState().cards));
     // Дистракторы тоже только из выученных слов: незнакомое слово среди вариантов подсказывает ответ.
     wordsByIds(ids).then((ws) => {
       setLearned(ws);
