@@ -25,6 +25,33 @@ test('переключение языка сохраняет прогресс к
 
 for (const lang of LANGS) {
   test.describe(lang, () => {
+    test('верхняя панель: серый огонёк до цели дня, полоска уровня под сердечками', async ({ page }) => {
+      await openApp(page, lang);
+      await expect(page.getByTestId('streak')).toHaveAttribute('data-lit', '0');
+      await expect(page.getByTestId('level-bar')).toHaveAttribute('aria-valuenow', '0');
+      await seedXp(page, lang, 150);
+      // 150 XP: второй уровень и часть пути к третьему.
+      await expect(page.getByTestId('level-bar')).toHaveAttribute('aria-label', /^До уровня 3:/);
+      expect(Number(await page.getByTestId('level-bar').getAttribute('aria-valuenow'))).toBeGreaterThan(0);
+      // Цель дня выполнена: огонёк загорается.
+      await page.evaluate(
+        (db) =>
+          new Promise<void>((resolve) => {
+            const r = indexedDB.open(db);
+            r.onsuccess = () => {
+              const d = new Date();
+              const today = Math.floor(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()) / 86_400_000);
+              const tx = r.result.transaction('meta', 'readwrite');
+              tx.objectStore('meta').put({ key: 'motivation', value: { streak: { count: 1, best: 1, lastDay: today, freezes: 0, freezesUsed: 0 } } });
+              tx.oncomplete = () => resolve();
+            };
+          }),
+        DB[lang],
+      );
+      await page.reload();
+      await expect(page.getByTestId('streak')).toHaveAttribute('data-lit', '1');
+    });
+
     test('жители: портрет и приветствие в месте, фигурка у открытого здания', async ({ page }) => {
       const npcs = JSON.parse(readFileSync(join(import.meta.dirname, '..', '..', 'src', 'content', lang, 'npcs.json'), 'utf8')).npcs as {
         name: string; location: string; greeting: { es: string; ru: string };
