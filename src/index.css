@@ -264,21 +264,16 @@ button {
   .scene-fade { animation: none; }
 }
 
-/* Знак «!» над зданием с поручением: чем больше карточек ждёт, тем ярче. */
+/* Знак «!» над зданием с поручением: красный восклицательный знак, чем больше карточек ждёт, тем ярче. */
 .errand-sign {
-  background: #f1dfb0;
-  color: #5c452d;
-  border: 2px solid #5c452d;
-  box-shadow: 0 1px 0 #1a120a;
+  color: #b8433a;
+  filter: drop-shadow(0 1px 0 #1a120a);
 }
 .errand-sign-2 {
-  background: #e0b43c;
-  color: #3b2a1a;
+  color: #e2352b;
 }
 .errand-sign-3 {
-  background: #e2352b;
-  color: #fbf4de;
-  border-color: #7a1a14;
+  color: #ff3b2f;
   animation: errand-pulse 1.4s ease-in-out infinite;
 }
 @keyframes errand-pulse {

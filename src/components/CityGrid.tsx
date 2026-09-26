@@ -148,10 +148,14 @@ function Building({ meta, index, now, onGo, signal }: { meta: LocationMeta; inde
         <span
           aria-hidden
           data-testid={`errand-sign-${meta.id}`}
-          className={`errand-sign errand-sign-${signal} pointer-events-none absolute z-10 flex h-6 w-6 -translate-x-1/2 items-center justify-center rounded-full font-pixel text-base font-bold`}
+          className={`errand-sign errand-sign-${signal} pointer-events-none absolute z-10 flex h-6 w-6 -translate-x-1/2 items-center justify-center`}
           style={{ left: pctX(r.x + 22), top: pctY(r.y + r.h - 100) }}
         >
-          !
+          {/* Пиксельный красный «!» с тёмной обводкой, без подложки. */}
+          <svg viewBox="0 0 6 12" width="12" height="24" shapeRendering="crispEdges">
+            <path d="M1 0h4v9H1zM1 9h4v3H1z" fill="#1a120a" />
+            <path d="M2 1h2v6H2zM2 9h2v2H2z" fill="currentColor" />
+          </svg>
         </span>
       )}
       {level > 0 && npc && (
