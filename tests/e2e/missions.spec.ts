@@ -1,4 +1,4 @@
-import { readFileSync } from 'node:fs';
+import { readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { expect, test, type Page } from '@playwright/test';
 import { LANGS, loadPhraseData, openApp, phraseFull, readMeta, seedDueCards, wordIdsOf, type Lang } from './fixtures';
@@ -6,16 +6,22 @@ import { LANGS, loadPhraseData, openApp, phraseFull, readMeta, seedDueCards, wor
 const CONTENT = join(import.meta.dirname, '..', '..', 'src', 'content');
 type Node = { kind: 'say' } | { kind: 'answer'; task: string; branches: { phrase: string }[]; wrong: { es: string } };
 
-function missionData(lang: Lang) {
-  const m = JSON.parse(readFileSync(join(CONTENT, lang, 'missions', 'cafe.json'), 'utf8')).missions[0] as { nodes: Record<string, Node> };
+function missionData(lang: Lang, place = 'cafe') {
+  const m = JSON.parse(readFileSync(join(CONTENT, lang, 'missions', `${place}.json`), 'utf8')).missions[0] as { nodes: Record<string, Node> };
   const answers = Object.values(m.nodes).filter((n): n is Extract<Node, { kind: 'answer' }> => n.kind === 'answer');
-  const phrases = new Map(loadPhraseData(lang, 'cafe').map((p) => [p.id, p.es]));
+  const phrases = new Map(loadPhraseData(lang, place).map((p) => [p.id, p.es]));
   return { answers, phrases };
 }
 
+/** Места, у которых есть миссия в контенте языка. */
+const missionPlaces = (lang: Lang) =>
+  readdirSync(join(CONTENT, lang, 'missions'))
+    .filter((f) => f.endsWith('.json'))
+    .map((f) => f.replace(/\.json$/, ''));
+
 /** Пройти сцену-вступление и диалог. wrongAt — номера ответов (с 0), где герой ошибается. */
-async function playMission(page: Page, lang: Lang, wrongAt: number[] = []) {
-  const { answers, phrases } = missionData(lang);
+async function playMission(page: Page, lang: Lang, wrongAt: number[] = [], place = 'cafe') {
+  const { answers, phrases } = missionData(lang, place);
   while (!(await page.getByText('Ответить жителю').count())) await page.getByTestId('scene-next').click();
   await page.getByTestId('scene-next').click();
   let n = 0;
@@ -63,6 +69,19 @@ for (const lang of LANGS) {
       await expect.poll(async () => Object.keys((await readMeta<{ fragments: Record<string, number> }>(page, lang, 'journey'))?.fragments ?? {})).toEqual(['1:cafe']);
       await page.getByRole('button', { name: 'Готово' }).click();
       await expect(page.getByTestId('mission-link')).toContainText('✓ выполнена');
+    });
+
+    test('миссии главы I всех мест проходятся выбором без ошибок', async ({ page }) => {
+      test.setTimeout(120_000);
+      await openApp(page, lang);
+      for (const place of missionPlaces(lang)) {
+        await page.goto(`./#/mission/ms%3A${place}.1`);
+        await playMission(page, lang, [], place);
+        const { answers } = missionData(lang, place);
+        await expect(page.getByTestId('mission-result'), place).toContainText(`Верных ответов: ${answers.length} из ${answers.length} (100%)`);
+      }
+      const done = Object.keys((await readMeta<Record<string, unknown>>(page, lang, 'missions')) ?? {}).sort();
+      expect(done).toEqual(missionPlaces(lang).map((p) => `ms:${p}.1`).sort());
     });
 
     test('миссия: две ошибки — реакция жителя, не засчитана, второе прохождение со сборкой из плиток', async ({ page }) => {

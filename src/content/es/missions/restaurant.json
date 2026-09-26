@@ -1,0 +1,28 @@
+{
+  "location": "restaurant",
+  "missions": [
+    {
+      "id": "ms:restaurant.1",
+      "chapter": 1,
+      "npc": "paco",
+      "scene": "sc:restaurant.1",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "¡Buenas! Hoy en mi cocina se habla solo español. ¿Tienes reserva?", "ru": "Добрый день! Сегодня на моей кухне говорят только по-испански. У тебя забронировано?", "next": "res"},
+        "res": {"kind": "answer", "task": "Скажите, что у вас забронирован столик, или просто попросите столик.", "branches": [{"phrase": "ph:restaurant.tengo-reserva", "next": "ressay"}, {"phrase": "ph:restaurant.mesa", "next": "tablesay"}], "wrong": {"es": "¿Una cama? Esto no es un hotel.", "ru": "Кровать? Здесь не отель."}},
+        "ressay": {"kind": "say", "es": "Muy bien, aquí está tu reserva. Siéntate.", "ru": "Отлично, вот твоя бронь. Садись.", "next": "menu"},
+        "tablesay": {"kind": "say", "es": "Hay una mesa libre cerca de la ventana. Siéntate.", "ru": "У окна есть свободный столик. Садись.", "next": "menu"},
+        "menu": {"kind": "answer", "task": "Попросите меню.", "branches": [{"phrase": "ph:restaurant.menu", "next": "menusay"}], "wrong": {"es": "¿El menú del perro? El perro come en la cocina.", "ru": "Меню для собаки? Собака ест на кухне."}},
+        "menusay": {"kind": "say", "es": "Aquí tienes. Hoy hay sopa, ensalada, filete y paella.", "ru": "Держи. Сегодня есть суп, салат, стейк и паэлья.", "next": "order"},
+        "order": {"kind": "answer", "task": "Закажите суп и салат.", "branches": [{"phrase": "ph:restaurant.sopa-ensalada", "next": "ordersay"}], "wrong": {"es": "¿Sopa de chocolate? ¡En mi cocina, no!", "ru": "Шоколадный суп? Только не на моей кухне!"}},
+        "ordersay": {"kind": "say", "es": "Muy bien. Aquí tienes la sopa y la ensalada. ¿Necesitas algo?", "ru": "Отлично. Вот суп и салат. Что-нибудь нужно?", "next": "fork"},
+        "fork": {"kind": "answer", "task": "Попросите вилку для салата.", "branches": [{"phrase": "ph:restaurant.tenedor", "next": "forksay"}], "wrong": {"es": "¿Un cuchillo para la sopa? ¡No, hombre, no!", "ru": "Нож для супа? Нет, дружище, нет!"}},
+        "forksay": {"kind": "say", "es": "Toma. ¿Y qué tal la comida?", "ru": "Держи. Ну как еда?", "next": "tasty"},
+        "tasty": {"kind": "answer", "task": "Скажите, что очень вкусно.", "branches": [{"phrase": "ph:restaurant.esta-muy-rico", "next": "tastysay"}], "wrong": {"es": "¿Está frío? ¿¡Mi sopa, fría!? ¡No puede ser!", "ru": "Холодно? Мой суп — холодный?! Быть не может!"}},
+        "tastysay": {"kind": "say", "es": "¡Qué alegría! Come, come. ¿Quieres también postre?", "ru": "Какая радость! Ешь, ешь. Десерт тоже будешь?", "next": "dessert"},
+        "dessert": {"kind": "answer", "task": "Спросите, что есть на десерт.", "branches": [{"phrase": "ph:restaurant.hay-postre", "next": "end"}], "wrong": {"es": "¿Más sopa? Bueno, si quieres... y después, el postre.", "ru": "Ещё супа? Ну, если хочешь... а потом десерт."}},
+        "end": {"kind": "say", "es": "Hoy hay tarta de chocolate. Y para ti, algo más: el trozo del mapa de mi madre. El viajero de antes no hablaba español. Tú, sí.", "ru": "Сегодня шоколадный торт. И для тебя кое-что ещё: обрывок карты моей мамы. Прежний путешественник не говорил по-испански. А ты говоришь."}
+      }
+    }
+  ]
+}

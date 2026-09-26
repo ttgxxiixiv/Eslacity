@@ -4,7 +4,12 @@ import { sceneWords, wordTranslation } from './sceneText';
 describe('реплика по словам', () => {
   it('слова и знаки, ключ строчными', () => {
     expect(sceneWords('¡Hola! ¿Un café?')).toEqual([
-      { text: '¡' }, { word: 'Hola', key: 'hola' }, { text: '! ¿' }, { word: 'Un', key: 'un' }, { text: ' ' }, { word: 'café', key: 'café' }, { text: '?' },
+      { word: 'Hola', key: 'hola', pre: '¡', post: '!' }, { text: ' ' }, { word: 'Un', key: 'un', pre: '¿' }, { text: ' ' }, { word: 'café', key: 'café', post: '?' },
+    ]);
+  });
+  it('знаки вплотную к слову идут с ним, отдельно стоящие остаются текстом', () => {
+    expect(sceneWords('Sì, ma — dopo.')).toEqual([
+      { word: 'Sì', key: 'sì', post: ',' }, { text: ' ' }, { word: 'ma', key: 'ma' }, { text: ' — ' }, { word: 'dopo', key: 'dopo', post: '.' },
     ]);
   });
   it('итальянский апостроф элизии остаётся у слова', () => {

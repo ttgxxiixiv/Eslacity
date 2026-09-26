@@ -1,0 +1,26 @@
+{
+  "location": "market",
+  "missions": [
+    {
+      "id": "ms:market.1",
+      "chapter": 1,
+      "npc": "rosa",
+      "scene": "sc:market.1",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Tesoro, oggi vendo solo in italiano! Cosa vuoi comprare?", "ru": "Сокровище, сегодня продаю только по-итальянски! Что хочешь купить?", "next": "buy"},
+        "buy": {"kind": "answer", "task": "Попросите килограмм яблок или два килограмма картошки.", "branches": [{"phrase": "ph:market.chilo-mele", "next": "apples"}, {"phrase": "ph:market.due-chili-patate", "next": "potatoes"}], "wrong": {"es": "Un chilo di scarpe? Qui vendo frutta, tesoro!", "ru": "Килограмм ботинок? Я тут фрукты продаю, сокровище!"}},
+        "apples": {"kind": "say", "es": "Mele rosse, buonissime. Altro?", "ru": "Красные яблоки, отличные. Что-нибудь ещё?", "next": "price"},
+        "potatoes": {"kind": "say", "es": "Patate per la cena, benissimo! Altro?", "ru": "Картошка на ужин, отлично! Что-нибудь ещё?", "next": "price"},
+        "price": {"kind": "answer", "task": "Спросите, сколько стоят апельсины.", "branches": [{"phrase": "ph:market.quanto-costano-arance", "next": "pricesay"}], "wrong": {"es": "Quanto costa il mio cane? Il mio cane non si vende!", "ru": "Сколько стоит моя собака? Моя собака не продаётся!"}},
+        "pricesay": {"kind": "say", "es": "Le arance, quattro euro al chilo.", "ru": "Апельсины — четыре евро за килограмм.", "next": "bargain"},
+        "bargain": {"kind": "answer", "task": "Скажите, что это очень дорого.", "branches": [{"phrase": "ph:market.molto-caro", "next": "cheaper"}], "wrong": {"es": "Molto economico? No, no, no! Per te, cinque euro.", "ru": "Очень дёшево? Нет-нет-нет! Для тебя — пять евро."}},
+        "cheaper": {"kind": "say", "es": "Così mi piace! Per te, due euro.", "ru": "Вот это мне нравится! Для тебя — два евро.", "next": "straw"},
+        "straw": {"kind": "answer", "task": "Спросите, спелая ли клубника.", "branches": [{"phrase": "ph:market.fragole-sono-mature", "next": "strawsay"}], "wrong": {"es": "Le fragole sono tristi? No, sono molto contente.", "ru": "Клубника грустная? Нет, она очень довольная."}},
+        "strawsay": {"kind": "say", "es": "Molto mature. Prendi, una per te.", "ru": "Очень спелая. Держи одну, это тебе.", "next": "bag"},
+        "bag": {"kind": "answer", "task": "Попросите пакет.", "branches": [{"phrase": "ph:market.da-sacchetto", "next": "end"}], "wrong": {"es": "Ti do una casa? No, tesoro, solo un sacchetto.", "ru": "Дать тебе дом? Нет, сокровище, только пакет."}},
+        "end": {"kind": "say", "es": "Ecco il sacchetto. Parli molto bene! Mia madre diceva: la mappa porta al Caveau dell'Elisir. Prendi, questo pezzo è per te.", "ru": "Вот пакет. Ты отлично говоришь! Мама говорила: карта ведёт к Хранилищу Эликсира. Держи, этот обрывок — тебе."}
+      }
+    }
+  ]
+}

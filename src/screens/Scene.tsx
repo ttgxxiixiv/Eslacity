@@ -26,6 +26,11 @@ export function sayLine(line: SceneLine, place: string) {
  */
 export function SceneScreen() {
   const id = decodeURIComponent(useParams().id ?? '');
+  // Своё состояние у каждой сцены: переход с одной сцены на другую начинает её заново.
+  return <SceneById key={id} id={id} />;
+}
+
+function SceneById({ id }: { id: string }) {
   const place = placeOfScene(id);
   const nav = useNavigate();
   const [scene, setScene] = useState<Scene | null | undefined>(undefined);
@@ -99,14 +104,18 @@ export function SceneTalk({ scene, place, lastLabel, onDone }: { scene: Scene; p
                   <div className="text-lg leading-snug">
                     {sceneWords(l.es).map((p, k) =>
                       'word' in p ? (
-                        <button
-                          key={k}
-                          type="button"
-                          className="rounded underline decoration-stone-300 decoration-dotted underline-offset-4 hover:bg-orange-100"
-                          onClick={() => setWord({ word: p.word, ru: wordTranslation(p.key, scene.gloss, scene.auto) })}
-                        >
-                          {p.word}
-                        </button>
+                        // Слово со знаками вокруг не переносится по частям: «mappa?» не превращается в «mappa» и «?» на новой строке.
+                        <span key={k} className="whitespace-nowrap">
+                          {p.pre}
+                          <button
+                            type="button"
+                            className="rounded underline decoration-stone-300 decoration-dotted underline-offset-4 hover:bg-orange-100"
+                            onClick={() => setWord({ word: p.word, ru: wordTranslation(p.key, scene.gloss, scene.auto) })}
+                          >
+                            {p.word}
+                          </button>
+                          {p.post}
+                        </span>
                       ) : (
                         <span key={k}>{p.text}</span>
                       ),

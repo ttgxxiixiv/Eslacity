@@ -1,0 +1,30 @@
+{
+  "location": "market",
+  "scenes": [
+    {
+      "id": "sc:market.1",
+      "chapter": 1,
+      "npc": "rosa",
+      "lines": [
+        {"who": "npc", "es": "Tesoro! Guarda che pomodori. Cosa vuoi oggi?", "ru": "Сокровище! Смотри, какие помидоры. Что тебе сегодня?"},
+        {"who": "hero", "es": "Un chilo di pomodori e due arance.", "ru": "Килограмм помидоров и два апельсина."},
+        {"who": "npc", "es": "Benissimo. E le fragole? Oggi sono molto buone.", "ru": "Отлично. А клубника? Сегодня она очень хорошая."},
+        {"who": "hero", "es": "Quanto costano le fragole?", "ru": "Сколько стоит клубника?"},
+        {"who": "npc", "es": "Tre euro al chilo.", "ru": "Три евро за килограмм."},
+        {"who": "hero", "es": "È molto caro.", "ru": "Это очень дорого."},
+        {"who": "npc", "es": "Tesoro! Per te, due euro.", "ru": "Сокровище! Для тебя — два евро."},
+        {"who": "hero", "es": "Va bene. E un sacchetto, per favore.", "ru": "Хорошо. И пакет, пожалуйста."},
+        {"who": "npc", "es": "Senti, tu cerchi la vecchia mappa? Mia madre aveva un pezzo.", "ru": "Слушай, ты ищешь старую карту? У моей мамы был обрывок."},
+        {"who": "hero", "es": "E dov'è adesso?", "ru": "А где он сейчас?"},
+        {"who": "npc", "es": "Qui, nel mio cassetto. E adesso, la spesa!", "ru": "Здесь, в моём ящике. А теперь — покупки!"}
+      ],
+      "questions": [
+        {"q": "Что покупает герой?", "options": ["Помидоры и апельсины", "Картошку и лук", "Хлеб и рыбу"], "answer": 0},
+        {"q": "Сколько клубника стоит для героя?", "options": ["Три евро", "Два евро", "Пять евро"], "answer": 1},
+        {"q": "Что было у мамы Розы?", "options": ["Старая лодка", "Обрывок старой карты", "Ключ от дома"], "answer": 1},
+        {"q": "Где сейчас этот обрывок?", "options": ["В ящике у Розы", "В банке", "На почте"], "answer": 0}
+      ],
+      "gloss": {"tesoro": "сокровище", "pezzo": "обрывок"}
+    }
+  ]
+}

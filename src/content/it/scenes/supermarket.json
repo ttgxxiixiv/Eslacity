@@ -1,0 +1,30 @@
+{
+  "location": "supermarket",
+  "scenes": [
+    {
+      "id": "sc:supermarket.1",
+      "chapter": 1,
+      "npc": "matteo",
+      "lines": [
+        {"who": "npc", "es": "Cerchi qualcosa?", "ru": "Что-то ищешь?"},
+        {"who": "hero", "es": "Sì. Dov'è il pane?", "ru": "Да. Где хлеб?"},
+        {"who": "npc", "es": "Vicino al latte. Oggi il pane è in offerta.", "ru": "Рядом с молоком. Сегодня на хлеб скидка."},
+        {"who": "hero", "es": "Che bello! E dove sono le uova?", "ru": "Отлично! А где яйца?"},
+        {"who": "npc", "es": "Nella corsia tre. Senti, tu sei il viaggiatore della mappa, vero?", "ru": "В третьем ряду. Слушай, ты тот путешественник с картой, да?"},
+        {"who": "hero", "es": "Sì. Cerco i pezzi della mappa.", "ru": "Да. Я ищу обрывки карты."},
+        {"who": "npc", "es": "Mia madre dice che la mappa porta al Caveau dell'Elisir.", "ru": "Моя мама говорит, что карта ведёт к Хранилищу Эликсира."},
+        {"who": "hero", "es": "E tu cosa pensi?", "ru": "А ты что думаешь?"},
+        {"who": "npc", "es": "Che è una leggenda per turisti. Ma ho un pezzo qui, alla cassa.", "ru": "Что это легенда для туристов. Но обрывок у меня есть, здесь, на кассе."},
+        {"who": "hero", "es": "Me lo dai?", "ru": "Отдашь мне?"},
+        {"who": "npc", "es": "Prima compra qualcosa. Qui tutto costa.", "ru": "Сначала купи что-нибудь. Здесь всё стоит денег."}
+      ],
+      "questions": [
+        {"q": "Где хлеб?", "options": ["Рядом с молоком", "В третьем ряду", "У кассы"], "answer": 0},
+        {"q": "Что говорит мама Маттео?", "options": ["Что карта ведёт к Хранилищу Эликсира", "Что карта потерялась", "Что карты никогда не было"], "answer": 0},
+        {"q": "Что думает сам Маттео?", "options": ["Что Хранилище совсем рядом", "Что это легенда для туристов", "Что карта у мамы"], "answer": 1},
+        {"q": "Где обрывок Маттео?", "options": ["Дома", "На кассе", "В третьем ряду"], "answer": 1}
+      ],
+      "gloss": {"pezzi": "обрывки", "pezzo": "обрывок", "caveau": "Хранилище", "elisir": "Эликсир"}
+    }
+  ]
+}

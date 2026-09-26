@@ -1,0 +1,30 @@
+{
+  "location": "park",
+  "scenes": [
+    {
+      "id": "sc:park.1",
+      "chapter": 1,
+      "npc": "manolo",
+      "lines": [
+        {"who": "npc", "es": "Buenos días, joven. Hace buen día, ¿verdad?", "ru": "Доброе утро, молодой человек. Хороший денёк, правда?"},
+        {"who": "hero", "es": "¡Qué bonito es el parque!", "ru": "Какой красивый парк!"},
+        {"who": "npc", "es": "Vengo aquí cada día. Doy pan a las palomas.", "ru": "Прихожу сюда каждый день. Кормлю голубей хлебом."},
+        {"who": "hero", "es": "¿Es su perro?", "ru": "Это ваша собака?"},
+        {"who": "npc", "es": "No, es del vecino. Siéntate. Buscas el mapa, ¿verdad?", "ru": "Нет, соседская. Садись. Ты ищешь карту, верно?"},
+        {"who": "hero", "es": "¿Usted sabe algo del mapa?", "ru": "Вы что-нибудь знаете о карте?"},
+        {"who": "npc", "es": "Cuando era joven, vi el mapa completo.", "ru": "Когда я был молодым, я видел карту целиком."},
+        {"who": "hero", "es": "¿Y qué había en el mapa?", "ru": "И что было на карте?"},
+        {"who": "npc", "es": "Un camino. Sale de la ciudad, pasa por el lago y va a las montañas.", "ru": "Дорога. Она выходит из города, идёт мимо озера и ведёт в горы."},
+        {"who": "hero", "es": "¿Y la Bóveda?", "ru": "А Хранилище?"},
+        {"who": "npc", "es": "Está muy lejos, detrás de las montañas. Y el camino empieza aquí, en el parque.", "ru": "Оно очень далеко, за горами. А дорога начинается здесь, в парке."}
+      ],
+      "questions": [
+        {"q": "Что Маноло делает каждый день?", "options": ["Бегает по парку", "Кормит голубей", "Читает газету"], "answer": 1},
+        {"q": "Чья это собака?", "options": ["Маноло", "Соседа", "Героя"], "answer": 1},
+        {"q": "Что Маноло видел в молодости?", "options": ["Карту целиком", "Хранилище", "Озеро без воды"], "answer": 0},
+        {"q": "Куда ведёт дорога на карте?", "options": ["К морю", "В аэропорт", "Мимо озера в горы"], "answer": 2}
+      ],
+      "gloss": {"palomas": "голуби", "completo": "целый", "bóveda": "Хранилище"}
+    }
+  ]
+}

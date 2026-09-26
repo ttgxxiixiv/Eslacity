@@ -1,0 +1,27 @@
+{
+  "location": "home",
+  "missions": [
+    {
+      "id": "ms:home.1",
+      "chapter": 1,
+      "npc": "franca",
+      "scene": "sc:home.1",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Ah, sei tu! L'appartamento di sopra è per te, se vuoi. Vuoi vederlo?", "ru": "А, это ты! Квартира наверху — твоя, если хочешь. Посмотришь?", "next": "key"},
+        "key": {"kind": "answer", "task": "Спросите, есть ли у неё ключ.", "branches": [{"phrase": "ph:home.hai-chiave", "next": "keysay"}], "wrong": {"es": "Il latte? Il latte è in cucina. Per l'appartamento ti serve la chiave.", "ru": "Молоко? Молоко на кухне. А для квартиры нужен ключ."}},
+        "keysay": {"kind": "say", "es": "Ecco la chiave. Andiamo. Questa è la cucina, e ci sono due stanze.", "ru": "Вот ключ. Пойдём. Это кухня, и ещё две комнаты.", "next": "bath"},
+        "bath": {"kind": "answer", "task": "Спросите, где ванная.", "branches": [{"phrase": "ph:home.dov-bagno", "next": "bathsay"}], "wrong": {"es": "La banca? No, qui cerchiamo il bagno!", "ru": "Банк? Нет, мы тут ищем ванную!"}},
+        "bathsay": {"kind": "say", "es": "Vicino alla stanza grande.", "ru": "Рядом с большой комнатой.", "next": "washer"},
+        "washer": {"kind": "answer", "task": "Спросите, есть ли в квартире стиральная машина.", "branches": [{"phrase": "ph:home.c-lavatrice-casa", "next": "washsay"}], "wrong": {"es": "Un treno in casa? No, per favore!", "ru": "Поезд в квартире? Нет уж, пожалуйста!"}},
+        "washsay": {"kind": "say", "es": "Nel bagno. È vecchia, ma va benissimo.", "ru": "В ванной. Старая, но работает отлично.", "next": "rent"},
+        "rent": {"kind": "answer", "task": "Спросите, сколько стоит аренда.", "branches": [{"phrase": "ph:home.quant-affitto", "next": "rentsay"}], "wrong": {"es": "Quanti anni ho? Questo non si chiede!", "ru": "Сколько мне лет? Такое не спрашивают!"}},
+        "rentsay": {"kind": "say", "es": "Per te, molto poco. Mi aiuti con la spesa e basta.", "ru": "Для тебя — совсем немного. Помогаешь мне с покупками, и всё.", "next": "chair"},
+        "chair": {"kind": "answer", "task": "Спросите, куда поставить стул.", "branches": [{"phrase": "ph:home.dove-metto-sedia", "next": "chairsay"}], "wrong": {"es": "La sedia sul letto? Meglio vicino al tavolo.", "ru": "Стул на кровать? Лучше рядом со столом."}},
+        "chairsay": {"kind": "say", "es": "Vicino alla finestra. E oggi cosa fai?", "ru": "У окна. А что ты сегодня делаешь?", "next": "clean"},
+        "clean": {"kind": "answer", "task": "Скажите, что сегодня вам нужно убрать дом.", "branches": [{"phrase": "ph:home.oggi-devo-pulire", "next": "end"}], "wrong": {"es": "Oggi devi dormire? Prima mangia, poi dormi.", "ru": "Сегодня тебе надо спать? Сначала поешь, потом спи."}},
+        "end": {"kind": "say", "es": "Pulire? Prima si mangia! E prendi: il mio pezzo della mappa. Adesso sei mio vicino, e i vicini si aiutano.", "ru": "Убирать? Сначала едят! И держи: мой обрывок карты. Теперь ты мой сосед, а соседи помогают друг другу."}
+      }
+    }
+  ]
+}

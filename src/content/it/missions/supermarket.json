@@ -1,0 +1,28 @@
+{
+  "location": "supermarket",
+  "missions": [
+    {
+      "id": "ms:supermarket.1",
+      "chapter": 1,
+      "npc": "matteo",
+      "scene": "sc:supermarket.1",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Senti, mi aiuti? Mia madre vuole pesce, uova e pasta, ma io non posso lasciare la cassa.", "ru": "Слушай, поможешь? Мама хочет рыбу, яйца и макароны, а я не могу отойти от кассы.", "next": "cart"},
+        "cart": {"kind": "answer", "task": "Скажите, что вам нужна тележка.", "branches": [{"phrase": "ph:supermarket.serve-carrello", "next": "cartsay"}], "wrong": {"es": "Ti serve una macchina? Qui non vendiamo macchine... per ora.", "ru": "Тебе нужна машина? Машины мы тут не продаём... пока."}},
+        "cartsay": {"kind": "say", "es": "I carrelli sono alla porta. Adesso, il pesce.", "ru": "Тележки у входа. Теперь рыба.", "next": "fish"},
+        "fish": {"kind": "answer", "task": "Спросите, есть ли рыба.", "branches": [{"phrase": "ph:supermarket.avete-pesce", "next": "fishsay"}], "wrong": {"es": "Gatti? Non abbiamo gatti. Il gatto del vicino viene qui per il pesce.", "ru": "Кошки? Кошек у нас нет. Соседский кот приходит сюда за рыбой."}},
+        "fishsay": {"kind": "say", "es": "Sì, vicino al pollo. Adesso le uova.", "ru": "Да, рядом с курицей. Теперь яйца.", "next": "eggs"},
+        "eggs": {"kind": "answer", "task": "Спросите, где яйца, или попросите десяток яиц.", "branches": [{"phrase": "ph:supermarket.dove-sono-uova", "next": "eggsay1"}, {"phrase": "ph:supermarket.dozzina-uova", "next": "eggsay2"}], "wrong": {"es": "Uova grandi come una casa? No, qui le uova sono piccole.", "ru": "Яйца размером с дом? Нет, яйца у нас маленькие."}},
+        "eggsay1": {"kind": "say", "es": "Nella corsia tre, vicino al latte.", "ru": "В третьем ряду, рядом с молоком.", "next": "pasta"},
+        "eggsay2": {"kind": "say", "es": "Una dozzina, benissimo. Sono nella corsia tre.", "ru": "Десяток, отлично. Они в третьем ряду.", "next": "pasta"},
+        "pasta": {"kind": "answer", "task": "Спросите, в каком ряду макароны.", "branches": [{"phrase": "ph:supermarket.quale-corsia-pasta", "next": "pastasay"}], "wrong": {"es": "La pasta per il cane? No, il cane mangia la carne.", "ru": "Макароны для собаки? Нет, собака ест мясо."}},
+        "pastasay": {"kind": "say", "es": "Nella corsia cinque. E oggi è in offerta.", "ru": "В пятом ряду. И сегодня на них скидка.", "next": "offer"},
+        "offer": {"kind": "answer", "task": "Уточните, действует ли акция сегодня.", "branches": [{"phrase": "ph:supermarket.offerta-oggi", "next": "offersay"}], "wrong": {"es": "L'offerta è per il cane? No, è per le persone.", "ru": "Акция для собаки? Нет, она для людей."}},
+        "offersay": {"kind": "say", "es": "Sì, solo oggi. Sono otto euro.", "ru": "Да, только сегодня. С тебя восемь евро.", "next": "ticket"},
+        "ticket": {"kind": "answer", "task": "Попросите чек.", "branches": [{"phrase": "ph:supermarket.da-scontrino", "next": "end"}], "wrong": {"es": "Un taxi? Io non ho la macchina. Vuoi lo scontrino?", "ru": "Такси? У меня нет машины. Тебе чек?"}},
+        "end": {"kind": "say", "es": "Ecco lo scontrino. E questo... il pezzo della mappa. Mia madre dice che il Caveau è dietro le montagne. E se non è una leggenda?", "ru": "Вот чек. И вот... обрывок карты. Мама говорит, что Хранилище за горами. А вдруг это не легенда?"}
+      }
+    }
+  ]
+}

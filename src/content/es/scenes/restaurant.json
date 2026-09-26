@@ -1,0 +1,30 @@
+{
+  "location": "restaurant",
+  "scenes": [
+    {
+      "id": "sc:restaurant.1",
+      "chapter": 1,
+      "npc": "paco",
+      "lines": [
+        {"who": "npc", "es": "¡Bienvenido! Hoy tenemos paella. ¿Mesa para uno?", "ru": "Добро пожаловать! Сегодня у нас паэлья. Столик на одного?"},
+        {"who": "hero", "es": "Una mesa, por favor.", "ru": "Столик, пожалуйста."},
+        {"who": "npc", "es": "Aquí, cerca de la ventana. ¿Qué quieres comer?", "ru": "Сюда, у окна. Что будешь есть?"},
+        {"who": "hero", "es": "¿Qué me recomienda?", "ru": "Что вы посоветуете?"},
+        {"who": "npc", "es": "¡La paella! Mi madre hacía esta paella.", "ru": "Паэлью! Моя мама готовила эту паэлью."},
+        {"who": "hero", "es": "¿Su madre también era cocinera?", "ru": "Ваша мама тоже была поварихой?"},
+        {"who": "npc", "es": "Muy buena cocinera. Un día cocinó para un viajero del mapa, como tú.", "ru": "Очень хорошей. Однажды она готовила для путешественника с картой, как ты."},
+        {"who": "hero", "es": "¿Y el viajero encontró la Bóveda?", "ru": "И путешественник нашёл Хранилище?"},
+        {"who": "npc", "es": "No. No hablaba español, y nadie le dio su trozo.", "ru": "Нет. Он не говорил по-испански, и никто не отдал ему свой обрывок."},
+        {"who": "hero", "es": "Yo hablo español.", "ru": "А я говорю по-испански."},
+        {"who": "npc", "es": "Ya lo veo. Y ahora, ¡a comer! Quiero ver el plato limpio.", "ru": "Вижу. А теперь — есть! Хочу видеть тарелку чистой."}
+      ],
+      "questions": [
+        {"q": "Где садится герой?", "options": ["У окна", "На террасе", "На кухне"], "answer": 0},
+        {"q": "Что советует Пако?", "options": ["Суп", "Паэлью", "Рыбу"], "answer": 1},
+        {"q": "Кем была мама Пако?", "options": ["Поварихой", "Рыбачкой", "Врачом"], "answer": 0},
+        {"q": "Почему прежний путешественник не получил обрывки?", "options": ["Потерял карту", "Не заплатил за обед", "Не говорил по-испански"], "answer": 2}
+      ],
+      "gloss": {"bienvenido": "добро пожаловать", "trozo": "обрывок", "bóveda": "Хранилище"}
+    }
+  ]
+}

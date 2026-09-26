@@ -3,6 +3,7 @@ import type { Lang } from '../lang';
 import { CHAPTERS as PLAN, PLACE_LEVEL_MAX } from './vocabPlan';
 import { expandOptional, fullPhrase, optionalError, PHRASE_MAX_WORDS, PHRASE_PREFIX, phraseWords } from '../domain/phrase';
 import { answersOnPath, missionGraphIssues } from '../domain/mission';
+import { sceneWords } from '../domain/sceneText';
 import { LOCATION_IDS, type Chronicler, type GrammarLesson, type LocationMissions, type LocationPhrases, type LocationScenes, type Phrase, type LocationWords, type NpcsFile, type ScrollFile, type Word } from './schema';
 
 export interface Issue {
@@ -495,10 +496,12 @@ export function validateScenes(files: { name: string; data: LocationScenes }[], 
         if (!Number.isInteger(q.answer) || q.answer < 0 || q.answer >= opts.length) out.push({ level: 'error', where: `${at} вопрос ${i + 1}`, msg: `ответ ${q.answer}` });
       });
       const text = lines.map((l) => l.es).join(' ');
+      // Слова реплик так же, как их нажимают на экране сцены: «dell'Elisir» — это «dell'» и «elisir».
+      const keys = new Set(lines.flatMap((l) => sceneWords(l.es ?? '').flatMap((p) => ('key' in p ? [normalize(p.key)] : []))));
       const gloss = Object.fromEntries(Object.entries(sc.gloss ?? {}).map(([k, v]) => [k.toLowerCase(), v]));
       for (const [k, v] of Object.entries(gloss)) {
         if (empty(v)) out.push({ level: 'error', where: at, msg: `пустой перевод в gloss: "${k}"` });
-        if (!normalize(text).split(' ').includes(normalize(k))) out.push({ level: 'warning', where: at, msg: `слова "${k}" из gloss нет в репликах` });
+        if (!keys.has(normalize(k))) out.push({ level: 'warning', where: at, msg: `слова "${k}" из gloss нет в репликах` });
       }
       if (plan && checks.coverage) {
         const level = Math.max(...plan.levels);

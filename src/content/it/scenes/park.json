@@ -1,0 +1,30 @@
+{
+  "location": "park",
+  "scenes": [
+    {
+      "id": "sc:park.1",
+      "chapter": 1,
+      "npc": "gino",
+      "lines": [
+        {"who": "npc", "es": "Che bel sole oggi, eh, giovane?", "ru": "Какое сегодня солнце, а, молодой человек?"},
+        {"who": "hero", "es": "Com'è bello il parco!", "ru": "Какой красивый парк!"},
+        {"who": "npc", "es": "Vengo qui ogni giorno. Gioco a bocce con gli amici.", "ru": "Прихожу сюда каждый день. Играю в бочче с друзьями."},
+        {"who": "hero", "es": "È il suo cane?", "ru": "Это ваша собака?"},
+        {"who": "npc", "es": "No, è del vicino. Siediti. Cerchi la mappa, vero?", "ru": "Нет, соседская. Садись. Ты ищешь карту, верно?"},
+        {"who": "hero", "es": "Lei sa qualcosa della mappa?", "ru": "Вы что-нибудь знаете о карте?"},
+        {"who": "npc", "es": "Da giovane, ho visto tutta la mappa.", "ru": "В молодости я видел карту целиком."},
+        {"who": "hero", "es": "E cosa c'era sulla mappa?", "ru": "И что было на карте?"},
+        {"who": "npc", "es": "Una strada. Esce dalla città, passa vicino al laghetto e va in montagna.", "ru": "Дорога. Она выходит из города, идёт мимо озера и ведёт в горы."},
+        {"who": "hero", "es": "E il Caveau?", "ru": "А Хранилище?"},
+        {"who": "npc", "es": "È dietro le montagne, molto lontano. Ma la strada comincia qui, nel parco.", "ru": "Оно за горами, очень далеко. Но дорога начинается здесь, в парке."}
+      ],
+      "questions": [
+        {"q": "Что Джино делает каждый день?", "options": ["Бегает по парку", "Играет в бочче с друзьями", "Читает газету"], "answer": 1},
+        {"q": "Чья это собака?", "options": ["Джино", "Соседа", "Героя"], "answer": 1},
+        {"q": "Что Джино видел в молодости?", "options": ["Карту целиком", "Хранилище", "Озеро без воды"], "answer": 0},
+        {"q": "Куда ведёт дорога на карте?", "options": ["К морю", "В аэропорт", "Мимо озера в горы"], "answer": 2}
+      ],
+      "gloss": {"eh": "а", "bocce": "бочче (игра в шары)", "caveau": "Хранилище", "lontano": "далеко"}
+    }
+  ]
+}

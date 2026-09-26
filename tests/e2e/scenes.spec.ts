@@ -1,4 +1,4 @@
-import { readFileSync } from 'node:fs';
+import { readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { expect, test } from '@playwright/test';
 import { LANGS, openApp } from './fixtures';
@@ -51,6 +51,26 @@ for (const lang of LANGS) {
       await expect(page.getByTestId('scene-result')).toContainText(`Понято: ${scene.questions.length} из ${scene.questions.length}`);
       await page.getByRole('button', { name: 'Готово' }).click();
       await expect(page).toHaveURL(/#\/loc\/cafe$/);
+    });
+
+    test('сцены главы I всех мест: реплики по порядку и все ответы верные', async ({ page }) => {
+      test.setTimeout(120_000);
+      await openApp(page, lang);
+      for (const file of readdirSync(join(CONTENT, lang, 'scenes')).filter((f) => f.endsWith('.json'))) {
+        const place = file.replace(/\.json$/, '');
+        const sc = JSON.parse(readFileSync(join(CONTENT, lang, 'scenes', file), 'utf8')).scenes[0] as typeof scene;
+        await page.goto(`./#/scene/sc%3A${place}.1`);
+        for (let i = 0; i < sc.lines.length; i++) {
+          await expect(page.getByTestId('scene-current'), place).toContainText(sc.lines[i].es);
+          await page.getByTestId('scene-next').click();
+        }
+        for (const q of sc.questions) {
+          await expect(page.getByTestId('scene-question')).toHaveText(q.q);
+          await page.getByRole('button', { name: q.options[q.answer], exact: true }).click();
+          await page.getByRole('button', { name: /дальше|итог/i }).click();
+        }
+        await expect(page.getByTestId('scene-result'), place).toContainText(`Понято: ${sc.questions.length} из ${sc.questions.length}`);
+      }
     });
   });
 }

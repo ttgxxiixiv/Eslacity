@@ -33,6 +33,11 @@ const MODE_LABEL: Record<MissionMode, string> = { choose: 'выбор фразы
  */
 export function MissionScreen() {
   const id = decodeURIComponent(useParams().id ?? '');
+  // Своё состояние у каждой миссии: переход с одной миссии на другую начинает её заново.
+  return <MissionById key={id} id={id} />;
+}
+
+function MissionById({ id }: { id: string }) {
   const place = placeOfMission(id);
   const nav = useNavigate();
   const npc = npcFor(place);

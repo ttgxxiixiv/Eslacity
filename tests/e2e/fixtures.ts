@@ -316,6 +316,14 @@ export async function playPhrases(page: Page, lang: Lang, place: string, done: R
   throw new Error('Фразы не закончились');
 }
 
+/** id всех сюжетных миссий языка из контента. */
+export function missionIdsOf(lang: Lang): string[] {
+  const dir = join(CONTENT, lang, 'missions');
+  return readdirSync(dir)
+    .filter((f) => f.endsWith('.json'))
+    .flatMap((f) => (JSON.parse(readFileSync(join(dir, f), 'utf8')).missions as { id: string }[]).map((m) => m.id));
+}
+
 /** Отметить сюжетные миссии пройденными (без перезагрузки: следующий seed или reload её сделает). */
 export async function seedMissionsDone(page: Page, lang: Lang, ids: string[]) {
   await page.evaluate(

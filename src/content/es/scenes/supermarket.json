@@ -1,0 +1,30 @@
+{
+  "location": "supermarket",
+  "scenes": [
+    {
+      "id": "sc:supermarket.1",
+      "chapter": 1,
+      "npc": "javi",
+      "lines": [
+        {"who": "npc", "es": "Buenos días. ¿Tienes la tarjeta de la tienda?", "ru": "Доброе утро. У тебя есть карта магазина?"},
+        {"who": "hero", "es": "No. ¿Dónde está el pan?", "ru": "Нет. Где хлеб?"},
+        {"who": "npc", "es": "Cerca de la leche. Hoy el pan está de oferta.", "ru": "Рядом с молоком. Сегодня на хлеб скидка."},
+        {"who": "hero", "es": "¡Qué bien! ¿Y dónde están los huevos?", "ru": "Отлично! А где яйца?"},
+        {"who": "npc", "es": "En el pasillo tres. Oye, tú eres el viajero del mapa, ¿no?", "ru": "В третьем ряду. Слушай, ты тот путешественник с картой, да?"},
+        {"who": "hero", "es": "Busco los trozos del mapa.", "ru": "Я ищу обрывки карты."},
+        {"who": "npc", "es": "Mi madre dice que el mapa lleva a la Bóveda del Elixir.", "ru": "Моя мама говорит, что карта ведёт к Хранилищу Эликсира."},
+        {"who": "hero", "es": "¿Y tú qué piensas?", "ru": "А ты что думаешь?"},
+        {"who": "npc", "es": "Que es un cuento para niños. Y tengo un trozo aquí, en la caja.", "ru": "Что это сказка для детей. А обрывок у меня есть, здесь, в кассе."},
+        {"who": "hero", "es": "¿Me lo das?", "ru": "Отдашь мне?"},
+        {"who": "npc", "es": "Antes, compra algo. Aquí nada es gratis.", "ru": "Сначала купи что-нибудь. Здесь ничего не бывает бесплатно."}
+      ],
+      "questions": [
+        {"q": "Где хлеб?", "options": ["Рядом с молоком", "В третьем ряду", "У кассы"], "answer": 0},
+        {"q": "Что говорит мама Хави?", "options": ["Что карта ведёт к Хранилищу Эликсира", "Что карта потерялась", "Что карты никогда не было"], "answer": 0},
+        {"q": "Что думает сам Хави?", "options": ["Что Хранилище совсем рядом", "Что это сказка для детей", "Что карта у мамы"], "answer": 1},
+        {"q": "Где обрывок Хави?", "options": ["Дома", "В кассе", "В третьем ряду"], "answer": 1}
+      ],
+      "gloss": {"trozo": "обрывок", "trozos": "обрывки", "bóveda": "Хранилище", "elixir": "Эликсир", "gratis": "бесплатно"}
+    }
+  ]
+}

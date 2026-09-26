@@ -1,0 +1,30 @@
+{
+  "location": "restaurant",
+  "scenes": [
+    {
+      "id": "sc:restaurant.1",
+      "chapter": 1,
+      "npc": "salvatore",
+      "lines": [
+        {"who": "npc", "es": "Benvenuto! Oggi c'è la pasta fresca. Un tavolo per uno?", "ru": "Добро пожаловать! Сегодня свежая паста. Столик на одного?"},
+        {"who": "hero", "es": "Un tavolo, per favore.", "ru": "Столик, пожалуйста."},
+        {"who": "npc", "es": "Qui, vicino alla finestra. Cosa vuoi mangiare?", "ru": "Сюда, у окна. Что будешь есть?"},
+        {"who": "hero", "es": "Cosa mi consiglia?", "ru": "Что вы посоветуете?"},
+        {"who": "npc", "es": "La pasta! Mia madre faceva questa pasta.", "ru": "Пасту! Моя мама готовила эту пасту."},
+        {"who": "hero", "es": "Anche sua madre era cuoca?", "ru": "Ваша мама тоже была поварихой?"},
+        {"who": "npc", "es": "Sì, e molto buona. Un giorno ha cucinato per un viaggiatore della mappa, come te.", "ru": "Да, и очень хорошей. Однажды она готовила для путешественника с картой, как ты."},
+        {"who": "hero", "es": "E il viaggiatore ha trovato il Caveau?", "ru": "И путешественник нашёл Хранилище?"},
+        {"who": "npc", "es": "No. Non parlava italiano, e nessuno gli ha dato il suo pezzo.", "ru": "Нет. Он не говорил по-итальянски, и никто не отдал ему свой обрывок."},
+        {"who": "hero", "es": "Io parlo italiano.", "ru": "А я говорю по-итальянски."},
+        {"who": "npc", "es": "Lo vedo. E adesso, mangia! Voglio vedere il piatto pulito.", "ru": "Вижу. А теперь — ешь! Хочу видеть тарелку чистой."}
+      ],
+      "questions": [
+        {"q": "Где садится герой?", "options": ["У окна", "На террасе", "На кухне"], "answer": 0},
+        {"q": "Что советует Сальваторе?", "options": ["Суп", "Пасту", "Рыбу"], "answer": 1},
+        {"q": "Кем была мама Сальваторе?", "options": ["Поварихой", "Рыбачкой", "Врачом"], "answer": 0},
+        {"q": "Почему прежний путешественник не получил обрывки?", "options": ["Потерял карту", "Не заплатил за обед", "Не говорил по-итальянски"], "answer": 2}
+      ],
+      "gloss": {"pezzo": "обрывок", "caveau": "Хранилище"}
+    }
+  ]
+}

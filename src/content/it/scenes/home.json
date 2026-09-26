@@ -1,0 +1,30 @@
+{
+  "location": "home",
+  "scenes": [
+    {
+      "id": "sc:home.1",
+      "chapter": 1,
+      "npc": "franca",
+      "lines": [
+        {"who": "npc", "es": "Ah, sei tu! Hai già mangiato?", "ru": "А, это ты! Ты уже ел?"},
+        {"who": "hero", "es": "No, non ancora.", "ru": "Нет, ещё нет."},
+        {"who": "npc", "es": "Entra, entra! Qui c'è la cucina. C'è la zuppa.", "ru": "Заходи, заходи! Вот кухня. Есть суп."},
+        {"who": "hero", "es": "Grazie. La sua casa è molto bella.", "ru": "Спасибо. У вас очень красивый дом."},
+        {"who": "npc", "es": "È piccola: due stanze, la cucina e il bagno.", "ru": "Он маленький: две комнаты, кухня и ванная."},
+        {"who": "hero", "es": "Lei sa qualcosa della mappa?", "ru": "Вы что-нибудь знаете о карте?"},
+        {"who": "npc", "es": "Il mio pezzo è qui, nel libro della cucina.", "ru": "Мой обрывок здесь, в кухонной книге."},
+        {"who": "hero", "es": "Perché la mappa è in pezzi?", "ru": "Почему карта разорвана на обрывки?"},
+        {"who": "npc", "es": "Tanti anni fa, la gente litigava per la mappa. Per questo ogni casa ha un pezzo.", "ru": "Много лет назад люди ссорились из-за карты. Поэтому у каждого дома по обрывку."},
+        {"who": "hero", "es": "E adesso?", "ru": "А теперь?"},
+        {"who": "npc", "es": "Adesso la mappa è per chi parla con ogni vicino. Mangia, mangia!", "ru": "Теперь карта достанется тому, кто поговорит с каждым соседом. Ешь, ешь!"}
+      ],
+      "questions": [
+        {"q": "Чем Франка угощает героя?", "options": ["Супом", "Фриттатой", "Кофе"], "answer": 0},
+        {"q": "Сколько комнат в доме Франки?", "options": ["Одна", "Две", "Три"], "answer": 1},
+        {"q": "Где лежит обрывок Франки?", "options": ["В ванной", "У соседа", "В книге на кухне"], "answer": 2},
+        {"q": "Почему карту разорвали?", "options": ["Люди ссорились из-за неё", "Её уронили в воду", "Её съела собака"], "answer": 0}
+      ],
+      "gloss": {"ah": "а", "pezzo": "обрывок", "pezzi": "обрывки", "litigava": "ссорились"}
+    }
+  ]
+}

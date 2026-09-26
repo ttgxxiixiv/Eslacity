@@ -266,6 +266,10 @@ describe('validateScenes', () => {
   it('лишнее слово в gloss — предупреждение', () => {
     expect(run(scene({ gloss: { adiós: 'пока' } })).issues[0].msg).toMatch(/слова "adiós" из gloss нет/);
   });
+  it('слово после апострофа элизии есть в репликах, как на экране сцены', () => {
+    const lines = [{ who: 'npc', es: "La mappa porta al Caveau dell'Elisir.", ru: 'Карта ведёт к Хранилищу Эликсира.' }, { who: 'hero', es: 'Sì.', ru: 'Да.' }];
+    expect(run(scene({ lines, gloss: { elisir: 'Эликсир', "dell'": 'из' } })).issues).toEqual([]);
+  });
 });
 
 describe('validateMissions', () => {

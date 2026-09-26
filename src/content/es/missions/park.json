@@ -1,0 +1,25 @@
+{
+  "location": "park",
+  "missions": [
+    {
+      "id": "ms:park.1",
+      "chapter": 1,
+      "npc": "manolo",
+      "scene": "sc:park.1",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Buenos días, joven. Hoy vemos dónde empieza el camino del mapa. ¿Vienes?", "ru": "Доброе утро, молодой человек. Сегодня посмотрим, где начинается дорога с карты. Идёшь?", "next": "walk"},
+        "walk": {"kind": "answer", "task": "Предложите погулять по парку.", "branches": [{"phrase": "ph:park.vamos-pasear-parque", "next": "walksay"}], "wrong": {"es": "¿Vamos a nadar? ¡Con mis años, no!", "ru": "Пойдём плавать? В мои годы — нет!"}},
+        "walksay": {"kind": "say", "es": "Vamos. Despacio, mis piernas son viejas.", "ru": "Идём. Только медленно, ноги у меня старые.", "next": "sun"},
+        "sun": {"kind": "answer", "task": "Скажите, что очень солнечно, и предложите пойти в тень.", "branches": [{"phrase": "ph:park.hay-mucho-sol", "next": "sunsay"}], "wrong": {"es": "¿Hay mucha nieve? ¡Joven, estamos en verano!", "ru": "Много снега? Молодой человек, сейчас лето!"}},
+        "sunsay": {"kind": "say", "es": "Muy bien, a la sombra. ¿Tienes sed?", "ru": "Хорошо, в тень. Хочешь пить?", "next": "fountain"},
+        "fountain": {"kind": "answer", "task": "Спросите, есть ли здесь фонтанчик.", "branches": [{"phrase": "ph:park.hay-fuente-aqui", "next": "fountsay"}], "wrong": {"es": "¿Hay un tren aquí? No, joven, esto es un parque.", "ru": "Здесь есть поезд? Нет, молодой человек, это парк."}},
+        "fountsay": {"kind": "say", "es": "Allí, cerca del árbol grande. Ahora, al lago.", "ru": "Вон там, у большого дерева. А теперь к озеру.", "next": "path"},
+        "path": {"kind": "answer", "task": "Спросите, ведёт ли эта тропинка к озеру.", "branches": [{"phrase": "ph:park.este-camino-va", "next": "pathsay"}], "wrong": {"es": "¿Este camino va al aeropuerto? ¡No, no, al lago!", "ru": "Эта тропинка ведёт в аэропорт? Нет-нет, к озеру!"}},
+        "pathsay": {"kind": "say", "es": "Mira: el lago. Aquí empieza el camino del mapa.", "ru": "Смотри: озеро. Здесь начинается дорога с карты.", "next": "nice"},
+        "nice": {"kind": "answer", "task": "Скажите, какой красивый парк или как здесь спокойно.", "branches": [{"phrase": "ph:park.bonito-parque", "next": "end"}, {"phrase": "ph:park.aqui-se-esta", "next": "end"}], "wrong": {"es": "¿Malo? ¡Joven, este es el parque más bonito de la ciudad!", "ru": "Плохой? Молодой человек, это самый красивый парк в городе!"}},
+        "end": {"kind": "say", "es": "Tienes razón. Toma, mi trozo del mapa. El camino va a las montañas. Yo soy viejo, y tú eres joven. ¡Buen viaje!", "ru": "Ты прав. Держи мой обрывок карты. Дорога идёт в горы. Я старый, а ты молодой. Счастливого пути!"}
+      }
+    }
+  ]
+}

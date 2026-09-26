@@ -1,7 +1,7 @@
 import { readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { expect, test, type Page } from '@playwright/test';
-import { DB, LANGS, openApp, readMeta, scrollIdsOf, seedDueCards, seedMissionsDone, wordIdsOf, type Lang } from './fixtures';
+import { DB, LANGS, missionIdsOf, openApp, readMeta, scrollIdsOf, seedDueCards, seedMissionsDone, wordIdsOf, type Lang } from './fixtures';
 
 const CONTENT = join(import.meta.dirname, '..', '..', 'src', 'content');
 /** id уроков района: папка a2 → a2.<файл>. */
@@ -112,7 +112,7 @@ for (const lang of LANGS) {
 
     test('карта главы I собрана: сцена перехода один раз и титул Странник', async ({ page }) => {
       await openApp(page, lang);
-      await seedMissionsDone(page, lang, ['ms:cafe.1']);
+      await seedMissionsDone(page, lang, missionIdsOf(lang));
       await expect(page.getByTestId('chapter-scene')).toHaveCount(0);
       await page.goto('./#/profile');
       await expect(page.getByTestId('hero-title')).toHaveText('Путник');

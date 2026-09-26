@@ -1,0 +1,30 @@
+{
+  "location": "home",
+  "scenes": [
+    {
+      "id": "sc:home.1",
+      "chapter": 1,
+      "npc": "pilar",
+      "lines": [
+        {"who": "npc", "es": "¡Buenos días! ¿Ya has comido?", "ru": "Доброе утро! Ты уже ел?"},
+        {"who": "hero", "es": "No, todavía no.", "ru": "Нет, ещё нет."},
+        {"who": "npc", "es": "¡Pasa, pasa! Aquí está la cocina. Hay sopa.", "ru": "Заходи, заходи! Вот кухня. Есть суп."},
+        {"who": "hero", "es": "Gracias. Su casa es muy bonita.", "ru": "Спасибо. У вас очень красивый дом."},
+        {"who": "npc", "es": "Es pequeña: dos habitaciones, la cocina y el baño.", "ru": "Он маленький: две комнаты, кухня и ванная."},
+        {"who": "hero", "es": "Señora, ¿usted sabe algo del mapa?", "ru": "Сеньора, вы что-нибудь знаете о карте?"},
+        {"who": "npc", "es": "Mi trozo está aquí, en el libro de la cocina.", "ru": "Мой обрывок здесь, в кухонной книге."},
+        {"who": "hero", "es": "¿Por qué el mapa está en trozos?", "ru": "Почему карта разорвана на обрывки?"},
+        {"who": "npc", "es": "Hace muchos años, la gente se peleaba por el mapa. Por eso cada casa tiene un trozo.", "ru": "Много лет назад люди ссорились из-за карты. Поэтому у каждого дома по обрывку."},
+        {"who": "hero", "es": "¿Y ahora?", "ru": "А теперь?"},
+        {"who": "npc", "es": "Ahora el mapa es para quien habla con cada vecino. ¡Come, come!", "ru": "Теперь карта достанется тому, кто поговорит с каждым соседом. Ешь, ешь!"}
+      ],
+      "questions": [
+        {"q": "Чем Пилар угощает героя?", "options": ["Супом", "Тортильей", "Кофе"], "answer": 0},
+        {"q": "Сколько комнат в доме Пилар?", "options": ["Одна", "Две", "Три"], "answer": 1},
+        {"q": "Где лежит обрывок Пилар?", "options": ["В ванной", "У соседа", "В книге на кухне"], "answer": 2},
+        {"q": "Почему карту разорвали?", "options": ["Люди ссорились из-за неё", "Её уронили в воду", "Её съела собака"], "answer": 0}
+      ],
+      "gloss": {"trozo": "обрывок", "trozos": "обрывки", "peleaba": "ссорились"}
+    }
+  ]
+}
