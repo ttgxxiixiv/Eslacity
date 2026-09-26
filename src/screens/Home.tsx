@@ -3,15 +3,17 @@ import { Link } from 'react-router-dom';
 import { cachedLocation, loadLocation } from '../content';
 import { DISTRICTS, lessonsOf } from '../content/grammar';
 import { LOCATION_BY_ID, LOCATIONS } from '../content/locations';
-import type { LocationId, Word } from '../content/schema';
-import { type NextStep, nextStep, recentLocation } from '../domain/next';
+import type { LocationId, Npc, Word } from '../content/schema';
+import { type NextStep, nextStepWithLimit, recentLocation } from '../domain/next';
 import { chapterById, chapterOfLevel, isDistrictOpen, isLevelOpen, nearestGoal } from '../domain/chapters';
 import { plural } from '../domain/medals';
 import { discountedCost } from '../domain/reputation';
 import { useErrands } from '../store/errands';
 import { NPC_BY_LOCATION } from '../content/npcs';
+import { NpcPortrait } from '../components/NpcPortrait';
+import { useSettings } from '../store/settings';
 import { currentJourney, useJourney } from '../store/journey';
-import { dueCards } from '../domain/srs';
+import { dayKey, dueCards } from '../domain/srs';
 import { splitCards, wordIds } from '../domain/itemId';
 import { useNow } from '../lib/useNow';
 import { CityGrid } from '../components/CityGrid';
@@ -67,6 +69,41 @@ function ContinueCard({ step }: { step: NextStep }) {
       </div>
     );
   }
+  if (step.kind === 'errands') {
+    const sub =
+      step.reason === 'limit'
+        ? `Новых слов на сегодня хватит. Жители просят помочь вспомнить: ${step.due} ${plural(step.due, ['слово', 'слова', 'слов'])}`
+        : `Накопилось ${step.due} ${plural(step.due, ['слово', 'слова', 'слов'])} к повтору — сначала помогите жителям`;
+    const then = step.then.kind === 'learn' ? step.then : null;
+    return (
+      <div>
+        <Link
+          to="/errands"
+          data-testid="continue"
+          data-kind="errands"
+          className="press flex items-center justify-between gap-3 rounded-xl bg-brand px-5 py-4 text-white shadow-md"
+        >
+          <div className="min-w-0">
+            <div className="font-pixel text-xs tracking-widest text-gold uppercase">Текущий квест</div>
+            <div className="font-pixel text-2xl font-bold">Поручения</div>
+            <div className="text-sm opacity-90">{sub}</div>
+          </div>
+          <div className="bob font-pixel text-3xl text-gold" aria-hidden>
+            ▶
+          </div>
+        </Link>
+        {then && (
+          <Link
+            to={`/learn/${then.loc}/${then.level}/${then.part}`}
+            className="mt-1 block text-center text-sm text-stone-500 underline"
+            data-testid="learn-anyway"
+          >
+            Всё равно учить новые слова
+          </Link>
+        )}
+      </div>
+    );
+  }
   if (step.kind === 'done') {
     return (
       <div className="rounded-3xl bg-white px-5 py-4 shadow-sm">
@@ -78,10 +115,19 @@ function ContinueCard({ step }: { step: NextStep }) {
   const meta = LOCATION_BY_ID[step.loc];
   let to: string;
   let sub: string;
+  let npc: Npc | undefined;
+  let label = 'Текущий квест';
   if (step.kind === 'learn') {
     to = `/learn/${step.loc}/${step.level}/${step.part}`;
     sub = `${meta.emoji} ${meta.ru} · уровень ${step.level} · урок ${step.part + 1}`;
-    if (step.newWords) sub += ` · ${step.newWords} ${newWordsLabel(step.newWords)}`;
+    if (step.newWords) {
+      // Урок новых слов — просьба жителя места.
+      npc = NPC_BY_LOCATION[step.loc];
+      if (npc) {
+        label = `Просьба: ${npc.name}`;
+        sub = `Выучить ${step.newWords} ${newWordsLabel(step.newWords)} · ${meta.emoji} ${meta.ru}, урок ${step.part + 1}`;
+      } else sub += ` · ${step.newWords} ${newWordsLabel(step.newWords)}`;
+    }
   } else {
     to = `/loc/${step.loc}`;
     const what = step.kind === 'upgrade' ? `улучшить до уровня ${step.toLevel}` : 'открыть';
@@ -94,8 +140,9 @@ function ContinueCard({ step }: { step: NextStep }) {
       data-testid="continue"
       className="press flex items-center justify-between gap-3 rounded-xl bg-brand px-5 py-4 text-white shadow-md"
     >
-      <div className="min-w-0">
-        <div className="font-pixel text-xs tracking-widest text-gold uppercase">Текущий квест</div>
+      {npc && <NpcPortrait look={npc.look} size={54} className="-my-1" />}
+      <div className="min-w-0 flex-1">
+        <div className="font-pixel text-xs tracking-widest text-gold uppercase">{label}</div>
         <div className="font-pixel text-2xl font-bold">Продолжить</div>
         <div className="text-sm opacity-90">{sub}</div>
       </div>
@@ -168,16 +215,20 @@ export function Home() {
     [buildings],
   );
   const words = useOpenWords(open);
+  const day = useProgress((s) => s.day);
+  const newPerDay = useSettings((s) => s.newPerDay);
+  const dueCount = useMemo(() => dueCards(Object.values(cards), Date.now()).length, [cards]);
   const step = useMemo(() => {
     if (!words) return null;
     const levels = Object.fromEntries(open.map((id) => [id, buildings[id]!.level]));
-    return nextStep({
+    return nextStepWithLimit({
       locations: LOCATIONS, levels, words, cards, coins, recent: recentLocation(cards),
       isLevelOpen: (l) => isLevelOpen(l, opened),
       chapterOf: (l) => chapterOfLevel(l)?.id ?? 99,
       discount: (loc, cost) => discountedCost(cost, rep[NPC_BY_LOCATION[loc]?.id ?? ''] ?? 0),
+      limit: { newToday: day.date === dayKey(Date.now()) ? day.newWords : 0, perDay: newPerDay, due: dueCount },
     });
-  }, [words, open, buildings, cards, coins, opened, rep]);
+  }, [words, open, buildings, cards, coins, opened, rep, day, newPerDay, dueCount]);
 
   const nextGrammar = useMemo(() => {
     for (const d of DISTRICTS) {

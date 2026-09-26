@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import type { LocationMeta, Word } from '../content/schema';
-import { nextStep, recentLocation } from './next';
+import { nextStep, nextStepWithLimit, recentLocation } from './next';
 
 const locs: LocationMeta[] = [
   { id: 'cafe', ru: 'Кафе', emoji: '☕', unlockCost: 0 },
@@ -98,5 +98,28 @@ describe('«Продолжить» и скидка жителя', () => {
       discount: (_, c) => Math.round(c * 0.9),
     });
     expect(s).toEqual({ kind: 'upgrade', loc: 'cafe', toLevel: 2, cost: 72, missing: 42 });
+  });
+});
+
+describe('дневной лимит новых слов', () => {
+  const cafe = words('cafe', 3);
+  const base = { locations: locs, levels: { cafe: 1 }, words: { cafe }, cards: {}, coins: 0 };
+  it('лимит не набран, повторов немного — урок', () => {
+    expect(nextStepWithLimit({ ...base, limit: { newToday: 5, perDay: 10, due: 20 } })).toMatchObject({ kind: 'learn' });
+  });
+  it('новых сегодня уже по лимиту — сначала поручения, урок в запасе', () => {
+    const s = nextStepWithLimit({ ...base, limit: { newToday: 10, perDay: 10, due: 3 } });
+    expect(s).toMatchObject({ kind: 'errands', reason: 'limit', due: 3, then: { kind: 'learn', loc: 'cafe' } });
+  });
+  it('лимит набран, но повторять нечего — урок', () => {
+    expect(nextStepWithLimit({ ...base, limit: { newToday: 10, perDay: 10, due: 0 } })).toMatchObject({ kind: 'learn' });
+  });
+  it('к повтору больше лимита × 5 — сначала поручения', () => {
+    expect(nextStepWithLimit({ ...base, limit: { newToday: 0, perDay: 10, due: 51 } })).toMatchObject({ kind: 'errands', reason: 'backlog' });
+    expect(nextStepWithLimit({ ...base, limit: { newToday: 0, perDay: 10, due: 50 } })).toMatchObject({ kind: 'learn' });
+  });
+  it('не урок новых слов — лимит не мешает', () => {
+    const learned = learn(cafe.slice(0, 10));
+    expect(nextStepWithLimit({ ...base, cards: learned, coins: 500, limit: { newToday: 99, perDay: 5, due: 999 } })).toMatchObject({ kind: 'upgrade' });
   });
 });

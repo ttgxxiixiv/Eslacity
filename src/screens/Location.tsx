@@ -13,6 +13,7 @@ import { NPC_BY_LOCATION } from '../content/npcs';
 import { NpcCard } from '../components/NpcCard';
 import { useErrands } from '../store/errands';
 import { discountedCost } from '../domain/reputation';
+import { plural } from '../domain/medals';
 import { dayNumber } from '../domain/srs';
 import { useCity } from '../store/city';
 import { useProgress } from '../store/progress';
@@ -136,6 +137,7 @@ export function LocationScreen() {
 
             const parts = lessonParts(lw);
             const done = isLearned(lw, cards);
+            const fresh = lw.filter((w) => !(w.id in cards)).length;
             return (
               <section key={lvl} className="rounded-3xl bg-white p-4 shadow-sm">
                 <div className="flex items-center justify-between">
@@ -144,6 +146,11 @@ export function LocationScreen() {
                     {learnedCount(lw, cards)}/{lw.length} слов
                   </span>
                 </div>
+                {fresh > 0 && npc && (
+                  <p className="mt-1 text-sm text-amber-700" data-testid="learn-request">
+                    {npc.name} просит выучить {fresh} {plural(fresh, ['новое слово', 'новых слова', 'новых слов'])}
+                  </p>
+                )}
                 <div className="mt-3 grid grid-cols-2 gap-2">
                   {parts.map((p, i) => {
                     const pDone = isLearned(p, cards);

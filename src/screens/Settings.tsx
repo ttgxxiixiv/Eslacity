@@ -10,6 +10,7 @@ import { Button, Screen, TopBar } from '../components/ui';
 import { AboutApp } from '../components/AboutApp';
 
 const GOALS: Settings['dailyGoal'][] = [50, 100, 150, 250];
+const NEW_PER_DAY: Settings['newPerDay'][] = [5, 10, 15, 20];
 
 const SAMPLE: Record<Lang, string> = {
   es: '¡Hola! ¿Qué tal? Un café con leche, por favor.',
@@ -17,7 +18,7 @@ const SAMPLE: Record<Lang, string> = {
 };
 
 export function SettingsScreen() {
-  const { speechRate, dailyGoal, listenOffUntil, update } = useSettings();
+  const { speechRate, dailyGoal, listenOffUntil, newPerDay, update } = useSettings();
   const listenOn = listenOffUntil <= Date.now();
   const pausedHour = !listenOn && listenOffUntil < Number.MAX_SAFE_INTEGER;
   const [voiceName, setVoiceName] = useState(() => currentVoice()?.name);
@@ -71,6 +72,28 @@ export function SettingsScreen() {
             ))}
           </div>
           <p className="mt-2 text-sm text-stone-500">XP в день</p>
+        </section>
+
+        <section className="rounded-3xl bg-white p-4 shadow-sm" data-testid="new-per-day">
+          <h2 className="font-bold">Новые слова в день</h2>
+          <div className="mt-3 grid grid-cols-4 gap-2">
+            {NEW_PER_DAY.map((n) => (
+              <button
+                key={n}
+                type="button"
+                aria-pressed={newPerDay === n}
+                onClick={() => update({ newPerDay: n })}
+                className={`press rounded-xl border-2 py-2.5 font-semibold ${
+                  newPerDay === n ? 'border-brand bg-orange-50 text-brand' : 'border-stone-200'
+                }`}
+              >
+                {n}
+              </button>
+            ))}
+          </div>
+          <p className="mt-2 text-sm text-stone-500">
+            Столько новых слов в день просят жители. Это мягкий лимит: учить дальше в городе можно всегда, просто «Продолжить» сначала позовёт на поручения.
+          </p>
         </section>
 
         <section className="rounded-3xl bg-white p-4 shadow-sm">

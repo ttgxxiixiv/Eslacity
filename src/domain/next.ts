@@ -9,6 +9,11 @@ export type NextStep =
   | { kind: 'unlock'; loc: LocationId; cost: number; missing: number }
   /** Всё открытое пройдено, дальше нужна следующая глава: сначала собрать карту текущей. */
   | { kind: 'chapter'; next: number }
+  /**
+   * Сначала поручения: новых слов на сегодня уже достаточно (`limit`) или к повтору накопилось слишком много
+   * (`backlog`). Урок, который был бы следующим, лежит в `then`: учить дальше можно.
+   */
+  | { kind: 'errands'; reason: 'limit' | 'backlog'; due: number; then: NextStep }
   | { kind: 'done' };
 
 export interface NextInput {
@@ -28,6 +33,23 @@ export interface NextInput {
   chapterOf?: (level: number) => number;
   /** Цена улучшения с учётом скидки жителя места. По умолчанию без скидки. */
   discount?: (loc: LocationId, cost: number) => number;
+  /** Дневной лимит новых слов: выучено сегодня, лимит и сколько карточек ждут повтора. Без него лимита нет. */
+  limit?: { newToday: number; perDay: number; due: number };
+}
+
+/**
+ * Ближайший шаг с дневным лимитом новых слов (задача 3.7): если следующий шаг — урок с новыми словами,
+ * а новых сегодня уже `perDay` (и есть что повторить) или к повтору больше `perDay × 5` карточек, первыми
+ * предлагаются поручения.
+ */
+export function nextStepWithLimit(input: NextInput): NextStep {
+  const step = nextStep(input);
+  const l = input.limit;
+  if (!l || step.kind !== 'learn' || step.newWords === 0) return step;
+  if (l.due > l.perDay * 5) return { kind: 'errands', reason: 'backlog', due: l.due, then: step };
+  // Лимит зовёт на поручения, только если есть что повторить: иначе он просто не мешает учить.
+  if (l.newToday >= l.perDay && l.due > 0) return { kind: 'errands', reason: 'limit', due: l.due, then: step };
+  return step;
 }
 
 /**
