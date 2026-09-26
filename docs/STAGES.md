@@ -681,3 +681,15 @@
 - После пачки фразы перечитаны, исправлены: «¿Me puede afeitar?» вместо избыточного «¿Me afeita la barba?», «¿Vamos al paseo marítimo?» вместо повтора «paseo por el paseo», «Resto sulla riva».
 
 Проверено: валидатор без ошибок и предупреждений, юнит-тесты коротких глаголов и местоимений, тест полноты фраз покрывает 15 мест обоих языков.
+
+## Версия 2.24.0. Фразы мест, пачка 4
+
+Задача 4.2 из `docs/ROADMAP.md`, последняя пачка: офис, отель, больница, аэропорт, полиция. Задача закрыта: у всех 20 мест по 5 фраз на каждый уровень 1–5, 500 фраз на язык.
+
+- Офис: совещания, отчёты, отпуск, зарплата («Tengo una reunión a las diez», «Ti allego il file», «Quiero negociar el sueldo»). Отель: номер, жалобы, условия («¿El desayuno está incluido?», «L'aria condizionata non funziona», «¿Cuál es la política de cancelación?»). Больница: симптомы, травмы, лечение («Creo que tengo el brazo roto», «Quando posso togliere il gesso?», «¿Es contagioso?»). Аэропорт: регистрация, багаж, пересадка («¿Dónde puedo facturar la maleta?», «La mia valigia non è arrivata», «Estoy en tránsito»). Полиция: кража, авария, документы («Me han robado la cartera», «Vorrei denunciare un furto», «Dove posso prendere la residenza?»).
+- Где говорящий называет свой род, дан второй вариант: «Mi sono tagliata il dito», «Sono stata investita».
+- Местные реалии, где они различаются: NIE и codice fiscale, empadronarse и prendere la residenza, casa rural и agriturismo — у каждого языка свой перевод.
+- Проверка покрытия нашла четыре незнакомых слова («otra», «luego», итальянское «metro» при выученном «metropolitana»), фразы переписаны.
+- После пачки фразы перечитаны, исправлены: «¿Está todo incluido?», «Han desviado el vuelo», «Soy testigo» без лишнего «yo», «¡Aquí hay un herido!», перевод «новая карта-ключ» к испанской фразе, где карта именно новая.
+
+Проверено: валидатор без ошибок и предупреждений, тест полноты фраз теперь проверяет все 20 мест обоих языков.
