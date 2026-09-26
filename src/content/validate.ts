@@ -338,6 +338,8 @@ export function validateScrolls(files: { name: string; data: ScrollFile }[], pla
     }
     if (data.words.length > plan.scroll) out.push({ level: 'error', where: name, msg: `${data.words.length} слов, по плану не больше ${plan.scroll}` });
     const prefix = `scroll${data.chapter}.`;
+    // Свиток — один урок-пул: одинаковый перевод делает варианты ответа и «пары» неоднозначными.
+    const ruSeen = new Map<string, string>();
     data.words.forEach((w, i) => {
       const at = `scrolls/${name}#${i} ${w.id ?? '?'}`;
       checkWord(w, at, lang, out);
@@ -350,6 +352,11 @@ export function validateScrolls(files: { name: string; data: ScrollFile }[], pla
       const key = normalize(w.es);
       if (forms.has(key)) out.push({ level: 'error', where: at, msg: `"${w.es}" уже есть: ${forms.get(key)}` });
       forms.set(key, w.id);
+      if (!empty(w.ru)) {
+        const rk = w.ru.trim().toLowerCase();
+        if (ruSeen.has(rk)) out.push({ level: 'warning', where: at, msg: `тот же перевод «${w.ru}», что у ${ruSeen.get(rk)}` });
+        else ruSeen.set(rk, w.id);
+      }
     });
   }
   return out;

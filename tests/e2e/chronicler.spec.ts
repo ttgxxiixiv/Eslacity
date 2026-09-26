@@ -28,7 +28,8 @@ for (const lang of LANGS) {
       await expect(panel.getByTestId('chronicler-lesson')).toContainText('6 новых слов');
 
       await page.getByRole('button', { name: /Печать главы/ }).click();
-      await expect(page.getByTestId('seal-scroll')).toContainText(`осталось выучить ${scroll.length - 6} слов из ${scroll.length}`);
+      await expect(page.getByTestId('seal-scroll')).toContainText(`осталось выучить ${scroll.length - 6} `);
+      await expect(page.getByTestId('seal-scroll')).toContainText(` из ${scroll.length}, их просит Летописец`);
     });
 
     test('поручение Летописца, когда свитку пора повториться', async ({ page }) => {
@@ -64,6 +65,39 @@ for (const lang of LANGS) {
       await expect(page.getByTestId('scroll-count')).toHaveText(`${scroll.length} / ${scroll.length}`);
       await expect(page.getByTestId('chronicler-lesson')).toHaveCount(0);
       await expect(page.getByTestId('chronicler')).toContainText('Свиток выучен');
+    });
+
+    test('глава I уже пройдена: печать остаётся, после свитка I Летописец просит свиток II', async ({ page }) => {
+      await openApp(page, lang);
+      // Как у игрока до свитков: печать главы I получена, открыта глава II.
+      await page.evaluate(
+        (db) =>
+          new Promise<void>((resolve) => {
+            const r = indexedDB.open(db);
+            r.onsuccess = () => {
+              const tx = r.result.transaction('meta', 'readwrite');
+              tx.objectStore('meta').put({ key: 'journey', value: { fragments: {}, seals: { '1': 1 }, openedChapter: 2, celebrated: 1 } });
+              tx.oncomplete = () => resolve();
+            };
+          }),
+        DB[lang],
+      );
+      await page.reload();
+      await expect(page.getByTestId('continue')).toBeVisible();
+      await page.goto('./#/journey-map');
+      // Свиток I появился как доступный, печать не отнята.
+      await expect(page.getByTestId('chronicler')).toContainText('Свиток главы I');
+      await expect(page.getByTestId('scroll-count')).toHaveText(`0 / ${scroll.length}`);
+      expect((await readMeta<{ seals: Record<string, number> }>(page, lang, 'journey'))?.seals).toEqual({ '1': 1 });
+
+      await page.goto('./#/');
+      await seedDueCards(page, lang, scroll);
+      await page.goto('./#/journey-map');
+      const second = scrollIdsOf(lang, 2);
+      await expect(page.getByTestId('chronicler')).toContainText('Свиток главы II');
+      await expect(page.getByTestId('scroll-count')).toHaveText(`0 / ${second.length}`);
+      await page.getByTestId('chronicler-lesson').click();
+      await expect(page).toHaveURL(/#\/learn\/scroll2\/1\/0$/);
     });
   });
 }

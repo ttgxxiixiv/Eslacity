@@ -149,14 +149,21 @@ describe('validateScrolls', () => {
     expect(errs([sw('mapa', { cefr: 'A2' })])).toMatch(/у главы I — A1/);
     expect(errs([sw('mapa')], 1, '2.json')).toMatch(/имя файла/);
   });
+  it('одинаковый перевод внутри свитка — предупреждение', () => {
+    const warns = validateScrolls(scroll([sw('mapa'), sw('plano', { ru: 'mapa' })]), []).filter((x) => x.level === 'warning');
+    expect(warns.map((x) => x.msg).join()).toMatch(/тот же перевод «mapa», что у scroll1\.mapa/);
+  });
   it('слов больше плана — ошибка', () => {
     const many = Array.from({ length: 61 }, (_, i) => sw(`w${i}`));
     expect(errs(many)).toMatch(/61 слов, по плану не больше 60/);
   });
   it('настоящие свитки обоих языков проходят', () => {
     for (const lang of ['es', 'it'] as const) {
-      const data = JSON.parse(readFileSync(join(import.meta.dirname, lang, 'scrolls', '1.json'), 'utf8')) as ScrollFile;
-      expect(validateScrolls([{ name: '1.json', data }], [], lang)).toEqual([]);
+      for (const ch of [1, 2]) {
+        const data = JSON.parse(readFileSync(join(import.meta.dirname, lang, 'scrolls', `${ch}.json`), 'utf8')) as ScrollFile;
+        expect(validateScrolls([{ name: `${ch}.json`, data }], [], lang)).toEqual([]);
+        expect(data.words).toHaveLength(ch === 1 ? 60 : 100);
+      }
     }
   });
 });
