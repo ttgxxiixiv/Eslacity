@@ -70,3 +70,15 @@ describe('открытая глава', () => {
     expect(useJourney.getState().opened).toBe(1);
   });
 });
+
+describe('сцена перехода', () => {
+  it('отметка о показе сохраняется и не сбрасывается при выдаче обрывков', () => {
+    useJourney.getState().hydrate({ fragments: {}, seals: {}, openedChapter: 1 });
+    expect(useJourney.getState().celebrated).toBe(0);
+    useJourney.getState().celebrate(1);
+    useJourney.getState().celebrate(0);
+    expect(useJourney.getState().celebrated).toBe(1);
+    useJourney.getState().sync(5);
+    expect(useJourney.getState().celebrated).toBe(1);
+  });
+});

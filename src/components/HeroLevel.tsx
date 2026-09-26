@@ -1,16 +1,19 @@
 import { useEffect } from 'react';
 import { heroLevel } from '../domain/heroLevel';
 import { useProgress } from '../store/progress';
+import { useHeroTitle } from '../store/journey';
 
 /** Уровень в верхней панели: щиток с номером перед дневным опытом. */
 export function LevelBadge() {
   const xpTotal = useProgress((s) => s.xpTotal);
   const { level } = heroLevel(xpTotal);
+  const title = useHeroTitle();
   return (
     <div
+      data-testid="level-badge"
       className="flex h-10 min-w-10 flex-col items-center justify-center rounded-md border-2 border-gold bg-wood-light px-1.5 leading-none shadow-inner"
-      title={`Уровень ${level}`}
-      aria-label={`Уровень ${level}`}
+      title={`${title}, уровень ${level}`}
+      aria-label={`${title}, уровень ${level}`}
     >
       <span className="font-pixel text-[9px] tracking-wider text-gold uppercase">ур.</span>
       <span className="text-base font-bold tabular-nums text-stone-50">{level}</span>
@@ -23,6 +26,7 @@ export function LevelCard() {
   const xpTotal = useProgress((s) => s.xpTotal);
   const { level, into, need } = heroLevel(xpTotal);
   const ratio = need ? into / need : 0;
+  const title = useHeroTitle();
   return (
     <section className="rounded-3xl bg-white p-4 shadow-sm">
       <div className="flex items-baseline justify-between gap-3">
@@ -30,6 +34,9 @@ export function LevelCard() {
           Уровень <span className="font-sans text-lg">{level}</span>
         </h2>
         <span className="text-sm text-stone-500 tabular-nums">всего {xpTotal} XP</span>
+      </div>
+      <div className="text-sm font-semibold text-amber-700" data-testid="hero-title">
+        {title}
       </div>
       <div
         className="mt-3 h-4 overflow-hidden rounded bg-wood p-[2px]"

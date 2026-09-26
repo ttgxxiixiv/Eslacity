@@ -1,3 +1,4 @@
+import { useMemo } from 'react';
 import { create } from 'zustand';
 import { lessonsOf } from '../content/grammar';
 import { LOCATIONS } from '../content/locations';
@@ -5,7 +6,7 @@ import { WORD_LEVELS } from '../content/wordIndex';
 import { db } from '../db/db';
 import { persist } from '../db/persist';
 import {
-  CHAPTERS, EMPTY_JOURNEY, journeyState, newAwards, openedChapter, recordAwards, startedChapter,
+  CHAPTERS, completedChapters, EMPTY_JOURNEY, heroTitle, journeyState, newAwards, openedChapter, recordAwards, startedChapter,
   type ChapterId, type JourneyAward, type JourneyInput, type JourneyRecord, type JourneyState,
 } from '../domain/chapters';
 import { useCity } from './city';
@@ -15,6 +16,8 @@ interface JourneyStore extends JourneyRecord {
   /** Открытая глава: её уровни слов и районы грамматики доступны, следующих — нет. */
   opened: ChapterId;
   hydrate(d: Partial<JourneyRecord> | undefined): void;
+  /** Сцена перехода главы показана: больше не показывать. */
+  celebrate(chapter: number): void;
   /** Записать обрывки и печати, условия которых выполнены. Возвращает только что полученные. */
   sync(now?: number): JourneyAward[];
 }
@@ -40,14 +43,22 @@ export const useJourney = create<JourneyStore>((set, get) => ({
     const rec: JourneyRecord = { fragments: { ...d?.fragments }, seals: { ...d?.seals } };
     // Прогресс до версии 2.7.0: глава не ниже всего, что уже начато, чтобы ничего не закрылось.
     rec.openedChapter = d?.openedChapter ?? startedChapter(startedInput());
+    rec.celebrated = d?.celebrated ?? 0;
     set({ ...rec, opened: rec.openedChapter });
   },
 
+  celebrate(chapter) {
+    if (chapter <= (get().celebrated ?? 0)) return;
+    set({ celebrated: chapter });
+    const rec = record(get());
+    persist(() => db.meta.put({ key: 'journey', value: rec }));
+  },
+
   sync(now = Date.now()) {
-    const { fragments, seals, openedChapter: prev } = get();
+    const { fragments, seals, openedChapter: prev, celebrated } = get();
     const state = journeyState(journeyInput(), { fragments, seals });
     const awards = newAwards(state);
-    const rec = recordAwards({ fragments, seals, openedChapter: prev }, awards, now);
+    const rec = recordAwards({ fragments, seals, openedChapter: prev, celebrated }, awards, now);
     const after = journeyState(journeyInput(), rec);
     rec.openedChapter = openedChapter(prev, after);
     set({ ...rec, opened: rec.openedChapter });
@@ -56,6 +67,18 @@ export const useJourney = create<JourneyStore>((set, get) => ({
     return awards;
   },
 }));
+
+/** Запись пути для сохранения: без функций и производных полей. */
+function record(s: JourneyRecord): JourneyRecord {
+  return { fragments: s.fragments, seals: s.seals, openedChapter: s.openedChapter, celebrated: s.celebrated };
+}
+
+/** Титул героя по собранным картам. Пересчитывается при новых обрывках и печатях. */
+export function useHeroTitle(): string {
+  const fragments = useJourney((s) => s.fragments);
+  const seals = useJourney((s) => s.seals);
+  return useMemo(() => heroTitle(completedChapters(currentJourney())), [fragments, seals]);
+}
 
 /** Что игрок уже начал: для переноса открытой главы. */
 function startedInput() {

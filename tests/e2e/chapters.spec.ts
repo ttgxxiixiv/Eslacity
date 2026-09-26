@@ -84,6 +84,36 @@ for (const lang of LANGS) {
       await expect(page.getByText('Глава ещё закрыта.')).toBeVisible();
     });
 
+    test('карта главы I собрана: сцена перехода один раз и титул Странник', async ({ page }) => {
+      await openApp(page, lang);
+      await expect(page.getByTestId('chapter-scene')).toHaveCount(0);
+      await page.goto('./#/profile');
+      await expect(page.getByTestId('hero-title')).toHaveText('Путник');
+      await page.goto('./#/');
+      const places = ['cafe', 'market', 'supermarket', 'restaurant', 'home', 'park', 'clothes', 'pharmacy', 'school', 'post',
+        'bank', 'barber', 'gym', 'station', 'beach', 'office', 'hotel', 'hospital', 'airport', 'police'];
+      await seedDueCards(page, lang, places.flatMap((p) => wordIdsOf(lang, p, [1, 2])));
+      await put(page, lang, 'grammar', lessonIds(lang, 'a1').map((lessonId) => ({ lessonId, completedAt: 1, bestScore: 90 })));
+
+      const scene = page.getByTestId('chapter-scene');
+      await expect(scene).toBeVisible();
+      await expect(page.getByTestId('scene-title')).toContainText('Странник', { timeout: 8000 });
+      await expect(page.getByTestId('scene-title')).toContainText('открыта глава II, Горный перевал');
+      await page.getByRole('button', { name: 'В путь' }).click();
+      await expect(scene).toHaveCount(0);
+      expect((await readMeta<{ celebrated: number; openedChapter: number }>(page, lang, 'journey'))).toMatchObject({ celebrated: 1, openedChapter: 2 });
+
+      // Второй раз не показывается, титул виден в профиле и в подписи щитка уровня.
+      await page.reload();
+      await expect(page.getByTestId('continue')).toBeVisible();
+      await expect(scene).toHaveCount(0);
+      await expect(page.getByTestId('level-badge')).toHaveAttribute('aria-label', /^Странник, уровень/);
+      await page.goto('./#/profile');
+      await expect(page.getByTestId('hero-title')).toHaveText('Странник');
+      await page.goto('./#/grammar');
+      await expect(page.getByTestId('district-lock')).toHaveCount(3);
+    });
+
     test('прогресс до обновления с пройденными уроками A2: ничего не закрылось', async ({ page }) => {
       await openApp(page, lang);
       const done = [...lessonIds(lang, 'a1'), ...lessonIds(lang, 'a2').slice(0, 5)];

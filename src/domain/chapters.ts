@@ -16,17 +16,24 @@ export interface Chapter {
   levels: number[];
   /** Районы грамматики главы. */
   districts: string[];
+  /** Титул героя, когда карта главы собрана. */
+  title: string;
 }
 
 export const CHAPTERS: Chapter[] = [
-  { id: 1, roman: 'I', cefr: 'A1', land: 'Окрестности города', levels: [1, 2], districts: ['A1'] },
-  { id: 2, roman: 'II', cefr: 'A2', land: 'Горный перевал', levels: [3, 4], districts: ['A2'] },
-  { id: 3, roman: 'III', cefr: 'B1', land: 'Пустыня миражей', levels: [5], districts: ['B1.1', 'B1.2'] },
-  { id: 4, roman: 'IV', cefr: 'B2', land: 'Лес шёпотов', levels: [6], districts: ['B2'] },
-  { id: 5, roman: 'V', cefr: 'C1', land: 'Лабиринт Эха', levels: [7], districts: ['C1'] },
+  { id: 1, roman: 'I', cefr: 'A1', land: 'Окрестности города', levels: [1, 2], districts: ['A1'], title: 'Странник' },
+  { id: 2, roman: 'II', cefr: 'A2', land: 'Горный перевал', levels: [3, 4], districts: ['A2'], title: 'Следопыт' },
+  { id: 3, roman: 'III', cefr: 'B1', land: 'Пустыня миражей', levels: [5], districts: ['B1.1', 'B1.2'], title: 'Искатель' },
+  { id: 4, roman: 'IV', cefr: 'B2', land: 'Лес шёпотов', levels: [6], districts: ['B2'], title: 'Знаток' },
+  { id: 5, roman: 'V', cefr: 'C1', land: 'Лабиринт Эха', levels: [7], districts: ['C1'], title: 'Посвящённый' },
 ];
 
 export const chapterById = (id: number) => CHAPTERS.find((c) => c.id === id);
+
+/** Стартовый титул и титулы финала (docs/GAME.md). Мудрец и Хранитель появятся с Эликсиром. */
+export const TITLE_START = 'Путник';
+export const TITLE_SAGE = 'Мудрец';
+export const TITLE_KEEPER = 'Хранитель языка';
 
 /**
  * Условия обрывка места. Включаются по мере выхода систем: `mission` — этап «Жители»,
@@ -64,6 +71,8 @@ export interface JourneyRecord {
   seals: Record<string, number>;
   /** Открытая глава. Нет — прогресс из версии до 2.7.0, глава считается переносом (`startedChapter`). */
   openedChapter?: ChapterId;
+  /** До какой главы включительно уже показана сцена перехода. Нет — ни одной. */
+  celebrated?: number;
 }
 
 export const EMPTY_JOURNEY: JourneyRecord = { fragments: {}, seals: {} };
@@ -193,4 +202,21 @@ export function startedChapter(p: { wordLevels: number[]; doneDistricts: string[
     ...p.buildingLevels.map((l) => chapterOfLevel(l)?.id ?? 1),
   ];
   return Math.max(...ids) as ChapterId;
+}
+
+/** Сколько карт собрано подряд с главы I: от этого зависит титул. */
+export function completedChapters(state: JourneyState): number {
+  const i = state.chapters.findIndex((c) => !c.complete);
+  return i < 0 ? state.chapters.length : i;
+}
+
+/** Титул героя: Путник, после каждой собранной карты — титул главы. */
+export function heroTitle(completed: number): string {
+  return completed > 0 ? CHAPTERS[Math.min(completed, CHAPTERS.length) - 1].title : TITLE_START;
+}
+
+/** Глава, сцену перехода которой пора показать (один раз), или null. */
+export function sceneToShow(completed: number, celebrated: number | undefined): ChapterId | null {
+  const next = (celebrated ?? 0) + 1;
+  return completed >= next && next <= CHAPTERS.length ? (next as ChapterId) : null;
 }

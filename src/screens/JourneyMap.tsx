@@ -19,14 +19,14 @@ const DARK = '#2e2216';
  * Нарисованные карты земель: закрытая лежит подложкой, открытая проступает в полученных обрывках.
  * Места на рисунке стоят в той же сетке 5×4, что и обрывки. Для земель без рисунка карта рисуется кодом.
  */
-const LAND_IMAGES: Partial<Record<ChapterId, { open: string; closed: string; seal: { x: number; y: number; r: number } }>> = {
+export const LAND_IMAGES: Partial<Record<ChapterId, { open: string; closed: string; seal: { x: number; y: number; r: number } }>> = {
   1: { open: land1Open, closed: land1Closed, seal: { x: 164, y: 122, r: 28 } },
 };
 /** Точки у левого верхнего угла каждого обрывка: украшения рисунка не лезут на значки мест. */
 const CORNERS: [number, number][] = Array.from({ length: 20 }, (_, i) => [(i % 5) * 64 + 13, Math.floor(i / 5) * 64 + 16]);
 
 /** Рисунок земли под обрывками: у каждой главы свой пейзаж. Виден только в полученных обрывках. */
-function LandArt({ chapter }: { chapter: ChapterId }): ReactNode {
+export function LandArt({ chapter }: { chapter: ChapterId }): ReactNode {
   const road = 'M -10 200 C 60 170, 90 230, 150 190 S 250 120, 330 60';
   const common = (
     <>
@@ -97,13 +97,16 @@ function LandArt({ chapter }: { chapter: ChapterId }): ReactNode {
   }
 }
 
-/** Дорога через пять земель к Хранилищу, герой на текущей главе. */
-function Road({ state, current, shown, opened, onPick }: {
+/**
+ * Дорога через пять земель к Хранилищу, герой на текущей главе. Без onPick земли не нажимаются (сцена перехода),
+ * смена `current` двигает героя по дороге плавно.
+ */
+export function Road({ state, current, shown, opened, onPick }: {
   state: ChapterState[];
   opened: number;
   current: ChapterId;
   shown: ChapterId;
-  onPick(id: ChapterId): void;
+  onPick?(id: ChapterId): void;
 }) {
   const xs = [36, 99, 162, 225, 288];
   const ys = [70, 40, 72, 42, 70];
@@ -119,13 +122,13 @@ function Road({ state, current, shown, opened, onPick }: {
         return (
           <g
             key={id}
-            role="button"
-            tabIndex={0}
+            role={onPick ? 'button' : undefined}
+            tabIndex={onPick ? 0 : undefined}
             aria-label={`Глава ${c.chapter.roman}: ${c.chapter.land}${done ? ', карта собрана' : ''}`}
-            aria-pressed={shown === id}
-            onClick={() => onPick(id)}
-            onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && onPick(id)}
-            className="cursor-pointer outline-none"
+            aria-pressed={onPick ? shown === id : undefined}
+            onClick={() => onPick?.(id)}
+            onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && onPick?.(id)}
+            className={onPick ? 'cursor-pointer outline-none' : undefined}
           >
             <circle cx={xs[i]} cy={ys[i]} r={shown === id ? 17 : 15} fill={done ? '#e0b43c' : open ? '#fbf4de' : '#8f7a5c'} stroke={DARK} strokeWidth={shown === id ? 3 : 2} />
             <text x={xs[i]} y={ys[i] + 5} textAnchor="middle" fontSize="13" fontWeight="bold" fill={DARK}>
@@ -143,7 +146,12 @@ function Road({ state, current, shown, opened, onPick }: {
         <path d="M 338 62 v -12 a 6 6 0 0 1 12 0 v 12" fill={DARK} />
       </g>
       {/* Герой: фигурка в плаще над текущей главой. */}
-      <g transform={`translate(${xs[current - 1] + 13}, ${ys[current - 1] - 20})`} aria-label="Герой здесь" data-testid="hero">
+      <g
+        className="hero-walk"
+        style={{ transform: `translate(${xs[current - 1] + 13}px, ${ys[current - 1] - 20}px)` }}
+        aria-label="Герой здесь"
+        data-testid="hero"
+      >
         <rect x="2" y="0" width="6" height="4" fill="#5a4128" />
         <rect x="1" y="4" width="8" height="10" fill="#5a4128" />
         <rect x="3" y="2" width="4" height="3" fill="#f1c9a0" />

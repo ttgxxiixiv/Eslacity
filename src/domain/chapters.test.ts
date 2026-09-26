@@ -1,7 +1,8 @@
 import { describe, expect, it } from 'vitest';
 import {
   chapterOfDistrict, chapterOfLevel, CHAPTERS, CONDITIONS, EMPTY_JOURNEY, fragmentCount, isDistrictOpen, isLevelOpen,
-  journeyState, newAwards, openedChapter, recordAwards, startedChapter, type JourneyInput,
+  completedChapters, heroTitle, journeyState, newAwards, openedChapter, recordAwards, sceneToShow, startedChapter,
+  TITLE_START, type JourneyInput,
 } from './chapters';
 
 // Три места вместо двадцати: логика от числа мест не зависит.
@@ -108,5 +109,29 @@ describe('открытая глава', () => {
     expect(startedChapter({ wordLevels: [1], doneDistricts: [], buildingLevels: [3] })).toBe(2);
     expect(startedChapter({ wordLevels: [5], doneDistricts: ['A1'], buildingLevels: [5] })).toBe(3);
     expect(startedChapter({ wordLevels: [], doneDistricts: ['B1.2'], buildingLevels: [] })).toBe(3);
+  });
+});
+
+describe('титулы и сцена перехода', () => {
+  it('Путник, затем титул каждой собранной главы', () => {
+    expect(TITLE_START).toBe('Путник');
+    expect([0, 1, 2, 3, 4, 5, 9].map(heroTitle)).toEqual(['Путник', 'Странник', 'Следопыт', 'Искатель', 'Знаток', 'Посвящённый', 'Посвящённый']);
+  });
+
+  it('собранные главы считаются подряд с первой', () => {
+    expect(completedChapters(journeyState(input([]), EMPTY_JOURNEY))).toBe(0);
+    const learned = LOCS.flatMap((loc) => chapterWords(1, loc));
+    expect(completedChapters(journeyState(input(learned, ['a1.1', 'a1.2']), EMPTY_JOURNEY))).toBe(1);
+    // Карта II без карты I титул не даёт.
+    const only2 = LOCS.flatMap((loc) => chapterWords(2, loc));
+    expect(completedChapters(journeyState(input(only2, ['a2.1']), EMPTY_JOURNEY))).toBe(0);
+  });
+
+  it('сцена показывается один раз для каждой главы по порядку', () => {
+    expect(sceneToShow(0, undefined)).toBeNull();
+    expect(sceneToShow(1, undefined)).toBe(1);
+    expect(sceneToShow(1, 1)).toBeNull();
+    expect(sceneToShow(3, 1)).toBe(2);
+    expect(sceneToShow(5, 5)).toBeNull();
   });
 });

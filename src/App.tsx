@@ -17,6 +17,7 @@ import { UpdateBanner } from './components/UpdateBanner';
 import { NavBar } from './components/NavBar';
 import { LevelUpToast } from './components/HeroLevel';
 import { MedalAward } from './components/MedalAward';
+import { ChapterScene } from './components/ChapterScene';
 import { MedalsScreen } from './screens/Medals';
 import { JourneyMapScreen } from './screens/JourneyMap';
 
@@ -39,6 +40,8 @@ function TabLayout() {
       </div>
       <UpdateBanner />
       <NavBar />
+      {/* Сцена новой главы — на экранах с меню, после итогов урока, а не поверх него. */}
+      <ChapterScene />
     </>
   );
 }
