@@ -1,0 +1,25 @@
+{
+  "location": "office",
+  "missions": [
+    {
+      "id": "ms:office.1",
+      "chapter": 1,
+      "npc": "beatriz",
+      "scene": "sc:office.1",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "¡Rápido! La reunión es a las diez y no encuentro nada. ¿Me ayudas?", "ru": "Быстрее! Совещание в десять, а я ничего не могу найти. Поможешь?", "next": "printer"},
+        "printer": {"kind": "answer", "task": "Спросите, где принтер.", "branches": [{"phrase": "ph:office.donde-esta-impresora", "next": "printsay"}], "wrong": {"es": "¿Café? Más tarde. Ahora, trabajo.", "ru": "Кофе? Позже. Сейчас работа."}},
+        "printsay": {"kind": "say", "es": "Allí, cerca de la ventana. ¿Y el informe? ¿Dónde está?", "ru": "Вон там, у окна. А отчёт? Где он?", "next": "report"},
+        "report": {"kind": "answer", "task": "Скажите, что отчёт у неё на столе.", "branches": [{"phrase": "ph:office.informe-esta-tu", "next": "repsay"}], "wrong": {"es": "¿El informe está en el mar? ¡Qué idea! Mira bien.", "ru": "Отчёт в море? Ну и мысль! Посмотри внимательно."}},
+        "repsay": {"kind": "say", "es": "¡Aquí está! Gracias. Te lo mando después.", "ru": "Вот он! Спасибо. Пришлю его тебе потом.", "next": "mail"},
+        "mail": {"kind": "answer", "task": "Спросите, есть ли у неё ваш имейл.", "branches": [{"phrase": "ph:office.tienes-correo-electronico", "next": "mailsay"}], "wrong": {"es": "¿Mi perro? ¡Ahora no, por favor!", "ru": "Моя собака? Сейчас не до неё, пожалуйста!"}},
+        "mailsay": {"kind": "say", "es": "Lo tengo. ¿Y el jefe? ¿Lo buscas?", "ru": "Есть. А начальник? Ты его ищешь?", "next": "boss"},
+        "boss": {"kind": "answer", "task": "Спросите, где кабинет начальника.", "branches": [{"phrase": "ph:office.donde-esta-despacho", "next": "bosssay"}], "wrong": {"es": "¿El despacho del perro? Aquí no hay perros, hay jefes.", "ru": "Кабинет собаки? Тут нет собак, тут начальники."}},
+        "bosssay": {"kind": "say", "es": "Allí, a la izquierda. ¡Y tu teléfono suena!", "ru": "Вон там, слева. И у тебя звонит телефон!", "next": "phone"},
+        "phone": {"kind": "answer", "task": "Скажите в телефон, что сейчас не можете и перезвоните позже.", "branches": [{"phrase": "ph:office.ahora-no-puedo", "next": "end"}], "wrong": {"es": "¿Hablas con el teléfono o conmigo? ¡Rápido, por favor!", "ru": "Ты с телефоном говоришь или со мной? Быстрее, пожалуйста!"}},
+        "end": {"kind": "say", "es": "Así se habla. Gracias por la ayuda. Toma mi trozo: el mapa no se vende, se da a quien ayuda. Y esa carta con «Ven»... alguien nos llama.", "ru": "Вот это разговор. Спасибо за помощь. Держи мой обрывок: карта не продаётся, её отдают тому, кто помогает. А это письмо с «Приходи»... кто-то нас зовёт."}
+      }
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "location": "beach",
+  "missions": [
+    {
+      "id": "ms:beach.1",
+      "chapter": 1,
+      "npc": "nacho",
+      "scene": "sc:beach.1",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Hoy hace sol. ¿Qué hacemos?", "ru": "Сегодня солнечно. Чем займёмся?", "next": "go"},
+        "go": {"kind": "answer", "task": "Предложите пойти на пляж или пойти купаться.", "branches": [{"phrase": "ph:beach.vamos-playa", "next": "gosay"}, {"phrase": "ph:beach.vamos-banarnos", "next": "gosay"}], "wrong": {"es": "¿Vamos a la oficina? ¡No, hombre, hoy no!", "ru": "Пойдём в офис? Нет, дружище, только не сегодня!"}},
+        "gosay": {"kind": "say", "es": "¡Vamos! El sol está muy fuerte.", "ru": "Пошли! Солнце очень сильное.", "next": "cream"},
+        "cream": {"kind": "answer", "task": "Спросите, есть ли у него солнцезащитный крем.", "branches": [{"phrase": "ph:beach.tienes-protector-solar", "next": "creamsay"}], "wrong": {"es": "¿Tienes pizza? Aquí solo hay sol y agua.", "ru": "Пицца есть? Тут только солнце и вода."}},
+        "creamsay": {"kind": "say", "es": "Toma. ¿Nadamos aquí?", "ru": "Держи. Поплаваем здесь?", "next": "danger"},
+        "danger": {"kind": "answer", "task": "Спросите, опасно ли здесь купаться.", "branches": [{"phrase": "ph:beach.peligroso-banarse-aqui", "next": "dangersay"}], "wrong": {"es": "¿El mar está frío? ¡No, hoy está muy bien!", "ru": "Море холодное? Нет, сегодня оно отличное!"}},
+        "dangersay": {"kind": "say", "es": "Hoy, un poco. Mira allí.", "ru": "Сегодня немного опасно. Посмотри вон туда.", "next": "flag"},
+        "flag": {"kind": "answer", "task": "Скажите, что висит красный флаг.", "branches": [{"phrase": "ph:beach.hay-bandera-roja", "next": "flagsay"}], "wrong": {"es": "¿Un pez? Mira bien: la bandera es roja.", "ru": "Рыба? Посмотри внимательно: флаг красный."}},
+        "flagsay": {"kind": "say", "es": "Muy bien. Hoy no nadamos. ¿Y ahora qué?", "ru": "Правильно. Сегодня не плаваем. А что теперь?", "next": "ice"},
+        "ice": {"kind": "answer", "task": "Предложите купить мороженое.", "branches": [{"phrase": "ph:beach.compramos-helado", "next": "icesay"}], "wrong": {"es": "¿Compramos un coche? Tranqui, hombre, un helado.", "ru": "Купим машину? Спокойно, дружище, мороженое."}},
+        "icesay": {"kind": "say", "es": "¡Dos helados! ¿Y tu espalda? Está muy roja.", "ru": "Два мороженых! А что у тебя со спиной? Она вся красная.", "next": "back"},
+        "back": {"kind": "answer", "task": "Скажите, что у вас обгорела спина.", "branches": [{"phrase": "ph:beach.he-quemado-espalda", "next": "end"}], "wrong": {"es": "¿Tienes frío? ¡Con este sol, no!", "ru": "Тебе холодно? С таким солнцем — нет!"}},
+        "end": {"kind": "say", "es": "Tranqui: aquí tienes crema. Y toma el trozo del mapa de la botella. El mar lo trajo para ti, viajero.", "ru": "Спокойно: вот тебе крем. И держи обрывок карты из бутылки. Море принесло его для тебя, путешественник."}
+      }
+    }
+  ]
+}

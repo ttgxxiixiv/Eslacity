@@ -1,0 +1,30 @@
+{
+  "location": "gym",
+  "scenes": [
+    {
+      "id": "sc:gym.1",
+      "chapter": 1,
+      "npc": "federica",
+      "lines": [
+        {"who": "npc", "es": "Forza! Altri dieci!", "ru": "Давай! Ещё десять!"},
+        {"who": "hero", "es": "Uff! Mi fanno male le gambe.", "ru": "Уф! У меня болят ноги."},
+        {"who": "npc", "es": "Benissimo! Per la strada della mappa ti servono gambe forti.", "ru": "Отлично! Для дороги с карты нужны сильные ноги."},
+        {"who": "hero", "es": "Lei conosce la strada?", "ru": "Вы знаете эту дорогу?"},
+        {"who": "npc", "es": "Mia madre è andata in montagna. Due giorni a piedi.", "ru": "Моя мама ходила в горы. Два дня пешком."},
+        {"who": "hero", "es": "E ha trovato il Caveau?", "ru": "И нашла Хранилище?"},
+        {"who": "npc", "es": "No. Sulla strada c'è un guardiano. Fa domande su ogni parola che sai.", "ru": "Нет. На дороге стоит страж. Он спрашивает о каждом слове, которое ты знаешь."},
+        {"who": "hero", "es": "E sua madre non sapeva rispondere?", "ru": "И ваша мама не смогла ответить?"},
+        {"who": "npc", "es": "Sapeva correre molto bene. Parlare, non tanto.", "ru": "Бегала она отлично. А говорила — не очень."},
+        {"who": "hero", "es": "Io voglio correre e parlare.", "ru": "А я хочу и бегать, и говорить."},
+        {"who": "npc", "es": "Così mi piace! Altri dieci, e in italiano!", "ru": "Вот это мне нравится! Ещё десять — и по-итальянски!"}
+      ],
+      "questions": [
+        {"q": "Что болит у героя?", "options": ["Спина", "Ноги", "Голова"], "answer": 1},
+        {"q": "Кто ходил в горы?", "options": ["Мама Федерики", "Сама Федерика", "Почтальон"], "answer": 0},
+        {"q": "Кто стоит на дороге?", "options": ["Страж, который задаёт вопросы", "Продавец билетов", "Никого нет"], "answer": 0},
+        {"q": "Почему мама Федерики не прошла?", "options": ["Устала", "Хорошо бегала, но плохо говорила", "Потеряла карту"], "answer": 1}
+      ],
+      "gloss": {"forza": "давай", "uff": "уф", "caveau": "Хранилище", "guardiano": "страж"}
+    }
+  ]
+}

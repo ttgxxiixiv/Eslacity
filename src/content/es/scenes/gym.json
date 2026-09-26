@@ -1,0 +1,30 @@
+{
+  "location": "gym",
+  "scenes": [
+    {
+      "id": "sc:gym.1",
+      "chapter": 1,
+      "npc": "sara",
+      "lines": [
+        {"who": "npc", "es": "¡Vamos! ¡Diez más!", "ru": "Давай! Ещё десять!"},
+        {"who": "hero", "es": "¡Uf! Me duelen las piernas.", "ru": "Уф! У меня болят ноги."},
+        {"who": "npc", "es": "¡Muy bien! Para el camino del mapa necesitas piernas fuertes.", "ru": "Отлично! Для дороги с карты нужны сильные ноги."},
+        {"who": "hero", "es": "¿Usted conoce el camino?", "ru": "Вы знаете эту дорогу?"},
+        {"who": "npc", "es": "Mi madre fue a las montañas. Dos días a pie.", "ru": "Моя мама ходила в горы. Два дня пешком."},
+        {"who": "hero", "es": "¿Y encontró la Bóveda?", "ru": "И нашла Хранилище?"},
+        {"who": "npc", "es": "No. En el camino hay un guardián. Hace preguntas sobre cada palabra que sabes.", "ru": "Нет. На дороге стоит страж. Он спрашивает о каждом слове, которое ты знаешь."},
+        {"who": "hero", "es": "¿Y su madre no sabía las respuestas?", "ru": "И ваша мама не знала ответов?"},
+        {"who": "npc", "es": "Sabía correr muy bien. Hablar, no tanto.", "ru": "Бегала она отлично. А говорила — не очень."},
+        {"who": "hero", "es": "Yo quiero correr y hablar.", "ru": "А я хочу и бегать, и говорить."},
+        {"who": "npc", "es": "¡Así me gusta! Diez más, ¡y en español!", "ru": "Вот это мне нравится! Ещё десять — и по-испански!"}
+      ],
+      "questions": [
+        {"q": "Что болит у героя?", "options": ["Спина", "Ноги", "Голова"], "answer": 1},
+        {"q": "Кто ходил в горы?", "options": ["Мама Сары", "Сама Сара", "Почтальон"], "answer": 0},
+        {"q": "Кто стоит на дороге?", "options": ["Страж, который задаёт вопросы", "Продавец билетов", "Никого нет"], "answer": 0},
+        {"q": "Почему мама Сары не прошла?", "options": ["Устала", "Хорошо бегала, но плохо говорила", "Потеряла карту"], "answer": 1}
+      ],
+      "gloss": {"uf": "уф", "bóveda": "Хранилище", "guardián": "страж", "respuestas": "ответы"}
+    }
+  ]
+}

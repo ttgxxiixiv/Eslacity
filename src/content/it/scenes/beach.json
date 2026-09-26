@@ -1,0 +1,30 @@
+{
+  "location": "beach",
+  "scenes": [
+    {
+      "id": "sc:beach.1",
+      "chapter": 1,
+      "npc": "marco",
+      "lines": [
+        {"who": "npc", "es": "Che caldo! Andiamo in acqua?", "ru": "Ну и жара! Пойдём в воду?"},
+        {"who": "hero", "es": "Fa molto caldo.", "ru": "Очень жарко."},
+        {"who": "npc", "es": "Tranquillo. Qui nessuno corre.", "ru": "Спокойно. Здесь никто не спешит."},
+        {"who": "hero", "es": "Cerco un pezzo della mappa. Ne hai uno?", "ru": "Я ищу обрывок карты. У тебя есть?"},
+        {"who": "npc", "es": "Un giorno, il mare ha portato una bottiglia con un pezzo della mappa.", "ru": "Однажды море принесло бутылку с обрывком карты."},
+        {"who": "hero", "es": "Dal mare? E da dove viene?", "ru": "Из моря? А откуда он?"},
+        {"who": "npc", "es": "Nessuno lo sa. Il mare non parla.", "ru": "Никто не знает. Море не разговаривает."},
+        {"who": "hero", "es": "Me lo dai?", "ru": "Отдашь мне?"},
+        {"who": "npc", "es": "Tranquillo, piano piano. La strada ti aspetta.", "ru": "Спокойно, потихоньку. Дорога тебя подождёт."},
+        {"who": "hero", "es": "La strada mi aspetta?", "ru": "Дорога меня подождёт?"},
+        {"who": "npc", "es": "La mappa non va via. Adesso, in acqua!", "ru": "Карта никуда не денется. А сейчас — в воду!"}
+      ],
+      "questions": [
+        {"q": "Как на пляже относятся к спешке?", "options": ["Здесь никто не спешит", "Здесь все торопятся", "Здесь всё по расписанию"], "answer": 0},
+        {"q": "Как обрывок попал к Марко?", "options": ["Его принёс почтальон", "Море принесло бутылку", "Он нашёл его в пальто"], "answer": 1},
+        {"q": "Откуда бутылка?", "options": ["Из Хранилища", "Из порта", "Никто не знает"], "answer": 2},
+        {"q": "Что предлагает Марко?", "options": ["Пойти в воду", "Купить билет", "Пойти в горы"], "answer": 0}
+      ],
+      "gloss": {"pezzo": "обрывок", "tranquillo": "спокойно", "bottiglia": "бутылка"}
+    }
+  ]
+}

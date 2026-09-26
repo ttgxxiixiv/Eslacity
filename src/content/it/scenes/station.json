@@ -1,0 +1,30 @@
+{
+  "location": "station",
+  "scenes": [
+    {
+      "id": "sc:station.1",
+      "chapter": 1,
+      "npc": "aldo",
+      "lines": [
+        {"who": "npc", "es": "Il treno parte alle dieci. Non fare tardi!", "ru": "Поезд отправляется в десять. Не опаздывай!"},
+        {"who": "hero", "es": "C'è un treno per la montagna?", "ru": "Есть поезд в горы?"},
+        {"who": "npc", "es": "No. I treni vanno al mare e in città. In montagna si va a piedi.", "ru": "Нет. Поезда ходят к морю и в большой город. В горы ходят пешком."},
+        {"who": "hero", "es": "E per il Caveau?", "ru": "А в Хранилище?"},
+        {"who": "npc", "es": "Nessun treno va al Caveau.", "ru": "Ни один поезд не идёт в Хранилище."},
+        {"who": "hero", "es": "Lei sa qualcosa della mappa?", "ru": "Вы что-нибудь знаете о карте?"},
+        {"who": "npc", "es": "Tanti anni fa, è arrivato un signore con il treno delle sette. Scriveva tutto in un libro.", "ru": "Много лет назад поездом в семь приехал один синьор. Он всё записывал в книгу."},
+        {"who": "hero", "es": "Chi era?", "ru": "Кто это был?"},
+        {"who": "npc", "es": "Il Cronista. Adesso cammina con i viaggiatori e scrive il loro viaggio.", "ru": "Летописец. Теперь он ходит с путешественниками и записывает их путь."},
+        {"who": "hero", "es": "E il suo pezzo della mappa?", "ru": "А ваш обрывок карты?"},
+        {"who": "npc", "es": "Nel mio ufficio, con gli orari. E non fare tardi!", "ru": "В моём кабинете, с расписаниями. И не опаздывай!"}
+      ],
+      "questions": [
+        {"q": "Какой поезд идёт в горы?", "options": ["Поезд в десять", "Никакой: в горы ходят пешком", "Поезд в семь"], "answer": 1},
+        {"q": "Кто приехал поездом много лет назад?", "options": ["Летописец", "Страж", "Мама Федерики"], "answer": 0},
+        {"q": "Что Летописец делает теперь?", "options": ["Продаёт билеты", "Ходит с путешественниками и записывает их путь", "Живёт на вокзале"], "answer": 1},
+        {"q": "Где обрывок Альдо?", "options": ["В поезде", "В кабинете, с расписаниями", "У кассы"], "answer": 1}
+      ],
+      "gloss": {"nessun": "ни один", "pezzo": "обрывок", "caveau": "Хранилище", "cronista": "Летописец"}
+    }
+  ]
+}

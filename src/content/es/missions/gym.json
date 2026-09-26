@@ -1,0 +1,28 @@
+{
+  "location": "gym",
+  "missions": [
+    {
+      "id": "ms:gym.1",
+      "chapter": 1,
+      "npc": "sara",
+      "scene": "sc:gym.1",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "¡Hoy hay competición! Tú contra mí. ¿Preparado?", "ru": "Сегодня соревнование! Ты против меня. Готов?", "next": "vest"},
+        "vest": {"kind": "answer", "task": "Спросите, где раздевалка.", "branches": [{"phrase": "ph:gym.donde-esta-vestuario", "next": "vestsay"}], "wrong": {"es": "¿Dónde está la cocina? ¡Aquí no se come, aquí se corre!", "ru": "Где кухня? Тут не едят, тут бегают!"}},
+        "vestsay": {"kind": "say", "es": "Allí. Cámbiate y vuelve. ¿Qué necesitas?", "ru": "Вон там. Переоденься и возвращайся. Что тебе нужно?", "next": "towel"},
+        "towel": {"kind": "answer", "task": "Скажите, что вам нужно полотенце.", "branches": [{"phrase": "ph:gym.necesito-toalla", "next": "towsay"}], "wrong": {"es": "¿Una tostada? ¡Después comemos! Ahora, deporte.", "ru": "Тост? Поедим потом! Сейчас спорт."}},
+        "towsay": {"kind": "say", "es": "Toma. Ahora, al agua. ¿Te gusta el agua?", "ru": "Держи. А теперь в воду. Любишь воду?", "next": "swim"},
+        "swim": {"kind": "answer", "task": "Скажите, что любите плавать, или спросите, есть ли бассейн.", "branches": [{"phrase": "ph:gym.gusta-nadar", "next": "swimsay"}, {"phrase": "ph:gym.hay-piscina", "next": "poolsay"}], "wrong": {"es": "¿Te gusta dormir? ¡Aquí no se duerme!", "ru": "Любишь спать? Тут не спят!"}},
+        "swimsay": {"kind": "say", "es": "¡Muy bien! Yo nado más rápido que tú.", "ru": "Отлично! Я плаваю быстрее тебя.", "next": "legs"},
+        "poolsay": {"kind": "say", "es": "Hay piscina, grande y fría. ¡Yo nado más rápido que tú!", "ru": "Бассейн есть, большой и холодный. Я плаваю быстрее тебя!", "next": "legs"},
+        "legs": {"kind": "answer", "task": "Скажите, что у вас болят ноги.", "branches": [{"phrase": "ph:gym.duelen-piernas", "next": "legsay"}], "wrong": {"es": "¿Te duelen las orejas? ¡Nadie corre con las orejas!", "ru": "Болят уши? Никто не бегает ушами!"}},
+        "legsay": {"kind": "say", "es": "¿Ya? ¡Diez minutos más! Ahora, fútbol.", "ru": "Уже? Ещё десять минут! А теперь футбол.", "next": "ball"},
+        "ball": {"kind": "answer", "task": "Предложите сыграть в футбол.", "branches": [{"phrase": "ph:gym.jugamos-partido-futbol", "next": "ballsay"}], "wrong": {"es": "¿Jugamos a las cartas? ¡Eso no es deporte!", "ru": "Сыграем в карты? Это не спорт!"}},
+        "ballsay": {"kind": "say", "es": "¡Gol! Tres a dos, ¡para tu equipo!", "ru": "Гол! Три — два в пользу твоей команды!", "next": "won"},
+        "won": {"kind": "answer", "task": "Скажите, что вы выиграли.", "branches": [{"phrase": "ph:gym.hemos-ganado", "next": "end"}], "wrong": {"es": "¿Perdido? ¡No, no! Tres a dos, ¡para ti!", "ru": "Проиграли? Нет-нет! Три — два, в твою пользу!"}},
+        "end": {"kind": "say", "es": "¡Muy bien! Mi madre solo sabía correr. Tú corres y hablas. Toma mi trozo del mapa.", "ru": "Отлично! Моя мама умела только бегать. А ты бегаешь и говоришь. Держи мой обрывок карты."}
+      }
+    }
+  ]
+}

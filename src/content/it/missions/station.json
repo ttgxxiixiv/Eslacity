@@ -1,0 +1,28 @@
+{
+  "location": "station",
+  "missions": [
+    {
+      "id": "ms:station.1",
+      "chapter": 1,
+      "npc": "aldo",
+      "scene": "sc:station.1",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Tu qui? Il treno delle dieci parte tra cinque minuti. Cosa vuoi?", "ru": "Ты здесь? Поезд в десять отправляется через пять минут. Что тебе?", "next": "office"},
+        "office": {"kind": "answer", "task": "Спросите, где касса.", "branches": [{"phrase": "ph:station.dov-biglietteria", "next": "officesay"}], "wrong": {"es": "La spiaggia? Questa è una stazione!", "ru": "Пляж? Это вокзал!"}},
+        "officesay": {"kind": "say", "es": "Là, a destra. Presto.", "ru": "Вон там, справа. Быстрее.", "next": "ticket"},
+        "ticket": {"kind": "answer", "task": "Попросите билет туда и обратно.", "branches": [{"phrase": "ph:station.biglietto-andata-ritorno", "next": "ticsay"}], "wrong": {"es": "Un biglietto per la luna? Non c'è nell'orario.", "ru": "Билет на Луну? Такого нет в расписании."}},
+        "ticsay": {"kind": "say", "es": "Andata e ritorno, per il mare. Quattro euro.", "ru": "Туда и обратно, до моря. Четыре евро.", "next": "time"},
+        "time": {"kind": "answer", "task": "Спросите, во сколько отправляется поезд.", "branches": [{"phrase": "ph:station.che-ora-parte", "next": "timesay"}], "wrong": {"es": "A che ora mangio io? Questo non c'è nell'orario!", "ru": "Во сколько обедаю я? Этого нет в расписании!"}},
+        "timesay": {"kind": "say", "es": "Alle dieci. E sono le dieci meno due.", "ru": "В десять. А сейчас без двух десять.", "next": "late"},
+        "late": {"kind": "answer", "task": "Спросите, не опаздывает ли поезд.", "branches": [{"phrase": "ph:station.treno-ritardo", "next": "latesay"}], "wrong": {"es": "Un treno con il cane? I cani viaggiano con il treno delle dodici.", "ru": "Поезд с собакой? Собаки ездят поездом в двенадцать."}},
+        "latesay": {"kind": "say", "es": "In ritardo? I miei treni non sono mai in ritardo!", "ru": "Опаздывает? Мои поезда никогда не опаздывают!", "next": "direct"},
+        "direct": {"kind": "answer", "task": "Спросите, прямой ли поезд, или во сколько вы прибываете.", "branches": [{"phrase": "ph:station.diretto-o-c", "next": "dirsay"}, {"phrase": "ph:station.che-ora-arriviamo", "next": "arrsay"}], "wrong": {"es": "È rosso o blu? Il treno è verde, e non importa.", "ru": "Он красный или синий? Поезд зелёный, и это неважно."}},
+        "dirsay": {"kind": "say", "es": "Diretto. Arriva alle undici. Sali sul treno. Guarda, un signore è al tuo posto.", "ru": "Прямой. Прибывает в одиннадцать. Садись в поезд. Смотри, на твоём месте сидит какой-то синьор.", "next": "seat"},
+        "arrsay": {"kind": "say", "es": "Alle undici. È diretto. Sali sul treno. Guarda, un signore è al tuo posto.", "ru": "В одиннадцать. Он прямой. Садись в поезд. Смотри, на твоём месте сидит какой-то синьор.", "next": "seat"},
+        "seat": {"kind": "answer", "task": "Скажите синьору, что это ваше место.", "branches": [{"phrase": "ph:station.questo-mio-posto", "next": "end"}], "wrong": {"es": "È il tuo letto? Sul mio treno non si dorme!", "ru": "Это твоя кровать? В моём поезде не спят!"}},
+        "end": {"kind": "say", "es": "Bene. Signore, al suo posto! E prendi, dal mio ufficio: il mio pezzo della mappa. Il treno non va al Caveau, viaggiatore. Al Caveau si va a piedi.", "ru": "Хорошо. Синьор, на своё место! И держи, из моего кабинета: мой обрывок карты. Поезд не идёт в Хранилище, путешественник. Туда ходят пешком."}
+      }
+    }
+  ]
+}

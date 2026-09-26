@@ -1,0 +1,30 @@
+{
+  "location": "office",
+  "scenes": [
+    {
+      "id": "sc:office.1",
+      "chapter": 1,
+      "npc": "valentina",
+      "lines": [
+        {"who": "npc", "es": "Ho una riunione tra cinque minuti.", "ru": "У меня совещание через пять минут."},
+        {"who": "hero", "es": "Solo una domanda: lei ha un pezzo della mappa?", "ru": "Только один вопрос: у вас есть обрывок карты?"},
+        {"who": "npc", "es": "Ne ho uno. E un'azienda lo vuole comprare.", "ru": "Есть. И одна компания хочет его купить."},
+        {"who": "hero", "es": "Comprare la mappa?", "ru": "Купить карту?"},
+        {"who": "npc", "es": "Vogliono tutti i venti pezzi. Pagano molti soldi.", "ru": "Им нужны все двадцать обрывков. Платят большие деньги."},
+        {"who": "hero", "es": "E lei cosa dice?", "ru": "А вы что отвечаете?"},
+        {"who": "npc", "es": "Dico di no. La mappa non si vende: è per chi parla.", "ru": "Говорю «нет». Карта не продаётся: она для того, кто говорит."},
+        {"who": "hero", "es": "Chi è quest'azienda?", "ru": "Что это за компания?"},
+        {"who": "npc", "es": "Non lo so. Scrivono solo lettere. E ieri mi è arrivata una lettera con una parola: «Vieni».", "ru": "Не знаю. Они только присылают письма. А вчера мне пришло письмо с одним словом: «Приходи»."},
+        {"who": "hero", "es": "Anch'io ho quella lettera!", "ru": "У меня тоже есть такое письмо!"},
+        {"who": "npc", "es": "Interessante... Domani parliamo. Adesso, la riunione!", "ru": "Интересно... Завтра поговорим. А сейчас — совещание!"}
+      ],
+      "questions": [
+        {"q": "Кто хочет купить обрывок Валентины?", "options": ["Какая-то компания", "Почтальон", "Страж"], "answer": 0},
+        {"q": "Что отвечает Валентина?", "options": ["Продаст за большие деньги", "Карта не продаётся", "Подумает до завтра"], "answer": 1},
+        {"q": "Что было во вчерашнем письме?", "options": ["Одно слово: «Приходи»", "Счёт за кофе", "Приглашение на совещание"], "answer": 0},
+        {"q": "Что говорит герой?", "options": ["У него такое же письмо", "Он работает в этой компании", "Он хочет продать карту"], "answer": 0}
+      ],
+      "gloss": {"minuti": "минут", "pezzo": "обрывок", "pezzi": "обрывки", "interessante": "интересно"}
+    }
+  ]
+}

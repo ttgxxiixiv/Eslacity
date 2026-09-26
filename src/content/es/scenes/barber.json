@@ -1,0 +1,30 @@
+{
+  "location": "barber",
+  "scenes": [
+    {
+      "id": "sc:barber.1",
+      "chapter": 1,
+      "npc": "toni",
+      "lines": [
+        {"who": "npc", "es": "¡Pasa, pasa! ¿Como siempre?", "ru": "Заходи, заходи! Как обычно?"},
+        {"who": "hero", "es": "Corto, por favor.", "ru": "Коротко, пожалуйста."},
+        {"who": "npc", "es": "Muy bien. ¿Quieres música mientras corto?", "ru": "Отлично. Хочешь музыку, пока стригу?"},
+        {"who": "hero", "es": "¿Qué canta usted?", "ru": "А что вы поёте?"},
+        {"who": "npc", "es": "Una canción vieja de mi madre. Habla del mapa.", "ru": "Старую мамину песню. Она про карту."},
+        {"who": "hero", "es": "¿Del mapa? ¿Y qué dice?", "ru": "Про карту? И что в ней поётся?"},
+        {"who": "npc", "es": "«Veinte trozos y un sello, y el camino es para ti».", "ru": "«Двадцать обрывков и печать — и дорога твоя»."},
+        {"who": "hero", "es": "¿Un sello? ¿Como en correos?", "ru": "Печать? Как марка на почте?"},
+        {"who": "npc", "es": "No, no. El sello del mapa lo tiene un guardián, fuera de la ciudad.", "ru": "Нет-нет. Печать карты хранит страж, за городом."},
+        {"who": "hero", "es": "¿Y usted tiene un trozo?", "ru": "А у вас есть обрывок?"},
+        {"who": "npc", "es": "Está detrás del espejo. Y ahora, ¡a cortar!", "ru": "Он за зеркалом. А теперь — стрижём!"}
+      ],
+      "questions": [
+        {"q": "Что поёт Тони?", "options": ["Старую мамину песню о карте", "Песню о море", "Песню о поезде"], "answer": 0},
+        {"q": "Что нужно, кроме двадцати обрывков?", "options": ["Ключ", "Печать", "Письмо"], "answer": 1},
+        {"q": "У кого печать карты?", "options": ["У почтальона", "У Тони", "У стража за городом"], "answer": 2},
+        {"q": "Где обрывок Тони?", "options": ["За зеркалом", "В кассе", "Дома у мамы"], "answer": 0}
+      ],
+      "gloss": {"música": "музыка", "trozo": "обрывок", "trozos": "обрывки", "canción": "песня", "sello": "печать; ещё — почтовая марка", "guardián": "страж"}
+    }
+  ]
+}

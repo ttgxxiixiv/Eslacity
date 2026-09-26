@@ -1,0 +1,25 @@
+{
+  "location": "barber",
+  "missions": [
+    {
+      "id": "ms:barber.1",
+      "chapter": 1,
+      "npc": "tonino",
+      "scene": "sc:barber.1",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Oggi taglio e parlo solo italiano. Cosa vuoi?", "ru": "Сегодня стригу и говорю только по-итальянски. Что хочешь?", "next": "cut"},
+        "cut": {"kind": "answer", "task": "Попросите только стрижку или волосы покороче.", "branches": [{"phrase": "ph:barber.solo-taglio", "next": "cutsay"}, {"phrase": "ph:barber.vorrei-capelli-piu", "next": "cutsay"}], "wrong": {"es": "Un gelato? Qui tagliamo capelli, non vendiamo gelati.", "ru": "Мороженое? Мы тут стрижём, а не продаём мороженое."}},
+        "cutsay": {"kind": "say", "es": "Benissimo. Altro?", "ru": "Отлично. Что-нибудь ещё?", "next": "wash"},
+        "wash": {"kind": "answer", "task": "Попросите помыть вам голову.", "branches": [{"phrase": "ph:barber.lava-capelli", "next": "washsay"}], "wrong": {"es": "Ti lavo la macchina? Io lavo capelli, non macchine!", "ru": "Помыть тебе машину? Я мою головы, а не машины!"}},
+        "washsay": {"kind": "say", "es": "Acqua calda... la, la, la!", "ru": "Горячая вода... ла-ла-ла!", "next": "short"},
+        "short": {"kind": "answer", "task": "Попросите подстричь коротко.", "branches": [{"phrase": "ph:barber.corti", "next": "shortsay"}], "wrong": {"es": "Lunghi? Se li vuoi lunghi, perché vieni qui?", "ru": "Длинно? Если хочешь длинно, зачем пришёл?"}},
+        "shortsay": {"kind": "say", "es": "Corti, come al solito. E la barba?", "ru": "Коротко, как всегда. А борода?", "next": "beard"},
+        "beard": {"kind": "answer", "task": "Спросите, может ли он подстричь бороду.", "branches": [{"phrase": "ph:barber.puo-tagliare-barba", "next": "beardsay"}], "wrong": {"es": "Tagliare il tavolo? Io taglio capelli, non tavoli!", "ru": "Подстричь стол? Я стригу волосы, а не столы!"}},
+        "beardsay": {"kind": "say", "es": "Anche la barba. Vuoi un colore nuovo?", "ru": "И бороду тоже. Хочешь новый цвет?", "next": "tint"},
+        "tint": {"kind": "answer", "task": "Спросите, сколько стоит окрашивание.", "branches": [{"phrase": "ph:barber.quanto-costa-tinta", "next": "end"}], "wrong": {"es": "Quanto costa il mio specchio? Il mio specchio non si vende!", "ru": "Сколько стоит моё зеркало? Моё зеркало не продаётся!"}},
+        "end": {"kind": "say", "es": "Oggi niente colore: i capelli stanno bene così. E dietro lo specchio... il tuo pezzo della mappa. Ricorda: venti pezzi e un sigillo.", "ru": "Сегодня без цвета: волосы и так хороши. А за зеркалом... твой обрывок карты. Помни: двадцать обрывков и печать."}
+      }
+    }
+  ]
+}

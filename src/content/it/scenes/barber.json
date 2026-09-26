@@ -1,0 +1,30 @@
+{
+  "location": "barber",
+  "scenes": [
+    {
+      "id": "sc:barber.1",
+      "chapter": 1,
+      "npc": "tonino",
+      "lines": [
+        {"who": "npc", "es": "Come al solito?", "ru": "Как обычно?"},
+        {"who": "hero", "es": "Corti, per favore.", "ru": "Коротко, пожалуйста."},
+        {"who": "npc", "es": "Benissimo. E mentre taglio, ti dico una cosa.", "ru": "Отлично. А пока стригу, расскажу тебе кое-что."},
+        {"who": "hero", "es": "Cosa?", "ru": "Что?"},
+        {"who": "npc", "es": "Mia madre diceva sempre queste parole sulla mappa.", "ru": "Мама всегда повторяла эти слова о карте."},
+        {"who": "hero", "es": "Quali parole?", "ru": "Какие слова?"},
+        {"who": "npc", "es": "«Venti pezzi e un sigillo, e la strada è per te».", "ru": "«Двадцать обрывков и печать — и дорога твоя»."},
+        {"who": "hero", "es": "Cosa vuol dire?", "ru": "Что это значит?"},
+        {"who": "npc", "es": "Il sigillo ce l'ha un guardiano, fuori dalla città. Per la strada ti servono tutti e due.", "ru": "Печать хранит страж, за городом. Для дороги нужно и то, и другое."},
+        {"who": "hero", "es": "E lei ha un pezzo?", "ru": "А у вас есть обрывок?"},
+        {"who": "npc", "es": "È dietro lo specchio. E adesso, tagliamo!", "ru": "Он за зеркалом. А теперь — стрижём!"}
+      ],
+      "questions": [
+        {"q": "Что рассказывает Тонино?", "options": ["Мамины слова о карте", "Историю о море", "Расписание поездов"], "answer": 0},
+        {"q": "Что нужно, кроме двадцати обрывков?", "options": ["Ключ", "Печать", "Письмо"], "answer": 1},
+        {"q": "У кого печать карты?", "options": ["У почтальона", "У Тонино", "У стража за городом"], "answer": 2},
+        {"q": "Где обрывок Тонино?", "options": ["За зеркалом", "В кассе", "Дома у мамы"], "answer": 0}
+      ],
+      "gloss": {"pezzo": "обрывок", "pezzi": "обрывки", "sigillo": "печать", "guardiano": "страж"}
+    }
+  ]
+}

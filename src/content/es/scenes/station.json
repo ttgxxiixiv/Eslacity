@@ -1,0 +1,30 @@
+{
+  "location": "station",
+  "scenes": [
+    {
+      "id": "sc:station.1",
+      "chapter": 1,
+      "npc": "ramon",
+      "lines": [
+        {"who": "npc", "es": "El tren sale a las diez. ¡No llegues tarde!", "ru": "Поезд отправляется в десять. Не опаздывай!"},
+        {"who": "hero", "es": "¿Hay un tren a las montañas?", "ru": "Есть поезд в горы?"},
+        {"who": "npc", "es": "No. Los trenes van al mar y a la capital. A las montañas se va a pie.", "ru": "Нет. Поезда ходят к морю и в столицу. В горы ходят пешком."},
+        {"who": "hero", "es": "¿Y a la Bóveda?", "ru": "А в Хранилище?"},
+        {"who": "npc", "es": "Ningún tren va a la Bóveda.", "ru": "Ни один поезд не идёт в Хранилище."},
+        {"who": "hero", "es": "¿Usted sabe algo del mapa?", "ru": "Вы что-нибудь знаете о карте?"},
+        {"who": "npc", "es": "Hace muchos años, llegó un señor en el tren de las siete. Lo escribía en un libro.", "ru": "Много лет назад поездом в семь приехал один сеньор. Он всё записывал в книгу."},
+        {"who": "hero", "es": "¿Quién era?", "ru": "Кто это был?"},
+        {"who": "npc", "es": "El Cronista. Ahora camina con los viajeros y escribe su camino.", "ru": "Летописец. Теперь он ходит с путешественниками и записывает их путь."},
+        {"who": "hero", "es": "¿Y su trozo del mapa?", "ru": "А ваш обрывок карты?"},
+        {"who": "npc", "es": "En mi despacho, con los horarios. ¡Y no llegues tarde!", "ru": "В моём кабинете, с расписаниями. И не опаздывай!"}
+      ],
+      "questions": [
+        {"q": "Какой поезд идёт в горы?", "options": ["Поезд в десять", "Никакой: в горы ходят пешком", "Поезд в семь"], "answer": 1},
+        {"q": "Кто приехал поездом много лет назад?", "options": ["Летописец", "Страж", "Мама Сары"], "answer": 0},
+        {"q": "Что Летописец делает теперь?", "options": ["Продаёт билеты", "Ходит с путешественниками и записывает их путь", "Живёт на вокзале"], "answer": 1},
+        {"q": "Где обрывок Рамона?", "options": ["В поезде", "В кабинете, с расписаниями", "У кассы"], "answer": 1}
+      ],
+      "gloss": {"trozo": "обрывок", "bóveda": "Хранилище", "cronista": "Летописец", "capital": "столица"}
+    }
+  ]
+}
