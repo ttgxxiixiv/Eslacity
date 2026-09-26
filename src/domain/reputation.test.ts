@@ -26,6 +26,7 @@ describe('репутация', () => {
   });
   it('друзья города и миссии', () => {
     expect(friendsCount({ a: 10, b: 9, c: 25 })).toBe(2);
-    expect(missionOpen(50)).toBe(false);
+    // Миссия главы I открыта сразу, следующих глав — с Приятеля (5 очков).
+    expect([missionOpen(0, 1), missionOpen(4, 2), missionOpen(5, 2), missionOpen(50, 3)]).toEqual([true, false, true, true]);
   });
 });

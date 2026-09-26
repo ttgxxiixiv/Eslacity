@@ -6,6 +6,7 @@ import { LocationScreen } from './screens/Location';
 import { LearnScreen } from './screens/Learn';
 import { PhraseLessonScreen } from './screens/PhraseLesson';
 import { SceneScreen } from './screens/Scene';
+import { MissionScreen } from './screens/Mission';
 import { ReviewScreen } from './screens/Review';
 import { BlitzScreen } from './screens/Blitz';
 import { SettingsScreen } from './screens/Settings';
@@ -95,6 +96,7 @@ export default function App() {
         <Route path="/practice/:id/:level" element={<LearnScreen practice />} />
         <Route path="/phrases/:id/:level" element={<PhraseLessonScreen />} />
         <Route path="/scene/:id" element={<SceneScreen />} />
+        <Route path="/mission/:id" element={<MissionScreen />} />
         <Route path="/blitz" element={<BlitzScreen />} />
         <Route path="/words" element={<WordsScreen />} />
       </Routes>

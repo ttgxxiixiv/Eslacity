@@ -25,4 +25,6 @@ declare module 'virtual:word-index' {
   export const PHRASES: Record<string, string[]>;
   /** Язык → глава → id слов свитка земли. */
   export const SCROLLS: Record<string, Record<number, string[]>>;
+  /** Язык → место → главы, для которых есть сюжетная миссия. */
+  export const MISSIONS: Record<string, Record<string, number[]>>;
 }

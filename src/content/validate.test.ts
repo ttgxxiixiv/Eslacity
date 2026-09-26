@@ -2,8 +2,8 @@ import { describe, expect, it } from 'vitest';
 import type { LocationWords, Word } from './schema';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { validateChronicler, validateGrammar, validateNpcs, validatePhrases, validateScenes, validateScrolls, validateWords } from './validate';
-import { LOCATION_IDS, type Chronicler, type GrammarLesson, type LocationPhrases, type LocationScenes, type NpcsFile, type Phrase, type Scene, type ScrollFile } from './schema';
+import { validateChronicler, validateGrammar, validateMissions, validateNpcs, validatePhrases, validateScenes, validateScrolls, validateWords } from './validate';
+import { LOCATION_IDS, type Chronicler, type GrammarLesson, type LocationMissions, type LocationPhrases, type LocationScenes, type Mission, type NpcsFile, type Phrase, type Scene, type ScrollFile } from './schema';
 
 const base = (i: number, extra: Partial<Word> = {}): Word => ({
   id: `cafe.w${i}`, es: `la palabra${i}`, ru: `слово ${i}`, pos: 'noun', gender: 'f', level: 1, cefr: 'A1',
@@ -265,5 +265,57 @@ describe('validateScenes', () => {
   });
   it('лишнее слово в gloss — предупреждение', () => {
     expect(run(scene({ gloss: { adiós: 'пока' } })).issues[0].msg).toMatch(/слова "adiós" из gloss нет/);
+  });
+});
+
+describe('validateMissions', () => {
+  const phrases = ['a', 'b', 'c', 'd', 'e'].map((x, i) => ({ id: `ph:cafe.${x}`, es: x, ru: x, level: i < 4 ? 1 : 3 }));
+  const answer = (x: string, next: string) => ({ kind: 'answer' as const, task: 'Скажите', branches: [{ phrase: `ph:cafe.${x}`, next }], wrong: { es: '¿Qué?', ru: 'Что?' } });
+  const mission = (extra: Partial<Mission> = {}): Mission => ({
+    id: 'ms:cafe.1', chapter: 1, npc: 'lola', scene: 'sc:cafe.1', start: 'hi',
+    nodes: {
+      hi: { kind: 'say', es: 'Hola', ru: 'Привет', next: 'q1' },
+      q1: answer('a', 'q2'), q2: answer('b', 'q3'), q3: answer('c', 'q4'), q4: answer('d', 'q5'), q5: answer('a', 'bye'),
+      bye: { kind: 'say', es: 'Adiós', ru: 'Пока' },
+    },
+    ...extra,
+  });
+  const run = (m: Mission) =>
+    validateMissions([{ name: 'cafe.json', data: { location: 'cafe', missions: [m] } as LocationMissions }], {
+      residents: { cafe: 'lola' }, phrases: { cafe: phrases }, scenes: new Set(['sc:cafe.1']),
+    }).map((x) => x.msg).join('; ');
+
+  it('чистая миссия без ошибок', () => {
+    expect(run(mission())).toBe('');
+  });
+  it('id, житель, сцена', () => {
+    expect(run(mission({ id: 'cafe.1', npc: 'x', scene: 'sc:cafe.2' }))).toMatch(/id должен быть.*житель "x".*нет сцены "sc:cafe\.2"/);
+  });
+  it('фраза чужая или выше уровня главы, нет реакции, мало ответов', () => {
+    const m = mission();
+    m.nodes.q1 = { ...answer('zzz', 'q2') };
+    m.nodes.q2 = { ...answer('e', 'q3'), wrong: { es: '', ru: '' } };
+    const e = run(m);
+    expect(e).toMatch(/нет фразы "ph:cafe\.zzz"/);
+    expect(e).toMatch(/фраза "ph:cafe\.e" уровня 3, в главе I — до 2/);
+    expect(e).toMatch(/нет реакции жителя на ошибку/);
+    const short = mission();
+    short.nodes = { hi: short.nodes.hi, q1: answer('a', 'bye'), bye: short.nodes.bye };
+    expect(run(short)).toMatch(/ответов героя 1, нужно не меньше 5/);
+  });
+  it('обрыв графа — ошибка', () => {
+    const m = mission();
+    m.nodes.q5 = answer('a', 'nowhere');
+    expect(run(m)).toMatch(/ведёт в несуществующий "nowhere"/);
+  });
+  it('настоящие миссии обоих языков проходят', () => {
+    for (const lang of ['es', 'it']) {
+      const data = JSON.parse(readFileSync(join(import.meta.dirname, lang, 'missions', 'cafe.json'), 'utf8')) as LocationMissions;
+      const ph = JSON.parse(readFileSync(join(import.meta.dirname, lang, 'phrases', 'cafe.json'), 'utf8')) as LocationPhrases;
+      const out = validateMissions([{ name: 'cafe.json', data }], {
+        residents: { cafe: data.missions[0].npc }, phrases: { cafe: ph.phrases }, scenes: new Set(['sc:cafe.1']),
+      });
+      expect(out).toEqual([]);
+    }
   });
 });

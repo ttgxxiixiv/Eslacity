@@ -2,9 +2,13 @@ import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { LOCATION_BY_ID } from '../content/locations';
 import { loadLocation } from '../content';
-import type { LocationId, Phrase, Scene, Word } from '../content/schema';
+import type { LocationId, Mission, Phrase, Scene, Word } from '../content/schema';
 import { loadPhrases } from '../content/phrases';
 import { loadScenes } from '../content/scenes';
+import { loadMissions } from '../content/missions';
+import { useMissions } from '../store/missions';
+import { missionOpen } from '../domain/reputation';
+import { modeForAttempt } from '../domain/mission';
 import { fullPhrase } from '../domain/phrase';
 import { ECONOMY } from '../config';
 import { incomeRate, isFull, pendingIncome, upgradeCost } from '../domain/economy';
@@ -22,6 +26,9 @@ import { useCity } from '../store/city';
 import { useProgress } from '../store/progress';
 import { useMotivation } from '../store/motivation';
 import { Button, SpeakButton, TopBar, Screen } from '../components/ui';
+
+/** Как герой будет отвечать в следующем прохождении миссии. */
+const MODE_WORD = { choose: 'выбор', tiles: 'сборка', type: 'ввод' } as const;
 
 function dueLabel(due: number) {
   const d = due - dayNumber(Date.now());
@@ -63,6 +70,8 @@ export function LocationScreen() {
   const [words, setWords] = useState<Word[] | null>(null);
   const [phrases, setPhrases] = useState<Phrase[]>([]);
   const [scenes, setScenes] = useState<Scene[]>([]);
+  const [missions, setMissions] = useState<Mission[]>([]);
+  const missionRecords = useMissions((s) => s.records);
   const cards = useProgress((s) => s.cards);
   const level = useCity((s) => s.buildings[id]?.level ?? 0);
   const coins = useCity((s) => s.coins);
@@ -79,6 +88,7 @@ export function LocationScreen() {
     loadLocation(id).then(setWords);
     loadPhrases(id).then(setPhrases);
     loadScenes(id).then(setScenes);
+    loadMissions(id).then(setMissions);
   }, [id]);
 
   if (!meta) return <div className="p-6">Нет такой локации</div>;
@@ -106,6 +116,26 @@ export function LocationScreen() {
                   <span className="text-sm text-stone-500">глава {chapterById(sc.chapter)?.roman} →</span>
                 </Link>
               ))}
+          {npc && level > 0 &&
+            missions
+              .filter((m) => m.chapter <= opened)
+              .map((m) => {
+                const rec = missionRecords[m.id];
+                const open = missionOpen(rep, m.chapter);
+                const status = rec?.done ? '✓ выполнена' : open ? (rec?.attempts ? `ответы: ${MODE_WORD[modeForAttempt(rec.attempts + 1)]}` : 'новая') : 'нужны отношения «Приятель»';
+                const cls = 'flex items-center justify-between rounded-2xl px-4 py-3 shadow-sm';
+                return open ? (
+                  <Link key={m.id} to={`/mission/${encodeURIComponent(m.id)}`} data-testid="mission-link" className={`press ${cls} ${rec?.done ? 'bg-okbg' : 'bg-orange-50'}`}>
+                    <span className="font-semibold">⭐ Миссия: {npc.name}</span>
+                    <span className="text-sm text-stone-500">{status} →</span>
+                  </Link>
+                ) : (
+                  <div key={m.id} data-testid="mission-link" className={`${cls} border-2 border-dashed border-stone-300`}>
+                    <span className="font-semibold text-stone-500">⭐ Миссия: {npc.name}</span>
+                    <span className="text-sm text-stone-400">{status}</span>
+                  </div>
+                );
+              })}
           <IncomeCard id={id} level={level} />
           {levels.map((lvl) => {
             const lw = levelWords(words, lvl);

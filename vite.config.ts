@@ -70,6 +70,21 @@ function wordIndex() {
   return out;
 }
 
+/** Миссии по языкам и местам: язык → место → главы, для которых миссия есть. Условие обрывка без загрузки миссий. */
+function missionIndex() {
+  const out: Record<string, Record<string, number[]>> = {};
+  for (const { lang } of wordDirs()) {
+    const dir = join(CONTENT_DIR, lang, 'missions');
+    const byPlace: Record<string, number[]> = (out[lang] = {});
+    if (!existsSync(dir)) continue;
+    for (const f of readdirSync(dir).filter((x) => x.endsWith('.json'))) {
+      const data = JSON.parse(readFileSync(join(dir, f), 'utf8')) as { location: string; missions: { chapter: number }[] };
+      byPlace[data.location] = data.missions.map((m) => m.chapter);
+    }
+  }
+  return out;
+}
+
 /** Слова свитков земель по языкам и главам: язык → глава → id. */
 function scrollIndex() {
   const out: Record<string, Record<number, string[]>> = {};
@@ -173,11 +188,13 @@ export default defineConfig({
         for (const { lang, dir } of wordDirs()) {
           this.addWatchFile(dir);
           if (existsSync(join(CONTENT_DIR, lang, 'scrolls'))) this.addWatchFile(join(CONTENT_DIR, lang, 'scrolls'));
+          if (existsSync(join(CONTENT_DIR, lang, 'missions'))) this.addWatchFile(join(CONTENT_DIR, lang, 'missions'));
         }
         return [
           `export default ${JSON.stringify(wordIndex())};`,
           `export const PHRASES = ${JSON.stringify(phraseIndex())};`,
           `export const SCROLLS = ${JSON.stringify(scrollIndex())};`,
+          `export const MISSIONS = ${JSON.stringify(missionIndex())};`,
         ].join('\n');
       },
     },

@@ -11,6 +11,7 @@ import { cellCenter, cellOf, cellPolygon, MAP_H, MAP_W, SEAL } from '../componen
 import { useCity } from '../store/city';
 import { currentJourney, useJourney } from '../store/journey';
 import { useProgress } from '../store/progress';
+import { useMissions } from '../store/missions';
 
 const INK = '#5c452d';
 const PARCHMENT = '#f1dfb0';
@@ -180,6 +181,7 @@ function missingText(p: PlaceState, level: number): string {
   const parts: string[] = [];
   if (!level) parts.push('место ещё не открыто');
   if (p.wordsLeft) parts.push(`осталось выучить ${p.wordsLeft} ${plural(p.wordsLeft, ['слово', 'слова', 'слов'])} главы`);
+  if (p.missing.includes('mission')) parts.push('нужна сюжетная миссия жителя');
   return parts.join(', ');
 }
 
@@ -191,7 +193,8 @@ export function JourneyMapScreen() {
   const cards = useProgress((s) => s.cards);
   const grammar = useProgress((s) => s.grammar);
   const buildings = useCity((s) => s.buildings);
-  const journey = useMemo(() => currentJourney(), [fragments, seals, opened, cards, grammar]);
+  const missions = useMissions((s) => s.records);
+  const journey = useMemo(() => currentJourney(), [fragments, seals, opened, cards, grammar, missions]);
   const [shown, setShown] = useState<ChapterId>(journey.current);
   const [picked, setPicked] = useState<number | 'seal' | null>(null);
   const ch = journey.chapters[shown - 1];

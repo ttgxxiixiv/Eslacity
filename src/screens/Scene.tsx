@@ -13,7 +13,7 @@ import { Button, Screen, TopBar } from '../components/ui';
 import { useSettings } from '../store/settings';
 
 /** Реплика голосом говорящего: житель — своим голосом, герой — обычным. */
-function sayLine(line: SceneLine, place: string) {
+export function sayLine(line: SceneLine, place: string) {
   const rate = useSettings.getState().speechRate;
   const npc = line.who === 'hero' ? undefined : line.who === 'npc' ? npcFor(place) : undefined;
   if (npc) speak(line.es, rate * npc.voice.rate, npc.voice.pitch);
@@ -29,21 +29,11 @@ export function SceneScreen() {
   const place = placeOfScene(id);
   const nav = useNavigate();
   const [scene, setScene] = useState<Scene | null | undefined>(undefined);
-  const [index, setIndex] = useState(0);
-  const [showRu, setShowRu] = useState(false);
-  const [word, setWord] = useState<{ word: string; ru?: string } | null>(null);
-  const [phase, setPhase] = useState<'talk' | 'questions' | 'done'>('talk');
+  const [phase, setPhase] = useState<'talk' | 'questions'>('talk');
 
   useEffect(() => {
     loadScene(id).then((s) => setScene(s ?? null));
   }, [id]);
-
-  const line = scene?.lines[index];
-  useEffect(() => {
-    if (line && phase === 'talk') sayLine(line, place);
-    // Новая реплика — в поле зрения: разговор длиннее экрана.
-    document.querySelector('[data-testid=scene-current]')?.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
-  }, [line, phase, place]);
 
   if (scene === undefined) return null;
   if (scene === null) {
@@ -56,27 +46,39 @@ export function SceneScreen() {
   }
 
   const npc = npcFor(place);
-  const title = npc ? `Разговор: ${npc.name}` : 'Разговор';
-
-  if (phase !== 'talk') {
-    return (
-      <Screen>
-        <TopBar title={title} />
+  return (
+    <Screen>
+      <TopBar title={npc ? `Разговор: ${npc.name}` : 'Разговор'} />
+      {phase === 'talk' ? (
+        <SceneTalk scene={scene} place={place} lastLabel="К вопросам" onDone={() => setPhase('questions')} />
+      ) : (
         <SceneQuiz scene={scene} onDone={() => nav(-1)} />
-      </Screen>
-    );
-  }
+      )}
+    </Screen>
+  );
+}
+
+/** Реплики сцены по одной: голос, перевод слова и реплики, «Ещё раз». Используется и в миссии как вступление. */
+export function SceneTalk({ scene, place, lastLabel, onDone }: { scene: Scene; place: string; lastLabel: string; onDone(): void }) {
+  const [index, setIndex] = useState(0);
+  const [showRu, setShowRu] = useState(false);
+  const [word, setWord] = useState<{ word: string; ru?: string } | null>(null);
+  const npc = npcFor(place);
+  const line = scene.lines[index];
+  useEffect(() => {
+    sayLine(line, place);
+    // Новая реплика — в поле зрения: разговор длиннее экрана.
+    document.querySelector('[data-testid=scene-current]')?.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+  }, [line, place]);
 
   const next = () => {
     setWord(null);
     setShowRu(false);
-    if (index + 1 >= scene.lines.length) setPhase('questions');
+    if (index + 1 >= scene.lines.length) onDone();
     else setIndex(index + 1);
   };
 
   return (
-    <Screen>
-      <TopBar title={title} />
       <div className="flex flex-1 flex-col gap-3 px-4 pb-6">
         <div className="text-sm text-stone-500 tabular-nums">
           Реплика {index + 1} из {scene.lines.length} · нажмите на слово, чтобы увидеть перевод
@@ -131,10 +133,9 @@ export function SceneScreen() {
           </Button>
         </div>
         <Button className="w-full" onClick={next} data-testid="scene-next">
-          {index + 1 >= scene.lines.length ? 'К вопросам' : 'Дальше'}
+          {index + 1 >= scene.lines.length ? lastLabel : 'Дальше'}
         </Button>
       </div>
-    </Screen>
   );
 }
 

@@ -198,3 +198,46 @@ export interface LocationScenes {
   location: LocationId;
   scenes: Scene[];
 }
+
+/** Реплика жителя в миссии. */
+export interface MissionSay {
+  kind: 'say';
+  es: string;
+  ru: string;
+  /** Следующий узел; нет — миссия закончилась. */
+  next?: string;
+}
+
+/** Ответ героя: одна из фраз места. Каждая фраза ведёт по своей ветке. */
+export interface MissionAnswer {
+  kind: 'answer';
+  /** Что герой хочет сказать, по-русски: подсказка к ответу. */
+  task: string;
+  /** Верные ответы: id фразы места и узел, куда он ведёт. Первая ветка — основная (для плиток и подсказки). */
+  branches: { phrase: string; next: string }[];
+  /** Реакция жителя на неверный ответ: смешная, но понятная. */
+  wrong: { es: string; ru: string };
+}
+
+export type MissionNode = MissionSay | MissionAnswer;
+
+/**
+ * Сюжетная миссия жителя на главу (docs/GAME.md, «Жители и миссии»): сначала сцена-разговор, потом диалог,
+ * где герой отвечает фразами места. Засчитывается при 80% верных ответов.
+ */
+export interface Mission {
+  /** `ms:<место>.<глава>` */
+  id: string;
+  chapter: number;
+  npc: string;
+  /** Сцена-вступление (`sc:<место>.<глава>`). */
+  scene?: string;
+  /** С чего начинается диалог. */
+  start: string;
+  nodes: Record<string, MissionNode>;
+}
+
+export interface LocationMissions {
+  location: LocationId;
+  missions: Mission[];
+}

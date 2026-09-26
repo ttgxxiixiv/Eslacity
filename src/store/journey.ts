@@ -2,7 +2,8 @@ import { useMemo } from 'react';
 import { create } from 'zustand';
 import { lessonsOf } from '../content/grammar';
 import { LOCATIONS } from '../content/locations';
-import { SCROLL_WORDS, WORD_LEVELS } from '../content/wordIndex';
+import { MISSION_CHAPTERS, SCROLL_WORDS, WORD_LEVELS } from '../content/wordIndex';
+import { isMissionDone, useMissions } from './missions';
 import { db } from '../db/db';
 import { persist } from '../db/persist';
 import {
@@ -34,6 +35,8 @@ export function journeyInput(): JourneyInput {
     lessons: Object.fromEntries(districts.map((d) => [d, lessonsOf(d as never).map((l) => l.id)])),
     isLessonDone: (id) => !!p.grammar[id],
     scrolls: SCROLL_WORDS,
+    missions: MISSION_CHAPTERS,
+    isMissionDone: (place, chapter) => isMissionDone(useMissions.getState().records, place, chapter),
   };
 }
 

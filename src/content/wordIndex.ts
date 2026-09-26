@@ -1,4 +1,4 @@
-import INDEX, { PHRASES, SCROLLS } from 'virtual:word-index';
+import INDEX, { MISSIONS, PHRASES, SCROLLS } from 'virtual:word-index';
 import { LANG } from '../lang';
 
 /** Место → уровень → id слов выбранного языка. Сами слова грузятся по местам (`loadLocation`). */
@@ -14,3 +14,6 @@ export const PHRASE_IDS: ReadonlySet<string> = new Set(PHRASES[LANG] ?? []);
 
 /** Глава → id слов свитка земли выбранного языка. Свитка главы может ещё не быть. */
 export const SCROLL_WORDS: Record<number, string[]> = SCROLLS[LANG] ?? {};
+
+/** Место → главы с сюжетной миссией выбранного языка. */
+export const MISSION_CHAPTERS: Record<string, number[]> = MISSIONS[LANG] ?? {};

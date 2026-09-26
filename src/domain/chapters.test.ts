@@ -73,11 +73,11 @@ describe('состояние пути', () => {
   it('новое условие не отнимает полученное', () => {
     const learned = chapterWords(1, 'cafe');
     const rec = recordAwards(EMPTY_JOURNEY, newAwards(journeyState(input(learned), EMPTY_JOURNEY)), 5);
-    const stricter = { ...CONDITIONS, fragment: { words: true, mission: true, trial: false } };
+    const stricter = { ...CONDITIONS, fragment: { words: true, mission: true, trial: true } };
     const s = journeyState(input([...learned, ...chapterWords(1, 'market')]), rec, stricter);
     const [cafe, market] = s.chapters[0].places;
     expect(cafe).toMatchObject({ got: true, ready: false, missing: [] });
-    expect(market).toMatchObject({ got: false, ready: false, missing: ['mission'] });
+    expect(market).toMatchObject({ got: false, ready: false, missing: ['trial'] });
     expect(s.chapters[0].fragments).toBe(1);
     expect(newAwards(s)).toEqual([]);
   });
@@ -140,11 +140,11 @@ describe('ближайший обрывок', () => {
   it('из открытых мест — где меньше всего слов осталось', () => {
     const learned = [...chapterWords(1, 'cafe'), 'market.l1a', 'market.l1b', 'market.l2a'];
     const ch = journeyState(input(learned), EMPTY_JOURNEY).chapters[0];
-    expect(nearestGoal(ch, (l) => l !== 'park')).toEqual({ kind: 'place', location: 'market', wordsLeft: 1, open: true });
+    expect(nearestGoal(ch, (l) => l !== 'park')).toEqual({ kind: 'place', location: 'market', wordsLeft: 1, open: true, mission: false });
   });
   it('если открытых нет — первое закрытое место по порядку', () => {
     const ch = journeyState(input([]), EMPTY_JOURNEY).chapters[0];
-    expect(nearestGoal(ch, () => false)).toEqual({ kind: 'place', location: 'cafe', wordsLeft: 4, open: false });
+    expect(nearestGoal(ch, () => false)).toEqual({ kind: 'place', location: 'cafe', wordsLeft: 4, open: false, mission: false });
   });
   it('все обрывки есть — печать, всё собрано — ничего', () => {
     const learned = LOCS.flatMap((loc) => chapterWords(1, loc));
@@ -181,5 +181,28 @@ describe('свиток земли', () => {
   it('без условия scroll свиток не нужен', () => {
     const cond = { ...CONDITIONS, seal: { ...CONDITIONS.seal, scroll: false } };
     expect(journeyState(input(places, grammar, scrolls), EMPTY_JOURNEY, cond).chapters[0].seal.ready).toBe(true);
+  });
+});
+
+describe('сюжетная миссия места', () => {
+  const cafe = chapterWords(1, 'cafe');
+  const withMission = (done: boolean): JourneyInput => ({
+    ...input(cafe),
+    missions: { cafe: [1] },
+    isMissionDone: (loc, ch) => done && loc === 'cafe' && ch === 1,
+  });
+
+  it('обрывок ждёт миссию, если она есть в контенте', () => {
+    const p = journeyState(withMission(false), EMPTY_JOURNEY).chapters[0].places[0];
+    expect(p).toMatchObject({ ready: false, wordsLeft: 0, mission: 'todo', missing: ['mission'] });
+    expect(nearestGoal(journeyState(withMission(false), EMPTY_JOURNEY).chapters[0], () => true)).toMatchObject({ location: 'cafe', wordsLeft: 0, mission: true });
+  });
+  it('миссия пройдена — обрывок готов', () => {
+    expect(journeyState(withMission(true), EMPTY_JOURNEY).chapters[0].places[0]).toMatchObject({ ready: true, mission: 'done', missing: [] });
+  });
+  it('миссии в контенте нет — условие не мешает, полученный обрывок не отнимается', () => {
+    expect(journeyState(input(cafe), EMPTY_JOURNEY).chapters[0].places[0]).toMatchObject({ ready: true, mission: 'none' });
+    const got = journeyState(withMission(false), { fragments: { '1:cafe': 5 }, seals: {} }).chapters[0].places[0];
+    expect(got).toMatchObject({ got: true, missing: [] });
   });
 });

@@ -5,6 +5,7 @@ import type { SrsCard } from '../domain/srs';
 import { currentJourney, useJourney } from './journey';
 import { useCity } from './city';
 import { useProgress } from './progress';
+import { useMissions } from './missions';
 import { lessonsOf } from '../content/grammar';
 
 const card = (wordId: string) => ({ wordId, ef: 2.5, interval: 1, reps: 1, due: 0, lapses: 0, learnedAt: 0, lastReviewedAt: 0 }) as SrsCard;
@@ -24,6 +25,10 @@ describe('путь по настоящему контенту', () => {
   it('перенос: обрывок выдаётся по уже выученным словам, второй раз не выдаётся', () => {
     const cafe = [...WORD_LEVELS.cafe[1], ...WORD_LEVELS.cafe[2]];
     useProgress.getState().hydrate({ cards: cafe.map(card), days: [], xpTotal: 0, grammar: [] });
+    // У кафе есть сюжетная миссия главы I: без неё обрывка нет.
+    useMissions.getState().hydrate({});
+    expect(currentJourney().chapters[0].places.find((p) => p.location === 'cafe')).toMatchObject({ ready: false, missing: ['mission'] });
+    useMissions.getState().hydrate({ 'ms:cafe.1': { attempts: 1, best: 1, done: 500 } });
     expect(currentJourney().chapters[0].places.find((p) => p.location === 'cafe')).toMatchObject({ ready: true });
     const got = useJourney.getState().sync(1000);
     expect(got).toEqual([{ kind: 'fragment', chapter: 1, location: 'cafe' }]);

@@ -29,6 +29,8 @@ interface ErrandsState extends ErrandsData {
   refresh(now?: number): void;
   /** Поручение выполнено: награда и репутация. Возвращает награду или null, если поручения уже нет. */
   complete(id: string, now?: number): { coins: number; rep: number; rankUp: Rank | null } | null;
+  /** Очки репутации у жителя (за миссию). Возвращает новую ступень, если отношения стали ближе. */
+  addRep(npcId: string, points: number): Rank | null;
 }
 
 function save(s: ErrandsData) {
@@ -64,6 +66,15 @@ export const useErrands = create<ErrandsState>((set, get) => ({
     for (const e of active) if (e.day === today) last[e.location] = today;
     set({ day: today, active, last });
     save(get());
+  },
+
+  addRep(npcId, points) {
+    const s = get();
+    const before = s.rep[npcId] ?? 0;
+    set({ rep: { ...s.rep, [npcId]: before + points } });
+    save(get());
+    const after = rankIndex(before + points);
+    return after > rankIndex(before) ? RANKS[after] : null;
   },
 
   complete(id) {

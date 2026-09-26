@@ -2,7 +2,8 @@ import { normalize, splitArticle, stripAccents } from '../domain/answer';
 import type { Lang } from '../lang';
 import { CHAPTERS as PLAN, PLACE_LEVEL_MAX } from './vocabPlan';
 import { expandOptional, fullPhrase, optionalError, PHRASE_MAX_WORDS, PHRASE_PREFIX, phraseWords } from '../domain/phrase';
-import { LOCATION_IDS, type Chronicler, type GrammarLesson, type LocationPhrases, type LocationScenes, type LocationWords, type NpcsFile, type ScrollFile, type Word } from './schema';
+import { answersOnPath, missionGraphIssues } from '../domain/mission';
+import { LOCATION_IDS, type Chronicler, type GrammarLesson, type LocationMissions, type LocationPhrases, type LocationScenes, type Phrase, type LocationWords, type NpcsFile, type ScrollFile, type Word } from './schema';
 
 export interface Issue {
   level: 'error' | 'warning';
@@ -514,4 +515,82 @@ export function validateScenes(files: { name: string; data: LocationScenes }[], 
     }
   }
   return { issues: out, report };
+}
+
+/** Меньше стольких ответов героя 80% означало бы «без единой ошибки». */
+export const MISSION_MIN_ANSWERS = 5;
+
+export interface MissionChecks {
+  residents: Record<string, string>;
+  /** Фразы мест: ответы героя — только фразы своего места. */
+  phrases: Record<string, Phrase[]>;
+  /** id существующих сцен. */
+  scenes: ReadonlySet<string>;
+  coverage?: (text: string, level: number) => { total: number; unknown: string[] };
+}
+
+/**
+ * Миссии мест: `missions/<место>.json`. id `ms:<место>.<глава>`, житель места, сцена-вступление той же главы,
+ * граф без обрывов и циклов, ответы героя — фразы своего места уровней главы, у каждого ответа реакция на ошибку,
+ * не меньше пяти ответов на пути. Реплики жителя (с реакциями) — не больше 7% незнакомых слов.
+ */
+export function validateMissions(files: { name: string; data: LocationMissions }[], checks: MissionChecks): Issue[] {
+  const out: Issue[] = [];
+  const ids = new Set<string>();
+  for (const { name, data } of files) {
+    if (!LOCATION_IDS.includes(data.location)) out.push({ level: 'error', where: name, msg: `неизвестное место "${data.location}"` });
+    if (`${data.location}.json` !== name) out.push({ level: 'error', where: name, msg: `имя файла не совпадает с location "${data.location}"` });
+    if (!Array.isArray(data.missions) || !data.missions.length) {
+      out.push({ level: 'error', where: name, msg: 'нет миссий' });
+      continue;
+    }
+    const own = new Map((checks.phrases[data.location] ?? []).map((p) => [p.id, p]));
+    for (const m of data.missions) {
+      const at = `missions/${name} ${m.id ?? '?'}`;
+      if (m.id !== `ms:${data.location}.${m.chapter}`) out.push({ level: 'error', where: at, msg: `id должен быть "ms:${data.location}.${m.chapter}"` });
+      if (ids.has(m.id)) out.push({ level: 'error', where: at, msg: 'дубль id' });
+      ids.add(m.id);
+      const plan = PLAN[m.chapter - 1];
+      if (!plan) {
+        out.push({ level: 'error', where: at, msg: `глава ${m.chapter}` });
+        continue;
+      }
+      const maxLevel = Math.max(...plan.levels);
+      if (m.npc !== checks.residents[data.location]) out.push({ level: 'error', where: at, msg: `житель "${m.npc}", в этом месте живёт "${checks.residents[data.location]}"` });
+      if (m.scene !== undefined && (m.scene !== `sc:${data.location}.${m.chapter}` || !checks.scenes.has(m.scene))) {
+        out.push({ level: 'error', where: at, msg: `нет сцены "${m.scene}" этого места и главы` });
+      }
+      for (const msg of missionGraphIssues(m)) out.push({ level: 'error', where: at, msg });
+      const lines: string[] = [];
+      for (const [id, n] of Object.entries(m.nodes ?? {})) {
+        const where = `${at} ${id}`;
+        if (n.kind === 'say') {
+          if (empty(n.es) || empty(n.ru)) out.push({ level: 'error', where, msg: 'пустая реплика или перевод' });
+          lines.push(n.es);
+        } else if (n.kind === 'answer') {
+          if (empty(n.task)) out.push({ level: 'error', where, msg: 'нет задачи героя (task)' });
+          if (empty(n.wrong?.es) || empty(n.wrong?.ru)) out.push({ level: 'error', where, msg: 'нет реакции жителя на ошибку' });
+          else lines.push(n.wrong.es);
+          for (const b of n.branches ?? []) {
+            const p = own.get(b.phrase);
+            if (!p) out.push({ level: 'error', where, msg: `нет фразы "${b.phrase}" в фразах места` });
+            else if (p.level > maxLevel) out.push({ level: 'error', where, msg: `фраза "${b.phrase}" уровня ${p.level}, в главе ${plan.chapter} — до ${maxLevel}` });
+          }
+        } else {
+          out.push({ level: 'error', where, msg: 'узел должен быть say или answer' });
+        }
+      }
+      if (!missionGraphIssues(m).length && answersOnPath(m) < MISSION_MIN_ANSWERS) {
+        out.push({ level: 'error', where: at, msg: `ответов героя ${answersOnPath(m)}, нужно не меньше ${MISSION_MIN_ANSWERS}` });
+      }
+      if (checks.coverage && lines.length) {
+        const cov = checks.coverage(lines.join(' '), maxLevel);
+        const share = cov.total ? cov.unknown.length / cov.total : 0;
+        if (share > SCENE_UNKNOWN_MAX) {
+          out.push({ level: 'error', where: at, msg: `незнакомых слов ${Math.round(share * 100)}% (${[...new Set(cov.unknown)].join(', ')}), не больше ${Math.round(SCENE_UNKNOWN_MAX * 100)}%` });
+        }
+      }
+    }
+  }
+  return out;
 }

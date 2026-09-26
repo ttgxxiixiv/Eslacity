@@ -1,7 +1,7 @@
 import { readdirSync, readFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
-import { validateChronicler, validateGrammar, validateNpcs, validatePhrases, validateScenes, validateScrolls, validateWords, type Issue } from '../src/content/validate';
-import type { Chronicler, GrammarLesson, LocationPhrases, LocationScenes, NpcsFile, ScrollFile } from '../src/content/schema';
+import { validateChronicler, validateGrammar, validateMissions, validateNpcs, validatePhrases, validateScenes, validateScrolls, validateWords, type Issue } from '../src/content/validate';
+import type { Chronicler, GrammarLesson, LocationMissions, LocationPhrases, LocationScenes, NpcsFile, ScrollFile } from '../src/content/schema';
 import type { Lang } from '../src/lang';
 import { CHAPTERS, PLAN_TOTAL } from '../src/content/vocabPlan';
 import { plural } from '../src/domain/medals';
@@ -72,7 +72,15 @@ for (const lang of langs) {
     residents: Object.fromEntries((npcs?.npcs ?? []).map((n) => [n.location, n.id])),
     coverage: (text, level) => textCoverage(text, level, lexicon, forms, lang),
   });
+  const missions = readJson<LocationMissions>(join(root, lang, 'missions'));
+  const missionIssues = validateMissions(missions, {
+    residents: Object.fromEntries((npcs?.npcs ?? []).map((n) => [n.location, n.id])),
+    phrases: Object.fromEntries(phrases.map((f) => [f.data.location, f.data.phrases])),
+    scenes: new Set(scenes.flatMap((f) => f.data.scenes.map((sc) => sc.id))),
+    coverage: (text, level) => textCoverage(text, level, lexicon, forms, lang),
+  });
   issues.push(
+    ...tag(missionIssues),
     ...tag(sceneCheck.issues),
     ...tag(validateWords(words, lang)),
     ...tag(
@@ -89,8 +97,9 @@ for (const lang of langs) {
   const placeCount = words.reduce((n, f) => n + f.data.words.length, 0);
   const scrollCount = scrolls.reduce((n, f) => n + f.data.words.length, 0);
   const phraseCount = phrases.reduce((n, f) => n + f.data.phrases.length, 0);
+  const missionCount = missions.reduce((n, f) => n + f.data.missions.length, 0);
   summary.push(
-    `${lang}: ${words.length} локаций, слов: ${placeCount + scrollCount} (из них в свитках ${scrollCount}) из плана ${PLAN_TOTAL}, ${grammar.length} уроков, ${phraseCount} ${plural(phraseCount, ['фраза', 'фразы', 'фраз'])}, ${sceneSummary(sceneCheck.report)}, ${npcs?.npcs.length ?? 0} жителей`,
+    `${lang}: ${words.length} локаций, слов: ${placeCount + scrollCount} (из них в свитках ${scrollCount}) из плана ${PLAN_TOTAL}, ${grammar.length} уроков, ${phraseCount} ${plural(phraseCount, ['фраза', 'фразы', 'фраз'])}, ${sceneSummary(sceneCheck.report)}, ${missionCount} ${plural(missionCount, ['миссия', 'миссии', 'миссий'])}, ${npcs?.npcs.length ?? 0} жителей`,
   );
 }
 

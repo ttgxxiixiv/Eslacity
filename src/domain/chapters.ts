@@ -49,7 +49,7 @@ export type Conditions = { fragment: Record<FragmentCondition, boolean>; seal: R
 export type SealCondition = 'grammar' | 'scroll' | 'guardian';
 
 export const CONDITIONS: Conditions = {
-  fragment: { words: true, mission: false, trial: false },
+  fragment: { words: true, mission: true, trial: false },
   seal: { grammar: true, scroll: true, guardian: false },
 };
 
@@ -65,6 +65,9 @@ export interface JourneyInput {
   isLessonDone(lessonId: string): boolean;
   /** Глава → id слов свитка земли. Свитка может не быть: тогда условие выполнено. */
   scrolls: Record<number, string[]>;
+  /** Место → главы, для которых в контенте есть сюжетная миссия. Нет миссии — условие выполнено. */
+  missions?: Record<string, number[]>;
+  isMissionDone?(location: string, chapter: number): boolean;
 }
 
 /** Полученное: ключ → время получения. Полученное не отнимается, даже если условия стали строже. */
@@ -92,6 +95,8 @@ export interface PlaceState {
   wordsLeft: number;
   /** Каких условий не хватает (пусто, если обрывок получен или готов). */
   missing: FragmentCondition[];
+  /** Сюжетная миссия места в этой главе: нет в контенте, ещё не пройдена, пройдена. */
+  mission: 'none' | 'todo' | 'done';
 }
 
 export interface ChapterState {
@@ -127,11 +132,14 @@ function placeState(ch: Chapter, location: string, input: JourneyInput, rec: Jou
   const missing: FragmentCondition[] = [];
   // Пустой уровень (слов главы ещё нет в контенте) обрывка не даёт.
   if (cond.fragment.words && (ids.length === 0 || wordsLeft > 0)) missing.push('words');
-  // mission и trial появятся со своими системами: пока включённое, но не сделанное условие не выполнено.
-  if (cond.fragment.mission) missing.push('mission');
+  // Миссии места в этой главе может ещё не быть в контенте: тогда условие не мешает.
+  const hasMission = input.missions?.[location]?.includes(ch.id) ?? false;
+  const mission = !hasMission ? 'none' : input.isMissionDone?.(location, ch.id) ? 'done' : 'todo';
+  if (cond.fragment.mission && mission === 'todo') missing.push('mission');
+  // trial появится с испытаниями: пока включённое, но не сделанное условие не выполнено.
   if (cond.fragment.trial) missing.push('trial');
   const got = rec.fragments[fragmentKey(ch.id, location)] !== undefined;
-  return { location, got, ready: !got && missing.length === 0, words: ids.length, wordsLeft, missing: got ? [] : missing };
+  return { location, got, ready: !got && missing.length === 0, words: ids.length, wordsLeft, missing: got ? [] : missing, mission };
 }
 
 export function journeyState(input: JourneyInput, rec: JourneyRecord, cond: Conditions = CONDITIONS): JourneyState {
@@ -239,7 +247,7 @@ export function sceneToShow(completed: number, celebrated: number | undefined): 
 }
 
 export type NearestGoal =
-  | { kind: 'place'; location: string; wordsLeft: number; open: boolean }
+  | { kind: 'place'; location: string; wordsLeft: number; open: boolean; mission: boolean }
   | { kind: 'seal'; lessonsLeft: number; scrollLeft: number }
   | null;
 
@@ -251,7 +259,9 @@ export function nearestGoal(ch: ChapterState, isOpen: (location: string) => bool
   const left = ch.places.filter((p) => !p.got && !p.ready && p.words > 0);
   const open = left.filter((p) => isOpen(p.location)).sort((a, b) => a.wordsLeft - b.wordsLeft);
   const pick = open[0] ?? left[0];
-  if (pick) return { kind: 'place', location: pick.location, wordsLeft: pick.wordsLeft, open: isOpen(pick.location) };
+  if (pick) {
+    return { kind: 'place', location: pick.location, wordsLeft: pick.wordsLeft, open: isOpen(pick.location), mission: pick.missing.includes('mission') };
+  }
   if (!ch.seal.got && !ch.seal.ready && (ch.seal.lessons > 0 || ch.seal.scrollLeft > 0)) {
     return { kind: 'seal', lessonsLeft: ch.seal.lessonsLeft, scrollLeft: ch.seal.scrollLeft };
   }

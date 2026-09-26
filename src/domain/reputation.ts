@@ -57,9 +57,8 @@ export function friendsCount(rep: Record<string, number>): number {
 }
 
 /**
- * Сюжетная миссия следующей главы открывается с Приятеля. Миссий пока нет (этап 4 «Жители: миссии»):
- * флаг включит условие, когда они появятся.
+ * Сюжетная миссия следующей главы открывается с Приятеля (docs/GAME.md). Миссия главы I открыта сразу:
+ * с жителем только знакомимся.
  */
-export const MISSIONS_ENABLED = false;
 export const MISSION_RANK = 2;
-export const missionOpen = (points: number) => MISSIONS_ENABLED && rankIndex(points) >= MISSION_RANK;
+export const missionOpen = (points: number, chapter = 2) => chapter <= 1 || rankIndex(points) >= MISSION_RANK;

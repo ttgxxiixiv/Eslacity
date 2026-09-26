@@ -315,3 +315,19 @@ export async function playPhrases(page: Page, lang: Lang, place: string, done: R
   }
   throw new Error('Фразы не закончились');
 }
+
+/** Отметить сюжетные миссии пройденными (без перезагрузки: следующий seed или reload её сделает). */
+export async function seedMissionsDone(page: Page, lang: Lang, ids: string[]) {
+  await page.evaluate(
+    ({ db, ids }) =>
+      new Promise<void>((resolve) => {
+        const r = indexedDB.open(db);
+        r.onsuccess = () => {
+          const tx = r.result.transaction('meta', 'readwrite');
+          tx.objectStore('meta').put({ key: 'missions', value: Object.fromEntries(ids.map((id) => [id, { attempts: 1, best: 1, done: 1 }])) });
+          tx.oncomplete = () => resolve();
+        };
+      }),
+    { db: DB[lang], ids },
+  );
+}

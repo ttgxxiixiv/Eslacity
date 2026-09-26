@@ -1,0 +1,28 @@
+{
+  "location": "cafe",
+  "missions": [
+    {
+      "id": "ms:cafe.1",
+      "chapter": 1,
+      "npc": "lola",
+      "scene": "sc:cafe.1",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "¡Hola otra vez! Hoy en mi café se habla solo español. ¿Qué quieres tomar?", "ru": "Привет ещё раз! Сегодня в моём кафе говорят только по-испански. Что будешь пить?", "next": "order"},
+        "order": {"kind": "answer", "task": "Закажите кофе или чай с молоком.", "branches": [{"phrase": "ph:cafe.un-cafe", "next": "coffee"}, {"phrase": "ph:cafe.quiero-te", "next": "tea"}], "wrong": {"es": "¿Cómo? ¿Un gato? No tenemos gatos en el menú.", "ru": "Как? Кота? Котов в меню нет."}},
+        "coffee": {"kind": "say", "es": "Un café. ¡Muy bien! Y el agua, ¿quieres agua?", "ru": "Кофе. Отлично! А воды хочешь?", "next": "water"},
+        "tea": {"kind": "say", "es": "Un té con leche. ¡Hablas muy bien! ¿Quieres agua?", "ru": "Чай с молоком. Ты отлично говоришь! Воды хочешь?", "next": "water"},
+        "water": {"kind": "answer", "task": "Попросите стакан воды.", "branches": [{"phrase": "ph:cafe.vaso-agua", "next": "sugarq"}], "wrong": {"es": "¿Un vaso de sopa? Esto es un café, no un restaurante.", "ru": "Стакан супа? Это кафе, а не ресторан."}},
+        "sugarq": {"kind": "say", "es": "Aquí tienes el agua. ¿Y azúcar?", "ru": "Вот вода. А сахар?", "next": "sugar"},
+        "sugar": {"kind": "answer", "task": "Откажитесь от сахара и поблагодарите.", "branches": [{"phrase": "ph:cafe.sin-azucar-gracias", "next": "toast"}], "wrong": {"es": "¿Diez kilos de azúcar? ¡No, no, no!", "ru": "Десять кило сахара? Нет-нет-нет!"}},
+        "toast": {"kind": "say", "es": "Muy bien. Hoy la tostada está muy rica.", "ru": "Хорошо. Сегодня тосты очень вкусные.", "next": "toastq"},
+        "toastq": {"kind": "answer", "task": "Спросите, есть ли тосты.", "branches": [{"phrase": "ph:cafe.tienen-tostadas", "next": "paysay"}], "wrong": {"es": "¿Tostadas para el perro? El perro ya come mucho.", "ru": "Тосты для собаки? Собака и так много ест."}},
+        "paysay": {"kind": "say", "es": "Sí. Aquí tienes una tostada.", "ru": "Да. Вот тебе тост.", "next": "payq"},
+        "payq": {"kind": "answer", "task": "Спросите, можно ли заплатить здесь.", "branches": [{"phrase": "ph:cafe.puedo-pagar-aqui", "next": "billsay"}], "wrong": {"es": "¿Pagar con flores? Aquí se paga con euros.", "ru": "Заплатить цветами? Здесь платят евро."}},
+        "billsay": {"kind": "say", "es": "Sí, aquí. El camarero tiene la cuenta.", "ru": "Да, здесь. Счёт у официанта.", "next": "bill"},
+        "bill": {"kind": "answer", "task": "Попросите счёт.", "branches": [{"phrase": "ph:cafe.la-cuenta", "next": "bye"}], "wrong": {"es": "¿Otro café? ¡Ya tienes café!", "ru": "Ещё кофе? У тебя уже есть кофе!"}},
+        "bye": {"kind": "say", "es": "Son tres euros. ¡Hablas muy bien! Hasta mañana.", "ru": "С тебя три евро. Ты отлично говоришь! До завтра."}
+      }
+    }
+  ]
+}

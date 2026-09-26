@@ -19,6 +19,7 @@ import { useNow } from '../lib/useNow';
 import { CityGrid } from '../components/CityGrid';
 import { useCity } from '../store/city';
 import { useProgress } from '../store/progress';
+import { useMissions } from '../store/missions';
 import { StatsBar } from '../components/Stats';
 import { Screen } from '../components/ui';
 import mapButton from '../assets/home/map-button.webp';
@@ -192,7 +193,8 @@ function JourneyLine() {
   const cards = useProgress((s) => s.cards);
   const grammar = useProgress((s) => s.grammar);
   const buildings = useCity((s) => s.buildings);
-  const journey = useMemo(() => currentJourney(), [fragments, seals, cards, grammar]);
+  const missions = useMissions((s) => s.records);
+  const journey = useMemo(() => currentJourney(), [fragments, seals, cards, grammar, missions]);
   const ch = journey.chapters[journey.current - 1];
   const got = ch.places.filter((p) => p.got).length;
   const goal = nearestGoal(ch, (loc) => (buildings[loc as LocationId]?.level ?? 0) > 0);
@@ -201,7 +203,11 @@ function JourneyLine() {
   if (goal?.kind === 'place') {
     const meta = LOCATION_BY_ID[goal.location as LocationId];
     const words = `${goal.wordsLeft} ${plural(goal.wordsLeft, ['слово', 'слова', 'слов'])}`;
-    next = goal.open ? `${meta.emoji} ${meta.ru}: осталось ${words}` : `${meta.emoji} ${meta.ru}: откройте место, ${words}`;
+    next = !goal.open
+      ? `${meta.emoji} ${meta.ru}: откройте место, ${words}`
+      : goal.wordsLeft || !goal.mission
+        ? `${meta.emoji} ${meta.ru}: осталось ${words}`
+        : `${meta.emoji} ${meta.ru}: сюжетная миссия жителя`;
   } else if (goal?.kind === 'seal') {
     const parts = [
       goal.lessonsLeft ? `${goal.lessonsLeft} ${plural(goal.lessonsLeft, ['урок', 'урока', 'уроков'])} ${ch.chapter.districts.join(' и ')}` : '',
