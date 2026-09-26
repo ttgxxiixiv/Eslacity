@@ -22,6 +22,7 @@ import { useProgress } from '../store/progress';
 import { useMissions } from '../store/missions';
 import { StatsBar } from '../components/Stats';
 import { Screen } from '../components/ui';
+import mapPicture from '../assets/home/map-button-map.webp';
 
 type WordsMap = Partial<Record<LocationId, Word[]>>;
 
@@ -297,9 +298,10 @@ export function Home() {
             to="/journey-map"
             aria-label="Карта странствий"
             data-testid="map-button"
-            className="press map-button block w-[68px] shrink-0 self-stretch"
+            className="press map-button flex w-[68px] shrink-0 items-center justify-center self-stretch"
           >
-            {/* Надпись «Карта» нарисована на картинке (фон в index.css), для экранного диктора — aria-label. */}
+            {/* Надпись «Карта» нарисована на фоне (index.css), для экранного диктора — aria-label. */}
+            <img src={mapPicture} alt="" width={231} height={236} className="block h-auto max-h-full w-[50px] drop-shadow-md" />
           </Link>
         </div>
         {step && <LearnAnyway step={step} />}

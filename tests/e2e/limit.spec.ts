@@ -46,6 +46,10 @@ for (const lang of LANGS) {
       // Кнопка карты по высоте равна карточке квеста, ссылка «Всё равно учить» под ними не растягивает её.
       const cardH = (await cont.boundingBox())!.height;
       expect(Math.abs((await page.getByTestId('map-button').boundingBox())!.height - cardH)).toBeLessThan(1);
+      // Карта по центру досок: отступы до верха рамки (26px) и до надписи (36px) равны.
+      const btn = (await page.getByTestId('map-button').boundingBox())!;
+      const pic = (await page.getByTestId('map-button').locator('img').boundingBox())!;
+      expect(Math.abs(pic.y - (btn.y + 26) - (btn.y + btn.height - 36 - (pic.y + pic.height)))).toBeLessThan(1);
 
       // Лимит 20 в настройках: снова урок.
       await page.goto('./#/settings');
