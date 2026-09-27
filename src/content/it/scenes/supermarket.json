@@ -50,6 +50,31 @@
         {"q": "Что он сказал?", "options": ["«Скоро спустится туман»", "«Башня закрыта»", "«Я вернусь завтра»"], "answer": 0}
       ],
       "gloss": {"torcia": "фонарик", "torce": "фонарики", "mantello": "плащ", "monete": "монеты", "moneta": "монета"}
+    },
+    {
+      "id": "sc:supermarket.3",
+      "chapter": 3,
+      "npc": "matteo",
+      "lines": [
+        {"who": "npc", "es": "Viaggiatore! Ieri ho portato una spesa fino al confine del deserto.", "ru": "Путешественник! Вчера я отвёз покупки к самому краю пустыни."},
+        {"who": "hero", "es": "Fino a lì?", "ru": "Прямо туда?"},
+        {"who": "npc", "es": "A una piccola casa, l'ultima prima della sabbia.", "ru": "В маленький дом, последний перед песком."},
+        {"who": "hero", "es": "E cosa hai visto?", "ru": "И что ты видел?"},
+        {"who": "npc", "es": "Un uomo vendeva «acqua dell'oasi» in bottiglia. La gente le comprava molto care.", "ru": "Человек продавал «воду оазиса» в бутылках. Люди покупали их очень дорого."},
+        {"who": "hero", "es": "E cosa è successo?", "ru": "И что случилось?"},
+        {"who": "npc", "es": "Ho aperto una bottiglia. Era vuota. Ma prima di aprirla, sembrava piena.", "ru": "Я открыл одну бутылку. Она была пустая. А пока не откроешь, казалась полной."},
+        {"who": "hero", "es": "Come la città bianca.", "ru": "Как белый город."},
+        {"who": "npc", "es": "Sembra che nel deserto anche le bottiglie dicano bugie.", "ru": "Похоже, в пустыне даже бутылки обманывают."},
+        {"who": "hero", "es": "E l'uomo?", "ru": "А тот человек?"},
+        {"who": "npc", "es": "È sparito. Sono rimaste solo le sue orme nella sabbia, e il vento le ha cancellate.", "ru": "Исчез. Остались только следы на песке, и ветер их стёр."}
+      ],
+      "questions": [
+        {"q": "Куда Маттео возил покупки?", "options": ["К краю пустыни", "В башню", "В аэропорт"], "answer": 0},
+        {"q": "Что продавал человек?", "options": ["«Воду оазиса» в бутылках", "Финики", "Фонарики"], "answer": 0},
+        {"q": "Что было в бутылке?", "options": ["Вода", "Песок", "Ничего"], "answer": 2},
+        {"q": "Что стало со следами продавца?", "options": ["Их стёр ветер", "Их нашла полиция", "Они ведут в город"], "answer": 0}
+      ],
+      "gloss": {"confine": "край", "oasi": "оазис", "sparito": "исчез", "orme": "следы", "cancellate": "стёр"}
     }
   ]
 }

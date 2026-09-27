@@ -45,6 +45,28 @@
         "pay": {"kind": "answer", "task": "Попросите счёт или скажите, что сегодня угощаете вы.", "branches": [{"phrase": "ph:cafe.cobra", "next": "end"}, {"phrase": "ph:cafe.hoy-invito", "next": "end"}], "wrong": {"es": "¿Me das tu mochila? No, gracias, tengo una.", "ru": "Отдаёшь мне свой рюкзак? Нет, спасибо, у меня есть."}},
         "end": {"kind": "say", "es": "Hoy no pagas nada. Y una cosa: si ves a Tomás en la niebla, llámalo. Él siempre decía: en la niebla, solo la voz te guía. Toma mi trozo del mapa de las montañas.", "ru": "Сегодня ты ничего не платишь. И вот что: если увидишь Томаса в тумане, позови его. Он всегда говорил: в тумане ведёт только голос. Держи мой обрывок карты гор."}
       }
+    },
+    {
+      "id": "ms:cafe.3",
+      "chapter": 3,
+      "npc": "lola",
+      "scene": "sc:cafe.3",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "¿Tienes un momento? Quiero hablar contigo antes del desierto.", "ru": "Есть минутка? Хочу поговорить с тобой перед пустыней.", "next": "drink"},
+        "drink": {"kind": "answer", "task": "Предложите выпить чего-нибудь.", "branches": [{"phrase": "ph:cafe.tomamos-algo", "next": "drinksay"}], "wrong": {"es": "¿Tomamos el tren? No, hombre, un café.", "ru": "Сядем на поезд? Да нет же, выпьем кофе."}},
+        "drinksay": {"kind": "say", "es": "Claro, siéntate. ¿Lo de siempre?", "ru": "Конечно, садись. Как обычно?", "next": "milk"},
+        "milk": {"kind": "answer", "task": "Спросите, есть ли безлактозное молоко.", "branches": [{"phrase": "ph:cafe.tienen-leche-sin", "next": "milksay"}], "wrong": {"es": "¿Tienen leche de camello? Eso, en el desierto.", "ru": "Верблюжье молоко есть? Это в пустыне."}},
+        "milksay": {"kind": "say", "es": "Sí, sin lactosa. Andrés también la pidió. ¿Y algo dulce?", "ru": "Да, безлактозное. Андрес тоже такое просил. А что-нибудь сладкое?", "next": "pastry"},
+        "pastry": {"kind": "answer", "task": "Спросите, домашняя ли выпечка.", "branches": [{"phrase": "ph:cafe.bolleria-casera", "next": "pastrysay"}], "wrong": {"es": "¿La bollería es de arena? ¡No, es de mi horno!", "ru": "Выпечка из песка? Нет, из моей печи!"}},
+        "pastrysay": {"kind": "say", "es": "Casera, de mi madre. Toma una para el camino. Oye, ¿por qué vienes tanto aquí?", "ru": "Домашняя, мамина. Возьми одну в дорогу. Слушай, а почему ты так часто сюда приходишь?", "next": "relax"},
+        "relax": {"kind": "answer", "task": "Скажите, что приходите сюда отдохнуть от дел.", "branches": [{"phrase": "ph:cafe.vengo-aqui-desconectar", "next": "relaxsay"}], "wrong": {"es": "¿Vienes aquí a dormir? ¡Esto no es un hotel!", "ru": "Приходишь сюда поспать? Это не отель!"}},
+        "relaxsay": {"kind": "say", "es": "Lo sé. Pero hoy no desconectamos: hoy preparamos el viaje. ¿Cuándo nos vemos con Tomás?", "ru": "Знаю. Но сегодня не отдыхаем: сегодня готовим поход. Когда встретимся с Томасом?", "next": "meet"},
+        "meet": {"kind": "answer", "task": "Предложите встретиться ближе к полудню.", "branches": [{"phrase": "ph:cafe.quedamos-media-manana", "next": "meetsay"}], "wrong": {"es": "¿Quedamos a medianoche? Tomás duerme a esa hora.", "ru": "Встретимся в полночь? Томас в это время спит."}},
+        "meetsay": {"kind": "say", "es": "A media mañana, aquí, con Tomás y su mapa del desierto.", "ru": "Ближе к полудню, здесь, с Томасом и его картой пустыни.", "next": "pay"},
+        "pay": {"kind": "answer", "task": "Попросите счёт.", "branches": [{"phrase": "ph:cafe.cobra", "next": "end"}], "wrong": {"es": "¿Me cobra el desierto? El desierto no cobra, pero cuesta caro.", "ru": "Пустыня берёт плату? Пустыня денег не берёт, но обходится дорого."}},
+        "end": {"kind": "say", "es": "Hoy invita Tomás: me dejó el dinero. Y toma mi trozo del mapa del desierto. Recuerda lo que dice Andrés: no creas lo que ves.", "ru": "Сегодня угощает Томас: он оставил мне деньги. И держи мой обрывок карты пустыни. Помни, что говорит Андрес: не верь тому, что видишь."}
+      }
     }
   ]
 }

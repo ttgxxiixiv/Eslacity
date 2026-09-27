@@ -45,6 +45,28 @@
         "pay": {"kind": "answer", "task": "Попросите счёт или скажите, что сегодня угощаете вы.", "branches": [{"phrase": "ph:cafe.fa-conto", "next": "end"}, {"phrase": "ph:cafe.oggi-offro", "next": "end"}], "wrong": {"es": "Mi dai il tuo zaino? No, grazie, ne ho uno.", "ru": "Отдаёшь мне свой рюкзак? Нет, спасибо, у меня есть."}},
         "end": {"kind": "say", "es": "Oggi non paghi niente. E una cosa: se vedi Tommaso nella nebbia, chiamalo. Diceva sempre: nella nebbia, ti guida solo la voce. Prendi il mio pezzo della mappa della montagna.", "ru": "Сегодня ты ничего не платишь. И вот что: если увидишь Томмазо в тумане, позови его. Он всегда говорил: в тумане ведёт только голос. Держи мой обрывок карты гор."}
       }
+    },
+    {
+      "id": "ms:cafe.3",
+      "chapter": 3,
+      "npc": "giulia",
+      "scene": "sc:cafe.3",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Hai tempo? Voglio parlarti prima del deserto.", "ru": "Есть минутка? Хочу поговорить с тобой перед пустыней.", "next": "drink"},
+        "drink": {"kind": "answer", "task": "Предложите выпить чего-нибудь.", "branches": [{"phrase": "ph:cafe.beviamo-qualcosa", "next": "drinksay"}], "wrong": {"es": "Prendiamo il treno? No, un caffè.", "ru": "Сядем на поезд? Нет, выпьем кофе."}},
+        "drinksay": {"kind": "say", "es": "Sì, siediti. Come al solito?", "ru": "Конечно, садись. Как обычно?", "next": "milk"},
+        "milk": {"kind": "answer", "task": "Спросите, есть ли безлактозное молоко.", "branches": [{"phrase": "ph:cafe.avete-latte-senza", "next": "milksay"}], "wrong": {"es": "Avete latte di cammello? Quello, nel deserto.", "ru": "Верблюжье молоко есть? Это в пустыне."}},
+        "milksay": {"kind": "say", "es": "Sì, senza lattosio. Anche il guardiano l'ha chiesto. E qualcosa di dolce?", "ru": "Да, безлактозное. Страж тоже такое просил. А что-нибудь сладкое?", "next": "pastry"},
+        "pastry": {"kind": "answer", "task": "Спросите, домашняя ли выпечка.", "branches": [{"phrase": "ph:cafe.dolci-sono-fatti", "next": "pastrysay"}], "wrong": {"es": "I dolci sono di sabbia? No, sono del mio forno!", "ru": "Выпечка из песка? Нет, из моей печи!"}},
+        "pastrysay": {"kind": "say", "es": "Fatti in casa, da mia madre. Prendine uno per la strada. Senti, perché vieni sempre qui?", "ru": "Домашняя, мамина. Возьми одну в дорогу. Слушай, а почему ты всё время сюда приходишь?", "next": "relax"},
+        "relax": {"kind": "answer", "task": "Скажите, что приходите сюда отдохнуть от дел.", "branches": [{"phrase": "ph:cafe.vengo-qui-staccare", "next": "relaxsay"}], "wrong": {"es": "Vieni qui a dormire? Questo non è un albergo!", "ru": "Приходишь сюда поспать? Это не отель!"}},
+        "relaxsay": {"kind": "say", "es": "Lo so. Ma oggi non stacchiamo: oggi prepariamo il viaggio. Quando ci vediamo con Tommaso?", "ru": "Знаю. Но сегодня не отдыхаем: сегодня готовим поход. Когда встретимся с Томмазо?", "next": "meet"},
+        "meet": {"kind": "answer", "task": "Предложите встретиться ближе к полудню.", "branches": [{"phrase": "ph:cafe.ci-vediamo-meta", "next": "meetsay"}], "wrong": {"es": "Ci vediamo a mezzanotte? A quell'ora Tommaso dorme.", "ru": "Встретимся в полночь? Томмазо в это время спит."}},
+        "meetsay": {"kind": "say", "es": "A metà mattina, qui, con Tommaso e la sua mappa del deserto.", "ru": "Ближе к полудню, здесь, с Томмазо и его картой пустыни.", "next": "pay"},
+        "pay": {"kind": "answer", "task": "Попросите счёт.", "branches": [{"phrase": "ph:cafe.fa-conto", "next": "end"}], "wrong": {"es": "Il deserto si paga? Il deserto non vuole soldi, ma costa caro.", "ru": "Пустыня берёт плату? Пустыня денег не берёт, но обходится дорого."}},
+        "end": {"kind": "say", "es": "Oggi offre Tommaso: mi ha lasciato i soldi. E prendi il mio pezzo della mappa del deserto. Ricorda quello che dice Andrea: non credere a quello che vedi.", "ru": "Сегодня угощает Томмазо: он оставил мне деньги. И держи мой обрывок карты пустыни. Помни, что говорит Андреа: не верь тому, что видишь."}
+      }
     }
   ]
 }

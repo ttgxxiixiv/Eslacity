@@ -42,6 +42,26 @@
         "light": {"kind": "answer", "task": "Попросите выключить свет, чтобы увидеть горы в грозу.", "branches": [{"phrase": "ph:home.apaga-luz", "next": "end"}], "wrong": {"es": "¿Abrir la puerta? ¡No, con este viento no!", "ru": "Открыть дверь? Нет, в такой ветер — нет!"}},
         "end": {"kind": "say", "es": "Mira por la ventana. ¿Ves la luz arriba, en la montaña? Allí está la torre. Toma mi trozo del mapa de las montañas. Y recuerda: el guardián pregunta qué hiciste.", "ru": "Посмотри в окно. Видишь свет наверху, в горах? Там башня. Держи мой обрывок карты гор. И помни: страж спрашивает, что ты сделал."}
       }
+    },
+    {
+      "id": "ms:home.3",
+      "chapter": 3,
+      "npc": "pilar",
+      "scene": "sc:home.3",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Vamos a ver pisos para Andrés. Tú preguntas, que yo me pongo nerviosa.", "ru": "Идём смотреть квартиры для Андреса. Спрашивай ты, а то я волнуюсь.", "next": "share"},
+        "share": {"kind": "answer", "task": "Скажите хозяину, что ищете квартиру с соседями.", "branches": [{"phrase": "ph:home.busco-piso-para", "next": "sharesay"}], "wrong": {"es": "¿Busco un castillo? No, hombre, un piso pequeño.", "ru": "Ищу замок? Да нет же, небольшую квартиру."}},
+        "sharesay": {"kind": "say", "es": "Eso. Él no quiere vivir solo después de cien años. Mira este piso.", "ru": "Вот именно. После ста лет Андрес не хочет жить один. Посмотри на эту квартиру.", "next": "furn"},
+        "furn": {"kind": "answer", "task": "Спросите, сдаётся ли квартира с мебелью.", "branches": [{"phrase": "ph:home.piso-esta-amueblado", "next": "furnsay"}], "wrong": {"es": "¿El piso está enamorado? ¿Qué dices?", "ru": "Квартира влюблена? Что ты говоришь?"}},
+        "furnsay": {"kind": "say", "es": "Está amueblado. Menos mal: él no tiene nada. ¿Y cuánto cuesta vivir aquí?", "ru": "С мебелью. Хорошо: у него ничего нет. А сколько стоит здесь жить?", "next": "bills"},
+        "bills": {"kind": "answer", "task": "Спросите, сколько в месяц коммунальные платежи.", "branches": [{"phrase": "ph:home.cuanto-son-gastos", "next": "billsay"}], "wrong": {"es": "¿Cuántos años tiene el piso? Eso no importa.", "ru": "Сколько лет квартире? Это неважно."}},
+        "billsay": {"kind": "say", "es": "Cincuenta euros al mes. Bien. ¿Y qué más hay que pagar?", "ru": "Пятьдесят евро в месяц. Хорошо. А что ещё нужно заплатить?", "next": "dep"},
+        "dep": {"kind": "answer", "task": "Спросите про залог: сколько он?", "branches": [{"phrase": "ph:home.fianza-cuanto", "next": "depsay"}], "wrong": {"es": "¿Y la fiesta? ¿Cuándo es? Primero, el piso.", "ru": "А праздник? Когда? Сначала квартира."}},
+        "depsay": {"kind": "say", "es": "Un mes. Él quiere pagar con monedas viejas... ¡Mira! ¡Sale agua de la cocina!", "ru": "Один месяц. Он хочет заплатить старыми монетами... Смотри! Из кухни течёт вода!", "next": "fault"},
+        "fault": {"kind": "answer", "task": "Скажите, что у вас поломка и нужен сантехник.", "branches": [{"phrase": "ph:home.tenemos-averia-necesito", "next": "end"}], "wrong": {"es": "¿Necesito un paraguas? ¡Necesitamos un fontanero!", "ru": "Нужен зонт? Нам нужен сантехник!"}},
+        "end": {"kind": "say", "es": "El fontanero viene mañana. Toma mi trozo del mapa del desierto. Andrés me lo dio para ti: dice que lo tenía desde hace cien años.", "ru": "Сантехник придёт завтра. Держи мой обрывок карты пустыни. Андрес дал его мне для тебя: говорит, он хранил его сто лет."}
+      }
     }
   ]
 }

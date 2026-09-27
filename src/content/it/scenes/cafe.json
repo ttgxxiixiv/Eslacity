@@ -48,6 +48,31 @@
         {"q": "Кто живёт в башне?", "options": ["Летописец", "Второй страж", "Пастухи"], "answer": 1}
       ],
       "gloss": {"tommaso": "Томмазо (имя)", "guida": "проводник", "passo": "перевал", "torre": "башня", "sigillo": "печать"}
+    },
+    {
+      "id": "sc:cafe.3",
+      "chapter": 3,
+      "npc": "giulia",
+      "lines": [
+        {"who": "npc", "es": "Sai chi è venuto qui stamattina?", "ru": "Знаешь, кто был здесь сегодня утром?"},
+        {"who": "hero", "es": "Chi?", "ru": "Кто?"},
+        {"who": "npc", "es": "Andrea, il guardiano. Ha preso il suo primo caffè in cento anni. Ha detto che era buonissimo.", "ru": "Андреа, страж. Выпил свой первый кофе за сто лет. Сказал, что он очень вкусный."},
+        {"who": "hero", "es": "E cosa ti ha detto?", "ru": "И что он тебе сказал?"},
+        {"who": "npc", "es": "Mi ha parlato del deserto. Dice che la città bianca appare quando hai sete.", "ru": "Рассказал о пустыне. Говорит, белый город появляется, когда тебя мучает жажда."},
+        {"who": "hero", "es": "E quando arrivi?", "ru": "А когда до него доходишь?"},
+        {"who": "npc", "es": "Sparisce. Ma Andrea dice che lì vive il terzo guardiano.", "ru": "Он исчезает. Но Андреа говорит, что там живёт третий страж."},
+        {"who": "hero", "es": "In una città che non esiste?", "ru": "В городе, которого нет?"},
+        {"who": "npc", "es": "Così dice. E mi ha dato un consiglio per te: «Nel deserto, non credere a quello che vedi. Credi a quello che senti».", "ru": "Так он говорит. И передал тебе совет: «В пустыне не верь тому, что видишь. Верь тому, что слышишь»."},
+        {"who": "hero", "es": "E Tommaso? Come sta?", "ru": "А Томмазо? Как он?"},
+        {"who": "npc", "es": "Meglio. Vuole venire con te nel deserto, ma con il piede rotto non può. È molto arrabbiato.", "ru": "Лучше. Хочет идти с тобой в пустыню, но со сломанной стопой не может. Очень злится."}
+      ],
+      "questions": [
+        {"q": "Кто пил кофе у Джулии утром?", "options": ["Андреа", "Томмазо", "Летописец"], "answer": 0},
+        {"q": "Когда появляется белый город?", "options": ["Ночью", "Когда тебя мучает жажда", "В грозу"], "answer": 1},
+        {"q": "Кто живёт в белом городе?", "options": ["Третий страж", "Пастухи", "Никто"], "answer": 0},
+        {"q": "Какой совет передал Андреа?", "options": ["Не верь тому, что видишь, верь тому, что слышишь", "Иди только ночью", "Возьми много воды"], "answer": 0}
+      ],
+      "gloss": {"andrea": "Андреа (имя)", "tommaso": "Томмазо (имя)", "stamattina": "сегодня утром", "appare": "появляется", "sete": "жажда", "terzo": "третий", "esiste": "существует"}
     }
   ]
 }

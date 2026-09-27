@@ -50,6 +50,31 @@
         {"q": "О чём спрашивает страж башни?", "options": ["О словах", "О том, что ты сделал", "О деньгах"], "answer": 1}
       ],
       "gloss": {"paese": "деревня", "passo": "перевал", "torre": "башня"}
+    },
+    {
+      "id": "sc:home.3",
+      "chapter": 3,
+      "npc": "franca",
+      "lines": [
+        {"who": "npc", "es": "Ho una notizia incredibile.", "ru": "У меня невероятная новость."},
+        {"who": "hero", "es": "Cosa succede?", "ru": "Что случилось?"},
+        {"who": "npc", "es": "Andrea, il guardiano, è della mia famiglia. Era il fratello della madre di mia madre.", "ru": "Андреа, страж, — из моей семьи. Он был братом маминой мамы."},
+        {"who": "hero", "es": "Come lo sai?", "ru": "Откуда ты знаешь?"},
+        {"who": "npc", "es": "Mia madre mi diceva che suo zio era partito con un treno e non era mai tornato. Si chiamava Andrea.", "ru": "Мама рассказывала, что её дядя уехал на поезде и не вернулся. Его звали Андреа."},
+        {"who": "hero", "es": "E adesso è tornato!", "ru": "А теперь он вернулся!"},
+        {"who": "npc", "es": "È tornato. Ma non ha una casa. Quello che aveva, l'ha perso cento anni fa.", "ru": "Вернулся. Но у него нет дома. Всё, что у него было, он потерял сто лет назад."},
+        {"who": "hero", "es": "Dove va a vivere?", "ru": "Где он будет жить?"},
+        {"who": "npc", "es": "Qui, con me, finché non trova qualcosa. Cerchiamo un appartamento per lui.", "ru": "Здесь, у меня, пока не найдёт что-нибудь. Мы ищем для него квартиру."},
+        {"who": "hero", "es": "Ti aiuto io.", "ru": "Я помогу."},
+        {"who": "npc", "es": "Grazie. Andrea dice che il deserto non è la cosa peggiore. La cosa peggiore è tornare in un mondo che è cambiato.", "ru": "Спасибо. Андреа говорит, что пустыня — не самое страшное. Страшнее вернуться в мир, который изменился."}
+      ],
+      "questions": [
+        {"q": "Кем Андреа приходится Франке?", "options": ["Братом её бабушки", "Её отцом", "Соседом"], "answer": 0},
+        {"q": "Что рассказывала мама Франки?", "options": ["Её дядя уехал на поезде и не вернулся", "Её дядя был поваром", "Её дядя жил в пустыне"], "answer": 0},
+        {"q": "Где Андреа будет жить сначала?", "options": ["У Франки", "В отеле", "В башне"], "answer": 0},
+        {"q": "Что, по словам Андреа, страшнее пустыни?", "options": ["Вернуться в изменившийся мир", "Остаться без воды", "Потерять карту"], "answer": 0}
+      ],
+      "gloss": {"andrea": "Андреа (имя)", "incredibile": "невероятная", "zio": "дядя", "finché": "пока", "peggiore": "худшая"}
     }
   ]
 }

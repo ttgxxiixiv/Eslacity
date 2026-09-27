@@ -50,6 +50,31 @@
         {"q": "О чём спрашивает страж башни?", "options": ["О словах", "О том, что ты сделал", "О деньгах"], "answer": 1}
       ],
       "gloss": {"pueblo": "деревня", "paso": "перевал", "torre": "башня", "hubo": "была"}
+    },
+    {
+      "id": "sc:home.3",
+      "chapter": 3,
+      "npc": "pilar",
+      "lines": [
+        {"who": "npc", "es": "¡Buenos días! Tengo una noticia increíble.", "ru": "Доброе утро! У меня невероятная новость."},
+        {"who": "hero", "es": "¿Qué pasa?", "ru": "Что случилось?"},
+        {"who": "npc", "es": "Andrés, el guardián, es de mi familia. Era el hermano de la madre de mi madre.", "ru": "Андрес, страж, — из моей семьи. Он был братом маминой мамы."},
+        {"who": "hero", "es": "¿De verdad? ¿Cómo lo sabes?", "ru": "Правда? Откуда ты знаешь?"},
+        {"who": "npc", "es": "Mi madre me contaba que su tío se fue en un tren y nunca volvió. Se llamaba Andrés.", "ru": "Мама рассказывала, что её дядя уехал на поезде и не вернулся. Его звали Андрес."},
+        {"who": "hero", "es": "¡Y ahora ha vuelto!", "ru": "А теперь он вернулся!"},
+        {"who": "npc", "es": "Ha vuelto. Pero no tiene casa. Lo que tenía, lo perdió hace cien años.", "ru": "Вернулся. Но у него нет дома. Всё, что у него было, он потерял сто лет назад."},
+        {"who": "hero", "es": "¿Dónde va a vivir?", "ru": "Где он будет жить?"},
+        {"who": "npc", "es": "Aquí, conmigo, hasta que encuentre algo. Buscamos un piso para él.", "ru": "Здесь, у меня, пока не найдёт что-нибудь. Мы ищем для него квартиру."},
+        {"who": "hero", "es": "Te ayudo.", "ru": "Я помогу."},
+        {"who": "npc", "es": "Gracias. Andrés dice que el desierto no es lo peor. Lo peor es volver a un mundo que ha cambiado.", "ru": "Спасибо. Андрес говорит, что пустыня — не самое страшное. Страшнее вернуться в мир, который изменился."}
+      ],
+      "questions": [
+        {"q": "Кем Андрес приходится Пилар?", "options": ["Братом её бабушки", "Её отцом", "Соседом"], "answer": 0},
+        {"q": "Что рассказывала мама Пилар?", "options": ["Её дядя уехал на поезде и не вернулся", "Её дядя был поваром", "Её дядя жил в пустыне"], "answer": 0},
+        {"q": "Где Андрес будет жить сначала?", "options": ["У Пилар", "В отеле", "В башне"], "answer": 0},
+        {"q": "Что, по словам Андреса, страшнее пустыни?", "options": ["Вернуться в изменившийся мир", "Остаться без воды", "Потерять карту"], "answer": 0}
+      ],
+      "gloss": {"andrés": "Андрес (имя)", "increíble": "невероятная", "tío": "дядя", "encuentre": "найдёт", "peor": "хуже"}
     }
   ]
 }

@@ -50,6 +50,31 @@
         {"q": "Что видно с башни?", "options": ["Море", "Город", "Блестящий песок"], "answer": 2}
       ],
       "gloss": {"guía": "ведёт", "niebla": "туман", "torre": "башня", "arena": "песок", "brilla": "блестит"}
+    },
+    {
+      "id": "sc:restaurant.3",
+      "chapter": 3,
+      "npc": "paco",
+      "lines": [
+        {"who": "npc", "es": "¡Pasa! Ayer cociné para Andrés. Comió como si no hubiera comido en cien años.", "ru": "Заходи! Вчера я готовил для Андреса. Он ел так, будто не ел сто лет."},
+        {"who": "hero", "es": "Es que no comió en cien años.", "ru": "Так он и не ел сто лет."},
+        {"who": "npc", "es": "Tienes razón. Y después del postre me habló del desierto.", "ru": "Твоя правда. А после десерта он рассказал мне о пустыне."},
+        {"who": "hero", "es": "¿Y qué te dijo?", "ru": "И что он сказал?"},
+        {"who": "npc", "es": "Que en la ciudad blanca vive la tercera guardiana. Una mujer muy vieja y muy lista.", "ru": "Что в белом городе живёт третья стражница. Очень старая и очень умная женщина."},
+        {"who": "hero", "es": "¿Y qué pregunta ella?", "ru": "И о чём она спрашивает?"},
+        {"who": "npc", "es": "No pregunta. Propone. Siempre habla con «si»: «Si me dices la verdad, te dejo pasar».", "ru": "Она не спрашивает. Она предлагает. Всегда говорит через «если»: «Если скажешь мне правду, пропущу»."},
+        {"who": "hero", "es": "¿Y si miento?", "ru": "А если я солгу?"},
+        {"who": "npc", "es": "Él dice que, si mientes, la ciudad desaparece contigo dentro.", "ru": "Он говорит, что, если солжёшь, город исчезнет вместе с тобой."},
+        {"who": "hero", "es": "Qué miedo.", "ru": "Страшно."},
+        {"who": "npc", "es": "Por eso, ¡come! Con el estómago lleno se piensa mejor.", "ru": "Поэтому ешь! На сытый желудок думается лучше."}
+      ],
+      "questions": [
+        {"q": "Для кого вчера готовил Пако?", "options": ["Для Андреса", "Для Томаса", "Для Лолы"], "answer": 0},
+        {"q": "Кто живёт в белом городе?", "options": ["Третья стражница", "Купец с верблюдом", "Летописец"], "answer": 0},
+        {"q": "Как говорит стражница?", "options": ["Всегда через «если»", "Только вопросами", "Молча"], "answer": 0},
+        {"q": "Что будет, если солгать?", "options": ["Город исчезнет вместе с тобой", "Придётся заплатить", "Ничего"], "answer": 0}
+      ],
+      "gloss": {"andrés": "Андрес (имя)", "hubiera": "бы (не) ел", "tercera": "третья", "guardiana": "стражница", "lista": "умная", "propone": "предлагает", "miento": "солгу", "mientes": "солжёшь", "desaparece": "исчезнет"}
     }
   ]
 }

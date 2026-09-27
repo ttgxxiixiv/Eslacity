@@ -45,6 +45,26 @@
         "special": {"kind": "answer", "task": "Спросите, какое у них фирменное блюдо.", "branches": [{"phrase": "ph:restaurant.cual-especialidad-casa", "next": "end"}], "wrong": {"es": "¿Cuál es mi nombre? ¡Paco, como siempre!", "ru": "Как меня зовут? Пако, как всегда!"}},
         "end": {"kind": "say", "es": "La paella, claro. Y hoy, algo más especial: mi trozo del mapa de las montañas. Si encuentras a Tomás, dile que aquí tiene su sopa.", "ru": "Паэлья, конечно. А сегодня кое-что особенное: мой обрывок карты гор. Если найдёшь Томаса, скажи, что суп его ждёт."}
       }
+    },
+    {
+      "id": "ms:restaurant.3",
+      "chapter": 3,
+      "npc": "paco",
+      "scene": "sc:restaurant.3",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Hoy cenáis tú y Andrés. ¿Qué os pongo?", "ru": "Сегодня ужинаете вы с Андресом. Что вам подать?", "next": "lact"},
+        "lact": {"kind": "answer", "task": "Скажите, что у вас непереносимость лактозы.", "branches": [{"phrase": "ph:restaurant.tengo-intolerancia-lactosa", "next": "lactsay"}], "wrong": {"es": "¿Tienes miedo al desierto? Claro. Pero dime qué comes.", "ru": "Боишься пустыни? Это нормально. Но скажи, что ты ешь."}},
+        "lactsay": {"kind": "say", "es": "Nada de queso. ¿Te pongo el pescado con arroz?", "ru": "Никакого сыра. Подать тебе рыбу с рисом?", "next": "alg"},
+        "alg": {"kind": "answer", "task": "Спросите, какие аллергены в этом блюде.", "branches": [{"phrase": "ph:restaurant.alergenos-tiene-este", "next": "algsay"}], "wrong": {"es": "¿Qué colores tiene este plato? Blanco y azul. ¿Por qué?", "ru": "Какого цвета эта тарелка? Белая с синим. А что?"}},
+        "algsay": {"kind": "say", "es": "Solo pescado y arroz. Nada más. ¿Te gusta?", "ru": "Только рыба и рис. Больше ничего. Нравится?", "next": "full"},
+        "full": {"kind": "answer", "task": "Скажите, что больше не хотите: вы уже сыты.", "branches": [{"phrase": "ph:restaurant.no-gracias-estoy", "next": "fullsay"}], "wrong": {"es": "¿Quieres más? Bueno, te traigo más.", "ru": "Хочешь ещё? Ладно, принесу ещё."}},
+        "fullsay": {"kind": "say", "es": "¿Ya? ¿Sin postre? Tu amigo comió tres. Bueno, la cuenta.", "ru": "Уже? Без десерта? Андрес съел три. Ладно, счёт.", "next": "half"},
+        "half": {"kind": "answer", "task": "Предложите Андресу заплатить пополам.", "branches": [{"phrase": "ph:restaurant.pagamos-medias", "next": "halfsay"}], "wrong": {"es": "¿Pagamos con arena? ¡En mi casa, no!", "ru": "Заплатим песком? Только не у меня!"}},
+        "halfsay": {"kind": "say", "es": "Él quiere pagar con sus monedas viejas. No sirven para nada, pero me gustan. ¿Algo más?", "ru": "Он хочет заплатить старыми монетами. Они ни на что не годятся, но мне нравятся. Что-нибудь ещё?", "next": "book"},
+        "book": {"kind": "answer", "task": "В шутку попросите книгу жалоб.", "branches": [{"phrase": "ph:restaurant.da-hoja-reclamaciones", "next": "end"}], "wrong": {"es": "¿Me da la receta? ¡Nunca! Es secreta.", "ru": "Дадите рецепт? Никогда! Это секрет."}},
+        "end": {"kind": "say", "es": "¿La hoja de reclamaciones? ¿Aquí? ... No lo dices en serio, ¿verdad? Muy bien. Toma mi trozo del mapa del desierto. Tu amigo dice que es difícil de leer: cambia con la luz.", "ru": "Книгу жалоб? Здесь? ... Ты же не всерьёз, да? Ну хорошо. Держи мой обрывок карты пустыни. Твой друг говорит, что его трудно читать: он меняется от света."}
+      }
     }
   ]
 }

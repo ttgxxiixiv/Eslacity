@@ -45,6 +45,26 @@
         "disc": {"kind": "answer", "task": "Спросите, есть ли скидка на эту марку.", "branches": [{"phrase": "ph:supermarket.hay-descuento-esta", "next": "end"}], "wrong": {"es": "¿Hay descuento en el hombre de la capa? ¡Ojalá!", "ru": "Скидка на человека в плаще? Если бы!"}},
         "end": {"kind": "say", "es": "Para el viajero del mapa, hay descuento. Y te doy mi trozo del mapa de las montañas. Si ves al hombre de la capa gris, pregúntale de dónde son sus monedas.", "ru": "Для путешественника с картой скидка есть. И вот тебе мой обрывок карты гор. Если увидишь человека в сером плаще, спроси, откуда у него монеты."}
       }
+    },
+    {
+      "id": "ms:supermarket.3",
+      "chapter": 3,
+      "npc": "javi",
+      "scene": "sc:supermarket.3",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Hoy la tienda está loca. Todos compran para el desierto. ¿En qué te ayudo?", "ru": "Сегодня магазин сошёл с ума. Все закупаются для пустыни. Чем тебе помочь?", "next": "ret"},
+        "ret": {"kind": "answer", "task": "Скажите, что хотите вернуть товар (пустую бутылку «воды оазиса»).", "branches": [{"phrase": "ph:supermarket.quiero-hacer-devolucion", "next": "retsay"}], "wrong": {"es": "¿Quieres hacer una fiesta? Hoy no hay tiempo.", "ru": "Хочешь устроить праздник? Сегодня некогда."}},
+        "retsay": {"kind": "say", "es": "¿Esta botella? No es de mi tienda... Es del hombre del oasis. Lo siento, aquí no la puedo devolver.", "ru": "Эта бутылка? Она не из моего магазина... Это от человека с оазисом. Извини, здесь её не вернуть.", "next": "self"},
+        "self": {"kind": "answer", "task": "Скажите, что касса самообслуживания не работает.", "branches": [{"phrase": "ph:supermarket.caja-autocobro-no", "next": "selfsay"}], "wrong": {"es": "¿La caja canta? No, la caja no funciona.", "ru": "Касса поёт? Нет, касса не работает."}},
+        "selfsay": {"kind": "say", "es": "Otra vez... Espera, la arreglo. Ya está. ¿Algo más?", "ru": "Опять... Подожди, починю. Готово. Что-нибудь ещё?", "next": "milk"},
+        "milk": {"kind": "answer", "task": "Спросите, закончилось ли молоко.", "branches": [{"phrase": "ph:supermarket.esta-agotada-leche", "next": "milksay"}], "wrong": {"es": "¿Está agotado el cajero? Un poco, sí.", "ru": "Кассир устал? Немного, да."}},
+        "milksay": {"kind": "say", "es": "Agotada. Todo el mundo compra leche para el viaje. ¿Y pan?", "ru": "Закончилось. Все покупают молоко в дорогу. А хлеб?", "next": "bread"},
+        "bread": {"kind": "answer", "task": "Спросите, есть ли хлеб без глютена.", "branches": [{"phrase": "ph:supermarket.tienen-pan-sin", "next": "breadsay"}], "wrong": {"es": "¿Tienen pan de arena? ¡Qué asco!", "ru": "Хлеб из песка? Какая гадость!"}},
+        "breadsay": {"kind": "say", "es": "Sin gluten, el último. Todo esto pesa mucho, ¿eh?", "ru": "Без глютена, последний. Всё это много весит, а?", "next": "home"},
+        "home": {"kind": "answer", "task": "Спросите, доставляют ли покупки на дом.", "branches": [{"phrase": "ph:supermarket.traen-compra-domicilio", "next": "end"}], "wrong": {"es": "¿Traen el camello a domicilio? No, solo la compra.", "ru": "Верблюда доставляете на дом? Нет, только покупки."}},
+        "end": {"kind": "say", "es": "Claro, y te la llevo yo, hasta la última casa antes de la arena. Toma mi trozo del mapa del desierto. Lo encontré en la puerta de la tienda, lleno de arena.", "ru": "Конечно, и отвезу сам, до последнего дома перед песком. Держи мой обрывок карты пустыни. Я нашёл его у дверей магазина, весь в песке."}
+      }
     }
   ]
 }

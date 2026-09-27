@@ -50,6 +50,31 @@
         {"q": "Как выглядел незнакомец?", "options": ["В сером плаще", "В красной шляпе", "С собакой"], "answer": 0}
       ],
       "gloss": {"tommaso": "Томмазо (имя)", "tesoro": "сокровище", "pastori": "пастухи", "mantello": "плащ"}
+    },
+    {
+      "id": "sc:market.3",
+      "chapter": 3,
+      "npc": "rosa",
+      "lines": [
+        {"who": "npc", "es": "Tesoro! Vieni, guarda che frutta. Viene dal deserto.", "ru": "Сокровище! Иди сюда, посмотри, какие фрукты. Они из пустыни."},
+        {"who": "hero", "es": "Dal deserto? Chi l'ha portata?", "ru": "Из пустыни? Кто их привёз?"},
+        {"who": "npc", "es": "Un uomo del deserto, con un cammello. È arrivato ieri con sale, frutta e... pezzi di mappa.", "ru": "Человек из пустыни, с верблюдом. Приехал вчера с солью, фруктами и... обрывками карты."},
+        {"who": "hero", "es": "Pezzi della mappa del deserto?", "ru": "Обрывками карты пустыни?"},
+        {"who": "npc", "es": "Così ha detto. Ma io non gli credo. Guarda questo: ha il colore della mappa, ma la carta è nuova.", "ru": "Так он сказал. Но я ему не верю. Посмотри на этот: цвет как у карты, а бумага новая."},
+        {"who": "hero", "es": "Allora non è vero.", "ru": "Значит, он не настоящий."},
+        {"who": "npc", "es": "Come la città bianca: sembra vera, ma non lo è.", "ru": "Как белый город: кажется правдой, а на деле нет."},
+        {"who": "hero", "es": "Quanti pezzi ha venduto?", "ru": "Сколько обрывков он продал?"},
+        {"who": "npc", "es": "Tanti. La gente ha pagato molti soldi. E l'uomo è andato via con il vento.", "ru": "Много. Люди заплатили кучу денег. А тот человек исчез вместе с ветром."},
+        {"who": "hero", "es": "E tu ne hai uno vero?", "ru": "А у тебя есть настоящий?"},
+        {"who": "npc", "es": "Ce l'ho, qui. E te lo do se oggi mi aiuti.", "ru": "Есть, вот он. И я тебе его отдам, если сегодня поможешь."}
+      ],
+      "questions": [
+        {"q": "Что привёз человек из пустыни?", "options": ["Соль, фрукты и обрывки карты", "Ткани", "Рыбу"], "answer": 0},
+        {"q": "Почему Роза ему не верит?", "options": ["Бумага у обрывка новая", "Он говорит на другом языке", "Он слишком дёшево продаёт"], "answer": 0},
+        {"q": "С чем Роза сравнивает поддельный обрывок?", "options": ["С белым городом", "С фальшивой монетой", "С пустой бутылкой"], "answer": 0},
+        {"q": "Что стало с тем человеком?", "options": ["Его поймала полиция", "Он исчез вместе с ветром", "Он остался на рынке"], "answer": 1}
+      ],
+      "gloss": {"tesoro": "сокровище", "cammello": "верблюд", "pezzi": "обрывки"}
     }
   ]
 }

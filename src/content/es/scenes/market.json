@@ -50,6 +50,31 @@
         {"q": "Как выглядел незнакомец?", "options": ["В сером плаще", "В красной шляпе", "С собакой"], "answer": 0}
       ],
       "gloss": {"cariño": "дорогуша", "pastores": "пастухи", "capa": "плащ"}
+    },
+    {
+      "id": "sc:market.3",
+      "chapter": 3,
+      "npc": "carmen",
+      "lines": [
+        {"who": "npc", "es": "¡Cariño! Ven, mira qué fruta. Es del desierto.", "ru": "Дорогуша! Иди сюда, посмотри, какие фрукты. Они из пустыни."},
+        {"who": "hero", "es": "¿Del desierto? ¿Quién los trajo?", "ru": "Из пустыни? Кто их привёз?"},
+        {"who": "npc", "es": "Un hombre del desierto, con un camello. Llegó ayer con sal, fruta y... trozos de mapa.", "ru": "Человек из пустыни, с верблюдом. Приехал вчера с солью, фруктами и... обрывками карты."},
+        {"who": "hero", "es": "¿Trozos del mapa del desierto?", "ru": "Обрывками карты пустыни?"},
+        {"who": "npc", "es": "Eso dijo. Pero yo no le creo. Mira este: tiene el color del mapa, pero el papel es nuevo.", "ru": "Так он сказал. Но я ему не верю. Посмотри на этот: цвет как у карты, а бумага новая."},
+        {"who": "hero", "es": "Así que no es de verdad.", "ru": "Значит, он не настоящий."},
+        {"who": "npc", "es": "Como la ciudad blanca: parece verdad y no lo es.", "ru": "Как белый город: кажется правдой, а на деле нет."},
+        {"who": "hero", "es": "¿Cuántos trozos vendió?", "ru": "Сколько обрывков он продал?"},
+        {"who": "npc", "es": "Muchos. La gente pagó mucho dinero. Y el hombre se fue con el viento.", "ru": "Много. Люди заплатили кучу денег. А тот человек исчез вместе с ветром."},
+        {"who": "hero", "es": "¿Y tú tienes uno de verdad?", "ru": "А у тебя есть настоящий?"},
+        {"who": "npc", "es": "Tengo uno, aquí. Y te lo doy si me ayudas hoy.", "ru": "Есть, вот он. И я тебе его отдам, если сегодня поможешь."}
+      ],
+      "questions": [
+        {"q": "Что привёз человек из пустыни?", "options": ["Соль, фрукты и обрывки карты", "Ткани", "Рыбу"], "answer": 0},
+        {"q": "Почему Кармен ему не верит?", "options": ["Бумага у обрывка новая", "Он говорит на другом языке", "Он слишком дёшево продаёт"], "answer": 0},
+        {"q": "С чем Кармен сравнивает поддельный обрывок?", "options": ["С белым городом", "С фальшивой монетой", "С пустой бутылкой"], "answer": 0},
+        {"q": "Что стало с тем человеком?", "options": ["Его поймала полиция", "Он исчез вместе с ветром", "Он остался на рынке"], "answer": 1}
+      ],
+      "gloss": {"cariño": "дорогуша", "camello": "верблюд", "trozos": "обрывки"}
     }
   ]
 }
