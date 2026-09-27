@@ -4,8 +4,9 @@ import { ECONOMY, XP } from '../config';
 import { hasLesson, loadLesson } from '../content/grammar';
 import type { GrammarLesson as Lesson } from '../content/schema';
 import {
-  answerGrammar, buildGrammarQueue, grammarScore, rulesForReview, startGrammar, type GrammarRun,
+  answerGrammar, buildGrammarQueue, checkGrammar, grammarScore, rulesForReview, startGrammar, type GrammarInput, type GrammarRun,
 } from '../domain/grammar';
+import type { Verdict } from '../domain/answer';
 import { seeded } from '../domain/generators';
 import { afterPaint } from '../lib/afterPaint';
 import { speak } from '../audio/tts';
@@ -21,7 +22,7 @@ import type { MedalGain } from '../domain/medals';
 import { MedalLines } from '../components/LessonResult';
 import { type Feedback, FeedbackSheet } from '../components/FeedbackSheet';
 import { Md } from '../components/Md';
-import { fillGap, GrammarItemView } from '../components/exercises/GrammarItem';
+import { grammarFeedback, GrammarItemView } from '../components/exercises/GrammarItem';
 import { Button, Screen, SpeakButton, TopBar } from '../components/ui';
 
 const rng = seeded(Date.now());
@@ -135,7 +136,7 @@ function LessonRunner({ lesson }: { lesson: Lesson }) {
   const [phase, setPhase] = useState<'theory' | 'practice' | 'done'>('theory');
   const initial = useMemo(() => startGrammar(buildGrammarQueue(lesson.exercises, rng)), [lesson]);
   const [run, setRun] = useState<GrammarRun>(initial);
-  const [picked, setPicked] = useState<number | null>(null);
+  const [verdict, setVerdict] = useState<Verdict | null>(null);
   const [fb, setFb] = useState<Feedback | null>(null);
   const [earned, setEarned] = useState({ xp: 0, coins: 0 });
   const [ach, setAch] = useState<MedalGain[]>([]);
@@ -195,21 +196,15 @@ function LessonRunner({ lesson }: { lesson: Lesson }) {
 
   const item = run.queue[run.index];
 
-  const pick = (i: number) => {
-    if (picked !== null) return;
-    const ok = i === item.answer;
-    setPicked(i);
+  const pick = (input: GrammarInput) => {
+    if (verdict !== null) return;
+    const c = checkGrammar(item, input);
+    // «Почти» (форма без ударения) засчитывается, как в уроках слов.
+    const ok = c.verdict !== 'wrong';
+    setVerdict(c.verdict);
     const ex = item.ex;
-    const right = item.options[item.answer];
-    const answer = ex.kind === 'gap' ? fillGap(ex.sentence, right) : ex.kind === 'choose' ? right : undefined;
-    const spoken = ex.kind === 'truefalse' ? undefined : answer;
-    setFb({
-      verdict: ok ? 'correct' : 'wrong',
-      title: ok ? 'Верно!' : ex.kind === 'truefalse' ? `Неверно, правильно: ${right.toLowerCase()}` : 'Неверно',
-      answer,
-      note: ex.explain,
-      speakText: spoken,
-    });
+    const spoken = c.speak;
+    setFb(grammarFeedback(item, c));
     setRun(answerGrammar(run, ok, rng));
     if (!ok && !item.retry) wrongFirst.current.add(ex.id);
     const now = Date.now();
@@ -217,7 +212,7 @@ function LessonRunner({ lesson }: { lesson: Lesson }) {
       {
         itemId: grammarItemId(ex.id),
         kind: `grammar-${ex.kind}`,
-        verdict: ok ? 'correct' : 'wrong',
+        verdict: c.verdict,
         mode: 'grammar',
         ms: answerMs(shownAt.current, now),
       },
@@ -237,7 +232,7 @@ function LessonRunner({ lesson }: { lesson: Lesson }) {
   const next = () => {
     const nextIndex = run.index + 1;
     setFb(null);
-    setPicked(null);
+    setVerdict(null);
     if (nextIndex >= run.queue.length) {
       const progress = useProgress.getState();
       const first = progress.completeGrammar(lesson.id, grammarScore(run));
@@ -274,7 +269,7 @@ function LessonRunner({ lesson }: { lesson: Lesson }) {
         </div>
       </div>
       <div key={item.id} className={`flex flex-1 flex-col pt-2 ${fb ? 'pb-64' : ''}`}>
-        <GrammarItemView item={item} picked={picked} onPick={pick} />
+        <GrammarItemView item={item} verdict={verdict} onAnswer={pick} />
       </div>
       <FeedbackSheet fb={fb} onNext={next} />
     </div>

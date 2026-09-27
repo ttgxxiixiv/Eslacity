@@ -56,17 +56,25 @@ export const lemmasIn = (text: string, forms: Map<string, string>, lang: string)
 export interface LessonText {
   theory: ({ kind: 'table'; rows: { cells: string[] }[] } | { kind: 'text' | 'tip'; md: string })[];
   examples: { es: string }[];
-  exercises: ({ kind: 'choose'; prompt: string; options: string[] } | { kind: 'gap'; sentence: string; options: string[] } | { kind: 'truefalse'; statement: string })[];
+  exercises: (
+    | { kind: 'choose'; prompt: string; options: string[] }
+    | { kind: 'gap'; sentence: string; options: string[] }
+    | { kind: 'truefalse'; statement: string }
+    | { kind: 'build'; answer: string; extra: string[] }
+    | { kind: 'type'; sentence: string; answer: string; alt?: string[] }
+  )[];
 }
 
 type Lem = (s: string) => string[];
 
-/** Что учит грамматика: формы из таблиц и вариантов ответа уроков. */
+/** Что учит грамматика: формы из таблиц, вариантов ответа, собираемых предложений и вписываемых форм. */
 export function grammarLemmas(lessons: LessonText[], lem: Lem): Set<string> {
   return new Set(
     lessons.flatMap((l) => [
       ...l.theory.flatMap((b) => (b.kind === 'table' ? b.rows.flatMap((r) => r.cells.flatMap(lem)) : [])),
-      ...l.exercises.flatMap((e) => ('options' in e ? e.options.flatMap(lem) : [])),
+      ...l.exercises.flatMap((e) =>
+        'options' in e ? e.options.flatMap(lem) : e.kind === 'build' ? lem(e.answer) : e.kind === 'type' ? [e.answer, ...(e.alt ?? [])].flatMap(lem) : [],
+      ),
     ]),
   );
 }
@@ -79,7 +87,9 @@ export function anywhereLemmas(words: { es: string; alt?: string[]; example: { e
     ...lessons.flatMap((l) => [
       ...l.theory.flatMap((b) => (b.kind === 'table' ? [] : lem(b.md))),
       ...l.examples.flatMap((x) => lem(x.es)),
-      ...l.exercises.flatMap((e) => lem(e.kind === 'choose' ? e.prompt : e.kind === 'gap' ? e.sentence : e.statement)),
+      ...l.exercises.flatMap((e) =>
+        lem(e.kind === 'choose' ? e.prompt : e.kind === 'gap' || e.kind === 'type' ? e.sentence : e.kind === 'build' ? [e.answer, ...e.extra].join(' ') : e.statement),
+      ),
     ]),
   ]);
 }

@@ -71,6 +71,11 @@ export type GrammarExercise = { id: string; explain: string; region?: 'es' } & (
   | { kind: 'choose'; prompt: string; ru?: string; options: string[]; answer: number }
   | { kind: 'gap'; sentence: string; ru: string; options: string[]; answer: number }
   | { kind: 'truefalse'; statement: string; ru?: string; answer: boolean }
+  // Продуктивные (задача 5.2). build — собрать предложение из плиток: слова ответа и лишние `extra`;
+  // `alt` — другой верный порядок тех же слов. type — вписать форму в пропуск `___`, `hint` — подсказка
+  // в скобках (инфинитив), `alt` — другие верные формы.
+  | { kind: 'build'; ru: string; answer: string; alt?: string[]; extra: string[] }
+  | { kind: 'type'; sentence: string; ru: string; hint?: string; answer: string; alt?: string[] }
 );
 
 export interface GrammarLesson {

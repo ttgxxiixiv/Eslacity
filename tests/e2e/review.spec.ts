@@ -63,6 +63,34 @@ for (const lang of LANGS) {
       await expect(page.getByText('На сегодня всё повторено')).toBeVisible();
     });
 
+    test('правила: сборка предложения и ввод формы в повторении', async ({ page }) => {
+      const [district, file] = LESSON[lang];
+      const lesson = loadLesson(lang, district, file);
+      const build = lesson.exercises.find((e) => e.kind === 'build')!;
+      const type = lesson.exercises.find((e) => e.kind === 'type')!;
+      await openApp(page, lang);
+      await seedDueCards(page, lang, [`g:${build.id}`, `g:${type.id}`]);
+      await page.goto('./#/review');
+      const review = page.getByTestId('rule-review');
+      // Порядок в повторении случайный: отвечаем по тому, что показано; ввод формы — нарочно неверно.
+      for (let i = 0; i < 2; i++) {
+        await expect(review).toContainText(`Правило · ${i + 1} из 2`);
+        const isType = (await review.locator('input').count()) > 0;
+        if (isType) {
+          // Над полем только буквы с ударением, без букв ответа.
+          const keys = await review.locator('form button.w-11').allTextContents();
+          expect(keys).toEqual(lang === 'es' ? ['á', 'é', 'í', 'ó', 'ú', 'ü', 'ñ'] : ['à', 'è', 'é', 'ì', 'ò', 'ù', "'"]);
+          await expect(review.getByTestId('grammar-hint')).toHaveText(`(${lang === 'es' ? 'ser' : 'essere'})`);
+        }
+        await answerGrammar(page, lesson, isType);
+        await expect(page.locator('.sheet[aria-live]')).toContainText(isType ? 'Неверно' : 'Верно!');
+        await page.getByRole('button', { name: /дальше/i }).click();
+      }
+      await expect(page.getByTestId('rules-summary')).toContainText('Правила: 1 из 2 верно');
+      const log = (await readAnswers(page, lang)).filter((a) => a.mode === 'review');
+      expect(log.map((a) => `${a.kind}:${a.verdict}`).sort()).toEqual(['grammar-build:correct', 'grammar-type:wrong']);
+    });
+
     test('блиц: игра и итог', async ({ page }) => {
       await openApp(page, lang);
       const ids = [...loadWords(lang).byEs.values()].filter((w) => w.id.startsWith('cafe.')).slice(0, 10).map((w) => w.id);

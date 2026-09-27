@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { checkTyped, levenshtein, normalize, answerLetters, splitArticle, stripAccents, checkPhrase } from './answer';
+import { checkTyped, levenshtein, normalize, answerLetters, splitArticle, stripAccents, checkPhrase, checkBuilt, checkForm } from './answer';
 
 describe('normalize', () => {
   it('убирает регистр, ¿¡ и пунктуацию, схлопывает пробелы', () => {
@@ -143,5 +143,19 @@ describe('checkPhrase', () => {
   });
   it('итальянский апостроф с телефона', () => {
     expect(checkPhrase('Un bicchiere d’ acqua, per favore', { es: "Un bicchiere d'acqua, per favore." }).verdict).toBe('correct');
+  });
+});
+
+describe('формы и сборка в грамматике', () => {
+  it('форма: без опечаток, ударение — почти, alt засчитывается', () => {
+    expect(checkForm('soy', ['soy']).verdict).toBe('correct');
+    expect(checkForm('sois', ['soy']).verdict).toBe('wrong');
+    expect(checkForm('esta', ['está']).verdict).toBe('almost');
+    expect(checkForm('va', ['voy', 'va']).verdict).toBe('correct');
+    expect(checkForm('  ', ['soy']).verdict).toBe('wrong');
+  });
+  it('сборка: порядок слов важен', () => {
+    expect(checkBuilt(['yo', 'soy', 'Ana'], ['Yo soy Ana.']).verdict).toBe('correct');
+    expect(checkBuilt(['soy', 'yo', 'Ana'], ['Yo soy Ana.']).verdict).toBe('wrong');
   });
 });

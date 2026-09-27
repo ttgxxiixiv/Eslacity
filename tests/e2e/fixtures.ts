@@ -65,6 +65,8 @@ type Exercise = { id: string } & (
   | { kind: 'choose'; prompt: string; options: string[]; answer: number }
   | { kind: 'gap'; sentence: string; options: string[]; answer: number }
   | { kind: 'truefalse'; statement: string; answer: boolean }
+  | { kind: 'build'; ru: string; answer: string; extra: string[] }
+  | { kind: 'type'; sentence: string; ru: string; answer: string }
 );
 
 export function loadLesson(lang: Lang, district: string, file: string): { id: string; exercises: Exercise[] } {
@@ -246,11 +248,33 @@ export async function playWords(page: Page, lang: Lang, done: RegExp): Promise<P
  * Возвращает id упражнения.
  */
 export async function answerGrammar(page: Page, lesson: { exercises: Exercise[] }, wrong = false): Promise<string> {
+  // Сборка и ввод формы: задание ищется по переводу, ответ — плитками или в поле.
+  if (await page.getByTestId('grammar-prompt').count()) {
+    const ru = squash((await page.getByTestId('grammar-prompt').textContent()) ?? '');
+    const tiles = await page.getByTestId('grammar-tiles').count();
+    const ex = lesson.exercises.find((e) =>
+      tiles ? e.kind === 'build' && squash(e.ru) === ru : e.kind === 'type' && squash(e.sentence.replace('___', '')) === ru,
+    );
+    if (!ex) throw new Error(`Задание не найдено в уроке: ${ru}`);
+    if (ex.kind === 'build') {
+      const words = phraseTiles(ex.answer);
+      for (const t of wrong ? [...words].reverse() : words) {
+        await page.getByTestId('grammar-tiles').locator('button:not([disabled])').filter({ hasText: exact(t) }).first().click();
+      }
+      await page.getByRole('button', { name: 'Проверить' }).click();
+    } else if (ex.kind === 'type') {
+      await page.locator('input').fill(wrong ? 'xxx' : ex.answer);
+      await page.getByRole('button', { name: 'Проверить' }).click();
+    }
+    await expect(page.getByRole('button', { name: /дальше/i })).toBeVisible();
+    return ex.id;
+  }
   const text = squash((await page.locator('.text-2xl.leading-snug').first().textContent()) ?? '');
   const ex = lesson.exercises.find((e) =>
-    e.kind === 'choose' ? squash(e.prompt) === text : e.kind === 'gap' ? squash(e.sentence.replace('___', '')) === text : squash(e.statement) === text,
+    e.kind === 'choose' ? squash(e.prompt) === text : e.kind === 'gap' ? squash(e.sentence.replace('___', '')) === text : e.kind === 'truefalse' && squash(e.statement) === text,
   );
   if (!ex) throw new Error(`Задание не найдено в уроке: ${text}`);
+  if (ex.kind === 'build' || ex.kind === 'type') throw new Error(`Не то задание: ${ex.id}`);
   const right = ex.kind === 'truefalse' ? (ex.answer ? 'Верно' : 'Неверно') : ex.options[ex.answer];
   const other = ex.kind === 'truefalse' ? (ex.answer ? 'Неверно' : 'Верно') : ex.options.find((_, i) => i !== ex.answer)!;
   await page.locator('button.min-h-14').filter({ hasText: exact(wrong ? other : right) }).click();

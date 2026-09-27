@@ -127,6 +127,37 @@ describe('validateGrammar: id упражнений', () => {
   });
 });
 
+describe('validateGrammar: сборка и ввод формы', () => {
+  const real = () =>
+    JSON.parse(readFileSync(join(import.meta.dirname, 'es', 'grammar', 'a1', '02-ser.json'), 'utf8')) as GrammarLesson;
+  const n = () => real().exercises.length;
+  const check = (...extra: GrammarLesson['exercises']) => {
+    const l = real();
+    l.exercises.push(...extra.map((e, i) => ({ ...e, id: `a1.02-ser.${n() + i + 1}` })));
+    return validateGrammar([{ name: 'a1/02-ser.json', data: l }], 'es').map((x) => x.msg).join('; ');
+  };
+  const build = { id: '', kind: 'build' as const, ru: 'Я Ана.', answer: 'Yo soy Ana.', extra: ['eres'], explain: 'ser' };
+  const type = { id: '', kind: 'type' as const, sentence: 'Yo ___ Ana.', ru: 'Я Ана.', hint: 'ser', answer: 'soy', explain: 'ser' };
+
+  it('правильные задания проходят', () => {
+    expect(check(build, type, { ...build, alt: ['Ana soy yo.'] })).toBe('');
+  });
+  it('сборка: мало слов, лишняя плитка из ответа, alt из других слов', () => {
+    expect(check({ ...build, answer: 'Soy Ana.' })).toMatch(/в сборке 2 слов, нужно 3–12/);
+    expect(check({ ...build, extra: ['soy'] })).toMatch(/лишняя плитка «soy» есть в ответе/);
+    expect(check({ ...build, extra: [] })).toMatch(/лишних плиток 0/);
+    expect(check({ ...build, extra: ['eres tú'] })).toMatch(/не одно слово/);
+    expect(check({ ...build, alt: ['Yo es Ana.'] })).toMatch(/собирается не из тех же слов/);
+    expect(check({ ...build, ru: '' })).toMatch(/нет перевода/);
+  });
+  it('ввод: пропуск, перевод, ответ', () => {
+    expect(check({ ...type, sentence: 'Yo soy Ana.' })).toMatch(/0 пропусков/);
+    expect(check({ ...type, answer: '' })).toMatch(/пустой ответ/);
+    expect(check({ ...type, answer: 'he sido muy muy' })).toMatch(/длиннее трёх слов/);
+    expect(check({ ...type, ru: '' })).toMatch(/нет перевода/);
+  });
+});
+
 describe('validateScrolls', () => {
   const sw = (slug: string, extra: Partial<Word> = {}): Word => ({
     id: `scroll1.${slug}`, es: `el ${slug}`, ru: slug, pos: 'noun', gender: 'm', level: 1, cefr: 'A1',

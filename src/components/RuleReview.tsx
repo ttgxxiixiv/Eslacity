@@ -4,13 +4,14 @@ import type { GrammarExercise } from '../content/schema';
 import { logAnswer } from '../db/answers';
 import { answerMs } from '../domain/answerLog';
 import { seeded } from '../domain/generators';
-import { toItem } from '../domain/grammar';
+import { checkGrammar, toItem, type GrammarInput } from '../domain/grammar';
+import type { Verdict } from '../domain/answer';
 import type { Grade } from '../domain/srs';
 import { afterPaint } from '../lib/afterPaint';
 import { speak } from '../audio/tts';
 import { useCity } from '../store/city';
 import { useProgress } from '../store/progress';
-import { fillGap, GrammarItemView } from './exercises/GrammarItem';
+import { grammarFeedback, GrammarItemView } from './exercises/GrammarItem';
 import { type Feedback, FeedbackSheet } from './FeedbackSheet';
 
 export interface RuleResult {
@@ -37,7 +38,7 @@ export function RuleReview({ rules, onFinish, onExit }: {
 }) {
   const [items] = useState(() => rules.map((r) => ({ cardId: r.cardId, item: toItem(r.ex, rng) })));
   const [index, setIndex] = useState(0);
-  const [picked, setPicked] = useState<number | null>(null);
+  const [verdict, setVerdict] = useState<Verdict | null>(null);
   const [fb, setFb] = useState<Feedback | null>(null);
   const [res, setRes] = useState<RuleResult>(EMPTY_RULES);
   const shownAt = useRef(Date.now());
@@ -47,33 +48,28 @@ export function RuleReview({ rules, onFinish, onExit }: {
 
   const { cardId, item } = items[index];
 
-  const pick = (i: number) => {
-    if (picked !== null) return;
-    const ok = i === item.answer;
+  const pick = (input: GrammarInput) => {
+    if (verdict !== null) return;
+    const c = checkGrammar(item, input);
+    const ok = c.verdict !== 'wrong';
     const ex = item.ex;
-    const right = item.options[item.answer];
-    const answer = ex.kind === 'gap' ? fillGap(ex.sentence, right) : ex.kind === 'choose' ? right : undefined;
-    setPicked(i);
-    setFb({
-      verdict: ok ? 'correct' : 'wrong',
-      title: ok ? 'Верно!' : ex.kind === 'truefalse' ? `Неверно, правильно: ${right.toLowerCase()}` : 'Неверно',
-      answer,
-      note: ex.explain,
-      speakText: ex.kind === 'truefalse' ? undefined : answer,
-    });
+    const answer = c.speak;
+    setVerdict(c.verdict);
+    setFb(grammarFeedback(item, c));
     const now = Date.now();
-    logAnswer({ itemId: cardId, kind: `grammar-${ex.kind}`, verdict: ok ? 'correct' : 'wrong', mode: 'review', ms: answerMs(shownAt.current, now) }, now);
+    logAnswer({ itemId: cardId, kind: `grammar-${ex.kind}`, verdict: c.verdict, mode: 'review', ms: answerMs(shownAt.current, now) }, now);
     const xp = ok ? XP.correct : 0;
     const coins = ok ? ECONOMY.coinPerCorrect : 0;
     setRes((r) => ({
-      grades: { ...r.grades, [cardId]: ok ? 4 : 1 },
+      // Форма без ударения — «почти»: правило помнится, но хуже.
+      grades: { ...r.grades, [cardId]: c.verdict === 'correct' ? 4 : ok ? 3 : 1 },
       correct: r.correct + (ok ? 1 : 0),
       wrong: r.wrong + (ok ? 0 : 1),
       xp: r.xp + xp,
       coins: r.coins + coins,
     }));
     afterPaint(() => {
-      if (ok && answer && ex.kind !== 'truefalse') speak(answer);
+      if (ok && answer) speak(answer);
       useProgress.getState().addXp(xp);
       useCity.getState().addCoins(coins);
     });
@@ -81,7 +77,7 @@ export function RuleReview({ rules, onFinish, onExit }: {
 
   const next = () => {
     setFb(null);
-    setPicked(null);
+    setVerdict(null);
     if (index + 1 >= items.length) onFinish(res);
     else setIndex(index + 1);
   };
@@ -101,7 +97,7 @@ export function RuleReview({ rules, onFinish, onExit }: {
       </div>
       <div className="font-pixel text-xs tracking-widest text-amber-700 uppercase">Правило · {index + 1} из {items.length}</div>
       <div key={item.id} className={`flex flex-1 flex-col pt-2 ${fb ? 'pb-64' : ''}`}>
-        <GrammarItemView item={item} picked={picked} onPick={pick} />
+        <GrammarItemView item={item} verdict={verdict} onAnswer={pick} />
       </div>
       <FeedbackSheet fb={fb} onNext={next} />
     </div>

@@ -4,6 +4,7 @@ import { CHAPTERS as PLAN, PLACE_LEVEL_MAX } from './vocabPlan';
 import { expandOptional, fullPhrase, optionalError, PHRASE_MAX_WORDS, PHRASE_PREFIX, phraseWords } from '../domain/phrase';
 import { answersOnPath, missionGraphIssues } from '../domain/mission';
 import { sceneWords } from '../domain/sceneText';
+import { phraseTokens } from '../domain/phraseSteps';
 import { LOCATION_IDS, type Chronicler, type GrammarLesson, type LocationMissions, type LocationPhrases, type LocationScenes, type Phrase, type LocationWords, type NpcsFile, type ScrollFile, type Word } from './schema';
 
 export interface Issue {
@@ -241,6 +242,14 @@ export function validateGrammar(files: { name: string; data: GrammarLesson }[], 
         if (empty(e.statement) || typeof e.answer !== 'boolean') out.push({ level: 'error', where: w, msg: 'битое верно/неверно' });
         return;
       }
+      if (e.kind === 'build') {
+        checkBuildExercise(e, w, out);
+        return;
+      }
+      if (e.kind === 'type') {
+        checkTypeExercise(e, w, out);
+        return;
+      }
       if (e.options.length < 2 || e.options.some(empty)) out.push({ level: 'error', where: w, msg: 'мало или пустые варианты' });
       if (new Set(e.options.map(normalize)).size !== e.options.length) out.push({ level: 'error', where: w, msg: 'одинаковые варианты' });
       if (!Number.isInteger(e.answer) || e.answer < 0 || e.answer >= e.options.length) {
@@ -254,6 +263,49 @@ export function validateGrammar(files: { name: string; data: GrammarLesson }[], 
     });
   }
   return out;
+}
+
+/** Сколько слов в собираемом предложении и лишних плиток. */
+export const BUILD_WORDS = [3, 12] as const;
+export const BUILD_EXTRA = [1, 3] as const;
+
+/**
+ * Сборка предложения: перевод, ответ из 3–12 слов, 1–3 лишних плитки, которых нет в ответе
+ * (иначе лишняя подходила бы на место нужной), `alt` — другой порядок тех же слов.
+ */
+function checkBuildExercise(e: { ru: string; answer: string; alt?: string[]; extra: string[] }, w: string, out: Issue[]) {
+  if (empty(e.ru)) out.push({ level: 'error', where: w, msg: 'нет перевода' });
+  if (empty(e.answer)) {
+    out.push({ level: 'error', where: w, msg: 'нет ответа' });
+    return;
+  }
+  const words = phraseTokens(e.answer).map(normalize);
+  if (words.length < BUILD_WORDS[0] || words.length > BUILD_WORDS[1]) {
+    out.push({ level: 'error', where: w, msg: `в сборке ${words.length} слов, нужно ${BUILD_WORDS[0]}–${BUILD_WORDS[1]}` });
+  }
+  const extra = e.extra ?? [];
+  if (extra.length < BUILD_EXTRA[0] || extra.length > BUILD_EXTRA[1] || extra.some(empty)) {
+    out.push({ level: 'error', where: w, msg: `лишних плиток ${extra.length}, нужно ${BUILD_EXTRA[0]}–${BUILD_EXTRA[1]}` });
+  }
+  for (const x of extra) {
+    if (!empty(x) && words.includes(normalize(x))) out.push({ level: 'error', where: w, msg: `лишняя плитка «${x}» есть в ответе` });
+    if (!empty(x) && phraseTokens(x).length !== 1) out.push({ level: 'error', where: w, msg: `лишняя плитка «${x}» не одно слово` });
+  }
+  const bag = (t: string) => phraseTokens(t).map(normalize).sort().join(' ');
+  for (const a of e.alt ?? []) {
+    if (empty(a) || bag(a) !== bag(e.answer)) out.push({ level: 'error', where: w, msg: `alt «${a}» собирается не из тех же слов` });
+    else if (normalize(a) === normalize(e.answer)) out.push({ level: 'error', where: w, msg: `alt «${a}» совпадает с ответом` });
+  }
+}
+
+/** Ввод формы: один пропуск `___`, перевод, ответ и `alt` непустые, ответ — не больше трёх слов. */
+function checkTypeExercise(e: { sentence: string; ru: string; answer: string; alt?: string[]; hint?: string }, w: string, out: Issue[]) {
+  const gaps = (e.sentence ?? '').split('___').length - 1;
+  if (gaps !== 1) out.push({ level: 'error', where: w, msg: `в предложении ${gaps} пропусков вместо одного` });
+  if (empty(e.ru)) out.push({ level: 'error', where: w, msg: 'нет перевода' });
+  if (empty(e.answer) || (e.alt ?? []).some(empty)) out.push({ level: 'error', where: w, msg: 'пустой ответ' });
+  else if (e.answer.trim().split(/\s+/).length > 3) out.push({ level: 'error', where: w, msg: `ответ «${e.answer}» длиннее трёх слов` });
+  if (e.hint !== undefined && empty(e.hint)) out.push({ level: 'error', where: w, msg: 'пустая подсказка' });
 }
 
 const NPC_STYLES = new Set(['short', 'long', 'bun', 'curly', 'bald']);

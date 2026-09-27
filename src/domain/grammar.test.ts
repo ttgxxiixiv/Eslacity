@@ -1,7 +1,8 @@
 import { describe, expect, it } from 'vitest';
 import type { GrammarLesson } from '../content/schema';
 import { seeded } from './generators';
-import { answerGrammar, buildGrammarQueue, forVariant, grammarScore, rulesForReview, startGrammar } from './grammar';
+import { answerGrammar, buildGrammarQueue, checkGrammar, forVariant, grammarScore, grammarTitle, rulesForReview, startGrammar, toItem } from './grammar';
+import type { GrammarExercise } from '../content/schema';
 
 const lesson: GrammarLesson = {
   id: 'a1.test', district: 'A1', order: 1, title: 'Тест',
@@ -74,5 +75,45 @@ describe('правила в повторение', () => {
     const one = rulesForReview(list, new Set(), new Set(['a1.t.1']), seeded(1));
     expect(one).toHaveLength(2);
     expect(one.some((x) => x.exerciseId === 'a1.t.1')).toBe(false);
+  });
+});
+
+describe('продуктивные задания', () => {
+  const build: GrammarExercise = {
+    id: 'a1.test.4', kind: 'build', ru: 'Я студент из Мадрида.', answer: 'Soy estudiante de Madrid.', extra: ['eres', 'es'],
+    alt: ['De Madrid soy estudiante.'], explain: 'ser',
+  };
+  const type: GrammarExercise = { id: 'a1.test.5', kind: 'type', sentence: 'Tú ___ médico.', ru: 'Ты врач.', hint: 'ser', answer: 'eres', explain: 'ser' };
+
+  it('сборка: плитки — слова ответа и лишние; порядок важен, регистр и знаки нет; alt тоже верен', () => {
+    const item = toItem(build, seeded(1));
+    expect([...(item.tiles ?? [])].sort()).toEqual(['de', 'es', 'eres', 'estudiante', 'Madrid', 'soy'].sort());
+    expect(checkGrammar(item, { tiles: ['soy', 'estudiante', 'de', 'Madrid'] })).toMatchObject({ verdict: 'correct', shown: 'Soy estudiante de Madrid.' });
+    expect(checkGrammar(item, { tiles: ['de', 'Madrid', 'soy', 'estudiante'] }).verdict).toBe('correct');
+    expect(checkGrammar(item, { tiles: ['estudiante', 'soy', 'de', 'Madrid'] }).verdict).toBe('wrong');
+    expect(checkGrammar(item, { tiles: ['eres', 'estudiante', 'de', 'Madrid'] }).verdict).toBe('wrong');
+    expect(checkGrammar(item, { tiles: [] }).verdict).toBe('wrong');
+  });
+  it('ввод формы: точная форма, без ударения — почти, опечатка — ошибка', () => {
+    const item = toItem(type, seeded(1));
+    expect(checkGrammar(item, { text: ' Eres ' })).toMatchObject({ verdict: 'correct', shown: 'Tú eres médico.', speak: 'Tú eres médico.' });
+    expect(checkGrammar(item, { text: 'eras' }).verdict).toBe('wrong');
+    const acc = toItem({ ...type, answer: 'está' }, seeded(1));
+    const c = checkGrammar(acc, { text: 'esta' });
+    expect(c).toMatchObject({ verdict: 'almost', reason: 'accent' });
+    expect(grammarTitle(acc, c)).toBe('Почти');
+  });
+  it('выбор и верно/неверно через ту же проверку', () => {
+    const q = buildGrammarQueue(lesson.exercises, seeded(3));
+    expect(checkGrammar(q[0], { pick: q[0].answer })).toMatchObject({ verdict: 'correct', shown: 'soy' });
+    const tf = q[2];
+    const c = checkGrammar(tf, { pick: 1 - tf.answer });
+    expect(c.verdict).toBe('wrong');
+    expect(grammarTitle(tf, c)).toBe('Неверно, правильно: неверно');
+    expect(checkGrammar(q[1], { pick: q[1].answer }).shown).toBe('Vosotros sois');
+  });
+  it('в уроке сборка и ввод идут после узнавания', () => {
+    const q = buildGrammarQueue([type, build, ...lesson.exercises], seeded(5));
+    expect(q.map((i) => i.ex.kind)).toEqual(['choose', 'gap', 'truefalse', 'build', 'type']);
   });
 });

@@ -163,3 +163,23 @@ export const EXAM_KEYS: Record<Lang, string[]> = {
   es: ['á', 'é', 'í', 'ó', 'ú', 'ü', 'ñ'],
   it: ['à', 'è', 'é', 'ì', 'ò', 'ù', "'"],
 };
+
+/**
+ * Форма в грамматике (задача 5.2): «soy» и «sois» отличаются одной буквой, и это разные ответы, поэтому
+ * опечатки не прощаются. Верно — совпадение с ответом или `alt`, без ударения — «почти».
+ */
+export function checkForm(input: string, accepted: string[]): CheckResult {
+  const expected = accepted[0];
+  const got = normalize(input);
+  if (!got) return { verdict: 'wrong', expected };
+  const variants = accepted.map(normalize);
+  if (variants.includes(got)) return { verdict: 'correct', expected };
+  if (variants.some((v) => stripAccents(v) === stripAccents(got))) return { verdict: 'almost', expected, reason: 'accent' };
+  return { verdict: 'wrong', expected };
+}
+
+/** Собранное из плиток предложение: порядок важен, регистр и знаки — нет. */
+export function checkBuilt(tiles: string[], accepted: string[]): CheckResult {
+  const got = normalize(tiles.join(' '));
+  return { verdict: accepted.some((a) => normalize(a) === got) ? 'correct' : 'wrong', expected: accepted[0] };
+}
