@@ -14,14 +14,12 @@ function lessons(lang: string): GrammarLesson[] {
   );
 }
 
-/** Районы, где продуктивные задания уже написаны (задача 5.3 идёт пачками по району). */
-const DONE = ['A1', 'A2', 'B1.1', 'B1.2'];
-
 describe.each(['es', 'it'])('продуктивные задания в контенте: %s', (lang) => {
   const all = lessons(lang);
 
-  it('в готовых районах у каждого урока есть сборка и ввод формы', () => {
-    for (const l of all.filter((x) => DONE.includes(x.district))) {
+  it('у каждого урока есть сборка и ввод формы', () => {
+    expect(all.length).toBe(112);
+    for (const l of all) {
       const kinds = l.exercises.map((e) => e.kind);
       expect(kinds.filter((k) => k === 'build').length, l.id).toBeGreaterThanOrEqual(1);
       expect(kinds.filter((k) => k === 'type').length, l.id).toBeGreaterThanOrEqual(1);

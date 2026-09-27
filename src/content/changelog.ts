@@ -7,6 +7,14 @@ export interface Release {
 // Новые версии сверху. Версия первой записи должна совпадать с package.json (проверяется тестом).
 export const CHANGELOG: Release[] = [
   {
+    version: '2.53.0',
+    date: '2026-09-27',
+    notes: [
+      'Сборка предложения и ввод формы во всех 20 уроках района B2: сложные времена subjuntivo и congiuntivo, условия в прошлом, como si и come se, пассив, невольное se, fare + инфинитив, суффиксы, маркеры речи. Например, «Se me olvidaron las llaves», «I documenti vanno firmati», «Che ___! Piove da una settimana (tempo, -accio)».',
+      'Теперь такие задания есть в каждом из 112 уроков грамматики обоих языков.',
+    ],
+  },
+  {
     version: '2.52.0',
     date: '2026-09-27',
     notes: [

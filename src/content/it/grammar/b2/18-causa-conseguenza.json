@@ -156,6 +156,32 @@
       "statement": "«Quindi» вводит причину.",
       "answer": false,
       "explain": "Quindi вводит следствие."
+    },
+    {
+      "id": "b2.18-causa-conseguenza.8",
+      "kind": "build",
+      "ru": "Раз ты здесь, поешь с нами.",
+      "answer": "Visto che sei qui, mangia con noi.",
+      "alt": [
+        "Mangia con noi, visto che sei qui."
+      ],
+      "extra": [
+        "anche"
+      ],
+      "explain": "Причина — visto che."
+    },
+    {
+      "id": "b2.18-causa-conseguenza.9",
+      "kind": "type",
+      "sentence": "Era stanco, ___ è andato a letto.",
+      "ru": "Он устал, поэтому лёг спать.",
+      "hint": "поэтому",
+      "answer": "quindi",
+      "alt": [
+        "perciò",
+        "allora"
+      ],
+      "explain": "Следствие — quindi, perciò или allora."
     }
   ]
 }

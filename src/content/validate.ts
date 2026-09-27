@@ -225,7 +225,8 @@ export function validateGrammar(files: { name: string; data: GrammarLesson }[], 
     else if ((l.exercises ?? []).some((e) => e.region)) out.push({ level: 'error', where: at, msg: 'region бывает только у испанских уроков' });
     for (const [label, list] of variants) {
       const kinds = new Set(list.map((e) => e.kind));
-      for (const k of ['choose', 'gap', 'truefalse']) {
+      // С задачи 5.3 в каждом уроке есть и продуктивные задания: сборка и ввод формы.
+      for (const k of ['choose', 'gap', 'truefalse', 'build', 'type']) {
         if (!kinds.has(k as never)) out.push({ level: 'error', where: at, msg: `нет упражнения типа ${k}${label}` });
       }
     }

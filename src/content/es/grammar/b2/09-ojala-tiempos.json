@@ -146,6 +146,28 @@
       "statement": "После ojalá можно поставить индикатив: ojalá viene.",
       "answer": false,
       "explain": "Только subjuntivo."
+    },
+    {
+      "id": "b2.09-ojala-tiempos.8",
+      "kind": "build",
+      "ru": "Хоть бы ты был здесь!",
+      "answer": "¡Ojalá estuvieras aquí!",
+      "extra": [
+        "estás"
+      ],
+      "explain": "Невозможное сейчас — imperfecto de subjuntivo."
+    },
+    {
+      "id": "b2.09-ojala-tiempos.9",
+      "kind": "type",
+      "sentence": "Ojalá ___ venido ayer.",
+      "ru": "Жаль, что ты не пришёл вчера.",
+      "hint": "haber, tú",
+      "answer": "hubieras",
+      "alt": [
+        "hubieses"
+      ],
+      "explain": "Сожаление о прошлом — pluscuamperfecto de subjuntivo."
     }
   ]
 }

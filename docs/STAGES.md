@@ -1018,3 +1018,13 @@
 - Лишние плитки не дают другой верной фразы: в «Iré aunque llueva» лишняя не «llueve» («Iré aunque llueve» — «пойду, хотя идёт дождь»), а «llover»; в «Ha detto che era stanco» — не «sarà», а «essere».
 
 Проверено: `npm run validate` без предупреждений, юнит-тесты (тест контента требует оба вида и в B1.2), сквозные на обоих языках, включая все 30 уроков B1.2 целиком.
+
+## Версия 2.53.0. Продуктивные задания: район B2
+
+Задача 5.3 из `docs/ROADMAP.md`, последняя пачка — район B2. Задача закрыта: сборка предложения и ввод формы есть во всех 224 уроках, по 112 на язык, всего 448 заданий (2.49.0–2.53.0).
+
+- В каждом из 20 уроков B2 на обоих языках одна сборка и один ввод формы, 80 заданий: perfecto и pluscuamperfecto de subjuntivo, условия в прошлом и смешанные, condicional compuesto, futuro perfecto, согласование времён, como si, ojalá, subjuntivo в определительных и после союзов, пассив с ser, невольное se, глаголы с предлогами, ser и estar с разным смыслом, косвенные вопросы, причина и следствие, уменьшительные суффиксы, маркеры речи; congiuntivo trapassato, periodo ipotetico третьего типа и смешанный, condizionale passato, futuro anteriore, concordanza, come se, magari, prima di / prima che, пассив с venire и andare, fare + инфинитив, lasciare и глаголы восприятия, суффиксы -etto и -accio, participio assoluto, segnali discorsivi.
+- Равноправные ответы в `alt`: формы на -se (hubiese, dijeses, fuese, llamase), «hubieras aprobado» рядом с «habrías aprobado», «hubiera podido» рядом с «habría podido». Лишние плитки не собирают другую верную фразу: в «I documenti vanno firmati» лишняя не «sono» («I documenti sono firmati» — «подписаны»), а «va»; в «Arrivati a Roma» — не «arrivando», а «arrivato»; в «Me preguntó dónde vivía» — не «vivo» и не «que» (оба дают допустимую фразу), а «por».
+- Валидатор теперь требует в каждом уроке все пять видов упражнений: choose, gap, truefalse, build, type. Тест контента `grammarProductive.test.ts` проверяет оба новых вида во всех 112 уроках каждого языка, сквозной `grammar.spec.ts` проходит уроки всех районов, список районов больше не нужен.
+
+Проверено: `npm run validate` без предупреждений, юнит-тесты, сквозные на обоих языках — все 224 урока грамматики целиком.
