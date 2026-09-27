@@ -99,5 +99,34 @@ for (const lang of LANGS) {
       await page.getByTestId('chronicler-lesson').click();
       await expect(page).toHaveURL(/#\/learn\/scroll2\/1\/0$/);
     });
+
+    test('глава II уже пройдена: печать остаётся, после свитков I и II Летописец просит свиток III', async ({ page }) => {
+      await openApp(page, lang);
+      // Как у игрока до свитка III: печати глав I и II получены, открыта глава III.
+      await page.evaluate(
+        (db) =>
+          new Promise<void>((resolve) => {
+            const r = indexedDB.open(db);
+            r.onsuccess = () => {
+              const tx = r.result.transaction('meta', 'readwrite');
+              tx.objectStore('meta').put({ key: 'journey', value: { fragments: {}, seals: { '1': 1, '2': 1 }, openedChapter: 3, celebrated: 2 } });
+              tx.oncomplete = () => resolve();
+            };
+          }),
+        DB[lang],
+      );
+      await seedDueCards(page, lang, [...scroll, ...scrollIdsOf(lang, 2)]);
+      await page.reload();
+      await expect(page.getByTestId('continue')).toBeVisible();
+      await page.goto('./#/journey-map');
+      const third = scrollIdsOf(lang, 3);
+      expect(third.length).toBeGreaterThan(0);
+      await expect(page.getByTestId('chronicler')).toContainText('Свиток главы III');
+      await expect(page.getByTestId('scroll-count')).toHaveText(`0 / ${third.length}`);
+      expect((await readMeta<{ seals: Record<string, number> }>(page, lang, 'journey'))?.seals).toEqual({ '1': 1, '2': 1 });
+      await page.getByTestId('chronicler-lesson').click();
+      await expect(page).toHaveURL(/#\/learn\/scroll3\/1\/0$/);
+      await playWords(page, lang, /урок пройден/i);
+    });
   });
 }
