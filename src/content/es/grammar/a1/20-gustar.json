@@ -140,6 +140,25 @@
       "statement": "Перед инфинитивом всегда «gusta», а не «gustan».",
       "answer": true,
       "explain": "Me gusta cocinar y bailar."
+    },
+    {
+      "id": "a1.20-gustar.7",
+      "kind": "build",
+      "ru": "Мне нравятся кошки.",
+      "answer": "Me gustan los gatos.",
+      "extra": [
+        "gusta"
+      ],
+      "explain": "Нравится множественное — gustan."
+    },
+    {
+      "id": "a1.20-gustar.8",
+      "kind": "type",
+      "sentence": "Me ___ el chocolate.",
+      "ru": "Мне нравится шоколад.",
+      "hint": "gustar",
+      "answer": "gusta",
+      "explain": "Нравится одно — gusta."
     }
   ]
 }

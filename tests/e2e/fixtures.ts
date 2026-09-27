@@ -270,9 +270,12 @@ export async function answerGrammar(page: Page, lesson: { exercises: Exercise[] 
     return ex.id;
   }
   const text = squash((await page.locator('.text-2xl.leading-snug').first().textContent()) ?? '');
-  const ex = lesson.exercises.find((e) =>
+  const same = lesson.exercises.filter((e) =>
     e.kind === 'choose' ? squash(e.prompt) === text : e.kind === 'gap' ? squash(e.sentence.replace('___', '')) === text : e.kind === 'truefalse' && squash(e.statement) === text,
   );
+  // Одинаковый вопрос («Как правильно?») у нескольких заданий: различаем по вариантам на экране.
+  const shown = same.length > 1 ? (await page.locator('button.min-h-14').allTextContents()).map(squash).sort().join('|') : '';
+  const ex = same.length > 1 ? same.find((e) => 'options' in e && e.options.map(squash).sort().join('|') === shown) : same[0];
   if (!ex) throw new Error(`Задание не найдено в уроке: ${text}`);
   if (ex.kind === 'build' || ex.kind === 'type') throw new Error(`Не то задание: ${ex.id}`);
   const right = ex.kind === 'truefalse' ? (ex.answer ? 'Верно' : 'Неверно') : ex.options[ex.answer];

@@ -149,6 +149,25 @@
       "statement": "«Le piace» может значить «ей нравится» и «Вам нравится».",
       "answer": true,
       "explain": "Le — и «ей», и вежливое «Вам»."
+    },
+    {
+      "id": "a1.19-piacere.8",
+      "kind": "build",
+      "ru": "Мне нравятся кошки.",
+      "answer": "Mi piacciono i gatti.",
+      "extra": [
+        "piace"
+      ],
+      "explain": "Нравится множественное — piacciono."
+    },
+    {
+      "id": "a1.19-piacere.9",
+      "kind": "type",
+      "sentence": "A Luca ___ il calcio.",
+      "ru": "Луке нравится футбол.",
+      "hint": "piacere",
+      "answer": "piace",
+      "explain": "Нравится одно — piace."
     }
   ]
 }

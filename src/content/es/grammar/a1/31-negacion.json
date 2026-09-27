@@ -140,6 +140,25 @@
       "statement": "«No veo nada» — ошибка, потому что в ней два отрицания.",
       "answer": false,
       "explain": "Двойное отрицание в испанском — норма."
+    },
+    {
+      "id": "a1.31-negacion.7",
+      "kind": "build",
+      "ru": "Я никогда не пью кофе.",
+      "answer": "Nunca bebo café.",
+      "extra": [
+        "nada"
+      ],
+      "explain": "Nunca перед глаголом — без no."
+    },
+    {
+      "id": "a1.31-negacion.8",
+      "kind": "type",
+      "sentence": "No hay ___ en la nevera.",
+      "ru": "В холодильнике ничего нет.",
+      "hint": "ничего",
+      "answer": "nada",
+      "explain": "Ничего — nada, с no перед глаголом."
     }
   ]
 }
