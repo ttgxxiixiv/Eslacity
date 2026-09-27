@@ -215,10 +215,13 @@ function JourneyLine() {
         : `${meta.emoji} ${meta.ru}: ${[goal.mission ? 'сюжетная миссия жителя' : '', goal.trial ? 'испытание места' : ''].filter(Boolean).join(' и ')}`;
   } else if (goal?.kind === 'seal') {
     const parts = [
-      goal.lessonsLeft ? `${goal.lessonsLeft} ${plural(goal.lessonsLeft, ['урок', 'урока', 'уроков'])} ${ch.chapter.districts.join(' и ')}` : '',
+      // Со стражем уроки района не условие печати: страж проверяет их сам.
+      !goal.guardian && goal.lessonsLeft ? `${goal.lessonsLeft} ${plural(goal.lessonsLeft, ['урок', 'урока', 'уроков'])} ${ch.chapter.districts.join(' и ')}` : '',
       goal.scrollLeft ? `${goal.scrollLeft} ${plural(goal.scrollLeft, ['слово', 'слова', 'слов'])} свитка` : '',
     ].filter(Boolean);
-    next = `Печать: осталось ${parts.join(' и ')}`;
+    next = goal.guardian
+      ? parts.length ? `Печать: осталось ${parts.join(' и ')}, потом страж` : 'Печать: победите стража'
+      : `Печать: осталось ${parts.join(' и ')}`;
   }
 
   return (

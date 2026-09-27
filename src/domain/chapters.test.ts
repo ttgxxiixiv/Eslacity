@@ -148,7 +148,7 @@ describe('ближайший обрывок', () => {
   });
   it('все обрывки есть — печать, всё собрано — ничего', () => {
     const learned = LOCS.flatMap((loc) => chapterWords(1, loc));
-    expect(nearestGoal(journeyState(input(learned, ['a1.1']), EMPTY_JOURNEY).chapters[0], () => true)).toEqual({ kind: 'seal', lessonsLeft: 1, scrollLeft: 0 });
+    expect(nearestGoal(journeyState(input(learned, ['a1.1']), EMPTY_JOURNEY).chapters[0], () => true)).toEqual({ kind: 'seal', lessonsLeft: 1, scrollLeft: 0, guardian: false });
     expect(nearestGoal(journeyState(input(learned, ['a1.1', 'a1.2']), EMPTY_JOURNEY).chapters[0], () => true)).toBeNull();
   });
 });
@@ -162,7 +162,7 @@ describe('свиток земли', () => {
     const s = journeyState(input(places, grammar, scrolls), EMPTY_JOURNEY);
     expect(s.chapters[0].seal).toMatchObject({ ready: false, scroll: 2, scrollLeft: 2, missing: ['scroll'] });
     expect(s.chapters[0].complete).toBe(false);
-    expect(nearestGoal(s.chapters[0], () => true)).toEqual({ kind: 'seal', lessonsLeft: 0, scrollLeft: 2 });
+    expect(nearestGoal(s.chapters[0], () => true)).toEqual({ kind: 'seal', lessonsLeft: 0, scrollLeft: 2, guardian: false });
   });
   it('свиток выучен — печать готова', () => {
     const s = journeyState(input([...places, ...scrolls[1]], grammar, scrolls), EMPTY_JOURNEY);
@@ -224,6 +224,26 @@ describe('испытание места', () => {
   it('у главы без слов испытания нет; полученный обрывок не отнимается', () => {
     expect(journeyState(withTrial(false), EMPTY_JOURNEY).chapters[3].places[0]).toMatchObject({ words: 0, trial: 'none', missing: ['words'] });
     const got = journeyState(withTrial(false), { fragments: { '1:cafe': 5 }, seals: {} }).chapters[0].places[0];
+    expect(got).toMatchObject({ got: true, missing: [] });
+  });
+});
+
+describe('страж главы', () => {
+  const all = LOCS.flatMap((loc) => chapterWords(1, loc));
+  const withGuardian = (done: boolean, lessons: string[] = []): JourneyInput => ({ ...input(all, lessons), isGuardianDone: (ch) => done && ch === 1 });
+
+  it('со стражем печать ждёт его, уроки района уже не нужны', () => {
+    const ch = journeyState(withGuardian(false), EMPTY_JOURNEY).chapters[0];
+    expect(ch.seal).toMatchObject({ ready: false, lessonsLeft: 2, guardian: 'todo', missing: ['guardian'] });
+    expect(nearestGoal(ch, () => true)).toEqual({ kind: 'seal', lessonsLeft: 2, scrollLeft: 0, guardian: true });
+    expect(journeyState(withGuardian(true), EMPTY_JOURNEY).chapters[0].seal).toMatchObject({ ready: true, guardian: 'done', missing: [] });
+  });
+  it('без стражей в расчёте — прежнее условие: все уроки района', () => {
+    expect(journeyState(input(all), EMPTY_JOURNEY).chapters[0].seal).toMatchObject({ guardian: 'none', missing: ['grammar'] });
+  });
+  it('у главы без уроков стража нет и печати нет; полученная печать не отнимается', () => {
+    expect(journeyState(withGuardian(true), EMPTY_JOURNEY).chapters[4].seal).toMatchObject({ guardian: 'none', missing: ['grammar'] });
+    const got = journeyState(withGuardian(false), { fragments: {}, seals: { '1': 5 } }).chapters[0].seal;
     expect(got).toMatchObject({ got: true, missing: [] });
   });
 });

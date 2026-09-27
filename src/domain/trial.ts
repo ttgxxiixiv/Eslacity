@@ -2,6 +2,7 @@ import type { Phrase, Word } from '../content/schema';
 import { makeStep, type Step } from './lessonQueue';
 import { makeTiles, type PhraseStep } from './phraseSteps';
 import { shuffle, type Rng } from './generators';
+import type { GrammarItem } from './grammar';
 
 /**
  * Испытание места (задача 5.1): экзамен по словам и фразам главы одного места. 15 заданий вперемешку,
@@ -27,11 +28,12 @@ export function parseTrialId(id: string): { place: string; chapter: number } | n
   return m ? { place: m[1], chapter: Number(m[2]) } : null;
 }
 
-export type TrialItem = { kind: 'word'; step: Step } | { kind: 'phrase'; step: PhraseStep };
+/** Задание испытания места или стража: слово, фраза места или упражнение грамматики (у стражей). */
+export type TrialItem = { kind: 'word'; step: Step } | { kind: 'phrase'; step: PhraseStep } | { kind: 'grammar'; item: GrammarItem };
 
 /** Задание испытания с вводом с клавиатуры. */
 export const isTypedItem = (it: TrialItem) =>
-  it.kind === 'word' ? it.step.kind === 'type' || it.step.kind === 'listen-type' : it.step.kind === 'type';
+  it.kind === 'word' ? it.step.kind === 'type' || it.step.kind === 'listen-type' : it.kind === 'phrase' ? it.step.kind === 'type' : it.item.ex.kind === 'type';
 
 /**
  * Задания испытания: до пяти выученных фраз главы и слова главы до пятнадцати, каждое по одному разу.
@@ -102,7 +104,7 @@ export function finishTrial(prev: TrialRecord | undefined, share: number, passed
 
 export const isTrialDone = (records: TrialsData, place: string, chapter: number) => records[trialId(place, chapter)]?.done !== undefined;
 
-/** Пройденные испытания: счётчик линии «Испытатель» (стражи добавятся с задачей 5.4). */
+/** Пройденные испытания мест и стражей (`gd:<глава>` лежат в тех же записях): счётчик линии «Испытатель». */
 export const trialsPassed = (records: TrialsData) => Object.values(records).filter((r) => r.done !== undefined).length;
 
 /** «через 5 ч» / «через 40 мин» до следующей попытки. */

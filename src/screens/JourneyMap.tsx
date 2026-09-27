@@ -7,6 +7,11 @@ import { fragmentKey, type ChapterId, type ChapterState, type PlaceState } from 
 import { plural } from '../domain/medals';
 import { Button, Screen, TopBar } from '../components/ui';
 import { ChroniclerPanel } from '../components/ChroniclerPanel';
+import { NpcPortrait } from '../components/NpcPortrait';
+import { guardianOf } from '../content/npcs';
+import { guardianId } from '../domain/guardian';
+import { trialStatus, waitLabel } from '../domain/trial';
+import { useNow } from '../lib/useNow';
 import { cellCenter, cellOf, cellPolygon, MAP_H, MAP_W, SEAL } from '../components/journeyArt';
 import { useCity } from '../store/city';
 import { currentJourney, useJourney } from '../store/journey';
@@ -205,6 +210,7 @@ export function JourneyMapScreen() {
   const got = ch.places.filter((p) => p.got).length;
   const art = LAND_IMAGES[shown];
   const seal = art?.seal ?? SEAL;
+  const guardian = guardianOf(shown);
 
   const pick = (id: ChapterId) => {
     setShown(id);
@@ -290,6 +296,12 @@ export function JourneyMapScreen() {
                 </g>
               );
             })}
+            {guardian && shown <= opened && !ch.seal.got && (
+              // Страж стоит у печати, которую охраняет.
+              <g transform={`translate(${seal.x + seal.r - 6} ${seal.y - 30})`} data-testid="guardian-sprite" onClick={() => setPicked('seal')} className="cursor-pointer">
+                <NpcPortrait look={guardian.look} size={40} label={`Страж: ${guardian.name}`} />
+              </g>
+            )}
             <g
               role="button"
               tabIndex={0}
@@ -320,8 +332,10 @@ export function JourneyMapScreen() {
             </g>
           </svg>
 
-          <Details ch={ch} picked={picked} fragmentsAt={fragments} buildings={buildings} />
+          <Details ch={ch} picked={picked} fragmentsAt={fragments} buildings={buildings} opened={opened} />
         </section>
+
+        {shown <= opened && <GuardianPanel ch={ch} />}
 
         <ChroniclerPanel opened={opened} />
       </div>
@@ -329,11 +343,12 @@ export function JourneyMapScreen() {
   );
 }
 
-function Details({ ch, picked, fragmentsAt, buildings }: {
+function Details({ ch, picked, fragmentsAt, buildings, opened }: {
   ch: ChapterState;
   picked: number | 'seal' | null;
   fragmentsAt: Record<string, number>;
   buildings: ReturnType<typeof useCity.getState>['buildings'];
+  opened: number;
 }) {
   const nav = useNavigate();
   if (picked === null) {
@@ -351,9 +366,11 @@ function Details({ ch, picked, fragmentsAt, buildings }: {
             <p className="text-sm text-stone-600">
               {s.lessons === 0
                 ? 'Уроки этой главы ещё пишутся.'
-                : s.lessonsLeft
-                  ? `Пройдите уроки грамматики района ${ch.chapter.districts.join(' и ')}: осталось ${s.lessonsLeft} из ${s.lessons}.`
-                  : `Уроки района ${ch.chapter.districts.join(' и ')} пройдены.`}
+                : s.guardian !== 'none'
+                  ? `Печать хранит страж: ${guardianOf(ch.chapter.id)?.name ?? 'страж'}. Он проверяет грамматику района ${ch.chapter.districts.join(' и ')}, слова главы и свиток земли. Уроки района пройдены: ${s.lessons - s.lessonsLeft} из ${s.lessons}.`
+                  : s.lessonsLeft
+                    ? `Пройдите уроки грамматики района ${ch.chapter.districts.join(' и ')}: осталось ${s.lessonsLeft} из ${s.lessons}.`
+                    : `Уроки района ${ch.chapter.districts.join(' и ')} пройдены.`}
             </p>
             {s.scroll > 0 && (
               <p className="mt-1 text-sm text-stone-600" data-testid="seal-scroll">
@@ -364,8 +381,13 @@ function Details({ ch, picked, fragmentsAt, buildings }: {
             )}
           </>
         )}
+        {!s.got && s.guardian === 'todo' && ch.chapter.id <= opened && (
+          <Button className="mt-2 w-full" onClick={() => nav(`/guardian/${ch.chapter.id}`)}>
+            К стражу
+          </Button>
+        )}
         {!s.got && s.lessonsLeft > 0 && (
-          <Button className="mt-2 w-full" onClick={() => nav('/grammar')}>
+          <Button variant={s.guardian === 'todo' ? 'secondary' : undefined} className="mt-2 w-full" onClick={() => nav('/grammar')}>
             К грамматике
           </Button>
         )}
@@ -391,5 +413,42 @@ function Details({ ch, picked, fragmentsAt, buildings }: {
         </Button>
       )}
     </div>
+  );
+}
+
+/** Страж главы под картой: портрет, приветствие и дорога к испытанию. Пускает, когда свиток земли выучен. */
+function GuardianPanel({ ch }: { ch: ChapterState }) {
+  const nav = useNavigate();
+  const now = useNow();
+  const guardian = guardianOf(ch.chapter.id);
+  const rec = useTrials((s) => s.records[guardianId(ch.chapter.id)]);
+  if (!guardian || ch.seal.guardian === 'none') return null;
+  const status = ch.seal.got && ch.seal.guardian !== 'done' ? null : trialStatus(rec, ch.seal.scrollLeft, now);
+  return (
+    <section className="rounded-2xl bg-white p-3 shadow-sm" data-testid="guardian-panel">
+      <div className="flex items-end gap-3">
+        <NpcPortrait look={guardian.look} size={72} />
+        <div className="min-w-0 flex-1">
+          <div className="font-bold">{guardian.name}</div>
+          <div className="text-sm text-stone-500">{guardian.role}</div>
+          <div className="mt-1 text-sm font-semibold">{guardian.greeting.es}</div>
+          <div className="text-xs text-stone-500">{guardian.greeting.ru}</div>
+        </div>
+      </div>
+      <p className="mt-2 text-sm text-stone-600" data-testid="guardian-status">
+        {status === null || status.kind === 'done'
+          ? 'Страж пропустил героя: печать главы получена.'
+          : status.kind === 'locked'
+            ? `Страж пустит, когда выучен свиток земли: осталось ${status.wordsLeft} ${plural(status.wordsLeft, ['слово', 'слова', 'слов'])}.`
+            : status.kind === 'wait'
+              ? `Страж ждёт вас снова ${waitLabel(status.until, now)}.`
+              : 'Страж ждёт: 20 заданий по грамматике, словам главы и свитку, нужно 75%.'}
+      </p>
+      {status?.kind === 'open' && (
+        <Button className="mt-2 w-full" data-testid="guardian-go" onClick={() => nav(`/guardian/${ch.chapter.id}`)}>
+          Бросить вызов стражу
+        </Button>
+      )}
+    </section>
   );
 }

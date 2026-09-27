@@ -5,7 +5,7 @@ import { expandOptional, fullPhrase, optionalError, PHRASE_MAX_WORDS, PHRASE_PRE
 import { answersOnPath, missionGraphIssues } from '../domain/mission';
 import { sceneWords } from '../domain/sceneText';
 import { phraseTokens } from '../domain/phraseSteps';
-import { LOCATION_IDS, type Chronicler, type GrammarLesson, type LocationMissions, type LocationPhrases, type LocationScenes, type Phrase, type LocationWords, type NpcsFile, type ScrollFile, type Word } from './schema';
+import { LOCATION_IDS, type Chronicler, type GrammarLesson, type GuardiansFile, type NpcLook, type LocationMissions, type LocationPhrases, type LocationScenes, type Phrase, type LocationWords, type NpcsFile, type ScrollFile, type Word } from './schema';
 
 export interface Issue {
   level: 'error' | 'warning';
@@ -328,12 +328,41 @@ function checkNpc(n: Chronicler, at: string, noun: string, out: Issue[]) {
   if (n.warm?.length !== 3 || n.warm.some((w) => empty(w?.es) || empty(w?.ru))) {
     out.push({ level: 'error', where: at, msg: 'нужно 3 тёплых приветствия (warm) с переводом' });
   }
-  const lk = n.look;
+  checkLook(n.look, at, out);
+}
+
+/** Портрет жителя или стража: тон кожи, причёска, цвета, известные детали. */
+function checkLook(lk: NpcLook | undefined, at: string, out: Issue[]) {
   if (!lk || ![1, 2, 3, 4].includes(lk.skin) || !NPC_STYLES.has(lk.style) || !COLOR.test(lk.hair) || !COLOR.test(lk.outfit) || !COLOR.test(lk.pants)) {
     out.push({ level: 'error', where: at, msg: 'неверный портрет (look)' });
   } else {
     for (const e of lk.extra) if (!NPC_EXTRAS.has(e)) out.push({ level: 'error', where: at, msg: `неизвестная деталь портрета "${e}"` });
   }
+}
+
+/**
+ * Стражи земель (задача 5.4): у каждой главы из `chapters` (главы, где есть уроки грамматики) свой страж, один на главу;
+ * имя, роль, пол, реплики с переводом (приветствие, победа, неудача), голос в пределах, портрет.
+ */
+export function validateGuardians(file: GuardiansFile | undefined, chapters: number[]): Issue[] {
+  const out: Issue[] = [];
+  const where = 'guardians.json';
+  if (!file) return chapters.length ? [{ level: 'error', where, msg: 'нет файла стражей' }] : [];
+  const seen = new Set<number>();
+  file.guardians.forEach((g, i) => {
+    const at = `${where}#${i} глава ${g.chapter}`;
+    if (seen.has(g.chapter)) out.push({ level: 'error', where: at, msg: 'второй страж той же главы' });
+    seen.add(g.chapter);
+    if (!chapters.includes(g.chapter)) out.push({ level: 'error', where: at, msg: 'у главы нет уроков грамматики' });
+    for (const f of ['name', 'role'] as const) if (empty(g[f])) out.push({ level: 'error', where: at, msg: `пустое поле ${f}` });
+    if (g.gender !== 'm' && g.gender !== 'f') out.push({ level: 'error', where: at, msg: `пол "${g.gender}"` });
+    for (const f of ['greeting', 'win', 'lose'] as const) if (empty(g[f]?.es) || empty(g[f]?.ru)) out.push({ level: 'error', where: at, msg: `пустая реплика ${f}` });
+    const { pitch, rate } = g.voice ?? {};
+    if (!(pitch >= 0.5 && pitch <= 1.5) || !(rate >= 0.7 && rate <= 1.3)) out.push({ level: 'error', where: at, msg: 'голос вне пределов (pitch 0.5–1.5, rate 0.7–1.3)' });
+    checkLook(g.look, at, out);
+  });
+  for (const ch of chapters) if (!seen.has(ch)) out.push({ level: 'error', where, msg: `нет стража главы ${ch}` });
+  return out;
 }
 
 /** Жители: по одному на каждое место, уникальные id, заполненные поля, голос и портрет в допустимых пределах. */

@@ -6,6 +6,7 @@ import { MISSION_CHAPTERS, SCROLL_WORDS, WORD_LEVELS } from '../content/wordInde
 import { isMissionDone, useMissions } from './missions';
 import { useTrials } from './trials';
 import { isTrialDone } from '../domain/trial';
+import { isGuardianDone } from '../domain/guardian';
 import { db } from '../db/db';
 import { persist } from '../db/persist';
 import {
@@ -40,6 +41,7 @@ export function journeyInput(): JourneyInput {
     missions: MISSION_CHAPTERS,
     isMissionDone: (place, chapter) => isMissionDone(useMissions.getState().records, place, chapter),
     isTrialDone: (place, chapter) => isTrialDone(useTrials.getState().records, place, chapter),
+    isGuardianDone: (chapter) => isGuardianDone(useTrials.getState().records, chapter),
   };
 }
 

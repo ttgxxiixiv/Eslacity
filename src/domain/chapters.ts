@@ -43,14 +43,15 @@ export type FragmentCondition = 'words' | 'mission' | 'trial';
 export type Conditions = { fragment: Record<FragmentCondition, boolean>; seal: Record<SealCondition, boolean> };
 
 /**
- * Условия печати земли. Пока стражей нет, печать даётся за все уроки района грамматики и выученный свиток земли
- * (слова, которые просит Летописец). `guardian` — испытание стража (этап «Испытания»).
+ * Условия печати земли: выученный свиток земли (слова, которые просит Летописец) и победа над стражем (задача 5.4).
+ * `grammar` — прежнее условие «все уроки района пройдены»: действует, только если стражи не считаются
+ * (в `JourneyInput` нет `isGuardianDone`).
  */
 export type SealCondition = 'grammar' | 'scroll' | 'guardian';
 
 export const CONDITIONS: Conditions = {
   fragment: { words: true, mission: true, trial: true },
-  seal: { grammar: true, scroll: true, guardian: false },
+  seal: { grammar: true, scroll: true, guardian: true },
 };
 
 /** Всё, что нужно знать о контенте и прогрессе для расчёта пути. */
@@ -70,6 +71,8 @@ export interface JourneyInput {
   isMissionDone?(location: string, chapter: number): boolean;
   /** Испытание места в главе пройдено. Нет функции — испытаний в расчёте нет, условие не мешает. */
   isTrialDone?(location: string, chapter: number): boolean;
+  /** Страж главы побеждён. Нет функции — стражей в расчёте нет, печать ждёт все уроки района (прежнее условие). */
+  isGuardianDone?(chapter: number): boolean;
 }
 
 /** Полученное: ключ → время получения. Полученное не отнимается, даже если условия стали строже. */
@@ -117,6 +120,8 @@ export interface ChapterState {
     scroll: number;
     scrollLeft: number;
     missing: SealCondition[];
+    /** Страж главы: нет (стражи не считаются или у главы нет уроков), ещё не побеждён, побеждён. */
+    guardian: 'none' | 'todo' | 'done';
   };
   /** Все обрывки и печать: карта земли собрана. */
   complete: boolean;
@@ -153,16 +158,19 @@ export function journeyState(input: JourneyInput, rec: JourneyRecord, cond: Cond
     const lessonIds = chapter.districts.flatMap((d) => input.lessons[d] ?? []);
     const lessonsLeft = lessonIds.filter((id) => !input.isLessonDone(id)).length;
     const missing: SealCondition[] = [];
-    if (cond.seal.grammar && (lessonIds.length === 0 || lessonsLeft > 0)) missing.push('grammar');
+    const guardian: ChapterState['seal']['guardian'] = !input.isGuardianDone || lessonIds.length === 0 ? 'none' : input.isGuardianDone(chapter.id) ? 'done' : 'todo';
+    // Уроков главы ещё нет — печати нет. Со стражами печать ждёт его, без них — все уроки района.
+    if (lessonIds.length === 0) missing.push('grammar');
+    else if (guardian === 'none' && cond.seal.grammar && lessonsLeft > 0) missing.push('grammar');
     const scrollIds = input.scrolls[chapter.id] ?? [];
     const scrollLeft = scrollIds.filter((id) => !input.isLearned(id)).length;
     // Свитка главы ещё нет в контенте — условие не мешает печати.
     if (cond.seal.scroll && scrollLeft > 0) missing.push('scroll');
-    if (cond.seal.guardian) missing.push('guardian');
+    if (cond.seal.guardian && guardian === 'todo') missing.push('guardian');
     const got = rec.seals[String(chapter.id)] !== undefined;
     const seal = {
       got, ready: !got && missing.length === 0, lessons: lessonIds.length, lessonsLeft,
-      scroll: scrollIds.length, scrollLeft, missing: got ? [] : missing,
+      scroll: scrollIds.length, scrollLeft, missing: got ? [] : missing, guardian,
     };
     const fragments = places.filter((p) => p.got || p.ready).length;
     return {
@@ -253,7 +261,7 @@ export function sceneToShow(completed: number, celebrated: number | undefined): 
 
 export type NearestGoal =
   | { kind: 'place'; location: string; wordsLeft: number; open: boolean; mission: boolean; trial: boolean }
-  | { kind: 'seal'; lessonsLeft: number; scrollLeft: number }
+  | { kind: 'seal'; lessonsLeft: number; scrollLeft: number; guardian: boolean }
   | null;
 
 /**
@@ -268,7 +276,7 @@ export function nearestGoal(ch: ChapterState, isOpen: (location: string) => bool
     return { kind: 'place', location: pick.location, wordsLeft: pick.wordsLeft, open: isOpen(pick.location), mission: pick.missing.includes('mission'), trial: pick.missing.includes('trial') };
   }
   if (!ch.seal.got && !ch.seal.ready && (ch.seal.lessons > 0 || ch.seal.scrollLeft > 0)) {
-    return { kind: 'seal', lessonsLeft: ch.seal.lessonsLeft, scrollLeft: ch.seal.scrollLeft };
+    return { kind: 'seal', lessonsLeft: ch.seal.lessonsLeft, scrollLeft: ch.seal.scrollLeft, guardian: ch.seal.guardian === 'todo' };
   }
   return null;
 }

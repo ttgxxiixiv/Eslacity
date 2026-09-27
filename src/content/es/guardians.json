@@ -1,0 +1,131 @@
+{
+  "guardians": [
+    {
+      "chapter": 1,
+      "name": "Привратник",
+      "role": "страж городских ворот",
+      "gender": "m",
+      "greeting": {
+        "es": "Hola, viajero. ¿Hablas español? Contesta mis preguntas.",
+        "ru": "Здравствуй, путник. Ты говоришь по-испански? Ответь на мои вопросы."
+      },
+      "win": {
+        "es": "¡Muy bien! Aquí tienes el sello. El camino es tuyo.",
+        "ru": "Очень хорошо! Вот печать. Дорога твоя."
+      },
+      "lose": {
+        "es": "Todavía no. Vuelve mañana.",
+        "ru": "Пока нет. Возвращайся завтра."
+      },
+      "voice": {
+        "pitch": 0.8,
+        "rate": 0.9
+      },
+      "look": {
+        "skin": 2,
+        "hair": "#3b2a1a",
+        "style": "short",
+        "outfit": "#5b6b3a",
+        "pants": "#2e2216",
+        "extra": [
+          "mustache",
+          "cap"
+        ]
+      }
+    },
+    {
+      "chapter": 2,
+      "name": "Андрес",
+      "role": "страж башни на перевале",
+      "gender": "m",
+      "greeting": {
+        "es": "Te esperaba. ¿Qué has hecho en el camino? ¿A quién ayudaste?",
+        "ru": "Я ждал тебя. Что ты сделал в пути? Кому ты помог?"
+      },
+      "win": {
+        "es": "Has contestado. Ahora puedo volver a casa. Toma el sello.",
+        "ru": "Ты ответил. Теперь я могу вернуться домой. Возьми печать."
+      },
+      "lose": {
+        "es": "Todavía no. Vuelve mañana, la torre te espera.",
+        "ru": "Пока нет. Возвращайся завтра, башня тебя ждёт."
+      },
+      "voice": {
+        "pitch": 0.85,
+        "rate": 0.9
+      },
+      "look": {
+        "skin": 2,
+        "hair": "#2b2b2b",
+        "style": "short",
+        "outfit": "#6e6e6e",
+        "pants": "#3b2a1a",
+        "extra": [
+          "beard"
+        ]
+      }
+    },
+    {
+      "chapter": 3,
+      "name": "Стражница",
+      "role": "стражница белого города",
+      "gender": "f",
+      "greeting": {
+        "es": "Si me dices la verdad, te dejaré pasar.",
+        "ru": "Если скажешь мне правду, я тебя пропущу."
+      },
+      "win": {
+        "es": "Si has llegado hasta aquí, mereces el sello.",
+        "ru": "Раз ты дошёл сюда, ты заслужил печать."
+      },
+      "lose": {
+        "es": "Si vuelves mañana, te escucharé otra vez.",
+        "ru": "Если вернёшься завтра, я выслушаю тебя снова."
+      },
+      "voice": {
+        "pitch": 1.1,
+        "rate": 0.85
+      },
+      "look": {
+        "skin": 3,
+        "hair": "#e8e3d6",
+        "style": "bun",
+        "outfit": "#e0c98f",
+        "pants": "#b8a27a",
+        "extra": [
+          "headband"
+        ]
+      }
+    },
+    {
+      "chapter": 4,
+      "name": "Хранительница леса",
+      "role": "слушает шёпот деревьев",
+      "gender": "f",
+      "greeting": {
+        "es": "Escucha a los árboles. Ellos no mienten. ¿Y tú?",
+        "ru": "Слушай деревья. Они не лгут. А ты?"
+      },
+      "win": {
+        "es": "Los árboles te han oído. El sello es tuyo.",
+        "ru": "Деревья тебя услышали. Печать твоя."
+      },
+      "lose": {
+        "es": "Los árboles aún no te entienden. Vuelve mañana.",
+        "ru": "Деревья тебя ещё не понимают. Возвращайся завтра."
+      },
+      "voice": {
+        "pitch": 1.2,
+        "rate": 0.85
+      },
+      "look": {
+        "skin": 1,
+        "hair": "#3f6b3a",
+        "style": "long",
+        "outfit": "#2f5a3a",
+        "pants": "#23402a",
+        "extra": []
+      }
+    }
+  ]
+}

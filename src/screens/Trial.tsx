@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { XP } from '../config';
 import { loadLocation } from '../content';
@@ -6,36 +6,22 @@ import { LOCATION_BY_ID } from '../content/locations';
 import { npcFor } from '../content/npcs';
 import { loadPhrases } from '../content/phrases';
 import type { LocationId, Phrase, Word } from '../content/schema';
-import { logAnswer } from '../db/answers';
-import { listeningEnabled, pauseListening, speak } from '../audio/tts';
-import { answerMs, isListening } from '../domain/answerLog';
-import type { CheckResult, Verdict } from '../domain/answer';
+import { listeningEnabled } from '../audio/tts';
 import { chapterById } from '../domain/chapters';
 import { seeded } from '../domain/generators';
-import { withoutListening, type Outcome } from '../domain/lessonQueue';
 import {
-  buildTrial, isTrialPassed, isTypedItem, parseTrialId, TRIAL_PASS, TRIAL_REWARD, TRIAL_SIZE, trialShare, trialStatus, waitLabel,
+  buildTrial, isTrialPassed, parseTrialId, TRIAL_PASS, TRIAL_REWARD, TRIAL_SIZE, trialShare, trialStatus, waitLabel,
   type TrialItem,
 } from '../domain/trial';
-import { afterPaint } from '../lib/afterPaint';
 import { useNow } from '../lib/useNow';
-import { defaultFeedback } from '../components/LessonPlayer';
-import { phraseFeedback, PhraseTiles, PhraseType } from '../components/PhraseRun';
-import { Choice } from '../components/exercises/Choice';
-import { Scramble } from '../components/exercises/Scramble';
-import { TypeAnswer } from '../components/exercises/TypeAnswer';
-import { type Feedback, FeedbackSheet } from '../components/FeedbackSheet';
 import { Button, Screen, TopBar } from '../components/ui';
+import { TrialPlayer, type TrialScore } from '../components/TrialPlayer';
 import { useCity } from '../store/city';
-import { syncAndEvaluate, useMotivation } from '../store/motivation';
+import { syncAndEvaluate } from '../store/motivation';
 import { useProgress } from '../store/progress';
 import { useTrials } from '../store/trials';
 
-interface Score {
-  correct: number;
-  almost: number;
-  wrong: number;
-}
+type Score = TrialScore;
 
 /**
  * Испытание места (задача 5.1): 15 заданий по словам и фразам главы, больше половины — ввод.
@@ -191,102 +177,5 @@ function TrialById({ id }: { id: string }) {
         )}
       </div>
     </Screen>
-  );
-}
-
-let seq = 0;
-
-/** Задания испытания по одному: слова — заданиями уроков, фразы — плитками и вводом. Без повторов ошибок. */
-function TrialPlayer({ items: initial, words, phrases, onFinish, onExit }: {
-  items: TrialItem[];
-  words: Record<string, Word>;
-  phrases: Record<string, Phrase>;
-  onFinish(s: Score): void;
-  onExit(): void;
-}) {
-  const [items, setItems] = useState(() => initial.map((it) => ({ ...it, key: ++seq })));
-  const [index, setIndex] = useState(0);
-  const [fb, setFb] = useState<Feedback | null>(null);
-  const [score, setScore] = useState<Score>({ correct: 0, almost: 0, wrong: 0 });
-  const shownAt = useRef(Date.now());
-  useEffect(() => {
-    shownAt.current = Date.now();
-  }, [index]);
-
-  const item = items[index];
-  const record = (verdict: Verdict, f: Feedback, itemId: string, kind: string) => {
-    setFb(f);
-    setScore((s) => ({ ...s, [verdict]: s[verdict] + 1 }));
-    const now = Date.now();
-    logAnswer({ itemId, kind, verdict, mode: 'trial', ms: answerMs(shownAt.current, now) }, now);
-    afterPaint(() => {
-      if (f.speakText && verdict !== 'wrong') speak(f.speakText);
-      if (isTypedItem(item)) useMotivation.getState().recordTyped(verdict === 'correct');
-      if (item.kind === 'word' && isListening(item.step.kind) && verdict === 'correct') useMotivation.getState().recordListening();
-    });
-  };
-  const wordAnswer = (o: Outcome, extra?: Partial<Feedback>) => {
-    if (item.kind !== 'word') return;
-    const defined = Object.fromEntries(Object.entries(extra ?? {}).filter(([, v]) => v !== undefined));
-    const step = item.step as Exclude<typeof item.step, { kind: 'match' | 'intro' }>;
-    record(o.verdict, { ...defaultFeedback(step, words, o), ...defined }, step.wordId, step.kind);
-  };
-  const phraseAnswer = (verdict: Verdict, check?: CheckResult) => {
-    if (item.kind !== 'phrase') return;
-    record(verdict, phraseFeedback(phrases[item.step.id], verdict, check), item.step.id, `phrase-${item.step.kind}`);
-  };
-  const next = () => {
-    setFb(null);
-    if (index + 1 >= items.length) onFinish(score);
-    else setIndex(index + 1);
-  };
-  // «Не могу слушать»: оставшиеся задания на слух становятся обычными.
-  const cantListen = () => {
-    pauseListening();
-    const plain = withoutListening(items.filter((it) => it.kind === 'word').map((it) => it.step));
-    let i = 0;
-    setItems(items.map((it) => (it.kind === 'word' ? { ...it, step: plain[i++] } : it)));
-  };
-
-  if (!item) return null;
-  const locked = fb !== null;
-  let body: React.ReactNode = null;
-  if (item.kind === 'word') {
-    const step = item.step;
-    if (step.kind === 'choice-es-ru' || step.kind === 'choice-ru-es' || step.kind === 'listen-choice') {
-      body = <Choice step={step} words={words} locked={locked} onAnswer={wordAnswer} onCantListen={cantListen} />;
-    } else if (step.kind === 'scramble') {
-      body = <Scramble step={step} words={words} locked={locked} onAnswer={wordAnswer} />;
-    } else if (step.kind === 'type' || step.kind === 'listen-type') {
-      body = <TypeAnswer step={step} words={words} locked={locked} onAnswer={wordAnswer} onCantListen={cantListen} exam />;
-    }
-  } else if (item.step.kind === 'tiles') {
-    body = <PhraseTiles phrase={phrases[item.step.id]} tiles={item.step.tiles} locked={locked} onAnswer={phraseAnswer} />;
-  } else {
-    body = <PhraseType phrase={phrases[item.step.id]} locked={locked} onAnswer={phraseAnswer} exam />;
-  }
-
-  return (
-    <div className="mx-auto flex min-h-dvh w-full max-w-md flex-col px-5 pb-6" data-testid="trial-run">
-      <div className="flex h-14 items-center gap-3">
-        <button type="button" aria-label="Выйти из испытания" onClick={onExit} className="press h-10 w-10 rounded-full text-xl text-stone-500">
-          ✕
-        </button>
-        <div className="h-3.5 flex-1 overflow-hidden rounded bg-wood p-[2px]">
-          <div
-            className="h-full w-full origin-left rounded-sm bg-gold"
-            style={{ transform: `scaleX(${index / items.length})`, transition: 'transform 200ms ease-out' }}
-          />
-        </div>
-        <span className="text-sm text-stone-500 tabular-nums" data-testid="trial-progress">
-          {index + 1} / {items.length}
-        </span>
-      </div>
-      <div className="font-pixel text-xs tracking-widest text-amber-700 uppercase">Испытание</div>
-      <div key={item.key} className={`flex flex-1 flex-col pt-2 ${locked ? 'pb-64' : ''}`} data-testid={item.kind === 'phrase' ? 'phrase-run' : undefined}>
-        {body}
-      </div>
-      <FeedbackSheet fb={fb} onNext={next} />
-    </div>
   );
 }

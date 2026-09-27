@@ -18,7 +18,7 @@ describe('задания испытания', () => {
     const items = buildTrial(words, phrases, words, phrases, seeded(1));
     expect(items).toHaveLength(TRIAL_SIZE);
     expect(items.filter((i) => i.kind === 'phrase')).toHaveLength(5);
-    const ids = items.map((i) => (i.kind === 'word' ? (i.step as { wordId: string }).wordId : i.step.id));
+    const ids = items.map((i) => (i.kind === 'word' ? (i.step as { wordId: string }).wordId : i.kind === 'phrase' ? i.step.id : i.item.ex.id));
     expect(new Set(ids).size).toBe(TRIAL_SIZE);
     expect(items.filter(isTypedItem)).toHaveLength(9);
     // Ни знакомства, ни «пар»: только задания с ответом.

@@ -1,9 +1,10 @@
 import { readdirSync, readFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
-import { validateChronicler, validateGrammar, validateMissions, validateNpcs, validatePhrases, validateScenes, validateScrolls, validateWords, type Issue } from '../src/content/validate';
-import type { Chronicler, GrammarLesson, LocationMissions, LocationPhrases, LocationScenes, NpcsFile, ScrollFile } from '../src/content/schema';
+import { validateChronicler, validateGrammar, validateGuardians, validateMissions, validateNpcs, validatePhrases, validateScenes, validateScrolls, validateWords, type Issue } from '../src/content/validate';
+import type { Chronicler, GrammarLesson, GuardiansFile, LocationMissions, LocationPhrases, LocationScenes, NpcsFile, ScrollFile } from '../src/content/schema';
 import type { Lang } from '../src/lang';
 import { CHAPTERS, PLAN_TOTAL } from '../src/content/vocabPlan';
+import { chapterOfDistrict } from '../src/domain/chapters';
 import { plural } from '../src/domain/medals';
 import { buildLexicon, lemmasIn, parseFreq, parseLemmas, textCoverage, uncoveredWords } from './vocab-lib';
 
@@ -52,6 +53,10 @@ for (const lang of langs) {
   const chroniclerPath = join(root, lang, 'chronicler.json');
   const chronicler = existsSync(chroniclerPath) ? (JSON.parse(readFileSync(chroniclerPath, 'utf8')) as Chronicler) : undefined;
   const scrolls = readJson<ScrollFile>(join(root, lang, 'scrolls'));
+  const guardiansPath = join(root, lang, 'guardians.json');
+  const guardians = existsSync(guardiansPath) ? (JSON.parse(readFileSync(guardiansPath, 'utf8')) as GuardiansFile) : undefined;
+  // Главы, где есть уроки: у каждой должен быть страж.
+  const lessonChapters = [...new Set(grammar.map((g) => chapterOfDistrict((g.data as GrammarLesson).district)?.id ?? 0))].filter(Boolean).sort();
   // Фразы мест: слова фразы должны быть в словаре мест того же уровня или ниже (свиток главы — с первого уровня главы).
   const phrases = readJson<LocationPhrases>(join(root, lang, 'phrases'));
   const dataDir = join(root, '..', '..', 'scripts', 'data');
@@ -93,6 +98,7 @@ for (const lang of langs) {
     ...tag(validateGrammar(grammar, lang)),
     ...tag(validateNpcs(npcs)),
     ...tag(validateChronicler(chronicler, npcs)),
+    ...tag(validateGuardians(guardians, lessonChapters)),
   );
   const placeCount = words.reduce((n, f) => n + f.data.words.length, 0);
   const scrollCount = scrolls.reduce((n, f) => n + f.data.words.length, 0);

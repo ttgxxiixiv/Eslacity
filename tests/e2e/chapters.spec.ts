@@ -82,7 +82,9 @@ for (const lang of LANGS) {
       // Печать и соседние главы на дороге.
       await page.goto('./#/journey-map');
       await page.getByRole('button', { name: /Печать главы/ }).click();
-      await expect(page.getByTestId('map-details')).toContainText('осталось 31 из 31');
+      // Печать хранит страж: уроки района — подготовка к нему, а не условие.
+      await expect(page.getByTestId('map-details')).toContainText('Печать хранит страж');
+      await expect(page.getByTestId('map-details')).toContainText('Уроки района пройдены: 0 из 31');
       await page.getByRole('button', { name: /Глава II: Горный перевал/ }).click();
       await expect(page.getByText('Глава ещё закрыта.')).toBeVisible();
     });
@@ -120,7 +122,8 @@ for (const lang of LANGS) {
     test('карта главы I собрана: сцена перехода один раз и титул Странник', async ({ page }) => {
       await openApp(page, lang);
       await seedMissionsDone(page, lang, missionIdsOf(lang));
-      await seedTrialsDone(page, lang, trialIdsOf(1));
+      // Испытания всех мест и страж главы пройдены.
+      await seedTrialsDone(page, lang, [...trialIdsOf(1), 'gd:1']);
       await expect(page.getByTestId('chapter-scene')).toHaveCount(0);
       await page.goto('./#/profile');
       await expect(page.getByTestId('hero-title')).toHaveText('Путник');

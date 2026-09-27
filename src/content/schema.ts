@@ -246,3 +246,23 @@ export interface LocationMissions {
   location: LocationId;
   missions: Mission[];
 }
+
+/**
+ * Страж земли (задача 5.4): у каждой главы с уроками свой страж, он охраняет печать. Испытание — задания уроков
+ * района, слова главы и свитка земли. Реплики на изучаемом языке: приветствие, победа героя, неудача.
+ */
+export interface Guardian {
+  chapter: number;
+  name: string;
+  role: string;
+  gender: 'm' | 'f';
+  greeting: Example;
+  win: Example;
+  lose: Example;
+  voice: { pitch: number; rate: number };
+  look: NpcLook;
+}
+
+export interface GuardiansFile {
+  guardians: Guardian[];
+}

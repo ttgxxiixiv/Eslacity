@@ -1,0 +1,131 @@
+{
+  "guardians": [
+    {
+      "chapter": 1,
+      "name": "Привратник",
+      "role": "страж городских ворот",
+      "gender": "m",
+      "greeting": {
+        "es": "Ciao, viaggiatore. Parli italiano? Rispondi alle mie domande.",
+        "ru": "Здравствуй, путник. Ты говоришь по-итальянски? Ответь на мои вопросы."
+      },
+      "win": {
+        "es": "Bravo! Ecco il sigillo. La strada è tua.",
+        "ru": "Молодец! Вот печать. Дорога твоя."
+      },
+      "lose": {
+        "es": "Non ancora. Torna domani.",
+        "ru": "Пока нет. Возвращайся завтра."
+      },
+      "voice": {
+        "pitch": 0.8,
+        "rate": 0.9
+      },
+      "look": {
+        "skin": 2,
+        "hair": "#3b2a1a",
+        "style": "short",
+        "outfit": "#5b6b3a",
+        "pants": "#2e2216",
+        "extra": [
+          "mustache",
+          "cap"
+        ]
+      }
+    },
+    {
+      "chapter": 2,
+      "name": "Андреа",
+      "role": "страж башни на перевале",
+      "gender": "m",
+      "greeting": {
+        "es": "Ti aspettavo. Che cosa hai fatto sul cammino? Chi hai aiutato?",
+        "ru": "Я ждал тебя. Что ты сделал в пути? Кому ты помог?"
+      },
+      "win": {
+        "es": "Hai risposto. Ora posso tornare a casa. Prendi il sigillo.",
+        "ru": "Ты ответил. Теперь я могу вернуться домой. Возьми печать."
+      },
+      "lose": {
+        "es": "Non ancora. Torna domani, la torre ti aspetta.",
+        "ru": "Пока нет. Возвращайся завтра, башня тебя ждёт."
+      },
+      "voice": {
+        "pitch": 0.85,
+        "rate": 0.9
+      },
+      "look": {
+        "skin": 2,
+        "hair": "#2b2b2b",
+        "style": "short",
+        "outfit": "#6e6e6e",
+        "pants": "#3b2a1a",
+        "extra": [
+          "beard"
+        ]
+      }
+    },
+    {
+      "chapter": 3,
+      "name": "Стражница",
+      "role": "стражница белого города",
+      "gender": "f",
+      "greeting": {
+        "es": "Se mi dici la verità, ti lascerò passare.",
+        "ru": "Если скажешь мне правду, я тебя пропущу."
+      },
+      "win": {
+        "es": "Se sei arrivato fin qui, meriti il sigillo.",
+        "ru": "Раз ты дошёл сюда, ты заслужил печать."
+      },
+      "lose": {
+        "es": "Se torni domani, ti ascolterò di nuovo.",
+        "ru": "Если вернёшься завтра, я выслушаю тебя снова."
+      },
+      "voice": {
+        "pitch": 1.1,
+        "rate": 0.85
+      },
+      "look": {
+        "skin": 3,
+        "hair": "#e8e3d6",
+        "style": "bun",
+        "outfit": "#e0c98f",
+        "pants": "#b8a27a",
+        "extra": [
+          "headband"
+        ]
+      }
+    },
+    {
+      "chapter": 4,
+      "name": "Хранительница леса",
+      "role": "слушает шёпот деревьев",
+      "gender": "f",
+      "greeting": {
+        "es": "Ascolta gli alberi. Loro non mentono. E tu?",
+        "ru": "Слушай деревья. Они не лгут. А ты?"
+      },
+      "win": {
+        "es": "Gli alberi ti hanno sentito. Il sigillo è tuo.",
+        "ru": "Деревья тебя услышали. Печать твоя."
+      },
+      "lose": {
+        "es": "Gli alberi non ti capiscono ancora. Torna domani.",
+        "ru": "Деревья тебя ещё не понимают. Возвращайся завтра."
+      },
+      "voice": {
+        "pitch": 1.2,
+        "rate": 0.85
+      },
+      "look": {
+        "skin": 1,
+        "hair": "#3f6b3a",
+        "style": "long",
+        "outfit": "#2f5a3a",
+        "pants": "#23402a",
+        "extra": []
+      }
+    }
+  ]
+}

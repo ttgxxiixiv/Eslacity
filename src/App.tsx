@@ -8,6 +8,7 @@ import { PhraseLessonScreen } from './screens/PhraseLesson';
 import { SceneScreen } from './screens/Scene';
 import { MissionScreen } from './screens/Mission';
 import { TrialScreen } from './screens/Trial';
+import { GuardianScreen } from './screens/Guardian';
 import { ReviewScreen } from './screens/Review';
 import { BlitzScreen } from './screens/Blitz';
 import { SettingsScreen } from './screens/Settings';
@@ -99,6 +100,7 @@ export default function App() {
         <Route path="/scene/:id" element={<SceneScreen />} />
         <Route path="/mission/:id" element={<MissionScreen />} />
         <Route path="/trial/:id" element={<TrialScreen />} />
+        <Route path="/guardian/:chapter" element={<GuardianScreen />} />
         <Route path="/blitz" element={<BlitzScreen />} />
         <Route path="/words" element={<WordsScreen />} />
       </Routes>
