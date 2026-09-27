@@ -6,7 +6,7 @@ import { answerGrammar, DB, LANGS, loadLesson, openApp, readAnswers } from './fi
 const CONTENT = join(import.meta.dirname, '..', '..', 'src', 'content');
 
 /** Районы с продуктивными заданиями: уроки проходятся целиком (задача 5.3 идёт пачками по району). */
-const DISTRICTS = ['a1', 'a2', 'b11'];
+const DISTRICTS = ['a1', 'a2', 'b11', 'b12'];
 /** Глава, в которой открывается район: уроки следующих глав закрыты. */
 const CHAPTER: Record<string, number> = { a1: 1, a2: 2, b11: 3, b12: 3, b2: 4 };
 

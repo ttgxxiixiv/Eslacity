@@ -7,6 +7,13 @@ export interface Release {
 // Новые версии сверху. Версия первой записи должна совпадать с package.json (проверяется тестом).
 export const CHANGELOG: Release[] = [
   {
+    version: '2.52.0',
+    date: '2026-09-27',
+    notes: [
+      'Сборка предложения и ввод формы во всех 15 уроках района B1.2: subjuntivo и congiuntivo после союзов, условные предложения, косвенная речь, пассив, безличное se и si, связки, относительные местоимения, passato remoto. Например, «Si tuviera dinero, viajaría», «Non te la prendere!», «Dante ___ nel 1265 (nascere)».',
+    ],
+  },
+  {
     version: '2.51.0',
     date: '2026-09-27',
     notes: [

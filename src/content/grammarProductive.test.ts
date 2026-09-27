@@ -15,7 +15,7 @@ function lessons(lang: string): GrammarLesson[] {
 }
 
 /** Районы, где продуктивные задания уже написаны (задача 5.3 идёт пачками по району). */
-const DONE = ['A1', 'A2', 'B1.1'];
+const DONE = ['A1', 'A2', 'B1.1', 'B1.2'];
 
 describe.each(['es', 'it'])('продуктивные задания в контенте: %s', (lang) => {
   const all = lessons(lang);
