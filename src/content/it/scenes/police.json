@@ -25,6 +25,31 @@
         {"q": "Кто теперь ждёт героя?", "options": ["Синьор из больницы", "Страж за городом", "Летописец на вокзале"], "answer": 1}
       ],
       "gloss": {"pezzo": "обрывок", "guardiano": "страж"}
+    },
+    {
+      "id": "sc:police.2",
+      "chapter": 2,
+      "npc": "rinaldi",
+      "lines": [
+        {"who": "npc", "es": "Ho un caso di cento anni fa. E oggi lo chiudo.", "ru": "У меня дело столетней давности. И сегодня я его закрываю."},
+        {"who": "hero", "es": "Il treno della torre?", "ru": "Поезд к башне?"},
+        {"who": "npc", "es": "Sì, quello. Un treno, una tempesta e un passeggero: Andrea.", "ru": "Именно. Поезд, гроза и один пассажир: Андреа."},
+        {"who": "hero", "es": "Andrea è rimasto nella torre.", "ru": "Андреа остался в башне."},
+        {"who": "npc", "es": "È rimasto per aiutare il vecchio guardiano. Quando il vecchio guardiano è andato via, Andrea ha preso il suo posto.", "ru": "Он остался помогать старому стражу. Когда старый страж ушёл, Андреа занял его место."},
+        {"who": "hero", "es": "E perché non scende?", "ru": "А почему он не спускается?"},
+        {"who": "npc", "es": "Un guardiano può scendere solo quando qualcuno risponde alle sue domande.", "ru": "Страж может спуститься, только когда кто-то ответит на его вопросы."},
+        {"who": "hero", "es": "Tommaso non ce l'ha fatta.", "ru": "Томмазо не смог."},
+        {"who": "npc", "es": "Adesso tu. Tre domande, al passato.", "ru": "Теперь ты. Три вопроса, в прошедшем времени."},
+        {"who": "hero", "es": "E se rispondo, Andrea torna a casa?", "ru": "А если я отвечу, Андреа вернётся домой?"},
+        {"who": "npc", "es": "Con il treno delle sette. Il suo biglietto ce l'hai tu, no?", "ru": "Поездом в семь. Его билет ведь у тебя, да?"}
+      ],
+      "questions": [
+        {"q": "Какое дело закрывает Ринальди?", "options": ["Кражу в банке", "Поезд к башне столетней давности", "Пропажу Томмазо"], "answer": 1},
+        {"q": "Почему Андреа стал стражем?", "options": ["Его выбрал город", "Он остался помогать старому стражу и занял его место", "Он потерял билет"], "answer": 1},
+        {"q": "Когда страж может спуститься?", "options": ["Когда кто-то ответит на его вопросы", "Когда кончится гроза", "Никогда"], "answer": 0},
+        {"q": "Как Андреа вернётся домой?", "options": ["Пешком", "Поездом в семь", "Самолётом"], "answer": 1}
+      ],
+      "gloss": {"caso": "дело", "chiudo": "закрываю", "passeggero": "пассажир", "andrea": "Андреа (имя)", "tommaso": "Томмазо (имя)", "rimasto": "остался"}
     }
   ]
 }

@@ -20,6 +20,26 @@
         "time": {"kind": "answer", "task": "Спросите, во сколько взлетает самолёт.", "branches": [{"phrase": "ph:airport.che-ora-decolla", "next": "end"}], "wrong": {"es": "A che ora mangiamo? Sull'aereo, alle nove.", "ru": "Во сколько обед? В самолёте, в девять."}},
         "end": {"kind": "say", "es": "Alle otto. Guarda dal finestrino: ecco le montagne e la strada. Prendi il mio pezzo della mappa. E una calamita, per il tuo viaggio.", "ru": "В восемь. Смотри в окно: вон горы и дорога. Держи мой обрывок карты. И магнитик — в дорогу."}
       }
+    },
+    {
+      "id": "ms:airport.2",
+      "chapter": 2,
+      "npc": "luca",
+      "scene": "sc:airport.2",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Oggi volo di nuovo sopra il deserto. Vieni? Il volo è corto.", "ru": "Сегодня я снова лечу над пустыней. Полетишь? Полёт короткий.", "next": "seat"},
+        "seat": {"kind": "answer", "task": "Попросите место у прохода.", "branches": [{"phrase": "ph:airport.posto-corridoio", "next": "seatsay"}], "wrong": {"es": "Un posto sull'ala? Non si può!", "ru": "Место на крыле? Так нельзя!"}},
+        "seatsay": {"kind": "say", "es": "Corridoio? Il finestrino è meglio per vedere il deserto... Va bene. E quello zaino?", "ru": "У прохода? У окна лучше видно пустыню... Ну ладно. А этот рюкзак?", "next": "bag"},
+        "bag": {"kind": "answer", "task": "Спросите, считается ли это ручной кладью.", "branches": [{"phrase": "ph:airport.questo-bagaglio-mano", "next": "bagsay"}], "wrong": {"es": "Questo è un cane? No, è il tuo zaino.", "ru": "Это собака? Нет, это твой рюкзак."}},
+        "bagsay": {"kind": "say", "es": "È bagaglio a mano, benissimo. Porti dell'acqua?", "ru": "Ручная кладь, отлично. Воду везёшь?", "next": "liq"},
+        "liq": {"kind": "answer", "task": "Спросите, можно ли брать жидкости на борт.", "branches": [{"phrase": "ph:airport.posso-portare-liquidi", "next": "liqsay"}], "wrong": {"es": "Posso portare un cavallo? Certo che no!", "ru": "Можно взять лошадь? Конечно нет!"}},
+        "liqsay": {"kind": "say", "es": "Un po'. Per il deserto, meglio portare l'acqua.", "ru": "Немного. В пустыню лучше брать воду.", "next": "board"},
+        "board": {"kind": "answer", "task": "Спросите, во сколько начинается посадка.", "branches": [{"phrase": "ph:airport.che-ora-comincia", "next": "boardsay"}], "wrong": {"es": "A che ora comincia la festa? Dopo il volo.", "ru": "Во сколько начинается праздник? После полёта."}},
+        "boardsay": {"kind": "say", "es": "Adesso. Ti serve qualcosa prima?", "ru": "Прямо сейчас. Тебе что-нибудь нужно перед полётом?", "next": "wc"},
+        "wc": {"kind": "answer", "task": "Спросите, где туалет.", "branches": [{"phrase": "ph:airport.dov-toilette", "next": "end"}], "wrong": {"es": "Dov'è il deserto? Da sopra lo vedi.", "ru": "Где пустыня? Сверху увидишь."}},
+        "end": {"kind": "say", "es": "Là, presto. E poi guarda dal finestrino: la torre, i binari e la sabbia. Vedi la città bianca? Non c'è più. Prendi il mio pezzo della mappa della montagna.", "ru": "Вон там, быстрее. А потом смотри в окно: башня, рельсы и песок. Видишь белый город? Его уже нет. Держи мой обрывок карты гор."}
+      }
     }
   ]
 }

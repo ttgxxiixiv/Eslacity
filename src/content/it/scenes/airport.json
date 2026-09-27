@@ -25,6 +25,31 @@
         {"q": "Что советует Лука?", "options": ["Взять пальто", "Лететь самолётом", "Остаться в городе"], "answer": 0}
       ],
       "gloss": {"pezzo": "обрывок", "calamite": "магнитики", "guardiano": "страж", "lassù": "там наверху"}
+    },
+    {
+      "id": "sc:airport.2",
+      "chapter": 2,
+      "npc": "luca",
+      "lines": [
+        {"who": "npc", "es": "Viaggiatore! Ieri ho volato sopra il passo. Non c'era nebbia.", "ru": "Путешественник! Вчера я летал над перевалом. Тумана не было."},
+        {"who": "hero", "es": "E cosa hai visto?", "ru": "И что ты видел?"},
+        {"who": "npc", "es": "Dei vecchi binari. Salgono fino alla torre.", "ru": "Старые рельсы. Они поднимаются до самой башни."},
+        {"who": "hero", "es": "Il treno di cento anni fa.", "ru": "Поезд столетней давности."},
+        {"who": "npc", "es": "E dietro la torre, la strada scende. Verso la sabbia.", "ru": "А за башней дорога спускается. К песку."},
+        {"who": "hero", "es": "La sabbia? Anche Tommaso ha parlato di sabbia.", "ru": "Песок? Томмазо тоже говорил о песке."},
+        {"who": "npc", "es": "Un deserto molto grande. E nel deserto ho visto una città bianca.", "ru": "Очень большая пустыня. А в пустыне я видел белый город."},
+        {"who": "hero", "es": "Una città nel deserto?", "ru": "Город в пустыне?"},
+        {"who": "npc", "es": "Così ho pensato. Ma oggi ho volato di nuovo, e non c'era più.", "ru": "Я так и подумал. Но сегодня я пролетел снова, а его уже не было."},
+        {"who": "hero", "es": "Come non c'era?", "ru": "Как это не было?"},
+        {"who": "npc", "es": "Niente. Solo sabbia. Credo che il deserto dica bugie.", "ru": "Ничего. Только песок. Мне кажется, пустыня обманывает."}
+      ],
+      "questions": [
+        {"q": "Что Лука видел с самолёта?", "options": ["Старые рельсы до башни", "Корабль", "Второй аэропорт"], "answer": 0},
+        {"q": "Что за башней?", "options": ["Море", "Дорога вниз, к песку", "Ещё одна башня"], "answer": 1},
+        {"q": "Что Лука видел в пустыне вчера?", "options": ["Белый город", "Лес", "Реку"], "answer": 0},
+        {"q": "Что было сегодня?", "options": ["Город стал больше", "Только песок", "Туман"], "answer": 1}
+      ],
+      "gloss": {"binari": "рельсы", "sabbia": "песок", "tommaso": "Томмазо (имя)"}
     }
   ]
 }

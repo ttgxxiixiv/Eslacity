@@ -20,6 +20,28 @@
         "phone": {"kind": "answer", "task": "Скажите в телефон, что сейчас не можете и перезвоните позже.", "branches": [{"phrase": "ph:office.adesso-non-posso", "next": "end"}], "wrong": {"es": "Parli con il telefono o con me? Presto, per favore!", "ru": "Ты с телефоном говоришь или со мной? Быстрее, пожалуйста!"}},
         "end": {"kind": "say", "es": "Così si parla. Grazie dell'aiuto. Prendi il mio pezzo: la mappa non si vende, si dà a chi aiuta. E quella lettera con «Vieni»... qualcuno ci chiama.", "ru": "Вот это разговор. Спасибо за помощь. Держи мой обрывок: карта не продаётся, её отдают тому, кто помогает. А это письмо с «Приходи»... кто-то нас зовёт."}
       }
+    },
+    {
+      "id": "ms:office.2",
+      "chapter": 2,
+      "npc": "valentina",
+      "scene": "sc:office.2",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Devo mandare la relazione sul treno al Cronista. Mi aiuti? Ho poco tempo.", "ru": "Мне нужно отправить Летописцу отчёт о поезде. Поможешь? У меня мало времени.", "next": "copier"},
+        "copier": {"kind": "answer", "task": "Спросите, где ксерокс.", "branches": [{"phrase": "ph:office.dov-fotocopiatrice", "next": "copsay"}], "wrong": {"es": "Dov'è la macchina del caffè? Prima il lavoro!", "ru": "Где кофемашина? Сначала работа!"}},
+        "copsay": {"kind": "say", "es": "Là, vicino alla finestra. E il file del treno? Non lo trovo.", "ru": "Вон там, у окна. А файл про поезд? Не могу найти.", "next": "file"},
+        "file": {"kind": "answer", "task": "Скажите, что файл в синей папке.", "branches": [{"phrase": "ph:office.file-nella-cartella", "next": "filesay"}], "wrong": {"es": "Il file è in spiaggia? Che idea!", "ru": "Файл на пляже? Ну и мысль!"}},
+        "filesay": {"kind": "say", "es": "Eccolo! Grazie.", "ru": "Вот он! Спасибо.", "next": "print"},
+        "print": {"kind": "answer", "task": "Попросите её распечатать отчёт для Летописца.", "branches": [{"phrase": "ph:office.puoi-stampare-relazione", "next": "printsay"}], "wrong": {"es": "Puoi mangiare la relazione? No, stamparla.", "ru": "Съесть отчёт? Нет, распечатать."}},
+        "printsay": {"kind": "say", "es": "Fatto. Cosa ti serve ancora?", "ru": "Готово. Что ещё тебе нужно?", "next": "stapler"},
+        "stapler": {"kind": "answer", "task": "Попросите одолжить степлер.", "branches": [{"phrase": "ph:office.presti-spillatrice", "next": "stapsay"}], "wrong": {"es": "Ti presto la macchina? No, la spillatrice.", "ru": "Одолжить тебе машину? Нет, степлер."}},
+        "stapsay": {"kind": "say", "es": "Prendi. E manda il file al Cronista, per favore.", "ru": "Держи. И отправь файл Летописцу, пожалуйста.", "next": "attach"},
+        "attach": {"kind": "answer", "task": "Скажите, что прикрепляете файл.", "branches": [{"phrase": "ph:office.ti-allego-file", "next": "attsay"}], "wrong": {"es": "Ti allego un gatto? Non si può.", "ru": "Прикрепить кота? Так нельзя."}},
+        "attsay": {"kind": "say", "es": "Ricevuto. Che notte! Sono stanca.", "ru": "Получено. Ну и ночка! Я устала.", "next": "pause"},
+        "pause": {"kind": "answer", "task": "Предложите сделать перерыв.", "branches": [{"phrase": "ph:office.facciamo-pausa", "next": "end"}], "wrong": {"es": "Facciamo una festa? Dopo, quando torna Andrea.", "ru": "Устроим праздник? Потом, когда вернётся Андреа."}},
+        "end": {"kind": "say", "es": "Una pausa. Prendi il mio pezzo della mappa della montagna. E la relazione sul treno: dalla ad Andrea. Deve sapere che la città si ricorda di lui.", "ru": "Перерыв. Держи мой обрывок карты гор. И отчёт о поезде: отдай его Андреа. Он должен знать, что город его помнит."}
+      }
     }
   ]
 }

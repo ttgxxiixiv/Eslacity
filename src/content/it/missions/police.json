@@ -22,6 +22,26 @@
         "help": {"kind": "answer", "task": "Попросите его помочь вам.", "branches": [{"phrase": "ph:police.puo-aiutare", "next": "end"}], "wrong": {"es": "Un incidente? No, non c'è nessun incidente. Chiedi di nuovo.", "ru": "Авария? Нет, никакой аварии. Спроси ещё раз."}},
         "end": {"kind": "say", "es": "Certo. Ecco il mio pezzo della mappa. Venti pezzi e il sigillo: il sigillo ce l'ha il guardiano. Ti aspetta fuori dalla città, viaggiatore.", "ru": "Конечно. Вот мой обрывок карты. Двадцать обрывков и печать: печать у стража. Он ждёт тебя за городом, путешественник."}
       }
+    },
+    {
+      "id": "ms:police.2",
+      "chapter": 2,
+      "npc": "rinaldi",
+      "scene": "sc:police.2",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Commissariato. Mi dica.", "ru": "Полиция. Слушаю.", "next": "agent"},
+        "agent": {"kind": "answer", "task": "Скажите, что вам нужен полицейский.", "branches": [{"phrase": "ph:police.serve-agente", "next": "agentsay"}], "wrong": {"es": "Le serve un taxi? Questa è la polizia.", "ru": "Вам нужно такси? Это полиция."}},
+        "agentsay": {"kind": "say", "es": "Vengo io. Dove è?", "ru": "Еду сам. Где вы?", "next": "corner"},
+        "corner": {"kind": "answer", "task": "Скажите, что вы на углу площади.", "branches": [{"phrase": "ph:police.sono-all-angolo", "next": "cornersay"}], "wrong": {"es": "È sulla luna? Mi dica dove è.", "ru": "Вы на Луне? Скажите по-настоящему, где вы."}},
+        "cornersay": {"kind": "say", "es": "Arrivo. Cosa succede?", "ru": "Еду. Что случилось?", "next": "sus"},
+        "sus": {"kind": "answer", "task": "Скажите, что там был подозрительный человек.", "branches": [{"phrase": "ph:police.c-era-uomo", "next": "sussay"}], "wrong": {"es": "C'era un cane contento? Questo non è un problema.", "ru": "Там была довольная собака? Это не проблема."}},
+        "sussay": {"kind": "say", "es": "Con un mantello grigio? Vado a vedere.", "ru": "В сером плаще? Сейчас посмотрю.", "next": "cam"},
+        "cam": {"kind": "answer", "task": "Спросите, есть ли на этой улице камеры.", "branches": [{"phrase": "ph:police.ci-sono-telecamere", "next": "camsay"}], "wrong": {"es": "Ci sono gatti in questa strada? No, ci sono telecamere.", "ru": "На этой улице есть кошки? Нет, есть камеры."}},
+        "camsay": {"kind": "say", "es": "Ci sono. Lo vedo nella telecamera. Arrivo di corsa!", "ru": "Есть. Вижу его на камере. Бегу!", "next": "cross"},
+        "cross": {"kind": "answer", "task": "Комиссар бежит через дорогу. Скажите, что переходить нужно по пешеходному переходу.", "branches": [{"phrase": "ph:police.bisogna-attraversare-sulle", "next": "end"}], "wrong": {"es": "Bisogna correre? No, bisogna attraversare bene.", "ru": "Нужно бежать? Нет, нужно правильно переходить."}},
+        "end": {"kind": "say", "es": "Hai ragione: anche la polizia attraversa sulle strisce. Guarda: non è sospetto. È Andrea, e sta leggendo l'orario del treno delle sette. Prendi il mio pezzo della mappa della montagna. Sali, rispondi, e Andrea torna a casa.", "ru": "Ты прав: даже полиция переходит по переходу. Смотри: он не подозрительный. Это Андреа, и он читает расписание поезда в семь. Держи мой обрывок карты гор. Поднимись, ответь — и Андреа вернётся домой."}
+      }
     }
   ]
 }

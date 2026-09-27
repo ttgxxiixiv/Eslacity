@@ -25,6 +25,31 @@
         {"q": "Что советует Лео?", "options": ["Взять пальто", "Лететь самолётом", "Остаться в городе"], "answer": 0}
       ],
       "gloss": {"trozo": "обрывок", "imanes": "магнитики", "guardián": "страж"}
+    },
+    {
+      "id": "sc:airport.2",
+      "chapter": 2,
+      "npc": "leo",
+      "lines": [
+        {"who": "npc", "es": "¡Viajero! Ayer volé sobre el paso. No había niebla.", "ru": "Путешественник! Вчера я летал над перевалом. Тумана не было."},
+        {"who": "hero", "es": "¿Y qué viste?", "ru": "И что ты видел?"},
+        {"who": "npc", "es": "Unas vías de tren viejas. Suben hasta la torre.", "ru": "Старые рельсы. Они поднимаются до самой башни."},
+        {"who": "hero", "es": "El tren de hace cien años.", "ru": "Поезд столетней давности."},
+        {"who": "npc", "es": "Y detrás de la torre, el camino baja. Hacia la arena.", "ru": "А за башней дорога спускается. К песку."},
+        {"who": "hero", "es": "¿Arena? Tomás también habló de arena.", "ru": "Песок? Томас тоже говорил о песке."},
+        {"who": "npc", "es": "Un desierto muy grande. Y en el desierto vi una ciudad blanca.", "ru": "Очень большая пустыня. А в пустыне я видел белый город."},
+        {"who": "hero", "es": "¿Una ciudad en el desierto?", "ru": "Город в пустыне?"},
+        {"who": "npc", "es": "Eso pensé. Pero hoy volé de nuevo y ya no estaba.", "ru": "Я так и подумал. Но сегодня я пролетел снова, а его уже не было."},
+        {"who": "hero", "es": "¿Cómo que no estaba?", "ru": "Как это не было?"},
+        {"who": "npc", "es": "Nada. Solo arena. Creo que el desierto miente.", "ru": "Ничего. Только песок. Мне кажется, пустыня обманывает."}
+      ],
+      "questions": [
+        {"q": "Что Лео видел с самолёта?", "options": ["Старые рельсы до башни", "Корабль", "Второй аэропорт"], "answer": 0},
+        {"q": "Что за башней?", "options": ["Море", "Дорога вниз, к песку", "Ещё одна башня"], "answer": 1},
+        {"q": "Что Лео видел в пустыне вчера?", "options": ["Белый город", "Лес", "Реку"], "answer": 0},
+        {"q": "Что было сегодня?", "options": ["Город стал больше", "Только песок", "Туман"], "answer": 1}
+      ],
+      "gloss": {"vías": "рельсы", "arena": "песок", "desierto": "пустыня", "miente": "обманывает"}
     }
   ]
 }

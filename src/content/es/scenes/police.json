@@ -25,6 +25,31 @@
         {"q": "Кто теперь ждёт героя?", "options": ["Сеньор из больницы", "Страж за городом", "Летописец на вокзале"], "answer": 1}
       ],
       "gloss": {"trozo": "обрывок", "guardián": "страж"}
+    },
+    {
+      "id": "sc:police.2",
+      "chapter": 2,
+      "npc": "vega",
+      "lines": [
+        {"who": "npc", "es": "Buenas. Tengo un caso de hace cien años. Y hoy lo cierro.", "ru": "Добрый день. У меня дело столетней давности. И сегодня я его закрываю."},
+        {"who": "hero", "es": "¿El tren de la torre?", "ru": "Поезд к башне?"},
+        {"who": "npc", "es": "Eso es. Un tren, una tormenta y un pasajero: Andrés.", "ru": "Именно. Поезд, гроза и один пассажир: Андрес."},
+        {"who": "hero", "es": "Andrés se quedó en la torre.", "ru": "Андрес остался в башне."},
+        {"who": "npc", "es": "Se quedó para ayudar al viejo guardián. Cuando el viejo guardián se fue, Andrés tomó su lugar.", "ru": "Он остался помогать старому стражу. Когда старый страж ушёл, Андрес занял его место."},
+        {"who": "hero", "es": "¿Y por qué no baja?", "ru": "А почему он не спускается?"},
+        {"who": "npc", "es": "Un guardián solo puede bajar cuando alguien contesta sus preguntas.", "ru": "Страж может спуститься, только когда кто-то ответит на его вопросы."},
+        {"who": "hero", "es": "Tomás no pudo.", "ru": "Томас не смог."},
+        {"who": "npc", "es": "Ahora, tú. Tres preguntas, en pasado.", "ru": "Теперь ты. Три вопроса, в прошедшем времени."},
+        {"who": "hero", "es": "Y si contesto, ¿Andrés vuelve a casa?", "ru": "А если я отвечу, Андрес вернётся домой?"},
+        {"who": "npc", "es": "En el tren de las siete. Tú tienes su billete, ¿no?", "ru": "Поездом в семь. Его билет ведь у тебя, да?"}
+      ],
+      "questions": [
+        {"q": "Какое дело закрывает Вега?", "options": ["Кражу в банке", "Поезд к башне столетней давности", "Пропажу Томаса"], "answer": 1},
+        {"q": "Почему Андрес стал стражем?", "options": ["Его выбрал город", "Он остался помогать старому стражу и занял его место", "Он потерял билет"], "answer": 1},
+        {"q": "Когда страж может спуститься?", "options": ["Когда кто-то ответит на его вопросы", "Когда кончится гроза", "Никогда"], "answer": 0},
+        {"q": "Как Андрес вернётся домой?", "options": ["Пешком", "Поездом в семь", "Самолётом"], "answer": 1}
+      ],
+      "gloss": {"caso": "дело", "cierro": "закрываю", "pasajero": "пассажир", "andrés": "Андрес (имя)", "contesta": "ответит", "contesto": "отвечу"}
     }
   ]
 }

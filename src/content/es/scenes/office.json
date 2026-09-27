@@ -25,6 +25,31 @@
         {"q": "Что говорит герой?", "options": ["У него такое же письмо", "Он работает в этой компании", "Он хочет продать карту"], "answer": 0}
       ],
       "gloss": {"minutos": "минут", "trozo": "обрывок", "trozos": "обрывки", "interesante": "интересно"}
+    },
+    {
+      "id": "sc:office.2",
+      "chapter": 2,
+      "npc": "beatriz",
+      "lines": [
+        {"who": "npc", "es": "Buenos días. Hoy tengo turno de noche, pero te esperaba.", "ru": "Доброе утро. У меня сегодня ночная смена, но я тебя ждала."},
+        {"who": "hero", "es": "¿Qué pasa?", "ru": "Что случилось?"},
+        {"who": "npc", "es": "Busqué en el archivo de la empresa. Mira este periódico viejo.", "ru": "Я искала в архиве компании. Посмотри на эту старую газету."},
+        {"who": "hero", "es": "¿De cuándo es?", "ru": "Какого она года?"},
+        {"who": "npc", "es": "De hace cien años. Habla de la tormenta y del tren de la torre.", "ru": "Столетней давности. Там про грозу и поезд к башне."},
+        {"who": "hero", "es": "¿Qué dice?", "ru": "Что там написано?"},
+        {"who": "npc", "es": "«Un joven viajero, Andrés, se queda en la torre. Quiere ayudar al guardián».", "ru": "«Молодой путешественник Андрес остаётся в башне. Он хочет помочь стражу»."},
+        {"who": "hero", "es": "¿Andrés? ¿El hombre de la capa?", "ru": "Андрес? Человек в плаще?"},
+        {"who": "npc", "es": "Mira la foto. Es él. No hay ninguna diferencia.", "ru": "Посмотри на фото. Это он. Никакой разницы."},
+        {"who": "hero", "es": "Así que el guardián era un viajero, como yo.", "ru": "Значит, страж был путешественником, как я."},
+        {"who": "npc", "es": "Y lleva cien años arriba. Son demasiados años.", "ru": "И он уже сто лет наверху. Это слишком много лет."}
+      ],
+      "questions": [
+        {"q": "Что нашла Беатрис?", "options": ["Старую газету", "Карту башни", "Письмо Томаса"], "answer": 0},
+        {"q": "О чём газета?", "options": ["О грозе и поезде к башне", "О новом банке", "О празднике"], "answer": 0},
+        {"q": "Кем был страж сто лет назад?", "options": ["Кондуктором", "Молодым путешественником", "Пастухом"], "answer": 1},
+        {"q": "Как его зовут?", "options": ["Томас", "Андрес", "Рамон"], "answer": 1}
+      ],
+      "gloss": {"archivo": "архив", "periódico": "газета", "andrés": "Андрес (имя)", "capa": "плащ", "foto": "фото", "diferencia": "разница"}
     }
   ]
 }

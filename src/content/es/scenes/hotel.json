@@ -25,6 +25,31 @@
         {"q": "Когда Исабель отдаст обрывок герою?", "options": ["Никогда", "Сейчас", "Завтра"], "answer": 2}
       ],
       "gloss": {"trozo": "обрывок", "trozos": "обрывки"}
+    },
+    {
+      "id": "sc:hotel.2",
+      "chapter": 2,
+      "npc": "isabel",
+      "lines": [
+        {"who": "npc", "es": "Buenas noches. Esta noche el hotel está lleno.", "ru": "Добрый вечер. Сегодня отель полон."},
+        {"who": "hero", "es": "¿Lleno? ¿Por qué?", "ru": "Полон? Почему?"},
+        {"who": "npc", "es": "Mucha gente quiere ver la luz de la torre desde el balcón.", "ru": "Многие хотят смотреть на свет в башне с балкона."},
+        {"who": "hero", "es": "Tengo una pregunta. ¿Hay alguna reserva muy vieja?", "ru": "У меня вопрос. Есть у вас очень старая бронь?"},
+        {"who": "npc", "es": "Hay una. De hace cien años. Habitación siete, a nombre de Andrés.", "ru": "Есть одна. Столетней давности. Номер семь, на имя Андреса."},
+        {"who": "hero", "es": "¡Andrés! Es el guardián.", "ru": "Андрес! Это страж."},
+        {"who": "npc", "es": "El hotel nunca la canceló. Es una costumbre de la casa.", "ru": "Отель её так и не отменил. Такой у нас обычай."},
+        {"who": "hero", "es": "¿Y la habitación está libre?", "ru": "И номер свободен?"},
+        {"who": "npc", "es": "Siempre. Cada día limpiamos la habitación siete.", "ru": "Всегда. Каждый день мы убираем седьмой номер."},
+        {"who": "hero", "es": "Cuando baje de la torre, tiene su cama.", "ru": "Когда он спустится с башни, у него будет кровать."},
+        {"who": "npc", "es": "Eso espero. Cien años es mucho tiempo en una torre.", "ru": "Я на это надеюсь. Сто лет в башне — это долго."}
+      ],
+      "questions": [
+        {"q": "Почему отель полон?", "options": ["Все хотят смотреть на свет в башне", "Приехала компания", "Праздник в городе"], "answer": 0},
+        {"q": "Какая старая бронь есть в отеле?", "options": ["Номер семь на имя Андреса", "Номер восемь на имя Томаса", "Никакой"], "answer": 0},
+        {"q": "Почему бронь не отменили?", "options": ["Забыли", "Такой обычай", "Андрес заплатил на сто лет"], "answer": 1},
+        {"q": "Что делают с седьмым номером?", "options": ["Сдают туристам", "Каждый день убирают", "Закрыли на ключ"], "answer": 1}
+      ],
+      "gloss": {"lleno": "полон", "andrés": "Андрес (имя)", "canceló": "отменил", "costumbre": "обычай", "limpiamos": "убираем"}
     }
   ]
 }

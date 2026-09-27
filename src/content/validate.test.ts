@@ -325,17 +325,19 @@ describe('validateMissions', () => {
   });
 });
 
-describe('сцены и миссии главы I: контент', () => {
-  // У каждого из 20 мест в обоих языках есть сцена и сюжетная миссия главы I с жителем этого места (задача 4.6).
-  it('у каждого места сцена sc:<место>.1 и миссия ms:<место>.1', () => {
+describe('сцены и миссии глав I и II: контент', () => {
+  // У каждого из 20 мест в обоих языках есть сцена и сюжетная миссия глав I и II с жителем этого места (задачи 4.6 и 4.7).
+  it('у каждого места сцены sc:<место>.1 и .2 и миссии ms:<место>.1 и .2', () => {
     for (const lang of ['es', 'it']) {
       const npcs = (JSON.parse(readFileSync(join(import.meta.dirname, lang, 'npcs.json'), 'utf8')) as NpcsFile).npcs;
       for (const loc of LOCATION_IDS) {
         const scenes = (JSON.parse(readFileSync(join(import.meta.dirname, lang, 'scenes', `${loc}.json`), 'utf8')) as LocationScenes).scenes;
         const missions = (JSON.parse(readFileSync(join(import.meta.dirname, lang, 'missions', `${loc}.json`), 'utf8')) as LocationMissions).missions;
         const npc = npcs.find((n) => n.location === loc)?.id;
-        expect(scenes.find((s) => s.id === `sc:${loc}.1`)?.npc, `${lang}/${loc}`).toBe(npc);
-        expect(missions.find((m) => m.id === `ms:${loc}.1`)?.scene, `${lang}/${loc}`).toBe(`sc:${loc}.1`);
+        for (const ch of [1, 2]) {
+          expect(scenes.find((s) => s.id === `sc:${loc}.${ch}`)?.npc, `${lang}/${loc}.${ch}`).toBe(npc);
+          expect(missions.find((m) => m.id === `ms:${loc}.${ch}`)?.scene, `${lang}/${loc}.${ch}`).toBe(`sc:${loc}.${ch}`);
+        }
       }
     }
   });

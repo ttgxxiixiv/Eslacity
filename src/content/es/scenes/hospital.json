@@ -25,6 +25,31 @@
         {"q": "Кого ищет Летописец?", "options": ["Того, кто помогает соседям", "Самого быстрого", "Того, у кого больше денег"], "answer": 0}
       ],
       "gloss": {"trozo": "обрывок", "cayó": "упал", "guardián": "страж", "cronista": "Летописец", "bóveda": "Хранилище"}
+    },
+    {
+      "id": "sc:hospital.2",
+      "chapter": 2,
+      "npc": "ruiz",
+      "lines": [
+        {"who": "npc", "es": "Buenos días. Tengo una noticia: Tomás está aquí.", "ru": "Добрый день. У меня новость: Томас здесь."},
+        {"who": "hero", "es": "¿Tomás? ¿Cómo está?", "ru": "Томас? Как он?"},
+        {"who": "npc", "es": "Tiene el pie roto, pero está bien. El guardián lo bajó de la montaña.", "ru": "У него сломана стопа, но он в порядке. Страж спустил его с горы."},
+        {"who": "hero", "es": "¿Qué pasó en la torre?", "ru": "Что случилось в башне?"},
+        {"who": "npc", "es": "Me lo contó. El guardián hace tres preguntas, en pasado.", "ru": "Он мне рассказал. Страж задаёт три вопроса, в прошедшем времени."},
+        {"who": "hero", "es": "¿Y Tomás contestó?", "ru": "И Томас ответил?"},
+        {"who": "npc", "es": "Contestó dos. A la tercera, no supo qué decir.", "ru": "Ответил на два. На третий не знал, что сказать."},
+        {"who": "hero", "es": "¿Cuál era la tercera pregunta?", "ru": "Какой был третий вопрос?"},
+        {"who": "npc", "es": "«¿A quién ayudaste?».", "ru": "«Кому ты помог?»"},
+        {"who": "hero", "es": "¿A quién ayudé? Eso lo sé.", "ru": "Кому я помог? Это я знаю."},
+        {"who": "npc", "es": "El guardián le dijo a Tomás: «Tráeme al viajero del mapa». Es tu turno.", "ru": "Страж сказал Томасу: «Приведи ко мне путешественника с картой». Твоя очередь."}
+      ],
+      "questions": [
+        {"q": "Кто вернулся с гор?", "options": ["Томас", "Андрес", "Летописец"], "answer": 0},
+        {"q": "Что с Томасом?", "options": ["Сломана стопа", "Болит горло", "Он совсем здоров"], "answer": 0},
+        {"q": "Сколько вопросов задаёт страж?", "options": ["Один", "Три", "Десять"], "answer": 1},
+        {"q": "Какой вопрос Томас не смог ответить?", "options": ["«Кому ты помог?»", "«Как тебя зовут?»", "«Откуда ты?»"], "answer": 0}
+      ],
+      "gloss": {"contestó": "ответил", "tercera": "третий", "ayudaste": "помог", "tráeme": "приведи ко мне"}
     }
   ]
 }

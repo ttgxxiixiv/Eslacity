@@ -21,6 +21,26 @@
         "better": {"kind": "answer", "task": "Скажите, что вам уже лучше, и поблагодарите.", "branches": [{"phrase": "ph:hospital.ya-estoy-mejor", "next": "end"}], "wrong": {"es": "¿Está peor? Siéntese, por favor, y respire.", "ru": "Хуже? Садитесь, пожалуйста, и дышите."}},
         "end": {"kind": "say", "es": "Me alegro. Tome mi trozo del mapa. El Cronista dice que usted ayuda a los vecinos. Yo lo veo: hoy ha ayudado a su médico.", "ru": "Я рада. Возьмите мой обрывок карты. Летописец говорит, что вы помогаете соседям. Я это вижу: сегодня вы помогли своему врачу."}
       }
+    },
+    {
+      "id": "ms:hospital.2",
+      "chapter": 2,
+      "npc": "ruiz",
+      "scene": "sc:hospital.2",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "¿Y usted? Ayudó a Tomás desde el autobús hasta aquí. ¿Qué le pasa?", "ru": "А вы? Вы помогли Томасу добраться сюда от автобуса. Что с вами?", "next": "pain"},
+        "pain": {"kind": "answer", "task": "Скажите, что у вас сильно болит плечо или болит стопа.", "branches": [{"phrase": "ph:hospital.duele-mucho-hombro", "next": "painsay"}, {"phrase": "ph:hospital.duele-pie", "next": "painsay"}], "wrong": {"es": "¿Le duele el pelo? El pelo no duele. Otra vez, por favor.", "ru": "Болят волосы? Волосы не болят. Ещё раз, пожалуйста."}},
+        "painsay": {"kind": "say", "es": "Normal: llevó a Tomás mucho tiempo. No es grave. ¿Algo más?", "ru": "Понятно: вы долго несли Томаса. Ничего серьёзного. Что-нибудь ещё?", "next": "finger"},
+        "finger": {"kind": "answer", "task": "Скажите, что порезали палец.", "branches": [{"phrase": "ph:hospital.he-cortado-dedo", "next": "fingsay"}], "wrong": {"es": "¿Se ha cortado el pelo? Muy bonito. Pero dígame qué le duele.", "ru": "Подстриглись? Очень красиво. Но скажите, что у вас болит."}},
+        "fingsay": {"kind": "say", "es": "A ver... No es nada. Una venda y ya está. ¿Y los ojos? Están rojos.", "ru": "Посмотрим... Ничего страшного. Бинт — и всё. А глаза? Они красные.", "next": "eye"},
+        "eye": {"kind": "answer", "task": "Скажите, что вам что-то попало в глаз.", "branches": [{"phrase": "ph:hospital.tengo-algo-ojo", "next": "eyesay"}], "wrong": {"es": "¿Tiene algo en el bolsillo? Aquí miramos los ojos.", "ru": "Что-то в кармане? Мы тут смотрим глаза."}},
+        "eyesay": {"kind": "say", "es": "Arena. En las montañas no hay arena... Viene de detrás del paso, con el viento.", "ru": "Песок. В горах песка нет... Его приносит ветер из-за перевала.", "next": "vacc"},
+        "vacc": {"kind": "answer", "task": "Спросите, нужно ли вам сделать прививку.", "branches": [{"phrase": "ph:hospital.tengo-ponerme-vacuna", "next": "vaccsay"}], "wrong": {"es": "¿Tengo que ponerme el abrigo? Arriba, sí.", "ru": "Нужно надеть пальто? Наверху — да."}},
+        "vaccsay": {"kind": "say", "es": "No, no hace falta. Está bien para subir.", "ru": "Нет, не нужно. Вы можете подниматься.", "next": "out"},
+        "out": {"kind": "answer", "task": "Спросите, когда вас выпишут.", "branches": [{"phrase": "ph:hospital.cuando-dan-alta", "next": "end"}], "wrong": {"es": "¿Cuándo me dan un helado? Después de la torre.", "ru": "Когда мне дадут мороженое? После башни."}},
+        "end": {"kind": "say", "es": "Ahora. Tome mi trozo del mapa de las montañas. Y recuerde la tercera pregunta: a quién ayudó. Usted lo sabe mejor que nadie.", "ru": "Прямо сейчас. Возьмите мой обрывок карты гор. И помните третий вопрос: кому вы помогли. Вы это знаете лучше всех."}
+      }
     }
   ]
 }

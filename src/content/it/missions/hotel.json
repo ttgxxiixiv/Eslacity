@@ -22,6 +22,26 @@
         "blanket": {"kind": "answer", "task": "Попросите ещё одно одеяло.", "branches": [{"phrase": "ph:hotel.da-altra-coperta", "next": "end"}], "wrong": {"es": "Un'altra mela? Prenda, ma è per la colazione.", "ru": "Ещё одно яблоко? Держите, но это к завтраку."}},
         "end": {"kind": "say", "es": "Ecco. E questo è il mio pezzo della mappa. Al signore della otto, niente: con i soldi non s'impara l'italiano.", "ru": "Держите. А это мой обрывок карты. Синьору из восьмого — ничего: за деньги итальянский не выучишь."}
       }
+    },
+    {
+      "id": "ms:hotel.2",
+      "chapter": 2,
+      "npc": "elisa",
+      "scene": "sc:hotel.2",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Domani sale alla torre, vero? Di cosa ha bisogno?", "ru": "Завтра вы поднимаетесь к башне, верно? Что вам нужно?", "next": "rooms"},
+        "rooms": {"kind": "answer", "task": "Спросите, есть ли свободные номера.", "branches": [{"phrase": "ph:hotel.ci-sono-camere", "next": "roomsay"}], "wrong": {"es": "Ci sono cavalli disponibili? Questo è un albergo.", "ru": "Есть свободные лошади? Это отель."}},
+        "roomsay": {"kind": "say", "es": "Solo una: la otto. La sette è di Andrea.", "ru": "Только один: восьмой. Седьмой — Андреа.", "next": "safe"},
+        "safe": {"kind": "answer", "task": "Спросите, есть ли в номере сейф: для обрывков карты.", "branches": [{"phrase": "ph:hotel.c-cassaforte-camera", "next": "safesay"}], "wrong": {"es": "C'è un lupo in camera? No, solo un letto.", "ru": "В номере волк? Нет, только кровать."}},
+        "safesay": {"kind": "say", "es": "C'è. Per i suoi pezzi della mappa, perfetto. Ecco la chiave.", "ru": "Есть. Для ваших обрывков карты — то, что нужно. Вот ключ.", "next": "card"},
+        "card": {"kind": "answer", "task": "Вы её тут же потеряли. Скажите, что вам нужна ещё одна карта-ключ.", "branches": [{"phrase": "ph:hotel.serve-altra-chiave", "next": "cardsay"}], "wrong": {"es": "Le serve una cartolina? Il negozio è qui vicino.", "ru": "Нужна открытка? Магазин рядом."}},
+        "cardsay": {"kind": "say", "es": "Già? Ne prenda un'altra. E non la perda in montagna.", "ru": "Уже? Возьмите ещё одну. И не потеряйте её в горах.", "next": "wake"},
+        "wake": {"kind": "answer", "task": "Попросите разбудить вас в семь.", "branches": [{"phrase": "ph:hotel.puo-svegliare-alle", "next": "wakesay"}], "wrong": {"es": "Può portarmi una pizza? A quest'ora, no.", "ru": "Принесёте пиццу? В такой час — нет."}},
+        "wakesay": {"kind": "say", "es": "Certo, alle sette. Presto, ma la torre aspetta.", "ru": "Конечно, в семь. Рано, но башня ждёт.", "next": "leave"},
+        "leave": {"kind": "answer", "task": "Спросите, до которого часа нужно освободить номер.", "branches": [{"phrase": "ph:hotel.che-ora-bisogna", "next": "end"}], "wrong": {"es": "A che ora scende il guardiano? Questo non lo so.", "ru": "Во сколько спускается страж? Этого я не знаю."}},
+        "end": {"kind": "say", "es": "Alle dodici. Ma lei parte alle sette. Prenda il mio pezzo della mappa della montagna. E dica ad Andrea che la sua camera lo aspetta.", "ru": "До двенадцати. Но вы уходите в семь. Возьмите мой обрывок карты гор. И скажите Андреа, что его номер ждёт."}
+      }
     }
   ]
 }

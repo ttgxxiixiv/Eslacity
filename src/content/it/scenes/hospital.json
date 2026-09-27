@@ -25,6 +25,31 @@
         {"q": "Кого ищет Летописец?", "options": ["Того, кто помогает соседям", "Самого быстрого", "Того, у кого больше денег"], "answer": 0}
       ],
       "gloss": {"pezzo": "обрывок", "caduto": "упал", "guardiano": "страж", "cronista": "Летописец", "caveau": "Хранилище"}
+    },
+    {
+      "id": "sc:hospital.2",
+      "chapter": 2,
+      "npc": "conti",
+      "lines": [
+        {"who": "npc", "es": "Ho una notizia: Tommaso è qui.", "ru": "У меня новость: Томмазо здесь."},
+        {"who": "hero", "es": "Tommaso? Come sta?", "ru": "Томмазо? Как он?"},
+        {"who": "npc", "es": "Ha il piede rotto, ma sta bene. Il guardiano l'ha aiutato a scendere dalla montagna.", "ru": "У него сломана стопа, но он в порядке. Страж помог ему спуститься с горы."},
+        {"who": "hero", "es": "Cosa è successo nella torre?", "ru": "Что случилось в башне?"},
+        {"who": "npc", "es": "Me l'ha detto. Il guardiano fa tre domande, al passato.", "ru": "Он мне рассказал. Страж задаёт три вопроса, в прошедшем времени."},
+        {"who": "hero", "es": "E Tommaso ha risposto?", "ru": "И Томмазо ответил?"},
+        {"who": "npc", "es": "Ha risposto a due. A una, non sapeva cosa dire.", "ru": "Ответил на два. На один не знал, что сказать."},
+        {"who": "hero", "es": "Quale domanda?", "ru": "Какой вопрос?"},
+        {"who": "npc", "es": "«Chi hai aiutato?».", "ru": "«Кому ты помог?»"},
+        {"who": "hero", "es": "Chi ho aiutato? Questo lo so.", "ru": "Кому я помог? Это я знаю."},
+        {"who": "npc", "es": "Il guardiano ha detto a Tommaso: «Portami il viaggiatore della mappa». Adesso è il tuo turno.", "ru": "Страж сказал Томмазо: «Приведи ко мне путешественника с картой». Теперь твоя очередь."}
+      ],
+      "questions": [
+        {"q": "Кто вернулся с гор?", "options": ["Томмазо", "Андреа", "Летописец"], "answer": 0},
+        {"q": "Что с Томмазо?", "options": ["Сломана стопа", "Болит горло", "Он совсем здоров"], "answer": 0},
+        {"q": "Сколько вопросов задаёт страж?", "options": ["Один", "Три", "Десять"], "answer": 1},
+        {"q": "Какой вопрос Томмазо не смог ответить?", "options": ["«Кому ты помог?»", "«Как тебя зовут?»", "«Откуда ты?»"], "answer": 0}
+      ],
+      "gloss": {"tommaso": "Томмазо (имя)", "portami": "приведи ко мне"}
     }
   ]
 }
