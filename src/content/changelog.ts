@@ -7,6 +7,13 @@ export interface Release {
 // Новые версии сверху. Версия первой записи должна совпадать с package.json (проверяется тестом).
 export const CHANGELOG: Release[] = [
   {
+    version: '2.51.0',
+    date: '2026-09-27',
+    notes: [
+      'Сборка предложения и ввод формы во всех 15 уроках района B1.1: будущее время и предположения, условное наклонение, subjuntivo и congiuntivo после желаний, чувств и мнений, плюсквамперфект, относительные местоимения. Например, «¡Ojalá no llueva!», «Yo que tú, descansaría», «Te le do io», «Il ragazzo ___ parlo è mio fratello».',
+    ],
+  },
+  {
     version: '2.50.0',
     date: '2026-09-27',
     notes: [
