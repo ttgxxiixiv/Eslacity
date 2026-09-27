@@ -44,6 +44,26 @@
         "sunset": {"kind": "answer", "task": "Предложите пойти смотреть на закат.", "branches": [{"phrase": "ph:beach.vamos-ver-puesta", "next": "end"}], "wrong": {"es": "¿Vamos a dormir? ¡Primero, el sol!", "ru": "Пойдём спать? Сначала солнце!"}},
         "end": {"kind": "say", "es": "Mira: la torre. La luz se enciende tres veces. Toma mi trozo del mapa de las montañas. Cuando llegues arriba, enciende tu linterna tres veces. Yo te veo desde aquí.", "ru": "Смотри: башня. Свет загорается три раза. Держи мой обрывок карты гор. Когда доберёшься наверх, включи фонарик три раза. Я увижу тебя отсюда."}
       }
+    },
+    {
+      "id": "ms:beach.3",
+      "chapter": 3,
+      "npc": "nacho",
+      "scene": "sc:beach.3",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Hoy la playa está llena. ¿Qué hacemos?", "ru": "Сегодня пляж полон. Что будем делать?", "next": "crowd"},
+        "crowd": {"kind": "answer", "task": "Скажите, что в высокий сезон на пляже не протолкнуться.", "branches": [{"phrase": "ph:beach.temporada-alta-playa", "next": "crowdsay"}], "wrong": {"es": "¿En temporada alta hay nieve? ¡No, hombre!", "ru": "В высокий сезон тут снег? Да нет же!"}},
+        "crowdsay": {"kind": "say", "es": "Siempre. ¿Conoces algún lugar tranquilo?", "ru": "Всегда так. Знаешь какое-нибудь тихое место?", "next": "cove"},
+        "cove": {"kind": "answer", "task": "Скажите, что знаете тихую бухточку.", "branches": [{"phrase": "ph:beach.conozco-cala-tranquila", "next": "covesay"}], "wrong": {"es": "¿Conoces a mi perro? No, pregunto por un lugar.", "ru": "Знаешь мою собаку? Нет, я спрашиваю про место."}},
+        "covesay": {"kind": "say", "es": "¿La cala? Allí estuvo él anoche. Vamos.", "ru": "Бухту? Он был там вчера ночью. Пошли.", "next": "dip"},
+        "dip": {"kind": "answer", "task": "Предложите окунуться.", "branches": [{"phrase": "ph:beach.nos-damos-chapuzon", "next": "dipsay"}], "wrong": {"es": "¿Nos damos un helado? Después; ahora, al agua.", "ru": "Съедим мороженое? Потом, а сейчас — в воду."}},
+        "dipsay": {"kind": "say", "es": "¡Qué bien! ... Oye, estás muy rojo. ¿Te encuentras bien?", "ru": "Здорово! ... Слушай, ты весь красный. Тебе нехорошо?", "next": "sun"},
+        "sun": {"kind": "answer", "task": "Скажите, что у вас, кажется, солнечный удар.", "branches": [{"phrase": "ph:beach.creo-tengo-insolacion", "next": "sunsay"}], "wrong": {"es": "¿Tienes frío? ¡Con este sol, no!", "ru": "Тебе холодно? С таким солнцем — нет!"}},
+        "sunsay": {"kind": "say", "es": "A la sombra, despacio. Agua fresca. ¿Mejor? Cuando baje el sol, damos un paseo.", "ru": "В тень, потихоньку. Холодная вода. Лучше? Когда солнце сядет, прогуляемся.", "next": "walk"},
+        "walk": {"kind": "answer", "task": "Предложите прогуляться по набережной.", "branches": [{"phrase": "ph:beach.vamos-al-paseo", "next": "end"}], "wrong": {"es": "¿Vamos al desierto? Hoy no, viajero. Hoy, al mar.", "ru": "Пойдём в пустыню? Не сегодня, путешественник. Сегодня к морю."}},
+        "end": {"kind": "say", "es": "Vamos. Mira: la luna ya está casi llena. Toma mi trozo del mapa del desierto. Y si ves al hombre del camello, háblale despacio. Tiene miedo.", "ru": "Пошли. Смотри: луна уже почти полная. Держи мой обрывок карты пустыни. А если увидишь человека с верблюдом, говори с ним тихо. Ему страшно."}
+      }
     }
   ]
 }

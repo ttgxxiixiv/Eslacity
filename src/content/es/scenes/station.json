@@ -50,6 +50,31 @@
         {"q": "Что человек в плаще попросил вчера?", "options": ["Билет на поезд в семь", "Расписание", "Такси"], "answer": 0}
       ],
       "gloss": {"horario": "расписание", "línea": "линия", "pasajeros": "пассажиры", "pasajero": "пассажир", "capa": "плащ"}
+    },
+    {
+      "id": "sc:station.3",
+      "chapter": 3,
+      "npc": "ramon",
+      "lines": [
+        {"who": "npc", "es": "¡Tú aquí! Tengo noticias del desierto.", "ru": "Ты здесь! У меня новости из пустыни."},
+        {"who": "hero", "es": "¿Qué noticias?", "ru": "Какие новости?"},
+        {"who": "npc", "es": "Hay un tren que va hasta el borde de la arena. Solo sale una noche al año.", "ru": "Есть поезд, который идёт до края песков. Он ходит только одну ночь в году."},
+        {"who": "hero", "es": "¿La noche de la luna llena?", "ru": "В ночь полнолуния?"},
+        {"who": "npc", "es": "Eso es. Este viernes. Está en mi horario viejo: «Tren de la luna».", "ru": "Именно. В эту пятницу. Он есть в моём старом расписании: «Лунный поезд»."},
+        {"who": "hero", "es": "¿Y quién lo sabe?", "ru": "А кто об этом знает?"},
+        {"who": "npc", "es": "Poca gente. Pero ayer el hombre del camello compró un billete.", "ru": "Мало кто. Но вчера человек с верблюдом купил билет."},
+        {"who": "hero", "es": "¿De ida y vuelta?", "ru": "Туда и обратно?"},
+        {"who": "npc", "es": "No. Solo de ida. No piensa volver.", "ru": "Нет. Только в одну сторону. Он не собирается возвращаться."},
+        {"who": "hero", "es": "¿Y yo puedo ir?", "ru": "А мне можно поехать?"},
+        {"who": "npc", "es": "Tú tienes que ir. Y yo te guardo un asiento.", "ru": "Тебе нужно ехать. Я оставлю тебе место."}
+      ],
+      "questions": [
+        {"q": "Куда идёт особый поезд?", "options": ["До края песков", "В столицу", "К башне"], "answer": 0},
+        {"q": "Когда он ходит?", "options": ["Одну ночь в году, в полнолуние", "Каждый день", "Никогда"], "answer": 0},
+        {"q": "Какой билет купил Купец?", "options": ["Только в одну сторону", "Туда и обратно", "Первого класса"], "answer": 0},
+        {"q": "Что обещает Рамон герою?", "options": ["Оставить место в поезде", "Продать карту", "Закрыть вокзал"], "answer": 0}
+      ],
+      "gloss": {"borde": "край", "camello": "верблюд"}
     }
   ]
 }

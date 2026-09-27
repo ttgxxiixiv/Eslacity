@@ -50,6 +50,31 @@
         {"q": "Что человек в плаще попросил вчера?", "options": ["Билет на поезд в семь", "Расписание", "Такси"], "answer": 0}
       ],
       "gloss": {"passeggeri": "пассажиры", "passeggero": "пассажир", "mantello": "плащ"}
+    },
+    {
+      "id": "sc:station.3",
+      "chapter": 3,
+      "npc": "aldo",
+      "lines": [
+        {"who": "npc", "es": "Tu qui! Ho notizie dal deserto.", "ru": "Ты здесь! У меня новости из пустыни."},
+        {"who": "hero", "es": "Quali notizie?", "ru": "Какие новости?"},
+        {"who": "npc", "es": "C'è un treno che va fino al confine della sabbia. Parte solo una notte all'anno.", "ru": "Есть поезд, который идёт до края песков. Он ходит только одну ночь в году."},
+        {"who": "hero", "es": "La notte di luna piena?", "ru": "В ночь полнолуния?"},
+        {"who": "npc", "es": "Sì. Questo venerdì. È nel mio vecchio orario: «Treno della luna».", "ru": "Да. В эту пятницу. Он есть в моём старом расписании: «Лунный поезд»."},
+        {"who": "hero", "es": "E chi lo sa?", "ru": "А кто об этом знает?"},
+        {"who": "npc", "es": "Poche persone. Ma ieri l'uomo con il cammello ha comprato un biglietto.", "ru": "Мало кто. Но вчера человек с верблюдом купил билет."},
+        {"who": "hero", "es": "Di andata e ritorno?", "ru": "Туда и обратно?"},
+        {"who": "npc", "es": "No. Solo andata. Non pensa di tornare.", "ru": "Нет. Только в одну сторону. Он не собирается возвращаться."},
+        {"who": "hero", "es": "E io posso andare?", "ru": "А мне можно поехать?"},
+        {"who": "npc", "es": "Tu devi andare. E io ti tengo un posto.", "ru": "Тебе нужно ехать. Я оставлю тебе место."}
+      ],
+      "questions": [
+        {"q": "Куда идёт особый поезд?", "options": ["До края песков", "В столицу", "К башне"], "answer": 0},
+        {"q": "Когда он ходит?", "options": ["Одну ночь в году, в полнолуние", "Каждый день", "Никогда"], "answer": 0},
+        {"q": "Какой билет купил Купец?", "options": ["Только в одну сторону", "Туда и обратно", "Первого класса"], "answer": 0},
+        {"q": "Что обещает Альдо герою?", "options": ["Оставить место в поезде", "Продать карту", "Закрыть вокзал"], "answer": 0}
+      ],
+      "gloss": {"confine": "край", "cammello": "верблюд"}
     }
   ]
 }

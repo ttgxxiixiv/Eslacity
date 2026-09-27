@@ -40,6 +40,26 @@
         "save": {"kind": "answer", "task": "Спросите, есть ли сберегательные счета, или скажите, что хотите открыть счёт.", "branches": [{"phrase": "ph:bank.tienen-cuentas-ahorro", "next": "end"}, {"phrase": "ph:bank.quiero-abrir-cuenta", "next": "end"}], "wrong": {"es": "¿Tienen cuentas de chocolate? No, solo de dinero.", "ru": "Шоколадные счета есть? Нет, только денежные."}},
         "end": {"kind": "say", "es": "Muy bien, hecho. Y aquí tiene mi trozo del mapa de las montañas. Recuerde: al guardián no se le paga con dinero. Se le paga con palabras.", "ru": "Хорошо, готово. А вот мой обрывок карты гор. Помните: стражу платят не деньгами. Ему платят словами."}
       }
+    },
+    {
+      "id": "ms:bank.3",
+      "chapter": 3,
+      "npc": "gomez",
+      "scene": "sc:bank.3",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Buenos días. Después de lo del camello, hablemos de su dinero. ¿Qué desea?", "ru": "Добрый день. После истории с верблюдом поговорим о ваших деньгах. Что желаете?", "next": "inv"},
+        "inv": {"kind": "answer", "task": "Скажите, что хотите вложить свои сбережения.", "branches": [{"phrase": "ph:bank.quiero-invertir-mis", "next": "invsay"}], "wrong": {"es": "¿Quiere invertir en arena? ¡Nunca!", "ru": "Хотите вложить в песок? Никогда!"}},
+        "invsay": {"kind": "say", "es": "Muy bien, pero con cuidado. Tenemos un plazo fijo.", "ru": "Хорошо, но осторожно. У нас есть срочный вклад.", "next": "rate"},
+        "rate": {"kind": "answer", "task": "Спросите, какая ставка по срочному вкладу.", "branches": [{"phrase": "ph:bank.tipo-interes-tiene", "next": "ratesay"}], "wrong": {"es": "¿Qué tipo de camello tiene? Ninguno, señor.", "ru": "Какой у вас верблюд? Никакого, сеньор."}},
+        "ratesay": {"kind": "say", "es": "Un dos por ciento. Poco, pero es de verdad. No como el agua del oasis.", "ru": "Два процента. Немного, но по-настоящему. Не то что вода оазиса.", "next": "scam"},
+        "scam": {"kind": "answer", "task": "Скажите, что «вода оазиса», по-вашему, мошенничество.", "branches": [{"phrase": "ph:bank.creo-estafa", "next": "scamsay"}], "wrong": {"es": "¿Es una fiesta? No, señor, es un banco.", "ru": "Это праздник? Нет, сеньор, это банк."}},
+        "scamsay": {"kind": "say", "es": "Lo es. ¿Quiere un préstamo para el viaje?", "ru": "Именно. Хотите кредит на поездку?", "next": "debt"},
+        "debt": {"kind": "answer", "task": "Скажите, что не хотите влезать в долги.", "branches": [{"phrase": "ph:bank.no-quiero-endeudarme", "next": "debtsay"}], "wrong": {"es": "¿No quiere pagar nunca? Eso no se puede.", "ru": "Не хотите никогда платить? Так нельзя."}},
+        "debtsay": {"kind": "say", "es": "Muy bien pensado. ¿Algo más? ¿Con Andrés, quizás?", "ru": "Очень разумно. Что-нибудь ещё? Может, с Андресом?", "next": "joint"},
+        "joint": {"kind": "answer", "task": "Скажите, что вы с Андресом хотите открыть общий счёт.", "branches": [{"phrase": "ph:bank.queremos-abrir-cuenta", "next": "end"}], "wrong": {"es": "¿Queremos abrir la ciudad blanca? Eso no lo hace el banco.", "ru": "Хотим открыть белый город? Банк этим не занимается."}},
+        "end": {"kind": "say", "es": "Una cuenta conjunta, con dinero de verdad. Firmen aquí. Y tome mi trozo del mapa del desierto. Regla del banco: lo verdadero no se convierte en arena.", "ru": "Общий счёт, с настоящими деньгами. Подпишите здесь. И возьмите мой обрывок карты пустыни. Правило банка: настоящее в песок не превращается."}
+      }
     }
   ]
 }

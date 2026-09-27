@@ -45,6 +45,26 @@
         "yoga": {"kind": "answer", "task": "Спросите, во сколько занятие йогой.", "branches": [{"phrase": "ph:gym.hora-clase-yoga", "next": "end"}], "wrong": {"es": "¿A qué hora es la fiesta? ¡Después de la torre!", "ru": "Во сколько праздник? После башни!"}},
         "end": {"kind": "say", "es": "A las siete. El yoga es bueno para respirar arriba. Toma mi trozo del mapa de las montañas. Y si ves al hombre de la capa, dale las gracias de parte de mi madre.", "ru": "В семь. Йога помогает дышать наверху. Держи мой обрывок карты гор. А если увидишь человека в плаще, поблагодари его от моей мамы."}
       }
+    },
+    {
+      "id": "ms:gym.3",
+      "chapter": 3,
+      "npc": "sara",
+      "scene": "sc:gym.3",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Hoy entrenamos para el desierto. ¿Qué necesitas?", "ru": "Сегодня тренируемся для пустыни. Что тебе нужно?", "next": "force"},
+        "force": {"kind": "answer", "task": "Скажите, что вам нужно больше силы в ногах.", "branches": [{"phrase": "ph:gym.necesito-mas-fuerza", "next": "forcesay"}], "wrong": {"es": "¿Necesitas más arena? Tranquilo, en el desierto hay mucha.", "ru": "Нужно больше песка? Спокойно, в пустыне его полно."}},
+        "forcesay": {"kind": "say", "es": "Muy bien. ¿Quieres un entrenamiento solo para ti?", "ru": "Хорошо. Хочешь тренировку только для тебя?", "next": "pers"},
+        "pers": {"kind": "answer", "task": "Спросите, есть ли персональные тренировки.", "branches": [{"phrase": "ph:gym.hacen-entrenamiento-personal", "next": "perssay"}], "wrong": {"es": "¿Hacen pasteles personales? No, solo entrenamiento.", "ru": "Персональные торты есть? Нет, только тренировки."}},
+        "perssay": {"kind": "say", "es": "Conmigo. Y va a ser duro. ¿Cuál es tu objetivo?", "ru": "Со мной. И будет тяжело. Какая у тебя цель?", "next": "mara"},
+        "mara": {"kind": "answer", "task": "Скажите, что в этом году бежите марафон.", "branches": [{"phrase": "ph:gym.este-ano-corro", "next": "marasay"}], "wrong": {"es": "¿Este año duermes mucho? ¡Este año, no!", "ru": "В этом году много спишь? В этом году — нет!"}},
+        "marasay": {"kind": "say", "es": "¡Un maratón! El desierto es tu maratón. ¡Vamos, más rápido! ... ¿Qué pasa?", "ru": "Марафон! Пустыня — твой марафон. Давай, быстрее! ... Что случилось?", "next": "cramp"},
+        "cramp": {"kind": "answer", "task": "Скажите, что у вас свело мышцу.", "branches": [{"phrase": "ph:gym.ha-dado-calambre", "next": "crampsay"}], "wrong": {"es": "¿Te ha dado hambre? Después comemos.", "ru": "Проголодался? Поедим потом."}},
+        "crampsay": {"kind": "say", "es": "Un calambre. Descansa. Bebe agua. ¿Y después de entrenar qué tomas?", "ru": "Судорога. Отдохни. Попей воды. А что ты пьёшь после тренировки?", "next": "prot"},
+        "prot": {"kind": "answer", "task": "Скажите, что после тренировки пьёте протеин.", "branches": [{"phrase": "ph:gym.tomo-proteina-despues", "next": "end"}], "wrong": {"es": "¿Tomas helado? ¡Después de entrenar, no!", "ru": "Ешь мороженое? После тренировки — нет!"}},
+        "end": {"kind": "say", "es": "Muy bien. Toma mi trozo del mapa del desierto. Y recuerda: en el desierto, no corras como alguien que tiene miedo.", "ru": "Отлично. Держи мой обрывок карты пустыни. И помни: в пустыне не беги, как тот, кому страшно."}
+      }
     }
   ]
 }

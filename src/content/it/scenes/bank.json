@@ -50,6 +50,31 @@
         {"q": "Какой вывод делает герой?", "options": ["Томмазо у стража", "Томмазо уехал в столицу", "Страж потерял монеты"], "answer": 0}
       ],
       "gloss": {"tommaso": "Томмазо (имя)", "mantello": "плащ", "monete": "монеты", "firma": "подпись", "nota": "приписка", "guardiani": "стражи", "regole": "правила"}
+    },
+    {
+      "id": "sc:bank.3",
+      "chapter": 3,
+      "npc": "ferri",
+      "lines": [
+        {"who": "npc", "es": "Ieri è venuto in banca l'uomo con il cammello.", "ru": "Вчера в банк приходил человек с верблюдом."},
+        {"who": "hero", "es": "Cosa voleva?", "ru": "Что он хотел?"},
+        {"who": "npc", "es": "Investire molti soldi. Voleva comprare tutta l'«acqua dell'oasi» del deserto.", "ru": "Вложить много денег. Хотел скупить всю «воду оазиса» в пустыне."},
+        {"who": "hero", "es": "Ma quell'acqua non è vera.", "ru": "Но эта вода ненастоящая."},
+        {"who": "npc", "es": "Anch'io l'ho detto. E i suoi soldi, nella mia mano, sono diventati sabbia.", "ru": "Я ему так и сказал. А его деньги у меня в руке превратились в песок."},
+        {"who": "hero", "es": "Credo che sia una truffa.", "ru": "По-моему, это мошенничество."},
+        {"who": "npc", "es": "Lo è. E dopo mi ha chiesto una cosa più strana: aprire un conto a nome della città bianca.", "ru": "Именно. А потом попросил кое-что ещё страннее: открыть счёт на имя белого города."},
+        {"who": "hero", "es": "Perché?", "ru": "Зачем?"},
+        {"who": "npc", "es": "Dice che nella notte di luna piena comprerà la città.", "ru": "Говорит, что в ночь полнолуния купит этот город."},
+        {"who": "hero", "es": "Si può comprare una città?", "ru": "Разве можно купить город?"},
+        {"who": "npc", "es": "Nella mia banca, no. E credo che nel deserto neanche.", "ru": "В моём банке — нет. И, думаю, в пустыне тоже."}
+      ],
+      "questions": [
+        {"q": "Во что хотел вложить деньги Купец?", "options": ["Во «воду оазиса»", "В банк", "В гостиницу"], "answer": 0},
+        {"q": "Что стало с его купюрами?", "options": ["Превратились в песок", "Оказались фальшивыми монетами", "Пропали из сейфа"], "answer": 0},
+        {"q": "На чьё имя он хотел открыть счёт?", "options": ["На имя белого города", "На своё имя", "На имя стражницы"], "answer": 0},
+        {"q": "Что он собирается сделать в полнолуние?", "options": ["Купить белый город", "Уехать из города", "Открыть магазин"], "answer": 0}
+      ],
+      "gloss": {"cammello": "верблюд", "investire": "вложить", "oasi": "оазис", "truffa": "мошенничество", "neanche": "тоже нет"}
     }
   ]
 }
