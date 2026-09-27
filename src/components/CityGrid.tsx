@@ -290,7 +290,7 @@ export function CityGrid() {
   return (
     <section className="overflow-hidden px-3 pb-2">
       <div className="flex h-10 items-center justify-between px-2 pt-4 pb-2">
-        <h2 className="text-lg font-bold text-stone-700">Карта города</h2>
+        <h2 className="gold-heading text-xl">Карта города</h2>
         <div className="relative">
           {total > 0 && (
             <button

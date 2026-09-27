@@ -4,14 +4,14 @@ import { useProgress } from '../store/progress';
 import { useHeroTitle } from '../store/journey';
 
 /** Уровень в верхней панели: щиток с номером перед дневным опытом. */
-export function LevelBadge() {
+export function LevelBadge({ stone = false }: { stone?: boolean }) {
   const xpTotal = useProgress((s) => s.xpTotal);
   const { level } = heroLevel(xpTotal);
   const title = useHeroTitle();
   return (
     <div
       data-testid="level-badge"
-      className="flex h-10 min-w-10 flex-col items-center justify-center rounded-md border-2 border-gold bg-wood-light px-1.5 leading-none shadow-inner"
+      className={`flex h-10 min-w-10 flex-col items-center justify-center rounded-md px-1.5 leading-none ${stone ? 'level-stone' : 'border-2 border-gold bg-wood-light shadow-inner'}`}
       title={`${title}, уровень ${level}`}
       aria-label={`${title}, уровень ${level}`}
     >

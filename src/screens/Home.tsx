@@ -23,6 +23,7 @@ import { useMissions } from '../store/missions';
 import { useTrials } from '../store/trials';
 import { StatsBar } from '../components/Stats';
 import { Screen } from '../components/ui';
+import { RuneBadge } from '../components/Runes';
 import mapPicture from '../assets/home/map-button-map.webp';
 
 type WordsMap = Partial<Record<LocationId, Word[]>>;
@@ -62,7 +63,7 @@ function newWordsLabel(n: number) {
 /** Золотая стрелка квеста: объёмный наконечник с вырезом, светлая грань сверху, тёмная снизу. Покачивается. */
 function QuestArrow() {
   return (
-    <svg viewBox="0 0 40 36" className="bob h-8 w-9 shrink-0" aria-hidden>
+    <svg viewBox="0 0 40 36" className="bob h-7 w-8 shrink-0" aria-hidden>
       <defs>
         <linearGradient id="qa-top" x1="0" y1="0" x2="0" y2="1">
           <stop offset="0" stopColor="#fff4c2" />
@@ -77,6 +78,39 @@ function QuestArrow() {
       <path d="M3 2 L36 17 L12 17 Z" fill="url(#qa-top)" />
       <path d="M12 17 L36 17 L3 32 Z" fill="url(#qa-bottom)" />
       <path d="M3 2 L36 17 L3 32 L12 17 Z" fill="none" stroke="#5c3d08" strokeWidth="1.4" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+/** Свиток пергамента для плашки урока грамматики. */
+function ScrollIcon() {
+  return (
+    <svg viewBox="0 0 32 28" className="h-7 w-8 shrink-0" aria-hidden>
+      <path d="M6 5h20v16H6z" fill="#e8d09a" stroke="#4a2d16" strokeWidth="1.5" />
+      <path d="M10 10h12M10 13.5h12M10 17h8" stroke="#8a5a2c" strokeWidth="1.3" />
+      <rect x="2" y="2.5" width="6" height="21" rx="3" fill="#c9a468" stroke="#4a2d16" strokeWidth="1.5" />
+      <rect x="24" y="4.5" width="6" height="21" rx="3" fill="#c9a468" stroke="#4a2d16" strokeWidth="1.5" />
+      <path d="M4 6v14M26 8v14" stroke="#f3e1b3" strokeWidth="1" opacity="0.8" />
+    </svg>
+  );
+}
+
+/** Молния блица в синем магическом сиянии. */
+function BoltIcon() {
+  return (
+    <svg viewBox="0 0 40 40" className="h-10 w-10 shrink-0" aria-hidden>
+      <defs>
+        <radialGradient id="bolt-glow">
+          <stop offset="0" stopColor="#8fb0ff" stopOpacity="0.9" />
+          <stop offset="1" stopColor="#3a52c4" stopOpacity="0" />
+        </radialGradient>
+        <linearGradient id="bolt-fill" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stopColor="#fff6c8" />
+          <stop offset="1" stopColor="#f1b82c" />
+        </linearGradient>
+      </defs>
+      <circle cx="20" cy="20" r="19" fill="url(#bolt-glow)" />
+      <path d="M23 3L9 22h9l-3 15 16-21h-9l4-13z" fill="url(#bolt-fill)" stroke="#5c3d08" strokeWidth="1.6" strokeLinejoin="round" />
     </svg>
   );
 }
@@ -99,7 +133,7 @@ function LearnAnyway({ step }: { step: NextStep }) {
   return (
     <Link
       to={`/learn/${then.loc}/${then.level}/${then.part}`}
-      className="mt-1.5 block text-center text-stone-700 underline underline-offset-2"
+      className="mt-1.5 block text-center text-[#f1e2c0] underline underline-offset-2"
       data-testid="learn-anyway"
     >
       Всё равно учить новые слова
@@ -131,11 +165,11 @@ function ContinueCard({ step }: { step: NextStep }) {
         to="/errands"
         data-testid="continue"
         data-kind="errands"
-        className="press quest-card flex min-h-[124px] items-center justify-between gap-1.5 rounded-xl py-2 pr-1 pl-3 text-white"
+        className="press quest-scroll flex min-h-[124px] items-center justify-between gap-2"
       >
         <div className="min-w-0">
-          <div className="quest-gold font-pixel text-xs tracking-widest uppercase">Текущий квест</div>
-          <div className="quest-gold font-pixel text-2xl font-bold">Поручения</div>
+          <div className="quest-label text-[11px] font-bold tracking-wider uppercase">Текущий квест</div>
+          <div className="quest-title text-[19px] leading-tight font-extrabold uppercase">Поручения</div>
           <QuestLines lines={sub} />
         </div>
         <QuestArrow />
@@ -177,12 +211,18 @@ function ContinueCard({ step }: { step: NextStep }) {
     <Link
       to={to}
       data-testid="continue"
-      className="press quest-card flex min-h-[124px] items-center justify-between gap-1.5 rounded-xl py-2 pr-1 pl-3 text-white"
+      className="press quest-scroll flex min-h-[124px] items-center justify-between gap-1.5"
     >
-      {npc && <NpcPortrait look={npc.look} size={44} className="-ml-1 shrink-0" />}
+      {npc && (
+        <div className="portrait-frame shrink-0">
+          <div>
+            <NpcPortrait look={npc.look} size={50} />
+          </div>
+        </div>
+      )}
       <div className="min-w-0 flex-1">
-        <div className="quest-gold font-pixel text-xs tracking-widest uppercase">{label}</div>
-        <div className={`quest-gold font-pixel font-bold whitespace-nowrap ${npc ? 'text-lg' : 'text-2xl'}`}>Продолжить</div>
+        <div className="quest-label truncate text-[11px] font-bold tracking-wider uppercase">{label}</div>
+        <div className="quest-title text-[clamp(15px,4.6vw,19px)] leading-tight font-extrabold whitespace-nowrap uppercase">Продолжить</div>
         <QuestLines lines={sub} />
       </div>
       <QuestArrow />
@@ -228,22 +268,27 @@ function JourneyLine() {
     <Link
       to="/journey-map"
       data-testid="journey-line"
-      className="press mt-2 flex items-center justify-between gap-3 rounded-xl border-2 border-dashed border-stone-300 bg-orange-50 px-4 py-2"
+      className="press parchment mt-3 flex items-center justify-between gap-3 px-5 py-2.5"
     >
       <div className="min-w-0">
-        <div className="text-sm font-semibold">
+        <div className="text-[15px] font-semibold text-stone-900">
           {journey.finished ? 'Все карты собраны' : `Глава ${ch.chapter.roman} · ${got} / ${ch.places.length} обрывков`}
         </div>
-        {next && <div className="truncate text-xs text-stone-500">{next}</div>}
+        {next && <div className="truncate text-[13px] text-stone-600">{next}</div>}
       </div>
-      <span className="shrink-0 text-stone-500" aria-hidden>
-        🗺️ →
+      <span className="flex shrink-0 items-center gap-2 text-lg text-stone-700" aria-hidden>
+        🗺️ <span>→</span>
       </span>
     </Link>
   );
 }
 
 export function Home() {
+  // Главная — в тёмном оформлении: фон вешается на body, пока экран открыт.
+  useEffect(() => {
+    document.body.classList.add('home-dark');
+    return () => document.body.classList.remove('home-dark');
+  }, []);
   const cards = useProgress((s) => s.cards);
   const grammar = useProgress((s) => s.grammar);
   const buildings = useCity((s) => s.buildings);
@@ -303,10 +348,14 @@ export function Home() {
             to="/journey-map"
             aria-label="Карта странствий"
             data-testid="map-button"
-            className="press map-button flex w-[68px] shrink-0 items-center justify-center self-stretch"
+            className="press map-scroll flex w-[66px] shrink-0 items-center justify-center self-stretch"
           >
-            {/* Надпись «Карта» нарисована на фоне (index.css), для экранного диктора — aria-label. */}
+            <span className="wax-seal" aria-hidden />
             <img src={mapPicture} alt="" width={231} height={236} className="block h-auto max-h-full w-[50px] drop-shadow-md" />
+            {/* Для экранного диктора — aria-label ссылки. */}
+            <span className="map-label flex items-center justify-center text-[11px] font-extrabold tracking-wider uppercase" aria-hidden>
+              Карта
+            </span>
           </Link>
         </div>
         {step && <LearnAnyway step={step} />}
@@ -314,28 +363,35 @@ export function Home() {
         {nextGrammar && (
           <Link
             to={`/grammar/${nextGrammar.id}`}
-            className="press mt-3 flex items-center justify-between gap-3 rounded-xl bg-white px-5 py-3 shadow-sm"
+            className="press parchment mt-3 flex items-center justify-between gap-3 py-3 pr-5 pl-4"
           >
-            <span className="min-w-0 truncate font-semibold">📜 {nextGrammar.title}</span>
-            <span className="shrink-0 text-sm font-semibold text-stone-500">{nextGrammar.district}</span>
+            <span className="flex min-w-0 items-center gap-2.5">
+              <ScrollIcon />
+              <span className="truncate text-[17px] font-bold text-stone-900">{nextGrammar.title}</span>
+            </span>
+            <span className="shrink-0 font-bold text-stone-700">{nextGrammar.district}</span>
           </Link>
         )}
         <Link
           to="/review"
-          className="press mt-3 flex items-center justify-between rounded-xl bg-white px-5 py-3 shadow-sm"
+          className="press parchment mt-3 flex items-center justify-between gap-3 py-1.5 pr-3 pl-5"
+          data-testid="review-card"
         >
-          <div>
-            <div className="font-pixel text-lg">Повторить</div>
-            <div className="text-sm text-stone-500">{due ? `${dueText} на сегодня` : 'На сегодня всё повторено'}</div>
+          <div className="min-w-0">
+            <div className="parchment-title text-[21px]">Повторить</div>
+            <div className="text-[14px] text-stone-600">{due ? `${dueText} на сегодня` : 'На сегодня всё повторено'}</div>
           </div>
-          <div className={`text-3xl font-bold tabular-nums ${due ? 'text-brand' : 'text-stone-400'}`}>{due}</div>
+          <RuneBadge value={due} dim={!due} />
         </Link>
         <Link
           to="/blitz"
-          className="press mt-3 flex items-center justify-between rounded-xl bg-white px-5 py-3 shadow-sm"
+          className="press parchment mt-3 flex items-center justify-between gap-3 py-2.5 pr-5 pl-3"
         >
-          <span className="font-pixel text-lg">⚡ Блиц</span>
-          <span className="text-sm text-stone-500">60 секунд · {learned} слов в запасе</span>
+          <span className="flex items-center gap-2">
+            <BoltIcon />
+            <span className="parchment-title text-[21px]">Блиц</span>
+          </span>
+          <span className="min-w-0 text-right text-[13px] text-stone-700">60 секунд · {learned} слов в запасе</span>
         </Link>
       </div>
 

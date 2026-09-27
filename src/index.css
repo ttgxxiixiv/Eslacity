@@ -328,3 +328,216 @@ button {
   min-height: 124px;
   filter: drop-shadow(0 3px 2px rgb(38 29 19 / 0.35));
 }
+
+/*
+ * Главная в тёмном оформлении (макет 2.56.0): вечерний фон с тёплым светом сверху и синим магическим свечением ниже.
+ * Класс вешается на body, пока открыт экран главной, остальные экраны остаются на пергаменте.
+ */
+body.home-dark {
+  background:
+    radial-gradient(ellipse 70% 30% at 50% 16%, rgb(196 112 52 / 0.5), transparent 70%),
+    radial-gradient(ellipse 60% 40% at 12% 62%, rgb(64 82 196 / 0.45), transparent 70%),
+    radial-gradient(ellipse 60% 40% at 90% 55%, rgb(128 64 176 / 0.4), transparent 70%),
+    repeating-linear-gradient(115deg, rgb(255 255 255 / 0.015) 0 3px, transparent 3px 9px),
+    linear-gradient(180deg, #3a2518 0%, #231824 45%, #171126 100%) #1b1420;
+  background-attachment: fixed;
+}
+html:has(body.home-dark) {
+  background: #1b1420;
+}
+
+/* Верхняя панель: кованая рама с заклёпками, внутри тёмное дерево. */
+.stats-frame {
+  position: relative;
+  border: 3px solid #1a120a;
+  border-radius: 10px;
+  background:
+    linear-gradient(180deg, rgb(255 255 255 / 0.06), transparent 40%),
+    repeating-linear-gradient(90deg, rgb(0 0 0 / 0.12) 0 2px, transparent 2px 23px),
+    linear-gradient(180deg, #4a3322, #2c1e14);
+  box-shadow:
+    inset 0 0 0 2px #8a6a3a,
+    inset 0 0 0 4px #2a1d12,
+    inset 0 2px 8px rgb(0 0 0 / 0.6),
+    0 4px 0 0 #120c07,
+    0 6px 14px rgb(0 0 0 / 0.5);
+}
+.stats-frame::before,
+.stats-frame::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 6px;
+  height: 6px;
+  margin-top: -3px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #f6dc8a, #8a6420 70%);
+  box-shadow: 0 1px 0 #120c07;
+}
+.stats-frame::before { left: 5px; }
+.stats-frame::after { right: 5px; }
+
+/* Каменная плитка с рунами в центре панели: выступает над рамкой. */
+.rune-stone {
+  width: 44px;
+  height: 58px;
+  margin: -10px 0;
+  color: #1c2233;
+  clip-path: polygon(18% 0, 82% 0, 100% 16%, 100% 84%, 82% 100%, 18% 100%, 0 84%, 0 16%);
+  background:
+    radial-gradient(circle at 30% 25%, rgb(255 255 255 / 0.25), transparent 45%),
+    linear-gradient(160deg, #9aa1ad, #6b7280 55%, #4b515c);
+  filter: drop-shadow(0 2px 0 #120c07);
+}
+
+/* Щиток уровня: тёмный камень в бронзовой рамке. */
+.level-stone {
+  border: 2px solid #8a6a3a;
+  background: linear-gradient(160deg, #5b606b, #353943);
+  box-shadow: inset 0 0 0 1px #1a120a, 0 2px 0 #120c07;
+}
+
+/*
+ * Карточка квеста: кожаный свиток с намотанными краями. Края — два цилиндра из градиентов по бокам,
+ * середина — тёмная кожа с тиснёной золотой рамкой.
+ */
+.quest-scroll {
+  position: relative;
+  padding: 10px 20px 10px 22px;
+  background:
+    linear-gradient(90deg, #b88a4a 0 4px, #6b4524 4px 8px, #d9b073 8px 12px, #8a5a2c 12px 16px, #4a2d16 16px 18px, transparent 18px calc(100% - 18px), #4a2d16 calc(100% - 18px) calc(100% - 16px), #8a5a2c calc(100% - 16px) calc(100% - 12px), #d9b073 calc(100% - 12px) calc(100% - 8px), #6b4524 calc(100% - 8px) calc(100% - 4px), #b88a4a calc(100% - 4px)),
+    radial-gradient(ellipse at 50% 40%, #6e4526, #4a2c17 70%, #33200f);
+  border-radius: 6px;
+  box-shadow:
+    inset 0 2px 0 rgb(255 225 160 / 0.25),
+    inset 0 -3px 0 rgb(0 0 0 / 0.35),
+    0 4px 0 #1a0f07,
+    0 8px 18px rgb(0 0 0 / 0.55);
+}
+.quest-scroll::before {
+  content: '';
+  position: absolute;
+  inset: 5px 18px;
+  border: 1.5px solid rgb(224 180 60 / 0.55);
+  border-radius: 3px;
+  box-shadow: inset 0 0 0 3px rgb(26 15 7 / 0.35), inset 0 0 0 4px rgb(224 180 60 / 0.25);
+  pointer-events: none;
+}
+/* Светлый текст на коже. */
+.quest-scroll .quest-label {
+  color: #e9cf8a;
+  text-shadow: 0 1px 0 #1a0f07;
+}
+.quest-scroll .quest-title {
+  color: #fbeccb;
+  text-shadow: 0 2px 0 #1a0f07, 0 0 12px rgb(0 0 0 / 0.4);
+}
+.quest-scroll .quest-text {
+  color: #f1e2c0;
+  text-shadow: 0 1px 1px rgb(0 0 0 / 0.8);
+}
+/* Портрет жителя в золотой рамке. */
+.portrait-frame {
+  padding: 3px;
+  border-radius: 4px;
+  background: linear-gradient(160deg, #fff1b8, #e0b43c 45%, #7a5410);
+  box-shadow: 0 2px 0 #1a0f07, 0 0 0 1px #1a0f07;
+}
+.portrait-frame > div {
+  border-radius: 2px;
+  background: radial-gradient(circle at 50% 35%, #5b6e8a, #2a3346 75%);
+  box-shadow: inset 0 0 0 1px #1a0f07;
+}
+
+/*
+ * Кнопка карты: свиток пергамента с картой, сверху намотка и сургучная печать, снизу доска с надписью.
+ * Отступы сверху (26px) и снизу (36px) те же, что у прежней рамки: карта стоит по центру между ними.
+ */
+.map-scroll {
+  position: relative;
+  padding: 26px 0 36px;
+  min-height: 124px;
+  border-radius: 6px;
+  background:
+    radial-gradient(ellipse at 50% 45%, #f1dfb2, #d9bd82 70%, #b48f55),
+    #d9bd82;
+  box-shadow: inset 0 0 0 2px #7a5a30, inset 0 0 10px rgb(90 60 20 / 0.5), 0 4px 0 #1a0f07, 0 8px 18px rgb(0 0 0 / 0.55);
+}
+.map-scroll::before {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  height: 14px;
+  border-radius: 7px;
+  background: linear-gradient(180deg, #f3e1b3, #c9a468 50%, #7d5a2e);
+  box-shadow: 0 2px 0 #1a0f07;
+}
+.map-scroll .wax-seal {
+  position: absolute;
+  top: 2px;
+  left: 50%;
+  width: 22px;
+  height: 22px;
+  margin-left: -11px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 38% 32%, #e0685a, #a3231b 55%, #6b1410);
+  box-shadow: 0 2px 0 #1a0f07, inset 0 0 0 2px rgb(0 0 0 / 0.2);
+}
+.map-scroll .map-label {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 30px;
+  border-radius: 0 0 6px 6px;
+  background: linear-gradient(180deg, #5a3d22, #3a2616);
+  box-shadow: inset 0 2px 0 rgb(255 225 160 / 0.2), inset 0 0 0 2px #1a0f07;
+  color: #f3dfb0;
+  text-shadow: 0 1px 0 #1a0f07;
+}
+
+/*
+ * Пергаментная плашка с рваными краями. Фон и обрез лежат в ::before, чтобы тень на самой плашке
+ * (filter) не обрезалась по контуру.
+ */
+.parchment {
+  position: relative;
+  isolation: isolate;
+  filter: drop-shadow(0 3px 0 #1a0f07) drop-shadow(0 6px 8px rgb(0 0 0 / 0.45));
+}
+.parchment::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(90deg, rgb(110 70 25 / 0.55), transparent 16px, transparent calc(100% - 16px), rgb(110 70 25 / 0.55)),
+    linear-gradient(180deg, rgb(110 70 25 / 0.35), transparent 9px, transparent calc(100% - 9px), rgb(110 70 25 / 0.45)),
+    radial-gradient(ellipse at 30% 40%, rgb(255 250 225 / 0.6), transparent 60%),
+    radial-gradient(circle at 80% 70%, rgb(160 110 50 / 0.18), transparent 35%),
+    linear-gradient(180deg, #f3e3bb, #e6cf98);
+  clip-path: polygon(
+    6px 2px, 22% 0, 48% 3px, 76% 0, calc(100% - 6px) 2px,
+    100% 18%, calc(100% - 4px) 34%, 100% 52%, calc(100% - 5px) 70%, 100% 86%,
+    calc(100% - 7px) 100%, 70% calc(100% - 2px), 40% 100%, 14% calc(100% - 3px), 5px 100%,
+    0 84%, 5px 66%, 1px 48%, 6px 30%, 0 14%
+  );
+}
+/* Заголовки на пергаменте: крупные заглавные тёмно-коричневые, как на макете. */
+.parchment-title {
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: #2e1f12;
+}
+
+/* Заголовок «Карта города» на тёмном фоне: золото с тёмной обводкой. */
+.gold-heading {
+  background: linear-gradient(180deg, #fff1b8 0%, #f3cf6a 50%, #c8912c 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 2px 0 #1a120a);
+}

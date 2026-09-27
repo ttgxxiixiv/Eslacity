@@ -6,6 +6,7 @@ import { isAlive } from '../domain/streak';
 import { useMotivation } from '../store/motivation';
 import { LevelBadge } from './HeroLevel';
 import { heroLevel } from '../domain/heroLevel';
+import { RuneStone } from './Runes';
 
 const HEARTS = 5;
 
@@ -59,44 +60,47 @@ export function StatsBar() {
   // Дневная цель — пять сердечек, с половинками.
   const halves = Math.floor(ratio * HEARTS * 2);
   return (
-    <div className="px-3 pt-3">
-      <div className="flex items-center gap-2 rounded-xl bg-wood px-3 py-2 text-stone-50 shadow-lg">
-        <div className="flex items-center gap-1 text-lg font-bold">
-          <span>🪙</span>
-          <span className="tabular-nums">{coins}</span>
-        </div>
-        <div
-          className={`flex items-center gap-1 text-lg font-bold ${alive ? '' : 'opacity-50'}`}
-          title={litToday ? 'Стрик: сегодня цель выполнена' : 'Стрик: сегодня цель ещё не выполнена'}
-          data-testid="streak"
-          data-lit={litToday ? '1' : '0'}
-        >
-          <span className={litToday ? '' : 'grayscale'}>🔥</span>
-          <span className="tabular-nums">{alive ? streak.count : 0}</span>
-        </div>
-        <div className="ml-auto">
-          <LevelBadge />
-        </div>
-        <div className="flex flex-col items-end" title="Дневная цель">
-          <div className="flex gap-0.5" aria-label={`Дневная цель: ${xp} из ${goal} XP`}>
-            {Array.from({ length: HEARTS }, (_, i) => (
-              <Heart key={i} fill={Math.max(0, Math.min(2, halves - i * 2)) / 2} />
-            ))}
+    <div className="px-3 pt-4">
+      <div className="stats-frame flex items-center gap-2 px-4 py-1.5 text-stone-50">
+        <div className="flex flex-1 items-center gap-2.5">
+          <div className="flex items-center gap-1 text-lg font-bold">
+            <span>🪙</span>
+            <span className="tabular-nums">{coins}</span>
           </div>
-          {/* Прогресс уровня героя под сердечками. */}
           <div
-            className="mt-1 h-2 w-full overflow-hidden rounded-sm bg-stone-900/60 p-px"
-            role="progressbar"
-            aria-label={`До уровня ${lvl.level + 1}: ${lvl.into} из ${lvl.need} XP`}
-            aria-valuemin={0}
-            aria-valuemax={lvl.need}
-            aria-valuenow={lvl.into}
-            data-testid="level-bar"
+            className={`flex items-center gap-1 text-lg font-bold ${alive ? '' : 'opacity-50'}`}
+            title={litToday ? 'Стрик: сегодня цель выполнена' : 'Стрик: сегодня цель ещё не выполнена'}
+            data-testid="streak"
+            data-lit={litToday ? '1' : '0'}
           >
+            <span className={litToday ? '' : 'grayscale'}>🔥</span>
+            <span className="tabular-nums">{alive ? streak.count : 0}</span>
+          </div>
+        </div>
+        <RuneStone />
+        <div className="flex flex-1 items-center justify-end gap-2">
+          <LevelBadge stone />
+          <div className="flex flex-col items-end" title="Дневная цель">
+            <div className="flex gap-0.5" aria-label={`Дневная цель: ${xp} из ${goal} XP`}>
+              {Array.from({ length: HEARTS }, (_, i) => (
+                <Heart key={i} fill={Math.max(0, Math.min(2, halves - i * 2)) / 2} />
+              ))}
+            </div>
+            {/* Прогресс уровня героя под сердечками. */}
             <div
-              className="h-full w-full origin-left rounded-[1px] bg-gold"
-              style={{ transform: `scaleX(${lvl.need ? lvl.into / lvl.need : 0})`, transition: 'transform 300ms ease-out' }}
-            />
+              className="mt-1 h-2 w-full overflow-hidden rounded-sm bg-stone-900/60 p-px"
+              role="progressbar"
+              aria-label={`До уровня ${lvl.level + 1}: ${lvl.into} из ${lvl.need} XP`}
+              aria-valuemin={0}
+              aria-valuemax={lvl.need}
+              aria-valuenow={lvl.into}
+              data-testid="level-bar"
+            >
+              <div
+                className="h-full w-full origin-left rounded-[1px] bg-gold"
+                style={{ transform: `scaleX(${lvl.need ? lvl.into / lvl.need : 0})`, transition: 'transform 300ms ease-out' }}
+              />
+            </div>
           </div>
         </div>
       </div>
