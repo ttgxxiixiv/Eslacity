@@ -1,7 +1,7 @@
 import { readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { expect, test, type Page } from '@playwright/test';
-import { DB, LANGS, loadPhraseData, openApp, phraseFull, readMeta, seedDueCards, wordIdsOf, type Lang } from './fixtures';
+import { DB, LANGS, loadPhraseData, openApp, phraseFull, readMeta, seedDueCards, seedTrialsDone, wordIdsOf, type Lang } from './fixtures';
 
 const CONTENT = join(import.meta.dirname, '..', '..', 'src', 'content');
 type Node = { kind: 'say' } | { kind: 'answer'; task: string; branches: { phrase: string }[]; wrong: { es: string } };
@@ -53,7 +53,8 @@ for (const lang of LANGS) {
   test.describe(lang, () => {
     test('миссия кафе: выбор фраз, награда, отношения и обрывок карты', async ({ page }) => {
       await openApp(page, lang);
-      // Слова кафе выучены: обрывок ждёт только миссию.
+      // Слова кафе выучены и испытание пройдено: обрывок ждёт только миссию.
+      await seedTrialsDone(page, lang, ['tr:cafe.1']);
       await seedDueCards(page, lang, wordIdsOf(lang, 'cafe', [1, 2]));
       await page.goto('./#/loc/cafe');
       await expect(page.getByTestId('mission-link')).toContainText('новая');

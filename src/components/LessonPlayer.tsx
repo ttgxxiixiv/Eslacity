@@ -41,7 +41,7 @@ const TITLES = { correct: 'Верно!', almost: 'Почти', wrong: 'Неве�
 
 const rng = seeded(Date.now());
 
-function defaultFeedback(step: Step, words: Record<string, Word>, o: Outcome): Feedback {
+export function defaultFeedback(step: Step, words: Record<string, Word>, o: Outcome): Feedback {
   if (step.kind === 'match') return { verdict: o.verdict, title: TITLES[o.verdict] };
   const w = words[(step as { wordId: string }).wordId];
   const g = w.gender ? `, ${genderLabel(w.gender)}` : '';

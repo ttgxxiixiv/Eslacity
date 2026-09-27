@@ -1,7 +1,7 @@
 import { readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { expect, test, type Page } from '@playwright/test';
-import { DB, LANGS, missionIdsOf, openApp, readMeta, scrollIdsOf, seedDueCards, seedMissionsDone, wordIdsOf, type Lang } from './fixtures';
+import { DB, LANGS, missionIdsOf, openApp, readMeta, scrollIdsOf, seedDueCards, seedMissionsDone, seedTrialsDone, trialIdsOf, wordIdsOf, type Lang } from './fixtures';
 
 const CONTENT = join(import.meta.dirname, '..', '..', 'src', 'content');
 /** id уроков района: папка a2 → a2.<файл>. */
@@ -61,6 +61,7 @@ for (const lang of LANGS) {
 
       await page.goto('./#/');
       await seedMissionsDone(page, lang, ['ms:cafe.1']);
+      await seedTrialsDone(page, lang, ['tr:cafe.1']);
       await seedDueCards(page, lang, wordIdsOf(lang, 'cafe', [1, 2]));
       await page.goto('./#/profile');
       await expect(page.getByTestId('profile-map')).toContainText('Глава I · 1 / 20 обрывков');
@@ -74,6 +75,7 @@ for (const lang of LANGS) {
       const market = wordIdsOf(lang, 'market', [1, 2]).length;
       await map.getByRole('button', { name: /^Рынок: обрывка нет/ }).click();
       await expect(page.getByTestId('map-details')).toContainText(`место ещё не открыто, осталось выучить ${market} слов`);
+      await expect(page.getByTestId('map-details')).toContainText('главы, потом сюжетная миссия жителя и испытание места');
       await page.getByRole('button', { name: /Перейти: Рынок/ }).click();
       await expect(page).toHaveURL(/#\/loc\/market$/);
 
@@ -96,13 +98,18 @@ for (const lang of LANGS) {
       await seedDueCards(page, lang, cafe.slice(0, 10));
       await expect(line).toContainText(`Кафе: осталось ${cafe.length - 10} слов`);
 
-      // Кафе выучено целиком, но обрывок ждёт сюжетную миссию жителя.
+      // Кафе выучено целиком, но обрывок ждёт сюжетную миссию жителя и испытание места.
       await seedDueCards(page, lang, cafe);
       await expect(line).toContainText('Глава I · 0 / 20 обрывков');
-      await expect(line).toContainText('Кафе: сюжетная миссия жителя');
+      await expect(line).toContainText('Кафе: сюжетная миссия жителя и испытание места');
 
-      // Миссия пройдена: обрывок есть, дальше рынок, который ещё закрыт.
+      // Миссия пройдена, осталось испытание.
       await seedMissionsDone(page, lang, ['ms:cafe.1']);
+      await page.reload();
+      await expect(line).toContainText('Кафе: испытание места');
+
+      // Испытание пройдено: обрывок есть, дальше рынок, который ещё закрыт.
+      await seedTrialsDone(page, lang, ['tr:cafe.1']);
       await page.reload();
       await expect(line).toContainText('Глава I · 1 / 20 обрывков');
       await expect(line).toContainText(`Рынок: откройте место, ${wordIdsOf(lang, 'market', [1, 2]).length} слов`);
@@ -113,6 +120,7 @@ for (const lang of LANGS) {
     test('карта главы I собрана: сцена перехода один раз и титул Странник', async ({ page }) => {
       await openApp(page, lang);
       await seedMissionsDone(page, lang, missionIdsOf(lang));
+      await seedTrialsDone(page, lang, trialIdsOf(1));
       await expect(page.getByTestId('chapter-scene')).toHaveCount(0);
       await page.goto('./#/profile');
       await expect(page.getByTestId('hero-title')).toHaveText('Путник');

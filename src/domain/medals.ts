@@ -45,6 +45,8 @@ export interface MedalCounters {
   errands: number;
   /** Жители с отношением «Друг» и выше. */
   friends: number;
+  /** Пройденные испытания мест (и стражей, когда они появятся). */
+  trials: number;
 }
 
 export type LineId =
@@ -74,8 +76,7 @@ export const LINES: MedalLine[] = [
   { id: 'blitz', title: 'Молния', counts: 'лучший результат блица', thresholds: [10, 20, 30, 40, 50, 60], unit: ['ответ', 'ответа', 'ответов'], value: (c) => c.blitzBest },
   { id: 'typed', title: 'Твёрдая рука', counts: 'верных вводов подряд', thresholds: [5, 10, 20, 35, 50, 100], unit: ['ввод', 'ввода', 'вводов'], value: (c) => c.typedBest },
   { id: 'builder', title: 'Строитель', counts: 'сумма уровней зданий', thresholds: [2, 10, 25, 50, 75, 100], unit: ['уровень', 'уровня', 'уровней'], value: (c) => c.buildingLevels },
-  // Включится с испытаниями мест и стражей (этап 5).
-  { id: 'trials', title: 'Испытатель', counts: 'пройденные испытания мест и стражей', thresholds: [1, 5, 25, 50, 80, 105], unit: ['испытание', 'испытания', 'испытаний'], value: null },
+  { id: 'trials', title: 'Испытатель', counts: 'пройденные испытания мест и стражей', thresholds: [1, 5, 25, 50, 80, 105], unit: ['испытание', 'испытания', 'испытаний'], value: (c) => c.trials },
   { id: 'listener', title: 'Слушатель', counts: 'верные задания на слух', thresholds: [10, 50, 200, 500, 1000, 2500], unit: ['ответ', 'ответа', 'ответов'], value: (c) => c.listenCorrect },
   // Включится с Лабиринтом Эха (глава V).
   { id: 'echo', title: 'Эхо', counts: 'выражения, сказанные в другом регистре', thresholds: [1, 10, 30, 80, 150, 300], unit: ['выражение', 'выражения', 'выражений'], value: null },

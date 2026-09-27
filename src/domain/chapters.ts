@@ -36,8 +36,8 @@ export const TITLE_SAGE = 'Мудрец';
 export const TITLE_KEEPER = 'Хранитель языка';
 
 /**
- * Условия обрывка места. Включаются по мере выхода систем: `mission` — этап «Жители»,
- * `trial` — этап «Испытания».
+ * Условия обрывка места: выучены слова главы, выполнена миссия жителя (этап «Жители»),
+ * пройдено испытание места (этап «Испытания», задача 5.1).
  */
 export type FragmentCondition = 'words' | 'mission' | 'trial';
 export type Conditions = { fragment: Record<FragmentCondition, boolean>; seal: Record<SealCondition, boolean> };
@@ -49,7 +49,7 @@ export type Conditions = { fragment: Record<FragmentCondition, boolean>; seal: R
 export type SealCondition = 'grammar' | 'scroll' | 'guardian';
 
 export const CONDITIONS: Conditions = {
-  fragment: { words: true, mission: true, trial: false },
+  fragment: { words: true, mission: true, trial: true },
   seal: { grammar: true, scroll: true, guardian: false },
 };
 
@@ -68,6 +68,8 @@ export interface JourneyInput {
   /** Место → главы, для которых в контенте есть сюжетная миссия. Нет миссии — условие выполнено. */
   missions?: Record<string, number[]>;
   isMissionDone?(location: string, chapter: number): boolean;
+  /** Испытание места в главе пройдено. Нет функции — испытаний в расчёте нет, условие не мешает. */
+  isTrialDone?(location: string, chapter: number): boolean;
 }
 
 /** Полученное: ключ → время получения. Полученное не отнимается, даже если условия стали строже. */
@@ -97,6 +99,8 @@ export interface PlaceState {
   missing: FragmentCondition[];
   /** Сюжетная миссия места в этой главе: нет в контенте, ещё не пройдена, пройдена. */
   mission: 'none' | 'todo' | 'done';
+  /** Испытание места в этой главе: нет (слов главы нет или испытания не считаются), ещё не пройдено, пройдено. */
+  trial: 'none' | 'todo' | 'done';
 }
 
 export interface ChapterState {
@@ -136,10 +140,11 @@ function placeState(ch: Chapter, location: string, input: JourneyInput, rec: Jou
   const hasMission = input.missions?.[location]?.includes(ch.id) ?? false;
   const mission = !hasMission ? 'none' : input.isMissionDone?.(location, ch.id) ? 'done' : 'todo';
   if (cond.fragment.mission && mission === 'todo') missing.push('mission');
-  // trial появится с испытаниями: пока включённое, но не сделанное условие не выполнено.
-  if (cond.fragment.trial) missing.push('trial');
+  // Испытание есть у каждого места, где есть слова главы.
+  const trial = !input.isTrialDone || ids.length === 0 ? 'none' : input.isTrialDone(location, ch.id) ? 'done' : 'todo';
+  if (cond.fragment.trial && trial === 'todo') missing.push('trial');
   const got = rec.fragments[fragmentKey(ch.id, location)] !== undefined;
-  return { location, got, ready: !got && missing.length === 0, words: ids.length, wordsLeft, missing: got ? [] : missing, mission };
+  return { location, got, ready: !got && missing.length === 0, words: ids.length, wordsLeft, missing: got ? [] : missing, mission, trial };
 }
 
 export function journeyState(input: JourneyInput, rec: JourneyRecord, cond: Conditions = CONDITIONS): JourneyState {
@@ -247,7 +252,7 @@ export function sceneToShow(completed: number, celebrated: number | undefined): 
 }
 
 export type NearestGoal =
-  | { kind: 'place'; location: string; wordsLeft: number; open: boolean; mission: boolean }
+  | { kind: 'place'; location: string; wordsLeft: number; open: boolean; mission: boolean; trial: boolean }
   | { kind: 'seal'; lessonsLeft: number; scrollLeft: number }
   | null;
 
@@ -260,7 +265,7 @@ export function nearestGoal(ch: ChapterState, isOpen: (location: string) => bool
   const open = left.filter((p) => isOpen(p.location)).sort((a, b) => a.wordsLeft - b.wordsLeft);
   const pick = open[0] ?? left[0];
   if (pick) {
-    return { kind: 'place', location: pick.location, wordsLeft: pick.wordsLeft, open: isOpen(pick.location), mission: pick.missing.includes('mission') };
+    return { kind: 'place', location: pick.location, wordsLeft: pick.wordsLeft, open: isOpen(pick.location), mission: pick.missing.includes('mission'), trial: pick.missing.includes('trial') };
   }
   if (!ch.seal.got && !ch.seal.ready && (ch.seal.lessons > 0 || ch.seal.scrollLeft > 0)) {
     return { kind: 'seal', lessonsLeft: ch.seal.lessonsLeft, scrollLeft: ch.seal.scrollLeft };

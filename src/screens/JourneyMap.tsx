@@ -12,6 +12,7 @@ import { useCity } from '../store/city';
 import { currentJourney, useJourney } from '../store/journey';
 import { useProgress } from '../store/progress';
 import { useMissions } from '../store/missions';
+import { useTrials } from '../store/trials';
 
 const INK = '#5c452d';
 const PARCHMENT = '#f1dfb0';
@@ -181,7 +182,9 @@ function missingText(p: PlaceState, level: number): string {
   const parts: string[] = [];
   if (!level) parts.push('место ещё не открыто');
   if (p.wordsLeft) parts.push(`осталось выучить ${p.wordsLeft} ${plural(p.wordsLeft, ['слово', 'слова', 'слов'])} главы`);
-  if (p.missing.includes('mission')) parts.push('нужна сюжетная миссия жителя');
+  // Миссия и испытание идут после слов: пока слова не выучены — «потом», иначе — что осталось пройти.
+  const rest = [p.missing.includes('mission') ? 'сюжетная миссия жителя' : '', p.missing.includes('trial') ? 'испытание места' : ''].filter(Boolean).join(' и ');
+  if (rest) parts.push(p.wordsLeft ? `потом ${rest}` : `осталось пройти: ${rest}`);
   return parts.join(', ');
 }
 
@@ -194,7 +197,8 @@ export function JourneyMapScreen() {
   const grammar = useProgress((s) => s.grammar);
   const buildings = useCity((s) => s.buildings);
   const missions = useMissions((s) => s.records);
-  const journey = useMemo(() => currentJourney(), [fragments, seals, opened, cards, grammar, missions]);
+  const trials = useTrials((s) => s.records);
+  const journey = useMemo(() => currentJourney(), [fragments, seals, opened, cards, grammar, missions, trials]);
   const [shown, setShown] = useState<ChapterId>(journey.current);
   const [picked, setPicked] = useState<number | 'seal' | null>(null);
   const ch = journey.chapters[shown - 1];

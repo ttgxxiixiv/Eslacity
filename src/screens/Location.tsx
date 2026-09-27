@@ -7,6 +7,8 @@ import { loadPhrases } from '../content/phrases';
 import { loadScenes } from '../content/scenes';
 import { loadMissions } from '../content/missions';
 import { useMissions } from '../store/missions';
+import { useTrials } from '../store/trials';
+import { trialId, trialStatus, waitLabel } from '../domain/trial';
 import { missionOpen } from '../domain/reputation';
 import { modeForAttempt } from '../domain/mission';
 import { fullPhrase } from '../domain/phrase';
@@ -14,7 +16,7 @@ import { ECONOMY } from '../config';
 import { incomeRate, isFull, pendingIncome, upgradeCost } from '../domain/economy';
 import { useNow } from '../lib/useNow';
 import { isLearned, learnedCount, lessonParts, levelWords, maxContentLevel } from '../domain/levels';
-import { chapterById, chapterOfLevel, isLevelOpen } from '../domain/chapters';
+import { CHAPTERS, chapterById, chapterOfLevel, isLevelOpen } from '../domain/chapters';
 import { useJourney } from '../store/journey';
 import { NPC_BY_LOCATION } from '../content/npcs';
 import { NpcCard } from '../components/NpcCard';
@@ -72,6 +74,7 @@ export function LocationScreen() {
   const [scenes, setScenes] = useState<Scene[]>([]);
   const [missions, setMissions] = useState<Mission[]>([]);
   const missionRecords = useMissions((s) => s.records);
+  const trialRecords = useTrials((s) => s.records);
   const cards = useProgress((s) => s.cards);
   const level = useCity((s) => s.buildings[id]?.level ?? 0);
   const coins = useCity((s) => s.coins);
@@ -138,6 +141,30 @@ export function LocationScreen() {
                   </div>
                 );
               })}
+          {level > 0 &&
+            CHAPTERS.filter((ch) => ch.id <= opened).map((ch) => {
+              const cw = words.filter((w) => ch.levels.includes(w.level));
+              if (!cw.length) return null;
+              const tid = trialId(id, ch.id);
+              const st = trialStatus(trialRecords[tid], cw.filter((w) => !(w.id in cards)).length, now);
+              const state =
+                st.kind === 'done' ? '✓ пройдено'
+                  : st.kind === 'open' ? 'можно проходить'
+                    : st.kind === 'wait' ? `снова ${waitLabel(st.until, now)}`
+                      : `осталось ${st.wordsLeft} ${plural(st.wordsLeft, ['слово', 'слова', 'слов'])}`;
+              const tone = st.kind === 'done' ? 'bg-okbg' : st.kind === 'open' ? 'bg-orange-50' : 'border-2 border-dashed border-stone-300';
+              return (
+                <Link
+                  key={tid}
+                  to={`/trial/${encodeURIComponent(tid)}`}
+                  data-testid="trial-link"
+                  className={`press flex items-center justify-between gap-3 rounded-2xl px-4 py-3 shadow-sm ${tone}`}
+                >
+                  <span className={`shrink-0 font-semibold ${st.kind === 'locked' ? 'text-stone-500' : ''}`}>🏆 Испытание</span>
+                  <span className="text-right text-sm text-stone-500">глава {ch.roman} · {state} →</span>
+                </Link>
+              );
+            })}
           <IncomeCard id={id} level={level} />
           {levels.map((lvl) => {
             const lw = levelWords(words, lvl);

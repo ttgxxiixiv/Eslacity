@@ -154,3 +154,12 @@ export function answerLetters(answer: string, lang: Lang = LANG): { letters: str
   if (s.includes("'")) letters.push("'");
   return { letters, space: s.includes(' ') };
 }
+
+/**
+ * Клавиши над полем в испытании: все буквы с ударением языка и апостроф, одни и те же для любого ответа,
+ * чтобы не подсказывать буквы ответа.
+ */
+export const EXAM_KEYS: Record<Lang, string[]> = {
+  es: ['á', 'é', 'í', 'ó', 'ú', 'ü', 'ñ'],
+  it: ['à', 'è', 'é', 'ì', 'ò', 'ù', "'"],
+};

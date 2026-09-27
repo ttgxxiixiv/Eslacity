@@ -12,6 +12,8 @@ import { canBuyFreeze, EMPTY_STREAK, registerGoal, settleStreak, type StreakStat
 import { useCity } from './city';
 import { useJourney } from './journey';
 import { useErrands } from './errands';
+import { useTrials } from './trials';
+import { trialsPassed } from '../domain/trial';
 import { friendsCount } from '../domain/reputation';
 import { vocabulary } from '../domain/vocabulary';
 import { PHRASE_IDS } from '../content/wordIndex';
@@ -84,6 +86,7 @@ export function medalCounters(): MedalCounters {
     fragments: fragmentCount(useJourney.getState()),
     errands: useErrands.getState().done,
     friends: friendsCount(useErrands.getState().rep),
+    trials: trialsPassed(useTrials.getState().records),
   };
 }
 

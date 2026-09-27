@@ -4,6 +4,8 @@ import { lessonsOf } from '../content/grammar';
 import { LOCATIONS } from '../content/locations';
 import { MISSION_CHAPTERS, SCROLL_WORDS, WORD_LEVELS } from '../content/wordIndex';
 import { isMissionDone, useMissions } from './missions';
+import { useTrials } from './trials';
+import { isTrialDone } from '../domain/trial';
 import { db } from '../db/db';
 import { persist } from '../db/persist';
 import {
@@ -37,6 +39,7 @@ export function journeyInput(): JourneyInput {
     scrolls: SCROLL_WORDS,
     missions: MISSION_CHAPTERS,
     isMissionDone: (place, chapter) => isMissionDone(useMissions.getState().records, place, chapter),
+    isTrialDone: (place, chapter) => isTrialDone(useTrials.getState().records, place, chapter),
   };
 }
 

@@ -1,7 +1,7 @@
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { expect, test } from '@playwright/test';
-import { answerGrammar, DB, LANGS, loadLesson, openApp, readMeta, seedDueCards, seedXp, wordIdsOf, seedMissionsDone } from './fixtures';
+import { answerGrammar, DB, LANGS, loadLesson, openApp, readMeta, seedDueCards, seedXp, wordIdsOf, seedMissionsDone, seedTrialsDone } from './fixtures';
 
 test('переключение языка сохраняет прогресс каждого курса', async ({ page }) => {
   await openApp(page, 'es');
@@ -103,8 +103,9 @@ for (const lang of LANGS) {
 
     test('обрывок карты за слова главы в месте и медаль «Картограф»', async ({ page }) => {
       await openApp(page, lang);
-      // Все слова уровней 1–2 кафе и половина рынка, миссия кафе пройдена: обрывок главы I только у кафе.
+      // Все слова уровней 1–2 кафе и половина рынка, миссия и испытание кафе пройдены: обрывок главы I только у кафе.
       await seedMissionsDone(page, lang, ['ms:cafe.1']);
+      await seedTrialsDone(page, lang, ['tr:cafe.1']);
       const market = wordIdsOf(lang, 'market', [1, 2]);
       await seedDueCards(page, lang, [...wordIdsOf(lang, 'cafe', [1, 2]), ...market.slice(0, market.length / 2)]);
       await expect

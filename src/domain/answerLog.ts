@@ -5,7 +5,7 @@ import { ruleCardId } from './itemId';
  * Журнал ответов: каждая попытка в любом задании. По нему считаются точность, медали,
  * сила Эликсира и отчёты. Записи хранятся только на устройстве.
  */
-export type AnswerMode = 'learn' | 'practice' | 'review' | 'grammar' | 'blitz';
+export type AnswerMode = 'learn' | 'practice' | 'review' | 'grammar' | 'blitz' | 'trial';
 
 export interface AnswerRecord {
   id?: number;

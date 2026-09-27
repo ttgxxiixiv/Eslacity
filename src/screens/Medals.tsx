@@ -7,7 +7,6 @@ import { medalCounters, useMotivation } from '../store/motivation';
 
 /** Когда включатся линии, для которых ещё нет систем. */
 const SOON: Partial<Record<LineId, string>> = {
-  trials: 'Откроется с испытаниями мест и стражей',
   echo: 'Откроется в Лабиринте Эха',
 };
 

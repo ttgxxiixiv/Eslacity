@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { ECONOMY, XP } from '../config';
 import type { Phrase } from '../content/schema';
 import { logAnswer } from '../db/answers';
-import { checkPhrase, normalize, type CheckResult, type Verdict } from '../domain/answer';
+import { checkPhrase, EXAM_KEYS, normalize, type CheckResult, type Verdict } from '../domain/answer';
 import { answerMs, type AnswerMode } from '../domain/answerLog';
 import { seeded } from '../domain/generators';
 import { fullPhrase } from '../domain/phrase';
@@ -36,6 +36,20 @@ const REASON: Record<string, string> = {
 
 const rng = seeded(Date.now());
 let seq = 0;
+
+/** Итог ответа на задание фразы: верный вариант, перевод, причина «почти» и другой вариант фразы. */
+export function phraseFeedback(phrase: Phrase, verdict: Verdict, check?: CheckResult): Feedback {
+  const full = fullPhrase(phrase.es);
+  const alt = phrase.alt?.[0] ? `Можно и так: ${fullPhrase(phrase.alt[0])}` : undefined;
+  return {
+    verdict,
+    title: verdict === 'correct' ? 'Верно!' : verdict === 'almost' ? 'Почти' : 'Неверно',
+    answer: full,
+    sub: phrase.ru,
+    note: [check?.reason ? REASON[check.reason] : undefined, phrase.note ?? alt].filter(Boolean).join(' ') || undefined,
+    speakText: full,
+  };
+}
 
 /**
  * Прохождение фраз места: знакомство, выбор, сборка из плиток и ввод. В уроке (`learn`) ошибка возвращает
@@ -81,15 +95,7 @@ export function PhraseRun({ steps: initial, phrases, pool, mode, label, onFinish
       };
     });
     const full = fullPhrase(phrase.es);
-    const alt = phrase.alt?.[0] ? `Можно и так: ${fullPhrase(phrase.alt[0])}` : undefined;
-    setFb({
-      verdict,
-      title: verdict === 'correct' ? 'Верно!' : verdict === 'almost' ? 'Почти' : 'Неверно',
-      answer: full,
-      sub: phrase.ru,
-      note: [check?.reason ? REASON[check.reason] : undefined, phrase.note ?? alt].filter(Boolean).join(' ') || undefined,
-      speakText: full,
-    });
+    setFb(phraseFeedback(phrase, verdict, check));
     // Ошибка в уроке: то же задание ещё раз в конце, с новыми вариантами.
     if (verdict === 'wrong' && mode === 'learn') {
       const again: PhraseStep =
@@ -197,7 +203,7 @@ function PhraseChoose({ phrase, options, locked, onAnswer }: {
   );
 }
 
-function PhraseTiles({ phrase, tiles, locked, onAnswer }: {
+export function PhraseTiles({ phrase, tiles, locked, onAnswer }: {
   phrase: Phrase;
   tiles: string[];
   locked: boolean;
@@ -257,12 +263,13 @@ function PhraseTiles({ phrase, tiles, locked, onAnswer }: {
   );
 }
 
-function PhraseType({ phrase, locked, onAnswer }: { phrase: Phrase; locked: boolean; onAnswer(v: Verdict, r: CheckResult): void }) {
+/** exam — испытание: над полем все буквы с ударением языка, а не только те, что есть во фразе. */
+export function PhraseType({ phrase, locked, onAnswer, exam = false }: { phrase: Phrase; locked: boolean; onAnswer(v: Verdict, r: CheckResult): void; exam?: boolean }) {
   const [value, setValue] = useState('');
   const [result, setResult] = useState<Verdict | null>(null);
   const input = useRef<HTMLInputElement>(null);
   // Над полем — только буквы с ударением и апостроф из этой фразы: остальное есть на любой клавиатуре.
-  const keys = [...new Set(normalize(fullPhrase(phrase.es)).match(/[áéíóúüñàèìòù']/g) ?? [])];
+  const keys = exam ? EXAM_KEYS[LANG] : [...new Set(normalize(fullPhrase(phrase.es)).match(/[áéíóúüñàèìòù']/g) ?? [])];
   const insert = (ch: string) => {
     const el = input.current;
     if (!el) return;

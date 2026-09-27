@@ -1,6 +1,6 @@
 import { L, LANG } from '../../lang';
 import { useRef, useState } from 'react';
-import { answerLetters, checkTyped, type CheckResult } from '../../domain/answer';
+import { answerLetters, checkTyped, EXAM_KEYS, type CheckResult } from '../../domain/answer';
 import { AccentBar } from '../AccentBar';
 import { CantListen, ListenControls } from './ListenControls';
 import { Button, genderLabel } from '../ui';
@@ -12,7 +12,8 @@ const REASON_NOTE: Record<NonNullable<CheckResult['reason']>, string> = {
   article: 'Существительное учим вместе с артиклем.',
 };
 
-export function TypeAnswer({ step, words, locked, onAnswer, onCantListen }: ExerciseProps<'type' | 'listen-type'> & { onCantListen?: () => void }) {
+/** exam — испытание: над полем только буквы с ударением языка, без букв ответа. */
+export function TypeAnswer({ step, words, locked, onAnswer, onCantListen, exam = false }: ExerciseProps<'type' | 'listen-type'> & { onCantListen?: () => void; exam?: boolean }) {
   const dictation = step.kind === 'listen-type';
   const word = words[step.wordId];
   const [value, setValue] = useState('');
@@ -40,7 +41,7 @@ export function TypeAnswer({ step, words, locked, onAnswer, onCantListen }: Exer
     requestAnimationFrame(() => el.setSelectionRange(from, from));
   };
 
-  const keys = answerLetters(word.es);
+  const keys = exam ? { letters: EXAM_KEYS[LANG], space: false } : answerLetters(word.es);
 
   const submit = () => {
     if (locked || !value.trim()) return;

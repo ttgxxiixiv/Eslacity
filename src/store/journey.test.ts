@@ -6,6 +6,7 @@ import { currentJourney, useJourney } from './journey';
 import { useCity } from './city';
 import { useProgress } from './progress';
 import { useMissions } from './missions';
+import { useTrials } from './trials';
 import { lessonsOf } from '../content/grammar';
 
 const card = (wordId: string) => ({ wordId, ef: 2.5, interval: 1, reps: 1, due: 0, lapses: 0, learnedAt: 0, lastReviewedAt: 0 }) as SrsCard;
@@ -27,8 +28,13 @@ describe('путь по настоящему контенту', () => {
     useProgress.getState().hydrate({ cards: cafe.map(card), days: [], xpTotal: 0, grammar: [] });
     // У кафе есть сюжетная миссия главы I: без неё обрывка нет.
     useMissions.getState().hydrate({});
-    expect(currentJourney().chapters[0].places.find((p) => p.location === 'cafe')).toMatchObject({ ready: false, missing: ['mission'] });
+    useTrials.getState().hydrate({});
+    expect(currentJourney().chapters[0].places.find((p) => p.location === 'cafe')).toMatchObject({ ready: false, missing: ['mission', 'trial'] });
     useMissions.getState().hydrate({ 'ms:cafe.1': { attempts: 1, best: 1, done: 500 } });
+    // И испытание места главы I.
+    useTrials.getState().hydrate({});
+    expect(currentJourney().chapters[0].places.find((p) => p.location === 'cafe')).toMatchObject({ ready: false, missing: ['trial'] });
+    useTrials.getState().hydrate({ 'tr:cafe.1': { attempts: 1, best: 1, done: 600 } });
     expect(currentJourney().chapters[0].places.find((p) => p.location === 'cafe')).toMatchObject({ ready: true });
     const got = useJourney.getState().sync(1000);
     expect(got).toEqual([{ kind: 'fragment', chapter: 1, location: 'cafe' }]);

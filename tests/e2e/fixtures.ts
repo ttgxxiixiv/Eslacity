@@ -9,7 +9,7 @@ const CONTENT = join(import.meta.dirname, '..', '..', 'src', 'content');
 /** Имя базы IndexedDB для языка: у испанского прежнее имя. */
 export const DB: Record<Lang, string> = { es: 'eslacity', it: 'eslacity-it' };
 /** Наречие в заголовках заданий: «Как сказать по-испански?». */
-const ADVERB: Record<Lang, string> = { es: 'по-испански', it: 'по-итальянски' };
+export const ADVERB: Record<Lang, string> = { es: 'по-испански', it: 'по-итальянски' };
 
 interface Word {
   id: string;
@@ -72,7 +72,7 @@ export function loadLesson(lang: Lang, district: string, file: string): { id: st
 }
 
 const esc = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-const exact = (s: string) => new RegExp(`^${esc(s)}$`);
+export const exact = (s: string) => new RegExp(`^${esc(s)}$`);
 const squash = (s: string) => s.replace(/\s+/g, '');
 
 /**
@@ -272,7 +272,7 @@ export function loadPhraseData(lang: Lang, place: string): PhraseData[] {
 
 /** Фраза целиком без скобок, как её показывает приложение. */
 export const phraseFull = (es: string) => es.replace(/[()]/g, '').replace(/\s+/g, ' ').trim();
-const phraseTiles = (es: string) => {
+export const phraseTiles = (es: string) => {
   const t = phraseFull(es).replace(/[¿¡?!.,;:"«»()…—–]/g, ' ').split(/\s+/).filter(Boolean);
   if (t[0] !== t[0].toUpperCase()) t[0] = t[0].toLowerCase();
   return t;
@@ -333,6 +333,29 @@ export async function seedMissionsDone(page: Page, lang: Lang, ids: string[]) {
         r.onsuccess = () => {
           const tx = r.result.transaction('meta', 'readwrite');
           tx.objectStore('meta').put({ key: 'missions', value: Object.fromEntries(ids.map((id) => [id, { attempts: 1, best: 1, done: 1 }])) });
+          tx.oncomplete = () => resolve();
+        };
+      }),
+    { db: DB[lang], ids },
+  );
+}
+
+/** Места города в порядке показа. */
+export const PLACES = ['cafe', 'market', 'supermarket', 'restaurant', 'home', 'park', 'clothes', 'pharmacy', 'school', 'post',
+  'bank', 'barber', 'gym', 'station', 'beach', 'office', 'hotel', 'hospital', 'airport', 'police'];
+
+/** id испытаний всех мест главы. */
+export const trialIdsOf = (chapter: number) => PLACES.map((p) => `tr:${p}.${chapter}`);
+
+/** Отметить испытания мест пройденными (без перезагрузки: следующий seed или reload её сделает). */
+export async function seedTrialsDone(page: Page, lang: Lang, ids: string[]) {
+  await page.evaluate(
+    ({ db, ids }) =>
+      new Promise<void>((resolve) => {
+        const r = indexedDB.open(db);
+        r.onsuccess = () => {
+          const tx = r.result.transaction('meta', 'readwrite');
+          tx.objectStore('meta').put({ key: 'trials', value: Object.fromEntries(ids.map((id) => [id, { attempts: 1, best: 1, done: 1 }])) });
           tx.oncomplete = () => resolve();
         };
       }),
