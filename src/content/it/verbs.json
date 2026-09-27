@@ -1,0 +1,696 @@
+{
+  "smith": {
+    "name": "Ферруччо",
+    "role": "кузнец глаголов",
+    "gender": "m",
+    "greeting": {
+      "es": "Benvenuto nella fucina! Qui forgiamo i verbi.",
+      "ru": "Добро пожаловать в кузницу! Здесь мы куём глаголы."
+    },
+    "voice": {
+      "pitch": 0.75,
+      "rate": 0.9
+    },
+    "look": {
+      "skin": 2,
+      "hair": "#6b4a2b",
+      "style": "short",
+      "outfit": "#7a3b1e",
+      "pants": "#2e2216",
+      "extra": [
+        "apron",
+        "mustache"
+      ]
+    }
+  },
+  "verbs": [
+    {
+      "inf": "essere",
+      "ru": "быть",
+      "aux": "essere",
+      "pp": "stato",
+      "fut": "sar",
+      "forms": {
+        "presente": [
+          "sono",
+          "sei",
+          "è",
+          "siamo",
+          "siete",
+          "sono"
+        ],
+        "imperfetto": [
+          "ero",
+          "eri",
+          "era",
+          "eravamo",
+          "eravate",
+          "erano"
+        ],
+        "congiuntivo": [
+          "sia",
+          "sia",
+          "sia",
+          "siamo",
+          "siate",
+          "siano"
+        ]
+      }
+    },
+    {
+      "inf": "avere",
+      "ru": "иметь",
+      "fut": "avr",
+      "forms": {
+        "presente": [
+          "ho",
+          "hai",
+          "ha",
+          "abbiamo",
+          "avete",
+          "hanno"
+        ],
+        "congiuntivo": [
+          "abbia",
+          "abbia",
+          "abbia",
+          "abbiamo",
+          "abbiate",
+          "abbiano"
+        ]
+      }
+    },
+    {
+      "inf": "fare",
+      "ru": "делать",
+      "pp": "fatto",
+      "fut": "far",
+      "forms": {
+        "presente": [
+          "faccio",
+          "fai",
+          "fa",
+          "facciamo",
+          "fate",
+          "fanno"
+        ],
+        "imperfetto": [
+          "facevo",
+          "facevi",
+          "faceva",
+          "facevamo",
+          "facevate",
+          "facevano"
+        ],
+        "congiuntivo": [
+          "faccia",
+          "faccia",
+          "faccia",
+          "facciamo",
+          "facciate",
+          "facciano"
+        ]
+      }
+    },
+    {
+      "inf": "andare",
+      "ru": "идти, ехать",
+      "aux": "essere",
+      "fut": "andr",
+      "forms": {
+        "presente": [
+          "vado",
+          "vai",
+          "va",
+          "andiamo",
+          "andate",
+          "vanno"
+        ],
+        "congiuntivo": [
+          "vada",
+          "vada",
+          "vada",
+          "andiamo",
+          "andiate",
+          "vadano"
+        ]
+      }
+    },
+    {
+      "inf": "venire",
+      "ru": "приходить",
+      "aux": "essere",
+      "pp": "venuto",
+      "fut": "verr",
+      "forms": {
+        "presente": [
+          "vengo",
+          "vieni",
+          "viene",
+          "veniamo",
+          "venite",
+          "vengono"
+        ],
+        "congiuntivo": [
+          "venga",
+          "venga",
+          "venga",
+          "veniamo",
+          "veniate",
+          "vengano"
+        ]
+      }
+    },
+    {
+      "inf": "dire",
+      "ru": "сказать",
+      "pp": "detto",
+      "fut": "dir",
+      "forms": {
+        "presente": [
+          "dico",
+          "dici",
+          "dice",
+          "diciamo",
+          "dite",
+          "dicono"
+        ],
+        "imperfetto": [
+          "dicevo",
+          "dicevi",
+          "diceva",
+          "dicevamo",
+          "dicevate",
+          "dicevano"
+        ],
+        "congiuntivo": [
+          "dica",
+          "dica",
+          "dica",
+          "diciamo",
+          "diciate",
+          "dicano"
+        ]
+      }
+    },
+    {
+      "inf": "stare",
+      "ru": "находиться, быть",
+      "aux": "essere",
+      "fut": "star",
+      "forms": {
+        "presente": [
+          "sto",
+          "stai",
+          "sta",
+          "stiamo",
+          "state",
+          "stanno"
+        ],
+        "congiuntivo": [
+          "stia",
+          "stia",
+          "stia",
+          "stiamo",
+          "stiate",
+          "stiano"
+        ]
+      }
+    },
+    {
+      "inf": "dare",
+      "ru": "давать",
+      "fut": "dar",
+      "forms": {
+        "presente": [
+          "do",
+          "dai",
+          "dà",
+          "diamo",
+          "date",
+          "danno"
+        ],
+        "congiuntivo": [
+          "dia",
+          "dia",
+          "dia",
+          "diamo",
+          "diate",
+          "diano"
+        ]
+      }
+    },
+    {
+      "inf": "potere",
+      "ru": "мочь",
+      "fut": "potr",
+      "forms": {
+        "presente": [
+          "posso",
+          "puoi",
+          "può",
+          "possiamo",
+          "potete",
+          "possono"
+        ],
+        "congiuntivo": [
+          "possa",
+          "possa",
+          "possa",
+          "possiamo",
+          "possiate",
+          "possano"
+        ]
+      }
+    },
+    {
+      "inf": "volere",
+      "ru": "хотеть",
+      "fut": "vorr",
+      "forms": {
+        "presente": [
+          "voglio",
+          "vuoi",
+          "vuole",
+          "vogliamo",
+          "volete",
+          "vogliono"
+        ],
+        "congiuntivo": [
+          "voglia",
+          "voglia",
+          "voglia",
+          "vogliamo",
+          "vogliate",
+          "vogliano"
+        ]
+      }
+    },
+    {
+      "inf": "dovere",
+      "ru": "быть должным",
+      "fut": "dovr",
+      "forms": {
+        "presente": [
+          "devo",
+          "devi",
+          "deve",
+          "dobbiamo",
+          "dovete",
+          "devono"
+        ],
+        "congiuntivo": [
+          "debba",
+          "debba",
+          "debba",
+          "dobbiamo",
+          "dobbiate",
+          "debbano"
+        ]
+      }
+    },
+    {
+      "inf": "sapere",
+      "ru": "знать",
+      "fut": "sapr",
+      "forms": {
+        "presente": [
+          "so",
+          "sai",
+          "sa",
+          "sappiamo",
+          "sapete",
+          "sanno"
+        ],
+        "congiuntivo": [
+          "sappia",
+          "sappia",
+          "sappia",
+          "sappiamo",
+          "sappiate",
+          "sappiano"
+        ]
+      }
+    },
+    {
+      "inf": "uscire",
+      "ru": "выходить",
+      "aux": "essere",
+      "forms": {
+        "presente": [
+          "esco",
+          "esci",
+          "esce",
+          "usciamo",
+          "uscite",
+          "escono"
+        ],
+        "congiuntivo": [
+          "esca",
+          "esca",
+          "esca",
+          "usciamo",
+          "usciate",
+          "escano"
+        ]
+      }
+    },
+    {
+      "inf": "bere",
+      "ru": "пить",
+      "pp": "bevuto",
+      "fut": "berr",
+      "forms": {
+        "presente": [
+          "bevo",
+          "bevi",
+          "beve",
+          "beviamo",
+          "bevete",
+          "bevono"
+        ],
+        "imperfetto": [
+          "bevevo",
+          "bevevi",
+          "beveva",
+          "bevevamo",
+          "bevevate",
+          "bevevano"
+        ],
+        "congiuntivo": [
+          "beva",
+          "beva",
+          "beva",
+          "beviamo",
+          "beviate",
+          "bevano"
+        ]
+      }
+    },
+    {
+      "inf": "rimanere",
+      "ru": "оставаться",
+      "aux": "essere",
+      "pp": "rimasto",
+      "fut": "rimarr",
+      "forms": {
+        "presente": [
+          "rimango",
+          "rimani",
+          "rimane",
+          "rimaniamo",
+          "rimanete",
+          "rimangono"
+        ],
+        "congiuntivo": [
+          "rimanga",
+          "rimanga",
+          "rimanga",
+          "rimaniamo",
+          "rimaniate",
+          "rimangano"
+        ]
+      }
+    },
+    {
+      "inf": "tenere",
+      "ru": "держать",
+      "fut": "terr",
+      "forms": {
+        "presente": [
+          "tengo",
+          "tieni",
+          "tiene",
+          "teniamo",
+          "tenete",
+          "tengono"
+        ],
+        "congiuntivo": [
+          "tenga",
+          "tenga",
+          "tenga",
+          "teniamo",
+          "teniate",
+          "tengano"
+        ]
+      }
+    },
+    {
+      "inf": "vedere",
+      "ru": "видеть",
+      "pp": "visto",
+      "fut": "vedr"
+    },
+    {
+      "inf": "prendere",
+      "ru": "брать",
+      "pp": "preso"
+    },
+    {
+      "inf": "mettere",
+      "ru": "класть, ставить",
+      "pp": "messo"
+    },
+    {
+      "inf": "scrivere",
+      "ru": "писать",
+      "pp": "scritto"
+    },
+    {
+      "inf": "leggere",
+      "ru": "читать",
+      "pp": "letto"
+    },
+    {
+      "inf": "aprire",
+      "ru": "открывать",
+      "pp": "aperto"
+    },
+    {
+      "inf": "chiudere",
+      "ru": "закрывать",
+      "pp": "chiuso"
+    },
+    {
+      "inf": "vivere",
+      "ru": "жить",
+      "pp": "vissuto",
+      "fut": "vivr"
+    },
+    {
+      "inf": "correre",
+      "ru": "бегать",
+      "pp": "corso"
+    },
+    {
+      "inf": "perdere",
+      "ru": "терять",
+      "pp": "perso"
+    },
+    {
+      "inf": "rispondere",
+      "ru": "отвечать",
+      "pp": "risposto"
+    },
+    {
+      "inf": "scegliere",
+      "ru": "выбирать",
+      "pp": "scelto",
+      "forms": {
+        "presente": [
+          "scelgo",
+          "scegli",
+          "sceglie",
+          "scegliamo",
+          "scegliete",
+          "scelgono"
+        ],
+        "congiuntivo": [
+          "scelga",
+          "scelga",
+          "scelga",
+          "scegliamo",
+          "scegliate",
+          "scelgano"
+        ]
+      }
+    },
+    {
+      "inf": "piacere",
+      "ru": "нравиться",
+      "aux": "essere",
+      "pp": "piaciuto",
+      "forms": {
+        "presente": [
+          "piaccio",
+          "piaci",
+          "piace",
+          "piacciamo",
+          "piacete",
+          "piacciono"
+        ],
+        "congiuntivo": [
+          "piaccia",
+          "piaccia",
+          "piaccia",
+          "piacciamo",
+          "piacciate",
+          "piacciano"
+        ]
+      }
+    },
+    {
+      "inf": "salire",
+      "ru": "подниматься",
+      "aux": "essere",
+      "forms": {
+        "presente": [
+          "salgo",
+          "sali",
+          "sale",
+          "saliamo",
+          "salite",
+          "salgono"
+        ],
+        "congiuntivo": [
+          "salga",
+          "salga",
+          "salga",
+          "saliamo",
+          "saliate",
+          "salgano"
+        ]
+      }
+    },
+    {
+      "inf": "parlare",
+      "ru": "говорить"
+    },
+    {
+      "inf": "lavorare",
+      "ru": "работать"
+    },
+    {
+      "inf": "abitare",
+      "ru": "жить, проживать"
+    },
+    {
+      "inf": "mangiare",
+      "ru": "есть"
+    },
+    {
+      "inf": "cercare",
+      "ru": "искать"
+    },
+    {
+      "inf": "pagare",
+      "ru": "платить"
+    },
+    {
+      "inf": "studiare",
+      "ru": "учиться"
+    },
+    {
+      "inf": "comprare",
+      "ru": "покупать"
+    },
+    {
+      "inf": "giocare",
+      "ru": "играть"
+    },
+    {
+      "inf": "cominciare",
+      "ru": "начинать"
+    },
+    {
+      "inf": "arrivare",
+      "ru": "приезжать",
+      "aux": "essere"
+    },
+    {
+      "inf": "tornare",
+      "ru": "возвращаться",
+      "aux": "essere"
+    },
+    {
+      "inf": "entrare",
+      "ru": "входить",
+      "aux": "essere"
+    },
+    {
+      "inf": "guardare",
+      "ru": "смотреть"
+    },
+    {
+      "inf": "ascoltare",
+      "ru": "слушать"
+    },
+    {
+      "inf": "aspettare",
+      "ru": "ждать"
+    },
+    {
+      "inf": "viaggiare",
+      "ru": "путешествовать"
+    },
+    {
+      "inf": "credere",
+      "ru": "верить, думать"
+    },
+    {
+      "inf": "ricevere",
+      "ru": "получать"
+    },
+    {
+      "inf": "vendere",
+      "ru": "продавать"
+    },
+    {
+      "inf": "dormire",
+      "ru": "спать"
+    },
+    {
+      "inf": "partire",
+      "ru": "уезжать",
+      "aux": "essere"
+    },
+    {
+      "inf": "sentire",
+      "ru": "чувствовать, слышать"
+    },
+    {
+      "inf": "offrire",
+      "ru": "предлагать, угощать",
+      "pp": "offerto"
+    },
+    {
+      "inf": "seguire",
+      "ru": "следовать"
+    },
+    {
+      "inf": "finire",
+      "ru": "заканчивать",
+      "isc": true
+    },
+    {
+      "inf": "capire",
+      "ru": "понимать",
+      "isc": true
+    },
+    {
+      "inf": "preferire",
+      "ru": "предпочитать",
+      "isc": true
+    },
+    {
+      "inf": "pulire",
+      "ru": "чистить",
+      "isc": true
+    },
+    {
+      "inf": "spedire",
+      "ru": "отправлять",
+      "isc": true
+    }
+  ]
+}

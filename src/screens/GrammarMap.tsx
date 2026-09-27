@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { DISTRICTS, lessonsOf } from '../content/grammar';
 import type { District } from '../content/schema';
@@ -6,10 +6,18 @@ import { useProgress } from '../store/progress';
 import { useJourney } from '../store/journey';
 import { chapterById, chapterOfDistrict, isDistrictOpen } from '../domain/chapters';
 import { Screen, TopBar } from '../components/ui';
+import { isVerbId } from '../domain/itemId';
+import { plural } from '../domain/medals';
+import { dueCards } from '../domain/srs';
+import { openTenses } from '../domain/verbs';
+import { LANG } from '../lang';
 
 export function GrammarMap() {
   const done = useProgress((s) => s.grammar);
   const opened = useJourney((s) => s.opened);
+  const cards = useProgress((s) => s.cards);
+  const forgeDue = useMemo(() => dueCards(Object.values(cards), Date.now()).filter((c) => isVerbId(c.wordId)).length, [cards]);
+  const forgeOpen = openTenses(LANG, (l) => !!done[l]).length > 0;
   // По умолчанию раскрыт первый открытый район, где есть непройденные уроки.
   const current =
     DISTRICTS.find((d) => isDistrictOpen(d.id, opened) && lessonsOf(d.id).some((l) => !done[l.id]))?.id ?? 'A1';
@@ -27,6 +35,22 @@ export function GrammarMap() {
     <Screen>
       <TopBar title="Грамматика" back={false} />
       <div className="flex flex-col gap-4 px-5 pb-6">
+        <Link to="/forge" className="press flex items-center gap-3 rounded-3xl bg-white p-4 shadow-sm" data-testid="forge-entry">
+          <span className="text-3xl" aria-hidden>
+            ⚒️
+          </span>
+          <div className="flex-1">
+            <div className="text-lg font-bold">Кузница глаголов</div>
+            <div className="text-sm text-stone-500">
+              {!forgeOpen
+                ? 'Откроется после первого урока спряжения'
+                : forgeDue
+                  ? `Ждут перековки: ${forgeDue} ${plural(forgeDue, ['форма', 'формы', 'форм'])}`
+                  : 'Глагол, лицо и время: впишите форму'}
+            </div>
+          </div>
+          <span className="text-stone-400">›</span>
+        </Link>
         {DISTRICTS.map((d) => {
           const lessons = lessonsOf(d.id);
           if (!lessons.length) {

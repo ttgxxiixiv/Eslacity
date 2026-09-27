@@ -4,8 +4,9 @@ import { CHAPTERS as PLAN, PLACE_LEVEL_MAX } from './vocabPlan';
 import { expandOptional, fullPhrase, optionalError, PHRASE_MAX_WORDS, PHRASE_PREFIX, phraseWords } from '../domain/phrase';
 import { answersOnPath, missionGraphIssues } from '../domain/mission';
 import { sceneWords } from '../domain/sceneText';
+import { conjugate, generated, participle, TENSES, type Tense } from '../domain/verbs';
 import { phraseTokens } from '../domain/phraseSteps';
-import { LOCATION_IDS, type Chronicler, type GrammarLesson, type GuardiansFile, type NpcLook, type LocationMissions, type LocationPhrases, type LocationScenes, type Phrase, type LocationWords, type NpcsFile, type ScrollFile, type Word } from './schema';
+import { LOCATION_IDS, type Chronicler, type GrammarLesson, type GuardiansFile, type NpcLook, type LocationMissions, type LocationPhrases, type LocationScenes, type Phrase, type LocationWords, type NpcsFile, type ScrollFile, type VerbsFile, type Word } from './schema';
 
 export interface Issue {
   level: 'error' | 'warning';
@@ -362,6 +363,61 @@ export function validateGuardians(file: GuardiansFile | undefined, chapters: num
     checkLook(g.look, at, out);
   });
   for (const ch of chapters) if (!seen.has(ch)) out.push({ level: 'error', where, msg: `нет стража главы ${ch}` });
+  return out;
+}
+
+/** Сколько глаголов должно быть в кузнице. */
+export const VERBS_MIN = 60;
+
+const VERB_END: Record<Lang, RegExp> = { es: /(ar|er|ir|ír)$/, it: /(are|ere|ire)$/ };
+
+/**
+ * Кузница глаголов (задача 5.5): кузнец с репликой и портретом, не меньше 60 разных глаголов с переводом.
+ * Записанная строка времени — шесть непустых форм, и она должна отличаться от того, что дал бы генератор окончаний:
+ * правильные формы не записываются, генератор и данные не расходятся молча.
+ */
+export function validateVerbs(file: VerbsFile | undefined, lang: Lang): Issue[] {
+  const out: Issue[] = [];
+  const where = 'verbs.json';
+  if (!file) return [{ level: 'error', where, msg: 'нет файла глаголов' }];
+  const s = file.smith;
+  if (!s) out.push({ level: 'error', where, msg: 'нет кузнеца' });
+  else {
+    const at = `${where} кузнец`;
+    for (const f of ['name', 'role'] as const) if (empty(s[f])) out.push({ level: 'error', where: at, msg: `пустое поле ${f}` });
+    if (s.gender !== 'm' && s.gender !== 'f') out.push({ level: 'error', where: at, msg: `пол "${s.gender}"` });
+    if (empty(s.greeting?.es) || empty(s.greeting?.ru)) out.push({ level: 'error', where: at, msg: 'пустое приветствие' });
+    const { pitch, rate } = s.voice ?? {};
+    if (!(pitch >= 0.5 && pitch <= 1.5) || !(rate >= 0.7 && rate <= 1.3)) out.push({ level: 'error', where: at, msg: 'голос вне пределов (pitch 0.5–1.5, rate 0.7–1.3)' });
+    checkLook(s.look, at, out);
+  }
+  const seen = new Set<string>();
+  for (const v of file.verbs ?? []) {
+    const at = `${where} ${v.inf ?? '?'}`;
+    if (seen.has(v.inf)) out.push({ level: 'error', where: at, msg: 'дубль глагола' });
+    seen.add(v.inf);
+    if (empty(v.inf) || !VERB_END[lang].test(v.inf)) out.push({ level: 'error', where: at, msg: 'инфинитив с неожиданным окончанием' });
+    if (empty(v.ru)) out.push({ level: 'error', where: at, msg: 'нет перевода' });
+    if (lang === 'es' && (v.isc || v.aux)) out.push({ level: 'error', where: at, msg: 'isc и aux бывают только у итальянских глаголов' });
+    if (lang === 'it' && v.ch) out.push({ level: 'error', where: at, msg: 'чередование ch бывает только у испанских глаголов' });
+    const bare = { inf: v.inf, ru: v.ru, ch: v.ch, isc: v.isc };
+    if (v.pp && v.pp === participle(bare, lang)) out.push({ level: 'error', where: at, msg: 'причастие pp совпадает с правильным, запись не нужна' });
+    if (v.yo && v.yo === conjugate(bare, 'presente', lang)[0]) out.push({ level: 'error', where: at, msg: 'форма yo совпадает с правильной, запись не нужна' });
+    for (const [t, forms] of Object.entries(v.forms ?? {})) {
+      if (!TENSES[lang].includes(t as Tense)) {
+        out.push({ level: 'error', where: at, msg: `неизвестное время "${t}"` });
+        continue;
+      }
+      if (!Array.isArray(forms) || forms.length !== 6 || forms.some((f) => empty(f))) {
+        out.push({ level: 'error', where: at, msg: `${t}: нужно 6 непустых форм` });
+        continue;
+      }
+      if (generated(v, t as Tense, lang).every((f, i) => f === forms[i])) {
+        out.push({ level: 'error', where: at, msg: `${t}: совпадает с правильной формой, запись не нужна` });
+      }
+    }
+  }
+  if (seen.size < VERBS_MIN) out.push({ level: 'error', where, msg: `глаголов ${seen.size}, нужно не меньше ${VERBS_MIN}` });
   return out;
 }
 

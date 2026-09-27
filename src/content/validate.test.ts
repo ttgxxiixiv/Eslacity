@@ -2,8 +2,8 @@ import { describe, expect, it } from 'vitest';
 import type { LocationWords, Word } from './schema';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { validateChronicler, validateGrammar, validateMissions, validateNpcs, validatePhrases, validateScenes, validateScrolls, validateWords } from './validate';
-import { LOCATION_IDS, type Chronicler, type GrammarLesson, type LocationMissions, type LocationPhrases, type LocationScenes, type Mission, type NpcsFile, type Phrase, type Scene, type ScrollFile } from './schema';
+import { validateChronicler, validateGrammar, validateMissions, validateNpcs, validatePhrases, validateScenes, validateScrolls, validateVerbs, validateWords } from './validate';
+import { LOCATION_IDS, type Chronicler, type GrammarLesson, type LocationMissions, type LocationPhrases, type LocationScenes, type Mission, type NpcsFile, type Phrase, type Scene, type ScrollFile, type VerbsFile } from './schema';
 
 const base = (i: number, extra: Partial<Word> = {}): Word => ({
   id: `cafe.w${i}`, es: `la palabra${i}`, ru: `слово ${i}`, pos: 'noun', gender: 'f', level: 1, cefr: 'A1',
@@ -371,5 +371,39 @@ describe('сцены и миссии глав I–III: контент', () => {
         }
       }
     }
+  });
+});
+
+describe('validateVerbs', () => {
+  const real = (lang: 'es' | 'it') => JSON.parse(readFileSync(join(__dirname, lang, 'verbs.json'), 'utf8')) as VerbsFile;
+  const msgs = (f: VerbsFile, lang: 'es' | 'it') => validateVerbs(f, lang).map((x) => x.msg);
+  it('настоящие глаголы обоих языков проходят', () => {
+    expect(msgs(real('es'), 'es')).toEqual([]);
+    expect(msgs(real('it'), 'it')).toEqual([]);
+  });
+  it('правильная строка, записанная руками, — ошибка; неверная длина и чужое время тоже', () => {
+    const f = real('es');
+    f.verbs.push(
+      { inf: 'charlar', ru: 'болтать', forms: { presente: ['charlo', 'charlas', 'charla', 'charlamos', 'charláis', 'charlan'] } },
+      { inf: 'pintar', ru: 'рисовать', pp: 'pintado', forms: { futuro: ['pintaré'], passato: ['a', 'b', 'c', 'd', 'e', 'f'] } },
+    );
+    expect(msgs(f, 'es')).toEqual([
+      'presente: совпадает с правильной формой, запись не нужна',
+      'причастие pp совпадает с правильным, запись не нужна',
+      'futuro: нужно 6 непустых форм',
+      'неизвестное время "passato"',
+    ]);
+  });
+  it('мало глаголов, дубль, окончание, кузнец без приветствия', () => {
+    const f = real('it');
+    f.verbs = [...f.verbs.slice(0, 58), f.verbs[0], { inf: 'fare2', ru: '' }];
+    f.smith = { ...f.smith, greeting: { es: '', ru: '' } };
+    expect(msgs(f, 'it')).toEqual([
+      'пустое приветствие',
+      'дубль глагола',
+      'инфинитив с неожиданным окончанием',
+      'нет перевода',
+      'глаголов 59, нужно не меньше 60',
+    ]);
   });
 });

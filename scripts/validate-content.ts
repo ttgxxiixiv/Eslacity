@@ -1,7 +1,7 @@
 import { readdirSync, readFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
-import { validateChronicler, validateGrammar, validateGuardians, validateMissions, validateNpcs, validatePhrases, validateScenes, validateScrolls, validateWords, type Issue } from '../src/content/validate';
-import type { Chronicler, GrammarLesson, GuardiansFile, LocationMissions, LocationPhrases, LocationScenes, NpcsFile, ScrollFile } from '../src/content/schema';
+import { validateChronicler, validateGrammar, validateGuardians, validateMissions, validateNpcs, validatePhrases, validateScenes, validateScrolls, validateVerbs, validateWords, type Issue } from '../src/content/validate';
+import type { Chronicler, GrammarLesson, GuardiansFile, VerbsFile, LocationMissions, LocationPhrases, LocationScenes, NpcsFile, ScrollFile } from '../src/content/schema';
 import type { Lang } from '../src/lang';
 import { CHAPTERS, PLAN_TOTAL } from '../src/content/vocabPlan';
 import { chapterOfDistrict } from '../src/domain/chapters';
@@ -54,6 +54,8 @@ for (const lang of langs) {
   const chronicler = existsSync(chroniclerPath) ? (JSON.parse(readFileSync(chroniclerPath, 'utf8')) as Chronicler) : undefined;
   const scrolls = readJson<ScrollFile>(join(root, lang, 'scrolls'));
   const guardiansPath = join(root, lang, 'guardians.json');
+  const verbsPath = join(root, lang, 'verbs.json');
+  const verbs = existsSync(verbsPath) ? (JSON.parse(readFileSync(verbsPath, 'utf8')) as VerbsFile) : undefined;
   const guardians = existsSync(guardiansPath) ? (JSON.parse(readFileSync(guardiansPath, 'utf8')) as GuardiansFile) : undefined;
   // Главы, где есть уроки: у каждой должен быть страж.
   const lessonChapters = [...new Set(grammar.map((g) => chapterOfDistrict((g.data as GrammarLesson).district)?.id ?? 0))].filter(Boolean).sort();
@@ -99,13 +101,14 @@ for (const lang of langs) {
     ...tag(validateNpcs(npcs)),
     ...tag(validateChronicler(chronicler, npcs)),
     ...tag(validateGuardians(guardians, lessonChapters)),
+    ...tag(validateVerbs(verbs, lang)),
   );
   const placeCount = words.reduce((n, f) => n + f.data.words.length, 0);
   const scrollCount = scrolls.reduce((n, f) => n + f.data.words.length, 0);
   const phraseCount = phrases.reduce((n, f) => n + f.data.phrases.length, 0);
   const missionCount = missions.reduce((n, f) => n + f.data.missions.length, 0);
   summary.push(
-    `${lang}: ${words.length} локаций, слов: ${placeCount + scrollCount} (из них в свитках ${scrollCount}) из плана ${PLAN_TOTAL}, ${grammar.length} уроков, ${phraseCount} ${plural(phraseCount, ['фраза', 'фразы', 'фраз'])}, ${sceneSummary(sceneCheck.report)}, ${missionCount} ${plural(missionCount, ['миссия', 'миссии', 'миссий'])}, ${npcs?.npcs.length ?? 0} жителей`,
+    `${lang}: ${words.length} локаций, слов: ${placeCount + scrollCount} (из них в свитках ${scrollCount}) из плана ${PLAN_TOTAL}, ${grammar.length} уроков, ${phraseCount} ${plural(phraseCount, ['фраза', 'фразы', 'фраз'])}, ${sceneSummary(sceneCheck.report)}, ${missionCount} ${plural(missionCount, ['миссия', 'миссии', 'миссий'])}, ${npcs?.npcs.length ?? 0} жителей, ${verbs?.verbs.length ?? 0} глаголов в кузнице`,
   );
 }
 

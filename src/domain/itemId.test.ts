@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { exerciseOf, isPhraseId, isRuleId, isWordId, lessonOfExercise, placeOfPhrase, ruleCardId, splitCards, wordCards, wordIds } from './itemId';
+import { exerciseOf, isPhraseId, isRuleId, isVerbId, isWordId, lessonOfExercise, placeOfPhrase, ruleCardId, splitCards, wordCards, wordIds } from './itemId';
 import { grammarItemId } from './answerLog';
 import { vocabulary } from './vocabulary';
 import { recentLocation } from './next';
@@ -49,6 +49,21 @@ describe('карточки фраз', () => {
   });
   it('в словарный запас и «последнее место» фразы не входят', () => {
     const rec = Object.fromEntries(list.map((c, i) => [c.wordId, { ...c, learnedAt: i }]));
+    expect(vocabulary(rec, () => false)).toEqual({ learned: 1, solid: 1 });
+    expect(recentLocation(rec)).toBe('cafe');
+  });
+});
+
+describe('карточки форм глаголов', () => {
+  const list = [card('cafe.te'), card('v:hablar.presente.3'), card('ph:cafe.un-cafe'), card('g:a1.02-ser.1')];
+  it('форма из кузницы — отдельный вид, не слово: в запас, «последнее место» и повторение не попадает', () => {
+    expect(isVerbId('v:hablar.presente.3')).toBe(true);
+    expect(isWordId('v:hablar.presente.3')).toBe(false);
+    const { words, rules, phrases, verbs } = splitCards(list);
+    expect([words, rules, phrases, verbs].map((l) => l.map((c) => c.wordId))).toEqual([
+      ['cafe.te'], ['g:a1.02-ser.1'], ['ph:cafe.un-cafe'], ['v:hablar.presente.3'],
+    ]);
+    const rec = Object.fromEntries(list.map((c, i) => [c.wordId, { ...c, learnedAt: i === 1 ? 99 : i }]));
     expect(vocabulary(rec, () => false)).toEqual({ learned: 1, solid: 1 });
     expect(recentLocation(rec)).toBe('cafe');
   });

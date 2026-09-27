@@ -1,3 +1,5 @@
+import type { VerbData } from '../domain/verbs';
+
 export const LOCATION_IDS = [
   'cafe', 'market', 'supermarket', 'restaurant', 'home', 'park', 'clothes', 'pharmacy',
   'school', 'post', 'bank', 'barber', 'gym', 'station', 'beach', 'office', 'hotel',
@@ -265,4 +267,20 @@ export interface Guardian {
 
 export interface GuardiansFile {
   guardians: Guardian[];
+}
+
+/** Кузнец глаголов (задача 5.5): хозяин кузницы, у каждого языка свой. */
+export interface Smith {
+  name: string;
+  role: string;
+  gender: 'm' | 'f';
+  greeting: Example;
+  voice: { pitch: number; rate: number };
+  look: NpcLook;
+}
+
+/** `src/content/<язык>/verbs.json`: кузнец и 60 глаголов. У неправильных записано только то, что не строится по правилам. */
+export interface VerbsFile {
+  smith: Smith;
+  verbs: VerbData[];
 }

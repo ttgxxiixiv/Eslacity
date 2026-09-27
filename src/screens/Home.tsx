@@ -14,7 +14,7 @@ import { NpcPortrait } from '../components/NpcPortrait';
 import { useSettings } from '../store/settings';
 import { currentJourney, useJourney } from '../store/journey';
 import { dayKey, dueCards } from '../domain/srs';
-import { splitCards, wordIds } from '../domain/itemId';
+import { isVerbId, splitCards, wordIds } from '../domain/itemId';
 import { useNow } from '../lib/useNow';
 import { CityGrid } from '../components/CityGrid';
 import { useCity } from '../store/city';
@@ -268,7 +268,7 @@ export function Home() {
   const words = useOpenWords(open);
   const day = useProgress((s) => s.day);
   const newPerDay = useSettings((s) => s.newPerDay);
-  const dueCount = useMemo(() => dueCards(Object.values(cards), Date.now()).length, [cards]);
+  const dueCount = useMemo(() => dueCards(Object.values(cards), Date.now()).filter((c) => !isVerbId(c.wordId)).length, [cards]);
   const step = useMemo(() => {
     if (!words) return null;
     const levels = Object.fromEntries(open.map((id) => [id, buildings[id]!.level]));

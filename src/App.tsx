@@ -11,6 +11,7 @@ import { TrialScreen } from './screens/Trial';
 import { GuardianScreen } from './screens/Guardian';
 import { ReviewScreen } from './screens/Review';
 import { BlitzScreen } from './screens/Blitz';
+import { ForgeScreen } from './screens/Forge';
 import { SettingsScreen } from './screens/Settings';
 import { GrammarMap } from './screens/GrammarMap';
 import { GrammarLessonScreen } from './screens/GrammarLesson';
@@ -102,6 +103,7 @@ export default function App() {
         <Route path="/trial/:id" element={<TrialScreen />} />
         <Route path="/guardian/:chapter" element={<GuardianScreen />} />
         <Route path="/blitz" element={<BlitzScreen />} />
+        <Route path="/forge" element={<ForgeScreen />} />
         <Route path="/words" element={<WordsScreen />} />
       </Routes>
     </HashRouter>

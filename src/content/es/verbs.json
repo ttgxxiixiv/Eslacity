@@ -1,0 +1,595 @@
+{
+  "smith": {
+    "name": "Херардо",
+    "role": "кузнец глаголов",
+    "gender": "m",
+    "greeting": {
+      "es": "¡Bienvenido a la forja! Aquí forjamos verbos.",
+      "ru": "Добро пожаловать в кузницу! Здесь мы куём глаголы."
+    },
+    "voice": {
+      "pitch": 0.75,
+      "rate": 0.9
+    },
+    "look": {
+      "skin": 3,
+      "hair": "#2b2b2b",
+      "style": "bald",
+      "outfit": "#7a3b1e",
+      "pants": "#2e2216",
+      "extra": [
+        "apron",
+        "beard"
+      ]
+    }
+  },
+  "verbs": [
+    {
+      "inf": "ser",
+      "ru": "быть",
+      "forms": {
+        "presente": [
+          "soy",
+          "eres",
+          "es",
+          "somos",
+          "sois",
+          "son"
+        ],
+        "indefinido": [
+          "fui",
+          "fuiste",
+          "fue",
+          "fuimos",
+          "fuisteis",
+          "fueron"
+        ],
+        "imperfecto": [
+          "era",
+          "eras",
+          "era",
+          "éramos",
+          "erais",
+          "eran"
+        ],
+        "subjuntivo": [
+          "sea",
+          "seas",
+          "sea",
+          "seamos",
+          "seáis",
+          "sean"
+        ]
+      }
+    },
+    {
+      "inf": "estar",
+      "ru": "быть, находиться",
+      "forms": {
+        "presente": [
+          "estoy",
+          "estás",
+          "está",
+          "estamos",
+          "estáis",
+          "están"
+        ],
+        "indefinido": [
+          "estuve",
+          "estuviste",
+          "estuvo",
+          "estuvimos",
+          "estuvisteis",
+          "estuvieron"
+        ],
+        "subjuntivo": [
+          "esté",
+          "estés",
+          "esté",
+          "estemos",
+          "estéis",
+          "estén"
+        ]
+      }
+    },
+    {
+      "inf": "tener",
+      "ru": "иметь",
+      "ch": "ie",
+      "yo": "tengo",
+      "fut": "tendr",
+      "forms": {
+        "indefinido": [
+          "tuve",
+          "tuviste",
+          "tuvo",
+          "tuvimos",
+          "tuvisteis",
+          "tuvieron"
+        ]
+      }
+    },
+    {
+      "inf": "hacer",
+      "ru": "делать",
+      "yo": "hago",
+      "fut": "har",
+      "pp": "hecho",
+      "forms": {
+        "indefinido": [
+          "hice",
+          "hiciste",
+          "hizo",
+          "hicimos",
+          "hicisteis",
+          "hicieron"
+        ]
+      }
+    },
+    {
+      "inf": "ir",
+      "ru": "идти, ехать",
+      "forms": {
+        "presente": [
+          "voy",
+          "vas",
+          "va",
+          "vamos",
+          "vais",
+          "van"
+        ],
+        "indefinido": [
+          "fui",
+          "fuiste",
+          "fue",
+          "fuimos",
+          "fuisteis",
+          "fueron"
+        ],
+        "imperfecto": [
+          "iba",
+          "ibas",
+          "iba",
+          "íbamos",
+          "ibais",
+          "iban"
+        ],
+        "subjuntivo": [
+          "vaya",
+          "vayas",
+          "vaya",
+          "vayamos",
+          "vayáis",
+          "vayan"
+        ]
+      }
+    },
+    {
+      "inf": "poder",
+      "ru": "мочь",
+      "ch": "ue",
+      "fut": "podr",
+      "forms": {
+        "indefinido": [
+          "pude",
+          "pudiste",
+          "pudo",
+          "pudimos",
+          "pudisteis",
+          "pudieron"
+        ]
+      }
+    },
+    {
+      "inf": "decir",
+      "ru": "сказать",
+      "ch": "i",
+      "yo": "digo",
+      "fut": "dir",
+      "pp": "dicho",
+      "forms": {
+        "indefinido": [
+          "dije",
+          "dijiste",
+          "dijo",
+          "dijimos",
+          "dijisteis",
+          "dijeron"
+        ]
+      }
+    },
+    {
+      "inf": "querer",
+      "ru": "хотеть",
+      "ch": "ie",
+      "fut": "querr",
+      "forms": {
+        "indefinido": [
+          "quise",
+          "quisiste",
+          "quiso",
+          "quisimos",
+          "quisisteis",
+          "quisieron"
+        ]
+      }
+    },
+    {
+      "inf": "saber",
+      "ru": "знать",
+      "yo": "sé",
+      "fut": "sabr",
+      "forms": {
+        "indefinido": [
+          "supe",
+          "supiste",
+          "supo",
+          "supimos",
+          "supisteis",
+          "supieron"
+        ],
+        "subjuntivo": [
+          "sepa",
+          "sepas",
+          "sepa",
+          "sepamos",
+          "sepáis",
+          "sepan"
+        ]
+      }
+    },
+    {
+      "inf": "venir",
+      "ru": "приходить",
+      "ch": "ie",
+      "yo": "vengo",
+      "fut": "vendr",
+      "forms": {
+        "indefinido": [
+          "vine",
+          "viniste",
+          "vino",
+          "vinimos",
+          "vinisteis",
+          "vinieron"
+        ]
+      }
+    },
+    {
+      "inf": "dar",
+      "ru": "давать",
+      "forms": {
+        "presente": [
+          "doy",
+          "das",
+          "da",
+          "damos",
+          "dais",
+          "dan"
+        ],
+        "indefinido": [
+          "di",
+          "diste",
+          "dio",
+          "dimos",
+          "disteis",
+          "dieron"
+        ],
+        "subjuntivo": [
+          "dé",
+          "des",
+          "dé",
+          "demos",
+          "deis",
+          "den"
+        ]
+      }
+    },
+    {
+      "inf": "ver",
+      "ru": "видеть",
+      "pp": "visto",
+      "forms": {
+        "presente": [
+          "veo",
+          "ves",
+          "ve",
+          "vemos",
+          "veis",
+          "ven"
+        ],
+        "indefinido": [
+          "vi",
+          "viste",
+          "vio",
+          "vimos",
+          "visteis",
+          "vieron"
+        ],
+        "imperfecto": [
+          "veía",
+          "veías",
+          "veía",
+          "veíamos",
+          "veíais",
+          "veían"
+        ]
+      }
+    },
+    {
+      "inf": "poner",
+      "ru": "класть, ставить",
+      "yo": "pongo",
+      "fut": "pondr",
+      "pp": "puesto",
+      "forms": {
+        "indefinido": [
+          "puse",
+          "pusiste",
+          "puso",
+          "pusimos",
+          "pusisteis",
+          "pusieron"
+        ]
+      }
+    },
+    {
+      "inf": "salir",
+      "ru": "выходить",
+      "yo": "salgo",
+      "fut": "saldr"
+    },
+    {
+      "inf": "conocer",
+      "ru": "знать, быть знакомым",
+      "yo": "conozco"
+    },
+    {
+      "inf": "pensar",
+      "ru": "думать",
+      "ch": "ie"
+    },
+    {
+      "inf": "dormir",
+      "ru": "спать",
+      "ch": "ue"
+    },
+    {
+      "inf": "pedir",
+      "ru": "просить, заказывать",
+      "ch": "i"
+    },
+    {
+      "inf": "volver",
+      "ru": "возвращаться",
+      "ch": "ue",
+      "pp": "vuelto"
+    },
+    {
+      "inf": "empezar",
+      "ru": "начинать",
+      "ch": "ie"
+    },
+    {
+      "inf": "jugar",
+      "ru": "играть",
+      "ch": "ue"
+    },
+    {
+      "inf": "encontrar",
+      "ru": "находить",
+      "ch": "ue"
+    },
+    {
+      "inf": "seguir",
+      "ru": "следовать, продолжать",
+      "ch": "i",
+      "yo": "sigo"
+    },
+    {
+      "inf": "sentir",
+      "ru": "чувствовать",
+      "ch": "ie"
+    },
+    {
+      "inf": "oír",
+      "ru": "слышать",
+      "fut": "oir",
+      "pp": "oído",
+      "forms": {
+        "presente": [
+          "oigo",
+          "oyes",
+          "oye",
+          "oímos",
+          "oís",
+          "oyen"
+        ],
+        "indefinido": [
+          "oí",
+          "oíste",
+          "oyó",
+          "oímos",
+          "oísteis",
+          "oyeron"
+        ]
+      }
+    },
+    {
+      "inf": "traer",
+      "ru": "приносить",
+      "yo": "traigo",
+      "pp": "traído",
+      "forms": {
+        "indefinido": [
+          "traje",
+          "trajiste",
+          "trajo",
+          "trajimos",
+          "trajisteis",
+          "trajeron"
+        ]
+      }
+    },
+    {
+      "inf": "conducir",
+      "ru": "водить машину",
+      "yo": "conduzco",
+      "forms": {
+        "indefinido": [
+          "conduje",
+          "condujiste",
+          "condujo",
+          "condujimos",
+          "condujisteis",
+          "condujeron"
+        ]
+      }
+    },
+    {
+      "inf": "llegar",
+      "ru": "приезжать, приходить"
+    },
+    {
+      "inf": "buscar",
+      "ru": "искать"
+    },
+    {
+      "inf": "pagar",
+      "ru": "платить"
+    },
+    {
+      "inf": "hablar",
+      "ru": "говорить"
+    },
+    {
+      "inf": "trabajar",
+      "ru": "работать"
+    },
+    {
+      "inf": "estudiar",
+      "ru": "учиться"
+    },
+    {
+      "inf": "comprar",
+      "ru": "покупать"
+    },
+    {
+      "inf": "llamar",
+      "ru": "звонить, звать"
+    },
+    {
+      "inf": "mirar",
+      "ru": "смотреть"
+    },
+    {
+      "inf": "escuchar",
+      "ru": "слушать"
+    },
+    {
+      "inf": "esperar",
+      "ru": "ждать"
+    },
+    {
+      "inf": "viajar",
+      "ru": "путешествовать"
+    },
+    {
+      "inf": "cocinar",
+      "ru": "готовить"
+    },
+    {
+      "inf": "tomar",
+      "ru": "брать, пить"
+    },
+    {
+      "inf": "llevar",
+      "ru": "нести, носить"
+    },
+    {
+      "inf": "necesitar",
+      "ru": "нуждаться"
+    },
+    {
+      "inf": "ayudar",
+      "ru": "помогать"
+    },
+    {
+      "inf": "bailar",
+      "ru": "танцевать"
+    },
+    {
+      "inf": "cantar",
+      "ru": "петь"
+    },
+    {
+      "inf": "comer",
+      "ru": "есть"
+    },
+    {
+      "inf": "beber",
+      "ru": "пить"
+    },
+    {
+      "inf": "leer",
+      "ru": "читать",
+      "pp": "leído",
+      "forms": {
+        "indefinido": [
+          "leí",
+          "leíste",
+          "leyó",
+          "leímos",
+          "leísteis",
+          "leyeron"
+        ]
+      }
+    },
+    {
+      "inf": "aprender",
+      "ru": "учить, изучать"
+    },
+    {
+      "inf": "vender",
+      "ru": "продавать"
+    },
+    {
+      "inf": "correr",
+      "ru": "бегать"
+    },
+    {
+      "inf": "comprender",
+      "ru": "понимать"
+    },
+    {
+      "inf": "vivir",
+      "ru": "жить"
+    },
+    {
+      "inf": "escribir",
+      "ru": "писать",
+      "pp": "escrito"
+    },
+    {
+      "inf": "abrir",
+      "ru": "открывать",
+      "pp": "abierto"
+    },
+    {
+      "inf": "recibir",
+      "ru": "получать"
+    },
+    {
+      "inf": "subir",
+      "ru": "подниматься"
+    },
+    {
+      "inf": "decidir",
+      "ru": "решать"
+    },
+    {
+      "inf": "partir",
+      "ru": "отправляться; делить"
+    }
+  ]
+}

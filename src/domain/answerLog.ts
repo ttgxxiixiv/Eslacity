@@ -5,12 +5,12 @@ import { ruleCardId } from './itemId';
  * Журнал ответов: каждая попытка в любом задании. По нему считаются точность, медали,
  * сила Эликсира и отчёты. Записи хранятся только на устройстве.
  */
-export type AnswerMode = 'learn' | 'practice' | 'review' | 'grammar' | 'blitz' | 'trial';
+export type AnswerMode = 'learn' | 'practice' | 'review' | 'grammar' | 'blitz' | 'trial' | 'forge';
 
 export interface AnswerRecord {
   id?: number;
   ts: number;
-  /** Слово (`cafe.te`) или упражнение грамматики (`g:a1.02-ser.3`). */
+  /** Слово (`cafe.te`), упражнение грамматики (`g:a1.02-ser.3`), фраза (`ph:`) или форма глагола (`v:hablar.presente.3`). */
   itemId: string;
   /** Вид задания: `type`, `listen-choice`, `grammar-gap`, `blitz-ru-es` и т. д. */
   kind: string;

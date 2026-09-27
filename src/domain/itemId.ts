@@ -1,6 +1,7 @@
 /**
- * Карточки в таблице `cards` бывают трёх видов: слова (`cafe.te`), правила — упражнения грамматики
- * (`g:a1.02-ser.3`) и фразы мест (`ph:cafe.un-cafe`, id карточки совпадает с id фразы). Всё, что считает
+ * Карточки в таблице `cards` бывают четырёх видов: слова (`cafe.te`), правила — упражнения грамматики
+ * (`g:a1.02-ser.3`), фразы мест (`ph:cafe.un-cafe`, id карточки совпадает с id фразы) и формы глаголов
+ * из кузницы (`v:hablar.presente.3`, повторяются только в кузнице). Всё, что считает
  * слова, берёт только карточки слов; экран повторения ищет слова, упражнения и фразы по-разному
  * и не удаляет правила и фразы как «слова, которых нет в контенте».
  */
@@ -14,8 +15,13 @@ export const PHRASE_CARD_PREFIX = 'ph:';
 /** Карточка фразы места: `ph:cafe.un-cafe`. */
 export const isPhraseId = (id: string): boolean => id.startsWith(PHRASE_CARD_PREFIX);
 
-/** Карточка слова: не правило и не фраза. */
-export const isWordId = (id: string): boolean => !isRuleId(id) && !isPhraseId(id);
+export const VERB_CARD_PREFIX = 'v:';
+
+/** Карточка формы глагола из кузницы: `v:hablar.presente.3`. */
+export const isVerbId = (id: string): boolean => id.startsWith(VERB_CARD_PREFIX);
+
+/** Карточка слова: не правило, не фраза и не форма глагола. */
+export const isWordId = (id: string): boolean => !isRuleId(id) && !isPhraseId(id) && !isVerbId(id);
 
 /** Место фразы: `ph:cafe.un-cafe` → `cafe`. */
 export const placeOfPhrase = (id: string): string => id.slice(PHRASE_CARD_PREFIX.length).split('.')[0];
@@ -29,13 +35,14 @@ export const exerciseOf = (cardId: string): string => cardId.slice(RULE_PREFIX.l
 /** Урок упражнения: `a1.02-ser.3` → `a1.02-ser`. */
 export const lessonOfExercise = (exerciseId: string): string => exerciseId.slice(0, exerciseId.lastIndexOf('.'));
 
-/** Разделить карточки на слова, правила и фразы. */
-export function splitCards<T extends { wordId: string }>(cards: Iterable<T>): { words: T[]; rules: T[]; phrases: T[] } {
+/** Разделить карточки на слова, правила, фразы и формы глаголов. */
+export function splitCards<T extends { wordId: string }>(cards: Iterable<T>): { words: T[]; rules: T[]; phrases: T[]; verbs: T[] } {
   const words: T[] = [];
   const rules: T[] = [];
   const phrases: T[] = [];
-  for (const c of cards) (isRuleId(c.wordId) ? rules : isPhraseId(c.wordId) ? phrases : words).push(c);
-  return { words, rules, phrases };
+  const verbs: T[] = [];
+  for (const c of cards) (isRuleId(c.wordId) ? rules : isPhraseId(c.wordId) ? phrases : isVerbId(c.wordId) ? verbs : words).push(c);
+  return { words, rules, phrases, verbs };
 }
 
 /** Только карточки слов из словаря карточек. */
