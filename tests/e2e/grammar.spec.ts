@@ -1,12 +1,14 @@
 import { readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { expect, test } from '@playwright/test';
-import { answerGrammar, LANGS, loadLesson, openApp, readAnswers } from './fixtures';
+import { answerGrammar, DB, LANGS, loadLesson, openApp, readAnswers } from './fixtures';
 
 const CONTENT = join(import.meta.dirname, '..', '..', 'src', 'content');
 
 /** Районы с продуктивными заданиями: уроки проходятся целиком (задача 5.3 идёт пачками по району). */
-const DISTRICTS = ['a1'];
+const DISTRICTS = ['a1', 'a2'];
+/** Глава, в которой открывается район: уроки следующих глав закрыты. */
+const CHAPTER: Record<string, number> = { a1: 1, a2: 2, b11: 3, b12: 3, b2: 4 };
 
 for (const lang of LANGS) {
   test.describe(lang, () => {
@@ -15,7 +17,23 @@ for (const lang of LANGS) {
       for (const file of files) {
         test(`урок ${district}.${file}: каждое задание, со сборкой и вводом формы, засчитывается`, async ({ page }) => {
           const lesson = loadLesson(lang, district, file);
-          await openApp(page, lang, `/grammar/${lesson.id}`);
+          await openApp(page, lang);
+          if (CHAPTER[district] > 1) {
+            await page.evaluate(
+              ({ db, chapter }) =>
+                new Promise<void>((resolve) => {
+                  const r = indexedDB.open(db);
+                  r.onsuccess = () => {
+                    const tx = r.result.transaction('meta', 'readwrite');
+                    tx.objectStore('meta').put({ key: 'journey', value: { fragments: {}, seals: {}, openedChapter: chapter, celebrated: chapter } });
+                    tx.oncomplete = () => resolve();
+                  };
+                }),
+              { db: DB[lang], chapter: CHAPTER[district] },
+            );
+          }
+          await page.goto(`./#/grammar/${lesson.id}`);
+          await page.reload();
           await page.getByRole('button', { name: /к упражнениям/i }).click();
           for (let i = 0; i < lesson.exercises.length; i++) {
             const id = await answerGrammar(page, lesson);

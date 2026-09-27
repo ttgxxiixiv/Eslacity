@@ -141,6 +141,25 @@
       "statement": "Ci заменяет количество: «Ci ho due».",
       "answer": false,
       "explain": "Количество — ne: Ne ho due."
+    },
+    {
+      "id": "a2.19-ci.8",
+      "kind": "build",
+      "ru": "Да, я хожу туда каждый день.",
+      "answer": "Sì, ci vado ogni giorno.",
+      "extra": [
+        "ne"
+      ],
+      "explain": "Туда — ci."
+    },
+    {
+      "id": "a2.19-ci.9",
+      "kind": "type",
+      "sentence": "Pensi al viaggio? Sì, ___ penso sempre.",
+      "ru": "Ты думаешь о поездке? Да, всё время думаю.",
+      "hint": "частица",
+      "answer": "ci",
+      "explain": "pensare a → ci."
     }
   ]
 }

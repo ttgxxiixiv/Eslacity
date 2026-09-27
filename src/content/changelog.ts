@@ -7,6 +7,13 @@ export interface Release {
 // Новые версии сверху. Версия первой записи должна совпадать с package.json (проверяется тестом).
 export const CHANGELOG: Release[] = [
   {
+    version: '2.50.0',
+    date: '2026-09-27',
+    notes: [
+      'Сборка предложения и ввод формы появились во всех 31 уроке района A2: чередования в глаголах, местоимения, повелительное наклонение, прошедшие времена. Например, «Te las doy», «¿Quién ha ___ el vaso? (romper)», «Le ho fatte io», «Il libro? ___ subito! (leggere + lo)».',
+    ],
+  },
+  {
     version: '2.49.0',
     date: '2026-09-27',
     notes: [

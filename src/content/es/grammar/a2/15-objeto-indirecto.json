@@ -148,6 +148,28 @@
       "statement": "«Le doy el libro a Pedro» — ошибка, потому что le лишнее.",
       "answer": false,
       "explain": "Дублирование нормально и правильно."
+    },
+    {
+      "id": "a2.15-objeto-indirecto.7",
+      "kind": "build",
+      "ru": "Я пишу письмо маме.",
+      "answer": "Le escribo una carta a mi madre.",
+      "alt": [
+        "A mi madre le escribo una carta."
+      ],
+      "extra": [
+        "les"
+      ],
+      "explain": "Кому — le, даже если «a mi madre» сказано."
+    },
+    {
+      "id": "a2.15-objeto-indirecto.8",
+      "kind": "type",
+      "sentence": "¿___ das tu número a Pedro?",
+      "ru": "Ты дашь Педро свой номер?",
+      "hint": "le или les",
+      "answer": "Le",
+      "explain": "Ему — le."
     }
   ]
 }
