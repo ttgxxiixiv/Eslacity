@@ -50,6 +50,31 @@
         {"q": "Что было сегодня?", "options": ["Город стал больше", "Только песок", "Туман"], "answer": 1}
       ],
       "gloss": {"vías": "рельсы", "arena": "песок", "desierto": "пустыня", "miente": "обманывает"}
+    },
+    {
+      "id": "sc:airport.3",
+      "chapter": 3,
+      "npc": "leo",
+      "lines": [
+        {"who": "npc", "es": "¡Viajero! Ayer el viento nos llevó detrás del desierto.", "ru": "Путешественник! Вчера ветер унёс нас дальше пустыни."},
+        {"who": "hero", "es": "¿Y qué viste?", "ru": "И что ты видел?"},
+        {"who": "npc", "es": "Un bosque enorme. Verde, oscuro, con niebla entre los árboles.", "ru": "Огромный лес. Зелёный, тёмный, с туманом между деревьями."},
+        {"who": "hero", "es": "¿Un bosque después del desierto?", "ru": "Лес после пустыни?"},
+        {"who": "npc", "es": "Y los árboles bailaban... pero no había viento.", "ru": "И деревья качались... но ветра не было."},
+        {"who": "hero", "es": "¡El bosque de Iván!", "ru": "Лес Ивана!"},
+        {"who": "npc", "es": "Iván estaba en el avión. Miraba por la ventana y sonreía.", "ru": "Иван был в самолёте. Смотрел в окно и улыбался."},
+        {"who": "hero", "es": "¿Volvió a casa?", "ru": "Он вернулся домой?"},
+        {"who": "npc", "es": "Bajó en el pueblo del bosque. Me dijo: «Ahora ya no tengo miedo de escuchar».", "ru": "Он сошёл в лесной деревне. Сказал мне: «Теперь я больше не боюсь слушать»."},
+        {"who": "hero", "es": "¿Y los árboles?", "ru": "А деревья?"},
+        {"who": "npc", "es": "Cuando bajó, dejaron de bailar. Como si ya estuvieran tranquilos.", "ru": "Когда он сошёл, они перестали качаться. Будто наконец успокоились."}
+      ],
+      "questions": [
+        {"q": "Что Лео увидел за пустыней?", "options": ["Огромный туманный лес", "Море", "Ещё одну пустыню"], "answer": 0},
+        {"q": "Что странного в деревьях?", "options": ["Качались без ветра", "Были белыми", "Пели"], "answer": 0},
+        {"q": "Где сошёл Иван?", "options": ["В лесной деревне", "В белом городе", "В столице"], "answer": 0},
+        {"q": "Что случилось с деревьями, когда он сошёл?", "options": ["Они успокоились", "Они исчезли", "Они зацвели"], "answer": 0}
+      ],
+      "gloss": {"enorme": "огромный", "bailaban": "качались", "bailar": "качаться", "árboles": "деревья", "iván": "Иван (имя)", "pueblo": "деревня", "dejaron": "перестали", "estuvieran": "были бы"}
     }
   ]
 }

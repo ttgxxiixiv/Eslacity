@@ -42,6 +42,26 @@
         "pause": {"kind": "answer", "task": "Предложите сделать перерыв.", "branches": [{"phrase": "ph:office.facciamo-pausa", "next": "end"}], "wrong": {"es": "Facciamo una festa? Dopo, quando torna Andrea.", "ru": "Устроим праздник? Потом, когда вернётся Андреа."}},
         "end": {"kind": "say", "es": "Una pausa. Prendi il mio pezzo della mappa della montagna. E la relazione sul treno: dalla ad Andrea. Deve sapere che la città si ricorda di lui.", "ru": "Перерыв. Держи мой обрывок карты гор. И отчёт о поезде: отдай его Андреа. Он должен знать, что город его помнит."}
       }
+    },
+    {
+      "id": "ms:office.3",
+      "chapter": 3,
+      "npc": "valentina",
+      "scene": "sc:office.3",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Ivo ha un colloquio domani. Facciamo pratica: tu sei il lavoratore. Cominciamo?", "ru": "У Иво завтра собеседование. Давай потренируемся: ты — сотрудник. Начнём?", "next": "cv"},
+        "cv": {"kind": "answer", "task": "Скажите, что отправите ей своё резюме.", "branches": [{"phrase": "ph:office.ti-mando-mio", "next": "cvsay"}], "wrong": {"es": "Mi mandi un cammello? No, grazie, ne conosco già uno.", "ru": "Пришлёшь мне верблюда? Нет, спасибо, одного я уже знаю."}},
+        "cvsay": {"kind": "say", "es": "Benissimo. Ricevuto. Adesso parliamo di soldi.", "ru": "Отлично. Получено. Теперь поговорим о деньгах.", "next": "salary"},
+        "salary": {"kind": "answer", "task": "Скажите, что хотите обсудить зарплату.", "branches": [{"phrase": "ph:office.vorrei-negoziare-stipendio", "next": "salsay"}], "wrong": {"es": "Vuoi pagare tu? Un'azienda non funziona così!", "ru": "Хочешь платить сам? Так компания не работает!"}},
+        "salsay": {"kind": "say", "es": "Diretto. Mi piace. Problemi nel lavoro di prima?", "ru": "Прямо. Мне нравится. На прошлой работе были проблемы?", "next": "extra"},
+        "extra": {"kind": "answer", "task": "Скажите, что вам не платят за переработки.", "branches": [{"phrase": "ph:office.non-pagano-straordinari", "next": "extrasay"}], "wrong": {"es": "Non ti pagano in sabbia? Qui paghiamo in euro!", "ru": "Тебе не платят песком? Мы платим в евро!"}},
+        "extrasay": {"kind": "say", "es": "Questo è importante. Qui li paghiamo. E domani dove lavori?", "ru": "Это важно. Мы их оплачиваем. А где ты будешь работать завтра?", "next": "home"},
+        "home": {"kind": "answer", "task": "Скажите, что сегодня работаете из дома.", "branches": [{"phrase": "ph:office.oggi-lavoro-smart", "next": "homesay"}], "wrong": {"es": "Oggi lavori nel deserto? No, qui.", "ru": "Сегодня работаешь в пустыне? Нет, здесь."}},
+        "homesay": {"kind": "say", "es": "Da casa. Molto moderno. Ultima domanda: cosa vuoi per il futuro?", "ru": "Из дома. Очень современно. Последний вопрос: чего ты хочешь в будущем?", "next": "promo"},
+        "promo": {"kind": "answer", "task": "Скажите, что хотите попросить повышения.", "branches": [{"phrase": "ph:office.vorrei-chiedere-promozione", "next": "end"}], "wrong": {"es": "Vuoi un cammello nuovo? Qui non ci sono cammelli!", "ru": "Хочешь нового верблюда? Тут нет верблюдов!"}},
+        "end": {"kind": "say", "es": "Una promozione il primo giorno? Ivo ha riso per la prima volta. Buona pratica. Prendi il mio pezzo della mappa del deserto.", "ru": "Повышение в первый же день? Иво впервые засмеялся. Хорошая тренировка. Держи мой обрывок карты пустыни."}
+      }
     }
   ]
 }

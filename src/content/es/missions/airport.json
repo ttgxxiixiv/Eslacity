@@ -40,6 +40,26 @@
         "wc": {"kind": "answer", "task": "Спросите, где туалет.", "branches": [{"phrase": "ph:airport.donde-esta-aseo", "next": "end"}], "wrong": {"es": "¿Dónde está el desierto? Arriba lo vas a ver.", "ru": "Где пустыня? Наверху увидишь."}},
         "end": {"kind": "say", "es": "Allí, rápido. Y luego mira por la ventana: la torre, las vías y la arena. ¿Ves la ciudad blanca? Ya no está. Toma mi trozo del mapa de las montañas.", "ru": "Вон там, быстрее. А потом смотри в окно: башня, рельсы и песок. Видишь белый город? Его уже нет. Держи мой обрывок карты гор."}
       }
+    },
+    {
+      "id": "ms:airport.3",
+      "chapter": 3,
+      "npc": "leo",
+      "scene": "sc:airport.3",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "¡Viajero! Volamos otra vez. Hoy, más lejos. ¿Adónde vas tú?", "ru": "Путешественник! Снова летим. Сегодня дальше. А ты куда?", "next": "transit"},
+        "transit": {"kind": "answer", "task": "Скажите, что летите транзитом.", "branches": [{"phrase": "ph:airport.estoy-transito", "next": "transsay"}], "wrong": {"es": "¿Estás en el camello? No, estás en un avión.", "ru": "Ты на верблюде? Нет, ты в самолёте."}},
+        "transsay": {"kind": "say", "es": "¿En tránsito? Como todos los viajeros. ¿Llevas mucho equipaje?", "ru": "Транзитом? Как все путешественники. У тебя много багажа?", "next": "bag"},
+        "bag": {"kind": "answer", "task": "Спросите, какая норма багажа.", "branches": [{"phrase": "ph:airport.cual-franquicia-equipaje", "next": "bagsay"}], "wrong": {"es": "¿Cuál es el nombre del avión? No tiene nombre.", "ru": "Как зовут самолёт? У него нет имени."}},
+        "bagsay": {"kind": "say", "es": "Veinte kilos. Suficiente. ... Escucha: el capitán dice algo.", "ru": "Двадцать килограммов. Достаточно. ... Слушай: капитан что-то говорит.", "next": "div"},
+        "div": {"kind": "answer", "task": "Переведите Лео объявление: рейс перенаправили.", "branches": [{"phrase": "ph:airport.han-desviado-vuelo", "next": "divsay"}], "wrong": {"es": "¿Han cerrado el cielo? No, hombre, han cambiado el camino.", "ru": "Небо закрыли? Нет, просто сменили маршрут."}},
+        "divsay": {"kind": "say", "es": "¡Por el viento! Mira abajo: el bosque. ... Ya llegamos. ¿Cómo te encuentras?", "ru": "Из-за ветра! Смотри вниз: лес. ... Мы уже прилетели. Как ты себя чувствуешь?", "next": "lag"},
+        "lag": {"kind": "answer", "task": "Скажите, что у вас сильный джетлаг.", "branches": [{"phrase": "ph:airport.tengo-mucho-desfase", "next": "lagsay"}], "wrong": {"es": "¿Tienes mucho camello? ¡Qué dices!", "ru": "У тебя много верблюда? Что ты говоришь!"}},
+        "lagsay": {"kind": "say", "es": "¿Por un vuelo de una hora? ¡Qué exagerado! ¿Perdiste algo en el avión?", "ru": "От часового полёта? Ну ты и преувеличиваешь! Потерял что-нибудь в самолёте?", "next": "lost"},
+        "lost": {"kind": "answer", "task": "Спросите, где бюро находок.", "branches": [{"phrase": "ph:airport.donde-esta-oficina", "next": "end"}], "wrong": {"es": "¿Dónde está mi casa? Eso, en la ciudad.", "ru": "Где мой дом? Это в городе."}},
+        "end": {"kind": "say", "es": "Allí. Iván también fue ayer: buscaba algo que perdió en el bosque hace años. Creo que ya lo encontró. Toma mi trozo del mapa del desierto.", "ru": "Вон там. Иван тоже туда ходил вчера: искал то, что потерял в лесу много лет назад. Думаю, он уже нашёл. Держи мой обрывок карты пустыни."}
+      }
     }
   ]
 }

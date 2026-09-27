@@ -50,6 +50,31 @@
         {"q": "Как его зовут?", "options": ["Томмазо", "Андреа", "Альдо"], "answer": 1}
       ],
       "gloss": {"giornale": "газета", "andrea": "Андреа (имя)", "mantello": "плащ", "foto": "фото"}
+    },
+    {
+      "id": "sc:office.3",
+      "chapter": 3,
+      "npc": "valentina",
+      "lines": [
+        {"who": "npc", "es": "Ho un nuovo candidato per l'azienda. Sai chi è?", "ru": "У меня новый кандидат в компанию. Знаешь, кто?"},
+        {"who": "hero", "es": "Chi?", "ru": "Кто?"},
+        {"who": "npc", "es": "L'uomo con il cammello. Si chiama Ivo. Mi ha mandato il curriculum stamattina.", "ru": "Человек с верблюдом. Его зовут Иво. Сегодня утром он прислал мне резюме."},
+        {"who": "hero", "es": "Vuole lavorare qui?", "ru": "Он хочет работать здесь?"},
+        {"who": "npc", "es": "Dice che non vuole più vendere bugie. Vuole un lavoro vero.", "ru": "Говорит, что больше не хочет продавать ложь. Хочет настоящую работу."},
+        {"who": "hero", "es": "Cosa è successo nella città bianca?", "ru": "Что случилось в белом городе?"},
+        {"who": "npc", "es": "Me l'ha detto. La guardiana gli ha detto: «Se mi dici la verità, ti lascio passare».", "ru": "Он мне рассказал. Стражница сказала ему: «Если скажешь мне правду, пропущу»."},
+        {"who": "hero", "es": "E lui cosa ha detto?", "ru": "И что он сказал?"},
+        {"who": "npc", "es": "«Vendo bugie perché ho paura». E la città non è sparita.", "ru": "«Я продаю ложь, потому что мне страшно». И город не исчез."},
+        {"who": "hero", "es": "Ha detto la verità.", "ru": "Он сказал правду."},
+        {"who": "npc", "es": "Per la prima volta dopo tanti anni. Adesso cerca lavoro, e gli do una possibilità.", "ru": "Впервые за много лет. Теперь он ищет работу, и я дам ему шанс."}
+      ],
+      "questions": [
+        {"q": "Кто прислал Валентине резюме?", "options": ["Человек с верблюдом, Иво", "Томмазо", "Андреа"], "answer": 0},
+        {"q": "Чего хочет Иво теперь?", "options": ["Настоящую работу", "Купить город", "Уехать в столицу"], "answer": 0},
+        {"q": "Что Иво ответил стражнице?", "options": ["«Я продаю ложь, потому что мне страшно»", "«У меня есть вся карта»", "Ничего"], "answer": 0},
+        {"q": "Что случилось с городом?", "options": ["Он не исчез", "Он исчез", "Он сгорел"], "answer": 0}
+      ],
+      "gloss": {"candidato": "кандидат", "cammello": "верблюд", "ivo": "Иво (имя)", "stamattina": "сегодня утром", "guardiana": "стражница", "sparita": "исчез", "possibilità": "шанс"}
     }
   ]
 }

@@ -50,6 +50,31 @@
         {"q": "Как Андреа вернётся домой?", "options": ["Пешком", "Поездом в семь", "Самолётом"], "answer": 1}
       ],
       "gloss": {"caso": "дело", "chiudo": "закрываю", "passeggero": "пассажир", "andrea": "Андреа (имя)", "tommaso": "Томмазо (имя)", "rimasto": "остался"}
+    },
+    {
+      "id": "sc:police.3",
+      "chapter": 3,
+      "npc": "rinaldi",
+      "lines": [
+        {"who": "npc", "es": "Chiudo un altro caso: la mappa falsa e il pacco rubato.", "ru": "Закрываю ещё одно дело: поддельные обрывки и украденная посылка."},
+        {"who": "hero", "es": "E chi è stato?", "ru": "А кто это сделал?"},
+        {"who": "npc", "es": "L'uomo con il cammello. È venuto a parlare con me prima di partire. Mi ha detto tutto.", "ru": "Человек с верблюдом. Пришёл поговорить со мной перед отъездом. Всё рассказал."},
+        {"who": "hero", "es": "E adesso cosa fa con lui?", "ru": "И что вы с ним сделаете?"},
+        {"who": "npc", "es": "Niente. Ha dato alla gente i suoi soldi e la mappa vera. E ha detto la verità.", "ru": "Ничего. Он вернул людям деньги и настоящую карту. И сказал правду."},
+        {"who": "hero", "es": "Ed è sufficiente?", "ru": "И этого достаточно?"},
+        {"who": "npc", "es": "In questa città, sì. La verità è più importante di una multa.", "ru": "В этом городе — да. Правда важнее штрафа."},
+        {"who": "hero", "es": "E la guardiana della città bianca?", "ru": "А стражница белого города?"},
+        {"who": "npc", "es": "Lui mi ha dato un messaggio da parte sua per te.", "ru": "Иво передал мне для тебя её послание."},
+        {"who": "hero", "es": "Cosa dice?", "ru": "Что там?"},
+        {"who": "npc", "es": "«Se arrivi nel bosco, ascolta gli alberi. Loro non dicono bugie».", "ru": "«Если дойдёшь до леса, слушай деревья. Они не лгут»."}
+      ],
+      "questions": [
+        {"q": "Какое дело закрывает Ринальди?", "options": ["Поддельные обрывки и украденная посылка", "Поезд к башне", "Кражу в банке"], "answer": 0},
+        {"q": "Что сделал человек с верблюдом перед отъездом?", "options": ["Всё рассказал и вернул обрывки и деньги", "Сбежал", "Купил белый город"], "answer": 0},
+        {"q": "Почему его не накажут?", "options": ["Он сказал правду и всё вернул", "Его не нашли", "Он заплатил штраф"], "answer": 0},
+        {"q": "Какое послание оставила стражница?", "options": ["«Слушай деревья. Они не лгут»", "«Не ходи в лес»", "«Жду тебя в городе»"], "answer": 0}
+      ],
+      "gloss": {"caso": "дело", "falsa": "поддельная", "cammello": "верблюд", "sufficiente": "достаточно", "guardiana": "стражница"}
     }
   ]
 }

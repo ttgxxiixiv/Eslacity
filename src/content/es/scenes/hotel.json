@@ -50,6 +50,31 @@
         {"q": "Что делают с седьмым номером?", "options": ["Сдают туристам", "Каждый день убирают", "Закрыли на ключ"], "answer": 1}
       ],
       "gloss": {"lleno": "полон", "andrés": "Андрес (имя)", "canceló": "отменил", "costumbre": "обычай", "limpiamos": "убираем"}
+    },
+    {
+      "id": "sc:hotel.3",
+      "chapter": 3,
+      "npc": "isabel",
+      "lines": [
+        {"who": "npc", "es": "Buenas noches. Hay un sobre para usted en recepción.", "ru": "Добрый вечер. На стойке для вас конверт."},
+        {"who": "hero", "es": "¿De quién?", "ru": "От кого?"},
+        {"who": "npc", "es": "De Iván, el hombre del camello. Lo dejó esta mañana.", "ru": "От Ивана, человека с верблюдом. Он оставил его сегодня утром."},
+        {"who": "hero", "es": "¿Qué hay dentro?", "ru": "Что внутри?"},
+        {"who": "npc", "es": "Trozos del mapa. Los de verdad. Los que robó.", "ru": "Обрывки карты. Настоящие. Те, что он украл."},
+        {"who": "hero", "es": "¿También el de Tomás?", "ru": "И обрывок Томаса тоже?"},
+        {"who": "npc", "es": "También. Y una nota: «Perdón. La guardiana me enseñó que la verdad no se vende».", "ru": "Тоже. И записка: «Прости. Стражница научила меня, что правда не продаётся»."},
+        {"who": "hero", "es": "¿Dónde está Iván?", "ru": "Где Иван?"},
+        {"who": "npc", "es": "Pagó una noche, con dinero de verdad. Y se fue temprano, sin hacer ruido.", "ru": "Заплатил за ночь настоящими деньгами. И ушёл рано, без шума."},
+        {"who": "hero", "es": "¿Adónde fue?", "ru": "Куда он ушёл?"},
+        {"who": "npc", "es": "Al aeropuerto. Dijo que vuelve a casa, al bosque.", "ru": "В аэропорт. Сказал, что возвращается домой, в лес."}
+      ],
+      "questions": [
+        {"q": "Что оставил Иван для героя?", "options": ["Конверт с настоящими обрывками карты", "Верблюда", "Счёт за номер"], "answer": 0},
+        {"q": "Был ли там обрывок Томаса?", "options": ["Да", "Нет", "Только половина"], "answer": 0},
+        {"q": "Что написано в записке?", "options": ["«Прости. Правда не продаётся»", "«Не ищи меня»", "«Увидимся в лесу»"], "answer": 0},
+        {"q": "Куда уехал Иван?", "options": ["Домой, в лес", "В белый город", "В башню"], "answer": 0}
+      ],
+      "gloss": {"recepción": "стойка регистрации", "iván": "Иван (имя)", "camello": "верблюд", "trozos": "обрывки", "robó": "украл", "nota": "записка", "guardiana": "стражница"}
     }
   ]
 }

@@ -42,6 +42,26 @@
         "cross": {"kind": "answer", "task": "Комиссар бежит через дорогу. Скажите, что переходить нужно по пешеходному переходу.", "branches": [{"phrase": "ph:police.hay-cruzar-paso", "next": "end"}], "wrong": {"es": "¿Hay que cantar? No, hay que cruzar bien.", "ru": "Нужно петь? Нет, нужно правильно переходить."}},
         "end": {"kind": "say", "es": "Tienes razón: hasta la policía cruza por el paso. Mira: no es sospechoso. Es Andrés, y está leyendo el horario del tren de las siete. Toma mi trozo del mapa de las montañas. Sube, contesta, y trae a Andrés a casa.", "ru": "Ты прав: даже полиция переходит по переходу. Смотри: он не подозрительный. Это Андрес, и он читает расписание поезда в семь. Держи мой обрывок карты гор. Поднимись, ответь и верни Андреса домой."}
       }
+    },
+    {
+      "id": "ms:police.3",
+      "chapter": 3,
+      "npc": "vega",
+      "scene": "sc:police.3",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Buenas. Ahora que vives aquí, hay papeles. ¿En qué te ayudo?", "ru": "Добрый день. Раз ты теперь живёшь здесь, нужны бумаги. Чем помочь?", "next": "padron"},
+        "padron": {"kind": "answer", "task": "Спросите, где можно прописаться.", "branches": [{"phrase": "ph:police.donde-puedo-empadronarme", "next": "padsay"}], "wrong": {"es": "¿Dónde puedo comprar un camello? En el desierto, no aquí.", "ru": "Где купить верблюда? В пустыне, не здесь."}},
+        "padsay": {"kind": "say", "es": "En el ayuntamiento, en la plaza. ¿Y para trabajar?", "ru": "В мэрии, на площади. А для работы?", "next": "nie"},
+        "nie": {"kind": "answer", "task": "Скажите, что вам нужен номер иностранца (NIE) для работы.", "branches": [{"phrase": "ph:police.necesito-nie-para", "next": "niesay"}], "wrong": {"es": "¿Necesitas un sombrero para trabajar? No, necesitas papeles.", "ru": "Нужна шляпа для работы? Нет, нужны документы."}},
+        "niesay": {"kind": "say", "es": "Para trabajar con Beatriz, ¿verdad? Aquí tienes el formulario. ¿Algo más?", "ru": "Для работы у Беатрис, да? Вот бланк. Что-нибудь ещё?", "next": "thief"},
+        "thief": {"kind": "answer", "task": "Скажите, что в метро был карманник.", "branches": [{"phrase": "ph:police.metro-habia-carterista", "next": "thiefsay"}], "wrong": {"es": "¿En el metro había un camello? ¡Imposible!", "ru": "В метро был верблюд? Невозможно!"}},
+        "thiefsay": {"kind": "say", "es": "Otra vez... Lo buscamos. Tranquilo. ¿Y tú, estás bien?", "ru": "Опять... Мы его найдём. Спокойно. А ты в порядке?", "next": "lawyer"},
+        "lawyer": {"kind": "answer", "task": "В шутку скажите, что вам нужен адвокат.", "branches": [{"phrase": "ph:police.necesito-abogado", "next": "lawsay"}], "wrong": {"es": "¿Necesitas un helado? Después, después.", "ru": "Нужно мороженое? Потом, потом."}},
+        "lawsay": {"kind": "say", "es": "¿Un abogado? ¡Tú no has hecho nada! ¿Vas a conducir hoy?", "ru": "Адвокат? Ты же ничего не сделал! Ты сегодня за рулём?", "next": "alc"},
+        "alc": {"kind": "answer", "task": "Спросите, нужно ли вам дуть в алкотестер.", "branches": [{"phrase": "ph:police.tengo-hacer-prueba", "next": "end"}], "wrong": {"es": "¿Tengo que hacer una tarta? No, hombre, eso no.", "ru": "Мне надо испечь торт? Нет, не это."}},
+        "end": {"kind": "say", "es": "¿Tú? Vas en bicicleta y solo bebes agua. Toma mi trozo del mapa del desierto. Y recuerda el mensaje: escucha a los árboles.", "ru": "Ты? Ты ездишь на велосипеде и пьёшь только воду. Держи мой обрывок карты пустыни. И помни послание: слушай деревья."}
+      }
     }
   ]
 }

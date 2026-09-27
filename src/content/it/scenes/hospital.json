@@ -50,6 +50,31 @@
         {"q": "Какой вопрос Томмазо не смог ответить?", "options": ["«Кому ты помог?»", "«Как тебя зовут?»", "«Откуда ты?»"], "answer": 0}
       ],
       "gloss": {"tommaso": "Томмазо (имя)", "portami": "приведи ко мне"}
+    },
+    {
+      "id": "sc:hospital.3",
+      "chapter": 3,
+      "npc": "conti",
+      "lines": [
+        {"who": "npc", "es": "Ieri è venuto l'uomo con il cammello.", "ru": "Вчера приходил человек с верблюдом."},
+        {"who": "hero", "es": "È malato?", "ru": "Он болен?"},
+        {"who": "npc", "es": "Lui lo credeva. Non dormiva, sentiva voci. Pensava di avere una malattia grave.", "ru": "Он так думал. Не спал, слышал голоса. Думал, что у него тяжёлая болезнь."},
+        {"who": "hero", "es": "E qual era la diagnosi?", "ru": "И какой был диагноз?"},
+        {"who": "npc", "es": "Nostalgia. Vuole tornare a casa.", "ru": "Тоска по дому. Он хочет вернуться домой."},
+        {"who": "hero", "es": "E le voci degli alberi?", "ru": "А голоса деревьев?"},
+        {"who": "npc", "es": "Gli alberi dicono il suo nome perché lo aspettano. Non è un pericolo: lo chiamano a casa.", "ru": "Деревья шепчут его имя, потому что ждут его. Это не опасность: они зовут его домой."},
+        {"who": "hero", "es": "Si può curare?", "ru": "Это лечится?"},
+        {"who": "npc", "es": "C'è una sola medicina: tornare. Lui ha pianto. Ma questa volta era felice.", "ru": "Лекарство только одно: вернуться. Он заплакал. Но в этот раз от радости."},
+        {"who": "hero", "es": "Allora torna nel bosco.", "ru": "Значит, он вернётся в лес."},
+        {"who": "npc", "es": "Lo spero. E lei, piano: dopo il deserto, il bosco. Lì bisogna ascoltare.", "ru": "Надеюсь. А вы не спешите: после пустыни — лес. Там нужно слушать."}
+      ],
+      "questions": [
+        {"q": "Что беспокоило человека с верблюдом?", "options": ["Он не спал и слышал голоса", "У него болела нога", "Он потерял карту"], "answer": 0},
+        {"q": "Какой диагноз поставила доктор?", "options": ["Тоска по дому", "Грипп", "Солнечный удар"], "answer": 0},
+        {"q": "Почему деревья шепчут его имя?", "options": ["Они его ждут", "Они злятся", "Так дует ветер"], "answer": 0},
+        {"q": "Какое лекарство от этого?", "options": ["Вернуться домой", "Таблетки", "Отдых на море"], "answer": 0}
+      ],
+      "gloss": {"cammello": "верблюд", "nostalgia": "тоска по дому", "pericolo": "опасность", "curare": "вылечить", "pianto": "заплакал"}
     }
   ]
 }

@@ -50,6 +50,31 @@
         {"q": "Что было сегодня?", "options": ["Город стал больше", "Только песок", "Туман"], "answer": 1}
       ],
       "gloss": {"binari": "рельсы", "sabbia": "песок", "tommaso": "Томмазо (имя)"}
+    },
+    {
+      "id": "sc:airport.3",
+      "chapter": 3,
+      "npc": "luca",
+      "lines": [
+        {"who": "npc", "es": "Viaggiatore! Ieri il vento ci ha portato dietro il deserto.", "ru": "Путешественник! Вчера ветер унёс нас дальше пустыни."},
+        {"who": "hero", "es": "E cosa hai visto?", "ru": "И что ты видел?"},
+        {"who": "npc", "es": "Un bosco enorme. Verde, scuro, con la nebbia tra gli alberi.", "ru": "Огромный лес. Зелёный, тёмный, с туманом между деревьями."},
+        {"who": "hero", "es": "Un bosco dopo il deserto?", "ru": "Лес после пустыни?"},
+        {"who": "npc", "es": "E gli alberi ballavano... ma non c'era vento.", "ru": "И деревья качались... но ветра не было."},
+        {"who": "hero", "es": "Il bosco di Ivo!", "ru": "Лес Иво!"},
+        {"who": "npc", "es": "Ivo era sull'aereo. Guardava dal finestrino e sorrideva.", "ru": "Иво был в самолёте. Смотрел в окно и улыбался."},
+        {"who": "hero", "es": "È tornato a casa?", "ru": "Он вернулся домой?"},
+        {"who": "npc", "es": "È sceso nel paese del bosco. Mi ha detto: «Adesso non ho più paura di ascoltare».", "ru": "Он сошёл в лесной деревне. Сказал мне: «Теперь я больше не боюсь слушать»."},
+        {"who": "hero", "es": "E gli alberi?", "ru": "А деревья?"},
+        {"who": "npc", "es": "Quando è sceso, hanno smesso di ballare. Come se adesso fossero tranquilli.", "ru": "Когда он сошёл, они перестали качаться. Будто наконец успокоились."}
+      ],
+      "questions": [
+        {"q": "Что Лука увидел за пустыней?", "options": ["Огромный туманный лес", "Море", "Ещё одну пустыню"], "answer": 0},
+        {"q": "Что странного в деревьях?", "options": ["Качались без ветра", "Были белыми", "Пели"], "answer": 0},
+        {"q": "Где сошёл Иво?", "options": ["В лесной деревне", "В белом городе", "В столице"], "answer": 0},
+        {"q": "Что случилось с деревьями, когда он сошёл?", "options": ["Они успокоились", "Они исчезли", "Они зацвели"], "answer": 0}
+      ],
+      "gloss": {"enorme": "огромный", "ballavano": "качались", "ballare": "качаться", "ivo": "Иво (имя)", "paese": "деревня", "smesso": "перестали", "fossero": "были бы"}
     }
   ]
 }

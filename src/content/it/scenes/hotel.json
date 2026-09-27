@@ -50,6 +50,31 @@
         {"q": "Что делают с седьмым номером?", "options": ["Сдают туристам", "Каждый день убирают", "Закрыли на ключ"], "answer": 1}
       ],
       "gloss": {"stasera": "сегодня вечером", "andrea": "Андреа (имя)", "cancellata": "отменил", "tradizione": "традиция", "puliamo": "убираем"}
+    },
+    {
+      "id": "sc:hotel.3",
+      "chapter": 3,
+      "npc": "elisa",
+      "lines": [
+        {"who": "npc", "es": "C'è una busta per lei alla reception.", "ru": "На стойке для вас конверт."},
+        {"who": "hero", "es": "Di chi?", "ru": "От кого?"},
+        {"who": "npc", "es": "Dell'uomo con il cammello. Si chiama Ivo. L'ha lasciata stamattina.", "ru": "От человека с верблюдом. Его зовут Иво. Он оставил его сегодня утром."},
+        {"who": "hero", "es": "Cosa c'è nella busta?", "ru": "Что в конверте?"},
+        {"who": "npc", "es": "Pezzi della mappa. Quelli veri. Quelli che ha rubato.", "ru": "Обрывки карты. Настоящие. Те, что он украл."},
+        {"who": "hero", "es": "Anche quello del fratello di Giulia?", "ru": "И обрывок брата Джулии тоже?"},
+        {"who": "npc", "es": "Anche quello. E un biglietto: «Scusa. La guardiana mi ha insegnato che la verità non si vende».", "ru": "Тоже. И записка: «Прости. Стражница научила меня, что правда не продаётся»."},
+        {"who": "hero", "es": "E dov'è lui adesso?", "ru": "А где он сейчас?"},
+        {"who": "npc", "es": "Ha pagato una notte, con soldi veri. Ed è partito presto, senza rumore.", "ru": "Заплатил за ночь настоящими деньгами. И уехал рано, без шума."},
+        {"who": "hero", "es": "Dove è andato?", "ru": "Куда он уехал?"},
+        {"who": "npc", "es": "All'aeroporto. Ha detto che torna a casa, nel bosco.", "ru": "В аэропорт. Сказал, что возвращается домой, в лес."}
+      ],
+      "questions": [
+        {"q": "Что оставил Иво для героя?", "options": ["Конверт с настоящими обрывками карты", "Верблюда", "Счёт за номер"], "answer": 0},
+        {"q": "Был ли там обрывок брата Джулии?", "options": ["Да", "Нет", "Только половина"], "answer": 0},
+        {"q": "Что написано в записке?", "options": ["«Прости. Правда не продаётся»", "«Не ищи меня»", "«Увидимся в лесу»"], "answer": 0},
+        {"q": "Куда уехал Иво?", "options": ["Домой, в лес", "В белый город", "В башню"], "answer": 0}
+      ],
+      "gloss": {"busta": "конверт", "reception": "стойка регистрации", "ivo": "Иво (имя)", "cammello": "верблюд", "pezzi": "обрывки", "rubato": "украл", "giulia": "Джулия (имя)", "biglietto": "записка", "guardiana": "стражница"}
     }
   ]
 }

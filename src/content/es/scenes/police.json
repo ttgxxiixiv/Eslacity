@@ -50,6 +50,31 @@
         {"q": "Как Андрес вернётся домой?", "options": ["Пешком", "Поездом в семь", "Самолётом"], "answer": 1}
       ],
       "gloss": {"caso": "дело", "cierro": "закрываю", "pasajero": "пассажир", "andrés": "Андрес (имя)", "contesta": "ответит", "contesto": "отвечу"}
+    },
+    {
+      "id": "sc:police.3",
+      "chapter": 3,
+      "npc": "vega",
+      "lines": [
+        {"who": "npc", "es": "Buenas. Cierro un caso más: los trozos de mentira y el paquete robado.", "ru": "Добрый день. Закрываю ещё одно дело: поддельные обрывки и украденная посылка."},
+        {"who": "hero", "es": "¿Y quién lo hizo?", "ru": "А кто это сделал?"},
+        {"who": "npc", "es": "Iván. Vino a hablar conmigo antes de irse. Me lo contó todo.", "ru": "Иван. Пришёл поговорить со мной перед отъездом. Всё рассказал."},
+        {"who": "hero", "es": "¿Lo va a castigar?", "ru": "Вы его накажете?"},
+        {"who": "npc", "es": "No. Devolvió los trozos de verdad y el dinero de la gente. Y dijo la verdad.", "ru": "Нет. Он вернул настоящие обрывки и деньги людям. И сказал правду."},
+        {"who": "hero", "es": "¿Y es suficiente?", "ru": "И этого достаточно?"},
+        {"who": "npc", "es": "En esta ciudad, es suficiente. La verdad es más importante que una multa.", "ru": "В этом городе — достаточно. Правда важнее штрафа."},
+        {"who": "hero", "es": "¿Y la guardiana de la ciudad blanca?", "ru": "А стражница белого города?"},
+        {"who": "npc", "es": "Iván me dio un mensaje de ella para ti.", "ru": "Иван передал мне для тебя её послание."},
+        {"who": "hero", "es": "¿Qué dice?", "ru": "Что там?"},
+        {"who": "npc", "es": "«Si llegas al bosque, escucha a los árboles. Ellos no mienten».", "ru": "«Если дойдёшь до леса, слушай деревья. Они не лгут»."}
+      ],
+      "questions": [
+        {"q": "Какое дело закрывает Вега?", "options": ["Поддельные обрывки и украденная посылка", "Поезд к башне", "Кражу в банке"], "answer": 0},
+        {"q": "Что сделал Иван перед отъездом?", "options": ["Всё рассказал и вернул обрывки и деньги", "Сбежал", "Купил белый город"], "answer": 0},
+        {"q": "Почему Ивана не накажут?", "options": ["Он сказал правду и всё вернул", "Его не нашли", "Он заплатил штраф"], "answer": 0},
+        {"q": "Какое послание оставила стражница?", "options": ["«Слушай деревья. Они не лгут»", "«Не ходи в лес»", "«Жду тебя в городе»"], "answer": 0}
+      ],
+      "gloss": {"caso": "дело", "trozos": "обрывки", "iván": "Иван (имя)", "castigar": "наказать", "suficiente": "достаточно", "guardiana": "стражница", "árboles": "деревья", "mienten": "лгут"}
     }
   ]
 }

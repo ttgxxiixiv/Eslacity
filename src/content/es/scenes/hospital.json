@@ -50,6 +50,31 @@
         {"q": "Какой вопрос Томас не смог ответить?", "options": ["«Кому ты помог?»", "«Как тебя зовут?»", "«Откуда ты?»"], "answer": 0}
       ],
       "gloss": {"contestó": "ответил", "tercera": "третий", "ayudaste": "помог", "tráeme": "приведи ко мне"}
+    },
+    {
+      "id": "sc:hospital.3",
+      "chapter": 3,
+      "npc": "ruiz",
+      "lines": [
+        {"who": "npc", "es": "Buenos días. Ayer vino Iván, el hombre del camello.", "ru": "Добрый день. Вчера приходил Иван, человек с верблюдом."},
+        {"who": "hero", "es": "¿Está enfermo?", "ru": "Он болен?"},
+        {"who": "npc", "es": "Eso creía él. No dormía, oía voces. Pensaba que tenía una enfermedad grave.", "ru": "Он так думал. Не спал, слышал голоса. Думал, что у него тяжёлая болезнь."},
+        {"who": "hero", "es": "¿Y cuál era el diagnóstico?", "ru": "И какой был диагноз?"},
+        {"who": "npc", "es": "Nostalgia. Quiere volver a su casa.", "ru": "Тоска по дому. Он хочет вернуться домой."},
+        {"who": "hero", "es": "¿Y las voces de los árboles?", "ru": "А голоса деревьев?"},
+        {"who": "npc", "es": "Los árboles dicen su nombre porque lo esperan. No es un peligro: es una llamada.", "ru": "Деревья шепчут его имя, потому что ждут его. Это не опасность: это зов."},
+        {"who": "hero", "es": "¿Se puede curar?", "ru": "Это лечится?"},
+        {"who": "npc", "es": "Hay un solo medicamento: volver. Se lo dije, y lloró. Pero esta vez, de alegría.", "ru": "Лекарство только одно: вернуться. Я ему это сказала, и он заплакал. Но в этот раз от радости."},
+        {"who": "hero", "es": "Así que va a volver al bosque.", "ru": "Значит, он вернётся в лес."},
+        {"who": "npc", "es": "Eso espero. Y usted, atención: después del desierto, el bosque. Allí hay que escuchar.", "ru": "Надеюсь. А вы осторожнее: после пустыни — лес. Там нужно слушать."}
+      ],
+      "questions": [
+        {"q": "Что беспокоило Ивана?", "options": ["Он не спал и слышал голоса", "У него болела нога", "Он потерял карту"], "answer": 0},
+        {"q": "Какой диагноз поставила доктор?", "options": ["Тоска по дому", "Грипп", "Солнечный удар"], "answer": 0},
+        {"q": "Почему деревья шепчут его имя?", "options": ["Они его ждут", "Они злятся", "Так дует ветер"], "answer": 0},
+        {"q": "Какое лекарство от этого?", "options": ["Вернуться домой", "Таблетки", "Отдых на море"], "answer": 0}
+      ],
+      "gloss": {"iván": "Иван (имя)", "camello": "верблюд", "nostalgia": "тоска по дому", "árboles": "деревья", "peligro": "опасность", "llamada": "зов", "curar": "вылечить", "atención": "осторожно"}
     }
   ]
 }

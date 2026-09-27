@@ -41,6 +41,26 @@
         "out": {"kind": "answer", "task": "Спросите, когда вы сможете вернуться домой.", "branches": [{"phrase": "ph:hospital.quando-posso-tornare", "next": "end"}], "wrong": {"es": "Quando mi danno un gelato? Dopo la torre.", "ru": "Когда мне дадут мороженое? После башни."}},
         "end": {"kind": "say", "es": "Adesso. Prenda il mio pezzo della mappa della montagna. E ricordi quella domanda: chi ha aiutato. Lei lo sa meglio di tutti.", "ru": "Прямо сейчас. Возьмите мой обрывок карты гор. И помните тот вопрос: кому вы помогли. Вы это знаете лучше всех."}
       }
+    },
+    {
+      "id": "ms:hospital.3",
+      "chapter": 3,
+      "npc": "conti",
+      "scene": "sc:hospital.3",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "È tornato dal deserto con la febbre. Vediamo.", "ru": "Вы вернулись из пустыни с температурой. Посмотрим.", "next": "diag"},
+        "diag": {"kind": "answer", "task": "Спросите, какой диагноз.", "branches": [{"phrase": "ph:hospital.qual-diagnosi", "next": "diagsay"}], "wrong": {"es": "Qual è la mia camera? Ancora niente. Prima mi dica cosa ha.", "ru": "Какая у меня палата? Пока никакой. Сначала скажите, что с вами."}},
+        "diagsay": {"kind": "say", "es": "Niente di grave: sabbia, sole e tanta stanchezza.", "ru": "Ничего серьёзного: песок, солнце и сильная усталость.", "next": "cont"},
+        "cont": {"kind": "answer", "task": "Спросите, заразно ли это.", "branches": [{"phrase": "ph:hospital.contagioso", "next": "contsay"}], "wrong": {"es": "È di cioccolato? No, è la febbre.", "ru": "Это из шоколада? Нет, это температура."}},
+        "contsay": {"kind": "say", "es": "No. Ma la tristezza, a volte, passa da una persona all'altra. Ha qualche malattia?", "ru": "Нет. А вот грусть иногда передаётся от человека к человеку. У вас есть какие-то болезни?", "next": "chron"},
+        "chron": {"kind": "answer", "task": "Скажите, что у вас хроническое заболевание.", "branches": [{"phrase": "ph:hospital.ho-malattia-cronica", "next": "chronsay"}], "wrong": {"es": "Ha un cane cronico? Cosa dice!", "ru": "Хроническая собака? Что вы говорите!"}},
+        "chronsay": {"kind": "say", "es": "Lo so, è nella sua cartella. Tranquillo. Le faccio una puntura.", "ru": "Знаю, это есть в вашей карте. Спокойно. Сделаю вам укол.", "next": "anest"},
+        "anest": {"kind": "answer", "task": "Спросите, сделают ли вам наркоз.", "branches": [{"phrase": "ph:hospital.fanno-anestesia", "next": "anestsay"}], "wrong": {"es": "Mi mettono un cappello? No, questo è un ospedale.", "ru": "Мне наденут шляпу? Нет, это больница."}},
+        "anestsay": {"kind": "say", "es": "Per una puntura? Ma no! Fatto. Cosa le serve ancora?", "ru": "Для укола? Да нет же! Готово. Что ещё вам нужно?", "next": "baja"},
+        "baja": {"kind": "answer", "task": "Скажите, что вам нужна справка для работы.", "branches": [{"phrase": "ph:hospital.serve-certificato-medico", "next": "end"}], "wrong": {"es": "Le serve un biglietto per il treno della luna? Quello, in stazione.", "ru": "Нужен билет на лунный поезд? Это на вокзале."}},
+        "end": {"kind": "say", "es": "Tre giorni di riposo. E prenda il mio pezzo della mappa del deserto. Si ricordi: nel bosco, ascolti.", "ru": "Три дня отдыха. И возьмите мой обрывок карты пустыни. Помните: в лесу — слушайте."}
+      }
     }
   ]
 }

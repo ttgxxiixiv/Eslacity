@@ -42,6 +42,26 @@
         "leave": {"kind": "answer", "task": "Спросите, до которого часа нужно освободить номер.", "branches": [{"phrase": "ph:hotel.che-ora-bisogna", "next": "end"}], "wrong": {"es": "A che ora scende il guardiano? Questo non lo so.", "ru": "Во сколько спускается страж? Этого я не знаю."}},
         "end": {"kind": "say", "es": "Alle dodici. Ma lei parte alle sette. Prenda il mio pezzo della mappa della montagna. E dica ad Andrea che la sua camera lo aspetta.", "ru": "До двенадцати. Но вы уходите в семь. Возьмите мой обрывок карты гор. И скажите Андреа, что его номер ждёт."}
       }
+    },
+    {
+      "id": "ms:hotel.3",
+      "chapter": 3,
+      "npc": "elisa",
+      "scene": "sc:hotel.3",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Ivo vuole un posto tranquillo per l'ultima notte prima del viaggio. Lo aiutiamo?", "ru": "Иво хочет тихое место на последнюю ночь перед дорогой. Поможем ему?", "next": "rural"},
+        "rural": {"kind": "answer", "task": "Скажите, что ищете тихую агроусадьбу.", "branches": [{"phrase": "ph:hotel.cerchiamo-agriturismo-tranquillo", "next": "ruralsay"}], "wrong": {"es": "Cerchiamo un cammello? No, un posto per dormire.", "ru": "Ищем верблюда? Нет, место, где спать."}},
+        "ruralsay": {"kind": "say", "es": "Ne ho uno, in campagna. Senza rumore, senza voci.", "ru": "Есть одна, за городом. Без шума, без голосов.", "next": "all"},
+        "all": {"kind": "answer", "task": "Спросите, всё ли включено.", "branches": [{"phrase": "ph:hotel.tutto-compreso", "next": "allsay"}], "wrong": {"es": "È compreso il deserto? No, solo la casa.", "ru": "Пустыня включена? Нет, только дом."}},
+        "allsay": {"kind": "say", "es": "Tutto: la cena, la colazione e il silenzio.", "ru": "Всё: ужин, завтрак и тишина.", "next": "tax"},
+        "tax": {"kind": "answer", "task": "Спросите, какой туристический сбор.", "branches": [{"phrase": "ph:hotel.quant-tassa-soggiorno", "next": "taxsay"}], "wrong": {"es": "Quanto costa la luna? Non si vende.", "ru": "Сколько стоит луна? Она не продаётся."}},
+        "taxsay": {"kind": "say", "es": "Due euro a notte. Altro?", "ru": "Два евро за ночь. Что-нибудь ещё?", "next": "cancel"},
+        "cancel": {"kind": "answer", "task": "Спросите, какие условия отмены.", "branches": [{"phrase": "ph:hotel.qual-politica-cancellazione", "next": "cancelsay"}], "wrong": {"es": "Di che colore è la casa? Bianca. È importante?", "ru": "Какого цвета дом? Белого. Это важно?"}},
+        "cancelsay": {"kind": "say", "es": "Si può cancellare fino al giorno prima. Ma lui non cancella: ne ha bisogno.", "ru": "Отменить можно до предыдущего дня. Но он не отменит: ему это нужно.", "next": "review"},
+        "review": {"kind": "answer", "task": "Скажите, что оставите хороший отзыв.", "branches": [{"phrase": "ph:hotel.lascero-bella-recensione", "next": "end"}], "wrong": {"es": "Lasci qui il cammello? Qui no, per favore.", "ru": "Оставишь здесь верблюда? Только не здесь, пожалуйста."}},
+        "end": {"kind": "say", "es": "Grazie mille. E prenda la busta di Ivo: i pezzi veri. E anche il mio pezzo della mappa del deserto.", "ru": "Большое спасибо. И возьмите конверт от Иво: настоящие обрывки. И мой обрывок карты пустыни тоже."}
+      }
     }
   ]
 }
