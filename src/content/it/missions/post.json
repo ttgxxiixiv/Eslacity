@@ -40,6 +40,26 @@
         "track": {"kind": "answer", "task": "Попросите трек-номер, чтобы узнать, откуда посылка.", "branches": [{"phrase": "ph:post.da-codice-tracciamento", "next": "end"}], "wrong": {"es": "Ti do la mia Vespa? Mai! Ma posso darti il codice.", "ru": "Отдать тебе «Веспу»? Никогда! Но код могу дать."}},
         "end": {"kind": "say", "es": "Eccolo. Guarda: il pacco è partito dalla torre tre giorni fa. E prendi il mio pezzo della mappa della montagna. Segui la voce, viaggiatore.", "ru": "Вот он. Смотри: посылка ушла из башни три дня назад. И держи мой обрывок карты гор. Иди на голос, путешественник."}
       }
+    },
+    {
+      "id": "ms:post.3",
+      "chapter": 3,
+      "npc": "enzo",
+      "scene": "sc:post.3",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Andiamo allo sportello! Oggi risolviamo tutto.", "ru": "Идём к окошку! Сегодня всё решим.", "next": "lost"},
+        "lost": {"kind": "answer", "task": "Скажите служащему, что ваша посылка потерялась.", "branches": [{"phrase": "ph:post.mio-pacco-andato", "next": "lostsay"}], "wrong": {"es": "Il mio pacco è innamorato? Il mio pacco non c'è!", "ru": "Моя посылка влюблена? Моей посылки нет!"}},
+        "lostsay": {"kind": "say", "es": "Smarrito? Rubato. Ma per il foglio, «smarrito». Avanti.", "ru": "Потерялась? Украдена. Но для бумаги — «потерялась». Дальше.", "next": "claim"},
+        "claim": {"kind": "answer", "task": "Скажите, что хотите подать жалобу.", "branches": [{"phrase": "ph:post.vorrei-fare-reclamo", "next": "claimsay"}], "wrong": {"es": "Vuoi un francobollo? Prima il reclamo.", "ru": "Хочешь марку? Сначала жалоба."}},
+        "claimsay": {"kind": "say", "es": "Ecco il modulo. E adesso scrivi a Tommaso: che non mandi più pacchi senza dirlo.", "ru": "Вот бланк. А теперь напиши Томмазо: пусть больше не шлёт посылки без предупреждения.", "next": "ack"},
+        "ack": {"kind": "answer", "task": "Отправьте письмо Томмазо с уведомлением о вручении.", "branches": [{"phrase": "ph:post.con-ricevuta-ritorno", "next": "acksay"}], "wrong": {"es": "Con la sabbia, per favore? No, senza sabbia.", "ru": "С песком, пожалуйста? Нет, без песка."}},
+        "acksay": {"kind": "say", "es": "Benissimo: così sappiamo chi la riceve. Sono tre euro.", "ru": "Правильно: так мы узнаем, кто его получит. С тебя три евро.", "next": "cod"},
+        "cod": {"kind": "answer", "task": "Спросите, можно ли оплатить при получении.", "branches": [{"phrase": "ph:post.si-puo-pagare", "next": "codsay"}], "wrong": {"es": "Si può pagare con la sabbia? Quella moneta non la prendo!", "ru": "Можно заплатить песком? Такую монету не принимаю!"}},
+        "codsay": {"kind": "say", "es": "Si può: paga Tommaso quando la riceve. Altro?", "ru": "Можно: заплатит Томмазо, когда получит. Что-нибудь ещё?", "next": "tax"},
+        "tax": {"kind": "answer", "task": "Спросите, нужно ли платить таможенную пошлину.", "branches": [{"phrase": "ph:post.bisogna-pagare-dazi", "next": "end"}], "wrong": {"es": "Bisogna pagare il cammello? Al cammello, niente!", "ru": "Надо платить верблюду? Верблюду — ничего!"}},
+        "end": {"kind": "say", "es": "All'ospedale? No, è in città. E prendi il mio pezzo della mappa del deserto. Questo non lo ruba nessuno: lo porto sempre sulla Vespa.", "ru": "В больницу? Нет, она в городе. И держи мой обрывок карты пустыни. Этот никто не украдёт: я всегда вожу его на «Веспе»."}
+      }
     }
   ]
 }

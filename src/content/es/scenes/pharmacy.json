@@ -50,6 +50,31 @@
         {"q": "Что говорит аптекарь в конце?", "options": ["Он продаёт лекарства, а не ответы", "Он пойдёт в горы", "Он знает этого человека"], "answer": 0}
       ],
       "gloss": {"mareo": "головокружение", "marea": "кружится голова", "capa": "плащ", "supiera": "знал бы"}
+    },
+    {
+      "id": "sc:pharmacy.3",
+      "chapter": 3,
+      "npc": "ernesto",
+      "lines": [
+        {"who": "npc", "es": "Buenas tardes. Ya sé qué había en la botella.", "ru": "Добрый день. Я уже знаю, что было в бутылке."},
+        {"who": "hero", "es": "¿Qué botella?", "ru": "В какой бутылке?"},
+        {"who": "npc", "es": "La del «agua del oasis». La que parecía llena.", "ru": "В бутылке «воды оазиса». В той, что казалась полной."},
+        {"who": "hero", "es": "¿Y qué tenía?", "ru": "И что в ней было?"},
+        {"who": "npc", "es": "Nada. Solo un poco de sal. Y huele a flores.", "ru": "Ничего. Только немного соли. И пахнет цветами."},
+        {"who": "hero", "es": "¿Y por qué la gente la ve llena?", "ru": "А почему люди видят её полной?"},
+        {"who": "npc", "es": "Porque tiene sed. Y porque quiere creerlo. El espejismo no está en la botella: está en la cabeza.", "ru": "Потому что их мучает жажда. И потому что хотят в это верить. Мираж не в бутылке, а в голове."},
+        {"who": "hero", "es": "¿Mucha gente la compró?", "ru": "Многие её купили?"},
+        {"who": "npc", "es": "Demasiada. Y ahora no duermen. Cada noche sueñan con la ciudad blanca.", "ru": "Слишком многие. И теперь они не спят. Каждую ночь им снится белый город."},
+        {"who": "hero", "es": "¿Tiene algo para eso?", "ru": "У вас есть что-нибудь от этого?"},
+        {"who": "npc", "es": "Para dormir, tengo pastillas. Para querer menos, no hay medicamento.", "ru": "Чтобы спать — таблетки есть. Чтобы меньше хотеть — лекарства нет."}
+      ],
+      "questions": [
+        {"q": "Что было в бутылке «воды оазиса»?", "options": ["Немного соли, и пахло цветами", "Настоящая вода", "Песок"], "answer": 0},
+        {"q": "Почему люди видят бутылку полной?", "options": ["Их мучает жажда и они хотят верить", "Бутылка волшебная", "Так её сделали"], "answer": 0},
+        {"q": "Где, по словам Эрнесто, мираж?", "options": ["В голове", "В бутылке", "В пустыне"], "answer": 0},
+        {"q": "Что снится тем, кто купил воду?", "options": ["Белый город", "Море", "Башня"], "answer": 0}
+      ],
+      "gloss": {"oasis": "оазис", "huele": "пахнет", "espejismo": "мираж", "duermen": "спят", "sueñan": "снится"}
     }
   ]
 }

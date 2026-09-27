@@ -50,6 +50,31 @@
         {"q": "Что написано в записке?", "options": ["«Жди меня»", "«Иди на голос»", "«Не ходи в горы»"], "answer": 1}
       ],
       "gloss": {"tommaso": "Томмазо (имя)", "bussola": "компас", "biglietto": "записка", "fragile": "хрупкая", "segui": "иди за", "vivo": "жив"}
+    },
+    {
+      "id": "sc:post.3",
+      "chapter": 3,
+      "npc": "enzo",
+      "lines": [
+        {"who": "npc", "es": "Viaggiatore! Ho un problema! Il tuo pacco!", "ru": "Путешественник! У меня проблема! Твоя посылка!"},
+        {"who": "hero", "es": "Quale pacco?", "ru": "Какая посылка?"},
+        {"who": "npc", "es": "Tommaso ti ha mandato un pacco dall'ospedale. E adesso non c'è.", "ru": "Томмазо отправил тебе посылку из больницы. А теперь её нет."},
+        {"who": "hero", "es": "Si è perso?", "ru": "Она потерялась?"},
+        {"who": "npc", "es": "L'ho pensato anch'io. Ma guarda il foglio: qualcuno l'ha ritirato con il tuo nome.", "ru": "Я тоже так думал. Но посмотри на бумагу: кто-то забрал её на твоё имя."},
+        {"who": "hero", "es": "Con il mio nome? Chi?", "ru": "На моё имя? Кто?"},
+        {"who": "npc", "es": "La firma dice: «Il Mercante». E sul foglio c'è sabbia.", "ru": "Подпись: «Купец». И на бумаге песок."},
+        {"who": "hero", "es": "L'uomo con il cammello.", "ru": "Человек с верблюдом."},
+        {"who": "npc", "es": "Nessuno ruba pacchi nel mio ufficio! Faccio un reclamo.", "ru": "Никто не крадёт посылки на моей почте! Я подам жалобу."},
+        {"who": "hero", "es": "Cosa c'era nel pacco?", "ru": "Что было в посылке?"},
+        {"who": "npc", "es": "Tommaso dice che c'era il suo pezzo della mappa del deserto. Quello vero.", "ru": "Томмазо говорит, что там был его обрывок карты пустыни. Настоящий."}
+      ],
+      "questions": [
+        {"q": "Кто отправил герою посылку?", "options": ["Томмазо", "Андреа", "Джулия"], "answer": 0},
+        {"q": "Что случилось с посылкой?", "options": ["Её забрали на имя героя", "Её вернули", "Её не отправили"], "answer": 0},
+        {"q": "Как подписался тот, кто её забрал?", "options": ["«Купец»", "«Страж»", "Именем героя"], "answer": 0},
+        {"q": "Что было в посылке?", "options": ["Настоящий обрывок карты пустыни", "Компас", "Письмо"], "answer": 0}
+      ],
+      "gloss": {"tommaso": "Томмазо (имя)", "firma": "подпись", "mercante": "купец", "cammello": "верблюд", "ruba": "крадёт", "reclamo": "жалоба", "pezzo": "обрывок"}
     }
   ]
 }

@@ -44,6 +44,26 @@
         "boots": {"kind": "answer", "task": "Спросите, продаются ли сапоги со скидкой.", "branches": [{"phrase": "ph:clothes.botas-estan-rebajas", "next": "end"}], "wrong": {"es": "¿Las botas cantan? No, pero son muy buenas.", "ru": "Сапоги поют? Нет, но они очень хорошие."}},
         "end": {"kind": "say", "es": "Para ti, sí. Y aquí están las botas de Tomás: llévaselas. Toma también mi trozo del mapa de las montañas. Busca la bufanda roja en la niebla.", "ru": "Для тебя — да. А вот сапоги Томаса: отнеси их ему. И возьми мой обрывок карты гор. Ищи в тумане красный шарф."}
       }
+    },
+    {
+      "id": "ms:clothes.3",
+      "chapter": 3,
+      "npc": "marta",
+      "scene": "sc:clothes.3",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Si vas a la fiesta de la ciudad blanca, necesitas ropa. ¿Qué buscas?", "ru": "Если идёшь на праздник в белом городе, нужна одежда. Что ищешь?", "next": "eleg"},
+        "eleg": {"kind": "answer", "task": "Скажите, что ищете что-нибудь нарядное для праздника.", "branches": [{"phrase": "ph:clothes.busco-algo-elegante", "next": "elegsay"}], "wrong": {"es": "¿Buscas un camello? Aquí solo hay ropa.", "ru": "Ищешь верблюда? Тут только одежда."}},
+        "elegsay": {"kind": "say", "es": "Elegante... ¿Este traje azul? Muy serio, muy bonito.", "ru": "Нарядное... Этот синий костюм? Очень строгий, очень красивый.", "next": "inf"},
+        "inf": {"kind": "answer", "task": "Скажите, что лучше что-нибудь попроще.", "branches": [{"phrase": "ph:clothes.mejor-algo-mas", "next": "infsay"}], "wrong": {"es": "¿Mejor algo de arena? ¡Qué idea!", "ru": "Лучше что-нибудь из песка? Ну и мысль!"}},
+        "infsay": {"kind": "say", "es": "¿Más sencillo? ¿Para la fiesta de una guardiana? Bueno... Pruébate este. Te queda un poco largo.", "ru": "Попроще? На праздник стражницы? Ну ладно... Примерь этот. Длинноват немного.", "next": "fix"},
+        "fix": {"kind": "answer", "task": "Спросите, могут ли подшить брюки.", "branches": [{"phrase": "ph:clothes.pueden-arreglar-pantalones", "next": "fixsay"}], "wrong": {"es": "¿Pueden cantar los pantalones? ¡No, hombre!", "ru": "Брюки умеют петь? Да нет же!"}},
+        "fixsay": {"kind": "say", "es": "Claro, mañana los tienes. ¿Algo más? ¿Para Lola, quizás?", "ru": "Конечно, завтра будут готовы. Что-нибудь ещё? Может, для Лолы?", "next": "comb"},
+        "comb": {"kind": "answer", "task": "Выберите пиджак для Лолы и спросите, подходит ли он к её юбке.", "branches": [{"phrase": "ph:clothes.esta-chaqueta-combina", "next": "combsay"}], "wrong": {"es": "¿Esta chaqueta es de mentira? No, esta es de verdad.", "ru": "Этот пиджак — подделка? Нет, он настоящий."}},
+        "combsay": {"kind": "say", "es": "Combina muy bien. Es un regalo, ¿verdad?", "ru": "Очень подходит. Это подарок, да?", "next": "gift"},
+        "gift": {"kind": "answer", "task": "Попросите подарочный чек.", "branches": [{"phrase": "ph:clothes.da-tique-regalo", "next": "end"}], "wrong": {"es": "¿Me da un billete de arena? ¡No, gracias!", "ru": "Дадите купюру из песка? Нет, спасибо!"}},
+        "end": {"kind": "say", "es": "Aquí tienes el tique regalo. Y toma mi trozo del mapa del desierto. Lo tenía cosido en un vestido viejo: así nadie lo encuentra.", "ru": "Вот подарочный чек. И держи мой обрывок карты пустыни. Он был зашит в старое платье: так его никто не найдёт."}
+      }
     }
   ]
 }

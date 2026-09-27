@@ -50,6 +50,31 @@
         {"q": "Что просит Кьяра?", "options": ["Отнести сапоги Томмазо", "Купить пальто", "Вернуть шарф"], "answer": 0}
       ],
       "gloss": {"tommaso": "Томмазо (имя)", "sciarpa": "шарф", "stivali": "сапоги", "berretto": "шапка", "portaglieli": "отнеси их ему", "glieli": "их ему"}
+    },
+    {
+      "id": "sc:clothes.3",
+      "chapter": 3,
+      "npc": "chiara",
+      "lines": [
+        {"who": "npc", "es": "Sai chi è venuto ieri? L'uomo con il cammello.", "ru": "Знаешь, кто вчера приходил? Человек с верблюдом."},
+        {"who": "hero", "es": "Cosa ha comprato?", "ru": "Что он купил?"},
+        {"who": "npc", "es": "Un abito molto elegante. Ha detto che era per una festa nella città bianca.", "ru": "Очень нарядный костюм. Сказал, что для праздника в белом городе."},
+        {"who": "hero", "es": "Una festa in una città che sparisce?", "ru": "Праздник в городе, который исчезает?"},
+        {"who": "npc", "es": "Anch'io l'ho chiesto. Mi ha detto che una notte all'anno, con la luna piena, la città è vera.", "ru": "Я его об этом спросила. Он сказал, что раз в год, в полнолуние, город становится настоящим."},
+        {"who": "hero", "es": "Una notte all'anno?", "ru": "Одну ночь в году?"},
+        {"who": "npc", "es": "La notte della festa della guardiana. Quella notte, quello che vedi lì esiste.", "ru": "Ночь праздника стражницы. В эту ночь всё, что там видишь, существует."},
+        {"who": "hero", "es": "E quando è?", "ru": "И когда это?"},
+        {"who": "npc", "es": "Non ha voluto dirlo. Ha pagato con una banconota... che dopo è diventata sabbia.", "ru": "Не захотел сказать. Заплатил купюрой... которая потом превратилась в песок."},
+        {"who": "hero", "es": "Un altro miraggio!", "ru": "Ещё один мираж!"},
+        {"who": "npc", "es": "Per questo adesso accetto solo la carta.", "ru": "Поэтому теперь я принимаю только карты."}
+      ],
+      "questions": [
+        {"q": "Что купил человек с верблюдом?", "options": ["Нарядный костюм", "Зимние сапоги", "Красный шарф"], "answer": 0},
+        {"q": "Когда белый город становится настоящим?", "options": ["Каждую ночь", "Одну ночь в году, в полнолуние", "Никогда"], "answer": 1},
+        {"q": "Чей праздник в эту ночь?", "options": ["Праздник стражницы", "День города", "Свадьба купца"], "answer": 0},
+        {"q": "Во что превратилась его купюра?", "options": ["В песок", "В цветы", "В воду"], "answer": 0}
+      ],
+      "gloss": {"cammello": "верблюд", "sparisce": "исчезает", "guardiana": "стражница", "esiste": "существует", "banconota": "купюра", "miraggio": "мираж"}
     }
   ]
 }

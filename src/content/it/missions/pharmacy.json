@@ -43,6 +43,26 @@
         "recipe": {"kind": "answer", "task": "Спросите, можно ли купить это без рецепта.", "branches": [{"phrase": "ph:pharmacy.si-puo-comprare", "next": "end"}], "wrong": {"es": "Si può comprare la farmacia? No, giovane, non si vende.", "ru": "Можно купить аптеку? Нет, молодой человек, она не продаётся."}},
         "end": {"kind": "say", "es": "Si può. E con le gocce, il mio pezzo della mappa della montagna. Se vede l'uomo con il mantello, gli dica in che anno siamo.", "ru": "Можно. А вместе с каплями — мой обрывок карты гор. Если увидите человека в плаще, скажите ему, какой сейчас год."}
       }
+    },
+    {
+      "id": "ms:pharmacy.3",
+      "chapter": 3,
+      "npc": "bruno",
+      "scene": "sc:pharmacy.3",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Farmacia. Mi dica.", "ru": "Аптека. Слушаю.", "next": "duty"},
+        "duty": {"kind": "answer", "task": "Ночь, вы звоните по телефону. Спросите, где дежурная аптека.", "branches": [{"phrase": "ph:pharmacy.dov-farmacia-turno", "next": "dutysay"}], "wrong": {"es": "Dov'è la festa? È notte, giovane, qui non c'è festa.", "ru": "Где праздник? Ночь, молодой человек, никакого праздника."}},
+        "dutysay": {"kind": "say", "es": "È questa, giovane. Stanotte sono di turno. Venga. ... Cosa le succede?", "ru": "Эта, молодой человек. Сегодня ночью я дежурю. Приходите. ... Что с вами?", "next": "sleep"},
+        "sleep": {"kind": "answer", "task": "Скажите, что у вас бессонница из-за стресса.", "branches": [{"phrase": "ph:pharmacy.ho-insonnia-stress", "next": "sleepsay"}], "wrong": {"es": "Ha fame? A quest'ora la farmacia non vende pane.", "ru": "Проголодались? В такой час аптека хлеб не продаёт."}},
+        "sleepsay": {"kind": "say", "es": "Come mezza città. Sogna la città bianca? Vediamo la pressione.", "ru": "Как полгорода. Вам снится белый город? Давайте измерим давление.", "next": "press"},
+        "press": {"kind": "answer", "task": "Скажите, что у вас высокое давление.", "branches": [{"phrase": "ph:pharmacy.ho-pressione-alta", "next": "presssay"}], "wrong": {"es": "Ha la pressione di un cammello? Non esiste.", "ru": "Давление как у верблюда? Такого не бывает."}},
+        "presssay": {"kind": "say", "es": "Un po' alta, sì. È lo stress. Ha la tessera?", "ru": "Немного высокое, да. Это стресс. У вас есть карточка?", "next": "card"},
+        "card": {"kind": "answer", "task": "Дайте медицинскую карточку.", "branches": [{"phrase": "ph:pharmacy.ecco-mia-tessera", "next": "cardsay"}], "wrong": {"es": "Una cartolina? No, la tessera sanitaria.", "ru": "Открытка? Нет, медицинская карточка."}},
+        "cardsay": {"kind": "say", "es": "Grazie. Queste pastiglie sono buone, ma care.", "ru": "Спасибо. Эти таблетки хорошие, но дорогие.", "next": "gen"},
+        "gen": {"kind": "answer", "task": "Спросите, есть ли аналог подешевле.", "branches": [{"phrase": "ph:pharmacy.c-generico-piu", "next": "end"}], "wrong": {"es": "C'è l'acqua dell'oasi? Qui non vendiamo miraggi!", "ru": "Есть вода оазиса? Здесь не продают миражи!"}},
+        "end": {"kind": "say", "es": "C'è, ed è buono uguale. Una prima di dormire. E prenda il mio pezzo della mappa del deserto. Se sogna la città bianca, si ricordi: non creda a quello che vede.", "ru": "Есть, и он ничуть не хуже. По одной перед сном. И возьмите мой обрывок карты пустыни. Если вам приснится белый город, помните: не верьте тому, что видите."}
+      }
     }
   ]
 }

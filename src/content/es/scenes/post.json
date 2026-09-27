@@ -50,6 +50,31 @@
         {"q": "Что написано в записке?", "options": ["«Жди меня»", "«Иди на голос»", "«Не ходи в горы»"], "answer": 1}
       ],
       "gloss": {"brújula": "компас", "nota": "записка", "frágil": "хрупкая", "sigue": "иди за", "vivo": "жив"}
+    },
+    {
+      "id": "sc:post.3",
+      "chapter": 3,
+      "npc": "rafa",
+      "lines": [
+        {"who": "npc", "es": "¡Viajero! ¡Tengo un problema! ¡Tu paquete!", "ru": "Путешественник! У меня проблема! Твоя посылка!"},
+        {"who": "hero", "es": "¿Qué paquete?", "ru": "Какая посылка?"},
+        {"who": "npc", "es": "Tomás te mandó un paquete desde el hospital. Y ahora no está.", "ru": "Томас отправил тебе посылку из больницы. А теперь её нет."},
+        {"who": "hero", "es": "¿Se ha perdido?", "ru": "Она потерялась?"},
+        {"who": "npc", "es": "Eso pensé. Pero mira el papel: alguien lo recogió con tu nombre.", "ru": "Я тоже так думал. Но посмотри на бумагу: кто-то забрал её на твоё имя."},
+        {"who": "hero", "es": "¿Con mi nombre? ¿Quién?", "ru": "На моё имя? Кто?"},
+        {"who": "npc", "es": "La firma dice: «El Comerciante». Y en el papel hay arena.", "ru": "Подпись: «Купец». И на бумаге песок."},
+        {"who": "hero", "es": "El hombre del camello.", "ru": "Человек с верблюдом."},
+        {"who": "npc", "es": "¡Nadie roba paquetes en mi oficina! Voy a poner una reclamación.", "ru": "Никто не крадёт посылки на моей почте! Я подам жалобу."},
+        {"who": "hero", "es": "¿Qué había en el paquete?", "ru": "Что было в посылке?"},
+        {"who": "npc", "es": "Tomás dice que era su trozo del mapa del desierto. El de verdad.", "ru": "Томас говорит, что там был его обрывок карты пустыни. Настоящий."}
+      ],
+      "questions": [
+        {"q": "Кто отправил герою посылку?", "options": ["Томас", "Андрес", "Лола"], "answer": 0},
+        {"q": "Что случилось с посылкой?", "options": ["Её забрали на имя героя", "Её вернули", "Её не отправили"], "answer": 0},
+        {"q": "Как подписался тот, кто её забрал?", "options": ["«Купец»", "«Страж»", "Именем героя"], "answer": 0},
+        {"q": "Что было в посылке?", "options": ["Настоящий обрывок карты пустыни", "Компас", "Письмо"], "answer": 0}
+      ],
+      "gloss": {"firma": "подпись", "comerciante": "купец", "camello": "верблюд", "roba": "крадёт", "reclamación": "жалоба", "trozo": "обрывок"}
     }
   ]
 }
