@@ -23,8 +23,7 @@ import { useMissions } from '../store/missions';
 import { useTrials } from '../store/trials';
 import { StatsBar } from '../components/Stats';
 import { Screen } from '../components/ui';
-import { RuneBadge } from '../components/Runes';
-import mapPicture from '../assets/home/map-button-map.webp';
+import mapScroll from '../assets/home/map-scroll.webp';
 
 type WordsMap = Partial<Record<LocationId, Word[]>>;
 
@@ -60,65 +59,19 @@ function newWordsLabel(n: number) {
   return 'новых слов';
 }
 
-/** Золотая стрелка квеста: объёмный наконечник с вырезом, светлая грань сверху, тёмная снизу. Покачивается. */
-function QuestArrow() {
+/** Окно портрета, нарисованное на свитке квеста: житель или значок, если квест не от жителя. */
+function QuestWindow({ npc, icon }: { npc?: Npc; icon: string }) {
   return (
-    <svg viewBox="0 0 40 36" className="bob h-7 w-8 shrink-0" aria-hidden>
-      <defs>
-        <linearGradient id="qa-top" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stopColor="#fff4c2" />
-          <stop offset="1" stopColor="#e9bb4f" />
-        </linearGradient>
-        <linearGradient id="qa-bottom" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stopColor="#c8912c" />
-          <stop offset="1" stopColor="#7a5410" />
-        </linearGradient>
-      </defs>
-      <path d="M4 4 L37 19 L4 34 L12 19 Z" fill="#1a120a" opacity="0.55" transform="translate(1.5 2)" />
-      <path d="M3 2 L36 17 L12 17 Z" fill="url(#qa-top)" />
-      <path d="M12 17 L36 17 L3 32 Z" fill="url(#qa-bottom)" />
-      <path d="M3 2 L36 17 L3 32 L12 17 Z" fill="none" stroke="#5c3d08" strokeWidth="1.4" strokeLinejoin="round" />
-    </svg>
-  );
-}
-
-/** Свиток пергамента для плашки урока грамматики. */
-function ScrollIcon() {
-  return (
-    <svg viewBox="0 0 32 28" className="h-7 w-8 shrink-0" aria-hidden>
-      <path d="M6 5h20v16H6z" fill="#e8d09a" stroke="#4a2d16" strokeWidth="1.5" />
-      <path d="M10 10h12M10 13.5h12M10 17h8" stroke="#8a5a2c" strokeWidth="1.3" />
-      <rect x="2" y="2.5" width="6" height="21" rx="3" fill="#c9a468" stroke="#4a2d16" strokeWidth="1.5" />
-      <rect x="24" y="4.5" width="6" height="21" rx="3" fill="#c9a468" stroke="#4a2d16" strokeWidth="1.5" />
-      <path d="M4 6v14M26 8v14" stroke="#f3e1b3" strokeWidth="1" opacity="0.8" />
-    </svg>
-  );
-}
-
-/** Молния блица в синем магическом сиянии. */
-function BoltIcon() {
-  return (
-    <svg viewBox="0 0 40 40" className="h-10 w-10 shrink-0" aria-hidden>
-      <defs>
-        <radialGradient id="bolt-glow">
-          <stop offset="0" stopColor="#8fb0ff" stopOpacity="0.9" />
-          <stop offset="1" stopColor="#3a52c4" stopOpacity="0" />
-        </radialGradient>
-        <linearGradient id="bolt-fill" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stopColor="#fff6c8" />
-          <stop offset="1" stopColor="#f1b82c" />
-        </linearGradient>
-      </defs>
-      <circle cx="20" cy="20" r="19" fill="url(#bolt-glow)" />
-      <path d="M23 3L9 22h9l-3 15 16-21h-9l4-13z" fill="url(#bolt-fill)" stroke="#5c3d08" strokeWidth="1.6" strokeLinejoin="round" />
-    </svg>
+    <div className="absolute top-[34px] left-[27px] flex h-[69px] w-[49px] items-end justify-center overflow-hidden" aria-hidden>
+      {npc ? <NpcPortrait look={npc.look} size={60} /> : <span className="mb-[18px] text-[30px] leading-none">{icon}</span>}
+    </div>
   );
 }
 
 /** Белая подпись квеста: строки по смыслу, длинная строка переносится по словам. */
 function QuestLines({ lines }: { lines: string[] }) {
   return (
-    <div className="quest-text text-[13px] leading-snug">
+    <div className="quest-text text-[14.5px] leading-[1.3]">
       {lines.map((l) => (
         <div key={l}>{l}</div>
       ))}
@@ -161,18 +114,13 @@ function ContinueCard({ step }: { step: NextStep }) {
         ? ['Новых слов на сегодня хватит.', `Жители просят помочь вспомнить: ${words}`]
         : [`Накопилось ${words} к повтору.`, 'Сначала помогите жителям'];
     return (
-      <Link
-        to="/errands"
-        data-testid="continue"
-        data-kind="errands"
-        className="press quest-scroll flex min-h-[124px] items-center justify-between gap-2"
-      >
+      <Link to="/errands" data-testid="continue" data-kind="errands" className="press quest-art relative flex items-center py-7 pr-[58px] pl-[86px]">
+        <QuestWindow icon="📜" />
         <div className="min-w-0">
-          <div className="quest-label text-[11px] font-bold tracking-wider uppercase">Текущий квест</div>
-          <div className="quest-title text-[19px] leading-tight font-extrabold uppercase">Поручения</div>
+          <div className="quest-label text-[12.5px] uppercase">Текущий квест</div>
+          <div className="quest-title text-[19px] leading-tight font-semibold uppercase">Поручения</div>
           <QuestLines lines={sub} />
         </div>
-        <QuestArrow />
       </Link>
     );
   }
@@ -208,24 +156,13 @@ function ContinueCard({ step }: { step: NextStep }) {
     if (step.missing) sub.push(`Не хватает ${step.missing}`);
   }
   return (
-    <Link
-      to={to}
-      data-testid="continue"
-      className="press quest-scroll flex min-h-[124px] items-center justify-between gap-1.5"
-    >
-      {npc && (
-        <div className="portrait-frame shrink-0">
-          <div>
-            <NpcPortrait look={npc.look} size={50} />
-          </div>
-        </div>
-      )}
+    <Link to={to} data-testid="continue" className="press quest-art relative flex items-center py-7 pr-[58px] pl-[86px]">
+      <QuestWindow npc={npc} icon={meta.emoji} />
       <div className="min-w-0 flex-1">
-        <div className="quest-label truncate text-[11px] font-bold tracking-wider uppercase">{label}</div>
-        <div className="quest-title text-[clamp(15px,4.6vw,19px)] leading-tight font-extrabold whitespace-nowrap uppercase">Продолжить</div>
+        <div className="quest-label truncate text-[12.5px] uppercase">{label}</div>
+        <div className="quest-title text-[19px] leading-tight font-semibold uppercase">Продолжить</div>
         <QuestLines lines={sub} />
       </div>
-      <QuestArrow />
     </Link>
   );
 }
@@ -265,20 +202,13 @@ function JourneyLine() {
   }
 
   return (
-    <Link
-      to="/journey-map"
-      data-testid="journey-line"
-      className="press parchment mt-3 flex items-center justify-between gap-3 px-5 py-2.5"
-    >
+    <Link to="/journey-map" data-testid="journey-line" className="press banner-journey banner-shadow mt-[7px] flex items-center pr-[70px] pl-[18px]">
       <div className="min-w-0">
-        <div className="text-[15px] font-semibold text-stone-900">
-          {journey.finished ? 'Все карты собраны' : `Глава ${ch.chapter.roman} · ${got} / ${ch.places.length} обрывков`}
+        <div className="text-[16px] leading-tight text-[#2e2014]">
+          {journey.finished ? 'Все карты собраны' : `Глава ${ch.chapter.roman} • ${got} / ${ch.places.length} обрывков`}
         </div>
-        {next && <div className="truncate text-[13px] text-stone-600">{next}</div>}
+        {next && <div className="truncate text-[14px] leading-tight text-[#4a3522]">{next}</div>}
       </div>
-      <span className="flex shrink-0 items-center gap-2 text-lg text-stone-700" aria-hidden>
-        🗺️ <span>→</span>
-      </span>
     </Link>
   );
 }
@@ -338,61 +268,49 @@ export function Home() {
   return (
     <Screen>
       <StatsBar />
-      <div className="px-3 pt-4">
+      <div className="home-font px-[4px] pt-[7px]">
         {/* Пока слова грузятся, держим место, чтобы экран не прыгал. */}
-        <div className="flex gap-2">
+        <div className="flex gap-[2px]">
           <div className="min-w-0 flex-1">
-            {step ? <ContinueCard step={step} /> : <div className="h-[124px] rounded-xl bg-stone-200" />}
+            {step ? <ContinueCard step={step} /> : <div className="quest-art" />}
           </div>
           <Link
             to="/journey-map"
             aria-label="Карта странствий"
             data-testid="map-button"
-            className="press map-scroll flex w-[66px] shrink-0 items-center justify-center self-stretch"
+            className="press relative w-[75px] shrink-0 self-stretch"
           >
-            <span className="wax-seal" aria-hidden />
-            <img src={mapPicture} alt="" width={231} height={236} className="block h-auto max-h-full w-[50px] drop-shadow-md" />
-            {/* Для экранного диктора — aria-label ссылки. */}
-            <span className="map-label flex items-center justify-center text-[11px] font-extrabold tracking-wider uppercase" aria-hidden>
-              Карта
-            </span>
+            {/* Свиток с картой и надписью «Карта» — картинка из макета, для экранного диктора — aria-label. */}
+            <img src={mapScroll} alt="" width={131} height={214} className="absolute top-[7px] left-0 block h-[calc(100%-7px)] w-full" />
           </Link>
         </div>
         {step && <LearnAnyway step={step} />}
-        <JourneyLine />
-        {nextGrammar && (
-          <Link
-            to={`/grammar/${nextGrammar.id}`}
-            className="press parchment mt-3 flex items-center justify-between gap-3 py-3 pr-5 pl-4"
-          >
-            <span className="flex min-w-0 items-center gap-2.5">
-              <ScrollIcon />
-              <span className="truncate text-[17px] font-bold text-stone-900">{nextGrammar.title}</span>
+        <div className="px-[5px]">
+          <JourneyLine />
+          {nextGrammar && (
+            <Link to={`/grammar/${nextGrammar.id}`} className="press banner-grammar banner-shadow mt-[7px] flex items-center justify-between gap-3 pr-[26px] pl-[48px]">
+              <span className="truncate text-[19px] font-semibold text-[#2b1b0e]">{nextGrammar.title}</span>
+              <span className="shrink-0 text-[15px] text-[#3a2616]">{nextGrammar.district}</span>
+            </Link>
+          )}
+          <Link to="/review" className="press banner-review banner-shadow relative mt-[6px] flex items-center pr-[88px] pl-[18px]" data-testid="review-card">
+            <div className="min-w-0">
+              <div className="text-[19px] leading-tight font-semibold text-[#2b1b0e] uppercase">Повторить</div>
+              <div className="mt-0.5 text-[15px] leading-tight text-[#3f2c1b]">{due ? `${dueText} на сегодня` : 'На сегодня всё повторено'}</div>
+            </div>
+            {/* Число стоит в круге на рунном щите справа. */}
+            <span
+              className={`absolute top-[38px] right-[38px] translate-x-1/2 -translate-y-1/2 font-serif font-bold text-[#2b1a0e] tabular-nums ${due ? '' : 'opacity-60'}`}
+              style={{ fontSize: due >= 1000 ? 17 : due >= 100 ? 26 : 37 }}
+            >
+              {due}
             </span>
-            <span className="shrink-0 font-bold text-stone-700">{nextGrammar.district}</span>
           </Link>
-        )}
-        <Link
-          to="/review"
-          className="press parchment mt-3 flex items-center justify-between gap-3 py-1.5 pr-3 pl-5"
-          data-testid="review-card"
-        >
-          <div className="min-w-0">
-            <div className="parchment-title text-[21px]">Повторить</div>
-            <div className="text-[14px] text-stone-600">{due ? `${dueText} на сегодня` : 'На сегодня всё повторено'}</div>
-          </div>
-          <RuneBadge value={due} dim={!due} />
-        </Link>
-        <Link
-          to="/blitz"
-          className="press parchment mt-3 flex items-center justify-between gap-3 py-2.5 pr-5 pl-3"
-        >
-          <span className="flex items-center gap-2">
-            <BoltIcon />
-            <span className="parchment-title text-[21px]">Блиц</span>
-          </span>
-          <span className="min-w-0 text-right text-[13px] text-stone-700">60 секунд · {learned} слов в запасе</span>
-        </Link>
+          <Link to="/blitz" className="press banner-blitz banner-shadow mt-[7px] flex items-center justify-between gap-3 pr-[17px] pl-[48px]">
+            <span className="text-[19px] font-semibold text-[#2b1b0e] uppercase">Блиц</span>
+            <span className="min-w-0 text-right text-[15px] leading-tight text-[#3a2616]">60 секунд · {learned} слов в запасе</span>
+          </Link>
+        </div>
       </div>
 
       <CityGrid />

@@ -1,5 +1,11 @@
 @import "tailwindcss";
 @import "@fontsource/tiny5/latin-400.css";
+@import "@fontsource/fira-sans-condensed/cyrillic-400.css";
+@import "@fontsource/fira-sans-condensed/latin-400.css";
+@import "@fontsource/fira-sans-condensed/cyrillic-500.css";
+@import "@fontsource/fira-sans-condensed/latin-500.css";
+@import "@fontsource/fira-sans-condensed/cyrillic-600.css";
+@import "@fontsource/fira-sans-condensed/latin-600.css";
 /* Кириллица Tiny5 с исправленными Ь, Ъ, Ы (брюшко в четыре пикселя): scripts/patch-tiny5.py. */
 @font-face {
   font-family: 'Tiny5';
@@ -150,12 +156,6 @@ h1, h2, .font-pixel {
   box-shadow: inset 0 0 0 2px #f7f1e1, inset 0 0 0 4px rgba(22, 26, 48, 0.94), inset 0 0 0 6px #e0b43c;
 }
 
-/* Сердечки прогресса дня. */
-.heart {
-  width: 18px;
-  height: 16px;
-}
-
 @keyframes bob {
   0%, 100% { transform: translateX(0); }
   50% { transform: translateX(4px); }
@@ -292,248 +292,82 @@ button {
 }
 
 /*
- * Карточка текущего квеста на главной: синий мрамор с золотыми прожилками в золотой рамке с рунами.
- * Рамка растягивается через border-image (углы не искажаются), мрамор лежит внутри рамки.
- */
-.quest-card {
-  border: 10px solid transparent;
-  border-image: url('./assets/home/quest-frame.webp') 32 / 10px stretch;
-  background: #0f2344 url('./assets/home/quest-marble.webp') center / cover no-repeat;
-  background-clip: padding-box;
-  filter: drop-shadow(0 3px 2px rgb(38 29 19 / 0.35));
-}
-/* Золотые пиксельные надписи с тёмной тенью, как на макете. */
-.quest-gold {
-  background: linear-gradient(180deg, #fff1b8 0%, #f3cf6a 45%, #c8912c 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  filter: drop-shadow(0 2px 0 #1a120a);
-}
-/* Белый текст на мраморе: лёгкая тень, чтобы прожилки не мешали читать. */
-.quest-text {
-  text-shadow: 0 1px 2px rgb(10 20 45 / 0.9);
-}
-
-/*
- * Кнопка карты на главной: по высоте равна блоку слева. Фон — рамка с досками и надписью «Карта» через border-image:
- * верх рамки и низ с надписью не искажаются, растягиваются доски между ними. Карта — отдельная картинка
- * по центру этого места. Ширина кнопки 68px, поэтому толщины частей — срезы картинки (316px), умноженные на 68/316.
- */
-.map-button {
-  border-style: solid;
-  border-color: transparent;
-  border-width: 26px 0 36px 0;
-  border-image: url('./assets/home/map-button.webp') 120 0 169 0 fill / 26px 0 36px 0 stretch;
-  min-height: 124px;
-  filter: drop-shadow(0 3px 2px rgb(38 29 19 / 0.35));
-}
-
-/*
- * Главная в тёмном оформлении (макет 2.56.0): вечерний фон с тёплым светом сверху и синим магическим свечением ниже.
- * Класс вешается на body, пока открыт экран главной, остальные экраны остаются на пергаменте.
+ * Главная по макету (2.57.0). Рамки, свитки и плашки — картинки, вырезанные из макета (текст с них стёрт),
+ * масштаб 1.75 пикселя картинки на CSS-пиксель. Плашки тянутся по ширине через border-image: края
+ * с украшениями не искажаются, растягивается только середина. Под border-image та же картинка лежит фоном целиком:
+ * при дробном масштабе между частями бывают щели в долю пикселя, и в них видно её, а не тёмный фон. Класс home-dark висит на body, пока открыта главная.
  */
 body.home-dark {
   background:
-    radial-gradient(ellipse 70% 30% at 50% 16%, rgb(196 112 52 / 0.5), transparent 70%),
-    radial-gradient(ellipse 60% 40% at 12% 62%, rgb(64 82 196 / 0.45), transparent 70%),
-    radial-gradient(ellipse 60% 40% at 90% 55%, rgb(128 64 176 / 0.4), transparent 70%),
-    repeating-linear-gradient(115deg, rgb(255 255 255 / 0.015) 0 3px, transparent 3px 9px),
-    linear-gradient(180deg, #3a2518 0%, #231824 45%, #171126 100%) #1b1420;
+    radial-gradient(ellipse 75% 22% at 50% 40%, rgb(190 122 82 / 0.75), transparent 75%),
+    radial-gradient(ellipse 60% 30% at 0% 62%, rgb(60 66 118 / 0.8), transparent 70%),
+    radial-gradient(ellipse 60% 30% at 100% 58%, rgb(58 52 90 / 0.7), transparent 70%),
+    linear-gradient(180deg, #3a2a1a 0%, #3e2c24 30%, #3b2c29 45%, #302833 60%, #2b2a3a 100%) #2e2530;
   background-attachment: fixed;
 }
 html:has(body.home-dark) {
-  background: #1b1420;
+  background: #2e2530;
 }
 
-/* Верхняя панель: кованая рама с заклёпками, внутри тёмное дерево. */
-.stats-frame {
-  position: relative;
-  border: 3px solid #1a120a;
-  border-radius: 10px;
-  background:
-    linear-gradient(180deg, rgb(255 255 255 / 0.06), transparent 40%),
-    repeating-linear-gradient(90deg, rgb(0 0 0 / 0.12) 0 2px, transparent 2px 23px),
-    linear-gradient(180deg, #4a3322, #2c1e14);
-  box-shadow:
-    inset 0 0 0 2px #8a6a3a,
-    inset 0 0 0 4px #2a1d12,
-    inset 0 2px 8px rgb(0 0 0 / 0.6),
-    0 4px 0 0 #120c07,
-    0 6px 14px rgb(0 0 0 / 0.5);
-}
-.stats-frame::before,
-.stats-frame::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  width: 6px;
-  height: 6px;
-  margin-top: -3px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 35% 35%, #f6dc8a, #8a6420 70%);
-  box-shadow: 0 1px 0 #120c07;
-}
-.stats-frame::before { left: 5px; }
-.stats-frame::after { right: 5px; }
-
-/* Каменная плитка с рунами в центре панели: выступает над рамкой. */
-.rune-stone {
-  width: 44px;
-  height: 58px;
-  margin: -10px 0;
-  color: #1c2233;
-  clip-path: polygon(18% 0, 82% 0, 100% 16%, 100% 84%, 82% 100%, 18% 100%, 0 84%, 0 16%);
-  background:
-    radial-gradient(circle at 30% 25%, rgb(255 255 255 / 0.25), transparent 45%),
-    linear-gradient(160deg, #9aa1ad, #6b7280 55%, #4b515c);
-  filter: drop-shadow(0 2px 0 #120c07);
+.home-font {
+  font-family: 'Fira Sans Condensed', var(--font-sans);
 }
 
-/* Щиток уровня: тёмный камень в бронзовой рамке. */
+/* Верхняя панель: кованая рама из макета, тянется середина. */
+.home-topbar {
+  background: url('./assets/home/top-frame.webp') center / 100% 100% no-repeat;
+  border-image: url('./assets/home/top-frame.webp') 0 25 0 27 fill / 0 14.3px 0 15.4px stretch;
+}
+/* Камень уровня. */
 .level-stone {
-  border: 2px solid #8a6a3a;
-  background: linear-gradient(160deg, #5b606b, #353943);
-  box-shadow: inset 0 0 0 1px #1a120a, 0 2px 0 #120c07;
+  background: url('./assets/home/level-stone.webp') center / 100% 100% no-repeat;
 }
 
-/*
- * Карточка квеста: кожаный свиток с намотанными краями. Края — два цилиндра из градиентов по бокам,
- * середина — тёмная кожа с тиснёной золотой рамкой.
- */
-.quest-scroll {
-  position: relative;
-  padding: 10px 20px 10px 22px;
-  background:
-    linear-gradient(90deg, #b88a4a 0 4px, #6b4524 4px 8px, #d9b073 8px 12px, #8a5a2c 12px 16px, #4a2d16 16px 18px, transparent 18px calc(100% - 18px), #4a2d16 calc(100% - 18px) calc(100% - 16px), #8a5a2c calc(100% - 16px) calc(100% - 12px), #d9b073 calc(100% - 12px) calc(100% - 8px), #6b4524 calc(100% - 8px) calc(100% - 4px), #b88a4a calc(100% - 4px)),
-    radial-gradient(ellipse at 50% 40%, #6e4526, #4a2c17 70%, #33200f);
-  border-radius: 6px;
-  box-shadow:
-    inset 0 2px 0 rgb(255 225 160 / 0.25),
-    inset 0 -3px 0 rgb(0 0 0 / 0.35),
-    0 4px 0 #1a0f07,
-    0 8px 18px rgb(0 0 0 / 0.55);
+/* Кожаный свиток квеста с драконами. Левая часть с окном портрета и правая со стрелкой не тянутся. */
+.quest-art {
+  background: url('./assets/home/quest.webp') center / 100% 100% no-repeat;
+  border-image: url('./assets/home/quest.webp') 0 92 0 143 fill / 0 52.6px 0 81.7px stretch;
+  min-height: 130px;
 }
-.quest-scroll::before {
-  content: '';
-  position: absolute;
-  inset: 5px 18px;
-  border: 1.5px solid rgb(224 180 60 / 0.55);
-  border-radius: 3px;
-  box-shadow: inset 0 0 0 3px rgb(26 15 7 / 0.35), inset 0 0 0 4px rgb(224 180 60 / 0.25);
-  pointer-events: none;
+.quest-art .quest-label {
+  color: #e7c98f;
+  text-shadow: 0 1px 1px #1a0f07;
 }
-/* Светлый текст на коже. */
-.quest-scroll .quest-label {
-  color: #e9cf8a;
-  text-shadow: 0 1px 0 #1a0f07;
+.quest-art .quest-title {
+  color: #f7e4bd;
+  text-shadow: 0 2px 1px #1a0f07;
 }
-.quest-scroll .quest-title {
-  color: #fbeccb;
-  text-shadow: 0 2px 0 #1a0f07, 0 0 12px rgb(0 0 0 / 0.4);
-}
-.quest-scroll .quest-text {
-  color: #f1e2c0;
-  text-shadow: 0 1px 1px rgb(0 0 0 / 0.8);
-}
-/* Портрет жителя в золотой рамке. */
-.portrait-frame {
-  padding: 3px;
-  border-radius: 4px;
-  background: linear-gradient(160deg, #fff1b8, #e0b43c 45%, #7a5410);
-  box-shadow: 0 2px 0 #1a0f07, 0 0 0 1px #1a0f07;
-}
-.portrait-frame > div {
-  border-radius: 2px;
-  background: radial-gradient(circle at 50% 35%, #5b6e8a, #2a3346 75%);
-  box-shadow: inset 0 0 0 1px #1a0f07;
+.quest-art .quest-text {
+  color: #efdcb4;
+  text-shadow: 0 1px 1px #1a0f07;
 }
 
-/*
- * Кнопка карты: свиток пергамента с картой, сверху намотка и сургучная печать, снизу доска с надписью.
- * Отступы сверху (26px) и снизу (36px) те же, что у прежней рамки: карта стоит по центру между ними.
- */
-.map-scroll {
-  position: relative;
-  padding: 26px 0 36px;
-  min-height: 124px;
-  border-radius: 6px;
-  background:
-    radial-gradient(ellipse at 50% 45%, #f1dfb2, #d9bd82 70%, #b48f55),
-    #d9bd82;
-  box-shadow: inset 0 0 0 2px #7a5a30, inset 0 0 10px rgb(90 60 20 / 0.5), 0 4px 0 #1a0f07, 0 8px 18px rgb(0 0 0 / 0.55);
+/* Пергаментные плашки. */
+.banner-journey {
+  background: url('./assets/home/banner-journey.webp') center / 100% 100% no-repeat;
+  border-image: url('./assets/home/banner-journey.webp') 0 112 0 30 fill / 0 64px 0 17px stretch;
+  min-height: 54px;
 }
-.map-scroll::before {
-  content: '';
-  position: absolute;
-  top: -3px;
-  left: -3px;
-  right: -3px;
-  height: 14px;
-  border-radius: 7px;
-  background: linear-gradient(180deg, #f3e1b3, #c9a468 50%, #7d5a2e);
-  box-shadow: 0 2px 0 #1a0f07;
+.banner-grammar {
+  background: url('./assets/home/banner-grammar.webp') center / 100% 100% no-repeat;
+  border-image: url('./assets/home/banner-grammar.webp') 0 72 0 84 fill / 0 41px 0 48px stretch;
+  min-height: 54px;
 }
-.map-scroll .wax-seal {
-  position: absolute;
-  top: 2px;
-  left: 50%;
-  width: 22px;
-  height: 22px;
-  margin-left: -11px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 38% 32%, #e0685a, #a3231b 55%, #6b1410);
-  box-shadow: 0 2px 0 #1a0f07, inset 0 0 0 2px rgb(0 0 0 / 0.2);
+.banner-review {
+  background: url('./assets/home/banner-review.webp') center / 100% 100% no-repeat;
+  border-image: url('./assets/home/banner-review.webp') 0 142 0 30 fill / 0 81px 0 17px stretch;
+  min-height: 76px;
 }
-.map-scroll .map-label {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 30px;
-  border-radius: 0 0 6px 6px;
-  background: linear-gradient(180deg, #5a3d22, #3a2616);
-  box-shadow: inset 0 2px 0 rgb(255 225 160 / 0.2), inset 0 0 0 2px #1a0f07;
-  color: #f3dfb0;
-  text-shadow: 0 1px 0 #1a0f07;
+.banner-blitz {
+  background: url('./assets/home/banner-blitz.webp') center / 100% 100% no-repeat;
+  border-image: url('./assets/home/banner-blitz.webp') 0 30 0 79 fill / 0 17px 0 45px stretch;
+  min-height: 52px;
+}
+.banner-shadow {
+  filter: drop-shadow(0 3px 3px rgb(0 0 0 / 0.35));
 }
 
-/*
- * Пергаментная плашка с рваными краями. Фон и обрез лежат в ::before, чтобы тень на самой плашке
- * (filter) не обрезалась по контуру.
- */
-.parchment {
-  position: relative;
-  isolation: isolate;
-  filter: drop-shadow(0 3px 0 #1a0f07) drop-shadow(0 6px 8px rgb(0 0 0 / 0.45));
-}
-.parchment::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  background:
-    linear-gradient(90deg, rgb(110 70 25 / 0.55), transparent 16px, transparent calc(100% - 16px), rgb(110 70 25 / 0.55)),
-    linear-gradient(180deg, rgb(110 70 25 / 0.35), transparent 9px, transparent calc(100% - 9px), rgb(110 70 25 / 0.45)),
-    radial-gradient(ellipse at 30% 40%, rgb(255 250 225 / 0.6), transparent 60%),
-    radial-gradient(circle at 80% 70%, rgb(160 110 50 / 0.18), transparent 35%),
-    linear-gradient(180deg, #f3e3bb, #e6cf98);
-  clip-path: polygon(
-    6px 2px, 22% 0, 48% 3px, 76% 0, calc(100% - 6px) 2px,
-    100% 18%, calc(100% - 4px) 34%, 100% 52%, calc(100% - 5px) 70%, 100% 86%,
-    calc(100% - 7px) 100%, 70% calc(100% - 2px), 40% 100%, 14% calc(100% - 3px), 5px 100%,
-    0 84%, 5px 66%, 1px 48%, 6px 30%, 0 14%
-  );
-}
-/* Заголовки на пергаменте: крупные заглавные тёмно-коричневые, как на макете. */
-.parchment-title {
-  font-weight: 800;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-  color: #2e1f12;
-}
-
-/* Заголовок «Карта города» на тёмном фоне: золото с тёмной обводкой. */
+/* Заголовок «Карта города» на тёмном фоне: золото с тёмной тенью. */
 .gold-heading {
   background: linear-gradient(180deg, #fff1b8 0%, #f3cf6a 50%, #c8912c 100%);
   -webkit-background-clip: text;

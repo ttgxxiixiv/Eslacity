@@ -93,7 +93,7 @@ for (const lang of LANGS) {
       await openApp(page, lang);
       const line = page.getByTestId('journey-line');
       const cafe = wordIdsOf(lang, 'cafe', [1, 2]);
-      await expect(line).toContainText('Глава I · 0 / 20 обрывков');
+      await expect(line).toContainText('Глава I • 0 / 20 обрывков');
       await expect(line).toContainText(`Кафе: осталось ${cafe.length} слов`);
 
       // Кафе выучено наполовину — ближайшим остаётся кафе, с меньшим остатком.
@@ -102,7 +102,7 @@ for (const lang of LANGS) {
 
       // Кафе выучено целиком, но обрывок ждёт сюжетную миссию жителя и испытание места.
       await seedDueCards(page, lang, cafe);
-      await expect(line).toContainText('Глава I · 0 / 20 обрывков');
+      await expect(line).toContainText('Глава I • 0 / 20 обрывков');
       await expect(line).toContainText('Кафе: сюжетная миссия жителя и испытание места');
 
       // Миссия пройдена, осталось испытание.
@@ -113,7 +113,7 @@ for (const lang of LANGS) {
       // Испытание пройдено: обрывок есть, дальше рынок, который ещё закрыт.
       await seedTrialsDone(page, lang, ['tr:cafe.1']);
       await page.reload();
-      await expect(line).toContainText('Глава I · 1 / 20 обрывков');
+      await expect(line).toContainText('Глава I • 1 / 20 обрывков');
       await expect(line).toContainText(`Рынок: откройте место, ${wordIdsOf(lang, 'market', [1, 2]).length} слов`);
       await line.click();
       await expect(page).toHaveURL(/#\/journey-map$/);

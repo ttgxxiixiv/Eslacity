@@ -11,12 +11,25 @@ export function LevelBadge({ stone = false }: { stone?: boolean }) {
   return (
     <div
       data-testid="level-badge"
-      className={`flex h-10 min-w-10 flex-col items-center justify-center rounded-md px-1.5 leading-none ${stone ? 'level-stone' : 'border-2 border-gold bg-wood-light shadow-inner'}`}
+      className={
+        stone
+          ? 'level-stone flex h-[47px] w-[42px] flex-col items-center justify-center leading-none text-[#f1d98f] [text-shadow:0_1px_1px_#1a0f07]'
+          : 'flex h-10 min-w-10 flex-col items-center justify-center rounded-md border-2 border-gold bg-wood-light px-1.5 leading-none shadow-inner'
+      }
       title={`${title}, уровень ${level}`}
       aria-label={`${title}, уровень ${level}`}
     >
-      <span className="font-pixel text-[9px] tracking-wider text-gold uppercase">ур.</span>
-      <span className="text-base font-bold tabular-nums text-stone-50">{level}</span>
+      {stone ? (
+        <>
+          <span className="text-[12px] font-semibold uppercase">ур.</span>
+          <span className="text-[21px] font-semibold tabular-nums">{level}</span>
+        </>
+      ) : (
+        <>
+          <span className="font-pixel text-[9px] tracking-wider text-gold uppercase">ур.</span>
+          <span className="text-base font-bold tabular-nums text-stone-50">{level}</span>
+        </>
+      )}
     </div>
   );
 }
