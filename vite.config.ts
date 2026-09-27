@@ -6,6 +6,7 @@ import { execSync } from 'node:child_process';
 import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { glossIndex, parseLemmas, tokens } from './scripts/vocab-lib';
+import { CHAPTERS } from './src/content/vocabPlan';
 
 // Данные о сборке: показываются в настройках и лежат в version.json для проверки обновлений.
 const pkg = JSON.parse(readFileSync(new URL('./package.json', import.meta.url), 'utf8')) as { version: string };
@@ -109,8 +110,15 @@ function glosser(lang: string) {
   let g = glossers.get(lang);
   if (!g) {
     const read = (dir: string) =>
-      existsSync(dir) ? readdirSync(dir).filter((f) => f.endsWith('.json')).flatMap((f) => JSON.parse(readFileSync(join(dir, f), 'utf8')).words) : [];
-    const words = [...read(join(CONTENT_DIR, lang, 'words')), ...read(join(CONTENT_DIR, lang, 'scrolls'))];
+      existsSync(dir) ? readdirSync(dir).filter((f) => f.endsWith('.json')).map((f) => JSON.parse(readFileSync(join(dir, f), 'utf8'))) : [];
+    // У слов свитка level всегда 1, а по сложности они на уровне своей главы (как в валидаторе):
+    // иначе «querido» из свитка III перебил бы «querer» уровня 2 при общей лемме.
+    const words = [
+      ...read(join(CONTENT_DIR, lang, 'words')).flatMap((f) => f.words),
+      ...read(join(CONTENT_DIR, lang, 'scrolls')).flatMap((f: { chapter: number; words: { level: number }[] }) =>
+        f.words.map((w) => ({ ...w, level: CHAPTERS[f.chapter - 1]?.levels[0] ?? 99 })),
+      ),
+    ];
     const forms = parseLemmas(readFileSync(join(import.meta.dirname, 'scripts', 'data', `lemmas-${lang}.tsv`), 'utf8'));
     g = glossIndex(words, forms, lang);
     glossers.set(lang, g);
