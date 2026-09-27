@@ -23,6 +23,26 @@
         "seat": {"kind": "answer", "task": "Скажите сеньору, что это ваше место.", "branches": [{"phrase": "ph:station.este-asiento", "next": "end"}], "wrong": {"es": "¿Es tu cama? ¡En mi tren no se duerme!", "ru": "Это твоя кровать? В моём поезде не спят!"}},
         "end": {"kind": "say", "es": "Muy bien. Señor, ¡a su asiento! Y toma, de mi despacho: mi trozo del mapa. El tren no va a la Bóveda, viajero. A la Bóveda se va a pie.", "ru": "Отлично. Сеньор, на своё место! И держи, из моего кабинета: мой обрывок карты. Поезд не идёт в Хранилище, путешественник. Туда ходят пешком."}
       }
+    },
+    {
+      "id": "ms:station.2",
+      "chapter": 2,
+      "npc": "ramon",
+      "scene": "sc:station.2",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Si vas a pie, deja las cosas pesadas aquí. ¿Qué necesitas?", "ru": "Если идёшь пешком, оставь тяжёлые вещи здесь. Что тебе нужно?", "next": "locker"},
+        "locker": {"kind": "answer", "task": "Спросите, где камера хранения.", "branches": [{"phrase": "ph:station.donde-esta-consigna", "next": "lockersay"}], "wrong": {"es": "¿Dónde está la playa? ¡Esto es una estación!", "ru": "Где пляж? Это вокзал!"}},
+        "lockersay": {"kind": "say", "es": "Allí. Tu maleta se queda aquí. ¿Y cómo vas a la montaña?", "ru": "Вон там. Чемодан останется здесь. А как ты доберёшься до гор?", "next": "taxi"},
+        "taxi": {"kind": "answer", "task": "Спросите, есть ли у вокзала такси.", "branches": [{"phrase": "ph:station.hay-taxis-estacion", "next": "taxisay"}], "wrong": {"es": "¿Hay caballos en la estación? ¡Hace cien años, sí!", "ru": "У вокзала есть лошади? Сто лет назад — были!"}},
+        "taxisay": {"kind": "say", "es": "Hay, fuera. Pero el autobús es más barato.", "ru": "Есть, снаружи. Но автобус дешевле.", "next": "stop"},
+        "stop": {"kind": "answer", "task": "Спросите, на какой остановке вам выходить.", "branches": [{"phrase": "ph:station.parada-tengo-bajar", "next": "stopsay"}], "wrong": {"es": "¿En qué parada vivo yo? ¡En la estación, claro!", "ru": "На какой остановке живу я? На вокзале, конечно!"}},
+        "stopsay": {"kind": "say", "es": "En la parada «Montaña». Es la última. ¿Y para volver?", "ru": "На остановке «Горы». Она конечная. А чтобы вернуться?", "next": "back"},
+        "back": {"kind": "answer", "task": "Скажите, что хотите купить билет на завтра.", "branches": [{"phrase": "ph:station.quiero-sacar-billete", "next": "backsay"}], "wrong": {"es": "¿Un billete para el tren de las siete? Ese tren ya no sale.", "ru": "Билет на поезд в семь? Этот поезд больше не ходит."}},
+        "backsay": {"kind": "say", "es": "Para mañana, a las diez. ¿Y ahora?", "ru": "На завтра, на десять. А сейчас?", "next": "wait"},
+        "wait": {"kind": "answer", "task": "Скажите, что подождёте в зале ожидания.", "branches": [{"phrase": "ph:station.espero-sala-espera", "next": "end"}], "wrong": {"es": "¿Esperas en el tren? El tren no es un hotel.", "ru": "Подождёшь в поезде? Поезд — не гостиница."}},
+        "end": {"kind": "say", "es": "Muy bien. El autobús sale en diez minutos. Toma mi trozo del mapa de las montañas. Y esto: el billete viejo del tren de las siete. Dáselo al hombre de la capa. Llega cien años tarde, pero es suyo.", "ru": "Хорошо. Автобус через десять минут. Держи мой обрывок карты гор. И вот ещё: старый билет на поезд в семь. Отдай его человеку в плаще. Опоздал на сто лет, но это его билет."}
+      }
     }
   ]
 }

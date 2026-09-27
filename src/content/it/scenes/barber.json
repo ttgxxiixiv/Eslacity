@@ -25,6 +25,31 @@
         {"q": "Где обрывок Тонино?", "options": ["За зеркалом", "В кассе", "Дома у мамы"], "answer": 0}
       ],
       "gloss": {"pezzo": "обрывок", "pezzi": "обрывки", "sigillo": "печать", "guardiano": "страж"}
+    },
+    {
+      "id": "sc:barber.2",
+      "chapter": 2,
+      "npc": "tonino",
+      "lines": [
+        {"who": "npc", "es": "Come al solito?", "ru": "Как обычно?"},
+        {"who": "hero", "es": "Solo le punte. Cosa c'è di nuovo?", "ru": "Только кончики. Что нового?"},
+        {"who": "npc", "es": "Ieri è venuto un cliente molto strano. Con un mantello grigio. Voleva farsi la barba.", "ru": "Вчера пришёл очень странный клиент. В сером плаще. Хотел побриться."},
+        {"who": "hero", "es": "L'uomo con il mantello!", "ru": "Человек в плаще!"},
+        {"who": "npc", "es": "Mentre gli facevo la barba, ho detto le parole di mia madre: «Venti pezzi e un sigillo».", "ru": "Пока я его брил, я повторял мамины слова: «Двадцать обрывков и печать»."},
+        {"who": "hero", "es": "E lui cosa ha fatto?", "ru": "И что он сделал?"},
+        {"who": "npc", "es": "Ha pianto. E ha detto: «Da cento anni aspetto qualcuno che risponda».", "ru": "Заплакал. И сказал: «Сто лет я жду того, кто ответит»."},
+        {"who": "hero", "es": "Che risponda a cosa?", "ru": "Ответит на что?"},
+        {"who": "npc", "es": "Non l'ha detto. Ha pagato con una moneta vecchia ed è andato via.", "ru": "Не сказал. Заплатил старой монетой и ушёл."},
+        {"who": "hero", "es": "Credo che sia il guardiano della torre.", "ru": "Думаю, это страж башни."},
+        {"who": "npc", "es": "Un guardiano molto triste. E con una barba molto bella.", "ru": "Очень грустный страж. И с очень красивой бородой."}
+      ],
+      "questions": [
+        {"q": "Зачем приходил человек в плаще?", "options": ["Побриться", "Покраситься", "Купить шампунь"], "answer": 0},
+        {"q": "Что повторял Тонино?", "options": ["Слова о море", "Мамины слова о карте", "Ничего"], "answer": 1},
+        {"q": "Что сделал человек, услышав эти слова?", "options": ["Засмеялся", "Заплакал", "Ушёл не заплатив"], "answer": 1},
+        {"q": "Кого он ждёт сто лет?", "options": ["Того, кто ответит", "Свою семью", "Поезд"], "answer": 0}
+      ],
+      "gloss": {"mantello": "плащ", "pezzi": "обрывки", "sigillo": "печать", "pianto": "заплакал", "risponda": "ответит", "moneta": "монета"}
     }
   ]
 }

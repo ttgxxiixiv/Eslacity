@@ -20,6 +20,26 @@
         "tint": {"kind": "answer", "task": "Спросите, сколько стоит окрашивание.", "branches": [{"phrase": "ph:barber.cuanto-cuesta-tinte", "next": "end"}], "wrong": {"es": "¿Cuánto cuesta mi canción? ¡Mis canciones no se venden!", "ru": "Сколько стоит моя песня? Мои песни не продаются!"}},
         "end": {"kind": "say", "es": "Hoy, nada de color: el pelo está muy bien así. Y detrás del espejo... tu trozo del mapa. Recuerda la canción: veinte trozos y un sello.", "ru": "Сегодня без цвета: волосы и так хороши. А за зеркалом... твой обрывок карты. Помни песню: двадцать обрывков и печать."}
       }
+    },
+    {
+      "id": "ms:barber.2",
+      "chapter": 2,
+      "npc": "toni",
+      "scene": "sc:barber.2",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Para la torre, pelo corto y cara limpia. ¿Qué te hago?", "ru": "Для башни — короткие волосы и чистое лицо. Что тебе сделать?", "next": "cut"},
+        "cut": {"kind": "answer", "task": "Попросите только немного подровнять или подстричь только кончики.", "branches": [{"phrase": "ph:barber.solo-recortar-poco", "next": "cutsay"}, {"phrase": "ph:barber.solo-puntas", "next": "cutsay"}], "wrong": {"es": "¿Una trenza para la torre? ¡Mejor corto!", "ru": "Косу для башни? Лучше коротко!"}},
+        "cutsay": {"kind": "say", "es": "Un poco, muy bien. La, la, la... ¿Y la cara?", "ru": "Немного, хорошо. Ла-ла-ла... А лицо?", "next": "shave"},
+        "shave": {"kind": "answer", "task": "Попросите побрить вас.", "branches": [{"phrase": "ph:barber.puede-afeitar", "next": "shavesay"}], "wrong": {"es": "¿Te pinto la cara? ¡No, hombre, te afeito!", "ru": "Раскрасить тебе лицо? Нет, дружище, я тебя побрею!"}},
+        "shavesay": {"kind": "say", "es": "Te afeito como al hombre de la capa. Mira el espejo. ¿Qué ves?", "ru": "Побрею тебя, как человека в плаще. Посмотри в зеркало. Что видишь?", "next": "grey"},
+        "grey": {"kind": "answer", "task": "Скажите, что у вас много седых волос.", "branches": [{"phrase": "ph:barber.tengo-muchas-canas", "next": "greysay"}], "wrong": {"es": "¿Ves un lobo? No, hombre, solo eres tú.", "ru": "Видишь волка? Нет, дружище, это просто ты."}},
+        "greysay": {"kind": "say", "es": "¿Canas? ¡Son de la aventura! No pasa nada. ¿Algo más?", "ru": "Седина? Это от приключений! Ничего страшного. Что-нибудь ещё?", "next": "dand"},
+        "dand": {"kind": "answer", "task": "Спросите, есть ли у него что-нибудь от перхоти.", "branches": [{"phrase": "ph:barber.tiene-algo-para", "next": "dandsay"}], "wrong": {"es": "¿Algo para el frío? Para eso, un gorro.", "ru": "Что-нибудь от холода? Для этого есть шапка."}},
+        "dandsay": {"kind": "say", "es": "Este champú. Una vez por semana.", "ru": "Вот этот шампунь. Раз в неделю.", "next": "appt"},
+        "appt": {"kind": "answer", "task": "Скажите, что хотите записаться на завтра.", "branches": [{"phrase": "ph:barber.quiero-pedir-cita", "next": "end"}], "wrong": {"es": "¿Una cita con el guardián? Eso, en la torre.", "ru": "Встреча со стражем? Это в башне."}},
+        "end": {"kind": "say", "es": "¿Mañana? Mañana estás en la montaña, viajero. Ven cuando vuelvas. Toma mi trozo del mapa de las montañas. Si ves al hombre de la capa, cántale la canción. Quizás sonríe.", "ru": "Завтра? Завтра ты будешь в горах, путешественник. Приходи, когда вернёшься. Держи мой обрывок карты гор. Если увидишь человека в плаще, спой ему песню. Может, он улыбнётся."}
+      }
     }
   ]
 }

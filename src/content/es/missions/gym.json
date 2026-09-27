@@ -23,6 +23,28 @@
         "won": {"kind": "answer", "task": "Скажите, что вы выиграли.", "branches": [{"phrase": "ph:gym.hemos-ganado", "next": "end"}], "wrong": {"es": "¿Perdido? ¡No, no! Tres a dos, ¡para ti!", "ru": "Проиграли? Нет-нет! Три — два, в твою пользу!"}},
         "end": {"kind": "say", "es": "¡Muy bien! Mi madre solo sabía correr. Tú corres y hablas. Toma mi trozo del mapa.", "ru": "Отлично! Моя мама умела только бегать. А ты бегаешь и говоришь. Держи мой обрывок карты."}
       }
+    },
+    {
+      "id": "ms:gym.2",
+      "chapter": 2,
+      "npc": "sara",
+      "scene": "sc:gym.2",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Hoy te preparo para los escalones de la torre. ¿Qué quieres?", "ru": "Сегодня готовлю тебя к ступенькам башни. Чего ты хочешь?", "next": "form"},
+        "form": {"kind": "answer", "task": "Скажите, что хотите прийти в форму.", "branches": [{"phrase": "ph:gym.quiero-ponerme-forma", "next": "formsay"}], "wrong": {"es": "¿Quieres dormir? ¡Aquí no se duerme!", "ru": "Хочешь спать? Здесь не спят!"}},
+        "formsay": {"kind": "say", "es": "¡Así me gusta! ¿Por dónde empezamos?", "ru": "Вот это мне нравится! С чего начнём?", "next": "warm"},
+        "warm": {"kind": "answer", "task": "Скажите, что сначала нужно размяться.", "branches": [{"phrase": "ph:gym.primero-hay-calentar", "next": "warmsay"}], "wrong": {"es": "¿Primero hay que comer? ¡Después, después!", "ru": "Сначала поесть? Потом, потом!"}},
+        "warmsay": {"kind": "say", "es": "Muy bien: primero, correr un poco. Y ahora, tu rutina.", "ru": "Правильно: сначала немного побегать. А теперь твоя программа.", "next": "plan"},
+        "plan": {"kind": "answer", "task": "Попросите составить вам программу тренировок.", "branches": [{"phrase": "ph:gym.hace-rutina", "next": "plansay"}], "wrong": {"es": "¿Te hago un pastel? ¡No, te hago una rutina!", "ru": "Испечь тебе торт? Нет, составлю тебе программу!"}},
+        "plansay": {"kind": "say", "es": "Escalones, flexiones y yoga. ¡Empezamos! ¿Cuántas flexiones haces?", "ru": "Ступеньки, отжимания и йога. Начинаем! Сколько отжиманий делаешь?", "next": "push"},
+        "push": {"kind": "answer", "task": "Скажите, что делаете двадцать отжиманий.", "branches": [{"phrase": "ph:gym.hago-veinte-flexiones", "next": "pushsay"}], "wrong": {"es": "¿Haces dos? ¡Dos no es nada!", "ru": "Два? Два — это ничего!"}},
+        "pushsay": {"kind": "say", "es": "¿Veinte? ¡Hoy, treinta! Vamos... ¿Qué te pasa?", "ru": "Двадцать? Сегодня — тридцать! Давай... Что с тобой?", "next": "knee"},
+        "knee": {"kind": "answer", "task": "Скажите, что у вас болит колено.", "branches": [{"phrase": "ph:gym.duele-rodilla", "next": "kneesay"}], "wrong": {"es": "¿Te duele el pelo? ¡El pelo no duele!", "ru": "Болят волосы? Волосы не болят!"}},
+        "kneesay": {"kind": "say", "es": "Vamos despacio. En la torre también hay que ir despacio. ¿Y mañana?", "ru": "Тогда медленно. В башне тоже надо идти медленно. А завтра?", "next": "yoga"},
+        "yoga": {"kind": "answer", "task": "Спросите, во сколько занятие йогой.", "branches": [{"phrase": "ph:gym.hora-clase-yoga", "next": "end"}], "wrong": {"es": "¿A qué hora es la fiesta? ¡Después de la torre!", "ru": "Во сколько праздник? После башни!"}},
+        "end": {"kind": "say", "es": "A las siete. El yoga es bueno para respirar arriba. Toma mi trozo del mapa de las montañas. Y si ves al hombre de la capa, dale las gracias de parte de mi madre.", "ru": "В семь. Йога помогает дышать наверху. Держи мой обрывок карты гор. А если увидишь человека в плаще, поблагодари его от моей мамы."}
+      }
     }
   ]
 }

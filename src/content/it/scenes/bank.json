@@ -25,6 +25,31 @@
         {"q": "Что говорят о Хранилище?", "options": ["Что это обычный банк", "Что это самый большой сейф, и вместо ключа у него вопросы", "Что его давно нет"], "answer": 1}
       ],
       "gloss": {"pezzo": "обрывок", "caveau": "Хранилище", "cassaforte": "сейф", "regole": "правила"}
+    },
+    {
+      "id": "sc:bank.2",
+      "chapter": 2,
+      "npc": "ferri",
+      "lines": [
+        {"who": "npc", "es": "Ho qualcosa per lei.", "ru": "У меня есть кое-что для вас."},
+        {"who": "hero", "es": "Per me?", "ru": "Для меня?"},
+        {"who": "npc", "es": "Le monete dell'uomo con il mantello. Me le ha portate il ragazzo del supermercato. Hanno cento anni.", "ru": "Монеты человека в плаще. Мне их принёс парень из супермаркета. Им сто лет."},
+        {"who": "hero", "es": "E di chi sono?", "ru": "А чьи они?"},
+        {"who": "npc", "es": "Nei nostri libri c'è un conto molto vecchio. Ha cento anni.", "ru": "В наших книгах есть очень старый счёт. Ему сто лет."},
+        {"who": "hero", "es": "Di chi è il conto?", "ru": "Чей это счёт?"},
+        {"who": "npc", "es": "Del guardiano della torre. Paga sempre con quelle monete.", "ru": "Стража башни. Он всегда платит этими монетами."},
+        {"who": "hero", "es": "L'uomo con il mantello è il guardiano?", "ru": "Человек в плаще — это страж?"},
+        {"who": "npc", "es": "Credo di sì. E guardi la sua firma: è come la nota nella lettera di Tommaso.", "ru": "Думаю, да. И посмотрите на его подпись: она как приписка в письме Томмазо."},
+        {"who": "hero", "es": "Allora Tommaso è con il guardiano.", "ru": "Значит, Томмазо у стража."},
+        {"who": "npc", "es": "Lo credo anch'io. In banca non ci sono regole per i guardiani.", "ru": "Я тоже так думаю. Для стражей в банке правил нет."}
+      ],
+      "questions": [
+        {"q": "Сколько лет монетам человека в плаще?", "options": ["Десять", "Сто", "Тысяча"], "answer": 1},
+        {"q": "Чей старый счёт нашёлся в банке?", "options": ["Стража башни", "Томмазо", "Летописца"], "answer": 0},
+        {"q": "На что похожа подпись на счёте?", "options": ["На приписку в письме Томмазо", "На подпись Ферри", "На почтовую марку"], "answer": 0},
+        {"q": "Какой вывод делает герой?", "options": ["Томмазо у стража", "Томмазо уехал в столицу", "Страж потерял монеты"], "answer": 0}
+      ],
+      "gloss": {"tommaso": "Томмазо (имя)", "mantello": "плащ", "monete": "монеты", "firma": "подпись", "nota": "приписка", "guardiani": "стражи", "regole": "правила"}
     }
   ]
 }

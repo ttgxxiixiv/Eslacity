@@ -25,6 +25,31 @@
         {"q": "Что говорят о Хранилище?", "options": ["Что это обычный банк", "Что это самый большой сейф, и вместо ключа у него вопросы", "Что его давно нет"], "answer": 1}
       ],
       "gloss": {"trozo": "обрывок", "bóveda": "Хранилище", "regla": "правило", "reglas": "правила"}
+    },
+    {
+      "id": "sc:bank.2",
+      "chapter": 2,
+      "npc": "gomez",
+      "lines": [
+        {"who": "npc", "es": "Buenos días. Tengo algo para usted.", "ru": "Добрый день. У меня есть кое-что для вас."},
+        {"who": "hero", "es": "¿Para mí?", "ru": "Для меня?"},
+        {"who": "npc", "es": "Las monedas del hombre de la capa. Me las trajo el chico de la tienda. Son de hace cien años.", "ru": "Монеты человека в плаще. Мне их принёс парень из магазина. Им сто лет."},
+        {"who": "hero", "es": "¿Y de quién son?", "ru": "А чьи они?"},
+        {"who": "npc", "es": "En nuestros libros hay una cuenta muy vieja. Tiene cien años.", "ru": "В наших книгах есть очень старый счёт. Ему сто лет."},
+        {"who": "hero", "es": "¿De quién es la cuenta?", "ru": "Чей это счёт?"},
+        {"who": "npc", "es": "Del guardián de la torre. Siempre paga con esas monedas.", "ru": "Стража башни. Он всегда платит этими монетами."},
+        {"who": "hero", "es": "¿El hombre de la capa es el guardián?", "ru": "Человек в плаще — это страж?"},
+        {"who": "npc", "es": "Eso creo. Y mire su firma: es como la nota en la carta de Tomás.", "ru": "Думаю, да. И посмотрите на его подпись: она как приписка в письме Томаса."},
+        {"who": "hero", "es": "Así que Tomás está con el guardián.", "ru": "Значит, Томас у стража."},
+        {"who": "npc", "es": "Eso creo yo. En el banco no hay reglas para guardianes.", "ru": "Я так думаю. Для стражей в банке правил нет."}
+      ],
+      "questions": [
+        {"q": "Сколько лет монетам человека в плаще?", "options": ["Десять", "Сто", "Тысяча"], "answer": 1},
+        {"q": "Чей старый счёт нашёлся в банке?", "options": ["Стража башни", "Томаса", "Летописца"], "answer": 0},
+        {"q": "На что похожа подпись на счёте?", "options": ["На приписку в письме Томаса", "На подпись Гомеса", "На почтовую марку"], "answer": 0},
+        {"q": "Какой вывод делает герой?", "options": ["Томас у стража", "Томас уехал в столицу", "Страж потерял монеты"], "answer": 0}
+      ],
+      "gloss": {"capa": "плащ", "monedas": "монеты", "firma": "подпись", "nota": "приписка", "guardianes": "стражи", "reglas": "правила"}
     }
   ]
 }

@@ -25,6 +25,31 @@
         {"q": "Что предлагает Начо?", "options": ["Пойти в воду", "Купить билет", "Пойти в горы"], "answer": 0}
       ],
       "gloss": {"trozo": "обрывок", "tranqui": "спокойно", "botella": "бутылка", "trajo": "принесло"}
+    },
+    {
+      "id": "sc:beach.2",
+      "chapter": 2,
+      "npc": "nacho",
+      "lines": [
+        {"who": "npc", "es": "¡Qué calor! Tranqui, siéntate.", "ru": "Ну и жара! Спокойно, садись."},
+        {"who": "hero", "es": "¿Qué miras?", "ru": "На что ты смотришь?"},
+        {"who": "npc", "es": "Las montañas. Por la tarde, se ve la torre desde aquí.", "ru": "На горы. Вечером отсюда видно башню."},
+        {"who": "hero", "es": "¿Desde la playa?", "ru": "С пляжа?"},
+        {"who": "npc", "es": "Mira. Allí arriba. Hay una luz.", "ru": "Смотри. Вон там, наверху. Там свет."},
+        {"who": "hero", "es": "La luz se apaga... y se enciende de nuevo.", "ru": "Свет гаснет... и снова загорается."},
+        {"who": "npc", "es": "Pasa cada tarde. Tres veces. Como una palabra.", "ru": "Так каждый вечер. Три раза. Как слово."},
+        {"who": "hero", "es": "¿Una palabra?", "ru": "Слово?"},
+        {"who": "npc", "es": "Yo creo que la torre dice «Ven».", "ru": "Я думаю, башня говорит: «Приходи»."},
+        {"who": "hero", "es": "Como las cartas.", "ru": "Как в письмах."},
+        {"who": "npc", "es": "Tranqui, viajero. La torre te llama, pero el mar no tiene prisa.", "ru": "Спокойно, путешественник. Башня тебя зовёт, но море не спешит."}
+      ],
+      "questions": [
+        {"q": "Что видно с пляжа вечером?", "options": ["Башню", "Корабль", "Город"], "answer": 0},
+        {"q": "Что делает свет в башне?", "options": ["Гаснет и загорается три раза", "Горит всю ночь", "Меняет цвет"], "answer": 0},
+        {"q": "Что, по мнению Начо, говорит башня?", "options": ["«Уходи»", "«Приходи»", "«Жди»"], "answer": 1},
+        {"q": "Что говорит Начо в конце?", "options": ["Море не спешит", "Надо бежать", "Башни нет"], "answer": 0}
+      ],
+      "gloss": {"tranqui": "спокойно", "apaga": "гаснет", "enciende": "загорается"}
     }
   ]
 }

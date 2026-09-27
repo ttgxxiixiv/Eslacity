@@ -25,6 +25,31 @@
         {"q": "Где обрывок Рамона?", "options": ["В поезде", "В кабинете, с расписаниями", "У кассы"], "answer": 1}
       ],
       "gloss": {"trozo": "обрывок", "bóveda": "Хранилище", "cronista": "Летописец", "capital": "столица"}
+    },
+    {
+      "id": "sc:station.2",
+      "chapter": 2,
+      "npc": "ramon",
+      "lines": [
+        {"who": "npc", "es": "¡Tú aquí! El tren sale a las diez.", "ru": "Ты здесь! Поезд в десять."},
+        {"who": "hero", "es": "Hoy no viajo en tren. Voy a pie a la torre.", "ru": "Сегодня я не поеду поездом. Я иду к башне пешком."},
+        {"who": "npc", "es": "¿A pie? Hace cien años había un tren a la torre.", "ru": "Пешком? Сто лет назад к башне ходил поезд."},
+        {"who": "hero", "es": "¿Un tren a la torre?", "ru": "Поезд к башне?"},
+        {"who": "npc", "es": "Mira este horario viejo: «Tren de la torre, sale a las siete».", "ru": "Посмотри на это старое расписание: «Поезд к башне, отправление в семь»."},
+        {"who": "hero", "es": "¿Y qué pasó?", "ru": "И что случилось?"},
+        {"who": "npc", "es": "Hubo una tormenta terrible, y el tren no volvió. La línea cerró.", "ru": "Была страшная гроза, и поезд не вернулся. Линию закрыли."},
+        {"who": "hero", "es": "¿Y los pasajeros?", "ru": "А пассажиры?"},
+        {"who": "npc", "es": "Un solo pasajero. Un hombre con capa gris.", "ru": "Один-единственный пассажир. Человек в сером плаще."},
+        {"who": "hero", "es": "¡Él! ¿Y ahora?", "ru": "Он! И что теперь?"},
+        {"who": "npc", "es": "Ayer vino y me pidió un billete para el tren de las siete. Le dije que ese tren no sale desde hace cien años.", "ru": "Вчера пришёл и попросил билет на поезд в семь. Я сказал ему, что этот поезд не ходит уже сто лет."}
+      ],
+      "questions": [
+        {"q": "Куда сто лет назад ходил поезд?", "options": ["К морю", "К башне", "В столицу"], "answer": 1},
+        {"q": "Почему линию закрыли?", "options": ["Была страшная гроза, и поезд не вернулся", "Не было пассажиров", "Сломался мост"], "answer": 0},
+        {"q": "Кто был пассажиром последнего поезда?", "options": ["Томас", "Человек в сером плаще", "Мама Сары"], "answer": 1},
+        {"q": "Что человек в плаще попросил вчера?", "options": ["Билет на поезд в семь", "Расписание", "Такси"], "answer": 0}
+      ],
+      "gloss": {"horario": "расписание", "línea": "линия", "pasajeros": "пассажиры", "pasajero": "пассажир", "capa": "плащ"}
     }
   ]
 }

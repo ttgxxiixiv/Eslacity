@@ -20,6 +20,26 @@
         "fee": {"kind": "answer", "task": "Спросите, какая комиссия.", "branches": [{"phrase": "ph:bank.quant-commissione", "next": "end"}], "wrong": {"es": "Quanto costa un caffè? Questo, al bar.", "ru": "Сколько стоит кофе? Это вам в бар."}},
         "end": {"kind": "say", "es": "Per lei, niente. In banca è così: chi parla italiano non paga. Ecco il suo pezzo della mappa. E un consiglio: il Caveau non si apre con la chiave, si apre con le parole.", "ru": "Для вас — ничего. В банке так заведено: кто говорит по-итальянски, не платит. Вот ваш обрывок карты. И совет: Хранилище открывается не ключом, а словами."}
       }
+    },
+    {
+      "id": "ms:bank.2",
+      "chapter": 2,
+      "npc": "ferri",
+      "scene": "sc:bank.2",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Per la montagna le servono dei contanti. Cosa succede?", "ru": "Для гор вам нужны наличные. Что случилось?", "next": "card"},
+        "card": {"kind": "answer", "task": "Скажите, что вам заблокировали карту.", "branches": [{"phrase": "ph:bank.hanno-bloccato-carta", "next": "cardsay"}], "wrong": {"es": "Le hanno rubato il cappello? Questa è una banca, non la polizia.", "ru": "У вас украли шляпу? Это банк, а не полиция."}},
+        "cardsay": {"kind": "say", "es": "Bloccata. Vediamo. Si ricorda il codice?", "ru": "Заблокирована. Посмотрим. Вы помните код?", "next": "pin"},
+        "pin": {"kind": "answer", "task": "Скажите, что не помните PIN-код.", "branches": [{"phrase": "ph:bank.ho-dimenticato-pin", "next": "pinsay"}], "wrong": {"es": "Ha dimenticato il suo nome? Spero di no.", "ru": "Забыли своё имя? Надеюсь, нет."}},
+        "pinsay": {"kind": "say", "es": "Dimenticato. Allora deve parlare con il consulente.", "ru": "Забыли. Тогда вам нужно поговорить с консультантом.", "next": "manager"},
+        "manager": {"kind": "answer", "task": "Скажите, что хотите поговорить с консультантом.", "branches": [{"phrase": "ph:bank.vorrei-parlare-con", "next": "mgrsay"}], "wrong": {"es": "Vuole parlare con il guardiano? Lui non lavora qui.", "ru": "Хотите поговорить со стражем? Он здесь не работает."}},
+        "mgrsay": {"kind": "say", "es": "Il consulente sono io. Molto bene: carta nuova. Altro?", "ru": "Консультант — это я. Хорошо: новая карта. Что-нибудь ещё?", "next": "statement"},
+        "statement": {"kind": "answer", "task": "Попросите выписку по счёту.", "branches": [{"phrase": "ph:bank.serve-estratto-conto", "next": "stsay"}], "wrong": {"es": "Un estratto d'arancia? Questo non è il mercato.", "ru": "Апельсиновый экстракт? Это не рынок."}},
+        "stsay": {"kind": "say", "es": "Ecco. Tutto in ordine. E per il viaggio?", "ru": "Вот, пожалуйста. Всё в порядке. А на поездку?", "next": "save"},
+        "save": {"kind": "answer", "task": "Спросите, есть ли сберегательные счета, или скажите, что хотите открыть счёт.", "branches": [{"phrase": "ph:bank.avete-libretti-risparmio", "next": "end"}, {"phrase": "ph:bank.vorrei-aprire-conto", "next": "end"}], "wrong": {"es": "Avete dei conti di cioccolato? No, solo di soldi.", "ru": "Шоколадные счета есть? Нет, только денежные."}},
+        "end": {"kind": "say", "es": "Molto bene, fatto. Ed ecco il mio pezzo della mappa della montagna. Si ricordi: il guardiano non si paga con i soldi. Si paga con le parole.", "ru": "Хорошо, готово. А вот мой обрывок карты гор. Помните: стражу платят не деньгами. Ему платят словами."}
+      }
     }
   ]
 }

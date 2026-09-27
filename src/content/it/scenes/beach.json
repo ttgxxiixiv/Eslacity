@@ -25,6 +25,31 @@
         {"q": "Что предлагает Марко?", "options": ["Пойти в воду", "Купить билет", "Пойти в горы"], "answer": 0}
       ],
       "gloss": {"pezzo": "обрывок", "tranquillo": "спокойно", "bottiglia": "бутылка"}
+    },
+    {
+      "id": "sc:beach.2",
+      "chapter": 2,
+      "npc": "marco",
+      "lines": [
+        {"who": "npc", "es": "Che caldo! Tranquillo, siediti.", "ru": "Ну и жара! Спокойно, садись."},
+        {"who": "hero", "es": "Cosa guardi?", "ru": "На что ты смотришь?"},
+        {"who": "npc", "es": "Le montagne. Dopo il tramonto, da qui si vede la torre.", "ru": "На горы. После заката отсюда видно башню."},
+        {"who": "hero", "es": "Dalla spiaggia?", "ru": "С пляжа?"},
+        {"who": "npc", "es": "Guarda. In alto. C'è una luce.", "ru": "Смотри. Наверху. Там свет."},
+        {"who": "hero", "es": "La luce si spegne... e si accende di nuovo.", "ru": "Свет гаснет... и снова загорается."},
+        {"who": "npc", "es": "Succede ogni giorno, dopo il tramonto. Tre volte. Come una parola.", "ru": "Так каждый день после заката. Три раза. Как слово."},
+        {"who": "hero", "es": "Una parola?", "ru": "Слово?"},
+        {"who": "npc", "es": "Io credo che la torre dica «Vieni».", "ru": "Я думаю, башня говорит: «Приходи»."},
+        {"who": "hero", "es": "Come le lettere.", "ru": "Как в письмах."},
+        {"who": "npc", "es": "Tranquillo, viaggiatore. La torre ti chiama, ma il mare non ha fretta.", "ru": "Спокойно, путешественник. Башня тебя зовёт, но море не спешит."}
+      ],
+      "questions": [
+        {"q": "Что видно с пляжа вечером?", "options": ["Башню", "Корабль", "Город"], "answer": 0},
+        {"q": "Что делает свет в башне?", "options": ["Гаснет и загорается три раза", "Горит всю ночь", "Меняет цвет"], "answer": 0},
+        {"q": "Что, по мнению Марко, говорит башня?", "options": ["«Уходи»", "«Приходи»", "«Жди»"], "answer": 1},
+        {"q": "Что говорит Марко в конце?", "options": ["Море не спешит", "Надо бежать", "Башни нет"], "answer": 0}
+      ],
+      "gloss": {"tranquillo": "спокойно", "spegne": "гаснет", "accende": "загорается", "fretta": "спешка"}
     }
   ]
 }

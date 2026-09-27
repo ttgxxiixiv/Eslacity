@@ -25,6 +25,31 @@
         {"q": "Где обрывок Тони?", "options": ["За зеркалом", "В кассе", "Дома у мамы"], "answer": 0}
       ],
       "gloss": {"música": "музыка", "trozo": "обрывок", "trozos": "обрывки", "canción": "песня", "sello": "печать; ещё — почтовая марка", "guardián": "страж"}
+    },
+    {
+      "id": "sc:barber.2",
+      "chapter": 2,
+      "npc": "toni",
+      "lines": [
+        {"who": "npc", "es": "¡Pasa, pasa! ¿Como siempre?", "ru": "Заходи, заходи! Как обычно?"},
+        {"who": "hero", "es": "Solo las puntas. ¿Qué hay de nuevo?", "ru": "Только кончики. Что нового?"},
+        {"who": "npc", "es": "Ayer vino un cliente muy raro. Con capa gris. Quería afeitarse.", "ru": "Вчера пришёл очень странный клиент. В сером плаще. Хотел побриться."},
+        {"who": "hero", "es": "¡El hombre de la capa!", "ru": "Человек в плаще!"},
+        {"who": "npc", "es": "Mientras lo afeitaba, canté la canción de mi madre: «Veinte trozos y un sello».", "ru": "Пока я его брил, пел мамину песню: «Двадцать обрывков и печать»."},
+        {"who": "hero", "es": "¿Y qué hizo él?", "ru": "И что он сделал?"},
+        {"who": "npc", "es": "Lloró. Y dijo: «Hace cien años que espero a alguien que conteste».", "ru": "Заплакал. И сказал: «Сто лет я жду того, кто ответит»."},
+        {"who": "hero", "es": "¿Que conteste a qué?", "ru": "Ответит на что?"},
+        {"who": "npc", "es": "No lo dijo. Pagó con una moneda vieja y se fue.", "ru": "Не сказал. Заплатил старой монетой и ушёл."},
+        {"who": "hero", "es": "Creo que es el guardián de la torre.", "ru": "Думаю, это страж башни."},
+        {"who": "npc", "es": "Un guardián muy triste. Y con una barba muy bonita.", "ru": "Очень грустный страж. И с очень красивой бородой."}
+      ],
+      "questions": [
+        {"q": "Зачем приходил человек в плаще?", "options": ["Побриться", "Покраситься", "Купить шампунь"], "answer": 0},
+        {"q": "Что пел Тони?", "options": ["Песню о море", "Мамину песню о карте", "Ничего не пел"], "answer": 1},
+        {"q": "Что сделал человек, услышав песню?", "options": ["Засмеялся", "Заплакал", "Ушёл не заплатив"], "answer": 1},
+        {"q": "Кого он ждёт сто лет?", "options": ["Того, кто ответит", "Свою семью", "Поезд"], "answer": 0}
+      ],
+      "gloss": {"capa": "плащ", "afeitarse": "побриться", "afeitaba": "брил", "canté": "пел", "canción": "песня", "trozos": "обрывки", "sello": "печать", "lloró": "заплакал", "conteste": "ответит"}
     }
   ]
 }

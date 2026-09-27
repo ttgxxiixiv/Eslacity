@@ -25,6 +25,31 @@
         {"q": "Почему мама Сары не прошла?", "options": ["Устала", "Хорошо бегала, но плохо говорила", "Потеряла карту"], "answer": 1}
       ],
       "gloss": {"uf": "уф", "bóveda": "Хранилище", "guardián": "страж", "respuestas": "ответы"}
+    },
+    {
+      "id": "sc:gym.2",
+      "chapter": 2,
+      "npc": "sara",
+      "lines": [
+        {"who": "npc", "es": "¡Vamos! Para la torre hay que estar en forma.", "ru": "Давай! Для башни нужно быть в форме."},
+        {"who": "hero", "es": "¿Es muy difícil subir?", "ru": "Туда очень трудно подниматься?"},
+        {"who": "npc", "es": "Hay muchos, muchos escalones. Tomás entrenaba aquí cada semana.", "ru": "Там очень много ступенек. Томас тренировался здесь каждую неделю."},
+        {"who": "hero", "es": "¿Y el hombre de la capa? ¿Lo conoces?", "ru": "А человек в плаще? Ты его знаешь?"},
+        {"who": "npc", "es": "Mi madre lo conoce. Hace muchos años, en una tormenta, él la bajó de la montaña.", "ru": "Моя мама его знает. Много лет назад в грозу он снёс её с горы."},
+        {"who": "hero", "es": "¿La ayudó?", "ru": "Он ей помог?"},
+        {"who": "npc", "es": "La llevó en brazos, muy rápido, como un chico joven.", "ru": "Нёс её на руках, очень быстро, как молодой парень."},
+        {"who": "hero", "es": "Así que no es malo.", "ru": "Значит, он не злой."},
+        {"who": "npc", "es": "No creo. Mi madre dice que tenía los ojos tristes.", "ru": "Не думаю. Мама говорит, что у него были грустные глаза."},
+        {"who": "hero", "es": "Voy a hablar con él.", "ru": "Я поговорю с ним."},
+        {"who": "npc", "es": "Antes, los escalones. ¡Vamos, diez más!", "ru": "Сначала — ступеньки. Давай, ещё десять!"}
+      ],
+      "questions": [
+        {"q": "Сколько ступенек до башни?", "options": ["Немного", "Очень много", "Десять"], "answer": 1},
+        {"q": "Что сделал человек в плаще для мамы Сары?", "options": ["Снёс её с горы в грозу", "Продал ей карту", "Научил её говорить"], "answer": 0},
+        {"q": "Как он её нёс?", "options": ["Медленно", "Быстро, как молодой", "На лошади"], "answer": 1},
+        {"q": "Какие у него глаза, по словам мамы?", "options": ["Злые", "Весёлые", "Грустные"], "answer": 2}
+      ],
+      "gloss": {"escalones": "ступеньки", "entrenaba": "тренировался", "capa": "плащ", "brazos": "руки", "ojos": "глаза"}
     }
   ]
 }
