@@ -1,8 +1,8 @@
 import { describe, expect, it } from 'vitest';
 import type { LocationWords, Word } from './schema';
-import { readFileSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { validateChronicler, validateGrammar, validateMissions, validateNpcs, validatePhrases, validateScenes, validateScrolls, validateTranslations, validateVerbs, validateWords } from './validate';
+import { validateChronicler, validateGrammar, validateMissions, validateNpcs, validatePhrases, validatePortraits, validateScenes, validateScrolls, validateTranslations, validateVerbs, validateWords } from './validate';
 import { LOCATION_IDS, type Chronicler, type GrammarLesson, type LocationMissions, type LocationPhrases, type LocationScenes, type Mission, type NpcsFile, type Phrase, type Scene, type ScrollFile, type VerbsFile } from './schema';
 
 const base = (i: number, extra: Partial<Word> = {}): Word => ({
@@ -449,6 +449,29 @@ describe('validateTranslations', () => {
       const places = LOCATION_IDS.map((loc) => ({ name: `${loc}.json`, data: JSON.parse(readFileSync(join(dir, 'words', `${loc}.json`), 'utf8')) as LocationWords }));
       const scrolls = [1, 2, 3].map((ch) => ({ name: `${ch}.json`, data: JSON.parse(readFileSync(join(dir, 'scrolls', `${ch}.json`), 'utf8')) as ScrollFile }));
       expect(validateTranslations(places, scrolls).map((i) => i.msg), lang).toEqual([]);
+    }
+  });
+});
+
+describe('validatePortraits', () => {
+  const look = (portrait?: string) => ({ skin: 1, hair: '#000000', style: 'short', outfit: '#000000', pants: '#000000', extra: [], portrait }) as NpcsFile['npcs'][number]['look'];
+  it('портрет без картинки или с неверным именем — ошибка, без поля — пиксельный, проверять нечего', () => {
+    const out = validatePortraits(
+      [{ where: 'a', look: look('lola') }, { where: 'b', look: look('nope') }, { where: 'c', look: look('Lola!') }, { where: 'd', look: look() }, { where: 'e' }],
+      (name) => name === 'lola',
+    );
+    expect(out.map((i) => `${i.where}: ${i.msg}`)).toEqual([
+      'b: нет картинки портрета nope.webp',
+      'c: имя портрета "Lola!": только строчные латинские буквы и цифры',
+    ]);
+  });
+  it('у всех испанских персонажей портреты есть, у итальянских их пока нет', () => {
+    for (const lang of ['es', 'it']) {
+      const npcs = (JSON.parse(readFileSync(join(__dirname, lang, 'npcs.json'), 'utf8')) as NpcsFile).npcs;
+      const withArt = npcs.filter((n) => n.look.portrait).length;
+      expect(withArt, lang).toBe(lang === 'es' ? 20 : 0);
+      const files = new Set(npcs.map((n) => n.look.portrait).filter(Boolean));
+      expect(validatePortraits(npcs.map((n) => ({ where: n.id, look: n.look })), (name) => files.has(name) && existsSync(join(__dirname, '..', 'assets', 'portraits', lang, `${name}.webp`)))).toEqual([]);
     }
   });
 });

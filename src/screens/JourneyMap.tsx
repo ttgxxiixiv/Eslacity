@@ -299,7 +299,7 @@ export function JourneyMapScreen() {
             {guardian && shown <= opened && !ch.seal.got && (
               // Страж стоит у печати, которую охраняет.
               <g transform={`translate(${seal.x + seal.r - 6} ${seal.y - 30})`} data-testid="guardian-sprite" onClick={() => setPicked('seal')} className="cursor-pointer">
-                <NpcPortrait look={guardian.look} size={40} label={`Страж: ${guardian.name}`} />
+                <NpcPortrait look={guardian.look} size={40} label={`Страж: ${guardian.name}`} pixel />
               </g>
             )}
             <g

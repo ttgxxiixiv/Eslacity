@@ -106,6 +106,8 @@ export interface NpcLook {
   outfit: string;
   pants: string;
   extra: NpcExtra[];
+  /** Рисованный портрет: `src/assets/portraits/<язык>/<portrait>.webp`. Без него рисуется пиксельный. */
+  portrait?: string;
 }
 
 /** Житель места: свой в каждом языке. */

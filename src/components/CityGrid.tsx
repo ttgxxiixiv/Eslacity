@@ -166,7 +166,7 @@ function Building({ meta, index, now, onGo, signal }: { meta: LocationMeta; inde
           style={{ left: pctX(r.x + 2), top: pctY(r.y + r.h - 54) }}
           data-testid={`npc-${meta.id}`}
         >
-          <NpcPortrait look={npc.look} size={27} />
+          <NpcPortrait look={npc.look} size={27} pixel />
         </div>
       )}
       {pending > 0 && (

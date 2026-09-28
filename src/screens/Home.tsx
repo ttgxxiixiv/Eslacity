@@ -10,7 +10,7 @@ import { plural } from '../domain/medals';
 import { discountedCost } from '../domain/reputation';
 import { useErrands } from '../store/errands';
 import { NPC_BY_LOCATION } from '../content/npcs';
-import { NpcPortrait } from '../components/NpcPortrait';
+import { NpcPortrait, portraitUrl } from '../components/NpcPortrait';
 import { useSettings } from '../store/settings';
 import { currentJourney, useJourney } from '../store/journey';
 import { dayKey, dueCards } from '../domain/srs';
@@ -63,7 +63,7 @@ function newWordsLabel(n: number) {
 function QuestWindow({ npc, icon }: { npc?: Npc; icon: string }) {
   return (
     <div className="absolute top-[34px] left-[27px] flex h-[69px] w-[49px] items-end justify-center overflow-hidden" aria-hidden>
-      {npc ? <NpcPortrait look={npc.look} size={60} /> : <span className="mb-[18px] text-[30px] leading-none">{icon}</span>}
+      {npc ? <NpcPortrait look={npc.look} size={portraitUrl(npc.look) ? 69 : 60} /> : <span className="mb-[18px] text-[30px] leading-none">{icon}</span>}
     </div>
   );
 }

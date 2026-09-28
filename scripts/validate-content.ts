@@ -1,6 +1,6 @@
 import { readdirSync, readFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
-import { validateChronicler, validateGrammar, validateGuardians, validateMissions, validateNpcs, validatePhrases, validateScenes, validateScrolls, validateTranslations, validateVerbs, validateWords, type Issue } from '../src/content/validate';
+import { validateChronicler, validateGrammar, validateGuardians, validateMissions, validateNpcs, validatePhrases, validateScenes, validatePortraits, validateScrolls, validateTranslations, validateVerbs, validateWords, type Issue } from '../src/content/validate';
 import type { Chronicler, GrammarLesson, GuardiansFile, VerbsFile, LocationMissions, LocationPhrases, LocationScenes, NpcsFile, ScrollFile } from '../src/content/schema';
 import type { Lang } from '../src/lang';
 import { CHAPTERS, PLAN_TOTAL } from '../src/content/vocabPlan';
@@ -103,6 +103,17 @@ for (const lang of langs) {
     ...tag(validateChronicler(chronicler, npcs)),
     ...tag(validateGuardians(guardians, lessonChapters)),
     ...tag(validateVerbs(verbs, lang)),
+    ...tag(
+      validatePortraits(
+        [
+          ...(npcs?.npcs ?? []).map((n) => ({ where: `npcs.json ${n.id}`, look: n.look })),
+          { where: 'chronicler.json', look: chronicler?.look },
+          ...(guardians?.guardians ?? []).map((g) => ({ where: `guardians.json глава ${g.chapter}`, look: g.look })),
+          { where: 'verbs.json кузнец', look: verbs?.smith?.look },
+        ],
+        (name) => existsSync(join(root, '..', 'assets', 'portraits', lang, `${name}.webp`)),
+      ),
+    ),
   );
   const placeCount = words.reduce((n, f) => n + f.data.words.length, 0);
   const scrollCount = scrolls.reduce((n, f) => n + f.data.words.length, 0);

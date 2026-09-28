@@ -426,6 +426,21 @@ export function validateVerbs(file: VerbsFile | undefined, lang: Lang): Issue[] 
   return out;
 }
 
+/**
+ * Рисованные портреты: у каждого персонажа с полем `look.portrait` должен быть файл картинки своего языка,
+ * а имя — из строчных латинских букв и цифр. exists(имя) — есть ли `src/assets/portraits/<язык>/<имя>.webp`.
+ */
+export function validatePortraits(looks: { where: string; look?: NpcLook }[], exists: (name: string) => boolean): Issue[] {
+  const out: Issue[] = [];
+  for (const { where, look } of looks) {
+    const p = look?.portrait;
+    if (p === undefined) continue;
+    if (!/^[a-z0-9]+$/.test(p)) out.push({ level: 'error', where, msg: `имя портрета "${p}": только строчные латинские буквы и цифры` });
+    else if (!exists(p)) out.push({ level: 'error', where, msg: `нет картинки портрета ${p}.webp` });
+  }
+  return out;
+}
+
 /** Жители: по одному на каждое место, уникальные id, заполненные поля, голос и портрет в допустимых пределах. */
 export function validateNpcs(file: NpcsFile | undefined): Issue[] {
   const out: Issue[] = [];
