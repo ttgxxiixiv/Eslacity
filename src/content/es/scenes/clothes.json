@@ -75,6 +75,30 @@
         {"q": "Во что превратилась его купюра?", "options": ["В песок", "В цветы", "В воду"], "answer": 0}
       ],
       "gloss": {"camello": "верблюд", "traje": "костюм", "desaparece": "исчезает", "guardiana": "стражница", "existe": "существует", "convirtió": "превратилась", "espejismo": "мираж"}
+    },
+    {
+      "id": "wh:clothes.4",
+      "chapter": 4,
+      "mode": "overhear",
+      "npc": "marta",
+      "lines": [
+        {"who": "beatriz", "es": "Mira esta blusa de seda. La lavé una vez y ha encogido dos tallas.", "ru": "Посмотри на эту шёлковую блузку. Я постирала её один раз, и она села на два размера."},
+        {"who": "npc", "es": "Vaya, qué pena. ¿Leíste las instrucciones de lavado? Aquí dice: «Lavar a mano, agua fría».", "ru": "Ой, как жалко. Ты читала инструкцию по стирке? Тут написано: «Стирать вручную, в холодной воде»."},
+        {"who": "beatriz", "es": "Bueno... la metí en la lavadora con el programa corto. Pero eso es casi como lavar a mano, ¿no?", "ru": "Ну... я положила её в машинку на короткую программу. Но это ведь почти как вручную, разве нет?"},
+        {"who": "npc", "es": "Casi. Aunque la seda no entiende de «casi».", "ru": "Почти. Только шёлк не понимает слова «почти»."},
+        {"who": "beatriz", "es": "Pagué ochenta euros. A ese precio, un tejido debería aguantar un poco más.", "ru": "Я заплатила восемьдесят евро. За такие деньги ткань должна быть покрепче."},
+        {"who": "npc", "es": "Lo entiendo. No puedo cambiártela, pero te hago un descuento en la de lino. Esa no encoge.", "ru": "Понимаю. Поменять я её не могу, но сделаю тебе скидку на льняную. Та не садится."},
+        {"who": "beatriz", "es": "¿La de lino? Se arruga solo con mirarla. Tendría que plancharla cada mañana.", "ru": "Льняную? Она мнётся, стоит на неё посмотреть. Мне пришлось бы гладить её каждое утро."},
+        {"who": "npc", "es": "Si quieres, te enseño las sintéticas. No se arrugan, no encogen... y no respiran nada.", "ru": "Если хочешь, покажу синтетические. Не мнутся, не садятся... и совсем не дышат."},
+        {"who": "beatriz", "es": "Me quedo con la de lino. Planchar por las mañanas también relaja.", "ru": "Беру льняную. Гладить по утрам тоже успокаивает."}
+      ],
+      "questions": [
+        {"q": "Кто, по мнению Марты, виноват, что блузка села?", "kind": "stance", "options": ["Фабрика", "Сама Беатрис: постирала её в машинке", "Магазин"], "answer": 1},
+        {"q": "Что Марта имела в виду: «шёлк не понимает слова „почти“»?", "kind": "stance", "options": ["Для шёлка машинка — совсем не то же, что ручная стирка", "Шёлк бывает плохого качества", "Блузку ещё можно спасти"], "answer": 0},
+        {"q": "Почему Марта не меняет блузку, но даёт скидку?", "kind": "stance", "options": ["Блузок больше нет", "Так велел хозяин", "Магазин не виноват, но покупательницу терять не хочется"], "answer": 2},
+        {"q": "С каким настроением Беатрис выбирает льняную блузку?", "kind": "stance", "options": ["Злится и уходит", "Шутя смиряется с глажкой", "Радуется, что не надо гладить"], "answer": 1}
+      ],
+      "gloss": {"blusa": "блузка"}
     }
   ]
 }

@@ -75,6 +75,30 @@
         {"q": "Что снится тем, кто купил воду?", "options": ["Белый город", "Море", "Башня"], "answer": 0}
       ],
       "gloss": {"oasis": "оазис", "huele": "пахнет", "espejismo": "мираж", "duermen": "спят", "sueñan": "снится"}
+    },
+    {
+      "id": "wh:pharmacy.4",
+      "chapter": 4,
+      "mode": "overhear",
+      "npc": "ernesto",
+      "lines": [
+        {"who": "npc", "es": "Doctor, la señora de la receta de esta mañana... ¿sabe usted que toma hierbas medicinales para dormir?", "ru": "Доктор, та сеньора с утренним рецептом... вы знаете, что она пьёт лекарственные травы для сна?"},
+        {"who": "ruiz", "es": "No tenía ni idea. A mí me dijo que no tomaba nada más.", "ru": "Понятия не имел. Мне она сказала, что больше ничего не принимает."},
+        {"who": "npc", "es": "Eso dicen todos. Pero esas hierbas y su pastilla juntas... la interacción puede ser peligrosa.", "ru": "Так говорят все. Но эти травы вместе с вашей таблеткой... взаимодействие может быть опасным."},
+        {"who": "ruiz", "es": "Los pacientes piensan que lo natural no cuenta. Y luego acaban en urgencias.", "ru": "Пациенты думают, что натуральное не считается. А потом попадают в неотложку."},
+        {"who": "npc", "es": "O a lo mejor nadie se lo pregunta con calma. En la consulta tienen ustedes cinco minutos.", "ru": "А может, их просто никто спокойно не спрашивает. У вас на приёме пять минут."},
+        {"who": "ruiz", "es": "¿Me está diciendo que no hago bien mi trabajo?", "ru": "Вы хотите сказать, что я плохо делаю свою работу?"},
+        {"who": "npc", "es": "Digo que cinco minutos no bastan para nadie, ni para usted ni para mí.", "ru": "Я говорю, что пяти минут никому не хватает, ни вам, ни мне."},
+        {"who": "ruiz", "es": "En eso tiene razón. Llamaré a la señora y le cambiaré la medicación.", "ru": "Тут вы правы. Позвоню сеньоре и поменяю ей лекарства."},
+        {"who": "npc", "es": "Y yo le explicaré la posología despacio. Con tiempo, esta vez.", "ru": "А я объясню ей, как их принимать, не спеша. На этот раз со временем."}
+      ],
+      "questions": [
+        {"q": "Чем обеспокоен дон Эрнесто?", "kind": "stance", "options": ["Рецепт написан неразборчиво", "Лекарство закончилось", "Травы пациентки опасно сочетаются с её таблеткой"], "answer": 2},
+        {"q": "Что Эрнесто имел в виду, сказав «так говорят все»?", "kind": "stance", "options": ["Пациенты часто не считают травы лекарством и молчат о них", "Все пациенты врут нарочно", "Доктор всегда ошибается"], "answer": 0},
+        {"q": "Как доктор Руис сначала понял слова о пяти минутах?", "kind": "stance", "options": ["Сразу согласился", "Обиделся: решил, что его упрекают", "Не расслышал"], "answer": 1},
+        {"q": "С чем в итоге согласились оба?", "kind": "stance", "options": ["На приёме слишком мало времени, чтобы всё выяснить", "Пациентка всё выдумала", "Травы безопасны"], "answer": 0}
+      ],
+      "gloss": {"natural": "натуральное, природное", "minutos": "минуты", "bastan": "хватает (bastar)"}
     }
   ]
 }

@@ -75,6 +75,29 @@
         {"q": "Что было в посылке?", "options": ["Настоящий обрывок карты пустыни", "Компас", "Письмо"], "answer": 0}
       ],
       "gloss": {"tommaso": "Томмазо (имя)", "firma": "подпись", "mercante": "купец", "cammello": "верблюд", "ruba": "крадёт", "reclamo": "жалоба", "pezzo": "обрывок"}
+    },
+    {
+      "id": "wh:post.4",
+      "chapter": 4,
+      "mode": "overhear",
+      "npc": "enzo",
+      "lines": [
+        {"who": "aldo", "es": "Ho ricevuto un avviso di giacenza: il mio pacco è fermo in dogana. Un libro sui treni antichi!", "ru": "Мне пришло извещение: посылка застряла на таможне. Книга о старых поездах!"},
+        {"who": "npc", "es": "L'ho visto. Devi pagare una tassa e fare lo sdoganamento.", "ru": "Я видел. Надо заплатить пошлину и пройти таможенное оформление."},
+        {"who": "aldo", "es": "Una tassa per un libro? È un regalo di un amico inglese.", "ru": "Пошлину за книгу? Это подарок от друга-англичанина."},
+        {"who": "npc", "es": "Il problema è il valore dichiarato. C'è scritto cinque euro, e su internet quel libro costa trecento.", "ru": "Проблема в объявленной ценности. Там написано пять евро, а в интернете эта книга стоит триста."},
+        {"who": "aldo", "es": "Il mio amico voleva solo farmi pagare di meno, tutto qui.", "ru": "Мой друг просто хотел, чтобы я заплатил меньше, вот и всё."},
+        {"who": "npc", "es": "Certo, e la dogana vuole farti pagare di più. Funziona così.", "ru": "Ну да, а таможня хочет, чтобы ты заплатил больше. Так это и работает."},
+        {"who": "aldo", "es": "Che burocrazia! Ai miei tempi un pacco arrivava senza tante domande.", "ru": "Ну и бюрократия! В мои времена посылка приходила без стольких вопросов."},
+        {"who": "npc", "es": "Ai tuoi tempi arrivava anche dopo tre mesi. Dai, ti aiuto con i documenti.", "ru": "В твои времена она и шла три месяца. Давай, помогу тебе с документами."}
+      ],
+      "questions": [
+        {"q": "Почему посылку Альдо задержали на таможне?", "kind": "stance", "options": ["В ней запрещённые вещи", "В декларации указана слишком низкая цена", "Адрес написан неразборчиво"], "answer": 1},
+        {"q": "Что Энцо имел в виду: «а таможня хочет, чтобы ты заплатил больше»?", "kind": "stance", "options": ["Шутит: за попытку сэкономить таможня берёт своё", "Таможня отдаст посылку бесплатно", "Таможня собирает книги о поездах"], "answer": 0},
+        {"q": "Как Альдо относится к происходящему?", "kind": "stance", "options": ["Рад, что посылка нашлась", "Ему всё равно", "Возмущён бюрократией"], "answer": 2},
+        {"q": "Что Энцо ответил на «в мои времена»?", "kind": "stance", "options": ["Раньше посылки тоже шли долго, так что не всё было лучше", "Раньше и правда было лучше", "Раньше посылок не было"], "answer": 0}
+      ],
+      "gloss": {"antichi": "старинные", "certo": "конечно"}
     }
   ]
 }

@@ -75,6 +75,30 @@
         {"q": "Что сказал человек с верблюдом?", "options": ["«Люди верят в то, во что хотят верить»", "«Я вернусь завтра»", "«Карта не продаётся»"], "answer": 0}
       ],
       "gloss": {"camello": "верблюд", "metía": "закапывал", "trozos": "обрывки"}
+    },
+    {
+      "id": "wh:park.4",
+      "chapter": 4,
+      "mode": "overhear",
+      "npc": "manolo",
+      "lines": [
+        {"who": "npc", "es": "¿Has visto el cartel? Quieren hacer un concierto al aire libre junto al lago.", "ru": "Видела объявление? Хотят устроить концерт под открытым небом у озера."},
+        {"who": "elena", "es": "¡Qué bien! Llevaré a mis alumnos. Nunca han oído música en directo.", "ru": "Как здорово! Приведу своих учеников. Они никогда не слышали живую музыку."},
+        {"who": "npc", "es": "Bien para tus alumnos. Para los búhos, no tanto. Tienen el nido en ese árbol.", "ru": "Хорошо для твоих учеников. Для сов — не очень. У них гнездо на том дереве."},
+        {"who": "elena", "es": "Hombre, los búhos duermen de día, y el concierto es por la tarde.", "ru": "Да ладно, совы спят днём, а концерт вечером."},
+        {"who": "npc", "es": "¿Y después? El año pasado el césped estuvo una semana lleno de botellas. Nadie se ocupó del mantenimiento.", "ru": "А потом? В прошлом году газон неделю был весь в бутылках. Никто не занялся уборкой."},
+        {"who": "elena", "es": "Tienes razón. ¿Y si organizamos una jornada de limpieza al día siguiente? Mis alumnos pueden ayudar.", "ru": "Ты прав. А если на следующий день устроить субботник? Мои ученики могут помочь."},
+        {"who": "npc", "es": "¿Tus alumnos, limpiando un domingo por la mañana? Me gustaría verlo.", "ru": "Твои ученики будут убирать в воскресенье утром? Хотел бы я на это посмотреть."},
+        {"who": "elena", "es": "Lo verás. Y tú vienes también, que conoces cada arbusto del parque.", "ru": "Посмотришь. И ты тоже придёшь: ты знаешь в парке каждый куст."},
+        {"who": "npc", "es": "Bueno, iré. Pero llevaré mis propias bolsas. Por si acaso.", "ru": "Ладно, приду. Но мешки возьму свои. На всякий случай."}
+      ],
+      "questions": [
+        {"q": "Почему Маноло не рад концерту?", "kind": "stance", "options": ["Он не любит музыку", "Боится за сов и за мусор после концерта", "Концерт будет ночью"], "answer": 1},
+        {"q": "Что Маноло имел в виду, сказав «хотел бы я на это посмотреть»?", "kind": "stance", "options": ["Хочет познакомиться с учениками", "Приглашает учеников к себе", "Сомневается, что ученики придут убирать в воскресенье утром"], "answer": 2},
+        {"q": "Почему Елена зовёт Маноло на уборку?", "kind": "stance", "options": ["Он знает в парке каждый куст", "Он отвечает за парк", "У него есть мешки"], "answer": 0},
+        {"q": "Что значит, что Маноло возьмёт свои мешки «на всякий случай»?", "kind": "stance", "options": ["Мешки Елены плохие", "Он всё ещё не очень верит, что всё пройдёт гладко", "Он собирает бутылки на продажу"], "answer": 1}
+      ],
+      "gloss": {"oído": "слышали (oír)", "nido": "гнездо", "propias": "свои собственные", "acaso": "случай (por si acaso — на всякий случай)"}
     }
   ]
 }

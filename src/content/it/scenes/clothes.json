@@ -75,6 +75,30 @@
         {"q": "Во что превратилась его купюра?", "options": ["В песок", "В цветы", "В воду"], "answer": 0}
       ],
       "gloss": {"cammello": "верблюд", "sparisce": "исчезает", "guardiana": "стражница", "esiste": "существует", "banconota": "купюра", "miraggio": "мираж"}
+    },
+    {
+      "id": "wh:clothes.4",
+      "chapter": 4,
+      "mode": "overhear",
+      "npc": "chiara",
+      "lines": [
+        {"who": "valentina", "es": "Guarda questa camicetta di seta. L'ho lavata una volta e si è ristretta di due taglie.", "ru": "Посмотри на эту шёлковую блузку. Я постирала её один раз, и она села на два размера."},
+        {"who": "npc", "es": "Che peccato. Hai letto le istruzioni di lavaggio? Qui c'è scritto: «Lavare a mano, acqua fredda».", "ru": "Как жалко. Ты читала инструкцию по стирке? Тут написано: «Стирать вручную, в холодной воде»."},
+        {"who": "valentina", "es": "Beh... l'ho messa in lavatrice con il programma breve. Ma è quasi come lavare a mano, no?", "ru": "Ну... я положила её в машинку на короткую программу. Но это ведь почти как вручную, разве нет?"},
+        {"who": "npc", "es": "Quasi. Però la seta non capisce il «quasi».", "ru": "Почти. Только шёлк не понимает слова «почти»."},
+        {"who": "valentina", "es": "L'ho pagata ottanta euro. A quel prezzo, un tessuto dovrebbe resistere un po' di più.", "ru": "Я заплатила за неё восемьдесят евро. За такие деньги ткань должна быть покрепче."},
+        {"who": "npc", "es": "Ti capisco. Non posso cambiartela, ma ti faccio uno sconto su quella di lino. Quella non si restringe.", "ru": "Понимаю. Поменять я её не могу, но сделаю тебе скидку на льняную. Та не садится."},
+        {"who": "valentina", "es": "Quella di lino? Si stropiccia solo a guardarla. Dovrei stirarla ogni mattina.", "ru": "Льняную? Она мнётся, стоит на неё посмотреть. Мне пришлось бы гладить её каждое утро."},
+        {"who": "npc", "es": "Se vuoi, ti faccio vedere quelle sintetiche. Non si stropicciano, non si restringono... e non respirano per niente.", "ru": "Если хочешь, покажу синтетические. Не мнутся, не садятся... и совсем не дышат."},
+        {"who": "valentina", "es": "Prendo quella di lino. Stirare la mattina rilassa, in fondo.", "ru": "Беру льняную. В конце концов, гладить по утрам успокаивает."}
+      ],
+      "questions": [
+        {"q": "Кто, по мнению Кьяры, виноват, что блузка села?", "kind": "stance", "options": ["Фабрика", "Сама Валентина: постирала её в машинке", "Магазин"], "answer": 1},
+        {"q": "Что Кьяра имела в виду: «шёлк не понимает слова „почти“»?", "kind": "stance", "options": ["Для шёлка машинка — совсем не то же, что ручная стирка", "Шёлк бывает плохого качества", "Блузку ещё можно спасти"], "answer": 0},
+        {"q": "Почему Кьяра не меняет блузку, но даёт скидку?", "kind": "stance", "options": ["Блузок больше нет", "Так велел хозяин", "Магазин не виноват, но покупательницу терять не хочется"], "answer": 2},
+        {"q": "С каким настроением Валентина выбирает льняную блузку?", "kind": "stance", "options": ["Злится и уходит", "Шутя смиряется с глажкой", "Радуется, что не надо гладить"], "answer": 1}
+      ],
+      "gloss": {"camicetta": "блузка", "ristretta": "села (restringersi)", "beh": "ну", "messa": "положила (mettere)", "breve": "короткий", "ottanta": "восемьдесят", "sintetiche": "синтетические"}
     }
   ]
 }

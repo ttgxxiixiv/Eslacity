@@ -75,6 +75,30 @@
         {"q": "Что сказал человек с верблюдом?", "options": ["«Люди верят в то, во что хотят верить»", "«Я вернусь завтра»", "«Карта не продаётся»"], "answer": 0}
       ],
       "gloss": {"cammello": "верблюд", "metteva": "закапывал", "fogli": "бумаги", "pezzi": "обрывки", "falsi": "поддельные"}
+    },
+    {
+      "id": "wh:park.4",
+      "chapter": 4,
+      "mode": "overhear",
+      "npc": "gino",
+      "lines": [
+        {"who": "npc", "es": "Hai visto il cartello? Vogliono fare un concerto all'aperto vicino al lago.", "ru": "Видела объявление? Хотят устроить концерт под открытым небом у озера."},
+        {"who": "anna", "es": "Che bello! Porterò i miei ragazzi. Non sono mai stati a un concerto.", "ru": "Как здорово! Приведу своих учеников. Они ни разу не были на концерте."},
+        {"who": "npc", "es": "Bello per i tuoi ragazzi. Per i gufi, un po' meno. Hanno il nido su quell'albero.", "ru": "Хорошо для твоих учеников. Для сов — не очень. У них гнездо на том дереве."},
+        {"who": "anna", "es": "Dai, i gufi dormono di giorno, e il concerto è alle cinque.", "ru": "Да ладно, совы спят днём, а концерт в пять."},
+        {"who": "npc", "es": "E dopo? L'anno passato il prato è rimasto pieno di bottiglie per una settimana. Nessuno ha pensato alla manutenzione.", "ru": "А потом? В прошлом году газон неделю был весь в бутылках. Никто не подумал об уборке."},
+        {"who": "anna", "es": "Hai ragione. E se organizziamo una giornata di pulizia il giorno dopo? I miei ragazzi possono aiutare.", "ru": "Ты прав. А если на следующий день устроить субботник? Мои ученики могут помочь."},
+        {"who": "npc", "es": "I tuoi ragazzi che puliscono una domenica mattina? Mi piacerebbe vederlo.", "ru": "Твои ученики будут убирать в воскресенье утром? Хотел бы я на это посмотреть."},
+        {"who": "anna", "es": "Lo vedrai. E vieni anche tu, che conosci ogni cespuglio del parco.", "ru": "Посмотришь. И ты тоже придёшь: ты знаешь в парке каждый куст."},
+        {"who": "npc", "es": "Va bene, verrò. Ma porto i miei sacchi. Non si sa mai.", "ru": "Ладно, приду. Но мешки возьму свои. Мало ли что."}
+      ],
+      "questions": [
+        {"q": "Почему Джино не рад концерту?", "kind": "stance", "options": ["Он не любит музыку", "Боится за сов и за мусор после концерта", "Концерт будет ночью"], "answer": 1},
+        {"q": "Что Джино имел в виду, сказав «хотел бы я на это посмотреть»?", "kind": "stance", "options": ["Хочет познакомиться с учениками", "Приглашает учеников к себе", "Сомневается, что ученики придут убирать в воскресенье утром"], "answer": 2},
+        {"q": "Почему Анна зовёт Джино на уборку?", "kind": "stance", "options": ["Он знает в парке каждый куст", "Он отвечает за парк", "У него есть мешки"], "answer": 0},
+        {"q": "Что значит, что Джино возьмёт свои мешки, «мало ли что»?", "kind": "stance", "options": ["Мешки Анны плохие", "Он всё ещё не очень верит, что всё пройдёт гладко", "Он собирает бутылки на продажу"], "answer": 1}
+      ],
+      "gloss": {"nido": "гнездо", "sacchi": "мешки"}
     }
   ]
 }

@@ -75,6 +75,30 @@
         {"q": "Что нарисовано в его тетради?", "options": ["Дорога среди дюн и полная луна", "Башня", "Портрет стражницы"], "answer": 0}
       ],
       "gloss": {"camello": "верблюд", "apuntó": "записался", "fuera": "был бы", "tuviera": "было бы", "guardiana": "стражница", "dibujo": "рисунок", "dunas": "дюны"}
+    },
+    {
+      "id": "wh:school.4",
+      "chapter": 4,
+      "mode": "overhear",
+      "npc": "elena",
+      "lines": [
+        {"who": "gomez", "es": "Profesora, ¿por qué mi hijo tiene un cero en la redacción? Dice que trabajó toda la tarde.", "ru": "Учительница, почему у моего сына ноль за сочинение? Он говорит, что работал весь вечер."},
+        {"who": "npc", "es": "Toda la tarde, puede ser. Pero el texto es idéntico a uno de internet. Es plagio.", "ru": "Весь вечер — может быть. Но текст точно такой же, как один из интернета. Это плагиат."},
+        {"who": "gomez", "es": "Seguro que solo buscó ideas. Todos los chicos lo hacen.", "ru": "Наверняка он просто искал идеи. Все ребята так делают."},
+        {"who": "npc", "es": "Buscar ideas está bien. Copiar hasta las faltas de ortografía del original, no tanto.", "ru": "Искать идеи — нормально. Списывать вместе с орфографическими ошибками оригинала — не очень."},
+        {"who": "gomez", "es": "¿Hasta las faltas?", "ru": "Даже ошибки?"},
+        {"who": "npc", "es": "Hasta las faltas. Por eso le propongo algo: que repita la redacción en clase, conmigo delante.", "ru": "Даже ошибки. Поэтому предлагаю вот что: пусть напишет сочинение ещё раз в классе, при мне."},
+        {"who": "gomez", "es": "¿Y si la hace bien, le quita el cero?", "ru": "А если напишет хорошо, вы уберёте ноль?"},
+        {"who": "npc", "es": "Si la hace él solo, sí. Tiene buen razonamiento cuando se esfuerza. Le falta motivación, no talento.", "ru": "Если напишет сам — да. Когда старается, он хорошо рассуждает. Ему не хватает мотивации, а не способностей."},
+        {"who": "gomez", "es": "Hablaré con él esta noche. Y el móvil se queda en casa esta semana.", "ru": "Поговорю с ним сегодня вечером. И телефон на этой неделе останется дома."}
+      ],
+      "questions": [
+        {"q": "Почему у сына Гомеса ноль за сочинение?", "kind": "stance", "options": ["Он не сдал работу", "Сочинение списано из интернета", "Он опоздал на урок"], "answer": 1},
+        {"q": "Что Елена хотела доказать, упомянув ошибки оригинала?", "kind": "stance", "options": ["Что мальчик плохо знает орфографию", "Что в интернете много ошибок", "Что текст скопирован слово в слово"], "answer": 2},
+        {"q": "Как Елена оценивает мальчика?", "kind": "stance", "options": ["Способный, но ему не хватает мотивации", "Ленивый и неспособный", "Лучший в классе"], "answer": 0},
+        {"q": "Что Гомес решил в конце?", "kind": "stance", "options": ["Пожаловаться директору", "Поговорить с сыном и оставить его телефон дома", "Перевести сына в другую школу"], "answer": 1}
+      ],
+      "gloss": {"idéntico": "точно такой же", "copiar": "списывать, копировать", "faltas": "ошибки", "original": "оригинал", "delante": "рядом, перед (кем-то)", "falta": "не хватает (faltar)"}
     }
   ]
 }

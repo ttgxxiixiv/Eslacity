@@ -75,6 +75,30 @@
         {"q": "Что нарисовано в его тетради?", "options": ["Дорога среди дюн и полная луна", "Башня", "Портрет стражницы"], "answer": 0}
       ],
       "gloss": {"cammello": "верблюд", "iscritto": "записался", "fossi": "был бы", "avessi": "было бы", "guardiana": "стражница", "fretta": "быстро", "disegno": "рисунок", "dune": "дюны"}
+    },
+    {
+      "id": "wh:school.4",
+      "chapter": 4,
+      "mode": "overhear",
+      "npc": "anna",
+      "lines": [
+        {"who": "ferri", "es": "Scusi, perché mio figlio ha preso due nel tema? Dice che ci ha lavorato per ore.", "ru": "Простите, почему мой сын получил двойку за сочинение? Он говорит, что работал над ним несколько часов."},
+        {"who": "npc", "es": "Per ore, può darsi. Ma il testo è identico a uno di internet. È plagio.", "ru": "Несколько часов — может быть. Но текст точно такой же, как один из интернета. Это плагиат."},
+        {"who": "ferri", "es": "Sicuramente ha solo cercato delle idee. Lo fanno tutti i ragazzi.", "ru": "Наверняка он просто искал идеи. Все ребята так делают."},
+        {"who": "npc", "es": "Cercare idee va bene. Copiare anche gli errori di ortografia dell'originale, un po' meno.", "ru": "Искать идеи — нормально. Списывать вместе с орфографическими ошибками оригинала — не очень."},
+        {"who": "ferri", "es": "Anche gli errori?", "ru": "Даже ошибки?"},
+        {"who": "npc", "es": "Anche gli errori. Per questo le propongo una cosa: che rifaccia il tema in classe, davanti a me.", "ru": "Даже ошибки. Поэтому предлагаю вот что: пусть напишет сочинение ещё раз в классе, при мне."},
+        {"who": "ferri", "es": "E se lo fa bene, gli toglie il due?", "ru": "А если напишет хорошо, вы уберёте двойку?"},
+        {"who": "npc", "es": "Se lo fa da solo, sì. Ha un buon ragionamento quando si impegna. Gli manca la motivazione, non il talento.", "ru": "Если напишет сам — да. Когда старается, он хорошо рассуждает. Ему не хватает мотивации, а не способностей."},
+        {"who": "ferri", "es": "Parlerò con lui stasera. E il telefono questa settimana resta a casa.", "ru": "Поговорю с ним сегодня вечером. И телефон на этой неделе останется дома."}
+      ],
+      "questions": [
+        {"q": "Почему у сына Ферри двойка за сочинение?", "kind": "stance", "options": ["Он не сдал работу", "Сочинение списано из интернета", "Он опоздал на урок"], "answer": 1},
+        {"q": "Что Анна хотела доказать, упомянув ошибки оригинала?", "kind": "stance", "options": ["Что мальчик плохо знает орфографию", "Что в интернете много ошибок", "Что текст скопирован слово в слово"], "answer": 2},
+        {"q": "Как Анна оценивает мальчика?", "kind": "stance", "options": ["Способный, но ему не хватает мотивации", "Ленивый и неспособный", "Лучший в классе"], "answer": 0},
+        {"q": "Что Ферри решил в конце?", "kind": "stance", "options": ["Пожаловаться директору", "Поговорить с сыном и оставить его телефон дома", "Перевести сына в другую школу"], "answer": 1}
+      ],
+      "gloss": {"identico": "точно такой же", "copiare": "списывать, копировать", "originale": "оригинал", "rifaccia": "переделал (rifare)"}
     }
   ]
 }

@@ -75,6 +75,30 @@
         {"q": "Что снится тем, кто купил воду?", "options": ["Белый город", "Море", "Башня"], "answer": 0}
       ],
       "gloss": {"oasi": "оазис", "sete": "жажда", "miraggio": "мираж", "dormono": "спят", "sognano": "снится"}
+    },
+    {
+      "id": "wh:pharmacy.4",
+      "chapter": 4,
+      "mode": "overhear",
+      "npc": "bruno",
+      "lines": [
+        {"who": "npc", "es": "Dottore, la signora della ricetta di stamattina... lo sa che prende erbe medicinali per dormire?", "ru": "Доктор, та синьора с утренним рецептом... вы знаете, что она пьёт лекарственные травы для сна?"},
+        {"who": "conti", "es": "Non ne avevo idea. A me ha detto che non prendeva nient'altro.", "ru": "Понятия не имел. Мне она сказала, что больше ничего не принимает."},
+        {"who": "npc", "es": "Lo dicono tutti. Ma quelle erbe insieme alla sua pastiglia... l'interazione può essere pericolosa.", "ru": "Так говорят все. Но эти травы вместе с вашей таблеткой... взаимодействие может быть опасным."},
+        {"who": "conti", "es": "I pazienti pensano che le cose naturali non contino. E poi finiscono al pronto soccorso.", "ru": "Пациенты думают, что натуральное не считается. А потом попадают в неотложку."},
+        {"who": "npc", "es": "O forse nessuno glielo chiede con calma. In ambulatorio avete cinque minuti.", "ru": "А может, их просто никто спокойно не спрашивает. У вас на приёме пять минут."},
+        {"who": "conti", "es": "Mi sta dicendo che non faccio bene il mio lavoro?", "ru": "Вы хотите сказать, что я плохо делаю свою работу?"},
+        {"who": "npc", "es": "Dico che cinque minuti non bastano a nessuno, né a lei né a me.", "ru": "Я говорю, что пяти минут никому не хватает, ни вам, ни мне."},
+        {"who": "conti", "es": "Su questo ha ragione. Chiamerò la signora e le cambierò la terapia.", "ru": "Тут вы правы. Позвоню синьоре и поменяю ей лечение."},
+        {"who": "npc", "es": "E io le spiegherò la posologia con calma. Questa volta senza fretta.", "ru": "А я объясню ей, как принимать лекарство, спокойно. На этот раз без спешки."}
+      ],
+      "questions": [
+        {"q": "Чем обеспокоен доктор Бруно?", "kind": "stance", "options": ["Рецепт написан неразборчиво", "Лекарство закончилось", "Травы пациентки опасно сочетаются с её таблеткой"], "answer": 2},
+        {"q": "Что Бруно имел в виду, сказав «так говорят все»?", "kind": "stance", "options": ["Пациенты часто не считают травы лекарством и молчат о них", "Все пациенты врут нарочно", "Доктор всегда ошибается"], "answer": 0},
+        {"q": "Как доктор Конти сначала понял слова о пяти минутах?", "kind": "stance", "options": ["Сразу согласился", "Обиделся: решил, что его упрекают", "Не расслышал"], "answer": 1},
+        {"q": "С чем в итоге согласились оба?", "kind": "stance", "options": ["На приёме слишком мало времени, чтобы всё выяснить", "Пациентка всё выдумала", "Травы безопасны"], "answer": 0}
+      ],
+      "gloss": {"naturali": "натуральные, природные", "minuti": "минуты", "bastano": "хватает (bastare)", "né": "ни", "fretta": "спешка"}
     }
   ]
 }
