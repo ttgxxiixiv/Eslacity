@@ -15,6 +15,10 @@ export const GUARDIAN_SIZE = 20;
 export const GUARDIAN_PASS = 0.75;
 /** Сколько в испытании упражнений грамматики, слов главы и слов свитка. */
 export const GUARDIAN_MIX = { grammar: 12, words: 5, scroll: 3 };
+/** Главы, чей страж обязан проверять на слух (Лес шёпотов). */
+export const LISTEN_GUARDIAN_CHAPTERS = [4];
+/** Сколько заданий на слух у такого стража: все слова главы и свитка. */
+export const GUARDIAN_LISTEN = GUARDIAN_MIX.words + GUARDIAN_MIX.scroll;
 /** Награда за победу над стражем. */
 export const GUARDIAN_REWARD = { coins: 100 };
 

@@ -3,6 +3,7 @@ import type { Lang } from '../lang';
 import { CHAPTERS as PLAN, PLACE_LEVEL_MAX } from './vocabPlan';
 import { expandOptional, fullPhrase, optionalError, PHRASE_MAX_WORDS, PHRASE_PREFIX, phraseWords } from '../domain/phrase';
 import { answersOnPath, DISPUTE_FROM_CHAPTER, isDispute, missionGraphIssues } from '../domain/mission';
+import { LISTEN_GUARDIAN_CHAPTERS } from '../domain/guardian';
 import { sceneWords } from '../domain/sceneText';
 import { conjugate, generated, participle, TENSES, type Tense } from '../domain/verbs';
 import { phraseTokens } from '../domain/phraseSteps';
@@ -366,6 +367,8 @@ export function validateGuardians(file: GuardiansFile | undefined, chapters: num
     const { pitch, rate } = g.voice ?? {};
     if (!(pitch >= 0.5 && pitch <= 1.5) || !(rate >= 0.7 && rate <= 1.3)) out.push({ level: 'error', where: at, msg: 'голос вне пределов (pitch 0.5–1.5, rate 0.7–1.3)' });
     checkLook(g.look, at, out);
+    // Хранительница леса слушает шёпоты: её испытание — на слух.
+    if (LISTEN_GUARDIAN_CHAPTERS.includes(g.chapter) && g.listen !== true) out.push({ level: 'error', where: at, msg: 'страж этой главы проверяет на слух: нужно listen: true' });
   });
   for (const ch of chapters) if (!seen.has(ch)) out.push({ level: 'error', where, msg: `нет стража главы ${ch}` });
   return out;

@@ -280,6 +280,8 @@ export interface Guardian {
   lose: Example;
   voice: { pitch: number; rate: number };
   look: NpcLook;
+  /** Страж проверяет на слух: слова главы и свитка звучат голосом, без текста (Хранительница леса, глава IV). */
+  listen?: boolean;
 }
 
 export interface GuardiansFile {

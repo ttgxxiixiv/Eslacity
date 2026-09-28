@@ -3,8 +3,8 @@ import { isDispute } from '../domain/mission';
 import type { LocationWords, Word } from './schema';
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { validateChronicler, validateGrammar, validateMissions, validateNpcs, validatePhrases, validatePortraits, validateScenes, validateScrolls, validateTranslations, validateVerbs, validateWords } from './validate';
-import { LOCATION_IDS, type Chronicler, type GrammarLesson, type LocationMissions, type LocationPhrases, type LocationScenes, type Mission, type NpcsFile, type Phrase, type Scene, type ScrollFile, type VerbsFile } from './schema';
+import { validateChronicler, validateGrammar, validateGuardians, validateMissions, validateNpcs, validatePhrases, validatePortraits, validateScenes, validateScrolls, validateTranslations, validateVerbs, validateWords } from './validate';
+import { LOCATION_IDS, type Chronicler, type GrammarLesson, type GuardiansFile, type LocationMissions, type LocationPhrases, type LocationScenes, type Mission, type NpcsFile, type Phrase, type Scene, type ScrollFile, type VerbsFile } from './schema';
 
 const base = (i: number, extra: Partial<Word> = {}): Word => ({
   id: `cafe.w${i}`, es: `la palabra${i}`, ru: `слово ${i}`, pos: 'noun', gender: 'f', level: 1, cefr: 'A1',
@@ -451,6 +451,22 @@ describe('сцены и миссии глав I–IV: контент', () => {
         expect(phrases.filter((p) => p.level === 6), `${lang}/${loc} фразы уровня 6`).toHaveLength(5);
       }
     }
+  });
+});
+
+describe('validateGuardians', () => {
+  const real = (lang: 'es' | 'it') => JSON.parse(readFileSync(join(import.meta.dirname, lang, 'guardians.json'), 'utf8')) as GuardiansFile;
+  it('настоящие стражи обоих языков проходят, у Хранительницы леса испытание на слух', () => {
+    for (const lang of ['es', 'it'] as const) {
+      const file = real(lang);
+      expect(validateGuardians(file, [1, 2, 3, 4])).toEqual([]);
+      expect(file.guardians.find((g) => g.chapter === 4)?.listen).toBe(true);
+    }
+  });
+  it('страж главы IV без listen — ошибка', () => {
+    const file = real('es');
+    const deaf = { guardians: file.guardians.map((g) => (g.chapter === 4 ? { ...g, listen: undefined } : g)) };
+    expect(validateGuardians(deaf, [1, 2, 3, 4]).map((x) => x.msg)).toEqual(['страж этой главы проверяет на слух: нужно listen: true']);
   });
 });
 
