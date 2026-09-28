@@ -414,3 +414,16 @@ describe('validateVerbs', () => {
     ]);
   });
 });
+
+describe('уровень 6 (B2): контент', () => {
+  it('в каждом из 20 мест обоих языков по 30 слов B2', () => {
+    for (const lang of ['es', 'it']) {
+      for (const loc of LOCATION_IDS) {
+        const words = (JSON.parse(readFileSync(join(__dirname, lang, 'words', `${loc}.json`), 'utf8')) as LocationWords).words;
+        const six = words.filter((w) => w.level === 6);
+        expect(six, `${lang}/${loc}`).toHaveLength(30);
+        expect(six.every((w) => w.cefr === 'B2')).toBe(true);
+      }
+    }
+  });
+});
