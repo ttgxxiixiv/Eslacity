@@ -63,6 +63,31 @@
         "single": {"kind": "answer", "task": "Попросите билет в одну сторону.", "branches": [{"phrase": "ph:station.biglietto-sola-andata", "next": "end"}], "wrong": {"es": "Un biglietto per la luna? Questo treno va nel deserto.", "ru": "Билет на Луну? Этот поезд идёт в пустыню."}},
         "end": {"kind": "say", "es": "Solo andata? Come l'uomo con il cammello... No, io ti do andata e ritorno: tu tornerai. Prendi il biglietto e il mio pezzo della mappa del deserto.", "ru": "Только в одну сторону? Как человек с верблюдом... Нет, я дам тебе туда и обратно: ты вернёшься. Держи билет и мой обрывок карты пустыни."}
       }
+    },
+    {
+      "id": "ms:station.4",
+      "chapter": 4,
+      "npc": "aldo",
+      "scene": "sc:station.4",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Oggi nessuno mi saluta. Trent'anni in questa stazione, e adesso sono il cattivo. E in più il treno per il bosco non parte: ci sono i lavori sulla linea.", "ru": "Сегодня со мной никто не здоровается. Тридцать лет на этой станции, а теперь я злодей. Да ещё поезд к лесу не идёт: ремонт путей.", "next": "alt"},
+        "alt": {"kind": "answer", "task": "Спросите, есть ли автобус вместо поезда.", "branches": [{"phrase": "ph:station.c-bus-sostitutivo", "next": "altsay"}], "wrong": {"es": "C'è un tabacco sostitutivo? No, grazie.", "ru": "Есть табак взамен? Нет уж, спасибо."}},
+        "altsay": {"kind": "say", "es": "C'è un autobus alle quattro. Vuoi viaggiare seduto?", "ru": "Есть автобус в четыре. Хочешь ехать сидя?", "next": "seat"},
+        "seat": {"kind": "answer", "task": "Скажите, что хотите забронировать место.", "branches": [{"phrase": "ph:station.prenotazione-posto", "next": "seatsay"}], "wrong": {"es": "La prenotazione per il corvo? Lui vola.", "ru": "Бронь для ворона? Он летает."}},
+        "seatsay": {"kind": "say", "es": "Prenotato, finestrino. ...Non ce la faccio più. Lascio il lavoro. Se tutti pensano che io sia un bugiardo, me ne vado.", "ru": "Забронировано, у окна. ...Я больше не могу. Уйду с работы. Раз все думают, что я лжец, уйду.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:station.non-andare-via-voce", "next": "object", "move": "object"}, {"phrase": "ph:station.capisco-stanco", "next": "concede", "move": "concede"}, {"phrase": "ph:station.dimostri-dove-eri", "next": "compromise", "move": "compromise"}], "wrong": {"es": "Come? Passa un treno e non ti sento.", "ru": "Как? Поезд проходит, я тебя не слышу."}},
+        "object": {"kind": "say", "es": "Per una voce? ...Hai ragione. Se me ne vado, vince la voce. Resto.", "ru": "Из-за слуха? ...Ты прав. Если уйду, победит слух. Остаюсь.", "next": "trip"},
+        "concede": {"kind": "say", "es": "Stanco, sì. Trent'anni di treni, e mi pagano con i pettegolezzi.", "ru": "Устал, да. Тридцать лет поездов, а мне платят сплетнями.", "next": "trip"},
+        "compromise": {"kind": "say", "es": "Dimostrarlo? Mia moglie e il vicino di sotto... Sì, così il quartiere sa la verità.", "ru": "Доказать? Жена и сосед снизу... Да, и тогда район узнает правду.", "next": "trip"},
+        "trip": {"kind": "say", "es": "Allora, cos'altro ti serve sapere per il viaggio?", "ru": "Ладно, что ещё тебе нужно знать про поездку?", "next": "punctual"},
+        "punctual": {"kind": "answer", "task": "Спросите, ходит ли поезд без опозданий.", "branches": [{"phrase": "ph:station.treno-puntuale", "next": "punctualsay"}], "wrong": {"es": "Il corvo è puntuale? Più del treno.", "ru": "Ворон пунктуален? Больше, чем поезд."}},
+        "punctualsay": {"kind": "say", "es": "Oggi più di me. Ah ah.", "ru": "Сегодня — больше, чем я. Ха-ха.", "next": "change"},
+        "change": {"kind": "answer", "task": "Спросите, нужно ли делать пересадку.", "branches": [{"phrase": "ph:station.devo-cambiare-treno", "next": "changesay"}], "wrong": {"es": "Devo cambiare pipa? Non fumo.", "ru": "Надо сменить трубку? Я не курю."}},
+        "changesay": {"kind": "say", "es": "No, diretto fino al margine del bosco. Che biglietto vuoi?", "ru": "Нет, прямо до опушки леса. Какой билет тебе нужен?", "next": "ticket"},
+        "ticket": {"kind": "answer", "task": "Попросите билет в один конец.", "branches": [{"phrase": "ph:station.biglietto-sola-andata", "next": "end"}], "wrong": {"es": "Un biglietto per il corvo? Lui vola gratis.", "ru": "Билет для ворона? Он летает бесплатно."}},
+        "end": {"kind": "say", "es": "Solo andata? No: andata e ritorno, che ti voglio rivedere. E prendi questo: il signore delle monete vecchie l'ha lasciato allo sportello. Un pezzo della mappa del bosco.", "ru": "Только туда? Нет уж: туда и обратно, я хочу тебя снова увидеть. И держи: синьор со старыми монетами оставил это в окошке кассы. Обрывок карты леса."}
+      }
     }
   ]
 }

@@ -98,6 +98,28 @@
         {"q": "Как они в итоге друг к другу относятся?", "kind": "stance", "options": ["Поссорились всерьёз", "Спорят по-дружески и остаются приятелями", "Не хотят больше разговаривать"], "answer": 1}
       ],
       "gloss": {"furiosa": "в ярости", "beh": "ну", "neanche": "даже не, ни", "fretta": "спешка", "scorsa": "прошлая", "aldo": "Альдо (имя)"}
+    },
+    {
+      "id": "sc:station.4",
+      "chapter": 4,
+      "npc": "aldo",
+      "lines": [
+        {"who": "npc", "es": "Anche tu vieni a guardarmi come un criminale?", "ru": "Ты тоже пришёл смотреть на меня как на преступника?"},
+        {"who": "hero", "es": "Perché dici così?", "ru": "Почему ты так говоришь?"},
+        {"who": "npc", "es": "Tutto il quartiere dice che sono io a insegnare le bugie al corvo del postino. Perché fumo la pipa!", "ru": "Весь район говорит, что это я учу ворона почтальона лжи. Потому что я курю трубку!"},
+        {"who": "hero", "es": "E non sei tu?", "ru": "А это не ты?"},
+        {"who": "npc", "es": "Certo che no! Di notte dormo a casa. Mia moglie lo sa.", "ru": "Конечно, нет! По ночам я сплю дома. Жена знает."},
+        {"who": "hero", "es": "Ti credo. Ma qualcuno fuma la pipa e parla con il corvo.", "ru": "Я тебе верю. Но кто-то курит трубку и разговаривает с вороном."},
+        {"who": "npc", "es": "Io so solo questo: una settimana fa un signore anziano ha comprato un biglietto fino al margine del bosco. Andata e ritorno.", "ru": "Я знаю только одно: неделю назад пожилой синьор купил билет до опушки леса. Туда и обратно."},
+        {"who": "hero", "es": "Chi?", "ru": "Кто?"},
+        {"who": "npc", "es": "Non ho visto la sua faccia. Ha pagato con monete molto vecchie. Non si accettano più, ma le ho accettate.", "ru": "Лица я не видел. Он заплатил очень старыми монетами. Их уже не принимают, но я взял."}
+      ],
+      "questions": [
+        {"q": "Почему весь район подозревает Альдо?", "options": ["Он дружит с вороном", "Он курит трубку", "Он живёт у леса"], "answer": 1},
+        {"q": "Где Альдо бывает по ночам?", "options": ["Спит дома", "Сидит на вокзале", "Гуляет в лесу"], "answer": 0},
+        {"q": "Чем пожилой синьор заплатил за билет к лесу?", "options": ["Картой", "Обрывком карты", "Очень старыми монетами"], "answer": 2}
+      ],
+      "gloss": {"criminale": "преступник", "corvo": "ворон", "postino": "почтальон", "fumo": "курю (fumare)", "fuma": "курит (fumare)", "pipa": "трубка (курительная)", "faccia": "лицо", "certo": "конечно"}
     }
   ]
 }

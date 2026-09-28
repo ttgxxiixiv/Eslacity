@@ -98,6 +98,28 @@
         {"q": "Почему Руис просит не рассказывать пациентам?", "kind": "stance", "options": ["Стыдно, что он сам не соблюдал то, что им советует", "Пациенты тоже ходят в этот зал", "Это врачебная тайна"], "answer": 0}
       ],
       "gloss": {"codo": "локоть", "vendado": "забинтованный", "graciosa": "остроумная, смешная"}
+    },
+    {
+      "id": "sc:gym.4",
+      "chapter": 4,
+      "npc": "sara",
+      "lines": [
+        {"who": "npc", "es": "¡Buenos días! Esta mañana, corriendo a las seis, vi algo muy raro.", "ru": "Доброе утро! Сегодня утром, когда бегала в шесть, я увидела кое-что очень странное."},
+        {"who": "hero", "es": "¿Qué viste?", "ru": "Что ты видела?"},
+        {"who": "npc", "es": "Un hombre mayor, en el jardín de detrás del gimnasio, hablando con un cuervo.", "ru": "Пожилого мужчину в саду за спортзалом: он разговаривал с вороном."},
+        {"who": "hero", "es": "¿Y qué le decía?", "ru": "И что он говорил?"},
+        {"who": "npc", "es": "Le enseñaba frases, como un profesor: «Repite: el bosque es peligroso».", "ru": "Учил его фразам, как учитель: «Повторяй: лес опасен»."},
+        {"who": "hero", "es": "¿Viste quién era?", "ru": "Ты видела, кто это был?"},
+        {"who": "npc", "es": "No. Llevaba sombrero, y caminaba despacio, con un bastón de madera muy vieja.", "ru": "Нет. Он был в шляпе и шёл медленно, с палкой из очень старого дерева."},
+        {"who": "hero", "es": "¿Madera vieja?", "ru": "Старого дерева?"},
+        {"who": "npc", "es": "Muy vieja y oscura, como la de la torre de la montaña.", "ru": "Очень старого и тёмного, как дерево башни в горах."}
+      ],
+      "questions": [
+        {"q": "Что делал мужчина за спортзалом?", "options": ["Бегал", "Учил ворона фразам", "Кормил голубей"], "answer": 1},
+        {"q": "Какую фразу он учил?", "options": ["«Лес опасен»", "«Приходи в лес»", "«Доброе утро»"], "answer": 0},
+        {"q": "Что было необычного в его палке?", "options": ["Она золотая", "Она сломана", "Она из старого тёмного дерева, как башня в горах"], "answer": 2}
+      ],
+      "gloss": {"cuervo": "ворон", "bastón": "палка, трость", "madera": "дерево (материал)", "oscura": "тёмная"}
     }
   ]
 }

@@ -99,6 +99,28 @@
         {"q": "Как Маноло принимает предложение прогуляться по берегу?", "kind": "stance", "options": ["Соглашается, но в шутку вызывает Начо на заплыв", "Обижается и уходит", "Всё равно идёт купаться"], "answer": 0}
       ],
       "gloss": {"manolo": "Маноло (имя)", "bañándome": "купаюсь (bañarse)"}
+    },
+    {
+      "id": "sc:beach.4",
+      "chapter": 4,
+      "npc": "nacho",
+      "lines": [
+        {"who": "npc", "es": "No he dormido. Anoche, en la playa, vi al hombre de la pipa.", "ru": "Я не спал. Вчера ночью на пляже я видел человека с трубкой."},
+        {"who": "hero", "es": "¿Estás seguro?", "ru": "Ты уверен?"},
+        {"who": "npc", "es": "Seguro. Estaba sentado en las rocas, con el cuervo en el hombro.", "ru": "Уверен. Он сидел на камнях с вороном на плече."},
+        {"who": "hero", "es": "¿Qué hacía?", "ru": "Что он делал?"},
+        {"who": "npc", "es": "Le decía al cuervo: «Diles que el bosque es malo. Que nadie vaya». Y lloraba.", "ru": "Говорил ворону: «Скажи им, что лес злой. Пусть никто туда не ходит». И плакал."},
+        {"who": "hero", "es": "¿Viste su cara?", "ru": "Ты видел его лицо?"},
+        {"who": "npc", "es": "Sí. Con la luz del faro, la vi muy bien.", "ru": "Да. При свете маяка я хорошо его разглядел."},
+        {"who": "hero", "es": "¿Y quién era?", "ru": "И кто это был?"},
+        {"who": "npc", "es": "Andrés. El que vivió cien años en la torre.", "ru": "Андрес. Тот, кто сто лет прожил в башне."}
+      ],
+      "questions": [
+        {"q": "Где Начо видел человека с трубкой?", "options": ["На вокзале", "На камнях у пляжа", "В парке"], "answer": 1},
+        {"q": "Что человек говорил ворону?", "options": ["«Скажи им, что лес злой, пусть никто туда не ходит»", "«Лети домой»", "«Принеси карту»"], "answer": 0},
+        {"q": "Кто это был?", "options": ["Рамон", "Гомес", "Андрес, который сто лет прожил в башне"], "answer": 2}
+      ],
+      "gloss": {"pipa": "трубка (курительная)", "rocas": "камни, скалы", "cuervo": "ворон", "hombro": "плечо", "lloraba": "плакал (llorar)", "cara": "лицо", "faro": "маяк", "andrés": "Андрес (имя)"}
     }
   ]
 }

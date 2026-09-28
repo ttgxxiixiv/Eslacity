@@ -98,6 +98,28 @@
         {"q": "Почему Конти просит не говорить пациентам?", "kind": "stance", "options": ["Стыдно, что он сам не соблюдал то, что им советует", "Пациенты тоже ходят в этот зал", "Это врачебная тайна"], "answer": 0}
       ],
       "gloss": {"gomito": "локоть", "fasciato": "забинтованный", "proprio": "прямо, действительно", "spiritosa": "остроумная"}
+    },
+    {
+      "id": "sc:gym.4",
+      "chapter": 4,
+      "npc": "federica",
+      "lines": [
+        {"who": "npc", "es": "Buongiorno! Stamattina, mentre correvo alle sei, ho visto una cosa molto strana.", "ru": "Доброе утро! Сегодня утром, когда бегала в шесть, я увидела кое-что очень странное."},
+        {"who": "hero", "es": "Cosa hai visto?", "ru": "Что ты видела?"},
+        {"who": "npc", "es": "Un uomo anziano, nel giardino dietro la palestra, che parlava con un corvo.", "ru": "Пожилого мужчину в саду за спортзалом: он разговаривал с вороном."},
+        {"who": "hero", "es": "E cosa gli diceva?", "ru": "И что он говорил?"},
+        {"who": "npc", "es": "Gli insegnava delle frasi, come un maestro: «Ripeti: il bosco è pericoloso».", "ru": "Учил его фразам, как учитель: «Повторяй: лес опасен»."},
+        {"who": "hero", "es": "Hai visto chi era?", "ru": "Ты видела, кто это был?"},
+        {"who": "npc", "es": "No. Aveva il cappello, e camminava piano, con un bastone di legno molto vecchio.", "ru": "Нет. Он был в шляпе и шёл медленно, с палкой из очень старого дерева."},
+        {"who": "hero", "es": "Legno vecchio?", "ru": "Старого дерева?"},
+        {"who": "npc", "es": "Molto vecchio e scuro, come quello della torre in montagna.", "ru": "Очень старого и тёмного, как дерево башни в горах."}
+      ],
+      "questions": [
+        {"q": "Что делал мужчина за спортзалом?", "options": ["Бегал", "Учил ворона фразам", "Кормил голубей"], "answer": 1},
+        {"q": "Какую фразу он учил?", "options": ["«Лес опасен»", "«Приходи в лес»", "«Доброе утро»"], "answer": 0},
+        {"q": "Что было необычного в его палке?", "options": ["Она золотая", "Она сломана", "Она из старого тёмного дерева, как башня в горах"], "answer": 2}
+      ],
+      "gloss": {"corvo": "ворон", "bastone": "палка, трость", "legno": "дерево (материал)", "scuro": "тёмный", "buongiorno": "доброе утро"}
     }
   ]
 }

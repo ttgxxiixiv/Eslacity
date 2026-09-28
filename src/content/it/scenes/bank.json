@@ -99,6 +99,29 @@
         {"q": "Что Ферри хотел сказать последней фразой о криптовалюте?", "kind": "stance", "options": ["Роза уже купила криптовалюту", "Раз она ничего не готова терять, такое вложение не для неё", "Ответ знает только племянник"], "answer": 1}
       ],
       "gloss": {"moltiplico": "умножу (moltiplicare)", "ottimista": "оптимист", "certo": "конечно", "conviene": "выгодно (convenire)", "neanche": "даже не, ни"}
+    },
+    {
+      "id": "sc:bank.4",
+      "chapter": 4,
+      "npc": "ferri",
+      "lines": [
+        {"who": "npc", "es": "Oggi abbiamo una fila molto lunga.", "ru": "Сегодня у нас очень длинная очередь."},
+        {"who": "hero", "es": "Cosa succede?", "ru": "Что случилось?"},
+        {"who": "npc", "es": "Stanotte il bosco ha detto con la mia voce: «La banca non ha soldi». E adesso tutti vogliono ritirare i risparmi.", "ru": "Этой ночью лес сказал моим голосом: «В банке нет денег». И теперь все хотят снять сбережения."},
+        {"who": "hero", "es": "Ed è vero?", "ru": "А это правда?"},
+        {"who": "npc", "es": "No! Ma guarda: ieri un signore anziano ha cambiato delle monete molto vecchie.", "ru": "Нет! Но смотри: вчера пожилой синьор обменял очень старые монеты."},
+        {"who": "hero", "es": "Vecchie? Di che anno?", "ru": "Старые? Какого года?"},
+        {"who": "npc", "es": "Di cento anni fa. Come quelle del guardiano della torre.", "ru": "Столетней давности. Как у стража башни."},
+        {"who": "hero", "es": "E chi era quel signore?", "ru": "А кто был этот синьор?"},
+        {"who": "npc", "es": "Questo non te lo posso dire: è un segreto della banca. Ti dico solo che aveva odore di tabacco da pipa.", "ru": "Этого сказать не могу: банковская тайна. Скажу только, что от него пахло трубочным табаком."}
+      ],
+      "questions": [
+        {"q": "Что лес сказал голосом Ферри?", "options": ["Что банк дарит деньги", "Что в банке нет денег", "Что Ферри уходит на пенсию"], "answer": 1},
+        {"q": "Какие монеты обменял пожилой синьор?", "options": ["Столетние, как у стража башни", "Иностранные", "Золотые"], "answer": 0},
+        {"q": "Почему Ферри не называет имя?", "options": ["Он не знает", "Боится", "Это банковская тайна"], "answer": 2},
+        {"q": "Чем пахло от синьора?", "options": ["Кофе", "Трубочным табаком", "Морем"], "answer": 1}
+      ],
+      "gloss": {"tabacco": "табак", "pipa": "трубка (курительная)"}
     }
   ]
 }

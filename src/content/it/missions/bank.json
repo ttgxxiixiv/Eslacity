@@ -60,6 +60,31 @@
         "joint": {"kind": "answer", "task": "Скажите, что вы с Андреа хотите открыть общий счёт.", "branches": [{"phrase": "ph:bank.vogliamo-aprire-conto", "next": "end"}], "wrong": {"es": "Vogliamo aprire la città bianca? Questo la banca non lo fa.", "ru": "Хотим открыть белый город? Банк этим не занимается."}},
         "end": {"kind": "say", "es": "Un conto cointestato, con soldi veri. Firmate qui. E prenda il mio pezzo della mappa del deserto. In banca è così: le cose vere non diventano sabbia.", "ru": "Общий счёт, с настоящими деньгами. Подпишите здесь. И возьмите мой обрывок карты пустыни. Правило банка: настоящее в песок не превращается."}
       }
+    },
+    {
+      "id": "ms:bank.4",
+      "chapter": 4,
+      "npc": "ferri",
+      "scene": "sc:bank.4",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Scusi la confusione. Oggi tutti vogliono i loro soldi. Anche lei viene a ritirare i risparmi?", "ru": "Простите за суматоху. Сегодня всем нужны их деньги. Вы тоже пришли снять сбережения?", "next": "amort"},
+        "amort": {"kind": "answer", "task": "Скажите, что хотите досрочно погасить часть кредита.", "branches": [{"phrase": "ph:bank.estinguere-prestito", "next": "amortsay"}], "wrong": {"es": "Estinguere il bosco? Il bosco non è un prestito.", "ru": "Погасить лес? Лес — это не кредит."}},
+        "amortsay": {"kind": "say", "es": "Che bello! Qualcuno che porta soldi invece di portarli via.", "ru": "Вот радость! Кто-то приносит деньги, а не уносит.", "next": "fee"},
+        "fee": {"kind": "answer", "task": "Спросите, есть ли за это штраф.", "branches": [{"phrase": "ph:bank.c-penale", "next": "feesay"}], "wrong": {"es": "C'è qualche canzone? Qui non cantiamo.", "ru": "Есть какая-нибудь песня? Мы здесь не поём."}},
+        "feesay": {"kind": "say", "es": "Nessuna, per lei. Ma guardi quella fila... Oggi chiudo la banca. Se non c'è la banca, non c'è il panico.", "ru": "Никакого, для вас. Но посмотрите на эту очередь... Сегодня закрою банк. Нет банка — нет паники.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:bank.chiudere-aumenta-panico", "next": "object", "move": "object"}, {"phrase": "ph:bank.buona-idea-banca", "next": "concede", "move": "concede"}, {"phrase": "ph:bank.spieghi-verita-clienti", "next": "compromise", "move": "compromise"}], "wrong": {"es": "Come? Con tutta questa gente non la sento.", "ru": "Как? Столько народу, я вас не слышу."}},
+        "object": {"kind": "say", "es": "Più panico? Ha ragione... Una porta chiusa sembra una confessione. Apriamo.", "ru": "Больше паники? Вы правы... Закрытая дверь похожа на признание. Открываемся.", "next": "calm"},
+        "concede": {"kind": "say", "es": "Grazie. Domani, con calma, riapriamo.", "ru": "Спасибо. Завтра спокойно откроемся снова.", "next": "calm"},
+        "compromise": {"kind": "say", "es": "Spiegarla? Sì. Esco dalla fila e lo dico ad alta voce: i soldi sono qui, e la voce del bosco mente.", "ru": "Объяснить? Да. Выйду к очереди и скажу вслух: деньги здесь, а голос из леса врёт.", "next": "calm"},
+        "calm": {"kind": "say", "es": "Ecco, la gente si calma. Altro?", "ru": "Вот, люди успокаиваются. Что-нибудь ещё?", "next": "invest"},
+        "invest": {"kind": "answer", "task": "Скажите, что хотите вложить свои сбережения.", "branches": [{"phrase": "ph:bank.vorrei-investire-miei", "next": "investsay"}], "wrong": {"es": "Investire nei corvi? Non è una buona idea.", "ru": "Вложиться в воронов? Плохая идея."}},
+        "investsay": {"kind": "say", "es": "Investire? Oggi lei è il mio cliente preferito. Senza criptovalute, spero.", "ru": "Вложить? Сегодня вы мой любимый клиент. Надеюсь, без криптовалюты.", "next": "monthly"},
+        "monthly": {"kind": "answer", "task": "Спросите, какой ежемесячный платёж.", "branches": [{"phrase": "ph:bank.quant-rata-mensile", "next": "monthlysay"}], "wrong": {"es": "Quant'è la rata del bosco? Il bosco è gratis.", "ru": "Сколько стоит лес в месяц? Лес бесплатный."}},
+        "monthlysay": {"kind": "say", "es": "Cento euro, senza sorprese. Le serve altro?", "ru": "Сто евро, без сюрпризов. Вам ещё что-нибудь нужно?", "next": "statement"},
+        "statement": {"kind": "answer", "task": "Скажите, что вам нужна выписка по счёту.", "branches": [{"phrase": "ph:bank.serve-estratto-conto", "next": "end"}], "wrong": {"es": "Un estratto di pipa? Non fumo.", "ru": "Выписку из трубки? Я не курю."}},
+        "end": {"kind": "say", "es": "Ecco. E prenda questo: il signore delle monete antiche l'ha dimenticato ieri allo sportello. Un pezzo della mappa del bosco.", "ru": "Держите. И вот ещё: синьор со старыми монетами вчера забыл это у окошка. Обрывок карты леса."}
+      }
     }
   ]
 }

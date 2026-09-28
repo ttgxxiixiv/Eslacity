@@ -60,6 +60,31 @@
         "barb": {"kind": "answer", "task": "Спросите, работает ли сегодня барбер.", "branches": [{"phrase": "ph:barber.hoy-trabaja-barbero", "next": "end"}], "wrong": {"es": "¿Hoy trabaja el camello? No, el camello descansa.", "ru": "Верблюд сегодня работает? Нет, верблюд отдыхает."}},
         "end": {"kind": "say", "es": "Viene a las cinco. Y toma mi trozo del mapa del desierto. Si ves al hombre del camello, no le hables del bosque: se pone muy triste.", "ru": "Придёт к пяти. И держи мой обрывок карты пустыни. Если увидишь человека с верблюдом, не говори с ним о лесе: ему становится очень грустно."}
       }
+    },
+    {
+      "id": "ms:barber.4",
+      "chapter": 4,
+      "npc": "toni",
+      "scene": "sc:barber.4",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Siéntate. ¿Qué te hago hoy?", "ru": "Садись. Что тебе сегодня сделать?", "next": "beard"},
+        "beard": {"kind": "answer", "task": "Попросите только подровнять бороду.", "branches": [{"phrase": "ph:barber.perfilame-barba", "next": "beardsay"}], "wrong": {"es": "¿Perfilar el bosque? No tengo tijeras tan grandes.", "ru": "Подровнять лес? У меня нет таких больших ножниц."}},
+        "beardsay": {"kind": "say", "es": "Perfilada. ¿Y el pelo? Está un poco estropeado.", "ru": "Готово. А волосы? Они немного повреждены.", "next": "ends"},
+        "ends": {"kind": "answer", "task": "Скажите, что у вас секутся кончики.", "branches": [{"phrase": "ph:barber.tengo-puntas-abiertas", "next": "endssay"}], "wrong": {"es": "¿Tienes plumas en la cabeza? No, son canas.", "ru": "У тебя перья на голове? Нет, это седина."}},
+        "endssay": {"kind": "say", "es": "Ya lo veo. Mascarilla de queratina. Oye, lo he pensado bien: voy a contar a todo el barrio que el hombre de la pipa es Ramón.", "ru": "Вижу. Маска с кератином. Слушай, я всё обдумал: расскажу всему району, что человек с трубкой — Рамон.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:barber.no-tienes-pruebas", "next": "object", "move": "object"}, {"phrase": "ph:barber.puede-que-razon", "next": "concede", "move": "concede"}, {"phrase": "ph:barber.hablas-con-el-cara", "next": "compromise", "move": "compromise"}], "wrong": {"es": "¿Qué? Con el secador no te oigo.", "ru": "Что? Из-за фена я тебя не слышу."}},
+        "object": {"kind": "say", "es": "¿Pruebas? ...Es verdad, solo tengo un olor. Y un olor no es una prueba.", "ru": "Доказательств? ...Правда, у меня только запах. А запах — не доказательство.", "next": "grey"},
+        "concede": {"kind": "say", "es": "¿Verdad? Por fin alguien me escucha. Aunque... tampoco estoy seguro al cien por cien.", "ru": "Правда? Наконец-то меня кто-то слушает. Хотя... я и сам не уверен на все сто.", "next": "grey"},
+        "compromise": {"kind": "say", "es": "¿A la cara? Eso es lo que pide la Guardiana, ¿no? Vale, mañana voy a la estación.", "ru": "В лицо? Этого ведь и просит Хранительница? Ладно, завтра схожу на станцию.", "next": "grey"},
+        "grey": {"kind": "say", "es": "Bueno, ¿qué más te preocupa de tu pelo?", "ru": "Ладно, что ещё тебя беспокоит в волосах?", "next": "canas"},
+        "canas": {"kind": "answer", "task": "Скажите, что у вас много седых волос.", "branches": [{"phrase": "ph:barber.tengo-muchas-canas", "next": "canassay"}], "wrong": {"es": "¿Tienes muchas plumas? Eso es cosa del cuervo.", "ru": "У тебя много перьев? Это к ворону."}},
+        "canassay": {"kind": "say", "es": "Unas pocas, nada grave. ¿Qué te hago?", "ru": "Немного, ничего страшного. Что сделать?", "next": "root"},
+        "root": {"kind": "answer", "task": "Попросите только подкрасить корни.", "branches": [{"phrase": "ph:barber.solo-retoque-raiz", "next": "rootsay"}], "wrong": {"es": "¿Un retoque de pipa? Aquí no se fuma.", "ru": "Подкрасить трубку? Здесь не курят."}},
+        "rootsay": {"kind": "say", "es": "Hecho. Te queda muy bien. ¿Vuelves otro día?", "ru": "Готово. Тебе очень идёт. Придёшь ещё?", "next": "appoint"},
+        "appoint": {"kind": "answer", "task": "Скажите, что хотите записаться на завтра.", "branches": [{"phrase": "ph:barber.quiero-pedir-cita", "next": "end"}], "wrong": {"es": "¿Una cita con el cuervo? Él no tiene agenda.", "ru": "Записаться к ворону? У него нет расписания."}},
+        "end": {"kind": "say", "es": "Mañana a las diez. Y toma esto: el señor de la pipa lo dejó en el sillón. Un trozo del mapa del bosque, con una pluma negra dentro.", "ru": "Завтра в десять. И держи: сеньор с трубкой оставил это в кресле. Обрывок карты леса, а в нём чёрное перо."}
+      }
     }
   ]
 }

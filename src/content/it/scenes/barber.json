@@ -99,6 +99,28 @@
         {"q": "Как Элиза отнеслась к догадке Тонино?", "kind": "stance", "options": ["Смущённо признала, что он прав", "Рассердилась и ушла", "Сказала, что он ошибся"], "answer": 0}
       ],
       "gloss": {"platino": "платина", "prudente": "осторожный", "esperto": "знающий, опытный", "parrucca": "парик", "ragazza": "девушка", "direttrice": "директор (о женщине)"}
+    },
+    {
+      "id": "sc:barber.4",
+      "chapter": 4,
+      "npc": "tonino",
+      "lines": [
+        {"who": "npc", "es": "Ieri è venuto un cliente strano. Voleva la barba con il rasoio, come una volta.", "ru": "Вчера приходил странный клиент. Хотел, чтобы его побрили опасной бритвой, по-старинке."},
+        {"who": "hero", "es": "Strano perché?", "ru": "Почему странный?"},
+        {"who": "npc", "es": "Aveva odore di tabacco da pipa, e piume nere sul cappotto.", "ru": "От него пахло трубочным табаком, а на пальто были чёрные перья."},
+        {"who": "hero", "es": "Come il corvo del postino!", "ru": "Как ворон почтальона!"},
+        {"who": "npc", "es": "L'ho pensato anch'io. E mentre gli facevo la barba, ha detto una cosa molto triste.", "ru": "Я тоже так подумал. А пока я его брил, он сказал кое-что очень грустное."},
+        {"who": "hero", "es": "Cosa ha detto?", "ru": "Что он сказал?"},
+        {"who": "npc", "es": "«Il bosco si è preso cento anni della mia vita. Non si prenderà più nessuno».", "ru": "«Лес забрал сто лет моей жизни. Больше он никого не заберёт»."},
+        {"who": "hero", "es": "Hai visto la sua faccia?", "ru": "Ты видел его лицо?"},
+        {"who": "npc", "es": "Non bene: aveva la faccia piena di schiuma. Ma in città c'è un solo uomo che fuma la pipa: il capo della stazione.", "ru": "Плохо: всё лицо было в пене. Но в городе трубку курит только один человек — начальник станции."}
+      ],
+      "questions": [
+        {"q": "Чем странный клиент напомнил ворона почтальона?", "options": ["Голосом", "Чёрными перьями на пальто", "Очками"], "answer": 1},
+        {"q": "Что сказал клиент?", "options": ["Лес забрал сто лет его жизни, и больше никого не заберёт", "Он любит лес", "Он потерял ворона"], "answer": 0},
+        {"q": "Кого подозревает Тонино?", "options": ["Почтальона", "Андреа", "Начальника станции"], "answer": 2}
+      ],
+      "gloss": {"tabacco": "табак", "pipa": "трубка (курительная)", "piume": "перья", "corvo": "ворон", "postino": "почтальон", "faccia": "лицо", "fuma": "курит (fumare)"}
     }
   ]
 }

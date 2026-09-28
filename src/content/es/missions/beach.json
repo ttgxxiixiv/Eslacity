@@ -64,6 +64,31 @@
         "walk": {"kind": "answer", "task": "Предложите прогуляться по набережной.", "branches": [{"phrase": "ph:beach.vamos-al-paseo", "next": "end"}], "wrong": {"es": "¿Vamos al desierto? Hoy no, viajero. Hoy, al mar.", "ru": "Пойдём в пустыню? Не сегодня, путешественник. Сегодня к морю."}},
         "end": {"kind": "say", "es": "Vamos. Mira: la luna ya está casi llena. Toma mi trozo del mapa del desierto. Y si ves al hombre del camello, háblale despacio. Tiene miedo.", "ru": "Пошли. Смотри: луна уже почти полная. Держи мой обрывок карты пустыни. А если увидишь человека с верблюдом, говори с ним тихо. Ему страшно."}
       }
+    },
+    {
+      "id": "ms:beach.4",
+      "chapter": 4,
+      "npc": "nacho",
+      "scene": "sc:beach.4",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Hola. Hoy el mar está tranquilo, pero yo no.", "ru": "Привет. Сегодня море спокойное, а я — нет.", "next": "flag"},
+        "flag": {"kind": "answer", "task": "Спросите, безопасно ли купаться с таким флагом.", "branches": [{"phrase": "ph:beach.seguro-banarse-bandera", "next": "flagsay"}], "wrong": {"es": "¿Hay un cuervo rojo? No, son negros.", "ru": "Красный ворон? Нет, они чёрные."}},
+        "flagsay": {"kind": "say", "es": "Sí, es verde. Puedes bañarte. Pero el sol quema mucho.", "ru": "Да, флаг зелёный. Можно купаться. Но солнце сильно печёт.", "next": "sun"},
+        "sun": {"kind": "answer", "task": "Скажите, что вам нужна высокая защита от солнца.", "branches": [{"phrase": "ph:beach.factor-proteccion-alto", "next": "sunsay"}], "wrong": {"es": "¿Un factor de protección para el bosque? El bosque tiene sombra.", "ru": "Защита от солнца для леса? В лесу есть тень."}},
+        "sunsay": {"kind": "say", "es": "Toma el mío, cincuenta. Oye, sobre Andrés... No voy a decir nada a nadie. Es un buen hombre. Pasó cien años solo en una torre.", "ru": "Держи мой, пятьдесят. Слушай, насчёт Андреса... Я никому ничего не скажу. Он хороший человек. Сто лет провёл один в башне.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:beach.verdad-mas-importante", "next": "object", "move": "object"}, {"phrase": "ph:beach.tu-decision-respeto", "next": "concede", "move": "concede"}, {"phrase": "ph:beach.contamos-a-su-familia", "next": "compromise", "move": "compromise"}], "wrong": {"es": "¿Qué dices? Con las olas no te oigo.", "ru": "Что ты говоришь? Из-за волн я тебя не слышу."}},
+        "object": {"kind": "say", "es": "¿Más importante? Sí... Si me callo, el bosque sigue lleno de mentiras. Vale.", "ru": "Важнее? Да... Если я промолчу, лес так и будет полон лжи. Ладно.", "next": "swim"},
+        "concede": {"kind": "say", "es": "Gracias. Pero el bosque... Bueno, pensaré qué hacer.", "ru": "Спасибо. Но лес... Ладно, подумаю, что делать.", "next": "swim"},
+        "compromise": {"kind": "say", "es": "¿A su familia? Sí, eso es mejor. Pilar sabrá hablar con él.", "ru": "Его семье? Да, так лучше. Пилар сумеет с ним поговорить.", "next": "swim"},
+        "swim": {"kind": "say", "es": "Vale. Y ahora, un poco de mar para pensar mejor.", "ru": "Ладно. А теперь немного моря, чтобы лучше думалось.", "next": "dip"},
+        "dip": {"kind": "answer", "task": "Предложите окунуться.", "branches": [{"phrase": "ph:beach.nos-damos-chapuzon", "next": "dipsay"}], "wrong": {"es": "¿Nos damos un cuervo? No, un chapuzón.", "ru": "Дадим себе ворона? Нет, окунёмся."}},
+        "dipsay": {"kind": "say", "es": "¡Vamos! Pero cuidado: hoy hay algo de corriente.", "ru": "Пошли! Только осторожно: сегодня есть течение.", "next": "deep"},
+        "deep": {"kind": "answer", "task": "Спросите, глубоко ли здесь.", "branches": [{"phrase": "ph:beach.aqui-profundo", "next": "deepsay"}], "wrong": {"es": "¿Aquí hay un faro? Sí, allí, a la izquierda.", "ru": "Здесь маяк? Да, вон там, слева."}},
+        "deepsay": {"kind": "say", "es": "Un poco. Si no nadas bien, quédate cerca.", "ru": "Немного. Если плохо плаваешь, держись поближе.", "next": "shore"},
+        "shore": {"kind": "answer", "task": "Скажите, что останетесь у берега.", "branches": [{"phrase": "ph:beach.quedo-orilla", "next": "end"}], "wrong": {"es": "¿Te quedas en las rocas? Como Andrés, de noche.", "ru": "Остаёшься на камнях? Как Андрес ночью."}},
+        "end": {"kind": "say", "es": "Buena idea. Y toma esto: Andrés lo dejó anoche en las rocas. Un trozo del mapa del bosque. Creo que quería que lo encontraras.", "ru": "Правильно. И держи: Андрес оставил это вчера ночью на камнях. Обрывок карты леса. Думаю, он хотел, чтобы ты его нашёл."}
+      }
     }
   ]
 }

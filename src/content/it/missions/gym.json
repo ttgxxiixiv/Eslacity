@@ -65,6 +65,31 @@
         "prot": {"kind": "answer", "task": "Скажите, что после тренировки пьёте протеин.", "branches": [{"phrase": "ph:gym.prendo-proteine-dopo", "next": "end"}], "wrong": {"es": "Prendi il gelato? Dopo l'allenamento, no!", "ru": "Ешь мороженое? После тренировки — нет!"}},
         "end": {"kind": "say", "es": "Benissimo. Prendi il mio pezzo della mappa del deserto. E ricorda: nel deserto, non correre come qualcuno che ha paura.", "ru": "Отлично. Держи мой обрывок карты пустыни. И помни: в пустыне не беги, как тот, кому страшно."}
       }
+    },
+    {
+      "id": "ms:gym.4",
+      "chapter": 4,
+      "npc": "federica",
+      "scene": "sc:gym.4",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Ci alleniamo? Oggi sono nervosa: continuo a pensare a quell'uomo del corvo.", "ru": "Потренируемся? Я сегодня нервничаю: всё думаю о том человеке с вороном.", "next": "cramp"},
+        "cramp": {"kind": "answer", "task": "Скажите, что у вас, кажется, мышечный зажим.", "branches": [{"phrase": "ph:gym.ho-contrattura", "next": "crampsay"}], "wrong": {"es": "Hai un contratto? Qui ci sono solo abbonamenti.", "ru": "У тебя контракт? Здесь только абонементы."}},
+        "crampsay": {"kind": "say", "es": "Dove? Nella schiena? È la postura: ti siedi male.", "ru": "Где? В спине? Это осанка: ты неправильно сидишь.", "next": "posture"},
+        "posture": {"kind": "answer", "task": "Скажите, что вам нужно исправить осанку.", "branches": [{"phrase": "ph:gym.migliorare-postura", "next": "posturesay"}], "wrong": {"es": "Migliorare la tua pasta? Qui non si cucina.", "ru": "Улучшить твою пасту? Здесь не готовят."}},
+        "posturesay": {"kind": "say", "es": "Esercizi per la schiena, ogni giorno. Senti: domani alle sei seguo da sola quell'uomo fino al bosco.", "ru": "Упражнения для спины, каждый день. Слушай: завтра в шесть одна пойду за тем человеком до самого леса.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:gym.pericoloso-andare-sola", "next": "object", "move": "object"}, {"phrase": "ph:gym.sei-la-piu-veloce", "next": "concede", "move": "concede"}, {"phrase": "ph:gym.e-se-andiamo-insieme", "next": "compromise", "move": "compromise"}], "wrong": {"es": "Cosa? Parla più forte, qui c'è troppo rumore.", "ru": "Что? Говори громче, здесь слишком шумно."}},
+        "object": {"kind": "say", "es": "Pericoloso? Può darsi... Il bosco non è uno stadio. Va bene, non vado da sola.", "ru": "Опасно? Может быть... Лес — не стадион. Ладно, одна не пойду.", "next": "warm"},
+        "concede": {"kind": "say", "es": "Esatto! Nessuno mi prende. Ma starò attenta, promesso.", "ru": "Вот именно! Меня никто не догонит. Но буду осторожна, обещаю.", "next": "warm"},
+        "compromise": {"kind": "say", "es": "Insieme? Mi sembra meglio. Tu parli e io corro, se serve.", "ru": "Вместе? Так лучше. Ты говоришь, а я бегу, если понадобится.", "next": "warm"},
+        "warm": {"kind": "say", "es": "Ma prima ci alleniamo. Cosa facciamo per primo?", "ru": "Но сначала — тренировка. С чего начнём?", "next": "warmup"},
+        "warmup": {"kind": "answer", "task": "Скажите, что сначала нужно размяться.", "branches": [{"phrase": "ph:gym.prima-bisogna-riscaldarsi", "next": "warmupsay"}], "wrong": {"es": "Prima bisogna correre nel bosco? No, prima ci si riscalda.", "ru": "Сначала бежать в лес? Нет, сначала разминка."}},
+        "warmupsay": {"kind": "say", "es": "Bene! Dieci. E dopo, cosa ti serve?", "ru": "Отлично! Десять минут. А потом что тебе нужно?", "next": "legs"},
+        "legs": {"kind": "answer", "task": "Скажите, что вам нужно больше силы в ногах.", "branches": [{"phrase": "ph:gym.serve-piu-forza", "next": "legssay"}], "wrong": {"es": "Più forza nelle ali? Quella serve al corvo.", "ru": "Больше силы в крыльях? Это для ворона."}},
+        "legssay": {"kind": "say", "es": "Allora squat. Venti! Dai... Cosa succede?", "ru": "Тогда приседания. Двадцать! Давай... Что случилось?", "next": "cramp2"},
+        "cramp2": {"kind": "answer", "task": "Скажите, что у вас свело ногу.", "branches": [{"phrase": "ph:gym.venuto-crampo", "next": "end"}], "wrong": {"es": "Ti è venuto un corvo? No, un crampo.", "ru": "К тебе прилетел ворон? Нет, судорога."}},
+        "end": {"kind": "say", "es": "Tranquillo, adesso passa. Tieni, bevi dell'acqua. E questo: l'ho trovato in giardino, dove c'era quell'uomo. Un pezzo della mappa del bosco.", "ru": "Спокойно, сейчас пройдёт. Держи, попей воды. И вот ещё: я нашла это в саду, где был тот человек. Обрывок карты леса."}
+      }
     }
   ]
 }

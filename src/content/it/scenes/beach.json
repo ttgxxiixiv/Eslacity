@@ -99,6 +99,28 @@
         {"q": "Как Джино принимает предложение прогуляться по берегу?", "kind": "stance", "options": ["Соглашается, но в шутку вызывает Марко на заплыв", "Обижается и уходит", "Всё равно идёт купаться"], "answer": 0}
       ],
       "gloss": {"buongiorno": "доброе утро", "gino": "Джино (имя)", "cinquant'": "пятьдесят", "dappertutto": "повсюду", "accordo": "согласие (d'accordo — договорились)"}
+    },
+    {
+      "id": "sc:beach.4",
+      "chapter": 4,
+      "npc": "marco",
+      "lines": [
+        {"who": "npc", "es": "Non ho dormito. Stanotte, in spiaggia, ho visto l'uomo della pipa.", "ru": "Я не спал. Этой ночью на пляже я видел человека с трубкой."},
+        {"who": "hero", "es": "Sei sicuro?", "ru": "Ты уверен?"},
+        {"who": "npc", "es": "Sicuro. Era seduto sulla sabbia, con il corvo sulla spalla.", "ru": "Уверен. Он сидел на песке с вороном на плече."},
+        {"who": "hero", "es": "Cosa faceva?", "ru": "Что он делал?"},
+        {"who": "npc", "es": "Diceva al corvo: «Di' a tutti che il bosco è cattivo. Che nessuno ci vada». E piangeva.", "ru": "Говорил ворону: «Скажи всем, что лес злой. Пусть никто туда не ходит». И плакал."},
+        {"who": "hero", "es": "Hai visto la sua faccia?", "ru": "Ты видел его лицо?"},
+        {"who": "npc", "es": "Sì. Con la luce del faro, l'ho vista molto bene.", "ru": "Да. При свете маяка я хорошо его разглядел."},
+        {"who": "hero", "es": "E chi era?", "ru": "И кто это был?"},
+        {"who": "npc", "es": "Andrea. Quello che ha vissuto cento anni nella torre.", "ru": "Андреа. Тот, кто сто лет прожил в башне."}
+      ],
+      "questions": [
+        {"q": "Где Марко видел человека с трубкой?", "options": ["На вокзале", "На песке у моря", "В парке"], "answer": 1},
+        {"q": "Что человек говорил ворону?", "options": ["«Скажи всем, что лес злой, пусть никто туда не ходит»", "«Лети домой»", "«Принеси карту»"], "answer": 0},
+        {"q": "Кто это был?", "options": ["Альдо", "Ферри", "Андреа, который сто лет прожил в башне"], "answer": 2}
+      ],
+      "gloss": {"pipa": "трубка (курительная)", "corvo": "ворон", "spalla": "плечо", "piangeva": "плакал (piangere)", "faccia": "лицо", "faro": "маяк", "andrea": "Андреа (имя)"}
     }
   ]
 }

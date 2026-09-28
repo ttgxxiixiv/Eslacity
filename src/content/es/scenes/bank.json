@@ -99,6 +99,29 @@
         {"q": "Что Гомес хотел сказать последней фразой о криптовалюте?", "kind": "stance", "options": ["Кармен уже купила криптовалюту", "Раз она ничего не готова терять, такое вложение не для неё", "Ответ знает только племянник"], "answer": 1}
       ],
       "gloss": {"sobrino": "племянник", "multiplico": "умножу (multiplicar)", "optimista": "оптимист", "entonces": "тогда, значит", "otra": "другая", "gómez": "Гомес (фамилия)", "suya": "ваша"}
+    },
+    {
+      "id": "sc:bank.4",
+      "chapter": 4,
+      "npc": "gomez",
+      "lines": [
+        {"who": "npc", "es": "Buenos días. Hoy tenemos una cola muy larga.", "ru": "Доброе утро. Сегодня у нас очень длинная очередь."},
+        {"who": "hero", "es": "¿Qué pasa?", "ru": "Что случилось?"},
+        {"who": "npc", "es": "Anoche el bosque dijo con mi voz: «El banco no tiene dinero». Y ahora todos quieren sacar sus ahorros.", "ru": "Вчера ночью лес сказал моим голосом: «В банке нет денег». И теперь все хотят снять сбережения."},
+        {"who": "hero", "es": "¿Y es verdad?", "ru": "А это правда?"},
+        {"who": "npc", "es": "¡Claro que no! Pero pasó algo extraño. Ayer un señor mayor cambió unas monedas muy antiguas.", "ru": "Конечно, нет! Но случилось кое-что странное. Вчера пожилой сеньор обменял очень старые монеты."},
+        {"who": "hero", "es": "¿Antiguas? ¿De qué año?", "ru": "Старые? Какого года?"},
+        {"who": "npc", "es": "De hace cien años. Como las del guardián de la torre.", "ru": "Столетней давности. Как у стража башни."},
+        {"who": "hero", "es": "¿Y quién era ese señor?", "ru": "А кто был этот сеньор?"},
+        {"who": "npc", "es": "Eso no te lo puedo decir: es secreto bancario. Solo te digo que tenía olor a tabaco de pipa.", "ru": "Этого сказать не могу: банковская тайна. Скажу только, что от него пахло трубочным табаком."}
+      ],
+      "questions": [
+        {"q": "Что лес сказал голосом Гомеса?", "options": ["Что банк дарит деньги", "Что в банке нет денег", "Что Гомес уходит на пенсию"], "answer": 1},
+        {"q": "Какие монеты обменял пожилой сеньор?", "options": ["Столетние, как у стража башни", "Иностранные", "Золотые"], "answer": 0},
+        {"q": "Почему Гомес не называет имя?", "options": ["Он не знает", "Боится", "Это банковская тайна"], "answer": 2},
+        {"q": "Чем пахло от сеньора?", "options": ["Кофе", "Трубочным табаком", "Морем"], "answer": 1}
+      ],
+      "gloss": {"antiguas": "старинные", "tabaco": "табак", "pipa": "трубка (курительная)", "bancario": "банковский"}
     }
   ]
 }

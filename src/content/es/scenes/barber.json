@@ -99,6 +99,28 @@
         {"q": "Как Исабель отнеслась к догадке Тони?", "kind": "stance", "options": ["Смущённо признала, что он прав", "Рассердилась и ушла", "Сказала, что он ошибся"], "answer": 0}
       ],
       "gloss": {"platino": "платина", "prudente": "осторожный", "experto": "знающий, опытный", "peluca": "парик", "serio": "всерьёз (tomar en serio)"}
+    },
+    {
+      "id": "sc:barber.4",
+      "chapter": 4,
+      "npc": "toni",
+      "lines": [
+        {"who": "npc", "es": "Ayer vino un cliente raro. Quería un afeitado con navaja, como antes.", "ru": "Вчера приходил странный клиент. Хотел, чтобы его побрили опасной бритвой, по-старинке."},
+        {"who": "hero", "es": "¿Raro por qué?", "ru": "Почему странный?"},
+        {"who": "npc", "es": "Tenía olor a tabaco de pipa, y plumas negras en el abrigo.", "ru": "От него пахло трубочным табаком, а на пальто были чёрные перья."},
+        {"who": "hero", "es": "¡Como el cuervo del cartero!", "ru": "Как ворон почтальона!"},
+        {"who": "npc", "es": "Eso pensé yo. Y mientras le afeitaba, dijo algo muy triste.", "ru": "Я тоже так подумал. А пока я его брил, он сказал кое-что очень грустное."},
+        {"who": "hero", "es": "¿Qué dijo?", "ru": "Что он сказал?"},
+        {"who": "npc", "es": "«El bosque se llevó cien años de mi vida. No se va a llevar a nadie más».", "ru": "«Лес забрал сто лет моей жизни. Больше он никого не заберёт»."},
+        {"who": "hero", "es": "¿Viste su cara?", "ru": "Ты видел его лицо?"},
+        {"who": "npc", "es": "No bien: tenía la cara llena de espuma. Pero en la ciudad solo hay un hombre que fuma en pipa: el jefe de la estación.", "ru": "Плохо: всё лицо было в пене. Но в городе трубку курит только один человек — начальник станции."}
+      ],
+      "questions": [
+        {"q": "Чем странный клиент напомнил ворона почтальона?", "options": ["Голосом", "Чёрными перьями на пальто", "Очками"], "answer": 1},
+        {"q": "Что сказал клиент?", "options": ["Лес забрал сто лет его жизни, и больше никого не заберёт", "Он любит лес", "Он потерял ворона"], "answer": 0},
+        {"q": "Кого подозревает Тони?", "options": ["Почтальона", "Андреса", "Начальника станции"], "answer": 2}
+      ],
+      "gloss": {"tabaco": "табак", "pipa": "трубка (курительная)", "plumas": "перья", "cuervo": "ворон", "cartero": "почтальон", "cara": "лицо", "fuma": "курит (fumar)"}
     }
   ]
 }
