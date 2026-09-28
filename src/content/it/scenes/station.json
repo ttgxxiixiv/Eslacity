@@ -75,6 +75,29 @@
         {"q": "Что обещает Альдо герою?", "options": ["Оставить место в поезде", "Продать карту", "Закрыть вокзал"], "answer": 0}
       ],
       "gloss": {"confine": "край", "cammello": "верблюд"}
+    },
+    {
+      "id": "wh:station.4",
+      "chapter": 4,
+      "mode": "overhear",
+      "npc": "aldo",
+      "lines": [
+        {"who": "luca", "es": "Oggi hanno cancellato quattro voli per la nebbia. In aeroporto la gente è furiosa.", "ru": "Сегодня из-за тумана отменили четыре рейса. Люди в аэропорту в ярости."},
+        {"who": "npc", "es": "Che peccato. Beh, sai dove trovarci. Il treno non ha paura della nebbia.", "ru": "Какая жалость. Ну, ты знаешь, где нас найти. Поезд тумана не боится."},
+        {"who": "luca", "es": "Già. E non ha neanche fretta. Il tuo treno a lunga percorrenza ieri è arrivato con due ore di ritardo.", "ru": "Ну да. И спешить он тоже не любит. Твой поезд дальнего следования вчера пришёл с опозданием на два часа."},
+        {"who": "npc", "es": "È stato un problema tecnico a un passaggio a livello. Non succede mai.", "ru": "Это была неполадка на переезде. Такое никогда не случается."},
+        {"who": "luca", "es": "Mai? E il bus sostitutivo della settimana scorsa? Autobus al posto dei treni per i lavori sulla linea.", "ru": "Никогда? А автобусы вместо поездов на прошлой неделе? Из-за ремонта путей."},
+        {"who": "npc", "es": "I lavori sono per l'alta velocità. Tra un anno arriveremo a Roma prima del tuo aereo.", "ru": "Ремонт ради скоростной линии. Через год мы будем приезжать в Рим раньше твоего самолёта."},
+        {"who": "luca", "es": "Lo dici ogni anno, Aldo.", "ru": "Ты это каждый год говоришь, Альдо."},
+        {"who": "npc", "es": "E ogni anno sono più vicino. Dai, vieni alla carrozza ristorante, ti offro un caffè mentre aspetti i tuoi voli.", "ru": "И каждый год я всё ближе. Пойдём в вагон-ресторан, угощу тебя кофе, пока ждёшь свои рейсы."}
+      ],
+      "questions": [
+        {"q": "Как Альдо воспринимает новость об отменённых рейсах?", "kind": "stance", "options": ["Искренне сочувствует", "Злорадствует: поезду туман не страшен", "Не понимает, о чём речь"], "answer": 1},
+        {"q": "Что Лука имел в виду: «и спешить он тоже не любит»?", "kind": "stance", "options": ["Поезда тоже часто опаздывают", "Поезда едут медленно ради безопасности", "Поезда лучше самолётов"], "answer": 0},
+        {"q": "Что Лука хотел сказать словами «ты это каждый год говоришь»?", "kind": "stance", "options": ["Он верит Альдо", "Он хочет работать на вокзале", "Он не верит обещаниям о скоростной линии"], "answer": 2},
+        {"q": "Как они в итоге друг к другу относятся?", "kind": "stance", "options": ["Поссорились всерьёз", "Спорят по-дружески и остаются приятелями", "Не хотят больше разговаривать"], "answer": 1}
+      ],
+      "gloss": {"furiosa": "в ярости", "beh": "ну", "neanche": "даже не, ни", "fretta": "спешка", "scorsa": "прошлая", "aldo": "Альдо (имя)"}
     }
   ]
 }

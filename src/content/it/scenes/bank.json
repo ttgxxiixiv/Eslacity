@@ -75,6 +75,30 @@
         {"q": "Что он собирается сделать в полнолуние?", "options": ["Купить белый город", "Уехать из города", "Открыть магазин"], "answer": 0}
       ],
       "gloss": {"cammello": "верблюд", "investire": "вложить", "oasi": "оазис", "truffa": "мошенничество", "neanche": "тоже нет"}
+    },
+    {
+      "id": "wh:bank.4",
+      "chapter": 4,
+      "mode": "overhear",
+      "npc": "ferri",
+      "lines": [
+        {"who": "rosa", "es": "Voglio ritirare tutti i soldi dell'eredità di mia zia. Mio nipote dice che con le criptovalute li moltiplico per dieci.", "ru": "Хочу снять все деньги из наследства тёти. Племянник говорит, что на криптовалюте я их удесятерю."},
+        {"who": "npc", "es": "Suo nipote è molto ottimista. E le ha detto anche che si può perdere tutto in una settimana?", "ru": "Ваш племянник большой оптимист. А он сказал вам, что всё можно потерять за неделю?"},
+        {"who": "rosa", "es": "Certo, lei cosa deve dire. Alla banca conviene che i soldi restino qui.", "ru": "Ну конечно, что вы ещё скажете. Банку выгодно, чтобы деньги остались здесь."},
+        {"who": "npc", "es": "È vero, non lo nego. Ma io ho visto clienti piangere a questa scrivania, e non per l'inflazione.", "ru": "Это правда, не спорю. Но я видел, как клиенты плакали за этим столом, и не из-за инфляции."},
+        {"who": "rosa", "es": "E allora cosa faccio? Sul conto, con i prezzi di oggi, ogni anno ho meno potere d'acquisto.", "ru": "И что мне тогда делать? На счёте, при нынешних ценах, покупательная способность с каждым годом всё меньше."},
+        {"who": "npc", "es": "Su questo ha ragione. Il mio consiglio: una parte in un fondo pensione, una parte a tasso fisso. E se vuole giocare, solo quello che può perdere.", "ru": "Тут вы правы. Мой совет: часть в пенсионный фонд, часть под фиксированную ставку. А если хочется поиграть — только то, что не жалко потерять."},
+        {"who": "rosa", "es": "Quello che posso perdere? Io non perdo neanche un pomodoro, dottore.", "ru": "Что не жалко потерять? Я даже помидор не теряю, доктор."},
+        {"who": "npc", "es": "Allora ha già la risposta sulle criptovalute.", "ru": "Значит, насчёт криптовалюты вы уже сами ответили."},
+        {"who": "rosa", "es": "Va bene... parlerò con mio nipote. Ma se lui diventa ricco, la colpa sarà sua.", "ru": "Ладно... поговорю с племянником. Но если он разбогатеет, виноваты будете вы."}
+      ],
+      "questions": [
+        {"q": "Как Роза сначала объясняет себе осторожность Ферри?", "kind": "stance", "options": ["Он не разбирается в криптовалюте", "Банку выгодно, чтобы деньги остались в банке", "Он не любит её племянника"], "answer": 1},
+        {"q": "Что Ферри имел в виду, вспомнив клиентов, которые плакали за его столом?", "kind": "stance", "options": ["Кто-то уже терял всё на рискованных вложениях", "Клиенты плачут из-за инфляции", "В банке грустная атмосфера"], "answer": 0},
+        {"q": "В чём Ферри соглашается с Розой?", "kind": "stance", "options": ["Криптовалюта — хорошее вложение", "Племянник прав", "Деньги на обычном счёте из-за цен теряют ценность"], "answer": 2},
+        {"q": "Что Ферри хотел сказать последней фразой о криптовалюте?", "kind": "stance", "options": ["Роза уже купила криптовалюту", "Раз она ничего не готова терять, такое вложение не для неё", "Ответ знает только племянник"], "answer": 1}
+      ],
+      "gloss": {"moltiplico": "умножу (moltiplicare)", "ottimista": "оптимист", "certo": "конечно", "conviene": "выгодно (convenire)", "neanche": "даже не, ни"}
     }
   ]
 }

@@ -75,6 +75,29 @@
         {"q": "Что он делал на бегу?", "options": ["Закрывал уши руками", "Пел", "Смотрел на карту"], "answer": 0}
       ],
       "gloss": {"forza": "давай", "dune": "дюны", "cammello": "верблюд", "copriva": "закрывал", "orecchie": "уши", "sentisse": "слышал бы"}
+    },
+    {
+      "id": "wh:gym.4",
+      "chapter": 4,
+      "mode": "overhear",
+      "npc": "federica",
+      "lines": [
+        {"who": "npc", "es": "Dottore, sono tre giorni questa settimana che la vedo qui alle sei del mattino. E oggi sembra sfinito.", "ru": "Доктор, я вижу вас здесь в шесть утра уже третий раз за неделю. А сегодня вы выглядите совсем измотанным."},
+        {"who": "conti", "es": "Sto benissimo. Voglio aumentare la massa muscolare prima dell'estate.", "ru": "Я прекрасно себя чувствую. Хочу набрать мышечную массу до лета."},
+        {"who": "npc", "es": "Benissimo? Ha il gomito fasciato. Sembra proprio una tendinite.", "ru": "Прекрасно? У вас локоть забинтован. Очень похоже на тендинит."},
+        {"who": "conti", "es": "Un piccolo disturbo. Ai miei pazienti dico sempre che lo sport è la migliore medicina.", "ru": "Небольшое неудобство. Я всегда говорю пациентам, что спорт — лучшее лекарство."},
+        {"who": "npc", "es": "E gli dirà anche di riposare, no? O quella parte della ricetta è solo per loro?", "ru": "И ещё, наверное, говорите им отдыхать? Или эта часть рецепта только для них?"},
+        {"who": "conti", "es": "Molto spiritosa. Il riposo è per chi non ha tempo di allenarsi.", "ru": "Очень смешно. Отдых — для тех, у кого нет времени тренироваться."},
+        {"who": "npc", "es": "Questo è sovrallenamento, dottore. Senza recupero muscolare non c'è muscolo, ci sono infortuni.", "ru": "Это перетренированность, доктор. Без восстановления мышц не будет никаких мышц, будут травмы."},
+        {"who": "conti", "es": "Va bene, va bene. Due giorni di riposo. Ma non lo dica ai miei pazienti.", "ru": "Ладно, ладно. Два дня отдыха. Только не говорите моим пациентам."}
+      ],
+      "questions": [
+        {"q": "Почему Федерика беспокоится за доктора Конти?", "kind": "stance", "options": ["Он пропускает тренировки", "Он тренируется слишком много и уже травмирован", "Он не заплатил за абонемент"], "answer": 1},
+        {"q": "На что намекает Федерика вопросом про «часть рецепта»?", "kind": "stance", "options": ["Врач не следует своим же советам об отдыхе", "Врач выписывает неправильные лекарства", "Пациенты не слушаются врача"], "answer": 0},
+        {"q": "Как Конти сначала отвечает на её замечания?", "kind": "stance", "options": ["Сразу соглашается", "Благодарит за заботу", "Отшучивается и отмахивается"], "answer": 2},
+        {"q": "Почему Конти просит не говорить пациентам?", "kind": "stance", "options": ["Стыдно, что он сам не соблюдал то, что им советует", "Пациенты тоже ходят в этот зал", "Это врачебная тайна"], "answer": 0}
+      ],
+      "gloss": {"gomito": "локоть", "fasciato": "забинтованный", "proprio": "прямо, действительно", "spiritosa": "остроумная"}
     }
   ]
 }

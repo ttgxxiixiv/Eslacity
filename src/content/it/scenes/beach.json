@@ -75,6 +75,30 @@
         {"q": "Что он надеется найти в белом городе?", "options": ["Тишину", "Золото", "Эликсир"], "answer": 0}
       ],
       "gloss": {"tranquillo": "спокойно", "stanotte": "этой ночью", "caletta": "бухта", "cammello": "верблюд", "piangeva": "плакал", "miraggi": "миражи", "sentirli": "слышать их", "bugiardo": "лжец"}
+    },
+    {
+      "id": "wh:beach.4",
+      "chapter": 4,
+      "mode": "overhear",
+      "npc": "marco",
+      "lines": [
+        {"who": "gino", "es": "Buongiorno, ragazzo. Vado a fare il mio bagno di sempre, fino alla boa e ritorno.", "ru": "Доброе утро, парень. Пойду окунусь, как всегда: до буя и обратно."},
+        {"who": "npc", "es": "Oggi no, Gino. Non vede la bandiera rossa? C'è mareggiata da ieri sera.", "ru": "Сегодня нельзя, Джино. Не видите красный флаг? Со вчерашнего вечера шторм."},
+        {"who": "gino", "es": "Faccio il bagno in questo mare da cinquant'anni. Lo conosco meglio di te.", "ru": "Я пятьдесят лет купаюсь в этом море. Я знаю его лучше тебя."},
+        {"who": "npc", "es": "Non ne dubito. Anche il signore che ho salvato martedì lo conosceva benissimo.", "ru": "Не сомневаюсь. Сеньор, которого я спас во вторник, тоже прекрасно его знал."},
+        {"who": "gino", "es": "Voi giovani vedete pericoli dappertutto.", "ru": "Вы, молодёжь, повсюду видите опасность."},
+        {"who": "npc", "es": "Può darsi. Ma se entra lei, devo entrare anch'io. E le onde non sanno chi ha più esperienza.", "ru": "Может быть. Но если вы зайдёте в воду, мне придётся плыть за вами. А волны не знают, у кого больше опыта."},
+        {"who": "gino", "es": "Va bene, va bene. E che faccio? Non posso cominciare la giornata senza il mare.", "ru": "Ладно, ладно. И что мне делать? Не могу начать день без моря."},
+        {"who": "npc", "es": "Cammini con me lungo la riva fino alle dune. Così vede il mare, e io non la perdo di vista.", "ru": "Пройдитесь со мной по берегу до дюн. И море увидите, и я не потеряю вас из виду."},
+        {"who": "gino", "es": "D'accordo. Ma domani, con la bandiera verde, arrivo alla boa prima di te.", "ru": "Договорились. Но завтра, при зелёном флаге, доплыву до буя раньше тебя."}
+      ],
+      "questions": [
+        {"q": "Почему Марко не пускает Джино в воду?", "kind": "stance", "options": ["Джино плохо плавает", "Поднят красный флаг: шторм", "Пляж ещё закрыт"], "answer": 1},
+        {"q": "Что Марко имел в виду, вспомнив спасённого во вторник синьора?", "kind": "stance", "options": ["Опыт не защищает от шторма", "Тот синьор был другом Джино", "Во вторник было спокойное море"], "answer": 0},
+        {"q": "Что думает Джино о молодых?", "kind": "stance", "options": ["Они хорошо плавают", "Они не любят море", "Они повсюду видят опасность"], "answer": 2},
+        {"q": "Как Джино принимает предложение прогуляться по берегу?", "kind": "stance", "options": ["Соглашается, но в шутку вызывает Марко на заплыв", "Обижается и уходит", "Всё равно идёт купаться"], "answer": 0}
+      ],
+      "gloss": {"buongiorno": "доброе утро", "gino": "Джино (имя)", "cinquant'": "пятьдесят", "dappertutto": "повсюду", "accordo": "согласие (d'accordo — договорились)"}
     }
   ]
 }

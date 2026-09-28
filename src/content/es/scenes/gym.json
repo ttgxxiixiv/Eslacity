@@ -75,6 +75,29 @@
         {"q": "Что он делал на бегу?", "options": ["Закрывал уши руками", "Пел", "Смотрел на карту"], "answer": 0}
       ],
       "gloss": {"dunas": "дюны", "camello": "верблюд", "huye": "убегает", "tapaba": "закрывал", "orejas": "уши", "oyera": "слышал бы"}
+    },
+    {
+      "id": "wh:gym.4",
+      "chapter": 4,
+      "mode": "overhear",
+      "npc": "sara",
+      "lines": [
+        {"who": "npc", "es": "Doctor, ya van tres días esta semana que le veo aquí a las seis de la mañana. Y hoy parece exhausto.", "ru": "Доктор, я вижу вас здесь в шесть утра уже третий раз за неделю. А сегодня вы выглядите совсем измотанным."},
+        {"who": "ruiz", "es": "Estoy bien, de verdad. Quiero ganar masa muscular antes del verano.", "ru": "Я правда в порядке. Хочу набрать мышечную массу до лета."},
+        {"who": "npc", "es": "¿Bien? Lleva el codo vendado. Eso tiene pinta de tendinitis.", "ru": "В порядке? У вас локоть забинтован. Очень похоже на тендинит."},
+        {"who": "ruiz", "es": "Una molestia pequeña. A mis pacientes siempre les digo que el ejercicio es la mejor medicina.", "ru": "Небольшое неудобство. Я всегда говорю пациентам, что спорт — лучшее лекарство."},
+        {"who": "npc", "es": "Y también les dirá que descansen, ¿no? ¿O esa parte de la receta es solo para ellos?", "ru": "И ещё, наверное, говорите им отдыхать? Или эта часть рецепта только для них?"},
+        {"who": "ruiz", "es": "Muy graciosa. El descanso es para los que no tienen tiempo de entrenar.", "ru": "Очень смешно. Отдых — для тех, у кого нет времени тренироваться."},
+        {"who": "npc", "es": "Eso es sobreentrenamiento, doctor. Sin recuperación muscular no hay músculo, hay lesiones.", "ru": "Это перетренированность, доктор. Без восстановления мышц не будет никаких мышц, будут травмы."},
+        {"who": "ruiz", "es": "Vale, vale. Dos días de descanso. Pero no se lo cuente a mis pacientes.", "ru": "Ладно, ладно. Два дня отдыха. Только не рассказывайте моим пациентам."}
+      ],
+      "questions": [
+        {"q": "Почему Сара беспокоится за доктора Руиса?", "kind": "stance", "options": ["Он пропускает тренировки", "Он тренируется слишком много и уже травмирован", "Он не заплатил за абонемент"], "answer": 1},
+        {"q": "На что намекает Сара вопросом про «часть рецепта»?", "kind": "stance", "options": ["Врач не следует своим же советам об отдыхе", "Врач выписывает неправильные лекарства", "Пациенты не слушаются врача"], "answer": 0},
+        {"q": "Как Руис сначала отвечает на её замечания?", "kind": "stance", "options": ["Сразу соглашается", "Благодарит за заботу", "Отшучивается и отмахивается"], "answer": 2},
+        {"q": "Почему Руис просит не рассказывать пациентам?", "kind": "stance", "options": ["Стыдно, что он сам не соблюдал то, что им советует", "Пациенты тоже ходят в этот зал", "Это врачебная тайна"], "answer": 0}
+      ],
+      "gloss": {"codo": "локоть", "vendado": "забинтованный", "graciosa": "остроумная, смешная"}
     }
   ]
 }

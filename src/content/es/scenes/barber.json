@@ -75,6 +75,30 @@
         {"q": "Почему он ушёл из леса?", "options": ["Не мог спать", "Искал работу", "Его прогнали"], "answer": 0}
       ],
       "gloss": {"afeité": "брил", "camello": "верблюд", "barba": "борода", "dibujo": "рисунок", "árbol": "дерево", "árboles": "деревья", "voz": "голос", "baja": "тихий", "dejé": "перестал"}
+    },
+    {
+      "id": "wh:barber.4",
+      "chapter": 4,
+      "mode": "overhear",
+      "npc": "toni",
+      "lines": [
+        {"who": "isabel", "es": "Hoy quiero un cambio de look de verdad. Rubia platino. Decolora todo.", "ru": "Сегодня хочу по-настоящему сменить образ. Платиновая блондинка. Осветляй всё."},
+        {"who": "npc", "es": "¿Todo? Mira estas puntas abiertas. Tu pelo ya ha sufrido bastante este año.", "ru": "Всё? Посмотри на эти секущиеся кончики. Твои волосы в этом году и так натерпелись."},
+        {"who": "isabel", "es": "Siempre me dices eso. Eres el peluquero más prudente de la ciudad.", "ru": "Ты мне всегда это говоришь. Ты самый осторожный парикмахер в городе."},
+        {"who": "npc", "es": "Prudente no, experto. La última clienta que se decoloró así vino después a pedirme una peluca.", "ru": "Не осторожный, а опытный. Последняя клиентка, которая так осветлилась, потом пришла просить у меня парик."},
+        {"who": "isabel", "es": "Qué exagerado. Solo quiero que en el hotel me tomen en serio. Ahora soy «la chica de recepción».", "ru": "Вот преувеличиваешь. Я просто хочу, чтобы в отеле меня принимали всерьёз. Сейчас я «девочка с ресепшена»."},
+        {"who": "npc", "es": "Vaya, así que no es el pelo. Es el puesto de directora, ¿verdad?", "ru": "А, так дело не в волосах. Дело в должности директора, да?"},
+        {"who": "isabel", "es": "... Puede ser. ¿Tanto se nota?", "ru": "... Может быть. Так заметно?"},
+        {"who": "npc", "es": "Un poco. Mira, te hago unos reflejos, con mascarilla de queratina. Y para la entrevista, lo que cuenta es tu autoestima, no el tono.", "ru": "Немного. Давай так: сделаю тебе мелирование, с маской с кератином. А на собеседовании важна твоя уверенность, а не оттенок."},
+        {"who": "isabel", "es": "Vale, reflejos. Pero si me dan el puesto, el mes que viene me atrevo con el platino.", "ru": "Ладно, мелирование. Но если мне дадут должность, в следующем месяце я решусь на платину."}
+      ],
+      "questions": [
+        {"q": "Почему Тони не хочет осветлять волосы полностью?", "kind": "stance", "options": ["У него нет краски", "Волосы Исабель и так повреждены", "Платина вышла из моды"], "answer": 1},
+        {"q": "Что Тони имел в виду, рассказав про клиентку с париком?", "kind": "stance", "options": ["Сильное осветление может погубить волосы", "Он продаёт парики", "Клиентка была недовольна стрижкой"], "answer": 0},
+        {"q": "Зачем на самом деле Исабель меняет образ?", "kind": "stance", "options": ["Ей надоели её волосы", "У неё новый парень", "Она хочет получить должность директора отеля"], "answer": 2},
+        {"q": "Как Исабель отнеслась к догадке Тони?", "kind": "stance", "options": ["Смущённо признала, что он прав", "Рассердилась и ушла", "Сказала, что он ошибся"], "answer": 0}
+      ],
+      "gloss": {"platino": "платина", "prudente": "осторожный", "experto": "знающий, опытный", "peluca": "парик", "serio": "всерьёз (tomar en serio)"}
     }
   ]
 }

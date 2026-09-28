@@ -75,6 +75,29 @@
         {"q": "Что обещает Рамон герою?", "options": ["Оставить место в поезде", "Продать карту", "Закрыть вокзал"], "answer": 0}
       ],
       "gloss": {"borde": "край", "camello": "верблюд"}
+    },
+    {
+      "id": "wh:station.4",
+      "chapter": 4,
+      "mode": "overhear",
+      "npc": "ramon",
+      "lines": [
+        {"who": "leo", "es": "Hoy han cancelado cuatro vuelos por la niebla. La gente está furiosa en el aeropuerto.", "ru": "Сегодня из-за тумана отменили четыре рейса. Люди в аэропорту в ярости."},
+        {"who": "npc", "es": "Qué pena. Bueno, ya sabes dónde encontrarnos. El tren no tiene miedo a la niebla.", "ru": "Какая жалость. Ну, ты знаешь, где нас найти. Поезд тумана не боится."},
+        {"who": "leo", "es": "Ya. Tampoco tiene prisa. Tu tren de largo recorrido llegó ayer con dos horas de retraso.", "ru": "Ну да. И спешить он тоже не любит. Твой поезд дальнего следования вчера пришёл с опозданием на два часа."},
+        {"who": "npc", "es": "Eso fue una incidencia en un paso a nivel. No pasa nunca.", "ru": "Это была неполадка на переезде. Такое никогда не случается."},
+        {"who": "leo", "es": "¿Nunca? ¿Y el transporte alternativo de la semana pasada? Autobuses en vez de trenes por las obras.", "ru": "Никогда? А автобусы вместо поездов на прошлой неделе? Из-за ремонта путей."},
+        {"who": "npc", "es": "Las obras son para la alta velocidad. Dentro de un año llegaremos a la capital antes que tu avión.", "ru": "Ремонт ради скоростной линии. Через год мы будем приезжать в столицу раньше твоего самолёта."},
+        {"who": "leo", "es": "Eso lo dices cada año, Ramón.", "ru": "Ты это каждый год говоришь, Рамон."},
+        {"who": "npc", "es": "Y cada año estoy más cerca. Anda, ven al vagón restaurante, que te invito a un café mientras esperas tus vuelos.", "ru": "И каждый год я всё ближе. Пойдём в вагон-ресторан, угощу тебя кофе, пока ждёшь свои рейсы."}
+      ],
+      "questions": [
+        {"q": "Как Рамон воспринимает новость об отменённых рейсах?", "kind": "stance", "options": ["Искренне сочувствует", "Злорадствует: поезду туман не страшен", "Не понимает, о чём речь"], "answer": 1},
+        {"q": "Что Лео имел в виду: «и спешить он тоже не любит»?", "kind": "stance", "options": ["Поезда тоже часто опаздывают", "Поезда едут медленно ради безопасности", "Поезда лучше самолётов"], "answer": 0},
+        {"q": "Что Лео хотел сказать словами «ты это каждый год говоришь»?", "kind": "stance", "options": ["Он верит Рамону", "Он хочет работать на вокзале", "Он не верит обещаниям о скоростной линии"], "answer": 2},
+        {"q": "Как они в итоге друг к другу относятся?", "kind": "stance", "options": ["Поссорились всерьёз", "Спорят по-дружески и остаются приятелями", "Не хотят больше разговаривать"], "answer": 1}
+      ],
+      "gloss": {"vuelos": "рейсы", "furiosa": "в ярости", "capital": "столица", "ramón": "Рамон (имя)", "anda": "давай, ну же"}
     }
   ]
 }

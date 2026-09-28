@@ -75,6 +75,30 @@
         {"q": "Что он собирается сделать в полнолуние?", "options": ["Купить белый город", "Уехать из города", "Открыть магазин"], "answer": 0}
       ],
       "gloss": {"camello": "верблюд", "invertir": "вложить", "oasis": "оазис", "toqué": "потрогал", "convirtieron": "превратились", "estafa": "мошенничество"}
+    },
+    {
+      "id": "wh:bank.4",
+      "chapter": 4,
+      "mode": "overhear",
+      "npc": "gomez",
+      "lines": [
+        {"who": "carmen", "es": "Quiero sacar todo el dinero de la herencia de mi tía. Mi sobrino dice que con criptomonedas lo multiplico por diez.", "ru": "Хочу снять все деньги из наследства тёти. Племянник говорит, что на криптовалюте я их удесятерю."},
+        {"who": "npc", "es": "Su sobrino es muy optimista. ¿Y le ha dicho también que se puede perder todo en una semana?", "ru": "Ваш племянник большой оптимист. А он сказал вам, что всё можно потерять за неделю?"},
+        {"who": "carmen", "es": "Claro, usted qué va a decir. Al banco le interesa que el dinero se quede aquí.", "ru": "Ну конечно, что вы ещё скажете. Банку выгодно, чтобы деньги остались здесь."},
+        {"who": "npc", "es": "Es verdad, no lo niego. Pero yo he visto a clientes llorar en esta mesa, y no por la inflación.", "ru": "Это правда, не спорю. Но я видел, как клиенты плакали за этим столом, и не из-за инфляции."},
+        {"who": "carmen", "es": "Entonces, ¿qué hago? En la cuenta, con los precios de hoy, cada año tengo menos poder adquisitivo.", "ru": "Тогда что мне делать? На счёте, при нынешних ценах, покупательная способность с каждым годом всё меньше."},
+        {"who": "npc", "es": "En eso tiene razón. Mi consejo: una parte en un plan de pensiones, otra a tipo fijo. Y si quiere jugar, solo lo que pueda perder.", "ru": "Тут вы правы. Мой совет: часть в пенсионный план, часть под фиксированную ставку. А если хочется поиграть — только то, что не жалко потерять."},
+        {"who": "carmen", "es": "¿Lo que pueda perder? Yo no pierdo ni un tomate, señor Gómez.", "ru": "Что не жалко потерять? Я даже помидор не теряю, сеньор Гомес."},
+        {"who": "npc", "es": "Entonces ya tiene la respuesta sobre las criptomonedas.", "ru": "Значит, насчёт криптовалюты вы уже сами ответили."},
+        {"who": "carmen", "es": "Bueno... hablaré con mi sobrino. Pero si se hace rico, la culpa será suya.", "ru": "Ладно... поговорю с племянником. Но если он разбогатеет, виноваты будете вы."}
+      ],
+      "questions": [
+        {"q": "Как Кармен сначала объясняет себе осторожность Гомеса?", "kind": "stance", "options": ["Он не разбирается в криптовалюте", "Банку выгодно, чтобы деньги остались в банке", "Он не любит её племянника"], "answer": 1},
+        {"q": "Что Гомес имел в виду, вспомнив клиентов, которые плакали за его столом?", "kind": "stance", "options": ["Кто-то уже терял всё на рискованных вложениях", "Клиенты плачут из-за инфляции", "В банке грустная атмосфера"], "answer": 0},
+        {"q": "В чём Гомес соглашается с Кармен?", "kind": "stance", "options": ["Криптовалюта — хорошее вложение", "Племянник прав", "Деньги на обычном счёте из-за цен теряют ценность"], "answer": 2},
+        {"q": "Что Гомес хотел сказать последней фразой о криптовалюте?", "kind": "stance", "options": ["Кармен уже купила криптовалюту", "Раз она ничего не готова терять, такое вложение не для неё", "Ответ знает только племянник"], "answer": 1}
+      ],
+      "gloss": {"sobrino": "племянник", "multiplico": "умножу (multiplicar)", "optimista": "оптимист", "entonces": "тогда, значит", "otra": "другая", "gómez": "Гомес (фамилия)", "suya": "ваша"}
     }
   ]
 }

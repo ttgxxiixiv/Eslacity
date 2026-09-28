@@ -75,6 +75,30 @@
         {"q": "Что он надеется найти в белом городе?", "options": ["Тишину", "Золото", "Эликсир"], "answer": 0}
       ],
       "gloss": {"tranqui": "спокойно", "cala": "бухта", "camello": "верблюд", "llorando": "плакал", "árboles": "деревья", "espejismos": "миражи", "oírlos": "слышать их", "silencio": "тишина", "mentiroso": "лжец"}
+    },
+    {
+      "id": "wh:beach.4",
+      "chapter": 4,
+      "mode": "overhear",
+      "npc": "nacho",
+      "lines": [
+        {"who": "manolo", "es": "Buenos días, chico. Voy a darme mi baño de siempre, hasta la boya y vuelta.", "ru": "Доброе утро, парень. Пойду окунусь, как всегда: до буя и обратно."},
+        {"who": "npc", "es": "Hoy no, Manolo. ¿No ve la bandera roja? Hay temporal desde anoche.", "ru": "Сегодня нельзя, Маноло. Не видите красный флаг? Со вчерашнего вечера шторм."},
+        {"who": "manolo", "es": "Llevo cincuenta años bañándome en este mar. Lo conozco mejor que tú.", "ru": "Я пятьдесят лет купаюсь в этом море. Я знаю его лучше тебя."},
+        {"who": "npc", "es": "No lo dudo. El señor que rescaté el martes también lo conocía muy bien.", "ru": "Не сомневаюсь. Сеньор, которого я спас во вторник, тоже хорошо его знал."},
+        {"who": "manolo", "es": "Los jóvenes de hoy lo veis todo peligroso.", "ru": "Вы, молодёжь, во всём видите опасность."},
+        {"who": "npc", "es": "Puede ser. Pero si usted entra, yo tengo que entrar detrás. Y las olas no saben quién tiene más experiencia.", "ru": "Может быть. Но если вы зайдёте в воду, мне придётся плыть за вами. А волны не знают, у кого больше опыта."},
+        {"who": "manolo", "es": "Vale, vale. ¿Y qué hago? No puedo empezar el día sin el mar.", "ru": "Ладно, ладно. И что мне делать? Не могу начать день без моря."},
+        {"who": "npc", "es": "Camine conmigo por la orilla hasta las dunas. Así ve el mar, y yo no le pierdo de vista.", "ru": "Пройдитесь со мной по берегу до дюн. И море увидите, и я не потеряю вас из виду."},
+        {"who": "manolo", "es": "Hecho. Pero mañana, con bandera verde, llego a la boya antes que tú.", "ru": "Договорились. Но завтра, при зелёном флаге, доплыву до буя раньше тебя."}
+      ],
+      "questions": [
+        {"q": "Почему Начо не пускает Маноло в воду?", "kind": "stance", "options": ["Маноло плохо плавает", "Поднят красный флаг: шторм", "Пляж ещё закрыт"], "answer": 1},
+        {"q": "Что Начо имел в виду, вспомнив спасённого во вторник сеньора?", "kind": "stance", "options": ["Опыт не защищает от шторма", "Тот сеньор был другом Маноло", "Во вторник было спокойное море"], "answer": 0},
+        {"q": "Что думает Маноло о молодых?", "kind": "stance", "options": ["Они хорошо плавают", "Они не любят море", "Они во всём видят опасность"], "answer": 2},
+        {"q": "Как Маноло принимает предложение прогуляться по берегу?", "kind": "stance", "options": ["Соглашается, но в шутку вызывает Начо на заплыв", "Обижается и уходит", "Всё равно идёт купаться"], "answer": 0}
+      ],
+      "gloss": {"manolo": "Маноло (имя)", "bañándome": "купаюсь (bañarse)"}
     }
   ]
 }
