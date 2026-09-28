@@ -75,6 +75,30 @@
         {"q": "Что случилось с деревьями, когда он сошёл?", "options": ["Они успокоились", "Они исчезли", "Они зацвели"], "answer": 0}
       ],
       "gloss": {"enorme": "огромный", "ballavano": "качались", "ballare": "качаться", "ivo": "Иво (имя)", "paese": "деревня", "smesso": "перестали", "fossero": "были бы"}
+    },
+    {
+      "id": "wh:airport.4",
+      "chapter": 4,
+      "mode": "overhear",
+      "npc": "luca",
+      "lines": [
+        {"who": "npc", "es": "La sua valigia pesa trentadue chili. Il massimo è ventitré.", "ru": "Ваш чемодан весит тридцать два килограмма. Максимум — двадцать три."},
+        {"who": "chiara", "es": "Ma sono io, quella del negozio di vestiti! Vado a vedere una sfilata a Milano. È lavoro.", "ru": "Да это же я, из магазина одежды! Лечу смотреть показ в Милане. Это по работе."},
+        {"who": "npc", "es": "Ti ho riconosciuta. Ma la bilancia non ti riconosce. Sono sessanta euro di sovrappeso.", "ru": "Я тебя узнал. Но весы тебя не узнают. Шестьдесят евро за перевес."},
+        {"who": "chiara", "es": "Sessanta? Ma sono solo vestiti. I vestiti non pesano niente.", "ru": "Шестьдесят? Там же одни платья. Одежда ничего не весит."},
+        {"who": "npc", "es": "Venti vestiti, le scarpe e... questo è un ferro da stiro?", "ru": "Двадцать платьев, туфли и... это что, утюг?"},
+        {"who": "chiara", "es": "La seta si stropiccia in valigia. Io a Milano non arrivo stropicciata.", "ru": "Шёлк мнётся в чемодане. Я в Милан мятой не прилечу."},
+        {"who": "npc", "es": "Senti: mettiti il cappotto e gli stivali, e il ferro va nel bagaglio a mano.", "ru": "Смотри: надень пальто и сапоги, а утюг положи в ручную кладь."},
+        {"who": "chiara", "es": "Il cappotto? Ci sono trenta gradi!", "ru": "Пальто? На улице тридцать градусов!"},
+        {"who": "npc", "es": "In cabina fa freddo. E così risparmi sessanta euro.", "ru": "В салоне холодно. И так ты сэкономишь шестьдесят евро."}
+      ],
+      "questions": [
+        {"q": "В чём проблема Кьяры?", "kind": "stance", "options": ["Она опоздала на рейс", "Чемодан весит больше нормы", "У неё нет билета"], "answer": 1},
+        {"q": "На что Кьяра рассчитывает, напоминая, кто она?", "kind": "stance", "options": ["Что знакомый сделает для неё исключение", "Что её пересадят в бизнес-класс", "Что ей помогут нести чемодан"], "answer": 0},
+        {"q": "Что Лука имел в виду: «весы тебя не узнают»?", "kind": "stance", "options": ["Весы сломаны", "Кьяра сильно изменилась", "Правила одни для всех, даже для знакомых"], "answer": 2},
+        {"q": "Как Лука в итоге помогает Кьяре?", "kind": "stance", "options": ["Не берёт с неё денег", "Советует надеть тяжёлые вещи на себя", "Отправляет утюг почтой"], "answer": 1}
+      ],
+      "gloss": {"trentadue": "тридцать два", "ventitré": "двадцать три", "riconosciuta": "узнал (riconoscere)", "riconosce": "узнаёт (riconoscere)", "sovrappeso": "перевес", "ferro": "утюг (ferro da stiro)"}
     }
   ]
 }

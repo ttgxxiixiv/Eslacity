@@ -75,6 +75,30 @@
         {"q": "Какое лекарство от этого?", "options": ["Вернуться домой", "Таблетки", "Отдых на море"], "answer": 0}
       ],
       "gloss": {"iván": "Иван (имя)", "camello": "верблюд", "nostalgia": "тоска по дому", "árboles": "деревья", "peligro": "опасность", "llamada": "зов", "curar": "вылечить", "atención": "осторожно"}
+    },
+    {
+      "id": "wh:hospital.4",
+      "chapter": 4,
+      "mode": "overhear",
+      "npc": "ruiz",
+      "lines": [
+        {"who": "carmen", "es": "Doctor, quiero una resonancia magnética. Hoy, si puede ser. Me duele la rodilla.", "ru": "Доктор, хочу сделать МРТ. Сегодня, если можно. У меня болит колено."},
+        {"who": "npc", "es": "Es un dolor normal. Usted pasa diez horas de pie en el mercado.", "ru": "Это обычная боль. Вы по десять часов стоите на рынке."},
+        {"who": "carmen", "es": "En internet dice que puede ser algo grave. Tengo todos los síntomas.", "ru": "В интернете пишут, что это может быть что-то серьёзное. У меня все симптомы."},
+        {"who": "npc", "es": "Internet también dice que el chocolate cura la tristeza. No todo es verdad.", "ru": "В интернете ещё пишут, что шоколад лечит от грусти. Не всё там правда."},
+        {"who": "carmen", "es": "Quiero una segunda opinión. Mi vecina conoce a un especialista muy bueno.", "ru": "Я хочу второе мнение. Моя соседка знает очень хорошего специалиста."},
+        {"who": "npc", "es": "Tiene todo el derecho. Le hago la derivación. Pero le va a decir lo que yo: reposo y hielo.", "ru": "Имеете полное право. Выпишу вам направление. Но он скажет то же, что и я: покой и лёд."},
+        {"who": "carmen", "es": "¿Y si no? ¿Y si es una fractura?", "ru": "А если нет? А если это перелом?"},
+        {"who": "npc", "es": "Con una fractura no habría venido andando desde el mercado con dos bolsas de naranjas.", "ru": "С переломом вы бы не пришли пешком с рынка с двумя сумками апельсинов."},
+        {"who": "carmen", "es": "... Eran limones. Bueno, probaré el hielo. Pero la derivación me la llevo.", "ru": "... Это были лимоны. Ладно, попробую лёд. Но направление всё-таки возьму."}
+      ],
+      "questions": [
+        {"q": "Почему доктор считает, что МРТ не нужна?", "kind": "stance", "options": ["Аппарат сломан", "МРТ слишком дорогая", "Боль обычная: Кармен целый день на ногах"], "answer": 2},
+        {"q": "Что доктор имел в виду, упомянув шоколад от грусти?", "kind": "stance", "options": ["В интернете много неправды", "Кармен стоит есть шоколад", "Грусть тоже надо лечить"], "answer": 0},
+        {"q": "Почему доктор уверен, что это не перелом?", "kind": "stance", "options": ["Он сделал снимок", "Кармен пришла пешком с тяжёлыми сумками", "Кармен сама так сказала"], "answer": 1},
+        {"q": "Как Кармен в итоге поступает?", "kind": "stance", "options": ["Соглашается на лёд, но направление всё равно берёт", "Идёт делать МРТ", "Обижается и уходит"], "answer": 0}
+      ],
+      "gloss": {"tristeza": "грусть", "reposo": "покой", "andando": "пешком"}
     }
   ]
 }

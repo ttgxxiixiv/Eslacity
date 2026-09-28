@@ -75,6 +75,30 @@
         {"q": "Какое послание оставила стражница?", "options": ["«Слушай деревья. Они не лгут»", "«Не ходи в лес»", "«Жду тебя в городе»"], "answer": 0}
       ],
       "gloss": {"caso": "дело", "falsa": "поддельная", "cammello": "верблюд", "sufficiente": "достаточно", "guardiana": "стражница"}
+    },
+    {
+      "id": "wh:police.4",
+      "chapter": 4,
+      "mode": "overhear",
+      "npc": "rinaldi",
+      "lines": [
+        {"who": "npc", "es": "Qualcuno ha fatto un graffito enorme sul muro della posta. Tu cominci alle sei. Non hai visto niente?", "ru": "Кто-то нарисовал огромную надпись на стене почты. Ты начинаешь в шесть. Ничего не видел?"},
+        {"who": "enzo", "es": "Io? A quell'ora vedo solo lettere e gatti.", "ru": "Я? В это время я вижу только письма и котов."},
+        {"who": "npc", "es": "Strano. Una vicina dice di aver visto un ragazzo con uno zaino che parlava con te.", "ru": "Странно. Одна соседка говорит, что видела, как с тобой разговаривал парень с рюкзаком."},
+        {"who": "enzo", "es": "Parlo con tanta gente. Sono un postino, commissario, non un detective.", "ru": "Я со многими разговариваю. Я почтальон, комиссар, а не детектив."},
+        {"who": "npc", "es": "Certo. E il graffito dice: «Enzo, sei lo zio migliore del mondo». Firmato con una stella.", "ru": "Конечно. А надпись гласит: «Энцо, ты лучший дядя на свете». С подписью-звёздочкой."},
+        {"who": "enzo", "es": "... Beh. Può darsi che io conosca qualcuno che disegna stelle.", "ru": "... Ну. Может, я и знаю кое-кого, кто рисует звёздочки."},
+        {"who": "npc", "es": "Non voglio arrestare nessuno. Ma il muro va pulito, e qualcuno deve pagare.", "ru": "Я не хочу никого арестовывать. Но стену надо отмыть, и кто-то должен за это заплатить."},
+        {"who": "enzo", "es": "Lo pulirà lui sabato. Io porto il secchio e la pazienza.", "ru": "Он сам её отмоет в субботу. С меня ведро и терпение."},
+        {"who": "npc", "es": "Perfetto. E digli che la prossima volta ti scriva una lettera. Costa meno.", "ru": "Отлично. И передай ему, чтобы в следующий раз написал тебе письмо. Выйдет дешевле."}
+      ],
+      "questions": [
+        {"q": "Почему комиссар Ринальди расспрашивает Энцо?", "kind": "stance", "options": ["Его подозревают в краже", "Он рано начинает работу и мог видеть, кто рисовал", "Он потерял письма"], "answer": 1},
+        {"q": "Что Ринальди хотел показать, прочитав надпись на стене?", "kind": "stance", "options": ["Что знает: надпись сделал племянник Энцо", "Что надпись красивая", "Что Энцо — хороший почтальон"], "answer": 0},
+        {"q": "Как Энцо сначала отвечает на вопросы?", "kind": "stance", "options": ["Сразу во всём признаётся", "Обвиняет соседку", "Уходит от ответа"], "answer": 2},
+        {"q": "Чего добивается Ринальди?", "kind": "stance", "options": ["Арестовать племянника", "Чтобы стену отмыли, а не чтобы кого-то наказать", "Оштрафовать Энцо"], "answer": 1}
+      ],
+      "gloss": {"enorme": "огромный", "commissario": "комиссар", "detective": "детектив", "certo": "конечно", "enzo": "Энцо (имя)", "beh": "ну", "disegna": "рисует (disegnare)", "secchio": "ведро"}
     }
   ]
 }

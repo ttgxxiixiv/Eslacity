@@ -325,6 +325,14 @@ describe('validateScenes: шёпоты', () => {
   const run = (sc: Scene) => validateScenes([{ name: 'cafe.json', data: { location: 'cafe', scenes: [sc] } as LocationScenes }], { residents, pitch });
   const errs = (sc: Scene) => run(sc).issues.filter((x) => x.level === 'error').map((x) => x.msg).join('; ');
 
+  it('в каждом из 20 мест обоих языков один шёпот главы IV', () => {
+    for (const lang of ['es', 'it']) {
+      for (const place of LOCATION_IDS) {
+        const data = JSON.parse(readFileSync(join(import.meta.dirname, lang, 'scenes', `${place}.json`), 'utf8')) as LocationScenes;
+        expect(data.scenes.filter((sc) => sc.mode === 'overhear').map((sc) => sc.id), `${lang} ${place}`).toEqual([`wh:${place}.4`]);
+      }
+    }
+  });
   it('чистый шёпот без ошибок, в отчёте отдельно', () => {
     const r = run(whisper());
     expect(r.issues).toEqual([]);

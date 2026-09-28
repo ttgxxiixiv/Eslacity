@@ -75,6 +75,30 @@
         {"q": "Какое лекарство от этого?", "options": ["Вернуться домой", "Таблетки", "Отдых на море"], "answer": 0}
       ],
       "gloss": {"cammello": "верблюд", "nostalgia": "тоска по дому", "pericolo": "опасность", "curare": "вылечить", "pianto": "заплакал"}
+    },
+    {
+      "id": "wh:hospital.4",
+      "chapter": 4,
+      "mode": "overhear",
+      "npc": "conti",
+      "lines": [
+        {"who": "rosa", "es": "Dottore, voglio una risonanza magnetica. Oggi, se è possibile. Mi fa male il ginocchio.", "ru": "Доктор, хочу сделать МРТ. Сегодня, если можно. У меня болит колено."},
+        {"who": "npc", "es": "È un dolore normale. Lei sta in piedi dieci ore al mercato.", "ru": "Это обычная боль. Вы по десять часов стоите на рынке."},
+        {"who": "rosa", "es": "Su internet dicono che può essere una cosa grave. Ho tutti i sintomi.", "ru": "В интернете пишут, что это может быть что-то серьёзное. У меня все симптомы."},
+        {"who": "npc", "es": "Su internet dicono anche che il cioccolato cura la tristezza. Non è tutto vero.", "ru": "В интернете ещё пишут, что шоколад лечит от грусти. Не всё там правда."},
+        {"who": "rosa", "es": "Voglio un secondo parere. La mia vicina conosce uno specialista molto bravo.", "ru": "Я хочу второе мнение. Моя соседка знает очень хорошего специалиста."},
+        {"who": "npc", "es": "Ha tutto il diritto. Le faccio l'impegnativa. Ma le dirà quello che dico io: riposo e ghiaccio.", "ru": "Имеете полное право. Выпишу вам направление. Но он скажет то же, что и я: покой и лёд."},
+        {"who": "rosa", "es": "E se no? E se è una frattura?", "ru": "А если нет? А если это перелом?"},
+        {"who": "npc", "es": "Con una frattura non sarebbe venuta a piedi dal mercato con due borse di arance.", "ru": "С переломом вы бы не пришли пешком с рынка с двумя сумками апельсинов."},
+        {"who": "rosa", "es": "... Erano limoni. Va bene, proverò il ghiaccio. Ma l'impegnativa me la prendo.", "ru": "... Это были лимоны. Ладно, попробую лёд. Но направление всё-таки возьму."}
+      ],
+      "questions": [
+        {"q": "Почему доктор считает, что МРТ не нужна?", "kind": "stance", "options": ["Аппарат сломан", "МРТ слишком дорогая", "Боль обычная: Роза целый день на ногах"], "answer": 2},
+        {"q": "Что доктор имел в виду, упомянув шоколад от грусти?", "kind": "stance", "options": ["В интернете много неправды", "Розе стоит есть шоколад", "Грусть тоже надо лечить"], "answer": 0},
+        {"q": "Почему доктор уверен, что это не перелом?", "kind": "stance", "options": ["Он сделал снимок", "Роза пришла пешком с тяжёлыми сумками", "Роза сама так сказала"], "answer": 1},
+        {"q": "Как Роза в итоге поступает?", "kind": "stance", "options": ["Соглашается на лёд, но направление всё равно берёт", "Идёт делать МРТ", "Обижается и уходит"], "answer": 0}
+      ],
+      "gloss": {"tristezza": "грусть", "bravo": "хороший, умелый"}
     }
   ]
 }

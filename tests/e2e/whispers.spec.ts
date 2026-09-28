@@ -141,7 +141,7 @@ for (const lang of LANGS) {
 
     test('все шёпоты контента: разные голоса, все ответы верные', async ({ page }) => {
       test.setTimeout(240_000);
-      expect(all.length).toBeGreaterThanOrEqual(5);
+      expect(all).toHaveLength(20);
       await openApp(page, lang);
       for (const wh of all) {
         const place = wh.id.replace(/^wh:/, '').split('.')[0];

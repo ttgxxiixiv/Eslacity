@@ -75,6 +75,30 @@
         {"q": "Что случилось с городом?", "options": ["Он не исчез", "Он исчез", "Он сгорел"], "answer": 0}
       ],
       "gloss": {"candidato": "кандидат", "camello": "верблюд", "iván": "Иван (имя)", "currículum": "резюме", "mentiras": "ложь", "guardiana": "стражница", "desapareció": "исчез", "oportunidad": "шанс"}
+    },
+    {
+      "id": "wh:office.4",
+      "chapter": 4,
+      "mode": "overhear",
+      "npc": "beatriz",
+      "lines": [
+        {"who": "javi", "es": "Me han dicho que buscáis a alguien para la oficina. Estoy cansado de la caja.", "ru": "Мне сказали, что вы ищете человека в офис. Я устал от кассы."},
+        {"who": "npc", "es": "Es verdad. Pero es un trabajo con mucha sobrecarga. Aquí nadie sale a las cinco.", "ru": "Это правда. Но работа с большой нагрузкой. Здесь никто не уходит в пять."},
+        {"who": "javi", "es": "No me da miedo trabajar. En la caja veo trescientos clientes al día.", "ru": "Я не боюсь работы. На кассе у меня триста покупателей в день."},
+        {"who": "npc", "es": "No lo dudo. ¿Y sabes preparar un acta? ¿Hablar con inversores por videollamada?", "ru": "Не сомневаюсь. А протокол составить умеешь? Говорить с инвесторами по видеосвязи?"},
+        {"who": "javi", "es": "Aprendo rápido. Y sé tratar con gente difícil. Eso no se aprende en ningún curso.", "ru": "Я быстро учусь. И умею обращаться с трудными людьми. Этому ни на каких курсах не научат."},
+        {"who": "npc", "es": "En eso tienes razón. Te propongo tres meses de periodo de prueba. Si sale bien, contrato fijo.", "ru": "Тут ты прав. Предлагаю три месяца испытательного срока. Если всё пойдёт хорошо — постоянный договор."},
+        {"who": "javi", "es": "¿Tres meses? ¿Y el sueldo? ¿Cobro igual durante la prueba?", "ru": "Три месяца? А зарплата? На испытательном сроке я получаю столько же?"},
+        {"who": "npc", "es": "Un poco menos. Pero con incentivos si cumples los objetivos.", "ru": "Немного меньше. Но с премиями, если выполнишь план."},
+        {"who": "javi", "es": "Un poco menos... Ya veo que aquí también se regatea, como en el mercado.", "ru": "Немного меньше... Вижу, здесь тоже торгуются, как на рынке."}
+      ],
+      "questions": [
+        {"q": "Почему Хави хочет перейти в офис?", "kind": "stance", "options": ["Его уволили", "Устал работать на кассе", "Офис ближе к дому"], "answer": 1},
+        {"q": "Чем Беатрис сначала пытается его отпугнуть?", "kind": "stance", "options": ["Большой нагрузкой: здесь никто не уходит в пять", "Маленькой зарплатой", "Строгим начальником"], "answer": 0},
+        {"q": "Какое своё умение Хави считает главным?", "kind": "stance", "options": ["Знание языков", "Быстрый счёт", "Умение обращаться с трудными людьми"], "answer": 2},
+        {"q": "Что Хави имел в виду, сравнив разговор с рынком?", "kind": "stance", "options": ["Хочет вернуться на рынок", "Беатрис торгуется с ним из-за зарплаты", "Офис такой же шумный, как рынок"], "answer": 1}
+      ],
+      "gloss": {"trescientos": "триста", "durante": "в течение, во время"}
     }
   ]
 }

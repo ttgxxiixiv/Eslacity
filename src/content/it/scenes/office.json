@@ -75,6 +75,30 @@
         {"q": "Что случилось с городом?", "options": ["Он не исчез", "Он исчез", "Он сгорел"], "answer": 0}
       ],
       "gloss": {"candidato": "кандидат", "cammello": "верблюд", "ivo": "Иво (имя)", "stamattina": "сегодня утром", "guardiana": "стражница", "sparita": "исчез", "possibilità": "шанс"}
+    },
+    {
+      "id": "wh:office.4",
+      "chapter": 4,
+      "mode": "overhear",
+      "npc": "valentina",
+      "lines": [
+        {"who": "matteo", "es": "Mi hanno detto che cercate qualcuno per l'ufficio. Sono stanco della cassa.", "ru": "Мне сказали, что вы ищете человека в офис. Я устал от кассы."},
+        {"who": "npc", "es": "È vero. Ma è un lavoro con molto sovraccarico. Qui nessuno esce alle cinque.", "ru": "Это правда. Но работа с большой нагрузкой. Здесь никто не уходит в пять."},
+        {"who": "matteo", "es": "Non ho paura di lavorare. Alla cassa vedo trecento clienti al giorno.", "ru": "Я не боюсь работы. На кассе у меня триста покупателей в день."},
+        {"who": "npc", "es": "Non ne dubito. E sai scrivere un resoconto? Parlare con gli investitori in videochiamata?", "ru": "Не сомневаюсь. А отчёт написать умеешь? Говорить с инвесторами по видеосвязи?"},
+        {"who": "matteo", "es": "Imparo in fretta. E so trattare con la gente difficile. Questo non si impara in nessun corso.", "ru": "Я быстро учусь. И умею обращаться с трудными людьми. Этому ни на каких курсах не научат."},
+        {"who": "npc", "es": "Su questo hai ragione. Ti propongo tre mesi di periodo di prova. Se va bene, contratto a tempo indeterminato.", "ru": "Тут ты прав. Предлагаю три месяца испытательного срока. Если всё пойдёт хорошо — бессрочный договор."},
+        {"who": "matteo", "es": "Tre mesi? E lo stipendio? Durante la prova prendo uguale?", "ru": "Три месяца? А зарплата? На испытательном сроке я получаю столько же?"},
+        {"who": "npc", "es": "Un po' meno. Ma con gli incentivi, se raggiungi gli obiettivi.", "ru": "Немного меньше. Но с премиями, если выполнишь план."},
+        {"who": "matteo", "es": "Un po' meno... Vedo che anche qui si tratta sul prezzo, come al mercato.", "ru": "Немного меньше... Вижу, здесь тоже торгуются, как на рынке."}
+      ],
+      "questions": [
+        {"q": "Почему Маттео хочет перейти в офис?", "kind": "stance", "options": ["Его уволили", "Устал работать на кассе", "Офис ближе к дому"], "answer": 1},
+        {"q": "Чем Валентина сначала пытается его отпугнуть?", "kind": "stance", "options": ["Большой нагрузкой: здесь никто не уходит в пять", "Маленькой зарплатой", "Строгим начальником"], "answer": 0},
+        {"q": "Какое своё умение Маттео считает главным?", "kind": "stance", "options": ["Знание языков", "Быстрый счёт", "Умение обращаться с трудными людьми"], "answer": 2},
+        {"q": "Что Маттео имел в виду, сравнив разговор с рынком?", "kind": "stance", "options": ["Хочет вернуться на рынок", "Валентина торгуется с ним из-за зарплаты", "Офис такой же шумный, как рынок"], "answer": 1}
+      ],
+      "gloss": {"fretta": "спешка (in fretta — быстро)", "trattare": "обращаться (с людьми)", "nessun": "никакой", "indeterminato": "бессрочный", "tratta": "торгуются (trattare sul prezzo)"}
     }
   ]
 }

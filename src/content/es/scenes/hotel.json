@@ -75,6 +75,31 @@
         {"q": "Куда уехал Иван?", "options": ["Домой, в лес", "В белый город", "В башню"], "answer": 0}
       ],
       "gloss": {"recepción": "стойка регистрации", "iván": "Иван (имя)", "camello": "верблюд", "trozos": "обрывки", "robó": "украл", "nota": "записка", "guardiana": "стражница"}
+    },
+    {
+      "id": "wh:hotel.4",
+      "chapter": 4,
+      "mode": "overhear",
+      "npc": "isabel",
+      "lines": [
+        {"who": "paco", "es": "Este fin de semana largo viene toda mi familia de Sevilla. Necesito cinco habitaciones.", "ru": "На эти длинные выходные ко мне приезжает вся семья из Севильи. Мне нужно пять номеров."},
+        {"who": "npc", "es": "¿Cinco? Tenemos una ocupación del cien por cien. Hay lista de espera.", "ru": "Пять? У нас всё занято на сто процентов. Есть лист ожидания."},
+        {"who": "paco", "es": "Para un amigo siempre hay algo. Aunque sean habitaciones sin vista al mar.", "ru": "Для друга всегда что-нибудь найдётся. Пусть даже номера без вида на море."},
+        {"who": "npc", "es": "Para un amigo, puedo poner una cama supletoria en la suite. Pero cinco habitaciones, imposible.", "ru": "Для друга могу поставить дополнительную кровать в люксе. Но пять номеров — невозможно."},
+        {"who": "paco", "es": "¿Una cama? Somos doce. Y mi tía no duerme en la misma habitación que nadie.", "ru": "Одну кровать? Нас двенадцать. А моя тётя ни с кем в одной комнате не спит."},
+        {"who": "npc", "es": "Lo siento de verdad. Yo no puedo inventar habitaciones.", "ru": "Мне правда жаль. Я не могу придумать номера из воздуха."},
+        {"who": "paco", "es": "¿Y si tu jefe viene a cenar a mi restaurante? Siempre le guardo la mejor mesa.", "ru": "А если твой начальник придёт ужинать ко мне в ресторан? Я всегда оставляю ему лучший столик."},
+        {"who": "npc", "es": "¿Me estás ofreciendo un soborno con paella?", "ru": "Ты что, предлагаешь мне взятку паэльей?"},
+        {"who": "paco", "es": "Un soborno no. Un intercambio de hospitalidad.", "ru": "Не взятку. Обмен гостеприимством."},
+        {"who": "npc", "es": "Llamo al hostal de mi prima. No es acogedor, pero es barato. Y a tu tía le regalo un albornoz del hotel.", "ru": "Позвоню в хостел моей двоюродной сестры. Там не уютно, зато дёшево. А твоей тёте подарю халат из отеля."}
+      ],
+      "questions": [
+        {"q": "Почему Исабель не может дать Пако пять номеров?", "kind": "stance", "options": ["Пако ещё не заплатил", "Отель занят полностью", "Отель закрывается на ремонт"], "answer": 1},
+        {"q": "На что намекает Пако словами «для друга всегда что-нибудь найдётся»?", "kind": "stance", "options": ["Просит сделать исключение по дружбе", "Предлагает Исабель дружбу", "Хочет номер без вида на море"], "answer": 0},
+        {"q": "Как Исабель поняла предложение накормить её начальника?", "kind": "stance", "options": ["Как приглашение на свидание", "Как рекламу ресторана", "Как взятку паэльей"], "answer": 2},
+        {"q": "Чем всё закончилось?", "kind": "stance", "options": ["Исабель нашла хостел у своей кузины", "Пако отменил приезд семьи", "Исабель освободила пять номеров"], "answer": 0}
+      ],
+      "gloss": {"misma": "та же самая", "inventar": "выдумать", "ofreciendo": "предлагаешь (ofrecer)"}
     }
   ]
 }

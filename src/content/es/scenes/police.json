@@ -75,6 +75,30 @@
         {"q": "Какое послание оставила стражница?", "options": ["«Слушай деревья. Они не лгут»", "«Не ходи в лес»", "«Жду тебя в городе»"], "answer": 0}
       ],
       "gloss": {"caso": "дело", "trozos": "обрывки", "iván": "Иван (имя)", "castigar": "наказать", "suficiente": "достаточно", "guardiana": "стражница", "árboles": "деревья", "mienten": "лгут"}
+    },
+    {
+      "id": "wh:police.4",
+      "chapter": 4,
+      "mode": "overhear",
+      "npc": "vega",
+      "lines": [
+        {"who": "npc", "es": "Alguien ha hecho una pintada enorme en la pared de correos. Tú empiezas a las seis. ¿No viste nada?", "ru": "Кто-то сделал огромную надпись на стене почты. Ты начинаешь в шесть. Ничего не видел?"},
+        {"who": "rafa", "es": "¿Yo? A esa hora solo veo cartas y gatos.", "ru": "Я? В это время я вижу только письма и котов."},
+        {"who": "npc", "es": "Qué curioso. Una vecina dice que vio a un chico con una mochila hablando contigo.", "ru": "Любопытно. Одна соседка говорит, что видела, как с тобой разговаривал парень с рюкзаком."},
+        {"who": "rafa", "es": "Hablo con mucha gente. Soy cartero, comisaria, no detective.", "ru": "Я со многими разговариваю. Я почтальон, комиссар, а не детектив."},
+        {"who": "npc", "es": "Ya. Y la pintada dice: «Rafa, eres el mejor tío del mundo». Firmada con una estrella.", "ru": "Ну да. А надпись гласит: «Рафа, ты лучший дядя на свете». С подписью-звёздочкой."},
+        {"who": "rafa", "es": "... Bueno. Puede que conozca a alguien que dibuja estrellas.", "ru": "... Ну. Может, я и знаю кое-кого, кто рисует звёздочки."},
+        {"who": "npc", "es": "No quiero detener a nadie. Pero la pared hay que limpiarla, y alguien tiene que pagar.", "ru": "Я не хочу никого задерживать. Но стену надо отмыть, и кто-то должен за это заплатить."},
+        {"who": "rafa", "es": "La limpiará él el sábado. Yo llevo el cubo y la paciencia.", "ru": "Он сам её отмоет в субботу. С меня ведро и терпение."},
+        {"who": "npc", "es": "Perfecto. Y dile que la próxima vez te escriba una carta. Sale más barato.", "ru": "Отлично. И передай ему, чтобы в следующий раз написал тебе письмо. Выйдет дешевле."}
+      ],
+      "questions": [
+        {"q": "Почему комиссар Вега расспрашивает Рафу?", "kind": "stance", "options": ["Его подозревают в краже", "Он рано начинает работу и мог видеть, кто рисовал", "Он потерял письма"], "answer": 1},
+        {"q": "Что Вега хотела показать, прочитав надпись на стене?", "kind": "stance", "options": ["Что знает: надпись сделал племянник Рафы", "Что надпись красивая", "Что Рафа — хороший почтальон"], "answer": 0},
+        {"q": "Как Рафа сначала отвечает на вопросы?", "kind": "stance", "options": ["Сразу во всём признаётся", "Обвиняет соседку", "Уходит от ответа"], "answer": 2},
+        {"q": "Чего добивается Вега?", "kind": "stance", "options": ["Задержать племянника", "Чтобы стену отмыли, а не чтобы кого-то наказать", "Оштрафовать Рафу"], "answer": 1}
+      ],
+      "gloss": {"enorme": "огромный", "detective": "детектив", "rafa": "Рафа (имя)", "dibuja": "рисует (dibujar)"}
     }
   ]
 }

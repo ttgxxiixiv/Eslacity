@@ -75,6 +75,31 @@
         {"q": "Куда уехал Иво?", "options": ["Домой, в лес", "В белый город", "В башню"], "answer": 0}
       ],
       "gloss": {"busta": "конверт", "reception": "стойка регистрации", "ivo": "Иво (имя)", "cammello": "верблюд", "pezzi": "обрывки", "rubato": "украл", "giulia": "Джулия (имя)", "biglietto": "записка", "guardiana": "стражница"}
+    },
+    {
+      "id": "wh:hotel.4",
+      "chapter": 4,
+      "mode": "overhear",
+      "npc": "elisa",
+      "lines": [
+        {"who": "salvatore", "es": "Per questo weekend lungo arriva tutta la mia famiglia da Napoli. Mi servono cinque camere.", "ru": "На эти длинные выходные ко мне приезжает вся семья из Неаполя. Мне нужно пять номеров."},
+        {"who": "npc", "es": "Cinque? Abbiamo un tasso di occupazione del cento per cento. C'è la lista d'attesa.", "ru": "Пять? У нас всё занято на сто процентов. Есть лист ожидания."},
+        {"who": "salvatore", "es": "Per un amico si trova sempre qualcosa. Anche camere senza vista mare.", "ru": "Для друга всегда что-нибудь найдётся. Пусть даже номера без вида на море."},
+        {"who": "npc", "es": "Per un amico posso mettere un letto aggiuntivo nella suite. Ma cinque camere, impossibile.", "ru": "Для друга могу поставить дополнительную кровать в люксе. Но пять номеров — невозможно."},
+        {"who": "salvatore", "es": "Un letto? Siamo in dodici. E mia zia non dorme in camera con nessuno.", "ru": "Одну кровать? Нас двенадцать. А моя тётя ни с кем в одной комнате не спит."},
+        {"who": "npc", "es": "Mi dispiace davvero. Non posso inventare le camere.", "ru": "Мне правда жаль. Я не могу придумать номера из воздуха."},
+        {"who": "salvatore", "es": "E se il tuo capo viene a cena nel mio ristorante? Gli tengo sempre il tavolo migliore.", "ru": "А если твой начальник придёт ужинать ко мне в ресторан? Я всегда оставляю ему лучший столик."},
+        {"who": "npc", "es": "Mi stai offrendo una tangente fatta di pizza?", "ru": "Ты что, предлагаешь мне взятку пиццей?"},
+        {"who": "salvatore", "es": "Una tangente no. Uno scambio di ospitalità.", "ru": "Не взятку. Обмен гостеприимством."},
+        {"who": "npc", "es": "Chiamo l'ostello di mia cugina. Non è accogliente, ma costa poco. E a tua zia regalo un accappatoio dell'albergo.", "ru": "Позвоню в хостел моей двоюродной сестры. Там не уютно, зато дёшево. А твоей тёте подарю халат из отеля."}
+      ],
+      "questions": [
+        {"q": "Почему Элиза не может дать Сальваторе пять номеров?", "kind": "stance", "options": ["Сальваторе ещё не заплатил", "Отель занят полностью", "Отель закрывается на ремонт"], "answer": 1},
+        {"q": "На что намекает Сальваторе словами «для друга всегда что-нибудь найдётся»?", "kind": "stance", "options": ["Просит сделать исключение по дружбе", "Предлагает Элизе дружбу", "Хочет номер без вида на море"], "answer": 0},
+        {"q": "Как Элиза поняла предложение накормить её начальника?", "kind": "stance", "options": ["Как приглашение на свидание", "Как рекламу ресторана", "Как взятку пиццей"], "answer": 2},
+        {"q": "Чем всё закончилось?", "kind": "stance", "options": ["Элиза нашла хостел у своей кузины", "Сальваторе отменил приезд семьи", "Элиза освободила пять номеров"], "answer": 0}
+      ],
+      "gloss": {"davvero": "правда, действительно", "inventare": "выдумать"}
     }
   ]
 }

@@ -75,6 +75,30 @@
         {"q": "Что случилось с деревьями, когда он сошёл?", "options": ["Они успокоились", "Они исчезли", "Они зацвели"], "answer": 0}
       ],
       "gloss": {"enorme": "огромный", "bailaban": "качались", "bailar": "качаться", "árboles": "деревья", "iván": "Иван (имя)", "pueblo": "деревня", "dejaron": "перестали", "estuvieran": "были бы"}
+    },
+    {
+      "id": "wh:airport.4",
+      "chapter": 4,
+      "mode": "overhear",
+      "npc": "leo",
+      "lines": [
+        {"who": "npc", "es": "Su maleta pesa treinta y dos kilos. El máximo es veintitrés.", "ru": "Ваш чемодан весит тридцать два килограмма. Максимум — двадцать три."},
+        {"who": "marta", "es": "¡Pero si soy yo, la de la tienda de ropa! Voy a ver una colección a la pasarela de Madrid. Es trabajo.", "ru": "Да это же я, из магазина одежды! Лечу смотреть коллекцию на показе в Мадриде. Это по работе."},
+        {"who": "npc", "es": "Ya te he reconocido. Pero la báscula no te reconoce. Son sesenta euros de exceso.", "ru": "Я тебя узнал. Но весы тебя не узнают. Шестьдесят евро за перевес."},
+        {"who": "marta", "es": "¿Sesenta? Si son solo vestidos. La ropa no pesa nada.", "ru": "Шестьдесят? Там же одни платья. Одежда ничего не весит."},
+        {"who": "npc", "es": "Veinte vestidos, seis pares de zapatos y... ¿esto es una plancha?", "ru": "Двадцать платьев, шесть пар туфель и... это что, утюг?"},
+        {"who": "marta", "es": "La seda se arruga en la maleta. Una profesional no llega arrugada a Madrid.", "ru": "Шёлк мнётся в чемодане. Профессионал не прилетает в Мадрид мятым."},
+        {"who": "npc", "es": "Mira: ponte el abrigo y las botas, y la plancha va en el equipaje de mano.", "ru": "Смотри: надень пальто и сапоги, а утюг положи в ручную кладь."},
+        {"who": "marta", "es": "¿El abrigo? ¡Estamos a treinta grados!", "ru": "Пальто? На улице тридцать градусов!"},
+        {"who": "npc", "es": "En la cabina hace frío. Y así te ahorras sesenta euros.", "ru": "В салоне холодно. И так ты сэкономишь шестьдесят евро."}
+      ],
+      "questions": [
+        {"q": "В чём проблема Марты?", "kind": "stance", "options": ["Она опоздала на рейс", "Чемодан весит больше нормы", "У неё нет билета"], "answer": 1},
+        {"q": "На что Марта рассчитывает, напоминая, кто она?", "kind": "stance", "options": ["Что знакомый сделает для неё исключение", "Что её пересадят в бизнес-класс", "Что ей помогут нести чемодан"], "answer": 0},
+        {"q": "Что Лео имел в виду: «весы тебя не узнают»?", "kind": "stance", "options": ["Весы сломаны", "Марта сильно изменилась", "Правила одни для всех, даже для знакомых"], "answer": 2},
+        {"q": "Как Лео в итоге помогает Марте?", "kind": "stance", "options": ["Не берёт с неё денег", "Советует надеть тяжёлые вещи на себя", "Отправляет утюг почтой"], "answer": 1}
+      ],
+      "gloss": {"máximo": "максимум", "veintitrés": "двадцать три", "reconocido": "узнал (reconocer)", "reconoce": "узнаёт (reconocer)", "grados": "градусы"}
     }
   ]
 }
