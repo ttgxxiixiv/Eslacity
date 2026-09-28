@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { speak } from '../audio/tts';
-import { npcFor } from '../content/npcs';
+import { listeningEnabled, speak } from '../audio/tts';
+import { npcFor, speakerOf } from '../content/npcs';
 import { loadScene, placeOfScene } from '../content/scenes';
 import type { Scene, SceneLine } from '../content/schema';
 import { logAnswer } from '../db/answers';
@@ -15,7 +15,7 @@ import { useSettings } from '../store/settings';
 /** Реплика голосом говорящего: житель — своим голосом, герой — обычным. */
 export function sayLine(line: SceneLine, place: string) {
   const rate = useSettings.getState().speechRate;
-  const npc = line.who === 'hero' ? undefined : line.who === 'npc' ? npcFor(place) : undefined;
+  const npc = speakerOf(line.who, place);
   if (npc) speak(line.es, rate * npc.voice.rate, npc.voice.pitch);
   else speak(line.es, rate);
 }
@@ -50,6 +50,7 @@ function SceneById({ id }: { id: string }) {
     );
   }
 
+  if (scene.mode === 'overhear') return <Whisper scene={scene} place={place} onDone={() => nav(-1)} />;
   const npc = npcFor(place);
   return (
     <Screen>
@@ -68,7 +69,6 @@ export function SceneTalk({ scene, place, lastLabel, onDone }: { scene: Scene; p
   const [index, setIndex] = useState(0);
   const [showRu, setShowRu] = useState(false);
   const [word, setWord] = useState<{ word: string; ru?: string } | null>(null);
-  const npc = npcFor(place);
   const line = scene.lines[index];
   useEffect(() => {
     sayLine(line, place);
@@ -91,7 +91,7 @@ export function SceneTalk({ scene, place, lastLabel, onDone }: { scene: Scene; p
         <ul className="flex flex-col gap-2" data-testid="scene-lines">
           {scene.lines.slice(0, index + 1).map((l, i) => {
             const hero = l.who === 'hero';
-            const speaker = hero ? undefined : l.who === 'npc' ? npc : npcFor(l.who);
+            const speaker = speakerOf(l.who, place);
             const current = i === index;
             return (
               <li key={i} className={`flex items-end gap-2 ${hero ? 'flex-row-reverse' : ''} ${current ? '' : 'opacity-60'}`}>
@@ -153,8 +153,11 @@ export function SceneTalk({ scene, place, lastLabel, onDone }: { scene: Scene; p
   );
 }
 
-/** Вопросы на понимание по-русски: варианты перемешаны, после ответа видно верный. */
-function SceneQuiz({ scene, onDone }: { scene: Scene; onDone(): void }) {
+/**
+ * Вопросы на понимание по-русски: варианты перемешаны, после ответа видно верный. `kind` — вид ответа в журнале,
+ * `doneLabel` — кнопка после итога.
+ */
+function SceneQuiz({ scene, onDone, kind = 'scene-question', doneLabel = 'Готово' }: { scene: Scene; onDone(): void; kind?: string; doneLabel?: string }) {
   const questions = useMemo(() => {
     const rng = seeded(Date.now());
     return scene.questions.map((q) => ({ q: q.q, options: shuffle(q.options.map((o, i) => ({ text: o, right: i === q.answer })), rng) }));
@@ -178,7 +181,7 @@ function SceneQuiz({ scene, onDone }: { scene: Scene; onDone(): void }) {
         </div>
         <div className="flex-1" />
         <Button className="w-full" onClick={onDone}>
-          Готово
+          {doneLabel}
         </Button>
       </div>
     );
@@ -190,7 +193,7 @@ function SceneQuiz({ scene, onDone }: { scene: Scene; onDone(): void }) {
     setPicked(i);
     const ok = q.options[i].right;
     if (ok) setRight((r) => r + 1);
-    logAnswer({ itemId: scene.id, kind: 'scene-question', verdict: ok ? 'correct' : 'wrong', mode: 'learn', ms: 0 });
+    logAnswer({ itemId: scene.id, kind, verdict: ok ? 'correct' : 'wrong', mode: 'learn', ms: 0 });
   };
   const next = () => {
     setPicked(null);
@@ -223,5 +226,109 @@ function SceneQuiz({ scene, onDone }: { scene: Scene; onDone(): void }) {
         </Button>
       )}
     </div>
+  );
+}
+
+/**
+ * Шёпот (задача 6.2): герой подслушивает разговор жителя места с другим жителем. Реплики звучат двумя голосами,
+ * текста не видно, пока не отвечены вопросы о подразумеваемом. Потом — расшифровка с переводом. Если звук недоступен,
+ * реплики видны текстом: без звука шёпот иначе не пройти.
+ */
+function Whisper({ scene, place, onDone }: { scene: Scene; place: string; onDone(): void }) {
+  const [phase, setPhase] = useState<'listen' | 'questions' | 'transcript'>('listen');
+  const [index, setIndex] = useState(0);
+  const [heard] = useState(listeningEnabled);
+  const npc = npcFor(place);
+  const otherId = scene.lines.find((l) => l.who !== 'npc')?.who ?? 'npc';
+  const speakers = [{ who: 'npc', npc }, { who: otherId, npc: speakerOf(otherId, place) }];
+  const line = scene.lines[index];
+
+  useEffect(() => {
+    if (phase === 'listen') sayLine(line, place);
+  }, [line, place, phase]);
+
+  const title = `Шёпот: ${speakers.map((s) => s.npc?.name).join(' и ')}`;
+  if (phase === 'questions') {
+    return (
+      <Screen>
+        <TopBar title={title} />
+        <SceneQuiz scene={scene} kind="listen-whisper" doneLabel="Расшифровка" onDone={() => setPhase('transcript')} />
+      </Screen>
+    );
+  }
+  if (phase === 'transcript') {
+    return (
+      <Screen>
+        <TopBar title={title} />
+        <div className="flex flex-1 flex-col gap-3 px-4 pb-6">
+          <p className="text-sm text-stone-500">Что было сказано на самом деле. Нажмите на реплику, чтобы услышать её ещё раз.</p>
+          <ul className="flex flex-col gap-2" data-testid="whisper-transcript">
+            {scene.lines.map((l, i) => {
+              const who = speakerOf(l.who, place);
+              return (
+                <li key={i}>
+                  <button type="button" onClick={() => sayLine(l, place)} className="press flex w-full items-start gap-2 rounded-2xl bg-white px-3 py-2 text-left shadow-sm">
+                    {who && <NpcPortrait look={who.look} size={40} />}
+                    <span className="min-w-0">
+                      <span className="block text-xs text-stone-500">{who?.name}</span>
+                      <span className="block text-lg leading-snug">{l.es}</span>
+                      <span className="block text-sm text-stone-600">{l.ru}</span>
+                    </span>
+                  </button>
+                </li>
+              );
+            })}
+          </ul>
+          <Button className="w-full" onClick={onDone}>
+            Готово
+          </Button>
+        </div>
+      </Screen>
+    );
+  }
+
+  const next = () => (index + 1 >= scene.lines.length ? setPhase('questions') : setIndex(index + 1));
+  return (
+    <Screen>
+      <TopBar title={title} />
+      <div className="flex flex-1 flex-col gap-4 px-4 pb-6" data-testid="whisper-listen">
+        <p className="text-stone-600">
+          {heard
+            ? 'Жители не знают, что вы рядом. Слушайте внимательно: текст откроется после вопросов.'
+            : 'Звук сейчас недоступен, поэтому разговор виден текстом. Перевод откроется после вопросов.'}
+        </p>
+        <div className="grid grid-cols-2 gap-3">
+          {speakers.map((s) => {
+            const talking = line.who === s.who;
+            return (
+              <div
+                key={s.who}
+                data-testid={talking ? 'whisper-speaker' : undefined}
+                className={`flex flex-col items-center gap-1 rounded-2xl border-2 px-2 py-3 transition-opacity ${talking ? 'border-gold bg-white' : 'border-transparent opacity-45'}`}
+              >
+                {s.npc && <NpcPortrait look={s.npc.look} size={96} />}
+                <div className="text-center font-semibold leading-tight">{s.npc?.name}</div>
+                <div className="h-5 text-sm text-stone-500">{talking ? 'говорит…' : ''}</div>
+              </div>
+            );
+          })}
+        </div>
+        <div className="text-sm text-stone-500 tabular-nums">
+          Реплика {index + 1} из {scene.lines.length}
+        </div>
+        {!heard && (
+          <div className="rounded-2xl border-2 border-stone-300 bg-white px-3 py-2 text-lg leading-snug" data-testid="whisper-text">
+            {line.es}
+          </div>
+        )}
+        <div className="flex-1" />
+        <Button variant="secondary" className="w-full" onClick={() => sayLine(line, place)} data-testid="scene-again">
+          🔊 Ещё раз
+        </Button>
+        <Button className="w-full" onClick={next} data-testid="scene-next">
+          {index + 1 >= scene.lines.length ? 'К вопросам' : 'Дальше'}
+        </Button>
+      </div>
+    </Screen>
   );
 }

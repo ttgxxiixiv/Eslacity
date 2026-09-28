@@ -186,6 +186,8 @@ export interface SceneQuestion {
   q: string;
   options: string[];
   answer: number;
+  /** `stance` — вопрос шёпота о подразумеваемом: кто с чем согласен, чем недоволен, что имел в виду. */
+  kind?: 'stance';
 }
 
 /**
@@ -193,9 +195,14 @@ export interface SceneQuestion {
  * `gloss` — перевод слов, которых нет в словаре мест: их показывает нажатие на слово.
  */
 export interface Scene {
-  /** `sc:<место>.<глава>` */
+  /** `sc:<место>.<глава>`, у шёпота — `wh:<место>.<глава>`. */
   id: string;
   chapter: number;
+  /**
+   * `overhear` — шёпот (глава IV): герой слышит разговор жителя места с другим жителем, текст скрыт до конца,
+   * вопросы вида `stance`.
+   */
+  mode?: 'overhear';
   /** id жителя места. */
   npc: string;
   lines: SceneLine[];

@@ -75,6 +75,28 @@
         {"q": "Что, по словам Андреса, страшнее пустыни?", "options": ["Вернуться в изменившийся мир", "Остаться без воды", "Потерять карту"], "answer": 0}
       ],
       "gloss": {"andrés": "Андрес (имя)", "increíble": "невероятная", "tío": "дядя", "encuentre": "найдёт", "peor": "хуже"}
+    },
+    {
+      "id": "wh:home.4",
+      "chapter": 4,
+      "mode": "overhear",
+      "npc": "pilar",
+      "lines": [
+        {"who": "npc", "es": "¿Vas a ir a la junta de vecinos del jueves? Hay que hablar de la gotera.", "ru": "Пойдёшь на собрание жильцов в четверг? Надо поговорить о протечке."},
+        {"who": "manolo", "es": "Iré, pero no servirá de nada. El dueño dice que la humedad es culpa nuestra, que no abrimos las ventanas.", "ru": "Пойду, но толку не будет. Хозяин говорит, что сырость по нашей вине: мы не открываем окна."},
+        {"who": "npc", "es": "¿Que no abrimos las ventanas? Tengo moho hasta en el armario. Es la tubería del vecino de arriba.", "ru": "Мы не открываем окна? У меня плесень даже в шкафу. Это труба соседа сверху."},
+        {"who": "manolo", "es": "El seguro del hogar debería cubrir los daños. Yo pediría un presupuesto a un albañil.", "ru": "Страховка жилья должна покрыть ущерб. Я бы попросил смету у строителя."},
+        {"who": "npc", "es": "¿El seguro? Ya lo intenté. Me dijeron que el problema ya estaba antes del contrato.", "ru": "Страховка? Я уже пробовала. Мне сказали, что проблема была ещё до договора."},
+        {"who": "manolo", "es": "Vaya. Así que el dueño tendrá que pagar la reforma, le guste o no.", "ru": "Вот как. Значит, хозяину придётся заплатить за ремонт, нравится ему это или нет."},
+        {"who": "npc", "es": "No la va a pagar. Lo que quiere es que nos cansemos y nos vayamos, para alquilar el piso más caro.", "ru": "Не заплатит. Он хочет, чтобы мы устали и съехали, а он сдал квартиру дороже."},
+        {"who": "manolo", "es": "Puede ser. Pero yo llevo aquí cuarenta años. De aquí no me saca nadie.", "ru": "Может быть. Но я живу здесь сорок лет. Отсюда меня никто не выгонит."}
+      ],
+      "questions": [
+        {"q": "Кого хозяин дома винит в сырости?", "kind": "stance", "options": ["Жильцов: они не открывают окна", "Соседа сверху", "Строителя"], "answer": 0},
+        {"q": "Кто из соседей надеется на страховку?", "kind": "stance", "options": ["Пилар", "Маноло", "Оба"], "answer": 1},
+        {"q": "Чего, по мнению Пилар, на самом деле добивается хозяин?", "kind": "stance", "options": ["Чтобы жильцы сами сделали ремонт", "Продать дом", "Чтобы жильцы съехали, а он сдал квартиру дороже"], "answer": 2},
+        {"q": "Как Маноло отвечает на догадку Пилар?", "kind": "stance", "options": ["Соглашается и собирается переезжать", "Не спорит, но уезжать не собирается", "Говорит, что Пилар всё выдумала"], "answer": 1}
+      ]
     }
   ]
 }

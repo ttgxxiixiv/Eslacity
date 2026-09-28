@@ -6,7 +6,7 @@ import { answersOnPath, missionGraphIssues } from '../domain/mission';
 import { sceneWords } from '../domain/sceneText';
 import { conjugate, generated, participle, TENSES, type Tense } from '../domain/verbs';
 import { phraseTokens } from '../domain/phraseSteps';
-import { LOCATION_IDS, type Chronicler, type GrammarLesson, type GuardiansFile, type NpcLook, type LocationMissions, type LocationPhrases, type LocationScenes, type Phrase, type LocationWords, type NpcsFile, type ScrollFile, type VerbsFile, type Word } from './schema';
+import { LOCATION_IDS, type Chronicler, type GrammarLesson, type GuardiansFile, type NpcLook, type LocationMissions, type LocationPhrases, type LocationScenes, type Phrase, type Scene, type LocationWords, type NpcsFile, type ScrollFile, type VerbsFile, type Word } from './schema';
 
 export interface Issue {
   level: 'error' | 'warning';
@@ -619,15 +619,25 @@ export function validatePhrases(files: { name: string; data: LocationPhrases }[]
 /** Доля незнакомых слов в сцене, выше которой сцена не проходит проверку. */
 export const SCENE_UNKNOWN_MAX = 0.07;
 
+/** Шёпоты — подслушанные разговоры Леса шёпотов (глава IV). */
+export const OVERHEAR_CHAPTER = 4;
+/** Шёпот короче этого — не разговор, а обмен репликами. */
+export const OVERHEAR_MIN_LINES = 6;
+export const OVERHEAR_MIN_QUESTIONS = 3;
+
 export interface SceneChecks {
   /** Место → id его жителя. */
   residents: Record<string, string>;
+  /** id жителя → высота голоса: в шёпоте два голоса должны различаться на слух. */
+  pitch?: Record<string, number>;
   /** Слова реплик: всего и незнакомые к уровню главы (с повторами, строчными). */
   coverage?: (text: string, level: number) => { total: number; unknown: string[] };
 }
 
 export interface SceneReport {
   scenes: number;
+  /** Из них шёпотов. */
+  whispers: number;
   words: number;
   unknown: number;
 }
@@ -639,7 +649,7 @@ export interface SceneReport {
  */
 export function validateScenes(files: { name: string; data: LocationScenes }[], checks: SceneChecks): { issues: Issue[]; report: SceneReport } {
   const out: Issue[] = [];
-  const report: SceneReport = { scenes: 0, words: 0, unknown: 0 };
+  const report: SceneReport = { scenes: 0, whispers: 0, words: 0, unknown: 0 };
   const ids = new Set<string>();
   const npcIds = new Set(Object.values(checks.residents));
   for (const { name, data } of files) {
@@ -652,7 +662,11 @@ export function validateScenes(files: { name: string; data: LocationScenes }[], 
     for (const sc of data.scenes) {
       const at = `scenes/${name} ${sc.id ?? '?'}`;
       report.scenes++;
-      if (sc.id !== `sc:${data.location}.${sc.chapter}`) out.push({ level: 'error', where: at, msg: `id должен быть "sc:${data.location}.${sc.chapter}"` });
+      const overhear = sc.mode === 'overhear';
+      if (overhear) report.whispers++;
+      if (sc.mode !== undefined && !overhear) out.push({ level: 'error', where: at, msg: `вид сцены "${sc.mode}"` });
+      const prefix = overhear ? 'wh' : 'sc';
+      if (sc.id !== `${prefix}:${data.location}.${sc.chapter}`) out.push({ level: 'error', where: at, msg: `id должен быть "${prefix}:${data.location}.${sc.chapter}"` });
       if (ids.has(sc.id)) out.push({ level: 'error', where: at, msg: 'дубль id' });
       ids.add(sc.id);
       const plan = PLAN[sc.chapter - 1];
@@ -674,7 +688,10 @@ export function validateScenes(files: { name: string; data: LocationScenes }[], 
           out.push({ level: 'error', where: `${at} вопрос ${i + 1}`, msg: 'нужно 2–4 разных варианта' });
         }
         if (!Number.isInteger(q.answer) || q.answer < 0 || q.answer >= opts.length) out.push({ level: 'error', where: `${at} вопрос ${i + 1}`, msg: `ответ ${q.answer}` });
+        if (q.kind !== undefined && (q.kind !== 'stance' || !overhear)) out.push({ level: 'error', where: `${at} вопрос ${i + 1}`, msg: `вид вопроса "${q.kind}" бывает только у шёпота` });
+        if (overhear && q.kind !== 'stance') out.push({ level: 'error', where: `${at} вопрос ${i + 1}`, msg: 'в шёпоте вопросы вида stance' });
       });
+      if (overhear) out.push(...overhearIssues(sc, at, checks.residents[data.location], npcIds, checks.pitch));
       const text = lines.map((l) => l.es).join(' ');
       // Слова реплик так же, как их нажимают на экране сцены: «dell'Elisir» — это «dell'» и «elisir».
       const keys = new Set(lines.flatMap((l) => sceneWords(l.es ?? '').flatMap((p) => ('key' in p ? [normalize(p.key)] : []))));
@@ -698,6 +715,32 @@ export function validateScenes(files: { name: string; data: LocationScenes }[], 
     }
   }
   return { issues: out, report };
+}
+
+/**
+ * Шёпот: глава IV, герой молчит, говорят двое — житель места (`npc`) и ещё один житель, оба не меньше двух раз,
+ * голоса разной высоты. Реплик не меньше шести, вопросов о подразумеваемом не меньше трёх.
+ */
+function overhearIssues(sc: Scene, at: string, resident: string | undefined, npcIds: ReadonlySet<string>, pitch?: Record<string, number>): Issue[] {
+  const out: Issue[] = [];
+  const lines = sc.lines ?? [];
+  if (sc.chapter !== OVERHEAR_CHAPTER) out.push({ level: 'error', where: at, msg: `шёпоты бывают в главе ${OVERHEAR_CHAPTER}` });
+  if (lines.length < OVERHEAR_MIN_LINES) out.push({ level: 'error', where: at, msg: `в шёпоте меньше ${OVERHEAR_MIN_LINES} реплик` });
+  if ((sc.questions ?? []).length < OVERHEAR_MIN_QUESTIONS) out.push({ level: 'error', where: at, msg: `в шёпоте меньше ${OVERHEAR_MIN_QUESTIONS} вопросов` });
+  if (lines.some((l) => l.who === 'hero')) out.push({ level: 'error', where: at, msg: 'в шёпоте герой только слушает' });
+  const others = [...new Set(lines.map((l) => l.who).filter((w) => w !== 'npc' && w !== 'hero'))];
+  if (others.length !== 1 || others[0] === resident) {
+    out.push({ level: 'error', where: at, msg: 'в шёпоте говорят двое: житель места ("npc") и другой житель' });
+    return out;
+  }
+  const other = others[0];
+  for (const who of ['npc', other]) {
+    if (lines.filter((l) => l.who === who).length < 2) out.push({ level: 'error', where: at, msg: `"${who}" говорит меньше двух реплик` });
+  }
+  if (pitch && resident && npcIds.has(other) && pitch[resident] === pitch[other]) {
+    out.push({ level: 'error', where: at, msg: `у "${resident}" и "${other}" одинаковая высота голоса ${pitch[other]}` });
+  }
+  return out;
 }
 
 /** Меньше стольких ответов героя 80% означало бы «без единой ошибки». */

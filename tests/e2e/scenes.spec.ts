@@ -58,7 +58,9 @@ for (const lang of LANGS) {
       await openApp(page, lang);
       const all = readdirSync(join(CONTENT, lang, 'scenes'))
         .filter((f) => f.endsWith('.json'))
-        .flatMap((f) => JSON.parse(readFileSync(join(CONTENT, lang, 'scenes', f), 'utf8')).scenes as (typeof scene & { id: string })[]);
+        .flatMap((f) => JSON.parse(readFileSync(join(CONTENT, lang, 'scenes', f), 'utf8')).scenes as (typeof scene & { id: string; mode?: string })[])
+        // Шёпоты проходятся по-своему: whispers.spec.ts.
+        .filter((sc) => sc.mode !== 'overhear');
       for (const sc of all) {
         const place = sc.id;
         await page.goto(`./#/scene/${encodeURIComponent(sc.id)}`);

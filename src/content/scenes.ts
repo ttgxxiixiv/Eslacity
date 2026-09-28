@@ -10,8 +10,8 @@ for (const [path, load] of Object.entries(modules)) {
   if (lang === LANG) loaderByPlace.set(place, load);
 }
 
-/** Место сцены: `sc:cafe.1` → `cafe`. */
-export const placeOfScene = (id: string) => id.replace(/^sc:/, '').split('.')[0];
+/** Место сцены: `sc:cafe.1` → `cafe`, шёпота: `wh:cafe.4` → `cafe`. */
+export const placeOfScene = (id: string) => id.replace(/^(sc|wh):/, '').split('.')[0];
 
 export async function loadScenes(place: string): Promise<Scene[]> {
   const load = loaderByPlace.get(place);

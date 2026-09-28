@@ -75,6 +75,29 @@
         {"q": "Что, по словам Андреа, страшнее пустыни?", "options": ["Вернуться в изменившийся мир", "Остаться без воды", "Потерять карту"], "answer": 0}
       ],
       "gloss": {"andrea": "Андреа (имя)", "incredibile": "невероятная", "zio": "дядя", "finché": "пока", "peggiore": "худшая"}
+    },
+    {
+      "id": "wh:home.4",
+      "chapter": 4,
+      "mode": "overhear",
+      "npc": "franca",
+      "lines": [
+        {"who": "npc", "es": "Vieni all'assemblea condominiale di giovedì? Bisogna parlare dell'infiltrazione.", "ru": "Пойдёшь на собрание жильцов в четверг? Надо поговорить о протечке."},
+        {"who": "gino", "es": "Vengo, ma non servirà a niente. Il padrone dice che l'umidità è colpa nostra, che non apriamo le finestre.", "ru": "Пойду, но толку не будет. Хозяин говорит, что сырость по нашей вине: мы не открываем окна."},
+        {"who": "npc", "es": "Che non apriamo le finestre? Ho la muffa perfino nell'armadio. È il tubo del vicino di sopra.", "ru": "Мы не открываем окна? У меня плесень даже в шкафу. Это труба соседа сверху."},
+        {"who": "gino", "es": "L'assicurazione casa dovrebbe coprire i danni. Io chiederei un preventivo a un muratore.", "ru": "Страховка жилья должна покрыть ущерб. Я бы попросил смету у строителя."},
+        {"who": "npc", "es": "L'assicurazione? Ci ho già provato. Mi hanno detto che il problema c'era già prima del contratto.", "ru": "Страховка? Я уже пробовала. Мне сказали, что проблема была ещё до договора."},
+        {"who": "gino", "es": "Accidenti. Allora il padrone dovrà pagare la ristrutturazione, che gli piaccia o no.", "ru": "Вот как. Тогда хозяину придётся заплатить за ремонт, нравится ему это или нет."},
+        {"who": "npc", "es": "Non la pagherà. Vuole che ci stanchiamo e ce ne andiamo, per affittare l'appartamento a un prezzo più alto.", "ru": "Не заплатит. Он хочет, чтобы мы устали и съехали, а он сдал квартиру дороже."},
+        {"who": "gino", "es": "Può darsi. Ma io abito qui da quarant'anni. Da qui non mi manda via nessuno.", "ru": "Может быть. Но я живу здесь сорок лет. Отсюда меня никто не выгонит."}
+      ],
+      "questions": [
+        {"q": "Кого хозяин дома винит в сырости?", "kind": "stance", "options": ["Жильцов: они не открывают окна", "Соседа сверху", "Строителя"], "answer": 0},
+        {"q": "Кто из соседей надеется на страховку?", "kind": "stance", "options": ["Франка", "Джино", "Оба"], "answer": 1},
+        {"q": "Чего, по мнению Франки, на самом деле добивается хозяин?", "kind": "stance", "options": ["Чтобы жильцы сами сделали ремонт", "Продать дом", "Чтобы жильцы съехали, а он сдал квартиру дороже"], "answer": 2},
+        {"q": "Как Джино отвечает на догадку Франки?", "kind": "stance", "options": ["Соглашается и собирается переезжать", "Не спорит, но уезжать не собирается", "Говорит, что Франка всё выдумала"], "answer": 1}
+      ],
+      "gloss": {"perfino": "даже", "accidenti": "вот это да, чёрт"}
     }
   ]
 }

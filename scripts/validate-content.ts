@@ -27,9 +27,10 @@ function readJson<T>(dir: string): { name: string; data: T }[] {
 
 const issues: Issue[] = [];
 
-function sceneSummary(r: { scenes: number; words: number; unknown: number }): string {
+function sceneSummary(r: { scenes: number; whispers: number; words: number; unknown: number }): string {
   const share = r.words ? Math.round((r.unknown / r.words) * 1000) / 10 : 0;
-  return `${r.scenes} ${plural(r.scenes, ['сцена', 'сцены', 'сцен'])} (незнакомых слов ${share}%)`;
+  const talks = r.scenes - r.whispers;
+  return `${talks} ${plural(talks, ['сцена', 'сцены', 'сцен'])} и ${r.whispers} ${plural(r.whispers, ['шёпот', 'шёпота', 'шёпотов'])} (незнакомых слов ${share}%)`;
 }
 const summary: string[] = [];
 const langs = readdirSync(root, { withFileTypes: true })
@@ -77,6 +78,7 @@ for (const lang of langs) {
   const scenes = readJson<LocationScenes>(join(root, lang, 'scenes'));
   const sceneCheck = validateScenes(scenes, {
     residents: Object.fromEntries((npcs?.npcs ?? []).map((n) => [n.location, n.id])),
+    pitch: Object.fromEntries((npcs?.npcs ?? []).map((n) => [n.id, n.voice.pitch])),
     coverage: (text, level) => textCoverage(text, level, lexicon, forms, lang),
   });
   const missions = readJson<LocationMissions>(join(root, lang, 'missions'));

@@ -75,6 +75,30 @@
         {"q": "Что стало с тем человеком?", "options": ["Его поймала полиция", "Он исчез вместе с ветром", "Он остался на рынке"], "answer": 1}
       ],
       "gloss": {"tesoro": "сокровище", "cammello": "верблюд", "pezzi": "обрывки"}
+    },
+    {
+      "id": "wh:market.4",
+      "chapter": 4,
+      "mode": "overhear",
+      "npc": "rosa",
+      "lines": [
+        {"who": "npc", "es": "Figlio mio, i pomodori oggi sono a quattro euro. Con questa siccità il raccolto è stato scarso.", "ru": "Сынок, помидоры сегодня по четыре евро. Из-за засухи урожай скудный."},
+        {"who": "salvatore", "es": "Quattro euro? Il mese scorso erano a due. Questo non è un aumento dei prezzi, è un furto.", "ru": "Четыре евро? В прошлом месяце были по два. Это уже не рост цен, это грабёж."},
+        {"who": "npc", "es": "Mi stai dando della ladra? Io pago il produttore quanto lo paghi tu al supermercato.", "ru": "Ты меня воровкой называешь? Я плачу производителю столько же, сколько ты в супермаркете."},
+        {"who": "salvatore", "es": "Non dico questo. Dico che tra il produttore e te ci sono tre intermediari, e ognuno prende il suo margine.", "ru": "Я не об этом. Я о том, что между производителем и тобой три посредника, и каждый берёт свою наценку."},
+        {"who": "npc", "es": "Questo è vero. Ma i miei pomodori sono più invitanti. Guarda, neanche uno ammaccato.", "ru": "Вот это правда. Но мои помидоры и выглядят лучше. Смотри, ни одного помятого."},
+        {"who": "salvatore", "es": "Sono belli, non lo nego. Anche se la tua bilancia a volte è un po'... generosa.", "ru": "Красивые, не спорю. Хотя твои весы иногда немного... щедрые."},
+        {"who": "npc", "es": "La mia bilancia non è truccata! Se vuoi, compra a occhio, visto che sai tutto.", "ru": "Мои весы не подкручены! Хочешь — покупай на глаз, раз ты всё знаешь."},
+        {"who": "salvatore", "es": "Calma, era uno scherzo. Mettimene tre chili, domani ho il ristorante pieno.", "ru": "Спокойно, это была шутка. Положи мне три кило, завтра ресторан полный."},
+        {"who": "npc", "es": "Tre chili... E ti regalo delle cipolle, così vedi che non imbroglio nessuno.", "ru": "Три кило... И лук тебе в подарок, чтобы ты видел, что я никого не обманываю."}
+      ],
+      "questions": [
+        {"q": "Чем Сальваторе недоволен в начале разговора?", "kind": "stance", "options": ["Помидоры помятые", "Цена помидоров выросла вдвое", "Роза закрывает рынок"], "answer": 1},
+        {"q": "Кого Сальваторе на самом деле винит в высоких ценах?", "kind": "stance", "options": ["Посредников между производителем и рынком", "Саму Розу", "Супермаркет"], "answer": 0},
+        {"q": "Что Сальваторе имел в виду, назвав весы Розы «щедрыми»?", "kind": "stance", "options": ["Похвалил её весы", "Сказал, что она даёт скидку", "Намекнул, что весы показывают больше, чем есть"], "answer": 2},
+        {"q": "Зачем Роза дарит Сальваторе лук?", "kind": "stance", "options": ["Лук скоро испортится", "Чтобы показать, что она никого не обманывает", "Сальваторе сам попросил"], "answer": 1}
+      ],
+      "gloss": {"scorso": "прошлый", "ognuno": "каждый", "neanche": "даже не, ни", "generosa": "щедрая", "scherzo": "шутка"}
     }
   ]
 }

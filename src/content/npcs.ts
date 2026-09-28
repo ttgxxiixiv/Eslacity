@@ -9,6 +9,8 @@ export const NPCS: Npc[] = Object.entries(files).find(([path]) => path.startsWit
 
 export const NPC_BY_LOCATION = Object.fromEntries(NPCS.map((n) => [n.location, n])) as Partial<Record<LocationId, Npc>>;
 
+export const NPC_BY_ID: Partial<Record<string, Npc>> = Object.fromEntries(NPCS.map((n) => [n.id, n]));
+
 const chroniclers = import.meta.glob<Chronicler>('./*/chronicler.json', { import: 'default', eager: true });
 
 /** Летописец: житель без места, идёт рядом с героем по карте странствий. Его поручения — слова свитков. */
@@ -21,6 +23,11 @@ const guardianFiles = import.meta.glob<GuardiansFile>('./*/guardians.json', { im
 export const GUARDIANS: Guardian[] = Object.entries(guardianFiles).find(([path]) => path.startsWith(`./${LANG}/`))?.[1].guardians ?? [];
 
 export const guardianOf = (chapter: number) => GUARDIANS.find((g) => g.chapter === chapter);
+
+/** Кто говорит реплику сцены: `npc` — житель места, id — другой житель, `hero` — никто из жителей. */
+export function speakerOf(who: string, place: string): Chronicler | undefined {
+  return who === 'hero' ? undefined : who === 'npc' ? npcFor(place) : NPC_BY_ID[who];
+}
 
 /** Житель места или Летописец. */
 export function npcFor(location: string): Chronicler | undefined {

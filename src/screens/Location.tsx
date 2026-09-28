@@ -18,7 +18,7 @@ import { useNow } from '../lib/useNow';
 import { isLearned, isWordLevelOpen, learnedCount, lessonParts, levelWords, MAX_BUILDING_LEVEL, maxContentLevel } from '../domain/levels';
 import { CHAPTERS, chapterById, chapterOfLevel, isLevelOpen } from '../domain/chapters';
 import { useJourney } from '../store/journey';
-import { NPC_BY_LOCATION } from '../content/npcs';
+import { NPC_BY_LOCATION, speakerOf } from '../content/npcs';
 import { NpcCard } from '../components/NpcCard';
 import { useErrands } from '../store/errands';
 import { discountedCost } from '../domain/reputation';
@@ -66,6 +66,12 @@ function IncomeCard({ id, level }: { id: LocationId; level: number }) {
   );
 }
 
+/** Кто разговаривает в шёпоте: житель места и его собеседник. */
+function whisperPair(sc: Scene, place: LocationId): string {
+  const other = sc.lines.find((l) => l.who !== 'npc')?.who ?? 'npc';
+  return [speakerOf('npc', place), speakerOf(other, place)].map((n) => n?.name).join(' и ');
+}
+
 export function LocationScreen() {
   const id = useParams().id as LocationId;
   const meta = LOCATION_BY_ID[id];
@@ -108,7 +114,7 @@ export function LocationScreen() {
           {npc && <NpcCard npc={npc} rep={rep} />}
           {npc && level > 0 &&
             scenes
-              .filter((sc) => sc.chapter <= opened)
+              .filter((sc) => sc.chapter <= opened && sc.mode !== 'overhear')
               .map((sc) => (
                 <Link
                   key={sc.id}
@@ -118,6 +124,22 @@ export function LocationScreen() {
                 >
                   <span className="font-semibold">💬 Разговор: {npc.name}</span>
                   <span className="text-sm text-stone-500">глава {chapterById(sc.chapter)?.roman} →</span>
+                </Link>
+              ))}
+          {npc && level > 0 &&
+            scenes
+              .filter((sc) => sc.chapter <= opened && sc.mode === 'overhear')
+              .map((sc) => (
+                <Link
+                  key={sc.id}
+                  to={`/scene/${encodeURIComponent(sc.id)}`}
+                  data-testid="whisper-link"
+                  className="press flex items-center justify-between gap-3 rounded-2xl bg-white px-4 py-3 shadow-sm"
+                >
+                  <span className="shrink-0 font-semibold">🌲 Шёпот</span>
+                  <span className="text-right text-sm text-stone-500">
+                    {whisperPair(sc, id)} · глава {chapterById(sc.chapter)?.roman} →
+                  </span>
                 </Link>
               ))}
           {npc && level > 0 &&

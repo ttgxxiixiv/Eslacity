@@ -279,9 +279,10 @@ describe('validateScenes', () => {
     questions: [{ q: 'Что будет герой?', options: ['Кофе', 'Чай'], answer: 0 }],
     ...extra,
   });
-  const residents = { cafe: 'lola', market: 'rosa' };
+  const residents = { cafe: 'lola', market: 'rosa', gym: 'sara' };
+  const pitch = { lola: 1.2, rosa: 1.1, sara: 1.2 };
   const run = (sc: Scene, coverage?: (t: string) => { total: number; unknown: string[] }) =>
-    validateScenes([{ name: 'cafe.json', data: { location: 'cafe', scenes: [sc] } as LocationScenes }], { residents, coverage });
+    validateScenes([{ name: 'cafe.json', data: { location: 'cafe', scenes: [sc] } as LocationScenes }], { residents, pitch, coverage });
   const errs = (sc: Scene) => run(sc).issues.filter((x) => x.level === 'error').map((x) => x.msg).join('; ');
 
   it('чистая сцена без ошибок', () => {
@@ -298,7 +299,7 @@ describe('validateScenes', () => {
     const cov = () => ({ total: 20, unknown: ['hola', 'hola'] });
     const r = run(scene(), cov);
     expect(r.issues.map((x) => x.msg)).toEqual(['незнакомых слов 10% (hola), не больше 7%', 'нет в словаре уровня 2 и в gloss: hola']);
-    expect(r.report).toEqual({ scenes: 1, words: 20, unknown: 2 });
+    expect(r.report).toEqual({ scenes: 1, whispers: 0, words: 20, unknown: 2 });
     expect(run(scene({ gloss: { hola: 'привет' } }), () => ({ total: 30, unknown: ['hola'] })).issues).toEqual([]);
   });
   it('лишнее слово в gloss — предупреждение', () => {
@@ -307,6 +308,48 @@ describe('validateScenes', () => {
   it('слово после апострофа элизии есть в репликах, как на экране сцены', () => {
     const lines = [{ who: 'npc', es: "La mappa porta al Caveau dell'Elisir.", ru: 'Карта ведёт к Хранилищу Эликсира.' }, { who: 'hero', es: 'Sì.', ru: 'Да.' }];
     expect(run(scene({ lines, gloss: { elisir: 'Эликсир', "dell'": 'из' } })).issues).toEqual([]);
+  });
+});
+
+describe('validateScenes: шёпоты', () => {
+  const residents = { cafe: 'lola', market: 'rosa', gym: 'sara' };
+  const pitch = { lola: 1.2, rosa: 1.1, sara: 1.2 };
+  const stance = (q: string) => ({ q, options: ['Да', 'Нет'], answer: 0, kind: 'stance' as const });
+  const talk = (a: string, b: string) => [a, b, a, b, a, b].map((who, i) => ({ who, es: `Frase ${i}.`, ru: `Фраза ${i}.` }));
+  const whisper = (extra: Partial<Scene> = {}): Scene => ({
+    id: 'wh:cafe.4', chapter: 4, mode: 'overhear', npc: 'lola',
+    lines: talk('npc', 'rosa'),
+    questions: [stance('Кто согласен?'), stance('Кто недоволен?'), stance('Что имела в виду Роза?')],
+    ...extra,
+  });
+  const run = (sc: Scene) => validateScenes([{ name: 'cafe.json', data: { location: 'cafe', scenes: [sc] } as LocationScenes }], { residents, pitch });
+  const errs = (sc: Scene) => run(sc).issues.filter((x) => x.level === 'error').map((x) => x.msg).join('; ');
+
+  it('чистый шёпот без ошибок, в отчёте отдельно', () => {
+    const r = run(whisper());
+    expect(r.issues).toEqual([]);
+    expect(r.report.whispers).toBe(1);
+  });
+  it('id wh:, глава IV, вид сцены', () => {
+    expect(errs(whisper({ id: 'sc:cafe.4' }))).toMatch(/id должен быть "wh:cafe\.4"/);
+    expect(errs(whisper({ id: 'wh:cafe.3', chapter: 3 }))).toMatch(/шёпоты бывают в главе 4/);
+    expect(errs(whisper({ mode: 'loud' as 'overhear' }))).toMatch(/вид сцены "loud"/);
+  });
+  it('говорят двое, герой молчит, голоса разные', () => {
+    expect(errs(whisper({ lines: [...talk('npc', 'rosa'), { who: 'hero', es: 'Hola.', ru: 'Привет.' }] }))).toMatch(/герой только слушает/);
+    expect(errs(whisper({ lines: [...talk('npc', 'rosa'), { who: 'sara', es: 'Hola.', ru: 'Привет.' }] }))).toMatch(/говорят двое/);
+    expect(errs(whisper({ lines: talk('npc', 'npc') }))).toMatch(/говорят двое/);
+    expect(errs(whisper({ lines: talk('npc', 'lola') }))).toMatch(/говорят двое/);
+    expect(errs(whisper({ lines: talk('npc', 'sara') }))).toMatch(/у "lola" и "sara" одинаковая высота голоса 1\.2/);
+    const lines = talk('npc', 'rosa').map((l) => ({ ...l, who: 'npc' }));
+    lines[5] = { ...lines[5], who: 'rosa' };
+    expect(errs(whisper({ lines }))).toMatch(/"rosa" говорит меньше двух реплик/);
+  });
+  it('мало реплик и вопросов, вопросы только stance и только в шёпоте', () => {
+    expect(errs(whisper({ lines: talk('npc', 'rosa').slice(0, 4) }))).toMatch(/меньше 6 реплик/);
+    expect(errs(whisper({ questions: [stance('А?'), { q: 'Б?', options: ['Да', 'Нет'], answer: 1 }] }))).toMatch(/вопрос 2: в шёпоте вопросы вида stance|меньше 3 вопросов/);
+    const plain: Scene = { id: 'sc:cafe.1', chapter: 1, npc: 'lola', lines: [{ who: 'npc', es: 'Hola.', ru: 'Привет.' }, { who: 'hero', es: 'Hola.', ru: 'Привет.' }], questions: [stance('А?')] };
+    expect(errs(plain)).toMatch(/вид вопроса "stance" бывает только у шёпота/);
   });
 });
 

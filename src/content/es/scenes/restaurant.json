@@ -75,6 +75,29 @@
         {"q": "Что будет, если солгать?", "options": ["Город исчезнет вместе с тобой", "Придётся заплатить", "Ничего"], "answer": 0}
       ],
       "gloss": {"andrés": "Андрес (имя)", "hubiera": "бы (не) ел", "tercera": "третья", "guardiana": "стражница", "lista": "умная", "propone": "предлагает", "miento": "солгу", "mientes": "солжёшь", "desaparece": "исчезнет"}
+    },
+    {
+      "id": "wh:restaurant.4",
+      "chapter": 4,
+      "mode": "overhear",
+      "npc": "paco",
+      "lines": [
+        {"who": "beatriz", "es": "Para la cena de empresa seremos treinta. Queremos el reservado y un menú degustación.", "ru": "На корпоративном ужине нас будет тридцать. Нам нужен отдельный зал и дегустационное меню."},
+        {"who": "npc", "es": "Encantado. ¿Con maridaje? El sumiller tiene unos vinos exquisitos.", "ru": "С удовольствием. С подбором вин? У сомелье есть отличные вина."},
+        {"who": "beatriz", "es": "Con maridaje, sí. Pero sin fritura, que la mitad de mi equipo está a dieta.", "ru": "С подбором, да. Но без жареного: половина моей команды на диете."},
+        {"who": "npc", "es": "Sin problema. Eso sí, esta vez os pido el treinta por ciento antes de la cena.", "ru": "Без проблем. Только на этот раз прошу у вас тридцать процентов до ужина."},
+        {"who": "beatriz", "es": "¿Antes? Nunca nos has pedido nada. ¿No confías en nosotros?", "ru": "До ужина? Ты никогда ничего такого не просил. Ты нам не доверяешь?"},
+        {"who": "npc", "es": "De ti sí. Pero el año pasado anulasteis la cena dos horas antes, y veinte kilos de marisco fueron a la basura.", "ru": "Тебе доверяю. Но в прошлом году вы отменили ужин за два часа до начала, и двадцать кило морепродуктов отправились в мусор."},
+        {"who": "beatriz", "es": "Eso fue culpa del director, no mía. Bueno... te hago la transferencia mañana.", "ru": "Это была вина директора, не моя. Ладно... переведу тебе деньги завтра."},
+        {"who": "npc", "es": "Perfecto. Y dile al director que este año el brindis lo paga él.", "ru": "Отлично. И передай директору, что в этом году тост оплачивает он."}
+      ],
+      "questions": [
+        {"q": "Почему Пако просит заплатить заранее?", "kind": "stance", "options": ["Так требует закон", "В прошлом году ужин отменили в последний момент", "Ему не на что купить продукты"], "answer": 1},
+        {"q": "Как Беатрис сначала отнеслась к этой просьбе?", "kind": "stance", "options": ["Обиделась: решила, что ей не доверяют", "Сразу согласилась", "Предложила заплатить всю сумму"], "answer": 0},
+        {"q": "Кого Беатрис считает виноватой в прошлой отмене?", "kind": "stance", "options": ["Себя", "Пако", "Директора"], "answer": 2},
+        {"q": "Что Пако имел в виду в последней реплике?", "kind": "stance", "options": ["Пригласил директора сказать тост", "Шутя дал понять, что директор должен отвечать за прошлую отмену", "Предложил директору скидку"], "answer": 1}
+      ],
+      "gloss": {"mía": "моя"}
     }
   ]
 }

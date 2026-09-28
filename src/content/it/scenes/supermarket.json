@@ -75,6 +75,29 @@
         {"q": "Что стало со следами продавца?", "options": ["Их стёр ветер", "Их нашла полиция", "Они ведут в город"], "answer": 0}
       ],
       "gloss": {"confine": "край", "oasi": "оазис", "sparito": "исчез", "orme": "следы", "cancellate": "стёр"}
+    },
+    {
+      "id": "wh:supermarket.4",
+      "chapter": 4,
+      "mode": "overhear",
+      "npc": "matteo",
+      "lines": [
+        {"who": "franca", "es": "Questo tostapane è difettoso. Voglio indietro i soldi, e li voglio oggi.", "ru": "Этот тостер бракованный. Хочу вернуть деньги, и сегодня же."},
+        {"who": "npc", "es": "Certo, signora. Ha lo scontrino?", "ru": "Конечно, синьора. Чек у вас есть?"},
+        {"who": "franca", "es": "Lo scontrino non ce l'ho più. Ma come consumatrice ho i miei diritti, no?", "ru": "Чека у меня уже нет. Но у меня как у покупательницы есть права, разве нет?"},
+        {"who": "npc", "es": "Ha diritto al cambio merce, sì. Ma senza scontrino il sistema non mi fa restituire i soldi.", "ru": "Право на обмен у вас есть, да. Но без чека система не даёт мне вернуть деньги."},
+        {"who": "franca", "es": "Ma quale sistema! Faccio la spesa qui da vent'anni.", "ru": "Какая ещё система! Я двадцать лет здесь покупаю."},
+        {"who": "npc", "es": "Lo so, e la ringrazio. Però questa marca... noi non la vendiamo da un anno.", "ru": "Знаю и благодарен вам. Только вот эту марку... мы не продаём уже год."},
+        {"who": "franca", "es": "Beh, forse l'ho comprato al centro commerciale. Ma la scatola è uguale alle vostre.", "ru": "Ну, может, я купила его в торговом центре. Но коробка такая же, как у вас."},
+        {"who": "npc", "es": "Senta, chiami il servizio clienti di quel negozio. Sicuramente lì glielo cambiano senza problemi.", "ru": "Послушайте, позвоните в службу поддержки того магазина. Там вам его наверняка без проблем поменяют."},
+        {"who": "franca", "es": "Ho capito. Qui la cliente fedele non conta niente.", "ru": "Понятно. Здесь постоянная покупательница ничего не значит."}
+      ],
+      "questions": [
+        {"q": "Почему Маттео не может вернуть Франке деньги?", "kind": "stance", "options": ["У неё нет чека", "Тостер работает", "Касса уже закрыта"], "answer": 0},
+        {"q": "Что Маттео имел в виду, сказав, что эту марку не продают уже год?", "kind": "stance", "options": ["Что марка плохая", "Что тостер можно поменять на новый", "Что тостер, скорее всего, куплен не у них"], "answer": 2},
+        {"q": "Как Франка восприняла совет Маттео в конце?", "kind": "stance", "options": ["Обиделась: постоянную покупательницу не ценят", "Обрадовалась и поблагодарила", "Решила купить новый тостер"], "answer": 0}
+      ],
+      "gloss": {"indietro": "назад", "certo": "конечно", "beh": "ну", "commerciale": "торговый"}
     }
   ]
 }

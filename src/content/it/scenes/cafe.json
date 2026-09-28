@@ -73,6 +73,29 @@
         {"q": "Какой совет передал Андреа?", "options": ["Не верь тому, что видишь, верь тому, что слышишь", "Иди только ночью", "Возьми много воды"], "answer": 0}
       ],
       "gloss": {"andrea": "Андреа (имя)", "tommaso": "Томмазо (имя)", "stamattina": "сегодня утром", "appare": "появляется", "sete": "жажда", "terzo": "третий", "esiste": "существует"}
+    },
+    {
+      "id": "wh:cafe.4",
+      "chapter": 4,
+      "mode": "overhear",
+      "npc": "giulia",
+      "lines": [
+        {"who": "npc", "es": "Hai visto il ragazzo vicino alla finestra? È lì da quattro ore con un solo caffè.", "ru": "Видел парня у окна? Сидит четыре часа с одной чашкой кофе."},
+        {"who": "enzo", "es": "Starà lavorando da remoto. Anche mio cugino lavora così, dice che a casa non si concentra.", "ru": "Наверное, работает удалённо. Мой двоюродный брат тоже так работает, говорит, что дома не может сосредоточиться."},
+        {"who": "npc", "es": "Sì, ma il bar è gremito e la gente aspetta in piedi. Non è un ufficio.", "ru": "Да, но бар битком, и люди ждут стоя. Здесь не офис."},
+        {"who": "enzo", "es": "Dai, non disturba nessuno. È un cliente fedele, viene tutti i giorni.", "ru": "Да ладно, он никому не мешает. Постоянный клиент, приходит каждый день."},
+        {"who": "npc", "es": "Fedele alla mia presa, vorrai dire. Carica tutto qui: il telefono, il computer...", "ru": "Верен моей розетке, ты хотел сказать. Всё тут заряжает: телефон, компьютер..."},
+        {"who": "enzo", "es": "Va bene, va bene. Metti un cartello: «Un'ora per ogni caffè». Vediamo se capisce.", "ru": "Ладно, ладно. Повесь объявление: «Час на один кофе». Посмотрим, дойдёт ли до него."},
+        {"who": "npc", "es": "E passare per l'antipatica del quartiere? No, preferisco avere pazienza.", "ru": "И прослыть самой неприветливой в районе? Нет, лучше потерплю."},
+        {"who": "enzo", "es": "Allora non lamentarti tanto. Fammi un altro caffè, che io invece me ne vado.", "ru": "Тогда не жалуйся так. Сделай мне ещё кофе, я-то как раз ухожу."}
+      ],
+      "questions": [
+        {"q": "Почему Джулия недовольна парнем у окна?", "kind": "stance", "options": ["Он часами сидит с одним кофе, а в зале нет мест", "Он громко говорит по телефону", "Он не заплатил за кофе"], "answer": 0},
+        {"q": "Что Джулия имела в виду, сказав «верен моей розетке»?", "kind": "stance", "options": ["Что он работает электриком", "Что он ходит сюда ради розетки, а не ради бара", "Что он её старый друг"], "answer": 1},
+        {"q": "Как Энцо относится к этому парню?", "kind": "stance", "options": ["Считает, что его надо выгнать", "Не понимает, о ком речь", "Заступается: тот никому не мешает"], "answer": 2},
+        {"q": "Почему Джулия не хочет вешать объявление?", "kind": "stance", "options": ["Боится прослыть неприветливой", "Объявления запрещены", "Парень всё равно не умеет читать по-итальянски"], "answer": 0}
+      ],
+      "gloss": {"carica": "заряжает", "antipatica": "неприветливая, неприятная"}
     }
   ]
 }
