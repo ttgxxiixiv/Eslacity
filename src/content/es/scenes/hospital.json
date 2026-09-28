@@ -99,6 +99,26 @@
         {"q": "Как Кармен в итоге поступает?", "kind": "stance", "options": ["Соглашается на лёд, но направление всё равно берёт", "Идёт делать МРТ", "Обижается и уходит"], "answer": 0}
       ],
       "gloss": {"tristeza": "грусть", "reposo": "покой", "andando": "пешком"}
+    },
+    {
+      "id": "sc:hospital.4",
+      "chapter": 4,
+      "npc": "ruiz",
+      "lines": [
+        {"who": "npc", "es": "Anoche trajeron a Andrés. Se desmayó en la playa, con el frío.", "ru": "Вчера ночью привезли Андреса. Он потерял сознание на пляже от холода."},
+        {"who": "hero", "es": "¿Está bien?", "ru": "Он в порядке?"},
+        {"who": "npc", "es": "El corazón está bien, la tensión también. Pero no come y no duerme.", "ru": "Сердце в порядке, давление тоже. Но он не ест и не спит."},
+        {"who": "hero", "es": "¿Qué tiene?", "ru": "Что с ним?"},
+        {"who": "npc", "es": "Lo que tenía Iván: miedo. Y vergüenza. Sabe que todo el barrio conoce la verdad.", "ru": "То же, что было у Ивана: страх. И стыд. Он знает, что весь район знает правду."},
+        {"who": "hero", "es": "¿Puedo verle?", "ru": "Можно его навестить?"},
+        {"who": "npc", "es": "Ha preguntado por ti. Dice que quiere decirte algo a la cara.", "ru": "Он спрашивал о тебе. Говорит, хочет сказать тебе кое-что в лицо."}
+      ],
+      "questions": [
+        {"q": "Что случилось с Андресом?", "options": ["Сломал ногу", "Потерял сознание на пляже от холода", "Упал с башни"], "answer": 1},
+        {"q": "Что, по словам доктора, с ним на самом деле?", "options": ["Страх и стыд", "Сердечный приступ", "Грипп"], "answer": 0},
+        {"q": "Чего хочет Андрес?", "options": ["Уехать из города", "Вернуться в башню", "Сказать герою что-то в лицо"], "answer": 2}
+      ],
+      "gloss": {"andrés": "Андрес (имя)", "iván": "Иван (имя)", "vergüenza": "стыд", "cara": "лицо (a la cara — в лицо)", "trajeron": "привезли (traer)"}
     }
   ]
 }

@@ -99,6 +99,26 @@
         {"q": "Как Лука в итоге помогает Кьяре?", "kind": "stance", "options": ["Не берёт с неё денег", "Советует надеть тяжёлые вещи на себя", "Отправляет утюг почтой"], "answer": 1}
       ],
       "gloss": {"trentadue": "тридцать два", "ventitré": "двадцать три", "riconosciuta": "узнал (riconoscere)", "riconosce": "узнаёт (riconoscere)", "sovrappeso": "перевес", "ferro": "утюг (ferro da stiro)"}
+    },
+    {
+      "id": "sc:airport.4",
+      "chapter": 4,
+      "npc": "luca",
+      "lines": [
+        {"who": "npc", "es": "Devi sentire questa! Stamattina ho volato sopra il bosco.", "ru": "Ты должен это услышать! Сегодня утром я пролетал над лесом."},
+        {"who": "hero", "es": "E cosa hai visto?", "ru": "И что ты видел?"},
+        {"who": "npc", "es": "La nebbia comincia ad andare via. Gli alberi sono fermi, quasi non si muovono.", "ru": "Туман начинает уходить. Деревья стоят тихо, почти не шевелятся."},
+        {"who": "hero", "es": "Il rumore è finito?", "ru": "Шум закончился?"},
+        {"who": "npc", "es": "Quasi. E al centro del bosco ho visto una luce, come una lanterna.", "ru": "Почти. А в центре леса я видел свет, как от фонаря."},
+        {"who": "hero", "es": "È la Custode?", "ru": "Это Хранительница?"},
+        {"who": "npc", "es": "Sicuramente. Dall'alto si vede un sentiero che prima non c'era.", "ru": "Наверняка. Сверху видна тропа, которой раньше не было."}
+      ],
+      "questions": [
+        {"q": "Что происходит с туманом над лесом?", "options": ["Начинает уходить", "Сгущается", "Стал красным"], "answer": 0},
+        {"q": "Что Лука видел в центре леса?", "options": ["Башню", "Свет, как от фонаря", "Поезд"], "answer": 1},
+        {"q": "Что видно сверху?", "options": ["Реку", "Новый город", "Тропу, которой раньше не было"], "answer": 2}
+      ],
+      "gloss": {"lanterna": "фонарь", "muovono": "двигаются (muoversi)"}
     }
   ]
 }

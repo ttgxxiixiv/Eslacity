@@ -99,6 +99,28 @@
         {"q": "Что Хави имел в виду, сравнив разговор с рынком?", "kind": "stance", "options": ["Хочет вернуться на рынок", "Беатрис торгуется с ним из-за зарплаты", "Офис такой же шумный, как рынок"], "answer": 1}
       ],
       "gloss": {"trescientos": "триста", "durante": "в течение, во время"}
+    },
+    {
+      "id": "sc:office.4",
+      "chapter": 4,
+      "npc": "beatriz",
+      "lines": [
+        {"who": "npc", "es": "¿Sabes qué? Todo el barrio sabe ya que el hombre de la pipa es Andrés.", "ru": "Знаешь что? Весь район уже знает, что человек с трубкой — Андрес."},
+        {"who": "hero", "es": "¿Y cómo están los vecinos?", "ru": "И как соседи?"},
+        {"who": "npc", "es": "Muy enfadados. Algunos quieren denunciarle. Y algunos dicen que es un pobre hombre.", "ru": "Очень злы. Некоторые хотят заявить на него. А кто-то говорит, что он несчастный человек."},
+        {"who": "hero", "es": "¿Y tú qué piensas?", "ru": "А ты что думаешь?"},
+        {"who": "npc", "es": "Que hay que hablar. Esta noche organizo una reunión de vecinos aquí, en la oficina.", "ru": "Что надо поговорить. Сегодня вечером я устраиваю собрание соседей здесь, в офисе."},
+        {"who": "hero", "es": "¿Va a venir Andrés?", "ru": "Андрес придёт?"},
+        {"who": "npc", "es": "No lo sé. Me ha dejado una carta: «Tenía miedo de perder a alguien otra vez».", "ru": "Не знаю. Он оставил мне письмо: «Я боялся снова кого-то потерять»."},
+        {"who": "hero", "es": "¿Perder a alguien?", "ru": "Кого-то потерять?"},
+        {"who": "npc", "es": "En la torre perdió cien años y a toda su familia. Por eso no quiere que nadie entre en el bosque.", "ru": "В башне он потерял сто лет и всю свою семью. Поэтому он не хочет, чтобы кто-то входил в лес."}
+      ],
+      "questions": [
+        {"q": "Что хотят сделать некоторые соседи?", "options": ["Уехать из города", "Заявить на Андреса", "Устроить праздник"], "answer": 1},
+        {"q": "Что Беатрис устраивает вечером?", "options": ["Собрание соседей в офисе", "Ужин в ресторане", "Суд"], "answer": 0},
+        {"q": "Почему Андрес пугал город лесом?", "options": ["Хотел денег", "Не любит лес", "Боялся снова кого-то потерять"], "answer": 2}
+      ],
+      "gloss": {"pipa": "трубка (курительная)", "andrés": "Андрес (имя)", "denunciarle": "заявить на него (denunciar)", "otra": "снова (otra vez)"}
     }
   ]
 }

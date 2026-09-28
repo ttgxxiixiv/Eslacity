@@ -62,6 +62,29 @@
         "alc": {"kind": "answer", "task": "Спросите, нужно ли вам дуть в алкотестер.", "branches": [{"phrase": "ph:police.devo-fare-alcoltest", "next": "end"}], "wrong": {"es": "Devo fare una torta? No, non quello.", "ru": "Мне надо испечь торт? Нет, не это."}},
         "end": {"kind": "say", "es": "Tu? Vai in bicicletta e bevi solo acqua. Prendi il mio pezzo della mappa del deserto. E ricorda il messaggio: ascolta gli alberi.", "ru": "Ты? Ты ездишь на велосипеде и пьёшь только воду. Держи мой обрывок карты пустыни. И помни послание: слушай деревья."}
       }
+    },
+    {
+      "id": "ms:police.4",
+      "chapter": 4,
+      "npc": "rinaldi",
+      "scene": "sc:police.4",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Entra. Devo chiudere il caso delle voci del bosco, e non è facile.", "ru": "Проходи. Мне надо закрыть дело о голосах из леса, а это непросто.", "next": "proof"},
+        "proof": {"kind": "answer", "task": "Спросите, есть ли против него доказательства.", "branches": [{"phrase": "ph:police.ci-sono-prove-contro", "next": "proofsay"}], "wrong": {"es": "Ci sono piume contro di lui? Tante, nere.", "ru": "Против него есть перья? Много, чёрных."}},
+        "proofsay": {"kind": "say", "es": "Tante: monete, piume, un biglietto... e quello che ha detto ieri davanti a tutto il quartiere.", "ru": "Много: монеты, перья, билет... и то, что он вчера сказал перед всем районом.", "next": "penalty"},
+        "penalty": {"kind": "answer", "task": "Спросите, какое наказание ему грозит.", "branches": [{"phrase": "ph:police.che-pena-rischia", "next": "penaltysay"}], "wrong": {"es": "Che pena? Sì, che pena, poveretto.", "ru": "Какое наказание? Да, какая жалость, бедняга."}},
+        "penaltysay": {"kind": "say", "es": "Per il panico in banca, una multa grande. La legge dice che devo dargli una multa.", "ru": "За панику в банке — большой штраф. По закону я должен его оштрафовать.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:police.non-cattiva-intenzione", "next": "object", "move": "object"}, {"phrase": "ph:police.legge-e-legge", "next": "concede", "move": "concede"}, {"phrase": "ph:police.ripara-danno-quartiere", "next": "compromise", "move": "compromise"}], "wrong": {"es": "Cosa dici? Parla chiaro, questa è una questura.", "ru": "Что ты говоришь? Говори яснее, это полицейский участок."}},
+        "object": {"kind": "say", "es": "Solo paura? ...È vero. E la paura non si cura con le multe. Niente multa.", "ru": "Только страх? ...Это правда. А страх штрафами не лечат. Без штрафа.", "next": "closed"},
+        "concede": {"kind": "say", "es": "Esatto. Ma la metà la pago io: neanch'io ho visto la verità in tempo.", "ru": "Именно. Но половину заплачу я: я тоже не увидел правду вовремя.", "next": "closed"},
+        "compromise": {"kind": "say", "es": "Aiutando il quartiere? Un mese a pulire il muro della posta e a curare il parco... Mi piace.", "ru": "Помогая району? Месяц отмывать стену почты и ухаживать за парком... Мне нравится.", "next": "closed"},
+        "closed": {"kind": "say", "es": "Caso chiuso. Domani entri nel bosco. Vuoi compagnia?", "ru": "Дело закрыто. Завтра ты входишь в лес. Хочешь, чтобы тебя проводили?", "next": "agent"},
+        "agent": {"kind": "answer", "task": "Попросите полицейского вас сопроводить.", "branches": [{"phrase": "ph:police.serve-agente", "next": "agentsay"}], "wrong": {"es": "Ti serve un corvo? Quello adesso riposa.", "ru": "Тебе нужен ворон? Он сейчас отдыхает."}},
+        "agentsay": {"kind": "say", "es": "Ti accompagno io fino al margine. Ma dentro il bosco vai da solo. Perché non partiamo adesso?", "ru": "Я провожу тебя до опушки. Но в лесу ты пойдёшь один. Почему бы не выехать прямо сейчас?", "next": "traffic"},
+        "traffic": {"kind": "answer", "task": "Скажите, что на автостраде большие пробки.", "branches": [{"phrase": "ph:police.c-molto-traffico", "next": "end"}], "wrong": {"es": "Ci sono tanti alberi sull'autostrada? Non ancora.", "ru": "На автостраде много деревьев? Пока нет."}},
+        "end": {"kind": "say", "es": "Allora domani alle sei. E prendi l'ultimo pezzo della mappa del bosco: era tra le prove del caso. Non è più una prova: è la tua strada.", "ru": "Тогда завтра в шесть. И возьми последний обрывок карты леса: он лежал среди улик по делу. Теперь это не улика, а твой путь."}
+      }
     }
   ]
 }

@@ -99,6 +99,28 @@
         {"q": "Чего добивается Вега?", "kind": "stance", "options": ["Задержать племянника", "Чтобы стену отмыли, а не чтобы кого-то наказать", "Оштрафовать Рафу"], "answer": 1}
       ],
       "gloss": {"enorme": "огромный", "detective": "детектив", "rafa": "Рафа (имя)", "dibuja": "рисует (dibujar)"}
+    },
+    {
+      "id": "sc:police.4",
+      "chapter": 4,
+      "npc": "vega",
+      "lines": [
+        {"who": "npc", "es": "Anoche estuve en la reunión de vecinos. Nunca había visto algo así.", "ru": "Вчера вечером я была на собрании соседей. Никогда такого не видела."},
+        {"who": "hero", "es": "¿Vino Andrés?", "ru": "Андрес пришёл?"},
+        {"who": "npc", "es": "Vino. Se levantó y dijo a todo el barrio: «Enseñé mentiras al cuervo porque tenía miedo. Perdón».", "ru": "Пришёл. Встал и сказал всему району: «Я учил ворона лжи, потому что боялся. Простите»."},
+        {"who": "hero", "es": "¿Y qué hicieron los vecinos?", "ru": "А что сделали соседи?"},
+        {"who": "npc", "es": "Primero, silencio. Después, la chica de la tienda de ropa le abrazó. Y el jefe de la estación le ofreció tabaco para su pipa.", "ru": "Сначала тишина. Потом девушка из магазина одежды его обняла. А начальник станции предложил ему табаку для трубки."},
+        {"who": "hero", "es": "¿Y el bosque?", "ru": "А лес?"},
+        {"who": "npc", "es": "A las doce de la noche se quedó en silencio. Y se oyó una voz, muy clara.", "ru": "В полночь он затих. И раздался голос, очень чистый."},
+        {"who": "hero", "es": "¿Qué dijo?", "ru": "Что он сказал?"},
+        {"who": "npc", "es": "«Ahora oigo el camino. Que venga quien trajo la paz». Creo que habla de ti.", "ru": "«Теперь я слышу тропу. Пусть придёт тот, кто принёс мир». Думаю, это про тебя."}
+      ],
+      "questions": [
+        {"q": "Что сказал Андрес на собрании?", "options": ["Что уезжает из города", "Что учил ворона лжи от страха, и попросил прощения", "Что ворон не его"], "answer": 1},
+        {"q": "Как поступили соседи?", "options": ["Простили его: его обняли и предложили табаку", "Выгнали его", "Промолчали и разошлись"], "answer": 0},
+        {"q": "Что сказал голос в полночь?", "options": ["Лес закрыт навсегда", "Всем надо уйти", "Теперь тропа слышна, и пусть придёт тот, кто принёс мир"], "answer": 2}
+      ],
+      "gloss": {"andrés": "Андрес (имя)", "cuervo": "ворон", "abrazó": "обняла (abrazar)", "tabaco": "табак", "pipa": "трубка (курительная)", "trajo": "принёс (traer)", "ofreció": "предложил (ofrecer)"}
     }
   ]
 }

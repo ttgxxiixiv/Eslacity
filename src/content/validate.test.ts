@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+import { isDispute } from '../domain/mission';
 import type { LocationWords, Word } from './schema';
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
@@ -430,19 +431,24 @@ describe('validateMissions', () => {
   });
 });
 
-describe('сцены и миссии глав I–III: контент', () => {
-  // У каждого из 20 мест в обоих языках есть сцена и сюжетная миссия глав I, II и III с жителем этого места (задачи 4.6 и 4.7).
-  it('у каждого места сцены и миссии глав 1–3', () => {
+describe('сцены и миссии глав I–IV: контент', () => {
+  // У каждого из 20 мест в обоих языках есть сцена и сюжетная миссия глав I–IV с жителем этого места (задачи 4.6, 4.7 и 6.3),
+  // в миссии главы IV — спор, и у места 5 фраз уровня 6.
+  it('у каждого места сцены и миссии глав 1–4', () => {
     for (const lang of ['es', 'it']) {
       const npcs = (JSON.parse(readFileSync(join(import.meta.dirname, lang, 'npcs.json'), 'utf8')) as NpcsFile).npcs;
       for (const loc of LOCATION_IDS) {
         const scenes = (JSON.parse(readFileSync(join(import.meta.dirname, lang, 'scenes', `${loc}.json`), 'utf8')) as LocationScenes).scenes;
         const missions = (JSON.parse(readFileSync(join(import.meta.dirname, lang, 'missions', `${loc}.json`), 'utf8')) as LocationMissions).missions;
         const npc = npcs.find((n) => n.location === loc)?.id;
-        for (const ch of [1, 2, 3]) {
+        for (const ch of [1, 2, 3, 4]) {
           expect(scenes.find((s) => s.id === `sc:${loc}.${ch}`)?.npc, `${lang}/${loc}.${ch}`).toBe(npc);
           expect(missions.find((m) => m.id === `ms:${loc}.${ch}`)?.scene, `${lang}/${loc}.${ch}`).toBe(`sc:${loc}.${ch}`);
         }
+        const four = missions.find((m) => m.id === `ms:${loc}.4`)!;
+        expect(Object.values(four.nodes).some((n) => n.kind === 'answer' && isDispute(n)), `${lang}/${loc} спор`).toBe(true);
+        const phrases = (JSON.parse(readFileSync(join(import.meta.dirname, lang, 'phrases', `${loc}.json`), 'utf8')) as LocationPhrases).phrases;
+        expect(phrases.filter((p) => p.level === 6), `${lang}/${loc} фразы уровня 6`).toHaveLength(5);
       }
     }
   });

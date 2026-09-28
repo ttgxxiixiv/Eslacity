@@ -99,6 +99,26 @@
         {"q": "Как Лео в итоге помогает Марте?", "kind": "stance", "options": ["Не берёт с неё денег", "Советует надеть тяжёлые вещи на себя", "Отправляет утюг почтой"], "answer": 1}
       ],
       "gloss": {"máximo": "максимум", "veintitrés": "двадцать три", "reconocido": "узнал (reconocer)", "reconoce": "узнаёт (reconocer)", "grados": "градусы"}
+    },
+    {
+      "id": "sc:airport.4",
+      "chapter": 4,
+      "npc": "leo",
+      "lines": [
+        {"who": "npc", "es": "¡Tienes que oír esto! Esta mañana volé sobre el bosque.", "ru": "Ты должен это услышать! Сегодня утром я пролетал над лесом."},
+        {"who": "hero", "es": "¿Y qué viste?", "ru": "И что ты видел?"},
+        {"who": "npc", "es": "La niebla empieza a irse. Los árboles están quietos, casi no se mueven.", "ru": "Туман начинает уходить. Деревья стоят тихо, почти не шевелятся."},
+        {"who": "hero", "es": "¿El ruido ha terminado?", "ru": "Шум закончился?"},
+        {"who": "npc", "es": "Casi. Y en el centro del bosque vi una luz, como un farol.", "ru": "Почти. А в центре леса я видел свет, как от фонаря."},
+        {"who": "hero", "es": "¿Es la Guardiana?", "ru": "Это Хранительница?"},
+        {"who": "npc", "es": "Seguro que sí. Desde arriba se ve un camino que antes no estaba.", "ru": "Наверняка. Сверху видна тропа, которой раньше не было."}
+      ],
+      "questions": [
+        {"q": "Что происходит с туманом над лесом?", "options": ["Начинает уходить", "Сгущается", "Стал красным"], "answer": 0},
+        {"q": "Что Лео видел в центре леса?", "options": ["Башню", "Свет, как от фонаря", "Поезд"], "answer": 1},
+        {"q": "Что видно сверху?", "options": ["Реку", "Новый город", "Тропу, которой раньше не было"], "answer": 2}
+      ],
+      "gloss": {"quietos": "неподвижные", "farol": "фонарь", "mueven": "двигаются (moverse)"}
     }
   ]
 }

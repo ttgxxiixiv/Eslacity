@@ -61,6 +61,31 @@
         "baja": {"kind": "answer", "task": "Скажите, что вам нужна справка для работы.", "branches": [{"phrase": "ph:hospital.serve-certificato-medico", "next": "end"}], "wrong": {"es": "Le serve un biglietto per il treno della luna? Quello, in stazione.", "ru": "Нужен билет на лунный поезд? Это на вокзале."}},
         "end": {"kind": "say", "es": "Tre giorni di riposo. E prenda il mio pezzo della mappa del deserto. Si ricordi: nel bosco, ascolti.", "ru": "Три дня отдыха. И возьмите мой обрывок карты пустыни. Помните: в лесу — слушайте."}
       }
+    },
+    {
+      "id": "ms:hospital.4",
+      "chapter": 4,
+      "npc": "conti",
+      "scene": "sc:hospital.4",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Entri. Andrea dorme un po'. Intanto devo decidere una cosa.", "ru": "Проходите. Андреа немного спит. А мне пока нужно кое-что решить.", "next": "pressure"},
+        "pressure": {"kind": "answer", "task": "Спросите, измерили ли ему давление.", "branches": [{"phrase": "ph:hospital.preso-pressione", "next": "pressuresay"}], "wrong": {"es": "Gli avete preso il bosco? È troppo grande.", "ru": "Вы взяли у него лес? Он слишком большой."}},
+        "pressuresay": {"kind": "say", "es": "Sì, normale. E ieri gli abbiamo fatto tutte le analisi.", "ru": "Да, в норме. А вчера мы сделали ему все анализы.", "next": "mri"},
+        "mri": {"kind": "answer", "task": "Спросите, будут ли делать ему МРТ.", "branches": [{"phrase": "ph:hospital.fare-risonanza", "next": "mrisay"}], "wrong": {"es": "Gli farete una festa? Qui no.", "ru": "Ему устроят праздник? Здесь — нет."}},
+        "mrisay": {"kind": "say", "es": "Non serve. Il suo problema non si vede in una risonanza. Per questo ho deciso: una settimana in ospedale, senza visite. Deve riposare.", "ru": "Не нужно. Его болезнь на МРТ не увидишь. Поэтому я решил: неделя в больнице, без посетителей. Ему нужен отдых.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:hospital.ha-bisogno-parlare", "next": "object", "move": "object"}, {"phrase": "ph:hospital.lei-e-medico", "next": "concede", "move": "concede"}, {"phrase": "ph:hospital.solo-visita-famiglia", "next": "compromise", "move": "compromise"}], "wrong": {"es": "Come dice? Parli più piano, qui ci sono malati.", "ru": "Что вы сказали? Говорите тише, здесь больные."}},
+        "object": {"kind": "say", "es": "Parlare? Ha ragione. Cento anni da solo in una torre... La solitudine è la sua malattia. Può entrare.", "ru": "Поговорить? Вы правы. Сто лет один в башне... Одиночество — вот его болезнь. Можете пройти.", "next": "diag"},
+        "concede": {"kind": "say", "es": "Grazie per la fiducia. Ma oggi, per lei, cinque minuti.", "ru": "Спасибо за доверие. Но сегодня, для вас, — пять минут.", "next": "diag"},
+        "compromise": {"kind": "say", "es": "Solo la famiglia? Allora sua nipote e lei. Lei è quasi di famiglia ormai.", "ru": "Только семья? Тогда его родственница и вы. Вы уже почти родной.", "next": "diag"},
+        "diag": {"kind": "say", "es": "Andrea la aspetta. Prima vuole sapere qualcos'altro di lui?", "ru": "Андреа вас ждёт. Хотите что-нибудь ещё о нём узнать?", "next": "diagask"},
+        "diagask": {"kind": "answer", "task": "Спросите, какой диагноз.", "branches": [{"phrase": "ph:hospital.qual-diagnosi", "next": "diagsay"}], "wrong": {"es": "Qual è la strada? Quella è sulla mappa.", "ru": "Какая дорога? Это по карте."}},
+        "diagsay": {"kind": "say", "es": "Paura, e tanta vergogna. In questa città la paura passa da una persona all'altra molto in fretta.", "ru": "Страх и большой стыд. В этом городе страх очень быстро передаётся от человека к человеку.", "next": "contag"},
+        "contag": {"kind": "answer", "task": "Спросите, заразно ли это.", "branches": [{"phrase": "ph:hospital.contagioso", "next": "contagsay"}], "wrong": {"es": "È contagioso il corvo? Solo le sue parole.", "ru": "Ворон заразен? Только его слова."}},
+        "contagsay": {"kind": "say", "es": "La paura, sì. Ma anche il coraggio. E lei? Cammina male.", "ru": "Страх — да. Но и смелость тоже. А вы? Вы странно ходите.", "next": "foot"},
+        "foot": {"kind": "answer", "task": "Скажите, что у вас болит нога.", "branches": [{"phrase": "ph:hospital.fa-male-piede", "next": "end"}], "wrong": {"es": "Le fa male il bosco? Quello non lo curo io.", "ru": "У вас болит лес? Это я не лечу."}},
+        "end": {"kind": "say", "es": "Tanto camminare per il quartiere... Prenda questa crema. E questo: Andrea mi ha dato per lei questo pezzo della mappa del bosco. Dice che stasera verrà alla riunione.", "ru": "Столько ходить по району... Возьмите этот крем. И вот ещё: Андреа дал мне для вас обрывок карты леса. Говорит, вечером придёт на собрание."}
+      }
     }
   ]
 }

@@ -62,6 +62,31 @@
         "review": {"kind": "answer", "task": "Скажите, что оставите хороший отзыв.", "branches": [{"phrase": "ph:hotel.lascero-bella-recensione", "next": "end"}], "wrong": {"es": "Lasci qui il cammello? Qui no, per favore.", "ru": "Оставишь здесь верблюда? Только не здесь, пожалуйста."}},
         "end": {"kind": "say", "es": "Grazie mille. E prenda la busta di Ivo: i pezzi veri. E anche il mio pezzo della mappa del deserto.", "ru": "Большое спасибо. И возьмите конверт от Иво: настоящие обрывки. И мой обрывок карты пустыни тоже."}
       }
+    },
+    {
+      "id": "ms:hotel.4",
+      "chapter": 4,
+      "npc": "elisa",
+      "scene": "sc:hotel.4",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Benvenuto. Oggi l'albergo è pieno di gente che viene alla riunione. Resti a dormire?", "ru": "Добро пожаловать. Сегодня отель полон: все приехали на собрание. Остаёшься ночевать?", "next": "rooms"},
+        "rooms": {"kind": "answer", "task": "Спросите, есть ли свободные номера.", "branches": [{"phrase": "ph:hotel.ci-sono-camere", "next": "roomssay"}], "wrong": {"es": "Ci sono corvi disponibili? Solo uno, e non è nostro.", "ru": "Есть свободные вороны? Только один, и он не наш."}},
+        "roomssay": {"kind": "say", "es": "Ne resta una, piccola. All'ultimo piano.", "ru": "Остался один, маленький. На последнем этаже.", "next": "view"},
+        "view": {"kind": "answer", "task": "Спросите, видно ли из номера море.", "branches": [{"phrase": "ph:hotel.camera-vista-mare", "next": "viewsay"}], "wrong": {"es": "Ha la vista bosco? Da qui non si vede.", "ru": "Вид на лес? Отсюда его не видно."}},
+        "viewsay": {"kind": "say", "es": "Sul parcheggio, mi dispiace. Senti, ho un problema: Ivo vuole restare qui, ma non mi fido. Poco tempo fa vendeva bugie. Non gli do la camera.", "ru": "На парковку, прости. Слушай, у меня проблема: Иво хочет здесь остановиться, но я ему не доверяю. Недавно он торговал ложью. Не дам ему номер.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:hotel.merita-nuova-possibilita", "next": "object", "move": "object"}, {"phrase": "ph:hotel.non-ti-fidi-lui", "next": "concede", "move": "concede"}, {"phrase": "ph:hotel.lavora-in-cambio", "next": "compromise", "move": "compromise"}], "wrong": {"es": "Cosa? Con tanti clienti non ti capisco.", "ru": "Что? Столько гостей, я тебя не понимаю."}},
+        "object": {"kind": "say", "es": "Una nuova possibilità? ...È vero. È stato il primo a dire la verità a una Custode. Gli do la camera.", "ru": "Второй шанс? ...Это правда. Он первым сказал правду Хранительнице. Даю ему номер.", "next": "checkout"},
+        "concede": {"kind": "say", "es": "Grazie. Una direttrice deve pensare ai suoi clienti.", "ru": "Спасибо. Директор должна думать о своих гостях.", "next": "checkout"},
+        "compromise": {"kind": "say", "es": "Lavorare qui? Mi serve qualcuno alla reception di notte... Affare fatto!", "ru": "Работать здесь? Мне нужен кто-то на ресепшене по ночам... Договорились!", "next": "checkout"},
+        "checkout": {"kind": "say", "es": "La tua camera è pronta. Quando parti domani?", "ru": "Твой номер готов. Когда ты завтра уезжаешь?", "next": "late"},
+        "late": {"kind": "answer", "task": "Спросите, можно ли выехать попозже.", "branches": [{"phrase": "ph:hotel.check-out-posticipato", "next": "latesay"}], "wrong": {"es": "Un check-out nel bosco? Domani, con la mappa.", "ru": "Выезд в лес? Завтра, с картой."}},
+        "latesay": {"kind": "say", "es": "Certo, fino alle due. La riunione finirà tardi.", "ru": "Конечно, до двух. Собрание закончится поздно.", "next": "wake"},
+        "wake": {"kind": "answer", "task": "Попросите разбудить вас в семь.", "branches": [{"phrase": "ph:hotel.puo-svegliare-alle", "next": "wakesay"}], "wrong": {"es": "Mi può svegliare il corvo? No, grazie.", "ru": "Меня разбудит ворон? Нет уж, спасибо."}},
+        "wakesay": {"kind": "say", "es": "Alle sette, va bene. Altro?", "ru": "В семь, хорошо. Что-нибудь ещё?", "next": "review"},
+        "review": {"kind": "answer", "task": "Скажите, что оставите хороший отзыв.", "branches": [{"phrase": "ph:hotel.lascero-bella-recensione", "next": "end"}], "wrong": {"es": "Lasci una piuma? Ne abbiamo già tante.", "ru": "Оставишь перо? У нас их и так много."}},
+        "end": {"kind": "say", "es": "Grazie! E prendi: Ivo ha portato questo dal bosco per te. Un pezzo della mappa. Dice che è quasi completa.", "ru": "Спасибо! И держи: Иво принёс это из леса для тебя. Обрывок карты. Говорит, она почти собрана."}
+      }
     }
   ]
 }

@@ -100,6 +100,28 @@
         {"q": "Чем всё закончилось?", "kind": "stance", "options": ["Исабель нашла хостел у своей кузины", "Пако отменил приезд семьи", "Исабель освободила пять номеров"], "answer": 0}
       ],
       "gloss": {"misma": "та же самая", "inventar": "выдумать", "ofreciendo": "предлагаешь (ofrecer)"}
+    },
+    {
+      "id": "sc:hotel.4",
+      "chapter": 4,
+      "npc": "isabel",
+      "lines": [
+        {"who": "npc", "es": "¡Buenos días! ¿Sabes qué? Me han dado el puesto: ahora soy la directora del hotel.", "ru": "Доброе утро! Знаешь что? Мне дали должность: теперь я директор отеля."},
+        {"who": "hero", "es": "¡Enhorabuena!", "ru": "Поздравляю!"},
+        {"who": "npc", "es": "Gracias. Y tenemos un cliente especial: Iván ha vuelto del bosque para ayudarnos.", "ru": "Спасибо. А у нас особый гость: Иван вернулся из леса, чтобы нам помочь."},
+        {"who": "hero", "es": "¿Qué cuenta del bosque?", "ru": "Что он рассказывает о лесе?"},
+        {"who": "npc", "es": "Que cada día está más tranquilo. Cada vez que alguien hace las paces, una voz desaparece.", "ru": "Что там с каждым днём тише. Каждый раз, когда кто-то мирится, один голос пропадает."},
+        {"who": "hero", "es": "¿Y queda alguna voz?", "ru": "А какой-то голос ещё остался?"},
+        {"who": "npc", "es": "Una sola, muy fuerte: el miedo de Andrés.", "ru": "Один, очень громкий: страх Андреса."},
+        {"who": "hero", "es": "¿Qué quiere la Guardiana?", "ru": "Чего хочет Хранительница?"},
+        {"who": "npc", "es": "Iván dice que quiere oír a Andrés decir la verdad. A la cara, y a todo el barrio.", "ru": "Иван говорит, она хочет услышать, как Андрес скажет правду. В лицо, всему району."}
+      ],
+      "questions": [
+        {"q": "Какая новость у Исабель?", "options": ["Она теперь директор отеля", "Отель закрывается", "Она уезжает"], "answer": 0},
+        {"q": "Что происходит с голосами в лесу?", "options": ["Их всё больше", "Когда кто-то мирится, один голос пропадает", "Они поют"], "answer": 1},
+        {"q": "Какой голос в лесу ещё остался?", "options": ["Голос ворона", "Голос Ивана", "Страх Андреса"], "answer": 2}
+      ],
+      "gloss": {"enhorabuena": "поздравляю", "iván": "Иван (имя)", "paces": "мир (hacer las paces — помириться)", "andrés": "Андрес (имя)", "cara": "лицо (a la cara — в лицо)"}
     }
   ]
 }

@@ -60,6 +60,31 @@
         "lost": {"kind": "answer", "task": "Спросите, где бюро находок.", "branches": [{"phrase": "ph:airport.dov-ufficio-oggetti", "next": "end"}], "wrong": {"es": "Dov'è casa mia? Quella, in città.", "ru": "Где мой дом? Это в городе."}},
         "end": {"kind": "say", "es": "Lì. Anche lui ci è andato ieri: cercava una cosa che aveva perso nel bosco tanti anni fa. Credo che l'abbia trovata. Prendi il mio pezzo della mappa del deserto.", "ru": "Вон там. Он тоже туда ходил вчера: искал то, что потерял в лесу много лет назад. Думаю, он нашёл. Держи мой обрывок карты пустыни."}
       }
+    },
+    {
+      "id": "ms:airport.4",
+      "chapter": 4,
+      "npc": "luca",
+      "scene": "sc:airport.4",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Oggi è una giornata terribile. Tre voli in ritardo per la nebbia del bosco. Anche il tuo.", "ru": "У меня сегодня ужасный день. Три рейса задерживаются из-за тумана над лесом. Твой тоже.", "next": "conn"},
+        "conn": {"kind": "answer", "task": "Спросите, не опоздаете ли вы на стыковочный рейс.", "branches": [{"phrase": "ph:airport.perdo-volo-coincidenza", "next": "connsay"}], "wrong": {"es": "Perdo il corvo? Quello vola da solo.", "ru": "Потеряю ворона? Он летает сам."}},
+        "connsay": {"kind": "say", "es": "No, tranquillo: anche il secondo volo parte tardi.", "ru": "Нет, не волнуйся: второй рейс тоже вылетает позже.", "next": "comp"},
+        "comp": {"kind": "answer", "task": "Скажите, что хотите получить компенсацию за задержку.", "branches": [{"phrase": "ph:airport.chiedere-risarcimento", "next": "compsay"}], "wrong": {"es": "Un risarcimento dal bosco? Il bosco non paga.", "ru": "Компенсация от леса? Лес не платит."}},
+        "compsay": {"kind": "say", "es": "Compila questo modulo. Senti, ho un'idea: ti porto con un piccolo aereo al centro del bosco. Niente camminare.", "ru": "Заполни этот бланк. Слушай, у меня идея: отвезу тебя на маленьком самолёте прямо в центр леса. Никакой ходьбы.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:airport.nel-bosco-a-piedi", "next": "object", "move": "object"}, {"phrase": "ph:airport.sarebbe-piu-veloce", "next": "concede", "move": "concede"}, {"phrase": "ph:airport.voliamo-vedere-sentiero", "next": "compromise", "move": "compromise"}], "wrong": {"es": "Cosa? Con i motori non ti sento.", "ru": "Что? Из-за моторов я тебя не слышу."}},
+        "object": {"kind": "say", "es": "A piedi? Hai ragione. La Custode vuole sentire dei passi, non dei motori.", "ru": "Пешком? Ты прав. Хранительница хочет слышать шаги, а не моторы.", "next": "seat"},
+        "concede": {"kind": "say", "es": "Vero? Però... senza il permesso della torre di controllo non posso partire. Meglio pensarci.", "ru": "Правда? Хотя... без разрешения диспетчерской вышки я не взлечу. Лучше подумаем.", "next": "seat"},
+        "compromise": {"kind": "say", "es": "Solo per guardare? Perfetto: venti minuti, e poi vai a piedi come tutti.", "ru": "Только посмотреть? Отлично: двадцать минут, а потом идёшь пешком, как все.", "next": "seat"},
+        "seat": {"kind": "say", "es": "Bene, pensiamo al tuo volo. Che posto vuoi?", "ru": "Ладно, займёмся твоим рейсом. Какое место хочешь?", "next": "aisle"},
+        "aisle": {"kind": "answer", "task": "Попросите место у прохода.", "branches": [{"phrase": "ph:airport.posto-corridoio", "next": "aislesay"}], "wrong": {"es": "Un posto nel bosco? Lì ci sono i tronchi.", "ru": "Место в лесу? Там есть брёвна."}},
+        "aislesay": {"kind": "say", "es": "Corridoio, fila dodici. Hai qualcosa nello zaino?", "ru": "У прохода, двенадцатый ряд. Что-нибудь везёшь в рюкзаке?", "next": "liquids"},
+        "liquids": {"kind": "answer", "task": "Спросите, можно ли брать жидкости на борт.", "branches": [{"phrase": "ph:airport.posso-portare-liquidi", "next": "liquidssay"}], "wrong": {"es": "Posso portare un corvo a bordo? Solo in gabbia.", "ru": "Можно взять на борт ворона? Только в клетке."}},
+        "liquidssay": {"kind": "say", "es": "Poco, in bottigliette piccole. E dopo questo volo, continui il viaggio?", "ru": "Немного, в маленьких флаконах. А после этого рейса летишь дальше?", "next": "transit"},
+        "transit": {"kind": "answer", "task": "Скажите, что вы транзитом.", "branches": [{"phrase": "ph:airport.sono-transito", "next": "end"}], "wrong": {"es": "Sei nel bosco? Non ancora.", "ru": "Ты в лесу? Ещё нет."}},
+        "end": {"kind": "say", "es": "In transito, come tutti questa settimana. Prendi questo: l'ho trovato in cabina dopo il volo. Un pezzo della mappa del bosco. È caduto dal cielo, ah ah.", "ru": "Транзитом, как и все на этой неделе. Держи: я нашёл это в салоне после рейса. Обрывок карты леса. Упал с неба, ха-ха."}
+      }
     }
   ]
 }

@@ -100,6 +100,28 @@
         {"q": "Чем всё закончилось?", "kind": "stance", "options": ["Элиза нашла хостел у своей кузины", "Сальваторе отменил приезд семьи", "Элиза освободила пять номеров"], "answer": 0}
       ],
       "gloss": {"davvero": "правда, действительно", "inventare": "выдумать"}
+    },
+    {
+      "id": "sc:hotel.4",
+      "chapter": 4,
+      "npc": "elisa",
+      "lines": [
+        {"who": "npc", "es": "Sai una cosa? Mi hanno dato il posto: adesso sono io il capo dell'albergo.", "ru": "Знаешь что? Мне дали должность: теперь я директор отеля."},
+        {"who": "hero", "es": "Che bello!", "ru": "Как здорово!"},
+        {"who": "npc", "es": "Grazie. E abbiamo un cliente speciale: Ivo è tornato dal bosco per aiutarci.", "ru": "Спасибо. А у нас особый гость: Иво вернулся из леса, чтобы нам помочь."},
+        {"who": "hero", "es": "Cosa racconta del bosco?", "ru": "Что он рассказывает о лесе?"},
+        {"who": "npc", "es": "Che ogni giorno è più tranquillo. Ogni volta che qualcuno fa pace, una voce sparisce.", "ru": "Что там с каждым днём тише. Каждый раз, когда кто-то мирится, один голос пропадает."},
+        {"who": "hero", "es": "E resta qualche voce?", "ru": "А какой-то голос ещё остался?"},
+        {"who": "npc", "es": "Una sola, molto forte: la paura di Andrea.", "ru": "Один, очень громкий: страх Андреа."},
+        {"who": "hero", "es": "Cosa vuole la Custode?", "ru": "Чего хочет Хранительница?"},
+        {"who": "npc", "es": "Ivo dice che vuole sentire Andrea dire la verità. In faccia, a tutto il quartiere.", "ru": "Иво говорит, она хочет услышать, как Андреа скажет правду. В лицо, всему району."}
+      ],
+      "questions": [
+        {"q": "Какая новость у Элизы?", "options": ["Она теперь директор отеля", "Отель закрывается", "Она уезжает"], "answer": 0},
+        {"q": "Что происходит с голосами в лесу?", "options": ["Их всё больше", "Когда кто-то мирится, один голос пропадает", "Они поют"], "answer": 1},
+        {"q": "Какой голос в лесу ещё остался?", "options": ["Голос ворона", "Голос Иво", "Страх Андреа"], "answer": 2}
+      ],
+      "gloss": {"ivo": "Иво (имя)", "sparisce": "пропадает (sparire)", "andrea": "Андреа (имя)", "faccia": "лицо (in faccia — в лицо)"}
     }
   ]
 }

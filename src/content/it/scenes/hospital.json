@@ -99,6 +99,26 @@
         {"q": "Как Роза в итоге поступает?", "kind": "stance", "options": ["Соглашается на лёд, но направление всё равно берёт", "Идёт делать МРТ", "Обижается и уходит"], "answer": 0}
       ],
       "gloss": {"tristezza": "грусть", "bravo": "хороший, умелый"}
+    },
+    {
+      "id": "sc:hospital.4",
+      "chapter": 4,
+      "npc": "conti",
+      "lines": [
+        {"who": "npc", "es": "Stanotte hanno portato qui Andrea. È svenuto in spiaggia, per il freddo.", "ru": "Этой ночью сюда привезли Андреа. Он потерял сознание на пляже от холода."},
+        {"who": "hero", "es": "Sta bene?", "ru": "Он в порядке?"},
+        {"who": "npc", "es": "Il cuore sta bene, la pressione anche. Ma non mangia e non dorme.", "ru": "Сердце в порядке, давление тоже. Но он не ест и не спит."},
+        {"who": "hero", "es": "Cos'ha?", "ru": "Что с ним?"},
+        {"who": "npc", "es": "Quello che aveva Ivo: paura. E vergogna. Sa che tutto il quartiere conosce la verità.", "ru": "То же, что было у Иво: страх. И стыд. Он знает, что весь район знает правду."},
+        {"who": "hero", "es": "Posso vederlo?", "ru": "Можно его навестить?"},
+        {"who": "npc", "es": "Ha chiesto di te. Dice che vuole dirti una cosa in faccia.", "ru": "Он спрашивал о тебе. Говорит, хочет сказать тебе кое-что в лицо."}
+      ],
+      "questions": [
+        {"q": "Что случилось с Андреа?", "options": ["Сломал ногу", "Потерял сознание на пляже от холода", "Упал с башни"], "answer": 1},
+        {"q": "Что, по словам доктора, с ним на самом деле?", "options": ["Страх и стыд", "Сердечный приступ", "Грипп"], "answer": 0},
+        {"q": "Чего хочет Андреа?", "options": ["Уехать из города", "Вернуться в башню", "Сказать герою что-то в лицо"], "answer": 2}
+      ],
+      "gloss": {"andrea": "Андреа (имя)", "ivo": "Иво (имя)", "svenuto": "потерял сознание (svenire)", "vergogna": "стыд", "faccia": "лицо (in faccia — в лицо)"}
     }
   ]
 }

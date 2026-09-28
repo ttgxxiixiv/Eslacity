@@ -99,6 +99,28 @@
         {"q": "Чего добивается Ринальди?", "kind": "stance", "options": ["Арестовать племянника", "Чтобы стену отмыли, а не чтобы кого-то наказать", "Оштрафовать Энцо"], "answer": 1}
       ],
       "gloss": {"enorme": "огромный", "commissario": "комиссар", "detective": "детектив", "certo": "конечно", "enzo": "Энцо (имя)", "beh": "ну", "disegna": "рисует (disegnare)", "secchio": "ведро"}
+    },
+    {
+      "id": "sc:police.4",
+      "chapter": 4,
+      "npc": "rinaldi",
+      "lines": [
+        {"who": "npc", "es": "Ieri sera ero alla riunione dei vicini. Non avevo mai visto una cosa così.", "ru": "Вчера вечером я был на собрании соседей. Никогда такого не видел."},
+        {"who": "hero", "es": "Andrea è venuto?", "ru": "Андреа пришёл?"},
+        {"who": "npc", "es": "È venuto. Si è alzato e ha detto a tutto il quartiere: «Ho insegnato bugie al corvo perché avevo paura. Scusate».", "ru": "Пришёл. Встал и сказал всему району: «Я учил ворона лжи, потому что боялся. Простите»."},
+        {"who": "hero", "es": "E cosa hanno fatto i vicini?", "ru": "А что сделали соседи?"},
+        {"who": "npc", "es": "Prima, silenzio. Poi la ragazza del negozio di vestiti l'ha abbracciato. E il capo della stazione gli ha offerto del tabacco per la pipa.", "ru": "Сначала тишина. Потом девушка из магазина одежды его обняла. А начальник станции предложил ему табаку для трубки."},
+        {"who": "hero", "es": "E il bosco?", "ru": "А лес?"},
+        {"who": "npc", "es": "A mezzanotte è rimasto in silenzio. E si è sentita una voce, molto chiara.", "ru": "В полночь он затих. И раздался голос, очень чистый."},
+        {"who": "hero", "es": "Cosa ha detto?", "ru": "Что он сказал?"},
+        {"who": "npc", "es": "«Adesso sento il sentiero. Venga chi ha portato la pace». Credo che parli di te.", "ru": "«Теперь я слышу тропу. Пусть придёт тот, кто принёс мир». Думаю, это про тебя."}
+      ],
+      "questions": [
+        {"q": "Что сказал Андреа на собрании?", "options": ["Что уезжает из города", "Что учил ворона лжи от страха, и попросил прощения", "Что ворон не его"], "answer": 1},
+        {"q": "Как поступили соседи?", "options": ["Простили его: его обняли и предложили табаку", "Выгнали его", "Промолчали и разошлись"], "answer": 0},
+        {"q": "Что сказал голос в полночь?", "options": ["Лес закрыт навсегда", "Всем надо уйти", "Теперь тропа слышна, и пусть придёт тот, кто принёс мир"], "answer": 2}
+      ],
+      "gloss": {"andrea": "Андреа (имя)", "corvo": "ворон", "abbracciato": "обняла (abbracciare)", "tabacco": "табак", "pipa": "трубка (курительная)", "offerto": "предложил (offrire)", "mezzanotte": "полночь", "ragazza": "девушка"}
     }
   ]
 }

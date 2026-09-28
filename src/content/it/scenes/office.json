@@ -99,6 +99,28 @@
         {"q": "Что Маттео имел в виду, сравнив разговор с рынком?", "kind": "stance", "options": ["Хочет вернуться на рынок", "Валентина торгуется с ним из-за зарплаты", "Офис такой же шумный, как рынок"], "answer": 1}
       ],
       "gloss": {"fretta": "спешка (in fretta — быстро)", "trattare": "обращаться (с людьми)", "nessun": "никакой", "indeterminato": "бессрочный", "tratta": "торгуются (trattare sul prezzo)"}
+    },
+    {
+      "id": "sc:office.4",
+      "chapter": 4,
+      "npc": "valentina",
+      "lines": [
+        {"who": "npc", "es": "Sai una cosa? Tutto il quartiere sa già che l'uomo della pipa è Andrea.", "ru": "Знаешь что? Весь район уже знает, что человек с трубкой — Андреа."},
+        {"who": "hero", "es": "E come stanno i vicini?", "ru": "И как соседи?"},
+        {"who": "npc", "es": "Molto arrabbiati. Alcuni vogliono denunciarlo. E alcuni dicono che è un pover'uomo.", "ru": "Очень злы. Некоторые хотят заявить на него. А кто-то говорит, что он несчастный человек."},
+        {"who": "hero", "es": "E tu cosa pensi?", "ru": "А ты что думаешь?"},
+        {"who": "npc", "es": "Che bisogna parlare. Stasera organizzo una riunione dei vicini qui, in ufficio.", "ru": "Что надо поговорить. Сегодня вечером я устраиваю собрание соседей здесь, в офисе."},
+        {"who": "hero", "es": "Andrea verrà?", "ru": "Андреа придёт?"},
+        {"who": "npc", "es": "Non lo so. Mi ha lasciato una lettera: «Avevo paura di perdere di nuovo qualcuno».", "ru": "Не знаю. Он оставил мне письмо: «Я боялся снова кого-то потерять»."},
+        {"who": "hero", "es": "Perdere qualcuno?", "ru": "Кого-то потерять?"},
+        {"who": "npc", "es": "Nella torre ha perso cento anni e tutta la sua famiglia. Per questo non vuole che nessuno entri nel bosco.", "ru": "В башне он потерял сто лет и всю свою семью. Поэтому он не хочет, чтобы кто-то входил в лес."}
+      ],
+      "questions": [
+        {"q": "Что хотят сделать некоторые соседи?", "options": ["Уехать из города", "Заявить на Андреа", "Устроить праздник"], "answer": 1},
+        {"q": "Что Валентина устраивает вечером?", "options": ["Собрание соседей в офисе", "Ужин в ресторане", "Суд"], "answer": 0},
+        {"q": "Почему Андреа пугал город лесом?", "options": ["Хотел денег", "Не любит лес", "Боялся снова кого-то потерять"], "answer": 2}
+      ],
+      "gloss": {"pipa": "трубка (курительная)", "andrea": "Андреа (имя)", "denunciarlo": "заявить на него (denunciare)", "alcuni": "некоторые"}
     }
   ]
 }
