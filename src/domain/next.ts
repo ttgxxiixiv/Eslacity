@@ -1,7 +1,7 @@
 import type { LocationId, LocationMeta, Word } from '../content/schema';
 import { upgradeCost } from './economy';
 import { isScrollId, isWordId } from './itemId';
-import { isLearned, lessonParts, levelWords, maxContentLevel } from './levels';
+import { isLearned, lessonParts, levelWords, MAX_BUILDING_LEVEL, maxContentLevel, wordLevelCap } from './levels';
 
 export type NextStep =
   | { kind: 'learn'; loc: LocationId; level: number; part: number; newWords: number }
@@ -68,7 +68,8 @@ export function nextStep({
     const lvl = levels[id] ?? 0;
     const ws = words[id];
     if (!lvl || !ws) continue;
-    for (let level = 1; level <= lvl; level++) {
+    // У здания 5-го уровня дальше идут слова уровня 6 и выше: они открываются главой, а не улучшением.
+    for (let level = 1; level <= wordLevelCap(lvl, ws); level++) {
       if (!isLevelOpen(level)) {
         if (!isLearned(levelWords(ws, level), cards)) blocked = Math.min(blocked ?? Infinity, chapterOf(level));
         break;
@@ -85,7 +86,7 @@ export function nextStep({
   for (const id of order) {
     const lvl = levels[id] ?? 0;
     const ws = words[id];
-    if (!lvl || !ws || lvl >= 5 || lvl >= maxContentLevel(ws)) continue;
+    if (!lvl || !ws || lvl >= MAX_BUILDING_LEVEL || lvl >= maxContentLevel(ws)) continue;
     if (!isLearned(levelWords(ws, lvl), cards)) continue;
     // Следующий уровень в закрытой главе: здание подождёт.
     if (!isLevelOpen(lvl + 1)) {

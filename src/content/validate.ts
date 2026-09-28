@@ -15,7 +15,7 @@ export interface Issue {
 }
 
 const POS = new Set(['noun', 'verb', 'adj', 'adv', 'pron', 'prep', 'num', 'interj', 'phrase']);
-const CEFR = new Set(['A1', 'A2', 'B1']);
+const CEFR = new Set(['A1', 'A2', 'B1', 'B2']);
 
 // Женский род, но с артиклем el из-за ударного a- (el agua, el aula).
 const STRESSED_A = new Set([
@@ -77,7 +77,7 @@ function checkWord(w: Word, at: string, lang: Lang, out: Issue[]) {
   if (!w.example || empty(w.example.es) || empty(w.example.ru)) {
     out.push({ level: 'error', where: at, msg: 'пустой пример' });
   }
-  if (![1, 2, 3, 4, 5].includes(w.level)) out.push({ level: 'error', where: at, msg: `уровень ${w.level}` });
+  if (![1, 2, 3, 4, 5, 6].includes(w.level)) out.push({ level: 'error', where: at, msg: `уровень ${w.level}` });
   if (!POS.has(w.pos)) out.push({ level: 'error', where: at, msg: `часть речи "${w.pos}"` });
   if (!CEFR.has(w.cefr)) out.push({ level: 'error', where: at, msg: `CEFR "${w.cefr}"` });
   if (empty(w.id) || empty(w.es)) return;
@@ -162,6 +162,11 @@ export function validateWords(files: { name: string; data: LocationWords }[], la
         if (ruSeen.has(rk)) out.push({ level: 'warning', where: at, msg: `тот же перевод «${w.ru}», что у ${ruSeen.get(rk)}` });
         else ruSeen.set(rk, w.id);
       }
+
+      // С уровня 5 уровень места — это глава, и CEFR слова должен быть CEFR главы: 5 — B1, 6 — B2.
+      const plan = PLAN.find((c) => c.levels.includes(w.level));
+      if (w.level >= 5 && plan && w.cefr !== plan.cefr) out.push({ level: 'error', where: at, msg: `у уровня ${w.level} CEFR ${plan.cefr}, а не ${w.cefr}` });
+      else if (w.level < 5 && (w.cefr === 'B1' || w.cefr === 'B2')) out.push({ level: 'error', where: at, msg: `CEFR ${w.cefr} на уровне ${w.level}` });
 
       perLevel.set(w.level, (perLevel.get(w.level) ?? 0) + 1);
     });

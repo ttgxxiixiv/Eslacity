@@ -15,7 +15,7 @@ import { fullPhrase } from '../domain/phrase';
 import { ECONOMY } from '../config';
 import { incomeRate, isFull, pendingIncome, upgradeCost } from '../domain/economy';
 import { useNow } from '../lib/useNow';
-import { isLearned, learnedCount, lessonParts, levelWords, maxContentLevel } from '../domain/levels';
+import { isLearned, isWordLevelOpen, learnedCount, lessonParts, levelWords, MAX_BUILDING_LEVEL, maxContentLevel } from '../domain/levels';
 import { CHAPTERS, chapterById, chapterOfLevel, isLevelOpen } from '../domain/chapters';
 import { useJourney } from '../store/journey';
 import { NPC_BY_LOCATION } from '../content/npcs';
@@ -97,7 +97,8 @@ export function LocationScreen() {
   if (!meta) return <div className="p-6">Нет такой локации</div>;
 
   const maxLevel = words ? maxContentLevel(words) : 0;
-  const levels = [1, 2, 3, 4, 5];
+  // Пять уровней здания и уровни слов выше, если они есть в месте (6 — глава IV).
+  const levels = Array.from({ length: Math.max(MAX_BUILDING_LEVEL, maxLevel) }, (_, i) => i + 1);
 
   return (
     <Screen>
@@ -169,9 +170,10 @@ export function LocationScreen() {
           {levels.map((lvl) => {
             const lw = levelWords(words, lvl);
             const chapterOpen = isLevelOpen(lvl, opened);
-            const open = lvl <= level && chapterOpen;
+            const open = isWordLevelOpen(lvl, level, words, cards) && chapterOpen;
             const prevDone = lvl === 1 || isLearned(levelWords(words, lvl - 1), cards);
-            const isNext = lvl === level + 1;
+            // Улучшить можно только до 5-го уровня, выше уровни слов открываются без покупки.
+            const isNext = lvl === level + 1 && lvl <= MAX_BUILDING_LEVEL;
             const fullCost = isNext ? (lvl === 1 ? meta.unlockCost : upgradeCost(meta, lvl)) : 0;
             const cost = isNext && lvl > 1 ? discountedCost(fullCost, rep) : fullCost;
 
@@ -185,6 +187,13 @@ export function LocationScreen() {
                   {lvl <= maxLevel && !chapterOpen && (
                     <p className="mt-1 text-sm text-stone-500" data-testid="chapter-lock">
                       Откроется в главе {chapterOfLevel(lvl)?.roman}: сначала соберите карту главы {chapterById((chapterOfLevel(lvl)?.id ?? 2) - 1)?.roman}.
+                    </p>
+                  )}
+                  {lvl > MAX_BUILDING_LEVEL && chapterOpen && (
+                    <p className="mt-1 text-sm text-stone-500" data-testid="level-wait">
+                      {level < MAX_BUILDING_LEVEL
+                        ? `Откроется, когда здание будет ${MAX_BUILDING_LEVEL}-го уровня и выучен уровень ${lvl - 1}.`
+                        : `Откроется, когда выучены все слова уровня ${lvl - 1}.`}
                     </p>
                   )}
                   {isNext && lvl <= maxLevel && chapterOpen && (

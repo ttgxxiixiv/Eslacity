@@ -10,8 +10,10 @@ export type LocationId = (typeof LOCATION_IDS)[number];
 
 export type Pos = 'noun' | 'verb' | 'adj' | 'adv' | 'pron' | 'prep' | 'num' | 'interj' | 'phrase';
 export type Gender = 'm' | 'f';
-export type Cefr = 'A1' | 'A2' | 'B1';
+export type Cefr = 'A1' | 'A2' | 'B1' | 'B2';
 export type BuildingLevel = 1 | 2 | 3 | 4 | 5;
+/** Уровень слов места: 1–5 открывает здание, 6 (B2) — глава IV у здания 5-го уровня. */
+export type WordLevel = BuildingLevel | 6;
 
 export interface Example {
   es: string;
@@ -30,7 +32,7 @@ export interface Word {
   pos: Pos;
   /** Обязателен для существительных. */
   gender?: Gender;
-  level: BuildingLevel;
+  level: WordLevel;
   cefr: Cefr;
   example: Example;
   /** Другие принимаемые ответы при вводе. */

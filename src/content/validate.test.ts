@@ -14,6 +14,13 @@ const tenWords = () => Array.from({ length: 10 }, (_, i) => base(i));
 const errors = (words: Word[]) => validateWords(file(words)).filter((x) => x.level === 'error').map((x) => x.msg);
 
 describe('validateWords', () => {
+  it('уровень 6 — только B2, B1 и B2 не ниже 5-го уровня', () => {
+    const six = Array.from({ length: 10 }, (_, i) => base(20 + i, { level: 6, cefr: 'B2' }));
+    expect(errors([...tenWords(), ...six])).toEqual([]);
+    expect(errors([...tenWords(), ...six.slice(1), base(40, { level: 6, cefr: 'B1' })])).toEqual(['у уровня 6 CEFR B2, а не B1']);
+    expect(errors([...tenWords().slice(1), base(41, { cefr: 'B2' })])).toEqual(['CEFR B2 на уровне 1']);
+    expect(errors([...tenWords(), ...Array.from({ length: 10 }, (_, i) => base(50 + i, { level: 7 as 6, cefr: 'B2' }))])).toContain('уровень 7');
+  });
   it('чистый контент без ошибок', () => {
     expect(errors(tenWords())).toEqual([]);
   });

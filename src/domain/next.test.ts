@@ -125,3 +125,25 @@ describe('дневной лимит новых слов', () => {
     expect(nextStepWithLimit({ ...base, cards: learned, coins: 500, limit: { newToday: 99, perDay: 5, due: 999 } })).toMatchObject({ kind: 'upgrade' });
   });
 });
+
+describe('уровень 6: глава IV у здания 5-го уровня', () => {
+  const allOpen = { cafe: 5, market: 5, supermarket: 5 };
+  it('после уровня 5 — урок уровня 6, без улучшения здания', () => {
+    const cafe = words('cafe', 6);
+    const s = nextStep({ locations: locs, levels: allOpen, words: { cafe }, cards: learn(cafe.slice(0, 50)), coins: 9999 });
+    expect(s).toMatchObject({ kind: 'learn', loc: 'cafe', level: 6, part: 0 });
+  });
+  it('глава IV закрыта — ждём главу, а не улучшаем здание до 6', () => {
+    const cafe = words('cafe', 6);
+    const s = nextStep({
+      locations: locs.slice(0, 1), levels: { cafe: 5 }, words: { cafe }, cards: learn(cafe.slice(0, 50)), coins: 9999,
+      isLevelOpen: (l) => l <= 5, chapterOf: (l) => (l >= 6 ? 4 : 3),
+    });
+    expect(s).toEqual({ kind: 'chapter', next: 4 });
+  });
+  it('здание ниже 5-го уровня уровень 6 не открывает', () => {
+    const cafe = words('cafe', 6);
+    const s = nextStep({ locations: locs.slice(0, 1), levels: { cafe: 4 }, words: { cafe }, cards: learn(cafe.slice(0, 40)), coins: 9999 });
+    expect(s).toMatchObject({ kind: 'upgrade', toLevel: 5 });
+  });
+});

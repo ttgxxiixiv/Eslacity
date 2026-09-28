@@ -26,3 +26,19 @@ export function isLearned(words: Word[], cards: Record<string, unknown>): boolea
 export function learnedCount(words: Word[], cards: Record<string, unknown>): number {
   return words.filter((w) => w.id in cards).length;
 }
+
+/** Здание растёт до 5-го уровня. Слова уровней выше (6 — глава IV) открываются без улучшения здания. */
+export const MAX_BUILDING_LEVEL = 5;
+
+/**
+ * Открыт ли уровень слов в здании (без учёта главы). До 5-го — по уровню здания. Выше — у здания 5-го уровня,
+ * когда выучены все слова предыдущего уровня: это заменяет улучшение, которого у здания больше нет.
+ */
+export function isWordLevelOpen(level: number, buildingLevel: number, words: Word[], cards: Record<string, unknown>): boolean {
+  if (level <= MAX_BUILDING_LEVEL) return level <= buildingLevel;
+  return buildingLevel >= MAX_BUILDING_LEVEL && isLearned(levelWords(words, level - 1), cards);
+}
+
+/** Самый высокий уровень слов, который может открыться в здании этого уровня. */
+export const wordLevelCap = (buildingLevel: number, words: Word[]) =>
+  buildingLevel >= MAX_BUILDING_LEVEL ? Math.max(buildingLevel, maxContentLevel(words)) : buildingLevel;

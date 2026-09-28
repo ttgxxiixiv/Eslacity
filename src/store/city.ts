@@ -5,6 +5,7 @@ import { LOCATION_BY_ID } from '../content/locations';
 import type { LocationId } from '../content/schema';
 import { collectIncome, upgradeCost } from '../domain/economy';
 import { discountedCost } from '../domain/reputation';
+import { MAX_BUILDING_LEVEL } from '../domain/levels';
 
 interface CityState {
   coins: number;
@@ -45,7 +46,7 @@ export const useCity = create<CityState>((set, get) => ({
   upgrade(id, now = Date.now(), rep = 0) {
     const b = get().buildings[id];
     const level = b?.level ?? 0;
-    if (level >= 5) return false;
+    if (level >= MAX_BUILDING_LEVEL) return false;
     const base = upgradeCost(LOCATION_BY_ID[id], level + 1);
     // Открытие места по полной цене, улучшение — со скидкой жителя.
     const cost = level === 0 ? base : discountedCost(base, rep);
