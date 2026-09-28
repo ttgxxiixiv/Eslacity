@@ -1,6 +1,6 @@
 import { readdirSync, readFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
-import { validateChronicler, validateGrammar, validateGuardians, validateMissions, validateNpcs, validatePhrases, validateScenes, validateScrolls, validateVerbs, validateWords, type Issue } from '../src/content/validate';
+import { validateChronicler, validateGrammar, validateGuardians, validateMissions, validateNpcs, validatePhrases, validateScenes, validateScrolls, validateTranslations, validateVerbs, validateWords, type Issue } from '../src/content/validate';
 import type { Chronicler, GrammarLesson, GuardiansFile, VerbsFile, LocationMissions, LocationPhrases, LocationScenes, NpcsFile, ScrollFile } from '../src/content/schema';
 import type { Lang } from '../src/lang';
 import { CHAPTERS, PLAN_TOTAL } from '../src/content/vocabPlan';
@@ -97,6 +97,7 @@ for (const lang of langs) {
       }),
     ),
     ...tag(validateScrolls(scrolls, words, lang)),
+    ...tag(validateTranslations(words, scrolls)),
     ...tag(validateGrammar(grammar, lang)),
     ...tag(validateNpcs(npcs)),
     ...tag(validateChronicler(chronicler, npcs)),

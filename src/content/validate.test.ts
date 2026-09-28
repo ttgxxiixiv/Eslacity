@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import type { LocationWords, Word } from './schema';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { validateChronicler, validateGrammar, validateMissions, validateNpcs, validatePhrases, validateScenes, validateScrolls, validateVerbs, validateWords } from './validate';
+import { validateChronicler, validateGrammar, validateMissions, validateNpcs, validatePhrases, validateScenes, validateScrolls, validateTranslations, validateVerbs, validateWords } from './validate';
 import { LOCATION_IDS, type Chronicler, type GrammarLesson, type LocationMissions, type LocationPhrases, type LocationScenes, type Mission, type NpcsFile, type Phrase, type Scene, type ScrollFile, type VerbsFile } from './schema';
 
 const base = (i: number, extra: Partial<Word> = {}): Word => ({
@@ -424,6 +424,31 @@ describe('уровень 6 (B2): контент', () => {
         expect(six, `${lang}/${loc}`).toHaveLength(30);
         expect(six.every((w) => w.cefr === 'B2')).toBe(true);
       }
+    }
+  });
+});
+
+describe('validateTranslations', () => {
+  const place = (location: string, words: Word[]) => ({ name: `${location}.json`, data: { location, words } as LocationWords });
+  const w = (id: string, ru: string, level = 1) => base(0, { id, ru, level: level as Word['level'] });
+  it('одинаковый перевод в разных местах и в свитке — предупреждение', () => {
+    const scroll = { name: '1.json', data: { chapter: 1, words: [w('scroll1.x', 'Размер ')] } as ScrollFile };
+    const out = validateTranslations([place('clothes', [w('clothes.talla', 'размер')]), place('supermarket', [w('supermarket.tamano', 'размер')])], [scroll]);
+    expect(out.map((i) => `${i.where}: ${i.msg}`)).toEqual([
+      'supermarket.json supermarket.tamano: тот же перевод «размер», что у clothes.talla',
+      'scrolls/1.json scroll1.x: тот же перевод «Размер », что у clothes.talla',
+    ]);
+  });
+  it('внутри одного уровня места о повторе сообщает validateWords, здесь его нет; разные уровни — есть', () => {
+    expect(validateTranslations([place('cafe', [w('cafe.a', 'кофе'), w('cafe.b', 'кофе')])], [])).toEqual([]);
+    expect(validateTranslations([place('cafe', [w('cafe.a', 'кофе'), w('cafe.b', 'кофе', 2)])], [])).toHaveLength(1);
+  });
+  it('в настоящем контенте обоих языков совпадений нет', () => {
+    for (const lang of ['es', 'it']) {
+      const dir = join(__dirname, lang);
+      const places = LOCATION_IDS.map((loc) => ({ name: `${loc}.json`, data: JSON.parse(readFileSync(join(dir, 'words', `${loc}.json`), 'utf8')) as LocationWords }));
+      const scrolls = [1, 2, 3].map((ch) => ({ name: `${ch}.json`, data: JSON.parse(readFileSync(join(dir, 'scrolls', `${ch}.json`), 'utf8')) as ScrollFile }));
+      expect(validateTranslations(places, scrolls).map((i) => i.msg), lang).toEqual([]);
     }
   });
 });

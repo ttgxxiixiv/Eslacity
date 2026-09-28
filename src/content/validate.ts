@@ -461,6 +461,28 @@ export function validateChronicler(n: Chronicler | undefined, npcs: NpcsFile | u
  * Свитки земель: файл `<глава>.json`, id `scroll<глава>.<slug>`, CEFR главы. Слово свитка не повторяет слово места
  * и другого свитка (ни id, ни форма), число слов не больше плана `vocabPlan.ts`.
  */
+/**
+ * Одинаковый перевод у слов разных мест и свитков одного языка: в задании «Как сказать» по переводу выходят
+ * два верных ответа, а в повторении непонятно, какое слово ждут. Совпадения внутри одного уровня места
+ * и внутри одного свитка уже сообщают validateWords и validateScrolls, здесь они пропускаются.
+ */
+export function validateTranslations(places: { name: string; data: LocationWords }[], scrolls: { name: string; data: ScrollFile }[]): Issue[] {
+  const out: Issue[] = [];
+  const seen = new Map<string, { id: string; group: string }>();
+  const all = [
+    ...places.flatMap(({ name, data }) => (data.words ?? []).map((w) => ({ w, where: name, group: `${data.location}:${w.level}` }))),
+    ...scrolls.flatMap(({ name, data }) => (data.words ?? []).map((w) => ({ w, where: `scrolls/${name}`, group: `scroll${data.chapter}` }))),
+  ];
+  for (const { w, where, group } of all) {
+    if (empty(w.ru) || empty(w.id)) continue;
+    const key = w.ru.trim().toLowerCase();
+    const first = seen.get(key);
+    if (!first) seen.set(key, { id: w.id, group });
+    else if (first.group !== group) out.push({ level: 'warning', where: `${where} ${w.id}`, msg: `тот же перевод «${w.ru}», что у ${first.id}` });
+  }
+  return out;
+}
+
 export function validateScrolls(files: { name: string; data: ScrollFile }[], places: { name: string; data: LocationWords }[], lang: Lang = 'es'): Issue[] {
   const out: Issue[] = [];
   const ids = new Map<string, string>();
