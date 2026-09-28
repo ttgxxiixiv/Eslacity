@@ -60,6 +60,31 @@
         "tax": {"kind": "answer", "task": "Спросите, нужно ли платить таможенную пошлину.", "branches": [{"phrase": "ph:post.hay-pagar-aranceles", "next": "end"}], "wrong": {"es": "¿Hay que pagar al camello? ¡Al camello, nada!", "ru": "Надо платить верблюду? Верблюду — ничего!"}},
         "end": {"kind": "say", "es": "¿Al hospital? No, está en la ciudad. Y toma mi trozo del mapa del desierto. Este no lo roba nadie: lo llevo siempre en la bicicleta.", "ru": "В больницу? Нет, она в городе. И держи мой обрывок карты пустыни. Этот никто не украдёт: я всегда вожу его на велосипеде."}
       }
+    },
+    {
+      "id": "ms:post.4",
+      "chapter": 4,
+      "npc": "rafa",
+      "scene": "sc:post.4",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Hola. ¿Envías algo hoy?", "ru": "Привет. Отправляешь что-нибудь сегодня?", "next": "insure"},
+        "insure": {"kind": "answer", "task": "Скажите, что хотите застраховать отправление.", "branches": [{"phrase": "ph:post.asegurar-envio", "next": "insuresay"}], "wrong": {"es": "¿Asegurar al cuervo? Nadie asegura a Negro.", "ru": "Застраховать ворона? Негро никто не страхует."}},
+        "insuresay": {"kind": "say", "es": "Muy bien, asegurado. ¿Es para Iván, al bosque? Allí el correo va lento.", "ru": "Хорошо, застраховано. Это Ивану, в лес? Туда почта идёт медленно.", "next": "howlong"},
+        "howlong": {"kind": "answer", "task": "Спросите, сколько оно будет идти.", "branches": [{"phrase": "ph:post.cuanto-tarda-llegar", "next": "howlongsay"}], "wrong": {"es": "¿Cuánto tarda en volar? Negro, dos minutos.", "ru": "Сколько лететь? Негро — две минуты."}},
+        "howlongsay": {"kind": "say", "es": "Tres días, si Negro no se come las cartas. Ay, Negro... He decidido encerrarlo en una jaula para siempre.", "ru": "Три дня, если Негро не съест письма. Ох, Негро... Я решил запереть его в клетке навсегда.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:post.no-culpa-pajaro", "next": "object", "move": "object"}, {"phrase": "ph:post.lo-mas-seguro", "next": "concede", "move": "concede"}, {"phrase": "ph:post.noche-en-casa", "next": "compromise", "move": "compromise"}], "wrong": {"es": "¿Qué? Negro grita tanto que no te oigo.", "ru": "Что? Негро так кричит, что я тебя не слышу."}},
+        "object": {"kind": "say", "es": "¿No es culpa suya? ...Es verdad. Negro solo repite. El culpable es quien le enseña.", "ru": "Не виноват? ...Правда. Негро только повторяет. Виноват тот, кто его учит.", "next": "track"},
+        "concede": {"kind": "say", "es": "Sí... aunque me rompe el corazón. Negro es mi mejor compañero.", "ru": "Да... хоть у меня сердце разрывается. Негро — мой лучший напарник.", "next": "track"},
+        "compromise": {"kind": "say", "es": "¿En casa por la noche? Así trabaja conmigo de día y no vuela al bosque. ¡Perfecto!", "ru": "Дома по ночам? Так днём он работает со мной и не летает в лес. Отлично!", "next": "track"},
+        "track": {"kind": "say", "es": "Ahora, lo tuyo. Te ha llegado otro paquete, pero no sé dónde está.", "ru": "Теперь твоё. Тебе пришла ещё одна посылка, но я не знаю, где она.", "next": "locate"},
+        "locate": {"kind": "answer", "task": "Спросите, может ли он отследить посылку.", "branches": [{"phrase": "ph:post.puedes-localizar", "next": "locatesay"}], "wrong": {"es": "¿Puedes localizar al cuervo? Está en mi hombro.", "ru": "Можешь найти ворона? Он у меня на плече."}},
+        "locatesay": {"kind": "say", "es": "Localizado: está en el punto de recogida. Viene de fuera del país.", "ru": "Нашёл: она в пункте выдачи. Пришла из-за границы.", "next": "duties"},
+        "duties": {"kind": "answer", "task": "Спросите, нужно ли платить пошлину.", "branches": [{"phrase": "ph:post.hay-pagar-aranceles", "next": "dutiessay"}], "wrong": {"es": "¿Hay que pagar al cuervo? Él cobra en galletas.", "ru": "Надо платить ворону? Он берёт печеньем."}},
+        "dutiessay": {"kind": "say", "es": "No, es un regalo. ¿El paquete está a tu nombre?", "ru": "Нет, это подарок. Посылка на твоё имя?", "next": "name"},
+        "name": {"kind": "answer", "task": "Скажите, что посылка на ваше имя.", "branches": [{"phrase": "ph:post.esta-nombre", "next": "end"}], "wrong": {"es": "¿Está a nombre de Negro? Él no tiene DNI.", "ru": "На имя Негро? У него нет паспорта."}},
+        "end": {"kind": "say", "es": "Perfecto. Y toma esto: Negro lo trajo anoche en el pico. Un trozo del mapa del bosque. Por lo menos, algo bueno trae.", "ru": "Отлично. И держи: Негро принёс это вчера ночью в клюве. Обрывок карты леса. Хоть что-то хорошее он приносит."}
+      }
     }
   ]
 }

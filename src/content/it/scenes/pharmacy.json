@@ -99,6 +99,28 @@
         {"q": "С чем в итоге согласились оба?", "kind": "stance", "options": ["На приёме слишком мало времени, чтобы всё выяснить", "Пациентка всё выдумала", "Травы безопасны"], "answer": 0}
       ],
       "gloss": {"naturali": "натуральные, природные", "minuti": "минуты", "bastano": "хватает (bastare)", "né": "ни", "fretta": "спешка"}
+    },
+    {
+      "id": "sc:pharmacy.4",
+      "chapter": 4,
+      "npc": "bruno",
+      "lines": [
+        {"who": "npc", "es": "Buongiorno. Mi scusi, sono molto preoccupato.", "ru": "Доброе утро. Простите, я очень обеспокоен."},
+        {"who": "hero", "es": "Cos'è successo?", "ru": "Что случилось?"},
+        {"who": "npc", "es": "Il bosco dice con la mia voce: «Il dottore è un incapace».", "ru": "Лес говорит моим голосом: «Доктор — бездарь»."},
+        {"who": "hero", "es": "E lei l'ha detto?", "ru": "А вы это говорили?"},
+        {"who": "npc", "es": "Mai! Abbiamo discusso per delle erbe, sì, ma io rispetto molto il dottore.", "ru": "Никогда! Мы поспорили из-за трав, да, но я очень уважаю доктора."},
+        {"who": "hero", "es": "E il dottore lo sa?", "ru": "А доктор об этом знает?"},
+        {"who": "npc", "es": "Lo sa tutto il quartiere. Stamattina non mi ha salutato.", "ru": "Весь район знает. Сегодня утром он со мной не поздоровался."},
+        {"who": "hero", "es": "Nel negozio di vestiti è successo lo stesso.", "ru": "В магазине одежды было то же самое."},
+        {"who": "npc", "es": "Allora non sono solo. Qualcuno usa le nostre voci.", "ru": "Значит, я не один такой. Кто-то говорит нашими голосами."}
+      ],
+      "questions": [
+        {"q": "Что лес сказал голосом Бруно?", "options": ["Что аптека закрывается", "Что травы опасны", "Что доктор — бездарь"], "answer": 2},
+        {"q": "Говорил ли это Бруно?", "options": ["Нет, никогда", "Да, в гневе", "Он не помнит"], "answer": 0},
+        {"q": "Что понял Бруно?", "options": ["Лес всегда врёт", "Кто-то говорит голосами жителей", "Доктор пошутил"], "answer": 1}
+      ],
+      "gloss": {"incapace": "бездарь, неумеха", "buongiorno": "доброе утро", "discusso": "поспорили (discutere)", "stesso": "то же самое (lo stesso)"}
     }
   ]
 }

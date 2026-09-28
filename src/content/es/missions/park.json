@@ -60,6 +60,31 @@
         "orto": {"kind": "answer", "task": "Спросите, от мэрии ли эти городские грядки.", "branches": [{"phrase": "ph:park.huerto-urbano-ayuntamiento", "next": "end"}], "wrong": {"es": "¿El huerto es tuyo? ¡No, joven!", "ru": "Огород твой? Нет, молодой человек!"}},
         "end": {"kind": "say", "es": "Del ayuntamiento. Yo tengo allí mis tomates. Y entre los tomates guardaba esto: mi trozo del mapa del desierto, el de verdad.", "ru": "Мэрии. У меня там свои помидоры. А среди помидоров я хранил вот это: мой обрывок карты пустыни, настоящий."}
       }
+    },
+    {
+      "id": "ms:park.4",
+      "chapter": 4,
+      "npc": "manolo",
+      "scene": "sc:park.4",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Hoy estoy de mal humor. Mira ese cartel: el concierto es este sábado, junto al nido de los búhos.", "ru": "Сегодня у меня плохое настроение. Смотри на объявление: концерт в эту субботу, рядом с гнездом сов.", "next": "flora"},
+        "flora": {"kind": "answer", "task": "Скажите, что нужно беречь местные растения.", "branches": [{"phrase": "ph:park.proteger-flora", "next": "florasay"}], "wrong": {"es": "¿La flora autónoma? Las plantas no votan.", "ru": "Автономная флора? Растения не голосуют."}},
+        "florasay": {"kind": "say", "es": "Eso digo yo. Y la fauna también: los búhos ya no duermen con tanto ruido. Yo vengo cada tarde a oírlos. ¿Y tú, cuándo vienes al parque?", "ru": "Вот и я о том же. И животных тоже: совы уже не спят от такого шума. Я прихожу каждый вечер их послушать. А ты когда приходишь в парк?", "next": "walk"},
+        "walk": {"kind": "answer", "task": "Скажите, что очень любите гулять на закате.", "branches": [{"phrase": "ph:park.encanta-pasear-al", "next": "walksay"}], "wrong": {"es": "¿Te encanta pasear al búho? Los búhos no llevan correa.", "ru": "Любишь выгуливать сову? Совы не ходят на поводке."}},
+        "walksay": {"kind": "say", "es": "Al atardecer, como yo. Pues escucha: voy a recoger firmas contra el concierto. Mañana lo cancelan.", "ru": "На закате, как и я. Так вот слушай: соберу подписи против концерта. Завтра его отменят.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:park.parque-es-de-todos", "next": "object", "move": "object"}, {"phrase": "ph:park.derecho-quejarte", "next": "concede", "move": "concede"}, {"phrase": "ph:park.concierto-lejos-buhos", "next": "compromise", "move": "compromise"}], "wrong": {"es": "¿Qué dices? Con los búhos despiertos no oigo nada.", "ru": "Что ты говоришь? Совы не спят, я ничего не слышу."}},
+        "object": {"kind": "say", "es": "¿De todos? ...Sí, también de los jóvenes. Yo también fui joven, aunque no lo parezca.", "ru": "Общий? ...Да, и для молодёжи тоже. Я тоже был молодым, хоть по мне и не скажешь.", "next": "sorry"},
+        "concede": {"kind": "say", "es": "Gracias. A mi edad, quejarse es casi un deporte.", "ru": "Спасибо. В моём возрасте жаловаться — почти спорт.", "next": "sorry"},
+        "compromise": {"kind": "say", "es": "¿Lejos de los búhos? Al otro lado del lago... Eso sí lo puedo aceptar.", "ru": "Подальше от сов? На другом берегу озера... С этим я согласен.", "next": "sorry"},
+        "sorry": {"kind": "say", "es": "Ahora me toca algo difícil: pedirle perdón a Elena. Ella organiza la limpieza del domingo.", "ru": "А теперь мне предстоит трудное: попросить прощения у Елены. Она устраивает уборку в воскресенье.", "next": "cleanup"},
+        "cleanup": {"kind": "answer", "task": "Спросите, пойдёт ли он на субботник.", "branches": [{"phrase": "ph:park.te-apuntas-limpieza", "next": "cleanupsay"}], "wrong": {"es": "¿Te apuntas a la jornada de siesta? Eso, siempre.", "ru": "Записаться на день сиесты? Всегда пожалуйста."}},
+        "cleanupsay": {"kind": "say", "es": "Me apunto. Con mis propias bolsas, ya lo sabes. ¿Y esta botella del suelo?", "ru": "Записываюсь. Со своими мешками, ты же знаешь. А эта бутылка на земле?", "next": "recycle"},
+        "recycle": {"kind": "answer", "task": "Спросите, где это можно сдать в переработку.", "branches": [{"phrase": "ph:park.donde-puedo-reciclar", "next": "recyclesay"}], "wrong": {"es": "¿Dónde puedo reciclar al búho? En ningún sitio, hombre.", "ru": "Где сдать в переработку сову? Нигде, что ты."}},
+        "recyclesay": {"kind": "say", "es": "Allí, en el contenedor verde. Mira, el cielo se pone gris.", "ru": "Вон там, в зелёный контейнер. Смотри, небо сереет.", "next": "rain"},
+        "rain": {"kind": "answer", "task": "Скажите, что сейчас пойдёт дождь, и спросите, есть ли у него зонт.", "branches": [{"phrase": "ph:park.va-llover-tienes", "next": "end"}], "wrong": {"es": "¿Va a llover búhos? Solo en el bosque.", "ru": "Пойдёт дождь из сов? Только в лесу."}},
+        "end": {"kind": "say", "es": "Tengo uno grande, vamos. Y toma esto: lo encontré bajo el roble. Un trozo del mapa del bosque, y al lado, una pluma negra.", "ru": "У меня большой, пойдём. И держи: я нашёл это под дубом. Обрывок карты леса, а рядом чёрное перо."}
+      }
     }
   ]
 }

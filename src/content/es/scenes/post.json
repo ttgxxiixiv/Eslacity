@@ -98,6 +98,28 @@
         {"q": "Что Рафа ответил на «в мои времена»?", "kind": "stance", "options": ["Раньше посылки тоже шли долго, так что не всё было лучше", "Раньше и правда было лучше", "Раньше посылок не было"], "answer": 0}
       ],
       "gloss": {"antiguos": "старинные", "inglaterra": "Англия", "trescientos": "триста"}
+    },
+    {
+      "id": "sc:post.4",
+      "chapter": 4,
+      "npc": "rafa",
+      "lines": [
+        {"who": "npc", "es": "Tengo que contarte algo, pero no se lo digas a nadie.", "ru": "Мне надо тебе кое-что рассказать, только никому не говори."},
+        {"who": "hero", "es": "¿Qué pasa?", "ru": "Что случилось?"},
+        {"who": "npc", "es": "¿Ves a mi cuervo, Negro? Siempre va conmigo en el reparto.", "ru": "Видишь моего ворона, Негро? Он всегда со мной на разноске."},
+        {"who": "hero", "es": "Sí, es muy listo.", "ru": "Да, он очень умный."},
+        {"who": "npc", "es": "Demasiado listo. Aprende las voces de la gente en cada casa. Y por la noche vuela al bosque.", "ru": "Слишком умный. Он запоминает голоса людей в каждом доме. А по ночам летает в лес."},
+        {"who": "hero", "es": "¿Es él quien habla con las voces de los vecinos?", "ru": "Это он говорит голосами соседей?"},
+        {"who": "npc", "es": "Creo que sí. Pero Negro solo repite. Alguien le enseña las frases.", "ru": "Думаю, да. Но Негро только повторяет. Кто-то учит его этим фразам."},
+        {"who": "hero", "es": "¿Quién?", "ru": "Кто?"},
+        {"who": "npc", "es": "No lo sé. Cada tarde vuelve con olor a tabaco de pipa.", "ru": "Не знаю. Каждый вечер он возвращается с запахом трубочного табака."}
+      ],
+      "questions": [
+        {"q": "Кто подражает голосам жителей?", "options": ["Сам Рафа", "Ворон Рафы", "Хранительница"], "answer": 1},
+        {"q": "Что Рафа думает о фразах ворона?", "options": ["Кто-то учит его этим фразам", "Ворон сам их выдумывает", "Это слова самого Рафы"], "answer": 0},
+        {"q": "Какую зацепку нашёл Рафа?", "options": ["На вороне записка", "Ворон приносит монеты", "Ворон пахнет трубочным табаком"], "answer": 2}
+      ],
+      "gloss": {"cuervo": "ворон", "negro": "Негро (кличка ворона; negro — чёрный)", "tabaco": "табак", "pipa": "трубка (курительная)"}
     }
   ]
 }

@@ -99,6 +99,28 @@
         {"q": "С каким настроением Беатрис выбирает льняную блузку?", "kind": "stance", "options": ["Злится и уходит", "Шутя смиряется с глажкой", "Радуется, что не надо гладить"], "answer": 1}
       ],
       "gloss": {"blusa": "блузка"}
+    },
+    {
+      "id": "sc:clothes.4",
+      "chapter": 4,
+      "npc": "marta",
+      "lines": [
+        {"who": "npc", "es": "¿Sabes lo que dice el bosque de mí? ¡Es horrible!", "ru": "Знаешь, что лес говорит обо мне? Это ужасно!"},
+        {"who": "hero", "es": "¿Qué dice?", "ru": "Что говорит?"},
+        {"who": "npc", "es": "Con mi voz: «Beatriz no sabe lavar ni un calcetín». Eso sí lo dije, lo reconozco.", "ru": "Моим голосом: «Беатрис даже носок постирать не умеет». Это я правда говорила, признаю."},
+        {"who": "hero", "es": "¿Y qué más?", "ru": "А что ещё?"},
+        {"who": "npc", "es": "Y también: «Mis vestidos de marca son imitaciones». ¡Eso nunca lo he dicho!", "ru": "А ещё: «Мои брендовые платья — подделки». Такого я никогда не говорила!"},
+        {"who": "hero", "es": "¿Seguro?", "ru": "Точно?"},
+        {"who": "npc", "es": "Seguro. Mis vestidos son de verdad. Pero ahora las clientas no me creen.", "ru": "Точно. Мои платья настоящие. Но теперь покупательницы мне не верят."},
+        {"who": "hero", "es": "Así que el bosque no solo repite.", "ru": "Значит, лес не только повторяет."},
+        {"who": "npc", "es": "Eso parece. Alguien le enseña mentiras.", "ru": "Похоже на то. Кто-то учит его лжи."}
+      ],
+      "questions": [
+        {"q": "Какую фразу Марта правда говорила?", "options": ["Что её платья — подделки", "Что Беатрис не умеет стирать", "Что магазин закрывается"], "answer": 1},
+        {"q": "Что лес сказал её голосом, хотя она этого не говорила?", "options": ["Что её брендовые платья — подделки", "Что Беатрис красивая", "Что Марта уезжает"], "answer": 0},
+        {"q": "К какому выводу приходят Марта и герой?", "options": ["Лес сломался", "Марта всё забыла", "Кто-то учит лес лжи"], "answer": 2}
+      ],
+      "gloss": {"beatriz": "Беатрис (имя)", "reconozco": "признаю (reconocer)"}
     }
   ]
 }

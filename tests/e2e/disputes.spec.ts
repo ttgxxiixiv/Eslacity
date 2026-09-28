@@ -1,4 +1,4 @@
-import { readFileSync } from 'node:fs';
+import { readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { expect, test, type Page } from '@playwright/test';
 import { exact, LANGS, loadPhraseData, openApp, phraseFull, phraseTiles, readAnswers, type Lang } from './fixtures';
@@ -16,6 +16,12 @@ function mission(lang: Lang, place: string) {
   const phrases = new Map(loadPhraseData(lang, place).map((p) => [p.id, p]));
   return { m, phrases };
 }
+
+/** Места, где есть миссия главы IV. */
+const placesWithDispute = (lang: Lang) =>
+  readdirSync(join(CONTENT, lang, 'missions'))
+    .map((f) => f.replace(/\.json$/, ''))
+    .filter((place) => (JSON.parse(readFileSync(join(CONTENT, lang, 'missions', `${place}.json`), 'utf8')).missions as { id: string }[]).some((m) => m.id === `ms:${place}.4`));
 
 /** Пройти миссию главы IV без ошибок: в споре — ходом `move`, в режиме прохождения (выбор, плитки, ввод). */
 async function play(page: Page, lang: Lang, place: string, move: Move, mode: 'choose' | 'tiles' | 'type') {
@@ -82,10 +88,10 @@ for (const lang of LANGS) {
       expect(new Set(log.map((a) => a.kind))).toEqual(new Set(['mission-choose', 'mission-tiles', 'mission-type']));
     });
 
-    test('все споры первой пачки: каждый ход ведёт к своей реакции жителя', async ({ page }) => {
-      test.setTimeout(240_000);
+    test('все споры контента: уступить и компромисс ведут к своим реакциям жителя', async ({ page }) => {
+      test.setTimeout(480_000);
       await openApp(page, lang);
-      for (const place of ['market', 'supermarket', 'restaurant', 'home']) {
+      for (const place of placesWithDispute(lang).filter((p) => p !== 'cafe')) {
         for (const move of ['concede', 'compromise'] as Move[]) {
           // Первое прохождение каждой миссии — выбор фразы; дальше плитки.
           await page.goto('./#/');

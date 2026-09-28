@@ -98,6 +98,28 @@
         {"q": "Что Энцо ответил на «в мои времена»?", "kind": "stance", "options": ["Раньше посылки тоже шли долго, так что не всё было лучше", "Раньше и правда было лучше", "Раньше посылок не было"], "answer": 0}
       ],
       "gloss": {"antichi": "старинные", "certo": "конечно"}
+    },
+    {
+      "id": "sc:post.4",
+      "chapter": 4,
+      "npc": "enzo",
+      "lines": [
+        {"who": "npc", "es": "Devo raccontarti una cosa, ma non dirlo a nessuno.", "ru": "Мне надо тебе кое-что рассказать, только никому не говори."},
+        {"who": "hero", "es": "Cosa succede?", "ru": "Что случилось?"},
+        {"who": "npc", "es": "Vedi il mio corvo, Nero? Viene sempre con me a consegnare la posta.", "ru": "Видишь моего ворона, Неро? Он всегда разносит со мной почту."},
+        {"who": "hero", "es": "Sì, è molto intelligente.", "ru": "Да, он очень умный."},
+        {"who": "npc", "es": "Troppo intelligente. Impara le voci della gente in ogni casa. E di notte vola nel bosco.", "ru": "Слишком умный. Он запоминает голоса людей в каждом доме. А по ночам летает в лес."},
+        {"who": "hero", "es": "È lui che parla con le voci dei vicini?", "ru": "Это он говорит голосами соседей?"},
+        {"who": "npc", "es": "Credo di sì. Ma Nero ripete soltanto. Qualcuno gli insegna le frasi.", "ru": "Думаю, да. Но Неро только повторяет. Кто-то учит его этим фразам."},
+        {"who": "hero", "es": "Chi?", "ru": "Кто?"},
+        {"who": "npc", "es": "Non lo so. Ogni sera torna con odore di tabacco da pipa.", "ru": "Не знаю. Каждый вечер он возвращается с запахом трубочного табака."}
+      ],
+      "questions": [
+        {"q": "Кто подражает голосам жителей?", "options": ["Сам Энцо", "Ворон Энцо", "Хранительница"], "answer": 1},
+        {"q": "Что Энцо думает о фразах ворона?", "options": ["Кто-то учит его этим фразам", "Ворон сам их выдумывает", "Это слова самого Энцо"], "answer": 0},
+        {"q": "Какую зацепку нашёл Энцо?", "options": ["На вороне записка", "Ворон приносит монеты", "Ворон пахнет трубочным табаком"], "answer": 2}
+      ],
+      "gloss": {"corvo": "ворон", "nero": "Неро (кличка ворона; nero — чёрный)", "tabacco": "табак", "pipa": "трубка (курительная)", "soltanto": "только"}
     }
   ]
 }

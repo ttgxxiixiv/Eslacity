@@ -99,6 +99,27 @@
         {"q": "С чем в итоге согласились оба?", "kind": "stance", "options": ["На приёме слишком мало времени, чтобы всё выяснить", "Пациентка всё выдумала", "Травы безопасны"], "answer": 0}
       ],
       "gloss": {"natural": "натуральное, природное", "minutos": "минуты", "bastan": "хватает (bastar)"}
+    },
+    {
+      "id": "sc:pharmacy.4",
+      "chapter": 4,
+      "npc": "ernesto",
+      "lines": [
+        {"who": "npc", "es": "Buenos días. Perdone, estoy muy preocupado.", "ru": "Доброе утро. Простите, я очень обеспокоен."},
+        {"who": "hero", "es": "¿Qué ha pasado?", "ru": "Что случилось?"},
+        {"who": "npc", "es": "El bosque dice con mi voz: «El doctor es un inútil».", "ru": "Лес говорит моим голосом: «Доктор — бездарь»."},
+        {"who": "hero", "es": "¿Y usted lo dijo?", "ru": "А вы это говорили?"},
+        {"who": "npc", "es": "¡Nunca! Discutimos por unas hierbas, sí, pero yo respeto mucho al doctor.", "ru": "Никогда! Мы поспорили из-за трав, да, но я очень уважаю доктора."},
+        {"who": "hero", "es": "¿Y el doctor lo sabe?", "ru": "А доктор об этом знает?"},
+        {"who": "npc", "es": "Lo sabe todo el barrio. Esta mañana no me ha saludado.", "ru": "Весь район знает. Сегодня утром он со мной не поздоровался."},
+        {"who": "hero", "es": "En la tienda de ropa pasó igual.", "ru": "В магазине одежды было то же самое."},
+        {"who": "npc", "es": "Así que no estoy solo. Alguien usa nuestras voces.", "ru": "Значит, я не один такой. Кто-то говорит нашими голосами."}
+      ],
+      "questions": [
+        {"q": "Что лес сказал голосом Эрнесто?", "options": ["Что аптека закрывается", "Что травы опасны", "Что доктор — бездарь"], "answer": 2},
+        {"q": "Говорил ли это Эрнесто?", "options": ["Нет, никогда", "Да, в гневе", "Он не помнит"], "answer": 0},
+        {"q": "Что понял Эрнесто?", "options": ["Лес всегда врёт", "Кто-то говорит голосами жителей", "Доктор пошутил"], "answer": 1}
+      ]
     }
   ]
 }

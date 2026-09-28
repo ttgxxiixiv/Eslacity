@@ -63,6 +63,31 @@
         "gen": {"kind": "answer", "task": "Спросите, есть ли аналог подешевле.", "branches": [{"phrase": "ph:pharmacy.c-generico-piu", "next": "end"}], "wrong": {"es": "C'è l'acqua dell'oasi? Qui non vendiamo miraggi!", "ru": "Есть вода оазиса? Здесь не продают миражи!"}},
         "end": {"kind": "say", "es": "C'è, ed è buono uguale. Una prima di dormire. E prenda il mio pezzo della mappa del deserto. Se sogna la città bianca, si ricordi: non creda a quello che vede.", "ru": "Есть, и он ничуть не хуже. По одной перед сном. И возьмите мой обрывок карты пустыни. Если вам приснится белый город, помните: не верьте тому, что видите."}
       }
+    },
+    {
+      "id": "ms:pharmacy.4",
+      "chapter": 4,
+      "npc": "bruno",
+      "scene": "sc:pharmacy.4",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Viene per la ricetta del dottor Conti? Oggi il dottore non mi guarda neanche.", "ru": "Вы за рецептом доктора Конти? Сегодня доктор на меня даже не смотрит.", "next": "acid"},
+        "acid": {"kind": "answer", "task": "Спросите, есть ли что-нибудь от изжоги.", "branches": [{"phrase": "ph:pharmacy.qualcosa-bruciore", "next": "acidsay"}], "wrong": {"es": "Qualcosa per la tristezza? Quella non si vende in farmacia.", "ru": "Что-нибудь от грусти? Такое в аптеке не продают."}},
+        "acidsay": {"kind": "say", "es": "Per il bruciore, queste pastiglie masticabili. Con tutti questi dispiaceri, le prendo anch'io.", "ru": "От изжоги — вот эти жевательные таблетки. От таких огорчений я и сам их пью.", "next": "side"},
+        "side": {"kind": "answer", "task": "Спросите, есть ли побочные эффекты.", "branches": [{"phrase": "ph:pharmacy.ha-effetti-collaterali", "next": "sidesay"}], "wrong": {"es": "Ha effetti speciali? Questo non è il cinema.", "ru": "Есть спецэффекты? Это не кино."}},
+        "sidesay": {"kind": "say", "es": "Pochi. Il peggior effetto collaterale è questa voce. Scriverò una lettera al giornale: che tutti sappiano che è una bugia.", "ru": "Немного. Худший побочный эффект — этот слух. Напишу письмо в газету: пусть все знают, что это ложь.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:pharmacy.lettera-piu-rumore", "next": "object", "move": "object"}, {"phrase": "ph:pharmacy.capisco-preoccupato", "next": "concede", "move": "concede"}, {"phrase": "ph:pharmacy.spiega-di-persona", "next": "compromise", "move": "compromise"}], "wrong": {"es": "Come dice? Oggi ho la testa altrove.", "ru": "Что вы сказали? У меня сегодня голова не на месте."}},
+        "object": {"kind": "say", "es": "Più rumore? È vero... E il bosco ne ha già abbastanza. Niente lettere.", "ru": "Больше шума? Правда... А в лесу его и так хватает. Никаких писем.", "next": "recipe"},
+        "concede": {"kind": "say", "es": "Grazie. Trent'anni in questa farmacia e nessuno mi aveva mai chiamato bugiardo.", "ru": "Спасибо. Тридцать лет в этой аптеке, и никто не называл меня лжецом.", "next": "recipe"},
+        "compromise": {"kind": "say", "es": "Di persona? Mi vergogno un po'... ma è giusto così. Andrò in ambulatorio stasera.", "ru": "Лично? Мне неловко... но так будет честно. Схожу к нему на приём сегодня вечером.", "next": "recipe"},
+        "recipe": {"kind": "say", "es": "Adesso la sua ricetta. Il dottore le ha cambiato la terapia. Prende qualcos'altro?", "ru": "Теперь ваш рецепт. Доктор поменял вам лечение. Вы принимаете что-нибудь ещё?", "next": "interaction"},
+        "interaction": {"kind": "answer", "task": "Спросите, не взаимодействует ли это с ибупрофеном.", "branches": [{"phrase": "ph:pharmacy.interazione-ibuprofene", "next": "interactionsay"}], "wrong": {"es": "Interazione con il bosco? Solo di notte.", "ru": "Взаимодействие с лесом? Только по ночам."}},
+        "interactionsay": {"kind": "say", "es": "No, nessuna. Ma questo sciroppo si prende prima di mangiare.", "ru": "Нет, никакого. Но этот сироп принимают до еды.", "next": "fasting"},
+        "fasting": {"kind": "answer", "task": "Спросите, нужно ли принимать его натощак.", "branches": [{"phrase": "ph:pharmacy.si-prende-digiuno", "next": "fastingsay"}], "wrong": {"es": "Si prende nel bosco? No, a casa.", "ru": "Принимать его в лесу? Нет, дома."}},
+        "fastingsay": {"kind": "say", "es": "Esatto, a digiuno. Altro?", "ru": "Именно, натощак. Что-нибудь ещё?", "next": "generic"},
+        "generic": {"kind": "answer", "task": "Спросите, есть ли дженерик подешевле.", "branches": [{"phrase": "ph:pharmacy.c-generico-piu", "next": "end"}], "wrong": {"es": "Un generico più caro? Nessuno lo chiede.", "ru": "Дженерик подороже? Такого никто не просит."}},
+        "end": {"kind": "say", "es": "Sì, questo. E prenda anche questo: un pezzo della mappa del bosco. L'ho trovato stamattina davanti alla porta, accanto a una piuma nera.", "ru": "Да, вот этот. И возьмите: обрывок карты леса. Я нашёл его утром у двери рядом с чёрным пером."}
+      }
     }
   ]
 }
