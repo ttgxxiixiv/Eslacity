@@ -65,6 +65,31 @@
         "serv": {"kind": "answer", "task": "Спросите, включено ли обслуживание в счёт.", "branches": [{"phrase": "ph:restaurant.servizio-incluso", "next": "end"}], "wrong": {"es": "Mi dà la ricetta? Mai! È un segreto.", "ru": "Дадите рецепт? Никогда! Это секрет."}},
         "end": {"kind": "say", "es": "Il servizio? Per voi, tutto incluso: anche il mio pezzo della mappa del deserto. Il tuo amico dice che è difficile da leggere: cambia con la luce.", "ru": "Обслуживание? Для вас всё включено: даже мой обрывок карты пустыни. Твой друг говорит, что его трудно читать: он меняется от света."}
       }
+    },
+    {
+      "id": "ms:restaurant.4",
+      "chapter": 4,
+      "npc": "salvatore",
+      "scene": "sc:restaurant.4",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Siediti, oggi offre la casa. Sono di cattivo umore e ho bisogno di cucinare per qualcuno.", "ru": "Садись, сегодня за счёт заведения. У меня плохое настроение, и мне нужно для кого-то приготовить.", "next": "special"},
+        "special": {"kind": "answer", "task": "Спросите, какое фирменное блюдо.", "branches": [{"phrase": "ph:restaurant.qual-specialita-casa", "next": "specialsay"}], "wrong": {"es": "La specialità del bosco? Funghi, credo.", "ru": "Фирменное блюдо леса? Грибы, наверное."}},
+        "specialsay": {"kind": "say", "es": "Oggi pesce al forno a legna. Assaggialo e dimmi la verità.", "ru": "Сегодня рыба из дровяной печи. Попробуй и скажи правду.", "next": "praise"},
+        "praise": {"kind": "answer", "task": "Похвалите блюдо и повара.", "branches": [{"phrase": "ph:restaurant.squisito-cuoco", "next": "praisesay"}], "wrong": {"es": "È bruciato? Questo non me lo dice nessuno!", "ru": "Подгорело? Мне такого никто не говорит!"}},
+        "praisesay": {"kind": "say", "es": "Il cuoco sono io, ah ah. Grazie. Ma non cucino per la cena di Valentina. Che cerchi un altro ristorante.", "ru": "Повар — это я, ха-ха. Спасибо. Но для ужина Валентины я готовить не буду. Пусть ищет другой ресторан.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:restaurant.anche-tu-parli-male", "next": "object", "move": "object"}, {"phrase": "ph:restaurant.diritto-arrabbiato", "next": "concede", "move": "concede"}, {"phrase": "ph:restaurant.ne-parlate-domani", "next": "compromise", "move": "compromise"}], "wrong": {"es": "Cosa? Parla più forte, la cucina fa tanto rumore.", "ru": "Что? Говори громче, на кухне очень шумно."}},
+        "object": {"kind": "say", "es": "Io? Quella della bilancia di Rosa era uno scherzo! ...Beh, a lei non ha fatto ridere. Va bene, siamo pari.", "ru": "Я? Про весы Розы была шутка! ...Ну, ей было не смешно. Ладно, мы квиты.", "next": "bill"},
+        "concede": {"kind": "say", "es": "Grazie. Sono arrabbiato, e l'olio è nuovo, di questo mese!", "ru": "Спасибо. Я злюсь, а масло новое, этого месяца!", "next": "bill"},
+        "compromise": {"kind": "say", "es": "Domani? Domani viene ad assaggiare il menù... Va bene. Ne parleremo con calma. E con l'olio nuovo.", "ru": "Завтра? Завтра она придёт пробовать меню... Ладно. Поговорим спокойно. И с новым маслом.", "next": "bill"},
+        "bill": {"kind": "say", "es": "Ecco il conto. Ma leggilo bene, che oggi sono distratto.", "ru": "Вот счёт. Только прочитай внимательно, я сегодня рассеянный.", "next": "error"},
+        "error": {"kind": "answer", "task": "Скажите, что в счёте неверное начисление.", "branches": [{"phrase": "ph:restaurant.addebito-sbagliato", "next": "errorsay"}], "wrong": {"es": "Un errore nel pesce? Il pesce è perfetto.", "ru": "Ошибка в рыбе? Рыба идеальна."}},
+        "errorsay": {"kind": "say", "es": "Un errore? È vero, ti ho fatto pagare il pesce. Oggi offro io. Ma il dolce... come facciamo?", "ru": "Ошибка? Правда, я взял с тебя за рыбу. Сегодня угощаю я. Но десерт... как быть?", "next": "split"},
+        "split": {"kind": "answer", "task": "Предложите заплатить поровну.", "branches": [{"phrase": "ph:restaurant.paghiamo-alla-romana", "next": "splitsay"}], "wrong": {"es": "Paghiamo con i funghi? Qui si paga in euro.", "ru": "Заплатим грибами? Здесь платят евро."}},
+        "splitsay": {"kind": "say", "es": "Alla romana, perfetto. Un altro dolce?", "ru": "Поровну, отлично. Ещё десерт?", "next": "full"},
+        "full": {"kind": "answer", "task": "Откажитесь: вы наелись.", "branches": [{"phrase": "ph:restaurant.no-grazie-sono", "next": "end"}], "wrong": {"es": "Un altro pesce? No, basta così.", "ru": "Ещё рыбу? Нет, хватит."}},
+        "end": {"kind": "say", "es": "Benissimo. E prendi questo: un pezzo della mappa del bosco. Valentina l'ha lasciato ieri su un tavolo. Domani la ringrazio... con calma.", "ru": "Отлично. И держи: обрывок карты леса. Валентина вчера оставила его на столе. Завтра я её поблагодарю... спокойно."}
+      }
     }
   ]
 }

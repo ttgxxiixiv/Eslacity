@@ -92,7 +92,8 @@ for (const lang of LANGS) {
       const other = speaker(cafe.lines.find((l) => l.who !== 'npc')!.who);
       await expect(page.getByTestId('whisper-link')).toContainText(`${resident.name} и ${other.name}`);
       // Шёпот не попадает в обычные разговоры места.
-      await expect(page.getByTestId('scene-link')).toHaveCount(3);
+      const talks = JSON.parse(readFileSync(join(CONTENT, lang, 'scenes', 'cafe.json'), 'utf8')).scenes.filter((sc: Whisper & { chapter: number }) => sc.mode !== 'overhear' && sc.chapter <= 4);
+      await expect(page.getByTestId('scene-link')).toHaveCount(talks.length);
       await trackPitch(page);
       await page.getByTestId('whisper-link').click();
       await expect(page).toHaveURL(/#\/scene\/wh%3Acafe\.4$/);

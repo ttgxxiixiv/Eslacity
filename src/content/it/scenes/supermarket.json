@@ -98,6 +98,28 @@
         {"q": "Как Франка восприняла совет Маттео в конце?", "kind": "stance", "options": ["Обиделась: постоянную покупательницу не ценят", "Обрадовалась и поблагодарила", "Решила купить новый тостер"], "answer": 0}
       ],
       "gloss": {"indietro": "назад", "certo": "конечно", "beh": "ну", "commerciale": "торговый"}
+    },
+    {
+      "id": "sc:supermarket.4",
+      "chapter": 4,
+      "npc": "matteo",
+      "lines": [
+        {"who": "npc", "es": "Buongiorno. Scusa la faccia: stanotte non ho dormito per niente.", "ru": "Доброе утро. Прости за вид: я этой ночью совсем не спал."},
+        {"who": "hero", "es": "Per le voci del bosco?", "ru": "Из-за голосов леса?"},
+        {"who": "npc", "es": "Sì. Arrivano con il vento, a mezzanotte. Sembrano conversazioni tra vicini.", "ru": "Да. Приходят с ветром, в полночь. Похоже на разговоры соседей."},
+        {"who": "hero", "es": "E la gente cosa fa?", "ru": "И что делают люди?"},
+        {"who": "npc", "es": "Compra tappi per le orecchie, candele, caffè... Qualcuno compra per un mese.", "ru": "Покупают беруши, свечи, кофе... Некоторые — на месяц."},
+        {"who": "hero", "es": "Per un mese? Perché?", "ru": "На месяц? Почему?"},
+        {"who": "npc", "es": "Dicono che il rumore crescerà e che domani non ci sarà niente nei negozi.", "ru": "Говорят, шум будет расти, а завтра в магазинах ничего не будет."},
+        {"who": "hero", "es": "È vero?", "ru": "Это правда?"},
+        {"who": "npc", "es": "No. Ma se tutti ci credono, diventa vero: gli scaffali sono già mezzi vuoti.", "ru": "Нет. Но если все в это верят, это становится правдой: полки уже наполовину пусты."}
+      ],
+      "questions": [
+        {"q": "Когда приходят голоса?", "options": ["На рассвете", "В полночь, с ветром", "Днём"], "answer": 1},
+        {"q": "Что покупают люди?", "options": ["Беруши, свечи, кофе", "Хлеб и воду", "Карты леса"], "answer": 0},
+        {"q": "Почему полки пустеют?", "options": ["Магазин закрывается", "Поставщик не приехал", "Люди верят слухам и скупают впрок"], "answer": 2}
+      ],
+      "gloss": {"buongiorno": "доброе утро", "tappi": "пробки (tappi per le orecchie — беруши)", "negozi": "магазины"}
     }
   ]
 }

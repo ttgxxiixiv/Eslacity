@@ -1,4 +1,4 @@
-import type { Mission, MissionAnswer, Phrase } from '../content/schema';
+import type { DisputeMove, Mission, MissionAnswer, Phrase } from '../content/schema';
 import { checkPhrase, normalize, type Verdict } from './answer';
 import { phraseTokens } from './phraseSteps';
 import { shuffle, type Rng } from './generators';
@@ -20,6 +20,30 @@ export function modeForAttempt(attempt: number): MissionMode {
 }
 
 export const isPassed = (correct: number, answered: number) => answered > 0 && correct / answered >= MISSION_PASS;
+
+/** Ходы спора по порядку показа. */
+export const DISPUTE_MOVES: DisputeMove[] = ['object', 'concede', 'compromise'];
+/** С этой главы в каждой миссии есть спор (docs/GAME.md, глава IV). */
+export const DISPUTE_FROM_CHAPTER = 4;
+
+export const MOVE_LABEL: Record<DisputeMove, { verb: string; done: string }> = {
+  object: { verb: 'Возразить', done: 'возражаете' },
+  concede: { verb: 'Уступить', done: 'уступаете' },
+  compromise: { verb: 'Компромисс', done: 'предлагаете компромисс' },
+};
+
+/** Узел-спор: у веток есть ход героя. */
+export const isDispute = (node: MissionAnswer) => node.branches.some((b) => b.move);
+
+/** Узел, сведённый к одному ходу спора: в плитках и вводе герой сначала выбирает ход, потом говорит. */
+export function withMove(node: MissionAnswer, move?: DisputeMove): MissionAnswer {
+  if (!move) return node;
+  const branches = node.branches.filter((b) => b.move === move);
+  return branches.length ? { ...node, branches } : node;
+}
+
+/** Ход спора, по которому пошёл ответ. */
+export const moveOf = (node: MissionAnswer, phrase: string) => node.branches.find((b) => b.phrase === phrase)?.move;
 
 export type HeroAnswer = { kind: 'pick'; phrase: string } | { kind: 'text'; text: string };
 
@@ -82,6 +106,13 @@ export function missionGraphIssues(m: Mission): string[] {
   };
   for (const [id, n] of Object.entries(nodes)) {
     if (n.kind === 'answer' && !n.branches?.length) out.push(`у ответа "${id}" нет веток`);
+    if (n.kind === 'answer' && n.branches?.some((b) => b.move)) {
+      const moves = n.branches.map((b) => b.move);
+      if (moves.length !== DISPUTE_MOVES.length || !DISPUTE_MOVES.every((mv) => moves.includes(mv))) {
+        out.push(`спор "${id}": нужны три ветки — ${DISPUTE_MOVES.join(', ')}`);
+      }
+      if (new Set(n.branches.map((b) => b.next)).size !== n.branches.length) out.push(`спор "${id}": у каждого хода своя реакция жителя`);
+    }
     for (const to of edges(id)) if (!nodes[to]) out.push(`узел "${id}" ведёт в несуществующий "${to}"`);
   }
   // Обход в глубину: достижимость и циклы.

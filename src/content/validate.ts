@@ -2,7 +2,7 @@ import { normalize, splitArticle, stripAccents } from '../domain/answer';
 import type { Lang } from '../lang';
 import { CHAPTERS as PLAN, PLACE_LEVEL_MAX } from './vocabPlan';
 import { expandOptional, fullPhrase, optionalError, PHRASE_MAX_WORDS, PHRASE_PREFIX, phraseWords } from '../domain/phrase';
-import { answersOnPath, missionGraphIssues } from '../domain/mission';
+import { answersOnPath, DISPUTE_FROM_CHAPTER, isDispute, missionGraphIssues } from '../domain/mission';
 import { sceneWords } from '../domain/sceneText';
 import { conjugate, generated, participle, TENSES, type Tense } from '../domain/verbs';
 import { phraseTokens } from '../domain/phraseSteps';
@@ -758,7 +758,8 @@ export interface MissionChecks {
 /**
  * Миссии мест: `missions/<место>.json`. id `ms:<место>.<глава>`, житель места, сцена-вступление той же главы,
  * граф без обрывов и циклов, ответы героя — фразы своего места уровней главы, у каждого ответа реакция на ошибку,
- * не меньше пяти ответов на пути. Реплики жителя (с реакциями) — не больше 7% незнакомых слов.
+ * не меньше пяти ответов на пути. Реплики жителя (с реакциями) — не больше 7% незнакомых слов. С главы IV в миссии
+ * есть спор: ответ с тремя ветками `move` (возразить, уступить, компромисс), у каждой своя реакция.
  */
 export function validateMissions(files: { name: string; data: LocationMissions }[], checks: MissionChecks): Issue[] {
   const out: Issue[] = [];
@@ -787,6 +788,10 @@ export function validateMissions(files: { name: string; data: LocationMissions }
         out.push({ level: 'error', where: at, msg: `нет сцены "${m.scene}" этого места и главы` });
       }
       for (const msg of missionGraphIssues(m)) out.push({ level: 'error', where: at, msg });
+      // Спор (возразить, уступить, компромисс) — с главы IV, и там он обязателен.
+      const disputes = Object.values(m.nodes ?? {}).filter((n) => n.kind === 'answer' && isDispute(n)).length;
+      if (m.chapter >= DISPUTE_FROM_CHAPTER && !disputes) out.push({ level: 'error', where: at, msg: `в миссии главы ${m.chapter} нет спора (ветки с move)` });
+      if (m.chapter < DISPUTE_FROM_CHAPTER && disputes) out.push({ level: 'error', where: at, msg: `спор бывает с главы ${DISPUTE_FROM_CHAPTER}` });
       const lines: string[] = [];
       for (const [id, n] of Object.entries(m.nodes ?? {})) {
         const where = `${at} ${id}`;

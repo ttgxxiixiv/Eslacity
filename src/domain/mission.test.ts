@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import type { Mission, MissionAnswer, Phrase } from '../content/schema';
 import { seeded } from './generators';
-import { answerNode, answersOnPath, isPassed, missionGraphIssues, missionOptions, modeForAttempt } from './mission';
+import { answerNode, answersOnPath, isDispute, isPassed, missionGraphIssues, missionOptions, modeForAttempt, moveOf, withMove } from './mission';
 
 const ph = (slug: string, es: string): Phrase => ({ id: `ph:cafe.${slug}`, es, ru: slug, level: 1 });
 const phrases = Object.fromEntries(
@@ -61,5 +61,33 @@ describe('миссия', () => {
     expect(issues).toMatch(/цикл через "hi"/);
     expect(issues).toMatch(/узел "lost" недостижим/);
     expect(missionGraphIssues({ ...mission, start: 'x' })).toEqual(['нет стартового узла "x"']);
+  });
+  it('спор: три хода, у каждого своя реакция; выбор хода сводит узел к одной ветке', () => {
+    const dispute: MissionAnswer = {
+      kind: 'answer', task: 'Возразите, уступите или предложите компромисс',
+      branches: [
+        { phrase: 'ph:cafe.cafe', next: 'a', move: 'object' },
+        { phrase: 'ph:cafe.te', next: 'b', move: 'concede' },
+        { phrase: 'ph:cafe.agua', next: 'c', move: 'compromise' },
+      ],
+      wrong: { es: '¿Qué?', ru: 'Что?' },
+    };
+    const say = (next?: string) => ({ kind: 'say' as const, es: 'x', ru: 'x', next });
+    const m: Mission = { id: 'ms:cafe.4', chapter: 4, npc: 'lola', start: 'd', nodes: { d: dispute, a: say('end'), b: say('end'), c: say('end'), end: say() } };
+    expect(isDispute(dispute)).toBe(true);
+    expect(isDispute(order)).toBe(false);
+    expect(missionGraphIssues(m)).toEqual([]);
+    expect(answerNode(dispute, { kind: 'pick', phrase: 'ph:cafe.agua' }, phrases)).toEqual({ verdict: 'correct', next: 'c', phrase: 'ph:cafe.agua' });
+    expect(moveOf(dispute, 'ph:cafe.te')).toBe('concede');
+    // В плитках и вводе ход выбран заранее: засчитывается только его фраза, ошибка ведёт по его ветке.
+    const conceded = withMove(dispute, 'concede');
+    expect(answerNode(conceded, { kind: 'text', text: 'Un café, por favor.' }, phrases)).toMatchObject({ verdict: 'wrong', next: 'b' });
+    expect(answerNode(conceded, { kind: 'text', text: 'quiero un té con leche' }, phrases)).toMatchObject({ verdict: 'correct', next: 'b' });
+    expect(withMove(dispute)).toBe(dispute);
+    // Двух ходов мало, одна реакция на два хода — ошибка графа.
+    const two = { ...dispute, branches: dispute.branches.slice(0, 2) };
+    expect(missionGraphIssues({ ...m, nodes: { ...m.nodes, d: two } }).join()).toMatch(/нужны три ветки/);
+    const same = { ...dispute, branches: dispute.branches.map((b) => ({ ...b, next: 'a' })) };
+    expect(missionGraphIssues({ ...m, nodes: { ...m.nodes, d: same, b: say('end'), c: say('end') } }).join()).toMatch(/у каждого хода своя реакция/);
   });
 });

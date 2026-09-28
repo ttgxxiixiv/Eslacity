@@ -98,6 +98,28 @@
         {"q": "Что Сальваторе имел в виду в последней реплике?", "kind": "stance", "options": ["Пригласил директора сказать тост", "Шутя дал понять, что директор должен отвечать за прошлую отмену", "Предложил директору скидку"], "answer": 1}
       ],
       "gloss": {"nessun": "никакой", "scorso": "прошлый", "direttore": "директор"}
+    },
+    {
+      "id": "sc:restaurant.4",
+      "chapter": 4,
+      "npc": "salvatore",
+      "lines": [
+        {"who": "npc", "es": "Oggi non ho voglia di cucinare. Sai cosa mi ha raccontato il bosco stanotte?", "ru": "Сегодня мне не хочется готовить. Знаешь, что мне ночью рассказал лес?"},
+        {"who": "hero", "es": "Cosa?", "ru": "Что?"},
+        {"who": "npc", "es": "La voce di Valentina: «Salvatore cucina con l'olio vecchio». Dopo vent'anni!", "ru": "Голос Валентины: «Сальваторе готовит на старом масле». После двадцати лет!"},
+        {"who": "hero", "es": "Sei sicuro che fosse lei?", "ru": "Ты уверен, что это была она?"},
+        {"who": "npc", "es": "Sicuro. L'ha detto alla sua squadra, alla cena aziendale dell'anno scorso.", "ru": "Уверен. Она сказала это своей команде на прошлогоднем корпоративе."},
+        {"who": "hero", "es": "Ed è vero, quello dell'olio?", "ru": "А про масло это правда?"},
+        {"who": "npc", "es": "Certo che no! Il mio olio è di questo mese.", "ru": "Конечно, нет! Моё масло этого месяца."},
+        {"who": "hero", "es": "E adesso cosa farai?", "ru": "И что ты теперь будешь делать?"},
+        {"who": "npc", "es": "Non lo so. La loro nuova cena è venerdì, e non ho voglia di cucinare per lei.", "ru": "Не знаю. Их новый ужин в пятницу, и мне не хочется для неё готовить."}
+      ],
+      "questions": [
+        {"q": "Что лес сказал голосом Валентины?", "options": ["Что Сальваторе готовит на старом масле", "Что Сальваторе опаздывает", "Что Сальваторе лучший повар"], "answer": 0},
+        {"q": "Когда Валентина это сказала?", "options": ["Вчера", "На прошлогоднем корпоративе", "Сальваторе не знает"], "answer": 1},
+        {"q": "Почему Сальваторе не хочется готовить?", "options": ["Он устал", "Нет продуктов", "Он обижен на Валентину"], "answer": 2}
+      ],
+      "gloss": {"valentina": "Валентина (имя)", "scorso": "прошлый", "certo": "конечно"}
     }
   ]
 }

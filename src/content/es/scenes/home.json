@@ -97,6 +97,28 @@
         {"q": "Чего, по мнению Пилар, на самом деле добивается хозяин?", "kind": "stance", "options": ["Чтобы жильцы сами сделали ремонт", "Продать дом", "Чтобы жильцы съехали, а он сдал квартиру дороже"], "answer": 2},
         {"q": "Как Маноло отвечает на догадку Пилар?", "kind": "stance", "options": ["Соглашается и собирается переезжать", "Не спорит, но уезжать не собирается", "Говорит, что Пилар всё выдумала"], "answer": 1}
       ]
+    },
+    {
+      "id": "sc:home.4",
+      "chapter": 4,
+      "npc": "pilar",
+      "lines": [
+        {"who": "npc", "es": "Pasa, pero no hagas ruido: Andrés duerme. Esta noche no durmió nada.", "ru": "Проходи, только не шуми: Андрес спит. Ночью он совсем не спал."},
+        {"who": "hero", "es": "¿Por las voces?", "ru": "Из-за голосов?"},
+        {"who": "npc", "es": "Por las voces. Dice que en el bosque oyó una voz que conoce: la de la Guardiana.", "ru": "Из-за голосов. Говорит, в лесу он услышал знакомый голос: голос Хранительницы."},
+        {"who": "hero", "es": "¿Andrés conoce a la Guardiana del bosque?", "ru": "Андрес знает Хранительницу леса?"},
+        {"who": "npc", "es": "Hace cien años ella pasó por la torre. Hablaron una noche entera.", "ru": "Сто лет назад она проходила мимо башни. Они проговорили всю ночь."},
+        {"who": "hero", "es": "¿Y qué decía la voz?", "ru": "И что говорил голос?"},
+        {"who": "npc", "es": "«Demasiado ruido. No oigo el camino».", "ru": "«Слишком шумно. Я не слышу тропу»."},
+        {"who": "hero", "es": "Entonces tenemos que ayudarla.", "ru": "Тогда надо ей помочь."},
+        {"who": "npc", "es": "Sí. Pero primero ayúdame a mí: ¡el agua vuelve a entrar en casa!", "ru": "Да. Но сначала помоги мне: вода снова течёт в дом!"}
+      ],
+      "questions": [
+        {"q": "Почему Андрес не спал?", "options": ["Из-за протечки", "Из-за голосов из леса", "Он болел"], "answer": 1},
+        {"q": "Откуда Андрес знает Хранительницу?", "options": ["Сто лет назад она проходила мимо башни", "Она его сестра", "Они вместе учились"], "answer": 0},
+        {"q": "Что сказал голос Хранительницы?", "options": ["Приходите скорее", "Лес закрыт навсегда", "Слишком шумно, она не слышит тропу"], "answer": 2}
+      ],
+      "gloss": {"andrés": "Андрес (имя)", "entera": "целая", "entonces": "тогда"}
     }
   ]
 }

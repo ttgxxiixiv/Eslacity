@@ -67,6 +67,31 @@
         "pay": {"kind": "answer", "task": "Попросите счёт.", "branches": [{"phrase": "ph:cafe.fa-conto", "next": "end"}], "wrong": {"es": "Il deserto si paga? Il deserto non vuole soldi, ma costa caro.", "ru": "Пустыня берёт плату? Пустыня денег не берёт, но обходится дорого."}},
         "end": {"kind": "say", "es": "Oggi offre Tommaso: mi ha lasciato i soldi. E prendi il mio pezzo della mappa del deserto. Ricorda quello che dice Andrea: non credere a quello che vedi.", "ru": "Сегодня угощает Томмазо: он оставил мне деньги. И держи мой обрывок карты пустыни. Помни, что говорит Андреа: не верь тому, что видишь."}
       }
+    },
+    {
+      "id": "ms:cafe.4",
+      "chapter": 4,
+      "npc": "giulia",
+      "scene": "sc:cafe.4",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Siediti. Tommaso è di sopra, prepara lo zaino. E io sono nervosa.", "ru": "Садись. Томмазо наверху, собирает рюкзак. А я нервничаю.", "next": "vent"},
+        "vent": {"kind": "answer", "task": "Спросите, не нужно ли ей выговориться.", "branches": [{"phrase": "ph:cafe.hai-bisogno-sfogarti", "next": "ventsay"}], "wrong": {"es": "Ho bisogno di una colazione? No, ho bisogno di parlare.", "ru": "Мне нужен завтрак? Нет, мне надо поговорить."}},
+        "ventsay": {"kind": "say", "es": "Sì. Quando Tommaso è andato alla torre, ho passato un anno senza dormire. Non voglio ripeterlo.", "ru": "Да. Когда Томмазо ушёл к башне, я год не спала. Не хочу повторения.", "next": "drink"},
+        "drink": {"kind": "answer", "task": "Предложите выпить чего-нибудь.", "branches": [{"phrase": "ph:cafe.beviamo-qualcosa", "next": "drinksay"}], "wrong": {"es": "Beviamo il bosco? Prima un caffè.", "ru": "Выпьем лес? Сначала кофе."}},
+        "drinksay": {"kind": "say", "es": "Va bene, due caffè. Ma ascolta: Tommaso non va nel bosco. Ha già perso un anno nella torre.", "ru": "Ладно, два кофе. Но послушай: Томмазо в лес не пойдёт. Он уже потерял год в башне.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:cafe.decide-lui", "next": "object", "move": "object"}, {"phrase": "ph:cafe.hai-ragione-resti", "next": "concede", "move": "concede"}, {"phrase": "ph:cafe.e-se-viene-margine", "next": "compromise", "move": "compromise"}], "wrong": {"es": "Cosa? Questo non c'entra niente con Tommaso.", "ru": "Что? Это вообще не про Томмазо."}},
+        "object": {"kind": "say", "es": "Decide lui? Forse hai ragione... È mio fratello, non mio figlio. Gli parlerò senza gridare.", "ru": "Решает он? Может, ты и прав... Он мой брат, а не сын. Поговорю с ним без крика.", "next": "gossip"},
+        "concede": {"kind": "say", "es": "Grazie. So che Tommaso si arrabbierà, ma lo preferisco arrabbiato e a casa.", "ru": "Спасибо. Знаю, Томмазо разозлится, но пусть лучше злится дома.", "next": "gossip"},
+        "compromise": {"kind": "say", "es": "Fino al margine? Mi sembra giusto. Lì c'è un paese, e può tornare in treno.", "ru": "До опушки? По-моему, честно. Там есть деревня, и он сможет вернуться поездом.", "next": "gossip"},
+        "gossip": {"kind": "say", "es": "Un'altra cosa. Ivo dice che il bosco ripete la tua voce: «Giulia è pesante». L'hai detto tu?", "ru": "И ещё. Иво пишет, что лес повторяет твой голос: «Джулия — зануда». Ты так говорил?", "next": "sorry"},
+        "sorry": {"kind": "answer", "task": "Извинитесь: это было недоразумение.", "branches": [{"phrase": "ph:cafe.scusa-malinteso", "next": "sorrysay"}], "wrong": {"es": "Un malinteso o un caffè cattivo? Tutti e due sono colpa tua.", "ru": "Недоразумение или плохой кофе? И то и другое — твоя вина."}},
+        "sorrysay": {"kind": "say", "es": "Va bene, ti perdono. Così c'è una voce in meno nel bosco. Vuoi qualcosa da mangiare?", "ru": "Ладно, прощаю. Вот и на один голос в лесу меньше. Хочешь что-нибудь поесть?", "next": "pastry"},
+        "pastry": {"kind": "answer", "task": "Спросите, домашние ли сладости.", "branches": [{"phrase": "ph:cafe.dolci-sono-fatti", "next": "pastrysay"}], "wrong": {"es": "I dolci sono del bosco? No, sono di mia madre.", "ru": "Сладости из леса? Нет, мамины."}},
+        "pastrysay": {"kind": "say", "es": "Fatti in casa, certo. Prendine due per il viaggio.", "ru": "Домашние, конечно. Возьми две в дорогу.", "next": "pay"},
+        "pay": {"kind": "answer", "task": "Скажите, что сегодня угощаете вы.", "branches": [{"phrase": "ph:cafe.oggi-offro", "next": "end"}], "wrong": {"es": "Oggi offre il bosco? Il bosco non paga.", "ru": "Сегодня угощает лес? Лес не платит."}},
+        "end": {"kind": "say", "es": "Grazie. E prendi: Ivo ha mandato questo pezzo della mappa del bosco per te. Ascolta gli alberi, ma non credere a tutto quello che ripetono.", "ru": "Спасибо. И держи: Иво прислал для тебя этот обрывок карты леса. Слушай деревья, но не верь всему, что они повторяют."}
+      }
     }
   ]
 }

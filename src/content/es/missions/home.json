@@ -62,6 +62,31 @@
         "fault": {"kind": "answer", "task": "Скажите, что у вас поломка и нужен сантехник.", "branches": [{"phrase": "ph:home.tenemos-averia-necesito", "next": "end"}], "wrong": {"es": "¿Necesito un paraguas? ¡Necesitamos un fontanero!", "ru": "Нужен зонт? Нам нужен сантехник!"}},
         "end": {"kind": "say", "es": "El fontanero viene mañana. Toma mi trozo del mapa del desierto. Andrés me lo dio para ti: dice que lo tenía desde hace cien años.", "ru": "Сантехник придёт завтра. Держи мой обрывок карты пустыни. Андрес дал его мне для тебя: говорит, он хранил его сто лет."}
       }
+    },
+    {
+      "id": "ms:home.4",
+      "chapter": 4,
+      "npc": "pilar",
+      "scene": "sc:home.4",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Pasa, pasa. Cuidado con el suelo: la gotera ha vuelto.", "ru": "Проходи, проходи. Осторожно с полом: протечка вернулась.", "next": "water"},
+        "water": {"kind": "answer", "task": "Скажите, что на полу вода.", "branches": [{"phrase": "ph:home.hay-agua-suelo", "next": "watersay"}], "wrong": {"es": "¿Hay árboles en el suelo? No, hay agua.", "ru": "На полу деревья? Нет, вода."}},
+        "watersay": {"kind": "say", "es": "Sí, y en el baño es peor. Ve a mirar.", "ru": "Да, а в ванной ещё хуже. Сходи посмотри.", "next": "mould"},
+        "mould": {"kind": "answer", "task": "Скажите, что в ванной плесень.", "branches": [{"phrase": "ph:home.hay-moho-bano", "next": "mouldsay"}], "wrong": {"es": "¿Hay un búho en el baño? ¡Eso sería nuevo!", "ru": "В ванной сова? Вот это было бы что-то новое!"}},
+        "mouldsay": {"kind": "say", "es": "Moho, humedad, goteras... Y el dueño no hace nada. Así que he decidido algo: no pago el alquiler hasta que lo arregle.", "ru": "Плесень, сырость, протечки... А хозяин ничего не делает. Так что я решила: не плачу за квартиру, пока он не починит.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:home.te-pueden-echar", "next": "object", "move": "object"}, {"phrase": "ph:home.haces-bien-escuchara", "next": "concede", "move": "concede"}, {"phrase": "ph:home.presupuesto-a-medias", "next": "compromise", "move": "compromise"}], "wrong": {"es": "¿Cómo? Con el ruido del agua no te oigo.", "ru": "Как? Из-за шума воды я тебя не слышу."}},
+        "object": {"kind": "say", "es": "¿Echarme? Después de cuarenta años... Tienes razón, no le voy a dar esa excusa.", "ru": "Выселить? После сорока лет... Ты прав, не дам ему такого повода.", "next": "contract"},
+        "concede": {"kind": "say", "es": "¿Verdad? Manolo dice que estoy loca, pero alguien tiene que hacer algo.", "ru": "Правда? Маноло говорит, что я сошла с ума, но кто-то же должен что-то делать.", "next": "contract"},
+        "compromise": {"kind": "say", "es": "¿A medias? No es justo, pero es mejor que esperar otro invierno. Lo propongo en la junta.", "ru": "Пополам? Нечестно, но лучше, чем ждать ещё одну зиму. Предложу это на собрании.", "next": "contract"},
+        "contract": {"kind": "say", "es": "Además, mi contrato de alquiler termina pronto, y el dueño no dice nada.", "ru": "К тому же мой договор аренды скоро заканчивается, а хозяин молчит.", "next": "renew"},
+        "renew": {"kind": "answer", "task": "Спросите, когда продлевается договор.", "branches": [{"phrase": "ph:home.cuando-renueva-contrato", "next": "renewsay"}], "wrong": {"es": "¿Cuándo se renueva la gotera? ¡Cada noche!", "ru": "Когда обновляется протечка? Каждую ночь!"}},
+        "renewsay": {"kind": "say", "es": "En enero. Ya veremos. Oye, sobre el bosque: mi abuela decía que la Guardiana escucha todo lo que se dice a escondidas. Y solo deja pasar a quien dice las cosas a la cara. Brr, ¡qué frío hace hoy!", "ru": "В январе. Посмотрим. Слушай, про лес: бабушка говорила, что Хранительница слышит всё, что говорят тайком. И пропускает только тех, кто говорит в лицо. Брр, как сегодня холодно!", "next": "heating"},
+        "heating": {"kind": "answer", "task": "Скажите, что отопление не работает.", "branches": [{"phrase": "ph:home.calefaccion-no-funciona", "next": "heatingsay"}], "wrong": {"es": "¿El bosque no funciona? Funciona demasiado.", "ru": "Лес не работает? Он работает слишком хорошо."}},
+        "heatingsay": {"kind": "say", "es": "Tampoco. Otra cosa para la junta. Ahora ayúdame a salvar los libros de Andrés. ¿Dónde los pongo?", "ru": "Тоже нет. Ещё один вопрос для собрания. А теперь помоги спасти книги Андреса. Куда их положить?", "next": "books"},
+        "books": {"kind": "answer", "task": "Скажите, что книги ставят на полку.", "branches": [{"phrase": "ph:home.libros-van-estanteria", "next": "end"}], "wrong": {"es": "¿Los libros van al bosque? ¡Allí hay más humedad!", "ru": "Книги — в лес? Там ещё сырее!"}},
+        "end": {"kind": "say", "es": "Perfecto, allí no llega el agua. Y mira lo que había entre los libros: un trozo del mapa del bosque. Andrés lo trajo de la torre. Dice que es para ti.", "ru": "Отлично, туда вода не достанет. И смотри, что было между книгами: обрывок карты леса. Андрес принёс его из башни. Говорит, это для тебя."}
+      }
     }
   ]
 }

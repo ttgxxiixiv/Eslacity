@@ -96,6 +96,31 @@
         {"q": "Почему Джулия не хочет вешать объявление?", "kind": "stance", "options": ["Боится прослыть неприветливой", "Объявления запрещены", "Парень всё равно не умеет читать по-итальянски"], "answer": 0}
       ],
       "gloss": {"carica": "заряжает", "antipatica": "неприветливая, неприятная"}
+    },
+    {
+      "id": "sc:cafe.4",
+      "chapter": 4,
+      "npc": "giulia",
+      "lines": [
+        {"who": "npc", "es": "Finalmente! Ti è arrivata una lettera. È di Ivo, l'ex Mercante.", "ru": "Наконец-то! Тебе пришло письмо. От Иво, бывшего Купца."},
+        {"who": "hero", "es": "Cosa dice?", "ru": "Что там?"},
+        {"who": "npc", "es": "«Vivo di nuovo nel bosco. Gli alberi ripetono tutto quello che la gente dice di nascosto».", "ru": "«Я снова живу в лесу. Деревья повторяют всё, что люди говорят тайком»."},
+        {"who": "hero", "es": "Tutto? Anche quello che diciamo qui?", "ru": "Всё? И то, что мы говорим здесь?"},
+        {"who": "npc", "es": "Sembra di sì. Dice che il bosco è pieno di voci della nostra città: pettegolezzi, lamentele, litigi.", "ru": "Похоже, да. Пишет, что лес полон голосов нашего города: сплетни, жалобы, ссоры."},
+        {"who": "hero", "es": "E allora cosa succede?", "ru": "И что тогда?"},
+        {"who": "npc", "es": "Con tutto questo rumore, la Custode del bosco non sente il sentiero. Nessuno può passare.", "ru": "При таком шуме Хранительница леса не слышит тропу. Никто не может пройти."},
+        {"who": "hero", "es": "Cosa possiamo fare?", "ru": "Что мы можем сделать?"},
+        {"who": "npc", "es": "Ivo dice che ogni litigio che finisce bene rende il bosco un po' più tranquillo.", "ru": "Иво пишет, что каждый спор, который закончился миром, делает лес немного тише."},
+        {"who": "hero", "es": "Allora bisogna parlare con la gente.", "ru": "Значит, надо говорить с людьми."},
+        {"who": "npc", "es": "Sì. E comincia da casa mia: Tommaso vuole venire con te nel bosco, e io non voglio.", "ru": "Да. И начни с моего дома: Томмазо хочет пойти с тобой в лес, а я не хочу."}
+      ],
+      "questions": [
+        {"q": "Кто прислал письмо?", "options": ["Томмазо", "Иво, бывший Купец", "Хранительница леса"], "answer": 1},
+        {"q": "Что повторяют деревья?", "options": ["Всё, что люди говорят тайком", "Песни птиц", "Названия улиц"], "answer": 0},
+        {"q": "Почему никто не может пройти через лес?", "options": ["Лес сгорел", "Нет карты", "Из-за шума Хранительница не слышит тропу"], "answer": 2},
+        {"q": "Что делает лес тише?", "options": ["Тишина по ночам", "Спор, который закончился миром", "Подарки Хранительнице"], "answer": 1}
+      ],
+      "gloss": {"finalmente": "наконец", "ivo": "Иво (имя)", "mercante": "купец", "tommaso": "Томмазо (имя)"}
     }
   ]
 }

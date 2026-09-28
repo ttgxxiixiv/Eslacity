@@ -99,6 +99,28 @@
         {"q": "Зачем Кармен дарит Пако лук?", "kind": "stance", "options": ["Лук скоро испортится", "Чтобы показать, что она никого не обманывает", "Пако сам попросил"], "answer": 1}
       ],
       "gloss": {"generosa": "щедрая", "broma": "шутка"}
+    },
+    {
+      "id": "sc:market.4",
+      "chapter": 4,
+      "npc": "carmen",
+      "lines": [
+        {"who": "npc", "es": "¡Qué noche! ¿Tú también oíste las voces del bosque?", "ru": "Ну и ночка! Ты тоже слышал голоса из леса?"},
+        {"who": "hero", "es": "Sí, algo. ¿Qué decían?", "ru": "Да, немного. Что они говорили?"},
+        {"who": "npc", "es": "Una decía: «La báscula de Carmen es generosa». ¡Y era la voz de Paco!", "ru": "Один говорил: «Весы у Кармен щедрые». И это был голос Пако!"},
+        {"who": "hero", "es": "¿El bosque repite lo que dice la gente?", "ru": "Лес повторяет то, что говорят люди?"},
+        {"who": "npc", "es": "Eso parece. Todo lo que dices a escondidas, el bosque lo dice en voz alta.", "ru": "Похоже на то. Всё, что говоришь тайком, лес говорит вслух."},
+        {"who": "hero", "es": "¿Y tus clientes lo oyeron?", "ru": "И твои покупатели это слышали?"},
+        {"who": "npc", "es": "Todo el barrio. Hoy nadie me compra. Dicen que mi báscula está trucada.", "ru": "Весь район. Сегодня у меня никто не покупает. Говорят, мои весы подкручены."},
+        {"who": "hero", "es": "Lo siento mucho.", "ru": "Мне очень жаль."},
+        {"who": "npc", "es": "Mi abuela lo decía: «Cuidado con lo que dices, que los árboles escuchan». Yo pensaba que era un cuento.", "ru": "Бабушка говорила: «Осторожнее со словами, деревья слушают». Я думала, это сказка."}
+      ],
+      "questions": [
+        {"q": "Что лес сказал голосом Пако?", "options": ["Что у Кармен лучший сыр", "Что весы Кармен щедрые", "Что рынок закрывается"], "answer": 1},
+        {"q": "Почему у Кармен сегодня не покупают?", "options": ["Люди думают, что её весы подкручены", "У неё нет товара", "Идёт дождь"], "answer": 0},
+        {"q": "Что говорила бабушка Кармен?", "options": ["Не ходи в лес", "Весы должны быть честными", "Осторожнее со словами: деревья слушают"], "answer": 2}
+      ],
+      "gloss": {"carmen": "Кармен (имя)", "generosa": "щедрая", "paco": "Пако (имя)"}
     }
   ]
 }

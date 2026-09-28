@@ -98,6 +98,28 @@
         {"q": "Что Пако имел в виду в последней реплике?", "kind": "stance", "options": ["Пригласил директора сказать тост", "Шутя дал понять, что директор должен отвечать за прошлую отмену", "Предложил директору скидку"], "answer": 1}
       ],
       "gloss": {"mía": "моя"}
+    },
+    {
+      "id": "sc:restaurant.4",
+      "chapter": 4,
+      "npc": "paco",
+      "lines": [
+        {"who": "npc", "es": "Hoy no tengo ganas de cocinar. ¿Sabes lo que me ha contado el bosque esta noche?", "ru": "Сегодня мне не хочется готовить. Знаешь, что мне ночью рассказал лес?"},
+        {"who": "hero", "es": "¿Qué?", "ru": "Что?"},
+        {"who": "npc", "es": "La voz de Beatriz: «Paco cocina con aceite viejo». ¡Después de veinte años!", "ru": "Голос Беатрис: «Пако готовит на старом масле». После двадцати лет!"},
+        {"who": "hero", "es": "¿Estás seguro de que era ella?", "ru": "Ты уверен, что это была она?"},
+        {"who": "npc", "es": "Seguro. Lo dijo a su equipo, en la cena de empresa del año pasado.", "ru": "Уверен. Она сказала это своей команде на прошлогоднем корпоративе."},
+        {"who": "hero", "es": "¿Y es verdad lo del aceite?", "ru": "А про масло это правда?"},
+        {"who": "npc", "es": "¡Claro que no! Mi aceite es de este mes.", "ru": "Конечно, нет! Моё масло этого месяца."},
+        {"who": "hero", "es": "¿Y ahora qué vas a hacer?", "ru": "И что ты теперь будешь делать?"},
+        {"who": "npc", "es": "No sé. Su nueva cena es el viernes, y no tengo ganas de cocinar para ella.", "ru": "Не знаю. Их новый ужин в пятницу, и мне не хочется для неё готовить."}
+      ],
+      "questions": [
+        {"q": "Что лес сказал голосом Беатрис?", "options": ["Что Пако готовит на старом масле", "Что Пако опаздывает", "Что Пако лучший повар"], "answer": 0},
+        {"q": "Когда Беатрис это сказала?", "options": ["Вчера", "На прошлогоднем корпоративе", "Пако не знает"], "answer": 1},
+        {"q": "Почему Пако не хочется готовить?", "options": ["Он устал", "Нет продуктов", "Он обижен на Беатрис"], "answer": 2}
+      ],
+      "gloss": {"aceite": "масло (растительное)", "beatriz": "Беатрис (имя)", "paco": "Пако (имя)"}
     }
   ]
 }

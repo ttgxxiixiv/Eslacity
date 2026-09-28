@@ -98,6 +98,28 @@
         {"q": "Как Пилар восприняла совет Хави в конце?", "kind": "stance", "options": ["Обиделась: постоянную покупательницу не ценят", "Обрадовалась и поблагодарила", "Решила купить новый тостер"], "answer": 0}
       ],
       "gloss": {"comercial": "торговый"}
+    },
+    {
+      "id": "sc:supermarket.4",
+      "chapter": 4,
+      "npc": "javi",
+      "lines": [
+        {"who": "npc", "es": "Buenos días. Perdona la cara: esta noche no he dormido nada.", "ru": "Доброе утро. Прости за вид: я этой ночью совсем не спал."},
+        {"who": "hero", "es": "¿Por las voces del bosque?", "ru": "Из-за голосов леса?"},
+        {"who": "npc", "es": "Sí. Llegan con el viento, a medianoche. Parecen conversaciones de vecinos.", "ru": "Да. Приходят с ветром, в полночь. Похоже на разговоры соседей."},
+        {"who": "hero", "es": "¿Y qué hace la gente?", "ru": "И что делают люди?"},
+        {"who": "npc", "es": "Compra tapones para los oídos, velas, café... Algunos compran para un mes.", "ru": "Покупают беруши, свечи, кофе... Некоторые — на месяц."},
+        {"who": "hero", "es": "¿Para un mes? ¿Por qué?", "ru": "На месяц? Почему?"},
+        {"who": "npc", "es": "Dicen que el ruido va a crecer y que mañana no habrá nada en las tiendas.", "ru": "Говорят, шум будет расти, а завтра в магазинах ничего не будет."},
+        {"who": "hero", "es": "¿Es verdad?", "ru": "Это правда?"},
+        {"who": "npc", "es": "No. Pero si todos lo creen, se hace verdad: las estanterías ya están medio vacías.", "ru": "Нет. Но если все в это верят, это становится правдой: полки уже наполовину пусты."}
+      ],
+      "questions": [
+        {"q": "Когда приходят голоса?", "options": ["На рассвете", "В полночь, с ветром", "Днём"], "answer": 1},
+        {"q": "Что покупают люди?", "options": ["Беруши, свечи, кофе", "Хлеб и воду", "Карты леса"], "answer": 0},
+        {"q": "Почему полки пустеют?", "options": ["Магазин закрывается", "Поставщик не приехал", "Люди верят слухам и скупают впрок"], "answer": 2}
+      ],
+      "gloss": {"tapones": "пробки (tapones para los oídos — беруши)", "medianoche": "полночь", "oídos": "уши"}
     }
   ]
 }

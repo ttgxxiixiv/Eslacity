@@ -5,10 +5,10 @@ import { loadMission, placeOfMission } from '../content/missions';
 import { npcFor } from '../content/npcs';
 import { loadPhrases } from '../content/phrases';
 import { loadScene } from '../content/scenes';
-import type { Mission, MissionAnswer, Phrase, Scene } from '../content/schema';
+import type { DisputeMove, Mission, MissionAnswer, Phrase, Scene } from '../content/schema';
 import { logAnswer } from '../db/answers';
 import { seeded } from '../domain/generators';
-import { answerNode, isPassed, MISSION_PASS, MISSION_REWARD, missionOptions, modeForAttempt, type HeroAnswer, type MissionMode } from '../domain/mission';
+import { answerNode, DISPUTE_MOVES, isDispute, isPassed, MISSION_PASS, MISSION_REWARD, missionOptions, modeForAttempt, MOVE_LABEL, moveOf, withMove, type HeroAnswer, type MissionMode } from '../domain/mission';
 import { fullPhrase } from '../domain/phrase';
 import { makeTiles } from '../domain/phraseSteps';
 import type { Rank } from '../domain/reputation';
@@ -23,7 +23,7 @@ import { syncAndEvaluate } from '../store/motivation';
 import { useSettings } from '../store/settings';
 import { SceneTalk } from './Scene';
 
-type Bubble = { who: 'npc' | 'hero'; es: string; ru?: string; tone?: 'wrong' | 'hint' };
+type Bubble = { who: 'npc' | 'hero'; es: string; ru?: string; tone?: 'wrong' | 'hint'; move?: DisputeMove };
 
 const MODE_LABEL: Record<MissionMode, string> = { choose: 'выбор фразы', tiles: 'сборка из плиток', type: 'ввод своими словами' };
 
@@ -176,14 +176,14 @@ function MissionDialog({ mission, phrases, pool, mode, place, onDone }: {
     else onDone(score.correct, score.answered);
   };
 
-  const answer = (a: HeroAnswer, said: string) => {
+  const answer = (a: HeroAnswer, said: string, move?: DisputeMove) => {
     if (!node || node.kind !== 'answer') return;
-    const r = answerNode(node, a, phrases);
+    const r = answerNode(withMove(node, move), a, phrases);
     const ok = r.verdict !== 'wrong';
     logAnswer({ itemId: mission.id, kind: `mission-${mode}`, verdict: r.verdict, mode: 'learn', ms: 0 });
     setScore((s) => ({ correct: s.correct + (ok ? 1 : 0), answered: s.answered + 1 }));
     const heroLine = ok ? fullPhrase(phrases[r.phrase].es) : said;
-    const next: Bubble[] = [{ who: 'hero', es: heroLine, tone: ok ? undefined : 'wrong' }];
+    const next: Bubble[] = [{ who: 'hero', es: heroLine, tone: ok ? undefined : 'wrong', move: ok ? moveOf(node, r.phrase) : undefined }];
     if (!ok) {
       next.push({ who: 'npc', es: node.wrong.es, ru: node.wrong.ru });
       next.push({ who: 'hero', es: `Правильно: ${fullPhrase(phrases[r.phrase].es)}`, tone: 'hint' });
@@ -231,7 +231,7 @@ function MissionBubble({ bubble, npcLook, npcName }: { bubble: Bubble; npcLook?:
         onClick={() => setRu(!ru)}
         className={`max-w-[80%] rounded-2xl border-2 px-3 py-2 text-left ${hero ? 'rounded-br-none' : 'rounded-bl-none'} ${tone}`}
       >
-        <div className="text-xs text-stone-500">{hero ? 'Вы' : npcName}</div>
+        <div className="text-xs text-stone-500">{hero ? (bubble.move ? `Вы ${MOVE_LABEL[bubble.move].done}` : 'Вы') : npcName}</div>
         <div className={`text-lg leading-snug ${bubble.tone === 'wrong' ? 'line-through decoration-bad/60' : ''}`}>{bubble.es}</div>
         {ru && bubble.ru && <div className="mt-1 text-sm text-stone-600">{bubble.ru}</div>}
       </button>
@@ -239,32 +239,54 @@ function MissionBubble({ bubble, npcLook, npcName }: { bubble: Bubble; npcLook?:
   );
 }
 
-/** Ход героя: задача по-русски и ответ в режиме прохождения. */
+/**
+ * Ход героя: задача по-русски и ответ в режиме прохождения. В споре при выборе фразы герой сразу выбирает одну
+ * из трёх; в плитках и вводе сначала решает, как ответить (возразить, уступить, компромисс), и видит смысл фразы.
+ */
 function HeroTurn({ node, phrases, pool, mode, onAnswer }: {
   node: MissionAnswer;
   phrases: Record<string, Phrase>;
   pool: Phrase[];
   mode: MissionMode;
-  onAnswer(a: HeroAnswer, said: string): void;
+  onAnswer(a: HeroAnswer, said: string, move?: DisputeMove): void;
 }) {
   const rng = useMemo(() => seeded(Date.now()), []);
+  const [move, setMove] = useState<DisputeMove | undefined>(undefined);
+  const needMove = mode !== 'choose' && isDispute(node) && !move;
+  // Узел хода спора держится между отрисовками: иначе плитки перемешивались бы после каждого нажатия.
+  const target = useMemo(() => withMove(node, move), [node, move]);
   const options = useMemo(() => missionOptions(node, pool, rng), [node, pool, rng]);
-  const tiles = useMemo(() => makeTiles(phrases[node.branches[0].phrase], pool, rng), [node, phrases, pool, rng]);
+  const tiles = useMemo(() => makeTiles(phrases[target.branches[0].phrase], pool, rng), [target, phrases, pool, rng]);
   const [chosen, setChosen] = useState<number[]>([]);
   const [text, setText] = useState('');
+  const say = (a: HeroAnswer, said: string) => onAnswer(a, said, move);
   return (
     <div className="rounded-2xl bg-white p-3 shadow-sm" data-testid="hero-turn">
       <div className="text-sm text-stone-500">Ваш ответ</div>
       <div className="font-semibold" data-testid="hero-task">
         {node.task}
       </div>
-      {mode === 'choose' && (
+      {needMove && (
+        <div className="mt-2 grid grid-cols-3 gap-2">
+          {DISPUTE_MOVES.map((mv) => (
+            <Button key={mv} variant="secondary" className="!px-1" onClick={() => setMove(mv)} data-testid="dispute-move">
+              {MOVE_LABEL[mv].verb}
+            </Button>
+          ))}
+        </div>
+      )}
+      {move && mode !== 'choose' && (
+        <div className="mt-1 text-stone-600" data-testid="dispute-hint">
+          {MOVE_LABEL[move].verb}: «{phrases[target.branches[0].phrase].ru}»
+        </div>
+      )}
+      {needMove ? null : mode === 'choose' && (
         <div className="mt-2 flex flex-col gap-2">
           {options.map((pid) => (
             <button
               key={pid}
               type="button"
-              onClick={() => onAnswer({ kind: 'pick', phrase: pid }, fullPhrase(phrases[pid].es))}
+              onClick={() => say({ kind: 'pick', phrase: pid }, fullPhrase(phrases[pid].es))}
               className="press min-h-12 rounded-xl border-2 border-stone-300 bg-white px-3 py-2 text-left text-lg"
             >
               {fullPhrase(phrases[pid].es)}
@@ -272,7 +294,7 @@ function HeroTurn({ node, phrases, pool, mode, onAnswer }: {
           ))}
         </div>
       )}
-      {mode === 'tiles' && (
+      {!needMove && mode === 'tiles' && (
         <>
           <div className="mt-2 flex min-h-12 flex-wrap gap-2 rounded-xl border-2 border-dashed border-stone-300 p-2">
             {chosen.map((idx, pos) => (
@@ -299,19 +321,19 @@ function HeroTurn({ node, phrases, pool, mode, onAnswer }: {
             disabled={!chosen.length}
             onClick={() => {
               const said = chosen.map((i) => tiles[i]).join(' ');
-              onAnswer({ kind: 'text', text: said }, said);
+              say({ kind: 'text', text: said }, said);
             }}
           >
             Сказать
           </Button>
         </>
       )}
-      {mode === 'type' && (
+      {!needMove && mode === 'type' && (
         <form
           className="mt-2 flex flex-col gap-2"
           onSubmit={(e) => {
             e.preventDefault();
-            if (text.trim()) onAnswer({ kind: 'text', text }, text.trim());
+            if (text.trim()) say({ kind: 'text', text }, text.trim());
           }}
         >
           <input

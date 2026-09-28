@@ -99,6 +99,28 @@
         {"q": "Зачем Роза дарит Сальваторе лук?", "kind": "stance", "options": ["Лук скоро испортится", "Чтобы показать, что она никого не обманывает", "Сальваторе сам попросил"], "answer": 1}
       ],
       "gloss": {"scorso": "прошлый", "ognuno": "каждый", "neanche": "даже не, ни", "generosa": "щедрая", "scherzo": "шутка"}
+    },
+    {
+      "id": "sc:market.4",
+      "chapter": 4,
+      "npc": "rosa",
+      "lines": [
+        {"who": "npc", "es": "Che notte! Anche tu hai sentito le voci del bosco?", "ru": "Ну и ночка! Ты тоже слышал голоса из леса?"},
+        {"who": "hero", "es": "Sì, un po'. Cosa dicevano?", "ru": "Да, немного. Что они говорили?"},
+        {"who": "npc", "es": "Una diceva: «La bilancia di Rosa è generosa». Ed era la voce di Salvatore!", "ru": "Один говорил: «Весы у Розы щедрые». И это был голос Сальваторе!"},
+        {"who": "hero", "es": "Il bosco ripete quello che dice la gente?", "ru": "Лес повторяет то, что говорят люди?"},
+        {"who": "npc", "es": "Sembra di sì. Tutto quello che dici di nascosto, il bosco lo dice ad alta voce.", "ru": "Похоже на то. Всё, что говоришь тайком, лес говорит вслух."},
+        {"who": "hero", "es": "E i tuoi clienti l'hanno sentito?", "ru": "И твои покупатели это слышали?"},
+        {"who": "npc", "es": "Tutto il quartiere. Oggi nessuno compra da me. Dicono che la mia bilancia è truccata.", "ru": "Весь район. Сегодня у меня никто не покупает. Говорят, мои весы подкручены."},
+        {"who": "hero", "es": "Mi dispiace molto.", "ru": "Мне очень жаль."},
+        {"who": "npc", "es": "Mia nonna lo diceva: «Attenta a quello che dici, gli alberi ascoltano». Pensavo che fosse una favola.", "ru": "Бабушка говорила: «Осторожнее со словами, деревья слушают». Я думала, это сказка."}
+      ],
+      "questions": [
+        {"q": "Что лес сказал голосом Сальваторе?", "options": ["Что у Розы лучший сыр", "Что весы Розы щедрые", "Что рынок закрывается"], "answer": 1},
+        {"q": "Почему у Розы сегодня не покупают?", "options": ["Люди думают, что её весы подкручены", "У неё нет товара", "Идёт дождь"], "answer": 0},
+        {"q": "Что говорила бабушка Розы?", "options": ["Не ходи в лес", "Весы должны быть честными", "Осторожнее со словами: деревья слушают"], "answer": 2}
+      ],
+      "gloss": {"generosa": "щедрая", "favola": "сказка"}
     }
   ]
 }

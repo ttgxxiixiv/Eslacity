@@ -63,6 +63,31 @@
         "deal": {"kind": "answer", "task": "Скажите, что возьмёте, если она сделает скидку.", "branches": [{"phrase": "ph:market.se-fa-uno", "next": "end"}], "wrong": {"es": "Se ballo, me lo regala? No!", "ru": "Если станцую, отдадите даром? Нет!"}},
         "end": {"kind": "say", "es": "Così mi piace! Dieci euro. E prendi il mio pezzo della mappa del deserto, quello vero. Guarda: la carta è vecchia e c'è sabbia dentro. Quelli finti sono nuovi.", "ru": "Вот это мне нравится! Десять евро. И держи мой обрывок карты пустыни, настоящий. Смотри: бумага старая, и в ней песок. Поддельные — новые."}
       }
+    },
+    {
+      "id": "ms:market.4",
+      "chapter": 4,
+      "npc": "rosa",
+      "scene": "sc:market.4",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Oggi nessuno compra niente da me. Dicono che la mia bilancia è truccata. Tu vuoi qualcosa?", "ru": "Сегодня у меня никто ничего не покупает. Говорят, мои весы подкручены. Тебе что-нибудь нужно?", "next": "cheese"},
+        "cheese": {"kind": "answer", "task": "Спросите, откуда сыр.", "branches": [{"phrase": "ph:market.provenienza-formaggio", "next": "cheesesay"}], "wrong": {"es": "La provenienza della bilancia? Dal negozio, come tutte!", "ru": "Откуда весы? Из магазина, как у всех!"}},
+        "cheesesay": {"kind": "say", "es": "Da un paese vicino al bosco. Lo fa un produttore che conosco da anni. Assaggialo.", "ru": "Из деревни у леса. Его делает производитель, которого я знаю много лет. Попробуй.", "next": "deal"},
+        "deal": {"kind": "answer", "task": "Скажите, что это выгодная покупка.", "branches": [{"phrase": "ph:market.e-un-affare", "next": "dealsay"}], "wrong": {"es": "Un affare o un affamato? Questo è formaggio.", "ru": "Выгодная покупка или голодающий? Это сыр."}},
+        "dealsay": {"kind": "say", "es": "Vero? Ma la gente non si fida più di me. E tutto per Salvatore. Non vendo più niente a quell'uomo.", "ru": "Правда? Но люди мне больше не доверяют. И всё из-за Сальваторе. Больше ничего этому человеку не продам.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:market.non-voleva-offenderti", "next": "object", "move": "object"}, {"phrase": "ph:market.capisco-arrabbiata", "next": "concede", "move": "concede"}, {"phrase": "ph:market.e-se-pesate-insieme", "next": "compromise", "move": "compromise"}], "wrong": {"es": "Cosa dici? Parla chiaro, che oggi sono di cattivo umore.", "ru": "Что ты говоришь? Говори ясно, у меня сегодня плохое настроение."}},
+        "object": {"kind": "say", "es": "Non voleva? A me ha fatto male... Ma è vero che Salvatore scherza con tutti.", "ru": "Не хотел? А мне было обидно... Но правда, Сальваторе со всеми шутит.", "next": "queue"},
+        "concede": {"kind": "say", "es": "Grazie. Avevo bisogno che qualcuno lo dicesse. Sono arrabbiata, sì, e con ragione.", "ru": "Спасибо. Мне нужно было, чтобы кто-то это сказал. Да, я сержусь, и не зря.", "next": "queue"},
+        "compromise": {"kind": "say", "es": "Pesare insieme? Che bella idea! Così tutti vedono che la mia bilancia non mente.", "ru": "Взвесить вместе? Отличная идея! Так все увидят, что мои весы не врут.", "next": "queue"},
+        "queue": {"kind": "say", "es": "Guarda, arriva Salvatore a chiedere scusa. E dietro di lui, clienti. Finalmente c'è la fila!", "ru": "Смотри, вот идёт Сальваторе просить прощения. А за ним покупатели. Наконец-то очередь!", "next": "last"},
+        "last": {"kind": "answer", "task": "Спросите, кто последний в очереди.", "branches": [{"phrase": "ph:market.scusi-chi-ultimo", "next": "lastsay"}], "wrong": {"es": "L'ultimo? Salvatore, come sempre: arriva sempre tardi.", "ru": "Последний? Сальваторе, как всегда: он вечно опаздывает."}},
+        "lastsay": {"kind": "say", "es": "Sei tu, ah ah. Salvatore mi ha detto «scusa». C'è già una voce in meno nel bosco. Cosa ti do?", "ru": "Ты, ха-ха. Сальваторе сказал мне «прости». В лесу уже на один голос меньше. Что тебе дать?", "next": "cherries"},
+        "cherries": {"kind": "answer", "task": "Попросите полкило черешни.", "branches": [{"phrase": "ph:market.mezzo-chilo-ciliegie", "next": "cherriessay"}], "wrong": {"es": "Mezzo chilo di alberi? Quelli sono nel bosco.", "ru": "Полкило деревьев? Это в лес."}},
+        "cherriessay": {"kind": "say", "es": "Ecco. Pesale tu, se vuoi. Altro?", "ru": "Держи. Взвесь сам, если хочешь. Что-нибудь ещё?", "next": "enough"},
+        "enough": {"kind": "answer", "task": "Скажите, что больше ничего не нужно.", "branches": [{"phrase": "ph:market.nient-altro-grazie", "next": "end"}], "wrong": {"es": "Nient'altro che pomodori? Allora pomodori.", "ru": "Ничего, кроме помидоров? Значит, помидоры."}},
+        "end": {"kind": "say", "es": "Prendi anche questo: un pezzo della mappa del bosco. Me l'ha dato il produttore del formaggio. Dice che gli alberi non inventano, ripetono soltanto.", "ru": "Возьми ещё вот это: обрывок карты леса. Мне дал его сыровар. Говорит, деревья ничего не выдумывают, только повторяют."}
+      }
     }
   ]
 }

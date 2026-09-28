@@ -98,6 +98,28 @@
         {"q": "Как Джино отвечает на догадку Франки?", "kind": "stance", "options": ["Соглашается и собирается переезжать", "Не спорит, но уезжать не собирается", "Говорит, что Франка всё выдумала"], "answer": 1}
       ],
       "gloss": {"perfino": "даже", "accidenti": "вот это да, чёрт"}
+    },
+    {
+      "id": "sc:home.4",
+      "chapter": 4,
+      "npc": "franca",
+      "lines": [
+        {"who": "npc", "es": "Entra, ma non fare rumore: Andrea dorme. Stanotte non ha dormito per niente.", "ru": "Проходи, только не шуми: Андреа спит. Ночью он совсем не спал."},
+        {"who": "hero", "es": "Per le voci?", "ru": "Из-за голосов?"},
+        {"who": "npc", "es": "Per le voci. Dice che nel bosco ha sentito una voce che conosce: quella della Custode.", "ru": "Из-за голосов. Говорит, в лесу он услышал знакомый голос: голос Хранительницы."},
+        {"who": "hero", "es": "Andrea conosce la Custode del bosco?", "ru": "Андреа знает Хранительницу леса?"},
+        {"who": "npc", "es": "Cento anni fa lei è passata dalla torre. Hanno parlato una notte intera.", "ru": "Сто лет назад она проходила мимо башни. Они проговорили всю ночь."},
+        {"who": "hero", "es": "E cosa diceva la voce?", "ru": "И что говорил голос?"},
+        {"who": "npc", "es": "«Troppo rumore. Non sento il sentiero».", "ru": "«Слишком шумно. Я не слышу тропу»."},
+        {"who": "hero", "es": "Allora dobbiamo aiutarla.", "ru": "Тогда надо ей помочь."},
+        {"who": "npc", "es": "Sì. Ma prima aiuta me: l'acqua entra di nuovo in casa!", "ru": "Да. Но сначала помоги мне: вода снова течёт в дом!"}
+      ],
+      "questions": [
+        {"q": "Почему Андреа не спал?", "options": ["Из-за протечки", "Из-за голосов из леса", "Он болел"], "answer": 1},
+        {"q": "Откуда Андреа знает Хранительницу?", "options": ["Сто лет назад она проходила мимо башни", "Она его сестра", "Они вместе учились"], "answer": 0},
+        {"q": "Что сказал голос Хранительницы?", "options": ["Приходите скорее", "Лес закрыт навсегда", "Слишком шумно, она не слышит тропу"], "answer": 2}
+      ],
+      "gloss": {"andrea": "Андреа (имя)", "passata": "прошла (passare)", "intera": "целая"}
     }
   ]
 }

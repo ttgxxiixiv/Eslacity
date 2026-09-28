@@ -396,6 +396,22 @@ describe('validateMissions', () => {
     short.nodes = { hi: short.nodes.hi, q1: answer('a', 'bye'), bye: short.nodes.bye };
     expect(run(short)).toMatch(/ответов героя 1, нужно не меньше 5/);
   });
+  it('спор: обязателен с главы IV и не бывает раньше', () => {
+    const dispute = {
+      ...answer('a', 'r1'),
+      branches: [{ phrase: 'ph:cafe.a', next: 'r1', move: 'object' as const }, { phrase: 'ph:cafe.b', next: 'r2', move: 'concede' as const }, { phrase: 'ph:cafe.c', next: 'r3', move: 'compromise' as const }],
+    };
+    const withDispute = mission();
+    withDispute.nodes.q5 = dispute;
+    for (const r of ['r1', 'r2', 'r3']) withDispute.nodes[r] = { kind: 'say', es: 'Vale', ru: 'Ладно', next: 'bye' };
+    expect(run(withDispute)).toMatch(/спор бывает с главы 4/);
+    const four = (m: Mission) =>
+      validateMissions([{ name: 'cafe.json', data: { location: 'cafe', missions: [{ ...m, id: 'ms:cafe.4', chapter: 4, scene: undefined }] } as LocationMissions }], {
+        residents: { cafe: 'lola' }, phrases: { cafe: phrases }, scenes: new Set(),
+      }).map((x) => x.msg).join('; ');
+    expect(four(mission())).toMatch(/в миссии главы 4 нет спора/);
+    expect(four(withDispute)).toBe('');
+  });
   it('обрыв графа — ошибка', () => {
     const m = mission();
     m.nodes.q5 = answer('a', 'nowhere');
