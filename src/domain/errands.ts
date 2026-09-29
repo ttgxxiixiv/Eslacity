@@ -6,6 +6,9 @@ import { plural } from './medals';
  * от разных жителей открытых мест. Поручение собирается из карточек места (слова и фразы), которые пора повторить,
  * у учительницы школы — из правил грамматики, у Летописца — из слов свитков. Если таких мало, добираются самые трудные карточки.
  * Поручения не сгорают: невыполненное переходит на следующий день.
+ *
+ * В главе V одно поручение в день может стать «Эхом» (задача 7.6): житель говорит выражение в одном регистре,
+ * герой повторяет ту же мысль в другом. Карточки такого поручения — выражения места, у которых есть пара.
  */
 
 export const ERRANDS_PER_DAY = 3;
@@ -20,6 +23,15 @@ export const RULES_PLACE = 'school';
  * к повторению, его поручение обязательно среди трёх.
  */
 export const SCROLL_PLACE = 'chronicler';
+/** «Эхо» ставится выше обычных поручений, но ниже Летописца, и не больше одного в день. */
+const ECHO_PRIORITY = 500;
+
+/** Просьбы жителя в поручении «Эхо»: одни на всех жителей, {n} — число выражений. */
+export const ECHO_TEXTS = [
+  'Эхо: я скажу по-своему, а ты повтори ту же мысль иначе. {n} {выражений}.',
+  'Я говорю то официально, то по-свойски, а запомнить обе версии не могу. Поможешь с {n} {выражений}?',
+  'Лабиринт возвращает мои слова чужим голосом. Скажи их по-другому: {n} {выражений}.',
+];
 
 export interface Errand {
   /** `<день>:<место>` — одно поручение места в день. */
@@ -31,7 +43,7 @@ export interface Errand {
   items: string[];
   /** Какая из формулировок жителя. */
   phrase: number;
-  kind: 'words' | 'rules' | 'scroll';
+  kind: 'words' | 'rules' | 'scroll' | 'echo';
 }
 
 export interface ErrandCard {
@@ -52,6 +64,10 @@ export interface PlanInput {
   last: Record<string, number>;
   /** Сколько формулировок у жителя места. */
   phrases: (location: string) => number;
+  /**
+   * Пары выражений (id → id пары). Передаются, когда открыта глава V: тогда одно из поручений может стать «Эхом».
+   */
+  pairs?: Readonly<Record<string, string>>;
 }
 
 /** Детерминированное псевдослучайное число по строке: один и тот же план в течение дня. */
@@ -65,8 +81,9 @@ const placeOf = (id: string) => id.split('.')[0];
 /** Самые трудные: больше провалов, выше сложность. */
 const harder = (a: ErrandCard, b: ErrandCard) => b.lapses - a.lapses || (b.difficulty ?? 0) - (a.difficulty ?? 0);
 
-/** Карточка подходит поручению: правило, слово свитка, слово или фраза места. */
-function belongs(kind: Errand['kind'], location: string, id: string): boolean {
+/** Карточка подходит поручению: правило, слово свитка, слово или фраза места. Для «Эха» — выражение места с парой. */
+function belongs(kind: Errand['kind'], location: string, id: string, pairs: Readonly<Record<string, string>> = {}): boolean {
+  if (kind === 'echo') return placeOf(id) === location && id in pairs;
   if (kind === 'rules') return isRuleId(id);
   if (kind === 'scroll') return isScrollId(id);
   if (isPhraseId(id)) return placeOfPhrase(id) === location;
@@ -77,8 +94,10 @@ function belongs(kind: Errand['kind'], location: string, id: string): boolean {
  * Карточки поручения: слова места, все правила или все слова свитков. Сначала те, что пора повторить (самые просроченные),
  * потом самые трудные, пока не наберётся восемь.
  */
-export function errandItems(kind: Errand['kind'], location: string, cards: ErrandCard[], today: number): { items: string[]; due: number } {
-  const own = cards.filter((c) => belongs(kind, location, c.wordId));
+export function errandItems(
+  kind: Errand['kind'], location: string, cards: ErrandCard[], today: number, pairs?: Readonly<Record<string, string>>,
+): { items: string[]; due: number } {
+  const own = cards.filter((c) => belongs(kind, location, c.wordId, pairs));
   const due = own.filter((c) => c.due <= today).sort((a, b) => a.due - b.due || harder(a, b));
   const items = due.slice(0, ERRAND_MAX).map((c) => c.wordId);
   if (items.length < ERRAND_MIN) {
@@ -96,7 +115,7 @@ export function errandItems(kind: Errand['kind'], location: string, cards: Erran
  * новые добавляются до трёх от других жителей. Выбор: больше карточек ждёт — выше, дольше не было поручения —
  * выше (чередование), при равенстве — случайно, но одинаково весь день.
  */
-export function planErrands({ today, places, cards, active, last, phrases }: PlanInput): Errand[] {
+export function planErrands({ today, places, cards, active, last, phrases, pairs }: PlanInput): Errand[] {
   const exists = new Set(cards.map((c) => c.wordId));
   const kept = active
     .map((e) => ({ ...e, items: e.items.filter((id) => exists.has(id)) }))
@@ -105,7 +124,7 @@ export function planErrands({ today, places, cards, active, last, phrases }: Pla
   const hasRules = cards.some((c) => isRuleId(c.wordId));
   const candidates = places
     .filter((p) => !busy.has(p))
-    .map((location) => {
+    .map((location): { location: string; items: string[]; due: number; kind: Errand['kind']; score: number } => {
       // Учительница даёт правила, если они есть; иначе, как все, слова своего места.
       const kind: Errand['kind'] = location === SCROLL_PLACE ? 'scroll' : location === RULES_PLACE && hasRules ? 'rules' : 'words';
       const { items, due } = errandItems(kind, location, cards, today);
@@ -116,12 +135,29 @@ export function planErrands({ today, places, cards, active, last, phrases }: Pla
     })
     .filter((c) => c.items.length >= ERRAND_FLOOR && (c.kind !== 'scroll' || c.due > 0))
     .sort((a, b) => b.score - a.score);
+  // «Эхо»: одно в день, у жителя, который знает больше всего выражений с парой; его обычное поручение уступает место.
+  if (pairs && !kept.some((e) => e.kind === 'echo')) {
+    const echo = places
+      .filter((p) => !busy.has(p) && p !== SCROLL_PLACE)
+      .map((location) => {
+        const { items, due } = errandItems('echo', location, cards, today, pairs);
+        return { location, items, due, kind: 'echo' as const, score: ECHO_PRIORITY + due + items.length / 10 + hash(`${today}:${location}:e`) };
+      })
+      .filter((c) => c.items.length >= ERRAND_FLOOR)
+      .sort((a, b) => b.score - a.score)[0];
+    if (echo) {
+      const i = candidates.findIndex((c) => c.location === echo.location);
+      if (i >= 0) candidates.splice(i, 1);
+      candidates.unshift(echo);
+      candidates.sort((a, b) => b.score - a.score);
+    }
+  }
   const fresh = candidates.slice(0, Math.max(0, ERRANDS_PER_DAY - kept.length)).map((c) => ({
     id: `${today}:${c.location}`,
     location: c.location,
     day: today,
     items: c.items,
-    phrase: Math.floor(hash(`${today}:${c.location}:p`) * Math.max(1, phrases(c.location))),
+    phrase: Math.floor(hash(`${today}:${c.location}:p`) * Math.max(1, c.kind === 'echo' ? ECHO_TEXTS.length : phrases(c.location))),
     kind: c.kind,
   }));
   return [...kept, ...fresh];
@@ -132,7 +168,8 @@ export function errandText(template: string, n: number): string {
   return template
     .replaceAll('{n}', String(n))
     .replaceAll('{слов}', plural(n, ['слово', 'слова', 'слов']))
-    .replaceAll('{правил}', plural(n, ['правило', 'правила', 'правил']));
+    .replaceAll('{правил}', plural(n, ['правило', 'правила', 'правил']))
+    .replaceAll('{выражений}', plural(n, ['выражение', 'выражения', 'выражений']));
 }
 
 /** Награда за поручение: монеты растут с числом заданий. Репутация — одно очко у жителя. */

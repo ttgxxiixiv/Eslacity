@@ -47,6 +47,8 @@ export interface MedalCounters {
   friends: number;
   /** Пройденные испытания мест (и стражей, когда они появятся). */
   trials: number;
+  /** Выражения, верно сказанные в другом регистре в поручениях «Эхо». */
+  echo: number;
 }
 
 export type LineId =
@@ -78,8 +80,7 @@ export const LINES: MedalLine[] = [
   { id: 'builder', title: 'Строитель', counts: 'сумма уровней зданий', thresholds: [2, 10, 25, 50, 75, 100], unit: ['уровень', 'уровня', 'уровней'], value: (c) => c.buildingLevels },
   { id: 'trials', title: 'Испытатель', counts: 'пройденные испытания мест и стражей', thresholds: [1, 5, 25, 50, 80, 105], unit: ['испытание', 'испытания', 'испытаний'], value: (c) => c.trials },
   { id: 'listener', title: 'Слушатель', counts: 'верные задания на слух', thresholds: [10, 50, 200, 500, 1000, 2500], unit: ['ответ', 'ответа', 'ответов'], value: (c) => c.listenCorrect },
-  // Включится с Лабиринтом Эха (глава V).
-  { id: 'echo', title: 'Эхо', counts: 'выражения, сказанные в другом регистре', thresholds: [1, 10, 30, 80, 150, 300], unit: ['выражение', 'выражения', 'выражений'], value: null },
+  { id: 'echo', title: 'Эхо', counts: 'выражения, сказанные в другом регистре', thresholds: [1, 10, 30, 80, 150, 300], unit: ['выражение', 'выражения', 'выражений'], value: (c) => c.echo },
 ];
 
 export const ACTIVE_LINES = LINES.filter((l) => l.value);

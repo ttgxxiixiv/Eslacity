@@ -114,3 +114,45 @@ describe('текст, награда и знак', () => {
     expect([errandSignal(false, 20), errandSignal(true, 0), errandSignal(true, 6), errandSignal(true, 12)]).toEqual([0, 1, 2, 3]);
   });
 });
+
+describe('поручение «Эхо» (глава V)', () => {
+  // У банка шесть выражений в трёх парах, у рынка — четыре в двух.
+  const pairs: Record<string, string> = {
+    'bank.a': 'bank.b', 'bank.b': 'bank.a', 'bank.c': 'bank.d', 'bank.d': 'bank.c', 'bank.e': 'bank.f', 'bank.f': 'bank.e',
+    'market.a': 'market.b', 'market.b': 'market.a', 'market.c': 'market.d', 'market.d': 'market.c',
+  };
+  const expr = (loc: string, n: number, due: number) =>
+    Array.from({ length: n }, (_, i) => card(`${loc}.${'abcdef'[i]}`, i < due ? T - 1 : T + 5));
+  const cards = [...place('cafe', 20, 10), ...place('bank', 10, 2), ...expr('bank', 6, 3), ...expr('market', 4, 1)];
+
+  it('без пар (главы I–IV) «Эха» нет', () => {
+    expect(planErrands(input(cards)).some((e) => e.kind === 'echo')).toBe(false);
+  });
+
+  it('с парами одно «Эхо» — у жителя, у которого больше выражений ждёт; его обычное поручение уступает место', () => {
+    const plan = planErrands(input(cards, { pairs }));
+    const echo = plan.filter((e) => e.kind === 'echo');
+    expect(echo).toHaveLength(1);
+    expect(echo[0].location).toBe('bank');
+    expect(echo[0].items.sort()).toEqual(['bank.a', 'bank.b', 'bank.c', 'bank.d', 'bank.e', 'bank.f']);
+    expect(plan.filter((e) => e.location === 'bank')).toHaveLength(1);
+    expect(plan).toHaveLength(3);
+    expect(echo[0].phrase).toBeLessThan(3);
+  });
+
+  it('меньше четырёх выражений с парой — «Эха» нет', () => {
+    const few = [...place('cafe', 20, 10), ...expr('bank', 3, 3)];
+    expect(planErrands(input(few, { pairs })).some((e) => e.kind === 'echo')).toBe(false);
+  });
+
+  it('невыполненное «Эхо» остаётся, второго не появляется', () => {
+    const first = planErrands(input(cards, { pairs }));
+    const next = planErrands(input(cards, { pairs, today: T + 1, active: first.filter((e) => e.kind === 'echo') }));
+    expect(next.filter((e) => e.kind === 'echo')).toHaveLength(1);
+  });
+
+  it('текст просьбы склоняет «выражение»', () => {
+    expect(errandText('Поможешь с {n} {выражений}?', 5)).toBe('Поможешь с 5 выражений?');
+    expect(errandText('{n} {выражений}', 2)).toBe('2 выражения');
+  });
+});

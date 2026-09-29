@@ -23,6 +23,8 @@ declare module 'virtual:word-index' {
   export default index;
   /** Язык → id слов с частью речи phrase. */
   export const PHRASES: Record<string, string[]>;
+  /** Язык → id выражения → id его пары в другом регистре. */
+  export const PAIRS: Record<string, Record<string, string>>;
   /** Язык → глава → id слов свитка земли. */
   export const SCROLLS: Record<string, Record<number, string[]>>;
   /** Язык → место → главы, для которых есть сюжетная миссия. */

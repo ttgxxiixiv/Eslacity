@@ -1,12 +1,14 @@
 import { create } from 'zustand';
 import { LOCATIONS } from '../content/locations';
 import { NPC_BY_LOCATION, npcFor } from '../content/npcs';
+import { EXPRESSION_PAIRS } from '../content/wordIndex';
 import { db } from '../db/db';
 import { persist } from '../db/persist';
 import { errandReward, planErrands, SCROLL_PLACE, type Errand } from '../domain/errands';
 import { rankIndex, RANKS, type Rank } from '../domain/reputation';
 import { dayNumber } from '../domain/srs';
 import { useCity } from './city';
+import { useJourney } from './journey';
 import { useProgress } from './progress';
 
 export interface ErrandsData {
@@ -19,9 +21,14 @@ export interface ErrandsData {
   done: number;
   /** Очки репутации у жителей (по id жителя). Шкала отношений — задача 3.6. */
   rep: Record<string, number>;
+  /** Выражения, верно сказанные в другом регистре в поручениях «Эхо»: медаль «Эхо». */
+  echo: number;
 }
 
-const EMPTY: ErrandsData = { day: 0, active: [], last: {}, done: 0, rep: {} };
+/** С этой главы одно поручение в день может стать «Эхом». */
+export const ECHO_CHAPTER = 5;
+
+const EMPTY: ErrandsData = { day: 0, active: [], last: {}, done: 0, rep: {}, echo: 0 };
 
 interface ErrandsState extends ErrandsData {
   hydrate(d: Partial<ErrandsData> | undefined): void;
@@ -31,11 +38,13 @@ interface ErrandsState extends ErrandsData {
   complete(id: string, now?: number): { coins: number; rep: number; rankUp: Rank | null } | null;
   /** Очки репутации у жителя (за миссию). Возвращает новую ступень, если отношения стали ближе. */
   addRep(npcId: string, points: number): Rank | null;
+  /** Засчитать выражения, верно сказанные в «Эхе». */
+  addEcho(n: number): void;
 }
 
 function save(s: ErrandsData) {
-  const { day, active, last, done, rep } = s;
-  persist(() => db.meta.put({ key: 'errands', value: { day, active, last, done, rep } }));
+  const { day, active, last, done, rep, echo } = s;
+  persist(() => db.meta.put({ key: 'errands', value: { day, active, last, done, rep, echo } }));
 }
 
 export const useErrands = create<ErrandsState>((set, get) => ({
@@ -61,10 +70,17 @@ export const useErrands = create<ErrandsState>((set, get) => ({
       active: s.active,
       last: s.last,
       phrases: (loc) => npcFor(loc)?.errands.length ?? 1,
+      pairs: useJourney.getState().opened >= ECHO_CHAPTER ? EXPRESSION_PAIRS : undefined,
     });
     const last = { ...s.last };
     for (const e of active) if (e.day === today) last[e.location] = today;
     set({ day: today, active, last });
+    save(get());
+  },
+
+  addEcho(n) {
+    if (n <= 0) return;
+    set({ echo: get().echo + n });
     save(get());
   },
 

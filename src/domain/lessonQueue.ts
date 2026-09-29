@@ -1,5 +1,6 @@
 import type { Word } from '../content/schema';
 import type { Verdict } from './answer';
+import { isExpression } from './expression';
 import type { Grade, SrsCard } from './srs';
 import { gradeFor } from './srs';
 import {
@@ -31,6 +32,8 @@ type SingleKind = Exclude<StepKind, 'match'>;
 export interface BuildOptions {
   /** false — без заданий на слух (нет синтеза речи или пользователь не может слушать). */
   listening?: boolean;
+  /** Поручения жителей: устойчивые выражения C1, которые уже не новые, проверяются вводом. */
+  typeExpressions?: boolean;
 }
 
 /** Задания, где ответ вводится с клавиатуры: для оценки SM-2 и серии «без опечаток». */
@@ -121,7 +124,10 @@ export function buildReviewSteps(
     const weakest = words.slice().sort((a, b) => (cards[b.id]?.difficulty ?? 0) - (cards[a.id]?.difficulty ?? 0));
     steps.push({ id: nextId(), kind: 'match', ...makeMatch(weakest.slice(0, 5), rng) });
   }
-  shuffle(words, rng).forEach((w, i) => steps.push(makeStep(reviewKind(cards[w.id], i, listening), w, pool, rng)));
+  shuffle(words, rng).forEach((w, i) => {
+    const typed = opts.typeExpressions && isExpression(w) && (cards[w.id]?.interval ?? 0) > 1;
+    steps.push(makeStep(typed ? 'type' : reviewKind(cards[w.id], i, listening), w, pool, rng));
+  });
   return steps;
 }
 

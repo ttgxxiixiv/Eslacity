@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import type { Word } from '../content/schema';
 import { seeded } from './generators';
+import type { SrsCard } from './srs';
 import {
   advance, buildLearnSteps, buildReviewSteps, isFinished, makeStep, recordAnswer, startSession, withoutListening, type Step,
 } from './lessonQueue';
@@ -130,5 +131,20 @@ describe('очередь урока', () => {
     s = recordAnswer(s, { verdict: 'almost', perWord: { [m.wordIds[0]]: 'wrong' } }, () => null);
     expect(s.grades[m.wordIds[0]]).toBe(1);
     expect(s.grades[m.wordIds[1]]).toBe(4);
+  });
+});
+
+describe('выражения C1 в поручениях', () => {
+  const expr = (i: number): Word => ({
+    id: `bank.e${i}`, es: `llevar a cabo ${i}`, ru: `провести ${i}`, pos: 'phrase', level: 7, cefr: 'C1', kind: 'collocation', register: 'formal',
+    example: { es: 'x', ru: 'x' },
+  });
+  const list = Array.from({ length: 4 }, (_, i) => expr(i));
+  const cards = Object.fromEntries(list.map((w) => [w.id, { wordId: w.id, interval: 3 } as SrsCard]));
+  it('не новые выражения в поручении проверяются вводом, в обычном повторении — как все слова', () => {
+    const errand = buildReviewSteps(list, cards, list, seeded(5), { listening: false, typeExpressions: true });
+    expect(errand.every((s) => s.kind === 'type')).toBe(true);
+    const review = buildReviewSteps(list, cards, list, seeded(5), { listening: false });
+    expect(review.some((s) => s.kind !== 'type')).toBe(true);
   });
 });

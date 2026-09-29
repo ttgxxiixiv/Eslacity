@@ -6,7 +6,7 @@ import type { LocationId } from '../content/schema';
 import { speak } from '../audio/tts';
 import { NpcPortrait } from '../components/NpcPortrait';
 import { Button, Screen, TopBar } from '../components/ui';
-import { errandReward, errandText, type Errand } from '../domain/errands';
+import { ECHO_TEXTS, errandReward, errandText, type Errand } from '../domain/errands';
 import { isPhraseId, isRuleId, isWordId, splitCards } from '../domain/itemId';
 import { plural } from '../domain/medals';
 import { dueCards } from '../domain/srs';
@@ -18,6 +18,7 @@ import { ReviewRun } from './Review';
 
 /** Текст просьбы жителя по поручению. */
 export function errandRequest(e: Errand): string {
+  if (e.kind === 'echo') return errandText(ECHO_TEXTS[e.phrase % ECHO_TEXTS.length], e.items.length);
   const npc = npcFor(e.location);
   const t = npc?.errands[e.phrase % npc.errands.length] ?? 'Помоги мне: {n} {слов}.';
   return errandText(t, e.items.length);
@@ -53,6 +54,11 @@ export function ErrandsScreen() {
               <div className="min-w-0 flex-1">
                 <div className="text-sm text-stone-500">
                   <span className="font-bold text-stone-800">{npc?.name}</span> · {place ? `${place.emoji} ${place.ru}` : '📜 свиток земли'}
+                  {e.kind === 'echo' && (
+                    <span className="ml-1 rounded bg-violet-100 px-1.5 py-0.5 text-xs font-semibold text-violet-800" data-testid="echo-tag">
+                      🔁 Эхо
+                    </span>
+                  )}
                 </div>
                 <p className="mt-1 leading-snug" data-testid="errand-text">
                   {errandRequest(e)}
@@ -103,7 +109,12 @@ export function ErrandScreen() {
   return (
     <ReviewRun
       title="Поручение выполнено"
-      pick={() => ({ words: snapshot.items.filter(isWordId), rules: snapshot.items.filter(isRuleId), phrases: snapshot.items.filter(isPhraseId) })}
+      typeExpressions
+      pick={() =>
+        snapshot.kind === 'echo'
+          ? { words: [], rules: [], echo: snapshot.items }
+          : { words: snapshot.items.filter(isWordId), rules: snapshot.items.filter(isRuleId), phrases: snapshot.items.filter(isPhraseId) }
+      }
       onComplete={() => {
         const reward = useErrands.getState().complete(snapshot.id);
         if (npc) speak(L.thanks.es, useSettings.getState().speechRate * npc.voice.rate, npc.voice.pitch);

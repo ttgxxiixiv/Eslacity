@@ -8,11 +8,13 @@ import { loadPhrases, phrasesByIds } from '../content/phrases';
 import { reviewPhraseSteps, type PhraseStep } from '../domain/phraseSteps';
 import { EMPTY_PHRASES, PhraseRun, type PhraseResult } from '../components/PhraseRun';
 import { seeded } from '../domain/generators';
+import { echoExercises } from '../domain/echo';
 import { exerciseOf, lessonOfExercise, placeOfPhrase, splitCards } from '../domain/itemId';
 import { buildReviewSteps, startSession, type SessionState, type Step } from '../domain/lessonQueue';
 import { dueCards, type SrsCard } from '../domain/srs';
 import { useProgress } from '../store/progress';
 import { useMotivation } from '../store/motivation';
+import { useErrands } from '../store/errands';
 import { listeningEnabled } from '../audio/tts';
 import { lessonEvent, type MedalGain } from '../domain/medals';
 import { LessonPlayer, type LessonTotals } from '../components/LessonPlayer';
@@ -26,6 +28,8 @@ interface Ready {
   pool: Word[];
   rules: { cardId: string; ex: GrammarExercise }[];
   phrases: { steps: PhraseStep[]; byId: Record<string, Phrase>; pool: Phrase[] };
+  /** Задания «Эха»: выражение надо сказать в другом регистре. */
+  echo: { cardId: string; ex: GrammarExercise }[];
 }
 
 /** Правил за одно повторение не больше этого: основное в повторении — слова. */
@@ -48,8 +52,8 @@ async function loadRules(cardIds: string[]): Promise<{ found: Ready['rules']; mi
   return { found, missing };
 }
 
-/** Что повторять: id карточек слов, правил и фраз. */
-export type PickCards = (cards: Record<string, SrsCard>) => { words: string[]; rules: string[]; phrases?: string[] };
+/** Что повторять: id карточек слов, правил и фраз; `echo` — выражения для поручения «Эхо». */
+export type PickCards = (cards: Record<string, SrsCard>) => { words: string[]; rules: string[]; phrases?: string[]; echo?: string[] };
 
 /** Общее повторение: карточки, которые пора повторить. */
 const dueToday: PickCards = (cards) => {
@@ -66,22 +70,24 @@ export function ReviewScreen() {
 }
 
 /**
- * Прохождение повторения: сначала слова, потом фразы мест, потом правила, общий итог. Им же проходятся поручения жителей:
- * `pick` выбирает карточки, `onComplete` вызывается один раз, когда всё пройдено до конца, и может вернуть
- * блок для итога (благодарность жителя).
+ * Прохождение повторения: сначала слова, потом фразы мест, потом «Эхо», потом правила, общий итог. Им же проходятся
+ * поручения жителей: `pick` выбирает карточки, `onComplete` вызывается один раз, когда всё пройдено до конца, и может
+ * вернуть блок для итога (благодарность жителя). `typeExpressions` — выражения C1, которые уже не новые, вводом.
  */
-export function ReviewRun({ pick, title = 'Повторение завершено', onComplete }: {
+export function ReviewRun({ pick, title = 'Повторение завершено', onComplete, typeExpressions = false }: {
   pick: PickCards;
   title?: string;
   onComplete?: () => ReactNode;
+  typeExpressions?: boolean;
 }) {
   const nav = useNavigate();
   const [ready, setReady] = useState<Ready | null>(null);
   const [completeExtra, setCompleteExtra] = useState<ReactNode>(null);
-  const [phase, setPhase] = useState<'words' | 'phrases' | 'rules' | 'done'>('words');
+  const [phase, setPhase] = useState<'words' | 'phrases' | 'echo' | 'rules' | 'done'>('words');
   const [wordsResult, setWordsResult] = useState<{ s: SessionState; totals: LessonTotals } | null>(null);
   const [rulesResult, setRulesResult] = useState<RuleResult>(EMPTY_RULES);
   const [phraseResult, setPhraseResult] = useState<PhraseResult>(EMPTY_PHRASES);
+  const [echoResult, setEchoResult] = useState<RuleResult>(EMPTY_RULES);
   const [ach, setAch] = useState<MedalGain[]>([]);
 
   useEffect(() => {
@@ -107,16 +113,22 @@ export function ReviewRun({ pick, title = 'Повторение завершен
       // Варианты ответа из выученных слов, если их хватает на четыре варианта.
       const known = loaded.filter((w) => w.id in cards);
       const pool = known.length >= 8 ? known : loaded;
-      const steps = buildReviewSteps(words, cards, pool, seeded(Date.now()), { listening: listeningEnabled() });
+      const steps = buildReviewSteps(words, cards, pool, seeded(Date.now()), { listening: listeningEnabled(), typeExpressions });
       const phraseSteps = reviewPhraseSteps(phrases, cards, phrasePool, seeded(Date.now() + 1));
+      // «Эхо»: выражения и их пары; неверные варианты — из выражений тех же мест.
+      const echoIds = picked.echo ?? [];
+      const echoPlaces = await loadLocations(echoIds.map(locationOfWord));
+      const echoById = Object.fromEntries(echoPlaces.map((w) => [w.id, w]));
+      const echo = echoExercises(echoIds, echoById, echoPlaces, cards, seeded(Date.now() + 2));
       setReady({
         steps,
         pool,
         words: Object.fromEntries(loaded.map((w) => [w.id, w])),
         rules: rules.found,
         phrases: { steps: phraseSteps, byId: Object.fromEntries(phrasePool.map((p) => [p.id, p])), pool: phrasePool },
+        echo,
       });
-      if (!steps.length) setPhase(phraseSteps.length ? 'phrases' : 'rules');
+      if (!steps.length) setPhase(phraseSteps.length ? 'phrases' : echo.length ? 'echo' : 'rules');
     })();
   }, []);
 
@@ -134,6 +146,12 @@ export function ReviewRun({ pick, title = 'Повторение завершен
     p.applyGrades(r.grades);
     p.bumpDay({ reviews: graded });
   };
+  /** После слов и фраз — «Эхо», потом правила, потом итог. */
+  const afterPhrases = (words: { s: SessionState; totals: LessonTotals } | null, phrases: PhraseResult) => {
+    if (ready!.echo.length) setPhase('echo');
+    else if (ready!.rules.length) setPhase('rules');
+    else finish(words, EMPTY_RULES, phrases);
+  };
   const saveRules = (r: RuleResult) => {
     const graded = Object.keys(r.grades).length;
     if (!graded) return;
@@ -141,12 +159,14 @@ export function ReviewRun({ pick, title = 'Повторение завершен
     p.applyGrades(r.grades);
     p.bumpDay({ reviews: graded });
   };
-  const finish = (words: { s: SessionState; totals: LessonTotals } | null, rules: RuleResult, phrases: PhraseResult = phraseResult) => {
+  const finish = (
+    words: { s: SessionState; totals: LessonTotals } | null, rules: RuleResult, phrases: PhraseResult = phraseResult, echo: RuleResult = echoResult,
+  ) => {
     const s = words?.s ?? startSession([]);
     const all = {
-      correct: s.correct + rules.correct + phrases.correct,
+      correct: s.correct + rules.correct + phrases.correct + echo.correct,
       almost: s.almost + phrases.almost,
-      wrong: s.wrong + rules.wrong + phrases.wrong,
+      wrong: s.wrong + rules.wrong + phrases.wrong + echo.wrong,
     };
     // Поручение засчитывается до медалей: «Посыльный» считает выполненные поручения.
     if (onComplete) setCompleteExtra(onComplete());
@@ -160,6 +180,7 @@ export function ReviewRun({ pick, title = 'Повторение завершен
     const s = wordsResult?.s ?? startSession([]);
     const totals = wordsResult?.totals ?? { xp: 0, coins: 0 };
     const rulesTotal = rulesResult.correct + rulesResult.wrong;
+    const echoTotal = echoResult.correct + echoResult.wrong;
     const phrasesTotal = phraseResult.correct + phraseResult.almost + phraseResult.wrong;
     return (
       <LessonResult
@@ -167,11 +188,14 @@ export function ReviewRun({ pick, title = 'Повторение завершен
         // Итог по словам и правилам вместе; слова с ошибками — только слова.
         session={{
           ...s,
-          correct: s.correct + rulesResult.correct + phraseResult.correct,
+          correct: s.correct + rulesResult.correct + phraseResult.correct + echoResult.correct,
           almost: s.almost + phraseResult.almost,
-          wrong: s.wrong + rulesResult.wrong + phraseResult.wrong,
+          wrong: s.wrong + rulesResult.wrong + phraseResult.wrong + echoResult.wrong,
         }}
-        totals={{ xp: totals.xp + rulesResult.xp + phraseResult.xp, coins: totals.coins + rulesResult.coins + phraseResult.coins }}
+        totals={{
+          xp: totals.xp + rulesResult.xp + phraseResult.xp + echoResult.xp,
+          coins: totals.coins + rulesResult.coins + phraseResult.coins + echoResult.coins,
+        }}
         medals={ach}
         words={ready.words}
         extra={
@@ -180,6 +204,11 @@ export function ReviewRun({ pick, title = 'Повторение завершен
             {phrasesTotal > 0 && (
               <p className="mt-4 rounded-2xl bg-white px-4 py-3 shadow-sm" data-testid="phrases-summary">
                 💬 Фразы: {phraseResult.correct + phraseResult.almost} из {phrasesTotal} верно
+              </p>
+            )}
+            {echoTotal > 0 && (
+              <p className="mt-4 rounded-2xl bg-white px-4 py-3 shadow-sm" data-testid="echo-summary">
+                🔁 Эхо: {echoResult.correct} из {echoTotal} верно
               </p>
             )}
             {rulesTotal > 0 && (
@@ -194,7 +223,7 @@ export function ReviewRun({ pick, title = 'Повторение завершен
     );
   }
 
-  if (!ready.steps.length && !ready.rules.length && !ready.phrases.steps.length) {
+  if (!ready.steps.length && !ready.rules.length && !ready.phrases.steps.length && !ready.echo.length) {
     return (
       <Screen>
         <TopBar title="Повторение" />
@@ -225,8 +254,30 @@ export function ReviewRun({ pick, title = 'Повторение завершен
         onFinish={(r) => {
           savePhrases(r);
           setPhraseResult(r);
+          afterPhrases(wordsResult, r);
+        }}
+      />
+    );
+  }
+
+  if (phase === 'echo') {
+    return (
+      <RuleReview
+        rules={ready.echo}
+        label="Эхо"
+        logKind="echo"
+        onExit={(r) => {
+          saveRules(r);
+          useErrands.getState().addEcho(r.correct);
+          nav(-1);
+        }}
+        onFinish={(r) => {
+          saveRules(r);
+          // Засчитывается до медалей: линия «Эхо» считает верно сказанные выражения.
+          useErrands.getState().addEcho(r.correct);
+          setEchoResult(r);
           if (ready.rules.length) setPhase('rules');
-          else finish(wordsResult, EMPTY_RULES, r);
+          else finish(wordsResult, EMPTY_RULES, phraseResult, r);
         }}
       />
     );
@@ -263,10 +314,9 @@ export function ReviewRun({ pick, title = 'Повторение завершен
       onFinish={(s, totals) => {
         saveWords(s);
         setWordsResult({ s, totals });
-        // После слов — фразы и правила, если они есть.
+        // После слов — фразы, «Эхо» и правила, если они есть.
         if (ready.phrases.steps.length) setPhase('phrases');
-        else if (ready.rules.length) setPhase('rules');
-        else finish({ s, totals }, EMPTY_RULES);
+        else afterPhrases({ s, totals }, EMPTY_PHRASES);
       }}
     />
   );

@@ -5,10 +5,8 @@ import {
 } from '../domain/medals';
 import { medalCounters, useMotivation } from '../store/motivation';
 
-/** Когда включатся линии, для которых ещё нет систем. */
-const SOON: Partial<Record<LineId, string>> = {
-  echo: 'Откроется в Лабиринте Эха',
-};
+/** Когда включатся линии, для которых ещё нет систем. Сейчас включены все. */
+const SOON: Partial<Record<LineId, string>> = {};
 
 /** Зал медалей: все линии рядами, прогресс до следующей ступени, тайные медали. */
 export function MedalsScreen() {

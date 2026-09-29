@@ -29,12 +29,15 @@ const rng = seeded(Date.now());
 
 /**
  * Повторение правил: упражнения грамматики, которые пора вспомнить, по одному разу, без повтора ошибок
- * (ошибка и так вернёт правило завтра). Ответы пишутся в журнал с режимом `review`.
+ * (ошибка и так вернёт правило завтра). Ответы пишутся в журнал с режимом `review`. Им же проходится
+ * поручение «Эхо»: `label` — подпись над заданием, `logKind` — вид задания в журнале.
  */
-export function RuleReview({ rules, onFinish, onExit }: {
+export function RuleReview({ rules, onFinish, onExit, label = 'Правило', logKind = 'grammar' }: {
   rules: { cardId: string; ex: GrammarExercise }[];
   onFinish(r: RuleResult): void;
   onExit(r: RuleResult): void;
+  label?: string;
+  logKind?: string;
 }) {
   const [items] = useState(() => rules.map((r) => ({ cardId: r.cardId, item: toItem(r.ex, rng) })));
   const [index, setIndex] = useState(0);
@@ -57,7 +60,7 @@ export function RuleReview({ rules, onFinish, onExit }: {
     setVerdict(c.verdict);
     setFb(grammarFeedback(item, c));
     const now = Date.now();
-    logAnswer({ itemId: cardId, kind: `grammar-${ex.kind}`, verdict: c.verdict, mode: 'review', ms: answerMs(shownAt.current, now) }, now);
+    logAnswer({ itemId: cardId, kind: `${logKind}-${ex.kind}`, verdict: c.verdict, mode: 'review', ms: answerMs(shownAt.current, now) }, now);
     const xp = ok ? XP.correct : 0;
     const coins = ok ? ECONOMY.coinPerCorrect : 0;
     setRes((r) => ({
@@ -95,7 +98,7 @@ export function RuleReview({ rules, onFinish, onExit }: {
           />
         </div>
       </div>
-      <div className="font-pixel text-xs tracking-widest text-amber-700 uppercase">Правило · {index + 1} из {items.length}</div>
+      <div className="font-pixel text-xs tracking-widest text-amber-700 uppercase">{label} · {index + 1} из {items.length}</div>
       <div key={item.id} className={`flex flex-1 flex-col pt-2 ${fb ? 'pb-64' : ''}`}>
         <GrammarItemView item={item} verdict={verdict} onAnswer={pick} />
       </div>

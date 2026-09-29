@@ -58,6 +58,19 @@ function phraseIndex() {
   }
   return out;
 }
+/** Пары выражений по языкам (id → id пары в другом регистре): для поручений «Эхо». */
+function pairIndex() {
+  const out: Record<string, Record<string, string>> = {};
+  for (const { lang, dir } of wordDirs()) {
+    out[lang] = Object.fromEntries(
+      readdirSync(dir)
+        .filter((x) => x.endsWith('.json'))
+        .flatMap((f) => (JSON.parse(readFileSync(join(dir, f), 'utf8')) as { words: { id: string; pair?: string }[] }).words)
+        .flatMap((w) => (w.pair ? [[w.id, w.pair] as const] : [])),
+    );
+  }
+  return out;
+}
 function wordIndex() {
   const out: Record<string, Record<string, Record<number, string[]>>> = {};
   for (const { lang, dir } of wordDirs()) {
@@ -201,6 +214,7 @@ export default defineConfig({
         return [
           `export default ${JSON.stringify(wordIndex())};`,
           `export const PHRASES = ${JSON.stringify(phraseIndex())};`,
+          `export const PAIRS = ${JSON.stringify(pairIndex())};`,
           `export const SCROLLS = ${JSON.stringify(scrollIndex())};`,
           `export const MISSIONS = ${JSON.stringify(missionIndex())};`,
         ].join('\n');

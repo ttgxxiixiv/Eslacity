@@ -87,6 +87,7 @@ export function medalCounters(): MedalCounters {
     errands: useErrands.getState().done,
     friends: friendsCount(useErrands.getState().rep),
     trials: trialsPassed(useTrials.getState().records),
+    echo: useErrands.getState().echo ?? 0,
   };
 }
 
