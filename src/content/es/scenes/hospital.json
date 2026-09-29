@@ -16,7 +16,7 @@
         {"who": "hero", "es": "¿El Cronista? ¿Por qué?", "ru": "Летописец? Зачем?"},
         {"who": "npc", "es": "Busca a quien ayuda a los vecinos. Solo esa persona puede llegar a la Bóveda.", "ru": "Он ищет того, кто помогает соседям. Только такой человек дойдёт до Хранилища."},
         {"who": "hero", "es": "¿Usted tiene un trozo del mapa?", "ru": "У вас есть обрывок карты?"},
-        {"who": "npc", "es": "Lo tengo. Y ahora, siéntese: el médico soy yo.", "ru": "Есть. А теперь садитесь: врач здесь я."}
+        {"who": "npc", "es": "Lo tengo. Y ahora, siéntese: la médica soy yo.", "ru": "Есть. А теперь садитесь: врач здесь я."}
       ],
       "questions": [
         {"q": "Что случилось с сеньором из компании?", "options": ["Он упал на дороге в горы", "Он улетел", "Он купил обрывок"], "answer": 0},
@@ -82,7 +82,7 @@
       "mode": "overhear",
       "npc": "ruiz",
       "lines": [
-        {"who": "carmen", "es": "Doctor, quiero una resonancia magnética. Hoy, si puede ser. Me duele la rodilla.", "ru": "Доктор, хочу сделать МРТ. Сегодня, если можно. У меня болит колено."},
+        {"who": "carmen", "es": "Doctora, quiero una resonancia magnética. Hoy, si puede ser. Me duele la rodilla.", "ru": "Доктор, хочу сделать МРТ. Сегодня, если можно. У меня болит колено."},
         {"who": "npc", "es": "Es un dolor normal. Usted pasa diez horas de pie en el mercado.", "ru": "Это обычная боль. Вы по десять часов стоите на рынке."},
         {"who": "carmen", "es": "En internet dice que puede ser algo grave. Tengo todos los síntomas.", "ru": "В интернете пишут, что это может быть что-то серьёзное. У меня все симптомы."},
         {"who": "npc", "es": "Internet también dice que el chocolate cura la tristeza. No todo es verdad.", "ru": "В интернете ещё пишут, что шоколад лечит от грусти. Не всё там правда."},
@@ -95,7 +95,7 @@
       "questions": [
         {"q": "Почему доктор считает, что МРТ не нужна?", "kind": "stance", "options": ["Аппарат сломан", "МРТ слишком дорогая", "Боль обычная: Кармен целый день на ногах"], "answer": 2},
         {"q": "Что доктор имел в виду, упомянув шоколад от грусти?", "kind": "stance", "options": ["В интернете много неправды", "Кармен стоит есть шоколад", "Грусть тоже надо лечить"], "answer": 0},
-        {"q": "Почему доктор уверен, что это не перелом?", "kind": "stance", "options": ["Он сделал снимок", "Кармен пришла пешком с тяжёлыми сумками", "Кармен сама так сказала"], "answer": 1},
+        {"q": "Почему доктор уверен, что это не перелом?", "kind": "stance", "options": ["Она сделала снимок", "Кармен пришла пешком с тяжёлыми сумками", "Кармен сама так сказала"], "answer": 1},
         {"q": "Как Кармен в итоге поступает?", "kind": "stance", "options": ["Соглашается на лёд, но направление всё равно берёт", "Идёт делать МРТ", "Обижается и уходит"], "answer": 0}
       ],
       "gloss": {"tristeza": "грусть", "reposo": "покой", "andando": "пешком"}

@@ -82,8 +82,8 @@
       "mode": "overhear",
       "npc": "bruno",
       "lines": [
-        {"who": "npc", "es": "Dottore, la signora della ricetta di stamattina... lo sa che prende erbe medicinali per dormire?", "ru": "Доктор, та синьора с утренним рецептом... вы знаете, что она пьёт лекарственные травы для сна?"},
-        {"who": "conti", "es": "Non ne avevo idea. A me ha detto che non prendeva nient'altro.", "ru": "Понятия не имел. Мне она сказала, что больше ничего не принимает."},
+        {"who": "npc", "es": "Dottoressa, la signora della ricetta di stamattina... lo sa che prende erbe medicinali per dormire?", "ru": "Доктор, та синьора с утренним рецептом... вы знаете, что она пьёт лекарственные травы для сна?"},
+        {"who": "conti", "es": "Non ne avevo idea. A me ha detto che non prendeva nient'altro.", "ru": "Понятия не имела. Мне она сказала, что больше ничего не принимает."},
         {"who": "npc", "es": "Lo dicono tutti. Ma quelle erbe insieme alla sua pastiglia... l'interazione può essere pericolosa.", "ru": "Так говорят все. Но эти травы вместе с вашей таблеткой... взаимодействие может быть опасным."},
         {"who": "conti", "es": "I pazienti pensano che le cose naturali non contino. E poi finiscono al pronto soccorso.", "ru": "Пациенты думают, что натуральное не считается. А потом попадают в неотложку."},
         {"who": "npc", "es": "O forse nessuno glielo chiede con calma. In ambulatorio avete cinque minuti.", "ru": "А может, их просто никто спокойно не спрашивает. У вас на приёме пять минут."},
@@ -95,7 +95,7 @@
       "questions": [
         {"q": "Чем обеспокоен доктор Бруно?", "kind": "stance", "options": ["Рецепт написан неразборчиво", "Лекарство закончилось", "Травы пациентки опасно сочетаются с её таблеткой"], "answer": 2},
         {"q": "Что Бруно имел в виду, сказав «так говорят все»?", "kind": "stance", "options": ["Пациенты часто не считают травы лекарством и молчат о них", "Все пациенты врут нарочно", "Доктор всегда ошибается"], "answer": 0},
-        {"q": "Как доктор Конти сначала понял слова о пяти минутах?", "kind": "stance", "options": ["Сразу согласился", "Обиделся: решил, что его упрекают", "Не расслышал"], "answer": 1},
+        {"q": "Как доктор Конти сначала поняла слова о пяти минутах?", "kind": "stance", "options": ["Сразу согласилась", "Обиделась: решила, что её упрекают", "Не расслышал"], "answer": 1},
         {"q": "С чем в итоге согласились оба?", "kind": "stance", "options": ["На приёме слишком мало времени, чтобы всё выяснить", "Пациентка всё выдумала", "Травы безопасны"], "answer": 0}
       ],
       "gloss": {"naturali": "натуральные, природные", "minuti": "минуты", "bastano": "хватает (bastare)", "né": "ни", "fretta": "спешка"}
@@ -107,18 +107,18 @@
       "lines": [
         {"who": "npc", "es": "Buongiorno. Mi scusi, sono molto preoccupato.", "ru": "Доброе утро. Простите, я очень обеспокоен."},
         {"who": "hero", "es": "Cos'è successo?", "ru": "Что случилось?"},
-        {"who": "npc", "es": "Il bosco dice con la mia voce: «Il dottore è un incapace».", "ru": "Лес говорит моим голосом: «Доктор — бездарь»."},
+        {"who": "npc", "es": "Il bosco dice con la mia voce: «La dottoressa è un'incapace».", "ru": "Лес говорит моим голосом: «Доктор — бездарь»."},
         {"who": "hero", "es": "E lei l'ha detto?", "ru": "А вы это говорили?"},
-        {"who": "npc", "es": "Mai! Abbiamo discusso per delle erbe, sì, ma io rispetto molto il dottore.", "ru": "Никогда! Мы поспорили из-за трав, да, но я очень уважаю доктора."},
-        {"who": "hero", "es": "E il dottore lo sa?", "ru": "А доктор об этом знает?"},
-        {"who": "npc", "es": "Lo sa tutto il quartiere. Stamattina non mi ha salutato.", "ru": "Весь район знает. Сегодня утром он со мной не поздоровался."},
+        {"who": "npc", "es": "Mai! Abbiamo discusso per delle erbe, sì, ma io rispetto molto la dottoressa.", "ru": "Никогда! Мы поспорили из-за трав, да, но я очень уважаю доктора."},
+        {"who": "hero", "es": "E la dottoressa lo sa?", "ru": "А доктор об этом знает?"},
+        {"who": "npc", "es": "Lo sa tutto il quartiere. Stamattina non mi ha salutato.", "ru": "Весь район знает. Сегодня утром она со мной не поздоровалась."},
         {"who": "hero", "es": "Nel negozio di vestiti è successo lo stesso.", "ru": "В магазине одежды было то же самое."},
         {"who": "npc", "es": "Allora non sono solo. Qualcuno usa le nostre voci.", "ru": "Значит, я не один такой. Кто-то говорит нашими голосами."}
       ],
       "questions": [
         {"q": "Что лес сказал голосом Бруно?", "options": ["Что аптека закрывается", "Что травы опасны", "Что доктор — бездарь"], "answer": 2},
         {"q": "Говорил ли это Бруно?", "options": ["Нет, никогда", "Да, в гневе", "Он не помнит"], "answer": 0},
-        {"q": "Что понял Бруно?", "options": ["Лес всегда врёт", "Кто-то говорит голосами жителей", "Доктор пошутил"], "answer": 1}
+        {"q": "Что понял Бруно?", "options": ["Лес всегда врёт", "Кто-то говорит голосами жителей", "Доктор пошутила"], "answer": 1}
       ],
       "gloss": {"incapace": "бездарь, неумеха", "buongiorno": "доброе утро", "discusso": "поспорили (discutere)", "stesso": "то же самое (lo stesso)"}
     }
