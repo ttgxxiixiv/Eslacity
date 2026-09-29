@@ -27,6 +27,59 @@ import { Button, Screen, SpeakButton, TopBar } from '../components/ui';
 
 const rng = seeded(Date.now());
 
+type TableBlock = Extract<Lesson['theory'][number], { kind: 'table' }>;
+
+/**
+ * Таблица теории. Широкие (спряжение в нескольких временах, от 4 колонок) плотнее, у трёх колонок шрифт и поля
+ * чуть меньше, чем у двух. Если таблица всё же не влезла в экран, под ней подсказка, что её можно листать вбок.
+ */
+function TheoryTable({ table }: { table: TableBlock }) {
+  const wide = table.head.length >= 4;
+  const dense = table.head.length === 3;
+  const cell = wide ? 'px-2.5 py-2' : dense ? 'px-2.5 py-2' : 'px-4 py-2';
+  const box = useRef<HTMLDivElement>(null);
+  const [scrolls, setScrolls] = useState(wide);
+  useEffect(() => {
+    const el = box.current;
+    if (!el) return;
+    const check = () => setScrolls(el.scrollWidth > el.clientWidth + 1);
+    check();
+    const obs = new ResizeObserver(check);
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+  return (
+    <div>
+      <div ref={box} className="overflow-x-auto rounded-2xl bg-white shadow-sm" data-testid="theory-table">
+        {table.caption && <div className="px-4 pt-3 text-sm font-semibold text-stone-500">{table.caption}</div>}
+        <table className={`w-full text-left ${wide ? 'text-sm' : dense ? 'text-[14px]' : 'text-[15px]'}`}>
+          <thead>
+            <tr className="border-b border-stone-200 text-stone-500">
+              {table.head.map((h, j) => (
+                <th key={j} className={`${cell} font-medium`}>
+                  {h}
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {table.rows.map((r, j) => (
+              <tr key={j} className="border-b border-stone-100 last:border-0">
+                {r.cells.map((c, k) => (
+                  <td key={k} className={`${cell} ${k === 1 ? 'font-semibold' : ''} ${wide && k > 0 ? 'whitespace-nowrap' : ''}`}>
+                    {c}
+                  </td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      {scrolls && <p className="mt-1 px-2 text-right text-xs text-stone-400">таблицу можно листать вбок →</p>}
+    </div>
+  );
+}
+
 function Theory({ lesson, onStart }: { lesson: Lesson; onStart: () => void }) {
   return (
     <Screen>
@@ -42,39 +95,7 @@ function Theory({ lesson, onStart }: { lesson: Lesson; onStart: () => void }) {
               </div>
             );
           }
-          // Широкие таблицы (спряжение в нескольких временах) плотнее и листаются вбок.
-          const wide = b.head.length >= 4;
-          const cell = wide ? 'px-2.5 py-2' : 'px-4 py-2';
-          return (
-            <div key={i}>
-            <div className="overflow-x-auto rounded-2xl bg-white shadow-sm">
-              {b.caption && <div className="px-4 pt-3 text-sm font-semibold text-stone-500">{b.caption}</div>}
-              <table className={`w-full text-left ${wide ? 'text-sm' : 'text-[15px]'}`}>
-                <thead>
-                  <tr className="border-b border-stone-200 text-stone-500">
-                    {b.head.map((h, j) => (
-                      <th key={j} className={`${cell} font-medium`}>
-                        {h}
-                      </th>
-                    ))}
-                  </tr>
-                </thead>
-                <tbody>
-                  {b.rows.map((r, j) => (
-                    <tr key={j} className="border-b border-stone-100 last:border-0">
-                      {r.cells.map((c, k) => (
-                        <td key={k} className={`${cell} ${k === 1 ? 'font-semibold' : ''} ${wide && k > 0 ? 'whitespace-nowrap' : ''}`}>
-                          {c}
-                        </td>
-                      ))}
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-            {wide && <p className="mt-1 px-2 text-right text-xs text-stone-400">таблицу можно листать вбок →</p>}
-            </div>
-          );
+          return <TheoryTable key={i} table={b} />;
         })}
 
         <h2 className="mt-2 font-bold">Примеры</h2>
