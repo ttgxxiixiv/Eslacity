@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { isDispute } from '../domain/mission';
+import { CHAPTERS as PLAN } from './vocabPlan';
 import type { LocationWords, Word } from './schema';
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
@@ -450,6 +451,18 @@ describe('сцены и миссии глав I–IV: контент', () => {
         const phrases = (JSON.parse(readFileSync(join(import.meta.dirname, lang, 'phrases', `${loc}.json`), 'utf8')) as LocationPhrases).phrases;
         expect(phrases.filter((p) => p.level === 6), `${lang}/${loc} фразы уровня 6`).toHaveLength(5);
       }
+    }
+  });
+});
+
+describe('свиток главы IV: контент', () => {
+  // Задача 6.5: 150 слов B2 на язык, как в плане словаря.
+  it('в свитке главы IV обоих языков 150 слов B2', () => {
+    for (const lang of ['es', 'it']) {
+      const scroll = JSON.parse(readFileSync(join(import.meta.dirname, lang, 'scrolls', '4.json'), 'utf8')) as ScrollFile;
+      expect(scroll.chapter).toBe(4);
+      expect(scroll.words, lang).toHaveLength(PLAN[3].scroll);
+      expect(scroll.words.every((w) => w.cefr === 'B2' && w.level === 1), lang).toBe(true);
     }
   });
 });
