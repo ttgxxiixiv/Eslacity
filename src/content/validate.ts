@@ -3,13 +3,13 @@ import type { Lang } from '../lang';
 import { CHAPTERS as PLAN, PLACE_EXPRESSIONS, PLACE_LEVEL_MAX } from './vocabPlan';
 import { EXPRESSION_LEVEL, isExpression, KINDS, REGISTERS } from '../domain/expression';
 import { expandOptional, fullPhrase, optionalError, PHRASE_MAX_WORDS, PHRASE_PREFIX, phraseWords } from '../domain/phrase';
-import { answersOnPath, DISPUTE_FROM_CHAPTER, isDispute, missionGraphIssues } from '../domain/mission';
+import { answersOnPath, DISPUTE_FROM_CHAPTER, isDispute, isRegisterNode, missionGraphIssues, REGISTER_FROM_CHAPTER } from '../domain/mission';
 import { LISTEN_GUARDIAN_CHAPTERS } from '../domain/guardian';
 import { sceneWords } from '../domain/sceneText';
 import { conjugate, generated, participle, TENSES, type Tense } from '../domain/verbs';
 import { phraseTokens } from '../domain/phraseSteps';
 import { LETTER_MAX_WORDS, LETTER_MIN_WORDS, wordCount as letterWords } from '../domain/letter';
-import { LOCATION_IDS, type Chronicler, type GrammarLesson, type GuardiansFile, type LettersFile, type NpcLook, type LocationMissions, type LocationPhrases, type LocationScenes, type Phrase, type Scene, type LocationWords, type NpcsFile, type ScrollFile, type VerbsFile, type Word } from './schema';
+import { LOCATION_IDS, type Chronicler, type GrammarLesson, type GuardiansFile, type LettersFile, type NpcLook, type LocationMissions, type MissionAnswer, type LocationPhrases, type LocationScenes, type Phrase, type Scene, type LocationWords, type NpcsFile, type ScrollFile, type VerbsFile, type Word } from './schema';
 
 export interface Issue {
   level: 'error' | 'warning';
@@ -612,6 +612,7 @@ export function validateNpcs(file: NpcsFile | undefined): Issue[] {
     checkNpc(n, at, n.location === 'school' ? '{правил}' : '{слов}', out);
     if (ids.has(n.id)) out.push({ level: 'error', where: at, msg: 'дубль id' });
     ids.add(n.id);
+    if (n.register !== undefined && n.register !== 'formal' && n.register !== 'informal') out.push({ level: 'error', where: at, msg: `тон жителя "${n.register}": formal или informal` });
     if (!(LOCATION_IDS as readonly string[]).includes(n.location)) out.push({ level: 'error', where: at, msg: `неизвестное место "${n.location}"` });
     else if (places.has(n.location)) out.push({ level: 'error', where: at, msg: `в месте ${n.location} уже живёт ${places.get(n.location)}` });
     else places.set(n.location, n.id);
@@ -733,6 +734,7 @@ export function validatePhrases(files: { name: string; data: LocationPhrases }[]
       const at = `phrases/${name}#${i} ${p.id ?? '?'}`;
       for (const f of ['id', 'es', 'ru'] as const) if (empty(p[f])) out.push({ level: 'error', where: at, msg: `пустое поле ${f}` });
       if (!Number.isInteger(p.level) || !(p.level in PLACE_LEVEL_MAX)) out.push({ level: 'error', where: at, msg: `уровень ${p.level}` });
+      if (p.register !== undefined && !REGISTERS.includes(p.register)) out.push({ level: 'error', where: at, msg: `регистр "${p.register}"` });
       if (p.note !== undefined && empty(p.note)) out.push({ level: 'error', where: at, msg: 'пустое пояснение note' });
       if (p.grammar !== undefined && checks.lessons && !checks.lessons.has(p.grammar)) {
         out.push({ level: 'error', where: at, msg: `нет урока грамматики "${p.grammar}"` });
@@ -912,6 +914,25 @@ export interface MissionChecks {
   /** id существующих сцен. */
   scenes: ReadonlySet<string>;
   coverage?: (text: string, level: number) => { total: number; unknown: string[] };
+  /** Тон жителей мест (`npcs.json`, поле register): узел тона у такого жителя требует его тона. */
+  registers?: Record<string, 'formal' | 'informal' | undefined>;
+}
+
+/**
+ * Узел тона: регистр из списка и тот же, что у жителя с постоянным тоном; реакция на чужой тон; ветки — фразы
+ * с регистром, первая в нужном тоне (по ней плитки), и хотя бы одна в другом, иначе выбирать нечего.
+ */
+function toneIssues(n: MissionAnswer, own: Map<string, Phrase>, npcTone: 'formal' | 'informal' | undefined): string[] {
+  const out: string[] = [];
+  if (!REGISTERS.includes(n.register!)) return [`регистр узла "${n.register}"`];
+  if (npcTone && n.register !== npcTone) out.push(`житель говорит только ${npcTone === 'formal' ? 'официально' : 'по-свойски'}, а узел ждёт "${n.register}"`);
+  if (empty(n.tone?.es) || empty(n.tone?.ru)) out.push('нет реакции жителя на чужой тон (tone)');
+  if (isDispute(n)) out.push('узел тона не может быть спором');
+  const regs = n.branches.map((b) => own.get(b.phrase)?.register);
+  if (regs.some((r) => !r)) out.push('у фраз узла тона должен быть register');
+  if (regs[0] && regs[0] !== n.register) out.push('первая ветка узла тона должна быть в нужном тоне');
+  if (!regs.some((r) => r && r !== n.register && r !== 'neutral')) out.push('в узле тона нет фразы в другом тоне');
+  return out;
 }
 
 /**
@@ -951,6 +972,10 @@ export function validateMissions(files: { name: string; data: LocationMissions }
       const disputes = Object.values(m.nodes ?? {}).filter((n) => n.kind === 'answer' && isDispute(n)).length;
       if (m.chapter >= DISPUTE_FROM_CHAPTER && !disputes) out.push({ level: 'error', where: at, msg: `в миссии главы ${m.chapter} нет спора (ветки с move)` });
       if (m.chapter < DISPUTE_FROM_CHAPTER && disputes) out.push({ level: 'error', where: at, msg: `спор бывает с главы ${DISPUTE_FROM_CHAPTER}` });
+      // Узел тона (официально или по-свойски) — с главы V, и там он обязателен.
+      const tones = Object.values(m.nodes ?? {}).filter((n) => n.kind === 'answer' && isRegisterNode(n)).length;
+      if (m.chapter >= REGISTER_FROM_CHAPTER && !tones) out.push({ level: 'error', where: at, msg: `в миссии главы ${m.chapter} нет узла тона (register)` });
+      if (m.chapter < REGISTER_FROM_CHAPTER && tones) out.push({ level: 'error', where: at, msg: `узел тона бывает с главы ${REGISTER_FROM_CHAPTER}` });
       const lines: string[] = [];
       for (const [id, n] of Object.entries(m.nodes ?? {})) {
         const where = `${at} ${id}`;
@@ -966,6 +991,7 @@ export function validateMissions(files: { name: string; data: LocationMissions }
             if (!p) out.push({ level: 'error', where, msg: `нет фразы "${b.phrase}" в фразах места` });
             else if (p.level > maxLevel) out.push({ level: 'error', where, msg: `фраза "${b.phrase}" уровня ${p.level}, в главе ${plan.chapter} — до ${maxLevel}` });
           }
+          if (isRegisterNode(n)) out.push(...toneIssues(n, own, checks.registers?.[data.location]).map((msg) => ({ level: 'error' as const, where, msg })));
         } else {
           out.push({ level: 'error', where, msg: 'узел должен быть say или answer' });
         }

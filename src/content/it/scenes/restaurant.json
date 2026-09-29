@@ -120,6 +120,31 @@
         {"q": "Почему Сальваторе не хочется готовить?", "options": ["Он устал", "Нет продуктов", "Он обижен на Валентину"], "answer": 2}
       ],
       "gloss": {"valentina": "Валентина (имя)", "scorso": "прошлый", "certo": "конечно"}
+    },
+    {
+      "id": "sc:restaurant.5",
+      "chapter": 5,
+      "npc": "salvatore",
+      "lines": [
+        {"who": "npc", "es": "Vieni, guarda quel signore al tavolo cinque. Ha un mantello grigio come la pietra.", "ru": "Иди сюда, посмотри на того синьора за пятым столиком. На нём плащ, серый, как камень."},
+        {"who": "hero", "es": "Chi è?", "ru": "Кто это?"},
+        {"who": "npc", "es": "Non lo so. Ordina la zuppa e ripete le mie parole: «zuppa... zuppa... zuppa».", "ru": "Не знаю. Заказывает суп и повторяет мои слова: «суп... суп... суп»."},
+        {"who": "hero", "es": "Come un'eco?", "ru": "Как эхо?"},
+        {"who": "npc", "es": "Esatto. E poi ha detto una frase intera, molto chiara.", "ru": "Вот именно. А потом сказал целую фразу, очень ясно."},
+        {"who": "hero", "es": "Quale frase?", "ru": "Какую фразу?"},
+        {"who": "npc", "es": "«Il Signore dell'Eco cerca chi sa parlare a ognuno con il suo tono».", "ru": "«Хозяин Эха ищет того, кто умеет говорить с каждым его тоном»."},
+        {"who": "hero", "es": "Il Signore dell'Eco? Sarà il guardiano del Labirinto.", "ru": "Хозяин Эха? Наверное, это страж Лабиринта."},
+        {"who": "npc", "es": "Lo penso anch'io. Ma mi mette ansia. Quando parlo, le mie parole tornano cambiate.", "ru": "Я тоже так думаю. Но он меня нервирует. Когда я говорю, мои слова возвращаются другими."},
+        {"who": "hero", "es": "Parliamogli. Con educazione.", "ru": "Давай поговорим с ним. Вежливо."},
+        {"who": "npc", "es": "Sì, con molta educazione. Prima tu.", "ru": "Да, очень вежливо. Ты первый."}
+      ],
+      "questions": [
+        {"q": "Как выглядит гость за пятым столиком?", "options": ["На нём серый, как камень, плащ", "На нём красная шапка", "На нём белый фартук"], "answer": 0},
+        {"q": "Что гость делает со словами Сальваторе?", "options": ["Записывает", "Повторяет их, как эхо", "Переводит"], "answer": 1},
+        {"q": "Кого ищет Хозяин Эха?", "options": ["Лучшего повара", "Путника с деньгами", "Того, кто говорит с каждым его тоном"], "answer": 2},
+        {"q": "Как Сальваторе предлагает говорить с гостем?", "options": ["Очень вежливо", "Громко", "Никак"], "answer": 0}
+      ],
+      "gloss": {"mantello": "плащ", "intera": "целая", "ognuno": "каждый", "tono": "тон"}
     }
   ]
 }

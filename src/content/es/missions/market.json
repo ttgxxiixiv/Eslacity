@@ -88,6 +88,30 @@
         "enough": {"kind": "answer", "task": "Скажите, что больше ничего не нужно.", "branches": [{"phrase": "ph:market.nada-mas-gracias", "next": "end"}], "wrong": {"es": "¿Nada más que tomates? Pues tomates.", "ru": "Ничего, кроме помидоров? Значит, помидоры."}},
         "end": {"kind": "say", "es": "Toma también esto: un trozo del mapa del bosque. Me lo dio el productor del queso. Dice que los árboles no inventan, solo repiten.", "ru": "Возьми ещё вот это: обрывок карты леса. Мне дал его сыровар. Говорит, деревья ничего не выдумывают, только повторяют."}
       }
+    },
+    {
+      "id": "ms:market.5",
+      "chapter": 5,
+      "npc": "carmen",
+      "scene": "sc:market.5",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Ven, cariño, que te guardo lo mejor. ¿Qué te pongo hoy?", "ru": "Иди сюда, дорогуша, я тебе лучшее отложила. Что тебе сегодня взвесить?", "next": "fruit"},
+        "fruit": {"kind": "answer", "task": "Спросите, какие фрукты сейчас по сезону.", "branches": [{"phrase": "ph:market.fruta-temporada", "next": "fruitsay"}], "wrong": {"es": "¿Qué fruta es del Laberinto? Ninguna, cariño.", "ru": "Какие фрукты из Лабиринта? Никакие, дорогуша."}},
+        "fruitsay": {"kind": "say", "es": "Las cerezas, que están buenísimas. Pero ay, estoy de un humor... Otra clienta me ha contestado como un juez.", "ru": "Черешня, она отличная. Но ох, я в таком настроении... Ещё одна покупательница ответила мне, как судья.", "next": "calm"},
+        "calm": {"kind": "answer", "task": "Скажите Кармен, чтобы не принимала близко к сердцу. Она говорит только по-свойски.", "register": "informal", "branches": [{"phrase": "ph:market.no-te-lo-tomes", "next": "calmsay"}, {"phrase": "ph:market.no-se-lo-tome", "next": "calmsay"}], "wrong": {"es": "¿Que me tome un café? Ya me he tomado dos.", "ru": "Чтобы я выпила кофе? Я уже две чашки выпила."}, "tone": {"es": "¿«Usted»? ¡Cariño, que me conoces desde hace años! No me hables como el eco.", "ru": "«Вы»? Дорогуша, ты меня сто лет знаешь! Не говори со мной, как эхо."}},
+        "calmsay": {"kind": "say", "es": "Tienes razón. Pero mira lo que voy a hacer: un cartel grande. «Aquí se pide por favor».", "ru": "Ты прав. Но смотри, что я сделаю: большую табличку. «Здесь просят пожалуйста».", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:market.cartel-no-arregla", "next": "object", "move": "object"}, {"phrase": "ph:market.buena-idea-cartel", "next": "concede", "move": "concede"}, {"phrase": "ph:market.cartel-con-humor", "next": "compromise", "move": "compromise"}], "wrong": {"es": "¿Qué dices? Hablo del cartel, cariño.", "ru": "Что ты говоришь? Я про табличку, дорогуша."}},
+        "object": {"kind": "say", "es": "Ya... Un cartel no para el eco. Mejor sonrío y pregunto dos veces.", "ru": "Да... Табличка эхо не остановит. Лучше улыбнусь и переспрошу.", "next": "cherries"},
+        "concede": {"kind": "say", "es": "¡Eso! Lo pongo en la entrada, bien grande, con letras rojas.", "ru": "Вот! Повешу у входа, большую, красными буквами.", "next": "cherries"},
+        "compromise": {"kind": "say", "es": "¿Con humor? Me gusta: «Aquí se pide por favor... y el eco paga el doble».", "ru": "С юмором? Мне нравится: «Здесь просят пожалуйста... а эхо платит вдвойне».", "next": "cherries"},
+        "cherries": {"kind": "answer", "task": "Попросите полкило черешни.", "branches": [{"phrase": "ph:market.medio-kilo-cerezas", "next": "cherriessay"}], "wrong": {"es": "¿Medio kilo de cartel? Eso no se vende, cariño.", "ru": "Полкило таблички? Такое не продаётся, дорогуша."}},
+        "cherriessay": {"kind": "say", "es": "Aquí tienes, las mejores. ¿Y los melocotones? Están muy dulces.", "ru": "Держи, самые лучшие. А персики? Они очень сладкие.", "next": "taste"},
+        "taste": {"kind": "answer", "task": "Спросите, можно ли попробовать.", "branches": [{"phrase": "ph:market.puedo-probar", "next": "tastesay"}], "wrong": {"es": "¿Puedo pagar? Todavía no, primero pruebas.", "ru": "Можно заплатить? Пока нет, сначала попробуй."}},
+        "tastesay": {"kind": "say", "es": "¡Claro! Toma. Dulce, ¿eh? ¿Algo más?", "ru": "Конечно! Держи. Сладкий, а? Что-нибудь ещё?", "next": "enough"},
+        "enough": {"kind": "answer", "task": "Скажите, что больше ничего не нужно, спасибо.", "branches": [{"phrase": "ph:market.nada-mas-gracias", "next": "end"}], "wrong": {"es": "¿Nada más que cerezas? Pues ya las tienes.", "ru": "Ничего, кроме черешни? Так она у тебя уже есть."}},
+        "end": {"kind": "say", "es": "Muy bien, cariño. Y toma esto: mi madre guardaba un trozo del mapa del Laberinto entre las recetas. Pone: «Cada voz tiene su puerta».", "ru": "Отлично, дорогуша. И держи: мама хранила обрывок карты Лабиринта среди рецептов. На нём написано: «У каждого голоса своя дверь»."}
+      }
     }
   ]
 }

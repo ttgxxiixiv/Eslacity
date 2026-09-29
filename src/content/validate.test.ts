@@ -5,7 +5,7 @@ import type { LocationWords, Word } from './schema';
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { validateChronicler, validateGrammar, validateGuardians, validateLetters, validateMissions, validateNpcs, validatePhrases, validatePortraits, validateScenes, validateScrolls, validateTranslations, validateVerbs, validateWords } from './validate';
-import { LOCATION_IDS, type Chronicler, type GrammarLesson, type GuardiansFile, type Letter, type LettersFile, type LocationMissions, type LocationPhrases, type LocationScenes, type Mission, type NpcsFile, type Phrase, type Scene, type ScrollFile, type VerbsFile } from './schema';
+import { LOCATION_IDS, type Chronicler, type GrammarLesson, type GuardiansFile, type Letter, type LettersFile, type LocationMissions, type LocationPhrases, type LocationScenes, type Mission, type MissionAnswer, type NpcsFile, type Phrase, type Scene, type ScrollFile, type VerbsFile } from './schema';
 
 const base = (i: number, extra: Partial<Word> = {}): Word => ({
   id: `cafe.w${i}`, es: `la palabra${i}`, ru: `слово ${i}`, pos: 'noun', gender: 'f', level: 1, cefr: 'A1',
@@ -516,6 +516,38 @@ describe('validateMissions', () => {
     expect(four(mission())).toMatch(/в миссии главы 4 нет спора/);
     expect(four(withDispute)).toBe('');
   });
+  it('узел тона: обязателен с главы V, регистр жителя, реакция, ветки в разных тонах', () => {
+    const tonePhrases = [
+      ...phrases,
+      { id: 'ph:cafe.f', es: 'f', ru: 'f', level: 7, register: 'formal' as const },
+      { id: 'ph:cafe.i', es: 'i', ru: 'i', level: 7, register: 'informal' as const },
+    ];
+    const tone = (extra: Partial<MissionAnswer> = {}): MissionAnswer => ({
+      ...answer('i', 'bye'), register: 'informal', tone: { es: '¿Usted?', ru: 'На вы?' },
+      branches: [{ phrase: 'ph:cafe.i', next: 'bye' }, { phrase: 'ph:cafe.f', next: 'bye' }], ...extra,
+    });
+    const five = (t: MissionAnswer | undefined, registers: Record<string, 'formal' | 'informal'> = {}) => {
+      const m = mission({ id: 'ms:cafe.5', chapter: 5, scene: undefined });
+      m.nodes.q5 = {
+        ...answer('a', 'r1'),
+        branches: [{ phrase: 'ph:cafe.a', next: 'r1', move: 'object' }, { phrase: 'ph:cafe.b', next: 'r2', move: 'concede' }, { phrase: 'ph:cafe.c', next: 'r3', move: 'compromise' }],
+      };
+      for (const r of ['r1', 'r2', 'r3']) m.nodes[r] = { kind: 'say', es: 'Vale', ru: 'Ладно', next: t ? 'q6' : 'bye' };
+      if (t) m.nodes.q6 = t;
+      return validateMissions([{ name: 'cafe.json', data: { location: 'cafe', missions: [m] } as LocationMissions }], {
+        residents: { cafe: 'lola' }, phrases: { cafe: tonePhrases }, scenes: new Set(), registers,
+      }).map((x) => x.msg).join('; ');
+    };
+    expect(five(tone())).toBe('');
+    expect(five(undefined)).toMatch(/в миссии главы 5 нет узла тона/);
+    expect(five(tone(), { cafe: 'formal' })).toMatch(/житель говорит только официально/);
+    expect(five(tone({ tone: undefined }))).toMatch(/нет реакции жителя на чужой тон/);
+    expect(five(tone({ branches: [{ phrase: 'ph:cafe.f', next: 'bye' }, { phrase: 'ph:cafe.i', next: 'bye' }] }))).toMatch(/первая ветка узла тона должна быть в нужном тоне/);
+    expect(five(tone({ branches: [{ phrase: 'ph:cafe.i', next: 'bye' }, { phrase: 'ph:cafe.a', next: 'bye' }] }))).toMatch(/у фраз узла тона должен быть register.*нет фразы в другом тоне/);
+    const early = mission();
+    early.nodes.q5 = { ...tone(), branches: [{ phrase: 'ph:cafe.a', next: 'bye' }] };
+    expect(run(early)).toMatch(/узел тона бывает с главы 5/);
+  });
   it('обрыв графа — ошибка', () => {
     const m = mission();
     m.nodes.q5 = answer('a', 'nowhere');
@@ -552,6 +584,31 @@ describe('сцены и миссии глав I–IV: контент', () => {
         expect(Object.values(four.nodes).some((n) => n.kind === 'answer' && isDispute(n)), `${lang}/${loc} спор`).toBe(true);
         const phrases = (JSON.parse(readFileSync(join(import.meta.dirname, lang, 'phrases', `${loc}.json`), 'utf8')) as LocationPhrases).phrases;
         expect(phrases.filter((p) => p.level === 6), `${lang}/${loc} фразы уровня 6`).toHaveLength(5);
+      }
+    }
+  });
+});
+
+describe('миссии главы V: контент', () => {
+  // Задача 7.8 идёт пачками: где миссия главы V уже есть, там сцена главы, узел тона, спор и 5 фраз уровня 7,
+  // и места одни и те же в обоих языках.
+  it('у мест с миссией главы V — сцена, узел тона, спор и 5 фраз уровня 7', () => {
+    const places = (lang: string) =>
+      LOCATION_IDS.filter((loc) =>
+        (JSON.parse(readFileSync(join(import.meta.dirname, lang, 'missions', `${loc}.json`), 'utf8')) as LocationMissions).missions.some((m) => m.chapter === 5),
+      );
+    expect(places('es').length).toBeGreaterThanOrEqual(5);
+    expect(places('it')).toEqual(places('es'));
+    for (const lang of ['es', 'it']) {
+      for (const loc of places(lang)) {
+        const five = (JSON.parse(readFileSync(join(import.meta.dirname, lang, 'missions', `${loc}.json`), 'utf8')) as LocationMissions).missions.find((m) => m.chapter === 5)!;
+        const scenes = (JSON.parse(readFileSync(join(import.meta.dirname, lang, 'scenes', `${loc}.json`), 'utf8')) as LocationScenes).scenes;
+        expect(scenes.some((s) => s.id === `sc:${loc}.5`), `${lang}/${loc} сцена`).toBe(true);
+        const answers = Object.values(five.nodes).filter((n): n is MissionAnswer => n.kind === 'answer');
+        expect(answers.some((n) => n.register), `${lang}/${loc} тон`).toBe(true);
+        expect(answers.some(isDispute), `${lang}/${loc} спор`).toBe(true);
+        const phrases = (JSON.parse(readFileSync(join(import.meta.dirname, lang, 'phrases', `${loc}.json`), 'utf8')) as LocationPhrases).phrases;
+        expect(phrases.filter((p) => p.level === 7), `${lang}/${loc} фразы уровня 7`).toHaveLength(5);
       }
     }
   });

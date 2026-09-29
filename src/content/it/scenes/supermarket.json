@@ -120,6 +120,31 @@
         {"q": "Почему полки пустеют?", "options": ["Магазин закрывается", "Поставщик не приехал", "Люди верят слухам и скупают впрок"], "answer": 2}
       ],
       "gloss": {"buongiorno": "доброе утро", "tappi": "пробки (tappi per le orecchie — беруши)", "negozi": "магазины"}
+    },
+    {
+      "id": "sc:supermarket.5",
+      "chapter": 5,
+      "npc": "matteo",
+      "lines": [
+        {"who": "npc", "es": "Hai sentito gli avvisi di oggi? Ascolta: «Si informano i gentili clienti che lo yogurt si trova in offerta».", "ru": "Слышал сегодняшние объявления? Послушай: «Уважаемых покупателей информируют о том, что йогурт находится в акции»."},
+        {"who": "hero", "es": "Tu parli così?", "ru": "Ты так говоришь?"},
+        {"who": "npc", "es": "Ma figurati! Io ho detto: «Ragazzi, yogurt a metà prezzo!». Ma dall'altoparlante esce così.", "ru": "Да ну! Я сказал: «Ребята, йогурт за полцены!». А из громкоговорителя выходит вот так."},
+        {"who": "hero", "es": "È l'eco del Labirinto.", "ru": "Это эхо Лабиринта."},
+        {"who": "npc", "es": "Lo dice anche Rosa. La cosa buffa è che alle nonne piace tantissimo.", "ru": "Так и Роза говорит. Самое смешное, что бабушкам это очень нравится."},
+        {"who": "hero", "es": "E ai giovani?", "ru": "А молодым?"},
+        {"who": "npc", "es": "Ridono e se ne vanno. Oggi abbiamo venduto metà degli yogurt.", "ru": "Смеются и уходят. Сегодня мы продали вдвое меньше йогуртов."},
+        {"who": "hero", "es": "Allora bisogna parlare a ognuno con il suo tono.", "ru": "Значит, надо говорить с каждым его тоном."},
+        {"who": "npc", "es": "Sì, ma l'altoparlante è uno solo. Sono stufo.", "ru": "Ну да, но громкоговоритель-то один. Мне это надоело."},
+        {"who": "hero", "es": "Ti aiuto con gli avvisi.", "ru": "Я помогу тебе с объявлениями."},
+        {"who": "npc", "es": "Grazie. Sennò spengo l'altoparlante e basta.", "ru": "Спасибо. А то выключу громкоговоритель, и дело с концом."}
+      ],
+      "questions": [
+        {"q": "Что Маттео на самом деле сказал в громкоговоритель?", "options": ["«Магазин закрыт»", "«Касса не работает»", "«Ребята, йогурт за полцены!»"], "answer": 2},
+        {"q": "Кому нравятся новые объявления?", "options": ["Бабушкам", "Детям", "Никому"], "answer": 0},
+        {"q": "Что делают молодые покупатели?", "options": ["Покупают больше", "Смеются и уходят", "Жалуются директору"], "answer": 1},
+        {"q": "Что Маттео хочет сделать?", "options": ["Выключить громкоговоритель", "Уволиться", "Закрыть магазин"], "answer": 0}
+      ],
+      "gloss": {"buffa": "смешная", "ognuno": "каждый", "tono": "тон", "stufo": "уставший от чего-то (sono stufo — мне надоело)", "sennò": "иначе, а то", "basta": "хватит (e basta — и всё)"}
     }
   ]
 }

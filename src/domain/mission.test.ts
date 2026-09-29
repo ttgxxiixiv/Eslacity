@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import type { Mission, MissionAnswer, Phrase } from '../content/schema';
 import { seeded } from './generators';
-import { answerNode, answersOnPath, isDispute, isPassed, missionGraphIssues, missionOptions, modeForAttempt, moveOf, withMove } from './mission';
+import { answerNode, answersOnPath, isDispute, isPassed, isRegisterNode, missionGraphIssues, missionOptions, modeForAttempt, moveOf, offTone, withMove } from './mission';
 
 const ph = (slug: string, es: string): Phrase => ({ id: `ph:cafe.${slug}`, es, ru: slug, level: 1 });
 const phrases = Object.fromEntries(
@@ -89,5 +89,32 @@ describe('миссия', () => {
     expect(missionGraphIssues({ ...m, nodes: { ...m.nodes, d: two } }).join()).toMatch(/нужны три ветки/);
     const same = { ...dispute, branches: dispute.branches.map((b) => ({ ...b, next: 'a' })) };
     expect(missionGraphIssues({ ...m, nodes: { ...m.nodes, d: same, b: say('end'), c: say('end') } }).join()).toMatch(/у каждого хода своя реакция/);
+  });
+});
+
+describe('узел тона (глава V)', () => {
+  const formal: Phrase = { id: 'ph:bank.le-ruego', es: 'Le ruego que revise mi cuenta.', ru: 'Прошу вас проверить мой счёт.', level: 7, register: 'formal' };
+  const informal: Phrase = { id: 'ph:bank.mira-cuenta', es: 'Oye, mírame la cuenta.', ru: 'Слушай, глянь мой счёт.', level: 7, register: 'informal' };
+  const neutral: Phrase = { id: 'ph:bank.revisar', es: 'Quiero revisar mi cuenta.', ru: 'Хочу проверить счёт.', level: 7, register: 'neutral' };
+  const all = Object.fromEntries([formal, informal, neutral].map((p) => [p.id, p]));
+  const node: MissionAnswer = {
+    kind: 'answer', task: 'Попросите проверить счёт', register: 'formal',
+    branches: [{ phrase: formal.id, next: 'ok' }, { phrase: informal.id, next: 'hurt' }],
+    wrong: { es: '¿Perdón?', ru: 'Простите?' }, tone: { es: '¿«Oye»? Soy el director.', ru: '«Слушай»? Я директор.' },
+  };
+
+  it('нужный тон — верно, не тот — «почти» по своей ветке, нейтральный тон не обижает', () => {
+    expect(isRegisterNode(node)).toBe(true);
+    expect(answerNode(node, { kind: 'pick', phrase: formal.id }, all)).toEqual({ verdict: 'correct', next: 'ok', phrase: formal.id });
+    expect(answerNode(node, { kind: 'pick', phrase: informal.id }, all)).toEqual({ verdict: 'almost', next: 'hurt', phrase: informal.id, offTone: true });
+    expect(offTone(node, neutral)).toBe(false);
+    expect(offTone({ ...node, register: undefined }, informal)).toBe(false);
+  });
+
+  it('в плитках и вводе: не тот тон — «почти», нужный тон с опечаткой лучше чужого тона', () => {
+    expect(answerNode(node, { kind: 'text', text: 'Oye, mírame la cuenta' }, all)).toMatchObject({ verdict: 'almost', offTone: true });
+    expect(answerNode(node, { kind: 'text', text: 'Le ruego que revise mi cuenta' }, all).verdict).toBe('correct');
+    expect(answerNode(node, { kind: 'text', text: 'le ruego que revise mi cuanta' }, all)).toMatchObject({ verdict: 'almost', phrase: formal.id });
+    expect(answerNode(node, { kind: 'text', text: 'Hola' }, all).verdict).toBe('wrong');
   });
 });

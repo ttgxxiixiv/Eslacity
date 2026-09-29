@@ -120,6 +120,31 @@
         {"q": "Что сказал голос Хранительницы?", "options": ["Приходите скорее", "Лес закрыт навсегда", "Слишком шумно, она не слышит тропу"], "answer": 2}
       ],
       "gloss": {"andrea": "Андреа (имя)", "passata": "прошла (passare)", "intera": "целая"}
+    },
+    {
+      "id": "sc:home.5",
+      "chapter": 5,
+      "npc": "franca",
+      "lines": [
+        {"who": "npc", "es": "Entra, entra. Ho trovato il quaderno di mia nonna. Senti cosa dice del Labirinto.", "ru": "Заходи, заходи. Я нашла бабушкину тетрадь. Послушай, что там про Лабиринт."},
+        {"who": "hero", "es": "Tua nonna conosceva il Labirinto?", "ru": "Твоя бабушка знала Лабиринт?"},
+        {"who": "npc", "es": "Ci è passata vicino da giovane, come Andrea. Scrive: «Chi parla a tutti allo stesso modo, si perde».", "ru": "В молодости проходила рядом, как Андреа. Пишет: «Кто говорит со всеми одинаково, тот заблудится»."},
+        {"who": "hero", "es": "E come si esce?", "ru": "А как оттуда выйти?"},
+        {"who": "npc", "es": "«Chi sa cambiare voce, trova l'uscita». Con il vicino, del tu; con il sindaco, del Lei.", "ru": "«Кто умеет менять голос, найдёт выход». С соседом — на ты, с мэром — на вы."},
+        {"who": "hero", "es": "Ha senso. L'eco cambia il tono, e bisogna saperlo scegliere.", "ru": "Логично. Эхо меняет тон, и надо уметь его выбирать."},
+        {"who": "npc", "es": "E a proposito di toni... Il padrone di casa mi ha mandato una lettera molto maleducata.", "ru": "Кстати, о тоне... Хозяин квартиры прислал мне очень грубое письмо."},
+        {"who": "hero", "es": "Maleducata? Sicura?", "ru": "Грубое? Точно?"},
+        {"who": "npc", "es": "C'è scritto: «Paghi subito e stia zitta». Ma lui è sempre stato molto educato con me.", "ru": "Там написано: «Платите сейчас же и молчите». А ведь он всегда был со мной очень вежлив."},
+        {"who": "hero", "es": "Allora è di nuovo l'eco.", "ru": "Значит, это снова эхо."},
+        {"who": "npc", "es": "Può darsi. Però voglio chiamarlo subito.", "ru": "Может быть. И всё равно я хочу позвонить ему прямо сейчас."}
+      ],
+      "questions": [
+        {"q": "Что нашла Франка?", "options": ["Ключ от подвала", "Бабушкину тетрадь", "Письмо Томмазо"], "answer": 1},
+        {"q": "Кто, по словам бабушки, выходит из Лабиринта?", "options": ["Тот, кто умеет менять голос", "Самый быстрый", "Тот, кто молчит"], "answer": 0},
+        {"q": "Что было в письме хозяина квартиры?", "options": ["Приглашение на ужин", "Новые ключи", "«Платите сейчас же и молчите»"], "answer": 2},
+        {"q": "Почему Франка сомневается в письме?", "options": ["Письмо без подписи", "Хозяин всегда был с ней вежлив", "Письмо пришло ночью"], "answer": 1}
+      ],
+      "gloss": {"stesso": "тот же (allo stesso modo — одинаково)", "tono": "тон", "toni": "тоны (мн. ч. от tono)", "subito": "сразу, немедленно", "zitta": "молчащая (stia zitta — молчите)"}
     }
   ]
 }

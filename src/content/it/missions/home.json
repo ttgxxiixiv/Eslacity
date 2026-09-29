@@ -87,6 +87,30 @@
         "books": {"kind": "answer", "task": "Скажите, что книги ставят на полку.", "branches": [{"phrase": "ph:home.libri-vanno-sullo", "next": "end"}], "wrong": {"es": "I libri vanno nel bosco? Lì c'è ancora più umidità!", "ru": "Книги — в лес? Там ещё сырее!"}},
         "end": {"kind": "say", "es": "Perfetto, lì l'acqua non arriva. E guarda cosa c'era tra i libri: un pezzo della mappa del bosco. Andrea l'ha portato dalla torre. Dice che è per te.", "ru": "Отлично, туда вода не достанет. И смотри, что было между книгами: обрывок карты леса. Андреа принёс его из башни. Говорит, это для тебя."}
       }
+    },
+    {
+      "id": "ms:home.5",
+      "chapter": 5,
+      "npc": "franca",
+      "scene": "sc:home.5",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Ho già il telefono in mano. Mi aiuti a parlargli? Sono molto arrabbiata.", "ru": "Телефон уже в руке. Поможешь мне с ним поговорить? Я очень сердита.", "next": "heat"},
+        "heat": {"kind": "answer", "task": "Напомните Франке, что ещё не работает отопление: об этом тоже надо сказать.", "branches": [{"phrase": "ph:home.riscaldamento-non-funziona", "next": "heatsay"}], "wrong": {"es": "Il riscaldamento funziona? Macché! Per questo ho freddo.", "ru": "Отопление работает? Да ну! Поэтому мне и холодно."}},
+        "heatsay": {"kind": "say", "es": "È vero! Glielo dico anche. Ecco, risponde... Parla prima tu, che io urlo.", "ru": "Точно! И об этом скажу. Вот, он отвечает... Говори ты первым, а то я закричу.", "next": "call"},
+        "call": {"kind": "answer", "task": "Начните разговор с хозяином квартиры: официально.", "register": "formal", "branches": [{"phrase": "ph:home.la-chiamo-lettera", "next": "callsay"}, {"phrase": "ph:home.ehi-che-lettera", "next": "callsay"}], "wrong": {"es": "Cosa gli hai detto? Dice che non capisce niente.", "ru": "Что ты ему сказал? Он говорит, что ничего не понял."}, "tone": {"es": "Oh no! «Ehi»? È il padrone di casa, non tuo cugino. Adesso si è offeso.", "ru": "Ой, нет! «Эй»? Это хозяин квартиры, а не твой двоюродный брат. Теперь он обиделся."}},
+        "callsay": {"kind": "say", "es": "Dice che lui ha scritto «Per favore, paghi quando può». L'eco! Però sono stanca di spaventi: lascio l'appartamento.", "ru": "Он говорит, что написал «Пожалуйста, заплатите, когда сможете». Эхо! И всё равно я устала от волнений: съеду с квартиры.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:home.non-andartene-lettera", "next": "object", "move": "object"}, {"phrase": "ph:home.cerca-altra-casa", "next": "concede", "move": "concede"}, {"phrase": "ph:home.parlagli-di-persona", "next": "compromise", "move": "compromise"}], "wrong": {"es": "Cosa? Ti parlo della casa, non della cena.", "ru": "Что? Я про квартиру, а не про ужин."}},
+        "object": {"kind": "say", "es": "Hai ragione. Vivo qui da trent'anni. Per una lettera dell'eco non me ne vado.", "ru": "Ты прав. Я живу здесь тридцать лет. Из-за письма от эха не уеду.", "next": "water"},
+        "concede": {"kind": "say", "es": "Sì... guarderò qualche casa più vicina al parco. Ma senza fretta.", "ru": "Да... посмотрю квартиры поближе к парку. Но без спешки.", "next": "water"},
+        "compromise": {"kind": "say", "es": "Di persona, certo. Così l'eco non cambia niente. Domani vado a trovarlo.", "ru": "Лично, конечно. Тогда эхо ничего не изменит. Завтра схожу к нему.", "next": "water"},
+        "water": {"kind": "answer", "task": "Скажите, что на полу вода: опять протекает.", "branches": [{"phrase": "ph:home.c-acqua-sul", "next": "watersay"}], "wrong": {"es": "C'è l'eco sul pavimento? No, c'è acqua. E tanta!", "ru": "На полу эхо? Нет, вода. И много!"}},
+        "watersay": {"kind": "say", "es": "Di nuovo! È il tubo vecchio. Chiama tu, per favore.", "ru": "Опять! Это старая труба. Позвони ты, пожалуйста.", "next": "plumber"},
+        "plumber": {"kind": "answer", "task": "Скажите по телефону, что у вас авария и нужен сантехник.", "branches": [{"phrase": "ph:home.c-guasto-serve", "next": "plumbersay"}], "wrong": {"es": "Un guasto dell'eco? Quello non lo ripara un idraulico.", "ru": "Поломка эха? Такое сантехник не чинит."}},
+        "plumbersay": {"kind": "say", "es": "Ben detto. L'idraulico viene oggi pomeriggio. E se un giorno cambio casa, cosa chiedo per prima cosa?", "ru": "Хорошо сказано. Сантехник придёт сегодня днём. А если я когда-нибудь перееду, что спросить первым делом?", "next": "costs"},
+        "costs": {"kind": "answer", "task": "Подскажите: спросить, сколько в месяц коммунальные расходы.", "branches": [{"phrase": "ph:home.quanto-sono-spese", "next": "end"}], "wrong": {"es": "Quanto costa l'eco? Niente, ma costa caro.", "ru": "Сколько стоит эхо? Ничего, но обходится дорого."}},
+        "end": {"kind": "say", "es": "Bella domanda. Prendi, questo era nel quaderno di mia nonna: un pezzo della mappa del Labirinto. Accanto c'è scritto: «A ogni porta, un'altra voce».", "ru": "Хороший вопрос. Держи, это лежало в бабушкиной тетради: обрывок карты Лабиринта. Рядом написано: «У каждой двери — другой голос»."}
+      }
     }
   ]
 }

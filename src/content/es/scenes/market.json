@@ -121,6 +121,31 @@
         {"q": "Что говорила бабушка Кармен?", "options": ["Не ходи в лес", "Весы должны быть честными", "Осторожнее со словами: деревья слушают"], "answer": 2}
       ],
       "gloss": {"carmen": "Кармен (имя)", "generosa": "щедрая", "paco": "Пако (имя)"}
+    },
+    {
+      "id": "sc:market.5",
+      "chapter": 5,
+      "npc": "carmen",
+      "lines": [
+        {"who": "npc", "es": "¡Cariño, qué mañana! Hoy los clientes me hablan fatal.", "ru": "Дорогуша, ну и утро! Сегодня покупатели разговаривают со мной ужасно."},
+        {"who": "hero", "es": "¿Fatal? ¿Por qué?", "ru": "Ужасно? Почему?"},
+        {"who": "npc", "es": "Una señora muy educada me ha dicho: «¡Dame medio kilo, rápido!». Y luego se ha puesto roja.", "ru": "Одна очень вежливая сеньора сказала мне: «Дай полкило, быстро!». А потом покраснела."},
+        {"who": "hero", "es": "Quizás ella dijo otra cosa.", "ru": "Может, она сказала что-то другое."},
+        {"who": "npc", "es": "Eso me explicó: ella dijo «¿Me pone medio kilo, por favor?».", "ru": "Так она мне и объяснила: она сказала «Взвесьте мне полкило, пожалуйста»."},
+        {"who": "hero", "es": "Es el eco del Laberinto. Cambia el tono de las palabras.", "ru": "Это эхо Лабиринта. Оно меняет тон слов."},
+        {"who": "npc", "es": "¿Del Laberinto? Lola me ha contado algo. ¿Y a mí también me cambia?", "ru": "Лабиринта? Лола мне что-то рассказывала. И мои слова оно тоже меняет?"},
+        {"who": "hero", "es": "Seguramente. Tu «cariño» puede llegar como algo muy frío.", "ru": "Наверняка. Твоё «дорогуша» может дойти как что-то очень холодное."},
+        {"who": "npc", "es": "¡Mi «cariño»! Llevo cuarenta años diciendo «cariño» en este mercado.", "ru": "Моё «дорогуша»! Я сорок лет говорю «дорогуша» на этом рынке."},
+        {"who": "hero", "es": "Pues ahora hay que tener paciencia.", "ru": "Ну, теперь надо запастись терпением."},
+        {"who": "npc", "es": "Paciencia tengo poca, pero lo intentaré.", "ru": "Терпения у меня мало, но я попробую."}
+      ],
+      "questions": [
+        {"q": "Что Кармен услышала от вежливой сеньоры?", "options": ["«Спасибо, дорогуша»", "«Дай полкило, быстро!»", "«Сколько стоит?»"], "answer": 1},
+        {"q": "Что на самом деле сказала сеньора?", "options": ["Вежливую просьбу с «пожалуйста»", "Что помидоры плохие", "Что уходит"], "answer": 0},
+        {"q": "Сколько лет Кармен говорит «cariño» на рынке?", "options": ["Десять", "Двадцать", "Сорок"], "answer": 2},
+        {"q": "Что меняет эхо Лабиринта?", "options": ["Цены", "Тон слов", "Погоду"], "answer": 1}
+      ],
+      "gloss": {"fatal": "ужасно", "cosa": "вещь; что-то (otra cosa — другое)", "pues": "ну; тогда"}
     }
   ]
 }

@@ -120,6 +120,31 @@
         {"q": "Почему полки пустеют?", "options": ["Магазин закрывается", "Поставщик не приехал", "Люди верят слухам и скупают впрок"], "answer": 2}
       ],
       "gloss": {"tapones": "пробки (tapones para los oídos — беруши)", "medianoche": "полночь", "oídos": "уши"}
+    },
+    {
+      "id": "sc:supermarket.5",
+      "chapter": 5,
+      "npc": "javi",
+      "lines": [
+        {"who": "npc", "es": "¿Has oído los avisos de hoy? Escucha: «Se informa a los señores clientes de que el yogur se encuentra en oferta».", "ru": "Слышал сегодняшние объявления? Послушай: «Уважаемых покупателей информируют о том, что йогурт находится в акции»."},
+        {"who": "hero", "es": "¿Tú hablas así?", "ru": "Ты так говоришь?"},
+        {"who": "npc", "es": "¡Qué va! Yo dije: «¡Chicos, yogur a mitad de precio!». Pero por el altavoz sale así.", "ru": "Да ну! Я сказал: «Ребята, йогурт за полцены!». А из громкоговорителя выходит вот так."},
+        {"who": "hero", "es": "Es el eco del Laberinto.", "ru": "Это эхо Лабиринта."},
+        {"who": "npc", "es": "Eso dice Carmen. Lo curioso es que a las abuelas les encanta.", "ru": "Так и Кармен говорит. Самое смешное, что бабушкам это очень нравится."},
+        {"who": "hero", "es": "¿Y a los jóvenes?", "ru": "А молодым?"},
+        {"who": "npc", "es": "Se ríen y se van. Hoy hemos vendido la mitad de yogures.", "ru": "Смеются и уходят. Сегодня мы продали вдвое меньше йогуртов."},
+        {"who": "hero", "es": "Entonces hay que hablar a cada uno en su tono.", "ru": "Значит, надо говорить с каждым его тоном."},
+        {"who": "npc", "es": "Ya, pero el altavoz es uno solo. Estoy harto.", "ru": "Ну да, но громкоговоритель-то один. Мне это надоело."},
+        {"who": "hero", "es": "Te ayudo con los avisos.", "ru": "Я помогу тебе с объявлениями."},
+        {"who": "npc", "es": "Gracias. Si no, apago el altavoz y listo.", "ru": "Спасибо. А то выключу громкоговоритель, и дело с концом."}
+      ],
+      "questions": [
+        {"q": "Что Хави на самом деле сказал в громкоговоритель?", "options": ["«Магазин закрыт»", "«Касса не работает»", "«Ребята, йогурт за полцены!»"], "answer": 2},
+        {"q": "Кому нравятся новые объявления?", "options": ["Бабушкам", "Детям", "Никому"], "answer": 0},
+        {"q": "Что делают молодые покупатели?", "options": ["Покупают больше", "Смеются и уходят", "Жалуются директору"], "answer": 1},
+        {"q": "Что Хави хочет сделать?", "options": ["Выключить громкоговоритель", "Уволиться", "Закрыть магазин"], "answer": 0}
+      ],
+      "gloss": {"oído": "слышал (от oír)", "altavoz": "громкоговоритель", "harto": "уставший от чего-то (estoy harto — мне надоело)"}
     }
   ]
 }

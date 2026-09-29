@@ -121,6 +121,31 @@
         {"q": "Что делает лес тише?", "options": ["Тишина по ночам", "Спор, который закончился миром", "Подарки Хранительнице"], "answer": 1}
       ],
       "gloss": {"finalmente": "наконец", "ivo": "Иво (имя)", "mercante": "купец", "tommaso": "Томмазо (имя)"}
+    },
+    {
+      "id": "sc:cafe.5",
+      "chapter": 5,
+      "npc": "giulia",
+      "lines": [
+        {"who": "npc", "es": "Che bello che sei qui! Guarda questa lettera di Tommaso. È dall'altra parte del bosco, con Ivo.", "ru": "Как хорошо, что ты здесь! Посмотри на это письмо от Томмазо. Он по ту сторону леса, с Иво."},
+        {"who": "hero", "es": "Cosa dice?", "ru": "Что там?"},
+        {"who": "npc", "es": "«Gentile signora, Le comunico che sto bene». Gentile signora? Sono sua sorella!", "ru": "«Уважаемая сеньора, сообщаю вам, что у меня всё хорошо». Уважаемая сеньора? Я его сестра!"},
+        {"who": "hero", "es": "Che strano. Tommaso non scrive mai così.", "ru": "Странно. Томмазо никогда так не пишет."},
+        {"who": "npc", "es": "E c'è un biglietto di Ivo: dietro il bosco comincia il Labirinto dell'Eco.", "ru": "И есть записка от Иво: за лесом начинается Лабиринт Эха."},
+        {"who": "hero", "es": "Un labirinto?", "ru": "Лабиринт?"},
+        {"who": "npc", "es": "Sì. Lì ogni parola torna con un'altra voce. Una parola gentile suona fredda, e una educata suona maleducata.", "ru": "Да. Там каждое слово возвращается другим голосом. Доброе слово звучит холодно, а вежливое — грубо."},
+        {"who": "hero", "es": "Allora la lettera è passata per il Labirinto.", "ru": "Значит, письмо прошло через Лабиринт."},
+        {"who": "npc", "es": "Così dice Ivo. E l'eco arriva già in città: oggi un cliente mi ha dato del Lei, come un poliziotto.", "ru": "Так пишет Иво. И эхо уже доходит до города: сегодня один клиент говорил со мной на вы, как полицейский."},
+        {"who": "hero", "es": "Non è colpa tua, è l'eco.", "ru": "Ты не виновата, это эхо."},
+        {"who": "npc", "es": "Lo so... ma mi fa male. Tommaso non mi scrive così da anni.", "ru": "Знаю... но мне обидно. Томмазо уже много лет мне так не писал."}
+      ],
+      "questions": [
+        {"q": "Где сейчас Томмазо?", "options": ["В башне на перевале", "По ту сторону леса, с Иво", "Дома у Джулии"], "answer": 1},
+        {"q": "Что не так с письмом Томмазо?", "options": ["Оно пустое", "Оно на чужом языке", "Оно слишком официальное"], "answer": 2},
+        {"q": "Что происходит в Лабиринте Эха?", "options": ["Каждое слово возвращается другим голосом", "Там всегда темно", "Там продают карты"], "answer": 0},
+        {"q": "Почему Джулии обидно?", "options": ["Бар закрывают", "Брат пишет ей холодно, как чужой", "Клиенты не платят"], "answer": 1}
+      ],
+      "gloss": {"tommaso": "Томмазо (имя)", "ivo": "Иво (имя)"}
     }
   ]
 }

@@ -121,6 +121,31 @@
         {"q": "Что говорила бабушка Розы?", "options": ["Не ходи в лес", "Весы должны быть честными", "Осторожнее со словами: деревья слушают"], "answer": 2}
       ],
       "gloss": {"generosa": "щедрая", "favola": "сказка"}
+    },
+    {
+      "id": "sc:market.5",
+      "chapter": 5,
+      "npc": "rosa",
+      "lines": [
+        {"who": "npc", "es": "Tesoro, che mattina! Oggi i clienti mi parlano malissimo.", "ru": "Сокровище, ну и утро! Сегодня покупатели разговаривают со мной ужасно."},
+        {"who": "hero", "es": "Malissimo? Perché?", "ru": "Ужасно? Почему?"},
+        {"who": "npc", "es": "Una signora molto educata mi ha detto: «Dammi mezzo chilo, veloce!». E poi è diventata rossa.", "ru": "Одна очень вежливая синьора сказала мне: «Дай полкило, быстро!». А потом покраснела."},
+        {"who": "hero", "es": "Forse ha detto un'altra cosa.", "ru": "Может, она сказала что-то другое."},
+        {"who": "npc", "es": "Così mi ha spiegato: lei ha detto «Mi dà mezzo chilo, per favore?».", "ru": "Так она мне и объяснила: она сказала «Взвесьте мне полкило, пожалуйста»."},
+        {"who": "hero", "es": "È l'eco del Labirinto. Cambia il tono delle parole.", "ru": "Это эхо Лабиринта. Оно меняет тон слов."},
+        {"who": "npc", "es": "Del Labirinto? Giulia mi ha raccontato qualcosa. E cambia anche le mie parole?", "ru": "Лабиринта? Джулия мне что-то рассказывала. И мои слова оно тоже меняет?"},
+        {"who": "hero", "es": "Di sicuro. Il tuo «tesoro» può arrivare come qualcosa di molto freddo.", "ru": "Наверняка. Твоё «сокровище» может дойти как что-то очень холодное."},
+        {"who": "npc", "es": "Il mio «tesoro»! Sono quarant'anni che dico «tesoro» in questo mercato.", "ru": "Моё «сокровище»! Я сорок лет говорю «сокровище» на этом рынке."},
+        {"who": "hero", "es": "Allora adesso ci vuole pazienza.", "ru": "Ну, теперь надо запастись терпением."},
+        {"who": "npc", "es": "Di pazienza ne ho poca, ma ci provo.", "ru": "Терпения у меня мало, но я попробую."}
+      ],
+      "questions": [
+        {"q": "Что Роза услышала от вежливой синьоры?", "options": ["«Спасибо, сокровище»", "«Дай полкило, быстро!»", "«Сколько стоит?»"], "answer": 1},
+        {"q": "Что на самом деле сказала синьора?", "options": ["Вежливую просьбу с «пожалуйста»", "Что помидоры плохие", "Что уходит"], "answer": 0},
+        {"q": "Сколько лет Роза говорит «tesoro» на рынке?", "options": ["Десять", "Двадцать", "Сорок"], "answer": 2},
+        {"q": "Что меняет эхо Лабиринта?", "options": ["Цены", "Тон слов", "Погоду"], "answer": 1}
+      ],
+      "gloss": {"tono": "тон"}
     }
   ]
 }

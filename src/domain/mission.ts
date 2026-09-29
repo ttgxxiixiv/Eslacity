@@ -1,4 +1,4 @@
-import type { DisputeMove, Mission, MissionAnswer, Phrase } from '../content/schema';
+import type { DisputeMove, Mission, MissionAnswer, Phrase, Register } from '../content/schema';
 import { checkPhrase, normalize, type Verdict } from './answer';
 import { phraseTokens } from './phraseSteps';
 import { shuffle, type Rng } from './generators';
@@ -7,6 +7,7 @@ import { shuffle, type Rng } from './generators';
  * Сюжетная миссия (задача 4.5): граф узлов — реплики жителя и ответы героя с ветками. Режим ответа растёт
  * с каждым прохождением: в первый раз герой выбирает фразу, во второй собирает из плиток, дальше пишет сам.
  * Неверный ответ — смешная реакция жителя и подсказка, диалог идёт дальше по основной ветке.
+ * С главы V в миссии есть узел тона: фраза не того регистра верна по смыслу, но засчитывается как «почти».
  */
 
 export type MissionMode = 'choose' | 'tiles' | 'type';
@@ -32,6 +33,19 @@ export const MOVE_LABEL: Record<DisputeMove, { verb: string; done: string }> = {
   compromise: { verb: 'Компромисс', done: 'предлагаете компромисс' },
 };
 
+/** С этой главы в каждой миссии есть узел тона (docs/GAME.md, глава V). */
+export const REGISTER_FROM_CHAPTER = 5;
+
+/** Узел тона: житель ждёт определённого регистра. */
+export const isRegisterNode = (node: MissionAnswer) => node.register !== undefined;
+
+/** Фраза сказана не тем тоном: у узла есть регистр, у фразы другой и не нейтральный. */
+export function offTone(node: MissionAnswer, phrase: Phrase | undefined): boolean {
+  const want: Register | undefined = node.register;
+  const got = phrase?.register;
+  return !!want && !!got && got !== 'neutral' && got !== want;
+}
+
 /** Узел-спор: у веток есть ход героя. */
 export const isDispute = (node: MissionAnswer) => node.branches.some((b) => b.move);
 
@@ -53,25 +67,33 @@ export interface AnswerResult {
   next: string;
   /** Какая фраза засчитана (или основная при ошибке). */
   phrase: string;
+  /** Смысл верный, но тон не тот: «почти» и реакция жителя `tone`. */
+  offTone?: boolean;
 }
 
 /**
  * Ответ героя на узел. Выбор верен, если выбрана фраза одной из веток. Текст (плитки или ввод) сверяется со всеми
  * ветками через `checkPhrase`: «почти» тоже засчитывается — житель понял. Ошибка ведёт по основной ветке.
+ * Фраза не того тона (`offTone`) — «почти», диалог идёт по её ветке.
  */
 export function answerNode(node: MissionAnswer, a: HeroAnswer, phrases: Record<string, Phrase>): AnswerResult {
   const main = node.branches[0];
+  const graded = (r: AnswerResult): AnswerResult =>
+    r.verdict !== 'wrong' && offTone(node, phrases[r.phrase]) ? { ...r, verdict: 'almost', offTone: true } : r;
   if (a.kind === 'pick') {
     const hit = node.branches.find((b) => b.phrase === a.phrase);
-    return hit ? { verdict: 'correct', next: hit.next, phrase: hit.phrase } : { verdict: 'wrong', next: main.next, phrase: main.phrase };
+    return hit ? graded({ verdict: 'correct', next: hit.next, phrase: hit.phrase }) : { verdict: 'wrong', next: main.next, phrase: main.phrase };
   }
   let best: AnswerResult = { verdict: 'wrong', next: main.next, phrase: main.phrase };
+  const rank = (r: AnswerResult) => (r.verdict === 'correct' ? 2 : r.verdict === 'almost' ? 1 : 0) + (r.offTone ? 0 : 0.5);
   for (const b of node.branches) {
     const p = phrases[b.phrase];
     if (!p) continue;
     const v = checkPhrase(a.text, p).verdict;
-    if (v === 'correct') return { verdict: v, next: b.next, phrase: b.phrase };
-    if (v === 'almost' && best.verdict === 'wrong') best = { verdict: v, next: b.next, phrase: b.phrase };
+    if (v === 'wrong') continue;
+    const r = graded({ verdict: v, next: b.next, phrase: b.phrase });
+    if (r.verdict === 'correct') return r;
+    if (best.verdict === 'wrong' || rank(r) > rank(best)) best = r;
   }
   return best;
 }

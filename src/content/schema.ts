@@ -149,6 +149,11 @@ export interface Npc {
   location: LocationId;
   role: string;
   gender: 'm' | 'f';
+  /**
+   * Каким тоном с жителем говорить всегда (глава V): комиссар и банкир — только официально, торговка и бариста —
+   * по-свойски. У остальных тон зависит от ситуации, поля нет.
+   */
+  register?: 'formal' | 'informal';
   /** Характер одной строкой: для будущих диалогов и миссий. */
   character: string;
   /** Приветствие на изучаемом языке (поле es) и перевод. */
@@ -199,6 +204,8 @@ export interface Phrase {
   note?: string;
   /** id урока грамматики, на котором держится фраза. */
   grammar?: string;
+  /** Регистр фразы (глава V): официально, нейтрально или по-свойски. Нужен у фраз узлов тона в миссиях. */
+  register?: Register;
 }
 
 export interface LocationPhrases {
@@ -273,6 +280,13 @@ export interface MissionAnswer {
   branches: { phrase: string; next: string; move?: DisputeMove }[];
   /** Реакция жителя на неверный ответ: смешная, но понятная. */
   wrong: { es: string; ru: string };
+  /**
+   * Узел тона (глава V): каким регистром здесь надо говорить. Ветки — фразы в разных регистрах, первая — в нужном.
+   * Ответ не тем тоном верен по смыслу, но засчитывается как «почти», и житель реагирует репликой `tone`.
+   */
+  register?: Register;
+  /** Реакция жителя на ответ не тем тоном: обижается, переспрашивает. */
+  tone?: { es: string; ru: string };
 }
 
 export type MissionNode = MissionSay | MissionAnswer;

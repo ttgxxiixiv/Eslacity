@@ -92,6 +92,30 @@
         "pay": {"kind": "answer", "task": "Скажите, что сегодня угощаете вы.", "branches": [{"phrase": "ph:cafe.oggi-offro", "next": "end"}], "wrong": {"es": "Oggi offre il bosco? Il bosco non paga.", "ru": "Сегодня угощает лес? Лес не платит."}},
         "end": {"kind": "say", "es": "Grazie. E prendi: Ivo ha mandato questo pezzo della mappa del bosco per te. Ascolta gli alberi, ma non credere a tutto quello che ripetono.", "ru": "Спасибо. И держи: Иво прислал для тебя этот обрывок карты леса. Слушай деревья, но не верь всему, что они повторяют."}
       }
+    },
+    {
+      "id": "ms:cafe.5",
+      "chapter": 5,
+      "npc": "giulia",
+      "scene": "sc:cafe.5",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Siediti. Ti preparo qualcosa mentre rileggo questa lettera così fredda.", "ru": "Садись. Сделаю тебе что-нибудь, пока перечитываю это холодное письмо.", "next": "order"},
+        "order": {"kind": "answer", "task": "Закажите макиато и тост.", "branches": [{"phrase": "ph:cafe.macchiato-toast", "next": "ordersay"}], "wrong": {"es": "Un macchiato e una lettera? La lettera ce l'ho già, grazie.", "ru": "Макиато и письмо? Письмо у меня уже есть, спасибо."}},
+        "ordersay": {"kind": "say", "es": "Arriva subito. Sai? È tutta la mattina che penso che Tommaso sia arrabbiato con me.", "ru": "Сейчас будет. Знаешь, я всё утро думаю, что Томмазо на меня злится.", "next": "calm"},
+        "calm": {"kind": "answer", "task": "Успокойте Джулию. Она подруга — говорите по-свойски.", "register": "informal", "branches": [{"phrase": "ph:cafe.tranquilla-preoccuparti", "next": "calmsay"}, {"phrase": "ph:cafe.la-prego-calma", "next": "calmsay"}], "wrong": {"es": "Che mi calmi il caffè? Sono già al terzo.", "ru": "Чтобы меня успокоил кофе? Я уже третий пью."}, "tone": {"es": "«La prego»? Anche tu mi parli come una banca? Sono Giulia!", "ru": "«Прошу вас»? Ты тоже говоришь со мной, как банк? Это же я, Джулия!"}},
+        "calmsay": {"kind": "say", "es": "Va bene, respiro. Ma gli rispondo altrettanto fredda: «Gentile signor Tommaso».", "ru": "Ладно, дышу. Но я отвечу ему так же холодно: «Уважаемый синьор Томмазо».", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:cafe.non-rispondergli-cosi", "next": "object", "move": "object"}, {"phrase": "ph:cafe.rispondigli-uguale", "next": "concede", "move": "concede"}, {"phrase": "ph:cafe.chiamalo-invece", "next": "compromise", "move": "compromise"}], "wrong": {"es": "Cosa? Questo non c'entra niente con la lettera.", "ru": "Что? Это вообще не про письмо."}},
+        "object": {"kind": "say", "es": "Hai ragione, così non si risolve niente. Gli scrivo con affetto, anche se l'eco lo cambia.", "ru": "Ты прав, так ничего не решить. Напишу ему тепло, пусть даже эхо это изменит.", "next": "treat"},
+        "concede": {"kind": "say", "es": "Proprio così. Che senta cosa si prova. Anche se di sicuro gli arriverà con un altro tono.", "ru": "Вот именно. Пусть почувствует, каково это. Хотя наверняка до него дойдёт другим тоном.", "next": "treat"},
+        "compromise": {"kind": "say", "es": "Al telefono? Certo! La voce non passa per il Labirinto. Lo chiamo stasera.", "ru": "По телефону? Конечно! Голос через Лабиринт не идёт. Позвоню ему сегодня вечером.", "next": "treat"},
+        "treat": {"kind": "answer", "task": "Скажите, что сегодня угощаете вы.", "branches": [{"phrase": "ph:cafe.oggi-offro", "next": "treatsay"}], "wrong": {"es": "Oggi offre l'eco? L'eco non paga.", "ru": "Сегодня угощает эхо? Эхо не платит."}},
+        "treatsay": {"kind": "say", "es": "Che gentile! Senti, vuoi qualcosa di dolce per il viaggio?", "ru": "Как мило! Слушай, хочешь чего-нибудь сладкого в дорогу?", "next": "pastry"},
+        "pastry": {"kind": "answer", "task": "Спросите, домашние ли сладости.", "branches": [{"phrase": "ph:cafe.dolci-sono-fatti", "next": "pastrysay"}], "wrong": {"es": "I dolci sono del Labirinto? No, sono di mia madre.", "ru": "Сладости из Лабиринта? Нет, мамины."}},
+        "pastrysay": {"kind": "say", "es": "Fatti in casa, come sempre. E adesso dimmi, quando parti per il Labirinto?", "ru": "Домашние, как всегда. А теперь скажи, когда ты уходишь к Лабиринту?", "next": "meet"},
+        "meet": {"kind": "answer", "task": "Предложите встретиться в середине утра, перед дорогой.", "branches": [{"phrase": "ph:cafe.ci-vediamo-meta", "next": "end"}], "wrong": {"es": "Ci vediamo a mezzanotte? A quell'ora io dormo.", "ru": "Встретимся в полночь? Я в это время сплю."}},
+        "end": {"kind": "say", "es": "Perfetto. E prendi questo: Ivo ha messo nella lettera questo pezzo della mappa del Labirinto. Lì parla a ognuno con il suo tono.", "ru": "Отлично. И держи: Иво вложил в письмо этот обрывок карты Лабиринта. Там говори с каждым его тоном."}
+      }
     }
   ]
 }

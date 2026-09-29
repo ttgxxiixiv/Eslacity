@@ -5,7 +5,7 @@ import { loadMission, placeOfMission } from '../content/missions';
 import { npcFor } from '../content/npcs';
 import { loadPhrases } from '../content/phrases';
 import { loadScene } from '../content/scenes';
-import type { DisputeMove, Mission, MissionAnswer, Phrase, Scene } from '../content/schema';
+import type { DisputeMove, Mission, MissionAnswer, Phrase, Register, Scene } from '../content/schema';
 import { logAnswer } from '../db/answers';
 import { seeded } from '../domain/generators';
 import { answerNode, DISPUTE_MOVES, isDispute, isPassed, MISSION_PASS, MISSION_REWARD, missionOptions, modeForAttempt, MOVE_LABEL, moveOf, withMove, type HeroAnswer, type MissionMode } from '../domain/mission';
@@ -23,7 +23,14 @@ import { syncAndEvaluate } from '../store/motivation';
 import { useSettings } from '../store/settings';
 import { SceneTalk } from './Scene';
 
-type Bubble = { who: 'npc' | 'hero'; es: string; ru?: string; tone?: 'wrong' | 'hint'; move?: DisputeMove };
+type Bubble = { who: 'npc' | 'hero'; es: string; ru?: string; tone?: 'wrong' | 'hint' | 'offtone'; move?: DisputeMove };
+
+/** Подсказка тона над ответом героя в узле тона (глава V). */
+const TONE_HINT: Record<Register, string> = {
+  formal: 'Тон: официально',
+  neutral: 'Тон: нейтрально',
+  informal: 'Тон: по-свойски',
+};
 
 const MODE_LABEL: Record<MissionMode, string> = { choose: 'выбор фразы', tiles: 'сборка из плиток', type: 'ввод своими словами' };
 
@@ -183,8 +190,14 @@ function MissionDialog({ mission, phrases, pool, mode, place, onDone }: {
     logAnswer({ itemId: mission.id, kind: `mission-${mode}`, verdict: r.verdict, mode: 'learn', ms: 0 });
     setScore((s) => ({ correct: s.correct + (ok ? 1 : 0), answered: s.answered + 1 }));
     const heroLine = ok ? fullPhrase(phrases[r.phrase].es) : said;
-    const next: Bubble[] = [{ who: 'hero', es: heroLine, tone: ok ? undefined : 'wrong', move: ok ? moveOf(node, r.phrase) : undefined }];
-    if (!ok) {
+    const next: Bubble[] = [{ who: 'hero', es: heroLine, tone: !ok ? 'wrong' : r.offTone ? 'offtone' : undefined, move: ok ? moveOf(node, r.phrase) : undefined }];
+    if (r.offTone && node.tone) {
+      // Смысл верный, тон чужой: житель обижается или переспрашивает, герой видит, как лучше.
+      next.push({ who: 'npc', es: node.tone.es, ru: node.tone.ru });
+      next.push({ who: 'hero', es: `Лучше так: ${fullPhrase(phrases[node.branches[0].phrase].es)}`, tone: 'hint' });
+      speak(heroLine);
+      say(node.tone.es);
+    } else if (!ok) {
       next.push({ who: 'npc', es: node.wrong.es, ru: node.wrong.ru });
       next.push({ who: 'hero', es: `Правильно: ${fullPhrase(phrases[r.phrase].es)}`, tone: 'hint' });
       say(node.wrong.es);
@@ -192,8 +205,8 @@ function MissionDialog({ mission, phrases, pool, mode, place, onDone }: {
       speak(heroLine);
     }
     setBubbles((b) => [...b, ...next]);
-    // После ошибки даём прочитать реакцию, после верного ответа диалог идёт сам.
-    if (ok) advance(r.next);
+    // После ошибки и чужого тона даём прочитать реакцию, после верного ответа диалог идёт сам.
+    if (ok && !r.offTone) advance(r.next);
     else setPending(r.next);
   };
 
@@ -221,7 +234,11 @@ function MissionDialog({ mission, phrases, pool, mode, place, onDone }: {
 function MissionBubble({ bubble, npcLook, npcName }: { bubble: Bubble; npcLook?: Parameters<typeof NpcPortrait>[0]['look']; npcName?: string }) {
   const [ru, setRu] = useState(false);
   const hero = bubble.who === 'hero';
-  const tone = bubble.tone === 'wrong' ? 'border-bad bg-badbg' : bubble.tone === 'hint' ? 'border-ok bg-okbg' : hero ? 'border-brand bg-orange-50' : 'border-stone-300 bg-white';
+  const tone =
+    bubble.tone === 'wrong' ? 'border-bad bg-badbg'
+      : bubble.tone === 'hint' ? 'border-ok bg-okbg'
+        : bubble.tone === 'offtone' ? 'border-amber-500 bg-amber-50'
+          : hero ? 'border-brand bg-orange-50' : 'border-stone-300 bg-white';
   return (
     <li className={`flex items-end gap-2 ${hero ? 'flex-row-reverse' : ''}`} data-testid={hero ? 'hero-line' : 'npc-line'}>
       {hero ? <span className="w-10 shrink-0 text-center text-2xl" aria-hidden>🧭</span> : npcLook && <NpcPortrait look={npcLook} size={40} />}
@@ -231,7 +248,9 @@ function MissionBubble({ bubble, npcLook, npcName }: { bubble: Bubble; npcLook?:
         onClick={() => setRu(!ru)}
         className={`max-w-[80%] rounded-2xl border-2 px-3 py-2 text-left ${hero ? 'rounded-br-none' : 'rounded-bl-none'} ${tone}`}
       >
-        <div className="text-xs text-stone-500">{hero ? (bubble.move ? `Вы ${MOVE_LABEL[bubble.move].done}` : 'Вы') : npcName}</div>
+        <div className="text-xs text-stone-500">
+          {hero ? (bubble.move ? `Вы ${MOVE_LABEL[bubble.move].done}` : bubble.tone === 'offtone' ? 'Вы · не тот тон' : 'Вы') : npcName}
+        </div>
         <div className={`text-lg leading-snug ${bubble.tone === 'wrong' ? 'line-through decoration-bad/60' : ''}`}>{bubble.es}</div>
         {ru && bubble.ru && <div className="mt-1 text-sm text-stone-600">{bubble.ru}</div>}
       </button>
@@ -266,6 +285,11 @@ function HeroTurn({ node, phrases, pool, mode, onAnswer }: {
       <div className="font-semibold" data-testid="hero-task">
         {node.task}
       </div>
+      {node.register && (
+        <div className="mt-1 inline-block rounded bg-violet-100 px-1.5 py-0.5 text-xs font-semibold text-violet-800" data-testid="tone-hint">
+          {TONE_HINT[node.register]}
+        </div>
+      )}
       {needMove && (
         <div className="mt-2 grid grid-cols-3 gap-2">
           {DISPUTE_MOVES.map((mv) => (

@@ -88,6 +88,30 @@
         "enough": {"kind": "answer", "task": "Скажите, что больше ничего не нужно.", "branches": [{"phrase": "ph:market.nient-altro-grazie", "next": "end"}], "wrong": {"es": "Nient'altro che pomodori? Allora pomodori.", "ru": "Ничего, кроме помидоров? Значит, помидоры."}},
         "end": {"kind": "say", "es": "Prendi anche questo: un pezzo della mappa del bosco. Me l'ha dato il produttore del formaggio. Dice che gli alberi non inventano, ripetono soltanto.", "ru": "Возьми ещё вот это: обрывок карты леса. Мне дал его сыровар. Говорит, деревья ничего не выдумывают, только повторяют."}
       }
+    },
+    {
+      "id": "ms:market.5",
+      "chapter": 5,
+      "npc": "rosa",
+      "scene": "sc:market.5",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Vieni, tesoro, ti ho tenuto il meglio. Cosa ti do oggi?", "ru": "Иди сюда, сокровище, я тебе лучшее отложила. Что тебе сегодня дать?", "next": "fruit"},
+        "fruit": {"kind": "answer", "task": "Спросите, какие фрукты сейчас по сезону.", "branches": [{"phrase": "ph:market.che-frutta-stagione", "next": "fruitsay"}], "wrong": {"es": "Che frutta è del Labirinto? Nessuna, tesoro.", "ru": "Какие фрукты из Лабиринта? Никакие, сокровище."}},
+        "fruitsay": {"kind": "say", "es": "Le ciliegie, sono buonissime. Ma che umore ho oggi... Un'altra cliente mi ha risposto come un giudice.", "ru": "Черешня, она отличная. Но какое у меня сегодня настроение... Ещё одна покупательница ответила мне, как судья.", "next": "calm"},
+        "calm": {"kind": "answer", "task": "Скажите Розе, чтобы не принимала близко к сердцу. Она говорит только по-свойски.", "register": "informal", "branches": [{"phrase": "ph:market.non-prendertela", "next": "calmsay"}, {"phrase": "ph:market.non-la-prenda", "next": "calmsay"}], "wrong": {"es": "Che prenda un caffè? Ne ho già presi due.", "ru": "Чтобы я выпила кофе? Я уже две чашки выпила."}, "tone": {"es": "«Lei»? Tesoro, mi conosci da anni! Non parlarmi come l'eco.", "ru": "«Вы»? Сокровище, ты меня сто лет знаешь! Не говори со мной, как эхо."}},
+        "calmsay": {"kind": "say", "es": "Hai ragione. Ma guarda cosa faccio: un cartello grande. «Qui si chiede per favore».", "ru": "Ты прав. Но смотри, что я сделаю: большую табличку. «Здесь просят пожалуйста».", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:market.cartello-non-ferma", "next": "object", "move": "object"}, {"phrase": "ph:market.buona-idea-cartello", "next": "concede", "move": "concede"}, {"phrase": "ph:market.cartello-umorismo", "next": "compromise", "move": "compromise"}], "wrong": {"es": "Cosa dici? Parlo del cartello, tesoro.", "ru": "Что ты говоришь? Я про табличку, сокровище."}},
+        "object": {"kind": "say", "es": "Già... Un cartello non ferma l'eco. Meglio sorridere e chiedere due volte.", "ru": "Да... Табличка эхо не остановит. Лучше улыбнусь и переспрошу.", "next": "cherries"},
+        "concede": {"kind": "say", "es": "Ecco! Lo metto all'ingresso, bello grande, con le lettere rosse.", "ru": "Вот! Повешу у входа, большую, красными буквами.", "next": "cherries"},
+        "compromise": {"kind": "say", "es": "Con umorismo? Mi piace: «Qui si chiede per favore... e l'eco paga il doppio».", "ru": "С юмором? Мне нравится: «Здесь просят пожалуйста... а эхо платит вдвойне».", "next": "cherries"},
+        "cherries": {"kind": "answer", "task": "Попросите полкило черешни.", "branches": [{"phrase": "ph:market.mezzo-chilo-ciliegie", "next": "cherriessay"}], "wrong": {"es": "Mezzo chilo di cartello? Quello non si vende, tesoro.", "ru": "Полкило таблички? Такое не продаётся, сокровище."}},
+        "cherriessay": {"kind": "say", "es": "Ecco, le migliori. E le pesche? Sono dolcissime.", "ru": "Держи, самые лучшие. А персики? Они очень сладкие.", "next": "taste"},
+        "taste": {"kind": "answer", "task": "Спросите, можно ли попробовать.", "branches": [{"phrase": "ph:market.posso-assaggiare", "next": "tastesay"}], "wrong": {"es": "Posso pagare? Non ancora, prima assaggi.", "ru": "Можно заплатить? Пока нет, сначала попробуй."}},
+        "tastesay": {"kind": "say", "es": "Certo! Prendi. Dolce, eh? Altro?", "ru": "Конечно! Держи. Сладкий, а? Что-нибудь ещё?", "next": "enough"},
+        "enough": {"kind": "answer", "task": "Скажите, что больше ничего не нужно, спасибо.", "branches": [{"phrase": "ph:market.nient-altro-grazie", "next": "end"}], "wrong": {"es": "Nient'altro che ciliegie? Ma le hai già.", "ru": "Ничего, кроме черешни? Так она у тебя уже есть."}},
+        "end": {"kind": "say", "es": "Molto bene, tesoro. E prendi questo: mia madre teneva un pezzo della mappa del Labirinto tra le ricette. C'è scritto: «Ogni voce ha la sua porta».", "ru": "Отлично, сокровище. И держи: мама хранила обрывок карты Лабиринта среди рецептов. На нём написано: «У каждого голоса своя дверь»."}
+      }
     }
   ]
 }

@@ -86,6 +86,7 @@ for (const lang of langs) {
   const missions = readJson<LocationMissions>(join(root, lang, 'missions'));
   const missionIssues = validateMissions(missions, {
     residents: Object.fromEntries((npcs?.npcs ?? []).map((n) => [n.location, n.id])),
+    registers: Object.fromEntries((npcs?.npcs ?? []).map((n) => [n.location, n.register])),
     phrases: Object.fromEntries(phrases.map((f) => [f.data.location, f.data.phrases])),
     scenes: new Set(scenes.flatMap((f) => f.data.scenes.map((sc) => sc.id))),
     coverage: (text, level) => textCoverage(text, level, lexicon, forms, lang),

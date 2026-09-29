@@ -120,6 +120,31 @@
         {"q": "Почему Пако не хочется готовить?", "options": ["Он устал", "Нет продуктов", "Он обижен на Беатрис"], "answer": 2}
       ],
       "gloss": {"aceite": "масло (растительное)", "beatriz": "Беатрис (имя)", "paco": "Пако (имя)"}
+    },
+    {
+      "id": "sc:restaurant.5",
+      "chapter": 5,
+      "npc": "paco",
+      "lines": [
+        {"who": "npc", "es": "Ven, mira a ese señor de la mesa cinco. Lleva una capa gris como la piedra.", "ru": "Иди сюда, посмотри на того сеньора за пятым столиком. На нём накидка, серая, как камень."},
+        {"who": "hero", "es": "¿Quién es?", "ru": "Кто это?"},
+        {"who": "npc", "es": "No lo sé. Pide la sopa y repite mis palabras: «sopa... sopa... sopa».", "ru": "Не знаю. Заказывает суп и повторяет мои слова: «суп... суп... суп»."},
+        {"who": "hero", "es": "¿Como un eco?", "ru": "Как эхо?"},
+        {"who": "npc", "es": "Exacto. Y luego ha dicho una frase entera, muy clara.", "ru": "Вот именно. А потом сказал целую фразу, очень ясно."},
+        {"who": "hero", "es": "¿Qué frase?", "ru": "Какую фразу?"},
+        {"who": "npc", "es": "«El Señor del Eco busca a quien sepa hablar con cada uno en su tono».", "ru": "«Хозяин Эха ищет того, кто умеет говорить с каждым его тоном»."},
+        {"who": "hero", "es": "¿El Señor del Eco? Será el guardián del Laberinto.", "ru": "Хозяин Эха? Наверное, это страж Лабиринта."},
+        {"who": "npc", "es": "Eso pienso yo. Pero me pone nervioso. Cuando hablo, mis palabras vuelven cambiadas.", "ru": "Я тоже так думаю. Но он меня нервирует. Когда я говорю, мои слова возвращаются другими."},
+        {"who": "hero", "es": "Hablemos con él. Con educación.", "ru": "Давай поговорим с ним. Вежливо."},
+        {"who": "npc", "es": "Sí, con mucha educación. Tú primero.", "ru": "Да, очень вежливо. Ты первый."}
+      ],
+      "questions": [
+        {"q": "Как выглядит гость за пятым столиком?", "options": ["На нём серая, как камень, накидка", "На нём красная шапка", "На нём белый фартук"], "answer": 0},
+        {"q": "Что гость делает со словами Пако?", "options": ["Записывает", "Повторяет их, как эхо", "Переводит"], "answer": 1},
+        {"q": "Кого ищет Хозяин Эха?", "options": ["Лучшего повара", "Путника с деньгами", "Того, кто говорит с каждым его тоном"], "answer": 2},
+        {"q": "Как Пако предлагает говорить с гостем?", "options": ["Очень вежливо", "Громко", "Никак"], "answer": 0}
+      ],
+      "gloss": {"capa": "накидка, плащ"}
     }
   ]
 }

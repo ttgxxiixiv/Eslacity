@@ -123,6 +123,31 @@
         {"q": "Что делает лес тише?", "options": ["Тишина по ночам", "Спор, который закончился миром", "Подарки Хранительнице"], "answer": 1}
       ],
       "gloss": {"antiguo": "бывший", "mercader": "купец", "otra": "снова (otra vez)", "discusiones": "ссоры, споры", "discusión": "спор, ссора", "entonces": "тогда"}
+    },
+    {
+      "id": "sc:cafe.5",
+      "chapter": 5,
+      "npc": "lola",
+      "lines": [
+        {"who": "npc", "es": "¡Qué bien que vienes! Mira esta carta de Tomás. Está al otro lado del bosque, con Iván.", "ru": "Как хорошо, что ты пришёл! Посмотри на это письмо от Томаса. Он по ту сторону леса, с Иваном."},
+        {"who": "hero", "es": "¿Qué dice?", "ru": "Что там?"},
+        {"who": "npc", "es": "«Estimada señora: le comunico que me encuentro bien». ¿Estimada señora? ¡Soy su hermana!", "ru": "«Уважаемая сеньора, сообщаю вам, что у меня всё хорошо». Уважаемая сеньора? Я его сестра!"},
+        {"who": "hero", "es": "Qué raro. Tomás nunca escribe así.", "ru": "Странно. Томас никогда так не пишет."},
+        {"who": "npc", "es": "Y hay una nota de Iván: detrás del bosque empieza el Laberinto del Eco.", "ru": "И есть записка от Ивана: за лесом начинается Лабиринт Эха."},
+        {"who": "hero", "es": "¿Un laberinto?", "ru": "Лабиринт?"},
+        {"who": "npc", "es": "Sí. Allí cada palabra vuelve con otra voz. Lo amable suena frío, y lo educado suena grosero.", "ru": "Да. Там каждое слово возвращается другим голосом. Доброе звучит холодно, а вежливое — грубо."},
+        {"who": "hero", "es": "Entonces la carta pasó por el Laberinto.", "ru": "Значит, письмо прошло через Лабиринт."},
+        {"who": "npc", "es": "Eso dice Iván. Y el eco ya llega a la ciudad: hoy un cliente me ha hablado de usted, como un policía.", "ru": "Так пишет Иван. И эхо уже доходит до города: сегодня один клиент говорил со мной на вы, как полицейский."},
+        {"who": "hero", "es": "No es culpa tuya, es el eco.", "ru": "Ты не виновата, это эхо."},
+        {"who": "npc", "es": "Ya... pero me duele. Tomás no me escribe así desde hace años.", "ru": "Да... но мне обидно. Томас уже много лет мне так не писал."}
+      ],
+      "questions": [
+        {"q": "Где сейчас Томас?", "options": ["В башне на перевале", "По ту сторону леса, с Иваном", "Дома у Лолы"], "answer": 1},
+        {"q": "Что не так с письмом Томаса?", "options": ["Оно пустое", "Оно на чужом языке", "Оно слишком официальное"], "answer": 2},
+        {"q": "Что происходит в Лабиринте Эха?", "options": ["Каждое слово возвращается другим голосом", "Там всегда темно", "Там продают карты"], "answer": 0},
+        {"q": "Почему Лоле обидно?", "options": ["Кафе закрывают", "Брат пишет ей холодно, как чужой", "Клиенты не платят"], "answer": 1}
+      ],
+      "gloss": {"tuya": "твоя (culpa tuya — твоя вина)"}
     }
   ]
 }

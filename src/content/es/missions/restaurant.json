@@ -90,6 +90,30 @@
         "full": {"kind": "answer", "task": "Откажитесь: вы наелись.", "branches": [{"phrase": "ph:restaurant.no-gracias-estoy", "next": "end"}], "wrong": {"es": "¿Otro pescado? No, ya es suficiente.", "ru": "Ещё рыбу? Нет, уже хватит."}},
         "end": {"kind": "say", "es": "Muy bien. Y toma esto: un trozo del mapa del bosque. Beatriz lo dejó ayer en una mesa. Mañana se lo agradezco... con calma.", "ru": "Отлично. И держи: обрывок карты леса. Беатрис вчера оставила его на столе. Завтра я её поблагодарю... спокойно."}
       }
+    },
+    {
+      "id": "ms:restaurant.5",
+      "chapter": 5,
+      "npc": "paco",
+      "scene": "sc:restaurant.5",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Aquí está. Le llevo el pan. Háblale tú, que a mí me tiembla la voz.", "ru": "Вот он. Я несу ему хлеб. Говори ты, а то у меня голос дрожит.", "next": "special"},
+        "special": {"kind": "answer", "task": "Спросите Пако, какое у него фирменное блюдо, чтобы предложить гостю.", "branches": [{"phrase": "ph:restaurant.cual-especialidad-casa", "next": "specialsay"}], "wrong": {"es": "¿La especialidad del eco? Repetir todo.", "ru": "Фирменное блюдо эха? Всё повторять."}},
+        "specialsay": {"kind": "say", "es": "El cocido. Pero primero pregúntale a él. Es un invitado muy serio, como de otro mundo.", "ru": "Косидо. Но сначала спроси его самого. Гость очень серьёзный, будто из другого мира.", "next": "ask"},
+        "ask": {"kind": "answer", "task": "Спросите гостя, желает ли он ещё чего-нибудь. Он незнакомец — официально.", "register": "formal", "branches": [{"phrase": "ph:restaurant.desea-usted-algo", "next": "asksay"}, {"phrase": "ph:restaurant.te-pongo-algo", "next": "asksay"}], "wrong": {"es": "¿Qué le has dicho? Ahora repite: «...dicho, dicho, dicho».", "ru": "Что ты ему сказал? Теперь он повторяет: «...сказал, сказал, сказал»."}, "tone": {"es": "¡Ay! ¿«Te pongo»? Mira su cara: el eco le ha llegado como «¿Qué quieres tú?». ¡De usted, por favor!", "ru": "Ой! «Тебе принести»? Посмотри на его лицо: эхо донесло это как «Чего тебе?». На вы, пожалуйста!"}},
+        "asksay": {"kind": "say", "es": "Ha contestado: «Nada más. Busco a quien sabe hablar». Y me mira a mí... Me pone nervioso. Lo voy a echar.", "ru": "Он ответил: «Больше ничего. Ищу того, кто умеет говорить». И смотрит на меня... Он меня нервирует. Я его выгоню.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:restaurant.no-lo-eches", "next": "object", "move": "object"}, {"phrase": "ph:restaurant.pidele-que-se-vaya", "next": "concede", "move": "concede"}, {"phrase": "ph:restaurant.deja-que-termine", "next": "compromise", "move": "compromise"}], "wrong": {"es": "¿Qué dices? Te hablo del señor de la capa.", "ru": "Что ты говоришь? Я про сеньора в накидке."}},
+        "object": {"kind": "say", "es": "Tienes razón, trae un mensaje. Me quedo tranquilo y le sirvo el postre.", "ru": "Ты прав, он принёс весть. Успокоюсь и подам ему десерт.", "next": "soup"},
+        "concede": {"kind": "say", "es": "Se lo pediré con educación... ¡Mira! Se ha ido solo, y ha dejado algo en la mesa.", "ru": "Попрошу его вежливо... Смотри! Он ушёл сам и что-то оставил на столе.", "next": "soup"},
+        "compromise": {"kind": "say", "es": "Vale, que termine. Y luego le preguntamos por el Laberinto.", "ru": "Ладно, пусть доест. А потом спросим его о Лабиринте.", "next": "soup"},
+        "soup": {"kind": "answer", "task": "Попробуйте суп и скажите, что он слишком солёный.", "branches": [{"phrase": "ph:restaurant.sopa-esta-demasiado", "next": "soupsay"}], "wrong": {"es": "¿La sopa está demasiado repetida? Eso es el eco, no la sopa.", "ru": "Суп слишком повторяется? Это эхо, а не суп."}},
+        "soupsay": {"kind": "say", "es": "¡Uy, es verdad! Con tantos nervios, le he echado sal dos veces.", "ru": "Ой, правда! Из-за нервов я посолил дважды.", "next": "split"},
+        "split": {"kind": "answer", "task": "Предложите заплатить за ваш обед пополам.", "branches": [{"phrase": "ph:restaurant.pagamos-medias", "next": "splitsay"}], "wrong": {"es": "¿Pagamos con eco? Aquí se paga con euros.", "ru": "Платим эхом? Здесь платят евро."}},
+        "splitsay": {"kind": "say", "es": "¡Nada de eso! Hoy invita la casa. ¿Quieres algo más?", "ru": "Ни в коем случае! Сегодня угощает заведение. Хочешь ещё чего-нибудь?", "next": "full"},
+        "full": {"kind": "answer", "task": "Скажите: нет, спасибо, вы сыты.", "branches": [{"phrase": "ph:restaurant.no-gracias-estoy", "next": "end"}], "wrong": {"es": "¿Lleno de eco? Eso tiene arreglo: un café.", "ru": "Полон эха? Это лечится: чашкой кофе."}},
+        "end": {"kind": "say", "es": "Pues toma esto. El señor de la capa lo dejó en la mesa: un trozo del mapa del Laberinto. Pone: «Una voz, muchos tonos».", "ru": "Тогда держи. Сеньор в накидке оставил на столе обрывок карты Лабиринта. На нём написано: «Один голос, много тонов»."}
+      }
     }
   ]
 }

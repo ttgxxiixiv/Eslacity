@@ -90,6 +90,30 @@
         "milk": {"kind": "answer", "task": "Спросите, закончилось ли молоко.", "branches": [{"phrase": "ph:supermarket.esaurito-latte", "next": "end"}], "wrong": {"es": "È esaurito il bosco? No, nel bosco c'è di tutto.", "ru": "Лес закончился? Нет, в лесу есть всё."}},
         "end": {"kind": "say", "es": "Ne resta uno. Prendilo. E questo: un pezzo della mappa del bosco. Era dentro una scatola di tappi. Qualcuno vuole che tu lo trovi.", "ru": "Остался один пакет. Бери. И вот ещё: обрывок карты леса. Он лежал в коробке с берушами. Кто-то хочет, чтобы ты его нашёл."}
       }
+    },
+    {
+      "id": "ms:supermarket.5",
+      "chapter": 5,
+      "npc": "matteo",
+      "scene": "sc:supermarket.5",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Ciao. Prepariamo insieme il prossimo avviso. Ma prima, cerchi qualcosa?", "ru": "Привет. Давай вместе подготовим следующее объявление. Но сначала — ты что-то ищешь?", "next": "dairy"},
+        "dairy": {"kind": "answer", "task": "Спросите, где отдел молочных продуктов.", "branches": [{"phrase": "ph:supermarket.dov-reparto-latticini", "next": "dairysay"}], "wrong": {"es": "Dov'è l'eco? Dappertutto, purtroppo.", "ru": "Где эхо? Везде, к сожалению."}},
+        "dairysay": {"kind": "say", "es": "In fondo, a sinistra. Allora, l'avviso. Adesso nel negozio ci sono tanti anziani. Come glielo dico?", "ru": "В конце зала, налево. Итак, объявление. Сейчас в магазине много пожилых. Как им сказать?", "next": "notice"},
+        "notice": {"kind": "answer", "task": "Подскажите объявление для пожилых покупателей: официально.", "register": "formal", "branches": [{"phrase": "ph:supermarket.informiamo-offerta", "next": "noticesay"}, {"phrase": "ph:supermarket.ehi-frutta-costa-poco", "next": "noticesay"}], "wrong": {"es": "È un avviso o una canzone?", "ru": "Это объявление или песня?"}, "tone": {"es": "«Ehi»? Le signore mi guarderanno malissimo. Con loro, si dà del Lei.", "ru": "«Эй»? Сеньоры на меня так посмотрят... С ними — на вы."}},
+        "noticesay": {"kind": "say", "es": "Perfetto, lo leggo così. Ma sai una cosa? Sono stufo: spengo l'altoparlante per sempre.", "ru": "Отлично, так и прочитаю. Но знаешь что? Мне надоело: выключу громкоговоритель навсегда.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:supermarket.senza-avvisi-nessuno", "next": "object", "move": "object"}, {"phrase": "ph:supermarket.spegnilo-un-po", "next": "concede", "move": "concede"}, {"phrase": "ph:supermarket.avvisi-per-iscritto", "next": "compromise", "move": "compromise"}], "wrong": {"es": "Cosa? Ti parlo dell'altoparlante, non della spesa.", "ru": "Что? Я про громкоговоритель, а не про покупки."}},
+        "object": {"kind": "say", "es": "È vero, senza avvisi nessuno trova le offerte. Lo lascio acceso.", "ru": "Это правда, без объявлений никто не находит акции. Оставлю включённым.", "next": "yogurt"},
+        "concede": {"kind": "say", "es": "Grazie. Una settimana senza altoparlante. Silenzio totale nel supermercato.", "ru": "Спасибо. Неделя без громкоговорителя. В магазине полная тишина.", "next": "yogurt"},
+        "compromise": {"kind": "say", "es": "Cartelli scritti? Bella idea! L'eco non cambia le lettere... spero.", "ru": "Письменные объявления? Хорошая идея! Буквы эхо не меняет... надеюсь.", "next": "yogurt"},
+        "yogurt": {"kind": "answer", "task": "Скажите, что этот йогурт просрочен.", "branches": [{"phrase": "ph:supermarket.questo-yogurt-scaduto", "next": "yogurtsay"}], "wrong": {"es": "Questo yogurt è nel Labirinto? No, è nel frigo.", "ru": "Этот йогурт в Лабиринте? Нет, в холодильнике."}},
+        "yogurtsay": {"kind": "say", "es": "Oh! Lo tolgo subito. Grazie di avermelo detto.", "ru": "Ой! Сейчас же уберу. Спасибо, что сказал.", "next": "home"},
+        "home": {"kind": "answer", "task": "Спросите, привозят ли покупки на дом.", "branches": [{"phrase": "ph:supermarket.portate-spesa-domicilio", "next": "homesay"}], "wrong": {"es": "Portiamo l'eco a domicilio? Arriva già da solo.", "ru": "Привозим эхо на дом? Оно само приходит."}},
+        "homesay": {"kind": "say", "es": "Sì, fino alle otto. Prendi qualcos'altro?", "ru": "Да, до восьми. Возьмёшь что-нибудь ещё?", "next": "bread"},
+        "bread": {"kind": "answer", "task": "Спросите, есть ли хлеб без глютена.", "branches": [{"phrase": "ph:supermarket.avete-pane-senza", "next": "end"}], "wrong": {"es": "Pane senza eco? Piacerebbe anche a me.", "ru": "Хлеб без эха? Мне бы тоже такой."}},
+        "end": {"kind": "say", "es": "Sì, in panetteria. E prendi questo: era nella cassa con le monete vecchie. È un pezzo della mappa del Labirinto.", "ru": "Да, в пекарне. И держи: это лежало в кассе со старыми монетами. Обрывок карты Лабиринта."}
+      }
     }
   ]
 }
