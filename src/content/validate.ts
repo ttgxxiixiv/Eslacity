@@ -312,6 +312,8 @@ export function validateGrammar(files: { name: string; data: GrammarLesson }[], 
         checkTypeExercise(e, w, out);
         return;
       }
+      if (checkC1Exercise(e, w, out)) return;
+      if (!('options' in e)) return;
       if (e.options.length < 2 || e.options.some(empty)) out.push({ level: 'error', where: w, msg: 'мало или пустые варианты' });
       if (new Set(e.options.map(normalize)).size !== e.options.length) out.push({ level: 'error', where: w, msg: 'одинаковые варианты' });
       if (!Number.isInteger(e.answer) || e.answer < 0 || e.answer >= e.options.length) {
@@ -321,7 +323,7 @@ export function validateGrammar(files: { name: string; data: GrammarLesson }[], 
         const gaps = e.sentence.split('___').length - 1;
         if (gaps !== 1) out.push({ level: 'error', where: w, msg: `в предложении ${gaps} пропусков вместо одного` });
         if (empty(e.ru)) out.push({ level: 'error', where: w, msg: 'нет перевода' });
-      } else if (empty(e.prompt)) out.push({ level: 'error', where: w, msg: 'пустой prompt' });
+      } else if (e.kind === 'choose' && empty(e.prompt)) out.push({ level: 'error', where: w, msg: 'пустой prompt' });
     });
   }
   return out;
@@ -357,6 +359,70 @@ function checkBuildExercise(e: { ru: string; answer: string; alt?: string[]; ext
   for (const a of e.alt ?? []) {
     if (empty(a) || bag(a) !== bag(e.answer)) out.push({ level: 'error', where: w, msg: `alt «${a}» собирается не из тех же слов` });
     else if (normalize(a) === normalize(e.answer)) out.push({ level: 'error', where: w, msg: `alt «${a}» совпадает с ответом` });
+  }
+}
+
+/** Число слов в строке. */
+const wordCount = (s: string) => s.trim().split(/\s+/).length;
+
+/** Непустые ответ и `alt`, каждый содержит слово `must` (ключевое слово пересказа или связку). */
+function checkAnswers(answers: string[], must: string | null, what: string, w: string, out: Issue[]) {
+  if (!answers.length || answers.some(empty)) {
+    out.push({ level: 'error', where: w, msg: 'пустой ответ' });
+    return;
+  }
+  if (must === null) return;
+  const re = new RegExp(`(^|\\s)${normalize(must).replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}(\\s|$)`);
+  for (const a of answers) if (!re.test(normalize(a))) out.push({ level: 'error', where: w, msg: `в ответе «${a}» нет ${what} «${must}»` });
+}
+
+/**
+ * Задания уровня C1 (задача 7.3). Возвращает true, если вид из них: тогда общая проверка вариантов не нужна
+ * (кроме выбора в регистре и пересказа смысла, у которых свои варианты).
+ */
+function checkC1Exercise(e: GrammarLesson['exercises'][number], w: string, out: Issue[]): boolean {
+  const err = (msg: string) => out.push({ level: 'error', where: w, msg });
+  switch (e.kind) {
+    case 'transform':
+      if (empty(e.source) || empty(e.keyword)) err('нет исходной фразы или ключевого слова');
+      checkAnswers([e.answer, ...(e.alt ?? [])], e.keyword ?? '', 'ключевого слова', w, out);
+      if (!empty(e.source) && !empty(e.answer) && normalize(e.source) === normalize(e.answer)) err('ответ совпадает с исходной фразой');
+      return true;
+    case 'combine':
+      if (empty(e.first) || empty(e.second) || empty(e.connector)) err('нет одной из фраз или связки');
+      checkAnswers([e.answer, ...(e.alt ?? [])], e.connector ?? '', 'связки', w, out);
+      return true;
+    case 'cloze': {
+      const gaps = (e.text ?? '').split('___').length - 1;
+      if (gaps < 2) err(`в тексте ${gaps} пропусков, нужно не меньше двух`);
+      if (gaps !== (e.answers ?? []).length) err(`пропусков ${gaps}, а списков ответов ${(e.answers ?? []).length}`);
+      for (const list of e.answers ?? []) {
+        if (!list.length || list.some(empty)) err('пустой список ответов у пропуска');
+        else if (list.some((a) => wordCount(a) > 3)) err(`ответ пропуска «${list.join(' / ')}» длиннее трёх слов`);
+      }
+      return true;
+    }
+    case 'fix': {
+      const words = empty(e.sentence) ? [] : e.sentence.trim().split(/\s+/);
+      if (!Number.isInteger(e.wrong) || e.wrong < 0 || e.wrong >= words.length) err(`слово с ошибкой №${e.wrong} вне предложения`);
+      checkAnswers([e.answer, ...(e.alt ?? [])], null, '', w, out);
+      const bad = words[e.wrong];
+      if (bad && !empty(e.answer) && normalize(bad) === normalize(e.answer)) err(`«${bad}» совпадает с верной формой`);
+      if (!empty(e.answer) && wordCount(e.answer) > 2) err(`верная форма «${e.answer}» длиннее двух слов`);
+      return true;
+    }
+    case 'register':
+      if (empty(e.source)) err('нет исходной фразы');
+      if (!REGISTERS.includes(e.to)) err(`регистр "${e.to}"`);
+      if ('options' in e) return false;
+      checkBuildExercise({ ...e, ru: e.source }, w, out);
+      return true;
+    case 'paraphrase':
+      if (empty(e.sentence)) err('нет исходной фразы');
+      else if ((e.options ?? []).some((o) => normalize(o) === normalize(e.sentence))) err('вариант повторяет исходную фразу');
+      return false;
+    default:
+      return false;
   }
 }
 

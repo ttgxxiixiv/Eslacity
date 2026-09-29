@@ -2,7 +2,7 @@ import type { Phrase, Word } from '../content/schema';
 import { makeStep, type Step } from './lessonQueue';
 import { makeTiles, type PhraseStep } from './phraseSteps';
 import { shuffle, type Rng } from './generators';
-import type { GrammarItem } from './grammar';
+import { TYPED_KINDS, type GrammarItem } from './grammar';
 
 /**
  * Испытание места (задача 5.1): экзамен по словам и фразам главы одного места. 15 заданий вперемешку,
@@ -33,7 +33,7 @@ export type TrialItem = { kind: 'word'; step: Step } | { kind: 'phrase'; step: P
 
 /** Задание испытания с вводом с клавиатуры. */
 export const isTypedItem = (it: TrialItem) =>
-  it.kind === 'word' ? it.step.kind === 'type' || it.step.kind === 'listen-type' : it.kind === 'phrase' ? it.step.kind === 'type' : it.item.ex.kind === 'type';
+  it.kind === 'word' ? it.step.kind === 'type' || it.step.kind === 'listen-type' : it.kind === 'phrase' ? it.step.kind === 'type' : TYPED_KINDS.has(it.item.ex.kind);
 
 /**
  * Задания испытания: до пяти выученных фраз главы и слова главы до пятнадцати, каждое по одному разу.

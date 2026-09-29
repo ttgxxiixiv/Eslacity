@@ -62,7 +62,61 @@ export interface LessonText {
     | { kind: 'truefalse'; statement: string }
     | { kind: 'build'; answer: string; extra: string[] }
     | { kind: 'type'; sentence: string; answer: string; alt?: string[] }
+    // Задания C1 (задача 7.3).
+    | { kind: 'transform'; source: string; keyword: string; answer: string; alt?: string[] }
+    | { kind: 'combine'; first: string; second: string; connector: string; answer: string; alt?: string[] }
+    | { kind: 'fix'; sentence: string; answer: string; alt?: string[] }
+    | { kind: 'cloze'; text: string; answers: string[][] }
+    | { kind: 'register'; source: string; options?: string[]; answer: number | string; alt?: string[]; extra?: string[] }
+    | { kind: 'paraphrase'; sentence: string; options: string[] }
   )[];
+}
+
+type LessonExercise = LessonText['exercises'][number];
+
+/** Что упражнение просит произвести или выбрать: варианты, собранные и вписанные ответы. */
+function taughtStrings(e: LessonExercise): string[] {
+  if ('options' in e && e.options) return e.options;
+  switch (e.kind) {
+    case 'build':
+      return [e.answer];
+    case 'type':
+    case 'transform':
+    case 'combine':
+    case 'fix':
+      return [e.answer, ...(e.alt ?? [])];
+    case 'cloze':
+      return e.answers.flat();
+    case 'register':
+      return typeof e.answer === 'string' ? [e.answer, ...(e.alt ?? [])] : [];
+    default:
+      return [];
+  }
+}
+
+/** Весь текст упражнения на изучаемом языке. */
+function exerciseText(e: LessonExercise): string {
+  switch (e.kind) {
+    case 'choose':
+      return e.prompt;
+    case 'gap':
+    case 'type':
+    case 'fix':
+    case 'paraphrase':
+      return e.sentence;
+    case 'build':
+      return [e.answer, ...e.extra].join(' ');
+    case 'truefalse':
+      return e.statement;
+    case 'transform':
+      return e.source;
+    case 'combine':
+      return [e.first, e.second].join(' ');
+    case 'cloze':
+      return e.text;
+    case 'register':
+      return [e.source, ...(e.extra ?? [])].join(' ');
+  }
 }
 
 type Lem = (s: string) => string[];
@@ -72,9 +126,7 @@ export function grammarLemmas(lessons: LessonText[], lem: Lem): Set<string> {
   return new Set(
     lessons.flatMap((l) => [
       ...l.theory.flatMap((b) => (b.kind === 'table' ? b.rows.flatMap((r) => r.cells.flatMap(lem)) : [])),
-      ...l.exercises.flatMap((e) =>
-        'options' in e ? e.options.flatMap(lem) : e.kind === 'build' ? lem(e.answer) : e.kind === 'type' ? [e.answer, ...(e.alt ?? [])].flatMap(lem) : [],
-      ),
+      ...l.exercises.flatMap((e) => taughtStrings(e).flatMap(lem)),
     ]),
   );
 }
@@ -87,9 +139,7 @@ export function anywhereLemmas(words: { es: string; alt?: string[]; example: { e
     ...lessons.flatMap((l) => [
       ...l.theory.flatMap((b) => (b.kind === 'table' ? [] : lem(b.md))),
       ...l.examples.flatMap((x) => lem(x.es)),
-      ...l.exercises.flatMap((e) =>
-        lem(e.kind === 'choose' ? e.prompt : e.kind === 'gap' || e.kind === 'type' ? e.sentence : e.kind === 'build' ? [e.answer, ...e.extra].join(' ') : e.statement),
-      ),
+      ...l.exercises.flatMap((e) => lem(exerciseText(e))),
     ]),
   ]);
 }

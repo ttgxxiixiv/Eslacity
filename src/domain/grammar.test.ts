@@ -1,8 +1,10 @@
 import { describe, expect, it } from 'vitest';
 import type { GrammarLesson } from '../content/schema';
 import { seeded } from './generators';
-import { answerGrammar, buildGrammarQueue, checkGrammar, forVariant, grammarScore, grammarTitle, rulesForReview, startGrammar, toItem } from './grammar';
+import { answerGrammar, buildGrammarQueue, checkGrammar, fillGaps, forVariant, grammarScore, grammarTitle, rulesForReview, startGrammar, toItem } from './grammar';
 import type { GrammarExercise } from '../content/schema';
+import { readFileSync, readdirSync } from 'node:fs';
+import { join } from 'node:path';
 
 const lesson: GrammarLesson = {
   id: 'a1.test', district: 'A1', order: 1, title: 'Тест',
@@ -115,5 +117,78 @@ describe('продуктивные задания', () => {
   it('в уроке сборка и ввод идут после узнавания', () => {
     const q = buildGrammarQueue([type, build, ...lesson.exercises], seeded(5));
     expect(q.map((i) => i.ex.kind)).toEqual(['choose', 'gap', 'truefalse', 'build', 'type']);
+  });
+});
+
+describe('задания C1 (задача 7.3) на обоих языках', () => {
+  // Образцы лежат в последнем уроке района B2.
+  const sample = (lang: 'es' | 'it') => {
+    const dir = join(import.meta.dirname, '..', 'content', lang, 'grammar', 'b2');
+    const f = readdirSync(dir).find((x) => x.startsWith('20-'))!;
+    const l = JSON.parse(readFileSync(join(dir, f), 'utf8')) as GrammarLesson;
+    return (kind: GrammarExercise['kind']) => toItem(l.exercises.find((e) => e.kind === kind)!, seeded(1));
+  };
+  for (const lang of ['es', 'it'] as const) {
+    const get = sample(lang);
+    it(`${lang}: в уроке есть все шесть видов`, () => {
+      for (const k of ['transform', 'cloze', 'fix', 'register', 'combine', 'paraphrase'] as const) expect(get(k).ex.kind).toBe(k);
+    });
+    it(`${lang}: пересказ и связка — фраза целиком, регистр и знаки не важны, без ударения почти`, () => {
+      for (const k of ['transform', 'combine'] as const) {
+        const item = get(k);
+        const ans = (item.ex as { answer: string }).answer;
+        expect(checkGrammar(item, { text: ans.toUpperCase().replace(/[.,;:]/g, '') }).verdict).toBe('correct');
+        expect(checkGrammar(item, { text: ans.normalize('NFD').replace(/\p{M}/gu, '') }).verdict).toBe(/[áéíóúàèìòù]/.test(ans) ? 'almost' : 'correct');
+        expect(checkGrammar(item, { text: ans.replace(/\s\S+$/, '') }).verdict).toBe('wrong');
+        expect(checkGrammar(item, { text: ans }).shown).toBe(ans);
+      }
+    });
+    it(`${lang}: текст с пропусками — каждый пропуск по своему списку`, () => {
+      const item = get('cloze');
+      const ex = item.ex as Extract<GrammarExercise, { kind: 'cloze' }>;
+      const right = ex.answers.map((a) => a[a.length - 1]);
+      const c = checkGrammar(item, { texts: right });
+      expect(c.verdict).toBe('correct');
+      expect(c.shown).not.toContain('___');
+      expect(checkGrammar(item, { texts: [right[0], 'xxx'] }).verdict).toBe('wrong');
+      expect(checkGrammar(item, { texts: [right[0]] }).verdict).toBe('wrong');
+    });
+    it(`${lang}: ошибка — нужно и слово, и форма`, () => {
+      const item = get('fix');
+      const ex = item.ex as Extract<GrammarExercise, { kind: 'fix' }>;
+      const c = checkGrammar(item, { at: ex.wrong, text: ex.answer });
+      expect(c.verdict).toBe('correct');
+      expect(c.shown).toContain(` ${ex.answer} `);
+      expect(checkGrammar(item, { at: ex.wrong + 1, text: ex.answer }).verdict).toBe('wrong');
+      expect(checkGrammar(item, { at: ex.wrong, text: 'xx' }).verdict).toBe('wrong');
+      expect(checkGrammar(item, { text: ex.answer }).verdict).toBe('wrong');
+    });
+    it(`${lang}: регистр и тот же смысл — выбор или плитки`, () => {
+      const reg = get('register');
+      if (reg.tiles) {
+        const answer = (reg.ex as { answer: string }).answer;
+        expect(reg.tiles.length).toBeGreaterThan(answer.split(' ').length);
+        expect(checkGrammar(reg, { tiles: answer.split(' ') }).verdict).toBe('correct');
+        expect(checkGrammar(reg, { tiles: answer.split(' ').reverse() }).verdict).toBe('wrong');
+      } else {
+        expect(checkGrammar(reg, { pick: reg.answer }).verdict).toBe('correct');
+        expect(checkGrammar(reg, { pick: (reg.answer + 1) % reg.options.length }).verdict).toBe('wrong');
+      }
+      const para = get('paraphrase');
+      expect(checkGrammar(para, { pick: para.answer }).verdict).toBe('correct');
+      expect(checkGrammar(para, { pick: (para.answer + 1) % para.options.length }).verdict).toBe('wrong');
+    });
+  }
+  it('текст с пропусками: в начале предложения форма с заглавной', () => {
+    expect(fillGaps('Llego tarde, ___, a las diez. ___, ¿has visto a Pedro?', ['es decir', 'por cierto'])).toBe('Llego tarde, es decir, a las diez. Por cierto, ¿has visto a Pedro?');
+    expect(fillGaps('___ tardi, ___ alle dieci.', ['arrivo', 'cioè'])).toBe('Arrivo tardi, cioè alle dieci.');
+  });
+  it('в очереди урока узнавание раньше сборки, ввод в конце', () => {
+    const kinds = ['combine', 'transform', 'cloze', 'fix', 'type', 'build', 'register', 'paraphrase', 'truefalse', 'gap', 'choose'] as const;
+    // Поля не важны для порядка: у выбора есть варианты, у сборки — плитки, у ввода — ничего.
+    const ex = (kind: (typeof kinds)[number], n: number) =>
+      ({ id: `x.${n}`, kind, explain: '', ...(kind === 'build' ? { answer: 'a b c', extra: ['d'] } : kind === 'truefalse' ? { answer: true } : { options: ['a', 'b'], answer: 0 }) }) as unknown as GrammarExercise;
+    const q = buildGrammarQueue(kinds.map((k, i) => ex(k, i)), seeded(3));
+    expect(q.map((i) => i.ex.kind)).toEqual([...kinds].reverse());
   });
 });

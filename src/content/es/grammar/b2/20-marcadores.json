@@ -166,6 +166,77 @@
       "hint": "связка",
       "answer": "decir",
       "explain": "es decir — то есть."
+    },
+    {
+      "id": "b2.20-marcadores.9",
+      "kind": "transform",
+      "source": "No me gusta el frío, así que nunca voy a la montaña en invierno.",
+      "keyword": "por eso",
+      "ru": "Мне не нравится холод, поэтому зимой я никогда не езжу в горы.",
+      "answer": "No me gusta el frío; por eso nunca voy a la montaña en invierno.",
+      "explain": "«Por eso» (поэтому) вводит следствие, как «así que»: после него идёт вывод из сказанного."
+    },
+    {
+      "id": "b2.20-marcadores.10",
+      "kind": "cloze",
+      "text": "Llegaré tarde, ___, a las diez. ___, ¿has visto a Pedro?",
+      "ru": "Я опоздаю, то есть приду в десять. Кстати, ты видел Педро?",
+      "answers": [
+        [
+          "es decir",
+          "o sea"
+        ],
+        [
+          "por cierto",
+          "a propósito"
+        ]
+      ],
+      "explain": "«Es decir» и «o sea» поясняют сказанное, «por cierto» и «a propósito» вводят новую тему: «кстати»."
+    },
+    {
+      "id": "b2.20-marcadores.11",
+      "kind": "fix",
+      "sentence": "Llegaré tarde, es decir, a los diez.",
+      "ru": "Я опоздаю, то есть к десяти.",
+      "wrong": 5,
+      "answer": "las",
+      "explain": "Часы женского рода (las horas): «a las diez», «a la una»."
+    },
+    {
+      "id": "b2.20-marcadores.12",
+      "kind": "register",
+      "source": "O sea, que no vienes, ¿no?",
+      "to": "formal",
+      "options": [
+        "¿Debo entender, entonces, que usted no asistirá?",
+        "Vamos, que pasas de venir, ¿no?",
+        "¿Debo entender que usted asistirá?"
+      ],
+      "answer": 0,
+      "explain": "Официально — на «usted», без «o sea» и «vamos»: «¿Debo entender que...?». Третий вариант меняет смысл."
+    },
+    {
+      "id": "b2.20-marcadores.13",
+      "kind": "combine",
+      "first": "Pedro habla muy bien inglés.",
+      "second": "Vivió cinco años en Londres.",
+      "connector": "de hecho",
+      "ru": "Педро очень хорошо говорит по-английски: он пять лет прожил в Лондоне.",
+      "answer": "Pedro habla muy bien inglés; de hecho, vivió cinco años en Londres.",
+      "explain": "«De hecho» (на самом деле, собственно) подкрепляет сказанное фактом."
+    },
+    {
+      "id": "b2.20-marcadores.14",
+      "kind": "paraphrase",
+      "sentence": "O sea, que no te apetece venir.",
+      "ru": "То есть тебе не хочется идти.",
+      "options": [
+        "Es decir, que no tienes ganas de venir.",
+        "Por cierto, no tienes ganas de venir.",
+        "De hecho, tienes muchas ganas de venir."
+      ],
+      "answer": 0,
+      "explain": "«O sea» = «es decir», а «no te apetece» = «no tienes ganas». «Por cierto» уводит к новой теме."
     }
   ]
 }

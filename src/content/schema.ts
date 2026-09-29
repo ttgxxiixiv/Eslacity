@@ -98,6 +98,20 @@ export type GrammarExercise = { id: string; explain: string; region?: 'es' } & (
   // в скобках (инфинитив), `alt` — другие верные формы.
   | { kind: 'build'; ru: string; answer: string; alt?: string[]; extra: string[] }
   | { kind: 'type'; sentence: string; ru: string; hint?: string; answer: string; alt?: string[] }
+  // Задания уровня C1 (задача 7.3), общие для уроков, стражей и Сфинкса. transform — пересказать `source`
+  // обязательно со словом `keyword`, ввод, верные ответы `answer` и `alt`.
+  | { kind: 'transform'; source: string; keyword: string; ru?: string; answer: string; alt?: string[] }
+  // cloze — связный текст с пропусками `___` без вариантов, у каждого пропуска свой список верных форм.
+  | { kind: 'cloze'; text: string; ru?: string; answers: string[][] }
+  // fix — в предложении одно слово с ошибкой (номер `wrong` среди слов через пробел): найти его и вписать верную форму.
+  | { kind: 'fix'; sentence: string; ru?: string; wrong: number; answer: string; alt?: string[] }
+  // register — та же мысль в регистре `to`: выбором из вариантов или сборкой из плиток (как build).
+  | { kind: 'register'; source: string; to: Register; options: string[]; answer: number }
+  | { kind: 'register'; source: string; to: Register; answer: string; alt?: string[]; extra: string[] }
+  // combine — соединить `first` и `second` связкой `connector` в одну фразу, ввод.
+  | { kind: 'combine'; first: string; second: string; connector: string; ru?: string; answer: string; alt?: string[] }
+  // paraphrase — выбрать вариант с тем же смыслом, что у `sentence`.
+  | { kind: 'paraphrase'; sentence: string; ru?: string; options: string[]; answer: number }
 );
 
 export interface GrammarLesson {

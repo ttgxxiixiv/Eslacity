@@ -189,6 +189,75 @@
       "hint": "связка",
       "answer": "cioè",
       "explain": "cioè — то есть."
+    },
+    {
+      "id": "b2.20-segnali-discorsivi.10",
+      "kind": "transform",
+      "source": "Non mi piace il freddo, così non vado mai in montagna d'inverno.",
+      "keyword": "per questo",
+      "ru": "Мне не нравится холод, поэтому зимой я никогда не езжу в горы.",
+      "answer": "Non mi piace il freddo, per questo non vado mai in montagna d'inverno.",
+      "explain": "«Per questo» (поэтому) вводит следствие, как «così»: после него идёт вывод из сказанного."
+    },
+    {
+      "id": "b2.20-segnali-discorsivi.11",
+      "kind": "cloze",
+      "text": "Arrivo tardi, ___ verso le dieci. ___, hai visto Paolo?",
+      "ru": "Я опоздаю, то есть приду к десяти. Кстати, ты видел Паоло?",
+      "answers": [
+        [
+          "cioè"
+        ],
+        [
+          "tra l'altro",
+          "a proposito"
+        ]
+      ],
+      "explain": "«Cioè» поясняет сказанное, «tra l'altro» и «a proposito» вводят новую тему: «кстати»."
+    },
+    {
+      "id": "b2.20-segnali-discorsivi.12",
+      "kind": "fix",
+      "sentence": "Arrivo tardi, cioè verso la dieci.",
+      "ru": "Я опоздаю, то есть к десяти.",
+      "wrong": 4,
+      "answer": "le",
+      "explain": "Часы — женского рода и множественного числа: «le dieci», но «l'una»."
+    },
+    {
+      "id": "b2.20-segnali-discorsivi.13",
+      "kind": "register",
+      "source": "Insomma, non vieni, no?",
+      "to": "formal",
+      "answer": "Devo dedurre che Lei non verrà?",
+      "extra": [
+        "insomma",
+        "vieni"
+      ],
+      "explain": "Официально — на «Lei», без «insomma»: «Devo dedurre che...?» (должен ли я понимать, что...)."
+    },
+    {
+      "id": "b2.20-segnali-discorsivi.14",
+      "kind": "combine",
+      "first": "Paolo parla benissimo inglese.",
+      "second": "Ha vissuto cinque anni a Londra.",
+      "connector": "infatti",
+      "ru": "Паоло прекрасно говорит по-английски: он пять лет прожил в Лондоне.",
+      "answer": "Paolo parla benissimo inglese: infatti ha vissuto cinque anni a Londra.",
+      "explain": "«Infatti» (и правда, ведь) подкрепляет сказанное фактом."
+    },
+    {
+      "id": "b2.20-segnali-discorsivi.15",
+      "kind": "paraphrase",
+      "sentence": "Insomma, non ti va di venire.",
+      "ru": "Короче, тебе не хочется идти.",
+      "options": [
+        "Cioè, non hai voglia di venire.",
+        "Tra l'altro, non hai voglia di venire.",
+        "Anzi, hai molta voglia di venire."
+      ],
+      "answer": 0,
+      "explain": "«Non ti va» = «non hai voglia». «Tra l'altro» уводит к новой теме, «anzi» переворачивает смысл."
     }
   ]
 }

@@ -67,7 +67,48 @@ type Exercise = { id: string } & (
   | { kind: 'truefalse'; statement: string; answer: boolean }
   | { kind: 'build'; ru: string; answer: string; extra: string[] }
   | { kind: 'type'; sentence: string; ru: string; answer: string }
+  // Задания C1 (задача 7.3).
+  | { kind: 'transform' | 'combine'; answer: string }
+  | { kind: 'cloze'; answers: string[][] }
+  | { kind: 'fix'; wrong: number; answer: string }
+  | { kind: 'register'; options?: string[]; answer: number | string }
+  | { kind: 'paraphrase'; options: string[]; answer: number }
 );
+
+const C1_KINDS = new Set(['transform', 'combine', 'cloze', 'fix', 'register', 'paraphrase']);
+
+/** Ответ на задание C1: задание узнаётся по `data-ex`, отвечаем по данным урока. */
+async function answerC1(page: Page, ex: Exercise, wrong: boolean) {
+  const check = () => page.getByRole('button', { name: 'Проверить' }).click();
+  const pick = async (options: string[], answer: number) => {
+    const text = wrong ? options.find((_, i) => i !== answer)! : options[answer];
+    await page.locator('button.min-h-14').filter({ hasText: exact(text) }).click();
+  };
+  if (ex.kind === 'transform' || ex.kind === 'combine') {
+    await page.locator('input').fill(wrong ? 'xxx' : ex.answer);
+    await check();
+  } else if (ex.kind === 'cloze') {
+    const inputs = page.locator('input[aria-label^="Пропуск"]');
+    for (let i = 0; i < ex.answers.length; i++) await inputs.nth(i).fill(wrong ? 'xxx' : ex.answers[i][0]);
+    await check();
+  } else if (ex.kind === 'fix') {
+    const words = page.getByTestId('fix-words').locator('button');
+    await words.nth(wrong ? (ex.wrong + 1) % (await words.count()) : ex.wrong).click();
+    await page.locator('input').fill(ex.answer);
+    await check();
+  } else if (ex.kind === 'paraphrase') {
+    await pick(ex.options, ex.answer);
+  } else if (ex.kind === 'register') {
+    if (ex.options && typeof ex.answer === 'number') await pick(ex.options, ex.answer);
+    else {
+      const words = phraseTiles(String(ex.answer));
+      for (const t of wrong ? [...words].reverse() : words) {
+        await page.getByTestId('grammar-tiles').locator('button:not([disabled])').filter({ hasText: exact(t) }).first().click();
+      }
+      await check();
+    }
+  }
+}
 
 export function loadLesson(lang: Lang, district: string, file: string): { id: string; exercises: Exercise[] } {
   return JSON.parse(readFileSync(join(CONTENT, lang, 'grammar', district, `${file}.json`), 'utf8'));
@@ -248,6 +289,13 @@ export async function playWords(page: Page, lang: Lang, done: RegExp): Promise<P
  * Возвращает id упражнения.
  */
 export async function answerGrammar(page: Page, lesson: { exercises: Exercise[] }, wrong = false): Promise<string> {
+  const exId = await page.locator('[data-ex]').first().getAttribute('data-ex');
+  const c1 = lesson.exercises.find((e) => e.id === exId && C1_KINDS.has(e.kind));
+  if (c1) {
+    await answerC1(page, c1, wrong);
+    await expect(page.getByRole('button', { name: /дальше/i })).toBeVisible();
+    return c1.id;
+  }
   // Сборка и ввод формы: задание ищется по переводу, ответ — плитками или в поле.
   if (await page.getByTestId('grammar-prompt').count()) {
     const ru = squash((await page.getByTestId('grammar-prompt').textContent()) ?? '');
@@ -270,14 +318,14 @@ export async function answerGrammar(page: Page, lesson: { exercises: Exercise[] 
     return ex.id;
   }
   const text = squash((await page.locator('.text-2xl.leading-snug').first().textContent()) ?? '');
-  const same = lesson.exercises.filter((e) =>
+  type Choice = Extract<Exercise, { kind: 'choose' | 'gap' | 'truefalse' }>;
+  const same = lesson.exercises.filter((e): e is Choice =>
     e.kind === 'choose' ? squash(e.prompt) === text : e.kind === 'gap' ? squash(e.sentence.replace('___', '')) === text : e.kind === 'truefalse' && squash(e.statement) === text,
   );
   // Одинаковый вопрос («Как правильно?») у нескольких заданий: различаем по вариантам на экране.
   const shown = same.length > 1 ? (await page.locator('button.min-h-14').allTextContents()).map(squash).sort().join('|') : '';
   const ex = same.length > 1 ? same.find((e) => 'options' in e && e.options.map(squash).sort().join('|') === shown) : same[0];
   if (!ex) throw new Error(`Задание не найдено в уроке: ${text}`);
-  if (ex.kind === 'build' || ex.kind === 'type') throw new Error(`Не то задание: ${ex.id}`);
   const right = ex.kind === 'truefalse' ? (ex.answer ? 'Верно' : 'Неверно') : ex.options[ex.answer];
   const other = ex.kind === 'truefalse' ? (ex.answer ? 'Неверно' : 'Верно') : ex.options.find((_, i) => i !== ex.answer)!;
   await page.locator('button.min-h-14').filter({ hasText: exact(wrong ? other : right) }).click();
@@ -395,9 +443,6 @@ export const EXAM_KEYS: Record<Lang, string[]> = { es: ['á', 'é', 'í', 'ó', 
 export const expectExamKeys = async (page: Page, lang: Lang) =>
   expect(await page.getByTestId('trial-run').locator('form button.w-11').allTextContents()).toEqual(EXAM_KEYS[lang]);
 
-/** Метки упражнений грамматики: такие задания испытания отвечаются по урокам (`answerGrammar`). */
-const GRAMMAR_LABELS = ['Выберите форму', 'Заполните пропуск', 'Верно или неверно?', 'Соберите предложение', 'Впишите форму'];
-
 /**
  * Пройти испытание места или стража. place — место (фразы испытания), lessons — упражнения уроков (у стражей).
  * wrong — сколько первых заданий ответить неверно (ввод «xxx», в выборе — не тот вариант). Возвращает, сколько было
@@ -419,7 +464,8 @@ export async function playTrial(
     if (!kind) continue;
     const bad = total < wrong;
     total++;
-    if (GRAMMAR_LABELS.includes(kind)) {
+    // Упражнение грамматики (у него есть `data-ex`) отвечается по урокам (`answerGrammar`).
+    if (await run.locator('[data-ex]').count()) {
       if (kind === 'Впишите форму') {
         typed++;
         await expectExamKeys(page, lang);

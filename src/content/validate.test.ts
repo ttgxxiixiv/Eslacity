@@ -224,6 +224,51 @@ describe('validateGrammar: сборка и ввод формы', () => {
   });
 });
 
+describe('validateGrammar: задания C1', () => {
+  const real = () =>
+    JSON.parse(readFileSync(join(import.meta.dirname, 'es', 'grammar', 'a1', '02-ser.json'), 'utf8')) as GrammarLesson;
+  const n = () => real().exercises.length;
+  const check = (...extra: GrammarLesson['exercises']) => {
+    const l = real();
+    l.exercises.push(...extra.map((e, i) => ({ ...e, id: `a1.02-ser.${n() + i + 1}` })));
+    return validateGrammar([{ name: 'a1/02-ser.json', data: l }], 'es').map((x) => x.msg).join('; ');
+  };
+  const transform = { id: '', kind: 'transform' as const, source: 'Llovía, así que no salí.', keyword: 'por eso', answer: 'Llovía; por eso no salí.', explain: 'x' };
+  const combine = { id: '', kind: 'combine' as const, first: 'Llovía.', second: 'Salí.', connector: 'aunque', answer: 'Aunque llovía, salí.', explain: 'x' };
+  const cloze = { id: '', kind: 'cloze' as const, text: 'Yo ___ Ana y tú ___ Luis.', answers: [['soy'], ['eres']], explain: 'x' };
+  const fix = { id: '', kind: 'fix' as const, sentence: 'Yo eres Ana.', wrong: 1, answer: 'soy', explain: 'x' };
+  const regChoose = { id: '', kind: 'register' as const, source: 'Oye, ¿vienes?', to: 'formal' as const, options: ['¿Usted vendrá?', '¿Vienes, tío?'], answer: 0, explain: 'x' };
+  const regBuild = { id: '', kind: 'register' as const, source: 'Oye, ¿vienes?', to: 'formal' as const, answer: '¿Usted vendrá mañana?', extra: ['vienes'], explain: 'x' };
+  const paraphrase = { id: '', kind: 'paraphrase' as const, sentence: 'No me apetece.', options: ['No tengo ganas.', 'Tengo ganas.'], answer: 0, explain: 'x' };
+
+  it('правильные задания всех шести видов проходят', () => {
+    expect(check(transform, combine, cloze, fix, regChoose, regBuild, paraphrase)).toBe('');
+  });
+  it('пересказ и связка: ключевое слово и связка есть в каждом ответе', () => {
+    expect(check({ ...transform, alt: ['Llovía, así que no salí nunca.'] })).toMatch(/нет ключевого слова «por eso»/);
+    expect(check({ ...transform, answer: '' })).toMatch(/пустой ответ/);
+    expect(check({ ...transform, keyword: '' })).toMatch(/нет исходной фразы или ключевого слова/);
+    expect(check({ ...combine, answer: 'Llovía y salí.' })).toMatch(/нет связки «aunque»/);
+    // «aunque» внутри другого слова не считается.
+    expect(check({ ...combine, connector: 'que', answer: 'Aunque llovía, salí.' })).toMatch(/нет связки «que»/);
+  });
+  it('текст с пропусками: число пропусков совпадает со списками ответов', () => {
+    expect(check({ ...cloze, answers: [['soy']] })).toMatch(/пропусков 2, а списков ответов 1/);
+    expect(check({ ...cloze, text: 'Yo ___ Ana.', answers: [['soy']] })).toMatch(/нужно не меньше двух/);
+    expect(check({ ...cloze, answers: [['soy'], []] })).toMatch(/пустой список ответов/);
+  });
+  it('ошибка: номер слова в предложении, форма отличается', () => {
+    expect(check({ ...fix, wrong: 7 })).toMatch(/№7 вне предложения/);
+    expect(check({ ...fix, answer: 'eres' })).toMatch(/совпадает с верной формой/);
+  });
+  it('регистр и смысл', () => {
+    expect(check({ ...regChoose, to: 'slang' as 'formal' })).toMatch(/регистр "slang"/);
+    expect(check({ ...regChoose, answer: 5 })).toMatch(/answer 5 вне вариантов/);
+    expect(check({ ...regBuild, extra: ['usted'] })).toMatch(/лишняя плитка «usted» есть в ответе/);
+    expect(check({ ...paraphrase, options: ['No me apetece.', 'Tengo ganas.'] })).toMatch(/повторяет исходную фразу/);
+  });
+});
+
 describe('validateScrolls', () => {
   const sw = (slug: string, extra: Partial<Word> = {}): Word => ({
     id: `scroll1.${slug}`, es: `el ${slug}`, ru: slug, pos: 'noun', gender: 'm', level: 1, cefr: 'A1',

@@ -34,16 +34,28 @@ let seq = 0;
 export function toItem(ex: GrammarExercise, rng: Rng, retry = false): GrammarItem {
   const id = `g${++seq}`;
   if (ex.kind === 'truefalse') return { id, ex, options: ['Верно', 'Неверно'], answer: ex.answer ? 0 : 1, retry };
-  if (ex.kind === 'build') return { id, ex, options: [], answer: -1, tiles: shuffle([...phraseTokens(ex.answer), ...ex.extra], rng), retry };
-  if (ex.kind === 'type') return { id, ex, options: [], answer: -1, retry };
+  if (ex.kind === 'build' || (ex.kind === 'register' && !('options' in ex))) {
+    return { id, ex, options: [], answer: -1, tiles: shuffle([...phraseTokens(ex.answer), ...ex.extra], rng), retry };
+  }
+  if (!('options' in ex)) return { id, ex, options: [], answer: -1, retry };
   const right = ex.options[ex.answer];
   const options = shuffle(ex.options, rng);
   return { id, ex, options, answer: options.indexOf(right), retry };
 }
 
-/** Порядок: выбор формы → пропуски → верно/неверно → сборка → ввод формы, внутри группы перемешано. */
+/**
+ * Порядок: сначала узнавание (выбор формы, пропуски, верно/неверно, смысл, регистр), потом сборка,
+ * потом ввод (форма, ошибка, текст с пропусками, пересказ, связка). Внутри группы перемешано.
+ */
+const QUEUE_ORDER: Record<GrammarExercise['kind'], number> = {
+  choose: 0, gap: 1, truefalse: 2, paraphrase: 3, register: 4, build: 5, type: 6, fix: 7, cloze: 8, transform: 9, combine: 10,
+};
+
+/** Задания с вводом с клавиатуры: в испытаниях над полем только буквы с ударением. */
+export const TYPED_KINDS: ReadonlySet<GrammarExercise['kind']> = new Set(['type', 'fix', 'cloze', 'transform', 'combine']);
+
 export function buildGrammarQueue(exercises: GrammarExercise[], rng: Rng): GrammarItem[] {
-  const order = { choose: 0, gap: 1, truefalse: 2, build: 3, type: 4 };
+  const order = QUEUE_ORDER;
   return shuffle(exercises, rng)
     .sort((a, b) => order[a.kind] - order[b.kind])
     .map((e) => toItem(e, rng));
@@ -94,8 +106,11 @@ export function rulesForReview(
   return out;
 }
 
-/** Ответ на упражнение: номер варианта, вписанная форма или плитки в порядке сборки. */
-export type GrammarInput = { pick: number } | { text: string } | { tiles: string[] };
+/**
+ * Ответ на упражнение: номер варианта, вписанная форма или фраза, плитки в порядке сборки,
+ * формы для каждого пропуска текста (cloze) или номер слова с ошибкой и его верная форма (fix).
+ */
+export type GrammarInput = { pick: number } | { text: string } | { tiles: string[] } | { texts: string[] } | { at: number; text: string };
 
 export interface GrammarCheck extends CheckResult {
   /** Что показать как правильный ответ: предложение с формой, собранное предложение или вариант. */
@@ -106,6 +121,30 @@ export interface GrammarCheck extends CheckResult {
 
 /** Предложение с пропуском, заполненное формой. */
 export const fillGap = (sentence: string, word: string) => sentence.replace('___', word);
+
+/** Текст с несколькими пропусками, заполненный формами по порядку. В начале предложения форма с заглавной. */
+export function fillGaps(text: string, words: string[]): string {
+  return text.split('___').reduce((acc, part, i) => {
+    if (!i) return part;
+    const w = words[i - 1] ?? '___';
+    const start = !acc.trim() || /[.!?]\s*$/.test(acc);
+    return acc + (start ? w.charAt(0).toUpperCase() + w.slice(1) : w) + part;
+  }, '');
+}
+
+/** Слова предложения для задания «найди ошибку»: по пробелам, знаки остаются при слове. */
+export const fixWords = (sentence: string) => sentence.trim().split(/\s+/);
+
+/** Предложение, где слово с ошибкой заменено верной формой (знаки препинания вокруг слова сохраняются). */
+export function fixSentence(sentence: string, at: number, form: string): string {
+  return fixWords(sentence)
+    .map((w, i) => (i === at ? w.replace(/[\p{L}'’]+/u, form) : w))
+    .join(' ');
+}
+
+/** Худший итог из нескольких: одна ошибка — неверно, одно ударение — почти. */
+const worst = (vs: CheckResult[]): CheckResult['verdict'] =>
+  vs.some((v) => v.verdict === 'wrong') ? 'wrong' : vs.some((v) => v.verdict === 'almost') ? 'almost' : 'correct';
 
 /** Проверка ответа на любое упражнение грамматики. «Почти» бывает только у ввода формы (без ударения). */
 export function checkGrammar(item: GrammarItem, input: GrammarInput): GrammarCheck {
@@ -119,10 +158,34 @@ export function checkGrammar(item: GrammarItem, input: GrammarInput): GrammarChe
     const full = fillGap(ex.sentence, ex.answer);
     return { ...r, shown: full, speak: full };
   }
+  // Пересказ и связка: целая фраза, как форма — регистр и знаки не важны, без ударения «почти», опечатки не прощаются.
+  if (ex.kind === 'transform' || ex.kind === 'combine') {
+    const r = checkForm('text' in input ? input.text : '', [ex.answer, ...(ex.alt ?? [])]);
+    return { ...r, shown: ex.answer, speak: ex.answer };
+  }
+  if (ex.kind === 'cloze') {
+    const texts = 'texts' in input ? input.texts : [];
+    const each = ex.answers.map((acc, i) => checkForm(texts[i] ?? '', acc));
+    const full = fillGaps(ex.text, ex.answers.map((a) => a[0]));
+    const verdict = worst(each);
+    return { verdict, expected: full, reason: verdict === 'almost' ? 'accent' : undefined, shown: full, speak: full };
+  }
+  if (ex.kind === 'fix') {
+    const full = fixSentence(ex.sentence, ex.wrong, ex.answer);
+    // Не то слово — неверно, даже если форма вписана правильно.
+    if (!('at' in input) || input.at !== ex.wrong) return { verdict: 'wrong', expected: ex.answer, shown: full, speak: full };
+    const r = checkForm(input.text, [ex.answer, ...(ex.alt ?? [])]);
+    return { ...r, shown: full, speak: full };
+  }
+  if (ex.kind === 'register' && !('options' in ex)) {
+    const r = checkBuilt('tiles' in input ? input.tiles : [], [ex.answer, ...(ex.alt ?? [])]);
+    return { ...r, shown: ex.answer, speak: ex.answer };
+  }
   const i = 'pick' in input ? input.pick : -1;
   const right = item.options[item.answer];
   const verdict = i === item.answer ? 'correct' : 'wrong';
   if (ex.kind === 'truefalse') return { verdict, expected: right };
+  if (!('options' in ex)) return { verdict: 'wrong', expected: right };
   const shown = ex.kind === 'gap' ? fillGap(ex.sentence, right) : right;
   return { verdict, expected: right, shown, speak: shown };
 }
