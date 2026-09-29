@@ -7,6 +7,15 @@ export interface Release {
 // Новые версии сверху. Версия первой записи должна совпадать с package.json (проверяется тестом).
 export const CHANGELOG: Release[] = [
   {
+    version: '2.77.0',
+    date: '2026-09-29',
+    notes: [
+      'Уровень 7 для главы V теперь и в кафе, на рынке, в супермаркете, ресторане и дома: по 25 слов C1 и 15 выражений. Послевкусие и намёк, аукцион и теплица, цепочка поставок и товар-приманка, метрдотель и заправка для салата, перегородка и купчая.',
+      'Выражения на каждый день: «estar en las nubes» и «avere la testa fra le nuvole», «chuparse los dedos» и «leccarsi i baffi», «pagar a escote» и «fare colletta». Вежливые формулы с разговорной парой: «¿Desea tomar algo más?» — «¿Te pongo otra?», «Avete già deciso?» — «Cosa vi porto, ragazzi?».',
+      'Новые ложные друзья: «el pomelo» — грейпфрут, «la pila» — батарейка, «la vinagreta» — заправка, а не винегрет; «il magazzino» — склад, «il bar» — кофейня, «il box» — гараж.',
+    ],
+  },
+  {
     version: '2.76.0',
     date: '2026-09-29',
     notes: [

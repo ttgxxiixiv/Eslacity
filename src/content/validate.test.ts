@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { isDispute } from '../domain/mission';
-import { CHAPTERS as PLAN } from './vocabPlan';
+import { CHAPTERS as PLAN, PLACE_EXPRESSIONS, PLACE_LEVEL_MAX } from './vocabPlan';
 import type { LocationWords, Word } from './schema';
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
@@ -521,6 +521,23 @@ describe('свиток главы IV: контент', () => {
       expect(scroll.words, lang).toHaveLength(PLAN[3].scroll);
       expect(scroll.words.every((w) => w.cefr === 'B2' && w.level === 1), lang).toBe(true);
     }
+  });
+  it('уровень 7 мест: 25 слов, 15 выражений, треть в парах, ложный друг, одни и те же места в обоих языках', () => {
+    const withLevel7: Record<string, string[]> = {};
+    for (const lang of ['es', 'it']) {
+      withLevel7[lang] = [];
+      for (const place of LOCATION_IDS) {
+        const words = (JSON.parse(readFileSync(join(import.meta.dirname, lang, 'words', `${place}.json`), 'utf8')) as LocationWords).words.filter((w) => w.level === 7);
+        if (!words.length) continue;
+        withLevel7[lang].push(place);
+        const expr = words.filter((w) => w.kind);
+        expect(words.length - expr.length, `${lang} ${place}`).toBe(PLACE_LEVEL_MAX[7]);
+        expect(expr, `${lang} ${place}`).toHaveLength(PLACE_EXPRESSIONS);
+        expect(expr.filter((w) => w.pair).length * 3, `${lang} ${place}`).toBeGreaterThanOrEqual(PLACE_EXPRESSIONS);
+        expect(expr.some((w) => w.kind === 'false-friend'), `${lang} ${place}`).toBe(true);
+      }
+    }
+    expect(withLevel7.it).toEqual(withLevel7.es);
   });
 });
 
