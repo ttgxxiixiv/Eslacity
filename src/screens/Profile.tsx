@@ -17,6 +17,7 @@ import { CURRENT } from '../lib/update';
 import { LevelCard } from '../components/HeroLevel';
 import { Medal } from '../components/Medal';
 import { VocabCard } from '../components/VocabCard';
+import { useLetters } from '../store/letters';
 
 const WEEKDAYS = ['пн', 'вт', 'ср', 'чт', 'пт', 'сб', 'вс'];
 
@@ -30,6 +31,7 @@ export function ProfileScreen() {
   const coins = useCity((s) => s.coins);
   const days = useProgress((s) => s.days);
   const cards = useProgress((s) => s.cards);
+  const letterCount = useLetters((s) => s.entries.length);
   const goal = useSettings((s) => s.dailyGoal);
   const fragments = useJourney((s) => s.fragments);
   const journey = useMemo(() => currentJourney(), [fragments, cards]);
@@ -155,6 +157,11 @@ export function ProfileScreen() {
         <Link to="/words" className="press flex items-center justify-between rounded-3xl bg-white p-4 shadow-sm">
           <span className="font-bold">📖 Мои слова</span>
           <span className="text-stone-500">{wordIds(Object.keys(cards)).length} →</span>
+        </Link>
+
+        <Link to="/letters" className="press flex items-center justify-between rounded-3xl bg-white p-4 shadow-sm" data-testid="profile-letters">
+          <span className="font-bold">✉️ Дневник писем</span>
+          <span className="text-stone-500 tabular-nums">{letterCount} →</span>
         </Link>
 
 

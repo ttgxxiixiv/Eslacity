@@ -4,8 +4,8 @@ import { CHAPTERS as PLAN, PLACE_EXPRESSIONS, PLACE_LEVEL_MAX } from './vocabPla
 import type { LocationWords, Word } from './schema';
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { validateChronicler, validateGrammar, validateGuardians, validateMissions, validateNpcs, validatePhrases, validatePortraits, validateScenes, validateScrolls, validateTranslations, validateVerbs, validateWords } from './validate';
-import { LOCATION_IDS, type Chronicler, type GrammarLesson, type GuardiansFile, type LocationMissions, type LocationPhrases, type LocationScenes, type Mission, type NpcsFile, type Phrase, type Scene, type ScrollFile, type VerbsFile } from './schema';
+import { validateChronicler, validateGrammar, validateGuardians, validateLetters, validateMissions, validateNpcs, validatePhrases, validatePortraits, validateScenes, validateScrolls, validateTranslations, validateVerbs, validateWords } from './validate';
+import { LOCATION_IDS, type Chronicler, type GrammarLesson, type GuardiansFile, type Letter, type LettersFile, type LocationMissions, type LocationPhrases, type LocationScenes, type Mission, type NpcsFile, type Phrase, type Scene, type ScrollFile, type VerbsFile } from './schema';
 
 const base = (i: number, extra: Partial<Word> = {}): Word => ({
   id: `cafe.w${i}`, es: `la palabra${i}`, ru: `слово ${i}`, pos: 'noun', gender: 'f', level: 1, cefr: 'A1',
@@ -698,5 +698,36 @@ describe('validatePortraits', () => {
       const files = new Set(npcs.map((n) => n.look.portrait).filter(Boolean));
       expect(validatePortraits(npcs.map((n) => ({ where: n.id, look: n.look })), (name) => files.has(name) && existsSync(join(__dirname, '..', 'assets', 'portraits', lang, `${name}.webp`)))).toEqual([]);
     }
+  });
+});
+
+describe('validateLetters: письма с образцом', () => {
+  const sample = Array(45).fill('palabra').join(' ') + ' Estimado señor Gómez: Atentamente,';
+  const letter = (extra: Partial<Letter> = {}): Letter => ({
+    id: 'lt:bank', location: 'bank', chapter: 5, register: 'formal', title: 'Жалоба', request: { es: 'Escriba.', ru: 'Напишите.' },
+    task: 'Напишите жалобу.', sample,
+    checks: [
+      { label: 'Обращение', examples: ['Estimado señor Gómez:'] }, { label: 'Прощание', examples: ['Atentamente'] },
+      { label: 'Связки', examples: ['palabra palabra'] }, { label: 'Регистр', examples: ['señor'] },
+    ],
+    ...extra,
+  });
+  const check = (l: Letter) => validateLetters({ letters: [l] }, { bank: 'gomez' }).map((i) => i.msg);
+  it('правильное письмо проходит', () => expect(check(letter())).toEqual([]));
+  it('образец 40–80 слов, пример из чек-листа есть в образце, id по месту, у места есть житель', () => {
+    expect(check(letter({ sample: 'Estimado señor Gómez: Atentamente, palabra palabra' }))).toContain('в образце 6 слов, нужно 40–80');
+    expect(check(letter({ checks: [...letter().checks.slice(0, 3), { label: 'Регистр', examples: ['usted'] }] }))).toContain('пример «usted» не найден в образце');
+    expect(check(letter({ id: 'lt:cafe' }))).toContain('id должен быть lt:bank');
+    expect(check(letter({ checks: letter().checks.slice(0, 3) }))).toContain('пунктов чек-листа 3, нужно 4–6');
+    expect(validateLetters({ letters: [letter()] }, {}).map((i) => i.msg)).toContain('у места нет жителя');
+  });
+});
+
+describe('письма в контенте', () => {
+  it.each(['es', 'it'])('%s: десять писем, одинаковые места в обоих языках, проверка без ошибок', (lang) => {
+    const file = JSON.parse(readFileSync(join(__dirname, lang, 'letters.json'), 'utf8')) as LettersFile;
+    const npcs = (JSON.parse(readFileSync(join(__dirname, lang, 'npcs.json'), 'utf8')) as NpcsFile).npcs;
+    expect(file.letters.map((l) => l.location)).toEqual(['bank', 'hotel', 'airport', 'office', 'police', 'post', 'cafe', 'home', 'gym', 'beach']);
+    expect(validateLetters(file, Object.fromEntries(npcs.map((n) => [n.location, n.id])))).toEqual([]);
   });
 });

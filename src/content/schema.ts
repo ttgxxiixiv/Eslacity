@@ -320,6 +320,38 @@ export interface GuardiansFile {
   guardians: Guardian[];
 }
 
+/** Пункт чек-листа письма: что должно быть в письме и как это сделано в образце. */
+export interface LetterCheck {
+  label: string;
+  /** Фрагменты образца, которые показывают пункт; каждый есть в тексте образца дословно. */
+  examples: string[];
+}
+
+/**
+ * Письмо с образцом (задача 7.7): житель места просит короткое письмо, герой пишет его сам, потом видит образец
+ * и отмечает по чек-листу, что у него есть. Без автоматической оценки. id — `lt:<место>`.
+ */
+export interface Letter {
+  id: string;
+  location: LocationId;
+  /** С какой главы письмо открыто. */
+  chapter: number;
+  register: Register;
+  /** Название по-русски: «Жалоба в банк». */
+  title: string;
+  /** Просьба жителя. */
+  request: Example;
+  /** Что написать, по-русски. */
+  task: string;
+  /** Образец на изучаемом языке, 40–80 слов, строки через \n. */
+  sample: string;
+  checks: LetterCheck[];
+}
+
+export interface LettersFile {
+  letters: Letter[];
+}
+
 /** Кузнец глаголов (задача 5.5): хозяин кузницы, у каждого языка свой. */
 export interface Smith {
   name: string;

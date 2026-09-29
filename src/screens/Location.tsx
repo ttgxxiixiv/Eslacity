@@ -4,7 +4,9 @@ import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { LOCATION_BY_ID } from '../content/locations';
 import { loadLocation } from '../content';
-import type { LocationId, Mission, Phrase, Scene, Word } from '../content/schema';
+import type { Letter, LocationId, Mission, Phrase, Scene, Word } from '../content/schema';
+import { loadLetters } from '../content/letters';
+import { useLetters } from '../store/letters';
 import { loadPhrases } from '../content/phrases';
 import { loadScenes } from '../content/scenes';
 import { loadMissions } from '../content/missions';
@@ -81,6 +83,8 @@ export function LocationScreen() {
   const [phrases, setPhrases] = useState<Phrase[]>([]);
   const [scenes, setScenes] = useState<Scene[]>([]);
   const [missions, setMissions] = useState<Mission[]>([]);
+  const [letter, setLetter] = useState<Letter | undefined>(undefined);
+  const letterEntries = useLetters((s) => s.entries);
   const missionRecords = useMissions((s) => s.records);
   const trialRecords = useTrials((s) => s.records);
   const cards = useProgress((s) => s.cards);
@@ -100,6 +104,7 @@ export function LocationScreen() {
     loadPhrases(id).then(setPhrases);
     loadScenes(id).then(setScenes);
     loadMissions(id).then(setMissions);
+    loadLetters().then((list) => setLetter(list.find((l) => l.location === id)));
   }, [id]);
 
   if (!meta) return <div className="p-6">Нет такой локации</div>;
@@ -166,6 +171,21 @@ export function LocationScreen() {
                   </div>
                 );
               })}
+          {npc && level > 0 && letter && letter.chapter <= opened && (() => {
+            const written = letterEntries.filter((e) => e.letterId === letter.id).length;
+            return (
+              <Link
+                to={`/letter/${encodeURIComponent(letter.id)}`}
+                data-testid="letter-link"
+                className={`press flex items-center justify-between gap-3 rounded-2xl px-4 py-3 shadow-sm ${written ? 'bg-okbg' : 'bg-orange-50'}`}
+              >
+                <span className="shrink-0 font-semibold">✉️ Письмо</span>
+                <span className="text-right text-sm text-stone-500">
+                  {letter.title} · {written ? `✓ в дневнике${written > 1 ? ` (${written})` : ''}` : 'новое'} →
+                </span>
+              </Link>
+            );
+          })()}
           {level > 0 &&
             CHAPTERS.filter((ch) => ch.id <= opened).map((ch) => {
               const cw = words.filter((w) => ch.levels.includes(w.level));

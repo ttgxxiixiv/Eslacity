@@ -28,6 +28,7 @@ import { ChapterScene } from './components/ChapterScene';
 import { MedalsScreen } from './screens/Medals';
 import { JourneyMapScreen } from './screens/JourneyMap';
 import { ErrandScreen, ErrandsScreen } from './screens/Errands';
+import { LetterScreen, LettersDiaryScreen } from './screens/Letter';
 
 /** Новый экран открывается сверху, а не с прокруткой предыдущего. */
 function ScrollToTop() {
@@ -94,6 +95,8 @@ export default function App() {
         <Route path="/grammar/:id" element={<GrammarLessonScreen />} />
         <Route path="/review" element={<ReviewScreen />} />
         <Route path="/errand/:id" element={<ErrandScreen />} />
+        <Route path="/letter/:id" element={<LetterScreen />} />
+        <Route path="/letters" element={<LettersDiaryScreen />} />
         <Route path="/settings" element={<SettingsScreen />} />
         <Route path="/learn/:id/:level/:part" element={<LearnScreen />} />
         <Route path="/practice/:id/:level" element={<LearnScreen practice />} />

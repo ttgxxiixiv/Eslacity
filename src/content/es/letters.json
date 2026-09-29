@@ -1,0 +1,504 @@
+{
+  "letters": [
+    {
+      "id": "lt:bank",
+      "location": "bank",
+      "chapter": 5,
+      "register": "formal",
+      "title": "Жалоба в банк",
+      "request": {
+        "es": "Si quiere reclamar el cargo, necesito una queja por escrito.",
+        "ru": "Если хотите оспорить списание, мне нужна письменная жалоба."
+      },
+      "task": "С вашей карты дважды списали 60 евро за один ужин. Напишите сеньору Гомесу официальную жалобу: что случилось, чего вы просите, вежливое прощание.",
+      "sample": "Estimado señor Gómez:\nMe dirijo a usted para presentar una reclamación. El pasado 3 de mayo se me cobraron dos veces sesenta euros por la misma cena. Adjunto el extracto de la cuenta. Por consiguiente, le ruego que proceda a la devolución del cargo duplicado a la mayor brevedad. Asimismo, le agradecería que me confirmara la gestión por escrito.\nQuedo a la espera de su respuesta.\nLe saluda atentamente,",
+      "checks": [
+        {
+          "label": "Обращение",
+          "examples": [
+            "Estimado señor Gómez:"
+          ]
+        },
+        {
+          "label": "Цель письма",
+          "examples": [
+            "Me dirijo a usted para"
+          ]
+        },
+        {
+          "label": "Связки",
+          "examples": [
+            "Por consiguiente",
+            "Asimismo"
+          ]
+        },
+        {
+          "label": "Вежливая просьба",
+          "examples": [
+            "le ruego que proceda",
+            "le agradecería que me confirmara"
+          ]
+        },
+        {
+          "label": "Вежливое прощание",
+          "examples": [
+            "Quedo a la espera de su respuesta",
+            "Le saluda atentamente"
+          ]
+        },
+        {
+          "label": "Регистр: на usted",
+          "examples": [
+            "usted",
+            "le ruego"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lt:hotel",
+      "location": "hotel",
+      "chapter": 5,
+      "register": "formal",
+      "title": "Перенос брони",
+      "request": {
+        "es": "Para cambiar la reserva, envíenos un correo formal, por favor.",
+        "ru": "Чтобы изменить бронь, пришлите нам, пожалуйста, официальное письмо."
+      },
+      "task": "Вы забронировали номер на три ночи, но приедете на день позже. Напишите в отель: попросите перенести бронь и узнайте про парковку.",
+      "sample": "Estimados señores:\nLes escribo en relación con mi reserva de tres noches a partir del 12 de junio. Por motivos de trabajo, llegaré un día más tarde. Por tanto, les ruego que trasladen la reserva del 13 al 16 de junio. Además, quisiera saber si el hotel dispone de aparcamiento para clientes.\nLes agradezco de antemano su atención.\nAtentamente,",
+      "checks": [
+        {
+          "label": "Обращение",
+          "examples": [
+            "Estimados señores:"
+          ]
+        },
+        {
+          "label": "Цель письма",
+          "examples": [
+            "Les escribo en relación con"
+          ]
+        },
+        {
+          "label": "Связки",
+          "examples": [
+            "Por tanto",
+            "Además"
+          ]
+        },
+        {
+          "label": "Вежливая просьба",
+          "examples": [
+            "les ruego que trasladen",
+            "quisiera saber si"
+          ]
+        },
+        {
+          "label": "Вежливое прощание",
+          "examples": [
+            "Les agradezco de antemano su atención",
+            "Atentamente"
+          ]
+        },
+        {
+          "label": "Регистр: на ustedes",
+          "examples": [
+            "Les escribo",
+            "les ruego"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lt:airport",
+      "location": "airport",
+      "chapter": 5,
+      "register": "formal",
+      "title": "Потерянный багаж",
+      "request": {
+        "es": "Para la maleta perdida tiene que hacer una reclamación por escrito.",
+        "ru": "Насчёт потерянного чемодана нужно подать письменную жалобу."
+      },
+      "task": "Ваш чемодан не прилетел из Рима. Напишите авиакомпании: номер рейса, как выглядит чемодан и куда его доставить.",
+      "sample": "Estimados señores:\nLes escribo para comunicar la pérdida de mi equipaje en el vuelo IB 3250, procedente de Roma, del día 8 de julio. Se trata de una maleta azul de tamaño mediano con una cinta roja en el asa. En caso de que la encuentren, les ruego que la envíen a mi domicilio, en la calle Mayor, 5.\nQuedo a la espera de sus noticias.\nAtentamente,",
+      "checks": [
+        {
+          "label": "Обращение",
+          "examples": [
+            "Estimados señores:"
+          ]
+        },
+        {
+          "label": "Цель письма",
+          "examples": [
+            "Les escribo para comunicar"
+          ]
+        },
+        {
+          "label": "Связки и условие",
+          "examples": [
+            "Se trata de",
+            "En caso de que la encuentren"
+          ]
+        },
+        {
+          "label": "Вежливая просьба",
+          "examples": [
+            "les ruego que la envíen"
+          ]
+        },
+        {
+          "label": "Вежливое прощание",
+          "examples": [
+            "Quedo a la espera de sus noticias",
+            "Atentamente"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lt:office",
+      "location": "office",
+      "chapter": 5,
+      "register": "formal",
+      "title": "Сопроводительное письмо",
+      "request": {
+        "es": "Mándeme una carta de presentación y lo hablamos.",
+        "ru": "Пришлите мне сопроводительное письмо, и мы это обсудим."
+      },
+      "task": "Вы хотите работать ассистентом в офисе Беатрис. Напишите сопроводительное письмо: кто вы, почему подходите, попросите о собеседовании.",
+      "sample": "Estimada Beatriz:\nMe pongo en contacto con usted para presentar mi candidatura al puesto de asistente. Tengo experiencia en atención al cliente y hablo tres idiomas. Además, soy una persona organizada y puntual. Por todo ello, creo que podría aportar mucho a su equipo. Le agradecería que me concediera una entrevista cuando le venga bien.\nUn cordial saludo,",
+      "checks": [
+        {
+          "label": "Обращение",
+          "examples": [
+            "Estimada Beatriz:"
+          ]
+        },
+        {
+          "label": "Цель письма",
+          "examples": [
+            "Me pongo en contacto con usted para"
+          ]
+        },
+        {
+          "label": "Связки",
+          "examples": [
+            "Además",
+            "Por todo ello"
+          ]
+        },
+        {
+          "label": "Вежливая просьба",
+          "examples": [
+            "Le agradecería que me concediera una entrevista"
+          ]
+        },
+        {
+          "label": "Вежливое прощание",
+          "examples": [
+            "Un cordial saludo"
+          ]
+        },
+        {
+          "label": "Регистр: на usted",
+          "examples": [
+            "con usted",
+            "su equipo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lt:police",
+      "location": "police",
+      "chapter": 5,
+      "register": "formal",
+      "title": "Заявление о краже",
+      "request": {
+        "es": "Para la denuncia necesito una declaración por escrito.",
+        "ru": "Для заявления мне нужны ваши показания в письменном виде."
+      },
+      "task": "У вас украли велосипед у вокзала. Напишите заявление комиссару Веге: когда и где это случилось, как выглядел велосипед и чего вы просите.",
+      "sample": "Señora comisaria:\nPor medio de la presente, deseo denunciar el robo de mi bicicleta. Los hechos ocurrieron el lunes 4 de marzo, entre las ocho y las nueve de la mañana, frente a la estación. Se trata de una bicicleta verde con una cesta delantera. Por lo tanto, solicito que se inicie la investigación correspondiente.\nQuedo a su disposición para cualquier aclaración.\nAtentamente,",
+      "checks": [
+        {
+          "label": "Обращение",
+          "examples": [
+            "Señora comisaria:"
+          ]
+        },
+        {
+          "label": "Официальное начало",
+          "examples": [
+            "Por medio de la presente"
+          ]
+        },
+        {
+          "label": "Связки",
+          "examples": [
+            "Se trata de",
+            "Por lo tanto"
+          ]
+        },
+        {
+          "label": "Вежливая просьба",
+          "examples": [
+            "solicito que se inicie"
+          ]
+        },
+        {
+          "label": "Вежливое прощание",
+          "examples": [
+            "Quedo a su disposición",
+            "Atentamente"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lt:post",
+      "location": "post",
+      "chapter": 5,
+      "register": "formal",
+      "title": "Жалоба на повреждённую посылку",
+      "request": {
+        "es": "Si el paquete llegó roto, escriba una reclamación a Correos.",
+        "ru": "Если посылка пришла разбитой, напишите жалобу на почту."
+      },
+      "task": "Посылка из Барселоны пришла разбитой. Напишите на почту: что было в посылке, в каком виде она пришла и чего вы просите.",
+      "sample": "Estimados señores:\nMe dirijo a ustedes para presentar una reclamación. El 20 de octubre recibí un paquete procedente de Barcelona. Sin embargo, la caja estaba abierta y el jarrón de su interior había llegado roto. Adjunto fotografías del estado del envío. En consecuencia, les ruego que me indiquen cómo solicitar la indemnización.\nQuedo a la espera de su respuesta.\nAtentamente,",
+      "checks": [
+        {
+          "label": "Обращение",
+          "examples": [
+            "Estimados señores:"
+          ]
+        },
+        {
+          "label": "Цель письма",
+          "examples": [
+            "Me dirijo a ustedes para"
+          ]
+        },
+        {
+          "label": "Связки",
+          "examples": [
+            "Sin embargo",
+            "En consecuencia"
+          ]
+        },
+        {
+          "label": "Вежливая просьба",
+          "examples": [
+            "les ruego que me indiquen"
+          ]
+        },
+        {
+          "label": "Вежливое прощание",
+          "examples": [
+            "Quedo a la espera de su respuesta",
+            "Atentamente"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lt:cafe",
+      "location": "cafe",
+      "chapter": 5,
+      "register": "informal",
+      "title": "Ответ на приглашение",
+      "request": {
+        "es": "¡El sábado es mi cumple! Contéstame por escrito, que si no se me olvida.",
+        "ru": "В субботу мой день рождения! Ответь мне письменно, а то я забуду."
+      },
+      "task": "Лола зовёт вас на день рождения в субботу. Ответьте по-дружески: поблагодарите, скажите, что придёте, но опоздаете, и спросите, что принести.",
+      "sample": "¡Hola, Lola!\n¡Muchas gracias por la invitación! Claro que voy, no me lo pierdo por nada. Eso sí, el sábado trabajo hasta las ocho, así que llegaré un poco tarde. ¿Te parece bien? Por cierto, ¿qué llevo? ¿Algo de beber o un postre? Dime y lo preparo.\n¡Nos vemos el sábado!\nUn abrazo muy fuerte,",
+      "checks": [
+        {
+          "label": "Приветствие",
+          "examples": [
+            "¡Hola, Lola!"
+          ]
+        },
+        {
+          "label": "Благодарность",
+          "examples": [
+            "¡Muchas gracias por la invitación!"
+          ]
+        },
+        {
+          "label": "Разговорные связки",
+          "examples": [
+            "Eso sí",
+            "así que",
+            "Por cierto"
+          ]
+        },
+        {
+          "label": "Дружеское прощание",
+          "examples": [
+            "¡Nos vemos el sábado!",
+            "Un abrazo muy fuerte"
+          ]
+        },
+        {
+          "label": "Регистр: на tú",
+          "examples": [
+            "¿Te parece bien?",
+            "Dime"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lt:home",
+      "location": "home",
+      "chapter": 5,
+      "register": "informal",
+      "title": "Записка соседке",
+      "request": {
+        "es": "Déjame una notita cuando vuelvas, que me quedo más tranquila.",
+        "ru": "Оставь мне записочку, когда вернёшься, так мне будет спокойнее."
+      },
+      "task": "Пока вас не было неделю, сеньора Пилар поливала ваши цветы. Напишите ей записку: поблагодарите, расскажите о поездке, позовите на кофе.",
+      "sample": "¡Hola, Pilar!\nYa estoy de vuelta. ¡Mil gracias por regar mis plantas! Están mejor que cuando me fui, de verdad. El viaje fue genial, aunque llovió casi todos los días. Te he traído unos dulces del pueblo. ¿Por qué no te pasas mañana a tomar un café y te lo cuento todo?\nUn beso muy grande,",
+      "checks": [
+        {
+          "label": "Приветствие",
+          "examples": [
+            "¡Hola, Pilar!"
+          ]
+        },
+        {
+          "label": "Благодарность",
+          "examples": [
+            "¡Mil gracias por regar mis plantas!"
+          ]
+        },
+        {
+          "label": "Связки",
+          "examples": [
+            "aunque",
+            "de verdad"
+          ]
+        },
+        {
+          "label": "Приглашение",
+          "examples": [
+            "¿Por qué no te pasas mañana"
+          ]
+        },
+        {
+          "label": "Дружеское прощание",
+          "examples": [
+            "Un beso muy grande"
+          ]
+        },
+        {
+          "label": "Регистр: на tú",
+          "examples": [
+            "Te he traído",
+            "te lo cuento"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lt:gym",
+      "location": "gym",
+      "chapter": 5,
+      "register": "informal",
+      "title": "Извинение тренеру",
+      "request": {
+        "es": "¿Otra vez no vienes? Escríbeme y me cuentas qué pasa.",
+        "ru": "Опять не придёшь? Напиши мне и расскажи, что случилось."
+      },
+      "task": "Вы пропустили тренировку у Сары. Напишите ей по-дружески: извинитесь, объясните, что случилось, и договоритесь о новом дне.",
+      "sample": "¡Hola, Sara!\nPerdona por lo de ayer, se me pasó avisarte. Al final me quedé en la oficina hasta las nueve y no llegué a tiempo. ¡Menudo día! Oye, ¿te viene bien el jueves por la tarde? Te prometo que esta vez voy seguro, y con ganas de sudar.\n¡Hasta el jueves!\nUn abrazo,",
+      "checks": [
+        {
+          "label": "Приветствие",
+          "examples": [
+            "¡Hola, Sara!"
+          ]
+        },
+        {
+          "label": "Извинение",
+          "examples": [
+            "Perdona por lo de ayer"
+          ]
+        },
+        {
+          "label": "Разговорные связки",
+          "examples": [
+            "Al final",
+            "Oye"
+          ]
+        },
+        {
+          "label": "Предложение",
+          "examples": [
+            "¿te viene bien el jueves por la tarde?"
+          ]
+        },
+        {
+          "label": "Дружеское прощание",
+          "examples": [
+            "¡Hasta el jueves!",
+            "Un abrazo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lt:beach",
+      "location": "beach",
+      "chapter": 5,
+      "register": "informal",
+      "title": "Ответ на турнир",
+      "request": {
+        "es": "El domingo hay torneo de vóley. ¿Te apuntas? Escríbeme.",
+        "ru": "В воскресенье турнир по волейболу. Запишешься? Напиши мне."
+      },
+      "task": "Начо зовёт вас в свою команду на турнир по волейболу. Ответьте по-дружески: вы бы с радостью, но играете плохо; предложите помочь по-другому.",
+      "sample": "¡Hola, Nacho!\n¡Qué buena idea lo del torneo! Me encantaría ir, pero juego fatal al vóley, de verdad. Si me pongo en tu equipo, perdemos seguro. Ahora bien, puedo echar una mano con otra cosa: llevo la nevera con bebidas y hago las fotos. ¿Qué te parece?\n¡Nos vemos en la playa!\nUn abrazo,",
+      "checks": [
+        {
+          "label": "Приветствие",
+          "examples": [
+            "¡Hola, Nacho!"
+          ]
+        },
+        {
+          "label": "Мягкий отказ",
+          "examples": [
+            "Me encantaría ir, pero"
+          ]
+        },
+        {
+          "label": "Связки",
+          "examples": [
+            "Ahora bien",
+            "de verdad"
+          ]
+        },
+        {
+          "label": "Предложение",
+          "examples": [
+            "puedo echar una mano"
+          ]
+        },
+        {
+          "label": "Дружеское прощание",
+          "examples": [
+            "¡Nos vemos en la playa!",
+            "Un abrazo"
+          ]
+        }
+      ]
+    }
+  ]
+}

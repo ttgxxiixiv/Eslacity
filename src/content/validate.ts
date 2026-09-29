@@ -8,7 +8,8 @@ import { LISTEN_GUARDIAN_CHAPTERS } from '../domain/guardian';
 import { sceneWords } from '../domain/sceneText';
 import { conjugate, generated, participle, TENSES, type Tense } from '../domain/verbs';
 import { phraseTokens } from '../domain/phraseSteps';
-import { LOCATION_IDS, type Chronicler, type GrammarLesson, type GuardiansFile, type NpcLook, type LocationMissions, type LocationPhrases, type LocationScenes, type Phrase, type Scene, type LocationWords, type NpcsFile, type ScrollFile, type VerbsFile, type Word } from './schema';
+import { LETTER_MAX_WORDS, LETTER_MIN_WORDS, wordCount as letterWords } from '../domain/letter';
+import { LOCATION_IDS, type Chronicler, type GrammarLesson, type GuardiansFile, type LettersFile, type NpcLook, type LocationMissions, type LocationPhrases, type LocationScenes, type Phrase, type Scene, type LocationWords, type NpcsFile, type ScrollFile, type VerbsFile, type Word } from './schema';
 
 export interface Issue {
   level: 'error' | 'warning';
@@ -491,6 +492,41 @@ export function validateGuardians(file: GuardiansFile | undefined, chapters: num
     if (LISTEN_GUARDIAN_CHAPTERS.includes(g.chapter) && g.listen !== true) out.push({ level: 'error', where: at, msg: 'страж этой главы проверяет на слух: нужно listen: true' });
   });
   for (const ch of chapters) if (!seen.has(ch)) out.push({ level: 'error', where, msg: `нет стража главы ${ch}` });
+  return out;
+}
+
+/** Пунктов в чек-листе письма: обращение, связки, вежливая формула, прощание, регистр. */
+export const LETTER_CHECKS = [4, 6] as const;
+
+/**
+ * Письма с образцом (задача 7.7): id `lt:<место>`, одно письмо на место, у места есть житель, регистр из списка,
+ * просьба и задание не пустые, образец 40–80 слов, в чек-листе 4–6 пунктов, и каждый пример пункта есть в образце дословно.
+ */
+export function validateLetters(file: LettersFile | undefined, residents: Record<string, string>): Issue[] {
+  const out: Issue[] = [];
+  if (!file) return out;
+  const seen = new Set<string>();
+  file.letters.forEach((l, i) => {
+    const at = `letters.json#${i} ${l.id}`;
+    const err = (msg: string) => out.push({ level: 'error', where: at, msg });
+    if (l.id !== `lt:${l.location}`) err(`id должен быть lt:${l.location}`);
+    if (seen.has(l.location)) err('второе письмо того же места');
+    seen.add(l.location);
+    if (!(LOCATION_IDS as readonly string[]).includes(l.location)) err(`место "${l.location}"`);
+    else if (!residents[l.location]) err('у места нет жителя');
+    if (!REGISTERS.includes(l.register)) err(`регистр "${l.register}"`);
+    if (!Number.isInteger(l.chapter) || l.chapter < 1 || l.chapter > 5) err(`глава ${l.chapter}`);
+    for (const f of ['title', 'task', 'sample'] as const) if (empty(l[f])) err(`пустое поле ${f}`);
+    if (empty(l.request?.es) || empty(l.request?.ru)) err('пустая просьба жителя');
+    const n = letterWords(l.sample ?? '');
+    if (n < LETTER_MIN_WORDS || n > LETTER_MAX_WORDS) err(`в образце ${n} слов, нужно ${LETTER_MIN_WORDS}–${LETTER_MAX_WORDS}`);
+    const checks = l.checks ?? [];
+    if (checks.length < LETTER_CHECKS[0] || checks.length > LETTER_CHECKS[1]) err(`пунктов чек-листа ${checks.length}, нужно ${LETTER_CHECKS.join('–')}`);
+    for (const c of checks) {
+      if (empty(c.label) || !c.examples?.length) err('пункт чек-листа без названия или примеров');
+      for (const e of c.examples ?? []) if (empty(e) || !(l.sample ?? '').includes(e)) err(`пример «${e}» не найден в образце`);
+    }
+  });
   return out;
 }
 
