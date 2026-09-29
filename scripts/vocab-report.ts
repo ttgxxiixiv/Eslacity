@@ -24,7 +24,10 @@ function report(lang: string): string {
   const files = readdirSync(join(content, lang, 'words'))
     .filter((f) => f.endsWith('.json'))
     .map((f) => read<LocationWords>(join(content, lang, 'words', f)));
-  const placeWords = files.flatMap((f) => f.words.map((w) => ({ ...w, place: f.location as string })));
+  // Выражения уровня 7 (задача 7.1) в число слов и повторы не входят, их леммы идут в «встречается в курсе».
+  const all = files.flatMap((f) => f.words.map((w) => ({ ...w, place: f.location as string })));
+  const placeWords = all.filter((w) => !w.kind);
+  const expressions = all.filter((w) => w.kind);
   const scrollDir = join(content, lang, 'scrolls');
   const scrolls = existsSync(scrollDir)
     ? readdirSync(scrollDir).filter((f) => f.endsWith('.json')).map((f) => read<ScrollFile>(join(scrollDir, f)))
@@ -41,7 +44,7 @@ function report(lang: string): string {
   // Что считается выученным: слова мест целиком (и слова внутри фраз), формы из таблиц и вариантов ответа уроков.
   const wordSet = new Set(words.flatMap((w) => [w.es, ...(w.alt ?? [])].flatMap(lem)));
   const grammarSet = grammarLemmas(lessons, lem);
-  const anywhere = anywhereLemmas(words, lessons, lem);
+  const anywhere = anywhereLemmas([...words, ...expressions], lessons, lem);
   const cov = coverage(freq, { words: wordSet, grammar: grammarSet, anywhere });
 
   // Повторы: одна и та же лемма как отдельное слово в разных местах.
@@ -65,7 +68,7 @@ function report(lang: string): string {
 
   const out: string[] = [];
   const log = (s = '') => out.push(s);
-  log(`Слов в курсе: ${words.length} из плана ${PLAN_TOTAL} (цель ${VOCAB_GOAL}), уникальных лемм среди слов мест и свитков: ${wordSet.size}.`);
+  log(`Слов в курсе: ${words.length} из плана ${PLAN_TOTAL} (цель ${VOCAB_GOAL}), уникальных лемм среди слов мест и свитков: ${wordSet.size}, выражений: ${expressions.length}.`);
   log(
     `По главам: ${CHAPTERS.map((c) => {
       const n = placeWords.filter((w) => chapterOfLevel(w.level) === c).length;

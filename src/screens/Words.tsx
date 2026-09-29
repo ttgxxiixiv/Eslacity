@@ -8,6 +8,7 @@ import { normalize, stripAccents } from '../domain/answer';
 import { dayNumber } from '../domain/srs';
 import { useProgress } from '../store/progress';
 import { Screen, SpeakButton, TopBar } from '../components/ui';
+import { WordTags } from '../components/WordTags';
 
 function dueText(due: number, today: number) {
   const d = due - today;
@@ -53,7 +54,10 @@ export function WordsScreen() {
               <li key={w.id} className="flex items-center gap-3 px-4 py-2.5">
                 <span title={loc?.ru ?? 'свиток земли'}>{loc?.emoji ?? '📜'}</span>
                 <div className="min-w-0 flex-1">
-                  <div className="font-semibold">{w.es}</div>
+                  <div className="font-semibold">
+                    {w.es}
+                    <WordTags word={w} className="ml-2 align-middle" />
+                  </div>
                   <div className="truncate text-sm text-stone-500">{w.ru}</div>
                 </div>
                 <div className="text-right text-xs text-stone-400">

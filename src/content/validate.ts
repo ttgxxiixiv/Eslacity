@@ -1,6 +1,7 @@
 import { normalize, splitArticle, stripAccents } from '../domain/answer';
 import type { Lang } from '../lang';
-import { CHAPTERS as PLAN, PLACE_LEVEL_MAX } from './vocabPlan';
+import { CHAPTERS as PLAN, PLACE_EXPRESSIONS, PLACE_LEVEL_MAX } from './vocabPlan';
+import { EXPRESSION_LEVEL, isExpression, KINDS, REGISTERS } from '../domain/expression';
 import { expandOptional, fullPhrase, optionalError, PHRASE_MAX_WORDS, PHRASE_PREFIX, phraseWords } from '../domain/phrase';
 import { answersOnPath, DISPUTE_FROM_CHAPTER, isDispute, missionGraphIssues } from '../domain/mission';
 import { LISTEN_GUARDIAN_CHAPTERS } from '../domain/guardian';
@@ -16,7 +17,7 @@ export interface Issue {
 }
 
 const POS = new Set(['noun', 'verb', 'adj', 'adv', 'pron', 'prep', 'num', 'interj', 'phrase']);
-const CEFR = new Set(['A1', 'A2', 'B1', 'B2']);
+const CEFR = new Set(['A1', 'A2', 'B1', 'B2', 'C1']);
 
 // Женский род, но с артиклем el из-за ударного a- (el agua, el aula).
 const STRESSED_A = new Set([
@@ -70,6 +71,43 @@ function checkArticle(w: Word, form: string, where: string, out: Issue[], lang: 
   }
 }
 
+/**
+ * Поля выражения (задача 7.1): вид только на уровне 7, регистр у выражения обязателен,
+ * у идиомы дословный перевод, у ложного друга пояснение. Сочетание, идиома и формула — фразы.
+ */
+function checkExpression(w: Word, at: string, out: Issue[]) {
+  const err = (msg: string) => out.push({ level: 'error', where: at, msg });
+  if (w.register !== undefined && !REGISTERS.includes(w.register)) err(`регистр "${w.register}"`);
+  if (w.kind === undefined) {
+    for (const f of ['pair', 'literal', 'note'] as const) if (w[f] !== undefined) err(`поле ${f} бывает только у выражения`);
+    return;
+  }
+  if (!KINDS.includes(w.kind)) return err(`вид выражения "${w.kind}"`);
+  if (w.level !== EXPRESSION_LEVEL) err(`выражение на уровне ${w.level}, они бывают только на уровне ${EXPRESSION_LEVEL}`);
+  if (w.register === undefined) err('у выражения нет регистра');
+  if (w.kind !== 'false-friend' && w.pos !== 'phrase') err(`у выражения вида ${w.kind} часть речи phrase, а не ${w.pos}`);
+  if (w.kind === 'idiom' ? empty(w.literal) : w.literal !== undefined) err(w.kind === 'idiom' ? 'у идиомы нет literal' : 'literal бывает только у идиомы');
+  if (w.kind === 'false-friend' ? empty(w.note) : w.note !== undefined) err(w.kind === 'false-friend' ? 'у ложного друга нет note' : 'note бывает только у ложного друга');
+  if (w.pair !== undefined && empty(w.pair)) err('пустой pair');
+}
+
+/** Пары выражений: ссылка на выражение этого языка, взаимная, регистры разные. */
+function checkPairs(all: Map<string, { w: Word; at: string }>, out: Issue[]) {
+  for (const { w, at } of all.values()) {
+    if (empty(w.pair)) continue;
+    const err = (msg: string) => out.push({ level: 'error', where: at, msg });
+    if (w.pair === w.id) {
+      err('pair ссылается на само выражение');
+      continue;
+    }
+    const other = all.get(w.pair!);
+    if (!other) err(`pair "${w.pair}": нет такого слова`);
+    else if (!isExpression(other.w)) err(`pair "${w.pair}": это слово, а не выражение`);
+    else if (other.w.pair !== w.id) err(`pair "${w.pair}": у него нет обратной ссылки на ${w.id}`);
+    else if (other.w.register === w.register) err(`pair "${w.pair}": тот же регистр ${w.register}`);
+  }
+}
+
 /** Проверки одного слова: поля, часть речи, артикль и род, пример содержит слово. Общие для мест и свитков. */
 function checkWord(w: Word, at: string, lang: Lang, out: Issue[]) {
   for (const f of ['id', 'es', 'ru', 'pos', 'cefr'] as const) {
@@ -78,7 +116,8 @@ function checkWord(w: Word, at: string, lang: Lang, out: Issue[]) {
   if (!w.example || empty(w.example.es) || empty(w.example.ru)) {
     out.push({ level: 'error', where: at, msg: 'пустой пример' });
   }
-  if (![1, 2, 3, 4, 5, 6].includes(w.level)) out.push({ level: 'error', where: at, msg: `уровень ${w.level}` });
+  if (![1, 2, 3, 4, 5, 6, 7].includes(w.level)) out.push({ level: 'error', where: at, msg: `уровень ${w.level}` });
+  checkExpression(w, at, out);
   if (!POS.has(w.pos)) out.push({ level: 'error', where: at, msg: `часть речи "${w.pos}"` });
   if (!CEFR.has(w.cefr)) out.push({ level: 'error', where: at, msg: `CEFR "${w.cefr}"` });
   if (empty(w.id) || empty(w.es)) return;
@@ -105,7 +144,13 @@ function checkWord(w: Word, at: string, lang: Lang, out: Issue[]) {
   for (const a of w.alt ?? []) if (empty(a)) out.push({ level: 'error', where: at, msg: 'пустой alt' });
   if (w.latam !== undefined && empty(w.latam)) out.push({ level: 'error', where: at, msg: 'пустой latam' });
 
-  if (w.example && !empty(w.example.es)) {
+  if (w.example && !empty(w.example.es) && isExpression(w)) {
+    // Выражение в примере часто в другой форме (tomar una decisión → tomé una decisión): хватит одного полного слова.
+    const ex = stripAccents(normalize(w.example.es));
+    const parts = stripAccents(normalize(w.es)).split(/[\s']+/).filter((t) => t.length > 3);
+    const stems = parts.map((t) => (t.length > 5 ? t.slice(0, -2) : t));
+    if (stems.length && !stems.some((t) => ex.includes(t))) out.push({ level: 'warning', where: at, msg: `в примере нет выражения "${w.es}"` });
+  } else if (w.example && !empty(w.example.es)) {
     const ex = stripAccents(normalize(w.example.es));
     let core = stripAccents(splitArticle(w.es, lang).core);
     // Возвратный глагол: bañarse → bañar, lavarsi → lavar; в примере будет bañarnos, mi lavo.
@@ -124,6 +169,7 @@ export function validateWords(files: { name: string; data: LocationWords }[], la
   const ids = new Map<string, string>();
   // Одно испанское слово в двух локациях с разным переводом путает варианты ответа.
   const globalEs = new Map<string, string>();
+  const all = new Map<string, { w: Word; at: string }>();
 
   for (const { name, data } of files) {
     const where = name;
@@ -142,11 +188,13 @@ export function validateWords(files: { name: string; data: LocationWords }[], la
     // Одинаковый перевод в одном уровне делает упражнение «пары» неоднозначным.
     const ruSeen = new Map<string, string>();
     const perLevel = new Map<number, number>();
+    let expressions = 0;
 
     data.words.forEach((w, i) => {
       const at = `${name}#${i} ${w.id ?? '?'}`;
       checkWord(w, at, lang, out);
       if (empty(w.id) || empty(w.es)) return;
+      all.set(w.id, { w, at });
 
       if (!w.id.startsWith(`${data.location}.`)) {
         out.push({ level: 'error', where: at, msg: `id должен начинаться с "${data.location}."` });
@@ -167,10 +215,13 @@ export function validateWords(files: { name: string; data: LocationWords }[], la
       // С уровня 5 уровень места — это глава, и CEFR слова должен быть CEFR главы: 5 — B1, 6 — B2.
       const plan = PLAN.find((c) => c.levels.includes(w.level));
       if (w.level >= 5 && plan && w.cefr !== plan.cefr) out.push({ level: 'error', where: at, msg: `у уровня ${w.level} CEFR ${plan.cefr}, а не ${w.cefr}` });
-      else if (w.level < 5 && (w.cefr === 'B1' || w.cefr === 'B2')) out.push({ level: 'error', where: at, msg: `CEFR ${w.cefr} на уровне ${w.level}` });
+      else if (w.level < 5 && (w.cefr === 'B1' || w.cefr === 'B2' || w.cefr === 'C1')) out.push({ level: 'error', where: at, msg: `CEFR ${w.cefr} на уровне ${w.level}` });
 
-      perLevel.set(w.level, (perLevel.get(w.level) ?? 0) + 1);
+      // Выражения идут своим счётом: 25 слов и 15 выражений на уровне 7.
+      if (isExpression(w)) expressions++;
+      else perLevel.set(w.level, (perLevel.get(w.level) ?? 0) + 1);
     });
+    if (expressions > PLACE_EXPRESSIONS) out.push({ level: 'warning', where, msg: `выражений ${expressions}, по плану не больше ${PLACE_EXPRESSIONS}` });
 
     for (const [key, id] of esSeen) {
       const other = globalEs.get(key);
@@ -184,6 +235,7 @@ export function validateWords(files: { name: string; data: LocationWords }[], la
       else if (n > max) out.push({ level: 'warning', where, msg: `уровень ${lvl}: ${n} слов, по плану не больше ${max}` });
     }
   }
+  checkPairs(all, out);
   return out;
 }
 

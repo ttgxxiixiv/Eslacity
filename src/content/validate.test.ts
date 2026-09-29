@@ -21,10 +21,66 @@ describe('validateWords', () => {
     expect(errors([...tenWords(), ...six])).toEqual([]);
     expect(errors([...tenWords(), ...six.slice(1), base(40, { level: 6, cefr: 'B1' })])).toEqual(['у уровня 6 CEFR B2, а не B1']);
     expect(errors([...tenWords().slice(1), base(41, { cefr: 'B2' })])).toEqual(['CEFR B2 на уровне 1']);
-    expect(errors([...tenWords(), ...Array.from({ length: 10 }, (_, i) => base(50 + i, { level: 7 as 6, cefr: 'B2' }))])).toContain('уровень 7');
+    expect(errors([...tenWords(), ...Array.from({ length: 10 }, (_, i) => base(50 + i, { level: 8 as 7, cefr: 'B2' }))])).toContain('уровень 8');
   });
   it('чистый контент без ошибок', () => {
     expect(errors(tenWords())).toEqual([]);
+  });
+});
+
+describe('validateWords, выражения уровня 7', () => {
+  const c1 = (i: number, extra: Partial<Word> = {}) => base(100 + i, { level: 7, cefr: 'C1', ...extra });
+  const words7 = () => Array.from({ length: 10 }, (_, i) => c1(i));
+  const expr = (slug: string, extra: Partial<Word> = {}): Word => ({
+    id: `cafe.${slug}`, es: `echar una mano ${slug}`, ru: `помочь ${slug}`, pos: 'phrase', level: 7, cefr: 'C1',
+    kind: 'idiom', register: 'informal', literal: 'бросить руку', example: { es: `¿Me echas una mano ${slug}?`, ru: 'пример' }, ...extra,
+  });
+  const check = (...more: Word[]) => errors([...tenWords(), ...words7(), ...more]);
+
+  it('слова C1 и выражения с парой проходят', () => {
+    expect(check(
+      expr('a', { pair: 'cafe.b' }),
+      expr('b', { es: 'prestar ayuda', kind: 'collocation', register: 'formal', literal: undefined, pair: 'cafe.a', example: { es: 'Le prestamos ayuda.', ru: 'пример' } }),
+      expr('c', { es: 'la carpeta', pos: 'noun', gender: 'f', kind: 'false-friend', register: 'neutral', literal: undefined, note: 'папка, а не скатерть', example: { es: 'Abre la carpeta.', ru: 'пример' } }),
+    )).toEqual([]);
+  });
+  it('уровень 7 — только C1, выражения не считаются в число слов', () => {
+    expect(check(c1(20, { cefr: 'B2' }))).toEqual(['у уровня 7 CEFR C1, а не B2']);
+    const onlyExpr = errors([...tenWords(), ...Array.from({ length: 12 }, (_, i) => expr(`e${i}`))]);
+    expect(onlyExpr).toEqual([]);
+    const few = validateWords(file([...tenWords(), ...words7().slice(0, 9), ...Array.from({ length: 16 }, (_, i) => expr(`e${i}`))]));
+    expect(few.map((x) => x.msg)).toEqual(expect.arrayContaining(['уровень 7: 9 слов, нужно не меньше 10', 'выражений 16, по плану не больше 15']));
+  });
+  it('поля выражения', () => {
+    expect(check(expr('a', { literal: undefined }))).toEqual(['у идиомы нет literal']);
+    expect(check(expr('a', { register: undefined }))).toEqual(['у выражения нет регистра']);
+    expect(check(expr('a', { register: 'slang' as 'formal' }))).toEqual(['регистр "slang"']);
+    expect(check(expr('a', { kind: 'proverb' as 'idiom' }))).toEqual(['вид выражения "proverb"']);
+    expect(check(expr('a', { kind: 'false-friend', literal: undefined }))).toEqual(['у ложного друга нет note']);
+    expect(check(expr('a', { kind: 'formula' }))).toEqual(['literal бывает только у идиомы']);
+    expect(check(expr('a', { pos: 'verb' }))).toEqual(['у выражения вида idiom часть речи phrase, а не verb']);
+    expect(check(expr('a', { level: 6, cefr: 'B2' }))).toEqual(['выражение на уровне 6, они бывают только на уровне 7']);
+    expect(check(c1(20, { note: 'x' }))).toEqual(['поле note бывает только у выражения']);
+  });
+  it('пара: есть, взаимная, другой регистр', () => {
+    expect(check(expr('a', { pair: 'cafe.nope' }))).toEqual(['pair "cafe.nope": нет такого слова']);
+    expect(check(expr('a', { pair: 'cafe.a' }))).toEqual(['pair ссылается на само выражение']);
+    expect(check(expr('a', { pair: 'cafe.w100' }))).toEqual(['pair "cafe.w100": это слово, а не выражение']);
+    expect(check(expr('a', { pair: 'cafe.b' }), expr('b'))).toEqual(['pair "cafe.b": у него нет обратной ссылки на cafe.a']);
+    expect(check(expr('a', { pair: 'cafe.b' }), expr('b', { pair: 'cafe.a' }))).toEqual([
+      'pair "cafe.b": тот же регистр informal',
+      'pair "cafe.a": тот же регистр informal',
+    ]);
+  });
+  it('выражение в примере может стоять в другой форме', () => {
+    const warns = (w: Word) => validateWords(file([...tenWords(), ...words7(), w])).filter((x) => x.level === 'warning').map((x) => x.msg);
+    expect(warns(expr('a', { es: 'tomar una decisión', kind: 'collocation', literal: undefined, example: { es: 'Tomé una decisión difícil.', ru: 'пример' } }))).toEqual([]);
+    expect(warns(expr('a', { example: { es: 'Ayúdame.', ru: 'пример' } }))).toEqual(['в примере нет выражения "echar una mano a"']);
+  });
+  it('в свитке выражений нет', () => {
+    const scroll: ScrollFile = { chapter: 1, words: [{ ...expr('a'), id: 'scroll1.a', level: 1, cefr: 'A1' }] } as ScrollFile;
+    const msgs = validateScrolls([{ name: '1.json', data: scroll }], []).filter((x) => x.level === 'error').map((x) => x.msg);
+    expect(msgs).toContain('выражение на уровне 1, они бывают только на уровне 7');
   });
   it('существительное без артикля', () => {
     const w = tenWords(); w[0] = base(0, { es: 'palabra0' });

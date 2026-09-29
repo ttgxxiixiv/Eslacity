@@ -10,10 +10,18 @@ export type LocationId = (typeof LOCATION_IDS)[number];
 
 export type Pos = 'noun' | 'verb' | 'adj' | 'adv' | 'pron' | 'prep' | 'num' | 'interj' | 'phrase';
 export type Gender = 'm' | 'f';
-export type Cefr = 'A1' | 'A2' | 'B1' | 'B2';
+export type Cefr = 'A1' | 'A2' | 'B1' | 'B2' | 'C1';
 export type BuildingLevel = 1 | 2 | 3 | 4 | 5;
-/** Уровень слов места: 1–5 открывает здание, 6 (B2) — глава IV у здания 5-го уровня. */
-export type WordLevel = BuildingLevel | 6;
+/** Уровень слов места: 1–5 открывает здание, 6 (B2) и 7 (C1) — главы IV и V у здания 5-го уровня. */
+export type WordLevel = BuildingLevel | 6 | 7;
+
+/**
+ * Вид устойчивого выражения (уровень 7, глава V): сочетание слов, идиома, речевая формула
+ * или ложный друг — слово, похожее на русское, но с другим значением.
+ */
+export type ExpressionKind = 'collocation' | 'idiom' | 'formula' | 'false-friend';
+/** Регистр: официальный, нейтральный, разговорный. */
+export type Register = 'formal' | 'neutral' | 'informal';
 
 export interface Example {
   es: string;
@@ -40,6 +48,16 @@ export interface Word {
   /** Форма для латиноамериканского варианта, если отличается. */
   latam?: string;
   plural?: string;
+  /** Есть только у выражений уровня 7, у обычных слов поля нет. */
+  kind?: ExpressionKind;
+  /** Регистр. Обязателен у выражений, у слов по желанию. */
+  register?: Register;
+  /** id выражения с тем же смыслом в другом регистре, ссылка взаимная. */
+  pair?: string;
+  /** Дословный перевод идиомы: «tomar el pelo» — «брать за волосы». */
+  literal?: string;
+  /** Для ложного друга: что слово значит на самом деле и с чем его путают. */
+  note?: string;
 }
 
 export interface LocationWords {
