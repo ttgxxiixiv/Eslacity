@@ -690,11 +690,11 @@ describe('validatePortraits', () => {
       'c: имя портрета "Lola!": только строчные латинские буквы и цифры',
     ]);
   });
-  it('у всех испанских персонажей портреты есть, у итальянских их пока нет', () => {
+  it('у всех жителей обоих языков есть рисованные портреты', () => {
     for (const lang of ['es', 'it']) {
       const npcs = (JSON.parse(readFileSync(join(__dirname, lang, 'npcs.json'), 'utf8')) as NpcsFile).npcs;
       const withArt = npcs.filter((n) => n.look.portrait).length;
-      expect(withArt, lang).toBe(lang === 'es' ? 20 : 0);
+      expect(withArt, lang).toBe(20);
       const files = new Set(npcs.map((n) => n.look.portrait).filter(Boolean));
       expect(validatePortraits(npcs.map((n) => ({ where: n.id, look: n.look })), (name) => files.has(name) && existsSync(join(__dirname, '..', 'assets', 'portraits', lang, `${name}.webp`)))).toEqual([]);
     }

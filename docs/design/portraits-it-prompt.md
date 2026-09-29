@@ -1,63 +1,41 @@
 # Промт для листа портретов итальянской версии
 
-По образцу испанского листа `docs/design/portraits-es.jpg`: тот же стиль, та же сетка, итальянские жители и итальянская обстановка. Готовый лист кладётся в `docs/design/portraits-it.jpg`, режет его `scripts/cut-portraits.py` (координаты рамок нужно будет снять заново: в нижнем ряду семь портретов, а не шесть).
-
-Кьяра (магазин одежды) в этой версии — вышивальщица: крестик и ретичелла.
-
-Промт на английском (генераторы картинок лучше понимают английский), подписи на табличках — по-русски, ровно как в игре.
-
-## Промт
+Готовый лист кладётся в `docs/design/portraits-it.jpg`, режет его `scripts/cut-portraits.py` (координаты рамок снимаются заново по готовому листу). Кьяра в этой версии — вышивальщица: крестик и ретичелла.
 
 ```
-A single vertical character sheet, 2:3 aspect ratio (1024×1536), for a cozy fantasy RPG set in an Italian town. Painterly digital illustration, warm golden candle light, rich saturated colors, soft brush texture, detailed but readable faces, friendly storybook mood. Same style as a classic fantasy card game: every character sits inside an ornate carved gold frame with rounded corners and a small blue gem on top, and under each portrait there is a parchment name plaque with a dark serif Cyrillic caption.
+A single large character roster sheet for a high-fantasy RPG, in the style of World of Warcraft: stylized Blizzard-like hand-painted art, bold chunky proportions, slightly exaggerated features (large expressive hands, strong jaws, big eyes), saturated rich colors, painterly textures with visible brushwork, dramatic rim lighting. Atmosphere of The Lord of the Rings, The Hobbit and Harry Potter: an old-world medieval fantasy realm, candlelight, parchment, runes, stone and timber, a touch of gentle magic. No modern objects, no modern clothing, no electronics.
 
-Background of the whole sheet: a dark wooden table with a large worn board, lit candles in the top corners, green leaves and small orange flowers, an old parchment map with a compass rose, a brass compass, a feather quill, wax seals, a leather-bound book. Everything warm, brown and gold.
+The setting is a sun-drenched medieval fantasy town inspired by old Italy: stone piazzas, terracotta roofs, bell towers, cypress trees, vineyards, fountains.
 
-Layout: a grid of 20 large portrait cards in 5 rows of 4, then one bottom row of 7 smaller cards. Equal gaps, all frames aligned, no overlapping. Each portrait is a head-and-shoulders or waist-up view, the character looks toward the viewer, and the background inside the frame shows their workplace with Italian details (terracotta roofs, arches, shutters, cypress trees, Vespa scooters, espresso cups, laundry lines, the sea).
+Layout: 26 bust portraits in a neat grid (5 rows of 4 for the town folk, then a final row of 6 for the heroes of the road). Each portrait sits in an ornate WoW-style frame of carved gold and dark stone with small gems and rune engravings. Under each portrait there is a parchment scroll plate with the name written exactly as given, in dark-brown serif lettering, Cyrillic script, no other text. The whole sheet lies on a dark oak table with candles, a quill and an old map at the edges. Every face is unique; vary age, face shape, skin tone and expression. Townsfolk look warm and friendly, the guardians solemn and mysterious.
 
-Row 1:
-1. «Джулия» — young barista, warm brown hair in a bun, apron over a caramel-brown blouse, smiling, drawing a heart in the foam of a cappuccino; espresso machine and pastries behind her.
-2. «Синьора Роза» — loud cheerful market woman, black curly hair, red dress and apron, arms open wide over crates of tomatoes, lemons and basil under a striped awning.
-3. «Маттео» — calm student cashier, short dark hair, green shirt, headphones around his neck, supermarket shelves and a till behind him.
-4. «Шеф Сальваторе» — Neapolitan chef and restaurant owner, black mustache, white chef's hat and jacket, holding a steaming plate of pasta, wood-fired pizza oven glowing behind him.
+Town folk (each shown at their own place in the town):
+1. «Джулия» — young keeper of a cozy brew house, fair skin, brown hair in a bun, caramel-brown bodice with a linen apron. Cheerful, drawing a heart in the foam of a clay mug. Background: counter with copper pots and barrels.
+2. «Синьора Роза» — market vendor, light olive skin, black curly hair under a kerchief, bright red peasant dress and apron. Loud and warm, arms wide open, calling everyone "tesoro". Background: stall of lemons, tomatoes and artichokes under a striped awning.
+3. «Маттео» — young clerk of the provisions store, fair skin, short dark-brown hair, green tunic, a quill tucked behind his ear. Completely unflappable, calm face, a ledger and coins. Background: shelves with sacks, olive oil jars and cheese wheels.
+4. «Шеф Сальваторе» — master cook of the tavern, light olive skin, short black hair, thick moustache, white cook's smock and tall cloth cap. Passionate, gesturing "Mangia!", a steaming bowl of pasta. Background: tavern kitchen with a stone bread oven.
+5. «Синьора Франка» — elderly neighbour in a hobbit-like cottage, fair skin, grey hair in a bun, round spectacles, purple woollen shawl. Motherly, offering a dish of baked lasagne. Background: cottage kitchen with basil and garlic hanging from beams.
+6. «Дедушка Джино» — old retired man, fair skin, bald with a long white beard, flat woollen cap, olive-green coat. Storyteller with twinkling eyes, holding a wooden bocce ball. Background: village green with a pond and cypress trees.
+7. «Кьяра» — young embroiderer and cloth merchant, fair skin, long golden-blond hair, magenta silk gown with a finely embroidered collar. Stylish and honest, smiling as she works on a round wooden embroidery hoop stretched with linen: a bright cross-stitch pattern of tiny crossed stitches forming red and green floral motifs, clearly visible, a threaded needle in her fingers. Over her shoulder drapes a long strip of white reticella lace — geometric Renaissance needle lace with open square cut-work cells, radiating bars and small star wheels, crisp and detailed. Background: needlework shop with bolts of linen and velvet, spools of coloured silk thread, a pincushion, stork-shaped scissors, a tall mirror and a framed cross-stitch sampler on the wall.
+8. «Доктор Бруно» — elderly apothecary-alchemist, fair skin, short grey hair, round spectacles, white robe. Pedantic, explaining a recipe step by step, a glowing potion vial in hand. Background: shelves of flasks and herbs.
+9. «Учительница Анна» — kind tutor of the town academy, light olive skin, long brown hair, round spectacles, deep-blue scholar's robe. Patient, reading from an ancient tome of verses with glowing letters. Background: study hall with candles and a slate board.
+10. «Энцо» — courier of the messenger post, light olive skin, short black hair, yellow tunic and cap. Always in a hurry, satchel of sealed letters, riding a small sturdy pony. Background: narrow cobblestone street.
+11. «Доктор Ферри» — clerk of the coin vault, fair skin, neatly combed dark-brown hair, spectacles, dark grey doublet with a cravat. Loves order, holding a sealed scroll. Background: vault counter with iron-bound chests.
+12. «Тонино» — barber, light olive skin, black curly hair, moustache, white smock. Singing an opera aria while cutting hair, scissors raised like a conductor's baton. Background: barber shop with a brass mirror.
+13. «Федерика» — training master of the arena, light olive skin, dark-brown hair in a high bun, red leather training armour, headband. Energetic and competitive, a practice sword on her shoulder. Background: training yard with dummies.
+14. «Альдо» — grumpy keeper of the stagecoach station, fair skin, grey hair, moustache, navy coat with brass buttons and a cap. Punctual to the minute, checking a brass pocket watch. Background: coaching yard with a stagecoach.
+15. «Марко» — relaxed tanned harbour watchman, tan skin, long dark-brown hair, red sleeveless tunic. Easy-going smile, a coil of rope and a horn at his belt. Background: harbour with boats and a lighthouse.
+16. «Валентина» — steward of the merchants' guild hall, fair skin, dark-brown hair in a bun, spectacles, brown velvet jacket. Talks fast, contracts in one hand and a tiny cup of espresso in the other. Background: guild office with ledgers.
+17. «Элиза» — innkeeper of a grand inn, fair skin, long black hair, burgundy gown with a golden brooch. Polite and attentive, holding an iron room key. Background: inn hall with a fireplace.
+18. «Доктор Конти» — healer of the House of Healing, light olive skin, brown hair in a bun, white robe over pale-blue tunic, a pendant with herbs. Calm and slightly strict, soft healing light in her palm. Background: healing hall.
+19. «Лука» — young griffon master of the sky port, light olive skin, short copper-auburn hair, blue uniform coat with a cravat. A traveller with trinkets from distant lands pinned to his coat. Background: griffon roost on a high tower.
+20. «Комиссар Ринальди» — captain of the city watch, light olive skin, short black hair, navy tabard with a silver emblem, crested helmet under his arm. Strict but fair. Background: watch house with wanted posters.
 
-Row 2:
-5. «Синьора Франка» — caring elderly neighbour, grey hair in a bun, round glasses, purple cardigan, holding a tray of lasagna, a kitchen with hanging copper pots.
-6. «Дедушка Джино» — old man with a white beard and flat cap, green jacket, holding a bocce ball, a park with a lake, cypress trees and pigeons.
-7. «Кьяра» — young embroiderer in a clothes and fabric shop: long golden-blonde hair, a pink dress with an embroidered collar. She holds a round wooden embroidery hoop with a colourful cross-stitch pattern (small crossed stitches forming red and green Italian floral motifs, clearly visible), and over her shoulder lies a strip of white reticella lace — geometric Italian needle lace with open square cut-work cells, radiating bars and little star wheels. Behind her: shelves of fabric rolls, spools of thread, a pincushion, stork-shaped embroidery scissors, a framed cross-stitch sampler on the wall.
-8. «Доктор Бруно» — precise pharmacist, grey hair, glasses, white coat, holding a small glass bottle of green tonic, apothecary shelves with jars.
-
-Row 3:
-9. «Учительница Анна» — patient teacher, long brown hair, glasses, blue dress, holding an open book of Dante with a softly glowing page, a chalkboard and a bookcase behind her.
-10. «Энцо» — hurried young postman, dark hair, yellow shirt, cap, leather mail bag full of letters, a Vespa scooter and a sunny street with arches.
-11. «Доктор Ферри» — formal bank clerk, short dark hair, glasses, dark suit and tie, holding a rolled document with a red wax seal, a vault door and brass safe-deposit boxes.
-12. «Тонино» — joyful barber singing an opera aria, curly black hair, black mustache, white shirt, scissors and comb in hand, a barber's chair and mirror.
-
-Row 4:
-13. «Федерика» — energetic fitness coach, dark hair in a bun, red headband, red sports top, holding a whistle, a gym with ropes and weights.
-14. «Альдо» — grumpy precise stationmaster, grey hair, grey mustache, navy uniform and cap, holding a pocket watch, a railway platform with a clock and an old train.
-15. «Марко» — relaxed tanned lifeguard, long dark wavy hair, red lifeguard vest, a rope and a life ring on his shoulder, the sea, a lighthouse and beach umbrellas.
-16. «Валентина» — busy office manager, brown hair in a bun, glasses, brown blazer, holding a folder and a coffee cup, an office with papers and a wall calendar.
-
-Row 5:
-17. «Элиза» — polite hotel receptionist, long black hair, dark red uniform with a name badge, a brass bell and room keys on hooks, an elegant hotel lobby.
-18. «Доктор Конти» — calm slightly strict doctor, brown hair in a bun, white coat, stethoscope, a gentle healing light in her hand, a bright hospital room.
-19. «Лука» — traveller and airport check-in clerk, short copper-red hair, blue uniform and tie, a board with fridge magnets from many countries, planes behind a big window.
-20. «Комиссар Ринальди» — strict but fair police commissioner, short black hair, navy uniform, cap and badge, arms crossed, an office with a city map and files.
-
-Bottom row, 7 smaller cards:
-21. «Летописец» — old wise chronicler, white hair and beard, purple robe, writing with a quill in a big book, mountains behind.
-22. «Привратник» — city gate guard, dark mustache, olive cloak, helmet and spear, a stone city gate.
-23. «Андреа» — guard of the mountain pass tower, dark beard, grey fur-trimmed cloak, a stone tower on a pass.
-24. «Стражница» — guardian of the white city, silver-white hair, light golden robes and a headband, white marble buildings.
-25. «Хранительница леса» — forest keeper, long green hair with leaves, green dress, glowing green light among ancient trees.
-26. «Хозяин Эха» — master of the echo, bald, grey beard, deep violet robe, standing in a stone labyrinth whose walls repeat faint translucent copies of his face like echoes.
-27. «Ферруччо» — blacksmith of verbs, brown hair, mustache, leather apron, hammer and a glowing anvil in a forge.
-
-Text: only the Cyrillic names on the plaques, spelled exactly as above, no other text, no English words, no watermarks, no logos.
+Heroes of the road (outside the town):
+21. «Летописец» — wandering chronicler in the spirit of a wise wizard, light olive skin, silver-white hair and beard, purple travelling robe. Thoughtful, a quill and an ancient leather-bound chronicle. Background: a mountain road at sunrise.
+22. «Привратник» — gatekeeper of the city gates, light olive skin, dark-brown hair, moustache, olive-green armour and helmet. Stern but fair, a spear at his side. Background: massive stone gates with torches.
+23. «Андреа» — guardian of the tower on the mountain pass, light olive skin, black hair and beard, grey fur-lined cloak. Patient, piercing gaze. Background: a lone stone tower on a windswept pass.
+24. «Стражница» — guardian of the white city, tan skin, silver-white hair in a bun, sand-coloured flowing robes, a golden circlet. Enigmatic, a faint mirage shimmer around her. Background: a dazzling white desert city.
+25. «Хранительница леса» — guardian of the whispering forest, fair skin, long moss-green hair, dark green robes woven with leaves and vines. Eyes closed, listening to the trees, glowing fireflies. Background: ancient misty forest.
+26. «Ферруччо» — the rune blacksmith who forges words, light olive skin, short brown hair, moustache, rust-brown shirt and leather apron. Strong and cheerful, hammering glowing runes on an anvil. Background: a dwarven-style forge with fire.
 ```
-
-## Если генератор не справляется
-
-- Подписи искажаются: сгенерировать лист без текста («blank parchment name plaques»), имена добавить потом в редакторе — в игре таблички всё равно отрезаются.
-- Кьяра выходит без ретичеллы: вынести её отдельно тем же стилем с уточнением «reticella lace: white geometric needle lace, square openwork grid with diagonal bars and small wheels, Italian Renaissance needlework» и вставить в лист.
