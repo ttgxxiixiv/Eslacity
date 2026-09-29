@@ -7,6 +7,16 @@ export interface Release {
 // Новые версии сверху. Версия первой записи должна совпадать с package.json (проверяется тестом).
 export const CHANGELOG: Release[] = [
   {
+    version: '2.79.0',
+    date: '2026-09-29',
+    notes: [
+      'Уровень 7 теперь во всех двадцати местах: добавились спортзал, вокзал, пляж, отель и аэропорт. Гантель и становая тяга, шпала и стрелочник, отлив и кораблекрушение, ночной портье и дверной глазок, шасси и чёрный ящик.',
+      'Объявления и их разговорные пары: «Se ruega no rebasar la línea amarilla» — «¡Échate para atrás!», «Allacciate le cinture» — «Mettiti la cintura». Идиомы: «tirar la toalla», «dormir como un tronco», «fare il portoghese», «avere l\'acqua alla gola».',
+      'Ложные друзья: «el balón» — мяч, «el bono» — проездной, «el pasaje» — билет на самолёт; «la camera» — номер в гостинице, «il comandante» — командир экипажа, «la stazione di servizio» — заправка.',
+      'В курсе теперь больше 3000 слов на каждом языке и 300 устойчивых выражений.',
+    ],
+  },
+  {
     version: '2.78.0',
     date: '2026-09-29',
     notes: [

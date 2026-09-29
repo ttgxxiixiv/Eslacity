@@ -538,6 +538,9 @@ describe('свиток главы IV: контент', () => {
       }
     }
     expect(withLevel7.it).toEqual(withLevel7.es);
+    // Задача 7.2 закрыта: уровень 7 во всех местах, слов столько, сколько в плане главы V.
+    expect(withLevel7.es).toHaveLength(LOCATION_IDS.length);
+    expect(LOCATION_IDS.length * PLACE_LEVEL_MAX[7]).toBe(PLAN[4].places);
   });
 });
 
