@@ -1,0 +1,161 @@
+{
+  "id": "c1.01-subjuntivo-sentido",
+  "district": "C1",
+  "order": 1,
+  "title": "Indicativo или subjuntivo: меняется смысл",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "У некоторых глаголов наклонение меняет смысл. С **индикативом** глагол сообщает факт или восприятие, с **subjuntivo** — чувство, оценку или просьбу."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Глагол",
+        "+ indic.",
+        "+ subj."
+      ],
+      "rows": [
+        {
+          "cells": [
+            "sentir que",
+            "чувствую",
+            "жаль"
+          ]
+        },
+        {
+          "cells": [
+            "comprender",
+            "понял",
+            "это нормально"
+          ]
+        },
+        {
+          "cells": [
+            "decir que",
+            "сообщает",
+            "велит"
+          ]
+        },
+        {
+          "cells": [
+            "el hecho de",
+            "редко",
+            "обычно"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Спросите себя: это новость или отношение к ней? «Siento que hace frío» — я это чувствую кожей, «Siento que haga frío» — мне жаль, что холодно."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Siento que alguien me mira desde la ventana.",
+      "ru": "Чувствую, что кто-то смотрит на меня из окна."
+    },
+    {
+      "es": "Siento que no puedas venir a la fiesta, Lola.",
+      "ru": "Жаль, что ты не сможешь прийти на праздник, Лола."
+    },
+    {
+      "es": "Don Ernesto comprendió que el banco ya había cerrado.",
+      "ru": "Дон Эрнесто понял, что банк уже закрылся."
+    },
+    {
+      "es": "Comprendo que estés enfadado, pero escúchame.",
+      "ru": "Понимаю, что ты сердишься, но выслушай меня."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "c1.01-subjuntivo-sentido.1",
+      "kind": "choose",
+      "prompt": "«Мне жаль, что вы ждали так долго»:",
+      "options": [
+        "Siento que hayan esperado tanto.",
+        "Siento que han esperado tanto.",
+        "Siento de que hayan esperado tanto."
+      ],
+      "answer": 0,
+      "explain": "Sentir que в значении «сожалеть» требует subjuntivo."
+    },
+    {
+      "id": "c1.01-subjuntivo-sentido.2",
+      "kind": "gap",
+      "sentence": "Paco dice que la cafetería ___ a las ocho.",
+      "ru": "Пако говорит, что кафе открывается в восемь.",
+      "options": [
+        "abre",
+        "abra",
+        "abriera"
+      ],
+      "answer": 0,
+      "explain": "Decir que сообщает факт — индикатив."
+    },
+    {
+      "id": "c1.01-subjuntivo-sentido.3",
+      "kind": "truefalse",
+      "statement": "«Comprendo que estés cansado» значит «я понял, что ты устал».",
+      "answer": false,
+      "explain": "С subjuntivo comprender значит «нахожу естественным»: понимаю, что ты устал, это нормально."
+    },
+    {
+      "id": "c1.01-subjuntivo-sentido.4",
+      "kind": "build",
+      "ru": "Мама говорит, чтобы ты пришёл пораньше.",
+      "answer": "Mamá dice que vengas antes.",
+      "extra": [
+        "vienes"
+      ],
+      "explain": "Decir que в значении просьбы или приказа — subjuntivo."
+    },
+    {
+      "id": "c1.01-subjuntivo-sentido.5",
+      "kind": "type",
+      "sentence": "Siento mucho que tu abuelo ___ enfermo.",
+      "ru": "Мне очень жаль, что твой дедушка болен.",
+      "hint": "estar",
+      "answer": "esté",
+      "explain": "Sentir que = «сожалеть» + subjuntivo."
+    },
+    {
+      "id": "c1.01-subjuntivo-sentido.6",
+      "kind": "fix",
+      "sentence": "Siento mucho que usted no puede venir, doña Carmen.",
+      "ru": "Мне очень жаль, что вы не можете прийти, донья Кармен.",
+      "wrong": 5,
+      "answer": "pueda",
+      "explain": "Сожаление — subjuntivo: que usted no pueda venir."
+    },
+    {
+      "id": "c1.01-subjuntivo-sentido.7",
+      "kind": "paraphrase",
+      "sentence": "Comprendo que quieras irte.",
+      "options": [
+        "Me parece normal que quieras irte.",
+        "Me doy cuenta de que quieres irte.",
+        "Quiero que te vayas."
+      ],
+      "answer": 0,
+      "explain": "Comprender + subjuntivo — «нахожу естественным», а не «замечаю»."
+    },
+    {
+      "id": "c1.01-subjuntivo-sentido.8",
+      "kind": "cloze",
+      "text": "El doctor Ruiz me dice que ___ (descansar) más. Yo siento que ya ___ (estar) mejor.",
+      "ru": "Доктор Руис велит мне больше отдыхать. А я чувствую, что мне уже лучше.",
+      "answers": [
+        [
+          "descanse"
+        ],
+        [
+          "estoy"
+        ]
+      ],
+      "explain": "Dice que + subjuntivo — это совет; siento que + индикатив — ощущение."
+    }
+  ]
+}

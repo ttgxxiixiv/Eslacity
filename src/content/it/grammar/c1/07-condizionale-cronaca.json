@@ -1,0 +1,148 @@
+{
+  "id": "c1.07-condizionale-cronaca",
+  "district": "C1",
+  "order": 7,
+  "title": "Condizionale неподтверждённой новости",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "В новостях и пересказе **condizionale** показывает, что сведения не проверены: журналист передаёт чужие слова. Настоящее — **condizionale presente** (il sindaco sarebbe malato), прошлое — **condizionale passato** (il ladro sarebbe fuggito). Часто с «secondo», «stando a»."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Время",
+        "Пример",
+        "Перевод"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "condizionale presente",
+            "Il commissario avrebbe un sospettato.",
+            "У комиссара якобы есть подозреваемый."
+          ]
+        },
+        {
+          "cells": [
+            "condizionale passato",
+            "Il ladro sarebbe fuggito in moto.",
+            "Вор, по некоторым данным, скрылся на мотоцикле."
+          ]
+        },
+        {
+          "cells": [
+            "secondo...",
+            "Secondo i testimoni, sarebbero in tre.",
+            "По словам свидетелей, их трое."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Сравните: «Il ministro si è dimesso» — факт; «Il ministro si sarebbe dimesso» — так говорят, но не подтверждено."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Secondo la polizia, il ladro sarebbe fuggito in moto.",
+      "ru": "По данным полиции, вор скрылся на мотоцикле."
+    },
+    {
+      "es": "Il commissario Rinaldi avrebbe già un sospettato.",
+      "ru": "У комиссара Ринальди, по слухам, уже есть подозреваемый."
+    },
+    {
+      "es": "Stando alle voci, il bar di Giulia chiuderebbe a dicembre.",
+      "ru": "По слухам, бар Джулии закроется в декабре."
+    },
+    {
+      "es": "Il ministro si sarebbe dimesso ieri sera.",
+      "ru": "Министр якобы ушёл в отставку вчера вечером."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "c1.07-condizionale-cronaca.1",
+      "kind": "choose",
+      "prompt": "«По словам свидетелей, вор скрылся на мотоцикле (не подтверждено)»:",
+      "options": [
+        "Secondo i testimoni, il ladro sarebbe fuggito in moto.",
+        "Secondo i testimoni, il ladro fuggirebbe ieri in moto.",
+        "Secondo i testimoni, il ladro fosse fuggito in moto."
+      ],
+      "answer": 0,
+      "explain": "Неподтверждённое прошлое — condizionale passato."
+    },
+    {
+      "id": "c1.07-condizionale-cronaca.2",
+      "kind": "gap",
+      "sentence": "Secondo alcune fonti, il sindaco ___ dimesso.",
+      "ru": "По некоторым данным, мэр ушёл в отставку.",
+      "options": [
+        "si sarebbe",
+        "si fosse",
+        "si sarà"
+      ],
+      "answer": 0,
+      "explain": "Неподтверждённая новость о прошлом — condizionale passato."
+    },
+    {
+      "id": "c1.07-condizionale-cronaca.3",
+      "kind": "truefalse",
+      "statement": "Condizionale в новостях показывает, что журналист не ручается за сведения.",
+      "answer": true,
+      "explain": "Il sindaco sarebbe malato — так говорят, но не проверено."
+    },
+    {
+      "id": "c1.07-condizionale-cronaca.4",
+      "kind": "build",
+      "ru": "По слухам, бар закроется в декабре.",
+      "answer": "Stando alle voci, il bar chiuderebbe a dicembre.",
+      "extra": [
+        "chiude"
+      ],
+      "explain": "Слух о будущем — condizionale presente."
+    },
+    {
+      "id": "c1.07-condizionale-cronaca.5",
+      "kind": "type",
+      "sentence": "Il commissario ___ già un sospettato, secondo la stampa.",
+      "ru": "У комиссара, по данным прессы, уже есть подозреваемый.",
+      "hint": "avere",
+      "answer": "avrebbe",
+      "explain": "Неподтверждённое настоящее — condizionale presente."
+    },
+    {
+      "id": "c1.07-condizionale-cronaca.6",
+      "kind": "register",
+      "source": "Dicono che il sindaco se n'è andato.",
+      "to": "formal",
+      "answer": "Il sindaco si sarebbe dimesso.",
+      "extra": [
+        "andato",
+        "è"
+      ],
+      "explain": "В новостях: «si sarebbe dimesso» вместо «dicono che se n'è andato»."
+    },
+    {
+      "id": "c1.07-condizionale-cronaca.7",
+      "kind": "transform",
+      "source": "Pare che il ladro sia fuggito in moto.",
+      "keyword": "sarebbe",
+      "ru": "Вор якобы скрылся на мотоцикле.",
+      "answer": "Il ladro sarebbe fuggito in moto.",
+      "explain": "Condizionale passato заменяет «pare che»: сведения не проверены."
+    },
+    {
+      "id": "c1.07-condizionale-cronaca.8",
+      "kind": "fix",
+      "sentence": "Secondo i giornali, l'attore si sarà sposato in segreto.",
+      "ru": "По данным газет, актёр тайно женился.",
+      "wrong": 5,
+      "answer": "sarebbe",
+      "explain": "Неподтверждённая новость — condizionale, а не futuro anteriore."
+    }
+  ]
+}

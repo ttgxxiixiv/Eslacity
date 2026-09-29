@@ -1,0 +1,175 @@
+{
+  "id": "c1.04-condizioni-c1",
+  "district": "C1",
+  "order": 4,
+  "title": "Условия C1: qualora, a patto che, gerundio",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Условие можно выразить без «se». **Qualora** + congiuntivo — книжное «если», «в случае если». **Nel caso in cui** + congiuntivo — «в случае, если». **A patto che** и **purché** + congiuntivo — «при условии что». **Gerundio** тоже может значить условие: Volendo, si può fare — «если захочешь»."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Оборот",
+        "Пример",
+        "Перевод"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "qualora + cong.",
+            "Qualora ci fossero problemi, ci chiami.",
+            "Если возникнут проблемы, звоните."
+          ]
+        },
+        {
+          "cells": [
+            "nel caso in cui + cong.",
+            "Nel caso in cui piova, restiamo a casa.",
+            "Если пойдёт дождь, останемся дома."
+          ]
+        },
+        {
+          "cells": [
+            "a patto che + cong.",
+            "Te lo presto a patto che me lo ridia.",
+            "Одолжу, если вернёшь."
+          ]
+        },
+        {
+          "cells": [
+            "gerundio",
+            "Volendo, partiamo domani.",
+            "Если хочешь, уедем завтра."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "«Qualora» — слово объявлений, писем и договоров. В разговоре скажут просто «se»."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Qualora il treno fosse in ritardo, La avviseremo.",
+      "ru": "Если поезд опоздает, мы вас предупредим."
+    },
+    {
+      "es": "Ti presto la macchina a patto che me la riporti piena.",
+      "ru": "Одолжу машину при условии, что вернёшь с полным баком."
+    },
+    {
+      "es": "Nel caso in cui piova, la festa si fa dentro.",
+      "ru": "Если пойдёт дождь, праздник устроим внутри."
+    },
+    {
+      "es": "Volendo, potremmo partire già domani, dice Federica.",
+      "ru": "Если захотим, можем уехать уже завтра, говорит Федерика."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "c1.04-condizioni-c1.1",
+      "kind": "choose",
+      "prompt": "«Если захочешь, можем уехать завтра»:",
+      "options": [
+        "Volendo, possiamo partire domani.",
+        "Voluto, possiamo partire domani.",
+        "Volere, possiamo partire domani."
+      ],
+      "answer": 0,
+      "explain": "Gerundio с условным смыслом: volendo."
+    },
+    {
+      "id": "c1.04-condizioni-c1.2",
+      "kind": "gap",
+      "sentence": "Qualora ___ problemi, contatti la reception.",
+      "ru": "Если возникнут проблемы, обратитесь на ресепшен.",
+      "options": [
+        "ci fossero",
+        "ci sono",
+        "ci saranno"
+      ],
+      "answer": 0,
+      "explain": "Qualora + congiuntivo."
+    },
+    {
+      "id": "c1.04-condizioni-c1.3",
+      "kind": "truefalse",
+      "statement": "«Qualora» — разговорное слово, так говорят с друзьями.",
+      "answer": false,
+      "explain": "Qualora книжное: объявления, письма, договоры."
+    },
+    {
+      "id": "c1.04-condizioni-c1.4",
+      "kind": "build",
+      "ru": "Одолжу тебе машину при условии, что вернёшь её с полным баком.",
+      "answer": "Ti presto la macchina a patto che me la riporti piena.",
+      "extra": [
+        "riporta"
+      ],
+      "explain": "A patto che + congiuntivo: riporti."
+    },
+    {
+      "id": "c1.04-condizioni-c1.5",
+      "kind": "type",
+      "sentence": "Nel caso in cui ___, la festa si fa in casa.",
+      "ru": "Если пойдёт дождь, праздник будет дома.",
+      "hint": "piovere",
+      "answer": "piova",
+      "explain": "Nel caso in cui + congiuntivo."
+    },
+    {
+      "id": "c1.04-condizioni-c1.6",
+      "kind": "transform",
+      "source": "Se piove domani, il concerto è annullato.",
+      "keyword": "nel caso in cui",
+      "ru": "Если завтра пойдёт дождь, концерт отменят.",
+      "answer": "Nel caso in cui piova domani, il concerto è annullato.",
+      "alt": [
+        "Il concerto è annullato nel caso in cui piova domani."
+      ],
+      "explain": "Nel caso in cui + congiuntivo: piova."
+    },
+    {
+      "id": "c1.04-condizioni-c1.7",
+      "kind": "fix",
+      "sentence": "Ti presto il libro a patto che me lo ridai.",
+      "ru": "Одолжу книгу при условии, что вернёшь.",
+      "wrong": 9,
+      "answer": "ridia",
+      "explain": "A patto che + congiuntivo: ridia."
+    },
+    {
+      "id": "c1.04-condizioni-c1.8",
+      "kind": "register",
+      "source": "Se non paghi, ti staccano la luce.",
+      "to": "formal",
+      "answer": "In caso di mancato pagamento, la fornitura sarà sospesa.",
+      "extra": [
+        "paghi",
+        "ti"
+      ],
+      "explain": "Официально: «in caso di mancato pagamento», пассив «sarà sospesa», «la fornitura» вместо «la luce»."
+    },
+    {
+      "id": "c1.04-condizioni-c1.9",
+      "kind": "cloze",
+      "text": "___ il treno fosse in ritardo, La avviseremo. Puoi venire, ___ tu non faccia rumore.",
+      "ru": "Если поезд опоздает, мы вас предупредим. Можешь прийти, если не будешь шуметь.",
+      "answers": [
+        [
+          "qualora",
+          "se"
+        ],
+        [
+          "purché",
+          "a patto che"
+        ]
+      ],
+      "explain": "Qualora (se) + congiuntivo imperfetto — условие; purché (a patto che) + congiuntivo — «при условии что»."
+    }
+  ]
+}

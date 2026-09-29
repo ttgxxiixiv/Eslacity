@@ -1,0 +1,163 @@
+{
+  "id": "c1.06-perifrasis-fase",
+  "district": "C1",
+  "order": 6,
+  "title": "Перифразы фазы: echarse a, romper a, andar + gerundio",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Эти перифразы показывают, как действие начинается или тянется. **Echarse a** + infinitivo — резко начать (reír, llorar, correr). **Romper a** + infinitivo — разразиться (llorar, reír). **Andar** + gerundio — всё время что-то делать, часто с неодобрением. **Estar por** + infinitivo — ещё не сделано."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Перифраза",
+        "Пример",
+        "Перевод"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "echarse a + inf.",
+            "Se echó a reír.",
+            "Он расхохотался."
+          ]
+        },
+        {
+          "cells": [
+            "romper a + inf.",
+            "Rompió a llorar.",
+            "Она разрыдалась."
+          ]
+        },
+        {
+          "cells": [
+            "andar + gerundio",
+            "Anda diciendo tonterías.",
+            "Он всё время болтает глупости."
+          ]
+        },
+        {
+          "cells": [
+            "estar por + inf.",
+            "La cocina está por limpiar.",
+            "Кухня ещё не убрана."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Echarse a и romper a сочетаются с немногими глаголами: reír, llorar, correr, temblar. «Echarse a trabajar» тоже встречается: взяться за работу."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Al ver la factura, don Ernesto se echó a reír.",
+      "ru": "Увидев счёт, дон Эрнесто расхохотался."
+    },
+    {
+      "es": "Cuando oyó la noticia, Marta rompió a llorar.",
+      "ru": "Услышав новость, Марта разрыдалась."
+    },
+    {
+      "es": "Ramón anda diciendo que el mercado va a cerrar.",
+      "ru": "Рамон всем рассказывает, что рынок закроют."
+    },
+    {
+      "es": "La mitad de la casa está por pintar.",
+      "ru": "Половина дома ещё не покрашена."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "c1.06-perifrasis-fase.1",
+      "kind": "choose",
+      "prompt": "«Малыш вдруг расплакался»:",
+      "options": [
+        "El niño rompió a llorar.",
+        "El niño rompió llorando.",
+        "El niño rompió de llorar."
+      ],
+      "answer": 0,
+      "explain": "Romper a + infinitivo — внезапно начать."
+    },
+    {
+      "id": "c1.06-perifrasis-fase.2",
+      "kind": "gap",
+      "sentence": "Cuando vio al perro, el gato se echó ___ correr.",
+      "ru": "Увидев собаку, кот бросился бежать.",
+      "options": [
+        "a",
+        "de",
+        "por"
+      ],
+      "answer": 0,
+      "explain": "Echarse a + infinitivo."
+    },
+    {
+      "id": "c1.06-perifrasis-fase.3",
+      "kind": "truefalse",
+      "statement": "«Anda contando mentiras» значит «однажды соврал».",
+      "answer": false,
+      "explain": "Andar + gerundio — действие повторяется: всё время рассказывает."
+    },
+    {
+      "id": "c1.06-perifrasis-fase.4",
+      "kind": "build",
+      "ru": "Он везде рассказывает, что уезжает.",
+      "answer": "Anda diciendo que se va.",
+      "extra": [
+        "dice"
+      ],
+      "explain": "Andar + gerundio — постоянно, повсюду."
+    },
+    {
+      "id": "c1.06-perifrasis-fase.5",
+      "kind": "type",
+      "sentence": "Todavía está ___ decidir quién pagará la cena.",
+      "ru": "Ещё не решено, кто заплатит за ужин.",
+      "hint": "предлог",
+      "answer": "por",
+      "explain": "Estar por + infinitivo — ещё не сделано."
+    },
+    {
+      "id": "c1.06-perifrasis-fase.6",
+      "kind": "cloze",
+      "text": "Al oír el chiste, todos se echaron a ___. Paco, en cambio, anda ___ que nadie lo respeta.",
+      "ru": "Услышав анекдот, все расхохотались. А Пако всё твердит, что его никто не уважает.",
+      "answers": [
+        [
+          "reír"
+        ],
+        [
+          "diciendo",
+          "contando"
+        ]
+      ],
+      "explain": "Echarse a reír — расхохотаться; andar diciendo — всё время твердить."
+    },
+    {
+      "id": "c1.06-perifrasis-fase.7",
+      "kind": "register",
+      "source": "Anda diciendo por ahí que la empresa cierra.",
+      "to": "formal",
+      "options": [
+        "Ha manifestado en varias ocasiones que la empresa va a cerrar.",
+        "Va soltando por ahí que la empresa cierra.",
+        "Ha negado que la empresa vaya a cerrar."
+      ],
+      "answer": 0,
+      "explain": "Официально: «ha manifestado en varias ocasiones» вместо «anda diciendo por ahí». Третий вариант меняет смысл."
+    },
+    {
+      "id": "c1.06-perifrasis-fase.8",
+      "kind": "fix",
+      "sentence": "Al ver la foto, Lola se echó de reír.",
+      "ru": "Увидев фото, Лола расхохоталась.",
+      "wrong": 7,
+      "answer": "a",
+      "explain": "Echarse a + infinitivo, не «de»."
+    }
+  ]
+}

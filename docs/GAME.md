@@ -97,30 +97,30 @@
 
 **Что учим.** Уровень 7 каждого места — 25 слов продвинутой лексики этого места и 15 устойчивых выражений: коллокации («llevar a cabo», «prendere una decisione»), идиомы («meter la pata», «in bocca al lupo»), официальные формулы и их разговорные пары. У каждого выражения пометка регистра: официальное, нейтральное, разговорное. Для русскоязычных отдельно ложные друзья переводчика («constipado» — это простуда, «magazzino» — склад).
 
-**Район грамматики C1.** 20 новых уроков на каждый язык. Черновик тем (перед написанием сверить с уроками B1.2 и B2, чтобы не повторяться):
+**Район грамматики C1.** 20 новых уроков на каждый язык. Темы сверены с уроками B1.1, B1.2 и B2 (задача 7.4): повторы заменены или сужены.
 
 | # | Испанский | Итальянский |
 |---|---|---|
 | 1 | Subjuntivo и indicativo с разным смыслом: sentir que, comprender que, el hecho de que | Congiuntivo и indicativo с разным смыслом: capire che, il fatto che |
 | 2 | Повторяющийся subjuntivo: pase lo que pase, digan lo que digan, sea como sea | Congiuntivo в независимых фразах: Che sia vero? Sia chiaro. Venga pure |
-| 3 | Уступительные C1: por más que, aun cuando, si bien, así + subjuntivo | Уступительные C1: per quanto, pur + gerundio, anche se и sebbene |
+| 3 | Уступительные C1: aun cuando, si bien, así + subjuntivo, y eso que | Уступительные C1: per quanto, pur + gerundio, anche se и sebbene |
 | 4 | Условия C1: de + infinitivo, siempre y cuando, en el supuesto de que, con que | Условия C1: qualora, nel caso in cui, a patto che, gerundio с условным смыслом |
-| 5 | Перифразы результата: venir a + inf., llegar a, acabar + gerundio, dar por + participio | Passato remoto и trapassato remoto в повествовании |
-| 6 | Перифразы фазы: estar por, echarse a, romper a, andar + gerundio | Неявные формы: infinito sostantivato, participio presente, gerundio сложных значений |
-| 7 | Futuro и condicional: вежливость, догадка, упрёк | Condizionale вежливости, цитаты и неподтверждённой новости |
+| 5 | Перифразы результата: venir a + inf., llegar a, acabar + gerundio, dar por + participio | Неопределённые C1: alcunché, chicchessia, qualsivoglia, taluno |
+| 6 | Перифразы фазы: estar por, echarse a, romper a, andar + gerundio | Infinito sostantivato и participio presente: il mangiare, dilagante |
+| 7 | No es que + subjuntivo, no porque + subjuntivo: отрицание причины | Condizionale цитаты и неподтверждённой новости |
 | 8 | Средний род lo: lo + прил. + que, lo de, a lo + сущ. | Вынесение: Il libro l'ho letto; L'ho letto, il libro |
 | 9 | Выделительные конструкции: fue ella quien, es aquí donde, lo que necesito es | Выделительные конструкции: È Marco che ha chiamato, È qui che |
 | 10 | Порядок слов и вынесение темы: El libro lo compré yo | Номинализация и канцелярский стиль: la presa di posizione, effettuare |
 | 11 | Номинализация и официальный стиль: la toma de decisiones, llevar a cabo | Коллокации: prendere una decisione, fare caso, dare retta |
-| 12 | Коллокации и управление: hacer caso, darse cuenta de, tener en cuenta | Идиомы: avere le mani bucate, non vedere l'ora, costare un occhio |
-| 13 | Идиомы: meter la pata, tomar el pelo, echar de menos | Ложные друзья для русскоязычных: magazzino, camera, palazzo, firma |
-| 14 | Ложные друзья для русскоязычных: constipado, embarazada, carpeta | Официальный регистр: Lei в письме, формулы начала и конца письма |
-| 15 | Официальный регистр: usted в письме, Estimado/a, Le saluda atentamente | Аргументация: tuttavia, pertanto, ciononostante, dal momento che |
-| 16 | Аргументация: no obstante, por consiguiente, dicho esto, a su vez | Косвенная речь с глаголами esortare, rimproverare, negare di |
-| 17 | Косвенная речь с глаголами advertir, reprochar, negar | Ci и ne в сложных случаях: ne партитивное и тематическое, ci при глаголах |
-| 18 | Se в сложных случаях: se aspectual (comerse, leerse), se contrató a | Артикль: где ставится и где пропускается |
+| 12 | Глагольные сочетания: hacer caso, dar pie, poner en duda, tomar partido | Идиомы: avere le mani bucate, non vedere l'ora, costare un occhio |
+| 13 | Идиомы: meter la pata, tomar el pelo, echar de menos | Ложные друзья: firma, fattoria, morbido, cantina, ditta |
+| 14 | Ложные друзья: embarazada, éxito, suceso, largo, exquisito | Официальный регистр: Lei в письме, формулы начала и конца письма |
+| 15 | Официальный регистр: usted в письме, Estimado/a, Le saluda atentamente | Строим аргумент: innanzitutto, va detto che, ciò detto, ne consegue che, in definitiva |
+| 16 | Строим аргумент: en primer lugar, cabe destacar, dicho esto, a su vez, en definitiva | Косвенная речь с глаголами esortare, rimproverare, negare di |
+| 17 | Косвенная речь с глаголами advertir, reprochar, negar, sugerir | Ci и ne в сложных случаях: ne партитивное и тематическое, crederci, tenerci |
+| 18 | Se аспектуальное: comerse, leerse, saberse, creerse | Артикль: где ставится и где пропускается |
 | 19 | Артикль: где ставится и где пропускается | Трудные предлоги: da (da solo, cosa da fare), su, per |
-| 20 | Трудные предлоги: por и para C1, a перед одушевлённым дополнением | Глаголы с двумя вспомогательными: correre, salire, finire, cambiare |
+| 20 | Por и para C1, предлог a перед одушевлённым дополнением | Глаголы с двумя вспомогательными: correre, salire, finire, cambiare |
 
 **Новые виды заданий.** Их можно проверить автоматически, без сервера:
 

@@ -1,0 +1,184 @@
+{
+  "id": "c1.04-condiciones-c1",
+  "district": "C1",
+  "order": 4,
+  "title": "Условия C1: de + infinitivo, siempre y cuando, con que",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Условие можно выразить без «si». **De + infinitivo**: De haberlo sabido... (если бы я знал). **Siempre y cuando** и **en el supuesto de que** + subjuntivo — «при условии что», «на случай если». **Con que** + subjuntivo — «достаточно, чтобы». **Como** + subjuntivo — угроза или предупреждение."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Оборот",
+        "Пример",
+        "Перевод"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "de + infinitivo",
+            "De haberlo sabido, habría venido.",
+            "Если бы я знал, пришёл бы."
+          ]
+        },
+        {
+          "cells": [
+            "siempre y cuando",
+            "Te lo dejo siempre y cuando lo cuides.",
+            "Одолжу, если будешь беречь."
+          ]
+        },
+        {
+          "cells": [
+            "en el supuesto de que",
+            "En el supuesto de que falte alguien, llámame.",
+            "Если кого-то не будет, звони."
+          ]
+        },
+        {
+          "cells": [
+            "con que",
+            "Con que me avises, basta.",
+            "Достаточно, чтобы ты предупредил."
+          ]
+        },
+        {
+          "cells": [
+            "como + subj.",
+            "Como no vengas, me enfado.",
+            "Если не придёшь, я обижусь."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "«Como» с subjuntivo — всегда угроза или предупреждение. С индикативом «como» значит «так как»: Como llueve, no salgo."
+    }
+  ],
+  "examples": [
+    {
+      "es": "De haberlo sabido, habría venido antes.",
+      "ru": "Если бы я знал, пришёл бы раньше."
+    },
+    {
+      "es": "Te dejo el coche siempre y cuando lo devuelvas lleno.",
+      "ru": "Одолжу машину при условии, что вернёшь её с полным баком."
+    },
+    {
+      "es": "Con que me avises una hora antes, basta.",
+      "ru": "Достаточно предупредить меня за час."
+    },
+    {
+      "es": "Como no pagues, el banco te embargará la casa.",
+      "ru": "Если не заплатишь, банк арестует дом."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "c1.04-condiciones-c1.1",
+      "kind": "choose",
+      "prompt": "«Если бы я знал, я бы тебе сказал»:",
+      "options": [
+        "De haberlo sabido, te lo habría dicho.",
+        "De lo haber sabido, te lo habría dicho.",
+        "De haberlo sabido, te lo he dicho."
+      ],
+      "answer": 0,
+      "explain": "De + infinitivo compuesto (haber + participio) — нереальное условие в прошлом, местоимение приклеено к haber."
+    },
+    {
+      "id": "c1.04-condiciones-c1.2",
+      "kind": "gap",
+      "sentence": "Puedes usar la sala siempre y cuando la ___ limpia.",
+      "ru": "Можешь пользоваться залом при условии, что оставишь его чистым.",
+      "options": [
+        "dejes",
+        "dejas",
+        "dejarás"
+      ],
+      "answer": 0,
+      "explain": "Siempre y cuando + subjuntivo."
+    },
+    {
+      "id": "c1.04-condiciones-c1.3",
+      "kind": "truefalse",
+      "statement": "«Como no vengas...» — это угроза или предупреждение: «если не придёшь...».",
+      "answer": true,
+      "explain": "Como + subjuntivo — условие с оттенком угрозы."
+    },
+    {
+      "id": "c1.04-condiciones-c1.4",
+      "kind": "build",
+      "ru": "Достаточно, чтобы ты меня предупредил.",
+      "answer": "Con que me avises, basta.",
+      "alt": [
+        "Basta con que me avises."
+      ],
+      "extra": [
+        "avisas"
+      ],
+      "explain": "Con que + subjuntivo — «достаточно, чтобы»."
+    },
+    {
+      "id": "c1.04-condiciones-c1.5",
+      "kind": "type",
+      "sentence": "En el supuesto de que no ___ el tren, tomaremos un taxi.",
+      "ru": "На случай, если поезд не придёт, возьмём такси.",
+      "hint": "llegar",
+      "answer": "llegue",
+      "explain": "En el supuesto de que + subjuntivo."
+    },
+    {
+      "id": "c1.04-condiciones-c1.6",
+      "kind": "transform",
+      "source": "Si llueve mañana, el concierto se suspende.",
+      "keyword": "en caso de que",
+      "ru": "Если завтра пойдёт дождь, концерт отменят.",
+      "answer": "En caso de que llueva mañana, el concierto se suspende.",
+      "alt": [
+        "El concierto se suspende en caso de que llueva mañana."
+      ],
+      "explain": "En caso de que + subjuntivo: llueva."
+    },
+    {
+      "id": "c1.04-condiciones-c1.7",
+      "kind": "fix",
+      "sentence": "Te presto el libro siempre y cuando me lo devuelves.",
+      "ru": "Одолжу книгу при условии, что вернёшь.",
+      "wrong": 9,
+      "answer": "devuelvas",
+      "explain": "Siempre y cuando + subjuntivo: devuelvas."
+    },
+    {
+      "id": "c1.04-condiciones-c1.8",
+      "kind": "register",
+      "source": "Como no pagues, te quedas sin luz.",
+      "to": "formal",
+      "answer": "En caso de impago, se le cortará el suministro.",
+      "extra": [
+        "pagues",
+        "te"
+      ],
+      "explain": "Официально: en caso de impago, безличное «se le cortará», «el suministro» вместо «la luz»."
+    },
+    {
+      "id": "c1.04-condiciones-c1.9",
+      "kind": "cloze",
+      "text": "___ haberlo sabido, habría venido. Te ayudo ___ me invites a cenar.",
+      "ru": "Если бы я знал, пришёл бы. Помогу тебе при условии, что ты пригласишь меня на ужин.",
+      "answers": [
+        [
+          "de"
+        ],
+        [
+          "siempre y cuando",
+          "siempre que"
+        ]
+      ],
+      "explain": "De + infinitivo — «если бы»; siempre y cuando (siempre que) + subjuntivo — «при условии что»."
+    }
+  ]
+}

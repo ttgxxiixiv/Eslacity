@@ -1,0 +1,164 @@
+{
+  "id": "c1.09-frasi-scisse",
+  "district": "C1",
+  "order": 9,
+  "title": "Выделение: è Marco che ha chiamato",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Чтобы выделить часть фразы, её ставят в рамку **essere ... che**: È Marco che ha chiamato. Вместо «che» + глагол часто ставят **a** + инфинитив: È stato Marco a chiamare. Ещё один способ — **quello che ... è**: Quello che voglio è dormire."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Что выделяем",
+        "Пример",
+        "Перевод"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "человека",
+            "È stato il commissario a risolvere il caso.",
+            "Именно комиссар раскрыл дело."
+          ]
+        },
+        {
+          "cells": [
+            "место",
+            "È qui che ci siamo conosciuti.",
+            "Именно здесь мы познакомились."
+          ]
+        },
+        {
+          "cells": [
+            "время",
+            "È stato allora che ho capito.",
+            "Именно тогда я понял."
+          ]
+        },
+        {
+          "cells": [
+            "предмет",
+            "Quello che mi serve è una vacanza.",
+            "Что мне нужно, так это отпуск."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "В прошедшем времени essere согласуется с выделенным словом: È stata lei a dirmelo, Sono stati i vicini a chiamare."
+    }
+  ],
+  "examples": [
+    {
+      "es": "È stato il commissario Rinaldi a risolvere il caso.",
+      "ru": "Именно комиссар Ринальди раскрыл дело."
+    },
+    {
+      "es": "È in questo bar che si sono conosciuti i miei genitori.",
+      "ru": "Именно в этом баре познакомились мои родители."
+    },
+    {
+      "es": "Quello che mi serve è una vacanza, dice Aldo.",
+      "ru": "Что мне нужно, так это отпуск, говорит Альдо."
+    },
+    {
+      "es": "È stato allora che ho capito tutto.",
+      "ru": "Именно тогда я всё понял."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "c1.09-frasi-scisse.1",
+      "kind": "choose",
+      "prompt": "«Именно здесь мы познакомились»:",
+      "options": [
+        "È qui che ci siamo conosciuti.",
+        "È qui chi ci siamo conosciuti.",
+        "È qui quando ci siamo conosciuti."
+      ],
+      "answer": 0,
+      "explain": "Место выделяют рамкой è ... che."
+    },
+    {
+      "id": "c1.09-frasi-scisse.2",
+      "kind": "gap",
+      "sentence": "Sono stati i vicini ___ chiamare la polizia.",
+      "ru": "Это соседи вызвали полицию.",
+      "options": [
+        "a",
+        "di",
+        "da"
+      ],
+      "answer": 0,
+      "explain": "Essere + выделенное + a + инфинитив."
+    },
+    {
+      "id": "c1.09-frasi-scisse.3",
+      "kind": "truefalse",
+      "statement": "«Quello che voglio è dormire» подчёркивает, чего именно я хочу.",
+      "answer": true,
+      "explain": "Quello che ... è — выделение предмета или действия."
+    },
+    {
+      "id": "c1.09-frasi-scisse.4",
+      "kind": "build",
+      "ru": "Именно тогда я всё понял.",
+      "answer": "È stato allora che ho capito tutto.",
+      "extra": [
+        "quando"
+      ],
+      "explain": "Время выделяют рамкой è stato ... che."
+    },
+    {
+      "id": "c1.09-frasi-scisse.5",
+      "kind": "type",
+      "sentence": "È ___ lei a dirmelo, non Marco.",
+      "ru": "Это она мне сказала, а не Марко.",
+      "hint": "essere, passato prossimo",
+      "answer": "stata",
+      "explain": "Essere согласуется с «lei»: è stata."
+    },
+    {
+      "id": "c1.09-frasi-scisse.6",
+      "kind": "transform",
+      "source": "Il commissario Rinaldi ha risolto il caso.",
+      "keyword": "è stato",
+      "ru": "Именно комиссар Ринальди раскрыл дело.",
+      "answer": "È stato il commissario Rinaldi a risolvere il caso.",
+      "alt": [
+        "È stato il commissario Rinaldi che ha risolto il caso."
+      ],
+      "explain": "Человека выделяют рамкой è stato ... a + инфинитив."
+    },
+    {
+      "id": "c1.09-frasi-scisse.7",
+      "kind": "paraphrase",
+      "sentence": "Quello che mi dà fastidio è il rumore.",
+      "options": [
+        "Mi dà fastidio soprattutto il rumore.",
+        "Il rumore non mi dà fastidio.",
+        "A volte il rumore mi dà un po' fastidio."
+      ],
+      "answer": 0,
+      "explain": "Выделение показывает главное: больше всего мешает шум."
+    },
+    {
+      "id": "c1.09-frasi-scisse.8",
+      "kind": "cloze",
+      "text": "È a Napoli ___ l'ho conosciuta, ed è stata lei ___ insegnarmi a cucinare.",
+      "ru": "Именно в Неаполе я с ней познакомился, и именно она научила меня готовить.",
+      "answers": [
+        [
+          "che"
+        ],
+        [
+          "a"
+        ]
+      ],
+      "explain": "Место — è ... che, человек — è stata ... a + инфинитив."
+    }
+  ]
+}

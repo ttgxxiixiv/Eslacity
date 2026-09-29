@@ -1,0 +1,155 @@
+{
+  "id": "c1.08-lo-neutro",
+  "district": "C1",
+  "order": 8,
+  "title": "Lo: lo difícil que es, lo de ayer, a lo grande",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Средний артикль **lo** делает из прилагательного или целой ситуации понятие. **Lo + прилагательное + que** — «как», «насколько»: lo cansada que estoy. **Lo mejor, lo malo** — «самое лучшее», «плохо то, что». **Lo de** + существительное — «история с», «то, что касается». **A lo** + существительное — «в стиле»: a lo grande, a lo loco."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Оборот",
+        "Пример",
+        "Перевод"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "lo + прил. + que",
+            "No sabes lo cansada que estoy.",
+            "Ты не представляешь, как я устала."
+          ]
+        },
+        {
+          "cells": [
+            "lo + прил.",
+            "Lo mejor del barrio es el mercado.",
+            "Лучшее в районе — рынок."
+          ]
+        },
+        {
+          "cells": [
+            "lo de",
+            "Lo de ayer no volverá a pasar.",
+            "То, что было вчера, не повторится."
+          ]
+        },
+        {
+          "cells": [
+            "a lo + сущ.",
+            "Lo celebraron a lo grande.",
+            "Отпраздновали с размахом."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "В «lo + прилагательное + que» прилагательное согласуется с тем, о ком речь: lo cansadas que estamos, lo caro que es el piso."
+    }
+  ],
+  "examples": [
+    {
+      "es": "No sabes lo cansada que estoy después de la guardia.",
+      "ru": "Ты не представляешь, как я устала после дежурства."
+    },
+    {
+      "es": "Lo de la multa ya está arreglado, dice la comisaria Vega.",
+      "ru": "История со штрафом уже улажена, говорит комиссар Вега."
+    },
+    {
+      "es": "Lo mejor de la cafetería de Lola son los churros.",
+      "ru": "Лучшее в кафе Лолы — чуррос."
+    },
+    {
+      "es": "Javi y Marta celebraron la boda a lo grande.",
+      "ru": "Хави и Марта сыграли свадьбу с размахом."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "c1.08-lo-neutro.1",
+      "kind": "choose",
+      "prompt": "«Ты не представляешь, какой он умный»:",
+      "options": [
+        "No te imaginas lo listo que es.",
+        "No te imaginas lo que listo es.",
+        "No te imaginas el listo que es."
+      ],
+      "answer": 0,
+      "explain": "Lo + прилагательное + que + глагол."
+    },
+    {
+      "id": "c1.08-lo-neutro.2",
+      "kind": "gap",
+      "sentence": "¿Te has enterado de lo ___ Marta? Se va a vivir a Italia.",
+      "ru": "Ты слышал про Марту? Она переезжает в Италию.",
+      "options": [
+        "de",
+        "que",
+        "a"
+      ],
+      "answer": 0,
+      "explain": "Lo de + имя — «история с», «новость про»."
+    },
+    {
+      "id": "c1.08-lo-neutro.3",
+      "kind": "truefalse",
+      "statement": "В «lo cansadas que estamos» прилагательное согласуется с подлежащим.",
+      "answer": true,
+      "explain": "Lo — средний род, но прилагательное стоит в роде и числе того, о ком речь."
+    },
+    {
+      "id": "c1.08-lo-neutro.4",
+      "kind": "build",
+      "ru": "Самое лучшее в районе — рынок.",
+      "answer": "Lo mejor del barrio es el mercado.",
+      "extra": [
+        "la"
+      ],
+      "explain": "Lo + прилагательное — «самое ...»"
+    },
+    {
+      "id": "c1.08-lo-neutro.5",
+      "kind": "type",
+      "sentence": "Hicieron la fiesta a ___ grande.",
+      "ru": "Они закатили праздник с размахом.",
+      "hint": "артикль",
+      "answer": "lo",
+      "explain": "A lo grande — с размахом."
+    },
+    {
+      "id": "c1.08-lo-neutro.6",
+      "kind": "fix",
+      "sentence": "No sabes lo contento que están mis padres.",
+      "ru": "Ты не представляешь, как рады мои родители.",
+      "wrong": 3,
+      "answer": "contentos",
+      "explain": "Прилагательное согласуется с «mis padres»: contentos."
+    },
+    {
+      "id": "c1.08-lo-neutro.7",
+      "kind": "transform",
+      "source": "Es increíble cómo ha crecido tu hijo.",
+      "keyword": "lo que",
+      "ru": "Невероятно, как вырос твой сын.",
+      "answer": "Es increíble lo que ha crecido tu hijo.",
+      "explain": "Lo que + глагол — «насколько», «как»."
+    },
+    {
+      "id": "c1.08-lo-neutro.8",
+      "kind": "register",
+      "source": "Lo de la multa fue un rollo.",
+      "to": "formal",
+      "answer": "El asunto de la multa resultó muy molesto.",
+      "extra": [
+        "rollo",
+        "lo"
+      ],
+      "explain": "Официально: «el asunto de» вместо «lo de», «resultó muy molesto» вместо «fue un rollo»."
+    }
+  ]
+}

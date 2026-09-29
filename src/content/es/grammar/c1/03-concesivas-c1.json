@@ -1,0 +1,170 @@
+{
+  "id": "c1.03-concesivas-c1",
+  "district": "C1",
+  "order": 3,
+  "title": "Уступки C1: aun cuando, si bien, así, y eso que",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Кроме aunque есть уступительные связки с оттенками. **Aun cuando** — «даже если» (с subjuntivo) или «хотя» (с индикативом). **Si bien** — книжное «хотя», с индикативом. **Así** + subjuntivo — книжное «даже если». **Y eso que** — разговорное «а ведь», с индикативом."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Связка",
+        "Пример",
+        "Регистр"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "aun cuando + subj.",
+            "Aun cuando llueva, iremos.",
+            "нейтральный"
+          ]
+        },
+        {
+          "cells": [
+            "si bien + ind.",
+            "Si bien es caro, merece la pena.",
+            "книжный"
+          ]
+        },
+        {
+          "cells": [
+            "así + subj.",
+            "No iré, así me lo pidan de rodillas.",
+            "книжный, эмоциональный"
+          ]
+        },
+        {
+          "cells": [
+            "y eso que + ind.",
+            "Suspendió, y eso que estudió.",
+            "разговорный"
+          ]
+        },
+        {
+          "cells": [
+            "a pesar de que",
+            "A pesar de que llovía, salimos.",
+            "нейтральный"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "**Así** в этом значении ставят после главной фразы: No lo haré, así me paguen un millón."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Si bien el piso es pequeño, tiene mucha luz.",
+      "ru": "Хотя квартира маленькая, в ней много света."
+    },
+    {
+      "es": "No vuelvo a ese hotel, así me lo regalen.",
+      "ru": "Не вернусь в этот отель, даже если мне его подарят."
+    },
+    {
+      "es": "Nacho suspendió, y eso que estudió todo el mes.",
+      "ru": "Начо провалился, а ведь занимался весь месяц."
+    },
+    {
+      "es": "Aun cuando llueva, el mercado abre.",
+      "ru": "Даже если пойдёт дождь, рынок откроется."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "c1.03-concesivas-c1.1",
+      "kind": "choose",
+      "prompt": "«Он опоздал, а ведь вышел заранее»:",
+      "options": [
+        "Llegó tarde, y eso que salió con tiempo.",
+        "Llegó tarde, y eso que saliera con tiempo.",
+        "Llegó tarde, así salió con tiempo."
+      ],
+      "answer": 0,
+      "explain": "Y eso que + индикатив, разговорное «а ведь»."
+    },
+    {
+      "id": "c1.03-concesivas-c1.2",
+      "kind": "gap",
+      "sentence": "No lo haré, así me ___ un millón.",
+      "ru": "Не сделаю, даже если мне заплатят миллион.",
+      "options": [
+        "paguen",
+        "pagan",
+        "pagarán"
+      ],
+      "answer": 0,
+      "explain": "Así в значении «даже если» — с subjuntivo."
+    },
+    {
+      "id": "c1.03-concesivas-c1.3",
+      "kind": "truefalse",
+      "statement": "«Si bien» — книжный синоним «aunque», после него обычно индикатив.",
+      "answer": true,
+      "explain": "Si bien es tarde, podemos intentarlo."
+    },
+    {
+      "id": "c1.03-concesivas-c1.4",
+      "kind": "build",
+      "ru": "Хотя квартира маленькая, в ней много света.",
+      "answer": "Si bien el piso es pequeño, tiene mucha luz.",
+      "extra": [
+        "sea"
+      ],
+      "explain": "Si bien + индикатив: es pequeño."
+    },
+    {
+      "id": "c1.03-concesivas-c1.5",
+      "kind": "type",
+      "sentence": "Aun cuando ___ tarde, te esperaré.",
+      "ru": "Даже если ты придёшь поздно, я тебя подожду.",
+      "hint": "llegar, tú",
+      "answer": "llegues",
+      "explain": "Aun cuando о будущем — subjuntivo."
+    },
+    {
+      "id": "c1.03-concesivas-c1.6",
+      "kind": "register",
+      "source": "Suspendió, y eso que estudió un montón.",
+      "to": "formal",
+      "options": [
+        "Suspendió, si bien había estudiado con dedicación.",
+        "Suspendió, y eso que se lo curró un montón.",
+        "Aprobó, si bien había estudiado con dedicación."
+      ],
+      "answer": 0,
+      "explain": "Официально: si bien вместо y eso que, «con dedicación» вместо «un montón». Третий вариант меняет смысл."
+    },
+    {
+      "id": "c1.03-concesivas-c1.7",
+      "kind": "combine",
+      "first": "El restaurante es caro.",
+      "second": "Siempre está lleno.",
+      "connector": "a pesar de que",
+      "ru": "Хотя ресторан дорогой, он всегда полон.",
+      "answer": "A pesar de que el restaurante es caro, siempre está lleno.",
+      "alt": [
+        "El restaurante siempre está lleno a pesar de que es caro."
+      ],
+      "explain": "A pesar de que о факте — индикатив."
+    },
+    {
+      "id": "c1.03-concesivas-c1.8",
+      "kind": "paraphrase",
+      "sentence": "No me convencerás, así me lo repitas cien veces.",
+      "options": [
+        "Aunque me lo repitas cien veces, no me convencerás.",
+        "Si me lo repites cien veces, me convencerás.",
+        "Como me lo repites cien veces, no me convences."
+      ],
+      "answer": 0,
+      "explain": "Así + subjuntivo = aunque + subjuntivo: «даже если»."
+    }
+  ]
+}

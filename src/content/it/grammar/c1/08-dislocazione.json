@@ -1,0 +1,155 @@
+{
+  "id": "c1.08-dislocazione",
+  "district": "C1",
+  "order": 8,
+  "title": "Вынесение: il libro l'ho letto",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "В живой речи тему фразы выносят в начало или в конец. Вынесенное прямое дополнение повторяют местоимением: **Il libro l'ho letto** или **L'ho letto, il libro**. С «di» повтор — **ne**: Di questo ne parliamo dopo."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Порядок",
+        "Пример",
+        "Перевод"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "обычный",
+            "Ho letto il libro.",
+            "Я прочитал книгу."
+          ]
+        },
+        {
+          "cells": [
+            "тема в начале",
+            "Il libro l'ho letto.",
+            "Книгу я прочитал."
+          ]
+        },
+        {
+          "cells": [
+            "тема в конце",
+            "L'ho letto, il libro.",
+            "Прочитал я её, книгу."
+          ]
+        },
+        {
+          "cells": [
+            "с di",
+            "Di questo ne parliamo dopo.",
+            "Об этом поговорим потом."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Местоимение согласуется с вынесенным словом, а причастие — с местоимением: Le chiavi le ho lasciate, La torta l'ha fatta la nonna."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Il pane lo compra sempre nonno Gino.",
+      "ru": "Хлеб всегда покупает дедушка Джино."
+    },
+    {
+      "es": "L'ho vista ieri, Giulia.",
+      "ru": "Я видел её вчера, Джулию."
+    },
+    {
+      "es": "Di questa storia ne parliamo domani.",
+      "ru": "Об этой истории поговорим завтра."
+    },
+    {
+      "es": "Le chiavi le ho lasciate sul tavolo.",
+      "ru": "Ключи я оставил на столе."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "c1.08-dislocazione.1",
+      "kind": "choose",
+      "prompt": "«Этот фильм я уже видел»:",
+      "options": [
+        "Quel film l'ho già visto.",
+        "Quel film ho già visto lo.",
+        "Quel film gli ho già visto."
+      ],
+      "answer": 0,
+      "explain": "Вынесенное дополнение повторяют местоимением: l'ho visto."
+    },
+    {
+      "id": "c1.08-dislocazione.2",
+      "kind": "gap",
+      "sentence": "Le chiavi ___ ho lasciate in macchina.",
+      "ru": "Ключи я оставил в машине.",
+      "options": [
+        "le",
+        "li",
+        "la"
+      ],
+      "answer": 0,
+      "explain": "Le chiavi — женский род, множественное число: le."
+    },
+    {
+      "id": "c1.08-dislocazione.3",
+      "kind": "truefalse",
+      "statement": "В «Il caffè lo prendo amaro» местоимение «lo» повторяет вынесенное дополнение.",
+      "answer": true,
+      "explain": "Без повтора (Il caffè prendo amaro) фраза звучит неправильно."
+    },
+    {
+      "id": "c1.08-dislocazione.4",
+      "kind": "build",
+      "ru": "Хлеб всегда покупает дедушка Джино.",
+      "answer": "Il pane lo compra sempre nonno Gino.",
+      "extra": [
+        "la"
+      ],
+      "explain": "Вынесенное «il pane» повторяет lo."
+    },
+    {
+      "id": "c1.08-dislocazione.5",
+      "kind": "type",
+      "sentence": "Di questa storia ___ parliamo domani.",
+      "ru": "Об этой истории поговорим завтра.",
+      "hint": "частица",
+      "answer": "ne",
+      "explain": "Вынесенное дополнение с di повторяет ne."
+    },
+    {
+      "id": "c1.08-dislocazione.6",
+      "kind": "fix",
+      "sentence": "Le lettere li ho spedite ieri.",
+      "ru": "Письма я отправил вчера.",
+      "wrong": 2,
+      "answer": "le",
+      "explain": "Местоимение согласуется с «le lettere»: le."
+    },
+    {
+      "id": "c1.08-dislocazione.7",
+      "kind": "transform",
+      "source": "Ho comprato io il regalo, non mio fratello.",
+      "keyword": "l'ho",
+      "ru": "Подарок купил я, а не брат.",
+      "answer": "Il regalo l'ho comprato io, non mio fratello.",
+      "explain": "Тема в начале, повтор местоимением: il regalo l'ho comprato."
+    },
+    {
+      "id": "c1.08-dislocazione.8",
+      "kind": "paraphrase",
+      "sentence": "Marco non lo sopporto.",
+      "options": [
+        "Non sopporto Marco.",
+        "Marco non mi sopporta.",
+        "Marco non sopporta nessuno."
+      ],
+      "answer": 0,
+      "explain": "Порядок слов другой, смысл тот же: я не выношу Марко."
+    }
+  ]
+}

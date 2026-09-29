@@ -1,0 +1,163 @@
+{
+  "id": "c1.03-concessive-c1",
+  "district": "C1",
+  "order": 3,
+  "title": "Уступки C1: per quanto, pur + gerundio, sebbene",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Уступку можно выразить по-разному. **Per quanto** + congiuntivo — «сколько бы ни», «как бы ни». **Pur** + gerundio — «хотя», без союза и спряжения. **Anche se** — с индикативом, **sebbene** и **benché** — с congiuntivo."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Связка",
+        "Пример",
+        "Перевод"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "per quanto + cong.",
+            "Per quanto mi sforzi, non ricordo.",
+            "Как ни стараюсь, не помню."
+          ]
+        },
+        {
+          "cells": [
+            "pur + gerundio",
+            "Pur essendo stanco, ha finito.",
+            "Хотя он устал, он закончил."
+          ]
+        },
+        {
+          "cells": [
+            "anche se + ind.",
+            "Anche se piove, esco.",
+            "Хоть и идёт дождь, я выхожу."
+          ]
+        },
+        {
+          "cells": [
+            "sebbene / benché + cong.",
+            "Sebbene sia caro, è pieno.",
+            "Хотя дорого, там полно."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Pur + gerundio звучит книжно и компактно: Pur avendo studiato, non ha passato l'esame."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Per quanto mi sforzi, non ricordo il suo nome.",
+      "ru": "Как ни стараюсь, не могу вспомнить его имя."
+    },
+    {
+      "es": "Pur essendo stanco, Enzo ha finito il turno.",
+      "ru": "Хотя Энцо устал, он доработал смену."
+    },
+    {
+      "es": "Anche se piove, il mercato apre.",
+      "ru": "Хоть и идёт дождь, рынок открыт."
+    },
+    {
+      "es": "Sebbene sia caro, il ristorante di Salvatore è sempre pieno.",
+      "ru": "Хотя ресторан Сальваторе дорогой, он всегда полон."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "c1.03-concessive-c1.1",
+      "kind": "choose",
+      "prompt": "«Хотя он и устал, он закончил работу»:",
+      "options": [
+        "Pur essendo stanco, ha finito il lavoro.",
+        "Pur fosse stanco, ha finito il lavoro.",
+        "Pur è stanco, ha finito il lavoro."
+      ],
+      "answer": 0,
+      "explain": "Pur + gerundio: pur essendo."
+    },
+    {
+      "id": "c1.03-concessive-c1.2",
+      "kind": "gap",
+      "sentence": "Per quanto ___, non riesco a capirlo.",
+      "ru": "Сколько бы я ни старался, не могу его понять.",
+      "options": [
+        "mi sforzi",
+        "mi sforzo",
+        "sforzarmi"
+      ],
+      "answer": 0,
+      "explain": "Per quanto + congiuntivo."
+    },
+    {
+      "id": "c1.03-concessive-c1.3",
+      "kind": "truefalse",
+      "statement": "После «anche se» обычно ставят индикатив, после «sebbene» — congiuntivo.",
+      "answer": true,
+      "explain": "Anche se piove / sebbene piova."
+    },
+    {
+      "id": "c1.03-concessive-c1.4",
+      "kind": "build",
+      "ru": "Хотя ресторан дорогой, он всегда полон.",
+      "answer": "Sebbene sia caro, il ristorante è sempre pieno.",
+      "extra": [
+        "anche"
+      ],
+      "explain": "Sebbene + congiuntivo: sia."
+    },
+    {
+      "id": "c1.03-concessive-c1.5",
+      "kind": "type",
+      "sentence": "Anche se ___ tardi, ti aspetto.",
+      "ru": "Даже если ты придёшь поздно, я тебя подожду.",
+      "hint": "arrivare, tu",
+      "answer": "arrivi",
+      "explain": "Anche se + индикатив."
+    },
+    {
+      "id": "c1.03-concessive-c1.6",
+      "kind": "register",
+      "source": "È andato male all'esame, anche se ha studiato un sacco.",
+      "to": "formal",
+      "options": [
+        "Non ha superato l'esame, pur avendo studiato con impegno.",
+        "All'esame è andata male, anche se ha sgobbato un casino.",
+        "Ha superato l'esame, pur avendo studiato con impegno."
+      ],
+      "answer": 0,
+      "explain": "Официально: pur + gerundio и «con impegno» вместо «un sacco». Третий вариант меняет смысл."
+    },
+    {
+      "id": "c1.03-concessive-c1.7",
+      "kind": "combine",
+      "first": "Il ristorante è caro.",
+      "second": "È sempre pieno.",
+      "connector": "benché",
+      "ru": "Хотя ресторан дорогой, он всегда полон.",
+      "answer": "Benché il ristorante sia caro, è sempre pieno.",
+      "alt": [
+        "Il ristorante è sempre pieno, benché sia caro."
+      ],
+      "explain": "Benché + congiuntivo: sia."
+    },
+    {
+      "id": "c1.03-concessive-c1.8",
+      "kind": "paraphrase",
+      "sentence": "Per quanto me lo ripeta, non mi convincerà.",
+      "options": [
+        "Anche se me lo ripete cento volte, non mi convincerà.",
+        "Se me lo ripete, mi convincerà.",
+        "Siccome me lo ripete, non mi convince."
+      ],
+      "answer": 0,
+      "explain": "Per quanto — «сколько бы ни»: повторы не помогут."
+    }
+  ]
+}

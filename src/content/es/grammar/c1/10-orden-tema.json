@@ -1,0 +1,155 @@
+{
+  "id": "c1.10-orden-tema",
+  "district": "C1",
+  "order": 10,
+  "title": "Вынесение темы: el libro lo compré yo",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "В живой речи то, о чём говорят, ставят в начало фразы. Если в начало вынесено **прямое дополнение** с артиклем, его повторяют местоимением: El libro **lo** compré yo. С косвенным — тоже: A tu hermana **le** di las llaves. Без артикля повтора нет: Dinero no tengo."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Порядок",
+        "Пример",
+        "Перевод"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "обычный",
+            "Compré el libro ayer.",
+            "Я купил книгу вчера."
+          ]
+        },
+        {
+          "cells": [
+            "тема в начале",
+            "El libro lo compré ayer.",
+            "Книгу я купил вчера."
+          ]
+        },
+        {
+          "cells": [
+            "лицо в начале",
+            "A María no la he visto.",
+            "Марию я не видел."
+          ]
+        },
+        {
+          "cells": [
+            "без артикля",
+            "Tiempo no tengo.",
+            "Времени у меня нет."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Местоимение согласуется с вынесенным словом: Las llaves las dejé; Los papeles los firmé; La carta la escribí."
+    }
+  ],
+  "examples": [
+    {
+      "es": "El pan lo compra siempre Paco.",
+      "ru": "Хлеб всегда покупает Пако."
+    },
+    {
+      "es": "A tu hermana no la he visto hoy.",
+      "ru": "Твою сестру я сегодня не видел."
+    },
+    {
+      "es": "Eso ya lo sabíamos, abuelo Manolo.",
+      "ru": "Это мы уже знали, дедушка Маноло."
+    },
+    {
+      "es": "Las llaves las dejé en la mesa de la entrada.",
+      "ru": "Ключи я оставил на столе в прихожей."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "c1.10-orden-tema.1",
+      "kind": "choose",
+      "prompt": "«Эту книгу я уже прочитал»:",
+      "options": [
+        "Ese libro ya lo he leído.",
+        "Ese libro ya he leído.",
+        "Ese libro ya le he leído lo."
+      ],
+      "answer": 0,
+      "explain": "Вынесенное дополнение повторяют местоимением: lo."
+    },
+    {
+      "id": "c1.10-orden-tema.2",
+      "kind": "gap",
+      "sentence": "A mis abuelas no ___ veo desde Navidad.",
+      "ru": "Бабушек я не видел с Рождества.",
+      "options": [
+        "las",
+        "les",
+        "los"
+      ],
+      "answer": 0,
+      "explain": "Прямое дополнение женского рода — las."
+    },
+    {
+      "id": "c1.10-orden-tema.3",
+      "kind": "truefalse",
+      "statement": "Если прямое дополнение вынесено в начало, его повторяют местоимением: «La carta la escribí yo».",
+      "answer": true,
+      "explain": "Без повтора (La carta escribí yo) фраза звучит неправильно."
+    },
+    {
+      "id": "c1.10-orden-tema.4",
+      "kind": "build",
+      "ru": "Ключи я оставил на столе.",
+      "answer": "Las llaves las dejé en la mesa.",
+      "extra": [
+        "les"
+      ],
+      "explain": "Вынесенное «las llaves» повторяет las."
+    },
+    {
+      "id": "c1.10-orden-tema.5",
+      "kind": "type",
+      "sentence": "Esa película ya ___ he visto dos veces.",
+      "ru": "Этот фильм я уже видел дважды.",
+      "hint": "местоимение",
+      "answer": "la",
+      "explain": "La película — женский род: la he visto."
+    },
+    {
+      "id": "c1.10-orden-tema.6",
+      "kind": "fix",
+      "sentence": "La tarta lo hizo mi abuela.",
+      "ru": "Торт испекла моя бабушка.",
+      "wrong": 2,
+      "answer": "la",
+      "explain": "Местоимение согласуется с «la tarta»: la hizo."
+    },
+    {
+      "id": "c1.10-orden-tema.7",
+      "kind": "transform",
+      "source": "Compré el regalo yo, no mi hermano.",
+      "keyword": "lo",
+      "ru": "Подарок купил я, а не брат.",
+      "answer": "El regalo lo compré yo, no mi hermano.",
+      "explain": "Тема в начале, повтор местоимением: el regalo lo compré."
+    },
+    {
+      "id": "c1.10-orden-tema.8",
+      "kind": "paraphrase",
+      "sentence": "A Pedro no lo soporto.",
+      "options": [
+        "No soporto a Pedro.",
+        "Pedro no me soporta.",
+        "Pedro no soporta a nadie."
+      ],
+      "answer": 0,
+      "explain": "Порядок слов другой, смысл тот же: я не выношу Педро."
+    }
+  ]
+}

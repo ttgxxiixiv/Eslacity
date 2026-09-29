@@ -1,0 +1,168 @@
+{
+  "id": "c1.09-enfaticas",
+  "district": "C1",
+  "order": 9,
+  "title": "Выделение: fue ella quien, es aquí donde",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Чтобы выделить часть фразы, её ставят в рамку **ser ... que / quien / donde / cuando**. Время ser обычно совпадает со временем глагола: Fue ella quien llamó. Ещё один способ — **lo que ... es**: Lo que necesito es dormir."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Что выделяем",
+        "Пример",
+        "Перевод"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "человека",
+            "Fue la comisaria quien resolvió el caso.",
+            "Именно комиссар раскрыла дело."
+          ]
+        },
+        {
+          "cells": [
+            "место",
+            "Es aquí donde nos conocimos.",
+            "Именно здесь мы познакомились."
+          ]
+        },
+        {
+          "cells": [
+            "время",
+            "Fue entonces cuando lo entendí.",
+            "Именно тогда я понял."
+          ]
+        },
+        {
+          "cells": [
+            "предмет",
+            "Lo que necesito es un buen descanso.",
+            "Что мне нужно, так это хороший отдых."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Со множественным числом — quienes или los que: Fueron mis vecinos quienes llamaron. С yo глагол может стоять в 1-м или 3-м лице: Fui yo quien lo dije / quien lo dijo."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Fue la comisaria Vega quien resolvió el caso del banco.",
+      "ru": "Именно комиссар Вега раскрыла дело банка."
+    },
+    {
+      "es": "Es en este café donde se conocieron mis padres.",
+      "ru": "Именно в этом кафе познакомились мои родители."
+    },
+    {
+      "es": "Lo que necesito es un buen descanso, dice el doctor Ruiz.",
+      "ru": "Что мне нужно, так это хороший отдых, говорит доктор Руис."
+    },
+    {
+      "es": "Fue entonces cuando entendí el problema.",
+      "ru": "Именно тогда я понял проблему."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "c1.09-enfaticas.1",
+      "kind": "choose",
+      "prompt": "«Именно здесь мы познакомились»:",
+      "options": [
+        "Es aquí donde nos conocimos.",
+        "Es aquí quien nos conocimos.",
+        "Es aquí cuando nos conocimos."
+      ],
+      "answer": 0,
+      "explain": "Место выделяют рамкой es ... donde."
+    },
+    {
+      "id": "c1.09-enfaticas.2",
+      "kind": "gap",
+      "sentence": "Fueron mis vecinos ___ llamaron a la policía.",
+      "ru": "Это соседи вызвали полицию.",
+      "options": [
+        "quienes",
+        "quien",
+        "cuando"
+      ],
+      "answer": 0,
+      "explain": "Множественное число — quienes (или los que)."
+    },
+    {
+      "id": "c1.09-enfaticas.3",
+      "kind": "truefalse",
+      "statement": "«Lo que quiero es dormir» подчёркивает, чего именно я хочу.",
+      "answer": true,
+      "explain": "Lo que ... es — выделение предмета или действия."
+    },
+    {
+      "id": "c1.09-enfaticas.4",
+      "kind": "build",
+      "ru": "Именно тогда я всё понял.",
+      "answer": "Fue entonces cuando lo entendí todo.",
+      "extra": [
+        "donde"
+      ],
+      "explain": "Время выделяют рамкой fue ... cuando."
+    },
+    {
+      "id": "c1.09-enfaticas.5",
+      "kind": "type",
+      "sentence": "___ en este bar donde se conocieron mis padres.",
+      "ru": "Именно в этом баре познакомились мои родители.",
+      "hint": "ser",
+      "answer": "Fue",
+      "alt": [
+        "Es"
+      ],
+      "explain": "Рамка выделения ser ... donde; прошлое — fue, настоящее es тоже возможно."
+    },
+    {
+      "id": "c1.09-enfaticas.6",
+      "kind": "transform",
+      "source": "La comisaria Vega resolvió el caso.",
+      "keyword": "fue",
+      "ru": "Именно комиссар Вега раскрыла дело.",
+      "answer": "Fue la comisaria Vega quien resolvió el caso.",
+      "alt": [
+        "Fue la comisaria Vega la que resolvió el caso."
+      ],
+      "explain": "Человека выделяют рамкой fue ... quien (la que)."
+    },
+    {
+      "id": "c1.09-enfaticas.7",
+      "kind": "paraphrase",
+      "sentence": "Lo que me molesta es el ruido.",
+      "options": [
+        "Me molesta sobre todo el ruido.",
+        "No me molesta el ruido.",
+        "El ruido me molesta un poco a veces."
+      ],
+      "answer": 0,
+      "explain": "Выделение показывает главное: больше всего мешает шум."
+    },
+    {
+      "id": "c1.09-enfaticas.8",
+      "kind": "cloze",
+      "text": "Fue en Sevilla ___ la conocí, y fue ella ___ me enseñó a bailar.",
+      "ru": "Именно в Севилье я с ней познакомился, и именно она научила меня танцевать.",
+      "answers": [
+        [
+          "donde"
+        ],
+        [
+          "quien",
+          "la que"
+        ]
+      ],
+      "explain": "Место — donde, человек — quien или la que."
+    }
+  ]
+}

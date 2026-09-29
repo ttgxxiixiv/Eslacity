@@ -591,17 +591,18 @@ describe('свиток главы IV: контент', () => {
 
 describe('validateGuardians', () => {
   const real = (lang: 'es' | 'it') => JSON.parse(readFileSync(join(import.meta.dirname, lang, 'guardians.json'), 'utf8')) as GuardiansFile;
-  it('настоящие стражи обоих языков проходят, у Хранительницы леса испытание на слух', () => {
+  it('настоящие стражи обоих языков проходят, у Хранительницы леса испытание на слух, у главы V Хозяин Эха', () => {
     for (const lang of ['es', 'it'] as const) {
       const file = real(lang);
-      expect(validateGuardians(file, [1, 2, 3, 4])).toEqual([]);
+      expect(validateGuardians(file, [1, 2, 3, 4, 5])).toEqual([]);
       expect(file.guardians.find((g) => g.chapter === 4)?.listen).toBe(true);
+      expect(file.guardians.find((g) => g.chapter === 5)?.name).toBe('Хозяин Эха');
     }
   });
   it('страж главы IV без listen — ошибка', () => {
     const file = real('es');
     const deaf = { guardians: file.guardians.map((g) => (g.chapter === 4 ? { ...g, listen: undefined } : g)) };
-    expect(validateGuardians(deaf, [1, 2, 3, 4]).map((x) => x.msg)).toEqual(['страж этой главы проверяет на слух: нужно listen: true']);
+    expect(validateGuardians(deaf, [1, 2, 3, 4, 5]).map((x) => x.msg)).toEqual(['страж этой главы проверяет на слух: нужно listen: true']);
   });
 });
 

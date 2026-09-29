@@ -1,0 +1,169 @@
+{
+  "id": "c1.05-indefiniti",
+  "district": "C1",
+  "order": 5,
+  "title": "Неопределённые слова C1: alcunché, chicchessia, taluno",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "В книжной и официальной речи встречаются редкие неопределённые слова. **Alcunché** — «что-либо» (в отрицании: ничего). **Chicchessia** — «кто угодно» (в отрицании: никто). **Qualsivoglia** — «любой». **Taluno / taluni** — «некоторые». **Alcuno** в отрицании — «никакой»: senza alcun dubbio."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Слово",
+        "Пример",
+        "Перевод"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "alcunché",
+            "Non ha detto alcunché.",
+            "Он не сказал ничего."
+          ]
+        },
+        {
+          "cells": [
+            "chicchessia",
+            "Non lo direi a chicchessia.",
+            "Я бы никому не сказал."
+          ]
+        },
+        {
+          "cells": [
+            "qualsivoglia",
+            "Qualsivoglia richiesta sarà esaminata.",
+            "Любая просьба будет рассмотрена."
+          ]
+        },
+        {
+          "cells": [
+            "taluni",
+            "Taluni clienti si sono lamentati.",
+            "Некоторые клиенты жаловались."
+          ]
+        },
+        {
+          "cells": [
+            "alcuno (в отрицании)",
+            "Senza alcun dubbio.",
+            "Без всякого сомнения."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Alcuno согласуется и усекается как uno: alcun dubbio, alcuna persona, alcuno sforzo."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Durante l'interrogatorio non ha detto alcunché.",
+      "ru": "На допросе он не сказал ничего."
+    },
+    {
+      "es": "Il commissario Rinaldi non si fida di chicchessia.",
+      "ru": "Комиссар Ринальди никому не доверяет."
+    },
+    {
+      "es": "Taluni clienti si sono lamentati del servizio.",
+      "ru": "Некоторые клиенты жаловались на обслуживание."
+    },
+    {
+      "es": "Senza alcun dubbio è il miglior caffè della città.",
+      "ru": "Без всякого сомнения, это лучший кофе в городе."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "c1.05-indefiniti.1",
+      "kind": "choose",
+      "prompt": "«Он ничего не сказал (книжн.)»:",
+      "options": [
+        "Non ha detto alcunché.",
+        "Non ha detto qualcosa alcunché.",
+        "Ha detto alcunché nessuno."
+      ],
+      "answer": 0,
+      "explain": "Alcunché в отрицании — «ничего»."
+    },
+    {
+      "id": "c1.05-indefiniti.2",
+      "kind": "gap",
+      "sentence": "Lo accetto senza ___ dubbio.",
+      "ru": "Принимаю без всякого сомнения.",
+      "options": [
+        "alcun",
+        "alcuno",
+        "qualche"
+      ],
+      "answer": 0,
+      "explain": "Alcuno усекается перед согласной: alcun dubbio."
+    },
+    {
+      "id": "c1.05-indefiniti.3",
+      "kind": "truefalse",
+      "statement": "«Taluni» — книжный синоним «alcuni».",
+      "answer": true,
+      "explain": "Taluni studenti = alcuni studenti."
+    },
+    {
+      "id": "c1.05-indefiniti.4",
+      "kind": "build",
+      "ru": "Некоторые клиенты жаловались.",
+      "answer": "Taluni clienti si sono lamentati.",
+      "extra": [
+        "taluno"
+      ],
+      "explain": "Taluni — множественное число, согласуется с clienti."
+    },
+    {
+      "id": "c1.05-indefiniti.5",
+      "kind": "type",
+      "sentence": "Non lo direi a ___, nemmeno al mio migliore amico.",
+      "ru": "Я бы никому этого не сказал, даже лучшему другу.",
+      "hint": "кто угодно, книжн.",
+      "answer": "chicchessia",
+      "alt": [
+        "nessuno"
+      ],
+      "explain": "Chicchessia в отрицании — «никому»; разговорно — nessuno."
+    },
+    {
+      "id": "c1.05-indefiniti.6",
+      "kind": "register",
+      "source": "Non ha detto niente di niente.",
+      "to": "formal",
+      "options": [
+        "Non ha dichiarato alcunché.",
+        "Non ha detto un tubo.",
+        "Ha dichiarato qualcosa."
+      ],
+      "answer": 0,
+      "explain": "Официально: «alcunché» вместо «niente di niente». Второй вариант грубоватый разговорный, третий меняет смысл."
+    },
+    {
+      "id": "c1.05-indefiniti.7",
+      "kind": "paraphrase",
+      "sentence": "Qualsivoglia richiesta sarà presa in considerazione.",
+      "options": [
+        "Ogni richiesta, di qualunque tipo, sarà considerata.",
+        "Nessuna richiesta sarà considerata.",
+        "Solo alcune richieste saranno considerate."
+      ],
+      "answer": 0,
+      "explain": "Qualsivoglia = qualunque, «любой»."
+    },
+    {
+      "id": "c1.05-indefiniti.8",
+      "kind": "fix",
+      "sentence": "Non ho visto alcuno persona.",
+      "ru": "Я не видел ни одного человека.",
+      "wrong": 3,
+      "answer": "alcuna",
+      "explain": "Alcuno согласуется с persona: alcuna persona."
+    }
+  ]
+}

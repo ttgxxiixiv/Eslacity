@@ -8,7 +8,7 @@ const CONTENT = join(import.meta.dirname, '..', '..', 'src', 'content');
 /** Все районы: каждый урок проходится целиком, вместе со сборкой и вводом формы. */
 const DISTRICTS = readdirSync(join(CONTENT, 'es', 'grammar'));
 /** Глава, в которой открывается район: уроки следующих глав закрыты. */
-const CHAPTER: Record<string, number> = { a1: 1, a2: 2, b11: 3, b12: 3, b2: 4 };
+const CHAPTER: Record<string, number> = { a1: 1, a2: 2, b11: 3, b12: 3, b2: 4, c1: 5 };
 
 for (const lang of LANGS) {
   test.describe(lang, () => {

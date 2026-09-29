@@ -1,0 +1,157 @@
+{
+  "id": "c1.10-nominalizzazione",
+  "district": "C1",
+  "order": 10,
+  "title": "Номинализация и канцелярский стиль",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "В официальных текстах глагол часто заменяют существительным: **pagare** → **effettuare il pagamento**, **decidere** → **prendere una decisione**, **prendere posizione** → **la presa di posizione**. Глаголы-«пустышки» канцелярского стиля: effettuare, procedere a, provvedere a."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Разговорно",
+        "Официально",
+        "Перевод"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "pagare",
+            "effettuare il pagamento",
+            "оплатить, произвести оплату"
+          ]
+        },
+        {
+          "cells": [
+            "controllare i documenti",
+            "procedere alla verifica dei documenti",
+            "проверить документы"
+          ]
+        },
+        {
+          "cells": [
+            "sostituire il contatore",
+            "provvedere alla sostituzione del contatore",
+            "заменить счётчик"
+          ]
+        },
+        {
+          "cells": [
+            "accendere l'impianto",
+            "la messa in funzione dell'impianto",
+            "запуск установки"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "В письме другу номинализация звучит смешно: «ho effettuato l'acquisto del pane». Там просто «ho comprato il pane»."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Il pagamento va effettuato entro il 30 del mese.",
+      "ru": "Оплату нужно произвести до 30-го числа."
+    },
+    {
+      "es": "La presa di posizione del sindaco ha sorpreso tutti.",
+      "ru": "Позиция, которую занял мэр, всех удивила."
+    },
+    {
+      "es": "Si procederà alla verifica dei documenti all'ingresso.",
+      "ru": "На входе будет проведена проверка документов."
+    },
+    {
+      "es": "La messa in funzione dell'impianto è prevista a maggio.",
+      "ru": "Запуск установки намечен на май."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "c1.10-nominalizzazione.1",
+      "kind": "choose",
+      "prompt": "Какой глагол звучит по-канцелярски в значении «позаботиться, обеспечить»?",
+      "options": [
+        "provvedere",
+        "fare",
+        "sistemare"
+      ],
+      "answer": 0,
+      "explain": "Provvedere a — «обеспечить», слово официальных писем."
+    },
+    {
+      "id": "c1.10-nominalizzazione.2",
+      "kind": "gap",
+      "sentence": "Si ___ alla verifica dei documenti.",
+      "ru": "Будет проведена проверка документов.",
+      "options": [
+        "procederà",
+        "farà",
+        "effettuerà"
+      ],
+      "answer": 0,
+      "explain": "Procedere a + существительное: procedere alla verifica."
+    },
+    {
+      "id": "c1.10-nominalizzazione.3",
+      "kind": "truefalse",
+      "statement": "«Effettuare un acquisto» — канцелярский вариант «comprare».",
+      "answer": true,
+      "explain": "В обычной речи говорят просто «comprare»."
+    },
+    {
+      "id": "c1.10-nominalizzazione.4",
+      "kind": "build",
+      "ru": "Запуск установки намечен на май.",
+      "answer": "La messa in funzione dell'impianto è prevista a maggio.",
+      "extra": [
+        "previsto"
+      ],
+      "explain": "La messa in funzione — существительное вместо «accendere»; prevista согласуется с «la messa»."
+    },
+    {
+      "id": "c1.10-nominalizzazione.5",
+      "kind": "type",
+      "sentence": "Il cliente deve ___ il pagamento entro il 30.",
+      "ru": "Клиент должен произвести оплату до 30-го.",
+      "hint": "произвести, канц.",
+      "answer": "effettuare",
+      "explain": "Effettuare il pagamento = pagare."
+    },
+    {
+      "id": "c1.10-nominalizzazione.6",
+      "kind": "register",
+      "source": "Paga entro venerdì.",
+      "to": "formal",
+      "answer": "Il pagamento va effettuato entro venerdì.",
+      "extra": [
+        "paga"
+      ],
+      "explain": "Официально: существительное «il pagamento» и пассив «va effettuato»."
+    },
+    {
+      "id": "c1.10-nominalizzazione.7",
+      "kind": "transform",
+      "source": "Il sindaco ha preso una posizione chiara.",
+      "keyword": "la presa di posizione",
+      "ru": "Позиция мэра была чёткой.",
+      "answer": "La presa di posizione del sindaco è stata chiara.",
+      "explain": "Номинализация: prendere posizione → la presa di posizione."
+    },
+    {
+      "id": "c1.10-nominalizzazione.8",
+      "kind": "paraphrase",
+      "sentence": "Si provvederà alla sostituzione del contatore.",
+      "options": [
+        "Il contatore sarà sostituito.",
+        "Il contatore non sarà sostituito.",
+        "Il contatore si è rotto."
+      ],
+      "answer": 0,
+      "explain": "Provvedere alla sostituzione = sostituire."
+    }
+  ]
+}

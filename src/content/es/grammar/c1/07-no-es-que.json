@@ -1,0 +1,148 @@
+{
+  "id": "c1.07-no-es-que",
+  "district": "C1",
+  "order": 7,
+  "title": "No es que + subjuntivo: отрицаем причину",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Когда отрицают причину или объяснение, ставят subjuntivo. **No es que** + subjuntivo, **es que** + индикатив — «дело не в том, что..., а в том, что...». **No porque** + subjuntivo, **sino porque** + индикатив — «не потому что..., а потому что...». **No sea que** + subjuntivo — «а то вдруг»."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Оборот",
+        "Пример",
+        "Перевод"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "no es que + subj.",
+            "No es que no quiera, es que no puedo.",
+            "Не то чтобы я не хотел, просто не могу."
+          ]
+        },
+        {
+          "cells": [
+            "no porque + subj.",
+            "Vino no porque quisiera, sino porque debía.",
+            "Пришёл не по желанию, а по долгу."
+          ]
+        },
+        {
+          "cells": [
+            "no sea que + subj.",
+            "Llévate abrigo, no sea que haga frío.",
+            "Возьми пальто, а то вдруг будет холодно."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Отрицается причина — subjuntivo; настоящая причина после «es que» или «sino porque» — индикатив."
+    }
+  ],
+  "examples": [
+    {
+      "es": "No es que no quiera ir, es que estoy agotada.",
+      "ru": "Не то чтобы я не хотела идти, просто я без сил."
+    },
+    {
+      "es": "Sara lo hizo no porque se lo pidieran, sino porque quiso.",
+      "ru": "Сара сделала это не потому, что её попросили, а потому что захотела."
+    },
+    {
+      "es": "No es que el hotel sea malo, es que está lejos.",
+      "ru": "Отель не плохой, просто он далеко."
+    },
+    {
+      "es": "Llévate el paraguas, no sea que llueva.",
+      "ru": "Возьми зонт, а то вдруг пойдёт дождь."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "c1.07-no-es-que.1",
+      "kind": "choose",
+      "prompt": "«Дело не в том, что я не хочу, просто нет времени»:",
+      "options": [
+        "No es que no quiera, es que no tengo tiempo.",
+        "No es que no quiero, es que no tenga tiempo.",
+        "No es que no quiera, es que no tenga tiempo."
+      ],
+      "answer": 0,
+      "explain": "No es que + subjuntivo, es que + индикатив."
+    },
+    {
+      "id": "c1.07-no-es-que.2",
+      "kind": "gap",
+      "sentence": "No lo compro no porque ___ caro, sino porque no me gusta.",
+      "ru": "Я не покупаю это не потому, что дорого, а потому, что не нравится.",
+      "options": [
+        "sea",
+        "es",
+        "será"
+      ],
+      "answer": 0,
+      "explain": "No porque + subjuntivo: причина отрицается."
+    },
+    {
+      "id": "c1.07-no-es-que.3",
+      "kind": "truefalse",
+      "statement": "После «no es que» ставят subjuntivo, после «es que» — индикатив.",
+      "answer": true,
+      "explain": "No es que esté enfadado, es que estoy cansado."
+    },
+    {
+      "id": "c1.07-no-es-que.4",
+      "kind": "build",
+      "ru": "Дело не в том, что отель плохой.",
+      "answer": "No es que el hotel sea malo.",
+      "extra": [
+        "está"
+      ],
+      "explain": "No es que + subjuntivo: sea."
+    },
+    {
+      "id": "c1.07-no-es-que.5",
+      "kind": "type",
+      "sentence": "Llévate el paraguas, no ___ que llueva.",
+      "ru": "Возьми зонт, а то вдруг пойдёт дождь.",
+      "hint": "ser",
+      "answer": "sea",
+      "explain": "No sea que — «а то вдруг»."
+    },
+    {
+      "id": "c1.07-no-es-que.6",
+      "kind": "transform",
+      "source": "No estoy enfadado; simplemente estoy cansado.",
+      "keyword": "no es que",
+      "ru": "Я не сержусь, просто устал.",
+      "answer": "No es que esté enfadado, es que estoy cansado.",
+      "explain": "No es que + subjuntivo (esté), es que + индикатив (estoy)."
+    },
+    {
+      "id": "c1.07-no-es-que.7",
+      "kind": "paraphrase",
+      "sentence": "No es que no te quiera ayudar, es que no sé cómo.",
+      "options": [
+        "Quiero ayudarte, pero no sé cómo hacerlo.",
+        "No quiero ayudarte porque no sé cómo.",
+        "Sé cómo ayudarte, pero no quiero."
+      ],
+      "answer": 0,
+      "explain": "«No es que no quiera» — хочу, но есть другая причина."
+    },
+    {
+      "id": "c1.07-no-es-que.8",
+      "kind": "fix",
+      "sentence": "No es que no quiero ir, es que no puedo.",
+      "ru": "Не то чтобы я не хотел идти, просто не могу.",
+      "wrong": 4,
+      "answer": "quiera",
+      "explain": "После no es que — subjuntivo: no quiera."
+    }
+  ]
+}

@@ -1,0 +1,169 @@
+{
+  "id": "c1.02-pase-lo-que-pase",
+  "district": "C1",
+  "order": 2,
+  "title": "Pase lo que pase: повторяющийся subjuntivo",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Глагол в subjuntivo, повторённый через **lo que**, **donde**, **como**, значит «что бы ни», «где бы ни», «как бы ни». Так говорят, когда исход не важен."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Оборот",
+        "Пример",
+        "Перевод"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "pase lo que pase",
+            "Pase lo que pase, te espero.",
+            "Что бы ни случилось, я жду тебя."
+          ]
+        },
+        {
+          "cells": [
+            "digan lo que digan",
+            "Digan lo que digan, confío en él.",
+            "Что бы ни говорили, я ему верю."
+          ]
+        },
+        {
+          "cells": [
+            "sea como sea",
+            "Sea como sea, terminamos hoy.",
+            "Как бы там ни было, заканчиваем сегодня."
+          ]
+        },
+        {
+          "cells": [
+            "cueste lo que cueste",
+            "Cueste lo que cueste, lo compro.",
+            "Чего бы это ни стоило, куплю."
+          ]
+        },
+        {
+          "cells": [
+            "vayas donde vayas",
+            "Vayas donde vayas, llámame.",
+            "Куда бы ты ни пошёл, звони."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Похожий оборот с «o»: **quieras o no** — хочешь ты или нет, **llueva o no** — будет дождь или нет."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Pase lo que pase, te espero en la plaza a las siete.",
+      "ru": "Что бы ни случилось, жду тебя на площади в семь."
+    },
+    {
+      "es": "Digan lo que digan, el cocido de la señora Pilar es el mejor.",
+      "ru": "Что бы ни говорили, косидо сеньоры Пилар лучшее."
+    },
+    {
+      "es": "Cueste lo que cueste, abriré mi propio café, dice Lola.",
+      "ru": "Чего бы это ни стоило, я открою своё кафе, говорит Лола."
+    },
+    {
+      "es": "Vayas donde vayas, llévate el paraguas.",
+      "ru": "Куда бы ты ни пошёл, бери зонт."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "c1.02-pase-lo-que-pase.1",
+      "kind": "choose",
+      "prompt": "«Что бы ни говорили, я ему доверяю»:",
+      "options": [
+        "Digan lo que digan, confío en él.",
+        "Dicen lo que dicen, confío en él.",
+        "Digan lo que dicen, confío en él."
+      ],
+      "answer": 0,
+      "explain": "Оба глагола в subjuntivo: digan lo que digan."
+    },
+    {
+      "id": "c1.02-pase-lo-que-pase.2",
+      "kind": "gap",
+      "sentence": "___ como sea, mañana terminamos el trabajo.",
+      "ru": "Как бы там ни было, завтра заканчиваем работу.",
+      "options": [
+        "Sea",
+        "Es",
+        "Fuera"
+      ],
+      "answer": 0,
+      "explain": "Sea como sea — застывший оборот с subjuntivo."
+    },
+    {
+      "id": "c1.02-pase-lo-que-pase.3",
+      "kind": "truefalse",
+      "statement": "«Quieras o no» значит «хочешь ты того или нет».",
+      "answer": true,
+      "explain": "Quieras o no, mañana vamos al médico."
+    },
+    {
+      "id": "c1.02-pase-lo-que-pase.4",
+      "kind": "build",
+      "ru": "Что бы ни случилось, я тебе позвоню.",
+      "answer": "Pase lo que pase, te llamaré.",
+      "alt": [
+        "Te llamaré pase lo que pase."
+      ],
+      "extra": [
+        "pasa"
+      ],
+      "explain": "Pase lo que pase: оба глагола в subjuntivo."
+    },
+    {
+      "id": "c1.02-pase-lo-que-pase.5",
+      "kind": "type",
+      "sentence": "Cueste lo que ___, compraré esa casa.",
+      "ru": "Чего бы это ни стоило, я куплю этот дом.",
+      "hint": "costar",
+      "answer": "cueste",
+      "explain": "Второй глагол повторяет первый: cueste lo que cueste."
+    },
+    {
+      "id": "c1.02-pase-lo-que-pase.6",
+      "kind": "transform",
+      "source": "No importa lo que digas: no voy a cambiar de idea.",
+      "keyword": "digas lo que digas",
+      "ru": "Что бы ты ни говорил, я не передумаю.",
+      "answer": "Digas lo que digas, no voy a cambiar de idea.",
+      "alt": [
+        "No voy a cambiar de idea, digas lo que digas."
+      ],
+      "explain": "«No importa lo que digas» = «digas lo que digas»."
+    },
+    {
+      "id": "c1.02-pase-lo-que-pase.7",
+      "kind": "combine",
+      "first": "Puede que llueva o puede que no.",
+      "second": "Saldremos a correr.",
+      "connector": "llueva o no",
+      "ru": "Будет дождь или нет, мы пойдём на пробежку.",
+      "answer": "Llueva o no, saldremos a correr.",
+      "alt": [
+        "Saldremos a correr llueva o no."
+      ],
+      "explain": "Llueva o no — «будет дождь или нет», subjuntivo."
+    },
+    {
+      "id": "c1.02-pase-lo-que-pase.8",
+      "kind": "fix",
+      "sentence": "Vayas donde vas, llévate el móvil.",
+      "ru": "Куда бы ты ни пошёл, бери с собой телефон.",
+      "wrong": 2,
+      "answer": "vayas",
+      "explain": "Оба глагола в subjuntivo: vayas donde vayas."
+    }
+  ]
+}

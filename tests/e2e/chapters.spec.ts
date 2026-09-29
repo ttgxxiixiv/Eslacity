@@ -4,6 +4,8 @@ import { expect, test, type Page } from '@playwright/test';
 import { DB, LANGS, missionIdsOf, openApp, readMeta, scrollIdsOf, seedDueCards, seedMissionsDone, seedTrialsDone, trialIdsOf, wordIdsOf, type Lang } from './fixtures';
 
 const CONTENT = join(import.meta.dirname, '..', '..', 'src', 'content');
+/** Сколько всего районов грамматики: закрытых столько, сколько районов после открытых. */
+const DISTRICTS = readdirSync(join(CONTENT, 'es', 'grammar')).length;
 /** id уроков района: папка a2 → a2.<файл>. */
 const lessonIds = (lang: Lang, folder: string) =>
   readdirSync(join(CONTENT, lang, 'grammar', folder)).map((f) => `${folder}.${f.replace(/\.json$/, '')}`).sort();
@@ -36,7 +38,8 @@ for (const lang of LANGS) {
       expect((await readMeta<{ openedChapter: number }>(page, lang, 'journey'))?.openedChapter).toBe(1);
 
       await page.goto('./#/grammar');
-      await expect(page.getByTestId('district-lock')).toHaveCount(4);
+      // Открыт только район A1.
+      await expect(page.getByTestId('district-lock')).toHaveCount(DISTRICTS - 1);
       await expect(page.getByTestId('district-lock').first()).toContainText('Откроется в главе II');
 
       await page.goto(`./#/grammar/${lessonIds(lang, 'a2')[0]}`);
@@ -159,7 +162,7 @@ for (const lang of LANGS) {
       await page.goto('./#/profile');
       await expect(page.getByTestId('hero-title')).toHaveText('Странник');
       await page.goto('./#/grammar');
-      await expect(page.getByTestId('district-lock')).toHaveCount(3);
+      await expect(page.getByTestId('district-lock')).toHaveCount(DISTRICTS - 2);
     });
 
     test('прогресс до обновления с пройденными уроками A2: ничего не закрылось', async ({ page }) => {
@@ -170,7 +173,7 @@ for (const lang of LANGS) {
       expect((await readMeta<{ openedChapter: number }>(page, lang, 'journey'))?.openedChapter).toBe(2);
 
       await page.goto('./#/grammar');
-      await expect(page.getByTestId('district-lock')).toHaveCount(3);
+      await expect(page.getByTestId('district-lock')).toHaveCount(DISTRICTS - 2);
       await expect(page.getByRole('button', { name: /Район A2/ })).toBeVisible();
       await page.goto(`./#/grammar/${lessonIds(lang, 'a2')[0]}`);
       await expect(page.getByRole('button', { name: /к упражнениям/i })).toBeVisible();

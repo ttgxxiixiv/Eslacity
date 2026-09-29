@@ -1,0 +1,161 @@
+{
+  "id": "c1.01-congiuntivo-senso",
+  "district": "C1",
+  "order": 1,
+  "title": "Indicativo или congiuntivo: меняется смысл",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "У некоторых глаголов наклонение меняет смысл. С **индикативом** глагол сообщает факт, с **congiuntivo** — оценку, чувство или просьбу."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Глагол",
+        "+ indic.",
+        "+ cong."
+      ],
+      "rows": [
+        {
+          "cells": [
+            "capire che",
+            "понял",
+            "это нормально"
+          ]
+        },
+        {
+          "cells": [
+            "dire che",
+            "сообщает",
+            "велит"
+          ]
+        },
+        {
+          "cells": [
+            "il fatto che",
+            "редко",
+            "обычно"
+          ]
+        },
+        {
+          "cells": [
+            "sentire che",
+            "ощущаю",
+            "—"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Сожаление передают через «mi dispiace che» + congiuntivo: Mi dispiace che tu non possa venire. «Sento che» — только ощущение."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Capisco che tu sia stanca, Giulia, ma il bar apre tra poco.",
+      "ru": "Понимаю, что ты устала, Джулия, но бар скоро открывается."
+    },
+    {
+      "es": "Il dottor Bruno ha capito che il negozio era chiuso.",
+      "ru": "Доктор Бруно понял, что магазин закрыт."
+    },
+    {
+      "es": "Il fatto che Marco non chiami mi preoccupa.",
+      "ru": "Меня беспокоит то, что Марко не звонит."
+    },
+    {
+      "es": "Dì a Luca che venga subito.",
+      "ru": "Скажи Луке, чтобы пришёл немедленно."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "c1.01-congiuntivo-senso.1",
+      "kind": "choose",
+      "prompt": "«Я понимаю, что ты обижен (это естественно)»:",
+      "options": [
+        "Capisco che tu sia offeso.",
+        "Capisco che tu essere offeso.",
+        "Capisco di tu sia offeso."
+      ],
+      "answer": 0,
+      "explain": "Capire che в значении «находить естественным» + congiuntivo."
+    },
+    {
+      "id": "c1.01-congiuntivo-senso.2",
+      "kind": "gap",
+      "sentence": "Luca dice che il bar ___ alle otto.",
+      "ru": "Лука говорит, что бар открывается в восемь.",
+      "options": [
+        "apre",
+        "apra",
+        "aprisse"
+      ],
+      "answer": 0,
+      "explain": "Dire che сообщает факт — индикатив."
+    },
+    {
+      "id": "c1.01-congiuntivo-senso.3",
+      "kind": "truefalse",
+      "statement": "После «il fatto che» обычно ставят congiuntivo.",
+      "answer": true,
+      "explain": "Il fatto che piova mi mette tristezza."
+    },
+    {
+      "id": "c1.01-congiuntivo-senso.4",
+      "kind": "build",
+      "ru": "Мама говорит, чтобы ты пришёл пораньше.",
+      "answer": "La mamma dice che tu venga prima.",
+      "extra": [
+        "vieni"
+      ],
+      "explain": "Dire che в значении просьбы — congiuntivo."
+    },
+    {
+      "id": "c1.01-congiuntivo-senso.5",
+      "kind": "type",
+      "sentence": "Mi dispiace che tuo nonno ___ male.",
+      "ru": "Мне жаль, что твоему дедушке плохо.",
+      "hint": "stare",
+      "answer": "stia",
+      "explain": "Mi dispiace che + congiuntivo."
+    },
+    {
+      "id": "c1.01-congiuntivo-senso.6",
+      "kind": "fix",
+      "sentence": "Mi dispiace molto che Lei non può venire, signora Rosa.",
+      "ru": "Мне очень жаль, что вы не можете прийти, синьора Роза.",
+      "wrong": 6,
+      "answer": "possa",
+      "explain": "Сожаление — congiuntivo: che Lei non possa venire."
+    },
+    {
+      "id": "c1.01-congiuntivo-senso.7",
+      "kind": "paraphrase",
+      "sentence": "Capisco che tu voglia andartene.",
+      "options": [
+        "Mi sembra normale che tu voglia andartene.",
+        "Mi sono accorto che vuoi andartene.",
+        "Voglio che tu te ne vada."
+      ],
+      "answer": 0,
+      "explain": "Capire + congiuntivo — «нахожу естественным», а не «замечаю»."
+    },
+    {
+      "id": "c1.01-congiuntivo-senso.8",
+      "kind": "cloze",
+      "text": "Il dottor Ferri mi dice che ___ (riposare) di più. Io sento che ___ (stare) già meglio.",
+      "ru": "Доктор Ферри велит мне больше отдыхать. А я чувствую, что мне уже лучше.",
+      "answers": [
+        [
+          "riposi"
+        ],
+        [
+          "sto"
+        ]
+      ],
+      "explain": "Dice che + congiuntivo — это совет; sento che + индикатив — ощущение."
+    }
+  ]
+}

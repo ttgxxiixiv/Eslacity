@@ -1,0 +1,155 @@
+{
+  "id": "c1.05-perifrasis-resultado",
+  "district": "C1",
+  "order": 5,
+  "title": "Перифразы результата: venir a, llegar a, acabar + gerundio",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Перифразы показывают, к чему пришло действие. **Venir a** + infinitivo — «примерно», «в сущности». **Llegar a** + infinitivo — «дойти до того, что», «даже». **Acabar** + gerundio — «в конце концов». **Dar por** + participio — «считать», «признать»."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Перифраза",
+        "Пример",
+        "Перевод"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "venir a + inf.",
+            "Viene a costar veinte euros.",
+            "Стоит примерно двадцать евро."
+          ]
+        },
+        {
+          "cells": [
+            "llegar a + inf.",
+            "Llegó a vender su coche.",
+            "Дошло до того, что он продал машину."
+          ]
+        },
+        {
+          "cells": [
+            "acabar + gerundio",
+            "Acabó trabajando en el hotel.",
+            "В итоге он стал работать в отеле."
+          ]
+        },
+        {
+          "cells": [
+            "dar por + participio",
+            "Doy por terminada la reunión.",
+            "Считаю собрание оконченным."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Не путайте **acabar + gerundio** (в конце концов) и **acabar de + infinitivo** (только что): Acabó casándose — в итоге женился; Acaba de casarse — только что женился."
+    }
+  ],
+  "examples": [
+    {
+      "es": "El arreglo viene a costar unos cien euros.",
+      "ru": "Ремонт обойдётся примерно в сто евро."
+    },
+    {
+      "es": "Llegó a vender su bicicleta para pagar el alquiler.",
+      "ru": "Он дошёл до того, что продал велосипед, чтобы заплатить за квартиру."
+    },
+    {
+      "es": "Rafa acabó trabajando en el hotel de su tío.",
+      "ru": "В итоге Рафа стал работать в отеле дяди."
+    },
+    {
+      "es": "Después de tres horas, la comisaria dio por cerrado el caso.",
+      "ru": "Через три часа комиссар Вега признала дело закрытым."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "c1.05-perifrasis-resultado.1",
+      "kind": "choose",
+      "prompt": "«В итоге он женился на своей соседке»:",
+      "options": [
+        "Acabó casándose con su vecina.",
+        "Acabó de casarse con su vecina.",
+        "Acabó a casarse con su vecina."
+      ],
+      "answer": 0,
+      "explain": "Acabar + gerundio — «в конце концов»; acabar de — «только что»."
+    },
+    {
+      "id": "c1.05-perifrasis-resultado.2",
+      "kind": "gap",
+      "sentence": "La reparación viene ___ costar unos doscientos euros.",
+      "ru": "Ремонт обойдётся примерно в двести евро.",
+      "options": [
+        "a",
+        "de",
+        "por"
+      ],
+      "answer": 0,
+      "explain": "Venir a + infinitivo — «примерно»."
+    },
+    {
+      "id": "c1.05-perifrasis-resultado.3",
+      "kind": "truefalse",
+      "statement": "«Dar por perdido» значит «считать потерянным».",
+      "answer": true,
+      "explain": "Di la cartera por perdida, pero apareció."
+    },
+    {
+      "id": "c1.05-perifrasis-resultado.4",
+      "kind": "build",
+      "ru": "Он дошёл до того, что продал машину.",
+      "answer": "Llegó a vender el coche.",
+      "extra": [
+        "de"
+      ],
+      "explain": "Llegar a + infinitivo — «дойти до того, что»."
+    },
+    {
+      "id": "c1.05-perifrasis-resultado.5",
+      "kind": "type",
+      "sentence": "Después de tres horas, doy ___ terminada la reunión.",
+      "ru": "Спустя три часа считаю собрание оконченным.",
+      "hint": "предлог",
+      "answer": "por",
+      "explain": "Dar por + participio: doy por terminada."
+    },
+    {
+      "id": "c1.05-perifrasis-resultado.6",
+      "kind": "paraphrase",
+      "sentence": "Al final, Toni acabó aceptando el trabajo.",
+      "options": [
+        "Toni terminó por aceptar el trabajo.",
+        "Toni acababa de aceptar el trabajo.",
+        "Toni no aceptó el trabajo."
+      ],
+      "answer": 0,
+      "explain": "Acabar + gerundio = terminar por + infinitivo: «в итоге»."
+    },
+    {
+      "id": "c1.05-perifrasis-resultado.7",
+      "kind": "transform",
+      "source": "Al final se hicieron amigos.",
+      "keyword": "acabaron",
+      "ru": "В итоге они подружились.",
+      "answer": "Acabaron haciéndose amigos.",
+      "explain": "Acabar + gerundio: acabaron haciéndose."
+    },
+    {
+      "id": "c1.05-perifrasis-resultado.8",
+      "kind": "fix",
+      "sentence": "Tanto insistió que llegó de convencer a su jefe.",
+      "ru": "Он так настаивал, что сумел убедить начальника.",
+      "wrong": 4,
+      "answer": "a",
+      "explain": "Llegar a + infinitivo, не «de»."
+    }
+  ]
+}

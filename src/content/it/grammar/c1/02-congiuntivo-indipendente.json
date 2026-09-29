@@ -1,0 +1,163 @@
+{
+  "id": "c1.02-congiuntivo-indipendente",
+  "district": "C1",
+  "order": 2,
+  "title": "Congiuntivo в независимых фразах",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Congiuntivo бывает и без главного предложения. **Che** + congiuntivo — сомнение или предположение: Che sia già partito? **Sia chiaro** — «пусть будет ясно». **Venga pure** — вежливое «проходите». **Che io sappia** — «насколько я знаю»."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Оборот",
+        "Пример",
+        "Перевод"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "che + cong. (вопрос)",
+            "Che sia già partito?",
+            "Неужели он уже уехал?"
+          ]
+        },
+        {
+          "cells": [
+            "sia chiaro",
+            "Sia chiaro: non pago io.",
+            "Пусть будет ясно: я не плачу."
+          ]
+        },
+        {
+          "cells": [
+            "venga pure",
+            "Venga pure, si accomodi.",
+            "Проходите, садитесь."
+          ]
+        },
+        {
+          "cells": [
+            "che io sappia",
+            "Che io sappia, è chiuso.",
+            "Насколько я знаю, закрыто."
+          ]
+        },
+        {
+          "cells": [
+            "che + cong. (пожелание)",
+            "Che entrino pure!",
+            "Пусть заходят!"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "«Venga pure» — форма Lei: так говорят клиенту, врачу, незнакомому. Другу скажут «vieni pure»."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Che sia già partito? La sua macchina non c'è.",
+      "ru": "Неужели он уже уехал? Его машины нет."
+    },
+    {
+      "es": "Sia chiaro: domani si comincia alle otto.",
+      "ru": "Пусть будет ясно: завтра начинаем в восемь."
+    },
+    {
+      "es": "Venga pure, dottor Ferri, si accomodi.",
+      "ru": "Проходите, доктор Ферри, садитесь."
+    },
+    {
+      "es": "Che io sappia, il museo è aperto anche la domenica.",
+      "ru": "Насколько я знаю, музей открыт и в воскресенье."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "c1.02-congiuntivo-indipendente.1",
+      "kind": "choose",
+      "prompt": "«Насколько я знаю, он не женат»:",
+      "options": [
+        "Che io sappia, non è sposato.",
+        "Che io so, non è sposato.",
+        "Che io sapessi, non è sposato."
+      ],
+      "answer": 0,
+      "explain": "Che io sappia — застывший оборот с congiuntivo."
+    },
+    {
+      "id": "c1.02-congiuntivo-indipendente.2",
+      "kind": "gap",
+      "sentence": "Che ___ già arrivati? Sento delle voci.",
+      "ru": "Может, они уже приехали? Слышу голоса.",
+      "options": [
+        "siano",
+        "sono",
+        "erano"
+      ],
+      "answer": 0,
+      "explain": "Che + congiuntivo — предположение, сомнение."
+    },
+    {
+      "id": "c1.02-congiuntivo-indipendente.3",
+      "kind": "truefalse",
+      "statement": "«Venga pure» — вежливое приглашение: «проходите, пожалуйста».",
+      "answer": true,
+      "explain": "Форма Lei от venire в congiuntivo."
+    },
+    {
+      "id": "c1.02-congiuntivo-indipendente.4",
+      "kind": "build",
+      "ru": "Пусть будет ясно: я не согласен.",
+      "answer": "Sia chiaro: non sono d'accordo.",
+      "extra": [
+        "è"
+      ],
+      "explain": "Sia chiaro — congiuntivo в независимой фразе."
+    },
+    {
+      "id": "c1.02-congiuntivo-indipendente.5",
+      "kind": "type",
+      "sentence": "Che io ___, il museo chiude alle sei.",
+      "ru": "Насколько я знаю, музей закрывается в шесть.",
+      "hint": "sapere",
+      "answer": "sappia",
+      "explain": "Che io sappia."
+    },
+    {
+      "id": "c1.02-congiuntivo-indipendente.6",
+      "kind": "transform",
+      "source": "Forse è già partito?",
+      "keyword": "che",
+      "ru": "Неужели он уже уехал?",
+      "answer": "Che sia già partito?",
+      "explain": "Che + congiuntivo передаёт сомнение, как «forse»."
+    },
+    {
+      "id": "c1.02-congiuntivo-indipendente.7",
+      "kind": "register",
+      "source": "Entra pure, siediti!",
+      "to": "formal",
+      "options": [
+        "Venga pure, si accomodi.",
+        "Vieni pure, accomodati.",
+        "Vada pure, se ne vada."
+      ],
+      "answer": 0,
+      "explain": "С Lei — congiuntivo: venga, si accomodi. Третий вариант значит «уходите»."
+    },
+    {
+      "id": "c1.02-congiuntivo-indipendente.8",
+      "kind": "fix",
+      "sentence": "Che io so, la farmacia è di turno stanotte.",
+      "ru": "Насколько я знаю, аптека сегодня дежурит ночью.",
+      "wrong": 2,
+      "answer": "sappia",
+      "explain": "Оборот «che io sappia» — с congiuntivo."
+    }
+  ]
+}
