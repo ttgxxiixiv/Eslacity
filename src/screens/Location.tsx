@@ -1,3 +1,5 @@
+import { WordTags } from '../components/WordTags';
+import { isExpression } from '../domain/expression';
 import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { LOCATION_BY_ID } from '../content/locations';
@@ -254,7 +256,7 @@ export function LocationScreen() {
                 <div className="flex items-center justify-between">
                   <h2 className="font-bold">Уровень {lvl}</h2>
                   <span className="text-sm text-stone-500">
-                    {learnedCount(lw, cards)}/{lw.length} слов
+                    {learnedCount(lw, cards)}/{lw.length} {lw.some(isExpression) ? 'слов и выражений' : 'слов'}
                   </span>
                 </div>
                 {fresh > 0 && npc && (
@@ -292,7 +294,10 @@ export function LocationScreen() {
                   {lw.map((w) => (
                     <li key={w.id} className="flex items-center gap-3 py-2">
                       <div className="min-w-0 flex-1">
-                        <div className="font-semibold">{w.es}</div>
+                        <div className="font-semibold">
+                          {w.es}
+                          <WordTags word={w} className="ml-2 align-middle" />
+                        </div>
                         <div className="truncate text-sm text-stone-500">{w.ru}</div>
                       </div>
                       {cards[w.id] && (

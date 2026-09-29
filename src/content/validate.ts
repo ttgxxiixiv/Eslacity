@@ -89,6 +89,8 @@ function checkExpression(w: Word, at: string, out: Issue[]) {
   if (w.kind === 'idiom' ? empty(w.literal) : w.literal !== undefined) err(w.kind === 'idiom' ? 'у идиомы нет literal' : 'literal бывает только у идиомы');
   if (w.kind === 'false-friend' ? empty(w.note) : w.note !== undefined) err(w.kind === 'false-friend' ? 'у ложного друга нет note' : 'note бывает только у ложного друга');
   if (w.pair !== undefined && empty(w.pair)) err('пустой pair');
+  // Официальную формулу игрок должен уметь сказать и по-дружески.
+  else if (w.kind === 'formula' && w.register === 'formal' && w.pair === undefined) err('у официальной формулы нет разговорной пары');
 }
 
 /** Пары выражений: ссылка на выражение этого языка, взаимная, регистры разные. */

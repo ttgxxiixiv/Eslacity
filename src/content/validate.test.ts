@@ -58,6 +58,7 @@ describe('validateWords, выражения уровня 7', () => {
     expect(check(expr('a', { kind: 'proverb' as 'idiom' }))).toEqual(['вид выражения "proverb"']);
     expect(check(expr('a', { kind: 'false-friend', literal: undefined }))).toEqual(['у ложного друга нет note']);
     expect(check(expr('a', { kind: 'formula' }))).toEqual(['literal бывает только у идиомы']);
+    expect(check(expr('a', { kind: 'formula', register: 'formal', literal: undefined }))).toEqual(['у официальной формулы нет разговорной пары']);
     expect(check(expr('a', { pos: 'verb' }))).toEqual(['у выражения вида idiom часть речи phrase, а не verb']);
     expect(check(expr('a', { level: 6, cefr: 'B2' }))).toEqual(['выражение на уровне 6, они бывают только на уровне 7']);
     expect(check(c1(20, { note: 'x' }))).toEqual(['поле note бывает только у выражения']);

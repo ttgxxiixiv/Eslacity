@@ -188,7 +188,7 @@ export async function playWords(page: Page, lang: Lang, done: RegExp): Promise<P
     kinds[kind] = (kinds[kind] ?? 0) + 1;
     const shown = kind === 'Соедините пары' ? '' : ((await prompt.textContent({ timeout: 3000 }).catch(() => '')) ?? '').trim();
 
-    if (kind === 'Новое слово') {
+    if (kind === 'Новое слово' || kind === 'Новое выражение') {
       await page.getByRole('button', { name: /понятно/i }).click();
       continue;
     } else if (kind === 'Выберите перевод') {
