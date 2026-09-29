@@ -1,7 +1,7 @@
 import { readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { expect, test, type Page } from '@playwright/test';
-import { DB, LANGS, loadLesson, loadPhraseData, openApp, playTrial, readAnswers, readMeta, seedMissionsDone, wordIdsOf, type Lang } from './fixtures';
+import { DB, LANGS, loadLesson, loadPhraseData, openApp, playTrial, readAnswers, readMeta, scrollIdsOf, seedMissionsDone, wordIdsOf, type Lang } from './fixtures';
 
 const CONTENT = join(import.meta.dirname, '..', '..', 'src', 'content');
 
@@ -13,9 +13,9 @@ const b2 = (lang: Lang) =>
 
 const GREETING = { es: 'Por fin oigo el camino.', it: 'Finalmente sento il sentiero.' } as const;
 
-/** Открыта глава IV, кафе 5-го уровня, выучены слова уровней 1–6 кафе и фразы уровня 6 (карточки не к повторению). */
+/** Открыта глава IV, кафе 5-го уровня, выучены слова уровней 1–6 кафе, фразы уровня 6 и свиток главы IV (карточки не к повторению). */
 async function seedChapter4(page: Page, lang: Lang) {
-  const ids = [...wordIdsOf(lang, 'cafe', [1, 2, 3, 4, 5, 6]), ...loadPhraseData(lang, 'cafe').filter((p) => p.level === 6).map((p) => p.id)];
+  const ids = [...wordIdsOf(lang, 'cafe', [1, 2, 3, 4, 5, 6]), ...loadPhraseData(lang, 'cafe').filter((p) => p.level === 6).map((p) => p.id), ...scrollIdsOf(lang, 4)];
   await page.evaluate(
     ({ db, ids }) =>
       new Promise<void>((resolve, reject) => {
