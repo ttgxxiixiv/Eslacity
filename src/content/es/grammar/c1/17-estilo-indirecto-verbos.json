@@ -1,0 +1,185 @@
+{
+  "id": "c1.17-estilo-indirecto-verbos",
+  "district": "C1",
+  "order": 17,
+  "title": "Пересказ: advertir, reprochar, negar, sugerir",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "В пересказе вместо «dijo» выбирают глагол, который передаёт намерение. **Advertir que** + indicativo — предупредить о факте, + subjuntivo — предостеречь. **Reprochar que** + subjuntivo — упрекнуть. **Negar** + infinitivo — отрицать. **Sugerir que** + subjuntivo — предложить. **Admitir que** + indicativo — признать."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Глагол",
+        "Конструкция",
+        "Пример"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "advertir",
+            "que + ind./subj.",
+            "Advirtió que llovería."
+          ]
+        },
+        {
+          "cells": [
+            "reprochar",
+            "que + subj.",
+            "Le reprochó que mintiera."
+          ]
+        },
+        {
+          "cells": [
+            "negar",
+            "+ infinitivo",
+            "Negó haberlo visto."
+          ]
+        },
+        {
+          "cells": [
+            "sugerir",
+            "que + subj.",
+            "Sugirió que fuéramos."
+          ]
+        },
+        {
+          "cells": [
+            "admitir",
+            "que + ind.",
+            "Admitió que mintió."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Глагол в прошедшем — в придаточной imperfecto de subjuntivo: Sugiere que vayamos → Sugirió que fuéramos."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Sara le reprochó a Nacho que llegara tarde otra vez.",
+      "ru": "Сара упрекнула Начо, что он опять опоздал."
+    },
+    {
+      "es": "El detenido negó haber estado en el puerto.",
+      "ru": "Задержанный отрицал, что был в порту."
+    },
+    {
+      "es": "La doctora Ruiz me sugirió que caminara más.",
+      "ru": "Доктор Руис посоветовала мне больше ходить пешком."
+    },
+    {
+      "es": "Ramón advirtió que el tren saldría con retraso.",
+      "ru": "Рамон предупредил, что поезд отправится с опозданием."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "c1.17-estilo-indirecto-verbos.1",
+      "kind": "choose",
+      "prompt": "«Он отрицал, что взял деньги»:",
+      "options": [
+        "Negó haber cogido el dinero.",
+        "Negó de haber cogido el dinero.",
+        "Negó a haber cogido el dinero."
+      ],
+      "answer": 0,
+      "explain": "Negar + infinitivo без предлога."
+    },
+    {
+      "id": "c1.17-estilo-indirecto-verbos.2",
+      "kind": "gap",
+      "sentence": "Mi madre me reprochó que no la ___.",
+      "ru": "Мама упрекнула меня, что я ей не звонил.",
+      "options": [
+        "llamara",
+        "llamaba",
+        "llamo"
+      ],
+      "answer": 0,
+      "explain": "Reprochar que + subjuntivo; в прошедшем — imperfecto de subjuntivo."
+    },
+    {
+      "id": "c1.17-estilo-indirecto-verbos.3",
+      "kind": "truefalse",
+      "statement": "«Advertir que» с индикативом значит «предупредить о факте».",
+      "answer": true,
+      "explain": "Advirtió que la tienda cerraba a las ocho."
+    },
+    {
+      "id": "c1.17-estilo-indirecto-verbos.4",
+      "kind": "build",
+      "ru": "Врач посоветовал мне отдохнуть.",
+      "answer": "El médico me sugirió que descansara.",
+      "extra": [
+        "descanso"
+      ],
+      "explain": "Sugerir que + subjuntivo: que descansara."
+    },
+    {
+      "id": "c1.17-estilo-indirecto-verbos.5",
+      "kind": "type",
+      "sentence": "«Sí, mentí», dijo Toni. Toni ___ que había mentido.",
+      "ru": "Тони признал, что солгал.",
+      "hint": "admitir",
+      "answer": "admitió",
+      "alt": [
+        "reconoció"
+      ],
+      "explain": "Admitir que + индикатив — признать факт."
+    },
+    {
+      "id": "c1.17-estilo-indirecto-verbos.6",
+      "kind": "transform",
+      "source": "«No he visto a nadie», dijo el portero.",
+      "keyword": "negó",
+      "ru": "Вахтёр отрицал, что кого-то видел.",
+      "answer": "El portero negó haber visto a nadie.",
+      "alt": [
+        "El portero negó que hubiera visto a nadie."
+      ],
+      "explain": "Negar + infinitivo compuesto: negó haber visto."
+    },
+    {
+      "id": "c1.17-estilo-indirecto-verbos.7",
+      "kind": "fix",
+      "sentence": "La comisaria nos advirtió que no salgamos de noche.",
+      "ru": "Комиссар предостерегла нас, чтобы мы не выходили ночью.",
+      "wrong": 6,
+      "answer": "saliéramos",
+      "explain": "Глагол в прошедшем → imperfecto de subjuntivo: que no saliéramos."
+    },
+    {
+      "id": "c1.17-estilo-indirecto-verbos.8",
+      "kind": "cloze",
+      "text": "Marta me ___ que comprara el abrigo rojo, pero Pilar me ___ que gastara tanto.",
+      "ru": "Марта посоветовала мне купить красное пальто, а Пилар упрекнула меня, что я столько трачу.",
+      "answers": [
+        [
+          "sugirió",
+          "aconsejó",
+          "recomendó"
+        ],
+        [
+          "reprochó"
+        ]
+      ],
+      "explain": "Sugerir и reprochar que + imperfecto de subjuntivo."
+    },
+    {
+      "id": "c1.17-estilo-indirecto-verbos.9",
+      "kind": "paraphrase",
+      "sentence": "Negó haber roto el cristal.",
+      "options": [
+        "Dijo que él no había roto el cristal.",
+        "Admitió que había roto el cristal.",
+        "Dijo que iba a romper el cristal."
+      ],
+      "answer": 0,
+      "explain": "Negar — сказать, что не делал."
+    }
+  ]
+}

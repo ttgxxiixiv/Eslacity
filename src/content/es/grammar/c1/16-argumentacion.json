@@ -1,0 +1,190 @@
+{
+  "id": "c1.16-argumentacion",
+  "district": "C1",
+  "order": 16,
+  "title": "Строим аргумент: en primer lugar, dicho esto",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Связки выстраивают рассуждение. Порядок: **en primer lugar**, **en segundo lugar**, **por último**. Выделить: **cabe destacar que**. Поворот: **dicho esto** — при этом, тем не менее. Добавить: **a su vez** — в свою очередь. Следствие: **por consiguiente**. Вывод: **en definitiva**."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Задача",
+        "Связка",
+        "Перевод"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "порядок",
+            "en primer lugar",
+            "во-первых"
+          ]
+        },
+        {
+          "cells": [
+            "выделить",
+            "cabe destacar que",
+            "стоит отметить"
+          ]
+        },
+        {
+          "cells": [
+            "поворот",
+            "dicho esto",
+            "при этом"
+          ]
+        },
+        {
+          "cells": [
+            "добавить",
+            "a su vez",
+            "в свою очередь"
+          ]
+        },
+        {
+          "cells": [
+            "следствие",
+            "por consiguiente",
+            "следовательно"
+          ]
+        },
+        {
+          "cells": [
+            "вывод",
+            "en definitiva",
+            "в итоге"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "«Cabe destacar» — книжное. В разговоре скажут «ojo, que...» или «lo importante es que...»."
+    }
+  ],
+  "examples": [
+    {
+      "es": "En primer lugar, el mercado necesita más luz; en segundo lugar, más bancos.",
+      "ru": "Во-первых, рынку нужно больше света; во-вторых, больше скамеек."
+    },
+    {
+      "es": "Cabe destacar que nadie se ha quejado nunca del hotel de Isabel.",
+      "ru": "Стоит отметить, что на отель Исабель никто ни разу не жаловался."
+    },
+    {
+      "es": "El plan es caro. Dicho esto, creo que merece la pena.",
+      "ru": "План дорогой. При этом я считаю, что он того стоит."
+    },
+    {
+      "es": "En definitiva, la estación necesita un nuevo horario, dice Ramón.",
+      "ru": "В итоге станции нужно новое расписание, говорит Рамон."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "c1.16-argumentacion.1",
+      "kind": "choose",
+      "prompt": "«В итоге, это хорошая идея»:",
+      "options": [
+        "En definitiva, es una buena idea.",
+        "En definitivo, es una buena idea.",
+        "Por definitiva, es una buena idea."
+      ],
+      "answer": 0,
+      "explain": "Устойчивый оборот: en definitiva."
+    },
+    {
+      "id": "c1.16-argumentacion.2",
+      "kind": "gap",
+      "sentence": "El alcalde, a su ___, prometió nuevos parques.",
+      "ru": "Мэр, в свою очередь, пообещал новые парки.",
+      "options": [
+        "vez",
+        "tiempo",
+        "lado"
+      ],
+      "answer": 0,
+      "explain": "A su vez — в свою очередь."
+    },
+    {
+      "id": "c1.16-argumentacion.3",
+      "kind": "truefalse",
+      "statement": "«Dicho esto» вводит поворот: «при этом, тем не менее».",
+      "answer": true,
+      "explain": "El piso es pequeño. Dicho esto, es muy luminoso."
+    },
+    {
+      "id": "c1.16-argumentacion.4",
+      "kind": "build",
+      "ru": "Стоит отметить, что цены выросли.",
+      "answer": "Cabe destacar que los precios han subido.",
+      "extra": [
+        "cabo"
+      ],
+      "explain": "Cabe (от caber) destacar que — «стоит отметить»."
+    },
+    {
+      "id": "c1.16-argumentacion.5",
+      "kind": "type",
+      "sentence": "En primer ___, quiero dar las gracias a todos.",
+      "ru": "Прежде всего я хочу поблагодарить всех.",
+      "hint": "существительное",
+      "answer": "lugar",
+      "explain": "En primer lugar — во-первых, прежде всего."
+    },
+    {
+      "id": "c1.16-argumentacion.6",
+      "kind": "combine",
+      "first": "Los precios han subido mucho.",
+      "second": "Muchas familias compran menos.",
+      "connector": "por consiguiente",
+      "ru": "Цены сильно выросли, поэтому многие семьи покупают меньше.",
+      "answer": "Los precios han subido mucho; por consiguiente, muchas familias compran menos.",
+      "explain": "Por consiguiente — книжное «следовательно»."
+    },
+    {
+      "id": "c1.16-argumentacion.7",
+      "kind": "register",
+      "source": "Ojo, que la tienda cierra los lunes.",
+      "to": "formal",
+      "options": [
+        "Cabe destacar que el establecimiento cierra los lunes.",
+        "Oye, que la tienda cierra los lunes, ¿eh?",
+        "Cabe destacar que el establecimiento abre los lunes."
+      ],
+      "answer": 0,
+      "explain": "Официально: cabe destacar que, el establecimiento. Третий вариант меняет смысл."
+    },
+    {
+      "id": "c1.16-argumentacion.8",
+      "kind": "cloze",
+      "text": "En primer ___, el parque es pequeño. En segundo lugar, no tiene sombra. En ___, no es buen sitio para la fiesta.",
+      "ru": "Во-первых, парк маленький. Во-вторых, в нём нет тени. В итоге для праздника он не подходит.",
+      "answers": [
+        [
+          "lugar"
+        ],
+        [
+          "definitiva",
+          "conclusión"
+        ]
+      ],
+      "explain": "En primer lugar — во-первых, en definitiva — в итоге."
+    },
+    {
+      "id": "c1.16-argumentacion.9",
+      "kind": "paraphrase",
+      "sentence": "Dicho esto, creo que tienes razón.",
+      "options": [
+        "Aun así, creo que tienes razón.",
+        "Como te dije, no tienes razón.",
+        "Por eso no creo nada."
+      ],
+      "answer": 0,
+      "explain": "Dicho esto ≈ aun así: «при этом, тем не менее»."
+    }
+  ]
+}

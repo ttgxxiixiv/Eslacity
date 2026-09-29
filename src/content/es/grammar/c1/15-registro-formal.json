@@ -1,0 +1,177 @@
+{
+  "id": "c1.15-registro-formal",
+  "district": "C1",
+  "order": 15,
+  "title": "Официальное письмо: usted, Estimado, Atentamente",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Официальное письмо строится по формулам, всё письмо на **usted**. Обращение: **Estimado señor Gómez:** (после обращения двоеточие). Начало: **Me dirijo a usted para...** Просьба: **Le ruego que** + subjuntivo, **Le agradecería que** + imperfecto de subjuntivo. Конец: **Quedo a la espera de su respuesta. Atentamente,** и подпись."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Часть",
+        "Официально",
+        "Дружески"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "обращение",
+            "Estimada señora Vega:",
+            "¡Hola, Lola!"
+          ]
+        },
+        {
+          "cells": [
+            "начало",
+            "Me dirijo a usted...",
+            "Te escribo para..."
+          ]
+        },
+        {
+          "cells": [
+            "просьба",
+            "Le ruego que envíe...",
+            "¿Me mandas...?"
+          ]
+        },
+        {
+          "cells": [
+            "конец",
+            "Atentamente,",
+            "Un abrazo,"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "После «Estimado/a...» в испанском ставят двоеточие. Запятая — калька с английского."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Estimado señor Gómez: me dirijo a usted para solicitar un préstamo.",
+      "ru": "Уважаемый сеньор Гомес! Обращаюсь к вам с просьбой о кредите."
+    },
+    {
+      "es": "Le agradecería que me enviara el contrato por correo.",
+      "ru": "Буду признателен, если вы пришлёте мне договор почтой."
+    },
+    {
+      "es": "Quedo a la espera de su respuesta.",
+      "ru": "Жду вашего ответа."
+    },
+    {
+      "es": "Le ruego que confirme la reserva, escribe Isabel desde el hotel.",
+      "ru": "Прошу вас подтвердить бронь, пишет Исабель из отеля."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "c1.15-registro-formal.1",
+      "kind": "choose",
+      "prompt": "Официальное обращение в письме:",
+      "options": [
+        "Estimada señora Vega:",
+        "Querida Vega:",
+        "¡Hola, señora Vega!"
+      ],
+      "answer": 0,
+      "explain": "Estimado/a + обращение с двоеточием."
+    },
+    {
+      "id": "c1.15-registro-formal.2",
+      "kind": "gap",
+      "sentence": "Le ruego que me ___ una copia del contrato.",
+      "ru": "Прошу вас прислать мне копию договора.",
+      "options": [
+        "envíe",
+        "envía",
+        "enviar"
+      ],
+      "answer": 0,
+      "explain": "Le ruego que + subjuntivo."
+    },
+    {
+      "id": "c1.15-registro-formal.3",
+      "kind": "truefalse",
+      "statement": "«Un abrazo» — подходящая концовка письма в банк.",
+      "answer": false,
+      "explain": "В официальном письме: Atentamente или Le saluda atentamente."
+    },
+    {
+      "id": "c1.15-registro-formal.4",
+      "kind": "build",
+      "ru": "Буду признателен, если вы мне ответите.",
+      "answer": "Le agradecería que me respondiera.",
+      "extra": [
+        "respondería"
+      ],
+      "explain": "Agradecería (condicional) + imperfecto de subjuntivo: respondiera."
+    },
+    {
+      "id": "c1.15-registro-formal.5",
+      "kind": "type",
+      "sentence": "Me ___ a usted para solicitar información.",
+      "ru": "Обращаюсь к вам, чтобы запросить информацию.",
+      "hint": "dirigirse",
+      "answer": "dirijo",
+      "explain": "Me dirijo a usted — «обращаюсь к вам»."
+    },
+    {
+      "id": "c1.15-registro-formal.6",
+      "kind": "register",
+      "source": "¿Me mandas la factura, porfa?",
+      "to": "formal",
+      "answer": "Le ruego que me envíe la factura.",
+      "extra": [
+        "mandas",
+        "porfa"
+      ],
+      "explain": "Официально: le ruego que + subjuntivo, enviar вместо mandar, без «porfa»."
+    },
+    {
+      "id": "c1.15-registro-formal.7",
+      "kind": "register",
+      "source": "Un abrazo y hasta pronto.",
+      "to": "formal",
+      "options": [
+        "Le saluda atentamente.",
+        "Besos, guapa.",
+        "Hasta luego, majo."
+      ],
+      "answer": 0,
+      "explain": "Официальная концовка — Le saluda atentamente."
+    },
+    {
+      "id": "c1.15-registro-formal.8",
+      "kind": "cloze",
+      "text": "Estimado señor Gómez: me ___ a usted para pedirle una cita. Quedo a la ___ de su respuesta.",
+      "ru": "Уважаемый сеньор Гомес! Обращаюсь к вам с просьбой о встрече. Жду вашего ответа.",
+      "answers": [
+        [
+          "dirijo"
+        ],
+        [
+          "espera"
+        ]
+      ],
+      "explain": "Me dirijo a usted, quedo a la espera — формулы письма."
+    },
+    {
+      "id": "c1.15-registro-formal.9",
+      "kind": "transform",
+      "source": "Escríbame pronto, por favor.",
+      "keyword": "agradecería",
+      "ru": "Буду признателен за скорый ответ.",
+      "answer": "Le agradecería que me escribiera pronto.",
+      "alt": [
+        "Le agradecería que me escribiese pronto."
+      ],
+      "explain": "Le agradecería que + imperfecto de subjuntivo — вежливая просьба."
+    }
+  ]
+}

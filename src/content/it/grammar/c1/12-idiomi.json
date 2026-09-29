@@ -1,0 +1,188 @@
+{
+  "id": "c1.12-idiomi",
+  "district": "C1",
+  "order": 12,
+  "title": "Идиомы: le mani bucate, non vedere l'ora",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Смысл идиомы не складывается из слов. **Avere le mani bucate** — дословно «иметь дырявые руки», а значит «сорить деньгами». Идиомы нужны, чтобы понимать живую речь, а употреблять их уместно в разговорном регистре."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Идиома",
+        "Дословно",
+        "Значение"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "avere le mani bucate",
+            "дырявые руки",
+            "транжирить"
+          ]
+        },
+        {
+          "cells": [
+            "non vedere l'ora",
+            "не видеть часа",
+            "ждать не дождаться"
+          ]
+        },
+        {
+          "cells": [
+            "costare un occhio",
+            "стоить глаз",
+            "стоить уйму"
+          ]
+        },
+        {
+          "cells": [
+            "prendere in giro",
+            "взять по кругу",
+            "подшучивать"
+          ]
+        },
+        {
+          "cells": [
+            "essere al verde",
+            "быть на зелёном",
+            "сидеть без денег"
+          ]
+        },
+        {
+          "cells": [
+            "in bocca al lupo",
+            "в пасть волку",
+            "ни пуха ни пера"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "На «In bocca al lupo!» отвечают «Crepi!» — «пусть сдохнет (волк)». Говорить «Grazie» не принято."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Enzo ha le mani bucate: spende tutto il primo del mese.",
+      "ru": "Энцо транжира: тратит всё в первый же день месяца."
+    },
+    {
+      "es": "Non vedo l'ora di andare al mare, dice Marco.",
+      "ru": "Жду не дождусь поехать на море, говорит Марко."
+    },
+    {
+      "es": "Questo cappotto costa un occhio della testa!",
+      "ru": "Это пальто стоит целое состояние!"
+    },
+    {
+      "es": "— In bocca al lupo per l'esame! — Crepi!",
+      "ru": "— Ни пуха ни пера на экзамене! — К чёрту!"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "c1.12-idiomi.1",
+      "kind": "choose",
+      "prompt": "«Жду не дождусь выходных»:",
+      "options": [
+        "Non vedo l'ora che arrivi il fine settimana.",
+        "Non guardo l'ora che arrivi il fine settimana.",
+        "Vedo l'ora che arrivi il fine settimana."
+      ],
+      "answer": 0,
+      "explain": "Non vedere l'ora — ждать с нетерпением."
+    },
+    {
+      "id": "c1.12-idiomi.2",
+      "kind": "gap",
+      "sentence": "Sono al ___: mi presti dieci euro?",
+      "ru": "Я на мели: одолжишь десять евро?",
+      "options": [
+        "verde",
+        "rosso",
+        "nero"
+      ],
+      "answer": 0,
+      "explain": "Essere al verde — остаться без денег."
+    },
+    {
+      "id": "c1.12-idiomi.3",
+      "kind": "truefalse",
+      "statement": "На «In bocca al lupo!» принято отвечать «Crepi!».",
+      "answer": true,
+      "explain": "Благодарить «Grazie» не принято."
+    },
+    {
+      "id": "c1.12-idiomi.4",
+      "kind": "build",
+      "ru": "Ты меня разыгрываешь?",
+      "answer": "Mi stai prendendo in giro?",
+      "extra": [
+        "portando"
+      ],
+      "explain": "Prendere in giro — подшучивать, разыгрывать."
+    },
+    {
+      "id": "c1.12-idiomi.5",
+      "kind": "type",
+      "sentence": "Mio fratello ha le mani ___: spende tutto.",
+      "ru": "У моего брата дырявые руки: он всё тратит.",
+      "hint": "прилагательное",
+      "answer": "bucate",
+      "explain": "Avere le mani bucate — сорить деньгами."
+    },
+    {
+      "id": "c1.12-idiomi.6",
+      "kind": "register",
+      "source": "Sono al verde, non posso pagare.",
+      "to": "formal",
+      "options": [
+        "Al momento non dispongo della somma necessaria.",
+        "Sto proprio a secco, amico.",
+        "Al momento dispongo della somma necessaria."
+      ],
+      "answer": 0,
+      "explain": "Официально идиому меняют на прямое «non dispongo della somma». Третий вариант меняет смысл."
+    },
+    {
+      "id": "c1.12-idiomi.7",
+      "kind": "paraphrase",
+      "sentence": "Quel vestito costa un occhio della testa.",
+      "options": [
+        "Quel vestito è carissimo.",
+        "Quel vestito è bruttissimo.",
+        "Quel vestito mi sta stretto."
+      ],
+      "answer": 0,
+      "explain": "Costare un occhio della testa — стоить очень дорого."
+    },
+    {
+      "id": "c1.12-idiomi.8",
+      "kind": "fix",
+      "sentence": "Non guardo l'ora di partire per le vacanze.",
+      "ru": "Жду не дождусь отпуска.",
+      "wrong": 1,
+      "answer": "vedo",
+      "explain": "Оборот неизменяемый: non vedere l'ora."
+    },
+    {
+      "id": "c1.12-idiomi.9",
+      "kind": "cloze",
+      "text": "Luca ha le mani ___: adesso è al ___ e non può comprare il biglietto.",
+      "ru": "У Луки дырявые руки: теперь он на мели и не может купить билет.",
+      "answers": [
+        [
+          "bucate"
+        ],
+        [
+          "verde"
+        ]
+      ],
+      "explain": "Le mani bucate — транжира; essere al verde — без денег."
+    }
+  ]
+}

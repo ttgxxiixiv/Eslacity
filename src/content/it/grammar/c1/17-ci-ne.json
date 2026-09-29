@@ -1,0 +1,184 @@
+{
+  "id": "c1.17-ci-ne",
+  "district": "C1",
+  "order": 17,
+  "title": "Ci и ne: ne partitivo, crederci, tenerci",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "**Ne** заменяет количество чего-то (Quante mele? **Ne** voglio tre) или «об этом» (Che **ne** pensi? Non **ne** so niente). **Ci** заменяет «в это, на это»: **Ci** penso io. С ci глаголы меняют смысл: **crederci** — верить в это, **tenerci** — дорожить, очень хотеть, **volerci** — требоваться, **metterci** — тратить время (о себе)."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Оборот",
+        "Смысл",
+        "Пример"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "ne (сколько)",
+            "из них",
+            "Ne prendo due."
+          ]
+        },
+        {
+          "cells": [
+            "ne (о чём)",
+            "об этом",
+            "Che ne pensi?"
+          ]
+        },
+        {
+          "cells": [
+            "crederci",
+            "верить",
+            "Non ci credo!"
+          ]
+        },
+        {
+          "cells": [
+            "tenerci",
+            "дорожить",
+            "Ci tengo molto."
+          ]
+        },
+        {
+          "cells": [
+            "volerci",
+            "требоваться",
+            "Ci vuole un'ora."
+          ]
+        },
+        {
+          "cells": [
+            "metterci",
+            "тратить время",
+            "Ci metto un'ora."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Ci vuole — сколько требуется вообще, во множественном числе ci vogliono: Ci vogliono due ore. Ci metto — сколько трачу я сам."
+    }
+  ],
+  "examples": [
+    {
+      "es": "— Quanti pomodori vuole? — Ne prendo un chilo, signora Rosa.",
+      "ru": "— Сколько помидоров хотите? — Возьму килограмм, синьора Роза."
+    },
+    {
+      "es": "Ci tengo molto a questa festa, dice Giulia.",
+      "ru": "Мне очень важен этот праздник, говорит Джулия."
+    },
+    {
+      "es": "Per arrivare alla stazione ci vogliono dieci minuti.",
+      "ru": "Чтобы дойти до вокзала, нужно десять минут."
+    },
+    {
+      "es": "Che ne pensi della nuova pizza dello chef Salvatore?",
+      "ru": "Что ты думаешь о новой пицце шефа Сальваторе?"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "c1.17-ci-ne.1",
+      "kind": "choose",
+      "prompt": "«Сколько времени ты на это тратишь?»:",
+      "options": [
+        "Quanto ci metti?",
+        "Quanto ci vuoi?",
+        "Quanto ne metti?"
+      ],
+      "answer": 0,
+      "explain": "О своём времени — metterci: quanto ci metti."
+    },
+    {
+      "id": "c1.17-ci-ne.2",
+      "kind": "gap",
+      "sentence": "Per fare il ragù ___ vogliono tre ore.",
+      "ru": "Чтобы приготовить рагу, нужно три часа.",
+      "options": [
+        "ci",
+        "ne",
+        "si"
+      ],
+      "answer": 0,
+      "explain": "Volerci — требоваться: ci vogliono."
+    },
+    {
+      "id": "c1.17-ci-ne.3",
+      "kind": "truefalse",
+      "statement": "«Non ne so niente» значит «Я об этом ничего не знаю».",
+      "answer": true,
+      "explain": "Ne заменяет «di questo»."
+    },
+    {
+      "id": "c1.17-ci-ne.4",
+      "kind": "build",
+      "ru": "Я в это не верю!",
+      "answer": "Non ci credo!",
+      "extra": [
+        "ne"
+      ],
+      "explain": "Crederci — верить в это."
+    },
+    {
+      "id": "c1.17-ci-ne.5",
+      "kind": "type",
+      "sentence": "— Quante sorelle hai? — ___ ho due.",
+      "ru": "— Сколько у тебя сестёр? — Две.",
+      "hint": "местоимение",
+      "answer": "Ne",
+      "explain": "Ne заменяет количество: ne ho due."
+    },
+    {
+      "id": "c1.17-ci-ne.6",
+      "kind": "fix",
+      "sentence": "Per arrivare a Roma ci vuole tre ore.",
+      "ru": "Чтобы добраться до Рима, нужно три часа.",
+      "wrong": 5,
+      "answer": "vogliono",
+      "explain": "Три часа — множественное число: ci vogliono."
+    },
+    {
+      "id": "c1.17-ci-ne.7",
+      "kind": "paraphrase",
+      "sentence": "Ci tengo molto.",
+      "options": [
+        "Per me è molto importante.",
+        "Lo tengo in mano.",
+        "Non mi interessa affatto."
+      ],
+      "answer": 0,
+      "explain": "Tenerci — дорожить, очень хотеть."
+    },
+    {
+      "id": "c1.17-ci-ne.8",
+      "kind": "cloze",
+      "text": "— Hai sentito della festa? — Sì, ___ ho sentito parlare. Ma non ___ credo: è troppo bello!",
+      "ru": "— Ты слышал о празднике? — Да, слышал. Но не верю: слишком хорошо, чтобы быть правдой.",
+      "answers": [
+        [
+          "ne"
+        ],
+        [
+          "ci"
+        ]
+      ],
+      "explain": "Ne — «об этом», crederci — верить."
+    },
+    {
+      "id": "c1.17-ci-ne.9",
+      "kind": "transform",
+      "source": "Per me questo lavoro è molto importante.",
+      "keyword": "tengo",
+      "ru": "Мне очень важна эта работа.",
+      "answer": "Ci tengo molto a questo lavoro.",
+      "explain": "Tenerci a — дорожить."
+    }
+  ]
+}

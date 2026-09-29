@@ -18,7 +18,7 @@ describe.each(['es', 'it'])('продуктивные задания в конт
   const all = lessons(lang);
 
   it('у каждого урока есть сборка и ввод формы', () => {
-    expect(all.length).toBe(122);
+    expect(all.length).toBe(132);
     for (const l of all) {
       const kinds = l.exercises.map((e) => e.kind);
       expect(kinds.filter((k) => k === 'build').length, l.id).toBeGreaterThanOrEqual(1);

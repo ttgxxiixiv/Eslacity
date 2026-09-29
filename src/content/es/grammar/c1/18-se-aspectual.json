@@ -1,0 +1,180 @@
+{
+  "id": "c1.18-se-aspectual",
+  "district": "C1",
+  "order": 18,
+  "title": "Se, который подчёркивает полноту: comerse, saberse",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Se без возвратного смысла подчёркивает полноту действия или участие говорящего. **Comerse** — съесть целиком: Se comió la tarta. **Leerse** — прочитать от начала до конца. **Saberse** — знать наизусть. **Creerse** — поверить (часто наивно). **Irse** — уйти. С таким se обычно есть конкретное дополнение: Me comí una pizza, но Como mucho."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Без se",
+        "С se",
+        "Разница"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "comí pizza",
+            "me comí la pizza",
+            "съел целиком"
+          ]
+        },
+        {
+          "cells": [
+            "leí el libro",
+            "me leí el libro",
+            "прочитал до конца"
+          ]
+        },
+        {
+          "cells": [
+            "sé la canción",
+            "me sé la canción",
+            "знаю наизусть"
+          ]
+        },
+        {
+          "cells": [
+            "no lo creo",
+            "no me lo creo",
+            "не верится"
+          ]
+        },
+        {
+          "cells": [
+            "voy",
+            "me voy",
+            "ухожу"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Без конкретного объекта se не ставят: говорят «Comí mucho», а не «Me comí mucho»."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Leo se leyó el libro en un solo vuelo.",
+      "ru": "Лео прочитал книгу за один перелёт."
+    },
+    {
+      "es": "Los niños se comieron todas las galletas de Lola.",
+      "ru": "Дети съели всё печенье Лолы."
+    },
+    {
+      "es": "Elena se sabe de memoria todos los poemas de Lorca.",
+      "ru": "Елена знает наизусть все стихи Лорки."
+    },
+    {
+      "es": "¿Te has creído lo del concierto? Era broma.",
+      "ru": "Ты поверил в историю с концертом? Это была шутка."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "c1.18-se-aspectual.1",
+      "kind": "choose",
+      "prompt": "«Я съел всю пиццу»:",
+      "options": [
+        "Me comí toda la pizza.",
+        "Comí me toda la pizza.",
+        "Me comí mucho."
+      ],
+      "answer": 0,
+      "explain": "Se подчёркивает, что съедено всё: me comí toda la pizza."
+    },
+    {
+      "id": "c1.18-se-aspectual.2",
+      "kind": "gap",
+      "sentence": "Nacho ___ sabe el reglamento de memoria.",
+      "ru": "Начо знает правила наизусть.",
+      "options": [
+        "se",
+        "le",
+        "lo"
+      ],
+      "answer": 0,
+      "explain": "Saberse — знать наизусть."
+    },
+    {
+      "id": "c1.18-se-aspectual.3",
+      "kind": "truefalse",
+      "statement": "Фразы «Como mucho» и «Me como mucho» одинаково обычны.",
+      "answer": false,
+      "explain": "Без конкретного объекта se не ставят: Como mucho."
+    },
+    {
+      "id": "c1.18-se-aspectual.4",
+      "kind": "build",
+      "ru": "Я прочитал этот роман за два дня.",
+      "answer": "Me leí esa novela en dos días.",
+      "alt": [
+        "Me leí en dos días esa novela."
+      ],
+      "extra": [
+        "mi"
+      ],
+      "explain": "Leerse — прочитать целиком."
+    },
+    {
+      "id": "c1.18-se-aspectual.5",
+      "kind": "type",
+      "sentence": "¡No ___ lo creo! ¿Has ganado la lotería?",
+      "ru": "Не могу поверить! Ты выиграл в лотерею?",
+      "hint": "местоимение",
+      "answer": "me",
+      "explain": "No me lo creo — «не верится»."
+    },
+    {
+      "id": "c1.18-se-aspectual.6",
+      "kind": "fix",
+      "sentence": "Toni le sabe todas las canciones de memoria.",
+      "ru": "Тони знает все песни наизусть.",
+      "wrong": 1,
+      "answer": "se",
+      "explain": "Знать наизусть — saberse: se sabe."
+    },
+    {
+      "id": "c1.18-se-aspectual.7",
+      "kind": "paraphrase",
+      "sentence": "Se leyó el informe entero.",
+      "options": [
+        "Leyó el informe de principio a fin.",
+        "Leyó solo una parte del informe.",
+        "Alguien le leyó el informe."
+      ],
+      "answer": 0,
+      "explain": "Leerse + entero — от начала до конца."
+    },
+    {
+      "id": "c1.18-se-aspectual.8",
+      "kind": "transform",
+      "source": "Leo terminó de comer toda la tortilla.",
+      "keyword": "comió",
+      "ru": "Лео съел всю тортилью.",
+      "answer": "Leo se comió toda la tortilla.",
+      "explain": "Comerse — съесть целиком."
+    },
+    {
+      "id": "c1.18-se-aspectual.9",
+      "kind": "cloze",
+      "text": "Rafa ___ comió dos bocadillos y luego ___ fue a repartir cartas.",
+      "ru": "Рафа съел два бутерброда, а потом ушёл разносить письма.",
+      "answers": [
+        [
+          "se"
+        ],
+        [
+          "se"
+        ]
+      ],
+      "explain": "Comerse — съесть целиком, irse — уйти."
+    }
+  ]
+}

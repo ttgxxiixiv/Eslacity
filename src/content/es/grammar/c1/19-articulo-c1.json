@@ -1,0 +1,175 @@
+{
+  "id": "c1.19-articulo-c1",
+  "district": "C1",
+  "order": 19,
+  "title": "Артикль: где ставится и где пропускается",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Испанский ставит артикль там, где русский обходится без него, и наоборот. **Ставят**: при обобщении (Me gusta el café), с частями тела вместо притяжательного (Me duele la cabeza), с днями недели (el lunes), с señor и doctora, когда говорят о человеке. **Не ставят**: после ser для профессии без прилагательного (Es médica), при обращении (Doctora Ruiz, ¿puede venir?), с общим понятием после tener и buscar (Busco piso)."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Случай",
+        "Пример",
+        "Правило"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "обобщение",
+            "Me gusta el café.",
+            "артикль"
+          ]
+        },
+        {
+          "cells": [
+            "часть тела",
+            "Me duele la muela.",
+            "артикль"
+          ]
+        },
+        {
+          "cells": [
+            "профессия",
+            "Es profesora.",
+            "без"
+          ]
+        },
+        {
+          "cells": [
+            "+ прилагательное",
+            "Es una gran profesora.",
+            "un / una"
+          ]
+        },
+        {
+          "cells": [
+            "обращение",
+            "Señor Gómez, pase.",
+            "без"
+          ]
+        },
+        {
+          "cells": [
+            "о человеке",
+            "El señor Gómez no está.",
+            "артикль"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "«Busco piso» — ищу квартиру вообще; «Busco un piso con terraza» — одну из многих, с приметой."
+    }
+  ],
+  "examples": [
+    {
+      "es": "La doctora Ruiz no está; vuelva el lunes.",
+      "ru": "Доктора Руис нет; приходите в понедельник."
+    },
+    {
+      "es": "Doctora Ruiz, ¿puede venir un momento?",
+      "ru": "Доктор Руис, можете подойти на минутку?"
+    },
+    {
+      "es": "Elena es profesora, y es una profesora muy paciente.",
+      "ru": "Елена — учительница, причём очень терпеливая."
+    },
+    {
+      "es": "A Toni le duele la espalda de tanto cortar el pelo.",
+      "ru": "У Тони болит спина от постоянных стрижек."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "c1.19-articulo-c1.1",
+      "kind": "choose",
+      "prompt": "«Мой брат — врач» (по профессии):",
+      "options": [
+        "Mi hermano es médico.",
+        "Mi hermano es un médico.",
+        "Mi hermano es el médico."
+      ],
+      "answer": 0,
+      "explain": "Профессия после ser без прилагательного — без артикля."
+    },
+    {
+      "id": "c1.19-articulo-c1.2",
+      "kind": "gap",
+      "sentence": "___ señora Pilar vive al lado.",
+      "ru": "Сеньора Пилар живёт по соседству.",
+      "options": [
+        "La",
+        "Una",
+        "Lo"
+      ],
+      "answer": 0,
+      "explain": "Когда говорят о человеке, señora — с артиклем."
+    },
+    {
+      "id": "c1.19-articulo-c1.3",
+      "kind": "truefalse",
+      "statement": "В обращении артикль не ставят: «Señor Gómez, pase».",
+      "answer": true,
+      "explain": "Но о человеке: El señor Gómez ha salido."
+    },
+    {
+      "id": "c1.19-articulo-c1.4",
+      "kind": "build",
+      "ru": "У меня болит голова.",
+      "answer": "Me duele la cabeza.",
+      "extra": [
+        "mi"
+      ],
+      "explain": "Часть тела — с артиклем, без притяжательного."
+    },
+    {
+      "id": "c1.19-articulo-c1.5",
+      "kind": "type",
+      "sentence": "Los domingos no trabajo, pero ___ domingo que viene sí.",
+      "ru": "По воскресеньям я не работаю, а в ближайшее воскресенье — работаю.",
+      "hint": "артикль",
+      "answer": "el",
+      "explain": "Конкретный день — el domingo."
+    },
+    {
+      "id": "c1.19-articulo-c1.6",
+      "kind": "fix",
+      "sentence": "Me lavo mis manos antes de comer.",
+      "ru": "Я мою руки перед едой.",
+      "wrong": 2,
+      "answer": "las",
+      "explain": "С частями тела — артикль: me lavo las manos."
+    },
+    {
+      "id": "c1.19-articulo-c1.7",
+      "kind": "cloze",
+      "text": "Beatriz es ___ jefa muy exigente. Ayer ___ señor Gómez la llamó.",
+      "ru": "Беатрис — очень требовательная начальница. Вчера ей позвонил сеньор Гомес.",
+      "answers": [
+        [
+          "una"
+        ],
+        [
+          "el"
+        ]
+      ],
+      "explain": "Профессия с прилагательным — una; о человеке — el señor."
+    },
+    {
+      "id": "c1.19-articulo-c1.8",
+      "kind": "paraphrase",
+      "sentence": "Busco piso.",
+      "options": [
+        "Estoy buscando una vivienda, la que sea.",
+        "Busco el piso que vi ayer.",
+        "Tengo un piso."
+      ],
+      "answer": 0,
+      "explain": "Без артикля — квартиру вообще, любую."
+    }
+  ]
+}

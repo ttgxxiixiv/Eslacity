@@ -1,0 +1,184 @@
+{
+  "id": "c1.12-verbos-soporte",
+  "district": "C1",
+  "order": 12,
+  "title": "Глагольные сочетания: hacer caso, dar pie",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "В испанском много сочетаний «простой глагол + существительное», где смысл несёт существительное. По словам их не переведёшь: **hacer caso** — слушаться, **dar pie** — давать повод, **poner en duda** — ставить под сомнение, **tomar partido** — принимать сторону, **echar la culpa** — сваливать вину, **sacar provecho** — извлекать пользу."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Сочетание",
+        "Значение",
+        "Пример"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "hacer caso a",
+            "слушаться",
+            "Hazme caso."
+          ]
+        },
+        {
+          "cells": [
+            "dar pie a",
+            "давать повод",
+            "Da pie a rumores."
+          ]
+        },
+        {
+          "cells": [
+            "poner en duda",
+            "сомневаться",
+            "Nadie lo pone en duda."
+          ]
+        },
+        {
+          "cells": [
+            "tomar partido",
+            "встать на сторону",
+            "No tomo partido."
+          ]
+        },
+        {
+          "cells": [
+            "echar la culpa a",
+            "винить",
+            "Me echa la culpa."
+          ]
+        },
+        {
+          "cells": [
+            "sacar provecho de",
+            "извлечь пользу",
+            "Saca provecho de todo."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Глагол в таких парах синонимом не заменяют: hacer caso, но не «dar caso»; tomar partido, но не «coger partido»."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Nunca me haces caso, le dice doña Carmen a su hijo.",
+      "ru": "Ты меня никогда не слушаешь, говорит донья Кармен сыну."
+    },
+    {
+      "es": "El comentario de Toni dio pie a una larga discusión.",
+      "ru": "Замечание Тони дало повод к долгому спору."
+    },
+    {
+      "es": "Nadie pone en duda la experiencia de la doctora Ruiz.",
+      "ru": "Никто не ставит под сомнение опыт доктора Руис."
+    },
+    {
+      "es": "En las peleas del barrio, la señora Pilar nunca toma partido.",
+      "ru": "В соседских ссорах сеньора Пилар никогда не встаёт ни на чью сторону."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "c1.12-verbos-soporte.1",
+      "kind": "choose",
+      "prompt": "«Не вини меня!»:",
+      "options": [
+        "¡No me eches la culpa!",
+        "¡No me des la culpa!",
+        "¡No me pongas la culpa!"
+      ],
+      "answer": 0,
+      "explain": "Вину «бросают»: echar la culpa."
+    },
+    {
+      "id": "c1.12-verbos-soporte.2",
+      "kind": "gap",
+      "sentence": "Si me hubieras ___ caso, no estaríamos aquí.",
+      "ru": "Если бы ты меня послушал, мы бы здесь не были.",
+      "options": [
+        "hecho",
+        "dado",
+        "tomado"
+      ],
+      "answer": 0,
+      "explain": "Hacer caso — слушаться."
+    },
+    {
+      "id": "c1.12-verbos-soporte.3",
+      "kind": "truefalse",
+      "statement": "«Dar pie a algo» значит «наступить на что-то».",
+      "answer": false,
+      "explain": "Dar pie a — давать повод: Su silencio dio pie a rumores."
+    },
+    {
+      "id": "c1.12-verbos-soporte.4",
+      "kind": "build",
+      "ru": "Сара умеет извлекать пользу из каждой тренировки.",
+      "answer": "Sara sabe sacar provecho de cada entrenamiento.",
+      "extra": [
+        "tomar"
+      ],
+      "explain": "Пользу «вынимают»: sacar provecho de."
+    },
+    {
+      "id": "c1.12-verbos-soporte.5",
+      "kind": "type",
+      "sentence": "En esta discusión no quiero tomar ___.",
+      "ru": "В этом споре я не хочу вставать ни на чью сторону.",
+      "hint": "существительное",
+      "answer": "partido",
+      "explain": "Tomar partido — встать на чью-то сторону."
+    },
+    {
+      "id": "c1.12-verbos-soporte.6",
+      "kind": "transform",
+      "source": "Nadie duda de su honradez.",
+      "keyword": "pone",
+      "ru": "Никто не ставит под сомнение его честность.",
+      "answer": "Nadie pone en duda su honradez.",
+      "explain": "Dudar de = poner en duda."
+    },
+    {
+      "id": "c1.12-verbos-soporte.7",
+      "kind": "fix",
+      "sentence": "Siempre me da la culpa a mí de todo.",
+      "ru": "Он всегда во всём винит меня.",
+      "wrong": 2,
+      "answer": "echa",
+      "explain": "Вину «бросают»: me echa la culpa."
+    },
+    {
+      "id": "c1.12-verbos-soporte.8",
+      "kind": "cloze",
+      "text": "Javi nunca ___ caso a nadie, y eso ___ pie a muchas quejas en el súper.",
+      "ru": "Хави никогда никого не слушает, и это даёт повод для многих жалоб в магазине.",
+      "answers": [
+        [
+          "hace"
+        ],
+        [
+          "da"
+        ]
+      ],
+      "explain": "Hacer caso — слушаться, dar pie a — давать повод."
+    },
+    {
+      "id": "c1.12-verbos-soporte.9",
+      "kind": "paraphrase",
+      "sentence": "No quiero tomar partido.",
+      "options": [
+        "No quiero ponerme de parte de nadie.",
+        "No quiero participar en la fiesta.",
+        "No quiero tomar una decisión."
+      ],
+      "answer": 0,
+      "explain": "Tomar partido — встать на чью-то сторону, а не «принять участие»."
+    }
+  ]
+}

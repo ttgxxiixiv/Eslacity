@@ -1,0 +1,175 @@
+{
+  "id": "c1.18-articolo-c1",
+  "district": "C1",
+  "order": 18,
+  "title": "Артикль: где ставится и где пропускается",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Итальянский ставит артикль там, где русский обходится без него. **Ставят**: при обобщении (Mi piace il caffè), с притяжательными (la mia casa), с частями тела вместо притяжательного (Mi fa male la testa), с титулом, когда говорят о человеке (il dottor Ferri), с годами (nel 1990). **Не ставят**: при обращении (Dottor Ferri, venga!), после essere для профессии (È medico), с близким родственником в единственном числе (mia madre)."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Случай",
+        "Пример",
+        "Правило"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "обобщение",
+            "Mi piace il tè.",
+            "артикль"
+          ]
+        },
+        {
+          "cells": [
+            "притяжательное",
+            "la mia casa",
+            "артикль"
+          ]
+        },
+        {
+          "cells": [
+            "родственник",
+            "mia sorella",
+            "без"
+          ]
+        },
+        {
+          "cells": [
+            "мн. число",
+            "le mie sorelle",
+            "артикль"
+          ]
+        },
+        {
+          "cells": [
+            "обращение",
+            "Dottor Ferri, venga!",
+            "без"
+          ]
+        },
+        {
+          "cells": [
+            "о человеке",
+            "Il dottor Ferri è qui.",
+            "артикль"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "С loro артикль нужен всегда, даже с родственником: il loro padre."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Il dottor Ferri non c'è; torni lunedì.",
+      "ru": "Доктора Ферри нет; приходите в понедельник."
+    },
+    {
+      "es": "Dottor Ferri, può venire un momento?",
+      "ru": "Доктор Ферри, можете подойти на минутку?"
+    },
+    {
+      "es": "Mia madre e le mie sorelle vivono a Napoli, dice Tonino.",
+      "ru": "Моя мама и сёстры живут в Неаполе, говорит Тонино."
+    },
+    {
+      "es": "A Marco fa male la schiena dopo il turno.",
+      "ru": "У Марко болит спина после смены."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "c1.18-articolo-c1.1",
+      "kind": "choose",
+      "prompt": "«Моя сестра — врач» (по профессии):",
+      "options": [
+        "Mia sorella è medico.",
+        "La mia sorella è medico.",
+        "Mia sorella è il medico."
+      ],
+      "answer": 0,
+      "explain": "Родственник в ед. ч. — без артикля; профессия после essere — тоже."
+    },
+    {
+      "id": "c1.18-articolo-c1.2",
+      "kind": "gap",
+      "sentence": "___ loro padre lavora in banca.",
+      "ru": "Их отец работает в банке.",
+      "options": [
+        "Il",
+        "Lo",
+        "Un"
+      ],
+      "answer": 0,
+      "explain": "С loro артикль нужен всегда: il loro padre."
+    },
+    {
+      "id": "c1.18-articolo-c1.3",
+      "kind": "truefalse",
+      "statement": "В обращении артикль не ставят: «Dottor Ferri, venga pure».",
+      "answer": true,
+      "explain": "Но о человеке: Il dottor Ferri è uscito."
+    },
+    {
+      "id": "c1.18-articolo-c1.4",
+      "kind": "build",
+      "ru": "У меня болит голова.",
+      "answer": "Mi fa male la testa.",
+      "extra": [
+        "mia"
+      ],
+      "explain": "Часть тела — с артиклем, без притяжательного."
+    },
+    {
+      "id": "c1.18-articolo-c1.5",
+      "kind": "type",
+      "sentence": "Sono nato ___ 1990.",
+      "ru": "Я родился в 1990 году.",
+      "hint": "in + артикль",
+      "answer": "nel",
+      "explain": "С годами — артикль: nel 1990."
+    },
+    {
+      "id": "c1.18-articolo-c1.6",
+      "kind": "fix",
+      "sentence": "Ho parlato con dottor Ferri stamattina.",
+      "ru": "Я говорил с доктором Ферри сегодня утром.",
+      "wrong": 3,
+      "answer": "il dottor",
+      "explain": "О человеке — с артиклем: con il dottor Ferri."
+    },
+    {
+      "id": "c1.18-articolo-c1.7",
+      "kind": "cloze",
+      "text": "Valentina è ___ manager molto brava. Ieri ___ dottor Ferri l'ha chiamata.",
+      "ru": "Валентина — очень хороший менеджер. Вчера ей позвонил доктор Ферри.",
+      "answers": [
+        [
+          "una"
+        ],
+        [
+          "il"
+        ]
+      ],
+      "explain": "Профессия с прилагательным — una; о человеке — il dottor."
+    },
+    {
+      "id": "c1.18-articolo-c1.8",
+      "kind": "paraphrase",
+      "sentence": "Cerco casa.",
+      "options": [
+        "Sto cercando un'abitazione, una qualsiasi.",
+        "Cerco la casa che ho visto ieri.",
+        "Ho una casa."
+      ],
+      "answer": 0,
+      "explain": "Без артикля — жильё вообще, любое."
+    }
+  ]
+}

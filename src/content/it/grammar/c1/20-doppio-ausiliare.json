@@ -1,0 +1,171 @@
+{
+  "id": "c1.20-doppio-ausiliare",
+  "district": "C1",
+  "order": 20,
+  "title": "Глаголы с двумя вспомогательными: finire, cambiare",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Некоторые глаголы берут **avere**, когда у них есть прямое дополнение, и **essere**, когда его нет. **Finire**: Ho finito il lavoro, но Il film è finito. **Cambiare**: Ho cambiato casa, но Luca è cambiato molto. **Salire**: Ho salito le scale, но Sono salito sul treno. **Correre**: Ho corso un'ora (процесс), но Sono corso a casa (к цели). **Passare**: Ho passato l'estate al mare, но Sono passato da te."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Глагол",
+        "avere",
+        "essere"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "finire",
+            "Ho finito il libro.",
+            "Il film è finito."
+          ]
+        },
+        {
+          "cells": [
+            "cambiare",
+            "Ho cambiato casa.",
+            "È cambiato molto."
+          ]
+        },
+        {
+          "cells": [
+            "salire",
+            "Ho salito le scale.",
+            "Sono salito sul bus."
+          ]
+        },
+        {
+          "cells": [
+            "correre",
+            "Ho corso un'ora.",
+            "Sono corso a casa."
+          ]
+        },
+        {
+          "cells": [
+            "passare",
+            "Ho passato l'estate lì.",
+            "Sono passato da te."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "С essere причастие согласуется с подлежащим: Le vacanze sono finite; Giulia è cambiata."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Enzo ha salito cento scalini per consegnare una lettera.",
+      "ru": "Энцо поднялся на сто ступенек, чтобы доставить письмо."
+    },
+    {
+      "es": "Il concerto è finito a mezzanotte.",
+      "ru": "Концерт закончился в полночь."
+    },
+    {
+      "es": "Da quando fa sport, Federica è cambiata molto.",
+      "ru": "С тех пор как Федерика занимается спортом, она очень изменилась."
+    },
+    {
+      "es": "Aldo ha cambiato l'orario dei treni.",
+      "ru": "Альдо изменил расписание поездов."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "c1.20-doppio-ausiliare.1",
+      "kind": "choose",
+      "prompt": "«Уроки закончились»:",
+      "options": [
+        "Le lezioni sono finite.",
+        "Le lezioni hanno finito.",
+        "Le lezioni sono finito."
+      ],
+      "answer": 0,
+      "explain": "Без дополнения — essere, причастие согласуется: sono finite."
+    },
+    {
+      "id": "c1.20-doppio-ausiliare.2",
+      "kind": "gap",
+      "sentence": "Marco ___ corso a casa sotto la pioggia.",
+      "ru": "Марко побежал домой под дождём.",
+      "options": [
+        "è",
+        "ha",
+        "sono"
+      ],
+      "answer": 0,
+      "explain": "Движение к цели — essere: è corso a casa."
+    },
+    {
+      "id": "c1.20-doppio-ausiliare.3",
+      "kind": "truefalse",
+      "statement": "«Ho salito le scale» — правильно: у salire здесь есть прямое дополнение.",
+      "answer": true,
+      "explain": "С дополнением — avere; без него — Sono salito sul treno."
+    },
+    {
+      "id": "c1.20-doppio-ausiliare.4",
+      "kind": "build",
+      "ru": "Я закончил книгу вчера вечером.",
+      "answer": "Ho finito il libro ieri sera.",
+      "alt": [
+        "Ieri sera ho finito il libro."
+      ],
+      "extra": [
+        "sono"
+      ],
+      "explain": "С прямым дополнением — avere: ho finito il libro."
+    },
+    {
+      "id": "c1.20-doppio-ausiliare.5",
+      "kind": "type",
+      "sentence": "Giulia ___ cambiata molto dopo il viaggio.",
+      "ru": "Джулия сильно изменилась после поездки.",
+      "hint": "essere/avere",
+      "answer": "è",
+      "explain": "Без дополнения cambiare берёт essere."
+    },
+    {
+      "id": "c1.20-doppio-ausiliare.6",
+      "kind": "fix",
+      "sentence": "Il film ha finito alle dieci.",
+      "ru": "Фильм закончился в десять.",
+      "wrong": 2,
+      "answer": "è",
+      "explain": "Без дополнения finire берёт essere: il film è finito."
+    },
+    {
+      "id": "c1.20-doppio-ausiliare.7",
+      "kind": "cloze",
+      "text": "Stamattina ___ corso per un'ora nel parco. Poi ___ salito sul treno per Roma.",
+      "ru": "Сегодня утром я бегал час в парке. Потом сел на поезд в Рим.",
+      "answers": [
+        [
+          "ho"
+        ],
+        [
+          "sono"
+        ]
+      ],
+      "explain": "Бег как процесс — avere; сесть в поезд — essere."
+    },
+    {
+      "id": "c1.20-doppio-ausiliare.8",
+      "kind": "paraphrase",
+      "sentence": "La mia vita è cambiata.",
+      "options": [
+        "La mia vita non è più come prima.",
+        "Ho cambiato casa e lavoro.",
+        "Voglio cambiare vita."
+      ],
+      "answer": 0,
+      "explain": "È cambiata — стала другой."
+    }
+  ]
+}

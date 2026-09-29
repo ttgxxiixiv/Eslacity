@@ -1,0 +1,198 @@
+{
+  "id": "c1.15-argomentare",
+  "district": "C1",
+  "order": 15,
+  "title": "Строим аргумент: innanzitutto, ciò detto",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Связки выстраивают рассуждение. Порядок: **innanzitutto**, **in secondo luogo**, **infine**. Выделить: **va detto che** — надо сказать. Поворот: **ciò detto** — при этом, тем не менее. Добавить: **a sua volta** — в свою очередь. Следствие: **ne consegue che**, **di conseguenza**. Вывод: **in definitiva**."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Задача",
+        "Связка",
+        "Перевод"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "порядок",
+            "innanzitutto",
+            "прежде всего"
+          ]
+        },
+        {
+          "cells": [
+            "выделить",
+            "va detto che",
+            "надо сказать"
+          ]
+        },
+        {
+          "cells": [
+            "поворот",
+            "ciò detto",
+            "при этом"
+          ]
+        },
+        {
+          "cells": [
+            "добавить",
+            "a sua volta",
+            "в свою очередь"
+          ]
+        },
+        {
+          "cells": [
+            "следствие",
+            "ne consegue che",
+            "из этого следует"
+          ]
+        },
+        {
+          "cells": [
+            "вывод",
+            "in definitiva",
+            "в итоге"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "«Ciò detto» — книжное. В разговоре скажут «detto questo» или просто «però»."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Innanzitutto, grazie a tutti per essere venuti.",
+      "ru": "Прежде всего, спасибо всем, что пришли."
+    },
+    {
+      "es": "Va detto che i treni di Aldo sono sempre puntuali.",
+      "ru": "Надо сказать, что поезда Альдо всегда ходят точно."
+    },
+    {
+      "es": "Il piano costa molto. Ciò detto, penso che valga la pena.",
+      "ru": "План дорогой. При этом я думаю, что он того стоит."
+    },
+    {
+      "es": "In definitiva, il quartiere ha bisogno di un parco, dice Valentina.",
+      "ru": "В итоге кварталу нужен парк, говорит Валентина."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "c1.15-argomentare.1",
+      "kind": "choose",
+      "prompt": "«Из этого следует, что...»:",
+      "options": [
+        "Ne consegue che...",
+        "Ci consegue che...",
+        "Ne consegue di..."
+      ],
+      "answer": 0,
+      "explain": "Ne consegue che — «из этого следует»."
+    },
+    {
+      "id": "c1.15-argomentare.2",
+      "kind": "gap",
+      "sentence": "Il sindaco, a sua ___, ha promesso nuovi parchi.",
+      "ru": "Мэр, в свою очередь, пообещал новые парки.",
+      "options": [
+        "volta",
+        "vece",
+        "parte"
+      ],
+      "answer": 0,
+      "explain": "A sua volta — в свою очередь."
+    },
+    {
+      "id": "c1.15-argomentare.3",
+      "kind": "truefalse",
+      "statement": "«Ciò detto» вводит поворот: «при этом, тем не менее».",
+      "answer": true,
+      "explain": "La casa è piccola. Ciò detto, è molto luminosa."
+    },
+    {
+      "id": "c1.15-argomentare.4",
+      "kind": "build",
+      "ru": "Надо сказать, что цены выросли.",
+      "answer": "Va detto che i prezzi sono aumentati.",
+      "extra": [
+        "fa"
+      ],
+      "explain": "Va detto che — «надо сказать»."
+    },
+    {
+      "id": "c1.15-argomentare.5",
+      "kind": "type",
+      "sentence": "___, vorrei ringraziare tutti.",
+      "ru": "Прежде всего я хотел бы поблагодарить всех.",
+      "hint": "прежде всего",
+      "answer": "Innanzitutto",
+      "alt": [
+        "Prima di tutto",
+        "Anzitutto",
+        "Innanzi tutto",
+        "In primo luogo"
+      ],
+      "explain": "Innanzitutto — прежде всего."
+    },
+    {
+      "id": "c1.15-argomentare.6",
+      "kind": "combine",
+      "first": "I prezzi sono aumentati molto.",
+      "second": "Molte famiglie comprano meno.",
+      "connector": "di conseguenza",
+      "ru": "Цены сильно выросли, поэтому многие семьи покупают меньше.",
+      "answer": "I prezzi sono aumentati molto; di conseguenza, molte famiglie comprano meno.",
+      "explain": "Di conseguenza — «вследствие этого»."
+    },
+    {
+      "id": "c1.15-argomentare.7",
+      "kind": "register",
+      "source": "Guarda che il negozio chiude il lunedì.",
+      "to": "formal",
+      "options": [
+        "Va detto che l'esercizio chiude il lunedì.",
+        "Oh, occhio che il lunedì è chiuso, eh.",
+        "Va detto che l'esercizio apre il lunedì."
+      ],
+      "answer": 0,
+      "explain": "Официально: va detto che, l'esercizio. Третий вариант меняет смысл."
+    },
+    {
+      "id": "c1.15-argomentare.8",
+      "kind": "cloze",
+      "text": "___, il parco è piccolo. In secondo luogo, non c'è ombra. In ___, non è il posto giusto per la festa.",
+      "ru": "Во-первых, парк маленький. Во-вторых, в нём нет тени. В итоге для праздника он не подходит.",
+      "answers": [
+        [
+          "Innanzitutto",
+          "In primo luogo",
+          "Prima di tutto"
+        ],
+        [
+          "definitiva",
+          "conclusione"
+        ]
+      ],
+      "explain": "Innanzitutto — во-первых, in definitiva — в итоге."
+    },
+    {
+      "id": "c1.15-argomentare.9",
+      "kind": "paraphrase",
+      "sentence": "Ciò detto, credo che tu abbia ragione.",
+      "options": [
+        "Detto questo, credo che tu abbia ragione.",
+        "Come ti ho detto, non hai ragione.",
+        "Per questo non credo a niente."
+      ],
+      "answer": 0,
+      "explain": "Ciò detto = detto questo."
+    }
+  ]
+}

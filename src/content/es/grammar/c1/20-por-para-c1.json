@@ -1,0 +1,190 @@
+{
+  "id": "c1.20-por-para-c1",
+  "district": "C1",
+  "order": 20,
+  "title": "Por и para C1, предлог a перед человеком",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "На уровне C1 важны устойчивые случаи. **Por**: ради кого-то (lo hago por ti), цена и обмен (por mil euros), причина (por miedo). **Para**: адресат (es para ti), срок (para el lunes), мнение (para mí), «для» при сравнении с ожиданием (para ser tan joven...). **A** ставят перед прямым дополнением-человеком: Veo a Lola, но Veo el mar. С любым, неопределённым человеком a обычно нет: Busco un fontanero."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Предлог",
+        "Смысл",
+        "Пример"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "por",
+            "ради кого-то",
+            "Lo hago por ti."
+          ]
+        },
+        {
+          "cells": [
+            "por",
+            "цена, обмен",
+            "Por mil euros."
+          ]
+        },
+        {
+          "cells": [
+            "para",
+            "срок",
+            "Para el lunes."
+          ]
+        },
+        {
+          "cells": [
+            "para",
+            "для своего возраста",
+            "Para su edad..."
+          ]
+        },
+        {
+          "cells": [
+            "a",
+            "человек-объект",
+            "Veo a Lola."
+          ]
+        },
+        {
+          "cells": [
+            "—",
+            "любой человек",
+            "Busco un médico."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "«Busco a un médico» — конкретного, того, что был здесь; «Busco un médico» — любого врача."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Para ser tan joven, Leo habla cuatro idiomas.",
+      "ru": "Лео такой молодой, а говорит на четырёх языках."
+    },
+    {
+      "es": "Paco vendió la moto por mil euros.",
+      "ru": "Пако продал мотоцикл за тысячу евро."
+    },
+    {
+      "es": "Lo hago por mi abuela, no por el dinero.",
+      "ru": "Я делаю это ради бабушки, а не ради денег."
+    },
+    {
+      "es": "¿Has visto a Rafa? Necesito el paquete para mañana.",
+      "ru": "Ты видел Рафу? Мне нужна посылка к завтрашнему дню."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "c1.20-por-para-c1.1",
+      "kind": "choose",
+      "prompt": "«Я делаю это ради тебя»:",
+      "options": [
+        "Lo hago por ti.",
+        "Lo hago para ti.",
+        "Lo hago a ti."
+      ],
+      "answer": 0,
+      "explain": "Ради кого-то — por; para ti — «для тебя, тебе в подарок»."
+    },
+    {
+      "id": "c1.20-por-para-c1.2",
+      "kind": "gap",
+      "sentence": "El informe tiene que estar listo ___ el viernes.",
+      "ru": "Отчёт должен быть готов к пятнице.",
+      "options": [
+        "para",
+        "por",
+        "a"
+      ],
+      "answer": 0,
+      "explain": "Срок — para."
+    },
+    {
+      "id": "c1.20-por-para-c1.3",
+      "kind": "truefalse",
+      "statement": "«Busco a un fontanero» и «Busco un fontanero» значат одно и то же.",
+      "answer": false,
+      "explain": "С a — конкретного человека; без a — любого."
+    },
+    {
+      "id": "c1.20-por-para-c1.4",
+      "kind": "build",
+      "ru": "Я не видел Сару весь день.",
+      "answer": "No he visto a Sara en todo el día.",
+      "extra": [
+        "para"
+      ],
+      "explain": "Человек-объект — с предлогом a."
+    },
+    {
+      "id": "c1.20-por-para-c1.5",
+      "kind": "type",
+      "sentence": "Esta tarta es ___ ti. ¡Feliz cumpleaños!",
+      "ru": "Этот торт тебе. С днём рождения!",
+      "hint": "предлог",
+      "answer": "para",
+      "explain": "Адресат, получатель — para: es para ti."
+    },
+    {
+      "id": "c1.20-por-para-c1.6",
+      "kind": "fix",
+      "sentence": "Conozco muy bien la comisaria Vega.",
+      "ru": "Я хорошо знаю комиссара Вегу.",
+      "wrong": 3,
+      "answer": "a la",
+      "explain": "Человек-объект — с a: conozco a la comisaria."
+    },
+    {
+      "id": "c1.20-por-para-c1.7",
+      "kind": "transform",
+      "source": "Leo es muy joven, pero habla cuatro idiomas.",
+      "keyword": "para",
+      "ru": "Лео такой молодой, а говорит на четырёх языках.",
+      "answer": "Para ser tan joven, Leo habla cuatro idiomas.",
+      "alt": [
+        "Leo habla cuatro idiomas para ser tan joven."
+      ],
+      "explain": "Para ser + прилагательное — «для такого…»."
+    },
+    {
+      "id": "c1.20-por-para-c1.8",
+      "kind": "cloze",
+      "text": "Lo hice ___ ti, no ___ dinero. Y ___ mí, fue un placer.",
+      "ru": "Я сделал это ради тебя, а не ради денег. А для меня это было удовольствием.",
+      "answers": [
+        [
+          "por"
+        ],
+        [
+          "por"
+        ],
+        [
+          "para"
+        ]
+      ],
+      "explain": "Ради кого-то и причина — por; мнение — para mí."
+    },
+    {
+      "id": "c1.20-por-para-c1.9",
+      "kind": "paraphrase",
+      "sentence": "Para mí, el mejor café es el de Lola.",
+      "options": [
+        "En mi opinión, el mejor café es el de Lola.",
+        "Lola me prepara el mejor café.",
+        "Lola hace café solo para mí."
+      ],
+      "answer": 0,
+      "explain": "Para mí — «по-моему»."
+    }
+  ]
+}

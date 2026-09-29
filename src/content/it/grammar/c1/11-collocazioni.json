@@ -1,0 +1,180 @@
+{
+  "id": "c1.11-collocazioni",
+  "district": "C1",
+  "order": 11,
+  "title": "Коллокации: prendere una decisione, dare retta",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Коллокация — привычное сочетание слов. По-русски решение «принимают», по-итальянски его «берут»: **prendere una decisione**. Глагол в таких парах синонимом не заменить: **fare caso a** — обратить внимание, **dare retta a** — слушаться, **fare una domanda** — задать вопрос, **prestare attenzione** — уделять внимание, **porre fine a** — положить конец."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Сочетание",
+        "Значение"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "prendere una decisione",
+            "принять решение"
+          ]
+        },
+        {
+          "cells": [
+            "fare caso a",
+            "обратить внимание"
+          ]
+        },
+        {
+          "cells": [
+            "dare retta a",
+            "слушаться"
+          ]
+        },
+        {
+          "cells": [
+            "fare una domanda",
+            "задать вопрос"
+          ]
+        },
+        {
+          "cells": [
+            "prestare attenzione",
+            "уделять внимание"
+          ]
+        },
+        {
+          "cells": [
+            "porre fine a",
+            "положить конец"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Частая ошибка — «fare una decisione» по образцу английского make a decision. Правильно: prendere."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Non dai mai retta a nessuno, dice la signora Rosa a suo figlio.",
+      "ru": "Ты никогда никого не слушаешь, говорит синьора Роза сыну."
+    },
+    {
+      "es": "Non ho fatto caso al prezzo, scusa Matteo.",
+      "ru": "Я не обратил внимания на цену, извини, Маттео."
+    },
+    {
+      "es": "Il commissario Rinaldi ha posto fine alla lite.",
+      "ru": "Комиссар Ринальди положил конец ссоре."
+    },
+    {
+      "es": "Federica ha preso una decisione: correrà la maratona.",
+      "ru": "Федерика приняла решение: она побежит марафон."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "c1.11-collocazioni.1",
+      "kind": "choose",
+      "prompt": "«Я принял решение»:",
+      "options": [
+        "Ho preso una decisione.",
+        "Ho fatto una decisione.",
+        "Ho dato una decisione."
+      ],
+      "answer": 0,
+      "explain": "Решение «берут»: prendere una decisione."
+    },
+    {
+      "id": "c1.11-collocazioni.2",
+      "kind": "gap",
+      "sentence": "Se mi avessi ___ retta, non saremmo qui.",
+      "ru": "Если бы ты меня послушал, нас бы здесь не было.",
+      "options": [
+        "dato",
+        "fatto",
+        "preso"
+      ],
+      "answer": 0,
+      "explain": "Dare retta — слушаться."
+    },
+    {
+      "id": "c1.11-collocazioni.3",
+      "kind": "truefalse",
+      "statement": "«Fare caso a qualcosa» значит «обратить на что-то внимание».",
+      "answer": true,
+      "explain": "Non ho fatto caso all'ora. — Я не обратил внимания на время."
+    },
+    {
+      "id": "c1.11-collocazioni.4",
+      "kind": "build",
+      "ru": "Можно задать вопрос?",
+      "answer": "Posso fare una domanda?",
+      "extra": [
+        "chiedere"
+      ],
+      "explain": "Вопрос «делают»: fare una domanda."
+    },
+    {
+      "id": "c1.11-collocazioni.5",
+      "kind": "type",
+      "sentence": "Bisogna ___ attenzione ai dettagli.",
+      "ru": "Нужно уделять внимание деталям.",
+      "hint": "уделять",
+      "answer": "prestare",
+      "alt": [
+        "fare"
+      ],
+      "explain": "Prestare attenzione — уделять внимание; fare attenzione — тоже верно."
+    },
+    {
+      "id": "c1.11-collocazioni.6",
+      "kind": "transform",
+      "source": "Ho deciso di cambiare lavoro.",
+      "keyword": "decisione",
+      "ru": "Я решил сменить работу.",
+      "answer": "Ho preso la decisione di cambiare lavoro.",
+      "explain": "Decidere = prendere una decisione."
+    },
+    {
+      "id": "c1.11-collocazioni.7",
+      "kind": "fix",
+      "sentence": "Luca non fa mai retta ai consigli della mamma.",
+      "ru": "Лука никогда не слушает мамины советы.",
+      "wrong": 2,
+      "answer": "dà",
+      "explain": "Слушаться — dare retta: non dà mai retta."
+    },
+    {
+      "id": "c1.11-collocazioni.8",
+      "kind": "cloze",
+      "text": "Tonino non ___ mai retta a nessuno e non ___ caso all'orario del negozio.",
+      "ru": "Тонино никогда никого не слушает и не обращает внимания на часы работы салона.",
+      "answers": [
+        [
+          "dà"
+        ],
+        [
+          "fa"
+        ]
+      ],
+      "explain": "Dare retta — слушаться, fare caso — обращать внимание."
+    },
+    {
+      "id": "c1.11-collocazioni.9",
+      "kind": "paraphrase",
+      "sentence": "Non ho fatto caso al cartello.",
+      "options": [
+        "Non ho notato il cartello.",
+        "Ho letto il cartello con attenzione.",
+        "Ho fatto io il cartello."
+      ],
+      "answer": 0,
+      "explain": "Non fare caso — не заметить."
+    }
+  ]
+}

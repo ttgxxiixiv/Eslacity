@@ -1,0 +1,189 @@
+{
+  "id": "c1.19-preposizioni-difficili",
+  "district": "C1",
+  "order": 19,
+  "title": "Трудные предлоги: da, su, per",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "**Da**: к кому-то или у кого-то (vado da Tonino), с какого времени (studio da due anni), назначение (occhiali da sole), что надо сделать (una cosa da fare), «в детстве» (da bambino). **Su**: примерно (sui trent'anni), доля (tre su dieci), тема (un libro sulla guerra). **Per**: срок (per due settimane), мнение (per me), причина (per la pioggia)."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Предлог",
+        "Смысл",
+        "Пример"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "da",
+            "к кому-то",
+            "Vado da Tonino."
+          ]
+        },
+        {
+          "cells": [
+            "da",
+            "назначение",
+            "occhiali da sole"
+          ]
+        },
+        {
+          "cells": [
+            "da",
+            "что сделать",
+            "una cosa da fare"
+          ]
+        },
+        {
+          "cells": [
+            "su",
+            "примерно",
+            "sui trent'anni"
+          ]
+        },
+        {
+          "cells": [
+            "su",
+            "из (доля)",
+            "tre su dieci"
+          ]
+        },
+        {
+          "cells": [
+            "per",
+            "на срок",
+            "per due settimane"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "«Studio italiano da due anni» — учу уже два года и продолжаю. Глагол в настоящем времени."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Domani vado da Tonino a tagliarmi i capelli.",
+      "ru": "Завтра иду к Тонино подстричься."
+    },
+    {
+      "es": "Da bambino, nonno Gino pescava nel lago.",
+      "ru": "В детстве дедушка Джино рыбачил на озере."
+    },
+    {
+      "es": "Il commissario Rinaldi è un uomo sui cinquant'anni.",
+      "ru": "Комиссару Ринальди около пятидесяти лет."
+    },
+    {
+      "es": "Ho ancora mille cose da fare, dice Valentina.",
+      "ru": "У меня ещё тысяча дел, говорит Валентина."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "c1.19-preposizioni-difficili.1",
+      "kind": "choose",
+      "prompt": "«Я учу итальянский уже два года»:",
+      "options": [
+        "Studio italiano da due anni.",
+        "Ho studiato italiano per due anni.",
+        "Studio italiano fa due anni."
+      ],
+      "answer": 0,
+      "explain": "Действие продолжается — настоящее время и da."
+    },
+    {
+      "id": "c1.19-preposizioni-difficili.2",
+      "kind": "gap",
+      "sentence": "Stasera andiamo ___ Salvatore a mangiare.",
+      "ru": "Сегодня вечером идём к Сальваторе поесть.",
+      "options": [
+        "da",
+        "a",
+        "in"
+      ],
+      "answer": 0,
+      "explain": "К человеку — da."
+    },
+    {
+      "id": "c1.19-preposizioni-difficili.3",
+      "kind": "truefalse",
+      "statement": "«Tre studenti su dieci» значит «три студента из десяти».",
+      "answer": true,
+      "explain": "Su передаёт долю."
+    },
+    {
+      "id": "c1.19-preposizioni-difficili.4",
+      "kind": "build",
+      "ru": "Мне нужны солнечные очки.",
+      "answer": "Mi servono gli occhiali da sole.",
+      "extra": [
+        "di"
+      ],
+      "explain": "Назначение — da: occhiali da sole."
+    },
+    {
+      "id": "c1.19-preposizioni-difficili.5",
+      "kind": "type",
+      "sentence": "Ho una cosa importante ___ dirti.",
+      "ru": "Мне нужно сказать тебе кое-что важное.",
+      "hint": "предлог",
+      "answer": "da",
+      "explain": "Una cosa da + infinito — что нужно сделать."
+    },
+    {
+      "id": "c1.19-preposizioni-difficili.6",
+      "kind": "fix",
+      "sentence": "Vivo a Milano per tre anni e mi trovo bene.",
+      "ru": "Я живу в Милане три года, и мне здесь нравится.",
+      "wrong": 3,
+      "answer": "da",
+      "explain": "Действие продолжается — da: vivo a Milano da tre anni."
+    },
+    {
+      "id": "c1.19-preposizioni-difficili.7",
+      "kind": "cloze",
+      "text": "Da ___ volevo fare il pilota. Adesso lavoro ___ solo in un piccolo ufficio.",
+      "ru": "В детстве я хотел стать лётчиком. Теперь я работаю один в маленьком офисе.",
+      "answers": [
+        [
+          "bambino",
+          "bambina",
+          "piccolo",
+          "piccola",
+          "ragazzo",
+          "ragazza"
+        ],
+        [
+          "da"
+        ]
+      ],
+      "explain": "Da bambino — в детстве, da solo — один."
+    },
+    {
+      "id": "c1.19-preposizioni-difficili.8",
+      "kind": "paraphrase",
+      "sentence": "Luca è un ragazzo sui vent'anni.",
+      "options": [
+        "Luca ha più o meno vent'anni.",
+        "Luca ha esattamente vent'anni.",
+        "Luca ha vent'anni più di me."
+      ],
+      "answer": 0,
+      "explain": "Su с возрастом — «примерно»."
+    },
+    {
+      "id": "c1.19-preposizioni-difficili.9",
+      "kind": "transform",
+      "source": "Ho cominciato a lavorare qui tre anni fa.",
+      "keyword": "da",
+      "ru": "Я работаю здесь уже три года.",
+      "answer": "Lavoro qui da tre anni.",
+      "explain": "Da + срок — действие продолжается до сих пор."
+    }
+  ]
+}

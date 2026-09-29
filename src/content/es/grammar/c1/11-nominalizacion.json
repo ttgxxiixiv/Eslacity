@@ -1,0 +1,180 @@
+{
+  "id": "c1.11-nominalizacion",
+  "district": "C1",
+  "order": 11,
+  "title": "Номинализация и официальный стиль",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "В официальной речи действие часто превращают в существительное: decidir → **la toma de decisiones**, pagar → **el pago**, llegar → **la llegada**. Простые глаголы меняют на «весомые»: hacer → **llevar a cabo**, **realizar**; terminar → **poner fin a**; dar → **proporcionar**."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Разговорно",
+        "Официально",
+        "Перевод"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "decidir",
+            "tomar una decisión",
+            "принять решение"
+          ]
+        },
+        {
+          "cells": [
+            "hacer la reforma",
+            "llevar a cabo la reforma",
+            "провести ремонт"
+          ]
+        },
+        {
+          "cells": [
+            "cuando llegue",
+            "a su llegada",
+            "по прибытии"
+          ]
+        },
+        {
+          "cells": [
+            "antes de pagar",
+            "antes del pago",
+            "до оплаты"
+          ]
+        },
+        {
+          "cells": [
+            "terminar",
+            "poner fin a",
+            "положить конец"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Не перестарайтесь: «Se procedió a la realización de la limpieza» вместо «Limpiamos» — канцелярит. В письме в банк такой стиль уместен, в разговоре с Лолой — смешон."
+    }
+  ],
+  "examples": [
+    {
+      "es": "El señor Gómez comunica que el banco llevará a cabo una revisión de su cuenta.",
+      "ru": "Сеньор Гомес сообщает, что банк проведёт проверку вашего счёта."
+    },
+    {
+      "es": "A su llegada al hotel, Isabel le entregará la llave.",
+      "ru": "По прибытии в отель Исабель выдаст вам ключ."
+    },
+    {
+      "es": "La toma de decisiones corresponde a la dirección.",
+      "ru": "Принятие решений — дело руководства."
+    },
+    {
+      "es": "La comisaria Vega puso fin a la discusión.",
+      "ru": "Комиссар Вега положила конец спору."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "c1.11-nominalizacion.1",
+      "kind": "choose",
+      "prompt": "Официально: «Мы проведём ремонт в июне»:",
+      "options": [
+        "Llevaremos a cabo la reforma en junio.",
+        "Haremos la reforma en junio, ¿vale?",
+        "Llevaremos a fin la reforma en junio."
+      ],
+      "answer": 0,
+      "explain": "Llevar a cabo — «осуществить», книжный синоним hacer."
+    },
+    {
+      "id": "c1.11-nominalizacion.2",
+      "kind": "gap",
+      "sentence": "Rogamos realicen el ___ antes del día cinco.",
+      "ru": "Просим произвести оплату до пятого числа.",
+      "options": [
+        "pago",
+        "pagar",
+        "pagado"
+      ],
+      "answer": 0,
+      "explain": "После артикля нужно существительное: el pago."
+    },
+    {
+      "id": "c1.11-nominalizacion.3",
+      "kind": "truefalse",
+      "statement": "«A su llegada» значит «когда вы прибудете».",
+      "answer": true,
+      "explain": "A su llegada, diríjase a recepción. — По прибытии обратитесь на ресепшен."
+    },
+    {
+      "id": "c1.11-nominalizacion.4",
+      "kind": "build",
+      "ru": "Руководство приняло решение.",
+      "answer": "La dirección tomó una decisión.",
+      "extra": [
+        "hizo"
+      ],
+      "explain": "Решение «берут»: tomar una decisión."
+    },
+    {
+      "id": "c1.11-nominalizacion.5",
+      "kind": "type",
+      "sentence": "La policía llevó a ___ una investigación.",
+      "ru": "Полиция провела расследование.",
+      "hint": "существительное",
+      "answer": "cabo",
+      "explain": "Llevar a cabo — провести, осуществить."
+    },
+    {
+      "id": "c1.11-nominalizacion.6",
+      "kind": "register",
+      "source": "Oye, que mañana cerramos la tienda para arreglarla.",
+      "to": "formal",
+      "options": [
+        "Les informamos de que mañana el establecimiento permanecerá cerrado por obras.",
+        "Mañana cerramos, ¿eh? Que hay obras.",
+        "Les informamos de que mañana el establecimiento abrirá por obras."
+      ],
+      "answer": 0,
+      "explain": "Официально: les informamos de que, el establecimiento, permanecerá cerrado. Третий вариант меняет смысл."
+    },
+    {
+      "id": "c1.11-nominalizacion.7",
+      "kind": "transform",
+      "source": "Cuando terminen las obras, abriremos de nuevo.",
+      "keyword": "finalización",
+      "ru": "После окончания работ мы снова откроемся.",
+      "answer": "Tras la finalización de las obras, abriremos de nuevo.",
+      "alt": [
+        "Después de la finalización de las obras, abriremos de nuevo.",
+        "A la finalización de las obras, abriremos de nuevo."
+      ],
+      "explain": "Глагол terminar превращается в существительное la finalización."
+    },
+    {
+      "id": "c1.11-nominalizacion.8",
+      "kind": "fix",
+      "sentence": "La empresa llevó al cabo la reforma en un mes.",
+      "ru": "Фирма провела ремонт за месяц.",
+      "wrong": 3,
+      "answer": "a",
+      "explain": "Оборот неизменяемый: llevar a cabo, без артикля."
+    },
+    {
+      "id": "c1.11-nominalizacion.9",
+      "kind": "combine",
+      "first": "El director tomó la decisión.",
+      "second": "Se cerró la fábrica.",
+      "connector": "tras",
+      "ru": "После решения директора фабрику закрыли.",
+      "answer": "Tras la decisión del director, se cerró la fábrica.",
+      "alt": [
+        "Se cerró la fábrica tras la decisión del director."
+      ],
+      "explain": "Tras + существительное — книжное «после»."
+    }
+  ]
+}

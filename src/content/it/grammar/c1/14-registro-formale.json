@@ -1,0 +1,178 @@
+{
+  "id": "c1.14-registro-formale",
+  "district": "C1",
+  "order": 14,
+  "title": "Официальное письмо: Lei, Gentile, Cordiali saluti",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Официальное письмо — на **Lei**, местоимения часто пишут с большой буквы: La ringrazio, Le scrivo. Обращение: **Gentile signora Conti,** или **Egregio dottor Ferri,**. Начало: **Le scrivo per...** Просьба: **La prego di** + infinito, **Le sarei grato se** + congiuntivo imperfetto. Конец: **In attesa di un Suo riscontro, porgo distinti saluti** или короче **Cordiali saluti**."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Часть",
+        "Официально",
+        "Дружески"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "обращение",
+            "Gentile signora Conti,",
+            "Ciao Giulia!"
+          ]
+        },
+        {
+          "cells": [
+            "начало",
+            "Le scrivo per...",
+            "Ti scrivo per..."
+          ]
+        },
+        {
+          "cells": [
+            "просьба",
+            "La prego di inviarmi...",
+            "Mi mandi...?"
+          ]
+        },
+        {
+          "cells": [
+            "конец",
+            "Cordiali saluti",
+            "Un abbraccio"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Egregio — очень официально, для мужчин с титулом. Gentile подходит для любого адресата."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Gentile dottor Ferri, Le scrivo per chiedere un prestito.",
+      "ru": "Уважаемый доктор Ферри! Пишу вам, чтобы попросить кредит."
+    },
+    {
+      "es": "Le sarei grata se mi inviasse il contratto.",
+      "ru": "Буду признательна, если вы пришлёте мне договор."
+    },
+    {
+      "es": "In attesa di un Suo riscontro, porgo distinti saluti.",
+      "ru": "В ожидании вашего ответа, с уважением."
+    },
+    {
+      "es": "La prego di confermare la prenotazione, scrive Elisa.",
+      "ru": "Прошу вас подтвердить бронь, пишет Элиза."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "c1.14-registro-formale.1",
+      "kind": "choose",
+      "prompt": "Официальная концовка письма:",
+      "options": [
+        "Cordiali saluti",
+        "Un bacione",
+        "A presto, ciao"
+      ],
+      "answer": 0,
+      "explain": "Cordiali saluti — «с уважением»."
+    },
+    {
+      "id": "c1.14-registro-formale.2",
+      "kind": "gap",
+      "sentence": "Le sarei grato se mi ___ una risposta.",
+      "ru": "Буду благодарен, если вы мне ответите.",
+      "options": [
+        "desse",
+        "dà",
+        "dare"
+      ],
+      "answer": 0,
+      "explain": "Le sarei grato se + congiuntivo imperfetto."
+    },
+    {
+      "id": "c1.14-registro-formale.3",
+      "kind": "truefalse",
+      "statement": "В официальном письме «Lei» и «La» часто пишут с большой буквы.",
+      "answer": true,
+      "explain": "La ringrazio per la Sua risposta."
+    },
+    {
+      "id": "c1.14-registro-formale.4",
+      "kind": "build",
+      "ru": "Пишу вам, чтобы попросить о встрече.",
+      "answer": "Le scrivo per chiedere un appuntamento.",
+      "extra": [
+        "scrive"
+      ],
+      "explain": "Le scrivo per — начало официального письма."
+    },
+    {
+      "id": "c1.14-registro-formale.5",
+      "kind": "type",
+      "sentence": "Gentile signora, La prego ___ confermare la prenotazione.",
+      "ru": "Уважаемая синьора, прошу вас подтвердить бронь.",
+      "hint": "предлог",
+      "answer": "di",
+      "explain": "La prego di + infinito."
+    },
+    {
+      "id": "c1.14-registro-formale.6",
+      "kind": "register",
+      "source": "Mi mandi la fattura, per favore?",
+      "to": "formal",
+      "answer": "La prego di inviarmi la fattura.",
+      "extra": [
+        "mandi",
+        "ciao"
+      ],
+      "explain": "Официально: la prego di + infinito, inviare вместо mandare."
+    },
+    {
+      "id": "c1.14-registro-formale.7",
+      "kind": "register",
+      "source": "Un abbraccio e a presto!",
+      "to": "formal",
+      "options": [
+        "Distinti saluti.",
+        "Baci baci!",
+        "Ciao, bello!"
+      ],
+      "answer": 0,
+      "explain": "Официальная концовка — Distinti saluti."
+    },
+    {
+      "id": "c1.14-registro-formale.8",
+      "kind": "cloze",
+      "text": "Gentile dottoressa Conti, Le ___ per chiedere un appuntamento. In attesa di un Suo ___, porgo distinti saluti.",
+      "ru": "Уважаемая доктор Конти! Пишу вам, чтобы записаться на приём. В ожидании вашего ответа, с уважением.",
+      "answers": [
+        [
+          "scrivo"
+        ],
+        [
+          "riscontro",
+          "cenno"
+        ]
+      ],
+      "explain": "Le scrivo, in attesa di un Suo riscontro — формулы письма."
+    },
+    {
+      "id": "c1.14-registro-formale.9",
+      "kind": "transform",
+      "source": "Mi scriva presto, per favore.",
+      "keyword": "sarei",
+      "ru": "Буду благодарен за скорый ответ.",
+      "answer": "Le sarei grato se mi scrivesse presto.",
+      "alt": [
+        "Le sarei grata se mi scrivesse presto."
+      ],
+      "explain": "Le sarei grato se + congiuntivo imperfetto — вежливая просьба."
+    }
+  ]
+}

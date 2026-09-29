@@ -1,0 +1,175 @@
+{
+  "id": "c1.14-falsos-amigos",
+  "district": "C1",
+  "order": 14,
+  "title": "Ложные друзья: embarazada, éxito, suceso",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Ложные друзья похожи на знакомые слова, но значат другое. **Embarazada** — беременная, а не «смущённая» (это avergonzada). **Éxito** — успех, а не «выход» (la salida). **Suceso** — происшествие, а не «успех». **Constipado** — простуженный. **Carpeta** — папка, а не ковёр. **Exquisito** — изысканный, очень вкусный."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Слово",
+        "Значит",
+        "Не значит"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "embarazada",
+            "беременная",
+            "смущённая"
+          ]
+        },
+        {
+          "cells": [
+            "éxito",
+            "успех",
+            "выход"
+          ]
+        },
+        {
+          "cells": [
+            "suceso",
+            "происшествие",
+            "успех"
+          ]
+        },
+        {
+          "cells": [
+            "constipado",
+            "простуженный",
+            "запор"
+          ]
+        },
+        {
+          "cells": [
+            "carpeta",
+            "папка",
+            "ковёр"
+          ]
+        },
+        {
+          "cells": [
+            "largo",
+            "длинный",
+            "большой"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Смущение — «me da vergüenza» или «estoy avergonzado». Сказать «estoy embarazada» после неловкой сцены — классическая ошибка."
+    }
+  ],
+  "examples": [
+    {
+      "es": "La película fue un éxito y el cine estaba lleno.",
+      "ru": "Фильм имел успех, и кинотеатр был полон."
+    },
+    {
+      "es": "La comisaria Vega investiga un suceso en el puerto.",
+      "ru": "Комиссар Вега расследует происшествие в порту."
+    },
+    {
+      "es": "Beatriz está embarazada de cinco meses.",
+      "ru": "Беатрис на пятом месяце беременности."
+    },
+    {
+      "es": "Estoy constipado, dice Nacho, hoy no me baño.",
+      "ru": "Я простужен, говорит Начо, сегодня не купаюсь."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "c1.14-falsos-amigos.1",
+      "kind": "choose",
+      "prompt": "«Мне очень стыдно»:",
+      "options": [
+        "Me da mucha vergüenza.",
+        "Estoy muy embarazado.",
+        "Tengo mucho éxito."
+      ],
+      "answer": 0,
+      "explain": "Стыд — vergüenza; embarazada — беременная."
+    },
+    {
+      "id": "c1.14-falsos-amigos.2",
+      "kind": "gap",
+      "sentence": "¿Dónde está la ___? — Al fondo, a la derecha.",
+      "ru": "Где выход? — В конце, направо.",
+      "options": [
+        "salida",
+        "éxito",
+        "suceso"
+      ],
+      "answer": 0,
+      "explain": "Выход — la salida; éxito — успех."
+    },
+    {
+      "id": "c1.14-falsos-amigos.3",
+      "kind": "truefalse",
+      "statement": "«Un camino largo» — это длинная дорога.",
+      "answer": true,
+      "explain": "Largo — длинный; большой — grande."
+    },
+    {
+      "id": "c1.14-falsos-amigos.4",
+      "kind": "build",
+      "ru": "Концерт имел большой успех.",
+      "answer": "El concierto tuvo mucho éxito.",
+      "extra": [
+        "salida"
+      ],
+      "explain": "Успех — el éxito."
+    },
+    {
+      "id": "c1.14-falsos-amigos.5",
+      "kind": "type",
+      "sentence": "Los documentos están en la ___ azul.",
+      "ru": "Документы в синей папке.",
+      "hint": "папка",
+      "answer": "carpeta",
+      "explain": "Carpeta — папка."
+    },
+    {
+      "id": "c1.14-falsos-amigos.6",
+      "kind": "fix",
+      "sentence": "Mi hermana está embarazada porque se equivocó de nombre.",
+      "ru": "Моей сестре стыдно, потому что она перепутала имя.",
+      "wrong": 3,
+      "answer": "avergonzada",
+      "explain": "Смущение — avergonzada; embarazada — беременная."
+    },
+    {
+      "id": "c1.14-falsos-amigos.7",
+      "kind": "paraphrase",
+      "sentence": "El pastel está exquisito.",
+      "options": [
+        "El pastel está riquísimo.",
+        "El pastel es muy raro.",
+        "El pastel es demasiado caro."
+      ],
+      "answer": 0,
+      "explain": "Exquisito — изысканный, очень вкусный."
+    },
+    {
+      "id": "c1.14-falsos-amigos.8",
+      "kind": "cloze",
+      "text": "Ayer hubo un ___ en el puerto: chocaron dos barcos. Por suerte, el rescate fue un ___.",
+      "ru": "Вчера в порту было происшествие: столкнулись два судна. К счастью, спасение прошло успешно.",
+      "answers": [
+        [
+          "suceso"
+        ],
+        [
+          "éxito"
+        ]
+      ],
+      "explain": "Suceso — происшествие, éxito — успех."
+    }
+  ]
+}

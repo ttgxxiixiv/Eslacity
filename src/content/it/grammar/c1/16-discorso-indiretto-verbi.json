@@ -1,0 +1,183 @@
+{
+  "id": "c1.16-discorso-indiretto-verbi",
+  "district": "C1",
+  "order": 16,
+  "title": "Пересказ: esortare, rimproverare, negare di",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "В пересказе вместо «ha detto» выбирают глагол, который передаёт намерение. **Esortare a** + infinito — призвать. **Rimproverare di** + infinito — упрекнуть. **Negare di** + infinito — отрицать. **Ammettere di** — признать. **Consigliare di** — посоветовать. Подлежащее одно — инфинитив, разные — che + congiuntivo."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Глагол",
+        "Конструкция",
+        "Пример"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "esortare",
+            "a + inf.",
+            "Ci esorta a votare."
+          ]
+        },
+        {
+          "cells": [
+            "rimproverare",
+            "di + inf.",
+            "Mi rimprovera di mentire."
+          ]
+        },
+        {
+          "cells": [
+            "negare",
+            "di + inf.",
+            "Nega di saperlo."
+          ]
+        },
+        {
+          "cells": [
+            "ammettere",
+            "di + inf.",
+            "Ammette di aver sbagliato."
+          ]
+        },
+        {
+          "cells": [
+            "consigliare",
+            "di + inf.",
+            "Mi consiglia di riposare."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Прошедшее действие — infinito passato: Ha negato di aver preso i soldi."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Federica ha rimproverato Marco di essere arrivato tardi.",
+      "ru": "Федерика упрекнула Марко в том, что он опоздал."
+    },
+    {
+      "es": "L'uomo ha negato di essere stato al porto.",
+      "ru": "Мужчина отрицал, что был в порту."
+    },
+    {
+      "es": "La dottoressa Conti mi ha consigliato di camminare di più.",
+      "ru": "Доктор Конти посоветовала мне больше ходить пешком."
+    },
+    {
+      "es": "Il sindaco ha esortato tutti a votare.",
+      "ru": "Мэр призвал всех голосовать."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "c1.16-discorso-indiretto-verbi.1",
+      "kind": "choose",
+      "prompt": "«Он отрицал, что взял деньги»:",
+      "options": [
+        "Ha negato di aver preso i soldi.",
+        "Ha negato a aver preso i soldi.",
+        "Ha negato aver preso di soldi."
+      ],
+      "answer": 0,
+      "explain": "Negare di + infinito passato."
+    },
+    {
+      "id": "c1.16-discorso-indiretto-verbi.2",
+      "kind": "gap",
+      "sentence": "La mamma mi ha rimproverato ___ non averla chiamata.",
+      "ru": "Мама упрекнула меня, что я ей не позвонил.",
+      "options": [
+        "di",
+        "a",
+        "da"
+      ],
+      "answer": 0,
+      "explain": "Rimproverare di + infinito."
+    },
+    {
+      "id": "c1.16-discorso-indiretto-verbi.3",
+      "kind": "truefalse",
+      "statement": "После «esortare» инфинитив вводят предлогом «a».",
+      "answer": true,
+      "explain": "Ci ha esortati a restare calmi."
+    },
+    {
+      "id": "c1.16-discorso-indiretto-verbi.4",
+      "kind": "build",
+      "ru": "Врач посоветовал мне отдохнуть.",
+      "answer": "Il medico mi ha consigliato di riposare.",
+      "extra": [
+        "a"
+      ],
+      "explain": "Consigliare di + infinito."
+    },
+    {
+      "id": "c1.16-discorso-indiretto-verbi.5",
+      "kind": "type",
+      "sentence": "«Sì, ho sbagliato», ha detto Tonino. Tonino ha ___ di aver sbagliato.",
+      "ru": "Тонино признал, что ошибся.",
+      "hint": "ammettere",
+      "answer": "ammesso",
+      "explain": "Ammettere di + infinito passato."
+    },
+    {
+      "id": "c1.16-discorso-indiretto-verbi.6",
+      "kind": "transform",
+      "source": "«Non ho visto nessuno», ha detto il portiere.",
+      "keyword": "negato",
+      "ru": "Швейцар отрицал, что кого-то видел.",
+      "answer": "Il portiere ha negato di aver visto qualcuno.",
+      "alt": [
+        "Il portiere ha negato di avere visto qualcuno.",
+        "Il portiere ha negato di aver visto nessuno.",
+        "Il portiere ha negato di avere visto nessuno."
+      ],
+      "explain": "Negare di + infinito passato."
+    },
+    {
+      "id": "c1.16-discorso-indiretto-verbi.7",
+      "kind": "fix",
+      "sentence": "Il commissario ci ha esortato di restare a casa.",
+      "ru": "Комиссар призвал нас оставаться дома.",
+      "wrong": 5,
+      "answer": "a",
+      "explain": "Esortare a + infinito."
+    },
+    {
+      "id": "c1.16-discorso-indiretto-verbi.8",
+      "kind": "cloze",
+      "text": "Chiara mi ha consigliato ___ comprare il cappotto rosso, ma la signora Franca mi ha rimproverato ___ spendere troppo.",
+      "ru": "Кьяра посоветовала мне купить красное пальто, а синьора Франка упрекнула меня, что я слишком много трачу.",
+      "answers": [
+        [
+          "di"
+        ],
+        [
+          "di",
+          "per"
+        ]
+      ],
+      "explain": "Consigliare di, rimproverare di (или per) + infinito."
+    },
+    {
+      "id": "c1.16-discorso-indiretto-verbi.9",
+      "kind": "paraphrase",
+      "sentence": "Ha negato di aver rotto il vetro.",
+      "options": [
+        "Ha detto che non aveva rotto il vetro.",
+        "Ha ammesso di aver rotto il vetro.",
+        "Ha detto che avrebbe rotto il vetro."
+      ],
+      "answer": 0,
+      "explain": "Negare — сказать, что не делал."
+    }
+  ]
+}

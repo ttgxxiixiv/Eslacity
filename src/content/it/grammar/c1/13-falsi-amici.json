@@ -1,0 +1,176 @@
+{
+  "id": "c1.13-falsi-amici",
+  "district": "C1",
+  "order": 13,
+  "title": "Ложные друзья: firma, fattoria, cantina",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Ложные друзья похожи на русские слова, но значат другое. **La firma** — подпись, а фирма — **la ditta** или **l'azienda**. **La fattoria** — ферма, а не фабрика (**la fabbrica**). **Morbido** — мягкий. **La cantina** — погреб, а столовая — **la mensa**. **Il magazzino** — склад, а магазин — **il negozio**. **Il palazzo** — многоэтажный дом, не только дворец."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Слово",
+        "Значит",
+        "Не значит"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "la firma",
+            "подпись",
+            "фирма"
+          ]
+        },
+        {
+          "cells": [
+            "la fattoria",
+            "ферма",
+            "фабрика"
+          ]
+        },
+        {
+          "cells": [
+            "morbido",
+            "мягкий",
+            "болезненный"
+          ]
+        },
+        {
+          "cells": [
+            "la cantina",
+            "погреб",
+            "столовая"
+          ]
+        },
+        {
+          "cells": [
+            "il magazzino",
+            "склад",
+            "магазин"
+          ]
+        },
+        {
+          "cells": [
+            "il palazzo",
+            "жилой дом",
+            "только дворец"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Фирма — la ditta или l'azienda: «Lavoro in una ditta di trasporti»."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Metta la firma qui, per favore, dice il dottor Ferri.",
+      "ru": "Поставьте подпись здесь, пожалуйста, говорит доктор Ферри."
+    },
+    {
+      "es": "Il vino lo teniamo in cantina, dice lo chef Salvatore.",
+      "ru": "Вино мы держим в погребе, говорит шеф Сальваторе."
+    },
+    {
+      "es": "Valentina lavora in una ditta di trasporti.",
+      "ru": "Валентина работает в транспортной фирме."
+    },
+    {
+      "es": "Questo cuscino è morbidissimo, dice Elisa agli ospiti.",
+      "ru": "Эта подушка очень мягкая, говорит Элиза гостям."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "c1.13-falsi-amici.1",
+      "kind": "choose",
+      "prompt": "«Я работаю в фирме»:",
+      "options": [
+        "Lavoro in una ditta.",
+        "Lavoro in una firma.",
+        "Lavoro in una fattoria."
+      ],
+      "answer": 0,
+      "explain": "Фирма — la ditta; la firma — подпись, la fattoria — ферма."
+    },
+    {
+      "id": "c1.13-falsi-amici.2",
+      "kind": "gap",
+      "sentence": "Le scarpe sono in ___, non nel negozio.",
+      "ru": "Обувь на складе, а не в магазине.",
+      "options": [
+        "magazzino",
+        "negozio",
+        "cantina"
+      ],
+      "answer": 0,
+      "explain": "Склад — il magazzino."
+    },
+    {
+      "id": "c1.13-falsi-amici.3",
+      "kind": "truefalse",
+      "statement": "«Il palazzo» может значить обычный многоэтажный дом.",
+      "answer": true,
+      "explain": "Abito in un palazzo di sei piani. — Я живу в шестиэтажном доме."
+    },
+    {
+      "id": "c1.13-falsi-amici.4",
+      "kind": "build",
+      "ru": "Поставьте подпись внизу.",
+      "answer": "Metta la firma in fondo.",
+      "extra": [
+        "ditta"
+      ],
+      "explain": "Подпись — la firma."
+    },
+    {
+      "id": "c1.13-falsi-amici.5",
+      "kind": "type",
+      "sentence": "Da bambino passavo l'estate in una ___ con mucche e galline.",
+      "ru": "В детстве я проводил лето на ферме с коровами и курами.",
+      "hint": "ферма",
+      "answer": "fattoria",
+      "explain": "La fattoria — ферма."
+    },
+    {
+      "id": "c1.13-falsi-amici.6",
+      "kind": "fix",
+      "sentence": "Pranziamo sempre nella cantina dell'ufficio.",
+      "ru": "Мы всегда обедаем в столовой офиса.",
+      "wrong": 3,
+      "answer": "mensa",
+      "explain": "Столовая — la mensa; la cantina — погреб."
+    },
+    {
+      "id": "c1.13-falsi-amici.7",
+      "kind": "paraphrase",
+      "sentence": "Questo pane è morbido.",
+      "options": [
+        "Questo pane non è duro.",
+        "Questo pane è andato a male.",
+        "Questo pane è salato."
+      ],
+      "answer": 0,
+      "explain": "Morbido — мягкий."
+    },
+    {
+      "id": "c1.13-falsi-amici.8",
+      "kind": "cloze",
+      "text": "Ho lavorato dieci anni in una ___ di mobili. Ora ho un piccolo ___ di vestiti in centro.",
+      "ru": "Я десять лет работал в мебельной фирме. Теперь у меня маленький магазин одежды в центре.",
+      "answers": [
+        [
+          "ditta",
+          "azienda"
+        ],
+        [
+          "negozio"
+        ]
+      ],
+      "explain": "Фирма — la ditta, магазин — il negozio."
+    }
+  ]
+}
