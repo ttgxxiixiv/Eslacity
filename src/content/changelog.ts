@@ -7,6 +7,15 @@ export interface Release {
 // Новые версии сверху. Версия первой записи должна совпадать с package.json (проверяется тестом).
 export const CHANGELOG: Release[] = [
   {
+    version: '2.78.0',
+    date: '2026-09-29',
+    notes: [
+      'Уровень 7 открылся в парке, магазине одежды, аптеке, школе и парикмахерской: по 25 слов C1 и 15 выражений. Роща, беседка, головастик, выкройка, бархат, снотворное, шприц, диссертация, научный руководитель, помазок, плойка.',
+      'Таблички и их разговорные пары: «Prohibido pisar el césped» — «No pises la hierba», «Consulti il Suo medico» — «Chiedi al medico». Идиомы: «hincar los codos», «tomar el pelo», «sapere a menadito», «cercare il pelo nell\'uovo».',
+      'Ложные друзья: «constipado» — простуженный, «la americana» — пиджак, «el rulo» — бигуди; «il golf» — кофта, «il diploma» — школьный аттестат, «il confetto» — драже.',
+    ],
+  },
+  {
     version: '2.77.0',
     date: '2026-09-29',
     notes: [
