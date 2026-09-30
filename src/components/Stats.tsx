@@ -8,6 +8,8 @@ import { LevelBadge } from './HeroLevel';
 import { heroLevel } from '../domain/heroLevel';
 import coinPic from '../assets/home/coin.webp';
 import flamePic from '../assets/home/flame.webp';
+// Огонёк в макете серый: горящий вариант строит scripts/build-flame-lit.py.
+import flameLitPic from '../assets/home/flame-lit.webp';
 import heartEmpty from '../assets/home/heart-empty.webp';
 import heartFull from '../assets/home/heart-full.webp';
 import heartHalf from '../assets/home/heart-half.webp';
@@ -49,7 +51,7 @@ export function StatsBar() {
           data-testid="streak"
           data-lit={litToday ? '1' : '0'}
         >
-          <img src={flamePic} alt="" width={20} height={23} className={`h-[23px] w-[20px] ${litToday ? '' : 'grayscale'}`} aria-hidden />
+          <img src={litToday ? flameLitPic : flamePic} alt="" width={20} height={23} className="h-[23px] w-[20px]" data-flame={litToday ? 'lit' : 'grey'} aria-hidden />
           <span className="tabular-nums">{alive ? streak.count : 0}</span>
         </div>
         <div className="ml-auto flex items-center gap-2">

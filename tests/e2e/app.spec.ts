@@ -1,7 +1,7 @@
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { expect, test } from '@playwright/test';
-import { answerGrammar, DB, LANGS, loadLesson, openApp, readMeta, seedDueCards, seedXp, wordIdsOf, seedMissionsDone, seedTrialsDone } from './fixtures';
+import { answerGrammar, DB, LANGS, loadLesson, openApp, playWords, readMeta, seedDueCards, seedXp, wordIdsOf, seedMissionsDone, seedTrialsDone } from './fixtures';
 
 test('переключение языка сохраняет прогресс каждого курса', async ({ page }) => {
   await openApp(page, 'es');
@@ -50,6 +50,38 @@ for (const lang of LANGS) {
       );
       await page.reload();
       await expect(page.getByTestId('streak')).toHaveAttribute('data-lit', '1');
+    });
+
+    test('огонёк стрика загорается цветным после урока, который закрыл цель дня', async ({ page }) => {
+      await openApp(page, lang);
+      const flame = page.getByTestId('streak').locator('img');
+      // В макете огонёк серый; горящий — отдельная цветная картинка.
+      await expect(flame).toHaveAttribute('data-flame', 'grey');
+      const grey = await flame.getAttribute('src');
+      await seedXp(page, lang, 95);
+      await page.goto('./#/learn/cafe/1/1');
+      await playWords(page, lang, /урок пройден/i);
+      await page.goto('./#/');
+      await expect(page.getByTestId('streak')).toHaveAttribute('data-lit', '1');
+      await expect(flame).toHaveAttribute('data-flame', 'lit');
+      expect(await flame.getAttribute('src')).not.toBe(grey);
+    });
+
+    test('портрет в окне квеста заполняет окно и при вытянутой карточке', async ({ page }) => {
+      await openApp(page, lang);
+      const win = page.getByTestId('quest-window');
+      const art = win.getByTestId('npc-art');
+      for (const h of [130, 170]) {
+        await page.addStyleTag({ content: `[data-testid=continue].quest-art{min-height:${h}px !important}` });
+        const q = (await page.getByTestId('continue').boundingBox())!;
+        const w = (await win.boundingBox())!;
+        const a = (await art.boundingBox())!;
+        // Окно — строки 59–180 картинки свитка высотой 228: доля высоты карточки.
+        expect(Math.abs(w.y - q.y - (q.height * 59) / 228)).toBeLessThan(2);
+        expect(Math.abs(w.height - (q.height * 121) / 228)).toBeLessThan(2);
+        expect(Math.abs(a.height - w.height)).toBeLessThan(1);
+        expect(Math.abs(a.y - w.y)).toBeLessThan(1);
+      }
     });
 
     test('жители: портрет и приветствие в месте, фигурка у открытого здания', async ({ page }) => {

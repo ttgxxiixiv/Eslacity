@@ -62,11 +62,22 @@ function newWordsLabel(n: number) {
   return 'новых слов';
 }
 
-/** Окно портрета, нарисованное на свитке квеста: житель или значок, если квест не от жителя. */
+/**
+ * Окно портрета, нарисованное на свитке квеста: житель или значок, если квест не от жителя. Свиток тянется
+ * по высоте карточки (`border-image`), поэтому окно задано долями её высоты: в картинке `quest.webp` высотой 228
+ * окно занимает строки 59–180. Рисованный портрет заполняет окно целиком, без полосы снизу.
+ */
 function QuestWindow({ npc, icon }: { npc?: Npc; icon: string }) {
+  const art = npc ? portraitUrl(npc.look) : undefined;
   return (
-    <div className="absolute top-[34px] left-[27px] flex h-[69px] w-[49px] items-end justify-center overflow-hidden" aria-hidden>
-      {npc ? <NpcPortrait look={npc.look} size={portraitUrl(npc.look) ? 69 : 60} /> : <span className="mb-[18px] text-[30px] leading-none">{icon}</span>}
+    <div className="absolute top-[25.9%] left-[27px] flex h-[53.1%] w-[49px] items-end justify-center overflow-hidden" aria-hidden data-testid="quest-window">
+      {art ? (
+        <img src={art} alt="" className="h-full w-full object-cover object-top" data-testid="npc-art" />
+      ) : npc ? (
+        <NpcPortrait look={npc.look} size={60} />
+      ) : (
+        <span className="mb-[18px] text-[30px] leading-none">{icon}</span>
+      )}
     </div>
   );
 }
