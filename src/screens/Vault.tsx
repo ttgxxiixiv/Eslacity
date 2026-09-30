@@ -8,14 +8,17 @@ import type { SphinxFile, VaultLine } from '../content/schema';
 import { loadSphinx } from '../content/sphinx';
 import { EXPRESSION_IDS, PHRASE_IDS } from '../content/wordIndex';
 import { db } from '../db/db';
-import { SAGE_TITLE } from '../domain/chapters';
+import { KEEPER_TITLE, SAGE_TITLE } from '../domain/chapters';
 import { isVaultOpen, journeySummary } from '../domain/elixir';
+import { KEEPER_DAYS, KEEPER_THRESHOLD, keeperStreak } from '../domain/keeper';
 import { plural } from '../domain/medals';
-import { LANG } from '../lang';
+import { LANG, LANGS, switchLang, type Lang } from '../lang';
+import { useNow } from '../lib/useNow';
 import { NpcPortrait } from '../components/NpcPortrait';
 import { SphinxArt } from '../components/SphinxArt';
 import { Button, Screen, TopBar } from '../components/ui';
-import { useJourney } from '../store/journey';
+import { useHeroTitle, useJourney } from '../store/journey';
+import { useElixirStrength, useKeeper } from '../store/keeper';
 import { useMissions } from '../store/missions';
 import { syncAndEvaluate, useMotivation } from '../store/motivation';
 import { useProgress } from '../store/progress';
@@ -217,6 +220,67 @@ function Cup() {
   );
 }
 
+/**
+ * Сила Эликсира (задача 8.4): средняя вероятность вспоминания всех карточек. Поручения и повторение её держат,
+ * тридцать дней подряд выше 90% — титул «Хранитель языка», он не отнимается.
+ */
+function Strength() {
+  const nav = useNavigate();
+  const now = useNow();
+  const strength = useElixirStrength(now);
+  const keeper = useKeeper((s) => s.rec);
+  const streak = keeperStreak(keeper.days, now);
+  const pct = Math.round(strength * 100);
+  const high = strength >= KEEPER_THRESHOLD;
+  return (
+    <section className="rounded-2xl bg-white p-4 shadow-sm" data-testid="elixir-strength">
+      <div className="flex items-baseline justify-between">
+        <div className="font-pixel text-xs tracking-widest text-amber-700 uppercase">Сила Эликсира</div>
+        <div className={`text-2xl font-bold tabular-nums ${high ? 'text-ok' : 'text-amber-700'}`} data-testid="elixir-pct">
+          {pct}%
+        </div>
+      </div>
+      <div className="relative mt-2 h-4 overflow-hidden rounded bg-wood p-[2px]" role="img" aria-label={`Сила Эликсира ${pct}%`}>
+        <div className="h-full rounded-sm bg-gold" style={{ width: `${pct}%` }} />
+        {/* Отметка 90%: выше неё идёт счёт дней Хранителя. */}
+        <div className="absolute inset-y-0 w-[2px] bg-stone-50" style={{ left: `${KEEPER_THRESHOLD * 100}%` }} />
+      </div>
+      <p className="mt-2 text-sm text-stone-600">Это доля выученного, которую вы сейчас помните. Без повторения она тает.</p>
+      {keeper.title !== undefined ? (
+        <p className="mt-2 rounded-xl bg-okbg px-3 py-2 font-semibold text-ok" data-testid="keeper-title">
+          Титул «{KEEPER_TITLE}» получен {new Date(keeper.title).toLocaleDateString('ru-RU')}. Его не отнять.
+        </p>
+      ) : (
+        <p className="mt-2 text-sm text-stone-700" data-testid="keeper-streak">
+          Дней подряд выше {Math.round(KEEPER_THRESHOLD * 100)}%: <span className="font-bold tabular-nums">{streak}</span> из {KEEPER_DAYS}. Тридцать дней — титул «
+          {KEEPER_TITLE}».
+        </p>
+      )}
+      <Button variant="secondary" className="mt-3 w-full" onClick={() => nav('/errands')} data-testid="keeper-errands">
+        Поручения жителей
+      </Button>
+    </section>
+  );
+}
+
+/** Предложение начать другой язык: его путь начинается заново, «Мудрец» этого языка будет виден в профиле. */
+function SecondLanguage() {
+  const others = (Object.keys(LANGS) as Lang[]).filter((l) => l !== LANG);
+  return (
+    <section className="rounded-2xl bg-white p-4 shadow-sm" data-testid="second-lang">
+      <div className="font-bold">Второй язык</div>
+      <p className="mt-1 text-sm text-stone-600">
+        В другом городе свои жители, свои загадки и свой Сфинкс. Прогресс этого языка сохранится, а титул «{SAGE_TITLE}» будет виден в профиле.
+      </p>
+      {others.map((l) => (
+        <Button key={l} className="mt-3 w-full" onClick={() => switchLang(l)} data-testid={`start-${l}`}>
+          {LANGS[l].flag} {LANGS[l].name}
+        </Button>
+      ))}
+    </section>
+  );
+}
+
 /** Итоги пути: дни, слова и выражения, медали, миссии, пять печатей. */
 function Summary({ onReplay }: { onReplay(): void }) {
   const nav = useNavigate();
@@ -225,6 +289,7 @@ function Summary({ onReplay }: { onReplay(): void }) {
   const missions = useMissions((s) => s.records);
   const seals = useJourney((s) => s.seals);
   const elixir = useSphinx((s) => s.rec.elixir);
+  const title = useHeroTitle();
   const [activeDays, setActiveDays] = useState<number | null>(null);
   useEffect(() => {
     db.days.count().then(setActiveDays);
@@ -252,10 +317,13 @@ function Summary({ onReplay }: { onReplay(): void }) {
     <Screen>
       <TopBar title="Итоги пути" />
       <div className="flex flex-1 flex-col gap-3 px-5 pb-6" data-testid="vault-summary">
+        <Strength />
         <div className="flex flex-col items-center gap-1 rounded-2xl bg-white p-4 text-center shadow-sm">
           <Medallion size={110} />
           <div className="font-pixel text-xs tracking-widest text-amber-700 uppercase">Титул</div>
-          <div className="text-xl font-bold">{SAGE_TITLE}</div>
+          <div className="text-xl font-bold" data-testid="vault-hero-title">
+            {title}
+          </div>
           <p className="text-sm text-stone-600">
             Путь к Хранилищу пройден за {s.days} {plural(s.days, ['день', 'дня', 'дней'])}.
           </p>
@@ -284,9 +352,7 @@ function Summary({ onReplay }: { onReplay(): void }) {
             ))}
           </ul>
         </div>
-        <p className="text-sm leading-relaxed text-stone-600">
-          Эликсир нужно поддерживать: язык, на котором не говорят, забывается. Поручения жителей и повторение держат выученное в памяти.
-        </p>
+        <SecondLanguage />
         <div className="flex-1" />
         <Button variant="secondary" className="w-full" onClick={onReplay} data-testid="vault-replay">
           Пересмотреть сцену

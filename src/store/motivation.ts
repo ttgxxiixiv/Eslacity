@@ -12,6 +12,7 @@ import { canBuyFreeze, EMPTY_STREAK, registerGoal, settleStreak, type StreakStat
 import { useCity } from './city';
 import { useJourney } from './journey';
 import { useSphinx } from './sphinx';
+import { useKeeper } from './keeper';
 import { useErrands } from './errands';
 import { useTrials } from './trials';
 import { trialsPassed } from '../domain/trial';
@@ -175,5 +176,7 @@ export const useMotivation = create<MotivationState>((set, get) => {
  */
 export function syncAndEvaluate(now = Date.now(), event: MedalEvent = {}): MedalGain[] {
   useJourney.getState().sync(now);
+  // После Эликсира каждое занятие — замер его силы (задача 8.4).
+  useKeeper.getState().measure(now);
   return useMotivation.getState().evaluate(now, event);
 }

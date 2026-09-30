@@ -6,6 +6,7 @@ import { MISSION_CHAPTERS, SCROLL_WORDS, WORD_LEVELS } from '../content/wordInde
 import { isMissionDone, useMissions } from './missions';
 import { useTrials } from './trials';
 import { useSphinx } from './sphinx';
+import { useKeeper } from './keeper';
 import { isTrialDone } from '../domain/trial';
 import { isGuardianDone } from '../domain/guardian';
 import { db } from '../db/db';
@@ -89,7 +90,8 @@ export function useHeroTitle(): string {
   const fragments = useJourney((s) => s.fragments);
   const seals = useJourney((s) => s.seals);
   const sage = useSphinx((s) => s.rec.elixir !== undefined);
-  return useMemo(() => heroTitle(completedChapters(currentJourney()), sage), [fragments, seals, sage]);
+  const keeper = useKeeper((s) => s.rec.title !== undefined);
+  return useMemo(() => heroTitle(completedChapters(currentJourney()), sage, keeper), [fragments, seals, sage, keeper]);
 }
 
 /** Что игрок уже начал: для переноса открытой главы. */

@@ -34,8 +34,8 @@ export const chapterById = (id: number) => CHAPTERS.find((c) => c.id === id);
 export const TITLE_START = 'Путник';
 /** Титул после Эликсира (задача 8.3). */
 export const SAGE_TITLE = 'Мудрец';
-export const TITLE_SAGE = 'Мудрец';
-export const TITLE_KEEPER = 'Хранитель языка';
+/** Титул за тридцать дней подряд с силой Эликсира выше 90% (задача 8.4). */
+export const KEEPER_TITLE = 'Хранитель языка';
 
 /**
  * Условия обрывка места: выучены слова главы, выполнена миссия жителя (этап «Жители»),
@@ -251,8 +251,9 @@ export function completedChapters(state: JourneyState): number {
 }
 
 /** Титул героя: Путник, после каждой собранной карты — титул главы. */
-export function heroTitle(completed: number, sage = false): string {
-  // После Эликсира — «Мудрец» (задача 8.3).
+export function heroTitle(completed: number, sage = false, keeper = false): string {
+  // После Эликсира — «Мудрец» (задача 8.3), за месяц силы выше 90% — «Хранитель языка» (8.4).
+  if (keeper) return KEEPER_TITLE;
   if (sage) return SAGE_TITLE;
   return completed > 0 ? CHAPTERS[Math.min(completed, CHAPTERS.length) - 1].title : TITLE_START;
 }

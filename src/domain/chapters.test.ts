@@ -120,6 +120,7 @@ describe('титулы и сцена перехода', () => {
 
   it('после Эликсира — Мудрец', () => {
     expect(heroTitle(5, true)).toBe(SAGE_TITLE);
+    expect(heroTitle(5, true, true)).toBe('Хранитель языка');
     expect(SAGE_TITLE).toBe('Мудрец');
   });
 
