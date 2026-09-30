@@ -120,6 +120,31 @@
         {"q": "Говорил ли это Эрнесто?", "options": ["Нет, никогда", "Да, в гневе", "Он не помнит"], "answer": 0},
         {"q": "Что понял Эрнесто?", "options": ["Лес всегда врёт", "Кто-то говорит голосами жителей", "Доктор пошутила"], "answer": 1}
       ]
+    },
+    {
+      "id": "sc:pharmacy.5",
+      "chapter": 5,
+      "npc": "ernesto",
+      "lines": [
+        {"who": "npc", "es": "Pase, pase. Estoy leyendo el cuaderno de mi abuelo. También era farmacéutico.", "ru": "Проходите, проходите. Я читаю тетрадь моего деда. Он тоже был фармацевтом."},
+        {"who": "hero", "es": "¿Habla del Laberinto?", "ru": "Там есть про Лабиринт?"},
+        {"who": "npc", "es": "Habla del pregonero. Venía cada día a comprar pastillas para la garganta.", "ru": "Там про глашатая. Он каждый день приходил за таблетками для горла."},
+        {"who": "hero", "es": "¿Estaba enfermo?", "ru": "Он был болен?"},
+        {"who": "npc", "es": "No. Hablaba tanto en la plaza que se quedaba sin voz. Y nadie le escuchaba.", "ru": "Нет. Он столько говорил на площади, что терял голос. А его никто не слушал."},
+        {"who": "hero", "es": "¿Qué dice la última página?", "ru": "Что на последней странице?"},
+        {"who": "npc", "es": "«Hoy el pregonero no ha pedido pastillas. Ha dicho: me voy donde la voz vuelva».", "ru": "«Сегодня глашатай не попросил таблеток. Он сказал: ухожу туда, где голос возвращается»»."},
+        {"who": "hero", "es": "Donde la voz vuelve... Es el eco.", "ru": "Где голос возвращается... Это эхо."},
+        {"who": "npc", "es": "Eso creo yo. Un hombre que habló cien años sin respuesta, y ahora nos devuelve la voz.", "ru": "Я тоже так думаю. Человек, который сто лет говорил без ответа, а теперь возвращает нам наш голос."},
+        {"who": "hero", "es": "Entonces no quiere hacernos daño.", "ru": "Значит, он не хочет нам навредить."},
+        {"who": "npc", "es": "Quizás solo quiere que alguien le conteste. Pero con el tono correcto.", "ru": "Может, он просто хочет, чтобы кто-нибудь ему ответил. Но правильным тоном."}
+      ],
+      "questions": [
+        {"q": "Кем был дед дона Эрнесто?", "options": ["Глашатаем", "Фармацевтом", "Почтальоном"], "answer": 1},
+        {"q": "Что каждый день покупал глашатай?", "options": ["Таблетки для горла", "Хлеб", "Газету"], "answer": 0},
+        {"q": "Почему глашатай терял голос?", "options": ["Он болел", "Он пел в хоре", "Много говорил на площади, а его никто не слушал"], "answer": 2},
+        {"q": "Чего, по словам Эрнесто, хочет глашатай?", "options": ["Чтобы кто-нибудь ему ответил, и правильным тоном", "Денег", "Вернуть свой плащ"], "answer": 0}
+      ],
+      "gloss": {"pregonero": "глашатай", "farmacéutico": "фармацевт", "daño": "вред (hacer daño — навредить)", "devuelve": "возвращает (от devolver)"}
     }
   ]
 }

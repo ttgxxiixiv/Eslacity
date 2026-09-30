@@ -89,6 +89,30 @@
         "eraser": {"kind": "answer", "task": "Попросите у неё ластик.", "branches": [{"phrase": "ph:school.presti-gomma", "next": "end"}], "wrong": {"es": "Ti presto il bosco? Non è mio.", "ru": "Одолжить тебе лес? Он не мой."}},
         "end": {"kind": "say", "es": "Tieni la gomma. E anche questo: il ragazzo timido l'ha trovato alla finestra, accanto a una piuma nera. Un pezzo della mappa del bosco. Dice che l'uccello l'ha lasciato per te.", "ru": "Держи ластик. И вот ещё: застенчивый ученик нашёл это на окне рядом с чёрным пером. Обрывок карты леса. Говорит, птица оставила его для тебя."}
       }
+    },
+    {
+      "id": "ms:school.5",
+      "chapter": 5,
+      "npc": "anna",
+      "scene": "sc:school.5",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Paolo è dietro la porta. Aspetta un momento, prima finisco l'elenco.", "ru": "Паоло прячется за дверью. Подожди минутку, сначала закончу список.", "next": "subject"},
+        "subject": {"kind": "answer", "task": "Спросите у Анны, какой сейчас урок.", "branches": [{"phrase": "ph:school.che-materia-abbiamo", "next": "subjectsay"}], "wrong": {"es": "Che eco abbiamo? Il solito.", "ru": "Какое у нас эхо? Как всегда."}},
+        "subjectsay": {"kind": "say", "es": "Italiano: i toni. Paolo deve cominciare la prova. Parlagli tu, ha una paura da morire.", "ru": "Итальянский: тон речи. Паоло пора начинать репетицию. Поговори с ним, он до смерти боится.", "next": "cheer"},
+        "cheer": {"kind": "answer", "task": "Подбодрите Паоло. Ему десять лет — по-свойски.", "register": "informal", "branches": [{"phrase": "ph:school.dai-ce-la-fai", "next": "cheersay"}, {"phrase": "ph:school.sono-sicura-lei", "next": "cheersay"}], "wrong": {"es": "Cosa? Paolo non capisce niente e si nasconde di nuovo.", "ru": "Что? Паоло ничего не понял и снова прячется."}, "tone": {"es": "«Lei»? Adesso Paolo pensa che tu sia il preside e ha ancora più paura.", "ru": "«Вы»? Теперь Паоло думает, что ты директор, и боится ещё больше."}},
+        "cheersay": {"kind": "say", "es": "È uscito! Comincia a leggere... Senti, sto pensando di cambiare il finale: il banditore torna e tutti lo applaudono.", "ru": "Вышел! Начинает читать... Слушай, я думаю поменять финал: глашатай возвращается, и все ему хлопают.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:school.finale-vero", "next": "object", "move": "object"}, {"phrase": "ph:school.cambialo-lieto-fine", "next": "concede", "move": "concede"}, {"phrase": "ph:school.finale-aperto", "next": "compromise", "move": "compromise"}], "wrong": {"es": "Cosa? Ti parlo del finale dello spettacolo.", "ru": "Что? Я про финал спектакля."}},
+        "object": {"kind": "say", "es": "Hai ragione. La storia è triste, e i bambini devono saperlo.", "ru": "Ты прав. История грустная, и дети должны это знать.", "next": "dictionary"},
+        "concede": {"kind": "say", "es": "Ecco! Alla fine tutti gli rispondono con il suo tono. I bambini saranno contenti.", "ru": "Вот! В конце все отвечают ему его тоном. Дети будут довольны.", "next": "dictionary"},
+        "compromise": {"kind": "say", "es": "Un finale aperto... Sì: che il pubblico pensi cosa gli risponderebbe.", "ru": "Открытый финал... Да: пусть зрители подумают, что бы они ему ответили.", "next": "dictionary"},
+        "dictionary": {"kind": "answer", "task": "Спросите, есть ли в классе словарь.", "branches": [{"phrase": "ph:school.c-dizionario-aula", "next": "dictionarysay"}], "wrong": {"es": "C'è l'eco in aula? Oggi, tanto.", "ru": "В классе эхо? Сегодня — много."}},
+        "dictionarysay": {"kind": "say", "es": "Sì, sullo scaffale. Paolo vuole cercare la parola «banditore».", "ru": "Да, на полке. Паоло хочет найти слово «глашатай».", "next": "example"},
+        "example": {"kind": "answer", "task": "Попросите Анну объяснить это слово на примере.", "branches": [{"phrase": "ph:school.me-puo-spiegare", "next": "examplesay"}], "wrong": {"es": "Ti spiego l'eco? Meglio di no, si ripete.", "ru": "Объяснить тебе эхо? Лучше не надо, оно повторяется."}},
+        "examplesay": {"kind": "say", "es": "Certo: il banditore leggeva le notizie ad alta voce in piazza. Adesso scrivi tu qualcosa alla lavagna.", "ru": "Конечно: глашатай читал новости вслух на площади. А теперь напиши что-нибудь на доске.", "next": "eraser"},
+        "eraser": {"kind": "answer", "task": "Попросите одолжить вам ластик.", "branches": [{"phrase": "ph:school.presti-gomma", "next": "end"}], "wrong": {"es": "La gomma dell'eco? Quella non cancella niente.", "ru": "Ластик для эха? Он ничего не стирает."}},
+        "end": {"kind": "say", "es": "Ecco la gomma. E un'altra cosa: Paolo ha trovato questo nel dizionario, alla parola «eco». Un pezzo della mappa del Labirinto.", "ru": "Держи ластик. И ещё: Паоло нашёл это в словаре, на слове «эхо». Обрывок карты Лабиринта."}
+      }
     }
   ]
 }

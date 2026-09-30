@@ -120,6 +120,31 @@
         {"q": "Какую зацепку нашёл Энцо?", "options": ["На вороне записка", "Ворон приносит монеты", "Ворон пахнет трубочным табаком"], "answer": 2}
       ],
       "gloss": {"corvo": "ворон", "nero": "Неро (кличка ворона; nero — чёрный)", "tabacco": "табак", "pipa": "трубка (курительная)", "soltanto": "только"}
+    },
+    {
+      "id": "sc:post.5",
+      "chapter": 5,
+      "npc": "enzo",
+      "lines": [
+        {"who": "npc", "es": "Guarda cosa ho trovato in archivio! Una lettera di cento anni fa.", "ru": "Смотри, что я нашёл в архиве! Письмо столетней давности."},
+        {"who": "hero", "es": "Per chi è?", "ru": "Кому оно?"},
+        {"who": "npc", "es": "«Al banditore. Piazza Grande». Non è mai stata consegnata: lui se n'era già andato.", "ru": "«Глашатаю. Главная площадь». Его так и не доставили: он уже ушёл."},
+        {"who": "hero", "es": "Chi l'ha scritta?", "ru": "Кто его написал?"},
+        {"who": "npc", "es": "I bambini della scuola di allora. È corta: «Scusa. Adesso ti ascoltiamo».", "ru": "Тогдашние школьники. Оно короткое: «Прости. Теперь мы тебя слушаем»."},
+        {"who": "hero", "es": "Che tristezza. È arrivata tardi.", "ru": "Как грустно. Оно опоздало."},
+        {"who": "npc", "es": "Cento anni in ritardo. Ma io sono postino: le lettere si consegnano.", "ru": "На сто лет. Но я почтальон: письма надо доставлять."},
+        {"who": "hero", "es": "E dove vive adesso il banditore?", "ru": "А где теперь живёт глашатай?"},
+        {"who": "npc", "es": "Se Gino ha ragione, nel Labirinto. Vengo con te.", "ru": "Если Джино прав, в Лабиринте. Я пойду с тобой."},
+        {"who": "hero", "es": "Ti lasciano uscire dalla città con una lettera dell'archivio?", "ru": "А тебе разрешат уйти из города с письмом из архива?"},
+        {"who": "npc", "es": "Bisogna chiederlo alla direttrice. E lei è molto seria.", "ru": "Это надо спросить у директора. А она очень строгая."}
+      ],
+      "questions": [
+        {"q": "Что Энцо нашёл в архиве?", "options": ["Письмо столетней давности", "Старую марку", "Ключ"], "answer": 0},
+        {"q": "Кому адресовано письмо?", "options": ["Томмазо", "Глашатаю, на главную площадь", "Мэру"], "answer": 1},
+        {"q": "Что написали дети?", "options": ["«Приходи»", "«Спасибо за новости»", "«Прости. Теперь мы тебя слушаем»"], "answer": 2},
+        {"q": "Кого надо спросить, можно ли взять письмо?", "options": ["Директора почты", "Джино", "Комиссара"], "answer": 0}
+      ],
+      "gloss": {"tristezza": "грусть (che tristezza! — как грустно)", "direttrice": "директор (о женщине)", "archivio": "архив", "banditore": "глашатай", "consegnata": "доставлена (от consegnare)", "allora": "тогда (di allora — тогдашний)", "gino": "Джино (имя)"}
     }
   ]
 }

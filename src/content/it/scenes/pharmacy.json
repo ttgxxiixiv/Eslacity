@@ -121,6 +121,31 @@
         {"q": "Что понял Бруно?", "options": ["Лес всегда врёт", "Кто-то говорит голосами жителей", "Доктор пошутила"], "answer": 1}
       ],
       "gloss": {"incapace": "бездарь, неумеха", "buongiorno": "доброе утро", "discusso": "поспорили (discutere)", "stesso": "то же самое (lo stesso)"}
+    },
+    {
+      "id": "sc:pharmacy.5",
+      "chapter": 5,
+      "npc": "bruno",
+      "lines": [
+        {"who": "npc", "es": "Entri, entri. Sto leggendo il quaderno di mio nonno. Anche lui era farmacista.", "ru": "Проходите, проходите. Я читаю тетрадь моего деда. Он тоже был фармацевтом."},
+        {"who": "hero", "es": "Parla del Labirinto?", "ru": "Там есть про Лабиринт?"},
+        {"who": "npc", "es": "Parla del banditore. Veniva ogni giorno a comprare pastiglie per la gola.", "ru": "Там про глашатая. Он каждый день приходил за таблетками для горла."},
+        {"who": "hero", "es": "Era malato?", "ru": "Он был болен?"},
+        {"who": "npc", "es": "No. Parlava così tanto in piazza che restava senza voce. E nessuno lo ascoltava.", "ru": "Нет. Он столько говорил на площади, что терял голос. А его никто не слушал."},
+        {"who": "hero", "es": "Cosa dice l'ultima pagina?", "ru": "Что на последней странице?"},
+        {"who": "npc", "es": "«Oggi il banditore non ha chiesto pastiglie. Ha detto: vado dove la voce torna».", "ru": "«Сегодня глашатай не попросил таблеток. Он сказал: ухожу туда, где голос возвращается»."},
+        {"who": "hero", "es": "Dove la voce torna... È l'eco.", "ru": "Где голос возвращается... Это эхо."},
+        {"who": "npc", "es": "Lo penso anch'io. Un uomo che ha parlato cento anni senza risposta, e adesso ci restituisce la voce.", "ru": "Я тоже так думаю. Человек, который сто лет говорил без ответа, а теперь возвращает нам наш голос."},
+        {"who": "hero", "es": "Allora non vuole farci del male.", "ru": "Значит, он не хочет нам навредить."},
+        {"who": "npc", "es": "Forse vuole solo che qualcuno gli risponda. Ma con il tono giusto.", "ru": "Может, он просто хочет, чтобы кто-нибудь ему ответил. Но правильным тоном."}
+      ],
+      "questions": [
+        {"q": "Кем был дед доктора Бруно?", "options": ["Глашатаем", "Фармацевтом", "Почтальоном"], "answer": 1},
+        {"q": "Что каждый день покупал глашатай?", "options": ["Таблетки для горла", "Хлеб", "Газету"], "answer": 0},
+        {"q": "Почему глашатай терял голос?", "options": ["Он болел", "Он пел в хоре", "Много говорил на площади, а его никто не слушал"], "answer": 2},
+        {"q": "Чего, по словам Бруно, хочет глашатай?", "options": ["Чтобы кто-нибудь ему ответил, и правильным тоном", "Денег", "Вернуть свой плащ"], "answer": 0}
+      ],
+      "gloss": {"banditore": "глашатай", "farmacista": "фармацевт", "restituisce": "возвращает (от restituire)", "male": "вред (fare del male — навредить)"}
     }
   ]
 }

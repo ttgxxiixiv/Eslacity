@@ -120,6 +120,31 @@
         {"q": "Какую зацепку нашёл Рафа?", "options": ["На вороне записка", "Ворон приносит монеты", "Ворон пахнет трубочным табаком"], "answer": 2}
       ],
       "gloss": {"cuervo": "ворон", "negro": "Негро (кличка ворона; negro — чёрный)", "tabaco": "табак", "pipa": "трубка (курительная)"}
+    },
+    {
+      "id": "sc:post.5",
+      "chapter": 5,
+      "npc": "rafa",
+      "lines": [
+        {"who": "npc", "es": "¡Mira lo que he encontrado en el archivo! Una carta de hace cien años.", "ru": "Смотри, что я нашёл в архиве! Письмо столетней давности."},
+        {"who": "hero", "es": "¿Para quién es?", "ru": "Кому оно?"},
+        {"who": "npc", "es": "«Al pregonero. Plaza Mayor». Nunca se entregó: él ya se había ido.", "ru": "«Глашатаю. Главная площадь». Его так и не доставили: он уже ушёл."},
+        {"who": "hero", "es": "¿Quién la escribió?", "ru": "Кто его написал?"},
+        {"who": "npc", "es": "Los niños de la escuela de entonces. Es corta: «Perdona. Ahora te escuchamos».", "ru": "Тогдашние школьники. Оно короткое: «Прости. Теперь мы тебя слушаем»."},
+        {"who": "hero", "es": "Qué triste. Llegó tarde.", "ru": "Как грустно. Оно опоздало."},
+        {"who": "npc", "es": "Cien años tarde. Pero yo soy cartero: las cartas se entregan.", "ru": "На сто лет. Но я почтальон: письма надо доставлять."},
+        {"who": "hero", "es": "¿Y dónde vive ahora el pregonero?", "ru": "А где теперь живёт глашатай?"},
+        {"who": "npc", "es": "Si Manolo tiene razón, en el Laberinto. Iré contigo.", "ru": "Если Маноло прав, в Лабиринте. Я пойду с тобой."},
+        {"who": "hero", "es": "¿Te dejan salir de la ciudad con una carta del archivo?", "ru": "А тебе разрешат уйти из города с письмом из архива?"},
+        {"who": "npc", "es": "Eso hay que preguntarlo a la directora. Y ella es muy seria.", "ru": "Это надо спросить у директора. А она очень строгая."}
+      ],
+      "questions": [
+        {"q": "Что Рафа нашёл в архиве?", "options": ["Письмо столетней давности", "Старую марку", "Ключ"], "answer": 0},
+        {"q": "Кому адресовано письмо?", "options": ["Томасу", "Глашатаю, на главную площадь", "Мэру"], "answer": 1},
+        {"q": "Что написали дети?", "options": ["«Приходи»", "«Спасибо за новости»", "«Прости. Теперь мы тебя слушаем»"], "answer": 2},
+        {"q": "Кого надо спросить, можно ли взять письмо?", "options": ["Директора почты", "Маноло", "Комиссара"], "answer": 0}
+      ],
+      "gloss": {"escuela": "школа", "manolo": "Маноло (имя)", "archivo": "архив", "pregonero": "глашатай", "entregó": "доставили (от entregar)", "entonces": "тогда (de entonces — тогдашний)"}
     }
   ]
 }

@@ -88,6 +88,30 @@
         "generic": {"kind": "answer", "task": "Спросите, есть ли дженерик подешевле.", "branches": [{"phrase": "ph:pharmacy.hay-generico-mas", "next": "end"}], "wrong": {"es": "¿Un genérico más caro? Eso no lo pide nadie.", "ru": "Дженерик подороже? Такого никто не просит."}},
         "end": {"kind": "say", "es": "Sí, este. Y tome esto: un trozo del mapa del bosque. Lo encontré esta mañana en la puerta, junto a una pluma negra.", "ru": "Да, вот этот. И возьмите: обрывок карты леса. Я нашёл его утром у двери рядом с чёрным пером."}
       }
+    },
+    {
+      "id": "ms:pharmacy.5",
+      "chapter": 5,
+      "npc": "ernesto",
+      "scene": "sc:pharmacy.5",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Bueno, bueno. Y usted, ¿cómo se encuentra hoy?", "ru": "Так-так. А вы как себя сегодня чувствуете?", "next": "sleep"},
+        "sleep": {"kind": "answer", "task": "Скажите, что у вас бессонница из-за стресса.", "branches": [{"phrase": "ph:pharmacy.tengo-insomnio-estres", "next": "sleepsay"}], "wrong": {"es": "¿Tiene eco? Eso no se cura en una farmacia.", "ru": "У вас эхо? Это в аптеке не лечится."}},
+        "sleepsay": {"kind": "say", "es": "El eco no deja dormir a nadie. ¿Necesita algo más?", "ru": "Эхо никому не даёт спать. Вам нужно что-нибудь ещё?", "next": "throat"},
+        "throat": {"kind": "answer", "task": "Попросите дона Эрнесто посоветовать что-нибудь от горла. Официально.", "register": "formal", "branches": [{"phrase": "ph:pharmacy.podria-recomendarme", "next": "throatsay"}, {"phrase": "ph:pharmacy.dame-algo-garganta", "next": "throatsay"}], "wrong": {"es": "¿Algo para el eco? Eso no lo vendo, por desgracia.", "ru": "Что-нибудь от эха? Такого, к сожалению, не продаю."}, "tone": {"es": "¿«Oye, dame»? Joven, en mi farmacia se habla de usted. Mi abuelo me enseñó así.", "ru": "«Слушай, дай»? Молодой человек, в моей аптеке говорят на вы. Так меня научил дед."}},
+        "throatsay": {"kind": "say", "es": "Estas pastillas, las mismas que tomaba el pregonero. Oiga, estoy pensando en llevar el cuaderno de mi abuelo al periódico.", "ru": "Вот эти таблетки, такие же пил глашатай. Послушайте, я думаю отнести тетрадь деда в газету.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:pharmacy.cuaderno-es-privado", "next": "object", "move": "object"}, {"phrase": "ph:pharmacy.llevelo-periodico", "next": "concede", "move": "concede"}, {"phrase": "ph:pharmacy.publique-una-pagina", "next": "compromise", "move": "compromise"}], "wrong": {"es": "¿Cómo dice? Hablamos del cuaderno de mi abuelo.", "ru": "Что вы говорите? Мы о тетради моего деда."}},
+        "object": {"kind": "say", "es": "Tiene razón. Son las palabras de mi abuelo, no una noticia.", "ru": "Вы правы. Это слова моего деда, а не новость.", "next": "effects"},
+        "concede": {"kind": "say", "es": "Sí, la ciudad debe saberlo. Quizás así alguien le contesta al pregonero.", "ru": "Да, город должен это знать. Может, тогда кто-нибудь ответит глашатаю.", "next": "effects"},
+        "compromise": {"kind": "say", "es": "Solo una página... Me parece justo. Lo demás es de mi familia.", "ru": "Только одну страницу... По-моему, справедливо. Остальное принадлежит моей семье.", "next": "effects"},
+        "effects": {"kind": "answer", "task": "Спросите, есть ли у таблеток побочные эффекты.", "branches": [{"phrase": "ph:pharmacy.tiene-efectos-secundarios", "next": "effectssay"}], "wrong": {"es": "¿Efectos de eco? Solo en el Laberinto.", "ru": "Эффекты эха? Только в Лабиринте."}},
+        "effectssay": {"kind": "say", "es": "Ninguno, son de miel. Una cada cuatro horas.", "ru": "Никаких, они медовые. По одной каждые четыре часа.", "next": "card"},
+        "card": {"kind": "answer", "task": "Дайте медицинскую карту: «Вот моя карта».", "branches": [{"phrase": "ph:pharmacy.aqui-tiene-tarjeta", "next": "cardsay"}], "wrong": {"es": "¿Me da un mapa? Aquí se paga con la tarjeta sanitaria.", "ru": "Даёте мне карту местности? Здесь нужна медицинская карта."}},
+        "cardsay": {"kind": "say", "es": "Gracias. ¿Algo más para el viaje?", "ru": "Спасибо. Что-нибудь ещё в дорогу?", "next": "bandage"},
+        "bandage": {"kind": "answer", "task": "Скажите, что вам нужен бинт.", "branches": [{"phrase": "ph:pharmacy.necesito-venda", "next": "end"}], "wrong": {"es": "¿Una venda para los oídos? Contra el eco no sirve.", "ru": "Бинт на уши? От эха не поможет."}},
+        "end": {"kind": "say", "es": "Aquí tiene. Y esto también: estaba en el cuaderno, en la última página. Un trozo del mapa del Laberinto. Mi abuelo escribió: «Para quien le conteste».", "ru": "Вот, держите. И это тоже: лежало в тетради, на последней странице. Обрывок карты Лабиринта. Дед написал: «Тому, кто ему ответит»."}
+      }
     }
   ]
 }

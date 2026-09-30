@@ -89,6 +89,30 @@
         "socks": {"kind": "answer", "task": "Попросите белые носки.", "branches": [{"phrase": "ph:clothes.unos-calcetines-blancos", "next": "end"}], "wrong": {"es": "¿Unos búhos blancos? Aquí solo vendo ropa.", "ru": "Белых сов? Я продаю только одежду."}},
         "end": {"kind": "say", "es": "¿Calcetines? Ja, ja, qué gracioso. Toma. Y esto también: estaba esta mañana en el escaparate, al lado de una pluma negra. Un trozo del mapa del bosque.", "ru": "Носки? Ха-ха, смешно. Держи. И вот ещё: это лежало утром на витрине рядом с чёрным пером. Обрывок карты леса."}
       }
+    },
+    {
+      "id": "ms:clothes.5",
+      "chapter": 5,
+      "npc": "marta",
+      "scene": "sc:clothes.5",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Todavía no ha llegado. ¿Y tú, qué buscas hoy?", "ru": "Он ещё не пришёл. А ты что сегодня ищешь?", "next": "party"},
+        "party": {"kind": "answer", "task": "Скажите Марте, что ищете что-нибудь элегантное для праздника.", "branches": [{"phrase": "ph:clothes.busco-algo-elegante", "next": "partysay"}], "wrong": {"es": "¿Algo elegante para el eco? No le hace falta.", "ru": "Что-нибудь элегантное для эха? Ему не нужно."}},
+        "partysay": {"kind": "say", "es": "¡Para la fiesta de Lola, seguro! Luego lo miramos. Mira, ya entra el secretario. Salúdalo tú.", "ru": "Наверняка для праздника Лолы! Потом посмотрим. Смотри, уже входит секретарь. Поздоровайся ты.", "next": "greet"},
+        "greet": {"kind": "answer", "task": "Поприветствуйте секретаря мэрии и спросите, чем помочь. Официально.", "register": "formal", "branches": [{"phrase": "ph:clothes.en-que-puedo-ayudarle", "next": "greetsay"}, {"phrase": "ph:clothes.que-buscas-hoy", "next": "greetsay"}], "wrong": {"es": "¿Qué le has dicho? Te mira como si fueras el eco.", "ru": "Что ты ему сказал? Он смотрит на тебя, как на эхо."}, "tone": {"es": "¡Ay! «¿Qué buscas?» Ya le hablé yo de tú esta mañana. Otra vez no, por favor.", "ru": "Ой! «Что ищешь?» Я уже утром говорила с ним на ты. Только не снова, пожалуйста."}},
+        "greetsay": {"kind": "say", "es": "Muy bien. Quiere un traje gris... Oye, un coleccionista me ofrece mucho dinero por el libro de mi bisabuela. Lo voy a vender.", "ru": "Отлично. Он хочет серый костюм... Слушай, коллекционер предлагает мне много денег за книгу прабабушки. Я её продам.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:clothes.no-vendas-libro", "next": "object", "move": "object"}, {"phrase": "ph:clothes.vendelo-si-necesitas", "next": "concede", "move": "concede"}, {"phrase": "ph:clothes.haz-una-copia", "next": "compromise", "move": "compromise"}], "wrong": {"es": "¿Qué? Te hablo del libro, no del traje.", "ru": "Что? Я про книгу, а не про костюм."}},
+        "object": {"kind": "say", "es": "Tienes razón. Además, en el libro está el pregonero. Me lo quedo.", "ru": "Ты прав. К тому же в книге есть глашатай. Оставлю её себе.", "next": "cotton"},
+        "concede": {"kind": "say", "es": "Sí... con ese dinero arreglo el escaparate. Pero antes copio la página del pregonero.", "ru": "Да... на эти деньги починю витрину. Но сначала перепишу страницу про глашатая.", "next": "cotton"},
+        "compromise": {"kind": "say", "es": "¡Una copia! Qué buena idea. El libro se queda en la tienda.", "ru": "Копию! Отличная идея. Книга останется в магазине.", "next": "cotton"},
+        "cotton": {"kind": "answer", "task": "Спросите про рубашку для праздника: она из хлопка?", "branches": [{"phrase": "ph:clothes.algodon", "next": "cottonsay"}], "wrong": {"es": "¿De piedra? Eso es la capa del pregonero, no una camisa.", "ru": "Из камня? Это плащ глашатая, а не рубашка."}},
+        "cottonsay": {"kind": "say", "es": "Sí, algodón puro. Pruébatela.", "ru": "Да, чистый хлопок. Примерь.", "next": "fit"},
+        "fit": {"kind": "answer", "task": "Спросите, как она на вас сидит.", "branches": [{"phrase": "ph:clothes.tal-queda", "next": "fitsay"}], "wrong": {"es": "¿Qué tal el eco? Fatal, como siempre.", "ru": "Как эхо? Ужасно, как всегда."}},
+        "fitsay": {"kind": "say", "es": "Te queda perfecta. ¿Es para ti o para regalar?", "ru": "Сидит идеально. Это тебе или в подарок?", "next": "gift"},
+        "gift": {"kind": "answer", "task": "Попросите подарочный чек.", "branches": [{"phrase": "ph:clothes.da-tique-regalo", "next": "end"}], "wrong": {"es": "¿Un tique para el Laberinto? Eso no lo vendo.", "ru": "Билет в Лабиринт? Такого не продаю."}},
+        "end": {"kind": "say", "es": "Aquí tienes. Y toma también esto: estaba dentro del libro, en la página del pregonero. Es un trozo del mapa del Laberinto.", "ru": "Держи. И вот ещё: это лежало в книге, на странице про глашатая. Обрывок карты Лабиринта."}
+      }
     }
   ]
 }

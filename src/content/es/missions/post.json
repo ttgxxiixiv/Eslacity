@@ -85,6 +85,30 @@
         "name": {"kind": "answer", "task": "Скажите, что посылка на ваше имя.", "branches": [{"phrase": "ph:post.esta-nombre", "next": "end"}], "wrong": {"es": "¿Está a nombre de Negro? Él no tiene DNI.", "ru": "На имя Негро? У него нет паспорта."}},
         "end": {"kind": "say", "es": "Perfecto. Y toma esto: Negro lo trajo anoche en el pico. Un trozo del mapa del bosque. Por lo menos, algo bueno trae.", "ru": "Отлично. И держи: Негро принёс это вчера ночью в клюве. Обрывок карты леса. Хоть что-то хорошее он приносит."}
       }
+    },
+    {
+      "id": "ms:post.5",
+      "chapter": 5,
+      "npc": "rafa",
+      "scene": "sc:post.5",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "La directora viene ahora. Mientras tanto, ¿qué necesitas tú?", "ru": "Директор сейчас придёт. А пока — что тебе нужно?", "next": "pickup"},
+        "pickup": {"kind": "answer", "task": "Скажите, что вам надо забрать посылку.", "branches": [{"phrase": "ph:post.tengo-recoger-paquete", "next": "pickupsay"}], "wrong": {"es": "¿Recoger el eco? Eso llega solo.", "ru": "Забрать эхо? Оно приходит само."}},
+        "pickupsay": {"kind": "say", "es": "Tu paquete, luego. Mira, ya está aquí la directora. Háblale tú, que a mí me tiembla la carta en la mano.", "ru": "Твою посылку — потом. Смотри, директор уже здесь. Говори ты, а то у меня письмо в руке дрожит.", "next": "ask"},
+        "ask": {"kind": "answer", "task": "Спросите директора почты, можно ли доставить старое письмо. Официально.", "register": "formal", "branches": [{"phrase": "ph:post.permitiria-entregar", "next": "asksay"}, {"phrase": "ph:post.nos-dejas-llevar", "next": "asksay"}], "wrong": {"es": "¿Qué? La directora no ha entendido nada.", "ru": "Что? Директор ничего не поняла."}, "tone": {"es": "¿«Oye, nos dejas»? La directora te mira muy seria. Con ella, de usted, por favor.", "ru": "«Слушай, дашь нам»? Директор смотрит на тебя очень строго. С ней на вы, пожалуйста."}},
+        "asksay": {"kind": "say", "es": "¡Ha dicho que sí! Con una condición: que la entreguemos en mano. Pero Negro quiere llevarla volando al bosque. Es más rápido.", "ru": "Она согласилась! С одним условием: вручить лично. Но Негро хочет отнести его к лесу по воздуху. Так быстрее.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:post.en-mano-no-cuervo", "next": "object", "move": "object"}, {"phrase": "ph:post.que-la-lleve-negro", "next": "concede", "move": "concede"}, {"phrase": "ph:post.negro-nos-acompane", "next": "compromise", "move": "compromise"}], "wrong": {"es": "¿Qué? Te hablo de la carta y de Negro.", "ru": "Что? Я про письмо и про Негро."}},
+        "object": {"kind": "say", "es": "Tienes razón. La directora lo ha dicho claro: en mano.", "ru": "Ты прав. Директор ясно сказала: лично.", "next": "tracking"},
+        "concede": {"kind": "say", "es": "¡Vale! Negro sale esta noche. Espero que el eco no cambie la carta.", "ru": "Ладно! Негро вылетает сегодня ночью. Надеюсь, эхо не изменит письмо.", "next": "tracking"},
+        "compromise": {"kind": "say", "es": "¡Perfecto! Negro nos enseña el camino, y la carta va conmigo.", "ru": "Отлично! Негро покажет нам дорогу, а письмо понесу я.", "next": "tracking"},
+        "tracking": {"kind": "answer", "task": "Попросите номер отслеживания вашей посылки.", "branches": [{"phrase": "ph:post.da-numero-seguimiento", "next": "trackingsay"}], "wrong": {"es": "¿El número del eco? No tiene número.", "ru": "Номер эха? У него нет номера."}},
+        "trackingsay": {"kind": "say", "es": "Aquí tienes. ¿Envías algo tú también?", "ru": "Держи. Ты тоже что-то отправляешь?", "next": "fragile"},
+        "fragile": {"kind": "answer", "task": "Скажите, что посылка хрупкая.", "branches": [{"phrase": "ph:post.paquete-fragil", "next": "fragilesay"}], "wrong": {"es": "¿Frágil como el eco? Eso se rompe solo.", "ru": "Хрупкое, как эхо? Оно само разбивается."}},
+        "fragilesay": {"kind": "say", "es": "La marco como frágil. ¿Y la quieres con acuse de recibo?", "ru": "Отмечу как хрупкую. А с уведомлением о вручении?", "next": "receipt"},
+        "receipt": {"kind": "answer", "task": "Скажите: да, с уведомлением о вручении, пожалуйста.", "branches": [{"phrase": "ph:post.con-acuse-recibo", "next": "end"}], "wrong": {"es": "¿Con acuse de eco? Aquí solo acuse de recibo.", "ru": "С уведомлением об эхе? Здесь только о вручении."}},
+        "end": {"kind": "say", "es": "Hecho. Y toma: dentro del sobre había otra cosa. Un trozo del mapa del Laberinto. Los niños lo metieron para que el pregonero pudiera volver.", "ru": "Готово. И держи: в конверте было ещё кое-что. Обрывок карты Лабиринта. Дети вложили его, чтобы глашатай смог вернуться."}
+      }
     }
   ]
 }

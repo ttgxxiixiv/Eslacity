@@ -85,6 +85,30 @@
         "rain": {"kind": "answer", "task": "Скажите, что сейчас пойдёт дождь, и спросите, есть ли у него зонт.", "branches": [{"phrase": "ph:park.sta-piovere-hai", "next": "end"}], "wrong": {"es": "Stanno per piovere gufi? Solo nel bosco.", "ru": "Сейчас пойдёт дождь из сов? Только в лесу."}},
         "end": {"kind": "say", "es": "Ne ho uno grande, andiamo. E prendi questo: l'ho trovato sotto la quercia. Un pezzo della mappa del bosco, e accanto una piuma nera.", "ru": "У меня большой, пойдём. И держи: я нашёл это под дубом. Обрывок карты леса, а рядом чёрное перо."}
       }
+    },
+    {
+      "id": "ms:park.5",
+      "chapter": 5,
+      "npc": "gino",
+      "scene": "sc:park.5",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Facciamo un giro? Oggi sul laghetto non c'è eco, solo anatre.", "ru": "Прогуляемся? Сегодня на озере нет эха, только утки.", "next": "ducks"},
+        "ducks": {"kind": "answer", "task": "Скажите, что утки на озере голодные.", "branches": [{"phrase": "ph:park.anatre-laghetto-hanno", "next": "duckssay"}], "wrong": {"es": "Le anatre hanno l'eco? No, hanno fame.", "ru": "У уток эхо? Нет, они голодные."}},
+        "duckssay": {"kind": "say", "es": "Prendi del pane per loro. Senti, sono un po' triste per questa storia del banditore.", "ru": "Возьми для них хлеба. Слушай, мне что-то грустно от этой истории про глашатая.", "next": "cheer"},
+        "cheer": {"kind": "answer", "task": "Подбодрите дедушку Джино. Он просит говорить с ним на ты.", "register": "informal", "branches": [{"phrase": "ph:park.dai-nonno", "next": "cheersay"}, {"phrase": "ph:park.non-si-preoccupi", "next": "cheersay"}], "wrong": {"es": "Dai al laghetto? Le anatre sono già contente.", "ru": "Скорее к озеру? Утки и так довольны."}, "tone": {"es": "«Lei»? Non parlarmi così, che mi sento come il banditore.", "ru": "«Вы»? Не говори со мной так, я себя чувствую тем глашатаем."}},
+        "cheersay": {"kind": "say", "es": "Grazie. Ma voglio tagliare la vecchia quercia. Così l'eco non ripete più niente nel mio parco.", "ru": "Спасибо. Но я хочу срубить старый дуб. Тогда эхо больше ничего не будет повторять в моём парке.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:park.quercia-non-colpa", "next": "object", "move": "object"}, {"phrase": "ph:park.tagliala-se-vuoi", "next": "concede", "move": "concede"}, {"phrase": "ph:park.solo-rami-bassi", "next": "compromise", "move": "compromise"}], "wrong": {"es": "Cosa? Ti parlo della quercia, non delle anatre.", "ru": "Что? Я про дуб, а не про уток."}},
+        "object": {"kind": "say", "es": "Hai ragione, la povera quercia ripete e basta. E poi è figlia del bosco.", "ru": "Ты прав, бедный дуб только повторяет. К тому же он дитя леса.", "next": "roses"},
+        "concede": {"kind": "say", "es": "Va be'... ci penserò. Ma mi dispiace: ha duecento anni.", "ru": "Ну... подумаю. Но мне его жалко: ему двести лет.", "next": "roses"},
+        "compromise": {"kind": "say", "es": "I rami bassi... Sì, così i bambini non le parlano così tanto.", "ru": "Нижние ветки... Да, тогда дети не будут так много с ним говорить.", "next": "roses"},
+        "roses": {"kind": "answer", "task": "Спросите, когда цветут розы.", "branches": [{"phrase": "ph:park.quando-fioriscono-rose", "next": "rosessay"}], "wrong": {"es": "Quando fiorisce l'eco? Mai, per fortuna.", "ru": "Когда цветёт эхо? Никогда, к счастью."}},
+        "rosessay": {"kind": "say", "es": "A maggio. E adesso guarda il cielo: il tempo sta cambiando.", "ru": "В мае. А теперь посмотри на небо: погода меняется.", "next": "rain"},
+        "rain": {"kind": "answer", "task": "Скажите, что сейчас пойдёт дождь, и спросите, есть ли у него зонт.", "branches": [{"phrase": "ph:park.sta-piovere-hai", "next": "rainsay"}], "wrong": {"es": "Sta per piovere eco? Spero di no.", "ru": "Пойдёт дождь из эха? Надеюсь, нет."}},
+        "rainsay": {"kind": "say", "es": "Sì, lo porto sempre. Ci sediamo un po' prima di tornare?", "ru": "Да, я всегда его ношу. Посидим немного, прежде чем возвращаться?", "next": "rest"},
+        "rest": {"kind": "answer", "task": "Скажите, что хотите немного отдохнуть.", "branches": [{"phrase": "ph:park.voglio-riposare-po", "next": "end"}], "wrong": {"es": "Vuoi riposare dall'eco? Lo vogliamo tutti.", "ru": "Хочешь отдохнуть от эха? Все хотим."}},
+        "end": {"kind": "say", "es": "Riposa. E prendi questo: mio nonno teneva questo pezzo della mappa del Labirinto. Diceva che il banditore l'aveva lasciato su questa panchina prima di andarsene.", "ru": "Отдыхай. И держи: дедушка хранил этот обрывок карты Лабиринта. Говорил, что глашатай оставил его на этой скамейке, перед тем как уйти."}
+      }
     }
   ]
 }
