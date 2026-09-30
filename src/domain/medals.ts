@@ -49,6 +49,8 @@ export interface MedalCounters {
   trials: number;
   /** Выражения, верно сказанные в другом регистре в поручениях «Эхо». */
   echo: number;
+  /** Главы, чьи печати получены (для тайной медали «Выход из Лабиринта»). */
+  seals: number[];
 }
 
 export type LineId =
@@ -124,6 +126,9 @@ export interface SecretMedal {
   test: ((c: MedalCounters, e: MedalEvent) => boolean) | null;
 }
 
+/** Глава Лабиринта Эха: её печать даёт тайную медаль «Выход из Лабиринта». */
+export const LABYRINTH_CHAPTER = 5;
+
 /** Награда за тайную медаль. */
 export const SECRET_REWARD = 50;
 
@@ -141,8 +146,8 @@ export const SECRETS: SecretMedal[] = [
   { id: 'saved-streak', title: 'Спасённый стрик', text: 'Заморозка сохранила стрик', test: (c) => c.freezesUsed >= 1 },
   { id: 'flawless', title: 'Без единой ошибки', text: 'Урок на 100%', test: (_, e) => !!e.perfectLesson },
   { id: 'midnight', title: 'Полночный путник', text: 'Урок после полуночи', test: (_, e) => e.lessonAt !== undefined && isMidnight(e.lessonAt) },
-  // Появятся с главой V, Сфинксом и Эликсиром.
-  { id: 'labyrinth', title: 'Выход из Лабиринта', text: 'Печать главы V', test: null },
+  { id: 'labyrinth', title: 'Выход из Лабиринта', text: 'Печать главы V', test: (c) => c.seals.includes(LABYRINTH_CHAPTER) },
+  // Появятся со Сфинксом и Эликсиром.
   { id: 'sphinx', title: 'Взгляд Сфинкса', text: 'Дойти до Врат Хранилища', test: null },
   { id: 'keeper', title: 'Хранитель пути', text: 'Выпить Эликсир', test: null },
 ];

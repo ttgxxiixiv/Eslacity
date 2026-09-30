@@ -19,6 +19,13 @@ export const GUARDIAN_MIX = { grammar: 12, words: 5, scroll: 3 };
 export const LISTEN_GUARDIAN_CHAPTERS = [4];
 /** Сколько заданий на слух у такого стража: все слова главы и свитка. */
 export const GUARDIAN_LISTEN = GUARDIAN_MIX.words + GUARDIAN_MIX.scroll;
+/**
+ * Виды заданий, которые страж даёт обязательно, по GUARDIAN_KIND_MIN каждого (если они есть в районе).
+ * Хозяин Эха (глава V) повторяет фразу героя с ошибкой (`fix`), просит сказать другим тоном (`register`)
+ * и другими словами (`paraphrase`).
+ */
+export const GUARDIAN_KINDS: Partial<Record<number, GrammarExercise['kind'][]>> = { 5: ['fix', 'register', 'paraphrase'] };
+export const GUARDIAN_KIND_MIN = 2;
 /** Награда за победу над стражем. */
 export const GUARDIAN_REWARD = { coins: 100 };
 
@@ -35,11 +42,13 @@ export const isGuardianPassed = (correct: number, almost: number, total: number)
 
 /**
  * Задания стража: 12 упражнений грамматики из разных уроков района, 5 слов главы и 3 слова свитка, перемешаны.
- * Слова наполовину вводом, наполовину выбором; `listen` — слова на слух (страж леса слушает шёпоты).
+ * Слова наполовину вводом, наполовину выбором; `listen` — слова на слух (страж леса слушает шёпоты);
+ * `kinds` — виды упражнений, которых в испытании не меньше GUARDIAN_KIND_MIN (GUARDIAN_KINDS).
  * Если чего-то не хватает (свитка нет), недостающее добирается грамматикой, потом словами.
  */
 export function buildGuardian(
-  exercises: GrammarExercise[], words: Word[], scroll: Word[], pool: Word[], rng: Rng, opts: { listen?: boolean } = {},
+  exercises: GrammarExercise[], words: Word[], scroll: Word[], pool: Word[], rng: Rng,
+  opts: { listen?: boolean; kinds?: GrammarExercise['kind'][] } = {},
 ): TrialItem[] {
   // По одному упражнению из урока, пока хватает уроков: так испытание проходит по всему району.
   const byLesson = new Map<string, GrammarExercise[]>();
@@ -55,7 +64,9 @@ export function buildGuardian(
   }
   const sc = shuffle(scroll, rng).slice(0, GUARDIAN_MIX.scroll);
   const ws = shuffle(words, rng).slice(0, GUARDIAN_MIX.words + GUARDIAN_MIX.scroll - sc.length);
-  const gr = spread.slice(0, GUARDIAN_SIZE - ws.length - sc.length);
+  // Обязательные виды идут первыми (из разных уроков: порядок `spread` чередует уроки), остальное — как было.
+  const must = (opts.kinds ?? []).flatMap((k) => spread.filter((e) => e.kind === k).slice(0, GUARDIAN_KIND_MIN));
+  const gr = [...must, ...spread.filter((e) => !must.includes(e))].slice(0, GUARDIAN_SIZE - ws.length - sc.length);
   const wordKind = (i: number): Exclude<Step['kind'], 'match' | 'intro'> =>
     opts.listen ? (i % 2 ? 'listen-choice' : 'listen-type') : i % 2 ? 'choice-ru-es' : 'type';
   const items: TrialItem[] = [

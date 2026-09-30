@@ -30,6 +30,7 @@ export function loadWords(lang: Lang) {
     byRu: new Map(words.map((w) => [w.ru, w])),
     byEs: new Map(words.map((w) => [w.es, w])),
     byExRu: new Map(words.map((w) => [w.example.ru, w])),
+    byId: new Map(words.map((w) => [w.id, w])),
   };
 }
 
@@ -451,7 +452,7 @@ export const expectExamKeys = async (page: Page, lang: Lang) =>
 export async function playTrial(
   page: Page, lang: Lang, place: string | null, wrong = 0, lessons: Exercise[] = [],
 ): Promise<{ total: number; typed: number }> {
-  const { byRu, byEs } = loadWords(lang);
+  const { byRu, byEs, byId } = loadWords(lang);
   const phrases = place ? loadPhraseData(lang, place) : [];
   const run = page.getByTestId('trial-run');
   const label = run.locator('.text-sm.font-medium.text-stone-500').first();
@@ -465,7 +466,21 @@ export async function playTrial(
     const bad = total < wrong;
     total++;
     // Упражнение грамматики (у него есть `data-ex`) отвечается по урокам (`answerGrammar`).
-    if (await run.locator('[data-ex]').count()) {
+    const exId = (await run.locator('[data-ex]').count()) ? await run.locator('[data-ex]').first().getAttribute('data-ex') : null;
+    if (exId?.startsWith('echo:')) {
+      // «Эхо» в испытании главы V: житель говорит пару, герой отвечает выражением (плитки или выбор).
+      const target = byId.get(exId.slice('echo:'.length))!;
+      if (await run.getByTestId('grammar-tiles').count()) {
+        const tiles = phraseTiles(target.es);
+        for (const t of bad ? tiles.slice(1) : tiles) {
+          await run.getByTestId('grammar-tiles').locator('button:not([disabled])').filter({ hasText: exact(t) }).first().click();
+        }
+        await page.getByRole('button', { name: 'Проверить' }).click();
+      } else {
+        const options = run.locator('button.min-h-14');
+        await (bad ? options.filter({ hasNotText: exact(target.es) }) : options.filter({ hasText: exact(target.es) })).first().click();
+      }
+    } else if (exId) {
       if (kind === 'Впишите форму') {
         typed++;
         await expectExamKeys(page, lang);

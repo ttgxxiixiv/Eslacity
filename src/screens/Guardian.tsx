@@ -9,7 +9,7 @@ import { SCROLL_WORDS, WORD_LEVELS } from '../content/wordIndex';
 import { listeningEnabled, speak } from '../audio/tts';
 import { chapterById } from '../domain/chapters';
 import { seeded } from '../domain/generators';
-import { buildGuardian, GUARDIAN_LISTEN, GUARDIAN_PASS, GUARDIAN_REWARD, GUARDIAN_SIZE, guardianId, isGuardianPassed } from '../domain/guardian';
+import { buildGuardian, GUARDIAN_KIND_MIN, GUARDIAN_KINDS, GUARDIAN_LISTEN, GUARDIAN_PASS, GUARDIAN_REWARD, GUARDIAN_SIZE, guardianId, isGuardianPassed } from '../domain/guardian';
 import { plural } from '../domain/medals';
 import { trialShare, trialStatus, waitLabel, type TrialItem } from '../domain/trial';
 import { useNow } from '../lib/useNow';
@@ -173,6 +173,12 @@ function GuardianByChapter({ chapter }: { chapter: number }) {
                 : `${guardian.name} слушает шёпоты, но звук сейчас недоступен: слова будут текстом.`}
             </p>
           )}
+          {GUARDIAN_KINDS[chapter] && (
+            <p className="mt-2 rounded-xl bg-wood/10 px-3 py-2 text-stone-700" data-testid="guardian-kinds">
+              {guardian.name} повторит вашу фразу с ошибкой, попросит сказать то же другим тоном и другими словами: таких заданий не
+              меньше {GUARDIAN_KIND_MIN * GUARDIAN_KINDS[chapter].length}.
+            </p>
+          )}
           <p className="mt-1 text-sm text-stone-500" data-testid="guardian-lessons">
             Уроки района пройдены: {lessonsDone} из {data.lessons.length}.
           </p>
@@ -208,7 +214,7 @@ function GuardianByChapter({ chapter }: { chapter: number }) {
               // Слова главы — из выученных: страж проверяет то, что герой прошёл.
               const words = data.words.filter(known);
               const listen = guardian.listen === true && listeningEnabled();
-              setItems(buildGuardian(data.exercises, words.length >= 5 ? words : data.words, data.scroll, data.words, rng, { listen }));
+              setItems(buildGuardian(data.exercises, words.length >= 5 ? words : data.words, data.scroll, data.words, rng, { listen, kinds: GUARDIAN_KINDS[chapter] }));
               setPhase('run');
               say(guardian.greeting.es);
             }}

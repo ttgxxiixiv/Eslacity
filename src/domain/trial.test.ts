@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import type { Phrase, Word } from '../content/schema';
 import { seeded } from './generators';
 import {
-  buildTrial, finishTrial, isTrialDone, isTrialPassed, isTypedItem, parseTrialId, TRIAL_COOLDOWN_MS, TRIAL_SIZE, trialId, trialsPassed,
+  buildTrial, finishTrial, isTrialDone, TRIAL_ECHO, TRIAL_EXPRESSIONS, isTrialPassed, isTypedItem, parseTrialId, TRIAL_COOLDOWN_MS, TRIAL_SIZE, trialId, trialsPassed,
   trialStatus, waitLabel,
 } from './trial';
 
@@ -14,6 +14,35 @@ const words = Array.from({ length: 24 }, (_, i) => word(i));
 const phrases = Array.from({ length: 8 }, (_, i) => phrase(i));
 
 describe('задания испытания', () => {
+  it('глава V: пять выражений, два из них — в другом регистре, как в «Эхе»', () => {
+    // Шесть выражений парами «официально — по-свойски» и обычные слова.
+    const expr = (i: number): Word => ({
+      ...word(100 + i), id: `cafe.e${i}`, es: `una expresión número ${i}`, level: 7, cefr: 'C1', pos: 'phrase',
+      kind: 'formula', register: i % 2 ? 'informal' : 'formal', pair: `cafe.e${i % 2 ? i - 1 : i + 1}`,
+    });
+    const exprs = Array.from({ length: 6 }, (_, i) => expr(i));
+    const pool = [...words, ...exprs];
+    for (let seed = 1; seed <= 20; seed++) {
+      const items = buildTrial(pool, phrases, pool, phrases, seeded(seed), { expressions: true });
+      expect(items).toHaveLength(TRIAL_SIZE);
+      const echo = items.filter((i) => i.kind === 'grammar');
+      expect(echo).toHaveLength(TRIAL_ECHO);
+      expect(echo.every((i) => i.kind === 'grammar' && i.item.ex.kind === 'register' && i.cardId?.startsWith('cafe.e'))).toBe(true);
+      const exprWords = items.filter((i) => i.kind === 'word' && (i.step as { wordId: string }).wordId.startsWith('cafe.e'));
+      expect(exprWords.length + echo.length).toBe(TRIAL_EXPRESSIONS);
+      // «Эхо» идёт вместо выбора, а не вместо ввода: доля ввода та же.
+      expect(items.filter(isTypedItem)).toHaveLength(9);
+    }
+    // Выражений без пары много, с парой — одна пара: «Эхо» всё равно достаётся обеим.
+    const lone = Array.from({ length: 12 }, (_, i): Word => ({ ...expr(10 + i), id: `cafe.x${i}`, es: `otra expresión ${i}`, pair: undefined }));
+    const mixed = [...words, ...exprs.slice(0, 2), ...lone];
+    for (let seed = 1; seed <= 20; seed++) {
+      const items = buildTrial(mixed, phrases, mixed, phrases, seeded(seed), { expressions: true });
+      expect(items.filter((i) => i.kind === 'grammar')).toHaveLength(TRIAL_ECHO);
+    }
+    // Без флага выражения берутся как обычные слова.
+    expect(buildTrial(pool, phrases, pool, phrases, seeded(1)).some((i) => i.kind === 'grammar')).toBe(false);
+  });
   it('15 заданий: пять фраз и десять слов, каждое по разу, ввода 60%', () => {
     const items = buildTrial(words, phrases, words, phrases, seeded(1));
     expect(items).toHaveLength(TRIAL_SIZE);

@@ -62,7 +62,7 @@ export function TypeAnswer({ step, words, locked, onAnswer, onCantListen, exam =
         <ListenControls text={word.es} />
       ) : (
         <>
-          <div className="mt-6 text-3xl font-bold">{word.ru}</div>
+          <div className="mt-6 text-3xl font-bold break-words hyphens-auto">{word.ru}</div>
           {word.pos === 'noun' && (
             <div className="mt-1 text-sm text-stone-500">с артиклем · {genderLabel(word.gender)}</div>
           )}

@@ -10,7 +10,7 @@ import { listeningEnabled } from '../audio/tts';
 import { chapterById } from '../domain/chapters';
 import { seeded } from '../domain/generators';
 import {
-  buildTrial, isTrialPassed, parseTrialId, TRIAL_PASS, TRIAL_REWARD, TRIAL_SIZE, trialShare, trialStatus, waitLabel,
+  buildTrial, EXPRESSION_TRIAL_CHAPTER, isTrialPassed, parseTrialId, TRIAL_PASS, TRIAL_REWARD, TRIAL_SIZE, trialShare, trialStatus, waitLabel,
   type TrialItem,
 } from '../domain/trial';
 import { useNow } from '../lib/useNow';
@@ -142,6 +142,12 @@ function TrialById({ id }: { id: string }) {
             {npc ? `${npc.name} проверяет` : 'Проверка'}: {TRIAL_SIZE} заданий по словам и фразам главы {chapter.roman} этого места.
             Больше половины нужно написать самому. Подсказок нет, ошибки не повторяются.
           </p>
+          {parsed.chapter >= EXPRESSION_TRIAL_CHAPTER && (
+            <p className="mt-2 leading-relaxed text-stone-700" data-testid="trial-echo">
+              В Лабиринте Эха среди слов — устойчивые выражения места, и два из них нужно сказать другим тоном: житель говорит одно, вы
+              отвечаете парой.
+            </p>
+          )}
           <p className="mt-2 text-sm text-stone-500">
             Нужно {Math.round(TRIAL_PASS * 100)}% верных. Не получилось — следующая попытка через сутки. Пройденное испытание открывает путь к обрывку карты.
           </p>
@@ -168,7 +174,12 @@ function TrialById({ id }: { id: string }) {
             data-testid="trial-start"
             onClick={() => {
               const rng = seeded(Date.now());
-              setItems(buildTrial(data.words, learnedPhrases, data.all, data.pool, rng, { listening: listeningEnabled() }));
+              setItems(
+                buildTrial(data.words, learnedPhrases, data.all, data.pool, rng, {
+                  listening: listeningEnabled(),
+                  expressions: parsed.chapter >= EXPRESSION_TRIAL_CHAPTER,
+                }),
+              );
               setPhase('run');
             }}
           >

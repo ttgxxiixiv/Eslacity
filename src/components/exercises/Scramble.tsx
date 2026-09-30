@@ -23,7 +23,7 @@ export function Scramble({ step, words, locked, onAnswer }: ExerciseProps<'scram
   return (
     <div className="flex flex-1 flex-col">
       <div className="text-sm font-medium text-stone-500">Соберите слово</div>
-      <div className="mt-6 text-3xl font-bold">{word.ru}</div>
+      <div className="mt-6 text-3xl font-bold break-words hyphens-auto">{word.ru}</div>
 
       {step.articles && (
         <div className="mt-6 flex gap-2">

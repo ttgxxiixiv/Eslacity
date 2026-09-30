@@ -79,6 +79,8 @@ body {
   min-height: 100dvh;
   color: #261d13;
   overscroll-behavior-y: none;
+  /* Длинное слово («неплатёжеспособность» крупным шрифтом) переносится, а не раздвигает экран вбок. */
+  overflow-wrap: break-word;
 }
 
 /*

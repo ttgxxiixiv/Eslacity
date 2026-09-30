@@ -1,8 +1,10 @@
+import { readdirSync, readFileSync } from 'node:fs';
+import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import type { GrammarExercise, Word } from '../content/schema';
 import { seeded } from './generators';
 import {
-  buildGuardian, GUARDIAN_MIX, GUARDIAN_SIZE, guardianId, isGuardianDone, isGuardianPassed, parseGuardianId,
+  buildGuardian, GUARDIAN_KIND_MIN, GUARDIAN_KINDS, GUARDIAN_MIX, GUARDIAN_SIZE, guardianId, isGuardianDone, isGuardianPassed, parseGuardianId,
 } from './guardian';
 import { trialsPassed } from './trial';
 
@@ -39,6 +41,19 @@ describe('испытание стража', () => {
     const items = buildGuardian(exercises.slice(0, 6), words, scroll, words, seeded(3));
     expect(items).toHaveLength(14);
     expect(items.filter((i) => i.kind === 'grammar')).toHaveLength(6);
+  });
+  it('Хозяин Эха: найти ошибку, сменить тон и перефразировать — не меньше двух заданий каждого вида', () => {
+    // Упражнения настоящего района C1.
+    const kinds = GUARDIAN_KINDS[5]!;
+    const dir = join(import.meta.dirname, '..', 'content', 'es', 'grammar', 'c1');
+    const c1 = readdirSync(dir).flatMap((f) => (JSON.parse(readFileSync(join(dir, f), 'utf8')) as { exercises: GrammarExercise[] }).exercises);
+    for (let seed = 1; seed <= 20; seed++) {
+      const items = buildGuardian(c1, words, scroll, words, seeded(seed), { kinds });
+      const gr = items.flatMap((i) => (i.kind === 'grammar' ? [i.item.ex] : []));
+      expect(gr).toHaveLength(GUARDIAN_MIX.grammar);
+      for (const k of kinds) expect(gr.filter((e) => e.kind === k).length).toBeGreaterThanOrEqual(GUARDIAN_KIND_MIN);
+      expect(new Set(gr.map((e) => e.id)).size).toBe(gr.length);
+    }
   });
   it('порог 75%, id и учёт в «Испытателе»', () => {
     expect(isGuardianPassed(15, 0, 20)).toBe(true);

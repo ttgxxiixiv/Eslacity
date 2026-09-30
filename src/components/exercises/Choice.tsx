@@ -25,7 +25,7 @@ export function Choice({ step, words, locked, onAnswer, onCantListen }: Exercise
         <ListenControls text={word.es} />
       ) : (
         <div className="mt-6 flex items-center gap-3">
-          <div className="flex-1 text-3xl font-bold">{esToRu ? word.es : word.ru}</div>
+          <div className="min-w-0 flex-1 text-3xl font-bold break-words hyphens-auto">{esToRu ? word.es : word.ru}</div>
           {esToRu && <SpeakButton text={word.es} size="lg" />}
         </div>
       )}

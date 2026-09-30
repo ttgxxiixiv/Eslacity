@@ -17,7 +17,7 @@ export const ECHO_BUILD_INTERVAL = 3;
 const EXTRA_TILES = 2;
 
 /** Задание «Эха» для выражения `target`: исходная фраза жителя — его пара `source`. */
-export function echoExercise(target: Word, source: Word, pool: Word[], card: SrsCard | undefined, rng: Rng): GrammarExercise {
+export function echoExercise(target: Word, source: Word, pool: Word[], card: Pick<SrsCard, 'interval'> | undefined, rng: Rng): GrammarExercise {
   const to = target.register ?? 'neutral';
   const from = source.register ?? 'neutral';
   const base = {

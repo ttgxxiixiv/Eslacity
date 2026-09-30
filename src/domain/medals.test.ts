@@ -5,7 +5,7 @@ import {
 } from './medals';
 
 const zero: MedalCounters = {
-  wordsSolid: 0, streakBest: 0, grammarDone: 0, blitzBest: 0, typedBest: 0, buildingLevels: 1, listenCorrect: 0, freezesUsed: 0, fragments: 0, errands: 0, friends: 0, trials: 0, echo: 0,
+  wordsSolid: 0, streakBest: 0, grammarDone: 0, blitzBest: 0, typedBest: 0, buildingLevels: 1, listenCorrect: 0, freezesUsed: 0, fragments: 0, errands: 0, friends: 0, trials: 0, echo: 0, seals: [],
 };
 const empty: MedalsState = { lines: {}, secrets: {} };
 const line = (id: string) => LINES.find((l) => l.id === id)!;
@@ -70,8 +70,12 @@ describe('тайные медали', () => {
     const st = applyGains(empty, medalGains(zero, empty, { perfectLesson: true }), 5);
     expect(ids(zero, st, { perfectLesson: true })).toEqual([]);
   });
-  it('будущие тайные медали пока не выдаются', () => {
-    expect(SECRETS.filter((s) => s.test).map((s) => s.id)).toEqual(['saved-streak', 'flawless', 'midnight']);
+  it('«Выход из Лабиринта» — за печать главы V, другие печати её не дают', () => {
+    expect(ids({ ...zero, seals: [1, 2, 3, 4] })).toEqual([]);
+    expect(ids({ ...zero, seals: [1, 2, 3, 4, 5] })).toEqual(['labyrinth']);
+  });
+  it('медали Сфинкса и Эликсира пока не выдаются', () => {
+    expect(SECRETS.filter((s) => s.test).map((s) => s.id)).toEqual(['saved-streak', 'flawless', 'midnight', 'labyrinth']);
   });
 });
 

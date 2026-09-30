@@ -69,7 +69,7 @@ export function TrialPlayer({ items: initial, words, phrases = {}, label = 'Ис
     if (item.kind !== 'grammar' || grammarVerdict !== null) return;
     const c = checkGrammar(item.item, input);
     setGrammarVerdict(c.verdict);
-    record(c.verdict, grammarFeedback(item.item, c), `g:${item.item.ex.id}`, `grammar-${item.item.ex.kind}`);
+    record(c.verdict, grammarFeedback(item.item, c), item.cardId ?? `g:${item.item.ex.id}`, `grammar-${item.item.ex.kind}`);
   };
   const phraseAnswer = (verdict: Verdict, check?: CheckResult) => {
     if (item.kind !== 'phrase') return;
