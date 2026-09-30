@@ -73,7 +73,8 @@ for (const lang of LANGS) {
     });
 
     test('все миссии контента проходятся выбором без ошибок', async ({ page }) => {
-      test.setTimeout(240_000);
+      // Сто миссий (пять глав по двадцать мест) идут около четырёх минут.
+      test.setTimeout(360_000);
       await openApp(page, lang);
       for (const { place, id } of allMissions(lang)) {
         await page.goto(`./#/mission/${encodeURIComponent(id)}`);
