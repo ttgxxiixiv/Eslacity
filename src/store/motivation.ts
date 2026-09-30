@@ -91,6 +91,7 @@ export function medalCounters(): MedalCounters {
     echo: useErrands.getState().echo ?? 0,
     seals: Object.keys(useJourney.getState().seals).map(Number),
     sphinxSeen: useSphinx.getState().rec.visited !== undefined,
+    elixir: useSphinx.getState().rec.elixir !== undefined,
   };
 }
 

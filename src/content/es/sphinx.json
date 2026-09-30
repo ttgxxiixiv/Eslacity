@@ -14,7 +14,20 @@
       "waiting": {"es": "Todavía no ha pasado el tiempo. Las puertas no se abren a quien tiene prisa.", "ru": "Время ещё не прошло. Врата не открываются тому, кто спешит."},
       "victory": {"es": "Ha oído lo que no se dijo, ha encontrado la palabra exacta y ha hablado a reyes y a amigos. Pase usted: la Bóveda es suya.", "ru": "Вы услышали несказанное, нашли точное слово и говорили и с королями, и с друзьями. Проходите: Хранилище ваше."}
     },
-    "gloss": {"bóveda": "хранилище", "letra": "буква", "tercer": "третий", "suya": "ваша"}
+    "vault": {
+      "before": [
+        {"who": "sphinx", "es": "Las puertas se abren ante usted. Dentro no hay oro ni joyas: solo una copa.", "ru": "Врата открываются перед вами. Внутри нет ни золота, ни драгоценностей, только чаша."},
+        {"who": "cronista", "es": "Ahí está el Elixir. Durante cien años nadie ha podido beberlo.", "ru": "Вот он, Эликсир. Сто лет никто не мог его выпить."},
+        {"who": "sphinx", "es": "No le dará una lengua nueva. Le recordará la que usted ya ha aprendido.", "ru": "Он не даст вам нового языка. Он напомнит тот, что вы уже выучили."},
+        {"who": "cronista", "es": "Bebe. Yo lo escribiré en mi libro.", "ru": "Пей. Я запишу это в свою книгу."}
+      ],
+      "after": [
+        {"who": "cronista", "es": "¿Lo notas? Ya no traduces en la cabeza. Simplemente hablas.", "ru": "Чувствуешь? Ты больше не переводишь в голове. Ты просто говоришь."},
+        {"who": "sphinx", "es": "Ahora lleva usted el ojo de oro. Desde hoy la ciudad le dará un título: el de Sabio.", "ru": "Теперь на вас золотой глаз. С сегодняшнего дня город даст вам титул Мудреца."},
+        {"who": "sphinx", "es": "Pero recuerde: una lengua que no se usa se olvida. Vuelva a la ciudad y hable.", "ru": "Но помните: язык, на котором не говорят, забывается. Возвращайтесь в город и говорите."}
+      ]
+    },
+    "gloss": {"elixir": "эликсир", "bóveda": "хранилище", "letra": "буква", "tercer": "третий", "suya": "ваша"}
   },
   "word": [
     {

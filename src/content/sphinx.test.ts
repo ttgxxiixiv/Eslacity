@@ -43,6 +43,7 @@ const SPEAKER: SphinxSpeaker = {
   name: 'la Esfinge',
   voice: { pitch: 0.6, rate: 0.8 },
   speech: Object.fromEntries(SPHINX_LINES.map((k) => [k, { es: `Frase ${k}.`, ru: 'x' }])) as SphinxSpeaker['speech'],
+  vault: { before: [{ who: 'sphinx', es: 'Entre.', ru: 'x' }], after: [{ who: 'cronista', es: 'Hablas.', ru: 'x' }] },
 };
 
 describe('validateSphinx', () => {

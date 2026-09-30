@@ -1,7 +1,10 @@
 import { Link, useLocation } from 'react-router-dom';
 import navEs from '../assets/nav/nav-es.webp';
 import navIt from '../assets/nav/nav-it.webp';
+import navEsGold from '../assets/nav/nav-es-gold.webp';
+import navItGold from '../assets/nav/nav-it-gold.webp';
 import { LANG } from '../lang';
+import { useSphinx } from '../store/sphinx';
 
 // Меню — картинка по макету (768×288, сверху купол медальона). Ячейки всегда каменные,
 // выбранный раздел не подсвечивается. Картинки отличаются только глазом: у каждого языка свой флаг.
@@ -16,6 +19,8 @@ const TABS = [
   { to: '/profile', label: 'Профиль', x0: 580, x1: 768 },
 ];
 const IMAGE = LANG === 'it' ? navIt : navEs;
+/** После Эликсира медальон золотой (задача 8.3, картинки строит scripts/build-gold-nav.py). */
+const GOLD = LANG === 'it' ? navItGold : navEsGold;
 
 function activeTab(pathname: string): number {
   if (pathname.startsWith('/grammar')) return 1;
@@ -27,10 +32,11 @@ function activeTab(pathname: string): number {
 export function NavBar() {
   const { pathname } = useLocation();
   const active = activeTab(pathname);
+  const gold = useSphinx((s) => s.rec.elixir !== undefined);
   return (
     <nav className="pointer-events-none fixed inset-x-0 bottom-0 z-10">
       <div className="nav-art relative mx-auto max-w-md" style={{ aspectRatio: `${W} / ${H}` }}>
-        <img src={IMAGE} alt="" draggable={false} className="absolute inset-0 h-full w-full select-none" />
+        <img src={gold ? GOLD : IMAGE} alt="" draggable={false} data-gold={gold || undefined} className="absolute inset-0 h-full w-full select-none" />
         {TABS.map((t, i) => (
           <Link
             key={t.to}

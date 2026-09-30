@@ -439,7 +439,9 @@ function GatesPanel() {
           <div className="font-bold">Врата Хранилища</div>
           <p className="text-sm text-stone-600" data-testid="gates-status">
             {status === 'done'
-              ? 'Сфинкс пропустил героя: Врата открыты.'
+              ? rec.elixir === undefined
+                ? 'Сфинкс пропустил героя: Врата открыты, в Хранилище ждёт Эликсир.'
+                : 'Эликсир выпит. Путь пройден.'
               : status === 'waiting' && rec.waitUntil !== undefined
                 ? `Сфинкс ждёт вас снова ${sphinxWaitLabel(rec.waitUntil, now)}.`
                 : rec.visited === undefined
@@ -448,8 +450,8 @@ function GatesPanel() {
           </p>
         </div>
       </div>
-      <Button className="mt-2 w-full" data-testid="gates-go" onClick={() => nav('/sphinx')}>
-        {rec.visited === undefined ? 'Подойти к Вратам' : 'К Вратам'}
+      <Button className="mt-2 w-full" data-testid="gates-go" onClick={() => nav(status === 'done' ? '/vault' : '/sphinx')}>
+        {status === 'done' ? 'В Хранилище' : rec.visited === undefined ? 'Подойти к Вратам' : 'К Вратам'}
       </Button>
     </section>
   );

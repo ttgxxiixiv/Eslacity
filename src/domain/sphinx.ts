@@ -32,6 +32,8 @@ export interface SphinxRecord {
   waitUntil?: number;
   /** Все три загадки разгаданы. */
   done?: number;
+  /** Герой выпил Эликсир в Хранилище (задача 8.3). */
+  elixir?: number;
 }
 
 export const EMPTY_SPHINX: SphinxRecord = { hearts: SPHINX_HEARTS, rounds: {}, attempts: {} };

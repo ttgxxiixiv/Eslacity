@@ -139,6 +139,7 @@ for (const lang of LANGS) {
       expect(await answerRound(page, sx.wisdom[0].questions, sx.wisdom[0].register)).toBe(7);
       await expect(page.getByTestId('sphinx-result')).toContainText('Все загадки разгаданы');
       await expect(page.getByTestId('sphinx-verdict')).toContainText(sx.sphinx.speech.victory.es);
+      await expect(page.getByTestId('vault-go')).toBeVisible();
 
       const log = (await readAnswers(page, lang)).filter((a) => a.mode === 'sphinx');
       expect(log).toHaveLength(25);

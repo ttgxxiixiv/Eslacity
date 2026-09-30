@@ -200,7 +200,12 @@ export function SphinxScreen() {
               {result.passed ? `Дальше: ${ROUND_TITLE[nextRound(result.rec) ?? 'wisdom'].toLowerCase()}` : 'Ещё раз'}
             </Button>
           )}
-          <Button variant={more ? 'secondary' : 'primary'} className="w-full" onClick={() => setPhase('gate')} data-testid="sphinx-back">
+          {result.victory && (
+            <Button className="w-full" onClick={() => nav('/vault')} data-testid="vault-go">
+              Войти в Хранилище
+            </Button>
+          )}
+          <Button variant={more || result.victory ? 'secondary' : 'primary'} className="w-full" onClick={() => setPhase('gate')} data-testid="sphinx-back">
             К Вратам
           </Button>
         </div>
@@ -245,6 +250,11 @@ export function SphinxScreen() {
           <p className="rounded-2xl bg-okbg px-4 py-3 text-center font-semibold text-ok" data-testid="sphinx-state">
             ✓ Загадки разгаданы, Врата открыты
           </p>
+        )}
+        {status === 'done' && (
+          <Button className="w-full" onClick={() => nav('/vault')} data-testid="vault-go">
+            {rec.elixir === undefined ? 'Войти в Хранилище' : 'В Хранилище'}
+          </Button>
         )}
         {status === 'waiting' && rec.waitUntil !== undefined && (
           <p className="rounded-2xl bg-orange-50 px-4 py-3 text-center text-stone-600" data-testid="sphinx-state">

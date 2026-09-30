@@ -32,6 +32,8 @@ export const chapterById = (id: number) => CHAPTERS.find((c) => c.id === id);
 
 /** Стартовый титул и титулы финала (docs/GAME.md). Мудрец и Хранитель появятся с Эликсиром. */
 export const TITLE_START = 'Путник';
+/** Титул после Эликсира (задача 8.3). */
+export const SAGE_TITLE = 'Мудрец';
 export const TITLE_SAGE = 'Мудрец';
 export const TITLE_KEEPER = 'Хранитель языка';
 
@@ -249,7 +251,9 @@ export function completedChapters(state: JourneyState): number {
 }
 
 /** Титул героя: Путник, после каждой собранной карты — титул главы. */
-export function heroTitle(completed: number): string {
+export function heroTitle(completed: number, sage = false): string {
+  // После Эликсира — «Мудрец» (задача 8.3).
+  if (sage) return SAGE_TITLE;
   return completed > 0 ? CHAPTERS[Math.min(completed, CHAPTERS.length) - 1].title : TITLE_START;
 }
 

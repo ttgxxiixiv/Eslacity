@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import {
   chapterOfDistrict, chapterOfLevel, CHAPTERS, CONDITIONS, EMPTY_JOURNEY, fragmentCount, isDistrictOpen, isLevelOpen,
   completedChapters, heroTitle, journeyState, newAwards, openedChapter, recordAwards, sceneToShow, startedChapter,
-  nearestGoal, TITLE_START, type JourneyInput,
+  nearestGoal, SAGE_TITLE, TITLE_START, type JourneyInput,
 } from './chapters';
 
 // Три места вместо двадцати: логика от числа мест не зависит.
@@ -115,7 +115,12 @@ describe('открытая глава', () => {
 describe('титулы и сцена перехода', () => {
   it('Путник, затем титул каждой собранной главы', () => {
     expect(TITLE_START).toBe('Путник');
-    expect([0, 1, 2, 3, 4, 5, 9].map(heroTitle)).toEqual(['Путник', 'Странник', 'Следопыт', 'Искатель', 'Знаток', 'Посвящённый', 'Посвящённый']);
+    expect([0, 1, 2, 3, 4, 5, 9].map((n) => heroTitle(n))).toEqual(['Путник', 'Странник', 'Следопыт', 'Искатель', 'Знаток', 'Посвящённый', 'Посвящённый']);
+  });
+
+  it('после Эликсира — Мудрец', () => {
+    expect(heroTitle(5, true)).toBe(SAGE_TITLE);
+    expect(SAGE_TITLE).toBe('Мудрец');
   });
 
   it('собранные главы считаются подряд с первой', () => {

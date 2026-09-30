@@ -436,11 +436,18 @@ export interface SphinxWisdomSet {
 export const SPHINX_LINES = ['greeting', 'again', 'hear', 'word', 'wisdom', 'pass', 'fail', 'rest', 'waiting', 'victory'] as const;
 export type SphinxLine = (typeof SPHINX_LINES)[number];
 
+/** Реплика сцены Хранилища: говорит Сфинкс (`sphinx`) или Летописец (`cronista`). */
+export interface VaultLine extends Example {
+  who: 'sphinx' | 'cronista';
+}
+
 /** Сам Сфинкс: имя на изучаемом языке, голос и реплики. */
 export interface SphinxSpeaker {
   name: string;
   voice: { pitch: number; rate: number };
   speech: Record<SphinxLine, Example>;
+  /** Сцена Хранилища (задача 8.3): реплики Сфинкса и Летописца до Эликсира и после. */
+  vault: { before: VaultLine[]; after: VaultLine[] };
   /** Перевод слов реплик, которых нет в словаре курса до уровня 7. */
   gloss?: Record<string, string>;
 }

@@ -71,6 +71,17 @@ function pairIndex() {
   }
   return out;
 }
+/** id выражений уровня 7 (слова с `kind`): в итогах пути они считаются отдельно от слов. */
+function expressionIndex() {
+  const out: Record<string, string[]> = {};
+  for (const { lang, dir } of wordDirs()) {
+    out[lang] = readdirSync(dir)
+      .filter((x) => x.endsWith('.json'))
+      .flatMap((f) => (JSON.parse(readFileSync(join(dir, f), 'utf8')) as { words: { id: string; kind?: string }[] }).words)
+      .flatMap((w) => (w.kind ? [w.id] : []));
+  }
+  return out;
+}
 function wordIndex() {
   const out: Record<string, Record<string, Record<number, string[]>>> = {};
   for (const { lang, dir } of wordDirs()) {
@@ -215,6 +226,7 @@ export default defineConfig({
           `export default ${JSON.stringify(wordIndex())};`,
           `export const PHRASES = ${JSON.stringify(phraseIndex())};`,
           `export const PAIRS = ${JSON.stringify(pairIndex())};`,
+          `export const EXPRESSIONS = ${JSON.stringify(expressionIndex())};`,
           `export const SCROLLS = ${JSON.stringify(scrollIndex())};`,
           `export const MISSIONS = ${JSON.stringify(missionIndex())};`,
         ].join('\n');

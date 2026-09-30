@@ -1,4 +1,4 @@
-import INDEX, { MISSIONS, PAIRS, PHRASES, SCROLLS } from 'virtual:word-index';
+import INDEX, { EXPRESSIONS, MISSIONS, PAIRS, PHRASES, SCROLLS } from 'virtual:word-index';
 import { LANG } from '../lang';
 
 /** Место → уровень → id слов выбранного языка. Сами слова грузятся по местам (`loadLocation`). */
@@ -20,3 +20,6 @@ export const MISSION_CHAPTERS: Record<string, number[]> = MISSIONS[LANG] ?? {};
 
 /** Выражение → его пара в другом регистре (выбранный язык): из них собираются поручения «Эхо». */
 export const EXPRESSION_PAIRS: Readonly<Record<string, string>> = PAIRS[LANG] ?? {};
+
+/** id выражений уровня 7 выбранного языка. */
+export const EXPRESSION_IDS: ReadonlySet<string> = new Set(EXPRESSIONS[LANG] ?? []);

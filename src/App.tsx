@@ -10,6 +10,7 @@ import { MissionScreen } from './screens/Mission';
 import { TrialScreen } from './screens/Trial';
 import { GuardianScreen } from './screens/Guardian';
 import { SphinxScreen } from './screens/Sphinx';
+import { VaultScreen } from './screens/Vault';
 import { ReviewScreen } from './screens/Review';
 import { BlitzScreen } from './screens/Blitz';
 import { ForgeScreen } from './screens/Forge';
@@ -107,6 +108,7 @@ export default function App() {
         <Route path="/trial/:id" element={<TrialScreen />} />
         <Route path="/guardian/:chapter" element={<GuardianScreen />} />
         <Route path="/sphinx" element={<SphinxScreen />} />
+        <Route path="/vault" element={<VaultScreen />} />
         <Route path="/blitz" element={<BlitzScreen />} />
         <Route path="/forge" element={<ForgeScreen />} />
         <Route path="/words" element={<WordsScreen />} />

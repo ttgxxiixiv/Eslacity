@@ -5,7 +5,7 @@ import {
 } from './medals';
 
 const zero: MedalCounters = {
-  wordsSolid: 0, streakBest: 0, grammarDone: 0, blitzBest: 0, typedBest: 0, buildingLevels: 1, listenCorrect: 0, freezesUsed: 0, fragments: 0, errands: 0, friends: 0, trials: 0, echo: 0, seals: [], sphinxSeen: false,
+  wordsSolid: 0, streakBest: 0, grammarDone: 0, blitzBest: 0, typedBest: 0, buildingLevels: 1, listenCorrect: 0, freezesUsed: 0, fragments: 0, errands: 0, friends: 0, trials: 0, echo: 0, seals: [], sphinxSeen: false, elixir: false,
 };
 const empty: MedalsState = { lines: {}, secrets: {} };
 const line = (id: string) => LINES.find((l) => l.id === id)!;
@@ -77,8 +77,11 @@ describe('тайные медали', () => {
   it('«Взгляд Сфинкса» — за первый приход к Вратам', () => {
     expect(ids({ ...zero, sphinxSeen: true })).toEqual(['sphinx']);
   });
-  it('медаль Эликсира пока не выдаётся', () => {
-    expect(SECRETS.filter((s) => s.test).map((s) => s.id)).toEqual(['saved-streak', 'flawless', 'midnight', 'labyrinth', 'sphinx']);
+  it('«Хранитель пути» — за Эликсир', () => {
+    expect(ids({ ...zero, elixir: true })).toEqual(['keeper']);
+  });
+  it('все тайные медали выдаются', () => {
+    expect(SECRETS.every((s) => s.test)).toBe(true);
   });
 });
 

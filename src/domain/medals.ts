@@ -53,6 +53,8 @@ export interface MedalCounters {
   seals: number[];
   /** Герой дошёл до Врат Хранилища (тайная медаль «Взгляд Сфинкса»). */
   sphinxSeen: boolean;
+  /** Герой выпил Эликсир (тайная медаль «Хранитель пути»). */
+  elixir: boolean;
 }
 
 export type LineId =
@@ -150,8 +152,7 @@ export const SECRETS: SecretMedal[] = [
   { id: 'midnight', title: 'Полночный путник', text: 'Урок после полуночи', test: (_, e) => e.lessonAt !== undefined && isMidnight(e.lessonAt) },
   { id: 'labyrinth', title: 'Выход из Лабиринта', text: 'Печать главы V', test: (c) => c.seals.includes(LABYRINTH_CHAPTER) },
   { id: 'sphinx', title: 'Взгляд Сфинкса', text: 'Дойти до Врат Хранилища', test: (c) => c.sphinxSeen },
-  // Появится с Эликсиром.
-  { id: 'keeper', title: 'Хранитель пути', text: 'Выпить Эликсир', test: null },
+  { id: 'keeper', title: 'Хранитель пути', text: 'Выпить Эликсир', test: (c) => c.elixir },
 ];
 
 export interface MedalsState {

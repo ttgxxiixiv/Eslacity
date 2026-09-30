@@ -639,7 +639,13 @@ function speakerIssues(sp: SphinxSpeaker | undefined, checks: SphinxChecks): Iss
   SPHINX_LINES.forEach((k, i) => {
     if (empty(lines[i]?.es) || empty(lines[i]?.ru)) out.push({ level: 'error', where: `${at} ${k}`, msg: 'нет реплики или перевода' });
   });
-  const texts = lines.map((l) => l?.es ?? '');
+  const vault = [...(sp.vault?.before ?? []), ...(sp.vault?.after ?? [])];
+  if (!sp.vault?.before?.length || !sp.vault?.after?.length) out.push({ level: 'error', where: `${at} vault`, msg: 'нужны реплики до Эликсира и после' });
+  vault.forEach((l, i) => {
+    if (l.who !== 'sphinx' && l.who !== 'cronista') out.push({ level: 'error', where: `${at} vault#${i + 1}`, msg: `говорит "${l.who}": нужен sphinx или cronista` });
+    if (empty(l.es) || empty(l.ru)) out.push({ level: 'error', where: `${at} vault#${i + 1}`, msg: 'нет реплики или перевода' });
+  });
+  const texts = [...lines.map((l) => l?.es ?? ''), ...vault.map((l) => l.es ?? '')];
   const gloss = glossIssues(texts, sp.gloss, at, out);
   coverageIssues(texts.join(' '), gloss, at, checks, out);
   return out;

@@ -377,3 +377,23 @@ html:has(body.home-dark) {
   color: transparent;
   filter: drop-shadow(0 2px 0 #1a120a);
 }
+
+/* Хранилище (задача 8.3): золотое свечение чаши и медальона. */
+.vault-glow {
+  animation: vault-glow 2.4s ease-in-out infinite;
+}
+@keyframes vault-glow {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 4px rgb(224 180 60 / 0.5));
+  }
+  50% {
+    filter: drop-shadow(0 0 16px rgb(224 180 60 / 0.95));
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .vault-glow {
+    animation: none;
+    filter: drop-shadow(0 0 8px rgb(224 180 60 / 0.7));
+  }
+}
