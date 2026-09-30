@@ -7,6 +7,14 @@ export interface Release {
 // Новые версии сверху. Версия первой записи должна совпадать с package.json (проверяется тестом).
 export const CHANGELOG: Release[] = [
   {
+    version: '2.99.0',
+    date: '2026-09-30',
+    notes: [
+      'В свиток леса шёпотов легли ещё 50 частых слов на каждом языке: «la grabación», «el aliento», «fracasar», «desaparecido» в испанском, «approfittare», «sorvegliare», «la preoccupazione», «inquietante» в итальянском. В свитке теперь 250 слов.',
+      'Добор частых слов закончен: курс покрывает больше 90% из тысячи и больше 70% из трёх тысяч самых частых слов обоих языков. Всего в курсе 3519 слов на язык.',
+    ],
+  },
+  {
     version: '2.98.0',
     date: '2026-09-30',
     notes: [
