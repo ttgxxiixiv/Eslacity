@@ -417,10 +417,27 @@ export interface SphinxHearSet {
 }
 
 /**
- * Сфинкс у Врат Хранилища (docs/GAME.md, «Врата и Сфинкс»): три раунда, в каждом три набора — повторная попытка
- * идёт по другому набору. Раунд мудрости появится в следующей пачке задачи 8.1.
+ * Загадка мудрости (задача 8.1): длинный текст — статья или отрывок прозы — с вопросами на понимание, потом ответ
+ * Сфинксу в двух регистрах: два задания `register` (плитки), одно в официальный тон, другое в дружеский.
+ * id набора `sx:wisdom.<n>`, задания `sx:wisdom.<n>.<k>`.
+ */
+export interface SphinxWisdomSet {
+  id: string;
+  title: string;
+  /** Абзацы текста с переводом. */
+  text: Example[];
+  questions: { q: string; options: string[]; answer: number }[];
+  register: GrammarExercise[];
+  /** Перевод слов, которых нет в словаре курса до уровня 7. */
+  gloss?: Record<string, string>;
+}
+
+/**
+ * Сфинкс у Врат Хранилища (docs/GAME.md, «Врата и Сфинкс»): три раунда — слово, слух, мудрость, в каждом
+ * три набора; повторная попытка идёт по другому набору.
  */
 export interface SphinxFile {
   word: SphinxWordSet[];
-  hear?: SphinxHearSet[];
+  hear: SphinxHearSet[];
+  wisdom: SphinxWisdomSet[];
 }

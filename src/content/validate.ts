@@ -624,7 +624,88 @@ export function validateSphinx(file: SphinxFile | undefined, checks: SphinxCheck
       }
     }
   });
-  if (file.hear !== undefined) out.push(...hearIssues(file.hear, checks));
+  out.push(...hearIssues(file.hear ?? [], checks), ...wisdomIssues(file.wisdom ?? [], checks));
+  return out;
+}
+
+/** Слова, которые можно нажать в тексте, и проверка `gloss`: пустой перевод — ошибка, слова нет в тексте — предупреждение. */
+function glossIssues(texts: string[], glossIn: Record<string, string> | undefined, at: string, out: Issue[]): Record<string, string> {
+  const keys = new Set(texts.flatMap((t) => sceneWords(t).flatMap((p) => ('key' in p ? [normalize(p.key)] : []))));
+  const gloss = Object.fromEntries(Object.entries(glossIn ?? {}).map(([k, v]) => [k.toLowerCase(), v]));
+  for (const [k, v] of Object.entries(gloss)) {
+    if (empty(v)) out.push({ level: 'error', where: at, msg: `пустой перевод в gloss: "${k}"` });
+    if (!keys.has(normalize(k))) out.push({ level: 'warning', where: at, msg: `слова "${k}" из gloss нет в тексте` });
+  }
+  return gloss;
+}
+
+/** Незнакомые слова текста к уровню 7: не больше 7%, и каждое переведено в `gloss`. */
+function coverageIssues(text: string, gloss: Record<string, string>, at: string, checks: SphinxChecks, out: Issue[]) {
+  if (!checks.coverage) return;
+  const cov = checks.coverage(text, SPHINX_LEVEL);
+  const share = cov.total ? cov.unknown.length / cov.total : 0;
+  if (share > SPHINX_UNKNOWN_MAX) {
+    out.push({ level: 'error', where: at, msg: `незнакомых слов ${Math.round(share * 100)}% (${[...new Set(cov.unknown)].join(', ')}), не больше ${SPHINX_UNKNOWN_MAX * 100}%` });
+  }
+  const bare = [...new Set(cov.unknown)].filter((t) => !gloss[t]);
+  if (bare.length) out.push({ level: 'warning', where: at, msg: `нет в словаре до уровня ${SPHINX_LEVEL} и в gloss: ${bare.join(', ')}` });
+}
+
+/** Варианты вопроса на понимание: 3–4 разных, ответ среди них. */
+function optionIssues(q: { q: string; options: string[]; answer: number }, w: string, out: Issue[]) {
+  const opts = q.options ?? [];
+  if (empty(q.q)) out.push({ level: 'error', where: w, msg: 'пустой вопрос' });
+  if (opts.length < 3 || opts.length > 4 || opts.some(empty) || new Set(opts).size !== opts.length) out.push({ level: 'error', where: w, msg: 'нужно 3–4 разных варианта' });
+  if (!Number.isInteger(q.answer) || q.answer < 0 || q.answer >= opts.length) out.push({ level: 'error', where: w, msg: `ответ ${q.answer}` });
+}
+
+/** Слов в тексте загадки мудрости. */
+export const SPHINX_TEXT_WORDS = [400, 600] as const;
+/** Вопросов на понимание текста. */
+export const SPHINX_WISDOM_QUESTIONS = 5;
+
+/**
+ * Загадка мудрости: три набора `sx:wisdom.<n>`; заголовок и текст 400–600 слов, у каждого абзаца перевод; 5 вопросов
+ * на понимание; два задания `register` плитками — одно в официальный тон, другое в дружеский, проверка как в уроках;
+ * незнакомых слов к уровню 7 не больше 7%, каждое в `gloss`.
+ */
+function wisdomIssues(sets: SphinxFile['wisdom'], checks: SphinxChecks): Issue[] {
+  const out: Issue[] = [];
+  const where = 'sphinx.json';
+  if (sets.length !== SPHINX_SETS) out.push({ level: 'error', where, msg: `загадка мудрости: наборов ${sets.length}, нужно ${SPHINX_SETS}` });
+  const sources = new Map<string, string>();
+  sets.forEach((set, i) => {
+    const id = `sx:wisdom.${i + 1}`;
+    const at = `${where} ${set.id ?? id}`;
+    const err = (msg: string, w = at) => out.push({ level: 'error', where: w, msg });
+    if (set.id !== id) err(`id набора должен быть "${id}"`);
+    if (empty(set.title)) err('нет заголовка');
+    const text = set.text ?? [];
+    if (text.some((p) => empty(p.es) || empty(p.ru))) err('пустой абзац или перевод');
+    const words = text.reduce((n, p) => n + (empty(p.es) ? 0 : wordCount(p.es)), 0);
+    if (words < SPHINX_TEXT_WORDS[0] || words > SPHINX_TEXT_WORDS[1]) err(`в тексте ${words} слов, нужно ${SPHINX_TEXT_WORDS.join('–')}`);
+    const qs = set.questions ?? [];
+    if (qs.length !== SPHINX_WISDOM_QUESTIONS) err(`вопросов ${qs.length}, нужно ${SPHINX_WISDOM_QUESTIONS}`);
+    qs.forEach((q, k) => optionIssues(q, `${at} вопрос ${k + 1}`, out));
+    const reg = set.register ?? [];
+    const tones = reg.map((e) => (e.kind === 'register' ? e.to : e.kind)).sort().join(',');
+    if (tones !== 'formal,informal') err(`задания тона: ${tones || 'нет'}, нужно одно formal и одно informal`);
+    reg.forEach((e, k) => {
+      const w = `${at} тон ${k + 1}`;
+      if (e.id !== `${id}.${k + 1}`) err(`id задания должен быть "${id}.${k + 1}"`, w);
+      if (e.kind !== 'register' || !('extra' in e)) {
+        err('нужно задание register с плитками', w);
+        return;
+      }
+      checkExercise(e, w, out);
+      const src = normalize(e.source ?? '');
+      if (sources.has(src)) err(`фраза уже есть в ${sources.get(src)}`, w);
+      sources.set(src, e.id);
+    });
+    const all = [set.title, ...text.map((p) => p.es)].filter((t) => !empty(t));
+    const gloss = glossIssues(all, set.gloss, at, out);
+    coverageIssues(all.join(' '), gloss, at, checks, out);
+  });
   return out;
 }
 
@@ -633,7 +714,7 @@ export function validateSphinx(file: SphinxFile | undefined, checks: SphinxCheck
  * голоса, не меньше 8 реплик и по 3 у каждого; вопросы с тремя-четырьмя разными вариантами, состав по `SPHINX_HEAR_MIX`;
  * незнакомых слов к уровню 7 не больше 7%, каждое переведено в `gloss`.
  */
-function hearIssues(sets: NonNullable<SphinxFile['hear']>, checks: SphinxChecks): Issue[] {
+function hearIssues(sets: SphinxFile['hear'], checks: SphinxChecks): Issue[] {
   const out: Issue[] = [];
   const where = 'sphinx.json';
   if (sets.length !== SPHINX_SETS) out.push({ level: 'error', where, msg: `загадка слуха: наборов ${sets.length}, нужно ${SPHINX_SETS}` });
@@ -661,10 +742,7 @@ function hearIssues(sets: NonNullable<SphinxFile['hear']>, checks: SphinxChecks)
     const mix: Record<string, number> = {};
     (set.questions ?? []).forEach((q, k) => {
       const w = `${at} вопрос ${k + 1}`;
-      const opts = q.options ?? [];
-      if (empty(q.q)) err('пустой вопрос', w);
-      if (opts.length < 3 || opts.length > 4 || opts.some(empty) || new Set(opts).size !== opts.length) err('нужно 3–4 разных варианта', w);
-      if (!Number.isInteger(q.answer) || q.answer < 0 || q.answer >= opts.length) err(`ответ ${q.answer}`, w);
+      optionIssues(q, w, out);
       if (!(q.part in SPHINX_HEAR_MIX) || !(q.kind in SPHINX_HEAR_MIX.monologue)) err(`вопрос "${q.part}/${q.kind}"`, w);
       mix[`${q.part}/${q.kind}`] = (mix[`${q.part}/${q.kind}`] ?? 0) + 1;
     });
@@ -674,19 +752,8 @@ function hearIssues(sets: NonNullable<SphinxFile['hear']>, checks: SphinxChecks)
       }
     }
     const lines = [...mono.map((l) => l.es), ...disp.map((l) => l.es)].filter((t) => !empty(t));
-    const keys = new Set(lines.flatMap((t) => sceneWords(t).flatMap((p) => ('key' in p ? [normalize(p.key)] : []))));
-    const gloss = Object.fromEntries(Object.entries(set.gloss ?? {}).map(([k, v]) => [k.toLowerCase(), v]));
-    for (const [k, v] of Object.entries(gloss)) {
-      if (empty(v)) err(`пустой перевод в gloss: "${k}"`);
-      if (!keys.has(normalize(k))) out.push({ level: 'warning', where: at, msg: `слова "${k}" из gloss нет в тексте` });
-    }
-    if (checks.coverage) {
-      const cov = checks.coverage(lines.join(' '), SPHINX_LEVEL);
-      const share = cov.total ? cov.unknown.length / cov.total : 0;
-      if (share > SPHINX_UNKNOWN_MAX) err(`незнакомых слов ${Math.round(share * 100)}% (${[...new Set(cov.unknown)].join(', ')}), не больше ${SPHINX_UNKNOWN_MAX * 100}%`);
-      const bare = [...new Set(cov.unknown)].filter((t) => !gloss[t]);
-      if (bare.length) out.push({ level: 'warning', where: at, msg: `нет в словаре до уровня ${SPHINX_LEVEL} и в gloss: ${bare.join(', ')}` });
-    }
+    const gloss = glossIssues(lines, set.gloss, at, out);
+    coverageIssues(lines.join(' '), gloss, at, checks, out);
   });
   return out;
 }
