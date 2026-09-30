@@ -1,7 +1,7 @@
 import { readdirSync, readFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
-import { validateChronicler, validateGrammar, validateGuardians, validateLetters, validateMissions, validateNpcs, validatePhrases, validateScenes, validatePortraits, validateScrolls, validateTranslations, validateVerbs, validateWords, type Issue } from '../src/content/validate';
-import type { Chronicler, GrammarLesson, GuardiansFile, LettersFile, VerbsFile, LocationMissions, LocationPhrases, LocationScenes, NpcsFile, ScrollFile } from '../src/content/schema';
+import { validateChronicler, validateGrammar, validateGuardians, validateLetters, validateMissions, validateNpcs, validatePhrases, validateScenes, validatePortraits, validateScrolls, validateSphinx, validateTranslations, validateVerbs, validateWords, type Issue } from '../src/content/validate';
+import type { Chronicler, GrammarLesson, GuardiansFile, LettersFile, SphinxFile, VerbsFile, LocationMissions, LocationPhrases, LocationScenes, NpcsFile, ScrollFile } from '../src/content/schema';
 import type { Lang } from '../src/lang';
 import { CHAPTERS, PLAN_TOTAL } from '../src/content/vocabPlan';
 import { chapterOfDistrict } from '../src/domain/chapters';
@@ -58,6 +58,8 @@ for (const lang of langs) {
   const verbsPath = join(root, lang, 'verbs.json');
   const verbs = existsSync(verbsPath) ? (JSON.parse(readFileSync(verbsPath, 'utf8')) as VerbsFile) : undefined;
   const guardians = existsSync(guardiansPath) ? (JSON.parse(readFileSync(guardiansPath, 'utf8')) as GuardiansFile) : undefined;
+  const sphinxPath = join(root, lang, 'sphinx.json');
+  const sphinx = existsSync(sphinxPath) ? (JSON.parse(readFileSync(sphinxPath, 'utf8')) as SphinxFile) : undefined;
   const lettersPath = join(root, lang, 'letters.json');
   const letters = existsSync(lettersPath) ? (JSON.parse(readFileSync(lettersPath, 'utf8')) as LettersFile) : undefined;
   // Главы, где есть уроки: у каждой должен быть страж.
@@ -108,6 +110,7 @@ for (const lang of langs) {
     ...tag(validateChronicler(chronicler, npcs)),
     ...tag(validateGuardians(guardians, lessonChapters)),
     ...tag(validateVerbs(verbs, lang)),
+    ...tag(validateSphinx(sphinx, { coverage: (text, level) => textCoverage(text, level, lexicon, forms, lang) })),
     ...tag(validateLetters(letters, Object.fromEntries((npcs?.npcs ?? []).map((n) => [n.location, n.id])))),
     ...tag(
       validatePortraits(

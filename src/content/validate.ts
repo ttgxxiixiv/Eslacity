@@ -9,7 +9,7 @@ import { sceneWords } from '../domain/sceneText';
 import { conjugate, generated, participle, TENSES, type Tense } from '../domain/verbs';
 import { phraseTokens } from '../domain/phraseSteps';
 import { LETTER_MAX_WORDS, LETTER_MIN_WORDS, wordCount as letterWords } from '../domain/letter';
-import { LOCATION_IDS, type Chronicler, type GrammarLesson, type GuardiansFile, type LettersFile, type NpcLook, type LocationMissions, type MissionAnswer, type LocationPhrases, type LocationScenes, type Phrase, type Scene, type LocationWords, type NpcsFile, type ScrollFile, type VerbsFile, type Word } from './schema';
+import { LOCATION_IDS, type Chronicler, type GrammarExercise, type GrammarLesson, type GuardiansFile, type LettersFile, type NpcLook, type LocationMissions, type MissionAnswer, type LocationPhrases, type LocationScenes, type Phrase, type Scene, type LocationWords, type NpcsFile, type ScrollFile, type SphinxFile, type VerbsFile, type Word } from './schema';
 
 export interface Issue {
   level: 'error' | 'warning';
@@ -300,34 +300,39 @@ export function validateGrammar(files: { name: string; data: GrammarLesson }[], 
       else if (!idForm.test(e.id)) out.push({ level: 'error', where: w, msg: `id "${e.id}" не вида ${l.id}.<номер>` });
       else if (exIds.has(e.id)) out.push({ level: 'error', where: w, msg: `дубль id ${e.id}` });
       exIds.add(e.id);
-      if (empty(e.explain)) out.push({ level: 'error', where: w, msg: 'нет explain' });
-      if (e.kind === 'truefalse') {
-        if (empty(e.statement) || typeof e.answer !== 'boolean') out.push({ level: 'error', where: w, msg: 'битое верно/неверно' });
-        return;
-      }
-      if (e.kind === 'build') {
-        checkBuildExercise(e, w, out);
-        return;
-      }
-      if (e.kind === 'type') {
-        checkTypeExercise(e, w, out);
-        return;
-      }
-      if (checkC1Exercise(e, w, out)) return;
-      if (!('options' in e)) return;
-      if (e.options.length < 2 || e.options.some(empty)) out.push({ level: 'error', where: w, msg: 'мало или пустые варианты' });
-      if (new Set(e.options.map(normalize)).size !== e.options.length) out.push({ level: 'error', where: w, msg: 'одинаковые варианты' });
-      if (!Number.isInteger(e.answer) || e.answer < 0 || e.answer >= e.options.length) {
-        out.push({ level: 'error', where: w, msg: `answer ${e.answer} вне вариантов` });
-      }
-      if (e.kind === 'gap') {
-        const gaps = e.sentence.split('___').length - 1;
-        if (gaps !== 1) out.push({ level: 'error', where: w, msg: `в предложении ${gaps} пропусков вместо одного` });
-        if (empty(e.ru)) out.push({ level: 'error', where: w, msg: 'нет перевода' });
-      } else if (e.kind === 'choose' && empty(e.prompt)) out.push({ level: 'error', where: w, msg: 'пустой prompt' });
+      checkExercise(e, w, out);
     });
   }
   return out;
+}
+
+/** Одно упражнение грамматики: общее для уроков и Сфинкса. */
+function checkExercise(e: GrammarExercise, w: string, out: Issue[]) {
+  if (empty(e.explain)) out.push({ level: 'error', where: w, msg: 'нет explain' });
+  if (e.kind === 'truefalse') {
+    if (empty(e.statement) || typeof e.answer !== 'boolean') out.push({ level: 'error', where: w, msg: 'битое верно/неверно' });
+    return;
+  }
+  if (e.kind === 'build') {
+    checkBuildExercise(e, w, out);
+    return;
+  }
+  if (e.kind === 'type') {
+    checkTypeExercise(e, w, out);
+    return;
+  }
+  if (checkC1Exercise(e, w, out)) return;
+  if (!('options' in e)) return;
+  if (e.options.length < 2 || e.options.some(empty)) out.push({ level: 'error', where: w, msg: 'мало или пустые варианты' });
+  if (new Set(e.options.map(normalize)).size !== e.options.length) out.push({ level: 'error', where: w, msg: 'одинаковые варианты' });
+  if (!Number.isInteger(e.answer) || e.answer < 0 || e.answer >= e.options.length) {
+    out.push({ level: 'error', where: w, msg: `answer ${e.answer} вне вариантов` });
+  }
+  if (e.kind === 'gap') {
+    const gaps = e.sentence.split('___').length - 1;
+    if (gaps !== 1) out.push({ level: 'error', where: w, msg: `в предложении ${gaps} пропусков вместо одного` });
+    if (empty(e.ru)) out.push({ level: 'error', where: w, msg: 'нет перевода' });
+  } else if (e.kind === 'choose' && empty(e.prompt)) out.push({ level: 'error', where: w, msg: 'пустой prompt' });
 }
 
 /** Сколько слов в собираемом предложении и лишних плиток. */
@@ -531,6 +536,84 @@ export function validateLetters(file: LettersFile | undefined, residents: Record
 }
 
 /** Сколько глаголов должно быть в кузнице. */
+/** Наборов в каждом раунде Сфинкса: повторная попытка идёт по другому набору. */
+export const SPHINX_SETS = 3;
+/** Загадка слова: сколько заданий каждого вида в наборе, одинаково во всех наборах. */
+export const SPHINX_WORD_MIX: Partial<Record<GrammarExercise['kind'], number>> = { transform: 3, cloze: 2, fix: 3, type: 2 };
+/** Уровень слов, которые Сфинкс вправе ждать от героя: всё до уровня 7 (C1) и свитки. */
+export const SPHINX_LEVEL = 7;
+/** Доля незнакомых слов в наборе, как у сцен. */
+export const SPHINX_UNKNOWN_MAX = 0.07;
+
+export interface SphinxChecks {
+  /** Слова текста: всего и незнакомые к уровню (с повторами, строчными). */
+  coverage?: (text: string, level: number) => { total: number; unknown: string[] };
+}
+
+/** Весь текст задания, по которому считаются незнакомые слова: условие и ответы. */
+function exerciseText(e: GrammarExercise): string {
+  switch (e.kind) {
+    case 'transform': return [e.source, e.answer].join(' ');
+    case 'cloze': return [e.text, ...e.answers.map((a) => a[0])].join(' ');
+    case 'fix': return [e.sentence, e.answer].join(' ');
+    case 'type': return [e.sentence, e.answer].join(' ');
+    default: return '';
+  }
+}
+
+/** Что видит герой: по этому тексту одно задание не должно повторяться в разных наборах. */
+function exercisePrompt(e: GrammarExercise): string {
+  switch (e.kind) {
+    case 'transform': return e.source;
+    case 'cloze': return e.text;
+    case 'fix': case 'type': return e.sentence;
+    default: return e.id;
+  }
+}
+
+/**
+ * Сфинкс: `sphinx.json`. Три набора в раунде, id по порядку; в загадке слова в каждом наборе одинаковый состав
+ * заданий (`SPHINX_WORD_MIX`), только виды с вводом ответа, задания проходят проверку уроков, не повторяются
+ * между наборами, незнакомых слов к уровню 7 не больше 7%.
+ */
+export function validateSphinx(file: SphinxFile | undefined, checks: SphinxChecks = {}): Issue[] {
+  const out: Issue[] = [];
+  const where = 'sphinx.json';
+  if (!file) return [{ level: 'error', where, msg: 'нет файла Сфинкса' }];
+  const sets = file.word ?? [];
+  if (sets.length !== SPHINX_SETS) out.push({ level: 'error', where, msg: `загадка слова: наборов ${sets.length}, нужно ${SPHINX_SETS}` });
+  const prompts = new Map<string, string>();
+  sets.forEach((set, i) => {
+    const at = `${where} ${set.id ?? `word#${i + 1}`}`;
+    const id = `sx:word.${i + 1}`;
+    if (set.id !== id) out.push({ level: 'error', where: at, msg: `id набора должен быть "${id}"` });
+    const mix: Record<string, number> = {};
+    (set.exercises ?? []).forEach((e, k) => {
+      const w = `${at} упр.${k + 1}`;
+      if (e.id !== `${id}.${k + 1}`) out.push({ level: 'error', where: w, msg: `id задания должен быть "${id}.${k + 1}"` });
+      mix[e.kind] = (mix[e.kind] ?? 0) + 1;
+      if (!(e.kind in SPHINX_WORD_MIX)) {
+        out.push({ level: 'error', where: w, msg: `вид "${e.kind}" не для загадки слова` });
+        return;
+      }
+      checkExercise(e, w, out);
+      const p = normalize(exercisePrompt(e));
+      if (prompts.has(p)) out.push({ level: 'error', where: w, msg: `задание уже есть в ${prompts.get(p)}` });
+      prompts.set(p, e.id);
+    });
+    for (const [kind, n] of Object.entries(SPHINX_WORD_MIX)) {
+      if ((mix[kind] ?? 0) !== n) out.push({ level: 'error', where: at, msg: `заданий ${kind}: ${mix[kind] ?? 0}, нужно ${n}` });
+    }
+    if (checks.coverage) {
+      const { total, unknown } = checks.coverage((set.exercises ?? []).map(exerciseText).join(' '), SPHINX_LEVEL);
+      if (total && unknown.length / total > SPHINX_UNKNOWN_MAX) {
+        out.push({ level: 'error', where: at, msg: `незнакомых слов ${Math.round((unknown.length / total) * 100)}% (${[...new Set(unknown)].join(', ')}), не больше ${SPHINX_UNKNOWN_MAX * 100}%` });
+      }
+    }
+  });
+  return out;
+}
+
 export const VERBS_MIN = 60;
 
 const VERB_END: Record<Lang, RegExp> = { es: /(ar|er|ir|ír)$/, it: /(are|ere|ire)$/ };

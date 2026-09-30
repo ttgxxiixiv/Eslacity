@@ -381,3 +381,20 @@ export interface VerbsFile {
   smith: Smith;
   verbs: VerbData[];
 }
+
+/**
+ * Загадка слова (задача 8.1): набор заданий уровня C1 с вводом ответа — пересказ по ключевому слову, текст
+ * с пропусками, поиск ошибки, коллокации и идиомы. id набора `sx:word.<n>`, задания `sx:word.<n>.<k>`.
+ */
+export interface SphinxWordSet {
+  id: string;
+  exercises: GrammarExercise[];
+}
+
+/**
+ * Сфинкс у Врат Хранилища (docs/GAME.md, «Врата и Сфинкс»): три раунда, в каждом три набора — повторная попытка
+ * идёт по другому набору. Раунды слуха и мудрости появятся в следующих пачках задачи 8.1.
+ */
+export interface SphinxFile {
+  word: SphinxWordSet[];
+}

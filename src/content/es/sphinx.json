@@ -1,0 +1,49 @@
+{
+  "word": [
+    {
+      "id": "sx:word.1",
+      "exercises": [
+        {"id": "sx:word.1.1", "kind": "transform", "source": "Es posible que la puerta esté cerrada.", "keyword": "quizás", "ru": "Возможно, дверь закрыта.", "answer": "Quizás la puerta esté cerrada.", "alt": ["Quizás esté cerrada la puerta."], "explain": "Quizás + subjuntivo — предположение."},
+        {"id": "sx:word.1.2", "kind": "transform", "source": "Me arrepiento de no haber escuchado a mi abuela.", "keyword": "ojalá", "ru": "Жаль, что я не послушал бабушку.", "answer": "Ojalá hubiera escuchado a mi abuela.", "alt": ["Ojalá hubiese escuchado a mi abuela."], "explain": "Ojalá + pluscuamperfecto de subjuntivo — сожаление о прошлом."},
+        {"id": "sx:word.1.3", "kind": "transform", "source": "Aunque estaba cansado, siguió subiendo.", "keyword": "a pesar de", "ru": "Хотя он устал, он продолжал подниматься.", "answer": "A pesar de estar cansado, siguió subiendo.", "alt": ["A pesar de que estaba cansado, siguió subiendo.", "Siguió subiendo a pesar de estar cansado."], "explain": "A pesar de + infinitivo = aunque."},
+        {"id": "sx:word.1.4", "kind": "cloze", "text": "Si ___ (saber) que venías, te habría esperado. Me alegra que ___ (llegar) bien.", "ru": "Если бы я знал, что ты придёшь, я бы тебя подождал. Я рад, что ты добрался благополучно.", "answers": [["hubiera sabido", "hubiese sabido"], ["hayas llegado"]], "explain": "Нереальное условие в прошлом — pluscuamperfecto de subjuntivo; радость — subjuntivo: hayas llegado."},
+        {"id": "sx:word.1.5", "kind": "cloze", "text": "No creo que el guardián nos ___ (dejar) pasar. Sin embargo, es cierto que ___ (tener) una llave.", "ru": "Не думаю, что страж нас пропустит. Однако правда, что у нас есть ключ.", "answers": [["deje"], ["tenemos"]], "explain": "No creo que + subjuntivo; es cierto que + indicativo."},
+        {"id": "sx:word.1.6", "kind": "fix", "sentence": "Busco a alguien que sabe leer el mapa antiguo.", "ru": "Я ищу кого-нибудь, кто умеет читать старую карту.", "wrong": 4, "answer": "sepa", "explain": "Неизвестный, желаемый человек — subjuntivo: alguien que sepa."},
+        {"id": "sx:word.1.7", "kind": "fix", "sentence": "Cuando llegarás a la puerta, di tu nombre.", "ru": "Когда дойдёшь до двери, назови своё имя.", "wrong": 1, "answer": "llegues", "explain": "Cuando о будущем — subjuntivo, не будущее время."},
+        {"id": "sx:word.1.8", "kind": "fix", "sentence": "Me pidió que le digo la verdad.", "ru": "Он попросил меня сказать ему правду.", "wrong": 4, "answer": "dijera", "alt": ["dijese"], "explain": "Pedir que + subjuntivo; после прошедшего — imperfecto de subjuntivo."},
+        {"id": "sx:word.1.9", "kind": "type", "sentence": "No te preocupes, esto es pan ___.", "ru": "Не волнуйся, это проще простого.", "hint": "идиома: проще простого", "answer": "comido", "explain": "Ser pan comido — «проще простого»."},
+        {"id": "sx:word.1.10", "kind": "type", "sentence": "Tenemos que ___ una decisión antes de la noche.", "ru": "Нам нужно принять решение до ночи.", "hint": "принять (решение)", "answer": "tomar", "explain": "Сочетание: tomar una decisión."}
+      ]
+    },
+    {
+      "id": "sx:word.2",
+      "exercises": [
+        {"id": "sx:word.2.1", "kind": "transform", "source": "Solo te lo digo porque confío en ti.", "keyword": "si no", "ru": "Я говорю тебе это только потому, что доверяю тебе.", "answer": "Si no confiara en ti, no te lo diría.", "alt": ["Si no confiase en ti, no te lo diría.", "No te lo diría si no confiara en ti."], "explain": "Нереальное условие: si + imperfecto de subjuntivo, condicional."},
+        {"id": "sx:word.2.2", "kind": "transform", "source": "Construyeron el puente hace cien años.", "keyword": "fue", "ru": "Мост построили сто лет назад.", "answer": "El puente fue construido hace cien años.", "alt": ["Hace cien años el puente fue construido."], "explain": "Пассив: ser + participio, participio согласуется с подлежащим."},
+        {"id": "sx:word.2.3", "kind": "transform", "source": "Es necesario que hables con él hoy.", "keyword": "hace falta", "ru": "Нужно, чтобы ты поговорил с ним сегодня.", "answer": "Hace falta que hables con él hoy.", "alt": ["Hoy hace falta que hables con él."], "explain": "Hace falta que + subjuntivo = es necesario que."},
+        {"id": "sx:word.2.4", "kind": "cloze", "text": "Me dijo que ___ (volver) al día siguiente, pero no ___ (volver) nunca.", "ru": "Он сказал мне, что вернётся на следующий день, но так и не вернулся.", "answers": [["volvería"], ["volvió"]], "explain": "Будущее в прошлом — condicional: volvería; сам факт — indefinido: volvió."},
+        {"id": "sx:word.2.5", "kind": "cloze", "text": "Cuanto más ___ (leer), más palabras ___ (aprender).", "ru": "Чем больше будешь читать, тем больше слов выучишь.", "answers": [["leas"], ["aprenderás"]], "explain": "Cuanto más + subjuntivo о будущем, затем futuro."},
+        {"id": "sx:word.2.6", "kind": "fix", "sentence": "Si tendría tiempo, iría contigo al bosque.", "ru": "Если бы у меня было время, я пошёл бы с тобой в лес.", "wrong": 1, "answer": "tuviera", "alt": ["tuviese"], "explain": "После si не бывает condicional: si tuviera."},
+        {"id": "sx:word.2.7", "kind": "fix", "sentence": "Espero que todo sale bien.", "ru": "Надеюсь, что всё пройдёт хорошо.", "wrong": 3, "answer": "salga", "explain": "Esperar que + subjuntivo."},
+        {"id": "sx:word.2.8", "kind": "fix", "sentence": "Me molesta que la gente habla tan alto.", "ru": "Меня раздражает, что люди так громко говорят.", "wrong": 5, "answer": "hable", "explain": "Чувство, оценка — subjuntivo: me molesta que hable."},
+        {"id": "sx:word.2.9", "kind": "type", "sentence": "Pedro siempre mete la ___ cuando habla de política.", "ru": "Педро всегда попадает впросак, когда говорит о политике.", "hint": "идиома: сказать некстати", "answer": "pata", "explain": "Meter la pata — «сказать или сделать некстати»."},
+        {"id": "sx:word.2.10", "kind": "type", "sentence": "Antes de firmar, hay que tener en ___ todos los detalles.", "ru": "Прежде чем подписывать, нужно учесть все детали.", "hint": "учитывать: tener en ___", "answer": "cuenta", "explain": "Сочетание: tener en cuenta."}
+      ]
+    },
+    {
+      "id": "sx:word.3",
+      "exercises": [
+        {"id": "sx:word.3.1", "kind": "transform", "source": "Llegamos tarde porque perdimos el tren.", "keyword": "por haber", "ru": "Мы опоздали, потому что пропустили поезд.", "answer": "Llegamos tarde por haber perdido el tren.", "explain": "Por haber + participio — причина в прошлом."},
+        {"id": "sx:word.3.2", "kind": "transform", "source": "No podrás entrar si no dices la verdad.", "keyword": "a menos que", "ru": "Ты не сможешь войти, если не скажешь правду.", "answer": "No podrás entrar a menos que digas la verdad.", "explain": "A menos que + subjuntivo = si no."},
+        {"id": "sx:word.3.3", "kind": "transform", "source": "La gente dice que el guardián vive en el laberinto.", "keyword": "se dice", "ru": "Люди говорят, что страж живёт в лабиринте.", "answer": "Se dice que el guardián vive en el laberinto.", "explain": "Безличное se dice que = «говорят, что»."},
+        {"id": "sx:word.3.4", "kind": "cloze", "text": "Ojalá ___ (poder) quedarme más tiempo, pero mañana ___ (tener) que trabajar.", "ru": "Жаль, что я не могу остаться подольше, но завтра мне надо работать.", "answers": [["pudiera", "pudiese"], ["tengo", "tendré"]], "explain": "Ojalá + imperfecto de subjuntivo — желание, которое не сбудется; tener que — indicativo."},
+        {"id": "sx:word.3.5", "kind": "cloze", "text": "En cuanto ___ (llegar) a casa, te llamaré. Te lo prometo aunque ___ (ser) tarde.", "ru": "Как только доберусь до дома, позвоню тебе. Обещаю, даже если будет поздно.", "answers": [["llegue"], ["sea"]], "explain": "En cuanto о будущем и aunque о возможном — subjuntivo."},
+        {"id": "sx:word.3.6", "kind": "fix", "sentence": "No es verdad que el mapa está perdido.", "ru": "Неправда, что карта потеряна.", "wrong": 6, "answer": "esté", "explain": "Отрицание истинности — subjuntivo: no es verdad que esté."},
+        {"id": "sx:word.3.7", "kind": "fix", "sentence": "Si lo habría sabido, te habría avisado.", "ru": "Если бы я знал, я бы тебя предупредил.", "wrong": 2, "answer": "hubiera", "alt": ["hubiese"], "explain": "После si — pluscuamperfecto de subjuntivo, не condicional."},
+        {"id": "sx:word.3.8", "kind": "fix", "sentence": "Te llamo para que me ayudas con la mudanza.", "ru": "Я звоню, чтобы ты помог мне с переездом.", "wrong": 5, "answer": "ayudes", "explain": "Para que + subjuntivo."},
+        {"id": "sx:word.3.9", "kind": "type", "sentence": "Cuando vio a la Esfinge, se quedó con la boca ___.", "ru": "Когда он увидел Сфинкса, он так и разинул рот.", "hint": "идиома: разинув рот", "answer": "abierta", "explain": "Quedarse con la boca abierta — «остолбенеть от удивления»."},
+        {"id": "sx:word.3.10", "kind": "type", "sentence": "Al final, Lola ___ las paces con su hermano.", "ru": "В конце концов Лола помирилась с братом.", "hint": "помириться: ___ las paces (прошедшее)", "answer": "hizo", "explain": "Hacer las paces — помириться; в прошлом: hizo."}
+      ]
+    }
+  ]
+}
