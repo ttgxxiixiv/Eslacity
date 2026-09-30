@@ -432,11 +432,25 @@ export interface SphinxWisdomSet {
   gloss?: Record<string, string>;
 }
 
+/** Реплики Сфинкса у Врат (задача 8.2): торжественно, в официальном регистре. */
+export const SPHINX_LINES = ['greeting', 'again', 'hear', 'word', 'wisdom', 'pass', 'fail', 'rest', 'waiting', 'victory'] as const;
+export type SphinxLine = (typeof SPHINX_LINES)[number];
+
+/** Сам Сфинкс: имя на изучаемом языке, голос и реплики. */
+export interface SphinxSpeaker {
+  name: string;
+  voice: { pitch: number; rate: number };
+  speech: Record<SphinxLine, Example>;
+  /** Перевод слов реплик, которых нет в словаре курса до уровня 7. */
+  gloss?: Record<string, string>;
+}
+
 /**
  * Сфинкс у Врат Хранилища (docs/GAME.md, «Врата и Сфинкс»): три раунда — слово, слух, мудрость, в каждом
  * три набора; повторная попытка идёт по другому набору.
  */
 export interface SphinxFile {
+  sphinx: SphinxSpeaker;
   word: SphinxWordSet[];
   hear: SphinxHearSet[];
   wisdom: SphinxWisdomSet[];

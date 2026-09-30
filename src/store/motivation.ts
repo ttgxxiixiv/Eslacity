@@ -11,6 +11,7 @@ import { dayNumber } from '../domain/srs';
 import { canBuyFreeze, EMPTY_STREAK, registerGoal, settleStreak, type StreakState } from '../domain/streak';
 import { useCity } from './city';
 import { useJourney } from './journey';
+import { useSphinx } from './sphinx';
 import { useErrands } from './errands';
 import { useTrials } from './trials';
 import { trialsPassed } from '../domain/trial';
@@ -89,6 +90,7 @@ export function medalCounters(): MedalCounters {
     trials: trialsPassed(useTrials.getState().records),
     echo: useErrands.getState().echo ?? 0,
     seals: Object.keys(useJourney.getState().seals).map(Number),
+    sphinxSeen: useSphinx.getState().rec.visited !== undefined,
   };
 }
 

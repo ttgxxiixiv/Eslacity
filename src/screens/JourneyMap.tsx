@@ -18,6 +18,9 @@ import { currentJourney, useJourney } from '../store/journey';
 import { useProgress } from '../store/progress';
 import { useMissions } from '../store/missions';
 import { useTrials } from '../store/trials';
+import { useSphinx } from '../store/sphinx';
+import { SphinxArt } from '../components/SphinxArt';
+import { GATES_CHAPTER, SPHINX_HEARTS, SPHINX_ROUNDS, sphinxStatus, sphinxWaitLabel } from '../domain/sphinx';
 
 const INK = '#5c452d';
 const PARCHMENT = '#f1dfb0';
@@ -337,6 +340,8 @@ export function JourneyMapScreen() {
 
         {shown <= opened && <GuardianPanel ch={ch} />}
 
+        <GatesPanel />
+
         <ChroniclerPanel opened={opened} />
       </div>
     </Screen>
@@ -417,6 +422,39 @@ function Details({ ch, picked, fragmentsAt, buildings, opened }: {
 }
 
 /** Страж главы под картой: портрет, приветствие и дорога к испытанию. Пускает, когда свиток земли выучен. */
+/** Врата Хранилища: появляются с печатью главы V (задача 8.2). */
+function GatesPanel() {
+  const nav = useNavigate();
+  const now = useNow();
+  const sealed = useJourney((s) => s.seals[String(GATES_CHAPTER)] !== undefined);
+  const rec = useSphinx((s) => s.rec);
+  if (!sealed) return null;
+  const status = sphinxStatus(rec, now);
+  const solved = SPHINX_ROUNDS.filter((k) => rec.rounds[k] !== undefined).length;
+  return (
+    <section className="rounded-2xl bg-white p-3 shadow-sm" data-testid="gates-panel">
+      <div className="flex items-center gap-3">
+        <SphinxArt size={96} watching={status === 'open'} />
+        <div className="min-w-0 flex-1">
+          <div className="font-bold">Врата Хранилища</div>
+          <p className="text-sm text-stone-600" data-testid="gates-status">
+            {status === 'done'
+              ? 'Сфинкс пропустил героя: Врата открыты.'
+              : status === 'waiting' && rec.waitUntil !== undefined
+                ? `Сфинкс ждёт вас снова ${sphinxWaitLabel(rec.waitUntil, now)}.`
+                : rec.visited === undefined
+                  ? 'У Врат сидит Сфинкс. Он пропускает только того, кто разгадает три загадки.'
+                  : `Разгадано загадок: ${solved} из ${SPHINX_ROUNDS.length}. Сердца: ${rec.hearts} из ${SPHINX_HEARTS}.`}
+          </p>
+        </div>
+      </div>
+      <Button className="mt-2 w-full" data-testid="gates-go" onClick={() => nav('/sphinx')}>
+        {rec.visited === undefined ? 'Подойти к Вратам' : 'К Вратам'}
+      </Button>
+    </section>
+  );
+}
+
 function GuardianPanel({ ch }: { ch: ChapterState }) {
   const nav = useNavigate();
   const now = useNow();

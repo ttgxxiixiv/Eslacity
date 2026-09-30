@@ -9,7 +9,7 @@ import { sceneWords } from '../domain/sceneText';
 import { conjugate, generated, participle, TENSES, type Tense } from '../domain/verbs';
 import { phraseTokens } from '../domain/phraseSteps';
 import { LETTER_MAX_WORDS, LETTER_MIN_WORDS, wordCount as letterWords } from '../domain/letter';
-import { LOCATION_IDS, type Chronicler, type GrammarExercise, type GrammarLesson, type GuardiansFile, type LettersFile, type NpcLook, type LocationMissions, type MissionAnswer, type LocationPhrases, type LocationScenes, type Phrase, type Scene, type LocationWords, type NpcsFile, type ScrollFile, type SphinxFile, type VerbsFile, type Word } from './schema';
+import { LOCATION_IDS, SPHINX_LINES, type SphinxSpeaker, type Chronicler, type GrammarExercise, type GrammarLesson, type GuardiansFile, type LettersFile, type NpcLook, type LocationMissions, type MissionAnswer, type LocationPhrases, type LocationScenes, type Phrase, type Scene, type LocationWords, type NpcsFile, type ScrollFile, type SphinxFile, type VerbsFile, type Word } from './schema';
 
 export interface Issue {
   level: 'error' | 'warning';
@@ -624,7 +624,24 @@ export function validateSphinx(file: SphinxFile | undefined, checks: SphinxCheck
       }
     }
   });
-  out.push(...hearIssues(file.hear ?? [], checks), ...wisdomIssues(file.wisdom ?? [], checks));
+  out.push(...hearIssues(file.hear ?? [], checks), ...wisdomIssues(file.wisdom ?? [], checks), ...speakerIssues(file.sphinx, checks));
+  return out;
+}
+
+/** Реплики Сфинкса: имя, голос, все реплики с переводом, незнакомые слова в `gloss`. */
+function speakerIssues(sp: SphinxSpeaker | undefined, checks: SphinxChecks): Issue[] {
+  const out: Issue[] = [];
+  const at = 'sphinx.json sphinx';
+  if (!sp) return [{ level: 'error', where: at, msg: 'нет реплик Сфинкса' }];
+  if (empty(sp.name)) out.push({ level: 'error', where: at, msg: 'нет имени' });
+  if (!(sp.voice?.pitch > 0) || !(sp.voice?.rate > 0)) out.push({ level: 'error', where: at, msg: 'нет голоса' });
+  const lines = SPHINX_LINES.map((k) => sp.speech?.[k]);
+  SPHINX_LINES.forEach((k, i) => {
+    if (empty(lines[i]?.es) || empty(lines[i]?.ru)) out.push({ level: 'error', where: `${at} ${k}`, msg: 'нет реплики или перевода' });
+  });
+  const texts = lines.map((l) => l?.es ?? '');
+  const gloss = glossIssues(texts, sp.gloss, at, out);
+  coverageIssues(texts.join(' '), gloss, at, checks, out);
   return out;
 }
 

@@ -3,7 +3,7 @@ import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { seeded } from '../domain/generators';
 import { checkGrammar, toItem, type GrammarInput } from '../domain/grammar';
-import type { GrammarExercise, SphinxFile, SphinxHearSet, SphinxWisdomSet } from './schema';
+import { SPHINX_LINES, type GrammarExercise, type SphinxFile, type SphinxHearSet, type SphinxSpeaker, type SphinxWisdomSet } from './schema';
 import { phraseTokens } from '../domain/phraseSteps';
 import { SPHINX_HEAR_MIX, SPHINX_SETS, SPHINX_WISDOM_QUESTIONS, SPHINX_WORD_MIX, validateSphinx } from './validate';
 
@@ -39,6 +39,12 @@ describe.each(['es', 'it'])('Сфинкс, загадка слова: %s', (lang
   });
 });
 
+const SPEAKER: SphinxSpeaker = {
+  name: 'la Esfinge',
+  voice: { pitch: 0.6, rate: 0.8 },
+  speech: Object.fromEntries(SPHINX_LINES.map((k) => [k, { es: `Frase ${k}.`, ru: 'x' }])) as SphinxSpeaker['speech'],
+};
+
 describe('validateSphinx', () => {
   const set = (n: number, exercises: GrammarExercise[]) => ({ id: `sx:word.${n}`, exercises });
   const fix = (id: string, sentence = 'Espero que todo sale bien.'): GrammarExercise => ({ id, kind: 'fix', sentence, wrong: 3, answer: 'salga', explain: 'x' });
@@ -46,23 +52,23 @@ describe('validateSphinx', () => {
   const msgs = (f: SphinxFile) => validateSphinx(f).map((x) => x.msg).join('; ');
   it('нет файла, мало наборов, неверные id', () => {
     expect(msgs(undefined as unknown as SphinxFile)).toMatch(/нет файла/);
-    expect(msgs({ word: [set(2, [])], hear: [], wisdom: [] })).toMatch(/наборов 1, нужно 3.*id набора должен быть "sx:word.1"/);
-    expect(msgs({ word: [set(1, [fix('sx:word.1.2')])], hear: [], wisdom: [] })).toMatch(/id задания должен быть "sx:word.1.1"/);
+    expect(msgs({ sphinx: SPEAKER, word: [set(2, [])], hear: [], wisdom: [] })).toMatch(/наборов 1, нужно 3.*id набора должен быть "sx:word.1"/);
+    expect(msgs({ sphinx: SPEAKER, word: [set(1, [fix('sx:word.1.2')])], hear: [], wisdom: [] })).toMatch(/id задания должен быть "sx:word.1.1"/);
   });
   it('состав набора, вид без ввода, повтор задания между наборами', () => {
-    const f = msgs({ word: [set(1, [fix('sx:word.1.1')]), set(2, [fix('sx:word.2.1')]), set(3, [{ id: 'sx:word.3.1', kind: 'truefalse', statement: 'x', answer: true, explain: 'x' }])], hear: [], wisdom: [] });
+    const f = msgs({ sphinx: SPEAKER, word: [set(1, [fix('sx:word.1.1')]), set(2, [fix('sx:word.2.1')]), set(3, [{ id: 'sx:word.3.1', kind: 'truefalse', statement: 'x', answer: true, explain: 'x' }])], hear: [], wisdom: [] });
     expect(f).toMatch(/заданий transform: 0, нужно 3/);
     expect(f).toMatch(/вид "truefalse" не для загадки слова/);
     expect(f).toMatch(/задание уже есть в sx:word.1.1/);
   });
   it('задание проверяется как в уроке: ошибка fix и пропуск в type', () => {
-    const f = msgs({ word: [set(1, [fix('sx:word.1.1', 'Espero que todo salga bien.'), typ('sx:word.1.2', 'Sin pропуска.')])], hear: [], wisdom: [] });
+    const f = msgs({ sphinx: SPEAKER, word: [set(1, [fix('sx:word.1.1', 'Espero que todo salga bien.'), typ('sx:word.1.2', 'Sin pропуска.')])], hear: [], wisdom: [] });
     expect(f).toMatch(/«salga» совпадает с верной формой/);
     expect(f).toMatch(/0 пропусков вместо одного/);
   });
   it('незнакомых слов больше 7% — ошибка', () => {
     const exercises = [fix('sx:word.1.1')];
-    const out = validateSphinx({ word: [set(1, exercises)], hear: [], wisdom: [] }, { coverage: () => ({ total: 10, unknown: ['a', 'b'] }) });
+    const out = validateSphinx({ sphinx: SPEAKER, word: [set(1, exercises)], hear: [], wisdom: [] }, { coverage: () => ({ total: 10, unknown: ['a', 'b'] }) });
     expect(out.map((x) => x.msg).join()).toMatch(/незнакомых слов 20% \(a, b\)/);
   });
 });
@@ -97,7 +103,7 @@ describe('validateSphinx: загадка слуха', () => {
   });
   const voices = { cronista: 0.8, lola: 1.2, paco: 0.85, pilar: 1.2 };
   const hearMsgs = (hear: SphinxHearSet[], extra = {}) =>
-    validateSphinx({ word: [], hear, wisdom: [] }, { voices, ...extra }).map((x) => x.msg).filter((m) => !m.startsWith('загадка слова') && !m.startsWith('загадка мудрости')).join('; ');
+    validateSphinx({ sphinx: SPEAKER, word: [], hear, wisdom: [] }, { voices, ...extra }).map((x) => x.msg).filter((m) => !m.startsWith('загадка слова') && !m.startsWith('загадка мудрости')).join('; ');
   it('правильные наборы проходят', () => {
     expect(hearMsgs([good(1), good(2), good(3)])).toBe('');
   });
@@ -116,7 +122,7 @@ describe('validateSphinx: загадка слуха', () => {
     const m = hearMsgs([bad, good(2), good(3)], { coverage: () => ({ total: 100, unknown: ['zzz'] }) });
     expect(m).toMatch(/нужно 3–4 разных варианта/);
     expect(m).toMatch(/вопросов dispute\/stance: 0, нужно 2/);
-    const warn = validateSphinx({ word: [], hear: [good(1)], wisdom: [] }, { voices, coverage: () => ({ total: 100, unknown: ['zzz'] }) });
+    const warn = validateSphinx({ sphinx: SPEAKER, word: [], hear: [good(1)], wisdom: [] }, { voices, coverage: () => ({ total: 100, unknown: ['zzz'] }) });
     expect(warn.some((x) => x.level === 'warning' && /нет в словаре до уровня 7 и в gloss: zzz/.test(x.msg))).toBe(true);
   });
 });
@@ -152,7 +158,7 @@ describe('validateSphinx: загадка мудрости', () => {
     register: [reg(`sx:wisdom.${n}.1`, 'formal', `ven mañana ${n}`), reg(`sx:wisdom.${n}.2`, 'informal', `le ruego ${n}`)],
   });
   const wisdomMsgs = (wisdom: SphinxWisdomSet[]) =>
-    validateSphinx({ word: [], hear: [], wisdom }).map((x) => x.msg).filter((m) => !m.startsWith('загадка слова') && !m.startsWith('загадка слуха')).join('; ');
+    validateSphinx({ sphinx: SPEAKER, word: [], hear: [], wisdom }).map((x) => x.msg).filter((m) => !m.startsWith('загадка слова') && !m.startsWith('загадка слуха')).join('; ');
   it('правильные наборы проходят', () => {
     expect(wisdomMsgs([good(1), good(2), good(3)])).toBe('');
   });

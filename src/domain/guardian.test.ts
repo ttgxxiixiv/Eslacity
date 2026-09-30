@@ -17,7 +17,7 @@ const exercises: GrammarExercise[] = Array.from({ length: 15 }, (_, l) =>
 ).flat();
 
 const ids = (items: ReturnType<typeof buildGuardian>) =>
-  items.map((i) => (i.kind === 'grammar' ? i.item.ex.id : i.kind === 'word' ? (i.step as { wordId: string }).wordId : i.step.id));
+  items.map((i) => (i.kind === 'grammar' ? i.item.ex.id : i.kind === 'word' ? (i.step as { wordId: string }).wordId : i.kind === 'phrase' ? i.step.id : i.id));
 
 describe('испытание стража', () => {
   it('20 заданий: 12 грамматики из разных уроков, 5 слов главы, 3 слова свитка, без повторов', () => {

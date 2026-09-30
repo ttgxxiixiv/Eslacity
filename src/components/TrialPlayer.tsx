@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import type { Phrase, Word } from '../content/schema';
 import { logAnswer } from '../db/answers';
 import { pauseListening, speak } from '../audio/tts';
-import { answerMs, isListening } from '../domain/answerLog';
+import { answerMs, isListening, type AnswerMode } from '../domain/answerLog';
 import type { CheckResult, Verdict } from '../domain/answer';
 import { checkGrammar, type GrammarInput } from '../domain/grammar';
 import { withoutListening, type Outcome } from '../domain/lessonQueue';
@@ -29,11 +29,14 @@ let seq = 0;
  * Задания испытания места или стража по одному: слова — заданиями уроков, фразы — плитками и вводом, грамматика —
  * упражнениями уроков. Без повторов ошибок и без подсказки букв ответа. Ответы идут в журнал с режимом `trial`.
  */
-export function TrialPlayer({ items: initial, words, phrases = {}, label = 'Испытание', onFinish, onExit }: {
+export function TrialPlayer({ items: initial, words, phrases = {}, label = 'Испытание', mode = 'trial', aside, onFinish, onExit }: {
   items: TrialItem[];
   words: Record<string, Word>;
   phrases?: Record<string, Phrase>;
   label?: string;
+  mode?: AnswerMode;
+  /** Кнопка справа от подписи (у Сфинкса — перечитать текст загадки). */
+  aside?: React.ReactNode;
   onFinish(s: TrialScore): void;
   onExit(): void;
 }) {
@@ -51,7 +54,7 @@ export function TrialPlayer({ items: initial, words, phrases = {}, label = 'Ис
     setFb(f);
     setScore((s) => ({ ...s, [verdict]: s[verdict] + 1 }));
     const now = Date.now();
-    logAnswer({ itemId, kind, verdict, mode: 'trial', ms: answerMs(shownAt.current, now) }, now);
+    logAnswer({ itemId, kind, verdict, mode, ms: answerMs(shownAt.current, now) }, now);
     afterPaint(() => {
       if (f.speakText && verdict !== 'wrong') speak(f.speakText);
       if (isTypedItem(item)) useMotivation.getState().recordTyped(verdict === 'correct');
@@ -75,7 +78,15 @@ export function TrialPlayer({ items: initial, words, phrases = {}, label = 'Ис
     if (item.kind !== 'phrase') return;
     record(verdict, phraseFeedback(phrases[item.step.id], verdict, check), item.step.id, `phrase-${item.step.kind}`);
   };
+  const [picked, setPicked] = useState<number | null>(null);
+  const questionAnswer = (i: number) => {
+    if (item.kind !== 'question' || fb) return;
+    const verdict: Verdict = i === item.answer ? 'correct' : 'wrong';
+    setPicked(i);
+    record(verdict, { verdict, title: verdict === 'correct' ? 'Верно!' : 'Неверно', answer: item.options[item.answer] }, item.id, 'sphinx-question');
+  };
   const next = () => {
+    setPicked(null);
     setFb(null);
     setGrammarVerdict(null);
     if (index + 1 >= items.length) onFinish(score);
@@ -103,6 +114,29 @@ export function TrialPlayer({ items: initial, words, phrases = {}, label = 'Ис
     }
   } else if (item.kind === 'grammar') {
     body = <GrammarItemView item={item.item} verdict={grammarVerdict} onAnswer={grammarAnswer} />;
+  } else if (item.kind === 'question') {
+    body = (
+      <>
+        <div className="mt-5 text-xl leading-snug font-bold" data-testid="sphinx-question">
+          {item.q}
+        </div>
+        <div className="mt-5 flex flex-col gap-2">
+          {item.options.map((o, i) => (
+            <button
+              key={i}
+              type="button"
+              disabled={locked}
+              onClick={() => questionAnswer(i)}
+              className={`press rounded-2xl border-2 px-4 py-3 text-left text-lg ${
+                picked === null ? 'border-stone-300 bg-white' : i === item.answer ? 'border-ok bg-okbg' : i === picked ? 'border-bad bg-badbg' : 'border-stone-200 bg-white opacity-60'
+              }`}
+            >
+              {o}
+            </button>
+          ))}
+        </div>
+      </>
+    );
   } else if (item.step.kind === 'tiles') {
     body = <PhraseTiles phrase={phrases[item.step.id]} tiles={item.step.tiles} locked={locked} onAnswer={phraseAnswer} />;
   } else {
@@ -125,7 +159,10 @@ export function TrialPlayer({ items: initial, words, phrases = {}, label = 'Ис
           {index + 1} / {items.length}
         </span>
       </div>
-      <div className="font-pixel text-xs tracking-widest text-amber-700 uppercase">{label}</div>
+      <div className="flex items-center gap-2">
+        <div className="font-pixel flex-1 text-xs tracking-widest text-amber-700 uppercase">{label}</div>
+        {aside}
+      </div>
       <div key={item.key} className={`flex flex-1 flex-col pt-2 ${locked ? 'pb-64' : ''}`} data-testid={item.kind === 'phrase' ? 'phrase-run' : undefined}>
         {body}
       </div>

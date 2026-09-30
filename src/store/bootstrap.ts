@@ -12,6 +12,8 @@ import { useErrands, type ErrandsData } from './errands';
 import { useMissions, type MissionsData } from './missions';
 import { useTrials } from './trials';
 import { useLetters, type LettersData } from './letters';
+import { useSphinx } from './sphinx';
+import type { SphinxRecord } from '../domain/sphinx';
 import type { TrialsData } from '../domain/trial';
 import type { JourneyRecord } from '../domain/chapters';
 
@@ -46,6 +48,7 @@ export async function bootstrap(): Promise<void> {
   useJourney.getState().hydrate(m.journey as Partial<JourneyRecord> | undefined);
   useErrands.getState().hydrate(m.errands as Partial<ErrandsData> | undefined);
   useLetters.getState().hydrate(m.letters as Partial<LettersData> | undefined);
+  useSphinx.getState().hydrate(m.sphinx as Partial<SphinxRecord> | undefined);
   useErrands.getState().refresh();
   // Перенос: при первом запуске обрывки и печати выдаются по уже пройденному.
   useJourney.getState().sync();

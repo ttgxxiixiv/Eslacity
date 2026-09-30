@@ -41,11 +41,13 @@ export type TrialItem =
   | { kind: 'word'; step: Step }
   | { kind: 'phrase'; step: PhraseStep }
   /** `cardId` — карточка, к которой относится ответ (выражение в задании «Эха»), иначе правило `g:<id упражнения>`. */
-  | { kind: 'grammar'; item: GrammarItem; cardId?: string };
+  | { kind: 'grammar'; item: GrammarItem; cardId?: string }
+  /** Вопрос на понимание по-русски (загадки слуха и мудрости Сфинкса): варианты уже перемешаны. */
+  | { kind: 'question'; id: string; q: string; options: string[]; answer: number };
 
 /** Задание испытания с вводом с клавиатуры. */
 export const isTypedItem = (it: TrialItem) =>
-  it.kind === 'word' ? it.step.kind === 'type' || it.step.kind === 'listen-type' : it.kind === 'phrase' ? it.step.kind === 'type' : TYPED_KINDS.has(it.item.ex.kind);
+  it.kind === 'word' ? it.step.kind === 'type' || it.step.kind === 'listen-type' : it.kind === 'phrase' ? it.step.kind === 'type' : it.kind === 'grammar' && TYPED_KINDS.has(it.item.ex.kind);
 
 /**
  * Задания испытания: до пяти выученных фраз главы и слова главы до пятнадцати, каждое по одному разу.

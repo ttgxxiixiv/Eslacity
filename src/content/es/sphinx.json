@@ -1,4 +1,21 @@
 {
+  "sphinx": {
+    "name": "la Esfinge",
+    "voice": {"pitch": 0.6, "rate": 0.8},
+    "speech": {
+      "greeting": {"es": "Viajero, ha llegado usted hasta las puertas de la Bóveda. Muchos lo intentaron; pocos supieron hablar. Yo no pregunto por la fuerza, sino por la palabra.", "ru": "Путник, вы дошли до Врат Хранилища. Многие пытались, немногие сумели говорить. Я спрашиваю не о силе, а о слове."},
+      "again": {"es": "Vuelve usted a mis puertas. Las preguntas han cambiado; la Bóveda sigue esperando.", "ru": "Вы снова у моих Врат. Вопросы стали другими, а Хранилище всё ещё ждёт."},
+      "hear": {"es": "Primer enigma: escuche. Quien oye solo las palabras no ha oído nada. Dígame qué quisieron decir.", "ru": "Первая загадка: слушайте. Кто слышит одни слова, не услышал ничего. Скажите мне, что хотели сказать."},
+      "word": {"es": "Segundo enigma: la palabra exacta. Una sola letra separa al sabio del que solo lo parece.", "ru": "Вторая загадка: точное слово. Одна буква отделяет мудреца от того, кто только кажется мудрым."},
+      "wisdom": {"es": "Tercer enigma: lea con calma y responda después, primero como ante un rey y luego como ante un amigo.", "ru": "Третья загадка: прочтите не спеша и ответьте, сначала как перед королём, потом как перед другом."},
+      "pass": {"es": "Ha respondido usted bien. Una puerta menos entre usted y la Bóveda.", "ru": "Вы ответили верно. Одной дверью меньше между вами и Хранилищем."},
+      "fail": {"es": "No. Le quito un corazón y le hago otra pregunta. La paciencia también es una respuesta.", "ru": "Нет. Я забираю одно сердце и задаю другой вопрос. Терпение — тоже ответ."},
+      "rest": {"es": "Sus corazones se han apagado. Váyase y vuelva dentro de tres días; entonces le preguntaré otra cosa.", "ru": "Ваши сердца погасли. Уходите и возвращайтесь через три дня: тогда я спрошу о другом."},
+      "waiting": {"es": "Todavía no ha pasado el tiempo. Las puertas no se abren a quien tiene prisa.", "ru": "Время ещё не прошло. Врата не открываются тому, кто спешит."},
+      "victory": {"es": "Ha oído lo que no se dijo, ha encontrado la palabra exacta y ha hablado a reyes y a amigos. Pase usted: la Bóveda es suya.", "ru": "Вы услышали несказанное, нашли точное слово и говорили и с королями, и с друзьями. Проходите: Хранилище ваше."}
+    },
+    "gloss": {"bóveda": "хранилище", "letra": "буква", "tercer": "третий", "suya": "ваша"}
+  },
   "word": [
     {
       "id": "sx:word.1",
