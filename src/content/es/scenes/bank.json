@@ -122,6 +122,31 @@
         {"q": "Чем пахло от сеньора?", "options": ["Кофе", "Трубочным табаком", "Морем"], "answer": 1}
       ],
       "gloss": {"antiguas": "старинные", "tabaco": "табак", "pipa": "трубка (курительная)", "bancario": "банковский"}
+    },
+    {
+      "id": "sc:bank.5",
+      "chapter": 5,
+      "npc": "gomez",
+      "lines": [
+        {"who": "npc", "es": "Buenos días. Me alegro de verle. Tengo algo extraño que enseñarle.", "ru": "Добрый день. Рад вас видеть. Мне нужно показать вам кое-что странное."},
+        {"who": "hero", "es": "¿Qué ha pasado?", "ru": "Что случилось?"},
+        {"who": "npc", "es": "Revisando cuentas antiguas, encontré una de hace cien años. El titular: el pregonero de la ciudad.", "ru": "Проверяя старые счета, я нашёл один столетней давности. Владелец — городской глашатай."},
+        {"who": "hero", "es": "¿Y tiene dinero?", "ru": "И на нём есть деньги?"},
+        {"who": "npc", "es": "Todo su sueldo de diez años. Nunca gastó ni un céntimo.", "ru": "Вся его зарплата за десять лет. Он не потратил ни сентимо."},
+        {"who": "hero", "es": "Qué raro. ¿Y por qué lo enseña ahora?", "ru": "Странно. А почему вы показываете это сейчас?"},
+        {"who": "npc", "es": "Porque ayer alguien depositó en esa cuenta una moneda antigua y una nota.", "ru": "Потому что вчера кто-то положил на этот счёт старинную монету и записку."},
+        {"who": "hero", "es": "¿Qué dice la nota?", "ru": "Что в записке?"},
+        {"who": "npc", "es": "«No quiero dinero. Quiero una respuesta». Con la letra del pregonero.", "ru": "«Мне не нужны деньги. Мне нужен ответ». Почерком глашатая."},
+        {"who": "hero", "es": "Entonces está cerca. Y todavía espera.", "ru": "Значит, он рядом. И всё ещё ждёт."},
+        {"who": "npc", "es": "Eso parece. Y mientras tanto, el eco cambia nuestras cartas: los clientes reciben «Oye, págame ya».", "ru": "Похоже на то. А тем временем эхо меняет наши письма: клиенты получают «Эй, плати давай»."}
+      ],
+      "questions": [
+        {"q": "Чей столетний счёт нашёл Гомес?", "options": ["Томаса", "Городского глашатая", "Мэра"], "answer": 1},
+        {"q": "Что лежит на счёте?", "options": ["Зарплата за десять лет, ни сентимо не потрачено", "Ничего", "Только старые монеты"], "answer": 0},
+        {"q": "Что было в записке?", "options": ["«Приходи»", "«Верните плащ»", "«Мне не нужны деньги. Мне нужен ответ»"], "answer": 2},
+        {"q": "Что эхо делает с письмами банка?", "options": ["Делает их грубыми и разговорными", "Стирает их", "Переводит на другой язык"], "answer": 0}
+      ],
+      "gloss": {"pregonero": "глашатай", "titular": "владелец (счёта)", "sueldo": "зарплата", "céntimo": "сентимо (цент)", "depositó": "положил (от depositar)", "letra": "почерк", "antiguas": "старые", "antigua": "старинная"}
     }
   ]
 }

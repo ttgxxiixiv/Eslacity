@@ -89,6 +89,30 @@
         "shore": {"kind": "answer", "task": "Скажите, что останетесь у берега.", "branches": [{"phrase": "ph:beach.quedo-orilla", "next": "end"}], "wrong": {"es": "¿Te quedas en las rocas? Como Andrés, de noche.", "ru": "Остаёшься на камнях? Как Андрес ночью."}},
         "end": {"kind": "say", "es": "Buena idea. Y toma esto: Andrés lo dejó anoche en las rocas. Un trozo del mapa del bosque. Creo que quería que lo encontraras.", "ru": "Правильно. И держи: Андрес оставил это вчера ночью на камнях. Обрывок карты леса. Думаю, он хотел, чтобы ты его нашёл."}
       }
+    },
+    {
+      "id": "ms:beach.5",
+      "chapter": 5,
+      "npc": "nacho",
+      "scene": "sc:beach.5",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Todavía falta para la noche. ¿Nos damos un baño mientras tanto?", "ru": "До ночи ещё далеко. Искупаемся пока?", "next": "swim"},
+        "swim": {"kind": "answer", "task": "Спросите: может, окунёмся?", "branches": [{"phrase": "ph:beach.nos-damos-chapuzon", "next": "swimsay"}], "wrong": {"es": "¿Un chapuzón en el eco? Mejor en el mar.", "ru": "Окунуться в эхо? Лучше в море."}},
+        "swimsay": {"kind": "say", "es": "¡Venga! ... Uf, qué fría. Mira: se hace de noche. El faro ya da la primera vuelta... ¡Ahí está! Salúdalo tú.", "ru": "Давай! ... Уф, холодная. Смотри: темнеет. Маяк уже делает первый круг... Вот он! Поздоровайся ты.", "next": "greet"},
+        "greet": {"kind": "answer", "task": "Поздоровайтесь с глашатаем. Он сто лет ждёт дружеского слова — по-свойски.", "register": "informal", "branches": [{"phrase": "ph:beach.hola-amigo-que-tal", "next": "greetsay"}, {"phrase": "ph:beach.buenas-noches-caballero", "next": "greetsay"}], "wrong": {"es": "¿Qué le has dicho? Se ha dado la vuelta hacia el mar.", "ru": "Что ты ему сказал? Он отвернулся к морю."}, "tone": {"es": "Oh, no. «Señor, ¿cómo se encuentra?»... Ha contestado «Muy bien, gracias» y se ha puesto triste. ¡Háblale como a un amigo!", "ru": "Ох, нет. «Сеньор, как вы себя чувствуете?»... Он ответил «Очень хорошо, спасибо» и погрустнел. Говори с ним как с другом!"}},
+        "greetsay": {"kind": "say", "es": "¡Ha sonreído! Dice: «Os espero en el Laberinto». Y se va a la niebla... Yo voy detrás, ahora mismo, solo.", "ru": "Он улыбнулся! Говорит: «Жду вас в Лабиринте». И уходит в туман... Я пойду за ним, прямо сейчас, один.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:beach.no-vayas-solo-niebla", "next": "object", "move": "object"}, {"phrase": "ph:beach.ve-si-lo-ves", "next": "concede", "move": "concede"}, {"phrase": "ph:beach.vamos-juntos-amanecer", "next": "compromise", "move": "compromise"}], "wrong": {"es": "¿Qué? Te hablo de la niebla y del pregonero.", "ru": "Что? Я про туман и про глашатая."}},
+        "object": {"kind": "say", "es": "Tienes razón, soy socorrista y lo sé: en la niebla nadie va solo.", "ru": "Ты прав, я спасатель и знаю: в туман в одиночку не ходят.", "next": "current"},
+        "concede": {"kind": "say", "es": "Vale, voy. Llevo la linterna y el silbato. Si no vuelvo en una hora, avisa a Vega.", "ru": "Ладно, иду. Возьму фонарь и свисток. Если не вернусь через час, предупреди Вегу.", "next": "current"},
+        "compromise": {"kind": "say", "es": "Al amanecer, juntos. Con luz se ve mejor el camino.", "ru": "На рассвете, вместе. При свете дорогу лучше видно.", "next": "current"},
+        "current": {"kind": "answer", "task": "Скажите, что сегодня сильное течение.", "branches": [{"phrase": "ph:beach.hoy-hay-mucha", "next": "currentsay"}], "wrong": {"es": "¿Mucho eco? Hoy, bastante.", "ru": "Много эха? Сегодня хватает."}},
+        "currentsay": {"kind": "say", "es": "Sí, por eso hoy la bandera es roja. ¿Te quedas en el agua?", "ru": "Да, поэтому сегодня флаг красный. Останешься в воде?", "next": "shore"},
+        "shore": {"kind": "answer", "task": "Скажите, что останетесь у кромки воды.", "branches": [{"phrase": "ph:beach.quedo-orilla", "next": "shoresay"}], "wrong": {"es": "¿Te quedas en el eco? Allí no se nada.", "ru": "Останешься в эхе? Там не плавают."}},
+        "shoresay": {"kind": "say", "es": "Buena decisión. ¿Vemos la puesta de sol antes de irnos?", "ru": "Правильное решение. Посмотрим закат, перед тем как уйти?", "next": "sunset"},
+        "sunset": {"kind": "answer", "task": "Предложите пойти посмотреть закат.", "branches": [{"phrase": "ph:beach.vamos-ver-puesta", "next": "end"}], "wrong": {"es": "¿La puesta de eco? Esa no se ve.", "ru": "Закат эха? Его не видно."}},
+        "end": {"kind": "say", "es": "Vamos. Y toma: el pregonero dejó esto en la arena, junto a sus huellas. Un trozo del mapa del Laberinto.", "ru": "Пойдём. И держи: глашатай оставил это на песке, рядом со своими следами. Обрывок карты Лабиринта."}
+      }
     }
   ]
 }

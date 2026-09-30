@@ -90,6 +90,30 @@
         "cramp2": {"kind": "answer", "task": "Скажите, что у вас свело ногу.", "branches": [{"phrase": "ph:gym.ha-dado-calambre", "next": "end"}], "wrong": {"es": "¿Te ha dado un cuervo? No, un calambre.", "ru": "Тебе дали ворона? Нет, судорогу."}},
         "end": {"kind": "say", "es": "¡Estira, estira! Ya pasa. Toma, bebe agua. Y esto: lo encontré en el jardín, donde estaba el hombre. Un trozo del mapa del bosque.", "ru": "Тяни, тяни! Уже проходит. Держи, попей воды. И вот ещё: я нашла это в саду, где был тот человек. Обрывок карты леса."}
       }
+    },
+    {
+      "id": "ms:gym.5",
+      "chapter": 5,
+      "npc": "sara",
+      "scene": "sc:gym.5",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Primero, lo de siempre. ¿Qué hacemos antes de empezar?", "ru": "Сначала — как обычно. Что мы делаем перед началом?", "next": "warm"},
+        "warm": {"kind": "answer", "task": "Скажите, что сначала надо размяться.", "branches": [{"phrase": "ph:gym.primero-hay-calentar", "next": "warmsay"}], "wrong": {"es": "¿Calentar el eco? Ya está bastante caliente.", "ru": "Разогреть эхо? Оно и так горячее."}},
+        "warmsay": {"kind": "say", "es": "Exacto. Ahora, veinte escalones... Uf, estoy cansada. ¿Y si no llego nunca a los mil?", "ru": "Точно. Теперь двадцать ступенек... Уф, я устала. А вдруг я никогда не дойду до тысячи?", "next": "cheer"},
+        "cheer": {"kind": "answer", "task": "Подбодрите Сару. Вы тренируетесь вместе — по-свойски.", "register": "informal", "branches": [{"phrase": "ph:gym.vamos-que-puedes", "next": "cheersay"}, {"phrase": "ph:gym.estoy-seguro-usted", "next": "cheersay"}], "wrong": {"es": "¿Qué? No te entiendo con tanto ruido.", "ru": "Что? Я тебя не слышу из-за шума."}, "tone": {"es": "¿«Usted»? ¡Que soy tu entrenadora, no tu jefa! Así me animas poco.", "ru": "«Вы»? Я твой тренер, а не начальница! Так ты меня не подбодришь."}},
+        "cheersay": {"kind": "say", "es": "¡Gracias! Oye, estoy pensando en cancelar las clases de grupo hasta que se vaya el eco.", "ru": "Спасибо! Слушай, я думаю отменить групповые занятия, пока не уйдёт эхо.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:gym.no-canceles-clases", "next": "object", "move": "object"}, {"phrase": "ph:gym.cancelalas-semana", "next": "concede", "move": "concede"}, {"phrase": "ph:gym.clases-al-aire", "next": "compromise", "move": "compromise"}], "wrong": {"es": "¿Qué? Te hablo de las clases, no de los escalones.", "ru": "Что? Я про занятия, а не про ступени."}},
+        "object": {"kind": "say", "es": "Tienes razón, la gente viene a moverse. Gritaré más fuerte que el eco.", "ru": "Ты прав, люди приходят двигаться. Буду кричать громче эха.", "next": "fit"},
+        "concede": {"kind": "say", "es": "Una semana sin clases. Así tú y yo entrenamos para los mil escalones.", "ru": "Неделя без занятий. Зато мы с тобой потренируемся для тысячи ступеней.", "next": "fit"},
+        "compromise": {"kind": "say", "es": "¡Al aire libre! En el parque no hay paredes, y el eco se pierde.", "ru": "На свежем воздухе! В парке нет стен, и эхо теряется.", "next": "fit"},
+        "fit": {"kind": "answer", "task": "Скажите, что хотите прийти в форму.", "branches": [{"phrase": "ph:gym.quiero-ponerme-forma", "next": "fitsay"}], "wrong": {"es": "¿En forma de eco? Mejor en forma de persona.", "ru": "В форме эха? Лучше в форме человека."}},
+        "fitsay": {"kind": "say", "es": "Para eso estoy yo. Te preparo algo especial.", "ru": "Для этого я и есть. Подготовлю тебе что-то особенное.", "next": "routine"},
+        "routine": {"kind": "answer", "task": "Попросите составить вам программу тренировок.", "branches": [{"phrase": "ph:gym.hace-rutina", "next": "routinesay"}], "wrong": {"es": "¿Una rutina para el eco? Él repite, no entrena.", "ru": "Программу для эха? Оно повторяет, а не тренируется."}},
+        "routinesay": {"kind": "say", "es": "Hecho: escaleras cada día. ¿Qué tal las piernas?", "ru": "Готово: лестницы каждый день. Как ноги?", "next": "legs"},
+        "legs": {"kind": "answer", "task": "Скажите, что вам нужно больше силы в ногах.", "branches": [{"phrase": "ph:gym.necesito-mas-fuerza", "next": "end"}], "wrong": {"es": "¿Más fuerza en el eco? No, gracias.", "ru": "Больше силы эху? Нет уж, спасибо."}},
+        "end": {"kind": "say", "es": "Con mi rutina, la tendrás. Y toma esto: estaba en la nota de mi madre. Un trozo del mapa del Laberinto con los mil escalones dibujados.", "ru": "С моей программой будет. И держи: это было в маминой записке. Обрывок карты Лабиринта с нарисованной тысячей ступеней."}
+      }
     }
   ]
 }

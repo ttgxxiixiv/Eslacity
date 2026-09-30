@@ -122,6 +122,31 @@
         {"q": "Чем пахло от синьора?", "options": ["Кофе", "Трубочным табаком", "Морем"], "answer": 1}
       ],
       "gloss": {"tabacco": "табак", "pipa": "трубка (курительная)"}
+    },
+    {
+      "id": "sc:bank.5",
+      "chapter": 5,
+      "npc": "ferri",
+      "lines": [
+        {"who": "npc", "es": "Buonasera. Sono contento di vederla. Devo mostrarle una cosa strana.", "ru": "Добрый вечер. Рад вас видеть. Мне нужно показать вам кое-что странное."},
+        {"who": "hero", "es": "Che cosa è successo?", "ru": "Что случилось?"},
+        {"who": "npc", "es": "Controllando i vecchi conti, ne ho trovato uno di cento anni fa. Il titolare: il banditore della città.", "ru": "Проверяя старые счета, я нашёл один столетней давности. Владелец — городской глашатай."},
+        {"who": "hero", "es": "E ci sono soldi?", "ru": "И на нём есть деньги?"},
+        {"who": "npc", "es": "Tutto il suo stipendio di dieci anni. Non ha mai speso un centesimo.", "ru": "Вся его зарплата за десять лет. Он не потратил ни чентезимо."},
+        {"who": "hero", "es": "Che strano. E perché me lo mostra adesso?", "ru": "Странно. А почему вы показываете это сейчас?"},
+        {"who": "npc", "es": "Perché ieri qualcuno ha versato su quel conto una vecchia moneta e un biglietto.", "ru": "Потому что вчера кто-то положил на этот счёт старинную монету и записку."},
+        {"who": "hero", "es": "Che cosa dice il biglietto?", "ru": "Что в записке?"},
+        {"who": "npc", "es": "«Non voglio soldi. Voglio una risposta». Con la calligrafia del banditore.", "ru": "«Мне не нужны деньги. Мне нужен ответ». Почерком глашатая."},
+        {"who": "hero", "es": "Allora è vicino. E aspetta ancora.", "ru": "Значит, он рядом. И всё ещё ждёт."},
+        {"who": "npc", "es": "Sembra di sì. E intanto l'eco cambia le nostre lettere: i clienti ricevono «Ehi, pagami subito».", "ru": "Похоже на то. А тем временем эхо меняет наши письма: клиенты получают «Эй, плати давай»."}
+      ],
+      "questions": [
+        {"q": "Чей столетний счёт нашёл доктор Ферри?", "options": ["Томмазо", "Городского глашатая", "Мэра"], "answer": 1},
+        {"q": "Что лежит на счёте?", "options": ["Зарплата за десять лет, ни чентезимо не потрачено", "Ничего", "Только старые монеты"], "answer": 0},
+        {"q": "Что было в записке?", "options": ["«Приходи»", "«Верните плащ»", "«Мне не нужны деньги. Мне нужен ответ»"], "answer": 2},
+        {"q": "Что эхо делает с письмами банка?", "options": ["Делает их грубыми и разговорными", "Стирает их", "Переводит на другой язык"], "answer": 0}
+      ],
+      "gloss": {"banditore": "глашатай", "titolare": "владелец (счёта)", "stipendio": "зарплата", "centesimo": "чентезимо (цент)", "calligrafia": "почерк", "intanto": "тем временем", "subito": "сразу, немедленно"}
     }
   ]
 }

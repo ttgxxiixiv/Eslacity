@@ -121,6 +121,31 @@
         {"q": "Кого подозревает Тонино?", "options": ["Почтальона", "Андреа", "Начальника станции"], "answer": 2}
       ],
       "gloss": {"tabacco": "табак", "pipa": "трубка (курительная)", "piume": "перья", "corvo": "ворон", "postino": "почтальон", "faccia": "лицо", "fuma": "курит (fumare)"}
+    },
+    {
+      "id": "sc:barber.5",
+      "chapter": 5,
+      "npc": "tonino",
+      "lines": [
+        {"who": "npc", "es": "Vieni, vieni! Guarda il vecchio specchio di mio nonno. Stamattina mi ha parlato.", "ru": "Иди сюда, иди! Посмотри на старое зеркало моего деда. Сегодня утром оно со мной заговорило."},
+        {"who": "hero", "es": "Lo specchio parla?", "ru": "Зеркало говорит?"},
+        {"who": "npc", "es": "Ripete quello che dico, ma con un altro tono. Gli dico «Come sono bello!» e risponde «Lei è presentabile».", "ru": "Повторяет то, что я говорю, но другим тоном. Я ему: «Какой я красавец!», а оно: «Вы выглядите прилично»."},
+        {"who": "hero", "es": "L'eco arriva anche qui.", "ru": "Эхо и сюда добралось."},
+        {"who": "npc", "es": "E c'è di più. Mio nonno faceva la barba al banditore ogni domenica, su questa stessa sedia.", "ru": "И ещё кое-что. Мой дед брил глашатая каждое воскресенье, в этом самом кресле."},
+        {"who": "hero", "es": "Parlavano molto?", "ru": "Они много разговаривали?"},
+        {"who": "npc", "es": "Niente. Il banditore diceva: «Qui nessuno mi parla. Solo le forbici».", "ru": "Нисколько. Глашатай говорил: «Здесь со мной никто не разговаривает. Только ножницы»."},
+        {"who": "hero", "es": "Com'era solo.", "ru": "Как же он был одинок."},
+        {"who": "npc", "es": "Mio nonno se ne è pentito tutta la vita. Diceva che era un uomo buono, ma molto serio.", "ru": "Дед всю жизнь жалел об этом. Говорил, что это был хороший человек, только очень серьёзный."},
+        {"who": "hero", "es": "E lo specchio ti dice qualcosa di lui?", "ru": "А зеркало говорит тебе что-нибудь о нём?"},
+        {"who": "npc", "es": "Ieri sera ha chiesto: «Ti ricordi di me?». Quasi morivo dallo spavento.", "ru": "Вчера вечером спросило: «Ты меня помнишь?». Я чуть не умер от страха."}
+      ],
+      "questions": [
+        {"q": "Что умеет старое зеркало деда Тонино?", "options": ["Показывает будущее", "Повторяет слова другим тоном", "Светится ночью"], "answer": 1},
+        {"q": "Что делал дед Тонино по воскресеньям?", "options": ["Брил глашатая", "Ходил на рынок", "Пел на площади"], "answer": 0},
+        {"q": "Что говорил глашатай в парикмахерской?", "options": ["«Сделайте покороче»", "«Я скоро вернусь»", "«Здесь со мной никто не разговаривает. Только ножницы»"], "answer": 2},
+        {"q": "Что зеркало спросило вчера вечером?", "options": ["«Ты меня помнишь?»", "«Который час?»", "«Где карта?»"], "answer": 0}
+      ],
+      "gloss": {"banditore": "глашатай", "presentabile": "прилично выглядящий", "forbici": "ножницы", "pentito": "пожалел (от pentirsi)", "spavento": "испуг", "stessa": "тот же самый (questa stessa sedia)"}
     }
   ]
 }

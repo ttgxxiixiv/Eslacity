@@ -121,6 +121,31 @@
         {"q": "Кто это был?", "options": ["Альдо", "Ферри", "Андреа, который сто лет прожил в башне"], "answer": 2}
       ],
       "gloss": {"pipa": "трубка (курительная)", "corvo": "ворон", "spalla": "плечо", "piangeva": "плакал (piangere)", "faccia": "лицо", "faro": "маяк", "andrea": "Андреа (имя)"}
+    },
+    {
+      "id": "sc:beach.5",
+      "chapter": 5,
+      "npc": "marco",
+      "lines": [
+        {"who": "npc", "es": "Ieri notte l'ho visto. L'uomo con il mantello grigio, qui, sulla riva.", "ru": "Вчера ночью я его видел. Человека в сером плаще, здесь, на берегу."},
+        {"who": "hero", "es": "Il banditore? Che cosa faceva?", "ru": "Глашатая? Что он делал?"},
+        {"who": "npc", "es": "Parlava al mare come in un discorso: «Cittadini, vi comunico che...». E il mare gli restituiva la voce.", "ru": "Говорил морю, как с трибуны: «Граждане, сообщаю вам, что...». А море возвращало ему голос."},
+        {"who": "hero", "es": "Gli hai parlato?", "ru": "Ты с ним говорил?"},
+        {"who": "npc", "es": "Sì. Senza pensare, gli ho detto: «Ehi, amico! Hai freddo?».", "ru": "Да. Не думая, сказал ему: «Эй, друг! Тебе не холодно?»."},
+        {"who": "hero", "es": "E cos'è successo?", "ru": "И что было?"},
+        {"who": "npc", "es": "È rimasto fermo. E ha sorriso. Ha detto: «Sono cento anni che nessuno mi dà del tu».", "ru": "Он замер. И улыбнулся. Сказал: «Сто лет со мной никто не говорил на ты»."},
+        {"who": "hero", "es": "Allora è questo che aspetta. Una voce da amico.", "ru": "Значит, вот чего он ждёт. Дружеского голоса."},
+        {"who": "npc", "es": "Credo di sì. Poi è andato verso la nebbia, per la strada del bosco.", "ru": "Думаю, да. Потом он ушёл в туман, по дороге к лесу."},
+        {"who": "hero", "es": "Tornerà stanotte?", "ru": "Он вернётся сегодня ночью?"},
+        {"who": "npc", "es": "Mi ha detto: «Quando la luce del faro farà tre giri». Stanotte lo aspettiamo insieme.", "ru": "Он сказал: «Когда свет маяка сделает три круга». Сегодня ночью ждём его вместе."}
+      ],
+      "questions": [
+        {"q": "Где Марко видел человека в сером плаще?", "options": ["В порту", "На берегу моря", "На вокзале"], "answer": 1},
+        {"q": "Как глашатай говорил с морем?", "options": ["Как с трибуны, очень официально", "Шёпотом", "Пел песню"], "answer": 0},
+        {"q": "Что сказал глашатай, когда Марко обратился к нему на ты?", "options": ["«Как вы смеете»", "«Я занят»", "«Сто лет со мной никто не говорил на ты»"], "answer": 2},
+        {"q": "Когда глашатай обещал вернуться?", "options": ["Когда свет маяка сделает три круга", "Утром", "Через год"], "answer": 0}
+      ],
+      "gloss": {"banditore": "глашатай", "mantello": "плащ", "riva": "берег", "discorso": "речь (с трибуны)", "cittadini": "граждане", "restituiva": "возвращало (от restituire)", "faro": "маяк", "giri": "круги, обороты"}
     }
   ]
 }

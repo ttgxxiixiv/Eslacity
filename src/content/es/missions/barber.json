@@ -85,6 +85,28 @@
         "appoint": {"kind": "answer", "task": "Скажите, что хотите записаться на завтра.", "branches": [{"phrase": "ph:barber.quiero-pedir-cita", "next": "end"}], "wrong": {"es": "¿Una cita con el cuervo? Él no tiene agenda.", "ru": "Записаться к ворону? У него нет расписания."}},
         "end": {"kind": "say", "es": "Mañana a las diez. Y toma esto: el señor de la pipa lo dejó en el sillón. Un trozo del mapa del bosque, con una pluma negra dentro.", "ru": "Завтра в десять. И держи: сеньор с трубкой оставил это в кресле. Обрывок карты леса, а в нём чёрное перо."}
       }
+    },
+    {
+      "id": "ms:barber.5",
+      "chapter": 5,
+      "npc": "toni",
+      "scene": "sc:barber.5",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Entra la señora del alcalde, mi clienta más seria. Salúdala tú, que yo le hablo de tú a todo el mundo.", "ru": "Входит жена мэра, моя самая строгая клиентка. Поздоровайся ты, а то я со всеми на ты.", "next": "greet"},
+        "greet": {"kind": "answer", "task": "Поприветствуйте жену мэра и спросите, что она желает. Официально.", "register": "formal", "branches": [{"phrase": "ph:barber.buenos-dias-senora", "next": "greetsay"}, {"phrase": "ph:barber.hola-que-te-hago", "next": "greetsay"}], "wrong": {"es": "¿Qué le has dicho? Se ha sentado y no dice nada.", "ru": "Что ты ей сказал? Она села и молчит."}, "tone": {"es": "¡Uy! «¿Qué te hago?» Mira qué cara pone. Con ella, de usted, siempre.", "ru": "Ой! «Что тебе сделать?» Посмотри, какое у неё лицо. С ней всегда на вы."}},
+        "greetsay": {"kind": "say", "es": "Quiere solo las puntas. Oye, estoy pensando en tirar el espejo de mi abuelo. Me da miedo.", "ru": "Она хочет только подровнять кончики. Слушай, я думаю выбросить дедушкино зеркало. Оно меня пугает.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:barber.espejo-es-recuerdo", "next": "object", "move": "object"}, {"phrase": "ph:barber.tiralo-si-asusta", "next": "concede", "move": "concede"}, {"phrase": "ph:barber.tapalo-con-toalla", "next": "compromise", "move": "compromise"}], "wrong": {"es": "¿Qué? Te hablo del espejo, no de la señora.", "ru": "Что? Я про зеркало, а не про сеньору."}},
+        "object": {"kind": "say", "es": "Tienes razón. Además, si el pregonero habla por él, quiero escucharlo.", "ru": "Ты прав. К тому же, если через него говорит глашатай, я хочу его услышать.", "next": "appointment"},
+        "concede": {"kind": "say", "es": "Sí... lo llevo al sótano. Pero me da pena, era de mi abuelo.", "ru": "Да... отнесу его в подвал. Но жалко, оно дедушкино.", "next": "appointment"},
+        "compromise": {"kind": "say", "es": "¡Una toalla! Así duermo tranquilo y el espejo sigue aquí.", "ru": "Полотенце! Так я буду спать спокойно, а зеркало останется здесь.", "next": "appointment"},
+        "appointment": {"kind": "answer", "task": "Скажите, что хотите записаться на завтра.", "branches": [{"phrase": "ph:barber.quiero-pedir-cita", "next": "appointmentsay"}], "wrong": {"es": "¿Una cita con el espejo? Mejor conmigo.", "ru": "Записаться к зеркалу? Лучше ко мне."}},
+        "appointmentsay": {"kind": "say", "es": "Mañana a las diez. ¿Qué te hago?", "ru": "Завтра в десять. Что тебе сделать?", "next": "trim"},
+        "trim": {"kind": "answer", "task": "Скажите: только немного подровнять.", "branches": [{"phrase": "ph:barber.solo-recortar-poco", "next": "trimsay"}], "wrong": {"es": "¿Recortar el eco? Ojalá se pudiera.", "ru": "Подстричь эхо? Если бы так можно было."}},
+        "trimsay": {"kind": "say", "es": "Hecho. ¿Algo más? Te veo con la cara sin afeitar.", "ru": "Договорились. Что-нибудь ещё? Вижу, ты не брит.", "next": "shave"},
+        "shave": {"kind": "answer", "task": "Спросите, может ли он вас побрить.", "branches": [{"phrase": "ph:barber.puede-afeitar", "next": "end"}], "wrong": {"es": "¿Afeitar el espejo? Ese no tiene barba.", "ru": "Побрить зеркало? У него нет бороды."}},
+        "end": {"kind": "say", "es": "Claro. Y toma: detrás del espejo había un papel viejo. Un trozo del mapa del Laberinto, con la letra de mi abuelo: «Para el pregonero, por si vuelve».", "ru": "Конечно. И держи: за зеркалом была старая бумага. Обрывок карты Лабиринта, с почерком деда: «Для глашатая, если вернётся»."}
+      }
     }
   ]
 }

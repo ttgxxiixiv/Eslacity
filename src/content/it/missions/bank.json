@@ -85,6 +85,30 @@
         "statement": {"kind": "answer", "task": "Скажите, что вам нужна выписка по счёту.", "branches": [{"phrase": "ph:bank.serve-estratto-conto", "next": "end"}], "wrong": {"es": "Un estratto di pipa? Non fumo.", "ru": "Выписку из трубки? Я не курю."}},
         "end": {"kind": "say", "es": "Ecco. E prenda questo: il signore delle monete antiche l'ha dimenticato ieri allo sportello. Un pezzo della mappa del bosco.", "ru": "Держите. И вот ещё: синьор со старыми монетами вчера забыл это у окошка. Обрывок карты леса."}
       }
+    },
+    {
+      "id": "ms:bank.5",
+      "chapter": 5,
+      "npc": "ferri",
+      "scene": "sc:bank.5",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Si accomodi, prego. Desidera qualcosa prima di vedere il conto del banditore?", "ru": "Садитесь, пожалуйста. Хотите чего-нибудь, прежде чем посмотреть счёт глашатая?", "next": "statement"},
+        "statement": {"kind": "answer", "task": "Скажите, что вам нужна выписка по счёту.", "branches": [{"phrase": "ph:bank.serve-estratto-conto", "next": "statementsay"}], "wrong": {"es": "Un estratto dell'eco? Nessuna macchina lo stampa.", "ru": "Выписку по эху? Её не напечатает ни одна машина."}},
+        "statementsay": {"kind": "say", "es": "Ecco a lei. E adesso, il conto del banditore. Che cosa desidera vedere?", "ru": "Вот, пожалуйста. А теперь — счёт глашатая. Что вы хотите посмотреть?", "next": "show"},
+        "show": {"kind": "answer", "task": "Попросите доктора Ферри показать движения по счёту. Он говорит только официально.", "register": "formal", "branches": [{"phrase": "ph:bank.potrebbe-mostrarmi-movimenti", "next": "showsay"}, {"phrase": "ph:bank.fammi-vedere-conto", "next": "showsay"}], "wrong": {"es": "Scusi? In questa banca non capisco questa domanda.", "ru": "Простите? В этом банке я не понимаю такого вопроса."}, "tone": {"es": "«Senti, fammi vedere»? Per favore... Mi bastano le lettere dell'eco. Qui si dà del lei.", "ru": "«Слушай, покажи»? Прошу вас... Мне хватает писем от эха. Здесь говорят на вы."}},
+        "showsay": {"kind": "say", "es": "Ecco: cento anni senza movimenti, e ieri una moneta. Secondo le regole, un conto così vecchio si chiude. Lo chiudo.", "ru": "Вот: сто лет без движений, а вчера — монета. По правилам такой старый счёт закрывают. Я его закрою.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:bank.non-chiuda-conto", "next": "object", "move": "object"}, {"phrase": "ph:bank.puo-chiuderlo-regole", "next": "concede", "move": "concede"}, {"phrase": "ph:bank.aperto-altro-anno", "next": "compromise", "move": "compromise"}], "wrong": {"es": "Come dice? Parliamo del conto del banditore.", "ru": "Что вы сказали? Мы говорим о счёте глашатая."}},
+        "object": {"kind": "say", "es": "Ha ragione: ieri l'ha usato. Un conto vivo non si chiude.", "ru": "Вы правы: вчера он им пользовался. Живой счёт не закрывают.", "next": "savings"},
+        "concede": {"kind": "say", "es": "Lo chiudo... ma tengo il biglietto. Non tutti i giorni un cliente chiede una risposta.", "ru": "Закрою... но записку сохраню. Не каждый день клиент просит ответа.", "next": "savings"},
+        "compromise": {"kind": "say", "es": "Ancora un anno. Mi sembra ragionevole. Forse tra un anno qualcuno gli avrà risposto.", "ru": "Ещё на год. По-моему, разумно. Может, за год кто-нибудь ему ответит.", "next": "savings"},
+        "savings": {"kind": "answer", "task": "Спросите, есть ли у банка сберегательные книжки.", "branches": [{"phrase": "ph:bank.avete-libretti-risparmio", "next": "savingssay"}], "wrong": {"es": "Libretti per l'eco? Per fortuna, no.", "ru": "Книжки для эха? К счастью, нет."}},
+        "savingssay": {"kind": "say", "es": "Sì, diversi. Però le consiglio di non tenere i soldi cento anni, come il banditore.", "ru": "Да, несколько. Хотя советую вам не хранить деньги сто лет, как глашатай.", "next": "manager"},
+        "manager": {"kind": "answer", "task": "Скажите, что хотите поговорить с консультантом.", "branches": [{"phrase": "ph:bank.vorrei-parlare-con", "next": "managersay"}], "wrong": {"es": "Parlare con l'eco? Lui ripete e basta.", "ru": "Поговорить с эхом? Оно только повторяет."}},
+        "managersay": {"kind": "say", "es": "Il consulente, per lei, sono io. Altro?", "ru": "Для вас ваш консультант — я. Что-нибудь ещё?", "next": "scam"},
+        "scam": {"kind": "answer", "task": "Скажите, что письма от эха — похоже на мошенничество.", "branches": [{"phrase": "ph:bank.credo-che-sia", "next": "end"}], "wrong": {"es": "Una truffa nella mia banca? Qui c'è solo l'eco.", "ru": "Мошенничество в моём банке? Здесь только эхо."}},
+        "end": {"kind": "say", "es": "Può darsi. Per questo le do questo: era nella cassetta del banditore, vicino al biglietto. Un pezzo della mappa del Labirinto.", "ru": "Может быть. Поэтому я отдаю вам вот это: лежало в ячейке глашатая, рядом с запиской. Обрывок карты Лабиринта."}
+      }
     }
   ]
 }

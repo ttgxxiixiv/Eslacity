@@ -120,6 +120,31 @@
         {"q": "Чем пожилой синьор заплатил за билет к лесу?", "options": ["Картой", "Обрывком карты", "Очень старыми монетами"], "answer": 2}
       ],
       "gloss": {"criminale": "преступник", "corvo": "ворон", "postino": "почтальон", "fumo": "курю (fumare)", "fuma": "курит (fumare)", "pipa": "трубка (курительная)", "faccia": "лицо", "certo": "конечно"}
+    },
+    {
+      "id": "sc:station.5",
+      "chapter": 5,
+      "npc": "aldo",
+      "lines": [
+        {"who": "npc", "es": "Sei puntuale. Bene. Guarda questo orario: l'ho trovato in magazzino.", "ru": "Ты вовремя. Хорошо. Посмотри на это расписание: я нашёл его на складе."},
+        {"who": "hero", "es": "Di quando è?", "ru": "Какого оно года?"},
+        {"who": "npc", "es": "Di cento anni fa. Guarda questa riga: «Piazza Grande – Bosco. Sola andata».", "ru": "Столетнее. Посмотри на эту строчку: «Главная площадь — Лес. Только туда»."},
+        {"who": "hero", "es": "Sola andata? Chi viaggiava senza tornare?", "ru": "Только туда? Кто ездил без возврата?"},
+        {"who": "npc", "es": "Un solo passeggero, l'ultimo giorno. Ecco la firma: il banditore.", "ru": "Один-единственный пассажир, в последний день. Вот подпись: глашатай."},
+        {"who": "hero", "es": "Così è andato al Labirinto.", "ru": "Так он и уехал в Лабиринт."},
+        {"who": "npc", "es": "Sembra di sì. I binari ci sono ancora. Sono vecchi, ma un treno piccolo potrebbe passare.", "ru": "Похоже на то. Рельсы ещё есть. Старые, но маленький поезд пройдёт."},
+        {"who": "hero", "es": "Possiamo usarli?", "ru": "Мы можем ими воспользоваться?"},
+        {"who": "npc", "es": "Serve il permesso dell'ispettore. E l'ispettore è un uomo di regole.", "ru": "Нужно разрешение инспектора. А инспектор — человек правил."},
+        {"who": "hero", "es": "Gli parleremo con rispetto.", "ru": "Поговорим с ним уважительно."},
+        {"who": "npc", "es": "Sarà meglio. A proposito, l'eco annuncia i miei treni come se fossero feste. Che disastro!", "ru": "Уж постарайся. Кстати, эхо объявляет мои поезда так, будто это праздники. Какой кошмар!"}
+      ],
+      "questions": [
+        {"q": "Что Альдо нашёл на складе?", "options": ["Старый билет", "Столетнее расписание", "Фонарь"], "answer": 1},
+        {"q": "Что написано в строчке расписания?", "options": ["«Главная площадь — Лес. Только туда»", "«Лес — Площадь»", "«Поезд отменён»"], "answer": 0},
+        {"q": "Кто был единственным пассажиром?", "options": ["Томмазо", "Андреа", "Глашатай"], "answer": 2},
+        {"q": "Чьё разрешение нужно, чтобы пустить поезд?", "options": ["Инспектора", "Мэра", "Федерики"], "answer": 0}
+      ],
+      "gloss": {"magazzino": "склад", "banditore": "глашатай", "firma": "подпись", "binari": "рельсы, пути", "ispettore": "инспектор", "riga": "строчка", "disastro": "катастрофа, кошмар"}
     }
   ]
 }

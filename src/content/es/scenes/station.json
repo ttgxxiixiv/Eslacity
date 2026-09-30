@@ -120,6 +120,31 @@
         {"q": "Чем пожилой сеньор заплатил за билет к лесу?", "options": ["Картой", "Обрывком карты", "Очень старыми монетами"], "answer": 2}
       ],
       "gloss": {"criminal": "преступник", "cuervo": "ворон", "cartero": "почтальон", "fumo": "курю (fumar)", "fuma": "курит (fumar)", "pipa": "трубка (курительная)", "cara": "лицо"}
+    },
+    {
+      "id": "sc:station.5",
+      "chapter": 5,
+      "npc": "ramon",
+      "lines": [
+        {"who": "npc", "es": "Llegas puntual. Bien. Mira este horario: lo he encontrado en el almacén.", "ru": "Ты вовремя. Хорошо. Посмотри на это расписание: я нашёл его на складе."},
+        {"who": "hero", "es": "¿De cuándo es?", "ru": "Какого оно года?"},
+        {"who": "npc", "es": "De hace cien años. Mira esta línea: «Plaza Mayor – Bosque. Solo ida».", "ru": "Столетнее. Посмотри на эту строчку: «Главная площадь — Лес. Только туда»."},
+        {"who": "hero", "es": "¿Solo ida? ¿Quién viajaba sin volver?", "ru": "Только туда? Кто ездил без возврата?"},
+        {"who": "npc", "es": "Un solo pasajero, el último día. Aquí está la firma: el pregonero.", "ru": "Один-единственный пассажир, в последний день. Вот подпись: глашатай."},
+        {"who": "hero", "es": "Así se fue al Laberinto.", "ru": "Так он и уехал в Лабиринт."},
+        {"who": "npc", "es": "Eso parece. Las vías todavía existen. Están viejas, pero un tren pequeño podría pasar.", "ru": "Похоже на то. Рельсы ещё есть. Старые, но маленький поезд пройдёт."},
+        {"who": "hero", "es": "¿Podemos usarlas?", "ru": "Мы можем ими воспользоваться?"},
+        {"who": "npc", "es": "Hace falta permiso del inspector. Y el inspector es un hombre de reglas.", "ru": "Нужно разрешение инспектора. А инспектор — человек правил."},
+        {"who": "hero", "es": "Le hablaremos con respeto.", "ru": "Поговорим с ним уважительно."},
+        {"who": "npc", "es": "Más te vale. Por cierto, el eco anuncia mis trenes como si fueran fiestas. ¡Qué desastre!", "ru": "Уж постарайся. Кстати, эхо объявляет мои поезда так, будто это праздники. Какой кошмар!"}
+      ],
+      "questions": [
+        {"q": "Что Рамон нашёл на складе?", "options": ["Старый билет", "Столетнее расписание", "Фонарь"], "answer": 1},
+        {"q": "Что написано в строчке расписания?", "options": ["«Главная площадь — Лес. Только туда»", "«Лес — Площадь»", "«Поезд отменён»"], "answer": 0},
+        {"q": "Кто был единственным пассажиром?", "options": ["Томас", "Андрес", "Глашатай"], "answer": 2},
+        {"q": "Чьё разрешение нужно, чтобы пустить поезд?", "options": ["Инспектора", "Мэра", "Сары"], "answer": 0}
+      ],
+      "gloss": {"almacén": "склад", "pregonero": "глашатай", "firma": "подпись", "vías": "рельсы, пути", "inspector": "инспектор", "ida": "путь туда (solo ida — только туда)", "desastre": "катастрофа, кошмар", "existen": "существуют", "falta": "нужно (hace falta)"}
     }
   ]
 }
