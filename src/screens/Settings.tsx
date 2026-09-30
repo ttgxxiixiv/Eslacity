@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { VARIANT, VARIANTS } from '../config';
 import { currentVoice, hasLangVoice, speak, ttsSupported } from '../audio/tts';
 import { L, LANG, LANGS, switchLang, type Lang } from '../lang';
@@ -151,6 +152,16 @@ export function SettingsScreen() {
         </section>
 
         <AboutApp />
+
+        <section className="rounded-3xl bg-white p-4 shadow-sm">
+          <h2 className="font-bold">Входной тест</h2>
+          <p className="mt-1 text-sm text-stone-500">
+            Уже знаете {L.name.toLowerCase()}? Летописец расспросит, где вы бывали, и засчитает знакомые главы. Полученное не отнимается.
+          </p>
+          <Link to="/placement" className="press mt-3 block rounded-xl bg-wood/10 px-4 py-3 text-center font-semibold" data-testid="settings-placement">
+            Пройти входной тест
+          </Link>
+        </section>
 
         <section className="rounded-3xl bg-white p-4 shadow-sm">
           <h2 className="font-bold">Прогресс</h2>

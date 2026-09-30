@@ -1,7 +1,8 @@
 import { create } from 'zustand';
 import { db, emptyDay, type DayRow, type GrammarRow } from '../db/db';
 import { persist } from '../db/persist';
-import { dayKey, fromSm2, newCard, review, type Grade, type SrsCard } from '../domain/srs';
+import { dayKey, fromSm2, knownCard, newCard, review, type Grade, type SrsCard } from '../domain/srs';
+import { knownDays } from '../domain/placement';
 import { useMotivation } from './motivation';
 import { useSettings } from './settings';
 import { heroLevel } from '../domain/heroLevel';
@@ -22,6 +23,8 @@ interface ProgressState {
   completeGrammar(lessonId: string, score: number, now?: number): boolean;
   /** Проставить оценки SM-2. Новые слова получают карточку. */
   applyGrades(grades: Record<string, Grade>, now?: number): { newWords: number };
+  /** Слова, которые путник уже знает (входной тест): карточки на повторении, уже выученные не трогаются. */
+  addKnown(ids: string[], now?: number): number;
   /** Удалить карточки слов, которых больше нет в контенте. */
   dropCards(ids: string[]): void;
   addXp(n: number): void;
@@ -82,6 +85,21 @@ export const useProgress = create<ProgressState>((set, get) => ({
     set({ cards });
     if (changed.length) persist(() => db.cards.bulkPut(changed));
     return { newWords };
+  },
+
+  addKnown(ids, now = Date.now()) {
+    const cards = { ...get().cards };
+    const added: SrsCard[] = [];
+    for (const id of ids) {
+      if (cards[id]) continue;
+      const c = knownCard(id, now, knownDays(added.length));
+      cards[id] = c;
+      added.push(c);
+    }
+    if (!added.length) return 0;
+    set({ cards });
+    persist(() => db.cards.bulkPut(added));
+    return added.length;
   },
 
   dropCards(ids) {

@@ -29,7 +29,7 @@ let seq = 0;
  * Задания испытания места или стража по одному: слова — заданиями уроков, фразы — плитками и вводом, грамматика —
  * упражнениями уроков. Без повторов ошибок и без подсказки букв ответа. Ответы идут в журнал с режимом `trial`.
  */
-export function TrialPlayer({ items: initial, words, phrases = {}, label = 'Испытание', mode = 'trial', aside, onFinish, onExit }: {
+export function TrialPlayer({ items: initial, words, phrases = {}, label = 'Испытание', mode = 'trial', aside, onAnswer, onFinish, onExit }: {
   items: TrialItem[];
   words: Record<string, Word>;
   phrases?: Record<string, Phrase>;
@@ -37,6 +37,8 @@ export function TrialPlayer({ items: initial, words, phrases = {}, label = 'Ис
   mode?: AnswerMode;
   /** Кнопка справа от подписи (у Сфинкса — перечитать текст загадки). */
   aside?: React.ReactNode;
+  /** Каждый ответ: id карточки (слово, `g:<упражнение>`, фраза) и итог. */
+  onAnswer?(itemId: string, verdict: Verdict): void;
   onFinish(s: TrialScore): void;
   onExit(): void;
 }) {
@@ -55,6 +57,7 @@ export function TrialPlayer({ items: initial, words, phrases = {}, label = 'Ис
     setScore((s) => ({ ...s, [verdict]: s[verdict] + 1 }));
     const now = Date.now();
     logAnswer({ itemId, kind, verdict, mode, ms: answerMs(shownAt.current, now) }, now);
+    onAnswer?.(itemId, verdict);
     afterPaint(() => {
       if (f.speakText && verdict !== 'wrong') speak(f.speakText);
       if (isTypedItem(item)) useMotivation.getState().recordTyped(verdict === 'correct');

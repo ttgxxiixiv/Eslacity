@@ -460,7 +460,9 @@ export async function playTrial(
   let total = 0;
   let typed = 0;
   for (let i = 0; i < 40; i++) {
-    if (await page.locator('[data-testid=trial-result], [data-testid=guardian-result]').count()) return { total, typed };
+    if (await page.locator('[data-testid=trial-result], [data-testid=guardian-result], [data-testid=placement-between], [data-testid=placement-result]').count()) {
+      return { total, typed };
+    }
     const kind = (await label.textContent({ timeout: 3000 }).catch(() => null))?.trim();
     if (!kind) continue;
     const bad = total < wrong;
@@ -506,6 +508,9 @@ export async function playTrial(
       const options = run.locator('button.min-h-14');
       if (kind === `Как сказать ${ADVERB[lang]}?`) {
         const right = byRu.get(shown)!.es;
+        await (bad ? options.filter({ hasNotText: exact(right) }) : options.filter({ hasText: exact(right) })).first().click();
+      } else if (kind === 'Выберите перевод') {
+        const right = byEs.get(shown)!.ru;
         await (bad ? options.filter({ hasNotText: exact(right) }) : options.filter({ hasText: exact(right) })).first().click();
       } else if (kind === 'Что вы услышали?') {
         await page.getByRole('button', { name: 'Прослушать ещё раз' }).click();

@@ -12,7 +12,7 @@ import { isGuardianDone } from '../domain/guardian';
 import { db } from '../db/db';
 import { persist } from '../db/persist';
 import {
-  CHAPTERS, completedChapters, EMPTY_JOURNEY, heroTitle, journeyState, newAwards, openedChapter, recordAwards, startedChapter,
+  CHAPTERS, completedChapters, EMPTY_JOURNEY, fragmentKey, heroTitle, journeyState, newAwards, openedChapter, recordAwards, startedChapter,
   type ChapterId, type JourneyAward, type JourneyInput, type JourneyRecord, type JourneyState,
 } from '../domain/chapters';
 import { useCity } from './city';
@@ -27,6 +27,11 @@ interface JourneyStore extends JourneyRecord {
   celebrate(chapter: number): void;
   /** Записать обрывки и печати, условия которых выполнены. Возвращает только что полученные. */
   sync(now?: number): JourneyAward[];
+  /**
+   * Входной тест (задача 9.1): обрывки всех мест глав `fragmentChapters` и печати `sealChapters`. Полученное
+   * раньше не меняется. Сцены перехода прошлых глав не показываются, кроме последней собранной.
+   */
+  grant(fragmentChapters: number[], sealChapters: number[], now?: number): void;
 }
 
 /** Контент и прогресс для расчёта пути. */
@@ -64,6 +69,16 @@ export const useJourney = create<JourneyStore>((set, get) => ({
     set({ celebrated: chapter });
     const rec = record(get());
     persist(() => db.meta.put({ key: 'journey', value: rec }));
+  },
+
+  grant(fragmentChapters, sealChapters, now = Date.now()) {
+    const fragments = { ...get().fragments };
+    const seals = { ...get().seals };
+    for (const c of fragmentChapters) for (const l of LOCATIONS) fragments[fragmentKey(c as ChapterId, l.id)] ??= now;
+    for (const c of sealChapters) seals[String(c)] ??= now;
+    const completed = completedChapters(journeyState(journeyInput(), { fragments, seals }));
+    set({ fragments, seals, celebrated: Math.max(get().celebrated ?? 0, completed - 1) });
+    get().sync(now);
   },
 
   sync(now = Date.now()) {

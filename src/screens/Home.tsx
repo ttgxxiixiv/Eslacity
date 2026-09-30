@@ -24,6 +24,9 @@ import { useTrials } from '../store/trials';
 import { StatsBar } from '../components/Stats';
 import { Screen } from '../components/ui';
 import mapScroll from '../assets/home/map-scroll.webp';
+import { L } from '../lang';
+import { placementOffered } from '../domain/placement';
+import { usePlacement } from '../store/placement';
 
 type WordsMap = Partial<Record<LocationId, Word[]>>;
 
@@ -213,6 +216,26 @@ function JourneyLine() {
   );
 }
 
+/** Первый запуск курса: предложить входной тест (задача 9.1). Можно пропустить, тест остаётся в настройках. */
+function PlacementOffer() {
+  return (
+    <div className="banner-shadow mt-[7px] rounded-2xl border-2 border-[#8a6a3a] bg-[#f4e6c6] px-4 py-3 text-[#2b1b0e]" data-testid="placement-offer">
+      <div className="text-[18px] leading-tight font-semibold">Уже знаете {L.name.toLowerCase()}?</div>
+      <div className="mt-0.5 text-[14.5px] leading-snug text-[#4a3522]">
+        Летописец расспросит, где вы бывали, и засчитает знакомые главы. Это 10–15 минут.
+      </div>
+      <div className="mt-2 flex items-center gap-3">
+        <Link to="/placement" className="press flex-1 rounded-xl bg-[#2b4f8f] py-2 text-center text-[16px] font-semibold text-white" data-testid="placement-go">
+          Пройти входной тест
+        </Link>
+        <button type="button" onClick={() => usePlacement.getState().skip()} className="press px-2 py-2 text-[15px] underline" data-testid="placement-skip-home">
+          Пропустить
+        </button>
+      </div>
+    </div>
+  );
+}
+
 export function Home() {
   // Главная — в тёмном оформлении: фон вешается на body, пока экран открыт.
   useEffect(() => {
@@ -235,6 +258,7 @@ export function Home() {
     dueSplit.rules.length ? `${dueSplit.rules.length} ${plural(dueSplit.rules.length, ['правило', 'правила', 'правил'])}` : '',
   ].filter(Boolean).reduce((acc, part, i, all) => (i === 0 ? part : `${acc}${i === all.length - 1 ? ' и ' : ', '}${part}`), '');
   const learned = useMemo(() => wordIds(Object.keys(cards)).length, [cards]);
+  const placement = usePlacement((s) => s.rec);
 
   const open = useMemo(
     () => LOCATIONS.filter((l) => (buildings[l.id]?.level ?? 0) > 0).map((l) => l.id),
@@ -286,6 +310,7 @@ export function Home() {
         </div>
         {step && <LearnAnyway step={step} />}
         <div className="px-[5px]">
+          {placementOffered(placement, learned) && <PlacementOffer />}
           <JourneyLine />
           {nextGrammar && (
             <Link to={`/grammar/${nextGrammar.id}`} className="press banner-grammar banner-shadow mt-[7px] flex items-center justify-between gap-3 pr-[26px] pl-[48px]">

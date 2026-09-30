@@ -50,6 +50,17 @@ export function newCard(wordId: string, now: number): SrsCard {
 }
 
 /**
+ * Карточка слова, которое путник уже знает (входной тест, задача 9.1): сразу на повторении со стабильностью
+ * `days` дней и следующим повтором через столько же.
+ */
+export function knownCard(wordId: string, now: number, days: number): SrsCard {
+  return {
+    wordId, ef: 2.5, interval: days, stability: days, difficulty: 5, state: State.Review,
+    reps: 1, due: dayNumber(now) + days, lapses: 0, learnedAt: now, lastReviewedAt: now,
+  };
+}
+
+/**
  * FSRS: целевая вероятность вспомнить 0.9, параметры по умолчанию. Повторение идёт по дням,
  * поэтому коротких шагов внутри дня нет: новое слово после урока возвращается не раньше завтра.
  */

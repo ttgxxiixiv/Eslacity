@@ -17,6 +17,8 @@ interface CityState {
   /** Собрать доход с одного здания. Возвращает число монет. */
   collect(id: LocationId, now?: number): number;
   collectAll(now?: number): number;
+  /** Входной тест: все здания не ниже уровня `level` (открытые и закрытые), без платы. */
+  raiseAll(level: number, now?: number): void;
 }
 
 function save(coins: number, rows: BuildingRow[]) {
@@ -58,6 +60,22 @@ export const useCity = create<CityState>((set, get) => ({
     set({ coins: coins - cost, buildings: { ...get().buildings, [id]: row } });
     save(coins - cost, [row]);
     return true;
+  },
+
+  raiseAll(level, now = Date.now()) {
+    const rows: BuildingRow[] = [];
+    let coins = get().coins;
+    for (const l of Object.values(LOCATION_BY_ID)) {
+      const b = get().buildings[l.id];
+      if ((b?.level ?? 0) >= level) continue;
+      // Накопленный доход забираем по старой ставке, как при обычном улучшении.
+      const income = b ? collectIncome(b, now) : { coins: 0, lastCollectedAt: now };
+      coins += income.coins;
+      rows.push({ locationId: l.id, level, lastCollectedAt: income.lastCollectedAt });
+    }
+    if (!rows.length) return;
+    set({ coins, buildings: { ...get().buildings, ...Object.fromEntries(rows.map((r) => [r.locationId, r])) } });
+    save(coins, rows);
   },
 
   collect(id, now = Date.now()) {
