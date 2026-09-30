@@ -25,7 +25,7 @@ export function vocabulary(cards: Record<string, { stability?: number; interval:
   return { learned, solid };
 }
 
-/** Отметки конца глав на полосе: 505, 1079, 1829, 2579, 3229 (накопительно по плану). */
+/** Отметки конца глав на полосе: 530, 1129, 1879, 2629, 3279 (накопительно по плану). */
 export const CHAPTER_MARKS: { chapter: string; at: number }[] = CHAPTERS.reduce<{ chapter: string; at: number }[]>(
   (acc, c) => [...acc, { chapter: c.chapter, at: (acc.at(-1)?.at ?? 0) + c.places + c.scroll }],
   [],

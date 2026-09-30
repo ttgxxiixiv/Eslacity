@@ -296,15 +296,16 @@ describe('validateScrolls', () => {
     expect(warns.map((x) => x.msg).join()).toMatch(/тот же перевод «mapa», что у scroll1\.mapa/);
   });
   it('слов больше плана — ошибка', () => {
-    const many = Array.from({ length: 61 }, (_, i) => sw(`w${i}`));
-    expect(errs(many)).toMatch(/61 слов, по плану не больше 60/);
+    const n = PLAN[0].scroll + 1;
+    const many = Array.from({ length: n }, (_, i) => sw(`w${i}`));
+    expect(errs(many)).toMatch(new RegExp(`${n} слов, по плану не больше ${PLAN[0].scroll}`));
   });
   it('настоящие свитки обоих языков проходят', () => {
     for (const lang of ['es', 'it'] as const) {
       for (const ch of [1, 2]) {
         const data = JSON.parse(readFileSync(join(import.meta.dirname, lang, 'scrolls', `${ch}.json`), 'utf8')) as ScrollFile;
         expect(validateScrolls([{ name: `${ch}.json`, data }], [], lang)).toEqual([]);
-        expect(data.words).toHaveLength(ch === 1 ? 60 : 100);
+        expect(data.words).toHaveLength(PLAN[ch - 1].scroll);
       }
     }
   });
