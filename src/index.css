@@ -320,6 +320,15 @@ html:has(body.home-dark) {
   background: url('./assets/home/top-frame.webp') center / 100% 100% no-repeat;
   border-image: url('./assets/home/top-frame.webp') 0 25 0 27 fill / 0 14.3px 0 15.4px stretch;
 }
+/* Дневной переход: полоса дороги тянется по ширине, розетки по краям не искажаются (срез 31 и 32 из 494×39). */
+.road-bar {
+  background: url('./assets/home/road-empty.webp') center / 100% 100% no-repeat;
+  border-image: url('./assets/home/road-empty.webp') 0 32 0 31 fill / 0 10.7px 0 10.3px stretch;
+}
+.road-bar-full {
+  background-image: url('./assets/home/road-full.webp');
+  border-image-source: url('./assets/home/road-full.webp');
+}
 /* Камень уровня. */
 .level-stone {
   background: url('./assets/home/level-stone.webp') center / 100% 100% no-repeat;

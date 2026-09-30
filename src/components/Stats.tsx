@@ -10,25 +10,14 @@ import coinPic from '../assets/home/coin.webp';
 import flamePic from '../assets/home/flame.webp';
 // Огонёк в макете серый: горящий вариант строит scripts/build-flame-lit.py.
 import flameLitPic from '../assets/home/flame-lit.webp';
-import heartEmpty from '../assets/home/heart-empty.webp';
-import heartFull from '../assets/home/heart-full.webp';
-import heartHalf from '../assets/home/heart-half.webp';
+import { DailyRoad } from './DailyRoad';
 
-const HEARTS = 5;
-
-/** Сердечко дневной цели: целое, половина или пустое. Картинки вырезаны из макета главной. */
-function Heart({ fill }: { fill: number }) {
-  const src = fill >= 1 ? heartFull : fill > 0 ? heartHalf : heartEmpty;
-  return <img src={src} alt="" width={19} height={19} className="block h-[19px] w-[19px]" aria-hidden />;
-}
-
-/** Верхняя панель в духе RPG: кошелёк, огонь стрика, уровень персонажа и сердечки дневной цели. */
+/** Верхняя панель в духе RPG: кошелёк, огонь стрика, уровень персонажа и дневной переход (цель дня). */
 export function StatsBar() {
   const coins = useCity((s) => s.coins);
   const day = useProgress((s) => s.day);
   const goal = useSettings((s) => s.dailyGoal);
   const xp = day.date === dayKey(Date.now()) ? day.xp : 0;
-  const ratio = Math.min(1, xp / goal);
   const streak = useMotivation((s) => s.streak);
   const today = dayNumber(Date.now());
   const alive = isAlive(streak, today);
@@ -36,8 +25,6 @@ export function StatsBar() {
   const litToday = streak.lastDay === today;
   const xpTotal = useProgress((s) => s.xpTotal);
   const lvl = heroLevel(xpTotal);
-  // Дневная цель — пять сердечек, с половинками.
-  const halves = Math.floor(ratio * HEARTS * 2);
   return (
     <div className="home-font px-[7px] pt-3">
       <div className="home-topbar flex h-[55px] items-center gap-2 pr-[19px] pl-[21px] text-[#f1dfb5]">
@@ -56,13 +43,9 @@ export function StatsBar() {
         </div>
         <div className="ml-auto flex items-center gap-2">
           <LevelBadge stone />
-          <div className="flex flex-col" title="Дневная цель">
-            <div className="flex gap-px" aria-label={`Дневная цель: ${xp} из ${goal} XP`}>
-              {Array.from({ length: HEARTS }, (_, i) => (
-                <Heart key={i} fill={Math.max(0, Math.min(2, halves - i * 2)) / 2} />
-              ))}
-            </div>
-            {/* Прогресс уровня героя под сердечками. */}
+          <div className="flex w-[128px] min-w-0 flex-col">
+            <DailyRoad xp={xp} goal={goal} lit={litToday} />
+            {/* Прогресс уровня героя под дорогой. */}
             <div
               className="mt-[3px] h-[9px] w-full overflow-hidden rounded-[3px] border border-[#6e5230] bg-[#1f160e] p-px"
               role="progressbar"

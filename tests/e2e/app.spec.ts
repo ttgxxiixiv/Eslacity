@@ -25,7 +25,7 @@ test('переключение языка сохраняет прогресс к
 
 for (const lang of LANGS) {
   test.describe(lang, () => {
-    test('верхняя панель: серый огонёк до цели дня, полоска уровня под сердечками', async ({ page }) => {
+    test('верхняя панель: серый огонёк до цели дня, полоска уровня под дорогой дня', async ({ page }) => {
       await openApp(page, lang);
       await expect(page.getByTestId('streak')).toHaveAttribute('data-lit', '0');
       await expect(page.getByTestId('level-bar')).toHaveAttribute('aria-valuenow', '0');
@@ -65,6 +65,43 @@ for (const lang of LANGS) {
       await expect(page.getByTestId('streak')).toHaveAttribute('data-lit', '1');
       await expect(flame).toHaveAttribute('data-flame', 'lit');
       expect(await flame.getAttribute('src')).not.toBe(grey);
+      // Дневной переход пройден: путник у привала, костёр горит, все камни с руной.
+      await expect(page.getByTestId('daily-road')).toHaveAttribute('data-camp', '1');
+      await expect(page.getByTestId('road-fire')).toHaveAttribute('data-lit', '1');
+      await expect(page.getByTestId('daily-road').locator('[data-passed="1"]')).toHaveCount(4);
+    });
+
+    test('дневной переход: путник идёт по дороге, камни загораются по пути, подсказка по нажатию', async ({ page }) => {
+      await openApp(page, lang);
+      const road = page.getByTestId('daily-road');
+      await expect(road).toHaveAttribute('aria-valuenow', '0');
+      await expect(road).toHaveAttribute('data-camp', '0');
+      await expect(road.locator('[data-passed="1"]')).toHaveCount(0);
+      // 45 XP из 100 за сегодня: два камня из четырёх пройдены, костёр не горит.
+      await page.evaluate(
+        (db) =>
+          new Promise<void>((resolve) => {
+            const r = indexedDB.open(db);
+            r.onsuccess = () => {
+              const d = new Date();
+              const date = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+              const tx = r.result.transaction('days', 'readwrite');
+              tx.objectStore('days').put({ date, xp: 45, newWords: 0, reviews: 0, lessons: 0, grammarLessons: 0 });
+              tx.oncomplete = () => resolve();
+            };
+          }),
+        DB[lang],
+      );
+      await page.reload();
+      await expect(road).toHaveAttribute('aria-valuenow', '45');
+      await expect(road.locator('[data-passed="1"]')).toHaveCount(2);
+      await expect(page.getByTestId('road-fire')).toHaveAttribute('data-lit', '0');
+      const walker = (await page.getByTestId('road-walker').boundingBox())!;
+      const box = (await road.boundingBox())!;
+      expect(walker.x + walker.width / 2).toBeGreaterThan(box.x + box.width * 0.3);
+      expect(walker.x + walker.width / 2).toBeLessThan(box.x + box.width * 0.55);
+      await road.click();
+      await expect(page.getByTestId('road-tip')).toContainText('Дневной переход: 45 из 100 XP');
     });
 
     test('портрет в окне квеста заполняет окно и при вытянутой карточке', async ({ page }) => {

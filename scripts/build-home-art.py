@@ -78,8 +78,8 @@ st=crop(398,98,471,180)
 st=erase(st,(412,110,458,172),thr=30,dil=2,off=(398,98))
 save('level-stone',st)
 
-# 3. Сердечки, монета, огонь.
-for name,box in {'heart-full':(482,111,515,145),'heart-half':(618,111,652,145),'coin':(39,117,75,153),'flame':(149,115,184,156)}.items():
+# 3. Монета, огонь. Сердечки дневной цели заменены дневным переходом (scripts/build-road-art.py).
+for name,box in {'coin':(39,117,75,153),'flame':(149,115,184,156)}.items():
     c=crop(*box)
     save(name,alpha_from_edges(c,edge_seeds(c,2),lo=14,hi=14))
 
@@ -121,8 +121,3 @@ ga=cv2.imread(OUT+'banner-grammar.webp',cv2.IMREAD_UNCHANGED)[:,:,3]
 ba=cv2.resize(ga,(b.shape[1],b.shape[0]),interpolation=cv2.INTER_LINEAR)
 save('blitz',np.dstack([b,ba]))
 
-# Пустое сердце: правая (тёмная) половина полусердца, отражённая налево.
-h=cv2.imread(OUT+'heart-half.webp',cv2.IMREAD_UNCHANGED)
-w=h.shape[1]; mid=w//2
-e=h.copy(); e[:,:mid]=cv2.flip(h[:,w-mid:],1)
-save('heart-empty',e)
