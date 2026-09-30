@@ -45,5 +45,125 @@
         {"id": "sx:word.3.10", "kind": "type", "sentence": "Alla fine Giulia ha ___ pace con suo fratello.", "ru": "В конце концов Джулия помирилась с братом.", "hint": "помириться: ___ pace (participio)", "answer": "fatto", "explain": "Fare pace — помириться; passato prossimo: ha fatto."}
       ]
     }
+  ],
+  "hear": [
+    {
+      "id": "sx:hear.1",
+      "monologue": {
+        "who": "cronista",
+        "lines": [
+          {"es": "Da molti anni scrivo la storia di questo cammino, e non avevo mai visto nessuno arrivare così lontano.", "ru": "Я много лет пишу историю этого пути и никогда не видел, чтобы кто-то зашёл так далеко."},
+          {"es": "Ricordo il primo giorno: non sapevi nemmeno ordinare un caffè. Giulia ha dovuto ripeterti il prezzo tre volte.", "ru": "Помню первый день: ты не умел даже заказать кофе. Джулии пришлось трижды повторить тебе цену."},
+          {"es": "Poi sono venute le montagne. Lì hai imparato a raccontare quello che era successo, perché il guardiano della torre ascoltava solo storie.", "ru": "Потом были горы. Там ты научился рассказывать о том, что случилось, потому что страж башни слушал только истории."},
+          {"es": "Nel deserto hai scoperto che le parole possono ingannare, e che un semplice «se» cambia il senso di tutta una frase.", "ru": "В пустыне ты узнал, что слова могут обманывать и что простое «если» меняет смысл всей фразы."},
+          {"es": "Il bosco ti ha insegnato ad ascoltare quello che la gente non dice ad alta voce.", "ru": "Лес научил тебя слышать то, чего люди не говорят вслух."},
+          {"es": "E nel Labirinto hai capito una cosa che molti saggi non capiscono mai: la stessa idea può suonare gentile o crudele, secondo il tono.", "ru": "А в Лабиринте ты понял то, чего многие мудрецы так и не понимают: одна и та же мысль может прозвучать любезно или жестоко — смотря каким тоном."},
+          {"es": "Adesso sei davanti alla porta del Caveau. Dicono che dentro ci sia un elisir che ti farà parlare come la gente di qui.", "ru": "Теперь ты перед дверью Хранилища. Говорят, внутри есть эликсир, который заставит тебя говорить, как здешние люди."},
+          {"es": "Io non ne sono così sicuro. Credo che l'elisir non sia la cosa più importante.", "ru": "Я в этом не так уверен. Думаю, эликсир — не самое важное."},
+          {"es": "L'importante è quello che porti già con te: ogni vicino che ti ha aiutato, ogni errore che ti ha fatto ridere.", "ru": "Важно то, что ты уже несёшь с собой: каждого соседа, который тебе помог, каждую ошибку, над которой ты посмеялся."},
+          {"es": "La Sfinge ti farà domande difficili. Non avere fretta. Non guarda l'orologio: vuole solo sapere se ascolti davvero.", "ru": "Сфинкс задаст тебе трудные вопросы. Не спеши. Сфинкс не смотрит на часы: он хочет знать только одно — слушаешь ли ты по-настоящему."}
+        ]
+      },
+      "dispute": [
+        {"who": "ferri", "es": "Signora Rosa, ho preparato un piano. Quando aprirà il Caveau, faremo pagare un biglietto modesto. Con quei soldi ripareremo il ponte.", "ru": "Синьора Роза, я подготовил план. Когда откроется Хранилище, будем брать скромную плату за вход. На эти деньги починим мост."},
+        {"who": "rosa", "es": "Un biglietto? Ma dai, Ferri! Il Caveau non è un museo, è di tutti.", "ru": "Плату за вход? Да брось, Ферри! Хранилище не музей, оно общее."},
+        {"who": "ferri", "es": "Con tutto il rispetto, quello che è di tutti finisce per essere di nessuno. Qualcuno deve pagare la luce e le pulizie.", "ru": "При всём уважении, общее в итоге оказывается ничьим. Кто-то должен платить за свет и уборку."},
+        {"who": "rosa", "es": "Sì, sì. E scommetto che i soldi li raccoglie la tua banca, no?", "ru": "Ну да, ну да. А деньги, спорим, соберёт твой банк?"},
+        {"who": "ferri", "es": "La prego di non insinuare cose che non ho detto. La banca non guadagnerebbe un centesimo.", "ru": "Прошу вас не намекать на то, чего я не говорил. Банк не заработал бы ни чентезимо."},
+        {"who": "rosa", "es": "Va bene, va bene, scusa. Ma pensa ai bambini della scuola: anche a loro fai pagare?", "ru": "Ладно, ладно, прости. Но подумай о школьниках: с них ты тоже будешь брать?"},
+        {"who": "ferri", "es": "I bambini entrerebbero gratis, naturalmente. E anche chi ha più di settanta anni.", "ru": "Дети, разумеется, проходили бы бесплатно. И те, кому за семьдесят, тоже."},
+        {"who": "rosa", "es": "Ecco, così mi piace di più. Ma la gente del paese, nemmeno un euro. I turisti paghino quello che vuoi.", "ru": "Вот так мне уже больше нравится. Но местные — ни евро. А туристы пусть платят сколько скажешь."},
+        {"who": "ferri", "es": "Mi sembra una proposta ragionevole. La presenterò al sindaco per iscritto.", "ru": "По-моему, разумное предложение. Я передам его мэру в письменном виде."},
+        {"who": "rosa", "es": "Per iscritto, certo. Tu non fai un passo senza un foglio firmato.", "ru": "В письменном, конечно. Ты и шагу не ступишь без подписанной бумажки."}
+      ],
+      "questions": [
+        {"q": "Что Летописец вспоминает о первом дне героя?", "options": ["Герой сразу подружился со стражем", "Герой не умел даже заказать кофе", "Герой заблудился в горах"], "answer": 1, "kind": "gist", "part": "monologue"},
+        {"q": "Чему, по словам Летописца, героя научил лес?", "options": ["Слышать то, чего люди не говорят вслух", "Рассказывать о прошлом", "Торговаться на рынке"], "answer": 0, "kind": "gist", "part": "monologue"},
+        {"q": "Как Летописец относится к Эликсиру?", "options": ["Мечтает выпить его сам", "Боится, что Эликсира нет", "Считает, что Эликсир — не самое важное"], "answer": 2, "kind": "stance", "part": "monologue"},
+        {"q": "Что Летописец имеет в виду, говоря, что Сфинкс «не смотрит на часы»?", "options": ["Сфинкс всегда опаздывает", "У Сфинкса нет часов", "Спешить не нужно, важно внимательно слушать"], "answer": 2, "kind": "hint", "part": "monologue"},
+        {"q": "Что предлагает Ферри?", "options": ["Брать небольшую плату за вход в Хранилище", "Закрыть Хранилище", "Отдать Хранилище банку"], "answer": 0, "kind": "gist", "part": "dispute"},
+        {"q": "Как Роза сначала встречает идею Ферри?", "options": ["Сразу соглашается", "Возмущается: Хранилище принадлежит всем", "Равнодушно молчит"], "answer": 1, "kind": "stance", "part": "dispute"},
+        {"q": "Как меняется отношение Розы к концу спора?", "options": ["Злится ещё сильнее", "Соглашается, если местные не будут платить", "Уходит, не дослушав"], "answer": 1, "kind": "stance", "part": "dispute"},
+        {"q": "Что Роза имеет в виду последней репликой?", "options": ["Всерьёз хвалит его аккуратность", "Просит у него расписку", "Подшучивает над любовью Ферри к бумагам"], "answer": 2, "kind": "hint", "part": "dispute"}
+      ],
+      "gloss": {"crudele": "жестокий", "elisir": "эликсир", "sfinge": "сфинкс", "modesto": "скромный", "ripareremo": "починим (от riparare)", "iscritto": "письменно (per iscritto)"}
+    },
+    {
+      "id": "sx:hear.2",
+      "monologue": {
+        "who": "conti",
+        "lines": [
+          {"es": "Buonasera. Mi hanno chiesto di parlare della voce, e lo farò da medico, anche se oggi non porto ricette.", "ru": "Добрый вечер. Меня попросили рассказать о голосе, и я расскажу как врач, хотя рецептов сегодня не принесла."},
+          {"es": "Quando il banditore è tornato dal Labirinto, riusciva appena a parlare. La gola era sana, ma la voce gli restava dentro.", "ru": "Когда глашатай вернулся из Лабиринта, он почти не мог говорить. Горло было здоровым, но голос оставался внутри."},
+          {"es": "L'ho visitato per settimane e non ho trovato niente. Allora mi sono ricordata di quello che aveva scritto mia nonna: la voce torna quando qualcuno risponde.", "ru": "Я осматривала его неделями и ничего не находила. Тогда я вспомнила, что написала моя бабушка: голос возвращается, когда кто-то отвечает."},
+          {"es": "Così ho smesso di dargli pastiglie e ho cominciato a dargli conversazione. Ogni sera un vicino diverso si sedeva con lui.", "ru": "Поэтому я перестала давать ему таблетки и стала давать ему разговоры. Каждый вечер с ним сидел новый сосед."},
+          {"es": "All'inizio dava del lei a tutti, perfino ai bambini. Poi, piano piano, ha cominciato a dare del tu a Paolo.", "ru": "Сначала он говорил на вы со всеми, даже с детьми. Потом понемногу стал говорить Паоло «ты»."},
+          {"es": "Una settimana fa ha riso in piazza. Era la prima volta in cento anni. Qualcuno dice che è stato un miracolo; io preferisco chiamarla pazienza.", "ru": "Неделю назад он засмеялся на площади. Впервые за сто лет. Кто-то говорит, что это чудо; я предпочитаю называть это терпением."},
+          {"es": "Non voglio dire che la medicina non serva. Serve, e molto. Ma ci sono ferite che non si curano in ospedale.", "ru": "Я не хочу сказать, что медицина бесполезна. Она очень полезна. Но есть раны, которые не лечат в больнице."},
+          {"es": "Se un giorno un amico resta in silenzio, non chiedergli subito che cosa ha. Siediti accanto a lui e aspetta. A volte basta questo.", "ru": "Если когда-нибудь друг замолчит, не спрашивай сразу, что с ним. Сядь рядом и подожди. Иногда этого достаточно."}
+        ]
+      },
+      "dispute": [
+        {"who": "aldo", "es": "Federica, ho deciso: metteremo un treno dalla stazione fino al Caveau.", "ru": "Федерика, я всё решил: пустим поезд от вокзала до Хранилища."},
+        {"who": "federica", "es": "Un treno? Aldo, ci sono mille gradini. Pensi di salirli in vagone?", "ru": "Поезд? Альдо, там тысяча ступеней. Ты собираешься подниматься по ним в вагоне?"},
+        {"who": "aldo", "es": "I gradini si possono evitare. Basta una piccola galleria.", "ru": "Ступени можно обойти. Нужен всего лишь маленький туннель."},
+        {"who": "federica", "es": "Ah, certo, «basta» una galleria. E chi la paga? Il tuo orologio da tasca?", "ru": "Ах, ну да, «всего лишь» туннель. А кто за него заплатит? Твои карманные часы?"},
+        {"who": "aldo", "es": "Non prendermi in giro. Anche gli anziani hanno il diritto di arrivare.", "ru": "Не смейся. Пожилые люди тоже имеют право дойти."},
+        {"who": "federica", "es": "Su questo hai ragione, non lo nego. Ma salire a piedi fa parte del cammino.", "ru": "Тут ты прав, не спорю. Но подниматься пешком — часть пути."},
+        {"who": "aldo", "es": "Per te, che corri ogni mattina. Per mia madre quei gradini sono una montagna.", "ru": "Для тебя, ты каждое утро бегаешь. А для моей мамы эти ступени — целая гора."},
+        {"who": "federica", "es": "Va bene. E se facessimo tutte e due le cose? Un treno piccolo per chi ne ha bisogno e il sentiero per gli altri.", "ru": "Ладно. А если сделать и то и другое? Маленький поезд для тех, кому он нужен, и тропу для остальных."},
+        {"who": "aldo", "es": "Mmh. Non è una cattiva idea. Anche se dovrò cambiare tutti gli orari.", "ru": "Хм. Неплохая мысль. Хотя мне придётся переделать всё расписание."},
+        {"who": "federica", "es": "Ah, i tuoi orari! Scommetto che è questo che ti preoccupa di più.", "ru": "Ох уж твоё расписание! Спорим, это волнует тебя больше всего."}
+      ],
+      "questions": [
+        {"q": "Что было с голосом глашатая после возвращения?", "options": ["Он потерял слух", "Горло было здорово, но он почти не мог говорить", "Он говорил без остановки"], "answer": 1, "kind": "gist", "part": "monologue"},
+        {"q": "Что доктор стала делать вместо таблеток?", "options": ["Каждый вечер с глашатаем сидел новый сосед", "Отправила его к морю", "Прописала другие лекарства"], "answer": 0, "kind": "gist", "part": "monologue"},
+        {"q": "Как доктор относится к слову «чудо»?", "options": ["Считает, что это настоящее чудо", "Смеётся над теми, кто так говорит", "Предпочитает называть это терпением"], "answer": 2, "kind": "stance", "part": "monologue"},
+        {"q": "Что доктор хочет сказать фразой «есть раны, которые не лечат в больнице»?", "options": ["В больнице не хватает врачей", "Больницу пора закрыть", "Некоторую боль лечит внимание людей, а не лекарства"], "answer": 2, "kind": "hint", "part": "monologue"},
+        {"q": "Что хочет построить Альдо?", "options": ["Поезд до Хранилища", "Новую лестницу", "Гостиницу у ворот"], "answer": 0, "kind": "gist", "part": "dispute"},
+        {"q": "Как Федерика относится к «маленькому туннелю» Альдо?", "options": ["Восхищается идеей", "Иронизирует: туннель — это совсем не мелочь", "Сама предлагает прорыть туннель"], "answer": 1, "kind": "stance", "part": "dispute"},
+        {"q": "В чём Федерика соглашается с Альдо?", "options": ["Лестницу надо снести", "Пожилые люди тоже должны иметь возможность дойти", "Ходить пешком опасно"], "answer": 1, "kind": "stance", "part": "dispute"},
+        {"q": "На что намекает Федерика последней репликой?", "options": ["Что расписание надо выбросить", "Что она хочет работать на вокзале", "Что Альдо больше всего волнует его расписание"], "answer": 2, "kind": "hint", "part": "dispute"}
+      ],
+      "gloss": {"perfino": "даже", "federica": "Федерика (имя)", "aldo": "Альдо (имя)", "ah": "ах", "mmh": "хм"}
+    },
+    {
+      "id": "sx:hear.3",
+      "monologue": {
+        "who": "rinaldi",
+        "lines": [
+          {"es": "Cari vicini, buonasera. Vi ho riuniti qui perché fra tre giorni ci sarà l'apertura delle porte del Caveau.", "ru": "Дорогие соседи, добрый вечер. Я собрал вас здесь, потому что через три дня состоится открытие дверей Хранилища."},
+          {"es": "Come commissario, il mio dovere è che tutto si svolga con ordine. Per questo vi chiedo di leggere con attenzione le regole che abbiamo appeso in piazza.", "ru": "Как комиссар, я обязан следить, чтобы всё прошло в порядке. Поэтому прошу вас внимательно прочитать правила, которые мы вывесили на площади."},
+          {"es": "Primo: nessuno potrà avvicinarsi alla porta prima che suoni la campana. Secondo: i bambini saranno sempre accompagnati.", "ru": "Первое: никто не подходит к двери, пока не зазвонит колокол. Второе: дети всегда идут со взрослыми."},
+          {"es": "Terzo, ed è importante: è vietato gridare dentro il Labirinto. Sapete già che lì ogni parola torna moltiplicata.", "ru": "Третье, и это важно: в Лабиринте запрещено кричать. Вы знаете, что там каждое слово возвращается многократно."},
+          {"es": "So che alcuni di voi pensano che io esageri. L'anno scorso pensavano che esagerassi anche con l'eco, e avete visto che cosa è successo.", "ru": "Знаю, что некоторые из вас думают, что я преувеличиваю. В прошлом году тоже думали, что я преувеличиваю с эхом, и вы видели, что было."},
+          {"es": "Non vi chiedo di essere d'accordo con me su tutto. Vi chiedo di fidarvi di chi ha lavorato per mesi perché questo giorno fosse possibile.", "ru": "Я не прошу вас во всём со мной соглашаться. Прошу доверять тем, кто месяцами работал, чтобы этот день стал возможен."},
+          {"es": "E adesso un'ultima cosa, questa volta senza divisa: grazie. Un anno fa questa piazza era piena di voci false. Oggi è piena di gente che si ascolta.", "ru": "И напоследок, на этот раз без мундира: спасибо. Год назад эта площадь была полна слухов. Сегодня она полна людей, которые слушают друг друга."}
+        ]
+      },
+      "dispute": [
+        {"who": "giulia", "es": "Salvatore, il sindaco vuole che alla festa il caffè lo serva io.", "ru": "Сальваторе, мэр хочет, чтобы кофе на празднике подавала я."},
+        {"who": "salvatore", "es": "Il caffè, perfetto. Ma da mangiare lo preparo io, che per questo ho un ristorante.", "ru": "Кофе — пожалуйста. Но еду готовлю я, у меня для этого ресторан."},
+        {"who": "giulia", "es": "Nessuno te lo contesta. Dico solo che i tuoi piatti sono un po'... seri per una festa.", "ru": "Никто не спорит. Я только говорю, что твои блюда немного… серьёзные для праздника."},
+        {"who": "salvatore", "es": "Seri? Le mie lasagne fanno felice questo paese da quarant'anni.", "ru": "Серьёзные? Моя лазанья сорок лет радует этот город."},
+        {"who": "giulia", "es": "E le vogliamo tanto bene. Ma la gente starà in piedi a chiacchierare. Nessuno mangia le lasagne in piedi.", "ru": "И мы её очень любим. Но люди будут стоять и болтать. Никто не ест лазанью стоя."},
+        {"who": "salvatore", "es": "Ho capito dove vuoi arrivare. Vuoi mettere i tuoi panini.", "ru": "Понятно, к чему ты клонишь. Хочешь выставить свои бутерброды."},
+        {"who": "giulia", "es": "Panini piccoli, stuzzichini, qualcosa di facile. E le tue lasagne, se vuoi, alla fine, per chi resta.", "ru": "Маленькие бутерброды, закуски, что-нибудь простое. А твою лазанью, если хочешь, в конце, для тех, кто останется."},
+        {"who": "salvatore", "es": "Mmh. Per chi resta... Cioè per quelli importanti.", "ru": "Хм. Для тех, кто останется… То есть для важных гостей."},
+        {"who": "giulia", "es": "Ma no, per chi ha fame davvero. Come te.", "ru": "Да нет же, для тех, кто по-настоящему голоден. Как ты."},
+        {"who": "salvatore", "es": "Molto spiritosa. Va bene, affare fatto. Ma gli stuzzichini li cucino io.", "ru": "Очень смешно. Ладно, договорились. Но закуски готовлю я."}
+      ],
+      "questions": [
+        {"q": "Зачем комиссар собрал жителей?", "options": ["Объявить о закрытии леса", "Рассказать о правилах перед открытием Хранилища", "Найти пропавшего ребёнка"], "answer": 1, "kind": "gist", "part": "monologue"},
+        {"q": "Что запрещено в Лабиринте?", "options": ["Кричать", "Брать с собой детей", "Звонить в колокол"], "answer": 0, "kind": "gist", "part": "monologue"},
+        {"q": "Как комиссар относится к тем, кто считает, что он преувеличивает?", "options": ["Грозит им штрафом", "Соглашается с ними", "Спокойно напоминает, что в прошлый раз он оказался прав"], "answer": 2, "kind": "stance", "part": "monologue"},
+        {"q": "Что значат слова «на этот раз без мундира»?", "options": ["Он снял форму из-за жары", "Его уволили", "Последние слова он говорит не как комиссар, а как сосед"], "answer": 2, "kind": "hint", "part": "monologue"},
+        {"q": "О чём спорят Джулия и Сальваторе?", "options": ["Кто и чем будет кормить гостей на празднике", "Где будет праздник", "Кто откроет двери Хранилища"], "answer": 0, "kind": "gist", "part": "dispute"},
+        {"q": "Как Сальваторе реагирует на слово «серьёзные» о своих блюдах?", "options": ["Смеётся и соглашается", "Обижается и защищает свою лазанью", "Не обращает внимания"], "answer": 1, "kind": "stance", "part": "dispute"},
+        {"q": "Чем заканчивается спор?", "options": ["Джулия уходит обиженная", "Компромиссом: закуски сначала, лазанья в конце", "Сальваторе отказывается готовить"], "answer": 1, "kind": "stance", "part": "dispute"},
+        {"q": "Что Джулия имеет в виду словами «для тех, кто по-настоящему голоден. Как ты»?", "options": ["Упрекает его в жадности", "Приглашает его на свидание", "Добродушно подшучивает над Сальваторе"], "answer": 2, "kind": "hint", "part": "dispute"}
+      ],
+      "gloss": {"appeso": "повесили, вывесили (от appendere)", "campana": "колокол", "moltiplicata": "умноженная, многократно", "mmh": "хм", "spiritosa": "остроумная (molto spiritosa — очень смешно)"}
+    }
   ]
 }

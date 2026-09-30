@@ -110,7 +110,15 @@ for (const lang of langs) {
     ...tag(validateChronicler(chronicler, npcs)),
     ...tag(validateGuardians(guardians, lessonChapters)),
     ...tag(validateVerbs(verbs, lang)),
-    ...tag(validateSphinx(sphinx, { coverage: (text, level) => textCoverage(text, level, lexicon, forms, lang) })),
+    ...tag(
+      validateSphinx(sphinx, {
+        coverage: (text, level) => textCoverage(text, level, lexicon, forms, lang),
+        voices: {
+          ...Object.fromEntries((npcs?.npcs ?? []).map((n) => [n.id, n.voice.pitch])),
+          ...(chronicler ? { [chronicler.id]: chronicler.voice.pitch } : {}),
+        },
+      }),
+    ),
     ...tag(validateLetters(letters, Object.fromEntries((npcs?.npcs ?? []).map((n) => [n.location, n.id])))),
     ...tag(
       validatePortraits(

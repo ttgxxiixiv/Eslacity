@@ -545,9 +545,22 @@ export const SPHINX_LEVEL = 7;
 /** Доля незнакомых слов в наборе, как у сцен. */
 export const SPHINX_UNKNOWN_MAX = 0.07;
 
+/** Загадка слуха: вопросов каждого вида в наборе — к монологу и к спору, одинаково во всех наборах. */
+export const SPHINX_HEAR_MIX: Record<'monologue' | 'dispute', Record<'gist' | 'stance' | 'hint', number>> = {
+  monologue: { gist: 2, stance: 1, hint: 1 },
+  dispute: { gist: 1, stance: 2, hint: 1 },
+};
+/** Слов в монологе: около одной-двух минут озвучки. */
+export const SPHINX_MONOLOGUE_WORDS = [150, 260] as const;
+/** Реплик в споре и у каждого из двух говорящих. */
+export const SPHINX_DISPUTE_LINES = 8;
+export const SPHINX_DISPUTE_EACH = 3;
+
 export interface SphinxChecks {
   /** Слова текста: всего и незнакомые к уровню (с повторами, строчными). */
   coverage?: (text: string, level: number) => { total: number; unknown: string[] };
+  /** Кто может говорить в загадке слуха: id жителя или Летописца → высота голоса. */
+  voices?: Record<string, number>;
 }
 
 /** Весь текст задания, по которому считаются незнакомые слова: условие и ответы. */
@@ -609,6 +622,70 @@ export function validateSphinx(file: SphinxFile | undefined, checks: SphinxCheck
       if (total && unknown.length / total > SPHINX_UNKNOWN_MAX) {
         out.push({ level: 'error', where: at, msg: `незнакомых слов ${Math.round((unknown.length / total) * 100)}% (${[...new Set(unknown)].join(', ')}), не больше ${SPHINX_UNKNOWN_MAX * 100}%` });
       }
+    }
+  });
+  if (file.hear !== undefined) out.push(...hearIssues(file.hear, checks));
+  return out;
+}
+
+/**
+ * Загадка слуха: три набора `sx:hear.<n>`; монолог 150–260 слов одним голосом; спор двух говорящих с разной высотой
+ * голоса, не меньше 8 реплик и по 3 у каждого; вопросы с тремя-четырьмя разными вариантами, состав по `SPHINX_HEAR_MIX`;
+ * незнакомых слов к уровню 7 не больше 7%, каждое переведено в `gloss`.
+ */
+function hearIssues(sets: NonNullable<SphinxFile['hear']>, checks: SphinxChecks): Issue[] {
+  const out: Issue[] = [];
+  const where = 'sphinx.json';
+  if (sets.length !== SPHINX_SETS) out.push({ level: 'error', where, msg: `загадка слуха: наборов ${sets.length}, нужно ${SPHINX_SETS}` });
+  const voices = checks.voices;
+  sets.forEach((set, i) => {
+    const id = `sx:hear.${i + 1}`;
+    const at = `${where} ${set.id ?? id}`;
+    const err = (msg: string, w = at) => out.push({ level: 'error', where: w, msg });
+    if (set.id !== id) err(`id набора должен быть "${id}"`);
+    const mono = set.monologue?.lines ?? [];
+    if (mono.some((l) => empty(l.es) || empty(l.ru))) err('пустая фраза монолога или перевод');
+    const words = mono.reduce((n, l) => n + (empty(l.es) ? 0 : wordCount(l.es)), 0);
+    if (words < SPHINX_MONOLOGUE_WORDS[0] || words > SPHINX_MONOLOGUE_WORDS[1]) err(`в монологе ${words} слов, нужно ${SPHINX_MONOLOGUE_WORDS.join('–')}`);
+    if (voices && !(set.monologue?.who in voices)) err(`говорящий монолога "${set.monologue?.who}" не житель и не Летописец`);
+    const disp = set.dispute ?? [];
+    if (disp.some((l) => empty(l.es) || empty(l.ru))) err('пустая реплика спора или перевод');
+    const speakers = [...new Set(disp.map((l) => l.who))];
+    if (speakers.length !== 2) err(`в споре ${speakers.length} говорящих, нужно два`);
+    if (disp.length < SPHINX_DISPUTE_LINES) err(`в споре ${disp.length} реплик, нужно не меньше ${SPHINX_DISPUTE_LINES}`);
+    for (const who of speakers) {
+      if (voices && !(who in voices)) err(`говорящий спора "${who}" не житель`);
+      if (disp.filter((l) => l.who === who).length < SPHINX_DISPUTE_EACH) err(`у "${who}" меньше ${SPHINX_DISPUTE_EACH} реплик`);
+    }
+    if (voices && speakers.length === 2 && voices[speakers[0]] === voices[speakers[1]]) err('у говорящих спора одинаковая высота голоса');
+    const mix: Record<string, number> = {};
+    (set.questions ?? []).forEach((q, k) => {
+      const w = `${at} вопрос ${k + 1}`;
+      const opts = q.options ?? [];
+      if (empty(q.q)) err('пустой вопрос', w);
+      if (opts.length < 3 || opts.length > 4 || opts.some(empty) || new Set(opts).size !== opts.length) err('нужно 3–4 разных варианта', w);
+      if (!Number.isInteger(q.answer) || q.answer < 0 || q.answer >= opts.length) err(`ответ ${q.answer}`, w);
+      if (!(q.part in SPHINX_HEAR_MIX) || !(q.kind in SPHINX_HEAR_MIX.monologue)) err(`вопрос "${q.part}/${q.kind}"`, w);
+      mix[`${q.part}/${q.kind}`] = (mix[`${q.part}/${q.kind}`] ?? 0) + 1;
+    });
+    for (const [part, kinds] of Object.entries(SPHINX_HEAR_MIX)) {
+      for (const [kind, n] of Object.entries(kinds)) {
+        if ((mix[`${part}/${kind}`] ?? 0) !== n) err(`вопросов ${part}/${kind}: ${mix[`${part}/${kind}`] ?? 0}, нужно ${n}`);
+      }
+    }
+    const lines = [...mono.map((l) => l.es), ...disp.map((l) => l.es)].filter((t) => !empty(t));
+    const keys = new Set(lines.flatMap((t) => sceneWords(t).flatMap((p) => ('key' in p ? [normalize(p.key)] : []))));
+    const gloss = Object.fromEntries(Object.entries(set.gloss ?? {}).map(([k, v]) => [k.toLowerCase(), v]));
+    for (const [k, v] of Object.entries(gloss)) {
+      if (empty(v)) err(`пустой перевод в gloss: "${k}"`);
+      if (!keys.has(normalize(k))) out.push({ level: 'warning', where: at, msg: `слова "${k}" из gloss нет в тексте` });
+    }
+    if (checks.coverage) {
+      const cov = checks.coverage(lines.join(' '), SPHINX_LEVEL);
+      const share = cov.total ? cov.unknown.length / cov.total : 0;
+      if (share > SPHINX_UNKNOWN_MAX) err(`незнакомых слов ${Math.round(share * 100)}% (${[...new Set(cov.unknown)].join(', ')}), не больше ${SPHINX_UNKNOWN_MAX * 100}%`);
+      const bare = [...new Set(cov.unknown)].filter((t) => !gloss[t]);
+      if (bare.length) out.push({ level: 'warning', where: at, msg: `нет в словаре до уровня ${SPHINX_LEVEL} и в gloss: ${bare.join(', ')}` });
     }
   });
   return out;

@@ -392,9 +392,35 @@ export interface SphinxWordSet {
 }
 
 /**
+ * Вопрос загадки слуха: что сказано (`gist`), как говорящий к этому относится (`stance`), что он имел в виду (`hint`).
+ * `part` — к чему вопрос: к монологу или к спору.
+ */
+export interface SphinxQuestion {
+  q: string;
+  options: string[];
+  answer: number;
+  kind: 'gist' | 'stance' | 'hint';
+  part: 'monologue' | 'dispute';
+}
+
+/**
+ * Загадка слуха (задача 8.1): длинный монолог одного жителя (или Летописца) и спор двух жителей с разными голосами,
+ * потом вопросы на смысл, отношение и намёк. `who` — id жителя, `cronista` — Летописец. id набора `sx:hear.<n>`.
+ */
+export interface SphinxHearSet {
+  id: string;
+  monologue: { who: string; lines: Example[] };
+  dispute: SceneLine[];
+  questions: SphinxQuestion[];
+  /** Перевод слов, которых нет в словаре курса до уровня 7. */
+  gloss?: Record<string, string>;
+}
+
+/**
  * Сфинкс у Врат Хранилища (docs/GAME.md, «Врата и Сфинкс»): три раунда, в каждом три набора — повторная попытка
- * идёт по другому набору. Раунды слуха и мудрости появятся в следующих пачках задачи 8.1.
+ * идёт по другому набору. Раунд мудрости появится в следующей пачке задачи 8.1.
  */
 export interface SphinxFile {
   word: SphinxWordSet[];
+  hear?: SphinxHearSet[];
 }
