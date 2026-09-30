@@ -7,6 +7,13 @@ export interface Release {
 // Новые версии сверху. Версия первой записи должна совпадать с package.json (проверяется тестом).
 export const CHANGELOG: Release[] = [
   {
+    version: '2.95.0',
+    date: '2026-09-30',
+    notes: [
+      'В свиток горного перевала легли ещё 40 частых слов на каждом языке: «la broma», «el placer», «huir», «la iglesia» в испанском, «il pomeriggio», «la destra», «la sinistra», «sbrigarsi» в итальянском. В свитке теперь 165 слов. Курс покрывает больше 90% из тысячи самых частых слов языка.',
+    ],
+  },
+  {
     version: '2.94.0',
     date: '2026-09-30',
     notes: [
