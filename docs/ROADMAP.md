@@ -100,7 +100,8 @@
 - [x] 7.7 Письмо с образцом · M
 - [x] 7.8 Миссии главы V · L
 - [x] 7.9 Испытания и Хозяин Эха · M
-- [ ] 7.10 Свиток главы V: 150 слов · L
+- [x] 7.10 Свиток главы V: 150 слов · L
+- [ ] 7.11 Добор частых слов · L
 
 **Этап 8. Хранилище**
 - [ ] 8.1 Банк загадок Сфинкса · L
@@ -657,13 +658,28 @@
 
 Сделано. Испытание места с главы V (`EXPRESSION_TRIAL_CHAPTER`) берёт среди слов пять выражений уровня 7 (`TRIAL_EXPRESSIONS`), сначала с парой в другом регистре; два из них (`TRIAL_ECHO`) идут заданием «Эха» (`echoExercise`, плитки): житель говорит пару, герой отвечает выражением. «Эхо» встаёт вместо выбора, доля ввода прежняя, ответ пишется в журнал на карточку выражения (`cardId` у задания грамматики в `TrialItem`). Страж получил обязательные виды заданий (`GUARDIAN_KINDS`, по `GUARDIAN_KIND_MIN` = 2): у Хозяина Эха не меньше двух `fix`, `register` и `paraphrase` из разных уроков C1, на экране стража это сказано. Реплики и облик Хозяина Эха переписаны под сюжет: это глашатай в сером плаще, который дождался ответа («Ты ответил мне и на вы, и на ты, как соседу»). Тайная медаль «Выход из Лабиринта» выдаётся за печать главы V (счётчик `seals` в `MedalCounters`, `LABYRINTH_CHAPTER`). Сами Врата и Сфинкс — задача 8.2; после карты V сцена главы говорит «Впереди Врата Хранилища». Попутно исправлено: длинное русское слово крупным шрифтом (уровень 7, «неплатёжеспособность») раздвигало экран телефона вбок, теперь слова переносятся (`overflow-wrap` у `body`, `break-words hyphens-auto` у заголовков заданий). Сквозной тест — `chapter5.spec.ts`.
 
-### 7.10 Свиток главы V: 150 слов · L · пачки 1–2 в 2.91.0–2.92.0
+### 7.10 Свиток главы V: 150 слов · L · сделано в 2.91.0–2.93.0
 
 150 слов C1 на язык: оттенки чувств и отношения, аргументация и оценка, книжная лексика. Пачками по 50. После задачи `npm run vocab` должен показывать на каждом языке не меньше 3000 уникальных слов и покрытие первых 1000 частотных слов не меньше 90%, 3000 — не меньше 70%. Если не хватает, Claude добавляет задачу на добор с конкретными словами из `docs/vocab/<язык>.md`.
 
 Пачка 1 (2.91.0): оттенки чувств и отношения, в свитке главы V теперь 50 слов на язык (к пяти-шести словам сюжета добавлено 45 испанских и 44 итальянских: 20 существительных, 17 прилагательных и 7 глаголов, в испанском ещё «la cortesía», в итальянском она уже есть в отеле). Примеры — по сюжету главы V: глашатай, Андрес, письмо детей, эхо. Кандидатов проверяет скрипт в папке сессии (форма и перевод против мест и свитков); из 78 пар отсеялись 17, которые уже есть в курсе хотя бы в одном языке («la nostalgia», «el rencor», «la envidia», «il sospetto», «la cortesia»...). Покрытие: испанский — первые 1000 81,7% без изменений, первые 3000 с 59,6% до 60,1%, первые 5000 с 44,2% до 45,1%; итальянский — первые 1000 с 83,4% до 83,5%, первые 3000 с 61,3% до 61,7%, первые 5000 с 47,1% до 47,8%. Следующие пачки: аргументация и оценка, книжная лексика.
 
 Пачка 2 (2.92.0): аргументация и оценка, ещё 50 слов на язык, в свитке 100: 19 существительных, 13 прилагательных, 13–14 глаголов и связки («por consiguiente», «no obstante», «en cambio» / «di conseguenza», «tuttavia», «invece»). Примеры — споры города вокруг глашатая: речь в газете, лесная дорога, поездка Пабло. Отсеялись слова, которые уже есть в местах или свитках III–IV («admitir», «criticar», «exagerar», «absurdo», «el malentendido»...); у «evidente» перевод «явный», потому что «очевидный» уже занят словом «obvio». Покрытие: испанский — первые 3000 с 60,1% до 60,3%, первые 5000 с 45,1% до 45,5%; итальянский — первые 3000 с 61,7% до 62%, первые 5000 с 47,8% до 48,2%. Осталась пачка 3: книжная лексика.
+
+Пачка 3 (2.93.0): книжная лексика, ещё 50 слов на язык: забвение, вечность, мгла, сумерки, бездна, распутье, тайный ход, предзнаменование, предчувствие, невыразимый, быстротечный, «resonar» / «risuonare», «desvanecerse» / «svanire», «yacer» / «giacere». Примеры — Лабиринт, ступени и дверь из финала миссий. Задача закрыта: в свитке главы V 150 слов C1 на язык, это проверяет тест контента в `validate.test.ts`; в курсе 3229 слов на язык, ровно по плану словаря. Итог по задаче: испанский — первые 1000 с 81,7% до 81,8%, первые 3000 с 59,6% до 60,5%, первые 5000 с 44,2% до 45,9%; итальянский — первые 1000 с 83,4% до 83,5%, первые 3000 с 61,3% до 62,2%, первые 5000 с 47,1% до 48,5%. Цель по покрытию (90% и 70%) свитками C1 не достигается: в первой тысяче не хватает обычных частых слов, а не книжных. Добор вынесен в задачу 7.11.
+
+### 7.11 Добор частых слов · L
+
+**Нужно до:** 7.10.
+
+После 7.10 в курсе 3229 слов на язык, но покрытие частотного списка ниже цели: первые 1000 — 81,8% (испанский) и 83,5% (итальянский) при цели 90%, первые 3000 — 60,5% и 62,2% при цели 70%. Не хватает обычных частых слов: они слишком общие для тем мест, поэтому их не взяли ни в одну локацию. Добор: около 90 слов из первой тысячи и около 290 из первых 3000 на язык, пачками по 50, с проверкой кандидатов тем же скриптом (форма и перевод против мест и свитков). Имена, междометия, ругательства и ошибки лемматизации (jack, ben, vera, abajar, encimar, aforar, jamar, manco, cavolo, stronzata) пропускаем, притяжательные и служебные слова (mío, suyo, tale, nessun) уже покрывает грамматика.
+
+Куда класть — решить в первой пачке: слова уровня A1–A2 в места по смыслу (уровни 1–4, тогда поднять число слов уровня в плане словаря и в валидаторе) или в свитки глав I–II; уровень слова — по полосе частоты, как в `docs/vocab/<язык>.md`. Прогресс игроков не страдает: новые слова приходят новыми уроками уровня, полученные обрывки не отнимаются.
+
+Кандидаты из первой тысячи (по `docs/vocab` на 2.93.0). Испанский: otro, cosa, mismo, papá, mal, minuto, durar, significar, genial, suceder, mover, acercar, propio, siquiera, adelantar, permitir, incluso, convertir, muchacho, extraño, escuela, bailar, atacar, capitán, exactamente, callar, par, sentar, oído, unir, desear, amar, lindo, atrapar, rey, tirar, bienvenido, referir, resto, perdón, caballero, golpear, falta, temer, ambos, existir, frente, destruir, enterarse, línea, abandonar, ofrecer, alejar, actuar, averiguar, alrededor, calmar, recuperar, placer, broma, soldado, gracioso, bromear, interesante, dama, manejar, completamente, revisar, totalmente, antiguo, arruinar, controlar, huir, cometer, enfrentar, agarrar, utilizar, oler, escena, ejército, locura, pelea, matrimonio, pegar, planear, precioso, alcanzar, iglesia, honor, opción, misión, mencionar, posición, reina, izquierda, lanzar, colgar, finalmente, vigilar, arte, pertenecer, miembro, causar, felicidad, lastimar, liberar, hallar, comprobar, común. Итальянский: certo, stesso, bastare, subito, minuto, bravo, significare, ultimo, muovere, salvo, ricordo, tirare, roba, verso, entrambi, signorina, colpire, tizio, presentare, scherzare, capitano, spiacere, buongiorno, zitto, esistere, attaccare, deciso, ballare, fermo, buttare, giurare, musica, accadere, prigione, assolutamente, distruggere, intero, nave, grado, riprendere, onore, cibo, riguardo, trattare, indossare, fretta, finalmente, scommettere, temere, natale, scena, generale, regola, assicurare, simile, guardia, passato, riguardare, fortunato, completamente, avvicinare, spesso, urlare, guaio, spostare, segno, affrontare, terzo, riconoscere, soldato, zona, duro, episodio, precedente, serata, coinvolgere, sbrigarsi, missione, fronte, rivedere, direttore, esercito, abbandonare, ragazzino, impazzire, gestire, sposato, lato, unire, caccia, certamente, regina, costringere, matto, chiesa, locale, scorso, indovinare, sinistra, enorme, parecchio, ubriaco, aiuto, discorso, comandante, arte, pomeriggio, mossa, allontanare, destra, sbagliato, membro, levare, sogno, fantasma, ritrovare, difesa, mollare. Для полосы 1001–3000 брать слова из того же файла по порядку частоты, после каждой пачки запускать `npm run vocab`. Готово, когда `npm run vocab` показывает на обоих языках первые 1000 не меньше 90% и первые 3000 не меньше 70%.
+
+**Запрос.**
+> Продолжаем (задача 7.11)
 
 ---
 
@@ -857,3 +873,4 @@
 | 2026-09-30 | 7.9 Испытания и Хозяин Эха | 2.90.0 | испытания главы V на выражениях: пять выражений, два — «Эхом»; Хозяин Эха даёт не меньше двух fix, register, paraphrase; реплики глашатая; тайная медаль «Выход из Лабиринта»; перенос длинных слов |
 | 2026-09-30 | 7.10 Свиток главы V, пачка 1 | 2.91.0 | оттенки чувств и отношения: 50 слов в свитке V на каждом языке; покрытие первых 3000 — 60,1% и 61,7% |
 | 2026-09-30 | 7.10 Свиток главы V, пачка 2 | 2.92.0 | аргументация и оценка: 100 слов в свитке V; покрытие первых 3000 — 60,3% и 62% |
+| 2026-09-30 | 7.10 Свиток главы V, пачка 3 | 2.93.0 | книжная лексика: 150 слов в свитке V, 3229 слов в курсе по плану; задача закрыта; покрытие ниже цели — добор вынесен в 7.11 |

@@ -623,6 +623,14 @@ describe('свиток главы IV: контент', () => {
       expect(scroll.words.every((w) => w.cefr === 'B2' && w.level === 1), lang).toBe(true);
     }
   });
+  it('в свитке главы V обоих языков 150 слов C1 (задача 7.10)', () => {
+    for (const lang of ['es', 'it']) {
+      const scroll = JSON.parse(readFileSync(join(import.meta.dirname, lang, 'scrolls', '5.json'), 'utf8')) as ScrollFile;
+      expect(scroll.chapter).toBe(5);
+      expect(scroll.words, lang).toHaveLength(PLAN[4].scroll);
+      expect(scroll.words.every((w) => w.cefr === 'C1' && w.level === 1), lang).toBe(true);
+    }
+  });
   it('уровень 7 мест: 25 слов, 15 выражений, треть в парах, ложный друг, одни и те же места в обоих языках', () => {
     const withLevel7: Record<string, string[]> = {};
     for (const lang of ['es', 'it']) {
