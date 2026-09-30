@@ -121,6 +121,31 @@
         {"q": "Что сказал голос в полночь?", "options": ["Лес закрыт навсегда", "Всем надо уйти", "Теперь тропа слышна, и пусть придёт тот, кто принёс мир"], "answer": 2}
       ],
       "gloss": {"andrea": "Андреа (имя)", "corvo": "ворон", "abbracciato": "обняла (abbracciare)", "tabacco": "табак", "pipa": "трубка (курительная)", "offerto": "предложил (offrire)", "mezzanotte": "полночь", "ragazza": "девушка"}
+    },
+    {
+      "id": "sc:police.5",
+      "chapter": 5,
+      "npc": "rinaldi",
+      "lines": [
+        {"who": "npc", "es": "Buonasera. Si sieda. Ieri ho ricevuto una lettera ufficiale. La guardi.", "ru": "Добрый вечер. Садитесь. Вчера я получил официальное письмо. Взгляните."},
+        {"who": "hero", "es": "Di chi è?", "ru": "От кого оно?"},
+        {"who": "npc", "es": "Del banditore. Scrive così: «Egregio signor commissario, chiedo, con tutto il rispetto, che qualcuno mi risponda».", "ru": "От глашатая. Пишет так: «Уважаемый господин комиссар, с должным уважением прошу, чтобы кто-нибудь мне ответил»."},
+        {"who": "hero", "es": "Anche per chiedere aiuto dà del lei.", "ru": "Даже о помощи он просит на вы."},
+        {"who": "npc", "es": "Cento anni che parla così. E firma: «Il Suo devotissimo, il banditore della città».", "ru": "Сто лет так говорит. И подпись: «Ваш покорный слуга, городской глашатай»."},
+        {"who": "hero", "es": "Che cosa farà lei?", "ru": "Что вы будете делать?"},
+        {"who": "npc", "es": "Quello che dice la legge: rispondere a un vicino. Domani alle sette parte il treno di Aldo per il bosco.", "ru": "То, что велит закон: ответить соседу. Завтра в семь от Альдо отходит поезд к лесу."},
+        {"who": "hero", "es": "Chi viene?", "ru": "Кто едет?"},
+        {"who": "npc", "es": "Enzo con la lettera dei bambini, Andrea, Paolo e mezza città. Non ho mai visto tanta gente che vuole rispondere.", "ru": "Энцо с письмом детей, Андреа, Паоло и полгорода. Никогда не видел столько людей, которые хотят ответить."},
+        {"who": "hero", "es": "Allora è tutto pronto.", "ru": "Значит, всё готово."},
+        {"who": "npc", "es": "Quasi. Manca lei. Lei è quello che parla con tutti, in tutti i toni. Per questo le ha scritto.", "ru": "Почти. Не хватает вас. Вы — тот, кто говорит со всеми, всеми тонами. Поэтому он и написал."}
+      ],
+      "questions": [
+        {"q": "Что получил комиссар Ринальди?", "options": ["Официальное письмо от глашатая", "Жалобу на эхо", "Обрывок карты"], "answer": 0},
+        {"q": "О чём просит глашатай в письме?", "options": ["Вернуть ему плащ", "Чтобы кто-нибудь ему ответил", "Закрыть лес"], "answer": 1},
+        {"q": "Кто поедет на поезде к лесу?", "options": ["Только комиссар", "Никто", "Энцо с письмом детей, Андреа, Паоло и полгорода"], "answer": 2},
+        {"q": "Почему глашатай написал именно герою?", "options": ["Герой говорит со всеми, всеми тонами", "Герой полицейский", "Герой его родственник"], "answer": 0}
+      ],
+      "gloss": {"banditore": "глашатай", "egregio": "уважаемый (в письме)", "rispetto": "уважение", "devotissimo": "преданнейший (il Suo devotissimo — ваш покорный слуга)", "legge": "закон", "enzo": "Энцо (имя)", "andrea": "Андреа (имя)", "paolo": "Паоло (имя)", "manca": "не хватает (от mancare)", "aldo": "Альдо (имя)"}
     }
   ]
 }

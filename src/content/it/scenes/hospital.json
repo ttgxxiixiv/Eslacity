@@ -119,6 +119,31 @@
         {"q": "Чего хочет Андреа?", "options": ["Уехать из города", "Вернуться в башню", "Сказать герою что-то в лицо"], "answer": 2}
       ],
       "gloss": {"andrea": "Андреа (имя)", "ivo": "Иво (имя)", "svenuto": "потерял сознание (svenire)", "vergogna": "стыд", "faccia": "лицо (in faccia — в лицо)"}
+    },
+    {
+      "id": "sc:hospital.5",
+      "chapter": 5,
+      "npc": "conti",
+      "lines": [
+        {"who": "npc", "es": "Entra, entra. Abbiamo un paziente molto speciale: Paolo, l'alunno di Anna.", "ru": "Проходи, проходи. У нас очень особенный пациент: Паоло, ученик Анны."},
+        {"who": "hero", "es": "Paolo? Che cosa gli è successo?", "ru": "Паоло? Что с ним случилось?"},
+        {"who": "npc", "es": "Ha perso la voce. Provava la parte del banditore a scuola, gridava le sue frasi, e poi niente.", "ru": "Потерял голос. Репетировал роль глашатая в школе, выкрикивал его фразы, а потом — ничего."},
+        {"who": "hero", "es": "È per colpa dell'eco?", "ru": "Это из-за эха?"},
+        {"who": "npc", "es": "Credo di sì. La sua voce se n'è andata e non è tornata. Come quella del banditore.", "ru": "Думаю, да. Его голос ушёл и не вернулся. Как у глашатая."},
+        {"who": "hero", "es": "Si può curare?", "ru": "Это лечится?"},
+        {"who": "npc", "es": "Ho letto le carte di mia nonna, che era medico anche lei. Ha scritto: «La voce torna quando qualcuno risponde».", "ru": "Я прочитала записи моей бабушки, она тоже была врачом. Она написала: «Голос возвращается, когда кто-то отвечает»."},
+        {"who": "hero", "es": "Allora bisogna rispondere al banditore.", "ru": "Значит, нужно ответить глашатаю."},
+        {"who": "npc", "es": "Credo di sì. E forse, quando torna la sua voce, torna anche quella di Paolo.", "ru": "Думаю, да. И, может быть, когда вернётся его голос, вернётся и голос Паоло."},
+        {"who": "hero", "es": "Paolo è triste?", "ru": "Паоло грустит?"},
+        {"who": "npc", "es": "Molto. Domani c'è il viaggio al bosco e crede di non poter aiutare senza voce. Parla con lui.", "ru": "Очень. Завтра поездка к лесу, а он думает, что без голоса не сможет помочь. Поговори с ним."}
+      ],
+      "questions": [
+        {"q": "Что случилось с Паоло?", "options": ["Сломал ногу", "Потерял голос на репетиции роли глашатая", "Простудился на пляже"], "answer": 1},
+        {"q": "Что написала бабушка доктора?", "options": ["«Голос возвращается, когда кто-то отвечает»", "«Пейте тёплое молоко»", "«Не ходите в лес»"], "answer": 0},
+        {"q": "Когда, по мнению доктора, Паоло вернёт голос?", "options": ["Через неделю", "После операции", "Когда вернётся голос глашатая"], "answer": 2},
+        {"q": "Почему Паоло грустит?", "options": ["Он не любит больницу", "Думает, что без голоса не сможет помочь", "Ему не дали роль"], "answer": 1}
+      ],
+      "gloss": {"banditore": "глашатай", "provava": "репетировал (от provare)", "parte": "роль", "curare": "лечить", "paolo": "Паоло (имя)", "alunno": "ученик"}
     }
   ]
 }

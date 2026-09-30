@@ -121,6 +121,31 @@
         {"q": "Почему Андрес пугал город лесом?", "options": ["Хотел денег", "Не любит лес", "Боялся снова кого-то потерять"], "answer": 2}
       ],
       "gloss": {"pipa": "трубка (курительная)", "andrés": "Андрес (имя)", "denunciarle": "заявить на него (denunciar)", "otra": "снова (otra vez)"}
+    },
+    {
+      "id": "sc:office.5",
+      "chapter": 5,
+      "npc": "beatriz",
+      "lines": [
+        {"who": "npc", "es": "¡Qué bien que vienes! Estoy pasando al ordenador el archivo viejo del ayuntamiento, y mira lo que he encontrado.", "ru": "Как хорошо, что ты пришёл! Я перевожу в компьютер старый архив мэрии, и смотри, что нашла."},
+        {"who": "hero", "es": "¿Algo del pregonero?", "ru": "Что-то о глашатае?"},
+        {"who": "npc", "es": "Su contrato. Nadie lo despidió y él nunca dimitió. Oficialmente, todavía trabaja para la ciudad.", "ru": "Его договор. Никто его не уволил, и сам он не уволился. Официально он до сих пор работает на город."},
+        {"who": "hero", "es": "Cien años de trabajo sin volver a la plaza.", "ru": "Сто лет работы без возвращения на площадь."},
+        {"who": "npc", "es": "Y hay algo más. Un discurso que nunca leyó. Empieza así: «Queridos vecinos, hoy no os traigo noticias».", "ru": "И ещё кое-что. Речь, которую он так и не прочитал. Начинается так: «Дорогие соседи, сегодня я не принёс вам новостей»."},
+        {"who": "hero", "es": "¿«Queridos vecinos»? Pero él siempre hablaba de usted.", "ru": "«Дорогие соседи»? Но он же всегда говорил на вы."},
+        {"who": "npc", "es": "Ya ves. Quería cambiar. Quería hablar con la gente como un amigo.", "ru": "Вот видишь. Он хотел измениться. Хотел говорить с людьми как друг."},
+        {"who": "hero", "es": "¿Y por qué no lo leyó?", "ru": "А почему не прочитал?"},
+        {"who": "npc", "es": "Mira la fecha. Es del mismo día en que se fue. Creo que la gente se rió antes de que empezara.", "ru": "Посмотри на дату. Тот же день, когда он ушёл. Думаю, люди засмеялись раньше, чем он начал."},
+        {"who": "hero", "es": "Entonces el discurso todavía espera.", "ru": "Значит, речь до сих пор ждёт."},
+        {"who": "npc", "es": "Como él. Necesito imprimirlo, pero el archivo es de la jefa, y ella es muy seria.", "ru": "Как и он. Мне нужно её распечатать, но архив в ведении начальницы, а она очень строгая."}
+      ],
+      "questions": [
+        {"q": "Что Беатрис нашла в старом архиве мэрии?", "options": ["Карту леса", "Договор глашатая и его непрочитанную речь", "Старые деньги"], "answer": 1},
+        {"q": "Почему глашатай официально всё ещё работает на город?", "options": ["Его никто не уволил, и сам он не уволился", "Он вернулся вчера", "Мэр его нанял снова"], "answer": 0},
+        {"q": "Как начинается его речь?", "options": ["«Уважаемые граждане»", "«Сообщаю вам»", "«Дорогие соседи, сегодня я не принёс вам новостей»"], "answer": 2},
+        {"q": "Почему он так и не прочитал речь?", "options": ["Он её потерял", "Люди засмеялись раньше, чем он начал", "Шёл дождь"], "answer": 1}
+      ],
+      "gloss": {"pregonero": "глашатай", "ayuntamiento": "мэрия", "despidió": "уволил (от despedir)", "dimitió": "уволился сам (от dimitir)", "discurso": "речь", "os": "вам (vosotros)", "traigo": "приношу (от traer)", "empezara": "начал (от empezar)", "oficialmente": "официально", "mismo": "тот же самый"}
     }
   ]
 }

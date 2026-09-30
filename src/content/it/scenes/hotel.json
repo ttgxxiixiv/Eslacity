@@ -122,6 +122,31 @@
         {"q": "Какой голос в лесу ещё остался?", "options": ["Голос ворона", "Голос Иво", "Страх Андреа"], "answer": 2}
       ],
       "gloss": {"ivo": "Иво (имя)", "sparisce": "пропадает (sparire)", "andrea": "Андреа (имя)", "faccia": "лицо (in faccia — в лицо)"}
+    },
+    {
+      "id": "sc:hotel.5",
+      "chapter": 5,
+      "npc": "elisa",
+      "lines": [
+        {"who": "npc", "es": "Guarda questa chiave. È della camera dodici. Nessuno la usa da cento anni.", "ru": "Посмотри на этот ключ. Он от двенадцатого номера. Им никто не пользуется сто лет."},
+        {"who": "hero", "es": "Di chi era?", "ru": "Чей это был номер?"},
+        {"who": "npc", "es": "Del banditore. Ha vissuto qui dieci anni. Pagava sempre puntuale e non riceveva mai visite.", "ru": "Глашатая. Он прожил здесь десять лет. Всегда платил вовремя и никогда не принимал гостей."},
+        {"who": "hero", "es": "Sempre solo.", "ru": "Всегда один."},
+        {"who": "npc", "es": "Sto preparando la camera per quando torna. Lenzuola pulite, fiori, la finestra sulla piazza.", "ru": "Я готовлю номер к его возвращению. Чистое бельё, цветы, окно на площадь."},
+        {"who": "hero", "es": "Che bello. E chi è il signore sul divano?", "ru": "Как хорошо. А кто этот сеньор на диване?"},
+        {"who": "npc", "es": "È Andrea. È seduto da un'ora senza parlare. Chiediglielo tu.", "ru": "Это Андреа. Уже час сидит и молчит. Спроси его ты."},
+        {"who": "hero", "es": "Andrea, che cos'hai?", "ru": "Андреа, что с тобой?"},
+        {"who": "npc", "es": "Dice: «Cento anni fa ero uno dei bambini che ridevano del banditore. Lo imitavamo in piazza».", "ru": "Говорит: «Сто лет назад я был одним из детей, которые смеялись над глашатаем. Мы передразнивали его на площади»."},
+        {"who": "hero", "es": "Allora anche tu gli devi una risposta.", "ru": "Значит, ты тоже должен ему ответ."},
+        {"who": "npc", "es": "Lo pensa anche lui. Ma ha paura. Dice che non sa come guardarlo in faccia.", "ru": "Он и сам так думает. Но боится. Говорит, что не знает, как посмотреть ему в глаза."}
+      ],
+      "questions": [
+        {"q": "Чей был двенадцатый номер?", "options": ["Андреа", "Глашатая", "Мэра"], "answer": 1},
+        {"q": "Как глашатай жил в отеле?", "options": ["Всегда платил вовремя и никогда не принимал гостей", "Устраивал праздники", "Не платил"], "answer": 0},
+        {"q": "Кем был Андреа сто лет назад?", "options": ["Другом глашатая", "Хозяином отеля", "Одним из детей, которые смеялись над глашатаем"], "answer": 2},
+        {"q": "Чего боится Андреа?", "options": ["Поезда", "Посмотреть глашатаю в глаза", "Леса"], "answer": 1}
+      ],
+      "gloss": {"banditore": "глашатай", "visite": "гости, посетители", "lenzuola": "простыни, постельное бельё", "divano": "диван", "imitavamo": "передразнивали (от imitare)", "devi": "должен (от dovere)", "andrea": "Андреа (имя)"}
     }
   ]
 }

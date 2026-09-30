@@ -87,6 +87,30 @@
         "review": {"kind": "answer", "task": "Скажите, что оставите хороший отзыв.", "branches": [{"phrase": "ph:hotel.lascero-bella-recensione", "next": "end"}], "wrong": {"es": "Lasci una piuma? Ne abbiamo già tante.", "ru": "Оставишь перо? У нас их и так много."}},
         "end": {"kind": "say", "es": "Grazie! E prendi: Ivo ha portato questo dal bosco per te. Un pezzo della mappa. Dice che è quasi completa.", "ru": "Спасибо! И держи: Иво принёс это из леса для тебя. Обрывок карты. Говорит, она почти собрана."}
       }
+    },
+    {
+      "id": "ms:hotel.5",
+      "chapter": 5,
+      "npc": "elisa",
+      "scene": "sc:hotel.5",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Mentre Andrea ci pensa, aiutami. Domani arriva tanta gente per il viaggio al bosco. Che cosa dico al telefono?", "ru": "Пока Андреа думает, помоги мне. Завтра приедет много людей ради поездки к лесу. Что мне говорить им по телефону?", "next": "rooms"},
+        "rooms": {"kind": "answer", "task": "Спросите, есть ли свободные номера.", "branches": [{"phrase": "ph:hotel.ci-sono-camere", "next": "roomssay"}], "wrong": {"es": "Camere per l'eco? Quelle sono sempre piene.", "ru": "Номера для эха? Они всегда заняты."}},
+        "roomssay": {"kind": "say", "es": "Ne restano tre. Bene. Adesso parla con Andrea, per favore. Sta tremando.", "ru": "Осталось три. Хорошо. Теперь поговори с Андреа, пожалуйста. Он дрожит.", "next": "calm"},
+        "calm": {"kind": "answer", "task": "Успокойте Андреа. Он просит говорить с ним на ты.", "register": "informal", "branches": [{"phrase": "ph:hotel.tranquillo-amico", "next": "calmsay"}, {"phrase": "ph:hotel.non-si-preoccupi-signore", "next": "calmsay"}], "wrong": {"es": "Che cosa gli hai detto? Andrea non ti ha capito.", "ru": "Что ты ему сказал? Андреа тебя не понял."}, "tone": {"es": "«Signore»? Andrea dice: «Così mi parlava il banditore. Non parlarmi così anche tu».", "ru": "«Сеньор»? Андреа говорит: «Так со мной говорил глашатай. Хоть ты так не говори»."}},
+        "calmsay": {"kind": "say", "es": "Andrea dice: «Grazie. Ma credo che resterò qui. Non merito di andare nel Labirinto».", "ru": "Андреа говорит: «Спасибо. Но, пожалуй, я останусь здесь. Я не заслужил идти в Лабиринт».", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:hotel.vieni-con-noi", "next": "object", "move": "object"}, {"phrase": "ph:hotel.resta-se-non-pronto", "next": "concede", "move": "concede"}, {"phrase": "ph:hotel.scrivigli-lettera", "next": "compromise", "move": "compromise"}], "wrong": {"es": "Cosa? Andrea ti parla del viaggio, non dell'albergo.", "ru": "Что? Андреа говорит о поездке, а не об отеле."}},
+        "object": {"kind": "say", "es": "Andrea si alza. «Hai ragione. Se mi aspetta, vengo. E gli chiederò scusa con la mia voce».", "ru": "Андреа встаёт. «Ты прав. Если он ждёт, я поеду. И попрошу прощения своим голосом».", "next": "service"},
+        "concede": {"kind": "say", "es": "Andrea sorride un po'. «Grazie di aver capito. Digli che mi dispiace»", "ru": "Андреа чуть улыбается. «Спасибо, что понял. Скажи ему, что мне жаль»", "next": "service"},
+        "compromise": {"kind": "say", "es": "Andrea chiede un foglio. «Una lettera. Sì. Così non mi trema la voce».", "ru": "Андреа просит бумагу. «Письмо. Да. Так у меня не будет дрожать голос».", "next": "service"},
+        "service": {"kind": "answer", "task": "Спросите, есть ли в отеле обслуживание в номерах.", "branches": [{"phrase": "ph:hotel.c-servizio-camera", "next": "servicesay"}], "wrong": {"es": "Servizio di eco? Quello arriva senza chiederlo.", "ru": "Эхо в номер? Оно приходит без заказа."}},
+        "servicesay": {"kind": "say", "es": "Sì, e la camera dodici avrà il migliore. Altro per il viaggio?", "ru": "Да, и у двенадцатого номера будет лучшее. Что-нибудь ещё для поездки?", "next": "safe"},
+        "safe": {"kind": "answer", "task": "Спросите, есть ли в номере сейф.", "branches": [{"phrase": "ph:hotel.c-cassaforte-camera", "next": "safesay"}], "wrong": {"es": "Una cassaforte per l'eco? Scapperebbe.", "ru": "Сейф для эха? Оно бы сбежало."}},
+        "safesay": {"kind": "say", "es": "Sì. Tieni lì la lettera dei bambini fino a domani. E la colazione per i viaggiatori?", "ru": "Да. Храни там письмо детей до завтра. А завтрак для путешественников?", "next": "included"},
+        "included": {"kind": "answer", "task": "Спросите, всё ли включено.", "branches": [{"phrase": "ph:hotel.tutto-compreso", "next": "end"}], "wrong": {"es": "L'eco compreso? Quello è gratis.", "ru": "Эхо включено? Оно бесплатное."}},
+        "end": {"kind": "say", "es": "Tutto compreso. E prendi: nella camera dodici, sotto il letto, c'era questo foglio. Un pezzo della mappa del Labirinto.", "ru": "Всё включено. И держи: в двенадцатом номере, под кроватью, лежала эта бумага. Обрывок карты Лабиринта."}
+      }
     }
   ]
 }

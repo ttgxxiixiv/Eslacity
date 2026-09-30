@@ -119,6 +119,31 @@
         {"q": "Что видно сверху?", "options": ["Реку", "Новый город", "Тропу, которой раньше не было"], "answer": 2}
       ],
       "gloss": {"lanterna": "фонарь", "muovono": "двигаются (muoversi)"}
+    },
+    {
+      "id": "sc:airport.5",
+      "chapter": 5,
+      "npc": "luca",
+      "lines": [
+        {"who": "npc", "es": "Ti ricordi il nostro primo volo sopra le montagne? Oggi voliamo di nuovo, ma sopra il bosco.", "ru": "Помнишь наш первый полёт над горами? Сегодня летим снова, но над лесом."},
+        {"who": "hero", "es": "Per vedere il Labirinto?", "ru": "Чтобы увидеть Лабиринт?"},
+        {"who": "npc", "es": "Esatto. Da terra è un labirinto di pietra. Ma un pilota mi ha raccontato una cosa strana.", "ru": "Именно. С земли это каменный лабиринт. Но один пилот рассказал мне странное."},
+        {"who": "hero", "es": "Che cosa ti ha raccontato?", "ru": "Что он тебе рассказал?"},
+        {"who": "npc", "es": "Che dal cielo le strade del Labirinto formano delle lettere. Come se qualcuno avesse scritto per terra.", "ru": "Что с неба дорожки Лабиринта складываются в буквы. Как будто кто-то написал на земле."},
+        {"who": "hero", "es": "E che cosa dicono?", "ru": "И что там написано?"},
+        {"who": "npc", "es": "Lui non lo sa. Ha volato di notte e ha visto solo le prime lettere: «MI...».", "ru": "Он не знает. Летел ночью и видел только первые буквы: «МЕНЯ...»."},
+        {"who": "hero", "es": "Oggi c'è il sole. Vedremo tutto.", "ru": "Сегодня солнце. Увидим всё."},
+        {"who": "npc", "es": "Lo spero. Ma prima ci serve il permesso della torre di controllo. E quelli della torre sono molto formali.", "ru": "Надеюсь. Но сначала нужно разрешение диспетчерской вышки. А на вышке все очень официальные."},
+        {"who": "hero", "es": "Ci parlo io.", "ru": "Я с ними поговорю."},
+        {"who": "npc", "es": "Perfetto. Alla radio, chiaro e con rispetto. Se no, ci lasciano a terra.", "ru": "Отлично. По рации — чётко и уважительно. Иначе нас оставят на земле."}
+      ],
+      "questions": [
+        {"q": "Над чем Лука летит сегодня?", "options": ["Над морем", "Над лесом", "Над пустыней"], "answer": 1},
+        {"q": "Что рассказал Луке один пилот?", "options": ["С неба дорожки Лабиринта складываются в буквы", "В лесу живёт дракон", "Лабиринт исчез"], "answer": 0},
+        {"q": "Почему пилот не прочитал всё?", "options": ["Был туман", "Он боялся", "Летел ночью и увидел только первые буквы"], "answer": 2},
+        {"q": "Чьё разрешение нужно для полёта?", "options": ["Мэра", "Диспетчерской вышки", "Комиссара"], "answer": 1}
+      ],
+      "gloss": {"pilota": "пилот", "avesse": "бы (avesse scritto — написал бы)", "torre": "башня, вышка", "formali": "официальные", "radio": "рация", "formano": "образуют (от formare)", "lettere": "буквы"}
     }
   ]
 }

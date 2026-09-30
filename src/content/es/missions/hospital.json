@@ -86,6 +86,30 @@
         "foot": {"kind": "answer", "task": "Скажите, что у вас болит нога.", "branches": [{"phrase": "ph:hospital.duele-pie", "next": "end"}], "wrong": {"es": "¿Le duele el bosque? Eso no lo curo yo.", "ru": "У вас болит лес? Это я не лечу."}},
         "end": {"kind": "say", "es": "Tanto caminar por el barrio... Tome esta crema. Y esto: Andrés me dio este trozo del mapa del bosque para usted. Dice que esta noche irá a la reunión.", "ru": "Столько ходить по району... Возьмите этот крем. И вот ещё: Андрес дал мне для вас обрывок карты леса. Говорит, вечером придёт на собрание."}
       }
+    },
+    {
+      "id": "ms:hospital.5",
+      "chapter": 5,
+      "npc": "ruiz",
+      "scene": "sc:hospital.5",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Primero, lo que me preguntan todos los padres. Ayúdame a contestar.", "ru": "Сначала то, о чём меня спрашивают все родители. Помоги мне ответить.", "next": "diag"},
+        "diag": {"kind": "answer", "task": "Спросите, какой диагноз.", "branches": [{"phrase": "ph:hospital.cual-diagnostico", "next": "diagsay"}], "wrong": {"es": "¿El diagnóstico del eco? Todavía no lo sé.", "ru": "Диагноз эха? Пока не знаю."}},
+        "diagsay": {"kind": "say", "es": "Pérdida de voz por el eco. Aquí está Pablo. Salúdalo tú; conmigo no quiere hablar... ni con gestos.", "ru": "Потеря голоса из-за эха. Вот Пабло. Поздоровайся ты: со мной он не хочет говорить... даже жестами.", "next": "greet"},
+        "greet": {"kind": "answer", "task": "Поздоровайтесь с Пабло. Ему десять лет, и вы друзья — по-свойски.", "register": "informal", "branches": [{"phrase": "ph:hospital.eh-campeon", "next": "greetsay"}, {"phrase": "ph:hospital.buenos-dias-como-se-siente", "next": "greetsay"}], "wrong": {"es": "¿Qué le has dicho? Pablo te mira sin entender.", "ru": "Что ты ему сказал? Пабло смотрит на тебя, не понимая."}, "tone": {"es": "¿«Usted»? Pablo se tapa con la sábana. Parece que le ha hablado el pregonero. ¡Háblale como a un amigo!", "ru": "«Вы»? Пабло прячется под простыню. Будто с ним заговорил глашатай. Говори с ним как с другом!"}},
+        "greetsay": {"kind": "say", "es": "¡Sonríe! Escribe en un papel: «Quiero ir al bosque». Pero yo, como médica, prefiero que se quede en la cama.", "ru": "Улыбается! Пишет на бумажке: «Хочу поехать к лесу». Но я как врач предпочла бы, чтобы он остался в постели.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:hospital.chico-tiene-venir", "next": "object", "move": "object"}, {"phrase": "ph:hospital.mejor-se-queda-cama", "next": "concede", "move": "concede"}, {"phrase": "ph:hospital.viene-sin-hablar", "next": "compromise", "move": "compromise"}], "wrong": {"es": "¿Cómo? Hablamos de Pablo y del viaje.", "ru": "Как? Мы говорим о Пабло и поездке."}},
+        "object": {"kind": "say", "es": "Tienes razón. Es su obra, y es su voz. Vendré yo también, por si acaso.", "ru": "Ты прав. Это его спектакль и его голос. Я тоже поеду, на всякий случай.", "next": "contagious"},
+        "concede": {"kind": "say", "es": "Gracias. Se queda conmigo. Pero me ha dado un dibujo para el pregonero.", "ru": "Спасибо. Он останется со мной. Но он дал мне рисунок для глашатая.", "next": "contagious"},
+        "compromise": {"kind": "say", "es": "Sin hablar y con la carta... Sí. Así ayuda y descansa la voz.", "ru": "Без разговоров и с письмом... Да. Так он поможет, а голос отдохнёт.", "next": "contagious"},
+        "contagious": {"kind": "answer", "task": "Спросите, заразно ли это.", "branches": [{"phrase": "ph:hospital.contagioso", "next": "contagioussay"}], "wrong": {"es": "¿El eco es contagioso? Ya está en toda la ciudad.", "ru": "Эхо заразно? Оно уже во всём городе."}},
+        "contagioussay": {"kind": "say", "es": "No, tranquilo. ¿Tienes más preguntas de los padres?", "ru": "Нет, не волнуйся. Ещё вопросы от родителей есть?", "next": "vaccine"},
+        "vaccine": {"kind": "answer", "task": "Спросите, нужно ли делать прививку.", "branches": [{"phrase": "ph:hospital.tengo-ponerme-vacuna", "next": "vaccinesay"}], "wrong": {"es": "¿Una vacuna contra el eco? No existe.", "ru": "Прививка от эха? Такой нет."}},
+        "vaccinesay": {"kind": "say", "es": "No hace falta. La única medicina es una respuesta. ¿Algo más?", "ru": "Не нужно. Единственное лекарство — ответ. Что-нибудь ещё?", "next": "home"},
+        "home": {"kind": "answer", "task": "Спросите, когда Пабло выпишут.", "branches": [{"phrase": "ph:hospital.cuando-dan-alta", "next": "end"}], "wrong": {"es": "¿El alta del eco? Ojalá mañana.", "ru": "Выписать эхо? Хорошо бы завтра."}},
+        "end": {"kind": "say", "es": "Cuando vuelva su voz. Y toma: estaba entre los papeles de mi abuela. Un trozo del mapa del Laberinto con una nota: «Aquí se contesta».", "ru": "Когда вернётся голос. И держи: это было среди бумаг моей бабушки. Обрывок карты Лабиринта с пометкой: «Здесь отвечают»."}
+      }
     }
   ]
 }

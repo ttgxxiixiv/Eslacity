@@ -119,6 +119,31 @@
         {"q": "Чего хочет Андрес?", "options": ["Уехать из города", "Вернуться в башню", "Сказать герою что-то в лицо"], "answer": 2}
       ],
       "gloss": {"andrés": "Андрес (имя)", "iván": "Иван (имя)", "vergüenza": "стыд", "cara": "лицо (a la cara — в лицо)", "trajeron": "привезли (traer)"}
+    },
+    {
+      "id": "sc:hospital.5",
+      "chapter": 5,
+      "npc": "ruiz",
+      "lines": [
+        {"who": "npc", "es": "Pasa, pasa. Tenemos un paciente muy especial: Pablo, el alumno de Elena.", "ru": "Проходи, проходи. У нас очень особенный пациент: Пабло, ученик Елены."},
+        {"who": "hero", "es": "¿Pablo? ¿Qué le ha pasado?", "ru": "Пабло? Что с ним случилось?"},
+        {"who": "npc", "es": "Ha perdido la voz. Ensayaba el papel del pregonero en el colegio, gritaba sus frases, y luego, nada.", "ru": "Потерял голос. Репетировал роль глашатая в школе, выкрикивал его фразы, а потом — ничего."},
+        {"who": "hero", "es": "¿Es por el eco?", "ru": "Это из-за эха?"},
+        {"who": "npc", "es": "Creo que sí. Su voz se fue y no ha vuelto. Como la del pregonero.", "ru": "Думаю, да. Его голос ушёл и не вернулся. Как у глашатая."},
+        {"who": "hero", "es": "¿Tiene cura?", "ru": "Это лечится?"},
+        {"who": "npc", "es": "He leído los papeles de mi abuela, que también era médica. Ella escribió: «La voz vuelve cuando alguien contesta».", "ru": "Я прочитала записи моей бабушки, она тоже была врачом. Она написала: «Голос возвращается, когда кто-то отвечает»."},
+        {"who": "hero", "es": "Entonces hay que contestarle al pregonero.", "ru": "Значит, нужно ответить глашатаю."},
+        {"who": "npc", "es": "Eso creo. Y quizás, cuando vuelva su voz, vuelva también la de Pablo.", "ru": "Думаю, да. И, может быть, когда он вернёт себе голос, Пабло вернёт свой."},
+        {"who": "hero", "es": "¿Pablo está triste?", "ru": "Пабло грустит?"},
+        {"who": "npc", "es": "Mucho. Mañana es el viaje al bosque y cree que no puede ayudar sin voz. Habla con él.", "ru": "Очень. Завтра поездка к лесу, а он думает, что без голоса не сможет помочь. Поговори с ним."}
+      ],
+      "questions": [
+        {"q": "Что случилось с Пабло?", "options": ["Сломал ногу", "Потерял голос на репетиции роли глашатая", "Простудился на пляже"], "answer": 1},
+        {"q": "Что написала бабушка доктора?", "options": ["«Голос возвращается, когда кто-то отвечает»", "«Пейте тёплое молоко»", "«Не ходите в лес»"], "answer": 0},
+        {"q": "Когда, по мнению доктора, Пабло вернёт голос?", "options": ["Через неделю", "После операции", "Когда глашатай вернёт себе голос"], "answer": 2},
+        {"q": "Почему Пабло грустит?", "options": ["Он не любит больницу", "Думает, что без голоса не сможет помочь", "Ему не дали роль"], "answer": 1}
+      ],
+      "gloss": {"pregonero": "глашатай", "ensayaba": "репетировал (от ensayar)", "papel": "роль", "cura": "лечение (¿tiene cura? — это лечится?)", "pablo": "Пабло (имя)"}
     }
   ]
 }

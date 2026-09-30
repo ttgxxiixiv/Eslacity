@@ -122,6 +122,31 @@
         {"q": "Какой голос в лесу ещё остался?", "options": ["Голос ворона", "Голос Ивана", "Страх Андреса"], "answer": 2}
       ],
       "gloss": {"enhorabuena": "поздравляю", "iván": "Иван (имя)", "paces": "мир (hacer las paces — помириться)", "andrés": "Андрес (имя)", "cara": "лицо (a la cara — в лицо)"}
+    },
+    {
+      "id": "sc:hotel.5",
+      "chapter": 5,
+      "npc": "isabel",
+      "lines": [
+        {"who": "npc", "es": "Mira esta llave. Es de la habitación doce. Nadie la usa desde hace cien años.", "ru": "Посмотри на этот ключ. Он от двенадцатого номера. Им никто не пользуется сто лет."},
+        {"who": "hero", "es": "¿De quién era?", "ru": "Чей это был номер?"},
+        {"who": "npc", "es": "Del pregonero. Vivió aquí diez años. Pagaba siempre puntual y nunca recibía visitas.", "ru": "Глашатая. Он прожил здесь десять лет. Всегда платил вовремя и никогда не принимал гостей."},
+        {"who": "hero", "es": "Siempre solo.", "ru": "Всегда один."},
+        {"who": "npc", "es": "Estoy preparando la habitación para cuando vuelva. Sábanas limpias, flores, la ventana hacia la plaza.", "ru": "Я готовлю номер к его возвращению. Чистое бельё, цветы, окно на площадь."},
+        {"who": "hero", "es": "Qué bonito. ¿Y quién es el señor del sofá?", "ru": "Как хорошо. А кто этот сеньор на диване?"},
+        {"who": "npc", "es": "Es Andrés. Lleva una hora sentado sin hablar. Pregúntale tú.", "ru": "Это Андрес. Уже час сидит и молчит. Спроси его ты."},
+        {"who": "hero", "es": "Andrés, ¿qué te pasa?", "ru": "Андрес, что с тобой?"},
+        {"who": "npc", "es": "Dice: «Hace cien años yo era uno de los niños que se reían del pregonero. Le imitábamos en la plaza».", "ru": "Говорит: «Сто лет назад я был одним из детей, которые смеялись над глашатаем. Мы передразнивали его на площади»."},
+        {"who": "hero", "es": "Entonces tú también le debes una respuesta.", "ru": "Значит, ты тоже должен ему ответ."},
+        {"who": "npc", "es": "Eso piensa él. Pero tiene miedo. Dice que no sabe cómo mirarle a la cara.", "ru": "Он и сам так думает. Но боится. Говорит, что не знает, как посмотреть ему в глаза."}
+      ],
+      "questions": [
+        {"q": "Чей был двенадцатый номер?", "options": ["Андреса", "Глашатая", "Мэра"], "answer": 1},
+        {"q": "Как глашатай жил в отеле?", "options": ["Всегда платил вовремя и никогда не принимал гостей", "Устраивал праздники", "Не платил"], "answer": 0},
+        {"q": "Кем был Андрес сто лет назад?", "options": ["Другом глашатая", "Хозяином отеля", "Одним из детей, которые смеялись над глашатаем"], "answer": 2},
+        {"q": "Чего боится Андрес?", "options": ["Поезда", "Посмотреть глашатаю в глаза", "Леса"], "answer": 1}
+      ],
+      "gloss": {"pregonero": "глашатай", "visitas": "гости, посетители", "sábanas": "простыни, постельное бельё", "sofá": "диван", "imitábamos": "передразнивали (от imitar)", "debes": "должен (от deber)", "andrés": "Андрес (имя)"}
     }
   ]
 }

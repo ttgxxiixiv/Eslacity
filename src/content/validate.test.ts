@@ -590,15 +590,14 @@ describe('сцены и миссии глав I–IV: контент', () => {
 });
 
 describe('миссии главы V: контент', () => {
-  // Задача 7.8 идёт пачками: где миссия главы V уже есть, там сцена главы, узел тона, спор и 5 фраз уровня 7,
-  // и места одни и те же в обоих языках.
-  it('у мест с миссией главы V — сцена, узел тона, спор и 5 фраз уровня 7', () => {
+  // Задача 7.8: в каждом из 20 мест обоих языков миссия главы V, сцена главы, узел тона, спор и 5 фраз уровня 7.
+  it('в каждом из 20 мест миссия главы V: сцена, узел тона, спор и 5 фраз уровня 7', () => {
     const places = (lang: string) =>
       LOCATION_IDS.filter((loc) =>
         (JSON.parse(readFileSync(join(import.meta.dirname, lang, 'missions', `${loc}.json`), 'utf8')) as LocationMissions).missions.some((m) => m.chapter === 5),
       );
-    expect(places('es').length).toBeGreaterThanOrEqual(5);
-    expect(places('it')).toEqual(places('es'));
+    expect(places('es')).toEqual(LOCATION_IDS);
+    expect(places('it')).toEqual(LOCATION_IDS);
     for (const lang of ['es', 'it']) {
       for (const loc of places(lang)) {
         const five = (JSON.parse(readFileSync(join(import.meta.dirname, lang, 'missions', `${loc}.json`), 'utf8')) as LocationMissions).missions.find((m) => m.chapter === 5)!;

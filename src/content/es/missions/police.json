@@ -85,6 +85,31 @@
         "traffic": {"kind": "answer", "task": "Скажите, что на дороге большие пробки.", "branches": [{"phrase": "ph:police.hay-mucho-trafico", "next": "end"}], "wrong": {"es": "¿Hay muchos árboles en la carretera? Todavía no.", "ru": "На дороге много деревьев? Пока нет."}},
         "end": {"kind": "say", "es": "Entonces mañana a las seis. Y toma el último trozo del mapa del bosque: estaba entre las pruebas del caso. Ya no es una prueba: es tu camino.", "ru": "Тогда завтра в шесть. И возьми последний обрывок карты леса: он лежал среди улик по делу. Теперь это не улика, а твой путь."}
       }
+    },
+    {
+      "id": "ms:police.5",
+      "chapter": 5,
+      "npc": "vega",
+      "scene": "sc:police.5",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Antes del viaje, necesito su declaración. ¿Vio usted algo anoche en la plaza?", "ru": "Перед поездкой мне нужны ваши показания. Вы видели что-нибудь вчера ночью на площади?", "next": "suspect"},
+        "suspect": {"kind": "answer", "task": "Скажите, что там был подозрительный человек.", "branches": [{"phrase": "ph:police.habia-hombre-sospechoso", "next": "suspectsay"}], "wrong": {"es": "¿Un eco sospechoso? Todos lo son.", "ru": "Подозрительное эхо? Они все такие."}},
+        "suspectsay": {"kind": "say", "es": "Un hombre con capa gris, supongo. Era él: vino a ver la plaza por última vez.", "ru": "Человек в сером плаще, полагаю. Это был он: пришёл взглянуть на площадь в последний раз.", "next": "cameras"},
+        "cameras": {"kind": "answer", "task": "Спросите, есть ли на этой улице камеры.", "branches": [{"phrase": "ph:police.hay-camaras-esta", "next": "camerassay"}], "wrong": {"es": "¿Cámaras para el eco? No sale en las fotos.", "ru": "Камеры для эха? Оно не выходит на снимках."}},
+        "camerassay": {"kind": "say", "es": "Las hay. Se le ve delante del lugar donde antes leía las noticias. Bien. Ahora, dígame qué necesita para mañana.", "ru": "Есть. Его видно перед местом, где он раньше читал новости. Хорошо. Теперь скажите, что вам нужно на завтра.", "next": "escort"},
+        "escort": {"kind": "answer", "task": "Попросите комиссара Вегу сопровождать горожан с её агентами. Она говорит только официально.", "register": "formal", "branches": [{"phrase": "ph:police.comisaria-solicito-escolta", "next": "escortsay"}, {"phrase": "ph:police.oye-te-vienes", "next": "escortsay"}], "wrong": {"es": "¿Cómo dice? No le entiendo.", "ru": "Как вы сказали? Я вас не понимаю."}, "tone": {"es": "¿«Mis chicos»? Son agentes de policía. Le acompañaremos, pero en esta comisaría se habla de usted.", "ru": "«Ребята»? Это агенты полиции. Мы вас сопроводим, но в этом комиссариате говорят на вы."}},
+        "escortsay": {"kind": "say", "es": "Iremos. Pero después, por seguridad, pienso cerrar el camino del bosque. Nadie más entrará en el Laberinto.", "ru": "Поедем. Но потом ради безопасности я собираюсь закрыть лесную дорогу. Больше никто не войдёт в Лабиринт.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:police.no-cierre-camino", "next": "object", "move": "object"}, {"phrase": "ph:police.puede-cerrarlo-despues", "next": "concede", "move": "concede"}, {"phrase": "ph:police.ponga-guardia-dia", "next": "compromise", "move": "compromise"}], "wrong": {"es": "¿Perdón? Hablamos del camino del bosque.", "ru": "Простите? Мы говорим о лесной дороге."}},
+        "object": {"kind": "say", "es": "Tiene razón. Un lugar donde la gente aprende a contestarse no es un peligro. El camino queda abierto.", "ru": "Вы правы. Место, где люди учатся отвечать друг другу, не опасно. Дорога остаётся открытой.", "next": "agent"},
+        "concede": {"kind": "say", "es": "Lo cerraré después. Pero mañana, abierto para todos los que quieran contestar.", "ru": "Закрою потом. Но завтра — открыта для всех, кто хочет ответить.", "next": "agent"},
+        "compromise": {"kind": "say", "es": "Un agente de noche. De día, que vaya quien quiera. Me parece justo.", "ru": "Агент на ночь. Днём пусть идёт кто хочет. По-моему, справедливо.", "next": "agent"},
+        "agent": {"kind": "answer", "task": "Скажите, что вам нужен агент, чтобы нести письмо детей.", "branches": [{"phrase": "ph:police.necesito-agente", "next": "agentsay"}], "wrong": {"es": "¿Un agente para el eco? Ese no se detiene.", "ru": "Агент для эха? Его не задержишь."}},
+        "agentsay": {"kind": "say", "es": "El agente Díaz lo llevará. Mañana, a las siete menos cuarto. ¿Dónde le recogemos?", "ru": "Агент Диас понесёт его. Завтра, без четверти семь. Где вас забрать?", "next": "corner"},
+        "corner": {"kind": "answer", "task": "Скажите, что будете на углу площади.", "branches": [{"phrase": "ph:police.estoy-esquina-plaza", "next": "train"}], "wrong": {"es": "¿En la esquina del eco? Esa no existe.", "ru": "На углу эха? Такого нет."}},
+        "train": {"kind": "say", "es": "A la mañana siguiente, el tren llega al bosque. Mil escalones. Arriba, una puerta de piedra, y una voz: «¿Quién me contesta?». Rafa le da la carta. Léala usted.", "ru": "Наутро поезд приходит к лесу. Тысяча ступеней. Наверху каменная дверь и голос: «Кто мне ответит?». Рафа отдаёт вам письмо. Прочитайте его.", "next": "end"},
+        "end": {"kind": "say", "es": "Usted lee: «Perdona. Ahora te escuchamos». Silencio. Luego la voz, sin eco: «Gracias. Entra. Dentro te hablaré en todos mis tonos». La puerta del Laberinto se abre. Y a sus pies, el último trozo del mapa.", "ru": "Вы читаете: «Прости. Теперь мы тебя слушаем». Тишина. Потом голос, без эха: «Спасибо. Входи. Внутри я буду говорить с тобой всеми своими тонами». Дверь Лабиринта открывается. А у ваших ног — последний обрывок карты."}
+      }
     }
   ]
 }

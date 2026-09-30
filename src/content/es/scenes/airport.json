@@ -119,6 +119,31 @@
         {"q": "Что видно сверху?", "options": ["Реку", "Новый город", "Тропу, которой раньше не было"], "answer": 2}
       ],
       "gloss": {"quietos": "неподвижные", "farol": "фонарь", "mueven": "двигаются (moverse)"}
+    },
+    {
+      "id": "sc:airport.5",
+      "chapter": 5,
+      "npc": "leo",
+      "lines": [
+        {"who": "npc", "es": "¿Recuerdas nuestro primer vuelo sobre las montañas? Hoy volamos otra vez, pero sobre el bosque.", "ru": "Помнишь наш первый полёт над горами? Сегодня летим снова, но над лесом."},
+        {"who": "hero", "es": "¿Para ver el Laberinto?", "ru": "Чтобы увидеть Лабиринт?"},
+        {"who": "npc", "es": "Exacto. Desde abajo es un laberinto de piedra. Pero un piloto me contó algo raro.", "ru": "Именно. Снизу это каменный лабиринт. Но один пилот рассказал мне странное."},
+        {"who": "hero", "es": "¿Qué te contó?", "ru": "Что он тебе рассказал?"},
+        {"who": "npc", "es": "Que desde el cielo los caminos del Laberinto forman letras. Como si alguien hubiera escrito en el suelo.", "ru": "Что с неба дорожки Лабиринта складываются в буквы. Как будто кто-то написал на земле."},
+        {"who": "hero", "es": "¿Y qué dicen?", "ru": "И что там написано?"},
+        {"who": "npc", "es": "Él no lo sabe. Voló de noche y solo vio las primeras letras: «¿ME...».", "ru": "Он не знает. Летел ночью и видел только первые буквы: «МЕНЯ...»."},
+        {"who": "hero", "es": "Hoy hace sol. Lo veremos todo.", "ru": "Сегодня солнце. Увидим всё."},
+        {"who": "npc", "es": "Eso espero. Pero antes necesitamos permiso de la torre de control. Y los de la torre son muy formales.", "ru": "Надеюсь. Но сначала нужно разрешение диспетчерской вышки. А на вышке все очень официальные."},
+        {"who": "hero", "es": "Yo hablo con ellos.", "ru": "Я с ними поговорю."},
+        {"who": "npc", "es": "Perfecto. Por la radio, claro y con respeto. Si no, nos dejan en tierra.", "ru": "Отлично. По рации — чётко и уважительно. Иначе нас оставят на земле."}
+      ],
+      "questions": [
+        {"q": "Над чем Лео летит сегодня?", "options": ["Над морем", "Над лесом", "Над пустыней"], "answer": 1},
+        {"q": "Что рассказал Лео один пилот?", "options": ["С неба дорожки Лабиринта складываются в буквы", "В лесу живёт дракон", "Лабиринт исчез"], "answer": 0},
+        {"q": "Почему пилот не прочитал всё?", "options": ["Был туман", "Он боялся", "Летел ночью и увидел только первые буквы"], "answer": 2},
+        {"q": "Чьё разрешение нужно для полёта?", "options": ["Мэра", "Диспетчерской вышки", "Комиссара"], "answer": 1}
+      ],
+      "gloss": {"piloto": "пилот", "hubiera": "бы (hubiera escrito — написал бы)", "suelo": "земля, пол", "torre": "башня, вышка", "formales": "официальные", "radio": "рация", "abajo": "внизу", "forman": "образуют (от formar)", "letras": "буквы"}
     }
   ]
 }

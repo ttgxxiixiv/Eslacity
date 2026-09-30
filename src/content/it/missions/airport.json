@@ -85,6 +85,30 @@
         "transit": {"kind": "answer", "task": "Скажите, что вы транзитом.", "branches": [{"phrase": "ph:airport.sono-transito", "next": "end"}], "wrong": {"es": "Sei nel bosco? Non ancora.", "ru": "Ты в лесу? Ещё нет."}},
         "end": {"kind": "say", "es": "In transito, come tutti questa settimana. Prendi questo: l'ho trovato in cabina dopo il volo. Un pezzo della mappa del bosco. È caduto dal cielo, ah ah.", "ru": "Транзитом, как и все на этой неделе. Держи: я нашёл это в салоне после рейса. Обрывок карты леса. Упал с неба, ха-ха."}
       }
+    },
+    {
+      "id": "ms:airport.5",
+      "chapter": 5,
+      "npc": "luca",
+      "scene": "sc:airport.5",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Prima, come sempre. Che cosa chiedi prima di salire?", "ru": "Сначала — как обычно. Что ты спрашиваешь перед посадкой?", "next": "boarding"},
+        "boarding": {"kind": "answer", "task": "Спросите, во сколько начинается посадка.", "branches": [{"phrase": "ph:airport.che-ora-comincia", "next": "boardingsay"}], "wrong": {"es": "L'imbarco dell'eco? Quello sale senza biglietto.", "ru": "Посадка эха? Оно садится без билета."}},
+        "boardingsay": {"kind": "say", "es": "Adesso: l'aereo è piccolo, siamo in due. Porti qualcosa?", "ru": "Прямо сейчас: самолёт маленький, нас двое. У тебя есть вещи?", "next": "bag"},
+        "bag": {"kind": "answer", "task": "Спросите, считается ли это ручной кладью.", "branches": [{"phrase": "ph:airport.questo-bagaglio-mano", "next": "bagsay"}], "wrong": {"es": "L'eco è un bagaglio? Non pesa niente.", "ru": "Эхо — это багаж? Оно ничего не весит."}},
+        "bagsay": {"kind": "say", "es": "Sì, quello ci sta. Prendi la radio. Chiedi il permesso alla torre.", "ru": "Да, это поместится. Бери рацию. Попроси разрешения у вышки.", "next": "radio"},
+        "radio": {"kind": "answer", "task": "Попросите у диспетчерской вышки разрешения на полёт над лесом. Официально.", "register": "formal", "branches": [{"phrase": "ph:airport.torre-chiedo-permesso", "next": "radiosay"}, {"phrase": "ph:airport.ehi-torre-possiamo", "next": "radiosay"}], "wrong": {"es": "La torre non risponde. Credo che non abbiano capito.", "ru": "Вышка не отвечает. Кажется, не поняли."}, "tone": {"es": "La torre risponde: «Ripeta la richiesta in forma corretta, per favore». Alla radio, sempre del lei.", "ru": "Вышка отвечает: «Повторите запрос по форме, пожалуйста». По рации — всегда на вы."}},
+        "radiosay": {"kind": "say", "es": "Permesso concesso! Guarda giù... Le lettere! Dicono: «MI SENTI?». C'è una radura vicino. Scendo lì.", "ru": "Разрешение получено! Смотри вниз... Буквы! Там написано: «МЕНЯ СЛЫШНО?». Рядом поляна. Я сажусь туда.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:airport.non-scendere-li", "next": "object", "move": "object"}, {"phrase": "ph:airport.scendi-se-sicuro", "next": "concede", "move": "concede"}, {"phrase": "ph:airport.altro-giro-treno", "next": "compromise", "move": "compromise"}], "wrong": {"es": "Cosa? Ti parlo della radura, non della radio.", "ru": "Что? Я про поляну, а не про рацию."}},
+        "object": {"kind": "say", "es": "Hai ragione, lì ci sono pietre e alberi. Torniamo. Domani, via terra.", "ru": "Ты прав, там камни и деревья. Возвращаемся. Завтра — по земле.", "next": "liquids"},
+        "concede": {"kind": "say", "es": "Tieniti forte... Siamo a terra! Ma la porta del Labirinto è chiusa. Torniamo in città.", "ru": "Держись... Приземлились! Но дверь Лабиринта закрыта. Возвращаемся в город.", "next": "liquids"},
+        "compromise": {"kind": "say", "es": "Un altro giro per guardare bene le lettere... e domani, sul treno di Aldo.", "ru": "Ещё круг, чтобы хорошо рассмотреть буквы... а завтра — на поезде Альдо.", "next": "liquids"},
+        "liquids": {"kind": "answer", "task": "Спросите, можно ли взять на борт жидкости: для поездки нужна вода.", "branches": [{"phrase": "ph:airport.posso-portare-liquidi", "next": "liquidssay"}], "wrong": {"es": "Liquidi? L'eco non beve.", "ru": "Жидкости? Эхо не пьёт."}},
+        "liquidssay": {"kind": "say", "es": "Sul mio aereo, sì. Siamo già a terra. Altro prima di andare?", "ru": "В моём самолёте — да. Мы уже на земле. Что-нибудь ещё, прежде чем уйдёшь?", "next": "toilet"},
+        "toilet": {"kind": "answer", "task": "Спросите, где туалет.", "branches": [{"phrase": "ph:airport.dov-toilette", "next": "end"}], "wrong": {"es": "La toilette dell'eco? Non ce l'ha.", "ru": "Туалет для эха? У него нет."}},
+        "end": {"kind": "say", "es": "In fondo, a sinistra. E prendi: ti ho disegnato le lettere del Labirinto. Con questo, la tua mappa ha un pezzo in più.", "ru": "В конце зала, налево. И держи: я нарисовал тебе буквы Лабиринта. С этим в твоей карте на обрывок больше."}
+      }
     }
   ]
 }
