@@ -20,12 +20,12 @@ export interface ChapterPlan {
 export const CHAPTERS: ChapterPlan[] = [
   { chapter: 'I', cefr: 'A1', levels: [1, 2], places: 445, scroll: 85 },
   { chapter: 'II', cefr: 'A2', levels: [3, 4], places: 474, scroll: 165 },
-  { chapter: 'III', cefr: 'B1', levels: [5], places: 600, scroll: 200 },
+  { chapter: 'III', cefr: 'B1', levels: [5], places: 600, scroll: 250 },
   { chapter: 'IV', cefr: 'B2', levels: [6], places: 600, scroll: 200 },
   { chapter: 'V', cefr: 'C1', levels: [7], places: 500, scroll: 150 },
 ];
 
-/** Всего слов по плану: 3419 (свитки I–IV выросли в задаче 7.11), запас над целью на повторы и замены. */
+/** Всего слов по плану: 3469 (свитки I–IV выросли в задаче 7.11), запас над целью на повторы и замены. */
 export const PLAN_TOTAL = CHAPTERS.reduce((n, c) => n + c.places + c.scroll, 0);
 
 /** Наибольшее число слов в одном уровне одного места. */

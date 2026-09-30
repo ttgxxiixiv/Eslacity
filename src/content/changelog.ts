@@ -7,6 +7,13 @@ export interface Release {
 // Новые версии сверху. Версия первой записи должна совпадать с package.json (проверяется тестом).
 export const CHANGELOG: Release[] = [
   {
+    version: '2.98.0',
+    date: '2026-09-30',
+    notes: [
+      'В свиток пустыни миражей легли ещё 50 частых слов на каждом языке: «rendirse», «confundir», «la oscuridad», «el mentiroso» в испанском, «la gioia», «il mattino», «la trappola», «l\'incubo» в итальянском. В свитке теперь 250 слов. Итальянский курс покрывает 70% из трёх тысяч самых частых слов языка.',
+    ],
+  },
+  {
     version: '2.97.0',
     date: '2026-09-30',
     notes: [
