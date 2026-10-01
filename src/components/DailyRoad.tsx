@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
 import fireLit from '../assets/home/road-fire-lit.webp';
 import fireOut from '../assets/home/road-fire-out.webp';
-import stoneLit from '../assets/home/road-stone-lit.webp';
-import stonePic from '../assets/home/road-stone.webp';
+import postLit from '../assets/home/road-post-lit.webp';
+import postPic from '../assets/home/road-post.webp';
 import { WALKER } from './walkerArt';
 import { useRewards } from '../store/rewards';
-import { ROAD_STONES, roadState } from '../domain/dailyRoad';
+import { ROAD_LAMPS, roadState } from '../domain/dailyRoad';
 
 /** Края полосы дороги (розетки) при показе, в CSS-пикселях: срез 31 и 32 из картинки 494×39, показ в треть. */
 const CAP_L = 10.3;
@@ -14,12 +14,12 @@ const CAP_R = 10.7;
 const FIRE_W = 18;
 
 /**
- * Дневной переход в верхней панели (замена сердечек): дорога с верстовыми камнями, путник идёт по ней по мере
+ * Дневной переход в верхней панели (замена сердечек): дорога с придорожными фонарями, путник идёт по ней по мере
  * опыта за день, у цели — костёр привала. Картинки режет `scripts/build-road-art.py` из `docs/design/daily-road.png`.
  * `lit` — цель дня уже засчитана стрику: костёр горит, даже если цель потом подняли в настройках.
  */
 export function DailyRoad({ xp, goal, lit }: { xp: number; goal: number; lit: boolean }) {
-  const { ratio, stones, camp } = roadState(xp, goal);
+  const { ratio, lamps, camp } = roadState(xp, goal);
   const cloak = useRewards((s) => s.rec.cloak);
   const burning = camp || lit;
   const [tip, setTip] = useState(false);
@@ -47,16 +47,16 @@ export function DailyRoad({ xp, goal, lit }: { xp: number; goal: number; lit: bo
       <span className="absolute bottom-0 left-0 h-[13px]" style={{ right: FIRE_W - 4 }}>
         <span className="road-bar absolute inset-0" />
         <span className="road-bar road-bar-full absolute inset-0" style={{ clipPath: clip }} />
-        {/* Дорожка между розетками: камни и путник стоят на ней долями пути. */}
+        {/* Дорожка между розетками: фонари и путник стоят на ней долями пути. */}
         <span className="absolute inset-y-0" style={{ left: CAP_L, right: CAP_R }}>
-          {ROAD_STONES.map((s, i) => (
+          {ROAD_LAMPS.map((s, i) => (
             <img
               key={s}
-              src={stones[i] ? stoneLit : stonePic}
+              src={lamps[i] ? postLit : postPic}
               alt=""
-              className="absolute bottom-[3px] h-[12px] w-[9px] -translate-x-1/2"
+              className={`absolute bottom-[3px] h-[16px] w-auto max-w-none -translate-x-1/2 ${lamps[i] ? 'drop-shadow-[0_0_2px_rgba(255,196,80,0.9)]' : ''}`}
               style={{ left: `${s * 100}%` }}
-              data-passed={stones[i] ? '1' : '0'}
+              data-passed={lamps[i] ? '1' : '0'}
             />
           ))}
           <img

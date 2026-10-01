@@ -65,19 +65,19 @@ for (const lang of LANGS) {
       await expect(page.getByTestId('streak')).toHaveAttribute('data-lit', '1');
       await expect(flame).toHaveAttribute('data-flame', 'lit');
       expect(await flame.getAttribute('src')).not.toBe(grey);
-      // Дневной переход пройден: путник у привала, костёр горит, все камни с руной.
+      // Дневной переход пройден: путник у привала, костёр горит, все фонари горят.
       await expect(page.getByTestId('daily-road')).toHaveAttribute('data-camp', '1');
       await expect(page.getByTestId('road-fire')).toHaveAttribute('data-lit', '1');
       await expect(page.getByTestId('daily-road').locator('[data-passed="1"]')).toHaveCount(4);
     });
 
-    test('дневной переход: путник идёт по дороге, камни загораются по пути, подсказка по нажатию', async ({ page }) => {
+    test('дневной переход: путник идёт по дороге, фонари загораются по пути, подсказка по нажатию', async ({ page }) => {
       await openApp(page, lang);
       const road = page.getByTestId('daily-road');
       await expect(road).toHaveAttribute('aria-valuenow', '0');
       await expect(road).toHaveAttribute('data-camp', '0');
       await expect(road.locator('[data-passed="1"]')).toHaveCount(0);
-      // 45 XP из 100 за сегодня: два камня из четырёх пройдены, костёр не горит.
+      // 45 XP из 100 за сегодня: два фонаря из четырёх горят, костёр не горит.
       await page.evaluate(
         (db) =>
           new Promise<void>((resolve) => {

@@ -1,5 +1,6 @@
 """Дневной переход (замена сердечек дневной цели): картинки из `docs/design/daily-road.png`, накидки путника —
-из `docs/design/cloaks.png` (промт — `docs/design/cloaks-prompt.md`).
+из `docs/design/cloaks.png` (промт — `docs/design/cloaks-prompt.md`), придорожные фонари вместо верстовых камней — из
+`docs/design/road-posts.png`.
 
 Листы нарисованы на пурпурном фоне (#FF00FF). Скрипт находит элементы как связные области не-фона, снимает фон
 с мягким краем (у свечения костра и фонаря розовый ореол убирается вычитанием фона) и сохраняет в
@@ -14,6 +15,7 @@ from PIL import Image
 ROOT = Path(__file__).resolve().parent.parent
 SRC = ROOT / 'docs' / 'design' / 'daily-road.png'
 CLOAKS_SRC = ROOT / 'docs' / 'design' / 'cloaks.png'
+POSTS_SRC = ROOT / 'docs' / 'design' / 'road-posts.png'
 OUT = ROOT / 'src' / 'assets' / 'home'
 KEY = np.array([255.0, 0.0, 255.0])
 # «Пурпурность» пикселя: насколько красный и синий оба выше зелёного. У фона около 255, у розового ореола
@@ -22,11 +24,11 @@ M_SOLID, M_BG = 40.0, 110.0
 
 
 
-def keyed(path: Path):
-    """Лист без пурпурного фона: RGBA и прозрачность 0–1."""
+def keyed(path: Path, bg: float = M_BG):
+    """Лист без пурпурного фона: RGBA и прозрачность 0–1. `bg` ниже — строже: розовый ореол уходит целиком."""
     img = np.asarray(Image.open(path).convert('RGB')).astype(np.float64)
     magenta = np.minimum(img[..., 0], img[..., 2]) - img[..., 1]
-    a = np.clip((M_BG - magenta) / (M_BG - M_SOLID), 0, 1)
+    a = np.clip((bg - magenta) / (bg - M_SOLID), 0, 1)
     # Цвет без примеси фона: p = a*c + (1-a)*KEY.
     safe = np.maximum(a, 1e-3)[..., None]
     color = np.clip((img - (1 - a[..., None]) * KEY) / safe, 0, 255)
@@ -72,7 +74,12 @@ HEIGHT = {'road-empty': 39, 'road-full': 39, 'road-stone': 36, 'road-stone-lit':
 SAME_SCALE = {'road-fire-out': 'road-fire-lit'}
 src_h = {name: b[0].stop - b[0].start for name, b in zip(names, boxes)}
 
+# Камни с листа дороги походили на надгробия: их заменили фонари (ниже), камни не сохраняются.
+SKIP = {'road-stone', 'road-stone-lit'}
+
 for name, (ys, xs) in zip(names, boxes):
+    if name in SKIP:
+        continue
     part = Image.fromarray(rgba[ys, xs], 'RGBA')
     ref = SAME_SCALE.get(name, name)
     k = HEIGHT[ref] / src_h[ref]
@@ -97,3 +104,16 @@ for cid, (ys, xs) in zip(CLOAKS, c_boxes):
     size = (round(part.width * k), round(part.height * k))
     part.resize(size, Image.LANCZOS).save(OUT / f'road-walker-{cid}.webp', 'WEBP', quality=92, method=6)
     print(f'road-walker-{cid}', (xs.start, ys.start, xs.stop, ys.stop), '->', size)
+
+# Придорожные фонари (вместо верстовых камней): погасший и горящий, в одном масштабе — по горящему (с ореолом он
+# не выше, ореол сбоку), высота втрое от показа 16px. Слева направо: погасший, горящий.
+# Ореол фонаря нарисован поверх пурпура и после снятия фона краснеет кольцом: ключ строже, остаётся сам огонь.
+p_rgba, p_alpha = keyed(POSTS_SRC, bg=60)
+p_boxes = sorted((tight(b, p_alpha) for b in find(p_alpha)), key=lambda b: b[1].start)
+assert len(p_boxes) == 2, f'найдено фонарей: {len(p_boxes)}'
+k = 48 / max(b[0].stop - b[0].start for b in p_boxes)
+for name, (ys, xs) in zip(['road-post', 'road-post-lit'], p_boxes):
+    part = Image.fromarray(p_rgba[ys, xs], 'RGBA')
+    size = (round(part.width * k), round(part.height * k))
+    part.resize(size, Image.LANCZOS).save(OUT / f'{name}.webp', 'WEBP', quality=92, method=6)
+    print(name, (xs.start, ys.start, xs.stop, ys.stop), '->', size)
