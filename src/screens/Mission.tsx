@@ -14,6 +14,7 @@ import { makeTiles } from '../domain/phraseSteps';
 import type { Rank } from '../domain/reputation';
 import { L, LANG } from '../lang';
 import { CHAPTERS as PLAN } from '../content/vocabPlan';
+import { addressed } from '../store/settings';
 import { NpcPortrait } from '../components/NpcPortrait';
 import { HeroPortrait } from '../components/HeroPortrait';
 import { Button, Screen, TopBar } from '../components/ui';
@@ -170,8 +171,8 @@ function MissionDialog({ mission, phrases, pool, mode, place, onDone }: {
   useEffect(() => {
     if (node?.kind === 'say' && shown.current !== nodeId) {
       shown.current = nodeId;
-      setBubbles((b) => [...b, { who: 'npc', es: node.es, ru: node.ru }]);
-      say(node.es);
+      setBubbles((b) => [...b, { who: 'npc', es: addressed(node.es), ru: addressed(node.ru, 'ru') }]);
+      say(addressed(node.es));
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [nodeId]);
@@ -193,14 +194,14 @@ function MissionDialog({ mission, phrases, pool, mode, place, onDone }: {
     const next: Bubble[] = [{ who: 'hero', es: heroLine, tone: !ok ? 'wrong' : r.offTone ? 'offtone' : undefined, move: ok ? moveOf(node, r.phrase) : undefined }];
     if (r.offTone && node.tone) {
       // Смысл верный, тон чужой: житель обижается или переспрашивает, герой видит, как лучше.
-      next.push({ who: 'npc', es: node.tone.es, ru: node.tone.ru });
+      next.push({ who: 'npc', es: addressed(node.tone.es), ru: addressed(node.tone.ru, 'ru') });
       next.push({ who: 'hero', es: `Лучше так: ${fullPhrase(phrases[node.branches[0].phrase].es)}`, tone: 'hint' });
       speakHero(heroLine);
-      say(node.tone.es);
+      say(addressed(node.tone.es));
     } else if (!ok) {
-      next.push({ who: 'npc', es: node.wrong.es, ru: node.wrong.ru });
+      next.push({ who: 'npc', es: addressed(node.wrong.es), ru: addressed(node.wrong.ru, 'ru') });
       next.push({ who: 'hero', es: `Правильно: ${fullPhrase(phrases[r.phrase].es)}`, tone: 'hint' });
-      say(node.wrong.es);
+      say(addressed(node.wrong.es));
     } else {
       speakHero(heroLine);
     }
@@ -241,7 +242,7 @@ function MissionBubble({ bubble, npcLook, npcName }: { bubble: Bubble; npcLook?:
           : hero ? 'border-brand bg-orange-50' : 'border-stone-300 bg-white';
   return (
     <li className={`flex items-end gap-2 ${hero ? 'flex-row-reverse' : ''}`} data-testid={hero ? 'hero-line' : 'npc-line'}>
-      {hero ? <HeroPortrait size={40} /> : npcLook && <NpcPortrait look={npcLook} size={40} />}
+      {hero ? <HeroPortrait size={40} mirror /> : npcLook && <NpcPortrait look={npcLook} size={40} />}
       <button
         type="button"
         disabled={!bubble.ru}

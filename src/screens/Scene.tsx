@@ -10,12 +10,13 @@ import { plural } from '../domain/medals';
 import { sceneChunks, wordTranslation } from '../domain/sceneText';
 import { NpcPortrait } from '../components/NpcPortrait';
 import { HeroPortrait } from '../components/HeroPortrait';
+import { addressed } from '../store/settings';
 import { Button, Screen, TopBar } from '../components/ui';
 
 /** Реплика голосом говорящего: житель — своим голосом, герой — голосом выбранного пола. */
 export function sayLine(line: SceneLine, place: string) {
   const npc = speakerOf(line.who, place);
-  if (npc) speakAs(line.es, npc);
+  if (npc) speakAs(addressed(line.es), npc);
   else speakHero(line.es);
 }
 
@@ -94,14 +95,14 @@ export function SceneTalk({ scene, place, lastLabel, onDone }: { scene: Scene; p
             const current = i === index;
             return (
               <li key={i} className={`flex items-end gap-2 ${hero ? 'flex-row-reverse' : ''} ${current ? '' : 'opacity-60'}`}>
-                {speaker ? <NpcPortrait look={speaker.look} size={40} /> : <HeroPortrait size={40} />}
+                {speaker ? <NpcPortrait look={speaker.look} size={40} /> : <HeroPortrait size={40} mirror />}
                 <div
                   className={`max-w-[80%] rounded-2xl border-2 px-3 py-2 ${hero ? 'rounded-br-none border-brand bg-orange-50' : 'rounded-bl-none border-stone-300 bg-white'}`}
                   data-testid={current ? 'scene-current' : undefined}
                 >
                   <div className="text-xs text-stone-500">{hero ? 'Вы' : speaker?.name}</div>
                   <div className="text-lg leading-snug">
-                    {sceneChunks(l.es).map((c, k) =>
+                    {sceneChunks(hero ? l.es : addressed(l.es)).map((c, k) =>
                       'words' in c ? (
                         // Слово со знаками вокруг не переносится по частям: «mappa?» не превращается в «mappa» и «?» на новой строке,
                         // «l'» не отрывается от следующего слова.
@@ -125,7 +126,7 @@ export function SceneTalk({ scene, place, lastLabel, onDone }: { scene: Scene; p
                       ),
                     )}
                   </div>
-                  {(current ? showRu : false) && <div className="mt-1 text-sm text-stone-600" data-testid="scene-ru">{l.ru}</div>}
+                  {(current ? showRu : false) && <div className="mt-1 text-sm text-stone-600" data-testid="scene-ru">{hero ? l.ru : addressed(l.ru, 'ru')}</div>}
                 </div>
               </li>
             );

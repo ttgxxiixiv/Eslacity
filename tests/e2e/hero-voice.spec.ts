@@ -50,9 +50,50 @@ for (const lang of LANGS) {
       await turn.getByRole('button', { name: right, exact: true }).click();
       await expect(page.getByTestId('hero-line').last()).toContainText(right);
       await expect(page.getByTestId('hero-line').last().getByTestId('hero-art')).toHaveAttribute('data-gender', 'm');
+      // В диалоге путник отражён и смотрит на жителя.
+      await expect(page.getByTestId('hero-line').last().getByTestId('hero-art')).toHaveAttribute('data-mirror', '1');
       await expect.poll(async () => (await readSpoken(page)).find((s) => s.text === right)?.pitch).toBeLessThan(1);
       // Бариста — женщина: её голос не опускается.
       expect((await readSpoken(page)).some((s) => s.pitch > 1)).toBe(true);
+    });
+
+    test('имя путника: жители зовут героя по имени, путницу без имени — в женском роде', async ({ page }) => {
+      await openApp(page, lang);
+      const call = lang === 'es' ? { m: 'viajero', f: 'viajera', line: '¡Cuidado, ' } : { m: 'viaggiatore', f: 'viaggiatrice', line: ', ' };
+      await page.goto('./#/settings');
+      await expect(page.getByTestId('hero-name')).toHaveAttribute('placeholder', call.m);
+      // Кириллица и лишние пробелы убираются, имя с заглавной.
+      await page.getByTestId('hero-name').fill('  lucas Вася ');
+      await page.getByTestId('hero-name').press('Enter');
+      await expect(page.getByTestId('hero-name')).toHaveValue('Lucas');
+      await expect(page.getByTestId('hero-name-note')).toContainText('Жители зовут вас: Lucas.');
+      await expect.poll(async () => (await readMeta<{ heroName: string }>(page, lang, 'settings'))?.heroName).toBe('Lucas');
+
+      // Миссия полиции главы I начинается с обращения: «¡Cuidado, viajero!» / «Attento, viaggiatore!».
+      const openPolice = async () => {
+        await page.goto('./#/');
+        await page.goto('./#/mission/ms:police.1');
+        while (!(await page.getByText('Ответить жителю').count())) await page.getByTestId('scene-next').click();
+        await page.getByTestId('scene-next').click();
+        await expect(page.getByTestId('npc-line').first()).toBeVisible();
+      };
+      await openPolice();
+      const first = page.getByTestId('npc-line').first();
+      await expect(first).toContainText(`${call.line}Lucas!`);
+      await expect(first).not.toContainText(call.m);
+      await first.locator('button').click();
+      await expect(first).toContainText('Осторожно, Lucas!');
+      expect((await readSpoken(page)).some((s) => s.text.includes('Lucas!'))).toBe(true);
+
+      // Путница без имени: женская форма обращения, у итальянского прилагательного — женский род.
+      await page.goto('./#/settings');
+      await page.getByTestId('hero-gender-f').click();
+      await page.getByTestId('hero-name').fill('');
+      await page.getByTestId('hero-name').press('Enter');
+      await expect(page.getByTestId('hero-name-note')).toContainText(call.f);
+      await expect.poll(async () => (await readMeta<{ heroName: string }>(page, lang, 'settings'))?.heroName).toBe('');
+      await openPolice();
+      await expect(page.getByTestId('npc-line').first()).toContainText(lang === 'es' ? '¡Cuidado, viajera!' : 'Attenta, viaggiatrice!');
     });
   });
 }

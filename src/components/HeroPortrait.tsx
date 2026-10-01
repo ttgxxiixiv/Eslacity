@@ -6,9 +6,10 @@ const ART = { m: heroM, f: heroF };
 
 /**
  * Портрет путника в диалогах: лицо скрыто капюшоном, пол — из настроек («Путник»). Рядом с портретами жителей,
- * поэтому те же пропорции 14:18 и рамка. size — высота в CSS-пикселях. Картинки режет `scripts/cut-hero-portraits.py`.
+ * поэтому те же пропорции 14:18 и рамка. size — высота в CSS-пикселях. mirror — отражение по горизонтали: в диалогах
+ * путник стоит справа и смотрит на жителя. Картинки режет `scripts/cut-hero-portraits.py`.
  */
-export function HeroPortrait({ size = 40, className = '' }: { size?: number; className?: string }) {
+export function HeroPortrait({ size = 40, className = '', mirror = false }: { size?: number; className?: string; mirror?: boolean }) {
   const gender = useSettings((s) => s.heroGender);
   const width = Math.round((size * 14) / 18);
   return (
@@ -20,8 +21,9 @@ export function HeroPortrait({ size = 40, className = '' }: { size?: number; cla
       height={size}
       data-testid="hero-art"
       data-gender={gender}
+      data-mirror={mirror ? '1' : undefined}
       className={`shrink-0 rounded-[3px] object-cover shadow-[0_0_0_1px_rgb(26_15_7/0.6)] ${className}`}
-      style={{ width, height: size }}
+      style={{ width, height: size, transform: mirror ? 'scaleX(-1)' : undefined }}
     />
   );
 }

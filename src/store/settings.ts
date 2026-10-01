@@ -1,6 +1,8 @@
 import { create } from 'zustand';
 import { db } from '../db/db';
 import { persist } from '../db/persist';
+import { addressHero } from '../domain/address';
+import { LANG } from '../lang';
 
 export interface Settings {
   speechRate: number;
@@ -12,9 +14,11 @@ export interface Settings {
   newPerDay: 5 | 10 | 15 | 20;
   /** Пол путника: каким голосом звучат его реплики в миссиях и сценах. */
   heroGender: 'm' | 'f';
+  /** Имя путника: им жители зовут героя вместо «viajero» / «viaggiatore» (`addressHero`). Пустое — имени нет. */
+  heroName: string;
 }
 
-export const DEFAULT_SETTINGS: Settings = { speechRate: 0.9, dailyGoal: 100, blitzBest: 0, listenOffUntil: 0, newPerDay: 10, heroGender: 'm' };
+export const DEFAULT_SETTINGS: Settings = { speechRate: 0.9, dailyGoal: 100, blitzBest: 0, listenOffUntil: 0, newPerDay: 10, heroGender: 'm', heroName: '' };
 
 interface SettingsState extends Settings {
   hydrate(s: Partial<Settings> | undefined): void;
@@ -28,7 +32,13 @@ export const useSettings = create<SettingsState>((set, get) => ({
   },
   update(patch) {
     set(patch);
-    const { speechRate, dailyGoal, blitzBest, listenOffUntil, newPerDay, heroGender } = { ...get(), ...patch };
-    persist(() => db.meta.put({ key: 'settings', value: { speechRate, dailyGoal, blitzBest, listenOffUntil, newPerDay, heroGender } }));
+    const { speechRate, dailyGoal, blitzBest, listenOffUntil, newPerDay, heroGender, heroName } = { ...get(), ...patch };
+    persist(() => db.meta.put({ key: 'settings', value: { speechRate, dailyGoal, blitzBest, listenOffUntil, newPerDay, heroGender, heroName } }));
   },
 }));
+
+/** Реплика жителя с обращением к путнику по имени или в его роде; `ru` — для перевода. */
+export function addressed(text: string, ru?: 'ru'): string {
+  const { heroName, heroGender } = useSettings.getState();
+  return addressHero(text, ru ?? LANG, { name: heroName, gender: heroGender });
+}

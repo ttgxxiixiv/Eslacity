@@ -6,6 +6,7 @@ import { L, LANG, LANGS, switchLang, type Lang } from '../lang';
 import { resetProgress } from '../store/bootstrap';
 import { downloadJson, exportBackup, importBackup, parseBackup } from '../db/backup';
 import { useSettings, type Settings } from '../store/settings';
+import { cleanName, HERO_WORD, NAME_MAX } from '../domain/address';
 import { useProgress } from '../store/progress';
 import { Button, Screen, TopBar } from '../components/ui';
 import { AboutApp } from '../components/AboutApp';
@@ -31,11 +32,18 @@ const HERO_GENDERS: { id: Settings['heroGender']; label: string }[] = [
 ];
 
 export function SettingsScreen() {
-  const { speechRate, dailyGoal, listenOffUntil, newPerDay, heroGender, update } = useSettings();
+  const { speechRate, dailyGoal, listenOffUntil, newPerDay, heroGender, heroName, update } = useSettings();
   const listenOn = listenOffUntil <= Date.now();
   const pausedHour = !listenOn && listenOffUntil < Number.MAX_SAFE_INTEGER;
   const [voiceName, setVoiceName] = useState(() => currentVoice()?.name);
   const [heroVoice, setHeroVoice] = useState(() => voiceFor(heroGender)?.name);
+  const [nameDraft, setNameDraft] = useState(heroName);
+  // Имя сохраняется, когда поле теряет фокус или нажат Enter: при вводе пробел в конце ещё нужен.
+  const saveName = () => {
+    const name = cleanName(nameDraft);
+    setNameDraft(name);
+    if (name !== heroName) update({ heroName: name });
+  };
 
   return (
     <Screen>
@@ -135,6 +143,27 @@ export function SettingsScreen() {
               </button>
             ))}
           </div>
+          <label className="mt-3 block">
+            <span className="text-sm text-stone-600">Имя</span>
+            <input
+              type="text"
+              value={nameDraft}
+              maxLength={NAME_MAX + 4}
+              placeholder={HERO_WORD[LANG][heroGender]}
+              autoComplete="off"
+              autoCapitalize="words"
+              spellCheck={false}
+              onChange={(e) => setNameDraft(e.target.value)}
+              onBlur={saveName}
+              onKeyDown={(e) => e.key === 'Enter' && e.currentTarget.blur()}
+              className="mt-1 w-full rounded-xl border-2 border-stone-200 bg-white px-3 py-2 text-lg focus:border-brand focus:outline-none"
+              data-testid="hero-name"
+            />
+          </label>
+          <p className="mt-1 text-sm text-stone-500" data-testid="hero-name-note">
+            {heroName ? `Жители зовут вас: ${heroName}.` : `Без имени жители зовут вас «${HERO_WORD[LANG][heroGender]}».`} Имя
+            пишется латиницей: жители произносят его по-своему.
+          </p>
           <p className="mt-2 text-sm text-stone-500">
             Этим голосом звучат реплики путника в миссиях и разговорах. Если в системе нет голоса нужного пола, основной голос
             звучит ниже или выше.

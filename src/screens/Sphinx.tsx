@@ -7,6 +7,7 @@ import type { Example, SphinxFile, SphinxLine } from '../content/schema';
 import { loadSphinx } from '../content/sphinx';
 import { seeded } from '../domain/generators';
 import { sceneChunks, sceneWords } from '../domain/sceneText';
+import { addressed } from '../store/settings';
 import {
   GATES_CHAPTER, nextRound, setIndex, SPHINX_HEARTS, SPHINX_PASS, SPHINX_ROUNDS, sphinxItems, sphinxStatus, sphinxWaitLabel,
   type RoundResult, type SphinxRound,
@@ -75,7 +76,7 @@ export function SphinxScreen() {
   }
   if (!file) return null;
   const sp = file.sphinx;
-  const say = (text: string) => speakAs(text, sp);
+  const say = (text: string) => speakAs(addressed(text), sp);
 
   const start = () => {
     useSphinx.getState().arrive();
@@ -287,10 +288,10 @@ function SphinxSays({ line, gloss, onSpeak, testId }: { line: Example; gloss?: R
   return (
     <div className="flex items-start gap-2 rounded-xl bg-orange-50 px-3 py-2">
       <button type="button" className="min-w-0 flex-1 text-left" onClick={() => setRu(!ru)} data-testid={testId}>
-        <span className="block font-semibold italic">{line.es}</span>
+        <span className="block font-semibold italic">{addressed(line.es)}</span>
         {ru ? (
           <span className="block text-sm text-stone-600" data-testid={`${testId}-ru`}>
-            {line.ru}
+            {addressed(line.ru, 'ru')}
             <GlossList text={line.es} gloss={gloss} />
           </span>
         ) : (
