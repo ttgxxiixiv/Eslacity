@@ -15,6 +15,7 @@ import type { Rank } from '../domain/reputation';
 import { L, LANG } from '../lang';
 import { CHAPTERS as PLAN } from '../content/vocabPlan';
 import { NpcPortrait } from '../components/NpcPortrait';
+import { HeroPortrait } from '../components/HeroPortrait';
 import { Button, Screen, TopBar } from '../components/ui';
 import { useCity } from '../store/city';
 import { useErrands } from '../store/errands';
@@ -240,7 +241,7 @@ function MissionBubble({ bubble, npcLook, npcName }: { bubble: Bubble; npcLook?:
           : hero ? 'border-brand bg-orange-50' : 'border-stone-300 bg-white';
   return (
     <li className={`flex items-end gap-2 ${hero ? 'flex-row-reverse' : ''}`} data-testid={hero ? 'hero-line' : 'npc-line'}>
-      {hero ? <span className="w-10 shrink-0 text-center text-2xl" aria-hidden>🧭</span> : npcLook && <NpcPortrait look={npcLook} size={40} />}
+      {hero ? <HeroPortrait size={40} /> : npcLook && <NpcPortrait look={npcLook} size={40} />}
       <button
         type="button"
         disabled={!bubble.ru}

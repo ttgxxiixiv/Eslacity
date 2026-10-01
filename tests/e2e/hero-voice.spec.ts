@@ -17,7 +17,7 @@ function firstAnswer(lang: (typeof LANGS)[number]) {
 
 for (const lang of LANGS) {
   test.describe(lang, () => {
-    test('пол путника в настройках: реплики героя в миссии звучат голосом этого пола', async ({ page }) => {
+    test('пол путника в настройках: реплики героя в миссии звучат голосом этого пола, рядом его портрет', async ({ page }) => {
       await openApp(page, lang);
       // В браузере тестов голосов нет: основной голос считается женским, мужской путник звучит ниже.
       await page.goto('./#/settings');
@@ -27,6 +27,8 @@ for (const lang of LANGS) {
 
       await page.getByTestId('hero-gender-f').click();
       await expect(page.getByTestId('hero-gender-f')).toHaveAttribute('aria-checked', 'true');
+      // Портрет путника меняется вместе с полом.
+      await expect(page.getByTestId('hero-art')).toHaveAttribute('data-gender', 'f');
       await expect.poll(async () => (await readMeta<{ heroGender: string }>(page, lang, 'settings'))?.heroGender).toBe('f');
       await page.getByRole('button', { name: /Голос путника/ }).click();
       expect((await readSpoken(page)).at(-1)!.pitch).toBe(1);
@@ -47,6 +49,7 @@ for (const lang of LANGS) {
       const { right } = firstAnswer(lang).find((a) => a.task === task)!;
       await turn.getByRole('button', { name: right, exact: true }).click();
       await expect(page.getByTestId('hero-line').last()).toContainText(right);
+      await expect(page.getByTestId('hero-line').last().getByTestId('hero-art')).toHaveAttribute('data-gender', 'm');
       await expect.poll(async () => (await readSpoken(page)).find((s) => s.text === right)?.pitch).toBeLessThan(1);
       // Бариста — женщина: её голос не опускается.
       expect((await readSpoken(page)).some((s) => s.pitch > 1)).toBe(true);

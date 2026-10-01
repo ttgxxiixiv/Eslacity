@@ -9,6 +9,7 @@ import { useSettings, type Settings } from '../store/settings';
 import { useProgress } from '../store/progress';
 import { Button, Screen, TopBar } from '../components/ui';
 import { AboutApp } from '../components/AboutApp';
+import { HeroPortrait } from '../components/HeroPortrait';
 
 const GOALS: Settings['dailyGoal'][] = [50, 100, 150, 250];
 const NEW_PER_DAY: Settings['newPerDay'][] = [5, 10, 15, 20];
@@ -110,7 +111,10 @@ export function SettingsScreen() {
         </section>
 
         <section className="rounded-3xl bg-white p-4 shadow-sm" data-testid="hero-gender">
-          <h2 className="font-bold">Путник</h2>
+          <div className="flex items-center gap-3">
+            <HeroPortrait size={72} />
+            <h2 className="font-bold">Путник</h2>
+          </div>
           <div className="mt-3 grid grid-cols-2 gap-2" role="radiogroup" aria-label="Пол путника">
             {HERO_GENDERS.map((g) => (
               <button

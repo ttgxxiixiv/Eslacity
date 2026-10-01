@@ -9,6 +9,7 @@ import { seeded, shuffle } from '../domain/generators';
 import { plural } from '../domain/medals';
 import { sceneChunks, wordTranslation } from '../domain/sceneText';
 import { NpcPortrait } from '../components/NpcPortrait';
+import { HeroPortrait } from '../components/HeroPortrait';
 import { Button, Screen, TopBar } from '../components/ui';
 
 /** Реплика голосом говорящего: житель — своим голосом, герой — голосом выбранного пола. */
@@ -93,7 +94,7 @@ export function SceneTalk({ scene, place, lastLabel, onDone }: { scene: Scene; p
             const current = i === index;
             return (
               <li key={i} className={`flex items-end gap-2 ${hero ? 'flex-row-reverse' : ''} ${current ? '' : 'opacity-60'}`}>
-                {speaker ? <NpcPortrait look={speaker.look} size={40} /> : <span className="w-10 shrink-0 text-center text-2xl" aria-hidden>🧭</span>}
+                {speaker ? <NpcPortrait look={speaker.look} size={40} /> : <HeroPortrait size={40} />}
                 <div
                   className={`max-w-[80%] rounded-2xl border-2 px-3 py-2 ${hero ? 'rounded-br-none border-brand bg-orange-50' : 'rounded-bl-none border-stone-300 bg-white'}`}
                   data-testid={current ? 'scene-current' : undefined}
