@@ -52,6 +52,7 @@ React 19, Vite 8 (rolldown), TypeScript, Tailwind v4, Zustand, Dexie (IndexedDB)
 - `src/audio/tts.ts` — озвучка через speechSynthesis с выбором голоса языка.
 - `src/lib/update.ts` — проверка и установка новой версии (service worker).
 - `src/assets/` — картинки города и меню (`nav/nav-es.webp`, `nav/nav-it.webp`).
+- Иконки приложения и значок вкладки (`public/icons/*.png`, `public/favicon-32.png`, `favicon-16.png`) режет `scripts/build-icons.py` из `docs/design/app-icon.jpg` (медальон с глазом); иконка под маску — картинка целиком, медальон в безопасной зоне.
 
 ## Правила
 

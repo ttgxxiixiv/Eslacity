@@ -242,7 +242,7 @@ export default defineConfig({
       // Новая версия ставится по кнопке «Обновить», а не посреди урока.
       registerType: 'prompt',
       injectRegister: false,
-      includeAssets: ['favicon.svg', 'icons/apple-touch-icon.png'],
+      includeAssets: ['favicon-32.png', 'favicon-16.png', 'icons/apple-touch-icon.png'],
       manifest: {
         name: 'Eslacity — испанский в городе',
         short_name: 'Eslacity',
@@ -263,6 +263,8 @@ export default defineConfig({
       workbox: {
         // Весь контент (слова, уроки) лежит в JS-чанках, так что после первой загрузки всё работает офлайн.
         globPatterns: ['**/*.{js,css,html,svg,png,webp,webmanifest,woff2}'],
+        // Большие иконки нужны только при установке приложения (с сетью): в precache их не держим.
+        globIgnores: ['icons/icon-512.png', 'icons/maskable-512.png'],
         navigateFallback: 'index.html',
         cleanupOutdatedCaches: true,
       },

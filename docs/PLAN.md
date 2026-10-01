@@ -15,7 +15,7 @@ Eslacity/
   tailwind.config.ts
   scripts/
     validate-content.ts     npm run validate
-    make-icons.ts           генерация PNG-иконок из SVG
+    build-icons.py          иконки и значок вкладки из docs/design/app-icon.jpg
   public/icons/
   src/
     main.tsx
