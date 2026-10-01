@@ -1,6 +1,7 @@
-"""Дневной переход (замена сердечек дневной цели): картинки из `docs/design/daily-road.png`.
+"""Дневной переход (замена сердечек дневной цели): картинки из `docs/design/daily-road.png`, накидки путника —
+из `docs/design/cloaks.png` (промт — `docs/design/cloaks-prompt.md`).
 
-Лист нарисован на пурпурном фоне (#FF00FF). Скрипт находит элементы как связные области не-фона, снимает фон
+Листы нарисованы на пурпурном фоне (#FF00FF). Скрипт находит элементы как связные области не-фона, снимает фон
 с мягким краем (у свечения костра и фонаря розовый ореол убирается вычитанием фона) и сохраняет в
 `src/assets/home/road-*.webp` в тройном размере от показа. Запуск: python3 scripts/build-road-art.py
 """
@@ -12,30 +13,38 @@ from PIL import Image
 
 ROOT = Path(__file__).resolve().parent.parent
 SRC = ROOT / 'docs' / 'design' / 'daily-road.png'
+CLOAKS_SRC = ROOT / 'docs' / 'design' / 'cloaks.png'
 OUT = ROOT / 'src' / 'assets' / 'home'
 KEY = np.array([255.0, 0.0, 255.0])
 # «Пурпурность» пикселя: насколько красный и синий оба выше зелёного. У фона около 255, у розового ореола
 # свечения около 90, у серого камня и оранжевого огня 0 и меньше. Выше M_BG — фон, ниже M_SOLID — непрозрачно.
 M_SOLID, M_BG = 40.0, 110.0
 
-img = np.asarray(Image.open(SRC).convert('RGB')).astype(np.float64)
-magenta = np.minimum(img[..., 0], img[..., 2]) - img[..., 1]
-alpha = np.clip((M_BG - magenta) / (M_BG - M_SOLID), 0, 1)
-# Цвет без примеси фона: p = a*c + (1-a)*KEY.
-safe = np.maximum(alpha, 1e-3)[..., None]
-color = np.clip((img - (1 - alpha[..., None]) * KEY) / safe, 0, 255)
-# На полупрозрачном крае остатки пурпура: синий не выше зелёного, ореол огня остаётся тёплым.
-edge = alpha < 1
-color[..., 2] = np.where(edge, np.minimum(color[..., 2], color[..., 1]), color[..., 2])
-rgba = np.dstack([color, alpha * 255]).astype(np.uint8)
 
-mask = cv2.dilate((alpha > 0.05).astype(np.uint8), np.ones((13, 13), np.uint8))
-_, _, stats, _ = cv2.connectedComponentsWithStats(mask)
-boxes = [
-    (slice(y, y + h), slice(x, x + w))
-    for x, y, w, h, area in stats[1:]
-    if w * h > 2000
-]
+
+def keyed(path: Path):
+    """Лист без пурпурного фона: RGBA и прозрачность 0–1."""
+    img = np.asarray(Image.open(path).convert('RGB')).astype(np.float64)
+    magenta = np.minimum(img[..., 0], img[..., 2]) - img[..., 1]
+    a = np.clip((M_BG - magenta) / (M_BG - M_SOLID), 0, 1)
+    # Цвет без примеси фона: p = a*c + (1-a)*KEY.
+    safe = np.maximum(a, 1e-3)[..., None]
+    color = np.clip((img - (1 - a[..., None]) * KEY) / safe, 0, 255)
+    # На полупрозрачном крае остатки пурпура: синий не выше зелёного, ореол огня остаётся тёплым.
+    edge = a < 1
+    color[..., 2] = np.where(edge, np.minimum(color[..., 2], color[..., 1]), color[..., 2])
+    return np.dstack([color, a * 255]).astype(np.uint8), a
+
+
+def find(a):
+    """Элементы листа: рамки связных областей не-фона."""
+    mask = cv2.dilate((a > 0.05).astype(np.uint8), np.ones((13, 13), np.uint8))
+    _, _, stats, _ = cv2.connectedComponentsWithStats(mask)
+    return [(slice(y, y + h), slice(x, x + w)) for x, y, w, h, area in stats[1:] if w * h > 2000]
+
+
+rgba, alpha = keyed(SRC)
+boxes = find(alpha)
 # Две полосы дороги (широкие) сверху вниз, под ними пять элементов слева направо.
 wide = sorted([b for b in boxes if b[1].stop - b[1].start > 800], key=lambda b: b[0].start)
 boxes = wide + sorted([b for b in boxes if b[1].stop - b[1].start <= 800], key=lambda b: b[1].start)
@@ -43,9 +52,9 @@ names = ['road-empty', 'road-full', 'road-stone', 'road-stone-lit', 'road-walker
 assert len(boxes) == len(names), f'найдено элементов: {len(boxes)}'
 
 
-def tight(b):
+def tight(b, a=None):
     """Рамка вплотную к непрозрачным пикселям."""
-    ys, xs = np.nonzero(alpha[b] > 0.05)
+    ys, xs = np.nonzero((alpha if a is None else a)[b] > 0.05)
     return (slice(b[0].start + ys.min(), b[0].start + ys.max() + 1), slice(b[1].start + xs.min(), b[1].start + xs.max() + 1))
 
 
@@ -72,33 +81,19 @@ for name, (ys, xs) in zip(names, boxes):
     part.resize((w, h), Image.LANCZOS).save(OUT / f'{name}.webp', 'WEBP', quality=92, method=6)
     print(name, (xs.start, ys.start, xs.stop, ys.stop), '->', (w, h))
 
-# Накидки путника (награды уровней героя, задача 9.2): пока нет отдельного листа (промт — docs/design/cloaks-prompt.md),
-# каждая накидка — перекраска зелёного плаща. Плащ — пиксели с оливковым и зелёным оттенком (58–170°; рюкзак и фонарь
-# ниже 50°). У материала: оттенок, множители насыщенности и яркости и способ — ровный оттенок (`flat`, для тканей
-# без блеска) или сдвиг относительно середины плаща 88° (сохраняет светотень, для сукна, бархата и шёлка).
-CLOAKS = {
-    'sackcloth': (34, 0.9, 1.1, True),
-    'homespun': (28, 0.3, 0.85, True),
-    'linen': (45, 0.15, 1.5, True),
-    'broadcloth': (222, 0.75, 0.9, False),
-    'leather': (20, 1.3, 0.75, True),
-    'velvet': (346, 1.2, 0.8, False),
-    'silk': (172, 1.1, 1.25, False),
-    'brocade': (42, 1.7, 1.45, True),
-}
-walker_box = boxes[names.index('road-walker')]
-walker = rgba[walker_box].astype(np.float64)
-k = HEIGHT['road-walker'] / (walker_box[0].stop - walker_box[0].start)
-size = (round(walker.shape[1] * k), round(walker.shape[0] * k))
-rgb = walker[..., :3] / 255
-hsv = cv2.cvtColor(rgb.astype(np.float32), cv2.COLOR_RGB2HSV)  # H 0–360, S и V 0–1
-cloak = (hsv[..., 0] >= 58) & (hsv[..., 0] <= 170) & (hsv[..., 1] > 0.08)
-for cid, (hue, sat, val, flat) in CLOAKS.items():
-    h = hsv.copy()
-    shifted = np.full_like(h[..., 0], hue) if flat else (h[..., 0] - 88 + hue) % 360
-    h[..., 0] = np.where(cloak, shifted, h[..., 0])
-    h[..., 1] = np.where(cloak, np.clip(h[..., 1] * sat, 0, 1), h[..., 1])
-    h[..., 2] = np.where(cloak, np.clip(h[..., 2] * val, 0, 1), h[..., 2])
-    out = np.dstack([cv2.cvtColor(h, cv2.COLOR_HSV2RGB) * 255, walker[..., 3]]).clip(0, 255).astype(np.uint8)
-    Image.fromarray(out, 'RGBA').resize(size, Image.LANCZOS).save(OUT / f'road-walker-{cid}.webp', 'WEBP', quality=92, method=6)
-    print(f'road-walker-{cid}', size)
+# Накидки путника (награды уровней героя, задача 9.2): лист 4×2, от мешковины до парчи слева направо, сверху вниз.
+# Все в одном масштабе — по самому высокому путнику, высота как у путника дороги; ширина у накидок разная (опушка
+# парчи, бахрома мешковины), поэтому на экране картинка ставится по высоте, ширина своя.
+CLOAKS = ['sackcloth', 'homespun', 'linen', 'broadcloth', 'leather', 'velvet', 'silk', 'brocade']
+c_rgba, c_alpha = keyed(CLOAKS_SRC)
+c_boxes = [tight(b, c_alpha) for b in find(c_alpha)]
+assert len(c_boxes) == len(CLOAKS), f'найдено накидок: {len(c_boxes)}'
+# Ряды по вертикали, в ряду — слева направо.
+top = min(b[0].start for b in c_boxes)
+c_boxes.sort(key=lambda b: (b[0].start - top > 200, b[1].start))
+k = HEIGHT['road-walker'] / max(b[0].stop - b[0].start for b in c_boxes)
+for cid, (ys, xs) in zip(CLOAKS, c_boxes):
+    part = Image.fromarray(c_rgba[ys, xs], 'RGBA')
+    size = (round(part.width * k), round(part.height * k))
+    part.resize(size, Image.LANCZOS).save(OUT / f'road-walker-{cid}.webp', 'WEBP', quality=92, method=6)
+    print(f'road-walker-{cid}', (xs.start, ys.start, xs.stop, ys.stop), '->', size)

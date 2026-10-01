@@ -62,7 +62,7 @@ export function DailyRoad({ xp, goal, lit }: { xp: number; goal: number; lit: bo
           <img
             src={WALKER[cloak]}
             alt=""
-            className="absolute bottom-[2px] h-[18px] w-[13px] -translate-x-1/2 transition-[left] duration-500 ease-out"
+            className="absolute bottom-[2px] h-[18px] w-auto max-w-none -translate-x-1/2 transition-[left] duration-500 ease-out"
             style={{ left: `${ratio * 100}%` }}
             data-testid="road-walker"
             data-cloak={cloak}

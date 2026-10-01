@@ -33,7 +33,7 @@ export function HeroRewards() {
               className={`press flex flex-col items-center gap-1 rounded-xl border-2 bg-[#2b1e14] px-1 py-2 text-[11px] leading-tight text-[#f1dfb5] disabled:opacity-40 ${picked ? 'border-gold' : 'border-transparent'}`}
               data-testid={`cloak-${id}`}
             >
-              <img src={WALKER[id]} alt="" className="h-[36px] w-[25px]" />
+              <img src={WALKER[id]} alt="" className="h-[36px] w-auto" />
               <span>{open ? CLOAK_LABEL[id] : `ур. ${unlockLevel({ cloak: id })}`}</span>
             </button>
           );
