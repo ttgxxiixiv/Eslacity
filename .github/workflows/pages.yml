@@ -34,24 +34,60 @@ jobs:
           name: playwright-traces
           path: test-results
           retention-days: 7
-      # Приложение для Android: та же сборка dist/ внутри APK (Capacitor, проект android/). APK кладётся на сайт
-      # рядом с игрой (eslacity.apk), его скачивают из настроек. В precache он не входит: добавлен после сборки.
+      - uses: actions/upload-artifact@v4
+        with:
+          name: site
+          path: dist
+          retention-days: 1
+
+  # Приложение для Android: та же сборка внутри APK (Capacitor, проект android/). Идёт параллельно с тестами.
+  # Android SDK на раннере уже есть ($ANDROID_HOME), недостающие платформы Gradle докачивает сам после лицензий.
+  android:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
       - uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: 21
-      - uses: android-actions/setup-android@v3
+      - run: npm ci
+      - run: npm run build
       - run: npx cap sync android
+      - name: Лицензии Android SDK
+        run: yes | "$(ls -d "$ANDROID_HOME"/cmdline-tools/*/bin/sdkmanager | sort | tail -1)" --licenses > /dev/null || true
       - run: ./gradlew assembleRelease --no-daemon
         working-directory: android
-      - run: cp android/app/build/outputs/apk/release/app-release.apk dist/eslacity.apk
+      - uses: actions/upload-artifact@v4
+        with:
+          name: apk
+          path: android/app/build/outputs/apk/release/app-release.apk
+          retention-days: 7
+
+  # Сайт и APK вместе: eslacity.apk лежит рядом с игрой, в precache он не входит (добавлен после сборки).
+  package:
+    needs: [build, android]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: site
+          path: dist
+      - uses: actions/download-artifact@v4
+        with:
+          name: apk
+          path: apk
+      - run: cp apk/app-release.apk dist/eslacity.apk
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist
 
   deploy:
-    needs: build
+    needs: package
     runs-on: ubuntu-latest
     environment:
       name: github-pages
