@@ -3,7 +3,7 @@ import { Link, useNavigate, useParams } from 'react-router-dom';
 import { LOCATION_BY_ID } from '../content/locations';
 import { npcFor } from '../content/npcs';
 import type { LocationId } from '../content/schema';
-import { speak } from '../audio/tts';
+import { speakAs } from '../audio/tts';
 import { NpcPortrait } from '../components/NpcPortrait';
 import { Button, Screen, TopBar } from '../components/ui';
 import { ECHO_TEXTS, errandReward, errandText, type Errand } from '../domain/errands';
@@ -13,7 +13,6 @@ import { dueCards } from '../domain/srs';
 import { L } from '../lang';
 import { useErrands } from '../store/errands';
 import { useProgress } from '../store/progress';
-import { useSettings } from '../store/settings';
 import { ReviewRun } from './Review';
 
 /** Текст просьбы жителя по поручению. */
@@ -117,7 +116,7 @@ export function ErrandScreen() {
       }
       onComplete={() => {
         const reward = useErrands.getState().complete(snapshot.id);
-        if (npc) speak(L.thanks.es, useSettings.getState().speechRate * npc.voice.rate, npc.voice.pitch);
+        if (npc) speakAs(L.thanks.es, npc);
         return (
           <div className="mt-4 flex items-end gap-3 rounded-2xl bg-white p-3 shadow-sm" data-testid="errand-thanks">
             {npc && <NpcPortrait look={npc.look} size={72} />}

@@ -123,6 +123,12 @@ const squash = (s: string) => s.replace(/\s+/g, '');
  * Открыть приложение на нужном языке. Озвучка подменяется: в headless-браузере голосов нет,
  * а сказанный текст нужен, чтобы отвечать на задания на слух.
  */
+/** Сказанная фраза с высотой голоса: по высоте видно, каким полом звучит говорящий без голоса нужного пола. */
+export type Spoken = { text: string; pitch: number };
+
+/** Всё сказанное с начала страницы. */
+export const readSpoken = (page: Page) => page.evaluate(() => (window as unknown as { __spoken: Spoken[] }).__spoken);
+
 export async function openApp(page: Page, lang: Lang, path = '') {
   await page.addInitScript((l) => {
     // Язык ставится один раз: дальше его может переключить сам тест через настройки.
@@ -130,9 +136,12 @@ export async function openApp(page: Page, lang: Lang, path = '') {
       localStorage.setItem('eslacity.lang', l);
       localStorage.setItem('eslacity.e2e', '1');
     }
-    (window as unknown as { __said: string[] }).__said = [];
+    const w = window as unknown as { __said: string[]; __spoken: Spoken[] };
+    w.__said = [];
+    w.__spoken = [];
     speechSynthesis.speak = (u: SpeechSynthesisUtterance) => {
-      (window as unknown as { __said: string[] }).__said.push(u.text);
+      w.__said.push(u.text);
+      w.__spoken.push({ text: u.text, pitch: u.pitch });
     };
   }, lang);
   await page.goto('./');

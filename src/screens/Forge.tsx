@@ -5,7 +5,7 @@ import { GRAMMAR } from '../content/grammar';
 import type { VerbsFile } from '../content/schema';
 import { loadVerbs } from '../content/verbs';
 import { logAnswer } from '../db/answers';
-import { speak } from '../audio/tts';
+import { speak, speakAs } from '../audio/tts';
 import { checkForm, EXAM_KEYS, type Verdict } from '../domain/answer';
 import { answerMs } from '../domain/answerLog';
 import { seeded } from '../domain/generators';
@@ -22,7 +22,6 @@ import { Button, Screen, SpeakButton, TopBar } from '../components/ui';
 import { useCity } from '../store/city';
 import { syncAndEvaluate, useMotivation } from '../store/motivation';
 import { useProgress } from '../store/progress';
-import { useSettings } from '../store/settings';
 
 /** Заданий в одной плавке. */
 export const FORGE_SIZE = 10;
@@ -49,7 +48,7 @@ export function ForgeScreen() {
 
   if (!data) return null;
   const { smith } = data;
-  const say = (text: string) => speak(text, useSettings.getState().speechRate * smith.voice.rate, smith.voice.pitch);
+  const say = (text: string) => speakAs(text, smith);
   const tenses = openTenses(LANG, (l) => !!grammar[l]);
   const due = dueCards(Object.values(cards), Date.now()).filter((c) => isVerbId(c.wordId));
   const vosotros = LANG !== 'es' || VARIANTS[VARIANT].vosotros;

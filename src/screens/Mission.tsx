@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { speak } from '../audio/tts';
+import { speak, speakAs, speakHero } from '../audio/tts';
 import { loadMission, placeOfMission } from '../content/missions';
 import { npcFor } from '../content/npcs';
 import { loadPhrases } from '../content/phrases';
@@ -20,7 +20,6 @@ import { useCity } from '../store/city';
 import { useErrands } from '../store/errands';
 import { useMissions } from '../store/missions';
 import { syncAndEvaluate } from '../store/motivation';
-import { useSettings } from '../store/settings';
 import { SceneTalk } from './Scene';
 
 type Bubble = { who: 'npc' | 'hero'; es: string; ru?: string; tone?: 'wrong' | 'hint' | 'offtone'; move?: DisputeMove };
@@ -163,7 +162,7 @@ function MissionDialog({ mission, phrases, pool, mode, place, onDone }: {
   const [pending, setPending] = useState<string | undefined>(undefined);
   const node = nodeId ? mission.nodes[nodeId] : undefined;
   const endRef = useRef<HTMLDivElement>(null);
-  const say = (es: string) => (npc ? speak(es, useSettings.getState().speechRate * npc.voice.rate, npc.voice.pitch) : speak(es));
+  const say = (es: string) => (npc ? speakAs(es, npc) : speak(es));
 
   const shown = useRef<string | undefined>(undefined);
   // Реплика жителя: в ленту и голосом, по одному разу на узел.
@@ -195,14 +194,14 @@ function MissionDialog({ mission, phrases, pool, mode, place, onDone }: {
       // Смысл верный, тон чужой: житель обижается или переспрашивает, герой видит, как лучше.
       next.push({ who: 'npc', es: node.tone.es, ru: node.tone.ru });
       next.push({ who: 'hero', es: `Лучше так: ${fullPhrase(phrases[node.branches[0].phrase].es)}`, tone: 'hint' });
-      speak(heroLine);
+      speakHero(heroLine);
       say(node.tone.es);
     } else if (!ok) {
       next.push({ who: 'npc', es: node.wrong.es, ru: node.wrong.ru });
       next.push({ who: 'hero', es: `Правильно: ${fullPhrase(phrases[r.phrase].es)}`, tone: 'hint' });
       say(node.wrong.es);
     } else {
-      speak(heroLine);
+      speakHero(heroLine);
     }
     setBubbles((b) => [...b, ...next]);
     // После ошибки и чужого тона даём прочитать реакцию, после верного ответа диалог идёт сам.

@@ -10,9 +10,11 @@ export interface Settings {
   listenOffUntil: number;
   /** Сколько новых слов в день просят жители. Мягкий лимит: учить дальше можно всегда. */
   newPerDay: 5 | 10 | 15 | 20;
+  /** Пол путника: каким голосом звучат его реплики в миссиях и сценах. */
+  heroGender: 'm' | 'f';
 }
 
-export const DEFAULT_SETTINGS: Settings = { speechRate: 0.9, dailyGoal: 100, blitzBest: 0, listenOffUntil: 0, newPerDay: 10 };
+export const DEFAULT_SETTINGS: Settings = { speechRate: 0.9, dailyGoal: 100, blitzBest: 0, listenOffUntil: 0, newPerDay: 10, heroGender: 'm' };
 
 interface SettingsState extends Settings {
   hydrate(s: Partial<Settings> | undefined): void;
@@ -26,7 +28,7 @@ export const useSettings = create<SettingsState>((set, get) => ({
   },
   update(patch) {
     set(patch);
-    const { speechRate, dailyGoal, blitzBest, listenOffUntil, newPerDay } = { ...get(), ...patch };
-    persist(() => db.meta.put({ key: 'settings', value: { speechRate, dailyGoal, blitzBest, listenOffUntil, newPerDay } }));
+    const { speechRate, dailyGoal, blitzBest, listenOffUntil, newPerDay, heroGender } = { ...get(), ...patch };
+    persist(() => db.meta.put({ key: 'settings', value: { speechRate, dailyGoal, blitzBest, listenOffUntil, newPerDay, heroGender } }));
   },
 }));

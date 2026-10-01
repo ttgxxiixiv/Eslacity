@@ -6,7 +6,7 @@ import { lessonsOf, loadLesson } from '../content/grammar';
 import { guardianOf } from '../content/npcs';
 import type { District, GrammarExercise, Word } from '../content/schema';
 import { SCROLL_WORDS, WORD_LEVELS } from '../content/wordIndex';
-import { listeningEnabled, speak } from '../audio/tts';
+import { listeningEnabled, speakAs } from '../audio/tts';
 import { chapterById } from '../domain/chapters';
 import { seeded } from '../domain/generators';
 import { buildGuardian, GUARDIAN_KIND_MIN, GUARDIAN_KINDS, GUARDIAN_LISTEN, GUARDIAN_PASS, GUARDIAN_REWARD, GUARDIAN_SIZE, guardianId, isGuardianPassed } from '../domain/guardian';
@@ -20,7 +20,6 @@ import { useCity } from '../store/city';
 import { useJourney } from '../store/journey';
 import { syncAndEvaluate } from '../store/motivation';
 import { useProgress } from '../store/progress';
-import { useSettings } from '../store/settings';
 import { useTrials } from '../store/trials';
 
 /**
@@ -46,7 +45,7 @@ function GuardianByChapter({ chapter }: { chapter: number }) {
   const [phase, setPhase] = useState<'intro' | 'run' | 'result'>('intro');
   const [items, setItems] = useState<TrialItem[]>([]);
   const [result, setResult] = useState<{ correct: number; almost: number; total: number; first: boolean } | null>(null);
-  const say = (es: string) => guardian && speak(es, useSettings.getState().speechRate * guardian.voice.rate, guardian.voice.pitch);
+  const say = (es: string) => guardian && speakAs(es, guardian);
 
   useEffect(() => {
     if (!ch) return;

@@ -1,9 +1,8 @@
 import type { Chronicler } from '../content/schema';
 import type { ReactNode } from 'react';
-import { speak } from '../audio/tts';
+import { speakAs } from '../audio/tts';
 import { greetingFor, nextRank, rankOf } from '../domain/reputation';
 import { plural } from '../domain/medals';
-import { useSettings } from '../store/settings';
 import { NpcPortrait } from './NpcPortrait';
 
 /**
@@ -14,7 +13,7 @@ export function NpcCard({ npc, rep = 0, children }: { npc: Chronicler; rep?: num
   const greeting = greetingFor(npc.greeting, npc.warm, rep);
   const rank = rankOf(rep);
   const next = nextRank(rep);
-  const say = () => speak(greeting.es, useSettings.getState().speechRate * npc.voice.rate, npc.voice.pitch);
+  const say = () => speakAs(greeting.es, npc);
   return (
     <section className="rounded-3xl bg-white p-3 shadow-sm" data-testid="npc-card">
       <div className="flex items-end gap-3">

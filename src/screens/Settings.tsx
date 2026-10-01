@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { VARIANT, VARIANTS } from '../config';
-import { currentVoice, hasLangVoice, speak, ttsSupported } from '../audio/tts';
+import { currentVoice, hasLangVoice, speak, speakHero, ttsSupported, voiceFor } from '../audio/tts';
 import { L, LANG, LANGS, switchLang, type Lang } from '../lang';
 import { resetProgress } from '../store/bootstrap';
 import { downloadJson, exportBackup, importBackup, parseBackup } from '../db/backup';
@@ -18,11 +18,23 @@ const SAMPLE: Record<Lang, string> = {
   it: 'Ciao! Come stai? Un caffè, per favore.',
 };
 
+/** Реплика путника для проверки голоса. */
+const HERO_SAMPLE: Record<Lang, string> = {
+  es: 'Buenos días. Busco el camino a la Bóveda.',
+  it: 'Buongiorno. Cerco la strada per il Caveau.',
+};
+
+const HERO_GENDERS: { id: Settings['heroGender']; label: string }[] = [
+  { id: 'm', label: 'Мужчина' },
+  { id: 'f', label: 'Женщина' },
+];
+
 export function SettingsScreen() {
-  const { speechRate, dailyGoal, listenOffUntil, newPerDay, update } = useSettings();
+  const { speechRate, dailyGoal, listenOffUntil, newPerDay, heroGender, update } = useSettings();
   const listenOn = listenOffUntil <= Date.now();
   const pausedHour = !listenOn && listenOffUntil < Number.MAX_SAFE_INTEGER;
   const [voiceName, setVoiceName] = useState(() => currentVoice()?.name);
+  const [heroVoice, setHeroVoice] = useState(() => voiceFor(heroGender)?.name);
 
   return (
     <Screen>
@@ -95,6 +107,49 @@ export function SettingsScreen() {
           <p className="mt-2 text-sm text-stone-500">
             Столько новых слов в день просят жители. Это мягкий лимит: учить дальше в городе можно всегда, просто «Продолжить» сначала позовёт на поручения.
           </p>
+        </section>
+
+        <section className="rounded-3xl bg-white p-4 shadow-sm" data-testid="hero-gender">
+          <h2 className="font-bold">Путник</h2>
+          <div className="mt-3 grid grid-cols-2 gap-2" role="radiogroup" aria-label="Пол путника">
+            {HERO_GENDERS.map((g) => (
+              <button
+                key={g.id}
+                type="button"
+                role="radio"
+                aria-checked={heroGender === g.id}
+                onClick={() => {
+                  update({ heroGender: g.id });
+                  setHeroVoice(voiceFor(g.id)?.name);
+                }}
+                className={`press rounded-xl border-2 py-2.5 font-semibold ${
+                  heroGender === g.id ? 'border-brand bg-orange-50 text-brand' : 'border-stone-200'
+                }`}
+                data-testid={`hero-gender-${g.id}`}
+              >
+                {g.label}
+              </button>
+            ))}
+          </div>
+          <p className="mt-2 text-sm text-stone-500">
+            Этим голосом звучат реплики путника в миссиях и разговорах. Если в системе нет голоса нужного пола, основной голос
+            звучит ниже или выше.
+          </p>
+          {ttsSupported() && (
+            <>
+              <Button
+                variant="secondary"
+                className="mt-2 w-full"
+                onClick={() => {
+                  speakHero(HERO_SAMPLE[LANG]);
+                  setHeroVoice(voiceFor(heroGender)?.name);
+                }}
+              >
+                🔊 Голос путника
+              </Button>
+              {heroVoice && <p className="mt-2 text-sm text-stone-500">Голос: {heroVoice}</p>}
+            </>
+          )}
         </section>
 
         <section className="rounded-3xl bg-white p-4 shadow-sm">

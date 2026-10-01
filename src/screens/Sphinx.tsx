@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { XP } from '../config';
-import { listeningEnabled, speak } from '../audio/tts';
+import { listeningEnabled, speak, speakAs } from '../audio/tts';
 import { CHRONICLER, NPC_BY_ID } from '../content/npcs';
 import type { Example, SphinxFile, SphinxLine } from '../content/schema';
 import { loadSphinx } from '../content/sphinx';
@@ -20,7 +20,6 @@ import { Button, Screen, TopBar } from '../components/ui';
 import { useJourney } from '../store/journey';
 import { syncAndEvaluate } from '../store/motivation';
 import { useProgress } from '../store/progress';
-import { useSettings } from '../store/settings';
 import { useSphinx } from '../store/sphinx';
 
 const ROUND_TITLE: Record<SphinxRound, string> = { hear: 'Загадка слуха', word: 'Загадка слова', wisdom: 'Загадка мудрости' };
@@ -76,7 +75,7 @@ export function SphinxScreen() {
   }
   if (!file) return null;
   const sp = file.sphinx;
-  const say = (text: string) => speak(text, useSettings.getState().speechRate * sp.voice.rate, sp.voice.pitch);
+  const say = (text: string) => speakAs(text, sp);
 
   const start = () => {
     useSphinx.getState().arrive();
@@ -370,9 +369,8 @@ function Listen({ lines, monologue, onDone }: { lines: { who: string; es: string
   const line = lines[index];
   const npc = voiceOf(line.who);
   const sayLine = () => {
-    const rate = useSettings.getState().speechRate;
-    if (npc) speak(line.es, rate * npc.voice.rate, npc.voice.pitch);
-    else speak(line.es, rate);
+    if (npc) speakAs(line.es, npc);
+    else speak(line.es);
   };
   // Новая реплика звучит сразу.
   useEffect(() => sayLine(), [index]);

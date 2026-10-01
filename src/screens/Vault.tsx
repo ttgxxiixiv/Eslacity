@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import navEsGold from '../assets/nav/nav-es-gold.webp';
 import navItGold from '../assets/nav/nav-it-gold.webp';
-import { speak } from '../audio/tts';
+import { speakAs } from '../audio/tts';
 import { CHRONICLER } from '../content/npcs';
 import type { SphinxFile, VaultLine } from '../content/schema';
 import { loadSphinx } from '../content/sphinx';
@@ -22,7 +22,6 @@ import { useElixirStrength, useKeeper } from '../store/keeper';
 import { useMissions } from '../store/missions';
 import { syncAndEvaluate, useMotivation } from '../store/motivation';
 import { useProgress } from '../store/progress';
-import { useSettings } from '../store/settings';
 import { useSphinx } from '../store/sphinx';
 
 const GOLD_NAV = LANG === 'it' ? navItGold : navEsGold;
@@ -141,8 +140,7 @@ export function VaultScreen() {
 /** Реплика сцены: говорящий, текст на изучаемом языке, перевод по нажатию. Звучит сразу. */
 function Speech({ line, sphinx }: { line: VaultLine; sphinx: SphinxFile['sphinx'] }) {
   const [ru, setRu] = useState(false);
-  const voice = line.who === 'sphinx' ? sphinx.voice : CHRONICLER.voice;
-  const say = () => speak(line.es, useSettings.getState().speechRate * voice.rate, voice.pitch);
+  const say = () => speakAs(line.es, line.who === 'sphinx' ? sphinx : CHRONICLER);
   // Реплика звучит сразу, как появилась.
   useEffect(() => say(), []);
   return (

@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { listeningEnabled, speak } from '../audio/tts';
+import { listeningEnabled, speakAs, speakHero } from '../audio/tts';
 import { npcFor, speakerOf } from '../content/npcs';
 import { loadScene, placeOfScene } from '../content/scenes';
 import type { Scene, SceneLine } from '../content/schema';
@@ -10,14 +10,12 @@ import { plural } from '../domain/medals';
 import { sceneChunks, wordTranslation } from '../domain/sceneText';
 import { NpcPortrait } from '../components/NpcPortrait';
 import { Button, Screen, TopBar } from '../components/ui';
-import { useSettings } from '../store/settings';
 
-/** Реплика голосом говорящего: житель — своим голосом, герой — обычным. */
+/** Реплика голосом говорящего: житель — своим голосом, герой — голосом выбранного пола. */
 export function sayLine(line: SceneLine, place: string) {
-  const rate = useSettings.getState().speechRate;
   const npc = speakerOf(line.who, place);
-  if (npc) speak(line.es, rate * npc.voice.rate, npc.voice.pitch);
-  else speak(line.es, rate);
+  if (npc) speakAs(line.es, npc);
+  else speakHero(line.es);
 }
 
 /**
