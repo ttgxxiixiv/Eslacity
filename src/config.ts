@@ -43,27 +43,31 @@ export const LESSON = {
 
 /** Режимы блица: обычный открыт сразу, остальные — наградой за уровень героя (задача 9.2). */
 export type BlitzMode = 'classic' | 'listen' | 'survival';
-/** Цвета плаща путника: зелёный — сразу, остальные за уровни. Картинки строит scripts/build-road-art.py. */
-export type CloakId = 'moss' | 'crimson' | 'indigo' | 'night' | 'gold';
+/**
+ * Накидки путника — по материалу, от самой простой к самой благородной (задача 9.2). Мешковина — сразу.
+ * Картинки строит scripts/build-road-art.py.
+ */
+export type CloakId = 'sackcloth' | 'homespun' | 'linen' | 'broadcloth' | 'leather' | 'velvet' | 'silk' | 'brocade';
 
 export type LevelReward = { hints?: number; blitz?: BlitzMode; cloak?: CloakId };
 
 /**
- * Награды за уровни героя (задача 9.2). Жетон подсказки открывает первую букву ответа при вводе, такой ответ
- * засчитывается не выше «почти» (оценка Hard). Выше таблицы — по 5 жетонов на каждом чётном уровне.
- * Выдаются и задним числом: за уровень, набранный до появления наград.
+ * Награды за уровни героя (задача 9.2). Весь путь до Сфинкса — примерно 135–215 тысяч опыта, это 26–31-й уровень
+ * (расчёт в docs/GAME.md, «Награды уровней героя»). Накидки идут по нарастающей: чем благороднее материал, тем
+ * дальше до него по опыту, последняя — парча на 26-м уровне, к концу главы IV. Остальные уровни дают жетоны
+ * подсказки (`hintsFor`): жетон открывает первую букву ответа при вводе, такой ответ засчитывается не выше
+ * «почти» (оценка Hard). Награды выдаются и задним числом.
  */
 export const LEVEL_REWARDS: Record<number, LevelReward> = {
-  2: { hints: 3 },
   3: { blitz: 'listen' },
-  4: { cloak: 'crimson', hints: 3 },
-  5: { hints: 5 },
+  4: { cloak: 'homespun' },
   6: { blitz: 'survival' },
-  7: { cloak: 'indigo' },
-  8: { hints: 5 },
-  10: { cloak: 'night', hints: 5 },
-  12: { hints: 5 },
-  14: { cloak: 'gold' },
+  9: { cloak: 'linen' },
+  13: { cloak: 'broadcloth' },
+  17: { cloak: 'leather' },
+  20: { cloak: 'velvet' },
+  23: { cloak: 'silk' },
+  26: { cloak: 'brocade' },
 };
-export const LEVEL_REWARDS_UPTO = 14;
-export const LATE_LEVEL_HINTS = 5;
+/** Жетоны подсказки за уровень без другой награды: по 3 до 9-го, дальше по 5. */
+export const hintsFor = (level: number) => (level < 2 ? 0 : level < 10 ? 3 : 5);

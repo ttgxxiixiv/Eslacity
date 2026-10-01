@@ -72,14 +72,19 @@ for name, (ys, xs) in zip(names, boxes):
     part.resize((w, h), Image.LANCZOS).save(OUT / f'{name}.webp', 'WEBP', quality=92, method=6)
     print(name, (xs.start, ys.start, xs.stop, ys.stop), '->', (w, h))
 
-# Плащи путника (награды уровней героя, задача 9.2): зелёный плащ перекрашивается, остальное не трогается.
-# Плащ — пиксели с оливковым и зелёным оттенком (58–170°; рюкзак и фонарь ниже 50°). Оттенок сдвигается
-# относительно середины плаща (88°), чтобы светотень сохранилась; у цвета ещё множители насыщенности и яркости.
+# Накидки путника (награды уровней героя, задача 9.2): пока нет отдельного листа (промт — docs/design/cloaks-prompt.md),
+# каждая накидка — перекраска зелёного плаща. Плащ — пиксели с оливковым и зелёным оттенком (58–170°; рюкзак и фонарь
+# ниже 50°). У материала: оттенок, множители насыщенности и яркости и способ — ровный оттенок (`flat`, для тканей
+# без блеска) или сдвиг относительно середины плаща 88° (сохраняет светотень, для сукна, бархата и шёлка).
 CLOAKS = {
-    'crimson': (2, 1.25, 0.95),
-    'indigo': (232, 1.0, 1.0),
-    'night': (220, 0.15, 0.7),
-    'gold': (42, 1.7, 1.45),
+    'sackcloth': (34, 0.9, 1.1, True),
+    'homespun': (28, 0.3, 0.85, True),
+    'linen': (45, 0.15, 1.5, True),
+    'broadcloth': (222, 0.75, 0.9, False),
+    'leather': (20, 1.3, 0.75, True),
+    'velvet': (346, 1.2, 0.8, False),
+    'silk': (172, 1.1, 1.25, False),
+    'brocade': (42, 1.7, 1.45, True),
 }
 walker_box = boxes[names.index('road-walker')]
 walker = rgba[walker_box].astype(np.float64)
@@ -88,10 +93,9 @@ size = (round(walker.shape[1] * k), round(walker.shape[0] * k))
 rgb = walker[..., :3] / 255
 hsv = cv2.cvtColor(rgb.astype(np.float32), cv2.COLOR_RGB2HSV)  # H 0–360, S и V 0–1
 cloak = (hsv[..., 0] >= 58) & (hsv[..., 0] <= 170) & (hsv[..., 1] > 0.08)
-for cid, (hue, sat, val) in CLOAKS.items():
+for cid, (hue, sat, val, flat) in CLOAKS.items():
     h = hsv.copy()
-    # Золото — ровный оттенок: при сдвиге светлые складки плаща уходят в жёлто-зелёный.
-    shifted = np.full_like(h[..., 0], hue) if cid == 'gold' else (h[..., 0] - 88 + hue) % 360
+    shifted = np.full_like(h[..., 0], hue) if flat else (h[..., 0] - 88 + hue) % 360
     h[..., 0] = np.where(cloak, shifted, h[..., 0])
     h[..., 1] = np.where(cloak, np.clip(h[..., 1] * sat, 0, 1), h[..., 1])
     h[..., 2] = np.where(cloak, np.clip(h[..., 2] * val, 0, 1), h[..., 2])

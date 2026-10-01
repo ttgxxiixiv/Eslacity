@@ -3,7 +3,7 @@ import type { BlitzMode, CloakId } from '../config';
 import { db } from '../db/db';
 import { persist } from '../db/persist';
 import { heroLevel } from '../domain/heroLevel';
-import { EMPTY_REWARDS, grantUpTo, spendHint, type RewardsRecord } from '../domain/rewards';
+import { EMPTY_REWARDS, grantUpTo, normalizeRewards, spendHint, type RewardsRecord } from '../domain/rewards';
 import { useProgress } from './progress';
 
 interface RewardsState {
@@ -27,7 +27,7 @@ export const useRewards = create<RewardsState>((set, get) => {
     rec: EMPTY_REWARDS,
 
     hydrate(d) {
-      set({ rec: { ...EMPTY_REWARDS, ...d, blitzBest: { ...d?.blitzBest } } });
+      set({ rec: normalizeRewards(d) });
     },
 
     sync() {

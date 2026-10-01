@@ -1,5 +1,5 @@
 import { expect, test } from '@playwright/test';
-import { LANGS, loadWords, openApp, playWords, readAnswers, readMeta, seedDueCards, seedXp } from './fixtures';
+import { DB, LANGS, loadWords, openApp, playWords, readAnswers, readMeta, seedDueCards, seedXp } from './fixtures';
 
 /** Опыт к началу уровня героя: переход n → n+1 стоит 100·n^1.5, округлено до 10. */
 const xpFor = (level: number) => {
@@ -12,25 +12,53 @@ type Rewards = { level: number; hints: number; blitz: string[]; cloaks: string[]
 
 for (const lang of LANGS) {
   test.describe(lang, () => {
-    test('награды выдаются задним числом за набранный уровень; плащ выбирается в профиле', async ({ page }) => {
+    test('награды выдаются задним числом за набранный уровень; накидка выбирается в профиле', async ({ page }) => {
       await openApp(page, lang);
-      await seedXp(page, lang, xpFor(7));
-      await expect.poll(async () => (await readMeta<Rewards>(page, lang, 'rewards'))?.level).toBe(7);
+      await seedXp(page, lang, xpFor(9));
+      await expect.poll(async () => (await readMeta<Rewards>(page, lang, 'rewards'))?.level).toBe(9);
       const r = (await readMeta<Rewards>(page, lang, 'rewards'))!;
-      expect(r.hints).toBe(11);
+      expect(r.hints).toBe(12);
       expect(r.blitz).toEqual(['classic', 'listen', 'survival']);
-      expect(r.cloaks).toEqual(['moss', 'crimson', 'indigo']);
+      expect(r.cloaks).toEqual(['sackcloth', 'homespun', 'linen']);
 
       await page.goto('./#/profile');
-      await expect(page.getByTestId('hint-count')).toContainText('11');
-      await expect(page.getByTestId('cloak-night')).toBeDisabled();
-      await expect(page.getByTestId('cloak-night')).toContainText('ур. 10');
-      await page.getByTestId('cloak-indigo').click();
-      await expect(page.getByTestId('cloak-indigo')).toHaveAttribute('aria-checked', 'true');
+      await expect(page.getByTestId('hint-count')).toContainText('12');
+      await expect(page.getByTestId('cloak-broadcloth')).toBeDisabled();
+      await expect(page.getByTestId('cloak-broadcloth')).toContainText('ур. 13');
+      await expect(page.getByTestId('cloak-brocade')).toContainText('ур. 26');
+      await page.getByTestId('cloak-linen').click();
+      await expect(page.getByTestId('cloak-linen')).toHaveAttribute('aria-checked', 'true');
       await page.goto('./#/');
-      await expect(page.getByTestId('road-walker')).toHaveAttribute('data-cloak', 'indigo');
+      await expect(page.getByTestId('road-walker')).toHaveAttribute('data-cloak', 'linen');
       await page.reload();
-      await expect(page.getByTestId('road-walker')).toHaveAttribute('data-cloak', 'indigo');
+      await expect(page.getByTestId('road-walker')).toHaveAttribute('data-cloak', 'linen');
+    });
+
+    test('плащи цветов из 2.108.0 заменяются накидками по набранному уровню', async ({ page }) => {
+      await openApp(page, lang);
+      await page.evaluate(
+        ({ db, xp }) =>
+          new Promise<void>((resolve) => {
+            const r = indexedDB.open(db);
+            r.onsuccess = () => {
+              const tx = r.result.transaction('meta', 'readwrite');
+              tx.objectStore('meta').put({ key: 'xpTotal', value: xp });
+              tx.objectStore('meta').put({
+                key: 'rewards',
+                value: { level: 7, hints: 4, blitz: ['classic', 'listen', 'survival'], cloaks: ['moss', 'crimson', 'indigo'], cloak: 'indigo', blitzBest: { listen: 9 } },
+              });
+              tx.oncomplete = () => resolve();
+            };
+          }),
+        { db: DB[lang], xp: xpFor(7) },
+      );
+      await page.reload();
+      await expect(page.getByTestId('road-walker')).toHaveAttribute('data-cloak', 'homespun');
+      await page.goto('./#/profile');
+      await expect(page.getByTestId('cloak-homespun')).toHaveAttribute('aria-checked', 'true');
+      // Жетоны и рекорды остались.
+      await expect(page.getByTestId('hint-count')).toContainText('4');
+      await expect.poll(async () => (await readMeta<Rewards>(page, lang, 'rewards'))?.blitzBest.listen).toBe(9);
     });
 
     test('новый уровень показывает награду; жетон подсказки открывает первую букву, ответ — «почти»', async ({ page }) => {

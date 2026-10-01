@@ -1,9 +1,8 @@
-import type { CloakId } from '../config';
-import { CLOAK_LABEL, unlockLevel } from '../domain/rewards';
+import { CLOAK_LABEL, CLOAK_ORDER, unlockLevel } from '../domain/rewards';
 import { useRewards } from '../store/rewards';
 import { WALKER } from './walkerArt';
 
-/** Награды уровней героя в профиле (задача 9.2): жетоны подсказки и выбор плаща путника. */
+/** Награды уровней героя в профиле (задача 9.2): жетоны подсказки и выбор накидки путника. */
 export function HeroRewards() {
   const rec = useRewards((s) => s.rec);
   return (
@@ -16,11 +15,11 @@ export function HeroRewards() {
       </div>
       <p className="mt-1 text-sm text-stone-500">
         Жетон открывает первую букву, когда нужно написать слово; такой ответ засчитывается как «почти». Новые жетоны, режимы блица и
-        плащи даёт уровень героя.
+        накидки даёт уровень героя: от мешковины до парчи, последняя — ближе к концу пути.
       </p>
-      <div className="mt-3 text-sm font-semibold text-stone-700">Плащ путника</div>
-      <div className="mt-2 grid grid-cols-5 gap-2" role="radiogroup" aria-label="Плащ путника">
-        {(Object.keys(WALKER) as CloakId[]).map((id) => {
+      <div className="mt-3 text-sm font-semibold text-stone-700">Накидка путника</div>
+      <div className="mt-2 grid grid-cols-4 gap-2" role="radiogroup" aria-label="Накидка путника">
+        {CLOAK_ORDER.map((id) => {
           const open = rec.cloaks.includes(id);
           const picked = rec.cloak === id;
           return (

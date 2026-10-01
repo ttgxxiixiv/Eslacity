@@ -1,4 +1,4 @@
-import { LATE_LEVEL_HINTS, LEVEL_REWARDS, LEVEL_REWARDS_UPTO, type BlitzMode, type CloakId, type LevelReward } from '../config';
+import { hintsFor, LEVEL_REWARDS, type BlitzMode, type CloakId, type LevelReward } from '../config';
 
 /** Награды уровней героя (задача 9.2): что открыто и сколько жетонов подсказки на руках. */
 export interface RewardsRecord {
@@ -14,12 +14,26 @@ export interface RewardsRecord {
   blitzBest: Partial<Record<BlitzMode, number>>;
 }
 
-export const EMPTY_REWARDS: RewardsRecord = { level: 1, hints: 0, blitz: ['classic'], cloaks: ['moss'], cloak: 'moss', blitzBest: {} };
+export const EMPTY_REWARDS: RewardsRecord = { level: 1, hints: 0, blitz: ['classic'], cloaks: ['sackcloth'], cloak: 'sackcloth', blitzBest: {} };
 
-/** Награда уровня: из таблицы, выше неё — жетоны на чётных уровнях. */
+/** Награда уровня: из таблицы, а уровень без неё даёт жетоны подсказки. */
 export function rewardFor(level: number): LevelReward {
-  if (level <= LEVEL_REWARDS_UPTO) return LEVEL_REWARDS[level] ?? {};
-  return level % 2 === 0 ? { hints: LATE_LEVEL_HINTS } : {};
+  const hints = hintsFor(level);
+  return LEVEL_REWARDS[level] ?? (hints ? { hints } : {});
+}
+
+/** Накидки по порядку: от мешковины до парчи. */
+export const CLOAK_ORDER: CloakId[] = ['sackcloth', 'homespun', 'linen', 'broadcloth', 'leather', 'velvet', 'silk', 'brocade'];
+
+/**
+ * Запись наград из базы: до 2.109.0 плащи были цветами (мох, багрянец…). Накидки по материалам выдаются
+ * заново по уже набранному уровню; выбранная неизвестная накидка заменяется самой благородной из полученных.
+ */
+export function normalizeRewards(d: Partial<RewardsRecord> | undefined): RewardsRecord {
+  const rec: RewardsRecord = { ...EMPTY_REWARDS, ...d, blitzBest: { ...d?.blitzBest } };
+  const cloaks = CLOAK_ORDER.filter((c) => unlockLevel({ cloak: c }) <= rec.level);
+  const cloak = cloaks.includes(rec.cloak) ? rec.cloak : cloaks[cloaks.length - 1];
+  return { ...rec, cloaks, cloak };
 }
 
 /** Выдать награды всех уровней до `level`, которых ещё нет. Возвращает запись и награды по уровням. */
@@ -63,11 +77,14 @@ export const BLITZ_LABEL: Record<BlitzMode, { title: string; text: string }> = {
 };
 
 export const CLOAK_LABEL: Record<CloakId, string> = {
-  moss: 'Мох',
-  crimson: 'Багрянец',
-  indigo: 'Индиго',
-  night: 'Ночь',
-  gold: 'Золото',
+  sackcloth: 'Мешковина',
+  homespun: 'Сермяга',
+  linen: 'Лён',
+  broadcloth: 'Сукно',
+  leather: 'Кожа',
+  velvet: 'Бархат',
+  silk: 'Шёлк',
+  brocade: 'Парча',
 };
 
 /** Подпись награды: «3 жетона подсказки», «режим блица «На слух»», «плащ «Багрянец»». */
@@ -75,7 +92,7 @@ export function rewardLines(r: LevelReward): string[] {
   const out: string[] = [];
   if (r.hints) out.push(`${r.hints} ${r.hints === 1 ? 'жетон' : r.hints < 5 ? 'жетона' : 'жетонов'} подсказки`);
   if (r.blitz) out.push(`режим блица «${BLITZ_LABEL[r.blitz].title}»`);
-  if (r.cloak) out.push(`плащ «${CLOAK_LABEL[r.cloak]}»`);
+  if (r.cloak) out.push(`накидка: ${CLOAK_LABEL[r.cloak].toLowerCase()}`);
   return out;
 }
 
