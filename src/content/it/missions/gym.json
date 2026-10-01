@@ -8,7 +8,7 @@
       "scene": "sc:gym.1",
       "start": "hi",
       "nodes": {
-        "hi": {"kind": "say", "es": "Oggi c'è una gara! Tu contro me. Pronto?", "ru": "Сегодня соревнование! Ты против меня. Готов?", "next": "vest"},
+        "hi": {"kind": "say", "es": "Oggi c'è una gara! Tu contro me. Pronto?", "ru": "Сегодня соревнование! Ты против меня. Готов?", "fem": {"es": "Oggi c'è una gara! Tu contro me. Pronta?", "ru": "Сегодня соревнование! Ты против меня. Готова?"}, "next": "vest"},
         "vest": {"kind": "answer", "task": "Спросите, где раздевалка.", "branches": [{"phrase": "ph:gym.dov-spogliatoio", "next": "vestsay"}], "wrong": {"es": "Dov'è la cucina? Qui non si mangia, qui si corre!", "ru": "Где кухня? Тут не едят, тут бегают!"}},
         "vestsay": {"kind": "say", "es": "Là. Cambiati e torna. Cosa ti serve?", "ru": "Вон там. Переоденься и возвращайся. Что тебе нужно?", "next": "towel"},
         "towel": {"kind": "answer", "task": "Скажите, что вам нужно полотенце.", "branches": [{"phrase": "ph:gym.serve-asciugamano", "next": "towsay"}], "wrong": {"es": "Un toast? Mangiamo dopo! Adesso, sport.", "ru": "Тост? Поедим потом! Сейчас спорт."}},
@@ -54,13 +54,13 @@
       "start": "hi",
       "nodes": {
         "hi": {"kind": "say", "es": "Oggi ci alleniamo per il deserto. Cosa ti serve?", "ru": "Сегодня тренируемся для пустыни. Что тебе нужно?", "next": "force"},
-        "force": {"kind": "answer", "task": "Скажите, что вам нужно больше силы в ногах.", "branches": [{"phrase": "ph:gym.serve-piu-forza", "next": "forcesay"}], "wrong": {"es": "Ti serve più sabbia? Tranquillo, nel deserto ce n'è tanta.", "ru": "Нужно больше песка? Спокойно, в пустыне его полно."}},
+        "force": {"kind": "answer", "task": "Скажите, что вам нужно больше силы в ногах.", "branches": [{"phrase": "ph:gym.serve-piu-forza", "next": "forcesay"}], "wrong": {"es": "Ti serve più sabbia? Tranquillo, nel deserto ce n'è tanta.", "ru": "Нужно больше песка? Спокойно, в пустыне его полно.", "fem": {"es": "Ti serve più sabbia? Tranquilla, nel deserto ce n'è tanta."}}},
         "forcesay": {"kind": "say", "es": "Benissimo. Vuoi un allenamento solo per te?", "ru": "Хорошо. Хочешь тренировку только для тебя?", "next": "pers"},
         "pers": {"kind": "answer", "task": "Спросите, есть ли персональные тренировки.", "branches": [{"phrase": "ph:gym.fate-allenamento-personalizzato", "next": "perssay"}], "wrong": {"es": "Fate torte personalizzate? No, solo allenamento.", "ru": "Персональные торты есть? Нет, только тренировки."}},
         "perssay": {"kind": "say", "es": "Con me. E sarà duro. Qual è il tuo obiettivo?", "ru": "Со мной. И будет тяжело. Какая у тебя цель?", "next": "mara"},
         "mara": {"kind": "answer", "task": "Скажите, что в этом году бежите марафон.", "branches": [{"phrase": "ph:gym.quest-anno-corro", "next": "marasay"}], "wrong": {"es": "Quest'anno dormi tanto? Quest'anno, no!", "ru": "В этом году много спишь? В этом году — нет!"}},
         "marasay": {"kind": "say", "es": "Una maratona! Il deserto è la tua maratona. Forza, più veloce! ... Cosa succede?", "ru": "Марафон! Пустыня — твой марафон. Давай, быстрее! ... Что случилось?", "next": "cramp"},
-        "cramp": {"kind": "answer", "task": "Скажите, что у вас свело мышцу.", "branches": [{"phrase": "ph:gym.venuto-crampo", "next": "crampsay"}], "wrong": {"es": "Ti è venuta fame? Mangiamo dopo.", "ru": "Проголодался? Поедим потом."}},
+        "cramp": {"kind": "answer", "task": "Скажите, что у вас свело мышцу.", "branches": [{"phrase": "ph:gym.venuto-crampo", "next": "crampsay"}], "wrong": {"es": "Ti è venuta fame? Mangiamo dopo.", "ru": "Проголодался? Поедим потом.", "fem": {"ru": "Проголодалась? Поедим потом."}}},
         "crampsay": {"kind": "say", "es": "Un crampo. Riposa. Bevi dell'acqua. E dopo l'allenamento cosa prendi?", "ru": "Судорога. Отдохни. Попей воды. А что ты пьёшь после тренировки?", "next": "prot"},
         "prot": {"kind": "answer", "task": "Скажите, что после тренировки пьёте протеин.", "branches": [{"phrase": "ph:gym.prendo-proteine-dopo", "next": "end"}], "wrong": {"es": "Prendi il gelato? Dopo l'allenamento, no!", "ru": "Ешь мороженое? После тренировки — нет!"}},
         "end": {"kind": "say", "es": "Benissimo. Prendi il mio pezzo della mappa del deserto. E ricorda: nel deserto, non correre come qualcuno che ha paura.", "ru": "Отлично. Держи мой обрывок карты пустыни. И помни: в пустыне не беги, как тот, кому страшно."}
@@ -88,7 +88,7 @@
         "legs": {"kind": "answer", "task": "Скажите, что вам нужно больше силы в ногах.", "branches": [{"phrase": "ph:gym.serve-piu-forza", "next": "legssay"}], "wrong": {"es": "Più forza nelle ali? Quella serve al corvo.", "ru": "Больше силы в крыльях? Это для ворона."}},
         "legssay": {"kind": "say", "es": "Allora squat. Venti! Dai... Cosa succede?", "ru": "Тогда приседания. Двадцать! Давай... Что случилось?", "next": "cramp2"},
         "cramp2": {"kind": "answer", "task": "Скажите, что у вас свело ногу.", "branches": [{"phrase": "ph:gym.venuto-crampo", "next": "end"}], "wrong": {"es": "Ti è venuto un corvo? No, un crampo.", "ru": "К тебе прилетел ворон? Нет, судорога."}},
-        "end": {"kind": "say", "es": "Tranquillo, adesso passa. Tieni, bevi dell'acqua. E questo: l'ho trovato in giardino, dove c'era quell'uomo. Un pezzo della mappa del bosco.", "ru": "Спокойно, сейчас пройдёт. Держи, попей воды. И вот ещё: я нашла это в саду, где был тот человек. Обрывок карты леса."}
+        "end": {"kind": "say", "es": "Tranquillo, adesso passa. Tieni, bevi dell'acqua. E questo: l'ho trovato in giardino, dove c'era quell'uomo. Un pezzo della mappa del bosco.", "ru": "Спокойно, сейчас пройдёт. Держи, попей воды. И вот ещё: я нашла это в саду, где был тот человек. Обрывок карты леса.", "fem": {"es": "Tranquilla, adesso passa. Tieni, bevi dell'acqua. E questo: l'ho trovato in giardino, dove c'era quell'uomo. Un pezzo della mappa del bosco."}}
       }
     },
     {
@@ -104,7 +104,7 @@
         "cheer": {"kind": "answer", "task": "Подбодрите Федерику. Вы тренируетесь вместе — по-свойски.", "register": "informal", "branches": [{"phrase": "ph:gym.dai-che-ce-la-fai", "next": "cheersay"}, {"phrase": "ph:gym.sono-convinto-signora", "next": "cheersay"}], "wrong": {"es": "Cosa? Non ti sento con tutto questo rumore.", "ru": "Что? Я тебя не слышу из-за шума."}, "tone": {"es": "«Signora»? Sono la tua allenatrice, non il tuo capo! Così mi aiuti poco.", "ru": "«Сеньора»? Я твой тренер, а не начальница! Так ты меня не подбодришь."}},
         "cheersay": {"kind": "say", "es": "Grazie! Senti, sto pensando di annullare le lezioni di gruppo finché non se ne va l'eco.", "ru": "Спасибо! Слушай, я думаю отменить групповые занятия, пока не уйдёт эхо.", "next": "dispute"},
         "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:gym.non-annullare-lezioni", "next": "object", "move": "object"}, {"phrase": "ph:gym.annullale-settimana", "next": "concede", "move": "concede"}, {"phrase": "ph:gym.lezioni-all-aperto", "next": "compromise", "move": "compromise"}], "wrong": {"es": "Cosa? Ti parlo delle lezioni, non dei gradini.", "ru": "Что? Я про занятия, а не про ступени."}},
-        "object": {"kind": "say", "es": "Hai ragione, la gente viene per muoversi. Griderò più forte dell'eco.", "ru": "Ты прав, люди приходят двигаться. Буду кричать громче эха.", "next": "fit"},
+        "object": {"kind": "say", "es": "Hai ragione, la gente viene per muoversi. Griderò più forte dell'eco.", "ru": "Ты прав, люди приходят двигаться. Буду кричать громче эха.", "fem": {"ru": "Ты права, люди приходят двигаться. Буду кричать громче эха."}, "next": "fit"},
         "concede": {"kind": "say", "es": "Una settimana senza lezioni. Così tu e io ci alleniamo per i mille gradini.", "ru": "Неделя без занятий. Зато мы с тобой потренируемся для тысячи ступеней.", "next": "fit"},
         "compromise": {"kind": "say", "es": "All'aperto! Nel parco non ci sono pareti, e l'eco si perde.", "ru": "На свежем воздухе! В парке нет стен, и эхо теряется.", "next": "fit"},
         "fit": {"kind": "answer", "task": "Скажите, что хотите вернуться в форму.", "branches": [{"phrase": "ph:gym.voglio-tornare-forma", "next": "fitsay"}], "wrong": {"es": "In forma di eco? Meglio in forma di persona.", "ru": "В форме эха? Лучше в форме человека."}},

@@ -23,9 +23,15 @@ export type ExpressionKind = 'collocation' | 'idiom' | 'formula' | 'false-friend
 /** Регистр: официальный, нейтральный, разговорный. */
 export type Register = 'formal' | 'neutral' | 'informal';
 
+/** Женская форма реплики для путницы: только изменённые поля (`forGender` в `src/domain/address.ts`). */
+import type { Fem } from '../domain/address';
+export type { Fem };
+
 export interface Example {
   es: string;
   ru: string;
+  /** Женская форма, если реплика зависит от рода путника. */
+  fem?: Fem;
 }
 
 export interface Word {
@@ -206,6 +212,8 @@ export interface Phrase {
   grammar?: string;
   /** Регистр фразы (глава V): официально, нейтрально или по-свойски. Нужен у фраз узлов тона в миссиях. */
   register?: Register;
+  /** Женская форма фразы: путница говорит о себе в женском роде. */
+  fem?: Fem;
 }
 
 export interface LocationPhrases {
@@ -218,6 +226,8 @@ export interface SceneLine {
   who: string;
   es: string;
   ru: string;
+  /** Женская форма реплики для путницы. */
+  fem?: Fem;
 }
 
 /** Вопрос на понимание: по-русски, первый вариант не обязательно верный — верный по `answer`. */
@@ -261,6 +271,8 @@ export interface MissionSay {
   kind: 'say';
   es: string;
   ru: string;
+  /** Женская форма реплики для путницы. */
+  fem?: Fem;
   /** Следующий узел; нет — миссия закончилась. */
   next?: string;
 }
@@ -279,14 +291,14 @@ export interface MissionAnswer {
    */
   branches: { phrase: string; next: string; move?: DisputeMove }[];
   /** Реакция жителя на неверный ответ: смешная, но понятная. */
-  wrong: { es: string; ru: string };
+  wrong: Example;
   /**
    * Узел тона (глава V): каким регистром здесь надо говорить. Ветки — фразы в разных регистрах, первая — в нужном.
    * Ответ не тем тоном верен по смыслу, но засчитывается как «почти», и житель реагирует репликой `tone`.
    */
   register?: Register;
   /** Реакция жителя на ответ не тем тоном: обижается, переспрашивает. */
-  tone?: { es: string; ru: string };
+  tone?: Example;
 }
 
 export type MissionNode = MissionSay | MissionAnswer;
@@ -359,6 +371,8 @@ export interface Letter {
   task: string;
   /** Образец на изучаемом языке, 40–80 слов, строки через \n. */
   sample: string;
+  /** Женская форма образца (`sample`): путница пишет о себе в женском роде. */
+  fem?: Fem;
   checks: LetterCheck[];
 }
 

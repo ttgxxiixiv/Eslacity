@@ -8,13 +8,13 @@
       "lines": [
         {"who": "npc", "es": "Che caldo! Andiamo in acqua?", "ru": "Ну и жара! Пойдём в воду?"},
         {"who": "hero", "es": "Fa molto caldo.", "ru": "Очень жарко."},
-        {"who": "npc", "es": "Tranquillo. Qui nessuno corre.", "ru": "Спокойно. Здесь никто не спешит."},
+        {"who": "npc", "es": "Tranquillo. Qui nessuno corre.", "ru": "Спокойно. Здесь никто не спешит.", "fem": {"es": "Tranquilla. Qui nessuno corre."}},
         {"who": "hero", "es": "Cerco un pezzo della mappa. Ne hai uno?", "ru": "Я ищу обрывок карты. У тебя есть?"},
         {"who": "npc", "es": "Un giorno, il mare ha portato una bottiglia con un pezzo della mappa.", "ru": "Однажды море принесло бутылку с обрывком карты."},
         {"who": "hero", "es": "Dal mare? E da dove viene?", "ru": "Из моря? А откуда он?"},
         {"who": "npc", "es": "Nessuno lo sa. Il mare non parla.", "ru": "Никто не знает. Море не разговаривает."},
         {"who": "hero", "es": "Me lo dai?", "ru": "Отдашь мне?"},
-        {"who": "npc", "es": "Tranquillo, piano piano. La strada ti aspetta.", "ru": "Спокойно, потихоньку. Дорога тебя подождёт."},
+        {"who": "npc", "es": "Tranquillo, piano piano. La strada ti aspetta.", "ru": "Спокойно, потихоньку. Дорога тебя подождёт.", "fem": {"es": "Tranquilla, piano piano. La strada ti aspetta."}},
         {"who": "hero", "es": "La strada mi aspetta?", "ru": "Дорога меня подождёт?"},
         {"who": "npc", "es": "La mappa non va via. Adesso, in acqua!", "ru": "Карта никуда не денется. А сейчас — в воду!"}
       ],
@@ -31,7 +31,7 @@
       "chapter": 2,
       "npc": "marco",
       "lines": [
-        {"who": "npc", "es": "Che caldo! Tranquillo, siediti.", "ru": "Ну и жара! Спокойно, садись."},
+        {"who": "npc", "es": "Che caldo! Tranquillo, siediti.", "ru": "Ну и жара! Спокойно, садись.", "fem": {"es": "Che caldo! Tranquilla, siediti."}},
         {"who": "hero", "es": "Cosa guardi?", "ru": "На что ты смотришь?"},
         {"who": "npc", "es": "Le montagne. Dopo il tramonto, da qui si vede la torre.", "ru": "На горы. После заката отсюда видно башню."},
         {"who": "hero", "es": "Dalla spiaggia?", "ru": "С пляжа?"},
@@ -41,7 +41,7 @@
         {"who": "hero", "es": "Una parola?", "ru": "Слово?"},
         {"who": "npc", "es": "Io credo che la torre dica «Vieni».", "ru": "Я думаю, башня говорит: «Приходи»."},
         {"who": "hero", "es": "Come le lettere.", "ru": "Как в письмах."},
-        {"who": "npc", "es": "Tranquillo, viaggiatore. La torre ti chiama, ma il mare non ha fretta.", "ru": "Спокойно, путешественник. Башня тебя зовёт, но море не спешит."}
+        {"who": "npc", "es": "Tranquillo, viaggiatore. La torre ti chiama, ma il mare non ha fretta.", "ru": "Спокойно, путешественник. Башня тебя зовёт, но море не спешит.", "fem": {"es": "Tranquilla, viaggiatore. La torre ti chiama, ma il mare non ha fretta."}}
       ],
       "questions": [
         {"q": "Что видно с пляжа вечером?", "options": ["Башню", "Корабль", "Город"], "answer": 0},
@@ -56,7 +56,7 @@
       "chapter": 3,
       "npc": "marco",
       "lines": [
-        {"who": "npc", "es": "Tranquillo, siediti. Stanotte nella caletta ho visto una cosa.", "ru": "Спокойно, садись. Этой ночью в бухте я кое-что видел."},
+        {"who": "npc", "es": "Tranquillo, siediti. Stanotte nella caletta ho visto una cosa.", "ru": "Спокойно, садись. Этой ночью в бухте я кое-что видел.", "fem": {"es": "Tranquilla, siediti. Stanotte nella caletta ho visto una cosa."}},
         {"who": "hero", "es": "Cosa hai visto?", "ru": "Что ты видел?"},
         {"who": "npc", "es": "Il cammello beveva l'acqua del mare. E l'uomo era seduto sulla sabbia, e piangeva.", "ru": "Верблюд пил морскую воду. А тот человек сидел на песке и плакал."},
         {"who": "hero", "es": "Piangeva?", "ru": "Плакал?"},
@@ -66,7 +66,7 @@
         {"who": "hero", "es": "E la città bianca?", "ru": "А белый город?"},
         {"who": "npc", "es": "Crede che lì ci sia il silenzio. Per questo vuole entrare.", "ru": "Он думает, что там тишина. Поэтому хочет туда попасть."},
         {"who": "hero", "es": "Allora non è cattivo. È stanco.", "ru": "Значит, он не злой. Он просто устал."},
-        {"who": "npc", "es": "Tranquillo, viaggiatore. A volte un bugiardo è solo qualcuno che ha paura.", "ru": "Спокойно, путешественник. Иногда лжец — это просто тот, кому страшно."}
+        {"who": "npc", "es": "Tranquillo, viaggiatore. A volte un bugiardo è solo qualcuno che ha paura.", "ru": "Спокойно, путешественник. Иногда лжец — это просто тот, кому страшно.", "fem": {"es": "Tranquilla, viaggiatore. A volte un bugiardo è solo qualcuno che ha paura."}}
       ],
       "questions": [
         {"q": "Что делал Купец ночью в бухте?", "options": ["Сидел на песке и плакал", "Купался", "Продавал воду"], "answer": 0},

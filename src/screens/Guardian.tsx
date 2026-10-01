@@ -14,7 +14,7 @@ import { plural } from '../domain/medals';
 import { trialShare, trialStatus, waitLabel, type TrialItem } from '../domain/trial';
 import { useNow } from '../lib/useNow';
 import { NpcPortrait } from '../components/NpcPortrait';
-import { addressed } from '../store/settings';
+import { heroText } from '../store/settings';
 import { TrialPlayer } from '../components/TrialPlayer';
 import { Button, Screen, SpeakButton, TopBar } from '../components/ui';
 import { useCity } from '../store/city';
@@ -91,7 +91,7 @@ function GuardianByChapter({ chapter }: { chapter: number }) {
           syncAndEvaluate(Date.now(), {});
           setResult({ ...sc, total, first });
           setPhase('result');
-          say(addressed(passed ? guardian.win.es : guardian.lose.es));
+          say(heroText(passed ? guardian.win : guardian.lose).es);
         }}
       />
     );
@@ -100,7 +100,7 @@ function GuardianByChapter({ chapter }: { chapter: number }) {
   if (phase === 'result' && result) {
     const share = trialShare(result.correct, result.almost, result.total);
     const passed = isGuardianPassed(result.correct, result.almost, result.total);
-    const line = passed ? guardian.win : guardian.lose;
+    const line = heroText(passed ? guardian.win : guardian.lose);
     return (
       <Screen>
         <TopBar title={title} back={false} />
@@ -113,10 +113,10 @@ function GuardianByChapter({ chapter }: { chapter: number }) {
             </p>
             <div className="mt-2 flex items-start gap-2 rounded-xl bg-orange-50 px-3 py-2 text-left">
               <div className="flex-1">
-                <div className="font-semibold">{addressed(line.es)}</div>
-                <div className="text-sm text-stone-600">{addressed(line.ru, 'ru')}</div>
+                <div className="font-semibold">{line.es}</div>
+                <div className="text-sm text-stone-600">{line.ru}</div>
               </div>
-              <SpeakButton text={addressed(line.es)} />
+              <SpeakButton text={line.es} />
             </div>
             {!passed && <p className="mt-2 text-sm text-stone-500">Нужно {Math.round(GUARDIAN_PASS * 100)}%. Следующая попытка через сутки.</p>}
             {result.first && (
@@ -153,11 +153,11 @@ function GuardianByChapter({ chapter }: { chapter: number }) {
           <div className="mt-3 flex items-start gap-2 rounded-xl bg-orange-50 px-3 py-2">
             <div className="flex-1">
               <div className="font-semibold" data-testid="guardian-greeting">
-                {addressed(guardian.greeting.es)}
+                {heroText(guardian.greeting).es}
               </div>
-              <div className="text-sm text-stone-600">{addressed(guardian.greeting.ru, 'ru')}</div>
+              <div className="text-sm text-stone-600">{heroText(guardian.greeting).ru}</div>
             </div>
-            <SpeakButton text={addressed(guardian.greeting.es)} />
+            <SpeakButton text={heroText(guardian.greeting).es} />
           </div>
           <p className="mt-3 leading-relaxed text-stone-700">
             {GUARDIAN_SIZE} заданий: грамматика района {ch.districts.join(' и ')}, слова главы и свитка земли. Подсказок нет, ошибки не
@@ -216,7 +216,7 @@ function GuardianByChapter({ chapter }: { chapter: number }) {
               const listen = guardian.listen === true && listeningEnabled();
               setItems(buildGuardian(data.exercises, words.length >= 5 ? words : data.words, data.scroll, data.words, rng, { listen, kinds: GUARDIAN_KINDS[chapter] }));
               setPhase('run');
-              say(addressed(guardian.greeting.es));
+              say(heroText(guardian.greeting).es);
             }}
           >
             Бросить вызов стражу

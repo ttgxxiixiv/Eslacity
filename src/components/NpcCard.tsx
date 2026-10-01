@@ -2,6 +2,7 @@ import type { Chronicler } from '../content/schema';
 import type { ReactNode } from 'react';
 import { speakAs } from '../audio/tts';
 import { greetingFor, nextRank, rankOf } from '../domain/reputation';
+import { heroText } from '../store/settings';
 import { plural } from '../domain/medals';
 import { NpcPortrait } from './NpcPortrait';
 
@@ -10,7 +11,8 @@ import { NpcPortrait } from './NpcPortrait';
  * Им же показан Летописец на карте странствий (у него нет здания, скидки нет).
  */
 export function NpcCard({ npc, rep = 0, children }: { npc: Chronicler; rep?: number; children?: ReactNode }) {
-  const greeting = greetingFor(npc.greeting, npc.warm, rep);
+  // Род путника и обращение по имени: «Ты уже ела?», «Привет, девушка».
+  const greeting = heroText(greetingFor(npc.greeting, npc.warm, rep));
   const rank = rankOf(rep);
   const next = nextRank(rep);
   const say = () => speakAs(greeting.es, npc);

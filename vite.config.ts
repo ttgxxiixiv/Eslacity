@@ -150,11 +150,12 @@ function glosser(lang: string) {
   return g;
 }
 function withAutoGloss(code: string, lang: string): string {
-  const data = JSON.parse(code) as { scenes: { lines: { es: string }[]; gloss?: Record<string, string>; auto?: Record<string, string> }[] };
+  const data = JSON.parse(code) as { scenes: { lines: { es: string; fem?: { es?: string } }[]; gloss?: Record<string, string>; auto?: Record<string, string> }[] };
   const g = glosser(lang);
   for (const sc of data.scenes) {
     const auto: Record<string, string> = {};
-    for (const t of sc.lines.flatMap((l) => tokens(l.es))) {
+    // Женские формы реплик (`fem`) путница тоже нажимает.
+    for (const t of sc.lines.flatMap((l) => [...tokens(l.es), ...tokens(l.fem?.es ?? '')])) {
       const ru = sc.gloss?.[t] ? undefined : g(t);
       if (ru) auto[t] = ru;
     }

@@ -6,7 +6,7 @@
       "chapter": 1,
       "npc": "paco",
       "lines": [
-        {"who": "npc", "es": "¡Bienvenido! Hoy tenemos paella. ¿Mesa para uno?", "ru": "Добро пожаловать! Сегодня у нас паэлья. Столик на одного?"},
+        {"who": "npc", "es": "¡Bienvenido! Hoy tenemos paella. ¿Mesa para uno?", "ru": "Добро пожаловать! Сегодня у нас паэлья. Столик на одного?", "fem": {"es": "¡Bienvenida! Hoy tenemos paella. ¿Mesa para uno?"}},
         {"who": "hero", "es": "Una mesa, por favor.", "ru": "Столик, пожалуйста."},
         {"who": "npc", "es": "Aquí, cerca de la ventana. ¿Qué quieres comer?", "ru": "Сюда, у окна. Что будешь есть?"},
         {"who": "hero", "es": "¿Qué me recomienda?", "ru": "Что вы посоветуете?"},
@@ -24,7 +24,7 @@
         {"q": "Кем была мама Пако?", "options": ["Поварихой", "Рыбачкой", "Врачом"], "answer": 0},
         {"q": "Почему прежний путешественник не получил обрывки?", "options": ["Потерял карту", "Не заплатил за обед", "Не говорил по-испански"], "answer": 2}
       ],
-      "gloss": {"bienvenido": "добро пожаловать", "trozo": "обрывок", "bóveda": "Хранилище"}
+      "gloss": {"bienvenido": "добро пожаловать", "bienvenida": "добро пожаловать", "trozo": "обрывок", "bóveda": "Хранилище"}
     },
     {
       "id": "sc:restaurant.2",
@@ -41,7 +41,7 @@
         {"who": "hero", "es": "¿Y qué hay detrás de la torre?", "ru": "А что за башней?"},
         {"who": "npc", "es": "Tomás dice que desde la torre se ve arena. Mucha arena que brilla como el agua.", "ru": "Томас говорит, что с башни виден песок. Много песка, который блестит, как вода."},
         {"who": "hero", "es": "¿Arena en las montañas?", "ru": "Песок в горах?"},
-        {"who": "npc", "es": "No en las montañas: detrás. Eso lo vas a ver tú. ¡Come!", "ru": "Не в горах — за ними. Это ты увидишь сам. Ешь!"}
+        {"who": "npc", "es": "No en las montañas: detrás. Eso lo vas a ver tú. ¡Come!", "ru": "Не в горах — за ними. Это ты увидишь сам. Ешь!", "fem": {"ru": "Не в горах — за ними. Это ты увидишь сама. Ешь!"}}
       ],
       "questions": [
         {"q": "Какой суп сегодня у Пако?", "options": ["Рыбный", "Горный", "Томатный"], "answer": 1},
@@ -136,7 +136,7 @@
         {"who": "hero", "es": "¿El Señor del Eco? Será el guardián del Laberinto.", "ru": "Хозяин Эха? Наверное, это страж Лабиринта."},
         {"who": "npc", "es": "Eso pienso yo. Pero me pone nervioso. Cuando hablo, mis palabras vuelven cambiadas.", "ru": "Я тоже так думаю. Но он меня нервирует. Когда я говорю, мои слова возвращаются другими."},
         {"who": "hero", "es": "Hablemos con él. Con educación.", "ru": "Давай поговорим с ним. Вежливо."},
-        {"who": "npc", "es": "Sí, con mucha educación. Tú primero.", "ru": "Да, очень вежливо. Ты первый."}
+        {"who": "npc", "es": "Sí, con mucha educación. Tú primero.", "ru": "Да, очень вежливо. Ты первый.", "fem": {"es": "Sí, con mucha educación. Tú primera.", "ru": "Да, очень вежливо. Ты первая."}}
       ],
       "questions": [
         {"q": "Как выглядит гость за пятым столиком?", "options": ["На нём серая, как камень, накидка", "На нём красная шапка", "На нём белый фартук"], "answer": 0},

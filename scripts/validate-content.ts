@@ -6,6 +6,7 @@ import type { Lang } from '../src/lang';
 import { CHAPTERS, PLAN_TOTAL } from '../src/content/vocabPlan';
 import { chapterOfDistrict } from '../src/domain/chapters';
 import { plural } from '../src/domain/medals';
+import { femIssues, forGender } from '../src/domain/address';
 import { buildLexicon, lemmasIn, parseFreq, parseLemmas, textCoverage, uncoveredWords } from './vocab-lib';
 
 const root = join(import.meta.dirname, '..', 'src', 'content');
@@ -93,7 +94,46 @@ for (const lang of langs) {
     scenes: new Set(scenes.flatMap((f) => f.data.scenes.map((sc) => sc.id))),
     coverage: (text, level) => textCoverage(text, level, lexicon, forms, lang),
   });
+  // Женские формы (`fem`): у путницы те же проверки сцен, миссий, фраз и писем, что у исходного текста,
+  // и своя проверка самих форм (не пустая, есть исходное поле, отличается от него).
+  const fem = <T,>(list: { name: string; data: T }[]) => list.map((f) => ({ name: f.name, data: forGender(f.data, 'f') }));
+  const femPhrases = fem(phrases);
+  const femCheck = [
+    ...validateScenes(fem(scenes), {
+      residents: Object.fromEntries((npcs?.npcs ?? []).map((n) => [n.location, n.id])),
+      pitch: Object.fromEntries((npcs?.npcs ?? []).map((n) => [n.id, n.voice.pitch])),
+      coverage: (text, level) => textCoverage(text, level, lexicon, forms, lang),
+    }).issues,
+    ...validateMissions(fem(missions), {
+      residents: Object.fromEntries((npcs?.npcs ?? []).map((n) => [n.location, n.id])),
+      registers: Object.fromEntries((npcs?.npcs ?? []).map((n) => [n.location, n.register])),
+      phrases: Object.fromEntries(femPhrases.map((f) => [f.data.location, f.data.phrases])),
+      scenes: new Set(scenes.flatMap((f) => f.data.scenes.map((sc) => sc.id))),
+      coverage: (text, level) => textCoverage(text, level, lexicon, forms, lang),
+    }),
+    ...validatePhrases(femPhrases, {
+      lessons: new Set(grammar.map((g) => (g.data as GrammarLesson).id)),
+      uncovered: (text, level) => uncoveredWords(text, level, lexicon, forms, lang),
+    }),
+    ...validateLetters(forGender(letters, 'f'), Object.fromEntries((npcs?.npcs ?? []).map((n) => [n.location, n.id]))),
+  ]
+    // Слова gloss из мужской формы в женской не встречаются: это не лишний перевод, его нажимают у путника.
+    .filter((i) => !i.msg.includes('из gloss нет в репликах'))
+    .map((i) => ({ ...i, where: `${i.where} (путница)` }));
+  const femFiles: [string, unknown][] = [
+    ...[...scenes.map((f) => ['scenes', f] as const), ...missions.map((f) => ['missions', f] as const), ...phrases.map((f) => ['phrases', f] as const)].map(
+      ([dir, f]) => [`${dir}/${f.name}`, f.data] as [string, unknown],
+    ),
+    ['npcs.json', npcs],
+    ['chronicler.json', chronicler],
+    ['guardians.json', guardians],
+    ['sphinx.json', sphinx],
+    ['letters.json', letters],
+  ];
+  const femForms: Issue[] = femFiles.flatMap(([where, data]) => femIssues(data, where).map((msg) => ({ level: 'error' as const, where, msg })));
   issues.push(
+    ...tag(femCheck),
+    ...tag(femForms),
     ...tag(missionIssues),
     ...tag(sceneCheck.issues),
     ...tag(validateWords(words, lang)),

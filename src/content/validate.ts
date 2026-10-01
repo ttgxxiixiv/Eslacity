@@ -1105,7 +1105,8 @@ export function validateScenes(files: { name: string; data: LocationScenes }[], 
       if (overhear) out.push(...overhearIssues(sc, at, checks.residents[data.location], npcIds, checks.pitch));
       const text = lines.map((l) => l.es).join(' ');
       // Слова реплик так же, как их нажимают на экране сцены: «dell'Elisir» — это «dell'» и «elisir».
-      const keys = new Set(lines.flatMap((l) => sceneWords(l.es ?? '').flatMap((p) => ('key' in p ? [normalize(p.key)] : []))));
+      // Женские формы реплик (`fem`) тоже нажимаются: их слова в gloss не лишние.
+      const keys = new Set(lines.flatMap((l) => [l.es ?? '', l.fem?.es ?? ''].flatMap((t) => sceneWords(t).flatMap((p) => ('key' in p ? [normalize(p.key)] : [])))));
       const gloss = Object.fromEntries(Object.entries(sc.gloss ?? {}).map(([k, v]) => [k.toLowerCase(), v]));
       for (const [k, v] of Object.entries(gloss)) {
         if (empty(v)) out.push({ level: 'error', where: at, msg: `пустой перевод в gloss: "${k}"` });

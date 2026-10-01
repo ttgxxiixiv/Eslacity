@@ -1,4 +1,5 @@
 import { LANG } from '../lang';
+import { byHero } from '../store/settings';
 import type { LocationMissions, Mission } from './schema';
 
 // Миссии грузятся по месту и только выбранного языка.
@@ -15,7 +16,8 @@ export const placeOfMission = (id: string) => id.replace(/^ms:/, '').split('.')[
 
 export async function loadMissions(place: string): Promise<Mission[]> {
   const load = loaderByPlace.get(place);
-  return load ? (await load()).missions : [];
+  // Реплики в роде путника: у путницы — женские формы (`fem`).
+  return load ? byHero((await load()).missions) : [];
 }
 
 export async function loadMission(id: string): Promise<Mission | undefined> {

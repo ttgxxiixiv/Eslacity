@@ -6,7 +6,7 @@
       "chapter": 1,
       "npc": "pilar",
       "lines": [
-        {"who": "npc", "es": "¡Buenos días! ¿Ya has comido?", "ru": "Доброе утро! Ты уже ел?"},
+        {"who": "npc", "es": "¡Buenos días! ¿Ya has comido?", "ru": "Доброе утро! Ты уже ел?", "fem": {"ru": "Доброе утро! Ты уже ела?"}},
         {"who": "hero", "es": "No, todavía no.", "ru": "Нет, ещё нет."},
         {"who": "npc", "es": "¡Pasa, pasa! Aquí está la cocina. Hay sopa.", "ru": "Заходи, заходи! Вот кухня. Есть суп."},
         {"who": "hero", "es": "Gracias. Su casa es muy bonita.", "ru": "Спасибо. У вас очень красивый дом."},
@@ -31,7 +31,7 @@
       "chapter": 2,
       "npc": "pilar",
       "lines": [
-        {"who": "npc", "es": "¡Buenos días! Hoy hace frío. ¿Has comido?", "ru": "Доброе утро! Сегодня холодно. Ты поел?"},
+        {"who": "npc", "es": "¡Buenos días! Hoy hace frío. ¿Has comido?", "ru": "Доброе утро! Сегодня холодно. Ты поел?", "fem": {"ru": "Доброе утро! Сегодня холодно. Ты поела?"}},
         {"who": "hero", "es": "Gracias. Mañana subo a las montañas.", "ru": "Спасибо. Завтра я иду в горы."},
         {"who": "npc", "es": "¡Las montañas! Yo nací allí, en un pueblo del paso.", "ru": "Горы! Я там родилась, в деревне на перевале."},
         {"who": "hero", "es": "¿De verdad? ¿Cómo era?", "ru": "Правда? Какой она была?"},
@@ -39,9 +39,9 @@
         {"who": "hero", "es": "¿Y el pueblo?", "ru": "А деревня?"},
         {"who": "npc", "es": "Ahora está vacío. Solo quedan las piedras y el viento.", "ru": "Теперь она пустая. Остались только камни и ветер."},
         {"who": "hero", "es": "¿Usted conoce la torre?", "ru": "Вы знаете башню?"},
-        {"who": "npc", "es": "Mi madre decía que el guardián de la torre no pregunta palabras. Pregunta qué hiciste.", "ru": "Мама говорила, что страж башни не спрашивает слова. Он спрашивает, что ты сделал."},
-        {"who": "hero", "es": "¿Qué hice?", "ru": "Что я сделал?"},
-        {"who": "npc", "es": "Tu camino, en pasado. Así que dime: ¿qué hiciste ayer?", "ru": "Твой путь, в прошедшем времени. Так что скажи: что ты делал вчера?"}
+        {"who": "npc", "es": "Mi madre decía que el guardián de la torre no pregunta palabras. Pregunta qué hiciste.", "ru": "Мама говорила, что страж башни не спрашивает слова. Он спрашивает, что ты сделал.", "fem": {"ru": "Мама говорила, что страж башни не спрашивает слова. Он спрашивает, что ты сделала."}},
+        {"who": "hero", "es": "¿Qué hice?", "ru": "Что я сделал?", "fem": {"ru": "Что я сделала?"}},
+        {"who": "npc", "es": "Tu camino, en pasado. Así que dime: ¿qué hiciste ayer?", "ru": "Твой путь, в прошедшем времени. Так что скажи: что ты делал вчера?", "fem": {"ru": "Твой путь, в прошедшем времени. Так что скажи: что ты делала вчера?"}}
       ],
       "questions": [
         {"q": "Где родилась Пилар?", "options": ["В деревне на перевале", "В городе у моря", "В столице"], "answer": 0},

@@ -14,7 +14,8 @@ export interface HeroCall {
 /** Слова обращения: мужская и женская форма. С большой буквы — в начале фразы. */
 const WORDS: Record<'es' | 'it' | 'ru', [string, string][]> = {
   es: [['viajero', 'viajera']],
-  it: [['viaggiatore', 'viaggiatrice']],
+  // «Viandante» у Сфинкса: одно слово для обоих родов.
+  it: [['viaggiatore', 'viaggiatrice'], ['viandante', 'viandante']],
   ru: [['путешественник', 'путешественница'], ['путник', 'путница']],
 };
 
@@ -75,5 +76,58 @@ export function addressHero(text: string, lang: 'es' | 'it' | 'ru', hero: HeroCa
     const f = name || WORDS.it[0][1];
     for (const [adjM, adjF] of IT_ADJ) out = out.replaceAll(`${adjM}, ${f}`, `${adjF}, ${f}`);
   }
+  return out;
+}
+
+/**
+ * Женская форма текста в контенте: `fem` рядом с исходным текстом, только изменённые поля (`es`, `ru`, у письма —
+ * `sample`). Так пишутся реплики, где путник говорит о себе («Estoy lleno» — «Estoy llena») или житель обращается
+ * к нему («Ты прав» — «Ты права»). Исходный текст — мужская форма.
+ */
+export interface Fem {
+  es?: string;
+  ru?: string;
+  sample?: string;
+}
+
+/**
+ * Контент в роде путника: у путницы поля из `fem` заменяют исходные на любой глубине (сцена, миссия, список фраз).
+ * У путника контент возвращается как есть. Исходный объект не меняется.
+ */
+export function forGender<T>(value: T, gender: HeroGender): T {
+  if (gender === 'm') return value;
+  const walk = (v: unknown): unknown => {
+    if (Array.isArray(v)) return v.map(walk);
+    if (!v || typeof v !== 'object') return v;
+    const out: Record<string, unknown> = {};
+    for (const [k, x] of Object.entries(v)) if (k !== 'fem') out[k] = walk(x);
+    const fem = (v as { fem?: Fem }).fem;
+    if (fem) Object.assign(out, fem);
+    return out;
+  };
+  return walk(value) as T;
+}
+
+/** Ошибки женских форм: пустая, без исходного поля, совпадает с исходной. `where` — путь в файле. */
+export function femIssues(value: unknown, where = ''): string[] {
+  const out: string[] = [];
+  const walk = (v: unknown, path: string) => {
+    if (Array.isArray(v)) return v.forEach((x, i) => walk(x, `${path}/${i}`));
+    if (!v || typeof v !== 'object') return;
+    const o = v as Record<string, unknown> & { fem?: Record<string, unknown> };
+    if (o.fem) {
+      const keys = Object.keys(o.fem);
+      if (!keys.length) out.push(`${path}: пустой fem`);
+      for (const k of keys) {
+        const f = o.fem[k];
+        if (!['es', 'ru', 'sample'].includes(k)) out.push(`${path}: в fem лишнее поле ${k}`);
+        else if (typeof o[k] !== 'string') out.push(`${path}: fem.${k} без исходного текста`);
+        else if (typeof f !== 'string' || !f.trim()) out.push(`${path}: пустой fem.${k}`);
+        else if (f === o[k]) out.push(`${path}: fem.${k} совпадает с исходным`);
+      }
+    }
+    for (const [k, x] of Object.entries(o)) if (k !== 'fem') walk(x, `${path}/${k}`);
+  };
+  walk(value, where);
   return out;
 }

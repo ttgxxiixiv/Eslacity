@@ -15,7 +15,7 @@ import { plural } from '../domain/medals';
 import { LANG, LANGS, switchLang, type Lang } from '../lang';
 import { useNow } from '../lib/useNow';
 import { NpcPortrait } from '../components/NpcPortrait';
-import { addressed } from '../store/settings';
+import { heroText } from '../store/settings';
 import { SphinxArt } from '../components/SphinxArt';
 import { Button, Screen, TopBar } from '../components/ui';
 import { useHeroTitle, useJourney } from '../store/journey';
@@ -141,7 +141,8 @@ export function VaultScreen() {
 /** Реплика сцены: говорящий, текст на изучаемом языке, перевод по нажатию. Звучит сразу. */
 function Speech({ line, sphinx }: { line: VaultLine; sphinx: SphinxFile['sphinx'] }) {
   const [ru, setRu] = useState(false);
-  const say = () => speakAs(addressed(line.es), line.who === 'sphinx' ? sphinx : CHRONICLER);
+  const text = heroText(line);
+  const say = () => speakAs(text.es, line.who === 'sphinx' ? sphinx : CHRONICLER);
   // Реплика звучит сразу, как появилась.
   useEffect(() => say(), []);
   return (
@@ -150,10 +151,10 @@ function Speech({ line, sphinx }: { line: VaultLine; sphinx: SphinxFile['sphinx'
       <div className="font-semibold capitalize">{line.who === 'sphinx' ? sphinx.name : CHRONICLER.name}</div>
       <div className="flex w-full items-start gap-2 rounded-xl bg-orange-50 px-3 py-2">
         <button type="button" className="min-w-0 flex-1 text-left" onClick={() => setRu(!ru)} data-testid="vault-line">
-          <span className={`block font-semibold ${line.who === 'sphinx' ? 'italic' : ''}`}>{addressed(line.es)}</span>
+          <span className={`block font-semibold ${line.who === 'sphinx' ? 'italic' : ''}`}>{text.es}</span>
           {ru ? (
             <span className="block text-sm text-stone-600" data-testid="vault-line-ru">
-              {addressed(line.ru, 'ru')}
+              {text.ru}
             </span>
           ) : (
             <span className="block text-xs text-stone-400">Нажмите, чтобы увидеть перевод</span>

@@ -1,4 +1,5 @@
 import { LANG } from '../lang';
+import { byHero } from '../store/settings';
 import type { LocationScenes, Scene } from './schema';
 
 // Сцены грузятся по месту и только выбранного языка. `auto` (переводы слов) достраивает сборка.
@@ -15,7 +16,8 @@ export const placeOfScene = (id: string) => id.replace(/^(sc|wh):/, '').split('.
 
 export async function loadScenes(place: string): Promise<Scene[]> {
   const load = loaderByPlace.get(place);
-  return load ? (await load()).scenes : [];
+  // Реплики в роде путника: у путницы — женские формы (`fem`).
+  return load ? byHero((await load()).scenes) : [];
 }
 
 export async function loadScene(id: string): Promise<Scene | undefined> {

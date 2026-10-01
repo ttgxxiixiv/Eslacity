@@ -1,4 +1,5 @@
 import { LANG } from '../lang';
+import { byHero } from '../store/settings';
 import { placeOfPhrase } from '../domain/itemId';
 import type { LocationPhrases, Phrase } from './schema';
 
@@ -13,13 +14,15 @@ for (const [path, load] of Object.entries(modules)) {
 
 const cache = new Map<string, Phrase[]>();
 
+/** Фразы места в роде путника: у путницы — женские формы (`fem`). */
 export async function loadPhrases(place: string): Promise<Phrase[]> {
-  const hit = cache.get(place);
-  if (hit) return hit;
-  const load = loaderByPlace.get(place);
-  const list = load ? (await load()).phrases : [];
-  cache.set(place, list);
-  return list;
+  let list = cache.get(place);
+  if (!list) {
+    const load = loaderByPlace.get(place);
+    list = load ? (await load()).phrases : [];
+    cache.set(place, list);
+  }
+  return byHero(list);
 }
 
 /** Фразы по id карточек (`ph:cafe.un-cafe`). Фразы, которых больше нет в контенте, пропускаются. */

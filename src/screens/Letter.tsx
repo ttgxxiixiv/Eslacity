@@ -13,6 +13,7 @@ import { REGISTER_LABEL } from '../domain/expression';
 import { canSend, LETTER_MAX_WORDS, LETTER_MIN_WORDS, wordCount, type LetterEntry } from '../domain/letter';
 import { plural } from '../domain/medals';
 import { LANG } from '../lang';
+import { byHero } from '../store/settings';
 import { useJourney } from '../store/journey';
 import { useLetters } from '../store/letters';
 
@@ -142,9 +143,9 @@ export function LetterScreen() {
             <section className="rounded-2xl bg-white p-4 shadow-sm">
               <div className="mb-2 flex items-center justify-between">
                 <h2 className="font-bold">Образец</h2>
-                <SpeakButton text={letter.sample.replace(/\n/g, ' ')} />
+                <SpeakButton text={byHero(letter).sample.replace(/\n/g, ' ')} />
               </div>
-              <p className="whitespace-pre-wrap" lang={LANG} data-testid="letter-sample">{letter.sample}</p>
+              <p className="whitespace-pre-wrap" lang={LANG} data-testid="letter-sample">{byHero(letter).sample}</p>
             </section>
             <section className="rounded-2xl bg-white p-4 shadow-sm" data-testid="letter-checks">
               <h2 className="font-bold">Что есть в вашем письме?</h2>

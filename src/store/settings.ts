@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 import { db } from '../db/db';
 import { persist } from '../db/persist';
-import { addressHero } from '../domain/address';
+import { addressHero, forGender, type Fem } from '../domain/address';
 import { LANG } from '../lang';
 
 export interface Settings {
@@ -41,4 +41,15 @@ export const useSettings = create<SettingsState>((set, get) => ({
 export function addressed(text: string, ru?: 'ru'): string {
   const { heroName, heroGender } = useSettings.getState();
   return addressHero(text, ru ?? LANG, { name: heroName, gender: heroGender });
+}
+
+/** Контент в роде путника: женские формы `fem` у путницы (`forGender`). */
+export function byHero<T>(value: T): T {
+  return forGender(value, useSettings.getState().heroGender);
+}
+
+/** Реплика жителя целиком: род путника и обращение по имени, для текста и перевода. */
+export function heroText(line: { es: string; ru: string; fem?: Fem }): { es: string; ru: string } {
+  const l = byHero(line);
+  return { es: addressed(l.es), ru: addressed(l.ru, 'ru') };
 }

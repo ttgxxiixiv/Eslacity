@@ -6,7 +6,7 @@
       "chapter": 1,
       "npc": "manolo",
       "lines": [
-        {"who": "npc", "es": "Buenos días, joven. Hace buen día, ¿verdad?", "ru": "Доброе утро, молодой человек. Хороший денёк, правда?"},
+        {"who": "npc", "es": "Buenos días, joven. Hace buen día, ¿verdad?", "ru": "Доброе утро, молодой человек. Хороший денёк, правда?", "fem": {"ru": "Доброе утро, девушка. Хороший денёк, правда?"}},
         {"who": "hero", "es": "¡Qué bonito es el parque!", "ru": "Какой красивый парк!"},
         {"who": "npc", "es": "Vengo aquí cada día. Doy pan a las palomas.", "ru": "Прихожу сюда каждый день. Кормлю голубей хлебом."},
         {"who": "hero", "es": "¿Es su perro?", "ru": "Это ваша собака?"},
@@ -31,7 +31,7 @@
       "chapter": 2,
       "npc": "manolo",
       "lines": [
-        {"who": "npc", "es": "Buenos días, joven. Siéntate. Tengo que contarte algo.", "ru": "Доброе утро, молодой человек. Садись. Мне нужно тебе кое-что рассказать."},
+        {"who": "npc", "es": "Buenos días, joven. Siéntate. Tengo que contarte algo.", "ru": "Доброе утро, молодой человек. Садись. Мне нужно тебе кое-что рассказать.", "fem": {"ru": "Доброе утро, девушка. Садись. Мне нужно тебе кое-что рассказать."}},
         {"who": "hero", "es": "¿Qué pasó?", "ru": "Что случилось?"},
         {"who": "npc", "es": "Ayer un hombre se sentó en este banco. Llevaba una capa gris.", "ru": "Вчера на эту скамейку сел человек. На нём был серый плащ."},
         {"who": "hero", "es": "¡El hombre de la capa! ¿Qué hizo?", "ru": "Человек в плаще! Что он делал?"},
@@ -41,7 +41,7 @@
         {"who": "hero", "es": "¿Hace cincuenta años? ¿Y cómo está ahora?", "ru": "Пятьдесят лет назад? И какой он теперь?"},
         {"who": "npc", "es": "No cambió. Tiene la cara de antes y la capa de antes. No es más viejo.", "ru": "Он не изменился. То же лицо, тот же плащ. Он не постарел."},
         {"who": "hero", "es": "Eso es imposible.", "ru": "Это невозможно."},
-        {"who": "npc", "es": "En las montañas, joven, lo imposible pasa cada día.", "ru": "В горах, молодой человек, невозможное случается каждый день."}
+        {"who": "npc", "es": "En las montañas, joven, lo imposible pasa cada día.", "ru": "В горах, молодой человек, невозможное случается каждый день.", "fem": {"ru": "В горах, девушка, невозможное случается каждый день."}}
       ],
       "questions": [
         {"q": "Кого видел Маноло вчера?", "options": ["Томаса", "Человека в сером плаще", "Летописца"], "answer": 1},
@@ -56,7 +56,7 @@
       "chapter": 3,
       "npc": "manolo",
       "lines": [
-        {"who": "npc", "es": "Buenas tardes, joven. Me gusta pasear a esta hora, cuando baja el sol.", "ru": "Добрый вечер, молодой человек. Люблю гулять в это время, когда садится солнце."},
+        {"who": "npc", "es": "Buenas tardes, joven. Me gusta pasear a esta hora, cuando baja el sol.", "ru": "Добрый вечер, молодой человек. Люблю гулять в это время, когда садится солнце.", "fem": {"ru": "Добрый вечер, девушка. Люблю гулять в это время, когда садится солнце."}},
         {"who": "hero", "es": "A mí también. ¿Ha visto algo raro estos días?", "ru": "Я тоже. Вы не видели в последние дни ничего странного?"},
         {"who": "npc", "es": "Ayer, aquí, en el jardín de las rosas, había un hombre con un camello.", "ru": "Вчера здесь, в розарии, был человек с верблюдом."},
         {"who": "hero", "es": "¿Un camello en el parque?", "ru": "Верблюд в парке?"},

@@ -6,7 +6,7 @@
       "chapter": 1,
       "npc": "salvatore",
       "lines": [
-        {"who": "npc", "es": "Benvenuto! Oggi c'è la pasta fresca. Un tavolo per uno?", "ru": "Добро пожаловать! Сегодня свежая паста. Столик на одного?"},
+        {"who": "npc", "es": "Benvenuto! Oggi c'è la pasta fresca. Un tavolo per uno?", "ru": "Добро пожаловать! Сегодня свежая паста. Столик на одного?", "fem": {"es": "Benvenuta! Oggi c'è la pasta fresca. Un tavolo per uno?"}},
         {"who": "hero", "es": "Un tavolo, per favore.", "ru": "Столик, пожалуйста."},
         {"who": "npc", "es": "Qui, vicino alla finestra. Cosa vuoi mangiare?", "ru": "Сюда, у окна. Что будешь есть?"},
         {"who": "hero", "es": "Cosa mi consiglia?", "ru": "Что вы посоветуете?"},
@@ -41,7 +41,7 @@
         {"who": "hero", "es": "E cosa c'è dietro la torre?", "ru": "А что за башней?"},
         {"who": "npc", "es": "Tommaso dice che dalla torre si vede la sabbia. Tanta sabbia che brilla come l'acqua.", "ru": "Томмазо говорит, что с башни виден песок. Много песка, который блестит, как вода."},
         {"who": "hero", "es": "Sabbia in montagna?", "ru": "Песок в горах?"},
-        {"who": "npc", "es": "Non in montagna: dietro. Questo lo vedrai tu. Mangia!", "ru": "Не в горах — за ними. Это ты увидишь сам. Ешь!"}
+        {"who": "npc", "es": "Non in montagna: dietro. Questo lo vedrai tu. Mangia!", "ru": "Не в горах — за ними. Это ты увидишь сам. Ешь!", "fem": {"ru": "Не в горах — за ними. Это ты увидишь сама. Ешь!"}}
       ],
       "questions": [
         {"q": "Какой суп сегодня у Сальваторе?", "options": ["Рыбный", "Горный", "Томатный"], "answer": 1},
