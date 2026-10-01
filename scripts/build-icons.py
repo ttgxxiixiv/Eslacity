@@ -1,4 +1,4 @@
-"""Иконки приложения из `docs/design/app-icon.jpg` (медальон с глазом, как над нижним меню).
+"""Иконки приложения из `docs/design/app-icon.jpg` (медальон с глазом, как над нижним меню), для сайта и для APK.
 
 - `public/icons/icon-192.png`, `icon-512.png`, `apple-touch-icon.png` (180): картинка без тонкой рамки по краю
   (обрезается по 7% с каждой стороны), медальон крупнее.
@@ -45,3 +45,27 @@ save(src, 512, PUBLIC / 'icons' / 'maskable-512.png')
 tab = ImageEnhance.Contrast(crop(0.16)).enhance(1.15)
 save(tab, 32, PUBLIC / 'favicon-32.png')
 save(tab, 16, PUBLIC / 'favicon-16.png')
+
+# Приложение для Android (`android/`, Capacitor): иконки запуска и заставка из той же картинки.
+# - `mipmap-*/ic_launcher.png` и `ic_launcher_round.png` — как `icon-512` (без рамки по краю);
+# - `ic_launcher_foreground.png` — слой адаптивной иконки 108dp: картинка целиком, медальон (63%) внутри видимого
+#   круга 72dp, фон слоя — тёмное дерево `ic_launcher_background`;
+# - `drawable*/splash.png` — заставка: медальон по центру на тёмном дереве, размеры как у шаблона Capacitor.
+RES = ROOT / 'android' / 'app' / 'src' / 'main' / 'res'
+BG = (31, 14, 7)
+if RES.exists():
+    for dpi, k in {'mdpi': 1, 'hdpi': 1.5, 'xhdpi': 2, 'xxhdpi': 3, 'xxxhdpi': 4}.items():
+        d = RES / f'mipmap-{dpi}'
+        save(icon, round(48 * k), d / 'ic_launcher.png')
+        save(icon, round(48 * k), d / 'ic_launcher_round.png')
+        save(src, round(108 * k), d / 'ic_launcher_foreground.png')
+    (RES / 'values' / 'ic_launcher_background.xml').write_text(
+        '<?xml version="1.0" encoding="utf-8"?>\n<resources>\n    <color name="ic_launcher_background">#1F0E07</color>\n</resources>\n'
+    )
+    for path in sorted(RES.glob('drawable*/splash.png')):
+        w, h = Image.open(path).size
+        splash = Image.new('RGB', (w, h), BG)
+        side = round(min(w, h) * 0.5)
+        splash.paste(src.resize((side, side), Image.LANCZOS), ((w - side) // 2, (h - side) // 2))
+        splash.quantize(256, method=Image.Quantize.MEDIANCUT).save(path, 'PNG', optimize=True)
+        print(path.relative_to(ROOT), (w, h))

@@ -3,7 +3,9 @@ import { createRoot } from 'react-dom/client';
 import './index.css';
 import App from './App';
 import { initUpdates } from './lib/update';
+import { initNative } from './lib/native';
 
+initNative();
 initUpdates();
 
 // После обновления приложения старая вкладка может запросить чанк, которого уже нет

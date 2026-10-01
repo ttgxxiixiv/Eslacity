@@ -34,6 +34,17 @@ jobs:
           name: playwright-traces
           path: test-results
           retention-days: 7
+      # Приложение для Android: та же сборка dist/ внутри APK (Capacitor, проект android/). APK кладётся на сайт
+      # рядом с игрой (eslacity.apk), его скачивают из настроек. В precache он не входит: добавлен после сборки.
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 21
+      - uses: android-actions/setup-android@v3
+      - run: npx cap sync android
+      - run: ./gradlew assembleRelease --no-daemon
+        working-directory: android
+      - run: cp android/app/build/outputs/apk/release/app-release.apk dist/eslacity.apk
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

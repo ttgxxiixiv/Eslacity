@@ -1,5 +1,6 @@
 import { create } from 'zustand';
 import { registerSW } from 'virtual:pwa-register';
+import { APK_URL, NATIVE, SITE } from './native';
 
 export const CURRENT: BuildInfo = __APP_BUILD__;
 
@@ -32,7 +33,8 @@ export const useUpdate = create<UpdateState>((set, get) => ({
     if (get().status === 'checking' || get().status === 'updating') return;
     set({ status: 'checking' });
     try {
-      const res = await fetch(`./version.json?t=${Date.now()}`, { cache: 'no-store' });
+      // Приложение для Android сравнивает себя с сайтом: его собственный version.json всегда той же версии.
+      const res = await fetch(`${NATIVE ? SITE : './'}version.json?t=${Date.now()}`, { cache: 'no-store' });
       if (!res.ok) throw new Error(String(res.status));
       const remote = (await res.json()) as BuildInfo;
       // Заодно просим service worker скачать новую версию, чтобы кнопка «Обновить» сработала сразу.
@@ -44,6 +46,11 @@ export const useUpdate = create<UpdateState>((set, get) => ({
   },
 
   async apply() {
+    // В приложении для Android новая версия — новый APK: браузер телефона скачает его с сайта.
+    if (NATIVE) {
+      location.assign(APK_URL);
+      return;
+    }
     set({ status: 'updating' });
     const reg = registration;
     // Страница не под управлением service worker (первый запуск): обычная перезагрузка
@@ -81,6 +88,11 @@ export const useUpdate = create<UpdateState>((set, get) => ({
 
 /** Регистрация service worker. Вызывается один раз при старте. */
 export function initUpdates() {
+  // Приложение для Android всё несёт в себе: service worker не нужен, о новой версии скажет проверка сайта.
+  if (NATIVE) {
+    setTimeout(() => useUpdate.getState().check(), 5000);
+    return;
+  }
   if (!('serviceWorker' in navigator)) return;
   updateSW = registerSW({
     onNeedRefresh() {

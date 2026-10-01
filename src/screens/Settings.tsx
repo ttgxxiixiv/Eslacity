@@ -10,6 +10,7 @@ import { cleanName, HERO_WORD, NAME_MAX } from '../domain/address';
 import { useProgress } from '../store/progress';
 import { Button, Screen, TopBar } from '../components/ui';
 import { AboutApp } from '../components/AboutApp';
+import { APK_FILE, NATIVE, saveJsonFile } from '../lib/native';
 import { HeroPortrait } from '../components/HeroPortrait';
 
 const GOALS: Settings['dailyGoal'][] = [50, 100, 150, 250];
@@ -239,6 +240,34 @@ export function SettingsScreen() {
           )}
         </section>
 
+        <section className="rounded-3xl bg-white p-4 shadow-sm" data-testid="android-app">
+          <h2 className="font-bold">Приложение для Android</h2>
+          {NATIVE ? (
+            <p className="mt-1 text-sm text-stone-500">
+              Вы играете в приложении. О новой версии оно скажет само: новый файл APK скачивается с сайта и ставится поверх,
+              прогресс остаётся.
+            </p>
+          ) : (
+            <>
+              <p className="mt-1 text-sm text-stone-500">
+                Та же игра отдельным приложением: работает без сети и без браузера. Прогресс у приложения свой: перенесите его
+                кнопкой «Сохранить в файл» ниже, а в приложении — «Загрузить из файла».
+              </p>
+              <a
+                href={APK_FILE}
+                download
+                className="press mt-3 block w-full rounded-2xl border border-stone-300 bg-white px-5 py-3.5 text-center font-semibold"
+                data-testid="apk-link"
+              >
+                Скачать APK
+              </a>
+              <p className="mt-2 text-xs text-stone-500">
+                Телефон спросит, можно ли ставить приложения из браузера: разрешите один раз. Новые версии ставятся поверх старой.
+              </p>
+            </>
+          )}
+        </section>
+
         <AboutApp />
 
         <section className="rounded-3xl bg-white p-4 shadow-sm">
@@ -259,7 +288,14 @@ export function SettingsScreen() {
           <Button
             variant="secondary"
             className="mt-3 w-full"
-            onClick={async () => downloadJson(await exportBackup(), `eslacity-${LANG}-${new Date().toISOString().slice(0, 10)}.json`)}
+            onClick={async () => {
+              try {
+                const where = await saveJsonFile(await exportBackup(), `eslacity-${LANG}-${new Date().toISOString().slice(0, 10)}.json`, downloadJson);
+                if (where) alert(`Прогресс сохранён: ${where}`);
+              } catch (err) {
+                alert(`Не удалось сохранить: ${(err as Error).message}`);
+              }
+            }}
           >
             Сохранить в файл
           </Button>
