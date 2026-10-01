@@ -207,13 +207,18 @@ export function readAnswers(page: Page, lang: Lang): Promise<LoggedAnswer[]> {
 export interface PlayResult {
   kinds: Record<string, number>;
   verdicts: Record<string, number>;
+  /** С `hint`: что открыла подсказка и для какого слова. */
+  hinted?: { prefix: string; es: string };
 }
 
 /**
  * Пройти урок слов или повторение, отвечая правильно на каждое задание.
  * Итальянский ввод набирается с типографским апострофом и пробелом после него, как на телефоне.
  */
-export async function playWords(page: Page, lang: Lang, done: RegExp): Promise<PlayResult> {
+/** `hint` — на первом задании с вводом взять жетон подсказки (награда уровня героя). */
+export async function playWords(page: Page, lang: Lang, done: RegExp, opts: { hint?: boolean } = {}): Promise<PlayResult> {
+  let hinted: PlayResult['hinted'];
+  let hintStep = false;
   const { byRu, byEs, byExRu } = loadWords(lang);
   const kinds: Record<string, number> = {};
   const verdicts: Record<string, number> = {};
@@ -224,7 +229,7 @@ export async function playWords(page: Page, lang: Lang, done: RegExp): Promise<P
   const said = () => page.evaluate(() => (window as unknown as { __said: string[] }).__said.at(-1) ?? '');
 
   for (let i = 0; i < 120; i++) {
-    if (await page.getByText(done).count()) return { kinds, verdicts };
+    if (await page.getByText(done).count()) return { kinds, verdicts, hinted };
     const kind = (await label.textContent({ timeout: 3000 }).catch(() => null))?.trim();
     if (!kind) continue;
     kinds[kind] = (kinds[kind] ?? 0) + 1;
@@ -258,6 +263,11 @@ export async function playWords(page: Page, lang: Lang, done: RegExp): Promise<P
       await page.getByRole('button', { name: 'Проверить' }).click();
     } else if (kind === `Напишите ${ADVERB[lang]}` || kind === 'Напишите, что услышали') {
       if (kind !== 'Напишите, что услышали') {
+        if (opts.hint && !hinted) {
+          await page.getByTestId('hint').click();
+          hinted = { prefix: await page.locator('input').inputValue(), es: byRu.get(shown)!.es };
+          hintStep = true;
+        }
         await page.locator('input').fill(byRu.get(shown)!.es.replace("'", '’ '));
       } else {
         await page.getByRole('button', { name: 'Прослушать ещё раз' }).click();
@@ -277,9 +287,10 @@ export async function playWords(page: Page, lang: Lang, done: RegExp): Promise<P
     const next = page.getByRole('button', { name: /дальше/i });
     await expect(next).toBeVisible();
     const fb = (await page.locator('[aria-live]').first().textContent()) ?? '';
-    const v = /неверно/i.test(fb) ? 'wrong' : /почти/i.test(fb) ? 'almost' : 'correct';
+    const v = /неверно/i.test(fb) ? 'wrong' : hintStep && /с подсказкой/i.test(fb) ? 'hinted' : /почти/i.test(fb) ? 'almost' : 'correct';
+    hintStep = false;
     verdicts[v] = (verdicts[v] ?? 0) + 1;
-    if (v !== 'correct') throw new Error(`Правильный ответ не засчитан: «${kind}» / «${shown}»: ${fb}`);
+    if (v !== 'correct' && v !== 'hinted') throw new Error(`Правильный ответ не засчитан: «${kind}» / «${shown}»: ${fb}`);
     await next.click();
   }
   throw new Error('Урок не закончился за 120 шагов');

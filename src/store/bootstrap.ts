@@ -16,6 +16,8 @@ import { useSphinx } from './sphinx';
 import type { SphinxRecord } from '../domain/sphinx';
 import { useKeeper } from './keeper';
 import { usePlacement } from './placement';
+import { useRewards, watchLevelRewards } from './rewards';
+import type { RewardsRecord } from '../domain/rewards';
 import type { PlacementRecord } from '../domain/placement';
 import type { KeeperRecord } from '../domain/keeper';
 import type { TrialsData } from '../domain/trial';
@@ -55,6 +57,10 @@ export async function bootstrap(): Promise<void> {
   useSphinx.getState().hydrate(m.sphinx as Partial<SphinxRecord> | undefined);
   useKeeper.getState().hydrate(m.keeper as Partial<KeeperRecord> | undefined);
   usePlacement.getState().hydrate(m.placement as Partial<PlacementRecord> | undefined);
+  useRewards.getState().hydrate(m.rewards as Partial<RewardsRecord> | undefined);
+  // Награды уровней героя: задним числом за уже набранный уровень и дальше при каждом новом.
+  useRewards.getState().sync();
+  watchLevelRewards();
   useKeeper.getState().measure();
   useErrands.getState().refresh();
   // Перенос: при первом запуске обрывки и печати выдаются по уже пройденному.

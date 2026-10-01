@@ -3,12 +3,14 @@ import { useEffect, useRef, useState } from 'react';
 import { logAnswer } from '../db/answers';
 import { answerMs } from '../domain/answerLog';
 import { useNavigate } from 'react-router-dom';
-import { LESSON, XP } from '../config';
+import { LESSON, XP, type BlitzMode } from '../config';
 import { wordsByIds } from '../content';
 import type { Word } from '../content/schema';
 import { makeChoice, seeded, type ChoiceData } from '../domain/generators';
 import { afterPaint } from '../lib/afterPaint';
-import { speak } from '../audio/tts';
+import { listeningEnabled, speak } from '../audio/tts';
+import { BLITZ_LABEL, SURVIVAL_LIVES, unlockLevel } from '../domain/rewards';
+import { useRewards } from '../store/rewards';
 import { useProgress } from '../store/progress';
 import { useSettings } from '../store/settings';
 import { useMotivation } from '../store/motivation';
@@ -38,6 +40,14 @@ export function BlitzScreen() {
   const best = useSettings((s) => s.blitzBest);
   const [newBest, setNewBest] = useState(false);
   const [ach, setAch] = useState<MedalGain[]>([]);
+  // Режимы блица — награды уровней героя (задача 9.2).
+  const unlocked = useRewards((s) => s.rec.blitz);
+  const modeBest = useRewards((s) => s.rec.blitzBest);
+  const [mode, setMode] = useState<BlitzMode>('classic');
+  const [lives, setLives] = useState(SURVIVAL_LIVES);
+  const livesRef = useRef(SURVIVAL_LIVES);
+  const modeRef = useRef<BlitzMode>('classic');
+  const bestOf = (m: BlitzMode) => (m === 'classic' ? best : (modeBest[m] ?? 0));
 
   useEffect(() => {
     const ids = wordIds(Object.keys(useProgress.getState().cards));
@@ -51,8 +61,10 @@ export function BlitzScreen() {
   const nextQuestion = () => {
     if (!learned) return;
     const word = learned[Math.floor(rng() * learned.length)];
-    const dir = rng() < 0.5 ? 'es-ru' : 'ru-es';
+    // На слух — всегда звучит слово на изучаемом языке, выбирается перевод.
+    const dir = modeRef.current === 'listen' || rng() < 0.5 ? 'es-ru' : 'ru-es';
     setQ({ word, dir, ...makeChoice(word, pool, dir, rng) });
+    if (modeRef.current === 'listen') afterPaint(() => speak(word.es));
     shownAt.current = Date.now();
     setPicked(null);
   };
@@ -63,7 +75,9 @@ export function BlitzScreen() {
     afterPaint(() => {
       useProgress.getState().addXp(final * XP.blitzCorrect);
       const s = useSettings.getState();
-      if (final > s.blitzBest) {
+      // Рекорд обычного блица — в настройках (по нему медали «Блиц»), остальных режимов — в наградах.
+      if (modeRef.current !== 'classic') setNewBest(useRewards.getState().recordBlitz(modeRef.current, final));
+      else if (final > s.blitzBest) {
         s.update({ blitzBest: final });
         setNewBest(true);
       }
@@ -72,7 +86,7 @@ export function BlitzScreen() {
   };
 
   useEffect(() => {
-    if (phase !== 'play') return;
+    if (phase !== 'play' || mode === 'survival') return;
     const t = setInterval(() => {
       if (Date.now() >= endAt.current) {
         clearInterval(t);
@@ -80,15 +94,20 @@ export function BlitzScreen() {
       }
     }, 200);
     return () => clearInterval(t);
-  }, [phase]);
+  }, [phase, mode]);
 
-  const start = () => {
+  const start = (m: BlitzMode = mode) => {
+    setMode(m);
+    modeRef.current = m;
+    livesRef.current = SURVIVAL_LIVES;
+    setLives(SURVIVAL_LIVES);
     setScore(0);
     scoreRef.current = 0;
     setMisses([]);
     setNewBest(false);
     setAch([]);
-    endAt.current = Date.now() + LESSON.blitzSeconds * 1000;
+    // Без права на ошибку времени нет: конец — третья ошибка. endAt тогда только признак, что игра идёт.
+    endAt.current = m === 'survival' ? Number.MAX_SAFE_INTEGER : Date.now() + LESSON.blitzSeconds * 1000;
     nextQuestion();
     setPhase('play');
   };
@@ -102,7 +121,17 @@ export function BlitzScreen() {
       now,
     );
     if (i === q.answer) setScore(++scoreRef.current);
-    else setMisses((m) => (m.some((w) => w.id === q.word.id) ? m : [...m, q.word]));
+    else {
+      setMisses((m) => (m.some((w) => w.id === q.word.id) ? m : [...m, q.word]));
+      if (modeRef.current === 'survival') {
+        livesRef.current -= 1;
+        setLives(livesRef.current);
+        if (livesRef.current <= 0) {
+          setTimeout(() => finish(scoreRef.current), 700);
+          return;
+        }
+      }
+    }
     if (q.dir === 'ru-es' && i === q.answer) afterPaint(() => speak(q.word.es));
     setTimeout(() => endAt.current && nextQuestion(), i === q.answer ? 250 : 700);
   };
@@ -129,11 +158,31 @@ export function BlitzScreen() {
         <TopBar title="Блиц" />
         <div className="flex flex-1 flex-col justify-center gap-4 px-6">
           <div className="text-center text-6xl">⚡</div>
-          <p className="text-center text-stone-600">
-            60 секунд, выбор из четырёх вариантов. Слова из выученных, на повторение не влияет.
-          </p>
-          <p className="text-center text-sm text-stone-500">Рекорд: {best}</p>
-          <Button onClick={start}>Старт</Button>
+          <p className="text-center text-stone-600">Слова из выученных, на повторение не влияет.</p>
+          <div className="flex flex-col gap-2" data-testid="blitz-modes">
+            {(Object.keys(BLITZ_LABEL) as BlitzMode[]).map((m) => {
+              const open = unlocked.includes(m);
+              const deaf = m === 'listen' && !listeningEnabled();
+              return (
+                <button
+                  key={m}
+                  type="button"
+                  disabled={!open || deaf}
+                  onClick={() => start(m)}
+                  className="press flex items-center gap-3 rounded-2xl border-2 border-stone-300 bg-white px-4 py-3 text-left disabled:opacity-50"
+                  data-testid={`blitz-${m}`}
+                >
+                  <div className="min-w-0 flex-1">
+                    <div className="font-bold">{BLITZ_LABEL[m].title}</div>
+                    <div className="text-sm text-stone-500">
+                      {!open ? `Откроется на ${unlockLevel({ blitz: m })}-м уровне героя.` : deaf ? 'Звук сейчас недоступен.' : BLITZ_LABEL[m].text}
+                    </div>
+                  </div>
+                  {open && <div className="text-sm text-stone-500 tabular-nums">Рекорд: {bestOf(m)}</div>}
+                </button>
+              );
+            })}
+          </div>
         </div>
       </Screen>
     );
@@ -146,7 +195,7 @@ export function BlitzScreen() {
         <div className="flex flex-1 flex-col px-6 pb-6">
           <div className="mt-6 text-center text-6xl font-bold tabular-nums">{score}</div>
           <div className="text-center text-stone-500">
-            {newBest ? 'Новый рекорд!' : `Рекорд: ${Math.max(best, score)}`} · +{score * XP.blitzCorrect} XP
+            {BLITZ_LABEL[mode].title} · {newBest ? 'Новый рекорд!' : `Рекорд: ${Math.max(bestOf(mode), score)}`} · +{score * XP.blitzCorrect} XP
           </div>
           {misses.length > 0 && (
             <ul className="mt-6 divide-y divide-stone-200 rounded-2xl bg-white shadow-sm">
@@ -163,7 +212,7 @@ export function BlitzScreen() {
           )}
           <MedalLines list={ach} />
           <div className="flex-1" />
-          <Button className="mt-6" onClick={start}>
+          <Button className="mt-6" onClick={() => start(mode)}>
             Ещё раз
           </Button>
           <Button variant="secondary" className="mt-2" onClick={() => nav('/', { replace: true })}>
@@ -180,14 +229,28 @@ export function BlitzScreen() {
         <button type="button" onClick={() => finish(scoreRef.current)} className="press h-10 w-10 text-xl text-stone-500" aria-label="Закончить">
           ✕
         </button>
-        <div className="h-3.5 flex-1 overflow-hidden rounded bg-wood p-[2px]">
-          <div className="drain h-full w-full rounded-sm bg-gold" style={{ animationDuration: `${LESSON.blitzSeconds}s` }} />
-        </div>
+        {mode === 'survival' ? (
+          <div className="flex-1 text-center text-xl tracking-widest" aria-label={`Ошибок осталось: ${lives}`} data-testid="blitz-lives">
+            {Array.from({ length: SURVIVAL_LIVES }, (_, i) => (i < lives ? '❤️' : '🖤')).join('')}
+          </div>
+        ) : (
+          <div className="h-3.5 flex-1 overflow-hidden rounded bg-wood p-[2px]">
+            <div className="drain h-full w-full rounded-sm bg-gold" style={{ animationDuration: `${LESSON.blitzSeconds}s` }} />
+          </div>
+        )}
         <div className="w-10 text-right text-xl font-bold tabular-nums">{score}</div>
       </div>
       {q && (
         <div className="flex flex-1 flex-col">
-          <div className="mt-8 text-center text-3xl font-bold">{q.dir === 'es-ru' ? q.word.es : q.word.ru}</div>
+          {mode === 'listen' ? (
+            <div className="mt-8 flex justify-center">
+              <SpeakButton text={q.word.es} size="lg" />
+            </div>
+          ) : (
+            <div className="mt-8 text-center text-3xl font-bold" data-testid="blitz-word">
+              {q.dir === 'es-ru' ? q.word.es : q.word.ru}
+            </div>
+          )}
           <div className="mt-10 grid gap-3">
             {q.options.map((o, i) => {
               let cls = 'bg-white border-stone-300';

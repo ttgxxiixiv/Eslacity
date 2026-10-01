@@ -3,7 +3,8 @@ import fireLit from '../assets/home/road-fire-lit.webp';
 import fireOut from '../assets/home/road-fire-out.webp';
 import stoneLit from '../assets/home/road-stone-lit.webp';
 import stonePic from '../assets/home/road-stone.webp';
-import walkerPic from '../assets/home/road-walker.webp';
+import { WALKER } from './walkerArt';
+import { useRewards } from '../store/rewards';
 import { ROAD_STONES, roadState } from '../domain/dailyRoad';
 
 /** Края полосы дороги (розетки) при показе, в CSS-пикселях: срез 31 и 32 из картинки 494×39, показ в треть. */
@@ -19,6 +20,7 @@ const FIRE_W = 18;
  */
 export function DailyRoad({ xp, goal, lit }: { xp: number; goal: number; lit: boolean }) {
   const { ratio, stones, camp } = roadState(xp, goal);
+  const cloak = useRewards((s) => s.rec.cloak);
   const burning = camp || lit;
   const [tip, setTip] = useState(false);
   useEffect(() => {
@@ -58,11 +60,12 @@ export function DailyRoad({ xp, goal, lit }: { xp: number; goal: number; lit: bo
             />
           ))}
           <img
-            src={walkerPic}
+            src={WALKER[cloak]}
             alt=""
             className="absolute bottom-[2px] h-[18px] w-[13px] -translate-x-1/2 transition-[left] duration-500 ease-out"
             style={{ left: `${ratio * 100}%` }}
             data-testid="road-walker"
+            data-cloak={cloak}
           />
         </span>
       </span>

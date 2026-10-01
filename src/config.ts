@@ -40,3 +40,30 @@ export const LESSON = {
   // иначе yo/ya, no/ni превращались бы в «почти».
   typoMinLength: 4,
 };
+
+/** Режимы блица: обычный открыт сразу, остальные — наградой за уровень героя (задача 9.2). */
+export type BlitzMode = 'classic' | 'listen' | 'survival';
+/** Цвета плаща путника: зелёный — сразу, остальные за уровни. Картинки строит scripts/build-road-art.py. */
+export type CloakId = 'moss' | 'crimson' | 'indigo' | 'night' | 'gold';
+
+export type LevelReward = { hints?: number; blitz?: BlitzMode; cloak?: CloakId };
+
+/**
+ * Награды за уровни героя (задача 9.2). Жетон подсказки открывает первую букву ответа при вводе, такой ответ
+ * засчитывается не выше «почти» (оценка Hard). Выше таблицы — по 5 жетонов на каждом чётном уровне.
+ * Выдаются и задним числом: за уровень, набранный до появления наград.
+ */
+export const LEVEL_REWARDS: Record<number, LevelReward> = {
+  2: { hints: 3 },
+  3: { blitz: 'listen' },
+  4: { cloak: 'crimson', hints: 3 },
+  5: { hints: 5 },
+  6: { blitz: 'survival' },
+  7: { cloak: 'indigo' },
+  8: { hints: 5 },
+  10: { cloak: 'night', hints: 5 },
+  12: { hints: 5 },
+  14: { cloak: 'gold' },
+};
+export const LEVEL_REWARDS_UPTO = 14;
+export const LATE_LEVEL_HINTS = 5;

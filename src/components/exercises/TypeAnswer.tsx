@@ -5,6 +5,8 @@ import { AccentBar } from '../AccentBar';
 import { CantListen, ListenControls } from './ListenControls';
 import { Button, genderLabel } from '../ui';
 import type { ExerciseProps } from './types';
+import { hintPrefix } from '../../domain/rewards';
+import { useRewards } from '../../store/rewards';
 
 const REASON_NOTE: Record<NonNullable<CheckResult['reason']>, string> = {
   accent: 'Обратите внимание на ударение.',
@@ -18,7 +20,21 @@ export function TypeAnswer({ step, words, locked, onAnswer, onCantListen, exam =
   const word = words[step.wordId];
   const [value, setValue] = useState('');
   const [result, setResult] = useState<CheckResult | null>(null);
+  const [hinted, setHinted] = useState(false);
+  const hints = useRewards((s) => s.rec.hints);
   const input = useRef<HTMLInputElement>(null);
+
+  // Жетон подсказки (награда уровня героя): первая буква ответа, верный ответ тогда засчитывается как «почти».
+  const hint = () => {
+    if (hinted || locked || !useRewards.getState().spendHint()) return;
+    const prefix = hintPrefix(word.es, [...L.singular, ...L.plural]);
+    setHinted(true);
+    setValue(prefix);
+    requestAnimationFrame(() => {
+      input.current?.focus();
+      input.current?.setSelectionRange(prefix.length, prefix.length);
+    });
+  };
 
   const insert = (ch: string) => {
     const el = input.current;
@@ -45,11 +61,13 @@ export function TypeAnswer({ step, words, locked, onAnswer, onCantListen, exam =
 
   const submit = () => {
     if (locked || !value.trim()) return;
-    const r = checkTyped(value, [word.es, ...(word.alt ?? [])]);
+    const checked = checkTyped(value, [word.es, ...(word.alt ?? [])]);
+    // С подсказкой ответ не выше «почти»: в повторении это оценка Hard.
+    const r: CheckResult = hinted && checked.verdict === 'correct' ? { ...checked, verdict: 'almost' } : checked;
     setResult(r);
-    const title = r.verdict === 'almost' ? 'Почти' : undefined;
-    const note = r.reason ? REASON_NOTE[r.reason] : undefined;
-    onAnswer({ verdict: r.verdict }, { title, note, answer: r.verdict === 'correct' ? word.es : r.expected });
+    const title = hinted && r.verdict === 'almost' ? 'С подсказкой' : r.verdict === 'almost' ? 'Почти' : undefined;
+    const note = hinted && r.verdict === 'almost' ? 'С подсказкой ответ засчитан как «почти».' : r.reason ? REASON_NOTE[r.reason] : undefined;
+    onAnswer({ verdict: r.verdict }, { title, note, answer: checked.verdict === 'correct' ? word.es : r.expected });
   };
 
   const tone =
@@ -92,9 +110,23 @@ export function TypeAnswer({ step, words, locked, onAnswer, onCantListen, exam =
           placeholder="Ответ"
         />
         {!locked && (
-          <Button type="submit" disabled={!value.trim()} className="w-full">
-            Проверить
-          </Button>
+          <div className="flex gap-2">
+            {!exam && (hints > 0 || hinted) && (
+              <button
+                type="button"
+                onClick={hint}
+                disabled={hinted}
+                className="press shrink-0 rounded-xl border-2 border-stone-300 bg-white px-3 text-sm font-semibold disabled:opacity-50"
+                aria-label={`Подсказка: первая буква. Жетонов: ${hints}`}
+                data-testid="hint"
+              >
+                💡 {hints}
+              </button>
+            )}
+            <Button type="submit" disabled={!value.trim()} className="w-full">
+              Проверить
+            </Button>
+          </div>
         )}
       </form>
       {dictation && !locked && onCantListen && <CantListen onClick={onCantListen} />}
