@@ -20,7 +20,7 @@ const STATUS_TEXT = {
 } as const;
 
 export function AboutApp() {
-  const { status, remote, check, apply } = useUpdate();
+  const { status, remote, check, apply, error } = useUpdate();
   const latest = CHANGELOG[0];
 
   return (
@@ -62,7 +62,7 @@ export function AboutApp() {
           >
             Проверить обновления
           </Button>
-          {STATUS_TEXT[status] && <p className="mt-2 text-sm text-stone-500">{STATUS_TEXT[status]}</p>}
+          {STATUS_TEXT[status] && <p className="mt-2 text-sm text-stone-500">{status === 'failed' && error ? error : STATUS_TEXT[status]}</p>}
         </>
       )}
 

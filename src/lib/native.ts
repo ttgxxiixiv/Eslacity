@@ -1,4 +1,4 @@
-import { Capacitor } from '@capacitor/core';
+import { Capacitor, registerPlugin } from '@capacitor/core';
 import { App } from '@capacitor/app';
 import { Directory, Encoding, Filesystem } from '@capacitor/filesystem';
 
@@ -41,4 +41,22 @@ export async function saveJsonFile(obj: unknown, filename: string, download: (ob
   const path = `Eslacity/${filename}`;
   await Filesystem.writeFile({ path, data: JSON.stringify(obj), directory: Directory.Documents, encoding: Encoding.UTF8, recursive: true });
   return `Документы/${path}`;
+}
+
+/** Свой плагин приложения (`android/.../ApkUpdatePlugin.java`): скачать APK и открыть установщик Android. */
+const ApkUpdate = registerPlugin<{ install(o: { url: string }): Promise<{ size: number }> }>('ApkUpdate');
+
+/**
+ * Обновить приложение: скачать APK версии `version` с сайта и открыть установщик. Номер версии в адресе — чтобы
+ * не взять старый файл из кэша. Без разрешения ставить приложения Android откроет настройки, а ошибка скажет,
+ * что нажать «Обновить» нужно ещё раз.
+ */
+export async function installApk(version: string): Promise<void> {
+  try {
+    await ApkUpdate.install({ url: `${APK_URL}?v=${version}` });
+  } catch (e) {
+    const err = e as { code?: string; message?: string };
+    if (err.code === 'permission') throw new Error('Разрешите Eslacity устанавливать приложения и нажмите «Обновить» ещё раз.');
+    throw new Error(err.message ?? 'Не удалось скачать обновление');
+  }
 }

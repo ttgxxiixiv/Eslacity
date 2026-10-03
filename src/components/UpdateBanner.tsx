@@ -5,6 +5,7 @@ export function UpdateBanner() {
   const status = useUpdate((s) => s.status);
   const remote = useUpdate((s) => s.remote);
   const apply = useUpdate((s) => s.apply);
+  const error = useUpdate((s) => s.error);
   if (status !== 'available' && status !== 'updating' && status !== 'failed') return null;
   return (
     <div className="fixed inset-x-0 bottom-[calc(9.5rem+env(safe-area-inset-bottom))] z-10 mx-auto max-w-md px-3 pb-2">
@@ -13,7 +14,7 @@ export function UpdateBanner() {
           {status === 'updating'
             ? 'Скачиваю обновление…'
             : status === 'failed'
-              ? 'Не удалось скачать обновление'
+              ? (error ?? 'Не удалось скачать обновление')
               : `Доступно обновление${remote ? ` ${remote.version}` : ''}`}
         </div>
         <button

@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 import { registerSW } from 'virtual:pwa-register';
-import { APK_URL, NATIVE, SITE } from './native';
+import { installApk, NATIVE, SITE } from './native';
 
 export const CURRENT: BuildInfo = __APP_BUILD__;
 
@@ -11,6 +11,8 @@ interface UpdateState {
   /** Версия, опубликованная на сайте (из version.json). */
   remote: BuildInfo | null;
   checkedAt: number | null;
+  /** Почему не удалось обновиться (приложение для Android): нет разрешения на установку, нет сети. */
+  error: string | null;
   /** Проверить сайт на новую версию. */
   check(): Promise<void>;
   /** Установить новую версию и перезапустить приложение. */
@@ -24,10 +26,29 @@ export function isNewer(remote: BuildInfo, current: BuildInfo): boolean {
   return remote.builtAt > current.builtAt;
 }
 
+/** Сравнение номеров версий: 2.113.10 новее 2.113.9. */
+export function versionNewer(remote: string, current: string): boolean {
+  const a = remote.split('.').map(Number);
+  const b = current.split('.').map(Number);
+  for (let i = 0; i < Math.max(a.length, b.length); i++) {
+    if ((a[i] ?? 0) !== (b[i] ?? 0)) return (a[i] ?? 0) > (b[i] ?? 0);
+  }
+  return false;
+}
+
+/**
+ * Есть ли на сайте версия новее. Сайт и APK собираются в CI разными задачами, и время сборки у них разное даже при
+ * одной версии, поэтому приложение для Android сравнивает номер версии, а сайт — время сборки (в нём одна версия
+ * может пересобираться).
+ */
+export const remoteIsNewer = (remote: BuildInfo, current: BuildInfo, native = NATIVE) =>
+  native ? versionNewer(remote.version, current.version) : isNewer(remote, current);
+
 export const useUpdate = create<UpdateState>((set, get) => ({
   status: 'idle',
   remote: null,
   checkedAt: null,
+  error: null,
 
   async check() {
     if (get().status === 'checking' || get().status === 'updating') return;
@@ -39,16 +60,23 @@ export const useUpdate = create<UpdateState>((set, get) => ({
       const remote = (await res.json()) as BuildInfo;
       // Заодно просим service worker скачать новую версию, чтобы кнопка «Обновить» сработала сразу.
       registration?.update().catch(() => {});
-      set({ remote, checkedAt: Date.now(), status: isNewer(remote, CURRENT) ? 'available' : 'latest' });
+      set({ remote, checkedAt: Date.now(), status: remoteIsNewer(remote, CURRENT) ? 'available' : 'latest' });
     } catch {
       set({ status: navigator.onLine ? 'error' : 'offline', checkedAt: Date.now() });
     }
   },
 
   async apply() {
-    // В приложении для Android новая версия — новый APK: браузер телефона скачает его с сайта.
+    // В приложении для Android новая версия — новый APK: приложение скачивает его само и открывает установщик.
     if (NATIVE) {
-      location.assign(APK_URL);
+      set({ status: 'updating', error: null });
+      try {
+        await installApk(get().remote?.version ?? CURRENT.version);
+        // Установщик открыт: дальше Android. Если игрок отменит, кнопка остаётся.
+        set({ status: 'available' });
+      } catch (e) {
+        set({ status: 'failed', error: (e as Error).message });
+      }
       return;
     }
     set({ status: 'updating' });
