@@ -132,6 +132,8 @@ for (const lang of LANGS) {
       while (!(await page.getByText('Ответить жителю').count())) await page.getByTestId('scene-next').click();
       await page.getByTestId('scene-next').click();
       await page.getByTestId('mission-next').click();
+      // Первый ответ кафе — выбор («кофе или чай»): в плитках сначала решаем, что сказать.
+      await page.getByTestId('choice-pick').first().click();
       await expect(page.getByTestId('mission-tiles')).toBeVisible();
     });
   });

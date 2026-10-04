@@ -1,7 +1,7 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { VARIANT, VARIANTS } from '../config';
-import { currentVoice, hasLangVoice, speak, speakHero, ttsSupported, voiceFor } from '../audio/tts';
+import { currentVoice, hasLangVoice, languageVoices, onVoicesChanged, speak, speakHero, ttsSupported, voiceFor } from '../audio/tts';
 import { L, LANG, LANGS, switchLang, type Lang } from '../lang';
 import { resetProgress } from '../store/bootstrap';
 import { downloadJson, exportBackup, importBackup, parseBackup } from '../db/backup';
@@ -33,7 +33,12 @@ const HERO_GENDERS: { id: Settings['heroGender']; label: string }[] = [
 ];
 
 export function SettingsScreen() {
-  const { speechRate, dailyGoal, listenOffUntil, newPerDay, heroGender, heroName, update } = useSettings();
+  const { speechRate, dailyGoal, listenOffUntil, newPerDay, heroGender, heroName, voiceM, voiceF, update } = useSettings();
+  // Голоса языка в телефоне: на Android список приходит не сразу после запуска.
+  const [voices, setVoices] = useState(languageVoices);
+  useEffect(() => {
+    return onVoicesChanged(() => setVoices([...languageVoices()]));
+  }, []);
   const listenOn = listenOffUntil <= Date.now();
   const pausedHour = !listenOn && listenOffUntil < Number.MAX_SAFE_INTEGER;
   const [voiceName, setVoiceName] = useState(() => currentVoice()?.name);
@@ -166,8 +171,8 @@ export function SettingsScreen() {
             пишется латиницей: жители произносят его по-своему.
           </p>
           <p className="mt-2 text-sm text-stone-500">
-            Этим голосом звучат реплики путника в миссиях и разговорах. Если в системе нет голоса нужного пола, основной голос
-            звучит ниже или выше.
+            Этим голосом звучат реплики путника в миссиях и разговорах. Если голос звучит не так, выберите мужской и женский голос
+            в разделе «Озвучка» ниже.
           </p>
           {ttsSupported() && (
             <>
@@ -231,6 +236,46 @@ export function SettingsScreen() {
                 <p className="mt-2 rounded-xl bg-amber-50 px-3 py-2 text-sm text-amber-800">
                   В системе нет голоса для {L.genitive}, поэтому задания на слух не показываются. {L.voiceHint}
                 </p>
+              )}
+              {voices.length > 1 && (
+                <div className="mt-3 flex flex-col gap-2" data-testid="gender-voices">
+                  {([['m', 'Мужской голос', voiceM], ['f', 'Женский голос', voiceF]] as const).map(([g, label, value]) => (
+                    <label key={g} className="block text-sm text-stone-600">
+                      {label}
+                      <span className="mt-1 flex gap-2">
+                        <select
+                          value={value}
+                          onChange={(e) => {
+                            update(g === 'm' ? { voiceM: e.target.value } : { voiceF: e.target.value });
+                            speak(HERO_SAMPLE[LANG], speechRate, 1, g);
+                            setHeroVoice(voiceFor(heroGender)?.name);
+                          }}
+                          className="h-11 min-w-0 flex-1 rounded-xl border-2 border-stone-200 bg-white px-2 text-base"
+                          data-testid={`voice-${g}`}
+                        >
+                          <option value="">Подобрать самому</option>
+                          {voices.map((v) => (
+                            <option key={v.name} value={v.name}>
+                              {v.name}
+                            </option>
+                          ))}
+                        </select>
+                        <button
+                          type="button"
+                          aria-label={`Послушать: ${label.toLowerCase()}`}
+                          onClick={() => speak(HERO_SAMPLE[LANG], speechRate, 1, g)}
+                          className="press flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-orange-100 text-lg"
+                        >
+                          🔊
+                        </button>
+                      </span>
+                    </label>
+                  ))}
+                  <p className="text-xs text-stone-500">
+                    Ими говорят путник и жители своего пола. Если путник звучит не тем голосом, выберите здесь голос, который
+                    звучит по-мужски или по-женски: послушайте каждый кнопкой 🔊.
+                  </p>
+                </div>
               )}
               <p className="mt-2 text-sm text-stone-500">
                 Голос: {voiceName ?? 'системный по умолчанию'}

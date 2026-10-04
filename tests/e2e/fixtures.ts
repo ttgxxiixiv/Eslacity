@@ -124,7 +124,7 @@ const squash = (s: string) => s.replace(/\s+/g, '');
  * а сказанный текст нужен, чтобы отвечать на задания на слух.
  */
 /** Сказанная фраза с высотой голоса: по высоте видно, каким полом звучит говорящий без голоса нужного пола. */
-export type Spoken = { text: string; pitch: number };
+export type Spoken = { text: string; pitch: number; voice?: string };
 
 /** Всё сказанное с начала страницы. */
 export const readSpoken = (page: Page) => page.evaluate(() => (window as unknown as { __spoken: Spoken[] }).__spoken);
@@ -148,7 +148,7 @@ export async function openApp(page: Page, lang: Lang, path = '') {
     w.__spoken = [];
     speechSynthesis.speak = (u: SpeechSynthesisUtterance) => {
       w.__said.push(u.text);
-      w.__spoken.push({ text: u.text, pitch: u.pitch });
+      w.__spoken.push({ text: u.text, pitch: u.pitch, voice: u.voice?.name });
     };
   }, lang);
   await page.goto('./');

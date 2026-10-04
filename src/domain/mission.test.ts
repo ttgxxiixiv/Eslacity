@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import type { Mission, MissionAnswer, Phrase } from '../content/schema';
 import { seeded } from './generators';
-import { answerNode, answersOnPath, isDispute, isPassed, isRegisterNode, missionGraphIssues, missionOptions, modeForAttempt, moveOf, offTone, withMove } from './mission';
+import { answerNode, answersOnPath, isDispute, isPassed, isRegisterNode, missionGraphIssues, missionOptions, modeForAttempt, moveOf, offTone, withMove, isChoice, rightPhrases, withBranch } from './mission';
 
 const ph = (slug: string, es: string): Phrase => ({ id: `ph:cafe.${slug}`, es, ru: slug, level: 1 });
 const phrases = Object.fromEntries(
@@ -116,5 +116,30 @@ describe('узел тона (глава V)', () => {
     expect(answerNode(node, { kind: 'text', text: 'Le ruego que revise mi cuenta' }, all).verdict).toBe('correct');
     expect(answerNode(node, { kind: 'text', text: 'le ruego que revise mi cuanta' }, all)).toMatchObject({ verdict: 'almost', phrase: formal.id });
     expect(answerNode(node, { kind: 'text', text: 'Hola' }, all).verdict).toBe('wrong');
+  });
+});
+
+describe('узел-выбор («яблоки или картошку»)', () => {
+  const choice = { kind: 'answer' as const, task: 'Попросите яблоки или картошку.', branches: [{ phrase: 'a', next: 'x' }, { phrase: 'b', next: 'y' }], wrong: { es: '-', ru: '-' } };
+  const single = { ...choice, branches: [{ phrase: 'a', next: 'x' }] };
+  const dispute = { ...choice, branches: [{ phrase: 'a', next: 'x', move: 'object' as const }, { phrase: 'b', next: 'y', move: 'concede' as const }] };
+  const tone = { ...choice, register: 'formal' as const };
+
+  it('выбор — несколько веток без спора и без тона', () => {
+    expect(isChoice(choice)).toBe(true);
+    expect(isChoice(single)).toBe(false);
+    expect(isChoice(dispute)).toBe(false);
+    expect(isChoice(tone)).toBe(false);
+  });
+
+  it('подсказка после ошибки показывает все верные варианты выбора, у остальных — основную ветку', () => {
+    expect(rightPhrases(choice)).toEqual(['a', 'b']);
+    expect(rightPhrases(dispute)).toEqual(['a']);
+    expect(rightPhrases(tone)).toEqual(['a']);
+  });
+
+  it('после выбора в плитках узел сводится к одной ветке', () => {
+    expect(withBranch(choice, 1).branches).toEqual([{ phrase: 'b', next: 'y' }]);
+    expect(withBranch(choice)).toBe(choice);
   });
 });

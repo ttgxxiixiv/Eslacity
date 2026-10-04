@@ -56,6 +56,21 @@ export function withMove(node: MissionAnswer, move?: DisputeMove): MissionAnswer
   return branches.length ? { ...node, branches } : node;
 }
 
+/**
+ * Узел-выбор: несколько верных фраз без хода спора и без тона («Попросите яблоки или картошку»). Любая ветка верна.
+ * В плитках герой сначала выбирает, что сказать: плитки собираются под одну фразу.
+ */
+export const isChoice = (node: MissionAnswer) => node.branches.length > 1 && !isDispute(node) && !isRegisterNode(node);
+
+/** Узел, сведённый к одной ветке выбора (номер ветки). Без номера — весь узел. */
+export function withBranch(node: MissionAnswer, index?: number): MissionAnswer {
+  const branch = index === undefined ? undefined : node.branches[index];
+  return branch ? { ...node, branches: [branch] } : node;
+}
+
+/** Фразы для подсказки после ошибки: у выбора — все верные варианты, иначе основная ветка. */
+export const rightPhrases = (node: MissionAnswer): string[] => (isChoice(node) ? node.branches : node.branches.slice(0, 1)).map((b) => b.phrase);
+
 /** Ход спора, по которому пошёл ответ. */
 export const moveOf = (node: MissionAnswer, phrase: string) => node.branches.find((b) => b.phrase === phrase)?.move;
 

@@ -37,6 +37,30 @@ function pickVoice(voices: Voice[] = speechSynthesis.getVoices()) {
     null;
   const pick = (g: VoiceGender) => pickGendered(voices, voice, preferredVoices(), L.voicePrefix, g);
   gendered = { m: pick('m'), f: pick('f') };
+  langVoices = voices.filter((v) => norm(v.lang).startsWith(L.voicePrefix));
+  for (const cb of voiceListeners) cb();
+}
+
+/** Подписка на список голосов: на Android он приходит после запуска. Возвращает отписку. */
+const voiceListeners = new Set<() => void>();
+export function onVoicesChanged(cb: () => void): () => void {
+  voiceListeners.add(cb);
+  return () => voiceListeners.delete(cb);
+}
+
+/** Голоса изучаемого языка в системе: из них игрок выбирает мужской и женский голос в настройках. */
+let langVoices: Voice[] = [];
+export function languageVoices(): Voice[] {
+  return langVoices;
+}
+
+/**
+ * Голос этого пола: выбранный игроком в настройках («Мужской голос», «Женский голос»), иначе угаданный по имени
+ * (`pickGendered`). Угадать удаётся не везде: у голосов Google на Android имена — коды.
+ */
+function genderVoice(g: VoiceGender): Voice | null {
+  const chosen = useSettings.getState()[g === 'm' ? 'voiceM' : 'voiceF'];
+  return (chosen && langVoices.find((v) => v.name === chosen)) || gendered[g];
 }
 
 if (NATIVE) {
@@ -64,7 +88,7 @@ let current: SpeechSynthesisUtterance | null = null;
 
 /** Голос, которым говорит герой или житель этого пола: свой голос системы или основной. */
 export function voiceFor(gender: VoiceGender): Voice | null {
-  return gendered[gender] ?? voice;
+  return genderVoice(gender) ?? voice;
 }
 
 /**
@@ -73,7 +97,7 @@ export function voiceFor(gender: VoiceGender): Voice | null {
  */
 export function speak(text: string, rate = useSettings.getState().speechRate, pitch = 1, gender?: VoiceGender): void {
   if (!supported || !text) return;
-  const own = gender ? gendered[gender] : null;
+  const own = gender ? genderVoice(gender) : null;
   const v = own ?? voice;
   const tone = gender && !own ? shiftedPitch(pitch, gender, voiceGender(voice)) : pitch;
   if (NATIVE) {

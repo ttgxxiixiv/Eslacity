@@ -8,7 +8,7 @@ import { loadScene } from '../content/scenes';
 import type { DisputeMove, Mission, MissionAnswer, Phrase, Register, Scene } from '../content/schema';
 import { logAnswer } from '../db/answers';
 import { seeded } from '../domain/generators';
-import { answerNode, DISPUTE_MOVES, isDispute, isPassed, MISSION_PASS, MISSION_REWARD, missionOptions, modeForAttempt, MOVE_LABEL, moveOf, withMove, type HeroAnswer, type MissionMode } from '../domain/mission';
+import { answerNode, DISPUTE_MOVES, isChoice, isDispute, isPassed, MISSION_PASS, MISSION_REWARD, missionOptions, modeForAttempt, MOVE_LABEL, moveOf, rightPhrases, withBranch, withMove, type HeroAnswer, type MissionMode } from '../domain/mission';
 import { fullPhrase } from '../domain/phrase';
 import { makeTiles } from '../domain/phraseSteps';
 import type { Rank } from '../domain/reputation';
@@ -188,9 +188,10 @@ function MissionDialog({ mission, phrases, pool, mode, place, onDone }: {
     else onDone(score.correct, score.answered);
   };
 
-  const answer = (a: HeroAnswer, said: string, move?: DisputeMove) => {
+  // target — узел, под который герой отвечал: весь узел, один ход спора или одна ветка выбора.
+  const answer = (a: HeroAnswer, said: string, target: MissionAnswer) => {
     if (!node || node.kind !== 'answer') return;
-    const r = answerNode(withMove(node, move), a, phrases);
+    const r = answerNode(target, a, phrases);
     const ok = r.verdict !== 'wrong';
     logAnswer({ itemId: mission.id, kind: `mission-${mode}`, verdict: r.verdict, mode: 'learn', ms: 0 });
     setScore((s) => ({ correct: s.correct + (ok ? 1 : 0), answered: s.answered + 1 }));
@@ -204,7 +205,8 @@ function MissionDialog({ mission, phrases, pool, mode, place, onDone }: {
       say(addressed(node.tone.es));
     } else if (!ok) {
       next.push({ who: 'npc', es: addressed(node.wrong.es), ru: addressed(node.wrong.ru, 'ru') });
-      next.push({ who: 'hero', es: `Правильно: ${fullPhrase(phrases[r.phrase].es)}`, tone: 'hint' });
+      // У выбора верны все варианты: подсказка показывает их все («яблоки» / «картошка»).
+      next.push({ who: 'hero', es: `Правильно: ${rightPhrases(target).map((id) => fullPhrase(phrases[id].es)).join(' / ')}`, tone: 'hint' });
       say(addressed(node.wrong.es));
     } else {
       speakHero(heroLine);
@@ -272,18 +274,21 @@ function HeroTurn({ node, phrases, pool, mode, onAnswer }: {
   phrases: Record<string, Phrase>;
   pool: Phrase[];
   mode: MissionMode;
-  onAnswer(a: HeroAnswer, said: string, move?: DisputeMove): void;
+  onAnswer(a: HeroAnswer, said: string, target: MissionAnswer): void;
 }) {
   const rng = useMemo(() => seeded(Date.now()), []);
   const [move, setMove] = useState<DisputeMove | undefined>(undefined);
-  const needMove = mode !== 'choose' && isDispute(node) && !move;
+  // Выбор («яблоки или картошку»): в плитках герой сначала решает, что сказать, плитки — под эту фразу.
+  const [pick, setPick] = useState<number | undefined>(undefined);
+  const needPick = mode === 'tiles' && isChoice(node) && pick === undefined;
+  const needMove = (mode !== 'choose' && isDispute(node) && !move) || needPick;
   // Узел хода спора держится между отрисовками: иначе плитки перемешивались бы после каждого нажатия.
-  const target = useMemo(() => withMove(node, move), [node, move]);
+  const target = useMemo(() => (pick !== undefined ? withBranch(node, pick) : withMove(node, move)), [node, move, pick]);
   const options = useMemo(() => missionOptions(node, pool, rng), [node, pool, rng]);
   const tiles = useMemo(() => makeTiles(phrases[target.branches[0].phrase], pool, rng), [target, phrases, pool, rng]);
   const [chosen, setChosen] = useState<number[]>([]);
   const [text, setText] = useState('');
-  const say = (a: HeroAnswer, said: string) => onAnswer(a, said, move);
+  const say = (a: HeroAnswer, said: string) => onAnswer(a, said, target);
   return (
     <div className="rounded-2xl bg-white p-3 shadow-sm" data-testid="hero-turn">
       <div className="text-sm text-stone-500">Ваш ответ</div>
@@ -295,13 +300,28 @@ function HeroTurn({ node, phrases, pool, mode, onAnswer }: {
           {TONE_HINT[node.register]}
         </div>
       )}
-      {needMove && (
+      {needPick && (
+        <div className="mt-2 flex flex-col gap-2">
+          <div className="text-sm text-stone-500">Что скажете?</div>
+          {node.branches.map((b, i) => (
+            <Button key={b.phrase} variant="secondary" className="!px-2 text-left" onClick={() => setPick(i)} data-testid="choice-pick">
+              {phrases[b.phrase].ru}
+            </Button>
+          ))}
+        </div>
+      )}
+      {needMove && !needPick && (
         <div className="mt-2 grid grid-cols-3 gap-2">
           {DISPUTE_MOVES.map((mv) => (
             <Button key={mv} variant="secondary" className="!px-1" onClick={() => setMove(mv)} data-testid="dispute-move">
               {MOVE_LABEL[mv].verb}
             </Button>
           ))}
+        </div>
+      )}
+      {pick !== undefined && (
+        <div className="mt-1 text-stone-600" data-testid="choice-hint">
+          Скажите: «{phrases[target.branches[0].phrase].ru}»
         </div>
       )}
       {move && mode !== 'choose' && (
