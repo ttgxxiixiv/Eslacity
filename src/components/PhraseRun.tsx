@@ -145,7 +145,9 @@ export function PhraseRun({ steps: initial, phrases, pool, mode, label, onFinish
 
 function PhraseIntro({ phrase, onNext }: { phrase: Phrase; onNext(): void }) {
   const full = fullPhrase(phrase.es);
-  useEffect(() => speak(full), [full]);
+  useEffect(() => {
+    speak(full);
+  }, [full]);
   return (
     <div className="flex flex-1 flex-col">
       <div className="text-sm font-medium text-stone-500">Новая фраза</div>

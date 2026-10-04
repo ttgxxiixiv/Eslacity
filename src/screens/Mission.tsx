@@ -176,7 +176,11 @@ function MissionDialog({ mission, phrases, pool, mode, place, onDone }: {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [nodeId]);
-  useEffect(() => endRef.current?.scrollIntoView({ block: 'end', behavior: 'smooth' }), [bubbles, pending]);
+  // Тело в скобках: эффект возвращает только функцию очистки. В новом Chrome scrollIntoView возвращает Promise,
+  // и React пытался бы вызвать его при уходе с экрана («l is not a function» в конце миссии).
+  useEffect(() => {
+    endRef.current?.scrollIntoView({ block: 'end', behavior: 'smooth' });
+  }, [bubbles, pending]);
 
   const advance = (next: string | undefined) => {
     setPending(undefined);

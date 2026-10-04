@@ -374,7 +374,9 @@ function Listen({ lines, monologue, onDone }: { lines: { who: string; es: string
     else speak(line.es);
   };
   // Новая реплика звучит сразу.
-  useEffect(() => sayLine(), [index]);
+  useEffect(() => {
+    sayLine();
+  }, [index]);
 
   const last = index + 1 >= lines.length;
   return (

@@ -136,6 +136,13 @@ export async function openApp(page: Page, lang: Lang, path = '') {
       localStorage.setItem('eslacity.lang', l);
       localStorage.setItem('eslacity.e2e', '1');
     }
+    // Как в новом Chrome и WebView Android: scrollIntoView возвращает Promise. Эффект, который вернёт его React,
+    // ломает экран при уходе с него (2.113.3, конец миссии).
+    const scroll = Element.prototype.scrollIntoView;
+    Element.prototype.scrollIntoView = function (this: Element, ...args: Parameters<Element['scrollIntoView']>) {
+      scroll.apply(this, args);
+      return Promise.resolve() as unknown as void;
+    };
     const w = window as unknown as { __said: string[]; __spoken: Spoken[] };
     w.__said = [];
     w.__spoken = [];

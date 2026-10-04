@@ -6,7 +6,9 @@ import { Button, SpeakButton, genderLabel } from '../ui';
 import { WordTags } from '../WordTags';
 
 export function Intro({ word, onNext }: { word: Word; onNext: () => void }) {
-  useEffect(() => afterPaint(() => speak(word.es)), [word.es]);
+  useEffect(() => {
+    afterPaint(() => speak(word.es));
+  }, [word.es]);
   return (
     <div className="flex flex-1 flex-col">
       <div className="text-sm font-medium text-stone-500">{word.kind ? 'Новое выражение' : 'Новое слово'}</div>

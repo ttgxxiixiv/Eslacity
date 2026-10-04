@@ -7,6 +7,13 @@ export interface Release {
 // Новые версии сверху. Версия первой записи должна совпадать с package.json (проверяется тестом).
 export const CHANGELOG: Release[] = [
   {
+    version: '2.113.3',
+    date: '2026-10-04',
+    notes: [
+      'Исправлена ошибка «l is not a function» в конце миссии: в новых версиях Chrome и в приложении для Android экран миссии ломался вместо итогов.',
+    ],
+  },
+  {
     version: '2.113.2',
     date: '2026-10-03',
     notes: [

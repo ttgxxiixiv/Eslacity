@@ -144,7 +144,9 @@ function Speech({ line, sphinx }: { line: VaultLine; sphinx: SphinxFile['sphinx'
   const text = heroText(line);
   const say = () => speakAs(text.es, line.who === 'sphinx' ? sphinx : CHRONICLER);
   // Реплика звучит сразу, как появилась.
-  useEffect(() => say(), []);
+  useEffect(() => {
+    say();
+  }, []);
   return (
     <div className="flex flex-col items-center gap-2">
       {line.who === 'sphinx' ? <SphinxArt size={170} watching /> : <NpcPortrait look={CHRONICLER.look} size={110} />}

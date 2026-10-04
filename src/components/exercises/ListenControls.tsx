@@ -6,7 +6,9 @@ import { useSettings } from '../../store/settings';
 /** Большая кнопка «прослушать» и «медленнее». Звук включается сам при появлении задания. */
 export function ListenControls({ text }: { text: string }) {
   const rate = useSettings((s) => s.speechRate);
-  useEffect(() => afterPaint(() => speak(text)), [text]);
+  useEffect(() => {
+    afterPaint(() => speak(text));
+  }, [text]);
   return (
     <div className="mt-6 flex items-center justify-center gap-4">
       <button
