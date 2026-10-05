@@ -29,10 +29,10 @@ const COLORS: Record<string, string> = {
 };
 
 function cells(rows: string[], y0: number) {
-  const out: { x: number; y: number; c: string }[] = [];
+  const out: { x: number; y: number; c: string; ch: string }[] = [];
   rows.forEach((row, y) => {
     [...row].forEach((ch, x) => {
-      if (COLORS[ch]) out.push({ x, y: y + y0, c: COLORS[ch] });
+      if (COLORS[ch]) out.push({ x, y: y + y0, c: COLORS[ch], ch });
     });
   });
   return out;
@@ -42,15 +42,17 @@ const BODY_CELLS = cells(BODY, 0);
 const A_CELLS = cells(LEGS_A, BODY.length);
 const B_CELLS = cells(LEGS_B, BODY.length);
 
-const rects = (list: { x: number; y: number; c: string }[]) =>
-  list.map(({ x, y, c }) => <rect key={`${x}.${y}`} x={x} y={y} width="1" height="1" fill={c} />);
+/** Огонь фонаря (`Y`) — цвета выбранного фонаря путника (`LANTERNS` в `src/domain/decor.ts`). */
+const rects = (list: { x: number; y: number; c: string; ch: string }[], flame?: string) =>
+  list.map(({ x, y, c, ch }) => <rect key={`${x}.${y}`} x={x} y={y} width="1" height="1" fill={ch === 'Y' && flame ? flame : c} />);
 
-export function HeroSprite({ walking }: { walking: boolean }) {
+export function HeroSprite({ walking, flame, glow }: { walking: boolean; flame?: string; glow?: string }) {
   return (
-    <svg viewBox="0 0 12 16" width="24" height="32" shapeRendering="crispEdges" aria-hidden className="block">
+    <svg viewBox="0 0 12 16" width="24" height="32" shapeRendering="crispEdges" aria-hidden className="block overflow-visible" data-flame={flame}>
       <ellipse cx="6" cy="15.6" rx="4.5" ry="0.9" fill="rgba(0,0,0,0.25)" />
       <g className={walking ? 'hero-bob' : ''}>
-        {rects(BODY_CELLS)}
+        {glow && <circle cx="11.5" cy="9.5" r="2.6" fill={glow} shapeRendering="auto" />}
+        {rects(BODY_CELLS, flame)}
         <g className={walking ? 'hero-frame-a' : ''}>{rects(A_CELLS)}</g>
         <g className={walking ? 'hero-frame-b' : ''} opacity={walking ? undefined : 0}>
           {rects(B_CELLS)}

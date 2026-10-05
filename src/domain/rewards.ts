@@ -1,4 +1,5 @@
 import { hintsFor, LEVEL_REWARDS, type BlitzMode, type CloakId, type LevelReward } from '../config';
+import type { LanternId } from './decor';
 
 /** Награды уровней героя (задача 9.2): что открыто и сколько жетонов подсказки на руках. */
 export interface RewardsRecord {
@@ -12,6 +13,10 @@ export interface RewardsRecord {
   cloak: CloakId;
   /** Рекорды режимов блица, кроме обычного (его рекорд — в настройках, по нему медали). */
   blitzBest: Partial<Record<BlitzMode, number>>;
+  /** Фонарь путника (задача 9.3): открывают медали, выбор в профиле. */
+  lantern?: LanternId;
+  /** Украшения города, которые игрок убрал с карты (линии медалей). Открытые медалями видны по умолчанию. */
+  hiddenDecor?: string[];
 }
 
 export const EMPTY_REWARDS: RewardsRecord = { level: 1, hints: 0, blitz: ['classic'], cloaks: ['sackcloth'], cloak: 'sackcloth', blitzBest: {} };

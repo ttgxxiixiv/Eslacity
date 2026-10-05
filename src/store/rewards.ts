@@ -3,6 +3,7 @@ import type { BlitzMode, CloakId } from '../config';
 import { db } from '../db/db';
 import { persist } from '../db/persist';
 import { heroLevel } from '../domain/heroLevel';
+import type { LanternId } from '../domain/decor';
 import { EMPTY_REWARDS, grantUpTo, normalizeRewards, spendHint, type RewardsRecord } from '../domain/rewards';
 import { useProgress } from './progress';
 
@@ -14,6 +15,9 @@ interface RewardsState {
   /** Потратить жетон подсказки. false, если жетонов нет. */
   spendHint(): boolean;
   setCloak(id: CloakId): void;
+  setLantern(id: LanternId): void;
+  /** Показать или убрать украшение линии с карты города. */
+  toggleDecor(line: string): void;
   /** Рекорд режима блица. Возвращает true, если это новый рекорд. */
   recordBlitz(mode: BlitzMode, score: number): boolean;
 }
@@ -44,6 +48,15 @@ export const useRewards = create<RewardsState>((set, get) => {
 
     setCloak(id) {
       if (get().rec.cloaks.includes(id) && get().rec.cloak !== id) save({ ...get().rec, cloak: id });
+    },
+
+    setLantern(id) {
+      if (get().rec.lantern !== id) save({ ...get().rec, lantern: id });
+    },
+
+    toggleDecor(line) {
+      const hidden = get().rec.hiddenDecor ?? [];
+      save({ ...get().rec, hiddenDecor: hidden.includes(line) ? hidden.filter((l) => l !== line) : [...hidden, line] });
     },
 
     recordBlitz(mode, score) {

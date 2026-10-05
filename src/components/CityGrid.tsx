@@ -18,6 +18,10 @@ import { useCity } from '../store/city';
 import { useNow } from '../lib/useNow';
 import { HeroSprite } from './Hero';
 import { LANG } from '../lang';
+import { decorSpot, lanternOf, shownDecor } from '../domain/decor';
+import { useMotivation } from '../store/motivation';
+import { useRewards } from '../store/rewards';
+import { DecorArt } from './DecorArt';
 
 /** Скорость героя в пикселях картинки в секунду и предел длительности прогулки. */
 const SPEED = 1200;
@@ -216,6 +220,13 @@ export function CityGrid() {
 
   useEffect(() => () => walk.current?.anim?.cancel(), []);
 
+  // Украшения за золотые медали на перекрёстках и фонарь путника (задача 9.3).
+  const medals = useMotivation((s) => s.medals);
+  const hiddenDecor = useRewards((s) => s.rec.hiddenDecor);
+  const pickedLantern = useRewards((s) => s.rec.lantern);
+  const decor = useMemo(() => shownDecor(medals, hiddenDecor), [medals, hiddenDecor]);
+  const lantern = lanternOf(medals, pickedLantern);
+
   const total = Object.values(buildings).reduce((n, b) => n + (b ? pendingIncome(b, now) : 0), 0);
   const errands = useErrands((s) => s.active);
   const cards = useProgress((s) => s.cards);
@@ -313,6 +324,20 @@ export function CityGrid() {
         {LOCATIONS.map((l, i) => (
           <Building key={l.id} meta={l} index={i} now={now} onGo={go} signal={signals[l.id] ?? 0} />
         ))}
+        {decor.map((d) => {
+          const p = decorSpot(d);
+          return (
+            <div
+              key={d.line}
+              className="pointer-events-none absolute z-10 -translate-x-1/2 -translate-y-[85%]"
+              style={{ left: `${(p.x / MAP_W) * 100}%`, top: `${(p.y / MAP_H) * 100}%`, filter: d.kind === 'lamp' ? `drop-shadow(0 0 3px ${d.color})` : undefined }}
+              data-testid="city-decor"
+              data-line={d.line}
+            >
+              <DecorArt kind={d.kind} color={d.color} cell={2} />
+            </div>
+          );
+        })}
         <div
           ref={layer}
           data-testid="hero"
@@ -320,7 +345,7 @@ export function CityGrid() {
           style={{ transform: heroTransform(door(hero)) }}
         >
           <div className="absolute -top-[30px] -left-3" style={{ transform: facingLeft ? 'scaleX(-1)' : undefined }}>
-            <HeroSprite walking={walking} />
+            <HeroSprite walking={walking} flame={lantern.flame} glow={lantern.glow} />
           </div>
         </div>
       </div>
