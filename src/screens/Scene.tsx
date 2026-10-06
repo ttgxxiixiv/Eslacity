@@ -11,6 +11,7 @@ import { sceneChunks, wordTranslation } from '../domain/sceneText';
 import { NpcPortrait } from '../components/NpcPortrait';
 import { HeroPortrait } from '../components/HeroPortrait';
 import { RepeatAfter } from '../components/RepeatAfter';
+import { ReportButton } from '../components/ReportButton';
 import { addressed } from '../store/settings';
 import { Button, Screen, TopBar } from '../components/ui';
 
@@ -149,6 +150,12 @@ export function SceneTalk({ scene, place, lastLabel, onDone }: { scene: Scene; p
         </div>
         {/* Повторить за жителем: запись себя и сравнение с репликой (задача 10.1). */}
         {line && <RepeatAfter key={index} say={() => sayLine(line, place)} />}
+        {/* Отчёт об ошибке (задача 11.1): реплика сцены по номеру. */}
+        {line && (
+          <div className="text-center">
+            <ReportButton key={index} tone="light" itemId={`${scene.id}#${index}`} context={line.es} />
+          </div>
+        )}
         <Button className="w-full" onClick={next} data-testid="scene-next">
           {index + 1 >= scene.lines.length ? lastLabel : 'Дальше'}
         </Button>

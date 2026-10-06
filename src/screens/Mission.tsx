@@ -17,6 +17,7 @@ import { L, LANG } from '../lang';
 import { CHAPTERS as PLAN } from '../content/vocabPlan';
 import { addressed } from '../store/settings';
 import { VoiceAnswer } from '../components/VoiceAnswer';
+import { ReportButton } from '../components/ReportButton';
 import { bestAlternative } from '../domain/voiceAnswer';
 import { NpcPortrait } from '../components/NpcPortrait';
 import { HeroPortrait } from '../components/HeroPortrait';
@@ -237,6 +238,12 @@ function MissionDialog({ mission, phrases, pool, mode, place, onDone }: {
       ) : node?.kind === 'answer' ? (
         <HeroTurn key={nodeId} node={node} phrases={phrases} pool={pool} mode={mode} onAnswer={answer} />
       ) : null}
+      {/* Отчёт об ошибке (задача 11.1): узел миссии и последняя реплика на экране. */}
+      {nodeId && (
+        <div className="text-center">
+          <ReportButton key={nodeId} tone="light" itemId={`${mission.id}#${nodeId}`} context={bubbles.at(-1)?.es ?? ''} />
+        </div>
+      )}
     </div>
   );
 }

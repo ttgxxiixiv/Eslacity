@@ -227,6 +227,7 @@ function ForgeRun({ tasks, onFinish, onExit }: { tasks: ForgeTask[]; onFinish(r:
       answer: task.answer,
       sub: `${PERSONS[LANG][task.person]} · ${TENSE_RU[task.tense]}`,
       speakText: task.answer,
+      itemId: id,
     });
     afterPaint(() => {
       if (c.verdict !== 'wrong') speak(task.answer);

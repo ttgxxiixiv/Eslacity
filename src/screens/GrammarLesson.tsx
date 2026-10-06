@@ -225,7 +225,7 @@ function LessonRunner({ lesson }: { lesson: Lesson }) {
     setVerdict(c.verdict);
     const ex = item.ex;
     const spoken = c.speak;
-    setFb(grammarFeedback(item, c));
+    setFb({ ...grammarFeedback(item, c), itemId: `g:${item.ex.id}` });
     setRun(answerGrammar(run, ok, rng));
     if (!ok && !item.retry) wrongFirst.current.add(ex.id);
     const now = Date.now();

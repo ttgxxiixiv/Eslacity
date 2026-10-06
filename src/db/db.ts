@@ -2,6 +2,7 @@ import Dexie, { type Table } from 'dexie';
 import type { LocationId } from '../content/schema';
 import { fromSm2, type SrsCard } from '../domain/srs';
 import type { AnswerRecord } from '../domain/answerLog';
+import type { ReportRecord } from '../domain/report';
 import { L } from '../lang';
 
 export interface BuildingRow {
@@ -39,6 +40,7 @@ class EslaDB extends Dexie {
   days!: Table<DayRow, string>;
   meta!: Table<MetaRow, string>;
   answers!: Table<AnswerRecord, number>;
+  reports!: Table<ReportRecord, number>;
 
   constructor() {
     // У каждого языка своя база: у испанского прежнее имя, чтобы прогресс сохранился.
@@ -65,6 +67,11 @@ class EslaDB extends Dexie {
             Object.assign(c, fromSm2(c));
           }),
       );
+    // Версия 4: отчёты об ошибках в заданиях (задача 11.1). Новая таблица, остальные не меняются:
+    // переносить нечего, upgrade нужен только чтобы версия базы поднялась у всех одинаково.
+    this.version(4)
+      .stores({ reports: '++id, ts, itemId' })
+      .upgrade(() => {});
   }
 }
 

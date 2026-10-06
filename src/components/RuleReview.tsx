@@ -58,7 +58,7 @@ export function RuleReview({ rules, onFinish, onExit, label = 'Правило', 
     const ex = item.ex;
     const answer = c.speak;
     setVerdict(c.verdict);
-    setFb(grammarFeedback(item, c));
+    setFb({ ...grammarFeedback(item, c), itemId: cardId });
     const now = Date.now();
     logAnswer({ itemId: cardId, kind: `${logKind}-${ex.kind}`, verdict: c.verdict, mode: 'review', ms: answerMs(shownAt.current, now) }, now);
     const xp = ok ? XP.correct : 0;

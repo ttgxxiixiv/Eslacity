@@ -71,7 +71,8 @@ export function LessonPlayer({ steps, words, pool, mode, onFinish, onExit }: Pro
     // Поля extra со значением undefined не должны затирать стандартные (например, заголовок «Верно!»).
     const defined = Object.fromEntries(Object.entries(extra ?? {}).filter(([, v]) => v !== undefined));
     const f = { ...defaultFeedback(step, words, o), ...defined };
-    setFb(f);
+    // Отчёт об ошибке (задача 11.1): слово задания, у «пар» — все слова через запятую.
+    setFb({ ...f, itemId: step.kind === 'match' ? step.wordIds.join(',') : step.kind === 'intro' ? undefined : step.wordId });
     setSession((s) => recordAnswer(s, o, retry));
     const now = Date.now();
     const ms = answerMs(shownAt.current, now);

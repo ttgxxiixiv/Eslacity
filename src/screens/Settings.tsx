@@ -1,4 +1,5 @@
 import { ReminderCard } from '../components/ReminderCard';
+import { ReportsCard } from '../components/ReportsCard';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { VARIANT, VARIANTS } from '../config';
@@ -327,6 +328,8 @@ export function SettingsScreen() {
             Пройти входной тест
           </Link>
         </section>
+
+        <ReportsCard />
 
         <section className="rounded-3xl bg-white p-4 shadow-sm">
           <h2 className="font-bold">Прогресс</h2>

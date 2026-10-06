@@ -232,6 +232,7 @@ function BellsRun({ tasks: initial, hints, onFinish, onExit }: { tasks: PairTask
       sub: task.words[task.target].ru,
       note: `Второе: ${other.es} — ${other.ru}. ${hints[task.contrast] ?? ''}`.trim(),
       speakText: task.words[task.target].es,
+      itemId: id,
     });
     if (v === 'correct') {
       useProgress.getState().addXp(XP.correct);

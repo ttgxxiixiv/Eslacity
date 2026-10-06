@@ -20,7 +20,9 @@ describe('обновление базы', () => {
     expect((await db.meta.get('coins'))?.value).toBe(77);
     expect(await db.grammar.get('a1.02-ser')).toMatchObject({ bestScore: 90 });
     expect(await db.answers.count()).toBe(0);
-    expect(db.verno).toBe(3);
+    // С версии 4 есть и таблица отчётов об ошибках, пустая.
+    expect(await db.reports.count()).toBe(0);
+    expect(db.verno).toBe(4);
   });
 
   it('чистка убирает записи старше 90 дней и лишние сверх лимита', async () => {

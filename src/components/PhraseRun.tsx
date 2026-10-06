@@ -98,7 +98,7 @@ export function PhraseRun({ steps: initial, phrases, pool, mode, label, onFinish
       };
     });
     const full = fullPhrase(phrase.es);
-    setFb(phraseFeedback(phrase, verdict, check));
+    setFb({ ...phraseFeedback(phrase, verdict, check), itemId: phrase.id });
     // Ошибка в уроке: то же задание ещё раз в конце, с новыми вариантами.
     if (verdict === 'wrong' && mode === 'learn') {
       const again: PhraseStep =

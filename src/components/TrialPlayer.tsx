@@ -53,7 +53,7 @@ export function TrialPlayer({ items: initial, words, phrases = {}, label = 'Ис
 
   const item = items[index];
   const record = (verdict: Verdict, f: Feedback, itemId: string, kind: string) => {
-    setFb(f);
+    setFb({ ...f, itemId });
     setScore((s) => ({ ...s, [verdict]: s[verdict] + 1 }));
     const now = Date.now();
     logAnswer({ itemId, kind, verdict, mode, ms: answerMs(shownAt.current, now) }, now);

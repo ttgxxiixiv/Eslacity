@@ -4,7 +4,7 @@ import { L, LANG, LANGS, type Lang } from '../lang';
 
 // Таблицы, которые есть в любой копии, и таблицы, появившиеся позже (в старых копиях их нет).
 const REQUIRED = ['cards', 'buildings', 'grammar', 'days', 'meta'] as const;
-const OPTIONAL = ['answers'] as const;
+const OPTIONAL = ['answers', 'reports'] as const;
 const TABLES = [...REQUIRED, ...OPTIONAL] as const;
 
 export interface Backup {
