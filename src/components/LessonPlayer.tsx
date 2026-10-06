@@ -79,7 +79,7 @@ export function LessonPlayer({ steps, words, pool, mode, onFinish, onExit }: Pro
     if (step.kind === 'match') {
       for (const id of step.wordIds) logAnswer({ itemId: id, kind: 'match', verdict: o.perWord?.[id] ?? o.verdict, mode, ms }, now);
     } else if (step.kind !== 'intro') {
-      logAnswer({ itemId: step.wordId, kind: step.kind, verdict: o.verdict, mode, ms }, now);
+      logAnswer({ itemId: step.wordId, kind: step.kind, verdict: o.verdict, mode, ms, why: f.why }, now);
     }
     const xp = o.verdict === 'correct' ? XP.correct : o.verdict === 'almost' ? XP.almost : 0;
     const coins = o.verdict === 'wrong' ? 0 : ECONOMY.coinPerCorrect;

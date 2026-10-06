@@ -58,9 +58,10 @@ export function RuleReview({ rules, onFinish, onExit, label = 'Правило', 
     const ex = item.ex;
     const answer = c.speak;
     setVerdict(c.verdict);
-    setFb({ ...grammarFeedback(item, c), itemId: cardId });
+    const f = grammarFeedback(item, c, input, logKind === 'echo' ? undefined : 'link');
+    setFb({ ...f, itemId: cardId });
     const now = Date.now();
-    logAnswer({ itemId: cardId, kind: `${logKind}-${ex.kind}`, verdict: c.verdict, mode: 'review', ms: answerMs(shownAt.current, now) }, now);
+    logAnswer({ itemId: cardId, kind: `${logKind}-${ex.kind}`, verdict: c.verdict, mode: 'review', ms: answerMs(shownAt.current, now), why: f.why }, now);
     const xp = ok ? XP.correct : 0;
     const coins = ok ? ECONOMY.coinPerCorrect : 0;
     setRes((r) => ({

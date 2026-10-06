@@ -56,7 +56,7 @@ export function TrialPlayer({ items: initial, words, phrases = {}, label = 'Ис
     setFb({ ...f, itemId });
     setScore((s) => ({ ...s, [verdict]: s[verdict] + 1 }));
     const now = Date.now();
-    logAnswer({ itemId, kind, verdict, mode, ms: answerMs(shownAt.current, now) }, now);
+    logAnswer({ itemId, kind, verdict, mode, ms: answerMs(shownAt.current, now), why: f.why }, now);
     onAnswer?.(itemId, verdict);
     afterPaint(() => {
       if (f.speakText && verdict !== 'wrong') speak(f.speakText);
@@ -75,7 +75,7 @@ export function TrialPlayer({ items: initial, words, phrases = {}, label = 'Ис
     if (item.kind !== 'grammar' || grammarVerdict !== null) return;
     const c = checkGrammar(item.item, input);
     setGrammarVerdict(c.verdict);
-    record(c.verdict, grammarFeedback(item.item, c), item.cardId ?? `g:${item.item.ex.id}`, `grammar-${item.item.ex.kind}`);
+    record(c.verdict, grammarFeedback(item.item, c, input, 'text'), item.cardId ?? `g:${item.item.ex.id}`, `grammar-${item.item.ex.kind}`);
   };
   const phraseAnswer = (verdict: Verdict, check?: CheckResult) => {
     if (item.kind !== 'phrase') return;

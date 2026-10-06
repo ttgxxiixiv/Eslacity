@@ -51,6 +51,7 @@ export function phraseFeedback(phrase: Phrase, verdict: Verdict, check?: CheckRe
     sub: phrase.ru,
     note: [check?.reason ? REASON[check.reason] : undefined, phrase.note ?? alt].filter(Boolean).join(' ') || undefined,
     speakText: full,
+    why: check && check.verdict !== 'correct' ? check.reason : undefined,
   };
 }
 
@@ -82,7 +83,8 @@ export function PhraseRun({ steps: initial, phrases, pool, mode, label, onFinish
   const answer = (verdict: Verdict, check?: CheckResult) => {
     const typed = step.kind === 'type';
     const now = Date.now();
-    logAnswer({ itemId: step.id, kind: `phrase-${step.kind}`, verdict, mode, ms: answerMs(shownAt.current, now) }, now);
+    const why = check && check.verdict !== 'correct' ? check.reason : undefined;
+    logAnswer({ itemId: step.id, kind: `phrase-${step.kind}`, verdict, mode, ms: answerMs(shownAt.current, now), why }, now);
     const xp = verdict === 'wrong' ? 0 : XP.correct;
     const coins = verdict === 'correct' ? ECONOMY.coinPerCorrect : 0;
     setRes((r) => {

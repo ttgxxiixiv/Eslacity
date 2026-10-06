@@ -34,6 +34,11 @@ export async function loadLesson(id: string): Promise<GrammarLesson | undefined>
   return lesson;
 }
 
+/** Уже загруженный урок, без ожидания: для причины ошибки по таблицам урока (задача 12.3). */
+export function cachedLesson(id: string): GrammarLesson | undefined {
+  return cache.get(id);
+}
+
 export function hasLesson(id: string): boolean {
   return loaderById.has(id);
 }

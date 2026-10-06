@@ -1,5 +1,5 @@
 import type { GrammarExercise, GrammarLesson, TheoryBlock } from '../content/schema';
-import { checkBuilt, checkForm, type CheckResult } from './answer';
+import { checkBuilt, checkForm, diagnose, type CheckResult, type Why } from './answer';
 import { type Rng, shuffle } from './generators';
 import { phraseTokens } from './phraseSteps';
 
@@ -195,4 +195,44 @@ export function grammarTitle(item: GrammarItem, c: GrammarCheck): string {
   if (c.verdict === 'correct') return 'Верно!';
   if (c.verdict === 'almost') return 'Почти';
   return item.ex.kind === 'truefalse' ? `Неверно, правильно: ${c.expected.toLowerCase()}` : 'Неверно';
+}
+
+/** Ячейка таблицы годится как форма, если это короткая форма, а не пример или пояснение. */
+const formCell = (s: string) => !!s && s.length <= 25 && !/[()/=…,.;:?!¿¡\p{Script=Cyrillic}]/u.test(s) && s.trim().split(/\s+/).length <= 3;
+
+/**
+ * Формы из таблиц теории урока с подписью по строке и столбцу: «soy» — «yo · ser» (задача 12.3).
+ * Первый столбец — подписи строк, формой он не считается.
+ */
+export function tableForms(theory: GrammarLesson['theory']): { form: string; label: string }[] {
+  const out: { form: string; label: string }[] = [];
+  for (const b of theory) {
+    if (b.kind !== 'table') continue;
+    for (const r of b.rows) {
+      r.cells.forEach((cell, c) => {
+        if (c === 0 || !formCell(cell)) return;
+        const label = [r.cells[0], b.head[c]].filter((x) => x && x.length <= 25 && x !== cell).join(' · ');
+        if (label) out.push({ form: cell, label });
+      });
+    }
+  }
+  return out;
+}
+
+/**
+ * Причина ошибки в упражнении грамматики: только для ввода формы и выбора варианта. Формы — из таблиц
+ * урока; опечатка не называется (одна буква в форме — уже другая форма).
+ */
+export function diagnoseGrammar(item: GrammarItem, input: GrammarInput, c: GrammarCheck, forms: { form: string; label: string }[] = []): Why | undefined {
+  if (c.verdict === 'correct') return undefined;
+  const { ex } = item;
+  const ctx = { forms, typos: false };
+  if ((ex.kind === 'type' || ex.kind === 'transform' || ex.kind === 'combine') && 'text' in input) {
+    return diagnose(input.text, [ex.answer, ...(ex.alt ?? [])], ctx);
+  }
+  if (ex.kind === 'fix' && 'at' in input && input.at === ex.wrong) return diagnose(input.text, [ex.answer, ...(ex.alt ?? [])], ctx);
+  if ((ex.kind === 'choose' || ex.kind === 'gap') && 'pick' in input && input.pick >= 0) {
+    return diagnose(item.options[input.pick], [item.options[item.answer]], ctx);
+  }
+  return undefined;
 }

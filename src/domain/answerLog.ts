@@ -1,4 +1,4 @@
-import type { Verdict } from './answer';
+import type { Verdict, WhyKind } from './answer';
 import { ruleCardId } from './itemId';
 
 /**
@@ -18,6 +18,8 @@ export interface AnswerRecord {
   mode: AnswerMode;
   /** Время на ответ, мс. */
   ms: number;
+  /** Причина ошибки, если её удалось назвать наверняка (задача 12.3). */
+  why?: WhyKind;
 }
 
 const DAY = 86_400_000;

@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import type { GrammarLesson } from '../content/schema';
 import { seeded } from './generators';
-import { answerGrammar, buildGrammarQueue, checkGrammar, fillGaps, forVariant, grammarScore, grammarTitle, rulesForReview, startGrammar, toItem } from './grammar';
+import { answerGrammar, buildGrammarQueue, checkGrammar, diagnoseGrammar, tableForms, fillGaps, forVariant, grammarScore, grammarTitle, rulesForReview, startGrammar, toItem } from './grammar';
 import type { GrammarExercise } from '../content/schema';
 import { readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
@@ -190,5 +190,43 @@ describe('задания C1 (задача 7.3) на обоих языках', ()
       ({ id: `x.${n}`, kind, explain: '', ...(kind === 'build' ? { answer: 'a b c', extra: ['d'] } : kind === 'truefalse' ? { answer: true } : { options: ['a', 'b'], answer: 0 }) }) as unknown as GrammarExercise;
     const q = buildGrammarQueue(kinds.map((k, i) => ex(k, i)), seeded(3));
     expect(q.map((i) => i.ex.kind)).toEqual([...kinds].reverse());
+  });
+});
+
+describe('почему неверно в грамматике (задача 12.3)', () => {
+  const ser: GrammarLesson['theory'] = [
+    { kind: 'table', head: ['Местоимение', 'ser'], rows: [{ cells: ['yo', 'soy'] }, { cells: ['tú', 'eres'] }, { cells: ['vosotros', 'sois'] }] },
+    { kind: 'table', head: ['Пример', 'Перевод'], rows: [{ cells: ['Soy de Madrid.', 'Я из Мадрида.'] }] },
+  ];
+  const essere: GrammarLesson['theory'] = [
+    { kind: 'table', head: ['', 'essere', 'avere'], rows: [{ cells: ['io', 'sono', 'ho'] }, { cells: ['tu', 'sei', 'hai'] }] },
+  ];
+  it('формы таблиц с подписью строки и столбца, примеры не формы', () => {
+    expect(tableForms(ser)).toEqual([
+      { form: 'soy', label: 'yo · ser' },
+      { form: 'eres', label: 'tú · ser' },
+      { form: 'sois', label: 'vosotros · ser' },
+    ]);
+    expect(tableForms(essere).map((f) => f.label)).toEqual(['io · essere', 'io · avere', 'tu · essere', 'tu · avere']);
+  });
+  it('ввод формы: другая форма из таблицы, ударение; опечатку не называем (es)', () => {
+    const ex: GrammarExercise = { id: 'a1.t.1', kind: 'type', sentence: 'Tú ___ de Madrid.', ru: '', answer: 'eres', explain: '' };
+    const item = toItem(ex, seeded(1));
+    const why = (text: string) => diagnoseGrammar(item, { text }, checkGrammar(item, { text }), tableForms(ser));
+    expect(why('soy')).toEqual({ kind: 'form', text: '«soy» — это yo · ser, а здесь нужно tú · ser: «eres».' });
+    expect(why('eras')).toBeUndefined();
+    expect(why('eres')).toBeUndefined();
+  });
+  it('выбор варианта: форма из таблицы и ударение (it)', () => {
+    const ex: GrammarExercise = { id: 'a1.t.2', kind: 'gap', sentence: 'Io ___ stanco.', ru: '', options: ['sono', 'ho', 'sei'], answer: 0, explain: '' };
+    const item = toItem(ex, seeded(2));
+    const pickOf = (o: string) => item.options.indexOf(o);
+    const why = (o: string) => diagnoseGrammar(item, { pick: pickOf(o) }, checkGrammar(item, { pick: pickOf(o) }), tableForms(essere));
+    expect(why('ho')?.text).toBe('«ho» — это io · avere, а здесь нужно io · essere: «sono».');
+    expect(why('sei')?.kind).toBe('form');
+    const accent: GrammarExercise = { id: 'a1.t.3', kind: 'choose', prompt: 'Lui ___ qui.', options: ['è', 'e'], answer: 0, explain: '' };
+    const a = toItem(accent, seeded(3));
+    const i = a.options.indexOf('e');
+    expect(diagnoseGrammar(a, { pick: i }, checkGrammar(a, { pick: i }))?.kind).toBe('accent');
   });
 });

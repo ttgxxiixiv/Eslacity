@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { checkTyped, levenshtein, normalize, answerLetters, splitArticle, stripAccents, checkPhrase, checkBuilt, checkForm } from './answer';
+import { diagnose, checkTyped, levenshtein, normalize, answerLetters, splitArticle, stripAccents, checkPhrase, checkBuilt, checkForm } from './answer';
 
 describe('normalize', () => {
   it('убирает регистр, ¿¡ и пунктуацию, схлопывает пробелы', () => {
@@ -157,5 +157,64 @@ describe('формы и сборка в грамматике', () => {
   it('сборка: порядок слов важен', () => {
     expect(checkBuilt(['yo', 'soy', 'Ana'], ['Yo soy Ana.']).verdict).toBe('correct');
     expect(checkBuilt(['soy', 'yo', 'Ana'], ['Yo soy Ana.']).verdict).toBe('wrong');
+  });
+});
+
+describe('diagnose: почему неверно (задача 12.3)', () => {
+  const kind = (...a: Parameters<typeof diagnose>) => diagnose(...a)?.kind;
+  it('верный ответ и пустой ввод — причины нет', () => {
+    expect(diagnose('el café', ['el café'], {}, 'es')).toBeUndefined();
+    expect(diagnose('  ', ['el café'], {}, 'es')).toBeUndefined();
+  });
+  it('артикль: не тот или пропущен (es, it)', () => {
+    expect(diagnose('la problema', ['el problema'], {}, 'es')).toEqual({ kind: 'article', text: 'Не тот артикль: правильно «el problema».' });
+    expect(kind('problema', ['el problema'], {}, 'es')).toBe('article');
+    expect(kind('il acqua', ["l'acqua"], {}, 'it')).toBe('article');
+    expect(diagnose('acqua', ["l'acqua"], {}, 'it')?.text).toBe("Без артикля: существительное учим вместе с ним — «l'acqua».");
+    expect(kind('lo problema', ['il problema'], {}, 'it')).toBe('article');
+  });
+  it('ударение: пропущено, лишнее, не на той букве (es, it)', () => {
+    expect(diagnose('el cafe', ['el café'], {}, 'es')?.text).toBe('Пропущено ударение: «el café».');
+    expect(diagnose('cómo', ['como'], {}, 'es')?.text).toBe('Лишнее ударение: «como».');
+    // Не хватает буквы, а не ударения.
+    expect(kind('cafè', ['caffè'], {}, 'it')).toBe('typo');
+    expect(diagnose('perché', ['perchè'], {}, 'it')?.text).toBe('Ударение не на той букве: «perchè».');
+    expect(kind('citta', ['città'], {}, 'it')).toBe('accent');
+  });
+  it('перепутано с другим словом урока (es, it)', () => {
+    const others = [{ es: 'el té', ru: 'чай' }, { es: 'el café', ru: 'кофе' }];
+    expect(diagnose('el té', ['el café'], { others }, 'es')).toEqual({ kind: 'confused', text: '«el té» — это «чай», другое слово.' });
+    expect(kind('il tè', ['il caffè'], { others: [{ es: 'il tè', ru: 'чай' }] }, 'it')).toBe('confused');
+    // Одна буква от верного, но это другое слово урока: «pero» — не опечатка в «perro».
+    expect(kind('pero', ['perro'], { others: [{ es: 'pero', ru: 'но' }] }, 'es')).toBe('confused');
+    expect(kind('pera', ['pero'], { others: [{ es: 'pera', ru: 'груша' }] }, 'it')).toBe('confused');
+  });
+  it('другая форма того же слова (es, it)', () => {
+    const forms = [
+      { form: 'hablo', label: 'yo · presente' },
+      { form: 'hablas', label: 'tú · presente' },
+    ];
+    expect(diagnose('hablo', ['hablas'], { forms, typos: false }, 'es')).toEqual({
+      kind: 'form',
+      text: '«hablo» — это yo · presente, а здесь нужно tú · presente: «hablas».',
+    });
+    expect(kind('parlo', ['parli'], { forms: [{ form: 'parlo', label: 'io · presente' }], typos: false }, 'it')).toBe('form');
+    // Форма нескольких лиц: названы все; нужная — из задания.
+    const imp = [
+      { form: 'hablaba', label: 'yo · imperfecto' },
+      { form: 'hablabas', label: 'tú · imperfecto' },
+      { form: 'hablaba', label: 'él · imperfecto' },
+    ];
+    expect(diagnose('hablaba', ['hablabas'], { forms: imp, target: 'tú · imperfecto', typos: false }, 'es')?.text).toBe(
+      '«hablaba» — это yo · imperfecto или él · imperfecto, а здесь нужно tú · imperfecto: «hablabas».',
+    );
+  });
+  it('опечатка — только где её прощают и только в одну букву (es, it)', () => {
+    expect(kind('la mesra', ['la mesa'], {}, 'es')).toBe('typo');
+    expect(kind('la finesra', ['la finestra'], {}, 'it')).toBe('typo');
+    expect(kind('sois', ['soy'], { typos: false }, 'es')).toBeUndefined();
+    expect(kind('el gato', ['el café'], {}, 'es')).toBeUndefined();
+    // Короткое слово: одна буква — уже другое слово, причину не называем.
+    expect(kind('el té', ['el tú'], {}, 'es')).toBeUndefined();
   });
 });

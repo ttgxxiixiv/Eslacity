@@ -1,6 +1,6 @@
 import { L, LANG } from '../../lang';
 import { useRef, useState } from 'react';
-import { answerLetters, checkTyped, EXAM_KEYS, type CheckResult } from '../../domain/answer';
+import { answerLetters, checkTyped, diagnose, EXAM_KEYS, type CheckResult } from '../../domain/answer';
 import { AccentBar } from '../AccentBar';
 import { CantListen, ListenControls } from './ListenControls';
 import { Button, genderLabel } from '../ui';
@@ -9,12 +9,6 @@ import { hintPrefix } from '../../domain/rewards';
 import { useRewards } from '../../store/rewards';
 import { VoiceAnswer } from '../VoiceAnswer';
 import { bestAlternative } from '../../domain/voiceAnswer';
-
-const REASON_NOTE: Record<NonNullable<CheckResult['reason']>, string> = {
-  accent: 'Обратите внимание на ударение.',
-  typo: 'Опечатка в одной букве.',
-  article: 'Существительное учим вместе с артиклем.',
-};
 
 /** exam — испытание: над полем только буквы с ударением языка, без букв ответа. */
 export function TypeAnswer({ step, words, locked, onAnswer, onCantListen, exam = false }: ExerciseProps<'type' | 'listen-type'> & { onCantListen?: () => void; exam?: boolean }) {
@@ -68,8 +62,12 @@ export function TypeAnswer({ step, words, locked, onAnswer, onCantListen, exam =
     const r: CheckResult = hinted && checked.verdict === 'correct' ? { ...checked, verdict: 'almost' } : checked;
     setResult(r);
     const title = hinted && r.verdict === 'almost' ? 'С подсказкой' : r.verdict === 'almost' ? 'Почти' : undefined;
-    const note = hinted && r.verdict === 'almost' ? 'С подсказкой ответ засчитан как «почти».' : r.reason ? REASON_NOTE[r.reason] : undefined;
-    onAnswer({ verdict: r.verdict }, { title, note, answer: checked.verdict === 'correct' ? word.es : r.expected });
+    // Почему неверно (задача 12.3): другое слово урока, число существительного, артикль, ударение, опечатка.
+    const others = Object.values(words).filter((w) => w.id !== word.id);
+    const forms = word.plural ? [{ form: word.es, label: 'единственное число' }, { form: word.plural, label: 'множественное число' }] : [];
+    const why = checked.verdict === 'correct' ? undefined : diagnose(value, [word.es, ...(word.alt ?? [])], { others, forms });
+    const note = hinted && r.verdict === 'almost' ? 'С подсказкой ответ засчитан как «почти».' : why?.text;
+    onAnswer({ verdict: r.verdict }, { title, note, why: why?.kind, answer: checked.verdict === 'correct' ? word.es : r.expected });
   };
 
   const tone =

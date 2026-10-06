@@ -13,7 +13,12 @@ export function Choice({ step, words, locked, onAnswer, onCantListen }: Exercise
   const pick = (i: number) => {
     if (locked || picked !== null) return;
     setPicked(i);
-    onAnswer({ verdict: i === step.answer ? 'correct' : 'wrong' });
+    if (i === step.answer) return onAnswer({ verdict: 'correct' });
+    // Выбрано другое слово урока: назвать, что это за слово (задача 12.3).
+    const o = step.options[i];
+    const other = Object.values(words).find((w) => w.id !== word.id && (esToRu || listen ? w.ru === o : w.es === o));
+    const note = other ? (esToRu || listen ? `«${o}» — это «${other.es}», другое слово.` : `«${o}» — это «${other.ru}», другое слово.`) : undefined;
+    onAnswer({ verdict: 'wrong' }, { note, why: other ? 'confused' : undefined });
   };
 
   return (

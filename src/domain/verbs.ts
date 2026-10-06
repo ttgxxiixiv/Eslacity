@@ -249,6 +249,8 @@ export interface ForgeTask {
   answer: string;
   /** Равноправные ответы: женский род причастия при essere (sono andata, siamo andate). */
   alt: string[];
+  /** Формы того же глагола в открытых временах с подписью («yo · presente»): ответ другой формой — причина ошибки. */
+  forms: { form: string; label: string }[];
 }
 
 /** Женская форма passato с essere: sono andato → sono andata, siamo andati → siamo andate. */
@@ -272,13 +274,17 @@ export function forgeTasks(
   verbs: VerbData[], lang: Lang, tenses: Tense[], due: string[], size: number, rng: () => number, vosotros = true,
 ): ForgeTask[] {
   const byInf = new Map(verbs.map((v) => [v.inf, v]));
+  const persons = [0, 1, 2, 3, 4, 5].filter((p) => lang !== 'es' || vosotros || p !== 4);
   const task = (v: VerbData, tense: Tense, person: number): ForgeTask => {
     const answer = conjugate(v, tense, lang)[person];
-    return { inf: v.inf, ru: v.ru, tense, person, answer, alt: feminine(v, tense, answer) };
+    const forms = tenses.flatMap((t) => {
+      const all = conjugate(v, t, lang);
+      return persons.map((p) => ({ form: all[p], label: `${PERSONS[lang][p]} · ${TENSE_RU[t]}` }));
+    });
+    return { inf: v.inf, ru: v.ru, tense, person, answer, alt: feminine(v, tense, answer), forms };
   };
   const out: ForgeTask[] = [];
   const seen = new Set<string>();
-  const persons = [0, 1, 2, 3, 4, 5].filter((p) => lang !== 'es' || vosotros || p !== 4);
   for (const id of due) {
     const c = parseVerbCard(id);
     const v = c && byInf.get(c.inf);

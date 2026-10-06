@@ -6,7 +6,7 @@ import type { VerbsFile } from '../content/schema';
 import { loadVerbs } from '../content/verbs';
 import { logAnswer } from '../db/answers';
 import { speak, speakAs } from '../audio/tts';
-import { checkForm, EXAM_KEYS, type Verdict } from '../domain/answer';
+import { checkForm, diagnose, EXAM_KEYS, type Verdict } from '../domain/answer';
 import { answerMs } from '../domain/answerLog';
 import { seeded } from '../domain/generators';
 import { isVerbId } from '../domain/itemId';
@@ -214,12 +214,18 @@ function ForgeRun({ tasks, onFinish, onExit }: { tasks: ForgeTask[]; onFinish(r:
   const submit = () => {
     if (locked || !value.trim()) return;
     const c = checkForm(value, [task.answer, ...task.alt]);
+    // Другая форма того же глагола или ударение (задача 12.3); опечатку в форме не называем.
+    const why = c.verdict === 'correct' ? undefined : diagnose(value, [task.answer, ...task.alt], {
+      forms: task.forms,
+      target: `${PERSONS[LANG][task.person]} · ${TENSE_RU[task.tense]}`,
+      typos: false,
+    });
     const now = Date.now();
     const p = useProgress.getState();
     // Ошибка заводит карточку формы, верный ответ двигает уже заведённую. Верную с первого раза форму не храним.
     if (c.verdict !== 'correct' || p.cards[id]) p.applyGrades({ [id]: gradeFor(c.verdict, true) }, now);
     p.addXp(c.verdict === 'correct' ? XP.correct : c.verdict === 'almost' ? XP.almost : 0);
-    logAnswer({ itemId: id, kind: `forge-${task.tense}`, verdict: c.verdict, mode: 'forge', ms: answerMs(shownAt.current, now) }, now);
+    logAnswer({ itemId: id, kind: `forge-${task.tense}`, verdict: c.verdict, mode: 'forge', ms: answerMs(shownAt.current, now), why: why?.kind }, now);
     setResults([...results, { task, verdict: c.verdict }]);
     setFb({
       verdict: c.verdict,
@@ -227,6 +233,7 @@ function ForgeRun({ tasks, onFinish, onExit }: { tasks: ForgeTask[]; onFinish(r:
       answer: task.answer,
       sub: `${PERSONS[LANG][task.person]} · ${TENSE_RU[task.tense]}`,
       speakText: task.answer,
+      note: why?.text,
       itemId: id,
     });
     afterPaint(() => {

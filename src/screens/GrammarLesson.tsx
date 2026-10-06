@@ -225,7 +225,8 @@ function LessonRunner({ lesson }: { lesson: Lesson }) {
     setVerdict(c.verdict);
     const ex = item.ex;
     const spoken = c.speak;
-    setFb({ ...grammarFeedback(item, c), itemId: `g:${item.ex.id}` });
+    const f = grammarFeedback(item, c, input);
+    setFb({ ...f, itemId: `g:${item.ex.id}` });
     setRun(answerGrammar(run, ok, rng));
     if (!ok && !item.retry) wrongFirst.current.add(ex.id);
     const now = Date.now();
@@ -236,6 +237,7 @@ function LessonRunner({ lesson }: { lesson: Lesson }) {
         verdict: c.verdict,
         mode: 'grammar',
         ms: answerMs(shownAt.current, now),
+        why: f.why,
       },
       now,
     );

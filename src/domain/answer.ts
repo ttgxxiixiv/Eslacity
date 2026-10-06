@@ -183,3 +183,73 @@ export function checkBuilt(tiles: string[], accepted: string[]): CheckResult {
   const got = normalize(tiles.join(' '));
   return { verdict: accepted.some((a) => normalize(a) === got) ? 'correct' : 'wrong', expected: accepted[0] };
 }
+
+/** Причина ошибки (задача 12.3): пишется в журнал ответов, по ней 12.2 собирает слабые места. */
+export type WhyKind = 'article' | 'accent' | 'confused' | 'form' | 'typo';
+
+export interface Why {
+  kind: WhyKind;
+  /** Одна строка для окна итога. */
+  text: string;
+}
+
+export interface DiagnoseContext {
+  /** Другие слова урока: ответ, совпавший с одним из них, — «перепутали». */
+  others?: { es: string; ru: string; alt?: string[] }[];
+  /** Известные формы с подписью («yo · hablar»): ответ-форма — «другая форма». */
+  forms?: { form: string; label: string }[];
+  /** Подпись нужной формы, если она известна точно (кузница: лицо и время задания). */
+  target?: string;
+  /** Называть ли опечатку. В формах грамматики одна буква — уже другая форма (soy, sois), там её не называют. */
+  typos?: boolean;
+}
+
+const ACCENTED = /[áéíóúàèìòù]/g;
+const accents = (s: string) => (s.match(ACCENTED) ?? []).length;
+
+/**
+ * Почему ответ неверен. Причина называется, только если она точно такая: ответ отличается от верного
+ * лишь артиклем, лишь ударениями, совпал с другим словом урока, с другой известной формой или отличается
+ * одной буквой. Во всех остальных случаях — undefined, и строки в окне итога нет.
+ */
+export function diagnose(input: string, accepted: string[], ctx: DiagnoseContext = {}, lang: Lang = LANG): Why | undefined {
+  const got = normalize(input);
+  const acc = accepted.map(normalize);
+  if (!got || acc.includes(got)) return undefined;
+  const want = accepted[0];
+  const plainGot = stripAccents(got);
+
+  const g = splitArticle(input, lang);
+  for (const a of accepted) {
+    const e = splitArticle(a, lang);
+    if (e.article && g.article !== e.article && stripAccents(g.core) === stripAccents(e.core)) {
+      return { kind: 'article', text: g.article ? `Не тот артикль: правильно «${a}».` : `Без артикля: существительное учим вместе с ним — «${a}».` };
+    }
+  }
+
+  const same = accepted.find((a) => stripAccents(normalize(a)) === plainGot);
+  if (same) {
+    const [had, need] = [accents(got), accents(normalize(same))];
+    const text = had < need ? 'Пропущено ударение' : had > need ? 'Лишнее ударение' : 'Ударение не на той букве';
+    return { kind: 'accent', text: `${text}: «${same}».` };
+  }
+
+  for (const o of ctx.others ?? []) {
+    const forms = [o.es, ...(o.alt ?? [])].map(normalize);
+    if (forms.some((f) => acc.includes(f))) continue;
+    if (forms.includes(got)) return { kind: 'confused', text: `«${o.es}» — это «${o.ru}», другое слово.` };
+  }
+
+  // Одна форма бывает у нескольких лиц (hablaba — yo и él): называем все.
+  const labels = [...new Set((ctx.forms ?? []).filter((f) => normalize(f.form) === got).map((f) => f.label))];
+  if (labels.length) {
+    const right = ctx.target ?? (ctx.forms ?? []).find((f) => acc.includes(normalize(f.form)))?.label;
+    return { kind: 'form', text: `«${input.trim()}» — это ${labels.join(' или ')}${right ? `, а здесь нужно ${right}: «${want}»` : ''}.` };
+  }
+
+  const letters = stripAccents(splitArticle(want, lang).core).replace(/ /g, '').length;
+  if (ctx.typos !== false && letters >= LESSON.typoMinLength && acc.some((a) => levenshtein(plainGot, stripAccents(a)) === 1)) {
+    return { kind: 'typo', text: 'Опечатка в одной букве.' };
+  }
+  return undefined;
+}

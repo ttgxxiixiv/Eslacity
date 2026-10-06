@@ -1,20 +1,33 @@
 import { useRef, useState, type ReactNode, type RefObject } from 'react';
 import { EXAM_KEYS, type Verdict } from '../../domain/answer';
-import { fixWords, grammarTitle, type GrammarCheck, type GrammarInput, type GrammarItem } from '../../domain/grammar';
+import { diagnoseGrammar, fixWords, grammarTitle, tableForms, type GrammarCheck, type GrammarInput, type GrammarItem } from '../../domain/grammar';
+import { cachedLesson, GRAMMAR } from '../../content/grammar';
+import { lessonOfExercise } from '../../domain/itemId';
 import type { GrammarExercise, Register } from '../../content/schema';
 import type { Feedback } from '../FeedbackSheet';
 import { LANG } from '../../lang';
 import { AccentBar } from '../AccentBar';
 import { Button } from '../ui';
 
-/** Итог ответа на упражнение грамматики: заголовок, правильный ответ, объяснение правила. */
-export function grammarFeedback(item: GrammarItem, c: GrammarCheck): Feedback {
+/**
+ * Итог ответа на упражнение грамматики: заголовок, правильный ответ, причина ошибки (задача 12.3), объяснение
+ * правила. `rule` — показать урок правила: 'link' в повторении, 'text' в испытаниях (уйти из испытания нельзя),
+ * в самом уроке не нужен.
+ */
+export function grammarFeedback(item: GrammarItem, c: GrammarCheck, input?: GrammarInput, rule?: 'link' | 'text'): Feedback {
+  const lessonId = lessonOfExercise(item.ex.id);
+  const lesson = cachedLesson(lessonId);
+  const why = input ? diagnoseGrammar(item, input, c, lesson ? tableForms(lesson.theory) : []) : undefined;
+  const accent = !why && c.reason === 'accent' ? 'Обратите внимание на ударение.' : '';
+  const meta = rule ? GRAMMAR.find((l) => l.id === lessonId) : undefined;
   return {
     verdict: c.verdict,
     title: grammarTitle(item, c),
     answer: c.shown,
-    note: [c.reason === 'accent' ? 'Обратите внимание на ударение.' : '', item.ex.explain].filter(Boolean).join(' '),
+    note: [why?.text, accent, item.ex.explain].filter(Boolean).join(' '),
     speakText: c.speak,
+    why: why?.kind,
+    rule: meta ? { title: meta.title, to: rule === 'link' ? `/grammar/${meta.id}` : undefined } : undefined,
   };
 }
 

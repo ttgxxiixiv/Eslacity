@@ -1,5 +1,6 @@
+import { Link } from 'react-router-dom';
 import { ReportButton } from './ReportButton';
-import type { Verdict } from '../domain/answer';
+import type { Verdict, WhyKind } from '../domain/answer';
 import { Button, SpeakButton } from './ui';
 
 export interface Feedback {
@@ -11,6 +12,10 @@ export interface Feedback {
   speakText?: string;
   /** Задание, к которому относится итог: по нему отчёт об ошибке находит место в контенте (задача 11.1). */
   itemId?: string;
+  /** Причина ошибки (задача 12.3): строка уже в `note`, вид — для журнала. */
+  why?: WhyKind;
+  /** Урок правила: в повторении — ссылкой, в испытаниях — только названием. */
+  rule?: { title: string; to?: string };
 }
 
 // Цвет заголовка в тёмном диалоговом окне.
@@ -45,6 +50,18 @@ export function FeedbackSheet({ fb, onNext }: { fb: Feedback | null; onNext: () 
             </div>
           )}
           {fb.note && <div className="mt-1 text-sm text-[#e6dcc4]">{fb.note}</div>}
+          {fb.rule && fb.verdict !== 'correct' && (
+            <div className="mt-1 text-sm text-[#e6dcc4]" data-testid="feedback-rule">
+              Правило:{' '}
+              {fb.rule.to ? (
+                <Link to={fb.rule.to} className="text-gold underline">
+                  урок «{fb.rule.title}»
+                </Link>
+              ) : (
+                <>урок «{fb.rule.title}»</>
+              )}
+            </div>
+          )}
           {fb.itemId && (
             <div className="mt-2">
               {/* Своё состояние у каждого задания: отметка «сохранено» не переходит на следующее. */}
