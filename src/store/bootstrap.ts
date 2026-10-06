@@ -1,3 +1,4 @@
+import { watchReminder } from '../lib/reminder';
 import { db, type BuildingRow } from '../db/db';
 import { pruneAnswers } from '../db/answers';
 import { isListening } from '../domain/answerLog';
@@ -72,6 +73,8 @@ export async function bootstrap(): Promise<void> {
   }
   // Первая проверка после обновления переносит старые достижения в ступени медалей и выдаёт награды один раз.
   useMotivation.getState().evaluate(Date.now(), {}, false);
+  // Напоминание о дневной цели: расписание пересчитывается при запуске и дальше по изменениям.
+  watchReminder();
   // Старые записи журнала убираются в фоне: запуску они не нужны.
   pruneAnswers().catch((e) => console.error('Не удалось почистить журнал ответов', e));
 }

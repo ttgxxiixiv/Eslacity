@@ -1,3 +1,4 @@
+import { ReminderCard } from '../components/ReminderCard';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { VARIANT, VARIANTS } from '../config';
@@ -123,6 +124,8 @@ export function SettingsScreen() {
             Столько новых слов в день просят жители. Это мягкий лимит: учить дальше в городе можно всегда, просто «Продолжить» сначала позовёт на поручения.
           </p>
         </section>
+
+        <ReminderCard />
 
         <section className="rounded-3xl bg-white p-4 shadow-sm" data-testid="hero-gender">
           <div className="flex items-center gap-3">

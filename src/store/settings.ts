@@ -19,9 +19,12 @@ export interface Settings {
   /** Голоса для мужчин и женщин (путник и жители): имя голоса системы, пустое — угадать по имени (`tts.ts`). */
   voiceM: string;
   voiceF: string;
+  /** Напоминание о дневной цели (задача 10.4) и его время «ЧЧ:ММ». */
+  reminderOn: boolean;
+  reminderTime: string;
 }
 
-export const DEFAULT_SETTINGS: Settings = { speechRate: 0.9, dailyGoal: 100, blitzBest: 0, listenOffUntil: 0, newPerDay: 10, heroGender: 'm', heroName: '', voiceM: '', voiceF: '' };
+export const DEFAULT_SETTINGS: Settings = { speechRate: 0.9, dailyGoal: 100, blitzBest: 0, listenOffUntil: 0, newPerDay: 10, heroGender: 'm', heroName: '', voiceM: '', voiceF: '', reminderOn: false, reminderTime: '19:00' };
 
 interface SettingsState extends Settings {
   hydrate(s: Partial<Settings> | undefined): void;
@@ -35,8 +38,10 @@ export const useSettings = create<SettingsState>((set, get) => ({
   },
   update(patch) {
     set(patch);
-    const { speechRate, dailyGoal, blitzBest, listenOffUntil, newPerDay, heroGender, heroName, voiceM, voiceF } = { ...get(), ...patch };
-    persist(() => db.meta.put({ key: 'settings', value: { speechRate, dailyGoal, blitzBest, listenOffUntil, newPerDay, heroGender, heroName, voiceM, voiceF } }));
+    const { speechRate, dailyGoal, blitzBest, listenOffUntil, newPerDay, heroGender, heroName, voiceM, voiceF, reminderOn, reminderTime } = { ...get(), ...patch };
+    persist(() =>
+      db.meta.put({ key: 'settings', value: { speechRate, dailyGoal, blitzBest, listenOffUntil, newPerDay, heroGender, heroName, voiceM, voiceF, reminderOn, reminderTime } }),
+    );
   },
 }));
 

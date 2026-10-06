@@ -11,6 +11,8 @@ const config: CapacitorConfig = {
   plugins: {
     // Страница без viewport-fit=cover: WebView получает отступы от строки состояния и навигации, шапка не уходит под часы.
     SystemBars: { insetsHandling: 'native' },
+    // Напоминания (задача 10.4): белый силуэт медальона в строке состояния (`scripts/build-icons.py`), цвет — золото.
+    LocalNotifications: { smallIcon: 'ic_stat_eslacity', iconColor: '#d4a017' },
   },
 };
 

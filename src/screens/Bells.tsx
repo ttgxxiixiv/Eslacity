@@ -196,13 +196,20 @@ function BellsRun({ tasks: initial, hints, onFinish, onExit }: { tasks: PairTask
   const [fb, setFb] = useState<Feedback | null>(null);
   const [results, setResults] = useState<Result[]>([]);
   const shownAt = useRef(Date.now());
+  const current = useRef(0);
   const task = tasks[index];
   const heard = task?.words[task.target].es;
 
   useEffect(() => {
     shownAt.current = Date.now();
+    current.current = index;
     if (heard) afterPaint(() => speak(heard));
   }, [index, heard]);
+  useEffect(() => {
+    return () => {
+      current.current = -1;
+    };
+  }, []);
 
   if (!task) return null;
   const locked = picked !== null;
@@ -232,8 +239,12 @@ function BellsRun({ tasks: initial, hints, onFinish, onExit }: { tasks: PairTask
     }
   };
 
+  // «Оба слова» говорит по очереди и ждёт конца каждого. Если игрок уже перешёл дальше, цикл обрывается:
+  // иначе старое слово прозвучало бы поверх нового задания.
   const both = async () => {
+    const at = index;
     for (const k of task.order) {
+      if (current.current !== at) return;
       speak(task.words[k].es, SLOW);
       await untilSpoken();
     }

@@ -268,6 +268,8 @@ export default defineConfig({
         globIgnores: ['icons/icon-512.png', 'icons/maskable-512.png'],
         navigateFallback: 'index.html',
         cleanupOutdatedCaches: true,
+        // Напоминания (задача 10.4): обработчик periodicsync и нажатия на уведомление.
+        importScripts: ['reminder-sw.js'],
       },
     }),
   ],

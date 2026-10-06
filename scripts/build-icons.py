@@ -69,3 +69,37 @@ if RES.exists():
         splash.paste(src.resize((side, side), Image.LANCZOS), ((w - side) // 2, (h - side) // 2))
         splash.quantize(256, method=Image.Quantize.MEDIANCUT).save(path, 'PNG', optimize=True)
         print(path.relative_to(ROOT), (w, h))
+
+# Значок уведомления (напоминания, задача 10.4): Android рисует его в строке состояния одним цветом по прозрачности,
+# цветная картинка превратилась бы в квадрат. Белый силуэт медальона с глазом: кольцо, глаз-миндалина, зрачок.
+# `drawable-*/ic_stat_eslacity.png`, 24dp; имя прописано в `capacitor.config.ts` (LocalNotifications.smallIcon).
+if RES.exists():
+    from PIL import ImageDraw
+
+    def stat_icon(px: int) -> Image.Image:
+        s = px * 8
+        img = Image.new('L', (s, s), 0)
+        d = ImageDraw.Draw(img)
+        d.ellipse((s * 0.06, s * 0.06, s * 0.94, s * 0.94), fill=255)
+        d.ellipse((s * 0.16, s * 0.16, s * 0.84, s * 0.84), fill=0)
+        # Глаз: две дуги-окружности дают миндалину.
+        eye = Image.new('L', (s, s), 0)
+        e = ImageDraw.Draw(eye)
+        e.ellipse((s * 0.1, s * 0.26, s * 0.9, s * 1.06), fill=255)
+        top = Image.new('L', (s, s), 0)
+        ImageDraw.Draw(top).ellipse((s * 0.1, s * -0.06, s * 0.9, s * 0.74), fill=255)
+        eye = Image.composite(eye, Image.new('L', (s, s), 0), top)
+        img = Image.composite(Image.new('L', (s, s), 255), img, eye)
+        d = ImageDraw.Draw(img)
+        d.ellipse((s * 0.38, s * 0.38, s * 0.62, s * 0.62), fill=0)
+        d.ellipse((s * 0.45, s * 0.45, s * 0.55, s * 0.55), fill=255)
+        alpha = img.resize((px, px), Image.LANCZOS)
+        out = Image.new('RGBA', (px, px), (255, 255, 255, 0))
+        out.putalpha(alpha)
+        return out
+
+    for dpi, k in {'mdpi': 1, 'hdpi': 1.5, 'xhdpi': 2, 'xxhdpi': 3, 'xxxhdpi': 4}.items():
+        path = RES / f'drawable-{dpi}' / 'ic_stat_eslacity.png'
+        path.parent.mkdir(exist_ok=True)
+        stat_icon(round(24 * k)).save(path, 'PNG', optimize=True)
+        print(path.relative_to(ROOT), round(24 * k))
