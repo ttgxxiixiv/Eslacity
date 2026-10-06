@@ -14,6 +14,7 @@ import { speak } from '../audio/tts';
 import { useCity } from '../store/city';
 import { useProgress } from '../store/progress';
 import { AccentBar } from './AccentBar';
+import { RepeatAfter } from './RepeatAfter';
 import { type Feedback, FeedbackSheet } from './FeedbackSheet';
 import { Button, SpeakButton } from './ui';
 
@@ -161,6 +162,9 @@ function PhraseIntro({ phrase, onNext }: { phrase: Phrase; onNext(): void }) {
       {phrase.es.includes('(') && <p className="mt-3 text-sm text-stone-500">Слова в скобках можно не говорить.</p>}
       {phrase.alt?.length ? <p className="mt-1 text-sm text-stone-500">Можно и так: {phrase.alt.map(fullPhrase).join(' / ')}</p> : null}
       {phrase.note && <p className="mt-1 text-sm text-stone-500">{phrase.note}</p>}
+      <div className="mt-4">
+        <RepeatAfter key={phrase.id} say={() => speak(full)} />
+      </div>
       <div className="flex-1" />
       <Button className="mt-6 w-full" onClick={onNext}>
         Понятно

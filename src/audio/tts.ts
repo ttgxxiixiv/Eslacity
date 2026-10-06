@@ -97,6 +97,7 @@ export function voiceFor(gender: VoiceGender): Voice | null {
  */
 export function speak(text: string, rate = useSettings.getState().speechRate, pitch = 1, gender?: VoiceGender): void {
   if (!supported || !text) return;
+  const finish = startSpoken(text, rate);
   const own = gender ? genderVoice(gender) : null;
   const v = own ?? voice;
   const tone = gender && !own ? shiftedPitch(pitch, gender, voiceGender(voice)) : pitch;
@@ -110,7 +111,9 @@ export function speak(text: string, rate = useSettings.getState().speechRate, pi
       pitch: tone,
       voice: index >= 0 ? index : undefined,
       queueStrategy: QueueStrategy.Flush,
-    }).catch(() => {});
+    })
+      .catch(() => {})
+      .finally(finish);
     return;
   }
   const u = new SpeechSynthesisUtterance(text);
@@ -121,7 +124,9 @@ export function speak(text: string, rate = useSettings.getState().speechRate, pi
   u.pitch = tone;
   u.onend = () => {
     if (current === u) current = null;
+    finish();
   };
+  u.onerror = finish;
   current = u;
   if (speechSynthesis.speaking || speechSynthesis.pending) {
     // В Chrome speak() сразу после cancel() иногда молча теряется.
@@ -130,6 +135,27 @@ export function speak(text: string, rate = useSettings.getState().speechRate, pi
   } else {
     speechSynthesis.speak(u);
   }
+}
+
+/**
+ * Конец текущей реплики: «Повторить за жителем» сначала договаривает реплику жителя, потом включает запись игрока.
+ * Обещание выполняется по концу речи, а если движок о нём не сообщил (оборвали, нет голоса), — по запасному
+ * времени из длины текста.
+ */
+let spoken: Promise<void> = Promise.resolve();
+
+function startSpoken(text: string, rate: number): () => void {
+  let done!: () => void;
+  spoken = new Promise<void>((resolve) => {
+    done = resolve;
+    setTimeout(resolve, Math.min(15_000, 800 + (text.length * 80) / Math.max(rate, 0.3)));
+  });
+  return () => done();
+}
+
+/** Дождаться, пока договорится последняя реплика. */
+export function untilSpoken(): Promise<void> {
+  return spoken;
 }
 
 /** Говорящий со своим голосом: житель, страж, кузнец, Летописец. Без пола (Сфинкс) — основной голос. */

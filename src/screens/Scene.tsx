@@ -10,6 +10,7 @@ import { plural } from '../domain/medals';
 import { sceneChunks, wordTranslation } from '../domain/sceneText';
 import { NpcPortrait } from '../components/NpcPortrait';
 import { HeroPortrait } from '../components/HeroPortrait';
+import { RepeatAfter } from '../components/RepeatAfter';
 import { addressed } from '../store/settings';
 import { Button, Screen, TopBar } from '../components/ui';
 
@@ -146,6 +147,8 @@ export function SceneTalk({ scene, place, lastLabel, onDone }: { scene: Scene; p
             {showRu ? 'Скрыть перевод' : 'Перевод'}
           </Button>
         </div>
+        {/* Повторить за жителем: запись себя и сравнение с репликой (задача 10.1). */}
+        {line && <RepeatAfter key={index} say={() => sayLine(line, place)} />}
         <Button className="w-full" onClick={next} data-testid="scene-next">
           {index + 1 >= scene.lines.length ? lastLabel : 'Дальше'}
         </Button>
