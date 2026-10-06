@@ -169,7 +169,8 @@ export function errandText(template: string, n: number): string {
     .replaceAll('{n}', String(n))
     .replaceAll('{слов}', plural(n, ['слово', 'слова', 'слов']))
     .replaceAll('{правил}', plural(n, ['правило', 'правила', 'правил']))
-    .replaceAll('{выражений}', plural(n, ['выражение', 'выражения', 'выражений']));
+    .replaceAll('{выражений}', plural(n, ['выражение', 'выражения', 'выражений']))
+    .replaceAll('{мест}', plural(n, ['место', 'места', 'мест']));
 }
 
 /** Награда за поручение: монеты растут с числом заданий. Репутация — одно очко у жителя. */

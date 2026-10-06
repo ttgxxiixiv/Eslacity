@@ -10,7 +10,7 @@ import { EMPTY_PHRASES, PhraseRun, type PhraseResult } from '../components/Phras
 import { seeded } from '../domain/generators';
 import { echoExercises } from '../domain/echo';
 import { exerciseOf, lessonOfExercise, placeOfPhrase, splitCards } from '../domain/itemId';
-import { buildReviewSteps, startSession, type SessionState, type Step } from '../domain/lessonQueue';
+import { buildReviewSteps, startSession, type SessionState, type Step, type StepKind } from '../domain/lessonQueue';
 import { dueCards, type SrsCard } from '../domain/srs';
 import { useProgress } from '../store/progress';
 import { useMotivation } from '../store/motivation';
@@ -53,7 +53,14 @@ async function loadRules(cardIds: string[]): Promise<{ found: Ready['rules']; mi
 }
 
 /** Что повторять: id карточек слов, правил и фраз; `echo` — выражения для поручения «Эхо». */
-export type PickCards = (cards: Record<string, SrsCard>) => { words: string[]; rules: string[]; phrases?: string[]; echo?: string[] };
+export type PickCards = (cards: Record<string, SrsCard>) => {
+  words: string[];
+  rules: string[];
+  phrases?: string[];
+  echo?: string[];
+  /** Вид задания для слова («Разбор ошибок», задача 12.2). */
+  kinds?: Record<string, StepKind>;
+};
 
 /** Общее повторение: карточки, которые пора повторить. */
 const dueToday: PickCards = (cards) => {
@@ -113,7 +120,7 @@ export function ReviewRun({ pick, title = 'Повторение завершен
       // Варианты ответа из выученных слов, если их хватает на четыре варианта.
       const known = loaded.filter((w) => w.id in cards);
       const pool = known.length >= 8 ? known : loaded;
-      const steps = buildReviewSteps(words, cards, pool, seeded(Date.now()), { listening: listeningEnabled(), typeExpressions });
+      const steps = buildReviewSteps(words, cards, pool, seeded(Date.now()), { listening: listeningEnabled(), typeExpressions, kinds: picked.kinds });
       const phraseSteps = reviewPhraseSteps(phrases, cards, phrasePool, seeded(Date.now() + 1));
       // «Эхо»: выражения и их пары; неверные варианты — из выражений тех же мест.
       const echoIds = picked.echo ?? [];

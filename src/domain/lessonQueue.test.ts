@@ -148,3 +148,15 @@ describe('выражения C1 в поручениях', () => {
     expect(review.some((s) => s.kind !== 'type')).toBe(true);
   });
 });
+
+describe('разбор ошибок: вид задания задан (задача 12.2)', () => {
+  it('у каждого слова свой вид, без «пар»; без звука — тот же вид без слуха', () => {
+    const five = words.slice(0, 5);
+    const kinds = { [five[0].id]: 'listen-type', [five[1].id]: 'type', [five[2].id]: 'choice-ru-es' } as const;
+    const steps = buildReviewSteps(five, {}, words, seeded(3), { kinds });
+    expect(steps.map((s) => s.kind).slice(0, 3)).toEqual(['listen-type', 'type', 'choice-ru-es']);
+    expect(steps.some((s) => s.kind === 'match')).toBe(false);
+    const quiet = buildReviewSteps(five, {}, words, seeded(3), { kinds, listening: false });
+    expect(quiet[0].kind).toBe('type');
+  });
+});

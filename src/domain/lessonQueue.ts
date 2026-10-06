@@ -34,6 +34,8 @@ export interface BuildOptions {
   listening?: boolean;
   /** Поручения жителей: устойчивые выражения C1, которые уже не новые, проверяются вводом. */
   typeExpressions?: boolean;
+  /** «Разбор ошибок» (задача 12.2): вид задания для слова — тот, где ошибались. Тогда и «пар» в начале нет. */
+  kinds?: Readonly<Record<string, StepKind>>;
 }
 
 /** Задания, где ответ вводится с клавиатуры: для оценки SM-2 и серии «без опечаток». */
@@ -119,6 +121,17 @@ export function buildReviewSteps(
 ): Step[] {
   const listening = opts.listening ?? true;
   const steps: Step[] = [];
+  const kinds = opts.kinds;
+  if (kinds) {
+    // На слух нельзя — тот же вид без звука.
+    const quiet: Partial<Record<StepKind, SingleKind>> = { 'listen-choice': 'choice-es-ru', 'listen-type': 'type' };
+    for (const w of words) {
+      const k = kinds[w.id];
+      const kind = (k && k !== 'match' && k !== 'intro' ? (!listening && quiet[k]) || k : reviewKind(cards[w.id], 0, listening)) as SingleKind;
+      steps.push(makeStep(kind, w, pool, rng));
+    }
+    return steps;
+  }
   if (words.length >= 5) {
     // Самые трудные по FSRS — в «пары» в начале повторения.
     const weakest = words.slice().sort((a, b) => (cards[b.id]?.difficulty ?? 0) - (cards[a.id]?.difficulty ?? 0));

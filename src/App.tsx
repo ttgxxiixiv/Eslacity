@@ -32,7 +32,7 @@ import { useErrands } from './store/errands';
 import { ChapterScene } from './components/ChapterScene';
 import { MedalsScreen } from './screens/Medals';
 import { JourneyMapScreen } from './screens/JourneyMap';
-import { ErrandScreen, ErrandsScreen } from './screens/Errands';
+import { ErrandScreen, ErrandsScreen, MistakesScreen } from './screens/Errands';
 import { LetterScreen, LettersDiaryScreen } from './screens/Letter';
 
 /** Новый экран открывается сверху, а не с прокруткой предыдущего. */
@@ -100,6 +100,7 @@ export default function App() {
         <Route path="/grammar/:id" element={<GrammarLessonScreen />} />
         <Route path="/review" element={<ReviewScreen />} />
         <Route path="/errand/:id" element={<ErrandScreen />} />
+        <Route path="/mistakes" element={<MistakesScreen />} />
         <Route path="/letter/:id" element={<LetterScreen />} />
         <Route path="/letters" element={<LettersDiaryScreen />} />
         <Route path="/settings" element={<SettingsScreen />} />

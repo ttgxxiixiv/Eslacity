@@ -16,3 +16,8 @@ export async function pruneAnswers(now = Date.now()): Promise<void> {
     await db.answers.bulkDelete(keys);
   }
 }
+
+/** Ответы журнала начиная с момента `since`: для работы над ошибками (задача 12.2). */
+export function answersSince(since: number): Promise<AnswerRecord[]> {
+  return db.answers.where('ts').aboveOrEqual(since).toArray();
+}

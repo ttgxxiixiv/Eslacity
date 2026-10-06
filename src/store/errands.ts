@@ -23,12 +23,14 @@ export interface ErrandsData {
   rep: Record<string, number>;
   /** Выражения, верно сказанные в другом регистре в поручениях «Эхо»: медаль «Эхо». */
   echo: number;
+  /** День, когда пройден «Разбор ошибок» Летописца (задача 12.2): он бывает раз в день. */
+  mistakes: number;
 }
 
 /** С этой главы одно поручение в день может стать «Эхом». */
 export const ECHO_CHAPTER = 5;
 
-const EMPTY: ErrandsData = { day: 0, active: [], last: {}, done: 0, rep: {}, echo: 0 };
+const EMPTY: ErrandsData = { day: 0, active: [], last: {}, done: 0, rep: {}, echo: 0, mistakes: 0 };
 
 interface ErrandsState extends ErrandsData {
   hydrate(d: Partial<ErrandsData> | undefined): void;
@@ -40,11 +42,13 @@ interface ErrandsState extends ErrandsData {
   addRep(npcId: string, points: number): Rank | null;
   /** Засчитать выражения, верно сказанные в «Эхе». */
   addEcho(n: number): void;
+  /** «Разбор ошибок» пройден: награда и репутация у Летописца, до завтра его нет. null — уже пройден сегодня. */
+  completeMistakes(items: number, now?: number): { coins: number; rep: number; rankUp: Rank | null } | null;
 }
 
 function save(s: ErrandsData) {
-  const { day, active, last, done, rep, echo } = s;
-  persist(() => db.meta.put({ key: 'errands', value: { day, active, last, done, rep, echo } }));
+  const { day, active, last, done, rep, echo, mistakes } = s;
+  persist(() => db.meta.put({ key: 'errands', value: { day, active, last, done, rep, echo, mistakes } }));
 }
 
 export const useErrands = create<ErrandsState>((set, get) => ({
@@ -91,6 +95,20 @@ export const useErrands = create<ErrandsState>((set, get) => ({
     save(get());
     const after = rankIndex(before + points);
     return after > rankIndex(before) ? RANKS[after] : null;
+  },
+
+  completeMistakes(items, now = Date.now()) {
+    const s = get();
+    const today = dayNumber(now);
+    if (s.mistakes === today) return null;
+    const reward = { coins: 10 + items * 2, rep: 1 };
+    const npc = npcFor(SCROLL_PLACE);
+    const before = npc ? (s.rep[npc.id] ?? 0) : 0;
+    set({ mistakes: today, done: s.done + 1, rep: npc ? { ...s.rep, [npc.id]: before + reward.rep } : s.rep });
+    useCity.getState().addCoins(reward.coins);
+    save(get());
+    const after = rankIndex(before + reward.rep);
+    return { ...reward, rankUp: npc && after > rankIndex(before) ? RANKS[after] : null };
   },
 
   complete(id) {
