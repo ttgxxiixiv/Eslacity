@@ -1,47 +1,42 @@
 import { currentTier, TIERS, type LineId, type MedalsState, type Tier } from './medals';
-import { H_ROADS, V_ROADS, type Point } from './townMap';
+import type { LocationId } from '../content/schema';
 
 /**
- * Облик героя и украшения города (задача 9.3). Золотая медаль линии ставит на перекрёсток карты города её
- * украшение: у каждой из двенадцати линий свой перекрёсток (их тоже двенадцать) и своё украшение. Фонарь путника
- * светит цветом лучшей медали. Всё выводится из медалей, полученное не отнимается; в записи наград хранятся
- * только выбор фонаря и выключенные украшения.
+ * Облик героя и украшения города (задача 9.3). Золотая медаль линии украшает здание города: у каждой из двенадцати
+ * линий своё здание и своё украшение. На карте участок здания берётся из картинки с украшениями
+ * (`src/assets/city-decor.webp`, та же сетка, что у основной карты), значок в профиле — `src/assets/decor/<линия>.webp`
+ * (режет `scripts/build-decor-art.py`). Фонарь путника светит цветом лучшей медали. Всё выводится из медалей,
+ * полученное не отнимается; в записи наград хранятся только выбор фонаря и выключенные украшения.
  */
-
-export type DecorKind = 'flag' | 'lamp' | 'flowers' | 'well';
 
 export interface Decor {
   line: LineId;
-  kind: DecorKind;
   /** Название в профиле. */
   title: string;
-  /** Цвет полотнища флага, огня фонаря или цветов клумбы. */
-  color: string;
-  /** Перекрёсток: номер вертикальной и горизонтальной дороги. */
-  at: [number, number];
+  /** Здание, у которого стоит украшение. */
+  place: LocationId;
+  /** Цвет свечения значка у фонарей и гирлянды. */
+  glow?: string;
 }
 
 /** С какой медали линии ставится украшение. */
 export const DECOR_TIER: Tier = 'gold';
 
-/** Украшения линий по перекрёсткам: сверху вниз, слева направо. */
+/** Украшения линий в порядке листа `docs/design/decor.png`. */
 export const DECOR: Decor[] = [
-  { line: 'words', kind: 'flag', title: 'Знамя Словесника', color: '#2f5fa8', at: [0, 0] },
-  { line: 'grammar', kind: 'flowers', title: 'Клумба Знатока правил', color: '#8a4fc4', at: [1, 0] },
-  { line: 'streak', kind: 'lamp', title: 'Фонарь Упорства', color: '#ff9a2e', at: [2, 0] },
-  { line: 'cartographer', kind: 'flag', title: 'Знамя Картографа', color: '#3c8a3c', at: [0, 1] },
-  { line: 'builder', kind: 'well', title: 'Колодец Строителя', color: '#5a8fc4', at: [1, 1] },
-  { line: 'friend', kind: 'flowers', title: 'Клумба Друга города', color: '#d8435a', at: [2, 1] },
-  { line: 'courier', kind: 'lamp', title: 'Фонарь Посыльного', color: '#ffd24a', at: [0, 2] },
-  { line: 'trials', kind: 'flag', title: 'Знамя Испытателя', color: '#b3261e', at: [1, 2] },
-  { line: 'listener', kind: 'flowers', title: 'Клумба Слушателя', color: '#4fa8c4', at: [2, 2] },
-  { line: 'blitz', kind: 'flag', title: 'Знамя Молнии', color: '#e0b43c', at: [0, 3] },
-  { line: 'typed', kind: 'well', title: 'Колодец Твёрдой руки', color: '#7a9a6a', at: [1, 3] },
-  { line: 'echo', kind: 'lamp', title: 'Фонарь Эха', color: '#b48cff', at: [2, 3] },
+  { line: 'words', title: 'Знамя Словесника', place: 'school' },
+  { line: 'grammar', title: 'Клумба Знатока правил', place: 'pharmacy' },
+  { line: 'streak', title: 'Гирлянда Упорства', place: 'cafe', glow: '#ff9a2e' },
+  { line: 'cartographer', title: 'Знамя Картографа', place: 'station' },
+  { line: 'builder', title: 'Колодец Строителя', place: 'home' },
+  { line: 'friend', title: 'Флажки Друга города', place: 'market' },
+  { line: 'courier', title: 'Фонари Посыльного', place: 'post', glow: '#ffd24a' },
+  { line: 'trials', title: 'Знамёна Испытателя', place: 'gym' },
+  { line: 'listener', title: 'Колокольчики Слушателя', place: 'park' },
+  { line: 'blitz', title: 'Флюгер Молнии', place: 'airport' },
+  { line: 'typed', title: 'Фонтан Твёрдой руки', place: 'bank' },
+  { line: 'echo', title: 'Фонари Эха', place: 'hotel', glow: '#b48cff' },
 ];
-
-/** Точка перекрёстка украшения на карте, в пикселях картинки города. */
-export const decorSpot = (d: Decor): Point => ({ x: V_ROADS[d.at[0]], y: H_ROADS[d.at[1]] });
 
 const reached = (tier: Tier | null, need: Tier) => tier !== null && TIERS.indexOf(tier) >= TIERS.indexOf(need);
 

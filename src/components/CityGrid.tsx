@@ -2,6 +2,7 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import cityMap from '../assets/city.webp';
 import cityLit from '../assets/city-lit.webp';
+import cityDecor from '../assets/city-decor.webp';
 import { LOCATIONS } from '../content/locations';
 import { NPC_BY_LOCATION } from '../content/npcs';
 import { useErrands } from '../store/errands';
@@ -18,10 +19,9 @@ import { useCity } from '../store/city';
 import { useNow } from '../lib/useNow';
 import { HeroSprite } from './Hero';
 import { LANG } from '../lang';
-import { decorSpot, lanternOf, shownDecor } from '../domain/decor';
+import { lanternOf, shownDecor, type Decor } from '../domain/decor';
 import { useMotivation } from '../store/motivation';
 import { useRewards } from '../store/rewards';
-import { DecorArt } from './DecorArt';
 
 /** Скорость героя в пикселях картинки в секунду и предел длительности прогулки. */
 const SPEED = 1200;
@@ -59,9 +59,10 @@ const GLOW = 24;
 
 /**
  * Кусок освещённой картинки на месте участка. Картинка того же размера и с той же разметкой,
- * поэтому достаточно показать её фоном с нужным масштабом и сдвигом.
+ * поэтому достаточно показать её фоном с нужным масштабом и сдвигом. Так же показывается участок с украшением
+ * за золотую медаль (`city-decor.webp`): это освещённая карта с украшениями у двенадцати зданий.
  */
-function LitPlot({ index }: { index: number }) {
+function LitPlot({ index, src = cityLit, decor }: { index: number; src?: string; decor?: Decor }) {
   const p = plotRect(index);
   const x0 = Math.max(0, p.x - GLOW);
   const y0 = Math.max(0, p.y - GLOW);
@@ -70,12 +71,14 @@ function LitPlot({ index }: { index: number }) {
     <div
       aria-hidden
       className="lit-plot pointer-events-none absolute"
+      data-testid={decor ? 'city-decor' : undefined}
+      data-line={decor?.line}
       style={{
         left: pctX(r.x),
         top: pctY(r.y),
         width: pctX(r.w),
         height: pctY(r.h),
-        backgroundImage: `url(${cityLit})`,
+        backgroundImage: `url(${src})`,
         backgroundRepeat: 'no-repeat',
         backgroundSize: `${(MAP_W / r.w) * 100}% ${(MAP_H / r.h) * 100}%`,
         backgroundPosition: `${(r.x / (MAP_W - r.w)) * 100}% ${(r.y / (MAP_H - r.h)) * 100}%`,
@@ -92,7 +95,21 @@ const LABEL_H = 40;
  * Здание на карте: прозрачная кнопка поверх нарисованного участка.
  * Название нарисовано на картинке, для экранных читалок оно продублировано скрытым текстом.
  */
-function Building({ meta, index, now, onGo, signal }: { meta: LocationMeta; index: number; now: number; onGo: (i: number) => void; signal: number }) {
+function Building({
+  meta,
+  index,
+  now,
+  onGo,
+  signal,
+  decor,
+}: {
+  meta: LocationMeta;
+  index: number;
+  now: number;
+  onGo: (i: number) => void;
+  signal: number;
+  decor?: Decor;
+}) {
   const collect = useCity((s) => s.collect);
   const [float, setFloat] = useState<{ key: number; n: number } | null>(null);
   const b = useCity((s) => s.buildings[meta.id]);
@@ -108,9 +125,9 @@ function Building({ meta, index, now, onGo, signal }: { meta: LocationMeta; inde
 
   return (
     <>
-      {level > 0 ? (
-        <LitPlot index={index} />
-      ) : (
+      {/* Украшение за медаль стоит и у закрытого здания: тогда участок с ним притушен, как всё закрытое. */}
+      {decor ? <LitPlot index={index} src={cityDecor} decor={decor} /> : level > 0 && <LitPlot index={index} />}
+      {level === 0 && (
         <div
           aria-hidden
           className="map-locked pointer-events-none absolute rounded-lg"
@@ -322,22 +339,8 @@ export function CityGrid() {
       <div className="relative isolate mt-2" style={{ aspectRatio: `${MAP_W} / ${MAP_H}` }}>
         <img src={cityMap} alt="" draggable={false} className="absolute inset-0 h-full w-full select-none" />
         {LOCATIONS.map((l, i) => (
-          <Building key={l.id} meta={l} index={i} now={now} onGo={go} signal={signals[l.id] ?? 0} />
+          <Building key={l.id} meta={l} index={i} now={now} onGo={go} signal={signals[l.id] ?? 0} decor={decor.find((d) => d.place === l.id)} />
         ))}
-        {decor.map((d) => {
-          const p = decorSpot(d);
-          return (
-            <div
-              key={d.line}
-              className="pointer-events-none absolute z-10 -translate-x-1/2 -translate-y-[85%]"
-              style={{ left: `${(p.x / MAP_W) * 100}%`, top: `${(p.y / MAP_H) * 100}%`, filter: d.kind === 'lamp' ? `drop-shadow(0 0 3px ${d.color})` : undefined }}
-              data-testid="city-decor"
-              data-line={d.line}
-            >
-              <DecorArt kind={d.kind} color={d.color} cell={2} />
-            </div>
-          );
-        })}
         <div
           ref={layer}
           data-testid="hero"

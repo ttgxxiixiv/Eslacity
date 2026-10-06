@@ -1,16 +1,15 @@
 import { describe, expect, it } from 'vitest';
-import { bestTier, DECOR, decorSpot, lanternOf, shownDecor, unlockedDecor, unlockedLanterns } from './decor';
+import { bestTier, DECOR, lanternOf, shownDecor, unlockedDecor, unlockedLanterns } from './decor';
 import { ACTIVE_LINES, type MedalsState } from './medals';
-import { H_ROADS, V_ROADS } from './townMap';
+import { LOCATIONS } from '../content/locations';
 
 const medals = (lines: MedalsState['lines']): MedalsState => ({ lines, secrets: {} });
 
 describe('украшения города', () => {
-  it('у каждой линии медалей своё украшение на своём перекрёстке', () => {
+  it('у каждой линии медалей своё украшение у своего здания', () => {
     expect(DECOR.map((d) => d.line).sort()).toEqual(ACTIVE_LINES.map((l) => l.id).sort());
-    const spots = new Set(DECOR.map((d) => `${d.at[0]}.${d.at[1]}`));
-    expect(spots.size).toBe(V_ROADS.length * H_ROADS.length);
-    expect(decorSpot(DECOR[0])).toEqual({ x: V_ROADS[0], y: H_ROADS[0] });
+    expect(new Set(DECOR.map((d) => d.place)).size).toBe(DECOR.length);
+    for (const d of DECOR) expect(LOCATIONS.some((l) => l.id === d.place)).toBe(true);
   });
 
   it('украшение ставит золотая медаль линии и выше', () => {
@@ -35,5 +34,12 @@ describe('фонарь путника', () => {
     expect(lanternOf(m, 'bronze').id).toBe('bronze');
     expect(lanternOf(m, 'gold').id).toBe('amber');
     expect(lanternOf(m, undefined).id).toBe('amber');
+  });
+});
+
+describe('картинки украшений', () => {
+  it('у каждого украшения есть значок', async () => {
+    const { existsSync } = await import('node:fs');
+    for (const d of DECOR) expect(existsSync(`src/assets/decor/${d.line}.webp`), d.line).toBe(true);
   });
 });
