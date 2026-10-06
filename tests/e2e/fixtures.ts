@@ -22,9 +22,12 @@ interface Word {
 export function loadWords(lang: Lang) {
   const dir = join(CONTENT, lang, 'words');
   const scrolls = join(CONTENT, lang, 'scrolls');
+  // Праздники (задача 10.5): их слова учатся тем же уроком слов.
+  const festivals = join(CONTENT, lang, 'festivals');
   const words: Word[] = [
     ...readdirSync(dir).flatMap((f) => JSON.parse(readFileSync(join(dir, f), 'utf8')).words),
     ...readdirSync(scrolls).flatMap((f) => JSON.parse(readFileSync(join(scrolls, f), 'utf8')).words),
+    ...readdirSync(festivals).flatMap((f) => JSON.parse(readFileSync(join(festivals, f), 'utf8')).words),
   ];
   return {
     byRu: new Map(words.map((w) => [w.ru, w])),
@@ -370,6 +373,8 @@ interface PhraseData {
 
 /** Фразы места из контента. */
 export function loadPhraseData(lang: Lang, place: string): PhraseData[] {
+  // Праздник (`fest-<id>`): фразы лежат в файле праздника.
+  if (place.startsWith('fest-')) return JSON.parse(readFileSync(join(CONTENT, lang, 'festivals', `${place.slice(5)}.json`), 'utf8')).phrases;
   return JSON.parse(readFileSync(join(CONTENT, lang, 'phrases', `${place}.json`), 'utf8')).phrases;
 }
 

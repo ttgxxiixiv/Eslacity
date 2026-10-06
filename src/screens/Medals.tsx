@@ -1,3 +1,4 @@
+import { LANG } from '../lang';
 import { Medal } from '../components/Medal';
 import { Screen, TopBar } from '../components/ui';
 import {
@@ -69,7 +70,7 @@ export function MedalsScreen() {
           <h2 className="font-bold">Тайные медали</h2>
           <p className="text-xs text-stone-500">Как их получить, узнаешь, только когда получишь.</p>
           <ul className="mt-3 grid grid-cols-3 gap-3">
-            {SECRETS.map((x) => {
+            {SECRETS.filter((x) => !x.lang || x.lang === LANG).map((x) => {
               const has = medals.secrets[x.id] !== undefined;
               return (
                 <li key={x.id} className="flex flex-col items-center text-center">

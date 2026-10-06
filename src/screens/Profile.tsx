@@ -19,6 +19,7 @@ import { Medal } from '../components/Medal';
 import { SageBadges } from '../components/SageBadges';
 import { HeroRewards } from '../components/HeroRewards';
 import { CityDecorCard } from '../components/CityDecorCard';
+import { FestivalCalendar } from '../components/FestivalBits';
 import { VocabCard } from '../components/VocabCard';
 import { useLetters } from '../store/letters';
 
@@ -69,6 +70,7 @@ export function ProfileScreen() {
         <SageBadges />
         <HeroRewards />
         <CityDecorCard />
+        <FestivalCalendar />
         <VocabCard />
         <Link to="/journey-map" className="press flex items-center gap-3 rounded-3xl bg-white p-4 shadow-sm" data-testid="profile-map">
           <span className="text-3xl" aria-hidden>

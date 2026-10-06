@@ -2,6 +2,7 @@
  * Медали (docs/GAME.md, раздел «Медали»). Линия медалей — один счётчик и шесть порогов, ступени
  * от дерева до бриллианта. Кроме линий есть тайные одиночные медали, которые не видны до получения.
  */
+import { FESTIVALS } from './festival';
 
 export type Tier = 'wood' | 'stone' | 'bronze' | 'silver' | 'gold' | 'diamond';
 
@@ -55,6 +56,8 @@ export interface MedalCounters {
   sphinxSeen: boolean;
   /** Герой выпил Эликсир (тайная медаль «Хранитель пути»). */
   elixir: boolean;
+  /** Праздники, чья миссия пройдена в неделю праздника (тайные медали праздников, задача 10.5). */
+  festivals: string[];
 }
 
 export type LineId =
@@ -127,6 +130,8 @@ export interface SecretMedal {
   id: string;
   title: string;
   text: string;
+  /** Медаль только курса этого языка (праздники): в другом курсе её не показывают. */
+  lang?: 'es' | 'it';
   test: ((c: MedalCounters, e: MedalEvent) => boolean) | null;
 }
 
@@ -153,6 +158,14 @@ export const SECRETS: SecretMedal[] = [
   { id: 'labyrinth', title: 'Выход из Лабиринта', text: 'Печать главы V', test: (c) => c.seals.includes(LABYRINTH_CHAPTER) },
   { id: 'sphinx', title: 'Взгляд Сфинкса', text: 'Дойти до Врат Хранилища', test: (c) => c.sphinxSeen },
   { id: 'keeper', title: 'Хранитель пути', text: 'Выпить Эликсир', test: (c) => c.elixir },
+  // Праздники (задача 10.5): у каждого языка свои.
+  ...FESTIVALS.map((f) => ({
+    id: `festival-${f.id}`,
+    title: f.medal.title,
+    text: f.medal.text,
+    lang: f.lang,
+    test: (c: MedalCounters) => (c.festivals ?? []).includes(f.id),
+  })),
 ];
 
 export interface MedalsState {

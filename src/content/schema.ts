@@ -191,7 +191,7 @@ export interface ScrollFile {
 export type Chronicler = Omit<Npc, 'location'>;
 
 /** Откуда грузятся слова: место или свиток главы (`scroll1`). */
-export type WordSource = LocationId | `scroll${number}`;
+export type WordSource = LocationId | `scroll${number}` | `fest-${string}`;
 
 /**
  * Готовая фраза ситуации: то, что герой говорит жителю места (docs/GAME.md, этап «Сюжетные миссии»).
@@ -388,6 +388,22 @@ export interface Smith {
   greeting: Example;
   voice: { pitch: number; rate: number };
   look: NpcLook;
+}
+
+/**
+ * `src/content/<язык>/festivals/<id>.json` — праздник (задача 10.5): приглашение хозяина, рассказ о празднике,
+ * слова (`fest-<id>.<slug>`, уровень 1), фразы (`ph:fest-<id>.<slug>`) и миссия хозяина (`ms:fest-<id>.2`, сложность главы II).
+ * Даты, хозяин и цвета — `FESTIVALS` в `src/domain/festival.ts`.
+ */
+export interface FestivalFile {
+  id: string;
+  intro: Example;
+  about: string;
+  /** Имена собственные в репликах и фразах (Fermín, Ferragosto): проверка словаря их не считает незнакомыми. */
+  names: string[];
+  words: Word[];
+  phrases: Phrase[];
+  missions: Mission[];
 }
 
 /** Слово минимальной пары: форма на изучаемом языке и перевод. */

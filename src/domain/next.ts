@@ -107,8 +107,8 @@ export function nextStep({
 export function recentLocation(cards: Record<string, { learnedAt: number }>): LocationId | undefined {
   let best: { id: string; t: number } | null = null;
   for (const [id, c] of Object.entries(cards)) {
-    // Правила, фразы и слова свитков не относятся к урокам слов места.
-    if (!isWordId(id) || isScrollId(id)) continue;
+    // Правила, фразы, слова свитков и праздников не относятся к урокам слов места.
+    if (!isWordId(id) || isScrollId(id) || id.startsWith('fest-')) continue;
     if (!best || c.learnedAt > best.t) best = { id, t: c.learnedAt };
   }
   return best ? (best.id.split('.')[0] as LocationId) : undefined;

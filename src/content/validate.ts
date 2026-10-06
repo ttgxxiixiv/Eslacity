@@ -9,8 +9,9 @@ import { sceneWords } from '../domain/sceneText';
 import { conjugate, generated, participle, TENSES, type Tense } from '../domain/verbs';
 import { phraseTokens } from '../domain/phraseSteps';
 import { pairIssue } from '../domain/minimalPairs';
+import { festivalMissionId, festivalPlace, festivalsOf } from '../domain/festival';
 import { LETTER_MAX_WORDS, LETTER_MIN_WORDS, wordCount as letterWords } from '../domain/letter';
-import { LOCATION_IDS, SPHINX_LINES, type SphinxSpeaker, type Chronicler, type GrammarExercise, type GrammarLesson, type GuardiansFile, type LettersFile, type NpcLook, type LocationMissions, type MissionAnswer, type LocationPhrases, type LocationScenes, type Phrase, type Scene, type LocationWords, type NpcsFile, type ScrollFile, type SphinxFile, type VerbsFile, type Word, type PairsFile, type Smith } from './schema';
+import { LOCATION_IDS, SPHINX_LINES, type SphinxSpeaker, type Chronicler, type GrammarExercise, type GrammarLesson, type GuardiansFile, type LettersFile, type NpcLook, type LocationMissions, type MissionAnswer, type LocationPhrases, type LocationScenes, type Phrase, type Scene, type LocationWords, type NpcsFile, type ScrollFile, type SphinxFile, type VerbsFile, type Word, type PairsFile, type Smith, type FestivalFile, type LocationId } from './schema';
 
 export interface Issue {
   level: 'error' | 'warning';
@@ -805,6 +806,81 @@ function checkMaster(s: Smith | undefined, at: string, out: Issue[]) {
   checkLook(s.look, at, out);
 }
 
+/** Слов праздника: не меньше и не больше (два урока слов). */
+export const FESTIVAL_WORDS = { min: 10, max: 15 };
+
+/**
+ * Праздники (задача 10.5): у каждого праздника языка свой файл; слова с префиксом `fest-<id>.` уровня 1, фразы
+ * и одна миссия хозяина — общими проверками фраз и миссий, где праздник — «место» `fest-<id>`.
+ */
+export function validateFestivals(
+  files: { name: string; data: FestivalFile }[],
+  lang: Lang,
+  checks: { residents: Record<string, string>; phrases: PhraseChecks; missions: Omit<MissionChecks, 'residents' | 'phrases'> },
+): Issue[] {
+  const out: Issue[] = [];
+  const byId = new Map(files.map((f) => [f.data?.id, f]));
+  for (const f of festivalsOf(lang)) {
+    const file = byId.get(f.id);
+    const where = `festivals/${f.id}.json`;
+    if (!file) {
+      out.push({ level: 'error', where, msg: 'нет файла праздника' });
+      continue;
+    }
+    if (file.name !== `${f.id}.json`) out.push({ level: 'error', where, msg: `имя файла не совпадает с id "${f.id}"` });
+    const host = checks.residents[f.host];
+    if (!host) out.push({ level: 'error', where, msg: `у здания хозяина "${f.host}" нет жителя` });
+    const { data } = file;
+    if (empty(data.intro?.es) || empty(data.intro?.ru)) out.push({ level: 'error', where, msg: 'нет приглашения хозяина (intro)' });
+    if (empty(data.about)) out.push({ level: 'error', where, msg: 'нет рассказа о празднике (about)' });
+    const place = festivalPlace(f.id);
+    const words = data.words ?? [];
+    if (words.length < FESTIVAL_WORDS.min || words.length > FESTIVAL_WORDS.max) {
+      out.push({ level: 'error', where, msg: `${words.length} слов, нужно ${FESTIVAL_WORDS.min}–${FESTIVAL_WORDS.max}` });
+    }
+    const ids = new Set<string>();
+    words.forEach((w, i) => {
+      const at = `${where} слово #${i} ${w.id ?? '?'}`;
+      checkWord(w, at, lang, out);
+      if (!w.id?.startsWith(`${place}.`)) out.push({ level: 'error', where: at, msg: `id должен начинаться с "${place}."` });
+      if (w.level !== 1) out.push({ level: 'error', where: at, msg: 'у слова праздника level всегда 1' });
+      if (ids.has(w.id)) out.push({ level: 'error', where: at, msg: 'дубль id' });
+      ids.add(w.id);
+    });
+    const tag = (list: Issue[]) => list.map((x) => ({ ...x, where: `festivals/${f.id} ${x.where}` }));
+    // Имена собственные праздника (Fermín, Ferragosto) знакомы: в словаре их нет, но учить их не нужно.
+    const names = new Set((data.names ?? []).map((n) => normalize(n)));
+    const known = (t: string) => !names.has(normalize(t));
+    const uncovered = checks.phrases.uncovered;
+    const phraseChecks: PhraseChecks = { ...checks.phrases, places: [place], uncovered: uncovered && ((text, level) => uncovered(text, level).filter(known)) };
+    out.push(...tag(validatePhrases([{ name: `${place}.json`, data: { location: place as LocationId, phrases: data.phrases ?? [] } }], phraseChecks)));
+    const missions = data.missions ?? [];
+    if (missions.length !== 1 || missions[0]?.id !== festivalMissionId(f.id)) {
+      out.push({ level: 'error', where, msg: `нужна одна миссия "${festivalMissionId(f.id)}"` });
+    }
+    out.push(
+      ...tag(
+        validateMissions([{ name: `${place}.json`, data: { location: place as LocationId, missions } }], {
+          ...checks.missions,
+          coverage:
+            checks.missions.coverage &&
+            ((text, level) => {
+              const c = checks.missions.coverage!(text, level);
+              return { total: c.total, unknown: c.unknown.filter(known) };
+            }),
+          places: [place],
+          residents: { [place]: host ?? '' },
+          phrases: { [place]: data.phrases ?? [] },
+        }),
+      ),
+    );
+  }
+  for (const f of files) {
+    if (!festivalsOf(lang).some((x) => `${x.id}.json` === f.name)) out.push({ level: 'error', where: `festivals/${f.name}`, msg: 'праздника нет в FESTIVALS этого языка' });
+  }
+  return out;
+}
+
 /** Пар в противопоставлении не меньше: иначе звон из десяти заданий повторяет пары слишком часто. */
 export const PAIRS_MIN = 6;
 
@@ -991,6 +1067,8 @@ export function validateScrolls(files: { name: string; data: ScrollFile }[], pla
 }
 
 export interface PhraseChecks {
+  /** Места кроме мест города: праздники (`fest-<id>`). */
+  places?: readonly string[];
   /** id уроков грамматики языка: поле grammar должно ссылаться на существующий урок. */
   lessons?: ReadonlySet<string>;
   /** Слова фразы, которых нет в словаре мест того же или более низкого уровня и в грамматике. */
@@ -1007,7 +1085,7 @@ export function validatePhrases(files: { name: string; data: LocationPhrases }[]
   const ids = new Set<string>();
   const forms = new Map<string, string>();
   for (const { name, data } of files) {
-    if (!LOCATION_IDS.includes(data.location)) out.push({ level: 'error', where: name, msg: `неизвестное место "${data.location}"` });
+    if (!LOCATION_IDS.includes(data.location) && !checks.places?.includes(data.location)) out.push({ level: 'error', where: name, msg: `неизвестное место "${data.location}"` });
     if (`${data.location}.json` !== name) out.push({ level: 'error', where: name, msg: `имя файла не совпадает с location "${data.location}"` });
     if (!Array.isArray(data.phrases) || !data.phrases.length) {
       out.push({ level: 'error', where: name, msg: 'нет фраз' });
@@ -1195,6 +1273,8 @@ export const MISSION_MIN_ANSWERS = 5;
 
 export interface MissionChecks {
   residents: Record<string, string>;
+  /** Места кроме мест города: праздники (`fest-<id>`). */
+  places?: readonly string[];
   /** Фразы мест: ответы героя — только фразы своего места. */
   phrases: Record<string, Phrase[]>;
   /** id существующих сцен. */
@@ -1231,7 +1311,7 @@ export function validateMissions(files: { name: string; data: LocationMissions }
   const out: Issue[] = [];
   const ids = new Set<string>();
   for (const { name, data } of files) {
-    if (!LOCATION_IDS.includes(data.location)) out.push({ level: 'error', where: name, msg: `неизвестное место "${data.location}"` });
+    if (!LOCATION_IDS.includes(data.location) && !checks.places?.includes(data.location)) out.push({ level: 'error', where: name, msg: `неизвестное место "${data.location}"` });
     if (`${data.location}.json` !== name) out.push({ level: 'error', where: name, msg: `имя файла не совпадает с location "${data.location}"` });
     if (!Array.isArray(data.missions) || !data.missions.length) {
       out.push({ level: 'error', where: name, msg: 'нет миссий' });

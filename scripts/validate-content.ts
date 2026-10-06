@@ -1,7 +1,7 @@
 import { readdirSync, readFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
-import { validateChronicler, validateGrammar, validateGuardians, validateLetters, validateMissions, validateNpcs, validatePhrases, validateScenes, validatePortraits, validateScrolls, validateSphinx, validateTranslations, validateVerbs, validatePairs, validateWords, type Issue } from '../src/content/validate';
-import type { Chronicler, GrammarLesson, GuardiansFile, LettersFile, SphinxFile, VerbsFile, PairsFile, LocationMissions, LocationPhrases, LocationScenes, NpcsFile, ScrollFile } from '../src/content/schema';
+import { validateChronicler, validateGrammar, validateGuardians, validateLetters, validateMissions, validateNpcs, validatePhrases, validateScenes, validatePortraits, validateScrolls, validateSphinx, validateTranslations, validateVerbs, validatePairs, validateFestivals, validateWords, type Issue } from '../src/content/validate';
+import type { Chronicler, GrammarLesson, GuardiansFile, LettersFile, SphinxFile, VerbsFile, PairsFile, FestivalFile, LocationWords, LocationMissions, LocationPhrases, LocationScenes, NpcsFile, ScrollFile } from '../src/content/schema';
 import type { Lang } from '../src/lang';
 import { CHAPTERS, PLAN_TOTAL } from '../src/content/vocabPlan';
 import { chapterOfDistrict } from '../src/domain/chapters';
@@ -81,6 +81,24 @@ for (const lang of langs) {
     freq,
     (t) => lemmasIn(t, forms, lang),
   );
+  // Праздники: их фразы и миссии опираются и на слова самого праздника, поэтому словарь свой — с ними на уровне 1.
+  const festivals = readJson<FestivalFile>(join(root, lang, 'festivals'));
+  const festLexicon = buildLexicon(
+    [
+      ...words.flatMap((f) => f.data.words),
+      ...scrolls.flatMap((f) => f.data.words.map((w) => ({ ...w, level: CHAPTERS[f.data.chapter - 1]?.levels[0] ?? 99 }))),
+      ...festivals.flatMap((f) => f.data.words ?? []),
+    ],
+    grammar.map((g) => g.data as GrammarLesson),
+    freq,
+    (t) => lemmasIn(t, forms, lang),
+  );
+  const festivalChecks = (data: { name: string; data: FestivalFile }[]) =>
+    validateFestivals(data, lang, {
+      residents: Object.fromEntries((npcs?.npcs ?? []).map((n) => [n.location, n.id])),
+      phrases: { lessons: new Set(grammar.map((g) => (g.data as GrammarLesson).id)), uncovered: (text, level) => uncoveredWords(text, level, festLexicon, forms, lang) },
+      missions: { scenes: new Set(), coverage: (text, level) => textCoverage(text, level, festLexicon, forms, lang) },
+    });
   // Сцены: доля незнакомых слов к уровню главы, отчёт покрытия в итоговой строке.
   const scenes = readJson<LocationScenes>(join(root, lang, 'scenes'));
   const sceneCheck = validateScenes(scenes, {
@@ -118,6 +136,7 @@ for (const lang of langs) {
       uncovered: (text, level) => uncoveredWords(text, level, lexicon, forms, lang),
     }),
     ...validateLetters(forGender(letters, 'f'), Object.fromEntries((npcs?.npcs ?? []).map((n) => [n.location, n.id]))),
+    ...festivalChecks(fem(festivals)),
   ]
     // Слова gloss из мужской формы в женской не встречаются: это не лишний перевод, его нажимают у путника.
     .filter((i) => !i.msg.includes('из gloss нет в репликах'))
@@ -131,6 +150,7 @@ for (const lang of langs) {
     ['guardians.json', guardians],
     ['sphinx.json', sphinx],
     ['letters.json', letters],
+    ...festivals.map((f) => [`festivals/${f.name}`, f.data] as [string, unknown]),
   ];
   const femForms: Issue[] = femFiles.flatMap(([where, data]) => femIssues(data, where).map((msg) => ({ level: 'error' as const, where, msg })));
   issues.push(
@@ -146,7 +166,13 @@ for (const lang of langs) {
       }),
     ),
     ...tag(validateScrolls(scrolls, words, lang)),
-    ...tag(validateTranslations(words, scrolls)),
+    ...tag(
+      validateTranslations(
+        [...words, ...festivals.map((f) => ({ name: `festivals/${f.name}`, data: { location: `fest-${f.data.id}` as LocationWords['location'], words: f.data.words ?? [] } }))],
+        scrolls,
+      ),
+    ),
+    ...tag(festivalChecks(festivals)),
     ...tag(validateGrammar(grammar, lang)),
     ...tag(validateNpcs(npcs)),
     ...tag(validateChronicler(chronicler, npcs)),
@@ -182,7 +208,7 @@ for (const lang of langs) {
   const phraseCount = phrases.reduce((n, f) => n + f.data.phrases.length, 0);
   const missionCount = missions.reduce((n, f) => n + f.data.missions.length, 0);
   summary.push(
-    `${lang}: ${words.length} локаций, слов: ${placeCount + scrollCount} (из них в свитках ${scrollCount}) из плана ${PLAN_TOTAL}, ${exprCount} ${plural(exprCount, ['выражение', 'выражения', 'выражений'])}, ${grammar.length} уроков, ${phraseCount} ${plural(phraseCount, ['фраза', 'фразы', 'фраз'])}, ${sceneSummary(sceneCheck.report)}, ${missionCount} ${plural(missionCount, ['миссия', 'миссии', 'миссий'])}, ${npcs?.npcs.length ?? 0} жителей, ${verbs?.verbs.length ?? 0} глаголов в кузнице, ${pairs?.contrasts.reduce((n, c) => n + c.pairs.length, 0) ?? 0} пар в Звоннице, ${letters?.letters.length ?? 0} писем`,
+    `${lang}: ${words.length} локаций, слов: ${placeCount + scrollCount} (из них в свитках ${scrollCount}) из плана ${PLAN_TOTAL}, ${exprCount} ${plural(exprCount, ['выражение', 'выражения', 'выражений'])}, ${grammar.length} уроков, ${phraseCount} ${plural(phraseCount, ['фраза', 'фразы', 'фраз'])}, ${sceneSummary(sceneCheck.report)}, ${missionCount} ${plural(missionCount, ['миссия', 'миссии', 'миссий'])}, ${npcs?.npcs.length ?? 0} жителей, ${verbs?.verbs.length ?? 0} глаголов в кузнице, ${pairs?.contrasts.reduce((n, c) => n + c.pairs.length, 0) ?? 0} пар в Звоннице, ${festivals.length} ${plural(festivals.length, ['праздник', 'праздника', 'праздников'])}, ${letters?.letters.length ?? 0} писем`,
   );
 }
 

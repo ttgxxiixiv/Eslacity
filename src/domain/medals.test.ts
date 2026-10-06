@@ -5,7 +5,7 @@ import {
 } from './medals';
 
 const zero: MedalCounters = {
-  wordsSolid: 0, streakBest: 0, grammarDone: 0, blitzBest: 0, typedBest: 0, buildingLevels: 1, listenCorrect: 0, freezesUsed: 0, fragments: 0, errands: 0, friends: 0, trials: 0, echo: 0, seals: [], sphinxSeen: false, elixir: false,
+  wordsSolid: 0, streakBest: 0, grammarDone: 0, blitzBest: 0, typedBest: 0, buildingLevels: 1, listenCorrect: 0, freezesUsed: 0, fragments: 0, errands: 0, friends: 0, trials: 0, echo: 0, seals: [], sphinxSeen: false, elixir: false, festivals: [],
 };
 const empty: MedalsState = { lines: {}, secrets: {} };
 const line = (id: string) => LINES.find((l) => l.id === id)!;

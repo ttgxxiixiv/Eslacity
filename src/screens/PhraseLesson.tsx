@@ -3,6 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { ECONOMY } from '../config';
 import { NPC_BY_LOCATION } from '../content/npcs';
 import { loadPhrases } from '../content/phrases';
+import { placePath } from '../domain/festival';
 import type { LocationId, Phrase } from '../content/schema';
 import { seeded } from '../domain/generators';
 import { startSession } from '../domain/lessonQueue';
@@ -52,7 +53,7 @@ export function PhraseLessonScreen() {
             </p>
           )
         }
-        onDone={() => nav(`/loc/${id}`, { replace: true })}
+        onDone={() => nav(placePath(id), { replace: true })}
       />
     );
   }

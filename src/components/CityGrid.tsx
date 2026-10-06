@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import cityMap from '../assets/city.webp';
 import cityLit from '../assets/city-lit.webp';
 import cityDecor from '../assets/city-decor.webp';
@@ -18,6 +18,7 @@ import { MAP_H, MAP_W, type Point, door, labelCenter, pathLength, plotRect, rout
 import { useCity } from '../store/city';
 import { useNow } from '../lib/useNow';
 import { HeroSprite } from './Hero';
+import { FestivalBunting, useActiveFestival } from './FestivalBits';
 import { LANG } from '../lang';
 import { lanternOf, shownDecor, type Decor } from '../domain/decor';
 import { useMotivation } from '../store/motivation';
@@ -242,6 +243,8 @@ export function CityGrid() {
   const hiddenDecor = useRewards((s) => s.rec.hiddenDecor);
   const pickedLantern = useRewards((s) => s.rec.lantern);
   const decor = useMemo(() => shownDecor(medals, hiddenDecor), [medals, hiddenDecor]);
+  const fest = useActiveFestival();
+  const hostIndex = fest ? LOCATIONS.findIndex((l) => l.id === fest.host) : -1;
   const lantern = lanternOf(medals, pickedLantern);
 
   const total = Object.values(buildings).reduce((n, b) => n + (b ? pendingIncome(b, now) : 0), 0);
@@ -338,6 +341,19 @@ export function CityGrid() {
       </div>
       <div className="relative isolate mt-2" style={{ aspectRatio: `${MAP_W} / ${MAP_H}` }}>
         <img src={cityMap} alt="" draggable={false} className="absolute inset-0 h-full w-full select-none" />
+        {fest && <FestivalBunting f={fest} />}
+        {fest && (
+          // Знак праздника у здания хозяина: ведёт на страницу праздника (задача 10.5).
+          <Link
+            to={`/festival/${fest.id}`}
+            aria-label={`Праздник: ${fest.title}`}
+            className="press absolute z-20 flex h-9 w-9 items-center justify-center rounded-full border-2 border-gold bg-[#2b1b0e]/80 text-xl shadow"
+            style={{ left: pctX(plotRect(hostIndex).x + 6), top: pctY(plotRect(hostIndex).y + 6) }}
+            data-testid="festival-sign"
+          >
+            {fest.icon}
+          </Link>
+        )}
         {LOCATIONS.map((l, i) => (
           <Building key={l.id} meta={l} index={i} now={now} onGo={go} signal={signals[l.id] ?? 0} decor={decor.find((d) => d.place === l.id)} />
         ))}

@@ -17,6 +17,7 @@ import { dayKey, dueCards } from '../domain/srs';
 import { isVerbId, splitCards, wordIds } from '../domain/itemId';
 import { useNow } from '../lib/useNow';
 import { CityGrid } from '../components/CityGrid';
+import { FestivalBanner } from '../components/FestivalBits';
 import { useCity } from '../store/city';
 import { useProgress } from '../store/progress';
 import { useMissions } from '../store/missions';
@@ -322,6 +323,8 @@ export function Home() {
         {step && <LearnAnyway step={step} />}
         <div className="px-[5px]">
           {placementOffered(placement, learned) && <PlacementOffer />}
+          {/* Неделя праздника (задача 10.5): приглашение хозяина. */}
+          <FestivalBanner />
           <JourneyLine />
           {nextGrammar && (
             <Link to={`/grammar/${nextGrammar.id}`} className="press banner-grammar banner-shadow mt-[7px] flex items-center justify-between gap-3 pr-[26px] pl-[48px]">

@@ -10,6 +10,7 @@ import { logAnswer } from '../db/answers';
 import { seeded } from '../domain/generators';
 import { answerNode, DISPUTE_MOVES, isChoice, isDispute, isPassed, MISSION_PASS, MISSION_REWARD, missionOptions, modeForAttempt, MOVE_LABEL, moveOf, rightPhrases, withBranch, withMove, type HeroAnswer, type MissionMode } from '../domain/mission';
 import { fullPhrase } from '../domain/phrase';
+import { placePath } from '../domain/festival';
 import { makeTiles } from '../domain/phraseSteps';
 import type { Rank } from '../domain/reputation';
 import { L, LANG } from '../lang';
@@ -112,7 +113,7 @@ function MissionById({ id }: { id: string }) {
               Ещё раз
             </Button>
           )}
-          <Button className="w-full" onClick={() => nav(`/loc/${place}`, { replace: true })}>
+          <Button className="w-full" onClick={() => nav(placePath(place), { replace: true })}>
             Готово
           </Button>
         </div>

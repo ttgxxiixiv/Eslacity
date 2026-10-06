@@ -1,3 +1,4 @@
+import { FESTIVALS, festivalOf } from '../domain/festival';
 import { wordIds } from '../domain/itemId';
 import { L } from '../lang';
 import { useEffect, useMemo, useState } from 'react';
@@ -50,9 +51,10 @@ export function WordsScreen() {
           {list.map((w) => {
             const c = cards[w.id];
             const loc = LOCATION_BY_ID[w.id.split('.')[0] as LocationId];
+            const fest = FESTIVALS.find((f) => f.id === festivalOf(w.id));
             return (
               <li key={w.id} className="flex items-center gap-3 px-4 py-2.5">
-                <span title={loc?.ru ?? 'свиток земли'}>{loc?.emoji ?? '📜'}</span>
+                <span title={loc?.ru ?? (fest ? fest.title : 'свиток земли')}>{loc?.emoji ?? fest?.icon ?? '📜'}</span>
                 <div className="min-w-0 flex-1">
                   <div className="font-semibold">
                     {w.es}

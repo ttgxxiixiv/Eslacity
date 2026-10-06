@@ -3,7 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { ECONOMY } from '../config';
 import { loadLocation } from '../content';
 import type { Word, WordSource } from '../content/schema';
-import { isScrollId } from '../domain/itemId';
+import { placePath } from '../domain/festival';
 import { seeded } from '../domain/generators';
 import { buildLearnSteps, buildReviewSteps, type SessionState, type Step } from '../domain/lessonQueue';
 import { lessonParts, levelWords } from '../domain/levels';
@@ -61,8 +61,8 @@ function LearnRun({ id, level, part, practice }: { id: WordSource; level: number
         bonusCoins={result.bonus}
         medals={result.ach}
         words={ready.words}
-        // Урок свитка — просьба Летописца: возвращаемся к нему на карту странствий.
-        onDone={() => nav(isScrollId(id) ? '/journey-map' : `/loc/${id}`, { replace: true })}
+        // Урок свитка — просьба Летописца: возвращаемся к нему на карту странствий; урок праздника — на его страницу.
+        onDone={() => nav(placePath(id), { replace: true })}
       />
     );
   }

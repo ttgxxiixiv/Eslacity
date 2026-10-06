@@ -1,12 +1,15 @@
 import { VARIANT } from '../config';
 import { LANG } from '../lang';
-import type { LocationId, LocationWords, ScrollFile, Word, WordSource } from './schema';
+import type { FestivalFile, LocationId, LocationWords, ScrollFile, Word, WordSource } from './schema';
 
 // Слова всех языков лежат в src/content/<язык>/words; загружаются только слова выбранного языка.
 const modules = import.meta.glob<LocationWords>('./*/words/*.json', { import: 'default' });
 
 // Свитки земель грузятся так же, как места: свиток главы I — «место» scroll1.
 const scrollModules = import.meta.glob<ScrollFile>('./*/scrolls/*.json', { import: 'default' });
+
+// Праздники (задача 10.5): слова праздника — «место» fest-<id>, файл общий со фразами и миссией.
+const festivalModules = import.meta.glob<FestivalFile>('./*/festivals/*.json', { import: 'default' });
 
 const loaderById = new Map<WordSource, () => Promise<{ words: Word[] }>>();
 for (const [path, load] of Object.entries(modules)) {
@@ -16,6 +19,11 @@ for (const [path, load] of Object.entries(modules)) {
 for (const [path, load] of Object.entries(scrollModules)) {
   const [, lang, chapter] = path.match(/^\.\/([^/]+)\/scrolls\/(\d+)\.json$/)!;
   if (lang === LANG) loaderById.set(`scroll${Number(chapter)}`, load);
+}
+
+for (const [path, load] of Object.entries(festivalModules)) {
+  const [, lang, id] = path.match(/^\.\/([^/]+)\/festivals\/([^/]+)\.json$/)!;
+  if (lang === LANG) loaderById.set(`fest-${id}`, load);
 }
 
 const cache = new Map<WordSource, Word[]>();
@@ -51,7 +59,7 @@ export async function loadLocations(ids: Iterable<WordSource>): Promise<Word[]> 
   return lists.flat();
 }
 
-/** Место или свиток слова: `cafe.te` → `cafe`, `scroll1.mapa` → `scroll1`. */
+/** Место, свиток или праздник слова: `cafe.te` → `cafe`, `scroll1.mapa` → `scroll1`, `fest-sanfermin.toro` → `fest-sanfermin`. */
 export function locationOfWord(wordId: string): WordSource {
   return wordId.split('.')[0] as WordSource;
 }

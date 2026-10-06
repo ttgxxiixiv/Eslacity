@@ -16,6 +16,7 @@ import { ReviewScreen } from './screens/Review';
 import { BlitzScreen } from './screens/Blitz';
 import { ForgeScreen } from './screens/Forge';
 import { BellsScreen } from './screens/Bells';
+import { FestivalScreen } from './screens/Festival';
 import { SettingsScreen } from './screens/Settings';
 import { GrammarMap } from './screens/GrammarMap';
 import { GrammarLessonScreen } from './screens/GrammarLesson';
@@ -115,6 +116,7 @@ export default function App() {
         <Route path="/blitz" element={<BlitzScreen />} />
         <Route path="/forge" element={<ForgeScreen />} />
         <Route path="/bells" element={<BellsScreen />} />
+        <Route path="/festival/:id" element={<FestivalScreen />} />
         <Route path="/words" element={<WordsScreen />} />
       </Routes>
     </HashRouter>

@@ -1,3 +1,5 @@
+import { festivalsDone } from '../domain/festival';
+import { useMissions } from './missions';
 import { create } from 'zustand';
 import { ECONOMY } from '../config';
 import { db } from '../db/db';
@@ -93,6 +95,7 @@ export function medalCounters(): MedalCounters {
     seals: Object.keys(useJourney.getState().seals).map(Number),
     sphinxSeen: useSphinx.getState().rec.visited !== undefined,
     elixir: useSphinx.getState().rec.elixir !== undefined,
+    festivals: festivalsDone(useMissions.getState().records),
   };
 }
 
