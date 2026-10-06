@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { buildLexicon, coverage, glossIndex, stemOf, textCoverage, lemmaOf, lemmasIn, parseFreq, parseLemmas, share, tokens, uncoveredWords } from './vocab-lib';
+import { applySkips, applySkipsToForms, rarityIssues, buildLexicon, coverage, parseSkips, glossIndex, lemmaRanks, median, stemOf, wordRank, textCoverage, lemmaOf, lemmasIn, parseFreq, parseLemmas, share, tokens, uncoveredWords } from './vocab-lib';
 
 const freq = parseFreq(['# шапка', '1\tel\t100\t?', '2\tser\t90\t', '3\tjohn\t80\t?', '4\tcasa\t70\t', '5\tque\t60\t?', '6\tperro\t50\t'].join('\n'));
 const forms = parseLemmas(['# шапка', 'es\tser', 'la\tel', 'casas\tcasa'].join('\n'));
@@ -126,5 +126,66 @@ describe('сцены: покрытие и перевод слова', () => {
     expect(g('la')).toBeUndefined();
     const it = glossIndex([{ es: 'la pera', ru: 'груша', level: 3 }, { es: 'il tè', ru: 'чай', level: 1 }], new Map(), 'it');
     expect([it('per'), it('te'), it('pere')]).toEqual([undefined, undefined, 'груша']);
+  });
+});
+
+describe('ранги слов (задача 12.1)', () => {
+  const cov = coverage(freq, { words: new Set(['casa']), grammar: new Set(['ser']), anywhere: new Set(['el', 'que']) });
+  const ranks = lemmaRanks(cov);
+  it('ранг по очищенному списку: шум не считается', () => {
+    expect(ranks.get('casa')).toBe(3);
+    expect(ranks.has('john')).toBe(false);
+  });
+  it('ранг слова — по единственной лемме, артикль не в счёт', () => {
+    expect(wordRank('la casa', forms, 'es', ranks)).toBe(3);
+    expect(wordRank('las casas', forms, 'es', ranks)).toBe(3);
+    expect(wordRank('el gato', forms, 'es', ranks)).toBe(Infinity);
+    expect(wordRank('la casa grande', forms, 'es', ranks)).toBeUndefined();
+  });
+  it('медиана: вне списка — в конце', () => {
+    expect(median([5, 1, Infinity])).toBe(5);
+    expect(median([4, 1, 2, 3])).toBe(2);
+    expect(median([])).toBeUndefined();
+  });
+});
+
+describe('поправки к частотному списку', () => {
+  const skips = parseSkips(['# шапка', 'john', 'casas > casa', ''].join('\n'));
+  it('разбор: выброс и форма другой леммы', () => {
+    expect([...skips.drop]).toEqual(['john']);
+    expect(skips.alias.get('casas')).toBe('casa');
+  });
+  it('таблица форм ведёт к поправленной лемме', () => {
+    const f = applySkipsToForms(new Map([['abajo', 'abajar'], ['scorso', 'scorrere'], ['casas', 'casa']]), parseSkips('abajar > abajo\nscorso > scorso'));
+    expect(f.get('abajo')).toBe('abajo');
+    expect(f.get('abajar')).toBe('abajo');
+    expect(f.get('scorso')).toBe('scorso');
+    expect(f.get('casas')).toBe('casa');
+  });
+  it('выброшенные пропадают, формы складываются с леммой, ранги заново', () => {
+    const f = applySkips(parseFreq(['1\tser\t90\t', '2\tjohn\t80\t?', '3\tcasas\t60\t', '4\tcasa\t50\t', '5\tperro\t70\t'].join('\n')), skips);
+    expect(f.map((e) => [e.rank, e.lemma, e.count])).toEqual([[1, 'casa', 110], [2, 'ser', 90], [3, 'perro', 70]]);
+  });
+});
+
+describe('редкие слова на ранних уровнях', () => {
+  const rank = (es: string) => ({ casa: 10, gato: 9000, por_favor: undefined } as Record<string, number | undefined>)[es];
+  const halves = <T>(ws: T[]) => [ws.slice(0, 2), ws.slice(2)];
+  it('редкое без пометки, пометка не к месту', () => {
+    const out = rarityIssues(
+      [
+        { level: 2, words: [{ id: 'a', es: 'gato' }, { id: 'b', es: 'casa', topical: true }, { id: 'c', es: 'gato', topical: true }] },
+        { level: 5, words: [{ id: 'd', es: 'gato', topical: true }, { id: 'e', es: 'gato' }] },
+      ],
+      rank,
+      halves,
+    );
+    expect(out.map((x) => x.id)).toEqual(['a', 'b', 'd']);
+  });
+  it('тематических не больше трёх на урок', () => {
+    const ws = [1, 2, 3, 4, 5].map((i) => ({ id: `w${i}`, es: 'gato', topical: true }));
+    expect(rarityIssues([{ level: 3, words: ws }], rank, (w) => [w.slice(0, 4), w.slice(4)])).toEqual([
+      { id: 'w1', msg: 'урок 1 уровня 3: тематических слов 4, не больше 3' },
+    ]);
   });
 });

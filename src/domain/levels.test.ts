@@ -30,4 +30,10 @@ describe('уровни слов выше здания', () => {
     expect(wordLevelCap(5, ws)).toBe(6);
     expect(MAX_BUILDING_LEVEL).toBe(5);
   });
+  it('начатый уровень не закрывается, если на предыдущий переехало новое слово', () => {
+    const moved = [...ws, { id: 'cafe.new', level: 5 } as Word];
+    expect(isWordLevelOpen(6, 5, moved, five)).toBe(false);
+    expect(isWordLevelOpen(6, 5, moved, { ...five, 'cafe.w7': {} })).toBe(true);
+    expect(isWordLevelOpen(6, 4, moved, { ...five, 'cafe.w7': {} })).toBe(false);
+  });
 });

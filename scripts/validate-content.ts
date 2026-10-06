@@ -7,9 +7,12 @@ import { CHAPTERS, PLAN_TOTAL } from '../src/content/vocabPlan';
 import { chapterOfDistrict } from '../src/domain/chapters';
 import { plural } from '../src/domain/medals';
 import { femIssues, forGender } from '../src/domain/address';
-import { buildLexicon, lemmasIn, parseFreq, parseLemmas, textCoverage, uncoveredWords } from './vocab-lib';
+import { lessonParts, levelWords } from '../src/domain/levels';
+import { applySkips, applySkipsToForms, buildLexicon, coverage, lemmaRanks, rarityIssues, wordRank, lemmasIn, parseFreq, parseSkips, parseLemmas, textCoverage, uncoveredWords } from './vocab-lib';
 
 const root = join(import.meta.dirname, '..', 'src', 'content');
+/** Места, где уже переставлены частые и редкие слова (задача 12.1): для них работает проверка редких слов. */
+const RANK_CHECKED: string[] = ['cafe', 'market', 'supermarket', 'restaurant', 'home'];
 
 function readJson<T>(dir: string): { name: string; data: T }[] {
   if (!existsSync(dir)) return [];
@@ -70,8 +73,9 @@ for (const lang of langs) {
   // Фразы мест: слова фразы должны быть в словаре мест того же уровня или ниже (свиток главы — с первого уровня главы).
   const phrases = readJson<LocationPhrases>(join(root, lang, 'phrases'));
   const dataDir = join(root, '..', '..', 'scripts', 'data');
-  const forms = parseLemmas(readFileSync(join(dataDir, `lemmas-${lang}.tsv`), 'utf8'));
-  const freq = parseFreq(readFileSync(join(dataDir, `freq-${lang}.tsv`), 'utf8'));
+  const skips = parseSkips(readFileSync(join(dataDir, `skip-${lang}.txt`), 'utf8'));
+  const forms = applySkipsToForms(parseLemmas(readFileSync(join(dataDir, `lemmas-${lang}.tsv`), 'utf8')), skips);
+  const freq = applySkips(parseFreq(readFileSync(join(dataDir, `freq-${lang}.tsv`), 'utf8')), skips);
   const lexicon = buildLexicon(
     [
       ...words.flatMap((f) => f.data.words),
@@ -81,6 +85,21 @@ for (const lang of langs) {
     freq,
     (t) => lemmasIn(t, forms, lang),
   );
+  // Редкие слова на уровнях 1–4 (задача 12.1). Перестановка идёт пачками по местам: проверяются уже переставленные.
+  const ranks = lemmaRanks(
+    coverage(freq, { words: new Set(lexicon.wordLevel.keys()), grammar: lexicon.grammar, anywhere: lexicon.anywhere }),
+  );
+  const rarity: Issue[] = words
+    .filter((f) => RANK_CHECKED.includes(f.data.location))
+    .flatMap((f) => {
+      const plain = f.data.words.filter((w) => !w.kind);
+      const levels = [...new Set(plain.map((w) => w.level))].map((level) => ({ level, words: levelWords(plain, level) }));
+      return rarityIssues(levels, (es) => wordRank(es, forms, lang, ranks), lessonParts).map(({ id, msg }) => ({
+        level: 'warning' as const,
+        where: `words/${f.name} ${id}`,
+        msg,
+      }));
+    });
   // Праздники: их фразы и миссии опираются и на слова самого праздника, поэтому словарь свой — с ними на уровне 1.
   const festivals = readJson<FestivalFile>(join(root, lang, 'festivals'));
   const festLexicon = buildLexicon(
@@ -159,6 +178,7 @@ for (const lang of langs) {
     ...tag(missionIssues),
     ...tag(sceneCheck.issues),
     ...tag(validateWords(words, lang)),
+    ...tag(rarity),
     ...tag(
       validatePhrases(phrases, {
         lessons: new Set(grammar.map((g) => (g.data as GrammarLesson).id)),

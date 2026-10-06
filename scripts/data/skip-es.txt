@@ -1,0 +1,42 @@
+# Поправки к частотному списку (задача 12.1): что считать шумом и какие леммы на самом деле формы других.
+# Строка «слово» — лемма выбрасывается из списка, ранги идут дальше без неё.
+# Строка «слово > лемма» — это форма другой леммы: считается вместе с ней, и таблица форм ведёт к ней же.
+# Строка «слово > слово» — таблица форм уводит это слово к чужой лемме, а оно самостоятельное.
+# Списки читает scripts/vocab-lib.ts (applySkips), их используют отчёт npm run vocab и валидатор.
+
+# Ошибки лемматизации: форма записана как лемма.
+nueva > nuevo
+deja > dejar
+cuanto > cuánto
+abajar > abajo
+aforar > afuera
+encimar > encima
+apuesto > apostar
+ama > amar
+apenar > apenas
+privar > privado
+adentrar > adentro
+jamar > jamás
+verme > ver
+tuya > tuyo
+mas
+vera
+i
+
+# Имена собственные.
+jack
+ben
+henry
+jesús
+
+# Слова жанра субтитров (ругательства, нечисть, интимное): частые в фильмах, в городском курсе не нужны.
+maldito
+maldición
+diablo
+demonio
+infierno
+sexo
+gay
+trasero
+nene
+señorito

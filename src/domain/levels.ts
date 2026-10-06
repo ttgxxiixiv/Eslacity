@@ -33,10 +33,13 @@ export const MAX_BUILDING_LEVEL = 5;
 /**
  * Открыт ли уровень слов в здании (без учёта главы). До 5-го — по уровню здания. Выше — у здания 5-го уровня,
  * когда выучены все слова предыдущего уровня: это заменяет улучшение, которого у здания больше нет.
+ * Уровень, где уже есть выученные слова, открыт всегда: слова переезжают между уровнями (задача 12.1),
+ * и новое слово на предыдущем уровне не должно закрывать начатое.
  */
 export function isWordLevelOpen(level: number, buildingLevel: number, words: Word[], cards: Record<string, unknown>): boolean {
   if (level <= MAX_BUILDING_LEVEL) return level <= buildingLevel;
-  return buildingLevel >= MAX_BUILDING_LEVEL && isLearned(levelWords(words, level - 1), cards);
+  if (buildingLevel < MAX_BUILDING_LEVEL) return false;
+  return isLearned(levelWords(words, level - 1), cards) || levelWords(words, level).some((w) => w.id in cards);
 }
 
 /** Самый высокий уровень слов, который может открыться в здании этого уровня. */

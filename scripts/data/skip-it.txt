@@ -1,0 +1,37 @@
+# Поправки к частотному списку (задача 12.1): что считать шумом и какие леммы на самом деле формы других.
+# Строка «слово» — лемма выбрасывается из списка, ранги идут дальше без неё.
+# Строка «слово > лемма» — это форма другой леммы: считается вместе с ней, и таблица форм ведёт к ней же.
+# Строка «слово > слово» — таблица форм уводит это слово к чужой лемме, а оно самостоятельное.
+# Списки читает scripts/vocab-lib.ts (applySkips), их используют отчёт npm run vocab и валидатор.
+
+# Ошибки лемматизации: форма или причастие записаны как лемма.
+ultima > ultimo
+nessun > nessuno
+tratta > trattare
+unito > unire
+portato > portare
+ucciso > uccidere
+sposato > sposare
+carina > carino
+diro > dire
+col > con
+morto > morire
+chiuso > chiudere
+sbagliato > sbagliare
+pero > però
+addossare > addosso
+scorso > scorso
+papa
+caffo
+
+# Слова жанра субтитров (ругательства, нечисть, интимное): частые в фильмах, в городском курсе не нужны.
+diavolo
+inferno
+sesso
+stronzata
+porco
+dannazione
+maledizione
+cristo
+fregare
+manco

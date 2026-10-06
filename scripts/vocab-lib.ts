@@ -356,3 +356,110 @@ export const BANDS = [
   { from: 2001, to: 3000, chapters: 'IV (B2)' },
   { from: 3001, to: 5000, chapters: 'V (C1)' },
 ];
+
+/** Ранг леммы в очищенном частотном списке (задача 12.1). */
+export function lemmaRanks(cov: Coverage): Map<string, number> {
+  const out = new Map<string, number>();
+  for (const e of cov.ranked) if (!out.has(e.lemma)) out.set(e.lemma, e.rank);
+  return out;
+}
+
+/**
+ * Ранг слова курса: ранг его единственной леммы (артикль не в счёт), слова вне списка — Infinity.
+ * У словосочетаний («abrir una cuenta», «por favor») ранга нет: undefined. Их смысл складывается из частей,
+ * и редкость одной части не делает редким всё выражение.
+ */
+export function wordRank(es: string, forms: Map<string, string>, lang: string, ranks: Map<string, number>): number | undefined {
+  const t = tokens(es).filter((x) => !ARTICLES.has(x));
+  if (t.length !== 1) return undefined;
+  return ranks.get(lemmaOf(t[0], forms, lang)) ?? Infinity;
+}
+
+/** Медиана рангов (Infinity — слово вне списка); пустой список — undefined. */
+export function median(ranks: number[]): number | undefined {
+  if (!ranks.length) return undefined;
+  const s = [...ranks].sort((a, b) => a - b);
+  return s[(s.length - 1) >> 1];
+}
+
+/** Слово уровней 1–4 считается редким, если его лемма дальше этого ранга (или вне списка). */
+export const RARE_RANK = 5000;
+/** Тематических редких слов (`topical`) не больше стольких на урок. */
+export const TOPICAL_PER_LESSON = 3;
+
+export interface Skips {
+  drop: Set<string>;
+  alias: Map<string, string>;
+}
+
+/** Поправки к частотному списку: `scripts/data/skip-<язык>.txt`. */
+export function parseSkips(text: string): Skips {
+  const drop = new Set<string>();
+  const alias = new Map<string, string>();
+  for (const l of text.split('\n')) {
+    if (comment(l)) continue;
+    const [from, to] = l.split('>').map((x) => x.trim());
+    if (to) alias.set(from, to);
+    else drop.add(from);
+  }
+  return { drop, alias };
+}
+
+/**
+ * Частотный список с поправками: выброшенные леммы убираются, форма другой леммы складывается с ней
+ * (частота прибавляется, место — по большей из двух). Ранги пересчитываются.
+ */
+export function applySkips(freq: FreqEntry[], skips: Skips): FreqEntry[] {
+  const merged = new Map<string, FreqEntry>();
+  for (const e of freq) {
+    if (skips.drop.has(e.lemma)) continue;
+    const lemma = skips.alias.get(e.lemma) ?? e.lemma;
+    const prev = merged.get(lemma);
+    if (prev) prev.count += e.count;
+    else merged.set(lemma, { ...e, lemma, service: e.lemma === lemma ? e.service : false });
+  }
+  return [...merged.values()].sort((a, b) => b.count - a.count).map((e, i) => ({ ...e, rank: i + 1 }));
+}
+
+/**
+ * Редкие слова на ранних уровнях (задача 12.1). Слово уровней 1–4 дальше `RARE_RANK` должно быть помечено
+ * `topical` (тематическое, без него место не обходится), таких не больше `TOPICAL_PER_LESSON` на урок.
+ * Пометка у частого слова или на уровне выше 4 — лишняя. `parts` делит слова уровня на уроки, как игра.
+ */
+export function rarityIssues<W extends { id: string; es: string; topical?: boolean }>(
+  levels: { level: number; words: W[] }[],
+  rank: (es: string) => number | undefined,
+  parts: (words: W[]) => W[][],
+): { id: string; msg: string }[] {
+  const out: { id: string; msg: string }[] = [];
+  for (const { level, words } of levels) {
+    for (const w of words) {
+      const r = rank(w.es);
+      const rare = r !== undefined && r > RARE_RANK;
+      if (w.topical && level > 4) out.push({ id: w.id, msg: `пометка topical на уровне ${level}, она бывает только на уровнях 1–4` });
+      else if (w.topical && !rare) out.push({ id: w.id, msg: `пометка topical у частого слова (ранг ${r ?? 'словосочетание'})` });
+      else if (rare && level <= 4 && !w.topical)
+        out.push({ id: w.id, msg: `редкое слово на уровне ${level} (ранг ${r === Infinity ? 'вне списка' : r}): поднять на уровень 5–6 или пометить topical` });
+    }
+    if (level > 4) continue;
+    parts(words).forEach((p, i) => {
+      const n = p.filter((w) => w.topical).length;
+      if (n > TOPICAL_PER_LESSON) out.push({ id: p[0].id, msg: `урок ${i + 1} уровня ${level}: тематических слов ${n}, не больше ${TOPICAL_PER_LESSON}` });
+    });
+  }
+  return out;
+}
+
+/**
+ * Таблица форм с теми же поправками: форма, записанная леммой `a` из строки «a > b», теперь ведёт к `b`,
+ * и сама форма `a` тоже. Строка «a > a» чинит форму, которую таблица уводит к чужой лемме (scorso → scorrere).
+ */
+export function applySkipsToForms(forms: Map<string, string>, skips: Skips): Map<string, string> {
+  const out = new Map(forms);
+  for (const [form, lemma] of forms) {
+    const to = skips.alias.get(lemma);
+    if (to) out.set(form, to);
+  }
+  for (const [from, to] of skips.alias) out.set(from, to);
+  return out;
+}
