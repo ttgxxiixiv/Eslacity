@@ -7,6 +7,14 @@ export interface Release {
 // Новые версии сверху. Версия первой записи должна совпадать с package.json (проверяется тестом).
 export const CHANGELOG: Release[] = [
   {
+    version: '2.126.0',
+    date: '2026-10-06',
+    notes: [
+      'Частые слова раньше, третья пачка: банк, парикмахерская, спортзал, вокзал и пляж. В главах I–II теперь учатся «la cara», «hermoso», «el consejo», «la opinión», «la fuerza», «el negocio», «el riesgo», «próximo»; «il consiglio», «il sorriso», «la forza», «il rischio», «guadagnare», «il luogo», «la direzione». Редкие слова вроде «la gomina», «el pilates», «il gabbiano» ушли в главу III.',
+      'Новые частые слова: «el miembro», «apostar», «pertenecer», «privado»; «la metro», «picchiare».',
+    ],
+  },
+  {
     version: '2.125.0',
     date: '2026-10-06',
     notes: [

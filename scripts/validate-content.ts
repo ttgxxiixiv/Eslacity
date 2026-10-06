@@ -12,7 +12,7 @@ import { applySkips, applySkipsToForms, buildLexicon, coverage, lemmaRanks, rari
 
 const root = join(import.meta.dirname, '..', 'src', 'content');
 /** Места, где уже переставлены частые и редкие слова (задача 12.1): для них работает проверка редких слов. */
-const RANK_CHECKED: string[] = ['cafe', 'market', 'supermarket', 'restaurant', 'home', 'park', 'clothes', 'pharmacy', 'school', 'post'];
+const RANK_CHECKED: string[] = ['cafe', 'market', 'supermarket', 'restaurant', 'home', 'park', 'clothes', 'pharmacy', 'school', 'post', 'bank', 'barber', 'gym', 'station', 'beach'];
 
 function readJson<T>(dir: string): { name: string; data: T }[] {
   if (!existsSync(dir)) return [];

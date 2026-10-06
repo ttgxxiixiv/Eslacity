@@ -2211,3 +2211,16 @@
 Итог: медиана ранга уровня 3 — 3431 → 3143 (es), 3443 → 3164 (it); уровня 4 — 2358 → 1994 и 2374 → 2138. Первая тысяча к концу главы II — 63,9% → 65,4% и 64,6% → 66,2%.
 
 Проверено: юнит-тесты, валидатор без предупреждений, полный прогон сквозных тестов.
+
+## Версия 2.126.0. Частые слова раньше, пачка 3 (задача 12.1)
+
+Банк, парикмахерская, спортзал, вокзал, пляж, оба языка. Устроено как в 2.124.0, места добавлены в `RANK_CHECKED`.
+
+- В парикмахерской было больше всего редких слов на ранних уровнях: по шесть-семь на уровень (gomina, maquinilla, coleta, rapar, manicura; acconciatura, radersi, rasare). Половина ушла на уровень 5, взамен спустились частые слова о внешности и советах: «la cara», «hermoso», «favorito», «la imagen», «la opinión», «el consejo», «sugerir», «la edad»; «il consiglio», «notare», «l'occhiata», «il sorriso», «preferito», «l'aspetto», «l'età». Остальное нужно фразам главы I–II («Quiero teñirme de rubio») и помечено `topical`.
+- В спортзале на уровни 3–4 спустились «la fuerza», «la energía», «duro», «saltar», «aguantar»; «la forza», «l'energia», «la palla», «duro», «saltare». В банке — «el negocio», «el millón», «el riesgo», «la oportunidad», «el valor»; «il milione», «il rischio», «guadagnare», «il sistema». На вокзале — «el pueblo», «las obras», «próximo», «el kilómetro»; «il luogo», «il villaggio», «la direzione», «la distanza». На пляже — «la calma»; «calmo», «l'oceano», «il paradiso», «il raggio».
+- «el enlace» (пересадка) ушёл на уровень 6, на его место пришли «las obras»: уровень 6 — тоже вокзал, но глава IV.
+- Новые слова: «el miembro», «apostar», «pertenecer», «privado»; «la metro», «picchiare». «sogno» уже был в свитке II, его чинит поправка «sogno > sogno».
+
+Итог: медиана ранга уровня 3 — 3143 → 2813 (es), 3164 → 2603 (it); уровня 4 — 1994 → 1666 и 2138 → 1692. Первая тысяча к концу главы II — 65,4% → 68,1% и 66,2% → 67,9%. Редких слов без пометки на уровнях 1–4 осталось 23 и 30, все в последних пяти местах.
+
+Проверено: юнит-тесты, валидатор без предупреждений, полный прогон сквозных тестов.
