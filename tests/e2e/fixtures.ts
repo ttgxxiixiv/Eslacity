@@ -306,7 +306,10 @@ export async function playWords(page: Page, lang: Lang, done: RegExp, opts: { hi
     const next = page.getByRole('button', { name: /дальше/i });
     await expect(next).toBeVisible();
     const fb = (await page.locator('[aria-live]').first().textContent()) ?? '';
-    const v = /неверно/i.test(fb) ? 'wrong' : hintStep && /с подсказкой/i.test(fb) ? 'hinted' : /почти/i.test(fb) ? 'almost' : 'correct';
+    // Вердикт — из разметки окна итога: текст перевода может содержать «неверно» («неверно понять»).
+    const verdict = await page.locator('[data-verdict]').getAttribute('data-verdict');
+    const title = (await page.getByTestId('feedback-title').textContent()) ?? '';
+    const v = verdict === 'wrong' ? 'wrong' : hintStep && /с подсказкой/i.test(title) ? 'hinted' : verdict === 'almost' ? 'almost' : 'correct';
     hintStep = false;
     verdicts[v] = (verdicts[v] ?? 0) + 1;
     if (v !== 'correct' && v !== 'hinted') throw new Error(`Правильный ответ не засчитан: «${kind}» / «${shown}»: ${fb}`);
@@ -573,7 +576,7 @@ export async function playTrial(
     const next = page.getByRole('button', { name: /дальше/i });
     await expect(next).toBeVisible();
     const fb = (await page.locator('[aria-live]').first().textContent()) ?? '';
-    if (!bad && /неверно/i.test(fb)) throw new Error(`Правильный ответ не засчитан: «${kind}»: ${fb}`);
+    if (!bad && (await page.locator('[data-verdict]').getAttribute('data-verdict')) === 'wrong') throw new Error(`Правильный ответ не засчитан: «${kind}»: ${fb}`);
     await next.click();
   }
   throw new Error('Испытание не закончилось');

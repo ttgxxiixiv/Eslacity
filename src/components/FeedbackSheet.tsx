@@ -30,8 +30,11 @@ export function FeedbackSheet({ fb, onNext }: { fb: Feedback | null; onNext: () 
       }`}
     >
       {fb && (
-        <div className="dialog-box rounded-xl px-5 pt-4 pb-4">
-          <div className={`font-pixel text-xl font-bold ${TITLE[fb.verdict]}`}>{fb.title}</div>
+        // Вердикт в разметке: сквозные тесты читают его отсюда, а не из текста (в переводе бывает «неверно понять»).
+        <div className="dialog-box rounded-xl px-5 pt-4 pb-4" data-verdict={fb.verdict}>
+          <div className={`font-pixel text-xl font-bold ${TITLE[fb.verdict]}`} data-testid="feedback-title">
+            {fb.title}
+          </div>
           {fb.answer && (
             <div className="mt-1 flex items-center gap-3">
               <div className="flex-1">

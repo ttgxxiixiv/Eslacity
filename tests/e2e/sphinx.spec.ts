@@ -73,7 +73,7 @@ async function answerRound(page: Page, questions: Question[], exercises: Paramet
     }
     // У плашки медали тоже есть aria-live: отзыв ищется по кнопке «Дальше».
     const fb = (await page.locator('[aria-live]').filter({ has: page.getByRole('button', { name: /дальше/i }) }).textContent()) ?? '';
-    if (!bad && /неверно/i.test(fb)) throw new Error(`Правильный ответ не засчитан: ${fb}`);
+    if (!bad && (await page.locator('[data-verdict]').getAttribute('data-verdict')) === 'wrong') throw new Error(`Правильный ответ не засчитан: ${fb}`);
     await page.getByRole('button', { name: /дальше/i }).click();
   }
   throw new Error('Раунд не закончился');
