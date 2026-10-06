@@ -7,6 +7,14 @@ export interface Release {
 // Новые версии сверху. Версия первой записи должна совпадать с package.json (проверяется тестом).
 export const CHANGELOG: Release[] = [
   {
+    version: '2.125.0',
+    date: '2026-10-06',
+    notes: [
+      'Частые слова раньше, вторая пачка: парк, магазин одежды, аптека, школа и почта. В главе II теперь учатся «la paz», «el animal», «guapo», «la salud», «el cuerpo», «cuidar», «la información», «avisar»; «la pace», «carino», «la borsa», «la salute», «la cura», «la lingua», «il numero», «il contatto».',
+      'Новые частые слова: «la escuela», «el arte», «afuera», «lanzar», «brillante»; «il video», «l\'aiuto», «certamente».',
+    ],
+  },
+  {
     version: '2.124.0',
     date: '2026-10-06',
     notes: [
