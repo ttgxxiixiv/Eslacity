@@ -1,7 +1,7 @@
 {
   "name": "eslacity",
   "private": true,
-  "version": "2.121.0",
+  "version": "2.122.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -11,7 +11,8 @@
     "preview": "vite preview",
     "test": "vitest run",
     "e2e": "npm run build && playwright test",
-    "review:export": "tsx scripts/export-review.ts"
+    "review:export": "tsx scripts/export-review.ts",
+    "review:import": "tsx scripts/import-review.ts"
   },
   "dependencies": {
     "@capacitor-community/text-to-speech": "^8.0.2",

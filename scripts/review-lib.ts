@@ -149,3 +149,107 @@ export function setAt(data: unknown, path: string, value: string): boolean {
   (parent as Record<string, unknown>)[last] = value;
   return true;
 }
+
+/**
+ * Где в тексте файла стоит каждая строка-значение: адрес (как в выгрузке) → начало и конец вместе с кавычками.
+ * Загрузка правок меняет только эти символы: остальной файл и его форматирование не трогаются (файлы контента
+ * отформатированы по-разному, перезапись целиком дала бы огромный дифф).
+ */
+export function locateStrings(text: string): Map<string, [number, number]> {
+  const spans = new Map<string, [number, number]>();
+  let i = 0;
+  const ws = () => {
+    while (/\s/.test(text[i] ?? '')) i++;
+  };
+  const str = (): [number, number] => {
+    const start = i;
+    i++; // "
+    while (text[i] !== '"') i += text[i] === '\\' ? 2 : 1;
+    i++;
+    return [start, i];
+  };
+  const value = (path: string[]): void => {
+    ws();
+    const ch = text[i];
+    if (ch === '"') spans.set(path.join('/'), str());
+    else if (ch === '{') {
+      i++;
+      ws();
+      if (text[i] === '}') {
+        i++;
+        return;
+      }
+      for (;;) {
+        ws();
+        const [a, b] = str();
+        const key = JSON.parse(text.slice(a, b)) as string;
+        ws();
+        i++; // :
+        value([...path, key]);
+        ws();
+        if (text[i++] === '}') return;
+      }
+    } else if (ch === '[') {
+      i++;
+      ws();
+      if (text[i] === ']') {
+        i++;
+        return;
+      }
+      for (let n = 0; ; n++) {
+        value([...path, String(n)]);
+        ws();
+        if (text[i++] === ']') return;
+      }
+    } else {
+      while (i < text.length && !/[\s,\]}]/.test(text[i])) i++;
+    }
+  };
+  value([]);
+  return spans;
+}
+
+export interface ReviewFix {
+  file: string;
+  path: string;
+  /** Текст, который видел носитель: если в контенте уже другой, правка не применяется. */
+  text: string;
+  fix: string;
+  comment: string;
+}
+
+export type FixResult =
+  | { ok: true; fix: ReviewFix }
+  | { ok: false; fix: ReviewFix; reason: 'нет такой строки' | 'текст уже изменился' | 'правка совпадает с текстом' };
+
+/** Применить правки к тексту одного файла. Возвращает новый текст и итог по каждой правке. */
+export function applyFixes(text: string, fixes: ReviewFix[]): { text: string; results: FixResult[] } {
+  const spans = locateStrings(text);
+  const results: FixResult[] = [];
+  const edits: { at: [number, number]; to: string }[] = [];
+  for (const f of fixes) {
+    const at = spans.get(f.path);
+    if (!at) results.push({ ok: false, fix: f, reason: 'нет такой строки' });
+    else if (JSON.parse(text.slice(at[0], at[1])) !== f.text) results.push({ ok: false, fix: f, reason: 'текст уже изменился' });
+    else if (f.fix === f.text) results.push({ ok: false, fix: f, reason: 'правка совпадает с текстом' });
+    else {
+      edits.push({ at, to: JSON.stringify(f.fix) });
+      results.push({ ok: true, fix: f });
+    }
+  }
+  // С конца файла: замена не сдвигает места ещё не применённых правок.
+  let out = text;
+  for (const e of edits.sort((a, b) => b.at[0] - a.at[0])) out = out.slice(0, e.at[0]) + e.to + out.slice(e.at[1]);
+  return { text: out, results };
+}
+
+/** Правки из CSV выгрузки: строки с непустым `fix`. Пробелы по краям носитель мог оставить случайно. */
+export function fixesFromCsv(csv: string): ReviewFix[] {
+  const [head, ...rows] = parseCsv(csv);
+  const col = (name: string) => head.findIndex((h) => h.trim().toLowerCase() === name);
+  const [file, path, text, fix, comment] = ['file', 'path', 'text', 'fix', 'comment'].map(col);
+  if ([file, path, text, fix].some((c) => c < 0)) throw new Error('в таблице нет колонок file, path, text и fix: это не выгрузка на вычитку');
+  return rows
+    .filter((r) => (r[fix] ?? '').trim())
+    .map((r) => ({ file: r[file], path: r[path], text: r[text], fix: r[fix].trim(), comment: comment >= 0 ? (r[comment] ?? '').trim() : '' }));
+}
