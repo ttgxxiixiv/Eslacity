@@ -7,6 +7,8 @@ import { Button, genderLabel } from '../ui';
 import type { ExerciseProps } from './types';
 import { hintPrefix } from '../../domain/rewards';
 import { useRewards } from '../../store/rewards';
+import { VoiceAnswer } from '../VoiceAnswer';
+import { bestAlternative } from '../../domain/voiceAnswer';
 
 const REASON_NOTE: Record<NonNullable<CheckResult['reason']>, string> = {
   accent: 'Обратите внимание на ударение.',
@@ -109,6 +111,8 @@ export function TypeAnswer({ step, words, locked, onAnswer, onCantListen, exam =
           className={`h-14 rounded-2xl border-2 bg-white px-4 text-xl outline-none focus:border-brand ${tone}`}
           placeholder="Ответ"
         />
+        {/* В испытании можно ответить голосом (задача 10.3). */}
+        {exam && !locked && <VoiceAnswer onText={(alts) => setValue(bestAlternative(alts, (t) => checkTyped(t, [word.es, ...(word.alt ?? [])]).verdict))} />}
         {!locked && (
           <div className="flex gap-2">
             {!exam && (hints > 0 || hinted) && (

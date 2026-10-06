@@ -15,6 +15,8 @@ import { useCity } from '../store/city';
 import { useProgress } from '../store/progress';
 import { AccentBar } from './AccentBar';
 import { RepeatAfter } from './RepeatAfter';
+import { VoiceAnswer } from './VoiceAnswer';
+import { bestAlternative } from '../domain/voiceAnswer';
 import { type Feedback, FeedbackSheet } from './FeedbackSheet';
 import { Button, SpeakButton } from './ui';
 
@@ -329,6 +331,8 @@ export function PhraseType({ phrase, locked, onAnswer, exam = false }: { phrase:
           className={`h-14 rounded-2xl border-2 bg-white px-4 text-xl outline-none focus:border-brand ${tone}`}
           placeholder="Фраза"
         />
+        {/* В испытании фразу можно сказать голосом (задача 10.3). */}
+        {exam && !locked && <VoiceAnswer onText={(alts) => setValue(bestAlternative(alts, (t) => checkPhrase(t, phrase).verdict))} />}
         {!locked && (
           <Button type="submit" disabled={!value.trim()} className="w-full">
             Проверить

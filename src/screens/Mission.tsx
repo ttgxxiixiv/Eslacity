@@ -15,6 +15,8 @@ import type { Rank } from '../domain/reputation';
 import { L, LANG } from '../lang';
 import { CHAPTERS as PLAN } from '../content/vocabPlan';
 import { addressed } from '../store/settings';
+import { VoiceAnswer } from '../components/VoiceAnswer';
+import { bestAlternative } from '../domain/voiceAnswer';
 import { NpcPortrait } from '../components/NpcPortrait';
 import { HeroPortrait } from '../components/HeroPortrait';
 import { Button, Screen, TopBar } from '../components/ui';
@@ -397,6 +399,8 @@ function HeroTurn({ node, phrases, pool, mode, onAnswer }: {
             className="h-12 rounded-xl border-2 border-stone-300 bg-white px-3 text-lg outline-none focus:border-brand"
             placeholder={`Ответ ${L.adverb}`}
           />
+          {/* Ответ голосом (задача 10.3): в поле встаёт вариант, который житель поймёт лучше всего. */}
+          <VoiceAnswer onText={(alts) => setText(bestAlternative(alts, (t) => answerNode(target, { kind: 'text', text: t }, phrases).verdict))} />
           <Button type="submit" disabled={!text.trim()} className="w-full">
             Сказать
           </Button>
