@@ -11,8 +11,6 @@ import { lessonParts, levelWords } from '../src/domain/levels';
 import { applySkips, applySkipsToForms, buildLexicon, coverage, lemmaRanks, rarityIssues, wordRank, lemmasIn, parseFreq, parseSkips, parseLemmas, textCoverage, uncoveredWords } from './vocab-lib';
 
 const root = join(import.meta.dirname, '..', 'src', 'content');
-/** Места, где уже переставлены частые и редкие слова (задача 12.1): для них работает проверка редких слов. */
-const RANK_CHECKED: string[] = ['cafe', 'market', 'supermarket', 'restaurant', 'home', 'park', 'clothes', 'pharmacy', 'school', 'post', 'bank', 'barber', 'gym', 'station', 'beach'];
 
 function readJson<T>(dir: string): { name: string; data: T }[] {
   if (!existsSync(dir)) return [];
@@ -85,13 +83,11 @@ for (const lang of langs) {
     freq,
     (t) => lemmasIn(t, forms, lang),
   );
-  // Редкие слова на уровнях 1–4 (задача 12.1). Перестановка идёт пачками по местам: проверяются уже переставленные.
+  // Редкие слова на уровнях 1–4 (задача 12.1).
   const ranks = lemmaRanks(
     coverage(freq, { words: new Set(lexicon.wordLevel.keys()), grammar: lexicon.grammar, anywhere: lexicon.anywhere }),
   );
-  const rarity: Issue[] = words
-    .filter((f) => RANK_CHECKED.includes(f.data.location))
-    .flatMap((f) => {
+  const rarity: Issue[] = words.flatMap((f) => {
       const plain = f.data.words.filter((w) => !w.kind);
       const levels = [...new Set(plain.map((w) => w.level))].map((level) => ({ level, words: levelWords(plain, level) }));
       return rarityIssues(levels, (es) => wordRank(es, forms, lang, ranks), lessonParts).map(({ id, msg }) => ({

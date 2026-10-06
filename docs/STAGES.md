@@ -2224,3 +2224,22 @@
 Итог: медиана ранга уровня 3 — 3143 → 2813 (es), 3164 → 2603 (it); уровня 4 — 1994 → 1666 и 2138 → 1692. Первая тысяча к концу главы II — 65,4% → 68,1% и 66,2% → 67,9%. Редких слов без пометки на уровнях 1–4 осталось 23 и 30, все в последних пяти местах.
 
 Проверено: юнит-тесты, валидатор без предупреждений, полный прогон сквозных тестов.
+
+## Версия 2.127.0. Частые слова раньше, пачка 4 (задача 12.1)
+
+Офис, отель, больница, аэропорт, полиция, оба языка, и добор недостающих частых слов.
+
+- Больше всего частых слов на поздних уровнях было у полиции: «el abogado», «la ley», «el juez», «el crimen», «la cárcel», «investigar», «culpable»; «l'avvocato», «il giudice», «il crimine», «l'arma», «l'indagine», «colpevole», «il processo». Они спустились на уровни 3–4, на уровень 5 ушли «la patrulla», «la sirena», «la acera», «el radar», «el casco»; «la pattuglia», «il marciapiede», «l'autovelox» и другие. В остальных местах спустились «la decisión», «el grupo», «contratar», «despedir», «la visita», «la sorpresa», «el recuerdo», «el doctor», «salvar», «el bebé», «el país», «regresar», «adiós», «la señal», «el sitio»; «la decisione», «il gruppo», «la coppia», «il dottore», «il danno», «incinta», «soffrire», «il paese», «il segnale», «mancare», «addio».
+- Проверка редких слов включена для всех мест (`RANK_CHECKED` убран). Нашлись ещё три редких слова первых уровней, которые не попали в списки пачек: «facturar», «la azafata», «la impresora» — помечены `topical`.
+- Частые слова первой тысячи, которых в игре не было и которые не относятся к месту, легли в свитки: в свиток II — «tuyo», «suyo», «encima», «adentro», «apenas», «finalmente», «la misión», «la felicidad», «adivinar»; «tale», «parecchio», «addosso», «il contrario», «ritrovare», «durare»; в свиток III — «a través de», «con respecto a», «mencionar», «causar», «hallar», «el detective», «arrestar»; «unire», «precedente», «costringere», «la traccia», «la difesa», «mollare». План свитков: II — 181 слово, III — 270 (`vocabPlan.ts`, `docs/GAME.md`). Слова для мест: «colgar», «el departamento», «la radio», «el familiar», «el colega», «lastimarse», «el comandante», «vigilar»; «richiamare», «la fronte».
+- Поправки к частотному списку пополнились: ругательства субтитров («idiota», «imbécil»), воинские звания («teniente», «sargento», «sergente»), «nave», «fantasma»; формы, которые таблица уводит к чужой лемме: «muerto», «aiuto», «ricordo», «duro», «passato», «salvo». После «duro > duro» итальянское «durante» перестало считаться формой знакомого глагола, его перевод добавлен в `gloss` шёпота офиса.
+
+Итог задачи после четырёх пачек (было в 2.123.0 → стало):
+- первая тысяча покрыта: 93,1% → 100% (es), 94,5% → 99,9% (it); не хватает только «il comandante», он есть как ложный друг уровня 7, а выражения в покрытие не входят;
+- редких слов без пометки на уровнях 1–4: 154 и 164 → 0;
+- медиана ранга: уровень 3 — 3742 → 2438 (es), 3675 → 2307 (it); уровень 4 — 2684 → 1317 и 2527 → 1369; уровень 5 — 1788 → 2276 и 1898 → 2488;
+- первая тысяча к концу главы II: 62,2% → 73,1% (es), 63% → 72,5% (it).
+
+Чего задача ещё не достигла: цели «80% первой тысячи к концу главы II» и монотонной медианы. Уровень 3 выше уровня 4, потому что на нём тематические слова мест (фрукты, одежда, части тела). А около 100 слов из первой тысячи лежат в свитке главы III (tío, abuelo, novio, claro, usar; marito, nonna, giusto, usare). Их перенос в свиток II меняет id (`scroll3.tio` → `scroll2.tio`), значит, нужен перенос карточек игроков, и это решение владельца.
+
+Проверено: юнит-тесты, валидатор без предупреждений (проверка редких слов на всех местах), полный прогон сквозных тестов.

@@ -7,6 +7,14 @@ export interface Release {
 // Новые версии сверху. Версия первой записи должна совпадать с package.json (проверяется тестом).
 export const CHANGELOG: Release[] = [
   {
+    version: '2.127.0',
+    date: '2026-10-06',
+    notes: [
+      'Частые слова раньше, последняя пачка: офис, отель, больница, аэропорт и полиция. В главе II теперь учатся «la decisión», «contratar», «la visita», «el doctor», «salvar», «el país», «regresar», «el abogado», «la ley», «el crimen»; «la decisione», «la sorpresa», «il dottore», «il paese», «mancare», «l\'avvocato», «il giudice», «l\'indagine».',
+      'Свиток Горного перевала стал длиннее на 16 слов, свиток Пустыни миражей — на 17–20: в них легли частые слова, которых в игре не было («tuyo», «encima», «apenas», «la felicidad», «arrestar»; «tale», «parecchio», «il contrario», «durare», «la traccia»). Теперь в игре есть все слова из тысячи самых частых, кроме одного итальянского.',
+    ],
+  },
+  {
     version: '2.126.0',
     date: '2026-10-06',
     notes: [
