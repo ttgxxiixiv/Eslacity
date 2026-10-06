@@ -15,6 +15,7 @@ import { PlacementScreen } from './screens/Placement';
 import { ReviewScreen } from './screens/Review';
 import { BlitzScreen } from './screens/Blitz';
 import { ForgeScreen } from './screens/Forge';
+import { BellsScreen } from './screens/Bells';
 import { SettingsScreen } from './screens/Settings';
 import { GrammarMap } from './screens/GrammarMap';
 import { GrammarLessonScreen } from './screens/GrammarLesson';
@@ -113,6 +114,7 @@ export default function App() {
         <Route path="/placement" element={<PlacementScreen />} />
         <Route path="/blitz" element={<BlitzScreen />} />
         <Route path="/forge" element={<ForgeScreen />} />
+        <Route path="/bells" element={<BellsScreen />} />
         <Route path="/words" element={<WordsScreen />} />
       </Routes>
     </HashRouter>

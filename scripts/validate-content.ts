@@ -1,7 +1,7 @@
 import { readdirSync, readFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
-import { validateChronicler, validateGrammar, validateGuardians, validateLetters, validateMissions, validateNpcs, validatePhrases, validateScenes, validatePortraits, validateScrolls, validateSphinx, validateTranslations, validateVerbs, validateWords, type Issue } from '../src/content/validate';
-import type { Chronicler, GrammarLesson, GuardiansFile, LettersFile, SphinxFile, VerbsFile, LocationMissions, LocationPhrases, LocationScenes, NpcsFile, ScrollFile } from '../src/content/schema';
+import { validateChronicler, validateGrammar, validateGuardians, validateLetters, validateMissions, validateNpcs, validatePhrases, validateScenes, validatePortraits, validateScrolls, validateSphinx, validateTranslations, validateVerbs, validatePairs, validateWords, type Issue } from '../src/content/validate';
+import type { Chronicler, GrammarLesson, GuardiansFile, LettersFile, SphinxFile, VerbsFile, PairsFile, LocationMissions, LocationPhrases, LocationScenes, NpcsFile, ScrollFile } from '../src/content/schema';
 import type { Lang } from '../src/lang';
 import { CHAPTERS, PLAN_TOTAL } from '../src/content/vocabPlan';
 import { chapterOfDistrict } from '../src/domain/chapters';
@@ -58,6 +58,8 @@ for (const lang of langs) {
   const guardiansPath = join(root, lang, 'guardians.json');
   const verbsPath = join(root, lang, 'verbs.json');
   const verbs = existsSync(verbsPath) ? (JSON.parse(readFileSync(verbsPath, 'utf8')) as VerbsFile) : undefined;
+  const pairsPath = join(root, lang, 'pairs.json');
+  const pairs = existsSync(pairsPath) ? (JSON.parse(readFileSync(pairsPath, 'utf8')) as PairsFile) : undefined;
   const guardians = existsSync(guardiansPath) ? (JSON.parse(readFileSync(guardiansPath, 'utf8')) as GuardiansFile) : undefined;
   const sphinxPath = join(root, lang, 'sphinx.json');
   const sphinx = existsSync(sphinxPath) ? (JSON.parse(readFileSync(sphinxPath, 'utf8')) as SphinxFile) : undefined;
@@ -150,6 +152,7 @@ for (const lang of langs) {
     ...tag(validateChronicler(chronicler, npcs)),
     ...tag(validateGuardians(guardians, lessonChapters)),
     ...tag(validateVerbs(verbs, lang)),
+    ...tag(validatePairs(pairs)),
     ...tag(
       validateSphinx(sphinx, {
         coverage: (text, level) => textCoverage(text, level, lexicon, forms, lang),
@@ -179,7 +182,7 @@ for (const lang of langs) {
   const phraseCount = phrases.reduce((n, f) => n + f.data.phrases.length, 0);
   const missionCount = missions.reduce((n, f) => n + f.data.missions.length, 0);
   summary.push(
-    `${lang}: ${words.length} локаций, слов: ${placeCount + scrollCount} (из них в свитках ${scrollCount}) из плана ${PLAN_TOTAL}, ${exprCount} ${plural(exprCount, ['выражение', 'выражения', 'выражений'])}, ${grammar.length} уроков, ${phraseCount} ${plural(phraseCount, ['фраза', 'фразы', 'фраз'])}, ${sceneSummary(sceneCheck.report)}, ${missionCount} ${plural(missionCount, ['миссия', 'миссии', 'миссий'])}, ${npcs?.npcs.length ?? 0} жителей, ${verbs?.verbs.length ?? 0} глаголов в кузнице, ${letters?.letters.length ?? 0} писем`,
+    `${lang}: ${words.length} локаций, слов: ${placeCount + scrollCount} (из них в свитках ${scrollCount}) из плана ${PLAN_TOTAL}, ${exprCount} ${plural(exprCount, ['выражение', 'выражения', 'выражений'])}, ${grammar.length} уроков, ${phraseCount} ${plural(phraseCount, ['фраза', 'фразы', 'фраз'])}, ${sceneSummary(sceneCheck.report)}, ${missionCount} ${plural(missionCount, ['миссия', 'миссии', 'миссий'])}, ${npcs?.npcs.length ?? 0} жителей, ${verbs?.verbs.length ?? 0} глаголов в кузнице, ${pairs?.contrasts.reduce((n, c) => n + c.pairs.length, 0) ?? 0} пар в Звоннице, ${letters?.letters.length ?? 0} писем`,
   );
 }
 

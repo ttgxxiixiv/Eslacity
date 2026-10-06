@@ -8,8 +8,9 @@ import { LISTEN_GUARDIAN_CHAPTERS } from '../domain/guardian';
 import { sceneWords } from '../domain/sceneText';
 import { conjugate, generated, participle, TENSES, type Tense } from '../domain/verbs';
 import { phraseTokens } from '../domain/phraseSteps';
+import { pairIssue } from '../domain/minimalPairs';
 import { LETTER_MAX_WORDS, LETTER_MIN_WORDS, wordCount as letterWords } from '../domain/letter';
-import { LOCATION_IDS, SPHINX_LINES, type SphinxSpeaker, type Chronicler, type GrammarExercise, type GrammarLesson, type GuardiansFile, type LettersFile, type NpcLook, type LocationMissions, type MissionAnswer, type LocationPhrases, type LocationScenes, type Phrase, type Scene, type LocationWords, type NpcsFile, type ScrollFile, type SphinxFile, type VerbsFile, type Word } from './schema';
+import { LOCATION_IDS, SPHINX_LINES, type SphinxSpeaker, type Chronicler, type GrammarExercise, type GrammarLesson, type GuardiansFile, type LettersFile, type NpcLook, type LocationMissions, type MissionAnswer, type LocationPhrases, type LocationScenes, type Phrase, type Scene, type LocationWords, type NpcsFile, type ScrollFile, type SphinxFile, type VerbsFile, type Word, type PairsFile, type Smith } from './schema';
 
 export interface Issue {
   level: 'error' | 'warning';
@@ -790,21 +791,55 @@ const VERB_END: Record<Lang, RegExp> = { es: /(ar|er|ir|ír)$/, it: /(are|ere|ir
  * Записанная строка времени — шесть непустых форм, и она должна отличаться от того, что дал бы генератор окончаний:
  * правильные формы не записываются, генератор и данные не расходятся молча.
  */
+/** Мастер без места (кузнец, звонарь): имя, роль, пол, приветствие, голос, облик. */
+function checkMaster(s: Smith | undefined, at: string, out: Issue[]) {
+  if (!s) {
+    out.push({ level: 'error', where: at, msg: 'нет' });
+    return;
+  }
+  for (const f of ['name', 'role'] as const) if (empty(s[f])) out.push({ level: 'error', where: at, msg: `пустое поле ${f}` });
+  if (s.gender !== 'm' && s.gender !== 'f') out.push({ level: 'error', where: at, msg: `пол "${s.gender}"` });
+  if (empty(s.greeting?.es) || empty(s.greeting?.ru)) out.push({ level: 'error', where: at, msg: 'пустое приветствие' });
+  const { pitch, rate } = s.voice ?? {};
+  if (!(pitch >= 0.5 && pitch <= 1.5) || !(rate >= 0.7 && rate <= 1.3)) out.push({ level: 'error', where: at, msg: 'голос вне пределов (pitch 0.5–1.5, rate 0.7–1.3)' });
+  checkLook(s.look, at, out);
+}
+
+/** Пар в противопоставлении не меньше: иначе звон из десяти заданий повторяет пары слишком часто. */
+export const PAIRS_MIN = 6;
+
+/** Звонница (задача 10.2): звонарь и противопоставления, каждая пара различается ровно тем, что заявлено. */
+export function validatePairs(file: PairsFile | undefined): Issue[] {
+  const where = 'pairs.json';
+  if (!file) return [{ level: 'error', where, msg: 'нет файла минимальных пар' }];
+  const out: Issue[] = [];
+  checkMaster(file.ringer, `${where} звонарь`, out);
+  if (!file.contrasts?.length) out.push({ level: 'error', where, msg: 'нет противопоставлений' });
+  const ids = new Set<string>();
+  for (const c of file.contrasts ?? []) {
+    const at = `${where} ${c.id}`;
+    if (!/^[a-z-]+$/.test(c.id ?? '') || ids.has(c.id)) out.push({ level: 'error', where: at, msg: 'id пустой, с лишними знаками или повторяется' });
+    ids.add(c.id);
+    if (empty(c.title) || empty(c.hint)) out.push({ level: 'error', where: at, msg: 'нет названия или подсказки' });
+    if (!['swap', 'stress', 'double'].includes(c.kind)) out.push({ level: 'error', where: at, msg: `вид "${c.kind}"` });
+    if ((c.pairs?.length ?? 0) < PAIRS_MIN) out.push({ level: 'error', where: at, msg: `пар меньше ${PAIRS_MIN}` });
+    const seen = new Set<string>();
+    (c.pairs ?? []).forEach((p, i) => {
+      const issue = pairIssue(c, p);
+      if (issue) out.push({ level: 'error', where: `${at}.${i}`, msg: issue });
+      const key = `${p[0]?.es}|${p[1]?.es}`;
+      if (seen.has(key)) out.push({ level: 'error', where: `${at}.${i}`, msg: 'пара повторяется' });
+      seen.add(key);
+    });
+  }
+  return out;
+}
+
 export function validateVerbs(file: VerbsFile | undefined, lang: Lang): Issue[] {
   const out: Issue[] = [];
   const where = 'verbs.json';
   if (!file) return [{ level: 'error', where, msg: 'нет файла глаголов' }];
-  const s = file.smith;
-  if (!s) out.push({ level: 'error', where, msg: 'нет кузнеца' });
-  else {
-    const at = `${where} кузнец`;
-    for (const f of ['name', 'role'] as const) if (empty(s[f])) out.push({ level: 'error', where: at, msg: `пустое поле ${f}` });
-    if (s.gender !== 'm' && s.gender !== 'f') out.push({ level: 'error', where: at, msg: `пол "${s.gender}"` });
-    if (empty(s.greeting?.es) || empty(s.greeting?.ru)) out.push({ level: 'error', where: at, msg: 'пустое приветствие' });
-    const { pitch, rate } = s.voice ?? {};
-    if (!(pitch >= 0.5 && pitch <= 1.5) || !(rate >= 0.7 && rate <= 1.3)) out.push({ level: 'error', where: at, msg: 'голос вне пределов (pitch 0.5–1.5, rate 0.7–1.3)' });
-    checkLook(s.look, at, out);
-  }
+  checkMaster(file.smith, `${where} кузнец`, out);
   const seen = new Set<string>();
   for (const v of file.verbs ?? []) {
     const at = `${where} ${v.inf ?? '?'}`;

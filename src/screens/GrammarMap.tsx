@@ -51,6 +51,16 @@ export function GrammarMap() {
           </div>
           <span className="text-stone-400">›</span>
         </Link>
+        <Link to="/bells" className="press flex items-center gap-3 rounded-3xl bg-white p-4 shadow-sm" data-testid="bells-entry">
+          <span className="text-3xl" aria-hidden>
+            🔔
+          </span>
+          <div className="flex-1">
+            <div className="text-lg font-bold">Звонница</div>
+            <div className="text-sm text-stone-500">Что вы услышали: похожие слова на слух</div>
+          </div>
+          <span className="text-stone-400">›</span>
+        </Link>
         {DISTRICTS.map((d) => {
           const lessons = lessonsOf(d.id);
           if (!lessons.length) {

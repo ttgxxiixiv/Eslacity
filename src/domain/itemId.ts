@@ -20,8 +20,13 @@ export const VERB_CARD_PREFIX = 'v:';
 /** Карточка формы глагола из кузницы: `v:hablar.presente.3`. */
 export const isVerbId = (id: string): boolean => id.startsWith(VERB_CARD_PREFIX);
 
-/** Карточка слова: не правило, не фраза и не форма глагола. */
-export const isWordId = (id: string): boolean => !isRuleId(id) && !isPhraseId(id) && !isVerbId(id);
+export const PAIR_PREFIX = 'mp:';
+
+/** Минимальная пара Звонницы в журнале ответов (`mp:r-rr.0`): карточек у пар нет. */
+export const isPairId = (id: string): boolean => id.startsWith(PAIR_PREFIX);
+
+/** Карточка слова: не правило, не фраза, не форма глагола и не минимальная пара. */
+export const isWordId = (id: string): boolean => !isRuleId(id) && !isPhraseId(id) && !isVerbId(id) && !isPairId(id);
 
 /** Место фразы: `ph:cafe.un-cafe` → `cafe`. */
 export const placeOfPhrase = (id: string): string => id.slice(PHRASE_CARD_PREFIX.length).split('.')[0];

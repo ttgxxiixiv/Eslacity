@@ -390,6 +390,33 @@ export interface Smith {
   look: NpcLook;
 }
 
+/** Слово минимальной пары: форма на изучаемом языке и перевод. */
+export interface PairWord {
+  es: string;
+  ru: string;
+}
+
+/**
+ * Противопоставление звуков в Звоннице (задача 10.2): r и rr, ñ и n, ударение, двойные согласные. `kind` задаёт,
+ * чем различаются слова пары, валидатор это проверяет: `swap` — в первом слове одно `swap[0]` заменено на `swap[1]`,
+ * `stress` — те же буквы без знаков ударения, `double` — во втором слове одна двойная согласная стала одинарной.
+ */
+export interface Contrast {
+  id: string;
+  title: string;
+  /** Как различить на слух, по-русски. */
+  hint: string;
+  kind: 'swap' | 'stress' | 'double';
+  swap?: [string, string];
+  pairs: [PairWord, PairWord][];
+}
+
+/** `src/content/<язык>/pairs.json`: звонарь и минимальные пары (задача 10.2). */
+export interface PairsFile {
+  ringer: Smith;
+  contrasts: Contrast[];
+}
+
 /** `src/content/<язык>/verbs.json`: кузнец и 60 глаголов. У неправильных записано только то, что не строится по правилам. */
 export interface VerbsFile {
   smith: Smith;
