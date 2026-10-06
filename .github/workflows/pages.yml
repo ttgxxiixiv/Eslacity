@@ -61,6 +61,45 @@ jobs:
         run: yes | "$(ls -d "$ANDROID_HOME"/cmdline-tools/*/bin/sdkmanager | sort | tail -1)" --licenses > /dev/null || true
       - run: ./gradlew assembleRelease --no-daemon
         working-directory: android
+      # Подпись со сменой ключа (APK Signature Scheme v3): новый ключ вместе с цепочкой от старого, чтобы обновление
+      # встало поверх APK, подписанного прежним ключом. Ключи и пароли — только в секретах, см. docs/ANDROID.md.
+      - name: Подпись APK
+        env:
+          KS_B64: ${{ secrets.ANDROID_KEYSTORE_B64 }}
+          KS_PASS: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+          OLD_KS_B64: ${{ secrets.ANDROID_OLD_KEYSTORE_B64 }}
+          OLD_KS_PASS: ${{ secrets.ANDROID_OLD_KEYSTORE_PASSWORD }}
+          NEW_SHA256: 4eb8a555cbcb9e38ffdd4bf4d0184d550a0b75e92cecc3cf8e5e466ad565bb7f
+          OLD_SHA256: d242ab5bc4c17cd5d465b133d96e980ce5fd25fa79d201356ecff68c4bafac7c
+        run: |
+          set -euo pipefail
+          for v in KS_B64 KS_PASS OLD_KS_B64 OLD_KS_PASS; do
+            if [ -z "${!v}" ]; then echo "::error::Нет секрета для $v, см. docs/ANDROID.md"; exit 1; fi
+          done
+          BT="$(ls -d "$ANDROID_HOME"/build-tools/* | sort -V | tail -1)"
+          KEYS="$RUNNER_TEMP/keys"
+          mkdir -p "$KEYS"
+          echo "$KS_B64" | base64 -d > "$KEYS/new.p12"
+          echo "$OLD_KS_B64" | base64 -d > "$KEYS/old.p12"
+          OUT=app/build/outputs/apk/release
+          "$BT/apksigner" rotate --out "$KEYS/lineage" \
+            --old-signer --ks "$KEYS/old.p12" --ks-key-alias eslacity --ks-pass env:OLD_KS_PASS \
+            --new-signer --ks "$KEYS/new.p12" --ks-key-alias eslacity2026 --ks-pass env:KS_PASS
+          "$BT/zipalign" -f -p 4 "$OUT/app-release-unsigned.apk" "$OUT/app-release-aligned.apk"
+          "$BT/apksigner" sign --out "$OUT/app-release.apk" \
+            --ks "$KEYS/old.p12" --ks-key-alias eslacity --ks-pass env:OLD_KS_PASS \
+            --next-signer --ks "$KEYS/new.p12" --ks-key-alias eslacity2026 --ks-pass env:KS_PASS \
+            --lineage "$KEYS/lineage" --rotation-min-sdk-version 28 \
+            "$OUT/app-release-aligned.apk"
+          rm -rf "$KEYS"
+          "$BT/apksigner" verify --verbose --print-certs "$OUT/app-release.apk" | tee "$RUNNER_TEMP/verify.txt"
+          grep -q "Verified using v3 scheme (APK Signature Scheme v3): true" "$RUNNER_TEMP/verify.txt"
+          grep -qi "SHA-256 digest: $NEW_SHA256" "$RUNNER_TEMP/verify.txt"
+          # Цепочка в APK: старый ключ доверяет новому, поэтому обновление встаёт поверх прежней версии.
+          "$BT/apksigner" lineage --in "$OUT/app-release.apk" --print-certs | tee "$RUNNER_TEMP/lineage.txt"
+          grep -qi "SHA-256 digest: $OLD_SHA256" "$RUNNER_TEMP/lineage.txt"
+          grep -qi "SHA-256 digest: $NEW_SHA256" "$RUNNER_TEMP/lineage.txt"
+        working-directory: android
       - uses: actions/upload-artifact@v4
         with:
           name: apk

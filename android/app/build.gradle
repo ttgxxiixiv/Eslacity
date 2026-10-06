@@ -3,9 +3,8 @@ apply plugin: 'com.android.application'
 // Версия приложения — из package.json: 2.113.0 → versionName "2.113.0", versionCode 21300.
 def appVersion = new groovy.json.JsonSlurper().parse(file('../../package.json')).version
 def versionParts = appVersion.tokenize('.').collect { it as int }
-// Ключ подписи: android/keystore.properties и android/app/eslacity.keystore.
-def keystoreProps = new Properties()
-keystoreProps.load(new FileInputStream(rootProject.file('keystore.properties')))
+// Gradle собирает APK без подписи: подписывает CI ключом из секретов GitHub со сменой ключа (APK Signature Scheme v3),
+// см. docs/ANDROID.md.
 
 android {
     namespace = "io.github.ttgxxiixiv.eslacity"
@@ -23,17 +22,8 @@ android {
             ignoreAssetsPattern = '!.svn:!.git:!.ds_store:!*.scc:.*:!CVS:!thumbs.db:!picasa.ini:!*~'
         }
     }
-    signingConfigs {
-        release {
-            storeFile file(keystoreProps['storeFile'])
-            storePassword keystoreProps['storePassword']
-            keyAlias keystoreProps['keyAlias']
-            keyPassword keystoreProps['keyPassword']
-        }
-    }
     buildTypes {
         release {
-            signingConfig signingConfigs.release
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
