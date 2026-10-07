@@ -153,7 +153,7 @@ for (const lang of LANGS) {
       await expect(page.getByTestId('scene-title')).toContainText('открыта глава II, Горный перевал');
       await page.getByRole('button', { name: 'В путь' }).click();
       await expect(scene).toHaveCount(0);
-      expect((await readMeta<{ celebrated: number; openedChapter: number }>(page, lang, 'journey'))).toMatchObject({ celebrated: 1, openedChapter: 2 });
+      await expect.poll(() => readMeta<{ celebrated: number; openedChapter: number }>(page, lang, 'journey')).toMatchObject({ celebrated: 1, openedChapter: 2 });
 
       // Второй раз не показывается, титул виден в профиле и в подписи щитка уровня.
       await page.reload();

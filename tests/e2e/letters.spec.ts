@@ -52,6 +52,8 @@ for (const lang of LANGS) {
       await page.getByTestId('letter-text').fill('');
       await page.getByRole('button', { name: lang === 'es' ? 'ñ' : 'è', exact: true }).click();
       await expect(page.getByTestId('letter-text')).toHaveValue(lang === 'es' ? 'ñ' : 'è');
+      // Курсор после буквы ставится в следующем кадре: дождаться его, иначе он попадёт внутрь следующего fill.
+      await page.evaluate(() => new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r))));
 
       const mine = myLetter(letter.sample);
       await page.getByTestId('letter-text').fill(mine);
@@ -68,8 +70,9 @@ for (const lang of LANGS) {
       await page.getByRole('button', { name: 'Записать в дневник' }).click();
       await expect(page.getByTestId('letter-done')).toContainText(`2 из ${letter.checks.length}`);
       await expect(page.getByTestId('letter-done')).toContainText('+40 опыта');
+      // Запись в базу асинхронная: ждём её.
+      await expect.poll(async () => (await readMeta<{ entries: unknown[] }>(page, lang, 'letters'))?.entries.length).toBe(1);
       const data = await readMeta<{ entries: { letterId: string; checks: number[]; text: string }[] }>(page, lang, 'letters');
-      expect(data?.entries).toHaveLength(1);
       expect(data?.entries[0]).toMatchObject({ letterId: letter.id, checks: [0, 2], text: mine });
 
       await page.getByRole('button', { name: 'Готово' }).click();

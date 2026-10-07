@@ -67,7 +67,7 @@ for (const lang of LANGS) {
       await expect(page).toHaveURL(/#\/chronicle$/);
       await expect(page.getByTestId('thread-due')).toHaveCount(0);
       await expect(page.getByTestId('thread-seen')).toHaveText(['Глава I. Начало главы']);
-      expect(Object.keys((await readMeta<{ seen: Record<string, number> }>(page, lang, 'thread'))?.seen ?? {})).toEqual(['th:1.open']);
+      await expect.poll(async () => Object.keys((await readMeta<{ seen: Record<string, number> }>(page, lang, 'thread'))?.seen ?? {})).toEqual(['th:1.open']);
       await page.goto('./');
       await expect(page.getByTestId('continue')).toBeVisible();
       await expect(page.getByTestId('chronicle-button')).toHaveCount(0);
@@ -81,7 +81,7 @@ for (const lang of LANGS) {
       expect(thread.notes['1'].map((n) => n.es)).toContain(await page.getByTestId('thread-note-text').innerText());
       await page.getByTestId('thread-note-read').click();
       await expect(page.getByTestId('thread-note-read')).toHaveCount(0);
-      expect((await readMeta<{ note?: string }>(page, lang, 'thread'))?.note).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+      await expect.poll(async () => (await readMeta<{ note?: string }>(page, lang, 'thread'))?.note).toMatch(/^\d{4}-\d{2}-\d{2}$/);
       await expect(page.getByTestId('thread-next')).toContainText('когда соберёте 20 обрывков карты (сейчас 10)');
       await page.getByTestId('thread-due').click();
       await playScene(page, scene('th:1.half'));

@@ -28,7 +28,7 @@ for (const lang of LANGS) {
         await answerGrammar(page, lesson);
         await page.getByRole('button', { name: /дальше/i }).click();
       }
-      const rules = await page.evaluate(
+      const readRules = () => page.evaluate(
         (db) =>
           new Promise<{ wordId: string; due: number; interval: number }[]>((resolve) => {
             const r = indexedDB.open(db);
@@ -39,8 +39,9 @@ for (const lang of LANGS) {
           }),
         lang === 'es' ? 'eslacity' : 'eslacity-it',
       );
-      // Три карточки на урок, у ошибки — короткий интервал.
-      expect(rules).toHaveLength(3);
+      // Три карточки на урок, у ошибки — короткий интервал. Запись в базу асинхронная: ждём её.
+      await expect.poll(async () => (await readRules()).length).toBe(3);
+      const rules = await readRules();
       expect(rules.every((c) => c.wordId.startsWith(`g:${lesson.id}.`))).toBe(true);
       expect(rules.find((c) => c.wordId === `g:${wrongId}`)?.interval).toBe(1);
       expect(rules.filter((c) => c.wordId !== `g:${wrongId}`).every((c) => c.interval > 1)).toBe(true);
