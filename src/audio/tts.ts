@@ -146,11 +146,27 @@ let spoken: Promise<void> = Promise.resolve();
 
 function startSpoken(text: string, rate: number): () => void {
   let done!: () => void;
-  spoken = new Promise<void>((resolve) => {
+  const mine = (spoken = new Promise<void>((resolve) => {
     done = resolve;
     setTimeout(resolve, Math.min(15_000, 800 + (text.length * 80) / Math.max(rate, 0.3)));
-  });
+  }));
+  setSpeaking(true);
+  // Речь кончилась, если не началась новая реплика.
+  void mine.then(() => spoken === mine && setSpeaking(false));
   return () => done();
+}
+
+/** Говорит ли сейчас кто-то: музыка на это время затихает (задача 13.3). */
+let speakingNow = false;
+const speakingListeners = new Set<(on: boolean) => void>();
+function setSpeaking(on: boolean) {
+  if (speakingNow === on) return;
+  speakingNow = on;
+  for (const cb of speakingListeners) cb(on);
+}
+export function onSpeaking(cb: (on: boolean) => void): () => void {
+  speakingListeners.add(cb);
+  return () => speakingListeners.delete(cb);
 }
 
 /** Дождаться, пока договорится последняя реплика. */

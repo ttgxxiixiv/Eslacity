@@ -1,5 +1,10 @@
 import { useEffect, useState } from 'react';
 import { HashRouter, Outlet, Route, Routes, useLocation } from 'react-router-dom';
+import { useJourney } from './store/journey';
+import { useSphinx } from './store/sphinx';
+import { useSettings } from './store/settings';
+import { playTheme, stopMusic } from './audio/music';
+import { themeFor } from './domain/chiptune';
 import { bootstrap } from './store/bootstrap';
 import { Home } from './screens/Home';
 import { LocationScreen } from './screens/Location';
@@ -48,6 +53,19 @@ function ScrollToTop() {
   return null;
 }
 
+/** Музыка по месту (задача 13.3): город, на карте странствий и у стражей — земля открытой главы. */
+function SoundDirector() {
+  const path = useLocation().pathname;
+  const opened = useJourney((s) => s.opened);
+  const sage = useSphinx((s) => s.rec.elixir !== undefined);
+  const on = useSettings((s) => s.musicVolume > 0);
+  useEffect(() => {
+    if (on) playTheme(themeFor(path, opened, sage));
+    else stopMusic();
+  }, [path, opened, sage, on]);
+  return null;
+}
+
 function TabLayout() {
   return (
     <>
@@ -87,6 +105,7 @@ export default function App() {
     <ErrorBoundary>
     <HashRouter>
       <ScrollToTop />
+      <SoundDirector />
       <LevelUpToast />
       <MedalAward />
       <Routes>

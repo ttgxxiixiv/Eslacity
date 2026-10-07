@@ -22,9 +22,12 @@ export interface Settings {
   /** Напоминание о дневной цели (задача 10.4) и его время «ЧЧ:ММ». */
   reminderOn: boolean;
   reminderTime: string;
+  /** Громкость звуков и музыки (задача 13.3), 0–1; 0 — выключено. */
+  sfxVolume: number;
+  musicVolume: number;
 }
 
-export const DEFAULT_SETTINGS: Settings = { speechRate: 0.9, dailyGoal: 100, blitzBest: 0, listenOffUntil: 0, newPerDay: 10, heroGender: 'm', heroName: '', voiceM: '', voiceF: '', reminderOn: false, reminderTime: '19:00' };
+export const DEFAULT_SETTINGS: Settings = { speechRate: 0.9, dailyGoal: 100, blitzBest: 0, listenOffUntil: 0, newPerDay: 10, heroGender: 'm', heroName: '', voiceM: '', voiceF: '', reminderOn: false, reminderTime: '19:00', sfxVolume: 0.6, musicVolume: 0.4 };
 
 interface SettingsState extends Settings {
   hydrate(s: Partial<Settings> | undefined): void;
@@ -38,9 +41,9 @@ export const useSettings = create<SettingsState>((set, get) => ({
   },
   update(patch) {
     set(patch);
-    const { speechRate, dailyGoal, blitzBest, listenOffUntil, newPerDay, heroGender, heroName, voiceM, voiceF, reminderOn, reminderTime } = { ...get(), ...patch };
+    const { speechRate, dailyGoal, blitzBest, listenOffUntil, newPerDay, heroGender, heroName, voiceM, voiceF, reminderOn, reminderTime, sfxVolume, musicVolume } = { ...get(), ...patch };
     persist(() =>
-      db.meta.put({ key: 'settings', value: { speechRate, dailyGoal, blitzBest, listenOffUntil, newPerDay, heroGender, heroName, voiceM, voiceF, reminderOn, reminderTime } }),
+      db.meta.put({ key: 'settings', value: { speechRate, dailyGoal, blitzBest, listenOffUntil, newPerDay, heroGender, heroName, voiceM, voiceF, reminderOn, reminderTime, sfxVolume, musicVolume } }),
     );
   },
 }));

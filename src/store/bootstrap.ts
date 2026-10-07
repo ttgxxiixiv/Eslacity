@@ -1,4 +1,7 @@
 import { watchReminder } from '../lib/reminder';
+import { watchSoundCues } from '../audio/cues';
+import { watchMusic } from '../audio/music';
+import { unlockAudio } from '../audio/context';
 import { db, type BuildingRow } from '../db/db';
 import { pruneAnswers } from '../db/answers';
 import { isListening } from '../domain/answerLog';
@@ -81,6 +84,10 @@ export async function bootstrap(): Promise<void> {
   useMotivation.getState().evaluate(Date.now(), {}, false);
   // Напоминание о дневной цели: расписание пересчитывается при запуске и дальше по изменениям.
   watchReminder();
+  // Звуки и музыка (задача 13.3): после загрузки, чтобы начальные значения не звучали.
+  watchSoundCues();
+  watchMusic();
+  unlockAudio();
   // Старые записи журнала убираются в фоне: запуску они не нужны.
   pruneAnswers().catch((e) => console.error('Не удалось почистить журнал ответов', e));
 }

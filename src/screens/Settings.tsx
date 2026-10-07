@@ -1,3 +1,4 @@
+import { SoundCard } from '../components/SoundCard';
 import { ReminderCard } from '../components/ReminderCard';
 import { ReportsCard } from '../components/ReportsCard';
 import { useEffect, useState } from 'react';
@@ -127,6 +128,8 @@ export function SettingsScreen() {
         </section>
 
         <ReminderCard />
+
+        <SoundCard />
 
         <section className="rounded-3xl bg-white p-4 shadow-sm" data-testid="hero-gender">
           <div className="flex items-center gap-3">
