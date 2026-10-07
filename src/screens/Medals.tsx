@@ -40,7 +40,7 @@ export function MedalsScreen() {
                   const has = rec[t] !== undefined;
                   return (
                     <li key={t}>
-                      <Medal icon={l.id} tier={has ? t : null} size={48} label={`${l.title}, ${TIER_INFO[t].ru.toLowerCase()}${has ? '' : ': ещё нет'}`} />
+                      <Medal icon={l.id} tier={t} locked={!has} size={48} label={`${l.title}, ${TIER_INFO[t].ru.toLowerCase()}${has ? '' : ': ещё нет'}`} />
                     </li>
                   );
                 })}
@@ -74,7 +74,7 @@ export function MedalsScreen() {
               const has = medals.secrets[x.id] !== undefined;
               return (
                 <li key={x.id} className="flex flex-col items-center text-center">
-                  <Medal icon={has ? 'secret' : 'hidden'} tier={has ? 'gold' : null} size={48} label={has ? x.title : 'Тайная медаль'} />
+                  <Medal icon={has ? 'secret' : 'hidden'} secret={x.id} tier={null} size={48} label={has ? x.title : 'Тайная медаль'} />
                   <div className={`mt-1 text-xs leading-tight font-semibold ${has ? '' : 'text-stone-400'}`}>{has ? x.title : '???'}</div>
                   {has && <div className="text-[11px] leading-tight text-stone-500">{x.text}</div>}
                 </li>

@@ -59,6 +59,10 @@ async function seedAttempts(page: Page, lang: Lang, id: string, attempts: number
       }),
     { db: DB[lang], id, attempts },
   );
+  // Перезагрузка сразу: иначе экран миссии при открытии сохранит записи из памяти (start) поверх засеянных,
+  // и прохождение окажется не третьим (так падало в 2.129.0 и 2.132.0).
+  await page.reload();
+  await expect(page.getByTestId('continue')).toBeVisible();
 }
 
 type Node = { kind: 'say' } | { kind: 'answer'; branches: { phrase: string }[]; wrong: { es: string } };
@@ -70,7 +74,6 @@ for (const lang of LANGS) {
       await openApp(page, lang);
       await seedAttempts(page, lang, 'ms:cafe.1', 2);
       await page.goto('./#/mission/ms%3Acafe.1');
-      await page.reload();
       while (!(await page.getByText('Ответить жителю').count())) await page.getByTestId('scene-next').click();
       await page.getByTestId('scene-next').click();
       const mission = JSON.parse(readFileSync(join(CONTENT, lang, 'missions', 'cafe.json'), 'utf8')).missions[0] as { nodes: Record<string, Node>; start: string };
@@ -123,7 +126,6 @@ for (const lang of LANGS) {
       await openApp(page, lang);
       await seedAttempts(page, lang, 'ms:cafe.1', 2);
       await page.goto('./#/mission/ms%3Acafe.1');
-      await page.reload();
       while (!(await page.getByText('Ответить жителю').count())) await page.getByTestId('scene-next').click();
       await page.getByTestId('scene-next').click();
       while (!(await page.getByTestId('hero-turn').count())) await page.getByTestId('mission-next').click();

@@ -33,7 +33,7 @@ export function MedalAward() {
         style={{ borderColor: color }}
         data-testid="medal-award"
       >
-        <Medal icon={award.kind === 'line' ? award.line.id : 'secret'} tier={tier} size={64} />
+        <Medal icon={award.kind === 'line' ? award.line.id : 'secret'} secret={award.kind === 'line' ? undefined : award.secret.id} tier={tier} size={64} />
         <div>
           <div className="font-pixel text-xs tracking-widest uppercase" style={{ color }}>
             {award.kind === 'line' ? 'Новая медаль' : 'Тайная медаль'}
