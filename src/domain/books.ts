@@ -27,7 +27,7 @@ export const BOOK_WORDS: Record<number, [number, number]> = { 1: [120, 180], 2: 
 export const BOOK_UNKNOWN_MAX = 0.03;
 export const BOOK_QUESTIONS = 5;
 /** Главы, у которых книги уже написаны: валидатор требует у них все четыре текста. Растёт по главе за версию. */
-export const BOOK_CHAPTERS = [1, 2, 3, 4];
+export const BOOK_CHAPTERS = [1, 2, 3, 4, 5];
 
 /** Опыт за первое прочтение, если понято не меньше четырёх ответов из пяти. */
 export const BOOK_XP = 30;
