@@ -1,4 +1,10 @@
 import { useEffect, useMemo, useState } from 'react';
+import dockReview from '../assets/dock/review.webp';
+import dockJourney from '../assets/dock/journey.webp';
+import dockGrammar from '../assets/dock/grammar.webp';
+import dockBlitz from '../assets/dock/blitz.webp';
+import dockFestival from '../assets/dock/festival.webp';
+import dockPlacement from '../assets/dock/placement.webp';
 import { Link, Navigate } from 'react-router-dom';
 import { cachedLocation, loadLocation } from '../content';
 import { DISTRICTS, lessonsOf } from '../content/grammar';
@@ -17,7 +23,7 @@ import { dayKey, dueCards } from '../domain/srs';
 import { isVerbId, splitCards, wordIds } from '../domain/itemId';
 import { useNow } from '../lib/useNow';
 import { CityGrid } from '../components/CityGrid';
-import { FestivalBanner } from '../components/FestivalBits';
+import { useFestivalInvite } from '../components/FestivalBits';
 import { useCity } from '../store/city';
 import { useProgress } from '../store/progress';
 import { useMissions } from '../store/missions';
@@ -184,8 +190,8 @@ function ContinueCard({ step }: { step: NextStep }) {
   );
 }
 
-/** Строка «Путь» под «Продолжить»: глава, собранные обрывки и ближайший обрывок. Ведёт на карту странствий. */
-function JourneyLine() {
+/** «Путь»: глава, собранные обрывки и ближайший обрывок. Для кнопки «Путь» на главной. */
+function useJourneyHint(): { got: number; total: number; text: string } {
   const fragments = useJourney((s) => s.fragments);
   const seals = useJourney((s) => s.seals);
   const cards = useProgress((s) => s.cards);
@@ -218,34 +224,64 @@ function JourneyLine() {
       : `Печать: осталось ${parts.join(' и ')}`;
   }
 
+  const head = journey.finished ? 'Все карты собраны' : `Глава ${ch.chapter.roman} • ${got} / ${ch.places.length} обрывков`;
+  return { got, total: ch.places.length, text: next ? `${head}. ${next}` : head };
+}
+
+const DOCK_ART = {
+  review: dockReview,
+  journey: dockJourney,
+  grammar: dockGrammar,
+  blitz: dockBlitz,
+  festival: dockFestival,
+  placement: dockPlacement,
+};
+
+/**
+ * Круглая кнопка ряда над картой (задача 14.1): знак, короткая подпись, бейдж. Полный текст прежнего блока — в `text`:
+ * его читает экранный диктор, а сквозные тесты проверяют по нему, что в блоке.
+ */
+function DockButton({ to, art, label, text, badge, testId }: { to: string; art: string; label: string; text: string; badge?: string | number; testId?: string }) {
   return (
-    <Link to="/journey-map" data-testid="journey-line" className="press banner-journey banner-shadow mt-[7px] flex items-center pr-[70px] pl-[18px]">
-      <div className="min-w-0">
-        <div className="text-[16px] leading-tight text-[#2e2014]">
-          {journey.finished ? 'Все карты собраны' : `Глава ${ch.chapter.roman} • ${got} / ${ch.places.length} обрывков`}
-        </div>
-        {next && <div className="truncate text-[14px] leading-tight text-[#4a3522]">{next}</div>}
-      </div>
+    <Link to={to} className="press flex w-[62px] shrink-0 flex-col items-center" data-testid={testId}>
+      {/* Медальон — картинка из `docs/design/home-dock.png` (режет `scripts/build-dock-art.py`). */}
+      <span className="relative block h-[56px] w-[56px] drop-shadow-[0_2px_0_#2b1b0e]" aria-hidden>
+        <img src={art} alt="" width={56} height={56} className="block h-full w-full" />
+        {badge !== undefined && badge !== '' && (
+          <span className="absolute -top-1.5 -right-2 min-w-[22px] rounded-full border-2 border-[#2b1b0e] bg-gold px-1 text-center text-[12px] leading-[18px] font-bold text-[#2b1b0e] tabular-nums">
+            {badge}
+          </span>
+        )}
+      </span>
+      <span className="mt-1 text-[13px] leading-none text-[#e8dcc0]" aria-hidden>
+        {label}
+      </span>
+      <span className="sr-only">{text}</span>
     </Link>
   );
 }
 
-/** Первый запуск курса: предложить входной тест (задача 9.1). Можно пропустить, тест остаётся в настройках. */
-function PlacementOffer() {
+/** Первый запуск курса: предложить входной тест (задача 9.1) — кнопкой в ряду, с крестиком «Не предлагать». */
+function PlacementButton() {
   return (
-    <div className="banner-shadow mt-[7px] rounded-2xl border-2 border-[#8a6a3a] bg-[#f4e6c6] px-4 py-3 text-[#2b1b0e]" data-testid="placement-offer">
-      <div className="text-[18px] leading-tight font-semibold">Уже знаете {L.name.toLowerCase()}?</div>
-      <div className="mt-0.5 text-[14.5px] leading-snug text-[#4a3522]">
-        Летописец расспросит, где вы бывали, и засчитает знакомые главы. Это 10–15 минут.
-      </div>
-      <div className="mt-2 flex items-center gap-3">
-        <Link to="/placement" className="press flex-1 rounded-xl bg-[#2b4f8f] py-2 text-center text-[16px] font-semibold text-white" data-testid="placement-go">
-          Пройти входной тест
-        </Link>
-        <button type="button" onClick={() => usePlacement.getState().skip()} className="press px-2 py-2 text-[15px] underline" data-testid="placement-skip-home">
-          Пропустить
-        </button>
-      </div>
+    <div className="relative" data-testid="placement-offer">
+      <DockButton
+        to="/placement"
+        art={DOCK_ART.placement}
+        label="Расспросы"
+        badge="?"
+        testId="placement-go"
+        text={`Уже знаете ${L.name.toLowerCase()}? Летописец расспросит, где вы бывали, и засчитает знакомые главы. Пройти входной тест.`}
+      />
+      <button
+        type="button"
+        onClick={() => usePlacement.getState().skip()}
+        aria-label="Не предлагать входной тест"
+        className="press absolute -top-1.5 -left-1 h-[22px] w-[22px] rounded-full border-2 border-[#2b1b0e] bg-[#cfc6b0] text-[12px] leading-none font-bold text-[#2b1b0e]"
+        data-testid="placement-skip-home"
+      >
+        ×
+      </button>
     </div>
   );
 }
@@ -306,6 +342,9 @@ export function Home() {
     return null;
   }, [grammar, opened]);
 
+  const journeyHint = useJourneyHint();
+  const festival = useFestivalInvite();
+
   // Первый запуск: сначала пролог у ворот города.
   if (prologuePending(prologue) && !Object.keys(cards).length) return <Navigate to="/prologue" replace />;
 
@@ -329,38 +368,25 @@ export function Home() {
           </Link>
         </div>
         {step && <LearnAnyway step={step} />}
-        <div className="px-[5px]">
-          {placementOffered(placement, learned) && <PlacementOffer />}
-          {/* Неделя праздника (задача 10.5): приглашение хозяина. */}
-          <FestivalBanner />
-          {blocks.journey && <JourneyLine />}
-          {blocks.grammar && nextGrammar && (
-            <Link to={`/grammar/${nextGrammar.id}`} className="press banner-grammar banner-shadow mt-[7px] flex items-center justify-between gap-3 pr-[26px] pl-[48px]">
-              <span className="truncate text-[19px] font-semibold text-[#2b1b0e]">{nextGrammar.title}</span>
-              <span className="shrink-0 text-[15px] text-[#3a2616]">{nextGrammar.district}</span>
-            </Link>
-          )}
+        {/* Всё остальное — ряд круглых кнопок (задача 14.1): карта города начинается на первом экране. */}
+        <div className="mt-[8px] flex justify-center gap-[6px] px-[5px] pb-[2px]" data-testid="home-dock">
+          {placementOffered(placement, learned) && <PlacementButton />}
+          {festival && <DockButton to={festival.to} art={DOCK_ART.festival} label="Праздник" badge="!" text={festival.text} testId="festival-banner" />}
           {blocks.review && (
-            <Link to="/review" className="press banner-review banner-shadow relative mt-[6px] flex items-center pr-[88px] pl-[18px]" data-testid="review-card">
-              <div className="min-w-0">
-                <div className="text-[19px] leading-tight font-semibold text-[#2b1b0e] uppercase">Повторить</div>
-                <div className="mt-0.5 text-[15px] leading-tight text-[#3f2c1b]">{due ? `${dueText} на сегодня` : 'На сегодня всё повторено'}</div>
-              </div>
-              {/* Число стоит в круге на рунном щите справа. */}
-              <span
-                className={`absolute top-[38px] right-[38px] translate-x-1/2 -translate-y-1/2 font-serif font-bold text-[#2b1a0e] tabular-nums ${due ? '' : 'opacity-60'}`}
-                style={{ fontSize: due >= 1000 ? 17 : due >= 100 ? 26 : 37 }}
-              >
-                {due}
-              </span>
-            </Link>
+            <DockButton
+              to="/review"
+              art={DOCK_ART.review}
+              label="Повтор"
+              badge={due || undefined}
+              text={`Повторить: ${due ? `${dueText} на сегодня` : 'На сегодня всё повторено'}`}
+              testId="review-card"
+            />
           )}
-          {blocks.blitz && (
-            <Link to="/blitz" className="press banner-blitz banner-shadow mt-[7px] flex items-center justify-between gap-3 pr-[17px] pl-[48px]">
-              <span className="text-[19px] font-semibold text-[#2b1b0e] uppercase">Блиц</span>
-              <span className="min-w-0 text-right text-[15px] leading-tight text-[#3a2616]">60 секунд · {learned} слов в запасе</span>
-            </Link>
+          {blocks.journey && <DockButton to="/journey-map" art={DOCK_ART.journey} label="Путь" badge={journeyHint.got || undefined} text={journeyHint.text} testId="journey-line" />}
+          {blocks.grammar && nextGrammar && (
+            <DockButton to={`/grammar/${nextGrammar.id}`} art={DOCK_ART.grammar} label="Правила" text={`Урок ${nextGrammar.district}: ${nextGrammar.title}`} testId="grammar-next" />
           )}
+          {blocks.blitz && <DockButton to="/blitz" art={DOCK_ART.blitz} label="Блиц" text={`Блиц: 60 секунд · ${learned} слов в запасе`} testId="blitz-button" />}
         </div>
       </div>
 

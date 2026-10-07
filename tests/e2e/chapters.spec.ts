@@ -180,7 +180,7 @@ for (const lang of LANGS) {
       await expect(page.getByRole('button', { name: /к упражнениям/i })).toBeVisible();
       // Следующий урок грамматики на главной — из A2, а не «всё пройдено».
       await page.goto('./#/');
-      await expect(page.getByText('A2', { exact: true })).toBeVisible();
+      await expect(page.getByTestId('grammar-next')).toContainText('Урок A2:');
     });
   });
 }

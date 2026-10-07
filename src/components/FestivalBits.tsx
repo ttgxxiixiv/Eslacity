@@ -20,26 +20,12 @@ export function useActiveFestival(): Festival | undefined {
 }
 
 /** Приглашение на главной в неделю праздника. */
-export function FestivalBanner() {
+/** Приглашение на праздник для ряда кнопок главной (задача 14.1): знак, подпись, полный текст — для диктора. */
+export function useFestivalInvite(): { to: string; icon: string; text: string } | null {
   const f = useActiveFestival();
   if (!f) return null;
   const host = npcFor(festivalPlace(f.id));
-  return (
-    <Link
-      to={`/festival/${f.id}`}
-      className="press banner-shadow mt-[7px] flex items-center gap-3 rounded-2xl border-2 border-[#8a6a3a] bg-[#f4e6c6] px-4 py-3 text-[#2b1b0e]"
-      data-testid="festival-banner"
-    >
-      <span className="text-[34px] leading-none" aria-hidden>
-        {f.icon}
-      </span>
-      <span className="min-w-0 flex-1">
-        <span className="block text-[18px] leading-tight font-semibold">В городе праздник: {f.title}</span>
-        <span className="block text-[14.5px] leading-snug text-[#4a3522]">{host ? `${host.name} зовёт на праздник` : 'Загляните на праздник'}</span>
-      </span>
-      <span className="text-[#8a6a3a]">›</span>
-    </Link>
-  );
+  return { to: `/festival/${f.id}`, icon: f.icon, text: `В городе праздник: ${f.title}. ${host ? `${host.name} зовёт на праздник` : 'Загляните на праздник'}` };
 }
 
 /** Флажки праздника над картой города: треугольники его цветов на верёвке. */

@@ -319,7 +319,7 @@ export function CityGrid() {
   };
 
   return (
-    <section className="overflow-hidden px-3 pb-2">
+    <section className="overflow-hidden px-3 pb-2" data-testid="city-map">
       <div className="flex h-10 items-center justify-between px-2 pt-4 pb-2">
         <h2 className="gold-heading text-xl">Карта города</h2>
         <div className="relative">
