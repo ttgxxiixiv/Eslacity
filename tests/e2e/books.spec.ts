@@ -10,8 +10,10 @@ interface BookData {
   books: { id: string; title: { es: string }; paragraphs: { es: string; ru: string }[]; questions: { q: string; options: string[]; answer: number }[] }[];
 }
 
-async function seedFragments(page: Page, lang: Lang, n: number) {
-  const fragments = Object.fromEntries(PLACES.slice(0, n).map((p) => [`1:${p}`, 1]));
+async function seedFragments(page: Page, lang: Lang, n: number, chapter = 1) {
+  const fragments = Object.fromEntries(PLACES.slice(0, n).map((p) => [`${chapter}:${p}`, 1]));
+  // Глава открыта, когда собраны карты прошлых глав.
+  for (let c = 1; c < chapter; c++) for (const p of PLACES) fragments[`${c}:${p}`] = 1;
   await page.evaluate(
     ({ db, value }) =>
       new Promise<void>((resolve) => {
@@ -22,7 +24,7 @@ async function seedFragments(page: Page, lang: Lang, n: number) {
           tx.oncomplete = () => resolve();
         };
       }),
-    { db: DB[lang], value: { fragments, seals: {}, openedChapter: 1, celebrated: 0 } },
+    { db: DB[lang], value: { fragments, seals: {}, openedChapter: chapter, celebrated: chapter - 1 } },
   );
   await page.reload();
   await expect(page.getByTestId('continue')).toBeVisible();
@@ -89,6 +91,25 @@ for (const lang of LANGS) {
       await page.goto('./#/words');
       await expect(page.getByText(word.es, { exact: true })).toBeVisible();
     });
+
+    for (const chapter of [2]) {
+      test(`книга главы ${chapter}: открывается на 5 обрывках главы, вопросы проходятся`, async ({ page }) => {
+        const own = JSON.parse(readFileSync(join(CONTENT, lang, 'books', `${chapter}.json`), 'utf8')) as BookData;
+        const b = own.books[0];
+        await openApp(page, lang);
+        await seedFragments(page, lang, 5, chapter);
+        await page.goto('./#/book/' + encodeURIComponent(b.id));
+        await expect(page.getByTestId('book-title')).toHaveText(b.title.es);
+        await page.getByTestId('book-quiz').click();
+        for (const q of b.questions) {
+          await expect(page.getByTestId('scene-question')).toHaveText(q.q);
+          await page.getByRole('button', { name: q.options[q.answer], exact: true }).click();
+          await page.getByRole('button', { name: /дальше|итог/i }).click();
+        }
+        await page.getByRole('button', { name: 'Готово' }).click();
+        await expect(page.getByTestId('book-done')).toContainText('+30 опыта');
+      });
+    }
 
     test('закрытая книга не открывается по адресу', async ({ page }) => {
       await openApp(page, lang);
