@@ -87,6 +87,8 @@ for (const lang of LANGS) {
       await page.getByTestId('thread-due').click();
       await playScene(page, scene('th:1.half'));
       await expect(page.getByTestId('thread-seen')).toHaveText(['Глава I. Середина пути', 'Глава I. Начало главы']);
+      // Отметка о прочтении пишется в базу асинхронно: перезагрузка не должна её опередить.
+      await expect.poll(async () => Object.keys((await readMeta<{ seen: Record<string, number> }>(page, lang, 'thread'))?.seen ?? {}).sort()).toEqual(['th:1.half', 'th:1.open']);
       await page.goto('./');
       await expect(page.getByTestId('continue')).toBeVisible();
       // Записи и записка прочитаны, остаются только непрочитанные книги.
