@@ -13,6 +13,9 @@ import { HeroPortrait } from '../components/HeroPortrait';
 import { RepeatAfter } from '../components/RepeatAfter';
 import { ReportButton } from '../components/ReportButton';
 import { addressed } from '../store/settings';
+import { useThread } from '../store/thread';
+import { isThreadId } from '../domain/thread';
+import { threadSceneTitle } from './Chronicle';
 import { Button, Screen, TopBar } from '../components/ui';
 
 /** Реплика голосом говорящего: житель — своим голосом, герой — голосом выбранного пола. */
@@ -54,13 +57,19 @@ function SceneById({ id }: { id: string }) {
 
   if (scene.mode === 'overhear') return <Whisper scene={scene} place={place} onDone={() => nav(-1)} />;
   const npc = npcFor(place);
+  // Сцена нити главы (задача 13.1) прочитана, когда отвечены вопросы.
+  const thread = isThreadId(scene.id);
+  const finish = () => {
+    if (thread) useThread.getState().see(scene.id);
+    nav(-1);
+  };
   return (
     <Screen>
-      <TopBar title={npc ? `Разговор: ${npc.name}` : 'Разговор'} />
+      <TopBar title={thread ? threadSceneTitle(scene) : npc ? `Разговор: ${npc.name}` : 'Разговор'} />
       {phase === 'talk' ? (
         <SceneTalk scene={scene} place={place} lastLabel="К вопросам" onDone={() => setPhase('questions')} />
       ) : (
-        <SceneQuiz scene={scene} onDone={() => nav(-1)} />
+        <SceneQuiz scene={scene} onDone={finish} />
       )}
     </Screen>
   );

@@ -1,6 +1,6 @@
 import { useMemo, useState, type ReactNode } from 'react';
 import { usePrologue } from '../store/prologue';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import land1Open from '../assets/journey/land1-open.webp';
 import land1Closed from '../assets/journey/land1-closed.webp';
 import { LOCATIONS } from '../content/locations';
@@ -9,7 +9,7 @@ import { plural } from '../domain/medals';
 import { Button, Screen, TopBar } from '../components/ui';
 import { ChroniclerPanel } from '../components/ChroniclerPanel';
 import { NpcPortrait } from '../components/NpcPortrait';
-import { guardianOf } from '../content/npcs';
+import { CHRONICLER, guardianOf } from '../content/npcs';
 import { guardianId } from '../domain/guardian';
 import { trialStatus, waitLabel } from '../domain/trial';
 import { useNow } from '../lib/useNow';
@@ -240,6 +240,15 @@ export function JourneyMapScreen() {
             </span>
           </div>
         )}
+
+        {/* Летопись (задача 13.1): сцены нити глав и записки Летописца. */}
+        <Link to="/chronicle" className="press flex items-center gap-3 rounded-2xl bg-white px-3 py-2 shadow-sm" data-testid="chronicle-link">
+          <NpcPortrait look={CHRONICLER.look} size={40} />
+          <span className="text-sm">
+            <span className="font-semibold">Летопись</span>
+            <span className="block text-stone-600">Летописец сводит рассказы жителей в одну историю.</span>
+          </span>
+        </Link>
 
         <section className="rounded-2xl bg-white p-3 shadow-sm">
           <div className="flex items-baseline justify-between gap-2">

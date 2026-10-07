@@ -1,7 +1,8 @@
 import { readdirSync, readFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
-import { validateChronicler, validateGrammar, validateGuardians, validateLetters, validateMissions, validateNpcs, validatePhrases, validateScenes, validatePortraits, validateScrolls, validateSphinx, validateTranslations, validateVerbs, validatePairs, validateFestivals, validatePrologue, validateWords, type Issue } from '../src/content/validate';
-import type { Chronicler, GrammarLesson, GuardiansFile, LettersFile, SphinxFile, VerbsFile, PairsFile, FestivalFile, PrologueFile, LocationWords, LocationMissions, LocationPhrases, LocationScenes, NpcsFile, ScrollFile } from '../src/content/schema';
+import { validateChronicler, validateGrammar, validateGuardians, validateLetters, validateMissions, validateNpcs, validatePhrases, validateScenes, validatePortraits, validateScrolls, validateSphinx, validateTranslations, validateVerbs, validatePairs, validateFestivals, validatePrologue, validateThread, validateWords, type Issue } from '../src/content/validate';
+import type { Chronicler, GrammarLesson, GuardiansFile, LettersFile, SphinxFile, VerbsFile, PairsFile, FestivalFile, PrologueFile, LocationWords, LocationMissions, LocationPhrases, LocationScenes, NpcsFile, ScrollFile, ThreadFile } from '../src/content/schema';
+import { THREAD_CHAPTERS, THREAD_NOTES_MIN } from '../src/domain/thread';
 import type { Lang } from '../src/lang';
 import { CHAPTERS, PLAN_TOTAL } from '../src/content/vocabPlan';
 import { chapterOfDistrict } from '../src/domain/chapters';
@@ -115,7 +116,18 @@ for (const lang of langs) {
       missions: { scenes: new Set(), coverage: (text, level) => textCoverage(text, level, festLexicon, forms, lang) },
     });
   // Сцены: доля незнакомых слов к уровню главы, отчёт покрытия в итоговой строке.
-  const scenes = readJson<LocationScenes>(join(root, lang, 'scenes'));
+  // Нить глав (задача 13.1) лежит рядом со сценами мест, но проверяется своей функцией.
+  const sceneFiles = readJson<LocationScenes>(join(root, lang, 'scenes'));
+  const scenes = sceneFiles.filter((f) => f.name !== 'thread.json');
+  const threadFile = sceneFiles.find((f) => f.name === 'thread.json') as { name: string; data: ThreadFile } | undefined;
+  const threadChecks = {
+    chronicler: chronicler?.id ?? '',
+    residents: (npcs?.npcs ?? []).map((n) => n.id),
+    chapters: THREAD_CHAPTERS,
+    notesMin: THREAD_NOTES_MIN,
+    coverage: (text: string, level: number) => textCoverage(text, level, lexicon, forms, lang),
+  };
+  const threadCheck = validateThread(threadFile, threadChecks);
   const sceneCheck = validateScenes(scenes, {
     residents: Object.fromEntries((npcs?.npcs ?? []).map((n) => [n.location, n.id])),
     pitch: Object.fromEntries((npcs?.npcs ?? []).map((n) => [n.id, n.voice.pitch])),
@@ -152,11 +164,13 @@ for (const lang of langs) {
     }),
     ...validateLetters(forGender(letters, 'f'), Object.fromEntries((npcs?.npcs ?? []).map((n) => [n.location, n.id]))),
     ...festivalChecks(fem(festivals)),
+    ...(threadFile ? validateThread(fem([threadFile])[0], threadChecks).issues : []),
   ]
     // Слова gloss из мужской формы в женской не встречаются: это не лишний перевод, его нажимают у путника.
     .filter((i) => !i.msg.includes('из gloss нет в репликах'))
     .map((i) => ({ ...i, where: `${i.where} (путница)` }));
   const femFiles: [string, unknown][] = [
+    ...(threadFile ? [[`scenes/${threadFile.name}`, threadFile.data] as [string, unknown]] : []),
     ...[...scenes.map((f) => ['scenes', f] as const), ...missions.map((f) => ['missions', f] as const), ...phrases.map((f) => ['phrases', f] as const)].map(
       ([dir, f]) => [`${dir}/${f.name}`, f.data] as [string, unknown],
     ),
@@ -173,6 +187,7 @@ for (const lang of langs) {
     ...tag(femForms),
     ...tag(missionIssues),
     ...tag(sceneCheck.issues),
+    ...tag(threadCheck.issues),
     ...tag(validateWords(words, lang)),
     ...tag(rarity),
     ...tag(
@@ -230,7 +245,7 @@ for (const lang of langs) {
   const phraseCount = phrases.reduce((n, f) => n + f.data.phrases.length, 0);
   const missionCount = missions.reduce((n, f) => n + f.data.missions.length, 0);
   summary.push(
-    `${lang}: ${words.length} локаций, слов: ${placeCount + scrollCount} (из них в свитках ${scrollCount}) из плана ${PLAN_TOTAL}, ${exprCount} ${plural(exprCount, ['выражение', 'выражения', 'выражений'])}, ${grammar.length} уроков, ${phraseCount} ${plural(phraseCount, ['фраза', 'фразы', 'фраз'])}, ${sceneSummary(sceneCheck.report)}, ${missionCount} ${plural(missionCount, ['миссия', 'миссии', 'миссий'])}, ${npcs?.npcs.length ?? 0} жителей, ${verbs?.verbs.length ?? 0} глаголов в кузнице, ${pairs?.contrasts.reduce((n, c) => n + c.pairs.length, 0) ?? 0} пар в Звоннице, ${festivals.length} ${plural(festivals.length, ['праздник', 'праздника', 'праздников'])}, ${letters?.letters.length ?? 0} писем`,
+    `${lang}: ${words.length} локаций, слов: ${placeCount + scrollCount} (из них в свитках ${scrollCount}) из плана ${PLAN_TOTAL}, ${exprCount} ${plural(exprCount, ['выражение', 'выражения', 'выражений'])}, ${grammar.length} уроков, ${phraseCount} ${plural(phraseCount, ['фраза', 'фразы', 'фраз'])}, ${sceneSummary(sceneCheck.report)}, ${threadCheck.report.scenes} ${plural(threadCheck.report.scenes, ['сцена', 'сцены', 'сцен'])} нити глав, ${missionCount} ${plural(missionCount, ['миссия', 'миссии', 'миссий'])}, ${npcs?.npcs.length ?? 0} жителей, ${verbs?.verbs.length ?? 0} глаголов в кузнице, ${pairs?.contrasts.reduce((n, c) => n + c.pairs.length, 0) ?? 0} пар в Звоннице, ${festivals.length} ${plural(festivals.length, ['праздник', 'праздника', 'праздников'])}, ${letters?.letters.length ?? 0} писем`,
   );
 }
 

@@ -1,10 +1,11 @@
-import { useEffect, useMemo, useState } from 'react';
+import { type ReactNode, useEffect, useMemo, useState } from 'react';
 import dockReview from '../assets/dock/review.webp';
 import dockJourney from '../assets/dock/journey.webp';
 import dockGrammar from '../assets/dock/grammar.webp';
 import dockBlitz from '../assets/dock/blitz.webp';
 import dockFestival from '../assets/dock/festival.webp';
 import dockPlacement from '../assets/dock/placement.webp';
+import dockEmpty from '../assets/dock/empty.webp';
 import { Link, Navigate } from 'react-router-dom';
 import { cachedLocation, loadLocation } from '../content';
 import { DISTRICTS, lessonsOf } from '../content/grammar';
@@ -15,7 +16,7 @@ import { chapterById, chapterOfLevel, isDistrictOpen, isLevelOpen, nearestGoal }
 import { plural } from '../domain/medals';
 import { discountedCost } from '../domain/reputation';
 import { useErrands } from '../store/errands';
-import { NPC_BY_LOCATION } from '../content/npcs';
+import { CHRONICLER, NPC_BY_LOCATION } from '../content/npcs';
 import { NpcPortrait, portraitUrl } from '../components/NpcPortrait';
 import { useSettings } from '../store/settings';
 import { currentJourney, useJourney } from '../store/journey';
@@ -36,6 +37,7 @@ import { placementOffered } from '../domain/placement';
 import { usePlacement } from '../store/placement';
 import { usePrologue } from '../store/prologue';
 import { homeBlocks, prologuePending } from '../domain/prologue';
+import { useChronicleDue } from './Chronicle';
 
 type WordsMap = Partial<Record<LocationId, Word[]>>;
 
@@ -235,18 +237,22 @@ const DOCK_ART = {
   blitz: dockBlitz,
   festival: dockFestival,
   placement: dockPlacement,
+  empty: dockEmpty,
 };
 
 /**
  * Круглая кнопка ряда над картой (задача 14.1): знак, короткая подпись, бейдж. Полный текст прежнего блока — в `text`:
  * его читает экранный диктор, а сквозные тесты проверяют по нему, что в блоке.
  */
-function DockButton({ to, art, label, text, badge, testId }: { to: string; art: string; label: string; text: string; badge?: string | number; testId?: string }) {
+function DockButton({ to, art, label, text, badge, testId, children }: { to: string; art: string; label: string; text: string; badge?: string | number; testId?: string; children?: ReactNode }) {
   return (
-    <Link to={to} className="press flex w-[62px] shrink-0 flex-col items-center" data-testid={testId}>
+    // Кнопок бывает до семи: на узком экране они сжимаются, а не уходят за край.
+    <Link to={to} className="press flex w-[62px] min-w-0 shrink flex-col items-center" data-testid={testId}>
       {/* Медальон — картинка из `docs/design/home-dock.png` (режет `scripts/build-dock-art.py`). */}
-      <span className="relative block h-[56px] w-[56px] drop-shadow-[0_2px_0_#2b1b0e]" aria-hidden>
+      <span className="relative block aspect-square w-full max-w-[56px] drop-shadow-[0_2px_0_#2b1b0e]" aria-hidden>
         <img src={art} alt="" width={56} height={56} className="block h-full w-full" />
+        {/* Знак поверх пустого медальона (Летопись — портрет Летописца). */}
+        {children && <span className="absolute inset-[20%] flex items-center justify-center overflow-hidden rounded-full">{children}</span>}
         {badge !== undefined && badge !== '' && (
           <span className="absolute -top-1.5 -right-2 min-w-[22px] rounded-full border-2 border-[#2b1b0e] bg-gold px-1 text-center text-[12px] leading-[18px] font-bold text-[#2b1b0e] tabular-nums">
             {badge}
@@ -264,7 +270,7 @@ function DockButton({ to, art, label, text, badge, testId }: { to: string; art: 
 /** Первый запуск курса: предложить входной тест (задача 9.1) — кнопкой в ряду, с крестиком «Не предлагать». */
 function PlacementButton() {
   return (
-    <div className="relative" data-testid="placement-offer">
+    <div className="relative flex w-[62px] min-w-0 shrink" data-testid="placement-offer">
       <DockButton
         to="/placement"
         art={DOCK_ART.placement}
@@ -344,6 +350,8 @@ export function Home() {
 
   const journeyHint = useJourneyHint();
   const festival = useFestivalInvite();
+  const chronicle = useChronicleDue(now);
+  const chronicleCount = chronicle ? chronicle.scenes.length + (chronicle.note ? 1 : 0) : 0;
 
   // Первый запуск: сначала пролог у ворот города.
   if (prologuePending(prologue) && !Object.keys(cards).length) return <Navigate to="/prologue" replace />;
@@ -381,6 +389,18 @@ export function Home() {
               text={`Повторить: ${due ? `${dueText} на сегодня` : 'На сегодня всё повторено'}`}
               testId="review-card"
             />
+          )}
+          {blocks.journey && chronicleCount > 0 && (
+            <DockButton
+              to="/chronicle"
+              art={DOCK_ART.empty}
+              label="Летопись"
+              badge={chronicleCount}
+              testId="chronicle-button"
+              text={`Летопись: ${[chronicle!.scenes.length ? `новых записей ${chronicle!.scenes.length}` : '', chronicle!.note ? 'Летописец оставил записку' : ''].filter(Boolean).join(', ')}`}
+            >
+              <NpcPortrait look={CHRONICLER.look} size={34} />
+            </DockButton>
           )}
           {blocks.journey && <DockButton to="/journey-map" art={DOCK_ART.journey} label="Путь" badge={journeyHint.got || undefined} text={journeyHint.text} testId="journey-line" />}
           {blocks.grammar && nextGrammar && (

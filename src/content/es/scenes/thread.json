@@ -1,0 +1,361 @@
+{
+  "location": "thread",
+  "scenes": [
+    {
+      "id": "th:1.open",
+      "chapter": 1,
+      "trigger": "open",
+      "npc": "cronista",
+      "lines": [
+        {
+          "who": "npc",
+          "es": "Hola, viajero. En este libro escribo todo lo que pasa en la ciudad.",
+          "ru": "Здравствуй, путник. В этой книге я записываю всё, что происходит в городе."
+        },
+        {
+          "who": "hero",
+          "es": "¿Y qué pasa en la ciudad?",
+          "ru": "И что происходит в городе?"
+        },
+        {
+          "who": "npc",
+          "es": "Hace muchos años, la ciudad tenía un mapa viejo. El mapa lleva a la Bóveda.",
+          "ru": "Много лет назад у города была старая карта. Карта ведёт к Хранилищу."
+        },
+        {
+          "who": "npc",
+          "es": "Pero la gente tenía problemas por el mapa. Entonces lo rompieron en veinte trozos.",
+          "ru": "Но люди ссорились из-за карты. И тогда её разорвали на двадцать обрывков."
+        },
+        {
+          "who": "npc",
+          "es": "Cada casa tiene un trozo: el café, el mercado, la escuela, el banco...",
+          "ru": "У каждого дома есть обрывок: у кафе, у рынка, у школы, у банка..."
+        },
+        {
+          "who": "hero",
+          "es": "¿Y cómo consigo los trozos?",
+          "ru": "А как мне получить обрывки?"
+        },
+        {
+          "who": "npc",
+          "es": "Habla con los vecinos en su idioma y ayúdalos. Así te dan su trozo.",
+          "ru": "Говори с соседями на их языке и помогай им. Тогда они отдадут тебе свой обрывок."
+        },
+        {
+          "who": "npc",
+          "es": "Con veinte trozos y el sello del guardián, el camino es para ti.",
+          "ru": "Двадцать обрывков и печать стража — и дорога твоя."
+        },
+        {
+          "who": "hero",
+          "es": "¿Dónde está el guardián?",
+          "ru": "Где страж?"
+        },
+        {
+          "who": "npc",
+          "es": "Fuera de la ciudad. Y otra cosa: alguien escribe cartas con una sola palabra, «Ven».",
+          "ru": "За городом. И ещё: кто-то пишет письма с одним словом — «Приходи»."
+        },
+        {
+          "who": "npc",
+          "es": "¿Quién las escribe? Vamos a buscar la respuesta juntos.",
+          "ru": "Кто их пишет? Будем искать ответ вместе."
+        }
+      ],
+      "questions": [
+        {
+          "q": "Почему карту разорвали?",
+          "options": [
+            "Люди ссорились из-за неё",
+            "Она была слишком старой",
+            "Её хотели продать"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "На сколько обрывков разорвали карту?",
+          "options": [
+            "На пять",
+            "На двадцать",
+            "На сто"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Как получить обрывок?",
+          "options": [
+            "Купить его в банке",
+            "Найти в парке",
+            "Говорить с жителем на его языке и помочь ему"
+          ],
+          "answer": 2
+        },
+        {
+          "q": "Что нужно, кроме обрывков?",
+          "options": [
+            "Печать стража",
+            "Билет на поезд",
+            "Ключ от школы"
+          ],
+          "answer": 0
+        }
+      ],
+      "gloss": {
+        "bóveda": "Хранилище",
+        "trozos": "обрывки",
+        "trozo": "обрывок",
+        "guardián": "страж"
+      }
+    },
+    {
+      "id": "th:1.half",
+      "chapter": 1,
+      "trigger": "half",
+      "npc": "cronista",
+      "lines": [
+        {
+          "who": "npc",
+          "es": "¡Ya tienes diez trozos! Es la mitad del mapa.",
+          "ru": "У тебя уже десять обрывков! Это половина карты."
+        },
+        {
+          "who": "npc",
+          "es": "Escribo lo que dicen los vecinos. Una empresa quiere comprar todos los trozos.",
+          "ru": "Я записываю, что говорят соседи. Какая-то компания хочет купить все обрывки."
+        },
+        {
+          "who": "hero",
+          "es": "Sí, una vecina me habló de eso. La empresa paga mucho dinero.",
+          "ru": "Да, одна соседка мне об этом говорила. Компания платит много денег."
+        },
+        {
+          "who": "npc",
+          "es": "Y el hombre de la empresa fue a la montaña sin mapa. Se cayó en el camino.",
+          "ru": "А человек из компании пошёл в горы без карты. Он упал на дороге."
+        },
+        {
+          "who": "hero",
+          "es": "¿Y está bien?",
+          "ru": "И он в порядке?"
+        },
+        {
+          "who": "npc",
+          "es": "Sí, en el hospital lo ayudaron. Pero no habla nuestro idioma, y sin palabras no puedes pasar.",
+          "ru": "Да, в больнице ему помогли. Но он не говорит на нашем языке, а без слов не пройти."
+        },
+        {
+          "who": "npc",
+          "es": "Mira: nadie vende su trozo. Ni el café, ni el restaurante, ni el banco.",
+          "ru": "Смотри: никто не продаёт свой обрывок. Ни кафе, ни ресторан, ни банк."
+        },
+        {
+          "who": "hero",
+          "es": "Entonces, ¿quién es esa empresa?",
+          "ru": "Тогда кто эта компания?"
+        },
+        {
+          "who": "npc",
+          "es": "Buena pregunta. Habla con la comisaria Vega. Ella sabe mucho.",
+          "ru": "Хороший вопрос. Поговори с комиссаром Вегой. Она многое знает."
+        }
+      ],
+      "questions": [
+        {
+          "q": "Сколько обрывков у героя?",
+          "options": [
+            "Пять",
+            "Десять",
+            "Двадцать"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Чего хочет компания?",
+          "options": [
+            "Купить все обрывки",
+            "Построить отель",
+            "Открыть кафе"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Что случилось с человеком из компании?",
+          "options": [
+            "Он уехал на поезде",
+            "Он упал на дороге в горы",
+            "Он купил карту"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Кто продал свой обрывок?",
+          "options": [
+            "Кафе",
+            "Банк",
+            "Никто"
+          ],
+          "answer": 2
+        }
+      ],
+      "gloss": {
+        "empresa": "компания",
+        "comisaria": "комиссар",
+        "trozos": "обрывки",
+        "trozo": "обрывок",
+        "mitad": "половина"
+      }
+    },
+    {
+      "id": "th:1.climax",
+      "chapter": 1,
+      "trigger": "climax",
+      "npc": "cronista",
+      "lines": [
+        {
+          "who": "npc",
+          "es": "¡Veinte trozos! El mapa de la ciudad está completo.",
+          "ru": "Двадцать обрывков! Карта города собрана."
+        },
+        {
+          "who": "npc",
+          "es": "Ahora lo sé todo. La empresa no es una empresa. Era el guardián.",
+          "ru": "Теперь я знаю всё. Компания — не компания. Это был страж."
+        },
+        {
+          "who": "hero",
+          "es": "¿El guardián? ¿Por qué?",
+          "ru": "Страж? Зачем?"
+        },
+        {
+          "who": "npc",
+          "es": "Quería saber si la ciudad vende el mapa. Y nadie lo vendió.",
+          "ru": "Он хотел узнать, продаст ли город карту. И никто её не продал."
+        },
+        {
+          "who": "npc",
+          "es": "Y las cartas con «Ven»... las escribí yo. Buscaba a alguien que ayuda a los vecinos.",
+          "ru": "А письма «Приходи»... их писал я. Я искал того, кто помогает соседям."
+        },
+        {
+          "who": "hero",
+          "es": "¿Y me encontraste a mí?",
+          "ru": "И нашёл меня?"
+        },
+        {
+          "who": "npc",
+          "es": "Sí. Ahora el guardián te espera fuera de la ciudad. Detrás de él hay un camino alto hacia la montaña.",
+          "ru": "Да. Теперь страж ждёт тебя за городом. За ним — высокая дорога в горы."
+        },
+        {
+          "who": "npc",
+          "es": "Una cosa más. Lola tiene un hermano, Tomás. Hace un mes fue a la montaña y ya no escribe.",
+          "ru": "И ещё. У Лолы есть брат, Томас. Месяц назад он ушёл в горы и больше не пишет."
+        },
+        {
+          "who": "hero",
+          "es": "¿Dónde está Tomás?",
+          "ru": "Где Томас?"
+        },
+        {
+          "who": "npc",
+          "es": "No lo sé. Esa es la pregunta de la montaña.",
+          "ru": "Не знаю. Это вопрос гор."
+        }
+      ],
+      "questions": [
+        {
+          "q": "Кем на самом деле была компания?",
+          "options": [
+            "Банком",
+            "Стражем",
+            "Летописцем"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Кто писал письма «Приходи»?",
+          "options": [
+            "Лола",
+            "Страж",
+            "Летописец"
+          ],
+          "answer": 2
+        },
+        {
+          "q": "Где ждёт страж?",
+          "options": [
+            "За городом",
+            "В кафе",
+            "На вокзале"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Что случилось с братом Лолы?",
+          "options": [
+            "Он открыл кафе",
+            "Ушёл в горы и перестал писать",
+            "Улетел на самолёте"
+          ],
+          "answer": 1
+        }
+      ],
+      "gloss": {
+        "empresa": "компания",
+        "trozos": "обрывки",
+        "completo": "целый, собранный",
+        "guardián": "страж"
+      }
+    }
+  ],
+  "notes": {
+    "1": [
+      {
+        "es": "Hoy escribo una página nueva: otro trozo del mapa. ¡Muy bien!",
+        "ru": "Сегодня пишу новую страницу: ещё один обрывок карты. Очень хорошо!",
+        "gloss": {
+          "trozo": "обрывок",
+          "página": "страница"
+        }
+      },
+      {
+        "es": "Un vecino más te da su trozo. La ciudad habla de ti.",
+        "ru": "Ещё один сосед отдал тебе свой обрывок. Город говорит о тебе.",
+        "gloss": {
+          "trozo": "обрывок"
+        }
+      },
+      {
+        "es": "El mapa es más grande cada día. Mañana buscamos otro trozo.",
+        "ru": "Карта растёт с каждым днём. Завтра ищем ещё один обрывок.",
+        "gloss": {
+          "trozo": "обрывок"
+        }
+      },
+      {
+        "es": "Esta noche no duermo: escribo tu día en mi libro.",
+        "ru": "Сегодня ночью не сплю: записываю твой день в книгу."
+      },
+      {
+        "es": "Otro trozo. La Bóveda está un poco más cerca.",
+        "ru": "Ещё один обрывок. Хранилище чуть ближе.",
+        "gloss": {
+          "trozo": "обрывок",
+          "bóveda": "Хранилище"
+        }
+      },
+      {
+        "es": "Gracias por ayudar a los vecinos. Lo escribo todo.",
+        "ru": "Спасибо, что помогаешь соседям. Я всё записываю."
+      },
+      {
+        "es": "Mira el mapa: cada trozo es una casa de la ciudad.",
+        "ru": "Посмотри на карту: каждый обрывок — это дом в городе.",
+        "gloss": {
+          "trozo": "обрывок"
+        }
+      }
+    ]
+  }
+}

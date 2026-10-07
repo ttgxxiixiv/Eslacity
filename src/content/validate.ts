@@ -6,12 +6,13 @@ import { expandOptional, fullPhrase, optionalError, PHRASE_MAX_WORDS, PHRASE_PRE
 import { answersOnPath, DISPUTE_FROM_CHAPTER, isDispute, isRegisterNode, missionGraphIssues, REGISTER_FROM_CHAPTER } from '../domain/mission';
 import { LISTEN_GUARDIAN_CHAPTERS } from '../domain/guardian';
 import { sceneWords } from '../domain/sceneText';
+import { THREAD_TRIGGERS, threadId } from '../domain/thread';
 import { conjugate, generated, participle, TENSES, type Tense } from '../domain/verbs';
 import { phraseTokens } from '../domain/phraseSteps';
 import { pairIssue } from '../domain/minimalPairs';
 import { festivalMissionId, festivalPlace, festivalsOf } from '../domain/festival';
 import { LETTER_MAX_WORDS, LETTER_MIN_WORDS, wordCount as letterWords } from '../domain/letter';
-import { LOCATION_IDS, SPHINX_LINES, type SphinxSpeaker, type Chronicler, type GrammarExercise, type GrammarLesson, type GuardiansFile, type LettersFile, type NpcLook, type LocationMissions, type MissionAnswer, type LocationPhrases, type LocationScenes, type Phrase, type Scene, type LocationWords, type NpcsFile, type ScrollFile, type SphinxFile, type VerbsFile, type Word, type PairsFile, type Smith, type FestivalFile, type LocationId, type PrologueFile } from './schema';
+import { LOCATION_IDS, SPHINX_LINES, type SphinxSpeaker, type Chronicler, type GrammarExercise, type GrammarLesson, type GuardiansFile, type LettersFile, type NpcLook, type LocationMissions, type MissionAnswer, type LocationPhrases, type LocationScenes, type Phrase, type Scene, type LocationWords, type NpcsFile, type ScrollFile, type SphinxFile, type VerbsFile, type Word, type PairsFile, type Smith, type FestivalFile, type LocationId, type PrologueFile, type ThreadFile } from './schema';
 
 export interface Issue {
   level: 'error' | 'warning';
@@ -1196,48 +1197,128 @@ export function validateScenes(files: { name: string; data: LocationScenes }[], 
       const plan = PLAN[sc.chapter - 1];
       if (!plan) out.push({ level: 'error', where: at, msg: `глава ${sc.chapter}` });
       if (sc.npc !== checks.residents[data.location]) out.push({ level: 'error', where: at, msg: `житель "${sc.npc}", в этом месте живёт "${checks.residents[data.location]}"` });
-      const lines = sc.lines ?? [];
-      if (lines.length < 2) out.push({ level: 'error', where: at, msg: 'меньше двух реплик' });
-      if (!lines.some((l) => l.who === 'npc')) out.push({ level: 'error', where: at, msg: 'житель не говорит ни одной реплики' });
-      lines.forEach((l, i) => {
-        if (l.who !== 'npc' && l.who !== 'hero' && !npcIds.has(l.who)) out.push({ level: 'error', where: `${at} #${i}`, msg: `кто говорит: "${l.who}"` });
-        if (empty(l.es) || empty(l.ru)) out.push({ level: 'error', where: `${at} #${i}`, msg: 'пустая реплика или перевод' });
-      });
-      const qs = sc.questions ?? [];
-      if (!qs.length) out.push({ level: 'error', where: at, msg: 'нет вопросов на понимание' });
-      qs.forEach((q, i) => {
-        const opts = q.options ?? [];
-        if (empty(q.q)) out.push({ level: 'error', where: `${at} вопрос ${i + 1}`, msg: 'пустой вопрос' });
-        if (opts.length < 2 || opts.length > 4 || opts.some(empty) || new Set(opts).size !== opts.length) {
-          out.push({ level: 'error', where: `${at} вопрос ${i + 1}`, msg: 'нужно 2–4 разных варианта' });
-        }
-        if (!Number.isInteger(q.answer) || q.answer < 0 || q.answer >= opts.length) out.push({ level: 'error', where: `${at} вопрос ${i + 1}`, msg: `ответ ${q.answer}` });
-        if (q.kind !== undefined && (q.kind !== 'stance' || !overhear)) out.push({ level: 'error', where: `${at} вопрос ${i + 1}`, msg: `вид вопроса "${q.kind}" бывает только у шёпота` });
-        if (overhear && q.kind !== 'stance') out.push({ level: 'error', where: `${at} вопрос ${i + 1}`, msg: 'в шёпоте вопросы вида stance' });
-      });
+      out.push(...sceneBodyIssues(sc, at, npcIds, checks, report));
       if (overhear) out.push(...overhearIssues(sc, at, checks.residents[data.location], npcIds, checks.pitch));
-      const text = lines.map((l) => l.es).join(' ');
-      // Слова реплик так же, как их нажимают на экране сцены: «dell'Elisir» — это «dell'» и «elisir».
-      // Женские формы реплик (`fem`) тоже нажимаются: их слова в gloss не лишние.
-      const keys = new Set(lines.flatMap((l) => [l.es ?? '', l.fem?.es ?? ''].flatMap((t) => sceneWords(t).flatMap((p) => ('key' in p ? [normalize(p.key)] : [])))));
-      const gloss = Object.fromEntries(Object.entries(sc.gloss ?? {}).map(([k, v]) => [k.toLowerCase(), v]));
-      for (const [k, v] of Object.entries(gloss)) {
-        if (empty(v)) out.push({ level: 'error', where: at, msg: `пустой перевод в gloss: "${k}"` });
-        if (!keys.has(normalize(k))) out.push({ level: 'warning', where: at, msg: `слова "${k}" из gloss нет в репликах` });
-      }
-      if (plan && checks.coverage) {
-        const level = Math.max(...plan.levels);
-        const cov = checks.coverage(text, level);
-        report.words += cov.total;
-        report.unknown += cov.unknown.length;
-        const share = cov.total ? cov.unknown.length / cov.total : 0;
-        if (share > SCENE_UNKNOWN_MAX) {
-          out.push({ level: 'error', where: at, msg: `незнакомых слов ${Math.round(share * 100)}% (${[...new Set(cov.unknown)].join(', ')}), не больше ${Math.round(SCENE_UNKNOWN_MAX * 100)}%` });
-        }
-        const bare = [...new Set(cov.unknown)].filter((t) => !gloss[t]);
-        if (bare.length) out.push({ level: 'warning', where: at, msg: `нет в словаре уровня ${level} и в gloss: ${bare.join(', ')}` });
-      }
     }
+  }
+  return { issues: out, report };
+}
+
+/**
+ * Общее у сцен мест и нити глав: реплики, вопросы на понимание, `gloss` и доля незнакомых слов к уровню главы
+ * (слова считаются в `report`).
+ */
+function sceneBodyIssues(sc: Scene, at: string, npcIds: ReadonlySet<string>, checks: Pick<SceneChecks, 'coverage'>, report: SceneReport): Issue[] {
+  const out: Issue[] = [];
+  const overhear = sc.mode === 'overhear';
+  const plan = PLAN[sc.chapter - 1];
+  const lines = sc.lines ?? [];
+  if (lines.length < 2) out.push({ level: 'error', where: at, msg: 'меньше двух реплик' });
+  if (!lines.some((l) => l.who === 'npc')) out.push({ level: 'error', where: at, msg: 'житель не говорит ни одной реплики' });
+  lines.forEach((l, i) => {
+    if (l.who !== 'npc' && l.who !== 'hero' && !npcIds.has(l.who)) out.push({ level: 'error', where: `${at} #${i}`, msg: `кто говорит: "${l.who}"` });
+    if (empty(l.es) || empty(l.ru)) out.push({ level: 'error', where: `${at} #${i}`, msg: 'пустая реплика или перевод' });
+  });
+  const qs = sc.questions ?? [];
+  if (!qs.length) out.push({ level: 'error', where: at, msg: 'нет вопросов на понимание' });
+  qs.forEach((q, i) => {
+    const opts = q.options ?? [];
+    if (empty(q.q)) out.push({ level: 'error', where: `${at} вопрос ${i + 1}`, msg: 'пустой вопрос' });
+    if (opts.length < 2 || opts.length > 4 || opts.some(empty) || new Set(opts).size !== opts.length) {
+      out.push({ level: 'error', where: `${at} вопрос ${i + 1}`, msg: 'нужно 2–4 разных варианта' });
+    }
+    if (!Number.isInteger(q.answer) || q.answer < 0 || q.answer >= opts.length) out.push({ level: 'error', where: `${at} вопрос ${i + 1}`, msg: `ответ ${q.answer}` });
+    if (q.kind !== undefined && (q.kind !== 'stance' || !overhear)) out.push({ level: 'error', where: `${at} вопрос ${i + 1}`, msg: `вид вопроса "${q.kind}" бывает только у шёпота` });
+    if (overhear && q.kind !== 'stance') out.push({ level: 'error', where: `${at} вопрос ${i + 1}`, msg: 'в шёпоте вопросы вида stance' });
+  });
+  const text = lines.map((l) => l.es).join(' ');
+  // Слова реплик так же, как их нажимают на экране сцены: «dell'Elisir» — это «dell'» и «elisir».
+  // Женские формы реплик (`fem`) тоже нажимаются: их слова в gloss не лишние.
+  const keys = new Set(lines.flatMap((l) => [l.es ?? '', l.fem?.es ?? ''].flatMap((t) => sceneWords(t).flatMap((p) => ('key' in p ? [normalize(p.key)] : [])))));
+  const gloss = Object.fromEntries(Object.entries(sc.gloss ?? {}).map(([k, v]) => [k.toLowerCase(), v]));
+  for (const [k, v] of Object.entries(gloss)) {
+    if (empty(v)) out.push({ level: 'error', where: at, msg: `пустой перевод в gloss: "${k}"` });
+    if (!keys.has(normalize(k))) out.push({ level: 'warning', where: at, msg: `слова "${k}" из gloss нет в репликах` });
+  }
+  if (plan && checks.coverage) {
+    const level = Math.max(...plan.levels);
+    const cov = checks.coverage(text, level);
+    report.words += cov.total;
+    report.unknown += cov.unknown.length;
+    const share = cov.total ? cov.unknown.length / cov.total : 0;
+    if (share > SCENE_UNKNOWN_MAX) {
+      out.push({ level: 'error', where: at, msg: `незнакомых слов ${Math.round(share * 100)}% (${[...new Set(cov.unknown)].join(', ')}), не больше ${Math.round(SCENE_UNKNOWN_MAX * 100)}%` });
+    }
+    const bare = [...new Set(cov.unknown)].filter((t) => !gloss[t]);
+    if (bare.length) out.push({ level: 'warning', where: at, msg: `нет в словаре уровня ${level} и в gloss: ${bare.join(', ')}` });
+  }
+  return out;
+}
+
+export interface ThreadChecks extends Pick<SceneChecks, 'coverage'> {
+  /** id Летописца: он ведёт нить. */
+  chronicler: string;
+  /** id жителей: они могут вставить реплику в сцену нити. */
+  residents: string[];
+  /** Главы, у которых нить уже написана: у каждой ровно три сцены. */
+  chapters: number[];
+  /** Записок у такой главы не меньше. */
+  notesMin: number;
+}
+
+/**
+ * Нить глав (задача 13.1): `scenes/thread.json`. Сцены Летописца `th:<глава>.<trigger>`, по одной на момент
+ * (`open`, `half`, `climax`) у каждой главы из `chapters`, и записки конца дня по главам. Реплики, вопросы и доля
+ * незнакомых слов проверяются как у сцен мест.
+ */
+export function validateThread(file: { name: string; data: ThreadFile } | undefined, checks: ThreadChecks): { issues: Issue[]; report: SceneReport } {
+  const out: Issue[] = [];
+  const report: SceneReport = { scenes: 0, whispers: 0, words: 0, unknown: 0 };
+  if (!file) {
+    if (checks.chapters.length) out.push({ level: 'error', where: 'scenes/thread.json', msg: 'нет нити глав' });
+    return { issues: out, report };
+  }
+  const { name, data } = file;
+  const where = `scenes/${name}`;
+  if (data.location !== 'thread') out.push({ level: 'error', where, msg: 'location должен быть "thread"' });
+  const npcIds = new Set(checks.residents);
+  const ids = new Set<string>();
+  for (const sc of data.scenes ?? []) {
+    const at = `${where} ${sc.id ?? '?'}`;
+    report.scenes++;
+    if (!sc.trigger || !THREAD_TRIGGERS.includes(sc.trigger)) out.push({ level: 'error', where: at, msg: `момент нити "${sc.trigger}"` });
+    else if (sc.id !== threadId(sc.chapter, sc.trigger)) out.push({ level: 'error', where: at, msg: `id должен быть "${threadId(sc.chapter, sc.trigger)}"` });
+    if (sc.mode !== undefined) out.push({ level: 'error', where: at, msg: 'сцена нити — не шёпот' });
+    if (!PLAN[sc.chapter - 1]) out.push({ level: 'error', where: at, msg: `глава ${sc.chapter}` });
+    if (ids.has(sc.id)) out.push({ level: 'error', where: at, msg: 'дубль id' });
+    ids.add(sc.id);
+    if (sc.npc !== checks.chronicler) out.push({ level: 'error', where: at, msg: `нить ведёт Летописец "${checks.chronicler}", а не "${sc.npc}"` });
+    out.push(...sceneBodyIssues(sc, at, npcIds, checks, report));
+  }
+  for (const ch of checks.chapters) {
+    for (const t of THREAD_TRIGGERS) if (!ids.has(threadId(ch, t))) out.push({ level: 'error', where, msg: `у главы ${ch} нет сцены нити ${threadId(ch, t)}` });
+    const notes = data.notes?.[String(ch)] ?? [];
+    if (notes.length < checks.notesMin) out.push({ level: 'error', where, msg: `у главы ${ch} записок ${notes.length}, нужно не меньше ${checks.notesMin}` });
+  }
+  for (const [ch, notes] of Object.entries(data.notes ?? {})) {
+    const plan = PLAN[Number(ch) - 1];
+    if (!plan) out.push({ level: 'error', where, msg: `записки главы ${ch}` });
+    notes.forEach((n, i) => {
+      const at = `${where} записка ${ch}.${i + 1}`;
+      if (empty(n.es) || empty(n.ru)) out.push({ level: 'error', where: at, msg: 'пустая записка или перевод' });
+      else if (plan && checks.coverage) {
+        // У записки нет перевода по нажатию: слова не из словаря главы переведены в её `gloss` и видны под ней.
+        const level = Math.max(...plan.levels);
+        const gloss = new Set(Object.keys(n.gloss ?? {}).map((k) => k.toLowerCase()));
+        const bare = [...new Set(checks.coverage(n.es, level).unknown)].filter((t) => !gloss.has(t));
+        if (bare.length) out.push({ level: 'warning', where: at, msg: `нет в словаре уровня ${level} и в gloss: ${bare.join(', ')}` });
+        const words = new Set(sceneWords(n.es).flatMap((p) => ('key' in p ? [normalize(p.key)] : [])));
+        for (const [k, v] of Object.entries(n.gloss ?? {})) {
+          if (empty(v)) out.push({ level: 'error', where: at, msg: `пустой перевод в gloss: "${k}"` });
+          if (!words.has(normalize(k))) out.push({ level: 'warning', where: at, msg: `слова "${k}" из gloss нет в записке` });
+        }
+      }
+    });
   }
   return { issues: out, report };
 }

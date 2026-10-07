@@ -1,5 +1,6 @@
 import { SCROLL_PLACE } from '../domain/errands';
 import { FESTIVALS } from '../domain/festival';
+import { THREAD_PLACE } from '../domain/thread';
 import { LANG } from '../lang';
 import type { Chronicler, Guardian, GuardiansFile, LocationId, Npc, NpcsFile } from './schema';
 
@@ -30,9 +31,9 @@ export function speakerOf(who: string, place: string): Chronicler | undefined {
   return who === 'hero' ? undefined : who === 'npc' ? npcFor(place) : NPC_BY_ID[who];
 }
 
-/** Житель места, Летописец или хозяин праздника (`fest-<id>` — житель его здания). */
+/** Житель места, Летописец (свитки и нить глав) или хозяин праздника (`fest-<id>` — житель его здания). */
 export function npcFor(location: string): Chronicler | undefined {
-  if (location === SCROLL_PLACE) return CHRONICLER;
+  if (location === SCROLL_PLACE || location === THREAD_PLACE) return CHRONICLER;
   const fest = FESTIVALS.find((f) => `fest-${f.id}` === location);
   return NPC_BY_LOCATION[(fest?.host ?? location) as LocationId];
 }

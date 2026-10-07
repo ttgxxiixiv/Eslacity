@@ -287,6 +287,11 @@ export interface Scene {
    * вопросы вида `stance`.
    */
   mode?: 'overhear';
+  /**
+   * Сцена нити главы (задача 13.1): Летописец связывает истории жителей. `open` — при открытии главы,
+   * `half` — 10 обрывков главы, `climax` — 20 обрывков, перед стражем. id `th:<глава>.<trigger>`.
+   */
+  trigger?: ThreadTrigger;
   /** id жителя места. */
   npc: string;
   lines: SceneLine[];
@@ -299,6 +304,27 @@ export interface Scene {
 export interface LocationScenes {
   location: LocationId;
   scenes: Scene[];
+}
+
+export type ThreadTrigger = 'open' | 'half' | 'climax';
+
+/** Записка Летописца в конце дня, когда добыт обрывок (задача 13.1). */
+export interface ThreadNote {
+  es: string;
+  ru: string;
+  fem?: Fem;
+  /** Перевод слов не из словаря главы: показывается под запиской. */
+  gloss?: Record<string, string>;
+}
+
+/**
+ * Нить глав: `scenes/thread.json`. Сцены Летописца по три на главу и записки конца дня по главам
+ * (`notes`: номер главы → записки).
+ */
+export interface ThreadFile {
+  location: 'thread';
+  scenes: Scene[];
+  notes: Record<string, ThreadNote[]>;
 }
 
 /** Реплика жителя в миссии. */

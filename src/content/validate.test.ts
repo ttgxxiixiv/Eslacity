@@ -4,8 +4,8 @@ import { CHAPTERS as PLAN, PLACE_EXPRESSIONS, PLACE_LEVEL_MAX } from './vocabPla
 import type { LocationWords, Word } from './schema';
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { validateChronicler, validateGrammar, validateGuardians, validateLetters, validateMissions, validateNpcs, validatePhrases, validatePortraits, validateScenes, validateScrolls, validateTranslations, validateVerbs, validateWords } from './validate';
-import { LOCATION_IDS, type Chronicler, type GrammarLesson, type GuardiansFile, type Letter, type LettersFile, type LocationMissions, type LocationPhrases, type LocationScenes, type Mission, type MissionAnswer, type NpcsFile, type Phrase, type Scene, type ScrollFile, type VerbsFile } from './schema';
+import { validateChronicler, validateGrammar, validateGuardians, validateLetters, validateMissions, validateNpcs, validatePhrases, validatePortraits, validateScenes, validateScrolls, validateThread, validateTranslations, validateVerbs, validateWords } from './validate';
+import { LOCATION_IDS, type Chronicler, type GrammarLesson, type GuardiansFile, type Letter, type LettersFile, type LocationMissions, type LocationPhrases, type LocationScenes, type Mission, type MissionAnswer, type NpcsFile, type Phrase, type Scene, type ScrollFile, type ThreadFile, type ThreadTrigger, type VerbsFile } from './schema';
 
 const base = (i: number, extra: Partial<Word> = {}): Word => ({
   id: `cafe.w${i}`, es: `la palabra${i}`, ru: `слово ${i}`, pos: 'noun', gender: 'f', level: 1, cefr: 'A1',
@@ -413,6 +413,34 @@ describe('validateScenes', () => {
   it('слово после апострофа элизии есть в репликах, как на экране сцены', () => {
     const lines = [{ who: 'npc', es: "La mappa porta al Caveau dell'Elisir.", ru: 'Карта ведёт к Хранилищу Эликсира.' }, { who: 'hero', es: 'Sì.', ru: 'Да.' }];
     expect(run(scene({ lines, gloss: { elisir: 'Эликсир', "dell'": 'из' } })).issues).toEqual([]);
+  });
+});
+
+describe('validateThread (задача 13.1)', () => {
+  const lines = [{ who: 'npc', es: 'Hola, viajero.', ru: 'Здравствуй, путник.' }, { who: 'hero', es: 'Hola.', ru: 'Привет.' }];
+  const questions = [{ q: 'Кто говорит?', options: ['Летописец', 'Лола'], answer: 0 }];
+  const sc = (trigger: ThreadTrigger, extra: Partial<Scene> = {}): Scene => ({ id: `th:1.${trigger}`, chapter: 1, trigger, npc: 'cronista', lines, questions, ...extra });
+  const notes = { '1': Array.from({ length: 6 }, (_, i) => ({ es: `Hola ${i}.`, ru: `Привет ${i}.` })) };
+  const file = (scenes: Scene[], n: ThreadFile['notes'] = notes) => ({ name: 'thread.json', data: { location: 'thread' as const, scenes, notes: n } });
+  const checks = { chronicler: 'cronista', residents: ['lola'], chapters: [1], notesMin: 6 };
+  const errs = (f: ReturnType<typeof file> | undefined) => validateThread(f, checks).issues.map((x) => x.msg).join('; ');
+
+  it('три сцены главы и записки — без замечаний', () => {
+    expect(validateThread(file([sc('open'), sc('half'), sc('climax')]), checks).issues).toEqual([]);
+  });
+  it('у главы все три сцены, ведёт Летописец, id по моменту, записок хватает', () => {
+    expect(errs(undefined)).toMatch(/нет нити глав/);
+    expect(errs(file([sc('open'), sc('half')]))).toMatch(/нет сцены нити th:1\.climax/);
+    expect(errs(file([sc('open', { npc: 'lola' }), sc('half'), sc('climax')]))).toMatch(/нить ведёт Летописец/);
+    expect(errs(file([sc('open', { id: 'th:1.half' }), sc('half'), sc('climax')]))).toMatch(/id должен быть "th:1\.open".*дубль id/);
+    expect(errs(file([sc('open'), sc('half'), sc('climax')], { '1': notes['1'].slice(1) }))).toMatch(/записок 5, нужно не меньше 6/);
+  });
+  it('слова записки не из словаря главы — в её gloss', () => {
+    const cov = (t: string) => ({ total: 3, unknown: t.includes('trozo') ? ['trozo'] : [] });
+    const n = { '1': [...notes['1'].slice(1), { es: 'Otro trozo.', ru: 'Ещё обрывок.' }] };
+    expect(validateThread(file([sc('open'), sc('half'), sc('climax')], n), { ...checks, coverage: cov }).issues.map((x) => x.msg)).toEqual(['нет в словаре уровня 2 и в gloss: trozo']);
+    n['1'][5] = { ...n['1'][5], gloss: { trozo: 'обрывок' } } as never;
+    expect(validateThread(file([sc('open'), sc('half'), sc('climax')], n), { ...checks, coverage: cov }).issues).toEqual([]);
   });
 });
 
