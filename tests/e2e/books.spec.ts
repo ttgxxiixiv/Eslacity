@@ -92,7 +92,7 @@ for (const lang of LANGS) {
       await expect(page.getByText(word.es, { exact: true })).toBeVisible();
     });
 
-    for (const chapter of [2]) {
+    for (const chapter of [2, 3]) {
       test(`книга главы ${chapter}: открывается на 5 обрывках главы, вопросы проходятся`, async ({ page }) => {
         const own = JSON.parse(readFileSync(join(CONTENT, lang, 'books', `${chapter}.json`), 'utf8')) as BookData;
         const b = own.books[0];
