@@ -103,7 +103,7 @@ for (const lang of LANGS) {
       await expect(page.getByTestId('thread-note')).toHaveCount(0);
     });
 
-    for (const [chapter, roman] of [[2, 'II'], [3, 'III'], [4, 'IV']] as const) {
+    for (const [chapter, roman] of [[2, 'II'], [3, 'III'], [4, 'IV'], [5, 'V']] as const) {
       test(`глава ${roman}: её начало и середина открываются по обрывкам главы`, async ({ page }) => {
         await openApp(page, lang);
         await seedDueCards(page, lang, [await firstWord(lang)]);

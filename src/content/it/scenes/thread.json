@@ -1421,6 +1421,392 @@
         "corridoi": "коридоры, ходы",
         "maleducate": "грубые"
       }
+    },
+    {
+      "id": "th:5.open",
+      "chapter": 5,
+      "trigger": "open",
+      "npc": "cronista",
+      "lines": [
+        {
+          "who": "npc",
+          "es": "Dietro il bosco silenzioso comincia il Labirinto dell'Eco: corridoi di pietra dove ogni parola torna con un'altra voce.",
+          "ru": "За притихшим лесом начинается Лабиринт Эха: каменные ходы, где каждое слово возвращается другим голосом."
+        },
+        {
+          "who": "npc",
+          "es": "Le parole gentili suonano fredde, quelle cortesi suonano maleducate, e uno scherzo torna come un insulto.",
+          "ru": "Доброе звучит холодно, вежливое — грубо, а шутка возвращается оскорблением."
+        },
+        {
+          "who": "hero",
+          "es": "E chi lo custodisce?",
+          "ru": "А кто его охраняет?"
+        },
+        {
+          "who": "npc",
+          "es": "Il Signore dell'Eco. Dietro di lui ci sono le Porte del Caveau.",
+          "ru": "Хозяин Эха. За ним — Врата Хранилища."
+        },
+        {
+          "who": "npc",
+          "es": "Lascia passare solo chi sa parlare con ognuno dei suoi toni: del tu con il vicino, del Lei con il sindaco.",
+          "ru": "Он пропускает только того, кто умеет говорить с каждым его тоном: с соседом на «ты», с мэром на «вы»."
+        },
+        {
+          "who": "npc",
+          "es": "E da quando il bosco tace, l'eco arriva anche in città. La gente non si offende più per le parole, ma per il tono.",
+          "ru": "А с тех пор как лес затих, эхо доходит и до города. Люди обижаются уже не на слова, а на тон."
+        },
+        {
+          "who": "hero",
+          "es": "È per questo che Tommaso ha scritto a Giulia «Gentile signora»?",
+          "ru": "Поэтому Томмазо написал Джулии «Уважаемая синьора»?"
+        },
+        {
+          "who": "npc",
+          "es": "Esatto. La sua lettera è passata per l'eco. E al ristorante di Salvatore si è seduto un ospite con un mantello grigio come la pietra.",
+          "ru": "Именно. Его письмо прошло через эхо. А в ресторане у Сальваторе сел гость в сером, как камень, плаще."
+        },
+        {
+          "who": "npc",
+          "es": "Ripeteva le parole come un'eco e ha detto: «Il Signore dell'Eco cerca chi sa parlare con ognuno dei suoi toni».",
+          "ru": "Он повторял слова, как эхо, и сказал: «Хозяин Эха ищет того, кто умеет говорить с каждым его тоном»."
+        },
+        {
+          "who": "npc",
+          "es": "Nel quaderno della nonna di Franca c'è scritto: «Chi parla a tutti allo stesso modo si perde; chi sa cambiare voce trova l'uscita».",
+          "ru": "В тетради бабушки Франки написано: «Кто говорит со всеми одинаково, заблудится; кто умеет менять голос, найдёт выход»."
+        },
+        {
+          "who": "hero",
+          "es": "Ma chi è questo Signore dell'Eco?",
+          "ru": "Но кто он, этот Хозяин Эха?"
+        },
+        {
+          "who": "npc",
+          "es": "È quello che la città dovrà ricordare.",
+          "ru": "Это городу и предстоит вспомнить."
+        }
+      ],
+      "questions": [
+        {
+          "q": "Что происходит со словами в Лабиринте?",
+          "options": [
+            "Они возвращаются другим голосом",
+            "Они исчезают",
+            "Их записывают на камнях"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Кого пропускает Хозяин Эха?",
+          "options": [
+            "Того, кто молчит",
+            "Того, кто умеет говорить с каждым его тоном",
+            "Того, кто знает все слова"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "На что теперь обижаются люди в городе?",
+          "options": [
+            "На цены",
+            "На погоду",
+            "На тон"
+          ],
+          "answer": 2
+        },
+        {
+          "q": "Что написано в тетради бабушки Франки?",
+          "options": [
+            "Кто умеет менять голос, найдёт выход",
+            "Не ходи в Лабиринт",
+            "Эхо всегда право"
+          ],
+          "answer": 0
+        }
+      ],
+      "gloss": {
+        "labirinto": "лабиринт",
+        "eco": "эхо",
+        "corridoi": "коридоры, ходы",
+        "cortesi": "вежливые",
+        "maleducate": "грубые",
+        "scherzo": "шутка",
+        "insulto": "оскорбление",
+        "custodisce": "охраняет",
+        "signore": "хозяин",
+        "caveau": "Хранилище",
+        "sindaco": "мэр",
+        "tace": "молчит",
+        "tommaso": "Томмазо",
+        "salvatore": "Сальваторе",
+        "ospite": "гость",
+        "mantello": "плащ",
+        "franca": "Франка",
+        "quaderno": "тетрадь",
+        "uscita": "выход",
+        "silenzioso": "притихший"
+      }
+    },
+    {
+      "id": "th:5.half",
+      "chapter": 5,
+      "trigger": "half",
+      "npc": "cronista",
+      "lines": [
+        {
+          "who": "npc",
+          "es": "Dieci pezzi della mappa del Labirinto. E la città finalmente si è ricordata.",
+          "ru": "Десять обрывков карты Лабиринта. И город наконец вспомнил."
+        },
+        {
+          "who": "npc",
+          "es": "Il Signore dell'Eco era il banditore di questa città. Cento anni fa leggeva le notizie in piazza.",
+          "ru": "Хозяин Эха был глашатаем этого города. Сто лет назад он читал новости на площади."
+        },
+        {
+          "who": "npc",
+          "es": "Parlava a tutti allo stesso modo, con un tono ufficiale: ai bambini, agli anziani, al sindaco.",
+          "ru": "Он со всеми говорил одинаково, по-казённому: с детьми, со стариками, с мэром."
+        },
+        {
+          "who": "hero",
+          "es": "E la gente che cosa faceva?",
+          "ru": "А что люди?"
+        },
+        {
+          "who": "npc",
+          "es": "Ridevano di lui. I bambini lo imitavano. Un giorno è andato verso il bosco e non è più tornato.",
+          "ru": "Смеялись над ним. Дети его передразнивали. Однажды он ушёл к лесу и не вернулся."
+        },
+        {
+          "who": "npc",
+          "es": "La bisnonna di Chiara gli ha cucito il mantello grigio e ha scritto: «Un uomo educato e molto solo. Nessuno gli dà del tu».",
+          "ru": "Прабабушка Кьяры сшила ему серый плащ и записала: «Вежливый и очень одинокий человек. Никто не говорит с ним на ты»."
+        },
+        {
+          "who": "npc",
+          "es": "Il nonno del dottor Bruno gli vendeva le pastiglie per la gola. L'ultima nota dice: «Vado dove la voce torna».",
+          "ru": "Дед доктора Бруно продавал ему таблетки для горла. Последняя запись: «Ухожу туда, где голос возвращается»."
+        },
+        {
+          "who": "npc",
+          "es": "E nell'archivio della posta è saltata fuori una lettera di cento anni fa, dei bambini della scuola, mai consegnata.",
+          "ru": "А в архиве почты нашлось столетнее письмо от школьников, которое так и не доставили."
+        },
+        {
+          "who": "hero",
+          "es": "Che cosa dice la lettera?",
+          "ru": "Что в письме?"
+        },
+        {
+          "who": "npc",
+          "es": "«Scusa. Adesso ti ascoltiamo». E nota bene: gli danno del tu.",
+          "ru": "«Прости. Теперь мы тебя слушаем». И заметь: они говорят с ним на ты."
+        },
+        {
+          "who": "hero",
+          "es": "E lui la accetterà dopo tanto tempo?",
+          "ru": "А примет ли он его после стольких лет?"
+        },
+        {
+          "who": "npc",
+          "es": "Non lo so. Cento anni sono tanti per aspettare una risposta.",
+          "ru": "Не знаю. Сто лет — долгий срок, чтобы ждать ответа."
+        }
+      ],
+      "questions": [
+        {
+          "q": "Кем был Хозяин Эха?",
+          "options": [
+            "Городским глашатаем",
+            "Мэром",
+            "Почтальоном"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Почему над ним смеялись?",
+          "options": [
+            "Он пел на площади",
+            "Он со всеми говорил одинаково, по-казённому",
+            "Он носил смешную шляпу"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Что записала прабабушка Кьяры?",
+          "options": [
+            "«Он богатый человек»",
+            "«Он скоро вернётся»",
+            "«Вежливый и очень одинокий человек»"
+          ],
+          "answer": 2
+        },
+        {
+          "q": "Что было в столетнем письме школьников?",
+          "options": [
+            "«Прости. Теперь мы тебя слушаем»",
+            "«Уходи из города»",
+            "Приглашение на праздник"
+          ],
+          "answer": 0
+        }
+      ],
+      "gloss": {
+        "pezzi": "обрывки",
+        "labirinto": "лабиринт",
+        "signore": "хозяин",
+        "eco": "эхо",
+        "banditore": "глашатай",
+        "ufficiale": "официальный",
+        "sindaco": "мэр",
+        "imitavano": "передразнивали",
+        "bisnonna": "прабабушка",
+        "chiara": "Кьяра",
+        "cucito": "сшила",
+        "mantello": "плащ",
+        "bruno": "Бруно",
+        "pastiglie": "таблетки",
+        "gola": "горло",
+        "archivio": "архив",
+        "saltata": "нашлась (saltare fuori)",
+        "consegnata": "доставлена"
+      }
+    },
+    {
+      "id": "th:5.climax",
+      "chapter": 5,
+      "trigger": "climax",
+      "npc": "cronista",
+      "lines": [
+        {
+          "who": "npc",
+          "es": "Venti pezzi. La mappa del Labirinto è completa, e il banditore è vicino. Aspetta una risposta.",
+          "ru": "Двадцать обрывков. Карта Лабиринта собрана, а глашатай рядом. Он ждёт ответа."
+        },
+        {
+          "who": "npc",
+          "es": "Sul suo conto in banca qualcuno ha lasciato una moneta vecchia e un biglietto con la sua scrittura: «Non mi servono soldi. Mi serve una risposta».",
+          "ru": "На его счёт в банке кто-то положил старую монету и записку его почерком: «Мне не нужны деньги. Мне нужен ответ»."
+        },
+        {
+          "who": "npc",
+          "es": "Valentina ha trovato il suo contratto nell'archivio del comune. Nessuno l'ha licenziato: ufficialmente è ancora al servizio della città.",
+          "ru": "Валентина нашла в архиве мэрии его договор. Его никто не уволил: официально он до сих пор служит городу."
+        },
+        {
+          "who": "npc",
+          "es": "Lì c'era anche il discorso che non ha mai letto: «Cari vicini, oggi non vi porto notizie».",
+          "ru": "Там же лежала речь, которую он так и не прочитал: «Дорогие соседи, сегодня я не принёс вам новостей»."
+        },
+        {
+          "who": "hero",
+          "es": "Voleva parlare con loro come un amico.",
+          "ru": "Он хотел заговорить с ними как друг."
+        },
+        {
+          "who": "npc",
+          "es": "Sì. Ma quel giorno hanno riso di lui prima che cominciasse.",
+          "ru": "Да. Но в тот день над ним засмеялись раньше, чем он начал."
+        },
+        {
+          "who": "npc",
+          "es": "Il commissario Rinaldi ha ricevuto da lui una lettera ufficiale: «Con il dovuto rispetto, chiedo che qualcuno mi risponda».",
+          "ru": "Комиссар Ринальди получил от него официальное письмо: «С должным уважением прошу, чтобы кто-нибудь мне ответил»."
+        },
+        {
+          "who": "npc",
+          "es": "E dall'aereo Luca ha visto che i corridoi del Labirinto formano delle lettere: «MI SENTITE?».",
+          "ru": "А Лука с самолёта увидел, что ходы Лабиринта складываются в буквы: «МЕНЯ СЛЫШНО?»."
+        },
+        {
+          "who": "npc",
+          "es": "Domani il treno di Aldo porta mezza città al bosco. In cima, dopo mille gradini, c'è una porta di pietra.",
+          "ru": "Завтра поезд Альдо везёт полгорода к лесу. Наверху, после тысячи ступеней, — каменная дверь."
+        },
+        {
+          "who": "npc",
+          "es": "E dietro la porta una voce chiede: «Chi mi risponderà?».",
+          "ru": "А за дверью голос спрашивает: «Кто мне ответит?»."
+        },
+        {
+          "who": "hero",
+          "es": "Gli risponderò io. Dandogli del tu.",
+          "ru": "Отвечу я. На «ты»."
+        },
+        {
+          "who": "npc",
+          "es": "E poi, le Porte del Caveau. Ti ricordi che cosa diceva il pezzo della scuola? Lì qualcuno fa domande.",
+          "ru": "А после — Врата Хранилища. Помнишь, что было написано на обрывке учительницы? Там кто-то задаёт вопросы."
+        }
+      ],
+      "questions": [
+        {
+          "q": "Что было в записке на счёте глашатая?",
+          "options": [
+            "«Верните мне деньги»",
+            "«Мне не нужны деньги. Мне нужен ответ»",
+            "«Я ухожу навсегда»"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Что нашла Валентина в архиве мэрии?",
+          "options": [
+            "Договор глашатая и его непрочитанную речь",
+            "Старую карту",
+            "Билет на поезд"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Во что складываются ходы Лабиринта?",
+          "options": [
+            "В карту",
+            "В лицо",
+            "В буквы «МЕНЯ СЛЫШНО?»"
+          ],
+          "answer": 2
+        },
+        {
+          "q": "Что ждёт за Лабиринтом?",
+          "options": [
+            "Врата Хранилища, где кто-то задаёт вопросы",
+            "Море",
+            "Новый город"
+          ],
+          "answer": 0
+        }
+      ],
+      "gloss": {
+        "pezzi": "обрывки",
+        "pezzo": "обрывок",
+        "labirinto": "лабиринт",
+        "banditore": "глашатай",
+        "conto": "счёт",
+        "moneta": "монета",
+        "scrittura": "почерк",
+        "valentina": "Валентина",
+        "contratto": "договор",
+        "archivio": "архив",
+        "comune": "мэрия",
+        "licenziato": "уволил",
+        "ufficialmente": "официально",
+        "discorso": "речь",
+        "commissario": "комиссар",
+        "rinaldi": "Ринальди",
+        "dovuto": "должный",
+        "ufficiale": "официальный",
+        "corridoi": "коридоры, ходы",
+        "sentite": "слышите",
+        "aldo": "Альдо",
+        "gradini": "ступени",
+        "caveau": "Хранилище",
+        "dandogli": "говоря ему"
+      }
     }
   ],
   "notes": {
@@ -1625,6 +2011,54 @@
         "ru": "Ещё один обрывок. Лес каждый раз пускает нас чуть дальше.",
         "gloss": {
           "pezzo": "обрывок"
+        }
+      }
+    ],
+    "5": [
+      {
+        "es": "Oggi hai dato del tu a un vicino e del Lei al banchiere. È così che si esce dal Labirinto.",
+        "ru": "Сегодня ты говорил с соседом на «ты», а с банкиром на «вы». Так и выходят из Лабиринта.",
+        "fem": {
+          "ru": "Сегодня ты говорила с соседом на «ты», а с банкиром на «вы». Так и выходят из Лабиринта."
+        },
+        "gloss": {
+          "labirinto": "лабиринт",
+          "banchiere": "банкир"
+        }
+      },
+      {
+        "es": "Un altro pezzo. L'eco di stasera suonava meno freddo.",
+        "ru": "Ещё один обрывок. Сегодня вечером эхо звучало не так холодно.",
+        "gloss": {
+          "pezzo": "обрывок",
+          "eco": "эхо"
+        }
+      },
+      {
+        "es": "Il tono conta quanto le parole. Lo scrivo sulla prima pagina, per non dimenticarlo.",
+        "ru": "Тон важен так же, как слова. Записываю на первой странице, чтобы не забыть."
+      },
+      {
+        "es": "Oggi qualcuno si è offeso per come l'hai detto, non per quello che hai detto. E tu hai saputo rimediare.",
+        "ru": "Сегодня кто-то обиделся на то, как ты сказал, а не на то, что ты сказал. И ты сумел это исправить.",
+        "fem": {
+          "ru": "Сегодня кто-то обиделся на то, как ты сказала, а не на то, что ты сказала. И ты сумела это исправить."
+        }
+      },
+      {
+        "es": "Mi resta poco spazio nel libro. Credo che anche la storia si avvicini alla fine.",
+        "ru": "В книге осталось мало места. Кажется, и история подходит к концу."
+      },
+      {
+        "es": "Stasera ho scritto una lettera formale e poi la stessa lettera a un amico. Sono due lettere molto diverse.",
+        "ru": "Сегодня вечером я написал официальное письмо, а потом то же письмо другу. Это два очень разных письма."
+      },
+      {
+        "es": "Un altro pezzo. Le Porte del Caveau ormai quasi si vedono.",
+        "ru": "Ещё один обрывок. Врата Хранилища уже почти видны.",
+        "gloss": {
+          "pezzo": "обрывок",
+          "caveau": "Хранилище"
         }
       }
     ]
