@@ -1040,6 +1040,387 @@
         "nebbia": "туман",
         "mentono": "лгут"
       }
+    },
+    {
+      "id": "th:4.open",
+      "chapter": 4,
+      "trigger": "open",
+      "npc": "cronista",
+      "lines": [
+        {
+          "who": "npc",
+          "es": "Ivo è tornato nel suo bosco e mi ha scritto una lunga lettera.",
+          "ru": "Иво вернулся в свой лес и написал мне длинное письмо."
+        },
+        {
+          "who": "npc",
+          "es": "Dice che gli alberi ripetono tutto quello che la gente dice degli altri di nascosto.",
+          "ru": "Он пишет, что деревья повторяют всё, что люди говорят о других тайком."
+        },
+        {
+          "who": "hero",
+          "es": "E che cosa ripetono?",
+          "ru": "И что же они повторяют?"
+        },
+        {
+          "who": "npc",
+          "es": "Le voci della nostra città: pettegolezzi, lamentele, litigi. Il bosco è pieno di rumore.",
+          "ru": "Голоса нашего города: сплетни, жалобы, ссоры. Лес полон шума."
+        },
+        {
+          "who": "npc",
+          "es": "Con tanto rumore, la Custode del bosco non sente il sentiero, e nessuno può passare.",
+          "ru": "От такого шума Хранительница леса не слышит тропу, и никто не может пройти."
+        },
+        {
+          "who": "hero",
+          "es": "Allora che cosa possiamo fare?",
+          "ru": "Что же нам тогда делать?"
+        },
+        {
+          "who": "npc",
+          "es": "Ogni discussione che finisce in pace rende il bosco più tranquillo.",
+          "ru": "Каждый спор, который заканчивается миром, делает лес тише."
+        },
+        {
+          "who": "npc",
+          "es": "Quindi aiuta i vicini a mettersi d'accordo. Puoi obiettare, cedere o proporre un compromesso.",
+          "ru": "Так что помогай соседям договориться. Можно возразить, уступить или предложить компромисс."
+        },
+        {
+          "who": "npc",
+          "es": "La nonna di Franca diceva che la Custode sente tutto quello che si dice di nascosto.",
+          "ru": "Бабушка Франки говорила, что Хранительница слышит всё, что говорится тайком."
+        },
+        {
+          "who": "npc",
+          "es": "E che lascia passare solo chi dice le cose in faccia.",
+          "ru": "И пропускает только тех, кто говорит в лицо."
+        },
+        {
+          "who": "hero",
+          "es": "E perché gli alberi ripetono proprio le nostre voci?",
+          "ru": "А почему деревья повторяют именно наши голоса?"
+        },
+        {
+          "who": "npc",
+          "es": "Questa è la domanda. Qualcuno deve portarle fin lì.",
+          "ru": "Вот в чём вопрос. Кто-то должен их туда приносить."
+        }
+      ],
+      "questions": [
+        {
+          "q": "Что повторяют деревья?",
+          "options": [
+            "Песни птиц",
+            "То, что люди говорят друг о друге тайком",
+            "Слова Летописца"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Почему Хранительница никого не пропускает?",
+          "options": [
+            "От шума она не слышит тропу",
+            "Она спит",
+            "Она ждёт денег"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Что делает лес тише?",
+          "options": [
+            "Дождь",
+            "Новые деревья",
+            "Спор, который закончился миром"
+          ],
+          "answer": 2
+        },
+        {
+          "q": "Кого пропускает Хранительница?",
+          "options": [
+            "Того, кто говорит в лицо",
+            "Того, кто молчит",
+            "Того, кто знает дорогу"
+          ],
+          "answer": 0
+        }
+      ],
+      "gloss": {
+        "ivo": "Иво",
+        "nascosto": "тайком (di nascosto)",
+        "pettegolezzi": "сплетни",
+        "lamentele": "жалобы",
+        "litigi": "ссоры",
+        "custode": "Хранительница",
+        "sentiero": "тропа",
+        "obiettare": "возразить",
+        "cedere": "уступить",
+        "franca": "Франка",
+        "discussione": "спор"
+      }
+    },
+    {
+      "id": "th:4.half",
+      "chapter": 4,
+      "trigger": "half",
+      "npc": "cronista",
+      "lines": [
+        {
+          "who": "npc",
+          "es": "Dieci pezzi della mappa del bosco. Ma adesso succede una cosa strana.",
+          "ru": "Десять обрывков карты леса. Но теперь происходит что-то странное."
+        },
+        {
+          "who": "npc",
+          "es": "Il bosco ripete frasi che nessuno ha mai detto.",
+          "ru": "Лес повторяет фразы, которых никто никогда не говорил."
+        },
+        {
+          "who": "npc",
+          "es": "Con la voce di Chiara: «I miei vestiti firmati sono falsi». Con la voce di Anna: «Gli studenti di quest'anno sono i peggiori».",
+          "ru": "Голосом Кьяры: «Мои брендовые платья — подделки». Голосом Анны: «Ученики этого года — худшие»."
+        },
+        {
+          "who": "hero",
+          "es": "Ma loro non direbbero mai una cosa così.",
+          "ru": "Но они никогда бы такого не сказали."
+        },
+        {
+          "who": "npc",
+          "es": "Esatto. E la vecchia quercia del parco ha ripetuto la voce della Custode: «Cerco chi dice in faccia quello che dice alle spalle».",
+          "ru": "Именно. А старый дуб в парке повторил голос Хранительницы: «Ищу того, кто в лицо говорит то же, что и за спиной»."
+        },
+        {
+          "who": "npc",
+          "es": "Vicino ai pezzi della mappa si trovano piume nere.",
+          "ru": "Рядом с обрывками карты находят чёрные перья."
+        },
+        {
+          "who": "hero",
+          "es": "Piume? Di un uccello?",
+          "ru": "Перья? Птичьи?"
+        },
+        {
+          "who": "npc",
+          "es": "Di un corvo. Il postino l'ha confessato: il suo corvo Nero impara le voci di ogni casa e di notte vola nel bosco.",
+          "ru": "Ворона. Почтальон признался: его ворон Неро запоминает голоса в каждом доме и по ночам летает в лес."
+        },
+        {
+          "who": "npc",
+          "es": "Ma Nero non inventa le frasi. Qualcuno gliele insegna.",
+          "ru": "Но Неро сам фразы не придумывает. Кто-то его учит."
+        },
+        {
+          "who": "npc",
+          "es": "E quando torna, ha odore di tabacco da pipa.",
+          "ru": "А когда возвращается, от него пахнет трубочным табаком."
+        },
+        {
+          "who": "hero",
+          "es": "Chi in città fuma la pipa?",
+          "ru": "Кто в городе курит трубку?"
+        },
+        {
+          "who": "npc",
+          "es": "È quello che dobbiamo scoprire.",
+          "ru": "Это нам и предстоит узнать."
+        }
+      ],
+      "questions": [
+        {
+          "q": "Что странного стал повторять лес?",
+          "options": [
+            "Фразы, которых никто не говорил",
+            "Песни",
+            "Только голос Летописца"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Что повторил старый дуб?",
+          "options": [
+            "«Уходите из леса»",
+            "«Ищу того, кто в лицо говорит то же, что и за спиной»",
+            "«Мне холодно»"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Что делает ворон Неро?",
+          "options": [
+            "Ворует обрывки",
+            "Охраняет лес",
+            "Запоминает голоса в домах и летает в лес"
+          ],
+          "answer": 2
+        },
+        {
+          "q": "Чем пахнет ворон, когда возвращается?",
+          "options": [
+            "Трубочным табаком",
+            "Морем",
+            "Хлебом"
+          ],
+          "answer": 0
+        }
+      ],
+      "gloss": {
+        "pezzi": "обрывки",
+        "chiara": "Кьяра",
+        "firmati": "брендовые",
+        "falsi": "поддельные",
+        "quercia": "дуб",
+        "custode": "Хранительница",
+        "spalle": "спина (alle spalle — за спиной)",
+        "piume": "перья",
+        "corvo": "ворон",
+        "confessato": "признался",
+        "nero": "Неро",
+        "inventa": "придумывает",
+        "odore": "запах",
+        "tabacco": "табак",
+        "pipa": "трубка"
+      }
+    },
+    {
+      "id": "th:4.climax",
+      "chapter": 4,
+      "trigger": "climax",
+      "npc": "cronista",
+      "lines": [
+        {
+          "who": "npc",
+          "es": "Venti pezzi. E la storia più triste che io abbia mai scritto.",
+          "ru": "Двадцать обрывков. И самая грустная история, какую я записывал."
+        },
+        {
+          "who": "npc",
+          "es": "Il bosco ha ripetuto la voce del dottor Ferri: «In banca non ci sono soldi». Tutta la città ha fatto la fila per ritirare i risparmi.",
+          "ru": "Лес повторил голос доктора Ферри: «В банке нет денег». Весь город встал в очередь забирать сбережения."
+        },
+        {
+          "who": "npc",
+          "es": "Le tracce portavano a un uomo anziano con la pipa. Cambiava monete di cento anni fa, come quelle del guardiano della torre.",
+          "ru": "Следы вели к пожилому человеку с трубкой. Он менял монеты столетней давности, как у стража башни."
+        },
+        {
+          "who": "hero",
+          "es": "Monete di cento anni fa... Andrea?",
+          "ru": "Монеты столетней давности... Андреа?"
+        },
+        {
+          "who": "npc",
+          "es": "La città sospettava di Aldo, perché anche lui fuma la pipa. Ma Marco di notte, sulla spiaggia, alla luce del faro, ha visto la sua faccia. Era Andrea.",
+          "ru": "Город подозревал Альдо: он тоже курит трубку. Но Марко ночью на пляже, при свете маяка, увидел его лицо. Это был Андреа."
+        },
+        {
+          "who": "npc",
+          "es": "Ha vissuto cento anni nella torre e aveva paura che il bosco prendesse un'altra persona. Per questo insegnava al corvo a spaventare la gente.",
+          "ru": "Он сто лет прожил в башне и боялся, что лес заберёт кого-то ещё. Поэтому учил ворона пугать людей."
+        },
+        {
+          "who": "hero",
+          "es": "E poi che cosa è successo?",
+          "ru": "И что было потом?"
+        },
+        {
+          "who": "npc",
+          "es": "All'assemblea dei vicini si è alzato e ha detto: «Ho insegnato bugie al corvo perché avevo paura. Perdonatemi».",
+          "ru": "На собрании соседей он встал и сказал: «Я учил ворона лжи, потому что боялся. Простите меня»."
+        },
+        {
+          "who": "npc",
+          "es": "Chiara l'ha abbracciato, Aldo gli ha offerto del tabacco, e a mezzanotte il bosco è diventato tranquillo.",
+          "ru": "Кьяра обняла его, Альдо предложил ему табаку, и в полночь лес затих."
+        },
+        {
+          "who": "npc",
+          "es": "La Custode ha parlato finalmente con voce chiara: «Adesso sento il sentiero. Venga chi ha portato la pace».",
+          "ru": "Хранительница наконец заговорила ясно: «Теперь я слышу тропу. Пусть придёт тот, кто принёс мир»."
+        },
+        {
+          "who": "hero",
+          "es": "E che cosa c'è dietro il bosco?",
+          "ru": "А что за лесом?"
+        },
+        {
+          "who": "npc",
+          "es": "Pietra. Corridoi di pietra dove ogni parola torna con un'altra voce.",
+          "ru": "Камень. Каменные ходы, где каждое слово возвращается другим голосом."
+        },
+        {
+          "who": "npc",
+          "es": "Le parole buone suonano fredde, quelle gentili suonano maleducate. Chi vive lì? Ancora non lo so.",
+          "ru": "Доброе звучит холодно, вежливое — грубо. Кто там живёт? Пока не знаю."
+        }
+      ],
+      "questions": [
+        {
+          "q": "Что лес повторил голосом доктора Ферри?",
+          "options": [
+            "«В банке нет денег»",
+            "«Банк закрыт навсегда»",
+            "«Я уезжаю»"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Кого сначала подозревал город?",
+          "options": [
+            "Почтальона",
+            "Альдо",
+            "Марко"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Почему Андреа учил ворона пугать людей?",
+          "options": [
+            "Хотел денег",
+            "Ему было скучно",
+            "Боялся, что лес заберёт кого-то ещё"
+          ],
+          "answer": 2
+        },
+        {
+          "q": "Что за лесом?",
+          "options": [
+            "Каменные ходы, где слова возвращаются другим голосом",
+            "Море",
+            "Ещё одна пустыня"
+          ],
+          "answer": 0
+        }
+      ],
+      "gloss": {
+        "pezzi": "обрывки",
+        "ferri": "Ферри",
+        "fila": "очередь",
+        "risparmi": "сбережения",
+        "tracce": "следы",
+        "pipa": "трубка",
+        "monete": "монеты",
+        "guardiano": "страж",
+        "torre": "башня",
+        "andrea": "Андреа",
+        "sospettava": "подозревал",
+        "aldo": "Альдо",
+        "marco": "Марко",
+        "faro": "маяк",
+        "corvo": "ворон",
+        "spaventare": "пугать",
+        "assemblea": "собрание",
+        "bugie": "ложь",
+        "perdonatemi": "простите меня",
+        "chiara": "Кьяра",
+        "abbracciato": "обняла",
+        "tabacco": "табак",
+        "custode": "Хранительница",
+        "sentiero": "тропа",
+        "corridoi": "коридоры, ходы",
+        "maleducate": "грубые"
+      }
     }
   ],
   "notes": {
@@ -1194,6 +1575,56 @@
         "gloss": {
           "pezzo": "обрывок",
           "deserto": "пустыня"
+        }
+      }
+    ],
+    "4": [
+      {
+        "es": "Oggi hai aiutato due vicini a mettersi d'accordo. Il bosco è un po' più tranquillo.",
+        "ru": "Сегодня ты помог двум соседям договориться. В лесу стало немного тише.",
+        "fem": {
+          "ru": "Сегодня ты помогла двум соседям договориться. В лесу стало немного тише."
+        }
+      },
+      {
+        "es": "Un altro pezzo del bosco. Stanotte dalla finestra ho sentito meno voci.",
+        "ru": "Ещё один обрывок леса. Сегодня ночью из окна я слышал меньше голосов.",
+        "gloss": {
+          "pezzo": "обрывок"
+        }
+      },
+      {
+        "es": "Dire una cosa in faccia costa di più, ma si dimentica prima. Lo scrivo per non dimenticarlo io.",
+        "ru": "Сказать в лицо труднее, но забывается быстрее. Записываю, чтобы самому не забыть."
+      },
+      {
+        "es": "Oggi un litigio è finito in pace. Se continui così, la Custode sentirà il sentiero.",
+        "ru": "Сегодня ссора закончилась миром. Если так пойдёт дальше, Хранительница услышит тропу.",
+        "gloss": {
+          "litigio": "ссора",
+          "custode": "Хранительница",
+          "sentiero": "тропа"
+        }
+      },
+      {
+        "es": "Ascoltare è più difficile che parlare. Oggi ci sei riuscito.",
+        "ru": "Слушать труднее, чем говорить. Сегодня у тебя это получилось.",
+        "fem": {
+          "es": "Ascoltare è più difficile che parlare. Oggi ci sei riuscita."
+        }
+      },
+      {
+        "es": "Ho trovato una piuma nera tra le pagine del libro. Non l'ho buttata: anche lei fa parte della storia.",
+        "ru": "Нашёл между страницами книги чёрное перо. Не выбросил: это тоже часть истории.",
+        "gloss": {
+          "piuma": "перо"
+        }
+      },
+      {
+        "es": "Un altro pezzo. Ogni volta il bosco ci lascia entrare un po' di più.",
+        "ru": "Ещё один обрывок. Лес каждый раз пускает нас чуть дальше.",
+        "gloss": {
+          "pezzo": "обрывок"
         }
       }
     ]
