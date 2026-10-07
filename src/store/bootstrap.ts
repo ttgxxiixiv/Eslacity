@@ -27,6 +27,8 @@ import type { KeeperRecord } from '../domain/keeper';
 import type { TrialsData } from '../domain/trial';
 import { usePrologue } from './prologue';
 import { useThread } from './thread';
+import { useBooks } from './books';
+import type { BooksRecord } from '../domain/books';
 import type { ThreadRecord } from '../domain/thread';
 import type { PrologueRecord } from '../domain/prologue';
 import type { JourneyRecord } from '../domain/chapters';
@@ -67,6 +69,7 @@ export async function bootstrap(): Promise<void> {
   usePlacement.getState().hydrate(m.placement as Partial<PlacementRecord> | undefined);
   usePrologue.getState().hydrate(m.prologue as PrologueRecord | undefined, cards.length > 0);
   useThread.getState().hydrate(m.thread as ThreadRecord | undefined);
+  useBooks.getState().hydrate(m.books as BooksRecord | undefined);
   useRewards.getState().hydrate(m.rewards as Partial<RewardsRecord> | undefined);
   // Награды уровней героя: задним числом за уже набранный уровень и дальше при каждом новом.
   useRewards.getState().sync();

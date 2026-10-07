@@ -164,6 +164,21 @@ function withAutoGloss(code: string, lang: string): string {
   return JSON.stringify(data);
 }
 
+/** Книги Летописца (задача 12.4): переводы слов курса в абзацах, как у сцен. */
+function withBookGloss(code: string, lang: string): string {
+  const data = JSON.parse(code) as { books: { paragraphs: { es: string }[]; gloss?: Record<string, string>; auto?: Record<string, string> }[] };
+  const g = glosser(lang);
+  for (const b of data.books) {
+    const auto: Record<string, string> = {};
+    for (const t of b.paragraphs.flatMap((p) => tokens(p.es))) {
+      const ru = b.gloss?.[t] ? undefined : g(t);
+      if (ru) auto[t] = ru;
+    }
+    b.auto = auto;
+  }
+  return JSON.stringify(data);
+}
+
 export default defineConfig({
   base: './',
   define: {
@@ -197,7 +212,9 @@ export default defineConfig({
       enforce: 'pre',
       transform(code, id) {
         const m = id.match(/content[\\/]([^\\/]+)[\\/]scenes[\\/][^\\/]+\.json$/);
-        return m ? { code: withAutoGloss(code, m[1]), map: null } : null;
+        if (m) return { code: withAutoGloss(code, m[1]), map: null };
+        const b = id.match(/content[\\/]([^\\/]+)[\\/]books[\\/][^\\/]+\.json$/);
+        return b ? { code: withBookGloss(code, b[1]), map: null } : null;
       },
     },
     {

@@ -176,7 +176,7 @@ export function SceneTalk({ scene, place, lastLabel, onDone }: { scene: Scene; p
  * Вопросы на понимание по-русски: варианты перемешаны, после ответа видно верный. `kind` — вид ответа в журнале,
  * `doneLabel` — кнопка после итога.
  */
-function SceneQuiz({ scene, onDone, kind = 'scene-question', doneLabel = 'Готово' }: { scene: Scene; onDone(): void; kind?: string; doneLabel?: string }) {
+export function SceneQuiz({ scene, onDone, kind = 'scene-question', doneLabel = 'Готово' }: { scene: Pick<Scene, 'id' | 'questions'>; onDone(right: number): void; kind?: string; doneLabel?: string }) {
   const questions = useMemo(() => {
     const rng = seeded(Date.now());
     return scene.questions.map((q) => ({ q: q.q, options: shuffle(q.options.map((o, i) => ({ text: o, right: i === q.answer })), rng) }));
@@ -199,7 +199,7 @@ function SceneQuiz({ scene, onDone, kind = 'scene-question', doneLabel = 'Гот
           </p>
         </div>
         <div className="flex-1" />
-        <Button className="w-full" onClick={onDone}>
+        <Button className="w-full" onClick={() => onDone(right)}>
           {doneLabel}
         </Button>
       </div>

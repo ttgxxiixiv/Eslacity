@@ -377,7 +377,7 @@ export function Home() {
   const journeyHint = useJourneyHint();
   const festival = useFestivalInvite();
   const chronicle = useChronicleDue(now);
-  const chronicleCount = chronicle ? chronicle.scenes.length + (chronicle.note ? 1 : 0) : 0;
+  const chronicleCount = chronicle ? chronicle.scenes.length + (chronicle.note ? 1 : 0) + chronicle.books : 0;
 
   // Первый запуск: сначала пролог у ворот города.
   if (prologuePending(prologue) && !Object.keys(cards).length) return <Navigate to="/prologue" replace />;
@@ -423,7 +423,7 @@ export function Home() {
               label="Летопись"
               badge={chronicleCount}
               testId="chronicle-button"
-              text={`Летопись: ${[chronicle!.scenes.length ? `новых записей ${chronicle!.scenes.length}` : '', chronicle!.note ? 'Летописец оставил записку' : ''].filter(Boolean).join(', ')}`}
+              text={`Летопись: ${[chronicle!.scenes.length ? `новых записей ${chronicle!.scenes.length}` : '', chronicle!.note ? 'Летописец оставил записку' : '', chronicle!.books ? `новых книг ${chronicle!.books}` : ''].filter(Boolean).join(', ')}`}
             >
               <NpcPortrait look={CHRONICLER.look} size={34} />
             </DockButton>

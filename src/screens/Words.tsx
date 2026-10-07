@@ -1,3 +1,4 @@
+import { isBookWordId } from '../domain/books';
 import { FESTIVALS, festivalOf } from '../domain/festival';
 import { wordIds } from '../domain/itemId';
 import { L } from '../lang';
@@ -54,7 +55,7 @@ export function WordsScreen() {
             const fest = FESTIVALS.find((f) => f.id === festivalOf(w.id));
             return (
               <li key={w.id} className="flex items-center gap-3 px-4 py-2.5">
-                <span title={loc?.ru ?? (fest ? fest.title : 'свиток земли')}>{loc?.emoji ?? fest?.icon ?? '📜'}</span>
+                <span title={loc?.ru ?? (fest ? fest.title : isBookWordId(w.id) ? 'книга Летописца' : 'свиток земли')}>{loc?.emoji ?? fest?.icon ?? (isBookWordId(w.id) ? '📖' : '📜')}</span>
                 <div className="min-w-0 flex-1">
                   <div className="font-semibold">
                     {w.es}

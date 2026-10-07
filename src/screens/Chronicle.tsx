@@ -14,6 +14,9 @@ import { Button, Screen, TopBar } from '../components/ui';
 import { useJourney } from '../store/journey';
 import { heroText } from '../store/settings';
 import { useThread } from '../store/thread';
+import { useBooks } from '../store/books';
+import { unreadBooks } from '../domain/books';
+import { BooksSection, useBookSlots } from './Books';
 
 type Thread = Pick<ThreadFile, 'scenes' | 'notes'>;
 let cached: Thread | null = null;
@@ -33,17 +36,20 @@ export function useThreadContent(): Thread | null {
 }
 
 /** Что ждёт в Летописи: новые сцены нити и записка дня. Для кнопки на главной. */
-export function useChronicleDue(now = Date.now()): { scenes: string[]; note: boolean } | null {
+export function useChronicleDue(now = Date.now()): { scenes: string[]; note: boolean; books: number } | null {
   const thread = useThreadContent();
   const opened = useJourney((s) => s.opened);
   const fragments = useJourney((s) => s.fragments);
   const rec = useThread((s) => s.rec);
+  // Книги Летописца (задача 12.4): открытые и ещё не прочитанные.
+  const bookData = useBookSlots();
+  const booksRec = useBooks((s) => s.rec);
   return useMemo(() => {
-    if (!thread) return null;
+    if (!thread || !bookData) return null;
     const ids = new Set(thread.scenes.map((s) => s.id));
     const note = noteDue(fragments, rec, now) && noteOf(thread.notes, opened, now) !== null;
-    return { scenes: threadDue(opened, fragments, rec, (id) => ids.has(id)), note };
-  }, [thread, opened, fragments, rec, now]);
+    return { scenes: threadDue(opened, fragments, rec, (id) => ids.has(id)), note, books: unreadBooks(bookData.slots, booksRec).length };
+  }, [thread, bookData, booksRec, opened, fragments, rec, now]);
 }
 
 const sceneTitle = (id: string) => {
@@ -151,6 +157,8 @@ export function ChronicleScreen() {
             ))}
           </section>
         )}
+
+        <BooksSection />
       </div>
     </Screen>
   );

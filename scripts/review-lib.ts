@@ -21,9 +21,9 @@ export interface ReviewRow {
   text: string;
 }
 
-export type ReviewType = 'words' | 'phrases' | 'scenes' | 'missions' | 'grammar' | 'sphinx' | 'letters' | 'people' | 'verbs' | 'pairs';
+export type ReviewType = 'words' | 'phrases' | 'scenes' | 'missions' | 'grammar' | 'sphinx' | 'letters' | 'people' | 'verbs' | 'pairs' | 'books';
 
-export const REVIEW_TYPES: ReviewType[] = ['words', 'phrases', 'scenes', 'missions', 'grammar', 'sphinx', 'letters', 'people', 'verbs', 'pairs'];
+export const REVIEW_TYPES: ReviewType[] = ['words', 'phrases', 'scenes', 'missions', 'grammar', 'sphinx', 'letters', 'people', 'verbs', 'pairs', 'books'];
 
 export const CSV_COLUMNS = ['file', 'path', 'id', 'level', 'ru', 'text', 'fix', 'comment'] as const;
 
@@ -45,7 +45,7 @@ export function typeOf(file: string, path: string): ReviewType | null {
     const head = path.split('/')[0];
     return head === 'words' ? 'words' : head === 'phrases' ? 'phrases' : head === 'missions' ? 'missions' : head === 'intro' ? 'people' : null;
   }
-  const byDir: Record<string, ReviewType> = { words: 'words', scrolls: 'words', phrases: 'phrases', scenes: 'scenes', missions: 'missions', grammar: 'grammar' };
+  const byDir: Record<string, ReviewType> = { words: 'words', scrolls: 'words', phrases: 'phrases', scenes: 'scenes', missions: 'missions', grammar: 'grammar', books: 'books' };
   if (byDir[dir]) return byDir[dir];
   const byFile: Record<string, ReviewType> = {
     'sphinx.json': 'sphinx', 'letters.json': 'letters', 'npcs.json': 'people', 'chronicler.json': 'people', 'guardians.json': 'people', 'verbs.json': 'verbs', 'pairs.json': 'pairs',

@@ -74,7 +74,8 @@ for (const lang of LANGS) {
 
       // Десять обрывков, один из них сегодня: середина главы и записка.
       await seedFragments(page, lang, 10, Date.now());
-      await expect(page.getByTestId('chronicle-button')).toContainText('2');
+      // Середина главы, записка и две открытые книги Летописца (задача 12.4).
+      await expect(page.getByTestId('chronicle-button')).toContainText('Летопись: новых записей 1, Летописец оставил записку, новых книг 2');
       await page.getByTestId('chronicle-button').click();
       const note = page.getByTestId('thread-note');
       await expect(note).toContainText('Летописец оставил записку: сегодня 10 обрывков карты');
@@ -88,7 +89,8 @@ for (const lang of LANGS) {
       await expect(page.getByTestId('thread-seen')).toHaveText(['Глава I. Середина пути', 'Глава I. Начало главы']);
       await page.goto('./');
       await expect(page.getByTestId('continue')).toBeVisible();
-      await expect(page.getByTestId('chronicle-button')).toHaveCount(0);
+      // Записи и записка прочитаны, остаются только непрочитанные книги.
+      await expect(page.getByTestId('chronicle-button')).toContainText('Летопись: новых книг 2');
     });
 
     test('обрывки не сегодня — записки нет; Летопись открывается с карты странствий', async ({ page }) => {
@@ -96,7 +98,8 @@ for (const lang of LANGS) {
       await seedDueCards(page, lang, [await firstWord(lang)]);
       await seedFragments(page, lang, 12, Date.now() - 3 * 86_400_000);
       // Начало и середина главы ждут, записки нет.
-      await expect(page.getByTestId('chronicle-button')).toContainText('2');
+      // Начало и середина главы, записки нет; на 12 обрывках открыты две книги.
+      await expect(page.getByTestId('chronicle-button')).toContainText('Летопись: новых записей 2, новых книг 2');
       await page.goto('./#/journey-map');
       await page.getByTestId('chronicle-link').click();
       await expect(page.getByTestId('thread-due')).toHaveCount(2);

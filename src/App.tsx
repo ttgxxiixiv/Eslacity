@@ -40,6 +40,7 @@ import { JourneyMapScreen } from './screens/JourneyMap';
 import { PrologueScreen } from './screens/Prologue';
 import { ErrandScreen, ErrandsScreen, MistakesScreen } from './screens/Errands';
 import { ChronicleScreen } from './screens/Chronicle';
+import { BookScreen } from './screens/Books';
 import { LetterScreen, LettersDiaryScreen } from './screens/Letter';
 
 /** Новый экран открывается сверху, а не с прокруткой предыдущего. */
@@ -123,6 +124,7 @@ export default function App() {
         <Route path="/errand/:id" element={<ErrandScreen />} />
         <Route path="/mistakes" element={<MistakesScreen />} />
         <Route path="/chronicle" element={<ChronicleScreen />} />
+        <Route path="/book/:id" element={<BookScreen />} />
         <Route path="/prologue" element={<PrologueScreen />} />
         <Route path="/letter/:id" element={<LetterScreen />} />
         <Route path="/letters" element={<LettersDiaryScreen />} />

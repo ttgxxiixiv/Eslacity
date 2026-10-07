@@ -1,8 +1,9 @@
 import { readdirSync, readFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
-import { validateChronicler, validateGrammar, validateGuardians, validateLetters, validateMissions, validateNpcs, validatePhrases, validateScenes, validatePortraits, validateScrolls, validateSphinx, validateTranslations, validateVerbs, validatePairs, validateFestivals, validatePrologue, validateThread, validateWords, type Issue } from '../src/content/validate';
-import type { Chronicler, GrammarLesson, GuardiansFile, LettersFile, SphinxFile, VerbsFile, PairsFile, FestivalFile, PrologueFile, LocationWords, LocationMissions, LocationPhrases, LocationScenes, NpcsFile, ScrollFile, ThreadFile } from '../src/content/schema';
+import { validateChronicler, validateGrammar, validateGuardians, validateLetters, validateMissions, validateNpcs, validatePhrases, validateScenes, validatePortraits, validateScrolls, validateSphinx, validateTranslations, validateVerbs, validatePairs, validateFestivals, validatePrologue, validateThread, validateBooks, validateWords, type Issue } from '../src/content/validate';
+import type { Chronicler, GrammarLesson, GuardiansFile, LettersFile, SphinxFile, VerbsFile, PairsFile, FestivalFile, PrologueFile, LocationWords, LocationMissions, LocationPhrases, LocationScenes, NpcsFile, ScrollFile, ThreadFile, BookFile } from '../src/content/schema';
 import { THREAD_CHAPTERS, THREAD_NOTES_MIN } from '../src/domain/thread';
+import { BOOK_CHAPTERS } from '../src/domain/books';
 import type { Lang } from '../src/lang';
 import { CHAPTERS, PLAN_TOTAL } from '../src/content/vocabPlan';
 import { chapterOfDistrict } from '../src/domain/chapters';
@@ -128,6 +129,9 @@ for (const lang of langs) {
     coverage: (text: string, level: number) => textCoverage(text, level, lexicon, forms, lang),
   };
   const threadCheck = validateThread(threadFile, threadChecks);
+  // Книги Летописца (задача 12.4).
+  const books = existsSync(join(root, lang, 'books')) ? readJson<BookFile>(join(root, lang, 'books')) : [];
+  const bookIssues = validateBooks(books, { chapters: BOOK_CHAPTERS, coverage: (text, level) => textCoverage(text, level, lexicon, forms, lang) });
   const sceneCheck = validateScenes(scenes, {
     residents: Object.fromEntries((npcs?.npcs ?? []).map((n) => [n.location, n.id])),
     pitch: Object.fromEntries((npcs?.npcs ?? []).map((n) => [n.id, n.voice.pitch])),
@@ -188,6 +192,7 @@ for (const lang of langs) {
     ...tag(missionIssues),
     ...tag(sceneCheck.issues),
     ...tag(threadCheck.issues),
+    ...tag(bookIssues),
     ...tag(validateWords(words, lang)),
     ...tag(rarity),
     ...tag(
@@ -245,7 +250,7 @@ for (const lang of langs) {
   const phraseCount = phrases.reduce((n, f) => n + f.data.phrases.length, 0);
   const missionCount = missions.reduce((n, f) => n + f.data.missions.length, 0);
   summary.push(
-    `${lang}: ${words.length} локаций, слов: ${placeCount + scrollCount} (из них в свитках ${scrollCount}) из плана ${PLAN_TOTAL}, ${exprCount} ${plural(exprCount, ['выражение', 'выражения', 'выражений'])}, ${grammar.length} уроков, ${phraseCount} ${plural(phraseCount, ['фраза', 'фразы', 'фраз'])}, ${sceneSummary(sceneCheck.report)}, ${threadCheck.report.scenes} ${plural(threadCheck.report.scenes, ['сцена', 'сцены', 'сцен'])} нити глав, ${missionCount} ${plural(missionCount, ['миссия', 'миссии', 'миссий'])}, ${npcs?.npcs.length ?? 0} жителей, ${verbs?.verbs.length ?? 0} глаголов в кузнице, ${pairs?.contrasts.reduce((n, c) => n + c.pairs.length, 0) ?? 0} пар в Звоннице, ${festivals.length} ${plural(festivals.length, ['праздник', 'праздника', 'праздников'])}, ${letters?.letters.length ?? 0} писем`,
+    `${lang}: ${words.length} локаций, слов: ${placeCount + scrollCount} (из них в свитках ${scrollCount}) из плана ${PLAN_TOTAL}, ${exprCount} ${plural(exprCount, ['выражение', 'выражения', 'выражений'])}, ${grammar.length} уроков, ${phraseCount} ${plural(phraseCount, ['фраза', 'фразы', 'фраз'])}, ${sceneSummary(sceneCheck.report)}, ${threadCheck.report.scenes} ${plural(threadCheck.report.scenes, ['сцена', 'сцены', 'сцен'])} нити глав, ${books.reduce((n, f) => n + f.data.books.length, 0)} книг Летописца, ${missionCount} ${plural(missionCount, ['миссия', 'миссии', 'миссий'])}, ${npcs?.npcs.length ?? 0} жителей, ${verbs?.verbs.length ?? 0} глаголов в кузнице, ${pairs?.contrasts.reduce((n, c) => n + c.pairs.length, 0) ?? 0} пар в Звоннице, ${festivals.length} ${plural(festivals.length, ['праздник', 'праздника', 'праздников'])}, ${letters?.letters.length ?? 0} писем`,
   );
 }
 

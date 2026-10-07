@@ -1,6 +1,6 @@
 import { VARIANT } from '../config';
 import { LANG } from '../lang';
-import type { FestivalFile, LocationId, LocationWords, ScrollFile, Word, WordSource } from './schema';
+import type { BookFile, FestivalFile, LocationId, LocationWords, ScrollFile, Word, WordSource } from './schema';
 
 // Слова всех языков лежат в src/content/<язык>/words; загружаются только слова выбранного языка.
 const modules = import.meta.glob<LocationWords>('./*/words/*.json', { import: 'default' });
@@ -11,6 +11,9 @@ const scrollModules = import.meta.glob<ScrollFile>('./*/scrolls/*.json', { impor
 // Праздники (задача 10.5): слова праздника — «место» fest-<id>, файл общий со фразами и миссией.
 const festivalModules = import.meta.glob<FestivalFile>('./*/festivals/*.json', { import: 'default' });
 
+// Книги Летописца (задача 12.4): словарик текстов главы — «место» bk:<глава>.
+const bookModules = import.meta.glob<BookFile>('./*/books/*.json', { import: 'default' });
+
 const loaderById = new Map<WordSource, () => Promise<{ words: Word[] }>>();
 for (const [path, load] of Object.entries(modules)) {
   const [, lang, id] = path.match(/^\.\/([^/]+)\/words\/([^/]+)\.json$/)!;
@@ -19,6 +22,11 @@ for (const [path, load] of Object.entries(modules)) {
 for (const [path, load] of Object.entries(scrollModules)) {
   const [, lang, chapter] = path.match(/^\.\/([^/]+)\/scrolls\/(\d+)\.json$/)!;
   if (lang === LANG) loaderById.set(`scroll${Number(chapter)}`, load);
+}
+
+for (const [path, load] of Object.entries(bookModules)) {
+  const [, lang, chapter] = path.match(/^\.\/([^/]+)\/books\/(\d+)\.json$/)!;
+  if (lang === LANG) loaderById.set(`bk:${Number(chapter)}`, load);
 }
 
 for (const [path, load] of Object.entries(festivalModules)) {
@@ -59,7 +67,7 @@ export async function loadLocations(ids: Iterable<WordSource>): Promise<Word[]> 
   return lists.flat();
 }
 
-/** Место, свиток или праздник слова: `cafe.te` → `cafe`, `scroll1.mapa` → `scroll1`, `fest-sanfermin.toro` → `fest-sanfermin`. */
+/** Место, свиток, праздник или книги главы: `cafe.te` → `cafe`, `scroll1.mapa` → `scroll1`, `fest-sanfermin.toro` → `fest-sanfermin`, `bk:1.vela` → `bk:1`. */
 export function locationOfWord(wordId: string): WordSource {
   return wordId.split('.')[0] as WordSource;
 }

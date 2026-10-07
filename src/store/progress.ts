@@ -25,6 +25,8 @@ interface ProgressState {
   applyGrades(grades: Record<string, Grade>, now?: number): { newWords: number };
   /** Слова, которые путник уже знает (входной тест): карточки на повторении, уже выученные не трогаются. */
   addKnown(ids: string[], now?: number): number;
+  /** Новые карточки на повторение (слово из книги Летописца, задача 12.4); уже взятые не трогаются. */
+  addCards(ids: string[], now?: number): number;
   /** Удалить карточки слов, которых больше нет в контенте. */
   dropCards(ids: string[]): void;
   addXp(n: number): void;
@@ -95,6 +97,20 @@ export const useProgress = create<ProgressState>((set, get) => ({
       const c = knownCard(id, now, knownDays(added.length));
       cards[id] = c;
       added.push(c);
+    }
+    if (!added.length) return 0;
+    set({ cards });
+    persist(() => db.cards.bulkPut(added));
+    return added.length;
+  },
+
+  addCards(ids, now = Date.now()) {
+    const cards = { ...get().cards };
+    const added: SrsCard[] = [];
+    for (const id of ids) {
+      if (cards[id]) continue;
+      cards[id] = newCard(id, now);
+      added.push(cards[id]);
     }
     if (!added.length) return 0;
     set({ cards });

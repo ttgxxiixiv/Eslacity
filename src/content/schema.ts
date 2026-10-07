@@ -226,7 +226,7 @@ export interface PrologueFile {
 export type Chronicler = Omit<Npc, 'location'>;
 
 /** Откуда грузятся слова: место или свиток главы (`scroll1`). */
-export type WordSource = LocationId | `scroll${number}` | `fest-${string}`;
+export type WordSource = LocationId | `scroll${number}` | `fest-${string}` | `bk:${number}`;
 
 /**
  * Готовая фраза ситуации: то, что герой говорит жителю места (docs/GAME.md, этап «Сюжетные миссии»).
@@ -579,4 +579,29 @@ export interface SphinxFile {
   word: SphinxWordSet[];
   hear: SphinxHearSet[];
   wisdom: SphinxWisdomSet[];
+}
+
+/** Слово книг Летописца (задача 12.4): id `bk:<глава>.<slug>`, `forms` — как оно стоит в текстах главы. */
+export interface BookWord extends Word {
+  forms: string[];
+}
+
+/** Текст книги Летописца: id `book:<глава>.<номер>`, абзацы с переводом, пять вопросов на понимание. */
+export interface Book {
+  id: string;
+  title: { es: string; ru: string };
+  paragraphs: { es: string; ru: string }[];
+  questions: SceneQuestion[];
+  /** Перевод слов не из словаря курса и не из словарика книг (имена и редкие формы). */
+  gloss?: Record<string, string>;
+  /** Переводы слов курса для нажатия: достраивает сборка (vite), в JSON их нет. */
+  auto?: Record<string, string>;
+}
+
+/** Книги Летописца главы: `books/<глава>.json`. */
+export interface BookFile {
+  chapter: number;
+  /** Новые слова текстов: их можно взять «в мои слова». */
+  words: BookWord[];
+  books: Book[];
 }

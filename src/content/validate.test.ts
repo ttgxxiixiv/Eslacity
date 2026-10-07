@@ -4,8 +4,8 @@ import { CHAPTERS as PLAN, PLACE_EXPRESSIONS, PLACE_LEVEL_MAX } from './vocabPla
 import type { LocationWords, Word } from './schema';
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { validateChronicler, validateGrammar, validateGuardians, validateLetters, validateMissions, validateNpcs, validatePhrases, validatePortraits, validateScenes, validateScrolls, validateThread, validateTranslations, validateVerbs, validateWords } from './validate';
-import { LOCATION_IDS, type Chronicler, type GrammarLesson, type GuardiansFile, type Letter, type LettersFile, type LocationMissions, type LocationPhrases, type LocationScenes, type Mission, type MissionAnswer, type NpcsFile, type Phrase, type Scene, type ScrollFile, type ThreadFile, type ThreadTrigger, type VerbsFile } from './schema';
+import { validateChronicler, validateGrammar, validateGuardians, validateLetters, validateMissions, validateNpcs, validatePhrases, validatePortraits, validateBooks, validateScenes, validateScrolls, validateThread, validateTranslations, validateVerbs, validateWords } from './validate';
+import { LOCATION_IDS, type Chronicler, type GrammarLesson, type GuardiansFile, type Letter, type LettersFile, type LocationMissions, type LocationPhrases, type LocationScenes, type Mission, type MissionAnswer, type NpcsFile, type Phrase, type Scene, type ScrollFile, type BookFile, type ThreadFile, type ThreadTrigger, type VerbsFile } from './schema';
 
 const base = (i: number, extra: Partial<Word> = {}): Word => ({
   id: `cafe.w${i}`, es: `la palabra${i}`, ru: `слово ${i}`, pos: 'noun', gender: 'f', level: 1, cefr: 'A1',
@@ -822,5 +822,33 @@ describe('письма в контенте', () => {
     const npcs = (JSON.parse(readFileSync(join(__dirname, lang, 'npcs.json'), 'utf8')) as NpcsFile).npcs;
     expect(file.letters.map((l) => l.location)).toEqual(['bank', 'hotel', 'airport', 'office', 'police', 'post', 'cafe', 'home', 'gym', 'beach']);
     expect(validateLetters(file, Object.fromEntries(npcs.map((n) => [n.location, n.id])))).toEqual([]);
+  });
+});
+
+describe('validateBooks (задача 12.4)', () => {
+  const para = (n: number) => ({ es: Array.from({ length: n }, (_, i) => (i === 0 ? 'Hola' : 'casa')).join(' ') + ' piedra.', ru: 'Текст.' });
+  const qs = Array.from({ length: 5 }, () => ({ q: 'Что?', options: ['Да', 'Нет'], answer: 0 }));
+  const book = (n: number, extra: Partial<BookFile['books'][number]> = {}) => ({ id: `book:1.${n}`, title: { es: 'Hola', ru: 'Привет' }, paragraphs: [para(130)], questions: qs, ...extra });
+  const word = { id: 'bk:1.piedra', es: 'la piedra', ru: 'камень', pos: 'noun' as const, gender: 'f' as const, level: 2 as const, cefr: 'A1' as const, example: { es: 'La piedra.', ru: 'Камень.' }, forms: ['piedra'] };
+  const file = (books = [1, 2, 3, 4].map((n) => book(n)), words = [word]) => [{ name: '1.json', data: { chapter: 1, words, books } as BookFile }];
+  const cov = (t: string) => ({ total: t.split(' ').length, unknown: t.includes('piedra') ? ['piedra'] : [] });
+  const msgs = (f: ReturnType<typeof file>, chapters = [1]) => validateBooks(f, { chapters, coverage: cov }).map((x) => x.msg);
+
+  it('четыре текста, слово из словарика книг — без замечаний', () => {
+    expect(msgs(file())).toEqual([]);
+  });
+  it('нет текста главы, объём, вопросы, незнакомое слово без перевода', () => {
+    expect(msgs(file([1, 2, 3].map((n) => book(n))))).toContain('нет текста book:1.4');
+    expect(msgs(file([book(1, { paragraphs: [para(20)] }), book(2), book(3), book(4)])).join(';')).toMatch(/21 слов, в главе 1 нужно 120–180/);
+    expect(msgs(file([book(1, { questions: qs.slice(1) }), book(2), book(3), book(4)]))).toContain('вопросов 4, нужно 5');
+    expect(msgs(file(undefined, [])).join(';')).toMatch(/в словарике книг и в gloss: piedra/);
+    expect(msgs([], [1])).toContain('нет книг главы 1');
+  });
+  it('слово словарика: id, уровень, форма в тексте', () => {
+    const bad = { ...word, id: 'bk:2.piedra', level: 3 as never, forms: ['piedras'] };
+    const m = msgs(file(undefined, [bad])).join(';');
+    expect(m).toMatch(/id должен начинаться с "bk:1\."/);
+    expect(m).toMatch(/уровень 3/);
+    expect(m).toMatch(/формы "piedras" нет в текстах/);
   });
 });
