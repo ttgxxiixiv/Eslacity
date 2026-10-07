@@ -23,6 +23,6 @@ export function unlockAudio(): void {
 }
 
 /** Сообщить, какой звук или тема играют: по событию это видят сквозные тесты. */
-export function announceSound(detail: { sfx?: string; music?: string | null }): void {
+export function announceSound(detail: { sfx?: string; music?: string | null; track?: string }): void {
   if (typeof window !== 'undefined') window.dispatchEvent(new CustomEvent('eslacity:sound', { detail }));
 }

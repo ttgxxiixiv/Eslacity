@@ -8,17 +8,18 @@ const CONTENT = join(import.meta.dirname, '..', '..', 'src', 'content');
 /** Звуки и темы, о которых сообщило приложение (`eslacity:sound`). */
 async function listen(page: Page) {
   await page.addInitScript(() => {
-    const w = window as unknown as { __sounds: { sfx?: string; music?: string | null }[] };
+    const w = window as unknown as { __sounds: { sfx?: string; music?: string | null; track?: string }[] };
     w.__sounds = [];
     window.addEventListener('eslacity:sound', (e) => w.__sounds.push((e as CustomEvent).detail));
   });
 }
-const sounds = (page: Page) => page.evaluate(() => (window as unknown as { __sounds: { sfx?: string; music?: string | null }[] }).__sounds);
+const sounds = (page: Page) =>
+  page.evaluate(() => (window as unknown as { __sounds: { sfx?: string; music?: string | null; track?: string }[] }).__sounds);
 const lastMusic = async (page: Page) => (await sounds(page)).filter((s) => 'music' in s).at(-1)?.music;
 const sfxCount = async (page: Page) => (await sounds(page)).filter((s) => s.sfx).length;
 
 /**
- * Музыка и звуки (задача 13.3): тема города на главной, земля открытой главы на карте странствий, звук вердикта за
+ * Музыка и звуки (задача 13.3): тема города на главной (записанный трек), земля открытой главы на карте странствий, звук вердикта за
  * ответ; громкость 0 в настройках выключает и то и другое.
  */
 for (const lang of LANGS) {
@@ -42,6 +43,8 @@ for (const lang of LANGS) {
       await listen(page);
       await openApp(page, lang);
       await expect.poll(() => lastMusic(page)).toBe('city');
+      // У города записанный трек (public/music/city.ogg): он скачался, расшифровался и заиграл вместо нот.
+      await expect.poll(async () => (await sounds(page)).some((s) => s.track === 'city')).toBe(true);
       await page.goto('./#/journey-map');
       await expect.poll(() => lastMusic(page)).toBe('land1');
 

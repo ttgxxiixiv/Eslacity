@@ -287,6 +287,14 @@ export default defineConfig({
         cleanupOutdatedCaches: true,
         // Напоминания (задача 10.4): обработчик periodicsync и нажатия на уведомление.
         importScripts: ['reminder-sw.js'],
+        // Музыка (public/music, около мегабайта на тему) не в precache: качается при первом запросе и остаётся в кэше.
+        runtimeCaching: [
+          {
+            urlPattern: ({ url }) => url.pathname.includes('/music/'),
+            handler: 'CacheFirst',
+            options: { cacheName: 'eslacity-music', expiration: { maxEntries: 12 } },
+          },
+        ],
       },
     }),
   ],
