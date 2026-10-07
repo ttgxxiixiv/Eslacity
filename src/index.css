@@ -300,7 +300,10 @@ button {
  * при дробном масштабе между частями бывают щели в долю пикселя, и в них видно её, а не тёмный фон. Класс home-dark висит на body, пока открыта главная.
  */
 body.home-dark {
+  /* Картина земли открытой главы (--home-bg ставит Home), притушенная сверху вниз: на ней светлые подписи кнопок. */
   background:
+    linear-gradient(180deg, rgb(24 16 12 / 0.25) 0%, rgb(24 16 12 / 0.45) 30%, rgb(24 16 12 / 0.55) 100%),
+    var(--home-bg, none) top center / cover no-repeat,
     radial-gradient(ellipse 75% 22% at 50% 40%, rgb(190 122 82 / 0.75), transparent 75%),
     radial-gradient(ellipse 60% 30% at 0% 62%, rgb(60 66 118 / 0.8), transparent 70%),
     radial-gradient(ellipse 60% 30% at 100% 58%, rgb(58 52 90 / 0.7), transparent 70%),

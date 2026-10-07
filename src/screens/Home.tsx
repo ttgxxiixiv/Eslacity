@@ -6,6 +6,13 @@ import dockBlitz from '../assets/dock/blitz.webp';
 import dockFestival from '../assets/dock/festival.webp';
 import dockPlacement from '../assets/dock/placement.webp';
 import dockEmpty from '../assets/dock/empty.webp';
+import bg1 from '../assets/home/bg-1.webp';
+import bg2 from '../assets/home/bg-2.webp';
+import bg3 from '../assets/home/bg-3.webp';
+import bg4 from '../assets/home/bg-4.webp';
+import bg5 from '../assets/home/bg-5.webp';
+import bgVault from '../assets/home/bg-vault.webp';
+import { useSphinx } from '../store/sphinx';
 import { Link, Navigate } from 'react-router-dom';
 import { cachedLocation, loadLocation } from '../content';
 import { DISTRICTS, lessonsOf } from '../content/grammar';
@@ -240,6 +247,13 @@ const DOCK_ART = {
   empty: dockEmpty,
 };
 
+const HOME_BG: Record<string, string> = { '1': bg1, '2': bg2, '3': bg3, '4': bg4, '5': bg5, vault: bgVault };
+
+/** Фон главной: земля открытой главы, после Эликсира — Хранилище. */
+export function homeBackground(opened: number, sage: boolean): string {
+  return sage ? 'vault' : String(Math.min(Math.max(opened, 1), 5));
+}
+
 /**
  * Круглая кнопка ряда над картой (задача 14.1): знак, короткая подпись, бейдж. Полный текст прежнего блока — в `text`:
  * его читает экранный диктор, а сквозные тесты проверяют по нему, что в блоке.
@@ -298,6 +312,18 @@ export function Home() {
     document.body.classList.add('home-dark');
     return () => document.body.classList.remove('home-dark');
   }, []);
+  // Фон — земля открытой главы, после Эликсира — Хранилище (картины из docs/design/home-backgrounds-prompt.md).
+  const bgOpened = useJourney((s) => s.opened);
+  const sage = useSphinx((s) => s.rec.elixir !== undefined);
+  const bg = homeBackground(bgOpened, sage);
+  useEffect(() => {
+    document.body.style.setProperty('--home-bg', `url("${HOME_BG[bg]}")`);
+    document.body.dataset.homeBg = bg;
+    return () => {
+      document.body.style.removeProperty('--home-bg');
+      delete document.body.dataset.homeBg;
+    };
+  }, [bg]);
   const cards = useProgress((s) => s.cards);
   const grammar = useProgress((s) => s.grammar);
   const buildings = useCity((s) => s.buildings);
