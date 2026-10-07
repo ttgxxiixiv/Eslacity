@@ -311,6 +311,353 @@
         "guardiano": "страж",
         "tommaso": "Томмазо"
       }
+    },
+    {
+      "id": "th:2.open",
+      "chapter": 2,
+      "trigger": "open",
+      "npc": "cronista",
+      "lines": [
+        {
+          "who": "npc",
+          "es": "Abbiamo passato il guardiano. Adesso la strada sale in montagna.",
+          "ru": "Мы прошли стража. Теперь дорога поднимается в горы."
+        },
+        {
+          "who": "npc",
+          "es": "Lassù, al passo, c'è una torre. Lì vive il secondo guardiano.",
+          "ru": "Наверху, на перевале, стоит башня. Там живёт второй страж."
+        },
+        {
+          "who": "hero",
+          "es": "E che cosa sappiamo di Tommaso, il fratello di Giulia?",
+          "ru": "А что мы знаем о Томмазо, брате Джулии?"
+        },
+        {
+          "who": "npc",
+          "es": "Un mese fa è salito alla torre. Da allora non scrive.",
+          "ru": "Месяц назад он поднялся к башне. С тех пор не пишет."
+        },
+        {
+          "who": "npc",
+          "es": "I pastori l'hanno visto con un uomo con il mantello grigio.",
+          "ru": "Пастухи видели его с человеком в сером плаще."
+        },
+        {
+          "who": "npc",
+          "es": "Quell'uomo ha comprato delle torce in città e ha pagato con monete molto vecchie.",
+          "ru": "Этот человек купил в городе фонарики и заплатил очень старыми монетами."
+        },
+        {
+          "who": "npc",
+          "es": "E ha detto: «Presto scenderà la nebbia».",
+          "ru": "И сказал: «Скоро спустится туман»."
+        },
+        {
+          "who": "hero",
+          "es": "E che cosa chiede il guardiano della torre?",
+          "ru": "А о чём спрашивает страж башни?"
+        },
+        {
+          "who": "npc",
+          "es": "Non chiede parole. Chiede che cosa hai fatto. Bisogna rispondere al passato.",
+          "ru": "Он спрашивает не слова. Он спрашивает, что ты сделал. Отвечать надо в прошедшем времени."
+        },
+        {
+          "who": "npc",
+          "es": "Tommaso diceva sempre: «Nella nebbia ti guida solo la voce».",
+          "ru": "Томмазо всегда говорил: «В тумане тебя ведёт только голос»."
+        },
+        {
+          "who": "npc",
+          "es": "Chi è l'uomo con il mantello grigio? Lo scriveremo insieme.",
+          "ru": "Кто этот человек в сером плаще? Запишем вместе."
+        }
+      ],
+      "questions": [
+        {
+          "q": "Где живёт второй страж?",
+          "options": [
+            "В башне на перевале",
+            "В отеле",
+            "На вокзале"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "С кем видели Томмазо?",
+          "options": [
+            "С Джулией",
+            "С человеком в сером плаще",
+            "С пастухами в городе"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Чем заплатил незнакомец за фонарики?",
+          "options": [
+            "Картой",
+            "Новыми деньгами",
+            "Очень старыми монетами"
+          ],
+          "answer": 2
+        },
+        {
+          "q": "Как надо отвечать стражу башни?",
+          "options": [
+            "В прошедшем времени",
+            "Шёпотом",
+            "Письмом"
+          ],
+          "answer": 0
+        }
+      ],
+      "gloss": {
+        "guardiano": "страж",
+        "passo": "перевал",
+        "torre": "башня",
+        "pastori": "пастухи",
+        "mantello": "плащ",
+        "torce": "фонарики",
+        "monete": "монеты",
+        "nebbia": "туман",
+        "scenderà": "спустится",
+        "guida": "ведёт",
+        "tommaso": "Томмазо",
+        "lassù": "наверху"
+      }
+    },
+    {
+      "id": "th:2.half",
+      "chapter": 2,
+      "trigger": "half",
+      "npc": "cronista",
+      "lines": [
+        {
+          "who": "npc",
+          "es": "Dieci pezzi della mappa della montagna. Guarda che cosa ho scritto.",
+          "ru": "Десять обрывков карты гор. Смотри, что я записал."
+        },
+        {
+          "who": "npc",
+          "es": "Gino ha visto quest'uomo nel parco molti anni fa.",
+          "ru": "Джино видел этого человека в парке много лет назад."
+        },
+        {
+          "who": "hero",
+          "es": "Molti anni fa? E non è più vecchio?",
+          "ru": "Много лет назад? И он не постарел?"
+        },
+        {
+          "who": "npc",
+          "es": "No. E in farmacia ha chiesto in che anno siamo.",
+          "ru": "Нет. А в аптеке он спросил, какой сейчас год."
+        },
+        {
+          "who": "npc",
+          "es": "Tommaso ha scritto a Giulia: «La nebbia parla. Io rispondo al passato».",
+          "ru": "Томмазо написал Джулии: «Туман говорит. Я отвечаю в прошедшем времени»."
+        },
+        {
+          "who": "npc",
+          "es": "Ma la fine della lettera è di un'altra persona: «Sta bene. Aspetta».",
+          "ru": "Но конец письма написал другой человек: «С ним всё хорошо. Жди»."
+        },
+        {
+          "who": "hero",
+          "es": "Chi l'ha scritto?",
+          "ru": "Кто это написал?"
+        },
+        {
+          "who": "npc",
+          "es": "In banca c'è un conto di cento anni fa. È del guardiano della torre.",
+          "ru": "В банке есть счёт столетней давности. Он принадлежит стражу башни."
+        },
+        {
+          "who": "npc",
+          "es": "La sua firma è come quella della lettera. L'uomo con il mantello è il guardiano, e Tommaso è con lui.",
+          "ru": "Его подпись такая же, как в письме. Человек в плаще — это страж, и Томмазо у него."
+        },
+        {
+          "who": "hero",
+          "es": "Ma perché non lascia scendere Tommaso?",
+          "ru": "Но почему он не отпускает Томмазо?"
+        },
+        {
+          "who": "npc",
+          "es": "Questo ancora non lo so.",
+          "ru": "Этого я пока не знаю."
+        }
+      ],
+      "questions": [
+        {
+          "q": "Что странного в человеке в плаще?",
+          "options": [
+            "Он не постарел за много лет",
+            "Он не говорит по-итальянски",
+            "Он живёт в аптеке"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Что Томмазо написал сестре?",
+          "options": [
+            "Что вернётся завтра",
+            "«Туман говорит. Я отвечаю в прошедшем времени»",
+            "Что потерял карту"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Что нашли в банке?",
+          "options": [
+            "Обрывок карты",
+            "Билет на поезд",
+            "Счёт стража башни столетней давности"
+          ],
+          "answer": 2
+        },
+        {
+          "q": "Кто на самом деле человек в плаще?",
+          "options": [
+            "Страж башни",
+            "Брат Джулии",
+            "Пастух"
+          ],
+          "answer": 0
+        }
+      ],
+      "gloss": {
+        "pezzi": "обрывки",
+        "mantello": "плащ",
+        "nebbia": "туман",
+        "guardiano": "страж",
+        "torre": "башня",
+        "firma": "подпись",
+        "conto": "счёт",
+        "tommaso": "Томмазо",
+        "gino": "Джино"
+      }
+    },
+    {
+      "id": "th:2.climax",
+      "chapter": 2,
+      "trigger": "climax",
+      "npc": "cronista",
+      "lines": [
+        {
+          "who": "npc",
+          "es": "Venti pezzi! E finalmente so tutta la storia.",
+          "ru": "Двадцать обрывков! И наконец я знаю всю историю."
+        },
+        {
+          "who": "npc",
+          "es": "Cento anni fa, dopo un temporale, un giovane viaggiatore è rimasto nella torre. Si chiamava Andrea.",
+          "ru": "Сто лет назад, после грозы, в башне остался молодой путник. Его звали Андреа."
+        },
+        {
+          "who": "npc",
+          "es": "Andrea ha aiutato il vecchio guardiano e poi ha preso il suo posto. È l'uomo con il mantello.",
+          "ru": "Андреа помогал старому стражу, а потом занял его место. Это и есть человек в плаще."
+        },
+        {
+          "who": "hero",
+          "es": "E Tommaso?",
+          "ru": "А Томмазо?"
+        },
+        {
+          "who": "npc",
+          "es": "Tommaso è tornato con un piede rotto. Il guardiano gli ha fatto tre domande al passato.",
+          "ru": "Томмазо вернулся со сломанной ногой. Страж задал ему три вопроса в прошедшем времени."
+        },
+        {
+          "who": "npc",
+          "es": "Ha risposto a due. La terza era: «Chi hai aiutato?». Non sapeva che cosa dire.",
+          "ru": "На два он ответил. Третий был такой: «Кому ты помог?». Он не знал, что сказать."
+        },
+        {
+          "who": "npc",
+          "es": "Il guardiano può scendere solo quando qualcuno risponde alle sue domande. Adesso aspetta te.",
+          "ru": "Страж может спуститься, только когда кто-то ответит на его вопросы. Теперь он ждёт тебя."
+        },
+        {
+          "who": "hero",
+          "es": "Se rispondo, Andrea torna a casa?",
+          "ru": "Если я отвечу, Андреа вернётся домой?"
+        },
+        {
+          "who": "npc",
+          "es": "Sì. Con il treno delle sette. Hai tu il suo vecchio biglietto.",
+          "ru": "Да. Поездом в семь. Его старый билет у тебя."
+        },
+        {
+          "who": "npc",
+          "es": "Ma guarda: Luca ha visto dall'aereo sabbia dietro la torre. Ieri lì c'era una città bianca, e oggi non c'è niente.",
+          "ru": "Но смотри: Лука видел с самолёта песок за башней. Вчера там был белый город, а сегодня ничего нет."
+        },
+        {
+          "who": "hero",
+          "es": "Come può sparire una città?",
+          "ru": "Как может исчезнуть город?"
+        },
+        {
+          "who": "npc",
+          "es": "Non lo so. Quel deserto inganna.",
+          "ru": "Не знаю. Эта пустыня обманывает."
+        }
+      ],
+      "questions": [
+        {
+          "q": "Кто такой Андреа?",
+          "options": [
+            "Брат Джулии",
+            "Молодой путник, который сто лет назад остался в башне",
+            "Пилот"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "На какой вопрос не ответил Томмазо?",
+          "options": [
+            "«Кому ты помог?»",
+            "«Куда ты идёшь?»",
+            "«Как тебя зовут?»"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Когда страж может спуститься?",
+          "options": [
+            "Когда закончится туман",
+            "Когда придёт поезд",
+            "Когда кто-то ответит на его вопросы"
+          ],
+          "answer": 2
+        },
+        {
+          "q": "Что Лука видел с самолёта?",
+          "options": [
+            "Лес",
+            "Белый город, который исчез",
+            "Море"
+          ],
+          "answer": 1
+        }
+      ],
+      "gloss": {
+        "pezzi": "обрывки",
+        "temporale": "гроза",
+        "torre": "башня",
+        "guardiano": "страж",
+        "mantello": "плащ",
+        "rotto": "сломанный",
+        "sparire": "исчезнуть",
+        "deserto": "пустыня",
+        "inganna": "обманывает",
+        "tommaso": "Томмазо",
+        "andrea": "Андреа",
+        "terza": "третий"
+      }
     }
   ],
   "notes": {
@@ -358,6 +705,61 @@
         "ru": "Посмотри на карту: каждый обрывок — это дом в городе.",
         "gloss": {
           "pezzo": "обрывок"
+        }
+      }
+    ],
+    "2": [
+      {
+        "es": "Oggi sei salito un po' di più. Ho scritto tutto nel libro.",
+        "ru": "Сегодня ты поднялся ещё немного выше. Я всё записал в книгу.",
+        "fem": {
+          "es": "Oggi sei salita un po' di più. Ho scritto tutto nel libro.",
+          "ru": "Сегодня ты поднялась ещё немного выше. Я всё записал в книгу."
+        }
+      },
+      {
+        "es": "Un altro pezzo della montagna. Hai visto la luce nella torre?",
+        "ru": "Ещё один обрывок гор. Ты видел свет в башне?",
+        "fem": {
+          "ru": "Ещё один обрывок гор. Ты видела свет в башне?"
+        },
+        "gloss": {
+          "pezzo": "обрывок",
+          "torre": "башня"
+        }
+      },
+      {
+        "es": "Oggi faceva freddo per strada, ma tu non ti sei fermato.",
+        "ru": "Сегодня на дороге было холодно, но ты не остановился.",
+        "fem": {
+          "es": "Oggi faceva freddo per strada, ma tu non ti sei fermata.",
+          "ru": "Сегодня на дороге было холодно, но ты не остановилась."
+        }
+      },
+      {
+        "es": "Oggi ti ha aiutato un altro vicino. La nebbia è più lontana.",
+        "ru": "Сегодня тебе помог ещё один сосед. Туман стал дальше.",
+        "fem": {
+          "es": "Oggi ti ha aiutata un altro vicino. La nebbia è più lontana."
+        },
+        "gloss": {
+          "nebbia": "туман"
+        }
+      },
+      {
+        "es": "Stanotte scrivo con la finestra aperta: si sente il vento della montagna.",
+        "ru": "Сегодня ночью пишу с открытым окном: слышно ветер с гор."
+      },
+      {
+        "es": "Ieri non sapevamo niente. Oggi sappiamo un po' di più.",
+        "ru": "Вчера мы ничего не знали. Сегодня знаем чуть больше."
+      },
+      {
+        "es": "Un altro pezzo. Tommaso sarà contento.",
+        "ru": "Ещё один обрывок. Томмазо будет рад.",
+        "gloss": {
+          "pezzo": "обрывок",
+          "tommaso": "Томмазо"
         }
       }
     ]

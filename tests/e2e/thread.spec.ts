@@ -1,7 +1,7 @@
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { expect, test, type Page } from '@playwright/test';
-import { DB, LANGS, openApp, readMeta, seedDueCards, type Lang } from './fixtures';
+import { DB, LANGS, openApp, PLACES, readMeta, seedDueCards, type Lang } from './fixtures';
 
 const CONTENT = join(import.meta.dirname, '..', '..', 'src', 'content');
 
@@ -12,9 +12,10 @@ interface ThreadScene {
 }
 
 /** Записать обрывки главы I (`n` мест, время получения `ts`) и перезагрузить. */
-async function seedFragments(page: Page, lang: Lang, n: number, ts: number) {
-  const places = ['cafe', 'market', 'supermarket', 'restaurant', 'home', 'park', 'clothes', 'pharmacy', 'school', 'post', 'bank', 'barber'];
-  const fragments = Object.fromEntries(places.slice(0, n).map((p) => [`1:${p}`, ts]));
+async function seedFragments(page: Page, lang: Lang, n: number, ts: number, chapter = 1) {
+  const fragments = Object.fromEntries(PLACES.slice(0, n).map((p) => [`${chapter}:${p}`, ts]));
+  // Глава 2 открыта, когда собрана карта главы 1.
+  if (chapter > 1) for (const p of PLACES) fragments[`1:${p}`] = ts;
   await page.evaluate(
     ({ db, value }) =>
       new Promise<void>((resolve) => {
@@ -25,7 +26,7 @@ async function seedFragments(page: Page, lang: Lang, n: number, ts: number) {
           tx.oncomplete = () => resolve();
         };
       }),
-    { db: DB[lang], value: { fragments, seals: {}, openedChapter: 1, celebrated: 0 } },
+    { db: DB[lang], value: { fragments, seals: chapter > 1 ? { '1': ts } : {}, openedChapter: chapter, celebrated: chapter - 1 } },
   );
   await page.reload();
   await expect(page.getByTestId('continue')).toBeVisible();
@@ -100,6 +101,19 @@ for (const lang of LANGS) {
       await page.getByTestId('chronicle-link').click();
       await expect(page.getByTestId('thread-due')).toHaveCount(2);
       await expect(page.getByTestId('thread-note')).toHaveCount(0);
+    });
+
+    test('глава II: её начало и середина открываются по обрывкам главы II', async ({ page }) => {
+      await openApp(page, lang);
+      await seedDueCards(page, lang, [await firstWord(lang)]);
+      await seedFragments(page, lang, 10, Date.now() - 3 * 86_400_000, 2);
+      await page.goto('./#/chronicle');
+      await expect(page.getByTestId('thread-due')).toHaveCount(5);
+      await expect(page.getByTestId('thread-due').last()).toContainText('Глава II. Середина пути');
+      await expect(page.getByTestId('thread-next')).toContainText('Следующая запись главы II — когда соберёте 20 обрывков карты (сейчас 10)');
+      await page.getByTestId('thread-due').last().click();
+      await playScene(page, scene('th:2.half'));
+      await expect(page.getByTestId('thread-seen')).toHaveText(['Глава II. Середина пути']);
     });
   });
 }
