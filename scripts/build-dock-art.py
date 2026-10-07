@@ -1,6 +1,6 @@
 """Медальоны кнопок главной (задача 14.1): лист `docs/design/home-dock.png` (промт — `docs/design/home-dock-prompt.md`).
 
-Лист нарисован на пурпурном фоне (#FF00FF). Скрипт снимает фон, находит медальоны как связные области не-фона,
+Лист нарисован на пурпурном фоне (#FF00FF); с 2.133.0 — в живописной манере медалей, прежний пиксельный — `docs/design/home-dock-pixel.png`. Скрипт снимает фон, находит медальоны как связные области не-фона,
 раскладывает их слева направо, сверху вниз и сохраняет в `src/assets/dock/<кнопка>.webp` квадратом в тройном
 размере от показа (кнопка на главной — 52 px). Запуск: python3 scripts/build-dock-art.py
 """
@@ -36,8 +36,9 @@ def main():
     n, _, stats, _ = cv2.connectedComponentsWithStats((a > 0.5).astype(np.uint8), connectivity=8)
     # Медальоны крупные: мелкие пятна (шум сжатия) отбрасываются.
     boxes = [tuple(stats[i][:4]) for i in range(1, n) if stats[i][4] > 5000]
-    if len(boxes) != len(NAMES):
-        raise SystemExit(f'медальонов {len(boxes)}, ожидалось {len(NAMES)}')
+    # Лишние медальоны в конце листа (второй пустой) не нужны; меньше — ошибка.
+    if len(boxes) < len(NAMES):
+        raise SystemExit(f'медальонов {len(boxes)}, ожидалось не меньше {len(NAMES)}')
     # Ряды: по верхнему краю с допуском в половину высоты медальона, внутри ряда — слева направо.
     h = max(b[3] for b in boxes)
     boxes.sort(key=lambda b: (round(b[1] / (h / 2)), b[0]))
