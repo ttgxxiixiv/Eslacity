@@ -15,7 +15,7 @@ export const TRIGGER_LABEL: Record<ThreadTrigger, string> = { open: 'Начал�
 /** «Место» сцен нити: файл `scenes/thread.json`, говорит Летописец. */
 export const THREAD_PLACE = 'thread';
 /** Главы, у которых уже написана нить: валидатор требует у них все три сцены. Растёт по главе за версию. */
-export const THREAD_CHAPTERS = [1, 2];
+export const THREAD_CHAPTERS = [1, 2, 3];
 /** Записок у главы не меньше стольких: чтобы не повторялись день за днём. */
 export const THREAD_NOTES_MIN = 6;
 

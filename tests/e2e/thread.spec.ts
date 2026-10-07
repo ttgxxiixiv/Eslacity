@@ -14,8 +14,8 @@ interface ThreadScene {
 /** Записать обрывки главы I (`n` мест, время получения `ts`) и перезагрузить. */
 async function seedFragments(page: Page, lang: Lang, n: number, ts: number, chapter = 1) {
   const fragments = Object.fromEntries(PLACES.slice(0, n).map((p) => [`${chapter}:${p}`, ts]));
-  // Глава 2 открыта, когда собрана карта главы 1.
-  if (chapter > 1) for (const p of PLACES) fragments[`1:${p}`] = ts;
+  // Глава открыта, когда собраны карты прошлых глав.
+  for (let c = 1; c < chapter; c++) for (const p of PLACES) fragments[`${c}:${p}`] = ts;
   await page.evaluate(
     ({ db, value }) =>
       new Promise<void>((resolve) => {
@@ -26,7 +26,7 @@ async function seedFragments(page: Page, lang: Lang, n: number, ts: number, chap
           tx.oncomplete = () => resolve();
         };
       }),
-    { db: DB[lang], value: { fragments, seals: chapter > 1 ? { '1': ts } : {}, openedChapter: chapter, celebrated: chapter - 1 } },
+    { db: DB[lang], value: { fragments, seals: Object.fromEntries(Array.from({ length: chapter - 1 }, (_, i) => [String(i + 1), ts])), openedChapter: chapter, celebrated: chapter - 1 } },
   );
   await page.reload();
   await expect(page.getByTestId('continue')).toBeVisible();
@@ -103,18 +103,21 @@ for (const lang of LANGS) {
       await expect(page.getByTestId('thread-note')).toHaveCount(0);
     });
 
-    test('глава II: её начало и середина открываются по обрывкам главы II', async ({ page }) => {
-      await openApp(page, lang);
-      await seedDueCards(page, lang, [await firstWord(lang)]);
-      await seedFragments(page, lang, 10, Date.now() - 3 * 86_400_000, 2);
-      await page.goto('./#/chronicle');
-      await expect(page.getByTestId('thread-due')).toHaveCount(5);
-      await expect(page.getByTestId('thread-due').last()).toContainText('Глава II. Середина пути');
-      await expect(page.getByTestId('thread-next')).toContainText('Следующая запись главы II — когда соберёте 20 обрывков карты (сейчас 10)');
-      await page.getByTestId('thread-due').last().click();
-      await playScene(page, scene('th:2.half'));
-      await expect(page.getByTestId('thread-seen')).toHaveText(['Глава II. Середина пути']);
-    });
+    for (const [chapter, roman] of [[2, 'II'], [3, 'III']] as const) {
+      test(`глава ${roman}: её начало и середина открываются по обрывкам главы`, async ({ page }) => {
+        await openApp(page, lang);
+        await seedDueCards(page, lang, [await firstWord(lang)]);
+        await seedFragments(page, lang, 10, Date.now() - 3 * 86_400_000, chapter);
+        await page.goto('./#/chronicle');
+        // Все сцены прошлых глав и две сцены открытой.
+        await expect(page.getByTestId('thread-due')).toHaveCount(3 * (chapter - 1) + 2);
+        await expect(page.getByTestId('thread-due').last()).toContainText(`Глава ${roman}. Середина пути`);
+        await expect(page.getByTestId('thread-next')).toContainText(`Следующая запись главы ${roman} — когда соберёте 20 обрывков карты (сейчас 10)`);
+        await page.getByTestId('thread-due').last().click();
+        await playScene(page, scene(`th:${chapter}.half`));
+        await expect(page.getByTestId('thread-seen')).toHaveText([`Глава ${roman}. Середина пути`]);
+      });
+    }
   });
 }
 

@@ -658,6 +658,388 @@
         "andrea": "Андреа",
         "terza": "третий"
       }
+    },
+    {
+      "id": "th:3.open",
+      "chapter": 3,
+      "trigger": "open",
+      "npc": "cronista",
+      "lines": [
+        {
+          "who": "npc",
+          "es": "Andrea è tornato in città. Al bar di Giulia ha preso il suo primo caffè in cento anni.",
+          "ru": "Андреа вернулся в город. В кафе у Джулии он выпил первый кофе за сто лет."
+        },
+        {
+          "who": "npc",
+          "es": "E ti ha lasciato un consiglio: «Nel deserto non credere a quello che vedi. Credi a quello che senti».",
+          "ru": "И оставил тебе совет: «В пустыне не верь тому, что видишь. Верь тому, что слышишь»."
+        },
+        {
+          "who": "hero",
+          "es": "Perché? Che cosa c'è nel deserto?",
+          "ru": "Почему? Что в пустыне?"
+        },
+        {
+          "who": "npc",
+          "es": "Una città bianca. Appare quando hai sete e sparisce quando ti avvicini.",
+          "ru": "Белый город. Он появляется, когда тебя мучает жажда, и исчезает, когда подходишь."
+        },
+        {
+          "who": "npc",
+          "es": "Lì vive la terza guardiana, una donna molto vecchia e molto saggia.",
+          "ru": "Там живёт третья стражница, очень старая и очень мудрая женщина."
+        },
+        {
+          "who": "npc",
+          "es": "Parla solo con il «se»: «Se mi dici la verità, ti lascio passare».",
+          "ru": "Она говорит только через «если»: «Если скажешь мне правду, пропущу»."
+        },
+        {
+          "who": "hero",
+          "es": "E se qualcuno mente?",
+          "ru": "А если кто-то солжёт?"
+        },
+        {
+          "who": "npc",
+          "es": "Allora la città sparisce, e la persona con lei.",
+          "ru": "Тогда город исчезает, и человек вместе с ним."
+        },
+        {
+          "who": "npc",
+          "es": "Ma il deserto inganna anche qui. Un uomo con un cammello vende pezzi falsi della mappa.",
+          "ru": "Но пустыня обманывает и здесь. Человек с верблюдом продаёт поддельные обрывки карты."
+        },
+        {
+          "who": "npc",
+          "es": "E al bordo della sabbia vendono «acqua dell'oasi». Le bottiglie sembrano piene, ma non lo sono.",
+          "ru": "А у края песков продают «воду оазиса». Бутылки кажутся полными, но это не так."
+        },
+        {
+          "who": "npc",
+          "es": "Chi è l'uomo con il cammello? Se lo scopri, lo scriverò.",
+          "ru": "Кто этот человек с верблюдом? Если узнаешь, я запишу."
+        }
+      ],
+      "questions": [
+        {
+          "q": "Какой совет оставил Андреа?",
+          "options": [
+            "Не пить воду в пустыне",
+            "Не верить тому, что видишь, а верить тому, что слышишь",
+            "Идти только днём"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Когда исчезает белый город?",
+          "options": [
+            "Когда к нему подходишь",
+            "Ночью",
+            "Когда идёт дождь"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Как говорит третья стражница?",
+          "options": [
+            "Только шёпотом",
+            "Только вопросами",
+            "Только через «если»"
+          ],
+          "answer": 2
+        },
+        {
+          "q": "Что продаёт человек с верблюдом?",
+          "options": [
+            "Поддельные обрывки карты",
+            "Билеты на поезд",
+            "Старые монеты"
+          ],
+          "answer": 0
+        }
+      ],
+      "gloss": {
+        "andrea": "Андреа",
+        "deserto": "пустыня",
+        "sete": "жажда",
+        "sparisce": "исчезает",
+        "avvicini": "подходишь",
+        "terza": "третья",
+        "guardiana": "стражница",
+        "saggia": "мудрая",
+        "mente": "лжёт",
+        "inganna": "обманывает",
+        "cammello": "верблюд",
+        "pezzi": "обрывки",
+        "falsi": "поддельные",
+        "bordo": "край",
+        "sabbia": "песок",
+        "oasi": "оазис",
+        "bottiglie": "бутылки",
+        "piene": "полные",
+        "scopri": "узнаешь"
+      }
+    },
+    {
+      "id": "th:3.half",
+      "chapter": 3,
+      "trigger": "half",
+      "npc": "cronista",
+      "lines": [
+        {
+          "who": "npc",
+          "es": "Dieci pezzi della mappa del deserto. E so già molto dell'uomo con il cammello.",
+          "ru": "Десять обрывков карты пустыни. И я уже многое знаю о человеке с верблюдом."
+        },
+        {
+          "who": "npc",
+          "es": "Firma le sue lettere «il Mercante». Mette pezzi nuovi sotto la sabbia e sembrano vecchi.",
+          "ru": "Он подписывает письма «Купец». Закапывает новые обрывки в песок, и они кажутся старыми."
+        },
+        {
+          "who": "hero",
+          "es": "E la gente li compra?",
+          "ru": "И люди их покупают?"
+        },
+        {
+          "who": "npc",
+          "es": "Sì. La gente crede a quello che vuole credere.",
+          "ru": "Да. Люди верят в то, во что хотят верить."
+        },
+        {
+          "who": "npc",
+          "es": "Nell'«acqua dell'oasi» c'è solo sale e profumo di fiori. Ma chi l'ha comprata sogna ogni notte la città bianca.",
+          "ru": "В «воде оазиса» только соль и запах цветов. Но те, кто её купил, каждую ночь видят во сне белый город."
+        },
+        {
+          "who": "npc",
+          "es": "E si è comprato un vestito elegante. Una volta all'anno, nella notte di luna piena, la città bianca è vera.",
+          "ru": "А ещё он купил нарядный костюм. Раз в год, в ночь полнолуния, белый город настоящий."
+        },
+        {
+          "who": "npc",
+          "es": "Si è anche iscritto al corso di Anna per imparare le frasi con il «se». Davanti alla guardiana non si può mentire.",
+          "ru": "И записался к Анне учить фразы с «если». При стражнице лгать нельзя."
+        },
+        {
+          "who": "hero",
+          "es": "E il pacco di Tommaso? Alla posta mi hanno detto che non c'era più.",
+          "ru": "А посылка Томмазо? На почте мне сказали, что её уже нет."
+        },
+        {
+          "who": "npc",
+          "es": "L'ha preso lui, con il tuo nome. Dentro c'era un pezzo vero.",
+          "ru": "Её забрал он, на твоё имя. Внутри был настоящий обрывок."
+        },
+        {
+          "who": "hero",
+          "es": "Ma che cosa cerca nella città bianca?",
+          "ru": "Но что он ищет в белом городе?"
+        },
+        {
+          "who": "npc",
+          "es": "Se lo sapessi, l'avrei già scritto.",
+          "ru": "Если бы я знал, уже записал бы."
+        }
+      ],
+      "questions": [
+        {
+          "q": "Как подписывается человек с верблюдом?",
+          "options": [
+            "«Странник»",
+            "«Купец»",
+            "«Страж»"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Что на самом деле в «воде оазиса»?",
+          "options": [
+            "Соль и запах цветов",
+            "Чистая вода",
+            "Чай"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Когда белый город настоящий?",
+          "options": [
+            "Каждый вечер",
+            "Когда идёт дождь",
+            "Раз в год, в ночь полнолуния"
+          ],
+          "answer": 2
+        },
+        {
+          "q": "Что случилось с посылкой Томмазо?",
+          "options": [
+            "Её потеряли на почте",
+            "Купец забрал её на имя героя",
+            "Её отправили обратно в горы"
+          ],
+          "answer": 1
+        }
+      ],
+      "gloss": {
+        "pezzi": "обрывки",
+        "pezzo": "обрывок",
+        "deserto": "пустыня",
+        "cammello": "верблюд",
+        "mercante": "Купец",
+        "sabbia": "песок",
+        "oasi": "оазис",
+        "sale": "соль",
+        "sogna": "видит во сне",
+        "elegante": "нарядный",
+        "piena": "полная",
+        "iscritto": "записался",
+        "guardiana": "стражница",
+        "mentire": "лгать",
+        "pacco": "посылка",
+        "tommaso": "Томмазо",
+        "sotto": "под"
+      }
+    },
+    {
+      "id": "th:3.climax",
+      "chapter": 3,
+      "trigger": "climax",
+      "npc": "cronista",
+      "lines": [
+        {
+          "who": "npc",
+          "es": "Venti pezzi! E questa storia ha già una fine.",
+          "ru": "Двадцать обрывков! И у этой истории уже есть конец."
+        },
+        {
+          "who": "npc",
+          "es": "Il Mercante voleva comprare la città bianca. Ma i suoi soldi diventavano sabbia.",
+          "ru": "Купец хотел купить белый город. Но его деньги превращались в песок."
+        },
+        {
+          "who": "npc",
+          "es": "Senza barba è giovane e triste. Sul braccio ha un albero disegnato.",
+          "ru": "Без бороды он молодой и грустный. На руке у него нарисовано дерево."
+        },
+        {
+          "who": "hero",
+          "es": "Un albero? Perché?",
+          "ru": "Дерево? Почему?"
+        },
+        {
+          "who": "npc",
+          "es": "Viene da un bosco dove gli alberi parlano piano giorno e notte. È andato via perché non riusciva a dormire.",
+          "ru": "Он из леса, где деревья день и ночь говорят шёпотом. Он ушёл, потому что не мог спать."
+        },
+        {
+          "who": "npc",
+          "es": "Vendeva bugie per non sentire gli alberi. Nella città bianca cercava silenzio.",
+          "ru": "Он продавал ложь, чтобы не слышать деревья. В белом городе он искал тишину."
+        },
+        {
+          "who": "npc",
+          "es": "Nella notte di luna piena, la guardiana gli ha detto: «Se mi dici la verità, ti lascio passare».",
+          "ru": "В ночь полнолуния стражница сказала ему: «Если скажешь мне правду, пропущу»."
+        },
+        {
+          "who": "npc",
+          "es": "E lui ha risposto: «Vendo bugie perché ho paura». La città non è sparita.",
+          "ru": "И он ответил: «Я продаю ложь, потому что мне страшно». Город не исчез."
+        },
+        {
+          "who": "hero",
+          "es": "E adesso?",
+          "ru": "И что теперь?"
+        },
+        {
+          "who": "npc",
+          "es": "Adesso ha un nome: Ivo. Ha restituito i soldi alla gente e a te i pezzi veri, anche quello di Tommaso.",
+          "ru": "Теперь у него есть имя: Иво. Он вернул людям деньги, а тебе — настоящие обрывки, и обрывок Томмазо тоже."
+        },
+        {
+          "who": "npc",
+          "es": "Con un biglietto: «La verità non si vende».",
+          "ru": "С запиской: «Правда не продаётся»."
+        },
+        {
+          "who": "npc",
+          "es": "Luca ha visto dall'aereo, dietro il deserto, un bosco enorme nella nebbia. Gli alberi si muovono senza vento.",
+          "ru": "Лука видел с самолёта за пустыней огромный лес в тумане. Деревья качаются без ветра."
+        },
+        {
+          "who": "npc",
+          "es": "E la guardiana ti manda un messaggio: «Se arrivi al bosco, ascolta gli alberi. Non mentono».",
+          "ru": "А стражница передаёт тебе: «Если дойдёшь до леса, слушай деревья. Они не лгут»."
+        },
+        {
+          "who": "hero",
+          "es": "Che cosa dicono gli alberi?",
+          "ru": "Что говорят деревья?"
+        },
+        {
+          "who": "npc",
+          "es": "Lo sapremo nel bosco.",
+          "ru": "Это мы узнаем в лесу."
+        }
+      ],
+      "questions": [
+        {
+          "q": "Что хотел купить Купец?",
+          "options": [
+            "Белый город",
+            "Верблюда",
+            "Лес"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Откуда пришёл Купец?",
+          "options": [
+            "Из гор",
+            "Из леса, где деревья говорят шёпотом",
+            "С моря"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Что Купец ответил стражнице?",
+          "options": [
+            "«Я ищу деньги»",
+            "«Я ничего не знаю»",
+            "«Я продаю ложь, потому что мне страшно»"
+          ],
+          "answer": 2
+        },
+        {
+          "q": "Что передала герою стражница?",
+          "options": [
+            "«Если дойдёшь до леса, слушай деревья»",
+            "«Не ходи в лес»",
+            "«Возвращайся в город»"
+          ],
+          "answer": 0
+        }
+      ],
+      "gloss": {
+        "pezzi": "обрывки",
+        "mercante": "Купец",
+        "sabbia": "песок",
+        "barba": "борода",
+        "braccio": "рука",
+        "disegnato": "нарисованный",
+        "bugie": "ложь",
+        "silenzio": "тишина",
+        "piena": "полная",
+        "guardiana": "стражница",
+        "sparita": "исчезла",
+        "ivo": "Иво",
+        "restituito": "вернул",
+        "tommaso": "Томмазо",
+        "deserto": "пустыня",
+        "nebbia": "туман",
+        "mentono": "лгут"
+      }
     }
   ],
   "notes": {
@@ -760,6 +1142,58 @@
         "gloss": {
           "pezzo": "обрывок",
           "tommaso": "Томмазо"
+        }
+      }
+    ],
+    "3": [
+      {
+        "es": "Oggi faceva molto caldo sulla sabbia, ma sei arrivato lontano.",
+        "ru": "Сегодня на песке было очень жарко, но ты прошёл далеко.",
+        "fem": {
+          "es": "Oggi faceva molto caldo sulla sabbia, ma sei arrivata lontano.",
+          "ru": "Сегодня на песке было очень жарко, но ты прошла далеко."
+        },
+        "gloss": {
+          "sabbia": "песок"
+        }
+      },
+      {
+        "es": "Un altro pezzo vero. Se ne troviamo altri, la mappa del deserto sarà completa.",
+        "ru": "Ещё один настоящий обрывок. Если найдём ещё, карта пустыни будет собрана.",
+        "gloss": {
+          "pezzo": "обрывок",
+          "deserto": "пустыня",
+          "completa": "целая, собранная"
+        }
+      },
+      {
+        "es": "Stanotte guardo la luna. Se fosse piena, la città bianca sarebbe vera.",
+        "ru": "Сегодня ночью смотрю на луну. Будь она полной, белый город был бы настоящим.",
+        "gloss": {
+          "piena": "полная"
+        }
+      },
+      {
+        "es": "Oggi hai aiutato un vicino. Lo scrivo prima di dimenticarlo.",
+        "ru": "Сегодня ты помог соседу. Записываю, пока не забыл.",
+        "fem": {
+          "ru": "Сегодня ты помогла соседу. Записываю, пока не забыл."
+        }
+      },
+      {
+        "es": "Non credere a tutto quello che vedi. Ma credi alla tua mappa: è vera.",
+        "ru": "Не верь всему, что видишь. Но верь своей карте: она настоящая."
+      },
+      {
+        "es": "Se domani c'è vento, la strada sarà difficile. Porta l'acqua.",
+        "ru": "Если завтра будет ветер, дорога будет трудной. Возьми воду."
+      },
+      {
+        "es": "Un altro pezzo. Il deserto non sembra più così grande.",
+        "ru": "Ещё один обрывок. Пустыня уже не кажется такой большой.",
+        "gloss": {
+          "pezzo": "обрывок",
+          "deserto": "пустыня"
         }
       }
     ]
