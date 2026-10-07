@@ -192,6 +192,36 @@ export interface ScrollFile {
   words: Word[];
 }
 
+/**
+ * Пролог (задача 13.2): первые минуты игры. Путник у ворот, Привратник учит трём словам, ведёт к кафе,
+ * житель кафе ждёт три ответа выбором, в конце — обрывок пролога. Реплики: `gatekeeper`, `resident` (житель кафе), `hero`.
+ */
+export interface PrologueLine {
+  who: 'gatekeeper' | 'resident' | 'hero';
+  es: string;
+  ru: string;
+}
+
+/** Ответ героя жителю: варианты — три слова пролога, верный `answer`; на чужой вариант житель отвечает `wrong`. */
+export interface PrologueAsk {
+  say: Example;
+  options: string[];
+  answer: number;
+  wrong: Example;
+}
+
+export interface PrologueFile {
+  gatekeeper: Omit<Npc, 'location' | 'errands' | 'warm' | 'greeting' | 'character'>;
+  /** Три слова курса, которые путник учит у ворот. */
+  words: string[];
+  gate: PrologueLine[];
+  road: PrologueLine[];
+  mission: PrologueAsk[];
+  finale: PrologueLine[];
+  /** Перевод слов реплик, которых нет в словаре первого уровня. */
+  gloss: Record<string, string>;
+}
+
 /** Летописец: житель без места, идёт по пути рядом с героем. Поручения — слова свитков. */
 export type Chronicler = Omit<Npc, 'location'>;
 

@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import { cachedLocation, loadLocation } from '../content';
 import { DISTRICTS, lessonsOf } from '../content/grammar';
 import { LOCATION_BY_ID, LOCATIONS } from '../content/locations';
@@ -28,6 +28,8 @@ import mapScroll from '../assets/home/map-scroll.webp';
 import { L } from '../lang';
 import { placementOffered } from '../domain/placement';
 import { usePlacement } from '../store/placement';
+import { usePrologue } from '../store/prologue';
+import { homeBlocks, prologuePending } from '../domain/prologue';
 
 type WordsMap = Partial<Record<LocationId, Word[]>>;
 
@@ -271,6 +273,9 @@ export function Home() {
   ].filter(Boolean).reduce((acc, part, i, all) => (i === 0 ? part : `${acc}${i === all.length - 1 ? ' и ' : ', '}${part}`), '');
   const learned = useMemo(() => wordIds(Object.keys(cards)).length, [cards]);
   const placement = usePlacement((s) => s.rec);
+  const prologue = usePrologue((s) => s.rec);
+  // Главная открывается по мере игры (задача 13.2): у новичка — только «Продолжить».
+  const blocks = homeBlocks(learned, Object.keys(cards).length, Object.keys(grammar).length);
 
   const open = useMemo(
     () => LOCATIONS.filter((l) => (buildings[l.id]?.level ?? 0) > 0).map((l) => l.id),
@@ -301,6 +306,9 @@ export function Home() {
     return null;
   }, [grammar, opened]);
 
+  // Первый запуск: сначала пролог у ворот города.
+  if (prologuePending(prologue) && !Object.keys(cards).length) return <Navigate to="/prologue" replace />;
+
   return (
     <Screen>
       <StatsBar />
@@ -325,30 +333,34 @@ export function Home() {
           {placementOffered(placement, learned) && <PlacementOffer />}
           {/* Неделя праздника (задача 10.5): приглашение хозяина. */}
           <FestivalBanner />
-          <JourneyLine />
-          {nextGrammar && (
+          {blocks.journey && <JourneyLine />}
+          {blocks.grammar && nextGrammar && (
             <Link to={`/grammar/${nextGrammar.id}`} className="press banner-grammar banner-shadow mt-[7px] flex items-center justify-between gap-3 pr-[26px] pl-[48px]">
               <span className="truncate text-[19px] font-semibold text-[#2b1b0e]">{nextGrammar.title}</span>
               <span className="shrink-0 text-[15px] text-[#3a2616]">{nextGrammar.district}</span>
             </Link>
           )}
-          <Link to="/review" className="press banner-review banner-shadow relative mt-[6px] flex items-center pr-[88px] pl-[18px]" data-testid="review-card">
-            <div className="min-w-0">
-              <div className="text-[19px] leading-tight font-semibold text-[#2b1b0e] uppercase">Повторить</div>
-              <div className="mt-0.5 text-[15px] leading-tight text-[#3f2c1b]">{due ? `${dueText} на сегодня` : 'На сегодня всё повторено'}</div>
-            </div>
-            {/* Число стоит в круге на рунном щите справа. */}
-            <span
-              className={`absolute top-[38px] right-[38px] translate-x-1/2 -translate-y-1/2 font-serif font-bold text-[#2b1a0e] tabular-nums ${due ? '' : 'opacity-60'}`}
-              style={{ fontSize: due >= 1000 ? 17 : due >= 100 ? 26 : 37 }}
-            >
-              {due}
-            </span>
-          </Link>
-          <Link to="/blitz" className="press banner-blitz banner-shadow mt-[7px] flex items-center justify-between gap-3 pr-[17px] pl-[48px]">
-            <span className="text-[19px] font-semibold text-[#2b1b0e] uppercase">Блиц</span>
-            <span className="min-w-0 text-right text-[15px] leading-tight text-[#3a2616]">60 секунд · {learned} слов в запасе</span>
-          </Link>
+          {blocks.review && (
+            <Link to="/review" className="press banner-review banner-shadow relative mt-[6px] flex items-center pr-[88px] pl-[18px]" data-testid="review-card">
+              <div className="min-w-0">
+                <div className="text-[19px] leading-tight font-semibold text-[#2b1b0e] uppercase">Повторить</div>
+                <div className="mt-0.5 text-[15px] leading-tight text-[#3f2c1b]">{due ? `${dueText} на сегодня` : 'На сегодня всё повторено'}</div>
+              </div>
+              {/* Число стоит в круге на рунном щите справа. */}
+              <span
+                className={`absolute top-[38px] right-[38px] translate-x-1/2 -translate-y-1/2 font-serif font-bold text-[#2b1a0e] tabular-nums ${due ? '' : 'opacity-60'}`}
+                style={{ fontSize: due >= 1000 ? 17 : due >= 100 ? 26 : 37 }}
+              >
+                {due}
+              </span>
+            </Link>
+          )}
+          {blocks.blitz && (
+            <Link to="/blitz" className="press banner-blitz banner-shadow mt-[7px] flex items-center justify-between gap-3 pr-[17px] pl-[48px]">
+              <span className="text-[19px] font-semibold text-[#2b1b0e] uppercase">Блиц</span>
+              <span className="min-w-0 text-right text-[15px] leading-tight text-[#3a2616]">60 секунд · {learned} слов в запасе</span>
+            </Link>
+          )}
         </div>
       </div>
 

@@ -1,0 +1,30 @@
+{
+  "gatekeeper": {
+    "id": "portero", "name": "Привратник Томас", "role": "привратник у городских ворот", "gender": "m",
+    "voice": {"pitch": 0.85, "rate": 0.9},
+    "look": {"skin": 3, "hair": "#5a4632", "style": "short", "outfit": "#4a5a3a", "pants": "#2b2b2b", "extra": ["beard", "cap"]}
+  },
+  "words": ["scroll1.hola", "cafe.gracias", "airport.adios"],
+  "gate": [
+    {"who": "gatekeeper", "es": "¡Hola, viajero! Esta es la puerta de la ciudad.", "ru": "Привет, путник! Это ворота города."},
+    {"who": "gatekeeper", "es": "Aquí todos dicen «hola», «gracias» y «adiós». Primero, estas tres palabras.", "ru": "Здесь все говорят «hola», «gracias» и «adiós». Сначала — эти три слова."},
+    {"who": "hero", "es": "¡Hola! ¡Gracias!", "ru": "Привет! Спасибо!"}
+  ],
+  "road": [
+    {"who": "gatekeeper", "es": "¡Muy bien! Ahora ve al café. Es la primera casa de la calle.", "ru": "Очень хорошо! Теперь иди в кафе. Это первый дом на улице."},
+    {"who": "hero", "es": "¡Gracias! ¡Adiós!", "ru": "Спасибо! До свидания!"}
+  ],
+  "mission": [
+    {"say": {"es": "¡Hola! Pasa, pasa.", "ru": "Привет! Заходи, заходи."}, "options": ["¡Hola!", "¡Adiós!", "Gracias"], "answer": 0,
+     "wrong": {"es": "¿Cómo? Estás aquí, no te vas.", "ru": "Как это? Ты здесь, ты же не уходишь."}},
+    {"say": {"es": "Aquí tienes un café. Invita la casa.", "ru": "Вот тебе кофе. Угощает заведение."}, "options": ["¡Adiós!", "Gracias", "¡Hola!"], "answer": 1,
+     "wrong": {"es": "Te doy un café… ¿y qué me dices?", "ru": "Я даю тебе кофе… и что ты скажешь?"}},
+    {"say": {"es": "Bueno, tengo mucho trabajo. ¡Hasta luego!", "ru": "Ну, у меня много работы. До скорого!"}, "options": ["Gracias", "¡Hola!", "¡Adiós!"], "answer": 2,
+     "wrong": {"es": "Me voy a trabajar. ¿Qué se dice?", "ru": "Я ухожу работать. Что говорят на прощание?"}}
+  ],
+  "finale": [
+    {"who": "gatekeeper", "es": "¡Muy bien, viajero! Mira, un trozo de mapa.", "ru": "Очень хорошо, путник! Смотри, обрывок карты."},
+    {"who": "gatekeeper", "es": "Es el camino a la Bóveda. La ciudad te va a enseñar el resto.", "ru": "Это путь к Хранилищу. Остальному тебя научит город."}
+  ],
+  "gloss": {"adiós": "до свидания", "palabras": "слова", "primera": "первая", "trozo": "обрывок", "bóveda": "Хранилище", "resto": "остальное"}
+}

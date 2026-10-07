@@ -11,7 +11,7 @@ import { phraseTokens } from '../domain/phraseSteps';
 import { pairIssue } from '../domain/minimalPairs';
 import { festivalMissionId, festivalPlace, festivalsOf } from '../domain/festival';
 import { LETTER_MAX_WORDS, LETTER_MIN_WORDS, wordCount as letterWords } from '../domain/letter';
-import { LOCATION_IDS, SPHINX_LINES, type SphinxSpeaker, type Chronicler, type GrammarExercise, type GrammarLesson, type GuardiansFile, type LettersFile, type NpcLook, type LocationMissions, type MissionAnswer, type LocationPhrases, type LocationScenes, type Phrase, type Scene, type LocationWords, type NpcsFile, type ScrollFile, type SphinxFile, type VerbsFile, type Word, type PairsFile, type Smith, type FestivalFile, type LocationId } from './schema';
+import { LOCATION_IDS, SPHINX_LINES, type SphinxSpeaker, type Chronicler, type GrammarExercise, type GrammarLesson, type GuardiansFile, type LettersFile, type NpcLook, type LocationMissions, type MissionAnswer, type LocationPhrases, type LocationScenes, type Phrase, type Scene, type LocationWords, type NpcsFile, type ScrollFile, type SphinxFile, type VerbsFile, type Word, type PairsFile, type Smith, type FestivalFile, type LocationId, type PrologueFile } from './schema';
 
 export interface Issue {
   level: 'error' | 'warning';
@@ -1373,6 +1373,52 @@ export function validateMissions(files: { name: string; data: LocationMissions }
         }
       }
     }
+  }
+  return out;
+}
+
+/**
+ * Пролог (задача 13.2): три слова курса, у ответа жителя три варианта — эти слова, верный один; Привратник с голосом.
+ * Слова реплик, которых нет в словаре первого уровня, — в `gloss` (`uncovered` считает по словарю курса).
+ */
+export function validatePrologue(
+  data: PrologueFile | undefined,
+  checks: { words: Map<string, { es: string }>; uncovered?: (text: string) => string[] },
+): Issue[] {
+  const where = 'prologue.json';
+  if (!data) return [{ level: 'error', where, msg: 'нет пролога' }];
+  const out: Issue[] = [];
+  const err = (msg: string, at = where) => out.push({ level: 'error', where: at, msg });
+  const g = data.gatekeeper;
+  if (empty(g?.name) || empty(g?.role) || !g?.voice?.pitch || !g?.voice?.rate) err('у Привратника нет имени, роли или голоса');
+  if (data.words?.length !== 3) err(`слов ${data.words?.length ?? 0}, нужно 3`);
+  const plain = (s: string) => normalize(s);
+  const forms = new Set<string>();
+  for (const id of data.words ?? []) {
+    const w = checks.words.get(id);
+    if (!w) err(`нет слова ${id}`);
+    else forms.add(plain(w.es));
+  }
+  const lines = [...(data.gate ?? []), ...(data.road ?? []), ...(data.finale ?? [])];
+  for (const [i, l] of lines.entries()) {
+    if (empty(l.es) || empty(l.ru)) err('пустая реплика', `${where}#${i}`);
+    if (!['gatekeeper', 'resident', 'hero'].includes(l.who)) err(`кто говорит: ${l.who}`, `${where}#${i}`);
+  }
+  if (data.mission?.length !== 3) err(`ответов жителю ${data.mission?.length ?? 0}, нужно 3`);
+  for (const [i, a] of (data.mission ?? []).entries()) {
+    const at = `${where} ответ ${i + 1}`;
+    if (empty(a.say?.es) || empty(a.say?.ru) || empty(a.wrong?.es) || empty(a.wrong?.ru)) err('пустая реплика жителя', at);
+    if (a.options?.length !== 3 || a.answer < 0 || a.answer >= (a.options?.length ?? 0)) err('нужно три варианта и номер верного', at);
+    for (const o of a.options ?? []) if (!forms.has(plain(o))) err(`вариант «${o}» — не слово пролога`, at);
+    if (new Set((a.options ?? []).map(plain)).size !== (a.options?.length ?? 0)) err('одинаковые варианты', at);
+  }
+  const answers = new Set((data.mission ?? []).map((a) => plain(a.options?.[a.answer] ?? '')));
+  if (answers.size !== 3) err('каждое слово пролога должно быть верным ответом один раз');
+  if (checks.uncovered) {
+    const gloss = new Set(Object.keys(data.gloss ?? {}).map((k) => k.toLowerCase()));
+    const texts = [...lines.map((l) => l.es), ...(data.mission ?? []).flatMap((a) => [a.say.es, a.wrong.es])];
+    const miss = [...new Set(texts.flatMap((t) => checks.uncovered!(t)))].filter((t) => !gloss.has(t));
+    if (miss.length) out.push({ level: 'error', where, msg: `нет в словаре первого уровня и в gloss: ${miss.join(', ')}` });
   }
   return out;
 }

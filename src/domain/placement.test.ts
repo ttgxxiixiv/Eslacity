@@ -42,7 +42,9 @@ describe('входной тест', () => {
 
   it('предлагается только в начале курса и пока путник не решил', () => {
     expect(placementOffered({}, 0)).toBe(true);
-    expect(placementOffered({}, 3)).toBe(false);
+    // Три слова пролога не в счёт (задача 13.2), дальше — уже начатый курс.
+    expect(placementOffered({}, 3)).toBe(true);
+    expect(placementOffered({}, 4)).toBe(false);
     expect(placementOffered({ skipped: 1 }, 0)).toBe(false);
     expect(placementOffered({ done: 1, passed: 0 }, 0)).toBe(false);
   });

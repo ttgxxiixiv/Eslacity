@@ -1,7 +1,7 @@
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { expect, test } from '@playwright/test';
-import { answerGrammar, DB, LANGS, loadLesson, openApp, playWords, readMeta, seedDueCards, seedXp, wordIdsOf, seedMissionsDone, seedTrialsDone } from './fixtures';
+import { answerGrammar, DB, LANGS, loadLesson, openApp, playWords, readMeta, seedDueCards, seedXp, wordIdsOf, seedMissionsDone, seedTrialsDone, skipPrologue } from './fixtures';
 
 test('переключение языка сохраняет прогресс каждого курса', async ({ page }) => {
   await openApp(page, 'es');
@@ -11,7 +11,8 @@ test('переключение языка сохраняет прогресс к
 
   await page.goto('./#/settings');
   await Promise.all([page.waitForEvent('load'), page.getByRole('button', { name: /итальянский/i }).click()]);
-  await expect(page.getByTestId('continue')).toBeVisible();
+  // Новый курс начинается с пролога.
+  await skipPrologue(page);
   expect(await page.evaluate(() => localStorage.getItem('eslacity.lang'))).toBe('it');
   await page.goto('./#/profile');
   await expect(page.getByText('всего 0 XP')).toBeVisible();

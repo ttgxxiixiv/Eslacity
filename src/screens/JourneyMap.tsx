@@ -1,4 +1,5 @@
 import { useMemo, useState, type ReactNode } from 'react';
+import { usePrologue } from '../store/prologue';
 import { useNavigate } from 'react-router-dom';
 import land1Open from '../assets/journey/land1-open.webp';
 import land1Closed from '../assets/journey/land1-closed.webp';
@@ -220,11 +221,25 @@ export function JourneyMapScreen() {
     setPicked(null);
   };
 
+  const prologueShard = usePrologue((s) => s.rec.shard);
   return (
     <Screen>
       <TopBar title="Карта странствий" />
       <div className="flex flex-col gap-3 px-4 pb-6">
         <Road state={journey.chapters} current={journey.current} shown={shown} opened={opened} onPick={pick} />
+
+        {prologueShard && (
+          // Обрывок пролога (задача 13.2): начало пути, в 100 обрывков глав не входит.
+          <div className="flex items-center gap-3 rounded-2xl border-2 border-gold bg-amber-50 px-3 py-2" data-testid="prologue-shard-map">
+            <span className="text-2xl" aria-hidden>
+              📜
+            </span>
+            <span className="text-sm">
+              <span className="font-semibold">Обрывок пролога</span>
+              <span className="block text-stone-600">Ворота города и дорога к кафе — начало пути к Хранилищу.</span>
+            </span>
+          </div>
+        )}
 
         <section className="rounded-2xl bg-white p-3 shadow-sm">
           <div className="flex items-baseline justify-between gap-2">

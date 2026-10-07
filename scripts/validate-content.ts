@@ -1,7 +1,7 @@
 import { readdirSync, readFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
-import { validateChronicler, validateGrammar, validateGuardians, validateLetters, validateMissions, validateNpcs, validatePhrases, validateScenes, validatePortraits, validateScrolls, validateSphinx, validateTranslations, validateVerbs, validatePairs, validateFestivals, validateWords, type Issue } from '../src/content/validate';
-import type { Chronicler, GrammarLesson, GuardiansFile, LettersFile, SphinxFile, VerbsFile, PairsFile, FestivalFile, LocationWords, LocationMissions, LocationPhrases, LocationScenes, NpcsFile, ScrollFile } from '../src/content/schema';
+import { validateChronicler, validateGrammar, validateGuardians, validateLetters, validateMissions, validateNpcs, validatePhrases, validateScenes, validatePortraits, validateScrolls, validateSphinx, validateTranslations, validateVerbs, validatePairs, validateFestivals, validatePrologue, validateWords, type Issue } from '../src/content/validate';
+import type { Chronicler, GrammarLesson, GuardiansFile, LettersFile, SphinxFile, VerbsFile, PairsFile, FestivalFile, PrologueFile, LocationWords, LocationMissions, LocationPhrases, LocationScenes, NpcsFile, ScrollFile } from '../src/content/schema';
 import type { Lang } from '../src/lang';
 import { CHAPTERS, PLAN_TOTAL } from '../src/content/vocabPlan';
 import { chapterOfDistrict } from '../src/domain/chapters';
@@ -189,6 +189,12 @@ for (const lang of langs) {
       ),
     ),
     ...tag(festivalChecks(festivals)),
+    ...tag(
+      validatePrologue(existsSync(join(root, lang, 'prologue.json')) ? (JSON.parse(readFileSync(join(root, lang, 'prologue.json'), 'utf8')) as PrologueFile) : undefined, {
+        words: new Map([...words.flatMap((f) => f.data.words), ...scrolls.flatMap((f) => f.data.words)].map((w) => [w.id, w])),
+        uncovered: (text) => uncoveredWords(text, 1, lexicon, forms, lang),
+      }),
+    ),
     ...tag(validateGrammar(grammar, lang)),
     ...tag(validateNpcs(npcs)),
     ...tag(validateChronicler(chronicler, npcs)),

@@ -96,11 +96,12 @@ for (const lang of LANGS) {
       await openApp(page, lang);
       const line = page.getByTestId('journey-line');
       const cafe = wordIdsOf(lang, 'cafe', [1, 2]);
-      await expect(line).toContainText('Глава I • 0 / 20 обрывков');
-      await expect(line).toContainText(`Кафе: осталось ${cafe.length} слов`);
+      // У новичка без слов строки пути нет: главная открывается по мере игры (задача 13.2).
+      await expect(line).toHaveCount(0);
 
       // Кафе выучено наполовину — ближайшим остаётся кафе, с меньшим остатком.
       await seedDueCards(page, lang, cafe.slice(0, 10));
+      await expect(line).toContainText('Глава I • 0 / 20 обрывков');
       await expect(line).toContainText(`Кафе: осталось ${cafe.length - 10} слов`);
 
       // Кафе выучено целиком, но обрывок ждёт сюжетную миссию жителя и испытание места.

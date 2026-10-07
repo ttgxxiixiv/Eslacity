@@ -15,8 +15,8 @@ describe('словарный запас', () => {
   });
 
   it('отметки глав по плану и цель 3000', () => {
-    expect(CHAPTER_MARKS.map((m) => m.at)).toEqual([530, 1185, 2055, 2905, 3555]);
-    expect(SCALE_MAX).toBe(3555);
+    expect(CHAPTER_MARKS.map((m) => m.at)).toEqual([532, 1187, 2057, 2907, 3557]);
+    expect(SCALE_MAX).toBe(3557);
     expect(VOCAB_GOAL).toBe(3000);
   });
 });

@@ -1,5 +1,5 @@
 import { expect, test, type Page } from '@playwright/test';
-import { DB, LANGS, openApp, readMeta, type Lang } from './fixtures';
+import { DB, LANGS, openApp, readMeta, skipPrologue, type Lang } from './fixtures';
 
 const OTHER: Record<Lang, Lang> = { es: 'it', it: 'es' };
 const FLAG: Record<Lang, string> = { es: '🇪🇸', it: '🇮🇹' };
@@ -105,7 +105,8 @@ for (const lang of LANGS) {
       await seedKeeper(page, lang, { ago: 0, interval: 30, streak: 0 });
       await page.goto('./#/vault');
       await page.getByTestId(`start-${OTHER[lang]}`).click();
-      await expect(page.getByTestId('continue')).toBeVisible();
+      // Новый курс начинается с пролога.
+      await skipPrologue(page);
       expect(await page.evaluate(() => localStorage.getItem('eslacity.lang'))).toBe(OTHER[lang]);
       await page.goto('./#/profile');
       await expect(page.getByTestId('sage-elsewhere')).toContainText(`Мудрец ${FLAG[lang]}`);

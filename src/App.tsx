@@ -32,6 +32,7 @@ import { useErrands } from './store/errands';
 import { ChapterScene } from './components/ChapterScene';
 import { MedalsScreen } from './screens/Medals';
 import { JourneyMapScreen } from './screens/JourneyMap';
+import { PrologueScreen } from './screens/Prologue';
 import { ErrandScreen, ErrandsScreen, MistakesScreen } from './screens/Errands';
 import { LetterScreen, LettersDiaryScreen } from './screens/Letter';
 
@@ -101,6 +102,7 @@ export default function App() {
         <Route path="/review" element={<ReviewScreen />} />
         <Route path="/errand/:id" element={<ErrandScreen />} />
         <Route path="/mistakes" element={<MistakesScreen />} />
+        <Route path="/prologue" element={<PrologueScreen />} />
         <Route path="/letter/:id" element={<LetterScreen />} />
         <Route path="/letters" element={<LettersDiaryScreen />} />
         <Route path="/settings" element={<SettingsScreen />} />

@@ -1,0 +1,30 @@
+{
+  "gatekeeper": {
+    "id": "custode", "name": "Привратник Джино", "role": "привратник у городских ворот", "gender": "m",
+    "voice": {"pitch": 0.85, "rate": 0.9},
+    "look": {"skin": 2, "hair": "#3b2a1a", "style": "short", "outfit": "#5a3a3a", "pants": "#2b2b2b", "extra": ["mustache", "cap"]}
+  },
+  "words": ["scroll1.ciao", "cafe.grazie", "scroll1.arrivederci"],
+  "gate": [
+    {"who": "gatekeeper", "es": "Ciao, viaggiatore! Questa è la porta della città.", "ru": "Привет, путник! Это ворота города."},
+    {"who": "gatekeeper", "es": "Qui tutti dicono «ciao», «grazie» e «arrivederci». Prima, queste tre parole.", "ru": "Здесь все говорят «ciao», «grazie» и «arrivederci». Сначала — эти три слова."},
+    {"who": "hero", "es": "Ciao! Grazie!", "ru": "Привет! Спасибо!"}
+  ],
+  "road": [
+    {"who": "gatekeeper", "es": "Molto bene! Adesso vai al caffè. È la prima casa della strada.", "ru": "Очень хорошо! Теперь иди в кафе. Это первый дом на улице."},
+    {"who": "hero", "es": "Grazie! Arrivederci!", "ru": "Спасибо! До свидания!"}
+  ],
+  "mission": [
+    {"say": {"es": "Ciao! Entra, entra.", "ru": "Привет! Заходи, заходи."}, "options": ["Ciao!", "Arrivederci!", "Grazie"], "answer": 0,
+     "wrong": {"es": "Come? Sei qui, non vai via.", "ru": "Как это? Ты здесь, ты же не уходишь."}},
+    {"say": {"es": "Ecco un caffè. Offre la casa.", "ru": "Вот тебе кофе. Угощает заведение."}, "options": ["Arrivederci!", "Grazie", "Ciao!"], "answer": 1,
+     "wrong": {"es": "Ti do un caffè… e cosa mi dici?", "ru": "Я даю тебе кофе… и что ты скажешь?"}},
+    {"say": {"es": "Bene, ho molto lavoro. A presto!", "ru": "Ну, у меня много работы. До скорого!"}, "options": ["Grazie", "Ciao!", "Arrivederci!"], "answer": 2,
+     "wrong": {"es": "Vado a lavorare. Cosa si dice?", "ru": "Я ухожу работать. Что говорят на прощание?"}}
+  ],
+  "finale": [
+    {"who": "gatekeeper", "es": "Molto bene, viaggiatore! Guarda, un pezzo di mappa.", "ru": "Очень хорошо, путник! Смотри, обрывок карты."},
+    {"who": "gatekeeper", "es": "È la strada per il Caveau. La città ti insegnerà il resto.", "ru": "Это путь к Хранилищу. Остальному тебя научит город."}
+  ],
+  "gloss": {"pezzo": "обрывок", "insegnerà": "научит", "offre": "угощает (offrire)"}
+}

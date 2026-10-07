@@ -1,3 +1,4 @@
+import { PROLOGUE_WORDS } from './prologue';
 import type { GrammarExercise, Word } from '../content/schema';
 import { CHAPTERS } from './chapters';
 import { shuffle, type Rng } from './generators';
@@ -34,9 +35,12 @@ export interface PlacementRecord {
 
 export const EMPTY_PLACEMENT: PlacementRecord = {};
 
-/** Предложить тест на главной: курс только начат и путник ещё не решил. */
+/**
+ * Предложить тест на главной: курс только начат и путник ещё не решил. Три слова пролога (задача 13.2) не в счёт:
+ * тест предлагается после него.
+ */
 export const placementOffered = (r: PlacementRecord, learnedWords: number) =>
-  r.done === undefined && r.skipped === undefined && learnedWords === 0;
+  r.done === undefined && r.skipped === undefined && learnedWords <= PROLOGUE_WORDS;
 
 /**
  * Блок главы: 6 слов (без выражений) и 4 правила из разных уроков, вперемешку. `lessons` — упражнения по урокам

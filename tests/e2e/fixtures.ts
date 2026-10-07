@@ -132,7 +132,8 @@ export type Spoken = { text: string; pitch: number; voice?: string };
 /** Всё сказанное с начала страницы. */
 export const readSpoken = (page: Page) => page.evaluate(() => (window as unknown as { __spoken: Spoken[] }).__spoken);
 
-export async function openApp(page: Page, lang: Lang, path = '') {
+/** `prologue` — не пропускать пролог первого запуска (задача 13.2): остальные сценарии начинают сразу с главной. */
+export async function openApp(page: Page, lang: Lang, path = '', opts: { prologue?: boolean } = {}) {
   await page.addInitScript((l) => {
     // Язык ставится один раз: дальше его может переключить сам тест через настройки.
     if (!localStorage.getItem('eslacity.e2e')) {
@@ -155,8 +156,21 @@ export async function openApp(page: Page, lang: Lang, path = '') {
     };
   }, lang);
   await page.goto('./');
+  if (opts.prologue) {
+    await expect(page.getByTestId('prologue')).toBeVisible();
+    return;
+  }
+  await expect(page.getByTestId('continue').or(page.getByTestId('prologue-skip'))).toBeVisible();
+  if (await page.getByTestId('prologue-skip').count()) await page.getByTestId('prologue-skip').click();
   await expect(page.getByTestId('continue')).toBeVisible();
   if (path) await page.goto(`./#${path}`);
+}
+
+/** После смены языка новый курс начинается с пролога (задача 13.2): пропустить его, если он открылся. */
+export async function skipPrologue(page: Page) {
+  await expect(page.getByTestId('continue').or(page.getByTestId('prologue-skip'))).toBeVisible();
+  if (await page.getByTestId('prologue-skip').count()) await page.getByTestId('prologue-skip').click();
+  await expect(page.getByTestId('continue')).toBeVisible();
 }
 
 /** Записать в базу языка карточки, которые пора повторить, и перезагрузить. */
