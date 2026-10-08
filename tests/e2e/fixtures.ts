@@ -298,10 +298,14 @@ export async function playWords(page: Page, lang: Lang, done: RegExp, opts: { hi
       if (kind !== 'Напишите, что услышали') {
         if (opts.hint && !hinted) {
           await page.getByTestId('hint').click();
+          // Ждём, пока подсказка встанет в поле: иначе её поздний рендер затрёт введённый ответ.
+          await expect(page.locator('input')).not.toHaveValue('');
           hinted = { prefix: await page.locator('input').inputValue(), es: byRu.get(shown)!.es };
           hintStep = true;
         }
-        await page.locator('input').fill(byRu.get(shown)!.es.replace("'", '’ '));
+        const typed = byRu.get(shown)!.es.replace("'", '’ ');
+        await page.locator('input').fill(typed);
+        await expect(page.locator('input')).toHaveValue(typed);
       } else {
         await page.getByRole('button', { name: 'Прослушать ещё раз' }).click();
         await page.locator('input').fill(await said());
