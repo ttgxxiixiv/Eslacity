@@ -10,7 +10,7 @@
       "nodes": {
         "hi": {"kind": "say", "es": "Oggi c'è il sole. Cosa facciamo?", "ru": "Сегодня солнечно. Чем займёмся?", "next": "go"},
         "go": {"kind": "answer", "task": "Предложите пойти на пляж или пойти купаться.", "branches": [{"phrase": "ph:beach.andiamo-spiaggia", "next": "gosay"}, {"phrase": "ph:beach.facciamo-bagno", "next": "gosay"}], "wrong": {"es": "Andiamo in ufficio? No, oggi no!", "ru": "Пойдём в офис? Нет, только не сегодня!"}},
-        "gosay": {"kind": "say", "es": "Andiamo! Il sole è molto forte.", "ru": "Пошли! Солнце очень сильное.", "next": "cream"},
+        "gosay": {"kind": "say", "es": "Andiamo! Il sole è molto forte.", "ru": "Пошли! Солнце сегодня так и печёт.", "next": "cream"},
         "cream": {"kind": "answer", "task": "Спросите, есть ли у него солнцезащитный крем.", "branches": [{"phrase": "ph:beach.hai-crema-solare", "next": "creamsay"}], "wrong": {"es": "Hai una pizza? Qui c'è solo sole e acqua.", "ru": "Пицца есть? Тут только солнце и вода."}},
         "creamsay": {"kind": "say", "es": "Prendi. Facciamo il bagno qui?", "ru": "Держи. Поплаваем здесь?", "next": "danger"},
         "danger": {"kind": "answer", "task": "Спросите, опасно ли здесь купаться.", "branches": [{"phrase": "ph:beach.pericoloso-fare-bagno", "next": "dangersay"}], "wrong": {"es": "Il mare è freddo? No, oggi è bellissimo!", "ru": "Море холодное? Нет, сегодня оно отличное!"}},
@@ -42,7 +42,7 @@
         "shore": {"kind": "answer", "task": "Скажите, что останетесь у берега.", "branches": [{"phrase": "ph:beach.resto-sulla-riva", "next": "shoresay"}], "wrong": {"es": "Resti sulla luna? Meglio sulla spiaggia.", "ru": "Останешься на Луне? Лучше на пляже."}},
         "shoresay": {"kind": "say", "es": "Bene. Il sole scende. Cosa facciamo adesso?", "ru": "Правильно. Солнце садится. Что будем делать?", "next": "sunset"},
         "sunset": {"kind": "answer", "task": "Предложите пойти смотреть на закат.", "branches": [{"phrase": "ph:beach.andiamo-vedere-tramonto", "next": "end"}], "wrong": {"es": "Andiamo a dormire? Prima il sole!", "ru": "Пойдём спать? Сначала солнце!"}},
-        "end": {"kind": "say", "es": "Guarda: la torre. La luce si accende tre volte. Prendi il mio pezzo della mappa della montagna. Quando arrivi alla torre, accendi la luce tre volte. Io ti vedo da qui.", "ru": "Смотри: башня. Свет загорается три раза. Держи мой обрывок карты гор. Когда доберёшься до башни, зажги свет три раза. Я увижу тебя отсюда."}
+        "end": {"kind": "say", "es": "Guarda: la torre. La luce si accende tre volte. Prendi il mio pezzo della mappa della montagna. Quando arrivi alla torre, accendi la luce tre volte. Io ti vedo da qui.", "ru": "Смотри: башня. Свет загорается три раза. Держи мой обрывок карты гор. Когда доберёшься до башни, мигни светом три раза. Я увижу тебя отсюда."}
       }
     },
     {
@@ -52,7 +52,7 @@
       "scene": "sc:beach.3",
       "start": "hi",
       "nodes": {
-        "hi": {"kind": "say", "es": "Oggi la spiaggia è piena. Cosa facciamo?", "ru": "Сегодня пляж полон. Что будем делать?", "next": "crowd"},
+        "hi": {"kind": "say", "es": "Oggi la spiaggia è piena. Cosa facciamo?", "ru": "Сегодня на пляже яблоку негде упасть. Что будем делать?", "next": "crowd"},
         "crowd": {"kind": "answer", "task": "Скажите, что в высокий сезон на пляже не протолкнуться.", "branches": [{"phrase": "ph:beach.alta-stagione-spiaggia", "next": "crowdsay"}], "wrong": {"es": "In alta stagione c'è la neve? No!", "ru": "В высокий сезон тут снег? Нет!"}},
         "crowdsay": {"kind": "say", "es": "Sempre. Conosci un posto tranquillo?", "ru": "Всегда так. Знаешь какое-нибудь тихое место?", "next": "cove"},
         "cove": {"kind": "answer", "task": "Скажите, что знаете тихую бухточку.", "branches": [{"phrase": "ph:beach.conosco-caletta-tranquilla", "next": "covesay"}], "wrong": {"es": "Conosci il mio cane? No, chiedo di un posto.", "ru": "Знаешь мою собаку? Нет, я спрашиваю про место."}},
@@ -60,7 +60,7 @@
         "dip": {"kind": "answer", "task": "Предложите окунуться.", "branches": [{"phrase": "ph:beach.ci-facciamo-tuffo", "next": "dipsay"}], "wrong": {"es": "Ci facciamo un gelato? Dopo; adesso, in acqua.", "ru": "Съедим мороженое? Потом, а сейчас — в воду."}},
         "dipsay": {"kind": "say", "es": "Che bello! ... Senti, sei molto rosso. Stai bene?", "ru": "Здорово! ... Слушай, ты весь красный. Тебе нехорошо?", "fem": {"es": "Che bello! ... Senti, sei molto rossa. Stai bene?", "ru": "Здорово! ... Слушай, ты вся красная. Тебе нехорошо?"}, "next": "sun"},
         "sun": {"kind": "answer", "task": "Скажите, что у вас, кажется, солнечный удар.", "branches": [{"phrase": "ph:beach.credo-avere-insolazione", "next": "sunsay"}], "wrong": {"es": "Hai freddo? Con questo sole, no!", "ru": "Тебе холодно? С таким солнцем — нет!"}},
-        "sunsay": {"kind": "say", "es": "All'ombra, piano. Acqua fresca. Meglio? Quando scende il sole, facciamo due passi.", "ru": "В тень, потихоньку. Холодная вода. Лучше? Когда солнце сядет, прогуляемся.", "next": "walk"},
+        "sunsay": {"kind": "say", "es": "All'ombra, piano. Acqua fresca. Meglio? Quando scende il sole, facciamo due passi.", "ru": "В тень, потихоньку. Вот прохладная вода. Лучше? Когда солнце сядет, прогуляемся.", "next": "walk"},
         "walk": {"kind": "answer", "task": "Предложите прогуляться по набережной.", "branches": [{"phrase": "ph:beach.facciamo-passeggiata-sul", "next": "end"}], "wrong": {"es": "Andiamo nel deserto? Oggi no, viaggiatore. Oggi, il mare.", "ru": "Пойдём в пустыню? Не сегодня, путешественник. Сегодня море."}},
         "end": {"kind": "say", "es": "Andiamo. Guarda: la luna è quasi piena. Prendi il mio pezzo della mappa del deserto. E se vedi l'uomo con il cammello, parlagli piano. Ha paura.", "ru": "Пошли. Смотри: луна уже почти полная. Держи мой обрывок карты пустыни. А если увидишь человека с верблюдом, говори с ним тихо. Ему страшно."}
       }
@@ -87,7 +87,7 @@
         "deep": {"kind": "answer", "task": "Спросите, глубоко ли здесь.", "branches": [{"phrase": "ph:beach.qui-profondo", "next": "deepsay"}], "wrong": {"es": "Qui c'è un faro? Sì, lì vicino.", "ru": "Здесь маяк? Да, вон там, рядом."}},
         "deepsay": {"kind": "say", "es": "Un po'. Se non nuoti bene, resta vicino.", "ru": "Немного. Если плохо плаваешь, держись поближе.", "next": "shore"},
         "shore": {"kind": "answer", "task": "Скажите, что останетесь у берега.", "branches": [{"phrase": "ph:beach.resto-sulla-riva", "next": "end"}], "wrong": {"es": "Resti sulla sabbia? Come Andrea, di notte.", "ru": "Остаёшься на песке? Как Андреа ночью."}},
-        "end": {"kind": "say", "es": "Buona idea. E prendi questo: Andrea l'ha lasciato stanotte sulla sabbia. Un pezzo della mappa del bosco. Credo che volesse che lo trovassi tu.", "ru": "Правильно. И держи: Андреа оставил это этой ночью на песке. Обрывок карты леса. Думаю, он хотел, чтобы ты его нашёл.", "fem": {"ru": "Правильно. И держи: Андреа оставил это этой ночью на песке. Обрывок карты леса. Думаю, он хотел, чтобы ты его нашла."}}
+        "end": {"kind": "say", "es": "Buona idea. E prendi questo: Andrea l'ha lasciato stanotte sulla sabbia. Un pezzo della mappa del bosco. Credo che volesse che lo trovassi tu.", "ru": "Хорошая мысль. И держи: Андреа оставил это этой ночью на песке. Обрывок карты леса. Думаю, он хотел, чтобы обрывок достался тебе."}
       }
     },
     {
@@ -100,7 +100,7 @@
         "hi": {"kind": "say", "es": "Manca ancora molto alla notte. Intanto facciamo un bagno?", "ru": "До ночи ещё далеко. Искупаемся пока?", "next": "swim"},
         "swim": {"kind": "answer", "task": "Спросите: может, окунёмся?", "branches": [{"phrase": "ph:beach.ci-facciamo-tuffo", "next": "swimsay"}], "wrong": {"es": "Un tuffo nell'eco? Meglio nel mare.", "ru": "Окунуться в эхо? Лучше в море."}},
         "swimsay": {"kind": "say", "es": "Dai! ... Uff, che fredda. Guarda: si fa notte. Il faro fa già il primo giro... Eccolo! Salutalo tu.", "ru": "Давай! ... Уф, холодная. Смотри: темнеет. Маяк уже делает первый круг... Вот он! Поздоровайся ты.", "next": "greet"},
-        "greet": {"kind": "answer", "task": "Поздоровайтесь с глашатаем. Он сто лет ждёт дружеского слова — по-свойски.", "register": "informal", "branches": [{"phrase": "ph:beach.ciao-amico-come-stai", "next": "greetsay"}, {"phrase": "ph:beach.buonasera-signore-come-sta", "next": "greetsay"}], "wrong": {"es": "Che cosa gli hai detto? Si è girato verso il mare.", "ru": "Что ты ему сказал? Он отвернулся к морю.", "fem": {"ru": "Что ты ему сказала? Он отвернулся к морю."}}, "tone": {"es": "Oh, no. «Signore, come sta?»... Ha risposto «Molto bene, grazie» ed è diventato triste. Parlagli come a un amico!", "ru": "Ох, нет. «Сеньор, как вы поживаете?»... Он ответил «Очень хорошо, спасибо» и погрустнел. Говори с ним как с другом!"}},
+        "greet": {"kind": "answer", "task": "Поздоровайтесь с глашатаем. Он сто лет ждёт дружеского слова — по-свойски.", "register": "informal", "branches": [{"phrase": "ph:beach.ciao-amico-come-stai", "next": "greetsay"}, {"phrase": "ph:beach.buonasera-signore-come-sta", "next": "greetsay"}], "wrong": {"es": "Che cosa gli hai detto? Si è girato verso il mare.", "ru": "Что ты ему сказал? Он отвернулся к морю.", "fem": {"ru": "Что ты ему сказала? Он отвернулся к морю."}}, "tone": {"es": "Oh, no. «Signore, come sta?»... Ha risposto «Molto bene, grazie» ed è diventato triste. Parlagli come a un amico!", "ru": "Ох, нет. «Синьор, как поживаете?»... Он ответил «Очень хорошо, спасибо» и погрустнел. Говори с ним как с другом!"}},
         "greetsay": {"kind": "say", "es": "Ha sorriso! Dice: «Vi aspetto nel Labirinto». E va nella nebbia... Io gli vado dietro, adesso, da solo.", "ru": "Он улыбнулся! Говорит: «Жду вас в Лабиринте». И уходит в туман... Я пойду за ним, прямо сейчас, один.", "next": "dispute"},
         "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:beach.non-andare-solo-nebbia", "next": "object", "move": "object"}, {"phrase": "ph:beach.vai-se-sicuro", "next": "concede", "move": "concede"}, {"phrase": "ph:beach.andiamo-insieme-alba", "next": "compromise", "move": "compromise"}], "wrong": {"es": "Cosa? Ti parlo della nebbia e del banditore.", "ru": "Что? Я про туман и про глашатая."}},
         "object": {"kind": "say", "es": "Hai ragione, sono bagnino e lo so: nella nebbia nessuno va da solo.", "ru": "Ты прав, я спасатель и знаю: в туман в одиночку не ходят.", "fem": {"ru": "Ты права, я спасатель и знаю: в туман в одиночку не ходят."}, "next": "current"},
@@ -109,7 +109,7 @@
         "current": {"kind": "answer", "task": "Скажите, что сегодня сильное течение.", "branches": [{"phrase": "ph:beach.oggi-c-tanta", "next": "currentsay"}], "wrong": {"es": "Tanto eco? Oggi, abbastanza.", "ru": "Много эха? Сегодня хватает."}},
         "currentsay": {"kind": "say", "es": "Sì, per questo oggi la bandiera è rossa. Resti in acqua?", "ru": "Да, поэтому сегодня флаг красный. Останешься в воде?", "next": "shore"},
         "shore": {"kind": "answer", "task": "Скажите, что останетесь на берегу.", "branches": [{"phrase": "ph:beach.resto-sulla-riva", "next": "shoresay"}], "wrong": {"es": "Resti nell'eco? Lì non si nuota.", "ru": "Останешься в эхе? Там не плавают."}},
-        "shoresay": {"kind": "say", "es": "Buona decisione. Guardiamo il tramonto prima di andare?", "ru": "Правильное решение. Посмотрим закат, перед тем как уйти?", "next": "sunset"},
+        "shoresay": {"kind": "say", "es": "Buona decisione. Guardiamo il tramonto prima di andare?", "ru": "Правильное решение. Посмотрим на закат, прежде чем уходить?", "next": "sunset"},
         "sunset": {"kind": "answer", "task": "Предложите пойти посмотреть закат.", "branches": [{"phrase": "ph:beach.andiamo-vedere-tramonto", "next": "end"}], "wrong": {"es": "Il tramonto dell'eco? Quello non si vede.", "ru": "Закат эха? Его не видно."}},
         "end": {"kind": "say", "es": "Andiamo. E prendi: il banditore ha lasciato questo sulla sabbia, vicino alle sue impronte. Un pezzo della mappa del Labirinto.", "ru": "Пойдём. И держи: глашатай оставил это на песке, рядом со своими следами. Обрывок карты Лабиринта."}
       }

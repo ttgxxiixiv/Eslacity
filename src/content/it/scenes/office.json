@@ -33,7 +33,7 @@
       "lines": [
         {"who": "npc", "es": "Oggi ho il turno di notte, ma ti aspettavo.", "ru": "У меня сегодня ночная смена, но я тебя ждала."},
         {"who": "hero", "es": "Cosa succede?", "ru": "Что случилось?"},
-        {"who": "npc", "es": "Ho cercato nei libri dell'azienda. Guarda questo vecchio giornale.", "ru": "Я искала в книгах компании. Посмотри на эту старую газету."},
+        {"who": "npc", "es": "Ho cercato nei libri dell'azienda. Guarda questo vecchio giornale.", "ru": "Я порылась в архивах компании. Посмотри на эту старую газету."},
         {"who": "hero", "es": "Di quando è?", "ru": "Какого он года?"},
         {"who": "npc", "es": "Di cento anni fa. Parla della tempesta e del treno della torre.", "ru": "Столетней давности. Там про грозу и поезд к башне."},
         {"who": "hero", "es": "Cosa dice?", "ru": "Что там написано?"},
@@ -41,7 +41,7 @@
         {"who": "hero", "es": "Andrea? L'uomo con il mantello?", "ru": "Андреа? Человек в плаще?"},
         {"who": "npc", "es": "Guarda la foto. È lui. Non è cambiato.", "ru": "Посмотри на фото. Это он. Он не изменился."},
         {"who": "hero", "es": "Allora il guardiano era un viaggiatore, come me.", "ru": "Значит, страж был путешественником, как я."},
-        {"who": "npc", "es": "E da cento anni è nella torre. Sono troppi anni.", "ru": "И он уже сто лет в башне. Это слишком много лет."}
+        {"who": "npc", "es": "E da cento anni è nella torre. Sono troppi anni.", "ru": "И он уже сто лет в башне. Это слишком долго."}
       ],
       "questions": [
         {"q": "Что нашла Валентина?", "options": ["Старую газету", "Карту башни", "Письмо Томмазо"], "answer": 0},
@@ -83,11 +83,11 @@
       "npc": "valentina",
       "lines": [
         {"who": "matteo", "es": "Mi hanno detto che cercate qualcuno per l'ufficio. Sono stanco della cassa.", "ru": "Мне сказали, что вы ищете человека в офис. Я устал от кассы."},
-        {"who": "npc", "es": "È vero. Ma è un lavoro con molto sovraccarico. Qui nessuno esce alle cinque.", "ru": "Это правда. Но работа с большой нагрузкой. Здесь никто не уходит в пять."},
+        {"who": "npc", "es": "È vero. Ma è un lavoro con molto sovraccarico. Qui nessuno esce alle cinque.", "ru": "Да. Но нагрузка там большая. Здесь никто не уходит в пять."},
         {"who": "matteo", "es": "Non ho paura di lavorare. Alla cassa vedo trecento clienti al giorno.", "ru": "Я не боюсь работы. На кассе у меня триста покупателей в день."},
-        {"who": "npc", "es": "Non ne dubito. E sai scrivere un resoconto? Parlare con gli investitori in videochiamata?", "ru": "Не сомневаюсь. А отчёт написать умеешь? Говорить с инвесторами по видеосвязи?"},
+        {"who": "npc", "es": "Non ne dubito. E sai scrivere un resoconto? Parlare con gli investitori in videochiamata?", "ru": "Не сомневаюсь. А отчёт написать умеешь? Вести переговоры с инвесторами по видеосвязи?"},
         {"who": "matteo", "es": "Imparo in fretta. E so trattare con la gente difficile. Questo non si impara in nessun corso.", "ru": "Я быстро учусь. И умею обращаться с трудными людьми. Этому ни на каких курсах не научат."},
-        {"who": "npc", "es": "Su questo hai ragione. Ti propongo tre mesi di periodo di prova. Se va bene, contratto a tempo indeterminato.", "ru": "Тут ты прав. Предлагаю три месяца испытательного срока. Если всё пойдёт хорошо — бессрочный договор."},
+        {"who": "npc", "es": "Su questo hai ragione. Ti propongo tre mesi di periodo di prova. Se va bene, contratto a tempo indeterminato.", "ru": "Тут ты прав. Предлагаю три месяца испытательного срока. Если всё пойдёт хорошо — постоянный договор."},
         {"who": "matteo", "es": "Tre mesi? E lo stipendio? Durante la prova prendo uguale?", "ru": "Три месяца? А зарплата? На испытательном сроке я получаю столько же?"},
         {"who": "npc", "es": "Un po' meno. Ma con gli incentivi, se raggiungi gli obiettivi.", "ru": "Немного меньше. Но с премиями, если выполнишь план."},
         {"who": "matteo", "es": "Un po' meno... Vedo che anche qui si tratta sul prezzo, come al mercato.", "ru": "Немного меньше... Вижу, здесь тоже торгуются, как на рынке."}
@@ -106,14 +106,14 @@
       "npc": "valentina",
       "lines": [
         {"who": "npc", "es": "Sai una cosa? Tutto il quartiere sa già che l'uomo della pipa è Andrea.", "ru": "Знаешь что? Весь район уже знает, что человек с трубкой — Андреа."},
-        {"who": "hero", "es": "E come stanno i vicini?", "ru": "И как соседи?"},
-        {"who": "npc", "es": "Molto arrabbiati. Alcuni vogliono denunciarlo. E alcuni dicono che è un pover'uomo.", "ru": "Очень злы. Некоторые хотят заявить на него. А кто-то говорит, что он несчастный человек."},
+        {"who": "hero", "es": "E come stanno i vicini?", "ru": "И как соседи это восприняли?"},
+        {"who": "npc", "es": "Molto arrabbiati. Alcuni vogliono denunciarlo. E alcuni dicono che è un pover'uomo.", "ru": "Очень злятся. Некоторые хотят заявить на него. А кто-то говорит, что он несчастный человек."},
         {"who": "hero", "es": "E tu cosa pensi?", "ru": "А ты что думаешь?"},
         {"who": "npc", "es": "Che bisogna parlare. Stasera organizzo una riunione dei vicini qui, in ufficio.", "ru": "Что надо поговорить. Сегодня вечером я устраиваю собрание соседей здесь, в офисе."},
         {"who": "hero", "es": "Andrea verrà?", "ru": "Андреа придёт?"},
         {"who": "npc", "es": "Non lo so. Mi ha lasciato una lettera: «Avevo paura di perdere di nuovo qualcuno».", "ru": "Не знаю. Он оставил мне письмо: «Я боялся снова кого-то потерять»."},
         {"who": "hero", "es": "Perdere qualcuno?", "ru": "Кого-то потерять?"},
-        {"who": "npc", "es": "Nella torre ha perso cento anni e tutta la sua famiglia. Per questo non vuole che nessuno entri nel bosco.", "ru": "В башне он потерял сто лет и всю свою семью. Поэтому он не хочет, чтобы кто-то входил в лес."}
+        {"who": "npc", "es": "Nella torre ha perso cento anni e tutta la sua famiglia. Per questo non vuole che nessuno entri nel bosco.", "ru": "В башне он потерял сто лет и всю свою семью. Поэтому и не хочет, чтобы кто-нибудь ходил в лес."}
       ],
       "questions": [
         {"q": "Что хотят сделать некоторые соседи?", "options": ["Уехать из города", "Заявить на Андреа", "Устроить праздник"], "answer": 1},
@@ -127,17 +127,17 @@
       "chapter": 5,
       "npc": "valentina",
       "lines": [
-        {"who": "npc", "es": "Che bello che sei venuto! Sto mettendo sul computer il vecchio archivio del comune, e guarda cosa ho trovato.", "ru": "Как хорошо, что ты пришёл! Я перевожу в компьютер старый архив мэрии, и смотри, что нашла.", "fem": {"es": "Che bello che sei venuta! Sto mettendo sul computer il vecchio archivio del comune, e guarda cosa ho trovato.", "ru": "Как хорошо, что ты пришла! Я перевожу в компьютер старый архив мэрии, и смотри, что нашла."}},
+        {"who": "npc", "es": "Che bello che sei venuto! Sto mettendo sul computer il vecchio archivio del comune, e guarda cosa ho trovato.", "ru": "Как хорошо, что ты пришёл! Я перевожу в электронный вид старый архив мэрии, и смотри, что нашла.", "fem": {"es": "Che bello che sei venuta! Sto mettendo sul computer il vecchio archivio del comune, e guarda cosa ho trovato.", "ru": "Как хорошо, что ты пришла! Я перевожу в электронный вид старый архив мэрии, и смотри, что нашла."}},
         {"who": "hero", "es": "Qualcosa del banditore?", "ru": "Что-то о глашатае?"},
-        {"who": "npc", "es": "Il suo contratto. Nessuno l'ha licenziato e lui non si è mai dimesso. Ufficialmente lavora ancora per la città.", "ru": "Его договор. Никто его не уволил, и сам он не уволился. Официально он до сих пор работает на город."},
-        {"who": "hero", "es": "Cento anni di lavoro senza tornare in piazza.", "ru": "Сто лет работы без возвращения на площадь."},
+        {"who": "npc", "es": "Il suo contratto. Nessuno l'ha licenziato e lui non si è mai dimesso. Ufficialmente lavora ancora per la città.", "ru": "Его трудовой договор. Его никто не увольнял, и сам он не увольнялся. Официально он до сих пор работает на город."},
+        {"who": "hero", "es": "Cento anni di lavoro senza tornare in piazza.", "ru": "Сто лет на службе — и ни разу не вернулся на площадь."},
         {"who": "npc", "es": "E c'è di più. Un discorso che non ha mai letto. Comincia così: «Cari vicini, oggi non vi porto notizie».", "ru": "И ещё кое-что. Речь, которую он так и не прочитал. Начинается так: «Дорогие соседи, сегодня я не принёс вам новостей»."},
         {"who": "hero", "es": "«Cari vicini»? Ma lui dava sempre del lei.", "ru": "«Дорогие соседи»? Но он же всегда говорил на вы."},
         {"who": "npc", "es": "Vedi? Voleva cambiare. Voleva parlare con la gente come un amico.", "ru": "Вот видишь. Он хотел измениться. Хотел говорить с людьми как друг."},
         {"who": "hero", "es": "E perché non l'ha letto?", "ru": "А почему не прочитал?"},
-        {"who": "npc", "es": "Guarda la data. È dello stesso giorno in cui se n'è andato. Credo che la gente abbia riso prima che cominciasse.", "ru": "Посмотри на дату. Тот же день, когда он ушёл. Думаю, люди засмеялись раньше, чем он начал."},
+        {"who": "npc", "es": "Guarda la data. È dello stesso giorno in cui se n'è andato. Credo che la gente abbia riso prima che cominciasse.", "ru": "Посмотри на дату. Тот самый день, когда он ушёл. Думаю, над ним засмеялись раньше, чем он успел начать."},
         {"who": "hero", "es": "Allora il discorso aspetta ancora.", "ru": "Значит, речь до сих пор ждёт."},
-        {"who": "npc", "es": "Come lui. Devo stamparlo, ma l'archivio è della direttrice, e lei è molto seria.", "ru": "Как и он. Мне нужно её распечатать, но архив в ведении начальницы, а она очень строгая."}
+        {"who": "npc", "es": "Come lui. Devo stamparlo, ma l'archivio è della direttrice, e lei è molto seria.", "ru": "Как и он. Мне нужно её распечатать, но архивом ведает начальница, а она очень строгая."}
       ],
       "questions": [
         {"q": "Что Валентина нашла в старом архиве мэрии?", "options": ["Карту леса", "Договор глашатая и его непрочитанную речь", "Старые деньги"], "answer": 1},

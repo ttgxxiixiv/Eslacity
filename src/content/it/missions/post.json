@@ -16,9 +16,9 @@
         "pack": {"kind": "answer", "task": "Спросите, сколько стоит отправить посылку.", "branches": [{"phrase": "ph:post.quanto-costa-spedire", "next": "packsay"}], "wrong": {"es": "Quanto costa la mia Vespa? Non si vende!", "ru": "Сколько стоит моя «Веспа»? Она не продаётся!"}},
         "packsay": {"kind": "say", "es": "Cinque euro. Urgente o no?", "ru": "Пять евро. Срочно или нет?", "next": "urg"},
         "urg": {"kind": "answer", "task": "Скажите, что хотите отправить срочно.", "branches": [{"phrase": "ph:post.vorrei-spedirlo-urgente", "next": "urgsay"}], "wrong": {"es": "Molto piano? Io non so andare piano!", "ru": "Очень медленно? Я не умею медленно!"}},
-        "urgsay": {"kind": "say", "es": "Urgente, come me! Sono otto euro.", "ru": "Срочно, как я! С тебя восемь евро.", "next": "sign"},
+        "urgsay": {"kind": "say", "es": "Urgente, come me! Sono otto euro.", "ru": "Срочная, как я! С тебя восемь евро.", "next": "sign"},
         "sign": {"kind": "answer", "task": "Спросите, где расписаться.", "branches": [{"phrase": "ph:post.dove-firmo", "next": "end"}], "wrong": {"es": "Dove abito? Sempre sulla Vespa.", "ru": "Где я живу? Всегда на «Веспе»."}},
-        "end": {"kind": "say", "es": "Qui. E prendi, questo è per te: il pezzo della mappa della posta. E la lettera... scusa, l'ho aperta. C'è una parola: «Vieni». Qualcuno ti aspetta, viaggiatore.", "ru": "Здесь. И держи, это тебе: обрывок карты почты. А письмо... прости, я его открыл. Там одно слово: «Приходи». Кто-то тебя ждёт, путешественник."}
+        "end": {"kind": "say", "es": "Qui. E prendi, questo è per te: il pezzo della mappa della posta. E la lettera... scusa, l'ho aperta. C'è una parola: «Vieni». Qualcuno ti aspetta, viaggiatore.", "ru": "Здесь. И держи, это тебе: почтовый обрывок карты. А письмо... прости, я его открыл. Там одно слово: «Приходи». Кто-то тебя ждёт, путешественник."}
       }
     },
     {
@@ -34,7 +34,7 @@
         "name": {"kind": "answer", "task": "Скажите, что посылка на ваше имя.", "branches": [{"phrase": "ph:post.mio-nome", "next": "namesay"}], "wrong": {"es": "A nome del cane? I cani non ricevono pacchi.", "ru": "На имя собаки? Собаки посылок не получают."}},
         "namesay": {"kind": "say", "es": "Mi serve un documento.", "ru": "Мне нужен документ.", "next": "id"},
         "id": {"kind": "answer", "task": "Дайте удостоверение личности.", "branches": [{"phrase": "ph:post.ecco-mia-carta", "next": "idsay"}], "wrong": {"es": "La tua foto al mare? Molto bella, ma mi serve un documento.", "ru": "Твоя фотография с моря? Очень красивая, но мне нужен документ."}},
-        "idsay": {"kind": "say", "es": "Grazie. E questo foglio.", "ru": "Спасибо. И вот этот лист.", "next": "form"},
+        "idsay": {"kind": "say", "es": "Grazie. E questo foglio.", "ru": "Спасибо. И вот этот бланк.", "next": "form"},
         "form": {"kind": "answer", "task": "Спросите, нужно ли это заполнить.", "branches": [{"phrase": "ph:post.devo-compilare-questo", "next": "formsay"}], "wrong": {"es": "Devo ballare questo? No, compilarlo!", "ru": "Мне нужно это станцевать? Нет, заполнить!"}},
         "formsay": {"kind": "say", "es": "Sì, qui e qui. Presto, presto.", "ru": "Да, вот здесь и здесь. Быстрее, быстрее.", "next": "track"},
         "track": {"kind": "answer", "task": "Попросите трек-номер, чтобы узнать, откуда посылка.", "branches": [{"phrase": "ph:post.da-codice-tracciamento", "next": "end"}], "wrong": {"es": "Ti do la mia Vespa? Mai! Ma posso darti il codice.", "ru": "Отдать тебе «Веспу»? Никогда! Но код могу дать."}},
@@ -50,11 +50,11 @@
       "nodes": {
         "hi": {"kind": "say", "es": "Andiamo allo sportello! Oggi risolviamo tutto.", "ru": "Идём к окошку! Сегодня всё решим.", "next": "lost"},
         "lost": {"kind": "answer", "task": "Скажите служащему, что ваша посылка потерялась.", "branches": [{"phrase": "ph:post.mio-pacco-andato", "next": "lostsay"}], "wrong": {"es": "Il mio pacco è innamorato? Il mio pacco non c'è!", "ru": "Моя посылка влюблена? Моей посылки нет!"}},
-        "lostsay": {"kind": "say", "es": "Smarrito? Rubato. Ma per il foglio, «smarrito». Avanti.", "ru": "Потерялась? Украдена. Но для бумаги — «потерялась». Дальше.", "next": "claim"},
+        "lostsay": {"kind": "say", "es": "Smarrito? Rubato. Ma per il foglio, «smarrito». Avanti.", "ru": "Потерялась? Украдена. Но в бланке напишем «утеряна». Дальше.", "next": "claim"},
         "claim": {"kind": "answer", "task": "Скажите, что хотите подать жалобу.", "branches": [{"phrase": "ph:post.vorrei-fare-reclamo", "next": "claimsay"}], "wrong": {"es": "Vuoi un francobollo? Prima il reclamo.", "ru": "Хочешь марку? Сначала жалоба."}},
         "claimsay": {"kind": "say", "es": "Ecco il modulo. E adesso scrivi a Tommaso: che non mandi più pacchi senza dirlo.", "ru": "Вот бланк. А теперь напиши Томмазо: пусть больше не шлёт посылки без предупреждения.", "next": "ack"},
         "ack": {"kind": "answer", "task": "Отправьте письмо Томмазо с уведомлением о вручении.", "branches": [{"phrase": "ph:post.con-ricevuta-ritorno", "next": "acksay"}], "wrong": {"es": "Con la sabbia, per favore? No, senza sabbia.", "ru": "С песком, пожалуйста? Нет, без песка."}},
-        "acksay": {"kind": "say", "es": "Benissimo: così sappiamo chi la riceve. Sono tre euro.", "ru": "Правильно: так мы узнаем, кто его получит. С тебя три евро.", "next": "cod"},
+        "acksay": {"kind": "say", "es": "Benissimo: così sappiamo chi la riceve. Sono tre euro.", "ru": "Правильно: так мы будем знать, кто её получил. С тебя три евро.", "next": "cod"},
         "cod": {"kind": "answer", "task": "Спросите, можно ли оплатить при получении.", "branches": [{"phrase": "ph:post.si-puo-pagare", "next": "codsay"}], "wrong": {"es": "Si può pagare con la sabbia? Quella moneta non la prendo!", "ru": "Можно заплатить песком? Такую монету не принимаю!"}},
         "codsay": {"kind": "say", "es": "Si può: paga Tommaso quando la riceve. Altro?", "ru": "Можно: заплатит Томмазо, когда получит. Что-нибудь ещё?", "next": "tax"},
         "tax": {"kind": "answer", "task": "Спросите, нужно ли платить таможенную пошлину.", "branches": [{"phrase": "ph:post.bisogna-pagare-dazi", "next": "end"}], "wrong": {"es": "Bisogna pagare il cammello? Al cammello, niente!", "ru": "Надо платить верблюду? Верблюду — ничего!"}},
@@ -105,7 +105,7 @@
         "tracking": {"kind": "answer", "task": "Попросите код отслеживания вашей посылки.", "branches": [{"phrase": "ph:post.da-codice-tracciamento", "next": "trackingsay"}], "wrong": {"es": "Il codice dell'eco? Non ha un codice.", "ru": "Код эха? У него нет кода."}},
         "trackingsay": {"kind": "say", "es": "Ecco. Spedisci qualcosa anche tu?", "ru": "Держи. Ты тоже что-то отправляешь?", "next": "fragile"},
         "fragile": {"kind": "answer", "task": "Скажите, что посылка хрупкая.", "branches": [{"phrase": "ph:post.pacco-fragile", "next": "fragilesay"}], "wrong": {"es": "Fragile come l'eco? Quello si rompe da solo.", "ru": "Хрупкое, как эхо? Оно само разбивается."}},
-        "fragilesay": {"kind": "say", "es": "Lo segno come fragile. E lo vuoi con ricevuta di ritorno?", "ru": "Отмечу как хрупкую. А с уведомлением о вручении?", "next": "receipt"},
+        "fragilesay": {"kind": "say", "es": "Lo segno come fragile. E lo vuoi con ricevuta di ritorno?", "ru": "Отмечу как хрупкое. А с уведомлением о вручении?", "next": "receipt"},
         "receipt": {"kind": "answer", "task": "Скажите: да, с уведомлением о вручении, пожалуйста.", "branches": [{"phrase": "ph:post.con-ricevuta-ritorno", "next": "end"}], "wrong": {"es": "Con ricevuta di eco? Qui solo di ritorno.", "ru": "С уведомлением об эхе? Здесь только о вручении."}},
         "end": {"kind": "say", "es": "Fatto. E prendi: nella busta c'era un'altra cosa. Un pezzo della mappa del Labirinto. I bambini l'hanno messo perché il banditore potesse tornare.", "ru": "Готово. И держи: в конверте было ещё кое-что. Обрывок карты Лабиринта. Дети вложили его, чтобы глашатай смог вернуться."}
       }

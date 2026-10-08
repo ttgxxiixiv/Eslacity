@@ -7,8 +7,8 @@
       "npc": "vega",
       "lines": [
         {"who": "npc", "es": "Buenas. ¿Puedo ayudar?", "ru": "Добрый день. Чем могу помочь?"},
-        {"who": "hero", "es": "Busco el trozo del mapa de la policía.", "ru": "Я ищу обрывок карты полиции."},
-        {"who": "npc", "es": "Lo tengo. Y tengo una pregunta: ¿quién es la empresa?", "ru": "Он у меня. А у меня вопрос: кто такая эта компания?"},
+        {"who": "hero", "es": "Busco el trozo del mapa de la policía.", "ru": "Я ищу обрывок карты, который хранится в полиции."},
+        {"who": "npc", "es": "Lo tengo. Y tengo una pregunta: ¿quién es la empresa?", "ru": "Он у меня. А у меня к вам вопрос: что это за компания?"},
         {"who": "hero", "es": "No lo sé. Quería comprar el mapa.", "ru": "Не знаю. Она хотела купить карту."},
         {"who": "npc", "es": "La empresa no es una empresa. Era el guardián.", "ru": "Эта компания — вовсе не компания. Это был страж."},
         {"who": "hero", "es": "¿El guardián? ¿Por qué?", "ru": "Страж? Зачем?"},
@@ -60,11 +60,11 @@
         {"who": "hero", "es": "¿Y quién lo hizo?", "ru": "А кто это сделал?"},
         {"who": "npc", "es": "Iván. Vino a hablar conmigo antes de irse. Me lo contó todo.", "ru": "Иван. Пришёл поговорить со мной перед отъездом. Всё рассказал."},
         {"who": "hero", "es": "¿Lo va a castigar?", "ru": "Вы его накажете?"},
-        {"who": "npc", "es": "No. Devolvió los trozos de verdad y el dinero de la gente. Y dijo la verdad.", "ru": "Нет. Он вернул настоящие обрывки и деньги людям. И сказал правду."},
+        {"who": "npc", "es": "No. Devolvió los trozos de verdad y el dinero de la gente. Y dijo la verdad.", "ru": "Нет. Он вернул настоящие обрывки, а людям — их деньги. И сказал правду."},
         {"who": "hero", "es": "¿Y es suficiente?", "ru": "И этого достаточно?"},
         {"who": "npc", "es": "En esta ciudad, es suficiente. La verdad es más importante que una multa.", "ru": "В этом городе — достаточно. Правда важнее штрафа."},
         {"who": "hero", "es": "¿Y la guardiana de la ciudad blanca?", "ru": "А стражница белого города?"},
-        {"who": "npc", "es": "Iván me dio un mensaje de ella para ti.", "ru": "Иван передал мне для тебя её послание."},
+        {"who": "npc", "es": "Iván me dio un mensaje de ella para ti.", "ru": "Иван передал мне для тебя её слова."},
         {"who": "hero", "es": "¿Qué dice?", "ru": "Что там?"},
         {"who": "npc", "es": "«Si llegas al bosque, escucha a los árboles. Ellos no mienten».", "ru": "«Если дойдёшь до леса, слушай деревья. Они не лгут»."}
       ],
@@ -82,12 +82,12 @@
       "mode": "overhear",
       "npc": "vega",
       "lines": [
-        {"who": "npc", "es": "Alguien ha hecho una pintada enorme en la pared de correos. Tú empiezas a las seis. ¿No viste nada?", "ru": "Кто-то сделал огромную надпись на стене почты. Ты начинаешь в шесть. Ничего не видел?"},
+        {"who": "npc", "es": "Alguien ha hecho una pintada enorme en la pared de correos. Tú empiezas a las seis. ¿No viste nada?", "ru": "Кто-то нарисовал огромное граффити на стене почты. Ты начинаешь в шесть. Ничего не видел?"},
         {"who": "rafa", "es": "¿Yo? A esa hora solo veo cartas y gatos.", "ru": "Я? В это время я вижу только письма и котов."},
         {"who": "npc", "es": "Qué curioso. Una vecina dice que vio a un chico con una mochila hablando contigo.", "ru": "Любопытно. Одна соседка говорит, что видела, как с тобой разговаривал парень с рюкзаком."},
         {"who": "rafa", "es": "Hablo con mucha gente. Soy cartero, comisaria, no detective.", "ru": "Я со многими разговариваю. Я почтальон, комиссар, а не детектив."},
-        {"who": "npc", "es": "Ya. Y la pintada dice: «Rafa, eres el mejor tío del mundo». Firmada con una estrella.", "ru": "Ну да. А надпись гласит: «Рафа, ты лучший дядя на свете». С подписью-звёздочкой."},
-        {"who": "rafa", "es": "... Bueno. Puede que conozca a alguien que dibuja estrellas.", "ru": "... Ну. Может, я и знаю кое-кого, кто рисует звёздочки."},
+        {"who": "npc", "es": "Ya. Y la pintada dice: «Rafa, eres el mejor tío del mundo». Firmada con una estrella.", "ru": "Ну да. А надпись гласит: «Рафа, ты лучший дядя на свете». А вместо подписи — звёздочка."},
+        {"who": "rafa", "es": "... Bueno. Puede que conozca a alguien que dibuja estrellas.", "ru": "... Ну ладно. Может, я и знаю кое-кого, кто рисует звёздочки."},
         {"who": "npc", "es": "No quiero detener a nadie. Pero la pared hay que limpiarla, y alguien tiene que pagar.", "ru": "Я не хочу никого задерживать. Но стену надо отмыть, и кто-то должен за это заплатить."},
         {"who": "rafa", "es": "La limpiará él el sábado. Yo llevo el cubo y la paciencia.", "ru": "Он сам её отмоет в субботу. С меня ведро и терпение."},
         {"who": "npc", "es": "Perfecto. Y dile que la próxima vez te escriba una carta. Sale más barato.", "ru": "Отлично. И передай ему, чтобы в следующий раз написал тебе письмо. Выйдет дешевле."}
@@ -111,7 +111,7 @@
         {"who": "hero", "es": "¿Y qué hicieron los vecinos?", "ru": "А что сделали соседи?"},
         {"who": "npc", "es": "Primero, silencio. Después, la chica de la tienda de ropa le abrazó. Y el jefe de la estación le ofreció tabaco para su pipa.", "ru": "Сначала тишина. Потом девушка из магазина одежды его обняла. А начальник станции предложил ему табаку для трубки."},
         {"who": "hero", "es": "¿Y el bosque?", "ru": "А лес?"},
-        {"who": "npc", "es": "A las doce de la noche se quedó en silencio. Y se oyó una voz, muy clara.", "ru": "В полночь он затих. И раздался голос, очень чистый."},
+        {"who": "npc", "es": "A las doce de la noche se quedó en silencio. Y se oyó una voz, muy clara.", "ru": "В полночь он затих. И раздался голос, очень отчётливый."},
         {"who": "hero", "es": "¿Qué dijo?", "ru": "Что он сказал?"},
         {"who": "npc", "es": "«Ahora oigo el camino. Que venga quien trajo la paz». Creo que habla de ti.", "ru": "«Теперь я слышу тропу. Пусть придёт тот, кто принёс мир». Думаю, это про тебя."}
       ],
@@ -129,15 +129,15 @@
       "lines": [
         {"who": "npc", "es": "Buenos días. Siéntese. Ayer recibí una carta oficial. Mírela.", "ru": "Добрый день. Садитесь. Вчера я получила официальное письмо. Взгляните."},
         {"who": "hero", "es": "¿De quién es?", "ru": "От кого оно?"},
-        {"who": "npc", "es": "Del pregonero. Escribe así: «Estimada señora comisaria: solicito, con todo respeto, que alguien me conteste».", "ru": "От глашатая. Пишет так: «Уважаемая сеньора комиссар: с должным уважением прошу, чтобы кто-нибудь мне ответил»."},
+        {"who": "npc", "es": "Del pregonero. Escribe así: «Estimada señora comisaria: solicito, con todo respeto, que alguien me conteste».", "ru": "От глашатая. Пишет так: «Уважаемая сеньора комиссар! Со всем почтением прошу, чтобы кто-нибудь мне ответил»."},
         {"who": "hero", "es": "Incluso para pedir ayuda habla de usted.", "ru": "Даже о помощи он просит на вы."},
-        {"who": "npc", "es": "Cien años hablando así. Y firma: «Su seguro servidor, el pregonero de la ciudad».", "ru": "Сто лет так говорит. И подпись: «Ваш покорный слуга, городской глашатай»."},
+        {"who": "npc", "es": "Cien años hablando así. Y firma: «Su seguro servidor, el pregonero de la ciudad».", "ru": "И так сто лет. А подпись: «Ваш покорный слуга, городской глашатай»."},
         {"who": "hero", "es": "¿Qué va a hacer usted?", "ru": "Что вы будете делать?"},
-        {"who": "npc", "es": "Lo que dice la ley: contestar a un vecino. Mañana a las siete sale el tren de Ramón hacia el bosque.", "ru": "То, что велит закон: ответить соседу. Завтра в семь от Рамона отходит поезд к лесу."},
+        {"who": "npc", "es": "Lo que dice la ley: contestar a un vecino. Mañana a las siete sale el tren de Ramón hacia el bosque.", "ru": "То, что велит закон: ответить соседу. Завтра в семь Рамон отправляет поезд к лесу."},
         {"who": "hero", "es": "¿Quién viene?", "ru": "Кто едет?"},
-        {"who": "npc", "es": "Rafa con la carta de los niños, Andrés, Pablo y medio pueblo. Nunca he visto a tanta gente queriendo contestar.", "ru": "Рафа с письмом детей, Андрес, Пабло и полгорода. Никогда не видела столько людей, которые хотят ответить."},
+        {"who": "npc", "es": "Rafa con la carta de los niños, Andrés, Pablo y medio pueblo. Nunca he visto a tanta gente queriendo contestar.", "ru": "Рафа с письмом детей, Андрес, Пабло и полгорода. Никогда не видела, чтобы столько людей хотели ответить."},
         {"who": "hero", "es": "Entonces está todo listo.", "ru": "Значит, всё готово."},
-        {"who": "npc", "es": "Casi. Falta usted. Usted es quien habla con todos, en todos los tonos. Por eso le ha escrito.", "ru": "Почти. Не хватает вас. Вы — тот, кто говорит со всеми, всеми тонами. Поэтому он и написал."}
+        {"who": "npc", "es": "Casi. Falta usted. Usted es quien habla con todos, en todos los tonos. Por eso le ha escrito.", "ru": "Почти. Не хватает вас. Это вы умеете говорить с каждым и любым тоном. Поэтому он вам и написал."}
       ],
       "questions": [
         {"q": "Что получила комиссар Вега?", "options": ["Официальное письмо от глашатая", "Жалобу на эхо", "Обрывок карты"], "answer": 0},

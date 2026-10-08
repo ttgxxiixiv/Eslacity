@@ -16,7 +16,7 @@
         {"who": "hero", "es": "E tu cosa pensi?", "ru": "А ты что думаешь?"},
         {"who": "npc", "es": "Che è una leggenda per turisti. Ma ho un pezzo qui, alla cassa.", "ru": "Что это легенда для туристов. Но обрывок у меня есть, здесь, на кассе."},
         {"who": "hero", "es": "Me lo dai?", "ru": "Отдашь мне?"},
-        {"who": "npc", "es": "Prima compra qualcosa. Qui tutto costa.", "ru": "Сначала купи что-нибудь. Здесь всё стоит денег."}
+        {"who": "npc", "es": "Prima compra qualcosa. Qui tutto costa.", "ru": "Сначала купи что-нибудь. Здесь даром ничего не дают."}
       ],
       "questions": [
         {"q": "Где хлеб?", "options": ["Рядом с молоком", "В третьем ряду", "У кассы"], "answer": 0},
@@ -57,10 +57,10 @@
       "npc": "matteo",
       "lines": [
         {"who": "npc", "es": "Viaggiatore! Ieri ho portato una spesa fino al confine del deserto.", "ru": "Путешественник! Вчера я отвёз покупки к самому краю пустыни."},
-        {"who": "hero", "es": "Fino a lì?", "ru": "Прямо туда?"},
-        {"who": "npc", "es": "A una piccola casa, l'ultima prima della sabbia.", "ru": "В маленький дом, последний перед песком."},
+        {"who": "hero", "es": "Fino a lì?", "ru": "Так далеко?"},
+        {"who": "npc", "es": "A una piccola casa, l'ultima prima della sabbia.", "ru": "В маленький дом, последний перед песками."},
         {"who": "hero", "es": "E cosa hai visto?", "ru": "И что ты видел?"},
-        {"who": "npc", "es": "Un uomo vendeva «acqua dell'oasi» in bottiglia. La gente le comprava molto care.", "ru": "Человек продавал «воду оазиса» в бутылках. Люди покупали их очень дорого."},
+        {"who": "npc", "es": "Un uomo vendeva «acqua dell'oasi» in bottiglia. La gente le comprava molto care.", "ru": "Человек продавал «воду оазиса» в бутылках. Люди платили за них огромные деньги."},
         {"who": "hero", "es": "E cosa è successo?", "ru": "И что случилось?"},
         {"who": "npc", "es": "Ho aperto una bottiglia. Era vuota. Ma prima di aprirla, sembrava piena.", "ru": "Я открыл одну бутылку. Она была пустая. А пока не откроешь, казалась полной."},
         {"who": "hero", "es": "Come la città bianca.", "ru": "Как белый город."},
@@ -87,10 +87,10 @@
         {"who": "franca", "es": "Lo scontrino non ce l'ho più. Ma come consumatrice ho i miei diritti, no?", "ru": "Чека у меня уже нет. Но у меня как у покупательницы есть права, разве нет?"},
         {"who": "npc", "es": "Ha diritto al cambio merce, sì. Ma senza scontrino il sistema non mi fa restituire i soldi.", "ru": "Право на обмен у вас есть, да. Но без чека система не даёт мне вернуть деньги."},
         {"who": "franca", "es": "Ma quale sistema! Faccio la spesa qui da vent'anni.", "ru": "Какая ещё система! Я двадцать лет здесь покупаю."},
-        {"who": "npc", "es": "Lo so, e la ringrazio. Però questa marca... noi non la vendiamo da un anno.", "ru": "Знаю и благодарен вам. Только вот эту марку... мы не продаём уже год."},
+        {"who": "npc", "es": "Lo so, e la ringrazio. Però questa marca... noi non la vendiamo da un anno.", "ru": "Знаю и очень это ценю. Только вот эту марку... мы не продаём уже год."},
         {"who": "franca", "es": "Beh, forse l'ho comprato al centro commerciale. Ma la scatola è uguale alle vostre.", "ru": "Ну, может, я купила его в торговом центре. Но коробка такая же, как у вас."},
         {"who": "npc", "es": "Senta, chiami il servizio clienti di quel negozio. Sicuramente lì glielo cambiano senza problemi.", "ru": "Послушайте, позвоните в службу поддержки того магазина. Там вам его наверняка без проблем поменяют."},
-        {"who": "franca", "es": "Ho capito. Qui la cliente fedele non conta niente.", "ru": "Понятно. Здесь постоянная покупательница ничего не значит."}
+        {"who": "franca", "es": "Ho capito. Qui la cliente fedele non conta niente.", "ru": "Понятно. Значит, постоянные покупатели тут никому не нужны."}
       ],
       "questions": [
         {"q": "Почему Маттео не может вернуть Франке деньги?", "kind": "stance", "options": ["У неё нет чека", "Тостер работает", "Касса уже закрыта"], "answer": 0},
@@ -108,9 +108,9 @@
         {"who": "hero", "es": "Per le voci del bosco?", "ru": "Из-за голосов леса?"},
         {"who": "npc", "es": "Sì. Arrivano con il vento, a mezzanotte. Sembrano conversazioni tra vicini.", "ru": "Да. Приходят с ветром, в полночь. Похоже на разговоры соседей."},
         {"who": "hero", "es": "E la gente cosa fa?", "ru": "И что делают люди?"},
-        {"who": "npc", "es": "Compra tappi per le orecchie, candele, caffè... Qualcuno compra per un mese.", "ru": "Покупают беруши, свечи, кофе... Некоторые — на месяц."},
+        {"who": "npc", "es": "Compra tappi per le orecchie, candele, caffè... Qualcuno compra per un mese.", "ru": "Покупают беруши, свечи, кофе... Некоторые закупаются на месяц."},
         {"who": "hero", "es": "Per un mese? Perché?", "ru": "На месяц? Почему?"},
-        {"who": "npc", "es": "Dicono che il rumore crescerà e che domani non ci sarà niente nei negozi.", "ru": "Говорят, шум будет расти, а завтра в магазинах ничего не будет."},
+        {"who": "npc", "es": "Dicono che il rumore crescerà e che domani non ci sarà niente nei negozi.", "ru": "Говорят, шум будет только сильнее, а завтра в магазинах ничего не останется."},
         {"who": "hero", "es": "È vero?", "ru": "Это правда?"},
         {"who": "npc", "es": "No. Ma se tutti ci credono, diventa vero: gli scaffali sono già mezzi vuoti.", "ru": "Нет. Но если все в это верят, это становится правдой: полки уже наполовину пусты."}
       ],
@@ -126,14 +126,14 @@
       "chapter": 5,
       "npc": "matteo",
       "lines": [
-        {"who": "npc", "es": "Hai sentito gli avvisi di oggi? Ascolta: «Si informano i gentili clienti che lo yogurt si trova in offerta».", "ru": "Слышал сегодняшние объявления? Послушай: «Уважаемых покупателей информируют о том, что йогурт находится в акции».", "fem": {"ru": "Слышала сегодняшние объявления? Послушай: «Уважаемых покупателей информируют о том, что йогурт находится в акции»."}},
+        {"who": "npc", "es": "Hai sentito gli avvisi di oggi? Ascolta: «Si informano i gentili clienti che lo yogurt si trova in offerta».", "ru": "Слышал сегодняшние объявления? Послушай: «Уважаемых покупателей информируют о том, что на йогурт действует специальное предложение».", "fem": {"ru": "Слышала сегодняшние объявления? Послушай: «Уважаемых покупателей информируют о том, что на йогурт действует специальное предложение»."}},
         {"who": "hero", "es": "Tu parli così?", "ru": "Ты так говоришь?"},
-        {"who": "npc", "es": "Ma figurati! Io ho detto: «Ragazzi, yogurt a metà prezzo!». Ma dall'altoparlante esce così.", "ru": "Да ну! Я сказал: «Ребята, йогурт за полцены!». А из громкоговорителя выходит вот так."},
+        {"who": "npc", "es": "Ma figurati! Io ho detto: «Ragazzi, yogurt a metà prezzo!». Ma dall'altoparlante esce così.", "ru": "Да ну! Я сказал: «Ребята, йогурт за полцены!». А из громкоговорителя звучит вот так."},
         {"who": "hero", "es": "È l'eco del Labirinto.", "ru": "Это эхо Лабиринта."},
         {"who": "npc", "es": "Lo dice anche Rosa. La cosa buffa è che alle nonne piace tantissimo.", "ru": "Так и Роза говорит. Самое смешное, что бабушкам это очень нравится."},
         {"who": "hero", "es": "E ai giovani?", "ru": "А молодым?"},
         {"who": "npc", "es": "Ridono e se ne vanno. Oggi abbiamo venduto metà degli yogurt.", "ru": "Смеются и уходят. Сегодня мы продали вдвое меньше йогуртов."},
-        {"who": "hero", "es": "Allora bisogna parlare a ognuno con il suo tono.", "ru": "Значит, надо говорить с каждым его тоном."},
+        {"who": "hero", "es": "Allora bisogna parlare a ognuno con il suo tono.", "ru": "Значит, с каждым надо говорить в его тоне."},
         {"who": "npc", "es": "Sì, ma l'altoparlante è uno solo. Sono stufo.", "ru": "Ну да, но громкоговоритель-то один. Мне это надоело."},
         {"who": "hero", "es": "Ti aiuto con gli avvisi.", "ru": "Я помогу тебе с объявлениями."},
         {"who": "npc", "es": "Grazie. Sennò spengo l'altoparlante e basta.", "ru": "Спасибо. А то выключу громкоговоритель, и дело с концом."}

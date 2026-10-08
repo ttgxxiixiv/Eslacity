@@ -7,16 +7,16 @@
       "npc": "sara",
       "lines": [
         {"who": "npc", "es": "¡Vamos! ¡Diez más!", "ru": "Давай! Ещё десять!"},
-        {"who": "hero", "es": "¡Uf! Me duelen las piernas.", "ru": "Уф! У меня болят ноги."},
+        {"who": "hero", "es": "¡Uf! Me duelen las piernas.", "ru": "Уф! Ноги болят."},
         {"who": "npc", "es": "¡Muy bien! Para el camino del mapa necesitas piernas fuertes.", "ru": "Отлично! Для дороги с карты нужны сильные ноги."},
         {"who": "hero", "es": "¿Usted conoce el camino?", "ru": "Вы знаете эту дорогу?"},
         {"who": "npc", "es": "Mi madre fue a las montañas. Dos días a pie.", "ru": "Моя мама ходила в горы. Два дня пешком."},
         {"who": "hero", "es": "¿Y encontró la Bóveda?", "ru": "И нашла Хранилище?"},
-        {"who": "npc", "es": "No. En el camino hay un guardián. Hace preguntas sobre cada palabra que sabes.", "ru": "Нет. На дороге стоит страж. Он спрашивает о каждом слове, которое ты знаешь."},
+        {"who": "npc", "es": "No. En el camino hay un guardián. Hace preguntas sobre cada palabra que sabes.", "ru": "Нет. На дороге стоит страж. Он проверяет каждое слово, которое ты знаешь."},
         {"who": "hero", "es": "¿Y su madre no sabía las respuestas?", "ru": "И ваша мама не знала ответов?"},
         {"who": "npc", "es": "Sabía correr muy bien. Hablar, no tanto.", "ru": "Бегала она отлично. А говорила — не очень."},
         {"who": "hero", "es": "Yo quiero correr y hablar.", "ru": "А я хочу и бегать, и говорить."},
-        {"who": "npc", "es": "¡Así me gusta! Diez más, ¡y en español!", "ru": "Вот это мне нравится! Ещё десять — и по-испански!"}
+        {"who": "npc", "es": "¡Así me gusta! Diez más, ¡y en español!", "ru": "Вот это по-нашему! Ещё десять — и по-испански!"}
       ],
       "questions": [
         {"q": "Что болит у героя?", "options": ["Спина", "Ноги", "Голова"], "answer": 1},
@@ -31,11 +31,11 @@
       "chapter": 2,
       "npc": "sara",
       "lines": [
-        {"who": "npc", "es": "¡Vamos! Para la torre hay que estar en forma.", "ru": "Давай! Для башни нужно быть в форме."},
+        {"who": "npc", "es": "¡Vamos! Para la torre hay que estar en forma.", "ru": "Давай! Чтобы дойти до башни, нужно быть в форме."},
         {"who": "hero", "es": "¿Es muy difícil subir?", "ru": "Туда очень трудно подниматься?"},
         {"who": "npc", "es": "Hay muchos, muchos escalones. Tomás entrenaba aquí cada semana.", "ru": "Там очень много ступенек. Томас тренировался здесь каждую неделю."},
         {"who": "hero", "es": "¿Y el hombre de la capa? ¿Lo conoces?", "ru": "А человек в плаще? Ты его знаешь?"},
-        {"who": "npc", "es": "Mi madre lo conoce. Hace muchos años, en una tormenta, él la bajó de la montaña.", "ru": "Моя мама его знает. Много лет назад в грозу он снёс её с горы."},
+        {"who": "npc", "es": "Mi madre lo conoce. Hace muchos años, en una tormenta, él la bajó de la montaña.", "ru": "Моя мама его знает. Много лет назад в грозу он спустил её с горы."},
         {"who": "hero", "es": "¿La ayudó?", "ru": "Он ей помог?"},
         {"who": "npc", "es": "La llevó en brazos, muy rápido, como un chico joven.", "ru": "Нёс её на руках, очень быстро, как молодой парень."},
         {"who": "hero", "es": "Así que no es malo.", "ru": "Значит, он не злой."},
@@ -66,7 +66,7 @@
         {"who": "hero", "es": "¿Y había alguien detrás?", "ru": "И за ним кто-то был?"},
         {"who": "npc", "es": "Nadie. Solo el viento. Pero él se tapaba las orejas.", "ru": "Никого. Только ветер. Но он закрывал уши руками."},
         {"who": "hero", "es": "Como si oyera voces.", "ru": "Как будто слышал голоса."},
-        {"who": "npc", "es": "Eso pensé yo. Bueno, ¡a entrenar! Tú no te escapas: tú vas a llegar.", "ru": "Я тоже так подумала. Ладно, тренируемся! Ты не убегаешь: ты дойдёшь."}
+        {"who": "npc", "es": "Eso pensé yo. Bueno, ¡a entrenar! Tú no te escapas: tú vas a llegar.", "ru": "Я тоже так подумала. Ладно, тренируемся! Ты-то не убегаешь: ты дойдёшь."}
       ],
       "questions": [
         {"q": "Что нужно для дюн?", "options": ["Сильные ноги", "Верблюд", "Карта"], "answer": 0},
@@ -85,8 +85,8 @@
         {"who": "npc", "es": "Doctora, ya van tres días esta semana que la veo aquí a las seis de la mañana. Y hoy parece exhausta.", "ru": "Доктор, я вижу вас здесь в шесть утра уже третий раз за неделю. А сегодня вы выглядите совсем измотанной."},
         {"who": "ruiz", "es": "Estoy bien, de verdad. Quiero ganar masa muscular antes del verano.", "ru": "Я правда в порядке. Хочу набрать мышечную массу до лета."},
         {"who": "npc", "es": "¿Bien? Lleva el codo vendado. Eso tiene pinta de tendinitis.", "ru": "В порядке? У вас локоть забинтован. Очень похоже на тендинит."},
-        {"who": "ruiz", "es": "Una molestia pequeña. A mis pacientes siempre les digo que el ejercicio es la mejor medicina.", "ru": "Небольшое неудобство. Я всегда говорю пациентам, что спорт — лучшее лекарство."},
-        {"who": "npc", "es": "Y también les dirá que descansen, ¿no? ¿O esa parte de la receta es solo para ellos?", "ru": "И ещё, наверное, говорите им отдыхать? Или эта часть рецепта только для них?"},
+        {"who": "ruiz", "es": "Una molestia pequeña. A mis pacientes siempre les digo que el ejercicio es la mejor medicina.", "ru": "Ерунда, немного побаливает. Я всегда говорю пациентам, что спорт — лучшее лекарство."},
+        {"who": "npc", "es": "Y también les dirá que descansen, ¿no? ¿O esa parte de la receta es solo para ellos?", "ru": "А отдыхать вы им, наверное, тоже велите? Или эта часть рецепта только для них?"},
         {"who": "ruiz", "es": "Muy graciosa. El descanso es para los que no tienen tiempo de entrenar.", "ru": "Очень смешно. Отдых — для тех, у кого нет времени тренироваться."},
         {"who": "npc", "es": "Eso es sobreentrenamiento, doctora. Sin recuperación muscular no hay músculo, hay lesiones.", "ru": "Это перетренированность, доктор. Без восстановления мышц не будет никаких мышц, будут травмы."},
         {"who": "ruiz", "es": "Vale, vale. Dos días de descanso. Pero no se lo cuente a mis pacientes.", "ru": "Ладно, ладно. Два дня отдыха. Только не рассказывайте моим пациентам."}
@@ -104,7 +104,7 @@
       "chapter": 4,
       "npc": "sara",
       "lines": [
-        {"who": "npc", "es": "¡Buenos días! Esta mañana, corriendo a las seis, vi algo muy raro.", "ru": "Доброе утро! Сегодня утром, когда бегала в шесть, я увидела кое-что очень странное."},
+        {"who": "npc", "es": "¡Buenos días! Esta mañana, corriendo a las seis, vi algo muy raro.", "ru": "Доброе утро! Сегодня на пробежке в шесть утра я увидела кое-что очень странное."},
         {"who": "hero", "es": "¿Qué viste?", "ru": "Что ты видела?"},
         {"who": "npc", "es": "Un hombre mayor, en el jardín de detrás del gimnasio, hablando con un cuervo.", "ru": "Пожилого мужчину в саду за спортзалом: он разговаривал с вороном."},
         {"who": "hero", "es": "¿Y qué le decía?", "ru": "И что он говорил?"},
@@ -112,7 +112,7 @@
         {"who": "hero", "es": "¿Viste quién era?", "ru": "Ты видела, кто это был?"},
         {"who": "npc", "es": "No. Llevaba sombrero, y caminaba despacio, con un bastón de madera muy vieja.", "ru": "Нет. Он был в шляпе и шёл медленно, с палкой из очень старого дерева."},
         {"who": "hero", "es": "¿Madera vieja?", "ru": "Старого дерева?"},
-        {"who": "npc", "es": "Muy vieja y oscura, como la de la torre de la montaña.", "ru": "Очень старого и тёмного, как дерево башни в горах."}
+        {"who": "npc", "es": "Muy vieja y oscura, como la de la torre de la montaña.", "ru": "Очень старого и тёмного, как в той башне в горах."}
       ],
       "questions": [
         {"q": "Что делал мужчина за спортзалом?", "options": ["Бегал", "Учил ворона фразам", "Кормил голубей"], "answer": 1},
@@ -126,7 +126,7 @@
       "chapter": 5,
       "npc": "sara",
       "lines": [
-        {"who": "npc", "es": "¡Por fin! Hoy entrenamos para el Laberinto. Mi madre dejó escrito cómo es la entrada.", "ru": "Наконец-то! Сегодня тренируемся для Лабиринта. Мама оставила записку, какой там вход."},
+        {"who": "npc", "es": "¡Por fin! Hoy entrenamos para el Laberinto. Mi madre dejó escrito cómo es la entrada.", "ru": "Наконец-то! Сегодня тренируемся для Лабиринта. Мама записала, как выглядит вход."},
         {"who": "hero", "es": "¿Tu madre llegó hasta allí?", "ru": "Твоя мама дошла туда?"},
         {"who": "npc", "es": "Hasta la puerta. Escribió: «Al final del bosque hay mil escalones de piedra, y cada escalón repite tu voz».", "ru": "До двери. Написала: «В конце леса тысяча каменных ступеней, и каждая ступень повторяет твой голос»."},
         {"who": "hero", "es": "Mil escalones. Necesito piernas fuertes.", "ru": "Тысяча ступеней. Мне нужны сильные ноги."},

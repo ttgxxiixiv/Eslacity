@@ -6,8 +6,8 @@
       "chapter": 1,
       "npc": "bruno",
       "lines": [
-        {"who": "npc", "es": "Cosa le serve?", "ru": "Что вам нужно?"},
-        {"who": "hero", "es": "Niente medicine. Cerco la mappa. Dicono che lei sa molte cose.", "ru": "Никаких лекарств. Я ищу карту. Говорят, вы много знаете."},
+        {"who": "npc", "es": "Cosa le serve?", "ru": "Что вам подсказать?"},
+        {"who": "hero", "es": "Niente medicine. Cerco la mappa. Dicono che lei sa molte cose.", "ru": "Лекарства мне не нужны. Я ищу карту. Говорят, вы много знаете."},
         {"who": "npc", "es": "So molto. E so che l'Elisir non è una medicina.", "ru": "Знаю много. И знаю, что Эликсир — не лекарство."},
         {"who": "hero", "es": "E cos'è?", "ru": "А что это?"},
         {"who": "npc", "es": "Chi beve l'Elisir parla italiano come noi. E non si vende in farmacia.", "ru": "Кто выпьет Эликсир, заговорит по-итальянски, как мы. И в аптеке его не продают."},
@@ -33,8 +33,8 @@
       "lines": [
         {"who": "npc", "es": "So già perché è venuto. La montagna, vero?", "ru": "Я уже знаю, зачем вы пришли. Горы, верно?"},
         {"who": "hero", "es": "Cosa mi serve per il viaggio?", "ru": "Что мне нужно в дорогу?"},
-        {"who": "npc", "es": "Come a Tommaso. Lui ha comprato delle pastiglie per la nausea e una benda.", "ru": "Как Томмазо. Он купил таблетки от тошноты и бинт."},
-        {"who": "hero", "es": "La nausea?", "ru": "Тошноты?"},
+        {"who": "npc", "es": "Come a Tommaso. Lui ha comprato delle pastiglie per la nausea e una benda.", "ru": "То же, что и Томмазо. Он купил таблетки от тошноты и бинт."},
+        {"who": "hero", "es": "La nausea?", "ru": "От тошноты?"},
         {"who": "npc", "es": "Lassù l'aria è diversa. Molte persone stanno male nella torre.", "ru": "Наверху воздух другой. Многим в башне становится плохо."},
         {"who": "hero", "es": "È venuto anche l'uomo con il mantello grigio?", "ru": "А человек в сером плаще тоже приходил?"},
         {"who": "npc", "es": "È venuto. Non ha comprato niente. Mi ha fatto una domanda molto strana.", "ru": "Приходил. Ничего не купил. Задал мне очень странный вопрос."},
@@ -82,7 +82,7 @@
       "mode": "overhear",
       "npc": "bruno",
       "lines": [
-        {"who": "npc", "es": "Dottoressa, la signora della ricetta di stamattina... lo sa che prende erbe medicinali per dormire?", "ru": "Доктор, та синьора с утренним рецептом... вы знаете, что она пьёт лекарственные травы для сна?"},
+        {"who": "npc", "es": "Dottoressa, la signora della ricetta di stamattina... lo sa che prende erbe medicinali per dormire?", "ru": "Доктор, та синьора, которой вы утром выписали рецепт... вы знаете, что она пьёт травы от бессонницы?"},
         {"who": "conti", "es": "Non ne avevo idea. A me ha detto che non prendeva nient'altro.", "ru": "Понятия не имела. Мне она сказала, что больше ничего не принимает."},
         {"who": "npc", "es": "Lo dicono tutti. Ma quelle erbe insieme alla sua pastiglia... l'interazione può essere pericolosa.", "ru": "Так говорят все. Но эти травы вместе с вашей таблеткой... взаимодействие может быть опасным."},
         {"who": "conti", "es": "I pazienti pensano che le cose naturali non contino. E poi finiscono al pronto soccorso.", "ru": "Пациенты думают, что натуральное не считается. А потом попадают в неотложку."},
@@ -90,7 +90,7 @@
         {"who": "conti", "es": "Mi sta dicendo che non faccio bene il mio lavoro?", "ru": "Вы хотите сказать, что я плохо делаю свою работу?"},
         {"who": "npc", "es": "Dico che cinque minuti non bastano a nessuno, né a lei né a me.", "ru": "Я говорю, что пяти минут никому не хватает, ни вам, ни мне."},
         {"who": "conti", "es": "Su questo ha ragione. Chiamerò la signora e le cambierò la terapia.", "ru": "Тут вы правы. Позвоню синьоре и поменяю ей лечение."},
-        {"who": "npc", "es": "E io le spiegherò la posologia con calma. Questa volta senza fretta.", "ru": "А я объясню ей, как принимать лекарство, спокойно. На этот раз без спешки."}
+        {"who": "npc", "es": "E io le spiegherò la posologia con calma. Questa volta senza fretta.", "ru": "А я спокойно объясню ей, как принимать лекарство. На этот раз без спешки."}
       ],
       "questions": [
         {"q": "Чем обеспокоен доктор Бруно?", "kind": "stance", "options": ["Рецепт написан неразборчиво", "Лекарство закончилось", "Травы пациентки опасно сочетаются с её таблеткой"], "answer": 2},
@@ -105,7 +105,7 @@
       "chapter": 4,
       "npc": "bruno",
       "lines": [
-        {"who": "npc", "es": "Buongiorno. Mi scusi, sono molto preoccupato.", "ru": "Доброе утро. Простите, я очень обеспокоен."},
+        {"who": "npc", "es": "Buongiorno. Mi scusi, sono molto preoccupato.", "ru": "Доброе утро. Простите, я очень встревожен."},
         {"who": "hero", "es": "Cos'è successo?", "ru": "Что случилось?"},
         {"who": "npc", "es": "Il bosco dice con la mia voce: «La dottoressa è un'incapace».", "ru": "Лес говорит моим голосом: «Доктор — бездарь»."},
         {"who": "hero", "es": "E lei l'ha detto?", "ru": "А вы это говорили?"},
@@ -129,12 +129,12 @@
       "lines": [
         {"who": "npc", "es": "Entri, entri. Sto leggendo il quaderno di mio nonno. Anche lui era farmacista.", "ru": "Проходите, проходите. Я читаю тетрадь моего деда. Он тоже был фармацевтом."},
         {"who": "hero", "es": "Parla del Labirinto?", "ru": "Там есть про Лабиринт?"},
-        {"who": "npc", "es": "Parla del banditore. Veniva ogni giorno a comprare pastiglie per la gola.", "ru": "Там про глашатая. Он каждый день приходил за таблетками для горла."},
+        {"who": "npc", "es": "Parla del banditore. Veniva ogni giorno a comprare pastiglie per la gola.", "ru": "Там про глашатая. Он каждый день приходил за таблетками от горла."},
         {"who": "hero", "es": "Era malato?", "ru": "Он был болен?"},
         {"who": "npc", "es": "No. Parlava così tanto in piazza che restava senza voce. E nessuno lo ascoltava.", "ru": "Нет. Он столько говорил на площади, что терял голос. А его никто не слушал."},
         {"who": "hero", "es": "Cosa dice l'ultima pagina?", "ru": "Что на последней странице?"},
-        {"who": "npc", "es": "«Oggi il banditore non ha chiesto pastiglie. Ha detto: vado dove la voce torna».", "ru": "«Сегодня глашатай не попросил таблеток. Он сказал: ухожу туда, где голос возвращается»."},
-        {"who": "hero", "es": "Dove la voce torna... È l'eco.", "ru": "Где голос возвращается... Это эхо."},
+        {"who": "npc", "es": "«Oggi il banditore non ha chiesto pastiglie. Ha detto: vado dove la voce torna».", "ru": "«Сегодня глашатай не попросил таблеток. Он сказал: „Ухожу туда, где голос возвращается“»."},
+        {"who": "hero", "es": "Dove la voce torna... È l'eco.", "ru": "Туда, где голос возвращается... Это эхо."},
         {"who": "npc", "es": "Lo penso anch'io. Un uomo che ha parlato cento anni senza risposta, e adesso ci restituisce la voce.", "ru": "Я тоже так думаю. Человек, который сто лет говорил без ответа, а теперь возвращает нам наш голос."},
         {"who": "hero", "es": "Allora non vuole farci del male.", "ru": "Значит, он не хочет нам навредить."},
         {"who": "npc", "es": "Forse vuole solo che qualcuno gli risponda. Ma con il tono giusto.", "ru": "Может, он просто хочет, чтобы кто-нибудь ему ответил. Но правильным тоном."}

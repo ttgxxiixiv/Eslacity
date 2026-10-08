@@ -18,7 +18,7 @@
         "boss": {"kind": "answer", "task": "Спросите, где кабинет начальника.", "branches": [{"phrase": "ph:office.dov-ufficio-capo", "next": "bosssay"}], "wrong": {"es": "L'ufficio del cane? Qui non ci sono cani, ci sono capi.", "ru": "Кабинет собаки? Тут нет собак, тут начальники."}},
         "bosssay": {"kind": "say", "es": "Là, a sinistra. E il tuo telefono suona!", "ru": "Вон там, слева. И у тебя звонит телефон!", "next": "phone"},
         "phone": {"kind": "answer", "task": "Скажите в телефон, что сейчас не можете и перезвоните позже.", "branches": [{"phrase": "ph:office.adesso-non-posso", "next": "end"}], "wrong": {"es": "Parli con il telefono o con me? Presto, per favore!", "ru": "Ты с телефоном говоришь или со мной? Быстрее, пожалуйста!"}},
-        "end": {"kind": "say", "es": "Così si parla. Grazie dell'aiuto. Prendi il mio pezzo: la mappa non si vende, si dà a chi aiuta. E quella lettera con «Vieni»... qualcuno ci chiama.", "ru": "Вот это разговор. Спасибо за помощь. Держи мой обрывок: карта не продаётся, её отдают тому, кто помогает. А это письмо с «Приходи»... кто-то нас зовёт."}
+        "end": {"kind": "say", "es": "Così si parla. Grazie dell'aiuto. Prendi il mio pezzo: la mappa non si vende, si dà a chi aiuta. E quella lettera con «Vieni»... qualcuno ci chiama.", "ru": "Вот это по-нашему. Спасибо за помощь. Держи мой обрывок: карта не продаётся, её отдают тому, кто помогает. А это письмо с «Приходи»... кто-то нас зовёт."}
       }
     },
     {
@@ -50,11 +50,11 @@
       "scene": "sc:office.3",
       "start": "hi",
       "nodes": {
-        "hi": {"kind": "say", "es": "Ivo ha un colloquio domani. Facciamo pratica: tu sei il lavoratore. Cominciamo?", "ru": "У Иво завтра собеседование. Давай потренируемся: ты — сотрудник. Начнём?", "next": "cv"},
+        "hi": {"kind": "say", "es": "Ivo ha un colloquio domani. Facciamo pratica: tu sei il lavoratore. Cominciamo?", "ru": "У Иво завтра собеседование. Давай потренируемся: ты будешь соискателем. Начнём?", "next": "cv"},
         "cv": {"kind": "answer", "task": "Скажите, что отправите ей своё резюме.", "branches": [{"phrase": "ph:office.ti-mando-mio", "next": "cvsay"}], "wrong": {"es": "Mi mandi un cammello? No, grazie, ne conosco già uno.", "ru": "Пришлёшь мне верблюда? Нет, спасибо, одного я уже знаю."}},
         "cvsay": {"kind": "say", "es": "Benissimo. Ricevuto. Adesso parliamo di soldi.", "ru": "Отлично. Получено. Теперь поговорим о деньгах.", "next": "salary"},
         "salary": {"kind": "answer", "task": "Скажите, что хотите обсудить зарплату.", "branches": [{"phrase": "ph:office.vorrei-negoziare-stipendio", "next": "salsay"}], "wrong": {"es": "Vuoi pagare tu? Un'azienda non funziona così!", "ru": "Хочешь платить сам? Так компания не работает!", "fem": {"ru": "Хочешь платить сама? Так компания не работает!"}}},
-        "salsay": {"kind": "say", "es": "Diretto. Mi piace. Problemi nel lavoro di prima?", "ru": "Прямо. Мне нравится. На прошлой работе были проблемы?", "next": "extra"},
+        "salsay": {"kind": "say", "es": "Diretto. Mi piace. Problemi nel lavoro di prima?", "ru": "Прямо в лоб. Мне нравится. На прошлой работе были проблемы?", "next": "extra"},
         "extra": {"kind": "answer", "task": "Скажите, что вам не платят за переработки.", "branches": [{"phrase": "ph:office.non-pagano-straordinari", "next": "extrasay"}], "wrong": {"es": "Non ti pagano in sabbia? Qui paghiamo in euro!", "ru": "Тебе не платят песком? Мы платим в евро!"}},
         "extrasay": {"kind": "say", "es": "Questo è importante. Qui li paghiamo. E domani dove lavori?", "ru": "Это важно. Мы их оплачиваем. А где ты будешь работать завтра?", "next": "home"},
         "home": {"kind": "answer", "task": "Скажите, что сегодня работаете из дома.", "branches": [{"phrase": "ph:office.oggi-lavoro-smart", "next": "homesay"}], "wrong": {"es": "Oggi lavori nel deserto? No, qui.", "ru": "Сегодня работаешь в пустыне? Нет, здесь."}},
@@ -77,7 +77,7 @@
         "minutessay": {"kind": "say", "es": "Grazie! Senti, ho una proposta: che Andrea chieda scusa davanti a tutto il quartiere, stasera.", "ru": "Спасибо! Слушай, у меня предложение: пусть Андреа сегодня вечером попросит прощения перед всем районом.", "next": "dispute"},
         "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:office.gli-fara-piu-paura", "next": "object", "move": "object"}, {"phrase": "ph:office.giusto-chieda-scusa", "next": "concede", "move": "concede"}, {"phrase": "ph:office.viene-parla-se-vuole", "next": "compromise", "move": "compromise"}], "wrong": {"es": "Come? Scusa, oggi ho la testa piena.", "ru": "Как? Прости, у меня сегодня голова забита."}},
         "object": {"kind": "say", "es": "Più paura? Hai ragione. La paura ha già fatto abbastanza danni. Nessuno deve pagare per questo.", "ru": "Сильнее напугает? Ты прав. Страх уже натворил достаточно. Никто не должен за это расплачиваться.", "fem": {"ru": "Сильнее напугает? Ты права. Страх уже натворил достаточно. Никто не должен за это расплачиваться."}, "next": "break"},
-        "concede": {"kind": "say", "es": "Lo penso anch'io. Le cose si dicono in faccia, come chiede la Custode.", "ru": "Вот и я так думаю. Всё говорят в лицо, как просит Хранительница.", "next": "break"},
+        "concede": {"kind": "say", "es": "Lo penso anch'io. Le cose si dicono in faccia, come chiede la Custode.", "ru": "Вот и я так думаю. Всё надо говорить в лицо, как просит Хранительница.", "next": "break"},
         "compromise": {"kind": "say", "es": "Che venga e parli se vuole... E se non vuole, va bene lo stesso. Mi piace.", "ru": "Пусть придёт и говорит, если захочет... А не захочет — ничего страшного. Мне нравится.", "next": "break"},
         "break": {"kind": "say", "es": "Bene. Siamo da due ore con queste carte e non ragiono più.", "ru": "Хорошо. Мы два часа сидим с бумагами, и я уже плохо соображаю.", "next": "rest"},
         "rest": {"kind": "answer", "task": "Предложите сделать перерыв.", "branches": [{"phrase": "ph:office.facciamo-pausa", "next": "restsay"}], "wrong": {"es": "Facciamo un corvo? No, una pausa.", "ru": "Сделаем ворона? Нет, перерыв."}},
@@ -85,7 +85,7 @@
         "copier": {"kind": "answer", "task": "Спросите, где ксерокс.", "branches": [{"phrase": "ph:office.dov-fotocopiatrice", "next": "copiersay"}], "wrong": {"es": "Dov'è il bosco? Lontano, per fortuna.", "ru": "Где лес? Далеко, к счастью."}},
         "copiersay": {"kind": "say", "es": "Lì, a destra. E per stasera ci serve la sala grande.", "ru": "Вон там, справа. А на вечер нам нужен большой зал.", "next": "room"},
         "room": {"kind": "answer", "task": "Спросите, свободна ли переговорная.", "branches": [{"phrase": "ph:office.sala-riunioni-libera", "next": "end"}], "wrong": {"es": "Il corvo è libero? Sì, è con il postino.", "ru": "Ворон свободен? Да, он у почтальона."}},
-        "end": {"kind": "say", "es": "Libera e pronta. E prendi questo: era dentro la lettera di Andrea. Un pezzo della mappa del bosco. Credo che sia il suo modo di chiedere scusa.", "ru": "Свободна и готова. И держи: это было в письме Андреа. Обрывок карты леса. Думаю, так он просит прощения."}
+        "end": {"kind": "say", "es": "Libera e pronta. E prendi questo: era dentro la lettera di Andrea. Un pezzo della mappa del bosco. Credo che sia il suo modo di chiedere scusa.", "ru": "Свободен и готов. И держи: это было в письме Андреа. Обрывок карты леса. Думаю, так он просит прощения."}
       }
     },
     {

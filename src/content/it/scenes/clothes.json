@@ -8,11 +8,11 @@
       "lines": [
         {"who": "npc", "es": "Quella camicia ti sta benissimo!", "ru": "Эта рубашка тебе очень идёт!"},
         {"who": "hero", "es": "Grazie. Mi servono dei vestiti per un viaggio.", "ru": "Спасибо. Мне нужна одежда для поездки."},
-        {"who": "npc", "es": "Un viaggio? Dove vai?", "ru": "Поездка? Куда ты едешь?"},
+        {"who": "npc", "es": "Un viaggio? Dove vai?", "ru": "Поездка? А куда?"},
         {"who": "hero", "es": "In montagna. Cerco la strada della mappa.", "ru": "В горы. Я ищу дорогу с карты."},
         {"who": "npc", "es": "In montagna fa molto freddo. Ti serve un cappotto.", "ru": "В горах очень холодно. Тебе нужно пальто."},
         {"who": "hero", "es": "Avete dei cappotti?", "ru": "У вас есть пальто?"},
-        {"who": "npc", "es": "Ne ho uno molto vecchio, di mia madre. Guarda, nel cappotto c'è qualcosa.", "ru": "У меня есть одно очень старое, мамино. Смотри, в пальто что-то есть."},
+        {"who": "npc", "es": "Ne ho uno molto vecchio, di mia madre. Guarda, nel cappotto c'è qualcosa.", "ru": "Есть одно, очень старое, мамино. Смотри, в нём что-то лежит."},
         {"who": "hero", "es": "Qualcosa? È un pezzo della mappa!", "ru": "Что-то? Это обрывок карты!"},
         {"who": "npc", "es": "Non lo sapevo! Mia madre non ha mai detto niente.", "ru": "Я и не знала! Мама никогда ничего не говорила."},
         {"who": "hero", "es": "Posso provarlo?", "ru": "Можно примерить?"},
@@ -41,7 +41,7 @@
         {"who": "hero", "es": "Sono ancora qui?", "ru": "Они всё ещё здесь?"},
         {"who": "npc", "es": "Sono qui. Portaglieli tu, quando lo trovi.", "ru": "Вот они. Отнеси их ему, когда найдёшь."},
         {"who": "hero", "es": "Glieli porto.", "ru": "Отнесу."},
-        {"who": "npc", "es": "E per te, qualcosa di caldo. Nella torre fa molto freddo.", "ru": "А тебе тоже нужно что-то тёплое. В башне очень холодно."}
+        {"who": "npc", "es": "E per te, qualcosa di caldo. Nella torre fa molto freddo.", "ru": "И тебе нужно что-нибудь тёплое. В башне очень холодно."}
       ],
       "questions": [
         {"q": "Что купил Томмазо перед походом?", "options": ["Красный шарф", "Серый плащ", "Белые носки"], "answer": 0},
@@ -62,7 +62,7 @@
         {"who": "hero", "es": "Una festa in una città che sparisce?", "ru": "Праздник в городе, который исчезает?"},
         {"who": "npc", "es": "Anch'io l'ho chiesto. Mi ha detto che una notte all'anno, con la luna piena, la città è vera.", "ru": "Я его об этом спросила. Он сказал, что раз в год, в полнолуние, город становится настоящим."},
         {"who": "hero", "es": "Una notte all'anno?", "ru": "Одну ночь в году?"},
-        {"who": "npc", "es": "La notte della festa della guardiana. Quella notte, quello che vedi lì esiste.", "ru": "Ночь праздника стражницы. В эту ночь всё, что там видишь, существует."},
+        {"who": "npc", "es": "La notte della festa della guardiana. Quella notte, quello che vedi lì esiste.", "ru": "Ночь праздника стражницы. В эту ночь всё, что там видишь, существует на самом деле."},
         {"who": "hero", "es": "E quando è?", "ru": "И когда это?"},
         {"who": "npc", "es": "Non ha voluto dirlo. Ha pagato con una banconota... che dopo è diventata sabbia.", "ru": "Не захотел сказать. Заплатил купюрой... которая потом превратилась в песок."},
         {"who": "hero", "es": "Un altro miraggio!", "ru": "Ещё один мираж!"},
@@ -90,7 +90,7 @@
         {"who": "npc", "es": "Ti capisco. Non posso cambiartela, ma ti faccio uno sconto su quella di lino. Quella non si restringe.", "ru": "Понимаю. Поменять я её не могу, но сделаю тебе скидку на льняную. Та не садится."},
         {"who": "valentina", "es": "Quella di lino? Si stropiccia solo a guardarla. Dovrei stirarla ogni mattina.", "ru": "Льняную? Она мнётся, стоит на неё посмотреть. Мне пришлось бы гладить её каждое утро."},
         {"who": "npc", "es": "Se vuoi, ti faccio vedere quelle sintetiche. Non si stropicciano, non si restringono... e non respirano per niente.", "ru": "Если хочешь, покажу синтетические. Не мнутся, не садятся... и совсем не дышат."},
-        {"who": "valentina", "es": "Prendo quella di lino. Stirare la mattina rilassa, in fondo.", "ru": "Беру льняную. В конце концов, гладить по утрам успокаивает."}
+        {"who": "valentina", "es": "Prendo quella di lino. Stirare la mattina rilassa, in fondo.", "ru": "Беру льняную. В конце концов, утренняя глажка тоже успокаивает."}
       ],
       "questions": [
         {"q": "Кто, по мнению Кьяры, виноват, что блузка села?", "kind": "stance", "options": ["Фабрика", "Сама Валентина: постирала её в машинке", "Магазин"], "answer": 1},
@@ -127,7 +127,7 @@
       "chapter": 5,
       "npc": "chiara",
       "lines": [
-        {"who": "npc", "es": "Che spavento! È venuto il segretario del comune per un abito, e io gli ho dato del tu.", "ru": "Ну и испугалась! Пришёл секретарь мэрии за костюмом, а я говорила с ним на ты."},
+        {"who": "npc", "es": "Che spavento! È venuto il segretario del comune per un abito, e io gli ho dato del tu.", "ru": "Ой, как я перепугалась! Пришёл секретарь мэрии за костюмом, а я заговорила с ним на ты."},
         {"who": "hero", "es": "E si è arrabbiato?", "ru": "И он рассердился?"},
         {"who": "npc", "es": "No, si è messo a ridere. Dice che l'eco fa così con tutti.", "ru": "Нет, посмеялся. Говорит, что эхо со всеми так делает."},
         {"who": "hero", "es": "Torna?", "ru": "Он ещё придёт?"},
@@ -137,7 +137,7 @@
         {"who": "hero", "es": "Come quello del signore che è andato da Salvatore!", "ru": "Как у того синьора, что приходил к Сальваторе!"},
         {"who": "npc", "es": "Esatto. La mia bisnonna ha scritto accanto: «Un uomo educato e molto solo. Nessuno gli dà del tu».", "ru": "Вот именно. Прабабушка написала рядом: «Вежливый и очень одинокий человек. Никто не говорит с ним на ты»."},
         {"who": "hero", "es": "Forse per questo adesso l'eco cambia i toni.", "ru": "Может, поэтому эхо теперь и меняет тон."},
-        {"who": "npc", "es": "Forse. Aiutami stasera con il segretario, va bene? Io divento nervosa.", "ru": "Может быть. Помоги мне вечером с секретарём, ладно? Я нервничаю."}
+        {"who": "npc", "es": "Forse. Aiutami stasera con il segretario, va bene? Io divento nervosa.", "ru": "Может быть. Помоги мне вечером с секретарём, ладно? А то я нервничаю."}
       ],
       "questions": [
         {"q": "Кто пришёл за костюмом?", "options": ["Томмазо", "Секретарь мэрии", "Глашатай"], "answer": 1},

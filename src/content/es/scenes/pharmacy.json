@@ -7,7 +7,7 @@
       "npc": "ernesto",
       "lines": [
         {"who": "npc", "es": "Buenas tardes. ¿Qué le pasa?", "ru": "Добрый день. Что с вами?"},
-        {"who": "hero", "es": "Nada. Busco el mapa. Dicen que usted sabe mucho.", "ru": "Ничего. Я ищу карту. Говорят, вы много знаете."},
+        {"who": "hero", "es": "Nada. Busco el mapa. Dicen que usted sabe mucho.", "ru": "Всё в порядке. Я ищу карту. Говорят, вы много знаете."},
         {"who": "npc", "es": "Sé mucho. Y sé que el Elixir no es un medicamento.", "ru": "Знаю много. И знаю, что Эликсир — не лекарство."},
         {"who": "hero", "es": "¿Y qué es?", "ru": "А что это?"},
         {"who": "npc", "es": "Quien bebe el Elixir habla nuestro idioma. Y no se vende en farmacias.", "ru": "Кто выпьет Эликсир, заговорит на нашем языке. И в аптеках его не продают."},
@@ -33,7 +33,7 @@
       "lines": [
         {"who": "npc", "es": "Buenas tardes. Ya sé por qué viene. Las montañas, ¿verdad?", "ru": "Добрый день. Я уже знаю, зачем вы пришли. Горы, верно?"},
         {"who": "hero", "es": "¿Qué necesito para el viaje?", "ru": "Что мне нужно в дорогу?"},
-        {"who": "npc", "es": "Como Tomás. Él compró pastillas para el mareo y una venda.", "ru": "Как Томасу. Он купил таблетки от головокружения и бинт."},
+        {"who": "npc", "es": "Como Tomás. Él compró pastillas para el mareo y una venda.", "ru": "То же, что и Томасу. Он купил таблетки от головокружения и бинт."},
         {"who": "hero", "es": "¿El mareo?", "ru": "Головокружение?"},
         {"who": "npc", "es": "Arriba, el aire es diferente. Mucha gente se marea en la torre.", "ru": "Наверху воздух другой. У многих в башне кружится голова."},
         {"who": "hero", "es": "¿Vino también el hombre de la capa gris?", "ru": "А человек в сером плаще тоже приходил?"},
@@ -82,7 +82,7 @@
       "mode": "overhear",
       "npc": "ernesto",
       "lines": [
-        {"who": "npc", "es": "Doctora, la señora de la receta de esta mañana... ¿sabe usted que toma hierbas medicinales para dormir?", "ru": "Доктор, та сеньора с утренним рецептом... вы знаете, что она пьёт лекарственные травы для сна?"},
+        {"who": "npc", "es": "Doctora, la señora de la receta de esta mañana... ¿sabe usted que toma hierbas medicinales para dormir?", "ru": "Доктор, та сеньора, которой вы утром выписали рецепт... вы знаете, что она пьёт травы от бессонницы?"},
         {"who": "ruiz", "es": "No tenía ni idea. A mí me dijo que no tomaba nada más.", "ru": "Понятия не имела. Мне она сказала, что больше ничего не принимает."},
         {"who": "npc", "es": "Eso dicen todos. Pero esas hierbas y su pastilla juntas... la interacción puede ser peligrosa.", "ru": "Так говорят все. Но эти травы вместе с вашей таблеткой... взаимодействие может быть опасным."},
         {"who": "ruiz", "es": "Los pacientes piensan que lo natural no cuenta. Y luego acaban en urgencias.", "ru": "Пациенты думают, что натуральное не считается. А потом попадают в неотложку."},
@@ -90,7 +90,7 @@
         {"who": "ruiz", "es": "¿Me está diciendo que no hago bien mi trabajo?", "ru": "Вы хотите сказать, что я плохо делаю свою работу?"},
         {"who": "npc", "es": "Digo que cinco minutos no bastan para nadie, ni para usted ni para mí.", "ru": "Я говорю, что пяти минут никому не хватает, ни вам, ни мне."},
         {"who": "ruiz", "es": "En eso tiene razón. Llamaré a la señora y le cambiaré la medicación.", "ru": "Тут вы правы. Позвоню сеньоре и поменяю ей лекарства."},
-        {"who": "npc", "es": "Y yo le explicaré la posología despacio. Con tiempo, esta vez.", "ru": "А я объясню ей, как их принимать, не спеша. На этот раз со временем."}
+        {"who": "npc", "es": "Y yo le explicaré la posología despacio. Con tiempo, esta vez.", "ru": "А я не спеша объясню ей, как их принимать. На этот раз время найдётся."}
       ],
       "questions": [
         {"q": "Чем обеспокоен дон Эрнесто?", "kind": "stance", "options": ["Рецепт написан неразборчиво", "Лекарство закончилось", "Травы пациентки опасно сочетаются с её таблеткой"], "answer": 2},
@@ -105,7 +105,7 @@
       "chapter": 4,
       "npc": "ernesto",
       "lines": [
-        {"who": "npc", "es": "Buenos días. Perdone, estoy muy preocupado.", "ru": "Доброе утро. Простите, я очень обеспокоен."},
+        {"who": "npc", "es": "Buenos días. Perdone, estoy muy preocupado.", "ru": "Доброе утро. Простите, я очень встревожен."},
         {"who": "hero", "es": "¿Qué ha pasado?", "ru": "Что случилось?"},
         {"who": "npc", "es": "El bosque dice con mi voz: «La doctora es una inútil».", "ru": "Лес говорит моим голосом: «Доктор — бездарь»."},
         {"who": "hero", "es": "¿Y usted lo dijo?", "ru": "А вы это говорили?"},
@@ -128,12 +128,12 @@
       "lines": [
         {"who": "npc", "es": "Pase, pase. Estoy leyendo el cuaderno de mi abuelo. También era farmacéutico.", "ru": "Проходите, проходите. Я читаю тетрадь моего деда. Он тоже был фармацевтом."},
         {"who": "hero", "es": "¿Habla del Laberinto?", "ru": "Там есть про Лабиринт?"},
-        {"who": "npc", "es": "Habla del pregonero. Venía cada día a comprar pastillas para la garganta.", "ru": "Там про глашатая. Он каждый день приходил за таблетками для горла."},
+        {"who": "npc", "es": "Habla del pregonero. Venía cada día a comprar pastillas para la garganta.", "ru": "Там про глашатая. Он каждый день приходил за таблетками от горла."},
         {"who": "hero", "es": "¿Estaba enfermo?", "ru": "Он был болен?"},
         {"who": "npc", "es": "No. Hablaba tanto en la plaza que se quedaba sin voz. Y nadie le escuchaba.", "ru": "Нет. Он столько говорил на площади, что терял голос. А его никто не слушал."},
         {"who": "hero", "es": "¿Qué dice la última página?", "ru": "Что на последней странице?"},
-        {"who": "npc", "es": "«Hoy el pregonero no ha pedido pastillas. Ha dicho: me voy donde la voz vuelva».", "ru": "«Сегодня глашатай не попросил таблеток. Он сказал: ухожу туда, где голос возвращается»»."},
-        {"who": "hero", "es": "Donde la voz vuelve... Es el eco.", "ru": "Где голос возвращается... Это эхо."},
+        {"who": "npc", "es": "«Hoy el pregonero no ha pedido pastillas. Ha dicho: me voy donde la voz vuelva».", "ru": "«Сегодня глашатай не попросил таблеток. Он сказал: „Ухожу туда, где голос возвращается“»."},
+        {"who": "hero", "es": "Donde la voz vuelve... Es el eco.", "ru": "Туда, где голос возвращается... Это эхо."},
         {"who": "npc", "es": "Eso creo yo. Un hombre que habló cien años sin respuesta, y ahora nos devuelve la voz.", "ru": "Я тоже так думаю. Человек, который сто лет говорил без ответа, а теперь возвращает нам наш голос."},
         {"who": "hero", "es": "Entonces no quiere hacernos daño.", "ru": "Значит, он не хочет нам навредить."},
         {"who": "npc", "es": "Quizás solo quiere que alguien le conteste. Pero con el tono correcto.", "ru": "Может, он просто хочет, чтобы кто-нибудь ему ответил. Но правильным тоном."}

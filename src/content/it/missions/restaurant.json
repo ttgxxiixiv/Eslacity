@@ -8,7 +8,7 @@
       "scene": "sc:restaurant.1",
       "start": "hi",
       "nodes": {
-        "hi": {"kind": "say", "es": "Di nuovo qui! Oggi nella mia cucina si parla solo italiano. Hai una prenotazione?", "ru": "Снова здесь! Сегодня на моей кухне говорят только по-итальянски. У тебя забронировано?", "next": "res"},
+        "hi": {"kind": "say", "es": "Di nuovo qui! Oggi nella mia cucina si parla solo italiano. Hai una prenotazione?", "ru": "Снова ты у нас! Сегодня на моей кухне говорят только по-итальянски. Столик заказан?", "next": "res"},
         "res": {"kind": "answer", "task": "Скажите, что у вас забронирован столик, или просто попросите столик.", "branches": [{"phrase": "ph:restaurant.ho-prenotazione", "next": "ressay"}, {"phrase": "ph:restaurant.tavolo", "next": "tablesay"}], "wrong": {"es": "Un letto? Questo non è un albergo.", "ru": "Кровать? Здесь не гостиница."}},
         "ressay": {"kind": "say", "es": "Benissimo, ecco la tua prenotazione. Siediti.", "ru": "Отлично, вот твоя бронь. Садись.", "next": "menu"},
         "tablesay": {"kind": "say", "es": "C'è un tavolo vicino alla finestra. Siediti.", "ru": "Есть столик у окна. Садись.", "next": "menu"},
@@ -19,7 +19,7 @@
         "fork": {"kind": "answer", "task": "Попросите вилку для салата.", "branches": [{"phrase": "ph:restaurant.forchetta", "next": "forksay"}], "wrong": {"es": "Un coltello per la zuppa? No, amico, no!", "ru": "Нож для супа? Нет, друг, нет!"}},
         "forksay": {"kind": "say", "es": "Prendi. Allora, com'è?", "ru": "Держи. Ну как?", "next": "tasty"},
         "tasty": {"kind": "answer", "task": "Скажите, что очень вкусно.", "branches": [{"phrase": "ph:restaurant.molto-buono", "next": "tastysay"}], "wrong": {"es": "È freddo? La mia zuppa, fredda?! Ma che dici?!", "ru": "Холодно? Мой суп — холодный?! Да что ты говоришь?!"}},
-        "tastysay": {"kind": "say", "es": "Che bello! Mangia, mangia! Vuoi anche il dolce?", "ru": "Как хорошо! Ешь, ешь! Десерт тоже будешь?", "next": "dessert"},
+        "tastysay": {"kind": "say", "es": "Che bello! Mangia, mangia! Vuoi anche il dolce?", "ru": "Вот и славно! Ешь, ешь! Десерт тоже будешь?", "next": "dessert"},
         "dessert": {"kind": "answer", "task": "Спросите, что есть на десерт.", "branches": [{"phrase": "ph:restaurant.cosa-c-dolce", "next": "end"}], "wrong": {"es": "Ancora zuppa? Va bene, se vuoi... e dopo, il dolce.", "ru": "Ещё супа? Ну, если хочешь... а потом десерт."}},
         "end": {"kind": "say", "es": "Oggi c'è la torta di mele. E per te, qualcosa di più: il pezzo della mappa di mia madre. Il viaggiatore di prima non parlava italiano. Tu sì.", "ru": "Сегодня яблочный пирог. И для тебя кое-что ещё: обрывок карты моей мамы. Прежний путешественник не говорил по-итальянски. А ты говоришь."}
       }
@@ -33,7 +33,7 @@
       "nodes": {
         "hi": {"kind": "say", "es": "Entra! Oggi cucino per i viaggiatori della montagna. Cosa vuoi?", "ru": "Заходи! Сегодня готовлю для тех, кто идёт в горы. Что будешь?", "next": "first"},
         "first": {"kind": "answer", "task": "Спросите, что есть на первое, или что есть из закусок.", "branches": [{"phrase": "ph:restaurant.cosa-c-primo", "next": "firstsay"}, {"phrase": "ph:restaurant.cosa-avete-come", "next": "firstsay"}], "wrong": {"es": "Cosa c'è di dolce? Prima si mangia!", "ru": "Что на десерт? Сначала едят основное!"}},
-        "firstsay": {"kind": "say", "es": "Zuppa di montagna o spaghetti della casa.", "ru": "Горный суп или наши спагетти.", "next": "croq"},
+        "firstsay": {"kind": "say", "es": "Zuppa di montagna o spaghetti della casa.", "ru": "Горный суп или фирменные спагетти.", "next": "croq"},
         "croq": {"kind": "answer", "task": "Попросите порцию спагетти.", "branches": [{"phrase": "ph:restaurant.porzione-spaghetti", "next": "croqsay"}], "wrong": {"es": "Una porzione di pietre? I miei spaghetti non sono pietre!", "ru": "Порцию камней? Мои спагетти — не камни!"}},
         "croqsay": {"kind": "say", "es": "Una porzione. E da bere?", "ru": "Одна порция. А пить?", "next": "water"},
         "water": {"kind": "answer", "task": "Попросите графин воды.", "branches": [{"phrase": "ph:restaurant.caraffa-acqua", "next": "watersay"}], "wrong": {"es": "Una caraffa di zuppa? La zuppa va nel piatto.", "ru": "Графин супа? Суп подают в тарелке."}},

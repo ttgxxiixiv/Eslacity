@@ -9,8 +9,8 @@
         {"who": "npc", "es": "Ciao! Cosa prendi?", "ru": "Привет! Что будешь?"},
         {"who": "hero", "es": "Un caffè, per favore. E un bicchiere d'acqua.", "ru": "Кофе, пожалуйста. И стакан воды."},
         {"who": "npc", "es": "Vuoi lo zucchero?", "ru": "Сахар хочешь?"},
-        {"who": "hero", "es": "No, grazie. Avete dei cornetti?", "ru": "Нет, спасибо. У вас есть круассаны?"},
-        {"who": "npc", "es": "Sì, e oggi c'è anche una torta molto buona.", "ru": "Да, а сегодня есть ещё очень вкусный торт."},
+        {"who": "hero", "es": "No, grazie. Avete dei cornetti?", "ru": "Нет, спасибо. А круассаны есть?"},
+        {"who": "npc", "es": "Sì, e oggi c'è anche una torta molto buona.", "ru": "Есть, а ещё сегодня очень вкусный торт."},
         {"who": "hero", "es": "Allora prendo un cornetto e la torta.", "ru": "Тогда возьму круассан и торт."},
         {"who": "npc", "es": "Bene. Ecco a te. Sono cinque euro.", "ru": "Хорошо. Вот, держи. С тебя пять евро."},
         {"who": "hero", "es": "Posso pagare in terrazza?", "ru": "Можно заплатить на террасе?"},
@@ -38,7 +38,7 @@
         {"who": "npc", "es": "Mi ha detto che andava alla torre del passo. Lì vive il secondo guardiano.", "ru": "Сказал, что идёт к башне на перевале. Там живёт второй страж."},
         {"who": "hero", "es": "C'è un secondo guardiano?", "ru": "Есть и второй страж?"},
         {"who": "npc", "es": "Ogni terra ha il suo guardiano. E in montagna ci sono nebbia e tempeste.", "ru": "У каждой земли свой страж. А в горах туман и грозы."},
-        {"who": "hero", "es": "Se vedo Tommaso, gli dico di scriverti.", "ru": "Если увижу Томмазо, скажу ему, чтобы написал тебе."},
+        {"who": "hero", "es": "Se vedo Tommaso, gli dico di scriverti.", "ru": "Если увижу Томмазо, скажу, чтобы он тебе написал."},
         {"who": "npc", "es": "Grazie. Prendi, una cioccolata calda. Per il freddo.", "ru": "Спасибо. Держи горячий шоколад. От холода."}
       ],
       "questions": [
@@ -64,7 +64,7 @@
         {"who": "hero", "es": "In una città che non esiste?", "ru": "В городе, которого нет?"},
         {"who": "npc", "es": "Così dice. E mi ha dato un consiglio per te: «Nel deserto, non credere a quello che vedi. Credi a quello che senti».", "ru": "Так он говорит. И передал тебе совет: «В пустыне не верь тому, что видишь. Верь тому, что слышишь»."},
         {"who": "hero", "es": "E Tommaso? Come sta?", "ru": "А Томмазо? Как он?"},
-        {"who": "npc", "es": "Meglio. Vuole venire con te nel deserto, ma con il piede rotto non può. È molto arrabbiato.", "ru": "Лучше. Хочет идти с тобой в пустыню, но со сломанной стопой не может. Очень злится."}
+        {"who": "npc", "es": "Meglio. Vuole venire con te nel deserto, ma con il piede rotto non può. È molto arrabbiato.", "ru": "Лучше. Хочет идти с тобой в пустыню, но со сломанной ногой не может. Очень злится."}
       ],
       "questions": [
         {"q": "Кто пил кофе у Джулии утром?", "options": ["Андреа", "Томмазо", "Летописец"], "answer": 0},
@@ -84,10 +84,10 @@
         {"who": "enzo", "es": "Starà lavorando da remoto. Anche mio cugino lavora così, dice che a casa non si concentra.", "ru": "Наверное, работает удалённо. Мой двоюродный брат тоже так работает, говорит, что дома не может сосредоточиться."},
         {"who": "npc", "es": "Sì, ma il bar è gremito e la gente aspetta in piedi. Non è un ufficio.", "ru": "Да, но бар битком, и люди ждут стоя. Здесь не офис."},
         {"who": "enzo", "es": "Dai, non disturba nessuno. È un cliente fedele, viene tutti i giorni.", "ru": "Да ладно, он никому не мешает. Постоянный клиент, приходит каждый день."},
-        {"who": "npc", "es": "Fedele alla mia presa, vorrai dire. Carica tutto qui: il telefono, il computer...", "ru": "Верен моей розетке, ты хотел сказать. Всё тут заряжает: телефон, компьютер..."},
+        {"who": "npc", "es": "Fedele alla mia presa, vorrai dire. Carica tutto qui: il telefono, il computer...", "ru": "Постоянный клиент моей розетки, ты хотел сказать. Всё тут заряжает: телефон, компьютер..."},
         {"who": "enzo", "es": "Va bene, va bene. Metti un cartello: «Un'ora per ogni caffè». Vediamo se capisce.", "ru": "Ладно, ладно. Повесь объявление: «Час на один кофе». Посмотрим, дойдёт ли до него."},
-        {"who": "npc", "es": "E passare per l'antipatica del quartiere? No, preferisco avere pazienza.", "ru": "И прослыть самой неприветливой в районе? Нет, лучше потерплю."},
-        {"who": "enzo", "es": "Allora non lamentarti tanto. Fammi un altro caffè, che io invece me ne vado.", "ru": "Тогда не жалуйся так. Сделай мне ещё кофе, я-то как раз ухожу."}
+        {"who": "npc", "es": "E passare per l'antipatica del quartiere? No, preferisco avere pazienza.", "ru": "И прослыть злюкой на весь район? Нет, лучше потерплю."},
+        {"who": "enzo", "es": "Allora non lamentarti tanto. Fammi un altro caffè, che io invece me ne vado.", "ru": "Тогда не жалуйся. Сделай мне ещё кофе — я-то как раз ухожу."}
       ],
       "questions": [
         {"q": "Почему Джулия недовольна парнем у окна?", "kind": "stance", "options": ["Он часами сидит с одним кофе, а в зале нет мест", "Он громко говорит по телефону", "Он не заплатил за кофе"], "answer": 0},
@@ -127,13 +127,13 @@
       "chapter": 5,
       "npc": "giulia",
       "lines": [
-        {"who": "npc", "es": "Che bello che sei qui! Guarda questa lettera di Tommaso. È dall'altra parte del bosco, con Ivo.", "ru": "Как хорошо, что ты здесь! Посмотри на это письмо от Томмазо. Он по ту сторону леса, с Иво."},
+        {"who": "npc", "es": "Che bello che sei qui! Guarda questa lettera di Tommaso. È dall'altra parte del bosco, con Ivo.", "ru": "Как хорошо, что ты здесь! Вот, посмотри: письмо от Томмазо. Он по ту сторону леса, с Иво."},
         {"who": "hero", "es": "Cosa dice?", "ru": "Что там?"},
-        {"who": "npc", "es": "«Gentile signora, Le comunico che sto bene». Gentile signora? Sono sua sorella!", "ru": "«Уважаемая сеньора, сообщаю вам, что у меня всё хорошо». Уважаемая сеньора? Я его сестра!"},
+        {"who": "npc", "es": "«Gentile signora, Le comunico che sto bene». Gentile signora? Sono sua sorella!", "ru": "«Уважаемая синьора, сообщаю вам, что у меня всё хорошо». Уважаемая синьора? Я его сестра!"},
         {"who": "hero", "es": "Che strano. Tommaso non scrive mai così.", "ru": "Странно. Томмазо никогда так не пишет."},
-        {"who": "npc", "es": "E c'è un biglietto di Ivo: dietro il bosco comincia il Labirinto dell'Eco.", "ru": "И есть записка от Иво: за лесом начинается Лабиринт Эха."},
+        {"who": "npc", "es": "E c'è un biglietto di Ivo: dietro il bosco comincia il Labirinto dell'Eco.", "ru": "А ещё там записка от Иво: за лесом начинается Лабиринт Эха."},
         {"who": "hero", "es": "Un labirinto?", "ru": "Лабиринт?"},
-        {"who": "npc", "es": "Sì. Lì ogni parola torna con un'altra voce. Una parola gentile suona fredda, e una educata suona maleducata.", "ru": "Да. Там каждое слово возвращается другим голосом. Доброе слово звучит холодно, а вежливое — грубо."},
+        {"who": "npc", "es": "Sì. Lì ogni parola torna con un'altra voce. Una parola gentile suona fredda, e una educata suona maleducata.", "ru": "Да. Там каждое слово возвращается другим голосом. Ласковое слово звучит холодно, вежливое — грубо."},
         {"who": "hero", "es": "Allora la lettera è passata per il Labirinto.", "ru": "Значит, письмо прошло через Лабиринт."},
         {"who": "npc", "es": "Così dice Ivo. E l'eco arriva già in città: oggi un cliente mi ha dato del Lei, come un poliziotto.", "ru": "Так пишет Иво. И эхо уже доходит до города: сегодня один клиент говорил со мной на вы, как полицейский."},
         {"who": "hero", "es": "Non è colpa tua, è l'eco.", "ru": "Ты не виновата, это эхо."},

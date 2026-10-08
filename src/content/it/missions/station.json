@@ -8,7 +8,7 @@
       "scene": "sc:station.1",
       "start": "hi",
       "nodes": {
-        "hi": {"kind": "say", "es": "Tu qui? Il treno delle dieci parte tra cinque minuti. Cosa vuoi?", "ru": "Ты здесь? Поезд в десять отправляется через пять минут. Что тебе?", "next": "office"},
+        "hi": {"kind": "say", "es": "Tu qui? Il treno delle dieci parte tra cinque minuti. Cosa vuoi?", "ru": "О, это ты? Поезд в десять отправляется через пять минут. Что тебе?", "next": "office"},
         "office": {"kind": "answer", "task": "Спросите, где касса.", "branches": [{"phrase": "ph:station.dov-biglietteria", "next": "officesay"}], "wrong": {"es": "La spiaggia? Questa è una stazione!", "ru": "Пляж? Это вокзал!"}},
         "officesay": {"kind": "say", "es": "Là, a destra. Presto.", "ru": "Вон там, справа. Быстрее.", "next": "ticket"},
         "ticket": {"kind": "answer", "task": "Попросите билет туда и обратно.", "branches": [{"phrase": "ph:station.biglietto-andata-ritorno", "next": "ticsay"}], "wrong": {"es": "Un biglietto per la luna? Non c'è nell'orario.", "ru": "Билет на Луну? Такого нет в расписании."}},
@@ -35,13 +35,13 @@
         "locker": {"kind": "answer", "task": "Спросите, где камера хранения.", "branches": [{"phrase": "ph:station.dov-deposito-bagagli", "next": "lockersay"}], "wrong": {"es": "Dov'è la spiaggia? Questa è una stazione!", "ru": "Где пляж? Это вокзал!"}},
         "lockersay": {"kind": "say", "es": "Là. La tua valigia resta qui. E come vai in montagna?", "ru": "Вон там. Чемодан останется здесь. А как ты доберёшься до гор?", "next": "taxi"},
         "taxi": {"kind": "answer", "task": "Спросите, есть ли у вокзала такси.", "branches": [{"phrase": "ph:station.ci-sono-taxi", "next": "taxisay"}], "wrong": {"es": "Ci sono cavalli alla stazione? Cento anni fa, sì!", "ru": "У вокзала есть лошади? Сто лет назад — были!"}},
-        "taxisay": {"kind": "say", "es": "Ci sono, fuori. Ma l'autobus costa meno.", "ru": "Есть, снаружи. Но автобус дешевле.", "next": "stop"},
+        "taxisay": {"kind": "say", "es": "Ci sono, fuori. Ma l'autobus costa meno.", "ru": "Есть, у входа. Но автобус дешевле.", "next": "stop"},
         "stop": {"kind": "answer", "task": "Спросите, на какой остановке вам выходить.", "branches": [{"phrase": "ph:station.quale-fermata-devo", "next": "stopsay"}], "wrong": {"es": "A quale fermata abito io? Alla stazione, naturalmente!", "ru": "На какой остановке живу я? На вокзале, конечно!"}},
         "stopsay": {"kind": "say", "es": "Alla fermata «Montagna». È l'ultima. E per tornare?", "ru": "На остановке «Горы». Она конечная. А чтобы вернуться?", "next": "back"},
         "back": {"kind": "answer", "task": "Скажите, что хотите купить билет на завтра.", "branches": [{"phrase": "ph:station.vorrei-fare-biglietto", "next": "backsay"}], "wrong": {"es": "Un biglietto per il treno delle sette? Quel treno non parte più.", "ru": "Билет на поезд в семь? Этот поезд больше не ходит."}},
         "backsay": {"kind": "say", "es": "Per domani, alle dieci. E adesso?", "ru": "На завтра, на десять. А сейчас?", "next": "wait"},
         "wait": {"kind": "answer", "task": "Скажите, что подождёте в зале ожидания.", "branches": [{"phrase": "ph:station.aspetto-sala-attesa", "next": "end"}], "wrong": {"es": "Aspetti sul treno? Il treno non è un albergo.", "ru": "Подождёшь в поезде? Поезд — не гостиница."}},
-        "end": {"kind": "say", "es": "Bene. L'autobus parte tra dieci minuti. Prendi il mio pezzo della mappa della montagna. E questo: il vecchio biglietto del treno delle sette. Dallo all'uomo con il mantello. Arriva con cento anni di ritardo, ma è suo.", "ru": "Хорошо. Автобус через десять минут. Держи мой обрывок карты гор. И вот ещё: старый билет на поезд в семь. Отдай его человеку в плаще. Опоздал на сто лет, но это его билет."}
+        "end": {"kind": "say", "es": "Bene. L'autobus parte tra dieci minuti. Prendi il mio pezzo della mappa della montagna. E questo: il vecchio biglietto del treno delle sette. Dallo all'uomo con il mantello. Arriva con cento anni di ritardo, ma è suo.", "ru": "Хорошо. Автобус через десять минут. Держи мой обрывок карты гор. И вот ещё: старый билет на поезд в семь. Отдай его человеку в плаще. Он опоздал на сто лет, но билет его."}
       }
     },
     {
@@ -51,7 +51,7 @@
       "scene": "sc:station.3",
       "start": "hi",
       "nodes": {
-        "hi": {"kind": "say", "es": "Oggi c'è tanto lavoro in stazione. Cosa ti succede?", "ru": "Сегодня на вокзале много работы. Что у тебя?", "next": "strike"},
+        "hi": {"kind": "say", "es": "Oggi c'è tanto lavoro in stazione. Cosa ti succede?", "ru": "Сегодня на вокзале много работы. У тебя что-то случилось?", "next": "strike"},
         "strike": {"kind": "answer", "task": "Спросите, нет ли сегодня забастовки на железной дороге.", "branches": [{"phrase": "ph:station.c-sciopero-treni", "next": "strikesay"}], "wrong": {"es": "C'è il gelato oggi? Questa è una stazione.", "ru": "Сегодня есть мороженое? Это вокзал."}},
         "strikesay": {"kind": "say", "es": "Sciopero, no. Ma ci sono problemi. Quale treno hai?", "ru": "Забастовки нет. Но есть проблемы. Какой у тебя поезд?", "next": "supp"},
         "supp": {"kind": "answer", "task": "Скажите, что ваш поезд отменили.", "branches": [{"phrase": "ph:station.mio-treno-soppresso", "next": "suppsay"}], "wrong": {"es": "Il mio treno è innamorato? I treni non si innamorano!", "ru": "Мой поезд влюблён? Поезда не влюбляются!"}},
@@ -76,9 +76,9 @@
         "altsay": {"kind": "say", "es": "C'è un autobus alle quattro. Vuoi viaggiare seduto?", "ru": "Есть автобус в четыре. Хочешь ехать сидя?", "next": "seat"},
         "seat": {"kind": "answer", "task": "Скажите, что хотите забронировать место.", "branches": [{"phrase": "ph:station.prenotazione-posto", "next": "seatsay"}], "wrong": {"es": "La prenotazione per il corvo? Lui vola.", "ru": "Бронь для ворона? Он летает."}},
         "seatsay": {"kind": "say", "es": "Prenotato, finestrino. ...Non ce la faccio più. Lascio il lavoro. Se tutti pensano che io sia un bugiardo, me ne vado.", "ru": "Забронировано, у окна. ...Я больше не могу. Уйду с работы. Раз все думают, что я лжец, уйду.", "next": "dispute"},
-        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:station.non-andare-via-voce", "next": "object", "move": "object"}, {"phrase": "ph:station.capisco-stanco", "next": "concede", "move": "concede"}, {"phrase": "ph:station.dimostri-dove-eri", "next": "compromise", "move": "compromise"}], "wrong": {"es": "Come? Passa un treno e non ti sento.", "ru": "Как? Поезд проходит, я тебя не слышу."}},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:station.non-andare-via-voce", "next": "object", "move": "object"}, {"phrase": "ph:station.capisco-stanco", "next": "concede", "move": "concede"}, {"phrase": "ph:station.dimostri-dove-eri", "next": "compromise", "move": "compromise"}], "wrong": {"es": "Come? Passa un treno e non ti sento.", "ru": "Что? Поезд идёт, я тебя не слышу."}},
         "object": {"kind": "say", "es": "Per una voce? ...Hai ragione. Se me ne vado, vince la voce. Resto.", "ru": "Из-за слуха? ...Ты прав. Если уйду, победит слух. Остаюсь.", "fem": {"ru": "Из-за слуха? ...Ты права. Если уйду, победит слух. Остаюсь."}, "next": "trip"},
-        "concede": {"kind": "say", "es": "Stanco, sì. Trent'anni di treni, e mi pagano con i pettegolezzi.", "ru": "Устал, да. Тридцать лет поездов, а мне платят сплетнями.", "next": "trip"},
+        "concede": {"kind": "say", "es": "Stanco, sì. Trent'anni di treni, e mi pagano con i pettegolezzi.", "ru": "Устал, да. Тридцать лет на железной дороге, а в благодарность — сплетни.", "next": "trip"},
         "compromise": {"kind": "say", "es": "Dimostrarlo? Mia moglie e il vicino di sotto... Sì, così il quartiere sa la verità.", "ru": "Доказать? Жена и сосед снизу... Да, и тогда район узнает правду.", "next": "trip"},
         "trip": {"kind": "say", "es": "Allora, cos'altro ti serve sapere per il viaggio?", "ru": "Ладно, что ещё тебе нужно знать про поездку?", "next": "punctual"},
         "punctual": {"kind": "answer", "task": "Спросите, ходит ли поезд без опозданий.", "branches": [{"phrase": "ph:station.treno-puntuale", "next": "punctualsay"}], "wrong": {"es": "Il corvo è puntuale? Più del treno.", "ru": "Ворон пунктуален? Больше, чем поезд."}},
@@ -96,14 +96,14 @@
       "scene": "sc:station.5",
       "start": "hi",
       "nodes": {
-        "hi": {"kind": "say", "es": "L'ispettore arriva a mezzogiorno in punto. Intanto, vai da qualche parte?", "ru": "Инспектор приходит ровно в двенадцать. А пока — ты куда-то едешь?", "next": "ticket"},
+        "hi": {"kind": "say", "es": "L'ispettore arriva a mezzogiorno in punto. Intanto, vai da qualche parte?", "ru": "Инспектор придёт ровно в двенадцать. А пока — ты куда-то едешь?", "next": "ticket"},
         "ticket": {"kind": "answer", "task": "Скажите, что хотите купить билет на завтра.", "branches": [{"phrase": "ph:station.vorrei-fare-biglietto", "next": "ticketsay"}], "wrong": {"es": "Un biglietto per l'eco? Lui viaggia gratis.", "ru": "Билет для эха? Оно ездит бесплатно."}},
         "ticketsay": {"kind": "say", "es": "Te lo faccio subito. Guarda, arriva l'ispettore. Chiediglielo tu.", "ru": "Сейчас оформлю. Смотри, вон идёт инспектор. Спроси его ты.", "next": "ask"},
         "ask": {"kind": "answer", "task": "Спросите инспектора, можно ли пустить специальный поезд к лесу. Официально.", "register": "formal", "branches": [{"phrase": "ph:station.sarebbe-possibile-treno", "next": "asksay"}, {"phrase": "ph:station.ci-metti-treno", "next": "asksay"}], "wrong": {"es": "Cosa? L'ispettore guarda l'orologio e non risponde.", "ru": "Что? Инспектор смотрит на часы и не отвечает."}, "tone": {"es": "«Senti, ci metti»? L'ispettore ha fatto una smorfia. Con lui, del lei e con rispetto.", "ru": "«Слушай, пустишь»? Инспектор поморщился. С ним на вы и уважительно."}},
         "asksay": {"kind": "say", "es": "Ha detto di sì! Un treno, un solo viaggio. Ma io preferisco che andiamo solo noi due.", "ru": "Он согласился! Один поезд, один рейс. Но я бы хотел, чтобы поехали только мы двое.", "next": "dispute"},
         "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:station.treno-per-tutti", "next": "object", "move": "object"}, {"phrase": "ph:station.meglio-solo-noi", "next": "concede", "move": "concede"}, {"phrase": "ph:station.vengono-chi-vuole", "next": "compromise", "move": "compromise"}], "wrong": {"es": "Cosa? Parlo di chi sale sul treno.", "ru": "Что? Я о том, кто сядет в поезд."}},
         "object": {"kind": "say", "es": "Hai ragione. Il banditore è andato via per colpa di tutti; che vadano tutti a rispondergli.", "ru": "Ты прав. Глашатай ушёл из-за всех, пусть все и едут ему отвечать.", "fem": {"ru": "Ты права. Глашатай ушёл из-за всех, пусть все и едут ему отвечать."}, "next": "punctual"},
-        "concede": {"kind": "say", "es": "Così mi piace. Due passeggeri, puntuali e senza rumore.", "ru": "Вот это мне нравится. Два пассажира, вовремя и без шума.", "next": "punctual"},
+        "concede": {"kind": "say", "es": "Così mi piace. Due passeggeri, puntuali e senza rumore.", "ru": "Вот это по-нашему. Два пассажира, вовремя и без шума.", "next": "punctual"},
         "compromise": {"kind": "say", "es": "Buona idea. Metto una lista sulla porta: «Solo per chi vuole rispondere».", "ru": "Хорошая идея. Повешу на дверь список: «Только для тех, кто хочет ответить».", "next": "punctual"},
         "punctual": {"kind": "answer", "task": "Спросите, приходит ли поезд вовремя.", "branches": [{"phrase": "ph:station.treno-puntuale", "next": "punctualsay"}], "wrong": {"es": "L'eco è puntuale? Arriva sempre in ritardo.", "ru": "Эхо приходит вовремя? Оно всегда опаздывает."}},
         "punctualsay": {"kind": "say", "es": "Nella mia stazione, sempre. Parte alle sette di mattina.", "ru": "На моей станции — всегда. Отправление в семь утра.", "next": "change"},

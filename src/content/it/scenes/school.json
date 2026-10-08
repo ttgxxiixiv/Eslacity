@@ -16,7 +16,7 @@
         {"who": "hero", "es": "Passa? Dove?", "ru": "Пройдёт? Куда?"},
         {"who": "npc", "es": "Al Caveau. Alla porta, qualcuno fa domande. Passa solo chi sa rispondere.", "ru": "В Хранилище. У двери кто-то задаёт вопросы. Пройдёт только тот, кто сумеет ответить."},
         {"who": "hero", "es": "Allora devo studiare molto.", "ru": "Значит, мне нужно много учиться."},
-        {"who": "npc", "es": "Per questo sei qui. Cominciamo!", "ru": "Поэтому ты здесь. Начинаем!"}
+        {"who": "npc", "es": "Per questo sei qui. Cominciamo!", "ru": "Для этого ты и здесь. Начинаем!"}
       ],
       "questions": [
         {"q": "С чем герой пришёл на урок?", "options": ["С вопросом", "С экзаменом", "С новой тетрадью"], "answer": 0},
@@ -31,15 +31,15 @@
       "chapter": 2,
       "npc": "anna",
       "lines": [
-        {"who": "npc", "es": "Ho la lettera di Tommaso. Sua sorella me l'ha data ieri.", "ru": "У меня письмо Томмазо. Его сестра вчера мне его дала."},
+        {"who": "npc", "es": "Ho la lettera di Tommaso. Sua sorella me l'ha data ieri.", "ru": "У меня письмо Томмазо. Вчера мне его дала его сестра."},
         {"who": "hero", "es": "Cosa dice la lettera?", "ru": "Что в письме?"},
         {"who": "npc", "es": "Ascolta: «Sono arrivato nella nebbia. La nebbia parla. Io rispondo al passato».", "ru": "Слушай: «Я дошёл до тумана. Туман говорит. Я отвечаю в прошедшем времени»."},
         {"who": "hero", "es": "La nebbia parla?", "ru": "Туман говорит?"},
         {"who": "npc", "es": "Credo che sia la voce del guardiano. Chiede cosa hai fatto, e tu rispondi al passato.", "ru": "Думаю, это голос стража. Он спрашивает, что ты сделал, а ты отвечаешь в прошедшем времени.", "fem": {"ru": "Думаю, это голос стража. Он спрашивает, что ты сделала, а ты отвечаешь в прошедшем времени."}},
         {"who": "hero", "es": "Come diceva la mia vicina.", "ru": "Как говорила моя соседка."},
-        {"who": "npc", "es": "Sì, come lei. E guarda sotto: la lettera cambia.", "ru": "Да, как она. И посмотри внизу: письмо меняется."},
+        {"who": "npc", "es": "Sì, come lei. E guarda sotto: la lettera cambia.", "ru": "Да, как она. А посмотри ниже: дальше письмо другое."},
         {"who": "hero", "es": "Cosa succede sotto?", "ru": "А что внизу?"},
-        {"who": "npc", "es": "Qui ha scritto un uomo diverso. Dice solo: «Sta bene. Aspetta».", "ru": "Здесь писал другой человек. Там только: «С ним всё хорошо. Жди»."},
+        {"who": "npc", "es": "Qui ha scritto un uomo diverso. Dice solo: «Sta bene. Aspetta».", "ru": "Здесь писал уже другой человек. Всего несколько слов: «С ним всё хорошо. Жди»."},
         {"who": "hero", "es": "Chi?", "ru": "Кто?"},
         {"who": "npc", "es": "Non lo so. Per questo oggi studiamo il passato. Cominciamo!", "ru": "Не знаю. Поэтому сегодня учим прошедшее время. Начинаем!"}
       ],
@@ -56,11 +56,11 @@
       "chapter": 3,
       "npc": "anna",
       "lines": [
-        {"who": "npc", "es": "Ho un nuovo studente molto strano.", "ru": "У меня новый очень странный ученик."},
+        {"who": "npc", "es": "Ho un nuovo studente molto strano.", "ru": "У меня новый ученик, очень странный."},
         {"who": "hero", "es": "Chi?", "ru": "Кто?"},
-        {"who": "npc", "es": "L'uomo con il cammello. Si è iscritto alla mia classe una settimana fa.", "ru": "Человек с верблюдом. Записался в мой класс на прошлой неделе."},
+        {"who": "npc", "es": "L'uomo con il cammello. Si è iscritto alla mia classe una settimana fa.", "ru": "Человек с верблюдом. Записался ко мне на занятия на прошлой неделе."},
         {"who": "hero", "es": "Cosa vuole imparare?", "ru": "Чему он хочет научиться?"},
-        {"who": "npc", "es": "Solo a parlare con il «se». «Se fossi ricco...», «se avessi la mappa...».", "ru": "Только говорить с «если». «Если бы я был богат...», «если бы у меня была карта...»."},
+        {"who": "npc", "es": "Solo a parlare con il «se». «Se fossi ricco...», «se avessi la mappa...».", "ru": "Только одному: фразам с «если». «Если бы я был богат...», «если бы у меня была карта...»."},
         {"who": "hero", "es": "Vuole entrare nella città bianca.", "ru": "Он хочет попасть в белый город."},
         {"who": "npc", "es": "Lo credo anch'io. Nella città della guardiana non si può mentire. Per questo studia.", "ru": "Я тоже так думаю. В городе стражницы нельзя лгать. Поэтому он учится."},
         {"who": "hero", "es": "E impara bene?", "ru": "И хорошо учится?"},
@@ -83,7 +83,7 @@
       "npc": "anna",
       "lines": [
         {"who": "ferri", "es": "Scusi, perché mio figlio ha preso due nel tema? Dice che ci ha lavorato per ore.", "ru": "Простите, почему мой сын получил двойку за сочинение? Он говорит, что работал над ним несколько часов."},
-        {"who": "npc", "es": "Per ore, può darsi. Ma il testo è identico a uno di internet. È plagio.", "ru": "Несколько часов — может быть. Но текст точно такой же, как один из интернета. Это плагиат."},
+        {"who": "npc", "es": "Per ore, può darsi. Ma il testo è identico a uno di internet. È plagio.", "ru": "Несколько часов — может быть. Но текст слово в слово совпадает с текстом из интернета. Это плагиат."},
         {"who": "ferri", "es": "Sicuramente ha solo cercato delle idee. Lo fanno tutti i ragazzi.", "ru": "Наверняка он просто искал идеи. Все ребята так делают."},
         {"who": "npc", "es": "Cercare idee va bene. Copiare anche gli errori di ortografia dell'originale, un po' meno.", "ru": "Искать идеи — нормально. Списывать вместе с орфографическими ошибками оригинала — не очень."},
         {"who": "ferri", "es": "Anche gli errori?", "ru": "Даже ошибки?"},
@@ -105,13 +105,13 @@
       "chapter": 4,
       "npc": "anna",
       "lines": [
-        {"who": "npc", "es": "Oggi i miei alunni non mi parlano. Sono molto arrabbiati con me.", "ru": "Сегодня ученики со мной не разговаривают. Они на меня очень злы."},
+        {"who": "npc", "es": "Oggi i miei alunni non mi parlano. Sono molto arrabbiati con me.", "ru": "Сегодня ученики со мной не разговаривают. Они на меня очень обиделись."},
         {"who": "hero", "es": "Perché?", "ru": "Почему?"},
-        {"who": "npc", "es": "Stanotte, nel bosco, hanno sentito la mia voce: «Gli alunni di quest'anno sono i peggiori».", "ru": "Этой ночью в лесу они услышали мой голос: «Ученики этого года — худшие»."},
+        {"who": "npc", "es": "Stanotte, nel bosco, hanno sentito la mia voce: «Gli alunni di quest'anno sono i peggiori».", "ru": "Этой ночью в лесу они услышали мой голос: «Ученики в этом году — хуже некуда»."},
         {"who": "hero", "es": "L'hai detto tu?", "ru": "Ты это говорила?"},
         {"who": "npc", "es": "Mai! Io voglio bene ai miei alunni. Ma la voce era uguale alla mia.", "ru": "Никогда! Я люблю своих учеников. Но голос был точно как мой."},
         {"who": "hero", "es": "Nel negozio di vestiti e in farmacia è successo lo stesso.", "ru": "В магазине одежды и в аптеке было то же самое."},
-        {"who": "npc", "es": "Lo so. E un alunno dice di aver visto un uccello nero alla finestra della classe.", "ru": "Знаю. А один ученик говорит, что видел чёрную птицу на окне класса."},
+        {"who": "npc", "es": "Lo so. E un alunno dice di aver visto un uccello nero alla finestra della classe.", "ru": "Знаю. А один ученик говорит, что видел чёрную птицу на окне в классе."},
         {"who": "hero", "es": "Un uccello?", "ru": "Птицу?"},
         {"who": "npc", "es": "Un uccello che ripeteva: «Silenzio, per favore!». Come me, ogni mattina.", "ru": "Птицу, которая повторяла: «Тише, пожалуйста!». Как я, каждое утро."}
       ],
@@ -129,13 +129,13 @@
       "lines": [
         {"who": "npc", "es": "Arrivi giusto in tempo. I miei alunni preparano uno spettacolo sul banditore.", "ru": "Ты как раз вовремя. Мои ученики готовят спектакль про глашатая."},
         {"who": "hero", "es": "Conoscono già la storia?", "ru": "Они уже знают эту историю?"},
-        {"who": "npc", "es": "Gino è venuto a raccontarla. Adesso tutti vogliono sapere perché nessuno gli rispondeva.", "ru": "Джино приходил рассказать. Теперь все хотят знать, почему ему никто не отвечал."},
+        {"who": "npc", "es": "Gino è venuto a raccontarla. Adesso tutti vogliono sapere perché nessuno gli rispondeva.", "ru": "Джино приходил и рассказал. Теперь все хотят знать, почему ему никто не отвечал."},
         {"who": "hero", "es": "E tu cosa gli dici?", "ru": "А ты что им говоришь?"},
-        {"who": "npc", "es": "Che parlava a tutti allo stesso modo, come in un documento. Ai bambini, ai vecchi, al sindaco.", "ru": "Что он со всеми говорил одинаково, как в документе. С детьми, со стариками, с мэром."},
+        {"who": "npc", "es": "Che parlava a tutti allo stesso modo, come in un documento. Ai bambini, ai vecchi, al sindaco.", "ru": "Что он со всеми говорил одинаково, как по бумажке. С детьми, со стариками, с мэром."},
         {"who": "hero", "es": "E la gente non lo capiva.", "ru": "И люди его не понимали."},
-        {"who": "npc", "es": "Esatto. Con gli amici si parla in un modo, e con il sindaco in un altro. È quello che studiamo questa settimana.", "ru": "Вот именно. С друзьями говорят по-одному, а с мэром — по-другому. Этому мы учимся на этой неделе."},
+        {"who": "npc", "es": "Esatto. Con gli amici si parla in un modo, e con il sindaco in un altro. È quello che studiamo questa settimana.", "ru": "Вот именно. С друзьями говорят так, а с мэром — иначе. Этому мы учимся на этой неделе."},
         {"who": "hero", "es": "Chi fa il banditore?", "ru": "А кто играет глашатая?"},
-        {"who": "npc", "es": "Paolo, il più timido. Ha paura di parlare davanti a tutti.", "ru": "Паоло, самый застенчивый. Он боится говорить перед всеми."},
+        {"who": "npc", "es": "Paolo, il più timido. Ha paura di parlare davanti a tutti.", "ru": "Паоло, самый застенчивый. Он боится выступать перед всеми."},
         {"who": "hero", "es": "Posso parlargli io.", "ru": "Я могу с ним поговорить."},
         {"who": "npc", "es": "Grazie. Ma ha dieci anni: parlagli come a un amico, non come a un giudice.", "ru": "Спасибо. Но ему десять лет: говори с ним как с другом, а не как с судьёй."}
       ],

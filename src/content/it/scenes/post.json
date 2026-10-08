@@ -8,13 +8,13 @@
       "lines": [
         {"who": "npc", "es": "C'è una lettera per te!", "ru": "У меня для тебя письмо!"},
         {"who": "hero", "es": "Per me? Di chi?", "ru": "Мне? От кого?"},
-        {"who": "npc", "es": "Non lo so. Non c'è scritto.", "ru": "Не знаю. Не написано."},
+        {"who": "npc", "es": "Non lo so. Non c'è scritto.", "ru": "Не знаю. Обратного адреса нет."},
         {"who": "hero", "es": "Tu conosci bene la città?", "ru": "Ты хорошо знаешь город?"},
         {"who": "npc", "es": "Conosco ogni casa e ogni strada. Porto le lettere in Vespa, molto veloce.", "ru": "Я знаю каждый дом и каждую улицу. Развожу письма на «Веспе», очень быстро."},
         {"who": "hero", "es": "Sai chi ha i pezzi della mappa?", "ru": "Ты знаешь, у кого обрывки карты?"},
         {"who": "npc", "es": "Ogni posto della città ne ha uno. Venti posti, venti pezzi.", "ru": "У каждого места в городе по одному. Двадцать мест — двадцать обрывков."},
         {"who": "hero", "es": "E tu ne hai uno?", "ru": "А у тебя есть?"},
-        {"who": "npc", "es": "Ho il pezzo della posta. Adesso devo andare: cento lettere oggi!", "ru": "У меня обрывок почты. А сейчас мне пора: сегодня сто писем!"},
+        {"who": "npc", "es": "Ho il pezzo della posta. Adesso devo andare: cento lettere oggi!", "ru": "У меня — почтовый. А сейчас мне пора: сегодня сто писем!"},
         {"who": "hero", "es": "E la lettera?", "ru": "А письмо?"},
         {"who": "npc", "es": "Aprila a casa! A domani!", "ru": "Открой дома! До завтра!"}
       ],
@@ -31,16 +31,16 @@
       "chapter": 2,
       "npc": "enzo",
       "lines": [
-        {"who": "npc", "es": "Viaggiatore! Presto! Hai un pacco. Viene dalla montagna.", "ru": "Путешественник! Быстрее! Тебе посылка. Она с гор."},
+        {"who": "npc", "es": "Viaggiatore! Presto! Hai un pacco. Viene dalla montagna.", "ru": "Путешественник! Быстрее! Тебе посылка. С гор."},
         {"who": "hero", "es": "Dalla montagna? Chi lo manda?", "ru": "С гор? Кто её прислал?"},
         {"who": "npc", "es": "Dice solo: «Dal tuo amico della torre».", "ru": "Там только: «От твоего друга из башни»."},
         {"who": "hero", "es": "Dalla torre? È Tommaso!", "ru": "Из башни? Это Томмазо!"},
-        {"who": "npc", "es": "Può essere. È fragile. Aprilo piano.", "ru": "Может быть. Она хрупкая. Открывай медленно."},
+        {"who": "npc", "es": "Può essere. È fragile. Aprilo piano.", "ru": "Может быть. Осторожно, хрупкое. Открывай медленно."},
         {"who": "hero", "es": "C'è una bussola. E un biglietto.", "ru": "Там компас. И записка."},
         {"who": "npc", "es": "Cosa dice il biglietto?", "ru": "Что в записке?"},
         {"who": "hero", "es": "Dice: «Segui la voce».", "ru": "Там написано: «Иди на голос»."},
         {"who": "npc", "es": "Tommaso è vivo! Vado a casa di sua sorella.", "ru": "Томмазо жив! Бегу к его сестре."},
-        {"who": "hero", "es": "Vai presto. Io resto qui.", "ru": "Беги быстрее. Я пока здесь."},
+        {"who": "hero", "es": "Vai presto. Io resto qui.", "ru": "Беги скорее. А я тут ещё поработаю."},
         {"who": "npc", "es": "Vado! Nessuno è più veloce di me.", "ru": "Бегу! Быстрее меня никого нет."}
       ],
       "questions": [
@@ -64,7 +64,7 @@
         {"who": "hero", "es": "Con il mio nome? Chi?", "ru": "На моё имя? Кто?"},
         {"who": "npc", "es": "La firma dice: «Il Mercante». E sul foglio c'è sabbia.", "ru": "Подпись: «Купец». И на бумаге песок."},
         {"who": "hero", "es": "L'uomo con il cammello.", "ru": "Человек с верблюдом."},
-        {"who": "npc", "es": "Nessuno ruba pacchi nel mio ufficio! Faccio un reclamo.", "ru": "Никто не крадёт посылки на моей почте! Я подам жалобу."},
+        {"who": "npc", "es": "Nessuno ruba pacchi nel mio ufficio! Faccio un reclamo.", "ru": "На моей почте посылки не крадут! Я подам жалобу."},
         {"who": "hero", "es": "Cosa c'era nel pacco?", "ru": "Что было в посылке?"},
         {"who": "npc", "es": "Tommaso dice che c'era il suo pezzo della mappa del deserto. Quello vero.", "ru": "Томмазо говорит, что там был его обрывок карты пустыни. Настоящий."}
       ],
@@ -88,8 +88,8 @@
         {"who": "npc", "es": "Il problema è il valore dichiarato. C'è scritto cinque euro, e su internet quel libro costa trecento.", "ru": "Проблема в объявленной ценности. Там написано пять евро, а в интернете эта книга стоит триста."},
         {"who": "aldo", "es": "Il mio amico voleva solo farmi pagare di meno, tutto qui.", "ru": "Мой друг просто хотел, чтобы я заплатил меньше, вот и всё."},
         {"who": "npc", "es": "Certo, e la dogana vuole farti pagare di più. Funziona così.", "ru": "Ну да, а таможня хочет, чтобы ты заплатил больше. Так это и работает."},
-        {"who": "aldo", "es": "Che burocrazia! Ai miei tempi un pacco arrivava senza tante domande.", "ru": "Ну и бюрократия! В мои времена посылка приходила без стольких вопросов."},
-        {"who": "npc", "es": "Ai tuoi tempi arrivava anche dopo tre mesi. Dai, ti aiuto con i documenti.", "ru": "В твои времена она и шла три месяца. Давай, помогу тебе с документами."}
+        {"who": "aldo", "es": "Che burocrazia! Ai miei tempi un pacco arrivava senza tante domande.", "ru": "Ну и бюрократия! В моё время посылки приходили без всяких вопросов."},
+        {"who": "npc", "es": "Ai tuoi tempi arrivava anche dopo tre mesi. Dai, ti aiuto con i documenti.", "ru": "В твоё время они и шли по три месяца. Давай, помогу тебе с документами."}
       ],
       "questions": [
         {"q": "Почему посылку Альдо задержали на таможне?", "kind": "stance", "options": ["В ней запрещённые вещи", "В декларации указана слишком низкая цена", "Адрес написан неразборчиво"], "answer": 1},
@@ -112,7 +112,7 @@
         {"who": "hero", "es": "È lui che parla con le voci dei vicini?", "ru": "Это он говорит голосами соседей?"},
         {"who": "npc", "es": "Credo di sì. Ma Nero ripete soltanto. Qualcuno gli insegna le frasi.", "ru": "Думаю, да. Но Неро только повторяет. Кто-то учит его этим фразам."},
         {"who": "hero", "es": "Chi?", "ru": "Кто?"},
-        {"who": "npc", "es": "Non lo so. Ogni sera torna con odore di tabacco da pipa.", "ru": "Не знаю. Каждый вечер он возвращается с запахом трубочного табака."}
+        {"who": "npc", "es": "Non lo so. Ogni sera torna con odore di tabacco da pipa.", "ru": "Не знаю. Каждый вечер он возвращается, и от него пахнет трубочным табаком."}
       ],
       "questions": [
         {"q": "Кто подражает голосам жителей?", "options": ["Сам Энцо", "Ворон Энцо", "Хранительница"], "answer": 1},

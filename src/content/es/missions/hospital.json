@@ -55,7 +55,7 @@
         "cont": {"kind": "answer", "task": "Спросите, заразно ли это.", "branches": [{"phrase": "ph:hospital.contagioso", "next": "contsay"}], "wrong": {"es": "¿Es de chocolate? No, es una fiebre.", "ru": "Это из шоколада? Нет, это температура."}},
         "contsay": {"kind": "say", "es": "No. Pero la tristeza, a veces, pasa de una persona a otra. ¿Tiene alguna enfermedad?", "ru": "Нет. А вот грусть иногда передаётся от человека к человеку. У вас есть какие-то болезни?", "next": "chron"},
         "chron": {"kind": "answer", "task": "Скажите, что у вас хроническое заболевание.", "branches": [{"phrase": "ph:hospital.tengo-enfermedad-cronica", "next": "chronsay"}], "wrong": {"es": "¿Tiene un perro crónico? ¡Qué dice!", "ru": "Хроническая собака? Что вы говорите!"}},
-        "chronsay": {"kind": "say", "es": "Lo sé, está en su historial. Tranquilo. Le pongo una inyección.", "ru": "Знаю, это есть в вашей карте. Спокойно. Сделаю вам укол.", "fem": {"es": "Lo sé, está en su historial. Tranquila. Le pongo una inyección."}, "next": "anest"},
+        "chronsay": {"kind": "say", "es": "Lo sé, está en su historial. Tranquilo. Le pongo una inyección.", "ru": "Знаю, это есть в вашей карте. Не волнуйтесь. Сделаю вам укол.", "fem": {"es": "Lo sé, está en su historial. Tranquila. Le pongo una inyección."}, "next": "anest"},
         "anest": {"kind": "answer", "task": "Спросите, сделают ли вам наркоз.", "branches": [{"phrase": "ph:hospital.van-poner-anestesia", "next": "anestsay"}], "wrong": {"es": "¿Me van a poner un sombrero? No, esto es un hospital.", "ru": "Мне наденут шляпу? Нет, это больница."}},
         "anestsay": {"kind": "say", "es": "¿Para una inyección? ¡No, hombre! Ya está. ¿Qué más necesita?", "ru": "Для укола? Да нет же! Готово. Что ещё вам нужно?", "next": "baja"},
         "baja": {"kind": "answer", "task": "Скажите, что вам нужен больничный для работы.", "branches": [{"phrase": "ph:hospital.necesito-baja-para", "next": "end"}], "wrong": {"es": "¿Necesita un billete para el tren de la luna? Eso, en la estación.", "ru": "Нужен билет на лунный поезд? Это на вокзале."}},
@@ -84,7 +84,7 @@
         "contag": {"kind": "answer", "task": "Спросите, заразно ли это.", "branches": [{"phrase": "ph:hospital.contagioso", "next": "contagsay"}], "wrong": {"es": "¿Es contagioso el cuervo? Solo sus palabras.", "ru": "Ворон заразен? Только его слова."}},
         "contagsay": {"kind": "say", "es": "El miedo, sí. Pero el valor también. ¿Y usted? Camina raro.", "ru": "Страх — да. Но и смелость тоже. А вы? Вы странно ходите.", "next": "foot"},
         "foot": {"kind": "answer", "task": "Скажите, что у вас болит нога.", "branches": [{"phrase": "ph:hospital.duele-pie", "next": "end"}], "wrong": {"es": "¿Le duele el bosque? Eso no lo curo yo.", "ru": "У вас болит лес? Это я не лечу."}},
-        "end": {"kind": "say", "es": "Tanto caminar por el barrio... Tome esta crema. Y esto: Andrés me dio este trozo del mapa del bosque para usted. Dice que esta noche irá a la reunión.", "ru": "Столько ходить по району... Возьмите этот крем. И вот ещё: Андрес дал мне для вас обрывок карты леса. Говорит, вечером придёт на собрание."}
+        "end": {"kind": "say", "es": "Tanto caminar por el barrio... Tome esta crema. Y esto: Andrés me dio este trozo del mapa del bosque para usted. Dice que esta noche irá a la reunión.", "ru": "Столько ходите по району... Возьмите этот крем. И вот ещё: Андрес дал мне для вас обрывок карты леса. Говорит, вечером придёт на собрание."}
       }
     },
     {

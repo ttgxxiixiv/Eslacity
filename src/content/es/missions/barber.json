@@ -8,7 +8,7 @@
       "scene": "sc:barber.1",
       "start": "hi",
       "nodes": {
-        "hi": {"kind": "say", "es": "¡Pasa! Hoy corto y canto en español. ¿Qué quieres?", "ru": "Заходи! Сегодня стригу и пою по-испански. Что хочешь?", "next": "cut"},
+        "hi": {"kind": "say", "es": "¡Pasa! Hoy corto y canto en español. ¿Qué quieres?", "ru": "Заходи! Сегодня стригу и пою по-испански. Что будем делать?", "next": "cut"},
         "cut": {"kind": "answer", "task": "Попросите только стрижку или волосы покороче.", "branches": [{"phrase": "ph:barber.solo-corte", "next": "cutsay"}, {"phrase": "ph:barber.quiero-pelo-mas", "next": "cutsay"}], "wrong": {"es": "¿Un sombrero? Aquí cortamos el pelo, no vendemos sombreros.", "ru": "Шляпу? Мы тут стрижём, а не продаём шляпы."}},
         "cutsay": {"kind": "say", "es": "Muy bien. ¿Algo más?", "ru": "Отлично. Что-нибудь ещё?", "next": "wash"},
         "wash": {"kind": "answer", "task": "Попросите помыть вам голову.", "branches": [{"phrase": "ph:barber.lava-pelo", "next": "washsay"}], "wrong": {"es": "¿Te lavo el coche? ¡Yo lavo pelo, no coches!", "ru": "Помыть тебе машину? Я мою головы, а не машины!"}},
@@ -52,11 +52,11 @@
         "frizz": {"kind": "answer", "task": "Скажите, что у вас сильно пушатся волосы.", "branches": [{"phrase": "ph:barber.tengo-pelo-muy", "next": "frizzsay"}], "wrong": {"es": "¿Tengo el pelo de camello? No, hombre, no tanto.", "ru": "У меня волосы как у верблюда? Нет, дружище, не настолько.", "fem": {"es": "¿Tengo el pelo de camello? No, mujer, no tanto.", "ru": "У меня волосы как у верблюда? Нет, подруга, не настолько."}}},
         "frizzsay": {"kind": "say", "es": "Es el viento del desierto. Primero, las puntas.", "ru": "Это ветер пустыни. Сначала кончики.", "next": "tips"},
         "tips": {"kind": "answer", "task": "Скажите, что хотите срезать секущиеся кончики.", "branches": [{"phrase": "ph:barber.quiero-sanear-puntas", "next": "tipsay"}], "wrong": {"es": "¿Quieres cortar la luna? ¡Eso no se puede!", "ru": "Хочешь подстричь луну? Так нельзя!"}},
-        "tipsay": {"kind": "say", "es": "Hecho. ¿Y lo quieres liso? Para la fiesta, queda bien.", "ru": "Готово. А выпрямить хочешь? Для праздника хорошо смотрится.", "next": "flat"},
+        "tipsay": {"kind": "say", "es": "Hecho. ¿Y lo quieres liso? Para la fiesta, queda bien.", "ru": "Готово. А выпрямить хочешь? На праздник — самое то.", "next": "flat"},
         "flat": {"kind": "answer", "task": "Спросите, сколько стоит выпрямление.", "branches": [{"phrase": "ph:barber.cuanto-cuesta-alisado", "next": "flatsay"}], "wrong": {"es": "¿Cuánto cuesta el camello? Eso, al hombre del desierto.", "ru": "Сколько стоит верблюд? Это к человеку из пустыни."}},
         "flatsay": {"kind": "say", "es": "Treinta euros. Para ti, veinte. ¿Y el color?", "ru": "Тридцать евро. Для тебя — двадцать. А цвет?", "next": "root"},
         "root": {"kind": "answer", "task": "Скажите, что нужно только подкрасить корни.", "branches": [{"phrase": "ph:barber.solo-retoque-raiz", "next": "rootsay"}], "wrong": {"es": "¿Pintar el árbol? No, hombre, solo tu pelo.", "ru": "Покрасить дерево? Нет, дружище, только волосы.", "fem": {"es": "¿Pintar el árbol? No, mujer, solo tu pelo.", "ru": "Покрасить дерево? Нет, подруга, только волосы."}}},
-        "rootsay": {"kind": "say", "es": "Solo la raíz. Muy bien. ¿Y la barba? Hoy yo no la hago.", "ru": "Только корни. Хорошо. А борода? Я сегодня её не делаю.", "next": "barb"},
+        "rootsay": {"kind": "say", "es": "Solo la raíz. Muy bien. ¿Y la barba? Hoy yo no la hago.", "ru": "Только корни. Хорошо. А бороду? Сегодня бородами занимаюсь не я.", "next": "barb"},
         "barb": {"kind": "answer", "task": "Спросите, работает ли сегодня барбер.", "branches": [{"phrase": "ph:barber.hoy-trabaja-barbero", "next": "end"}], "wrong": {"es": "¿Hoy trabaja el camello? No, el camello descansa.", "ru": "Верблюд сегодня работает? Нет, верблюд отдыхает."}},
         "end": {"kind": "say", "es": "Viene a las cinco. Y toma mi trozo del mapa del desierto. Si ves al hombre del camello, no le hables del bosque: se pone muy triste.", "ru": "Придёт к пяти. И держи мой обрывок карты пустыни. Если увидишь человека с верблюдом, не говори с ним о лесе: ему становится очень грустно."}
       }
@@ -70,9 +70,9 @@
       "nodes": {
         "hi": {"kind": "say", "es": "Siéntate. ¿Qué te hago hoy?", "ru": "Садись. Что тебе сегодня сделать?", "next": "beard"},
         "beard": {"kind": "answer", "task": "Попросите только подровнять бороду.", "branches": [{"phrase": "ph:barber.perfilame-barba", "next": "beardsay"}], "wrong": {"es": "¿Perfilar el bosque? No tengo tijeras tan grandes.", "ru": "Подровнять лес? У меня нет таких больших ножниц."}},
-        "beardsay": {"kind": "say", "es": "Perfilada. ¿Y el pelo? Está un poco estropeado.", "ru": "Готово. А волосы? Они немного повреждены.", "next": "ends"},
+        "beardsay": {"kind": "say", "es": "Perfilada. ¿Y el pelo? Está un poco estropeado.", "ru": "Готово. А волосы? Они у тебя немного посеклись.", "next": "ends"},
         "ends": {"kind": "answer", "task": "Скажите, что у вас секутся кончики.", "branches": [{"phrase": "ph:barber.tengo-puntas-abiertas", "next": "endssay"}], "wrong": {"es": "¿Tienes plumas en la cabeza? No, son canas.", "ru": "У тебя перья на голове? Нет, это седина."}},
-        "endssay": {"kind": "say", "es": "Ya lo veo. Mascarilla de queratina. Oye, lo he pensado bien: voy a contar a todo el barrio que el hombre de la pipa es Ramón.", "ru": "Вижу. Маска с кератином. Слушай, я всё обдумал: расскажу всему району, что человек с трубкой — Рамон.", "next": "dispute"},
+        "endssay": {"kind": "say", "es": "Ya lo veo. Mascarilla de queratina. Oye, lo he pensado bien: voy a contar a todo el barrio que el hombre de la pipa es Ramón.", "ru": "Вижу. Сделаем кератиновую маску. Слушай, я всё обдумал: расскажу всему району, что человек с трубкой — Рамон.", "next": "dispute"},
         "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:barber.no-tienes-pruebas", "next": "object", "move": "object"}, {"phrase": "ph:barber.puede-que-razon", "next": "concede", "move": "concede"}, {"phrase": "ph:barber.hablas-con-el-cara", "next": "compromise", "move": "compromise"}], "wrong": {"es": "¿Qué? Con el secador no te oigo.", "ru": "Что? Из-за фена я тебя не слышу."}},
         "object": {"kind": "say", "es": "¿Pruebas? ...Es verdad, solo tengo un olor. Y un olor no es una prueba.", "ru": "Доказательств? ...Правда, у меня только запах. А запах — не доказательство.", "next": "grey"},
         "concede": {"kind": "say", "es": "¿Verdad? Por fin alguien me escucha. Aunque... tampoco estoy seguro al cien por cien.", "ru": "Правда? Наконец-то меня кто-то слушает. Хотя... я и сам не уверен на все сто.", "next": "grey"},
@@ -105,7 +105,7 @@
         "trim": {"kind": "answer", "task": "Скажите: только немного подровнять.", "branches": [{"phrase": "ph:barber.solo-recortar-poco", "next": "trimsay"}], "wrong": {"es": "¿Recortar el eco? Ojalá se pudiera.", "ru": "Подстричь эхо? Если бы так можно было."}},
         "trimsay": {"kind": "say", "es": "Hecho. ¿Algo más? Te veo con la cara sin afeitar.", "ru": "Договорились. Что-нибудь ещё? Вижу, ты не брит.", "next": "shave"},
         "shave": {"kind": "answer", "task": "Спросите, может ли он вас побрить.", "branches": [{"phrase": "ph:barber.puede-afeitar", "next": "end"}], "wrong": {"es": "¿Afeitar el espejo? Ese no tiene barba.", "ru": "Побрить зеркало? У него нет бороды."}},
-        "end": {"kind": "say", "es": "Claro. Y toma: detrás del espejo había un papel viejo. Un trozo del mapa del Laberinto, con la letra de mi abuelo: «Para el pregonero, por si vuelve».", "ru": "Конечно. И держи: за зеркалом была старая бумага. Обрывок карты Лабиринта, с почерком деда: «Для глашатая, если вернётся»."}
+        "end": {"kind": "say", "es": "Claro. Y toma: detrás del espejo había un papel viejo. Un trozo del mapa del Laberinto, con la letra de mi abuelo: «Para el pregonero, por si vuelve».", "ru": "Конечно. И держи: за зеркалом была старая бумага. Обрывок карты Лабиринта, а на нём рукой деда: «Для глашатая, если вернётся»."}
       }
     }
   ]

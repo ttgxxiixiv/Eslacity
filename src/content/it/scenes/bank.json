@@ -7,16 +7,16 @@
       "npc": "ferri",
       "lines": [
         {"who": "npc", "es": "Come posso aiutarla?", "ru": "Чем могу помочь?"},
-        {"who": "hero", "es": "Cerco un pezzo della mappa. La banca ne ha uno?", "ru": "Я ищу обрывок карты. У банка есть такой?"},
-        {"who": "npc", "es": "La banca ne ha uno, in cassaforte.", "ru": "У банка есть один, в сейфе."},
+        {"who": "hero", "es": "Cerco un pezzo della mappa. La banca ne ha uno?", "ru": "Я ищу обрывок карты. В банке такой есть?"},
+        {"who": "npc", "es": "La banca ne ha uno, in cassaforte.", "ru": "Есть, в сейфе."},
         {"who": "hero", "es": "Me lo può dare?", "ru": "Можете мне его отдать?"},
         {"who": "npc", "es": "Ci sono delle regole. Senza conto, niente.", "ru": "Есть правила. Без счёта — ничего."},
         {"who": "hero", "es": "Allora vorrei aprire un conto.", "ru": "Тогда я хочу открыть счёт."},
-        {"who": "npc", "es": "Molto bene. Lei firma qui, qui e qui.", "ru": "Очень хорошо. Вы расписываетесь здесь, здесь и здесь."},
+        {"who": "npc", "es": "Molto bene. Lei firma qui, qui e qui.", "ru": "Прекрасно. Вы расписываетесь здесь, здесь и здесь."},
         {"who": "hero", "es": "Quante firme!", "ru": "Сколько подписей!"},
         {"who": "npc", "es": "In banca, le firme sono importanti.", "ru": "В банке подписи — это важно."},
         {"who": "hero", "es": "E il Caveau della mappa? È come una banca?", "ru": "А Хранилище с карты? Оно как банк?"},
-        {"who": "npc", "es": "Dicono che è la cassaforte più grande del mondo. E non ha una chiave: ha delle domande.", "ru": "Говорят, это самый большой сейф в мире. И у него нет ключа: у него вопросы."}
+        {"who": "npc", "es": "Dicono che è la cassaforte più grande del mondo. E non ha una chiave: ha delle domande.", "ru": "Говорят, это самый большой сейф в мире. И открывается он не ключом, а вопросами."}
       ],
       "questions": [
         {"q": "Где банк хранит обрывок?", "options": ["В сейфе", "У кассира в кармане", "На почте"], "answer": 0},
@@ -35,11 +35,11 @@
         {"who": "hero", "es": "Per me?", "ru": "Для меня?"},
         {"who": "npc", "es": "Le monete dell'uomo con il mantello. Me le ha portate il ragazzo del supermercato. Hanno cento anni.", "ru": "Монеты человека в плаще. Мне их принёс парень из супермаркета. Им сто лет."},
         {"who": "hero", "es": "E di chi sono?", "ru": "А чьи они?"},
-        {"who": "npc", "es": "Nei nostri libri c'è un conto molto vecchio. Ha cento anni.", "ru": "В наших книгах есть очень старый счёт. Ему сто лет."},
+        {"who": "npc", "es": "Nei nostri libri c'è un conto molto vecchio. Ha cento anni.", "ru": "В наших записях есть очень старый счёт. Ему сто лет."},
         {"who": "hero", "es": "Di chi è il conto?", "ru": "Чей это счёт?"},
         {"who": "npc", "es": "Del guardiano della torre. Paga sempre con quelle monete.", "ru": "Стража башни. Он всегда платит этими монетами."},
         {"who": "hero", "es": "L'uomo con il mantello è il guardiano?", "ru": "Человек в плаще — это страж?"},
-        {"who": "npc", "es": "Credo di sì. E guardi la sua firma: è come la nota nella lettera di Tommaso.", "ru": "Думаю, да. И посмотрите на его подпись: она как приписка в письме Томмазо."},
+        {"who": "npc", "es": "Credo di sì. E guardi la sua firma: è come la nota nella lettera di Tommaso.", "ru": "Думаю, да. И посмотрите на его подпись: точно такая же, как приписка в письме Томмазо."},
         {"who": "hero", "es": "Allora Tommaso è con il guardiano.", "ru": "Значит, Томмазо у стража."},
         {"who": "npc", "es": "Lo credo anch'io. In banca non ci sono regole per i guardiani.", "ru": "Я тоже так думаю. Для стражей в банке правил нет."}
       ],
@@ -62,7 +62,7 @@
         {"who": "hero", "es": "Ma quell'acqua non è vera.", "ru": "Но эта вода ненастоящая."},
         {"who": "npc", "es": "Anch'io l'ho detto. E i suoi soldi, nella mia mano, sono diventati sabbia.", "ru": "Я ему так и сказал. А его деньги у меня в руке превратились в песок."},
         {"who": "hero", "es": "Credo che sia una truffa.", "ru": "По-моему, это мошенничество."},
-        {"who": "npc", "es": "Lo è. E dopo mi ha chiesto una cosa più strana: aprire un conto a nome della città bianca.", "ru": "Именно. А потом попросил кое-что ещё страннее: открыть счёт на имя белого города."},
+        {"who": "npc", "es": "Lo è. E dopo mi ha chiesto una cosa più strana: aprire un conto a nome della città bianca.", "ru": "Так и есть. А потом он попросил о ещё более странном: открыть счёт на имя белого города."},
         {"who": "hero", "es": "Perché?", "ru": "Зачем?"},
         {"who": "npc", "es": "Dice che nella notte di luna piena comprerà la città.", "ru": "Говорит, что в ночь полнолуния купит этот город."},
         {"who": "hero", "es": "Si può comprare una città?", "ru": "Разве можно купить город?"},
@@ -86,10 +86,10 @@
         {"who": "npc", "es": "Suo nipote è molto ottimista. E le ha detto anche che si può perdere tutto in una settimana?", "ru": "Ваш племянник большой оптимист. А он сказал вам, что всё можно потерять за неделю?"},
         {"who": "rosa", "es": "Certo, lei cosa deve dire. Alla banca conviene che i soldi restino qui.", "ru": "Ну конечно, что вы ещё скажете. Банку выгодно, чтобы деньги остались здесь."},
         {"who": "npc", "es": "È vero, non lo nego. Ma io ho visto clienti piangere a questa scrivania, e non per l'inflazione.", "ru": "Это правда, не спорю. Но я видел, как клиенты плакали за этим столом, и не из-за инфляции."},
-        {"who": "rosa", "es": "E allora cosa faccio? Sul conto, con i prezzi di oggi, ogni anno ho meno potere d'acquisto.", "ru": "И что мне тогда делать? На счёте, при нынешних ценах, покупательная способность с каждым годом всё меньше."},
+        {"who": "rosa", "es": "E allora cosa faccio? Sul conto, con i prezzi di oggi, ogni anno ho meno potere d'acquisto.", "ru": "И что мне тогда делать? На счёте, при нынешних ценах, деньги с каждым годом дешевеют."},
         {"who": "npc", "es": "Su questo ha ragione. Il mio consiglio: una parte in un fondo pensione, una parte a tasso fisso. E se vuole giocare, solo quello che può perdere.", "ru": "Тут вы правы. Мой совет: часть в пенсионный фонд, часть под фиксированную ставку. А если хочется поиграть — только то, что не жалко потерять."},
-        {"who": "rosa", "es": "Quello che posso perdere? Io non perdo neanche un pomodoro, dottore.", "ru": "Что не жалко потерять? Я даже помидор не теряю, доктор."},
-        {"who": "npc", "es": "Allora ha già la risposta sulle criptovalute.", "ru": "Значит, насчёт криптовалюты вы уже сами ответили."},
+        {"who": "rosa", "es": "Quello che posso perdere? Io non perdo neanche un pomodoro, dottore.", "ru": "Что не жалко потерять? Я даже помидор не теряю, синьор."},
+        {"who": "npc", "es": "Allora ha già la risposta sulle criptovalute.", "ru": "Значит, насчёт криптовалюты вы себе уже ответили."},
         {"who": "rosa", "es": "Va bene... parlerò con mio nipote. Ma se lui diventa ricco, la colpa sarà sua.", "ru": "Ладно... поговорю с племянником. Но если он разбогатеет, виноваты будете вы."}
       ],
       "questions": [
