@@ -298,8 +298,10 @@ export async function playWords(page: Page, lang: Lang, done: RegExp, opts: { hi
       if (kind !== 'Напишите, что услышали') {
         if (opts.hint && !hinted) {
           await page.getByTestId('hint').click();
-          // Ждём, пока подсказка встанет в поле: иначе её поздний рендер затрёт введённый ответ.
+          // Подсказка ставит букву и через кадр переводит фокус и курсор за неё (requestAnimationFrame).
+          // Ответ вписываем после этого, иначе курсор прыгнет посреди ввода («il cil cameriere»).
           await expect(page.locator('input')).not.toHaveValue('');
+          await expect(page.locator('input')).toBeFocused();
           hinted = { prefix: await page.locator('input').inputValue(), es: byRu.get(shown)!.es };
           hintStep = true;
         }
