@@ -140,7 +140,6 @@ function checkWord(w: Word, at: string, lang: Lang, out: Issue[]) {
       out.push({ level: 'error', where: at, msg: 'у существительного нет рода' });
     } else {
       checkArticle(w, w.es, at, out, lang);
-      if (w.latam) checkArticle(w, w.latam, `${at} (latam)`, out, lang);
       for (const a of w.alt ?? []) checkArticle(w, a, `${at} (alt)`, out, lang);
     }
   } else {
@@ -151,7 +150,6 @@ function checkWord(w: Word, at: string, lang: Lang, out: Issue[]) {
   }
 
   for (const a of w.alt ?? []) if (empty(a)) out.push({ level: 'error', where: at, msg: 'пустой alt' });
-  if (w.latam !== undefined && empty(w.latam)) out.push({ level: 'error', where: at, msg: 'пустой latam' });
 
   if (w.example && !empty(w.example.es) && isExpression(w)) {
     // Выражение в примере часто в другой форме (tomar una decisión → tomé una decisión): хватит одного полного слова.
@@ -248,7 +246,7 @@ export function validateWords(files: { name: string; data: LocationWords }[], la
   return out;
 }
 
-export function validateGrammar(files: { name: string; data: GrammarLesson }[], lang: Lang = 'es'): Issue[] {
+export function validateGrammar(files: { name: string; data: GrammarLesson }[]): Issue[] {
   const out: Issue[] = [];
   const ids = new Map<string, string>();
   const orders = new Map<string, string>();
@@ -287,16 +285,10 @@ export function validateGrammar(files: { name: string; data: GrammarLesson }[], 
     }
 
     if ((l.exercises?.length ?? 0) < 3) out.push({ level: 'error', where: at, msg: 'меньше 3 упражнений' });
-    // Типы заданий должны остаться и без vosotros (вариант es-419).
-    const variants: [string, typeof l.exercises][] = [['', l.exercises ?? []]];
-    if (lang === 'es') variants.push([' (es-419)', (l.exercises ?? []).filter((e) => e.region !== 'es')]);
-    else if ((l.exercises ?? []).some((e) => e.region)) out.push({ level: 'error', where: at, msg: 'region бывает только у испанских уроков' });
-    for (const [label, list] of variants) {
-      const kinds = new Set(list.map((e) => e.kind));
-      // С задачи 5.3 в каждом уроке есть и продуктивные задания: сборка и ввод формы.
-      for (const k of ['choose', 'gap', 'truefalse', 'build', 'type']) {
-        if (!kinds.has(k as never)) out.push({ level: 'error', where: at, msg: `нет упражнения типа ${k}${label}` });
-      }
+    const kinds = new Set((l.exercises ?? []).map((e) => e.kind));
+    // С задачи 5.3 в каждом уроке есть и продуктивные задания: сборка и ввод формы.
+    for (const k of ['choose', 'gap', 'truefalse', 'build', 'type']) {
+      if (!kinds.has(k as never)) out.push({ level: 'error', where: at, msg: `нет упражнения типа ${k}` });
     }
     const exIds = new Set<string>();
     const idForm = new RegExp(`^${l.id?.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\.[1-9]\\d*$`);

@@ -1,5 +1,4 @@
-import { VARIANT, VARIANTS } from '../config';
-import { L, LANG } from '../lang';
+import { L } from '../lang';
 import { useSettings } from '../store/settings';
 import { QueueStrategy, TextToSpeech } from '@capacitor-community/text-to-speech';
 import { NATIVE } from '../lib/native';
@@ -25,7 +24,7 @@ function norm(lang: string) {
 }
 
 function preferredVoices(): string[] {
-  return LANG === 'es' ? VARIANTS[VARIANT].voices : L.voices;
+  return L.voices;
 }
 
 function pickVoice(voices: Voice[] = speechSynthesis.getVoices()) {

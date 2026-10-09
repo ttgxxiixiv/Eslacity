@@ -1,22 +1,7 @@
-import type { GrammarExercise, GrammarLesson, TheoryBlock } from '../content/schema';
+import type { GrammarExercise, GrammarLesson } from '../content/schema';
 import { checkBuilt, checkForm, diagnose, type CheckResult, type Why } from './answer';
 import { type Rng, shuffle } from './generators';
 import { phraseTokens } from './phraseSteps';
-
-/** Убрать строки таблиц и упражнения с vosotros, если вариант их не использует. */
-export function forVariant(lesson: GrammarLesson, vosotros: boolean): GrammarLesson {
-  if (vosotros) return lesson;
-  const theory: TheoryBlock[] = [];
-  for (const b of lesson.theory) {
-    if (b.kind !== 'table') {
-      theory.push(b);
-      continue;
-    }
-    const rows = b.rows.filter((r) => r.region !== 'es');
-    if (rows.length) theory.push({ ...b, rows });
-  }
-  return { ...lesson, theory, exercises: lesson.exercises.filter((e) => e.region !== 'es') };
-}
 
 export interface GrammarItem {
   id: string;

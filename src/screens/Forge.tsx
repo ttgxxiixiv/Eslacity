@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { VARIANT, VARIANTS, XP } from '../config';
+import { XP } from '../config';
 import { GRAMMAR } from '../content/grammar';
 import type { VerbsFile } from '../content/schema';
 import { loadVerbs } from '../content/verbs';
@@ -51,10 +51,9 @@ export function ForgeScreen() {
   const say = (text: string) => speakAs(text, smith);
   const tenses = openTenses(LANG, (l) => !!grammar[l]);
   const due = dueCards(Object.values(cards), Date.now()).filter((c) => isVerbId(c.wordId));
-  const vosotros = LANG !== 'es' || VARIANTS[VARIANT].vosotros;
 
   const start = () => {
-    setTasks(forgeTasks(data.verbs, LANG, tenses, due.map((c) => c.wordId), FORGE_SIZE, seeded(Date.now()), vosotros));
+    setTasks(forgeTasks(data.verbs, LANG, tenses, due.map((c) => c.wordId), FORGE_SIZE, seeded(Date.now())));
     setResults([]);
     setPhase('run');
   };

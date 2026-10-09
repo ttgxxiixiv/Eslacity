@@ -1,7 +1,5 @@
 import INDEX from 'virtual:grammar-index';
-import { VARIANT, VARIANTS } from '../config';
 import { LANG } from '../lang';
-import { forVariant } from '../domain/grammar';
 import type { District, GrammarLesson } from './schema';
 
 /** Краткие сведения об уроке для карты: сам урок грузится отдельно. */
@@ -29,7 +27,7 @@ export async function loadLesson(id: string): Promise<GrammarLesson | undefined>
   if (hit) return hit;
   const load = loaderById.get(id);
   if (!load) return undefined;
-  const lesson = forVariant(await load(), LANG !== 'es' || VARIANTS[VARIANT].vosotros);
+  const lesson = await load();
   cache.set(id, lesson);
   return lesson;
 }

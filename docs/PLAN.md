@@ -53,19 +53,9 @@ Eslacity/
   tests/                    или *.test.ts рядом с модулями domain/
 ```
 
-## Конфиг варианта языка
+## Вариант языка
 
-```ts
-// src/config.ts
-export type Variant = 'es-ES' | 'es-419';
-export const VARIANT: Variant = 'es-ES';
-export const VARIANTS = {
-  'es-ES':  { voices: ['es-ES'], vosotros: true },
-  'es-419': { voices: ['es-MX', 'es-US', 'es-419', 'es-AR', 'es-CO'], vosotros: false },
-};
-```
-
-Слово по умолчанию хранит испанскую форму Испании. Если в Латинской Америке говорят иначе, в слове есть поле `latam` (el ordenador → la computadora, el zumo → el jugo, el móvil → el celular). Строки таблиц спряжения с vosotros помечены `region: 'es'` и в латиноамериканском режиме скрываются, а упражнения на vosotros пропускаются. Голос: сначала точное совпадение из списка, затем любой `es-*`, иначе кнопка звука скрыта.
+Испанский курс — язык Испании: формы vosotros, «vale», «coche», «ordenador». Переключатель на латиноамериканский вариант (`VARIANT`, поле `latam`, пометки `region: 'es'`) был заготовкой и убран в 2.148.0 (задача 12.7). Голос: сначала язык курса из `src/lang.ts`, затем любой голос того же языка, иначе кнопка звука скрыта.
 
 ## Схемы данных
 
@@ -90,7 +80,6 @@ interface Word {
   cefr: Cefr;
   example: { es: string; ru: string };
   alt?: string[];        // другие принимаемые ответы: ["el café solo"]
-  latam?: string;        // форма для es-419, если отличается
   plural?: string;       // для неочевидных случаев: "los lápices"
 }
 

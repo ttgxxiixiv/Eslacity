@@ -1,4 +1,3 @@
-import { VARIANT } from '../config';
 import { LANG } from '../lang';
 import type { BookFile, FestivalFile, LocationId, LocationWords, ScrollFile, Word, WordSource } from './schema';
 
@@ -38,7 +37,6 @@ const cache = new Map<WordSource, Word[]>();
 const byId = new Map<string, Word>();
 
 function resolve(w: Word): Word {
-  if (LANG === 'es' && VARIANT === 'es-419' && w.latam) return { ...w, es: w.latam, alt: undefined };
   return w;
 }
 

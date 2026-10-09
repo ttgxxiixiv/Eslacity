@@ -8,6 +8,8 @@ export interface LangInfo {
   id: Lang;
   /** «Испанский» */
   name: string;
+  /** Какой вариант языка в курсе (задача 12.7): одна фраза для настроек. */
+  variety: string;
   flag: string;
   /** «по-испански» */
   adverb: string;
@@ -36,6 +38,7 @@ export const LANGS: Record<Lang, LangInfo> = {
   es: {
     id: 'es',
     name: 'Испанский',
+    variety: 'Испанский курс — язык Испании: vosotros, «vale», «coche», «ordenador».',
     flag: '🇪🇸',
     adverb: 'по-испански',
     genitive: 'испанского',
@@ -52,6 +55,7 @@ export const LANGS: Record<Lang, LangInfo> = {
   it: {
     id: 'it',
     name: 'Итальянский',
+    variety: 'Итальянский курс — общий литературный итальянский.',
     flag: '🇮🇹',
     adverb: 'по-итальянски',
     genitive: 'итальянского',

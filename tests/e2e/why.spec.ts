@@ -19,7 +19,7 @@ function formExercise(lang: Lang) {
     const lesson = JSON.parse(readFileSync(join(dir, f), 'utf8')) as GrammarLesson;
     const forms = tableForms(lesson.theory);
     for (const ex of lesson.exercises) {
-      if (ex.kind !== 'type' || ex.region) continue;
+      if (ex.kind !== 'type') continue;
       const accepted = [ex.answer, ...(ex.alt ?? [])].map((a) => a.toLowerCase());
       if (!forms.some((x) => accepted.includes(x.form.toLowerCase()))) continue;
       const other = forms.find((x) => !accepted.includes(x.form.toLowerCase()) && x.form.toLowerCase() !== ex.answer.toLowerCase());

@@ -4,7 +4,6 @@ import { ReportsCard } from '../components/ReportsCard';
 import { ReviewForecast } from '../components/ReviewForecast';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { VARIANT, VARIANTS } from '../config';
 import { currentVoice, hasLangVoice, languageVoices, onVoicesChanged, speak, speakHero, ttsSupported, voiceFor } from '../audio/tts';
 import { L, LANG, LANGS, switchLang, type Lang } from '../lang';
 import { resetProgress } from '../store/bootstrap';
@@ -78,7 +77,7 @@ export function SettingsScreen() {
             ))}
           </div>
           <p className="mt-2 text-sm text-stone-500">
-            У каждого языка свой город, слова, монеты и стрик. При переключении приложение перезапустится, прогресс
+            {L.variety} У каждого языка свой город, слова, монеты и стрик. При переключении приложение перезапустится, прогресс
             другого языка сохранится.
           </p>
         </section>
@@ -289,7 +288,6 @@ export function SettingsScreen() {
               )}
               <p className="mt-2 text-sm text-stone-500">
                 Голос: {voiceName ?? 'системный по умолчанию'}
-                {LANG === 'es' && ` · вариант: ${VARIANTS[VARIANT].label}`}
               </p>
             </>
           )}

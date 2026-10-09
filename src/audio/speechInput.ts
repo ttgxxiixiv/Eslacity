@@ -1,5 +1,4 @@
-import { VARIANT, VARIANTS } from '../config';
-import { L, LANG } from '../lang';
+import { L } from '../lang';
 import { NATIVE } from '../lib/native';
 
 /**
@@ -39,7 +38,7 @@ export function voiceInputSupported(): boolean {
 }
 
 /** Тег языка распознавания: вариант испанского из настроек или итальянский. */
-export const recognitionLang = (): string => (LANG === 'es' ? VARIANTS[VARIANT].voices[0] : L.voices[0]);
+export const recognitionLang = (): string => L.voices[0];
 
 export interface Listening {
   /** Варианты услышанного, самый уверенный первым; пусто — ничего не расслышано. */

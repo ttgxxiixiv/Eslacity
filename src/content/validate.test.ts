@@ -174,7 +174,7 @@ describe('validateNpcs', () => {
 describe('validateGrammar: id упражнений', () => {
   const real = () =>
     JSON.parse(readFileSync(join(import.meta.dirname, 'es', 'grammar', 'a1', '02-ser.json'), 'utf8')) as GrammarLesson;
-  const check = (l: GrammarLesson) => validateGrammar([{ name: 'a1/02-ser.json', data: l }], 'es').map((x) => x.msg).join('; ');
+  const check = (l: GrammarLesson) => validateGrammar([{ name: 'a1/02-ser.json', data: l }]).map((x) => x.msg).join('; ');
 
   it('урок из контента проходит: id проставлены по порядку', () => {
     const l = real();
@@ -200,7 +200,7 @@ describe('validateGrammar: сборка и ввод формы', () => {
   const check = (...extra: GrammarLesson['exercises']) => {
     const l = real();
     l.exercises.push(...extra.map((e, i) => ({ ...e, id: `a1.02-ser.${n() + i + 1}` })));
-    return validateGrammar([{ name: 'a1/02-ser.json', data: l }], 'es').map((x) => x.msg).join('; ');
+    return validateGrammar([{ name: 'a1/02-ser.json', data: l }]).map((x) => x.msg).join('; ');
   };
   const build = { id: '', kind: 'build' as const, ru: 'Я Ана.', answer: 'Yo soy Ana.', extra: ['eres'], explain: 'ser' };
   const type = { id: '', kind: 'type' as const, sentence: 'Yo ___ Ana.', ru: 'Я Ана.', hint: 'ser', answer: 'soy', explain: 'ser' };
@@ -231,7 +231,7 @@ describe('validateGrammar: задания C1', () => {
   const check = (...extra: GrammarLesson['exercises']) => {
     const l = real();
     l.exercises.push(...extra.map((e, i) => ({ ...e, id: `a1.02-ser.${n() + i + 1}` })));
-    return validateGrammar([{ name: 'a1/02-ser.json', data: l }], 'es').map((x) => x.msg).join('; ');
+    return validateGrammar([{ name: 'a1/02-ser.json', data: l }]).map((x) => x.msg).join('; ');
   };
   const transform = { id: '', kind: 'transform' as const, source: 'Llovía, así que no salí.', keyword: 'por eso', answer: 'Llovía; por eso no salí.', explain: 'x' };
   const combine = { id: '', kind: 'combine' as const, first: 'Llovía.', second: 'Salí.', connector: 'aunque', answer: 'Aunque llovía, salí.', explain: 'x' };

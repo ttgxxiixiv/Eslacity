@@ -268,13 +268,13 @@ export const openTenses = (lang: Lang, isDone: (lessonId: string) => boolean): T
 
 /**
  * Плавка: сначала формы, которые пора перековать (карточки `v:` к повтору), потом случайные глагол × лицо × время
- * из открытых времён, без повторов. vosotros — показывать ли «vosotros» (у варианта для Латинской Америки нет).
+ * из открытых времён, без повторов.
  */
 export function forgeTasks(
-  verbs: VerbData[], lang: Lang, tenses: Tense[], due: string[], size: number, rng: () => number, vosotros = true,
+  verbs: VerbData[], lang: Lang, tenses: Tense[], due: string[], size: number, rng: () => number,
 ): ForgeTask[] {
   const byInf = new Map(verbs.map((v) => [v.inf, v]));
-  const persons = [0, 1, 2, 3, 4, 5].filter((p) => lang !== 'es' || vosotros || p !== 4);
+  const persons = [0, 1, 2, 3, 4, 5];
   const task = (v: VerbData, tense: Tense, person: number): ForgeTask => {
     const answer = conjugate(v, tense, lang)[person];
     const forms = tenses.flatMap((t) => {

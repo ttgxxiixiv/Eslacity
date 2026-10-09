@@ -103,12 +103,11 @@ describe('задания кузницы', () => {
     expect(openTenses('es', (l) => l === 'a1.11-presente-ar')).toEqual(['presente']);
     expect(openTenses('it', () => false)).toEqual([]);
   });
-  it('сначала формы к перековке, потом случайные без повторов; без vosotros', () => {
-    const tasks = forgeTasks(v, 'es', ['presente', 'futuro'], ['v:comer.futuro.4', 'v:comer.indefinido.1', 'v:nope.presente.1'], 8, seeded(1), false);
+  it('сначала формы к перековке, потом случайные без повторов', () => {
+    const tasks = forgeTasks(v, 'es', ['presente', 'futuro'], ['v:comer.futuro.4', 'v:comer.indefinido.1', 'v:nope.presente.1'], 8, seeded(1));
     expect(tasks[0]).toMatchObject({ inf: 'comer', tense: 'futuro', person: 3, answer: 'comeremos' });
     expect(tasks).toHaveLength(8);
     expect(new Set(tasks.map((t) => `${t.inf}.${t.tense}.${t.person}`)).size).toBe(8);
-    expect(tasks.some((t) => t.person === 4)).toBe(false);
     expect(tasks.every((t) => t.tense === 'presente' || t.tense === 'futuro')).toBe(true);
     expect(forgeTasks(v, 'es', [], [], 5, seeded(1))).toEqual([]);
   });

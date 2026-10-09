@@ -1,18 +1,3 @@
-export type Variant = 'es-ES' | 'es-419';
-
-// Переключатель варианта испанского. es-419 подставляет поле `latam` у слов
-// и скрывает формы vosotros в грамматике.
-export const VARIANT: Variant = 'es-ES';
-
-export const VARIANTS: Record<Variant, { voices: string[]; vosotros: boolean; label: string }> = {
-  'es-ES': { voices: ['es-ES'], vosotros: true, label: 'Испания' },
-  'es-419': {
-    voices: ['es-MX', 'es-US', 'es-419', 'es-AR', 'es-CO'],
-    vosotros: false,
-    label: 'Латинская Америка',
-  },
-};
-
 export const ECONOMY = {
   coinPerCorrect: 1,
   lessonBonus: 15,

@@ -216,7 +216,7 @@ for (const lang of langs) {
         uncovered: (text) => uncoveredWords(text, 1, lexicon, forms, lang),
       }),
     ),
-    ...tag(validateGrammar(grammar, lang)),
+    ...tag(validateGrammar(grammar)),
     ...tag(validateNpcs(npcs)),
     ...tag(validateChronicler(chronicler, npcs)),
     ...tag(validateGuardians(guardians, lessonChapters)),

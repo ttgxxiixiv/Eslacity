@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import type { GrammarLesson } from '../content/schema';
 import { seeded } from './generators';
-import { answerGrammar, buildGrammarQueue, checkGrammar, diagnoseGrammar, tableForms, fillGaps, forVariant, grammarScore, grammarTitle, rulesForReview, startGrammar, toItem } from './grammar';
+import { answerGrammar, buildGrammarQueue, checkGrammar, diagnoseGrammar, tableForms, fillGaps, grammarScore, grammarTitle, rulesForReview, startGrammar, toItem } from './grammar';
 import type { GrammarExercise } from '../content/schema';
 import { readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
@@ -10,29 +10,18 @@ const lesson: GrammarLesson = {
   id: 'a1.test', district: 'A1', order: 1, title: 'Тест',
   theory: [
     { kind: 'text', md: 'текст' },
-    { kind: 'table', head: ['p', 'f'], rows: [{ cells: ['yo', 'soy'] }, { cells: ['vosotros', 'sois'], region: 'es' }] },
-    { kind: 'table', head: ['p', 'f'], rows: [{ cells: ['vosotros', 'vuestro'], region: 'es' }] },
+    { kind: 'table', head: ['p', 'f'], rows: [{ cells: ['yo', 'soy'] }, { cells: ['vosotros', 'sois'] }] },
+    { kind: 'table', head: ['p', 'f'], rows: [{ cells: ['vosotros', 'vuestro'] }] },
   ],
   examples: [],
   exercises: [
     { id: 'a1.test.1', kind: 'choose', prompt: 'yo', options: ['soy', 'es', 'eres'], answer: 0, explain: '' },
-    { id: 'a1.test.2', kind: 'gap', sentence: 'Vosotros ___', ru: '', options: ['sois', 'son'], answer: 0, explain: '', region: 'es' },
+    { id: 'a1.test.2', kind: 'gap', sentence: 'Vosotros ___', ru: '', options: ['sois', 'son'], answer: 0, explain: '' },
     { id: 'a1.test.3', kind: 'truefalse', statement: 'x', answer: false, explain: '' },
   ],
 };
 
 describe('грамматика', () => {
-  it('es-419 скрывает vosotros в таблицах и упражнениях', () => {
-    const l = forVariant(lesson, false);
-    expect(l.theory).toHaveLength(2);
-    const t = l.theory[1];
-    expect(t.kind === 'table' && t.rows.map((r) => r.cells[0])).toEqual(['yo']);
-    expect(l.exercises.map((e) => e.kind)).toEqual(['choose', 'truefalse']);
-    // Без упражнений vosotros номера остальных не сдвигаются: журнал пишет их под теми же id.
-    expect(l.exercises.map((e) => e.id)).toEqual(['a1.test.1', 'a1.test.3']);
-    expect(forVariant(lesson, true)).toBe(lesson);
-  });
-
   it('варианты перемешаны, правильный индекс сохраняется', () => {
     for (let s = 1; s < 20; s++) {
       const q = buildGrammarQueue(lesson.exercises, seeded(s));

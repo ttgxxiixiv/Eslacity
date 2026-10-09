@@ -51,8 +51,6 @@ export interface Word {
   example: Example;
   /** Другие принимаемые ответы при вводе. */
   alt?: string[];
-  /** Форма для латиноамериканского варианта, если отличается. */
-  latam?: string;
   /**
    * Тематическое слово места: редкое в частотном списке, но без него место не обходится (cruasán, jeringuilla).
    * Только на уровнях 1–4, не больше трёх на урок (задача 12.1).
@@ -92,15 +90,14 @@ export type TheoryBlock =
       kind: 'table';
       caption?: string;
       head: string[];
-      rows: { cells: string[]; region?: 'es' }[];
+      rows: { cells: string[] }[];
     };
 
-/** region: 'es' — только для испанского варианта (формы vosotros). */
 /**
  * id — устойчивый номер упражнения `<lessonId>.<n>`: проставляется скриптом `scripts/add-exercise-ids.ts`
  * и никогда не пересчитывается, по нему журнал ответов и повторение правил помнят историю.
  */
-export type GrammarExercise = { id: string; explain: string; region?: 'es' } & (
+export type GrammarExercise = { id: string; explain: string } & (
   | { kind: 'choose'; prompt: string; ru?: string; options: string[]; answer: number }
   | { kind: 'gap'; sentence: string; ru: string; options: string[]; answer: number }
   | { kind: 'truefalse'; statement: string; ru?: string; answer: boolean }
@@ -133,7 +130,6 @@ export interface GrammarLesson {
   theory: TheoryBlock[];
   examples: Example[];
   exercises: GrammarExercise[];
-  region?: 'es';
 }
 
 /** Детали портрета жителя поверх одежды и причёски. */

@@ -32,7 +32,7 @@ export const CSV_COLUMNS = ['file', 'path', 'id', 'level', 'ru', 'text', 'fix', 
  * русский текст вперемешку с испанскими или итальянскими примерами: их носитель тоже проверяет.
  */
 const TARGET_KEYS = new Set([
-  'es', 'latam', 'sample', 'sentence', 'statement', 'prompt', 'explain', 'md', 'source', 'keyword', 'text', 'first', 'second', 'connector', 'answer',
+  'es', 'sample', 'sentence', 'statement', 'prompt', 'explain', 'md', 'source', 'keyword', 'text', 'first', 'second', 'connector', 'answer',
   'alt', 'extra', 'options', 'answers', 'examples', 'forms', 'yo', 'fut', 'pp', 'inf',
 ]);
 /** Ветки, где строки русские или служебные: вопросы на понимание, переводы слов (`gloss`), облик и голос. */
