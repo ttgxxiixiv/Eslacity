@@ -12,6 +12,7 @@ const a1 = (lang: Lang) =>
     .flatMap((f) => loadLesson(lang, 'a1', f.replace('.json', '')).exercises);
 
 const GUARDIAN = { es: 'Hola, viajero.', it: 'Ciao, viaggiatore.' } as const;
+const MID = { es: 'Hablas bien.', it: 'Parli bene.' } as const;
 
 for (const lang of LANGS) {
   test.describe(lang, () => {
@@ -54,6 +55,34 @@ for (const lang of LANGS) {
       await expect(page.getByTestId('guardian-sprite')).toHaveCount(0);
       await page.goto('./#/medals');
       await expect(page.getByTestId('medals').locator('[data-line=trials]')).toContainText('1 / 5 испытаний до камня');
+    });
+
+    test('схватка: удар, приём, отражение и щиты, реплика на середине, исход по порогу 75%', async ({ page }) => {
+      await openApp(page, lang);
+      await seedDueCards(page, lang, [...scrollIdsOf(lang, 1), ...wordIdsOf(lang, 'cafe', [1, 2])]);
+      await page.goto('./#/guardian/1');
+      await expect(page.getByTestId('guardian-duel')).toContainText('Щитов 5');
+      await page.getByTestId('guardian-start').click();
+      const duel = page.getByTestId('duel');
+      await expect(duel).toHaveAttribute('data-strength', '1.000');
+      await expect(duel).toHaveAttribute('data-shields', '5');
+      // Две ошибки: страж отражает, два щита разбиты, сила не тронута.
+      await playTrial(page, lang, null, 2, a1(lang), 2);
+      await expect(duel).toHaveAttribute('data-shields', '3');
+      await expect(duel).toHaveAttribute('data-strength', '1.000');
+      await expect(page.getByTestId('duel-move')).toHaveText('Страж отразил');
+      // Три верных подряд: третий — приём, всего 4 удара из 15.
+      await playTrial(page, lang, null, 0, a1(lang), 3);
+      await expect(page.getByTestId('duel-move')).toHaveText('Приём!');
+      await expect(duel).toHaveAttribute('data-strength', (1 - 4 / 15).toFixed(3));
+      await expect(page.getByTestId('duel-mid')).toHaveCount(0);
+      // После десятого ответа — реплика стража середины схватки.
+      await playTrial(page, lang, null, 0, a1(lang), 5);
+      await expect(page.getByTestId('duel-mid')).toContainText(MID[lang]);
+      await playTrial(page, lang, null, 0, a1(lang));
+      const result = page.getByTestId('guardian-result');
+      await expect(result).toContainText('Печать главы I получена');
+      await expect(result).toContainText('Верно: 18 из 20 (90%)');
     });
 
     test('страж не пропустил: печати нет, следующая попытка через сутки', async ({ page }) => {

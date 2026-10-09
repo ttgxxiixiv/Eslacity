@@ -103,7 +103,7 @@ export function themeFor(path: string, opened: number, sage: boolean): ThemeId {
   return `land${Math.min(Math.max(opened, 1), 5)}` as ThemeId;
 }
 
-export type SfxKind = 'correct' | 'almost' | 'wrong' | 'coins' | 'shard' | 'seal' | 'level';
+export type SfxKind = 'correct' | 'almost' | 'wrong' | 'coins' | 'shard' | 'seal' | 'level' | 'combo';
 
 /** Тон звука: начало и длина в секундах, частота (и куда скользит), форма волны, громкость 0–1. */
 export interface Tone {
@@ -131,6 +131,8 @@ export const SFX: Record<SfxKind, Tone[]> = {
     t(0.2, 0.5, 'C6', 'square', 0.45),
   ],
   level: [t(0, 0.1, 'G5'), t(0.1, 0.1, 'C6'), t(0.2, 0.1, 'E6'), t(0.3, 0.1, 'G6'), t(0.42, 0.45, 'C7', 'square', 0.4)],
+  // Приём в схватке со стражем (задача 13.5): взлёт и удар.
+  combo: [t(0, 0.16, 'C5', 'square', 0.35, 'C6'), t(0.17, 0.08, 'G6'), t(0.25, 0.2, 'C7', 'square', 0.4)],
 };
 
 /** Длина звука в секундах. */

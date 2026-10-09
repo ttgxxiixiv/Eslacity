@@ -393,6 +393,8 @@ export interface Guardian {
   greeting: Example;
   win: Example;
   lose: Example;
+  /** Реплика на середине схватки (задача 13.5). */
+  mid: Example;
   voice: { pitch: number; rate: number };
   look: NpcLook;
   /** Страж проверяет на слух: слова главы и свитка звучат голосом, без текста (Хранительница леса, глава IV). */

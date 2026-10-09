@@ -487,7 +487,7 @@ export function validateGuardians(file: GuardiansFile | undefined, chapters: num
     if (!chapters.includes(g.chapter)) out.push({ level: 'error', where: at, msg: 'у главы нет уроков грамматики' });
     for (const f of ['name', 'role'] as const) if (empty(g[f])) out.push({ level: 'error', where: at, msg: `пустое поле ${f}` });
     if (g.gender !== 'm' && g.gender !== 'f') out.push({ level: 'error', where: at, msg: `пол "${g.gender}"` });
-    for (const f of ['greeting', 'win', 'lose'] as const) if (empty(g[f]?.es) || empty(g[f]?.ru)) out.push({ level: 'error', where: at, msg: `пустая реплика ${f}` });
+    for (const f of ['greeting', 'win', 'lose', 'mid'] as const) if (empty(g[f]?.es) || empty(g[f]?.ru)) out.push({ level: 'error', where: at, msg: `пустая реплика ${f}` });
     const { pitch, rate } = g.voice ?? {};
     if (!(pitch >= 0.5 && pitch <= 1.5) || !(rate >= 0.7 && rate <= 1.3)) out.push({ level: 'error', where: at, msg: 'голос вне пределов (pitch 0.5–1.5, rate 0.7–1.3)' });
     checkLook(g.look, at, out);

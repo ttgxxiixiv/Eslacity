@@ -505,7 +505,7 @@ export const expectExamKeys = async (page: Page, lang: Lang) =>
  * заданий всего и с вводом.
  */
 export async function playTrial(
-  page: Page, lang: Lang, place: string | null, wrong = 0, lessons: Exercise[] = [],
+  page: Page, lang: Lang, place: string | null, wrong = 0, lessons: Exercise[] = [], stop = Infinity,
 ): Promise<{ total: number; typed: number }> {
   const { byRu, byEs, byId } = loadWords(lang);
   const phrases = place ? loadPhraseData(lang, place) : [];
@@ -518,6 +518,8 @@ export async function playTrial(
     if (await page.locator('[data-testid=trial-result], [data-testid=guardian-result], [data-testid=placement-between], [data-testid=placement-result]').count()) {
       return { total, typed };
     }
+    // Остановиться после `stop` ответов: схватку стража проверяют по ходу (задача 13.5).
+    if (total >= stop) return { total, typed };
     const kind = (await label.textContent({ timeout: 3000 }).catch(() => null))?.trim();
     if (!kind) continue;
     const bad = total < wrong;

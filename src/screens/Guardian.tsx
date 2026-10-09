@@ -16,6 +16,10 @@ import { useNow } from '../lib/useNow';
 import { NpcPortrait } from '../components/NpcPortrait';
 import { heroText } from '../store/settings';
 import { TrialPlayer } from '../components/TrialPlayer';
+import { DuelBanner } from '../components/DuelBanner';
+import { duelShape, duelState, midAnswer } from '../domain/duel';
+import type { Verdict } from '../domain/answer';
+import { playSfx } from '../audio/sfx';
 import { Button, Screen, SpeakButton, TopBar } from '../components/ui';
 import { useCity } from '../store/city';
 import { useJourney } from '../store/journey';
@@ -45,6 +49,8 @@ function GuardianByChapter({ chapter }: { chapter: number }) {
   const [data, setData] = useState<{ exercises: GrammarExercise[]; words: Word[]; scroll: Word[]; lessons: string[] } | null>(null);
   const [phase, setPhase] = useState<'intro' | 'run' | 'result'>('intro');
   const [items, setItems] = useState<TrialItem[]>([]);
+  // Ответы схватки по порядку (задача 13.5): по ним полоска силы стража и щиты героя.
+  const [verdicts, setVerdicts] = useState<Verdict[]>([]);
   const [result, setResult] = useState<{ correct: number; almost: number; total: number; first: boolean } | null>(null);
   const say = (es: string) => guardian && speakAs(es, guardian);
 
@@ -75,9 +81,20 @@ function GuardianByChapter({ chapter }: { chapter: number }) {
   const title = `Страж: ${guardian.name}`;
 
   if (phase === 'run') {
+    const duel = duelState(verdicts, items.length, GUARDIAN_PASS);
+    // Реплика середины висит три ответа, потом уступает место заданиям.
+    const sinceMid = verdicts.length - midAnswer(items.length);
+    const mid = sinceMid >= 0 && sinceMid < 3 ? heroText(guardian.mid) : null;
     return (
       <TrialPlayer
         items={items}
+        banner={<DuelBanner guardian={guardian} state={duel} turn={verdicts.length} mid={mid} />}
+        onAnswer={(_, v) => {
+          const next = [...verdicts, v];
+          setVerdicts(next);
+          if (duelState(next, items.length, GUARDIAN_PASS).last === 'combo') playSfx('combo');
+          if (next.length === midAnswer(items.length)) say(heroText(guardian.mid).es);
+        }}
         words={Object.fromEntries([...data.words, ...data.scroll].map((w) => [w.id, w]))}
         label={`Страж главы ${ch.roman}`}
         onExit={() => nav(-1)}
@@ -166,6 +183,10 @@ function GuardianByChapter({ chapter }: { chapter: number }) {
           <p className="mt-1 text-sm text-stone-500">
             Нужно {Math.round(GUARDIAN_PASS * 100)}% верных. Не получилось — следующая попытка через сутки. Победа даёт печать главы.
           </p>
+          <p className="mt-2 rounded-xl bg-wood/10 px-3 py-2 text-stone-700" data-testid="guardian-duel">
+            Это схватка: верный ответ — удар по силе стража, три подряд — приём вдвое сильнее, ошибку страж отражает и разбивает
+            щит. Щитов {duelShape(GUARDIAN_SIZE, GUARDIAN_PASS).shields} — столько ошибок можно себе позволить.
+          </p>
           {guardian.listen && (
             <p className="mt-2 rounded-xl bg-wood/10 px-3 py-2 text-stone-700" data-testid="guardian-listen">
               {listeningEnabled()
@@ -214,6 +235,7 @@ function GuardianByChapter({ chapter }: { chapter: number }) {
               // Слова главы — из выученных: страж проверяет то, что герой прошёл.
               const words = data.words.filter(known);
               const listen = guardian.listen === true && listeningEnabled();
+              setVerdicts([]);
               setItems(buildGuardian(data.exercises, words.length >= 5 ? words : data.words, data.scroll, data.words, rng, { listen, kinds: GUARDIAN_KINDS[chapter] }));
               setPhase('run');
               say(heroText(guardian.greeting).es);

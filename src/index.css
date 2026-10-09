@@ -252,6 +252,32 @@ button {
   .medal-flash { display: none; }
 }
 
+/* Схватка со стражем (задача 13.5): удар трясёт портрет, приём ещё и вспыхивает, щит трескается. */
+.duel-hit { animation: duel-shake 320ms ease-out; }
+.duel-combo { animation: duel-shake 320ms ease-out, duel-glow 600ms ease-out; border-radius: 9999px; }
+.duel-crack { animation: duel-crack 400ms ease-out; }
+.duel-move { animation: float-in 300ms ease-out; }
+@keyframes duel-shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-4px) rotate(-3deg); }
+  60% { transform: translateX(3px) rotate(2deg); }
+}
+@keyframes duel-glow {
+  from { box-shadow: 0 0 18px 6px rgba(255, 210, 74, 0.9); }
+  to { box-shadow: 0 0 0 0 rgba(255, 210, 74, 0); }
+}
+@keyframes duel-crack {
+  from { transform: scale(1.4); opacity: 1; filter: none; }
+  to { transform: scale(1); }
+}
+@keyframes float-in {
+  from { transform: translateY(4px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .duel-hit, .duel-combo, .duel-crack, .duel-move { animation: none; }
+}
+
 /* Герой идёт по дороге карты странствий. */
 .hero-walk {
   transition: transform 1.4s ease-in-out;

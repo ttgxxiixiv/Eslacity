@@ -29,7 +29,7 @@ let seq = 0;
  * Задания испытания места или стража по одному: слова — заданиями уроков, фразы — плитками и вводом, грамматика —
  * упражнениями уроков. Без повторов ошибок и без подсказки букв ответа. Ответы идут в журнал с режимом `trial`.
  */
-export function TrialPlayer({ items: initial, words, phrases = {}, label = 'Испытание', mode = 'trial', aside, onAnswer, onFinish, onExit }: {
+export function TrialPlayer({ items: initial, words, phrases = {}, label = 'Испытание', mode = 'trial', aside, banner, onAnswer, onFinish, onExit }: {
   items: TrialItem[];
   words: Record<string, Word>;
   phrases?: Record<string, Phrase>;
@@ -37,6 +37,8 @@ export function TrialPlayer({ items: initial, words, phrases = {}, label = 'Ис
   mode?: AnswerMode;
   /** Кнопка справа от подписи (у Сфинкса — перечитать текст загадки). */
   aside?: React.ReactNode;
+  /** Панель над заданием (у стража — схватка, задача 13.5). */
+  banner?: React.ReactNode;
   /** Каждый ответ: id карточки (слово, `g:<упражнение>`, фраза) и итог. */
   onAnswer?(itemId: string, verdict: Verdict): void;
   onFinish(s: TrialScore): void;
@@ -166,6 +168,7 @@ export function TrialPlayer({ items: initial, words, phrases = {}, label = 'Ис
         <div className="font-pixel flex-1 text-xs tracking-widest text-amber-700 uppercase">{label}</div>
         {aside}
       </div>
+      {banner}
       <div key={item.key} className={`flex flex-1 flex-col pt-2 ${locked ? 'pb-64' : ''}`} data-testid={item.kind === 'phrase' ? 'phrase-run' : undefined}>
         {body}
       </div>
