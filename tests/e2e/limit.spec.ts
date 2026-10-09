@@ -66,6 +66,23 @@ for (const lang of LANGS) {
 
       await page.goto('./#/loc/cafe');
       await expect(page.getByTestId('learn-request').first()).toContainText(`${npcName(lang, 'cafe')} просит выучить`);
+
+      // Лимит 5 и к повтору 106 — больше 5 × 21: «Продолжить» ведёт к повторению (задача 12.6).
+      await page.goto('./#/settings');
+      await page.getByTestId('new-per-day').getByRole('button', { name: '5', exact: true }).click();
+      const forecast = page.getByTestId('review-forecast');
+      await expect(forecast.getByTestId('forecast-day')).toHaveCount(7);
+      await expect(forecast.getByTestId('forecast-day').first()).toContainText('103');
+      await expect(forecast).toContainText('больше 105');
+      await page.goto('./#/');
+      await seedDueCards(page, lang, ['cafe.more-a', 'cafe.more-b', 'cafe.more-c']);
+      await expect(cont).toHaveAttribute('data-kind', 'review');
+      await expect(cont).toContainText('К повтору 106 карточек');
+      await expect(cont).toHaveAttribute('href', /#\/review$/);
+      await expect(page.getByTestId('learn-anyway')).toHaveAttribute('href', /#\/learn\/cafe\/1\/0$/);
+      // Летописец на карте странствий тоже сначала зовёт повторить.
+      await page.goto('./#/journey-map');
+      await expect(page.getByTestId('chronicler-backlog')).toContainText('106');
     });
   });
 }

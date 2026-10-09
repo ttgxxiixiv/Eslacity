@@ -142,6 +142,20 @@ export function gradeFor(verdict: Verdict, typed: boolean): Grade {
   return typed ? 5 : 4;
 }
 
+/**
+ * Прогноз повторений (задача 12.6): сколько карточек станет к повтору в каждый из `days` ближайших дней.
+ * Сегодня — вместе с просроченными: их тоже надо повторить сегодня.
+ */
+export function reviewForecast(cards: Iterable<SrsCard>, now: number, days = 7): number[] {
+  const today = dayNumber(now);
+  const out = Array<number>(days).fill(0);
+  for (const c of cards) {
+    const d = Math.max(0, c.due - today);
+    if (d < days) out[d]++;
+  }
+  return out;
+}
+
 export function dueCards(cards: Iterable<SrsCard>, now: number): SrsCard[] {
   const today = dayNumber(now);
   const out: SrsCard[] = [];

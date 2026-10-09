@@ -113,7 +113,7 @@ function QuestLines({ lines }: { lines: string[] }) {
 
 /** Под карточкой поручений: учить новые слова, не дожидаясь повторения. Вне ряда с кнопкой карты, чтобы она равнялась карточке. */
 function LearnAnyway({ step }: { step: NextStep }) {
-  if (step.kind !== 'errands' || step.then.kind !== 'learn') return null;
+  if ((step.kind !== 'errands' && step.kind !== 'review') || step.then.kind !== 'learn') return null;
   const then = step.then;
   return (
     <Link
@@ -152,6 +152,19 @@ function ContinueCard({ step }: { step: NextStep }) {
           <div className="quest-label text-[12.5px] uppercase">Текущий квест</div>
           <div className="quest-title text-[19px] leading-tight font-semibold uppercase">Поручения</div>
           <QuestLines lines={sub} />
+        </div>
+      </Link>
+    );
+  }
+  if (step.kind === 'review') {
+    const cards = `${step.due} ${plural(step.due, ['карточка', 'карточки', 'карточек'])}`;
+    return (
+      <Link to="/review" data-testid="continue" data-kind="review" className="press quest-art relative flex items-center py-7 pr-[58px] pl-[86px]">
+        <QuestWindow icon="⏳" />
+        <div className="min-w-0">
+          <div className="quest-label text-[12.5px] uppercase">Текущий квест</div>
+          <div className="quest-title text-[19px] leading-tight font-semibold uppercase">Повторение</div>
+          <QuestLines lines={[`К повтору ${cards}.`, 'Новые слова подождут']} />
         </div>
       </Link>
     );

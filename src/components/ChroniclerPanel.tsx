@@ -5,10 +5,11 @@ import { CHRONICLER } from '../content/npcs';
 import type { Word } from '../content/schema';
 import { SCROLL_WORDS } from '../content/wordIndex';
 import { chapterById } from '../domain/chapters';
-import { scrollKey } from '../domain/itemId';
 import { lessonParts } from '../domain/levels';
 import { plural } from '../domain/medals';
-import { dayKey } from '../domain/srs';
+import { isVerbId, scrollKey } from '../domain/itemId';
+import { reviewBacklog } from '../domain/next';
+import { dayKey, dueCards } from '../domain/srs';
 import { useErrands } from '../store/errands';
 import { useProgress } from '../store/progress';
 import { useSettings } from '../store/settings';
@@ -58,6 +59,9 @@ export function ChroniclerPanel({ opened }: { opened: number }) {
   const fresh = part >= 0 ? parts[part].filter((w) => !(w.id in cards)).length : 0;
   const newToday = day.date === dayKey(Date.now()) ? day.newWords : 0;
   const tired = newToday >= newPerDay;
+  // Лавина повторений (задача 12.6): Летописец сначала зовёт повторить, учить дальше всё равно можно.
+  const due = dueCards(Object.values(cards), Date.now()).filter((c) => !isVerbId(c.wordId)).length;
+  const backlog = reviewBacklog(due, newPerDay);
 
   return (
     <NpcCard npc={CHRONICLER} rep={rep}>
@@ -73,13 +77,18 @@ export function ChroniclerPanel({ opened }: { opened: number }) {
             <p className="mt-1 text-sm text-stone-600">
               Помоги записать в свиток общие слова пути. Когда свиток выучен, печать главы становится ближе.
             </p>
-            {tired && (
+            {backlog ? (
+              <p className="mt-1 text-sm text-amber-700" data-testid="chronicler-backlog">
+                К повтору накопилось {due} {plural(due, ['карточка', 'карточки', 'карточек'])}. Сначала повторите их, иначе новые слова только добавят долг.{' '}
+                <button type="button" className="underline" onClick={() => nav('/review')}>Повторить</button>
+              </p>
+            ) : tired && (
               <p className="mt-1 text-sm text-amber-700" data-testid="chronicler-limit">
                 Сегодня уже {newToday} {plural(newToday, ['новое слово', 'новых слова', 'новых слов'])}, это ваш лимит. Можно продолжить, но слова лучше запомнятся завтра.
               </p>
             )}
             <Button
-              variant={tired ? 'secondary' : 'primary'}
+              variant={tired || backlog ? 'secondary' : 'primary'}
               className="mt-2 w-full"
               data-testid="chronicler-lesson"
               onClick={() => nav(`/learn/${scrollKey(shownCh)}/1/${part}`)}

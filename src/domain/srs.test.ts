@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { dayNumber, dueCards, fromSm2, gradeFor, isDue, newCard, retrievability, review } from './srs';
+import { dayNumber, dueCards, fromSm2, gradeFor, isDue, newCard, retrievability, review, reviewForecast, type SrsCard } from './srs';
 
 const T0 = new Date(2026, 0, 10, 15, 0).getTime();
 const DAY = 86_400_000;
@@ -92,5 +92,16 @@ describe('оценки и очередь', () => {
     const b = { ...newCard('b', T0), due: dayNumber(T0) };
     const c = { ...newCard('c', T0), due: dayNumber(T0) + 2 };
     expect(dueCards([b, c, a], T0).map((x) => x.wordId)).toEqual(['a', 'b']);
+  });
+});
+
+describe('reviewForecast: прогноз повторений на неделю', () => {
+  const now = new Date(2026, 9, 9, 15).getTime();
+  const today = dayNumber(now);
+  const card = (due: number): SrsCard => ({ ...newCard('cafe.te', now), due });
+  it('сегодня вместе с просроченными, дальше по дням, за неделей не считается', () => {
+    const cards = [card(today - 3), card(today), card(today + 1), card(today + 1), card(today + 6), card(today + 7)];
+    expect(reviewForecast(cards, now)).toEqual([2, 2, 0, 0, 0, 0, 1]);
+    expect(reviewForecast([], now, 3)).toEqual([0, 0, 0]);
   });
 });

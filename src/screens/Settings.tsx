@@ -1,6 +1,7 @@
 import { SoundCard } from '../components/SoundCard';
 import { ReminderCard } from '../components/ReminderCard';
 import { ReportsCard } from '../components/ReportsCard';
+import { ReviewForecast } from '../components/ReviewForecast';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { VARIANT, VARIANTS } from '../config';
@@ -126,6 +127,8 @@ export function SettingsScreen() {
             Столько новых слов в день просят жители. Это мягкий лимит: учить дальше в городе можно всегда, просто «Продолжить» сначала позовёт на поручения.
           </p>
         </section>
+
+        <ReviewForecast />
 
         <ReminderCard />
 

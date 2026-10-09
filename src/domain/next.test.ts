@@ -116,6 +116,11 @@ describe('дневной лимит новых слов', () => {
   it('лимит набран, но повторять нечего — урок', () => {
     expect(nextStepWithLimit({ ...base, limit: { newToday: 10, perDay: 10, due: 0 } })).toMatchObject({ kind: 'learn' });
   });
+  it('к повтору недельный запас (лимит × 21) — сначала повторение, урок в запасе', () => {
+    expect(nextStepWithLimit({ ...base, limit: { newToday: 0, perDay: 10, due: 211 } })).toMatchObject({ kind: 'review', due: 211, then: { kind: 'learn', loc: 'cafe' } });
+    expect(nextStepWithLimit({ ...base, limit: { newToday: 0, perDay: 10, due: 210 } })).toMatchObject({ kind: 'errands', reason: 'backlog' });
+    expect(nextStepWithLimit({ ...base, limit: { newToday: 0, perDay: 5, due: 106 } })).toMatchObject({ kind: 'review' });
+  });
   it('к повтору больше лимита × 5 — сначала поручения', () => {
     expect(nextStepWithLimit({ ...base, limit: { newToday: 0, perDay: 10, due: 51 } })).toMatchObject({ kind: 'errands', reason: 'backlog' });
     expect(nextStepWithLimit({ ...base, limit: { newToday: 0, perDay: 10, due: 50 } })).toMatchObject({ kind: 'learn' });

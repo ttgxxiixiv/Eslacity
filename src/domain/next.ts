@@ -15,6 +15,11 @@ export type NextStep =
    * (`backlog`). Урок, который был бы следующим, лежит в `then`: учить дальше можно.
    */
   | { kind: 'errands'; reason: 'limit' | 'backlog'; due: number; then: NextStep }
+  /**
+   * Лавина повторений (задача 12.6): к повтору больше `perDay × REVIEW_FIRST_DAYS × 3` карточек, поручений
+   * на столько не хватит, «Продолжить» ведёт к повторению. Урок в `then`, учить дальше можно.
+   */
+  | { kind: 'review'; due: number; then: NextStep }
   | { kind: 'done' };
 
 export interface NextInput {
@@ -38,16 +43,25 @@ export interface NextInput {
   limit?: { newToday: number; perDay: number; due: number };
 }
 
+/** К повтору больше `perDay × ERRANDS_FIRST` — сначала поручения жителей (задача 3.7). */
+export const ERRANDS_FIRST = 5;
+/** К повтору больше `perDay × 3 × 7` — недельный запас повторений: сначала повторение (задача 12.6). */
+export const REVIEW_FIRST = 3 * 7;
+
+/** Лавина повторений: столько карточек к повтору, что новые слова только добавят долг. */
+export const reviewBacklog = (due: number, perDay: number) => due > perDay * REVIEW_FIRST;
+
 /**
- * Ближайший шаг с дневным лимитом новых слов (задача 3.7): если следующий шаг — урок с новыми словами,
- * а новых сегодня уже `perDay` (и есть что повторить) или к повтору больше `perDay × 5` карточек, первыми
- * предлагаются поручения.
+ * Ближайший шаг с дневным лимитом новых слов (задачи 3.7 и 12.6): если следующий шаг — урок с новыми словами,
+ * а к повтору недельный запас (`perDay × 21`), ведём к повторению; если больше `perDay × 5` или новых сегодня
+ * уже `perDay` (и есть что повторить) — к поручениям.
  */
 export function nextStepWithLimit(input: NextInput): NextStep {
   const step = nextStep(input);
   const l = input.limit;
   if (!l || step.kind !== 'learn' || step.newWords === 0) return step;
-  if (l.due > l.perDay * 5) return { kind: 'errands', reason: 'backlog', due: l.due, then: step };
+  if (reviewBacklog(l.due, l.perDay)) return { kind: 'review', due: l.due, then: step };
+  if (l.due > l.perDay * ERRANDS_FIRST) return { kind: 'errands', reason: 'backlog', due: l.due, then: step };
   // Лимит зовёт на поручения, только если есть что повторить: иначе он просто не мешает учить.
   if (l.newToday >= l.perDay && l.due > 0) return { kind: 'errands', reason: 'limit', due: l.due, then: step };
   return step;
