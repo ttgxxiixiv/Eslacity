@@ -136,6 +136,9 @@
         {"who": "npc", "es": "Quello che dice la legge: rispondere a un vicino. Domani alle sette parte il treno di Aldo per il bosco.", "ru": "То, что велит закон: ответить соседу. Завтра в семь Альдо отправляет поезд к лесу."},
         {"who": "hero", "es": "Chi viene?", "ru": "Кто едет?"},
         {"who": "npc", "es": "Enzo con la lettera dei bambini, Andrea, Paolo e mezza città. Non ho mai visto tanta gente che vuole rispondere.", "ru": "Энцо с письмом детей, Андреа, Паоло и полгорода. Никогда не видел, чтобы столько людей хотели ответить."},
+        {"who": "npc", "es": "Andrea viene contento. Non ha pagato nessuna multa e dice che adesso ha un debito con lei.", "ru": "Андреа едет довольный. Штраф он не платил и говорит, что теперь у него долг перед вами.", "if": {"flag": "fine", "is": "forgiven"}},
+        {"who": "npc", "es": "Andrea ha già pagato la sua metà della multa, e io l'altra. Adesso siamo pari.", "ru": "Андреа уже заплатил свою половину штрафа, а я — другую. Теперь мы в расчёте.", "if": {"flag": "fine", "is": "paid"}},
+        {"who": "npc", "es": "Andrea viene con le mani bianche di sapone: pulisce ancora il muro della posta.", "ru": "Андреа едет с руками, белыми от мыла: он всё ещё отмывает стену почты.", "if": {"flag": "fine", "is": "work"}},
         {"who": "hero", "es": "Allora è tutto pronto.", "ru": "Значит, всё готово."},
         {"who": "npc", "es": "Quasi. Manca lei. Lei è quello che parla con tutti, in tutti i toni. Per questo le ha scritto.", "ru": "Почти. Не хватает вас. Это вы умеете говорить с каждым и любым тоном. Поэтому он вам и написал."}
       ],
@@ -145,7 +148,7 @@
         {"q": "Кто поедет на поезде к лесу?", "options": ["Только комиссар", "Никто", "Энцо с письмом детей, Андреа, Паоло и полгорода"], "answer": 2},
         {"q": "Почему глашатай написал именно герою?", "options": ["Герой говорит со всеми, всеми тонами", "Герой полицейский", "Герой его родственник"], "answer": 0}
       ],
-      "gloss": {"banditore": "глашатай", "egregio": "уважаемый (в письме)", "rispetto": "уважение", "devotissimo": "преданнейший (il Suo devotissimo — ваш покорный слуга)", "legge": "закон", "enzo": "Энцо (имя)", "andrea": "Андреа (имя)", "paolo": "Паоло (имя)", "manca": "не хватает (от mancare)", "aldo": "Альдо (имя)"}
+      "gloss": {"banditore": "глашатай", "egregio": "уважаемый (в письме)", "rispetto": "уважение", "devotissimo": "преданнейший (il Suo devotissimo — ваш покорный слуга)", "legge": "закон", "enzo": "Энцо (имя)", "andrea": "Андреа (имя)", "paolo": "Паоло (имя)", "manca": "не хватает (от mancare)", "aldo": "Альдо (имя)", "sapone": "мыло"}
     }
   ]
 }

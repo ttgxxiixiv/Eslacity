@@ -138,7 +138,10 @@
         {"who": "hero", "es": "Andrés, ¿qué te pasa?", "ru": "Андрес, что с тобой?"},
         {"who": "npc", "es": "Dice: «Hace cien años yo era uno de los niños que se reían del pregonero. Le imitábamos en la plaza».", "ru": "Говорит: «Сто лет назад я был одним из детей, которые смеялись над глашатаем. Мы передразнивали его на площади»."},
         {"who": "hero", "es": "Entonces tú también le debes una respuesta.", "ru": "Значит, ты тоже задолжал ему ответ."},
-        {"who": "npc", "es": "Eso piensa él. Pero tiene miedo. Dice que no sabe cómo mirarle a la cara.", "ru": "Он и сам так думает. Но боится. Говорит, что не знает, как посмотреть ему в глаза."}
+        {"who": "npc", "es": "Eso piensa él. Pero tiene miedo. Dice que no sabe cómo mirarle a la cara.", "ru": "Он и сам так думает. Но боится. Говорит, что не знает, как посмотреть ему в глаза."},
+        {"who": "npc", "es": "Como Iván al principio. Yo le di una habitación, y aquella noche durmió tranquilo por primera vez en años.", "ru": "Как Иван поначалу. Я дала ему номер, и в ту ночь он впервые за годы спал спокойно.", "if": {"flag": "room", "is": "room"}},
+        {"who": "npc", "es": "Como Iván. Yo no le di una habitación, y se fue solo al bosque. Quizá me equivoqué.", "ru": "Как Иван. Я не дала ему номер, и он ушёл в лес один. Может, я ошиблась.", "if": {"flag": "room", "is": "refused"}},
+        {"who": "npc", "es": "Como Iván al principio. Después trabajó aquí de noche y perdió el miedo.", "ru": "Как Иван поначалу. Потом он работал здесь по ночам и перестал бояться.", "if": {"flag": "room", "is": "work"}}
       ],
       "questions": [
         {"q": "Чей был двенадцатый номер?", "options": ["Андреса", "Глашатая", "Мэра"], "answer": 1},

@@ -128,6 +128,9 @@
       "npc": "giulia",
       "lines": [
         {"who": "npc", "es": "Che bello che sei qui! Guarda questa lettera di Tommaso. È dall'altra parte del bosco, con Ivo.", "ru": "Как хорошо, что ты здесь! Вот, посмотри: письмо от Томмазо. Он по ту сторону леса, с Иво."},
+        {"who": "npc", "es": "È partito il giorno dopo la nostra conversazione. L'ho salutato senza gridare.", "ru": "Он ушёл на следующий день после нашего разговора. Я попрощалась с ним без крика.", "if": {"flag": "brother", "is": "free"}},
+        {"who": "npc", "es": "È rimasto a casa tre giorni, come abbiamo deciso. Il quarto giorno è partito senza dire niente.", "ru": "Он три дня просидел дома, как мы решили. На четвёртый ушёл, ничего не сказав.", "if": {"flag": "brother", "is": "home"}},
+        {"who": "npc", "es": "Doveva arrivare solo al margine del bosco. Ma dal paese è andato avanti con Ivo.", "ru": "Он должен был дойти только до опушки. Но из деревни пошёл дальше с Иво.", "if": {"flag": "brother", "is": "edge"}},
         {"who": "hero", "es": "Cosa dice?", "ru": "Что там?"},
         {"who": "npc", "es": "«Gentile signora, Le comunico che sto bene». Gentile signora? Sono sua sorella!", "ru": "«Уважаемая синьора, сообщаю вам, что у меня всё хорошо». Уважаемая синьора? Я его сестра!"},
         {"who": "hero", "es": "Che strano. Tommaso non scrive mai così.", "ru": "Странно. Томмазо никогда так не пишет."},

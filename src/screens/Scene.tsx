@@ -14,6 +14,8 @@ import { RepeatAfter } from '../components/RepeatAfter';
 import { ReportButton } from '../components/ReportButton';
 import { addressed } from '../store/settings';
 import { useThread } from '../store/thread';
+import { useStory } from '../store/story';
+import { visibleLines } from '../domain/story';
 import { isThreadId } from '../domain/thread';
 import { threadSceneTitle } from './Chronicle';
 import { Button, Screen, TopBar } from '../components/ui';
@@ -80,7 +82,10 @@ export function SceneTalk({ scene, place, lastLabel, onDone }: { scene: Scene; p
   const [index, setIndex] = useState(0);
   const [showRu, setShowRu] = useState(false);
   const [word, setWord] = useState<{ word: string; ru?: string } | null>(null);
-  const line = scene.lines[index];
+  // Реплики с условием (задача 13.6) — по выбору героя в прошлой главе. Номер в файле остаётся для отчёта.
+  const flags = useStory((s) => s.rec.flags);
+  const lines = useMemo(() => visibleLines(scene.lines, flags), [scene, flags]);
+  const line = lines[index]?.line;
   useEffect(() => {
     sayLine(line, place);
     // Новая реплика — в поле зрения: разговор длиннее экрана.
@@ -90,17 +95,17 @@ export function SceneTalk({ scene, place, lastLabel, onDone }: { scene: Scene; p
   const next = () => {
     setWord(null);
     setShowRu(false);
-    if (index + 1 >= scene.lines.length) onDone();
+    if (index + 1 >= lines.length) onDone();
     else setIndex(index + 1);
   };
 
   return (
       <div className="flex flex-1 flex-col gap-3 px-4 pb-6">
         <div className="text-sm text-stone-500 tabular-nums">
-          Реплика {index + 1} из {scene.lines.length} · нажмите на слово, чтобы увидеть перевод
+          Реплика {index + 1} из {lines.length} · нажмите на слово, чтобы увидеть перевод
         </div>
         <ul className="flex flex-col gap-2" data-testid="scene-lines">
-          {scene.lines.slice(0, index + 1).map((l, i) => {
+          {lines.slice(0, index + 1).map(({ line: l }, i) => {
             const hero = l.who === 'hero';
             const speaker = speakerOf(l.who, place);
             const current = i === index;
@@ -162,11 +167,11 @@ export function SceneTalk({ scene, place, lastLabel, onDone }: { scene: Scene; p
         {/* Отчёт об ошибке (задача 11.1): реплика сцены по номеру. */}
         {line && (
           <div className="text-center">
-            <ReportButton key={index} tone="light" itemId={`${scene.id}#${index}`} context={line.es} />
+            <ReportButton key={index} tone="light" itemId={`${scene.id}#${lines[index].index}`} context={line.es} />
           </div>
         )}
         <Button className="w-full" onClick={next} data-testid="scene-next">
-          {index + 1 >= scene.lines.length ? lastLabel : 'Дальше'}
+          {index + 1 >= lines.length ? lastLabel : 'Дальше'}
         </Button>
       </div>
   );

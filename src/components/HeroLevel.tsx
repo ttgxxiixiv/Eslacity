@@ -3,6 +3,8 @@ import { useEffect } from 'react';
 import { heroLevel } from '../domain/heroLevel';
 import { useProgress } from '../store/progress';
 import { useHeroTitle } from '../store/journey';
+import { useStory } from '../store/story';
+import { heroEpithet } from '../domain/story';
 
 /** Уровень в верхней панели: щиток с номером перед дневным опытом. */
 export function LevelBadge({ stone = false }: { stone?: boolean }) {
@@ -41,6 +43,7 @@ export function LevelCard() {
   const { level, into, need } = heroLevel(xpTotal);
   const ratio = need ? into / need : 0;
   const title = useHeroTitle();
+  const epithet = heroEpithet(useStory((s) => s.rec.moves));
   return (
     <section className="rounded-3xl bg-white p-4 shadow-sm">
       <div className="flex items-baseline justify-between gap-3">
@@ -52,6 +55,11 @@ export function LevelCard() {
       <div className="text-sm font-semibold text-amber-700" data-testid="hero-title">
         {title}
       </div>
+      {epithet && (
+        <p className="text-xs text-stone-500" data-testid="hero-epithet">
+          «{epithet}» — так о вас говорят в городе после ваших решений в спорах.
+        </p>
+      )}
       <div
         className="mt-3 h-4 overflow-hidden rounded bg-wood p-[2px]"
         role="progressbar"

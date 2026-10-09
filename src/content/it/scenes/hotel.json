@@ -138,7 +138,10 @@
         {"who": "hero", "es": "Andrea, che cos'hai?", "ru": "Андреа, что с тобой?"},
         {"who": "npc", "es": "Dice: «Cento anni fa ero uno dei bambini che ridevano del banditore. Lo imitavamo in piazza».", "ru": "Говорит: «Сто лет назад я был одним из детей, которые смеялись над глашатаем. Мы передразнивали его на площади»."},
         {"who": "hero", "es": "Allora anche tu gli devi una risposta.", "ru": "Значит, ты тоже задолжал ему ответ."},
-        {"who": "npc", "es": "Lo pensa anche lui. Ma ha paura. Dice che non sa come guardarlo in faccia.", "ru": "Он и сам так думает. Но боится. Говорит, что не знает, как посмотреть ему в глаза."}
+        {"who": "npc", "es": "Lo pensa anche lui. Ma ha paura. Dice che non sa come guardarlo in faccia.", "ru": "Он и сам так думает. Но боится. Говорит, что не знает, как посмотреть ему в глаза."},
+        {"who": "npc", "es": "Come Ivo all'inizio. Gli ho dato una camera, e quella notte ha dormito tranquillo per la prima volta da anni.", "ru": "Как Иво поначалу. Я дала ему номер, и в ту ночь он впервые за годы спал спокойно.", "if": {"flag": "room", "is": "room"}},
+        {"who": "npc", "es": "Come Ivo. Non gli ho dato una camera, ed è andato da solo nel bosco. Forse mi sono sbagliata.", "ru": "Как Иво. Я не дала ему номер, и он ушёл в лес один. Может, я ошиблась.", "if": {"flag": "room", "is": "refused"}},
+        {"who": "npc", "es": "Come Ivo all'inizio. Poi ha lavorato qui di notte e ha perso la paura.", "ru": "Как Иво поначалу. Потом он работал здесь по ночам и перестал бояться.", "if": {"flag": "room", "is": "work"}}
       ],
       "questions": [
         {"q": "Чей был двенадцатый номер?", "options": ["Андреа", "Глашатая", "Мэра"], "answer": 1},
@@ -146,7 +149,7 @@
         {"q": "Кем был Андреа сто лет назад?", "options": ["Другом глашатая", "Хозяином отеля", "Одним из детей, которые смеялись над глашатаем"], "answer": 2},
         {"q": "Чего боится Андреа?", "options": ["Поезда", "Посмотреть глашатаю в глаза", "Леса"], "answer": 1}
       ],
-      "gloss": {"banditore": "глашатай", "visite": "гости, посетители", "lenzuola": "простыни, постельное бельё", "divano": "диван", "imitavamo": "передразнивали (от imitare)", "devi": "должен (от dovere)", "andrea": "Андреа (имя)"}
+      "gloss": {"banditore": "глашатай", "visite": "гости, посетители", "lenzuola": "простыни, постельное бельё", "divano": "диван", "imitavamo": "передразнивали (от imitare)", "devi": "должен (от dovere)", "andrea": "Андреа (имя)", "ivo": "Иво (имя)"}
     }
   ]
 }

@@ -25,6 +25,8 @@ import { Button, Screen, TopBar } from '../components/ui';
 import { useCity } from '../store/city';
 import { useErrands } from '../store/errands';
 import { useMissions } from '../store/missions';
+import { useStory } from '../store/story';
+import { shownNode } from '../domain/story';
 import { syncAndEvaluate } from '../store/motivation';
 import { SceneTalk } from './Scene';
 
@@ -162,7 +164,9 @@ function MissionDialog({ mission, phrases, pool, mode, place, onDone }: {
   onDone(correct: number, answered: number): void;
 }) {
   const npc = npcFor(place);
-  const [nodeId, setNodeId] = useState<string | undefined>(mission.start);
+  // Реплики с условием (задача 13.6) звучат по флагам истории, остальные пропускаются.
+  const shown = (id: string | undefined) => shownNode(mission, id, useStory.getState().rec.flags);
+  const [nodeId, setNodeId] = useState<string | undefined>(() => shown(mission.start));
   const [bubbles, setBubbles] = useState<Bubble[]>([]);
   const [score, setScore] = useState({ correct: 0, answered: 0 });
   const [pending, setPending] = useState<string | undefined>(undefined);
@@ -170,11 +174,11 @@ function MissionDialog({ mission, phrases, pool, mode, place, onDone }: {
   const endRef = useRef<HTMLDivElement>(null);
   const say = (es: string) => (npc ? speakAs(es, npc) : speak(es));
 
-  const shown = useRef<string | undefined>(undefined);
+  const spoken = useRef<string | undefined>(undefined);
   // Реплика жителя: в ленту и голосом, по одному разу на узел.
   useEffect(() => {
-    if (node?.kind === 'say' && shown.current !== nodeId) {
-      shown.current = nodeId;
+    if (node?.kind === 'say' && spoken.current !== nodeId) {
+      spoken.current = nodeId;
       setBubbles((b) => [...b, { who: 'npc', es: addressed(node.es), ru: addressed(node.ru, 'ru') }]);
       say(addressed(node.es));
     }
@@ -188,7 +192,8 @@ function MissionDialog({ mission, phrases, pool, mode, place, onDone }: {
 
   const advance = (next: string | undefined) => {
     setPending(undefined);
-    if (next) setNodeId(next);
+    const to = shown(next);
+    if (to) setNodeId(to);
     else onDone(score.correct, score.answered);
   };
 
@@ -199,6 +204,9 @@ function MissionDialog({ mission, phrases, pool, mode, place, onDone }: {
     const ok = r.verdict !== 'wrong';
     logAnswer({ itemId: mission.id, kind: `mission-${mode}`, verdict: r.verdict, mode: 'learn', ms: 0 });
     setScore((s) => ({ correct: s.correct + (ok ? 1 : 0), answered: s.answered + 1 }));
+    // Развилка: верный ответ веткой ставит её флаги истории. Ошибка ничего не решает.
+    const branch = node.branches.find((b) => b.phrase === r.phrase);
+    if (ok && branch?.sets) useStory.getState().set(branch.sets, branch.move);
     const heroLine = ok ? fullPhrase(phrases[r.phrase].es) : said;
     const next: Bubble[] = [{ who: 'hero', es: heroLine, tone: !ok ? 'wrong' : r.offTone ? 'offtone' : undefined, move: ok ? moveOf(node, r.phrase) : undefined }];
     if (r.offTone && node.tone) {
@@ -233,7 +241,7 @@ function MissionDialog({ mission, phrases, pool, mode, place, onDone }: {
       <div className="flex-1" />
       {pending !== undefined || node?.kind === 'say' ? (
         <Button className="w-full" onClick={() => advance(pending !== undefined ? pending : node?.kind === 'say' ? node.next : undefined)} data-testid="mission-next">
-          {pending === undefined && node?.kind === 'say' && !node.next ? 'Завершить' : 'Дальше'}
+          {pending === undefined && node?.kind === 'say' && !shown(node.next) ? 'Завершить' : 'Дальше'}
         </Button>
       ) : node?.kind === 'answer' ? (
         <HeroTurn key={nodeId} node={node} phrases={phrases} pool={pool} mode={mode} onAnswer={answer} />

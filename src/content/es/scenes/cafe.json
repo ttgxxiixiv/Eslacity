@@ -130,6 +130,9 @@
       "npc": "lola",
       "lines": [
         {"who": "npc", "es": "¡Qué bien que vienes! Mira esta carta de Tomás. Está al otro lado del bosque, con Iván.", "ru": "Как хорошо, что ты пришёл! Вот, посмотри: письмо от Томаса. Он по ту сторону леса, с Иваном.", "fem": {"ru": "Как хорошо, что ты пришла! Вот, посмотри: письмо от Томаса. Он по ту сторону леса, с Иваном."}},
+        {"who": "npc", "es": "Se fue el día después de hablar contigo. Le dije adiós sin gritar.", "ru": "Он ушёл на следующий день после нашего разговора. Я попрощалась с ним без крика.", "if": {"flag": "brother", "is": "free"}},
+        {"who": "npc", "es": "Se quedó en casa tres días, como decidimos. Al cuarto día se fue sin decir nada.", "ru": "Он три дня просидел дома, как мы решили. На четвёртый ушёл, ничего не сказав.", "if": {"flag": "brother", "is": "home"}},
+        {"who": "npc", "es": "Tenía que llegar solo hasta el borde del bosque. Pero desde el pueblo siguió con Iván.", "ru": "Он должен был дойти только до опушки. Но из деревни пошёл дальше с Иваном.", "if": {"flag": "brother", "is": "edge"}},
         {"who": "hero", "es": "¿Qué dice?", "ru": "Что там?"},
         {"who": "npc", "es": "«Estimada señora: le comunico que me encuentro bien». ¿Estimada señora? ¡Soy su hermana!", "ru": "«Уважаемая сеньора, сообщаю вам, что у меня всё хорошо». Уважаемая сеньора? Я его сестра!"},
         {"who": "hero", "es": "Qué raro. Tomás nunca escribe así.", "ru": "Странно. Томас никогда так не пишет."},

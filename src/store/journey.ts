@@ -7,6 +7,8 @@ import { isMissionDone, useMissions } from './missions';
 import { useTrials } from './trials';
 import { useSphinx } from './sphinx';
 import { useKeeper } from './keeper';
+import { useStory } from './story';
+import { heroEpithet, withEpithet } from '../domain/story';
 import { isTrialDone } from '../domain/trial';
 import { isGuardianDone } from '../domain/guardian';
 import { db } from '../db/db';
@@ -106,7 +108,9 @@ export function useHeroTitle(): string {
   const seals = useJourney((s) => s.seals);
   const sage = useSphinx((s) => s.rec.elixir !== undefined);
   const keeper = useKeeper((s) => s.rec.title !== undefined);
-  return useMemo(() => heroTitle(completedChapters(currentJourney()), sage, keeper), [fragments, seals, sage, keeper]);
+  // Приставка по выбору в развилках (задача 13.6): «Рассудительный Знаток».
+  const moves = useStory((s) => s.rec.moves);
+  return useMemo(() => withEpithet(heroTitle(completedChapters(currentJourney()), sage, keeper), heroEpithet(moves)), [fragments, seals, sage, keeper, moves]);
 }
 
 /** Что игрок уже начал: для переноса открытой главы. */

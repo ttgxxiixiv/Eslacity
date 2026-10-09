@@ -9,7 +9,7 @@ const WORDS = { es: { greet: 'Hola', greetRu: 'привет', verb: 'quieres', v
 for (const lang of LANGS) {
   test.describe(lang, () => {
     const scene = JSON.parse(readFileSync(join(CONTENT, lang, 'scenes', 'cafe.json'), 'utf8')).scenes[0] as {
-      lines: { es: string; ru: string }[];
+      lines: { es: string; ru: string; if?: { flag: string; is: string | null | (string | null)[] } }[];
       questions: { q: string; options: string[]; answer: number }[];
     };
     const said = (page: import('@playwright/test').Page) => page.evaluate(() => (window as unknown as { __said: string[] }).__said);
@@ -64,8 +64,10 @@ for (const lang of LANGS) {
       for (const sc of all) {
         const place = sc.id;
         await page.goto(`./#/scene/${encodeURIComponent(sc.id)}`);
-        for (let i = 0; i < sc.lines.length; i++) {
-          await expect(page.getByTestId('scene-current'), place).toContainText(sc.lines[i].es);
+        // Без выбора в развилках (задача 13.6) реплики с условием молчат, кроме условия «флаг не поставлен».
+        const lines = sc.lines.filter((l) => !l.if || [l.if.is].flat().includes(null));
+        for (let i = 0; i < lines.length; i++) {
+          await expect(page.getByTestId('scene-current'), place).toContainText(lines[i].es);
           await page.getByTestId('scene-next').click();
         }
         for (const q of sc.questions) {

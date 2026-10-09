@@ -136,6 +136,9 @@
         {"who": "npc", "es": "Lo que dice la ley: contestar a un vecino. Mañana a las siete sale el tren de Ramón hacia el bosque.", "ru": "То, что велит закон: ответить соседу. Завтра в семь Рамон отправляет поезд к лесу."},
         {"who": "hero", "es": "¿Quién viene?", "ru": "Кто едет?"},
         {"who": "npc", "es": "Rafa con la carta de los niños, Andrés, Pablo y medio pueblo. Nunca he visto a tanta gente queriendo contestar.", "ru": "Рафа с письмом детей, Андрес, Пабло и полгорода. Никогда не видела, чтобы столько людей хотели ответить."},
+        {"who": "npc", "es": "Andrés viene contento. No pagó ninguna multa y dice que ahora tiene una deuda con usted.", "ru": "Андрес едет довольный. Штраф он не платил и говорит, что теперь у него долг перед вами.", "if": {"flag": "fine", "is": "forgiven"}},
+        {"who": "npc", "es": "Andrés ya pagó su mitad de la multa, y yo la otra. Ahora estamos en paz.", "ru": "Андрес уже заплатил свою половину штрафа, а я — другую. Теперь мы в расчёте.", "if": {"flag": "fine", "is": "paid"}},
+        {"who": "npc", "es": "Andrés viene con las manos azules: todavía pinta la pared de correos.", "ru": "Андрес едет с синими руками: он всё ещё красит стену почты.", "if": {"flag": "fine", "is": "work"}},
         {"who": "hero", "es": "Entonces está todo listo.", "ru": "Значит, всё готово."},
         {"who": "npc", "es": "Casi. Falta usted. Usted es quien habla con todos, en todos los tonos. Por eso le ha escrito.", "ru": "Почти. Не хватает вас. Это вы умеете говорить с каждым и любым тоном. Поэтому он вам и написал."}
       ],
