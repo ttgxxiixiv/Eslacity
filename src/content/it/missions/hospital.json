@@ -9,7 +9,7 @@
       "start": "hi",
       "nodes": {
         "hi": {"kind": "say", "es": "Oggi il paziente è lei. Cosa succede?", "ru": "Сегодня пациент — вы. Что случилось?", "next": "pain"},
-        "pain": {"kind": "answer", "task": "Скажите, что у вас, кажется, сломана рука или что вам трудно дышать.", "branches": [{"phrase": "ph:hospital.credo-avere-braccio", "next": "armsay"}, {"phrase": "ph:hospital.non-riesco-respirare", "next": "breathsay"}], "wrong": {"es": "Le fanno male i capelli? I capelli non fanno male. Me lo dica di nuovo.", "ru": "Болят волосы? Волосы не болят. Скажите ещё раз."}},
+        "pain": {"kind": "answer", "task": "Скажите, что у вас, кажется, сломана рука или что вам трудно дышать.", "branches": [{"phrase": "ph:hospital.credo-avere-braccio", "next": "armsay", "sets": {"injury": "arm"}}, {"phrase": "ph:hospital.non-riesco-respirare", "next": "breathsay", "sets": {"injury": "breath"}}], "wrong": {"es": "Le fanno male i capelli? I capelli non fanno male. Me lo dica di nuovo.", "ru": "Болят волосы? Волосы не болят. Скажите ещё раз."}},
         "armsay": {"kind": "say", "es": "Il braccio... Vediamo. Le fa male qui?", "ru": "Рука... Посмотрим. Здесь болит?", "next": "xray"},
         "breathsay": {"kind": "say", "es": "Respiri piano. Molto bene. E il braccio? È rosso.", "ru": "Дышите медленно. Хорошо. А рука? Она красная.", "next": "xray"},
         "xray": {"kind": "answer", "task": "Спросите, нужен ли вам рентген.", "branches": [{"phrase": "ph:hospital.serve-radiografia", "next": "xsay"}], "wrong": {"es": "Una pizza? Qui non c'è la pizza. Qui ci sono i medici.", "ru": "Пицца? Здесь нет пиццы. Здесь врачи."}},

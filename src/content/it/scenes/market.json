@@ -56,6 +56,8 @@
       "chapter": 3,
       "npc": "rosa",
       "lines": [
+        {"who": "npc", "es": "Com'erano le carote in montagna? Tommaso dice che erano buonissime.", "ru": "Как морковка в горах? Томмазо говорит, была очень вкусная.", "if": {"flag": "veg", "is": "carrots"}},
+        {"who": "npc", "es": "E l'aglio? Tommaso dice che nella torre c'era odore d'aglio tutta la settimana.", "ru": "А чеснок? Томмазо говорит, в башне всю неделю пахло чесноком.", "if": {"flag": "veg", "is": "garlic"}},
         {"who": "npc", "es": "Tesoro! Vieni, guarda che frutta. Viene dal deserto.", "ru": "Золотце! Иди сюда, посмотри, какие фрукты. Они из пустыни."},
         {"who": "hero", "es": "Dal deserto? Chi l'ha portata?", "ru": "Из пустыни? Кто их привёз?"},
         {"who": "npc", "es": "Un uomo del deserto, con un cammello. È arrivato ieri con sale, frutta e... pezzi di mappa.", "ru": "Человек из пустыни, с верблюдом. Приехал вчера с солью, фруктами и... обрывками карты."},
@@ -74,7 +76,7 @@
         {"q": "С чем Роза сравнивает поддельный обрывок?", "options": ["С белым городом", "С фальшивой монетой", "С пустой бутылкой"], "answer": 0},
         {"q": "Что стало с тем человеком?", "options": ["Его поймала полиция", "Он исчез вместе с ветром", "Он остался на рынке"], "answer": 1}
       ],
-      "gloss": {"tesoro": "золотце (ласковое обращение)", "cammello": "верблюд", "pezzi": "обрывки"}
+      "gloss": {"tesoro": "золотце (ласковое обращение)", "cammello": "верблюд", "pezzi": "обрывки", "tommaso": "Томмазо (имя)", "buonissime": "очень вкусные (от buono)"}
     },
     {
       "id": "wh:market.4",
@@ -112,6 +114,8 @@
         {"who": "npc", "es": "Sembra di sì. Tutto quello che dici di nascosto, il bosco lo dice ad alta voce.", "ru": "Похоже на то. Всё, что говоришь тайком, лес повторяет вслух."},
         {"who": "hero", "es": "E i tuoi clienti l'hanno sentito?", "ru": "И твои покупатели это слышали?"},
         {"who": "npc", "es": "Tutto il quartiere. Oggi nessuno compra da me. Dicono che la mia bilancia è truccata.", "ru": "Весь район. Сегодня у меня никто не покупает. Говорят, мои весы подкручены."},
+        {"who": "npc", "es": "E tu lo sai: l'ultima volta mi hai chiesto uno sconto di due euro e non ho detto niente.", "ru": "А ты-то знаешь: в прошлый раз ты выторговал у меня два евро, и я слова не сказала.", "if": {"flag": "bargain", "is": "bargain"}, "fem": {"ru": "А ты-то знаешь: в прошлый раз ты выторговала у меня два евро, и я слова не сказала."}},
+        {"who": "npc", "es": "E tu lo sai: l'ultima volta hai pagato dodici euro giusti, senza sconti, e il peso era giusto.", "ru": "А ты-то знаешь: в прошлый раз ты заплатил ровно двенадцать евро, без торга, и всё весило как надо.", "if": {"flag": "bargain", "is": "full"}, "fem": {"ru": "А ты-то знаешь: в прошлый раз ты заплатила ровно двенадцать евро, без торга, и всё весило как надо."}},
         {"who": "hero", "es": "Mi dispiace molto.", "ru": "Мне очень жаль."},
         {"who": "npc", "es": "Mia nonna lo diceva: «Attenta a quello che dici, gli alberi ascoltano». Pensavo che fosse una favola.", "ru": "Бабушка говорила: «Осторожнее со словами, деревья слушают». Я думала, это сказка."}
       ],

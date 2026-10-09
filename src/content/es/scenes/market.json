@@ -56,6 +56,8 @@
       "chapter": 3,
       "npc": "carmen",
       "lines": [
+        {"who": "npc", "es": "¿Qué tal las zanahorias en la montaña? Tomás dice que estaban muy ricas.", "ru": "Как морковка в горах? Томас говорит, была очень вкусная.", "if": {"flag": "veg", "is": "carrots"}},
+        {"who": "npc", "es": "¿Y el ajo? Tomás dice que en la torre olía a ajo toda la semana.", "ru": "А чеснок? Томас говорит, в башне всю неделю пахло чесноком.", "if": {"flag": "veg", "is": "garlic"}},
         {"who": "npc", "es": "¡Cariño! Ven, mira qué fruta. Es del desierto.", "ru": "Дорогуша! Иди сюда, посмотри, какие фрукты. Они из пустыни."},
         {"who": "hero", "es": "¿Del desierto? ¿Quién los trajo?", "ru": "Из пустыни? Кто их привёз?"},
         {"who": "npc", "es": "Un hombre del desierto, con un camello. Llegó ayer con sal, fruta y... trozos de mapa.", "ru": "Человек из пустыни, с верблюдом. Приехал вчера с солью, фруктами и... обрывками карты."},
@@ -112,6 +114,8 @@
         {"who": "npc", "es": "Eso parece. Todo lo que dices a escondidas, el bosque lo dice en voz alta.", "ru": "Похоже на то. Всё, что говоришь тайком, лес повторяет вслух."},
         {"who": "hero", "es": "¿Y tus clientes lo oyeron?", "ru": "И твои покупатели это слышали?"},
         {"who": "npc", "es": "Todo el barrio. Hoy nadie me compra. Dicen que mi báscula está trucada.", "ru": "Весь район. Сегодня у меня никто не покупает. Говорят, мои весы подкручены."},
+        {"who": "npc", "es": "Y tú lo sabes: la última vez me regateaste dos euros y no te dije nada.", "ru": "А ты-то знаешь: в прошлый раз ты выторговал у меня два евро, и я слова не сказала.", "if": {"flag": "bargain", "is": "bargain"}, "fem": {"ru": "А ты-то знаешь: в прошлый раз ты выторговала у меня два евро, и я слова не сказала."}},
+        {"who": "npc", "es": "Y tú lo sabes: la última vez pagaste doce euros justos, sin regatear, y todo pesaba bien.", "ru": "А ты-то знаешь: в прошлый раз ты заплатил ровно двенадцать евро, без торга, и всё весило как надо.", "if": {"flag": "bargain", "is": "full"}, "fem": {"ru": "А ты-то знаешь: в прошлый раз ты заплатила ровно двенадцать евро, без торга, и всё весило как надо."}},
         {"who": "hero", "es": "Lo siento mucho.", "ru": "Мне очень жаль."},
         {"who": "npc", "es": "Mi abuela lo decía: «Cuidado con lo que dices, que los árboles escuchan». Yo pensaba que era un cuento.", "ru": "Бабушка говорила: «Осторожнее со словами, деревья слушают». Я думала, это сказка."}
       ],

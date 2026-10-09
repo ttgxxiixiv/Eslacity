@@ -6,8 +6,8 @@ import { LANGS, openApp, playDispute, readMeta, type Lang, type Move } from './f
 const CONTENT = join(import.meta.dirname, '..', '..', 'src', 'content');
 type Line = { es: string; if?: { flag: string; is: string | null | (string | null)[] } };
 
-const sceneLines = (lang: Lang, place: string) =>
-  (JSON.parse(readFileSync(join(CONTENT, lang, 'scenes', `${place}.json`), 'utf8')).scenes as { id: string; lines: Line[] }[]).find((s) => s.id === `sc:${place}.5`)!.lines;
+const sceneLines = (lang: Lang, place: string, chapter = 5) =>
+  (JSON.parse(readFileSync(join(CONTENT, lang, 'scenes', `${place}.json`), 'utf8')).scenes as { id: string; lines: Line[] }[]).find((s) => s.id === `sc:${place}.${chapter}`)!.lines;
 
 /** Пройти сцену и собрать реплики, которые видел герой. */
 async function readScene(page: Page, id: string): Promise<string[]> {
@@ -67,6 +67,25 @@ for (const lang of LANGS) {
       // Флаги переживают перезапуск.
       await page.reload();
       await expect(page.getByTestId('hero-title')).toHaveText(/^Чуткий /);
+    });
+
+    test('развилки ранних глав: выбор в миссии главы I меняет сцену главы II', async ({ page }) => {
+      test.setTimeout(120_000);
+      await openApp(page, lang);
+      const conditional = sceneLines(lang, 'cafe', 2).filter((l) => l.if?.flag === 'drink');
+      const line = (value: string) => conditional.find((l) => [l.if!.is].flat().includes(value))!.es;
+
+      // Вторая ветка выбора — чай с молоком.
+      await page.goto('./#/');
+      await page.goto(`./#/mission/${encodeURIComponent('ms:cafe.1')}`);
+      await playDispute(page, lang, 'cafe', 'object', 'choose', { chapter: 1, pick: 1 });
+      expect(await readMeta(page, lang, 'story')).toEqual({ flags: { drink: 'tea' }, moves: {} });
+      const seen = await readScene(page, 'sc:cafe.2');
+      expect(seen.some((t) => t.includes(line('tea')))).toBe(true);
+      expect(seen.some((t) => t.includes(line('coffee')))).toBe(false);
+      // Без спора приставки к титулу нет.
+      await page.goto('./#/profile');
+      await expect(page.getByTestId('hero-epithet')).toHaveCount(0);
     });
   });
 }

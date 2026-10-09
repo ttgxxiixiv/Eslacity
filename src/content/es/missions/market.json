@@ -30,7 +30,7 @@
       "start": "hi",
       "nodes": {
         "hi": {"kind": "say", "es": "¡Cariño! Para las montañas necesitas buena comida. ¿Qué te pongo?", "ru": "Дорогуша! В горы нужна хорошая еда. Что тебе положить?", "next": "buy"},
-        "buy": {"kind": "answer", "task": "Попросите килограмм моркови или спросите, есть ли чеснок.", "branches": [{"phrase": "ph:market.pongame-kilo-zanahorias", "next": "buysay"}, {"phrase": "ph:market.tiene-ajo", "next": "buysay"}], "wrong": {"es": "¿Un kilo de piedras? Las piedras están en las montañas.", "ru": "Килограмм камней? Камни — это в горах."}},
+        "buy": {"kind": "answer", "task": "Попросите килограмм моркови или спросите, есть ли чеснок.", "branches": [{"phrase": "ph:market.pongame-kilo-zanahorias", "next": "buysay", "sets": {"veg": "carrots"}}, {"phrase": "ph:market.tiene-ajo", "next": "buysay", "sets": {"veg": "garlic"}}], "wrong": {"es": "¿Un kilo de piedras? Las piedras están en las montañas.", "ru": "Килограмм камней? Камни — это в горах."}},
         "buysay": {"kind": "say", "es": "Aquí tienes. ¿Y el queso de los pastores?", "ru": "Держи. А сыр от пастухов?", "next": "taste"},
         "taste": {"kind": "answer", "task": "Спросите, можно ли попробовать.", "branches": [{"phrase": "ph:market.puedo-probar", "next": "tastesay"}], "wrong": {"es": "¿Puedo cantar? Canta, y compra también.", "ru": "Можно спеть? Пой, но и покупай."}},
         "tastesay": {"kind": "say", "es": "¡Prueba, prueba! ¿Rico? ¿Y fruta para el camino?", "ru": "Пробуй, пробуй! Вкусно? А фрукты в дорогу?", "next": "season"},
@@ -60,7 +60,8 @@
         "badsay": {"kind": "say", "es": "Tienes razón, está pasado. Te doy este. ¿Y para el camino?", "ru": "Ты прав, он перезрел. Возьми вот этот. А в дорогу?", "fem": {"ru": "Ты права, он перезрел. Возьми вот этот. А в дорогу?"}, "next": "beans"},
         "beans": {"kind": "answer", "task": "Спросите, есть ли бобовые на развес.", "branches": [{"phrase": "ph:market.tiene-legumbres-granel", "next": "beanssay"}], "wrong": {"es": "¿Tiene fruta de oro? No, solo fruta buena.", "ru": "Есть золотые фрукты? Нет, только хорошие."}},
         "beanssay": {"kind": "say", "es": "Aquí tienes. Para el desierto, perfecto: pesan poco. Son doce euros.", "ru": "Держи. Для пустыни — то, что нужно: весят мало. С тебя двенадцать евро.", "next": "deal"},
-        "deal": {"kind": "answer", "task": "Скажите, что возьмёте, если она уступит в цене.", "branches": [{"phrase": "ph:market.si-lo-rebaja", "next": "end"}], "wrong": {"es": "¿Si bailo, me lo regala? ¡No!", "ru": "Если станцую, отдадите даром? Нет!"}},
+        "deal": {"kind": "answer", "task": "Попросите уступить в цене или скажите, что больше ничего не нужно.", "branches": [{"phrase": "ph:market.si-lo-rebaja", "next": "end", "sets": {"bargain": "bargain"}}, {"phrase": "ph:market.nada-mas-gracias", "next": "endfull", "sets": {"bargain": "full"}}], "wrong": {"es": "¿Si bailo, me lo regala? ¡No!", "ru": "Если станцую, отдадите даром? Нет!"}},
+        "endfull": {"kind": "say", "es": "Doce euros, justos. Y toma mi trozo del mapa del desierto, el de verdad. Mira: el papel es viejo y tiene arena. Los de mentira son nuevos.", "ru": "Двенадцать евро, без торга. И держи мой обрывок карты пустыни, настоящий. Смотри: бумага старая, и в ней песок. Поддельные — новые."},
         "end": {"kind": "say", "es": "¡Así me gusta! Diez euros. Y toma mi trozo del mapa del desierto, el de verdad. Mira: el papel es viejo y tiene arena. Los de mentira son nuevos.", "ru": "Вот это по-нашему! Десять евро. И держи мой обрывок карты пустыни, настоящий. Смотри: бумага старая, и в ней песок. Поддельные — новые."}
       }
     },

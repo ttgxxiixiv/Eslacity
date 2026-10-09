@@ -9,7 +9,7 @@
       "start": "hi",
       "nodes": {
         "hi": {"kind": "say", "es": "Ciao di nuovo! Oggi nel mio bar si parla solo italiano. Cosa prendi?", "ru": "Привет ещё раз! Сегодня в моём баре говорят только по-итальянски. Что будешь?", "next": "order"},
-        "order": {"kind": "answer", "task": "Закажите кофе или чай с молоком.", "branches": [{"phrase": "ph:cafe.un-caffe", "next": "coffee"}, {"phrase": "ph:cafe.prendo-te", "next": "tea"}], "wrong": {"es": "Come? Un gatto? Non abbiamo gatti nel menù.", "ru": "Как? Кота? Котов в меню нет."}},
+        "order": {"kind": "answer", "task": "Закажите кофе или чай с молоком.", "branches": [{"phrase": "ph:cafe.un-caffe", "next": "coffee", "sets": {"drink": "coffee"}}, {"phrase": "ph:cafe.prendo-te", "next": "tea", "sets": {"drink": "tea"}}], "wrong": {"es": "Come? Un gatto? Non abbiamo gatti nel menù.", "ru": "Как? Кота? Котов в меню нет."}},
         "coffee": {"kind": "say", "es": "Un caffè. Molto bene! E l'acqua, vuoi l'acqua?", "ru": "Кофе. Отлично! А воды хочешь?", "next": "water"},
         "tea": {"kind": "say", "es": "Un tè al latte. Parli molto bene! Vuoi l'acqua?", "ru": "Чай с молоком. Ты отлично говоришь! Воды хочешь?", "next": "water"},
         "water": {"kind": "answer", "task": "Попросите стакан воды.", "branches": [{"phrase": "ph:cafe.bicchiere-acqua", "next": "sugarq"}], "wrong": {"es": "Un bicchiere di zuppa? Questo è un bar, non un ristorante.", "ru": "Стакан супа? Это бар, а не ресторан."}},
@@ -42,7 +42,7 @@
         "napkinsay": {"kind": "say", "es": "Prendi. E guarda: questa è l'ultima lettera di Tommaso.", "ru": "Держи. И смотри: это последнее письмо Томмазо.", "next": "plug"},
         "plug": {"kind": "answer", "task": "Спросите, есть ли здесь розетка: телефону нужен заряд.", "branches": [{"phrase": "ph:cafe.c-presa-qui", "next": "plugsay"}], "wrong": {"es": "C'è un lupo qui? No, i lupi sono in montagna.", "ru": "Здесь волк? Нет, волки в горах."}},
         "plugsay": {"kind": "say", "es": "Là, vicino alla finestra. In montagna il telefono non funziona, sai?", "ru": "Вон там, у окна. В горах телефон не работает, знаешь?", "next": "pay"},
-        "pay": {"kind": "answer", "task": "Попросите счёт или скажите, что сегодня угощаете вы.", "branches": [{"phrase": "ph:cafe.fa-conto", "next": "end"}, {"phrase": "ph:cafe.oggi-offro", "next": "end"}], "wrong": {"es": "Mi dai il tuo zaino? No, grazie, ne ho uno.", "ru": "Отдаёшь мне свой рюкзак? Нет, спасибо, у меня есть."}},
+        "pay": {"kind": "answer", "task": "Попросите счёт или скажите, что сегодня угощаете вы.", "branches": [{"phrase": "ph:cafe.fa-conto", "next": "end", "sets": {"treat": "paid"}}, {"phrase": "ph:cafe.oggi-offro", "next": "end", "sets": {"treat": "treat"}}], "wrong": {"es": "Mi dai il tuo zaino? No, grazie, ne ho uno.", "ru": "Отдаёшь мне свой рюкзак? Нет, спасибо, у меня есть."}},
         "end": {"kind": "say", "es": "Oggi non paghi niente. E una cosa: se vedi Tommaso nella nebbia, chiamalo. Diceva sempre: nella nebbia, ti guida solo la voce. Prendi il mio pezzo della mappa della montagna.", "ru": "Сегодня ты ничего не платишь. И вот что: если увидишь Томмазо в тумане, позови его. Он всегда говорил: в тумане ведёт только голос. Держи мой обрывок карты гор."}
       }
     },

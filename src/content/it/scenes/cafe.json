@@ -39,7 +39,9 @@
         {"who": "hero", "es": "C'è un secondo guardiano?", "ru": "Есть и второй страж?"},
         {"who": "npc", "es": "Ogni terra ha il suo guardiano. E in montagna ci sono nebbia e tempeste.", "ru": "У каждой земли свой страж. А в горах туман и грозы."},
         {"who": "hero", "es": "Se vedo Tommaso, gli dico di scriverti.", "ru": "Если увижу Томмазо, скажу, чтобы он тебе написал."},
-        {"who": "npc", "es": "Grazie. Prendi, una cioccolata calda. Per il freddo.", "ru": "Спасибо. Держи горячий шоколад. От холода."}
+        {"who": "npc", "es": "Grazie. Prendi, una cioccolata calda. Per il freddo.", "ru": "Спасибо. Держи горячий шоколад. От холода."},
+        {"who": "npc", "es": "E la prossima volta, il tuo solito caffè. Mi ricordo: senza zucchero.", "ru": "А в следующий раз — твой обычный кофе. Я помню: без сахара.", "if": {"flag": "drink", "is": "coffee"}},
+        {"who": "npc", "es": "E la prossima volta, il tuo solito tè al latte. Mi ricordo.", "ru": "А в следующий раз — твой обычный чай с молоком. Я помню.", "if": {"flag": "drink", "is": "tea"}}
       ],
       "questions": [
         {"q": "Кто брат Джулии?", "options": ["Горный проводник", "Повар", "Почтальон"], "answer": 0},
@@ -57,6 +59,8 @@
         {"who": "npc", "es": "Sai chi è venuto qui stamattina?", "ru": "Знаешь, кто был здесь сегодня утром?"},
         {"who": "hero", "es": "Chi?", "ru": "Кто?"},
         {"who": "npc", "es": "Andrea, il guardiano. Ha preso il suo primo caffè in cento anni. Ha detto che era buonissimo.", "ru": "Андреа, страж. Выпил свой первый кофе за сто лет. Сказал, что он очень вкусный."},
+        {"who": "npc", "es": "E non gli ho fatto pagare niente. Anche a te l'ultima volta non ho fatto pagare, ti ricordi?", "ru": "И денег я с него не взяла. С тебя в прошлый раз тоже не взяла, помнишь?", "if": {"flag": "treat", "is": "paid"}},
+        {"who": "npc", "es": "Ho offerto io, come tu volevi offrire a me l'ultima volta.", "ru": "Угощала я — как ты хотел угостить меня в прошлый раз.", "if": {"flag": "treat", "is": "treat"}, "fem": {"ru": "Угощала я — как ты хотела угостить меня в прошлый раз."}},
         {"who": "hero", "es": "E cosa ti ha detto?", "ru": "И что он тебе сказал?"},
         {"who": "npc", "es": "Mi ha parlato del deserto. Dice che la città bianca appare quando hai sete.", "ru": "Рассказал о пустыне. Говорит, белый город появляется, когда тебя мучает жажда."},
         {"who": "hero", "es": "E quando arrivi?", "ru": "А когда до него доходишь?"},

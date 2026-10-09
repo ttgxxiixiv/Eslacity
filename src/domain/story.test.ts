@@ -97,6 +97,16 @@ describe('validateStory', () => {
     expect(run(scene(full.slice(1)))).toEqual(['в сцене нет реплик без условия']);
   });
 
+  it('развилок в главе не меньше заданного', () => {
+    const files = [{ name: 'hotel.json', data: { location: 'hotel', missions: [fork()] } as LocationMissions }];
+    const sc = [{ name: 'hotel.json', data: { location: 'hotel', scenes: [scene(full)] } as LocationScenes }];
+    expect(validateStory(sc, files, undefined, { chapters: [4], min: 1 })).toEqual([]);
+    expect(validateStory(sc, files, undefined, { chapters: [3, 4], min: 2 }).map((i) => i.msg)).toEqual([
+      'в главе 3 развилок 0, нужно не меньше 2',
+      'в главе 4 развилок 1, нужно не меньше 2',
+    ]);
+  });
+
   it('развилка: одинаковые флаги у веток и разные значения; флаг без последствий', () => {
     const m = fork();
     const a = m.nodes.a as Extract<Mission['nodes'][string], { kind: 'answer' }>;

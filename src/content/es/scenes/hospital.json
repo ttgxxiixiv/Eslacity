@@ -34,6 +34,8 @@
         {"who": "npc", "es": "Buenos días. Tengo una noticia: Tomás está aquí.", "ru": "Добрый день. У меня новость: Томас здесь."},
         {"who": "hero", "es": "¿Tomás? ¿Cómo está?", "ru": "Томас? Как он?"},
         {"who": "npc", "es": "Tiene el pie roto, pero está bien. El guardián lo bajó de la montaña.", "ru": "У него сломана нога, но он в порядке. Страж спустил его с горы."},
+        {"who": "npc", "es": "No es como tu brazo el mes pasado: lo suyo sí está roto.", "ru": "Не как твоя рука в прошлом месяце: у него и правда перелом.", "if": {"flag": "injury", "is": "arm"}},
+        {"who": "npc", "es": "No es como tú el mes pasado, que no podías respirar. Él respira bien, solo le duele el pie.", "ru": "Не как ты в прошлом месяце, когда тебе было трудно дышать. Дышит он хорошо, болит только нога.", "if": {"flag": "injury", "is": "breath"}},
         {"who": "hero", "es": "¿Qué pasó en la torre?", "ru": "Что случилось в башне?"},
         {"who": "npc", "es": "Me lo contó. El guardián hace tres preguntas, en pasado.", "ru": "Он мне рассказал. Страж задаёт три вопроса, в прошедшем времени."},
         {"who": "hero", "es": "¿Y Tomás contestó?", "ru": "И Томас ответил?"},

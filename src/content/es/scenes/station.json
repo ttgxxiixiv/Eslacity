@@ -110,6 +110,8 @@
         {"who": "hero", "es": "¿Y no eres tú?", "ru": "А это не ты?"},
         {"who": "npc", "es": "¡Claro que no! Por la noche duermo en casa. Mi mujer lo sabe.", "ru": "Конечно, нет! По ночам я сплю дома. Жена знает."},
         {"who": "hero", "es": "Te creo. Pero alguien fuma en pipa y habla con el cuervo.", "ru": "Я тебе верю. Но кто-то курит трубку и разговаривает с вороном."},
+        {"who": "npc", "es": "Gracias. Tú también pediste solo ida, ¿te acuerdas? Y aquí estás.", "ru": "Спасибо. Ты ведь тоже просил билет только в одну сторону, помнишь? А всё-таки вернулся.", "if": {"flag": "ticket", "is": "single"}, "fem": {"ru": "Спасибо. Ты ведь тоже просила билет только в одну сторону, помнишь? А всё-таки вернулась."}},
+        {"who": "npc", "es": "Gracias. Tú pediste ida y vuelta, y volviste. Quien vuelve dice la verdad.", "ru": "Спасибо. Ты просил туда и обратно — и вернулся. Кто возвращается, тот говорит правду.", "if": {"flag": "ticket", "is": "round"}, "fem": {"ru": "Спасибо. Ты просила туда и обратно — и вернулась. Кто возвращается, тот говорит правду."}},
         {"who": "npc", "es": "Yo solo sé algo: hace una semana un señor mayor compró un billete al borde del bosque. De ida y vuelta.", "ru": "Я знаю только одно: неделю назад пожилой сеньор купил билет до опушки леса. Туда и обратно."},
         {"who": "hero", "es": "¿Quién?", "ru": "Кто?"},
         {"who": "npc", "es": "No le vi la cara. Pagó con monedas muy viejas. Ya no se aceptan, pero se las acepté.", "ru": "Лица я не видел. Он заплатил очень старыми монетами. Их уже не принимают, но я взял."}

@@ -1,6 +1,6 @@
 import { readdirSync, readFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
-import { validateChronicler, validateGrammar, validateGuardians, validateLetters, validateNotes, validateMissions, validateNpcs, validatePhrases, validateScenes, validatePortraits, validateScrolls, validateSphinx, validateTranslations, validateVerbs, validatePairs, validateFestivals, validatePrologue, validateThread, validateBooks, validateStory, validateWords, type Issue } from '../src/content/validate';
+import { validateChronicler, validateGrammar, validateGuardians, validateLetters, validateNotes, validateMissions, validateNpcs, validatePhrases, validateScenes, validatePortraits, validateScrolls, validateSphinx, validateTranslations, validateVerbs, validatePairs, validateFestivals, validatePrologue, validateThread, validateBooks, validateStory, STORY_FORKS, validateWords, type Issue } from '../src/content/validate';
 import type { Chronicler, GrammarLesson, GuardiansFile, LettersFile, SphinxFile, VerbsFile, PairsFile, FestivalFile, PrologueFile, LocationWords, LocationMissions, LocationPhrases, LocationScenes, NpcsFile, ScrollFile, ThreadFile, BookFile } from '../src/content/schema';
 import { THREAD_CHAPTERS, THREAD_NOTES_MIN } from '../src/domain/thread';
 import { BOOK_CHAPTERS } from '../src/domain/books';
@@ -146,7 +146,7 @@ for (const lang of langs) {
     coverage: (text, level) => textCoverage(text, level, lexicon, forms, lang),
   });
   // Выбор с последствиями (задача 13.6): развилки миссий и реплики с условием.
-  const storyIssues = validateStory(scenes, missions, threadFile);
+  const storyIssues = validateStory(scenes, missions, threadFile, STORY_FORKS);
   // Женские формы (`fem`): у путницы те же проверки сцен, миссий, фраз и писем, что у исходного текста,
   // и своя проверка самих форм (не пустая, есть исходное поле, отличается от него).
   const fem = <T,>(list: { name: string; data: T }[]) => list.map((f) => ({ name: f.name, data: forGender(f.data, 'f') }));

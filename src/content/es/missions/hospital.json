@@ -9,7 +9,7 @@
       "start": "hi",
       "nodes": {
         "hi": {"kind": "say", "es": "Buenos días. Hoy el paciente es usted. ¿Qué le pasa?", "ru": "Добрый день. Сегодня пациент — вы. Что с вами?", "next": "pain"},
-        "pain": {"kind": "answer", "task": "Скажите, что у вас, кажется, сломана рука или что вам трудно дышать.", "branches": [{"phrase": "ph:hospital.creo-tengo-brazo", "next": "armsay"}, {"phrase": "ph:hospital.no-puedo-respirar", "next": "breathsay"}], "wrong": {"es": "¿Le duele el pelo? El pelo no duele. Dígame otra vez.", "ru": "Болят волосы? Волосы не болят. Скажите ещё раз."}},
+        "pain": {"kind": "answer", "task": "Скажите, что у вас, кажется, сломана рука или что вам трудно дышать.", "branches": [{"phrase": "ph:hospital.creo-tengo-brazo", "next": "armsay", "sets": {"injury": "arm"}}, {"phrase": "ph:hospital.no-puedo-respirar", "next": "breathsay", "sets": {"injury": "breath"}}], "wrong": {"es": "¿Le duele el pelo? El pelo no duele. Dígame otra vez.", "ru": "Болят волосы? Волосы не болят. Скажите ещё раз."}},
         "armsay": {"kind": "say", "es": "El brazo... A ver. ¿Aquí le duele?", "ru": "Рука... Посмотрим. Здесь болит?", "next": "xray"},
         "breathsay": {"kind": "say", "es": "Respire despacio. Muy bien. ¿Y el brazo? Está rojo.", "ru": "Дышите медленно. Хорошо. А рука? Она красная.", "next": "xray"},
         "xray": {"kind": "answer", "task": "Спросите, нужен ли вам рентген.", "branches": [{"phrase": "ph:hospital.necesito-radiografia", "next": "xsay"}], "wrong": {"es": "¿Una pizza? Aquí no hay pizza. Aquí hay médicos.", "ru": "Пицца? Здесь нет пиццы. Здесь врачи."}},

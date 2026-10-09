@@ -60,7 +60,8 @@
         "refundsay": {"kind": "say", "es": "Aquí tienes el dinero. ¡Mira cuánta gente!", "ru": "Вот деньги. Смотри, сколько народу!", "next": "rush"},
         "rush": {"kind": "answer", "task": "Скажите, что в час пик очень много людей.", "branches": [{"phrase": "ph:station.hora-punta-hay", "next": "rushsay"}], "wrong": {"es": "¿En hora punta hay mucha arena? No, mucha gente.", "ru": "В час пик много песка? Нет, много людей."}},
         "rushsay": {"kind": "say", "es": "Siempre. ¿Y para el viernes? El tren de la luna.", "ru": "Как всегда. А на пятницу? Лунный поезд.", "next": "single"},
-        "single": {"kind": "answer", "task": "Попросите билет в одну сторону.", "branches": [{"phrase": "ph:station.billete-sencillo", "next": "end"}], "wrong": {"es": "¿Un billete para la luna? Este tren va al desierto.", "ru": "Билет на Луну? Этот поезд идёт в пустыню."}},
+        "single": {"kind": "answer", "task": "Попросите билет на лунный поезд: в одну сторону или туда и обратно.", "branches": [{"phrase": "ph:station.billete-sencillo", "next": "end", "sets": {"ticket": "single"}}, {"phrase": "ph:station.billete-ida-vuelta", "next": "endround", "sets": {"ticket": "round"}}], "wrong": {"es": "¿Un billete para la luna? Este tren va al desierto.", "ru": "Билет на Луну? Этот поезд идёт в пустыню."}},
+        "endround": {"kind": "say", "es": "Ida y vuelta, muy bien: tú vas a volver. No como el hombre del camello. Toma el billete y mi trozo del mapa del desierto.", "ru": "Туда и обратно, правильно: ты вернёшься. Не как человек с верблюдом. Держи билет и мой обрывок карты пустыни."},
         "end": {"kind": "say", "es": "¿Solo de ida? Como el hombre del camello... No, yo te doy ida y vuelta: tú vas a volver. Toma el billete y mi trozo del mapa del desierto.", "ru": "Только в одну сторону? Как человек с верблюдом... Нет, я дам тебе туда и обратно: ты вернёшься. Держи билет и мой обрывок карты пустыни."}
       }
     },

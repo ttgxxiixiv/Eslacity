@@ -1649,10 +1649,23 @@ export function validateBooks(files: { name: string; data: BookFile }[], checks:
  * флаг, у каждой своё значение. Условия — только в обычных сценах и репликах миссий (не в шёпотах и нити глав),
  * группа реплик с условием закрывает все значения флага (`conditionIssues`). Флаг без последствий — предупреждение.
  */
-export function validateStory(scenes: { name: string; data: LocationScenes }[], missions: { name: string; data: LocationMissions }[], thread?: { name: string; data: ThreadFile }): Issue[] {
+/** Главы с развилками и их наименьшее число (задача 13.6). */
+export const STORY_FORKS = { chapters: [1, 2, 3, 4], min: 2 };
+
+export function validateStory(
+  scenes: { name: string; data: LocationScenes }[],
+  missions: { name: string; data: LocationMissions }[],
+  thread?: { name: string; data: ThreadFile },
+  forks?: { chapters: number[]; min: number },
+): Issue[] {
   const out: Issue[] = [];
   const all = missions.flatMap((f) => f.data.missions ?? []);
   const flags = storyFlags(all);
+  // Развилок в главе не меньше `min`: у каждой главы, кроме последней, свои последствия в следующей.
+  for (const ch of forks?.chapters ?? []) {
+    const n = [...flags.values()].filter((f) => f.chapter === ch).length;
+    if (n < forks!.min) out.push({ level: 'error', where: 'missions', msg: `в главе ${ch} развилок ${n}, нужно не меньше ${forks!.min}` });
+  }
   const used = new Set<string>();
   for (const f of missions) {
     for (const m of f.data.missions ?? []) {

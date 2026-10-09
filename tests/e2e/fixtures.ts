@@ -612,15 +612,18 @@ type Node = { kind: 'say'; es: string } | { kind: 'answer'; task: string; branch
 const VERB: Record<Move, string> = { object: 'Возразить', concede: 'Уступить', compromise: 'Компромисс' };
 const DONE: Record<Move, string> = { object: 'Вы возражаете', concede: 'Вы уступаете', compromise: 'Вы предлагаете компромисс' };
 
-function disputeMission(lang: Lang, place: string) {
-  const m = (JSON.parse(readFileSync(join(CONTENT, lang, 'missions', `${place}.json`), 'utf8')).missions as { id: string; nodes: Record<string, Node> }[]).find((x) => x.id === `ms:${place}.4`)!;
+function disputeMission(lang: Lang, place: string, chapter: number) {
+  const m = (JSON.parse(readFileSync(join(CONTENT, lang, 'missions', `${place}.json`), 'utf8')).missions as { id: string; nodes: Record<string, Node> }[]).find((x) => x.id === `ms:${place}.${chapter}`)!;
   const phrases = new Map(loadPhraseData(lang, place).map((p) => [p.id, p]));
   return { m, phrases };
 }
 
-/** Пройти миссию главы IV без ошибок: в споре — ходом `move`, в режиме прохождения (выбор, плитки, ввод). */
-export async function playDispute(page: Page, lang: Lang, place: string, move: Move, mode: 'choose' | 'tiles' | 'type') {
-  const { m, phrases } = disputeMission(lang, place);
+/**
+ * Пройти миссию без ошибок: в споре — ходом `move`, в режиме прохождения (выбор, плитки, ввод). По умолчанию миссия
+ * главы IV; `pick` — номер ветки в узле-выборе (только в режиме выбора), иначе первая.
+ */
+export async function playDispute(page: Page, lang: Lang, place: string, move: Move, mode: 'choose' | 'tiles' | 'type', opts: { chapter?: number; pick?: number } = {}) {
+  const { m, phrases } = disputeMission(lang, place, opts.chapter ?? 4);
   const answers = Object.values(m.nodes).filter((n): n is Extract<Node, { kind: 'answer' }> => n.kind === 'answer');
   while (!(await page.getByText('Ответить жителю').count())) await page.getByTestId('scene-next').click();
   await page.getByTestId('scene-next').click();
@@ -634,7 +637,7 @@ export async function playDispute(page: Page, lang: Lang, place: string, move: M
     const task = ((await page.getByTestId('hero-task').textContent()) ?? '').trim();
     const node = answers.find((a) => a.task === task)!;
     const dispute = node.branches.some((b) => b.move);
-    const branch = dispute ? node.branches.find((b) => b.move === move)! : node.branches[0];
+    const branch = dispute ? node.branches.find((b) => b.move === move)! : node.branches[mode === 'choose' ? Math.min(opts.pick ?? 0, node.branches.length - 1) : 0];
     const phrase = phrases.get(branch.phrase)!;
     const turn = page.getByTestId('hero-turn');
     if (dispute) {
