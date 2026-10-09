@@ -16,7 +16,8 @@ export function CityDecorCard() {
   const medals = useMotivation((s) => s.medals);
   // Селектор возвращает само поле: `?? []` внутри давал бы новый массив на каждый вызов и бесконечные перерисовки.
   const hidden = useRewards((s) => s.rec.hiddenDecor) ?? [];
-  const open = unlockedDecor(medals);
+  const bought = useRewards((s) => s.rec.boughtDecor);
+  const open = unlockedDecor(medals, bought);
   return (
     <section className="rounded-3xl bg-white p-4 shadow-sm" data-testid="city-decor-card">
       <div className="flex items-baseline justify-between gap-3">
@@ -26,8 +27,8 @@ export function CityDecorCard() {
         </span>
       </div>
       <p className="mt-1 text-sm text-stone-500">
-        {TIER_INFO[DECOR_TIER].adj} медаль линии украшает здание города: знамя, фонари, клумба, колодец или фонтан. Нажмите, чтобы
-        убрать украшение с карты или вернуть.
+        {TIER_INFO[DECOR_TIER].adj} медаль линии украшает здание города: знамя, фонари, клумба, колодец или фонтан. Украшение можно и купить в
+        лавке. Нажмите, чтобы убрать украшение с карты или вернуть.
       </p>
       <div className="mt-3 grid grid-cols-3 gap-2">
         {DECOR.map((d) => {

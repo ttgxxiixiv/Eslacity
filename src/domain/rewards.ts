@@ -17,6 +17,10 @@ export interface RewardsRecord {
   lantern?: LanternId;
   /** Украшения города, которые игрок убрал с карты (линии медалей). Открытые медалями видны по умолчанию. */
   hiddenDecor?: string[];
+  /** Украшения, купленные в лавке (задача 13.4): линии медалей. */
+  boughtDecor?: string[];
+  /** Подарки жителям из лавки: id жителя → номер дня последнего подарка. */
+  gifts?: Record<string, number>;
 }
 
 export const EMPTY_REWARDS: RewardsRecord = { level: 1, hints: 0, blitz: ['classic'], cloaks: ['sackcloth'], cloak: 'sackcloth', blitzBest: {} };

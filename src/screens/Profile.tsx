@@ -121,6 +121,14 @@ export function ProfileScreen() {
           Заморозка тратится сама, если вы пропустили день, и сохраняет стрик.
         </p>
 
+        <Link to="/shop" className="press flex items-center justify-between rounded-3xl bg-white p-4 shadow-sm" data-testid="profile-shop">
+          <span>
+            <span className="block font-bold">🛒 Лавка</span>
+            <span className="block text-sm text-stone-500">Жетоны подсказки, подарки жителям, украшения города</span>
+          </span>
+          <span className="shrink-0 text-stone-500 tabular-nums">🪙 {coins} →</span>
+        </Link>
+
         <section className="rounded-3xl bg-white p-4 shadow-sm">
           <h2 className="font-bold">Неделя</h2>
           <div className="mt-3 flex h-28 items-end gap-2">

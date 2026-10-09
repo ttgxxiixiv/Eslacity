@@ -41,13 +41,19 @@ export const DECOR: Decor[] = [
 const reached = (tier: Tier | null, need: Tier) => tier !== null && TIERS.indexOf(tier) >= TIERS.indexOf(need);
 
 /** Украшения, которые открыла медаль. */
-export function unlockedDecor(medals: MedalsState): Decor[] {
+export function earnedDecor(medals: MedalsState): Decor[] {
   return DECOR.filter((d) => reached(currentTier(medals.lines[d.line]), DECOR_TIER));
 }
 
+/** Открытые украшения: за медаль или купленные в лавке (задача 13.4). */
+export function unlockedDecor(medals: MedalsState, bought: string[] = []): Decor[] {
+  const earned = earnedDecor(medals);
+  return DECOR.filter((d) => earned.includes(d) || bought.includes(d.line));
+}
+
 /** Украшения на карте: открытые и не выключенные игроком. */
-export function shownDecor(medals: MedalsState, hidden: string[] = []): Decor[] {
-  return unlockedDecor(medals).filter((d) => !hidden.includes(d.line));
+export function shownDecor(medals: MedalsState, hidden: string[] = [], bought: string[] = []): Decor[] {
+  return unlockedDecor(medals, bought).filter((d) => !hidden.includes(d.line));
 }
 
 export type LanternId = 'amber' | 'bronze' | 'silver' | 'gold' | 'diamond';

@@ -241,8 +241,9 @@ export function CityGrid() {
   // Украшения за золотые медали на перекрёстках и фонарь путника (задача 9.3).
   const medals = useMotivation((s) => s.medals);
   const hiddenDecor = useRewards((s) => s.rec.hiddenDecor);
+  const boughtDecor = useRewards((s) => s.rec.boughtDecor);
   const pickedLantern = useRewards((s) => s.rec.lantern);
-  const decor = useMemo(() => shownDecor(medals, hiddenDecor), [medals, hiddenDecor]);
+  const decor = useMemo(() => shownDecor(medals, hiddenDecor, boughtDecor), [medals, hiddenDecor, boughtDecor]);
   const fest = useActiveFestival();
   const hostIndex = fest ? LOCATIONS.findIndex((l) => l.id === fest.host) : -1;
   const lantern = lanternOf(medals, pickedLantern);

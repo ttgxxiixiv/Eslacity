@@ -194,7 +194,7 @@ for (const lang of LANGS) {
       await openApp(page, lang);
       await expect(page.locator('nav img')).toHaveAttribute('src', new RegExp(`nav-${lang}`));
       for (const [label, hash] of [['Грамматика', '#/grammar'], ['Профиль', '#/profile'], ['Город', '#/']] as const) {
-        await page.getByRole('link', { name: label }).click();
+        await page.getByRole('link', { name: label, exact: true }).click();
         await expect(page).toHaveURL(new RegExp(`${hash.replace('/', '\\/')}$`));
       }
     });
