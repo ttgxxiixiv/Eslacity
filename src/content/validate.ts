@@ -13,6 +13,8 @@ import { phraseTokens } from '../domain/phraseSteps';
 import { pairIssue } from '../domain/minimalPairs';
 import { festivalMissionId, festivalPlace, festivalsOf } from '../domain/festival';
 import { LETTER_MAX_WORDS, LETTER_MIN_WORDS, wordCount as letterWords } from '../domain/letter';
+import { checkNote, NOTE_SAMPLE_WORDS } from '../domain/note';
+import { CHAPTERS } from '../domain/chapters';
 import { LOCATION_IDS, SPHINX_LINES, type SphinxSpeaker, type Chronicler, type GrammarExercise, type GrammarLesson, type GuardiansFile, type LettersFile, type NpcLook, type LocationMissions, type MissionAnswer, type LocationPhrases, type LocationScenes, type Phrase, type Scene, type LocationWords, type NpcsFile, type ScrollFile, type SphinxFile, type VerbsFile, type Word, type PairsFile, type Smith, type FestivalFile, type LocationId, type PrologueFile, type ThreadFile, type BookFile } from './schema';
 
 export interface Issue {
@@ -536,6 +538,59 @@ export function validateLetters(file: LettersFile | undefined, residents: Record
       for (const e of c.examples ?? []) if (empty(e) || !(l.sample ?? '').includes(e)) err(`пример «${e}» не найден в образце`);
     }
   });
+  return out;
+}
+
+/** Записки (задача 12.5): главы и сколько записок в каждой. */
+export const NOTE_CHAPTERS = [2, 3, 4] as const;
+export const NOTES_PER_CHAPTER = 3;
+/** Пунктов `must` в записке. */
+export const NOTE_MUST = [2, 4] as const;
+/** Доля незнакомых слов в образце к уровню главы: записка короткая, поэтому чуть свободнее, чем у сцен. */
+export const NOTE_UNKNOWN_MAX = 0.1;
+
+/**
+ * Записки жителям: id `nt:<место>`, одна на место, по три на главу II–IV, образец 15–30 слов, и в образце есть
+ * всё из `must` (иначе проверка ругала бы и образцовую записку).
+ */
+export function validateNotes(
+  file: LettersFile | undefined,
+  residents: Record<string, string>,
+  coverage?: (text: string, level: number) => { total: number; unknown: string[] },
+): Issue[] {
+  const out: Issue[] = [];
+  const notes = file?.notes ?? [];
+  const seen = new Set<string>();
+  notes.forEach((n, i) => {
+    const at = `letters.json#notes.${i} ${n.id}`;
+    const err = (msg: string) => out.push({ level: 'error', where: at, msg });
+    if (n.id !== `nt:${n.location}`) err(`id должен быть nt:${n.location}`);
+    if (seen.has(n.location)) err('вторая записка того же места');
+    seen.add(n.location);
+    if (!(LOCATION_IDS as readonly string[]).includes(n.location)) err(`место "${n.location}"`);
+    else if (!residents[n.location]) err('у места нет жителя');
+    if (!REGISTERS.includes(n.register)) err(`регистр "${n.register}"`);
+    if (!(NOTE_CHAPTERS as readonly number[]).includes(n.chapter)) err(`глава ${n.chapter}, записки — в главах ${NOTE_CHAPTERS.join(', ')}`);
+    for (const f of ['title', 'task', 'sample'] as const) if (empty(n[f])) err(`пустое поле ${f}`);
+    if (empty(n.request?.es) || empty(n.request?.ru)) err('пустая просьба жителя');
+    const words = letterWords(n.sample ?? '');
+    if (words < NOTE_SAMPLE_WORDS[0] || words > NOTE_SAMPLE_WORDS[1]) err(`в образце ${words} слов, нужно ${NOTE_SAMPLE_WORDS.join('–')}`);
+    const must = n.must ?? [];
+    if (must.length < NOTE_MUST[0] || must.length > NOTE_MUST[1]) err(`пунктов must ${must.length}, нужно ${NOTE_MUST.join('–')}`);
+    must.forEach((m, k) => {
+      if (empty(m.label) || empty(m.hint) || !m.any?.length || m.any.some(empty)) err(`must ${k}: нужны label, hint и варианты any`);
+    });
+    for (const k of checkNote(n.sample ?? '', must).missing) err(`в образце нет «${must[k].label}»`);
+    const level = CHAPTERS[n.chapter - 1]?.levels.at(-1);
+    if (coverage && level && n.sample) {
+      const c = coverage(n.sample, level);
+      if (c.unknown.length > Math.floor(c.total * NOTE_UNKNOWN_MAX)) err(`незнакомых слов к главе ${n.chapter}: ${c.unknown.join(', ')}`);
+    }
+  });
+  for (const ch of NOTE_CHAPTERS) {
+    const count = notes.filter((n) => n.chapter === ch).length;
+    if (file && count !== NOTES_PER_CHAPTER) out.push({ level: 'error', where: 'letters.json notes', msg: `записок главы ${ch}: ${count}, нужно ${NOTES_PER_CHAPTER}` });
+  }
   return out;
 }
 

@@ -4,8 +4,8 @@ import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { LOCATION_BY_ID } from '../content/locations';
 import { loadLocation } from '../content';
-import type { Letter, LocationId, Mission, Phrase, Scene, Word } from '../content/schema';
-import { loadLetters } from '../content/letters';
+import type { Letter, LocationId, Mission, Note, Phrase, Scene, Word } from '../content/schema';
+import { loadLetters, loadNotes } from '../content/letters';
 import { useLetters } from '../store/letters';
 import { loadPhrases } from '../content/phrases';
 import { loadScenes } from '../content/scenes';
@@ -84,6 +84,7 @@ export function LocationScreen() {
   const [scenes, setScenes] = useState<Scene[]>([]);
   const [missions, setMissions] = useState<Mission[]>([]);
   const [letter, setLetter] = useState<Letter | undefined>(undefined);
+  const [note, setNote] = useState<Note | undefined>(undefined);
   const letterEntries = useLetters((s) => s.entries);
   const missionRecords = useMissions((s) => s.records);
   const trialRecords = useTrials((s) => s.records);
@@ -105,6 +106,7 @@ export function LocationScreen() {
     loadScenes(id).then(setScenes);
     loadMissions(id).then(setMissions);
     loadLetters().then((list) => setLetter(list.find((l) => l.location === id)));
+    loadNotes().then((list) => setNote(list.find((l) => l.location === id)));
   }, [id]);
 
   if (!meta) return <div className="p-6">Нет такой локации</div>;
@@ -171,6 +173,22 @@ export function LocationScreen() {
                   </div>
                 );
               })}
+          {npc && level > 0 && note && note.chapter <= opened && (() => {
+            const sent = letterEntries.filter((e) => e.letterId === note.id);
+            const full = sent.some((e) => e.checks.length === note.must.length);
+            return (
+              <Link
+                to={`/note/${encodeURIComponent(note.id)}`}
+                data-testid="note-link"
+                className={`press flex items-center justify-between gap-3 rounded-2xl px-4 py-3 shadow-sm ${full ? 'bg-okbg' : 'bg-orange-50'}`}
+              >
+                <span className="shrink-0 font-semibold">📝 Записка</span>
+                <span className="text-right text-sm text-stone-500">
+                  {note.title} · {full ? '✓ в дневнике' : sent.length ? 'можно лучше' : 'новое'} →
+                </span>
+              </Link>
+            );
+          })()}
           {npc && level > 0 && letter && letter.chapter <= opened && (() => {
             const written = letterEntries.filter((e) => e.letterId === letter.id).length;
             return (

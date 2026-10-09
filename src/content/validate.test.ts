@@ -4,8 +4,8 @@ import { CHAPTERS as PLAN, PLACE_EXPRESSIONS, PLACE_LEVEL_MAX } from './vocabPla
 import type { LocationWords, Word } from './schema';
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { validateChronicler, validateGrammar, validateGuardians, validateLetters, validateMissions, validateNpcs, validatePhrases, validatePortraits, validateBooks, validateScenes, validateScrolls, validateThread, validateTranslations, validateVerbs, validateWords } from './validate';
-import { LOCATION_IDS, type Chronicler, type GrammarLesson, type GuardiansFile, type Letter, type LettersFile, type LocationMissions, type LocationPhrases, type LocationScenes, type Mission, type MissionAnswer, type NpcsFile, type Phrase, type Scene, type ScrollFile, type BookFile, type ThreadFile, type ThreadTrigger, type VerbsFile } from './schema';
+import { validateChronicler, validateGrammar, validateGuardians, validateLetters, validateNotes, validateMissions, validateNpcs, validatePhrases, validatePortraits, validateBooks, validateScenes, validateScrolls, validateThread, validateTranslations, validateVerbs, validateWords } from './validate';
+import { LOCATION_IDS, type Chronicler, type GrammarLesson, type GuardiansFile, type Letter, type LettersFile, type Note, type LocationMissions, type LocationPhrases, type LocationScenes, type Mission, type MissionAnswer, type NpcsFile, type Phrase, type Scene, type ScrollFile, type BookFile, type ThreadFile, type ThreadTrigger, type VerbsFile } from './schema';
 
 const base = (i: number, extra: Partial<Word> = {}): Word => ({
   id: `cafe.w${i}`, es: `la palabra${i}`, ru: `слово ${i}`, pos: 'noun', gender: 'f', level: 1, cefr: 'A1',
@@ -822,6 +822,46 @@ describe('письма в контенте', () => {
     const npcs = (JSON.parse(readFileSync(join(__dirname, lang, 'npcs.json'), 'utf8')) as NpcsFile).npcs;
     expect(file.letters.map((l) => l.location)).toEqual(['bank', 'hotel', 'airport', 'office', 'police', 'post', 'cafe', 'home', 'gym', 'beach']);
     expect(validateLetters(file, Object.fromEntries(npcs.map((n) => [n.location, n.id])))).toEqual([]);
+  });
+});
+
+describe('validateNotes: записки (задача 12.5)', () => {
+  const note = (extra: Partial<Note> = {}): Note => ({
+    id: 'nt:cafe', location: 'cafe', chapter: 2, register: 'informal', title: 'Ответ', request: { es: '¿Vienes?', ru: 'Придёшь?' },
+    task: 'Ответьте.', sample: '¡Hola, Lola! Mañana voy a ir a tu fiesta a las ocho y voy a llevar una tarta. ¡Hasta mañana!',
+    must: [{ label: 'Когда', any: ['mañana'], hint: 'mañana' }, { label: 'Планы', any: ['voy a'], hint: 'voy a' }],
+    ...extra,
+  });
+  // В тесте одна записка, поэтому счёт записок по главам не проверяется: только сообщения о ней.
+  const check = (n: Note) => validateNotes({ letters: [], notes: [n] }, { cafe: 'lola' }).filter((i) => i.where !== 'letters.json notes').map((i) => i.msg);
+  it('правильная записка проходит', () => expect(check(note())).toEqual([]));
+  it('глава II–IV, образец 15–30 слов, всё из must есть в образце, id по месту', () => {
+    expect(check(note({ chapter: 5 }))).toContain('глава 5, записки — в главах 2, 3, 4');
+    expect(check(note({ sample: 'Hola, mañana voy a ir.' }))).toContain('в образце 5 слов, нужно 15–30');
+    expect(check(note({ must: [...note().must, { label: 'Будущее', any: ['*ré'], hint: 'iré' }] }))).toContain('в образце нет «Будущее»');
+    expect(check(note({ must: note().must.slice(0, 1) }))).toContain('пунктов must 1, нужно 2–4');
+    expect(check(note({ id: 'nt:bank' }))).toContain('id должен быть nt:cafe');
+  });
+  it('по три записки на главу', () => {
+    const msgs = validateNotes({ letters: [], notes: [note()] }, { cafe: 'lola' }).map((i) => i.msg);
+    expect(msgs).toContain('записок главы 2: 1, нужно 3');
+    expect(msgs).toContain('записок главы 3: 0, нужно 3');
+  });
+  it('незнакомых слов в образце не больше 10%', () => {
+    const coverage = (text: string) => ({ total: text.split(/\s+/).length, unknown: ['tarta', 'fiesta', 'ocho'] });
+    const msgs = validateNotes({ letters: [], notes: [note()] }, { cafe: 'lola' }, coverage).map((i) => i.msg);
+    expect(msgs).toContain('незнакомых слов к главе 2: tarta, fiesta, ocho');
+  });
+});
+
+describe('записки в контенте', () => {
+  it.each(['es', 'it'])('%s: по три записки на главы II–IV, одинаковые места в обоих языках, проверка без ошибок', (lang) => {
+    const file = JSON.parse(readFileSync(join(__dirname, lang, 'letters.json'), 'utf8')) as LettersFile;
+    const npcs = (JSON.parse(readFileSync(join(__dirname, lang, 'npcs.json'), 'utf8')) as NpcsFile).npcs;
+    expect(file.notes?.map((n) => `${n.chapter}:${n.location}`)).toEqual(
+      ['2:cafe', '2:market', '2:home', '3:hotel', '3:pharmacy', '3:station', '4:park', '4:school', '4:post'],
+    );
+    expect(validateNotes(file, Object.fromEntries(npcs.map((n) => [n.location, n.id])))).toEqual([]);
   });
 });
 

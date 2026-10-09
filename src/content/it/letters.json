@@ -501,5 +501,411 @@
         }
       ]
     }
+  ],
+  "notes": [
+    {
+      "id": "nt:cafe",
+      "location": "cafe",
+      "chapter": 2,
+      "register": "informal",
+      "title": "Ответ Джулии",
+      "request": {
+        "es": "Domani è il mio compleanno! Lasciami un bigliettino: vieni o no?",
+        "ru": "Завтра мой день рождения! Оставь мне записочку: придёшь или нет?"
+      },
+      "task": "Джулия зовёт вас завтра на день рождения. Ответьте ей: придёте ли вы, во сколько и что принесёте. Поздоровайтесь и попрощайтесь.",
+      "sample": "Ciao, Giulia! Grazie dell'invito. Domani vengo alla tua festa alle otto. Porto una torta al cioccolato.\nA domani! Un bacio.",
+      "must": [
+        {
+          "label": "Когда: domani",
+          "any": [
+            "domani"
+          ],
+          "hint": "Скажите, когда придёте: domani — «завтра»."
+        },
+        {
+          "label": "Приду: vengo",
+          "any": [
+            "vengo",
+            "verrò",
+            "veniamo",
+            "arrivo",
+            "ci sono",
+            "ci sarò"
+          ],
+          "hint": "Скажите, что придёте: Domani vengo alla tua festa."
+        },
+        {
+          "label": "Приветствие и прощание",
+          "any": [
+            "ciao",
+            "a domani",
+            "a presto",
+            "un bacio",
+            "un abbraccio",
+            "baci"
+          ],
+          "hint": "Начните с Ciao! и попрощайтесь: A domani! или Un bacio."
+        }
+      ]
+    },
+    {
+      "id": "nt:market",
+      "location": "market",
+      "chapter": 2,
+      "register": "informal",
+      "title": "Записка Розе",
+      "request": {
+        "es": "Qualcosa non andava, tesoro? Scrivimi cos'è successo e sistemiamo tutto.",
+        "ru": "Что-то было не так, золотце? Напиши мне, что случилось, и всё уладим."
+      },
+      "task": "Вчера вы купили у Розы помидоры, а дома часть оказалась гнилой. Напишите ей, что вы купили вчера, что не так и о чём вы просите.",
+      "sample": "Ciao, Rosa! Ieri ho comprato due chili di pomodori, ma a casa ho visto che tre erano marci. Me li cambi? Domani passo al mercato. Grazie!",
+      "must": [
+        {
+          "label": "Когда: ieri",
+          "any": [
+            "ieri"
+          ],
+          "hint": "Скажите, когда это было: ieri — «вчера»."
+        },
+        {
+          "label": "Прошедшее время: ho comprato",
+          "any": [
+            "ho comprato",
+            "abbiamo comprato",
+            "ho preso"
+          ],
+          "hint": "Что вы купили, говорят в passato prossimo: ho comprato — «я купил»."
+        },
+        {
+          "label": "Просьба: cambiare",
+          "any": [
+            "cambi",
+            "cambiare",
+            "cambiarli",
+            "cambia"
+          ],
+          "hint": "Попросите обменять: Me li cambi? — «Поменяешь мне их?»"
+        }
+      ]
+    },
+    {
+      "id": "nt:home",
+      "location": "home",
+      "chapter": 2,
+      "register": "informal",
+      "title": "Записка соседке",
+      "request": {
+        "es": "Parti per il fine settimana? Lasciami un biglietto e ti aiuto con quello che serve.",
+        "ru": "Уезжаешь на выходные? Оставь мне записку, и я помогу, с чем нужно."
+      },
+      "task": "На выходные вы уезжаете. Оставьте синьоре Франке записку: куда едете, когда вернётесь, и попросите полить цветы.",
+      "sample": "Cara Franca, questo fine settimana vado al mare con degli amici. Torno domenica sera. Puoi annaffiare le mie piante, per favore? Ti lascio la chiave. Grazie!",
+      "must": [
+        {
+          "label": "Когда вернётесь: torno",
+          "any": [
+            "torno",
+            "torniamo",
+            "tornerò",
+            "rientro"
+          ],
+          "hint": "Скажите, когда вернётесь: Torno domenica sera — «Вернусь в воскресенье вечером»."
+        },
+        {
+          "label": "День недели",
+          "any": [
+            "lunedì",
+            "martedì",
+            "mercoledì",
+            "giovedì",
+            "venerdì",
+            "sabato",
+            "domenica"
+          ],
+          "hint": "Назовите день: sabato, domenica."
+        },
+        {
+          "label": "Просьба: per favore",
+          "any": [
+            "per favore",
+            "per piacere"
+          ],
+          "hint": "Попросите вежливо: Puoi annaffiare le mie piante, per favore?"
+        }
+      ]
+    },
+    {
+      "id": "nt:hotel",
+      "location": "hotel",
+      "chapter": 3,
+      "register": "formal",
+      "title": "Записка в отель",
+      "request": {
+        "es": "Se arriva tardi, ci scriva un biglietto e prepariamo tutto.",
+        "ru": "Если приедете поздно, напишите нам записку, и мы всё подготовим."
+      },
+      "task": "Вы приедете в отель поздно вечером. Напишите Элизе официальную записку: когда приедете и о чём просите.",
+      "sample": "Gentile Elisa, arriverò in albergo venerdì molto tardi, verso le undici. Potrebbe lasciarmi la chiave alla reception? Avrò bisogno anche di un altro asciugamano. Grazie mille.",
+      "must": [
+        {
+          "label": "Обращение: Gentile",
+          "any": [
+            "gentile",
+            "gentilissima",
+            "gentilissimo"
+          ],
+          "hint": "В официальной записке начните с Gentile Elisa,"
+        },
+        {
+          "label": "Будущее время: arriverò",
+          "any": [
+            "*rò",
+            "*rà",
+            "*remo"
+          ],
+          "hint": "Когда приедете, скажите в будущем времени: arriverò — «я приеду»."
+        },
+        {
+          "label": "Вежливая просьба: potrebbe",
+          "any": [
+            "potrebbe",
+            "potreste",
+            "le sarei grato",
+            "le sarei grata",
+            "vorrei",
+            "sarebbe possibile"
+          ],
+          "hint": "Вежливо просят через condizionale: Potrebbe lasciarmi la chiave?"
+        }
+      ]
+    },
+    {
+      "id": "nt:pharmacy",
+      "location": "pharmacy",
+      "chapter": 3,
+      "register": "formal",
+      "title": "Записка в аптеку",
+      "request": {
+        "es": "Se oggi non può venire, mi lasci un biglietto e le tengo da parte la medicina.",
+        "ru": "Если сегодня не сможете прийти, оставьте мне записку, и я отложу вам лекарство."
+      },
+      "task": "Вы заболели и не можете выйти из дома. Напишите доктору Бруно: что случилось, попросите отложить сироп от кашля и скажите, когда придёте.",
+      "sample": "Dottor Bruno, ho la febbre e oggi non posso uscire di casa. Spero che possa tenermi lo sciroppo per la tosse. Passerò a prenderlo domani mattina. Grazie.",
+      "must": [
+        {
+          "label": "Почему не придёте",
+          "any": [
+            "febbre",
+            "tosse",
+            "malato",
+            "malata",
+            "raffreddore",
+            "mi fa male",
+            "influenza"
+          ],
+          "hint": "Объясните, что случилось: ho la febbre — «у меня температура»."
+        },
+        {
+          "label": "Надежда: spero che + congiuntivo",
+          "any": [
+            "possa",
+            "tenga",
+            "metta",
+            "prepari",
+            "lasci"
+          ],
+          "hint": "После spero che глагол идёт в congiuntivo: Spero che possa tenermi lo sciroppo."
+        },
+        {
+          "label": "Будущее время: passerò",
+          "any": [
+            "*rò",
+            "*rà",
+            "passo domani",
+            "vengo domani"
+          ],
+          "hint": "Скажите, когда придёте: Passerò domani — «Зайду завтра»."
+        }
+      ]
+    },
+    {
+      "id": "nt:station",
+      "location": "station",
+      "chapter": 3,
+      "register": "informal",
+      "title": "Записка Альдо",
+      "request": {
+        "es": "Parti presto? Scrivimi quando, e se ci sono cambi, ti avviso.",
+        "ru": "Скоро едешь? Напиши мне когда, и если что-то изменится, я тебя предупрежу."
+      },
+      "task": "В субботу вы едете поездом во Флоренцию. Напишите Альдо: когда едете, попросите предупредить, если поезд задержится, и скажите, что сделаете, если не сможете поехать.",
+      "sample": "Ciao, Aldo, sabato vado a Firenze con il treno delle nove. Se c'è un ritardo, mi avviserai per telefono? Se non posso partire, ti chiamerò. Grazie!",
+      "must": [
+        {
+          "label": "Когда едете",
+          "any": [
+            "lunedì",
+            "martedì",
+            "mercoledì",
+            "giovedì",
+            "venerdì",
+            "sabato",
+            "domenica",
+            "domani"
+          ],
+          "hint": "Назовите день: sabato vado a Firenze."
+        },
+        {
+          "label": "Условие: se",
+          "any": [
+            "se"
+          ],
+          "hint": "Условие начинается с se: Se c'è un ritardo…"
+        },
+        {
+          "label": "Будущее время: chiamerò",
+          "any": [
+            "*rò",
+            "*rai",
+            "*rà"
+          ],
+          "hint": "Что будет потом, скажите в будущем: mi avviserai?, ti chiamerò."
+        }
+      ]
+    },
+    {
+      "id": "nt:park",
+      "location": "park",
+      "chapter": 4,
+      "register": "informal",
+      "title": "Записка Джино",
+      "request": {
+        "es": "Ti ho già raccontato della panchina del parco. Tu che cosa faresti? Scrivimelo, mi piace leggere.",
+        "ru": "Я тебе уже рассказал про скамейку в парке. А по-твоему, как тут быть? Напиши мне, я люблю читать."
+      },
+      "task": "Джино рассказал вам, что в парке хотят убрать его старую скамейку. Напишите ему: что бы вы сделали на его месте и чего бы вам хотелось.",
+      "sample": "Caro Gino, grazie per avermi raccontato la storia della panchina. Se fossi al tuo posto, parlerei con il sindaco. Magari il parco avesse più panchine per tutti. Un abbraccio.",
+      "must": [
+        {
+          "label": "Если бы: congiuntivo imperfetto",
+          "any": [
+            "fossi",
+            "fosse",
+            "avessi",
+            "avesse",
+            "*essi",
+            "*asse",
+            "*assi",
+            "*isse"
+          ],
+          "hint": "Нереальное условие: Se fossi al tuo posto… — «Будь я на твоём месте»."
+        },
+        {
+          "label": "Condizionale: parlerei",
+          "any": [
+            "*rei",
+            "*rebbe",
+            "*resti"
+          ],
+          "hint": "Что бы вы сделали — condizionale: parlerei, andrei, direi."
+        },
+        {
+          "label": "Обращение и прощание",
+          "any": [
+            "caro",
+            "un abbraccio",
+            "un saluto",
+            "baci",
+            "un bacio"
+          ],
+          "hint": "Начните с Caro Gino и закончите Un abbraccio."
+        }
+      ]
+    },
+    {
+      "id": "nt:school",
+      "location": "school",
+      "chapter": 4,
+      "register": "informal",
+      "title": "Записка учительнице",
+      "request": {
+        "es": "Ieri non c'eri a lezione. Scrivimi cos'è successo, va bene?",
+        "ru": "Вчера тебя не было на уроке. Напиши мне, что случилось, ладно?"
+      },
+      "task": "Вы пропустили урок: поезд застрял в лесу. Напишите учительнице Анне: извинитесь, объясните, что случилось, и что бы вы сделали, если бы знали заранее.",
+      "sample": "Cara Anna, mi dispiace di aver perso la lezione di ieri. Il treno si è fermato nel bosco. Se l'avessi saputo prima, avrei preso l'autobus. Mi mandi i compiti? Grazie.",
+      "must": [
+        {
+          "label": "Извинение",
+          "any": [
+            "mi dispiace",
+            "scusa",
+            "scusami",
+            "perdonami",
+            "mi scusi"
+          ],
+          "hint": "Извинитесь: Mi dispiace di aver perso la lezione — «Простите, что пропустил(а) урок»."
+        },
+        {
+          "label": "Если бы знал: avessi saputo",
+          "any": [
+            "avessi",
+            "avesse",
+            "fossi"
+          ],
+          "hint": "Если бы знали заранее: Se l'avessi saputo prima…"
+        },
+        {
+          "label": "То, чего не случилось: avrei",
+          "any": [
+            "avrei",
+            "sarei"
+          ],
+          "hint": "Что бы сделали: avrei preso l'autobus — «поехали бы на автобусе»."
+        }
+      ]
+    },
+    {
+      "id": "nt:post",
+      "location": "post",
+      "chapter": 4,
+      "register": "informal",
+      "title": "Записка почтальону",
+      "request": {
+        "es": "Questa lettera è rimasta persa per un mese. Se vuoi, lasciami due righe e le faccio vedere al mio capo.",
+        "ru": "Это письмо месяц где-то пропадало. Если хочешь, напиши мне пару строк, я покажу их начальнику."
+      },
+      "task": "Энцо наконец принёс письмо, которое вы давно ждали. Поблагодарите его, напишите, что вы думали раньше, и как он на вас посмотрел.",
+      "sample": "Ciao, Enzo! Grazie mille per avermi portato la lettera. Pensavo che si fosse persa. Mi hai guardato come se non mi conoscessi. Magari fosse arrivata prima. Un saluto.",
+      "must": [
+        {
+          "label": "Благодарность",
+          "any": [
+            "grazie"
+          ],
+          "hint": "Поблагодарите: Grazie mille per avermi portato la lettera."
+        },
+        {
+          "label": "Давнопрошедшее: si fosse persa",
+          "any": [
+            "si fosse",
+            "si era",
+            "fosse persa",
+            "era persa",
+            "fosse andata"
+          ],
+          "hint": "Что вы думали раньше: Pensavo che si fosse persa — «Думал(а), что оно потерялось»."
+        },
+        {
+          "label": "Как будто: come se",
+          "any": [
+            "come se"
+          ],
+          "hint": "Сравнение «как будто» — come se + congiuntivo: come se non mi conoscessi."
+        }
+      ]
+    }
   ]
 }

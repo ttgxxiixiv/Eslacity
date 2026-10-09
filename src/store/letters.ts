@@ -11,8 +11,11 @@ export interface LettersData {
 
 interface LettersState extends LettersData {
   hydrate(d: Partial<LettersData> | undefined): void;
-  /** Письмо записано в дневник. Возвращает опыт: за первое письмо по просьбе, потом ноль. */
-  save(entry: LetterEntry): number;
+  /**
+   * Письмо или записка записаны в дневник. Возвращает опыт: у письма — за первое по просьбе, у записки опыт
+   * считает `noteXp` и передаёт сюда.
+   */
+  save(entry: LetterEntry, xp?: number): number;
 }
 
 export const useLetters = create<LettersState>((set, get) => ({
@@ -22,8 +25,8 @@ export const useLetters = create<LettersState>((set, get) => ({
     set({ entries: d?.entries ?? [] });
   },
 
-  save(entry) {
-    const xp = letterXp(get().entries, entry.letterId);
+  save(entry, given) {
+    const xp = given ?? letterXp(get().entries, entry.letterId);
     const entries = [...get().entries, entry];
     set({ entries });
     persist(() => db.meta.put({ key: 'letters', value: { entries } }));
