@@ -17,7 +17,7 @@ function missionData(lang: Lang, place: string, id: string) {
 
 /** Путница: пол в настройках. */
 async function becomeHeroine(page: Page, lang: Lang) {
-  await page.goto('./#/settings');
+  await page.goto('./#/settings/hero');
   await page.getByTestId('hero-gender-f').click();
   await expect.poll(async () => (await readMeta<{ heroGender: string }>(page, lang, 'settings'))?.heroGender).toBe('f');
 }

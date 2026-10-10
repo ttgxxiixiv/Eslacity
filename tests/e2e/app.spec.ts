@@ -9,7 +9,7 @@ test('переключение языка сохраняет прогресс к
   await page.goto('./#/profile');
   await expect(page.getByText('всего 500 XP')).toBeVisible();
 
-  await page.goto('./#/settings');
+  await page.goto('./#/settings/language');
   await Promise.all([page.waitForEvent('load'), page.getByRole('button', { name: /итальянский/i }).click()]);
   // Новый курс начинается с пролога.
   await skipPrologue(page);
@@ -17,7 +17,7 @@ test('переключение языка сохраняет прогресс к
   await page.goto('./#/profile');
   await expect(page.getByText('всего 0 XP')).toBeVisible();
 
-  await page.goto('./#/settings');
+  await page.goto('./#/settings/language');
   await Promise.all([page.waitForEvent('load'), page.getByRole('button', { name: /испанский/i }).click()]);
   await expect(page.getByTestId('continue')).toBeVisible();
   await page.goto('./#/profile');

@@ -20,7 +20,7 @@ for (const lang of LANGS) {
     test('пол путника в настройках: реплики героя в миссии звучат голосом этого пола, рядом его портрет', async ({ page }) => {
       await openApp(page, lang);
       // В браузере тестов голосов нет: основной голос считается женским, мужской путник звучит ниже.
-      await page.goto('./#/settings');
+      await page.goto('./#/settings/hero');
       await expect(page.getByTestId('hero-gender-m')).toHaveAttribute('aria-checked', 'true');
       await page.getByRole('button', { name: /Голос путника/ }).click();
       expect((await readSpoken(page)).at(-1)!.pitch).toBeLessThan(1);
@@ -35,7 +35,7 @@ for (const lang of LANGS) {
 
       // Выбор переживает перезагрузку; путница отвечает в миссии своим голосом, житель — своим.
       await page.reload();
-      await page.goto('./#/settings');
+      await page.goto('./#/settings/hero');
       await expect(page.getByTestId('hero-gender-f')).toHaveAttribute('aria-checked', 'true');
       await page.getByTestId('hero-gender-m').click();
 
@@ -60,7 +60,7 @@ for (const lang of LANGS) {
     test('имя путника: жители зовут героя по имени, путницу без имени — в женском роде', async ({ page }) => {
       await openApp(page, lang);
       const call = lang === 'es' ? { m: 'viajero', f: 'viajera', line: '¡Cuidado, ' } : { m: 'viaggiatore', f: 'viaggiatrice', line: ', ' };
-      await page.goto('./#/settings');
+      await page.goto('./#/settings/hero');
       await expect(page.getByTestId('hero-name')).toHaveAttribute('placeholder', call.m);
       // Кириллица и лишние пробелы убираются, имя с заглавной.
       await page.getByTestId('hero-name').fill('  lucas Вася ');
@@ -86,7 +86,7 @@ for (const lang of LANGS) {
       expect((await readSpoken(page)).some((s) => s.text.includes('Lucas!'))).toBe(true);
 
       // Путница без имени: женская форма обращения, у итальянского прилагательного — женский род.
-      await page.goto('./#/settings');
+      await page.goto('./#/settings/hero');
       await page.getByTestId('hero-gender-f').click();
       await page.getByTestId('hero-name').fill('');
       await page.getByTestId('hero-name').press('Enter');

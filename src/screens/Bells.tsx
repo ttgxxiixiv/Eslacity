@@ -181,7 +181,7 @@ export function BellsScreen() {
           </Button>
         ) : (
           <p className="rounded-2xl bg-orange-50 px-4 py-3 text-center text-stone-600" data-testid="bells-silent">
-            Звоннице нужен звук. Включите звук или голос языка в настройках «Озвучка», и звонарь начнёт.
+            Звоннице нужен звук. Включите звук или голос языка в настройках, раздел «Звук и озвучка», и звонарь начнёт.
           </p>
         )}
       </div>

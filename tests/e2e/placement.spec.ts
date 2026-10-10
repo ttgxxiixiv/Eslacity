@@ -54,7 +54,7 @@ for (const lang of LANGS) {
       await page.reload();
       await expect(page.getByTestId('continue')).toBeVisible();
       await expect(page.getByTestId('placement-offer')).toHaveCount(0);
-      await page.goto('./#/settings');
+      await page.goto('./#/settings/learning');
       await page.getByTestId('settings-placement').click();
       await expect(page.getByTestId('placement-intro')).toBeVisible();
       // Отказ уже записан: второй кнопки «пропустить» нет.

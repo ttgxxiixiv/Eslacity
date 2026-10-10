@@ -9,7 +9,7 @@ for (const lang of LANGS) {
       test.setTimeout(120_000);
       await openApp(page, lang);
       expect(await rootSize(page)).toBe('16px');
-      await page.goto('./#/settings');
+      await page.goto('./#/settings/app');
       const card = page.getByTestId('text-size');
       await card.getByRole('button', { name: 'Очень крупный' }).click();
       await expect(card.getByRole('button', { name: 'Очень крупный' })).toHaveAttribute('aria-pressed', 'true');
@@ -24,7 +24,7 @@ for (const lang of LANGS) {
       expect(verdicts.correct).toBeGreaterThan(10);
       expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
 
-      await page.goto('./#/settings');
+      await page.goto('./#/settings/app');
       await page.getByTestId('text-size').getByRole('button', { name: 'Обычный' }).click();
       expect(await rootSize(page)).toBe('16px');
     });

@@ -54,7 +54,7 @@ for (const lang of LANGS) {
       await expect.poll(async () => (await sounds(page)).filter((s) => s.sfx).at(-1)?.sfx).toBe('wrong');
 
       // Громкость 0: музыка останавливается, звуков нет.
-      await page.goto('./#/settings');
+      await page.goto('./#/settings/sound');
       await expect(page.getByTestId('sound-card')).toBeVisible();
       await page.getByTestId('music-volume').fill('0');
       await expect(page.getByTestId('sound-card')).toContainText('Музыка: выключено');

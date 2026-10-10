@@ -136,6 +136,7 @@ export default function App() {
         <Route path="/rumor" element={<RumorScreen />} />
         <Route path="/diary" element={<DiaryScreen />} />
         <Route path="/settings" element={<SettingsScreen />} />
+        <Route path="/settings/:section" element={<SettingsScreen />} />
         <Route path="/learn/:id/:level/:part" element={<LearnScreen />} />
         <Route path="/practice/:id/:level" element={<LearnScreen practice />} />
         <Route path="/phrases/:id/:level" element={<PhraseLessonScreen />} />

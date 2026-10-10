@@ -53,7 +53,7 @@ for (const lang of LANGS) {
       expect(Math.abs(pic.y + pic.height - (btn.y + btn.height))).toBeLessThan(1);
 
       // Лимит 20 в настройках: снова урок.
-      await page.goto('./#/settings');
+      await page.goto('./#/settings/learning');
       await page.getByTestId('new-per-day').getByRole('button', { name: '20' }).click();
       await page.goto('./#/');
       await expect(cont).toContainText(`Просьба: ${npcName(lang, 'cafe')}`);
@@ -68,7 +68,7 @@ for (const lang of LANGS) {
       await expect(page.getByTestId('learn-request').first()).toContainText(`${npcName(lang, 'cafe')} просит выучить`);
 
       // Лимит 5 и к повтору 106 — больше 5 × 21: «Продолжить» ведёт к повторению (задача 12.6).
-      await page.goto('./#/settings');
+      await page.goto('./#/settings/learning');
       await page.getByTestId('new-per-day').getByRole('button', { name: '5', exact: true }).click();
       const forecast = page.getByTestId('review-forecast');
       await expect(forecast.getByTestId('forecast-day')).toHaveCount(7);

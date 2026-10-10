@@ -30,7 +30,7 @@ for (const lang of LANGS) {
       await page.getByTestId('report-send').click();
       await expect(page.getByTestId('report-sent')).toBeVisible();
 
-      await page.goto('./#/settings');
+      await page.goto('./#/settings/reports');
       await expect(page.getByTestId('reports-count')).toHaveText('Сохранено: 2 отчёта');
       await page.getByTestId('reports-copy').click();
       await expect(page.getByTestId('reports-copy')).toHaveText('Скопировано');

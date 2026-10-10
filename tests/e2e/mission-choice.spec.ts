@@ -65,15 +65,18 @@ for (const lang of LANGS) {
         };
       }, prefix);
       await openApp(page, lang);
-      await page.goto('./#/settings');
+      await page.goto('./#/settings/sound');
       await page.getByTestId('voice-m').selectOption(`${prefix}-x-zzz-local`);
       await expect.poll(async () => (await readMeta<{ voiceM: string }>(page, lang, 'settings'))?.voiceM).toBe(`${prefix}-x-zzz-local`);
+      await page.goto('./#/settings/hero');
       await page.getByRole('button', { name: /Голос путника/ }).click();
       const last = (await readSpoken(page)).at(-1)!;
       expect(last.voice).toBe(`${prefix}-x-zzz-local`);
       expect(last.pitch).toBe(1);
       // Без выбора тот же путник звучит основным голосом, опущенным вниз.
+      await page.goto('./#/settings/sound');
       await page.getByTestId('voice-m').selectOption('');
+      await page.goto('./#/settings/hero');
       await page.getByRole('button', { name: /Голос путника/ }).click();
       expect((await readSpoken(page)).at(-1)!.pitch).toBeLessThan(1);
     });

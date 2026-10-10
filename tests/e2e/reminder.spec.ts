@@ -14,7 +14,7 @@ for (const lang of LANGS) {
   test.describe(lang, () => {
     test('напоминание: включить, время, расписание для service worker, без установки — честная подпись', async ({ page, context }) => {
       await context.grantPermissions(['notifications']);
-      await openApp(page, lang, '/settings');
+      await openApp(page, lang, '/settings/reminder');
       // Обработчик напоминаний подключён к service worker сборки.
       expect(await page.evaluate(() => fetch('./sw.js').then((r) => r.text()))).toContain('reminder-sw.js');
       const card = page.getByTestId('reminder');
@@ -53,7 +53,7 @@ for (const lang of LANGS) {
       await page.addInitScript(() => {
         Notification.requestPermission = () => Promise.resolve('denied');
       });
-      await openApp(page, lang, '/settings');
+      await openApp(page, lang, '/settings/reminder');
       await page.getByTestId('reminder-toggle').click();
       await expect(page.getByTestId('reminder').getByTestId('reminder-note')).toContainText('Уведомления запрещены');
     });
