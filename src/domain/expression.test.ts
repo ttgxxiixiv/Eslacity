@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { isExpression, wordTags } from './expression';
+import { isExpression, typeable, wordTags } from './expression';
 
 describe('метки выражений', () => {
   it('у обычного слова меток нет', () => {
@@ -15,5 +15,15 @@ describe('метки выражений', () => {
   });
   it('регистр виден и у слова без вида', () => {
     expect(wordTags({ register: 'formal' })).toEqual(['официально']);
+  });
+});
+
+describe('пометки употребления (задача 15.2)', () => {
+  it('метка идёт первой, грубое слово нельзя вводить', () => {
+    expect(wordTags({ usage: 'slang', kind: 'collocation', register: 'informal' })).toEqual(['сленг', 'разговорно']);
+    expect(wordTags({ usage: 'regional' })).toEqual(['региональное']);
+    expect(typeable({ usage: 'vulgar' })).toBe(false);
+    expect(typeable({ usage: 'slang' })).toBe(true);
+    expect(typeable({})).toBe(true);
   });
 });

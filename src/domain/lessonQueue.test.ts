@@ -160,3 +160,16 @@ describe('разбор ошибок: вид задания задан (зада�
     expect(quiet[0].kind).toBe('type');
   });
 });
+
+describe('грубое слово (задача 15.2)', () => {
+  it('ввод и сборка из букв заменяются выбором, на слух — выбором на слух', () => {
+    const rude = w('rude', 'el grosero', 'грубость', { usage: 'vulgar', usageNote: 'грубое' });
+    const pool = [...words, rude];
+    expect(makeStep('type', rude, pool, seeded(1)).kind).toBe('choice-ru-es');
+    expect(makeStep('scramble', rude, pool, seeded(1)).kind).toBe('choice-ru-es');
+    expect(makeStep('listen-type', rude, pool, seeded(1)).kind).toBe('listen-choice');
+    expect(makeStep('type', words[0], pool, seeded(1)).kind).toBe('type');
+    const review = buildReviewSteps([rude], {}, pool, seeded(3), { listening: true });
+    expect(review.some((s) => s.kind === 'type' || s.kind === 'listen-type' || s.kind === 'scramble')).toBe(false);
+  });
+});

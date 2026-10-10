@@ -22,6 +22,11 @@ export type WordLevel = BuildingLevel | 6 | 7;
 export type ExpressionKind = 'collocation' | 'idiom' | 'formula' | 'false-friend';
 /** Регистр: официальный, нейтральный, разговорный. */
 export type Register = 'formal' | 'neutral' | 'informal';
+/**
+ * Пометка употребления (задача 15.2): региональное, грубое, устаревшее, сленг. Показывается меткой у слова,
+ * грубое не попадает в задания на ввод.
+ */
+export type Usage = 'regional' | 'vulgar' | 'dated' | 'slang';
 
 /** Женская форма реплики для путницы: только изменённые поля (`forGender` в `src/domain/address.ts`). */
 import type { Fem } from '../domain/address';
@@ -61,6 +66,10 @@ export interface Word {
   kind?: ExpressionKind;
   /** Регистр. Обязателен у выражений, у слов по желанию. */
   register?: Register;
+  /** Пометка употребления (задача 15.2). */
+  usage?: Usage;
+  /** Пояснение к пометке: где так говорят, какое у слова грубое значение. Обязательно у грубых и рискованных слов. */
+  usageNote?: string;
   /** id выражения с тем же смыслом в другом регистре, ссылка взаимная. */
   pair?: string;
   /** Дословный перевод идиомы: «tomar el pelo» — «брать за волосы». */

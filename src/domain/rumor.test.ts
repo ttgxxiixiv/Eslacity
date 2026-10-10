@@ -49,6 +49,7 @@ describe('слухи города: событие дня', () => {
   it('кот: слово без артикля из 4–9 букв, буквы перемешаны', () => {
     expect(catWord(POOL[0])).toBe('café');
     expect(catWord(POOL[1])).toBeNull(); // té — короче четырёх
+    expect(catWord({ ...POOL[0], usage: 'vulgar', usageNote: 'грубое' })).toBeNull(); // грубое не собираем (15.2)
     expect(catWord(word('x', 'el abrelatas grande', 'открывалка'))).toBeNull();
     expect(catWord(word('y', 'la contraseña', 'пароль'))).toBeNull(); // 10 букв
     for (let s = 1; s < 30; s++) {

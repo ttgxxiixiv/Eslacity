@@ -1,6 +1,6 @@
 import type { Rumor, Word } from '../content/schema';
 import { normalize, splitArticle } from './answer';
-import { isExpression } from './expression';
+import { isExpression, typeable } from './expression';
 import { shuffle, type Rng } from './generators';
 
 /**
@@ -41,6 +41,8 @@ export type RumorEvent =
 
 /** Слово без артикля, если это одно слово из букв подходящей длины. */
 export function catWord(w: Word): string | null {
+  // Грубое слово собирать не просим (задача 15.2).
+  if (!typeable(w)) return null;
   const core = splitArticle(w.es).core;
   return /^\p{L}+$/u.test(core) && core.length >= CAT_LETTERS[0] && core.length <= CAT_LETTERS[1] ? core : null;
 }

@@ -1,7 +1,7 @@
 import { normalize, splitArticle, stripAccents } from '../domain/answer';
 import type { Lang } from '../lang';
 import { CHAPTERS as PLAN, PLACE_EXPRESSIONS, PLACE_LEVEL_MAX } from './vocabPlan';
-import { EXPRESSION_LEVEL, isExpression, KINDS, REGISTERS } from '../domain/expression';
+import { EXPRESSION_LEVEL, isExpression, KINDS, REGISTERS, USAGES } from '../domain/expression';
 import { expandOptional, fullPhrase, optionalError, PHRASE_MAX_WORDS, PHRASE_PREFIX, phraseWords } from '../domain/phrase';
 import { answersOnPath, DISPUTE_FROM_CHAPTER, isDispute, isRegisterNode, missionGraphIssues, REGISTER_FROM_CHAPTER } from '../domain/mission';
 import { LISTEN_GUARDIAN_CHAPTERS } from '../domain/guardian';
@@ -102,6 +102,15 @@ function checkExpression(w: Word, at: string, out: Issue[]) {
   else if (w.kind === 'formula' && w.register === 'formal' && w.pair === undefined) err('у официальной формулы нет разговорной пары');
 }
 
+/** Пометка употребления (задача 15.2): известная, пояснение только при пометке, у грубого слова пояснение обязательно. */
+function checkUsage(w: Word, at: string, out: Issue[]) {
+  const err = (msg: string) => out.push({ level: 'error', where: at, msg });
+  if (w.usage !== undefined && !USAGES.includes(w.usage)) err(`пометка usage "${w.usage}"`);
+  if (w.usageNote !== undefined && empty(w.usageNote)) err('пустое пояснение usageNote');
+  if (w.usageNote !== undefined && w.usage === undefined) err('usageNote без пометки usage');
+  if (w.usage === 'vulgar' && empty(w.usageNote)) err('у грубого слова нет пояснения usageNote');
+}
+
 /** Пары выражений: ссылка на выражение этого языка, взаимная, регистры разные. */
 function checkPairs(all: Map<string, { w: Word; at: string }>, out: Issue[]) {
   for (const { w, at } of all.values()) {
@@ -129,6 +138,7 @@ function checkWord(w: Word, at: string, lang: Lang, out: Issue[]) {
   }
   if (![1, 2, 3, 4, 5, 6, 7].includes(w.level)) out.push({ level: 'error', where: at, msg: `уровень ${w.level}` });
   checkExpression(w, at, out);
+  checkUsage(w, at, out);
   if (!POS.has(w.pos)) out.push({ level: 'error', where: at, msg: `часть речи "${w.pos}"` });
   if (!CEFR.has(w.cefr)) out.push({ level: 'error', where: at, msg: `CEFR "${w.cefr}"` });
   if (empty(w.id) || empty(w.es)) return;
@@ -221,10 +231,9 @@ export function validateWords(files: { name: string; data: LocationWords }[], la
         else ruSeen.set(rk, w.id);
       }
 
-      // С уровня 5 уровень места — это глава, и CEFR слова должен быть CEFR главы: 5 — B1, 6 — B2.
-      const plan = PLAN.find((c) => c.levels.includes(w.level));
-      if (w.level >= 5 && plan && w.cefr !== plan.cefr) out.push({ level: 'error', where: at, msg: `у уровня ${w.level} CEFR ${plan.cefr}, а не ${w.cefr}` });
-      else if (w.level < 5 && (w.cefr === 'B1' || w.cefr === 'B2' || w.cefr === 'C1')) out.push({ level: 'error', where: at, msg: `CEFR ${w.cefr} на уровне ${w.level}` });
+      // CEFR слова — его собственный, по частотности (задача 15.2, `cefrIssues` в scripts/vocab-lib.ts), а не уровень
+      // места. Сочетания, идиомы и формулы главы V всегда C1; ложный друг — обычное слово своей ступени (el balón — A2).
+      if (isExpression(w) && w.kind !== 'false-friend' && w.cefr !== 'C1') out.push({ level: 'error', where: at, msg: `у выражения CEFR C1, а не ${w.cefr}` });
 
       // Выражения идут своим счётом: 25 слов и 15 выражений на уровне 7.
       if (isExpression(w)) expressions++;
@@ -1101,7 +1110,6 @@ export function validateScrolls(files: { name: string; data: ScrollFile }[], pla
       if (empty(w.id) || empty(w.es)) return;
       if (!w.id.startsWith(prefix)) out.push({ level: 'error', where: at, msg: `id должен начинаться с "${prefix}"` });
       if (w.level !== 1) out.push({ level: 'error', where: at, msg: 'у слова свитка level всегда 1' });
-      if (w.cefr !== plan.cefr) out.push({ level: 'error', where: at, msg: `CEFR ${w.cefr}, у главы ${plan.chapter} — ${plan.cefr}` });
       if (ids.has(w.id)) out.push({ level: 'error', where: at, msg: 'дубль id' });
       ids.set(w.id, w.id);
       const key = normalize(w.es);

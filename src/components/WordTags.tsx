@@ -1,8 +1,8 @@
 import type { Word } from '../content/schema';
 import { wordTags } from '../domain/expression';
 
-/** Метки регистра и вида выражения (идиома, ложный друг). У обычного слова ничего не рисует. */
-export function WordTags({ word, className = '' }: { word: Pick<Word, 'kind' | 'register'>; className?: string }) {
+/** Метки пометки употребления, регистра и вида выражения (идиома, ложный друг). У обычного слова ничего не рисует. */
+export function WordTags({ word, className = '' }: { word: Pick<Word, 'kind' | 'register' | 'usage'>; className?: string }) {
   const tags = wordTags(word);
   if (!tags.length) return null;
   return (

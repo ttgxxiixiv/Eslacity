@@ -463,3 +463,75 @@ export function applySkipsToForms(forms: Map<string, string>, skips: Skips): Map
   for (const [from, to] of skips.alias) out.set(from, to);
   return out;
 }
+
+/**
+ * CEFR по частотности (задача 15.2): верхняя граница ранга для каждой ступени очищенного списка. Справочных
+ * списков CEFR (PCIC, Profilo della lingua italiana) в открытом доступе в машинном виде нет, поэтому ступень
+ * оценивается по рангу, а расхождение в одну ступень допускается: предметные слова (pasaporte, bagaglio) в учебниках
+ * идут раньше, чем по частоте в текстах.
+ */
+export const CEFR_BANDS: { cefr: 'A1' | 'A2' | 'B1' | 'B2' | 'C1'; upTo: number }[] = [
+  { cefr: 'A1', upTo: 800 },
+  { cefr: 'A2', upTo: 1600 },
+  { cefr: 'B1', upTo: 3200 },
+  { cefr: 'B2', upTo: 6000 },
+  { cefr: 'C1', upTo: Infinity },
+];
+const CEFR_ORDER = CEFR_BANDS.map((b) => b.cefr) as string[];
+
+/** Ступень CEFR по рангу леммы. */
+export const cefrOfRank = (rank: number) => CEFR_BANDS.find((b) => rank <= b.upTo)!.cefr;
+
+/**
+ * CEFR слова выше частотного больше чем на ступень (задача 15.2): «el balón» на уровне 7 стоял как C1. Обратное
+ * не проверяется: частотные списки по текстам ставят бытовые слова (deporte, piscina, pasaporte) ниже, чем они
+ * идут в учебниках, и A1 у них честнее B1. Не проверяются выражения (всегда C1), словосочетания (ранга нет),
+ * тематические слова (редкие по определению) и слова вне списка. Ложные друзья проверяются: это обычные слова.
+ */
+export function cefrIssues<W extends { id: string; es: string; cefr: string; kind?: string; topical?: boolean }>(
+  words: W[],
+  rank: (es: string) => number | undefined,
+): { id: string; msg: string; want: string }[] {
+  const out: { id: string; msg: string; want: string }[] = [];
+  for (const w of words) {
+    if ((w.kind && w.kind !== 'false-friend') || w.topical) continue;
+    const r = rank(w.es);
+    if (r === undefined || r === Infinity) continue;
+    const want = cefrOfRank(r);
+    const d = CEFR_ORDER.indexOf(w.cefr) - CEFR_ORDER.indexOf(want);
+    if (d > 1) out.push({ id: w.id, want, msg: `CEFR ${w.cefr}, по частотности ${want} (ранг ${r}): завышен больше чем на ступень` });
+  }
+  return out;
+}
+
+/** Поправка завышенного CEFR: на ступень выше частотной, не дальше — без лишних скачков. */
+export const loweredCefr = (want: string) => CEFR_ORDER[CEFR_ORDER.indexOf(want) + 1];
+
+/** Рискованные слова языка: `scripts/data/risky-<язык>.txt`, строки «лемма | грубое значение». */
+export function parseRisky(text: string): Map<string, string> {
+  const out = new Map<string, string>();
+  for (const l of text.split('\n')) {
+    if (comment(l)) continue;
+    const [lemma, why] = l.split('|').map((x) => x.trim());
+    if (lemma) out.set(lemma, why ?? '');
+  }
+  return out;
+}
+
+/**
+ * Слова с рискованной леммой (омоним с грубым значением, задача 15.2) должны быть помечены: пометка `usage`
+ * и пояснение `usageNote`, чтобы игрок знал о втором значении.
+ */
+export function riskyIssues<W extends { id: string; es: string; usage?: string; usageNote?: string }>(
+  words: W[],
+  risky: Map<string, string>,
+  lemmas: (text: string) => string[],
+): { id: string; msg: string }[] {
+  const out: { id: string; msg: string }[] = [];
+  for (const w of words) {
+    const hit = lemmas(w.es).find((l) => risky.has(l));
+    if (hit && (!w.usage || !w.usageNote?.trim()))
+      out.push({ id: w.id, msg: `рискованное слово «${hit}» (${risky.get(hit)}): нужна пометка usage и пояснение usageNote` });
+  }
+  return out;
+}

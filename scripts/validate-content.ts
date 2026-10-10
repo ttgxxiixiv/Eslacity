@@ -10,7 +10,7 @@ import { chapterOfDistrict } from '../src/domain/chapters';
 import { plural } from '../src/domain/medals';
 import { femIssues, forGender } from '../src/domain/address';
 import { lessonParts, levelWords } from '../src/domain/levels';
-import { applySkips, applySkipsToForms, buildLexicon, coverage, lemmaRanks, rarityIssues, wordRank, lemmasIn, parseFreq, parseSkips, parseLemmas, textCoverage, uncoveredWords } from './vocab-lib';
+import { applySkips, applySkipsToForms, buildLexicon, cefrIssues, coverage, lemmaRanks, parseRisky, rarityIssues, riskyIssues, wordRank, lemmasIn, parseFreq, parseSkips, parseLemmas, textCoverage, uncoveredWords } from './vocab-lib';
 
 const root = join(import.meta.dirname, '..', 'src', 'content');
 
@@ -98,6 +98,16 @@ for (const lang of langs) {
         msg,
       }));
     });
+  // CEFR по частотности и рискованные слова (задача 15.2): слова мест и свитков.
+  const sources = [
+    ...words.map((f) => ({ where: `words/${f.name}`, words: f.data.words })),
+    ...scrolls.map((f) => ({ where: `scrolls/${f.name}`, words: f.data.words })),
+  ];
+  const risky = parseRisky(readFileSync(join(dataDir, `risky-${lang}.txt`), 'utf8'));
+  const usage: Issue[] = sources.flatMap(({ where, words: ws }) => [
+    ...cefrIssues(ws, (es) => wordRank(es, forms, lang, ranks)).map(({ id, msg }) => ({ level: 'warning' as const, where: `${where} ${id}`, msg })),
+    ...riskyIssues(ws, risky, (t) => lemmasIn(t, forms, lang)).map(({ id, msg }) => ({ level: 'warning' as const, where: `${where} ${id}`, msg })),
+  ]);
   // Праздники: их фразы и миссии опираются и на слова самого праздника, поэтому словарь свой — с ними на уровне 1.
   const festivals = readJson<FestivalFile>(join(root, lang, 'festivals'));
   const festLexicon = buildLexicon(
@@ -214,6 +224,7 @@ for (const lang of langs) {
     ...tag(bookIssues),
     ...tag(validateWords(words, lang)),
     ...tag(rarity),
+    ...tag(usage),
     ...tag(
       validatePhrases(phrases, {
         lessons: new Set(grammar.map((g) => (g.data as GrammarLesson).id)),

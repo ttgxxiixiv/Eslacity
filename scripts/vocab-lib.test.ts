@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { applySkips, applySkipsToForms, rarityIssues, buildLexicon, coverage, parseSkips, glossIndex, lemmaRanks, median, stemOf, wordRank, textCoverage, lemmaOf, lemmasIn, parseFreq, parseLemmas, share, tokens, uncoveredWords } from './vocab-lib';
+import { applySkips, applySkipsToForms, cefrIssues, cefrOfRank, loweredCefr, parseRisky, rarityIssues, riskyIssues, buildLexicon, coverage, parseSkips, glossIndex, lemmaRanks, median, stemOf, wordRank, textCoverage, lemmaOf, lemmasIn, parseFreq, parseLemmas, share, tokens, uncoveredWords } from './vocab-lib';
 
 const freq = parseFreq(['# шапка', '1\tel\t100\t?', '2\tser\t90\t', '3\tjohn\t80\t?', '4\tcasa\t70\t', '5\tque\t60\t?', '6\tperro\t50\t'].join('\n'));
 const forms = parseLemmas(['# шапка', 'es\tser', 'la\tel', 'casas\tcasa'].join('\n'));
@@ -187,5 +187,48 @@ describe('редкие слова на ранних уровнях', () => {
     expect(rarityIssues([{ level: 3, words: ws }], rank, (w) => [w.slice(0, 4), w.slice(4)])).toEqual([
       { id: 'w1', msg: 'урок 1 уровня 3: тематических слов 4, не больше 3' },
     ]);
+  });
+});
+
+describe('CEFR по частотности и рискованные слова (задача 15.2)', () => {
+  const rank: Record<string, number | undefined> = { 'el balón': 3245, 'la casa': 120, 'la rareza': Infinity, 'por favor': undefined };
+  const at = (es: string) => rank[es];
+  const word = (id: string, es: string, cefr: string, extra: object = {}) => ({ id, es, cefr, ...extra });
+
+  it('полосы рангов', () => {
+    expect([1, 800, 801, 1600, 3200, 6000, 6001].map(cefrOfRank)).toEqual(['A1', 'A1', 'A2', 'A2', 'B1', 'B2', 'C1']);
+    expect(loweredCefr('A1')).toBe('A2');
+  });
+  it('завышенный больше чем на ступень — предупреждение, заниженный и на ступень — нет', () => {
+    const issues = cefrIssues(
+      [
+        word('a', 'la casa', 'B1'),
+        word('b', 'la casa', 'A2'),
+        word('c', 'el balón', 'A1'),
+        word('d', 'el balón', 'C1', { kind: 'false-friend' }),
+        word('e', 'el balón', 'C1', { kind: 'idiom' }),
+        word('f', 'la rareza', 'A1'),
+        word('g', 'por favor', 'C1'),
+        word('h', 'la casa', 'C1', { topical: true }),
+      ],
+      at,
+    );
+    expect(issues.map((i) => [i.id, i.want])).toEqual([['a', 'A1']]);
+  });
+  it('рискованная лемма требует пометки и пояснения', () => {
+    const risky = parseRisky('# комментарий\ncoger | грубое в Латинской Америке\n');
+    expect(risky.get('coger')).toBe('грубое в Латинской Америке');
+    const lemmas = (t: string) => t.split(' ');
+    const issues = riskyIssues(
+      [
+        word('a', 'coger un avión', 'A2'),
+        word('b', 'coger el tren', 'A2', { usage: 'regional', usageNote: 'в Латинской Америке грубое' }),
+        word('c', 'coger fondo', 'A2', { usage: 'regional' }),
+        word('d', 'tomar un avión', 'A2'),
+      ],
+      risky,
+      lemmas,
+    );
+    expect(issues.map((i) => i.id)).toEqual(['a', 'c']);
   });
 });

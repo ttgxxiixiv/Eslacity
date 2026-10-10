@@ -1,6 +1,6 @@
 import type { Word } from '../content/schema';
 import type { Verdict } from './answer';
-import { isExpression } from './expression';
+import { isExpression, typeable } from './expression';
 import type { Grade, SrsCard } from './srs';
 import { gradeFor } from './srs';
 import {
@@ -44,6 +44,9 @@ export function isTyped(kind: StepKind): boolean {
 }
 
 export function makeStep(kind: SingleKind, word: Word, pool: Word[], rng: Rng): Step {
+  // Грубое слово (задача 15.2) только узнаётся: ввод и сборка из букв заменяются выбором.
+  if (!typeable(word) && (kind === 'type' || kind === 'scramble')) return makeStep('choice-ru-es', word, pool, rng);
+  if (!typeable(word) && kind === 'listen-type') return makeStep('listen-choice', word, pool, rng);
   const id = nextId();
   switch (kind) {
     case 'intro':

@@ -16,11 +16,12 @@ const tenWords = () => Array.from({ length: 10 }, (_, i) => base(i));
 const errors = (words: Word[]) => validateWords(file(words)).filter((x) => x.level === 'error').map((x) => x.msg);
 
 describe('validateWords', () => {
-  it('уровень 6 — только B2, B1 и B2 не ниже 5-го уровня', () => {
+  it('CEFR слова свой, а не уровня места (задача 15.2); уровень только 1–7', () => {
     const six = Array.from({ length: 10 }, (_, i) => base(20 + i, { level: 6, cefr: 'B2' }));
     expect(errors([...tenWords(), ...six])).toEqual([]);
-    expect(errors([...tenWords(), ...six.slice(1), base(40, { level: 6, cefr: 'B1' })])).toEqual(['у уровня 6 CEFR B2, а не B1']);
-    expect(errors([...tenWords().slice(1), base(41, { cefr: 'B2' })])).toEqual(['CEFR B2 на уровне 1']);
+    expect(errors([...tenWords(), ...six.slice(1), base(40, { level: 6, cefr: 'A2' })])).toEqual([]);
+    expect(errors([...tenWords().slice(1), base(41, { cefr: 'B2' })])).toEqual([]);
+    expect(errors([...tenWords().slice(1), base(42, { cefr: 'D1' as 'A1' })])).toEqual(['CEFR "D1"']);
     expect(errors([...tenWords(), ...Array.from({ length: 10 }, (_, i) => base(50 + i, { level: 8 as 7, cefr: 'B2' }))])).toContain('уровень 8');
   });
   it('чистый контент без ошибок', () => {
@@ -44,8 +45,10 @@ describe('validateWords, выражения уровня 7', () => {
       expr('c', { es: 'la carpeta', pos: 'noun', gender: 'f', kind: 'false-friend', register: 'neutral', literal: undefined, note: 'папка, а не скатерть', example: { es: 'Abre la carpeta.', ru: 'пример' } }),
     )).toEqual([]);
   });
-  it('уровень 7 — только C1, выражения не считаются в число слов', () => {
-    expect(check(c1(20, { cefr: 'B2' }))).toEqual(['у уровня 7 CEFR C1, а не B2']);
+  it('выражения C1, ложный друг — своей ступени, выражения не считаются в число слов', () => {
+    expect(check(c1(20, { cefr: 'B2' }))).toEqual([]);
+    expect(check(expr('a', { cefr: 'B2' }))).toEqual(['у выражения CEFR C1, а не B2']);
+    expect(check(expr('c', { es: 'el balón', pos: 'noun', gender: 'm', kind: 'false-friend', register: 'neutral', literal: undefined, note: 'мяч, а не баллон', cefr: 'A2', example: { es: 'Pásame el balón.', ru: 'пример' } }))).toEqual([]);
     const onlyExpr = errors([...tenWords(), ...Array.from({ length: 12 }, (_, i) => expr(`e${i}`))]);
     expect(onlyExpr).toEqual([]);
     const few = validateWords(file([...tenWords(), ...words7().slice(0, 9), ...Array.from({ length: 16 }, (_, i) => expr(`e${i}`))]));
@@ -60,8 +63,16 @@ describe('validateWords, выражения уровня 7', () => {
     expect(check(expr('a', { kind: 'formula' }))).toEqual(['literal бывает только у идиомы']);
     expect(check(expr('a', { kind: 'formula', register: 'formal', literal: undefined }))).toEqual(['у официальной формулы нет разговорной пары']);
     expect(check(expr('a', { pos: 'verb' }))).toEqual(['у выражения вида idiom часть речи phrase, а не verb']);
-    expect(check(expr('a', { level: 6, cefr: 'B2' }))).toEqual(['выражение на уровне 6, они бывают только на уровне 7']);
+    expect(check(expr('a', { level: 6 }))).toEqual(['выражение на уровне 6, они бывают только на уровне 7']);
     expect(check(c1(20, { note: 'x' }))).toEqual(['поле note бывает только у выражения']);
+  });
+  it('пометка употребления (задача 15.2)', () => {
+    expect(check(c1(20, { usage: 'regional', usageNote: 'в Латинской Америке грубое' }))).toEqual([]);
+    expect(check(c1(20, { usage: 'slang' }))).toEqual([]);
+    expect(check(c1(20, { usage: 'rude' as 'vulgar' }))).toEqual(['пометка usage "rude"']);
+    expect(check(c1(20, { usage: 'vulgar' }))).toEqual(['у грубого слова нет пояснения usageNote']);
+    expect(check(c1(20, { usageNote: 'x' }))).toEqual(['usageNote без пометки usage']);
+    expect(check(c1(20, { usage: 'dated', usageNote: ' ' }))).toEqual(['пустое пояснение usageNote']);
   });
   it('пара: есть, взаимная, другой регистр', () => {
     expect(check(expr('a', { pair: 'cafe.nope' }))).toEqual(['pair "cafe.nope": нет такого слова']);
@@ -285,10 +296,10 @@ describe('validateScrolls', () => {
     expect(errs([sw('x', { es: 'la palabra3', gender: 'f' })])).toMatch(/уже есть: cafe\.w3/);
     expect(errs([sw('mapa'), sw('mapa')])).toMatch(/дубль id/);
   });
-  it('чужой префикс, уровень, CEFR главы и имя файла', () => {
+  it('чужой префикс, уровень и имя файла; CEFR у слова свиток свой', () => {
     expect(errs([sw('mapa', { id: 'cafe.mapa' })])).toMatch(/начинаться с "scroll1\."/);
     expect(errs([sw('mapa', { level: 2 })])).toMatch(/level всегда 1/);
-    expect(errs([sw('mapa', { cefr: 'A2' })])).toMatch(/у главы I — A1/);
+    expect(errs([sw('mapa', { cefr: 'A2' })])).toBe('');
     expect(errs([sw('mapa')], 1, '2.json')).toMatch(/имя файла/);
   });
   it('одинаковый перевод внутри свитка — предупреждение', () => {
@@ -643,21 +654,21 @@ describe('миссии главы V: контент', () => {
 });
 
 describe('свиток главы IV: контент', () => {
-  // Задача 6.5: 150 слов B2 на язык, как в плане словаря.
-  it('в свитке главы IV обоих языков 150 слов B2', () => {
+  // Задача 6.5: 150 слов на язык, как в плане словаря. CEFR с 15.2 — по частотности, не выше B2.
+  it('в свитке главы IV обоих языков 150 слов не выше B2', () => {
     for (const lang of ['es', 'it']) {
       const scroll = JSON.parse(readFileSync(join(import.meta.dirname, lang, 'scrolls', '4.json'), 'utf8')) as ScrollFile;
       expect(scroll.chapter).toBe(4);
       expect(scroll.words, lang).toHaveLength(PLAN[3].scroll);
-      expect(scroll.words.every((w) => w.cefr === 'B2' && w.level === 1), lang).toBe(true);
+      expect(scroll.words.every((w) => w.cefr !== 'C1' && w.level === 1), lang).toBe(true);
     }
   });
-  it('в свитке главы V обоих языков 150 слов C1 (задача 7.10)', () => {
+  it('в свитке главы V обоих языков 150 слов (задача 7.10)', () => {
     for (const lang of ['es', 'it']) {
       const scroll = JSON.parse(readFileSync(join(import.meta.dirname, lang, 'scrolls', '5.json'), 'utf8')) as ScrollFile;
       expect(scroll.chapter).toBe(5);
       expect(scroll.words, lang).toHaveLength(PLAN[4].scroll);
-      expect(scroll.words.every((w) => w.cefr === 'C1' && w.level === 1), lang).toBe(true);
+      expect(scroll.words.every((w) => w.level === 1), lang).toBe(true);
     }
   });
   it('уровень 7 мест: 25 слов, 15 выражений, треть в парах, ложный друг, одни и те же места в обоих языках', () => {
@@ -734,13 +745,13 @@ describe('validateVerbs', () => {
 });
 
 describe('уровень 6 (B2): контент', () => {
-  it('в каждом из 20 мест обоих языков по 30 слов B2', () => {
+  it('в каждом из 20 мест обоих языков по 30 слов, не выше B2', () => {
     for (const lang of ['es', 'it']) {
       for (const loc of LOCATION_IDS) {
         const words = (JSON.parse(readFileSync(join(__dirname, lang, 'words', `${loc}.json`), 'utf8')) as LocationWords).words;
         const six = words.filter((w) => w.level === 6);
         expect(six, `${lang}/${loc}`).toHaveLength(30);
-        expect(six.every((w) => w.cefr === 'B2')).toBe(true);
+        expect(six.every((w) => w.cefr !== 'C1')).toBe(true);
       }
     }
   });

@@ -19,6 +19,11 @@ export function Intro({ word, onNext }: { word: Word; onNext: () => void }) {
           {word.gender && <div className="mt-1 text-sm text-stone-500">{genderLabel(word.gender)}</div>}
           <WordTags word={word} className="mt-2" />
           {word.literal && <div className="mt-2 text-sm text-stone-500">Дословно: «{word.literal}»</div>}
+          {word.usageNote && (
+            <div className="mt-2 rounded-xl bg-amber-50 px-3 py-2 text-sm text-amber-900" data-testid="usage-note">
+              {word.usageNote}
+            </div>
+          )}
           {word.note && <div className="mt-2 rounded-xl bg-amber-50 px-3 py-2 text-sm text-amber-900">{word.note}</div>}
         </div>
         <SpeakButton text={word.es} size="lg" />

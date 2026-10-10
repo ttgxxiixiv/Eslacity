@@ -62,6 +62,11 @@ export function WordsScreen() {
                     <WordTags word={w} className="ml-2 align-middle" />
                   </div>
                   <div className="truncate text-sm text-stone-500">{w.ru}</div>
+                  {w.usageNote && (
+                    <div className="text-xs text-amber-900" data-testid="usage-note">
+                      {w.usageNote}
+                    </div>
+                  )}
                 </div>
                 <div className="text-right text-xs text-stone-500">
                   <div>{dueText(c.due, today)}</div>
