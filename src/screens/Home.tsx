@@ -15,10 +15,10 @@ import bgVault from '../assets/home/bg-vault.webp';
 import { useSphinx } from '../store/sphinx';
 import { Link, Navigate } from 'react-router-dom';
 import { cachedLocation, loadLocation } from '../content';
-import { DISTRICTS, lessonsOf } from '../content/grammar';
+import { DISTRICTS, lessonsOf, loadLesson } from '../content/grammar';
 import { LOCATION_BY_ID, LOCATIONS } from '../content/locations';
 import type { LocationId, Npc, Word } from '../content/schema';
-import { type NextStep, nextStepWithLimit, recentLocation } from '../domain/next';
+import { type NextStep, nextStepWithLimit, recentLocation, stepPlace } from '../domain/next';
 import { chapterById, chapterOfLevel, isDistrictOpen, isLevelOpen, nearestGoal } from '../domain/chapters';
 import { plural } from '../domain/medals';
 import { discountedCost } from '../domain/reputation';
@@ -388,6 +388,17 @@ export function Home() {
     }
     return null;
   }, [grammar, opened]);
+
+  // Предзагрузка (задача 14.6): слова места из «Продолжить» и следующий урок грамматики, пока игрок на главной.
+  const preloadPlace = step ? stepPlace(step) : null;
+  const preloadLesson = nextGrammar?.id ?? null;
+  useEffect(() => {
+    const t = setTimeout(() => {
+      if (preloadPlace && !cachedLocation(preloadPlace)) void loadLocation(preloadPlace);
+      if (preloadLesson) void loadLesson(preloadLesson);
+    }, 400);
+    return () => clearTimeout(t);
+  }, [preloadPlace, preloadLesson]);
 
   const journeyHint = useJourneyHint();
   const festival = useFestivalInvite();

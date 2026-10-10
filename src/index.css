@@ -457,3 +457,39 @@ html:has(body.home-dark) {
     filter: drop-shadow(0 0 8px rgb(224 180 60 / 0.7));
   }
 }
+
+/* Загрузка и переходы (задача 14.6). Экран проявляется за 180 мс, только прозрачностью: transform у предка
+   сдвинул бы листы итога с position: fixed. Ожидание появляется через 250 мс, чтобы быстрая загрузка не мигала. */
+.screen-in {
+  animation: screen-in 180ms ease-out both;
+}
+@keyframes screen-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.loading-in {
+  animation: screen-in 300ms ease-out 250ms both;
+}
+.loading-quill {
+  animation: loading-sway 1.6s ease-in-out infinite;
+}
+@keyframes loading-sway {
+  0%, 100% { transform: rotate(-6deg); }
+  50% { transform: rotate(6deg); }
+}
+.loading-dots > span {
+  width: 6px;
+  height: 6px;
+  background: var(--color-wood);
+  animation: loading-dot 1.2s ease-in-out infinite;
+}
+.loading-dots > span:nth-child(2) { animation-delay: 0.2s; }
+.loading-dots > span:nth-child(3) { animation-delay: 0.4s; }
+@keyframes loading-dot {
+  0%, 100% { opacity: 0.25; }
+  50% { opacity: 1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .screen-in, .loading-quill, .loading-dots > span { animation: none; }
+  .loading-in { animation: screen-in 1ms linear 250ms both; }
+}

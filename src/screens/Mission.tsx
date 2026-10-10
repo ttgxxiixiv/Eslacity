@@ -21,7 +21,7 @@ import { ReportButton } from '../components/ReportButton';
 import { bestAlternative } from '../domain/voiceAnswer';
 import { NpcPortrait } from '../components/NpcPortrait';
 import { HeroPortrait } from '../components/HeroPortrait';
-import { Button, Screen, TopBar } from '../components/ui';
+import { Button, Loading, Screen, TopBar } from '../components/ui';
 import { useCity } from '../store/city';
 import { useErrands } from '../store/errands';
 import { useMissions } from '../store/missions';
@@ -77,7 +77,7 @@ function MissionById({ id }: { id: string }) {
     })();
   }, [id, place]);
 
-  if (data === undefined) return null;
+  if (data === undefined) return <Loading />;
   if (data === null) {
     return (
       <Screen>

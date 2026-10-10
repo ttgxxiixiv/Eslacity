@@ -20,7 +20,7 @@ import { lessonEvent, type MedalGain } from '../domain/medals';
 import { LessonPlayer, type LessonTotals } from '../components/LessonPlayer';
 import { LessonResult } from '../components/LessonResult';
 import { EMPTY_RULES, RuleReview, type RuleResult } from '../components/RuleReview';
-import { Screen, TopBar } from '../components/ui';
+import { Loading, Screen, TopBar } from '../components/ui';
 
 interface Ready {
   steps: Step[];
@@ -181,7 +181,7 @@ export function ReviewRun({ pick, title = 'Повторение завершен
     setPhase('done');
   };
 
-  if (!ready) return null;
+  if (!ready) return <Loading />;
 
   if (phase === 'done') {
     const s = wordsResult?.s ?? startSession([]);

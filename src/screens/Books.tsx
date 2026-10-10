@@ -9,7 +9,7 @@ import { BOOK_PASS, BOOK_XP, bookSlots, parseBookId, type BookSlot } from '../do
 import { chapterById } from '../domain/chapters';
 import { plural } from '../domain/medals';
 import { sceneChunks, wordTranslation } from '../domain/sceneText';
-import { Button, Screen, TopBar } from '../components/ui';
+import { Button, Loading, Screen, TopBar } from '../components/ui';
 import { useBooks } from '../store/books';
 import { useJourney } from '../store/journey';
 import { useProgress } from '../store/progress';
@@ -104,7 +104,7 @@ export function BookScreen() {
   const [phase, setPhase] = useState<'read' | 'quiz' | 'done'>('read');
   const [xp, setXp] = useState(0);
   const [score, setScore] = useState(0);
-  if (!data) return null;
+  if (!data) return <Loading />;
   const slot = data.slots.find((s) => s.id === id);
   const file = slot && data.files.get(slot.chapter);
   const book = file?.books.find((b) => b.id === id);

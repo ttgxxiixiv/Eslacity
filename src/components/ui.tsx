@@ -69,6 +69,28 @@ export function genderLabel(g?: 'm' | 'f') {
   return g === 'm' ? 'м. р.' : g === 'f' ? 'ж. р.' : '';
 }
 
+/** Экран: колонка по ширине телефона, при открытии мягко проявляется (`screen-in`, без движения при `prefers-reduced-motion`). */
 export function Screen({ children, className = '' }: { children: ReactNode; className?: string }) {
-  return <div className={`mx-auto flex min-h-dvh w-full max-w-md flex-col ${className}`}>{children}</div>;
+  return <div className={`screen-in mx-auto flex min-h-dvh w-full max-w-md flex-col ${className}`}>{children}</div>;
+}
+
+/**
+ * Ожидание, пока грузится контент (задача 14.6): свиток с пером на пергаменте вместо пустого экрана. Показывается
+ * с задержкой (`loading-in`), поэтому быстрая загрузка из кэша не мигает. `inline` — внутри уже открытого экрана.
+ */
+export function Loading({ text = 'Летописец листает свиток', inline = false }: { text?: string; inline?: boolean }) {
+  const body = (
+    <div role="status" aria-live="polite" className="loading-in flex flex-col items-center gap-3 py-16 text-stone-600" data-testid="loading">
+      <span aria-hidden className="loading-quill text-4xl">
+        📜
+      </span>
+      <span className="px-4 text-center font-pixel text-lg">{text}</span>
+      <span aria-hidden className="loading-dots flex gap-1.5">
+        <span />
+        <span />
+        <span />
+      </span>
+    </div>
+  );
+  return inline ? body : <Screen>{body}</Screen>;
 }

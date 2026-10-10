@@ -10,7 +10,7 @@ import {
   fragmentsOf, noteDue, noteOf, openThread, parseThreadId, shardsToday, THREAD_AT, THREAD_TRIGGERS, threadDue, threadId, TRIGGER_LABEL,
 } from '../domain/thread';
 import { NpcPortrait } from '../components/NpcPortrait';
-import { Button, Screen, TopBar } from '../components/ui';
+import { Button, Loading, Screen, TopBar } from '../components/ui';
 import { useJourney } from '../store/journey';
 import { heroText } from '../store/settings';
 import { useThread } from '../store/thread';
@@ -71,7 +71,7 @@ export function ChronicleScreen() {
   // Записка остаётся на экране до ухода, даже когда уже прочитана.
   const [noteShown] = useState(() => shardsToday(useJourney.getState().fragments, now) > 0);
 
-  if (!thread) return null;
+  if (!thread) return <Loading />;
   const ids = new Set(thread.scenes.map((s) => s.id));
   const exists = (id: string) => ids.has(id);
   const open = openThread(opened, fragments, exists);

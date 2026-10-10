@@ -16,7 +16,7 @@ import { useNow } from '../lib/useNow';
 import { NpcPortrait } from '../components/NpcPortrait';
 import { heroText } from '../store/settings';
 import { SphinxArt } from '../components/SphinxArt';
-import { Button, Screen, TopBar } from '../components/ui';
+import { Button, Loading, Screen, TopBar } from '../components/ui';
 import { useHeroTitle, useJourney } from '../store/journey';
 import { useElixirStrength, useKeeper } from '../store/keeper';
 import { useMissions } from '../store/missions';
@@ -58,7 +58,7 @@ export function VaultScreen() {
       </Screen>
     );
   }
-  if (!file) return null;
+  if (!file) return <Loading />;
   const sp = file.sphinx;
   const lines = phase === 'after' ? sp.vault.after : sp.vault.before;
 

@@ -14,6 +14,7 @@ import { LessonResult } from '../components/LessonResult';
 import { useCity } from '../store/city';
 import { syncAndEvaluate } from '../store/motivation';
 import { useProgress } from '../store/progress';
+import { Loading } from '../components/ui';
 
 /**
  * Урок фраз уровня места: житель учит, как здесь говорят. Новые фразы становятся карточками `ph:…`
@@ -57,7 +58,7 @@ export function PhraseLessonScreen() {
       />
     );
   }
-  if (!ready) return null;
+  if (!ready) return <Loading />;
   if (!ready.steps.length) return <div className="p-6">На этом уровне пока нет фраз.</div>;
 
   return (

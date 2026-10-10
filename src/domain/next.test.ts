@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import type { LocationMeta, Word } from '../content/schema';
-import { nextStep, nextStepWithLimit, recentLocation } from './next';
+import { nextStep, nextStepWithLimit, recentLocation, stepPlace } from './next';
 
 const locs: LocationMeta[] = [
   { id: 'cafe', ru: 'Кафе', emoji: '☕', unlockCost: 0 },
@@ -150,5 +150,15 @@ describe('уровень 6: глава IV у здания 5-го уровня', 
     const cafe = words('cafe', 6);
     const s = nextStep({ locations: locs.slice(0, 1), levels: { cafe: 4 }, words: { cafe }, cards: learn(cafe.slice(0, 40)), coins: 9999 });
     expect(s).toMatchObject({ kind: 'upgrade', toLevel: 5 });
+  });
+});
+
+describe('предзагрузка места следующего шага', () => {
+  it('урок, улучшение и открытие ведут в место, поручения — в место урока после них', () => {
+    expect(stepPlace({ kind: 'learn', loc: 'cafe', level: 1, part: 0, newWords: 5 })).toBe('cafe');
+    expect(stepPlace({ kind: 'unlock', loc: 'market', cost: 50, missing: 0 })).toBe('market');
+    expect(stepPlace({ kind: 'errands', reason: 'limit', due: 3, then: { kind: 'upgrade', loc: 'park', toLevel: 2, cost: 10, missing: 0 } })).toBe('park');
+    expect(stepPlace({ kind: 'review', due: 300, then: { kind: 'done' } })).toBeNull();
+    expect(stepPlace({ kind: 'chapter', next: 2 })).toBeNull();
   });
 });

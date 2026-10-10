@@ -17,7 +17,7 @@ import { useNow } from '../lib/useNow';
 import { NpcPortrait } from '../components/NpcPortrait';
 import { SphinxArt } from '../components/SphinxArt';
 import { TrialPlayer } from '../components/TrialPlayer';
-import { Button, Screen, TopBar } from '../components/ui';
+import { Button, Loading, Screen, TopBar } from '../components/ui';
 import { useJourney } from '../store/journey';
 import { syncAndEvaluate } from '../store/motivation';
 import { useProgress } from '../store/progress';
@@ -74,7 +74,7 @@ export function SphinxScreen() {
       </Screen>
     );
   }
-  if (!file) return null;
+  if (!file) return <Loading />;
   const sp = file.sphinx;
   const say = (text: string) => speakAs(addressed(text), sp);
 

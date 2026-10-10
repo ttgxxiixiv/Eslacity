@@ -16,7 +16,7 @@ import { useSettings } from '../store/settings';
 import { useMotivation } from '../store/motivation';
 import type { MedalGain } from '../domain/medals';
 import { MedalLines } from '../components/LessonResult';
-import { Button, Screen, SpeakButton, TopBar } from '../components/ui';
+import { Button, Loading, Screen, SpeakButton, TopBar } from '../components/ui';
 
 interface Question extends ChoiceData {
   word: Word;
@@ -136,7 +136,7 @@ export function BlitzScreen() {
     setTimeout(() => endAt.current && nextQuestion(), i === q.answer ? 250 : 700);
   };
 
-  if (!learned) return null;
+  if (!learned) return <Loading />;
 
   if (learned.length < LESSON.blitzMinWords) {
     return (

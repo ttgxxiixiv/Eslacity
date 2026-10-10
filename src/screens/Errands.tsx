@@ -5,7 +5,7 @@ import { npcFor } from '../content/npcs';
 import type { LocationId } from '../content/schema';
 import { speakAs } from '../audio/tts';
 import { NpcPortrait } from '../components/NpcPortrait';
-import { Button, Screen, TopBar } from '../components/ui';
+import { Button, Loading, Screen, TopBar } from '../components/ui';
 import { ECHO_TEXTS, errandReward, errandText, SCROLL_PLACE, type Errand } from '../domain/errands';
 import { MISTAKES_DAYS, MISTAKES_TEXT, mistakesPlan, weakItems, type MistakesPlan } from '../domain/mistakes';
 import { answersSince } from '../db/answers';
@@ -193,7 +193,7 @@ export function MistakesScreen() {
   const [doneBefore] = useState(() => useErrands.getState().mistakes === dayNumber(Date.now()));
   const chronicler = npcFor(SCROLL_PLACE);
   // План читается из журнала один раз при входе: ответы разбора меняют слабые места, но не этот разбор.
-  if (plan === undefined && !doneBefore) return null;
+  if (plan === undefined && !doneBefore) return <Loading />;
   const snapshot = doneBefore ? null : plan;
   if (!snapshot) {
     const done = doneBefore;

@@ -23,7 +23,7 @@ import { MedalLines } from '../components/LessonResult';
 import { type Feedback, FeedbackSheet } from '../components/FeedbackSheet';
 import { Md } from '../components/Md';
 import { grammarFeedback, GrammarItemView } from '../components/exercises/GrammarItem';
-import { Button, Screen, SpeakButton, TopBar } from '../components/ui';
+import { Button, Loading, Screen, SpeakButton, TopBar } from '../components/ui';
 
 const rng = seeded(Date.now());
 
@@ -137,7 +137,7 @@ export function GrammarLessonScreen() {
   }, [id]);
 
   // Пока грузится чанк района (обычно доли секунды), экран пустой, как у уроков слов.
-  if (lesson === undefined) return null;
+  if (lesson === undefined) return <Loading />;
   if (lesson === null) return <div className="p-6">Урок не найден</div>;
   if (!isDistrictOpen(lesson.district, opened)) {
     return (

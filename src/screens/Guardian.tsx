@@ -20,7 +20,7 @@ import { DuelBanner } from '../components/DuelBanner';
 import { duelShape, duelState, midAnswer } from '../domain/duel';
 import type { Verdict } from '../domain/answer';
 import { playSfx } from '../audio/sfx';
-import { Button, Screen, SpeakButton, TopBar } from '../components/ui';
+import { Button, Loading, Screen, SpeakButton, TopBar } from '../components/ui';
 import { useCity } from '../store/city';
 import { useJourney } from '../store/journey';
 import { syncAndEvaluate } from '../store/motivation';
@@ -77,7 +77,7 @@ function GuardianByChapter({ chapter }: { chapter: number }) {
       </Screen>
     );
   }
-  if (!data) return null;
+  if (!data) return <Loading />;
   const title = `Страж: ${guardian.name}`;
 
   if (phase === 'run') {

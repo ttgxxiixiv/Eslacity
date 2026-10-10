@@ -12,7 +12,7 @@ import { useNow } from '../lib/useNow';
 import { FESTIVALS } from '../domain/festival';
 import { festivalDates } from '../components/FestivalBits';
 import { NpcPortrait } from '../components/NpcPortrait';
-import { Screen, TopBar } from '../components/ui';
+import { Loading, Screen, TopBar } from '../components/ui';
 import { useMissions } from '../store/missions';
 import { useProgress } from '../store/progress';
 import { heroText } from '../store/settings';
@@ -37,7 +37,7 @@ export function FestivalScreen() {
     else setData(null);
   }, [f]);
 
-  if (data === undefined) return null;
+  if (data === undefined) return <Loading />;
   if (!f || !data) {
     return (
       <Screen>

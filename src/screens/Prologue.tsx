@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { speakAs, speakHero } from '../audio/tts';
 import { HeroPortrait } from '../components/HeroPortrait';
 import { NpcPortrait } from '../components/NpcPortrait';
-import { Button, Screen, SpeakButton } from '../components/ui';
+import { Button, Loading, Screen, SpeakButton } from '../components/ui';
 import { XP } from '../config';
 import { wordsByIds } from '../content/index';
 import { npcFor } from '../content/npcs';
@@ -132,7 +132,7 @@ function WordsStep({ onDone }: { onDone: () => void }) {
   useEffect(() => {
     if (word && phase === 'intro') speakAs(word.es, PROLOGUE.gatekeeper);
   }, [word, phase]);
-  if (!words || !word) return null;
+  if (!words || !word) return <Loading inline />;
   const finish = () => {
     const p = useProgress.getState();
     const { newWords } = p.applyGrades(Object.fromEntries(words.map((w) => [w.id, 4 as const])));

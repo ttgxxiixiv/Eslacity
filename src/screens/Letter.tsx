@@ -6,7 +6,7 @@ import { npcFor } from '../content/npcs';
 import type { Letter, Note } from '../content/schema';
 import { AccentBar } from '../components/AccentBar';
 import { NpcPortrait } from '../components/NpcPortrait';
-import { Button, Screen, SpeakButton, TopBar } from '../components/ui';
+import { Button, Loading, Screen, SpeakButton, TopBar } from '../components/ui';
 import { EXAM_KEYS } from '../domain/answer';
 import { chapterById } from '../domain/chapters';
 import { REGISTER_LABEL } from '../domain/expression';
@@ -92,7 +92,7 @@ export function LetterScreen() {
     loadLetter(id).then((l) => setLetter(l ?? null));
   }, [id]);
 
-  if (letter === undefined) return null;
+  if (letter === undefined) return <Loading />;
   if (!letter || letter.chapter > opened) {
     return (
       <Screen>
@@ -230,7 +230,7 @@ export function NoteScreen() {
     loadNote(id).then((n) => setNote(n ?? null));
   }, [id]);
 
-  if (note === undefined) return null;
+  if (note === undefined) return <Loading />;
   if (!note || note.chapter > opened) {
     return (
       <Screen>

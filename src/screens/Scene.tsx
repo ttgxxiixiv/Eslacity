@@ -20,7 +20,7 @@ import { isThreadId } from '../domain/thread';
 import { threadSceneTitle } from './Chronicle';
 import { useDiary } from '../store/diary';
 import { useMotivation } from '../store/motivation';
-import { Button, Screen, TopBar } from '../components/ui';
+import { Button, Loading, Screen, TopBar } from '../components/ui';
 
 /** Реплика голосом говорящего: житель — своим голосом, герой — голосом выбранного пола. */
 export function sayLine(line: SceneLine, place: string) {
@@ -49,7 +49,7 @@ function SceneById({ id }: { id: string }) {
     loadScene(id).then((s) => setScene(s ?? null));
   }, [id]);
 
-  if (scene === undefined) return null;
+  if (scene === undefined) return <Loading />;
   if (scene === null) {
     return (
       <Screen>

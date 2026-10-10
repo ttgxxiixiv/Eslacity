@@ -14,7 +14,7 @@ import {
   type TrialItem,
 } from '../domain/trial';
 import { useNow } from '../lib/useNow';
-import { Button, Screen, TopBar } from '../components/ui';
+import { Button, Loading, Screen, TopBar } from '../components/ui';
 import { TrialPlayer, type TrialScore } from '../components/TrialPlayer';
 import { useCity } from '../store/city';
 import { syncAndEvaluate } from '../store/motivation';
@@ -70,7 +70,7 @@ function TrialById({ id }: { id: string }) {
       </Screen>
     );
   }
-  if (!data) return null;
+  if (!data) return <Loading />;
 
   if (phase === 'run') {
     const byId = Object.fromEntries(data.all.map((w) => [w.id, w]));

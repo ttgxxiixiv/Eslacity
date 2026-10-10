@@ -22,6 +22,15 @@ export type NextStep =
   | { kind: 'review'; due: number; then: NextStep }
   | { kind: 'done' };
 
+/**
+ * Место, куда ведёт шаг (задача 14.6): его слова главная грузит заранее, пока игрок смотрит на карту.
+ * У поручений и повторения — место урока, который ждёт после них.
+ */
+export function stepPlace(step: NextStep): LocationId | null {
+  if (step.kind === 'errands' || step.kind === 'review') return stepPlace(step.then);
+  return step.kind === 'learn' || step.kind === 'upgrade' || step.kind === 'unlock' ? step.loc : null;
+}
+
 export interface NextInput {
   /** Локации в порядке города. */
   locations: LocationMeta[];

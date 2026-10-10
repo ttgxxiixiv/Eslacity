@@ -18,7 +18,7 @@ import { LANG } from '../lang';
 import { AccentBar } from '../components/AccentBar';
 import { type Feedback, FeedbackSheet } from '../components/FeedbackSheet';
 import { NpcPortrait } from '../components/NpcPortrait';
-import { Button, Screen, SpeakButton, TopBar } from '../components/ui';
+import { Button, Loading, Screen, SpeakButton, TopBar } from '../components/ui';
 import { useCity } from '../store/city';
 import { syncAndEvaluate, useMotivation } from '../store/motivation';
 import { useProgress } from '../store/progress';
@@ -46,7 +46,7 @@ export function ForgeScreen() {
     loadVerbs().then(setData);
   }, []);
 
-  if (!data) return null;
+  if (!data) return <Loading />;
   const { smith } = data;
   const say = (text: string) => speakAs(text, smith);
   const tenses = openTenses(LANG, (l) => !!grammar[l]);

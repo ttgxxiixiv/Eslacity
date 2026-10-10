@@ -14,6 +14,7 @@ import { listeningEnabled } from '../audio/tts';
 import { lessonEvent, type MedalGain } from '../domain/medals';
 import { LessonPlayer, type LessonTotals } from '../components/LessonPlayer';
 import { LessonResult } from '../components/LessonResult';
+import { Loading } from '../components/ui';
 
 interface Ready {
   steps: Step[];
@@ -66,7 +67,7 @@ function LearnRun({ id, level, part, practice }: { id: WordSource; level: number
       />
     );
   }
-  if (!ready) return null;
+  if (!ready) return <Loading />;
   if (!ready.steps.length) return <div className="p-6">В этом уроке нет слов.</div>;
 
   return (
