@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import navEsGold from '../assets/nav/nav-es-gold.webp';
-import navItGold from '../assets/nav/nav-it-gold.webp';
+import { eyeOf } from '../components/NavBar';
 import { speakAs } from '../audio/tts';
 import { CHRONICLER } from '../content/npcs';
 import type { SphinxFile, VaultLine } from '../content/schema';
@@ -25,7 +24,6 @@ import { syncAndEvaluate, useMotivation } from '../store/motivation';
 import { useProgress } from '../store/progress';
 import { useSphinx } from '../store/sphinx';
 
-const GOLD_NAV = LANG === 'it' ? navItGold : navEsGold;
 
 type Phase = 'before' | 'drink' | 'after' | 'summary';
 
@@ -175,26 +173,9 @@ function Speech({ line, sphinx }: { line: VaultLine; sphinx: SphinxFile['sphinx'
   );
 }
 
-/** Медальон меню крупно: вырезка из золотой картинки меню (круг радиусом 56 с центром 383, 63 на картинке 768×288). */
+/** Медальон меню крупно: золотой глаз языка курса, тот же, что в нижнем меню после Эликсира. */
 function Medallion({ size = 150 }: { size?: number }) {
-  const r = 56;
-  const k = size / (2 * r);
-  return (
-    <div
-      role="img"
-      aria-label="Золотой медальон"
-      className="vault-glow rounded-full"
-      style={{
-        width: size,
-        height: size,
-        backgroundImage: `url(${GOLD_NAV})`,
-        backgroundSize: `${768 * k}px ${288 * k}px`,
-        backgroundPosition: `${-(383 - r) * k}px ${-(63 - r) * k}px`,
-        backgroundRepeat: 'no-repeat',
-        imageRendering: 'pixelated',
-      }}
-    />
-  );
+  return <img src={eyeOf(true)} alt="Золотой медальон" width={size} height={size} className="vault-glow rounded-full" draggable={false} />;
 }
 
 /** Чаша с Эликсиром: пиксели кодом, над ней искры. */

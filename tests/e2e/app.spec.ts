@@ -192,14 +192,17 @@ for (const lang of LANGS) {
 
     test('нижнее меню: переходы и картинка своего языка', async ({ page }) => {
       await openApp(page, lang);
-      await expect(page.getByTestId('nav-art')).toHaveAttribute('data-src', new RegExp(`nav-${lang}`));
-      // Компактное меню (задача 14.2): ряд ячеек с медальоном не выше 12% экрана, ячейки во всю ширину ряда.
+      // Глаз медальона — в цветах флага языка курса.
+      await expect(page.getByTestId('nav-art')).toHaveAttribute('data-src', new RegExp(`eye-${lang}`));
+      // Меню (задача 14.2, рисованный ряд): во всю ширину экрана, вместе с медальоном не выше 14% экрана.
       const view = page.viewportSize()!;
       const box = (await page.getByTestId('nav-art').boundingBox())!;
-      const eye = (await page.getByTestId('nav-art').locator('span').first().boundingBox())!;
+      const eye = (await page.getByTestId('nav-eye').boundingBox())!;
       expect(box.y + box.height).toBeCloseTo(view.height, 0);
-      expect(box.y + box.height - eye.y).toBeLessThanOrEqual(view.height * 0.12 + 1);
-      expect(box.width).toBeGreaterThan(view.width * 0.9);
+      expect(box.y + box.height - Math.min(eye.y, box.y)).toBeLessThanOrEqual(view.height * 0.14 + 1);
+      expect(box.width).toBeGreaterThan(view.width * 0.95);
+      // Подписи ячеек рисует код.
+      for (const label of ['Город', 'Грамматика', 'Повтор', 'Профиль']) await expect(page.getByTestId('nav-art').getByText(label, { exact: true })).toBeVisible();
       for (const [label, hash] of [['Грамматика', '#/grammar'], ['Профиль', '#/profile'], ['Город', '#/']] as const) {
         await page.getByRole('link', { name: label, exact: true }).click();
         await expect(page).toHaveURL(new RegExp(`${hash.replace('/', '\\/')}$`));

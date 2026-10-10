@@ -70,12 +70,12 @@
   color-scheme: light;
   -webkit-tap-highlight-color: transparent;
   /*
-   * Высота ряда ячеек нижнего меню (задача 14.2): картинка в масштабе ширины экрана, но вместе с медальоном
-   * не выше 12% экрана. 182 — высота ряда ячеек на картинке 768×288, 14px — медальон над рядом.
+   * Высота нижнего меню (задачи 14.2 и рисованное меню): ряд во всю ширину экрана (до 28rem) в пропорции картинки
+   * nav-strip.webp 1536×443 (scripts/build-nav-art.py), но не выше 14% экрана.
    */
-  --nav-h: min(calc(min(100vw, 28rem) * 182 / 768), calc(12vh - 14px));
+  --nav-h: min(calc(min(100vw, 28rem) * 443 / 1536), 14vh);
   /* Сколько места оставить под меню внизу экрана с вкладками. */
-  --nav-space: calc(var(--nav-h) + 14px + env(safe-area-inset-bottom));
+  --nav-space: calc(var(--nav-h) + env(safe-area-inset-bottom));
 }
 
 html {
@@ -155,6 +155,11 @@ h1, h2, .font-pixel {
 .hero-bob { animation: hero-bob 280ms infinite; }
 
 /* Нижнее меню-картинка: без подсветки при нажатии, рамка только при переходе с клавиатуры. */
+.nav-label {
+  color: #f1dfb5;
+  letter-spacing: 0.04em;
+  text-shadow: 0 1px 0 #1a120a, 0 0 3px #1a120a;
+}
 .nav-hit:focus-visible {
   outline: 2px solid #e0b43c;
   outline-offset: -4px;
