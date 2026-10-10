@@ -73,6 +73,16 @@ export function ProfileScreen() {
         <CityDecorCard />
         <FestivalCalendar />
         <VocabCard />
+        <Link to="/path" className="press flex items-center gap-3 rounded-3xl bg-white p-4 shadow-sm" data-testid="profile-path">
+          <span className="text-3xl" aria-hidden>
+            📈
+          </span>
+          <div className="flex-1">
+            <div className="font-bold">Мой путь</div>
+            <div className="text-sm text-stone-500">Точность по навыкам, минуты в день, слова по главам, слабые места</div>
+          </div>
+          <span className="text-stone-500">→</span>
+        </Link>
         <Link to="/journey-map" className="press flex items-center gap-3 rounded-3xl bg-white p-4 shadow-sm" data-testid="profile-map">
           <span className="text-3xl" aria-hidden>
             🗺️

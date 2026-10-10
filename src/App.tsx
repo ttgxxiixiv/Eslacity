@@ -26,6 +26,7 @@ import { SettingsScreen } from './screens/Settings';
 import { GrammarMap } from './screens/GrammarMap';
 import { GrammarLessonScreen } from './screens/GrammarLesson';
 import { ProfileScreen } from './screens/Profile';
+import { MyPathScreen } from './screens/MyPath';
 import { WordsScreen } from './screens/Words';
 import { useMotivation } from './store/motivation';
 import { ErrorBoundary } from './components/ErrorBoundary';
@@ -118,6 +119,7 @@ export default function App() {
           <Route path="/loc/:id" element={<LocationScreen />} />
           <Route path="/grammar" element={<GrammarMap />} />
           <Route path="/profile" element={<ProfileScreen />} />
+          <Route path="/path" element={<MyPathScreen />} />
           <Route path="/medals" element={<MedalsScreen />} />
           <Route path="/journey-map" element={<JourneyMapScreen />} />
           <Route path="/errands" element={<ErrandsScreen />} />
