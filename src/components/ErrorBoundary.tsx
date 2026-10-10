@@ -40,9 +40,9 @@ export class ErrorBoundary extends Component<{ children: ReactNode }, State> {
         <div className="text-5xl">🚧</div>
         <p className="text-lg font-semibold">Что-то пошло не так</p>
         <p className="text-sm text-stone-500">Прогресс сохранён. Вернитесь в город и попробуйте ещё раз.</p>
-        <p className="text-xs break-all text-stone-400" data-testid="error-message">{error.message}</p>
+        <p className="text-xs break-all text-stone-500" data-testid="error-message">{error.message}</p>
         {/* Подробности для разработчика: где именно упало. Их можно скопировать и прислать. */}
-        <pre className="max-h-40 w-full overflow-auto rounded-lg bg-stone-100 p-2 text-left text-[10px] leading-tight whitespace-pre-wrap break-all text-stone-500" data-testid="error-details">
+        <pre className="max-h-40 w-full overflow-auto rounded-lg bg-stone-100 p-2 text-left text-xs leading-tight whitespace-pre-wrap break-all text-stone-500" data-testid="error-details">
           {report}
         </pre>
         <button

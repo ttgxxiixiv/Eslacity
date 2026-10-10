@@ -7,7 +7,7 @@ type Variant = 'primary' | 'secondary' | 'ghost';
 const VARIANT_CLASS: Record<Variant, string> = {
   // Синяя кнопка в золотой рамке с «ступенькой» снизу, как в старых RPG-меню.
   primary: 'bg-brand text-white shadow-md disabled:bg-stone-300 disabled:text-stone-500 disabled:shadow-sm',
-  secondary: 'bg-white text-stone-800 shadow-sm disabled:text-stone-400',
+  secondary: 'bg-white text-stone-800 shadow-sm disabled:text-stone-500',
   ghost: 'text-stone-600',
 };
 

@@ -135,7 +135,7 @@ export function PlacementScreen() {
             )}
             <ul className="mt-3 flex flex-col gap-1">
               {CHAPTERS.map((c) => (
-                <li key={c.id} className={`flex items-center gap-2 ${c.id <= passed ? '' : 'text-stone-400'}`}>
+                <li key={c.id} className={`flex items-center gap-2 ${c.id <= passed ? '' : 'text-stone-500'}`}>
                   <span className="w-5 text-center">{c.id <= passed ? '✓' : '·'}</span>
                   Глава {c.roman}. {c.land}
                 </li>

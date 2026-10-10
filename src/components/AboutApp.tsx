@@ -72,7 +72,7 @@ export function AboutApp() {
           {CHANGELOG.map((r) => (
             <li key={r.version}>
               <div className="font-semibold">
-                {r.version} <span className="font-normal text-stone-400">· {r.date.split('-').reverse().join('.')}</span>
+                {r.version} <span className="font-normal text-stone-500">· {r.date.split('-').reverse().join('.')}</span>
               </div>
               <ul className="list-disc pl-5 text-stone-600">
                 {r.notes.map((n) => (

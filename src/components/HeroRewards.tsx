@@ -37,7 +37,7 @@ export function HeroRewards() {
               aria-checked={picked}
               disabled={!open}
               onClick={() => useRewards.getState().setCloak(id)}
-              className={`press flex flex-col items-center gap-1 rounded-xl border-2 bg-[#2b1e14] px-1 py-2 text-[11px] leading-tight text-[#f1dfb5] disabled:opacity-40 ${picked ? 'border-gold' : 'border-transparent'}`}
+              className={`press flex flex-col items-center gap-1 rounded-xl border-2 bg-[#2b1e14] px-1 py-2 text-[12px] leading-tight text-[#f1dfb5] disabled:opacity-40 ${picked ? 'border-gold' : 'border-transparent'}`}
               data-testid={`cloak-${id}`}
             >
               <img src={WALKER[id]} alt="" className="h-[36px] w-auto" />
@@ -60,7 +60,7 @@ export function HeroRewards() {
               aria-checked={picked}
               disabled={!open}
               onClick={() => useRewards.getState().setLantern(l.id)}
-              className={`press flex flex-col items-center gap-1 rounded-xl border-2 bg-[#2b1e14] px-0.5 py-2 text-[10px] leading-tight text-[#f1dfb5] disabled:opacity-40 ${picked ? 'border-gold' : 'border-transparent'}`}
+              className={`press flex flex-col items-center gap-1 rounded-xl border-2 bg-[#2b1e14] px-0.5 py-2 text-[12px] leading-tight text-[#f1dfb5] disabled:opacity-40 ${picked ? 'border-gold' : 'border-transparent'}`}
               data-testid={`lantern-${l.id}`}
             >
               <HeroSprite walking={false} flame={l.flame} glow={l.glow} />

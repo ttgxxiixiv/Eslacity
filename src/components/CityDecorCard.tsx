@@ -42,7 +42,7 @@ export function CityDecorCard() {
               disabled={!got}
               aria-pressed={shown}
               onClick={() => useRewards.getState().toggleDecor(d.line)}
-              className={`press flex flex-col items-center gap-1 rounded-xl border-2 bg-[#3b4a2c] px-1 py-2 text-center text-[10px] leading-tight text-[#f1dfb5] ${
+              className={`press flex flex-col items-center gap-1 rounded-xl border-2 bg-[#3b4a2c] px-1 py-2 text-center text-[12px] leading-tight text-[#f1dfb5] ${
                 shown ? 'border-gold' : 'border-transparent'
               } ${got ? '' : 'opacity-40 grayscale'}`}
               data-testid={`decor-${d.line}`}

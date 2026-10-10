@@ -157,12 +157,12 @@ function Building({
         }}
       >
         {level > 0 ? (
-          <span className="text-[10px] leading-none tracking-tight">
+          <span className="text-[12px] leading-none tracking-tight">
             <span className="text-gold">{'★'.repeat(level)}</span>
             <span className="text-stone-500">{'★'.repeat(5 - level)}</span>
           </span>
         ) : (
-          <span className="text-[10px] leading-none font-bold">🪙 {meta.unlockCost}</span>
+          <span className="text-[12px] leading-none font-bold">🪙 {meta.unlockCost}</span>
         )}
       </div>
       {signal > 0 && (
@@ -202,7 +202,7 @@ function Building({
             setFloat({ key, n });
             setTimeout(() => setFloat((f) => (f?.key === key ? null : f)), 750);
           }}
-          className={`press absolute z-10 flex h-6 min-w-6 -translate-x-3/4 translate-y-1 items-center justify-center rounded-full px-1 text-[11px] font-bold shadow ${
+          className={`press absolute z-10 flex h-6 min-w-6 -translate-x-3/4 translate-y-1 items-center justify-center rounded-full px-1 text-[12px] font-bold shadow ${
             full ? 'bg-gold text-wood' : 'bg-amber-100 text-amber-800'
           }`}
           style={{ left: pctX(r.x + r.w), top: pctY(r.y) }}

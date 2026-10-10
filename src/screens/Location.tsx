@@ -169,7 +169,7 @@ export function LocationScreen() {
                 ) : (
                   <div key={m.id} data-testid="mission-link" className={`${cls} border-2 border-dashed border-stone-300`}>
                     <span className="shrink-0 font-semibold text-stone-500">⭐ Миссия: {npc.name}</span>
-                    <span className="text-right text-sm text-stone-400">{status}</span>
+                    <span className="text-right text-sm text-stone-500">{status}</span>
                   </div>
                 );
               })}
@@ -244,7 +244,7 @@ export function LocationScreen() {
                 <section key={lvl} className="rounded-3xl border-2 border-dashed border-stone-300 p-4">
                   <div className="flex items-center justify-between">
                     <h2 className="font-bold text-stone-500">Уровень {lvl}</h2>
-                    {lvl > maxLevel && <span className="text-sm text-stone-400">скоро</span>}
+                    {lvl > maxLevel && <span className="text-sm text-stone-500">скоро</span>}
                   </div>
                   {lvl <= maxLevel && !chapterOpen && (
                     <p className="mt-1 text-sm text-stone-500" data-testid="chapter-lock">
@@ -339,7 +339,7 @@ export function LocationScreen() {
                         <div className="truncate text-sm text-stone-500">{w.ru}</div>
                       </div>
                       {cards[w.id] && (
-                        <span className="text-xs text-stone-400">{dueLabel(cards[w.id].due)}</span>
+                        <span className="text-xs text-stone-500">{dueLabel(cards[w.id].due)}</span>
                       )}
                       <SpeakButton text={w.es} />
                     </li>
@@ -393,7 +393,7 @@ function PhraseBlock({ place, level, phrases, wordsDone, npcName, cards }: {
                     <div className="font-semibold">{p.es}</div>
                     <div className="text-sm text-stone-500">{p.ru}</div>
                   </div>
-                  <span className="text-xs text-stone-400">{dueLabel(cards[p.id].due)}</span>
+                  <span className="text-xs text-stone-500">{dueLabel(cards[p.id].due)}</span>
                   <SpeakButton text={fullPhrase(p.es)} />
                 </li>
               ))}

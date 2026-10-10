@@ -28,9 +28,10 @@
   --color-wood: #3b2a1a;
   --color-wood-light: #5a4128;
   --color-grass: #5d9b3a;
-  --color-ok: #2e7d32;
+  /* Цвета текста подобраны под пергамент: контраст не ниже 4.5 (WCAG AA), проверяет src/contrast.test.ts. */
+  --color-ok: #246b28;
   --color-okbg: #d9ecc4;
-  --color-almost: #a1600a;
+  --color-almost: #865009;
   --color-almostbg: #f6e2a8;
   --color-bad: #b3261e;
   --color-badbg: #f4cfc0;
@@ -48,6 +49,7 @@
   --color-stone-900: #261d13;
   --color-orange-50: #f8ebc4;
   --color-orange-100: #f1dc9c;
+  --color-amber-700: #92400e;
 
   /* Рамки вместо мягких теней: панель пергамента в деревянной окантовке. */
   --shadow-sm: inset 0 0 0 2px #a8875a, 0 3px 0 0 #8a6a40;

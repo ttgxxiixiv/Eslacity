@@ -8,12 +8,15 @@ import { currentVoice, hasLangVoice, languageVoices, onVoicesChanged, speak, spe
 import { L, LANG, LANGS, switchLang, type Lang } from '../lang';
 import { resetProgress } from '../store/bootstrap';
 import { downloadJson, exportBackup, importBackup, parseBackup } from '../db/backup';
-import { useSettings, type Settings } from '../store/settings';
+import { TEXT_SCALE, TEXT_SIZE_LABEL, useSettings, type Settings, type TextSize } from '../store/settings';
 import { cleanName, HERO_WORD, NAME_MAX } from '../domain/address';
 import { useProgress } from '../store/progress';
 import { Button, Screen, TopBar } from '../components/ui';
 import { AboutApp } from '../components/AboutApp';
 import { APK_FILE, NATIVE, saveJsonFile } from '../lib/native';
+
+/** Размеры текста по порядку (задача 14.3). */
+const TEXT_SIZES: TextSize[] = ['normal', 'large', 'xlarge'];
 import { HeroPortrait } from '../components/HeroPortrait';
 
 const GOALS: Settings['dailyGoal'][] = [50, 100, 150, 250];
@@ -36,7 +39,7 @@ const HERO_GENDERS: { id: Settings['heroGender']; label: string }[] = [
 ];
 
 export function SettingsScreen() {
-  const { speechRate, dailyGoal, listenOffUntil, newPerDay, heroGender, heroName, voiceM, voiceF, update } = useSettings();
+  const { speechRate, dailyGoal, listenOffUntil, newPerDay, heroGender, heroName, voiceM, voiceF, textSize, update } = useSettings();
   // Голоса языка в телефоне: на Android список приходит не сразу после запуска.
   const [voices, setVoices] = useState(languageVoices);
   useEffect(() => {
@@ -125,6 +128,28 @@ export function SettingsScreen() {
           <p className="mt-2 text-sm text-stone-500">
             Столько новых слов в день просят жители. Это мягкий лимит: учить дальше в городе можно всегда, просто «Продолжить» сначала позовёт на поручения.
           </p>
+        </section>
+
+        <section className="rounded-3xl bg-white p-4 shadow-sm" data-testid="text-size">
+          <h2 className="font-bold">Размер текста</h2>
+          <div className="mt-3 grid grid-cols-3 gap-2">
+            {TEXT_SIZES.map((size) => (
+              <button
+                key={size}
+                type="button"
+                aria-pressed={textSize === size}
+                onClick={() => update({ textSize: size })}
+                className={`press rounded-xl border-2 px-1 py-2.5 leading-tight font-semibold ${
+                  textSize === size ? 'border-brand bg-orange-50 text-brand' : 'border-stone-200'
+                }`}
+                style={{ fontSize: `${TEXT_SCALE[size]}%` }}
+                data-size={size}
+              >
+                {TEXT_SIZE_LABEL[size]}
+              </button>
+            ))}
+          </div>
+          <p className="mt-2 text-sm text-stone-500">Крупнее становится текст уроков, заданий, разговоров и настроек. Надписи на рисованных рамках главной и на карте города остаются прежними: они нарисованы под свой размер.</p>
         </section>
 
         <ReviewForecast />

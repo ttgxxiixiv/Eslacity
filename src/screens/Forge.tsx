@@ -154,7 +154,7 @@ export function ForgeScreen() {
                   key={t}
                   data-tense={t}
                   data-open={on}
-                  className={`rounded-full px-3 py-1 text-sm ${on ? 'bg-amber-100 text-amber-900' : 'bg-stone-100 text-stone-400'}`}
+                  className={`rounded-full px-3 py-1 text-sm ${on ? 'bg-amber-100 text-amber-900' : 'bg-stone-100 text-stone-500'}`}
                 >
                   {on ? '' : '🔒 '}
                   {TENSE_RU[t]}

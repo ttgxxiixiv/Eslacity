@@ -93,7 +93,7 @@ export function BellsScreen() {
                   <li key={i} className="flex items-center justify-between gap-2 text-sm">
                     <span>
                       <b lang={LANG}>{task.words[task.target].es}</b> <span className="text-stone-500">— {task.words[task.target].ru}</span>
-                      <span className="text-stone-400"> · не </span>
+                      <span className="text-stone-500"> · не </span>
                       <span lang={LANG}>{task.words[task.target === 0 ? 1 : 0].es}</span>
                     </span>
                     <SpeakButton text={task.words[task.target].es} />
@@ -159,7 +159,7 @@ export function BellsScreen() {
                     aria-pressed={on}
                     onClick={() => toggle(c.id)}
                     data-testid={`contrast-${c.id}`}
-                    className={`press w-full rounded-xl border-2 px-3 py-2 text-left ${on ? 'border-gold bg-amber-50' : 'border-stone-200 bg-white text-stone-400'}`}
+                    className={`press w-full rounded-xl border-2 px-3 py-2 text-left ${on ? 'border-gold bg-amber-50' : 'border-stone-200 bg-white text-stone-500'}`}
                   >
                     <div className="flex items-baseline justify-between gap-2">
                       <span className="font-semibold">{c.title}</span>

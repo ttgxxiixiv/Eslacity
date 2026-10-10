@@ -32,7 +32,7 @@ export function VocabCard() {
         <div className="absolute inset-y-0 w-0.5 bg-ok" style={{ left: pct(VOCAB_GOAL) }} />
       </div>
       {/* Подписи отметок: главы и цель. */}
-      <div className="relative mt-1 h-4 text-[10px] text-stone-500 tabular-nums">
+      <div className="relative mt-1 h-4 text-xs text-stone-500 tabular-nums">
         {CHAPTER_MARKS.map((m) => (
           <span key={m.chapter} className="absolute -translate-x-full pr-0.5" style={{ left: pct(m.at) }}>
             {m.chapter}

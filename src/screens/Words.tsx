@@ -63,7 +63,7 @@ export function WordsScreen() {
                   </div>
                   <div className="truncate text-sm text-stone-500">{w.ru}</div>
                 </div>
-                <div className="text-right text-xs text-stone-400">
+                <div className="text-right text-xs text-stone-500">
                   <div>{dueText(c.due, today)}</div>
                   {c.lapses > 0 && <div>ошибок: {c.lapses}</div>}
                 </div>

@@ -49,7 +49,7 @@ export function GrammarMap() {
                   : 'Глагол, лицо и время: впишите форму'}
             </div>
           </div>
-          <span className="text-stone-400">›</span>
+          <span className="text-stone-500">›</span>
         </Link>
         <Link to="/bells" className="press flex items-center gap-3 rounded-3xl bg-white p-4 shadow-sm" data-testid="bells-entry">
           <span className="text-3xl" aria-hidden>
@@ -59,13 +59,13 @@ export function GrammarMap() {
             <div className="text-lg font-bold">Звонница</div>
             <div className="text-sm text-stone-500">Что вы услышали: похожие слова на слух</div>
           </div>
-          <span className="text-stone-400">›</span>
+          <span className="text-stone-500">›</span>
         </Link>
         {DISTRICTS.map((d) => {
           const lessons = lessonsOf(d.id);
           if (!lessons.length) {
             return (
-              <section key={d.id} className="rounded-3xl border-2 border-dashed border-stone-300 p-4 text-stone-400">
+              <section key={d.id} className="rounded-3xl border-2 border-dashed border-stone-300 p-4 text-stone-500">
                 <div className="flex items-baseline justify-between">
                   <h2 className="text-lg font-bold">Район {d.title}</h2>
                   <span className="text-sm">скоро</span>
@@ -115,7 +115,7 @@ export function GrammarMap() {
                     />
                   </div>
                 </div>
-                <span className={`text-stone-400 transition-transform ${isOpen ? 'rotate-180' : ''}`}>▾</span>
+                <span className={`text-stone-500 transition-transform ${isOpen ? 'rotate-180' : ''}`}>▾</span>
               </button>
               {isOpen && (
                 <ol className="flex flex-col gap-1.5 px-4 pb-4">
@@ -130,7 +130,7 @@ export function GrammarMap() {
                             isNext ? 'bg-brand text-white' : row ? 'bg-okbg' : 'bg-stone-50'
                           }`}
                         >
-                          <span className={`w-6 text-right text-sm tabular-nums ${isNext ? '' : 'text-stone-400'}`}>{l.order}</span>
+                          <span className={`w-6 text-right text-sm tabular-nums ${isNext ? '' : 'text-stone-500'}`}>{l.order}</span>
                           <span className="flex-1 font-medium">{l.title}</span>
                           {row && <span className="text-sm text-ok">✓ {row.bestScore}%</span>}
                         </Link>

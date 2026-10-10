@@ -29,7 +29,7 @@ export function LevelBadge({ stone = false }: { stone?: boolean }) {
         </>
       ) : (
         <>
-          <span className="font-pixel text-[9px] tracking-wider text-gold uppercase">ур.</span>
+          <span className="font-pixel text-[12px] tracking-wider text-gold uppercase">ур.</span>
           <span className="text-base font-bold tabular-nums text-stone-50">{level}</span>
         </>
       )}

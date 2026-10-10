@@ -30,7 +30,7 @@ export function MedalsScreen() {
             <section key={l.id} className={`rounded-2xl bg-white p-3 shadow-sm ${l.value ? '' : 'opacity-60'}`} data-line={l.id}>
               <div className="flex items-baseline justify-between gap-2">
                 <h2 className="font-bold">{l.title}</h2>
-                <span className={`text-sm ${tier ? 'font-semibold text-amber-700' : 'text-stone-400'}`}>
+                <span className={`text-sm ${tier ? 'font-semibold text-amber-700' : 'text-stone-500'}`}>
                   {tier ? TIER_INFO[tier].ru : 'нет'}
                 </span>
               </div>
@@ -75,8 +75,8 @@ export function MedalsScreen() {
               return (
                 <li key={x.id} className="flex flex-col items-center text-center">
                   <Medal icon={has ? 'secret' : 'hidden'} secret={x.id} tier={null} size={48} label={has ? x.title : 'Тайная медаль'} />
-                  <div className={`mt-1 text-xs leading-tight font-semibold ${has ? '' : 'text-stone-400'}`}>{has ? x.title : '???'}</div>
-                  {has && <div className="text-[11px] leading-tight text-stone-500">{x.text}</div>}
+                  <div className={`mt-1 text-xs leading-tight font-semibold ${has ? '' : 'text-stone-500'}`}>{has ? x.title : '???'}</div>
+                  {has && <div className="text-xs leading-tight text-stone-500">{x.text}</div>}
                 </li>
               );
             })}

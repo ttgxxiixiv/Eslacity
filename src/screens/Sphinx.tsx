@@ -295,7 +295,7 @@ function SphinxSays({ line, gloss, onSpeak, testId }: { line: Example; gloss?: R
             <GlossList text={line.es} gloss={gloss} />
           </span>
         ) : (
-          <span className="block text-xs text-stone-400">Нажмите, чтобы увидеть перевод</span>
+          <span className="block text-xs text-stone-500">Нажмите, чтобы увидеть перевод</span>
         )}
       </button>
       <button

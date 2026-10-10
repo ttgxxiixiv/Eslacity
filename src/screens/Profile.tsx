@@ -95,7 +95,7 @@ export function ProfileScreen() {
           {best.length ? (
             best.map((b) => <Medal key={b.line.id} icon={b.line.id} tier={b.tier} size={48} label={`${b.line.title}: ${TIER_INFO[b.tier].ru}`} />)
           ) : (
-            <span className="text-sm text-stone-400">пока нет медалей</span>
+            <span className="text-sm text-stone-500">пока нет медалей</span>
           )}
           <span className="text-stone-500">→</span>
         </Link>
@@ -184,7 +184,7 @@ export function ProfileScreen() {
         </Link>
 
 
-        <Link to="/settings" className="press py-2 text-center text-sm text-stone-400">
+        <Link to="/settings" className="press py-2 text-center text-sm text-stone-500">
           Версия {CURRENT.version} · о приложении и обновления →
         </Link>
       </div>

@@ -75,7 +75,7 @@ function TheoryTable({ table }: { table: TableBlock }) {
           </tbody>
         </table>
       </div>
-      {scrolls && <p className="mt-1 px-2 text-right text-xs text-stone-400">таблицу можно листать вбок →</p>}
+      {scrolls && <p className="mt-1 px-2 text-right text-xs text-stone-500">таблицу можно листать вбок →</p>}
     </div>
   );
 }

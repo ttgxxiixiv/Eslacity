@@ -275,7 +275,7 @@ function TypeView({ item, verdict, onAnswer }: ViewProps) {
     <>
       <div className="mt-5 text-2xl leading-snug font-bold" data-testid="grammar-prompt">
         {before}
-        <span className="mx-1 inline-block min-w-16 border-b-4 border-stone-300 text-center text-stone-400">{value.trim() || ' '}</span>
+        <span className="mx-1 inline-block min-w-16 border-b-4 border-stone-300 text-center text-stone-500">{value.trim() || ' '}</span>
         {after}
       </div>
       {ex.hint && <div className="mt-1 text-sm text-stone-500" data-testid="grammar-hint">({ex.hint})</div>}

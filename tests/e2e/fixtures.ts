@@ -32,6 +32,8 @@ export function loadWords(lang: Lang) {
   return {
     byRu: new Map(words.map((w) => [w.ru, w])),
     byEs: new Map(words.map((w) => [w.es, w])),
+    // Одно слово бывает в двух местах с разными переводами («lanzar» — «бросать» и «кидать»): верен любой.
+    rusByEs: words.reduce((m, w) => m.set(w.es, [...(m.get(w.es) ?? []), w.ru]), new Map<string, string[]>()),
     byExRu: new Map(words.map((w) => [w.example.ru, w])),
     byId: new Map(words.map((w) => [w.id, w])),
   };
@@ -120,6 +122,8 @@ export function loadLesson(lang: Lang, district: string, file: string): { id: st
 
 const esc = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 export const exact = (s: string) => new RegExp(`^${esc(s)}$`);
+/** Любой из вариантов целиком. */
+export const anyOf = (xs: string[]) => new RegExp(`^(${xs.map(esc).join('|')})$`);
 const squash = (s: string) => s.replace(/\s+/g, '');
 
 /**
@@ -252,7 +256,7 @@ export interface PlayResult {
 export async function playWords(page: Page, lang: Lang, done: RegExp, opts: { hint?: boolean } = {}): Promise<PlayResult> {
   let hinted: PlayResult['hinted'];
   let hintStep = false;
-  const { byRu, byEs, byExRu } = loadWords(lang);
+  const { byRu, byExRu, rusByEs } = loadWords(lang);
   const kinds: Record<string, number> = {};
   const verdicts: Record<string, number> = {};
   const label = page.locator('.text-sm.font-medium.text-stone-500').first();
@@ -272,12 +276,12 @@ export async function playWords(page: Page, lang: Lang, done: RegExp, opts: { hi
       await page.getByRole('button', { name: /понятно/i }).click();
       continue;
     } else if (kind === 'Выберите перевод') {
-      await options.filter({ hasText: exact(byEs.get(shown)!.ru) }).first().click();
+      await options.filter({ hasText: anyOf(rusByEs.get(shown)!) }).first().click();
     } else if (kind === `Как сказать ${ADVERB[lang]}?`) {
       await options.filter({ hasText: exact(byRu.get(shown)!.es) }).first().click();
     } else if (kind === 'Что вы услышали?') {
       await page.getByRole('button', { name: 'Прослушать ещё раз' }).click();
-      await options.filter({ hasText: exact(byEs.get(await said())!.ru) }).first().click();
+      await options.filter({ hasText: anyOf(rusByEs.get(await said())!) }).first().click();
     } else if (kind === 'Соберите слово') {
       const w = byRu.get(shown)!;
       const m = w.es.match(/^(l'|el |la |los |las |il |lo |i |gli |le )(.*)$/);
@@ -507,7 +511,7 @@ export const expectExamKeys = async (page: Page, lang: Lang) =>
 export async function playTrial(
   page: Page, lang: Lang, place: string | null, wrong = 0, lessons: Exercise[] = [], stop = Infinity,
 ): Promise<{ total: number; typed: number }> {
-  const { byRu, byEs, byId } = loadWords(lang);
+  const { byRu, byId, rusByEs } = loadWords(lang);
   const phrases = place ? loadPhraseData(lang, place) : [];
   const run = page.getByTestId('trial-run');
   const label = run.locator('.text-sm.font-medium.text-stone-500').first();
@@ -567,12 +571,12 @@ export async function playTrial(
         const right = byRu.get(shown)!.es;
         await (bad ? options.filter({ hasNotText: exact(right) }) : options.filter({ hasText: exact(right) })).first().click();
       } else if (kind === 'Выберите перевод') {
-        const right = byEs.get(shown)!.ru;
-        await (bad ? options.filter({ hasNotText: exact(right) }) : options.filter({ hasText: exact(right) })).first().click();
+        const right = anyOf(rusByEs.get(shown)!);
+        await (bad ? options.filter({ hasNotText: right }) : options.filter({ hasText: right })).first().click();
       } else if (kind === 'Что вы услышали?') {
         await page.getByRole('button', { name: 'Прослушать ещё раз' }).click();
-        const right = byEs.get(await said())!.ru;
-        await (bad ? options.filter({ hasNotText: exact(right) }) : options.filter({ hasText: exact(right) })).first().click();
+        const right = anyOf(rusByEs.get(await said())!);
+        await (bad ? options.filter({ hasNotText: right }) : options.filter({ hasText: right })).first().click();
       } else if (kind === 'Соберите слово') {
         const w = byRu.get(shown)!;
         const m = w.es.match(/^(l'|el |la |los |las |il |lo |i |gli |le )(.*)$/);

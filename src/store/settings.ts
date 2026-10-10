@@ -25,9 +25,18 @@ export interface Settings {
   /** Громкость звуков и музыки (задача 13.3), 0–1; 0 — выключено. */
   sfxVolume: number;
   musicVolume: number;
+  /** Размер текста (задача 14.3): корневой размер шрифта, от него считаются все размеры в rem. */
+  textSize: TextSize;
 }
 
-export const DEFAULT_SETTINGS: Settings = { speechRate: 0.9, dailyGoal: 100, blitzBest: 0, listenOffUntil: 0, newPerDay: 10, heroGender: 'm', heroName: '', voiceM: '', voiceF: '', reminderOn: false, reminderTime: '19:00', sfxVolume: 0.6, musicVolume: 0.4 };
+export type TextSize = 'normal' | 'large' | 'xlarge';
+
+/** Корневой размер шрифта в процентах для каждого размера текста. */
+export const TEXT_SCALE: Record<TextSize, number> = { normal: 100, large: 112.5, xlarge: 125 };
+
+export const TEXT_SIZE_LABEL: Record<TextSize, string> = { normal: 'Обычный', large: 'Крупный', xlarge: 'Очень крупный' };
+
+export const DEFAULT_SETTINGS: Settings = { speechRate: 0.9, dailyGoal: 100, blitzBest: 0, listenOffUntil: 0, newPerDay: 10, heroGender: 'm', heroName: '', voiceM: '', voiceF: '', reminderOn: false, reminderTime: '19:00', sfxVolume: 0.6, musicVolume: 0.4, textSize: 'normal' };
 
 interface SettingsState extends Settings {
   hydrate(s: Partial<Settings> | undefined): void;
@@ -38,15 +47,22 @@ export const useSettings = create<SettingsState>((set, get) => ({
   ...DEFAULT_SETTINGS,
   hydrate(s) {
     set({ ...DEFAULT_SETTINGS, ...s });
+    applyTextSize(get().textSize);
   },
   update(patch) {
     set(patch);
-    const { speechRate, dailyGoal, blitzBest, listenOffUntil, newPerDay, heroGender, heroName, voiceM, voiceF, reminderOn, reminderTime, sfxVolume, musicVolume } = { ...get(), ...patch };
+    if (patch.textSize) applyTextSize(patch.textSize);
+    const { speechRate, dailyGoal, blitzBest, listenOffUntil, newPerDay, heroGender, heroName, voiceM, voiceF, reminderOn, reminderTime, sfxVolume, musicVolume, textSize } = { ...get(), ...patch };
     persist(() =>
-      db.meta.put({ key: 'settings', value: { speechRate, dailyGoal, blitzBest, listenOffUntil, newPerDay, heroGender, heroName, voiceM, voiceF, reminderOn, reminderTime, sfxVolume, musicVolume } }),
+      db.meta.put({ key: 'settings', value: { speechRate, dailyGoal, blitzBest, listenOffUntil, newPerDay, heroGender, heroName, voiceM, voiceF, reminderOn, reminderTime, sfxVolume, musicVolume, textSize } }),
     );
   },
 }));
+
+/** Размер текста — корневой размер шрифта страницы: вёрстка в rem растёт вместе с ним. */
+export function applyTextSize(size: TextSize): void {
+  if (typeof document !== 'undefined') document.documentElement.style.fontSize = `${TEXT_SCALE[size] ?? 100}%`;
+}
 
 /** Реплика жителя с обращением к путнику по имени или в его роде; `ru` — для перевода. */
 export function addressed(text: string, ru?: 'ru'): string {
