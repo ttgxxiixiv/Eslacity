@@ -58,6 +58,8 @@ export interface MedalCounters {
   elixir: boolean;
   /** Праздники, чья миссия пройдена в неделю праздника (тайные медали праздников, задача 10.5). */
   festivals: string[];
+  /** Главы, где собран весь дневник путника (тайная медаль «Страница летописи», задача 13.8). */
+  diaryChapters?: number;
 }
 
 export type LineId =
@@ -158,6 +160,7 @@ export const SECRETS: SecretMedal[] = [
   { id: 'labyrinth', title: 'Выход из Лабиринта', text: 'Печать главы V', test: (c) => c.seals.includes(LABYRINTH_CHAPTER) },
   { id: 'sphinx', title: 'Взгляд Сфинкса', text: 'Дойти до Врат Хранилища', test: (c) => c.sphinxSeen },
   { id: 'keeper', title: 'Хранитель пути', text: 'Выпить Эликсир', test: (c) => c.elixir },
+  { id: 'diary', title: 'Страница летописи', text: 'Полный дневник главы', test: (c) => (c.diaryChapters ?? 0) >= 1 },
   // Праздники (задача 10.5): у каждого языка свои.
   ...FESTIVALS.map((f) => ({
     id: `festival-${f.id}`,

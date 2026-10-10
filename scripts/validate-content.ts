@@ -1,6 +1,6 @@
 import { readdirSync, readFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
-import { validateChronicler, validateGrammar, validateGuardians, validateLetters, validateNotes, validateMissions, validateNpcs, validatePhrases, validateScenes, validatePortraits, validateScrolls, validateSphinx, validateTranslations, validateVerbs, validatePairs, validateFestivals, validatePrologue, validateThread, validateBooks, validateRumors, validateStory, STORY_FORKS, validateWords, type Issue } from '../src/content/validate';
+import { validateChronicler, validateGrammar, validateGuardians, validateLetters, validateNotes, validateMissions, validateNpcs, validatePhrases, validateScenes, validatePortraits, validateScrolls, validateSphinx, validateTranslations, validateVerbs, validatePairs, validateFestivals, validatePrologue, validateThread, validateBooks, validateRumors, validateDiary, validateStory, STORY_FORKS, validateWords, type Issue } from '../src/content/validate';
 import type { Chronicler, GrammarLesson, GuardiansFile, LettersFile, SphinxFile, VerbsFile, PairsFile, FestivalFile, PrologueFile, LocationWords, LocationMissions, LocationPhrases, LocationScenes, NpcsFile, ScrollFile, ThreadFile, BookFile } from '../src/content/schema';
 import { THREAD_CHAPTERS, THREAD_NOTES_MIN } from '../src/domain/thread';
 import { BOOK_CHAPTERS } from '../src/domain/books';
@@ -152,6 +152,12 @@ for (const lang of langs) {
     new Set([...(npcs?.npcs ?? []).map((n) => n.id), ...(chronicler ? [chronicler.id] : [])]),
     (text, level) => textCoverage(text, level, lexicon, forms, lang),
   );
+  // Дневник путника (задача 13.8): цитаты — реплики разговоров, сцен Летописца и слухи.
+  const diaryPath = join(root, lang, 'diary.json');
+  const diaryIssues = validateDiary(existsSync(diaryPath) ? JSON.parse(readFileSync(diaryPath, 'utf8')) : undefined, {
+    scenes: [...scenes.flatMap((f) => f.data.scenes ?? []), ...(threadFile?.data.scenes ?? [])],
+    rumors: existsSync(rumorsPath) ? JSON.parse(readFileSync(rumorsPath, 'utf8')).rumors : [],
+  });
   // Выбор с последствиями (задача 13.6): развилки миссий и реплики с условием.
   const storyIssues = validateStory(scenes, missions, threadFile, STORY_FORKS);
   // Женские формы (`fem`): у путницы те же проверки сцен, миссий, фраз и писем, что у исходного текста,
@@ -202,6 +208,7 @@ for (const lang of langs) {
     ...tag(missionIssues),
     ...tag(storyIssues),
     ...tag(rumorIssues),
+    ...tag(diaryIssues),
     ...tag(sceneCheck.issues),
     ...tag(threadCheck.issues),
     ...tag(bookIssues),

@@ -1,3 +1,6 @@
+import { DIARY } from '../content/diary';
+import { fullChapters } from '../domain/diary';
+import { diarySources } from './diary';
 import { festivalsDone } from '../domain/festival';
 import { useMissions } from './missions';
 import { create } from 'zustand';
@@ -96,6 +99,7 @@ export function medalCounters(): MedalCounters {
     sphinxSeen: useSphinx.getState().rec.visited !== undefined,
     elixir: useSphinx.getState().rec.elixir !== undefined,
     festivals: festivalsDone(useMissions.getState().records),
+    diaryChapters: fullChapters(DIARY, diarySources()),
   };
 }
 

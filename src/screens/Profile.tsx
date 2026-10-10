@@ -21,6 +21,7 @@ import { HeroRewards } from '../components/HeroRewards';
 import { CityDecorCard } from '../components/CityDecorCard';
 import { FestivalCalendar } from '../components/FestivalBits';
 import { VocabCard } from '../components/VocabCard';
+import { useDiaryTotal } from './Diary';
 import { useLetters } from '../store/letters';
 
 const WEEKDAYS = ['пн', 'вт', 'ср', 'чт', 'пт', 'сб', 'вс'];
@@ -121,6 +122,8 @@ export function ProfileScreen() {
           Заморозка тратится сама, если вы пропустили день, и сохраняет стрик.
         </p>
 
+        <DiaryLink />
+
         <Link to="/shop" className="press flex items-center justify-between rounded-3xl bg-white p-4 shadow-sm" data-testid="profile-shop">
           <span>
             <span className="block font-bold">🛒 Лавка</span>
@@ -195,4 +198,20 @@ function plural(n: number, forms: [string, string, string]) {
   if (m10 === 1 && m100 !== 11) return forms[0];
   if (m10 >= 2 && m10 <= 4 && (m100 < 12 || m100 > 14)) return forms[1];
   return forms[2];
+}
+
+/** Вход в Дневник путника (задача 13.8): сколько записей открытых глав собрано. */
+function DiaryLink() {
+  const { open, total } = useDiaryTotal();
+  return (
+    <Link to="/diary" className="press flex items-center justify-between rounded-3xl bg-white p-4 shadow-sm" data-testid="profile-diary">
+      <span>
+        <span className="block font-bold">📖 Дневник путника</span>
+        <span className="block text-sm text-stone-500">Что вы узнали о карте, стражах и жителях</span>
+      </span>
+      <span className="shrink-0 text-stone-500 tabular-nums">
+        {open} / {total} →
+      </span>
+    </Link>
+  );
 }

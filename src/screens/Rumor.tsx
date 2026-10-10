@@ -17,6 +17,7 @@ import { Button, Screen, TopBar } from '../components/ui';
 import { useCity } from '../store/city';
 import { useJourney } from '../store/journey';
 import { useProgress } from '../store/progress';
+import { useMotivation } from '../store/motivation';
 import { useRumors } from '../store/rumors';
 
 /** Кто рассказал слух: житель или Летописец. */
@@ -62,6 +63,8 @@ export function RumorScreen() {
     const rumor = nextRumor(rumors, rec.got, opened);
     useCity.getState().addCoins(coins);
     useRumors.getState().complete(today, rumor?.id ?? null);
+    // Слух — запись дневника (задача 13.8): полный дневник главы даёт тайную медаль.
+    useMotivation.getState().evaluate(Date.now(), {});
     setResult({ right, coins, rumor });
   };
 

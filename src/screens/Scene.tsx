@@ -18,6 +18,8 @@ import { useStory } from '../store/story';
 import { visibleLines } from '../domain/story';
 import { isThreadId } from '../domain/thread';
 import { threadSceneTitle } from './Chronicle';
+import { useDiary } from '../store/diary';
+import { useMotivation } from '../store/motivation';
 import { Button, Screen, TopBar } from '../components/ui';
 
 /** Реплика голосом говорящего: житель — своим голосом, герой — голосом выбранного пола. */
@@ -62,14 +64,25 @@ function SceneById({ id }: { id: string }) {
   // Сцена нити главы (задача 13.1) прочитана, когда отвечены вопросы.
   const thread = isThreadId(scene.id);
   const finish = () => {
-    if (thread) useThread.getState().see(scene.id);
+    if (thread) {
+      useThread.getState().see(scene.id);
+      // Сцена Летописца открывает записи дневника (задача 13.8).
+      useMotivation.getState().evaluate(Date.now(), {});
+    }
     nav(-1);
   };
   return (
     <Screen>
       <TopBar title={thread ? threadSceneTitle(scene) : npc ? `Разговор: ${npc.name}` : 'Разговор'} />
       {phase === 'talk' ? (
-        <SceneTalk scene={scene} place={place} lastLabel="К вопросам" onDone={() => setPhase('questions')} />
+        <SceneTalk scene={scene} place={place} lastLabel="К вопросам" onDone={() => {
+            // Дослушанный разговор открывает записи дневника (задача 13.8).
+            if (!thread) {
+              useDiary.getState().see(scene.id);
+              useMotivation.getState().evaluate(Date.now(), {});
+            }
+            setPhase('questions');
+          }} />
       ) : (
         <SceneQuiz scene={scene} onDone={finish} />
       )}

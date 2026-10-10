@@ -44,6 +44,7 @@ import { BookScreen } from './screens/Books';
 import { LetterScreen, LettersDiaryScreen, NoteScreen } from './screens/Letter';
 import { ShopScreen } from './screens/Shop';
 import { RumorScreen } from './screens/Rumor';
+import { DiaryScreen } from './screens/Diary';
 
 /** Новый экран открывается сверху, а не с прокруткой предыдущего. */
 function ScrollToTop() {
@@ -133,6 +134,7 @@ export default function App() {
         <Route path="/letters" element={<LettersDiaryScreen />} />
         <Route path="/shop" element={<ShopScreen />} />
         <Route path="/rumor" element={<RumorScreen />} />
+        <Route path="/diary" element={<DiaryScreen />} />
         <Route path="/settings" element={<SettingsScreen />} />
         <Route path="/learn/:id/:level/:part" element={<LearnScreen />} />
         <Route path="/practice/:id/:level" element={<LearnScreen practice />} />

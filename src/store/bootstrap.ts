@@ -30,6 +30,7 @@ import { useThread } from './thread';
 import { useBooks } from './books';
 import { useStory } from './story';
 import { useRumors } from './rumors';
+import { useDiary, type DiaryRecord } from './diary';
 import type { RumorsRecord } from '../domain/rumor';
 import type { StoryRecord } from '../domain/story';
 import type { BooksRecord } from '../domain/books';
@@ -76,6 +77,7 @@ export async function bootstrap(): Promise<void> {
   useBooks.getState().hydrate(m.books as BooksRecord | undefined);
   useStory.getState().hydrate(m.story as Partial<StoryRecord> | undefined);
   useRumors.getState().hydrate(m.rumors as Partial<RumorsRecord> | undefined);
+  useDiary.getState().hydrate(m.diary as Partial<DiaryRecord> | undefined);
   useRewards.getState().hydrate(m.rewards as Partial<RewardsRecord> | undefined);
   // Награды уровней героя: задним числом за уже набранный уровень и дальше при каждом новом.
   useRewards.getState().sync();

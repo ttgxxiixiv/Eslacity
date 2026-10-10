@@ -659,3 +659,26 @@ export interface Rumor {
 export interface RumorsFile {
   rumors: Rumor[];
 }
+
+/** Тема записи дневника (задача 13.8): по ним записи сгруппированы на странице главы. */
+export type DiaryTopic = 'map' | 'vault' | 'guardians' | 'merchant' | 'crier' | 'residents';
+
+/**
+ * Запись Дневника путника (задача 13.8): факт истории по-русски и цитата на изучаемом языке. Открывается своим
+ * источником `from`: разговор `sc:<место>.<глава>` (или его миссия), сцена Летописца `th:<глава>.<trigger>`, слух `rm:`.
+ * `line` — номер реплики сцены, цитата `es` совпадает с ней (проверяет валидатор).
+ */
+export interface DiaryEntry {
+  id: string;
+  chapter: number;
+  topic: DiaryTopic;
+  from: string;
+  line?: number;
+  ru: string;
+  es: string;
+}
+
+/** Дневник языка: `src/content/<язык>/diary.json`. */
+export interface DiaryFile {
+  entries: DiaryEntry[];
+}

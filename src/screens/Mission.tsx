@@ -28,6 +28,7 @@ import { useMissions } from '../store/missions';
 import { useStory } from '../store/story';
 import { shownNode } from '../domain/story';
 import { syncAndEvaluate } from '../store/motivation';
+import { useDiary } from '../store/diary';
 import { SceneTalk } from './Scene';
 
 type Bubble = { who: 'npc' | 'hero'; es: string; ru?: string; tone?: 'wrong' | 'hint' | 'offtone'; move?: DisputeMove };
@@ -128,7 +129,11 @@ function MissionById({ id }: { id: string }) {
     <Screen>
       <TopBar title={title} />
       {phase === 'scene' && data.scene ? (
-        <SceneTalk scene={data.scene} place={place} lastLabel="Ответить жителю" onDone={() => setPhase('dialog')} />
+        <SceneTalk scene={data.scene} place={place} lastLabel="Ответить жителю" onDone={() => {
+            // Вступление миссии — тот же разговор места: он открывает записи дневника (задача 13.8).
+            useDiary.getState().see(data.scene!.id);
+            setPhase('dialog');
+          }} />
       ) : (
         <MissionDialog
           mission={data.mission}
