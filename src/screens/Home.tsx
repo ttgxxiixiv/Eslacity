@@ -22,12 +22,14 @@ import { type NextStep, nextStepWithLimit, recentLocation } from '../domain/next
 import { chapterById, chapterOfLevel, isDistrictOpen, isLevelOpen, nearestGoal } from '../domain/chapters';
 import { plural } from '../domain/medals';
 import { discountedCost } from '../domain/reputation';
+import { useRumors } from '../store/rumors';
+import { RUMOR_MIN_WORDS, RUMOR_TITLE, rumorDue, rumorKind } from '../domain/rumor';
 import { useErrands } from '../store/errands';
 import { CHRONICLER, NPC_BY_LOCATION } from '../content/npcs';
 import { NpcPortrait, portraitUrl } from '../components/NpcPortrait';
 import { useSettings } from '../store/settings';
 import { currentJourney, useJourney } from '../store/journey';
-import { dayKey, dueCards } from '../domain/srs';
+import { dayKey, dayNumber, dueCards } from '../domain/srs';
 import { isVerbId, splitCards, wordIds } from '../domain/itemId';
 import { useNow } from '../lib/useNow';
 import { CityGrid } from '../components/CityGrid';
@@ -390,6 +392,9 @@ export function Home() {
   const journeyHint = useJourneyHint();
   const festival = useFestivalInvite();
   const chronicle = useChronicleDue(now);
+  // Событие дня (задача 13.7): кнопка в ряду, пока сегодня не пройдено.
+  const rumorDay = useRumors((s) => s.rec.day);
+  const rumorToday = learned >= RUMOR_MIN_WORDS && rumorDue({ day: rumorDay, got: [] }, dayNumber(Date.now()));
   const chronicleCount = chronicle ? chronicle.scenes.length + (chronicle.note ? 1 : 0) + chronicle.books : 0;
 
   // Первый запуск: сначала пролог у ворот города.
@@ -439,6 +444,11 @@ export function Home() {
               text={`Летопись: ${[chronicle!.scenes.length ? `новых записей ${chronicle!.scenes.length}` : '', chronicle!.note ? 'Летописец оставил записку' : '', chronicle!.books ? `новых книг ${chronicle!.books}` : ''].filter(Boolean).join(', ')}`}
             >
               <NpcPortrait look={CHRONICLER.look} size={34} />
+            </DockButton>
+          )}
+          {blocks.journey && rumorToday && (
+            <DockButton to="/rumor" art={DOCK_ART.empty} label="Слухи" badge="!" testId="rumor-button" text={`Слухи города: ${RUMOR_TITLE[rumorKind(dayNumber(Date.now()))].toLowerCase()}`}>
+              <span className="text-[22px] leading-none">👂</span>
             </DockButton>
           )}
           {blocks.journey && <DockButton to="/journey-map" art={DOCK_ART.journey} label="Путь" badge={journeyHint.got || undefined} text={journeyHint.text} testId="journey-line" />}

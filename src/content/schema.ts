@@ -640,3 +640,22 @@ export interface BookFile {
   words: BookWord[];
   books: Book[];
 }
+
+/**
+ * Слух города (задача 13.7): реплика жителя о сюжете главы, награда за событие дня. Кусочек лора для Дневника (13.8).
+ * id `rm:<глава>.<n>`, `who` — житель (id из `npcs.json`) или Летописец.
+ */
+export interface Rumor {
+  id: string;
+  chapter: number;
+  who: string;
+  es: string;
+  ru: string;
+  /** Перевод слов, которых нет в словаре главы. */
+  gloss?: Record<string, string>;
+}
+
+/** Слухи языка: `src/content/<язык>/rumors.json`. */
+export interface RumorsFile {
+  rumors: Rumor[];
+}
