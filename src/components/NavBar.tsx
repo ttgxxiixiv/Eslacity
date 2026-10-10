@@ -12,7 +12,7 @@ import { useSphinx } from '../store/sphinx';
 // Картинки и геометрию (`nav-strip.json`: ячейки, полоса подписи, гнездо медальона) строит scripts/build-nav-art.py
 // из docs/design/nav-wow-*.png. Ячейки всегда каменные, выбранный раздел не подсвечивается. Ряд у языков общий,
 // глаз медальона — в цветах флага языка курса.
-const { w: W, h: H, tiles: TILES, label: LABEL, eye: EYE } = geometry;
+const { w: W, h: H, tiles: TILES, panels: PANELS, label: LABEL, eye: EYE } = geometry;
 /** Медальон больше гнезда: прикрывает его каменный обод и чуть выступает над рядом. */
 const EYE_SCALE = 1.45;
 const TABS = [
@@ -61,6 +61,8 @@ export function NavBar() {
           />
           {TABS.map((t, i) => {
             const [x0, x1] = TILES[i];
+            // Подпись — по середине внутренней панели ячейки, а не всей ячейки с каменным краем.
+            const [p0, p1] = PANELS[i];
             return (
               <Link
                 key={t.to}
@@ -73,8 +75,8 @@ export function NavBar() {
                 {/* Подпись в нижней полосе ячейки: рисуется кодом, на картинке полоса пустая. Размер не растёт с размером текста. */}
                 <span
                   aria-hidden
-                  className="nav-label absolute inset-x-0 flex items-center justify-center font-pixel text-[12px] leading-none uppercase"
-                  style={{ top: pct(LABEL[0], H), height: pct(LABEL[1] - LABEL[0], H) }}
+                  className="nav-label absolute flex items-center justify-center font-pixel text-[12px] leading-none whitespace-nowrap uppercase"
+                  style={{ top: pct(LABEL[0], H), height: pct(LABEL[1] - LABEL[0], H), left: pct(p0 - x0, x1 - x0), width: pct(p1 - p0, x1 - x0) }}
                 >
                   {t.label}
                 </span>
