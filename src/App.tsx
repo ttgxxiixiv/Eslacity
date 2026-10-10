@@ -73,7 +73,7 @@ function SoundDirector() {
 function TabLayout() {
   return (
     <>
-      <div className="pb-44">
+      <div className="pb-[calc(var(--nav-space)+1rem)]">
         <Outlet />
       </div>
       <UpdateBanner />

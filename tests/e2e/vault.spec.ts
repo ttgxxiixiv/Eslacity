@@ -52,7 +52,7 @@ for (const lang of LANGS) {
     test('Эликсир: сцена, золотой медальон, титул «Мудрец», медаль «Хранитель пути», итоги пути', async ({ page }) => {
       await openApp(page, lang);
       await seedVault(page, lang, true);
-      await expect(page.locator('nav img')).not.toHaveAttribute('data-gold', 'true');
+      await expect(page.getByTestId('nav-art')).not.toHaveAttribute('data-gold', 'true');
       await page.goto('./#/journey-map');
       await expect(page.getByTestId('gates-status')).toContainText('ждёт Эликсир');
       await page.getByTestId('gates-go').click();
@@ -86,7 +86,7 @@ for (const lang of LANGS) {
 
       // В городе медальон меню золотой, у героя титул «Мудрец».
       await page.goto('./#/');
-      await expect(page.locator('nav img')).toHaveAttribute('data-gold', 'true');
+      await expect(page.getByTestId('nav-art')).toHaveAttribute('data-gold', 'true');
       await expect(page.getByTestId('level-badge')).toHaveAttribute('aria-label', /^Мудрец, уровень/);
 
       // После перезапуска Хранилище сразу показывает итоги, сцену можно пересмотреть.
