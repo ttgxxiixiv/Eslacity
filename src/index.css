@@ -396,6 +396,14 @@ html:has(body.home-dark) {
   text-shadow: 0 1px 1px #1a0f07;
 }
 
+/*
+ * Рамка карты города: рамка блока с просьбами без середины (scripts/build-city-frame.py). Срез 33/105/31/105 из
+ * 540×228 — углы с драконами, между ними тянутся брус и скалки.
+ */
+.city-frame {
+  border-image: url('./assets/home/city-frame.webp') 33 105 31 105 / 15px 47px 14px 47px stretch;
+}
+
 /* Пергаментные плашки. */
 .banner-journey {
   background: url('./assets/home/banner-journey.webp') center / 100% 100% no-repeat;

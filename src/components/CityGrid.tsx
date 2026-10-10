@@ -342,6 +342,8 @@ export function CityGrid() {
       </div>
       <div className="relative isolate mt-2" style={{ aspectRatio: `${MAP_W} / ${MAP_H}` }}>
         <img src={cityMap} alt="" draggable={false} className="absolute inset-0 h-full w-full select-none" />
+        {/* Рамка как у блока с просьбами: шире карты, скалки ложатся по бокам и закрывают тонкий брус самой карты. */}
+        <div aria-hidden className="city-frame pointer-events-none absolute -inset-x-[11px] -inset-y-[8px] z-30" data-testid="city-frame" />
         {fest && <FestivalBunting f={fest} />}
         {fest && (
           // Знак праздника у здания хозяина: ведёт на страницу праздника (задача 10.5).
