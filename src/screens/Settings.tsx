@@ -23,17 +23,6 @@ const TEXT_SIZES: TextSize[] = ['normal', 'large', 'xlarge'];
 const GOALS: Settings['dailyGoal'][] = [50, 100, 150, 250];
 const NEW_PER_DAY: Settings['newPerDay'][] = [5, 10, 15, 20];
 
-const SAMPLE: Record<Lang, string> = {
-  es: '¡Hola! ¿Qué tal? Un café con leche, por favor.',
-  it: 'Ciao! Come stai? Un caffè, per favore.',
-};
-
-/** Реплика путника для проверки голоса. */
-const HERO_SAMPLE: Record<Lang, string> = {
-  es: 'Buenos días. Busco el camino a la Bóveda.',
-  it: 'Buongiorno. Cerco la strada per il Caveau.',
-};
-
 const HERO_GENDERS: { id: Settings['heroGender']; label: string }[] = [
   { id: 'm', label: 'Мужчина' },
   { id: 'f', label: 'Женщина' },
@@ -174,7 +163,7 @@ function HeroSection() {
             variant="secondary"
             className="mt-2 w-full"
             onClick={() => {
-              speakHero(HERO_SAMPLE[LANG]);
+              speakHero(L.samples.hero);
               setHeroVoice(voiceFor(heroGender)?.name);
             }}
           >
@@ -282,7 +271,7 @@ function VoiceSection() {
             variant="secondary"
             className="mt-2 w-full"
             onClick={() => {
-              speak(SAMPLE[LANG]);
+              speak(L.samples.voice);
               setVoiceName(currentVoice()?.name);
             }}
           >
@@ -316,7 +305,7 @@ function VoiceSection() {
                       value={value}
                       onChange={(e) => {
                         update(g === 'm' ? { voiceM: e.target.value } : { voiceF: e.target.value });
-                        speak(HERO_SAMPLE[LANG], speechRate, 1, g);
+                        speak(L.samples.hero, speechRate, 1, g);
                       }}
                       className="h-11 min-w-0 flex-1 rounded-xl border-2 border-stone-200 bg-white px-2 text-base"
                       data-testid={`voice-${g}`}
@@ -331,7 +320,7 @@ function VoiceSection() {
                     <button
                       type="button"
                       aria-label={`Послушать: ${label.toLowerCase()}`}
-                      onClick={() => speak(HERO_SAMPLE[LANG], speechRate, 1, g)}
+                      onClick={() => speak(L.samples.hero, speechRate, 1, g)}
                       className="press flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-orange-100 text-lg"
                     >
                       🔊

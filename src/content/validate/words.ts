@@ -1,5 +1,5 @@
 import { normalize, splitArticle, stripAccents } from '../../domain/answer';
-import type { Lang } from '../../lang';
+import { LANGS, type Lang } from '../../lang';
 import { CHAPTERS as PLAN, PLACE_EXPRESSIONS, PLACE_LEVEL_MAX } from '../vocabPlan';
 import { EXPRESSION_LEVEL, isExpression, KINDS, REGISTERS, USAGES } from '../../domain/expression';
 import { LOCATION_IDS, type LocationWords, type ScrollFile, type Word } from '../schema';
@@ -7,55 +7,16 @@ import { CEFR, type Issue, POS, empty } from './common';
 
 /** Слова мест и свитков: поля, часть речи, артикль и род, выражения уровня 7, пометки употребления, пары регистров, одинаковые переводы. */
 
-// Женский род, но с артиклем el из-за ударного a- (el agua, el aula).
-const STRESSED_A = new Set([
-  'agua', 'aula', 'arma', 'área', 'alma', 'ala', 'ave', 'hambre', 'hacha', 'águila', 'ancla', 'asma',
-  'hada', 'haba', 'acta', 'arpa', 'aguas', 'alta',
-]);
-
-// Итальянский: lo/gli перед s+согласная, z, gn, ps, x, y; l' перед гласной.
-// Перед h (заимствования) бывает и так и так: la hostess, l'home banking.
-const IT_LO = /^(s[^aeiouàèéìòù]|z|gn|ps|x|y)/;
-
-const IT_VOWEL = /^[aeiouàèéìòù]/;
-
-function checkArticleIt(w: Word, form: string, where: string, out: Issue[]) {
-  const { article, core } = splitArticle(form, 'it');
-  const all = ['il', 'lo', 'la', "l'", 'i', 'gli', 'le'];
-  if (!article || !all.includes(article)) {
+/** Артикль существительного: определённый, по роду — правила языка (`articleIssue` в профиле). */
+function checkArticle(w: Word, form: string, where: string, out: Issue[], lang: Lang) {
+  const p = LANGS[lang];
+  const { article, core } = splitArticle(form, lang);
+  if (!article || ![...p.singular, ...p.plural].includes(article)) {
     out.push({ level: 'error', where, msg: `существительное без определённого артикля: "${form}"` });
     return;
   }
-  const expected = w.gender === 'f' ? ['la', "l'", 'le'] : ['il', 'lo', "l'", 'i', 'gli'];
-  if (!expected.includes(article)) {
-    out.push({ level: 'error', where, msg: `артикль "${article}" не совпадает с родом ${w.gender}` });
-    return;
-  }
-  if (core.startsWith('h')) return;
-  const vowel = IT_VOWEL.test(core);
-  const lo = IT_LO.test(core);
-  let want: string | null = null;
-  if (article === "l'" && !vowel) want = w.gender === 'f' ? 'la' : lo ? 'lo' : 'il';
-  if ((article === 'il' || article === 'lo' || article === 'la') && vowel) want = "l'";
-  if (article === 'il' && lo) want = 'lo';
-  if (article === 'lo' && !lo && !vowel) want = 'il';
-  if (article === 'i' && (vowel || lo)) want = 'gli';
-  if (article === 'gli' && !vowel && !lo) want = 'i';
-  if (want) out.push({ level: 'error', where, msg: `перед "${core}" нужен артикль "${want}", а не "${article}"` });
-}
-
-function checkArticle(w: Word, form: string, where: string, out: Issue[], lang: Lang = 'es') {
-  if (lang === 'it') return checkArticleIt(w, form, where, out);
-  const { article, core } = splitArticle(form, 'es');
-  if (!article || !['el', 'la', 'los', 'las'].includes(article)) {
-    out.push({ level: 'error', where, msg: `существительное без определённого артикля: "${form}"` });
-    return;
-  }
-  const expected = w.gender === 'f' ? ['la', 'las'] : ['el', 'los'];
-  const stressedA = w.gender === 'f' && article === 'el' && STRESSED_A.has(core.split(' ')[0]);
-  if (!expected.includes(article) && !stressedA) {
-    out.push({ level: 'error', where, msg: `артикль "${article}" не совпадает с родом ${w.gender}` });
-  }
+  const msg = p.articleIssue?.(w.gender!, article, core);
+  if (msg) out.push({ level: 'error', where, msg });
 }
 
 /**
@@ -125,7 +86,9 @@ export function checkWord(w: Word, at: string, lang: Lang, out: Issue[]) {
     out.push({ level: 'error', where: at, msg: 'лишние пробелы в es' });
   }
 
-  if (w.pos === 'noun') {
+  if (w.pos === 'noun' && !LANGS[lang].gender) {
+    if (w.gender) out.push({ level: 'error', where: at, msg: `род у существительного: у ${LANGS[lang].genitive} рода нет` });
+  } else if (w.pos === 'noun') {
     if (w.gender !== 'm' && w.gender !== 'f') {
       out.push({ level: 'error', where: at, msg: 'у существительного нет рода' });
     } else {
@@ -151,9 +114,10 @@ export function checkWord(w: Word, at: string, lang: Lang, out: Issue[]) {
     const ex = stripAccents(normalize(w.example.es));
     let core = stripAccents(splitArticle(w.es, lang).core);
     // Возвратный глагол: bañarse → bañar, lavarsi → lavar; в примере будет bañarnos, mi lavo.
-    if (w.pos === 'verb' && core.endsWith(lang === 'it' ? 'si' : 'se')) core = core.slice(0, -2);
+    const { reflexive, infinitiveEnd } = LANGS[lang];
+    if (w.pos === 'verb' && core.endsWith(reflexive)) core = core.slice(0, -reflexive.length);
     // У итальянских глаголов окончание длиннее: parlare → parl.
-    const cut = lang === 'it' && w.pos === 'verb' && core.length > 5 ? 3 : 2;
+    const cut = w.pos === 'verb' && core.length > 5 ? infinitiveEnd : 2;
     const stem = core.length > 4 ? core.slice(0, core.length - cut) : core;
     if (!ex.includes(stem)) {
       out.push({ level: 'warning', where: at, msg: `в примере нет слова "${w.es}"` });

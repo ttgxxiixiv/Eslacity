@@ -3,7 +3,7 @@ import { CHRONICLER } from '../content/npcs';
 import { REMINDER_DAYS, reminderSlots, reminderText } from '../domain/reminder';
 import { isAlive } from '../domain/streak';
 import { dayNumber, dueCards } from '../domain/srs';
-import { LANG } from '../lang';
+import { L, LANG } from '../lang';
 import { NATIVE } from './native';
 import { useMotivation } from '../store/motivation';
 import { useProgress } from '../store/progress';
@@ -25,7 +25,7 @@ export type ReminderStatus = 'on' | 'off' | 'not-installed' | 'denied' | 'unsupp
 const CACHE = 'eslacity-reminder';
 const TAG = 'eslacity-reminder';
 /** У каждого языка свои номера уведомлений в приложении: оба курса могут напоминать независимо. */
-const NATIVE_BASE = LANG === 'es' ? 1000 : 2000;
+const NATIVE_BASE = L.reminderBase;
 
 interface PeriodicSync {
   register(tag: string, opts: { minInterval: number }): Promise<void>;

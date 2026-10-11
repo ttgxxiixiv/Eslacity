@@ -268,7 +268,7 @@ for (const lang of langs) {
     ...tag(validateChronicler(chronicler, npcs)),
     ...tag(validateGuardians(guardians, lessonChapters)),
     ...tag(validateVerbs(verbs, lang)),
-    ...tag(validatePairs(pairs)),
+    ...tag(validatePairs(pairs, lang)),
     ...tag(
       validateSphinx(sphinx, {
         coverage: (text, level) => textCoverage(text, level, lexicon, forms, lang),

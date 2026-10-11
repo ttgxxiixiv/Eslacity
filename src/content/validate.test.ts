@@ -742,6 +742,18 @@ describe('validateVerbs', () => {
       'глаголов 59, нужно не меньше 60',
     ]);
   });
+  it('поля чужого языка и чужое окончание: ошибка, а не падение генератора', () => {
+    const f = real('es');
+    f.verbs.push({ inf: 'pensarx', ru: 'думать', isc: true }, { inf: 'charlar', ru: 'болтать', aux: 'essere' });
+    expect(msgs(f, 'es')).toEqual([
+      'инфинитив с неожиданным окончанием',
+      'поле isc не бывает у глаголов испанского',
+      'поле aux не бывает у глаголов испанского',
+    ]);
+    const g = real('it');
+    g.verbs.push({ inf: 'pensare', ru: 'думать', ch: 'ie' });
+    expect(msgs(g, 'it')).toEqual(['поле ch не бывает у глаголов итальянского']);
+  });
 });
 
 describe('уровень 6 (B2): контент', () => {

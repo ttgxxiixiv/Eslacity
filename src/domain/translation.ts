@@ -1,4 +1,5 @@
-import type { Lang } from '../lang';
+import { LANGS, type Lang } from '../lang';
+import { word } from '../langs/util';
 
 /**
  * Правила перевода (задача 15.3, `docs/TRANSLATION.md`): перевод говорит с игроком так же, как оригинал. Если в
@@ -6,27 +7,10 @@ import type { Lang } from '../lang';
  * по всему контенту запускает `scripts/validate-content.ts`.
  */
 
-const word = (alts: string, flags = 'i') => new RegExp(`(?<![\\p{L}])(?:${alts})(?![\\p{L}])`, `u${flags}`);
-
 /** «Ты» в переводе: местоимения и глаголы 2-го лица единственного числа (хочешь, видишь). */
 const RU_TY = word('ты|тебя|тебе|тобой|тобою|твой|твоя|твоё|твое|твои|твоего|твоей|твоему|твоим|твоих|твою|\\p{L}+[еёи]шь');
 /** «Вы» в переводе: местоимения и глаголы на -ите, -йте, -ёте (хотите, скажите, идёте). */
 const RU_VY = word('вы|вас|вам|вами|ваш|ваша|ваше|ваши|вашего|вашей|вашему|вашим|ваших|вашу|\\p{L}{2,}(?:ите|йте|ёте)');
-
-/** Обращение в оригинале: на «ты», на «вы» вежливое и множественное (vosotros, voi — в переводе тоже «вы»). */
-const SOURCE: Record<Lang, { ty: RegExp; formal: RegExp; plural: RegExp }> = {
-  es: {
-    ty: word('tú|te|ti|tu|tus|contigo'),
-    formal: word('usted|ustedes|ud|uds'),
-    plural: word('vosotros|vosotras|os|vuestro|vuestra|vuestros|vuestras'),
-  },
-  it: {
-    ty: word('tu|ti|te|tuo|tua|tuoi|tue|teco'),
-    // Вежливое «Lei» пишется с заглавной; в начале предложения оно неотличимо от «lei» («она»), поэтому только в середине.
-    formal: /(?<=[\p{L},] )(?:Lei|La|Le|Suo|Sua|Suoi|Sue|Glielo|Gliela)(?![\p{L}])/u,
-    plural: word('voi|vi|vostro|vostra|vostri|vostre'),
-  },
-};
 
 export type Address = 'ty' | 'vy' | null;
 
@@ -39,7 +23,8 @@ export function ruAddress(ru: string): Address {
 
 /** Как обращается оригинал: «ты», вежливое «вы» или не понять. Множественное «вы» (vosotros, voi) — не понять. */
 export function sourceAddress(text: string, lang: Lang): Address {
-  const s = SOURCE[lang];
+  // Обращение в оригинале: на «ты», вежливое и множественное «вы» (vosotros, voi — в переводе тоже «вы»). Профиль языка, `you`.
+  const s = LANGS[lang].you;
   const ty = s.ty.test(text);
   const vy = s.formal.test(text);
   if (s.plural.test(text) || ty === vy) return null;

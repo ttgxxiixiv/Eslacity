@@ -2,6 +2,7 @@
  * Медали (docs/GAME.md, раздел «Медали»). Линия медалей — один счётчик и шесть порогов, ступени
  * от дерева до бриллианта. Кроме линий есть тайные одиночные медали, которые не видны до получения.
  */
+import type { Lang } from '../lang';
 import { FESTIVALS } from './festival';
 
 export type Tier = 'wood' | 'stone' | 'bronze' | 'silver' | 'gold' | 'diamond';
@@ -133,7 +134,7 @@ export interface SecretMedal {
   title: string;
   text: string;
   /** Медаль только курса этого языка (праздники): в другом курсе её не показывают. */
-  lang?: 'es' | 'it';
+  lang?: Lang;
   test: ((c: MedalCounters, e: MedalEvent) => boolean) | null;
 }
 

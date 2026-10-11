@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { ECONOMY, XP } from '../config';
 import type { Phrase } from '../content/schema';
 import { logAnswer } from '../db/answers';
-import { checkPhrase, EXAM_KEYS, normalize, type CheckResult, type Verdict } from '../domain/answer';
+import { checkPhrase, EXAM_KEYS, MARKED_LETTERS, normalize, type CheckResult, type Verdict } from '../domain/answer';
 import { answerMs, type AnswerMode } from '../domain/answerLog';
 import { seeded } from '../domain/generators';
 import { fullPhrase } from '../domain/phrase';
@@ -19,6 +19,9 @@ import { VoiceAnswer } from './VoiceAnswer';
 import { bestAlternative } from '../domain/voiceAnswer';
 import { type Feedback, FeedbackSheet } from './FeedbackSheet';
 import { Button, SpeakButton } from './ui';
+
+/** Клавиши фразы вне испытаний: буквы с диакритикой и апостроф, которые в ней есть. */
+const MARKED_KEYS = new RegExp(`[${MARKED_LETTERS}']`, 'g');
 
 export interface PhraseResult {
   /** Худшая оценка по каждой фразе за сессию. */
@@ -279,7 +282,7 @@ export function PhraseType({ phrase, locked, onAnswer, exam = false }: { phrase:
   const [result, setResult] = useState<Verdict | null>(null);
   const input = useRef<HTMLInputElement>(null);
   // Над полем — только буквы с ударением и апостроф из этой фразы: остальное есть на любой клавиатуре.
-  const keys = exam ? EXAM_KEYS[LANG] : [...new Set(normalize(fullPhrase(phrase.es)).match(/[áéíóúüñàèìòù']/g) ?? [])];
+  const keys = exam ? EXAM_KEYS[LANG] : [...new Set(normalize(fullPhrase(phrase.es)).match(MARKED_KEYS) ?? [])];
   const insert = (ch: string) => {
     const el = input.current;
     if (!el) return;

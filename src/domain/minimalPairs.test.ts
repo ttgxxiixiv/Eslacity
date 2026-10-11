@@ -23,8 +23,8 @@ describe('минимальные пары', () => {
   });
 
   it('контент обоих языков проходит проверку', () => {
-    expect(validatePairs(es as PairsFile)).toEqual([]);
-    expect(validatePairs(it_ as PairsFile)).toEqual([]);
+    expect(validatePairs(es as PairsFile, 'es')).toEqual([]);
+    expect(validatePairs(it_ as PairsFile, 'it')).toEqual([]);
   });
 
   it('звон: пары не повторяются, пока не кончились; ошибка возвращает пару с другим словом', () => {

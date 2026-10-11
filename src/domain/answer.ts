@@ -14,29 +14,33 @@ export interface CheckResult {
 
 const PUNCT = /[¿¡?!.,;:"«»()…—–]/g;
 
+/** Правила склейки ответа всех языков: у каждого своё, чужому тексту они не мешают (итальянское «l' acqua»). */
+const ANSWER_RULES = Object.values(LANGS).flatMap((p) => p.answerRules);
+
 /**
  * Регистр, пунктуация (включая ¿¡), лишние пробелы. Ударения сохраняются.
  * Апостроф остаётся (итальянское l'acqua); типографский ’ с телефонной клавиатуры приводится к '.
+ * Правила языков — `answerRules` в профилях (`src/langs`).
  */
 export function normalize(s: string): string {
-  return s
+  let out = s
     .normalize('NFC')
     .toLowerCase()
     .replace(/[’‘`´]/g, "'")
-    .replace(PUNCT, ' ')
-    // «l' acqua» → «l'acqua», но «un po' di» не трогаем.
-    .replace(/(^|\s)(l|un|dell|all|dall|nell|sull|coll|quest|quell|c|d|m|t|s|v)'\s+/g, "$1$2'")
-    .replace(/\s+/g, ' ')
-    .trim();
+    .replace(PUNCT, ' ');
+  for (const [re, to] of ANSWER_RULES) out = out.replace(re, to);
+  return out.replace(/\s+/g, ' ').trim();
 }
 
-// Испанские и итальянские буквы с диакритикой.
-const ACCENTS: Record<string, string> = {
-  á: 'a', é: 'e', í: 'i', ó: 'o', ú: 'u', ü: 'u', ñ: 'n', à: 'a', è: 'e', ì: 'i', ò: 'o', ù: 'u',
-};
+/** Буквы с диакритикой всех языков курса (`letters` в профилях). */
+export const MARKED_LETTERS = [...new Set(Object.values(LANGS).flatMap((p) => [...p.letters]))].join('');
+
+// Буква с диакритикой → без неё: á → a, ñ → n.
+const ACCENTS: Record<string, string> = Object.fromEntries([...MARKED_LETTERS].map((c) => [c, c.normalize('NFD')[0]]));
+const MARKED = new RegExp(`[${MARKED_LETTERS}]`, 'g');
 
 export function stripAccents(s: string): string {
-  return s.replace(/[áéíóúüñàèìòù]/g, (c) => ACCENTS[c]);
+  return s.replace(MARKED, (c) => ACCENTS[c]);
 }
 
 /** Определённые артикли языка: единственное и множественное число. */
@@ -159,10 +163,7 @@ export function answerLetters(answer: string, lang: Lang = LANG): { letters: str
  * Клавиши над полем в испытании: все буквы с ударением языка и апостроф, одни и те же для любого ответа,
  * чтобы не подсказывать буквы ответа.
  */
-export const EXAM_KEYS: Record<Lang, string[]> = {
-  es: ['á', 'é', 'í', 'ó', 'ú', 'ü', 'ñ'],
-  it: ['à', 'è', 'é', 'ì', 'ò', 'ù', "'"],
-};
+export const EXAM_KEYS = Object.fromEntries(Object.values(LANGS).map((p) => [p.id, p.examKeys])) as Record<Lang, string[]>;
 
 /**
  * Форма в грамматике (задача 5.2): «soy» и «sois» отличаются одной буквой, и это разные ответы, поэтому

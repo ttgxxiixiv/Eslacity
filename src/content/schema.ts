@@ -1,4 +1,4 @@
-import type { VerbData } from '../domain/verbs';
+import type { VerbData } from '../langs/types';
 
 export const LOCATION_IDS = [
   'cafe', 'market', 'supermarket', 'restaurant', 'home', 'park', 'clothes', 'pharmacy',
@@ -508,7 +508,7 @@ export interface Smith {
 /**
  * `src/content/<язык>/festivals/<id>.json` — праздник (задача 10.5): приглашение хозяина, рассказ о празднике,
  * слова (`fest-<id>.<slug>`, уровень 1), фразы (`ph:fest-<id>.<slug>`) и миссия хозяина (`ms:fest-<id>.2`, сложность главы II).
- * Даты, хозяин и цвета — `FESTIVALS` в `src/domain/festival.ts`.
+ * Даты, хозяин и цвета — `festivals` в профиле языка (`src/langs/<язык>/index.ts`).
  */
 export interface FestivalFile {
   id: string;

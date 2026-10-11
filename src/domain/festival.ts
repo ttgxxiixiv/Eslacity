@@ -1,4 +1,7 @@
-import type { LocationId } from '../content/schema';
+import { LANGS, type Lang } from '../lang';
+import type { FestivalDef } from '../langs/types';
+
+export { easter } from '../langs/util';
 
 /**
  * Праздники (задача 10.5): тематическая неделя в городе. На неделю праздника над картой города висят флажки его цветов,
@@ -7,72 +10,14 @@ import type { LocationId } from '../content/schema';
  * Контент — `src/content/<язык>/festivals/<id>.json`, «место» слов, фраз и миссии — `fest-<id>`.
  */
 
-export type FestivalId = 'sanfermin' | 'tomatina' | 'ferragosto' | 'carnevale';
+export type FestivalId = string;
 
-export interface Festival {
-  id: FestivalId;
-  lang: 'es' | 'it';
-  /** Название по-русски и на языке курса. */
-  title: string;
-  native: string;
-  /** Где празднуют на самом деле: для описания. */
-  town: string;
-  /** Здание хозяина в городе: его житель приглашает и ведёт миссию. */
-  host: LocationId;
-  /** Цвета флажков над картой города. */
-  colors: string[];
-  /** Знак праздника у здания хозяина и в приглашении. */
-  icon: string;
-  /** Тайная медаль за миссию праздника. */
-  medal: { title: string; text: string };
+/** Праздник с языком курса. Описание и неделя — в профиле языка (`festivals` в `src/langs/<язык>/`). */
+export interface Festival extends FestivalDef {
+  lang: Lang;
 }
 
-export const FESTIVALS: Festival[] = [
-  {
-    id: 'sanfermin',
-    lang: 'es',
-    title: 'Сан-Фермин',
-    native: 'San Fermín',
-    town: 'Памплона, 6–14 июля',
-    host: 'restaurant',
-    colors: ['#c8102e', '#ffffff'],
-    icon: '🐂',
-    medal: { title: 'Красный платок', text: 'Миссия Сан-Фермина в неделю праздника' },
-  },
-  {
-    id: 'tomatina',
-    lang: 'es',
-    title: 'Ла Томатина',
-    native: 'La Tomatina',
-    town: 'Буньоль, последняя среда августа',
-    host: 'market',
-    colors: ['#e23b2a', '#f2c94c', '#3c8a3c'],
-    icon: '🍅',
-    medal: { title: 'Томатная битва', text: 'Миссия Ла Томатины в неделю праздника' },
-  },
-  {
-    id: 'ferragosto',
-    lang: 'it',
-    title: 'Феррагосто',
-    native: 'Ferragosto',
-    town: 'вся Италия, 15 августа',
-    host: 'beach',
-    colors: ['#009246', '#ffffff', '#ce2b37'],
-    icon: '🎆',
-    medal: { title: 'Августовский фейерверк', text: 'Миссия Феррагосто в неделю праздника' },
-  },
-  {
-    id: 'carnevale',
-    lang: 'it',
-    title: 'Карнавал в Венеции',
-    native: 'Carnevale di Venezia',
-    town: 'Венеция, перед Великим постом',
-    host: 'hotel',
-    colors: ['#6b2fa0', '#d4a017', '#1f6fb2'],
-    icon: '🎭',
-    medal: { title: 'Венецианская маска', text: 'Миссия Карнавала в неделю праздника' },
-  },
-];
+export const FESTIVALS: Festival[] = Object.values(LANGS).flatMap((p) => p.festivals.map((f) => ({ ...f, lang: p.id })));
 
 export const festivalPlace = (id: FestivalId) => `fest-${id}` as const;
 /** Сложность миссии праздника — как у миссий главы II: праздник приходит к любому игроку. */
@@ -93,51 +38,12 @@ export function festivalOf(id: string): FestivalId | undefined {
 }
 
 const DAY = 86_400_000;
-const date = (y: number, m: number, d: number) => new Date(y, m - 1, d);
 
-/** Пасха по григорианскому календарю (алгоритм Гаусса в форме «анонимного григорианского»). */
-export function easter(year: number): Date {
-  const a = year % 19;
-  const b = Math.floor(year / 100);
-  const c = year % 100;
-  const d = Math.floor(b / 4);
-  const e = b % 4;
-  const f = Math.floor((b + 8) / 25);
-  const g = Math.floor((b - f + 1) / 3);
-  const h = (19 * a + b - d - g + 15) % 30;
-  const i = Math.floor(c / 4);
-  const k = c % 4;
-  const l = (32 + 2 * e + 2 * i - h - k) % 7;
-  const m = Math.floor((a + 11 * h + 22 * l) / 451);
-  const month = Math.floor((h + l - 7 * m + 114) / 31);
-  const day = ((h + l - 7 * m + 114) % 31) + 1;
-  return date(year, month, day);
-}
-
-const addDays = (d: Date, n: number) => new Date(d.getFullYear(), d.getMonth(), d.getDate() + n);
-
-/**
- * Неделя праздника в году: первый и последний день (включительно, по местному времени).
- * Сан-Фермин — 6–14 июля, как в Памплоне. Ла Томатина — последняя среда августа и по три дня вокруг.
- * Феррагосто — 15 августа и по три дня вокруг. Карнавал — шесть дней до Жирного вторника и он сам
- * (Жирный вторник — за 47 дней до Пасхи).
- */
+/** Неделя праздника в году: первый и последний день (включительно, по местному времени). Правило — в профиле языка. */
 export function festivalWeek(id: FestivalId, year: number): { start: Date; end: Date } {
-  switch (id) {
-    case 'sanfermin':
-      return { start: date(year, 7, 6), end: date(year, 7, 14) };
-    case 'tomatina': {
-      const last = date(year, 8, 31);
-      const wed = addDays(last, -((last.getDay() - 3 + 7) % 7));
-      return { start: addDays(wed, -3), end: addDays(wed, 3) };
-    }
-    case 'ferragosto':
-      return { start: date(year, 8, 12), end: date(year, 8, 18) };
-    case 'carnevale': {
-      const tuesday = addDays(easter(year), -47);
-      return { start: addDays(tuesday, -6), end: tuesday };
-    }
-  }
+  const f = FESTIVALS.find((x) => x.id === id);
+  if (!f) throw new Error(`нет праздника ${id}`);
+  return f.week(year);
 }
 
 /** Идёт ли неделя праздника в момент `now`. */
@@ -147,7 +53,7 @@ export function isFestivalOn(id: FestivalId, now: number): boolean {
 }
 
 /** Праздник, который идёт сейчас в городе этого языка. */
-export function activeFestival(lang: 'es' | 'it', now: number): Festival | undefined {
+export function activeFestival(lang: Lang, now: number): Festival | undefined {
   return FESTIVALS.find((f) => f.lang === lang && isFestivalOn(f.id, now));
 }
 
@@ -158,7 +64,7 @@ export function nextFestivalWeek(id: FestivalId, now: number): { start: Date; en
   return now < w.end.getTime() + DAY ? w : festivalWeek(id, y + 1);
 }
 
-export const festivalsOf = (lang: 'es' | 'it') => FESTIVALS.filter((f) => f.lang === lang);
+export const festivalsOf = (lang: Lang) => FESTIVALS.filter((f) => f.lang === lang);
 
 /** Праздники, чья миссия пройдена в неделю праздника: по записям миссий (`meta.missions`). */
 export function festivalsDone(records: Record<string, { done?: number }>): FestivalId[] {

@@ -11,11 +11,11 @@
  */
 import { mkdirSync, readdirSync, readFileSync, statSync, writeFileSync } from 'node:fs';
 import { join, relative } from 'node:path';
+import { LANG_IDS } from '../src/lang';
 import { CSV_COLUMNS, extractRows, REVIEW_TYPES, toCsv, type ReviewRow, type ReviewType } from './review-lib';
 
 const ROOT = join(import.meta.dirname, '..');
 const CONTENT = join(ROOT, 'src', 'content');
-const LANGS = ['es', 'it'] as const;
 
 function jsonFiles(dir: string): string[] {
   return readdirSync(dir).flatMap((name) => {
@@ -49,9 +49,9 @@ function main() {
   const out = outAt >= 0 ? args[outAt + 1] : join(ROOT, 'review');
   // Без --out аргументы все; с ним — без самого ключа и папки.
   const rest = outAt >= 0 ? args.filter((_, i) => i !== outAt && i !== outAt + 1) : args;
-  const langs = LANGS.filter((l) => rest.includes(l));
+  const langs = LANG_IDS.filter((l) => rest.includes(l));
   const types = REVIEW_TYPES.filter((t) => rest.includes(t));
-  for (const lang of langs.length ? langs : LANGS) {
+  for (const lang of langs.length ? langs : LANG_IDS) {
     const dir = join(out, lang);
     mkdirSync(dir, { recursive: true });
     const parts: string[] = [];

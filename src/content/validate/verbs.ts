@@ -1,4 +1,4 @@
-import type { Lang } from '../../lang';
+import { LANGS, type Lang } from '../../lang';
 import { conjugate, generated, participle, TENSES, type Tense } from '../../domain/verbs';
 import { pairIssue } from '../../domain/minimalPairs';
 import type { VerbsFile, PairsFile } from '../schema';
@@ -9,13 +9,11 @@ import { checkMaster } from './npcs';
 
 export const VERBS_MIN = 60;
 
-const VERB_END: Record<Lang, RegExp> = { es: /(ar|er|ir|ír)$/, it: /(are|ere|ire)$/ };
-
 /** Пар в противопоставлении не меньше: иначе звон из десяти заданий повторяет пары слишком часто. */
 export const PAIRS_MIN = 6;
 
 /** Звонница (задача 10.2): звонарь и противопоставления, каждая пара различается ровно тем, что заявлено. */
-export function validatePairs(file: PairsFile | undefined): Issue[] {
+export function validatePairs(file: PairsFile | undefined, lang: Lang): Issue[] {
   const where = 'pairs.json';
   if (!file) return [{ level: 'error', where, msg: 'нет файла минимальных пар' }];
   const out: Issue[] = [];
@@ -27,7 +25,7 @@ export function validatePairs(file: PairsFile | undefined): Issue[] {
     if (!/^[a-z-]+$/.test(c.id ?? '') || ids.has(c.id)) out.push({ level: 'error', where: at, msg: 'id пустой, с лишними знаками или повторяется' });
     ids.add(c.id);
     if (empty(c.title) || empty(c.hint)) out.push({ level: 'error', where: at, msg: 'нет названия или подсказки' });
-    if (!['swap', 'stress', 'double'].includes(c.kind)) out.push({ level: 'error', where: at, msg: `вид "${c.kind}"` });
+    if (!LANGS[lang].pairKinds.includes(c.kind)) out.push({ level: 'error', where: at, msg: `вид "${c.kind}"` });
     if ((c.pairs?.length ?? 0) < PAIRS_MIN) out.push({ level: 'error', where: at, msg: `пар меньше ${PAIRS_MIN}` });
     const seen = new Set<string>();
     (c.pairs ?? []).forEach((p, i) => {
@@ -46,15 +44,20 @@ export function validateVerbs(file: VerbsFile | undefined, lang: Lang): Issue[] 
   const where = 'verbs.json';
   if (!file) return [{ level: 'error', where, msg: 'нет файла глаголов' }];
   checkMaster(file.smith, `${where} кузнец`, out);
+  const profile = LANGS[lang].verbs;
   const seen = new Set<string>();
   for (const v of file.verbs ?? []) {
     const at = `${where} ${v.inf ?? '?'}`;
     if (seen.has(v.inf)) out.push({ level: 'error', where: at, msg: 'дубль глагола' });
     seen.add(v.inf);
-    if (empty(v.inf) || !VERB_END[lang].test(v.inf)) out.push({ level: 'error', where: at, msg: 'инфинитив с неожиданным окончанием' });
+    const badInf = empty(v.inf) || !profile.infinitive.test(v.inf);
+    if (badInf) out.push({ level: 'error', where: at, msg: 'инфинитив с неожиданным окончанием' });
     if (empty(v.ru)) out.push({ level: 'error', where: at, msg: 'нет перевода' });
-    if (lang === 'es' && (v.isc || v.aux)) out.push({ level: 'error', where: at, msg: 'isc и aux бывают только у итальянских глаголов' });
-    if (lang === 'it' && v.ch) out.push({ level: 'error', where: at, msg: 'чередование ch бывает только у испанских глаголов' });
+    for (const f of ['ch', 'isc', 'aux'] as const) {
+      if (v[f] !== undefined && !profile.fields.includes(f)) out.push({ level: 'error', where: at, msg: `поле ${f} не бывает у глаголов ${LANGS[lang].genitive}` });
+    }
+    // Генератор строит формы по окончанию инфинитива: с чужим окончанием дальше проверять нечего.
+    if (badInf) continue;
     const bare = { inf: v.inf, ru: v.ru, ch: v.ch, isc: v.isc };
     if (v.pp && v.pp === participle(bare, lang)) out.push({ level: 'error', where: at, msg: 'причастие pp совпадает с правильным, запись не нужна' });
     if (v.yo && v.yo === conjugate(bare, 'presente', lang)[0]) out.push({ level: 'error', where: at, msg: 'форма yo совпадает с правильной, запись не нужна' });

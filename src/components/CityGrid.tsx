@@ -19,7 +19,7 @@ import { useCity } from '../store/city';
 import { useNow } from '../lib/useNow';
 import { HeroSprite } from './Hero';
 import { FestivalBunting, useActiveFestival } from './FestivalBits';
-import { LANG } from '../lang';
+import { L } from '../lang';
 import { lanternOf, shownDecor, type Decor } from '../domain/decor';
 import { useMotivation } from '../store/motivation';
 import { useRewards } from '../store/rewards';
@@ -28,7 +28,7 @@ import { useRewards } from '../store/rewards';
 const SPEED = 1200;
 const MAX_WALK_MS = 1200;
 // У каждого языка свой город, поэтому и место героя своё. У испанского ключ прежний.
-const HERO_KEY = LANG === 'es' ? 'eslacity.hero' : `eslacity.hero.${LANG}`;
+const HERO_KEY = L.heroKey;
 
 const pctX = (x: number) => `${(x / MAP_W) * 100}%`;
 const pctY = (y: number) => `${(y / MAP_H) * 100}%`;
