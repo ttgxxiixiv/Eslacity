@@ -1,4 +1,4 @@
-import { readdirSync, readFileSync, existsSync } from 'node:fs';
+import { readdirSync, readFileSync, existsSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 import { validateChronicler, validateGrammar, validateGuardians, validateLetters, validateNotes, validateMissions, validateNpcs, validatePhrases, validateScenes, validatePortraits, validateScrolls, validateSphinx, validateTranslations, validateVerbs, validatePairs, validateFestivals, validatePrologue, validateThread, validateBooks, validateRumors, validateDiary, validateStory, STORY_FORKS, validateWords, type Issue } from '../src/content/validate';
 import type { Chronicler, GrammarLesson, GuardiansFile, LettersFile, SphinxFile, VerbsFile, PairsFile, FestivalFile, PrologueFile, LocationWords, LocationMissions, LocationPhrases, LocationScenes, NpcsFile, ScrollFile, ThreadFile, BookFile } from '../src/content/schema';
@@ -9,6 +9,7 @@ import { CHAPTERS, PLAN_TOTAL } from '../src/content/vocabPlan';
 import { chapterOfDistrict } from '../src/domain/chapters';
 import { plural } from '../src/domain/medals';
 import { femIssues, forGender } from '../src/domain/address';
+import { translationIssues } from '../src/domain/translation';
 import { lessonParts, levelWords } from '../src/domain/levels';
 import { applySkips, applySkipsToForms, buildLexicon, cefrIssues, coverage, lemmaRanks, parseRisky, rarityIssues, riskyIssues, wordRank, lemmasIn, parseFreq, parseSkips, parseLemmas, textCoverage, uncoveredWords } from './vocab-lib';
 
@@ -108,6 +109,19 @@ for (const lang of langs) {
     ...cefrIssues(ws, (es) => wordRank(es, forms, lang, ranks)).map(({ id, msg }) => ({ level: 'warning' as const, where: `${where} ${id}`, msg })),
     ...riskyIssues(ws, risky, (t) => lemmasIn(t, forms, lang)).map(({ id, msg }) => ({ level: 'warning' as const, where: `${where} ${id}`, msg })),
   ]);
+  // Правила перевода (задача 15.3): обращение как в оригинале, «ёлочки», «ё» — во всех файлах контента языка.
+  const contentFiles = (dir: string, rel = ''): string[] =>
+    readdirSync(dir).flatMap((f) => {
+      const full = join(dir, f);
+      return statSync(full).isDirectory() ? contentFiles(full, `${rel}${f}/`) : f.endsWith('.json') ? [`${rel}${f}`] : [];
+    });
+  const translation: Issue[] = contentFiles(join(root, lang)).flatMap((rel) =>
+    translationIssues(JSON.parse(readFileSync(join(root, lang, rel), 'utf8')), lang).map(({ where, msg }) => ({
+      level: 'warning' as const,
+      where: `${rel} ${where}`,
+      msg,
+    })),
+  );
   // Праздники: их фразы и миссии опираются и на слова самого праздника, поэтому словарь свой — с ними на уровне 1.
   const festivals = readJson<FestivalFile>(join(root, lang, 'festivals'));
   const festLexicon = buildLexicon(
@@ -225,6 +239,7 @@ for (const lang of langs) {
     ...tag(validateWords(words, lang)),
     ...tag(rarity),
     ...tag(usage),
+    ...tag(translation),
     ...tag(
       validatePhrases(phrases, {
         lessons: new Set(grammar.map((g) => (g.data as GrammarLesson).id)),
