@@ -1,16 +1,10 @@
-import { LANG } from '../lang';
+import { loaders } from './registry';
 import { byHero } from '../store/settings';
 import { isThreadId, THREAD_PLACE } from '../domain/thread';
-import type { LocationScenes, Scene, ThreadFile } from './schema';
+import type { Scene, ThreadFile } from './schema';
 
-// Сцены грузятся по месту и только выбранного языка. `auto` (переводы слов) достраивает сборка.
-const modules = import.meta.glob<LocationScenes>('./*/scenes/*.json', { import: 'default' });
-
-const loaderByPlace = new Map<string, () => Promise<LocationScenes>>();
-for (const [path, load] of Object.entries(modules)) {
-  const [, lang, place] = path.match(/^\.\/([^/]+)\/scenes\/([^/]+)\.json$/)!;
-  if (lang === LANG) loaderByPlace.set(place, load);
-}
+// Сцены грузятся по месту и только выбранного языка (реестр — registry.ts). `auto` (переводы слов) достраивает сборка.
+const loaderByPlace = loaders('scenes');
 
 /** Место сцены: `sc:cafe.1` → `cafe`, шёпота: `wh:cafe.4` → `cafe`, нити главы: `th:1.open` → `thread`. */
 export const placeOfScene = (id: string) => (isThreadId(id) ? THREAD_PLACE : id.replace(/^(sc|wh):/, '').split('.')[0]);

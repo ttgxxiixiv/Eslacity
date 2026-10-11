@@ -1,37 +1,20 @@
-import { LANG } from '../lang';
-import type { BookFile, FestivalFile, LocationId, LocationWords, ScrollFile, Word, WordSource } from './schema';
+import { loaders } from './registry';
+import type { LocationId, Word, WordSource } from './schema';
 
 // Слова всех языков лежат в src/content/<язык>/words; загружаются только слова выбранного языка.
-const modules = import.meta.glob<LocationWords>('./*/words/*.json', { import: 'default' });
+// Файлы — из реестра контента (задача 16.5): src/content/registry.ts.
 
-// Свитки земель грузятся так же, как места: свиток главы I — «место» scroll1.
-const scrollModules = import.meta.glob<ScrollFile>('./*/scrolls/*.json', { import: 'default' });
 
-// Праздники (задача 10.5): слова праздника — «место» fest-<id>, файл общий со фразами и миссией.
-const festivalModules = import.meta.glob<FestivalFile>('./*/festivals/*.json', { import: 'default' });
 
-// Книги Летописца (задача 12.4): словарик текстов главы — «место» bk:<глава>.
-const bookModules = import.meta.glob<BookFile>('./*/books/*.json', { import: 'default' });
 
 const loaderById = new Map<WordSource, () => Promise<{ words: Word[] }>>();
-for (const [path, load] of Object.entries(modules)) {
-  const [, lang, id] = path.match(/^\.\/([^/]+)\/words\/([^/]+)\.json$/)!;
-  if (lang === LANG) loaderById.set(id as LocationId, load);
-}
-for (const [path, load] of Object.entries(scrollModules)) {
-  const [, lang, chapter] = path.match(/^\.\/([^/]+)\/scrolls\/(\d+)\.json$/)!;
-  if (lang === LANG) loaderById.set(`scroll${Number(chapter)}`, load);
-}
-
-for (const [path, load] of Object.entries(bookModules)) {
-  const [, lang, chapter] = path.match(/^\.\/([^/]+)\/books\/(\d+)\.json$/)!;
-  if (lang === LANG) loaderById.set(`bk:${Number(chapter)}`, load);
-}
-
-for (const [path, load] of Object.entries(festivalModules)) {
-  const [, lang, id] = path.match(/^\.\/([^/]+)\/festivals\/([^/]+)\.json$/)!;
-  if (lang === LANG) loaderById.set(`fest-${id}`, load);
-}
+for (const [id, load] of loaders('words')) loaderById.set(id as LocationId, load);
+// Свитки земель грузятся так же, как места: свиток главы I — «место» scroll1.
+for (const [chapter, load] of loaders('scrolls')) loaderById.set(`scroll${Number(chapter)}`, load);
+// Книги Летописца (задача 12.4): словарик текстов главы — «место» bk:<глава>.
+for (const [chapter, load] of loaders('books')) loaderById.set(`bk:${Number(chapter)}`, load);
+// Праздники (задача 10.5): слова праздника — «место» fest-<id>, файл общий со фразами и миссией.
+for (const [id, load] of loaders('festivals')) loaderById.set(`fest-${id}`, load);
 
 const cache = new Map<WordSource, Word[]>();
 const byId = new Map<string, Word>();

@@ -1,21 +1,12 @@
-import { LANG } from '../lang';
+import { loaders } from './registry';
 import { byHero } from '../store/settings';
-import type { FestivalFile, LocationMissions, Mission } from './schema';
+import type { LocationMissions, Mission } from './schema';
 
-// Миссии грузятся по месту и только выбранного языка.
-const modules = import.meta.glob<LocationMissions>('./*/missions/*.json', { import: 'default' });
-
-const loaderByPlace = new Map<string, () => Promise<LocationMissions>>();
-for (const [path, load] of Object.entries(modules)) {
-  const [, lang, place] = path.match(/^\.\/([^/]+)\/missions\/([^/]+)\.json$/)!;
-  if (lang === LANG) loaderByPlace.set(place, load);
-}
+// Миссии грузятся по месту и только выбранного языка (реестр — registry.ts).
+const loaderByPlace = new Map<string, () => Promise<LocationMissions>>(loaders('missions'));
 // Праздники: миссия в файле праздника, «место» — fest-<id>.
-const festivals = import.meta.glob<FestivalFile>('./*/festivals/*.json', { import: 'default' });
-for (const [path, load] of Object.entries(festivals)) {
-  const [, lang, id] = path.match(/^\.\/([^/]+)\/festivals\/([^/]+)\.json$/)!;
-  if (lang === LANG) loaderByPlace.set(`fest-${id}`, async () => ({ location: `fest-${id}`, missions: (await load()).missions }) as unknown as LocationMissions);
-}
+for (const [id, load] of loaders('festivals'))
+  loaderByPlace.set(`fest-${id}`, async () => ({ location: `fest-${id}`, missions: (await load()).missions }) as unknown as LocationMissions);
 
 /** Место миссии: `ms:cafe.1` → `cafe`. */
 export const placeOfMission = (id: string) => id.replace(/^ms:/, '').split('.')[0];

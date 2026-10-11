@@ -1,5 +1,6 @@
 import INDEX from 'virtual:grammar-index';
 import { LANG } from '../lang';
+import { loaders } from './registry';
 import type { District, GrammarLesson } from './schema';
 
 /** Краткие сведения об уроке для карты: сам урок грузится отдельно. */
@@ -13,12 +14,8 @@ export interface LessonMeta {
 export const GRAMMAR: LessonMeta[] = INDEX.filter((l) => l.lang === LANG).sort((a, b) => a.order - b.order);
 
 // Уроки лежат в отдельных чанках по языкам и районам и загружаются при открытии.
-const loaders = import.meta.glob<GrammarLesson>('./*/grammar/*/*.json', { import: 'default' });
-const loaderById = new Map<string, () => Promise<GrammarLesson>>();
-for (const [path, load] of Object.entries(loaders)) {
-  const [, lang, folder, file] = path.match(/^\.\/([^/]+)\/grammar\/([^/]+)\/(.+)\.json$/)!;
-  if (lang === LANG) loaderById.set(`${folder}.${file}`, load);
-}
+// Реестр — registry.ts: ключ файла `a1/02-ser`, id урока `a1.02-ser`.
+const loaderById = new Map<string, () => Promise<GrammarLesson>>([...loaders('grammar')].map(([key, load]) => [key.replace('/', '.'), load]));
 
 const cache = new Map<string, GrammarLesson>();
 

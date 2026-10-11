@@ -1,9 +1,8 @@
-import { LANG } from '../lang';
-import type { Letter, LettersFile, Note } from './schema';
+import { loader } from './registry';
+import type { Letter, Note } from './schema';
 
 // Письма грузятся только для выбранного языка и только когда нужны: в месте, на экране письма, в дневнике.
-const modules = import.meta.glob<LettersFile>('./*/letters.json', { import: 'default' });
-const load = Object.entries(modules).find(([path]) => path.startsWith(`./${LANG}/`))?.[1];
+const load = loader('letters');
 
 export async function loadLetters(): Promise<Letter[]> {
   return load ? (await load()).letters : [];
