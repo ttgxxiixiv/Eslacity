@@ -7,7 +7,11 @@ import { Link, useParams } from 'react-router-dom';
 import { currentVoice, hasLangVoice, languageVoices, onVoicesChanged, speak, speakHero, ttsSupported, voiceFor } from '../audio/tts';
 import { L, LANG, LANGS, switchLang, type Lang } from '../lang';
 import { resetProgress } from '../store/bootstrap';
-import { downloadJson, exportBackup, importBackup, parseBackup } from '../db/backup';
+import { importBackup, parseBackup } from '../db/backup';
+import { backupDue, daysSinceBackup } from '../domain/backupPlan';
+import { plural } from '../domain/medals';
+import { saveBackupNow, storagePersisted } from '../lib/backup';
+import { useBackup } from '../store/backup';
 import { TEXT_SCALE, TEXT_SIZE_LABEL, useSettings, type Settings, type TextSize } from '../store/settings';
 import { cleanName, HERO_WORD, NAME_MAX } from '../domain/address';
 import { SETTINGS_SECTIONS, settingsHint, type SettingsSection } from '../domain/settingsSections';
@@ -15,7 +19,7 @@ import { useProgress } from '../store/progress';
 import { Button, Screen, TopBar } from '../components/ui';
 import { AboutApp } from '../components/AboutApp';
 import { HeroPortrait } from '../components/HeroPortrait';
-import { APK_FILE, NATIVE, saveJsonFile } from '../lib/native';
+import { APK_FILE, NATIVE } from '../lib/native';
 
 /** Размеры текста по порядку (задача 14.3). */
 const TEXT_SIZES: TextSize[] = ['normal', 'large', 'xlarge'];
@@ -371,27 +375,61 @@ function LanguageSection() {
   );
 }
 
+/** Когда была последняя копия: для подписи в разделе. */
+function lastBackupText(days: number | undefined): string {
+  if (days === undefined) return 'Копий ещё не было.';
+  if (days === 0) return 'Последняя копия — сегодня.';
+  return `Последняя копия — ${days} ${plural(days, ['день', 'дня', 'дней'])} назад.`;
+}
+
 function DataSection() {
+  const backup = useBackup((s) => s.rec);
+  const hasProgress = useProgress((s) => Object.keys(s.cards).length > 0);
+  const now = Date.now();
+  const due = backupDue(backup, hasProgress, now);
+  // Постоянное хранилище (задача 16.7): без него браузер может стереть базу при нехватке места.
+  const [persisted, setPersisted] = useState<boolean | undefined>(true);
+  useEffect(() => {
+    void storagePersisted().then(setPersisted);
+  }, []);
+  const save = async () => {
+    try {
+      const where = await saveBackupNow();
+      if (where) alert(`Прогресс сохранён: ${where}`);
+    } catch (err) {
+      alert(`Не удалось сохранить: ${(err as Error).message}`);
+    }
+  };
   return (
     <section className="rounded-3xl bg-white p-4 shadow-sm">
       <h2 className="font-bold">Прогресс</h2>
       <p className="mt-1 text-sm text-stone-500">
         Хранится только на этом устройстве. Сохраните файл, чтобы перенести прогресс на другой телефон.
       </p>
-      <Button
-        variant="secondary"
-        className="mt-3 w-full"
-        onClick={async () => {
-          try {
-            const where = await saveJsonFile(await exportBackup(), `eslacity-${LANG}-${new Date().toISOString().slice(0, 10)}.json`, downloadJson);
-            if (where) alert(`Прогресс сохранён: ${where}`);
-          } catch (err) {
-            alert(`Не удалось сохранить: ${(err as Error).message}`);
-          }
-        }}
-      >
+      {due && (
+        <div className="mt-3 rounded-2xl border border-gold bg-amber-50 p-3" data-testid="backup-due">
+          <p className="font-semibold">Сохраните путь</p>
+          <p className="mt-1 text-sm text-stone-600">
+            Летописец советует раз в неделю сохранять копию: если телефон потеряется или браузер очистит данные, путь можно будет вернуть из файла.
+          </p>
+          <button type="button" className="mt-2 text-sm font-semibold text-stone-600 underline" data-testid="backup-snooze" onClick={() => useBackup.getState().snooze()}>
+            Напомнить через неделю
+          </button>
+        </div>
+      )}
+      {persisted === false && (
+        <p className="mt-3 rounded-2xl bg-red-50 p-3 text-sm text-bad" data-testid="storage-warning">
+          Браузер не обещал хранить данные игры: при нехватке места он может их стереть. Установите игру на главный экран и
+          сохраняйте копию.
+        </p>
+      )}
+      <Button variant="secondary" className="mt-3 w-full" data-testid="backup-save" onClick={save}>
         Сохранить в файл
       </Button>
+      <p className="mt-2 text-sm text-stone-500" data-testid="backup-last">
+        {lastBackupText(daysSinceBackup(backup, now))}
+        {NATIVE && ' Приложение само сохраняет копию раз в неделю в «Документы/Eslacity», хранятся последние четыре.'}
+      </p>
       <label className="press mt-2 block w-full cursor-pointer rounded-2xl border border-stone-300 bg-white px-5 py-3.5 text-center font-semibold">
         Загрузить из файла
         <input

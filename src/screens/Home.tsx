@@ -47,6 +47,8 @@ import { usePlacement } from '../store/placement';
 import { usePrologue } from '../store/prologue';
 import { homeBlocks, prologuePending } from '../domain/prologue';
 import { useChronicleDue } from '../lib/chronicle';
+import { useBackup } from '../store/backup';
+import { backupDue } from '../domain/backupPlan';
 
 type WordsMap = Partial<Record<LocationId, Word[]>>;
 
@@ -406,6 +408,9 @@ export function Home() {
   // Событие дня (задача 13.7): кнопка в ряду, пока сегодня не пройдено.
   const rumorDay = useRumors((s) => s.rec.day);
   const rumorToday = learned >= RUMOR_MIN_WORDS && rumorDue({ day: rumorDay, got: [] }, dayNumber(Date.now()));
+  // Копия прогресса (задача 16.7): раз в неделю кнопка ведёт в раздел «Данные и копии».
+  const backupRec = useBackup((s) => s.rec);
+  const backupNow = backupDue(backupRec, Object.keys(cards).length > 0, Date.now());
   const chronicleCount = chronicle ? chronicle.scenes.length + (chronicle.note ? 1 : 0) + chronicle.books : 0;
 
   // Первый запуск: сначала пролог у ворот города.
@@ -460,6 +465,11 @@ export function Home() {
           {blocks.journey && rumorToday && (
             <DockButton to="/rumor" art={DOCK_ART.empty} label="Слухи" badge="!" testId="rumor-button" text={`Слухи города: ${RUMOR_TITLE[rumorKind(dayNumber(Date.now()))].toLowerCase()}`}>
               <span className="text-[22px] leading-none">👂</span>
+            </DockButton>
+          )}
+          {backupNow && (
+            <DockButton to="/settings/data" art={DOCK_ART.empty} label="Копия" badge="!" testId="backup-button" text="Сохраните путь: пора сделать копию прогресса">
+              <span className="text-[22px] leading-none">💾</span>
             </DockButton>
           )}
           {blocks.journey && <DockButton to="/journey-map" art={DOCK_ART.journey} label="Путь" badge={journeyHint.got || undefined} text={journeyHint.text} testId="journey-line" />}

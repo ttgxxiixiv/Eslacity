@@ -43,6 +43,19 @@ export async function saveJsonFile(obj: unknown, filename: string, download: (ob
   return `Документы/${path}`;
 }
 
+/** Файлы в «Документы/Eslacity» (только в приложении): для автокопий. */
+export async function listSavedFiles(): Promise<string[]> {
+  if (!NATIVE) return [];
+  const r = await Filesystem.readdir({ path: 'Eslacity', directory: Directory.Documents }).catch(() => ({ files: [] }));
+  return r.files.map((f) => (typeof f === 'string' ? f : f.name));
+}
+
+/** Удалить файл из «Документы/Eslacity» (только в приложении). */
+export async function deleteSavedFile(name: string): Promise<void> {
+  if (!NATIVE) return;
+  await Filesystem.deleteFile({ path: `Eslacity/${name}`, directory: Directory.Documents });
+}
+
 /** Свой плагин приложения (`android/.../ApkUpdatePlugin.java`): скачать APK и открыть установщик Android. */
 const ApkUpdate = registerPlugin<{ install(o: { url: string }): Promise<{ size: number }> }>('ApkUpdate');
 

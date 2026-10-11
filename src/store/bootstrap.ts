@@ -37,6 +37,9 @@ import type { BooksRecord } from '../domain/books';
 import type { ThreadRecord } from '../domain/thread';
 import type { PrologueRecord } from '../domain/prologue';
 import type { JourneyRecord } from '../domain/chapters';
+import { useBackup } from './backup';
+import type { BackupRecord } from '../domain/backupPlan';
+import { autoBackup } from '../lib/backup';
 
 export async function bootstrap(): Promise<void> {
   // Просим браузер не вычищать IndexedDB при нехватке места: иначе прогресс может пропасть.
@@ -78,6 +81,7 @@ export async function bootstrap(): Promise<void> {
   useStory.getState().hydrate(m.story as Partial<StoryRecord> | undefined);
   useRumors.getState().hydrate(m.rumors as Partial<RumorsRecord> | undefined);
   useDiary.getState().hydrate(m.diary as Partial<DiaryRecord> | undefined);
+  useBackup.getState().hydrate(m.backup as BackupRecord | undefined);
   useRewards.getState().hydrate(m.rewards as Partial<RewardsRecord> | undefined);
   // Награды уровней героя: задним числом за уже набранный уровень и дальше при каждом новом.
   useRewards.getState().sync();
@@ -99,6 +103,8 @@ export async function bootstrap(): Promise<void> {
   watchSoundCues();
   watchMusic();
   unlockAudio();
+  // Автокопия прогресса в приложении для Android (задача 16.7): раз в неделю, в фоне.
+  autoBackup().catch((e) => console.error('Не удалось сделать автокопию', e));
   // Старые записи журнала убираются в фоне: запуску они не нужны.
   pruneAnswers().catch((e) => console.error('Не удалось почистить журнал ответов', e));
 }
