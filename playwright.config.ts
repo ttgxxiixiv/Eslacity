@@ -11,7 +11,8 @@ export default defineConfig({
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
   retries: 0,
-  reporter: process.env.CI ? [['list'], ['github']] : 'list',
+  // В CI тесты идут шардами (задача 16.3): каждый шард пишет blob-отчёт, задача e2e-report сливает их в один.
+  reporter: process.env.CI ? [['list'], ['blob']] : 'list',
   use: {
     baseURL: `http://localhost:${PORT}/`,
     trace: 'retain-on-failure',
