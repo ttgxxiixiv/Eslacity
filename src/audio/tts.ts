@@ -1,4 +1,6 @@
-import { L } from '../lang';
+import SAY_INDEX from 'virtual:say-index';
+import { L, LANG } from '../lang';
+import { EMPTY_SAY, spokenText } from '../domain/say';
 import { useSettings } from '../store/settings';
 import { QueueStrategy, TextToSpeech } from '@capacitor-community/text-to-speech';
 import { NATIVE } from '../lib/native';
@@ -94,8 +96,13 @@ export function voiceFor(gender: VoiceGender): Voice | null {
  * Сказать текст голосом языка. pitch — высота голоса (у жителей своя). `gender` — пол говорящего: берётся голос
  * этого пола, а если такого в системе нет, основной голос опускается или поднимается (`shiftedPitch`).
  */
+/** Словарь произношения языка курса (поле `say` в контенте). */
+const SAY = SAY_INDEX[LANG] ?? EMPTY_SAY;
+
 export function speak(text: string, rate = useSettings.getState().speechRate, pitch = 1, gender?: VoiceGender): void {
   if (!supported || !text) return;
+  // Аббревиатуры и числа — как их произносят (задача 15.4): «el DNI» звучит «el de ene i».
+  text = spokenText(text, SAY);
   const finish = startSpoken(text, rate);
   const own = gender ? genderVoice(gender) : null;
   const v = own ?? voice;

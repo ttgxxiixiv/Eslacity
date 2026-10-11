@@ -10,6 +10,7 @@ import { chapterOfDistrict } from '../src/domain/chapters';
 import { plural } from '../src/domain/medals';
 import { femIssues, forGender } from '../src/domain/address';
 import { translationIssues } from '../src/domain/translation';
+import { sayIssues } from '../src/domain/say';
 import { lessonParts, levelWords } from '../src/domain/levels';
 import { applySkips, applySkipsToForms, buildLexicon, cefrIssues, coverage, lemmaRanks, parseRisky, rarityIssues, riskyIssues, wordRank, lemmasIn, parseFreq, parseSkips, parseLemmas, textCoverage, uncoveredWords } from './vocab-lib';
 
@@ -115,13 +116,15 @@ for (const lang of langs) {
       const full = join(dir, f);
       return statSync(full).isDirectory() ? contentFiles(full, `${rel}${f}/`) : f.endsWith('.json') ? [`${rel}${f}`] : [];
     });
-  const translation: Issue[] = contentFiles(join(root, lang)).flatMap((rel) =>
-    translationIssues(JSON.parse(readFileSync(join(root, lang, rel), 'utf8')), lang).map(({ where, msg }) => ({
+  // Поле say (задача 15.4) проверяется тем же обходом: пустое, совпадает с текстом, нет say у женской формы.
+  const translation: Issue[] = contentFiles(join(root, lang)).flatMap((rel) => {
+    const data = JSON.parse(readFileSync(join(root, lang, rel), 'utf8'));
+    return [...translationIssues(data, lang), ...sayIssues(data)].map(({ where, msg }) => ({
       level: 'warning' as const,
       where: `${rel} ${where}`,
       msg,
-    })),
-  );
+    }));
+  });
   // Праздники: их фразы и миссии опираются и на слова самого праздника, поэтому словарь свой — с ними на уровне 1.
   const festivals = readJson<FestivalFile>(join(root, lang, 'festivals'));
   const festLexicon = buildLexicon(

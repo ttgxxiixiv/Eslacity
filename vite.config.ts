@@ -7,6 +7,7 @@ import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { glossIndex, parseLemmas, tokens } from './scripts/vocab-lib';
 import { CHAPTERS } from './src/content/vocabPlan';
+import { buildSayIndex, sayRecords } from './src/domain/say';
 
 // Данные о сборке: показываются в настройках и лежат в version.json для проверки обновлений.
 const pkg = JSON.parse(readFileSync(new URL('./package.json', import.meta.url), 'utf8')) as { version: string };
@@ -248,6 +249,25 @@ export default defineConfig({
           `export const SCROLLS = ${JSON.stringify(scrollIndex())};`,
           `export const MISSIONS = ${JSON.stringify(missionIndex())};`,
         ].join('\n');
+      },
+    },
+    {
+      // Произношение для озвучки (задача 15.4): записи с полем say из всего контента языка.
+      name: 'say-index',
+      resolveId(id) {
+        return id === 'virtual:say-index' ? '\0virtual:say-index' : null;
+      },
+      load(id) {
+        if (id !== '\0virtual:say-index') return null;
+        const files = (dir: string): string[] =>
+          readdirSync(dir, { withFileTypes: true }).flatMap((e) => (e.isDirectory() ? files(join(dir, e.name)) : e.name.endsWith('.json') ? [join(dir, e.name)] : []));
+        const out: Record<string, ReturnType<typeof buildSayIndex>> = {};
+        for (const { lang } of wordDirs()) {
+          const dir = join(CONTENT_DIR, lang);
+          this.addWatchFile(dir);
+          out[lang] = buildSayIndex(files(dir).flatMap((f) => sayRecords(JSON.parse(readFileSync(f, 'utf8')))));
+        }
+        return `export default ${JSON.stringify(out)};`;
       },
     },
     {

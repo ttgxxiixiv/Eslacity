@@ -33,7 +33,7 @@ export const CSV_COLUMNS = ['file', 'path', 'id', 'level', 'ru', 'text', 'fix', 
  */
 const TARGET_KEYS = new Set([
   'es', 'sample', 'sentence', 'statement', 'prompt', 'explain', 'md', 'source', 'keyword', 'text', 'first', 'second', 'connector', 'answer',
-  'alt', 'extra', 'options', 'answers', 'examples', 'forms', 'yo', 'fut', 'pp', 'inf',
+  'alt', 'extra', 'options', 'answers', 'examples', 'forms', 'yo', 'fut', 'pp', 'inf', 'say',
 ]);
 /** Ветки, где строки русские или служебные: вопросы на понимание, переводы слов (`gloss`), облик и голос. */
 const SKIP_KEYS = new Set(['ru', 'gloss', 'auto', 'look', 'voice', 'questions', 'task', 'label', 'role', 'character', 'errands', 'name', 'names', 'about', 'hint']);
