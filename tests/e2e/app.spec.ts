@@ -237,7 +237,15 @@ for (const lang of LANGS) {
       await page.goto(`./#/grammar/${lang === 'es' ? 'b2.20-marcadores' : 'b2.20-segnali-discorsivi'}`);
       await expect(page.getByTestId('district-lock')).toContainText('откроется в главе IV');
       await page.goto(`./#/grammar/${lang === 'es' ? 'a1.02-ser' : 'a1.02-essere'}`);
-      await expect(page.getByRole('button', { name: /к упражнениям/i })).toBeVisible();
+      await expect(page.getByRole('button', { name: /к упражнениям/i })).toBeVisible();      // Экраны своими чанками (задача 16.2): все в precache, без сети открываются.
+      await page.goto('./#/profile');
+      await expect(page.getByTestId('profile-path')).toBeVisible();
+      await page.goto('./#/settings/app');
+      await expect(page.getByTestId('changelog')).toBeAttached();
+      await page.goto('./#/journey-map');
+      await expect(page.getByTestId('chronicle-link')).toBeVisible();
+      await page.goto('./#/forge');
+      await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
     });
   });
 }

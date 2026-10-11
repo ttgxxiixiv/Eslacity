@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import { chapterById, completedChapters, sceneToShow, type ChapterId } from '../domain/chapters';
-import { LandArt, LAND_IMAGES, Road } from '../screens/JourneyMap';
+import { LandArt, LAND_IMAGES, Road } from './LandArt';
 import { currentJourney, useJourney } from '../store/journey';
 import { useProgress } from '../store/progress';
 import { cellOf, cellPolygon, MAP_H, MAP_W } from './journeyArt';

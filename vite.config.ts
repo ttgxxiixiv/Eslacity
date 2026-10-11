@@ -231,23 +231,26 @@ export default defineConfig({
     },
     {
       name: 'word-index',
+      // Свой модуль на язык (задача 16.2): `virtual:word-index/es`, грузится только индекс языка курса.
       resolveId(id) {
-        return id === 'virtual:word-index' ? '\0virtual:word-index' : null;
+        return id.startsWith('virtual:word-index/') ? `\0${id}` : null;
       },
       load(id) {
-        if (id !== '\0virtual:word-index') return null;
+        if (!id.startsWith('\0virtual:word-index/')) return null;
+        const lang = id.slice('\0virtual:word-index/'.length);
         for (const { lang, dir } of wordDirs()) {
           this.addWatchFile(dir);
           if (existsSync(join(CONTENT_DIR, lang, 'scrolls'))) this.addWatchFile(join(CONTENT_DIR, lang, 'scrolls'));
           if (existsSync(join(CONTENT_DIR, lang, 'missions'))) this.addWatchFile(join(CONTENT_DIR, lang, 'missions'));
         }
+        const of = <T,>(all: Record<string, T>, empty: T) => JSON.stringify(all[lang] ?? empty);
         return [
-          `export default ${JSON.stringify(wordIndex())};`,
-          `export const PHRASES = ${JSON.stringify(phraseIndex())};`,
-          `export const PAIRS = ${JSON.stringify(pairIndex())};`,
-          `export const EXPRESSIONS = ${JSON.stringify(expressionIndex())};`,
-          `export const SCROLLS = ${JSON.stringify(scrollIndex())};`,
-          `export const MISSIONS = ${JSON.stringify(missionIndex())};`,
+          `export default ${of(wordIndex(), {})};`,
+          `export const PHRASES = ${of(phraseIndex(), [])};`,
+          `export const PAIRS = ${of(pairIndex(), {})};`,
+          `export const EXPRESSIONS = ${of(expressionIndex(), [])};`,
+          `export const SCROLLS = ${of(scrollIndex(), {})};`,
+          `export const MISSIONS = ${of(missionIndex(), {})};`,
         ].join('\n');
       },
     },

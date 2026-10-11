@@ -23,18 +23,19 @@ declare module 'virtual:say-index' {
   export default index;
 }
 
-declare module 'virtual:word-index' {
-  /** Язык → место → уровень → id слов без префикса места (`cafe.te` записан как `te`). */
-  const index: Record<string, Record<string, Record<number, string[]>>>;
+/** Индекс слов одного языка: `virtual:word-index/es`, `virtual:word-index/it` (задача 16.2). */
+declare module 'virtual:word-index/*' {
+  /** Место → уровень → id слов без префикса места (`cafe.te` записан как `te`). */
+  const index: Record<string, Record<number, string[]>>;
   export default index;
-  /** Язык → id слов с частью речи phrase. */
-  export const PHRASES: Record<string, string[]>;
-  /** Язык → id выражения → id его пары в другом регистре. */
-  export const PAIRS: Record<string, Record<string, string>>;
-  /** Язык → id выражений уровня 7. */
-  export const EXPRESSIONS: Record<string, string[]>;
-  /** Язык → глава → id слов свитка земли. */
-  export const SCROLLS: Record<string, Record<number, string[]>>;
-  /** Язык → место → главы, для которых есть сюжетная миссия. */
-  export const MISSIONS: Record<string, Record<string, number[]>>;
+  /** id слов с частью речи phrase. */
+  export const PHRASES: string[];
+  /** id выражения → id его пары в другом регистре. */
+  export const PAIRS: Record<string, string>;
+  /** id выражений уровня 7. */
+  export const EXPRESSIONS: string[];
+  /** Глава → id слов свитка земли. */
+  export const SCROLLS: Record<number, string[]>;
+  /** Место → главы, для которых есть сюжетная миссия. */
+  export const MISSIONS: Record<string, number[]>;
 }

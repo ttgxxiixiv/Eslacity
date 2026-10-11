@@ -1,11 +1,10 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { speakAs } from '../audio/tts';
-import { BOOK_FILE_CHAPTERS, loadBooks } from '../content/books';
 import { CHRONICLER } from '../content/npcs';
 import type { Book, BookFile, BookWord } from '../content/schema';
 import { normalize } from '../domain/answer';
-import { BOOK_PASS, BOOK_XP, bookSlots, parseBookId, type BookSlot } from '../domain/books';
+import { BOOK_PASS, BOOK_XP, parseBookId } from '../domain/books';
 import { chapterById } from '../domain/chapters';
 import { plural } from '../domain/medals';
 import { sceneChunks, wordTranslation } from '../domain/sceneText';
@@ -14,43 +13,7 @@ import { useBooks } from '../store/books';
 import { useJourney } from '../store/journey';
 import { useProgress } from '../store/progress';
 import { SceneQuiz } from './Scene';
-
-const cache = new Map<number, BookFile | null>();
-
-/** Книги глав до открытой: файлы маленькие, грузятся один раз. */
-function useBookFiles(opened: number): Map<number, BookFile> | null {
-  const chapters = BOOK_FILE_CHAPTERS.filter((c) => c <= opened);
-  const key = chapters.join(',');
-  const [files, setFiles] = useState<Map<number, BookFile> | null>(null);
-  useEffect(() => {
-    let alive = true;
-    Promise.all(chapters.map(async (c) => [c, cache.has(c) ? cache.get(c)! : await loadBooks(c)] as const)).then((list) => {
-      const m = new Map<number, BookFile>();
-      for (const [c, f] of list) {
-        cache.set(c, f);
-        if (f) m.set(c, f);
-      }
-      if (alive) setFiles(m);
-    });
-    return () => {
-      alive = false;
-    };
-    // Ключ — список глав: массив пересоздаётся на каждом рендере.
-  }, [key]);
-  return files;
-}
-
-/** Тексты по обрывкам: открытые и закрытые. Для Летописи и её бейджа. */
-export function useBookSlots(): { slots: BookSlot[]; files: Map<number, BookFile> } | null {
-  const opened = useJourney((s) => s.opened);
-  const fragments = useJourney((s) => s.fragments);
-  const files = useBookFiles(opened);
-  return useMemo(() => {
-    if (!files) return null;
-    const ids = new Set([...files.values()].flatMap((f) => f.books.map((b) => b.id)));
-    return { slots: bookSlots(opened, fragments, (id) => ids.has(id)), files };
-  }, [files, opened, fragments]);
-}
+import { useBookSlots } from '../lib/chronicle';
 
 const titleOf = (files: Map<number, BookFile>, id: string) => {
   const p = parseBookId(id);

@@ -46,7 +46,7 @@ import { placementOffered } from '../domain/placement';
 import { usePlacement } from '../store/placement';
 import { usePrologue } from '../store/prologue';
 import { homeBlocks, prologuePending } from '../domain/prologue';
-import { useChronicleDue } from './Chronicle';
+import { useChronicleDue } from '../lib/chronicle';
 
 type WordsMap = Partial<Record<LocationId, Word[]>>;
 

@@ -19,7 +19,8 @@ for (const lang of LANGS) {
       // После перезапуска размер тот же, урок проходится, экран не шире телефона.
       await page.goto('./#/learn/cafe/1/0');
       await page.reload();
-      expect(await rootSize(page)).toBe('20px');
+      // Размер ставится, когда загрузятся настройки: до этого корень ещё обычный.
+      await expect.poll(() => rootSize(page)).toBe('20px');
       const { verdicts } = await playWords(page, lang, /урок пройден/i);
       expect(verdicts.correct).toBeGreaterThan(10);
       expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);

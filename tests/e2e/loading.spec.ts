@@ -1,3 +1,5 @@
+import { readdirSync, readFileSync, statSync } from 'node:fs';
+import { join } from 'node:path';
 import { expect, test } from '@playwright/test';
 import { LANGS, openApp } from './fixtures';
 
@@ -33,10 +35,24 @@ for (const lang of LANGS) {
 
     test('экран проявляется, при «меньше движения» — сразу', async ({ page }) => {
       await openApp(page, lang, '/profile');
-      const anim = () => page.locator('.screen-in').first().evaluate((el) => getComputedStyle(el).animationName);
-      expect(await anim()).toBe('screen-in');
+      // Профиль — свой чанк (16.2): ждём сам экран, а не экран ожидания.
+      await expect(page.getByTestId('profile-path')).toBeVisible();
+      const anim = () => page.locator('.screen-in', { has: page.getByTestId('profile-path') }).evaluate((el) => getComputedStyle(el).animationName);
+      await expect.poll(anim).toBe('screen-in');
       await page.emulateMedia({ reducedMotion: 'reduce' });
-      expect(await anim()).toBe('none');
+      await expect.poll(anim).toBe('none');
     });
   });
 }
+
+test('главный чанк меньше 350 КБ, экраны и индекс слов — своими чанками (задача 16.2)', () => {
+  const assets = join(import.meta.dirname, '..', '..', 'dist', 'assets');
+  const files = readdirSync(assets);
+  const main = files.find((f) => /^index-.*\.js$/.test(f))!;
+  expect(statSync(join(assets, main)).size).toBeLessThan(350 * 1024);
+  // В главном чанке нет списка изменений и индексов слов обоих языков.
+  const code = readFileSync(join(assets, main), 'utf8');
+  expect(code).not.toContain('Карта города на главной теперь в той же рамке');
+  expect(files.some((f) => /^changelog-.*\.js$/.test(f))).toBe(true);
+  expect(files.filter((f) => /^(es|it)-.*\.js$/.test(f))).toHaveLength(2);
+});

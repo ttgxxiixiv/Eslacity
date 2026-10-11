@@ -1,4 +1,5 @@
-import { CHANGELOG } from '../content/changelog';
+import { useEffect, useState } from 'react';
+import type { Release } from '../content/changelog';
 import { CURRENT, useUpdate } from '../lib/update';
 import { Button } from './ui';
 
@@ -21,7 +22,18 @@ const STATUS_TEXT = {
 
 export function AboutApp() {
   const { status, remote, check, apply, error } = useUpdate();
-  const latest = CHANGELOG[0];
+  // Список изменений — свой чанк (задача 16.2): он растёт с каждой версией, а нужен только здесь.
+  const [changelog, setChangelog] = useState<Release[] | null>(null);
+  useEffect(() => {
+    let alive = true;
+    import('../content/changelog').then((m) => {
+      if (alive) setChangelog(m.CHANGELOG);
+    });
+    return () => {
+      alive = false;
+    };
+  }, []);
+  const latest = changelog?.[0];
 
   return (
     <section className="rounded-3xl bg-white p-4 shadow-sm">
@@ -66,10 +78,11 @@ export function AboutApp() {
         </>
       )}
 
-      <details className="mt-3 text-sm">
+      {changelog && (
+      <details className="mt-3 text-sm" data-testid="changelog">
         <summary className="cursor-pointer text-stone-500">История изменений</summary>
         <ul className="mt-2 flex flex-col gap-2">
-          {CHANGELOG.map((r) => (
+          {changelog.map((r) => (
             <li key={r.version}>
               <div className="font-semibold">
                 {r.version} <span className="font-normal text-stone-500">· {r.date.split('-').reverse().join('.')}</span>
@@ -83,6 +96,7 @@ export function AboutApp() {
           ))}
         </ul>
       </details>
+      )}
     </section>
   );
 }

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { lazy, Suspense, useEffect, useState, type ComponentType } from 'react';
 import { HashRouter, Outlet, Route, Routes, useLocation } from 'react-router-dom';
 import { useJourney } from './store/journey';
 import { useSphinx } from './store/sphinx';
@@ -7,27 +7,8 @@ import { playTheme, stopMusic } from './audio/music';
 import { themeFor } from './domain/chiptune';
 import { bootstrap } from './store/bootstrap';
 import { Home } from './screens/Home';
-import { LocationScreen } from './screens/Location';
 import { LearnScreen } from './screens/Learn';
 import { PhraseLessonScreen } from './screens/PhraseLesson';
-import { SceneScreen } from './screens/Scene';
-import { MissionScreen } from './screens/Mission';
-import { TrialScreen } from './screens/Trial';
-import { GuardianScreen } from './screens/Guardian';
-import { SphinxScreen } from './screens/Sphinx';
-import { VaultScreen } from './screens/Vault';
-import { PlacementScreen } from './screens/Placement';
-import { ReviewScreen } from './screens/Review';
-import { BlitzScreen } from './screens/Blitz';
-import { ForgeScreen } from './screens/Forge';
-import { BellsScreen } from './screens/Bells';
-import { FestivalScreen } from './screens/Festival';
-import { SettingsScreen } from './screens/Settings';
-import { GrammarMap } from './screens/GrammarMap';
-import { GrammarLessonScreen } from './screens/GrammarLesson';
-import { ProfileScreen } from './screens/Profile';
-import { MyPathScreen } from './screens/MyPath';
-import { WordsScreen } from './screens/Words';
 import { useMotivation } from './store/motivation';
 import { ErrorBoundary } from './components/ErrorBoundary';
 import { UpdateBanner } from './components/UpdateBanner';
@@ -36,16 +17,48 @@ import { LevelUpToast } from './components/HeroLevel';
 import { MedalAward } from './components/MedalAward';
 import { useErrands } from './store/errands';
 import { ChapterScene } from './components/ChapterScene';
-import { MedalsScreen } from './screens/Medals';
-import { JourneyMapScreen } from './screens/JourneyMap';
-import { PrologueScreen } from './screens/Prologue';
-import { ErrandScreen, ErrandsScreen, MistakesScreen } from './screens/Errands';
-import { ChronicleScreen } from './screens/Chronicle';
-import { BookScreen } from './screens/Books';
-import { LetterScreen, LettersDiaryScreen, NoteScreen } from './screens/Letter';
-import { ShopScreen } from './screens/Shop';
-import { RumorScreen } from './screens/Rumor';
-import { DiaryScreen } from './screens/Diary';
+import { Loading } from './components/ui';
+
+/**
+ * Экран своим чанком (задача 16.2): сразу грузятся только главная и уроки, остальное — при первом переходе, пока
+ * на экране свиток ожидания. Офлайн не страдает: все чанки в precache.
+ */
+function screen<P extends object>(load: () => Promise<Record<string, unknown>>, name: string) {
+  return lazy(async () => ({ default: (await load())[name] as ComponentType<P> }));
+}
+const LocationScreen = screen(() => import('./screens/Location'), 'LocationScreen');
+const SceneScreen = screen(() => import('./screens/Scene'), 'SceneScreen');
+const MissionScreen = screen(() => import('./screens/Mission'), 'MissionScreen');
+const TrialScreen = screen(() => import('./screens/Trial'), 'TrialScreen');
+const GuardianScreen = screen(() => import('./screens/Guardian'), 'GuardianScreen');
+const SphinxScreen = screen(() => import('./screens/Sphinx'), 'SphinxScreen');
+const VaultScreen = screen(() => import('./screens/Vault'), 'VaultScreen');
+const PlacementScreen = screen(() => import('./screens/Placement'), 'PlacementScreen');
+const ReviewScreen = screen(() => import('./screens/Review'), 'ReviewScreen');
+const BlitzScreen = screen(() => import('./screens/Blitz'), 'BlitzScreen');
+const ForgeScreen = screen(() => import('./screens/Forge'), 'ForgeScreen');
+const BellsScreen = screen(() => import('./screens/Bells'), 'BellsScreen');
+const FestivalScreen = screen(() => import('./screens/Festival'), 'FestivalScreen');
+const SettingsScreen = screen(() => import('./screens/Settings'), 'SettingsScreen');
+const GrammarMap = screen(() => import('./screens/GrammarMap'), 'GrammarMap');
+const GrammarLessonScreen = screen(() => import('./screens/GrammarLesson'), 'GrammarLessonScreen');
+const ProfileScreen = screen(() => import('./screens/Profile'), 'ProfileScreen');
+const MyPathScreen = screen(() => import('./screens/MyPath'), 'MyPathScreen');
+const WordsScreen = screen(() => import('./screens/Words'), 'WordsScreen');
+const MedalsScreen = screen(() => import('./screens/Medals'), 'MedalsScreen');
+const JourneyMapScreen = screen(() => import('./screens/JourneyMap'), 'JourneyMapScreen');
+const PrologueScreen = screen(() => import('./screens/Prologue'), 'PrologueScreen');
+const ErrandScreen = screen(() => import('./screens/Errands'), 'ErrandScreen');
+const ErrandsScreen = screen(() => import('./screens/Errands'), 'ErrandsScreen');
+const MistakesScreen = screen(() => import('./screens/Errands'), 'MistakesScreen');
+const ChronicleScreen = screen(() => import('./screens/Chronicle'), 'ChronicleScreen');
+const BookScreen = screen(() => import('./screens/Books'), 'BookScreen');
+const LetterScreen = screen(() => import('./screens/Letter'), 'LetterScreen');
+const LettersDiaryScreen = screen(() => import('./screens/Letter'), 'LettersDiaryScreen');
+const NoteScreen = screen(() => import('./screens/Letter'), 'NoteScreen');
+const ShopScreen = screen(() => import('./screens/Shop'), 'ShopScreen');
+const RumorScreen = screen(() => import('./screens/Rumor'), 'RumorScreen');
+const DiaryScreen = screen(() => import('./screens/Diary'), 'DiaryScreen');
 
 /** Новый экран открывается сверху, а не с прокруткой предыдущего. */
 function ScrollToTop() {
@@ -75,7 +88,9 @@ function TabLayout() {
   return (
     <>
       <div className="pb-[calc(var(--nav-space)+1rem)]">
-        <Outlet />
+        <Suspense fallback={<Loading inline />}>
+          <Outlet />
+        </Suspense>
       </div>
       <UpdateBanner />
       <NavBar />
@@ -113,6 +128,7 @@ export default function App() {
       <SoundDirector />
       <LevelUpToast />
       <MedalAward />
+      <Suspense fallback={<Loading />}>
       <Routes>
         <Route element={<TabLayout />}>
           <Route path="/" element={<Home />} />
@@ -155,6 +171,7 @@ export default function App() {
         <Route path="/festival/:id" element={<FestivalScreen />} />
         <Route path="/words" element={<WordsScreen />} />
       </Routes>
+      </Suspense>
     </HashRouter>
     </ErrorBoundary>
   );

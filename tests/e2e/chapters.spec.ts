@@ -43,6 +43,8 @@ for (const lang of LANGS) {
       await expect(page.getByTestId('district-lock').first()).toContainText('Откроется в главе II');
 
       await page.goto(`./#/grammar/${lessonIds(lang, 'a2')[0]}`);
+      // Экран урока — свой чанк (16.2): пока он грузится, на экране ещё карта грамматики со всеми замками.
+      await expect(page.getByTestId('district-lock')).toHaveCount(1);
       await expect(page.getByTestId('district-lock')).toContainText('откроется в главе II');
 
       // Кафе прокачано до уровня 3 уже после обновления: уровень всё равно ждёт главу II.

@@ -1,56 +1,20 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { speakAs } from '../audio/tts';
 import { CHRONICLER } from '../content/npcs';
-import { loadThread } from '../content/scenes';
-import type { Scene, ThreadFile } from '../content/schema';
+import type { Scene } from '../content/schema';
 import { chapterById } from '../domain/chapters';
 import { plural } from '../domain/medals';
 import {
-  fragmentsOf, noteDue, noteOf, openThread, parseThreadId, shardsToday, THREAD_AT, THREAD_TRIGGERS, threadDue, threadId, TRIGGER_LABEL,
+  fragmentsOf, noteDue, noteOf, openThread, parseThreadId, shardsToday, THREAD_AT, THREAD_TRIGGERS, threadId, TRIGGER_LABEL,
 } from '../domain/thread';
 import { NpcPortrait } from '../components/NpcPortrait';
 import { Button, Loading, Screen, TopBar } from '../components/ui';
 import { useJourney } from '../store/journey';
 import { heroText } from '../store/settings';
 import { useThread } from '../store/thread';
-import { useBooks } from '../store/books';
-import { unreadBooks } from '../domain/books';
-import { BooksSection, useBookSlots } from './Books';
-
-type Thread = Pick<ThreadFile, 'scenes' | 'notes'>;
-let cached: Thread | null = null;
-
-/** Нить глав из контента: файл маленький, грузится один раз. */
-export function useThreadContent(): Thread | null {
-  const [thread, setThread] = useState(cached);
-  useEffect(() => {
-    if (!cached) {
-      loadThread().then((t) => {
-        cached = t;
-        setThread(t);
-      });
-    }
-  }, []);
-  return thread;
-}
-
-/** Что ждёт в Летописи: новые сцены нити и записка дня. Для кнопки на главной. */
-export function useChronicleDue(now = Date.now()): { scenes: string[]; note: boolean; books: number } | null {
-  const thread = useThreadContent();
-  const opened = useJourney((s) => s.opened);
-  const fragments = useJourney((s) => s.fragments);
-  const rec = useThread((s) => s.rec);
-  // Книги Летописца (задача 12.4): открытые и ещё не прочитанные.
-  const bookData = useBookSlots();
-  const booksRec = useBooks((s) => s.rec);
-  return useMemo(() => {
-    if (!thread || !bookData) return null;
-    const ids = new Set(thread.scenes.map((s) => s.id));
-    const note = noteDue(fragments, rec, now) && noteOf(thread.notes, opened, now) !== null;
-    return { scenes: threadDue(opened, fragments, rec, (id) => ids.has(id)), note, books: unreadBooks(bookData.slots, booksRec).length };
-  }, [thread, bookData, booksRec, opened, fragments, rec, now]);
-}
+import { BooksSection } from './Books';
+import { useThreadContent } from '../lib/chronicle';
 
 const sceneTitle = (id: string) => {
   const t = parseThreadId(id);
