@@ -1,0 +1,24 @@
+{
+  // Линтер (задача 16.4): oxlint, а не ESLint — парсер typescript-eslint требует JS API TypeScript, которого
+  // в TypeScript 7 нет. Свои правила — плагин в формате ESLint lint/eslacity-plugin.js.
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["typescript", "react", "oxc", "unicorn"],
+  "jsPlugins": ["./lint/eslacity-plugin.js"],
+  "categories": { "correctness": "error" },
+  "env": { "browser": true, "es2024": true },
+  "rules": {
+    "react/rules-of-hooks": "error",
+    // Эффект возвращает только функцию очистки (раньше — регулярное выражение в src/effects.test.ts).
+    "eslacity/effect-cleanup": "error",
+    // Зависимости эффектов местами сужены намеренно (загрузка один раз при входе, ключ из списка глав).
+    "react-hooks/exhaustive-deps": "off",
+    // Правила React Compiler: компилятора в проекте нет, Date.now() в рендере — время на экране, так задумано.
+    "react/purity": "off",
+    "react/refs": "off",
+    "react/set-state-in-effect": "off",
+    "react/preserve-manual-memoization": "off",
+    // У шагов «Продолжить» есть поле then — урок после поручений (src/domain/next.ts), это не промис.
+    "unicorn/no-thenable": "off"
+  },
+  "ignorePatterns": ["dist", "android", "public", "review", "coverage"]
+}

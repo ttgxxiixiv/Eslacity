@@ -9,6 +9,7 @@ PWA для изучения испанского и итальянского с 
 ```bash
 npm run dev        # локальный сервер Vite
 npm test           # vitest, все юнит-тесты
+npm run lint       # oxlint: .oxlintrc.json, свои правила — lint/eslacity-plugin.js
 npm run validate   # проверка контента обоих языков (слова, грамматика)
 npm run vocab      # отчёт о словаре: покрытие частотного списка, docs/vocab/<язык>.md
 npm run say        # кандидаты на поле say: аббревиатуры и числа, которые озвучка прочтёт как получится
@@ -17,7 +18,7 @@ npm run review:export  # контент на вычитку носителю: re
 npm run review:import -- <csv…>  # правки носителя обратно в контент, отчёт, валидатор
 ```
 
-Перед любым коммитом должны проходить `npm test` и `npm run build` (сборка включает валидатор и проверку типов).
+Перед любым коммитом должны проходить `npm run lint`, `npm test` и `npm run build` (сборка включает валидатор и проверку типов). Линтер — oxlint (задача 16.4): ESLint с typescript-eslint не работает с TypeScript 7 (нет JS API). Правило `eslacity/effect-cleanup` — эффект без фигурных скобок; выключенные правила и причины — комментарии в `.oxlintrc.json`.
 
 ## Стек
 

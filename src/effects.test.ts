@@ -11,6 +11,7 @@ function sources(dir: string): string[] {
   });
 }
 
+// Страховка к правилу линтера eslacity/effect-cleanup (lint/eslacity-plugin.js, задача 16.4).
 describe('эффекты React', () => {
   it('возвращают только функцию очистки: тело в скобках или () => () => …', () => {
     // Стрелка без скобок вернула бы значение выражения. В новом Chrome scrollIntoView возвращает Promise, и React

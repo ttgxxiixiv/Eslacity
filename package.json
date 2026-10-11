@@ -1,7 +1,7 @@
 {
   "name": "eslacity",
   "private": true,
-  "version": "2.165.1",
+  "version": "2.165.2",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -11,6 +11,7 @@
     "build": "npm run validate && tsc && vite build",
     "preview": "vite preview",
     "test": "vitest run",
+    "lint": "oxlint --deny-warnings",
     "e2e": "npm run build && playwright test",
     "review:export": "tsx scripts/export-review.ts",
     "review:import": "tsx scripts/import-review.ts"
@@ -40,6 +41,7 @@
     "@types/react-dom": "^19.3.0",
     "@vitejs/plugin-react": "^6.1.1",
     "fake-indexeddb": "^6.2.5",
+    "oxlint": "1.84.0",
     "tailwindcss": "^4.3.3",
     "tsx": "^4.23.15",
     "typescript": "^7.0.2",
