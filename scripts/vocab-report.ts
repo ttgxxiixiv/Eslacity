@@ -6,6 +6,7 @@
  * которых нет в курсе, по полосам частоты. Список пересобирается командой, вручную его не правят.
  */
 import { existsSync, readdirSync, readFileSync, writeFileSync, mkdirSync } from 'node:fs';
+import { LANGS, type Lang } from '../src/lang';
 import { join } from 'node:path';
 import type { GrammarLesson, LocationWords, ScrollFile } from '../src/content/schema';
 import { CHAPTERS, COVERAGE_GOAL, PLAN_TOTAL, VOCAB_GOAL, chapterOfLevel } from '../src/content/vocabPlan';
@@ -43,9 +44,10 @@ function report(lang: string): string {
   const words = [...placeWords, ...scrollWords];
 
   const grammarDir = join(content, lang, 'grammar');
-  const lessons = readdirSync(grammarDir).flatMap((d) =>
-    readdirSync(join(grammarDir, d)).map((f) => read<GrammarLesson>(join(grammarDir, d, f))),
-  );
+  // У нового курса уроков может ещё не быть (английский до 17.4): тогда покрытие считается только по словам.
+  const lessons = existsSync(grammarDir)
+    ? readdirSync(grammarDir).flatMap((d) => readdirSync(join(grammarDir, d)).map((f) => read<GrammarLesson>(join(grammarDir, d, f))))
+    : [];
 
   // Что считается выученным: слова мест целиком (и слова внутри фраз), формы из таблиц и вариантов ответа уроков.
   const wordSet = new Set(words.flatMap((w) => [w.es, ...(w.alt ?? [])].flatMap(lem)));
@@ -140,7 +142,7 @@ function report(lang: string): string {
 
   // Список недостающих слов для контентных задач.
   const md: string[] = [
-    `# Частотные слова, которых нет в курсе (${lang === 'es' ? 'испанский' : 'итальянский'})`,
+    `# Частотные слова, которых нет в курсе (${LANGS[lang as Lang].name.toLowerCase()})`,
     '',
     'Файл собирается командой `npm run vocab`, вручную его не правят: взятые в курс слова пропадают из списка при следующей сборке.',
     'Частоты: FrequencyWords (субтитры OpenSubtitles 2018, CC BY-SA 4.0), леммы: lemmatization-lists (ODbL). Как считается покрытие, описано в `scripts/vocab-lib.ts`. Ошибки лемматизации, имена и слова жанра субтитров убраны из списка по `scripts/data/skip-<язык>.txt`.',

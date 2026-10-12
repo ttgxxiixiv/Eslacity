@@ -67,10 +67,55 @@ const readFile = <T,>(lang: Lang, name: string): T | undefined =>
   existsSync(join(root, lang, name)) ? (JSON.parse(readFileSync(join(root, lang, name), 'utf8')) as T) : undefined;
 
 /**
- * Закрытый курс, у которого ещё нет слов (английский с 17.2): проверяются уже готовые файлы — жители, Летописец,
- * стражи всех пяти глав, кузница, Звонница, портреты и тексты.
+ * Слова закрытого курса (английский с 17.3): места и свитки, одинаковые переводы, редкие слова на уровнях 1–4,
+ * CEFR по частотности и рискованные леммы — как у открытого курса, но без проверок, которым нужны уроки и сцены.
+ */
+function partialWordChecks(lang: Lang, words: { name: string; data: LocationWords }[], scrolls: { name: string; data: ScrollFile }[]): Issue[] {
+  if (!words.length && !scrolls.length) return [];
+  const dataDir = join(root, '..', '..', 'scripts', 'data');
+  const skips = parseSkips(readFileSync(join(dataDir, `skip-${lang}.txt`), 'utf8'));
+  const forms = applySkipsToForms(parseLemmas(readFileSync(join(dataDir, `lemmas-${lang}.tsv`), 'utf8')), skips);
+  const freq = applySkips(parseFreq(readFileSync(join(dataDir, `freq-${lang}.tsv`), 'utf8')), skips);
+  const lexicon = buildLexicon(
+    [
+      ...words.flatMap((f) => f.data.words),
+      ...scrolls.flatMap((f) => f.data.words.map((w) => ({ ...w, level: CHAPTERS[f.data.chapter - 1]?.levels[0] ?? 99 }))),
+    ],
+    [],
+    freq,
+    (t) => lemmasIn(t, forms, lang),
+  );
+  const ranks = lemmaRanks(coverage(freq, { words: new Set(lexicon.wordLevel.keys()), grammar: lexicon.grammar, anywhere: lexicon.anywhere }));
+  const rank = (es: string) => wordRank(es, forms, lang, ranks);
+  const risky = parseRisky(readFileSync(join(dataDir, `risky-${lang}.txt`), 'utf8'));
+  const sources = [
+    ...words.map((f) => ({ where: `words/${f.name}`, words: f.data.words })),
+    ...scrolls.map((f) => ({ where: `scrolls/${f.name}`, words: f.data.words })),
+  ];
+  const warn = (where: string) => ({ id, msg }: { id: string; msg: string }) => ({ level: 'warning' as const, where: `${where} ${id}`, msg });
+  return [
+    ...validateWords(words, lang),
+    ...validateScrolls(scrolls, words, lang),
+    ...validateTranslations(words, scrolls),
+    ...words.flatMap((f) => {
+      const plain = f.data.words.filter((w) => !w.kind);
+      const levels = [...new Set(plain.map((w) => w.level))].map((level) => ({ level, words: levelWords(plain, level) }));
+      return rarityIssues(levels, rank, lessonParts).map(warn(`words/${f.name}`));
+    }),
+    ...sources.flatMap(({ where, words: ws }) => [
+      ...cefrIssues(ws, rank).map(warn(where)),
+      ...riskyIssues(ws, risky, (t) => lemmasIn(t, forms, lang)).map(warn(where)),
+    ]),
+  ];
+}
+
+/**
+ * Закрытый курс (английский с 17.2): проверяются уже готовые файлы — жители, Летописец, стражи всех пяти глав,
+ * кузница, Звонница, портреты, тексты и, когда они есть, слова мест и свитков.
  */
 function partialChecks(lang: Lang): void {
+  const words = readJson<LocationWords>(join(root, lang, 'words'));
+  const scrolls = readJson<ScrollFile>(join(root, lang, 'scrolls'));
   const tag = (list: Issue[]) => list.map((i) => ({ ...i, where: `${lang}/${i.where}` }));
   const npcs = readFile<NpcsFile>(lang, 'npcs.json');
   const chronicler = readFile<Chronicler>(lang, 'chronicler.json');
@@ -95,12 +140,14 @@ function partialChecks(lang: Lang): void {
       ),
     ),
     ...textChecks(lang),
+    ...tag(partialWordChecks(lang, words, scrolls)),
   );
-  summary.push(`${lang} (курс закрыт, без слов): ${npcs?.npcs.length ?? 0} жителей, ${guardians?.guardians.length ?? 0} стражей, ${verbs?.verbs.length ?? 0} глаголов в кузнице, ${pairs?.contrasts.reduce((n, c) => n + c.pairs.length, 0) ?? 0} пар в Звоннице`);
+  const wordCount = words.reduce((n, f) => n + f.data.words.length, 0) + scrolls.reduce((n, f) => n + f.data.words.length, 0);
+  summary.push(`${lang} (курс закрыт): слов ${wordCount} в ${words.length} местах и ${scrolls.length} свитках, ${npcs?.npcs.length ?? 0} жителей, ${guardians?.guardians.length ?? 0} стражей, ${verbs?.verbs.length ?? 0} глаголов в кузнице, ${pairs?.contrasts.reduce((n, c) => n + c.pairs.length, 0) ?? 0} пар в Звоннице`);
 }
 
 for (const lang of langs) {
-  if (!LANGS[lang].released && !existsSync(join(root, lang, 'words'))) {
+  if (!LANGS[lang].released) {
     partialChecks(lang);
     continue;
   }

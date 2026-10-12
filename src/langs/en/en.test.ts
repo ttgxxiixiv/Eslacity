@@ -3,8 +3,9 @@ import { EN } from '.';
 import { canon, checkForm, checkPhrase, normalize } from '../../domain/answer';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { checkWord, validateChronicler, validateGuardians, validateNpcs, validatePairs, validateVerbs, type Issue } from '../../content/validate';
-import type { Chronicler, GuardiansFile, NpcsFile, PairsFile, VerbsFile } from '../../content/schema';
+import { checkWord, validateChronicler, validateGuardians, validateNpcs, validatePairs, validateScrolls, validateTranslations, validateVerbs, validateWords, type Issue } from '../../content/validate';
+import type { Chronicler, GuardiansFile, LocationWords, NpcsFile, PairsFile, ScrollFile, VerbsFile } from '../../content/schema';
+import { readdirSync } from 'node:fs';
 import { forgeTasks } from '../../domain/verbs';
 import { seeded } from '../../domain/generators';
 import { addressHero } from '../../domain/address';
@@ -57,6 +58,9 @@ describe('английский профиль (задача 17.1)', () => {
     expect(t('a hour')).toHaveLength(1);
     expect(t('an university')).toHaveLength(1);
     expect(t('an MP, A cat')).toEqual([]);
+    // Буква в начале слова читается своим названием.
+    expect(t('an X-ray, a U-turn, an F')).toEqual([]);
+    expect(t('a X-ray')).toHaveLength(1);
   });
 
   it('сокращения и полные формы — один ответ', () => {
@@ -122,5 +126,35 @@ describe('английский город (задача 17.2)', () => {
   it('обращение к путнику: имя вместо «traveller»', () => {
     expect(addressHero('Hello, traveller. Do you speak English?', 'en', { name: 'Ann', gender: 'f' })).toBe('Hello, Ann. Do you speak English?');
     expect(addressHero('Hello, traveller.', 'en', { name: '', gender: 'f' })).toBe('Hello, traveller.');
+  });
+});
+
+describe('слова глав I–II английского (задача 17.3)', () => {
+  const dir = (name: string) => join(import.meta.dirname, '..', '..', 'content', 'en', name);
+  const files = <T,>(name: string) =>
+    readdirSync(dir(name)).filter((f) => f.endsWith('.json')).sort().map((f) => ({ name: f, data: JSON.parse(readFileSync(join(dir(name), f), 'utf8')) as T }));
+  const words = files<LocationWords>('words');
+  const scrolls = files<ScrollFile>('scrolls');
+
+  it('20 мест по 10–12 слов на каждом уровне 1–4 и свитки I–II по плану', () => {
+    expect(words).toHaveLength(20);
+    for (const { name, data } of words) {
+      for (const level of [1, 2, 3, 4]) {
+        const n = data.words.filter((w) => w.level === level).length;
+        expect(n >= 10 && n <= 12, `${name} уровень ${level}: ${n}`).toBe(true);
+      }
+    }
+    expect(scrolls.map((s) => [s.data.chapter, s.data.words.length])).toEqual([[1, 87], [2, 181]]);
+  });
+
+  it('проходят проверку слов, свитков и одинаковых переводов без замечаний', () => {
+    expect(validateWords(words, 'en')).toEqual([]);
+    expect(validateScrolls(scrolls, words, 'en')).toEqual([]);
+    expect(validateTranslations(words, scrolls)).toEqual([]);
+    for (const f of [...words, ...scrolls]) expect(textIssuesIn(f.data, 'en'), f.name).toEqual([]);
+  });
+
+  it('у существительных нет рода и артикля: английский профиль без рода', () => {
+    for (const { data } of [...words, ...scrolls]) for (const w of data.words) expect(w.gender, w.id).toBeUndefined();
   });
 });

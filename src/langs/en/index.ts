@@ -36,6 +36,9 @@ const AN_BEFORE = /^(hour|honest|honou?r|heir)/;
 // «a» перед гласной буквой, но согласным звуком: a university, a user, a euro, a one-way ticket.
 const A_BEFORE = /^(uni(?![mn])|us[eu]|uti|eu|ewe|one\b|once\b|ufo|u-)/;
 
+// Буквы, чьё название начинается с гласного звука: «эф», «эйч», «экс» — an F, an X-ray.
+const LETTER_AN = /^[AEFHILMNORSX]/;
+
 /** «a apple», «an book»: артикль не по первому звуку слова. Аббревиатуры (an MP) и числа не проверяются. */
 function articleSound(text: string): string[] {
   const out: string[] = [];
@@ -43,7 +46,9 @@ function articleSound(text: string): string[] {
     const [, art, next] = m;
     if (next.length > 1 && next === next.toUpperCase()) continue;
     const w = next.toLowerCase();
-    const an = AN_BEFORE.test(w) || (/^[aeiou]/.test(w) && !A_BEFORE.test(w));
+    // Буква отдельно (X-ray, U-turn) читается своим названием: «экс» — an, «ю» — a.
+    const letter = /^\p{Lu}(?:-|$)/u.test(next);
+    const an = letter ? LETTER_AN.test(next) : AN_BEFORE.test(w) || (/^[aeiou]/.test(w) && !A_BEFORE.test(w));
     const want = an ? 'an' : 'a';
     if (art.toLowerCase() !== want) out.push(`«${art} ${next}»: перед «${next}» нужен артикль «${want}»`);
   }
