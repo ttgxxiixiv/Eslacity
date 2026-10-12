@@ -1,7 +1,7 @@
 /**
  * Строит частотный список лемм для сверки словаря (задача 0.4 в docs/ROADMAP.md).
  *
- *   npx tsx scripts/build-freq.ts <язык> <частоты.txt> <лемматизация.txt>
+ *   npx tsx scripts/build-freq.ts <язык> <частоты.txt> <лемматизация.txt>   (es, it, en)
  *
  * Источники (скачиваются вручную, в репозиторий не кладутся):
  * - частоты словоформ по субтитрам OpenSubtitles 2018: github.com/hermitdave/FrequencyWords,
@@ -29,6 +29,7 @@ const WORD = /^[a-záéíóúüñàèìòùç']+$/;
 const SKIP: Record<string, string[]> = {
   es: ['joder', 'mierda', 'puta', 'puto', 'coño', 'cabrón', 'carajo', 'gilipollas', 'pendejo', 'culo', 'follar', 'chingar'],
   it: ['cazzo', 'merda', 'fottere', 'stronzo', 'puttana', 'fanculo', 'cazzata', 'culo', 'coglione', 'troia', 'scopare', 'bastardo'],
+  en: ['fuck', 'fucking', 'shit', 'bitch', 'damn', 'ass', 'asshole', 'bastard', 'crap', 'dick', 'cunt', 'piss', 'motherfucker', 'goddamn', 'whore', 'slut', 'jerk'],
 };
 
 // Ручные леммы для самых частых неоднозначных форм: «para» — предлог, а не форма parar,
@@ -51,12 +52,23 @@ const OVERRIDE: Record<string, Record<string, string>> = {
     uno: 'uno', meno: 'meno', nulla: 'nulla', visto: 'vedere', visti: 'vedere', vista: 'vista',
     come: 'come', ancora: 'ancora', dopo: 'dopo', sopra: 'sopra',
   },
+  // Субтитры режут сокращения на части: «don» + «'t», «'m», «'re». Части сводятся к полным словам.
+  en: {
+    "'t": 'not', "'m": 'be', "'re": 'be', "'ve": 'have', "'ll": 'will', "'d": 'would', "'s": "'s",
+    don: 'do', doesn: 'do', didn: 'do', isn: 'be', aren: 'be', wasn: 'be', weren: 'be', ain: 'be',
+    haven: 'have', hasn: 'have', hadn: 'have', won: 'will', wouldn: 'would', couldn: 'could', shouldn: 'should',
+    mustn: 'must', needn: 'need', gonna: 'go', wanna: 'want', gotta: 'get', a: 'a', an: 'a', the: 'the',
+  },
 };
 
 const NUMBERS: Record<string, string[]> = {
   es: ['dos', 'tres', 'cuatro', 'cinco', 'seis', 'siete', 'ocho', 'nueve', 'diez', 'once', 'doce', 'quince', 'veinte', 'treinta', 'cien', 'ciento', 'mil'],
   it: ['due', 'tre', 'quattro', 'cinque', 'sette', 'otto', 'nove', 'dieci', 'undici', 'dodici', 'quindici', 'venti', 'trenta', 'cento', 'mille'],
+  en: ['two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve', 'fifteen', 'twenty', 'thirty', 'hundred', 'thousand', 'million'],
 };
+
+/** Наречия с суффиксом: обычные слова, хоть их и нет в словаре лемм. */
+const ADVERB_END: Record<string, string> = { es: 'mente', it: 'mente', en: 'ly' };
 
 const lines = (p: string) => readFileSync(p, 'utf8').replace(/^﻿/, '').split(/\r?\n/).filter(Boolean);
 
@@ -92,8 +104,8 @@ for (const [form, count] of formCount) {
 function lemmaOf(form: string): { lemma: string; known: boolean } {
   const o = OVERRIDE[lang]?.[form];
   if (o) return { lemma: o, known: false };
-  // Наречия на -mente и числительные — обычные слова, хоть их и нет в словаре лемм.
-  if (form.endsWith('mente') || NUMBERS[lang]?.includes(form)) return { lemma: form, known: true };
+  // Наречия на -mente (-ly) и числительные — обычные слова, хоть их и нет в словаре лемм.
+  if (form.endsWith(ADVERB_END[lang] ?? 'mente') || NUMBERS[lang]?.includes(form)) return { lemma: form, known: true };
   return dictLemma(form) ?? cliticLemma(form) ?? { lemma: form, known: false };
 }
 

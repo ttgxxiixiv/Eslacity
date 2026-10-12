@@ -1,6 +1,5 @@
 import { expect, test, type Page } from '@playwright/test';
-import { DB, LANGS, openApp, readMeta, seedDueCards, wordIdsOf } from './fixtures';
-import type { Lang } from '../../src/lang';
+import { DB, LANGS, openApp, readMeta, seedDueCards, wordIdsOf, type Lang } from './fixtures';
 
 const DAY = 86_400_000;
 

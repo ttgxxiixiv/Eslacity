@@ -10,6 +10,7 @@ const IT_VOWEL = /^[aeiouàèéìòù]/;
 /** Итальянский курс: общий литературный итальянский. */
 export const IT: LangProfile = {
   id: 'it',
+  released: true,
   name: 'Итальянский',
   variety: 'Итальянский курс — общий литературный итальянский.',
   flag: '🇮🇹',

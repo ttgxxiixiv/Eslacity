@@ -11,7 +11,7 @@ import { KEEPER_TITLE, SAGE_TITLE } from '../domain/chapters';
 import { isVaultOpen, journeySummary } from '../domain/elixir';
 import { KEEPER_DAYS, KEEPER_THRESHOLD, keeperStreak } from '../domain/keeper';
 import { plural } from '../domain/medals';
-import { LANG, LANGS, switchLang, type Lang } from '../lang';
+import { LANG, LANGS, RELEASED_LANGS, switchLang } from '../lang';
 import { useNow } from '../lib/useNow';
 import { NpcPortrait } from '../components/NpcPortrait';
 import { heroText } from '../store/settings';
@@ -248,7 +248,7 @@ function Strength() {
 
 /** Предложение начать другой язык: его путь начинается заново, «Мудрец» этого языка будет виден в профиле. */
 function SecondLanguage() {
-  const others = (Object.keys(LANGS) as Lang[]).filter((l) => l !== LANG);
+  const others = RELEASED_LANGS.filter((l) => l !== LANG);
   return (
     <section className="rounded-2xl bg-white p-4 shadow-sm" data-testid="second-lang">
       <div className="font-bold">Второй язык</div>

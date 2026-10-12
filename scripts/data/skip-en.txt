@@ -1,0 +1,70 @@
+# Поправки к частотному списку (задача 12.1): что считать шумом и какие леммы на самом деле формы других.
+# Строка «слово» — лемма выбрасывается из списка, ранги идут дальше без неё.
+# Строка «слово > лемма» — это форма другой леммы: считается вместе с ней, и таблица форм ведёт к ней же.
+# Строка «слово > слово» — таблица форм уводит это слово к чужой лемме, а оно самостоятельное.
+# Списки читает scripts/vocab-lib.ts (applySkips), их используют отчёт npm run vocab и валидатор.
+
+# Обрывки разбора субтитров.
+'s
+'am
+'ii
+'all
+em
+o
+e
+lt
+la
+de
+ho
+
+# Междометия.
+uh
+huh
+hmm
+ooh
+eh
+mmm
+yo
+aah
+ow
+shh
+whoa
+ha
+ugh
+whoo
+
+# Имена из фильмов.
+john
+sam
+michael
+george
+david
+charlie
+paul
+mary
+ben
+james
+danny
+alex
+jim
+tony
+adam
+steve
+sarah
+richard
+jane
+johnny
+tommy
+eddie
+jake
+robert
+chris
+charles
+amy
+roger
+kim
+jeff
+jesus
+
+# Грубое.
+fuckin

@@ -10,6 +10,9 @@ test('переключение языка сохраняет прогресс к
   await expect(page.getByText('всего 500 XP')).toBeVisible();
 
   await page.goto('./#/settings/language');
+  // Английский курс закрыт до 17.9: в выборе только открытые языки.
+  await expect(page.getByRole('button', { name: /испанский|итальянский/i })).toHaveCount(2);
+  await expect(page.getByRole('button', { name: /английский/i })).toHaveCount(0);
   await Promise.all([page.waitForEvent('load'), page.getByRole('button', { name: /итальянский/i }).click()]);
   // Новый курс начинается с пролога.
   await skipPrologue(page);

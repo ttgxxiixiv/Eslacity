@@ -5,7 +5,7 @@ import { ReviewForecast } from '../components/ReviewForecast';
 import { useEffect, useState, type ReactNode } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { currentVoice, hasLangVoice, languageVoices, onVoicesChanged, speak, speakHero, ttsSupported, voiceFor } from '../audio/tts';
-import { L, LANG, LANGS, switchLang, type Lang } from '../lang';
+import { L, LANG, LANGS, RELEASED_LANGS, switchLang } from '../lang';
 import { resetProgress } from '../store/bootstrap';
 import { importBackup, parseBackup } from '../db/backup';
 import { backupDue, daysSinceBackup } from '../domain/backupPlan';
@@ -352,7 +352,7 @@ function LanguageSection() {
     <section className="rounded-3xl bg-white p-4 shadow-sm">
       <h2 className="font-bold">Язык курса</h2>
       <div className="mt-3 grid grid-cols-2 gap-2">
-        {(Object.keys(LANGS) as Lang[]).map((id) => (
+        {(RELEASED_LANGS.includes(LANG) ? RELEASED_LANGS : [...RELEASED_LANGS, LANG]).map((id) => (
           <button
             key={id}
             type="button"

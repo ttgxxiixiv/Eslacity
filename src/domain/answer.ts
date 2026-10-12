@@ -17,6 +17,15 @@ const PUNCT = /[¿¡?!.,;:"«»()…—–]/g;
 /** Правила склейки ответа всех языков: у каждого своё, чужому тексту они не мешают (итальянское «l' acqua»). */
 const ANSWER_RULES = Object.values(LANGS).flatMap((p) => p.answerRules);
 
+/** Сокращения всех языков («don't» → «do not»): в испанском и итальянском таких слов нет. */
+const CONTRACTIONS = new Map(Object.values(LANGS).flatMap((p) => p.contractions ?? []));
+const CONTRACTION_RE = CONTRACTIONS.size
+  ? new RegExp(`(?<![\\p{L}'])(?:${[...CONTRACTIONS.keys()].join('|')})(?![\\p{L}'])`, 'gu')
+  : null;
+
+/** Полные формы вместо сокращений в нормализованном тексте. Нужна и разбору текста на леммы. */
+export const expandContractions = (s: string): string => (CONTRACTION_RE ? s.replace(CONTRACTION_RE, (m) => CONTRACTIONS.get(m) ?? m) : s);
+
 /**
  * Регистр, пунктуация (включая ¿¡), лишние пробелы. Ударения сохраняются.
  * Апостроф остаётся (итальянское l'acqua); типографский ’ с телефонной клавиатуры приводится к '.
@@ -28,8 +37,21 @@ export function normalize(s: string): string {
     .toLowerCase()
     .replace(/[’‘`´]/g, "'")
     .replace(PUNCT, ' ');
+  out = expandContractions(out);
   for (const [re, to] of ANSWER_RULES) out = out.replace(re, to);
   return out.replace(/\s+/g, ' ').trim();
+}
+
+/** Второе написание → первое по языкам: «color» → «colour». Только своего языка: «color» — и испанское слово. */
+const SPELLING = Object.fromEntries(
+  Object.values(LANGS).map((p) => [p.id, new Map((p.spelling ?? []).map(([main, other]) => [other, main]))]),
+) as Record<Lang, Map<string, string>>;
+
+/** Форма для сравнения ответов: нормализация и, у английского, британское написание вместо американского. */
+export function canon(s: string, lang: Lang = LANG): string {
+  const n = normalize(s);
+  const sp = SPELLING[lang];
+  return sp.size ? n.replace(/\p{L}+/gu, (w) => sp.get(w) ?? w) : n;
 }
 
 /** Буквы с диакритикой всех языков курса (`letters` в профилях). */
@@ -83,8 +105,8 @@ export function splitArticle(s: string, lang: Lang = LANG): { article: string | 
 }
 
 function checkOne(input: string, accepted: string): CheckResult {
-  const n = normalize(input);
-  const a = normalize(accepted);
+  const n = canon(input);
+  const a = canon(accepted);
   if (n === a) return { verdict: 'correct', expected: accepted };
 
   const exp = splitArticle(accepted);
@@ -132,10 +154,10 @@ export const PHRASE_LETTERS_PER_TYPO = 8;
  */
 export function checkPhrase(input: string, phrase: { es: string; alt?: string[] }): CheckResult {
   const expected = fullPhrase(phrase.es);
-  const got = normalize(input);
+  const got = canon(input);
   const wrong: CheckResult = { verdict: 'wrong', expected };
   if (!got) return wrong;
-  const variants = [phrase.es, ...(phrase.alt ?? [])].flatMap(expandOptional).map(normalize);
+  const variants = [phrase.es, ...(phrase.alt ?? [])].flatMap(expandOptional).map((v) => canon(v));
   if (variants.includes(got)) return { verdict: 'correct', expected };
   const plain = stripAccents(got);
   if (variants.some((v) => stripAccents(v) === plain)) return { verdict: 'almost', expected, reason: 'accent' };
@@ -171,9 +193,9 @@ export const EXAM_KEYS = Object.fromEntries(Object.values(LANGS).map((p) => [p.i
  */
 export function checkForm(input: string, accepted: string[]): CheckResult {
   const expected = accepted[0];
-  const got = normalize(input);
+  const got = canon(input);
   if (!got) return { verdict: 'wrong', expected };
-  const variants = accepted.map(normalize);
+  const variants = accepted.map((v) => canon(v));
   if (variants.includes(got)) return { verdict: 'correct', expected };
   if (variants.some((v) => stripAccents(v) === stripAccents(got))) return { verdict: 'almost', expected, reason: 'accent' };
   return { verdict: 'wrong', expected };
@@ -181,8 +203,8 @@ export function checkForm(input: string, accepted: string[]): CheckResult {
 
 /** Собранное из плиток предложение: порядок важен, регистр и знаки — нет. */
 export function checkBuilt(tiles: string[], accepted: string[]): CheckResult {
-  const got = normalize(tiles.join(' '));
-  return { verdict: accepted.some((a) => normalize(a) === got) ? 'correct' : 'wrong', expected: accepted[0] };
+  const got = canon(tiles.join(' '));
+  return { verdict: accepted.some((a) => canon(a) === got) ? 'correct' : 'wrong', expected: accepted[0] };
 }
 
 /** Причина ошибки (задача 12.3): пишется в журнал ответов, по ней 12.2 собирает слабые места. */

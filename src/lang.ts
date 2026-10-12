@@ -15,6 +15,9 @@ export const LANGS: Record<Lang, LangInfo> = PROFILES;
 /** Языки курса по порядку. */
 export const LANG_IDS = Object.keys(LANGS) as Lang[];
 
+/** Открытые курсы: их видно в выборе языка. Закрытый курс ещё пишется (`released` в профиле). */
+export const RELEASED_LANGS = LANG_IDS.filter((l) => LANGS[l].released);
+
 const isLang = (v: unknown): v is Lang => typeof v === 'string' && Object.hasOwn(LANGS, v);
 
 export const LANG_KEY = 'eslacity.lang';

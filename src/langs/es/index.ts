@@ -11,6 +11,7 @@ const STRESSED_A = new Set([
 /** Испанский курс: язык Испании (задача 12.7). */
 export const ES: LangProfile = {
   id: 'es',
+  released: true,
   name: 'Испанский',
   variety: 'Испанский курс — язык Испании: vosotros, «vale», «coche», «ordenador».',
   flag: '🇪🇸',

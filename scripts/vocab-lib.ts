@@ -1,3 +1,6 @@
+import { expandContractions } from '../src/domain/answer';
+import { LANGS, type LangProfile } from '../src/lang';
+
 /**
  * Сверка словаря курса с частотным списком (задача 0.4). Чистые функции, отчёт строит scripts/vocab-report.ts.
  */
@@ -31,9 +34,12 @@ export function parseLemmas(text: string): Map<string, string> {
   );
 }
 
-/** Слова строки: строчными, с апострофом элизии на конце («l'», «dall'»). Кириллица и цифры отбрасываются. */
+/**
+ * Слова строки: строчными, с апострофом элизии на конце («l'», «dall'»). Кириллица и цифры отбрасываются.
+ * Английские сокращения раскрываются («don't» → do, not), как при проверке ответа.
+ */
 export function tokens(text: string): string[] {
-  return (text.toLowerCase().replace(/[’`]/g, "'").match(/[a-zà-öø-ÿ]+'?/g) ?? []).filter((t) => t !== "'");
+  return (expandContractions(text.toLowerCase().replace(/[’`]/g, "'")).match(/[a-zà-öø-ÿ]+'?/g) ?? []).filter((t) => t !== "'");
 }
 
 /**
@@ -256,6 +262,15 @@ export function textCoverage(text: string, level: number, lex: Lexicon, forms: M
 const ARTICLES = new Set(['el', 'la', 'los', 'las', 'un', 'una', 'il', 'lo', 'i', 'gli', 'le', "l'", "un'", 'uno']);
 
 /**
+ * Артикли, которые не считаются словом. У испанского и итальянского — прежний общий список (по нему построены
+ * ранги и переводы сцен), у новых языков — артикли из профиля: английское «I» не артикль.
+ */
+const articlesOf = (lang: string): Set<string> => {
+  const p = (LANGS as Record<string, LangProfile | undefined>)[lang];
+  return lang === 'es' || lang === 'it' || !p ? ARTICLES : new Set([...p.singular, ...p.plural, ...p.indefinite]);
+};
+
+/**
  * Перевод слова текста по словарю курса: по лемме, по основе, спряжённый глагол — по основе инфинитива.
  * Из нескольких слов с той же леммой берётся слово самого низкого уровня. Для нажатия на слово в сцене.
  */
@@ -274,7 +289,8 @@ export function glossIndex(
     const v = { ru: w.ru, level: w.level };
     // Только однословные слова (артикль не в счёт): у словосочетаний «abrir una cuenta», «ida y vuelta»
     // отдельные слова значат другое, и «un» не должно переводиться как «открыть счёт».
-    const single = [w.es, ...(w.alt ?? [])].map((x) => tokens(x)).filter((t) => t.length === 1 || (t.length === 2 && ARTICLES.has(t[0])));
+    const arts = articlesOf(lang);
+    const single = [w.es, ...(w.alt ?? [])].map((x) => tokens(x)).filter((t) => t.length === 1 || (t.length === 2 && arts.has(t[0])));
     for (const l of single.map((t) => lemmaOf(t[t.length - 1], forms, lang))) {
       put(byLemma, l, v);
       put(byStem, stemOf(l), v);
@@ -370,7 +386,8 @@ export function lemmaRanks(cov: Coverage): Map<string, number> {
  * и редкость одной части не делает редким всё выражение.
  */
 export function wordRank(es: string, forms: Map<string, string>, lang: string, ranks: Map<string, number>): number | undefined {
-  const t = tokens(es).filter((x) => !ARTICLES.has(x));
+  const arts = articlesOf(lang);
+  const t = tokens(es).filter((x) => !arts.has(x));
   if (t.length !== 1) return undefined;
   return ranks.get(lemmaOf(t[0], forms, lang)) ?? Infinity;
 }

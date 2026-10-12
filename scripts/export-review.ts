@@ -9,7 +9,7 @@
  * уровня, ru — что строка должна значить, text — как сейчас, fix — правка носителя, comment — его пояснение.
  * Строки в файле по уровню от сложного к простому: выражения C1 и Сфинкс носителю важнее всего.
  */
-import { mkdirSync, readdirSync, readFileSync, statSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, readdirSync, readFileSync, statSync, writeFileSync } from 'node:fs';
 import { join, relative } from 'node:path';
 import { LANG_IDS } from '../src/lang';
 import { CSV_COLUMNS, extractRows, REVIEW_TYPES, toCsv, type ReviewRow, type ReviewType } from './review-lib';
@@ -51,7 +51,8 @@ function main() {
   const rest = outAt >= 0 ? args.filter((_, i) => i !== outAt && i !== outAt + 1) : args;
   const langs = LANG_IDS.filter((l) => rest.includes(l));
   const types = REVIEW_TYPES.filter((t) => rest.includes(t));
-  for (const lang of langs.length ? langs : LANG_IDS) {
+  // Языки без контента (закрытый курс, который только начат) пропускаются.
+  for (const lang of langs.length ? langs : LANG_IDS.filter((l) => existsSync(join(CONTENT, l)))) {
     const dir = join(out, lang);
     mkdirSync(dir, { recursive: true });
     const parts: string[] = [];

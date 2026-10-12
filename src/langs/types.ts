@@ -1,6 +1,7 @@
 import type { District, Gender, LocationId } from '../content/schema';
 import type { EsTense } from './es/verbs';
 import type { ItTense } from './it/verbs';
+import type { EnTense } from './en/verbs';
 
 /**
  * Профиль языка курса (задача 16.6): всё, что в коде зависит от языка. Профиль — данные и чистые функции,
@@ -8,9 +9,9 @@ import type { ItTense } from './it/verbs';
  * Новый язык — папка `src/langs/<id>/`, строка в `src/langs/index.ts` и id в `Lang`.
  */
 
-export type Lang = 'es' | 'it';
+export type Lang = 'es' | 'it' | 'en';
 
-export type Tense = EsTense | ItTense;
+export type Tense = EsTense | ItTense | EnTense;
 
 export interface VerbData {
   inf: string;
@@ -29,10 +30,14 @@ export interface VerbData {
   isc?: boolean;
   /** Итальянский passato prossimo с essere: sono andato. */
   aux?: 'essere';
+  /** Неправильное английское прошедшее (went); причастие без `pp` — то же (bought). */
+  past?: string;
+  /** Английский глагол с удвоением последней согласной не по правилу односложных: prefer → preferred. */
+  dbl?: boolean;
 }
 
 /** Поля записи глагола, которые бывают не у всех языков. */
-export type VerbField = 'ch' | 'isc' | 'aux';
+export type VerbField = 'ch' | 'isc' | 'aux' | 'past' | 'dbl';
 
 /** Кузница глаголов: времена, лица и генератор форм. */
 export interface VerbProfile {
@@ -77,6 +82,11 @@ export interface FestivalDef {
 
 export interface LangProfile {
   id: Lang;
+  /**
+   * Курс открыт игрокам: язык есть в выборе, у него полный контент. Закрытый курс (идёт работа над контентом)
+   * в выборе не виден, проверки полноты контента его пропускают.
+   */
+  released: boolean;
   /** «Испанский» */
   name: string;
   /** Какой вариант языка в курсе (задача 12.7): одна фраза для настроек. */
@@ -124,6 +134,12 @@ export interface LangProfile {
   examKeys: string[];
   /** Правила нормализации ответа: регулярное выражение и замена («l' acqua» → «l'acqua»). */
   answerRules: [RegExp, string][];
+  /** Сокращения и полные формы: «don't» и «do not» — один ответ. Сводятся к полной форме при сравнении и разборе текста. */
+  contractions?: [string, string][];
+  /** Равноправное написание: британское и американское («colour», «color»). Сравнение сводит второе к первому. */
+  spelling?: [string, string][];
+  /** Ошибки в тексте на языке курса, которые видит валидатор у слов и примеров: «a apple» вместо «an apple». */
+  textIssues?(text: string): string[];
   /** Окончание возвратного глагола (bañarse, lavarsi): в примере слово ищется без него. */
   reflexive: string;
   /** Длина окончания инфинитива: в примере глагол ищется по основе. */

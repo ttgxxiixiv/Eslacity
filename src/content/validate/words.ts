@@ -86,6 +86,12 @@ export function checkWord(w: Word, at: string, lang: Lang, out: Issue[]) {
     out.push({ level: 'error', where: at, msg: 'лишние пробелы в es' });
   }
 
+  // Ошибки текста по правилам языка (английский: «a apple»).
+  const textIssues = LANGS[lang].textIssues;
+  if (textIssues) {
+    for (const t of [w.es, ...(w.alt ?? []), w.example?.es ?? '']) for (const msg of textIssues(t)) out.push({ level: 'error', where: at, msg });
+  }
+
   if (w.pos === 'noun' && !LANGS[lang].gender) {
     if (w.gender) out.push({ level: 'error', where: at, msg: `род у существительного: у ${LANGS[lang].genitive} рода нет` });
   } else if (w.pos === 'noun') {
@@ -115,7 +121,7 @@ export function checkWord(w: Word, at: string, lang: Lang, out: Issue[]) {
     let core = stripAccents(splitArticle(w.es, lang).core);
     // Возвратный глагол: bañarse → bañar, lavarsi → lavar; в примере будет bañarnos, mi lavo.
     const { reflexive, infinitiveEnd } = LANGS[lang];
-    if (w.pos === 'verb' && core.endsWith(reflexive)) core = core.slice(0, -reflexive.length);
+    if (w.pos === 'verb' && reflexive && core.endsWith(reflexive)) core = core.slice(0, -reflexive.length);
     // У итальянских глаголов окончание длиннее: parlare → parl.
     const cut = w.pos === 'verb' && core.length > 5 ? infinitiveEnd : 2;
     const stem = core.length > 4 ? core.slice(0, core.length - cut) : core;

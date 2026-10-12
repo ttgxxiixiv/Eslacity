@@ -1,4 +1,4 @@
-import { LANG, LANGS, type Lang } from '../lang';
+import { LANG, LANGS, RELEASED_LANGS, type Lang } from '../lang';
 
 /**
  * Запись `meta` из базы другого языка (задача 8.4: в профиле второго языка видна медаль «Мудрец» первого).
@@ -38,7 +38,7 @@ export function readMetaOf(lang: Lang, key: string): Promise<unknown> {
 
 /** Другие языки, в которых герой уже выпил Эликсир. */
 export async function sagesElsewhere(): Promise<Lang[]> {
-  const others = (Object.keys(LANGS) as Lang[]).filter((l) => l !== LANG);
+  const others = RELEASED_LANGS.filter((l) => l !== LANG);
   const found = await Promise.all(others.map(async (l) => ((await readMetaOf(l, 'sphinx')) as { elixir?: number } | undefined)?.elixir !== undefined));
   return others.filter((_, i) => found[i]);
 }
