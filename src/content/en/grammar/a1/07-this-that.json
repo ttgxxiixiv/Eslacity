@@ -1,0 +1,151 @@
+{
+  "id": "a1.07-this-that",
+  "district": "A1",
+  "order": 7,
+  "title": "This, that, these, those",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "**This** (этот) — рядом, **that** (тот) — дальше. Во множественном числе: **these** (эти) и **those** (те)."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "",
+        "Рядом",
+        "Дальше"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "один предмет",
+            "this",
+            "that"
+          ]
+        },
+        {
+          "cells": [
+            "много",
+            "these",
+            "those"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "This is… — удобный способ знакомить: **This is my friend Tom.**"
+    }
+  ],
+  "examples": [
+    {
+      "es": "This coffee is hot.",
+      "ru": "Этот кофе горячий."
+    },
+    {
+      "es": "That ship is huge.",
+      "ru": "Тот корабль огромный."
+    },
+    {
+      "es": "These apples are sweet.",
+      "ru": "Эти яблоки сладкие."
+    },
+    {
+      "es": "Who are those people?",
+      "ru": "Кто те люди?"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "a1.07-this-that.1",
+      "kind": "choose",
+      "prompt": "«Эти» о вещах рядом:",
+      "options": [
+        "these",
+        "those",
+        "this"
+      ],
+      "answer": 0,
+      "explain": "Рядом и много: these."
+    },
+    {
+      "id": "a1.07-this-that.2",
+      "kind": "choose",
+      "prompt": "«Тот дом» вдали:",
+      "options": [
+        "that house",
+        "this house",
+        "those house"
+      ],
+      "answer": 0,
+      "explain": "Один и далеко: that."
+    },
+    {
+      "id": "a1.07-this-that.3",
+      "kind": "gap",
+      "sentence": "___ is my sister, Anna.",
+      "ru": "Это моя сестра Анна.",
+      "options": [
+        "This",
+        "These",
+        "Those"
+      ],
+      "answer": 0,
+      "explain": "Знакомим: This is…"
+    },
+    {
+      "id": "a1.07-this-that.4",
+      "kind": "gap",
+      "sentence": "Look at ___ birds in the sky!",
+      "ru": "Посмотри на тех птиц в небе!",
+      "options": [
+        "those",
+        "that",
+        "this"
+      ],
+      "answer": 0,
+      "explain": "Много и далеко: those."
+    },
+    {
+      "id": "a1.07-this-that.5",
+      "kind": "truefalse",
+      "statement": "«These book is good» — правильно.",
+      "answer": false,
+      "explain": "Один предмет: this book."
+    },
+    {
+      "id": "a1.07-this-that.6",
+      "kind": "truefalse",
+      "statement": "those — множественное от that.",
+      "answer": true,
+      "explain": "that → those."
+    },
+    {
+      "id": "a1.07-this-that.7",
+      "kind": "truefalse",
+      "statement": "«This shoes are new» — правильно.",
+      "answer": false,
+      "explain": "shoes — много: these shoes."
+    },
+    {
+      "id": "a1.07-this-that.8",
+      "kind": "build",
+      "ru": "Эти туфли удобные.",
+      "answer": "These shoes are comfortable.",
+      "extra": [
+        "This",
+        "is"
+      ],
+      "explain": "Много туфель рядом: these… are."
+    },
+    {
+      "id": "a1.07-this-that.9",
+      "kind": "type",
+      "sentence": "___ boats over there are old.",
+      "ru": "Те лодки вон там старые.",
+      "hint": "те",
+      "answer": "Those",
+      "explain": "Много и далеко: those."
+    }
+  ]
+}

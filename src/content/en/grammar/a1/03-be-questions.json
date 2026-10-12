@@ -1,0 +1,161 @@
+{
+  "id": "a1.03-be-questions",
+  "district": "A1",
+  "order": 3,
+  "title": "To be: вопрос и отрицание",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Отрицание: после am, is, are ставится **not**: I am not, she is not (**isn’t**), they are not (**aren’t**)."
+    },
+    {
+      "kind": "text",
+      "md": "Вопрос: глагол встаёт перед подлежащим. **She is tired** → **Is she tired?** Короткий ответ: **Yes, she is. / No, she isn’t.**"
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Утверждение",
+        "Отрицание",
+        "Вопрос"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "I am",
+            "I am not",
+            "Am I?"
+          ]
+        },
+        {
+          "cells": [
+            "he is",
+            "he isn't",
+            "Is he?"
+          ]
+        },
+        {
+          "cells": [
+            "they are",
+            "they aren't",
+            "Are they?"
+          ]
+        }
+      ]
+    }
+  ],
+  "examples": [
+    {
+      "es": "I'm not hungry.",
+      "ru": "Я не голоден."
+    },
+    {
+      "es": "Is the café open?",
+      "ru": "Кафе открыто?"
+    },
+    {
+      "es": "No, it isn't.",
+      "ru": "Нет."
+    },
+    {
+      "es": "Are you ready?",
+      "ru": "Ты готов?"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "a1.03-be-questions.1",
+      "kind": "choose",
+      "prompt": "Вопрос к «They are at home»:",
+      "options": [
+        "Are they at home?",
+        "They are at home?",
+        "Is they at home?"
+      ],
+      "answer": 0,
+      "explain": "Глагол перед подлежащим: Are they…?"
+    },
+    {
+      "id": "a1.03-be-questions.2",
+      "kind": "choose",
+      "prompt": "Отрицание «He is late»:",
+      "options": [
+        "He isn't late.",
+        "He not is late.",
+        "He don't late."
+      ],
+      "answer": 0,
+      "explain": "He is not late = He isn't late."
+    },
+    {
+      "id": "a1.03-be-questions.3",
+      "kind": "gap",
+      "sentence": "___ you a student?",
+      "ru": "Ты студент?",
+      "options": [
+        "Are",
+        "Is",
+        "Am"
+      ],
+      "answer": 0,
+      "explain": "you are → Are you…?"
+    },
+    {
+      "id": "a1.03-be-questions.4",
+      "kind": "gap",
+      "sentence": "We ___ not tired.",
+      "ru": "Мы не устали.",
+      "options": [
+        "are",
+        "is",
+        "am"
+      ],
+      "answer": 0,
+      "explain": "we are not."
+    },
+    {
+      "id": "a1.03-be-questions.5",
+      "kind": "truefalse",
+      "statement": "«Is she your sister?» — правильный вопрос.",
+      "answer": true,
+      "explain": "Is she…? — верно."
+    },
+    {
+      "id": "a1.03-be-questions.6",
+      "kind": "truefalse",
+      "statement": "«I amn't ready» — правильное сокращение.",
+      "answer": false,
+      "explain": "Сокращения amn't нет: I'm not ready."
+    },
+    {
+      "id": "a1.03-be-questions.7",
+      "kind": "truefalse",
+      "statement": "Короткий ответ на «Are you cold?» — «Yes, I am.»",
+      "answer": true,
+      "explain": "Yes, I am."
+    },
+    {
+      "id": "a1.03-be-questions.8",
+      "kind": "build",
+      "ru": "Банк закрыт?",
+      "answer": "Is the bank closed?",
+      "extra": [
+        "Are",
+        "Am"
+      ],
+      "explain": "Банк — it, значит Is…?"
+    },
+    {
+      "id": "a1.03-be-questions.9",
+      "kind": "type",
+      "sentence": "The water ___ warm today.",
+      "ru": "Вода сегодня не тёплая.",
+      "hint": "отрицание to be",
+      "answer": "isn't",
+      "alt": [
+        "is not"
+      ],
+      "explain": "is not = isn't."
+    }
+  ]
+}

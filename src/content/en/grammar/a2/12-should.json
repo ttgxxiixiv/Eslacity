@@ -1,0 +1,134 @@
+{
+  "id": "a2.12-should",
+  "district": "A2",
+  "order": 12,
+  "title": "Should: совет",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "**Should** — совет, «стоит, следует»: You **should** see a doctor. **Shouldn’t** — «не стоит»: You **shouldn’t** eat so much."
+    },
+    {
+      "kind": "text",
+      "md": "Вопрос-совет: **Should I** take an umbrella? После should — глагол без to."
+    },
+    {
+      "kind": "tip",
+      "md": "Should мягче, чем must: это совет, а не правило."
+    }
+  ],
+  "examples": [
+    {
+      "es": "You should try the fish.",
+      "ru": "Тебе стоит попробовать рыбу."
+    },
+    {
+      "es": "You shouldn't swim after lunch.",
+      "ru": "Не стоит плавать после обеда."
+    },
+    {
+      "es": "Should I call a taxi?",
+      "ru": "Мне вызвать такси?"
+    },
+    {
+      "es": "We should go home.",
+      "ru": "Нам пора домой."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "a2.12-should.1",
+      "kind": "choose",
+      "prompt": "Совет:",
+      "options": [
+        "You should rest.",
+        "You should to rest.",
+        "You shoulds rest."
+      ],
+      "answer": 0,
+      "explain": "should + глагол."
+    },
+    {
+      "id": "a2.12-should.2",
+      "kind": "choose",
+      "prompt": "«Не стоит»:",
+      "options": [
+        "You shouldn't worry.",
+        "You don't should worry.",
+        "You should not to worry."
+      ],
+      "answer": 0,
+      "explain": "shouldn't + глагол."
+    },
+    {
+      "id": "a2.12-should.3",
+      "kind": "gap",
+      "sentence": "It is cold. You ___ wear a coat.",
+      "ru": "Холодно. Тебе стоит надеть пальто.",
+      "options": [
+        "should",
+        "shouldn't",
+        "must not"
+      ],
+      "answer": 0,
+      "explain": "Совет — should."
+    },
+    {
+      "id": "a2.12-should.4",
+      "kind": "gap",
+      "sentence": "___ I book a table?",
+      "ru": "Мне заказать столик?",
+      "options": [
+        "Should",
+        "Do",
+        "Am"
+      ],
+      "answer": 0,
+      "explain": "Вопрос-совет — Should I…?"
+    },
+    {
+      "id": "a2.12-should.5",
+      "kind": "truefalse",
+      "statement": "Should — совет, а не строгое правило.",
+      "answer": true,
+      "explain": "Верно."
+    },
+    {
+      "id": "a2.12-should.6",
+      "kind": "truefalse",
+      "statement": "«She should goes to bed» — правильно.",
+      "answer": false,
+      "explain": "should + go."
+    },
+    {
+      "id": "a2.12-should.7",
+      "kind": "truefalse",
+      "statement": "«You shouldn't drink so much coffee» — правильно.",
+      "answer": true,
+      "explain": "Верно."
+    },
+    {
+      "id": "a2.12-should.8",
+      "kind": "build",
+      "ru": "Тебе стоит сходить к врачу.",
+      "answer": "You should see a doctor.",
+      "extra": [
+        "must",
+        "sees"
+      ],
+      "explain": "should + see."
+    },
+    {
+      "id": "a2.12-should.9",
+      "kind": "type",
+      "sentence": "You ___ eat so many sweets.",
+      "ru": "Не стоит есть столько конфет.",
+      "hint": "совет «не»",
+      "answer": "shouldn't",
+      "alt": [
+        "should not"
+      ],
+      "explain": "should not."
+    }
+  ]
+}

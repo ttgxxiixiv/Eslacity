@@ -1,0 +1,131 @@
+{
+  "id": "a1.09-possessive-s",
+  "district": "A1",
+  "order": 9,
+  "title": "Притяжательный 's",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Чтобы сказать «чей», к имени или существительному добавляют **'s**: **Molly's café** (кафе Молли), **my sister's car** (машина моей сестры)."
+    },
+    {
+      "kind": "text",
+      "md": "Если слово во множественном числе уже кончается на -s, ставят только апостроф: **my parents' house** (дом моих родителей)."
+    },
+    {
+      "kind": "tip",
+      "md": "Порядок обратный русскому: сначала владелец, потом вещь. «Собака Берта» — **Bert's dog**."
+    }
+  ],
+  "examples": [
+    {
+      "es": "This is Bert's dog.",
+      "ru": "Это собака Берта."
+    },
+    {
+      "es": "Molly's tea is the best.",
+      "ru": "Чай Молли лучший."
+    },
+    {
+      "es": "My parents' house is old.",
+      "ru": "Дом моих родителей старый."
+    },
+    {
+      "es": "Where is the doctor's office?",
+      "ru": "Где кабинет врача?"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "a1.09-possessive-s.1",
+      "kind": "choose",
+      "prompt": "«Машина Тома»:",
+      "options": [
+        "Tom's car",
+        "car Tom's",
+        "Toms car"
+      ],
+      "answer": 0,
+      "explain": "Владелец + 's + вещь: Tom's car."
+    },
+    {
+      "id": "a1.09-possessive-s.2",
+      "kind": "choose",
+      "prompt": "«Комната моих сестёр» (много сестёр):",
+      "options": [
+        "my sisters' room",
+        "my sister's room",
+        "my sisters room"
+      ],
+      "answer": 0,
+      "explain": "sisters уже на -s: только апостроф."
+    },
+    {
+      "id": "a1.09-possessive-s.3",
+      "kind": "gap",
+      "sentence": "This is ___ bike.",
+      "ru": "Это велосипед Финна.",
+      "options": [
+        "Finn's",
+        "Finns",
+        "Finn"
+      ],
+      "answer": 0,
+      "explain": "Finn's bike."
+    },
+    {
+      "id": "a1.09-possessive-s.4",
+      "kind": "gap",
+      "sentence": "The ___ toys are everywhere.",
+      "ru": "Игрушки детей повсюду.",
+      "options": [
+        "children's",
+        "childrens'",
+        "children"
+      ],
+      "answer": 0,
+      "explain": "children не кончается на -s: children's."
+    },
+    {
+      "id": "a1.09-possessive-s.5",
+      "kind": "truefalse",
+      "statement": "«the cat's name» значит «имя кошки».",
+      "answer": true,
+      "explain": "cat's name — имя кошки."
+    },
+    {
+      "id": "a1.09-possessive-s.6",
+      "kind": "truefalse",
+      "statement": "«the name's cat» значит «имя кошки».",
+      "answer": false,
+      "explain": "Сначала владелец: the cat's name."
+    },
+    {
+      "id": "a1.09-possessive-s.7",
+      "kind": "truefalse",
+      "statement": "«my parents' car» — машина моих родителей.",
+      "answer": true,
+      "explain": "parents' — множественное, апостроф после s."
+    },
+    {
+      "id": "a1.09-possessive-s.8",
+      "kind": "build",
+      "ru": "Это кафе Молли.",
+      "answer": "This is Molly's café.",
+      "extra": [
+        "Molly",
+        "cafés"
+      ],
+      "explain": "Molly's café."
+    },
+    {
+      "id": "a1.09-possessive-s.9",
+      "kind": "type",
+      "sentence": "___ shop is near the market.",
+      "ru": "Магазин миссис Патель рядом с рынком.",
+      "hint": "Mrs Patel",
+      "answer": "Mrs Patel's",
+      "explain": "Mrs Patel + 's."
+    }
+  ]
+}

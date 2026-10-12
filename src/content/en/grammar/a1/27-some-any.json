@@ -1,0 +1,131 @@
+{
+  "id": "a1.27-some-any",
+  "district": "A1",
+  "order": 27,
+  "title": "Some и any",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "**Some** — «немного, несколько» в утверждениях: I have **some** money. **Any** — в вопросах и отрицаниях: Do you have **any** tickets? I don’t have **any** time."
+    },
+    {
+      "kind": "text",
+      "md": "Исчисляемые (apple, ticket) бывают во множественном числе, неисчисляемые (water, bread, money) — нет: **some apples**, **some water**."
+    },
+    {
+      "kind": "tip",
+      "md": "В просьбах и предложениях — **some**: Would you like **some** tea? Can I have **some** water?"
+    }
+  ],
+  "examples": [
+    {
+      "es": "There is some bread on the table.",
+      "ru": "На столе есть хлеб."
+    },
+    {
+      "es": "I don't have any money.",
+      "ru": "У меня нет денег."
+    },
+    {
+      "es": "Are there any eggs?",
+      "ru": "Яйца есть?"
+    },
+    {
+      "es": "Would you like some cake?",
+      "ru": "Хочешь торта?"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "a1.27-some-any.1",
+      "kind": "choose",
+      "prompt": "Утверждение:",
+      "options": [
+        "I need some milk.",
+        "I need any milk.",
+        "I need a milk."
+      ],
+      "answer": 0,
+      "explain": "Утверждение — some."
+    },
+    {
+      "id": "a1.27-some-any.2",
+      "kind": "choose",
+      "prompt": "Вопрос:",
+      "options": [
+        "Have you got any brothers?",
+        "Have you got some brother?",
+        "Have you got a brothers?"
+      ],
+      "answer": 0,
+      "explain": "Вопрос — any."
+    },
+    {
+      "id": "a1.27-some-any.3",
+      "kind": "gap",
+      "sentence": "There aren't ___ chairs.",
+      "ru": "Стульев нет.",
+      "options": [
+        "any",
+        "some",
+        "a"
+      ],
+      "answer": 0,
+      "explain": "Отрицание — any."
+    },
+    {
+      "id": "a1.27-some-any.4",
+      "kind": "gap",
+      "sentence": "Would you like ___ tea?",
+      "ru": "Хочешь чаю?",
+      "options": [
+        "some",
+        "any",
+        "a"
+      ],
+      "answer": 0,
+      "explain": "Предложение — some."
+    },
+    {
+      "id": "a1.27-some-any.5",
+      "kind": "truefalse",
+      "statement": "«water» обычно не бывает во множественном числе.",
+      "answer": true,
+      "explain": "Неисчисляемое."
+    },
+    {
+      "id": "a1.27-some-any.6",
+      "kind": "truefalse",
+      "statement": "«I have any friends here» — правильно.",
+      "answer": false,
+      "explain": "Утверждение — some friends."
+    },
+    {
+      "id": "a1.27-some-any.7",
+      "kind": "truefalse",
+      "statement": "«Is there any sugar?» — правильно.",
+      "answer": true,
+      "explain": "Вопрос — any."
+    },
+    {
+      "id": "a1.27-some-any.8",
+      "kind": "build",
+      "ru": "У нас нет хлеба.",
+      "answer": "We haven't got any bread.",
+      "extra": [
+        "some",
+        "breads"
+      ],
+      "explain": "Отрицание — any; bread неисчисляемое."
+    },
+    {
+      "id": "a1.27-some-any.9",
+      "kind": "type",
+      "sentence": "Can I have ___ water, please?",
+      "ru": "Можно мне воды?",
+      "hint": "some / any",
+      "answer": "some",
+      "explain": "Просьба — some."
+    }
+  ]
+}

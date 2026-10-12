@@ -1,0 +1,148 @@
+{
+  "id": "a1.28-how-much-many",
+  "district": "A1",
+  "order": 28,
+  "title": "How much, how many",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "**How many** — с исчисляемыми во множественном числе: How many people? **How much** — с неисчисляемыми: How much water? И о цене: **How much is it?**"
+    },
+    {
+      "kind": "text",
+      "md": "В утверждениях чаще говорят **a lot of**: There are **a lot of** boats. There is **a lot of** rain."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Вопрос",
+        "С чем"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "How many…?",
+            "apples, tickets, days"
+          ]
+        },
+        {
+          "cells": [
+            "How much…?",
+            "money, time, milk, сколько стоит"
+          ]
+        }
+      ]
+    }
+  ],
+  "examples": [
+    {
+      "es": "How many brothers have you got?",
+      "ru": "Сколько у тебя братьев?"
+    },
+    {
+      "es": "How much time do we have?",
+      "ru": "Сколько у нас времени?"
+    },
+    {
+      "es": "How much is this scarf?",
+      "ru": "Сколько стоит этот шарф?"
+    },
+    {
+      "es": "There are a lot of shops here.",
+      "ru": "Здесь много магазинов."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "a1.28-how-much-many.1",
+      "kind": "choose",
+      "prompt": "«Сколько билетов?»",
+      "options": [
+        "How many tickets?",
+        "How much tickets?",
+        "How many ticket?"
+      ],
+      "answer": 0,
+      "explain": "Исчисляемое — how many."
+    },
+    {
+      "id": "a1.28-how-much-many.2",
+      "kind": "choose",
+      "prompt": "«Сколько денег?»",
+      "options": [
+        "How much money?",
+        "How many money?",
+        "How many moneys?"
+      ],
+      "answer": 0,
+      "explain": "Неисчисляемое — how much."
+    },
+    {
+      "id": "a1.28-how-much-many.3",
+      "kind": "gap",
+      "sentence": "How ___ is the room per night?",
+      "ru": "Сколько стоит номер за ночь?",
+      "options": [
+        "much",
+        "many",
+        "lot"
+      ],
+      "answer": 0,
+      "explain": "О цене — how much."
+    },
+    {
+      "id": "a1.28-how-much-many.4",
+      "kind": "gap",
+      "sentence": "How ___ eggs do we need?",
+      "ru": "Сколько яиц нам нужно?",
+      "options": [
+        "many",
+        "much",
+        "lot"
+      ],
+      "answer": 0,
+      "explain": "eggs исчисляемые — many."
+    },
+    {
+      "id": "a1.28-how-much-many.5",
+      "kind": "truefalse",
+      "statement": "«How much people?» — правильно.",
+      "answer": false,
+      "explain": "people исчисляемое: How many people?"
+    },
+    {
+      "id": "a1.28-how-much-many.6",
+      "kind": "truefalse",
+      "statement": "«How much is it?» спрашивает цену.",
+      "answer": true,
+      "explain": "Верно."
+    },
+    {
+      "id": "a1.28-how-much-many.7",
+      "kind": "truefalse",
+      "statement": "«a lot of» подходит и к исчисляемым, и к неисчисляемым.",
+      "answer": true,
+      "explain": "a lot of boats, a lot of rain."
+    },
+    {
+      "id": "a1.28-how-much-many.8",
+      "kind": "build",
+      "ru": "Сколько у тебя времени?",
+      "answer": "How much time have you got?",
+      "extra": [
+        "many",
+        "has"
+      ],
+      "explain": "time неисчисляемое — much."
+    },
+    {
+      "id": "a1.28-how-much-many.9",
+      "kind": "type",
+      "sentence": "How ___ children are in the class?",
+      "ru": "Сколько детей в классе?",
+      "hint": "much / many",
+      "answer": "many",
+      "explain": "children исчисляемые — many."
+    }
+  ]
+}

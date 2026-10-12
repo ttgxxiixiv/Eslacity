@@ -1,0 +1,158 @@
+{
+  "id": "a2.20-few-little",
+  "district": "A2",
+  "order": 20,
+  "title": "A few, a little, much, many",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "С исчисляемыми: **many** (много), **a few** (несколько). С неисчисляемыми: **much** (много), **a little** (немного)."
+    },
+    {
+      "kind": "text",
+      "md": "Much и many чаще в вопросах и отрицаниях; в утверждениях говорят **a lot of**."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "",
+        "Исчисляемые",
+        "Неисчисляемые"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "много",
+            "many / a lot of",
+            "much / a lot of"
+          ]
+        },
+        {
+          "cells": [
+            "немного",
+            "a few",
+            "a little"
+          ]
+        },
+        {
+          "cells": [
+            "только",
+            "only a few",
+            "only a little"
+          ]
+        }
+      ]
+    }
+  ],
+  "examples": [
+    {
+      "es": "I've got a few friends here.",
+      "ru": "У меня здесь несколько друзей."
+    },
+    {
+      "es": "Can I have a little milk?",
+      "ru": "Можно немного молока?"
+    },
+    {
+      "es": "There isn't much time.",
+      "ru": "Времени немного."
+    },
+    {
+      "es": "How many people came?",
+      "ru": "Сколько людей пришло?"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "a2.20-few-little.1",
+      "kind": "choose",
+      "prompt": "«Немного сахара»:",
+      "options": [
+        "a little sugar",
+        "a few sugar",
+        "many sugar"
+      ],
+      "answer": 0,
+      "explain": "sugar неисчисляемое — a little."
+    },
+    {
+      "id": "a2.20-few-little.2",
+      "kind": "choose",
+      "prompt": "«Несколько дней»:",
+      "options": [
+        "a few days",
+        "a little days",
+        "much days"
+      ],
+      "answer": 0,
+      "explain": "days исчисляемые — a few."
+    },
+    {
+      "id": "a2.20-few-little.3",
+      "kind": "gap",
+      "sentence": "We don't have ___ money.",
+      "ru": "У нас мало денег.",
+      "options": [
+        "much",
+        "many",
+        "few"
+      ],
+      "answer": 0,
+      "explain": "Неисчисляемое в отрицании — much."
+    },
+    {
+      "id": "a2.20-few-little.4",
+      "kind": "gap",
+      "sentence": "There are ___ boats in the harbour.",
+      "ru": "В гавани много лодок.",
+      "options": [
+        "a lot of",
+        "much",
+        "a little"
+      ],
+      "answer": 0,
+      "explain": "В утверждении — a lot of."
+    },
+    {
+      "id": "a2.20-few-little.5",
+      "kind": "truefalse",
+      "statement": "«many water» — правильно.",
+      "answer": false,
+      "explain": "water неисчисляемое: much water."
+    },
+    {
+      "id": "a2.20-few-little.6",
+      "kind": "truefalse",
+      "statement": "«a few apples» — правильно.",
+      "answer": true,
+      "explain": "Верно."
+    },
+    {
+      "id": "a2.20-few-little.7",
+      "kind": "truefalse",
+      "statement": "«How much bread do we need?» — правильно.",
+      "answer": true,
+      "explain": "bread неисчисляемое."
+    },
+    {
+      "id": "a2.20-few-little.8",
+      "kind": "build",
+      "ru": "У меня есть немного времени.",
+      "answer": "I've got a little time.",
+      "extra": [
+        "few",
+        "many"
+      ],
+      "explain": "time неисчисляемое — a little."
+    },
+    {
+      "id": "a2.20-few-little.9",
+      "kind": "type",
+      "sentence": "I know ___ words in Welsh.",
+      "ru": "Я знаю несколько слов на валлийском.",
+      "hint": "несколько",
+      "answer": "a few",
+      "explain": "words исчисляемые — a few."
+    }
+  ]
+}

@@ -1,0 +1,193 @@
+{
+  "id": "a2.18-possessive-pronouns",
+  "district": "A2",
+  "order": 18,
+  "title": "Mine, yours, his…",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Когда существительное не повторяют, говорят **mine** (мой), **yours**, **his**, **hers**, **ours**, **theirs**: This bag is **mine**. Is that coat **yours**?"
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Перед словом",
+        "Без слова"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "my",
+            "mine"
+          ]
+        },
+        {
+          "cells": [
+            "your",
+            "yours"
+          ]
+        },
+        {
+          "cells": [
+            "his",
+            "his"
+          ]
+        },
+        {
+          "cells": [
+            "her",
+            "hers"
+          ]
+        },
+        {
+          "cells": [
+            "our",
+            "ours"
+          ]
+        },
+        {
+          "cells": [
+            "their",
+            "theirs"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Свой",
+        "Пример"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "my own",
+            "my own room"
+          ]
+        },
+        {
+          "cells": [
+            "their own",
+            "their own boat"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Апострофа нет: **yours**, **hers**, не your's и her's."
+    }
+  ],
+  "examples": [
+    {
+      "es": "This seat is mine.",
+      "ru": "Это место моё."
+    },
+    {
+      "es": "Is this umbrella yours?",
+      "ru": "Это твой зонт?"
+    },
+    {
+      "es": "The red car is hers.",
+      "ru": "Красная машина её."
+    },
+    {
+      "es": "Our room is small, theirs is big.",
+      "ru": "Наш номер маленький, их — большой."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "a2.18-possessive-pronouns.1",
+      "kind": "choose",
+      "prompt": "«Этот ключ мой»:",
+      "options": [
+        "This key is mine.",
+        "This key is my.",
+        "This key is mines."
+      ],
+      "answer": 0,
+      "explain": "Без существительного — mine."
+    },
+    {
+      "id": "a2.18-possessive-pronouns.2",
+      "kind": "choose",
+      "prompt": "«Это её»:",
+      "options": [
+        "It's hers.",
+        "It's her's.",
+        "It's she."
+      ],
+      "answer": 0,
+      "explain": "hers без апострофа."
+    },
+    {
+      "id": "a2.18-possessive-pronouns.3",
+      "kind": "gap",
+      "sentence": "Is this phone ___ or mine?",
+      "ru": "Это твой телефон или мой?",
+      "options": [
+        "yours",
+        "your",
+        "you"
+      ],
+      "answer": 0,
+      "explain": "Без слова — yours."
+    },
+    {
+      "id": "a2.18-possessive-pronouns.4",
+      "kind": "gap",
+      "sentence": "This house is ___. We bought it last year.",
+      "ru": "Этот дом наш. Мы купили его в прошлом году.",
+      "options": [
+        "ours",
+        "our",
+        "us"
+      ],
+      "answer": 0,
+      "explain": "we → ours."
+    },
+    {
+      "id": "a2.18-possessive-pronouns.5",
+      "kind": "truefalse",
+      "statement": "«your's» — правильное написание.",
+      "answer": false,
+      "explain": "Без апострофа: yours."
+    },
+    {
+      "id": "a2.18-possessive-pronouns.6",
+      "kind": "truefalse",
+      "statement": "«The blue bike is his» — правильно.",
+      "answer": true,
+      "explain": "his в обеих ролях."
+    },
+    {
+      "id": "a2.18-possessive-pronouns.7",
+      "kind": "truefalse",
+      "statement": "«Theirs is the best garden» — правильно.",
+      "answer": true,
+      "explain": "theirs — их."
+    },
+    {
+      "id": "a2.18-possessive-pronouns.8",
+      "kind": "build",
+      "ru": "Эта сумка моя.",
+      "answer": "This bag is mine.",
+      "extra": [
+        "my",
+        "me"
+      ],
+      "explain": "Без слова — mine."
+    },
+    {
+      "id": "a2.18-possessive-pronouns.9",
+      "kind": "type",
+      "sentence": "My room is big, but ___ is small.",
+      "ru": "Моя комната большая, а её маленькая.",
+      "hint": "её",
+      "answer": "hers",
+      "explain": "she → hers."
+    }
+  ]
+}

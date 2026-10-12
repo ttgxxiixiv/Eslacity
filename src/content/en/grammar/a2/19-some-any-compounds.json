@@ -1,0 +1,170 @@
+{
+  "id": "a2.19-some-any-compounds",
+  "district": "A2",
+  "order": 19,
+  "title": "Somebody, anything, nowhere",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Из some, any, no и every строят слова: **somebody** (кто-то), **anything** (что-нибудь), **nobody** (никто), **everywhere** (везде)."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "",
+        "-body (люди)",
+        "-thing (вещи)",
+        "-where (места)"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "some",
+            "somebody",
+            "something",
+            "somewhere"
+          ]
+        },
+        {
+          "cells": [
+            "any",
+            "anybody",
+            "anything",
+            "anywhere"
+          ]
+        },
+        {
+          "cells": [
+            "no",
+            "nobody",
+            "nothing",
+            "nowhere"
+          ]
+        },
+        {
+          "cells": [
+            "every",
+            "everybody",
+            "everything",
+            "everywhere"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Одно отрицание: **I saw nobody** или **I didn't see anybody**, но не «I didn't see nobody»."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Somebody is at the door.",
+      "ru": "Кто-то у двери."
+    },
+    {
+      "es": "I didn't buy anything.",
+      "ru": "Я ничего не купил."
+    },
+    {
+      "es": "Nobody knows the answer.",
+      "ru": "Никто не знает ответа."
+    },
+    {
+      "es": "I looked everywhere!",
+      "ru": "Я искал везде!"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "a2.19-some-any-compounds.1",
+      "kind": "choose",
+      "prompt": "«Я ничего не вижу»:",
+      "options": [
+        "I can't see anything.",
+        "I can't see nothing.",
+        "I can see anything."
+      ],
+      "answer": 0,
+      "explain": "Одно отрицание: can't + anything."
+    },
+    {
+      "id": "a2.19-some-any-compounds.2",
+      "kind": "choose",
+      "prompt": "«Кто-нибудь здесь говорит по-русски?»",
+      "options": [
+        "Does anybody here speak Russian?",
+        "Does nobody here speak Russian?",
+        "Does somebody here speaks Russian?"
+      ],
+      "answer": 0,
+      "explain": "В вопросе — anybody."
+    },
+    {
+      "id": "a2.19-some-any-compounds.3",
+      "kind": "gap",
+      "sentence": "There is ___ in the box. It is empty.",
+      "ru": "В коробке ничего нет. Она пустая.",
+      "options": [
+        "nothing",
+        "anything",
+        "something"
+      ],
+      "answer": 0,
+      "explain": "Утверждение с отрицательным смыслом — nothing."
+    },
+    {
+      "id": "a2.19-some-any-compounds.4",
+      "kind": "gap",
+      "sentence": "Let's go ___ warm.",
+      "ru": "Пойдём куда-нибудь, где тепло.",
+      "options": [
+        "somewhere",
+        "nowhere",
+        "anywhere"
+      ],
+      "answer": 0,
+      "explain": "Утверждение — somewhere."
+    },
+    {
+      "id": "a2.19-some-any-compounds.5",
+      "kind": "truefalse",
+      "statement": "«I don't know nobody here» — правильно.",
+      "answer": false,
+      "explain": "Одно отрицание: I don't know anybody."
+    },
+    {
+      "id": "a2.19-some-any-compounds.6",
+      "kind": "truefalse",
+      "statement": "«Everybody likes Molly» — правильно.",
+      "answer": true,
+      "explain": "everybody — с глаголом в единственном числе."
+    },
+    {
+      "id": "a2.19-some-any-compounds.7",
+      "kind": "truefalse",
+      "statement": "«Is there anything to eat?» — правильно.",
+      "answer": true,
+      "explain": "В вопросе — anything."
+    },
+    {
+      "id": "a2.19-some-any-compounds.8",
+      "kind": "build",
+      "ru": "Кто-то оставил записку.",
+      "answer": "Somebody left a note.",
+      "extra": [
+        "Anybody",
+        "leave"
+      ],
+      "explain": "Утверждение — somebody."
+    },
+    {
+      "id": "a2.19-some-any-compounds.9",
+      "kind": "type",
+      "sentence": "I can't find my glasses ___.",
+      "ru": "Я нигде не могу найти очки.",
+      "hint": "нигде",
+      "answer": "anywhere",
+      "explain": "После can't — anywhere."
+    }
+  ]
+}

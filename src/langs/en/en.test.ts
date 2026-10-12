@@ -158,3 +158,17 @@ describe('слова глав I–II английского (задача 17.3)'
     for (const { data } of [...words, ...scrolls]) for (const w of data.words) expect(w.gender, w.id).toBeUndefined();
   });
 });
+
+describe('грамматика A1–A2 английского (задача 17.4)', () => {
+  const root = join(import.meta.dirname, '..', '..', 'content', 'en', 'grammar');
+  const ids = readdirSync(root).flatMap((d) => readdirSync(join(root, d)).map((f) => `${d}.${f.replace(/\.json$/, '')}`));
+
+  it('по 31 уроку в районах A1 и A2', () => {
+    expect(ids.filter((i) => i.startsWith('a1.'))).toHaveLength(31);
+    expect(ids.filter((i) => i.startsWith('a2.'))).toHaveLength(31);
+  });
+
+  it('уроки, открывающие времена кузницы, есть в контенте', () => {
+    for (const t of EN.verbs.tenses) expect(ids, t.id).toContain(t.lesson);
+  });
+});

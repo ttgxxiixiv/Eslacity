@@ -1,0 +1,151 @@
+{
+  "id": "a1.15-simple-continuous",
+  "district": "A1",
+  "order": 15,
+  "title": "Simple или Continuous",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "**Present Simple** — обычно, всегда, по расписанию: I **work** at the bank. **Present Continuous** — сейчас или временно: I**’m working** at home today."
+    },
+    {
+      "kind": "text",
+      "md": "Глаголы состояния (know, want, like, need, believe) в Continuous почти не бывают: I **know**, а не I am knowing."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Simple",
+        "Continuous"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "He usually walks to work.",
+            "He's taking the bus today."
+          ]
+        },
+        {
+          "cells": [
+            "It rains a lot here.",
+            "It's raining now."
+          ]
+        }
+      ]
+    }
+  ],
+  "examples": [
+    {
+      "es": "I usually drink tea, but today I’m drinking coffee.",
+      "ru": "Обычно я пью чай, а сегодня пью кофе."
+    },
+    {
+      "es": "She works in Bristol.",
+      "ru": "Она работает в Бристоле."
+    },
+    {
+      "es": "I'm staying with friends this week.",
+      "ru": "На этой неделе я живу у друзей."
+    },
+    {
+      "es": "I need help.",
+      "ru": "Мне нужна помощь."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "a1.15-simple-continuous.1",
+      "kind": "choose",
+      "prompt": "Какая фраза верна?",
+      "options": [
+        "I know the answer.",
+        "I am knowing the answer.",
+        "I knowing the answer."
+      ],
+      "answer": 0,
+      "explain": "know — глагол состояния: Simple."
+    },
+    {
+      "id": "a1.15-simple-continuous.2",
+      "kind": "choose",
+      "prompt": "«Сейчас идёт снег»:",
+      "options": [
+        "It's snowing now.",
+        "It snows now.",
+        "It snowing now."
+      ],
+      "answer": 0,
+      "explain": "Сейчас — Continuous."
+    },
+    {
+      "id": "a1.15-simple-continuous.3",
+      "kind": "gap",
+      "sentence": "He ___ to work every day.",
+      "ru": "Он ходит на работу каждый день.",
+      "options": [
+        "walks",
+        "is walking",
+        "walk"
+      ],
+      "answer": 0,
+      "explain": "Каждый день — Simple."
+    },
+    {
+      "id": "a1.15-simple-continuous.4",
+      "kind": "gap",
+      "sentence": "Be quiet! The baby ___.",
+      "ru": "Тише! Малыш спит.",
+      "options": [
+        "is sleeping",
+        "sleeps",
+        "sleep"
+      ],
+      "answer": 0,
+      "explain": "Сейчас — Continuous."
+    },
+    {
+      "id": "a1.15-simple-continuous.5",
+      "kind": "truefalse",
+      "statement": "«I want a coffee» — правильно.",
+      "answer": true,
+      "explain": "want — глагол состояния."
+    },
+    {
+      "id": "a1.15-simple-continuous.6",
+      "kind": "truefalse",
+      "statement": "«Every Sunday we are going to the market» — обычная форма для привычки.",
+      "answer": false,
+      "explain": "Для привычки — Simple: we go."
+    },
+    {
+      "id": "a1.15-simple-continuous.7",
+      "kind": "truefalse",
+      "statement": "«What are you doing?» — вопрос о том, что происходит сейчас.",
+      "answer": true,
+      "explain": "Continuous — сейчас."
+    },
+    {
+      "id": "a1.15-simple-continuous.8",
+      "kind": "build",
+      "ru": "Обычно она работает дома.",
+      "answer": "She usually works at home.",
+      "extra": [
+        "working",
+        "is"
+      ],
+      "explain": "usually → Simple."
+    },
+    {
+      "id": "a1.15-simple-continuous.9",
+      "kind": "type",
+      "sentence": "Today I ___ the bus because my car is broken.",
+      "ru": "Сегодня я еду на автобусе, потому что машина сломалась.",
+      "hint": "take",
+      "answer": "am taking",
+      "alt": [
+        "'m taking"
+      ],
+      "explain": "Временно, сегодня — Continuous."
+    }
+  ]
+}

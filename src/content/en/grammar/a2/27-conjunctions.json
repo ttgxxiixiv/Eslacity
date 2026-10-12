@@ -1,0 +1,182 @@
+{
+  "id": "a2.27-conjunctions",
+  "district": "A2",
+  "order": 27,
+  "title": "And, but, so, because",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "**And** — и, **but** — но, **or** — или, **so** — поэтому (следствие), **because** — потому что (причина)."
+    },
+    {
+      "kind": "text",
+      "md": "**Because** отвечает на «почему», **so** говорит, что из этого вышло: I was tired, **so** I went to bed. I went to bed **because** I was tired."
+    },
+    {
+      "kind": "tip",
+      "md": "**Although** — хотя: Although it was cold, we swam."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Союз",
+        "Перевод"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "and",
+            "и"
+          ]
+        },
+        {
+          "cells": [
+            "but",
+            "но"
+          ]
+        },
+        {
+          "cells": [
+            "or",
+            "или"
+          ]
+        },
+        {
+          "cells": [
+            "so",
+            "поэтому"
+          ]
+        },
+        {
+          "cells": [
+            "because",
+            "потому что"
+          ]
+        },
+        {
+          "cells": [
+            "although",
+            "хотя"
+          ]
+        },
+        {
+          "cells": [
+            "while",
+            "пока, в то время как"
+          ]
+        }
+      ]
+    }
+  ],
+  "examples": [
+    {
+      "es": "I like tea, but I love coffee.",
+      "ru": "Я люблю чай, но кофе обожаю."
+    },
+    {
+      "es": "It was raining, so we stayed at home.",
+      "ru": "Шёл дождь, поэтому мы остались дома."
+    },
+    {
+      "es": "I came because you called.",
+      "ru": "Я пришёл, потому что ты позвонил."
+    },
+    {
+      "es": "Tea or coffee?",
+      "ru": "Чай или кофе?"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "a2.27-conjunctions.1",
+      "kind": "choose",
+      "prompt": "Причина:",
+      "options": [
+        "I stayed home because I was ill.",
+        "I stayed home so I was ill.",
+        "I stayed home but I was ill."
+      ],
+      "answer": 0,
+      "explain": "Причина — because."
+    },
+    {
+      "id": "a2.27-conjunctions.2",
+      "kind": "choose",
+      "prompt": "Следствие:",
+      "options": [
+        "It was late, so we took a taxi.",
+        "It was late, because we took a taxi.",
+        "It was late, or we took a taxi."
+      ],
+      "answer": 0,
+      "explain": "Следствие — so."
+    },
+    {
+      "id": "a2.27-conjunctions.3",
+      "kind": "gap",
+      "sentence": "The hotel is nice, ___ it is expensive.",
+      "ru": "Отель хороший, но дорогой.",
+      "options": [
+        "but",
+        "so",
+        "because"
+      ],
+      "answer": 0,
+      "explain": "Противопоставление — but."
+    },
+    {
+      "id": "a2.27-conjunctions.4",
+      "kind": "gap",
+      "sentence": "Would you like fish ___ meat?",
+      "ru": "Вам рыбу или мясо?",
+      "options": [
+        "or",
+        "and",
+        "so"
+      ],
+      "answer": 0,
+      "explain": "Выбор — or."
+    },
+    {
+      "id": "a2.27-conjunctions.5",
+      "kind": "truefalse",
+      "statement": "«because» отвечает на вопрос «почему».",
+      "answer": true,
+      "explain": "Верно."
+    },
+    {
+      "id": "a2.27-conjunctions.6",
+      "kind": "truefalse",
+      "statement": "«I was hungry, because I ate a sandwich» — логичная фраза.",
+      "answer": false,
+      "explain": "Здесь следствие: I was hungry, so I ate a sandwich."
+    },
+    {
+      "id": "a2.27-conjunctions.7",
+      "kind": "truefalse",
+      "statement": "«Although it was cold, we swam» — «Хотя было холодно, мы плавали».",
+      "answer": true,
+      "explain": "Верно."
+    },
+    {
+      "id": "a2.27-conjunctions.8",
+      "kind": "build",
+      "ru": "Я устал, поэтому лёг спать.",
+      "answer": "I was tired, so I went to bed.",
+      "extra": [
+        "because",
+        "but"
+      ],
+      "explain": "Следствие — so."
+    },
+    {
+      "id": "a2.27-conjunctions.9",
+      "kind": "type",
+      "sentence": "We took umbrellas ___ it was raining.",
+      "ru": "Мы взяли зонты, потому что шёл дождь.",
+      "hint": "потому что",
+      "answer": "because",
+      "explain": "Причина — because."
+    }
+  ]
+}

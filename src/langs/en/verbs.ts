@@ -66,12 +66,12 @@ function enForms(v: VerbData, tense: EnTense): string[] {
 }
 
 export const EN_VERBS: VerbProfile = {
-  // Уроки грамматики появятся в 17.4: id уроков открытия — по плану района A1–A2.
+  // Время открывает его урок района A1–A2 (задача 17.4).
   tenses: [
     { id: 'present-simple', ru: 'Present Simple', lesson: 'a1.10-present-simple' },
     { id: 'present-continuous', ru: 'Present Continuous', lesson: 'a1.14-present-continuous' },
-    { id: 'past-simple', ru: 'Past Simple', lesson: 'a2.04-past-simple' },
-    { id: 'present-perfect', ru: 'Present Perfect', lesson: 'a2.20-present-perfect' },
+    { id: 'past-simple', ru: 'Past Simple', lesson: 'a2.02-past-simple' },
+    { id: 'present-perfect', ru: 'Present Perfect', lesson: 'a2.15-present-perfect' },
   ],
   persons: ['I', 'you', 'he / she', 'we', 'you (мн.)', 'they'],
   infinitive: /^[a-z]+$/,

@@ -1,0 +1,223 @@
+{
+  "id": "a1.21-numbers",
+  "district": "A1",
+  "order": 21,
+  "title": "Числа",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "От 13 до 19 — окончание **-teen**: thirteen, fifteen. Десятки — **-ty**: twenty, thirty, forty (без u!), fifty."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Число",
+        "Слово"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "1",
+            "one"
+          ]
+        },
+        {
+          "cells": [
+            "12",
+            "twelve"
+          ]
+        },
+        {
+          "cells": [
+            "13",
+            "thirteen"
+          ]
+        },
+        {
+          "cells": [
+            "15",
+            "fifteen"
+          ]
+        },
+        {
+          "cells": [
+            "20",
+            "twenty"
+          ]
+        },
+        {
+          "cells": [
+            "40",
+            "forty"
+          ]
+        },
+        {
+          "cells": [
+            "100",
+            "a hundred"
+          ]
+        },
+        {
+          "cells": [
+            "1000",
+            "a thousand"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Составные пишутся через дефис: 25 — twenty-five. Сотни соединяются через and: 120 — a hundred and twenty."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Порядок",
+        "Слово"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "1-й",
+            "first"
+          ]
+        },
+        {
+          "cells": [
+            "2-й",
+            "second"
+          ]
+        },
+        {
+          "cells": [
+            "3-й",
+            "third"
+          ]
+        },
+        {
+          "cells": [
+            "4-й",
+            "fourth"
+          ]
+        },
+        {
+          "cells": [
+            "5-й",
+            "fifth"
+          ]
+        }
+      ]
+    }
+  ],
+  "examples": [
+    {
+      "es": "I am twenty-five.",
+      "ru": "Мне двадцать пять."
+    },
+    {
+      "es": "It costs fifteen pounds.",
+      "ru": "Это стоит пятнадцать фунтов."
+    },
+    {
+      "es": "There are forty rooms in the hotel.",
+      "ru": "В отеле сорок номеров."
+    },
+    {
+      "es": "A hundred and twenty people.",
+      "ru": "Сто двадцать человек."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "a1.21-numbers.1",
+      "kind": "choose",
+      "prompt": "40 по-английски:",
+      "options": [
+        "forty",
+        "fourty",
+        "fourteen"
+      ],
+      "answer": 0,
+      "explain": "forty — без u."
+    },
+    {
+      "id": "a1.21-numbers.2",
+      "kind": "choose",
+      "prompt": "13 по-английски:",
+      "options": [
+        "thirteen",
+        "thirty",
+        "threeteen"
+      ],
+      "answer": 0,
+      "explain": "13 — thirteen, 30 — thirty."
+    },
+    {
+      "id": "a1.21-numbers.3",
+      "kind": "gap",
+      "sentence": "The bus number is ___ (15).",
+      "ru": "Номер автобуса — пятнадцать.",
+      "options": [
+        "fifteen",
+        "fifty",
+        "fiveteen"
+      ],
+      "answer": 0,
+      "explain": "15 — fifteen."
+    },
+    {
+      "id": "a1.21-numbers.4",
+      "kind": "gap",
+      "sentence": "I need ___ (12) eggs.",
+      "ru": "Мне нужно двенадцать яиц.",
+      "options": [
+        "twelve",
+        "twenty",
+        "twelf"
+      ],
+      "answer": 0,
+      "explain": "12 — twelve."
+    },
+    {
+      "id": "a1.21-numbers.5",
+      "kind": "truefalse",
+      "statement": "25 пишется twenty-five.",
+      "answer": true,
+      "explain": "Составные — через дефис."
+    },
+    {
+      "id": "a1.21-numbers.6",
+      "kind": "truefalse",
+      "statement": "50 — fiveteen.",
+      "answer": false,
+      "explain": "50 — fifty, 15 — fifteen."
+    },
+    {
+      "id": "a1.21-numbers.7",
+      "kind": "truefalse",
+      "statement": "120 — a hundred and twenty.",
+      "answer": true,
+      "explain": "Сотни соединяются через and."
+    },
+    {
+      "id": "a1.21-numbers.8",
+      "kind": "build",
+      "ru": "Мне тридцать лет.",
+      "answer": "I am thirty years old.",
+      "extra": [
+        "thirteen",
+        "have"
+      ],
+      "explain": "30 — thirty; возраст — с to be."
+    },
+    {
+      "id": "a1.21-numbers.9",
+      "kind": "type",
+      "sentence": "Seven and eight is ___.",
+      "ru": "Семь плюс восемь — пятнадцать.",
+      "hint": "15",
+      "answer": "fifteen",
+      "explain": "7 + 8 = 15 — fifteen."
+    }
+  ]
+}

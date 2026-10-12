@@ -1,0 +1,172 @@
+{
+  "id": "a1.06-plural",
+  "district": "A1",
+  "order": 6,
+  "title": "Множественное число",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Обычно добавляют **-s**: book → books. После s, sh, ch, x, o — **-es**: bus → buses, box → boxes. Согласная + y → **-ies**: city → cities."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Единственное",
+        "Множественное"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "man",
+            "men"
+          ]
+        },
+        {
+          "cells": [
+            "woman",
+            "women"
+          ]
+        },
+        {
+          "cells": [
+            "child",
+            "children"
+          ]
+        },
+        {
+          "cells": [
+            "person",
+            "people"
+          ]
+        },
+        {
+          "cells": [
+            "foot",
+            "feet"
+          ]
+        },
+        {
+          "cells": [
+            "tooth",
+            "teeth"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Неправильные формы надо запомнить. Неисчисляемые (water, money, bread) множественного числа не имеют."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Two coffees, please.",
+      "ru": "Два кофе, пожалуйста."
+    },
+    {
+      "es": "The children are in the park.",
+      "ru": "Дети в парке."
+    },
+    {
+      "es": "There are three buses.",
+      "ru": "Есть три автобуса."
+    },
+    {
+      "es": "My feet hurt.",
+      "ru": "У меня болят ноги."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "a1.06-plural.1",
+      "kind": "choose",
+      "prompt": "Множественное от «box»:",
+      "options": [
+        "boxes",
+        "boxs",
+        "boxies"
+      ],
+      "answer": 0,
+      "explain": "После x — -es."
+    },
+    {
+      "id": "a1.06-plural.2",
+      "kind": "choose",
+      "prompt": "Множественное от «child»:",
+      "options": [
+        "children",
+        "childs",
+        "childes"
+      ],
+      "answer": 0,
+      "explain": "Неправильная форма: children."
+    },
+    {
+      "id": "a1.06-plural.3",
+      "kind": "gap",
+      "sentence": "Two ___, please.",
+      "ru": "Два билета, пожалуйста.",
+      "options": [
+        "tickets",
+        "ticket",
+        "ticketes"
+      ],
+      "answer": 0,
+      "explain": "ticket → tickets."
+    },
+    {
+      "id": "a1.06-plural.4",
+      "kind": "gap",
+      "sentence": "There are many ___ in this town.",
+      "ru": "В этом городе много людей.",
+      "options": [
+        "people",
+        "persons",
+        "peoples"
+      ],
+      "answer": 0,
+      "explain": "person → people."
+    },
+    {
+      "id": "a1.06-plural.5",
+      "kind": "truefalse",
+      "statement": "city → cities",
+      "answer": true,
+      "explain": "Согласная + y → ies."
+    },
+    {
+      "id": "a1.06-plural.6",
+      "kind": "truefalse",
+      "statement": "woman → womans",
+      "answer": false,
+      "explain": "Неправильная форма: women."
+    },
+    {
+      "id": "a1.06-plural.7",
+      "kind": "truefalse",
+      "statement": "day → daies",
+      "answer": false,
+      "explain": "Гласная + y: просто -s, days."
+    },
+    {
+      "id": "a1.06-plural.8",
+      "kind": "build",
+      "ru": "Мои зубы болят.",
+      "answer": "My teeth hurt.",
+      "extra": [
+        "tooth",
+        "toothes"
+      ],
+      "explain": "tooth → teeth."
+    },
+    {
+      "id": "a1.06-plural.9",
+      "kind": "type",
+      "sentence": "I have two ___.",
+      "ru": "У меня два брата.",
+      "hint": "brother",
+      "answer": "brothers",
+      "explain": "brother → brothers."
+    }
+  ]
+}

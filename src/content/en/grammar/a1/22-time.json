@@ -1,0 +1,166 @@
+{
+  "id": "a1.22-time",
+  "district": "A1",
+  "order": 22,
+  "title": "Который час",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "**What time is it?** — Который час? Ровно: **It’s five o’clock.** Минуты после часа — **past**, до часа — **to**: 5:10 — ten **past** five, 5:50 — ten **to** six."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Время",
+        "Как сказать"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "3:00",
+            "three o'clock"
+          ]
+        },
+        {
+          "cells": [
+            "3:15",
+            "quarter past three"
+          ]
+        },
+        {
+          "cells": [
+            "3:30",
+            "half past three"
+          ]
+        },
+        {
+          "cells": [
+            "3:45",
+            "quarter to four"
+          ]
+        },
+        {
+          "cells": [
+            "3:20",
+            "twenty past three"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Проще всего назвать цифры: 3:45 — three forty-five. Так говорят на вокзалах."
+    }
+  ],
+  "examples": [
+    {
+      "es": "It's half past seven.",
+      "ru": "Половина восьмого."
+    },
+    {
+      "es": "The train leaves at quarter to ten.",
+      "ru": "Поезд уходит без четверти десять."
+    },
+    {
+      "es": "What time does the shop open?",
+      "ru": "Во сколько открывается магазин?"
+    },
+    {
+      "es": "It's ten past two.",
+      "ru": "Десять минут третьего."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "a1.22-time.1",
+      "kind": "choose",
+      "prompt": "4:30 — это:",
+      "options": [
+        "half past four",
+        "half to four",
+        "half past five"
+      ],
+      "answer": 0,
+      "explain": "Половина пятого — half past four."
+    },
+    {
+      "id": "a1.22-time.2",
+      "kind": "choose",
+      "prompt": "6:45 — это:",
+      "options": [
+        "quarter to seven",
+        "quarter past six",
+        "quarter to six"
+      ],
+      "answer": 0,
+      "explain": "Без четверти семь."
+    },
+    {
+      "id": "a1.22-time.3",
+      "kind": "gap",
+      "sentence": "It's quarter ___ eight (8:15).",
+      "ru": "Четверть девятого.",
+      "options": [
+        "past",
+        "to",
+        "at"
+      ],
+      "answer": 0,
+      "explain": "После часа — past."
+    },
+    {
+      "id": "a1.22-time.4",
+      "kind": "gap",
+      "sentence": "The museum opens at nine ___.",
+      "ru": "Музей открывается в девять ровно.",
+      "options": [
+        "o'clock",
+        "hour",
+        "time"
+      ],
+      "answer": 0,
+      "explain": "Ровно — o'clock."
+    },
+    {
+      "id": "a1.22-time.5",
+      "kind": "truefalse",
+      "statement": "«It's twenty to five» — это 4:40.",
+      "answer": true,
+      "explain": "Двадцать минут до пяти."
+    },
+    {
+      "id": "a1.22-time.6",
+      "kind": "truefalse",
+      "statement": "«half past three» — это 2:30.",
+      "answer": false,
+      "explain": "half past three — 3:30."
+    },
+    {
+      "id": "a1.22-time.7",
+      "kind": "truefalse",
+      "statement": "«What time is it?» значит «Который час?».",
+      "answer": true,
+      "explain": "Верно."
+    },
+    {
+      "id": "a1.22-time.8",
+      "kind": "build",
+      "ru": "Который сейчас час?",
+      "answer": "What time is it now?",
+      "extra": [
+        "How",
+        "are"
+      ],
+      "explain": "What time is it?"
+    },
+    {
+      "id": "a1.22-time.9",
+      "kind": "type",
+      "sentence": "It's ten ___ six (5:50).",
+      "ru": "Без десяти шесть.",
+      "hint": "past / to",
+      "answer": "to",
+      "explain": "До часа — to."
+    }
+  ]
+}

@@ -1,0 +1,217 @@
+{
+  "id": "a1.23-question-words",
+  "district": "A1",
+  "order": 23,
+  "title": "Вопросительные слова",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "**What** — что, **who** — кто, **where** — где, куда, **when** — когда, **why** — почему, **how** — как, **which** — какой (из), **whose** — чей."
+    },
+    {
+      "kind": "text",
+      "md": "Порядок: вопросительное слово + помощник + подлежащее + глагол: **Where do you live?** С to be: **Where is** the station?"
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Слово",
+        "Перевод"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "what",
+            "что, какой"
+          ]
+        },
+        {
+          "cells": [
+            "who",
+            "кто"
+          ]
+        },
+        {
+          "cells": [
+            "where",
+            "где, куда"
+          ]
+        },
+        {
+          "cells": [
+            "when",
+            "когда"
+          ]
+        },
+        {
+          "cells": [
+            "why",
+            "почему"
+          ]
+        },
+        {
+          "cells": [
+            "how",
+            "как"
+          ]
+        },
+        {
+          "cells": [
+            "which",
+            "который, какой из"
+          ]
+        },
+        {
+          "cells": [
+            "whose",
+            "чей"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Слово",
+        "Пример"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "How much",
+            "How much is it?"
+          ]
+        },
+        {
+          "cells": [
+            "How many",
+            "How many people?"
+          ]
+        },
+        {
+          "cells": [
+            "How old",
+            "How old are you?"
+          ]
+        },
+        {
+          "cells": [
+            "What time",
+            "What time is it?"
+          ]
+        }
+      ]
+    }
+  ],
+  "examples": [
+    {
+      "es": "Where is the toilet?",
+      "ru": "Где туалет?"
+    },
+    {
+      "es": "Why are you sad?",
+      "ru": "Почему ты грустишь?"
+    },
+    {
+      "es": "Who is that man?",
+      "ru": "Кто тот мужчина?"
+    },
+    {
+      "es": "How do you spell it?",
+      "ru": "Как это пишется?"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "a1.23-question-words.1",
+      "kind": "choose",
+      "prompt": "Спросить «где»:",
+      "options": [
+        "Where",
+        "When",
+        "Who"
+      ],
+      "answer": 0,
+      "explain": "where — где."
+    },
+    {
+      "id": "a1.23-question-words.2",
+      "kind": "choose",
+      "prompt": "Правильный порядок:",
+      "options": [
+        "Where do you work?",
+        "Where you work?",
+        "Where work you?"
+      ],
+      "answer": 0,
+      "explain": "Слово + do + подлежащее + глагол."
+    },
+    {
+      "id": "a1.23-question-words.3",
+      "kind": "gap",
+      "sentence": "___ old are you?",
+      "ru": "Сколько тебе лет?",
+      "options": [
+        "How",
+        "What",
+        "Who"
+      ],
+      "answer": 0,
+      "explain": "Возраст — How old."
+    },
+    {
+      "id": "a1.23-question-words.4",
+      "kind": "gap",
+      "sentence": "___ is your birthday?",
+      "ru": "Когда у тебя день рождения?",
+      "options": [
+        "When",
+        "Where",
+        "Which"
+      ],
+      "answer": 0,
+      "explain": "Когда — when."
+    },
+    {
+      "id": "a1.23-question-words.5",
+      "kind": "truefalse",
+      "statement": "«Why you are late?» — правильный вопрос.",
+      "answer": false,
+      "explain": "Глагол перед подлежащим: Why are you late?"
+    },
+    {
+      "id": "a1.23-question-words.6",
+      "kind": "truefalse",
+      "statement": "«Whose bag is this?» — «Чья это сумка?».",
+      "answer": true,
+      "explain": "whose — чей."
+    },
+    {
+      "id": "a1.23-question-words.7",
+      "kind": "truefalse",
+      "statement": "«How much is it?» — «Сколько это стоит?».",
+      "answer": true,
+      "explain": "Верно."
+    },
+    {
+      "id": "a1.23-question-words.8",
+      "kind": "build",
+      "ru": "Что ты хочешь?",
+      "answer": "What do you want?",
+      "extra": [
+        "Where",
+        "does"
+      ],
+      "explain": "What + do + you + want."
+    },
+    {
+      "id": "a1.23-question-words.9",
+      "kind": "type",
+      "sentence": "___ is your favourite colour?",
+      "ru": "Какой твой любимый цвет?",
+      "hint": "вопрос",
+      "answer": "What",
+      "explain": "Какой (из всех) — what."
+    }
+  ]
+}

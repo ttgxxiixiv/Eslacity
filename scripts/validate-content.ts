@@ -70,7 +70,12 @@ const readFile = <T,>(lang: Lang, name: string): T | undefined =>
  * Слова закрытого курса (английский с 17.3): места и свитки, одинаковые переводы, редкие слова на уровнях 1–4,
  * CEFR по частотности и рискованные леммы — как у открытого курса, но без проверок, которым нужны уроки и сцены.
  */
-function partialWordChecks(lang: Lang, words: { name: string; data: LocationWords }[], scrolls: { name: string; data: ScrollFile }[]): Issue[] {
+function partialWordChecks(
+  lang: Lang,
+  words: { name: string; data: LocationWords }[],
+  scrolls: { name: string; data: ScrollFile }[],
+  lessons: GrammarLesson[],
+): Issue[] {
   if (!words.length && !scrolls.length) return [];
   const dataDir = join(root, '..', '..', 'scripts', 'data');
   const skips = parseSkips(readFileSync(join(dataDir, `skip-${lang}.txt`), 'utf8'));
@@ -81,7 +86,7 @@ function partialWordChecks(lang: Lang, words: { name: string; data: LocationWord
       ...words.flatMap((f) => f.data.words),
       ...scrolls.flatMap((f) => f.data.words.map((w) => ({ ...w, level: CHAPTERS[f.data.chapter - 1]?.levels[0] ?? 99 }))),
     ],
-    [],
+    lessons,
     freq,
     (t) => lemmasIn(t, forms, lang),
   );
@@ -116,6 +121,10 @@ function partialWordChecks(lang: Lang, words: { name: string; data: LocationWord
 function partialChecks(lang: Lang): void {
   const words = readJson<LocationWords>(join(root, lang, 'words'));
   const scrolls = readJson<ScrollFile>(join(root, lang, 'scrolls'));
+  const grammarDir = join(root, lang, 'grammar');
+  const grammar = existsSync(grammarDir)
+    ? readdirSync(grammarDir).flatMap((d) => readJson<GrammarLesson>(join(grammarDir, d)).map((f) => ({ ...f, name: `${d}/${f.name}` })))
+    : [];
   const tag = (list: Issue[]) => list.map((i) => ({ ...i, where: `${lang}/${i.where}` }));
   const npcs = readFile<NpcsFile>(lang, 'npcs.json');
   const chronicler = readFile<Chronicler>(lang, 'chronicler.json');
@@ -123,6 +132,7 @@ function partialChecks(lang: Lang): void {
   const verbs = readFile<VerbsFile>(lang, 'verbs.json');
   const pairs = readFile<PairsFile>(lang, 'pairs.json');
   issues.push(
+    ...tag(validateGrammar(grammar)),
     ...tag(validateNpcs(npcs)),
     ...tag(validateChronicler(chronicler, npcs)),
     ...tag(validateGuardians(guardians, CHAPTERS.map((_, i) => i + 1))),
@@ -140,10 +150,10 @@ function partialChecks(lang: Lang): void {
       ),
     ),
     ...textChecks(lang),
-    ...tag(partialWordChecks(lang, words, scrolls)),
+    ...tag(partialWordChecks(lang, words, scrolls, grammar.map((g) => g.data))),
   );
   const wordCount = words.reduce((n, f) => n + f.data.words.length, 0) + scrolls.reduce((n, f) => n + f.data.words.length, 0);
-  summary.push(`${lang} (курс закрыт): слов ${wordCount} в ${words.length} местах и ${scrolls.length} свитках, ${npcs?.npcs.length ?? 0} жителей, ${guardians?.guardians.length ?? 0} стражей, ${verbs?.verbs.length ?? 0} глаголов в кузнице, ${pairs?.contrasts.reduce((n, c) => n + c.pairs.length, 0) ?? 0} пар в Звоннице`);
+  summary.push(`${lang} (курс закрыт): слов ${wordCount} в ${words.length} местах и ${scrolls.length} свитках, ${grammar.length} уроков, ${npcs?.npcs.length ?? 0} жителей, ${guardians?.guardians.length ?? 0} стражей, ${verbs?.verbs.length ?? 0} глаголов в кузнице, ${pairs?.contrasts.reduce((n, c) => n + c.pairs.length, 0) ?? 0} пар в Звоннице`);
 }
 
 for (const lang of langs) {

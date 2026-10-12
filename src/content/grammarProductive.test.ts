@@ -14,11 +14,14 @@ function lessons(lang: string): GrammarLesson[] {
   );
 }
 
-describe.each(['es', 'it'])('продуктивные задания в контенте: %s', (lang) => {
+/** Уроков в курсе: у английского пока районы A1 и A2 (задача 17.4). */
+const COUNTS: Record<string, number> = { es: 132, it: 132, en: 62 };
+
+describe.each(['es', 'it', 'en'])('продуктивные задания в контенте: %s', (lang) => {
   const all = lessons(lang);
 
   it('у каждого урока есть сборка и ввод формы', () => {
-    expect(all.length).toBe(132);
+    expect(all.length).toBe(COUNTS[lang]);
     for (const l of all) {
       const kinds = l.exercises.map((e) => e.kind);
       expect(kinds.filter((k) => k === 'build').length, l.id).toBeGreaterThanOrEqual(1);

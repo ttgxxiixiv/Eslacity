@@ -1,0 +1,160 @@
+{
+  "id": "a2.31-say-tell",
+  "district": "A2",
+  "order": 31,
+  "title": "Say или tell",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "**Say** — сказать что-то: She **said** hello. Если упомянуть, кому, нужен **to**: He said **to me**…"
+    },
+    {
+      "kind": "text",
+      "md": "**Tell** — сказать кому-то, сообщить, рассказать; после tell сразу человек: She **told me** the news. Tell **a story**, tell **a joke**, tell **the truth**."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "say",
+        "tell"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "say something",
+            "tell somebody"
+          ]
+        },
+        {
+          "cells": [
+            "say hello",
+            "tell a story"
+          ]
+        },
+        {
+          "cells": [
+            "say goodbye",
+            "tell the truth"
+          ]
+        },
+        {
+          "cells": [
+            "say sorry",
+            "tell a joke"
+          ]
+        }
+      ]
+    }
+  ],
+  "examples": [
+    {
+      "es": "What did you say?",
+      "ru": "Что ты сказал?"
+    },
+    {
+      "es": "She told me her name.",
+      "ru": "Она сказала мне своё имя."
+    },
+    {
+      "es": "Tell us a story!",
+      "ru": "Расскажи нам историю!"
+    },
+    {
+      "es": "Say goodbye to Bert.",
+      "ru": "Попрощайся с Бертом."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "a2.31-say-tell.1",
+      "kind": "choose",
+      "prompt": "«Скажи мне правду»:",
+      "options": [
+        "Tell me the truth.",
+        "Say me the truth.",
+        "Tell to me the truth."
+      ],
+      "answer": 0,
+      "explain": "tell + человек."
+    },
+    {
+      "id": "a2.31-say-tell.2",
+      "kind": "choose",
+      "prompt": "«Он сказал „привет“»:",
+      "options": [
+        "He said hello.",
+        "He told hello.",
+        "He said me hello."
+      ],
+      "answer": 0,
+      "explain": "say hello."
+    },
+    {
+      "id": "a2.31-say-tell.3",
+      "kind": "gap",
+      "sentence": "Can you ___ me the way to the station?",
+      "ru": "Подскажите дорогу к вокзалу.",
+      "options": [
+        "tell",
+        "say",
+        "speak"
+      ],
+      "answer": 0,
+      "explain": "tell + человек."
+    },
+    {
+      "id": "a2.31-say-tell.4",
+      "kind": "gap",
+      "sentence": "Did she ___ anything?",
+      "ru": "Она что-нибудь сказала?",
+      "options": [
+        "say",
+        "tell",
+        "talk"
+      ],
+      "answer": 0,
+      "explain": "say something."
+    },
+    {
+      "id": "a2.31-say-tell.5",
+      "kind": "truefalse",
+      "statement": "«He said me the answer» — правильно.",
+      "answer": false,
+      "explain": "He told me the answer или He said the answer to me."
+    },
+    {
+      "id": "a2.31-say-tell.6",
+      "kind": "truefalse",
+      "statement": "«tell a joke» — правильно.",
+      "answer": true,
+      "explain": "Верно."
+    },
+    {
+      "id": "a2.31-say-tell.7",
+      "kind": "truefalse",
+      "statement": "«Say sorry» — правильно.",
+      "answer": true,
+      "explain": "Верно."
+    },
+    {
+      "id": "a2.31-say-tell.8",
+      "kind": "build",
+      "ru": "Расскажи мне историю.",
+      "answer": "Tell me a story.",
+      "extra": [
+        "Say",
+        "says"
+      ],
+      "explain": "tell + человек + история."
+    },
+    {
+      "id": "a2.31-say-tell.9",
+      "kind": "type",
+      "sentence": "He ___ me that he was tired.",
+      "ru": "Он сказал мне, что устал.",
+      "hint": "say / tell",
+      "answer": "told",
+      "explain": "tell → told, после него человек."
+    }
+  ]
+}
