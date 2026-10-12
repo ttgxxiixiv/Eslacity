@@ -1,0 +1,55 @@
+{
+  "location": "office",
+  "scenes": [
+    {
+      "id": "sc:office.1",
+      "chapter": 1,
+      "npc": "priya",
+      "lines": [
+        {"who": "npc", "es": "Good morning. I have a meeting in five minutes.", "ru": "Доброе утро. У меня совещание через пять минут."},
+        {"who": "hero", "es": "Just one question: have you got a fragment of the map?", "ru": "Только один вопрос: у тебя есть обрывок карты?"},
+        {"who": "npc", "es": "Yes. And a company wants to buy it.", "ru": "Есть. И одна компания хочет его купить."},
+        {"who": "hero", "es": "Buy the map?", "ru": "Купить карту?"},
+        {"who": "npc", "es": "They want all twenty fragments. They pay a lot of money.", "ru": "Им нужны все двадцать обрывков. Платят большие деньги."},
+        {"who": "hero", "es": "And what do you say?", "ru": "А ты что отвечаешь?"},
+        {"who": "npc", "es": "I say no. The map isn't for sale: it's for the person who speaks.", "ru": "Говорю «нет». Карта не продаётся: она для того, кто говорит."},
+        {"who": "hero", "es": "What company is it?", "ru": "Что это за компания?"},
+        {"who": "npc", "es": "I don't know. They only send letters. And yesterday I got a letter with one word: “Come.”", "ru": "Не знаю. Они только присылают письма. А вчера мне пришло письмо с одним словом: «Приходи»."},
+        {"who": "hero", "es": "I've got a letter like that too!", "ru": "У меня тоже есть такое письмо!"},
+        {"who": "npc", "es": "Interesting… Let's talk tomorrow. And now, my meeting!", "ru": "Интересно… Завтра поговорим. А сейчас — совещание!"}
+      ],
+      "questions": [
+        {"q": "Кто хочет купить обрывок Прии?", "options": ["Какая-то компания", "Почтальон", "Страж"], "answer": 0},
+        {"q": "Что отвечает Прия?", "options": ["Продаст за большие деньги", "Карта не продаётся", "Подумает до завтра"], "answer": 1},
+        {"q": "Что было во вчерашнем письме?", "options": ["Одно слово: «Приходи»", "Счёт за кофе", "Приглашение на совещание"], "answer": 0},
+        {"q": "Что говорит герой?", "options": ["У него такое же письмо", "Он работает в этой компании", "Он хочет продать карту"], "answer": 0}
+      ],
+      "gloss": {"fragment": "обрывок", "twenty": "двадцать", "fragments": "обрывки", "interesting": "интересно"}
+    },
+    {
+      "id": "sc:office.2",
+      "chapter": 2,
+      "npc": "priya",
+      "lines": [
+        {"who": "npc", "es": "Good morning. I'm working the night shift today, but I waited for you.", "ru": "Доброе утро. У меня сегодня ночная смена, но я тебя ждала."},
+        {"who": "hero", "es": "What happened?", "ru": "Что случилось?"},
+        {"who": "npc", "es": "I looked in the company's old documents. Look at this old newspaper.", "ru": "Я порылась в старых документах компании. Посмотри на эту старую газету."},
+        {"who": "hero", "es": "What year is it from?", "ru": "Какого она года?"},
+        {"who": "npc", "es": "It's a hundred years old. It's about the storm and the train to the lighthouse.", "ru": "Ей сто лет. Там про грозу и поезд к маяку."},
+        {"who": "hero", "es": "What does it say?", "ru": "Что там написано?"},
+        {"who": "npc", "es": "“Young traveller Oswald stays at the lighthouse. He wants to help the guardian.”", "ru": "«Молодой путешественник Освальд остаётся на маяке. Он хочет помочь стражу»."},
+        {"who": "hero", "es": "Oswald? The man in the grey coat?", "ru": "Освальд? Человек в сером пальто?"},
+        {"who": "npc", "es": "Look at the photo. It's him. He hasn't changed at all.", "ru": "Посмотри на фото. Это он. Ничуть не изменился."},
+        {"who": "hero", "es": "So the guardian was a traveller, like me.", "ru": "Значит, страж был путешественником, как я."},
+        {"who": "npc", "es": "And he has been up there for a hundred years. That's too long.", "ru": "И он уже сто лет там, наверху. Это слишком долго."}
+      ],
+      "questions": [
+        {"q": "Что нашла Прия?", "options": ["Старую газету", "Карту маяка", "Письмо Сэма"], "answer": 0},
+        {"q": "О чём газета?", "options": ["О грозе и поезде к маяку", "О новом банке", "О празднике"], "answer": 0},
+        {"q": "Кем был страж сто лет назад?", "options": ["Машинистом", "Молодым путешественником", "Фермером"], "answer": 1},
+        {"q": "Как его зовут?", "options": ["Сэм", "Освальд", "Грэм"], "answer": 1}
+      ],
+      "gloss": {"newspaper": "газета", "oswald": "Освальд", "guardian": "страж", "changed": "изменился"}
+    }
+  ]
+}

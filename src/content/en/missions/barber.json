@@ -1,0 +1,45 @@
+{
+  "location": "barber",
+  "missions": [
+    {
+      "id": "ms:barber.1",
+      "chapter": 1,
+      "npc": "liam",
+      "scene": "sc:barber.1",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Come in! Today I only speak English. What are we doing?", "ru": "Заходи! Сегодня я говорю только по-английски. Что будем делать?", "next": "cut"},
+        "cut": {"kind": "answer", "task": "Попросите только стрижку или волосы покороче.", "branches": [{"phrase": "ph:barber.just-haircut", "next": "cutsay"}, {"phrase": "ph:barber.hair-shorter", "next": "cutsay"}], "wrong": {"es": "A coffee? We cut hair here, this isn't a café.", "ru": "Кофе? Мы тут стрижём, это не кафе."}},
+        "cutsay": {"kind": "say", "es": "Great. Anything else?", "ru": "Отлично. Что-нибудь ещё?", "next": "wash"},
+        "wash": {"kind": "answer", "task": "Попросите помыть вам голову.", "branches": [{"phrase": "ph:barber.wash-hair", "next": "washsay"}], "wrong": {"es": "Wash your car? I wash hair, not cars!", "ru": "Помыть тебе машину? Я мою головы, а не машины!"}},
+        "washsay": {"kind": "say", "es": "Hot water… lovely!", "ru": "Горячая вода… отлично!", "next": "short"},
+        "short": {"kind": "answer", "task": "Попросите подстричь коротко.", "branches": [{"phrase": "ph:barber.short-please", "next": "shortsay"}], "wrong": {"es": "Long? If you want it long, why are you here?", "ru": "Длинно? Если хочешь длинно, зачем пришёл?", "fem": {"ru": "Длинно? Если хочешь длинно, зачем пришла?"}}},
+        "shortsay": {"kind": "say", "es": "Short, like always. And the beard?", "ru": "Коротко, как всегда. А борода?", "next": "beard"},
+        "beard": {"kind": "answer", "task": "Спросите, может ли он подстричь бороду.", "branches": [{"phrase": "ph:barber.cut-beard", "next": "beardsay"}], "wrong": {"es": "Cut the table? I cut hair, not tables!", "ru": "Подстричь стол? Я стригу волосы, а не столы!"}},
+        "beardsay": {"kind": "say", "es": "The beard too. Do you want a new colour?", "ru": "И бороду тоже. Хочешь новый цвет?", "next": "tint"},
+        "tint": {"kind": "answer", "task": "Спросите, сколько стоит окрашивание.", "branches": [{"phrase": "ph:barber.how-much-dye", "next": "end"}], "wrong": {"es": "How much is my mirror? It isn't for sale!", "ru": "Сколько стоит моё зеркало? Оно не продаётся!"}},
+        "end": {"kind": "say", "es": "No colour today: your hair is great. And behind the mirror… your fragment of the map. Remember my mum's words: twenty and a seal.", "ru": "Сегодня без цвета: волосы и так хороши. А за зеркалом… твой обрывок карты. Помни мамины слова: двадцать и печать."}
+      }
+    },
+    {
+      "id": "ms:barber.2",
+      "chapter": 2,
+      "npc": "liam",
+      "scene": "sc:barber.2",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "For the lighthouse: short hair and a clean face. What can I do for you?", "ru": "Для маяка — короткие волосы и чистое лицо. Что тебе сделать?", "next": "cut"},
+        "cut": {"kind": "answer", "task": "Попросите только немного подровнять или подстричь только кончики.", "branches": [{"phrase": "ph:barber.little-trim", "next": "cutsay"}, {"phrase": "ph:barber.just-ends", "next": "cutsay"}], "wrong": {"es": "Long hair for the lighthouse? Short is better!", "ru": "Длинные волосы для маяка? Лучше коротко!"}},
+        "cutsay": {"kind": "say", "es": "A little, OK. And your face?", "ru": "Немного, хорошо. А лицо?", "next": "shave"},
+        "shave": {"kind": "answer", "task": "Попросите побрить вас.", "branches": [{"phrase": "ph:barber.shave-me", "next": "shavesay"}], "wrong": {"es": "Paint your face? No, mate, I shave it!", "ru": "Раскрасить тебе лицо? Нет, дружище, я тебя побрею!", "fem": {"ru": "Раскрасить тебе лицо? Нет, подруга, я тебя побрею!"}}},
+        "shavesay": {"kind": "say", "es": "I will shave you like the man in the grey coat. Look in the mirror. What can you see?", "ru": "Побрею тебя, как человека в пальто. Посмотри в зеркало. Что видишь?", "next": "grey"},
+        "grey": {"kind": "answer", "task": "Скажите, что у вас много седых волос.", "branches": [{"phrase": "ph:barber.grey-hair", "next": "greysay"}], "wrong": {"es": "Can you see a wolf? No, mate, it's just you.", "ru": "Видишь волка? Нет, дружище, это просто ты.", "fem": {"ru": "Видишь волка? Нет, подруга, это просто ты."}}},
+        "greysay": {"kind": "say", "es": "Grey hair? That's from adventures! Don't worry. Anything else?", "ru": "Седина? Это от приключений! Ничего страшного. Что-нибудь ещё?", "next": "dry"},
+        "dry": {"kind": "answer", "task": "Скажите, что у вас очень сухие волосы.", "branches": [{"phrase": "ph:barber.hair-dry", "next": "drysay"}], "wrong": {"es": "Something for the cold? You need a hat for that.", "ru": "Что-нибудь от холода? Для этого есть шапка."}},
+        "drysay": {"kind": "say", "es": "Try this shampoo. Once a week.", "ru": "Вот этот шампунь. Раз в неделю.", "next": "appt"},
+        "appt": {"kind": "answer", "task": "Скажите, что хотите записаться на завтра.", "branches": [{"phrase": "ph:barber.appointment-tomorrow", "next": "end"}], "wrong": {"es": "A meeting with the guardian? That is at the lighthouse.", "ru": "Встреча со стражем? Это у маяка."}},
+        "end": {"kind": "say", "es": "Tomorrow? Tomorrow you'll be in the hills, traveller. Come when you're back. Take my fragment of the hill map. If you see the man in the grey coat, tell him my mum's words. Maybe he will smile.", "ru": "Завтра? Завтра ты будешь в горах, путешественник. Приходи, когда вернёшься. Держи мой обрывок карты гор. Если увидишь человека в пальто, скажи ему мамины слова. Может, он улыбнётся."}
+      }
+    }
+  ]
+}

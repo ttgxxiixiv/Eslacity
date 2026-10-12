@@ -1,0 +1,45 @@
+{
+  "location": "park",
+  "missions": [
+    {
+      "id": "ms:park.1",
+      "chapter": 1,
+      "npc": "bert",
+      "scene": "sc:park.1",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Morning, young man. Today let's see where the road from the map starts. Are you coming?", "ru": "Доброе утро, молодой человек. Сегодня посмотрим, где начинается дорога с карты. Идёшь?", "next": "walk", "fem": {"es": "Morning, young lady. Today let's see where the road from the map starts. Are you coming?", "ru": "Доброе утро, девушка. Сегодня посмотрим, где начинается дорога с карты. Идёшь?"}},
+        "walk": {"kind": "answer", "task": "Предложите погулять по парку.", "branches": [{"phrase": "ph:park.go-for-walk", "next": "walksay"}], "wrong": {"es": "Let's go swimming? Not at my age!", "ru": "Пойдём плавать? В мои годы — нет!"}},
+        "walksay": {"kind": "say", "es": "Come on. But slowly, my legs are old.", "ru": "Идём. Только медленно, ноги у меня старые.", "next": "sun"},
+        "sun": {"kind": "answer", "task": "Скажите, что очень солнечно, и предложите пойти в тень.", "branches": [{"phrase": "ph:park.go-to-shade", "next": "sunsay"}], "wrong": {"es": "A lot of snow? It's summer!", "ru": "Много снега? Сейчас лето!"}},
+        "sunsay": {"kind": "say", "es": "OK, to the shade. Biscuit is tired too.", "ru": "Хорошо, в тень. Бисквит тоже устал.", "next": "bench"},
+        "bench": {"kind": "answer", "task": "Спросите, есть ли здесь скамейка.", "branches": [{"phrase": "ph:park.bench-here", "next": "benchsay"}], "wrong": {"es": "Is there a train here? No, this is a park.", "ru": "Здесь есть поезд? Нет, это парк."}},
+        "benchsay": {"kind": "say", "es": "There, under the big tree. And now to the lake.", "ru": "Вон там, под большим деревом. А теперь к озеру.", "next": "path"},
+        "path": {"kind": "answer", "task": "Спросите, ведёт ли эта тропинка к озеру.", "branches": [{"phrase": "ph:park.path-to-lake", "next": "pathsay"}], "wrong": {"es": "Does this path go to the airport? No, no, to the lake!", "ru": "Эта тропинка ведёт в аэропорт? Нет-нет, к озеру!"}},
+        "pathsay": {"kind": "say", "es": "Look: the lake. The road from the map starts here.", "ru": "Смотри: озеро. Здесь начинается дорога с карты.", "next": "nice"},
+        "nice": {"kind": "answer", "task": "Скажите, какой красивый парк или как здесь спокойно.", "branches": [{"phrase": "ph:park.beautiful-park", "next": "end"}, {"phrase": "ph:park.quiet-here", "next": "end"}], "wrong": {"es": "Bad? This is the best park in town!", "ru": "Плохой? Это самый красивый парк в городе!"}},
+        "end": {"kind": "say", "es": "You're right. Take my fragment of the map. The road goes up into the hills. I'm old, and you're young. Good luck!", "ru": "Ты прав. Держи мой обрывок карты. Дорога ведёт в горы. Я старый, а ты молодой. Счастливого пути!", "fem": {"ru": "Ты права. Держи мой обрывок карты. Дорога ведёт в горы. Я старый, а ты молодая. Счастливого пути!"}}
+      }
+    },
+    {
+      "id": "ms:park.2",
+      "chapter": 2,
+      "npc": "bert",
+      "scene": "sc:park.2",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Morning. Today let's walk by the lake. I want to see if the man in the grey coat comes back.", "ru": "Доброе утро. Сегодня прогуляемся у озера. Хочу посмотреть, не вернётся ли человек в сером пальто.", "next": "weather"},
+        "weather": {"kind": "answer", "task": "Скажите, что погода хорошая для пикника.", "branches": [{"phrase": "ph:park.picnic-weather", "next": "weathersay"}], "wrong": {"es": "Too cold for swimming? We aren't swimming today!", "ru": "Холодно для купания? Сегодня мы не плаваем!"}},
+        "weathersay": {"kind": "say", "es": "A picnic, yes. I've got bread and cheese. Where shall we sit?", "ru": "Пикник — да. У меня есть хлеб и сыр. Куда сядем?", "next": "grass"},
+        "grass": {"kind": "answer", "task": "Спросите, можно ли сесть на газон.", "branches": [{"phrase": "ph:park.sit-on-lawn", "next": "grasssay"}], "wrong": {"es": "Sit in the lake? The grass is better.", "ru": "Сесть в озеро? Лучше на траву."}},
+        "grasssay": {"kind": "say", "es": "Of course, here. Look at the lake. Can you see the ducks?", "ru": "Конечно, вот здесь. Посмотри на озеро. Видишь уток?", "next": "ducks"},
+        "ducks": {"kind": "answer", "task": "Скажите, что утки на озере голодные.", "branches": [{"phrase": "ph:park.ducks-hungry", "next": "duckssay"}], "wrong": {"es": "The ducks are sad? No, they're waiting for bread.", "ru": "Утки грустные? Нет, они ждут хлеба."}},
+        "duckssay": {"kind": "say", "es": "Take some bread for them. The man in the coat did the same.", "ru": "Возьми хлеба для них. Так делал человек в пальто.", "next": "squirrel"},
+        "squirrel": {"kind": "answer", "task": "Покажите Берту белку на ветке.", "branches": [{"phrase": "ph:park.squirrel", "next": "sqsay"}], "wrong": {"es": "A wolf in the tree? Wolves don't climb trees!", "ru": "Волк на дереве? Волки не лазают по деревьям!"}},
+        "sqsay": {"kind": "say", "es": "How pretty. Oh, look at the sky: it is very dark.", "ru": "Какая красивая. Ой, посмотри на небо: совсем тёмное.", "next": "rain"},
+        "rain": {"kind": "answer", "task": "Скажите, что сейчас пойдёт дождь, и спросите, есть ли у него зонт.", "branches": [{"phrase": "ph:park.rain-umbrella", "next": "end"}], "wrong": {"es": "Snow? Not in summer. But rain, yes.", "ru": "Снег? Летом нет. А вот дождь — будет."}},
+        "end": {"kind": "say", "es": "I've got an umbrella. Let's go home. The man didn't come. But take my fragment of the hill map. If you see him, look at his face: it's the same as fifty years ago.", "ru": "Зонт у меня есть. Пошли домой. Человек не пришёл. Но держи мой обрывок карты гор. Если увидишь его, посмотри на лицо: оно такое же, как пятьдесят лет назад."}
+      }
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "location": "hotel",
+  "missions": [
+    {
+      "id": "ms:hotel.1",
+      "chapter": 1,
+      "npc": "emma",
+      "scene": "sc:hotel.1",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Good morning. Today I will give you a room and my fragment of the map. What do you need?", "ru": "Доброе утро. Сегодня я дам вам номер и мой обрывок карты. Что вам нужно?", "next": "room"},
+        "room": {"kind": "answer", "task": "Попросите двухместный номер.", "branches": [{"phrase": "ph:hotel.double-room", "next": "roomsay"}], "wrong": {"es": "A bed for the dog? We don't take dogs.", "ru": "Кровать для собаки? Мы не принимаем собак."}},
+        "roomsay": {"kind": "say", "es": "Room seven. Anything else?", "ru": "Номер семь. Что-нибудь ещё?", "next": "breakfast"},
+        "breakfast": {"kind": "answer", "task": "Спросите, включён ли завтрак.", "branches": [{"phrase": "ph:hotel.breakfast-included", "next": "bsay"}], "wrong": {"es": "Dinner in bed? No, dinner is in the restaurant.", "ru": "Ужин в постель? Нет, ужин в ресторане."}},
+        "bsay": {"kind": "say", "es": "Yes, it is, from seven to ten.", "ru": "Включён, с семи до десяти.", "next": "floor"},
+        "floor": {"kind": "answer", "task": "Спросите, на каком этаже ваш номер.", "branches": [{"phrase": "ph:hotel.what-floor", "next": "floorsay"}], "wrong": {"es": "What beach? This is a hotel, not the beach.", "ru": "На каком пляже? Это отель, а не пляж."}},
+        "floorsay": {"kind": "say", "es": "On the third floor.", "ru": "На третьем этаже.", "next": "lift"},
+        "lift": {"kind": "answer", "task": "Спросите, где лифт.", "branches": [{"phrase": "ph:hotel.where-lift", "next": "liftsay"}], "wrong": {"es": "A train? The train is at the station, not in my hotel.", "ru": "Поезд? Поезд на вокзале, а не в моём отеле."}},
+        "liftsay": {"kind": "say", "es": "On the right. Good night.", "ru": "Справа. Спокойной ночи.", "next": "noise"},
+        "noise": {"kind": "answer", "task": "Утром пожалуйтесь, что в номере очень шумно.", "branches": [{"phrase": "ph:hotel.room-noisy", "next": "noisesay"}], "wrong": {"es": "Dirty? No, no, it's very clean. What else is wrong?", "ru": "Грязно? Нет-нет, там очень чисто. Что-то ещё не так?"}},
+        "noisesay": {"kind": "say", "es": "I know. It is the man in room eight: he talks on the phone at night. He wants to buy fragments of the map.", "ru": "Знаю. Это человек из восьмого номера: говорит по телефону по ночам. Хочет купить обрывки карты.", "next": "blanket"},
+        "blanket": {"kind": "answer", "task": "Попросите ещё одно одеяло.", "branches": [{"phrase": "ph:hotel.another-blanket", "next": "end"}], "wrong": {"es": "Another apple? Here you are, but that's for breakfast.", "ru": "Ещё одно яблоко? Держите, но это к завтраку."}},
+        "end": {"kind": "say", "es": "Here you are. And here is my fragment of the map. Nothing for the man in room eight: money can't buy you English.", "ru": "Держите. И вот мой обрывок карты. Человеку из восьмого — ничего: за деньги по-английски не заговоришь."}
+      }
+    },
+    {
+      "id": "ms:hotel.2",
+      "chapter": 2,
+      "npc": "emma",
+      "scene": "sc:hotel.2",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Good evening. Tomorrow you're going up to the lighthouse, right? What do you need?", "ru": "Добрый вечер. Завтра вы поднимаетесь к маяку, верно? Что вам нужно?", "next": "rooms"},
+        "rooms": {"kind": "answer", "task": "Спросите, есть ли свободные номера.", "branches": [{"phrase": "ph:hotel.rooms-available", "next": "roomsay"}], "wrong": {"es": "Any horses available? This is a hotel.", "ru": "Есть свободные лошади? Это отель."}},
+        "roomsay": {"kind": "say", "es": "Only one: room eight. Room seven is Oswald's.", "ru": "Только один: восьмой. Седьмой — Освальда.", "next": "safe"},
+        "safe": {"kind": "answer", "task": "Спросите, есть ли в номере сейф: для обрывков карты.", "branches": [{"phrase": "ph:hotel.safe-in-room", "next": "safesay"}], "wrong": {"es": "A wolf in the room? No, only a bed.", "ru": "В номере волк? Нет, только кровать."}},
+        "safesay": {"kind": "say", "es": "Yes. Just right for your fragments of the map. Here's your key card.", "ru": "Есть. Для ваших обрывков карты — то, что нужно. Вот карта-ключ.", "next": "card"},
+        "card": {"kind": "answer", "task": "Вы её тут же потеряли. Скажите, что вам нужна новая карта-ключ.", "branches": [{"phrase": "ph:hotel.new-key-card", "next": "cardsay"}], "wrong": {"es": "You need a postcard? The shop is next door.", "ru": "Нужна открытка? Магазин рядом."}},
+        "cardsay": {"kind": "say", "es": "Already? Take another one. And don't lose it in the hills.", "ru": "Уже? Возьмите ещё одну. И не потеряйте её в горах.", "next": "wake"},
+        "wake": {"kind": "answer", "task": "Спросите, можно ли заказать звонок-будильник.", "branches": [{"phrase": "ph:hotel.wake-up-call", "next": "wakesay"}], "wrong": {"es": "Pizza delivery? Not at this time.", "ru": "Доставка пиццы? В такой час — нет."}},
+        "wakesay": {"kind": "say", "es": "Of course. At five? Very early, but the lighthouse is waiting.", "ru": "Конечно. В пять? Очень рано, но маяк ждёт.", "next": "leave"},
+        "leave": {"kind": "answer", "task": "Спросите, до которого часа нужно освободить номер.", "branches": [{"phrase": "ph:hotel.check-out", "next": "end"}], "wrong": {"es": "What time does the guardian come down? I don't know that.", "ru": "Во сколько спускается страж? Этого я не знаю."}},
+        "end": {"kind": "say", "es": "By twelve. But you're leaving at five. Take my fragment of the hill map. And tell Oswald that his room is waiting.", "ru": "До двенадцати. Но вы уходите в пять. Возьмите мой обрывок карты гор. И скажите Освальду, что его номер ждёт."}
+      }
+    }
+  ]
+}

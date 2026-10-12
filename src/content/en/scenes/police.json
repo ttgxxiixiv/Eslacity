@@ -1,0 +1,55 @@
+{
+  "location": "police",
+  "scenes": [
+    {
+      "id": "sc:police.1",
+      "chapter": 1,
+      "npc": "bradley",
+      "lines": [
+        {"who": "npc", "es": "Good afternoon. How can I help you?", "ru": "Добрый день. Чем могу помочь?"},
+        {"who": "hero", "es": "I'm looking for the fragment of the map that the police have.", "ru": "Я ищу обрывок карты, который хранится в полиции."},
+        {"who": "npc", "es": "I have it. And I have a question for you: what is this company?", "ru": "Он у меня. А у меня к вам вопрос: что это за компания?"},
+        {"who": "hero", "es": "I don't know. It wanted to buy the map.", "ru": "Не знаю. Она хотела купить карту."},
+        {"who": "npc", "es": "That company is not a company. It was the guardian.", "ru": "Эта компания — вовсе не компания. Это был страж."},
+        {"who": "hero", "es": "The guardian? Why?", "ru": "Страж? Зачем?"},
+        {"who": "npc", "es": "He wanted to know if the town would sell the map. Nobody sold it.", "ru": "Он хотел узнать, продаст ли город карту. Никто не продал."},
+        {"who": "hero", "es": "And the man in the hospital?", "ru": "А человек из больницы?"},
+        {"who": "npc", "es": "He works for the guardian. He is better now.", "ru": "Он работает на стража. Ему уже лучше."},
+        {"who": "hero", "es": "And now what?", "ru": "И что теперь?"},
+        {"who": "npc", "es": "Now it is your turn. The guardian is waiting for you outside the town.", "ru": "А теперь — вы. Страж ждёт вас за городом."}
+      ],
+      "questions": [
+        {"q": "Что это за компания, которая скупала обрывки?", "options": ["Большой банк", "Никакая: это был страж", "Компания из аэропорта"], "answer": 1},
+        {"q": "Зачем страж это устроил?", "options": ["Хотел узнать, продаст ли город карту", "Хотел разбогатеть", "Хотел найти Летописца"], "answer": 0},
+        {"q": "Сколько жителей продали обрывок?", "options": ["Никто", "Один", "Половина"], "answer": 0},
+        {"q": "Кто теперь ждёт героя?", "options": ["Человек из больницы", "Страж за городом", "Летописец на вокзале"], "answer": 1}
+      ],
+      "gloss": {"fragment": "обрывок", "guardian": "страж", "sell": "продать", "sold": "продал", "turn": "your turn — ваша очередь"}
+    },
+    {
+      "id": "sc:police.2",
+      "chapter": 2,
+      "npc": "bradley",
+      "lines": [
+        {"who": "npc", "es": "Good afternoon. I have a file from a hundred years ago. And today I am closing it.", "ru": "Добрый день. У меня дело столетней давности. И сегодня я его закрываю."},
+        {"who": "hero", "es": "The train to the lighthouse?", "ru": "Поезд к маяку?"},
+        {"who": "npc", "es": "Exactly. A train, a storm and one passenger: Oswald.", "ru": "Именно. Поезд, гроза и один пассажир: Освальд."},
+        {"who": "hero", "es": "Oswald stayed at the lighthouse.", "ru": "Освальд остался на маяке."},
+        {"who": "npc", "es": "He stayed to help the old guardian. When the old man left, Oswald took his place.", "ru": "Он остался помогать старому стражу. Когда старый страж ушёл, Освальд занял его место."},
+        {"who": "hero", "es": "And why doesn't he come down?", "ru": "А почему он не спускается?"},
+        {"who": "npc", "es": "He can come down only when a traveller answers his questions.", "ru": "Страж может спуститься, только когда какой-нибудь путешественник ответит на его вопросы."},
+        {"who": "hero", "es": "Sam couldn't.", "ru": "Сэм не смог."},
+        {"who": "npc", "es": "Now it is you. Three questions, in the past.", "ru": "Теперь вы. Три вопроса, в прошедшем времени."},
+        {"who": "hero", "es": "And if I answer, Oswald will go home?", "ru": "А если я отвечу, Освальд вернётся домой?"},
+        {"who": "npc", "es": "On the seven o'clock train. You have his ticket, don't you?", "ru": "Поездом в семь. Его билет ведь у вас, верно?"}
+      ],
+      "questions": [
+        {"q": "Какое дело закрывает инспектор Брэдли?", "options": ["Кражу в банке", "Поезд к маяку столетней давности", "Пропажу Сэма"], "answer": 1},
+        {"q": "Почему Освальд стал стражем?", "options": ["Его выбрал город", "Он остался помогать старому стражу и занял его место", "Он потерял билет"], "answer": 1},
+        {"q": "Когда страж может спуститься?", "options": ["Когда кто-то ответит на его вопросы", "Когда кончится гроза", "Никогда"], "answer": 0},
+        {"q": "Как Освальд вернётся домой?", "options": ["Пешком", "Поездом в семь", "Самолётом"], "answer": 1}
+      ],
+      "gloss": {"closing": "закрываю", "oswald": "Освальд", "guardian": "страж"}
+    }
+  ]
+}

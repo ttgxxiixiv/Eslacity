@@ -1,0 +1,50 @@
+{
+  "location": "gym",
+  "missions": [
+    {
+      "id": "ms:gym.1",
+      "chapter": 1,
+      "npc": "zoe",
+      "scene": "sc:gym.1",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Today it's a race! You against me. Ready?", "ru": "Сегодня соревнование! Ты против меня. Готов?", "next": "vest", "fem": {"ru": "Сегодня соревнование! Ты против меня. Готова?"}},
+        "vest": {"kind": "answer", "task": "Спросите, где раздевалка.", "branches": [{"phrase": "ph:gym.changing-room", "next": "vestsay"}], "wrong": {"es": "Where's the kitchen? We don't eat here, we run!", "ru": "Где кухня? Тут не едят, тут бегают!"}},
+        "vestsay": {"kind": "say", "es": "Over there. Change and come back. What do you need?", "ru": "Вон там. Переоденься и возвращайся. Что тебе нужно?", "next": "towel"},
+        "towel": {"kind": "answer", "task": "Скажите, что вам нужно полотенце.", "branches": [{"phrase": "ph:gym.need-towel", "next": "towsay"}], "wrong": {"es": "Toast? We can eat later! Now, sport.", "ru": "Тост? Поедим потом! Сейчас спорт."}},
+        "towsay": {"kind": "say", "es": "Here you are. And now, into the water. Do you like water?", "ru": "Держи. А теперь в воду. Любишь воду?", "next": "swim"},
+        "swim": {"kind": "answer", "task": "Скажите, что любите плавать, или спросите, есть ли бассейн.", "branches": [{"phrase": "ph:gym.love-swimming", "next": "swimsay"}, {"phrase": "ph:gym.swimming-pool", "next": "poolsay"}], "wrong": {"es": "You love sleeping? Nobody sleeps here!", "ru": "Любишь спать? Тут не спят!"}},
+        "swimsay": {"kind": "say", "es": "Great! I swim faster than you.", "ru": "Отлично! Я плаваю быстрее тебя.", "next": "legs"},
+        "poolsay": {"kind": "say", "es": "Yes, there is a big, cold pool. I swim faster than you!", "ru": "Бассейн есть, большой и холодный. Я плаваю быстрее тебя!", "next": "legs"},
+        "legs": {"kind": "answer", "task": "Скажите, что у вас болят ноги.", "branches": [{"phrase": "ph:gym.legs-hurt", "next": "legsay"}], "wrong": {"es": "Your ears hurt? Nobody runs with their ears!", "ru": "Болят уши? Никто не бегает ушами!"}},
+        "legsay": {"kind": "say", "es": "Already? Ten more minutes! And now, football.", "ru": "Уже? Ещё десять минут! А теперь футбол.", "next": "ball"},
+        "ball": {"kind": "answer", "task": "Предложите сыграть в футбол.", "branches": [{"phrase": "ph:gym.play-football", "next": "ballsay"}], "wrong": {"es": "Let's play cards? That isn't a sport!", "ru": "Сыграем в карты? Это не спорт!"}},
+        "ballsay": {"kind": "say", "es": "Goal! Three, two to your team!", "ru": "Гол! Три — два в пользу твоей команды!", "next": "won"},
+        "won": {"kind": "answer", "task": "Скажите, что вы выиграли.", "branches": [{"phrase": "ph:gym.we-won", "next": "end"}], "wrong": {"es": "You lost? No, no! Three, two to you!", "ru": "Проиграли? Нет-нет! Три — два, в твою пользу!"}},
+        "end": {"kind": "say", "es": "Great! My mum could only run. But you run and speak. Take my fragment of the map.", "ru": "Отлично! Моя мама умела только бегать. А ты бегаешь и говоришь. Держи мой обрывок карты."}
+      }
+    },
+    {
+      "id": "ms:gym.2",
+      "chapter": 2,
+      "npc": "zoe",
+      "scene": "sc:gym.2",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Today I'm getting you ready for the lighthouse steps. What do you want?", "ru": "Сегодня готовлю тебя к ступенькам маяка. Чего ты хочешь?", "next": "form"},
+        "form": {"kind": "answer", "task": "Скажите, что хотите прийти в форму.", "branches": [{"phrase": "ph:gym.get-fit", "next": "formsay"}], "wrong": {"es": "You want to sleep? Nobody sleeps here!", "ru": "Хочешь спать? Здесь не спят!"}},
+        "formsay": {"kind": "say", "es": "That's the way! Where shall we start?", "ru": "Вот это по-нашему! С чего начнём?", "next": "warm"},
+        "warm": {"kind": "answer", "task": "Скажите, что сначала нужно размяться.", "branches": [{"phrase": "ph:gym.warm-up", "next": "warmsay"}], "wrong": {"es": "First eat? Later, later!", "ru": "Сначала поесть? Потом, потом!"}},
+        "warmsay": {"kind": "say", "es": "Right: first, a little run. And now your plan.", "ru": "Правильно: сначала немного побегать. А теперь твоя программа.", "next": "plan"},
+        "plan": {"kind": "answer", "task": "Попросите составить вам программу тренировок.", "branches": [{"phrase": "ph:gym.make-routine", "next": "plansay"}], "wrong": {"es": "Make you a cake? No, I'll make you a routine!", "ru": "Испечь тебе торт? Нет, составлю тебе программу!"}},
+        "plansay": {"kind": "say", "es": "Steps, push-ups and yoga. Go! How many push-ups do you do?", "ru": "Ступеньки, отжимания и йога. Начинаем! Сколько отжиманий делаешь?", "next": "push"},
+        "push": {"kind": "answer", "task": "Скажите, что делаете двадцать отжиманий.", "branches": [{"phrase": "ph:gym.push-ups", "next": "pushsay"}], "wrong": {"es": "Two? Two is nothing!", "ru": "Два? Два — это ерунда!"}},
+        "pushsay": {"kind": "say", "es": "Twenty? Today, thirty! Come on… What's wrong?", "ru": "Двадцать? Сегодня — тридцать! Давай… Что с тобой?", "next": "knee"},
+        "knee": {"kind": "answer", "task": "Скажите, что у вас болит колено.", "branches": [{"phrase": "ph:gym.knee-hurts", "next": "kneesay"}], "wrong": {"es": "Your hair hurts? Hair doesn't hurt!", "ru": "Болят волосы? Волосы не болят!"}},
+        "kneesay": {"kind": "say", "es": "Then slowly. At the lighthouse you must go slowly too. And tomorrow?", "ru": "Тогда медленно. У маяка тоже надо идти медленно. А завтра?", "next": "yoga"},
+        "yoga": {"kind": "answer", "task": "Спросите, во сколько занятие йогой.", "branches": [{"phrase": "ph:gym.yoga-class", "next": "end"}], "wrong": {"es": "What time is the party? After the lighthouse!", "ru": "Во сколько праздник? После маяка!"}},
+        "end": {"kind": "say", "es": "At seven. Yoga helps you breathe up there. Take my fragment of the hill map. And if you see the man in the grey coat, say thank you from my mum.", "ru": "В семь. Йога помогает дышать наверху. Держи мой обрывок карты гор. А если увидишь человека в сером пальто, поблагодари его от моей мамы."}
+      }
+    }
+  ]
+}

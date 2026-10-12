@@ -1,0 +1,55 @@
+{
+  "location": "airport",
+  "scenes": [
+    {
+      "id": "sc:airport.1",
+      "chapter": 1,
+      "npc": "tom",
+      "lines": [
+        {"who": "npc", "es": "Your passport, please. Where are you flying?", "ru": "Ваш паспорт, пожалуйста. Куда летите?"},
+        {"who": "hero", "es": "I'm not flying today. I'm looking for a fragment of the map.", "ru": "Сегодня я никуда не лечу. Я ищу обрывок карты."},
+        {"who": "npc", "es": "The traveller with the map! I travel a lot too. Look, my fridge magnets.", "ru": "Путешественник с картой! Я тоже много путешествую. Смотри, мои магнитики.", "fem": {"ru": "Путешественница с картой! Я тоже много путешествую. Смотри, мои магнитики."}},
+        {"who": "hero", "es": "So many! Where are they from?", "ru": "Сколько их! Откуда они?"},
+        {"who": "npc", "es": "From different towns all over the world.", "ru": "Из разных городов мира."},
+        {"who": "hero", "es": "And the man from the company?", "ru": "А человек из компании?"},
+        {"who": "npc", "es": "He flew away yesterday morning. Nobody sold him a fragment.", "ru": "Улетел вчера утром. Никто не продал ему обрывок."},
+        {"who": "hero", "es": "Great!", "ru": "Отлично!"},
+        {"who": "npc", "es": "From the plane I saw the hills. After the guardian, the road goes very high.", "ru": "С самолёта я видел горы. За стражем дорога забирается очень высоко."},
+        {"who": "hero", "es": "And what is the road like?", "ru": "А какая там дорога?"},
+        {"who": "npc", "es": "High and very windy. Take a coat.", "ru": "Высоко и очень ветрено. Возьми пальто."}
+      ],
+      "questions": [
+        {"q": "Что собирает Том?", "options": ["Марки", "Магнитики", "Билеты"], "answer": 1},
+        {"q": "Что стало с человеком из компании?", "options": ["Улетел: никто не продал ему обрывок", "Купил все обрывки", "Остался в отеле"], "answer": 0},
+        {"q": "Что Том видел из самолёта?", "options": ["Море", "Горы и дорогу за стражем", "Хранилище"], "answer": 1},
+        {"q": "Что советует Том?", "options": ["Взять пальто", "Лететь самолётом", "Остаться в городе"], "answer": 0}
+      ],
+      "gloss": {"fragment": "обрывок", "traveller": "путешественник", "magnets": "магнитики", "flew": "улетел", "sold": "продал", "guardian": "страж", "windy": "ветрено"}
+    },
+    {
+      "id": "sc:airport.2",
+      "chapter": 2,
+      "npc": "tom",
+      "lines": [
+        {"who": "npc", "es": "Traveller! Yesterday I flew over the pass. There was no fog.", "ru": "Путешественник! Вчера я летал над перевалом. Тумана не было."},
+        {"who": "hero", "es": "And what did you see?", "ru": "И что ты видел?"},
+        {"who": "npc", "es": "An old railway. It goes up to the lighthouse on the cliff.", "ru": "Старую железную дорогу. Она поднимается до самого маяка на скале."},
+        {"who": "hero", "es": "The train from a hundred years ago.", "ru": "Поезд столетней давности."},
+        {"who": "npc", "es": "And past the lighthouse, the road goes down. To the sand.", "ru": "А за маяком дорога спускается. К песку."},
+        {"who": "hero", "es": "Sand? Sam talked about sand too.", "ru": "Песок? Сэм тоже говорил о песке."},
+        {"who": "npc", "es": "A very big desert. And in the desert I saw a white city.", "ru": "Очень большая пустыня. А в пустыне я видел белый город."},
+        {"who": "hero", "es": "A city in the desert?", "ru": "Город в пустыне?"},
+        {"who": "npc", "es": "I thought so too. But today I flew there again, and it wasn't there.", "ru": "Я тоже так подумал. Но сегодня я пролетал там снова, а его уже не было."},
+        {"who": "hero", "es": "What do you mean, it wasn't there?", "ru": "Как это не было?"},
+        {"who": "npc", "es": "Nothing. Only sand. I think the desert lies.", "ru": "Ничего. Только песок. Мне кажется, пустыня обманывает."}
+      ],
+      "questions": [
+        {"q": "Что Том видел с самолёта?", "options": ["Старую железную дорогу до маяка", "Корабль", "Второй аэропорт"], "answer": 0},
+        {"q": "Что за маяком?", "options": ["Море", "Дорога вниз, к песку", "Ещё один маяк"], "answer": 1},
+        {"q": "Что Том видел в пустыне вчера?", "options": ["Белый город", "Лес", "Реку"], "answer": 0},
+        {"q": "Что было сегодня?", "options": ["Город стал больше", "Только песок", "Туман"], "answer": 1}
+      ],
+      "gloss": {"railway": "железная дорога", "desert": "пустыня", "pass": "перевал", "lies": "обманывает"}
+    }
+  ]
+}

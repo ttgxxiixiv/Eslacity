@@ -1,0 +1,47 @@
+{
+  "location": "police",
+  "missions": [
+    {
+      "id": "ms:police.1",
+      "chapter": 1,
+      "npc": "bradley",
+      "scene": "sc:police.1",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Careful, traveller! That boy is running away with your wallet.", "ru": "Осторожно, путешественник! Этот парень бежит с вашим кошельком.", "next": "shout"},
+        "shout": {"kind": "answer", "task": "Позовите на помощь: вор!", "branches": [{"phrase": "ph:police.help-thief", "next": "shoutsay"}], "wrong": {"es": "Where can you park? This is not the time for parking!", "ru": "Где припарковаться? Сейчас не до парковки!"}},
+        "shoutsay": {"kind": "say", "es": "Got him! Don't worry. Let's go to the station.", "ru": "Попался! Не волнуйтесь. Идём в участок.", "next": "station"},
+        "station": {"kind": "answer", "task": "Спросите, где полицейский участок.", "branches": [{"phrase": "ph:police.police-station", "next": "stationsay"}], "wrong": {"es": "Where is the beach? Not today, traveller: today, the police station.", "ru": "Где пляж? Не сегодня, путешественник: сегодня участок."}},
+        "stationsay": {"kind": "say", "es": "Over there, on the right. Here we are. What happened?", "ru": "Вон там, справа. Вот мы и пришли. Что случилось?", "next": "rob"},
+        "rob": {"kind": "answer", "task": "Скажите, что вор украл ваш кошелёк.", "branches": [{"phrase": "ph:police.thief-wallet", "next": "robsay"}], "wrong": {"es": "A thief took your dog? No, your dog is here. What else?", "ru": "Вор украл вашу собаку? Нет, собака здесь. Что ещё?"}},
+        "robsay": {"kind": "say", "es": "Here is your wallet. And your passport?", "ru": "Вот ваш кошелёк. А паспорт?", "next": "docs"},
+        "docs": {"kind": "answer", "task": "Скажите, что потеряли паспорт.", "branches": [{"phrase": "ph:police.lost-passport", "next": "docsay"}], "wrong": {"es": "You missed the train? Go to the station for that.", "ru": "Опоздали на поезд? Это на вокзал."}},
+        "docsay": {"kind": "say", "es": "It is in the wallet. Do you want to report a crime?", "ru": "Он в кошельке. Хотите заявить о преступлении?", "next": "denounce"},
+        "denounce": {"kind": "answer", "task": "Скажите, что хотите заявить о преступлении.", "branches": [{"phrase": "ph:police.report-crime", "next": "densay"}], "wrong": {"es": "A fine? No, there is no fine for you today.", "ru": "Штраф? Нет, сегодня вам штрафа нет."}},
+        "densay": {"kind": "say", "es": "Very well. Sign here. Anything else?", "ru": "Хорошо. Распишитесь здесь. Что-нибудь ещё?", "next": "help"},
+        "help": {"kind": "answer", "task": "Попросите его помочь вам.", "branches": [{"phrase": "ph:police.can-you-help", "next": "end"}], "wrong": {"es": "An accident? No, there is no accident. Say it again.", "ru": "Авария? Нет, аварии нет. Скажите ещё раз."}},
+        "end": {"kind": "say", "es": "Yes. Here is my fragment of the map. The guardian has the seal. He is waiting for you outside the town, traveller.", "ru": "Да. Вот мой обрывок карты. Печать у стража. Он ждёт вас за городом, путешественник."}
+      }
+    },
+    {
+      "id": "ms:police.2",
+      "chapter": 2,
+      "npc": "bradley",
+      "scene": "sc:police.2",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Police. I am listening.", "ru": "Полиция. Слушаю.", "next": "agent"},
+        "agent": {"kind": "answer", "task": "Скажите, что вам нужен полицейский.", "branches": [{"phrase": "ph:police.police-officer", "next": "agentsay"}], "wrong": {"es": "You need a taxi? This is the police.", "ru": "Вам нужно такси? Это полиция."}},
+        "agentsay": {"kind": "say", "es": "I am coming myself. Where are you?", "ru": "Еду сам. Где вы?", "next": "corner"},
+        "corner": {"kind": "answer", "task": "Скажите, что вы на углу площади.", "branches": [{"phrase": "ph:police.corner-square", "next": "cornersay"}], "wrong": {"es": "You are on the moon? Tell me where you are, please.", "ru": "Вы на Луне? Скажите толком, где вы."}},
+        "cornersay": {"kind": "say", "es": "I am on my way. What happened?", "ru": "Уже еду. Что случилось?", "next": "sus"},
+        "sus": {"kind": "answer", "task": "Скажите, что там был подозрительный человек.", "branches": [{"phrase": "ph:police.suspicious-man", "next": "sussay"}], "wrong": {"es": "There was a happy dog? That is not a problem.", "ru": "Там была довольная собака? Это не проблема."}},
+        "sussay": {"kind": "say", "es": "In a grey coat? Let me look.", "ru": "В сером пальто? Сейчас посмотрю.", "next": "cam"},
+        "cam": {"kind": "answer", "task": "Спросите, есть ли на этой улице камеры.", "branches": [{"phrase": "ph:police.cameras", "next": "camsay"}], "wrong": {"es": "Are there sweets in this street? No, there are cameras.", "ru": "На этой улице есть конфеты? Нет, есть камеры."}},
+        "camsay": {"kind": "say", "es": "Yes. I can see him on the camera. I am running!", "ru": "Есть. Вижу его на камере. Бегу!", "next": "cross"},
+        "cross": {"kind": "answer", "task": "Инспектор бежит через дорогу. Скажите, что переходить нужно по зебре.", "branches": [{"phrase": "ph:police.zebra-crossing", "next": "end"}], "wrong": {"es": "Sing? No, cross the road the right way.", "ru": "Петь? Нет, переходите дорогу правильно."}},
+        "end": {"kind": "say", "es": "You are right: even the police use the zebra crossing. Look: he isn't suspicious. It is Oswald, and he is reading the timetable for the seven o'clock train. Take my fragment of the hill map. Go up, answer, and bring Oswald home.", "ru": "Вы правы: даже полиция переходит улицу по зебре. Смотрите: он не подозрительный. Это Освальд, и он читает расписание поезда в семь. Возьмите мой обрывок карты гор. Поднимитесь, ответьте и верните Освальда домой."}
+      }
+    }
+  ]
+}

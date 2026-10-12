@@ -1,0 +1,55 @@
+{
+  "location": "post",
+  "scenes": [
+    {
+      "id": "sc:post.1",
+      "chapter": 1,
+      "npc": "dan",
+      "lines": [
+        {"who": "npc", "es": "Morning! I've got a letter for you.", "ru": "Доброе утро! У меня для тебя письмо."},
+        {"who": "hero", "es": "For me? Who is it from?", "ru": "Мне? От кого?"},
+        {"who": "npc", "es": "I don't know. There's no address on the back.", "ru": "Не знаю. Обратного адреса нет."},
+        {"who": "hero", "es": "Do you know the town well?", "ru": "Ты хорошо знаешь город?"},
+        {"who": "npc", "es": "I know every house and every street. I take the letters on my bike, very fast.", "ru": "Я знаю каждый дом и каждую улицу. Развожу письма на велосипеде, очень быстро."},
+        {"who": "hero", "es": "Do you know who has fragments of the map?", "ru": "Ты знаешь, у кого обрывки карты?"},
+        {"who": "npc", "es": "Every place in town has one. Twenty places, twenty fragments.", "ru": "У каждого места в городе по одному. Двадцать мест — двадцать обрывков."},
+        {"who": "hero", "es": "And have you got one?", "ru": "А у тебя есть?"},
+        {"who": "npc", "es": "I've got the post office one. But I'm in a hurry now: a hundred letters today!", "ru": "У меня — почтовый. А сейчас я спешу: сегодня сто писем!"},
+        {"who": "hero", "es": "And my letter?", "ru": "А письмо?"},
+        {"who": "npc", "es": "Open it at home! See you tomorrow!", "ru": "Открой дома! До завтра!"}
+      ],
+      "questions": [
+        {"q": "Что почтальон принёс герою?", "options": ["Письмо, неизвестно от кого", "Посылку от мамы", "Счёт из банка"], "answer": 0},
+        {"q": "На чём Дэн развозит письма?", "options": ["На машине", "На велосипеде", "Пешком"], "answer": 1},
+        {"q": "Сколько обрывков карты в городе?", "options": ["Пять", "Десять", "Двадцать"], "answer": 2},
+        {"q": "Почему почтальон торопится?", "options": ["Сегодня у него сто писем", "Он опаздывает на поезд", "Скоро дождь"], "answer": 0}
+      ],
+      "gloss": {"back": "обратная сторона", "street": "улица", "fragments": "обрывки", "twenty": "двадцать", "hurry": "in a hurry — спешу", "hundred": "сто"}
+    },
+    {
+      "id": "sc:post.2",
+      "chapter": 2,
+      "npc": "dan",
+      "lines": [
+        {"who": "npc", "es": "Traveller! Quick! There's a parcel for you. From the hills.", "ru": "Путешественник! Быстрее! Тебе посылка. С гор."},
+        {"who": "hero", "es": "From the hills? Who sent it?", "ru": "С гор? Кто её прислал?"},
+        {"who": "npc", "es": "It only says: “From your friend at the lighthouse.”", "ru": "Там только: «От твоего друга с маяка»."},
+        {"who": "hero", "es": "From the lighthouse? It's Sam!", "ru": "С маяка? Это Сэм!"},
+        {"who": "npc", "es": "Maybe. Careful, it's fragile. Open it slowly.", "ru": "Может быть. Осторожно, хрупкое. Открывай медленно."},
+        {"who": "hero", "es": "There's a compass. And a note.", "ru": "Там компас. И записка."},
+        {"who": "npc", "es": "What does the note say?", "ru": "Что в записке?"},
+        {"who": "hero", "es": "It says: “Follow the voice.”", "ru": "Там написано: «Иди на голос»."},
+        {"who": "npc", "es": "Sam is alive! I'm going to tell his sister.", "ru": "Сэм жив! Бегу к его сестре."},
+        {"who": "hero", "es": "Go, quickly. I still have work here.", "ru": "Беги скорее. А я тут ещё поработаю."},
+        {"who": "npc", "es": "I'm off! Nobody is faster than me.", "ru": "Бегу! Быстрее меня никого нет."}
+      ],
+      "questions": [
+        {"q": "Откуда пришла посылка?", "options": ["С гор", "Из столицы", "Из-за моря"], "answer": 0},
+        {"q": "Как подписана посылка?", "options": ["Полным именем", "«От твоего друга с маяка»", "Никак"], "answer": 1},
+        {"q": "Что лежит в посылке?", "options": ["Фонарик", "Красный шарф", "Компас и записка"], "answer": 2},
+        {"q": "Что написано в записке?", "options": ["«Жди меня»", "«Иди на голос»", "«Не ходи в горы»"], "answer": 1}
+      ],
+      "gloss": {"quick": "быстрее", "compass": "компас", "careful": "осторожно", "faster": "быстрее", "off": "I'm off — я побежал"}
+    }
+  ]
+}

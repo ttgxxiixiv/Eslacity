@@ -14,7 +14,7 @@
         "tablesay": {"kind": "say", "es": "There's a table for you by the window.", "ru": "Для тебя есть столик у окна.", "next": "order"},
         "order": {"kind": "answer", "task": "Закажите суп и салат.", "branches": [{"phrase": "ph:restaurant.soup-and-salad", "next": "ordersay"}], "wrong": {"es": "Chocolate soup? Not in my kitchen!", "ru": "Шоколадный суп? Только не на моей кухне!"}},
         "ordersay": {"kind": "say", "es": "Lovely. Here are your soup and salad. Do you need anything?", "ru": "Отлично. Вот суп и салат. Что-нибудь нужно?", "next": "fork"},
-        "fork": {"kind": "answer", "task": "Попросите вилку для салата.", "branches": [{"phrase": "ph:restaurant.a-fork", "next": "forksay"}], "wrong": {"es": "A knife for the soup? No, my friend, no!", "ru": "Нож для супа? Нет, дружище, нет!"}},
+        "fork": {"kind": "answer", "task": "Попросите вилку для салата.", "branches": [{"phrase": "ph:restaurant.a-fork", "next": "forksay"}], "wrong": {"es": "A knife for the soup? No, my friend, no!", "ru": "Нож для супа? Нет, дружище, нет!", "fem": {"ru": "Нож для супа? Нет, подруга, нет!"}}},
         "forksay": {"kind": "say", "es": "Here you are. So, how's the food?", "ru": "Держи. Ну как еда?", "next": "tasty"},
         "tasty": {"kind": "answer", "task": "Скажите, что очень вкусно.", "branches": [{"phrase": "ph:restaurant.delicious", "next": "tastysay"}], "wrong": {"es": "Cold? My soup is cold?! That's impossible!", "ru": "Холодный? Мой суп — холодный?! Быть не может!"}},
         "tastysay": {"kind": "say", "es": "Great! Eat, eat. Do you want dessert too?", "ru": "Вот и славно! Ешь, ешь. Десерт тоже будешь?", "next": "dessert"},

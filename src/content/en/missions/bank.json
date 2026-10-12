@@ -1,0 +1,45 @@
+{
+  "location": "bank",
+  "missions": [
+    {
+      "id": "ms:bank.1",
+      "chapter": 1,
+      "npc": "whitmore",
+      "scene": "sc:bank.1",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Good afternoon. You already have an account, excellent. What would you like to do today?", "ru": "Добрый день. Счёт у вас уже есть, прекрасно. Что хотите сделать сегодня?", "next": "money"},
+        "money": {"kind": "answer", "task": "Скажите, что хотите положить деньги на счёт.", "branches": [{"phrase": "ph:bank.pay-in", "next": "msay"}], "wrong": {"es": "You want to buy the bank? The bank is not for sale.", "ru": "Хотите купить банк? Банк не продаётся."}},
+        "msay": {"kind": "say", "es": "Excellent. Card or cash?", "ru": "Прекрасно. Карта или наличные?", "next": "cash"},
+        "cash": {"kind": "answer", "task": "Скажите, что у вас только наличные.", "branches": [{"phrase": "ph:bank.only-cash", "next": "cashsay"}], "wrong": {"es": "Only hungry? We don't eat in the bank.", "ru": "Только голод? В банке не едят."}},
+        "cashsay": {"kind": "say", "es": "Cash. Very good. Twenty pounds into your account.", "ru": "Наличные. Хорошо. Двадцать фунтов на ваш счёт.", "next": "saldo"},
+        "saldo": {"kind": "answer", "task": "Спросите, сколько у вас на счёте.", "branches": [{"phrase": "ph:bank.my-balance", "next": "saldosay"}], "wrong": {"es": "My house? We do not ask about that.", "ru": "Мой дом? Об этом не спрашивают."}},
+        "saldosay": {"kind": "say", "es": "Your balance is twenty pounds. Now the fragment of the map: I need a signature.", "ru": "Остаток на счёте: двадцать фунтов. Теперь обрывок карты: нужна подпись.", "next": "sign"},
+        "sign": {"kind": "answer", "task": "Спросите, где вам расписаться.", "branches": [{"phrase": "ph:bank.where-sign-here", "next": "signsay"}], "wrong": {"es": "Where do you sleep? At home, not in the bank.", "ru": "Где вам спать? Дома, а не в банке."}},
+        "signsay": {"kind": "say", "es": "Here. And here. And here. Anything else?", "ru": "Здесь. И здесь. И здесь. Что-нибудь ещё?", "next": "fee"},
+        "fee": {"kind": "answer", "task": "Спросите, есть ли комиссия.", "branches": [{"phrase": "ph:bank.a-fee", "next": "end"}], "wrong": {"es": "How much is a coffee? Ask at the café.", "ru": "Сколько стоит кофе? Это вам в кафе."}},
+        "end": {"kind": "say", "es": "For you, no. That is the rule of the bank: people who speak our language do not pay. Here is your fragment of the map. And remember: the Vault opens with words, not with a key.", "ru": "Для вас — нет. Таково правило банка: кто говорит на нашем языке, не платит. Вот ваш обрывок карты. И помните: Хранилище открывается не ключом, а словами."}
+      }
+    },
+    {
+      "id": "ms:bank.2",
+      "chapter": 2,
+      "npc": "whitmore",
+      "scene": "sc:bank.2",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Good afternoon. You will need cash in the hills. What is the problem?", "ru": "Добрый день. В горы вам понадобятся наличные. Что у вас случилось?", "next": "card"},
+        "card": {"kind": "answer", "task": "Скажите, что вам заблокировали карту.", "branches": [{"phrase": "ph:bank.card-blocked", "next": "cardsay"}], "wrong": {"es": "Someone took your hat? This is a bank, not the police.", "ru": "У вас украли шляпу? Это банк, а не полиция."}},
+        "cardsay": {"kind": "say", "es": "Blocked. Let me see. Do you remember your code?", "ru": "Заблокирована. Посмотрим. Вы помните свой код?", "next": "pin"},
+        "pin": {"kind": "answer", "task": "Скажите, что не помните PIN-код.", "branches": [{"phrase": "ph:bank.forgot-pin", "next": "pinsay"}], "wrong": {"es": "You don't remember your name? I hope you do.", "ru": "Забыли своё имя? Надеюсь, нет."}},
+        "pinsay": {"kind": "say", "es": "You forgot it. Then you need to speak to the manager.", "ru": "Забыли. Тогда вам нужно поговорить с менеджером.", "next": "manager"},
+        "manager": {"kind": "answer", "task": "Скажите, что хотите поговорить с менеджером.", "branches": [{"phrase": "ph:bank.speak-manager", "next": "mgrsay"}], "wrong": {"es": "You want to speak to the guardian? He doesn't work here.", "ru": "Хотите поговорить со стражем? Он здесь не работает."}},
+        "mgrsay": {"kind": "say", "es": "I am the manager. Very well: a new card. Anything else?", "ru": "Менеджер — это я. Хорошо: новая карта. Что-нибудь ещё?", "next": "statement"},
+        "statement": {"kind": "answer", "task": "Попросите выписку по счёту.", "branches": [{"phrase": "ph:bank.statement", "next": "stsay"}], "wrong": {"es": "Orange juice? This is not the market.", "ru": "Апельсиновый сок? Это не рынок."}},
+        "stsay": {"kind": "say", "es": "Here you are. Everything is in order. And for the trip?", "ru": "Вот, пожалуйста. Всё в порядке. А на поездку?", "next": "save"},
+        "save": {"kind": "answer", "task": "Спросите, есть ли сберегательные счета, или попросите снять сто фунтов.", "branches": [{"phrase": "ph:bank.savings-accounts", "next": "end"}, {"phrase": "ph:bank.withdraw", "next": "end"}], "wrong": {"es": "Chocolate accounts? No, only money accounts.", "ru": "Шоколадные счета? Нет, только денежные."}},
+        "end": {"kind": "say", "es": "Very well, it is done. And here is my fragment of the hill map. Remember: you do not pay the guardian with money. You pay him with words.", "ru": "Хорошо, готово. А вот мой обрывок карты гор. Помните: стражу платят не деньгами. Ему платят словами."}
+      }
+    }
+  ]
+}

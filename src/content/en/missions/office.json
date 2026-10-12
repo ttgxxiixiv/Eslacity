@@ -1,0 +1,47 @@
+{
+  "location": "office",
+  "missions": [
+    {
+      "id": "ms:office.1",
+      "chapter": 1,
+      "npc": "priya",
+      "scene": "sc:office.1",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Fast! The meeting is at ten, and I can't find anything. Can you help me?", "ru": "Быстрее! Совещание в десять, а я ничего не могу найти. Поможешь?", "next": "printer"},
+        "printer": {"kind": "answer", "task": "Спросите, где принтер.", "branches": [{"phrase": "ph:office.where-printer", "next": "printsay"}], "wrong": {"es": "Coffee? Later. Now, work.", "ru": "Кофе? Позже. Сейчас работа."}},
+        "printsay": {"kind": "say", "es": "Over there, by the window. And the report? Where is it?", "ru": "Вон там, у окна. А отчёт? Где он?", "next": "report"},
+        "report": {"kind": "answer", "task": "Скажите, что отчёт у неё на столе.", "branches": [{"phrase": "ph:office.report-desk", "next": "repsay"}], "wrong": {"es": "The report is in the sea? What an idea! Look again.", "ru": "Отчёт в море? Ну и мысль! Посмотри внимательно."}},
+        "repsay": {"kind": "say", "es": "Here it is! Thanks. I'll call you later about it.", "ru": "Вот он! Спасибо. Я тебе потом позвоню про него.", "next": "num"},
+        "num": {"kind": "answer", "task": "Спросите, есть ли у неё ваш номер телефона.", "branches": [{"phrase": "ph:office.my-number", "next": "numsay"}], "wrong": {"es": "My dog? Not now, please!", "ru": "Моя собака? Сейчас не до неё, пожалуйста!"}},
+        "numsay": {"kind": "say", "es": "Yes, I've got it. And the boss? Are you looking for him?", "ru": "Есть. А начальник? Ты его ищешь?", "next": "boss"},
+        "boss": {"kind": "answer", "task": "Спросите, где кабинет начальника.", "branches": [{"phrase": "ph:office.boss-office", "next": "bosssay"}], "wrong": {"es": "The dog's office? There are no dogs here, only bosses.", "ru": "Кабинет собаки? Тут нет собак, тут начальники."}},
+        "bosssay": {"kind": "say", "es": "Over there, on the left. And your phone is ringing!", "ru": "Вон там, слева. И у тебя звонит телефон!", "next": "phone"},
+        "phone": {"kind": "answer", "task": "Скажите в телефон, что сейчас не можете и перезвоните позже.", "branches": [{"phrase": "ph:office.call-later", "next": "end"}], "wrong": {"es": "Are you talking to the phone or to me? Fast, please!", "ru": "Ты с телефоном говоришь или со мной? Быстрее, пожалуйста!"}},
+        "end": {"kind": "say", "es": "That's the way. Thanks for your help. Take my fragment: the map isn't for sale, it's for the person who helps. And this letter with “Come”… somebody is calling us.", "ru": "Вот это по-нашему. Спасибо за помощь. Держи мой обрывок: карта не продаётся, её отдают тому, кто помогает. А это письмо с «Приходи»… кто-то нас зовёт."}
+      }
+    },
+    {
+      "id": "ms:office.2",
+      "chapter": 2,
+      "npc": "priya",
+      "scene": "sc:office.2",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "I need to send a report about the train to the Chronicler. Can you help? I haven't got much time.", "ru": "Мне нужно отправить Летописцу отчёт о поезде. Поможешь? У меня мало времени.", "next": "copier"},
+        "copier": {"kind": "answer", "task": "Спросите, где ксерокс.", "branches": [{"phrase": "ph:office.photocopier", "next": "copsay"}], "wrong": {"es": "Where is the coffee machine? Work first!", "ru": "Где кофеварка? Сначала работа!"}},
+        "copsay": {"kind": "say", "es": "Over there, by the window. And the file about the train? I can't find it.", "ru": "Вон там, у окна. А файл про поезд? Не могу найти.", "next": "file"},
+        "file": {"kind": "answer", "task": "Скажите, что файл в синей папке.", "branches": [{"phrase": "ph:office.blue-folder", "next": "filesay"}], "wrong": {"es": "The file is on the beach? What an idea!", "ru": "Файл на пляже? Ну и мысль!"}},
+        "filesay": {"kind": "say", "es": "Here it is! Thanks.", "ru": "Вот он! Спасибо.", "next": "print"},
+        "print": {"kind": "answer", "task": "Попросите её распечатать отчёт для Летописца.", "branches": [{"phrase": "ph:office.print-report", "next": "printsay"}], "wrong": {"es": "Eat the report? No, print it.", "ru": "Съесть отчёт? Нет, распечатать."}},
+        "printsay": {"kind": "say", "es": "Done. What else do you need?", "ru": "Готово. Что ещё тебе нужно?", "next": "stapler"},
+        "stapler": {"kind": "answer", "task": "Попросите степлер.", "branches": [{"phrase": "ph:office.use-stapler", "next": "stapsay"}], "wrong": {"es": "Use my car? No, my stapler.", "ru": "Взять мою машину? Нет, степлер."}},
+        "stapsay": {"kind": "say", "es": "Here you are. And please send the file to the Chronicler.", "ru": "Держи. И отправь файл Летописцу, пожалуйста.", "next": "attach"},
+        "attach": {"kind": "answer", "task": "Скажите, что прикрепляете файл.", "branches": [{"phrase": "ph:office.attaching-file", "next": "attsay"}], "wrong": {"es": "Attach a cat? You can't do that.", "ru": "Прикрепить кота? Так нельзя."}},
+        "attsay": {"kind": "say", "es": "Received. What a night! I'm tired.", "ru": "Получено. Ну и ночка! Я устала.", "next": "pause"},
+        "pause": {"kind": "answer", "task": "Предложите сделать перерыв.", "branches": [{"phrase": "ph:office.coffee-break", "next": "end"}], "wrong": {"es": "A party? Later, when Oswald comes back.", "ru": "Устроим праздник? Потом, когда вернётся Освальд."}},
+        "end": {"kind": "say", "es": "A break. Take my fragment of the hill map. And the report about the train: give it to Oswald. He must know that the town remembers him.", "ru": "Перерыв. Держи мой обрывок карты гор. И отчёт о поезде: отдай его Освальду. Он должен знать, что город его помнит."}
+      }
+    }
+  ]
+}

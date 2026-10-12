@@ -1,0 +1,49 @@
+{
+  "location": "school",
+  "missions": [
+    {
+      "id": "ms:school.1",
+      "chapter": 1,
+      "npc": "evans",
+      "scene": "sc:school.1",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Today in our lesson we are reading a fragment of the map. Ready?", "ru": "Сегодня на уроке читаем обрывок карты. Готов?", "next": "pen", "fem": {"ru": "Сегодня на уроке читаем обрывок карты. Готова?"}},
+        "pen": {"kind": "answer", "task": "Спросите, есть ли у неё ручка.", "branches": [{"phrase": "ph:school.got-pen", "next": "pensay"}], "wrong": {"es": "A banana? A pen is better for writing.", "ru": "Банан? Писать лучше ручкой."}},
+        "pensay": {"kind": "say", "es": "Here you are. Look at the map. There's a very old word here.", "ru": "Держи. Посмотри на карту. Здесь очень старое слово.", "next": "word"},
+        "word": {"kind": "answer", "task": "Скажите, что не понимаете это слово.", "branches": [{"phrase": "ph:school.dont-understand", "next": "wordsay"}], "wrong": {"es": "Do you mean “I don't understand this word”?", "ru": "Ты хочешь сказать «я не понимаю это слово»?"}},
+        "wordsay": {"kind": "say", "es": "This word is “in”. Only the person who speaks can go in.", "ru": "Это слово — «внутрь». Войдёт только тот, кто говорит.", "next": "repeat"},
+        "repeat": {"kind": "answer", "task": "Попросите повторить.", "branches": [{"phrase": "ph:school.repeat-please", "next": "repsay"}], "wrong": {"es": "An exam now? No, no, there is no exam today.", "ru": "Экзамен сейчас? Нет-нет, сегодня экзамена нет."}},
+        "repsay": {"kind": "say", "es": "Again, slowly: only the person who speaks can go in.", "ru": "Ещё раз, медленно: войдёт только тот, кто говорит.", "next": "write"},
+        "write": {"kind": "answer", "task": "Спросите, как это пишется.", "branches": [{"phrase": "ph:school.how-write", "next": "writesay"}], "wrong": {"es": "How do you eat it? You don't eat words.", "ru": "Как это едят? Слова не едят."}},
+        "writesay": {"kind": "say", "es": "It's easy, like you hear it. Write it in your notebook.", "ru": "Как слышится, так и пишется. Запиши в тетрадь.", "next": "nb"},
+        "nb": {"kind": "answer", "task": "Спросите, где ваша тетрадь.", "branches": [{"phrase": "ph:school.my-notebook", "next": "nbsay"}], "wrong": {"es": "Do you mean “Where is my notebook?”", "ru": "Ты хочешь сказать «где моя тетрадь»?"}},
+        "nbsay": {"kind": "say", "es": "In your bag, like always. Any questions?", "ru": "В твоём рюкзаке, как всегда. Есть вопросы?", "next": "q"},
+        "q": {"kind": "answer", "task": "Скажите, что у вас есть вопрос.", "branches": [{"phrase": "ph:school.a-question", "next": "end"}], "wrong": {"es": "You're hungry? We can eat after the lesson.", "ru": "Проголодался? Поедим после урока.", "fem": {"ru": "Проголодалась? Поедим после урока."}}},
+        "end": {"kind": "say", "es": "Do you want to know who is at the door of the Vault? Nobody knows. Take the fragment. One day you will understand this map.", "ru": "Хочешь знать, кто у двери Хранилища? Никто не знает. Возьми обрывок. Однажды ты поймёшь эту карту."}
+      }
+    },
+    {
+      "id": "ms:school.2",
+      "chapter": 2,
+      "npc": "evans",
+      "scene": "sc:school.2",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Today we have a special lesson. Before the lighthouse, an exam on the past.", "ru": "Сегодня у нас особый урок. Перед маяком — экзамен по прошедшему времени.", "next": "subject"},
+        "subject": {"kind": "answer", "task": "Спросите, какой сейчас предмет.", "branches": [{"phrase": "ph:school.what-subject", "next": "subjsay"}], "wrong": {"es": "What time is it? It's exam time.", "ru": "Который час? Время экзамена."}},
+        "subjsay": {"kind": "say", "es": "English: the past. First question: what did you do yesterday?", "ru": "Английский: прошедшее время. Первый вопрос: что ты делал вчера?", "next": "dict", "fem": {"ru": "Английский: прошедшее время. Первый вопрос: что ты делала вчера?"}},
+        "dict": {"kind": "answer", "task": "Спросите, есть ли в классе словарь.", "branches": [{"phrase": "ph:school.dictionary", "next": "dictsay"}], "wrong": {"es": "A wolf in the classroom? No, only students.", "ru": "В классе волк? Нет, только ученики."}},
+        "dictsay": {"kind": "say", "es": "There is, but today no dictionary. Write your answer.", "ru": "Есть, но сегодня без словаря. Напиши свой ответ.", "next": "fix"},
+        "fix": {"kind": "answer", "task": "Попросите её проверить ваш ответ.", "branches": [{"phrase": "ph:school.check-answer", "next": "fixsay"}], "wrong": {"es": "Can I eat your answer? You don't eat answers.", "ru": "Можно съесть твой ответ? Ответы не едят."}},
+        "fixsay": {"kind": "say", "es": "Let's see… There's a small mistake.", "ru": "Посмотрим… Есть маленькая ошибка.", "next": "err"},
+        "err": {"kind": "answer", "task": "Спросите, где ошибка.", "branches": [{"phrase": "ph:school.where-mistake", "next": "errsay"}], "wrong": {"es": "Where is the break? After the exam.", "ru": "Где перемена? После экзамена."}},
+        "errsay": {"kind": "say", "es": "Here: “I went”, not “I goed”. Can you see?", "ru": "Вот: «I went», а не «I goed». Видишь?", "next": "ex"},
+        "ex": {"kind": "answer", "task": "Попросите объяснить на примере.", "branches": [{"phrase": "ph:school.explain-example", "next": "exsay"}], "wrong": {"es": "Can I sing it? No, I won't sing. But I can explain.", "ru": "Можно это спеть? Нет, петь не буду. Объяснить — да."}},
+        "exsay": {"kind": "say", "es": "Of course: “Yesterday I went to the park. Sam went to the lighthouse.” Do you understand?", "ru": "Конечно: «Вчера я ходила в парк. Сэм ходил к маяку». Понимаешь?", "next": "pass"},
+        "pass": {"kind": "answer", "task": "Спросите, сдали ли вы экзамен.", "branches": [{"phrase": "ph:school.did-i-pass", "next": "end"}], "wrong": {"es": "You missed the train? No, you're in a lesson.", "ru": "Ты опоздал на поезд? Нет, ты на уроке.", "fem": {"ru": "Ты опоздала на поезд? Нет, ты на уроке."}}},
+        "end": {"kind": "say", "es": "You passed. Your mark is nine out of ten. And the prize is my fragment of the hill map. When the fog asks you, answer in the past.", "ru": "Экзамен сдан. Твоя оценка — девять из десяти. А награда — мой обрывок карты гор. Когда туман спросит тебя, отвечай в прошедшем времени."}
+      }
+    }
+  ]
+}

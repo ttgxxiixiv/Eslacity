@@ -1,0 +1,46 @@
+{
+  "location": "hospital",
+  "missions": [
+    {
+      "id": "ms:hospital.1",
+      "chapter": 1,
+      "npc": "okafor",
+      "scene": "sc:hospital.1",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Good afternoon. Today you're the patient. What's wrong?", "ru": "Добрый день. Сегодня пациент — вы. Что с вами?", "next": "pain"},
+        "pain": {"kind": "answer", "task": "Скажите, что у вас, кажется, сломана рука или что у вас болит сердце.", "branches": [{"phrase": "ph:hospital.arm-broken", "next": "armsay", "sets": {"injury": "arm"}}, {"phrase": "ph:hospital.heart-hurts", "next": "heartsay", "sets": {"injury": "heart"}}], "wrong": {"es": "Your hair hurts? Hair doesn't hurt. Say it again.", "ru": "Болят волосы? Волосы не болят. Скажите ещё раз."}},
+        "armsay": {"kind": "say", "es": "Your arm… Let me see. Does it hurt here?", "ru": "Рука… Посмотрим. Здесь болит?", "next": "xray"},
+        "heartsay": {"kind": "say", "es": "Your heart… Your heart is fine, but look at your arm. It is red.", "ru": "Сердце… Сердце в порядке, но посмотрите на руку. Она красная.", "next": "xray"},
+        "xray": {"kind": "answer", "task": "Спросите, нужен ли вам рентген.", "branches": [{"phrase": "ph:hospital.need-xray", "next": "xsay"}], "wrong": {"es": "A cake? There is no cake here. There are doctors here.", "ru": "Торт? Здесь нет тортов. Здесь врачи."}},
+        "xsay": {"kind": "say", "es": "Yes, let's look at your arm.", "ru": "Да, посмотрим на руку.", "next": "grave"},
+        "grave": {"kind": "answer", "task": "Спросите, серьёзно ли это.", "branches": [{"phrase": "ph:hospital.is-serious", "next": "gravesay"}], "wrong": {"es": "Is it a cat? No, it's your arm.", "ru": "Это кошка? Нет, это ваша рука."}},
+        "gravesay": {"kind": "say", "es": "Nothing serious. Your arm isn't broken. A week with no sport.", "ru": "Ничего серьёзного. Рука не сломана. Неделя без спорта.", "next": "blood"},
+        "blood": {"kind": "answer", "task": "Спросите, нужно ли сдать кровь.", "branches": [{"phrase": "ph:hospital.blood-test", "next": "bloodsay"}], "wrong": {"es": "Are you hungry? First your arm, then food.", "ru": "Проголодались? Сначала рука, потом еда."}},
+        "bloodsay": {"kind": "say", "es": "No, you don't. And now? How do you feel?", "ru": "Нет, не нужно. А сейчас? Как вы?", "next": "better"},
+        "better": {"kind": "answer", "task": "Скажите, что вам уже лучше, и поблагодарите.", "branches": [{"phrase": "ph:hospital.feel-better", "next": "end"}], "wrong": {"es": "Worse? Please, take it slowly.", "ru": "Хуже? Пожалуйста, не спешите."}},
+        "end": {"kind": "say", "es": "Good. Take my fragment of the map. The Chronicler says you help the neighbours. I can see it: today you helped your doctor.", "ru": "Хорошо. Возьмите мой обрывок карты. Летописец говорит, что вы помогаете соседям. Я это вижу: сегодня вы помогли своему врачу."}
+      }
+    },
+    {
+      "id": "ms:hospital.2",
+      "chapter": 2,
+      "npc": "okafor",
+      "scene": "sc:hospital.2",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "And you? You helped Sam get here from the bus. What's wrong with you?", "ru": "А вы? Вы помогли Сэму добраться сюда от автобуса. Что с вами?", "next": "pain"},
+        "pain": {"kind": "answer", "task": "Скажите, что у вас сильно болит плечо или болит стопа.", "branches": [{"phrase": "ph:hospital.shoulder-hurts", "next": "painsay"}, {"phrase": "ph:hospital.foot-hurts", "next": "painsay"}], "wrong": {"es": "Your hair hurts? Hair doesn't hurt. Again, please.", "ru": "Болят волосы? Волосы не болят. Ещё раз, пожалуйста."}},
+        "painsay": {"kind": "say", "es": "I see: you carried Sam for a long time. Nothing serious. Anything else?", "ru": "Понятно: вы долго несли Сэма. Ничего серьёзного. Что-нибудь ещё?", "next": "finger"},
+        "finger": {"kind": "answer", "task": "Скажите, что порезали палец.", "branches": [{"phrase": "ph:hospital.cut-finger", "next": "fingsay"}], "wrong": {"es": "You've had a haircut? Very nice. But tell me what hurts.", "ru": "Подстриглись? Очень красиво. Но скажите, что у вас болит."}},
+        "fingsay": {"kind": "say", "es": "Let me see… Nothing serious. A bandage and that's all. And your eyes? They're red.", "ru": "Посмотрим… Ничего страшного. Бинт — и всё. А глаза? Они красные.", "next": "eye"},
+        "eye": {"kind": "answer", "task": "Скажите, что вам что-то попало в глаз.", "branches": [{"phrase": "ph:hospital.in-my-eye", "next": "eyesay"}], "wrong": {"es": "Something in your pocket? We're looking at eyes here.", "ru": "Что-то в кармане? Мы тут смотрим глаза."}},
+        "eyesay": {"kind": "say", "es": "Sand. There's no sand in the hills… The wind brings it from past the lighthouse.", "ru": "Песок. В горах песка нет… Его приносит ветер из-за маяка.", "next": "vacc"},
+        "vacc": {"kind": "answer", "task": "Спросите, нужен ли вам укол.", "branches": [{"phrase": "ph:hospital.injection", "next": "vaccsay"}], "wrong": {"es": "Do you need a coat? Up there, yes.", "ru": "Нужно пальто? Наверху — да."}},
+        "vaccsay": {"kind": "say", "es": "No, you don't. You can go up.", "ru": "Нет, не нужно. Вы можете подниматься.", "next": "out"},
+        "out": {"kind": "answer", "task": "Спросите, когда вас выпишут.", "branches": [{"phrase": "ph:hospital.go-home", "next": "end"}], "wrong": {"es": "When can you have an ice cream? After the lighthouse.", "ru": "Когда вам дадут мороженое? После маяка."}},
+        "end": {"kind": "say", "es": "Right now. Take my fragment of the hill map. And remember the third question: who did you help? You know that better than anyone.", "ru": "Прямо сейчас. Возьмите мой обрывок карты гор. И помните третий вопрос: кому вы помогли. Вы это знаете лучше всех."}
+      }
+    }
+  ]
+}

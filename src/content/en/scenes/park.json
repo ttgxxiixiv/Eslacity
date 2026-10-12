@@ -1,0 +1,55 @@
+{
+  "location": "park",
+  "scenes": [
+    {
+      "id": "sc:park.1",
+      "chapter": 1,
+      "npc": "bert",
+      "lines": [
+        {"who": "npc", "es": "Morning, young man. It's a lovely day, isn't it?", "ru": "Доброе утро, молодой человек. Хороший денёк, правда?", "fem": {"es": "Morning, young lady. It's a lovely day, isn't it?", "ru": "Доброе утро, девушка. Хороший денёк, правда?"}},
+        {"who": "hero", "es": "What a beautiful park!", "ru": "Какой красивый парк!"},
+        {"who": "npc", "es": "I come here every day. I give bread to the birds.", "ru": "Прихожу сюда каждый день. Кормлю птиц хлебом."},
+        {"who": "hero", "es": "Is this your dog?", "ru": "Это ваша собака?"},
+        {"who": "npc", "es": "Yes, this is Biscuit. Sit down. You're looking for the map, right?", "ru": "Да, это Бисквит. Садись. Ты ищешь карту, верно?"},
+        {"who": "hero", "es": "Do you know anything about the map?", "ru": "Вы что-нибудь знаете о карте?"},
+        {"who": "npc", "es": "When I was young, I saw the whole map.", "ru": "Когда я был молодым, я видел карту целиком."},
+        {"who": "hero", "es": "And what was on the map?", "ru": "И что было на карте?"},
+        {"who": "npc", "es": "A road. It leaves the town, goes past the lake and up into the hills.", "ru": "Дорога. Она выходит из города, идёт мимо озера и поднимается в горы."},
+        {"who": "hero", "es": "And the Vault?", "ru": "А Хранилище?"},
+        {"who": "npc", "es": "It is very far away, past the hills. But the road starts here, in the park.", "ru": "Оно очень далеко, за горами. А дорога начинается здесь, в парке."}
+      ],
+      "questions": [
+        {"q": "Что Берт делает каждый день?", "options": ["Бегает по парку", "Кормит птиц", "Читает газету"], "answer": 1},
+        {"q": "Как зовут собаку Берта?", "options": ["Бисквит", "Тост", "Сэм"], "answer": 0},
+        {"q": "Что Берт видел в молодости?", "options": ["Хранилище", "Карту целиком", "Озеро без воды"], "answer": 1},
+        {"q": "Куда ведёт дорога на карте?", "options": ["К морю", "В аэропорт", "Мимо озера в горы"], "answer": 2}
+      ],
+      "gloss": {"biscuit": "Бисквит (кличка собаки)", "sit": "сидеть; sit down — сесть", "down": "вниз", "lady": "young lady — девушка", "whole": "целый", "leaves": "выходит", "past": "мимо; за", "vault": "хранилище"}
+    },
+    {
+      "id": "sc:park.2",
+      "chapter": 2,
+      "npc": "bert",
+      "lines": [
+        {"who": "npc", "es": "Morning, young man. Sit down. I need to tell you something.", "ru": "Доброе утро, молодой человек. Садись. Мне нужно тебе кое-что рассказать.", "fem": {"es": "Morning, young lady. Sit down. I need to tell you something.", "ru": "Доброе утро, девушка. Садись. Мне нужно тебе кое-что рассказать."}},
+        {"who": "hero", "es": "What happened?", "ru": "Что случилось?"},
+        {"who": "npc", "es": "Yesterday a man sat on this bench. He had a grey coat.", "ru": "Вчера на эту скамейку сел человек. На нём было серое пальто."},
+        {"who": "hero", "es": "The man in the grey coat! What did he do?", "ru": "Человек в сером пальто! Что он делал?"},
+        {"who": "npc", "es": "He gave bread to the ducks and asked me about the voice in the fog.", "ru": "Кормил уток хлебом и спросил меня про голос в тумане."},
+        {"who": "hero", "es": "And what did you tell him?", "ru": "А вы что ему сказали?"},
+        {"who": "npc", "es": "Nothing. Because I knew him. I saw him here, on this bench, fifty years ago.", "ru": "Ничего. Потому что я его узнал. Я видел его здесь, на этой самой скамейке, пятьдесят лет назад."},
+        {"who": "hero", "es": "Fifty years ago? And what does he look like now?", "ru": "Пятьдесят лет назад? И какой он теперь?"},
+        {"who": "npc", "es": "He hasn't changed. The same face, the same coat. He isn't any older.", "ru": "Он не изменился. То же лицо, то же пальто. Он не постарел."},
+        {"who": "hero", "es": "That's impossible.", "ru": "Это невозможно."},
+        {"who": "npc", "es": "In the hills, young man, impossible things happen every day.", "ru": "В горах, молодой человек, невозможное случается каждый день.", "fem": {"es": "In the hills, young lady, impossible things happen every day.", "ru": "В горах, девушка, невозможное случается каждый день."}}
+      ],
+      "questions": [
+        {"q": "Кого Берт видел вчера?", "options": ["Сэма", "Человека в сером пальто", "Летописца"], "answer": 1},
+        {"q": "Что делал этот человек?", "options": ["Кормил уток и спрашивал про голос в тумане", "Катался на велосипеде", "Гулял с собакой"], "answer": 0},
+        {"q": "Когда Берт видел его впервые?", "options": ["Неделю назад", "Вчера", "Пятьдесят лет назад"], "answer": 2},
+        {"q": "Что странного в этом человеке?", "options": ["Он не постарел", "Он не говорит", "Он очень высокий"], "answer": 0}
+      ],
+      "gloss": {"fifty": "пятьдесят", "face": "лицо", "changed": "изменился"}
+    }
+  ]
+}

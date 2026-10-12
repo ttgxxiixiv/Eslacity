@@ -1,0 +1,55 @@
+{
+  "location": "gym",
+  "scenes": [
+    {
+      "id": "sc:gym.1",
+      "chapter": 1,
+      "npc": "zoe",
+      "lines": [
+        {"who": "npc", "es": "Come on! Ten more!", "ru": "Давай! Ещё десять!"},
+        {"who": "hero", "es": "Oh! My legs hurt.", "ru": "Уф! Ноги болят."},
+        {"who": "npc", "es": "Great! For the road from the map, you need strong legs.", "ru": "Отлично! Для дороги с карты нужны сильные ноги."},
+        {"who": "hero", "es": "Do you know that road?", "ru": "Ты знаешь эту дорогу?"},
+        {"who": "npc", "es": "My mum went to the hills. Two days on foot.", "ru": "Моя мама ходила в горы. Два дня пешком."},
+        {"who": "hero", "es": "And did she find the Vault?", "ru": "И нашла Хранилище?"},
+        {"who": "npc", "es": "No. There is a guardian on the road. He checks every word you know.", "ru": "Нет. На дороге стоит страж. Он проверяет каждое слово, которое ты знаешь."},
+        {"who": "hero", "es": "And your mum didn't know the answers?", "ru": "И твоя мама не знала ответов?"},
+        {"who": "npc", "es": "She could run very well. But she could not speak very well.", "ru": "Бегала она отлично. А говорила — не очень."},
+        {"who": "hero", "es": "I want to run and speak.", "ru": "А я хочу и бегать, и говорить."},
+        {"who": "npc", "es": "That's the way! Ten more, in English!", "ru": "Вот это по-нашему! Ещё десять — и по-английски!"}
+      ],
+      "questions": [
+        {"q": "Что болит у героя?", "options": ["Спина", "Ноги", "Голова"], "answer": 1},
+        {"q": "Кто ходил в горы?", "options": ["Мама Зои", "Сама Зои", "Почтальон"], "answer": 0},
+        {"q": "Кто стоит на дороге?", "options": ["Страж, который проверяет слова", "Продавец билетов", "Никого нет"], "answer": 0},
+        {"q": "Почему мама Зои не прошла?", "options": ["Устала", "Хорошо бегала, но плохо говорила", "Потеряла карту"], "answer": 1}
+      ],
+      "gloss": {"oh": "уф", "foot": "on foot — пешком", "vault": "хранилище", "guardian": "страж", "checks": "проверяет"}
+    },
+    {
+      "id": "sc:gym.2",
+      "chapter": 2,
+      "npc": "zoe",
+      "lines": [
+        {"who": "npc", "es": "Come on! To get to the lighthouse, you need to be fit.", "ru": "Давай! Чтобы дойти до маяка, нужно быть в форме."},
+        {"who": "hero", "es": "Is it very hard to go up there?", "ru": "Туда очень трудно подниматься?"},
+        {"who": "npc", "es": "There are a lot of steps. Sam came here to work out every week.", "ru": "Там очень много ступенек. Сэм тренировался здесь каждую неделю."},
+        {"who": "hero", "es": "And the man in the grey coat? Do you know him?", "ru": "А человек в сером пальто? Ты его знаешь?"},
+        {"who": "npc", "es": "My mum knows him. Many years ago, in a storm, he carried her down the hill.", "ru": "Моя мама его знает. Много лет назад в грозу он снёс её с горы."},
+        {"who": "hero", "es": "He helped her?", "ru": "Он ей помог?"},
+        {"who": "npc", "es": "He carried her in his arms, very fast, like a young man.", "ru": "Нёс её на руках, очень быстро, как молодой парень."},
+        {"who": "hero", "es": "So he isn't bad.", "ru": "Значит, он не злой."},
+        {"who": "npc", "es": "I don't think so. Mum says he had sad eyes.", "ru": "Не думаю. Мама говорит, что у него были грустные глаза."},
+        {"who": "hero", "es": "I will talk to him.", "ru": "Я поговорю с ним."},
+        {"who": "npc", "es": "First, the steps. Come on, ten more!", "ru": "Сначала — ступеньки. Давай, ещё десять!"}
+      ],
+      "questions": [
+        {"q": "Сколько ступенек до маяка?", "options": ["Немного", "Очень много", "Десять"], "answer": 1},
+        {"q": "Что сделал человек в пальто для мамы Зои?", "options": ["Снёс её с горы в грозу", "Продал ей карту", "Научил её говорить"], "answer": 0},
+        {"q": "Как он её нёс?", "options": ["Медленно", "Быстро, как молодой", "На лошади"], "answer": 1},
+        {"q": "Какие у него глаза, по словам мамы?", "options": ["Злые", "Весёлые", "Грустные"], "answer": 2}
+      ],
+      "gloss": {"steps": "ступеньки", "carried": "нёс, снёс", "eyes": "глаза"}
+    }
+  ]
+}

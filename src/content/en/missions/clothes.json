@@ -1,0 +1,49 @@
+{
+  "location": "clothes",
+  "missions": [
+    {
+      "id": "ms:clothes.1",
+      "chapter": 1,
+      "npc": "chloe",
+      "scene": "sc:clothes.1",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Today we're finding clothes for the hills. What do you need?", "ru": "Сегодня подбираем одежду для гор. Что тебе нужно?", "next": "coat"},
+        "coat": {"kind": "answer", "task": "Спросите, есть ли пальто.", "branches": [{"phrase": "ph:clothes.any-coats", "next": "coatsay"}], "wrong": {"es": "Bread? We sell clothes here, not bread.", "ru": "Хлеб? Мы тут продаём одежду, а не хлеб."}},
+        "coatsay": {"kind": "say", "es": "This black coat is very nice. Do you want to see it?", "ru": "Это чёрное пальто очень красивое. Хочешь посмотреть?", "next": "try"},
+        "try": {"kind": "answer", "task": "Спросите, можно ли примерить.", "branches": [{"phrase": "ph:clothes.try-on", "next": "trysay"}], "wrong": {"es": "Eat the coat? No, no! You try it on, you don't eat it.", "ru": "Съесть пальто? Нет-нет! Его примеряют, а не едят."}},
+        "trysay": {"kind": "say", "es": "OK. So?", "ru": "Хорошо. Ну как?", "next": "big"},
+        "big": {"kind": "answer", "task": "Скажите, что вам велико.", "branches": [{"phrase": "ph:clothes.too-big", "next": "bigsay"}], "wrong": {"es": "Too small? No, no: it's too big for you.", "ru": "Маловато? Нет-нет: оно тебе велико."}},
+        "bigsay": {"kind": "say", "es": "You're right, it's too big. There's a smaller one, black.", "ru": "Ты прав, оно слишком большое. Есть поменьше, чёрное.", "next": "color", "fem": {"ru": "Ты права, оно слишком большое. Есть поменьше, чёрное."}},
+        "color": {"kind": "answer", "task": "Спросите, есть ли такое же синего цвета.", "branches": [{"phrase": "ph:clothes.in-blue", "next": "colorsay"}], "wrong": {"es": "Yellow? Not in the hills!", "ru": "Жёлтое? В горах — лучше не надо!"}},
+        "colorsay": {"kind": "say", "es": "Here, a blue one. It looks great on you.", "ru": "Вот, синее. Тебе очень идёт.", "next": "sale"},
+        "sale": {"kind": "answer", "task": "Спросите, есть ли сейчас скидки.", "branches": [{"phrase": "ph:clothes.a-sale", "next": "salesay"}], "wrong": {"es": "Presents? No, no presents today.", "ru": "Подарки есть? Нет, сегодня подарков нет."}},
+        "salesay": {"kind": "say", "es": "Yes, there is a sale: for you, twenty pounds. Anything else?", "ru": "Скидки есть: для тебя — двадцать фунтов. Что-нибудь ещё?", "next": "shoes"},
+        "shoes": {"kind": "answer", "task": "Скажите, что вам нужны ещё туфли.", "branches": [{"phrase": "ph:clothes.need-shoes", "next": "end"}], "wrong": {"es": "You need a bed? I don't sell beds.", "ru": "Тебе нужна кровать? Кроватей я не продаю."}},
+        "end": {"kind": "say", "es": "For the hills, take these boots. And here's the fragment of the map. It's cold in the hills, but now you've got a coat.", "ru": "Для гор — вот эти ботинки. И держи обрывок карты. В горах холодно, а у тебя теперь есть пальто."}
+      }
+    },
+    {
+      "id": "ms:clothes.2",
+      "chapter": 2,
+      "npc": "chloe",
+      "scene": "sc:clothes.2",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Let's get you ready for the lighthouse. Where shall we start?", "ru": "Давай оденем тебя для маяка. С чего начнём?", "next": "hat"},
+        "hat": {"kind": "answer", "task": "Спросите, есть ли тёплая шапка.", "branches": [{"phrase": "ph:clothes.warm-hat", "next": "hatsay"}], "wrong": {"es": "A beach hat? It's cold at the lighthouse!", "ru": "Пляжная шляпа? У маяка холодно!"}},
+        "hatsay": {"kind": "say", "es": "Here is a great hat. And for your neck?", "ru": "Вот отличная шапка. А на шею?", "next": "scarf"},
+        "scarf": {"kind": "answer", "task": "Спросите, где шарфы.", "branches": [{"phrase": "ph:clothes.where-scarves", "next": "scarfsay"}], "wrong": {"es": "Dancing shoes? You're not going dancing, you're going up the hills!", "ru": "Туфли для танцев? Ты не танцевать идёшь, а подниматься в горы!"}},
+        "scarfsay": {"kind": "say", "es": "Over here. Take a red one, like Sam. And try on this jumper too.", "ru": "Вот здесь. Возьми красный, как у Сэма. И примерь ещё этот свитер.", "next": "fit"},
+        "fit": {"kind": "answer", "task": "Спросите, как на вас сидит.", "branches": [{"phrase": "ph:clothes.look-on-me", "next": "fitsay"}], "wrong": {"es": "What time is it? Time to try on clothes.", "ru": "Который час? Время примерять одежду."}},
+        "fitsay": {"kind": "say", "es": "Hmm… It's a bit small, isn't it?", "ru": "Хм… Маловат, да?", "next": "tight"},
+        "tight": {"kind": "answer", "task": "Скажите, что слишком узко.", "branches": [{"phrase": "ph:clothes.too-tight", "next": "tightsay"}], "wrong": {"es": "Too pretty? That isn't possible.", "ru": "Слишком красиво? Такого не бывает."}},
+        "tightsay": {"kind": "say", "es": "You're right. Take a bigger one. It's very warm.", "ru": "Ты прав. Возьми на размер больше. Он очень тёплый.", "next": "cotton", "fem": {"ru": "Ты права. Возьми на размер больше. Он очень тёплый."}},
+        "cotton": {"kind": "answer", "task": "Спросите, из хлопка ли он.", "branches": [{"phrase": "ph:clothes.is-cotton", "next": "cottonsay"}], "wrong": {"es": "Is it chocolate? No, you don't eat it!", "ru": "Он из шоколада? Нет, его не едят!"}},
+        "cottonsay": {"kind": "say", "es": "No, it's wool. That's better for the hills. Anything else?", "ru": "Нет, из шерсти. Для гор так лучше. Что-нибудь ещё?", "next": "boots"},
+        "boots": {"kind": "answer", "task": "Спросите, продаются ли сапоги со скидкой.", "branches": [{"phrase": "ph:clothes.boots-sale", "next": "end"}], "wrong": {"es": "The boots sing? No, but they're very good.", "ru": "Сапоги поют? Нет, но они очень хорошие."}},
+        "end": {"kind": "say", "es": "For you, yes. And here are Sam's boots: take them to him. And take my fragment of the hill map. In the fog, look for a red scarf.", "ru": "Для тебя — да. А вот сапоги Сэма: отнеси их ему. И возьми мой обрывок карты гор. Ищи в тумане красный шарф."}
+      }
+    }
+  ]
+}

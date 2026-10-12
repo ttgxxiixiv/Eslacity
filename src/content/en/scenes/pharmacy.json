@@ -1,0 +1,55 @@
+{
+  "location": "pharmacy",
+  "scenes": [
+    {
+      "id": "sc:pharmacy.1",
+      "chapter": 1,
+      "npc": "shah",
+      "lines": [
+        {"who": "npc", "es": "Good afternoon. How can I help you?", "ru": "Добрый день. Чем вам помочь?"},
+        {"who": "hero", "es": "I'm fine. I'm looking for the map. People say you know a lot.", "ru": "Всё в порядке. Я ищу карту. Говорят, вы много знаете."},
+        {"who": "npc", "es": "I know a lot. And I know that the Elixir is not medicine.", "ru": "Знаю много. И знаю, что Эликсир — не лекарство."},
+        {"who": "hero", "es": "Then what is it?", "ru": "А что это?"},
+        {"who": "npc", "es": "The person who drinks the Elixir speaks our language. And you can't buy it in a pharmacy.", "ru": "Кто выпьет Эликсир, заговорит на нашем языке. И в аптеках его не продают."},
+        {"who": "hero", "es": "Have you got a fragment of the map?", "ru": "У вас есть обрывок карты?"},
+        {"who": "npc", "es": "It's here, in the cupboard, with the prescriptions.", "ru": "Он у меня здесь, в шкафу, с рецептами."},
+        {"who": "hero", "es": "Can you give it to me?", "ru": "Отдадите его мне?"},
+        {"who": "npc", "es": "Not so fast, young man. First: how do you feel?", "ru": "Не спешите, молодой человек. Сначала: как вы себя чувствуете?", "fem": {"es": "Not so fast, young lady. First: how do you feel?", "ru": "Не спешите, девушка. Сначала: как вы себя чувствуете?"}},
+        {"who": "hero", "es": "My head hurts.", "ru": "У меня болит голова."},
+        {"who": "npc", "es": "Good. Let's start with your head.", "ru": "Хорошо. Начнём с головы."}
+      ],
+      "questions": [
+        {"q": "Что мистер Шах говорит об Эликсире?", "options": ["Это не лекарство", "Это вкусный сок", "Его продают в аптеке"], "answer": 0},
+        {"q": "Что умеет тот, кто выпьет Эликсир?", "options": ["Никогда не болеет", "Говорит на здешнем языке", "Видит в темноте"], "answer": 1},
+        {"q": "Где лежит обрывок аптекаря?", "options": ["В кармане пальто", "На почте", "В шкафу с рецептами"], "answer": 2},
+        {"q": "Что болит у героя?", "options": ["Горло", "Голова", "Живот"], "answer": 1}
+      ],
+      "gloss": {"elixir": "эликсир", "language": "язык", "fragment": "обрывок", "cupboard": "шкаф", "lady": "young lady — девушка"}
+    },
+    {
+      "id": "sc:pharmacy.2",
+      "chapter": 2,
+      "npc": "shah",
+      "lines": [
+        {"who": "npc", "es": "Good afternoon. I know why you are here. The hills, right?", "ru": "Добрый день. Я уже знаю, зачем вы пришли. Горы, верно?"},
+        {"who": "hero", "es": "What do I need for the road?", "ru": "Что мне нужно в дорогу?"},
+        {"who": "npc", "es": "The same as Sam. He bought tablets for feeling dizzy and a bandage.", "ru": "То же, что и Сэму. Он купил таблетки от головокружения и бинт."},
+        {"who": "hero", "es": "Dizzy?", "ru": "Головокружение?"},
+        {"who": "npc", "es": "Up on the cliff the air is different. A lot of people feel dizzy at the lighthouse.", "ru": "Наверху, на скале, другой воздух. У многих у маяка кружится голова."},
+        {"who": "hero", "es": "Did the man in the grey coat come here too?", "ru": "А человек в сером пальто тоже приходил?"},
+        {"who": "npc", "es": "He did. He bought nothing. He asked me a very strange question.", "ru": "Приходил. Ничего не купил. Задал мне очень странный вопрос."},
+        {"who": "hero", "es": "What question?", "ru": "Какой вопрос?"},
+        {"who": "npc", "es": "He asked: “What year is it?” As if he didn't know.", "ru": "Спросил: «Какой сейчас год?». Будто не знал."},
+        {"who": "hero", "es": "How strange!", "ru": "Как странно!"},
+        {"who": "npc", "es": "Very strange. But I sell medicine, not answers.", "ru": "Очень странно. Но я продаю лекарства, а не ответы."}
+      ],
+      "questions": [
+        {"q": "Что купил Сэм в аптеке?", "options": ["Таблетки от головокружения и бинт", "Витамины", "Крем от солнца"], "answer": 0},
+        {"q": "Почему у маяка кружится голова?", "options": ["Там шумно", "Наверху другой воздух", "Там нет еды"], "answer": 1},
+        {"q": "Что сделал человек в пальто?", "options": ["Купил лекарства", "Ничего не сказал", "Спросил, какой сейчас год"], "answer": 2},
+        {"q": "Что говорит аптекарь в конце?", "options": ["Он продаёт лекарства, а не ответы", "Он пойдёт в горы", "Он знает этого человека"], "answer": 0}
+      ],
+      "gloss": {}
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "location": "airport",
+  "missions": [
+    {
+      "id": "ms:airport.1",
+      "chapter": 1,
+      "npc": "tom",
+      "scene": "sc:airport.1",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Today there is a short flight over the hills. Do you want to come? Passport, please.", "ru": "Сегодня короткий полёт над горами. Полетишь? Паспорт, пожалуйста.", "next": "pass"},
+        "pass": {"kind": "answer", "task": "Отдайте паспорт.", "branches": [{"phrase": "ph:airport.my-passport", "next": "passsay"}], "wrong": {"es": "An ice cream? I need your passport, not an ice cream.", "ru": "Мороженое? Мне нужен паспорт, а не мороженое."}},
+        "passsay": {"kind": "say", "es": "Thanks. And your suitcase?", "ru": "Спасибо. А чемодан?", "next": "bag"},
+        "bag": {"kind": "answer", "task": "Спросите, где сдать багаж.", "branches": [{"phrase": "ph:airport.check-in-bag", "next": "bagsay"}], "wrong": {"es": "Check in your bed? What an idea!", "ru": "Сдать в багаж кровать? Ну и мысль!"}},
+        "bagsay": {"kind": "say", "es": "Over there, on the left. Then security.", "ru": "Вон там, слева. Потом досмотр.", "next": "sec"},
+        "sec": {"kind": "answer", "task": "Спросите, где досмотр.", "branches": [{"phrase": "ph:airport.where-security", "next": "secsay"}], "wrong": {"es": "Tickets on the train? This is the airport, not the station.", "ru": "Билеты в поезде? Это аэропорт, а не вокзал."}},
+        "secsay": {"kind": "say", "es": "Straight on. And then to the gate.", "ru": "Прямо. А потом к выходу на посадку.", "next": "gate"},
+        "gate": {"kind": "answer", "task": "Спросите, какой выход на посадку или где второй терминал.", "branches": [{"phrase": "ph:airport.which-gate", "next": "gatesay"}, {"phrase": "ph:airport.terminal-two", "next": "gatesay"}], "wrong": {"es": "The door of your house? No, the door to the plane.", "ru": "Дверь твоего дома? Нет, выход к самолёту."}},
+        "gatesay": {"kind": "say", "es": "Terminal two, gate three.", "ru": "Второй терминал, выход три.", "next": "time"},
+        "time": {"kind": "answer", "task": "Спросите, во сколько взлетает самолёт.", "branches": [{"phrase": "ph:airport.take-off", "next": "end"}], "wrong": {"es": "What time is lunch? On the plane, at nine.", "ru": "Во сколько обед? В самолёте, в девять."}},
+        "end": {"kind": "say", "es": "At eight. Look out of the window: there are the hills and the road. Take my fragment of the map. And a magnet for the road.", "ru": "В восемь. Смотри в окно: вон горы и дорога. Держи мой обрывок карты. И магнитик — в дорогу."}
+      }
+    },
+    {
+      "id": "ms:airport.2",
+      "chapter": 2,
+      "npc": "tom",
+      "scene": "sc:airport.2",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Today I'm flying over the desert again. Do you want to come? It's a short flight.", "ru": "Сегодня я снова лечу над пустыней. Полетишь? Полёт короткий.", "next": "seat"},
+        "seat": {"kind": "answer", "task": "Попросите место у прохода.", "branches": [{"phrase": "ph:airport.aisle-seat", "next": "seatsay"}], "wrong": {"es": "A seat on the wing? You can't do that!", "ru": "Место на крыле? Так нельзя!"}},
+        "seatsay": {"kind": "say", "es": "The aisle? You can see the desert better from the window… Oh, all right. And this bag?", "ru": "У прохода? У окна лучше видно пустыню… Ну ладно. А этот рюкзак?", "next": "bag"},
+        "bag": {"kind": "answer", "task": "Спросите, считается ли это ручной кладью.", "branches": [{"phrase": "ph:airport.hand-luggage", "next": "bagsay"}], "wrong": {"es": "Is this a dog? No, it's your bag.", "ru": "Это собака? Нет, это твой рюкзак."}},
+        "bagsay": {"kind": "say", "es": "Hand luggage, great. Have you got water?", "ru": "Ручная кладь, отлично. Воду везёшь?", "next": "liq"},
+        "liq": {"kind": "answer", "task": "Спросите, можно ли брать жидкости на борт.", "branches": [{"phrase": "ph:airport.liquids", "next": "liqsay"}], "wrong": {"es": "Can you take a horse? Of course not!", "ru": "Можно взять лошадь? Конечно, нет!"}},
+        "liqsay": {"kind": "say", "es": "A little. It's better to take water to the desert.", "ru": "Немного. В пустыню лучше брать воду.", "next": "board"},
+        "board": {"kind": "answer", "task": "Спросите, во сколько начинается посадка.", "branches": [{"phrase": "ph:airport.boarding-start", "next": "boardsay"}], "wrong": {"es": "What time does the party start? After the flight.", "ru": "Во сколько начинается праздник? После полёта."}},
+        "boardsay": {"kind": "say", "es": "Right now. Do you need anything before the flight?", "ru": "Прямо сейчас. Тебе что-нибудь нужно перед полётом?", "next": "wc"},
+        "wc": {"kind": "answer", "task": "Спросите, где туалеты.", "branches": [{"phrase": "ph:airport.where-toilets", "next": "end"}], "wrong": {"es": "Where's the desert? You'll see it from up there.", "ru": "Где пустыня? Наверху увидишь."}},
+        "end": {"kind": "say", "es": "Over there, be fast. And then look out of the window: the lighthouse, the railway and the sand. Can you see the white city? It isn't there now. Take my fragment of the hill map.", "ru": "Вон там, быстрее. А потом смотри в окно: маяк, железная дорога и песок. Видишь белый город? Его уже нет. Держи мой обрывок карты гор."}
+      }
+    }
+  ]
+}

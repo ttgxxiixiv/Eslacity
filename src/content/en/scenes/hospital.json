@@ -1,0 +1,57 @@
+{
+  "location": "hospital",
+  "scenes": [
+    {
+      "id": "sc:hospital.1",
+      "chapter": 1,
+      "npc": "okafor",
+      "lines": [
+        {"who": "npc", "es": "Good afternoon. How do you feel today?", "ru": "Добрый день. Как вы себя чувствуете сегодня?"},
+        {"who": "hero", "es": "Fine, thanks. Is the man from the company here?", "ru": "Хорошо, спасибо. Здесь лежит человек из компании?"},
+        {"who": "npc", "es": "He is in ward four. He fell on the road to the hills.", "ru": "Он в четвёртой палате. Упал на дороге в горы."},
+        {"who": "hero", "es": "Did he want to get to the guardian?", "ru": "Он хотел дойти до стража?"},
+        {"who": "npc", "es": "With no map and no words. The guardian didn't open the road for him.", "ru": "Без карты и без слов. Страж ему не открыл."},
+        {"who": "hero", "es": "Do you know who writes the letters with “Come”?", "ru": "А вы знаете, кто пишет письма с «Приходи»?"},
+        {"who": "npc", "es": "I do: the Chronicler. He was here yesterday.", "ru": "Знаю: Летописец. Он был здесь вчера."},
+        {"who": "hero", "es": "The Chronicler? Why?", "ru": "Летописец? Зачем?"},
+        {"who": "npc", "es": "He is looking for the person who helps the neighbours. Only that person can get to the Vault.", "ru": "Он ищет того, кто помогает соседям. Только такой человек дойдёт до Хранилища."},
+        {"who": "hero", "es": "Have you got a fragment of the map?", "ru": "У вас есть обрывок карты?"},
+        {"who": "npc", "es": "Yes. But now I'm the doctor here. How do you feel?", "ru": "Есть. Но сейчас врач здесь я. Как вы себя чувствуете?"}
+      ],
+      "questions": [
+        {"q": "Что случилось с человеком из компании?", "options": ["Он упал на дороге в горы", "Он улетел", "Он купил обрывок"], "answer": 0},
+        {"q": "Почему страж ему не открыл?", "options": ["Было поздно", "У него не было ни карты, ни слов", "Он пришёл без билета"], "answer": 1},
+        {"q": "Кто пишет письма «Приходи»?", "options": ["Компания", "Страж", "Летописец"], "answer": 2},
+        {"q": "Кого ищет Летописец?", "options": ["Того, кто помогает соседям", "Самого быстрого", "Того, у кого больше денег"], "answer": 0}
+      ],
+      "gloss": {"ward": "палата", "fell": "упал", "guardian": "страж", "chronicler": "Летописец", "vault": "хранилище", "fragment": "обрывок"}
+    },
+    {
+      "id": "sc:hospital.2",
+      "chapter": 2,
+      "npc": "okafor",
+      "lines": [
+        {"who": "npc", "es": "Good afternoon. I have news: Sam is here.", "ru": "Добрый день. У меня новость: Сэм здесь."},
+        {"who": "hero", "es": "Sam? How is he?", "ru": "Сэм? Как он?"},
+        {"who": "npc", "es": "His foot is broken, but he is fine. The guardian brought him down from the cliff.", "ru": "У него сломана стопа, но он в порядке. Страж спустил его со скалы."},
+        {"who": "npc", "es": "Not like your arm last month: his foot really is broken.", "ru": "Не как твоя рука в прошлом месяце: у него и правда перелом.", "if": {"flag": "injury", "is": "arm"}},
+        {"who": "npc", "es": "Not like your heart last month. His heart is strong, only his foot hurts.", "ru": "Не как твоё сердце в прошлом месяце. Сердце у него сильное, болит только нога.", "if": {"flag": "injury", "is": "heart"}},
+        {"who": "hero", "es": "What happened at the lighthouse?", "ru": "Что случилось на маяке?"},
+        {"who": "npc", "es": "He told me. The guardian asks three questions, in the past.", "ru": "Он мне рассказал. Страж задаёт три вопроса, в прошедшем времени."},
+        {"who": "hero", "es": "And did Sam answer?", "ru": "И Сэм ответил?"},
+        {"who": "npc", "es": "He answered two. For the third, he didn't know what to say.", "ru": "Ответил на два. На третий не знал, что сказать."},
+        {"who": "hero", "es": "What was the third question?", "ru": "Какой был третий вопрос?"},
+        {"who": "npc", "es": "“Who did you help?”", "ru": "«Кому ты помог?»"},
+        {"who": "hero", "es": "Who did I help? I know that.", "ru": "Кому я помог? Это я знаю.", "fem": {"ru": "Кому я помогла? Это я знаю."}},
+        {"who": "npc", "es": "The guardian told Sam: “Bring me the traveller with the map.” Now it is your turn.", "ru": "Страж сказал Сэму: «Приведи ко мне путешественника с картой». Твоя очередь."}
+      ],
+      "questions": [
+        {"q": "Кто вернулся со скалы?", "options": ["Сэм", "Освальд", "Летописец"], "answer": 0},
+        {"q": "Что с Сэмом?", "options": ["Сломана стопа", "Болит горло", "Он совсем здоров"], "answer": 0},
+        {"q": "Сколько вопросов задаёт страж?", "options": ["Один", "Три", "Десять"], "answer": 1},
+        {"q": "На какой вопрос Сэм не смог ответить?", "options": ["«Кому ты помог?»", "«Как тебя зовут?»", "«Откуда ты?»"], "answer": 0}
+      ],
+      "gloss": {"guardian": "страж", "brought": "спустил, принёс", "turn": "your turn — твоя очередь"}
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "location": "pharmacy",
+  "missions": [
+    {
+      "id": "ms:pharmacy.1",
+      "chapter": 1,
+      "npc": "shah",
+      "scene": "sc:pharmacy.1",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Good afternoon. Let's take it slowly. What's wrong today?", "ru": "Добрый день. Давайте не спеша. Что с вами сегодня?", "next": "pain"},
+        "pain": {"kind": "answer", "task": "Скажите, что у вас болит голова или живот.", "branches": [{"phrase": "ph:pharmacy.head-hurts", "next": "headsay"}, {"phrase": "ph:pharmacy.stomach-hurts", "next": "stomsay"}], "wrong": {"es": "Your legs hurt? But you have your hand on your head.", "ru": "Болят ноги? Но вы держитесь за голову."}},
+        "headsay": {"kind": "say", "es": "Your head hurts. I see. Have you got a temperature?", "ru": "Болит голова. Понятно. Температура есть?", "next": "fever"},
+        "stomsay": {"kind": "say", "es": "Your stomach hurts. I see. Have you got a temperature?", "ru": "Болит живот. Понятно. Температура есть?", "next": "fever"},
+        "fever": {"kind": "answer", "task": "Скажите, что у вас температура.", "branches": [{"phrase": "ph:pharmacy.temperature", "next": "feversay"}], "wrong": {"es": "You're hungry? That isn't for a pharmacy.", "ru": "Голодны? Это не к аптеке."}},
+        "feversay": {"kind": "say", "es": "Thirty-eight. Here: a tablet for the temperature, one every eight hours.", "ru": "Тридцать восемь. Вот: таблетка от температуры, по одной каждые восемь часов.", "next": "throat"},
+        "throat": {"kind": "answer", "task": "Скажите, что у вас болит горло.", "branches": [{"phrase": "ph:pharmacy.throat-hurts", "next": "throatsay"}], "wrong": {"es": "Your hair hurts? Hair doesn't hurt.", "ru": "Болят волосы? Волосы не болят."}},
+        "throatsay": {"kind": "say", "es": "Your throat. I see. Have you got a prescription from the doctor?", "ru": "Горло. Понятно. У вас есть рецепт от врача?", "next": "recipe"},
+        "recipe": {"kind": "answer", "task": "Скажите, что у вас есть рецепт.", "branches": [{"phrase": "ph:pharmacy.prescription", "next": "recsay"}], "wrong": {"es": "A bike? I need a prescription, not a bike.", "ru": "Велосипед? Мне нужен рецепт, а не велосипед."}},
+        "recsay": {"kind": "say", "es": "Good. With the prescription, this syrup. Two times a day.", "ru": "Хорошо. По рецепту — этот сироп. Два раза в день.", "next": "vit"},
+        "vit": {"kind": "answer", "task": "Спросите, есть ли витамины.", "branches": [{"phrase": "ph:pharmacy.any-vitamins", "next": "end"}], "wrong": {"es": "Have I got any wine? This is a pharmacy!", "ru": "У меня есть вино? Это аптека!"}},
+        "end": {"kind": "say", "es": "These vitamins are good for the road. And in the cupboard, with the prescriptions… your fragment of the map. Remember: the Elixir is not medicine.", "ru": "Эти витамины хороши в дорогу. А в шкафу, с рецептами… ваш обрывок карты. Помните: Эликсир — не лекарство."}
+      }
+    },
+    {
+      "id": "ms:pharmacy.2",
+      "chapter": 2,
+      "npc": "shah",
+      "scene": "sc:pharmacy.2",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Let's do it in order. A first aid bag for the hills. What do you need first?", "ru": "Давайте по порядку. Аптечка для гор. Что вам нужно сначала?", "next": "bandage"},
+        "bandage": {"kind": "answer", "task": "Скажите, что вам нужен бинт.", "branches": [{"phrase": "ph:pharmacy.need-bandage", "next": "bandsay"}], "wrong": {"es": "A bandage for the dog? The dog isn't going to the hills.", "ru": "Бинт для собаки? Собака в горы не идёт."}},
+        "bandsay": {"kind": "say", "es": "A bandage. Good. And how do you feel now?", "ru": "Бинт. Хорошо. А как вы себя сейчас чувствуете?", "next": "dizzy"},
+        "dizzy": {"kind": "answer", "task": "Скажите, что у вас кружится голова (вы только что поднимались по лестнице).", "branches": [{"phrase": "ph:pharmacy.feel-dizzy", "next": "dizzysay"}], "wrong": {"es": "In love? We can't help with that in a pharmacy.", "ru": "Влюблены? Это в аптеке не лечат."}},
+        "dizzysay": {"kind": "say", "es": "Dizzy already, here… At the lighthouse it will be worse. Take these drops.", "ru": "Голова кружится уже здесь… У маяка будет хуже. Возьмите эти капли.", "next": "drops"},
+        "drops": {"kind": "answer", "task": "Спросите, сколько капель принимать.", "branches": [{"phrase": "ph:pharmacy.how-many-drops", "next": "dropssay"}], "wrong": {"es": "How many hills are there? A lot. But ask about the drops.", "ru": "Сколько там гор? Много. Но спросите про капли."}},
+        "dropssay": {"kind": "say", "es": "Ten drops two times a day.", "ru": "Десять капель два раза в день.", "next": "fast"},
+        "fast": {"kind": "answer", "task": "Спросите, нужно ли принимать натощак.", "branches": [{"phrase": "ph:pharmacy.empty-stomach", "next": "fastsay"}], "wrong": {"es": "Take it with wine? Never with wine!", "ru": "Принимать с вином? С вином — никогда!"}},
+        "fastsay": {"kind": "say", "es": "No. Better with food.", "ru": "Нет. Лучше во время еды.", "next": "side"},
+        "side": {"kind": "answer", "task": "Спросите, есть ли побочные эффекты.", "branches": [{"phrase": "ph:pharmacy.side-effects", "next": "sidesay"}], "wrong": {"es": "Special effects? This isn't a film.", "ru": "Спецэффекты? Это не кино."}},
+        "sidesay": {"kind": "say", "es": "You may feel a bit sleepy. Nothing else.", "ru": "Немного клонит в сон. Больше ничего.", "next": "recipe"},
+        "recipe": {"kind": "answer", "task": "Спросите, можно ли купить это без рецепта.", "branches": [{"phrase": "ph:pharmacy.no-prescription", "next": "end"}], "wrong": {"es": "Can you buy the pharmacy? No, it isn't for sale.", "ru": "Можно купить аптеку? Нет, она не продаётся."}},
+        "end": {"kind": "say", "es": "Yes, you can. And with the drops, my fragment of the hill map. If you see the man in the grey coat, tell him what year it is.", "ru": "Можно. А вместе с каплями — мой обрывок карты гор. Если увидите человека в сером пальто, скажите ему, какой сейчас год."}
+      }
+    }
+  ]
+}

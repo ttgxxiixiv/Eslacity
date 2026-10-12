@@ -1,0 +1,55 @@
+{
+  "location": "school",
+  "scenes": [
+    {
+      "id": "sc:school.1",
+      "chapter": 1,
+      "npc": "evans",
+      "lines": [
+        {"who": "npc", "es": "Good morning! Shall we start the lesson?", "ru": "Доброе утро! Начнём урок?"},
+        {"who": "hero", "es": "Good morning. Today I've got a question.", "ru": "Доброе утро. Сегодня у меня вопрос."},
+        {"who": "npc", "es": "Very good. Questions are always good.", "ru": "Очень хорошо. Вопросы — это всегда хорошо."},
+        {"who": "hero", "es": "Do you know anything about the map?", "ru": "Вы что-нибудь знаете о карте?"},
+        {"who": "npc", "es": "I've got a fragment. Look: there are some words on it.", "ru": "У меня есть обрывок. Смотри: здесь какие-то слова."},
+        {"who": "hero", "es": "I don't understand this word.", "ru": "Я не понимаю это слово."},
+        {"who": "npc", "es": "It's very old English. It says: “Only the one who speaks can pass.”", "ru": "Это очень старый английский. Здесь написано: «Пройдёт только тот, кто говорит»."},
+        {"who": "hero", "es": "Pass? Where to?", "ru": "Пройдёт? Куда?"},
+        {"who": "npc", "es": "Into the Vault. Someone at the door asks questions. Only the person who knows the answers can pass.", "ru": "В Хранилище. У двери кто-то задаёт вопросы. Пройдёт только тот, кто знает ответы."},
+        {"who": "hero", "es": "I need to learn a lot.", "ru": "Мне нужно многому научиться."},
+        {"who": "npc", "es": "That's why you're here. Let's start!", "ru": "Для этого ты и здесь. Начинаем!"}
+      ],
+      "questions": [
+        {"q": "С чем герой пришёл на урок?", "options": ["С вопросом", "С экзаменом", "С новой тетрадью"], "answer": 0},
+        {"q": "Что написано на обрывке?", "options": ["«Дорога идёт к морю»", "«Пройдёт только тот, кто говорит»", "«Карта лежит в банке»"], "answer": 1},
+        {"q": "Кто ждёт у двери Хранилища?", "options": ["Почтальон", "Никого нет", "Кто-то, кто задаёт вопросы"], "answer": 2},
+        {"q": "Что решает герой?", "options": ["Много учиться", "Бросить поиски", "Купить новую карту"], "answer": 0}
+      ],
+      "gloss": {"shall": "shall we…? — давай…?", "asks": "спрашивает", "fragment": "обрывок", "pass": "пройти", "vault": "хранилище", "door": "дверь", "someone": "кто-то"}
+    },
+    {
+      "id": "sc:school.2",
+      "chapter": 2,
+      "npc": "evans",
+      "lines": [
+        {"who": "npc", "es": "Good morning! I've got Sam's letter. His sister gave it to me yesterday.", "ru": "Доброе утро! У меня письмо Сэма. Вчера мне его дала его сестра."},
+        {"who": "hero", "es": "What's in the letter?", "ru": "Что в письме?"},
+        {"who": "npc", "es": "Listen: “I got to the fog. The fog talks. I answer in the past.”", "ru": "Слушай: «Я дошёл до тумана. Туман говорит. Я отвечаю в прошедшем времени»."},
+        {"who": "hero", "es": "The fog talks?", "ru": "Туман говорит?"},
+        {"who": "npc", "es": "I think it is the voice of the guardian. He asks what you did, and you answer in the past.", "ru": "Думаю, это голос стража. Он спрашивает, что ты сделал, а ты отвечаешь в прошедшем времени.", "fem": {"ru": "Думаю, это голос стража. Он спрашивает, что ты сделала, а ты отвечаешь в прошедшем времени."}},
+        {"who": "hero", "es": "My neighbour said the same.", "ru": "То же самое говорила моя соседка."},
+        {"who": "npc", "es": "Exactly. But look at the end: the letter is different there.", "ru": "Вот именно. А посмотри в конец: там письмо другое."},
+        {"who": "hero", "es": "What is at the end?", "ru": "А что в конце?"},
+        {"who": "npc", "es": "A different person wrote this part. Only a few words: “He is fine. Wait.”", "ru": "Это писал уже другой человек. Всего несколько слов: «С ним всё хорошо. Жди»."},
+        {"who": "hero", "es": "Who?", "ru": "Кто?"},
+        {"who": "npc", "es": "I don't know. So today we're learning the past. Let's start!", "ru": "Не знаю. Поэтому сегодня учим прошедшее время. Начинаем!"}
+      ],
+      "questions": [
+        {"q": "Чьё письмо читает мисс Эванс?", "options": ["Письмо Сэма", "Письмо Летописца", "Письмо стража"], "answer": 0},
+        {"q": "Что делает туман в письме?", "options": ["Поёт", "Говорит", "Молчит"], "answer": 1},
+        {"q": "Как нужно отвечать стражу?", "options": ["Шёпотом", "Письменно", "В прошедшем времени"], "answer": 2},
+        {"q": "Что странного в конце письма?", "options": ["Его дописал другой человек", "Оно пустое", "Оно на другом языке"], "answer": 0}
+      ],
+      "gloss": {"guardian": "страж"}
+    }
+  ]
+}

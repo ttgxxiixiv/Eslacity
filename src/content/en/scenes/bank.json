@@ -1,0 +1,55 @@
+{
+  "location": "bank",
+  "scenes": [
+    {
+      "id": "sc:bank.1",
+      "chapter": 1,
+      "npc": "whitmore",
+      "lines": [
+        {"who": "npc", "es": "Good afternoon. How may I help you?", "ru": "Добрый день. Чем могу помочь?"},
+        {"who": "hero", "es": "I'm looking for a fragment of the map. Has the bank got one?", "ru": "Я ищу обрывок карты. В банке такой есть?"},
+        {"who": "npc", "es": "Yes. We keep it in the bank, in a box with a key.", "ru": "Есть. Мы храним его в банке, в ящике с ключом."},
+        {"who": "hero", "es": "Can you give it to me?", "ru": "Можете мне его отдать?"},
+        {"who": "npc", "es": "First things first: no account, no map.", "ru": "Всё по порядку: без счёта — ничего."},
+        {"who": "hero", "es": "I want to open an account.", "ru": "Я хочу открыть счёт."},
+        {"who": "npc", "es": "Very good. Then you sign here, here and here.", "ru": "Прекрасно. Тогда вы расписываетесь здесь, здесь и здесь."},
+        {"who": "hero", "es": "Three times!", "ru": "Три раза!"},
+        {"who": "npc", "es": "In a bank, it is important to sign.", "ru": "В банке подписи — это важно."},
+        {"who": "hero", "es": "And the Vault from the map? Is it like a bank?", "ru": "А Хранилище с карты? Оно как банк?"},
+        {"who": "npc", "es": "People say it is the biggest bank in the world. And it opens with questions, not with a key.", "ru": "Говорят, это самый большой банк в мире. И открывается он не ключом, а вопросами."}
+      ],
+      "questions": [
+        {"q": "Где банк хранит обрывок?", "options": ["В ящике с ключом", "У кассира в кармане", "На почте"], "answer": 0},
+        {"q": "Что нужно, чтобы получить обрывок?", "options": ["Купить марку", "Открыть счёт", "Заплатить сто фунтов"], "answer": 1},
+        {"q": "Сколько раз надо расписаться?", "options": ["Один", "Два", "Три"], "answer": 2},
+        {"q": "Что говорят о Хранилище?", "options": ["Что это обычный банк", "Что его давно нет", "Что это самый большой банк, и открывается он вопросами"], "answer": 2}
+      ],
+      "gloss": {"may": "how may I help — чем могу помочь (вежливо)", "fragment": "обрывок", "keep": "хранить", "vault": "хранилище", "biggest": "самый большой", "opens": "открывается"}
+    },
+    {
+      "id": "sc:bank.2",
+      "chapter": 2,
+      "npc": "whitmore",
+      "lines": [
+        {"who": "npc", "es": "Good afternoon. I have something for you.", "ru": "Добрый день. У меня есть кое-что для вас."},
+        {"who": "hero", "es": "For me?", "ru": "Для меня?"},
+        {"who": "npc", "es": "The coins of the man in the grey coat. The young man from the shop brought them. They are a hundred years old.", "ru": "Монеты человека в сером пальто. Их принёс молодой человек из магазина. Им сто лет."},
+        {"who": "hero", "es": "Whose are they?", "ru": "А чьи они?"},
+        {"who": "npc", "es": "In our books there is a very old account. It is a hundred years old.", "ru": "В наших записях есть очень старый счёт. Ему сто лет."},
+        {"who": "hero", "es": "Whose account is it?", "ru": "Чей это счёт?"},
+        {"who": "npc", "es": "The guardian of the lighthouse. He always pays with these coins.", "ru": "Стража маяка. Он всегда платит этими монетами."},
+        {"who": "hero", "es": "The man in the grey coat is the guardian?", "ru": "Человек в сером пальто — это страж?"},
+        {"who": "npc", "es": "I think so. And look at his signature: it's the same as the end of Sam's letter.", "ru": "Думаю, да. И посмотрите на его подпись: точно такая же, как приписка в письме Сэма."},
+        {"who": "hero", "es": "So Sam is with the guardian.", "ru": "Значит, Сэм у стража."},
+        {"who": "npc", "es": "I believe so. For guardians, the bank has no rules.", "ru": "Я так думаю. Для стражей в банке правил нет."}
+      ],
+      "questions": [
+        {"q": "Сколько лет монетам человека в пальто?", "options": ["Десять", "Сто", "Тысяча"], "answer": 1},
+        {"q": "Чей старый счёт нашёлся в банке?", "options": ["Стража маяка", "Сэма", "Летописца"], "answer": 0},
+        {"q": "На что похожа подпись на счёте?", "options": ["На подпись мистера Уитмора", "На приписку в письме Сэма", "На почтовую марку"], "answer": 1},
+        {"q": "Какой вывод делает герой?", "options": ["Сэм уехал в столицу", "Страж потерял монеты", "Сэм у стража"], "answer": 2}
+      ],
+      "gloss": {"whose": "чей", "guardian": "страж", "guardians": "стражи", "signature": "подпись", "rules": "правила"}
+    }
+  ]
+}

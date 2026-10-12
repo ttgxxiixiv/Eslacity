@@ -1,0 +1,49 @@
+{
+  "location": "beach",
+  "missions": [
+    {
+      "id": "ms:beach.1",
+      "chapter": 1,
+      "npc": "finn",
+      "scene": "sc:beach.1",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "There's a lot of sun today. What do you want to do?", "ru": "Сегодня солнечно. Чем займёмся?", "next": "go"},
+        "go": {"kind": "answer", "task": "Предложите пойти на пляж или пойти купаться.", "branches": [{"phrase": "ph:beach.to-the-beach", "next": "gosay"}, {"phrase": "ph:beach.go-swim", "next": "gosay"}], "wrong": {"es": "Let's go to the office? No, mate, not today!", "ru": "Пойдём в офис? Нет, дружище, только не сегодня!", "fem": {"ru": "Пойдём в офис? Нет, подруга, только не сегодня!"}}},
+        "gosay": {"kind": "say", "es": "Come on! The sun is very hot today.", "ru": "Пошли! Солнце сегодня так и печёт.", "next": "cream"},
+        "cream": {"kind": "answer", "task": "Спросите, есть ли у него солнцезащитный крем.", "branches": [{"phrase": "ph:beach.sun-cream", "next": "creamsay"}], "wrong": {"es": "Pizza? There's only sun and water here.", "ru": "Пицца? Тут только солнце и вода."}},
+        "creamsay": {"kind": "say", "es": "Here you are. Do you want to swim here?", "ru": "Держи. Поплаваем здесь?", "next": "danger"},
+        "danger": {"kind": "answer", "task": "Спросите, опасно ли здесь купаться.", "branches": [{"phrase": "ph:beach.dangerous-swim", "next": "dangersay"}], "wrong": {"es": "Is the sea cold? No, it's lovely today!", "ru": "Море холодное? Нет, сегодня оно отличное!"}},
+        "dangersay": {"kind": "say", "es": "Today it is dangerous. Look over there.", "ru": "Сегодня опасно. Посмотри вон туда.", "next": "flag"},
+        "flag": {"kind": "answer", "task": "Скажите, что висит красный флаг.", "branches": [{"phrase": "ph:beach.red-flag", "next": "flagsay"}], "wrong": {"es": "A fish? Look again: the flag is red.", "ru": "Рыба? Посмотри внимательно: флаг красный."}},
+        "flagsay": {"kind": "say", "es": "That's right. No swimming today. So what now?", "ru": "Правильно. Сегодня не плаваем. А что теперь?", "next": "ice"},
+        "ice": {"kind": "answer", "task": "Предложите купить мороженое.", "branches": [{"phrase": "ph:beach.buy-ice-cream", "next": "icesay"}], "wrong": {"es": "Buy a car? No, mate, an ice cream.", "ru": "Купим машину? Нет, дружище, мороженое.", "fem": {"ru": "Купим машину? Нет, подруга, мороженое."}}},
+        "icesay": {"kind": "say", "es": "Two ice creams! But what's wrong with your face? It's very red.", "ru": "Два мороженых! А что у тебя с лицом? Оно всё красное.", "next": "back"},
+        "back": {"kind": "answer", "task": "Скажите, что обгорели на солнце.", "branches": [{"phrase": "ph:beach.red-from-sun", "next": "end"}], "wrong": {"es": "You're cold? Not in this sun!", "ru": "Тебе холодно? С таким солнцем — нет!"}},
+        "end": {"kind": "say", "es": "Here is some cream for you. And take the fragment of the map from the bottle. It came from the sea for you, traveller.", "ru": "Вот тебе крем. И держи обрывок карты из бутылки. Море принесло его для тебя, путешественник."}
+      }
+    },
+    {
+      "id": "ms:beach.2",
+      "chapter": 2,
+      "npc": "finn",
+      "scene": "sc:beach.2",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "There's no hurry today. What shall we do before the evening?", "ru": "Сегодня спешить некуда. Чем займёмся до вечера?", "next": "bar"},
+        "bar": {"kind": "answer", "task": "Предложите выпить что-нибудь в пляжном кафе.", "branches": [{"phrase": "ph:beach.drink-cafe", "next": "barsay"}], "wrong": {"es": "Let's go to the bank? Not today, mate!", "ru": "Пойдём в банк? Только не сегодня, дружище!", "fem": {"ru": "Пойдём в банк? Только не сегодня, подруга!"}}},
+        "barsay": {"kind": "say", "es": "Two juices. Relax. And where shall we sit?", "ru": "Два сока. Спокойно. А где сядем?", "next": "chair"},
+        "chair": {"kind": "answer", "task": "Спросите, сколько стоит шезлонг.", "branches": [{"phrase": "ph:beach.beach-chair", "next": "chairsay"}], "wrong": {"es": "How much is the sea? The sea is free!", "ru": "Сколько стоит море? Море бесплатное!"}},
+        "chairsay": {"kind": "say", "es": "Three pounds. For you, free. Look at the water: it is not calm.", "ru": "Три фунта. Для тебя бесплатно. Посмотри на воду: неспокойная.", "next": "current"},
+        "current": {"kind": "answer", "task": "Скажите, что сегодня сильное течение.", "branches": [{"phrase": "ph:beach.strong-current", "next": "currentsay"}], "wrong": {"es": "Lots of people today? No, today we are alone.", "ru": "Сегодня много народу? Нет, сегодня мы одни."}},
+        "currentsay": {"kind": "say", "es": "Strong. We won't swim far today. Oh! What's that?", "ru": "Сильное. Сегодня далеко не заплываем. Ой! Что это?", "next": "jelly"},
+        "jelly": {"kind": "answer", "task": "Крикните, что в воде медузы!", "branches": [{"phrase": "ph:beach.jellyfish", "next": "jellysay"}], "wrong": {"es": "Pizza in the water? No, mate, not that.", "ru": "В воде пицца? Нет, дружище, не это.", "fem": {"ru": "В воде пицца? Нет, подруга, не это."}}},
+        "jellysay": {"kind": "say", "es": "Everybody out of the water! Relax, I can see them. And what will you do?", "ru": "Все из воды! Спокойно, я их вижу. А ты что будешь делать?", "next": "shore"},
+        "shore": {"kind": "answer", "task": "Скажите, что останетесь у берега.", "branches": [{"phrase": "ph:beach.near-shore", "next": "shoresay"}], "wrong": {"es": "You'll stay on the moon? The beach is better.", "ru": "Останешься на Луне? Лучше на пляже."}},
+        "shoresay": {"kind": "say", "es": "Right. It's evening already. What shall we do?", "ru": "Правильно. Уже вечер. Что будем делать?", "next": "sunset"},
+        "sunset": {"kind": "answer", "task": "Предложите пойти смотреть на закат.", "branches": [{"phrase": "ph:beach.watch-sunset", "next": "end"}], "wrong": {"es": "Let's go to bed? First, the sun!", "ru": "Пойдём спать? Сначала солнце!"}},
+        "end": {"kind": "say", "es": "Look: the lighthouse. The light comes on three times. Take my fragment of the hill map. When you get up there, turn your torch on and off three times. I'll see you from here.", "ru": "Смотри: маяк. Свет загорается три раза. Держи мой обрывок карты гор. Когда доберёшься наверх, мигни фонариком три раза. Я увижу тебя отсюда."}
+      }
+    }
+  ]
+}

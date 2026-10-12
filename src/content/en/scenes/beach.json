@@ -1,0 +1,55 @@
+{
+  "location": "beach",
+  "scenes": [
+    {
+      "id": "sc:beach.1",
+      "chapter": 1,
+      "npc": "finn",
+      "lines": [
+        {"who": "npc", "es": "What heat! Shall we go into the water?", "ru": "Ну и жара! Пойдём в воду?"},
+        {"who": "hero", "es": "It's very hot.", "ru": "Очень жарко."},
+        {"who": "npc", "es": "Relax. Nobody is in a hurry here.", "ru": "Спокойно. Здесь никто не спешит."},
+        {"who": "hero", "es": "I'm looking for a fragment of the map. Have you got one?", "ru": "Я ищу обрывок карты. У тебя есть?"},
+        {"who": "npc", "es": "One day the sea brought a bottle. There was a fragment of the map in it.", "ru": "Однажды море принесло бутылку. В ней был обрывок карты."},
+        {"who": "hero", "es": "From the sea? But where is it from?", "ru": "Из моря? А откуда он?"},
+        {"who": "npc", "es": "Nobody knows. The sea doesn't talk.", "ru": "Никто не знает. Море не разговаривает."},
+        {"who": "hero", "es": "Can you give it to me?", "ru": "Отдашь мне?"},
+        {"who": "npc", "es": "Relax, don't hurry. The road will wait for you.", "ru": "Спокойно, не спеши. Дорога тебя подождёт."},
+        {"who": "hero", "es": "The road will wait for me?", "ru": "Дорога меня подождёт?"},
+        {"who": "npc", "es": "The map isn't going anywhere. And now, into the water!", "ru": "Карта никуда не денется. А сейчас — в воду!"}
+      ],
+      "questions": [
+        {"q": "Как на пляже относятся к спешке?", "options": ["Здесь никто не спешит", "Здесь все торопятся", "Здесь всё по расписанию"], "answer": 0},
+        {"q": "Как обрывок попал к Финну?", "options": ["Его принёс почтальон", "Море принесло бутылку", "Он нашёл его в пальто"], "answer": 1},
+        {"q": "Откуда бутылка?", "options": ["Из Хранилища", "Из порта", "Никто не знает"], "answer": 2},
+        {"q": "Что предлагает Финн?", "options": ["Пойти в воду", "Купить билет", "Пойти в горы"], "answer": 0}
+      ],
+      "gloss": {"shall": "shall we…? — давай…?", "relax": "не волнуйся, спокойно", "fragment": "обрывок", "brought": "принесло", "anywhere": "никуда"}
+    },
+    {
+      "id": "sc:beach.2",
+      "chapter": 2,
+      "npc": "finn",
+      "lines": [
+        {"who": "npc", "es": "What heat! Relax, sit down.", "ru": "Ну и жара! Спокойно, садись."},
+        {"who": "hero", "es": "What are you looking at?", "ru": "На что ты смотришь?"},
+        {"who": "npc", "es": "At the cliff. In the evening you can see the lighthouse from here.", "ru": "На скалу. Вечером отсюда видно маяк."},
+        {"who": "hero", "es": "From the beach?", "ru": "С пляжа?"},
+        {"who": "npc", "es": "Look. Over there, at the top. There's a light.", "ru": "Смотри. Вон там, наверху. Там свет."},
+        {"who": "hero", "es": "The light goes off… and on again.", "ru": "Свет гаснет… и снова загорается."},
+        {"who": "npc", "es": "Every evening. Three times. Like a word.", "ru": "Так каждый вечер. Три раза. Как слово."},
+        {"who": "hero", "es": "A word?", "ru": "Слово?"},
+        {"who": "npc", "es": "I think the lighthouse is saying: “Come.”", "ru": "Я думаю, маяк говорит: «Приходи»."},
+        {"who": "hero", "es": "Like in the letters.", "ru": "Как в письмах."},
+        {"who": "npc", "es": "Relax, traveller. The lighthouse is calling you, but the sea isn't in a hurry.", "ru": "Спокойно, путешественник. Маяк тебя зовёт, но море не спешит."}
+      ],
+      "questions": [
+        {"q": "Что видно с пляжа вечером?", "options": ["Маяк", "Корабль", "Город"], "answer": 0},
+        {"q": "Что делает свет на маяке?", "options": ["Гаснет и загорается три раза", "Горит всю ночь", "Меняет цвет"], "answer": 0},
+        {"q": "Что, по мнению Финна, говорит маяк?", "options": ["«Уходи»", "«Приходи»", "«Жди»"], "answer": 1},
+        {"q": "Что говорит Финн в конце?", "options": ["Море не спешит", "Надо бежать", "Маяка нет"], "answer": 0}
+      ],
+      "gloss": {"calling": "зовёт", "top": "at the top — наверху"}
+    }
+  ]
+}

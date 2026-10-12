@@ -1,0 +1,45 @@
+{
+  "location": "post",
+  "missions": [
+    {
+      "id": "ms:post.1",
+      "chapter": 1,
+      "npc": "dan",
+      "scene": "sc:post.1",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Fast, fast! What do you need? I'm in a hurry.", "ru": "Быстрее, быстрее! Что тебе нужно? Я спешу.", "next": "stamp"},
+        "stamp": {"kind": "answer", "task": "Попросите марку для этого письма.", "branches": [{"phrase": "ph:post.stamp-letter", "next": "stampsay"}], "wrong": {"es": "Ice cream? This is the post office, not the beach.", "ru": "Мороженое? Это почта, а не пляж."}},
+        "stampsay": {"kind": "say", "es": "One pound. Anything else? Fast!", "ru": "Один фунт. Что-нибудь ещё? Быстрее!", "next": "env"},
+        "env": {"kind": "answer", "task": "Спросите, есть ли конверты.", "branches": [{"phrase": "ph:post.any-envelopes", "next": "envsay"}], "wrong": {"es": "Soup? No! Envelopes, not soup.", "ru": "Суп? Нет! Конверты, а не суп."}},
+        "envsay": {"kind": "say", "es": "Here's an envelope. And what about this parcel?", "ru": "Вот конверт. А что с этой посылкой?", "next": "pack"},
+        "pack": {"kind": "answer", "task": "Спросите, сколько стоит отправить посылку.", "branches": [{"phrase": "ph:post.send-parcel", "next": "packsay"}], "wrong": {"es": "How much is my bike? It isn't for sale!", "ru": "Сколько стоит мой велосипед? Он не продаётся!"}},
+        "packsay": {"kind": "say", "es": "Five pounds. Second class or first class?", "ru": "Пять фунтов. Вторым классом или первым?", "next": "urg"},
+        "urg": {"kind": "answer", "task": "Скажите, что хотите отправить первым классом.", "branches": [{"phrase": "ph:post.first-class", "next": "urgsay"}], "wrong": {"es": "Very slowly? I can't do slowly!", "ru": "Очень медленно? Я не умею медленно!"}},
+        "urgsay": {"kind": "say", "es": "First class, like me! That's ten pounds.", "ru": "Первым классом, как я! С тебя десять фунтов.", "next": "sign"},
+        "sign": {"kind": "answer", "task": "Спросите, где расписаться.", "branches": [{"phrase": "ph:post.where-sign", "next": "end"}], "wrong": {"es": "Where do I live? On my bike, always.", "ru": "Где я живу? Всегда на велосипеде."}},
+        "end": {"kind": "say", "es": "Here. And this is for you: the post office fragment of the map. And the letter… sorry, I opened it. In it there's only one word: “Come.” Somebody is waiting for you, traveller.", "ru": "Здесь. И держи, это тебе: почтовый обрывок карты. А письмо… прости, я его открыл. Внутри одно слово: «Приходи». Кто-то тебя ждёт, путешественник."}
+      }
+    },
+    {
+      "id": "ms:post.2",
+      "chapter": 2,
+      "npc": "dan",
+      "scene": "sc:post.2",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "To pick up a parcel, you have to do everything right. What do you need?", "ru": "Чтобы забрать посылку, нужно всё сделать как следует. Что тебе нужно?", "next": "notice"},
+        "notice": {"kind": "answer", "task": "Скажите, что у вас извещение о посылке или что вам нужно забрать посылку.", "branches": [{"phrase": "ph:post.delivery-note", "next": "noticesay"}, {"phrase": "ph:post.pick-up-parcel", "next": "noticesay"}], "wrong": {"es": "You want an ice cream? No, you want a parcel.", "ru": "Хочешь мороженое? Нет, ты хочешь посылку."}},
+        "noticesay": {"kind": "say", "es": "Great. What name is it in?", "ru": "Отлично. На чьё имя?", "next": "name"},
+        "name": {"kind": "answer", "task": "Скажите, что посылка на ваше имя.", "branches": [{"phrase": "ph:post.in-my-name", "next": "namesay"}], "wrong": {"es": "In the dog's name? Dogs don't get parcels.", "ru": "На имя собаки? Собаки посылок не получают."}},
+        "namesay": {"kind": "say", "es": "I need your ID.", "ru": "Мне нужен документ.", "next": "id"},
+        "id": {"kind": "answer", "task": "Дайте удостоверение личности.", "branches": [{"phrase": "ph:post.my-id", "next": "idsay"}], "wrong": {"es": "Your photo from the beach? Very nice, but I need your ID.", "ru": "Твоя фотография с пляжа? Очень красивая, но мне нужен документ."}},
+        "idsay": {"kind": "say", "es": "Thanks. And this form.", "ru": "Спасибо. И вот этот бланк.", "next": "form"},
+        "form": {"kind": "answer", "task": "Спросите, нужно ли это заполнить.", "branches": [{"phrase": "ph:post.fill-in", "next": "formsay"}], "wrong": {"es": "Do you need to dance it? No, fill it in!", "ru": "Его нужно станцевать? Нет, заполнить!"}},
+        "formsay": {"kind": "say", "es": "Yes, here and here. Fast, fast.", "ru": "Да, вот здесь и здесь. Быстрее, быстрее.", "next": "track"},
+        "track": {"kind": "answer", "task": "Попросите трек-номер, чтобы узнать, откуда посылка.", "branches": [{"phrase": "ph:post.tracking-number", "next": "end"}], "wrong": {"es": "Give you my bike? Never! But I can give you a number.", "ru": "Отдать тебе велосипед? Никогда! Но могу дать номер."}},
+        "end": {"kind": "say", "es": "Here it is. Look: the parcel left the lighthouse three days ago. And take my fragment of the hill map. Follow the voice, traveller.", "ru": "Вот он. Смотри: посылка ушла с маяка три дня назад. И держи мой обрывок карты гор. Иди на голос, путешественник."}
+      }
+    }
+  ]
+}

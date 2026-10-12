@@ -1,0 +1,53 @@
+{
+  "location": "barber",
+  "scenes": [
+    {
+      "id": "sc:barber.1",
+      "chapter": 1,
+      "npc": "liam",
+      "lines": [
+        {"who": "npc", "es": "Come in, come in! Short, like always?", "ru": "Заходи, заходи! Коротко, как всегда?"},
+        {"who": "hero", "es": "Short, please.", "ru": "Коротко, пожалуйста."},
+        {"who": "npc", "es": "Great. Look in the mirror. Do you know, my mum always said something about the map.", "ru": "Отлично. Смотри в зеркало. Знаешь, моя мама всегда говорила кое-что о карте."},
+        {"who": "hero", "es": "About the map? What did she say?", "ru": "О карте? И что она говорила?"},
+        {"who": "npc", "es": "“Twenty fragments and a seal, and the road is yours.”", "ru": "«Двадцать обрывков и печать — и дорога твоя»."},
+        {"who": "hero", "es": "A seal? Like a stamp at the post office?", "ru": "Печать? Как марка на почте?"},
+        {"who": "npc", "es": "No, no. The guardian outside the town has the seal of the map.", "ru": "Нет-нет. Печать карты хранит страж, за городом."},
+        {"who": "hero", "es": "And you? Have you got one?", "ru": "А у тебя? У тебя есть обрывок?"},
+        {"who": "npc", "es": "Yes, it's behind the mirror. And now, the haircut!", "ru": "Есть, он за зеркалом. А теперь — стрижём!"}
+      ],
+      "questions": [
+        {"q": "Что говорила мама Лиама?", "options": ["Слова о карте", "Что стричься нужно коротко", "Что дорога ведёт к морю"], "answer": 0},
+        {"q": "Что нужно, кроме двадцати обрывков?", "options": ["Ключ", "Печать", "Письмо"], "answer": 1},
+        {"q": "У кого печать карты?", "options": ["У почтальона", "У Лиама", "У стража за городом"], "answer": 2},
+        {"q": "Где обрывок Лиама?", "options": ["За зеркалом", "В кассе", "Дома у мамы"], "answer": 0}
+      ],
+      "gloss": {"twenty": "двадцать", "fragments": "обрывки", "seal": "печать", "guardian": "страж"}
+    },
+    {
+      "id": "sc:barber.2",
+      "chapter": 2,
+      "npc": "liam",
+      "lines": [
+        {"who": "npc", "es": "Come in, come in! The usual?", "ru": "Заходи, заходи! Как обычно?"},
+        {"who": "hero", "es": "Just the ends, please. What's new?", "ru": "Только кончики подровнять. Что нового?"},
+        {"who": "npc", "es": "Yesterday I had a very strange customer. In a grey coat. He wanted a shave.", "ru": "Вчера пришёл очень странный клиент. В сером пальто. Хотел побриться."},
+        {"who": "hero", "es": "The man in the grey coat!", "ru": "Человек в сером пальто!"},
+        {"who": "npc", "es": "While I shaved him, I told him my mum's words: “Twenty fragments and a seal.”", "ru": "Пока я его брил, рассказал ему мамины слова: «Двадцать обрывков и печать»."},
+        {"who": "hero", "es": "And what did he do?", "ru": "И что он сделал?"},
+        {"who": "npc", "es": "He cried. And he said: “For a hundred years I have waited for the one who can answer.”", "ru": "Заплакал. И сказал: «Сто лет я жду того, кто ответит»."},
+        {"who": "hero", "es": "Answer what?", "ru": "Ответит на что?"},
+        {"who": "npc", "es": "He didn't say. He paid with an old coin and left.", "ru": "Не сказал. Заплатил старой монетой и ушёл."},
+        {"who": "hero", "es": "I think he is the guardian of the lighthouse.", "ru": "Думаю, это страж маяка."},
+        {"who": "npc", "es": "A very sad guardian. With a very nice beard.", "ru": "Очень грустный страж. И с очень красивой бородой."}
+      ],
+      "questions": [
+        {"q": "Зачем приходил человек в пальто?", "options": ["Побриться", "Покраситься", "Купить шампунь"], "answer": 0},
+        {"q": "Что Лиам ему рассказал?", "options": ["Новости футбола", "Мамины слова о карте", "Ничего"], "answer": 1},
+        {"q": "Что сделал человек, услышав эти слова?", "options": ["Засмеялся", "Заплакал", "Ушёл, не заплатив"], "answer": 1},
+        {"q": "Кого он ждёт сто лет?", "options": ["Того, кто ответит", "Свою семью", "Поезд"], "answer": 0}
+      ],
+      "gloss": {"usual": "обычный", "cried": "заплакал", "guardian": "страж", "seal": "печать"}
+    }
+  ]
+}

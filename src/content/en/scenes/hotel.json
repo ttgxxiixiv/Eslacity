@@ -1,0 +1,55 @@
+{
+  "location": "hotel",
+  "scenes": [
+    {
+      "id": "sc:hotel.1",
+      "chapter": 1,
+      "npc": "emma",
+      "lines": [
+        {"who": "npc", "es": "Good evening. Have you got a booking?", "ru": "Добрый вечер. У вас есть бронь?"},
+        {"who": "hero", "es": "Yes. Do you speak a lot of languages?", "ru": "Есть. Вы говорите на многих языках?"},
+        {"who": "npc", "es": "Five. But with you, only English: so you can learn.", "ru": "На пяти. Но с вами — только по-английски: так вы научитесь."},
+        {"who": "hero", "es": "Great. Are there a lot of travellers at the hotel?", "ru": "Отлично. В отеле много путешественников?"},
+        {"who": "npc", "es": "Today there is a man here from a company. He wants to buy fragments of the map.", "ru": "Сегодня здесь человек из одной компании. Хочет купить обрывки карты."},
+        {"who": "hero", "es": "That company! Does he speak English?", "ru": "Та самая компания! А он говорит по-английски?"},
+        {"who": "npc", "es": "No. He only talks about money.", "ru": "Нет. Он говорит только о деньгах."},
+        {"who": "hero", "es": "Have you got a fragment?", "ru": "У вас есть обрывок?"},
+        {"who": "npc", "es": "Yes. I won't sell it to him.", "ru": "Есть. Ему я его не продам."},
+        {"who": "hero", "es": "And to me?", "ru": "А мне?"},
+        {"who": "npc", "es": "For you, tomorrow. And now, go to bed: it's late.", "ru": "Вам — завтра. А сейчас спать: уже поздно."}
+      ],
+      "questions": [
+        {"q": "На скольких языках говорит Эмма?", "options": ["На двух", "На пяти", "Только на английском"], "answer": 1},
+        {"q": "Кто остановился в отеле?", "options": ["Летописец", "Человек из компании, которая скупает обрывки", "Мама Зои"], "answer": 1},
+        {"q": "О чём говорит этот человек?", "options": ["Только о деньгах", "О горах", "О погоде"], "answer": 0},
+        {"q": "Когда Эмма отдаст обрывок герою?", "options": ["Никогда", "Сейчас", "Завтра"], "answer": 2}
+      ],
+      "gloss": {"languages": "языки", "travellers": "путешественники", "fragments": "обрывки", "fragment": "обрывок", "sell": "продать"}
+    },
+    {
+      "id": "sc:hotel.2",
+      "chapter": 2,
+      "npc": "emma",
+      "lines": [
+        {"who": "npc", "es": "Good evening. Today we are fully booked.", "ru": "Добрый вечер. Сегодня у нас все номера заняты."},
+        {"who": "hero", "es": "Fully booked? Why?", "ru": "Все заняты? Почему?"},
+        {"who": "npc", "es": "A lot of people want to watch the light of the lighthouse from the balcony.", "ru": "Многие хотят смотреть на свет маяка с балкона."},
+        {"who": "hero", "es": "I have a question. Have you got a very old booking?", "ru": "У меня вопрос. Есть у вас очень старая бронь?"},
+        {"who": "npc", "es": "There is one. It's a hundred years old. Room seven, for Oswald.", "ru": "Есть одна. Ей сто лет. Номер семь, на имя Освальда."},
+        {"who": "hero", "es": "Oswald! He's the guardian.", "ru": "Освальд! Это страж."},
+        {"who": "npc", "es": "The hotel never cancelled it. That is our way.", "ru": "Отель её так и не отменил. Такой у нас обычай."},
+        {"who": "hero", "es": "And is the room free?", "ru": "И номер свободен?"},
+        {"who": "npc", "es": "Always. Every day we clean room seven.", "ru": "Всегда. Каждый день мы убираем седьмой номер."},
+        {"who": "hero", "es": "When he comes down from the lighthouse, he will have a bed.", "ru": "Когда он спустится с маяка, ему будет где спать."},
+        {"who": "npc", "es": "I hope so. A hundred years at the lighthouse is a long time.", "ru": "Я на это надеюсь. Сто лет на маяке — это долго."}
+      ],
+      "questions": [
+        {"q": "Почему отель полон?", "options": ["Все хотят смотреть на свет маяка", "Приехала компания", "Праздник в городе"], "answer": 0},
+        {"q": "Какая старая бронь есть в отеле?", "options": ["Номер семь на имя Освальда", "Номер восемь на имя Сэма", "Никакой"], "answer": 0},
+        {"q": "Почему бронь не отменили?", "options": ["Забыли", "Такой обычай", "Освальд заплатил на сто лет"], "answer": 1},
+        {"q": "Что делают с седьмым номером?", "options": ["Сдают туристам", "Каждый день убирают", "Закрыли на ключ"], "answer": 1}
+      ],
+      "gloss": {"oswald": "Освальд", "guardian": "страж", "cancelled": "отменил"}
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "location": "clothes",
+  "scenes": [
+    {
+      "id": "sc:clothes.1",
+      "chapter": 1,
+      "npc": "chloe",
+      "lines": [
+        {"who": "npc", "es": "Morning! That shirt looks great on you.", "ru": "Доброе утро! Эта рубашка тебе очень идёт."},
+        {"who": "hero", "es": "Thanks. I need clothes for a trip.", "ru": "Спасибо. Мне нужна одежда для поездки."},
+        {"who": "npc", "es": "A trip? Where to?", "ru": "Поездка? А куда?"},
+        {"who": "hero", "es": "To the hills. I'm looking for the road from the map.", "ru": "В горы. Я ищу дорогу с карты."},
+        {"who": "npc", "es": "It's very cold in the hills. You need a coat.", "ru": "В горах очень холодно. Тебе нужно пальто."},
+        {"who": "hero", "es": "Have you got any coats?", "ru": "У вас есть пальто?"},
+        {"who": "npc", "es": "I've got one, very old. It was my mum's. Look, there's something in it.", "ru": "Есть одно, очень старое, мамино. Смотри, в нём что-то лежит."},
+        {"who": "hero", "es": "Something? It's a fragment of the map!", "ru": "Что-то? Это обрывок карты!"},
+        {"who": "npc", "es": "I didn't know! Mum never told me anything.", "ru": "Я и не знала! Мама никогда ничего не говорила."},
+        {"who": "hero", "es": "Can I try it on?", "ru": "Можно примерить?"},
+        {"who": "npc", "es": "No, it's too big for you. I'll find you a nice coat. And the fragment… we can talk later.", "ru": "Нет, оно тебе велико. Подберу тебе красивое пальто. А обрывок… потом поговорим."}
+      ],
+      "questions": [
+        {"q": "Куда собирается герой?", "options": ["На море", "В горы", "В аэропорт"], "answer": 1},
+        {"q": "Почему герою нужно пальто?", "options": ["В горах очень холодно", "Идёт дождь", "Старое порвалось"], "answer": 0},
+        {"q": "Где нашёлся обрывок карты?", "options": ["В коробке с обувью", "В старом пальто", "На кассе"], "answer": 1},
+        {"q": "Почему Хлоя не даёт герою старое пальто?", "options": ["Оно слишком дорогое", "Оно мамино, и его нельзя продавать", "Оно ему велико"], "answer": 2}
+      ],
+      "gloss": {"fragment": "обрывок", "later": "потом", "nice": "красивый"}
+    },
+    {
+      "id": "sc:clothes.2",
+      "chapter": 2,
+      "npc": "chloe",
+      "lines": [
+        {"who": "npc", "es": "Morning! Clothes for the hills? You've already got a coat. Now you need something else.", "ru": "Доброе утро! Одежда для гор? Пальто у тебя уже есть. Теперь нужно ещё кое-что."},
+        {"who": "hero", "es": "What else?", "ru": "Что ещё?"},
+        {"who": "npc", "es": "Boots, a hat and a scarf. Like Sam. He came here before his trip.", "ru": "Сапоги, шапка и шарф. Как у Сэма. Он приходил сюда перед походом."},
+        {"who": "hero", "es": "What did Sam buy?", "ru": "Что купил Сэм?"},
+        {"who": "npc", "es": "A red scarf. He told me: “In the fog, you can see red from far away.”", "ru": "Красный шарф. Сказал мне: «В тумане красное видно издалека»."},
+        {"who": "hero", "es": "A red scarf… That is important.", "ru": "Красный шарф… Это важно."},
+        {"who": "npc", "es": "And he ordered winter boots. But he never came back for them.", "ru": "И заказал зимние сапоги. Но так и не пришёл за ними."},
+        {"who": "hero", "es": "Are they still here?", "ru": "Они всё ещё здесь?"},
+        {"who": "npc", "es": "Here they are. Take them to him when you find him.", "ru": "Вот они. Отнеси их ему, когда найдёшь."},
+        {"who": "hero", "es": "I will.", "ru": "Отнесу."},
+        {"who": "npc", "es": "And you need something warm too. It's very cold at the lighthouse.", "ru": "И тебе нужно что-нибудь тёплое. У маяка очень холодно."}
+      ],
+      "questions": [
+        {"q": "Что купил Сэм перед походом?", "options": ["Красный шарф", "Серое пальто", "Белые носки"], "answer": 0},
+        {"q": "Зачем Сэму красный шарф?", "options": ["Он любит красный цвет", "В тумане красное видно издалека", "Это подарок сестре"], "answer": 1},
+        {"q": "Что Сэм не забрал?", "options": ["Шапку", "Пальто", "Зимние сапоги"], "answer": 2},
+        {"q": "О чём просит Хлоя?", "options": ["Отнести сапоги Сэму", "Купить пальто", "Вернуть шарф"], "answer": 0}
+      ],
+      "gloss": {}
+    }
+  ]
+}
