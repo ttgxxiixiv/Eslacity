@@ -1,0 +1,190 @@
+{
+  "guardians": [
+    {
+      "chapter": 1,
+      "name": "Привратник",
+      "role": "страж городских ворот",
+      "gender": "m",
+      "greeting": {
+        "es": "Hello, traveller. Do you speak English? Answer my questions.",
+        "ru": "Здравствуй, путник. Ты говоришь по-английски? Ответь на мои вопросы."
+      },
+      "win": {
+        "es": "Well done! Here is the seal. The road is yours.",
+        "ru": "Отлично! Вот печать. Путь открыт."
+      },
+      "lose": {
+        "es": "Not yet. Come back tomorrow.",
+        "ru": "Пока нет. Возвращайся завтра."
+      },
+      "mid": {
+        "es": "You speak well. But the seal is not yours yet.",
+        "ru": "Ты хорошо говоришь. Но печать ещё не твоя."
+      },
+      "voice": {
+        "pitch": 0.8,
+        "rate": 0.9
+      },
+      "look": {
+        "skin": 2,
+        "hair": "#3b2a1a",
+        "style": "short",
+        "outfit": "#5b6b3a",
+        "pants": "#2e2216",
+        "extra": [
+          "mustache",
+          "cap"
+        ]
+      }
+    },
+    {
+      "chapter": 2,
+      "name": "Освальд",
+      "role": "страж маяка на скале",
+      "gender": "m",
+      "greeting": {
+        "es": "The lighthouse sees every ship. Let me see what you know.",
+        "ru": "Маяк видит каждый корабль. Посмотрим, что знаешь ты."
+      },
+      "win": {
+        "es": "Your light is strong. Take the seal.",
+        "ru": "Твой свет силён. Возьми печать."
+      },
+      "lose": {
+        "es": "The fog is too thick today. Try again tomorrow.",
+        "ru": "Сегодня слишком густой туман. Попробуй завтра."
+      },
+      "mid": {
+        "es": "Good. The fog is lifting.",
+        "ru": "Хорошо. Туман рассеивается."
+      },
+      "voice": {
+        "pitch": 0.75,
+        "rate": 0.9
+      },
+      "look": {
+        "skin": 1,
+        "hair": "#a0a0a0",
+        "style": "short",
+        "outfit": "#2f4f6f",
+        "pants": "#2e2216",
+        "extra": [
+          "beard"
+        ]
+      }
+    },
+    {
+      "chapter": 3,
+      "name": "Стражница",
+      "role": "стражница города на белых скалах",
+      "gender": "f",
+      "greeting": {
+        "es": "Welcome to the city on the white cliffs. Only clear words may pass.",
+        "ru": "Добро пожаловать в город на белых скалах. Пройдут только ясные слова."
+      },
+      "win": {
+        "es": "Clear as the sea in summer. The seal is yours.",
+        "ru": "Ясно, как летнее море. Печать твоя."
+      },
+      "lose": {
+        "es": "Your words are still cloudy. Come back tomorrow.",
+        "ru": "Твои слова пока мутные. Возвращайся завтра."
+      },
+      "mid": {
+        "es": "Your words are getting clearer.",
+        "ru": "Твои слова становятся яснее."
+      },
+      "voice": {
+        "pitch": 1.1,
+        "rate": 0.9
+      },
+      "look": {
+        "skin": 1,
+        "hair": "#e0d0a0",
+        "style": "long",
+        "outfit": "#e8e8e8",
+        "pants": "#6a6a7a",
+        "extra": [
+          "badge"
+        ]
+      }
+    },
+    {
+      "chapter": 4,
+      "name": "Хранительница леса",
+      "role": "слушает шёпот деревьев",
+      "gender": "f",
+      "greeting": {
+        "es": "Listen. The trees are talking. Can you hear them?",
+        "ru": "Слушай. Деревья говорят. Ты их слышишь?"
+      },
+      "win": {
+        "es": "You heard every whisper. Take the seal.",
+        "ru": "Ты услышал каждый шёпот. Возьми печать.",
+        "fem": {
+          "ru": "Ты услышала каждый шёпот. Возьми печать."
+        }
+      },
+      "lose": {
+        "es": "The wind took the words away. Come back tomorrow.",
+        "ru": "Ветер унёс слова. Возвращайся завтра."
+      },
+      "mid": {
+        "es": "The forest is starting to trust you.",
+        "ru": "Лес начинает тебе доверять."
+      },
+      "voice": {
+        "pitch": 1.0,
+        "rate": 0.85
+      },
+      "look": {
+        "skin": 2,
+        "hair": "#4a6a3a",
+        "style": "long",
+        "outfit": "#3a5a2a",
+        "pants": "#2e2216",
+        "extra": []
+      },
+      "listen": true
+    },
+    {
+      "chapter": 5,
+      "name": "Хозяин Эха",
+      "role": "бывший городской глашатай: возвращает каждое слово другим тоном",
+      "gender": "m",
+      "greeting": {
+        "es": "Every word comes back to me. Say it the right way.",
+        "ru": "Каждое слово возвращается ко мне. Скажи его как надо."
+      },
+      "win": {
+        "es": "The echo is silent. You have found the right tone. The seal is yours.",
+        "ru": "Эхо молчит. Ты нашёл верный тон. Печать твоя.",
+        "fem": {
+          "ru": "Эхо молчит. Ты нашла верный тон. Печать твоя."
+        }
+      },
+      "lose": {
+        "es": "The echo still laughs. Come back tomorrow.",
+        "ru": "Эхо ещё смеётся. Возвращайся завтра."
+      },
+      "mid": {
+        "es": "The echo is getting quieter.",
+        "ru": "Эхо становится тише."
+      },
+      "voice": {
+        "pitch": 0.7,
+        "rate": 0.9
+      },
+      "look": {
+        "skin": 3,
+        "hair": "#2a2a2a",
+        "style": "bald",
+        "outfit": "#5a2a4a",
+        "pants": "#1f1a2a",
+        "extra": [
+          "beard"
+        ]
+      }
+    }
+  ]
+}

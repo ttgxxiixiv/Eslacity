@@ -85,3 +85,22 @@ export function translationIssues(data: unknown, lang: Lang): { where: string; m
   visit(data, '', '');
   return out;
 }
+
+/**
+ * Ошибки текста на языке курса по правилам профиля (`textIssues`, английские a/an, задача 17.1): каждая строка `es`
+ * и `fem.es` во всём файле контента. У языков без таких правил — пусто.
+ */
+export function textIssuesIn(data: unknown, lang: Lang): { where: string; msg: string }[] {
+  const check = LANGS[lang].textIssues;
+  if (!check) return [];
+  const out: { where: string; msg: string }[] = [];
+  const visit = (x: unknown, path: string) => {
+    if (Array.isArray(x)) return x.forEach((v, i) => visit(v, `${path}[${i}]`));
+    if (!x || typeof x !== 'object') return;
+    const o = x as Record<string, unknown>;
+    if (typeof o.es === 'string') for (const msg of check(o.es)) out.push({ where: path, msg });
+    for (const [k, v] of Object.entries(o)) visit(v, path ? `${path}.${k}` : k);
+  };
+  visit(data, '');
+  return out;
+}

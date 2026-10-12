@@ -1,4 +1,4 @@
-import type { VerbData } from '../langs/types';
+import type { PairKind, VerbData } from '../langs/types';
 
 export const LOCATION_IDS = [
   'cafe', 'market', 'supermarket', 'restaurant', 'home', 'park', 'clothes', 'pharmacy',
@@ -525,19 +525,22 @@ export interface FestivalFile {
 export interface PairWord {
   es: string;
   ru: string;
+  /** Что произносить (задача 15.4): у пары `caps` — слово в окружении, которое задаёт ударение («to record»). */
+  say?: string;
 }
 
 /**
  * Противопоставление звуков в Звоннице (задача 10.2): r и rr, ñ и n, ударение, двойные согласные. `kind` задаёт,
  * чем различаются слова пары, валидатор это проверяет: `swap` — в первом слове одно `swap[0]` заменено на `swap[1]`,
- * `stress` — те же буквы без знаков ударения, `double` — во втором слове одна двойная согласная стала одинарной.
+ * `stress` — те же буквы без знаков ударения, `double` — во втором слове одна двойная согласная стала одинарной,
+ * `caps` — те же буквы, ударный слог заглавными (REcord, reCORD), у обоих слов `say`.
  */
 export interface Contrast {
   id: string;
   title: string;
   /** Как различить на слух, по-русски. */
   hint: string;
-  kind: 'swap' | 'stress' | 'double';
+  kind: PairKind;
   swap?: [string, string];
   pairs: [PairWord, PairWord][];
 }

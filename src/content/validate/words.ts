@@ -86,12 +86,6 @@ export function checkWord(w: Word, at: string, lang: Lang, out: Issue[]) {
     out.push({ level: 'error', where: at, msg: 'лишние пробелы в es' });
   }
 
-  // Ошибки текста по правилам языка (английский: «a apple»).
-  const textIssues = LANGS[lang].textIssues;
-  if (textIssues) {
-    for (const t of [w.es, ...(w.alt ?? []), w.example?.es ?? '']) for (const msg of textIssues(t)) out.push({ level: 'error', where: at, msg });
-  }
-
   if (w.pos === 'noun' && !LANGS[lang].gender) {
     if (w.gender) out.push({ level: 'error', where: at, msg: `род у существительного: у ${LANGS[lang].genitive} рода нет` });
   } else if (w.pos === 'noun') {

@@ -5,6 +5,7 @@ import { seeded } from './generators';
 import { pairIssue, pairItemId, pairTasks, pairVerdict, retryTask } from './minimalPairs';
 import es from '../content/es/pairs.json';
 import it_ from '../content/it/pairs.json';
+import en from '../content/en/pairs.json';
 
 const w = (es: string, ru: string) => ({ es, ru });
 
@@ -20,11 +21,22 @@ describe('минимальные пары', () => {
     expect(pairIssue(double, [w('palla', 'мяч'), w('pala', 'лопата')])).toBeNull();
     expect(pairIssue(double, [w('zoo', 'зоопарк'), w('zo', '?')])).toMatch(/двойной согласной/);
     expect(pairIssue(double, [w('palla', 'мяч'), w('palla', 'мяч')])).toMatch(/одинаковые/);
+    // Английское ударение: буквы те же, ударный слог заглавными, произношение — в say.
+    const caps: Contrast = { ...rr, kind: 'caps', swap: undefined };
+    const rec = { es: 'REcord', ru: 'запись', say: 'a record' };
+    const reCord = { es: 'reCORD', ru: 'записывать', say: 'to record' };
+    expect(pairIssue(caps, [rec, reCord])).toBeNull();
+    expect(pairIssue(caps, [rec, { ...reCord, es: 'reWORD' }])).toMatch(/не только ударным слогом/);
+    expect(pairIssue(caps, [rec, { ...reCord, es: 'record' }])).toMatch(/заглавными/);
+    expect(pairIssue(caps, [rec, { es: 'reCORD', ru: 'записывать' }])).toMatch(/say/);
   });
 
   it('контент обоих языков проходит проверку', () => {
     expect(validatePairs(es as PairsFile, 'es')).toEqual([]);
     expect(validatePairs(it_ as PairsFile, 'it')).toEqual([]);
+    expect(validatePairs(en as PairsFile, 'en')).toEqual([]);
+    // Вид противопоставления чужого языка — ошибка: у испанского нет caps.
+    expect(validatePairs(en as PairsFile, 'es').map((i) => i.msg)).toContain('вид "caps"');
   });
 
   it('звон: пары не повторяются, пока не кончились; ошибка возвращает пару с другим словом', () => {

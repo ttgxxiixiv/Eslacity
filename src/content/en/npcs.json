@@ -1,0 +1,948 @@
+{
+  "npcs": [
+    {
+      "id": "molly",
+      "name": "Молли",
+      "location": "cafe",
+      "role": "бариста",
+      "gender": "f",
+      "register": "informal",
+      "character": "Помнит, кто какой чай пьёт, и пересказывает новости набережной",
+      "greeting": {
+        "es": "Morning! Tea or coffee?",
+        "ru": "Доброе утро! Чай или кофе?"
+      },
+      "voice": {
+        "pitch": 1.2,
+        "rate": 1.05
+      },
+      "look": {
+        "skin": 1,
+        "hair": "#c46a2b",
+        "style": "bun",
+        "outfit": "#7a4a2b",
+        "pants": "#3d2e1f",
+        "extra": [
+          "apron"
+        ]
+      },
+      "errands": [
+        "Ой, перепутала заказы. Поможешь вспомнить {n} {слов}? Очередь уже ворчит.",
+        "Пока болтала с рыбаками, забыла половину меню. Напомнишь {n} {слов}?",
+        "Чайник кипит, а слова из головы вылетели. Подскажи {n} {слов}, ладно?"
+      ],
+      "warm": [
+        {
+          "es": "Morning, love! The usual?",
+          "ru": "Доброе утро, дорогой! Как обычно?",
+          "fem": {
+            "ru": "Доброе утро, дорогая! Как обычно?"
+          }
+        },
+        {
+          "es": "There you are! I saved you the window seat.",
+          "ru": "Вот и ты! Я придержала тебе место у окна."
+        },
+        {
+          "es": "My favourite customer! Sit down, I've got news.",
+          "ru": "Мой любимый гость! Садись, у меня новости."
+        }
+      ]
+    },
+    {
+      "id": "patel",
+      "name": "миссис Патель",
+      "location": "market",
+      "role": "торговка фруктами",
+      "gender": "f",
+      "register": "informal",
+      "character": "Торгуется весело и всегда кладёт лишнее яблоко",
+      "greeting": {
+        "es": "Lovely apples today, love!",
+        "ru": "Сегодня чудесные яблоки, дорогуша!"
+      },
+      "voice": {
+        "pitch": 1.1,
+        "rate": 1.0
+      },
+      "look": {
+        "skin": 3,
+        "hair": "#1e1a17",
+        "style": "bun",
+        "outfit": "#b0413e",
+        "pants": "#3d2e1f",
+        "extra": [
+          "apron"
+        ]
+      },
+      "errands": [
+        "Ветер сдул ценники. Поможешь вспомнить {n} {слов}?",
+        "Покупатели спрашивают, а я забыла, как что называется. Напомни {n} {слов}.",
+        "Разбираю ящики с фруктами. Повторим вместе {n} {слов}?"
+      ],
+      "warm": [
+        {
+          "es": "Hello, sweetheart! Strawberries are lovely today.",
+          "ru": "Привет, солнышко! Клубника сегодня чудесная."
+        },
+        {
+          "es": "For you, a little discount.",
+          "ru": "Для тебя небольшая скидка."
+        },
+        {
+          "es": "Take an apple, it's on me!",
+          "ru": "Возьми яблоко, угощаю!"
+        }
+      ]
+    },
+    {
+      "id": "jake",
+      "name": "Джейк",
+      "location": "supermarket",
+      "role": "кассир",
+      "gender": "m",
+      "character": "Слушает музыку в одном наушнике и знает, где лежит каждая банка",
+      "greeting": {
+        "es": "Next, please! Do you need a bag?",
+        "ru": "Следующий, пожалуйста! Пакет нужен?"
+      },
+      "voice": {
+        "pitch": 1.0,
+        "rate": 1.05
+      },
+      "look": {
+        "skin": 1,
+        "hair": "#d8b46a",
+        "style": "short",
+        "outfit": "#2f6f8f",
+        "pants": "#24303a",
+        "extra": [
+          "headphones"
+        ]
+      },
+      "errands": [
+        "Касса зависла, а я забыл названия товаров. Поможешь вспомнить {n} {слов}?",
+        "Переклеиваю ценники. Напомнишь {n} {слов}?",
+        "Скучная смена. Давай повторим {n} {слов}, чтобы время шло быстрее."
+      ],
+      "warm": [
+        {
+          "es": "Hey! Good to see you.",
+          "ru": "Привет! Рад тебя видеть."
+        },
+        {
+          "es": "Come to my till, it's quicker.",
+          "ru": "Иди ко мне на кассу, тут быстрее."
+        },
+        {
+          "es": "I put the good bread aside for you.",
+          "ru": "Я отложил для тебя хороший хлеб."
+        }
+      ]
+    },
+    {
+      "id": "archie",
+      "name": "шеф Арчи",
+      "location": "restaurant",
+      "role": "повар и хозяин рыбного ресторана",
+      "gender": "m",
+      "character": "Громко хвалит свою рыбу и тихо переживает за каждого гостя",
+      "greeting": {
+        "es": "Fish and chips? Best in town!",
+        "ru": "Рыба с картошкой? Лучшая в городе!"
+      },
+      "voice": {
+        "pitch": 0.85,
+        "rate": 1.05
+      },
+      "look": {
+        "skin": 2,
+        "hair": "#5a3a2a",
+        "style": "short",
+        "outfit": "#f0ece0",
+        "pants": "#2e2216",
+        "extra": [
+          "chefhat",
+          "mustache"
+        ]
+      },
+      "errands": [
+        "Официант заболел, а меню на мне. Поможешь вспомнить {n} {слов}?",
+        "Пишу меню на доске. Подскажи {n} {слов}, а то мел крошится.",
+        "Перед ужином хочу проверить себя. Повторим {n} {слов}?"
+      ],
+      "warm": [
+        {
+          "es": "Welcome back! Your table is ready.",
+          "ru": "С возвращением! Твой столик готов."
+        },
+        {
+          "es": "Try the soup today, it's my best one.",
+          "ru": "Попробуй сегодня суп, он у меня лучший."
+        },
+        {
+          "es": "For you, the dessert is on the house.",
+          "ru": "Для тебя десерт за счёт заведения."
+        }
+      ]
+    },
+    {
+      "id": "higgins",
+      "name": "миссис Хиггинс",
+      "location": "home",
+      "role": "соседка",
+      "gender": "f",
+      "character": "Ставит чайник при любом звуке шагов и знает всех на улице",
+      "greeting": {
+        "es": "Hello, dear! Come in, the kettle's on.",
+        "ru": "Здравствуй, дорогой! Заходи, чайник уже греется.",
+        "fem": {
+          "ru": "Здравствуй, дорогая! Заходи, чайник уже греется."
+        }
+      },
+      "voice": {
+        "pitch": 1.15,
+        "rate": 0.95
+      },
+      "look": {
+        "skin": 1,
+        "hair": "#d9d4c5",
+        "style": "bun",
+        "outfit": "#6a7f5a",
+        "pants": "#3d2e1f",
+        "extra": [
+          "glasses"
+        ]
+      },
+      "errands": [
+        "Разбираю старые письма, а слова забываются. Поможешь вспомнить {n} {слов}?",
+        "Внук спрашивал, как это сказать, а я не помню. Напомни {n} {слов}.",
+        "Чай заварился. Посидим и повторим {n} {слов}?"
+      ],
+      "warm": [
+        {
+          "es": "Oh, it's you! Sit down, I've baked a cake.",
+          "ru": "Ой, это ты! Садись, я испекла пирог."
+        },
+        {
+          "es": "You look tired, dear. Have a cup of tea.",
+          "ru": "Ты устал, дорогой. Выпей чашку чая.",
+          "fem": {
+            "ru": "Ты устала, дорогая. Выпей чашку чая."
+          }
+        },
+        {
+          "es": "The street is nicer when you're here.",
+          "ru": "С тобой на улице веселее."
+        }
+      ]
+    },
+    {
+      "id": "bert",
+      "name": "старина Берт",
+      "location": "park",
+      "role": "пенсионер с собакой",
+      "gender": "m",
+      "character": "Гуляет в парке с собакой Бисквит и помнит город другим",
+      "greeting": {
+        "es": "Lovely day for a walk, isn't it?",
+        "ru": "Чудесный день для прогулки, правда?"
+      },
+      "voice": {
+        "pitch": 0.75,
+        "rate": 0.85
+      },
+      "look": {
+        "skin": 1,
+        "hair": "#c8c8c8",
+        "style": "bald",
+        "outfit": "#6b5a3a",
+        "pants": "#3b3b3b",
+        "extra": [
+          "beard",
+          "cap"
+        ]
+      },
+      "errands": [
+        "Бисквит убежал за белкой, а я тут сижу. Вспомним {n} {слов}?",
+        "Кормлю уток и забываю слова. Напомнишь {n} {слов}?",
+        "В моё время эти слова знали все. Повторим {n} {слов}?"
+      ],
+      "warm": [
+        {
+          "es": "Ah, my young friend! Sit with me.",
+          "ru": "А, мой юный друг! Посиди со мной.",
+          "fem": {
+            "ru": "А, моя юная подруга! Посиди со мной."
+          }
+        },
+        {
+          "es": "Biscuit is happy to see you too.",
+          "ru": "Бисквит тоже рад тебя видеть."
+        },
+        {
+          "es": "Let me tell you how this park looked fifty years ago.",
+          "ru": "Расскажу, каким был этот парк пятьдесят лет назад."
+        }
+      ]
+    },
+    {
+      "id": "chloe",
+      "name": "Хлоя",
+      "location": "clothes",
+      "role": "продавщица",
+      "gender": "f",
+      "character": "Подбирает вещи под погоду и под настроение",
+      "greeting": {
+        "es": "Hi! Looking for something warm?",
+        "ru": "Привет! Ищешь что-нибудь тёплое?"
+      },
+      "voice": {
+        "pitch": 1.25,
+        "rate": 1.05
+      },
+      "look": {
+        "skin": 1,
+        "hair": "#8a5a3a",
+        "style": "long",
+        "outfit": "#c06a8a",
+        "pants": "#3d2e3f",
+        "extra": []
+      },
+      "errands": [
+        "Пришла новая коллекция, а бирки пустые. Поможешь вспомнить {n} {слов}?",
+        "Покупательница спросила, а я растерялась. Напомни {n} {слов}.",
+        "Пока в примерочной очередь, повторим {n} {слов}?"
+      ],
+      "warm": [
+        {
+          "es": "Hi! I've got something perfect for you.",
+          "ru": "Привет! У меня есть кое-что как раз для тебя."
+        },
+        {
+          "es": "That colour really suits you.",
+          "ru": "Этот цвет тебе очень идёт."
+        },
+        {
+          "es": "I kept your size for you.",
+          "ru": "Я отложила твой размер."
+        }
+      ]
+    },
+    {
+      "id": "shah",
+      "name": "мистер Шах",
+      "location": "pharmacy",
+      "role": "фармацевт",
+      "gender": "m",
+      "character": "Говорит негромко и объясняет каждую таблетку",
+      "greeting": {
+        "es": "Good afternoon. How can I help?",
+        "ru": "Добрый день. Чем могу помочь?"
+      },
+      "voice": {
+        "pitch": 0.9,
+        "rate": 0.85
+      },
+      "look": {
+        "skin": 3,
+        "hair": "#1e1a17",
+        "style": "short",
+        "outfit": "#e8eef0",
+        "pants": "#2e3a44",
+        "extra": [
+          "glasses"
+        ]
+      },
+      "errands": [
+        "Сортирую лекарства и путаю названия. Поможешь вспомнить {n} {слов}?",
+        "Пишу памятку для посетителей. Подскажи {n} {слов}.",
+        "Лучшее лекарство для памяти — повторение. Повторим {n} {слов}?"
+      ],
+      "warm": [
+        {
+          "es": "Hello again. Are you feeling better?",
+          "ru": "Снова здравствуй. Тебе лучше?"
+        },
+        {
+          "es": "Take care of yourself, my friend.",
+          "ru": "Береги себя, друг мой.",
+          "fem": {
+            "ru": "Береги себя, подруга моя."
+          }
+        },
+        {
+          "es": "Good to see you healthy.",
+          "ru": "Рад видеть тебя здоровым.",
+          "fem": {
+            "ru": "Рад видеть тебя здоровой."
+          }
+        }
+      ]
+    },
+    {
+      "id": "evans",
+      "name": "мисс Эванс",
+      "location": "school",
+      "role": "учительница",
+      "gender": "f",
+      "character": "Строгая на уроке и смешливая на перемене",
+      "greeting": {
+        "es": "Good morning! Ready for today's lesson?",
+        "ru": "Доброе утро! Готов к сегодняшнему уроку?",
+        "fem": {
+          "ru": "Доброе утро! Готова к сегодняшнему уроку?"
+        }
+      },
+      "voice": {
+        "pitch": 1.1,
+        "rate": 0.95
+      },
+      "look": {
+        "skin": 1,
+        "hair": "#6b4a2b",
+        "style": "long",
+        "outfit": "#4a5a8a",
+        "pants": "#2e2a3a",
+        "extra": [
+          "glasses"
+        ]
+      },
+      "errands": [
+        "Проверяю тетради. Поможешь разобрать {n} {правил}?",
+        "Завтра контрольная. Повторим {n} {правил}?",
+        "Ученики снова путают правила. Объясним вместе {n} {правил}?"
+      ],
+      "warm": [
+        {
+          "es": "My best student! Come in.",
+          "ru": "Мой лучший ученик! Заходи.",
+          "fem": {
+            "ru": "Моя лучшая ученица! Заходи."
+          }
+        },
+        {
+          "es": "You're making real progress.",
+          "ru": "У тебя настоящие успехи."
+        },
+        {
+          "es": "I always enjoy our lessons.",
+          "ru": "Мне всегда нравятся наши уроки."
+        }
+      ]
+    },
+    {
+      "id": "dan",
+      "name": "Дэн",
+      "location": "post",
+      "role": "почтальон",
+      "gender": "m",
+      "character": "Знает каждый адрес и каждую собаку на маршруте",
+      "greeting": {
+        "es": "Post for you! Sign here, please.",
+        "ru": "Тебе почта! Распишись здесь, пожалуйста."
+      },
+      "voice": {
+        "pitch": 1.05,
+        "rate": 1.15
+      },
+      "look": {
+        "skin": 2,
+        "hair": "#3a2a1a",
+        "style": "short",
+        "outfit": "#c0392b",
+        "pants": "#2e2a3a",
+        "extra": [
+          "cap"
+        ]
+      },
+      "errands": [
+        "Конверты промокли под дождём. Поможешь разобрать {n} {слов}?",
+        "Сортирую письма. Напомнишь {n} {слов}?",
+        "До следующей улицы ещё далеко. Повторим {n} {слов}?"
+      ],
+      "warm": [
+        {
+          "es": "Morning! There's a letter for you today.",
+          "ru": "Доброе утро! Сегодня тебе письмо."
+        },
+        {
+          "es": "I always save your street for last.",
+          "ru": "Твою улицу я всегда оставляю напоследок."
+        },
+        {
+          "es": "Here's a postcard from the seaside.",
+          "ru": "Вот открытка с побережья."
+        }
+      ]
+    },
+    {
+      "id": "whitmore",
+      "name": "мистер Уитмор",
+      "location": "bank",
+      "role": "банковский клерк",
+      "gender": "m",
+      "register": "formal",
+      "character": "Любит точность, порядок и вежливые формулировки",
+      "greeting": {
+        "es": "Good morning. How may I help you today?",
+        "ru": "Доброе утро. Чем могу вам помочь сегодня?"
+      },
+      "voice": {
+        "pitch": 0.85,
+        "rate": 0.9
+      },
+      "look": {
+        "skin": 1,
+        "hair": "#4a3a2a",
+        "style": "short",
+        "outfit": "#2c3e50",
+        "pants": "#1f2a35",
+        "extra": [
+          "tie",
+          "glasses"
+        ]
+      },
+      "errands": [
+        "Составляю отчёт. Не поможете ли вспомнить {n} {слов}?",
+        "Клиент задал вопрос, и я засомневался. Повторим {n} {слов}?",
+        "Порядок прежде всего. Проверим {n} {слов}?"
+      ],
+      "warm": [
+        {
+          "es": "Good morning. Always a pleasure to see you.",
+          "ru": "Доброе утро. Всегда рад вас видеть."
+        },
+        {
+          "es": "Your account is in perfect order.",
+          "ru": "Ваш счёт в полном порядке."
+        },
+        {
+          "es": "For you, there is no queue today.",
+          "ru": "Для вас сегодня без очереди."
+        }
+      ]
+    },
+    {
+      "id": "liam",
+      "name": "Лиам",
+      "location": "barber",
+      "role": "парикмахер",
+      "gender": "m",
+      "character": "Стрижёт под радио и рассказывает футбольные новости",
+      "greeting": {
+        "es": "Alright, mate? Just a trim?",
+        "ru": "Как жизнь, приятель? Просто подровнять?",
+        "fem": {
+          "ru": "Как жизнь, подруга? Просто подровнять?"
+        }
+      },
+      "voice": {
+        "pitch": 1.05,
+        "rate": 1.1
+      },
+      "look": {
+        "skin": 2,
+        "hair": "#2a1e14",
+        "style": "curly",
+        "outfit": "#3a7a6a",
+        "pants": "#2e2216",
+        "extra": [
+          "mustache"
+        ]
+      },
+      "errands": [
+        "Пока клиентов нет, повторим {n} {слов}?",
+        "Радио сломалось, и мне скучно. Поможешь вспомнить {n} {слов}?",
+        "Клиент спросил, а я не знаю, как сказать. Напомни {n} {слов}."
+      ],
+      "warm": [
+        {
+          "es": "Alright, mate! The chair is yours.",
+          "ru": "Привет, приятель! Кресло твоё.",
+          "fem": {
+            "ru": "Привет, подруга! Кресло твоё."
+          }
+        },
+        {
+          "es": "Nice haircut. Who did it? Oh, me!",
+          "ru": "Отличная стрижка. Кто стриг? А, это я!"
+        },
+        {
+          "es": "Coffee while you wait?",
+          "ru": "Кофе, пока ждёшь?"
+        }
+      ]
+    },
+    {
+      "id": "zoe",
+      "name": "Зои",
+      "location": "gym",
+      "role": "тренер",
+      "gender": "f",
+      "character": "Подбадривает громче музыки",
+      "greeting": {
+        "es": "Come on, ten more! You can do it!",
+        "ru": "Давай, ещё десять! Ты сможешь!"
+      },
+      "voice": {
+        "pitch": 1.2,
+        "rate": 1.15
+      },
+      "look": {
+        "skin": 2,
+        "hair": "#2a1e14",
+        "style": "bun",
+        "outfit": "#e67e22",
+        "pants": "#2e2a3a",
+        "extra": [
+          "headband"
+        ]
+      },
+      "errands": [
+        "Разминка для головы! Повторим {n} {слов}?",
+        "Между подходами вспомним {n} {слов}?",
+        "Тренировка памяти тоже тренировка. Давай {n} {слов}!"
+      ],
+      "warm": [
+        {
+          "es": "Hey, champion! Ready to train?",
+          "ru": "Привет, чемпион! Готов тренироваться?",
+          "fem": {
+            "ru": "Привет, чемпионка! Готова тренироваться?"
+          }
+        },
+        {
+          "es": "You're getting stronger every week!",
+          "ru": "Ты становишься сильнее с каждой неделей!"
+        },
+        {
+          "es": "Great to see you! Water's on me.",
+          "ru": "Рада тебя видеть! Вода за мой счёт."
+        }
+      ]
+    },
+    {
+      "id": "graham",
+      "name": "Грэм",
+      "location": "station",
+      "role": "начальник станции",
+      "gender": "m",
+      "character": "Сверяет часы с каждым поездом и гордится старым вокзалом",
+      "greeting": {
+        "es": "The train to London leaves from platform two.",
+        "ru": "Поезд на Лондон отправляется со второй платформы."
+      },
+      "voice": {
+        "pitch": 0.75,
+        "rate": 0.9
+      },
+      "look": {
+        "skin": 1,
+        "hair": "#7a6a5a",
+        "style": "short",
+        "outfit": "#1f3a5a",
+        "pants": "#1f2a35",
+        "extra": [
+          "cap",
+          "mustache"
+        ]
+      },
+      "errands": [
+        "Табло мигает, а я забыл слова для объявлений. Поможешь вспомнить {n} {слов}?",
+        "Поезд задерживается. Повторим пока {n} {слов}?",
+        "Пишу расписание. Напомнишь {n} {слов}?"
+      ],
+      "warm": [
+        {
+          "es": "Right on time, as always!",
+          "ru": "Точно вовремя, как всегда!"
+        },
+        {
+          "es": "I kept you a seat by the window.",
+          "ru": "Я оставил тебе место у окна."
+        },
+        {
+          "es": "Have a good journey, my friend.",
+          "ru": "Хорошей дороги, друг мой.",
+          "fem": {
+            "ru": "Хорошей дороги, подруга моя."
+          }
+        }
+      ]
+    },
+    {
+      "id": "finn",
+      "name": "Финн",
+      "location": "beach",
+      "role": "спасатель",
+      "gender": "m",
+      "character": "Следит за волнами и учит детей плавать",
+      "greeting": {
+        "es": "Stay between the flags, please!",
+        "ru": "Держитесь между флажками, пожалуйста!"
+      },
+      "voice": {
+        "pitch": 1.0,
+        "rate": 0.95
+      },
+      "look": {
+        "skin": 1,
+        "hair": "#e0c070",
+        "style": "long",
+        "outfit": "#d64541",
+        "pants": "#2e5a7a",
+        "extra": []
+      },
+      "errands": [
+        "Пока море спокойное, повторим {n} {слов}?",
+        "Туристы спрашивают, а я забыл слова. Напомнишь {n} {слов}?",
+        "Сижу на вышке и учу слова. Поможешь с {n} {слов}?"
+      ],
+      "warm": [
+        {
+          "es": "Hey! The water is lovely today.",
+          "ru": "Привет! Вода сегодня отличная."
+        },
+        {
+          "es": "I saved you a spot in the shade.",
+          "ru": "Я занял тебе место в тени."
+        },
+        {
+          "es": "Want to learn to surf? I'll teach you.",
+          "ru": "Хочешь научиться сёрфингу? Я научу."
+        }
+      ]
+    },
+    {
+      "id": "priya",
+      "name": "Прия",
+      "location": "office",
+      "role": "менеджер",
+      "gender": "f",
+      "character": "Ведёт три проекта сразу и всё успевает",
+      "greeting": {
+        "es": "Sorry, I'm on a call. Two minutes!",
+        "ru": "Прости, я на звонке. Две минуты!"
+      },
+      "voice": {
+        "pitch": 1.15,
+        "rate": 1.2
+      },
+      "look": {
+        "skin": 3,
+        "hair": "#1e1a17",
+        "style": "bun",
+        "outfit": "#5a3a7a",
+        "pants": "#2e2a3a",
+        "extra": [
+          "glasses"
+        ]
+      },
+      "errands": [
+        "Пишу письмо клиенту. Поможешь вспомнить {n} {слов}?",
+        "Совещание через пять минут. Повторим быстро {n} {слов}?",
+        "В презентации пустые слайды. Подскажи {n} {слов}."
+      ],
+      "warm": [
+        {
+          "es": "Finally, someone who's on time!",
+          "ru": "Наконец-то кто-то пришёл вовремя!"
+        },
+        {
+          "es": "Coffee? I've just made some.",
+          "ru": "Кофе? Я только что сварила."
+        },
+        {
+          "es": "You'd be great in our team.",
+          "ru": "Ты бы отлично вписался в нашу команду.",
+          "fem": {
+            "ru": "Ты бы отлично вписалась в нашу команду."
+          }
+        }
+      ]
+    },
+    {
+      "id": "emma",
+      "name": "Эмма",
+      "location": "hotel",
+      "role": "администратор отеля",
+      "gender": "f",
+      "character": "Помнит всех гостей по имени",
+      "greeting": {
+        "es": "Welcome! Do you have a reservation?",
+        "ru": "Добро пожаловать! У вас есть бронь?"
+      },
+      "voice": {
+        "pitch": 1.15,
+        "rate": 1.0
+      },
+      "look": {
+        "skin": 1,
+        "hair": "#c8a060",
+        "style": "long",
+        "outfit": "#2c5a6a",
+        "pants": "#1f2a35",
+        "extra": [
+          "badge"
+        ]
+      },
+      "errands": [
+        "Гости спрашивают дорогу, а я путаюсь. Поможешь вспомнить {n} {слов}?",
+        "Заполняю книгу гостей. Напомнишь {n} {слов}?",
+        "Ночная смена длинная. Повторим {n} {слов}?"
+      ],
+      "warm": [
+        {
+          "es": "Welcome back! Your room has a sea view.",
+          "ru": "С возвращением! Ваш номер с видом на море."
+        },
+        {
+          "es": "We missed you here.",
+          "ru": "Мы по вам скучали."
+        },
+        {
+          "es": "There's a little gift in your room.",
+          "ru": "В номере вас ждёт небольшой подарок."
+        }
+      ]
+    },
+    {
+      "id": "okafor",
+      "name": "доктор Окафор",
+      "location": "hospital",
+      "role": "врач",
+      "gender": "f",
+      "character": "Спокойная в любой суматохе",
+      "greeting": {
+        "es": "Hello. What seems to be the problem?",
+        "ru": "Здравствуйте. Что вас беспокоит?"
+      },
+      "voice": {
+        "pitch": 1.0,
+        "rate": 0.9
+      },
+      "look": {
+        "skin": 4,
+        "hair": "#1e1a17",
+        "style": "bun",
+        "outfit": "#e8eef0",
+        "pants": "#3a5a6a",
+        "extra": [
+          "stethoscope"
+        ]
+      },
+      "errands": [
+        "Пишу выписки. Поможете вспомнить {n} {слов}?",
+        "Между пациентами есть минутка. Повторим {n} {слов}?",
+        "Новый стажёр путает слова. Объясним вместе {n} {слов}?"
+      ],
+      "warm": [
+        {
+          "es": "You look much better today.",
+          "ru": "Сегодня вы выглядите гораздо лучше."
+        },
+        {
+          "es": "Always good to see a healthy face.",
+          "ru": "Всегда приятно видеть здоровое лицо."
+        },
+        {
+          "es": "Come in, the kettle in our room is on.",
+          "ru": "Заходите, у нас в комнате греется чайник."
+        }
+      ]
+    },
+    {
+      "id": "tom",
+      "name": "Том",
+      "location": "airport",
+      "role": "сотрудник регистрации",
+      "gender": "m",
+      "character": "Мечтает облететь весь мир и пока регистрирует тех, кто летит",
+      "greeting": {
+        "es": "Passport, please. Any bags to check in?",
+        "ru": "Паспорт, пожалуйста. Будете сдавать багаж?"
+      },
+      "voice": {
+        "pitch": 1.05,
+        "rate": 1.05
+      },
+      "look": {
+        "skin": 1,
+        "hair": "#5a3a2a",
+        "style": "short",
+        "outfit": "#1f3a5a",
+        "pants": "#1f2a35",
+        "extra": [
+          "tie"
+        ]
+      },
+      "errands": [
+        "Табло вылетов сломалось. Поможешь вспомнить {n} {слов}?",
+        "Пассажир спросил, а я не знаю, как ответить. Напомни {n} {слов}.",
+        "Рейс задерживают. Повторим пока {n} {слов}?"
+      ],
+      "warm": [
+        {
+          "es": "Hi again! Window seat, as usual?",
+          "ru": "Снова привет! Место у окна, как обычно?"
+        },
+        {
+          "es": "I'll put a priority tag on your bag.",
+          "ru": "Я повешу на твою сумку бирку приоритета."
+        },
+        {
+          "es": "Where are you flying this time?",
+          "ru": "Куда летишь на этот раз?"
+        }
+      ]
+    },
+    {
+      "id": "bradley",
+      "name": "инспектор Брэдли",
+      "location": "police",
+      "role": "инспектор полиции",
+      "gender": "m",
+      "register": "formal",
+      "character": "Немногословен, но замечает всё",
+      "greeting": {
+        "es": "Good evening. Is everything all right?",
+        "ru": "Добрый вечер. У вас всё в порядке?"
+      },
+      "voice": {
+        "pitch": 0.8,
+        "rate": 0.95
+      },
+      "look": {
+        "skin": 2,
+        "hair": "#3a2a1a",
+        "style": "short",
+        "outfit": "#1f2a45",
+        "pants": "#1a1f2a",
+        "extra": [
+          "cap",
+          "badge"
+        ]
+      },
+      "errands": [
+        "Составляю протокол. Не поможете ли вспомнить {n} {слов}?",
+        "Свидетель говорил быстро. Повторим {n} {слов}?",
+        "На дежурстве тихо. Проверим {n} {слов}?"
+      ],
+      "warm": [
+        {
+          "es": "Good evening. The town is calm tonight.",
+          "ru": "Добрый вечер. Сегодня в городе спокойно."
+        },
+        {
+          "es": "Thank you for your help last time.",
+          "ru": "Спасибо за помощь в прошлый раз."
+        },
+        {
+          "es": "With people like you, my job is easier.",
+          "ru": "С такими людьми, как вы, мне легче работать."
+        }
+      ]
+    }
+  ]
+}

@@ -86,8 +86,8 @@ export const EN: LangProfile = {
   reflexive: '',
   infinitiveEnd: 2,
   verbs: EN_VERBS,
-  // Ударение (REcord / reCORD) без знаков на письме — новый вид противопоставления в 17.2.
-  pairKinds: ['swap', 'double'],
+  // Ударение без знаков на письме: ударный слог заглавными (REcord / reCORD), произношение — через `say`.
+  pairKinds: ['swap', 'caps'],
   festivals: [],
 
   // Обращение одно для путника и путницы: «traveller».

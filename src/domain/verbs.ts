@@ -82,9 +82,11 @@ export function forgeTasks(
 ): ForgeTask[] {
   const byInf = new Map(verbs.map((v) => [v.inf, v]));
   const persons = [0, 1, 2, 3, 4, 5];
+  // Время, которого у глагола не бывает (английские глаголы состояния без Continuous), в плавку не идёт.
+  const usable = (v: VerbData, t: Tense) => !VERBS(lang).skip?.(v, t);
   const task = (v: VerbData, tense: Tense, person: number): ForgeTask => {
     const answer = conjugate(v, tense, lang)[person];
-    const forms = tenses.flatMap((t) => {
+    const forms = tenses.filter((t) => usable(v, t)).flatMap((t) => {
       const all = conjugate(v, t, lang);
       return persons.map((p) => ({ form: all[p], label: `${PERSONS[lang][p]} · ${TENSE_RU[t]}` }));
     });
@@ -95,7 +97,7 @@ export function forgeTasks(
   for (const id of due) {
     const c = parseVerbCard(id);
     const v = c && byInf.get(c.inf);
-    if (!c || !v || !tenses.includes(c.tense) || !persons.includes(c.person) || out.length >= size) continue;
+    if (!c || !v || !tenses.includes(c.tense) || !usable(v, c.tense) || !persons.includes(c.person) || out.length >= size) continue;
     out.push(task(v, c.tense, c.person));
     seen.add(id);
   }
@@ -105,7 +107,7 @@ export function forgeTasks(
     const tense = tenses[Math.floor(rng() * tenses.length)];
     const person = persons[Math.floor(rng() * persons.length)];
     const id = verbCardId(v.inf, tense, person);
-    if (seen.has(id)) continue;
+    if (seen.has(id) || !usable(v, tense)) continue;
     seen.add(id);
     out.push(task(v, tense, person));
   }

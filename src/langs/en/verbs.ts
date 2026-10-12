@@ -75,7 +75,8 @@ export const EN_VERBS: VerbProfile = {
   ],
   persons: ['I', 'you', 'he / she', 'we', 'you (мн.)', 'they'],
   infinitive: /^[a-z]+$/,
-  fields: ['past', 'dbl'],
+  fields: ['past', 'dbl', 'stative'],
   conjugate: (v, tense) => enForms(v, tense as EnTense),
   participle,
+  skip: (v, tense) => !!v.stative && tense === 'present-continuous',
 };

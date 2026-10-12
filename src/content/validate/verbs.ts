@@ -53,7 +53,7 @@ export function validateVerbs(file: VerbsFile | undefined, lang: Lang): Issue[] 
     const badInf = empty(v.inf) || !profile.infinitive.test(v.inf);
     if (badInf) out.push({ level: 'error', where: at, msg: 'инфинитив с неожиданным окончанием' });
     if (empty(v.ru)) out.push({ level: 'error', where: at, msg: 'нет перевода' });
-    for (const f of ['ch', 'isc', 'aux'] as const) {
+    for (const f of ['ch', 'isc', 'aux', 'past', 'dbl', 'stative'] as const) {
       if (v[f] !== undefined && !profile.fields.includes(f)) out.push({ level: 'error', where: at, msg: `поле ${f} не бывает у глаголов ${LANGS[lang].genitive}` });
     }
     // Генератор строит формы по окончанию инфинитива: с чужим окончанием дальше проверять нечего.
@@ -61,6 +61,11 @@ export function validateVerbs(file: VerbsFile | undefined, lang: Lang): Issue[] 
     const bare = { inf: v.inf, ru: v.ru, ch: v.ch, isc: v.isc };
     if (v.pp && v.pp === participle(bare, lang)) out.push({ level: 'error', where: at, msg: 'причастие pp совпадает с правильным, запись не нужна' });
     if (v.yo && v.yo === conjugate(bare, 'presente', lang)[0]) out.push({ level: 'error', where: at, msg: 'форма yo совпадает с правильной, запись не нужна' });
+    // Английское прошедшее: правильное не записывается, причастие, равное прошедшему, тоже.
+    if (v.past && TENSES[lang].includes('past-simple') && v.past === conjugate({ ...bare, dbl: v.dbl }, 'past-simple', lang)[0]) {
+      out.push({ level: 'error', where: at, msg: 'прошедшее past совпадает с правильным, запись не нужна' });
+    }
+    if (v.pp && v.past && v.pp === v.past) out.push({ level: 'error', where: at, msg: 'причастие pp совпадает с past, запись не нужна' });
     for (const [t, forms] of Object.entries(v.forms ?? {})) {
       if (!TENSES[lang].includes(t as Tense)) {
         out.push({ level: 'error', where: at, msg: `неизвестное время "${t}"` });

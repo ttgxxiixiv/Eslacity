@@ -62,6 +62,10 @@ export function pairIssue(c: Contrast, [a, b]: [PairWord, PairWord]): string | n
   } else if (c.kind === 'stress') {
     if (strip(a.es) !== strip(b.es)) return 'слова различаются не только ударением';
     if (strip(a.es) === a.es && strip(b.es) === b.es) return 'нет знака ударения';
+  } else if (c.kind === 'caps') {
+    if (a.es.toLowerCase() !== b.es.toLowerCase()) return 'слова различаются не только ударным слогом';
+    if (![a.es, b.es].every((w) => /\p{Lu}{2,}/u.test(w) && /\p{Ll}/u.test(w))) return 'ударный слог не выделен заглавными';
+    if (!a.say || !b.say) return 'у пары caps нужен say: слово в окружении, которое задаёт ударение';
   } else {
     const ok = [...a.es].some((ch, i) => i > 0 && a.es[i - 1] === ch && !'aeiouàèéìòù'.includes(ch) && a.es.slice(0, i) + a.es.slice(i + 1) === b.es);
     if (!ok) return 'второе слово не получается из первого заменой двойной согласной на одинарную';

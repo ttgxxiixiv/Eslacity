@@ -34,10 +34,12 @@ export interface VerbData {
   past?: string;
   /** Английский глагол с удвоением последней согласной не по правилу односложных: prefer → preferred. */
   dbl?: boolean;
+  /** Английский глагол состояния (know, want): в Continuous не употребляется, кузница его там не даёт. */
+  stative?: boolean;
 }
 
 /** Поля записи глагола, которые бывают не у всех языков. */
-export type VerbField = 'ch' | 'isc' | 'aux' | 'past' | 'dbl';
+export type VerbField = 'ch' | 'isc' | 'aux' | 'past' | 'dbl' | 'stative';
 
 /** Кузница глаголов: времена, лица и генератор форм. */
 export interface VerbProfile {
@@ -55,10 +57,15 @@ export interface VerbProfile {
   participle(v: VerbData): string;
   /** Равноправные формы ответа: женский род причастия при essere (sono andata). */
   feminine?(v: VerbData, tense: Tense, form: string): string[];
+  /** Времени у глагола не бывает: английский глагол состояния в Continuous. Кузница такое не даёт. */
+  skip?(v: VerbData, tense: Tense): boolean;
 }
 
-/** Виды противопоставлений Звонницы. */
-export type PairKind = 'swap' | 'stress' | 'double';
+/**
+ * Виды противопоставлений Звонницы: замена букв, знак ударения, двойная согласная, ударный слог заглавными
+ * (английское REcord / reCORD: написание одно, произношение задаёт `say` — «a record», «to record»).
+ */
+export type PairKind = 'swap' | 'stress' | 'double' | 'caps';
 
 /** Праздник языка (задача 10.5): что показывать и когда идёт. */
 export interface FestivalDef {

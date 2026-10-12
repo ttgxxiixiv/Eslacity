@@ -4,12 +4,12 @@ import { validateChronicler, validateGrammar, validateGuardians, validateLetters
 import type { Chronicler, GrammarLesson, GuardiansFile, LettersFile, SphinxFile, VerbsFile, PairsFile, FestivalFile, PrologueFile, LocationWords, LocationMissions, LocationPhrases, LocationScenes, NpcsFile, ScrollFile, ThreadFile, BookFile } from '../src/content/schema';
 import { THREAD_CHAPTERS, THREAD_NOTES_MIN } from '../src/domain/thread';
 import { BOOK_CHAPTERS } from '../src/domain/books';
-import type { Lang } from '../src/lang';
+import { LANGS, type Lang } from '../src/lang';
 import { CHAPTERS, PLAN_TOTAL } from '../src/content/vocabPlan';
 import { chapterOfDistrict } from '../src/domain/chapters';
 import { plural } from '../src/domain/medals';
 import { femIssues, forGender } from '../src/domain/address';
-import { translationIssues } from '../src/domain/translation';
+import { textIssuesIn, translationIssues } from '../src/domain/translation';
 import { sayIssues } from '../src/domain/say';
 import { lessonParts, levelWords } from '../src/domain/levels';
 import { applySkips, applySkipsToForms, buildLexicon, cefrIssues, coverage, lemmaRanks, parseRisky, rarityIssues, riskyIssues, wordRank, lemmasIn, parseFreq, parseSkips, parseLemmas, textCoverage, uncoveredWords } from './vocab-lib';
@@ -40,10 +40,70 @@ function sceneSummary(r: { scenes: number; whispers: number; words: number; unkn
 }
 const summary: string[] = [];
 const langs = readdirSync(root, { withFileTypes: true })
-  .filter((e) => e.isDirectory() && existsSync(join(root, e.name, 'words')))
+  .filter((e) => e.isDirectory() && e.name in LANGS)
   .map((e) => e.name as Lang);
 
+const contentFiles = (dir: string, rel = ''): string[] =>
+  readdirSync(dir).flatMap((f) => {
+    const full = join(dir, f);
+    return statSync(full).isDirectory() ? contentFiles(full, `${rel}${f}/`) : f.endsWith('.json') ? [`${rel}${f}`] : [];
+  });
+
+/**
+ * Правила перевода (задача 15.3), поле say (15.4) и ошибки текста языка (английские a/an, 17.1) — по всем файлам
+ * контента языка. Предупреждения, кроме ошибок текста.
+ */
+function textChecks(lang: Lang): Issue[] {
+  return contentFiles(join(root, lang)).flatMap((rel) => {
+    const data = JSON.parse(readFileSync(join(root, lang, rel), 'utf8'));
+    return [
+      ...[...translationIssues(data, lang), ...sayIssues(data)].map(({ where, msg }) => ({ level: 'warning' as const, where: `${lang}/${rel} ${where}`, msg })),
+      ...textIssuesIn(data, lang).map(({ where, msg }) => ({ level: 'error' as const, where: `${lang}/${rel} ${where}`, msg })),
+    ];
+  });
+}
+
+const readFile = <T,>(lang: Lang, name: string): T | undefined =>
+  existsSync(join(root, lang, name)) ? (JSON.parse(readFileSync(join(root, lang, name), 'utf8')) as T) : undefined;
+
+/**
+ * Закрытый курс, у которого ещё нет слов (английский с 17.2): проверяются уже готовые файлы — жители, Летописец,
+ * стражи всех пяти глав, кузница, Звонница, портреты и тексты.
+ */
+function partialChecks(lang: Lang): void {
+  const tag = (list: Issue[]) => list.map((i) => ({ ...i, where: `${lang}/${i.where}` }));
+  const npcs = readFile<NpcsFile>(lang, 'npcs.json');
+  const chronicler = readFile<Chronicler>(lang, 'chronicler.json');
+  const guardians = readFile<GuardiansFile>(lang, 'guardians.json');
+  const verbs = readFile<VerbsFile>(lang, 'verbs.json');
+  const pairs = readFile<PairsFile>(lang, 'pairs.json');
+  issues.push(
+    ...tag(validateNpcs(npcs)),
+    ...tag(validateChronicler(chronicler, npcs)),
+    ...tag(validateGuardians(guardians, CHAPTERS.map((_, i) => i + 1))),
+    ...tag(validateVerbs(verbs, lang)),
+    ...tag(validatePairs(pairs, lang)),
+    ...tag(
+      validatePortraits(
+        [
+          ...(npcs?.npcs ?? []).map((n) => ({ where: `npcs.json ${n.id}`, look: n.look })),
+          { where: 'chronicler.json', look: chronicler?.look },
+          ...(guardians?.guardians ?? []).map((g) => ({ where: `guardians.json глава ${g.chapter}`, look: g.look })),
+          { where: 'verbs.json кузнец', look: verbs?.smith?.look },
+        ],
+        (name) => existsSync(join(root, '..', 'assets', 'portraits', lang, `${name}.webp`)),
+      ),
+    ),
+    ...textChecks(lang),
+  );
+  summary.push(`${lang} (курс закрыт, без слов): ${npcs?.npcs.length ?? 0} жителей, ${guardians?.guardians.length ?? 0} стражей, ${verbs?.verbs.length ?? 0} глаголов в кузнице, ${pairs?.contrasts.reduce((n, c) => n + c.pairs.length, 0) ?? 0} пар в Звоннице`);
+}
+
 for (const lang of langs) {
+  if (!LANGS[lang].released && !existsSync(join(root, lang, 'words'))) {
+    partialChecks(lang);
+    continue;
+  }
   const words = readJson<Parameters<typeof validateWords>[0][number]['data']>(join(root, lang, 'words'));
   const grammarDir = join(root, lang, 'grammar');
   const grammar = existsSync(grammarDir)
@@ -110,21 +170,9 @@ for (const lang of langs) {
     ...cefrIssues(ws, (es) => wordRank(es, forms, lang, ranks)).map(({ id, msg }) => ({ level: 'warning' as const, where: `${where} ${id}`, msg })),
     ...riskyIssues(ws, risky, (t) => lemmasIn(t, forms, lang)).map(({ id, msg }) => ({ level: 'warning' as const, where: `${where} ${id}`, msg })),
   ]);
-  // Правила перевода (задача 15.3): обращение как в оригинале, «ёлочки», «ё» — во всех файлах контента языка.
-  const contentFiles = (dir: string, rel = ''): string[] =>
-    readdirSync(dir).flatMap((f) => {
-      const full = join(dir, f);
-      return statSync(full).isDirectory() ? contentFiles(full, `${rel}${f}/`) : f.endsWith('.json') ? [`${rel}${f}`] : [];
-    });
-  // Поле say (задача 15.4) проверяется тем же обходом: пустое, совпадает с текстом, нет say у женской формы.
-  const translation: Issue[] = contentFiles(join(root, lang)).flatMap((rel) => {
-    const data = JSON.parse(readFileSync(join(root, lang, rel), 'utf8'));
-    return [...translationIssues(data, lang), ...sayIssues(data)].map(({ where, msg }) => ({
-      level: 'warning' as const,
-      where: `${rel} ${where}`,
-      msg,
-    }));
-  });
+  // Правила перевода (задача 15.3): обращение как в оригинале, «ёлочки», «ё» — во всех файлах контента языка;
+  // тем же обходом поле say (задача 15.4) и ошибки текста языка (17.1).
+  const translation: Issue[] = textChecks(lang);
   // Праздники: их фразы и миссии опираются и на слова самого праздника, поэтому словарь свой — с ними на уровне 1.
   const festivals = readJson<FestivalFile>(join(root, lang, 'festivals'));
   const festLexicon = buildLexicon(
@@ -242,7 +290,7 @@ for (const lang of langs) {
     ...tag(validateWords(words, lang)),
     ...tag(rarity),
     ...tag(usage),
-    ...tag(translation),
+    ...translation,
     ...tag(
       validatePhrases(phrases, {
         lessons: new Set(grammar.map((g) => (g.data as GrammarLesson).id)),

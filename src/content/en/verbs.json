@@ -1,0 +1,442 @@
+{
+  "smith": {
+    "name": "Гарет",
+    "role": "кузнец глаголов",
+    "gender": "m",
+    "greeting": {
+      "es": "Welcome to the forge! Here we hammer out the verbs.",
+      "ru": "Добро пожаловать в кузницу! Здесь мы куём глаголы."
+    },
+    "voice": {
+      "pitch": 0.75,
+      "rate": 0.9
+    },
+    "look": {
+      "skin": 1,
+      "hair": "#7a3b1e",
+      "style": "short",
+      "outfit": "#5a4a3a",
+      "pants": "#2e2216",
+      "extra": [
+        "apron",
+        "beard"
+      ]
+    }
+  },
+  "verbs": [
+    {
+      "inf": "be",
+      "ru": "быть",
+      "past": "was",
+      "pp": "been",
+      "forms": {
+        "present-simple": [
+          "am",
+          "are",
+          "is",
+          "are",
+          "are",
+          "are"
+        ],
+        "past-simple": [
+          "was",
+          "were",
+          "was",
+          "were",
+          "were",
+          "were"
+        ]
+      },
+      "stative": true
+    },
+    {
+      "inf": "have",
+      "ru": "иметь",
+      "past": "had",
+      "forms": {
+        "present-simple": [
+          "have",
+          "have",
+          "has",
+          "have",
+          "have",
+          "have"
+        ]
+      }
+    },
+    {
+      "inf": "do",
+      "ru": "делать",
+      "past": "did",
+      "pp": "done"
+    },
+    {
+      "inf": "go",
+      "ru": "идти",
+      "past": "went",
+      "pp": "gone"
+    },
+    {
+      "inf": "say",
+      "ru": "сказать",
+      "past": "said"
+    },
+    {
+      "inf": "get",
+      "ru": "получать",
+      "past": "got"
+    },
+    {
+      "inf": "make",
+      "ru": "создавать",
+      "past": "made"
+    },
+    {
+      "inf": "know",
+      "ru": "знать",
+      "past": "knew",
+      "pp": "known",
+      "stative": true
+    },
+    {
+      "inf": "think",
+      "ru": "думать",
+      "past": "thought"
+    },
+    {
+      "inf": "take",
+      "ru": "брать",
+      "past": "took",
+      "pp": "taken"
+    },
+    {
+      "inf": "see",
+      "ru": "видеть",
+      "past": "saw",
+      "pp": "seen"
+    },
+    {
+      "inf": "come",
+      "ru": "приходить",
+      "past": "came",
+      "pp": "come"
+    },
+    {
+      "inf": "want",
+      "ru": "хотеть",
+      "stative": true
+    },
+    {
+      "inf": "look",
+      "ru": "смотреть"
+    },
+    {
+      "inf": "use",
+      "ru": "использовать"
+    },
+    {
+      "inf": "find",
+      "ru": "находить",
+      "past": "found"
+    },
+    {
+      "inf": "give",
+      "ru": "давать",
+      "past": "gave",
+      "pp": "given"
+    },
+    {
+      "inf": "tell",
+      "ru": "рассказывать",
+      "past": "told"
+    },
+    {
+      "inf": "work",
+      "ru": "работать"
+    },
+    {
+      "inf": "call",
+      "ru": "звонить"
+    },
+    {
+      "inf": "try",
+      "ru": "пытаться"
+    },
+    {
+      "inf": "ask",
+      "ru": "спрашивать"
+    },
+    {
+      "inf": "need",
+      "ru": "нуждаться",
+      "stative": true
+    },
+    {
+      "inf": "feel",
+      "ru": "чувствовать",
+      "past": "felt"
+    },
+    {
+      "inf": "leave",
+      "ru": "уходить",
+      "past": "left"
+    },
+    {
+      "inf": "put",
+      "ru": "класть",
+      "past": "put"
+    },
+    {
+      "inf": "mean",
+      "ru": "значить",
+      "past": "meant",
+      "stative": true
+    },
+    {
+      "inf": "keep",
+      "ru": "хранить",
+      "past": "kept"
+    },
+    {
+      "inf": "let",
+      "ru": "позволять",
+      "past": "let"
+    },
+    {
+      "inf": "begin",
+      "ru": "начинаться",
+      "past": "began",
+      "pp": "begun",
+      "dbl": true
+    },
+    {
+      "inf": "help",
+      "ru": "помогать"
+    },
+    {
+      "inf": "talk",
+      "ru": "разговаривать"
+    },
+    {
+      "inf": "turn",
+      "ru": "поворачивать"
+    },
+    {
+      "inf": "start",
+      "ru": "начинать"
+    },
+    {
+      "inf": "show",
+      "ru": "показывать",
+      "pp": "shown"
+    },
+    {
+      "inf": "hear",
+      "ru": "слышать",
+      "past": "heard",
+      "stative": true
+    },
+    {
+      "inf": "play",
+      "ru": "играть"
+    },
+    {
+      "inf": "run",
+      "ru": "бежать",
+      "past": "ran",
+      "pp": "run"
+    },
+    {
+      "inf": "move",
+      "ru": "двигаться"
+    },
+    {
+      "inf": "live",
+      "ru": "жить"
+    },
+    {
+      "inf": "believe",
+      "ru": "верить",
+      "stative": true
+    },
+    {
+      "inf": "bring",
+      "ru": "приносить",
+      "past": "brought"
+    },
+    {
+      "inf": "write",
+      "ru": "писать",
+      "past": "wrote",
+      "pp": "written"
+    },
+    {
+      "inf": "sit",
+      "ru": "сидеть",
+      "past": "sat"
+    },
+    {
+      "inf": "stand",
+      "ru": "стоять",
+      "past": "stood"
+    },
+    {
+      "inf": "lose",
+      "ru": "терять",
+      "past": "lost"
+    },
+    {
+      "inf": "pay",
+      "ru": "платить",
+      "past": "paid"
+    },
+    {
+      "inf": "meet",
+      "ru": "встречать",
+      "past": "met"
+    },
+    {
+      "inf": "learn",
+      "ru": "учиться"
+    },
+    {
+      "inf": "stop",
+      "ru": "останавливаться"
+    },
+    {
+      "inf": "open",
+      "ru": "открывать"
+    },
+    {
+      "inf": "close",
+      "ru": "закрывать"
+    },
+    {
+      "inf": "buy",
+      "ru": "покупать",
+      "past": "bought"
+    },
+    {
+      "inf": "eat",
+      "ru": "есть",
+      "past": "ate",
+      "pp": "eaten"
+    },
+    {
+      "inf": "drink",
+      "ru": "пить",
+      "past": "drank",
+      "pp": "drunk"
+    },
+    {
+      "inf": "sleep",
+      "ru": "спать",
+      "past": "slept"
+    },
+    {
+      "inf": "swim",
+      "ru": "плавать",
+      "past": "swam",
+      "pp": "swum"
+    },
+    {
+      "inf": "read",
+      "ru": "читать",
+      "past": "read"
+    },
+    {
+      "inf": "wait",
+      "ru": "ждать"
+    },
+    {
+      "inf": "travel",
+      "ru": "путешествовать",
+      "dbl": true
+    },
+    {
+      "inf": "cook",
+      "ru": "готовить"
+    },
+    {
+      "inf": "study",
+      "ru": "изучать"
+    },
+    {
+      "inf": "carry",
+      "ru": "нести"
+    },
+    {
+      "inf": "cry",
+      "ru": "плакать"
+    },
+    {
+      "inf": "fly",
+      "ru": "летать",
+      "past": "flew",
+      "pp": "flown"
+    },
+    {
+      "inf": "sing",
+      "ru": "петь",
+      "past": "sang",
+      "pp": "sung"
+    },
+    {
+      "inf": "speak",
+      "ru": "говорить",
+      "past": "spoke",
+      "pp": "spoken"
+    },
+    {
+      "inf": "send",
+      "ru": "отправлять",
+      "past": "sent"
+    },
+    {
+      "inf": "sell",
+      "ru": "продавать",
+      "past": "sold"
+    },
+    {
+      "inf": "forget",
+      "ru": "забывать",
+      "past": "forgot",
+      "pp": "forgotten",
+      "dbl": true
+    },
+    {
+      "inf": "choose",
+      "ru": "выбирать",
+      "past": "chose",
+      "pp": "chosen"
+    },
+    {
+      "inf": "wear",
+      "ru": "носить (одежду)",
+      "past": "wore",
+      "pp": "worn"
+    },
+    {
+      "inf": "drive",
+      "ru": "водить машину",
+      "past": "drove",
+      "pp": "driven"
+    },
+    {
+      "inf": "break",
+      "ru": "ломать",
+      "past": "broke",
+      "pp": "broken"
+    },
+    {
+      "inf": "catch",
+      "ru": "ловить",
+      "past": "caught"
+    },
+    {
+      "inf": "teach",
+      "ru": "учить (кого-то)",
+      "past": "taught"
+    }
+  ]
+}
