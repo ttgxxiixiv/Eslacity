@@ -1,0 +1,49 @@
+{
+  "location": "restaurant",
+  "missions": [
+    {
+      "id": "ms:restaurant.1",
+      "chapter": 1,
+      "npc": "archie",
+      "scene": "sc:restaurant.1",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Good afternoon! Today in my kitchen we only speak English. Have you got a booking?", "ru": "Добрый день! Сегодня на моей кухне говорят только по-английски. Столик заказан?", "next": "res"},
+        "res": {"kind": "answer", "task": "Скажите, что у вас забронирован столик, или попросите столик на одного.", "branches": [{"phrase": "ph:restaurant.a-booking", "next": "ressay"}, {"phrase": "ph:restaurant.table-for-one", "next": "tablesay"}], "wrong": {"es": "A bed? This isn't a hotel.", "ru": "Кровать? Здесь не отель."}},
+        "ressay": {"kind": "say", "es": "Great, here's your booking. Your table is by the window.", "ru": "Отлично, вот твоя бронь. Твой столик у окна.", "next": "order"},
+        "tablesay": {"kind": "say", "es": "There's a table for you by the window.", "ru": "Для тебя есть столик у окна.", "next": "order"},
+        "order": {"kind": "answer", "task": "Закажите суп и салат.", "branches": [{"phrase": "ph:restaurant.soup-and-salad", "next": "ordersay"}], "wrong": {"es": "Chocolate soup? Not in my kitchen!", "ru": "Шоколадный суп? Только не на моей кухне!"}},
+        "ordersay": {"kind": "say", "es": "Lovely. Here are your soup and salad. Do you need anything?", "ru": "Отлично. Вот суп и салат. Что-нибудь нужно?", "next": "fork"},
+        "fork": {"kind": "answer", "task": "Попросите вилку для салата.", "branches": [{"phrase": "ph:restaurant.a-fork", "next": "forksay"}], "wrong": {"es": "A knife for the soup? No, my friend, no!", "ru": "Нож для супа? Нет, дружище, нет!"}},
+        "forksay": {"kind": "say", "es": "Here you are. So, how's the food?", "ru": "Держи. Ну как еда?", "next": "tasty"},
+        "tasty": {"kind": "answer", "task": "Скажите, что очень вкусно.", "branches": [{"phrase": "ph:restaurant.delicious", "next": "tastysay"}], "wrong": {"es": "Cold? My soup is cold?! That's impossible!", "ru": "Холодный? Мой суп — холодный?! Быть не может!"}},
+        "tastysay": {"kind": "say", "es": "Great! Eat, eat. Do you want dessert too?", "ru": "Вот и славно! Ешь, ешь. Десерт тоже будешь?", "next": "dessert"},
+        "dessert": {"kind": "answer", "task": "Спросите, что есть на десерт.", "branches": [{"phrase": "ph:restaurant.for-dessert", "next": "end"}], "wrong": {"es": "More soup? Well, if you want… and then dessert.", "ru": "Ещё супа? Ну, если хочешь… а потом десерт."}},
+        "end": {"kind": "say", "es": "Today it's cake. And something else for you: my mother's fragment of the map. The man with the map before you didn't speak English. But you do.", "ru": "Сегодня торт. И для тебя кое-что ещё: обрывок карты моей мамы. Тот, кто приходил с картой до тебя, не говорил по-английски. А ты говоришь."}
+      }
+    },
+    {
+      "id": "ms:restaurant.2",
+      "chapter": 2,
+      "npc": "archie",
+      "scene": "sc:restaurant.2",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Come in! Today I'm cooking for people who are going to the hills. What would you like?", "ru": "Заходи! Сегодня готовлю для тех, кто идёт в горы. Что будешь?", "next": "first"},
+        "first": {"kind": "answer", "task": "Спросите, что есть из закусок, или попросите воскресное жаркое.", "branches": [{"phrase": "ph:restaurant.for-starters", "next": "firstsay"}, {"phrase": "ph:restaurant.sunday-roast", "next": "roastsay"}], "wrong": {"es": "Dessert? First you eat the main course!", "ru": "Десерт? Сначала едят основное!"}},
+        "firstsay": {"kind": "say", "es": "Hill soup. And after that, the Sunday roast.", "ru": "Горный суп. А потом воскресное жаркое.", "next": "portion"},
+        "roastsay": {"kind": "say", "es": "The Sunday roast, lovely. And first, a bit of hill soup.", "ru": "Воскресное жаркое, отлично. А сначала немного горного супа.", "next": "portion"},
+        "portion": {"kind": "answer", "task": "Попросите маленькую порцию.", "branches": [{"phrase": "ph:restaurant.small-portion", "next": "portionsay"}], "wrong": {"es": "A portion of stones? My food isn't stones!", "ru": "Порцию камней? Моя еда — не камни!"}},
+        "portionsay": {"kind": "say", "es": "A small one, OK. Here's the soup.", "ru": "Маленькую, хорошо. Вот суп.", "next": "spicy"},
+        "spicy": {"kind": "answer", "task": "Спросите, острое ли это.", "branches": [{"phrase": "ph:restaurant.is-it-spicy", "next": "spicysay"}], "wrong": {"es": "Is it your birthday? Then the dessert is free!", "ru": "У тебя день рождения? Тогда десерт бесплатно!"}},
+        "spicysay": {"kind": "say", "es": "A little. It's cold in the hills, and soup keeps you warm.", "ru": "Немного. В горах холодно, а суп согревает.", "next": "salt"},
+        "salt": {"kind": "answer", "task": "Попробуйте суп и скажите, что он пересолен.", "branches": [{"phrase": "ph:restaurant.too-salty", "next": "saltsay"}], "wrong": {"es": "Cold? Impossible! Look, it's hot.", "ru": "Холодный? Невозможно! Смотри, он горячий."}},
+        "saltsay": {"kind": "say", "es": "Too salty? My soup?! … OK, you're right. I'm worried about Sam today. I'll bring you another one.", "ru": "Пересолен? Мой суп?! … Ладно, ты прав. Я сегодня волнуюсь из-за Сэма. Принесу другой.", "next": "gravy", "fem": {"ru": "Пересолен? Мой суп?! … Ладно, ты права. Я сегодня волнуюсь из-за Сэма. Принесу другой."}},
+        "gravy": {"kind": "answer", "task": "Попросите ещё подливки.", "branches": [{"phrase": "ph:restaurant.more-gravy", "next": "gravysay"}], "wrong": {"es": "More salt? No, no, there is too much salt already!", "ru": "Ещё соли? Нет-нет, соли и так слишком много!"}},
+        "gravysay": {"kind": "say", "es": "Gravy, of course. Do you want to know anything else?", "ru": "Подливка, конечно. Хочешь узнать что-нибудь ещё?", "next": "special"},
+        "special": {"kind": "answer", "task": "Спросите, какое сегодня фирменное блюдо.", "branches": [{"phrase": "ph:restaurant.special-today", "next": "end"}], "wrong": {"es": "What's my name? Archie, like always!", "ru": "Как меня зовут? Арчи, как всегда!"}},
+        "end": {"kind": "say", "es": "Fish and chips, of course. But today there is something special: my fragment of the hill map. If you find Sam, tell him the soup is waiting for him.", "ru": "Рыба с картошкой, конечно. А сегодня кое-что особенное: мой обрывок карты гор. Если найдёшь Сэма, скажи, что суп его ждёт."}
+      }
+    }
+  ]
+}

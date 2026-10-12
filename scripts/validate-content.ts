@@ -66,17 +66,8 @@ function textChecks(lang: Lang): Issue[] {
 const readFile = <T,>(lang: Lang, name: string): T | undefined =>
   existsSync(join(root, lang, name)) ? (JSON.parse(readFileSync(join(root, lang, name), 'utf8')) as T) : undefined;
 
-/**
- * Слова закрытого курса (английский с 17.3): места и свитки, одинаковые переводы, редкие слова на уровнях 1–4,
- * CEFR по частотности и рискованные леммы — как у открытого курса, но без проверок, которым нужны уроки и сцены.
- */
-function partialWordChecks(
-  lang: Lang,
-  words: { name: string; data: LocationWords }[],
-  scrolls: { name: string; data: ScrollFile }[],
-  lessons: GrammarLesson[],
-): Issue[] {
-  if (!words.length && !scrolls.length) return [];
+/** Частотные данные языка и словарь курса: слова мест, свитков и уроков по уровням. */
+function langLexicon(lang: Lang, words: { data: LocationWords }[], scrolls: { data: ScrollFile }[], lessons: GrammarLesson[]) {
   const dataDir = join(root, '..', '..', 'scripts', 'data');
   const skips = parseSkips(readFileSync(join(dataDir, `skip-${lang}.txt`), 'utf8'));
   const forms = applySkipsToForms(parseLemmas(readFileSync(join(dataDir, `lemmas-${lang}.tsv`), 'utf8')), skips);
@@ -90,6 +81,65 @@ function partialWordChecks(
     freq,
     (t) => lemmasIn(t, forms, lang),
   );
+  return { dataDir, forms, freq, lexicon };
+}
+
+/**
+ * Фразы, сцены и миссии закрытого курса (английский с 17.5): те же проверки, что у открытого, и они же в роде путницы.
+ * Развилок не меньше двух требуют главы, у которых уже есть миссии следующей главы: последствия пишутся в ней.
+ */
+function partialStoryChecks(
+  lang: Lang,
+  npcs: NpcsFile | undefined,
+  words: { data: LocationWords }[],
+  scrolls: { data: ScrollFile }[],
+  lessons: GrammarLesson[],
+): Issue[] {
+  const phrases = readJson<LocationPhrases>(join(root, lang, 'phrases'));
+  const scenes = readJson<LocationScenes>(join(root, lang, 'scenes')).filter((f) => f.name !== 'thread.json');
+  const missions = readJson<LocationMissions>(join(root, lang, 'missions'));
+  if (!phrases.length && !scenes.length && !missions.length) return [];
+  const { forms, lexicon } = langLexicon(lang, words, scrolls, lessons);
+  const coverage = (text: string, level: number) => textCoverage(text, level, lexicon, forms, lang);
+  const residents = Object.fromEntries((npcs?.npcs ?? []).map((n) => [n.location, n.id]));
+  const lessonIds = new Set(lessons.map((g) => g.id));
+  const check = (ph: typeof phrases, sc: typeof scenes, ms: typeof missions) => [
+    ...validatePhrases(ph, { lessons: lessonIds, uncovered: (text, level) => uncoveredWords(text, level, lexicon, forms, lang) }),
+    ...validateScenes(sc, { residents, pitch: Object.fromEntries((npcs?.npcs ?? []).map((n) => [n.id, n.voice.pitch])), coverage }).issues,
+    ...validateMissions(ms, {
+      residents,
+      registers: Object.fromEntries((npcs?.npcs ?? []).map((n) => [n.location, n.register])),
+      phrases: Object.fromEntries(ph.map((f) => [f.data.location, f.data.phrases])),
+      scenes: new Set(scenes.flatMap((f) => f.data.scenes.map((s) => s.id))),
+      coverage,
+    }),
+  ];
+  const fem = <T,>(list: { name: string; data: T }[]) => list.map((f) => ({ name: f.name, data: forGender(f.data, 'f') }));
+  const chapters = new Set(missions.flatMap((f) => f.data.missions.map((m) => m.chapter)));
+  const forks = { chapters: STORY_FORKS.chapters.filter((c) => chapters.has(c + 1)), min: STORY_FORKS.min };
+  const femFiles = [...scenes.map((f) => ['scenes', f] as const), ...missions.map((f) => ['missions', f] as const), ...phrases.map((f) => ['phrases', f] as const)];
+  return [
+    ...check(phrases, scenes, missions),
+    ...check(fem(phrases), fem(scenes), fem(missions))
+      .filter((i) => !i.msg.includes('из gloss нет в репликах'))
+      .map((i) => ({ ...i, where: `${i.where} (путница)` })),
+    ...femFiles.flatMap(([dir, f]) => femIssues(f.data, `${dir}/${f.name}`).map((msg) => ({ level: 'error' as const, where: `${dir}/${f.name}`, msg }))),
+    ...validateStory(scenes, missions, undefined, forks),
+  ];
+}
+
+/**
+ * Слова закрытого курса (английский с 17.3): места и свитки, одинаковые переводы, редкие слова на уровнях 1–4,
+ * CEFR по частотности и рискованные леммы — как у открытого курса, но без проверок, которым нужны уроки и сцены.
+ */
+function partialWordChecks(
+  lang: Lang,
+  words: { name: string; data: LocationWords }[],
+  scrolls: { name: string; data: ScrollFile }[],
+  lessons: GrammarLesson[],
+): Issue[] {
+  if (!words.length && !scrolls.length) return [];
+  const { dataDir, forms, freq, lexicon } = langLexicon(lang, words, scrolls, lessons);
   const ranks = lemmaRanks(coverage(freq, { words: new Set(lexicon.wordLevel.keys()), grammar: lexicon.grammar, anywhere: lexicon.anywhere }));
   const rank = (es: string) => wordRank(es, forms, lang, ranks);
   const risky = parseRisky(readFileSync(join(dataDir, `risky-${lang}.txt`), 'utf8'));
@@ -116,7 +166,7 @@ function partialWordChecks(
 
 /**
  * Закрытый курс (английский с 17.2): проверяются уже готовые файлы — жители, Летописец, стражи всех пяти глав,
- * кузница, Звонница, портреты, тексты и, когда они есть, слова мест и свитков.
+ * кузница, Звонница, портреты, тексты и, когда они есть, слова мест и свитков, уроки, фразы, сцены и миссии.
  */
 function partialChecks(lang: Lang): void {
   const words = readJson<LocationWords>(join(root, lang, 'words'));
@@ -151,9 +201,12 @@ function partialChecks(lang: Lang): void {
     ),
     ...textChecks(lang),
     ...tag(partialWordChecks(lang, words, scrolls, grammar.map((g) => g.data))),
+    ...tag(partialStoryChecks(lang, npcs, words, scrolls, grammar.map((g) => g.data))),
   );
   const wordCount = words.reduce((n, f) => n + f.data.words.length, 0) + scrolls.reduce((n, f) => n + f.data.words.length, 0);
-  summary.push(`${lang} (курс закрыт): слов ${wordCount} в ${words.length} местах и ${scrolls.length} свитках, ${grammar.length} уроков, ${npcs?.npcs.length ?? 0} жителей, ${guardians?.guardians.length ?? 0} стражей, ${verbs?.verbs.length ?? 0} глаголов в кузнице, ${pairs?.contrasts.reduce((n, c) => n + c.pairs.length, 0) ?? 0} пар в Звоннице`);
+  const count = (dir: string, key: 'phrases' | 'scenes' | 'missions') =>
+    readJson<Record<typeof key, unknown[]>>(join(root, lang, dir)).filter((f) => f.name !== 'thread.json').reduce((n, f) => n + (f.data[key]?.length ?? 0), 0);
+  summary.push(`${lang} (курс закрыт): слов ${wordCount} в ${words.length} местах и ${scrolls.length} свитках, ${grammar.length} уроков, ${count('phrases', 'phrases')} фраз, ${count('scenes', 'scenes')} сцен, ${count('missions', 'missions')} миссий, ${npcs?.npcs.length ?? 0} жителей, ${guardians?.guardians.length ?? 0} стражей, ${verbs?.verbs.length ?? 0} глаголов в кузнице, ${pairs?.contrasts.reduce((n, c) => n + c.pairs.length, 0) ?? 0} пар в Звоннице`);
 }
 
 for (const lang of langs) {

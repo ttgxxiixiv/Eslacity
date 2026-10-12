@@ -1,0 +1,47 @@
+{
+  "location": "home",
+  "missions": [
+    {
+      "id": "ms:home.1",
+      "chapter": 1,
+      "npc": "higgins",
+      "scene": "sc:home.1",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Good morning! The flat upstairs is free. Do you want to see it?", "ru": "Доброе утро! Квартира наверху свободна. Хочешь посмотреть?", "next": "key"},
+        "key": {"kind": "answer", "task": "Спросите, есть ли у неё ключ.", "branches": [{"phrase": "ph:home.got-the-key", "next": "keysay"}], "wrong": {"es": "Milk? The milk is in my kitchen. For the flat you need a key.", "ru": "Молоко? Молоко у меня на кухне. А для квартиры нужен ключ."}},
+        "keysay": {"kind": "say", "es": "Here's the key. Come on. This is the kitchen, and there are two more rooms.", "ru": "Вот ключ. Пойдём. Это кухня, и ещё две комнаты.", "next": "bath"},
+        "bath": {"kind": "answer", "task": "Спросите, где ванная.", "branches": [{"phrase": "ph:home.where-bathroom", "next": "bathsay"}], "wrong": {"es": "The bank? It's in the square. But we're looking for the bathroom, dear.", "ru": "Банк? Он на площади. А мы тут ищем ванную, дорогой."}},
+        "bathsay": {"kind": "say", "es": "Next to the big room.", "ru": "Рядом с большой комнатой.", "next": "washer"},
+        "washer": {"kind": "answer", "task": "Спросите, есть ли в квартире стиральная машина.", "branches": [{"phrase": "ph:home.washing-machine", "next": "washsay"}], "wrong": {"es": "A train in the flat? No, thank you!", "ru": "Поезд в квартире? Нет уж, спасибо!"}},
+        "washsay": {"kind": "say", "es": "In the bathroom. It's old, but it works very well.", "ru": "В ванной. Старая, но работает отлично.", "next": "rent"},
+        "rent": {"kind": "answer", "task": "Спросите, сколько стоит аренда.", "branches": [{"phrase": "ph:home.how-much-rent", "next": "rentsay"}], "wrong": {"es": "How old am I? You don't ask that!", "ru": "Сколько мне лет? Такое не спрашивают!"}},
+        "rentsay": {"kind": "say", "es": "For you, very cheap. You help me with the shopping, and that's all.", "ru": "Для тебя — совсем дёшево. Помогаешь мне с покупками, и всё.", "next": "chair"},
+        "chair": {"kind": "answer", "task": "Спросите, куда поставить стул.", "branches": [{"phrase": "ph:home.put-chair", "next": "chairsay"}], "wrong": {"es": "The chair on the bed? Next to the table is better.", "ru": "Стул на кровать? Лучше рядом со столом."}},
+        "chairsay": {"kind": "say", "es": "By the window. And what are you doing today?", "ru": "У окна. А что ты сегодня делаешь?", "next": "clean"},
+        "clean": {"kind": "answer", "task": "Скажите, что сегодня вам нужно убраться в квартире.", "branches": [{"phrase": "ph:home.clean-today", "next": "end"}], "wrong": {"es": "You need to sleep today? First eat, then sleep.", "ru": "Тебе сегодня нужно спать? Сначала поешь, потом спи."}},
+        "end": {"kind": "say", "es": "Clean? First, eat! And here: my fragment of the map. Now you're my neighbour, and neighbours help each other.", "ru": "Убираться? Сначала поесть! И держи: мой обрывок карты. Теперь ты мой сосед, а соседи помогают друг другу.", "fem": {"ru": "Убираться? Сначала поесть! И держи: мой обрывок карты. Теперь ты моя соседка, а соседи помогают друг другу."}}
+      }
+    },
+    {
+      "id": "ms:home.2",
+      "chapter": 2,
+      "npc": "higgins",
+      "scene": "sc:home.2",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "What a storm! I've brought you some soup. Is everything all right in your flat?", "ru": "Какая гроза! Я принесла тебе суп. У тебя в квартире всё в порядке?", "next": "heat"},
+        "heat": {"kind": "answer", "task": "Скажите, что отопление не работает.", "branches": [{"phrase": "ph:home.heating", "next": "heatsay"}], "wrong": {"es": "The washing machine is singing? Washing machines don't sing!", "ru": "Стиральная машина поёт? Стиральные машины не поют!"}},
+        "heatsay": {"kind": "say", "es": "In a storm it never works. Here, take my mother's old blanket.", "ru": "В грозу оно никогда не работает. Держи, мамино старое одеяло.", "next": "water"},
+        "water": {"kind": "answer", "task": "Скажите, что на полу вода.", "branches": [{"phrase": "ph:home.water-floor", "next": "watersay"}], "wrong": {"es": "There's a cat on the floor? That's my cat, he's with me.", "ru": "На полу кошка? Это мой кот, он со мной."}},
+        "watersay": {"kind": "say", "es": "It's the window! There, I've closed it. Now the soup.", "ru": "Это окно! Всё, закрыла. Теперь суп.", "next": "oven"},
+        "oven": {"kind": "answer", "task": "Спросите, есть ли на кухне духовка.", "branches": [{"phrase": "ph:home.oven-kitchen", "next": "ovensay"}], "wrong": {"es": "A wolf in the kitchen? No, dear, only soup!", "ru": "Волк на кухне? Да нет же, только суп!"}},
+        "ovensay": {"kind": "say", "es": "Of course, next to the fridge. Mmm, what lovely soup!", "ru": "Конечно, рядом с холодильником. Ох, какой вкусный суп!", "next": "dishes"},
+        "dishes": {"kind": "answer", "task": "Попросите её помочь помыть посуду.", "branches": [{"phrase": "ph:home.help-wash-up", "next": "dishsay"}], "wrong": {"es": "Dance? Not in a storm like this!", "ru": "Потанцуем? В такую грозу — нет!"}},
+        "dishsay": {"kind": "say", "es": "Of course. You wash, and I'll tell you a story about my village.", "ru": "Конечно. Ты моешь, а я расскажу тебе историю про мою деревню.", "next": "light"},
+        "light": {"kind": "answer", "task": "Попросите выключить свет, чтобы увидеть горы в грозу.", "branches": [{"phrase": "ph:home.light-off", "next": "end"}], "wrong": {"es": "Open the door? Never, not in this wind!", "ru": "Открыть дверь? Ни в коем случае, в такой ветер!"}},
+        "end": {"kind": "say", "es": "Look out of the window. Can you see the light up there, on the cliff? That's the lighthouse. Take my fragment of the hill map. And remember: the guardian asks what you did.", "ru": "Посмотри в окно. Видишь свет наверху, на скале? Это маяк. Держи мой обрывок карты гор. И помни: страж спрашивает, что ты сделал.", "fem": {"ru": "Посмотри в окно. Видишь свет наверху, на скале? Это маяк. Держи мой обрывок карты гор. И помни: страж спрашивает, что ты сделала."}}
+      }
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "location": "supermarket",
+  "missions": [
+    {
+      "id": "ms:supermarket.1",
+      "chapter": 1,
+      "npc": "jake",
+      "scene": "sc:supermarket.1",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Can you help me? My mum needs fish, eggs and pasta, and I can't leave the till.", "ru": "Поможешь? Маме нужны рыба, яйца и макароны, а я не могу отойти от кассы.", "next": "fish"},
+        "fish": {"kind": "answer", "task": "Спросите, есть ли рыба.", "branches": [{"phrase": "ph:supermarket.any-fish", "next": "fishsay"}], "wrong": {"es": "Cats? We haven't got cats. The neighbour's cat comes here for the fish.", "ru": "Кошки? Кошек у нас нет. Соседский кот приходит сюда за рыбой."}},
+        "fishsay": {"kind": "say", "es": "Next to the chicken. Now the eggs.", "ru": "Рядом с курицей. Теперь яйца.", "next": "eggs"},
+        "eggs": {"kind": "answer", "task": "Спросите, где яйца, или попросите десяток яиц.", "branches": [{"phrase": "ph:supermarket.where-eggs", "next": "eggsay1"}, {"phrase": "ph:supermarket.dozen-eggs", "next": "eggsay2"}], "wrong": {"es": "Chocolate eggs? Those are for kids.", "ru": "Шоколадные яйца? Это для детей."}},
+        "eggsay1": {"kind": "say", "es": "In aisle three, next to the milk.", "ru": "В третьем ряду, рядом с молоком.", "next": "pasta"},
+        "eggsay2": {"kind": "say", "es": "A dozen, great. They're in aisle three.", "ru": "Десяток, отлично. Они в третьем ряду.", "next": "pasta"},
+        "pasta": {"kind": "answer", "task": "Спросите, в каком ряду макароны.", "branches": [{"phrase": "ph:supermarket.which-aisle-pasta", "next": "pastasay"}], "wrong": {"es": "Pasta for the dog? No, the dog eats meat.", "ru": "Макароны для собаки? Нет, собака ест мясо."}},
+        "pastasay": {"kind": "say", "es": "Aisle five. And there's a special offer on it today.", "ru": "В пятом ряду. И сегодня на них акция.", "next": "offer"},
+        "offer": {"kind": "answer", "task": "Уточните, на сегодня ли эта акция.", "branches": [{"phrase": "ph:supermarket.offer-today", "next": "offersay"}], "wrong": {"es": "A special offer for the dog? No, it's for people.", "ru": "Акция для собаки? Нет, она для людей."}},
+        "offersay": {"kind": "say", "es": "Only today. Do you need anything?", "ru": "Только сегодня. Тебе что-нибудь нужно?", "next": "bread"},
+        "bread": {"kind": "answer", "task": "Скажите, что вам нужны хлеб и молоко.", "branches": [{"phrase": "ph:supermarket.need-bread", "next": "breadsay"}], "wrong": {"es": "You need a car? The shop doesn't sell cars… yet.", "ru": "Тебе нужна машина? Магазин не продаёт машины… пока."}},
+        "breadsay": {"kind": "say", "es": "Bread and milk. That's eight pounds.", "ru": "Хлеб и молоко. С тебя восемь фунтов.", "next": "receipt"},
+        "receipt": {"kind": "answer", "task": "Попросите чек.", "branches": [{"phrase": "ph:supermarket.the-receipt", "next": "end"}], "wrong": {"es": "A taxi? I haven't got a car. Do you want the receipt?", "ru": "Такси? У меня нет машины. Тебе чек?"}},
+        "end": {"kind": "say", "es": "Here's the receipt. And here… a fragment of the map. Mum says the Vault is far away, past the hills. What if it isn't just a story?", "ru": "Вот чек. И вот… обрывок карты. Мама говорит, что Хранилище далеко, за горами. А вдруг это не сказка?"}
+      }
+    },
+    {
+      "id": "ms:supermarket.2",
+      "chapter": 2,
+      "npc": "jake",
+      "scene": "sc:supermarket.2",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "No torches, but there's food for the road. What are you looking for?", "ru": "Фонариков нет, но есть еда в дорогу. Что ищешь?", "next": "tuna"},
+        "tuna": {"kind": "answer", "task": "Спросите, где тунец.", "branches": [{"phrase": "ph:supermarket.where-tuna", "next": "tunasay"}], "wrong": {"es": "Where's the wolf? In the hills, not in my shop!", "ru": "Где волк? В горах, а не в моём магазине!"}},
+        "tunasay": {"kind": "say", "es": "Aisle four. Tins are good for the road.", "ru": "В четвёртом ряду. Консервы хороши в дорогу.", "next": "water"},
+        "water": {"kind": "answer", "task": "Спросите, есть ли газированная вода.", "branches": [{"phrase": "ph:supermarket.sparkling-water", "next": "watersay"}], "wrong": {"es": "Moon water? We've only got water from here.", "ru": "Лунная вода? У нас только здешняя."}},
+        "watersay": {"kind": "say", "es": "Yes. Take two bottles.", "ru": "Есть. Возьми две бутылки.", "next": "bread"},
+        "bread": {"kind": "answer", "task": "Спросите, где хлебный отдел.", "branches": [{"phrase": "ph:supermarket.bakery-section", "next": "breadsay"}], "wrong": {"es": "Where's my house? I've got no idea, traveller.", "ru": "Где мой дом? Понятия не имею, путешественник."}},
+        "breadsay": {"kind": "say", "es": "Over there, on the right. Today's bread is still warm. And yoghurt?", "ru": "Вон там, справа. Сегодняшний хлеб ещё тёплый. А йогурт?", "next": "yog"},
+        "yog": {"kind": "answer", "task": "Скажите, что этот йогурт просрочен.", "branches": [{"phrase": "ph:supermarket.yoghurt-old", "next": "yogsay"}], "wrong": {"es": "The yoghurt is sad? Yoghurts aren't sad.", "ru": "Йогурт грустный? Йогурты не грустят."}},
+        "yogsay": {"kind": "say", "es": "You're right! It's from last week. Take this one.", "ru": "Ты прав! Он с прошлой недели. Возьми вот этот.", "next": "price", "fem": {"ru": "Ты права! Он с прошлой недели. Возьми вот этот."}},
+        "price": {"kind": "answer", "task": "Спросите, сколько стоит этот товар.", "branches": [{"phrase": "ph:supermarket.price-product", "next": "pricesay"}], "wrong": {"es": "How old am I? Twenty. Why?", "ru": "Сколько мне лет? Двадцать. А что?"}},
+        "pricesay": {"kind": "say", "es": "Three pounds. It's a good brand.", "ru": "Три фунта. Хорошая марка.", "next": "disc"},
+        "disc": {"kind": "answer", "task": "Спросите, есть ли скидка на эту марку.", "branches": [{"phrase": "ph:supermarket.discount-brand", "next": "end"}], "wrong": {"es": "A discount on the man in the grey coat? I wish!", "ru": "Скидка на человека в сером пальто? Если бы!"}},
+        "end": {"kind": "say", "es": "For the traveller with the map, there's a discount. And here's my fragment of the hill map. If you see the man in the grey coat, ask him where his coins are from.", "ru": "Для путешественника с картой скидка есть. И вот тебе мой обрывок карты гор. Если увидишь человека в сером пальто, спроси, откуда у него монеты.", "fem": {"ru": "Для путешественницы с картой скидка есть. И вот тебе мой обрывок карты гор. Если увидишь человека в сером пальто, спроси, откуда у него монеты."}}
+      }
+    }
+  ]
+}

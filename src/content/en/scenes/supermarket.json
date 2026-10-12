@@ -1,0 +1,55 @@
+{
+  "location": "supermarket",
+  "scenes": [
+    {
+      "id": "sc:supermarket.1",
+      "chapter": 1,
+      "npc": "jake",
+      "lines": [
+        {"who": "npc", "es": "Morning. Have you got a map of the shop?", "ru": "Доброе утро. У тебя есть карта магазина?"},
+        {"who": "hero", "es": "No. Where is the bread?", "ru": "Нет. Где хлеб?"},
+        {"who": "npc", "es": "Next to the milk. There's a special offer on bread today.", "ru": "Рядом с молоком. Сегодня на хлеб акция."},
+        {"who": "hero", "es": "Great! And where are the eggs?", "ru": "Отлично! А где яйца?"},
+        {"who": "npc", "es": "In aisle three. Listen, you're the traveller with the map, right?", "ru": "В третьем ряду. Слушай, ты тот путешественник с картой, да?", "fem": {"ru": "В третьем ряду. Слушай, ты та путешественница с картой, да?"}},
+        {"who": "hero", "es": "I'm looking for fragments of the map.", "ru": "Я ищу обрывки карты."},
+        {"who": "npc", "es": "My mum says the map shows the way to the Vault of the Elixir.", "ru": "Моя мама говорит, что карта показывает дорогу к Хранилищу Эликсира."},
+        {"who": "hero", "es": "And what do you think?", "ru": "А ты что думаешь?"},
+        {"who": "npc", "es": "I think it's a story for kids. But I've got a fragment, here, in the till.", "ru": "Что это сказка для детей. Но обрывок у меня есть, здесь, в кассе."},
+        {"who": "hero", "es": "Can you give it to me?", "ru": "Отдашь мне?"},
+        {"who": "npc", "es": "First buy something. Nothing is free here.", "ru": "Сначала купи что-нибудь. Здесь ничего не даётся даром."}
+      ],
+      "questions": [
+        {"q": "Где хлеб?", "options": ["Рядом с молоком", "В третьем ряду", "У кассы"], "answer": 0},
+        {"q": "Что говорит мама Джейка?", "options": ["Что карта потерялась", "Что карта ведёт к Хранилищу Эликсира", "Что карты никогда не было"], "answer": 1},
+        {"q": "Что думает сам Джейк?", "options": ["Что Хранилище совсем рядом", "Что карта у мамы", "Что это сказка для детей"], "answer": 2},
+        {"q": "Где обрывок Джейка?", "options": ["Дома", "В кассе", "В третьем ряду"], "answer": 1}
+      ],
+      "gloss": {"traveller": "путешественник", "fragments": "обрывки", "fragment": "обрывок", "vault": "хранилище", "elixir": "эликсир", "free": "бесплатный"}
+    },
+    {
+      "id": "sc:supermarket.2",
+      "chapter": 2,
+      "npc": "jake",
+      "lines": [
+        {"who": "npc", "es": "Ah, the traveller! Are you going to the hills now?", "ru": "А, путешественник! Теперь идёшь в горы?"},
+        {"who": "hero", "es": "I need a torch.", "ru": "Мне нужен фонарик."},
+        {"who": "npc", "es": "Sorry. Yesterday a man bought all twenty torches in the shop.", "ru": "Извини. Вчера один человек купил все двадцать фонариков в магазине."},
+        {"who": "hero", "es": "Twenty? Who was he?", "ru": "Двадцать? Кто это был?"},
+        {"who": "npc", "es": "He didn't say his name. He had a grey coat and paid with very old coins.", "ru": "Имени не сказал. Был в сером пальто и заплатил очень старыми монетами."},
+        {"who": "hero", "es": "Old coins?", "ru": "Старыми монетами?"},
+        {"who": "npc", "es": "Look. This coin is a hundred years old.", "ru": "Смотри. Этой монете сто лет."},
+        {"who": "hero", "es": "How strange! Did he say anything else?", "ru": "Как странно! Он сказал что-нибудь ещё?"},
+        {"who": "npc", "es": "He only said: “The fog is coming soon.” And he left.", "ru": "Сказал только: «Скоро придёт туман». И ушёл."},
+        {"who": "hero", "es": "Before, you thought the map was a story.", "ru": "Раньше ты думал, что карта — это сказка."},
+        {"who": "npc", "es": "Before. Now I'm not so sure.", "ru": "Раньше. А теперь я уже не так уверен."}
+      ],
+      "questions": [
+        {"q": "Что хотел купить герой?", "options": ["Фонарик", "Сыр", "Карту"], "answer": 0},
+        {"q": "Кто купил все фонарики?", "options": ["Сэм", "Человек в сером пальто", "Миссис Патель"], "answer": 1},
+        {"q": "Чем он заплатил?", "options": ["Картой магазина", "Ничем", "Очень старыми монетами"], "answer": 2},
+        {"q": "Что он сказал?", "options": ["«Маяк закрыт»", "«Скоро придёт туман»", "«Я вернусь завтра»"], "answer": 1}
+      ],
+      "gloss": {"ah": "а", "torch": "фонарик", "torches": "фонарики"}
+    }
+  ]
+}

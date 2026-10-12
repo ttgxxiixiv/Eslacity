@@ -1,0 +1,48 @@
+{
+  "location": "market",
+  "missions": [
+    {
+      "id": "ms:market.1",
+      "chapter": 1,
+      "npc": "patel",
+      "scene": "sc:market.1",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Love, today I only sell in English! What do you want to buy?", "ru": "Дорогуша, сегодня я продаю только по-английски! Что хочешь купить?", "next": "buy"},
+        "buy": {"kind": "answer", "task": "Попросите килограмм яблок или два килограмма картошки.", "branches": [{"phrase": "ph:market.kilo-of-apples", "next": "apples", "sets": {"basket": "apples"}}, {"phrase": "ph:market.two-kilos-potatoes", "next": "potatoes", "sets": {"basket": "potatoes"}}], "wrong": {"es": "A kilo of shoes? I sell fruit here, love!", "ru": "Килограмм ботинок? Я тут фрукты продаю, дорогуша!"}},
+        "apples": {"kind": "say", "es": "Red apples, very good. Anything else?", "ru": "Красные яблоки, отличные. Что-нибудь ещё?", "next": "price"},
+        "potatoes": {"kind": "say", "es": "Potatoes for dinner, lovely! Anything else?", "ru": "Картошка на ужин, отлично! Что-нибудь ещё?", "next": "price"},
+        "price": {"kind": "answer", "task": "Спросите, сколько стоят апельсины.", "branches": [{"phrase": "ph:market.how-much-oranges", "next": "pricesay"}], "wrong": {"es": "How much is my dog? My dog isn't for sale!", "ru": "Сколько стоит моя собака? Моя собака не продаётся!"}},
+        "pricesay": {"kind": "say", "es": "Oranges are four pounds a kilo.", "ru": "Апельсины — четыре фунта за килограмм.", "next": "bargain"},
+        "bargain": {"kind": "answer", "task": "Скажите, что это очень дорого.", "branches": [{"phrase": "ph:market.very-expensive", "next": "cheaper"}], "wrong": {"es": "Very cheap? No, no, no! For you, five pounds.", "ru": "Очень дёшево? Нет-нет-нет! Для тебя — пять фунтов."}},
+        "cheaper": {"kind": "say", "es": "That's how we do it here! For you, two pounds.", "ru": "Вот это по-нашему! Для тебя — два фунта.", "next": "straw"},
+        "straw": {"kind": "answer", "task": "Спросите, дешёвая ли сегодня клубника.", "branches": [{"phrase": "ph:market.strawberries-cheap", "next": "strawsay"}], "wrong": {"es": "Are the strawberries sad? No, they are very happy.", "ru": "Клубника грустная? Нет, она очень довольная."}},
+        "strawsay": {"kind": "say", "es": "Very cheap today. Take one, a gift.", "ru": "Сегодня очень дешёвая. Держи одну в подарок.", "next": "bag"},
+        "bag": {"kind": "answer", "task": "Попросите пакет.", "branches": [{"phrase": "ph:market.a-bag", "next": "end"}], "wrong": {"es": "A house? No, love, only a bag.", "ru": "Дать тебе дом? Нет, дорогуша, только пакет."}},
+        "end": {"kind": "say", "es": "Here's your bag. You speak very well! My mother said: the map shows the way to the Vault of the Elixir. Here, this fragment is for you.", "ru": "Вот пакет. Ты отлично говоришь! Мама говорила: карта показывает дорогу к Хранилищу Эликсира. Держи, этот обрывок — тебе."}
+      }
+    },
+    {
+      "id": "ms:market.2",
+      "chapter": 2,
+      "npc": "patel",
+      "scene": "sc:market.2",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Sweetheart! For the hills you need good food. What do you want?", "ru": "Солнышко! В горы нужна хорошая еда. Что тебе положить?", "next": "buy"},
+        "buy": {"kind": "answer", "task": "Попросите килограмм моркови или спросите, есть ли чеснок.", "branches": [{"phrase": "ph:market.kilo-carrots", "next": "buysay"}, {"phrase": "ph:market.any-garlic", "next": "buysay"}], "wrong": {"es": "A kilo of stones? Stones are in the hills.", "ru": "Килограмм камней? Камни — это в горах."}},
+        "buysay": {"kind": "say", "es": "Here you are. And the cheese from the farmers?", "ru": "Держи. А сыр от фермеров?", "next": "taste"},
+        "taste": {"kind": "answer", "task": "Спросите, можно ли попробовать.", "branches": [{"phrase": "ph:market.can-i-taste", "next": "tastesay"}], "wrong": {"es": "Can you sing? Sing, but buy something too.", "ru": "Можно спеть? Пой, но и покупай."}},
+        "tastesay": {"kind": "say", "es": "Go on, taste it! Good? And some fruit for the road?", "ru": "Пробуй, пробуй! Вкусно? А фрукты в дорогу?", "next": "season"},
+        "season": {"kind": "answer", "task": "Спросите, какие фрукты сейчас по сезону.", "branches": [{"phrase": "ph:market.in-season", "next": "seasonsay"}], "wrong": {"es": "What time is it? Time to buy fruit!", "ru": "Который час? Время покупать фрукты!"}},
+        "seasonsay": {"kind": "say", "es": "Cherries. Look, they are so red.", "ru": "Черешня. Смотри, какая красная.", "next": "cherry"},
+        "cherry": {"kind": "answer", "task": "Попросите полкило черешни.", "branches": [{"phrase": "ph:market.half-cherries", "next": "cherrysay"}], "wrong": {"es": "Half a kilo of salt? This is fruit.", "ru": "Полкило соли? Это фрукты."}},
+        "cherrysay": {"kind": "say", "es": "Half a kilo. They come from the farms under the hills.", "ru": "Полкило. Она с ферм под самыми горами.", "next": "peach"},
+        "peach": {"kind": "answer", "task": "Спросите, откуда эти персики.", "branches": [{"phrase": "ph:market.peaches-from", "next": "peachsay"}], "wrong": {"es": "Where am I from? From here, from the market!", "ru": "Откуда я? Отсюда, с рынка!"}},
+        "peachsay": {"kind": "say", "es": "From the hills too. Anything else?", "ru": "Тоже с гор. Что-нибудь ещё?", "next": "done"},
+        "done": {"kind": "answer", "task": "Скажите, что больше ничего не нужно, и поблагодарите.", "branches": [{"phrase": "ph:market.thats-all", "next": "end"}], "wrong": {"es": "Buy the market? No, it is not for sale.", "ru": "Купить рынок? Нет, он не продаётся."}},
+        "end": {"kind": "say", "es": "That's eight pounds. And listen: the farmers say there is a light in the lighthouse every night. Somebody lives there. Take my fragment of the hill map.", "ru": "С тебя восемь фунтов. И послушай: фермеры говорят, что на маяке каждую ночь горит свет. Там кто-то живёт. Держи мой обрывок карты гор."}
+      }
+    }
+  ]
+}

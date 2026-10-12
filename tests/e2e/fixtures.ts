@@ -170,6 +170,23 @@ export async function openApp(page: Page, lang: Lang, path = '', opts: { prologu
   if (path) await page.goto(`./#${path}`);
 }
 
+/**
+ * Закрытый английский курс (задачи 17.4–17.5): без пролога и города, экраны открываются напрямую.
+ * Язык ставится в localStorage, озвучка подменяется, как в `openApp`.
+ */
+export async function openEnglish(page: Page) {
+  await page.addInitScript(() => {
+    localStorage.setItem('eslacity.lang', 'en');
+    localStorage.setItem('eslacity.e2e', '1');
+    const scroll = Element.prototype.scrollIntoView;
+    Element.prototype.scrollIntoView = function (this: Element, ...args: Parameters<Element['scrollIntoView']>) {
+      scroll.apply(this, args);
+      return Promise.resolve() as unknown as void;
+    };
+    speechSynthesis.speak = () => {};
+  });
+}
+
 /** После смены языка новый курс начинается с пролога (задача 13.2): пропустить его, если он открылся. */
 export async function skipPrologue(page: Page) {
   await expect(page.getByTestId('continue').or(page.getByTestId('prologue-skip'))).toBeVisible();

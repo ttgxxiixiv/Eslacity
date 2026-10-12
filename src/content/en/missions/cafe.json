@@ -1,0 +1,50 @@
+{
+  "location": "cafe",
+  "missions": [
+    {
+      "id": "ms:cafe.1",
+      "chapter": 1,
+      "npc": "molly",
+      "scene": "sc:cafe.1",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Hello again! Today in my café we only speak English. What would you like?", "ru": "Привет ещё раз! Сегодня в моём кафе говорят только по-английски. Что будешь?", "next": "order"},
+        "order": {"kind": "answer", "task": "Закажите кофе или чай с молоком.", "branches": [{"phrase": "ph:cafe.a-coffee", "next": "coffee", "sets": {"drink": "coffee"}}, {"phrase": "ph:cafe.tea-with-milk", "next": "tea", "sets": {"drink": "tea"}}], "wrong": {"es": "A cat? Sorry, there are no cats on the menu.", "ru": "Кота? Извини, котов в меню нет."}},
+        "coffee": {"kind": "say", "es": "A coffee. Lovely! And do you want some water?", "ru": "Кофе. Отлично! А воды хочешь?", "next": "water"},
+        "tea": {"kind": "say", "es": "Tea with milk. You speak very well! Do you want some water?", "ru": "Чай с молоком. Ты отлично говоришь! Воды хочешь?", "next": "water"},
+        "water": {"kind": "answer", "task": "Попросите стакан воды.", "branches": [{"phrase": "ph:cafe.glass-of-water", "next": "sugarq"}], "wrong": {"es": "A glass of soup? This is a café, not a restaurant.", "ru": "Стакан супа? Это кафе, а не ресторан."}},
+        "sugarq": {"kind": "say", "es": "Here's your water. And sugar?", "ru": "Вот вода. А сахар?", "next": "sugar"},
+        "sugar": {"kind": "answer", "task": "Откажитесь от сахара и поблагодарите.", "branches": [{"phrase": "ph:cafe.no-sugar", "next": "toast"}], "wrong": {"es": "Ten kilos of sugar? No, no, no!", "ru": "Десять кило сахара? Нет-нет-нет!"}},
+        "toast": {"kind": "say", "es": "OK. The toast is really good today.", "ru": "Хорошо. Сегодня тосты очень вкусные.", "next": "toastq"},
+        "toastq": {"kind": "answer", "task": "Спросите, есть ли тосты.", "branches": [{"phrase": "ph:cafe.any-toast", "next": "paysay"}], "wrong": {"es": "Toast for the dog? The dog eats a lot already.", "ru": "Тосты для собаки? Собака и так много ест."}},
+        "paysay": {"kind": "say", "es": "Yes. Here's your toast.", "ru": "Да. Вот твой тост.", "next": "payq"},
+        "payq": {"kind": "answer", "task": "Спросите, можно ли заплатить здесь.", "branches": [{"phrase": "ph:cafe.can-i-pay-here", "next": "billsay"}], "wrong": {"es": "Pay with flowers? Here we pay in pounds.", "ru": "Заплатить цветами? Здесь платят фунтами."}},
+        "billsay": {"kind": "say", "es": "Yes, here. The waiter has the bill.", "ru": "Да, здесь. Счёт у официанта.", "next": "bill"},
+        "bill": {"kind": "answer", "task": "Попросите счёт.", "branches": [{"phrase": "ph:cafe.the-bill", "next": "bye"}], "wrong": {"es": "Another coffee? You've got a coffee!", "ru": "Ещё кофе? У тебя уже есть кофе!"}},
+        "bye": {"kind": "say", "es": "That's three pounds. You speak very well! See you tomorrow.", "ru": "С тебя три фунта. Ты отлично говоришь! До завтра."}
+      }
+    },
+    {
+      "id": "ms:cafe.2",
+      "chapter": 2,
+      "npc": "molly",
+      "scene": "sc:cafe.2",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Before the road, a good breakfast. Where do you want to sit?", "ru": "Перед дорогой — хороший завтрак. Куда сядешь?", "next": "table"},
+        "table": {"kind": "answer", "task": "Спросите, свободно ли это место.", "branches": [{"phrase": "ph:cafe.seat-free", "next": "tablesay"}], "wrong": {"es": "Is the dog free? No, that's my neighbour's dog.", "ru": "Собака свободна? Нет, это соседская собака."}},
+        "tablesay": {"kind": "say", "es": "Yes, sit down. What would you like?", "ru": "Да, садись. Что будешь?", "next": "order"},
+        "order": {"kind": "answer", "task": "Закажите завтрак или большую кружку чая с тостом.", "branches": [{"phrase": "ph:cafe.order-breakfast", "next": "ordersay"}, {"phrase": "ph:cafe.mug-and-toast", "next": "ordersay"}], "wrong": {"es": "Fish soup? At eight in the morning?", "ru": "Рыбный суп? В восемь утра?"}},
+        "ordersay": {"kind": "say", "es": "Lovely. And for the road, do you want something hot?", "ru": "Отлично. А в дорогу хочешь чего-нибудь горячего?", "next": "choc"},
+        "choc": {"kind": "answer", "task": "Попросите горячий шоколад.", "branches": [{"phrase": "ph:cafe.hot-chocolate", "next": "chocsay"}], "wrong": {"es": "Ice cream? It's cold in the hills!", "ru": "Мороженое? В горах холодно!"}},
+        "chocsay": {"kind": "say", "es": "Hot chocolate, like for Sam. He loved it.", "ru": "Горячий шоколад, как для Сэма. Он его очень любил.", "next": "napkin"},
+        "napkin": {"kind": "answer", "task": "Попросите салфетку.", "branches": [{"phrase": "ph:cafe.a-napkin", "next": "napkinsay"}], "wrong": {"es": "A banana? This is a café, not the market!", "ru": "Банан? Это кафе, а не рынок!"}},
+        "napkinsay": {"kind": "say", "es": "Here you are. And look: this is Sam's last letter.", "ru": "Держи. И смотри: это последнее письмо Сэма.", "next": "cash"},
+        "cash": {"kind": "answer", "task": "Спросите, можно ли заплатить наличными.", "branches": [{"phrase": "ph:cafe.pay-cash", "next": "cashsay"}], "wrong": {"es": "Pay with your bag? No, thanks, I've got a bag.", "ru": "Заплатить твоим пакетом? Нет, спасибо, у меня есть пакет."}},
+        "cashsay": {"kind": "say", "es": "Cash is fine. But wait a moment.", "ru": "Наличные — это хорошо. Но подожди минутку.", "next": "treat"},
+        "treat": {"kind": "answer", "task": "Скажите, что сегодня угощаете вы.", "branches": [{"phrase": "ph:cafe.my-treat", "next": "end"}], "wrong": {"es": "You're giving me your map? No, keep it.", "ru": "Отдаёшь мне свою карту? Нет, оставь себе."}},
+        "end": {"kind": "say", "es": "No, today you don't pay anything. And listen: if you see Sam in the fog, call him. He always said: in the fog, only a voice can show you the way. Take my fragment of the hill map.", "ru": "Нет, сегодня ты ничего не платишь. И вот что: если увидишь Сэма в тумане, позови его. Он всегда говорил: в тумане дорогу покажет только голос. Держи мой обрывок карты гор."}
+      }
+    }
+  ]
+}

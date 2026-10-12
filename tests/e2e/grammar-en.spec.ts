@@ -1,7 +1,7 @@
 import { readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { expect, test, type Page } from '@playwright/test';
-import { answerGrammar } from './fixtures';
+import { expect, test } from '@playwright/test';
+import { answerGrammar, openEnglish } from './fixtures';
 
 /**
  * Английский курс закрыт (задача 17.4: есть слова и уроки A1–A2, но нет пролога и города): уроки открываются
@@ -9,19 +9,6 @@ import { answerGrammar } from './fixtures';
  */
 const ROOT = join(import.meta.dirname, '..', '..', 'src', 'content', 'en', 'grammar');
 const CHAPTER: Record<string, number> = { a1: 1, a2: 2 };
-
-async function openEnglish(page: Page) {
-  await page.addInitScript(() => {
-    localStorage.setItem('eslacity.lang', 'en');
-    localStorage.setItem('eslacity.e2e', '1');
-    const scroll = Element.prototype.scrollIntoView;
-    Element.prototype.scrollIntoView = function (this: Element, ...args: Parameters<Element['scrollIntoView']>) {
-      scroll.apply(this, args);
-      return Promise.resolve() as unknown as void;
-    };
-    speechSynthesis.speak = () => {};
-  });
-}
 
 for (const district of readdirSync(ROOT)) {
   for (const file of readdirSync(join(ROOT, district)).filter((f) => f.endsWith('.json'))) {

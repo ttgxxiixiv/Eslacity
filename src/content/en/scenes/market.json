@@ -1,0 +1,57 @@
+{
+  "location": "market",
+  "scenes": [
+    {
+      "id": "sc:market.1",
+      "chapter": 1,
+      "npc": "patel",
+      "lines": [
+        {"who": "npc", "es": "Morning, love! Look at these tomatoes. What do you want today?", "ru": "Доброе утро, дорогуша! Смотри, какие помидоры. Что тебе сегодня?"},
+        {"who": "hero", "es": "A kilo of tomatoes and two oranges, please.", "ru": "Килограмм помидоров и два апельсина, пожалуйста."},
+        {"who": "npc", "es": "Good. And strawberries? They are lovely today.", "ru": "Хорошо. А клубнику? Сегодня она чудесная."},
+        {"who": "hero", "es": "How much are the strawberries?", "ru": "Сколько стоит клубника?"},
+        {"who": "npc", "es": "Three pounds a kilo.", "ru": "Три фунта за килограмм."},
+        {"who": "hero", "es": "That's very expensive.", "ru": "Это очень дорого."},
+        {"who": "npc", "es": "Oh, love! For you, two pounds.", "ru": "Ах, дорогуша! Для тебя — два фунта."},
+        {"who": "hero", "es": "OK. And a bag, please.", "ru": "Хорошо. И пакет, пожалуйста."},
+        {"who": "npc", "es": "Listen, are you looking for the old map? My mother had a fragment.", "ru": "Слушай, ты ищешь старую карту? У моей мамы был обрывок."},
+        {"who": "hero", "es": "And where is it now?", "ru": "А где он сейчас?"},
+        {"who": "npc", "es": "Here, in my box. And now, shopping!", "ru": "Здесь, в моей коробке. А теперь — за покупками!"}
+      ],
+      "questions": [
+        {"q": "Что покупает герой?", "options": ["Помидоры и апельсины", "Картошку и лук", "Хлеб и рыбу"], "answer": 0},
+        {"q": "Сколько клубника стоит для героя?", "options": ["Три фунта", "Два фунта", "Пять фунтов"], "answer": 1},
+        {"q": "Что было у мамы миссис Патель?", "options": ["Старая лодка", "Обрывок старой карты", "Ключ от дома"], "answer": 1},
+        {"q": "Где сейчас этот обрывок?", "options": ["На почте", "В банке", "В коробке на рынке"], "answer": 2}
+      ],
+      "gloss": {"oh": "ах", "ok": "хорошо, ладно", "fragment": "обрывок"}
+    },
+    {
+      "id": "sc:market.2",
+      "chapter": 2,
+      "npc": "patel",
+      "lines": [
+        {"who": "npc", "es": "Sweetheart! Have you tried this cheese? It's from the farmers in the hills.", "ru": "Солнышко! Пробовал этот сыр? Его делают фермеры в горах.", "fem": {"ru": "Солнышко! Пробовала этот сыр? Его делают фермеры в горах."}},
+        {"who": "hero", "es": "Do the farmers come to the market?", "ru": "Фермеры приходят на рынок?"},
+        {"who": "npc", "es": "They come down every week. They bring cheese and news.", "ru": "Спускаются каждую неделю. Приносят сыр и новости."},
+        {"who": "hero", "es": "What news?", "ru": "Какие новости?"},
+        {"who": "npc", "es": "Last week they told me something strange. They saw Sam, Molly's brother.", "ru": "На прошлой неделе они рассказали мне странную вещь. Они видели Сэма, брата Молли."},
+        {"who": "hero", "es": "Where did they see him?", "ru": "Где они его видели?"},
+        {"who": "npc", "es": "He was going up to the lighthouse with a man. Nobody knows him. He had a grey coat.", "ru": "Он поднимался к маяку с каким-то человеком. Того никто не знает. На нём было серое пальто."},
+        {"who": "hero", "es": "Who was that man?", "ru": "Кто это был?"},
+        {"who": "npc", "es": "Nobody knows. He didn't talk to anyone.", "ru": "Никто не знает. Он ни с кем не говорил."},
+        {"who": "hero", "es": "I must tell his sister.", "ru": "Надо рассказать его сестре."},
+        {"who": "npc", "es": "Wait. First, taste the cheese.", "ru": "Подожди. Сначала попробуй сыр."},
+        {"who": "npc", "es": "And how were my apples? You took a whole kilo last time.", "ru": "А как мои яблоки? В прошлый раз ты взял целый килограмм.", "fem": {"ru": "А как мои яблоки? В прошлый раз ты взяла целый килограмм."}, "if": {"flag": "basket", "is": "apples"}},
+        {"who": "npc", "es": "And how were my potatoes? Two kilos! Did you cook them all?", "ru": "А как моя картошка? Два килограмма! Ты всё приготовил?", "fem": {"ru": "А как моя картошка? Два килограмма! Ты всё приготовила?"}, "if": {"flag": "basket", "is": "potatoes"}}
+      ],
+      "questions": [
+        {"q": "Откуда сыр у миссис Патель?", "options": ["От фермеров в горах", "Из супермаркета", "Из-за моря"], "answer": 0},
+        {"q": "Как часто фермеры спускаются в город?", "options": ["Каждый день", "Каждую неделю", "Раз в год"], "answer": 1},
+        {"q": "Кого видели фермеры?", "options": ["Летописца", "Стража", "Сэма, брата Молли"], "answer": 2},
+        {"q": "Как выглядел незнакомец?", "options": ["В красной шляпе", "В сером пальто", "С собакой"], "answer": 1}
+      ],
+      "gloss": {"sweetheart": "солнышко", "farmers": "фермеры"}
+    }
+  ]
+}

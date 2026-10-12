@@ -1,0 +1,55 @@
+{
+  "location": "home",
+  "scenes": [
+    {
+      "id": "sc:home.1",
+      "chapter": 1,
+      "npc": "higgins",
+      "lines": [
+        {"who": "npc", "es": "Good morning! Have you eaten?", "ru": "Доброе утро! Ты уже ел?", "fem": {"ru": "Доброе утро! Ты уже ела?"}},
+        {"who": "hero", "es": "No, not yet.", "ru": "Нет, ещё нет."},
+        {"who": "npc", "es": "Come in, come in! This is the kitchen. There is soup.", "ru": "Заходи, заходи! Вот кухня. Есть суп."},
+        {"who": "hero", "es": "Thank you. You have a very nice house.", "ru": "Спасибо. У вас очень красивый дом."},
+        {"who": "npc", "es": "It's small: two rooms, a kitchen and a bathroom.", "ru": "Он маленький: две комнаты, кухня и ванная."},
+        {"who": "hero", "es": "Mrs Higgins, do you know anything about the map?", "ru": "Миссис Хиггинс, вы что-нибудь знаете о карте?"},
+        {"who": "npc", "es": "My fragment is here, in my old cookbook.", "ru": "Мой обрывок здесь, в моей старой поваренной книге."},
+        {"who": "hero", "es": "Why is the map in fragments?", "ru": "Почему карта разорвана на обрывки?"},
+        {"who": "npc", "es": "Many years ago people fought about the map. So every house has a fragment.", "ru": "Много лет назад люди ссорились из-за карты. Поэтому у каждого дома по обрывку."},
+        {"who": "hero", "es": "And now?", "ru": "А теперь?"},
+        {"who": "npc", "es": "Now the map is for the person who talks to every neighbour. Eat, eat!", "ru": "Теперь карта достанется тому, кто поговорит с каждым соседом. Ешь, ешь!"}
+      ],
+      "questions": [
+        {"q": "Чем миссис Хиггинс угощает героя?", "options": ["Супом", "Пирогом", "Чаем"], "answer": 0},
+        {"q": "Сколько комнат в доме миссис Хиггинс?", "options": ["Одна", "Две", "Три"], "answer": 1},
+        {"q": "Где лежит её обрывок?", "options": ["В ванной", "У соседа", "В поваренной книге"], "answer": 2},
+        {"q": "Почему карту разорвали?", "options": ["Люди ссорились из-за неё", "Её уронили в воду", "Её съела собака"], "answer": 0}
+      ],
+      "gloss": {"higgins": "Хиггинс", "fragment": "обрывок", "fragments": "обрывки", "cookbook": "поваренная книга", "fought": "ссорились"}
+    },
+    {
+      "id": "sc:home.2",
+      "chapter": 2,
+      "npc": "higgins",
+      "lines": [
+        {"who": "npc", "es": "Good morning! It's cold today. Have you eaten?", "ru": "Доброе утро! Сегодня холодно. Ты поел?", "fem": {"ru": "Доброе утро! Сегодня холодно. Ты поела?"}},
+        {"who": "hero", "es": "Thank you. Tomorrow I'm going to the hills.", "ru": "Спасибо. Завтра я иду в горы."},
+        {"who": "npc", "es": "The hills! I was born there, in a village on the pass.", "ru": "Горы! Я там родилась, в деревне на перевале."},
+        {"who": "hero", "es": "Really? What was it like?", "ru": "Правда? Какой она была?"},
+        {"who": "npc", "es": "Small and beautiful. But one night there was a terrible storm, and we all came down to the town.", "ru": "Маленькой и красивой. Но однажды ночью была страшная гроза, и все мы спустились в город."},
+        {"who": "hero", "es": "And the village?", "ru": "А деревня?"},
+        {"who": "npc", "es": "It's empty now. There are only stones and wind.", "ru": "Теперь она пустая. Остались только камни и ветер."},
+        {"who": "hero", "es": "Do you know the lighthouse?", "ru": "А маяк вы знаете?"},
+        {"who": "npc", "es": "My mother said the guardian of the lighthouse doesn't ask about words. He asks what you did.", "ru": "Мама говорила, что страж маяка не спрашивает слов. Он спрашивает, что ты сделал.", "fem": {"ru": "Мама говорила, что страж маяка не спрашивает слов. Он спрашивает, что ты сделала."}},
+        {"who": "hero", "es": "What I did?", "ru": "Что я сделал?", "fem": {"ru": "Что я сделала?"}},
+        {"who": "npc", "es": "Your road, in the past. So tell me: what did you do yesterday?", "ru": "Твой путь, в прошедшем времени. Так что скажи: что ты делал вчера?", "fem": {"ru": "Твой путь, в прошедшем времени. Так что скажи: что ты делала вчера?"}}
+      ],
+      "questions": [
+        {"q": "Где родилась миссис Хиггинс?", "options": ["В городе у моря", "В деревне на перевале", "В столице"], "answer": 1},
+        {"q": "Почему люди ушли из деревни?", "options": ["Там не было работы", "Пришли волки", "Была страшная гроза"], "answer": 2},
+        {"q": "Что осталось в деревне?", "options": ["Только камни и ветер", "Старый магазин", "Фермеры"], "answer": 0},
+        {"q": "О чём спрашивает страж маяка?", "options": ["О словах", "О том, что ты сделал", "О деньгах"], "answer": 1}
+      ],
+      "gloss": {"born": "родилась", "guardian": "страж"}
+    }
+  ]
+}

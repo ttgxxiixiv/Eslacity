@@ -1,0 +1,57 @@
+{
+  "location": "cafe",
+  "scenes": [
+    {
+      "id": "sc:cafe.1",
+      "chapter": 1,
+      "npc": "molly",
+      "lines": [
+        {"who": "npc", "es": "Morning! What would you like to drink?", "ru": "Доброе утро! Что будешь пить?"},
+        {"who": "hero", "es": "A coffee with milk, please.", "ru": "Кофе с молоком, пожалуйста."},
+        {"who": "npc", "es": "Hot or cold?", "ru": "Горячий или холодный?"},
+        {"who": "hero", "es": "Hot. And a glass of water.", "ru": "Горячий. И стакан воды."},
+        {"who": "npc", "es": "Do you want sugar?", "ru": "Сахар хочешь?"},
+        {"who": "hero", "es": "No, thank you. Have you got any toast?", "ru": "Нет, спасибо. А тосты есть?"},
+        {"who": "npc", "es": "Yes, and today there's a lovely cake.", "ru": "Есть, а ещё сегодня чудесный пирог."},
+        {"who": "hero", "es": "Then toast and the cake, please.", "ru": "Тогда тост и пирог, пожалуйста."},
+        {"who": "npc", "es": "Here you are. That's five pounds.", "ru": "Вот, держи. С тебя пять фунтов."},
+        {"who": "hero", "es": "Can I pay at my table?", "ru": "Можно заплатить за столиком?"},
+        {"who": "npc", "es": "Of course. The waiter comes to your table with the bill.", "ru": "Конечно. Официант подойдёт к столику со счётом."}
+      ],
+      "questions": [
+        {"q": "Что пьёт герой?", "options": ["Горячий кофе с молоком", "Холодный чай", "Апельсиновый сок"], "answer": 0},
+        {"q": "Что ещё берёт герой?", "options": ["Только воду", "Тост и пирог", "Печенье"], "answer": 1},
+        {"q": "Сколько стоит заказ?", "options": ["Два фунта", "Пять фунтов", "Десять фунтов"], "answer": 1},
+        {"q": "Где герой заплатит?", "options": ["У стойки", "Дома", "За своим столиком"], "answer": 2}
+      ],
+      "gloss": {"course": "of course — конечно"}
+    },
+    {
+      "id": "sc:cafe.2",
+      "chapter": 2,
+      "npc": "molly",
+      "lines": [
+        {"who": "npc", "es": "Morning! You look very serious today. Are you going to the hills?", "ru": "Доброе утро! Ты сегодня очень серьёзный. Идёшь в горы?", "fem": {"ru": "Доброе утро! Ты сегодня очень серьёзная. Идёшь в горы?"}},
+        {"who": "hero", "es": "Yesterday the guardian gave me the seal. Now I'm looking for the road to the hills.", "ru": "Вчера страж отдал мне печать. Теперь я ищу дорогу в горы."},
+        {"who": "npc", "es": "My brother Sam is a guide in the hills. He knows every path.", "ru": "Мой брат Сэм — проводник в горах. Он знает каждую тропу."},
+        {"who": "hero", "es": "Great! Where is he now?", "ru": "Отлично! А где он сейчас?"},
+        {"who": "npc", "es": "I don't know. He hasn't written for a month. Before, he wrote every week.", "ru": "Не знаю. Он не пишет уже месяц. Раньше писал каждую неделю."},
+        {"who": "hero", "es": "Where did he go?", "ru": "Куда он ушёл?"},
+        {"who": "npc", "es": "He said he was going to the lighthouse on the cliff. The second guardian lives there.", "ru": "Сказал, что идёт к маяку на скале. Там живёт второй страж."},
+        {"who": "hero", "es": "There's a second guardian?", "ru": "Есть и второй страж?"},
+        {"who": "npc", "es": "Every land has its guardian. And in the hills the fog comes very fast.", "ru": "У каждой земли свой страж. А в горах туман приходит очень быстро."},
+        {"who": "hero", "es": "If I see Sam, I'll tell him to write to you.", "ru": "Если увижу Сэма, скажу, чтобы он тебе написал."},
+        {"who": "npc", "es": "Thanks. Here, a hot chocolate. For the cold.", "ru": "Спасибо. Держи горячий шоколад. От холода."},
+        {"who": "npc", "es": "And next time, your usual coffee with no sugar. I know already.", "ru": "А в следующий раз — твой обычный кофе без сахара. Я уже знаю.", "if": {"flag": "drink", "is": "coffee"}},
+        {"who": "npc", "es": "And next time, your usual tea with milk. I know already.", "ru": "А в следующий раз — твой обычный чай с молоком. Я уже знаю.", "if": {"flag": "drink", "is": "tea"}}
+      ],
+      "questions": [
+        {"q": "Кто брат Молли?", "options": ["Повар", "Горный проводник", "Почтальон"], "answer": 1},
+        {"q": "Почему Молли волнуется?", "options": ["Брат месяц не пишет", "Кафе закрывается", "Пропала печать"], "answer": 0},
+        {"q": "Куда пошёл Сэм?", "options": ["В столицу", "На рынок", "К маяку на скале"], "answer": 2},
+        {"q": "Кто живёт у маяка?", "options": ["Летописец", "Второй страж", "Пастухи"], "answer": 1}
+      ],
+      "gloss": {"guide": "проводник", "guardian": "страж", "seal": "печать", "usual": "обычный"}
+    }
+  ]
+}

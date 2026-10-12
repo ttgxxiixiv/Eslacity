@@ -1,0 +1,55 @@
+{
+  "location": "restaurant",
+  "scenes": [
+    {
+      "id": "sc:restaurant.1",
+      "chapter": 1,
+      "npc": "archie",
+      "lines": [
+        {"who": "npc", "es": "Welcome! Today it's fish and chips. A table for one?", "ru": "Добро пожаловать! Сегодня у нас рыба с картошкой. Столик на одного?"},
+        {"who": "hero", "es": "A table, please.", "ru": "Столик, пожалуйста."},
+        {"who": "npc", "es": "Here, by the window. What do you want to eat?", "ru": "Сюда, у окна. Что будешь есть?"},
+        {"who": "hero", "es": "What do you recommend?", "ru": "Что вы посоветуете?"},
+        {"who": "npc", "es": "Fish and chips! My mother cooked it before me.", "ru": "Рыбу с картошкой! Её готовила ещё моя мама."},
+        {"who": "hero", "es": "Was your mother a chef too?", "ru": "Ваша мама тоже была поваром?"},
+        {"who": "npc", "es": "A very good chef. Once she cooked for a traveller with a map, like you.", "ru": "Очень хорошим. Однажды она готовила для путешественника с картой, как ты."},
+        {"who": "hero", "es": "And did the traveller find the Vault?", "ru": "И путешественник нашёл Хранилище?"},
+        {"who": "npc", "es": "No. He didn't speak English, and nobody gave him a fragment.", "ru": "Нет. Он не говорил по-английски, и никто не отдал ему свой обрывок."},
+        {"who": "hero", "es": "But I speak English.", "ru": "А я говорю по-английски."},
+        {"who": "npc", "es": "I can see that. And now, eat! I want a clean plate!", "ru": "Вижу. А теперь — есть! Чтобы тарелка была чистой!"}
+      ],
+      "questions": [
+        {"q": "Где садится герой?", "options": ["У окна", "На террасе", "На кухне"], "answer": 0},
+        {"q": "Что советует шеф Арчи?", "options": ["Суп", "Рыбу с картошкой", "Стейк"], "answer": 1},
+        {"q": "Кем была мама Арчи?", "options": ["Рыбачкой", "Врачом", "Поваром"], "answer": 2},
+        {"q": "Почему прежний путешественник не получил обрывки?", "options": ["Потерял карту", "Не говорил по-английски", "Не заплатил за обед"], "answer": 1}
+      ],
+      "gloss": {"welcome": "добро пожаловать", "once": "однажды", "traveller": "путешественник", "vault": "хранилище", "fragment": "обрывок"}
+    },
+    {
+      "id": "sc:restaurant.2",
+      "chapter": 2,
+      "npc": "archie",
+      "lines": [
+        {"who": "npc", "es": "Come in, come in! Today I've got hill soup.", "ru": "Заходи, заходи! Сегодня у меня горный суп."},
+        {"who": "hero", "es": "Hill soup?", "ru": "Горный суп?"},
+        {"who": "npc", "es": "I cooked this soup for Sam before his trip.", "ru": "Этот суп я варил Сэму перед его походом."},
+        {"who": "hero", "es": "Sam was here?", "ru": "Сэм был здесь?"},
+        {"who": "npc", "es": "A month ago. He ate two plates and told me about his trip.", "ru": "Месяц назад. Съел две тарелки и рассказал про свой поход."},
+        {"who": "hero", "es": "And what did he tell you?", "ru": "И что он рассказал?"},
+        {"who": "npc", "es": "He wanted to go up to the lighthouse. He said: “In the fog, only a voice can show you the way.”", "ru": "Хотел подняться к маяку. Сказал мне: «В тумане дорогу покажет только голос»."},
+        {"who": "hero", "es": "And what is past the lighthouse?", "ru": "А что за маяком?"},
+        {"who": "npc", "es": "Sam says you can see sand from the lighthouse. A lot of sand, and it shines like water.", "ru": "Сэм говорит, что с маяка виден песок. Много песка, и он блестит, как вода."},
+        {"who": "hero", "es": "Sand next to the sea?", "ru": "Песок у моря?"},
+        {"who": "npc", "es": "Not a beach. Something stranger. You will see it. Now eat!", "ru": "Не пляж. Что-то странное. Ты сам это увидишь. А теперь ешь!", "fem": {"ru": "Не пляж. Что-то странное. Ты сама это увидишь. А теперь ешь!"}}
+      ],
+      "questions": [
+        {"q": "Какой суп сегодня у Арчи?", "options": ["Рыбный", "Горный", "Томатный"], "answer": 1},
+        {"q": "Когда Сэм был в ресторане?", "options": ["Вчера", "Год назад", "Месяц назад"], "answer": 2},
+        {"q": "Что говорил Сэм о тумане?", "options": ["В тумане дорогу покажет только голос", "В тумане лучше спать", "В тумане нужен фонарик"], "answer": 0},
+        {"q": "Что видно с маяка?", "options": ["Город", "Блестящий песок", "Лес"], "answer": 1}
+      ],
+      "gloss": {"shines": "блестит"}
+    }
+  ]
+}
