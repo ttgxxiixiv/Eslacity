@@ -1,0 +1,154 @@
+{
+  "id": "b12.09-reported-commands",
+  "district": "B1.2",
+  "order": 9,
+  "title": "Косвенная речь: просьбы и приказы",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Просьбы и приказы пересказывают через **tell / ask + кого + to + глагол**: «Wait here!» → He **told me to wait** there. «Please help me» → She **asked me to help** her. Отрицание — **not to**: He told me **not to** go."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Прямая речь",
+        "Косвенная"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "\"Sit down!\"",
+            "She told me to sit down."
+          ]
+        },
+        {
+          "cells": [
+            "\"Please close the door.\"",
+            "He asked me to close the door."
+          ]
+        },
+        {
+          "cells": [
+            "\"Don't lie!\"",
+            "The guardian told me not to lie."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "«He said me to wait» — ошибка: после say нет человека и to-конструкции. Нужно told me to wait."
+    }
+  ],
+  "examples": [
+    {
+      "es": "The guard told us to wait on the platform.",
+      "ru": "Кондуктор велел нам ждать на платформе."
+    },
+    {
+      "es": "Molly asked me to find her brother.",
+      "ru": "Молли попросила меня найти её брата."
+    },
+    {
+      "es": "The doctor told him not to walk.",
+      "ru": "Врач велел ему не ходить."
+    },
+    {
+      "es": "She asked us not to make a noise.",
+      "ru": "Она попросила нас не шуметь."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "b12.09-reported-commands.1",
+      "kind": "choose",
+      "prompt": "\"Take water,\" he said to me →",
+      "options": [
+        "He told me to take water.",
+        "He said me to take water.",
+        "He told me take water."
+      ],
+      "answer": 0,
+      "explain": "told + me + to."
+    },
+    {
+      "id": "b12.09-reported-commands.2",
+      "kind": "choose",
+      "prompt": "\"Don't go alone!\" she said to us →",
+      "options": [
+        "She told us not to go alone.",
+        "She told us don't go alone.",
+        "She told us to not going alone."
+      ],
+      "answer": 0,
+      "explain": "not to + глагол."
+    },
+    {
+      "id": "b12.09-reported-commands.3",
+      "kind": "gap",
+      "sentence": "The teacher asked us ___ quiet.",
+      "ru": "Учительница попросила нас вести себя тихо.",
+      "options": [
+        "to be",
+        "be",
+        "being"
+      ],
+      "answer": 0,
+      "explain": "ask + to be."
+    },
+    {
+      "id": "b12.09-reported-commands.4",
+      "kind": "gap",
+      "sentence": "He told me ___ to touch the wire.",
+      "ru": "Он велел мне не трогать провод.",
+      "options": [
+        "not",
+        "no",
+        "don't"
+      ],
+      "answer": 0,
+      "explain": "not to touch."
+    },
+    {
+      "id": "b12.09-reported-commands.5",
+      "kind": "truefalse",
+      "statement": "«She asked me to help her» — правильно.",
+      "answer": true,
+      "explain": "ask + me + to."
+    },
+    {
+      "id": "b12.09-reported-commands.6",
+      "kind": "truefalse",
+      "statement": "«He said me to stop» — правильно.",
+      "answer": false,
+      "explain": "He told me to stop."
+    },
+    {
+      "id": "b12.09-reported-commands.7",
+      "kind": "truefalse",
+      "statement": "«They told us not to swim there» — правильно.",
+      "answer": true,
+      "explain": "not to + swim."
+    },
+    {
+      "id": "b12.09-reported-commands.8",
+      "kind": "build",
+      "ru": "Страж велел мне ответить.",
+      "answer": "The guardian told me to answer.",
+      "extra": [
+        "said",
+        "answering"
+      ],
+      "explain": "told + me + to."
+    },
+    {
+      "id": "b12.09-reported-commands.9",
+      "kind": "type",
+      "sentence": "Mum asked me ___ (buy) some bread.",
+      "ru": "Мама попросила меня купить хлеба.",
+      "hint": "buy",
+      "answer": "to buy",
+      "explain": "ask + to + глагол."
+    }
+  ]
+}

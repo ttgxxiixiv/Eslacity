@@ -50,6 +50,31 @@
         {"q": "Что написано в записке?", "options": ["«Жди меня»", "«Иди на голос»", "«Не ходи в горы»"], "answer": 1}
       ],
       "gloss": {"quick": "быстрее", "compass": "компас", "careful": "осторожно", "faster": "быстрее", "off": "I'm off — я побежал"}
+    },
+    {
+      "id": "sc:post.3",
+      "chapter": 3,
+      "npc": "dan",
+      "lines": [
+        {"who": "npc", "es": "Traveller! I've got a problem! Your parcel!", "ru": "Путешественник! У меня проблема! Твоя посылка!"},
+        {"who": "hero", "es": "What parcel?", "ru": "Какая посылка?"},
+        {"who": "npc", "es": "Sam sent you a parcel from the hospital. And now it has gone.", "ru": "Сэм отправил тебе посылку из больницы. А теперь её нет."},
+        {"who": "hero", "es": "Is it lost?", "ru": "Она потерялась?"},
+        {"who": "npc", "es": "I thought so too. But look at this paper: somebody collected it in your name.", "ru": "Я тоже так думал. Но посмотри на бумагу: кто-то забрал её на твоё имя."},
+        {"who": "hero", "es": "In my name? Who?", "ru": "На моё имя? Кто?"},
+        {"who": "npc", "es": "The signature says: “The Merchant”. And there is sand on the paper.", "ru": "Подпись: «Купец». И на бумаге песок."},
+        {"who": "hero", "es": "The man with the camel.", "ru": "Человек с верблюдом."},
+        {"who": "npc", "es": "Nobody steals parcels at my post office! I'm going to make a complaint.", "ru": "На моей почте посылки не крадут! Я подам жалобу."},
+        {"who": "hero", "es": "What was in the parcel?", "ru": "Что было в посылке?"},
+        {"who": "npc", "es": "Sam says his fragment of the desert map was in it. The real one.", "ru": "Сэм говорит, что там был его обрывок карты пустыни. Настоящий."}
+      ],
+      "questions": [
+        {"q": "Кто отправил герою посылку?", "options": ["Сэм", "Освальд", "Молли"], "answer": 0},
+        {"q": "Что случилось с посылкой?", "options": ["Её вернули", "Её забрали на имя героя", "Её не отправили"], "answer": 1},
+        {"q": "Как подписался тот, кто её забрал?", "options": ["«Страж»", "Именем героя", "«Купец»"], "answer": 2},
+        {"q": "Что было в посылке?", "options": ["Настоящий обрывок карты пустыни", "Компас", "Письмо"], "answer": 0}
+      ],
+      "gloss": {"collected": "забрал"}
     }
   ]
 }

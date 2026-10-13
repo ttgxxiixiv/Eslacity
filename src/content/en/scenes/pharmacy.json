@@ -50,6 +50,31 @@
         {"q": "Что говорит аптекарь в конце?", "options": ["Он продаёт лекарства, а не ответы", "Он пойдёт в горы", "Он знает этого человека"], "answer": 0}
       ],
       "gloss": {}
+    },
+    {
+      "id": "sc:pharmacy.3",
+      "chapter": 3,
+      "npc": "shah",
+      "lines": [
+        {"who": "npc", "es": "Good afternoon. I already know what was in the bottle.", "ru": "Добрый день. Я уже знаю, что было в бутылке."},
+        {"who": "hero", "es": "Which bottle?", "ru": "В какой бутылке?"},
+        {"who": "npc", "es": "The bottle of “oasis water”. The one that looked full.", "ru": "В бутылке «воды оазиса». В той, что казалась полной."},
+        {"who": "hero", "es": "And what was in it?", "ru": "И что в ней было?"},
+        {"who": "npc", "es": "Nothing. Only a little salt. And it smells of flowers.", "ru": "Ничего. Только немного соли. И пахнет цветами."},
+        {"who": "hero", "es": "So why do people see it full?", "ru": "А почему люди видят её полной?"},
+        {"who": "npc", "es": "Because they are thirsty. And because they want to believe it. The mirage is not in the bottle, it is in the mind.", "ru": "Потому что их мучает жажда. И потому что хотят в это верить. Мираж не в бутылке, а в голове."},
+        {"who": "hero", "es": "Did many people buy it?", "ru": "Многие её купили?"},
+        {"who": "npc", "es": "Too many. And now they can't sleep. Every night they dream of the white city.", "ru": "Слишком многие. И теперь они не спят. Каждую ночь им снится белый город."},
+        {"who": "hero", "es": "Have you got anything for that?", "ru": "У вас есть что-нибудь от этого?"},
+        {"who": "npc", "es": "For sleep, I have pills. For wanting less, there is no medicine.", "ru": "Чтобы спать — пилюли есть. Чтобы меньше хотеть — лекарства нет."}
+      ],
+      "questions": [
+        {"q": "Что было в бутылке «воды оазиса»?", "options": ["Немного соли, и пахло цветами", "Настоящая вода", "Песок"], "answer": 0},
+        {"q": "Почему люди видят бутылку полной?", "options": ["Бутылка волшебная", "Их мучает жажда и они хотят верить", "Так её сделали"], "answer": 1},
+        {"q": "Где, по словам мистера Шаха, мираж?", "options": ["В бутылке", "В пустыне", "В голове"], "answer": 2},
+        {"q": "Что снится тем, кто купил воду?", "options": ["Белый город", "Море", "Маяк"], "answer": 0}
+      ],
+      "gloss": {"oasis": "оазис", "less": "меньше"}
     }
   ]
 }

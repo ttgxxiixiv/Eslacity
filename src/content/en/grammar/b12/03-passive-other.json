@@ -1,0 +1,160 @@
+{
+  "id": "b12.03-passive-other",
+  "district": "B1.2",
+  "order": 3,
+  "title": "Пассив в других временах",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Пассив бывает в любом времени: меняется только **be**. **will be done**, **has been done**, **is being done**, **can be done**, **must be done**."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Время",
+        "Пример"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "будущее",
+            "The results will be sent tomorrow."
+          ]
+        },
+        {
+          "cells": [
+            "Present Perfect",
+            "The bridge has been repaired."
+          ]
+        },
+        {
+          "cells": [
+            "Continuous",
+            "The room is being cleaned."
+          ]
+        },
+        {
+          "cells": [
+            "модальные",
+            "Water must be boiled before you drink it."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Главное — найти, какая форма be нужна по времени, и поставить после неё третью форму глагола."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Your parcel will be delivered tomorrow.",
+      "ru": "Посылку доставят завтра."
+    },
+    {
+      "es": "The road has been closed.",
+      "ru": "Дорогу закрыли."
+    },
+    {
+      "es": "The kitchen is being painted.",
+      "ru": "Кухню сейчас красят."
+    },
+    {
+      "es": "This can be done online.",
+      "ru": "Это можно сделать онлайн."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "b12.03-passive-other.1",
+      "kind": "choose",
+      "prompt": "«Новый мост откроют в мае»:",
+      "options": [
+        "The new bridge will be opened in May.",
+        "The new bridge will open by May.",
+        "The new bridge is opened in May next."
+      ],
+      "answer": 0,
+      "explain": "will be + opened."
+    },
+    {
+      "id": "b12.03-passive-other.2",
+      "kind": "choose",
+      "prompt": "«Мою машину сейчас ремонтируют»:",
+      "options": [
+        "My car is being repaired.",
+        "My car is repairing.",
+        "My car being repaired."
+      ],
+      "answer": 0,
+      "explain": "is being + repaired."
+    },
+    {
+      "id": "b12.03-passive-other.3",
+      "kind": "gap",
+      "sentence": "The well has ___ cleaned.",
+      "ru": "Колодец почистили.",
+      "options": [
+        "been",
+        "being",
+        "be"
+      ],
+      "answer": 0,
+      "explain": "has been + cleaned."
+    },
+    {
+      "id": "b12.03-passive-other.4",
+      "kind": "gap",
+      "sentence": "Tickets can ___ bought at the station.",
+      "ru": "Билеты можно купить на вокзале.",
+      "options": [
+        "be",
+        "been",
+        "being"
+      ],
+      "answer": 0,
+      "explain": "can be + bought."
+    },
+    {
+      "id": "b12.03-passive-other.5",
+      "kind": "truefalse",
+      "statement": "«The work will be finish tomorrow» — правильно.",
+      "answer": false,
+      "explain": "will be + finished."
+    },
+    {
+      "id": "b12.03-passive-other.6",
+      "kind": "truefalse",
+      "statement": "«The road is being repaired» значит «Дорогу сейчас ремонтируют».",
+      "answer": true,
+      "explain": "Continuous пассив."
+    },
+    {
+      "id": "b12.03-passive-other.7",
+      "kind": "truefalse",
+      "statement": "«This must be done today» — правильно.",
+      "answer": true,
+      "explain": "must be + done."
+    },
+    {
+      "id": "b12.03-passive-other.8",
+      "kind": "build",
+      "ru": "Письмо уже отправлено.",
+      "answer": "The letter has already been sent.",
+      "extra": [
+        "send",
+        "was"
+      ],
+      "explain": "has been + sent."
+    },
+    {
+      "id": "b12.03-passive-other.9",
+      "kind": "type",
+      "sentence": "All the rooms ___ (clean) by twelve tomorrow.",
+      "ru": "Все номера уберут завтра к двенадцати.",
+      "hint": "clean",
+      "answer": "will be cleaned",
+      "explain": "will be + cleaned."
+    }
+  ]
+}

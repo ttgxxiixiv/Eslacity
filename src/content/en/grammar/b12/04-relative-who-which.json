@@ -1,0 +1,161 @@
+{
+  "id": "b12.04-relative-who-which",
+  "district": "B1.2",
+  "order": 4,
+  "title": "Who, which, that",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Относительные слова соединяют две мысли: The woman **who** lives in the white city is very old. **who** — о людях, **which** — о вещах и животных, **that** — о тех и других в разговорной речи."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Слово",
+        "О ком",
+        "Пример"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "who",
+            "люди",
+            "The man who sold me the water lied."
+          ]
+        },
+        {
+          "cells": [
+            "which",
+            "вещи",
+            "The bottle which I bought was empty."
+          ]
+        },
+        {
+          "cells": [
+            "that",
+            "люди и вещи",
+            "The map that you gave me is old."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Если слово — дополнение (кого, что), его можно пропустить: The map (that) you gave me. Если подлежащее — нельзя: The man **who** lives here."
+    }
+  ],
+  "examples": [
+    {
+      "es": "The guide who knows the desert is ill.",
+      "ru": "Проводник, который знает пустыню, заболел."
+    },
+    {
+      "es": "This is the bottle which I bought.",
+      "ru": "Вот бутылка, которую я купил."
+    },
+    {
+      "es": "The camel that carries our water is tired.",
+      "ru": "Верблюд, который везёт нашу воду, устал."
+    },
+    {
+      "es": "The city we saw was a mirage.",
+      "ru": "Город, который мы видели, был миражом."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "b12.04-relative-who-which.1",
+      "kind": "choose",
+      "prompt": "«Человек, который продаёт карты»:",
+      "options": [
+        "the man who sells maps",
+        "the man which sells maps",
+        "the man who he sells maps"
+      ],
+      "answer": 0,
+      "explain": "Люди — who, без лишнего he."
+    },
+    {
+      "id": "b12.04-relative-who-which.2",
+      "kind": "choose",
+      "prompt": "«Книга, которую я читаю»:",
+      "options": [
+        "the book which I'm reading",
+        "the book who I'm reading",
+        "the book which I'm reading it"
+      ],
+      "answer": 0,
+      "explain": "Вещи — which, без it в конце."
+    },
+    {
+      "id": "b12.04-relative-who-which.3",
+      "kind": "gap",
+      "sentence": "The woman ___ helped me was very kind.",
+      "ru": "Женщина, которая мне помогла, была очень добра.",
+      "options": [
+        "who",
+        "which",
+        "what"
+      ],
+      "answer": 0,
+      "explain": "Человек — who."
+    },
+    {
+      "id": "b12.04-relative-who-which.4",
+      "kind": "gap",
+      "sentence": "This is the road ___ goes to the oasis.",
+      "ru": "Это дорога, которая ведёт к оазису.",
+      "options": [
+        "which",
+        "who",
+        "where"
+      ],
+      "answer": 0,
+      "explain": "Вещь, подлежащее — which."
+    },
+    {
+      "id": "b12.04-relative-who-which.5",
+      "kind": "truefalse",
+      "statement": "«The girl which works here is my cousin» — правильно.",
+      "answer": false,
+      "explain": "Люди — who."
+    },
+    {
+      "id": "b12.04-relative-who-which.6",
+      "kind": "truefalse",
+      "statement": "В «The film (that) we watched was long» that можно пропустить.",
+      "answer": true,
+      "explain": "that — дополнение."
+    },
+    {
+      "id": "b12.04-relative-who-which.7",
+      "kind": "truefalse",
+      "statement": "«The man lives next door is a pilot» — правильно без who.",
+      "answer": false,
+      "explain": "who — подлежащее, пропускать нельзя."
+    },
+    {
+      "id": "b12.04-relative-who-which.8",
+      "kind": "build",
+      "ru": "Это купец, который продаёт воду.",
+      "answer": "This is the merchant who sells water.",
+      "extra": [
+        "which",
+        "he"
+      ],
+      "explain": "Человек — who."
+    },
+    {
+      "id": "b12.04-relative-who-which.9",
+      "kind": "type",
+      "sentence": "The bottles ___ he sold were empty.",
+      "ru": "Бутылки, которые он продал, были пустыми.",
+      "hint": "who / which",
+      "answer": "which",
+      "alt": [
+        "that"
+      ],
+      "explain": "Вещи — which."
+    }
+  ]
+}

@@ -40,6 +40,26 @@
         "appt": {"kind": "answer", "task": "Скажите, что хотите записаться на завтра.", "branches": [{"phrase": "ph:barber.appointment-tomorrow", "next": "end"}], "wrong": {"es": "A meeting with the guardian? That is at the lighthouse.", "ru": "Встреча со стражем? Это у маяка."}},
         "end": {"kind": "say", "es": "Tomorrow? Tomorrow you'll be in the hills, traveller. Come when you're back. Take my fragment of the hill map. If you see the man in the grey coat, tell him my mum's words. Maybe he will smile.", "ru": "Завтра? Завтра ты будешь в горах, путешественник. Приходи, когда вернёшься. Держи мой обрывок карты гор. Если увидишь человека в пальто, скажи ему мамины слова. Может, он улыбнётся."}
       }
+    },
+    {
+      "id": "ms:barber.3",
+      "chapter": 3,
+      "npc": "liam",
+      "scene": "sc:barber.3",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "For the full moon party you have to look good. What can I do for you?", "ru": "К празднику полнолуния надо быть красивым. Что тебе сделать?", "next": "frizz"},
+        "frizz": {"kind": "answer", "task": "Скажите, что у вас сильно пушатся волосы.", "branches": [{"phrase": "ph:barber.frizzy", "next": "frizzsay"}], "wrong": {"es": "Hair like a camel? No, mate, not that bad.", "ru": "Волосы как у верблюда? Нет, дружище, не настолько.", "fem": {"ru": "Волосы как у верблюда? Нет, подруга, не настолько."}}},
+        "frizzsay": {"kind": "say", "es": "That's the desert wind. First, the ends.", "ru": "Это ветер пустыни. Сначала кончики.", "next": "tips"},
+        "tips": {"kind": "answer", "task": "Попросите срезать секущиеся кончики.", "branches": [{"phrase": "ph:barber.split-ends", "next": "tipsay"}], "wrong": {"es": "Cut the moon? You can't do that!", "ru": "Подстричь луну? Так нельзя!"}},
+        "tipsay": {"kind": "say", "es": "Done. Do you want it straight? Perfect for a party.", "ru": "Готово. А выпрямить хочешь? На праздник — самое то.", "next": "flat"},
+        "flat": {"kind": "answer", "task": "Спросите, сколько стоит выпрямление.", "branches": [{"phrase": "ph:barber.straighten-cost", "next": "flatsay"}], "wrong": {"es": "How much is a camel? Ask the man from the desert.", "ru": "Сколько стоит верблюд? Это к человеку из пустыни."}},
+        "flatsay": {"kind": "say", "es": "Thirty pounds. For you, twenty. And the colour?", "ru": "Тридцать фунтов. Для тебя — двадцать. А цвет?", "next": "root"},
+        "root": {"kind": "answer", "task": "Скажите, что нужно только подкрасить корни.", "branches": [{"phrase": "ph:barber.just-roots", "next": "rootsay"}], "wrong": {"es": "Dye a tree? No, mate, only hair.", "ru": "Покрасить дерево? Нет, дружище, только волосы.", "fem": {"ru": "Покрасить дерево? Нет, подруга, только волосы."}}},
+        "rootsay": {"kind": "say", "es": "Just the roots. OK. And your beard? Today I'm not doing beards.", "ru": "Только корни. Хорошо. А бороду? Сегодня бородами занимаюсь не я.", "next": "barb"},
+        "barb": {"kind": "answer", "task": "Спросите, работает ли сегодня стилист.", "branches": [{"phrase": "ph:barber.stylist-today", "next": "end"}], "wrong": {"es": "Is the camel working today? No, the camel is resting.", "ru": "Верблюд сегодня работает? Нет, верблюд отдыхает."}},
+        "end": {"kind": "say", "es": "She comes at five. And take my fragment of the desert map. If you see the man with the camel, don't talk to him about the forest: it makes him very sad.", "ru": "Она придёт к пяти. И держи мой обрывок карты пустыни. Если увидишь человека с верблюдом, не говори с ним о лесе: ему становится очень грустно."}
+      }
     }
   ]
 }

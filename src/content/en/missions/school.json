@@ -44,6 +44,26 @@
         "pass": {"kind": "answer", "task": "Спросите, сдали ли вы экзамен.", "branches": [{"phrase": "ph:school.did-i-pass", "next": "end"}], "wrong": {"es": "You missed the train? No, you're in a lesson.", "ru": "Ты опоздал на поезд? Нет, ты на уроке.", "fem": {"ru": "Ты опоздала на поезд? Нет, ты на уроке."}}},
         "end": {"kind": "say", "es": "You passed. Your mark is nine out of ten. And the prize is my fragment of the hill map. When the fog asks you, answer in the past.", "ru": "Экзамен сдан. Твоя оценка — девять из десяти. А награда — мой обрывок карты гор. Когда туман спросит тебя, отвечай в прошедшем времени."}
       }
+    },
+    {
+      "id": "ms:school.3",
+      "chapter": 3,
+      "npc": "evans",
+      "scene": "sc:school.3",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Do you want to learn to speak with “if” too? Come to my course.", "ru": "Ты тоже хочешь научиться говорить с «если»? Приходи на мой курс.", "next": "uni"},
+        "uni": {"kind": "answer", "task": "Скажите, что учитесь в университете.", "branches": [{"phrase": "ph:school.at-university", "next": "unisay"}], "wrong": {"es": "You study in the desert? There are no lessons there.", "ru": "Учишься в пустыне? Там нет уроков."}},
+        "unisay": {"kind": "say", "es": "At university. Then this course will be easy for you.", "ru": "В университете. Значит, этот курс будет тебе лёгким.", "next": "enroll"},
+        "enroll": {"kind": "answer", "task": "Спросите, когда можно записаться на курс.", "branches": [{"phrase": "ph:school.when-enrol", "next": "enrollsay"}], "wrong": {"es": "When is the party? First the course.", "ru": "Когда праздник? Сначала курс."}},
+        "enrollsay": {"kind": "say", "es": "Before Friday. It costs fifty pounds.", "ru": "До пятницы. Стоит пятьдесят фунтов.", "next": "grant"},
+        "grant": {"kind": "answer", "task": "Скажите, что хотите подать на стипендию.", "branches": [{"phrase": "ph:school.apply-scholarship", "next": "grantsay"}], "wrong": {"es": "You want to ask for a car? No, we haven't got cars.", "ru": "Хочешь попросить машину? Нет, у нас нет машин."}},
+        "grantsay": {"kind": "say", "es": "For you, the course is free. You help the town. Any questions?", "ru": "Для тебя курс ничего не стоит. Ты помогаешь городу. Есть вопросы?", "next": "tut"},
+        "tut": {"kind": "answer", "task": "Спросите, можно ли подойти к ней после занятия.", "branches": [{"phrase": "ph:school.after-class", "next": "tutsay"}], "wrong": {"es": "When is the full moon? I don't know that.", "ru": "Когда полнолуние? Этого я не знаю."}},
+        "tutsay": {"kind": "say", "es": "Yes, at five, in room two. And what are you going to do today?", "ru": "Да, в пять, во втором кабинете. А что ты будешь делать сегодня?", "next": "notes"},
+        "notes": {"kind": "answer", "task": "Скажите, что вам нужно повторить конспекты.", "branches": [{"phrase": "ph:school.revise-notes", "next": "end"}], "wrong": {"es": "You need to go to the beach? Not today, today you're studying!", "ru": "Тебе надо на пляж? Не сегодня, сегодня ты учишься!"}},
+        "end": {"kind": "say", "es": "Excellent. Look carefully at the picture in the notebook: the road to the white city. And take my fragment of the desert map. If he knows the way, you must know it too.", "ru": "Отлично. Посмотри внимательно на рисунок в тетради: дорогу в белый город. И возьми мой обрывок карты пустыни. Если он знает дорогу, должен знать и ты."}
+      }
     }
   ]
 }

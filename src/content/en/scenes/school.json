@@ -50,6 +50,31 @@
         {"q": "Что странного в конце письма?", "options": ["Его дописал другой человек", "Оно пустое", "Оно на другом языке"], "answer": 0}
       ],
       "gloss": {"guardian": "страж"}
+    },
+    {
+      "id": "sc:school.3",
+      "chapter": 3,
+      "npc": "evans",
+      "lines": [
+        {"who": "npc", "es": "Good morning! I have a new student, a very strange one.", "ru": "Доброе утро! У меня новый ученик, очень странный."},
+        {"who": "hero", "es": "Who?", "ru": "Кто?"},
+        {"who": "npc", "es": "The man with the camel. He enrolled on my course last week.", "ru": "Человек с верблюдом. Записался ко мне на занятия на прошлой неделе."},
+        {"who": "hero", "es": "What does he want to learn?", "ru": "Чему он хочет научиться?"},
+        {"who": "npc", "es": "Only one thing: sentences with “if”. “If I were rich…”, “If I had a map…”.", "ru": "Только одному: фразам с «если». «Если бы я был богат…», «если бы у меня была карта…»."},
+        {"who": "hero", "es": "He wants to get into the white city.", "ru": "Он хочет попасть в белый город."},
+        {"who": "npc", "es": "I think so. In the white city you can't lie: the guardian always knows. That's why he is learning.", "ru": "Думаю, да. В белом городе нельзя лгать: стражница всегда знает. Поэтому он учится."},
+        {"who": "hero", "es": "And is he learning well?", "ru": "И хорошо учится?"},
+        {"who": "npc", "es": "Quickly. But yesterday he forgot his notebook. Look.", "ru": "Быстро. Но вчера забыл тетрадь. Смотри."},
+        {"who": "hero", "es": "There's a picture here: a road through the dunes… and a full moon.", "ru": "Тут рисунок: дорога среди дюн… и полная луна."},
+        {"who": "npc", "es": "The road to the white city. And the night when it is real.", "ru": "Дорога в белый город. И ночь, когда он настоящий."}
+      ],
+      "questions": [
+        {"q": "Кто стал новым учеником мисс Эванс?", "options": ["Человек с верблюдом", "Освальд", "Сэм"], "answer": 0},
+        {"q": "Чему он учится?", "options": ["Прошедшему времени", "Фразам с «если»", "Счёту"], "answer": 1},
+        {"q": "Зачем ему это?", "options": ["Он хочет стать учителем", "Для работы на рынке", "В городе стражницы нельзя лгать"], "answer": 2},
+        {"q": "Что нарисовано в его тетради?", "options": ["Дорога среди дюн и полная луна", "Маяк", "Портрет стражницы"], "answer": 0}
+      ],
+      "gloss": {"enrolled": "записался", "moon": "луна"}
     }
   ]
 }

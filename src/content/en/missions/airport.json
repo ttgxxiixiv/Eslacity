@@ -40,6 +40,26 @@
         "wc": {"kind": "answer", "task": "Спросите, где туалеты.", "branches": [{"phrase": "ph:airport.where-toilets", "next": "end"}], "wrong": {"es": "Where's the desert? You'll see it from up there.", "ru": "Где пустыня? Наверху увидишь."}},
         "end": {"kind": "say", "es": "Over there, be fast. And then look out of the window: the lighthouse, the railway and the sand. Can you see the white city? It isn't there now. Take my fragment of the hill map.", "ru": "Вон там, быстрее. А потом смотри в окно: маяк, железная дорога и песок. Видишь белый город? Его уже нет. Держи мой обрывок карты гор."}
       }
+    },
+    {
+      "id": "ms:airport.3",
+      "chapter": 3,
+      "npc": "tom",
+      "scene": "sc:airport.3",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Traveller! We're flying again. Further today. Where are you going?", "ru": "Путешественник! Снова летим. Сегодня дальше. А ты куда?", "next": "transit"},
+        "transit": {"kind": "answer", "task": "Скажите, что летите транзитом.", "branches": [{"phrase": "ph:airport.in-transit", "next": "transsay"}], "wrong": {"es": "You're on a camel? No, you're on a plane.", "ru": "Ты на верблюде? Нет, ты в самолёте."}},
+        "transsay": {"kind": "say", "es": "In transit? Like all travellers. Have you got a lot of luggage?", "ru": "Транзитом? Как все путешественники. У тебя много багажа?", "next": "bag"},
+        "bag": {"kind": "answer", "task": "Спросите, какая норма багажа.", "branches": [{"phrase": "ph:airport.baggage-allowance", "next": "bagsay"}], "wrong": {"es": "What's the plane's name? It hasn't got a name.", "ru": "Как зовут самолёт? У него нет имени."}},
+        "bagsay": {"kind": "say", "es": "Twenty kilos. Enough. … Listen: the captain is saying something.", "ru": "Двадцать килограммов. Достаточно. … Слушай: капитан что-то говорит.", "next": "div"},
+        "div": {"kind": "answer", "task": "Перескажите Тому объявление: придётся садиться в другом месте.", "branches": [{"phrase": "ph:airport.land-elsewhere", "next": "divsay"}], "wrong": {"es": "They've closed the sky? No, they've just changed the route.", "ru": "Небо закрыли? Нет, просто сменили маршрут."}},
+        "divsay": {"kind": "say", "es": "Because of the wind! Look down: the forest. … We've landed. How do you feel?", "ru": "Из-за ветра! Смотри вниз: лес. … Мы уже прилетели. Как ты себя чувствуешь?", "next": "lag"},
+        "lag": {"kind": "answer", "task": "Скажите, что у вас ужасный джетлаг.", "branches": [{"phrase": "ph:airport.jet-lag", "next": "lagsay"}], "wrong": {"es": "You have a lot of camel? What are you saying!", "ru": "У тебя много верблюда? Что ты говоришь!"}},
+        "lagsay": {"kind": "say", "es": "After a one-hour flight? You exaggerate! Did you lose anything on the plane?", "ru": "От часового полёта? Ну ты и преувеличиваешь! Потерял что-нибудь в самолёте?", "next": "lost", "fem": {"ru": "От часового полёта? Ну ты и преувеличиваешь! Потеряла что-нибудь в самолёте?"}},
+        "lost": {"kind": "answer", "task": "Спросите, где бюро находок.", "branches": [{"phrase": "ph:airport.lost-property", "next": "end"}], "wrong": {"es": "Where is my house? That's in town.", "ru": "Где мой дом? Это в городе."}},
+        "end": {"kind": "say", "es": "Over there. Rory went there yesterday too: he was looking for something he lost in the forest many years ago. I think he has found it now. Take my fragment of the desert map.", "ru": "Вон там. Рори вчера тоже туда ходил: искал то, что потерял в лесу много лет назад. Думаю, он уже нашёл. Держи мой обрывок карты пустыни."}
+      }
     }
   ]
 }

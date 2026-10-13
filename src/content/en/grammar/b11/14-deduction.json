@@ -1,0 +1,158 @@
+{
+  "id": "b11.14-deduction",
+  "district": "B1.1",
+  "order": 14,
+  "title": "Must, might, can't: догадки",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Модальные глаголы помогают гадать о настоящем: **must** — почти уверен, что да; **might / may / could** — может быть; **can't** — почти уверен, что нет. The city **must** be close. It **can't** be real."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Уверенность",
+        "Глагол",
+        "Пример"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "почти наверняка да",
+            "must",
+            "You must be tired."
+          ]
+        },
+        {
+          "cells": [
+            "возможно",
+            "might / may / could",
+            "He might be at the café."
+          ]
+        },
+        {
+          "cells": [
+            "почти наверняка нет",
+            "can't",
+            "That can't be Sam, he's in hospital."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Для «точно нет» говорят **can't**, а не «mustn't»: mustn't значит «нельзя»."
+    }
+  ],
+  "examples": [
+    {
+      "es": "You must be hungry after the trip.",
+      "ru": "Ты, наверное, проголодался после дороги."
+    },
+    {
+      "es": "It might rain later.",
+      "ru": "Позже, может быть, пойдёт дождь."
+    },
+    {
+      "es": "That can't be true!",
+      "ru": "Не может быть!"
+    },
+    {
+      "es": "The bottle may be empty.",
+      "ru": "Бутылка, может быть, пустая."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "b11.14-deduction.1",
+      "kind": "choose",
+      "prompt": "«Это не может быть мираж — я трогаю стену»:",
+      "options": [
+        "It can't be a mirage.",
+        "It mustn't be a mirage.",
+        "It might be a mirage."
+      ],
+      "answer": 0,
+      "explain": "Уверен, что нет — can't."
+    },
+    {
+      "id": "b11.14-deduction.2",
+      "kind": "choose",
+      "prompt": "«Он, наверное, дома: свет горит»:",
+      "options": [
+        "He must be at home.",
+        "He can't be at home.",
+        "He must to be at home."
+      ],
+      "answer": 0,
+      "explain": "Почти уверен — must + be."
+    },
+    {
+      "id": "b11.14-deduction.3",
+      "kind": "gap",
+      "sentence": "I'm not sure where Tom is. He ___ be at the airport.",
+      "ru": "Не знаю, где Том. Может быть, в аэропорту.",
+      "options": [
+        "might",
+        "can't",
+        "must to"
+      ],
+      "answer": 0,
+      "explain": "Не уверен — might."
+    },
+    {
+      "id": "b11.14-deduction.4",
+      "kind": "gap",
+      "sentence": "You've walked all day. You ___ be exhausted.",
+      "ru": "Ты шёл весь день. Ты, должно быть, без сил.",
+      "options": [
+        "must",
+        "can't",
+        "might not"
+      ],
+      "answer": 0,
+      "explain": "Почти уверен — must."
+    },
+    {
+      "id": "b11.14-deduction.5",
+      "kind": "truefalse",
+      "statement": "«mustn't» в догадках значит «точно нет».",
+      "answer": false,
+      "explain": "Для «точно нет» — can't; mustn't — запрет."
+    },
+    {
+      "id": "b11.14-deduction.6",
+      "kind": "truefalse",
+      "statement": "«She may be right» значит «Возможно, она права».",
+      "answer": true,
+      "explain": "may — может быть."
+    },
+    {
+      "id": "b11.14-deduction.7",
+      "kind": "truefalse",
+      "statement": "«It must to be late» — правильно.",
+      "answer": false,
+      "explain": "После must — без to: must be."
+    },
+    {
+      "id": "b11.14-deduction.8",
+      "kind": "build",
+      "ru": "Ты, должно быть, шутишь!",
+      "answer": "You must be joking!",
+      "extra": [
+        "can",
+        "to"
+      ],
+      "explain": "Уверенная догадка — must be."
+    },
+    {
+      "id": "b11.14-deduction.9",
+      "kind": "type",
+      "sentence": "That ___ be the right road — it goes to the sea, not the desert.",
+      "ru": "Это не может быть та дорога — она ведёт к морю, а не в пустыню.",
+      "hint": "must / can't",
+      "answer": "can't",
+      "explain": "Уверен, что нет."
+    }
+  ]
+}

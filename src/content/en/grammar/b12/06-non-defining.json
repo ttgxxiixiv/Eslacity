@@ -1,0 +1,148 @@
+{
+  "id": "b12.06-non-defining",
+  "district": "B1.2",
+  "order": 6,
+  "title": "Пояснения в запятых",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Если придаточное только добавляет сведения, без которых понятно, о ком речь, его ставят в запятые: My brother, **who** lives in Leeds, is a doctor. В таких придаточных **that** не используют и слово не пропускают."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Без запятых (какой именно?)",
+        "В запятых (добавка)"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "The man who lives here is a pilot.",
+            "Mr Patel, who lives here, is a pilot."
+          ]
+        },
+        {
+          "cells": [
+            "The map that you found is old.",
+            "This map, which you found, is old."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Перед именами собственными почти всегда запятые: London, **which** is the capital, … — ведь Лондон один."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Molly, who works at the café, has a brother.",
+      "ru": "У Молли, которая работает в кафе, есть брат."
+    },
+    {
+      "es": "The lighthouse, which is very old, still works.",
+      "ru": "Маяк, который очень старый, всё ещё работает."
+    },
+    {
+      "es": "My grandmother, who is ninety, still swims.",
+      "ru": "Моя бабушка, которой девяносто, всё ещё плавает."
+    },
+    {
+      "es": "The desert, which looks like water, is dangerous.",
+      "ru": "Пустыня, которая похожа на воду, опасна."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "b12.06-non-defining.1",
+      "kind": "choose",
+      "prompt": "Правильно с пояснением:",
+      "options": [
+        "Bert, who walks his dog every day, saw the man.",
+        "Bert, that walks his dog every day, saw the man.",
+        "Bert, which walks his dog every day, saw the man."
+      ],
+      "answer": 0,
+      "explain": "О человеке в запятых — who, не that и не which."
+    },
+    {
+      "id": "b12.06-non-defining.2",
+      "kind": "choose",
+      "prompt": "«Лондон, который я очень люблю, очень большой»:",
+      "options": [
+        "London, which I love, is very big.",
+        "London, that I love, is very big.",
+        "London, who I love, is very big."
+      ],
+      "answer": 0,
+      "explain": "О месте в запятых — which."
+    },
+    {
+      "id": "b12.06-non-defining.3",
+      "kind": "gap",
+      "sentence": "Sam, ___ is a guide, knows every path.",
+      "ru": "Сэм, который проводник, знает каждую тропу.",
+      "options": [
+        "who",
+        "that",
+        "which"
+      ],
+      "answer": 0,
+      "explain": "Человек, в запятых — who."
+    },
+    {
+      "id": "b12.06-non-defining.4",
+      "kind": "gap",
+      "sentence": "The oasis, ___ we reached at noon, was empty.",
+      "ru": "Оазис, до которого мы добрались в полдень, был пуст.",
+      "options": [
+        "which",
+        "that",
+        "who"
+      ],
+      "answer": 0,
+      "explain": "Вещь, в запятых — which."
+    },
+    {
+      "id": "b12.06-non-defining.5",
+      "kind": "truefalse",
+      "statement": "В пояснении в запятых можно использовать that.",
+      "answer": false,
+      "explain": "Только who / which."
+    },
+    {
+      "id": "b12.06-non-defining.6",
+      "kind": "truefalse",
+      "statement": "«My father, who is a sailor, is at sea now» — правильно.",
+      "answer": true,
+      "explain": "Пояснение в запятых."
+    },
+    {
+      "id": "b12.06-non-defining.7",
+      "kind": "truefalse",
+      "statement": "В придаточном в запятых who/which можно пропустить.",
+      "answer": false,
+      "explain": "Пропускать нельзя."
+    },
+    {
+      "id": "b12.06-non-defining.8",
+      "kind": "build",
+      "ru": "Эмма, которая говорит на пяти языках, держит отель.",
+      "answer": "Emma, who speaks five languages, runs the hotel.",
+      "extra": [
+        "that",
+        "which"
+      ],
+      "explain": "Человек в запятых — who."
+    },
+    {
+      "id": "b12.06-non-defining.9",
+      "kind": "type",
+      "sentence": "The camel, ___ was very old, walked slowly.",
+      "ru": "Верблюд, который был очень старым, шёл медленно.",
+      "hint": "who / which",
+      "answer": "which",
+      "explain": "Животное, в запятых — which."
+    }
+  ]
+}

@@ -1,0 +1,172 @@
+{
+  "id": "b12.11-stop-remember-try",
+  "district": "B1.2",
+  "order": 11,
+  "title": "Stop, remember, try: смысл меняется",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "У некоторых глаголов смысл зависит от формы. **stop doing** — бросить; **stop to do** — остановиться, чтобы. **remember doing** — помнить, что делал; **remember to do** — не забыть сделать. **try doing** — попробовать как способ; **try to do** — постараться."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Форма",
+        "Значение"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "I stopped smoking.",
+            "Я бросил курить."
+          ]
+        },
+        {
+          "cells": [
+            "I stopped to drink.",
+            "Я остановился, чтобы попить."
+          ]
+        },
+        {
+          "cells": [
+            "I remember meeting him.",
+            "Помню, как встретил его."
+          ]
+        },
+        {
+          "cells": [
+            "Remember to take water!",
+            "Не забудь взять воду!"
+          ]
+        },
+        {
+          "cells": [
+            "Try drinking some tea.",
+            "Попробуй выпить чаю."
+          ]
+        },
+        {
+          "cells": [
+            "I tried to open it.",
+            "Я пытался открыть."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "forget работает так же: **forget to do** — забыть сделать, **forget doing** — забыть, что делал (чаще в отрицании: I'll never forget seeing the city)."
+    }
+  ],
+  "examples": [
+    {
+      "es": "We stopped to look at the dunes.",
+      "ru": "Мы остановились посмотреть на дюны."
+    },
+    {
+      "es": "I remember seeing a white city.",
+      "ru": "Помню, как видел белый город."
+    },
+    {
+      "es": "Don't forget to lock the door.",
+      "ru": "Не забудь запереть дверь."
+    },
+    {
+      "es": "Try putting some salt on it.",
+      "ru": "Попробуй посыпать солью."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "b12.11-stop-remember-try.1",
+      "kind": "choose",
+      "prompt": "«Не забудь купить молоко»:",
+      "options": [
+        "Remember to buy milk.",
+        "Remember buying milk.",
+        "Remember buy milk."
+      ],
+      "answer": 0,
+      "explain": "Не забыть сделать — remember to."
+    },
+    {
+      "id": "b12.11-stop-remember-try.2",
+      "kind": "choose",
+      "prompt": "«Он бросил курить»:",
+      "options": [
+        "He stopped smoking.",
+        "He stopped to smoke.",
+        "He stopped smoke."
+      ],
+      "answer": 0,
+      "explain": "Бросить — stop + -ing."
+    },
+    {
+      "id": "b12.11-stop-remember-try.3",
+      "kind": "gap",
+      "sentence": "I remember ___ here as a child.",
+      "ru": "Помню, как приходил сюда ребёнком.",
+      "options": [
+        "coming",
+        "to come",
+        "come"
+      ],
+      "answer": 0,
+      "explain": "Помню, как делал — -ing."
+    },
+    {
+      "id": "b12.11-stop-remember-try.4",
+      "kind": "gap",
+      "sentence": "We stopped ___ some water.",
+      "ru": "Мы остановились, чтобы купить воды.",
+      "options": [
+        "to buy",
+        "buying",
+        "buy"
+      ],
+      "answer": 0,
+      "explain": "Остановиться, чтобы — to."
+    },
+    {
+      "id": "b12.11-stop-remember-try.5",
+      "kind": "truefalse",
+      "statement": "«I tried to open the door, but it was locked» — правильно.",
+      "answer": true,
+      "explain": "Пытался — try to."
+    },
+    {
+      "id": "b12.11-stop-remember-try.6",
+      "kind": "truefalse",
+      "statement": "«Remember locking the door!» значит «Не забудь запереть дверь».",
+      "answer": false,
+      "explain": "Нужно Remember to lock."
+    },
+    {
+      "id": "b12.11-stop-remember-try.7",
+      "kind": "truefalse",
+      "statement": "«I'll never forget meeting you» — правильно.",
+      "answer": true,
+      "explain": "Забыть то, что было, — -ing."
+    },
+    {
+      "id": "b12.11-stop-remember-try.8",
+      "kind": "build",
+      "ru": "Попробуй выпить воды.",
+      "answer": "Try drinking some water.",
+      "extra": [
+        "to",
+        "drink"
+      ],
+      "explain": "Попробовать способ — try + -ing."
+    },
+    {
+      "id": "b12.11-stop-remember-try.9",
+      "kind": "type",
+      "sentence": "I'm so sorry, I forgot ___ (call) you.",
+      "ru": "Прости, я забыл тебе позвонить.",
+      "hint": "call",
+      "answer": "to call",
+      "explain": "Забыть сделать — forget to."
+    }
+  ]
+}

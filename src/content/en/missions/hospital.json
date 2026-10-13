@@ -41,6 +41,26 @@
         "out": {"kind": "answer", "task": "Спросите, когда вас выпишут.", "branches": [{"phrase": "ph:hospital.go-home", "next": "end"}], "wrong": {"es": "When can you have an ice cream? After the lighthouse.", "ru": "Когда вам дадут мороженое? После маяка."}},
         "end": {"kind": "say", "es": "Right now. Take my fragment of the hill map. And remember the third question: who did you help? You know that better than anyone.", "ru": "Прямо сейчас. Возьмите мой обрывок карты гор. И помните третий вопрос: кому вы помогли. Вы это знаете лучше всех."}
       }
+    },
+    {
+      "id": "ms:hospital.3",
+      "chapter": 3,
+      "npc": "okafor",
+      "scene": "sc:hospital.3",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Good afternoon. You came back from the desert with a temperature. Let's see.", "ru": "Добрый день. Вы вернулись из пустыни с температурой. Посмотрим.", "next": "diag"},
+        "diag": {"kind": "answer", "task": "Спросите, какой диагноз.", "branches": [{"phrase": "ph:hospital.diagnosis", "next": "diagsay"}], "wrong": {"es": "What ward am I in? None yet. First tell me what is wrong.", "ru": "В какой я палате? Пока ни в какой. Сначала скажите, что с вами."}},
+        "diagsay": {"kind": "say", "es": "Nothing serious: sand, sun and a lot of tiredness.", "ru": "Ничего серьёзного: песок, солнце и сильная усталость.", "next": "cont"},
+        "cont": {"kind": "answer", "task": "Спросите, заразно ли это.", "branches": [{"phrase": "ph:hospital.contagious", "next": "contsay"}], "wrong": {"es": "Is it chocolate? No, it's a temperature.", "ru": "Это из шоколада? Нет, это температура."}},
+        "contsay": {"kind": "say", "es": "No. But sadness sometimes goes from person to person. Do you have any illnesses?", "ru": "Нет. А вот грусть иногда передаётся от человека к человеку. У вас есть какие-то болезни?", "next": "chron"},
+        "chron": {"kind": "answer", "task": "Скажите, что у вас хроническое заболевание.", "branches": [{"phrase": "ph:hospital.chronic-illness", "next": "chronsay"}], "wrong": {"es": "A chronic dog? What are you saying!", "ru": "Хроническая собака? Что вы говорите!"}},
+        "chronsay": {"kind": "say", "es": "I know, it's in your medical records. Don't worry. I'll give you an injection.", "ru": "Знаю, это есть в вашей карте. Не волнуйтесь. Сделаю вам укол.", "next": "anest"},
+        "anest": {"kind": "answer", "task": "Спросите, сделают ли вам наркоз.", "branches": [{"phrase": "ph:hospital.anaesthetic", "next": "anestsay"}], "wrong": {"es": "Will you give me a hat? No, this is a hospital.", "ru": "Мне дадут шляпу? Нет, это больница."}},
+        "anestsay": {"kind": "say", "es": "For an injection? Of course not! Done. What else do you need?", "ru": "Для укола? Да нет же! Готово. Что ещё вам нужно?", "next": "baja"},
+        "baja": {"kind": "answer", "task": "Скажите, что вам нужен больничный для работы.", "branches": [{"phrase": "ph:hospital.sick-note", "next": "end"}], "wrong": {"es": "A ticket for the Moon Train? That is at the station.", "ru": "Билет на лунный поезд? Это на вокзале."}},
+        "end": {"kind": "say", "es": "Three days of rest. And take my fragment of the desert map. Remember: in the forest, listen.", "ru": "Три дня отдыха. И возьмите мой обрывок карты пустыни. Помните: в лесу — слушайте."}
+      }
     }
   ]
 }

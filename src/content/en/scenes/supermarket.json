@@ -50,6 +50,31 @@
         {"q": "Что он сказал?", "options": ["«Маяк закрыт»", "«Скоро придёт туман»", "«Я вернусь завтра»"], "answer": 1}
       ],
       "gloss": {"ah": "а", "torch": "фонарик", "torches": "фонарики"}
+    },
+    {
+      "id": "sc:supermarket.3",
+      "chapter": 3,
+      "npc": "jake",
+      "lines": [
+        {"who": "npc", "es": "Traveller! Yesterday I took an order to the very edge of the desert.", "ru": "Путешественник! Вчера я отвёз заказ к самому краю пустыни."},
+        {"who": "hero", "es": "So far?", "ru": "Так далеко?"},
+        {"who": "npc", "es": "To a small house, the last one before the sand.", "ru": "В маленький дом, последний перед песками."},
+        {"who": "hero", "es": "And what did you see?", "ru": "И что ты видел?"},
+        {"who": "npc", "es": "A man was selling “oasis water” in bottles. People paid a lot of money for them.", "ru": "Человек продавал «воду оазиса» в бутылках. Люди платили за них огромные деньги."},
+        {"who": "hero", "es": "And what happened?", "ru": "И что случилось?"},
+        {"who": "npc", "es": "I opened one bottle. It was empty. But before you open it, it looks full.", "ru": "Я открыл одну бутылку. Она была пустая. А пока не откроешь, казалась полной."},
+        {"who": "hero", "es": "Like the white city.", "ru": "Как белый город."},
+        {"who": "npc", "es": "It seems that in the desert even the bottles lie.", "ru": "Похоже, в пустыне даже бутылки обманывают."},
+        {"who": "hero", "es": "And that man?", "ru": "А тот человек?"},
+        {"who": "npc", "es": "He vanished. There were only footprints in the sand, and the wind took them away.", "ru": "Исчез. Остались только следы на песке, и ветер их стёр."}
+      ],
+      "questions": [
+        {"q": "Куда Джейк возил заказ?", "options": ["К краю пустыни", "На маяк", "В аэропорт"], "answer": 0},
+        {"q": "Что продавал человек?", "options": ["Финики", "«Воду оазиса» в бутылках", "Фонарики"], "answer": 1},
+        {"q": "Что было в бутылке?", "options": ["Вода", "Песок", "Ничего"], "answer": 2},
+        {"q": "Что стало со следами продавца?", "options": ["Их стёр ветер", "Их нашла полиция", "Они ведут в город"], "answer": 0}
+      ],
+      "gloss": {"footprints": "следы", "edge": "край", "oasis": "оазис"}
     }
   ]
 }

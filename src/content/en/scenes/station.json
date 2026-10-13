@@ -50,6 +50,31 @@
         {"q": "Что человек в пальто попросил вчера?", "options": ["Расписание", "Такси", "Билет на поезд в семь"], "answer": 2}
       ],
       "gloss": {"ah": "а", "line": "линия", "run": "ходить (о поезде)"}
+    },
+    {
+      "id": "sc:station.3",
+      "chapter": 3,
+      "npc": "graham",
+      "lines": [
+        {"who": "npc", "es": "Ah, it's you! I've got news from the desert.", "ru": "А, это ты! У меня новости из пустыни."},
+        {"who": "hero", "es": "What news?", "ru": "Какие новости?"},
+        {"who": "npc", "es": "There is a train that goes to the edge of the sand. It runs only one night a year.", "ru": "Есть поезд, который идёт до края песков. Он ходит только одну ночь в году."},
+        {"who": "hero", "es": "On the night of the full moon?", "ru": "В ночь полнолуния?"},
+        {"who": "npc", "es": "Exactly. This Friday. It's in my old timetable: “The Moon Train”.", "ru": "Именно. В эту пятницу. Он есть в моём старом расписании: «Лунный поезд»."},
+        {"who": "hero", "es": "And who knows about it?", "ru": "А кто об этом знает?"},
+        {"who": "npc", "es": "Not many people. But yesterday the man with the camel bought a ticket.", "ru": "Мало кто. Но вчера человек с верблюдом купил билет."},
+        {"who": "hero", "es": "A return ticket?", "ru": "Туда и обратно?"},
+        {"who": "npc", "es": "No. Only a single. He isn't planning to come back.", "ru": "Нет. Только в одну сторону. Он не собирается возвращаться."},
+        {"who": "hero", "es": "Can I go too?", "ru": "А мне можно поехать?"},
+        {"who": "npc", "es": "You must go. I'll keep a seat for you.", "ru": "Тебе обязательно нужно ехать. Я придержу для тебя место."}
+      ],
+      "questions": [
+        {"q": "Куда идёт особый поезд?", "options": ["До края песков", "В столицу", "К маяку"], "answer": 0},
+        {"q": "Когда он ходит?", "options": ["Каждый день", "Одну ночь в году, в полнолуние", "Никогда"], "answer": 1},
+        {"q": "Какой билет купил Купец?", "options": ["Туда и обратно", "Первого класса", "Только в одну сторону"], "answer": 2},
+        {"q": "Что обещает Грэм герою?", "options": ["Оставить место в поезде", "Продать карту", "Закрыть вокзал"], "answer": 0}
+      ],
+      "gloss": {"ah": "а", "moon": "луна", "edge": "край"}
     }
   ]
 }

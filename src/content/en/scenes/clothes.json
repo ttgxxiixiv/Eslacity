@@ -50,6 +50,31 @@
         {"q": "О чём просит Хлоя?", "options": ["Отнести сапоги Сэму", "Купить пальто", "Вернуть шарф"], "answer": 0}
       ],
       "gloss": {}
+    },
+    {
+      "id": "sc:clothes.3",
+      "chapter": 3,
+      "npc": "chloe",
+      "lines": [
+        {"who": "npc", "es": "Do you know who came in yesterday? The man with the camel.", "ru": "Знаешь, кто вчера приходил? Человек с верблюдом."},
+        {"who": "hero", "es": "What did he buy?", "ru": "Что он купил?"},
+        {"who": "npc", "es": "A very elegant suit. He said it was for a party in the white city.", "ru": "Очень нарядный костюм. Сказал, что для праздника в белом городе."},
+        {"who": "hero", "es": "A party in a city that vanishes?", "ru": "Праздник в городе, который исчезает?"},
+        {"who": "npc", "es": "I asked him that too. He said that once a year, at full moon, the city becomes real.", "ru": "Я его тоже об этом спросила. Он сказал, что раз в год, в полнолуние, город становится настоящим."},
+        {"who": "hero", "es": "One night a year?", "ru": "Одну ночь в году?"},
+        {"who": "npc", "es": "The night of the big party in the city. That night, everything you see there really exists.", "ru": "Ночь большого праздника в городе. В эту ночь всё, что там видишь, существует на самом деле."},
+        {"who": "hero", "es": "And when is it?", "ru": "И когда это?"},
+        {"who": "npc", "es": "He didn't want to say. He paid with a banknote… which later turned into sand.", "ru": "Не захотел сказать. Заплатил купюрой… которая потом превратилась в песок."},
+        {"who": "hero", "es": "Another mirage!", "ru": "Ещё один мираж!"},
+        {"who": "npc", "es": "That's why I only take cards now.", "ru": "Поэтому теперь я принимаю только карты."}
+      ],
+      "questions": [
+        {"q": "Что купил человек с верблюдом?", "options": ["Нарядный костюм", "Зимние сапоги", "Красный шарф"], "answer": 0},
+        {"q": "Когда белый город становится настоящим?", "options": ["Каждую ночь", "Одну ночь в году, в полнолуние", "Никогда"], "answer": 1},
+        {"q": "Что бывает в эту ночь?", "options": ["Свадьба купца", "Ничего", "Большой праздник в городе"], "answer": 2},
+        {"q": "Во что превратилась его купюра?", "options": ["В песок", "В цветы", "В воду"], "answer": 0}
+      ],
+      "gloss": {"full": "full moon — полнолуние", "moon": "луна", "turned": "превратилась"}
     }
   ]
 }

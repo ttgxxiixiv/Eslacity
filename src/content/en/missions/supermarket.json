@@ -45,6 +45,26 @@
         "disc": {"kind": "answer", "task": "Спросите, есть ли скидка на эту марку.", "branches": [{"phrase": "ph:supermarket.discount-brand", "next": "end"}], "wrong": {"es": "A discount on the man in the grey coat? I wish!", "ru": "Скидка на человека в сером пальто? Если бы!"}},
         "end": {"kind": "say", "es": "For the traveller with the map, there's a discount. And here's my fragment of the hill map. If you see the man in the grey coat, ask him where his coins are from.", "ru": "Для путешественника с картой скидка есть. И вот тебе мой обрывок карты гор. Если увидишь человека в сером пальто, спроси, откуда у него монеты.", "fem": {"ru": "Для путешественницы с картой скидка есть. И вот тебе мой обрывок карты гор. Если увидишь человека в сером пальто, спроси, откуда у него монеты."}}
       }
+    },
+    {
+      "id": "ms:supermarket.3",
+      "chapter": 3,
+      "npc": "jake",
+      "scene": "sc:supermarket.3",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "It's crazy in the shop today. Everybody is stocking up for the desert. How can I help you?", "ru": "Сегодня в магазине сумасшедший дом. Все закупаются для пустыни. Чем тебе помочь?", "next": "ret"},
+        "ret": {"kind": "answer", "task": "Попросите вернуть деньги за пустую бутылку «воды оазиса».", "branches": [{"phrase": "ph:supermarket.refund", "next": "retsay"}], "wrong": {"es": "You want to have a party? We're too busy today.", "ru": "Хочешь устроить праздник? Сегодня некогда."}},
+        "retsay": {"kind": "say", "es": "This bottle? It isn't from my shop… It's from that man with the “oasis water”. Sorry, I can't give you your money back.", "ru": "Эта бутылка? Она не из моего магазина… Это того человека с «водой оазиса». Извини, за неё я деньги не верну.", "next": "self"},
+        "self": {"kind": "answer", "task": "Скажите, что касса самообслуживания не работает.", "branches": [{"phrase": "ph:supermarket.self-checkout", "next": "selfsay"}], "wrong": {"es": "The till is singing? No, the till isn't working.", "ru": "Касса поёт? Нет, касса не работает."}},
+        "selfsay": {"kind": "say", "es": "Again… Wait, I'll fix it. Done. Anything else?", "ru": "Опять… Подожди, починю. Готово. Что-нибудь ещё?", "next": "milk"},
+        "milk": {"kind": "answer", "task": "Спросите, закончилось ли молоко.", "branches": [{"phrase": "ph:supermarket.milk-out", "next": "milksay"}], "wrong": {"es": "Is the cashier tired? A bit, yes.", "ru": "Кассир устал? Немного, да."}},
+        "milksay": {"kind": "say", "es": "Yes, it's out of stock. Everybody is buying milk for the road. And bread?", "ru": "Закончилось. Все покупают молоко в дорогу. А хлеб?", "next": "bread"},
+        "bread": {"kind": "answer", "task": "Спросите, есть ли хлеб без глютена.", "branches": [{"phrase": "ph:supermarket.gluten-free", "next": "breadsay"}], "wrong": {"es": "Bread made of sand? Disgusting!", "ru": "Хлеб из песка? Какая гадость!"}},
+        "breadsay": {"kind": "say", "es": "Gluten-free, the last one. It's hard to carry all this, isn't it?", "ru": "Без глютена, последний. Тяжело всё это нести, да?", "next": "home"},
+        "home": {"kind": "answer", "task": "Спросите, доставляют ли покупки на дом.", "branches": [{"phrase": "ph:supermarket.home-delivery", "next": "end"}], "wrong": {"es": "Do you deliver camels? No, only shopping.", "ru": "Доставляете верблюдов? Нет, только покупки."}},
+        "end": {"kind": "say", "es": "Of course, and I'll take it myself, to the last house before the sand. Take my fragment of the desert map. I found it at the shop door, covered in sand.", "ru": "Конечно, и отвезу сам, до последнего дома перед песком. Держи мой обрывок карты пустыни. Я нашёл его у дверей магазина, весь в песке."}
+      }
     }
   ]
 }

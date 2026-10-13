@@ -52,6 +52,33 @@
         {"q": "Кто живёт у маяка?", "options": ["Летописец", "Второй страж", "Пастухи"], "answer": 1}
       ],
       "gloss": {"guide": "проводник", "guardian": "страж", "seal": "печать", "usual": "обычный"}
+    },
+    {
+      "id": "sc:cafe.3",
+      "chapter": 3,
+      "npc": "molly",
+      "lines": [
+        {"who": "npc", "es": "Morning! Do you know who was here this morning?", "ru": "Доброе утро! Знаешь, кто был здесь сегодня утром?"},
+        {"who": "hero", "es": "Who?", "ru": "Кто?"},
+        {"who": "npc", "es": "Oswald, the guardian. He drank his first coffee in a hundred years. He said it was delicious.", "ru": "Освальд, страж. Выпил свой первый кофе за сто лет. Сказал, что он очень вкусный."},
+        {"who": "npc", "es": "And I didn't take his money. I didn't take yours last time either, remember?", "ru": "И денег я с него не взяла. С тебя в прошлый раз тоже не взяла, помнишь?", "if": {"flag": "treat", "is": "paid"}},
+        {"who": "npc", "es": "It was my treat, like you wanted to treat me last time.", "ru": "Угощала я — как ты хотел угостить меня в прошлый раз.", "fem": {"ru": "Угощала я — как ты хотела угостить меня в прошлый раз."}, "if": {"flag": "treat", "is": "treat"}},
+        {"who": "hero", "es": "And what did he tell you?", "ru": "И что он тебе рассказал?"},
+        {"who": "npc", "es": "He told me about the desert. He says the white city appears when you are thirsty.", "ru": "Рассказал о пустыне. Говорит, белый город появляется, когда тебя мучает жажда."},
+        {"who": "hero", "es": "And when you get there?", "ru": "А когда до него доходишь?"},
+        {"who": "npc", "es": "It vanishes. But Oswald says the third guardian lives there.", "ru": "Он исчезает. Но Освальд говорит, что там живёт третий страж."},
+        {"who": "hero", "es": "In a city that doesn't exist?", "ru": "В городе, которого нет?"},
+        {"who": "npc", "es": "That's what he says. And he gave me some advice for you: “In the desert, don't trust what you see. Trust what you hear.”", "ru": "Так он говорит. И передал тебе совет: «В пустыне не верь тому, что видишь. Верь тому, что слышишь»."},
+        {"who": "hero", "es": "And Sam? How is he?", "ru": "А Сэм? Как он?"},
+        {"who": "npc", "es": "Better. He wants to go to the desert with you, but he can't with a broken foot. He's very angry.", "ru": "Лучше. Хочет идти с тобой в пустыню, но со сломанной ногой не может. Очень злится."}
+      ],
+      "questions": [
+        {"q": "Кто пил кофе у Молли утром?", "options": ["Освальд", "Сэм", "Летописец"], "answer": 0},
+        {"q": "Когда появляется белый город?", "options": ["Ночью", "Когда тебя мучает жажда", "В грозу"], "answer": 1},
+        {"q": "Кто живёт в белом городе?", "options": ["Пастухи", "Никто", "Третий страж"], "answer": 2},
+        {"q": "Какой совет передал Освальд?", "options": ["Не верь тому, что видишь, верь тому, что слышишь", "Иди только ночью", "Возьми много воды"], "answer": 0}
+      ],
+      "gloss": {"oswald": "Освальд", "either": "тоже (с отрицанием)"}
     }
   ]
 }

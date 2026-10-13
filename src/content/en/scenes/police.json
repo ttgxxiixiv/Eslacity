@@ -50,6 +50,31 @@
         {"q": "Как Освальд вернётся домой?", "options": ["Пешком", "Поездом в семь", "Самолётом"], "answer": 1}
       ],
       "gloss": {"closing": "закрываю", "oswald": "Освальд", "guardian": "страж"}
+    },
+    {
+      "id": "sc:police.3",
+      "chapter": 3,
+      "npc": "bradley",
+      "lines": [
+        {"who": "npc", "es": "Good afternoon. I am closing another case: the fake fragments and the stolen parcel.", "ru": "Добрый день. Закрываю ещё одно дело: поддельные обрывки и украденная посылка."},
+        {"who": "hero", "es": "And who did it?", "ru": "А кто это сделал?"},
+        {"who": "npc", "es": "Rory. He came to talk to me before he left. He told me everything.", "ru": "Рори. Пришёл поговорить со мной перед отъездом. Всё рассказал."},
+        {"who": "hero", "es": "Will you punish him?", "ru": "Вы его накажете?"},
+        {"who": "npc", "es": "No. He gave back the real fragments, and he gave people back their money. And he told the truth.", "ru": "Нет. Он вернул настоящие обрывки, а людям — их деньги. И сказал правду."},
+        {"who": "hero", "es": "And is that enough?", "ru": "И этого достаточно?"},
+        {"who": "npc", "es": "In this town, it is enough. The truth is more important than a fine.", "ru": "В этом городе — достаточно. Правда важнее штрафа."},
+        {"who": "hero", "es": "And the guardian of the white city?", "ru": "А стражница белого города?"},
+        {"who": "npc", "es": "Rory gave me her words for you.", "ru": "Рори передал мне для вас её слова."},
+        {"who": "hero", "es": "What are they?", "ru": "Какие?"},
+        {"who": "npc", "es": "“If you get to the forest, listen to the trees. They do not lie.”", "ru": "«Если дойдёшь до леса, слушай деревья. Они не лгут»."}
+      ],
+      "questions": [
+        {"q": "Какое дело закрывает инспектор Брэдли?", "options": ["Поддельные обрывки и украденная посылка", "Поезд к маяку", "Кражу в банке"], "answer": 0},
+        {"q": "Что сделал Рори перед отъездом?", "options": ["Сбежал", "Всё рассказал и вернул обрывки и деньги", "Купил белый город"], "answer": 1},
+        {"q": "Почему Рори не накажут?", "options": ["Его не нашли", "Он заплатил штраф", "Он сказал правду и всё вернул"], "answer": 2},
+        {"q": "Какое послание оставила стражница?", "options": ["«Слушай деревья. Они не лгут»", "«Не ходи в лес»", "«Жду тебя в городе»"], "answer": 0}
+      ],
+      "gloss": {"rory": "Рори"}
     }
   ]
 }

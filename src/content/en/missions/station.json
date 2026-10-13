@@ -43,6 +43,27 @@
         "wait": {"kind": "answer", "task": "Скажите, что подождёте в зале ожидания.", "branches": [{"phrase": "ph:station.waiting-room", "next": "end"}], "wrong": {"es": "You'll wait on the train? A train isn't a hotel.", "ru": "Подождёшь в поезде? Поезд — не гостиница."}},
         "end": {"kind": "say", "es": "Good. The bus comes in ten minutes. Take my fragment of the hill map. And one more thing: an old ticket for the seven o'clock train. Give it to the man in the grey coat. He's a hundred years late, but the ticket is his.", "ru": "Хорошо. Автобус через десять минут. Держи мой обрывок карты гор. И вот ещё: старый билет на поезд в семь. Отдай его человеку в сером пальто. Он опоздал на сто лет, но билет его."}
       }
+    },
+    {
+      "id": "ms:station.3",
+      "chapter": 3,
+      "npc": "graham",
+      "scene": "sc:station.3",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Lots of work at the station today. Is something wrong?", "ru": "Сегодня на вокзале много работы. У тебя что-то случилось?", "next": "strike"},
+        "strike": {"kind": "answer", "task": "Спросите, нет ли сегодня забастовки на железной дороге.", "branches": [{"phrase": "ph:station.strike-today", "next": "strikesay"}], "wrong": {"es": "Is there ice cream today? This is a station.", "ru": "Сегодня есть мороженое? Это вокзал."}},
+        "strikesay": {"kind": "say", "es": "There's no strike. But there are problems. What's your train?", "ru": "Забастовки нет. Но есть проблемы. Какой у тебя поезд?", "next": "supp"},
+        "supp": {"kind": "answer", "task": "Скажите, что ваш поезд отменили.", "branches": [{"phrase": "ph:station.train-has-been-cancelled", "next": "suppsay"}], "wrong": {"es": "My train is in love? Trains don't fall in love!", "ru": "Мой поезд влюблён? Поезда не влюбляются!"}},
+        "suppsay": {"kind": "say", "es": "Cancelled, yes. I'm sorry. It's all because of the full moon.", "ru": "Отменён, да. Мне жаль. Всё из-за полнолуния.", "next": "refund"},
+        "refund": {"kind": "answer", "task": "Спросите, можно ли вернуть деньги за билет.", "branches": [{"phrase": "ph:station.ticket-refund", "next": "refundsay"}], "wrong": {"es": "Can you have a horse? Not here!", "ru": "Дать тебе лошадь? Здесь — нет!"}},
+        "refundsay": {"kind": "say", "es": "Here is your money. Look how many people there are!", "ru": "Вот деньги. Смотри, сколько народу!", "next": "rush"},
+        "rush": {"kind": "answer", "task": "Скажите, что в час пик очень много людей.", "branches": [{"phrase": "ph:station.rush-hour", "next": "rushsay"}], "wrong": {"es": "A lot of sand in the rush hour? No, a lot of people.", "ru": "В час пик много песка? Нет, много людей."}},
+        "rushsay": {"kind": "say", "es": "Like always. And for Friday? The Moon Train.", "ru": "Как всегда. А на пятницу? Лунный поезд.", "next": "single"},
+        "single": {"kind": "answer", "task": "Попросите билет на лунный поезд: в одну сторону или туда и обратно.", "branches": [{"phrase": "ph:station.single-ticket", "next": "end"}, {"phrase": "ph:station.return-ticket", "next": "endround"}], "wrong": {"es": "A ticket to the moon? This train goes to the desert.", "ru": "Билет на Луну? Этот поезд идёт в пустыню."}},
+        "endround": {"kind": "say", "es": "A return, that's right: you will come back. Not like the man with the camel. Here's your ticket and my fragment of the desert map.", "ru": "Туда и обратно, правильно: ты вернёшься. Не как человек с верблюдом. Держи билет и мой обрывок карты пустыни."},
+        "end": {"kind": "say", "es": "Only a single? Like the man with the camel… No, I'll give you a return: you will come back. Here's your ticket and my fragment of the desert map.", "ru": "Только в одну сторону? Как человек с верблюдом… Нет, я дам тебе туда и обратно: ты вернёшься. Держи билет и мой обрывок карты пустыни."}
+      }
     }
   ]
 }

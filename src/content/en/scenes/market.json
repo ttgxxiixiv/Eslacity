@@ -52,6 +52,33 @@
         {"q": "Как выглядел незнакомец?", "options": ["В красной шляпе", "В сером пальто", "С собакой"], "answer": 1}
       ],
       "gloss": {"sweetheart": "солнышко", "farmers": "фермеры"}
+    },
+    {
+      "id": "sc:market.3",
+      "chapter": 3,
+      "npc": "patel",
+      "lines": [
+        {"who": "npc", "es": "How were the carrots in the hills? Sam says they were delicious.", "ru": "Как морковка в горах? Сэм говорит, была очень вкусная.", "if": {"flag": "veg", "is": "carrots"}},
+        {"who": "npc", "es": "And the garlic? Sam says the lighthouse smelled of garlic all week.", "ru": "А чеснок? Сэм говорит, на маяке всю неделю пахло чесноком.", "if": {"flag": "veg", "is": "garlic"}},
+        {"who": "npc", "es": "Sweetheart! Come here, look at this fruit. It's from the desert.", "ru": "Солнышко! Иди сюда, посмотри, какие фрукты. Они из пустыни."},
+        {"who": "hero", "es": "From the desert? Who brought it?", "ru": "Из пустыни? Кто их привёз?"},
+        {"who": "npc", "es": "A man from the desert, with a camel. He came yesterday with salt, fruit and… fragments of the map.", "ru": "Человек из пустыни, с верблюдом. Приехал вчера с солью, фруктами и… обрывками карты."},
+        {"who": "hero", "es": "Fragments of the desert map?", "ru": "Обрывками карты пустыни?"},
+        {"who": "npc", "es": "That's what he said. But I don't believe him. Look at this one: the colour is like the map, but the paper is new.", "ru": "Так он сказал. Но я ему не верю. Посмотри на этот: цвет как у карты, а бумага новая."},
+        {"who": "hero", "es": "So it isn't real.", "ru": "Значит, он не настоящий."},
+        {"who": "npc", "es": "Like the white city: it looks true, but it isn't.", "ru": "Как белый город: кажется правдой, а на деле нет."},
+        {"who": "hero", "es": "How many fragments did he sell?", "ru": "Сколько обрывков он продал?"},
+        {"who": "npc", "es": "A lot. People paid a lot of money. And then he vanished like the wind.", "ru": "Много. Люди заплатили кучу денег. А того человека как ветром сдуло."},
+        {"who": "hero", "es": "And have you got a real one?", "ru": "А у тебя есть настоящий?"},
+        {"who": "npc", "es": "Yes, here it is. And I'll give it to you if you help me today.", "ru": "Есть, вот он. И я тебе его отдам, если сегодня поможешь."}
+      ],
+      "questions": [
+        {"q": "Что привёз человек из пустыни?", "options": ["Соль, фрукты и обрывки карты", "Ткани", "Рыбу"], "answer": 0},
+        {"q": "Почему миссис Патель ему не верит?", "options": ["Он говорит на другом языке", "Бумага у обрывка новая", "Он слишком дёшево продаёт"], "answer": 1},
+        {"q": "С чем она сравнивает поддельный обрывок?", "options": ["С фальшивой монетой", "С пустой бутылкой", "С белым городом"], "answer": 2},
+        {"q": "Что стало с тем человеком?", "options": ["Его поймала полиция", "Его как ветром сдуло", "Он остался на рынке"], "answer": 1}
+      ],
+      "gloss": {"sweetheart": "солнышко"}
     }
   ]
 }

@@ -42,6 +42,26 @@
         "cross": {"kind": "answer", "task": "Инспектор бежит через дорогу. Скажите, что переходить нужно по зебре.", "branches": [{"phrase": "ph:police.zebra-crossing", "next": "end"}], "wrong": {"es": "Sing? No, cross the road the right way.", "ru": "Петь? Нет, переходите дорогу правильно."}},
         "end": {"kind": "say", "es": "You are right: even the police use the zebra crossing. Look: he isn't suspicious. It is Oswald, and he is reading the timetable for the seven o'clock train. Take my fragment of the hill map. Go up, answer, and bring Oswald home.", "ru": "Вы правы: даже полиция переходит улицу по зебре. Смотрите: он не подозрительный. Это Освальд, и он читает расписание поезда в семь. Возьмите мой обрывок карты гор. Поднимитесь, ответьте и верните Освальда домой."}
       }
+    },
+    {
+      "id": "ms:police.3",
+      "chapter": 3,
+      "npc": "bradley",
+      "scene": "sc:police.3",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Good afternoon. Now that you live here, you need papers. How can I help?", "ru": "Добрый день. Раз вы теперь живёте здесь, нужны бумаги. Чем помочь?", "next": "padron"},
+        "padron": {"kind": "answer", "task": "Спросите, куда сообщить ваш новый адрес.", "branches": [{"phrase": "ph:police.new-address", "next": "padsay"}], "wrong": {"es": "Where can you buy a camel? In the desert, not here.", "ru": "Где купить верблюда? В пустыне, не здесь."}},
+        "padsay": {"kind": "say", "es": "At the town hall, in the square. And for work?", "ru": "В мэрии, на площади. А для работы?", "next": "nie"},
+        "nie": {"kind": "answer", "task": "Скажите, что для работы вам нужен вид на жительство.", "branches": [{"phrase": "ph:police.residence-permit", "next": "niesay"}], "wrong": {"es": "You need a hat for work? No, you need documents.", "ru": "Для работы нужна шляпа? Нет, нужны документы."}},
+        "niesay": {"kind": "say", "es": "For a job with Priya, is it? Here's the form. Anything else?", "ru": "Для работы у Прии, да? Вот бланк. Что-нибудь ещё?", "next": "thief"},
+        "thief": {"kind": "answer", "task": "Скажите, что в автобусе был карманник.", "branches": [{"phrase": "ph:police.pickpocket-bus", "next": "thiefsay"}], "wrong": {"es": "A camel on the bus? Impossible!", "ru": "В автобусе был верблюд? Невозможно!"}},
+        "thiefsay": {"kind": "say", "es": "Again… We will find him. Don't worry. Are you all right?", "ru": "Опять… Мы его найдём. Не волнуйтесь. Вы в порядке?", "next": "lawyer"},
+        "lawyer": {"kind": "answer", "task": "В шутку скажите, что хотите поговорить со своим адвокатом.", "branches": [{"phrase": "ph:police.speak-lawyer", "next": "lawsay"}], "wrong": {"es": "You need an ice cream? Later, later.", "ru": "Вам нужно мороженое? Потом, потом."}},
+        "lawsay": {"kind": "say", "es": "Your lawyer? You haven't done anything! Are you driving today?", "ru": "Адвокат? Вы же ничего не сделали! Вы сегодня за рулём?", "next": "alc"},
+        "alc": {"kind": "answer", "task": "Спросите, нужно ли вам дуть в алкотестер.", "branches": [{"phrase": "ph:police.breathalyser", "next": "end"}], "wrong": {"es": "Do you have to bake a cake? No, not that.", "ru": "Вам надо испечь торт? Нет, не это."}},
+        "end": {"kind": "say", "es": "You? You ride a bike and drink only water. Take my fragment of the desert map. And remember the message: listen to the trees.", "ru": "Вы? Вы ездите на велосипеде и пьёте только воду. Возьмите мой обрывок карты пустыни. И помните послание: слушайте деревья."}
+      }
     }
   ]
 }

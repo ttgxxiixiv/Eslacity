@@ -1,0 +1,166 @@
+{
+  "id": "b12.07-reported-statements",
+  "district": "B1.2",
+  "order": 7,
+  "title": "Косвенная речь: утверждения",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Пересказывая чужие слова в прошлом, время обычно «сдвигают назад»: «I **am** tired» → He said (that) he **was** tired. **say** — без адресата, **tell** — с адресатом: She **told me** that…"
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Прямая речь",
+        "Косвенная"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "\"I like it.\"",
+            "She said she liked it."
+          ]
+        },
+        {
+          "cells": [
+            "\"I'm leaving.\"",
+            "He said he was leaving."
+          ]
+        },
+        {
+          "cells": [
+            "\"I've lost my key.\"",
+            "She said she had lost her key."
+          ]
+        },
+        {
+          "cells": [
+            "\"I will call.\"",
+            "He said he would call."
+          ]
+        },
+        {
+          "cells": [
+            "\"I can help.\"",
+            "She said she could help."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Меняются и указатели: today → that day, tomorrow → the next day, here → there."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Sam said he was fine.",
+      "ru": "Сэм сказал, что с ним всё хорошо."
+    },
+    {
+      "es": "She told me she had seen the city.",
+      "ru": "Она сказала мне, что видела город."
+    },
+    {
+      "es": "He said he would come the next day.",
+      "ru": "Он сказал, что придёт на следующий день."
+    },
+    {
+      "es": "The merchant said the water was clean.",
+      "ru": "Купец сказал, что вода чистая."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "b12.07-reported-statements.1",
+      "kind": "choose",
+      "prompt": "\"I'm tired,\" she said →",
+      "options": [
+        "She said she was tired.",
+        "She said she is tired yesterday.",
+        "She told she was tired."
+      ],
+      "answer": 0,
+      "explain": "am → was; said без адресата."
+    },
+    {
+      "id": "b12.07-reported-statements.2",
+      "kind": "choose",
+      "prompt": "\"I will help you,\" he told me →",
+      "options": [
+        "He told me he would help me.",
+        "He said me he will help me.",
+        "He told me he will helped me."
+      ],
+      "answer": 0,
+      "explain": "will → would; told me."
+    },
+    {
+      "id": "b12.07-reported-statements.3",
+      "kind": "gap",
+      "sentence": "He ___ me that the road was closed.",
+      "ru": "Он сказал мне, что дорога закрыта.",
+      "options": [
+        "told",
+        "said",
+        "spoke"
+      ],
+      "answer": 0,
+      "explain": "С адресатом — told me."
+    },
+    {
+      "id": "b12.07-reported-statements.4",
+      "kind": "gap",
+      "sentence": "\"I can't swim.\" → She said she ___ swim.",
+      "ru": "«Я не умею плавать». → Она сказала, что не умеет плавать.",
+      "options": [
+        "couldn't",
+        "can't",
+        "doesn't"
+      ],
+      "answer": 0,
+      "explain": "can't → couldn't."
+    },
+    {
+      "id": "b12.07-reported-statements.5",
+      "kind": "truefalse",
+      "statement": "«He said me he was busy» — правильно.",
+      "answer": false,
+      "explain": "said — без me: He said he was busy / He told me…"
+    },
+    {
+      "id": "b12.07-reported-statements.6",
+      "kind": "truefalse",
+      "statement": "\"I've found it\" → She said she had found it.",
+      "answer": true,
+      "explain": "have found → had found."
+    },
+    {
+      "id": "b12.07-reported-statements.7",
+      "kind": "truefalse",
+      "statement": "В косвенной речи tomorrow часто меняется на the next day.",
+      "answer": true,
+      "explain": "Указатели сдвигаются."
+    },
+    {
+      "id": "b12.07-reported-statements.8",
+      "kind": "build",
+      "ru": "Она сказала, что живёт у моря.",
+      "answer": "She said she lived by the sea.",
+      "extra": [
+        "told",
+        "lives"
+      ],
+      "explain": "live → lived."
+    },
+    {
+      "id": "b12.07-reported-statements.9",
+      "kind": "type",
+      "sentence": "\"We are lost.\" → They said they ___ lost.",
+      "ru": "«Мы заблудились». → Они сказали, что заблудились.",
+      "hint": "be",
+      "answer": "were",
+      "explain": "are → were."
+    }
+  ]
+}

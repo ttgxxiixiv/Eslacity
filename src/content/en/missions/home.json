@@ -42,6 +42,26 @@
         "light": {"kind": "answer", "task": "Попросите выключить свет, чтобы увидеть горы в грозу.", "branches": [{"phrase": "ph:home.light-off", "next": "end"}], "wrong": {"es": "Open the door? Never, not in this wind!", "ru": "Открыть дверь? Ни в коем случае, в такой ветер!"}},
         "end": {"kind": "say", "es": "Look out of the window. Can you see the light up there, on the cliff? That's the lighthouse. Take my fragment of the hill map. And remember: the guardian asks what you did.", "ru": "Посмотри в окно. Видишь свет наверху, на скале? Это маяк. Держи мой обрывок карты гор. И помни: страж спрашивает, что ты сделал.", "fem": {"ru": "Посмотри в окно. Видишь свет наверху, на скале? Это маяк. Держи мой обрывок карты гор. И помни: страж спрашивает, что ты сделала."}}
       }
+    },
+    {
+      "id": "ms:home.3",
+      "chapter": 3,
+      "npc": "higgins",
+      "scene": "sc:home.3",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Let's go and look at flats for Oswald. You ask the questions, dear, I'm nervous.", "ru": "Идём смотреть квартиры для Освальда. Спрашивай ты, дорогой, а то я волнуюсь.", "next": "share", "fem": {"ru": "Идём смотреть квартиры для Освальда. Спрашивай ты, дорогая, а то я волнуюсь."}},
+        "share": {"kind": "answer", "task": "Скажите хозяину, что ищете квартиру с соседями.", "branches": [{"phrase": "ph:home.flat-to-share", "next": "sharesay"}], "wrong": {"es": "A castle? No, dear, a small flat.", "ru": "Замок? Да нет же, небольшую квартиру."}},
+        "sharesay": {"kind": "say", "es": "That's right. After a hundred years, Oswald doesn't want to live alone. Look at this flat.", "ru": "Вот именно. После ста лет Освальд не хочет жить один. Посмотри на эту квартиру.", "next": "furn"},
+        "furn": {"kind": "answer", "task": "Спросите, сдаётся ли квартира с мебелью.", "branches": [{"phrase": "ph:home.is-furnished", "next": "furnsay"}], "wrong": {"es": "Is the flat in love? What are you saying?", "ru": "Квартира влюблена? Что ты говоришь?"}},
+        "furnsay": {"kind": "say", "es": "It's furnished. Good: he has nothing. And how much does it cost to live here?", "ru": "С мебелью. И хорошо: у него ведь ничего нет. А сколько стоит здесь жить?", "next": "bills"},
+        "bills": {"kind": "answer", "task": "Спросите, сколько в месяц коммунальные платежи.", "branches": [{"phrase": "ph:home.utility-bills", "next": "billsay"}], "wrong": {"es": "How old is the flat? That isn't important.", "ru": "Сколько лет квартире? Это неважно."}},
+        "billsay": {"kind": "say", "es": "Fifty pounds a month. Good. And what else do we have to pay?", "ru": "Пятьдесят фунтов в месяц. Хорошо. А что ещё нужно заплатить?", "next": "dep"},
+        "dep": {"kind": "answer", "task": "Спросите про залог: сколько он?", "branches": [{"phrase": "ph:home.the-deposit", "next": "depsay"}], "wrong": {"es": "And the party? When? First the flat.", "ru": "А праздник? Когда? Сначала квартира."}},
+        "depsay": {"kind": "say", "es": "The deposit is one month. He wants to pay with old coins… Look! Water is coming out of the kitchen!", "ru": "Залог — за один месяц. Он хочет заплатить старыми монетами… Смотри! Из кухни течёт вода!", "next": "fault"},
+        "fault": {"kind": "answer", "task": "Скажите, что у вас протечка и нужен сантехник.", "branches": [{"phrase": "ph:home.leak-plumber", "next": "end"}], "wrong": {"es": "We need an umbrella? We need a plumber!", "ru": "Нужен зонт? Нам нужен сантехник!"}},
+        "end": {"kind": "say", "es": "The plumber will come tomorrow. Take my fragment of the desert map. Oswald gave it to me for you: he says he kept it for a hundred years.", "ru": "Сантехник придёт завтра. Держи мой обрывок карты пустыни. Освальд дал его мне для тебя: говорит, он хранил его сто лет."}
+      }
     }
   ]
 }

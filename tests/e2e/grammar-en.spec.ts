@@ -4,11 +4,11 @@ import { expect, test } from '@playwright/test';
 import { answerGrammar, openEnglish } from './fixtures';
 
 /**
- * Английский курс закрыт (задача 17.4: есть слова и уроки A1–A2, но нет пролога и города): уроки открываются
+ * Английский курс закрыт (задачи 17.4, 17.6: есть слова и уроки A1–B1, но нет пролога и города): уроки открываются
  * напрямую, язык ставится в localStorage. Каждый урок проходится целиком, как в grammar.spec.ts.
  */
 const ROOT = join(import.meta.dirname, '..', '..', 'src', 'content', 'en', 'grammar');
-const CHAPTER: Record<string, number> = { a1: 1, a2: 2 };
+const CHAPTER: Record<string, number> = { a1: 1, a2: 2, b11: 3, b12: 3 };
 
 for (const district of readdirSync(ROOT)) {
   for (const file of readdirSync(join(ROOT, district)).filter((f) => f.endsWith('.json'))) {

@@ -50,6 +50,31 @@
         {"q": "Что странного в этом человеке?", "options": ["Он не постарел", "Он не говорит", "Он очень высокий"], "answer": 0}
       ],
       "gloss": {"fifty": "пятьдесят", "face": "лицо", "changed": "изменился"}
+    },
+    {
+      "id": "sc:park.3",
+      "chapter": 3,
+      "npc": "bert",
+      "lines": [
+        {"who": "npc", "es": "Good evening, young man. I love walking at this time, when the sun goes down.", "ru": "Добрый вечер, молодой человек. Люблю гулять в это время, когда садится солнце.", "fem": {"es": "Good evening, young lady. I love walking at this time, when the sun goes down.", "ru": "Добрый вечер, девушка. Люблю гулять в это время, когда садится солнце."}},
+        {"who": "hero", "es": "Me too. Have you seen anything strange lately?", "ru": "Я тоже. Вы не видели в последнее время ничего странного?"},
+        {"who": "npc", "es": "Yesterday there was a man with a camel here, among the roses.", "ru": "Вчера здесь, среди роз, был человек с верблюдом."},
+        {"who": "hero", "es": "A camel in the park?", "ru": "Верблюд в парке?"},
+        {"who": "npc", "es": "I thought the same. The man was burying papers in the sand by the playground.", "ru": "Я тоже так подумал. Этот человек закапывал бумаги в песок у детской площадки."},
+        {"who": "hero", "es": "Papers? What papers?", "ru": "Бумаги? Какие бумаги?"},
+        {"who": "npc", "es": "Fragments of the map. New ones. He buried them in the sand, and they came out old.", "ru": "Обрывки карты. Новые. Закапывал их в песок, а доставал уже старыми."},
+        {"who": "hero", "es": "So that's how he makes fake fragments!", "ru": "Вот как он делает поддельные обрывки!"},
+        {"who": "npc", "es": "Exactly. Now there is sand in the fake ones too.", "ru": "Вот именно. Теперь и в поддельных есть песок."},
+        {"who": "hero", "es": "So now you can't tell which one is real.", "ru": "Значит, теперь не понять, какой из них настоящий."},
+        {"who": "npc", "es": "Before he left, he told me: “People believe what they want to believe.”", "ru": "Перед уходом он сказал мне: «Люди верят в то, во что хотят верить»."}
+      ],
+      "questions": [
+        {"q": "Кого Берт видел среди роз?", "options": ["Человека с верблюдом", "Освальда", "Миссис Патель"], "answer": 0},
+        {"q": "Что делал этот человек?", "options": ["Сажал розы", "Закапывал новые обрывки в песок, чтобы они стали старыми", "Продавал воду"], "answer": 1},
+        {"q": "Почему теперь трудно отличить подделку?", "options": ["Они дороже", "Они другого цвета", "В поддельных тоже есть песок"], "answer": 2},
+        {"q": "Что сказал человек с верблюдом?", "options": ["«Люди верят в то, во что хотят верить»", "«Я вернусь завтра»", "«Карта не продаётся»"], "answer": 0}
+      ],
+      "gloss": {"among": "среди", "burying": "закапывал", "exactly": "вот именно", "lady": "young lady — девушка"}
     }
   ]
 }

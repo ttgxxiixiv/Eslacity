@@ -52,6 +52,31 @@
         {"q": "На какой вопрос Сэм не смог ответить?", "options": ["«Кому ты помог?»", "«Как тебя зовут?»", "«Откуда ты?»"], "answer": 0}
       ],
       "gloss": {"guardian": "страж", "brought": "спустил, принёс", "turn": "your turn — твоя очередь"}
+    },
+    {
+      "id": "sc:hospital.3",
+      "chapter": 3,
+      "npc": "okafor",
+      "lines": [
+        {"who": "npc", "es": "Good afternoon. Yesterday Rory came in, the man with the camel.", "ru": "Добрый день. Вчера приходил Рори, человек с верблюдом."},
+        {"who": "hero", "es": "Is he ill?", "ru": "Он болен?"},
+        {"who": "npc", "es": "He thought so. He couldn't sleep, he heard voices. He thought he had a serious illness.", "ru": "Он так думал. Не спал, слышал голоса. Думал, что у него тяжёлая болезнь."},
+        {"who": "hero", "es": "And what was the diagnosis?", "ru": "И какой был диагноз?"},
+        {"who": "npc", "es": "He is homesick. He wants to go home.", "ru": "Тоска по дому. Он хочет вернуться домой."},
+        {"who": "hero", "es": "And the voices of the trees?", "ru": "А голоса деревьев?"},
+        {"who": "npc", "es": "The trees whisper his name because they are waiting for him. It is not a danger: it is a call.", "ru": "Деревья шепчут его имя, потому что ждут его. Это не опасность: это зов."},
+        {"who": "hero", "es": "Can it be cured?", "ru": "Это лечится?"},
+        {"who": "npc", "es": "There is only one medicine: to go back. I told him that, and he cried. But this time he cried because he was happy.", "ru": "Лекарство только одно: вернуться. Я ему это сказала, и он заплакал. Но в этот раз от радости."},
+        {"who": "hero", "es": "So he will go back to the forest.", "ru": "Значит, он вернётся в лес."},
+        {"who": "npc", "es": "I hope so. And you be careful: after the desert comes the forest. There you must listen.", "ru": "Надеюсь. А вы осторожнее: после пустыни — лес. Там нужно слушать."}
+      ],
+      "questions": [
+        {"q": "Что беспокоило Рори?", "options": ["Он не спал и слышал голоса", "У него болела нога", "Он потерял карту"], "answer": 0},
+        {"q": "Какой диагноз поставила доктор?", "options": ["Грипп", "Тоска по дому", "Солнечный удар"], "answer": 1},
+        {"q": "Почему деревья шепчут его имя?", "options": ["Они злятся", "Так дует ветер", "Они его ждут"], "answer": 2},
+        {"q": "Какое лекарство от этого?", "options": ["Вернуться домой", "Таблетки", "Отдых на море"], "answer": 0}
+      ],
+      "gloss": {"rory": "Рори", "cried": "заплакал", "cured": "вылечен"}
     }
   ]
 }

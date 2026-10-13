@@ -40,6 +40,26 @@
         "track": {"kind": "answer", "task": "Попросите трек-номер, чтобы узнать, откуда посылка.", "branches": [{"phrase": "ph:post.tracking-number", "next": "end"}], "wrong": {"es": "Give you my bike? Never! But I can give you a number.", "ru": "Отдать тебе велосипед? Никогда! Но могу дать номер."}},
         "end": {"kind": "say", "es": "Here it is. Look: the parcel left the lighthouse three days ago. And take my fragment of the hill map. Follow the voice, traveller.", "ru": "Вот он. Смотри: посылка ушла с маяка три дня назад. И держи мой обрывок карты гор. Иди на голос, путешественник."}
       }
+    },
+    {
+      "id": "ms:post.3",
+      "chapter": 3,
+      "npc": "dan",
+      "scene": "sc:post.3",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "To the counter! Let's sort it out today.", "ru": "Идём к окошку! Сегодня всё решим.", "next": "lost"},
+        "lost": {"kind": "answer", "task": "Скажите служащему, что ваша посылка потерялась.", "branches": [{"phrase": "ph:post.parcel-missing", "next": "lostsay"}], "wrong": {"es": "My parcel is in love? My parcel isn't here!", "ru": "Моя посылка влюблена? Моей посылки нет!"}},
+        "lostsay": {"kind": "say", "es": "Missing? Stolen. But on the form we write “missing”. Next.", "ru": "Потерялась? Украдена. Но в бланке напишем «утеряна». Дальше.", "next": "claim"},
+        "claim": {"kind": "answer", "task": "Скажите, что хотите подать жалобу.", "branches": [{"phrase": "ph:post.make-complaint", "next": "claimsay"}], "wrong": {"es": "You want a stamp? First the complaint.", "ru": "Хочешь марку? Сначала жалоба."}},
+        "claimsay": {"kind": "say", "es": "Here's the form. And now write to Sam: tell him not to send parcels without telling you.", "ru": "Вот бланк. А теперь напиши Сэму: пусть больше не шлёт посылки без предупреждения.", "next": "ack"},
+        "ack": {"kind": "answer", "task": "Отправьте письмо Сэму заказным.", "branches": [{"phrase": "ph:post.recorded", "next": "acksay"}], "wrong": {"es": "With sand, please? No, without sand.", "ru": "С песком, пожалуйста? Нет, без песка."}},
+        "acksay": {"kind": "say", "es": "Right: then we'll know who signs for it. That's three pounds.", "ru": "Правильно: так мы будем знать, кто его получил. С тебя три фунта.", "next": "cod"},
+        "cod": {"kind": "answer", "task": "Спросите, можно ли оплатить при получении.", "branches": [{"phrase": "ph:post.pay-on-delivery", "next": "codsay"}], "wrong": {"es": "Can you pay with sand? I don't take that kind of money!", "ru": "Заплатить песком? Такие деньги не принимаю!"}},
+        "codsay": {"kind": "say", "es": "Yes: Sam will pay when he gets it. Anything else?", "ru": "Можно: заплатит Сэм, когда получит. Что-нибудь ещё?", "next": "tax"},
+        "tax": {"kind": "answer", "task": "Спросите, нужно ли платить таможенную пошлину.", "branches": [{"phrase": "ph:post.customs", "next": "end"}], "wrong": {"es": "Pay the camel? The camel gets nothing!", "ru": "Платить верблюду? Верблюду — ничего!"}},
+        "end": {"kind": "say", "es": "To the hospital? No, it's in town. And take my fragment of the desert map. Nobody will steal this one: I always keep it on my bike.", "ru": "В больницу? Нет, она в городе. И держи мой обрывок карты пустыни. Этот никто не украдёт: я всегда вожу его на велосипеде."}
+      }
     }
   ]
 }

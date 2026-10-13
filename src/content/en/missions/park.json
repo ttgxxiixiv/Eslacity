@@ -40,6 +40,26 @@
         "rain": {"kind": "answer", "task": "Скажите, что сейчас пойдёт дождь, и спросите, есть ли у него зонт.", "branches": [{"phrase": "ph:park.rain-umbrella", "next": "end"}], "wrong": {"es": "Snow? Not in summer. But rain, yes.", "ru": "Снег? Летом нет. А вот дождь — будет."}},
         "end": {"kind": "say", "es": "I've got an umbrella. Let's go home. The man didn't come. But take my fragment of the hill map. If you see him, look at his face: it's the same as fifty years ago.", "ru": "Зонт у меня есть. Пошли домой. Человек не пришёл. Но держи мой обрывок карты гор. Если увидишь его, посмотри на лицо: оно такое же, как пятьдесят лет назад."}
       }
+    },
+    {
+      "id": "ms:park.3",
+      "chapter": 3,
+      "npc": "bert",
+      "scene": "sc:park.3",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Let's look for more papers from the man with the camel. Are you coming?", "ru": "Пойдём поищем ещё бумаги человека с верблюдом. Идёшь?", "next": "dogs"},
+        "dogs": {"kind": "answer", "task": "Спросите, можно ли сюда с собаками (с вами Бисквит).", "branches": [{"phrase": "ph:park.dogs-allowed", "next": "dogsay"}], "wrong": {"es": "Are wolves allowed here? Certainly not.", "ru": "Сюда можно с волками? Вот уж точно нельзя."}},
+        "dogsay": {"kind": "say", "es": "Dogs are allowed. Look at the light.", "ru": "С собаками можно. Смотри, какой свет.", "next": "sun"},
+        "sun": {"kind": "answer", "task": "Скажите, что обожаете гулять на закате.", "branches": [{"phrase": "ph:park.walk-at-sunset", "next": "sunsay"}], "wrong": {"es": "You love sleeping in the park? Not here, young man!", "ru": "Обожаешь спать в парке? Только не здесь, молодой человек!", "fem": {"es": "You love sleeping in the park? Not here, young lady!", "ru": "Обожаешь спать в парке? Только не здесь, девушка!"}}},
+        "sunsay": {"kind": "say", "es": "Me too. Here are the roses. Look at the ground.", "ru": "Я тоже. Вот и розы. Посмотри на землю.", "next": "roses"},
+        "roses": {"kind": "answer", "task": "Спросите, когда цветут розы.", "branches": [{"phrase": "ph:park.roses-bloom", "next": "rosesay"}], "wrong": {"es": "When do roses fly? Roses don't fly!", "ru": "Когда летают розы? Розы не летают!"}},
+        "rosesay": {"kind": "say", "es": "In June. But look at the ground: there are fake papers here.", "ru": "В июне. Но посмотри на землю: здесь поддельные бумаги.", "next": "rec"},
+        "rec": {"kind": "answer", "task": "Спросите, где это можно сдать на переработку.", "branches": [{"phrase": "ph:park.recycle-this", "next": "recsay"}], "wrong": {"es": "Where can you sell this? It isn't for sale! It's fake.", "ru": "Где это продать? Это не продаётся! Это подделки."}},
+        "recsay": {"kind": "say", "es": "Over there, in the blue bin. Fake papers go in the bin. And this allotment with tomatoes?", "ru": "Вон там, в синий контейнер. Поддельные бумаги — в мусор. А этот огород с помидорами?", "next": "orto"},
+        "orto": {"kind": "answer", "task": "Спросите, принадлежит ли этот огород мэрии.", "branches": [{"phrase": "ph:park.allotment-council", "next": "end"}], "wrong": {"es": "Is it your allotment? No, it is not!", "ru": "Огород твой? Нет!"}},
+        "end": {"kind": "say", "es": "It belongs to the town hall. I grow my own tomatoes there. And among the tomatoes I kept this: my fragment of the desert map, the real one.", "ru": "Это огород мэрии. У меня там свои помидоры. А среди помидоров я хранил вот это: мой обрывок карты пустыни, настоящий."}
+      }
     }
   ]
 }

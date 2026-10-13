@@ -50,6 +50,31 @@
         {"q": "Какой вывод делает герой?", "options": ["Сэм уехал в столицу", "Страж потерял монеты", "Сэм у стража"], "answer": 2}
       ],
       "gloss": {"whose": "чей", "guardian": "страж", "guardians": "стражи", "signature": "подпись", "rules": "правила"}
+    },
+    {
+      "id": "sc:bank.3",
+      "chapter": 3,
+      "npc": "whitmore",
+      "lines": [
+        {"who": "npc", "es": "Good afternoon. Yesterday the man with the camel came to see me.", "ru": "Добрый день. Вчера ко мне приходил человек с верблюдом."},
+        {"who": "hero", "es": "What did he want?", "ru": "Что он хотел?"},
+        {"who": "npc", "es": "To invest a lot of money. He wanted to buy all the “oasis water” in the desert.", "ru": "Вложить много денег. Хотел скупить всю «воду оазиса» в пустыне."},
+        {"who": "hero", "es": "But that water is a lie.", "ru": "Но эта вода — обман."},
+        {"who": "npc", "es": "That is what I told him. And when I touched his banknotes, they turned into sand.", "ru": "Я так ему и сказал. А его купюры, когда я их потрогал, превратились в песок."},
+        {"who": "hero", "es": "In my opinion, it's a fraud.", "ru": "По-моему, это мошенничество."},
+        {"who": "npc", "es": "It is. And then he asked for something even stranger: an account in the name of the white city.", "ru": "Так и есть. А потом он попросил о ещё более странном: открыть счёт на имя белого города."},
+        {"who": "hero", "es": "Why?", "ru": "Зачем?"},
+        {"who": "npc", "es": "He says that on the night of the full moon he will buy the city.", "ru": "Говорит, что в ночь полнолуния купит этот город."},
+        {"who": "hero", "es": "Can you buy a city?", "ru": "Разве можно купить город?"},
+        {"who": "npc", "es": "Not in my bank. And, I think, not in the desert either.", "ru": "В моём банке — нет. И, думаю, в пустыне тоже."}
+      ],
+      "questions": [
+        {"q": "Во что хотел вложить деньги Купец?", "options": ["Во «воду оазиса»", "В банк", "В гостиницу"], "answer": 0},
+        {"q": "Что стало с его купюрами?", "options": ["Оказались фальшивыми монетами", "Превратились в песок", "Пропали из сейфа"], "answer": 1},
+        {"q": "На чьё имя он хотел открыть счёт?", "options": ["На своё имя", "На имя стражницы", "На имя белого города"], "answer": 2},
+        {"q": "Что он собирается сделать в полнолуние?", "options": ["Купить белый город", "Уехать из города", "Открыть магазин"], "answer": 0}
+      ],
+      "gloss": {"oasis": "оазис", "banknotes": "купюры", "turned": "превратились", "moon": "луна", "either": "тоже (с отрицанием)"}
     }
   ]
 }

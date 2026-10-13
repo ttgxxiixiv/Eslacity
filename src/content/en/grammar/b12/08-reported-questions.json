@@ -1,0 +1,154 @@
+{
+  "id": "b12.08-reported-questions",
+  "district": "B1.2",
+  "order": 8,
+  "title": "Косвенные вопросы",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "В пересказе вопроса порядок слов как в утверждении, без do/did: «Where **do you** live?» → He asked where **I lived**. Вопрос без вопросительного слова — через **if / whether**: «Are you ready?» → She asked **if** I was ready."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Прямой вопрос",
+        "Косвенный"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "\"Where is the well?\"",
+            "He asked where the well was."
+          ]
+        },
+        {
+          "cells": [
+            "\"Do you like tea?\"",
+            "She asked if I liked tea."
+          ]
+        },
+        {
+          "cells": [
+            "\"What did you see?\"",
+            "They asked what I had seen."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Вежливые вопросы устроены так же: Can you tell me where **the station is**? (не «where is the station»)."
+    }
+  ],
+  "examples": [
+    {
+      "es": "She asked me where I was going.",
+      "ru": "Она спросила, куда я иду."
+    },
+    {
+      "es": "He asked if I had a map.",
+      "ru": "Он спросил, есть ли у меня карта."
+    },
+    {
+      "es": "Can you tell me what time it is?",
+      "ru": "Не подскажете, который час?"
+    },
+    {
+      "es": "I wonder why the city disappeared.",
+      "ru": "Интересно, почему город исчез."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "b12.08-reported-questions.1",
+      "kind": "choose",
+      "prompt": "\"Where do you live?\" he asked →",
+      "options": [
+        "He asked where I lived.",
+        "He asked where did I live.",
+        "He asked where do I live."
+      ],
+      "answer": 0,
+      "explain": "Порядок как в утверждении, без do."
+    },
+    {
+      "id": "b12.08-reported-questions.2",
+      "kind": "choose",
+      "prompt": "\"Are you tired?\" she asked →",
+      "options": [
+        "She asked if I was tired.",
+        "She asked was I tired.",
+        "She asked that I was tired."
+      ],
+      "answer": 0,
+      "explain": "Да/нет вопрос — if."
+    },
+    {
+      "id": "b12.08-reported-questions.3",
+      "kind": "gap",
+      "sentence": "Do you know where the guide ___?",
+      "ru": "Ты знаешь, где проводник?",
+      "options": [
+        "is",
+        "is he",
+        "does"
+      ],
+      "answer": 0,
+      "explain": "Порядок утверждения: the guide is."
+    },
+    {
+      "id": "b12.08-reported-questions.4",
+      "kind": "gap",
+      "sentence": "He asked me ___ I wanted some water.",
+      "ru": "Он спросил, хочу ли я воды.",
+      "options": [
+        "if",
+        "that",
+        "what"
+      ],
+      "answer": 0,
+      "explain": "Да/нет — if."
+    },
+    {
+      "id": "b12.08-reported-questions.5",
+      "kind": "truefalse",
+      "statement": "«Can you tell me where is the bank?» — правильно.",
+      "answer": false,
+      "explain": "Порядок утверждения: where the bank is."
+    },
+    {
+      "id": "b12.08-reported-questions.6",
+      "kind": "truefalse",
+      "statement": "«She asked whether I was ready» — правильно.",
+      "answer": true,
+      "explain": "whether = if."
+    },
+    {
+      "id": "b12.08-reported-questions.7",
+      "kind": "truefalse",
+      "statement": "В косвенном вопросе нет вопросительного знака, если вся фраза — утверждение.",
+      "answer": true,
+      "explain": "He asked where I lived."
+    },
+    {
+      "id": "b12.08-reported-questions.8",
+      "kind": "build",
+      "ru": "Он спросил, где я живу.",
+      "answer": "He asked where I lived.",
+      "extra": [
+        "did",
+        "do"
+      ],
+      "explain": "Без do, порядок утверждения."
+    },
+    {
+      "id": "b12.08-reported-questions.9",
+      "kind": "type",
+      "sentence": "Could you tell me what time the train ___?",
+      "ru": "Не подскажете, во сколько поезд?",
+      "hint": "leave",
+      "answer": "leaves",
+      "explain": "Порядок утверждения: the train leaves."
+    }
+  ]
+}

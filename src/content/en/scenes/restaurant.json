@@ -50,6 +50,31 @@
         {"q": "Что видно с маяка?", "options": ["Город", "Блестящий песок", "Лес"], "answer": 1}
       ],
       "gloss": {"shines": "блестит"}
+    },
+    {
+      "id": "sc:restaurant.3",
+      "chapter": 3,
+      "npc": "archie",
+      "lines": [
+        {"who": "npc", "es": "Come in! Yesterday I cooked for Oswald. He ate like he hadn't eaten for a hundred years.", "ru": "Заходи! Вчера я готовил для Освальда. Он ел так, будто не ел сто лет."},
+        {"who": "hero", "es": "He hasn't eaten here for a hundred years.", "ru": "Он и правда сто лет здесь не ел."},
+        {"who": "npc", "es": "That's true. And after dessert he told me about the desert.", "ru": "Твоя правда. А после десерта он рассказал мне о пустыне."},
+        {"who": "hero", "es": "And what did he say?", "ru": "И что он сказал?"},
+        {"who": "npc", "es": "That the third guardian lives in the white city. A very old and very wise woman.", "ru": "Что в белом городе живёт третья стражница. Очень старая и очень умная женщина."},
+        {"who": "hero", "es": "And what does she ask?", "ru": "И о чём она спрашивает?"},
+        {"who": "npc", "es": "She doesn't ask. She offers. She always speaks with “if”: “If you tell me the truth, I'll let you pass.”", "ru": "Она не спрашивает. Она предлагает. Всегда говорит через «если»: «Если скажешь мне правду, пропущу»."},
+        {"who": "hero", "es": "And if I lie?", "ru": "А если я солгу?"},
+        {"who": "npc", "es": "He says that if you lie, the city will vanish with you.", "ru": "Он говорит, что, если солжёшь, город исчезнет вместе с тобой."},
+        {"who": "hero", "es": "That's frightening.", "ru": "Страшно."},
+        {"who": "npc", "es": "That's why you must eat! You think better when you're full.", "ru": "Поэтому ешь! На сытый желудок думается лучше."}
+      ],
+      "questions": [
+        {"q": "Для кого вчера готовил Арчи?", "options": ["Для Освальда", "Для Сэма", "Для Молли"], "answer": 0},
+        {"q": "Кто живёт в белом городе?", "options": ["Купец с верблюдом", "Третья стражница", "Летописец"], "answer": 1},
+        {"q": "Как говорит стражница?", "options": ["Только вопросами", "Молча", "Всегда через «если»"], "answer": 2},
+        {"q": "Что будет, если солгать?", "options": ["Город исчезнет вместе с тобой", "Придётся заплатить", "Ничего"], "answer": 0}
+      ],
+      "gloss": {"oswald": "Освальд", "offers": "предлагает"}
     }
   ]
 }

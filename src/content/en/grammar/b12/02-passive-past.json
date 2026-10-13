@@ -1,0 +1,154 @@
+{
+  "id": "b12.02-passive-past",
+  "district": "B1.2",
+  "order": 2,
+  "title": "Пассив: Past Simple",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "**was/were + третья форма** — что было сделано в прошлом: The lighthouse **was built** in 1890. My bike **was stolen** yesterday."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Актив",
+        "Пассив"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Someone stole my wallet.",
+            "My wallet was stolen."
+          ]
+        },
+        {
+          "cells": [
+            "They built the bridge in 1900.",
+            "The bridge was built in 1900."
+          ]
+        },
+        {
+          "cells": [
+            "The storm destroyed the houses.",
+            "The houses were destroyed by the storm."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Вопрос — was/were вперёд: **When was** the city **built**? Отрицание: It **wasn't found**."
+    }
+  ],
+  "examples": [
+    {
+      "es": "The lighthouse was built a hundred years ago.",
+      "ru": "Маяк построили сто лет назад."
+    },
+    {
+      "es": "My bag was stolen at the station.",
+      "ru": "Мою сумку украли на вокзале."
+    },
+    {
+      "es": "The letters were written by hand.",
+      "ru": "Письма были написаны от руки."
+    },
+    {
+      "es": "When was this map made?",
+      "ru": "Когда сделали эту карту?"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "b12.02-passive-past.1",
+      "kind": "choose",
+      "prompt": "Пассив от «Somebody found the key»:",
+      "options": [
+        "The key was found.",
+        "The key were found.",
+        "The key is find."
+      ],
+      "answer": 0,
+      "explain": "was + found."
+    },
+    {
+      "id": "b12.02-passive-past.2",
+      "kind": "choose",
+      "prompt": "«Окна разбили во время бури»:",
+      "options": [
+        "The windows were broken in the storm.",
+        "The windows was broken in the storm.",
+        "The windows broke by the storm."
+      ],
+      "answer": 0,
+      "explain": "were + broken."
+    },
+    {
+      "id": "b12.02-passive-past.3",
+      "kind": "gap",
+      "sentence": "The white city ___ seen by many travellers.",
+      "ru": "Белый город видели многие путешественники.",
+      "options": [
+        "was",
+        "were",
+        "is been"
+      ],
+      "answer": 0,
+      "explain": "city — ед. число: was."
+    },
+    {
+      "id": "b12.02-passive-past.4",
+      "kind": "gap",
+      "sentence": "The fragments ___ hidden in every house.",
+      "ru": "Обрывки были спрятаны в каждом доме.",
+      "options": [
+        "were",
+        "was",
+        "are being"
+      ],
+      "answer": 0,
+      "explain": "fragments — мн. число: were."
+    },
+    {
+      "id": "b12.02-passive-past.5",
+      "kind": "truefalse",
+      "statement": "«When was the tower built?» — правильный вопрос.",
+      "answer": true,
+      "explain": "was + built."
+    },
+    {
+      "id": "b12.02-passive-past.6",
+      "kind": "truefalse",
+      "statement": "«The train was cancel» — правильно.",
+      "answer": false,
+      "explain": "was + cancelled."
+    },
+    {
+      "id": "b12.02-passive-past.7",
+      "kind": "truefalse",
+      "statement": "«My passport was stolen» — пассив в прошедшем.",
+      "answer": true,
+      "explain": "was + stolen."
+    },
+    {
+      "id": "b12.02-passive-past.8",
+      "kind": "build",
+      "ru": "Письмо было написано сто лет назад.",
+      "answer": "The letter was written a hundred years ago.",
+      "extra": [
+        "wrote",
+        "is"
+      ],
+      "explain": "was + written."
+    },
+    {
+      "id": "b12.02-passive-past.9",
+      "kind": "type",
+      "sentence": "The old train ___ never seen again.",
+      "ru": "Старый поезд больше никогда не видели.",
+      "hint": "was / were",
+      "answer": "was",
+      "explain": "Пассив прошедшего: was seen."
+    }
+  ]
+}

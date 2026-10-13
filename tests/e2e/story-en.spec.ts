@@ -76,3 +76,11 @@ test('en: развилка кафе — Молли помнит, что геро
   await playScene(page, sc, { drink: 'tea' });
   expect(sc.lines.some((l) => l.if?.is === 'tea' && l.es.includes('your usual tea'))).toBe(true);
 });
+
+test('en: развилка главы II — Молли в главе III вспоминает, что герой хотел её угостить', async ({ page }) => {
+  await openEnglish(page);
+  await playMission(page, 'ms:cafe.2', { 'Попросите счёт или скажите, что сегодня угощаете вы.': 1 });
+  const sc = scenes.find((s) => s.id === 'sc:cafe.3')!;
+  await playScene(page, sc, { treat: 'treat' });
+  expect(sc.lines.some((l) => l.if?.is === 'treat' && l.es.includes('like you wanted to treat me'))).toBe(true);
+});

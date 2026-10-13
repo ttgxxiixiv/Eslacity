@@ -44,6 +44,26 @@
         "sunset": {"kind": "answer", "task": "Предложите пойти смотреть на закат.", "branches": [{"phrase": "ph:beach.watch-sunset", "next": "end"}], "wrong": {"es": "Let's go to bed? First, the sun!", "ru": "Пойдём спать? Сначала солнце!"}},
         "end": {"kind": "say", "es": "Look: the lighthouse. The light comes on three times. Take my fragment of the hill map. When you get up there, turn your torch on and off three times. I'll see you from here.", "ru": "Смотри: маяк. Свет загорается три раза. Держи мой обрывок карты гор. Когда доберёшься наверх, мигни фонариком три раза. Я увижу тебя отсюда."}
       }
+    },
+    {
+      "id": "ms:beach.3",
+      "chapter": 3,
+      "npc": "finn",
+      "scene": "sc:beach.3",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "The beach is full today. What shall we do?", "ru": "Сегодня на пляже яблоку негде упасть. Что будем делать?", "next": "crowd"},
+        "crowd": {"kind": "answer", "task": "Скажите, что в высокий сезон на пляже не протолкнуться.", "branches": [{"phrase": "ph:beach.too-crowded", "next": "crowdsay"}], "wrong": {"es": "Snow in high season? No, no!", "ru": "В высокий сезон тут снег? Да нет же!"}},
+        "crowdsay": {"kind": "say", "es": "Always. Do you know a quiet place?", "ru": "Всегда так. Знаешь какое-нибудь тихое место?", "next": "cove"},
+        "cove": {"kind": "answer", "task": "Скажите, что знаете тихую бухточку.", "branches": [{"phrase": "ph:beach.quiet-cove", "next": "covesay"}], "wrong": {"es": "You know my dog? No, I'm asking about a place.", "ru": "Знаешь мою собаку? Нет, я спрашиваю про место."}},
+        "covesay": {"kind": "say", "es": "The cove? He was there last night. Come on.", "ru": "Бухту? Он был там вчера ночью. Пошли.", "next": "dip"},
+        "dip": {"kind": "answer", "task": "Предложите окунуться.", "branches": [{"phrase": "ph:beach.quick-dip", "next": "dipsay"}], "wrong": {"es": "Let's eat an ice cream? Later. Now, into the water.", "ru": "Съедим мороженое? Потом, а сейчас — в воду."}},
+        "dipsay": {"kind": "say", "es": "Great! … Listen, you're all red. Are you OK?", "ru": "Здорово! … Слушай, ты весь красный. Тебе нехорошо?", "next": "sun", "fem": {"ru": "Здорово! … Слушай, ты вся красная. Тебе нехорошо?"}},
+        "sun": {"kind": "answer", "task": "Скажите, что у вас, кажется, солнечный удар.", "branches": [{"phrase": "ph:beach.got-sunstroke", "next": "sunsay"}], "wrong": {"es": "You're cold? Not in this sun!", "ru": "Тебе холодно? С таким солнцем — нет!"}},
+        "sunsay": {"kind": "say", "es": "Into the shade, slowly. Here's some cool water. Better? When the sun goes down, we'll go for a walk.", "ru": "В тень, потихоньку. Вот прохладная вода. Лучше? Когда солнце сядет, прогуляемся.", "next": "walk"},
+        "walk": {"kind": "answer", "task": "Предложите прогуляться по набережной.", "branches": [{"phrase": "ph:beach.promenade", "next": "end"}], "wrong": {"es": "Let's go to the desert? Not today, traveller. Today the sea.", "ru": "Пойдём в пустыню? Не сегодня, путешественник. Сегодня к морю."}},
+        "end": {"kind": "say", "es": "Come on. Look: the moon is almost full. Take my fragment of the desert map. And if you see the man with the camel, talk to him quietly. He's afraid.", "ru": "Пошли. Смотри: луна уже почти полная. Держи мой обрывок карты пустыни. А если увидишь человека с верблюдом, говори с ним тихо. Ему страшно."}
+      }
     }
   ]
 }

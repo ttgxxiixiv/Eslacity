@@ -42,8 +42,30 @@
         "napkinsay": {"kind": "say", "es": "Here you are. And look: this is Sam's last letter.", "ru": "Держи. И смотри: это последнее письмо Сэма.", "next": "cash"},
         "cash": {"kind": "answer", "task": "Спросите, можно ли заплатить наличными.", "branches": [{"phrase": "ph:cafe.pay-cash", "next": "cashsay"}], "wrong": {"es": "Pay with your bag? No, thanks, I've got a bag.", "ru": "Заплатить твоим пакетом? Нет, спасибо, у меня есть пакет."}},
         "cashsay": {"kind": "say", "es": "Cash is fine. But wait a moment.", "ru": "Наличные — это хорошо. Но подожди минутку.", "next": "treat"},
-        "treat": {"kind": "answer", "task": "Скажите, что сегодня угощаете вы.", "branches": [{"phrase": "ph:cafe.my-treat", "next": "end"}], "wrong": {"es": "You're giving me your map? No, keep it.", "ru": "Отдаёшь мне свою карту? Нет, оставь себе."}},
+        "treat": {"kind": "answer", "task": "Попросите счёт или скажите, что сегодня угощаете вы.", "branches": [{"phrase": "ph:cafe.the-bill", "next": "end", "sets": {"treat": "paid"}}, {"phrase": "ph:cafe.my-treat", "next": "end", "sets": {"treat": "treat"}}], "wrong": {"es": "You're giving me your map? No, keep it.", "ru": "Отдаёшь мне свою карту? Нет, оставь себе."}},
         "end": {"kind": "say", "es": "No, today you don't pay anything. And listen: if you see Sam in the fog, call him. He always said: in the fog, only a voice can show you the way. Take my fragment of the hill map.", "ru": "Нет, сегодня ты ничего не платишь. И вот что: если увидишь Сэма в тумане, позови его. Он всегда говорил: в тумане дорогу покажет только голос. Держи мой обрывок карты гор."}
+      }
+    },
+    {
+      "id": "ms:cafe.3",
+      "chapter": 3,
+      "npc": "molly",
+      "scene": "sc:cafe.3",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Have you got a minute? I want to talk to you before the desert.", "ru": "Есть минутка? Хочу поговорить с тобой перед пустыней.", "next": "drink"},
+        "drink": {"kind": "answer", "task": "Предложите посидеть и поболтать за кофе.", "branches": [{"phrase": "ph:cafe.catch-up", "next": "drinksay"}], "wrong": {"es": "Catch a train? No, no, let's have a coffee.", "ru": "Сесть на поезд? Да нет же, выпьем кофе."}},
+        "drinksay": {"kind": "say", "es": "Of course, sit down. The usual?", "ru": "Конечно, садись. Как обычно?", "next": "milk"},
+        "milk": {"kind": "answer", "task": "Спросите, есть ли молоко без лактозы.", "branches": [{"phrase": "ph:cafe.dairy-free", "next": "milksay"}], "wrong": {"es": "Camel milk? That's in the desert.", "ru": "Верблюжье молоко? Это в пустыне."}},
+        "milksay": {"kind": "say", "es": "Yes, dairy-free. Oswald asked for it too. And something sweet?", "ru": "Да, без лактозы. Освальд тоже такое просил. А что-нибудь сладкое?", "next": "pastry"},
+        "pastry": {"kind": "answer", "task": "Спросите, домашняя ли выпечка.", "branches": [{"phrase": "ph:cafe.homemade", "next": "pastrysay"}], "wrong": {"es": "Pastries made of sand? No, from my oven!", "ru": "Выпечка из песка? Нет, из моей печи!"}},
+        "pastrysay": {"kind": "say", "es": "Homemade, my mum's recipe. Take one for the road. Listen, why do you come here so often?", "ru": "Домашняя, мамина. Возьми одну в дорогу. Слушай, а почему ты так часто сюда приходишь?", "next": "relax"},
+        "relax": {"kind": "answer", "task": "Скажите, что приходите сюда отдохнуть.", "branches": [{"phrase": "ph:cafe.to-relax", "next": "relaxsay"}], "wrong": {"es": "You come here to sleep? This isn't a hotel!", "ru": "Приходишь сюда поспать? Это не отель!"}},
+        "relaxsay": {"kind": "say", "es": "I know. But today we aren't relaxing: today we're planning a trip. When do we meet Sam?", "ru": "Знаю. Но сегодня не отдыхаем: сегодня готовим поход. Когда встретимся с Сэмом?", "next": "meet"},
+        "meet": {"kind": "answer", "task": "Предложите встретиться до обеда.", "branches": [{"phrase": "ph:cafe.before-lunch", "next": "meetsay"}], "wrong": {"es": "At midnight? Sam is asleep then.", "ru": "В полночь? Сэм в это время спит."}},
+        "meetsay": {"kind": "say", "es": "Before lunch, here, with Sam and his map of the desert.", "ru": "До обеда, здесь, с Сэмом и его картой пустыни.", "next": "pay"},
+        "pay": {"kind": "answer", "task": "Попросите счёт.", "branches": [{"phrase": "ph:cafe.the-bill", "next": "end"}], "wrong": {"es": "Does the desert take money? It doesn't, but it's expensive in other ways.", "ru": "Пустыня берёт плату? Денег не берёт, но обходится дорого."}},
+        "end": {"kind": "say", "es": "Sam is paying today: he left me some money. And take my fragment of the desert map. Remember what Oswald says: don't trust what you see.", "ru": "Сегодня угощает Сэм: он оставил мне деньги. И держи мой обрывок карты пустыни. Помни, что говорит Освальд: не верь тому, что видишь."}
       }
     }
   ]

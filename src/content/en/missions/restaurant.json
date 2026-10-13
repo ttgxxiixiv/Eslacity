@@ -44,6 +44,26 @@
         "special": {"kind": "answer", "task": "Спросите, какое сегодня фирменное блюдо.", "branches": [{"phrase": "ph:restaurant.special-today", "next": "end"}], "wrong": {"es": "What's my name? Archie, like always!", "ru": "Как меня зовут? Арчи, как всегда!"}},
         "end": {"kind": "say", "es": "Fish and chips, of course. But today there is something special: my fragment of the hill map. If you find Sam, tell him the soup is waiting for him.", "ru": "Рыба с картошкой, конечно. А сегодня кое-что особенное: мой обрывок карты гор. Если найдёшь Сэма, скажи, что суп его ждёт."}
       }
+    },
+    {
+      "id": "ms:restaurant.3",
+      "chapter": 3,
+      "npc": "archie",
+      "scene": "sc:restaurant.3",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Today you and Oswald are having dinner here. What can I get you?", "ru": "Сегодня ужинаете вы с Освальдом. Что вам подать?", "next": "lact"},
+        "lact": {"kind": "answer", "task": "Скажите, что у вас непереносимость молока.", "branches": [{"phrase": "ph:restaurant.milk-intolerance", "next": "lactsay"}], "wrong": {"es": "Are you afraid of the desert? That's normal. But tell me what you eat.", "ru": "Боишься пустыни? Это нормально. Но скажи, что ты ешь."}},
+        "lactsay": {"kind": "say", "es": "No cheese, then. Do you want fish with rice?", "ru": "Значит, никакого сыра. Рыбу с рисом?", "next": "alg"},
+        "alg": {"kind": "answer", "task": "Скажите, что у вас аллергия на рыбу.", "branches": [{"phrase": "ph:restaurant.allergic-fish", "next": "algsay"}], "wrong": {"es": "What colour is this plate? White and blue. Why?", "ru": "Какого цвета эта тарелка? Белая с синим. А что?"}},
+        "algsay": {"kind": "say", "es": "No fish, then. Chicken with rice. Do you like it?", "ru": "Значит, без рыбы. Курица с рисом. Нравится?", "next": "full"},
+        "full": {"kind": "answer", "task": "Скажите, что больше не хотите: вы уже наелись.", "branches": [{"phrase": "ph:restaurant.had-enough", "next": "fullsay"}], "wrong": {"es": "You want more? OK, I'll bring you more.", "ru": "Хочешь ещё? Ладно, принесу ещё."}},
+        "fullsay": {"kind": "say", "es": "Already? No dessert? Oswald had three. All right, the bill.", "ru": "Уже? Без десерта? Освальд съел три. Ладно, счёт.", "next": "half"},
+        "half": {"kind": "answer", "task": "Предложите Освальду заплатить пополам.", "branches": [{"phrase": "ph:restaurant.split-bill", "next": "halfsay"}], "wrong": {"es": "Pay with sand? Not in my restaurant!", "ru": "Заплатить песком? Только не у меня!"}},
+        "halfsay": {"kind": "say", "es": "He wants to pay with old coins. They're worth nothing, but I like them. Anything else?", "ru": "Он хочет заплатить старыми монетами. Они ни на что не годятся, но мне нравятся. Что-нибудь ещё?", "next": "book"},
+        "book": {"kind": "answer", "task": "В шутку скажите, что хотите пожаловаться на суп.", "branches": [{"phrase": "ph:restaurant.complain-soup", "next": "end"}], "wrong": {"es": "My recipe? Never! It's a secret.", "ru": "Мой рецепт? Никогда! Это секрет."}},
+        "end": {"kind": "say", "es": "Complain? Here? … You're joking, aren't you? All right. Take my fragment of the desert map. Your friend says it's hard to read: it changes in the light.", "ru": "Пожаловаться? Здесь? … Ты же шутишь, да? Ну хорошо. Держи мой обрывок карты пустыни. Твой друг говорит, что его трудно читать: он меняется от света."}
+      }
     }
   ]
 }

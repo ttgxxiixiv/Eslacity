@@ -30,7 +30,7 @@
       "start": "hi",
       "nodes": {
         "hi": {"kind": "say", "es": "Sweetheart! For the hills you need good food. What do you want?", "ru": "Солнышко! В горы нужна хорошая еда. Что тебе положить?", "next": "buy"},
-        "buy": {"kind": "answer", "task": "Попросите килограмм моркови или спросите, есть ли чеснок.", "branches": [{"phrase": "ph:market.kilo-carrots", "next": "buysay"}, {"phrase": "ph:market.any-garlic", "next": "buysay"}], "wrong": {"es": "A kilo of stones? Stones are in the hills.", "ru": "Килограмм камней? Камни — это в горах."}},
+        "buy": {"kind": "answer", "task": "Попросите килограмм моркови или спросите, есть ли чеснок.", "branches": [{"phrase": "ph:market.kilo-carrots", "next": "buysay", "sets": {"veg": "carrots"}}, {"phrase": "ph:market.any-garlic", "next": "buysay", "sets": {"veg": "garlic"}}], "wrong": {"es": "A kilo of stones? Stones are in the hills.", "ru": "Килограмм камней? Камни — это в горах."}},
         "buysay": {"kind": "say", "es": "Here you are. And the cheese from the farmers?", "ru": "Держи. А сыр от фермеров?", "next": "taste"},
         "taste": {"kind": "answer", "task": "Спросите, можно ли попробовать.", "branches": [{"phrase": "ph:market.can-i-taste", "next": "tastesay"}], "wrong": {"es": "Can you sing? Sing, but buy something too.", "ru": "Можно спеть? Пой, но и покупай."}},
         "tastesay": {"kind": "say", "es": "Go on, taste it! Good? And some fruit for the road?", "ru": "Пробуй, пробуй! Вкусно? А фрукты в дорогу?", "next": "season"},
@@ -42,6 +42,27 @@
         "peachsay": {"kind": "say", "es": "From the hills too. Anything else?", "ru": "Тоже с гор. Что-нибудь ещё?", "next": "done"},
         "done": {"kind": "answer", "task": "Скажите, что больше ничего не нужно, и поблагодарите.", "branches": [{"phrase": "ph:market.thats-all", "next": "end"}], "wrong": {"es": "Buy the market? No, it is not for sale.", "ru": "Купить рынок? Нет, он не продаётся."}},
         "end": {"kind": "say", "es": "That's eight pounds. And listen: the farmers say there is a light in the lighthouse every night. Somebody lives there. Take my fragment of the hill map.", "ru": "С тебя восемь фунтов. И послушай: фермеры говорят, что на маяке каждую ночь горит свет. Там кто-то живёт. Держи мой обрывок карты гор."}
+      }
+    },
+    {
+      "id": "ms:market.3",
+      "chapter": 3,
+      "npc": "patel",
+      "scene": "sc:market.3",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "What a day! Lots of people. Everybody is shopping for the desert. What do you need?", "ru": "Ну и день! Народу очень много. Все закупаются для пустыни. А тебе что нужно?", "next": "queue"},
+        "queue": {"kind": "answer", "task": "Спросите, кто последний в очереди.", "branches": [{"phrase": "ph:market.whos-last", "next": "queuesay"}], "wrong": {"es": "Who's first? The first one has already bought. Ask who's last.", "ru": "Кто первый? Первый уже купил. Спроси, кто последний."}},
+        "queuesay": {"kind": "say", "es": "After the lady in the hat. Now it's your turn! What can I get you?", "ru": "За дамой в шляпе. Уже твоя очередь! Что тебе положить?", "next": "eco"},
+        "eco": {"kind": "answer", "task": "Спросите, органические ли это помидоры.", "branches": [{"phrase": "ph:market.organic-tomatoes", "next": "ecosay"}], "wrong": {"es": "Are these tomatoes from the desert? No, they're local.", "ru": "Это помидоры из пустыни? Нет, они местные."}},
+        "ecosay": {"kind": "say", "es": "Organic and local. And look at these peaches.", "ru": "Органические и местные. А посмотри на эти персики.", "next": "bad"},
+        "bad": {"kind": "answer", "task": "Скажите, что этот персик гнилой.", "branches": [{"phrase": "ph:market.peach-rotten", "next": "badsay"}], "wrong": {"es": "This peach is in love? Peaches don't fall in love!", "ru": "Этот персик влюблён? Персики не влюбляются!"}},
+        "badsay": {"kind": "say", "es": "You're right, it's rotten. Take this one. And for the road?", "ru": "Ты прав, он гнилой. Возьми вот этот. А в дорогу?", "next": "beans", "fem": {"ru": "Ты права, он гнилой. Возьми вот этот. А в дорогу?"}},
+        "beans": {"kind": "answer", "task": "Спросите, есть ли фасоль на развес.", "branches": [{"phrase": "ph:market.loose-beans", "next": "beanssay"}], "wrong": {"es": "Golden fruit? No, only good fruit.", "ru": "Золотые фрукты? Нет, только хорошие."}},
+        "beanssay": {"kind": "say", "es": "Here you are. Just right for the desert: beans don't weigh much. That's twelve pounds.", "ru": "Держи. Для пустыни — то, что нужно: фасоль весит мало. С тебя двенадцать фунтов.", "next": "deal"},
+        "deal": {"kind": "answer", "task": "Попросите уступить в цене или скажите, что больше ничего не нужно.", "branches": [{"phrase": "ph:market.cheaper-deal", "next": "end"}, {"phrase": "ph:market.thats-all", "next": "endfull"}], "wrong": {"es": "If you dance, can you have it for free? No!", "ru": "Станцуешь — и отдам даром? Нет!"}},
+        "endfull": {"kind": "say", "es": "Twelve pounds, no haggling. And take my fragment of the desert map, the real one. Look: the paper is old, and there is sand in it. The fake ones are new.", "ru": "Двенадцать фунтов, без торга. И держи мой обрывок карты пустыни, настоящий. Смотри: бумага старая, и в ней песок. Поддельные — новые."},
+        "end": {"kind": "say", "es": "That's how we do it! Ten pounds. And take my fragment of the desert map, the real one. Look: the paper is old, and there is sand in it. The fake ones are new.", "ru": "Вот это по-нашему! Десять фунтов. И держи мой обрывок карты пустыни, настоящий. Смотри: бумага старая, и в ней песок. Поддельные — новые."}
       }
     }
   ]

@@ -1,0 +1,166 @@
+{
+  "id": "b12.14-question-tags",
+  "district": "B1.2",
+  "order": 14,
+  "title": "Разделительные вопросы",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Короткий вопрос в конце — «правда?», «да?»: It's hot, **isn't it**? Утверждение — отрицательный хвостик, отрицание — положительный. Хвостик берёт помощника из фразы, а если его нет — **do/does/did**."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Фраза",
+        "Хвостик"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "You're tired,",
+            "aren't you?"
+          ]
+        },
+        {
+          "cells": [
+            "She can swim,",
+            "can't she?"
+          ]
+        },
+        {
+          "cells": [
+            "He didn't come,",
+            "did he?"
+          ]
+        },
+        {
+          "cells": [
+            "You like tea,",
+            "don't you?"
+          ]
+        },
+        {
+          "cells": [
+            "I'm right,",
+            "aren't I?"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "С I am — особый хвостик **aren't I**: I'm late, aren't I?"
+    }
+  ],
+  "examples": [
+    {
+      "es": "It's a lovely day, isn't it?",
+      "ru": "Чудесный день, правда?"
+    },
+    {
+      "es": "You've been here before, haven't you?",
+      "ru": "Ты ведь бывал здесь раньше?"
+    },
+    {
+      "es": "He doesn't eat meat, does he?",
+      "ru": "Он ведь не ест мясо?"
+    },
+    {
+      "es": "Let's go, shall we?",
+      "ru": "Пойдём, хорошо?"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "b12.14-question-tags.1",
+      "kind": "choose",
+      "prompt": "«You're Molly's brother, ___?»",
+      "options": [
+        "aren't you",
+        "don't you",
+        "isn't it"
+      ],
+      "answer": 0,
+      "explain": "are → aren't you."
+    },
+    {
+      "id": "b12.14-question-tags.2",
+      "kind": "choose",
+      "prompt": "«She can't drive, ___?»",
+      "options": [
+        "can she",
+        "can't she",
+        "does she"
+      ],
+      "answer": 0,
+      "explain": "Отрицание → положительный хвостик."
+    },
+    {
+      "id": "b12.14-question-tags.3",
+      "kind": "gap",
+      "sentence": "You live near the beach, ___ you?",
+      "ru": "Ты ведь живёшь у пляжа?",
+      "options": [
+        "don't",
+        "doesn't",
+        "aren't"
+      ],
+      "answer": 0,
+      "explain": "Present Simple с you → don't you."
+    },
+    {
+      "id": "b12.14-question-tags.4",
+      "kind": "gap",
+      "sentence": "They went to the oasis, ___ they?",
+      "ru": "Они ведь ходили в оазис?",
+      "options": [
+        "didn't",
+        "weren't",
+        "haven't"
+      ],
+      "answer": 0,
+      "explain": "Past Simple → didn't they."
+    },
+    {
+      "id": "b12.14-question-tags.5",
+      "kind": "truefalse",
+      "statement": "«I'm late, aren't I?» — правильно.",
+      "answer": true,
+      "explain": "Особый хвостик aren't I."
+    },
+    {
+      "id": "b12.14-question-tags.6",
+      "kind": "truefalse",
+      "statement": "«He has finished, doesn't he?» — правильно.",
+      "answer": false,
+      "explain": "Помощник has → hasn't he."
+    },
+    {
+      "id": "b12.14-question-tags.7",
+      "kind": "truefalse",
+      "statement": "«Nobody came, did they?» — правильно.",
+      "answer": true,
+      "explain": "nobody — отрицание, хвостик положительный."
+    },
+    {
+      "id": "b12.14-question-tags.8",
+      "kind": "build",
+      "ru": "Это мираж, правда?",
+      "answer": "It's a mirage, isn't it?",
+      "extra": [
+        "is",
+        "does"
+      ],
+      "explain": "is → isn't it."
+    },
+    {
+      "id": "b12.14-question-tags.9",
+      "kind": "type",
+      "sentence": "You haven't seen my map, ___ you?",
+      "ru": "Ты ведь не видел мою карту?",
+      "hint": "have / haven't",
+      "answer": "have",
+      "explain": "Отрицание → have you."
+    }
+  ]
+}

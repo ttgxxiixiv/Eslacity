@@ -50,6 +50,31 @@
         {"q": "Что было сегодня?", "options": ["Город стал больше", "Только песок", "Туман"], "answer": 1}
       ],
       "gloss": {"railway": "железная дорога", "desert": "пустыня", "pass": "перевал", "lies": "обманывает"}
+    },
+    {
+      "id": "sc:airport.3",
+      "chapter": 3,
+      "npc": "tom",
+      "lines": [
+        {"who": "npc", "es": "Traveller! Yesterday the wind blew us past the desert.", "ru": "Путешественник! Вчера ветер занёс нас за пустыню."},
+        {"who": "hero", "es": "And what did you see?", "ru": "И что ты видел?"},
+        {"who": "npc", "es": "A huge forest. Green, dark, with fog between the trees.", "ru": "Огромный лес. Зелёный, тёмный, с туманом между деревьями."},
+        {"who": "hero", "es": "A forest after the desert?", "ru": "Лес после пустыни?"},
+        {"who": "npc", "es": "And the trees were moving… but there was no wind.", "ru": "И деревья качались… но ветра не было."},
+        {"who": "hero", "es": "That's where Rory is from!", "ru": "Это лес, откуда Рори!"},
+        {"who": "npc", "es": "Rory was on the plane. He looked out of the window and smiled.", "ru": "Рори был в самолёте. Смотрел в окно и улыбался."},
+        {"who": "hero", "es": "Did he go home?", "ru": "Он вернулся домой?"},
+        {"who": "npc", "es": "He got off in a village in the forest. He told me: “Now I am not afraid to listen any more.”", "ru": "Он сошёл в лесной деревне. Сказал мне: «Теперь я больше не боюсь слушать»."},
+        {"who": "hero", "es": "And the trees?", "ru": "А деревья?"},
+        {"who": "npc", "es": "When he got off, they stopped moving. As if they were calm at last.", "ru": "Когда он сошёл, они перестали качаться. Будто наконец успокоились."}
+      ],
+      "questions": [
+        {"q": "Что Том увидел за пустыней?", "options": ["Огромный туманный лес", "Море", "Ещё одну пустыню"], "answer": 0},
+        {"q": "Что странного в деревьях?", "options": ["Были белыми", "Качались без ветра", "Пели"], "answer": 1},
+        {"q": "Где сошёл Рори?", "options": ["В белом городе", "В столице", "В лесной деревне"], "answer": 2},
+        {"q": "Что случилось с деревьями, когда он сошёл?", "options": ["Они успокоились", "Они исчезли", "Они зацвели"], "answer": 0}
+      ],
+      "gloss": {"blew": "занёс (о ветре)", "rory": "Рори"}
     }
   ]
 }

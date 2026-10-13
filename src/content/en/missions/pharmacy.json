@@ -43,6 +43,26 @@
         "recipe": {"kind": "answer", "task": "Спросите, можно ли купить это без рецепта.", "branches": [{"phrase": "ph:pharmacy.no-prescription", "next": "end"}], "wrong": {"es": "Can you buy the pharmacy? No, it isn't for sale.", "ru": "Можно купить аптеку? Нет, она не продаётся."}},
         "end": {"kind": "say", "es": "Yes, you can. And with the drops, my fragment of the hill map. If you see the man in the grey coat, tell him what year it is.", "ru": "Можно. А вместе с каплями — мой обрывок карты гор. Если увидите человека в сером пальто, скажите ему, какой сейчас год."}
       }
+    },
+    {
+      "id": "ms:pharmacy.3",
+      "chapter": 3,
+      "npc": "shah",
+      "scene": "sc:pharmacy.3",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Pharmacy. How can I help?", "ru": "Аптека. Слушаю.", "next": "duty"},
+        "duty": {"kind": "answer", "task": "Ночь, вы звоните по телефону. Спросите, где дежурная аптека.", "branches": [{"phrase": "ph:pharmacy.late-night", "next": "dutysay"}], "wrong": {"es": "Where is the party? It's night, there is no party.", "ru": "Где праздник? Ночь, никакого праздника."}},
+        "dutysay": {"kind": "say", "es": "The late-night pharmacy is us. I'm working tonight. Come in. … What's wrong?", "ru": "Дежурная — это мы. Сегодня я дежурю. Приходите. … Что с вами?", "next": "sleep"},
+        "sleep": {"kind": "answer", "task": "Скажите, что у вас бессонница из-за стресса.", "branches": [{"phrase": "ph:pharmacy.insomnia-stress", "next": "sleepsay"}], "wrong": {"es": "Are you hungry? At this time the pharmacy doesn't sell bread.", "ru": "Проголодались? В такой час аптека хлеб не продаёт."}},
+        "sleepsay": {"kind": "say", "es": "Like half the town. Do you dream of the white city? Let's check your blood pressure.", "ru": "Как полгорода. Вам снится белый город? Давайте измерим давление.", "next": "press"},
+        "press": {"kind": "answer", "task": "Скажите, что у вас высокое давление.", "branches": [{"phrase": "ph:pharmacy.high-pressure", "next": "presssay"}], "wrong": {"es": "Pressure like a camel? There's no such thing.", "ru": "Давление как у верблюда? Такого не бывает."}},
+        "presssay": {"kind": "say", "es": "A little high, yes. That is stress. Have you got your medical records with you?", "ru": "Немного высокое, да. Это стресс. Медицинская карта у вас с собой?", "next": "card"},
+        "card": {"kind": "answer", "task": "Дайте медицинскую карту.", "branches": [{"phrase": "ph:pharmacy.medical-records", "next": "cardsay"}], "wrong": {"es": "A postcard? No, your medical records.", "ru": "Открытка? Нет, медицинская карта."}},
+        "cardsay": {"kind": "say", "es": "Thank you. These pills are good, but expensive.", "ru": "Спасибо. Эти пилюли хорошие, но дорогие.", "next": "gen"},
+        "gen": {"kind": "answer", "task": "Спросите, есть ли аналог подешевле.", "branches": [{"phrase": "ph:pharmacy.cheaper-generic", "next": "end"}], "wrong": {"es": "Oasis water? We don't sell mirages here!", "ru": "Вода оазиса? Здесь не продают миражи!"}},
+        "end": {"kind": "say", "es": "Yes, and it is just as good. One before bed. And take my fragment of the desert map. If you dream of the white city, remember: don't trust what you see.", "ru": "Есть, и он ничуть не хуже. По одной перед сном. И возьмите мой обрывок карты пустыни. Если вам приснится белый город, помните: не верьте тому, что видите."}
+      }
     }
   ]
 }

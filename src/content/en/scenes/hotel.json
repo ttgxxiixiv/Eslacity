@@ -50,6 +50,31 @@
         {"q": "Что делают с седьмым номером?", "options": ["Сдают туристам", "Каждый день убирают", "Закрыли на ключ"], "answer": 1}
       ],
       "gloss": {"oswald": "Освальд", "guardian": "страж", "cancelled": "отменил"}
+    },
+    {
+      "id": "sc:hotel.3",
+      "chapter": 3,
+      "npc": "emma",
+      "lines": [
+        {"who": "npc", "es": "Good evening. There is an envelope for you at reception.", "ru": "Добрый вечер. На стойке для вас конверт."},
+        {"who": "hero", "es": "Who is it from?", "ru": "От кого?"},
+        {"who": "npc", "es": "From Rory, the man with the camel. He left it this morning.", "ru": "От Рори, человека с верблюдом. Он оставил его сегодня утром."},
+        {"who": "hero", "es": "What's inside?", "ru": "Что внутри?"},
+        {"who": "npc", "es": "Fragments of the map. Real ones. The ones he stole.", "ru": "Обрывки карты. Настоящие. Те, что он украл."},
+        {"who": "hero", "es": "And Sam's fragment too?", "ru": "И обрывок Сэма тоже?"},
+        {"who": "npc", "es": "That too. And a note: “Sorry. The guardian taught me that the truth is not for sale.”", "ru": "Тоже. И записка: «Прости. Стражница научила меня, что правда не продаётся»."},
+        {"who": "hero", "es": "Where is Rory?", "ru": "Где Рори?"},
+        {"who": "npc", "es": "He paid for the night with real money. And early in the morning he left quietly.", "ru": "Заплатил за ночь настоящими деньгами. А рано утром тихо ушёл."},
+        {"who": "hero", "es": "Where did he go?", "ru": "Куда он ушёл?"},
+        {"who": "npc", "es": "To the airport. He said he's going home, to the forest.", "ru": "В аэропорт. Сказал, что возвращается домой, в лес."}
+      ],
+      "questions": [
+        {"q": "Что оставил Рори для героя?", "options": ["Конверт с настоящими обрывками карты", "Верблюда", "Счёт за номер"], "answer": 0},
+        {"q": "Был ли там обрывок Сэма?", "options": ["Нет", "Да", "Только половина"], "answer": 1},
+        {"q": "Что написано в записке?", "options": ["«Не ищи меня»", "«Увидимся в лесу»", "«Прости. Правда не продаётся»"], "answer": 2},
+        {"q": "Куда уехал Рори?", "options": ["Домой, в лес", "В белый город", "На маяк"], "answer": 0}
+      ],
+      "gloss": {"envelope": "конверт", "rory": "Рори", "taught": "научила"}
     }
   ]
 }

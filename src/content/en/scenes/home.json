@@ -50,6 +50,31 @@
         {"q": "О чём спрашивает страж маяка?", "options": ["О словах", "О том, что ты сделал", "О деньгах"], "answer": 1}
       ],
       "gloss": {"born": "родилась", "guardian": "страж"}
+    },
+    {
+      "id": "sc:home.3",
+      "chapter": 3,
+      "npc": "higgins",
+      "lines": [
+        {"who": "npc", "es": "Good morning! I've got some amazing news.", "ru": "Доброе утро! У меня невероятная новость."},
+        {"who": "hero", "es": "What happened?", "ru": "Что случилось?"},
+        {"who": "npc", "es": "Oswald, the guardian, is my relative. He's my grandmother's brother.", "ru": "Освальд, страж, — мой родственник. Он брат моей бабушки."},
+        {"who": "hero", "es": "Really? How do you know?", "ru": "Правда? Откуда ты знаешь?"},
+        {"who": "npc", "es": "My mother told me that her uncle left on a train and never came back. His name was Oswald.", "ru": "Мама рассказывала, что её дядя уехал на поезде и не вернулся. Его звали Освальд."},
+        {"who": "hero", "es": "And now he's back!", "ru": "А теперь он вернулся!"},
+        {"who": "npc", "es": "He's back. But he has no home. He lost everything he had a hundred years ago.", "ru": "Вернулся. Но у него нет дома. Всё, что у него было, он потерял сто лет назад."},
+        {"who": "hero", "es": "Where will he live?", "ru": "Где он будет жить?"},
+        {"who": "npc", "es": "Here, with me, until he finds his own place. We're looking for a flat for him.", "ru": "Здесь, у меня, пока не подыщет себе жильё. Мы ищем для него квартиру."},
+        {"who": "hero", "es": "I'll help.", "ru": "Я помогу."},
+        {"who": "npc", "es": "Thank you. Oswald says the desert isn't the worst thing. It's worse to come back to a world that has changed.", "ru": "Спасибо. Освальд говорит, что пустыня — не самое страшное. Страшнее вернуться в мир, который изменился."}
+      ],
+      "questions": [
+        {"q": "Кем Освальд приходится миссис Хиггинс?", "options": ["Братом её бабушки", "Её отцом", "Соседом"], "answer": 0},
+        {"q": "Что рассказывала её мама?", "options": ["Её дядя был поваром", "Её дядя уехал на поезде и не вернулся", "Её дядя жил в пустыне"], "answer": 1},
+        {"q": "Где Освальд будет жить сначала?", "options": ["В отеле", "На маяке", "У миссис Хиггинс"], "answer": 2},
+        {"q": "Что, по словам Освальда, страшнее пустыни?", "options": ["Вернуться в изменившийся мир", "Остаться без воды", "Потерять карту"], "answer": 0}
+      ],
+      "gloss": {"oswald": "Освальд"}
     }
   ]
 }
