@@ -2928,3 +2928,15 @@ CI шёл около 35 минут: сквозные тесты одной за�
 - Проверки: `grammarProductive.test.ts` считает 92 английских урока; `grammar-en.spec.ts` проходит и уроки B1 (открывает главу III); `story-en.spec.ts` проходит все 60 разговоров и 60 миссий и проверяет вторую развилку — угощение в кафе. После уроков ранги в очищенном частотном списке сдвинулись, toothbrush и courier ушли за 5000: помечены `topical`, а слова уровня 3 в аптеке переставлены, чтобы в одном уроке было не больше трёх тематических.
 
 Проверено: валидатор (английский: 2098 слов, 92 урока, 500 фраз, 60 сцен, 60 миссий; без ошибок и предупреждений), `npm run vocab`, юнит-тесты, линтер, сборка, полный прогон сквозных тестов.
+
+## Версия 2.177.0. Слова главы IV английского курса (задача 17.7, часть 1)
+
+Курс ещё закрыт. Глава IV идёт так же, как III: сначала слова, потом уроки B2, потом сюжет.
+
+- Уровень 6 у всех 20 мест: по 30 слов B2 и C1, всего 600. Темы — как у испанского уровня 6, слова британские: в банке arrears, repossess, credit rating, inheritance; в офисе workload, burnout, minutes, redundancy, probation, appraisal; в отеле concierge, adjoining rooms, occupancy, city break; в больнице referral, second opinion, consent form, on call, discharged; в аэропорту border control, sniffer dog, overhead locker, red-eye; в полиции parole, verdict, alibi, search warrant, restraining order. У аббревиатур (CT scan, MRI, ECG, DNA) поле `say`, чтобы озвучка читала их по буквам.
+- Свиток IV (250 слов): лес шёпотов (rustle, clearing, undergrowth, moss, hollow, overhear, eavesdrop, lure, superstition, curse), общество и новости (election, poverty, headline, fake news, spokesperson), природа и климат (flood, carbon footprint, emissions, renewable, glacier), наука и техника (device, algorithm, satellite, wireless), чувства и оценки (jealousy, relief, resentment, mediocre, decent, grudge).
+- Повторы отсеивает сам скрипт свитка: слово или перевод, которые уже есть в местах и свитках I–III, в свиток не идут (так ушли rumour, gossip, owl, fog, doubt и ещё 60). Валидатор поймал одинаковые переводы у слов разных мест (чаевые, уютный, доза, мошенничество, компенсация) и повтор id `hospital.discharge` — слова заменены. CEFR выше частотной ступени больше чем на одну поправил скрипт по предупреждениям валидатора.
+- Тест слов английского (`en.test.ts`) проверяет уровни 5 и 6 (по 30 на место) и свитки I–IV по плану.
+- Покрытие (`docs/vocab/en.md`): первая тысяча — 87,2% одними словами, первые 3000 — 61,5%.
+
+Проверено: валидатор без ошибок и предупреждений (английский: 2948 слов), `npm run vocab`, юнит-тесты, линтер, сборка, полный прогон сквозных тестов.
