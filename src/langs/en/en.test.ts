@@ -12,6 +12,7 @@ import { addressHero } from '../../domain/address';
 import { textIssuesIn } from '../../domain/translation';
 import type { Word } from '../../content/schema';
 import type { VerbData } from '../types';
+import { CHAPTERS, PLACE_LEVEL_MAX } from '../../content/vocabPlan';
 
 const forms = (v: Partial<VerbData> & { inf: string }, t: Parameters<typeof EN.verbs.conjugate>[1]) => EN.verbs.conjugate({ ru: '', ...v }, t);
 
@@ -129,22 +130,23 @@ describe('английский город (задача 17.2)', () => {
   });
 });
 
-describe('слова глав I–II английского (задача 17.3)', () => {
+describe('слова глав I–III английского (задачи 17.3, 17.6)', () => {
   const dir = (name: string) => join(import.meta.dirname, '..', '..', 'content', 'en', name);
   const files = <T,>(name: string) =>
     readdirSync(dir(name)).filter((f) => f.endsWith('.json')).sort().map((f) => ({ name: f, data: JSON.parse(readFileSync(join(dir(name), f), 'utf8')) as T }));
   const words = files<LocationWords>('words');
   const scrolls = files<ScrollFile>('scrolls');
 
-  it('20 мест по 10–12 слов на каждом уровне 1–4 и свитки I–II по плану', () => {
+  it('20 мест по 10–12 слов на каждом уровне 1–4, по 30 на уровне 5, свитки I–III по плану', () => {
     expect(words).toHaveLength(20);
     for (const { name, data } of words) {
       for (const level of [1, 2, 3, 4]) {
         const n = data.words.filter((w) => w.level === level).length;
         expect(n >= 10 && n <= 12, `${name} уровень ${level}: ${n}`).toBe(true);
       }
+      expect(data.words.filter((w) => w.level === 5), name).toHaveLength(PLACE_LEVEL_MAX[5]);
     }
-    expect(scrolls.map((s) => [s.data.chapter, s.data.words.length])).toEqual([[1, 87], [2, 181]]);
+    expect(scrolls.map((s) => [s.data.chapter, s.data.words.length])).toEqual(CHAPTERS.slice(0, 3).map((c, i) => [i + 1, c.scroll]));
   });
 
   it('проходят проверку слов, свитков и одинаковых переводов без замечаний', () => {
