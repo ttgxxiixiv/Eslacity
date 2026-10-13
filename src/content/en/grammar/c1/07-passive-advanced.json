@@ -1,0 +1,185 @@
+{
+  "id": "c1.07-passive-advanced",
+  "district": "C1",
+  "order": 7,
+  "title": "Пассив: being told, to be asked, to have been",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Пассив бывает и у -ing и инфинитива. **being + V3**: I hate **being told** what to do. **to be + V3**: She wants **to be asked**. **to have been + V3** — о прошлом: He is said **to have been seen** in the forest."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Форма",
+        "Пример"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "being + V3",
+            "Nobody likes being ignored."
+          ]
+        },
+        {
+          "cells": [
+            "to be + V3",
+            "I expect to be paid."
+          ]
+        },
+        {
+          "cells": [
+            "to have been + V3",
+            "The map seems to have been stolen."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "После глаголов вроде enjoy, avoid, hate — being + V3; после want, expect, hope — to be + V3."
+    }
+  ],
+  "examples": [
+    {
+      "es": "I don't like being kept waiting.",
+      "ru": "Не люблю, когда меня заставляют ждать."
+    },
+    {
+      "es": "Everyone wants to be listened to.",
+      "ru": "Все хотят, чтобы их слушали."
+    },
+    {
+      "es": "The letter seems to have been opened.",
+      "ru": "Похоже, письмо вскрывали."
+    },
+    {
+      "es": "He avoided being seen by the guard.",
+      "ru": "Он постарался, чтобы стражник его не увидел."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "c1.07-passive-advanced.1",
+      "kind": "choose",
+      "prompt": "«Терпеть не могу, когда мне указывают»:",
+      "options": [
+        "I hate being told what to do.",
+        "I hate to tell what to do.",
+        "I hate been told what to do."
+      ],
+      "answer": 0,
+      "explain": "hate + being + V3."
+    },
+    {
+      "id": "c1.07-passive-advanced.2",
+      "kind": "choose",
+      "prompt": "«Она надеется, что её пригласят»:",
+      "options": [
+        "She hopes to be invited.",
+        "She hopes being invited.",
+        "She hopes to invite."
+      ],
+      "answer": 0,
+      "explain": "hope + to be + V3."
+    },
+    {
+      "id": "c1.07-passive-advanced.3",
+      "kind": "gap",
+      "sentence": "The keys seem ___ been lost.",
+      "ru": "Похоже, ключи потеряли.",
+      "options": [
+        "to have",
+        "to be",
+        "having"
+      ],
+      "answer": 0,
+      "explain": "seem to have been + V3."
+    },
+    {
+      "id": "c1.07-passive-advanced.4",
+      "kind": "gap",
+      "sentence": "Nobody enjoys ___ criticised.",
+      "ru": "Никому не нравится, когда его критикуют.",
+      "options": [
+        "being",
+        "to be",
+        "be"
+      ],
+      "answer": 0,
+      "explain": "enjoy + being + V3."
+    },
+    {
+      "id": "c1.07-passive-advanced.5",
+      "kind": "truefalse",
+      "statement": "«I expect being paid on time» — правильно.",
+      "answer": false,
+      "explain": "expect to be paid."
+    },
+    {
+      "id": "c1.07-passive-advanced.6",
+      "kind": "truefalse",
+      "statement": "«He is said to have been seen» — о прошлом.",
+      "answer": true,
+      "explain": "to have been + V3."
+    },
+    {
+      "id": "c1.07-passive-advanced.7",
+      "kind": "truefalse",
+      "statement": "«Being asked for help is nice» — правильно.",
+      "answer": true,
+      "explain": "Being + V3 как подлежащее."
+    },
+    {
+      "id": "c1.07-passive-advanced.8",
+      "kind": "build",
+      "ru": "Я не люблю, когда меня перебивают.",
+      "answer": "I don't like being interrupted",
+      "extra": [
+        "to",
+        "interrupting"
+      ],
+      "explain": "like + being + V3."
+    },
+    {
+      "id": "c1.07-passive-advanced.9",
+      "kind": "type",
+      "sentence": "The painting is believed to have ___ (steal) last year.",
+      "ru": "Считается, что картину украли в прошлом году.",
+      "hint": "steal",
+      "answer": "been stolen",
+      "explain": "to have been + V3."
+    },
+    {
+      "id": "c1.07-passive-advanced.10",
+      "kind": "fix",
+      "sentence": "She wants to being taken seriously.",
+      "ru": "Она хочет, чтобы её воспринимали всерьёз.",
+      "wrong": 3,
+      "answer": "be",
+      "explain": "want + to be + V3."
+    },
+    {
+      "id": "c1.07-passive-advanced.11",
+      "kind": "transform",
+      "source": "People think the castle was built in 1200.",
+      "keyword": "thought",
+      "ru": "Считается, что замок построили в 1200 году.",
+      "answer": "The castle is thought to have been built in 1200.",
+      "explain": "is thought to have been + V3."
+    },
+    {
+      "id": "c1.07-passive-advanced.12",
+      "kind": "register",
+      "source": "They didn't tell me anything.",
+      "to": "formal",
+      "options": [
+        "I was not informed of anything.",
+        "Nobody told me nothing.",
+        "I was informing of everything."
+      ],
+      "answer": 0,
+      "explain": "Официально: пассив, was not informed."
+    }
+  ]
+}

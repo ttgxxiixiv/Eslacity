@@ -1,0 +1,203 @@
+{
+  "id": "c1.18-argument-markers",
+  "district": "C1",
+  "order": 18,
+  "title": "Связки рассуждения: admittedly, on balance",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "В споре и эссе помогают связки. Уступить: **admittedly** (правда, надо признать), **granted** (допустим). Обобщить: **by and large / on the whole** (в целом). Взвесить: **on balance** (взвесив всё). Добавить: **furthermore**. Подвести итог: **all things considered** (учитывая всё)."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Связка",
+        "Значение"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "admittedly",
+            "надо признать"
+          ]
+        },
+        {
+          "cells": [
+            "on the whole",
+            "в целом"
+          ]
+        },
+        {
+          "cells": [
+            "on balance",
+            "взвесив всё"
+          ]
+        },
+        {
+          "cells": [
+            "furthermore",
+            "кроме того"
+          ]
+        },
+        {
+          "cells": [
+            "all things considered",
+            "с учётом всего"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Admittedly почти всегда идёт перед возражением: **Admittedly**, it is expensive. **However**, it is worth it."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Admittedly, the hotel is small. However, it is very cosy.",
+      "ru": "Надо признать, отель маленький. Зато очень уютный."
+    },
+    {
+      "es": "On the whole, the trip was a success.",
+      "ru": "В целом поездка удалась."
+    },
+    {
+      "es": "On balance, I think we should stay.",
+      "ru": "Взвесив всё, думаю, нам стоит остаться."
+    },
+    {
+      "es": "All things considered, it was a good year.",
+      "ru": "С учётом всего это был хороший год."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "c1.18-argument-markers.1",
+      "kind": "choose",
+      "prompt": "«Надо признать, это дорого»:",
+      "options": [
+        "Admittedly, it is expensive.",
+        "Admitting, it is expensive.",
+        "Admitted, is expensive."
+      ],
+      "answer": 0,
+      "explain": "Admittedly."
+    },
+    {
+      "id": "c1.18-argument-markers.2",
+      "kind": "choose",
+      "prompt": "«В целом я доволен»:",
+      "options": [
+        "On the whole, I am happy.",
+        "In the whole, I am happy.",
+        "On whole, I am happy."
+      ],
+      "answer": 0,
+      "explain": "On the whole."
+    },
+    {
+      "id": "c1.18-argument-markers.3",
+      "kind": "gap",
+      "sentence": "___ balance, the plan is a good one.",
+      "ru": "Взвесив всё, план хороший.",
+      "options": [
+        "On",
+        "In",
+        "At"
+      ],
+      "answer": 0,
+      "explain": "On balance."
+    },
+    {
+      "id": "c1.18-argument-markers.4",
+      "kind": "gap",
+      "sentence": "All things ___, we did well.",
+      "ru": "С учётом всего мы справились хорошо.",
+      "options": [
+        "considered",
+        "considering",
+        "consider"
+      ],
+      "answer": 0,
+      "explain": "All things considered."
+    },
+    {
+      "id": "c1.18-argument-markers.5",
+      "kind": "truefalse",
+      "statement": "«Admittedly» вводит уступку перед возражением.",
+      "answer": true,
+      "explain": "Так и есть."
+    },
+    {
+      "id": "c1.18-argument-markers.6",
+      "kind": "truefalse",
+      "statement": "«By and large» значит «очень большой».",
+      "answer": false,
+      "explain": "«В целом»."
+    },
+    {
+      "id": "c1.18-argument-markers.7",
+      "kind": "truefalse",
+      "statement": "«Furthermore» добавляет ещё один довод.",
+      "answer": true,
+      "explain": "Так и есть."
+    },
+    {
+      "id": "c1.18-argument-markers.8",
+      "kind": "build",
+      "ru": "В целом поездка удалась.",
+      "answer": "On the whole the trip was a success",
+      "extra": [
+        "in",
+        "overall"
+      ],
+      "explain": "On the whole."
+    },
+    {
+      "id": "c1.18-argument-markers.9",
+      "kind": "type",
+      "sentence": "___ things considered, the meeting went well.",
+      "ru": "С учётом всего собрание прошло хорошо.",
+      "answer": "All",
+      "explain": "All things considered."
+    },
+    {
+      "id": "c1.18-argument-markers.10",
+      "kind": "combine",
+      "first": "The room is small.",
+      "second": "It has a wonderful view.",
+      "connector": "admittedly",
+      "ru": "Номер, надо признать, маленький, но вид прекрасный.",
+      "answer": "Admittedly, the room is small, but it has a wonderful view.",
+      "alt": [
+        "Admittedly the room is small, but it has a wonderful view."
+      ],
+      "explain": "Admittedly + уступка, but + возражение."
+    },
+    {
+      "id": "c1.18-argument-markers.11",
+      "kind": "register",
+      "source": "Overall, it was a good idea, yeah.",
+      "to": "formal",
+      "options": [
+        "On balance, it was a sound decision.",
+        "It was kind of good, I guess.",
+        "On balance, it was a terrible decision."
+      ],
+      "answer": 0,
+      "explain": "Официально: on balance, a sound decision."
+    },
+    {
+      "id": "c1.18-argument-markers.12",
+      "kind": "paraphrase",
+      "sentence": "By and large, the guests were satisfied.",
+      "options": [
+        "Most of the guests were satisfied.",
+        "All the guests were angry.",
+        "The guests were very large."
+      ],
+      "answer": 0,
+      "explain": "By and large — в целом, в большинстве."
+    }
+  ]
+}

@@ -12,7 +12,7 @@ import { addressHero } from '../../domain/address';
 import { textIssuesIn } from '../../domain/translation';
 import type { Word } from '../../content/schema';
 import type { VerbData } from '../types';
-import { CHAPTERS, PLACE_LEVEL_MAX } from '../../content/vocabPlan';
+import { CHAPTERS, PLACE_EXPRESSIONS, PLACE_LEVEL_MAX } from '../../content/vocabPlan';
 
 const forms = (v: Partial<VerbData> & { inf: string }, t: Parameters<typeof EN.verbs.conjugate>[1]) => EN.verbs.conjugate({ ru: '', ...v }, t);
 
@@ -146,6 +146,7 @@ describe('слова глав I–III английского (задачи 17.3,
       }
       for (const level of [5, 6, 7]) expect(data.words.filter((w) => w.level === level && !w.kind), `${name} уровень ${level}`).toHaveLength(PLACE_LEVEL_MAX[level]);
     }
+    for (const { name, data } of words) expect(data.words.filter((w) => w.kind), `${name} выражения`).toHaveLength(PLACE_EXPRESSIONS);
     expect(scrolls.map((s) => [s.data.chapter, s.data.words.length])).toEqual(CHAPTERS.map((c, i) => [i + 1, c.scroll]));
   });
 

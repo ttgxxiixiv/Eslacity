@@ -1,0 +1,196 @@
+{
+  "id": "c1.04-subjunctive",
+  "district": "C1",
+  "order": 4,
+  "title": "Сослагательное: I suggest that he be",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "После **suggest, insist, recommend, demand** и выражений **it is essential / vital / important that** в официальной речи глагол стоит в начальной форме для всех лиц: I suggest that he **be** told. It is essential that she **attend**. В разговорной британской речи чаще **should**: that he **should** be told."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Конструкция",
+        "Пример"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "suggest that + начальная форма",
+            "I suggest that he leave early."
+          ]
+        },
+        {
+          "cells": [
+            "insist that",
+            "She insisted that he be present."
+          ]
+        },
+        {
+          "cells": [
+            "It is essential that",
+            "It is essential that everyone listen."
+          ]
+        },
+        {
+          "cells": [
+            "should + глагол (разговорно)",
+            "I suggest that he should leave early."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Без -s у he/she/it: that she **attend**, а не «attends»."
+    }
+  ],
+  "examples": [
+    {
+      "es": "I suggest that he leave before dark.",
+      "ru": "Предлагаю, чтобы он ушёл до темноты."
+    },
+    {
+      "es": "The Keeper insisted that we be quiet.",
+      "ru": "Хранительница настаивала, чтобы мы молчали."
+    },
+    {
+      "es": "It is vital that everyone know the truth.",
+      "ru": "Крайне важно, чтобы все знали правду."
+    },
+    {
+      "es": "We recommend that she should rest.",
+      "ru": "Мы рекомендуем ей отдохнуть."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "c1.04-subjunctive.1",
+      "kind": "choose",
+      "prompt": "«Важно, чтобы он пришёл»:",
+      "options": [
+        "It is important that he come.",
+        "It is important that he comes to.",
+        "It is important that he came."
+      ],
+      "answer": 0,
+      "explain": "that + начальная форма."
+    },
+    {
+      "id": "c1.04-subjunctive.2",
+      "kind": "choose",
+      "prompt": "«Она настояла, чтобы мы остались»:",
+      "options": [
+        "She insisted that we stay.",
+        "She insisted us to stay.",
+        "She insisted that we stayed to."
+      ],
+      "answer": 0,
+      "explain": "insist that + начальная форма."
+    },
+    {
+      "id": "c1.04-subjunctive.3",
+      "kind": "gap",
+      "sentence": "I suggest that she ___ a doctor.",
+      "ru": "Предлагаю ей сходить к врачу.",
+      "options": [
+        "see",
+        "sees",
+        "saw"
+      ],
+      "answer": 0,
+      "explain": "that she see."
+    },
+    {
+      "id": "c1.04-subjunctive.4",
+      "kind": "gap",
+      "sentence": "It is essential that the door ___ locked.",
+      "ru": "Крайне важно, чтобы дверь была заперта.",
+      "options": [
+        "be",
+        "is being",
+        "was"
+      ],
+      "answer": 0,
+      "explain": "that … be."
+    },
+    {
+      "id": "c1.04-subjunctive.5",
+      "kind": "truefalse",
+      "statement": "«I recommend that he takes a taxi» — официальный вариант.",
+      "answer": false,
+      "explain": "Официально: that he take a taxi."
+    },
+    {
+      "id": "c1.04-subjunctive.6",
+      "kind": "truefalse",
+      "statement": "Вместо начальной формы можно сказать should + глагол.",
+      "answer": true,
+      "explain": "that he should take."
+    },
+    {
+      "id": "c1.04-subjunctive.7",
+      "kind": "truefalse",
+      "statement": "«They demanded that she be told» — правильно.",
+      "answer": true,
+      "explain": "be + V3."
+    },
+    {
+      "id": "c1.04-subjunctive.8",
+      "kind": "build",
+      "ru": "Я предлагаю, чтобы он подождал.",
+      "answer": "I suggest that he wait",
+      "extra": [
+        "waits",
+        "to"
+      ],
+      "explain": "suggest that + начальная форма."
+    },
+    {
+      "id": "c1.04-subjunctive.9",
+      "kind": "type",
+      "sentence": "The doctor insisted that he ___ (stay) in bed.",
+      "ru": "Врач настоял, чтобы он лежал в постели.",
+      "hint": "stay",
+      "answer": "stay",
+      "alt": [
+        "should stay"
+      ],
+      "explain": "insist that + начальная форма."
+    },
+    {
+      "id": "c1.04-subjunctive.10",
+      "kind": "fix",
+      "sentence": "It is vital that she attends the meeting.",
+      "ru": "Крайне важно, чтобы она пришла на собрание.",
+      "wrong": 5,
+      "answer": "attend",
+      "explain": "that + начальная форма, без -s."
+    },
+    {
+      "id": "c1.04-subjunctive.11",
+      "kind": "transform",
+      "source": "He must be told immediately, I insist.",
+      "keyword": "insist",
+      "ru": "Я настаиваю, чтобы ему сказали немедленно.",
+      "answer": "I insist that he be told immediately.",
+      "alt": [
+        "I insist that he should be told immediately."
+      ],
+      "explain": "insist that + be + V3."
+    },
+    {
+      "id": "c1.04-subjunctive.12",
+      "kind": "paraphrase",
+      "sentence": "It is essential that everyone attend.",
+      "options": [
+        "Everyone must attend.",
+        "Everyone attended.",
+        "Nobody needs to attend."
+      ],
+      "answer": 0,
+      "explain": "It is essential that — все обязаны."
+    }
+  ]
+}

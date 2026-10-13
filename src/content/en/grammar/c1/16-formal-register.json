@@ -1,0 +1,200 @@
+{
+  "id": "c1.16-formal-register",
+  "district": "C1",
+  "order": 16,
+  "title": "Официальный стиль: письма и просьбы",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Официальный стиль отличается словами и оборотами. Вместо **get** — receive, вместо **ask for** — request, вместо **help** — assist, вместо **buy** — purchase. Просьба: **I would be grateful if you could** … Начало письма: **I am writing to** … Конец: **I look forward to hearing from you**. Сокращения (I'm, can't) не используют."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Разговорно",
+        "Официально"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "get",
+            "receive"
+          ]
+        },
+        {
+          "cells": [
+            "ask for",
+            "request"
+          ]
+        },
+        {
+          "cells": [
+            "help",
+            "assist"
+          ]
+        },
+        {
+          "cells": [
+            "buy",
+            "purchase"
+          ]
+        },
+        {
+          "cells": [
+            "Can you …?",
+            "I would be grateful if you could …"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "В официальном письме нет сокращений: **I am**, **cannot**, **do not**."
+    }
+  ],
+  "examples": [
+    {
+      "es": "I am writing to complain about the service.",
+      "ru": "Пишу вам, чтобы пожаловаться на обслуживание."
+    },
+    {
+      "es": "I would be grateful if you could reply soon.",
+      "ru": "Буду признателен за скорый ответ."
+    },
+    {
+      "es": "We have received your letter.",
+      "ru": "Мы получили ваше письмо."
+    },
+    {
+      "es": "Please do not hesitate to contact us.",
+      "ru": "Без колебаний обращайтесь к нам."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "c1.16-formal-register.1",
+      "kind": "choose",
+      "prompt": "Официально: «Мы получили ваше письмо».",
+      "options": [
+        "We have received your letter.",
+        "We've got your letter.",
+        "We got your letter, cheers."
+      ],
+      "answer": 0,
+      "explain": "receive — официально."
+    },
+    {
+      "id": "c1.16-formal-register.2",
+      "kind": "choose",
+      "prompt": "Официальная просьба:",
+      "options": [
+        "I would be grateful if you could call me.",
+        "Call me, yeah?",
+        "Can you just call me?"
+      ],
+      "answer": 0,
+      "explain": "I would be grateful if you could."
+    },
+    {
+      "id": "c1.16-formal-register.3",
+      "kind": "gap",
+      "sentence": "I am writing ___ apply for the position.",
+      "ru": "Пишу, чтобы откликнуться на вакансию.",
+      "options": [
+        "to",
+        "for",
+        "that"
+      ],
+      "answer": 0,
+      "explain": "I am writing to."
+    },
+    {
+      "id": "c1.16-formal-register.4",
+      "kind": "gap",
+      "sentence": "Please do not ___ to contact us.",
+      "ru": "Без колебаний обращайтесь к нам.",
+      "options": [
+        "hesitate",
+        "wait",
+        "stop"
+      ],
+      "answer": 0,
+      "explain": "do not hesitate to."
+    },
+    {
+      "id": "c1.16-formal-register.5",
+      "kind": "truefalse",
+      "statement": "В официальном письме уместно «I can't».",
+      "answer": false,
+      "explain": "Без сокращений: cannot."
+    },
+    {
+      "id": "c1.16-formal-register.6",
+      "kind": "truefalse",
+      "statement": "Request — официальное «ask for».",
+      "answer": true,
+      "explain": "Так и есть."
+    },
+    {
+      "id": "c1.16-formal-register.7",
+      "kind": "truefalse",
+      "statement": "«I look forward to hearing from you» — обычная концовка официального письма.",
+      "answer": true,
+      "explain": "Так и есть."
+    },
+    {
+      "id": "c1.16-formal-register.8",
+      "kind": "build",
+      "ru": "Буду признателен за помощь.",
+      "answer": "I would be grateful for your assistance",
+      "extra": [
+        "help",
+        "could"
+      ],
+      "explain": "grateful for your assistance."
+    },
+    {
+      "id": "c1.16-formal-register.9",
+      "kind": "type",
+      "sentence": "We would like to ___ (buy) ten copies.",
+      "ru": "Мы хотели бы приобрести десять экземпляров.",
+      "hint": "buy",
+      "answer": "purchase",
+      "explain": "buy → purchase."
+    },
+    {
+      "id": "c1.16-formal-register.10",
+      "kind": "register",
+      "source": "Can you help me with my bags?",
+      "to": "formal",
+      "answer": "Could you possibly assist me with my luggage",
+      "extra": [
+        "help",
+        "bags"
+      ],
+      "explain": "Официально: could you possibly assist, luggage."
+    },
+    {
+      "id": "c1.16-formal-register.11",
+      "kind": "register",
+      "source": "I need to know the price.",
+      "to": "formal",
+      "options": [
+        "I would be grateful if you could inform me of the price.",
+        "Tell me the price, mate.",
+        "I would be grateful if you could forget the price."
+      ],
+      "answer": 0,
+      "explain": "Официальная просьба."
+    },
+    {
+      "id": "c1.16-formal-register.12",
+      "kind": "transform",
+      "source": "Can you send me the form?",
+      "keyword": "grateful",
+      "ru": "Пришлите мне, пожалуйста, бланк.",
+      "answer": "I would be grateful if you could send me the form.",
+      "explain": "I would be grateful if you could …"
+    }
+  ]
+}

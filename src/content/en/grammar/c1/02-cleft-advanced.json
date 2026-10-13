@@ -1,0 +1,187 @@
+{
+  "id": "c1.02-cleft-advanced",
+  "district": "C1",
+  "order": 2,
+  "title": "Выделение: All I want is, The thing is",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Кроме What I need is… выделяют так: **All I want is** a quiet life (мне нужна только…). **The thing is**, … (дело в том, что…). **What happened was (that)** … (а случилось вот что). **The reason why … is that** …"
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Конструкция",
+        "Пример"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "All + подлежащее + глагол + is",
+            "All I need is sleep."
+          ]
+        },
+        {
+          "cells": [
+            "The thing is,",
+            "The thing is, I don't trust him."
+          ]
+        },
+        {
+          "cells": [
+            "What happened was",
+            "What happened was that the bus broke down."
+          ]
+        },
+        {
+          "cells": [
+            "The reason why … is that",
+            "The reason why I left is that I was tired."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "После All I want is часто идёт to + глагол или существительное: All I want is **to sleep**."
+    }
+  ],
+  "examples": [
+    {
+      "es": "All I want is a cup of tea.",
+      "ru": "Мне нужна только чашка чая."
+    },
+    {
+      "es": "The thing is, I've lost the map.",
+      "ru": "Дело в том, что я потерял карту."
+    },
+    {
+      "es": "What happened was that the train broke down.",
+      "ru": "А случилось вот что: поезд сломался."
+    },
+    {
+      "es": "The reason why I came is that I need your help.",
+      "ru": "Я пришёл потому, что мне нужна твоя помощь."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "c1.02-cleft-advanced.1",
+      "kind": "choose",
+      "prompt": "«Мне нужно только поспать»:",
+      "options": [
+        "All I need is to sleep.",
+        "All I need it is to sleep.",
+        "All what I need is sleep."
+      ],
+      "answer": 0,
+      "explain": "All I need is + to."
+    },
+    {
+      "id": "c1.02-cleft-advanced.2",
+      "kind": "choose",
+      "prompt": "«Дело в том, что я забыл»:",
+      "options": [
+        "The thing is, I forgot.",
+        "The thing it is, I forgot.",
+        "Thing is that I forgot it is."
+      ],
+      "answer": 0,
+      "explain": "The thing is, …"
+    },
+    {
+      "id": "c1.02-cleft-advanced.3",
+      "kind": "gap",
+      "sentence": "___ happened was that nobody came.",
+      "ru": "А случилось то, что никто не пришёл.",
+      "options": [
+        "What",
+        "That",
+        "Which"
+      ],
+      "answer": 0,
+      "explain": "What happened was …"
+    },
+    {
+      "id": "c1.02-cleft-advanced.4",
+      "kind": "gap",
+      "sentence": "All I ask ___ a little patience.",
+      "ru": "Прошу только немного терпения.",
+      "options": [
+        "is",
+        "are",
+        "be"
+      ],
+      "answer": 0,
+      "explain": "All I ask is …"
+    },
+    {
+      "id": "c1.02-cleft-advanced.5",
+      "kind": "truefalse",
+      "statement": "«All what I want is peace» — правильно.",
+      "answer": false,
+      "explain": "All I want is peace."
+    },
+    {
+      "id": "c1.02-cleft-advanced.6",
+      "kind": "truefalse",
+      "statement": "«The thing is» вводит главную причину или проблему.",
+      "answer": true,
+      "explain": "Так и есть."
+    },
+    {
+      "id": "c1.02-cleft-advanced.7",
+      "kind": "truefalse",
+      "statement": "«The reason why I left is that I was tired» — правильно.",
+      "answer": true,
+      "explain": "The reason why … is that …"
+    },
+    {
+      "id": "c1.02-cleft-advanced.8",
+      "kind": "build",
+      "ru": "Мне нужна только правда.",
+      "answer": "All I want is the truth",
+      "extra": [
+        "what",
+        "are"
+      ],
+      "explain": "All + I want + is."
+    },
+    {
+      "id": "c1.02-cleft-advanced.9",
+      "kind": "type",
+      "sentence": "All he did ___ complain.",
+      "ru": "Он только и делал, что жаловался.",
+      "answer": "was",
+      "explain": "All he did was + глагол."
+    },
+    {
+      "id": "c1.02-cleft-advanced.10",
+      "kind": "transform",
+      "source": "I only need five minutes.",
+      "keyword": "all",
+      "ru": "Мне нужно только пять минут.",
+      "answer": "All I need is five minutes.",
+      "explain": "All I need is …"
+    },
+    {
+      "id": "c1.02-cleft-advanced.11",
+      "kind": "combine",
+      "first": "The bus broke down.",
+      "second": "That is why we were late.",
+      "connector": "the reason why",
+      "ru": "Мы опоздали потому, что сломался автобус.",
+      "answer": "The reason why we were late is that the bus broke down.",
+      "explain": "The reason why … is that …"
+    },
+    {
+      "id": "c1.02-cleft-advanced.12",
+      "kind": "fix",
+      "sentence": "All what I want is to go home.",
+      "ru": "Я хочу только пойти домой.",
+      "wrong": 1,
+      "answer": "I",
+      "explain": "All I want — без what."
+    }
+  ]
+}

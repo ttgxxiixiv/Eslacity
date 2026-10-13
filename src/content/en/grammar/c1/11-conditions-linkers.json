@@ -1,0 +1,197 @@
+{
+  "id": "c1.11-conditions-linkers",
+  "district": "C1",
+  "order": 11,
+  "title": "Условие и контраст: provided that, as long as, whereas",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Вместо if в разных оттенках: **provided (that) / providing** — при условии, что; **as long as** — если только, пока; **on condition that** — с условием, что; **unless** — если не. Противопоставление двух фактов: **whereas / while** — тогда как."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Связка",
+        "Пример"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "provided that",
+            "You can go, provided that you call me."
+          ]
+        },
+        {
+          "cells": [
+            "as long as",
+            "I don't mind, as long as you're happy."
+          ]
+        },
+        {
+          "cells": [
+            "on condition that",
+            "He agreed on condition that he was paid."
+          ]
+        },
+        {
+          "cells": [
+            "whereas",
+            "Molly loves tea, whereas Sam prefers coffee."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "После provided that и as long as — настоящее время, даже если речь о будущем: as long as you **call** (не «will call»)."
+    }
+  ],
+  "examples": [
+    {
+      "es": "You can borrow it, provided that you bring it back.",
+      "ru": "Бери, только при условии, что вернёшь."
+    },
+    {
+      "es": "I'll come as long as it doesn't rain.",
+      "ru": "Я приду, если только не будет дождя."
+    },
+    {
+      "es": "He agreed on condition that nobody knew.",
+      "ru": "Он согласился с условием, что никто не узнает."
+    },
+    {
+      "es": "Bert is grumpy, whereas his dog is friendly.",
+      "ru": "Берт ворчливый, а его собака дружелюбная."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "c1.11-conditions-linkers.1",
+      "kind": "choose",
+      "prompt": "«Можешь пойти, если позвонишь»:",
+      "options": [
+        "You can go provided that you call.",
+        "You can go provided that you will call.",
+        "You can go provide you call."
+      ],
+      "answer": 0,
+      "explain": "provided that + настоящее время."
+    },
+    {
+      "id": "c1.11-conditions-linkers.2",
+      "kind": "choose",
+      "prompt": "«Я люблю чай, а он — кофе»:",
+      "options": [
+        "I like tea, whereas he likes coffee.",
+        "I like tea, whereas he like coffee.",
+        "I like tea, as long as he likes coffee."
+      ],
+      "answer": 0,
+      "explain": "whereas — противопоставление."
+    },
+    {
+      "id": "c1.11-conditions-linkers.3",
+      "kind": "gap",
+      "sentence": "I'll help you ___ you tell me the truth.",
+      "ru": "Я помогу, если ты скажешь правду.",
+      "options": [
+        "as long as",
+        "whereas",
+        "although"
+      ],
+      "answer": 0,
+      "explain": "as long as — при условии."
+    },
+    {
+      "id": "c1.11-conditions-linkers.4",
+      "kind": "gap",
+      "sentence": "He agreed ___ condition that he could leave early.",
+      "ru": "Он согласился с условием, что сможет уйти рано.",
+      "options": [
+        "on",
+        "in",
+        "at"
+      ],
+      "answer": 0,
+      "explain": "on condition that."
+    },
+    {
+      "id": "c1.11-conditions-linkers.5",
+      "kind": "truefalse",
+      "statement": "«As long as you will pay, it's fine» — правильно.",
+      "answer": false,
+      "explain": "as long as you pay."
+    },
+    {
+      "id": "c1.11-conditions-linkers.6",
+      "kind": "truefalse",
+      "statement": "Whereas сравнивает два противоположных факта.",
+      "answer": true,
+      "explain": "Так и есть."
+    },
+    {
+      "id": "c1.11-conditions-linkers.7",
+      "kind": "truefalse",
+      "statement": "«Providing you're careful, you can swim» — правильно.",
+      "answer": true,
+      "explain": "providing = provided that."
+    },
+    {
+      "id": "c1.11-conditions-linkers.8",
+      "kind": "build",
+      "ru": "Можешь остаться, если будешь тихо.",
+      "answer": "You can stay as long as you are quiet",
+      "extra": [
+        "will",
+        "whereas"
+      ],
+      "explain": "as long as + настоящее."
+    },
+    {
+      "id": "c1.11-conditions-linkers.9",
+      "kind": "type",
+      "sentence": "I'll lend you the car ___ that you drive carefully.",
+      "ru": "Одолжу машину при условии, что будешь ездить осторожно.",
+      "answer": "provided",
+      "alt": [
+        "providing"
+      ],
+      "explain": "provided that."
+    },
+    {
+      "id": "c1.11-conditions-linkers.10",
+      "kind": "combine",
+      "first": "You can use my phone.",
+      "second": "You must not call abroad.",
+      "connector": "as long as",
+      "ru": "Можешь пользоваться моим телефоном, если не будешь звонить за границу.",
+      "answer": "You can use my phone as long as you don't call abroad.",
+      "alt": [
+        "You can use my phone as long as you do not call abroad."
+      ],
+      "explain": "as long as + условие."
+    },
+    {
+      "id": "c1.11-conditions-linkers.11",
+      "kind": "combine",
+      "first": "Molly gets up early.",
+      "second": "Sam sleeps until noon.",
+      "connector": "whereas",
+      "ru": "Молли встаёт рано, а Сэм спит до полудня.",
+      "answer": "Molly gets up early, whereas Sam sleeps until noon.",
+      "alt": [
+        "Molly gets up early whereas Sam sleeps until noon."
+      ],
+      "explain": "whereas — противопоставление."
+    },
+    {
+      "id": "c1.11-conditions-linkers.12",
+      "kind": "fix",
+      "sentence": "I'll come provided that you will invite Sam.",
+      "ru": "Я приду при условии, что ты позовёшь Сэма.",
+      "wrong": 5,
+      "answer": "invite",
+      "explain": "После provided that — настоящее время, will не нужен."
+    }
+  ]
+}

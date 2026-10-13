@@ -1,0 +1,197 @@
+{
+  "id": "c1.13-collocations",
+  "district": "C1",
+  "order": 13,
+  "title": "Устойчивые сочетания: make, do, take, have",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "С существительными английский выбирает свой глагол, часто не тот, что в русском. **make** — a decision, a mistake, an effort, progress, a difference. **do** — research, damage, your best, a favour. **take** — a risk, a decision (тоже можно), place, advantage of. **have** — a go, a look, an argument."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Глагол",
+        "Сочетания"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "make",
+            "a mistake, an effort, progress, a difference"
+          ]
+        },
+        {
+          "cells": [
+            "do",
+            "research, damage, a favour, your best"
+          ]
+        },
+        {
+          "cells": [
+            "take",
+            "a risk, place, part, advantage of"
+          ]
+        },
+        {
+          "cells": [
+            "have",
+            "a look, a go, an argument"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "«Do a mistake» — частая ошибка русскоговорящих. Правильно: **make** a mistake."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Everyone makes mistakes.",
+      "ru": "Все ошибаются."
+    },
+    {
+      "es": "The storm did a lot of damage.",
+      "ru": "Буря нанесла большой ущерб."
+    },
+    {
+      "es": "The meeting will take place on Friday.",
+      "ru": "Собрание состоится в пятницу."
+    },
+    {
+      "es": "Let me have a look.",
+      "ru": "Дай-ка взгляну."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "c1.13-collocations.1",
+      "kind": "choose",
+      "prompt": "«Сделать ошибку»:",
+      "options": [
+        "make a mistake",
+        "do a mistake",
+        "take a mistake"
+      ],
+      "answer": 0,
+      "explain": "make a mistake."
+    },
+    {
+      "id": "c1.13-collocations.2",
+      "kind": "choose",
+      "prompt": "«Проводить исследование»:",
+      "options": [
+        "do research",
+        "make research",
+        "take research"
+      ],
+      "answer": 0,
+      "explain": "do research."
+    },
+    {
+      "id": "c1.13-collocations.3",
+      "kind": "gap",
+      "sentence": "Can you ___ me a favour?",
+      "ru": "Можешь сделать мне одолжение?",
+      "options": [
+        "do",
+        "make",
+        "take"
+      ],
+      "answer": 0,
+      "explain": "do a favour."
+    },
+    {
+      "id": "c1.13-collocations.4",
+      "kind": "gap",
+      "sentence": "The concert will ___ place in the park.",
+      "ru": "Концерт пройдёт в парке.",
+      "options": [
+        "take",
+        "make",
+        "do"
+      ],
+      "answer": 0,
+      "explain": "take place."
+    },
+    {
+      "id": "c1.13-collocations.5",
+      "kind": "truefalse",
+      "statement": "«She did a big effort» — правильно.",
+      "answer": false,
+      "explain": "make an effort."
+    },
+    {
+      "id": "c1.13-collocations.6",
+      "kind": "truefalse",
+      "statement": "«Take a risk» — рисковать.",
+      "answer": true,
+      "explain": "Так и есть."
+    },
+    {
+      "id": "c1.13-collocations.7",
+      "kind": "truefalse",
+      "statement": "«You've made great progress» — правильно.",
+      "answer": true,
+      "explain": "make progress."
+    },
+    {
+      "id": "c1.13-collocations.8",
+      "kind": "build",
+      "ru": "Она старалась изо всех сил.",
+      "answer": "She did her best",
+      "extra": [
+        "made",
+        "took"
+      ],
+      "explain": "do your best."
+    },
+    {
+      "id": "c1.13-collocations.9",
+      "kind": "type",
+      "sentence": "Small changes can ___ a big difference.",
+      "ru": "Небольшие перемены могут многое изменить.",
+      "answer": "make",
+      "explain": "make a difference."
+    },
+    {
+      "id": "c1.13-collocations.10",
+      "kind": "fix",
+      "sentence": "I did a terrible mistake yesterday.",
+      "ru": "Вчера я совершил ужасную ошибку.",
+      "wrong": 1,
+      "answer": "made",
+      "explain": "make a mistake."
+    },
+    {
+      "id": "c1.13-collocations.11",
+      "kind": "cloze",
+      "text": "We ___ a decision to leave, but first we had to ___ some research.",
+      "ru": "Мы решили уехать, но сначала нужно было кое-что разузнать.",
+      "answers": [
+        [
+          "made",
+          "took"
+        ],
+        [
+          "do"
+        ]
+      ],
+      "explain": "make / take a decision, do research."
+    },
+    {
+      "id": "c1.13-collocations.12",
+      "kind": "transform",
+      "source": "The storm damaged the roof badly.",
+      "keyword": "did",
+      "ru": "Буря сильно повредила крышу.",
+      "answer": "The storm did a lot of damage to the roof.",
+      "alt": [
+        "The storm did serious damage to the roof.",
+        "The storm did a lot of damage to the roof badly."
+      ],
+      "explain": "do damage to."
+    }
+  ]
+}

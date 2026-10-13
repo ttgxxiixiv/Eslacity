@@ -1,0 +1,208 @@
+{
+  "id": "c1.15-false-friends",
+  "district": "C1",
+  "order": 15,
+  "title": "Ложные друзья переводчика",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Некоторые английские слова похожи на русские, но значат другое. **accurate** — точный (не аккуратный), **sympathetic** — сочувствующий (не симпатичный), **magazine** — журнал (не магазин), **angina** — стенокардия (не ангина), **actual** — фактический (не актуальный), **fabric** — ткань (не фабрика)."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Слово",
+        "Значит",
+        "Не значит"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "accurate",
+            "точный",
+            "аккуратный (neat)"
+          ]
+        },
+        {
+          "cells": [
+            "sympathetic",
+            "сочувствующий",
+            "симпатичный (nice)"
+          ]
+        },
+        {
+          "cells": [
+            "magazine",
+            "журнал",
+            "магазин (shop)"
+          ]
+        },
+        {
+          "cells": [
+            "actual",
+            "фактический",
+            "актуальный (relevant)"
+          ]
+        },
+        {
+          "cells": [
+            "fabric",
+            "ткань",
+            "фабрика (factory)"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Если английское слово слишком похоже на русское, проверьте его значение: часто оно ловушка."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Your figures are very accurate.",
+      "ru": "Ваши цифры очень точные."
+    },
+    {
+      "es": "She was sympathetic when I told her.",
+      "ru": "Когда я ей рассказал, она посочувствовала."
+    },
+    {
+      "es": "I read it in a magazine.",
+      "ru": "Я прочитал это в журнале."
+    },
+    {
+      "es": "The actual cost was higher.",
+      "ru": "Фактическая стоимость была выше."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "c1.15-false-friends.1",
+      "kind": "choose",
+      "prompt": "«Аккуратная комната»:",
+      "options": [
+        "a neat room",
+        "an accurate room",
+        "a sympathetic room"
+      ],
+      "answer": 0,
+      "explain": "Аккуратный — neat."
+    },
+    {
+      "id": "c1.15-false-friends.2",
+      "kind": "choose",
+      "prompt": "«Симпатичный парень»:",
+      "options": [
+        "a nice guy",
+        "a sympathetic guy",
+        "an accurate guy"
+      ],
+      "answer": 0,
+      "explain": "Симпатичный — nice."
+    },
+    {
+      "id": "c1.15-false-friends.3",
+      "kind": "gap",
+      "sentence": "I bought a ___ at the station.",
+      "ru": "Я купил журнал на вокзале.",
+      "options": [
+        "magazine",
+        "shop",
+        "journal of shop"
+      ],
+      "answer": 0,
+      "explain": "Журнал — magazine."
+    },
+    {
+      "id": "c1.15-false-friends.4",
+      "kind": "gap",
+      "sentence": "This topic is very ___ now.",
+      "ru": "Эта тема сейчас очень актуальна.",
+      "options": [
+        "relevant",
+        "actual",
+        "accurate"
+      ],
+      "answer": 0,
+      "explain": "Актуальный — relevant."
+    },
+    {
+      "id": "c1.15-false-friends.5",
+      "kind": "truefalse",
+      "statement": "Angina — это ангина.",
+      "answer": false,
+      "explain": "Angina — стенокардия."
+    },
+    {
+      "id": "c1.15-false-friends.6",
+      "kind": "truefalse",
+      "statement": "Fabric — это ткань.",
+      "answer": true,
+      "explain": "Так и есть."
+    },
+    {
+      "id": "c1.15-false-friends.7",
+      "kind": "truefalse",
+      "statement": "Sympathetic — значит «сочувствующий».",
+      "answer": true,
+      "explain": "Так и есть."
+    },
+    {
+      "id": "c1.15-false-friends.8",
+      "kind": "build",
+      "ru": "Её расчёты очень точные.",
+      "answer": "Her calculations are very accurate",
+      "extra": [
+        "neat",
+        "sympathetic"
+      ],
+      "explain": "Точный — accurate."
+    },
+    {
+      "id": "c1.15-false-friends.9",
+      "kind": "type",
+      "sentence": "He works in a car ___.",
+      "ru": "Он работает на автомобильном заводе.",
+      "answer": "factory",
+      "explain": "Завод, фабрика — factory, а не fabric."
+    },
+    {
+      "id": "c1.15-false-friends.10",
+      "kind": "fix",
+      "sentence": "The new doctor is very sympathetic: tall and handsome.",
+      "ru": "Новый врач очень симпатичный: высокий и красивый.",
+      "wrong": 5,
+      "answer": "attractive",
+      "alt": [
+        "good-looking",
+        "nice"
+      ],
+      "explain": "Симпатичный — attractive или good-looking, а не sympathetic."
+    },
+    {
+      "id": "c1.15-false-friends.11",
+      "kind": "fix",
+      "sentence": "I always keep my desk very accurate.",
+      "ru": "Мой стол всегда в полном порядке.",
+      "wrong": 6,
+      "answer": "tidy",
+      "alt": [
+        "neat"
+      ],
+      "explain": "Аккуратный — tidy или neat."
+    },
+    {
+      "id": "c1.15-false-friends.12",
+      "kind": "paraphrase",
+      "sentence": "The nurse was very sympathetic.",
+      "options": [
+        "The nurse understood how I felt and was kind.",
+        "The nurse was very good-looking.",
+        "The nurse was very precise."
+      ],
+      "answer": 0,
+      "explain": "Sympathetic — сочувствующий."
+    }
+  ]
+}

@@ -1,0 +1,187 @@
+{
+  "id": "c1.03-conditional-inversion",
+  "district": "C1",
+  "order": 3,
+  "title": "Условие без if: Should you, Had I, Were it not",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "В официальной речи if убирают и меняют порядок слов. **Should you need** help (= If you need) — для вежливых предложений. **Had I known** (= If I had known) — о прошлом. **Were it not for** you (= If it weren't for you) — если бы не…"
+    },
+    {
+      "kind": "table",
+      "head": [
+        "С if",
+        "Без if"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "If you need anything,",
+            "Should you need anything,"
+          ]
+        },
+        {
+          "cells": [
+            "If I had known,",
+            "Had I known,"
+          ]
+        },
+        {
+          "cells": [
+            "If it were not for the rain,",
+            "Were it not for the rain,"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Отрицание остаётся после подлежащего: **Had I not** seen it… (не «Hadn't I seen it»)."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Should you need anything, please call reception.",
+      "ru": "Если вам что-нибудь понадобится, звоните на ресепшен."
+    },
+    {
+      "es": "Had I known, I would have come earlier.",
+      "ru": "Если бы я знал, я бы пришёл раньше."
+    },
+    {
+      "es": "Were it not for the Keeper, we would be lost.",
+      "ru": "Если бы не Хранительница, мы бы заблудились."
+    },
+    {
+      "es": "Had he not warned us, we would have fallen.",
+      "ru": "Если бы он нас не предупредил, мы бы упали."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "c1.03-conditional-inversion.1",
+      "kind": "choose",
+      "prompt": "«Если бы я знал…» (без if):",
+      "options": [
+        "Had I known,",
+        "Have I known,",
+        "I had known,"
+      ],
+      "answer": 0,
+      "explain": "Had + подлежащее + V3."
+    },
+    {
+      "id": "c1.03-conditional-inversion.2",
+      "kind": "choose",
+      "prompt": "«Если вам понадобится помощь…» (официально):",
+      "options": [
+        "Should you need help,",
+        "Would you need help,",
+        "Need you help,"
+      ],
+      "answer": 0,
+      "explain": "Should + подлежащее + глагол."
+    },
+    {
+      "id": "c1.03-conditional-inversion.3",
+      "kind": "gap",
+      "sentence": "___ it not for your help, I would have failed.",
+      "ru": "Если бы не твоя помощь, я бы провалился.",
+      "options": [
+        "Were",
+        "Was",
+        "Had"
+      ],
+      "answer": 0,
+      "explain": "Were it not for …"
+    },
+    {
+      "id": "c1.03-conditional-inversion.4",
+      "kind": "gap",
+      "sentence": "Had I ___ the truth, I would have told you.",
+      "ru": "Если бы я знал правду, я бы тебе сказал.",
+      "options": [
+        "known",
+        "know",
+        "knew"
+      ],
+      "answer": 0,
+      "explain": "Had + V3."
+    },
+    {
+      "id": "c1.03-conditional-inversion.5",
+      "kind": "truefalse",
+      "statement": "«Hadn't I seen it, I wouldn't believe it» — правильно.",
+      "answer": false,
+      "explain": "Had I not seen it."
+    },
+    {
+      "id": "c1.03-conditional-inversion.6",
+      "kind": "truefalse",
+      "statement": "Should you have questions = If you have questions.",
+      "answer": true,
+      "explain": "Так и есть."
+    },
+    {
+      "id": "c1.03-conditional-inversion.7",
+      "kind": "truefalse",
+      "statement": "Такие конструкции звучат официально.",
+      "answer": true,
+      "explain": "Так и есть."
+    },
+    {
+      "id": "c1.03-conditional-inversion.8",
+      "kind": "build",
+      "ru": "Если бы мы знали, мы бы остались.",
+      "answer": "Had we known we would have stayed",
+      "extra": [
+        "if",
+        "knew"
+      ],
+      "explain": "Had + we + V3."
+    },
+    {
+      "id": "c1.03-conditional-inversion.9",
+      "kind": "type",
+      "sentence": "___ you require further information, please contact us.",
+      "ru": "Если вам потребуется дополнительная информация, свяжитесь с нами.",
+      "answer": "Should",
+      "explain": "Should + подлежащее — вежливое условие."
+    },
+    {
+      "id": "c1.03-conditional-inversion.10",
+      "kind": "transform",
+      "source": "If I had known about the swamp, I would not have gone.",
+      "keyword": "had",
+      "ru": "Если бы я знал о болоте, я бы не пошёл.",
+      "answer": "Had I known about the swamp, I would not have gone.",
+      "alt": [
+        "Had I known about the swamp, I wouldn't have gone."
+      ],
+      "explain": "Had I known …"
+    },
+    {
+      "id": "c1.03-conditional-inversion.11",
+      "kind": "register",
+      "source": "If you need anything, just shout.",
+      "to": "formal",
+      "options": [
+        "Should you need anything, do not hesitate to ask.",
+        "If you need anything, give me a shout.",
+        "Should you need nothing, do not ask."
+      ],
+      "answer": 0,
+      "explain": "Официально: Should you need, do not hesitate to ask."
+    },
+    {
+      "id": "c1.03-conditional-inversion.12",
+      "kind": "fix",
+      "sentence": "Had I not knew him, I would have trusted him.",
+      "ru": "Если бы я его не знал, я бы ему поверил.",
+      "wrong": 3,
+      "answer": "known",
+      "explain": "Had + not + V3: known."
+    }
+  ]
+}

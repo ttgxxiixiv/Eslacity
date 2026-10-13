@@ -1,0 +1,195 @@
+{
+  "id": "c1.10-nominalisation",
+  "district": "C1",
+  "order": 10,
+  "title": "Существительные вместо глаголов",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "В официальной речи действие часто выражают существительным: They **decided** → **The decision** was made. Prices **rose** → **The rise** in prices. Так текст звучит безличнее и плотнее. Типичные пары: decide — decision, arrive — arrival, fail — failure, refuse — refusal, improve — improvement."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Глагол",
+        "Существительное",
+        "Пример"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "arrive",
+            "arrival",
+            "On arrival, please sign in."
+          ]
+        },
+        {
+          "cells": [
+            "refuse",
+            "refusal",
+            "His refusal surprised us."
+          ]
+        },
+        {
+          "cells": [
+            "fail",
+            "failure",
+            "The failure of the plan was clear."
+          ]
+        },
+        {
+          "cells": [
+            "improve",
+            "improvement",
+            "There has been an improvement."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "После существительного часто нужен предлог: an increase **in** prices, a decision **to** leave, a solution **to** the problem."
+    }
+  ],
+  "examples": [
+    {
+      "es": "The arrival of the train was delayed.",
+      "ru": "Прибытие поезда задержалось."
+    },
+    {
+      "es": "His refusal to help annoyed everyone.",
+      "ru": "Его отказ помочь всех разозлил."
+    },
+    {
+      "es": "There has been a sharp rise in prices.",
+      "ru": "Цены резко выросли."
+    },
+    {
+      "es": "The closure of the bank caused panic.",
+      "ru": "Закрытие банка вызвало панику."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "c1.10-nominalisation.1",
+      "kind": "choose",
+      "prompt": "Официально: «Поезд прибыл поздно».",
+      "options": [
+        "The arrival of the train was late.",
+        "The train arriving was late.",
+        "The arrive of the train was late."
+      ],
+      "answer": 0,
+      "explain": "arrive → arrival."
+    },
+    {
+      "id": "c1.10-nominalisation.2",
+      "kind": "choose",
+      "prompt": "«Решение уйти»:",
+      "options": [
+        "the decision to leave",
+        "the decision of leave",
+        "the decide to leave"
+      ],
+      "answer": 0,
+      "explain": "decision to + глагол."
+    },
+    {
+      "id": "c1.10-nominalisation.3",
+      "kind": "gap",
+      "sentence": "There was a big increase ___ prices.",
+      "ru": "Цены сильно выросли.",
+      "options": [
+        "in",
+        "of",
+        "on"
+      ],
+      "answer": 0,
+      "explain": "an increase in."
+    },
+    {
+      "id": "c1.10-nominalisation.4",
+      "kind": "gap",
+      "sentence": "We need a solution ___ this problem.",
+      "ru": "Нам нужно решение этой проблемы.",
+      "options": [
+        "to",
+        "for of",
+        "at"
+      ],
+      "answer": 0,
+      "explain": "a solution to."
+    },
+    {
+      "id": "c1.10-nominalisation.5",
+      "kind": "truefalse",
+      "statement": "«The failure of the plan» — существительное от fail.",
+      "answer": true,
+      "explain": "fail → failure."
+    },
+    {
+      "id": "c1.10-nominalisation.6",
+      "kind": "truefalse",
+      "statement": "Существительные вместо глаголов делают текст разговорнее.",
+      "answer": false,
+      "explain": "Наоборот, официальнее."
+    },
+    {
+      "id": "c1.10-nominalisation.7",
+      "kind": "truefalse",
+      "statement": "«His refusal to answer» — правильно.",
+      "answer": true,
+      "explain": "refusal to + глагол."
+    },
+    {
+      "id": "c1.10-nominalisation.8",
+      "kind": "build",
+      "ru": "Закрытие банка вызвало панику.",
+      "answer": "The closure of the bank caused panic",
+      "extra": [
+        "close",
+        "closing"
+      ],
+      "explain": "close → closure."
+    },
+    {
+      "id": "c1.10-nominalisation.9",
+      "kind": "type",
+      "sentence": "The ___ (improve) in her English is clear.",
+      "ru": "Улучшения в её английском очевидны.",
+      "hint": "improve",
+      "answer": "improvement",
+      "explain": "improve → improvement."
+    },
+    {
+      "id": "c1.10-nominalisation.10",
+      "kind": "register",
+      "source": "They decided to close the road.",
+      "to": "formal",
+      "answer": "The decision was made to close the road",
+      "extra": [
+        "decided",
+        "they"
+      ],
+      "explain": "Официально: The decision was made …"
+    },
+    {
+      "id": "c1.10-nominalisation.11",
+      "kind": "transform",
+      "source": "The prices went up sharply.",
+      "keyword": "rise",
+      "ru": "Цены резко выросли.",
+      "answer": "There was a sharp rise in prices.",
+      "explain": "rise in prices."
+    },
+    {
+      "id": "c1.10-nominalisation.12",
+      "kind": "fix",
+      "sentence": "The arrive of the guests was delayed.",
+      "ru": "Прибытие гостей задержалось.",
+      "wrong": 1,
+      "answer": "arrival",
+      "explain": "Нужно существительное: arrival."
+    }
+  ]
+}

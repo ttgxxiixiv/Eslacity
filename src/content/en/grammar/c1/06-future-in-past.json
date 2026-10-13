@@ -1,0 +1,204 @@
+{
+  "id": "c1.06-future-in-past",
+  "district": "C1",
+  "order": 6,
+  "title": "Будущее в прошлом: was going to, was about to",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "О планах, которые были в прошлом: **was / were going to** (собирался, но…), **was about to** (вот-вот должен был), **was to have + V3** (должен был, но не случилось — книжно), **would** (знал, что будет)."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Форма",
+        "Значение",
+        "Пример"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "was going to",
+            "собирался",
+            "I was going to call you."
+          ]
+        },
+        {
+          "cells": [
+            "was about to",
+            "вот-вот должен был",
+            "The train was about to leave."
+          ]
+        },
+        {
+          "cells": [
+            "was to have + V3",
+            "должен был (не состоялось)",
+            "He was to have married her."
+          ]
+        },
+        {
+          "cells": [
+            "would",
+            "предсказание в прошлом",
+            "I knew she would win."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Was going to часто показывает, что план сорвался: I **was going to** call, but I forgot."
+    }
+  ],
+  "examples": [
+    {
+      "es": "I was going to tell you, but you left.",
+      "ru": "Я собирался тебе сказать, но ты ушёл."
+    },
+    {
+      "es": "We were about to leave when Rory arrived.",
+      "ru": "Мы уже собирались уходить, когда пришёл Рори."
+    },
+    {
+      "es": "The bridge was to have opened in May.",
+      "ru": "Мост должны были открыть в мае."
+    },
+    {
+      "es": "I knew the forest would be quiet one day.",
+      "ru": "Я знал, что однажды лес затихнет."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "c1.06-future-in-past.1",
+      "kind": "choose",
+      "prompt": "«Я собирался позвонить, но забыл»:",
+      "options": [
+        "I was going to call, but I forgot.",
+        "I am going to call, but I forgot.",
+        "I went to call, but I forgot."
+      ],
+      "answer": 0,
+      "explain": "was going to."
+    },
+    {
+      "id": "c1.06-future-in-past.2",
+      "kind": "choose",
+      "prompt": "«Поезд вот-вот должен был отойти»:",
+      "options": [
+        "The train was about to leave.",
+        "The train was about leaving.",
+        "The train is about to left."
+      ],
+      "answer": 0,
+      "explain": "was about to + глагол."
+    },
+    {
+      "id": "c1.06-future-in-past.3",
+      "kind": "gap",
+      "sentence": "I knew you ___ come back.",
+      "ru": "Я знал, что ты вернёшься.",
+      "options": [
+        "would",
+        "will",
+        "are going"
+      ],
+      "answer": 0,
+      "explain": "В прошлом will → would."
+    },
+    {
+      "id": "c1.06-future-in-past.4",
+      "kind": "gap",
+      "sentence": "We ___ about to give up when we saw the light.",
+      "ru": "Мы уже готовы были сдаться, когда увидели свет.",
+      "options": [
+        "were",
+        "are",
+        "had"
+      ],
+      "answer": 0,
+      "explain": "were about to."
+    },
+    {
+      "id": "c1.06-future-in-past.5",
+      "kind": "truefalse",
+      "statement": "«The meeting was to have taken place yesterday» значит, что встречи не было.",
+      "answer": true,
+      "explain": "was to have + V3 — не состоялось."
+    },
+    {
+      "id": "c1.06-future-in-past.6",
+      "kind": "truefalse",
+      "statement": "«I was going to phone» всегда значит, что я позвонил.",
+      "answer": false,
+      "explain": "Чаще — собирался, но не позвонил."
+    },
+    {
+      "id": "c1.06-future-in-past.7",
+      "kind": "truefalse",
+      "statement": "«She knew she would win» — правильно.",
+      "answer": true,
+      "explain": "would — будущее в прошлом."
+    },
+    {
+      "id": "c1.06-future-in-past.8",
+      "kind": "build",
+      "ru": "Я собирался тебе всё рассказать.",
+      "answer": "I was going to tell you everything",
+      "extra": [
+        "will",
+        "told"
+      ],
+      "explain": "was going to + глагол."
+    },
+    {
+      "id": "c1.06-future-in-past.9",
+      "kind": "type",
+      "sentence": "He ___ (about) to speak when the phone rang.",
+      "ru": "Он уже открыл рот, чтобы заговорить, когда зазвонил телефон.",
+      "hint": "be about",
+      "answer": "was about",
+      "explain": "was about to."
+    },
+    {
+      "id": "c1.06-future-in-past.10",
+      "kind": "cloze",
+      "text": "I ___ going to walk, but it started to rain. We ___ about to leave when the bus came.",
+      "ru": "Я собирался пойти пешком, но начался дождь. Мы уже уходили, когда пришёл автобус.",
+      "answers": [
+        [
+          "was"
+        ],
+        [
+          "were"
+        ]
+      ],
+      "explain": "was going to, were about to."
+    },
+    {
+      "id": "c1.06-future-in-past.11",
+      "kind": "transform",
+      "source": "I planned to call you, but I didn't.",
+      "keyword": "going",
+      "ru": "Я собирался тебе позвонить, но не позвонил.",
+      "answer": "I was going to call you, but I didn't.",
+      "alt": [
+        "I was going to call you but I didn't."
+      ],
+      "explain": "was going to."
+    },
+    {
+      "id": "c1.06-future-in-past.12",
+      "kind": "paraphrase",
+      "sentence": "The wedding was to have taken place in June.",
+      "options": [
+        "The wedding was planned for June, but it did not happen.",
+        "The wedding took place in June.",
+        "The wedding will be in June."
+      ],
+      "answer": 0,
+      "explain": "was to have + V3 — не состоялось."
+    }
+  ]
+}

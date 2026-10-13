@@ -1,0 +1,194 @@
+{
+  "id": "c1.09-hedging",
+  "district": "C1",
+  "order": 9,
+  "title": "Осторожные высказывания: seem, appear, tend to",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Чтобы говорить осторожно, используют **seem / appear to** (похоже), **tend to** (обычно склонен), **It would seem that** … (как будто), **arguably** (можно утверждать), **to some extent** (в некоторой степени). Так звучат научные тексты, новости и вежливые споры."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Прямо",
+        "Осторожно"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "He is wrong.",
+            "He appears to be mistaken."
+          ]
+        },
+        {
+          "cells": [
+            "People forget.",
+            "People tend to forget."
+          ]
+        },
+        {
+          "cells": [
+            "This is the best way.",
+            "This is arguably the best way."
+          ]
+        },
+        {
+          "cells": [
+            "It is true.",
+            "It would seem to be true."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Seem / appear to have + V3 — о прошлом: The map **seems to have been** moved."
+    }
+  ],
+  "examples": [
+    {
+      "es": "The forest appears to be quieter.",
+      "ru": "Лес, похоже, стал тише."
+    },
+    {
+      "es": "People tend to believe rumours.",
+      "ru": "Люди склонны верить слухам."
+    },
+    {
+      "es": "It would seem that he left early.",
+      "ru": "Похоже, он ушёл рано."
+    },
+    {
+      "es": "This is arguably the oldest tree in town.",
+      "ru": "Это, пожалуй, самое старое дерево в городе."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "c1.09-hedging.1",
+      "kind": "choose",
+      "prompt": "Осторожно: «Он ошибается».",
+      "options": [
+        "He seems to be mistaken.",
+        "He is wrong, full stop.",
+        "He mistakes."
+      ],
+      "answer": 0,
+      "explain": "seem to be — осторожно."
+    },
+    {
+      "id": "c1.09-hedging.2",
+      "kind": "choose",
+      "prompt": "«Люди склонны опаздывать»:",
+      "options": [
+        "People tend to be late.",
+        "People tend being late.",
+        "People are tend to be late."
+      ],
+      "answer": 0,
+      "explain": "tend to + глагол."
+    },
+    {
+      "id": "c1.09-hedging.3",
+      "kind": "gap",
+      "sentence": "It ___ seem that we were wrong.",
+      "ru": "Похоже, мы ошибались.",
+      "options": [
+        "would",
+        "will",
+        "can"
+      ],
+      "answer": 0,
+      "explain": "It would seem that."
+    },
+    {
+      "id": "c1.09-hedging.4",
+      "kind": "gap",
+      "sentence": "The letter appears ___ been opened.",
+      "ru": "Похоже, письмо вскрывали.",
+      "options": [
+        "to have",
+        "to be",
+        "having"
+      ],
+      "answer": 0,
+      "explain": "appear to have been."
+    },
+    {
+      "id": "c1.09-hedging.5",
+      "kind": "truefalse",
+      "statement": "«Arguably» делает утверждение мягче.",
+      "answer": true,
+      "explain": "Так и есть."
+    },
+    {
+      "id": "c1.09-hedging.6",
+      "kind": "truefalse",
+      "statement": "«He tends forgetting names» — правильно.",
+      "answer": false,
+      "explain": "He tends to forget names."
+    },
+    {
+      "id": "c1.09-hedging.7",
+      "kind": "truefalse",
+      "statement": "«To some extent, you are right» — осторожное согласие.",
+      "answer": true,
+      "explain": "Так и есть."
+    },
+    {
+      "id": "c1.09-hedging.8",
+      "kind": "build",
+      "ru": "Похоже, он уехал.",
+      "answer": "He seems to have left",
+      "extra": [
+        "has",
+        "leaving"
+      ],
+      "explain": "seem to have + V3."
+    },
+    {
+      "id": "c1.09-hedging.9",
+      "kind": "type",
+      "sentence": "Prices ___ (tend) to rise in summer.",
+      "ru": "Летом цены обычно растут.",
+      "hint": "tend",
+      "answer": "tend",
+      "explain": "tend to."
+    },
+    {
+      "id": "c1.09-hedging.10",
+      "kind": "register",
+      "source": "The mayor is lying.",
+      "to": "formal",
+      "options": [
+        "The mayor appears not to be telling the whole truth.",
+        "The mayor is a total liar.",
+        "The mayor appears to be telling the truth."
+      ],
+      "answer": 0,
+      "explain": "Осторожно и официально: appears not to be telling the whole truth."
+    },
+    {
+      "id": "c1.09-hedging.11",
+      "kind": "paraphrase",
+      "sentence": "This is arguably the best café in town.",
+      "options": [
+        "Many could say this is the best café in town.",
+        "This is certainly the worst café.",
+        "Nobody likes this café."
+      ],
+      "answer": 0,
+      "explain": "arguably — можно утверждать."
+    },
+    {
+      "id": "c1.09-hedging.12",
+      "kind": "transform",
+      "source": "Apparently the guide has left.",
+      "keyword": "seems",
+      "ru": "Похоже, проводник ушёл.",
+      "answer": "The guide seems to have left.",
+      "explain": "seem to have + V3."
+    }
+  ]
+}

@@ -1,0 +1,193 @@
+{
+  "id": "c1.05-concession-advanced",
+  "district": "C1",
+  "order": 5,
+  "title": "Уступка: however much, much as, no matter how",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Уступку можно выразить книжно. **However / No matter how + прилагательное**: However hard I try, … **Much as** I like him, … (как бы я его ни любил). **Whatever / Whoever / Wherever** + предложение. **Try as I might**, … (как я ни старался)."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Конструкция",
+        "Пример"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "However + прил. + подлежащее + глагол",
+            "However tired you are, finish the job."
+          ]
+        },
+        {
+          "cells": [
+            "No matter how / what",
+            "No matter what you say, I'm going."
+          ]
+        },
+        {
+          "cells": [
+            "Much as + предложение",
+            "Much as I love her, I can't agree."
+          ]
+        },
+        {
+          "cells": [
+            "Try as I might",
+            "Try as I might, I couldn't open it."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "После however прилагательное идёт сразу: **However hard** it is (не «However it is hard»)."
+    }
+  ],
+  "examples": [
+    {
+      "es": "However hard it is, we must keep going.",
+      "ru": "Как бы ни было тяжело, надо идти дальше."
+    },
+    {
+      "es": "Much as I like Archie, he talks too much.",
+      "ru": "Как бы я ни любил Арчи, он слишком много болтает."
+    },
+    {
+      "es": "No matter what happens, call me.",
+      "ru": "Что бы ни случилось, позвони мне."
+    },
+    {
+      "es": "Try as I might, I couldn't hear the path.",
+      "ru": "Как я ни старался, я не слышал тропу."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "c1.05-concession-advanced.1",
+      "kind": "choose",
+      "prompt": "«Как бы поздно ни было, позвони»:",
+      "options": [
+        "However late it is, call me.",
+        "However it is late, call me.",
+        "How late it is, call me."
+      ],
+      "answer": 0,
+      "explain": "However + прилагательное + подлежащее."
+    },
+    {
+      "id": "c1.05-concession-advanced.2",
+      "kind": "choose",
+      "prompt": "«Как бы я ни любил кофе, мне хватит»:",
+      "options": [
+        "Much as I love coffee, I've had enough.",
+        "Much I love coffee, I've had enough.",
+        "As much I love coffee, I've had enough."
+      ],
+      "answer": 0,
+      "explain": "Much as + предложение."
+    },
+    {
+      "id": "c1.05-concession-advanced.3",
+      "kind": "gap",
+      "sentence": "No matter ___ you go, I'll find you.",
+      "ru": "Куда бы ты ни пошёл, я тебя найду.",
+      "options": [
+        "where",
+        "what",
+        "how"
+      ],
+      "answer": 0,
+      "explain": "No matter where."
+    },
+    {
+      "id": "c1.05-concession-advanced.4",
+      "kind": "gap",
+      "sentence": "Try as I ___, I couldn't sleep.",
+      "ru": "Как я ни старался, уснуть не мог.",
+      "options": [
+        "might",
+        "may",
+        "must"
+      ],
+      "answer": 0,
+      "explain": "Try as I might."
+    },
+    {
+      "id": "c1.05-concession-advanced.5",
+      "kind": "truefalse",
+      "statement": "«However it is cold, we swim» — правильно.",
+      "answer": false,
+      "explain": "However cold it is."
+    },
+    {
+      "id": "c1.05-concession-advanced.6",
+      "kind": "truefalse",
+      "statement": "Much as I like him = Хотя он мне очень нравится.",
+      "answer": true,
+      "explain": "Так и есть."
+    },
+    {
+      "id": "c1.05-concession-advanced.7",
+      "kind": "truefalse",
+      "statement": "«Whatever you decide, I'll support you» — правильно.",
+      "answer": true,
+      "explain": "Whatever + предложение."
+    },
+    {
+      "id": "c1.05-concession-advanced.8",
+      "kind": "build",
+      "ru": "Что бы ты ни сказал, я пойду.",
+      "answer": "Whatever you say I am going",
+      "extra": [
+        "what",
+        "however"
+      ],
+      "explain": "Whatever + предложение."
+    },
+    {
+      "id": "c1.05-concession-advanced.9",
+      "kind": "type",
+      "sentence": "___ hard I try, I can't remember his name.",
+      "ru": "Как я ни стараюсь, не могу вспомнить его имя.",
+      "answer": "However",
+      "alt": [
+        "No matter how"
+      ],
+      "explain": "However + прилагательное."
+    },
+    {
+      "id": "c1.05-concession-advanced.10",
+      "kind": "combine",
+      "first": "I respect him a lot.",
+      "second": "I can't agree with him.",
+      "connector": "much as",
+      "ru": "Как бы я его ни уважал, согласиться с ним не могу.",
+      "answer": "Much as I respect him, I can't agree with him.",
+      "alt": [
+        "Much as I respect him, I cannot agree with him."
+      ],
+      "explain": "Much as + первая часть."
+    },
+    {
+      "id": "c1.05-concession-advanced.11",
+      "kind": "transform",
+      "source": "It doesn't matter how tired you are, you must finish.",
+      "keyword": "however",
+      "ru": "Как бы ты ни устал, надо закончить.",
+      "answer": "However tired you are, you must finish.",
+      "explain": "However + tired."
+    },
+    {
+      "id": "c1.05-concession-advanced.12",
+      "kind": "fix",
+      "sentence": "Much as I likes him, I cannot agree.",
+      "ru": "Как он мне ни нравится, согласиться не могу.",
+      "wrong": 3,
+      "answer": "like",
+      "explain": "Much as I like — обычная форма глагола."
+    }
+  ]
+}

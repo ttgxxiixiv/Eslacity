@@ -1,0 +1,201 @@
+{
+  "id": "c1.08-modal-nuance",
+  "district": "C1",
+  "order": 8,
+  "title": "Needn't have, might as well, could have",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "**needn't have + V3** — сделал, хотя было не нужно: You **needn't have brought** a gift. **didn't need to** — не делал, потому что было не нужно. **might as well** — можно и… (раз ничего лучше нет): We **might as well** walk. **could have + V3** — мог бы (упрёк): You **could have** told me!"
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Форма",
+        "Значение",
+        "Пример"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "needn't have + V3",
+            "зря сделал",
+            "I needn't have cooked: they ate out."
+          ]
+        },
+        {
+          "cells": [
+            "didn't need to",
+            "не пришлось",
+            "I didn't need to cook."
+          ]
+        },
+        {
+          "cells": [
+            "might as well",
+            "можно и …",
+            "We might as well go home."
+          ]
+        },
+        {
+          "cells": [
+            "could have + V3",
+            "мог бы (упрёк)",
+            "You could have warned me!"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Needn't have + V3 значит, что действие было. Didn't need to обычно значит, что его не было."
+    }
+  ],
+  "examples": [
+    {
+      "es": "You needn't have waited for me.",
+      "ru": "Зря ты меня ждал."
+    },
+    {
+      "es": "The bus isn't coming. We might as well walk.",
+      "ru": "Автобуса нет. Можно и пешком пойти."
+    },
+    {
+      "es": "You could have told me about the swamp!",
+      "ru": "Мог бы и сказать мне про болото!"
+    },
+    {
+      "es": "I didn't need to pay: it was free.",
+      "ru": "Платить не пришлось: было бесплатно."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "c1.08-modal-nuance.1",
+      "kind": "choose",
+      "prompt": "«Зря ты принёс зонт: дождя нет»:",
+      "options": [
+        "You needn't have brought an umbrella.",
+        "You didn't need bring an umbrella.",
+        "You mustn't have brought an umbrella."
+      ],
+      "answer": 0,
+      "explain": "needn't have + V3."
+    },
+    {
+      "id": "c1.08-modal-nuance.2",
+      "kind": "choose",
+      "prompt": "«Раз так, можно и остаться»:",
+      "options": [
+        "We might as well stay.",
+        "We might as good stay.",
+        "We may well to stay."
+      ],
+      "answer": 0,
+      "explain": "might as well."
+    },
+    {
+      "id": "c1.08-modal-nuance.3",
+      "kind": "gap",
+      "sentence": "You ___ have phoned! I was worried.",
+      "ru": "Мог бы и позвонить! Я волновался.",
+      "options": [
+        "could",
+        "needn't",
+        "must"
+      ],
+      "answer": 0,
+      "explain": "could have — упрёк."
+    },
+    {
+      "id": "c1.08-modal-nuance.4",
+      "kind": "gap",
+      "sentence": "I ___ need to take a taxi: Sam drove me.",
+      "ru": "Брать такси не пришлось: Сэм меня подвёз.",
+      "options": [
+        "didn't",
+        "needn't",
+        "mustn't"
+      ],
+      "answer": 0,
+      "explain": "didn't need to."
+    },
+    {
+      "id": "c1.08-modal-nuance.5",
+      "kind": "truefalse",
+      "statement": "«I needn't have hurried» значит, что я торопился зря.",
+      "answer": true,
+      "explain": "Действие было, но лишнее."
+    },
+    {
+      "id": "c1.08-modal-nuance.6",
+      "kind": "truefalse",
+      "statement": "«We might as well go» — грубый приказ.",
+      "answer": false,
+      "explain": "Спокойное «можно и пойти»."
+    },
+    {
+      "id": "c1.08-modal-nuance.7",
+      "kind": "truefalse",
+      "statement": "«You could have asked me!» — упрёк.",
+      "answer": true,
+      "explain": "Так и есть."
+    },
+    {
+      "id": "c1.08-modal-nuance.8",
+      "kind": "build",
+      "ru": "Можно и подождать.",
+      "answer": "We might as well wait",
+      "extra": [
+        "good",
+        "waiting"
+      ],
+      "explain": "might as well + глагол."
+    },
+    {
+      "id": "c1.08-modal-nuance.9",
+      "kind": "type",
+      "sentence": "You ___ (not need / buy) bread, we had plenty.",
+      "ru": "Зря ты купил хлеб, его было полно.",
+      "hint": "not need buy",
+      "answer": "needn't have bought",
+      "alt": [
+        "need not have bought"
+      ],
+      "explain": "needn't have + V3."
+    },
+    {
+      "id": "c1.08-modal-nuance.10",
+      "kind": "fix",
+      "sentence": "You needn't have bring flowers, but thank you.",
+      "ru": "Не стоило приносить цветы, но спасибо.",
+      "wrong": 3,
+      "answer": "brought",
+      "explain": "needn't have + V3."
+    },
+    {
+      "id": "c1.08-modal-nuance.11",
+      "kind": "paraphrase",
+      "sentence": "We might as well take the bus.",
+      "options": [
+        "There is no better option, so let us take the bus.",
+        "We must take the bus.",
+        "We should never take the bus."
+      ],
+      "answer": 0,
+      "explain": "might as well — «раз ничего лучше нет»."
+    },
+    {
+      "id": "c1.08-modal-nuance.12",
+      "kind": "transform",
+      "source": "It wasn't necessary for you to wait, but you did.",
+      "keyword": "needn't",
+      "ru": "Зря ты ждал.",
+      "answer": "You needn't have waited.",
+      "alt": [
+        "You need not have waited."
+      ],
+      "explain": "needn't have + V3."
+    }
+  ]
+}

@@ -15,7 +15,7 @@ function lessons(lang: string): GrammarLesson[] {
 }
 
 /** Уроков в курсе: у английского пока районы A1 и A2 (задача 17.4). */
-const COUNTS: Record<string, number> = { es: 132, it: 132, en: 112 };
+const COUNTS: Record<string, number> = { es: 132, it: 132, en: 132 };
 
 describe.each(['es', 'it', 'en'])('продуктивные задания в контенте: %s', (lang) => {
   const all = lessons(lang);

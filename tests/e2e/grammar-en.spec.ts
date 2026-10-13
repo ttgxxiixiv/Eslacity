@@ -8,7 +8,7 @@ import { answerGrammar, openEnglish } from './fixtures';
  * напрямую, язык ставится в localStorage. Каждый урок проходится целиком, как в grammar.spec.ts.
  */
 const ROOT = join(import.meta.dirname, '..', '..', 'src', 'content', 'en', 'grammar');
-const CHAPTER: Record<string, number> = { a1: 1, a2: 2, b11: 3, b12: 3, b2: 4 };
+const CHAPTER: Record<string, number> = { a1: 1, a2: 2, b11: 3, b12: 3, b2: 4, c1: 5 };
 
 for (const district of readdirSync(ROOT)) {
   for (const file of readdirSync(join(ROOT, district)).filter((f) => f.endsWith('.json'))) {

@@ -1,0 +1,201 @@
+{
+  "id": "c1.20-prepositional-phrases",
+  "district": "C1",
+  "order": 20,
+  "title": "Книжные предложные обороты",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Официальные тексты полны оборотов: **in the light of** (в свете), **with regard to** (что касается), **on behalf of** (от имени), **in accordance with** (в соответствии с), **on the verge of** (на грани), **in spite of** (несмотря на), **by means of** (посредством)."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Оборот",
+        "Значение",
+        "Пример"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "in the light of",
+            "в свете",
+            "In the light of the news, we cancelled."
+          ]
+        },
+        {
+          "cells": [
+            "with regard to",
+            "что касается",
+            "With regard to your letter, …"
+          ]
+        },
+        {
+          "cells": [
+            "on behalf of",
+            "от имени",
+            "I speak on behalf of the town."
+          ]
+        },
+        {
+          "cells": [
+            "in accordance with",
+            "в соответствии с",
+            "in accordance with the law"
+          ]
+        },
+        {
+          "cells": [
+            "on the verge of",
+            "на грани",
+            "on the verge of tears"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "On behalf of — «от имени, вместо»: **on behalf of** my colleagues. Не путать с in favour of — «в пользу»."
+    }
+  ],
+  "examples": [
+    {
+      "es": "In the light of recent events, the meeting is cancelled.",
+      "ru": "В свете недавних событий собрание отменяется."
+    },
+    {
+      "es": "I am writing with regard to your complaint.",
+      "ru": "Пишу вам по поводу вашей жалобы."
+    },
+    {
+      "es": "Emma thanked us on behalf of the hotel.",
+      "ru": "Эмма поблагодарила нас от имени отеля."
+    },
+    {
+      "es": "She was on the verge of tears.",
+      "ru": "Она была на грани слёз."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "c1.20-prepositional-phrases.1",
+      "kind": "choose",
+      "prompt": "«От имени всего города»:",
+      "options": [
+        "on behalf of the whole town",
+        "in behalf the whole town",
+        "on the behalf to the whole town"
+      ],
+      "answer": 0,
+      "explain": "on behalf of."
+    },
+    {
+      "id": "c1.20-prepositional-phrases.2",
+      "kind": "choose",
+      "prompt": "«В соответствии с правилами»:",
+      "options": [
+        "in accordance with the rules",
+        "in accordance to the rules",
+        "on accordance of the rules"
+      ],
+      "answer": 0,
+      "explain": "in accordance with."
+    },
+    {
+      "id": "c1.20-prepositional-phrases.3",
+      "kind": "gap",
+      "sentence": "We are writing ___ regard to your letter.",
+      "ru": "Пишем вам по поводу вашего письма.",
+      "options": [
+        "with",
+        "in",
+        "on"
+      ],
+      "answer": 0,
+      "explain": "with regard to."
+    },
+    {
+      "id": "c1.20-prepositional-phrases.4",
+      "kind": "gap",
+      "sentence": "The company is on the ___ of bankruptcy.",
+      "ru": "Компания на грани банкротства.",
+      "options": [
+        "verge",
+        "edge of",
+        "side"
+      ],
+      "answer": 0,
+      "explain": "on the verge of."
+    },
+    {
+      "id": "c1.20-prepositional-phrases.5",
+      "kind": "truefalse",
+      "statement": "«On behalf of» значит «в пользу».",
+      "answer": false,
+      "explain": "«От имени»."
+    },
+    {
+      "id": "c1.20-prepositional-phrases.6",
+      "kind": "truefalse",
+      "statement": "«In the light of» значит «в свете, с учётом».",
+      "answer": true,
+      "explain": "Так и есть."
+    },
+    {
+      "id": "c1.20-prepositional-phrases.7",
+      "kind": "truefalse",
+      "statement": "«In accordance with the law» — правильно.",
+      "answer": true,
+      "explain": "in accordance with."
+    },
+    {
+      "id": "c1.20-prepositional-phrases.8",
+      "kind": "build",
+      "ru": "Я говорю от имени жителей.",
+      "answer": "I speak on behalf of the residents",
+      "extra": [
+        "in",
+        "behind"
+      ],
+      "explain": "on behalf of."
+    },
+    {
+      "id": "c1.20-prepositional-phrases.9",
+      "kind": "type",
+      "sentence": "In the ___ of the new evidence, the case was reopened.",
+      "ru": "В свете новых улик дело открыли снова.",
+      "answer": "light",
+      "explain": "in the light of."
+    },
+    {
+      "id": "c1.20-prepositional-phrases.10",
+      "kind": "register",
+      "source": "About your letter, we'll sort it out.",
+      "to": "formal",
+      "answer": "With regard to your letter we will deal with the matter",
+      "extra": [
+        "about",
+        "sort"
+      ],
+      "explain": "Официально: with regard to, deal with the matter."
+    },
+    {
+      "id": "c1.20-prepositional-phrases.11",
+      "kind": "transform",
+      "source": "Because of the new facts, we changed our minds.",
+      "keyword": "light",
+      "ru": "С учётом новых фактов мы передумали.",
+      "answer": "In the light of the new facts, we changed our minds.",
+      "explain": "In the light of …"
+    },
+    {
+      "id": "c1.20-prepositional-phrases.12",
+      "kind": "fix",
+      "sentence": "I would like to thank you in behalf of the team.",
+      "ru": "Хочу поблагодарить вас от имени команды.",
+      "wrong": 6,
+      "answer": "on",
+      "explain": "on behalf of."
+    }
+  ]
+}

@@ -336,7 +336,8 @@
       "example": {
         "es": "I need flour for a cake.",
         "ru": "Мне нужна мука для торта."
-      }
+      },
+      "topical": true
     },
     {
       "id": "supermarket.cereal",
@@ -1599,6 +1600,230 @@
       "example": {
         "es": "I use click and collect on Fridays.",
         "ru": "По пятницам я заказываю онлайн и забираю сам."
+      }
+    },
+    {
+      "id": "supermarket.attention-shoppers",
+      "es": "attention, shoppers",
+      "ru": "уважаемые покупатели",
+      "pos": "phrase",
+      "level": 7,
+      "cefr": "C1",
+      "kind": "formula",
+      "register": "formal",
+      "pair": "supermarket.were-closing",
+      "example": {
+        "es": "Attention, shoppers: the store closes in ten minutes.",
+        "ru": "Уважаемые покупатели: магазин закрывается через десять минут."
+      }
+    },
+    {
+      "id": "supermarket.were-closing",
+      "es": "we're closing soon",
+      "ru": "скоро закрываемся",
+      "pos": "phrase",
+      "level": 7,
+      "cefr": "C1",
+      "kind": "formula",
+      "register": "informal",
+      "pair": "supermarket.attention-shoppers",
+      "example": {
+        "es": "Grab your stuff, we're closing soon.",
+        "ru": "Хватай, что нужно, скоро закрываемся."
+      }
+    },
+    {
+      "id": "supermarket.unexpected-item",
+      "es": "unexpected item in the bagging area",
+      "ru": "неопознанный товар в зоне упаковки",
+      "pos": "phrase",
+      "level": 7,
+      "cefr": "C1",
+      "kind": "formula",
+      "register": "formal",
+      "pair": "supermarket.its-stuck",
+      "example": {
+        "es": "\"Unexpected item in the bagging area.\" Again!",
+        "ru": "«Неопознанный товар в зоне упаковки». Опять!"
+      }
+    },
+    {
+      "id": "supermarket.its-stuck",
+      "es": "it's stuck again",
+      "ru": "опять зависла",
+      "pos": "phrase",
+      "level": 7,
+      "cefr": "C1",
+      "kind": "formula",
+      "register": "informal",
+      "pair": "supermarket.unexpected-item",
+      "example": {
+        "es": "Jake, the machine's stuck again!",
+        "ru": "Джейк, касса опять зависла!"
+      }
+    },
+    {
+      "id": "supermarket.assistance-required",
+      "es": "assistance required at till four",
+      "ru": "помощь требуется на кассе номер четыре",
+      "pos": "phrase",
+      "level": 7,
+      "cefr": "C1",
+      "kind": "formula",
+      "register": "formal",
+      "pair": "supermarket.give-us-hand",
+      "example": {
+        "es": "Assistance required at till four, please.",
+        "ru": "Помощь требуется на кассе номер четыре."
+      }
+    },
+    {
+      "id": "supermarket.give-us-hand",
+      "es": "give us a hand",
+      "ru": "помоги-ка",
+      "pos": "phrase",
+      "level": 7,
+      "cefr": "C1",
+      "kind": "formula",
+      "register": "informal",
+      "pair": "supermarket.assistance-required",
+      "example": {
+        "es": "Give us a hand with these boxes.",
+        "ru": "Помоги-ка с этими коробками."
+      }
+    },
+    {
+      "id": "supermarket.bring-home-bacon",
+      "es": "bring home the bacon",
+      "ru": "зарабатывать на жизнь",
+      "pos": "phrase",
+      "level": 7,
+      "cefr": "C1",
+      "kind": "idiom",
+      "register": "informal",
+      "literal": "принести домой бекон",
+      "example": {
+        "es": "She works two jobs to bring home the bacon.",
+        "ru": "Она работает на двух работах, чтобы прокормить семью."
+      }
+    },
+    {
+      "id": "supermarket.bread-butter",
+      "es": "bread and butter",
+      "ru": "основной заработок",
+      "pos": "phrase",
+      "level": 7,
+      "cefr": "C1",
+      "kind": "idiom",
+      "register": "informal",
+      "literal": "хлеб с маслом",
+      "example": {
+        "es": "Milk and bread are our bread and butter.",
+        "ru": "Молоко и хлеб — наш основной заработок."
+      }
+    },
+    {
+      "id": "supermarket.cheap-chips",
+      "es": "cheap as chips",
+      "ru": "дешевле некуда",
+      "pos": "phrase",
+      "level": 7,
+      "cefr": "C1",
+      "kind": "idiom",
+      "register": "informal",
+      "literal": "дёшево, как картошка фри",
+      "example": {
+        "es": "These shoes were cheap as chips.",
+        "ru": "Эти туфли стоили копейки."
+      }
+    },
+    {
+      "id": "supermarket.best-thing-sliced",
+      "es": "the best thing since sliced bread",
+      "ru": "лучшее изобретение",
+      "pos": "phrase",
+      "level": 7,
+      "cefr": "C1",
+      "kind": "idiom",
+      "register": "informal",
+      "literal": "лучшее со времён нарезанного хлеба",
+      "example": {
+        "es": "He thinks self-checkouts are the best thing since sliced bread.",
+        "ru": "Он считает кассы самообслуживания лучшим изобретением человечества."
+      }
+    },
+    {
+      "id": "supermarket.go-bananas",
+      "es": "go bananas",
+      "ru": "сойти с ума",
+      "pos": "phrase",
+      "level": 7,
+      "cefr": "C1",
+      "kind": "idiom",
+      "register": "informal",
+      "literal": "стать бананами",
+      "example": {
+        "es": "The kids went bananas in the sweet aisle.",
+        "ru": "Дети сошли с ума у полки со сладостями."
+      }
+    },
+    {
+      "id": "supermarket.eggs-one-basket",
+      "es": "put all your eggs in one basket",
+      "ru": "класть все яйца в одну корзину",
+      "pos": "phrase",
+      "level": 7,
+      "cefr": "C1",
+      "kind": "idiom",
+      "register": "neutral",
+      "literal": "класть все яйца в одну корзину",
+      "example": {
+        "es": "Don't put all your eggs in one basket.",
+        "ru": "Не клади все яйца в одну корзину."
+      }
+    },
+    {
+      "id": "supermarket.in-a-pickle",
+      "es": "in a pickle",
+      "ru": "в затруднительном положении",
+      "pos": "phrase",
+      "level": 7,
+      "cefr": "C1",
+      "kind": "idiom",
+      "register": "informal",
+      "literal": "в рассоле",
+      "example": {
+        "es": "I forgot my wallet, I'm in a pickle.",
+        "ru": "Я забыл кошелёк, ну и влип."
+      }
+    },
+    {
+      "id": "supermarket.special-offer",
+      "es": "on special offer",
+      "ru": "по специальному предложению",
+      "pos": "phrase",
+      "level": 7,
+      "cefr": "C1",
+      "kind": "collocation",
+      "register": "neutral",
+      "example": {
+        "es": "Coffee is on special offer this week.",
+        "ru": "На этой неделе кофе по специальному предложению."
+      }
+    },
+    {
+      "id": "supermarket.marmalade",
+      "es": "marmalade",
+      "ru": "апельсиновый джем",
+      "pos": "noun",
+      "level": 7,
+      "cefr": "B2",
+      "kind": "false-friend",
+      "register": "neutral",
+      "note": "Не «мармелад». Marmalade — джем из цитрусовых, чаще апельсиновый. Мармелад — fruit jelly или jelly sweets.",
+      "example": {
+        "es": "Toast with marmalade, the British way.",
+        "ru": "Тост с апельсиновым джемом, по-британски."
       }
     }
   ]
