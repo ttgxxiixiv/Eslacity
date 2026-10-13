@@ -89,6 +89,30 @@
         "shore": {"kind": "answer", "task": "Скажите, что останетесь у берега.", "branches": [{"phrase": "ph:beach.near-shore", "next": "end"}], "wrong": {"es": "Stay on the rocks? Like Oswald last night.", "ru": "Остаёшься на камнях? Как Освальд ночью."}},
         "end": {"kind": "say", "es": "Good idea. And here: Oswald left this on the rocks last night. A fragment of the forest map. I think he wanted you to have it.", "ru": "Хорошая мысль. И держи: Освальд оставил это вчера ночью на камнях. Обрывок карты леса. Думаю, он хотел, чтобы обрывок достался тебе."}
       }
+    },
+    {
+      "id": "ms:beach.5",
+      "chapter": 5,
+      "npc": "finn",
+      "scene": "sc:beach.5",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "It's a long time till night. Shall we have a swim meanwhile?", "ru": "До ночи ещё далеко. Искупаемся пока?", "next": "swim"},
+        "swim": {"kind": "answer", "task": "Предложите окунуться.", "branches": [{"phrase": "ph:beach.quick-dip", "next": "swimsay"}], "wrong": {"es": "A dip in the echo? The sea is better.", "ru": "Окунуться в эхо? Лучше в море."}},
+        "swimsay": {"kind": "say", "es": "Come on! … Brr, it's cold. Look: it's getting dark. The lighthouse is going round for the first time… There he is! You say hello.", "ru": "Давай! … Уф, холодная. Смотри: темнеет. Маяк уже делает первый круг… Вот он! Поздоровайся ты.", "next": "greet"},
+        "greet": {"kind": "answer", "task": "Поздоровайтесь с глашатаем. Он сто лет ждёт дружеского слова — по-свойски.", "branches": [{"phrase": "ph:beach.alright-mate", "next": "greetsay"}, {"phrase": "ph:beach.good-evening-sir", "next": "greetsay"}], "wrong": {"es": "What did you say to him? He turned back to the sea.", "ru": "Что ты ему сказал? Он отвернулся к морю."}, "register": "informal", "tone": {"es": "Oh no. \"Good evening, sir\"… He answered \"Very well, thank you\" and looked sad. Talk to him like a friend!", "ru": "Ох, нет. «Добрый вечер, сэр»… Он ответил «Очень хорошо, спасибо» и погрустнел. Говори с ним как с другом!", "fem": {"ru": "Что ты ему сказала? Он отвернулся к морю."}}},
+        "greetsay": {"kind": "say", "es": "He smiled! He says: \"I will be waiting for you in the Labyrinth.\" And he's walking into the fog… I'm going after him, right now, alone.", "ru": "Он улыбнулся! Говорит: «Жду вас в Лабиринте». И уходит в туман… Я пойду за ним, прямо сейчас, один.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:beach.not-alone-fog", "next": "object", "move": "object"}, {"phrase": "ph:beach.go-if-sure", "next": "concede", "move": "concede"}, {"phrase": "ph:beach.together-dawn", "next": "compromise", "move": "compromise"}], "wrong": {"es": "What? I'm talking about the fog and the herald.", "ru": "Что? Я про туман и про глашатая."}},
+        "object": {"kind": "say", "es": "You're right, I'm a lifeguard and I know: you don't go into fog alone.", "ru": "Ты прав, я спасатель и знаю: в туман в одиночку не ходят.", "next": "current", "fem": {"ru": "Ты права, я спасатель и знаю: в туман в одиночку не ходят."}},
+        "concede": {"kind": "say", "es": "Right, I'm going. I'll take a torch and a whistle. If I'm not back in an hour, tell the inspector.", "ru": "Ладно, иду. Возьму фонарь и свисток. Если не вернусь через час, предупреди инспектора.", "next": "current"},
+        "compromise": {"kind": "say", "es": "At dawn, together. In daylight you can see the road better.", "ru": "На рассвете, вместе. При свете дорогу лучше видно.", "next": "current"},
+        "current": {"kind": "answer", "task": "Скажите, что сегодня сильное течение.", "branches": [{"phrase": "ph:beach.strong-current", "next": "currentsay"}], "wrong": {"es": "Lots of echo? There's plenty today.", "ru": "Много эха? Сегодня хватает."}},
+        "currentsay": {"kind": "say", "es": "Yes, that's why the flag is red today. Are you staying in the water?", "ru": "Да, поэтому сегодня флаг красный. Останешься в воде?", "next": "shore"},
+        "shore": {"kind": "answer", "task": "Скажите, что останетесь у берега.", "branches": [{"phrase": "ph:beach.near-shore", "next": "shoresay"}], "wrong": {"es": "Stay in the echo? You can't swim in that.", "ru": "Останешься в эхе? Там не плавают."}},
+        "shoresay": {"kind": "say", "es": "Good decision. Shall we watch the sunset before we go?", "ru": "Правильное решение. Посмотрим на закат, прежде чем уходить?", "next": "sunset"},
+        "sunset": {"kind": "answer", "task": "Предложите пойти посмотреть закат.", "branches": [{"phrase": "ph:beach.watch-sunset", "next": "end"}], "wrong": {"es": "The echo's sunset? You can't see it.", "ru": "Закат эха? Его не видно."}},
+        "end": {"kind": "say", "es": "Come on. And here: the herald left this on the sand, next to his footprints. A fragment of the map of the Labyrinth.", "ru": "Пойдём. И держи: глашатай оставил это на песке, рядом со своими следами. Обрывок карты Лабиринта."}
+      }
     }
   ]
 }

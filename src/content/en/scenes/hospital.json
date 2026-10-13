@@ -121,6 +121,31 @@
         {"q": "Чего хочет Освальд?", "options": ["Уехать из города", "Вернуться на маяк", "Сказать герою что-то в лицо"], "answer": 2}
       ],
       "gloss": {"oswald": "Освальд", "shame": "стыд", "rory": "Рори"}
+    },
+    {
+      "id": "sc:hospital.5",
+      "chapter": 5,
+      "npc": "okafor",
+      "lines": [
+        {"who": "npc", "es": "Come in, come in. We have a very special patient: Billy, one of Miss Evans's pupils.", "ru": "Проходи, проходи. У нас тут совсем особый пациент: Билли, ученик мисс Эванс."},
+        {"who": "hero", "es": "Billy? What's happened to him?", "ru": "Билли? Что с ним случилось?"},
+        {"who": "npc", "es": "He's lost his voice. He was rehearsing the herald's part at school, shouting his lines, and then — nothing.", "ru": "Потерял голос. Репетировал роль глашатая в школе, выкрикивал его фразы, а потом — ничего."},
+        {"who": "hero", "es": "Is it because of the echo?", "ru": "Это из-за эха?"},
+        {"who": "npc", "es": "I think so. His voice went away and didn't come back. Like the herald's.", "ru": "Думаю, да. Его голос ушёл и не вернулся. Как у глашатая."},
+        {"who": "hero", "es": "Can it be cured?", "ru": "Это лечится?"},
+        {"who": "npc", "es": "I read my grandmother's notes, she was a doctor too. She wrote: \"A voice comes back when someone answers.\"", "ru": "Я прочитала записи моей бабушки, она тоже была врачом. Она написала: «Голос возвращается, когда кто-то отвечает»."},
+        {"who": "hero", "es": "So someone needs to answer the herald.", "ru": "Значит, нужно ответить глашатаю."},
+        {"who": "npc", "es": "I think so. And perhaps, when he gets his voice back, Billy will get his.", "ru": "Думаю, да. И, может быть, когда он вернёт себе голос, Билли вернёт свой."},
+        {"who": "hero", "es": "Is Billy sad?", "ru": "Билли грустит?"},
+        {"who": "npc", "es": "Very. Tomorrow there's the trip to the forest, and he thinks he can't help without a voice. Talk to him.", "ru": "Очень. Завтра поездка к лесу, а он думает, что без голоса не сможет помочь. Поговори с ним."}
+      ],
+      "questions": [
+        {"q": "Что случилось с Билли?", "options": ["Сломал ногу", "Потерял голос на репетиции роли глашатая", "Заблудился в лесу"], "answer": 1},
+        {"q": "Что написала бабушка доктора?", "options": ["«Голос возвращается, когда кто-то отвечает»", "«Пейте горячий чай»", "«Молчание — золото»"], "answer": 0},
+        {"q": "Когда, по мнению доктора, Билли вернёт голос?", "options": ["Через неделю", "После операции", "Когда глашатай вернёт себе голос"], "answer": 2},
+        {"q": "Почему Билли грустит?", "options": ["Думает, что без голоса не сможет помочь", "Скучает по дому", "Не любит больницу"], "answer": 0}
+      ],
+      "gloss": {"billy": "Билли", "evans'": "Эванс", "pupils": "ученики", "rehearsing": "репетировал", "herald'": "глашатая", "herald": "глашатай", "lines": "реплики (роли)", "cured": "вылечен", "grandmother'": "бабушки", "notes": "записи"}
     }
   ]
 }

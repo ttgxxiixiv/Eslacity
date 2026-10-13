@@ -89,6 +89,30 @@
         "ticket": {"kind": "answer", "task": "Попросите билет в одну сторону.", "branches": [{"phrase": "ph:station.single-ticket", "next": "end"}], "wrong": {"es": "A ticket for the raven? He flies for free.", "ru": "Билет для ворона? Он летает бесплатно."}},
         "end": {"kind": "say", "es": "Only a single? No way: a return, I want to see you again. And here: the gentleman with the old coins left this at the ticket window. A fragment of the forest map.", "ru": "Только туда? Нет уж: туда и обратно, я хочу тебя снова увидеть. И держи: джентльмен со старыми монетами оставил это в окошке кассы. Обрывок карты леса."}
       }
+    },
+    {
+      "id": "ms:station.5",
+      "chapter": 5,
+      "npc": "graham",
+      "scene": "sc:station.5",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "The inspector arrives at twelve o'clock sharp. Meanwhile, are you going somewhere?", "ru": "Инспектор придёт ровно в двенадцать. А пока — ты куда-то едешь?", "next": "ticket"},
+        "ticket": {"kind": "answer", "task": "Скажите, что хотите купить билет на завтра.", "branches": [{"phrase": "ph:station.ticket-tomorrow", "next": "ticketsay"}], "wrong": {"es": "A ticket for the echo? It travels for free.", "ru": "Билет для эха? Оно ездит бесплатно."}},
+        "ticketsay": {"kind": "say", "es": "I'll sort it out. Look, here comes the inspector. You ask him.", "ru": "Сейчас оформлю. Смотри, вон идёт инспектор. Спроси его ты.", "next": "ask"},
+        "ask": {"kind": "answer", "task": "Спросите инспектора, можно ли пустить специальный поезд к лесу. Официально.", "branches": [{"phrase": "ph:station.possible-special-train", "next": "asksay"}, {"phrase": "ph:station.put-on-train", "next": "asksay"}], "wrong": {"es": "What? The inspector is looking at his watch and isn't answering.", "ru": "Что? Инспектор смотрит на часы и не отвечает."}, "register": "formal", "tone": {"es": "\"Hey, can you put a train on\"? The inspector wrinkled his nose. With him, be formal and respectful.", "ru": "«Слушай, пустишь поезд»? Инспектор поморщился. С ним официально и уважительно."}},
+        "asksay": {"kind": "say", "es": "He said yes! One train, one journey. But I would rather just the two of us went.", "ru": "Он согласился! Один поезд, один рейс. Но я бы хотел, чтобы поехали только мы двое.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:station.train-for-all", "next": "object", "move": "object"}, {"phrase": "ph:station.only-us", "next": "concede", "move": "concede"}, {"phrase": "ph:station.those-who-want", "next": "compromise", "move": "compromise"}], "wrong": {"es": "What? I'm talking about who gets on the train.", "ru": "Что? Я о том, кто сядет в поезд."}},
+        "object": {"kind": "say", "es": "You're right. The herald left because of everyone, so everyone should go and answer him.", "ru": "Ты прав. Глашатай ушёл из-за всех, пусть все и едут ему отвечать.", "next": "punctual", "fem": {"ru": "Ты права. Глашатай ушёл из-за всех, пусть все и едут ему отвечать."}},
+        "concede": {"kind": "say", "es": "That's more like it. Two passengers, on time and no fuss.", "ru": "Вот это по-нашему. Два пассажира, вовремя и без шума.", "next": "punctual"},
+        "compromise": {"kind": "say", "es": "Good idea. I'll put a list on the door: \"Only for those who want to answer.\"", "ru": "Хорошая идея. Повешу на дверь список: «Только для тех, кто хочет ответить».", "next": "punctual"},
+        "punctual": {"kind": "answer", "task": "Спросите, приходит ли поезд вовремя.", "branches": [{"phrase": "ph:station.on-time", "next": "punctualsay"}], "wrong": {"es": "Is the echo on time? It's always late.", "ru": "Эхо приходит вовремя? Оно всегда опаздывает."}},
+        "punctualsay": {"kind": "say", "es": "At my station, always. Departure at seven in the morning.", "ru": "На моей станции — всегда. Отправление в семь утра.", "next": "stop"},
+        "stop": {"kind": "answer", "task": "Спросите, на какой остановке выходить.", "branches": [{"phrase": "ph:station.which-stop", "next": "stopsay"}], "wrong": {"es": "Get off at the echo? There's no such stop.", "ru": "Выйти у эха? Такой остановки нет."}},
+        "stopsay": {"kind": "say", "es": "The last one: the train goes straight to the forest. And where will you leave your case till then?", "ru": "На последней: поезд идёт прямо к лесу. А где ты пока оставишь чемодан?", "next": "locker"},
+        "locker": {"kind": "answer", "task": "Спросите, где камера хранения.", "branches": [{"phrase": "ph:station.left-luggage", "next": "end"}], "wrong": {"es": "Left luggage for the echo? It hasn't got a case.", "ru": "Камера хранения для эха? У него нет чемодана."}},
+        "end": {"kind": "say", "es": "At the end of the hall, on the right. And here: in the timetable there was an unused ticket and this fragment of the map of the Labyrinth.", "ru": "В конце зала, направо. И держи: в расписании был неиспользованный билет и этот обрывок карты Лабиринта."}
+      }
     }
   ]
 }

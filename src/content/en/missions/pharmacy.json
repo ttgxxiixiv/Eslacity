@@ -88,6 +88,30 @@
         "generic": {"kind": "answer", "task": "Спросите, есть ли дженерик подешевле.", "branches": [{"phrase": "ph:pharmacy.cheaper-generic", "next": "end"}], "wrong": {"es": "A more expensive generic? Nobody asks for that.", "ru": "Дженерик подороже? Такого никто не просит."}},
         "end": {"kind": "say", "es": "Yes, this one. And take this: a fragment of the forest map. I found it by the door this morning, next to a black feather.", "ru": "Да, вот этот. И возьмите: обрывок карты леса. Я нашёл его утром у двери рядом с чёрным пером."}
       }
+    },
+    {
+      "id": "ms:pharmacy.5",
+      "chapter": 5,
+      "npc": "shah",
+      "scene": "sc:pharmacy.5",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Well, well. And how are you feeling today?", "ru": "Так-так. А вы как себя сегодня чувствуете?", "next": "sleep"},
+        "sleep": {"kind": "answer", "task": "Скажите, что у вас бессонница из-за стресса.", "branches": [{"phrase": "ph:pharmacy.insomnia-stress", "next": "sleepsay"}], "wrong": {"es": "You have an echo? A pharmacy cannot cure that.", "ru": "У вас эхо? Это в аптеке не лечится."}},
+        "sleepsay": {"kind": "say", "es": "The echo isn't letting anyone sleep. Do you need anything else?", "ru": "Эхо никому не даёт спать. Вам нужно что-нибудь ещё?", "next": "throat"},
+        "throat": {"kind": "answer", "task": "Попросите мистера Шаха посоветовать что-нибудь от горла. Официально.", "branches": [{"phrase": "ph:pharmacy.could-you-recommend", "next": "throatsay"}, {"phrase": "ph:pharmacy.give-me-throat", "next": "throatsay"}], "wrong": {"es": "Something for the echo? I'm afraid I don't sell that.", "ru": "Что-нибудь от эха? Такого, к сожалению, не продаю."}, "register": "formal", "tone": {"es": "\"Hey, give us\"? Young man, in my pharmacy we speak properly. My grandfather taught me that.", "ru": "«Слушай, дай»? Молодой человек, в моей аптеке говорят как положено. Так меня научил дед.", "fem": {"es": "\"Hey, give us\"? Young lady, in my pharmacy we speak properly. My grandfather taught me that.", "ru": "«Слушай, дай»? Девушка, в моей аптеке говорят как положено. Так меня научил дед."}}},
+        "throatsay": {"kind": "say", "es": "These sweets, the same ones the herald bought. Listen, I'm thinking of taking my grandfather's notebook to the newspaper.", "ru": "Вот эти пастилки, такие же брал глашатай. Послушайте, я думаю отнести тетрадь деда в газету.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:pharmacy.notebook-private", "next": "object", "move": "object"}, {"phrase": "ph:pharmacy.take-to-paper", "next": "concede", "move": "concede"}, {"phrase": "ph:pharmacy.publish-one-page", "next": "compromise", "move": "compromise"}], "wrong": {"es": "What are you saying? We're talking about my grandfather's notebook.", "ru": "Что вы говорите? Мы о тетради моего деда."}},
+        "object": {"kind": "say", "es": "You're right. They're my grandfather's words, not news.", "ru": "Вы правы. Это слова моего деда, а не новость.", "next": "effects"},
+        "concede": {"kind": "say", "es": "Yes, the town should know. Perhaps then someone will answer the herald.", "ru": "Да, город должен это знать. Может, тогда кто-нибудь ответит глашатаю.", "next": "effects"},
+        "compromise": {"kind": "say", "es": "Just one page… That seems fair. The rest belongs to my family.", "ru": "Только одну страницу… По-моему, справедливо. Остальное принадлежит моей семье.", "next": "effects"},
+        "effects": {"kind": "answer", "task": "Спросите, есть ли у пастилок побочные эффекты.", "branches": [{"phrase": "ph:pharmacy.side-effects", "next": "effectssay"}], "wrong": {"es": "Effects of the echo? Only in the Labyrinth.", "ru": "Эффекты эха? Только в Лабиринте."}},
+        "effectssay": {"kind": "say", "es": "None, they're made with honey. One every four hours.", "ru": "Никаких, они медовые. По одной каждые четыре часа.", "next": "records"},
+        "records": {"kind": "answer", "task": "Дайте свою медицинскую карту: «Вот моя медицинская карта».", "branches": [{"phrase": "ph:pharmacy.medical-records", "next": "recordssay"}], "wrong": {"es": "You're giving me a map? I need your medical records.", "ru": "Даёте мне карту местности? Здесь нужна медицинская карта."}},
+        "recordssay": {"kind": "say", "es": "Thank you. Anything else for the road?", "ru": "Спасибо. Что-нибудь ещё в дорогу?", "next": "bandage"},
+        "bandage": {"kind": "answer", "task": "Скажите, что вам нужен бинт.", "branches": [{"phrase": "ph:pharmacy.need-bandage", "next": "end"}], "wrong": {"es": "A bandage for your ears? It won't help with the echo.", "ru": "Бинт на уши? От эха не поможет."}},
+        "end": {"kind": "say", "es": "Here you are. And one more thing: this was in the notebook, on the last page. A fragment of the map of the Labyrinth. My grandfather wrote: \"For whoever answers him.\"", "ru": "Вот, держите. И вот ещё: это лежало в тетради, на последней странице. Обрывок карты Лабиринта. Дед написал: «Тому, кто ему ответит»."}
+      }
     }
   ]
 }

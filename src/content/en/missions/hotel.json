@@ -75,7 +75,7 @@
         "roomssay": {"kind": "say", "es": "There is one left, a small one. Right under the roof.", "ru": "Остался один, маленький. Под самой крышей.", "next": "view"},
         "view": {"kind": "answer", "task": "Спросите, видно ли из номера море.", "branches": [{"phrase": "ph:hotel.room-sea-view", "next": "viewsay"}], "wrong": {"es": "A forest view? You can't see the forest from here.", "ru": "Вид на лес? Отсюда его не видно."}},
         "viewsay": {"kind": "say", "es": "A car park view, sorry. Listen, I have a problem: Rory wants to stay here, but I don't trust him. Not long ago he was selling lies. I'm not giving him a room.", "ru": "Вид на парковку, прости. Слушай, у меня проблема: Рори хочет здесь остановиться, но я ему не доверяю. Недавно он торговал ложью. Не дам ему номер.", "next": "dispute"},
-        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:hotel.second-chance", "next": "object", "move": "object"}, {"phrase": "ph:hotel.dont-trust-him", "next": "concede", "move": "concede"}, {"phrase": "ph:hotel.work-for-room", "next": "compromise", "move": "compromise"}], "wrong": {"es": "What? There are so many guests, I can't hear you.", "ru": "Что? Тут столько гостей, я тебя не слышу."}},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:hotel.second-chance", "next": "object", "move": "object", "sets": {"room": "room"}}, {"phrase": "ph:hotel.dont-trust-him", "next": "concede", "move": "concede", "sets": {"room": "refused"}}, {"phrase": "ph:hotel.work-for-room", "next": "compromise", "move": "compromise", "sets": {"room": "work"}}], "wrong": {"es": "What? There are so many guests, I can't hear you.", "ru": "Что? Тут столько гостей, я тебя не слышу."}},
         "object": {"kind": "say", "es": "A second chance? …That's true. He was the first to tell the truth to the guardian of the white city. I'll give him a room.", "ru": "Второй шанс? …Это правда. Он первым сказал правду стражнице белого города. Даю ему номер.", "next": "checkout"},
         "concede": {"kind": "say", "es": "Thank you. A manager has to think about her guests.", "ru": "Спасибо. Управляющая должна думать о своих гостях.", "next": "checkout"},
         "compromise": {"kind": "say", "es": "Work here? I need someone on reception at night… It's a deal!", "ru": "Работать здесь? Мне нужен кто-то на ресепшене по ночам… Договорились!", "next": "checkout"},
@@ -86,6 +86,30 @@
         "wakesay": {"kind": "say", "es": "Yes, I'll call you at ten. Anything else?", "ru": "Да, позвоню тебе в десять. Что-нибудь ещё?", "next": "review"},
         "review": {"kind": "answer", "task": "Скажите, что оставите хороший отзыв.", "branches": [{"phrase": "ph:hotel.good-review", "next": "end"}], "wrong": {"es": "You'll leave a feather? We've got enough of those.", "ru": "Оставишь перо? У нас их и так много."}},
         "end": {"kind": "say", "es": "Thank you! And here: Rory brought this from the forest for you. A fragment of the map. He says it's almost complete.", "ru": "Спасибо! И держи: Рори принёс это из леса для тебя. Обрывок карты. Говорит, она почти собрана."}
+      }
+    },
+    {
+      "id": "ms:hotel.5",
+      "chapter": 5,
+      "npc": "emma",
+      "scene": "sc:hotel.5",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "While Oswald is thinking, help me. Lots of people are arriving tomorrow, they're all going to the forest. What should I say on the phone?", "ru": "Пока Освальд думает, помоги мне. Завтра приедет много народу — все едут к лесу. Что мне говорить им по телефону?", "next": "rooms"},
+        "rooms": {"kind": "answer", "task": "Спросите, есть ли свободные номера.", "branches": [{"phrase": "ph:hotel.rooms-available", "next": "roomssay"}], "wrong": {"es": "Rooms for the echo? They're always taken.", "ru": "Номера для эха? Они всегда заняты."}},
+        "roomssay": {"kind": "say", "es": "Three left. Good. Now talk to Oswald, please. He's shaking.", "ru": "Осталось три. Хорошо. Теперь поговори с Освальдом, пожалуйста. Он дрожит.", "next": "calm"},
+        "calm": {"kind": "answer", "task": "Успокойте Освальда. Он просит говорить с ним по-свойски.", "branches": [{"phrase": "ph:hotel.easy-mate", "next": "calmsay"}, {"phrase": "ph:hotel.do-not-worry-sir", "next": "calmsay"}], "wrong": {"es": "What did you say to him? Oswald didn't understand you.", "ru": "Что ты ему сказал? Освальд тебя не понял."}, "register": "informal", "tone": {"es": "\"Sir\"? Oswald says: \"That's how the herald spoke to me. Please don't you speak to me like that too.\"", "ru": "«Сэр»? Освальд говорит: «Так со мной говорил глашатай. Хоть ты так не говори».", "fem": {"ru": "Что ты ему сказала? Освальд тебя не понял."}}},
+        "calmsay": {"kind": "say", "es": "Oswald says: \"Thank you. But I think I'll stay here. I don't deserve to go to the Labyrinth.\"", "ru": "Освальд говорит: «Спасибо. Но, пожалуй, я останусь здесь. Я не заслужил идти в Лабиринт».", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:hotel.come-with-us", "next": "object", "move": "object"}, {"phrase": "ph:hotel.stay-if-not-ready", "next": "concede", "move": "concede"}, {"phrase": "ph:hotel.write-letter", "next": "compromise", "move": "compromise"}], "wrong": {"es": "What? Oswald is talking about the trip, not the hotel.", "ru": "Что? Освальд говорит о поездке, а не об отеле."}},
+        "object": {"kind": "say", "es": "Oswald stands up. \"You're right. If he's waiting, I'll go. And I'll say sorry in my own voice.\"", "ru": "Освальд встаёт. «Ты прав. Если он ждёт, я поеду. И попрошу прощения своим голосом».", "next": "service", "fem": {"ru": "Освальд встаёт. «Ты права. Если он ждёт, я поеду. И попрошу прощения своим голосом»."}},
+        "concede": {"kind": "say", "es": "Oswald smiles a little. \"Thank you for understanding. Tell him I'm sorry.\"", "ru": "Освальд чуть улыбается. «Спасибо, что понимаешь. Скажи ему, что мне жаль».", "next": "service"},
+        "compromise": {"kind": "say", "es": "Oswald asks for some paper. \"A letter. Yes. That way my voice won't shake.\"", "ru": "Освальд просит бумагу. «Письмо. Да. Так у меня не будет дрожать голос».", "next": "service"},
+        "service": {"kind": "answer", "task": "Спросите, можно ли заказать еду в номер.", "branches": [{"phrase": "ph:hotel.room-service", "next": "servicesay"}], "wrong": {"es": "Echo to your room? It comes without being ordered.", "ru": "Эхо в номер? Оно приходит без заказа."}},
+        "servicesay": {"kind": "say", "es": "Yes, and room twelve will get the best service of all. Anything else for the trip?", "ru": "Да, а двенадцатый номер обслужим лучше всех. Что-нибудь ещё для поездки?", "next": "safe"},
+        "safe": {"kind": "answer", "task": "Спросите, есть ли в номере сейф.", "branches": [{"phrase": "ph:hotel.safe-in-room", "next": "safesay"}], "wrong": {"es": "A safe for the echo? It would escape.", "ru": "Сейф для эха? Оно бы сбежало."}},
+        "safesay": {"kind": "say", "es": "Yes. Keep the children's letter there until tomorrow. And breakfast for the travellers?", "ru": "Да. Храни там письмо детей до завтра. А завтрак для путешественников?", "next": "included"},
+        "included": {"kind": "answer", "task": "Спросите, всё ли включено.", "branches": [{"phrase": "ph:hotel.all-inclusive", "next": "end"}], "wrong": {"es": "Is the echo included? It's free.", "ru": "Эхо включено? Оно бесплатное."}},
+        "end": {"kind": "say", "es": "Everything's included. And here: in room twelve, under the bed, there was this piece of paper. A fragment of the map of the Labyrinth.", "ru": "Всё включено. И держи: в двенадцатом номере, под кроватью, лежала эта бумага. Обрывок карты Лабиринта."}
       }
     }
   ]

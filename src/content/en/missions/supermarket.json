@@ -90,6 +90,30 @@
         "milk": {"kind": "answer", "task": "Спросите, закончилось ли молоко.", "branches": [{"phrase": "ph:supermarket.milk-out", "next": "end"}], "wrong": {"es": "Is the forest out of stock? No, the forest has everything.", "ru": "Лес закончился? Нет, в лесу есть всё."}},
         "end": {"kind": "say", "es": "There's one left. Take it. And one more thing: a fragment of the forest map. It was in the box of earplugs. Somebody wants you to find it.", "ru": "Осталась одна. Бери. И вот ещё: обрывок карты леса. Он лежал в коробке с берушами. Кто-то хочет, чтобы ты его нашёл.", "fem": {"ru": "Осталась одна. Бери. И вот ещё: обрывок карты леса. Он лежал в коробке с берушами. Кто-то хочет, чтобы ты его нашла."}}
       }
+    },
+    {
+      "id": "ms:supermarket.5",
+      "chapter": 5,
+      "npc": "jake",
+      "scene": "sc:supermarket.5",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Hi. Let's prepare the next announcement together. But first, are you looking for something?", "ru": "Привет. Давай вместе подготовим следующее объявление. Но сначала — ты что-то ищешь?", "next": "bakery"},
+        "bakery": {"kind": "answer", "task": "Спросите, где отдел выпечки.", "branches": [{"phrase": "ph:supermarket.bakery-section", "next": "bakerysay"}], "wrong": {"es": "Where is the echo? Everywhere, sadly.", "ru": "Где эхо? Везде, к сожалению."}},
+        "bakerysay": {"kind": "say", "es": "At the end, on the left. Right, the announcement. There are lots of older people in the shop now. How should we say it to them?", "ru": "В конце зала, налево. Так, объявление. Сейчас в магазине много пожилых. Как им сказать?", "next": "notice"},
+        "notice": {"kind": "answer", "task": "Подскажите объявление для пожилых покупателей: официально.", "branches": [{"phrase": "ph:supermarket.we-inform-offer", "next": "noticesay"}, {"phrase": "ph:supermarket.hey-fruit-cheap", "next": "noticesay"}], "wrong": {"es": "Is that an announcement or a song?", "ru": "Это объявление или песня?"}, "register": "formal", "tone": {"es": "\"Hey, dead cheap\"? The ladies will give me such a look… With them, be formal.", "ru": "«Эй, совсем дёшево»? Дамы на меня так посмотрят… С ними — официально."}},
+        "noticesay": {"kind": "say", "es": "Perfect, I'll read it like that. But you know what? I'm fed up: I'm switching the loudspeaker off for good.", "ru": "Отлично, так и прочитаю. Но знаешь что? Мне надоело: выключу громкоговоритель навсегда.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:supermarket.without-notices", "next": "object", "move": "object"}, {"phrase": "ph:supermarket.switch-off-while", "next": "concede", "move": "concede"}, {"phrase": "ph:supermarket.written-notices", "next": "compromise", "move": "compromise"}], "wrong": {"es": "What? I'm talking about the loudspeaker, not the shopping.", "ru": "Что? Я про громкоговоритель, а не про покупки."}},
+        "object": {"kind": "say", "es": "That's true, without announcements nobody finds the offers. I'll leave it on.", "ru": "Это правда, без объявлений никто не находит акции. Оставлю включённым.", "next": "yoghurt"},
+        "concede": {"kind": "say", "es": "Thanks. A week without the loudspeaker. Total silence in the shop.", "ru": "Спасибо. Неделя без громкоговорителя. В магазине полная тишина.", "next": "yoghurt"},
+        "compromise": {"kind": "say", "es": "Written announcements? Good idea! The echo doesn't change letters… I hope.", "ru": "Письменные объявления? Хорошая идея! Буквы эхо не меняет… надеюсь.", "next": "yoghurt"},
+        "yoghurt": {"kind": "answer", "task": "Скажите, что этот йогурт слишком старый.", "branches": [{"phrase": "ph:supermarket.yoghurt-old", "next": "yoghurtsay"}], "wrong": {"es": "This yoghurt is in the Labyrinth? No, in the fridge.", "ru": "Этот йогурт в Лабиринте? Нет, в холодильнике."}},
+        "yoghurtsay": {"kind": "say", "es": "Oops! I'll take it away right now. Thanks for telling me.", "ru": "Ой! Сейчас же уберу. Спасибо за подсказку.", "next": "home"},
+        "home": {"kind": "answer", "task": "Спросите, доставляют ли покупки на дом.", "branches": [{"phrase": "ph:supermarket.home-delivery", "next": "homesay"}], "wrong": {"es": "Do we deliver the echo? It comes by itself.", "ru": "Привозим эхо на дом? Оно само приходит."}},
+        "homesay": {"kind": "say", "es": "Yes, until eight. Anything else?", "ru": "Да, до восьми. Возьмёшь что-нибудь ещё?", "next": "bread"},
+        "bread": {"kind": "answer", "task": "Спросите, есть ли хлеб без глютена.", "branches": [{"phrase": "ph:supermarket.gluten-free", "next": "end"}], "wrong": {"es": "Bread without echo? I'd like some too.", "ru": "Хлеб без эха? Мне бы тоже такой."}},
+        "end": {"kind": "say", "es": "Yes, in the bakery section. And here: this was in the till, with some old coins. A fragment of the map of the Labyrinth.", "ru": "Да, в отделе выпечки. И держи: это лежало в кассе со старыми монетами. Обрывок карты Лабиринта."}
+      }
     }
   ]
 }

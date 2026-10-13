@@ -119,6 +119,31 @@
         {"q": "Что видно сверху?", "options": ["Старый маяк", "Белый город", "Тропу, которой раньше не было"], "answer": 2}
       ],
       "gloss": {"middle": "середина", "keeper": "хранительница", "lift": "рассеиваться (о тумане)"}
+    },
+    {
+      "id": "sc:airport.5",
+      "chapter": 5,
+      "npc": "tom",
+      "lines": [
+        {"who": "npc", "es": "Do you remember our first flight over the hills? Today we fly again, but over the forest.", "ru": "Помнишь наш первый полёт над холмами? Сегодня летим снова, но над лесом."},
+        {"who": "hero", "es": "To see the Labyrinth?", "ru": "Чтобы увидеть Лабиринт?"},
+        {"who": "npc", "es": "Exactly. From the ground it is a maze of stone. But a pilot told me something strange.", "ru": "Именно. С земли это каменный лабиринт. Но один пилот рассказал мне странную вещь."},
+        {"who": "hero", "es": "What did he tell you?", "ru": "Что он тебе рассказал?"},
+        {"who": "npc", "es": "That from the sky the paths of the Labyrinth form letters. As if someone had written on the ground.", "ru": "Что с неба дорожки Лабиринта складываются в буквы. Будто кто-то написал их на земле."},
+        {"who": "hero", "es": "And what do they say?", "ru": "И что там написано?"},
+        {"who": "npc", "es": "He doesn't know. He flew at night and only saw the first letters: \"CAN…\".", "ru": "Он не знает. Летел ночью и видел только первые буквы: «МОЖЕТ…»."},
+        {"who": "hero", "es": "It's sunny today. We'll see everything.", "ru": "Сегодня солнечно. Всё разглядим."},
+        {"who": "npc", "es": "I hope so. But first we need permission from the control tower. And they like everything done properly.", "ru": "Надеюсь. Но сначала нужно разрешение диспетчерской вышки. А там любят, чтобы всё было по форме."},
+        {"who": "hero", "es": "I'll talk to them.", "ru": "Я с ними поговорю."},
+        {"who": "npc", "es": "Great. On the radio, be clear and polite. Otherwise they will keep us on the ground.", "ru": "Отлично. По рации — чётко и вежливо. Иначе нас оставят на земле."}
+      ],
+      "questions": [
+        {"q": "Над чем Том летит сегодня?", "options": ["Над морем", "Над лесом", "Над пустыней"], "answer": 1},
+        {"q": "Что рассказал Тому один пилот?", "options": ["С неба дорожки Лабиринта складываются в буквы", "В лесу живёт дракон", "Лабиринт исчез"], "answer": 0},
+        {"q": "Почему пилот не прочитал всё?", "options": ["Был туман", "Он плохо видит", "Летел ночью и увидел только первые буквы"], "answer": 2},
+        {"q": "Чьё разрешение нужно для полёта?", "options": ["Диспетчерской вышки", "Мэра", "Хранительницы"], "answer": 0}
+      ],
+      "gloss": {"permission": "разрешение", "maze": "лабиринт (запутанные ходы)", "pilot": "пилот", "properly": "как положено", "otherwise": "иначе", "radio": "рация", "letters": "буквы", "sunny": "солнечно", "can": "может"}
     }
   ]
 }

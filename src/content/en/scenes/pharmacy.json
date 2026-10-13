@@ -121,6 +121,31 @@
         {"q": "Что понял мистер Шах?", "options": ["Доктор на него обиделась без причины", "Лес говорит правду", "Кто-то говорит голосами жителей"], "answer": 2}
       ],
       "gloss": {"useless": "бесполезный, бездарь", "argued": "поспорили", "herbs": "травы"}
+    },
+    {
+      "id": "sc:pharmacy.5",
+      "chapter": 5,
+      "npc": "shah",
+      "lines": [
+        {"who": "npc", "es": "Come in, come in. I'm reading my grandfather's notebook. He was a pharmacist too.", "ru": "Проходите, проходите. Я читаю тетрадь моего деда. Он тоже был фармацевтом."},
+        {"who": "hero", "es": "Is there anything about the Labyrinth?", "ru": "Там есть про Лабиринт?"},
+        {"who": "npc", "es": "There's something about the herald. He came every day for throat sweets.", "ru": "Там про глашатая. Он каждый день приходил за пастилками от горла."},
+        {"who": "hero", "es": "Was he ill?", "ru": "Он был болен?"},
+        {"who": "npc", "es": "No. He spoke so much in the square that he lost his voice. And nobody listened to him.", "ru": "Нет. Он столько говорил на площади, что терял голос. А его никто не слушал."},
+        {"who": "hero", "es": "What's on the last page?", "ru": "Что на последней странице?"},
+        {"who": "npc", "es": "\"Today the herald did not ask for sweets. He said: I am going where a voice comes back.\"", "ru": "«Сегодня глашатай не попросил пастилок. Он сказал: ухожу туда, где голос возвращается»."},
+        {"who": "hero", "es": "Where a voice comes back… That's the echo.", "ru": "Туда, где голос возвращается… Это эхо."},
+        {"who": "npc", "es": "I think so too. A man who spoke for a hundred years without an answer, and now he gives us back our own voices.", "ru": "Я тоже так думаю. Человек, который сто лет говорил без ответа, а теперь возвращает нам наш голос."},
+        {"who": "hero", "es": "So he doesn't want to hurt us.", "ru": "Значит, он не хочет нам навредить."},
+        {"who": "npc", "es": "Perhaps he just wants someone to answer him. But in the right tone.", "ru": "Может, он просто хочет, чтобы кто-нибудь ему ответил. Но правильным тоном."}
+      ],
+      "questions": [
+        {"q": "Кем был дед мистера Шаха?", "options": ["Врачом", "Фармацевтом", "Глашатаем"], "answer": 1},
+        {"q": "Что каждый день покупал глашатай?", "options": ["Пастилки от горла", "Газету", "Хлеб"], "answer": 0},
+        {"q": "Почему глашатай терял голос?", "options": ["Он болел", "Он пел", "Много говорил на площади, а его никто не слушал"], "answer": 2},
+        {"q": "Чего, по словам мистера Шаха, хочет глашатай?", "options": ["Чтобы кто-нибудь ему ответил, и правильным тоном", "Денег", "Чтобы его оставили в покое"], "answer": 0}
+      ],
+      "gloss": {"grandfather'": "деда", "notebook": "тетрадь", "pharmacist": "фармацевт", "labyrinth": "лабиринт", "herald": "глашатай", "throat": "горло", "sweets": "пастилки, конфеты", "square": "площадь", "tone": "тон", "voices": "голоса"}
     }
   ]
 }

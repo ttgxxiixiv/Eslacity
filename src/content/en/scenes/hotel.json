@@ -122,6 +122,34 @@
         {"q": "Какой голос в лесу ещё остался?", "options": ["Голос Рори", "Голос ворона", "Страх Освальда"], "answer": 2}
       ],
       "gloss": {"rory": "Рори", "oswald'": "Освальда", "oswald": "Освальд", "keeper": "хранительница", "peace": "мир (make peace — мириться)", "congratulations": "поздравляю"}
+    },
+    {
+      "id": "sc:hotel.5",
+      "chapter": 5,
+      "npc": "emma",
+      "lines": [
+        {"who": "npc", "es": "Look at this key. It's for room twelve. Nobody has used it for a hundred years.", "ru": "Посмотри на этот ключ. Он от двенадцатого номера. Им никто не пользуется сто лет."},
+        {"who": "hero", "es": "Whose room was it?", "ru": "Чей это был номер?"},
+        {"who": "npc", "es": "The herald's. He lived here for ten years. He always paid on time and never had visitors.", "ru": "Глашатая. Он прожил здесь десять лет. Всегда платил вовремя и никогда не принимал гостей."},
+        {"who": "hero", "es": "Always alone.", "ru": "Всегда один."},
+        {"who": "npc", "es": "I'm getting the room ready for his return. Clean sheets, flowers, a view of the square.", "ru": "Я готовлю номер к его возвращению. Чистое бельё, цветы, окно на площадь."},
+        {"who": "hero", "es": "That's very kind. And who's that man on the sofa?", "ru": "Как трогательно. А кто этот человек на диване?"},
+        {"who": "npc", "es": "It's Oswald. He's been sitting there for an hour without a word. You ask him.", "ru": "Это Освальд. Уже час сидит и молчит. Спроси его ты."},
+        {"who": "hero", "es": "Oswald, what's wrong?", "ru": "Освальд, что с тобой?"},
+        {"who": "npc", "es": "He says: \"A hundred years ago I was one of the children who laughed at the herald. We copied him in the square.\"", "ru": "Говорит: «Сто лет назад я был одним из детей, которые смеялись над глашатаем. Мы передразнивали его на площади»."},
+        {"who": "hero", "es": "So you owe him an answer too.", "ru": "Значит, ты тоже задолжал ему ответ."},
+        {"who": "npc", "es": "He thinks so himself. But he's afraid. He says he doesn't know how to look him in the eye.", "ru": "Он и сам так думает. Но боится. Говорит, что не знает, как посмотреть ему в глаза."},
+        {"who": "npc", "es": "Like Rory at first. I gave him a room, and that night he slept peacefully for the first time in years.", "ru": "Как Рори поначалу. Я дала ему номер, и в ту ночь он впервые за годы спал спокойно.", "if": {"flag": "room", "is": "room"}},
+        {"who": "npc", "es": "Like Rory. I didn't give him a room, and he went into the forest alone. Maybe I was wrong.", "ru": "Как Рори. Я не дала ему номер, и он ушёл в лес один. Может, я ошиблась.", "if": {"flag": "room", "is": "refused"}},
+        {"who": "npc", "es": "Like Rory at first. Then he worked here at night and stopped being afraid.", "ru": "Как Рори поначалу. Потом он работал здесь по ночам и перестал бояться.", "if": {"flag": "room", "is": "work"}}
+      ],
+      "questions": [
+        {"q": "Чей был двенадцатый номер?", "options": ["Освальда", "Глашатая", "Рори"], "answer": 1},
+        {"q": "Как глашатай жил в отеле?", "options": ["Всегда платил вовремя и никогда не принимал гостей", "Устраивал праздники", "Не платил"], "answer": 0},
+        {"q": "Кем был Освальд сто лет назад?", "options": ["Хозяином отеля", "Глашатаем", "Одним из детей, которые смеялись над глашатаем"], "answer": 2},
+        {"q": "Чего боится Освальд?", "options": ["Посмотреть глашатаю в глаза", "Темноты", "Поезда"], "answer": 0}
+      ],
+      "gloss": {"herald'": "глашатая", "herald": "глашатай", "visitors": "гости, посетители", "sheets": "постельное бельё", "square": "площадь", "sofa": "диван", "oswald": "Освальд", "copied": "передразнивали", "owe": "быть должным", "rory": "Рори", "peacefully": "спокойно"}
     }
   ]
 }

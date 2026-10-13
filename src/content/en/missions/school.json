@@ -89,6 +89,30 @@
         "rubber": {"kind": "answer", "task": "Попросите у неё ластик.", "branches": [{"phrase": "ph:school.a-rubber", "next": "end"}], "wrong": {"es": "Have I got a forest? It isn't mine.", "ru": "Есть ли у меня лес? Он не мой."}},
         "end": {"kind": "say", "es": "Here's a rubber. And one more thing: the shy pupil found this at the window, next to a black feather. A fragment of the forest map. He says the bird left it for you.", "ru": "Держи ластик. И вот ещё: застенчивый ученик нашёл это на окне рядом с чёрным пером. Обрывок карты леса. Говорит, птица оставила его для тебя."}
       }
+    },
+    {
+      "id": "ms:school.5",
+      "chapter": 5,
+      "npc": "evans",
+      "scene": "sc:school.5",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Billy is hiding behind the door. Wait a minute, I'll finish the register first.", "ru": "Билли прячется за дверью. Подожди минутку, сначала закончу список.", "next": "subject"},
+        "subject": {"kind": "answer", "task": "Спросите у мисс Эванс, какой сейчас урок.", "branches": [{"phrase": "ph:school.what-subject", "next": "subjectsay"}], "wrong": {"es": "What echo have we got? The usual one.", "ru": "Какое у нас эхо? Как всегда."}},
+        "subjectsay": {"kind": "say", "es": "English: tone. It's time for Billy to start rehearsing. Talk to him, he's scared to death.", "ru": "Английский: тон. Билли пора начинать репетицию. Поговори с ним, он до смерти боится.", "next": "cheer"},
+        "cheer": {"kind": "answer", "task": "Подбодрите Билли. Ему десять лет — по-свойски.", "branches": [{"phrase": "ph:school.go-on-you-can", "next": "cheersay"}, {"phrase": "ph:school.certain-you-will", "next": "cheersay"}], "wrong": {"es": "What? Billy didn't understand and he's hiding again.", "ru": "Что? Билли ничего не понял и снова прячется."}, "register": "informal", "tone": {"es": "\"I am sure you will do extremely well\"? Now Billy thinks you're the head teacher, and he's even more scared.", "ru": "«Уверен, вы справитесь превосходно»? Теперь Билли думает, что ты директор, и боится ещё больше."}},
+        "cheersay": {"kind": "say", "es": "He's out! He's starting to read… Listen, I'm thinking of changing the ending: the herald comes back and everyone claps.", "ru": "Вышел! Начинает читать… Слушай, я думаю поменять финал: пусть глашатай вернётся, и все ему хлопают.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:school.ending-true", "next": "object", "move": "object"}, {"phrase": "ph:school.happy-ending", "next": "concede", "move": "concede"}, {"phrase": "ph:school.open-ending", "next": "compromise", "move": "compromise"}], "wrong": {"es": "What? I'm talking about the end of the play.", "ru": "Что? Я про финал спектакля."}},
+        "object": {"kind": "say", "es": "You're right. The story is sad, and the children should know that.", "ru": "Ты прав. История грустная, и дети должны это знать.", "next": "dictionary", "fem": {"ru": "Ты права. История грустная, и дети должны это знать."}},
+        "concede": {"kind": "say", "es": "There! At the end everyone answers him in his own tone. The children will be happy.", "ru": "Вот! В конце все отвечают ему в его тоне. Дети будут довольны.", "next": "dictionary"},
+        "compromise": {"kind": "say", "es": "An open ending… Yes: let the audience think about what they would answer him.", "ru": "Открытый финал… Да: пусть зрители подумают, что бы они ему ответили.", "next": "dictionary"},
+        "dictionary": {"kind": "answer", "task": "Спросите, есть ли в классе словарь.", "branches": [{"phrase": "ph:school.dictionary", "next": "dictionarysay"}], "wrong": {"es": "An echo in the classroom? Lots of it today.", "ru": "Эхо в классе? Сегодня — много."}},
+        "dictionarysay": {"kind": "say", "es": "Yes, on the shelf. Billy wants to look up the word \"herald\".", "ru": "Да, на полке. Билли хочет найти слово «глашатай».", "next": "example"},
+        "example": {"kind": "answer", "task": "Попросите мисс Эванс объяснить это слово на примере.", "branches": [{"phrase": "ph:school.explain-example", "next": "examplesay"}], "wrong": {"es": "Explain the echo to you? Better not, it repeats itself.", "ru": "Объяснить тебе эхо? Лучше не надо, оно повторяется."}},
+        "examplesay": {"kind": "say", "es": "Of course: a herald read the news aloud in the square. Now write something on the board.", "ru": "Конечно: глашатай читал новости вслух на площади. А теперь напиши что-нибудь на доске.", "next": "rubber"},
+        "rubber": {"kind": "answer", "task": "Попросите у неё ластик.", "branches": [{"phrase": "ph:school.a-rubber", "next": "end"}], "wrong": {"es": "A rubber for the echo? It doesn't rub anything out.", "ru": "Ластик для эха? Он ничего не стирает."}},
+        "end": {"kind": "say", "es": "Here's a rubber. And another thing: Billy found this in the dictionary, at the word \"echo\". A fragment of the map of the Labyrinth.", "ru": "Держи ластик. И ещё: Билли нашёл это в словаре, на слове «эхо». Обрывок карты Лабиринта."}
+      }
     }
   ]
 }

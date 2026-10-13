@@ -89,6 +89,30 @@
         "casual": {"kind": "answer", "task": "Попросите что-нибудь попроще, на каждый день.", "branches": [{"phrase": "ph:clothes.more-casual", "next": "end"}], "wrong": {"es": "Something more cosy for the owls? I only sell clothes for people.", "ru": "Что-нибудь поуютнее для сов? Я продаю одежду только для людей."}},
         "end": {"kind": "say", "es": "Here, these jeans. And one more thing: this was in the shop window this morning, next to a black feather. A fragment of the forest map.", "ru": "Вот, эти джинсы. И вот ещё: это лежало утром на витрине рядом с чёрным пером. Обрывок карты леса."}
       }
+    },
+    {
+      "id": "ms:clothes.5",
+      "chapter": 5,
+      "npc": "chloe",
+      "scene": "sc:clothes.5",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "He isn't here yet. And what are you looking for today?", "ru": "Он ещё не пришёл. А ты что сегодня ищешь?", "next": "party"},
+        "party": {"kind": "answer", "task": "Скажите Хлое, что ищете что-нибудь элегантное для праздника.", "branches": [{"phrase": "ph:clothes.something-elegant", "next": "partysay"}], "wrong": {"es": "Something elegant for the echo? It doesn't need it.", "ru": "Что-нибудь элегантное для эха? Ему не нужно."}},
+        "partysay": {"kind": "say", "es": "For Molly's party, I bet! We'll look later. Look, the secretary is coming in. You say hello.", "ru": "Наверняка для праздника Молли! Потом посмотрим. Смотри, уже входит секретарь. Поздоровайся ты.", "next": "greet"},
+        "greet": {"kind": "answer", "task": "Поприветствуйте секретаря мэрии и спросите, чем помочь. Официально.", "branches": [{"phrase": "ph:clothes.how-may-i-help", "next": "greetsay"}, {"phrase": "ph:clothes.what-you-after", "next": "greetsay"}], "wrong": {"es": "What did you say to him? He's looking at you as if you were the echo.", "ru": "Что ты ему сказал? Он смотрит на тебя, как на эхо."}, "register": "formal", "tone": {"es": "Oh no! \"What are you after?\" I already spoke to him like a mate this morning. Not again, please.", "ru": "Ой! «Что ищешь?» Я уже утром говорила с ним по-приятельски. Только не снова!", "fem": {"ru": "Что ты ему сказала? Он смотрит на тебя, как на эхо."}}},
+        "greetsay": {"kind": "say", "es": "Great. He wants a grey suit… Listen, a collector is offering me a lot of money for my great-grandmother's book. I'm going to sell it.", "ru": "Отлично. Он хочет серый костюм… Слушай, коллекционер предлагает мне много денег за книгу прабабушки. Я её продам.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:clothes.dont-sell-book", "next": "object", "move": "object"}, {"phrase": "ph:clothes.sell-if-need", "next": "concede", "move": "concede"}, {"phrase": "ph:clothes.give-copy", "next": "compromise", "move": "compromise"}], "wrong": {"es": "What? I'm talking about the book, not the suit.", "ru": "Что? Я про книгу, а не про костюм."}},
+        "object": {"kind": "say", "es": "You're right. And the herald is in the book. I'll keep it.", "ru": "Ты прав. К тому же в книге есть глашатай. Оставлю её себе.", "next": "cotton", "fem": {"ru": "Ты права. К тому же в книге есть глашатай. Оставлю её себе."}},
+        "concede": {"kind": "say", "es": "Yes… with that money I'll fix the shop window. But first I'll copy the page about the herald.", "ru": "Да… на эти деньги починю витрину. Но сначала перепишу страницу про глашатая.", "next": "cotton"},
+        "compromise": {"kind": "say", "es": "A copy! Brilliant idea. The book stays in the shop.", "ru": "Копию! Отличная идея. Книга останется в магазине.", "next": "cotton"},
+        "cotton": {"kind": "answer", "task": "Спросите про рубашку для праздника: она из хлопка?", "branches": [{"phrase": "ph:clothes.is-cotton", "next": "cottonsay"}], "wrong": {"es": "Made of stone? That's the herald's cloak, not a shirt.", "ru": "Из камня? Это плащ глашатая, а не рубашка."}},
+        "cottonsay": {"kind": "say", "es": "Yes, pure cotton. Try it on.", "ru": "Да, чистый хлопок. Примерь.", "next": "fit"},
+        "fit": {"kind": "answer", "task": "Спросите, как она на вас сидит.", "branches": [{"phrase": "ph:clothes.look-on-me", "next": "fitsay"}], "wrong": {"es": "How does the echo look? Awful, as always.", "ru": "Как выглядит эхо? Ужасно, как всегда."}},
+        "fitsay": {"kind": "say", "es": "It's perfect. Is it for you or a present?", "ru": "Сидит идеально. Это тебе или в подарок?", "next": "gift"},
+        "gift": {"kind": "answer", "task": "Попросите подарочный чек.", "branches": [{"phrase": "ph:clothes.gift-receipt", "next": "end"}], "wrong": {"es": "A ticket to the Labyrinth? I don't sell those.", "ru": "Билет в Лабиринт? Такого не продаю."}},
+        "end": {"kind": "say", "es": "Here you are. And one more thing: this was in the book, on the page about the herald. A fragment of the map of the Labyrinth.", "ru": "Держи. И вот ещё: это лежало в книге, на странице про глашатая. Обрывок карты Лабиринта."}
+      }
     }
   ]
 }

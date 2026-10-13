@@ -85,6 +85,30 @@
         "rain": {"kind": "answer", "task": "Скажите, что сейчас пойдёт дождь, и спросите, есть ли у него зонт.", "branches": [{"phrase": "ph:park.rain-umbrella", "next": "end"}], "wrong": {"es": "Is it going to rain owls? Only in the forest.", "ru": "Пойдёт дождь из сов? Только в лесу."}},
         "end": {"kind": "say", "es": "I've got a big umbrella, come on. And here: I found this under the oak. A fragment of the forest map, and a black feather next to it.", "ru": "У меня большой зонт, пойдём. И держи: я нашёл это под дубом. Обрывок карты леса, а рядом чёрное перо."}
       }
+    },
+    {
+      "id": "ms:park.5",
+      "chapter": 5,
+      "npc": "bert",
+      "scene": "sc:park.5",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Shall we have a walk? There's no echo on the lake today, only ducks.", "ru": "Прогуляемся? Сегодня на озере нет эха, только утки.", "next": "ducks"},
+        "ducks": {"kind": "answer", "task": "Скажите, что утки на озере голодные.", "branches": [{"phrase": "ph:park.ducks-hungry", "next": "duckssay"}], "wrong": {"es": "The ducks have got an echo? No, they're hungry.", "ru": "У уток эхо? Нет, они голодные."}},
+        "duckssay": {"kind": "say", "es": "Take some bread for them. Listen, this story about the herald makes me feel sad.", "ru": "Возьми для них хлеба. Слушай, мне что-то грустно от этой истории про глашатая.", "next": "cheer"},
+        "cheer": {"kind": "answer", "task": "Подбодрите старину Берта. Он просит говорить с ним по-свойски.", "branches": [{"phrase": "ph:park.cheer-up-grandad", "next": "cheersay"}, {"phrase": "ph:park.do-not-worry-sir", "next": "cheersay"}], "wrong": {"es": "Hurry to the lake? The ducks are happy anyway.", "ru": "Скорее к озеру? Утки и так довольны."}, "register": "informal", "tone": {"es": "\"Please do not worry\"? Don't talk to me like that, it makes me feel like the herald.", "ru": "«Не волнуйтесь»? Не говори со мной так, я сразу чувствую себя тем глашатаем."}},
+        "cheersay": {"kind": "say", "es": "Thanks. But I want to cut down the old oak. Then the echo won't repeat anything in my park.", "ru": "Спасибо. Но я хочу срубить старый дуб. Тогда эхо больше ничего не будет повторять в моём парке.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:park.oak-not-to-blame", "next": "object", "move": "object"}, {"phrase": "ph:park.cut-if-want", "next": "concede", "move": "concede"}, {"phrase": "ph:park.only-low-branches", "next": "compromise", "move": "compromise"}], "wrong": {"es": "What? I'm talking about the oak, not the ducks.", "ru": "Что? Я про дуб, а не про уток."}},
+        "object": {"kind": "say", "es": "You're right, the poor oak only repeats. And it's a child of the forest.", "ru": "Ты прав, бедный дуб только повторяет. К тому же он дитя леса.", "next": "roses", "fem": {"ru": "Ты права, бедный дуб только повторяет. К тому же он дитя леса."}},
+        "concede": {"kind": "say", "es": "Well… I'll think about it. But I feel sorry for it: it's two hundred years old.", "ru": "Ну… подумаю. Но мне его жалко: ему двести лет.", "next": "roses"},
+        "compromise": {"kind": "say", "es": "A few branches… Yes, then the children won't talk to it so much.", "ru": "Несколько веток… Да, тогда дети не будут так много с ним говорить.", "next": "roses"},
+        "roses": {"kind": "answer", "task": "Спросите, когда цветут розы.", "branches": [{"phrase": "ph:park.roses-bloom", "next": "rosessay"}], "wrong": {"es": "When does the echo bloom? Never, luckily.", "ru": "Когда цветёт эхо? Никогда, к счастью."}},
+        "rosessay": {"kind": "say", "es": "In June. Now look at the sky: the weather is changing.", "ru": "В июне. А теперь посмотри на небо: погода меняется.", "next": "rain"},
+        "rain": {"kind": "answer", "task": "Скажите, что пойдёт дождь, и спросите, есть ли у него зонт.", "branches": [{"phrase": "ph:park.rain-umbrella", "next": "rainsay"}], "wrong": {"es": "It's going to rain echoes? I hope not.", "ru": "Пойдёт дождь из эха? Надеюсь, нет."}},
+        "rainsay": {"kind": "say", "es": "Yes, I always carry one. Shall we sit for a bit before we go back?", "ru": "Да, я всегда его ношу. Посидим немного, прежде чем возвращаться?", "next": "rest"},
+        "rest": {"kind": "answer", "task": "Предложите немного отдохнуть.", "branches": [{"phrase": "ph:park.have-rest", "next": "end"}], "wrong": {"es": "A rest from the echo? We all want that.", "ru": "Отдохнуть от эха? Все хотим."}},
+        "end": {"kind": "say", "es": "Rest, then. And here: Grandad kept this fragment of the map of the Labyrinth. He said the herald left it on this bench before he went.", "ru": "Отдыхай. И держи: дедушка хранил этот обрывок карты Лабиринта. Говорил, что глашатай оставил его на этой скамейке, перед тем как уйти."}
+      }
     }
   ]
 }

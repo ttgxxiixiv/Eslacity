@@ -89,6 +89,30 @@
         "full": {"kind": "answer", "task": "Откажитесь: вы наелись.", "branches": [{"phrase": "ph:restaurant.im-full", "next": "end"}], "wrong": {"es": "More fish? No, that's enough.", "ru": "Ещё рыбу? Нет, уже хватит."}},
         "end": {"kind": "say", "es": "Good. And here: a fragment of the forest map. Priya left it on the table yesterday. Tomorrow I'll thank her… calmly.", "ru": "Отлично. И держи: обрывок карты леса. Прия вчера оставила его на столе. Завтра я её поблагодарю… спокойно."}
       }
+    },
+    {
+      "id": "ms:restaurant.5",
+      "chapter": 5,
+      "npc": "archie",
+      "scene": "sc:restaurant.5",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "There he is. I'm taking him some bread. You speak, my voice is shaking.", "ru": "Вот он. Я несу ему хлеб. Говори ты, а то у меня голос дрожит.", "next": "special"},
+        "special": {"kind": "answer", "task": "Спросите Арчи, какое сегодня блюдо дня, чтобы предложить гостю.", "branches": [{"phrase": "ph:restaurant.special-today", "next": "specialsay"}], "wrong": {"es": "The echo's special? Repeating everything.", "ru": "Блюдо дня от эха? Всё повторять."}},
+        "specialsay": {"kind": "say", "es": "Fish pie. But first ask the man himself. He's very serious, as if he came from another world.", "ru": "Рыбный пирог. Но сначала спроси его самого. Гость очень серьёзный, будто из другого мира.", "next": "ask"},
+        "ask": {"kind": "answer", "task": "Спросите гостя, не желает ли он ещё чего-нибудь. Он незнакомец — официально.", "branches": [{"phrase": "ph:restaurant.would-you-care", "next": "asksay"}, {"phrase": "ph:restaurant.get-you-anything", "next": "asksay"}], "wrong": {"es": "What did you say to him? Now he's repeating: \"…said, said, said\".", "ru": "Что ты ему сказал? Теперь он повторяет: «…сказал, сказал, сказал»."}, "register": "formal", "tone": {"es": "Oh no! \"Mate\"? Look at his face: the echo turned it into \"What do you want?\" Be formal, please!", "ru": "Ой! «Дружище»? Посмотри на его лицо: эхо донесло это как «Чего тебе?». Официально, пожалуйста!", "fem": {"ru": "Что ты ему сказала? Теперь он повторяет: «…сказала, сказала, сказала»."}}},
+        "asksay": {"kind": "say", "es": "He answered: \"Nothing more. I am looking for someone who knows how to speak.\" And he's looking at me… He makes me nervous. I'm going to throw him out.", "ru": "Он ответил: «Больше ничего. Ищу того, кто умеет говорить». И смотрит на меня… Он меня нервирует. Я его выгоню.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:restaurant.dont-throw-out", "next": "object", "move": "object"}, {"phrase": "ph:restaurant.ask-him-leave", "next": "concede", "move": "concede"}, {"phrase": "ph:restaurant.let-him-finish", "next": "compromise", "move": "compromise"}], "wrong": {"es": "What are you saying? I'm talking about the man in the cloak.", "ru": "Что ты говоришь? Я про человека в плаще."}},
+        "object": {"kind": "say", "es": "You're right, he brought a message. I'll calm down and bring him a pudding.", "ru": "Ты прав, он принёс весть. Успокоюсь и подам ему десерт.", "next": "soup", "fem": {"ru": "Ты права, он принёс весть. Успокоюсь и подам ему десерт."}},
+        "concede": {"kind": "say", "es": "I'll ask him politely… Look! He's gone by himself and left something on the table.", "ru": "Попрошу его вежливо… Смотри! Он ушёл сам и что-то оставил на столе.", "next": "soup"},
+        "compromise": {"kind": "say", "es": "All right, let him finish. And then we'll ask him about the Labyrinth.", "ru": "Ладно, пусть доест. А потом спросим его о Лабиринте.", "next": "soup"},
+        "soup": {"kind": "answer", "task": "Попробуйте суп и скажите, что он слишком солёный.", "branches": [{"phrase": "ph:restaurant.too-salty", "next": "soupsay"}], "wrong": {"es": "The soup repeats itself? That's the echo, not the soup.", "ru": "Суп повторяется? Это эхо, а не суп."}},
+        "soupsay": {"kind": "say", "es": "Oh, it's true! With my nerves I salted it twice.", "ru": "Ой, правда! Из-за нервов я посолил дважды.", "next": "split"},
+        "split": {"kind": "answer", "task": "Предложите разделить счёт.", "branches": [{"phrase": "ph:restaurant.split-bill", "next": "splitsay"}], "wrong": {"es": "Pay with the echo? We take pounds here.", "ru": "Платим эхом? Здесь платят фунтами."}},
+        "splitsay": {"kind": "say", "es": "No way! It's on the house today. Do you want anything else?", "ru": "Ни в коем случае! Сегодня угощает заведение. Хочешь ещё чего-нибудь?", "next": "full"},
+        "full": {"kind": "answer", "task": "Откажитесь: вы сыты.", "branches": [{"phrase": "ph:restaurant.im-full", "next": "end"}], "wrong": {"es": "Full of echo? There's a cure: a cup of coffee.", "ru": "Полон эха? Это лечится: чашкой кофе."}},
+        "end": {"kind": "say", "es": "Then take this. The man in the cloak left a fragment of the map of the Labyrinth on the table. It says: \"One voice, many tones.\"", "ru": "Тогда держи. Человек в плаще оставил на столе обрывок карты Лабиринта. На нём написано: «Один голос, много тонов»."}
+      }
     }
   ]
 }

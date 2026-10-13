@@ -120,6 +120,31 @@
         {"q": "Что сказал голос Хранительницы?", "options": ["Иди домой", "Лес опасен", "Слишком шумно, она не слышит тропу"], "answer": 2}
       ],
       "gloss": {"oswald": "Освальд", "keeper": "хранительница"}
+    },
+    {
+      "id": "sc:home.5",
+      "chapter": 5,
+      "npc": "higgins",
+      "lines": [
+        {"who": "npc", "es": "Come in, come in. I found my grandmother's notebook. Listen to what it says about the Labyrinth.", "ru": "Заходи, заходи. Я нашла бабушкину тетрадь. Послушай, что там про Лабиринт."},
+        {"who": "hero", "es": "Your grandmother knew the Labyrinth?", "ru": "Твоя бабушка знала Лабиринт?"},
+        {"who": "npc", "es": "She passed near it when she was young, like Oswald. She writes: \"Whoever speaks the same way to everyone will get lost.\"", "ru": "В молодости проходила рядом, как Освальд. Пишет: «Кто говорит со всеми одинаково, тот заблудится»."},
+        {"who": "hero", "es": "And how do you get out?", "ru": "А как оттуда выйти?"},
+        {"who": "npc", "es": "\"Whoever can change their voice will find the way out.\" Friendly with a neighbour, formal with the mayor.", "ru": "«Кто умеет менять голос, найдёт выход». С соседом — по-свойски, с мэром — официально."},
+        {"who": "hero", "es": "That makes sense. The echo changes the tone, so you have to be able to choose it.", "ru": "Логично. Эхо меняет тон, и надо уметь его выбирать."},
+        {"who": "npc", "es": "Speaking of tone… my landlord sent me a very rude letter.", "ru": "Кстати, о тоне… Хозяин квартиры прислал мне очень грубое письмо."},
+        {"who": "hero", "es": "Rude? Are you sure?", "ru": "Грубое? Точно?"},
+        {"who": "npc", "es": "It says: \"Pay up now and keep quiet.\" And he has always been very polite to me.", "ru": "Там написано: «Платите сейчас же и молчите». А ведь он всегда был со мной очень вежлив."},
+        {"who": "hero", "es": "Then it's the echo again.", "ru": "Значит, это снова эхо."},
+        {"who": "npc", "es": "Maybe. But I still want to ring him right now.", "ru": "Может быть. И всё равно я хочу позвонить ему прямо сейчас."}
+      ],
+      "questions": [
+        {"q": "Что нашла миссис Хиггинс?", "options": ["Бабушкину тетрадь", "Старый ключ", "Письмо Освальда"], "answer": 0},
+        {"q": "Кто, по словам бабушки, выходит из Лабиринта?", "options": ["Кто быстро бегает", "Тот, кто умеет менять голос", "Кто молчит"], "answer": 1},
+        {"q": "Что было в письме хозяина квартиры?", "options": ["«Спасибо, что вы здесь живёте»", "«Ремонт будет завтра»", "«Платите сейчас же и молчите»"], "answer": 2},
+        {"q": "Почему миссис Хиггинс сомневается в письме?", "options": ["Хозяин всегда был с ней вежлив", "Письмо без подписи", "Она плохо видит"], "answer": 0}
+      ],
+      "gloss": {"oswald": "Освальд", "friendly": "дружески, по-свойски", "formal": "официальный", "grandmother'": "бабушки", "notebook": "тетрадь", "whoever": "кто бы ни, тот кто", "labyrinth": "лабиринт", "polite": "вежливый", "rude": "грубый", "landlord": "хозяин квартиры", "speaking": "говоря (speaking of — кстати о)", "tone": "тон"}
     }
   ]
 }

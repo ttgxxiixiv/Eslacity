@@ -65,7 +65,7 @@ test('en: все сцены контента — реплики по поряд�
 });
 
 test('en: все миссии контента проходятся выбором без ошибок', async ({ page }) => {
-  test.setTimeout(480_000);
+  test.setTimeout(600_000);
   await openEnglish(page);
   for (const m of missions) await playMission(page, m.id);
 });
@@ -118,4 +118,49 @@ test('en: спор в миссии главы IV — можно уступить
   await openEnglish(page);
   await playMission(page, 'ms:cafe.4', { 'Возразите, уступите или предложите компромисс.': 1 });
   await playMission(page, 'ms:market.4', { 'Возразите, уступите или предложите компромисс.': 2 });
+});
+
+test('en: развилка главы IV — инспектор помнит, чем кончилось дело Освальда', async ({ page }) => {
+  await openEnglish(page);
+  await playMission(page, 'ms:police.4', { 'Возразите, уступите или предложите компромисс.': 2 });
+  const sc = scenes.find((s) => s.id === 'sc:police.5')!;
+  await playScene(page, sc, { fine: 'work' });
+  expect(sc.lines.some((l) => l.if?.is === 'work' && l.es.includes('blue hands'))).toBe(true);
+});
+
+test('en: записка Молли — образец находит все пункты проверки', async ({ page }) => {
+  const note = (read('.', 'letters.json').notes as { id: string; sample: string; must: unknown[] }[]).find((n) => n.id === 'nt:cafe')!;
+  await openEnglish(page);
+  // Записки открываются с главы II: глава открыта в базе английского курса.
+  // Сначала приложение должно запуститься: при старте оно само записывает путь в базу. Главная закрытого курса
+  // уводит в пролог, которого у него ещё нет, поэтому ждём экран настроек.
+  await page.goto('./#/settings');
+  await expect(page.getByRole('heading', { name: 'Настройки' })).toBeVisible();
+  await page.evaluate(
+    () =>
+      new Promise<void>((resolve) => {
+        // База создаётся при запуске приложения: ждём, пока в ней появится таблица meta.
+        const attempt = () => {
+          const r = indexedDB.open('eslacity-en');
+          r.onsuccess = () => {
+            if (!r.result.objectStoreNames.contains('meta')) {
+              r.result.close();
+              setTimeout(attempt, 100);
+              return;
+            }
+            const tx = r.result.transaction(['meta'], 'readwrite');
+            tx.objectStore('meta').put({ key: 'journey', value: { fragments: {}, seals: {}, openedChapter: 2, celebrated: 2 } });
+            tx.oncomplete = () => resolve();
+          };
+        };
+        attempt();
+      }),
+  );
+  await page.reload();
+  await page.goto(`./#/note/${encodeURIComponent(note.id)}`);
+  await page.getByTestId('note-text').fill(note.sample);
+  await page.getByRole('button', { name: 'Проверить' }).click();
+  const items = page.getByTestId('note-must');
+  await expect(items).toHaveCount(note.must.length);
+  for (let i = 0; i < note.must.length; i++) await expect(items.nth(i)).toHaveAttribute('data-ok', 'true');
 });

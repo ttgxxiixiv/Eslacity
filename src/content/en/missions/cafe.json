@@ -80,7 +80,7 @@
         "talksay": {"kind": "say", "es": "Yes. When Sam went to the lighthouse, I didn't sleep for a year. I don't want that again.", "ru": "Да. Когда Сэм ушёл к маяку, я год не спала. Не хочу, чтобы это повторилось.", "next": "drink"},
         "drink": {"kind": "answer", "task": "Предложите посидеть и поболтать за кофе.", "branches": [{"phrase": "ph:cafe.catch-up", "next": "drinksay"}], "wrong": {"es": "Let's have the forest? Coffee first.", "ru": "Возьмём лес? Сначала кофе."}},
         "drinksay": {"kind": "say", "es": "All right, two coffees. But listen: Sam isn't going into the forest. He already lost a year at the lighthouse.", "ru": "Ладно, два кофе. Но послушай: Сэм в лес не пойдёт. Он уже потерял год на маяке.", "next": "dispute"},
-        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:cafe.his-decision", "next": "object", "move": "object"}, {"phrase": "ph:cafe.better-stays", "next": "concede", "move": "concede"}, {"phrase": "ph:cafe.edge-of-forest", "next": "compromise", "move": "compromise"}], "wrong": {"es": "What? This isn't about you at all.", "ru": "Что? Это вообще не про тебя."}},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:cafe.his-decision", "next": "object", "move": "object", "sets": {"brother": "free"}}, {"phrase": "ph:cafe.better-stays", "next": "concede", "move": "concede", "sets": {"brother": "home"}}, {"phrase": "ph:cafe.edge-of-forest", "next": "compromise", "move": "compromise", "sets": {"brother": "edge"}}], "wrong": {"es": "What? This isn't about you at all.", "ru": "Что? Это вообще не про тебя."}},
         "object": {"kind": "say", "es": "His decision? Maybe you're right… He's my brother, not my son. I'll talk to him without shouting.", "ru": "Решает он? Может, ты и прав… Он мой брат, а не сын. Поговорю с ним без крика.", "next": "gossip", "fem": {"ru": "Решает он? Может, ты и права… Он мой брат, а не сын. Поговорю с ним без крика."}},
         "concede": {"kind": "say", "es": "Thank you. I know Sam will be angry, but it's better if he's angry at home.", "ru": "Спасибо. Знаю, Сэм разозлится, но пусть лучше злится дома.", "next": "gossip"},
         "compromise": {"kind": "say", "es": "To the edge? That sounds fair. There's a village there, and he can come back by train.", "ru": "До опушки? По-моему, справедливо. Там есть деревня, и он сможет вернуться поездом.", "next": "gossip"},
@@ -91,6 +91,30 @@
         "pastrysay": {"kind": "say", "es": "Homemade, of course. Take two for the road.", "ru": "Домашняя, конечно. Возьми две в дорогу.", "next": "pay"},
         "pay": {"kind": "answer", "task": "Скажите, что сегодня угощаете вы.", "branches": [{"phrase": "ph:cafe.my-treat", "next": "end"}], "wrong": {"es": "The forest is paying today? The forest doesn't pay.", "ru": "Сегодня угощает лес? Лес не платит."}},
         "end": {"kind": "say", "es": "Thank you. And here: Rory sent you this fragment of the forest map. Listen to the trees, but don't believe everything they repeat.", "ru": "Спасибо. И держи: Рори прислал для тебя этот обрывок карты леса. Слушай деревья, но не верь всему, что они повторяют."}
+      }
+    },
+    {
+      "id": "ms:cafe.5",
+      "chapter": 5,
+      "npc": "molly",
+      "scene": "sc:cafe.5",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Sit down. I'll make you something while I read this icy letter again.", "ru": "Садись. Налью тебе чего-нибудь, пока перечитываю это ледяное письмо.", "next": "order"},
+        "order": {"kind": "answer", "task": "Закажите большую кружку чая и тост.", "branches": [{"phrase": "ph:cafe.mug-and-toast", "next": "ordersay"}], "wrong": {"es": "Tea and a letter? I've already got a letter, thanks.", "ru": "Чай и письмо? Письмо у меня уже есть, спасибо."}},
+        "ordersay": {"kind": "say", "es": "Coming up. You know, I've been thinking all morning that Sam is angry with me.", "ru": "Сейчас будет. Знаешь, я всё утро думаю, что Сэм на меня злится.", "next": "calm"},
+        "calm": {"kind": "answer", "task": "Успокойте Молли. Она подруга — говорите по-свойски.", "branches": [{"phrase": "ph:cafe.chill-out", "next": "calmsay"}, {"phrase": "ph:cafe.remain-calm", "next": "calmsay"}], "wrong": {"es": "Coffee will calm me down? I'm already on my third cup.", "ru": "Кофе меня успокоит? Да я уже третью чашку пью."}, "register": "informal", "tone": {"es": "\"I would ask you\"? Are you talking to me like a bank too? It's me, Molly!", "ru": "«Прошу вас»? Ты тоже со мной как в банке разговариваешь? Это же я, Молли!"}},
+        "calmsay": {"kind": "say", "es": "All right, all right. I'm breathing. But I'm going to answer him just as coldly: \"Dear Mr Samuel\".", "ru": "Ладно, ладно. Дышу. Но я отвечу ему так же холодно: «Уважаемый мистер Сэмюэл».", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:cafe.dont-pay-back", "next": "object", "move": "object"}, {"phrase": "ph:cafe.answer-same", "next": "concede", "move": "concede"}, {"phrase": "ph:cafe.phone-him", "next": "compromise", "move": "compromise"}], "wrong": {"es": "What? This isn't about the letter at all.", "ru": "Что? Это вообще не про письмо."}},
+        "object": {"kind": "say", "es": "You're right, that won't fix anything. I'll write warmly, even if the echo changes it.", "ru": "Ты прав, так ничего не исправишь. Напишу ему тепло, пусть даже эхо это изменит.", "next": "treat", "fem": {"ru": "Ты права, так ничего не исправишь. Напишу ему тепло, пусть даже эхо это изменит."}},
+        "concede": {"kind": "say", "es": "Exactly. Let him see how it feels. Although it'll probably reach him in a different tone anyway.", "ru": "Вот именно. Пусть узнает, каково это. Хотя наверняка до него дойдёт другим тоном.", "next": "treat"},
+        "compromise": {"kind": "say", "es": "Phone him? Of course! A voice doesn't go through the Labyrinth. I'll call him tonight.", "ru": "По телефону? Конечно! Голос через Лабиринт не проходит. Позвоню ему сегодня вечером.", "next": "treat"},
+        "treat": {"kind": "answer", "task": "Скажите, что сегодня угощаете вы.", "branches": [{"phrase": "ph:cafe.my-treat", "next": "treatsay"}], "wrong": {"es": "The echo is paying today? The echo doesn't pay.", "ru": "Сегодня угощает эхо? Эхо не платит."}},
+        "treatsay": {"kind": "say", "es": "How sweet! Listen, do you want something sweet for the road?", "ru": "Как мило! Слушай, хочешь чего-нибудь сладкого в дорогу?", "next": "pastry"},
+        "pastry": {"kind": "answer", "task": "Спросите, домашняя ли выпечка.", "branches": [{"phrase": "ph:cafe.homemade", "next": "pastrysay"}], "wrong": {"es": "Pastries from the Labyrinth? No, from my mum's recipe.", "ru": "Выпечка из Лабиринта? Нет, по маминому рецепту."}},
+        "pastrysay": {"kind": "say", "es": "Homemade, as always. Now tell me, when are you leaving for the Labyrinth?", "ru": "Домашняя, как всегда. А теперь скажи, когда ты уходишь к Лабиринту?", "next": "meet"},
+        "meet": {"kind": "answer", "task": "Предложите встретиться до обеда, перед дорогой.", "branches": [{"phrase": "ph:cafe.before-lunch", "next": "end"}], "wrong": {"es": "Meet at midnight? I'm asleep then.", "ru": "Встретимся в полночь? Я в это время сплю."}},
+        "end": {"kind": "say", "es": "Perfect. And here: Rory put this fragment of the map of the Labyrinth in the letter. There, talk to everyone in their own tone.", "ru": "Отлично. И держи: Рори вложил в письмо этот обрывок карты Лабиринта. Там говори с каждым в его тоне."}
       }
     }
   ]

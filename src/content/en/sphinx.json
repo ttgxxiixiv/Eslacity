@@ -1,0 +1,1484 @@
+{
+  "sphinx": {
+    "name": "the Sphinx",
+    "voice": {
+      "pitch": 0.6,
+      "rate": 0.8
+    },
+    "speech": {
+      "greeting": {
+        "es": "Traveller, you have reached the Gates of the Vault. Many have tried; few have known how to speak. I do not ask about strength, but about words.",
+        "ru": "Путник, вы дошли до Врат Хранилища. Многие пытались, немногие сумели говорить. Я спрашиваю не о силе, а о слове."
+      },
+      "again": {
+        "es": "You have returned to my gates. The questions have changed; the Vault is still waiting.",
+        "ru": "Вы снова у моих Врат. Вопросы стали другими, а Хранилище всё ещё ждёт."
+      },
+      "hear": {
+        "es": "First riddle: listen. Whoever hears only the words has heard nothing. Tell me what they meant.",
+        "ru": "Первая загадка: слушайте. Кто слышит одни слова, не услышал ничего. Скажите мне, что хотели сказать."
+      },
+      "word": {
+        "es": "Second riddle: the exact word. A single letter separates the wise from those who only seem wise.",
+        "ru": "Вторая загадка: точное слово. Одна буква отделяет мудреца от того, кто только кажется мудрым."
+      },
+      "wisdom": {
+        "es": "Third riddle: read calmly and answer afterwards, first as if to a king, then as if to a friend.",
+        "ru": "Третья загадка: прочтите не спеша и ответьте, сначала как перед королём, потом как перед другом."
+      },
+      "pass": {
+        "es": "You have answered well. One door fewer between you and the Vault.",
+        "ru": "Вы ответили верно. Одной дверью меньше между вами и Хранилищем."
+      },
+      "fail": {
+        "es": "No. I take one heart and ask you another question. Patience is also an answer.",
+        "ru": "Нет. Я забираю одно сердце и задаю другой вопрос. Терпение — тоже ответ."
+      },
+      "rest": {
+        "es": "Your hearts have gone out. Leave, and come back in three days; then I will ask you something else.",
+        "ru": "Ваши сердца погасли. Уходите и возвращайтесь через три дня: тогда я спрошу о другом."
+      },
+      "waiting": {
+        "es": "The time has not yet passed. The gates do not open to those in a hurry.",
+        "ru": "Время ещё не прошло. Врата не открываются тому, кто спешит."
+      },
+      "victory": {
+        "es": "You have heard what was not said, found the exact word and spoken to kings and to friends. Enter: the Vault is yours.",
+        "ru": "Вы услышали несказанное, нашли точное слово и говорили и с королями, и с друзьями. Проходите: Хранилище ваше."
+      }
+    },
+    "vault": {
+      "before": [
+        {
+          "who": "sphinx",
+          "es": "The gates open before you. Inside there is no gold and no jewels, only a cup.",
+          "ru": "Врата открываются перед вами. Внутри нет ни золота, ни драгоценностей, только чаша."
+        },
+        {
+          "who": "cronista",
+          "es": "There is the Elixir. For a hundred years nobody has been able to drink it.",
+          "ru": "Вот он, Эликсир. Сто лет никто не мог его выпить."
+        },
+        {
+          "who": "sphinx",
+          "es": "It will not give you a new language. It will remind you of the one you have already learnt.",
+          "ru": "Он не даст вам нового языка. Он напомнит тот, что вы уже выучили."
+        },
+        {
+          "who": "cronista",
+          "es": "Drink. I will write it in my book.",
+          "ru": "Пей. Я запишу это в свою книгу."
+        }
+      ],
+      "after": [
+        {
+          "who": "cronista",
+          "es": "Can you feel it? You no longer translate in your head. You simply speak.",
+          "ru": "Чувствуешь? Ты больше не переводишь в голове. Ты просто говоришь."
+        },
+        {
+          "who": "sphinx",
+          "es": "Now you wear the golden eye. From today the town will give you a title: the Sage.",
+          "ru": "Теперь на вас золотой глаз. Отныне город будет звать вас Мудрецом."
+        },
+        {
+          "who": "sphinx",
+          "es": "But remember: a language that is not used is forgotten. Go back to the town and speak.",
+          "ru": "Но помните: язык, на котором не говорят, забывается. Возвращайтесь в город и говорите."
+        }
+      ]
+    },
+    "gloss": {
+      "separates": "отделяет",
+      "calmly": "спокойно",
+      "afterwards": "потом",
+      "enter": "входите",
+      "vault": "хранилище",
+      "elixir": "эликсир",
+      "jewels": "драгоценности",
+      "sage": "мудрец",
+      "golden": "золотой",
+      "riddle": "загадка",
+      "learnt": "выучили"
+    }
+  },
+  "word": [
+    {
+      "id": "sx:word.1",
+      "exercises": [
+        {
+          "id": "sx:word.1.1",
+          "kind": "transform",
+          "source": "It is possible that the door is locked.",
+          "keyword": "might",
+          "ru": "Возможно, дверь заперта.",
+          "answer": "The door might be locked.",
+          "explain": "might + be — предположение."
+        },
+        {
+          "id": "sx:word.1.2",
+          "kind": "transform",
+          "source": "I regret not listening to my grandmother.",
+          "keyword": "wish",
+          "ru": "Жаль, что я не послушал бабушку.",
+          "answer": "I wish I had listened to my grandmother.",
+          "explain": "wish + had + V3 — сожаление о прошлом."
+        },
+        {
+          "id": "sx:word.1.3",
+          "kind": "transform",
+          "source": "Although he was tired, he kept climbing.",
+          "keyword": "despite",
+          "ru": "Хотя он устал, он продолжал подниматься.",
+          "answer": "Despite being tired, he kept climbing.",
+          "alt": [
+            "He kept climbing despite being tired.",
+            "Despite his tiredness, he kept climbing."
+          ],
+          "explain": "despite + -ing = although."
+        },
+        {
+          "id": "sx:word.1.4",
+          "kind": "cloze",
+          "text": "If I ___ (know) you were coming, I would have waited. I am glad you ___ (arrive) safely.",
+          "ru": "Если бы я знал, что ты придёшь, я бы подождал. Рад, что ты добрался благополучно.",
+          "answers": [
+            [
+              "had known"
+            ],
+            [
+              "have arrived",
+              "arrived"
+            ]
+          ],
+          "explain": "Третий тип: had known; результат: have arrived."
+        },
+        {
+          "id": "sx:word.1.5",
+          "kind": "cloze",
+          "text": "Hardly ___ we left when it started to rain. Never ___ I seen such a storm.",
+          "ru": "Едва мы вышли, как пошёл дождь. Никогда я не видел такой бури.",
+          "answers": [
+            [
+              "had"
+            ],
+            [
+              "have"
+            ]
+          ],
+          "explain": "Hardly had we … ; Never have I …"
+        },
+        {
+          "id": "sx:word.1.6",
+          "kind": "fix",
+          "sentence": "If I knew about the storm yesterday, I would have stayed at home.",
+          "ru": "Если бы я вчера знал о буре, я бы остался дома.",
+          "wrong": 2,
+          "answer": "had known",
+          "explain": "Третий тип: в условии had + V3."
+        },
+        {
+          "id": "sx:word.1.7",
+          "kind": "fix",
+          "sentence": "She suggested take the train.",
+          "ru": "Она предложила поехать на поезде.",
+          "wrong": 2,
+          "answer": "taking",
+          "explain": "suggest + -ing."
+        },
+        {
+          "id": "sx:word.1.8",
+          "kind": "fix",
+          "sentence": "He denied steal the map.",
+          "ru": "Он отрицал, что украл карту.",
+          "wrong": 2,
+          "answer": "stealing",
+          "explain": "deny + -ing."
+        },
+        {
+          "id": "sx:word.1.9",
+          "kind": "type",
+          "sentence": "On one salary they can barely make ends ___.",
+          "ru": "На одну зарплату они еле сводят концы с концами.",
+          "answer": "meet",
+          "explain": "make ends meet — сводить концы с концами."
+        },
+        {
+          "id": "sx:word.1.10",
+          "kind": "type",
+          "sentence": "Come on, spill the ___! Who told you?",
+          "ru": "Ну давай, выкладывай! Кто тебе сказал?",
+          "answer": "beans",
+          "explain": "spill the beans — проболтаться."
+        }
+      ]
+    },
+    {
+      "id": "sx:word.2",
+      "exercises": [
+        {
+          "id": "sx:word.2.1",
+          "kind": "transform",
+          "source": "If you need anything, call reception.",
+          "keyword": "should",
+          "ru": "Если вам что-нибудь понадобится, звоните на ресепшен.",
+          "answer": "Should you need anything, call reception.",
+          "explain": "Should you need … — официальное условие."
+        },
+        {
+          "id": "sx:word.2.2",
+          "kind": "transform",
+          "source": "People say that the herald lived in room twelve.",
+          "keyword": "said",
+          "ru": "Говорят, глашатай жил в двенадцатом номере.",
+          "answer": "The herald is said to have lived in room twelve.",
+          "explain": "is said to have + V3."
+        },
+        {
+          "id": "sx:word.2.3",
+          "kind": "transform",
+          "source": "It was not necessary for you to bring flowers, but you did.",
+          "keyword": "needn't",
+          "ru": "Не стоило приносить цветы.",
+          "answer": "You needn't have brought flowers.",
+          "alt": [
+            "You need not have brought flowers."
+          ],
+          "explain": "needn't have + V3."
+        },
+        {
+          "id": "sx:word.2.4",
+          "kind": "cloze",
+          "text": "I would rather you ___ (not tell) anyone. It is time we ___ (go) home.",
+          "ru": "Я бы предпочёл, чтобы ты никому не говорил. Нам пора домой.",
+          "answers": [
+            [
+              "didn't tell",
+              "did not tell"
+            ],
+            [
+              "went"
+            ]
+          ],
+          "explain": "would rather + Past Simple; It's time + Past Simple."
+        },
+        {
+          "id": "sx:word.2.5",
+          "kind": "cloze",
+          "text": "By the time we arrived, the train ___ (leave). We ___ (wait) for an hour when the next one came.",
+          "ru": "Когда мы приехали, поезд уже ушёл. Мы прождали час, пока не пришёл следующий.",
+          "answers": [
+            [
+              "had left"
+            ],
+            [
+              "had been waiting",
+              "had waited"
+            ]
+          ],
+          "explain": "Past Perfect и Past Perfect Continuous."
+        },
+        {
+          "id": "sx:word.2.6",
+          "kind": "fix",
+          "sentence": "It is essential that he attends the meeting.",
+          "ru": "Крайне важно, чтобы он пришёл на собрание.",
+          "wrong": 5,
+          "answer": "attend",
+          "explain": "It is essential that + начальная форма."
+        },
+        {
+          "id": "sx:word.2.7",
+          "kind": "fix",
+          "sentence": "I look forward to see you on Friday.",
+          "ru": "Жду встречи с тобой в пятницу.",
+          "wrong": 4,
+          "answer": "seeing",
+          "explain": "look forward to + -ing."
+        },
+        {
+          "id": "sx:word.2.8",
+          "kind": "fix",
+          "sentence": "She made me waiting for an hour.",
+          "ru": "Она заставила меня ждать час.",
+          "wrong": 3,
+          "answer": "wait",
+          "explain": "make + кого + глагол без to."
+        },
+        {
+          "id": "sx:word.2.9",
+          "kind": "type",
+          "sentence": "The repairs cost an arm and a ___.",
+          "ru": "Ремонт стоил бешеных денег.",
+          "answer": "leg",
+          "explain": "cost an arm and a leg."
+        },
+        {
+          "id": "sx:word.2.10",
+          "kind": "type",
+          "sentence": "I'm a bit under the ___ today.",
+          "ru": "Мне сегодня нездоровится.",
+          "answer": "weather",
+          "explain": "under the weather."
+        }
+      ]
+    },
+    {
+      "id": "sx:word.3",
+      "exercises": [
+        {
+          "id": "sx:word.3.1",
+          "kind": "transform",
+          "source": "It does not matter how hard you try; you cannot please everyone.",
+          "keyword": "however",
+          "ru": "Как ни старайся, всем не угодишь.",
+          "answer": "However hard you try, you cannot please everyone.",
+          "alt": [
+            "However hard you try, you can't please everyone."
+          ],
+          "explain": "However + прилагательное."
+        },
+        {
+          "id": "sx:word.3.2",
+          "kind": "transform",
+          "source": "If it had not been for your help, I would have failed.",
+          "keyword": "without",
+          "ru": "Без твоей помощи я бы провалился.",
+          "answer": "Without your help, I would have failed.",
+          "alt": [
+            "Without your help, I'd have failed."
+          ],
+          "explain": "without = if it had not been for."
+        },
+        {
+          "id": "sx:word.3.3",
+          "kind": "transform",
+          "source": "Only Sam found the path.",
+          "keyword": "it was",
+          "ru": "Только Сэм нашёл тропу.",
+          "answer": "It was Sam who found the path.",
+          "alt": [
+            "It was Sam that found the path."
+          ],
+          "explain": "It was … who — выделение."
+        },
+        {
+          "id": "sx:word.3.4",
+          "kind": "cloze",
+          "text": "Not only ___ he apologise, but he also paid for the window. Rarely ___ he lose his temper.",
+          "ru": "Он не только извинился, но и заплатил за окно. Он редко выходит из себя.",
+          "answers": [
+            [
+              "did"
+            ],
+            [
+              "does"
+            ]
+          ],
+          "explain": "Not only did … ; Rarely does …"
+        },
+        {
+          "id": "sx:word.3.5",
+          "kind": "cloze",
+          "text": "The bridge is believed ___ been built in 1850. It is thought ___ be the oldest in the area.",
+          "ru": "Считается, что мост построили в 1850 году. Его считают самым старым в округе.",
+          "answers": [
+            [
+              "to have"
+            ],
+            [
+              "to"
+            ]
+          ],
+          "explain": "is believed to have been; is thought to be."
+        },
+        {
+          "id": "sx:word.3.6",
+          "kind": "fix",
+          "sentence": "Much as I like him, I cannot agreeing.",
+          "ru": "Как он мне ни нравится, согласиться не могу.",
+          "wrong": 7,
+          "answer": "agree",
+          "explain": "После cannot — начальная форма."
+        },
+        {
+          "id": "sx:word.3.7",
+          "kind": "fix",
+          "sentence": "He insisted on pay for everyone.",
+          "ru": "Он настоял, что заплатит за всех.",
+          "wrong": 3,
+          "answer": "paying",
+          "explain": "insist on + -ing."
+        },
+        {
+          "id": "sx:word.3.8",
+          "kind": "fix",
+          "sentence": "She has always been good in languages.",
+          "ru": "Ей всегда хорошо давались языки.",
+          "wrong": 5,
+          "answer": "at",
+          "explain": "good at."
+        },
+        {
+          "id": "sx:word.3.9",
+          "kind": "type",
+          "sentence": "Stop beating about the ___ and tell me.",
+          "ru": "Хватит ходить вокруг да около, говори.",
+          "answer": "bush",
+          "explain": "beat about the bush."
+        },
+        {
+          "id": "sx:word.3.10",
+          "kind": "type",
+          "sentence": "She passed the exam with flying ___.",
+          "ru": "Она блестяще сдала экзамен.",
+          "answer": "colours",
+          "explain": "pass with flying colours."
+        }
+      ]
+    }
+  ],
+  "hear": [
+    {
+      "id": "sx:hear.1",
+      "monologue": {
+        "who": "cronista",
+        "lines": [
+          {
+            "es": "I have been writing the story of this road for many years, and I have never seen anyone get so far.",
+            "ru": "Я много лет пишу историю этой дороги и никогда не видел, чтобы кто-то зашёл так далеко."
+          },
+          {
+            "es": "I remember your first day: you could hardly order a coffee. Molly had to repeat the price three times.",
+            "ru": "Помню твой первый день: ты едва мог заказать кофе. Молли пришлось трижды повторить цену."
+          },
+          {
+            "es": "Then came the hills. There you learnt to tell what had happened, because the keeper of the lighthouse only listened to stories.",
+            "ru": "Потом были холмы. Там ты научился рассказывать о том, что случилось, ведь смотритель маяка слушал только истории."
+          },
+          {
+            "es": "In the desert you discovered that words can deceive, and that a simple \"if\" changes the meaning of a whole sentence.",
+            "ru": "Пустыня показала тебе, что слова могут обманывать и что простое «если» меняет смысл целой фразы."
+          },
+          {
+            "es": "The forest taught you to hear what people do not say out loud.",
+            "ru": "Лес научил тебя слышать то, чего люди не говорят вслух."
+          },
+          {
+            "es": "And in the Labyrinth you understood something that many wise people never understand: the same idea can sound kind or cruel, depending on the tone.",
+            "ru": "А в Лабиринте ты понял то, чего многие мудрецы так и не понимают: одна и та же мысль может прозвучать по-доброму или жестоко — смотря каким тоном."
+          },
+          {
+            "es": "Now you are standing in front of the door of the Vault. They say there is an elixir inside that will make you speak like the people here.",
+            "ru": "Теперь ты стоишь перед дверью Хранилища. Говорят, внутри есть эликсир, после которого ты заговоришь, как здешние люди."
+          },
+          {
+            "es": "I am not so sure. I think the elixir is not the most important thing.",
+            "ru": "Я в этом не так уверен. Думаю, эликсир — не самое важное."
+          },
+          {
+            "es": "What matters is what you already carry with you: every neighbour who helped you, every mistake that made you laugh.",
+            "ru": "Важно то, что ты уже несёшь с собой: каждого соседа, который тебе помог, каждую ошибку, которая тебя рассмешила."
+          },
+          {
+            "es": "The Sphinx will ask you difficult questions. Do not hurry. The Sphinx does not look at the clock; it only wants to know whether you really listen.",
+            "ru": "Сфинкс задаст тебе трудные вопросы. Не спеши. Сфинкс не смотрит на часы: он хочет знать только одно — слушаешь ли ты по-настоящему."
+          }
+        ]
+      },
+      "dispute": [
+        {
+          "who": "whitmore",
+          "es": "Mrs Patel, I have prepared a plan. When the Vault opens, we shall charge a modest entrance fee. With that money we will repair the bridge.",
+          "ru": "Миссис Патель, я подготовил план. Когда Хранилище откроется, будем брать скромную плату за вход. На эти деньги починим мост."
+        },
+        {
+          "who": "patel",
+          "es": "An entrance fee? Oh, come on, Mr Whitmore! The Vault isn't a museum, it belongs to everyone.",
+          "ru": "Плату за вход? Да брось, мистер Уитмор! Хранилище не музей, оно общее."
+        },
+        {
+          "who": "whitmore",
+          "es": "Everyone uses the bridge as well, and nobody pays for it. That is precisely the problem.",
+          "ru": "Мостом тоже все пользуются, и никто за него не платит. В этом-то и беда."
+        },
+        {
+          "who": "patel",
+          "es": "So the poor can't go into the Vault, but the rich can? That's a lovely idea, that is.",
+          "ru": "Значит, бедным в Хранилище нельзя, а богатым можно? Чудесная мысль, ничего не скажешь."
+        },
+        {
+          "who": "whitmore",
+          "es": "I did not say that. Children and pensioners would go in free, naturally.",
+          "ru": "Я этого не говорил. Дети и пенсионеры, разумеется, проходили бы бесплатно."
+        },
+        {
+          "who": "patel",
+          "es": "Hmm. And who decides how much? You? Your bank?",
+          "ru": "Хм. А кто решает, сколько? Вы? Ваш банк?"
+        },
+        {
+          "who": "whitmore",
+          "es": "The town council, after a public meeting. I am a banker, Mrs Patel, not a king.",
+          "ru": "Городской совет, после общего собрания. Я банкир, миссис Патель, а не король."
+        },
+        {
+          "who": "patel",
+          "es": "Well, if the whole town votes on it… maybe. But one pound, not a penny more.",
+          "ru": "Ну, если весь город проголосует… может быть. Но фунт, и ни пенни больше."
+        },
+        {
+          "who": "whitmore",
+          "es": "One pound it is. You drive a hard bargain.",
+          "ru": "Договорились, фунт. Вы упорно торгуетесь."
+        }
+      ],
+      "questions": [
+        {
+          "q": "Что Летописец вспоминает о первом дне героя?",
+          "options": [
+            "Герой сразу подружился со стражем",
+            "Герой едва мог заказать кофе",
+            "Герой заблудился в холмах"
+          ],
+          "answer": 1,
+          "kind": "gist",
+          "part": "monologue"
+        },
+        {
+          "q": "Чему, по словам Летописца, героя научил лес?",
+          "options": [
+            "Слышать то, чего люди не говорят вслух",
+            "Рассказывать о прошлом",
+            "Торговаться на рынке"
+          ],
+          "answer": 0,
+          "kind": "gist",
+          "part": "monologue"
+        },
+        {
+          "q": "Как Летописец относится к эликсиру?",
+          "options": [
+            "Мечтает выпить его сам",
+            "Боится, что эликсира нет",
+            "Считает, что эликсир — не самое важное"
+          ],
+          "answer": 2,
+          "kind": "stance",
+          "part": "monologue"
+        },
+        {
+          "q": "Что Летописец хочет сказать словами «Сфинкс не смотрит на часы»?",
+          "options": [
+            "Отвечать нужно не спеша и внимательно",
+            "Сфинкс опаздывает",
+            "У Сфинкса нет часов"
+          ],
+          "answer": 0,
+          "kind": "hint",
+          "part": "monologue"
+        },
+        {
+          "q": "Что предлагает мистер Уитмор?",
+          "options": [
+            "Закрыть Хранилище",
+            "Брать плату за вход и починить мост",
+            "Продать мост"
+          ],
+          "answer": 1,
+          "kind": "gist",
+          "part": "dispute"
+        },
+        {
+          "q": "Почему миссис Патель против платы?",
+          "options": [
+            "Хранилище принадлежит всем",
+            "Она не любит банки",
+            "Мост не нужен"
+          ],
+          "answer": 0,
+          "kind": "stance",
+          "part": "dispute"
+        },
+        {
+          "q": "На каком условии миссис Патель соглашается?",
+          "options": [
+            "Если банк заплатит сам",
+            "Если Хранилище будет открыто ночью",
+            "Если весь город проголосует, и плата будет один фунт"
+          ],
+          "answer": 2,
+          "kind": "stance",
+          "part": "dispute"
+        },
+        {
+          "q": "Что мистер Уитмор имеет в виду: «Я банкир, а не король»?",
+          "options": [
+            "Он не решает один, решит город",
+            "Он хочет стать королём",
+            "Он не любит свою работу"
+          ],
+          "answer": 0,
+          "kind": "hint",
+          "part": "dispute"
+        }
+      ],
+      "gloss": {
+        "shall": "будем (офиц.)",
+        "oh": "ох",
+        "public": "общий, публичный",
+        "elixir": "эликсир",
+        "cruel": "жестокий",
+        "sphinx": "сфинкс",
+        "keeper": "смотритель",
+        "learnt": "научился",
+        "charge": "брать плату",
+        "modest": "скромный",
+        "entrance": "вход",
+        "fee": "плата",
+        "museum": "музей",
+        "precisely": "именно",
+        "pensioners": "пенсионеры",
+        "council": "совет",
+        "banker": "банкир",
+        "penny": "пенни",
+        "bargain": "сделка (drive a hard bargain — упорно торговаться)",
+        "whitmore": "Уитмор",
+        "patel": "Патель",
+        "molly": "Молли",
+        "hmm": "хм"
+      }
+    },
+    {
+      "id": "sx:hear.2",
+      "monologue": {
+        "who": "bert",
+        "lines": [
+          {
+            "es": "When I was a boy, my grandad used to take me to the square on Sunday mornings.",
+            "ru": "Когда я был мальчишкой, дедушка водил меня на площадь по воскресеньям."
+          },
+          {
+            "es": "There was always an empty place by the fountain. Grandad said: \"That is where the herald stood.\"",
+            "ru": "У фонтана всегда было пустое место. Дед говорил: «Здесь стоял глашатай»."
+          },
+          {
+            "es": "I asked him why nobody stood there now. He was quiet for a long time, and then he told me the story.",
+            "ru": "Я спросил, почему там теперь никто не стоит. Он долго молчал, а потом рассказал мне историю."
+          },
+          {
+            "es": "He and his friends had laughed at the herald. They copied his serious voice and his long, formal sentences.",
+            "ru": "Он и его друзья смеялись над глашатаем. Передразнивали его серьёзный голос и длинные официальные фразы."
+          },
+          {
+            "es": "One morning the herald did not come. And the next morning, and the one after that. The children thought it was a game.",
+            "ru": "Однажды утром глашатай не пришёл. И на следующее утро, и потом. Дети думали, что это игра."
+          },
+          {
+            "es": "Grandad never forgave himself. Every Sunday he left a piece of bread on the empty place, for the birds, he said.",
+            "ru": "Дед так и не простил себя. Каждое воскресенье он оставлял на пустом месте кусок хлеба — для птиц, говорил он."
+          },
+          {
+            "es": "But I think the bread was for the herald. It was his way of saying sorry.",
+            "ru": "Но я думаю, хлеб был для глашатая. Так он просил прощения."
+          },
+          {
+            "es": "Now I am older than my grandad was then. And I still go to the square on Sundays.",
+            "ru": "Теперь я старше, чем был тогда мой дед. И я до сих пор хожу на площадь по воскресеньям."
+          },
+          {
+            "es": "If you see the herald in the Labyrinth, tell him that the place by the fountain is still waiting for him.",
+            "ru": "Если увидишь глашатая в Лабиринте, скажи ему, что место у фонтана всё ещё его ждёт."
+          }
+        ]
+      },
+      "dispute": [
+        {
+          "who": "evans",
+          "es": "Graham, I want to take my whole class to the Vault on the special train. Thirty children.",
+          "ru": "Грэм, я хочу повезти весь класс к Хранилищу на специальном поезде. Тридцать детей."
+        },
+        {
+          "who": "graham",
+          "es": "Thirty? Miss Evans, that old line has not carried children for a hundred years.",
+          "ru": "Тридцать? Мисс Эванс, по этой старой линии сто лет не возили детей."
+        },
+        {
+          "who": "evans",
+          "es": "Exactly. It's time it did. They have been learning about tone all week; they deserve to see where it all happened.",
+          "ru": "Вот именно. Пора бы. Они всю неделю учили, что такое тон; они заслуживают увидеть, где всё произошло."
+        },
+        {
+          "who": "graham",
+          "es": "And if a child gets lost in the forest? Who will answer to the parents? Me.",
+          "ru": "А если ребёнок потеряется в лесу? Кто будет отвечать перед родителями? Я."
+        },
+        {
+          "who": "evans",
+          "es": "I will have four parents with me, and every child will hold a partner's hand.",
+          "ru": "Со мной будут четверо родителей, и каждый ребёнок будет держать за руку напарника."
+        },
+        {
+          "who": "graham",
+          "es": "Four parents… and the inspector at the station. Hmm. Not on a Monday, the line is busy.",
+          "ru": "Четверо родителей… и инспектор на станции. Хм. Только не в понедельник, линия загружена."
+        },
+        {
+          "who": "evans",
+          "es": "Wednesday, then. And Billy wants to blow the whistle.",
+          "ru": "Тогда в среду. И Билли хочет подать свисток."
+        },
+        {
+          "who": "graham",
+          "es": "Billy can blow the whistle once. Once. I know children.",
+          "ru": "Билли может подать свисток один раз. Один. Я знаю детей."
+        }
+      ],
+      "questions": [
+        {
+          "q": "Что было у фонтана на площади?",
+          "options": [
+            "Скамейка Берта",
+            "Пустое место, где стоял глашатай",
+            "Почтовый ящик"
+          ],
+          "answer": 1,
+          "kind": "gist",
+          "part": "monologue"
+        },
+        {
+          "q": "Что сделали дед Берта и его друзья?",
+          "options": [
+            "Смеялись над глашатаем и передразнивали его",
+            "Помогали глашатаю",
+            "Не знали глашатая"
+          ],
+          "answer": 0,
+          "kind": "gist",
+          "part": "monologue"
+        },
+        {
+          "q": "Как дед Берта относился к тому, что случилось?",
+          "options": [
+            "Ему было всё равно",
+            "Он гордился",
+            "Он так и не простил себя"
+          ],
+          "answer": 2,
+          "kind": "stance",
+          "part": "monologue"
+        },
+        {
+          "q": "Что Берт имеет в виду, говоря, что хлеб был «для птиц»?",
+          "options": [
+            "Дед стеснялся признать, что просит прощения",
+            "Дед любил птиц",
+            "Хлеб был старый"
+          ],
+          "answer": 0,
+          "kind": "hint",
+          "part": "monologue"
+        },
+        {
+          "q": "Что хочет сделать мисс Эванс?",
+          "options": [
+            "Отменить урок",
+            "Повезти класс к Хранилищу на поезде",
+            "Купить поезд"
+          ],
+          "answer": 1,
+          "kind": "gist",
+          "part": "dispute"
+        },
+        {
+          "q": "Почему Грэм сначала против?",
+          "options": [
+            "Боится, что ребёнок потеряется",
+            "Не любит детей",
+            "Поезд сломан"
+          ],
+          "answer": 0,
+          "kind": "stance",
+          "part": "dispute"
+        },
+        {
+          "q": "Как Грэм в итоге относится к поездке?",
+          "options": [
+            "Отказывает",
+            "Хочет поехать сам вместо детей",
+            "Соглашается, но с условиями"
+          ],
+          "answer": 2,
+          "kind": "stance",
+          "part": "dispute"
+        },
+        {
+          "q": "Что Грэм хочет сказать словами «Я знаю детей»?",
+          "options": [
+            "Без ограничений Билли будет свистеть без конца",
+            "У него много детей",
+            "Он раньше был учителем"
+          ],
+          "answer": 0,
+          "kind": "hint",
+          "part": "dispute"
+        }
+      ],
+      "gloss": {
+        "grandad": "дедушка",
+        "fountain": "фонтан",
+        "herald": "глашатай",
+        "copied": "передразнивали",
+        "formal": "официальный",
+        "sentences": "фразы",
+        "forgave": "простил",
+        "labyrinth": "лабиринт",
+        "sundays": "по воскресеньям",
+        "evans": "Эванс",
+        "graham": "Грэм",
+        "deserve": "заслуживать",
+        "partner'": "напарника",
+        "inspector": "инспектор",
+        "hmm": "хм",
+        "wednesday": "среда",
+        "monday": "понедельник",
+        "billy": "Билли",
+        "whistle": "свисток"
+      }
+    },
+    {
+      "id": "sx:hear.3",
+      "monologue": {
+        "who": "okafor",
+        "lines": [
+          {
+            "es": "In thirty years as a doctor, I have seen many strange cases. But nothing like Billy.",
+            "ru": "За тридцать лет врачебной работы я видела много странных случаев. Но ничего похожего на Билли."
+          },
+          {
+            "es": "He lost his voice while rehearsing the part of the herald. No infection, no damage, nothing on the tests.",
+            "ru": "Он потерял голос, репетируя роль глашатая. Ни инфекции, ни повреждений, ничего в анализах."
+          },
+          {
+            "es": "Medicine had no answer. So I read my grandmother's notes. She was a doctor too, a hundred years ago.",
+            "ru": "У медицины не было ответа. Тогда я прочитала записи моей бабушки. Она тоже была врачом, сто лет назад."
+          },
+          {
+            "es": "She had treated the herald for his throat. She wrote that his voice was tired not from speaking, but from never being answered.",
+            "ru": "Она лечила глашатаю горло. Она писала, что его голос устал не от разговоров, а оттого, что ему никогда не отвечали."
+          },
+          {
+            "es": "I did not believe it at first. I am a scientist; I trust data, not stories.",
+            "ru": "Сначала я не поверила. Я учёный; я доверяю данным, а не историям."
+          },
+          {
+            "es": "But yesterday the whole town answered the herald. And this morning Billy said his first word in a week.",
+            "ru": "Но вчера весь город ответил глашатаю. А сегодня утром Билли произнёс первое слово за неделю."
+          },
+          {
+            "es": "Do you know what it was? \"Thanks.\" Just that. Quietly, like a secret.",
+            "ru": "Знаете, какое? «Спасибо». Только это. Тихо, как секрет."
+          },
+          {
+            "es": "His mother cried. Miss Evans cried. Even I, who have seen everything, had to look out of the window for a moment.",
+            "ru": "Его мама плакала. Мисс Эванс плакала. Даже мне, повидавшей всё, пришлось на минуту отвернуться к окну."
+          },
+          {
+            "es": "I have written it in his medical records, although I am not sure how to explain it to my colleagues.",
+            "ru": "Я записала это в его медицинскую карту, хотя не уверена, как объяснить это коллегам."
+          }
+        ]
+      },
+      "dispute": [
+        {
+          "who": "archie",
+          "es": "Priya, I've had an idea. A big party in the square for the herald. Fish pie for the whole town!",
+          "ru": "Прия, у меня идея. Большой праздник на площади для глашатая. Рыбный пирог на весь город!"
+        },
+        {
+          "who": "priya",
+          "es": "A party? Archie, he spent a hundred years alone. Two thousand people shouting might frighten him.",
+          "ru": "Праздник? Арчи, он сто лет провёл один. Две тысячи кричащих людей могут его напугать."
+        },
+        {
+          "who": "archie",
+          "es": "Nobody will shout. We'll just eat and talk. That's what he wanted, isn't it? People talking to him.",
+          "ru": "Никто не будет кричать. Будем просто есть и разговаривать. Он же этого и хотел, разве нет? Чтобы с ним говорили."
+        },
+        {
+          "who": "priya",
+          "es": "Talking to him, yes. One by one. Not a crowd with a microphone.",
+          "ru": "Говорили с ним, да. По одному. А не толпа с микрофоном."
+        },
+        {
+          "who": "archie",
+          "es": "So what do you suggest? A meeting with an agenda? Minutes? He would fall asleep.",
+          "ru": "И что ты предлагаешь? Собрание с повесткой дня? Протокол? Он же уснёт."
+        },
+        {
+          "who": "priya",
+          "es": "Very funny. I suggest small tables, like in your restaurant. Whoever wants to can sit with him.",
+          "ru": "Очень смешно. Предлагаю маленькие столики, как у тебя в ресторане. Кто хочет, тот подсядет к нему."
+        },
+        {
+          "who": "archie",
+          "es": "Small tables… All right, that's actually better. But the fish pie stays.",
+          "ru": "Маленькие столики… Ладно, так и правда лучше. Но рыбный пирог остаётся."
+        },
+        {
+          "who": "priya",
+          "es": "Of course the fish pie stays. I'm not a monster.",
+          "ru": "Конечно, пирог остаётся. Я же не чудовище."
+        }
+      ],
+      "questions": [
+        {
+          "q": "Что случилось с Билли?",
+          "options": [
+            "Сломал ногу",
+            "Потерял голос, репетируя роль глашатая",
+            "Заблудился в лесу"
+          ],
+          "answer": 1,
+          "kind": "gist",
+          "part": "monologue"
+        },
+        {
+          "q": "Что бабушка доктора писала о голосе глашатая?",
+          "options": [
+            "Он устал оттого, что ему никогда не отвечали",
+            "Он был простужен",
+            "Он слишком громко говорил"
+          ],
+          "answer": 0,
+          "kind": "gist",
+          "part": "monologue"
+        },
+        {
+          "q": "Как доктор сначала отнеслась к записям бабушки?",
+          "options": [
+            "Сразу поверила",
+            "Посмеялась",
+            "Не поверила: она доверяет данным"
+          ],
+          "answer": 2,
+          "kind": "stance",
+          "part": "monologue"
+        },
+        {
+          "q": "Почему доктор не уверена, как объяснить случай коллегам?",
+          "options": [
+            "Такое выздоровление нельзя объяснить медициной",
+            "Коллеги не говорят по-английски",
+            "Она забыла записи"
+          ],
+          "answer": 0,
+          "kind": "hint",
+          "part": "monologue"
+        },
+        {
+          "q": "Что предлагает Арчи?",
+          "options": [
+            "Закрыть ресторан",
+            "Устроить большой праздник на площади",
+            "Написать глашатаю письмо"
+          ],
+          "answer": 1,
+          "kind": "gist",
+          "part": "dispute"
+        },
+        {
+          "q": "Чего боится Прия?",
+          "options": [
+            "Что толпа напугает глашатая",
+            "Что пирог невкусный",
+            "Что пойдёт дождь"
+          ],
+          "answer": 0,
+          "kind": "stance",
+          "part": "dispute"
+        },
+        {
+          "q": "Как Арчи принимает предложение Прии?",
+          "options": [
+            "Обижается",
+            "Отказывается",
+            "Соглашается, что так лучше"
+          ],
+          "answer": 2,
+          "kind": "stance",
+          "part": "dispute"
+        },
+        {
+          "q": "Что Арчи хочет сказать словами про повестку и протокол?",
+          "options": [
+            "Подшучивает над слишком официальной Прией",
+            "Хочет вести протокол",
+            "Просит помощи с работой"
+          ],
+          "answer": 0,
+          "kind": "hint",
+          "part": "dispute"
+        }
+      ],
+      "gloss": {
+        "evans": "Эванс",
+        "billy": "Билли",
+        "rehearsing": "репетируя",
+        "herald": "глашатай",
+        "infection": "инфекция",
+        "grandmother'": "бабушки",
+        "notes": "записи",
+        "treated": "лечила",
+        "throat": "горло",
+        "scientist": "учёный",
+        "data": "данные",
+        "colleagues": "коллеги",
+        "medical": "медицинский",
+        "records": "карта, записи",
+        "archie": "Арчи",
+        "priya": "Прия",
+        "pie": "пирог",
+        "frighten": "напугать",
+        "crowd": "толпа",
+        "microphone": "микрофон",
+        "agenda": "повестка дня",
+        "minutes": "протокол",
+        "monster": "чудовище",
+        "asleep": "спящий (fall asleep — уснуть)",
+        "quietly": "тихо"
+      }
+    }
+  ],
+  "wisdom": [
+    {
+      "id": "sx:wisdom.1",
+      "title": "A Hundred Years Without an Answer",
+      "text": [
+        {
+          "es": "For a century, nobody in our town knew what had happened to the herald. The older people said that one day, after reading the news in the square, he walked towards the forest and never came back. The children turned him into a character from a fairy tale: the man in the grey cloak who spoke to everyone as if they were the king.",
+          "ru": "Целый век никто в нашем городе не знал, что случилось с глашатаем. Старики рассказывали, что однажды, прочитав новости на площади, он ушёл к лесу и не вернулся. Дети превратили его в сказочного персонажа: человека в сером плаще, который говорил со всеми так, будто перед ним король."
+        },
+        {
+          "es": "Today we know a little more. The documents found by Priya Shah in the old town hall archive show that the herald was a careful, honest man. He was never late, he never missed a day, and he never raised his voice. His problem was a different one: he spoke to children, to fishermen and to the mayor in exactly the same way.",
+          "ru": "Сегодня мы знаем чуть больше. Документы, которые Прия Шах нашла в старом архиве ратуши, показывают, что глашатай был аккуратным и честным человеком. Он никогда не опаздывал, не пропустил ни дня и ни разу не повысил голос. Беда его была в другом: с детьми, рыбаками и мэром он говорил совершенно одинаково."
+        },
+        {
+          "es": "People found him cold. They laughed at him, and the children copied his long, formal sentences in the street. Nobody stopped to think that perhaps he did not know any other way to speak. Nobody, as far as we know, ever said to him: \"Good morning, friend.\"",
+          "ru": "Людям он казался холодным. Над ним смеялись, а дети на улице передразнивали его длинные официальные фразы. Никто не остановился подумать, что, может быть, он просто не умел говорить иначе. Никто, насколько нам известно, ни разу не сказал ему: «Доброе утро, друг»."
+        },
+        {
+          "es": "The most moving document is a speech that he never read. It begins: \"Dear neighbours, today I have brought you no news.\" The herald had written a warmer speech, in a friendly tone, to show that he could change. On the day he left, the children laughed before he could open his mouth.",
+          "ru": "Самый трогательный документ — речь, которую он так и не прочитал. Она начинается так: «Дорогие соседи, сегодня я не принёс вам новостей». Глашатай написал другую, более тёплую речь, по-дружески, чтобы показать, что умеет меняться. В тот день, когда он ушёл, дети засмеялись раньше, чем он успел открыть рот."
+        },
+        {
+          "es": "What happened next belongs to legend. Some say that the echo of the Labyrinth was his revenge: a hundred years of returning our words in the wrong tone, so that we would feel what he had felt. Others believe it was not revenge at all, but a request for help, the only one he knew how to make.",
+          "ru": "Дальнейшее принадлежит легенде. Одни говорят, что эхо Лабиринта было его местью: сто лет возвращать нам наши слова не тем тоном, чтобы мы почувствовали то же, что и он. Другие считают, что это была вовсе не месть, а просьба о помощи — единственная, какую он умел выразить."
+        },
+        {
+          "es": "There are other details in the archive. The herald paid his rent on time for ten years, but he never invited anyone to his room. Every Sunday he went to the barber, and the barber wrote that the herald hardly said a word. He bought throat sweets at the pharmacy every day, because his voice was always tired.",
+          "ru": "В архиве есть и другие подробности. Десять лет глашатай вовремя платил за комнату, но никого к себе не приглашал. Каждое воскресенье он ходил к парикмахеру, и тот записал, что глашатай почти не говорил. Каждый день он покупал в аптеке пастилки для горла, потому что голос у него всегда был усталым."
+        },
+        {
+          "es": "Experts still argue about it. But perhaps it does not matter. This week, half the town took the train to the forest and climbed a thousand steps to give him a letter that was a hundred years late. It said: \"Sorry. Now we are listening to you.\"",
+          "ru": "Знатоки до сих пор спорят об этом. Но, может быть, это и не важно. На этой неделе полгорода села в поезд до леса и поднялась на тысячу ступеней, чтобы отдать ему письмо, опоздавшее на сто лет. В нём было написано: «Прости. Теперь мы тебя слушаем»."
+        },
+        {
+          "es": "For this newspaper, the lesson is clear. A person can wait a whole life for an answer that would cost others one minute. And there is no single correct tone: every person needs their own. The herald, they say, has finally learnt this too.",
+          "ru": "Для нашей газеты урок очевиден. Человек может всю жизнь ждать ответа, который другим стоил бы одной минуты. И правильного тона нет: каждому человеку нужен свой. Говорят, глашатай тоже наконец это понял."
+        }
+      ],
+      "questions": [
+        {
+          "q": "Почему над глашатаем смеялись?",
+          "options": [
+            "Он плохо читал новости",
+            "Он носил смешной плащ",
+            "Он со всеми говорил одинаково официально"
+          ],
+          "answer": 2
+        },
+        {
+          "q": "Что глашатай приготовил, чтобы показать, что умеет говорить по-дружески?",
+          "options": [
+            "Другую, более тёплую речь",
+            "Письмо мэру",
+            "Песню для детей"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "О чём до сих пор спорят знатоки?",
+          "options": [
+            "Где находится Лабиринт",
+            "Было ли эхо местью или просьбой о помощи",
+            "Кто написал письмо детей"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Какой урок газета считает главным?",
+          "options": [
+            "В лес нельзя ходить одному",
+            "Нужно всегда говорить официально",
+            "Человек может всю жизнь ждать ответа, который другим стоил бы минуты"
+          ],
+          "answer": 2
+        },
+        {
+          "q": "Чему, по словам статьи, научился глашатай?",
+          "options": [
+            "Правильного тона нет: каждому человеку нужен свой",
+            "Говорить со всеми только по-дружески",
+            "Не разговаривать с соседями"
+          ],
+          "answer": 0
+        }
+      ],
+      "register": [
+        {
+          "id": "sx:wisdom.1.1",
+          "kind": "register",
+          "source": "Hey, can you tell me the story of the herald?",
+          "to": "formal",
+          "answer": "Could you possibly tell me the story of the herald",
+          "extra": [
+            "hey",
+            "can"
+          ],
+          "explain": "Официально: Could you possibly вместо hey, can you."
+        },
+        {
+          "id": "sx:wisdom.1.2",
+          "kind": "register",
+          "source": "We would ask you to accept our sincere apologies.",
+          "to": "informal",
+          "answer": "We are really sorry",
+          "extra": [
+            "accept",
+            "apologies"
+          ],
+          "explain": "По-дружески: коротко we are really sorry вместо формулы."
+        }
+      ],
+      "gloss": {
+        "character": "персонаж",
+        "friendly": "дружеский",
+        "rent": "плата за жильё",
+        "barber": "парикмахер",
+        "throat": "горло",
+        "sweets": "пастилки",
+        "pharmacy": "аптека",
+        "herald": "глашатай",
+        "century": "век",
+        "fairy": "сказочный (fairy tale — сказка)",
+        "cloak": "плащ",
+        "priya": "Прия",
+        "shah": "Шах",
+        "archive": "архив",
+        "fishermen": "рыбаки",
+        "copied": "передразнивали",
+        "formal": "официальный",
+        "sentences": "фразы",
+        "speech": "речь",
+        "revenge": "месть",
+        "labyrinth": "лабиринт",
+        "experts": "знатоки",
+        "steps": "ступени",
+        "learnt": "понял, выучил",
+        "moving": "трогательный",
+        "neighbours": "соседи",
+        "were": "был (as if they were — будто)"
+      }
+    },
+    {
+      "id": "sx:wisdom.2",
+      "title": "Please, Sorry and a Bit of a Problem",
+      "text": [
+        {
+          "es": "Visitors to our town often say that the English are the most polite people in the world. They notice how often we say \"please\", \"thank you\" and, above all, \"sorry\". We apologise when someone steps on our foot. We say \"sorry\" to the door we have just walked into.",
+          "ru": "Гости нашего города часто говорят, что англичане — самые вежливые люди на свете. Они замечают, как часто мы говорим «пожалуйста», «спасибо» и, главное, «извините». Мы извиняемся, когда нам наступают на ногу. Мы говорим «простите» двери, в которую только что врезались."
+        },
+        {
+          "es": "But politeness here is more complicated than it looks. The same words can mean very different things depending on the tone and the situation. When your neighbour says \"With respect, I disagree\", there may be very little respect in it. When your boss says \"That's an interesting idea\", it may be the end of the idea.",
+          "ru": "Но вежливость здесь сложнее, чем кажется. Одни и те же слова могут значить совсем разное — смотря каким тоном и в какой ситуации. Когда сосед говорит «При всём уважении, не соглашусь», уважения в этом может быть совсем немного. Когда начальник говорит «Интересная мысль», это может означать конец мысли."
+        },
+        {
+          "es": "We also love understatement. A terrible storm is \"a bit windy\". A disaster is \"not ideal\". If a friend says that your cooking is \"quite good\", you should probably try a different recipe. Foreigners who take these words literally often get completely the wrong message.",
+          "ru": "А ещё мы любим преуменьшать. Страшная буря — это «немного ветрено». Катастрофа — «не идеально». Если друг говорит, что ты готовишь «вполне неплохо», стоит, пожалуй, попробовать другой рецепт. Иностранцы, которые понимают такие слова буквально, часто понимают всё совершенно неверно."
+        },
+        {
+          "es": "Then there is the question of register. With friends we say \"Fancy a cuppa?\" With a stranger we ask \"Would you like a cup of tea?\" In a letter to the bank we write \"I would be grateful if you could\", although at home we would simply say \"Can you…?\" None of these is more correct than the others. Each one belongs to its own place.",
+          "ru": "Есть ещё вопрос регистра. С друзьями мы говорим «Чайку?». Незнакомца спросим: «Не хотите ли чашку чая?». В письме в банк мы пишем «Буду признателен, если вы сможете», хотя дома сказали бы просто «Можешь…?». Ни один из этих вариантов не правильнее других. У каждого своё место."
+        },
+        {
+          "es": "The mistake is not to choose the informal or the formal way. The mistake is to use the same way everywhere. Speak to the mayor like a mate, and he will think you are rude. Speak to your best friend like a bank manager, and she will think you are angry with her.",
+          "ru": "Ошибка не в том, чтобы выбрать разговорный или официальный тон. Ошибка — говорить одинаково везде. Заговоришь с мэром как с приятелем — он решит, что ты грубиян. Заговоришь с лучшей подругой как управляющий банком — она решит, что ты на неё злишься."
+        },
+        {
+          "es": "Even the weather is a question of tone. Two strangers at a bus stop will talk about the rain for five minutes, not because they are interested in the rain, but because it is a safe way to be friendly. If you answer \"Yes, it is raining\" and say nothing more, they will think you do not want to talk. A better answer is \"Lovely weather for ducks!\" and a smile.",
+          "ru": "Даже погода — вопрос тона. Двое незнакомцев на остановке пять минут говорят о дожде не потому, что им интересен дождь, а потому, что это безопасный способ быть дружелюбными. Если ответить «Да, идёт дождь» и больше ничего не сказать, решат, что ты не хочешь разговаривать. Лучше ответить «Погода для уток!» и улыбнуться."
+        },
+        {
+          "es": "This is why learning a language takes so long. Grammar and vocabulary can be learnt from books. But knowing which words to use with whom, and when, comes only from listening to people: in the café, at the market, at the station, in the street.",
+          "ru": "Вот почему язык учат так долго. Грамматику и слова можно выучить по книгам. Но понимание того, какие слова с кем и когда говорить, приходит только тогда, когда слушаешь людей: в кафе, на рынке, на вокзале, на улице."
+        },
+        {
+          "es": "So if you ever visit our town, do not worry too much about mistakes. We will forgive you. We will probably even say sorry for your mistake. Just listen carefully, and you will soon hear what we really mean.",
+          "ru": "Так что, если когда-нибудь приедете в наш город, не слишком переживайте из-за ошибок. Мы вас простим. Скорее всего, мы даже извинимся за вашу ошибку. Просто слушайте внимательно, и вы скоро услышите, что мы на самом деле имеем в виду."
+        }
+      ],
+      "questions": [
+        {
+          "q": "Что, по словам гостей, замечают в англичанах?",
+          "options": [
+            "Они редко улыбаются",
+            "Они очень часто говорят «пожалуйста», «спасибо» и «извините»",
+            "Они говорят очень громко"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Что может значить «Интересная мысль» у начальника?",
+          "options": [
+            "Что мысль ему не понравилась",
+            "Что он хочет её обсудить",
+            "Что он даст премию"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Как англичане описывают страшную бурю?",
+          "options": [
+            "«Конец света»",
+            "«Немного ветрено»",
+            "«Ужасная погода»"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "В чём, по мнению автора, настоящая ошибка?",
+          "options": [
+            "Говорить официально",
+            "Говорить по-дружески",
+            "Говорить одинаково везде"
+          ],
+          "answer": 2
+        },
+        {
+          "q": "Откуда, по словам текста, приходит понимание, что и кому говорить?",
+          "options": [
+            "Только из учебников",
+            "Из того, что слушаешь людей",
+            "Из словаря"
+          ],
+          "answer": 1
+        }
+      ],
+      "register": [
+        {
+          "id": "sx:wisdom.2.1",
+          "kind": "register",
+          "source": "Fancy a cuppa?",
+          "to": "formal",
+          "answer": "Would you like a cup of tea",
+          "extra": [
+            "fancy",
+            "cuppa"
+          ],
+          "explain": "Официально: Would you like a cup of tea вместо разговорного Fancy a cuppa."
+        },
+        {
+          "id": "sx:wisdom.2.2",
+          "kind": "register",
+          "source": "I would be grateful if you could close the window.",
+          "to": "informal",
+          "answer": "Can you shut the window",
+          "extra": [
+            "grateful",
+            "would"
+          ],
+          "explain": "По-дружески: просто Can you shut …"
+        }
+      ],
+      "gloss": {
+        "disagree": "не соглашаться",
+        "none": "ни один",
+        "friendly": "дружелюбный",
+        "whom": "кого, с кем",
+        "ducks": "утки",
+        "strangers": "незнакомцы",
+        "politeness": "вежливость",
+        "apologise": "извиняться",
+        "respect": "уважение",
+        "understatement": "преуменьшение",
+        "windy": "ветреный",
+        "disaster": "катастрофа",
+        "ideal": "идеальный",
+        "recipe": "рецепт",
+        "foreigners": "иностранцы",
+        "literally": "буквально",
+        "register": "регистр (речи)",
+        "fancy": "хотеть (разг.)",
+        "cuppa": "чашка чая (разг.)",
+        "stranger": "незнакомец",
+        "grateful": "признательный",
+        "informal": "разговорный",
+        "formal": "официальный",
+        "mate": "приятель",
+        "rude": "грубый",
+        "learnt": "выучены",
+        "vocabulary": "словарный запас",
+        "forgive": "простить",
+        "complicated": "сложный",
+        "situation": "ситуация"
+      }
+    },
+    {
+      "id": "sx:wisdom.3",
+      "title": "From the Chronicler's Book",
+      "text": [
+        {
+          "es": "I have kept this book for longer than anyone in the town can remember. In it I write down the people who set off on the road to the Vault. Most of the pages are short. A name, a date, and a few words: \"Turned back at the hills.\" \"Lost in the desert.\" \"Could not hear the path.\"",
+          "ru": "Я веду эту книгу дольше, чем кто-либо в городе может вспомнить. В неё я записываю тех, кто отправился в путь к Хранилищу. Большинство страниц короткие. Имя, дата и несколько слов: «Повернул назад у холмов». «Заблудился в пустыне». «Не услышал тропу»."
+        },
+        {
+          "es": "Your page is the longest in the book. I have written about the morning you could not order a coffee, and about the evening you argued with Molly about her brother and won, or lost, depending on how you look at it.",
+          "ru": "Твоя страница — самая длинная в книге. Я записал утро, когда ты не смог заказать кофе, и вечер, когда ты спорил с Молли о её брате и победил — или проиграл, это как посмотреть."
+        },
+        {
+          "es": "I have written that you listened to Oswald when nobody else would, and that you did not laugh at the man with the camel when he finally told the truth. I have written about the raven, the old coins, the meeting in Priya's office, and the thousand steps.",
+          "ru": "Я записал, что ты выслушал Освальда, когда больше никто не хотел, и что ты не смеялся над человеком с верблюдом, когда он наконец сказал правду. Я записал про ворона, про старые монеты, про собрание в офисе Прии и про тысячу ступеней."
+        },
+        {
+          "es": "People often ask me what makes someone reach the Vault. They expect me to say intelligence, or talent, or a good memory. These things help, of course. But in my experience they are not what decides it.",
+          "ru": "Меня часто спрашивают, что помогает человеку дойти до Хранилища. Ждут, что я скажу: ум, талант или хорошая память. Всё это, конечно, помогает. Но, по моему опыту, решает не это."
+        },
+        {
+          "es": "What decides it is patience, and a certain kind of humility. The traveller who reaches the Vault is the one who is not afraid to look foolish. The one who asks again when they have not understood. The one who says \"sorry\" and tries a different word.",
+          "ru": "Решают терпение и особое смирение. До Хранилища доходит тот путник, который не боится выглядеть глупо. Тот, кто переспрашивает, если не понял. Тот, кто говорит «простите» и пробует другое слово."
+        },
+        {
+          "es": "I remember another traveller, many years ago. He was clever, he knew every rule of grammar, and he could recite long poems from memory. But he never asked anyone for help, and he never admitted a mistake. He stopped at the edge of the forest, because he could not hear the path; he was too busy listening to himself.",
+          "ru": "Я помню другого путника, много лет назад. Он был умён, знал все правила грамматики и мог читать наизусть длинные стихи. Но он никогда ни у кого не просил помощи и ни разу не признал ошибку. Он остановился на опушке леса, потому что не услышал тропу: он был слишком занят тем, что слушал себя."
+        },
+        {
+          "es": "You were different. When the guardian of the white city spoke only in \"if\", you did not give up; you learnt to answer in the same way. When the forest was full of lies, you did not shout louder; you talked to people, one by one, until the noise stopped.",
+          "ru": "Ты был другим. Когда стражница белого города говорила только через «если», ты не сдался, а научился отвечать так же. Когда лес был полон лжи, ты не стал кричать громче, а говорил с людьми, по одному, пока шум не затих."
+        },
+        {
+          "es": "Every neighbour you met has taught you something, even if they did not know it. Molly taught you to order, Mrs Patel to bargain, Graham to ask about trains, Doctor Okafor to explain what hurts. You thought you were doing errands; in fact you were learning a language.",
+          "ru": "Каждый сосед, которого ты встретил, чему-то тебя научил, даже если сам этого не знал. Молли научила тебя заказывать, миссис Патель — торговаться, Грэм — спрашивать о поездах, доктор Окафор — объяснять, что болит. Ты думал, что выполняешь поручения, а на самом деле учил язык."
+        },
+        {
+          "es": "Now the Sphinx is waiting. I cannot help you there; my job is only to write. But I will tell you one thing. Whatever happens at the gates, this book will remember that you came this far.",
+          "ru": "Теперь тебя ждёт Сфинкс. Там я не смогу помочь: моё дело — только записывать. Но одно скажу. Что бы ни случилось у Врат, эта книга запомнит, что ты дошёл так далеко."
+        }
+      ],
+      "questions": [
+        {
+          "q": "Что Летописец записывает в свою книгу?",
+          "options": [
+            "Рецепты Молли",
+            "Тех, кто отправился в путь к Хранилищу",
+            "Новости города"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Чем страница героя отличается от других?",
+          "options": [
+            "Она самая длинная",
+            "Она пустая",
+            "Она написана другим почерком"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Что, по опыту Летописца, решает, дойдёт ли человек до Хранилища?",
+          "options": [
+            "Ум и хорошая память",
+            "Деньги",
+            "Терпение и умение не бояться выглядеть глупо"
+          ],
+          "answer": 2
+        },
+        {
+          "q": "Что на самом деле делал герой, выполняя поручения?",
+          "options": [
+            "Учил язык",
+            "Зарабатывал деньги",
+            "Искал Освальда"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Что Летописец обещает в конце?",
+          "options": [
+            "Помочь со Сфинксом",
+            "Что книга запомнит, что герой дошёл так далеко",
+            "Дать герою эликсир"
+          ],
+          "answer": 1
+        }
+      ],
+      "register": [
+        {
+          "id": "sx:wisdom.3.1",
+          "kind": "register",
+          "source": "Can you write my name in your book?",
+          "to": "formal",
+          "answer": "Would you kindly write my name in your book",
+          "extra": [
+            "can",
+            "could"
+          ],
+          "explain": "Официально: Would you kindly … вместо Can you."
+        },
+        {
+          "id": "sx:wisdom.3.2",
+          "kind": "register",
+          "source": "I am afraid that I must take my leave now.",
+          "to": "informal",
+          "answer": "I have got to go now",
+          "extra": [
+            "afraid",
+            "leave"
+          ],
+          "explain": "По-дружески: I have got to go вместо книжного take my leave."
+        }
+      ],
+      "gloss": {
+        "recite": "читать наизусть",
+        "poems": "стихи",
+        "admitted": "признал",
+        "guardian": "стражница",
+        "learnt": "научился",
+        "chronicler'": "летописца",
+        "certain": "определённый (a certain kind — особый)",
+        "clever": "умный",
+        "vault": "хранилище",
+        "hills": "холмы",
+        "oswald": "Освальд",
+        "camel": "верблюд",
+        "raven": "ворон",
+        "coins": "монеты",
+        "priya'": "Прии",
+        "steps": "ступени",
+        "intelligence": "ум",
+        "talent": "талант",
+        "humility": "смирение",
+        "foolish": "глупый",
+        "patel": "Патель",
+        "bargain": "торговаться",
+        "graham": "Грэм",
+        "okafor": "Окафор",
+        "errands": "поручения",
+        "sphinx": "сфинкс",
+        "gates": "врата",
+        "molly": "Молли",
+        "traveller": "путник"
+      }
+    }
+  ]
+}

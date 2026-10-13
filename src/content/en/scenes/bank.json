@@ -122,6 +122,31 @@
         {"q": "Чем пахло от джентльмена?", "options": ["Морем", "Трубочным табаком", "Кофе"], "answer": 1}
       ],
       "gloss": {"gentleman": "джентльмен", "tobacco": "табак", "smelt": "пахло"}
+    },
+    {
+      "id": "sc:bank.5",
+      "chapter": 5,
+      "npc": "whitmore",
+      "lines": [
+        {"who": "npc", "es": "Good afternoon. I am glad to see you. I need to show you something strange.", "ru": "Добрый день. Рад вас видеть. Мне нужно показать вам кое-что странное."},
+        {"who": "hero", "es": "What has happened?", "ru": "Что случилось?"},
+        {"who": "npc", "es": "While checking old accounts, I found one that is a hundred years old. The owner is the town herald.", "ru": "Проверяя старые счета, я нашёл один столетней давности. Владелец — городской глашатай."},
+        {"who": "hero", "es": "And is there any money in it?", "ru": "И на нём есть деньги?"},
+        {"who": "npc", "es": "His entire salary for ten years. He did not spend a penny.", "ru": "Вся его зарплата за десять лет. Он не потратил ни пенни."},
+        {"who": "hero", "es": "How strange. And why are you showing me this now?", "ru": "Странно. А почему вы показываете это сейчас?"},
+        {"who": "npc", "es": "Because yesterday someone put an old coin and a note into this account.", "ru": "Потому что вчера кто-то положил на этот счёт старинную монету и записку."},
+        {"who": "hero", "es": "What does the note say?", "ru": "Что в записке?"},
+        {"who": "npc", "es": "\"I do not need money. I need an answer.\" In the herald's handwriting.", "ru": "«Мне не нужны деньги. Мне нужен ответ». Почерком глашатая."},
+        {"who": "hero", "es": "So he is close. And still waiting.", "ru": "Значит, он рядом. И всё ещё ждёт."},
+        {"who": "npc", "es": "So it seems. Meanwhile the echo is changing our letters: customers receive \"Oi, pay up, will you\".", "ru": "Похоже на то. А тем временем эхо меняет наши письма: клиенты получают «Эй, гони деньги»."}
+      ],
+      "questions": [
+        {"q": "Чей столетний счёт нашёл Уитмор?", "options": ["Освальда", "Городского глашатая", "Мэра"], "answer": 1},
+        {"q": "Что лежит на счёте?", "options": ["Зарплата за десять лет, ни пенни не потрачено", "Золото из пустыни", "Ничего"], "answer": 0},
+        {"q": "Что было в записке?", "options": ["«Верните мои деньги»", "«Закройте счёт»", "«Мне не нужны деньги. Мне нужен ответ»"], "answer": 2},
+        {"q": "Что эхо делает с письмами банка?", "options": ["Стирает их", "Делает их грубыми и разговорными", "Переводит на латынь"], "answer": 1}
+      ],
+      "gloss": {"herald": "глашатай", "entire": "весь", "salary": "зарплата", "penny": "пенни", "herald'": "глашатая", "handwriting": "почерк", "oi": "эй (грубо)", "pay": "платить (pay up — гони деньги)", "meanwhile": "тем временем"}
     }
   ]
 }

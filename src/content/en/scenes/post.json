@@ -120,6 +120,31 @@
         {"q": "Какую зацепку нашёл Дэн?", "options": ["Чёрное перо", "Письмо", "Ворон пахнет трубочным табаком"], "answer": 2}
       ],
       "gloss": {"raven": "ворон", "edgar": "Эдгар", "neighbours'": "соседей", "tobacco": "табак", "pipe": "трубка (курительная)", "smelling": "пахнет"}
+    },
+    {
+      "id": "sc:post.5",
+      "chapter": 5,
+      "npc": "dan",
+      "lines": [
+        {"who": "npc", "es": "Look what I found in the archive! A letter a hundred years old.", "ru": "Смотри, что я нашёл в архиве! Письмо столетней давности."},
+        {"who": "hero", "es": "Who is it for?", "ru": "Кому оно?"},
+        {"who": "npc", "es": "\"To the herald. The main square.\" It was never delivered: he had already gone.", "ru": "«Глашатаю. Главная площадь». Его так и не доставили: он уже ушёл."},
+        {"who": "hero", "es": "Who wrote it?", "ru": "Кто его написал?"},
+        {"who": "npc", "es": "The schoolchildren of that time. It's short: \"Sorry. Now we are listening to you.\"", "ru": "Тогдашние школьники. Оно короткое: «Прости. Теперь мы тебя слушаем»."},
+        {"who": "hero", "es": "How sad. It came too late.", "ru": "Как грустно. Оно опоздало."},
+        {"who": "npc", "es": "A hundred years late. But I'm a postman: letters must be delivered.", "ru": "На сто лет. Но я почтальон: письма надо доставлять."},
+        {"who": "hero", "es": "And where does the herald live now?", "ru": "А где теперь живёт глашатай?"},
+        {"who": "npc", "es": "If Bert is right, in the Labyrinth. I'm coming with you.", "ru": "Если Берт прав, в Лабиринте. Я пойду с тобой."},
+        {"who": "hero", "es": "Will they let you leave town with a letter from the archive?", "ru": "А тебе разрешат уйти из города с письмом из архива?"},
+        {"who": "npc", "es": "We'll have to ask the postmistress. And she's very strict.", "ru": "Это надо спросить у начальницы почты. А она очень строгая."}
+      ],
+      "questions": [
+        {"q": "Что Дэн нашёл в архиве?", "options": ["Старую марку", "Письмо столетней давности", "Карту"], "answer": 1},
+        {"q": "Кому адресовано письмо?", "options": ["Глашатаю, на главную площадь", "Мэру", "Освальду"], "answer": 0},
+        {"q": "Что написали дети?", "options": ["«Возвращайся скорее»", "«Ты нам не нужен»", "«Прости. Теперь мы тебя слушаем»"], "answer": 2},
+        {"q": "Кого надо спросить, можно ли взять письмо?", "options": ["Начальницу почты", "Инспектора", "Мэра"], "answer": 0}
+      ],
+      "gloss": {"archive": "архив", "herald": "глашатай", "delivered": "доставлено", "schoolchildren": "школьники", "postman": "почтальон", "bert": "Берт", "labyrinth": "лабиринт", "postmistress": "начальница почты", "strict": "строгий"}
     }
   ]
 }

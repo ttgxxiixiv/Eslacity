@@ -120,6 +120,31 @@
         {"q": "Почему полки пустеют?", "options": ["Магазин закрывается", "Грузовики не приехали", "Люди верят слухам и скупают впрок"], "answer": 2}
       ],
       "gloss": {"earplugs": "беруши", "candles": "свечи", "shelves": "полки", "midnight": "полночь", "there'": "там (there'll be — будет)"}
+    },
+    {
+      "id": "sc:supermarket.5",
+      "chapter": 5,
+      "npc": "jake",
+      "lines": [
+        {"who": "npc", "es": "Did you hear today's announcements? Listen: \"Customers are kindly informed that a special offer applies to yoghurt.\"", "ru": "Слышал сегодняшние объявления? Послушай: «Уважаемых покупателей информируют о том, что на йогурт действует специальное предложение».", "fem": {"ru": "Слышала сегодняшние объявления? Послушай: «Уважаемых покупателей информируют о том, что на йогурт действует специальное предложение»."}},
+        {"who": "hero", "es": "Is that how you talk?", "ru": "Ты так говоришь?"},
+        {"who": "npc", "es": "No way! I said: \"Folks, yoghurt half price!\" And this is what comes out of the loudspeaker.", "ru": "Да ну! Я сказал: «Народ, йогурт за полцены!». А из громкоговорителя звучит вот так."},
+        {"who": "hero", "es": "It's the echo of the Labyrinth.", "ru": "Это эхо Лабиринта."},
+        {"who": "npc", "es": "That's what Mrs Patel says. The funny thing is, the grannies love it.", "ru": "Так и миссис Патель говорит. Самое смешное, что бабушкам это очень нравится."},
+        {"who": "hero", "es": "And the young people?", "ru": "А молодым?"},
+        {"who": "npc", "es": "They laugh and leave. Today we sold half as many yoghurts.", "ru": "Смеются и уходят. Сегодня мы продали вдвое меньше йогуртов."},
+        {"who": "hero", "es": "So you have to speak to everyone in their own tone.", "ru": "Значит, с каждым надо говорить в его тоне."},
+        {"who": "npc", "es": "Yeah, but there's only one loudspeaker. I'm fed up with it.", "ru": "Ну да, но громкоговоритель-то один. Мне это надоело."},
+        {"who": "hero", "es": "I'll help you with the announcements.", "ru": "Я помогу тебе с объявлениями."},
+        {"who": "npc", "es": "Thanks. Otherwise I'll just switch the loudspeaker off and that's that.", "ru": "Спасибо. А то выключу громкоговоритель, и дело с концом."}
+      ],
+      "questions": [
+        {"q": "Что Джейк на самом деле сказал в громкоговоритель?", "options": ["«Народ, йогурт за полцены!»", "«Магазин закрывается»", "«Внимание, покупатели»"], "answer": 0},
+        {"q": "Кому нравятся новые объявления?", "options": ["Детям", "Бабушкам", "Никому"], "answer": 1},
+        {"q": "Что делают молодые покупатели?", "options": ["Покупают больше", "Жалуются", "Смеются и уходят"], "answer": 2},
+        {"q": "Что Джейк хочет сделать?", "options": ["Выключить громкоговоритель", "Уволиться", "Купить новый громкоговоритель"], "answer": 0}
+      ],
+      "gloss": {"announcements": "объявления", "kindly": "любезно (вежливое слово)", "informed": "информированы", "applies": "действует", "folks": "народ (по-свойски)", "loudspeaker": "громкоговоритель", "labyrinth": "лабиринт", "grannies": "бабушки", "tone": "тон", "fed": "сыт (fed up — надоело)", "otherwise": "иначе, а то"}
     }
   ]
 }

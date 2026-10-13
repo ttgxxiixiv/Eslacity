@@ -85,6 +85,28 @@
         "appoint": {"kind": "answer", "task": "Скажите, что хотите записаться на завтра.", "branches": [{"phrase": "ph:barber.appointment-tomorrow", "next": "end"}], "wrong": {"es": "An appointment with the raven? He hasn't got a diary.", "ru": "Записаться к ворону? У него нет ежедневника."}},
         "end": {"kind": "say", "es": "Tomorrow at ten. And here: the man with the pipe left this on the chair. A fragment of the forest map, with a black feather in it.", "ru": "Завтра в десять. И держи: человек с трубкой оставил это в кресле. Обрывок карты леса, а в нём чёрное перо."}
       }
+    },
+    {
+      "id": "ms:barber.5",
+      "chapter": 5,
+      "npc": "liam",
+      "scene": "sc:barber.5",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Here comes the mayor's wife, my strictest customer. You say hello, I talk to everyone like a mate.", "ru": "Входит жена мэра, моя самая строгая клиентка. Поздоровайся ты, а то я со всеми как с приятелями.", "next": "greet"},
+        "greet": {"kind": "answer", "task": "Поприветствуйте жену мэра и спросите, что она желает. Официально.", "branches": [{"phrase": "ph:barber.good-morning-madam", "next": "greetsay"}, {"phrase": "ph:barber.hiya-what-today", "next": "greetsay"}], "wrong": {"es": "What did you say to her? She's sat down and isn't saying a word.", "ru": "Что ты ей сказал? Она села и молчит."}, "register": "formal", "tone": {"es": "Oops! \"Hi there\"? Look at her face. With her, always be formal.", "ru": "Ой! «Привет»? Посмотри, какое у неё лицо. С ней всегда официально.", "fem": {"ru": "Что ты ей сказала? Она села и молчит."}}},
+        "greetsay": {"kind": "say", "es": "She only wants a trim. Listen, I'm thinking of throwing my grandad's mirror away. It scares me.", "ru": "Она хочет только подровнять кончики. Слушай, я думаю выбросить дедушкино зеркало. Оно меня пугает.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:barber.mirror-memory", "next": "object", "move": "object"}, {"phrase": "ph:barber.throw-if-scares", "next": "concede", "move": "concede"}, {"phrase": "ph:barber.cover-towel", "next": "compromise", "move": "compromise"}], "wrong": {"es": "What? I'm talking about the mirror, not the lady.", "ru": "Что? Я про зеркало, а не про даму."}},
+        "object": {"kind": "say", "es": "You're right. And if the herald is speaking through it, I want to hear him.", "ru": "Ты прав. К тому же, если через него говорит глашатай, я хочу его услышать.", "next": "appointment", "fem": {"ru": "Ты права. К тому же, если через него говорит глашатай, я хочу его услышать."}},
+        "concede": {"kind": "say", "es": "Yeah… I'll take it down to the cellar. But it's a shame, it was Grandad's.", "ru": "Да… отнесу его в подвал. Но жалко, оно дедушкино.", "next": "appointment"},
+        "compromise": {"kind": "say", "es": "A towel! That way I'll sleep at night, and the mirror stays here.", "ru": "Полотенце! Так я буду спать спокойно, а зеркало останется здесь.", "next": "appointment"},
+        "appointment": {"kind": "answer", "task": "Скажите, что хотите записаться на завтра.", "branches": [{"phrase": "ph:barber.appointment-tomorrow", "next": "appointmentsay"}], "wrong": {"es": "An appointment with the mirror? Better with me.", "ru": "Записаться к зеркалу? Лучше ко мне."}},
+        "appointmentsay": {"kind": "say", "es": "Tomorrow at ten. What shall I do for you?", "ru": "Завтра в десять. Что тебе сделать?", "next": "trim"},
+        "trim": {"kind": "answer", "task": "Попросите только немного подровнять.", "branches": [{"phrase": "ph:barber.little-trim", "next": "trimsay"}], "wrong": {"es": "Trim the echo? If only.", "ru": "Подстричь эхо? Если бы так можно было."}},
+        "trimsay": {"kind": "say", "es": "Deal. Anything else? Your roots are showing.", "ru": "Договорились. Что-нибудь ещё? Корни отросли.", "next": "roots"},
+        "roots": {"kind": "answer", "task": "Попросите подкрасить только корни.", "branches": [{"phrase": "ph:barber.just-roots", "next": "end"}], "wrong": {"es": "Colour the mirror? It's fine as it is.", "ru": "Покрасить зеркало? Оно и так хорошее."}},
+        "end": {"kind": "say", "es": "Of course. And here: there was an old piece of paper behind the mirror. A fragment of the map of the Labyrinth, and on it, in Grandad's hand: \"For the herald, if he comes back.\"", "ru": "Конечно. И держи: за зеркалом была старая бумага. Обрывок карты Лабиринта, а на нём рукой деда: «Для глашатая, если вернётся»."}
+      }
     }
   ]
 }

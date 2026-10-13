@@ -121,6 +121,31 @@
         {"q": "Почему Освальд пугал город лесом?", "options": ["Он хотел найти обрывки сам", "Он не любит гостей", "Боялся снова кого-то потерять"], "answer": 2}
       ],
       "gloss": {"oswald": "Освальд", "pipe": "трубка (курительная)", "unhappy": "несчастный"}
+    },
+    {
+      "id": "sc:office.5",
+      "chapter": 5,
+      "npc": "priya",
+      "lines": [
+        {"who": "npc", "es": "I'm so glad you came! I'm putting the old town hall archive online, and look what I found.", "ru": "Как хорошо, что ты пришёл! Я перевожу старый архив ратуши в электронный вид, и смотри, что нашла.", "fem": {"ru": "Как хорошо, что ты пришла! Я перевожу старый архив ратуши в электронный вид, и смотри, что нашла."}},
+        {"who": "hero", "es": "Something about the herald?", "ru": "Что-то о глашатае?"},
+        {"who": "npc", "es": "His employment contract. Nobody ever dismissed him, and he never resigned. Officially he still works for the town.", "ru": "Его трудовой договор. Его никто не увольнял, и сам он не увольнялся. Официально он до сих пор работает на город."},
+        {"who": "hero", "es": "A hundred years in service, and he never came back to the square.", "ru": "Сто лет на службе — и ни разу не вернулся на площадь."},
+        {"who": "npc", "es": "And there's more. A speech he never read. It begins: \"Dear neighbours, today I have brought you no news.\"", "ru": "И ещё кое-что. Речь, которую он так и не прочитал. Начинается так: «Дорогие соседи, сегодня я не принёс вам новостей»."},
+        {"who": "hero", "es": "\"Dear neighbours\"? But he was always so formal.", "ru": "«Дорогие соседи»? Но он же всегда был таким официальным."},
+        {"who": "npc", "es": "You see? He wanted to change. He wanted to talk to people as a friend.", "ru": "Вот видишь. Он хотел измениться. Хотел говорить с людьми как друг."},
+        {"who": "hero", "es": "Then why didn't he read it?", "ru": "А почему не прочитал?"},
+        {"who": "npc", "es": "Look at the date. The very day he left. I think people laughed at him before he could start.", "ru": "Посмотри на дату. Тот самый день, когда он ушёл. Думаю, над ним засмеялись раньше, чем он успел начать."},
+        {"who": "hero", "es": "So the speech is still waiting.", "ru": "Значит, речь до сих пор ждёт."},
+        {"who": "npc", "es": "Like him. I need to print it, but the archive belongs to my boss, and she is very strict.", "ru": "Как и он. Мне нужно её распечатать, но архивом ведает начальница, а она очень строгая."}
+      ],
+      "questions": [
+        {"q": "Что Прия нашла в старом архиве ратуши?", "options": ["Карту города", "Договор глашатая и его непрочитанную речь", "Старые деньги"], "answer": 1},
+        {"q": "Почему глашатай официально всё ещё работает на город?", "options": ["Его никто не уволил, и сам он не уволился", "Он вернулся вчера", "Так решил мэр"], "answer": 0},
+        {"q": "Как начинается его речь?", "options": ["«Граждане, внимание!»", "«Слушайте все!»", "«Дорогие соседи, сегодня я не принёс вам новостей»"], "answer": 2},
+        {"q": "Почему он так и не прочитал речь?", "options": ["Люди засмеялись раньше, чем он начал", "Потерял голос", "Опоздал"], "answer": 0}
+      ],
+      "gloss": {"archive": "архив", "herald": "глашатай", "employment": "трудовой (employment contract — трудовой договор)", "dismissed": "уволил", "resigned": "уволился сам", "officially": "официально", "speech": "речь", "formal": "официальный", "neighbours": "соседи", "strict": "строгий"}
     }
   ]
 }

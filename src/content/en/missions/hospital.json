@@ -86,6 +86,30 @@
         "foot": {"kind": "answer", "task": "Скажите, что у вас болит нога.", "branches": [{"phrase": "ph:hospital.foot-hurts", "next": "end"}], "wrong": {"es": "Your forest hurts? I can't treat that.", "ru": "У вас болит лес? Это я не лечу."}},
         "end": {"kind": "say", "es": "You walk so much around town… Take this cream. And one more thing: Oswald gave me a fragment of the forest map for you. He says he'll come to the meeting this evening.", "ru": "Столько ходите по городу… Возьмите этот крем. И вот ещё: Освальд дал мне для вас обрывок карты леса. Говорит, вечером придёт на собрание."}
       }
+    },
+    {
+      "id": "ms:hospital.5",
+      "chapter": 5,
+      "npc": "okafor",
+      "scene": "sc:hospital.5",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "First, what all the parents ask me. Help me answer.", "ru": "Сначала то, о чём меня спрашивают все родители. Помоги мне ответить.", "next": "diag"},
+        "diag": {"kind": "answer", "task": "Спросите, какой диагноз.", "branches": [{"phrase": "ph:hospital.diagnosis", "next": "diagsay"}], "wrong": {"es": "The echo's diagnosis? I don't know yet.", "ru": "Диагноз эха? Пока не знаю."}},
+        "diagsay": {"kind": "say", "es": "Loss of voice because of the echo. Here's Billy. You say hello: he won't talk to me… not even with gestures.", "ru": "Потеря голоса из-за эха. Вот Билли. Поздоровайся ты: со мной он не хочет говорить… даже жестами.", "next": "greet"},
+        "greet": {"kind": "answer", "task": "Поздоровайтесь с Билли. Ему десять лет, и вы друзья — по-свойски.", "branches": [{"phrase": "ph:hospital.hey-champ", "next": "greetsay"}, {"phrase": "ph:hospital.how-are-you-today", "next": "greetsay"}], "wrong": {"es": "What did you say to him? Billy is looking at you, confused.", "ru": "Что ты ему сказал? Билли смотрит на тебя, не понимая."}, "register": "informal", "tone": {"es": "\"How are you feeling today?\" Billy hides under the sheet. It's as if the herald had spoken to him. Talk to him like a friend!", "ru": "«Как вы себя сегодня чувствуете?» Билли прячется под простыню. Будто с ним заговорил глашатай. Говори с ним как с другом!", "fem": {"ru": "Что ты ему сказала? Билли смотрит на тебя, не понимая."}}},
+        "greetsay": {"kind": "say", "es": "He's smiling! He writes on a piece of paper: \"I want to go to the forest.\" But as a doctor I would rather he stayed in bed.", "ru": "Улыбается! Пишет на бумажке: «Хочу поехать к лесу». Но я как врач предпочла бы, чтобы он остался в постели.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:hospital.boy-must-come", "next": "object", "move": "object"}, {"phrase": "ph:hospital.better-in-bed", "next": "concede", "move": "concede"}, {"phrase": "ph:hospital.come-without-talking", "next": "compromise", "move": "compromise"}], "wrong": {"es": "Sorry? We're talking about Billy and the trip.", "ru": "Как? Мы говорим о Билли и поездке."}},
+        "object": {"kind": "say", "es": "You're right. It's his play and his voice. I'll come too, just in case.", "ru": "Ты прав. Это его спектакль и его голос. Я тоже поеду, на всякий случай.", "next": "contagious", "fem": {"ru": "Ты права. Это его спектакль и его голос. Я тоже поеду, на всякий случай."}},
+        "concede": {"kind": "say", "es": "Thank you. He'll stay with me. But he gave me a drawing for the herald.", "ru": "Спасибо. Он останется со мной. Но он дал мне рисунок для глашатая.", "next": "contagious"},
+        "compromise": {"kind": "say", "es": "No talking, and with the letter… Yes. That way he helps, and his voice rests.", "ru": "Без разговоров и с письмом… Да. Так он поможет, а голос отдохнёт.", "next": "contagious"},
+        "contagious": {"kind": "answer", "task": "Спросите, заразно ли это.", "branches": [{"phrase": "ph:hospital.contagious", "next": "contagioussay"}], "wrong": {"es": "Is the echo contagious? It's all over town already.", "ru": "Эхо заразно? Оно уже во всём городе."}},
+        "contagioussay": {"kind": "say", "es": "No, don't worry. Any more questions from the parents?", "ru": "Нет, не волнуйся. Ещё вопросы от родителей есть?", "next": "injection"},
+        "injection": {"kind": "answer", "task": "Спросите, нужен ли укол.", "branches": [{"phrase": "ph:hospital.injection", "next": "injectionsay"}], "wrong": {"es": "An injection against the echo? There isn't one.", "ru": "Укол от эха? Такого нет."}},
+        "injectionsay": {"kind": "say", "es": "No need. The only medicine is an answer. Anything else?", "ru": "Не нужно. Единственное лекарство — ответ. Что-нибудь ещё?", "next": "home"},
+        "home": {"kind": "answer", "task": "Спросите, когда можно будет пойти домой.", "branches": [{"phrase": "ph:hospital.go-home", "next": "end"}], "wrong": {"es": "Send the echo home? I wish, tomorrow.", "ru": "Отпустить эхо домой? Хорошо бы завтра."}},
+        "end": {"kind": "say", "es": "When his voice comes back. And here: this was among my grandmother's papers. A fragment of the map of the Labyrinth, marked: \"Here they answer.\"", "ru": "Когда вернётся голос. И держи: это было среди бумаг моей бабушки. Обрывок карты Лабиринта с пометкой: «Здесь отвечают»."}
+      }
     }
   ]
 }

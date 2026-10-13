@@ -90,6 +90,30 @@
         "cramp": {"kind": "answer", "task": "Скажите, что у вас свело ногу.", "branches": [{"phrase": "ph:gym.got-cramp", "next": "end"}], "wrong": {"es": "The raven caught you? No, it's cramp.", "ru": "Тебя схватил ворон? Нет, это судорога."}},
         "end": {"kind": "say", "es": "Stretch, stretch! It's going. Here, have some water. And one more thing: I found this in the garden where that man was. A fragment of the forest map.", "ru": "Тяни, тяни! Уже проходит. Держи, попей воды. И вот ещё: я нашла это в саду, где был тот человек. Обрывок карты леса."}
       }
+    },
+    {
+      "id": "ms:gym.5",
+      "chapter": 5,
+      "npc": "zoe",
+      "scene": "sc:gym.5",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "First, as usual. What do we do before we start?", "ru": "Сначала — как обычно. Что мы делаем перед началом?", "next": "warm"},
+        "warm": {"kind": "answer", "task": "Скажите, что сначала надо размяться.", "branches": [{"phrase": "ph:gym.warm-up", "next": "warmsay"}], "wrong": {"es": "Warm up the echo? It's hot enough already.", "ru": "Разогреть эхо? Оно и так горячее."}},
+        "warmsay": {"kind": "say", "es": "Right. Now twenty steps… Phew, I'm tired. What if I never make it to a thousand?", "ru": "Точно. Теперь двадцать ступенек… Уф, я устала. А вдруг я никогда не дойду до тысячи?", "next": "cheer"},
+        "cheer": {"kind": "answer", "task": "Подбодрите Зои. Вы тренируетесь вместе — по-свойски.", "branches": [{"phrase": "ph:gym.come-on-you-can", "next": "cheersay"}, {"phrase": "ph:gym.confident-succeed", "next": "cheersay"}], "wrong": {"es": "What? I can't hear you over the noise.", "ru": "Что? Я тебя не слышу из-за шума."}, "register": "informal", "tone": {"es": "\"I am confident that you will succeed\"? I'm your trainer, not your boss! That won't cheer me up.", "ru": "«Я убеждён, что вы добьётесь своего»? Я твой тренер, а не начальница! Так ты меня не подбодришь."}},
+        "cheersay": {"kind": "say", "es": "Thanks! Listen, I'm thinking of cancelling the group classes until the echo goes.", "ru": "Спасибо! Слушай, я думаю отменить групповые занятия, пока не уйдёт эхо.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:gym.dont-cancel-classes", "next": "object", "move": "object"}, {"phrase": "ph:gym.cancel-week", "next": "concede", "move": "concede"}, {"phrase": "ph:gym.classes-outside", "next": "compromise", "move": "compromise"}], "wrong": {"es": "What? I'm talking about the classes, not the steps.", "ru": "Что? Я про занятия, а не про ступени."}},
+        "object": {"kind": "say", "es": "You're right, people come here to move. I'll shout louder than the echo.", "ru": "Ты прав, люди приходят двигаться. Буду кричать громче эха.", "next": "fit", "fem": {"ru": "Ты права, люди приходят двигаться. Буду кричать громче эха."}},
+        "concede": {"kind": "say", "es": "A week without classes. But you and I can train for the thousand steps.", "ru": "Неделя без занятий. Зато мы с тобой потренируемся для тысячи ступеней.", "next": "fit"},
+        "compromise": {"kind": "say", "es": "Outside! There are no walls in the park, and the echo gets lost.", "ru": "На улице! В парке нет стен, и эхо теряется.", "next": "fit"},
+        "fit": {"kind": "answer", "task": "Скажите, что хотите прийти в форму.", "branches": [{"phrase": "ph:gym.get-fit", "next": "fitsay"}], "wrong": {"es": "Get the echo fit? Better get yourself fit.", "ru": "Привести в форму эхо? Лучше себя."}},
+        "fitsay": {"kind": "say", "es": "That's what I'm here for. I'll make you something special.", "ru": "Для этого я и здесь. Подготовлю тебе что-то особенное.", "next": "routine"},
+        "routine": {"kind": "answer", "task": "Попросите составить вам программу тренировок.", "branches": [{"phrase": "ph:gym.make-routine", "next": "routinesay"}], "wrong": {"es": "A routine for the echo? It repeats, it doesn't train.", "ru": "Программу для эха? Оно повторяет, а не тренируется."}},
+        "routinesay": {"kind": "say", "es": "Done: stairs every day. How are your legs?", "ru": "Готово: лестницы каждый день. Как ноги?", "next": "legs"},
+        "legs": {"kind": "answer", "task": "Скажите, что вам нужно больше силы в ногах.", "branches": [{"phrase": "ph:gym.stronger-legs", "next": "end"}], "wrong": {"es": "More strength for the echo? No, thank you.", "ru": "Больше силы эху? Нет уж, спасибо."}},
+        "end": {"kind": "say", "es": "With my routine you'll get it. And here: this was in Mum's note. A fragment of the map of the Labyrinth, with a thousand steps drawn on it.", "ru": "С моей программой будет. И держи: это было в маминой записке. Обрывок карты Лабиринта с нарисованной тысячей ступеней."}
+      }
     }
   ]
 }

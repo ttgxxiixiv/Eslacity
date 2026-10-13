@@ -122,6 +122,31 @@
         {"q": "Чем пожилой джентльмен заплатил за билет к лесу?", "options": ["Картой", "Обрывком карты", "Очень старыми монетами"], "answer": 2}
       ],
       "gloss": {"criminal": "преступник", "postman'": "почтальона", "raven": "ворон", "pipe": "трубка (курительная)", "gentleman": "джентльмен", "asleep": "спящий (I'm asleep — я сплю)", "wife": "жена"}
+    },
+    {
+      "id": "sc:station.5",
+      "chapter": 5,
+      "npc": "graham",
+      "lines": [
+        {"who": "npc", "es": "You're just in time. Look at this timetable: I found it in the storeroom.", "ru": "Ты как раз вовремя. Посмотри на это расписание: я нашёл его на складе."},
+        {"who": "hero", "es": "What year is it from?", "ru": "Какого оно года?"},
+        {"who": "npc", "es": "It's a hundred years old. Look at this line: \"Main square to the Forest. Single only.\"", "ru": "Ему сто лет. Посмотри на эту строчку: «Главная площадь — Лес. Только в одну сторону»."},
+        {"who": "hero", "es": "Single only? Who left and never came back?", "ru": "Только в одну сторону? Кто же уезжал и не возвращался?"},
+        {"who": "npc", "es": "Just one passenger, on the last day. Here's the signature: the herald.", "ru": "Один-единственный пассажир, в последний день. Вот подпись: глашатай."},
+        {"who": "hero", "es": "So that's how he went to the Labyrinth.", "ru": "Так он и уехал в Лабиринт."},
+        {"who": "npc", "es": "It seems so. The rails are still there. Old, but a small train can get through.", "ru": "Похоже на то. Рельсы ещё есть. Старые, но маленький поезд пройдёт."},
+        {"who": "hero", "es": "Can we use them?", "ru": "Мы можем ими воспользоваться?"},
+        {"who": "npc", "es": "We need the inspector's permission. And our inspector is a man of strict rules.", "ru": "Нужно разрешение инспектора. А инспектор у нас — человек строгих правил."},
+        {"who": "hero", "es": "Let's speak to him respectfully.", "ru": "Поговорим с ним уважительно."},
+        {"who": "npc", "es": "Please do. By the way, the echo announces my trains as if it were inviting people to a party. What a nightmare!", "ru": "Уж постарайся. Кстати, эхо объявляет мои поезда, будто зовёт на праздник. Какой кошмар!"}
+      ],
+      "questions": [
+        {"q": "Что Грэм нашёл на складе?", "options": ["Столетнее расписание", "Старый поезд", "Чемодан глашатая"], "answer": 0},
+        {"q": "Что написано в строчке расписания?", "options": ["«Лес — Главная площадь»", "«Главная площадь — Лес. Только в одну сторону»", "«Поезд отменён»"], "answer": 1},
+        {"q": "Кто был единственным пассажиром?", "options": ["Освальд", "Рори", "Глашатай"], "answer": 2},
+        {"q": "Чьё разрешение нужно, чтобы пустить поезд?", "options": ["Инспектора", "Мэра", "Хранительницы"], "answer": 0}
+      ],
+      "gloss": {"timetable": "расписание", "storeroom": "склад, кладовая", "single": "в одну сторону", "passenger": "пассажир", "signature": "подпись", "herald": "глашатай", "labyrinth": "лабиринт", "rails": "рельсы", "inspector'": "инспектора", "permission": "разрешение", "strict": "строгий", "respectfully": "уважительно", "announces": "объявляет", "nightmare": "кошмар", "were": "был (as if it were — будто)"}
     }
   ]
 }

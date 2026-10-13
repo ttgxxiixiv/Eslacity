@@ -121,6 +121,34 @@
         {"q": "Что сказал голос в полночь?", "options": ["Лес закрыт", "Ворон вернётся", "Теперь тропа слышна, и пусть придёт тот, кто принёс мир"], "answer": 2}
       ],
       "gloss": {"neighbours'": "соседей", "oswald": "Освальд", "raven": "ворон", "hug": "объятие (give a hug — обнять)", "tobacco": "табак", "pipe": "трубка (курительная)", "clearly": "отчётливо", "peace": "мир", "master": "начальник (station master — начальник станции)", "midnight": "полночь"}
+    },
+    {
+      "id": "sc:police.5",
+      "chapter": 5,
+      "npc": "bradley",
+      "lines": [
+        {"who": "npc", "es": "Good afternoon. Please sit down. Yesterday I received an official letter. Have a look.", "ru": "Добрый день. Садитесь. Вчера я получил официальное письмо. Взгляните."},
+        {"who": "hero", "es": "Who is it from?", "ru": "От кого оно?"},
+        {"who": "npc", "es": "From the herald. He writes: \"Dear Inspector, with the greatest respect, I request that someone answer me.\"", "ru": "От глашатая. Пишет так: «Уважаемый инспектор! Со всем почтением прошу, чтобы кто-нибудь мне ответил»."},
+        {"who": "hero", "es": "Even when he asks for help, he is formal.", "ru": "Даже о помощи он просит официально."},
+        {"who": "npc", "es": "For a hundred years. And it is signed: \"Your humble servant, the town herald.\"", "ru": "И так сто лет. А подпись: «Ваш покорный слуга, городской глашатай»."},
+        {"who": "hero", "es": "What will you do?", "ru": "Что вы будете делать?"},
+        {"who": "npc", "es": "What the law tells me: answer a neighbour. Tomorrow at seven Graham sends a train to the forest.", "ru": "То, что велит закон: ответить соседу. Завтра в семь Грэм отправляет поезд к лесу."},
+        {"who": "hero", "es": "Who is going?", "ru": "Кто едет?"},
+        {"who": "npc", "es": "Dan with the children's letter, Oswald, Billy and half the town. I have never seen so many people who want to answer.", "ru": "Дэн с письмом детей, Освальд, Билли и полгорода. Никогда не видел, чтобы столько людей хотели ответить."},
+        {"who": "npc", "es": "Oswald is going happily. He did not pay the fine, and he says he now owes you a favour.", "ru": "Освальд едет довольный. Штраф он не платил и говорит, что теперь у него долг перед вами.", "if": {"flag": "fine", "is": "forgiven"}},
+        {"who": "npc", "es": "Oswald has already paid his half of the fine, and I paid the other. Now we are even.", "ru": "Освальд уже заплатил свою половину штрафа, а я — другую. Теперь мы в расчёте.", "if": {"flag": "fine", "is": "paid"}},
+        {"who": "npc", "es": "Oswald is going with blue hands: he is still painting the post office wall.", "ru": "Освальд едет с синими руками: он всё ещё красит стену почты.", "if": {"flag": "fine", "is": "work"}},
+        {"who": "hero", "es": "So everything is ready.", "ru": "Значит, всё готово."},
+        {"who": "npc", "es": "Almost. We are missing you. You know how to talk to everyone, in any tone. That is why he wrote to you as well.", "ru": "Почти. Не хватает вас. Вы умеете говорить с каждым и любым тоном. Поэтому он написал и вам."}
+      ],
+      "questions": [
+        {"q": "Что получил инспектор Брэдли?", "options": ["Посылку", "Официальное письмо от глашатая", "Жалобу"], "answer": 1},
+        {"q": "О чём просит глашатай в письме?", "options": ["Чтобы кто-нибудь ему ответил", "Вернуть ему деньги", "Закрыть лес"], "answer": 0},
+        {"q": "Кто поедет на поезде к лесу?", "options": ["Только инспектор", "Никто", "Дэн с письмом детей, Освальд, Билли и полгорода"], "answer": 2},
+        {"q": "Почему глашатай написал и герою?", "options": ["Герой говорит со всеми, любым тоном", "Герой — его родственник", "Герой — полицейский"], "answer": 0}
+      ],
+      "gloss": {"official": "официальный", "herald": "глашатай", "inspector": "инспектор", "request": "просить (официально)", "formal": "официальный", "signed": "подписано", "humble": "покорный", "servant": "слуга", "graham": "Грэм", "children'": "детей", "oswald": "Освальд", "billy": "Билли", "owes": "должен", "favour": "услуга", "even": "в расчёте", "tone": "тон"}
     }
   ]
 }

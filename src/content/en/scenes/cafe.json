@@ -127,6 +127,34 @@
         {"q": "Что делает лес тише?", "options": ["Дождь", "Спор, который закончился миром", "Музыка"], "answer": 1}
       ],
       "gloss": {"rory": "Рори", "merchant": "купец", "backs": "спины (behind their backs — за спиной)", "keeper": "хранительница", "complaints": "жалобы", "arguments": "ссоры, споры", "argument": "спор", "peace": "мир"}
+    },
+    {
+      "id": "sc:cafe.5",
+      "chapter": 5,
+      "npc": "molly",
+      "lines": [
+        {"who": "npc", "es": "I'm so glad you're here! Look: a letter from Sam. He's on the other side of the forest, with Rory.", "ru": "Как хорошо, что ты пришёл! Вот, посмотри: письмо от Сэма. Он по ту сторону леса, с Рори.", "fem": {"ru": "Как хорошо, что ты пришла! Вот, посмотри: письмо от Сэма. Он по ту сторону леса, с Рори."}},
+        {"who": "npc", "es": "He left the day after our talk. I said goodbye to him without shouting.", "ru": "Он ушёл на следующий день после нашего разговора. Я попрощалась с ним без крика.", "if": {"flag": "brother", "is": "free"}},
+        {"who": "npc", "es": "He stayed at home for three days, like we decided. On the fourth he left without a word.", "ru": "Он три дня просидел дома, как мы решили. На четвёртый ушёл, ничего не сказав.", "if": {"flag": "brother", "is": "home"}},
+        {"who": "npc", "es": "He was only going to the edge of the forest. But from the village he went on with Rory.", "ru": "Он должен был дойти только до опушки. Но из деревни пошёл дальше с Рори.", "if": {"flag": "brother", "is": "edge"}},
+        {"who": "hero", "es": "What does it say?", "ru": "Что там?"},
+        {"who": "npc", "es": "\"Dear Madam, I am writing to inform you that I am well.\" Dear Madam? I'm his sister!", "ru": "«Уважаемая мадам, сообщаю вам, что у меня всё хорошо». Уважаемая мадам? Я его сестра!"},
+        {"who": "hero", "es": "Strange. Sam never writes like that.", "ru": "Странно. Сэм никогда так не пишет."},
+        {"who": "npc", "es": "And there's a note from Rory: beyond the forest begins the Labyrinth of Echoes.", "ru": "А ещё там записка от Рори: за лесом начинается Лабиринт Эха."},
+        {"who": "hero", "es": "A labyrinth?", "ru": "Лабиринт?"},
+        {"who": "npc", "es": "Yes. There every word comes back in a different voice. Kind words sound cold, polite words sound rude.", "ru": "Да. Там каждое слово возвращается другим голосом. Ласковое звучит холодно, вежливое — грубо."},
+        {"who": "hero", "es": "So the letter went through the Labyrinth.", "ru": "Значит, письмо прошло через Лабиринт."},
+        {"who": "npc", "es": "That's what Rory says. And the echo is reaching the town: today a customer spoke to me like a police officer.", "ru": "Так пишет Рори. И эхо уже доходит до города: сегодня один клиент говорил со мной, как полицейский."},
+        {"who": "hero", "es": "It's not your fault, it's the echo.", "ru": "Ты не виновата, это эхо."},
+        {"who": "npc", "es": "I know… but it hurts. Sam hasn't written to me like that for years.", "ru": "Да… но мне обидно. Сэм уже много лет мне так не писал."}
+      ],
+      "questions": [
+        {"q": "Где сейчас Сэм?", "options": ["Дома", "По ту сторону леса, с Рори", "В больнице"], "answer": 1},
+        {"q": "Что не так с письмом Сэма?", "options": ["Оно слишком официальное", "Оно без подписи", "Оно мокрое"], "answer": 0},
+        {"q": "Что происходит в Лабиринте Эха?", "options": ["Там всегда темно", "Там нельзя говорить", "Каждое слово возвращается другим голосом"], "answer": 2},
+        {"q": "Почему Молли обидно?", "options": ["Сэм не написал", "Брат пишет ей холодно, как чужой", "Рори её забыл"], "answer": 1}
+      ],
+      "gloss": {"fault": "вина", "madam": "мадам", "inform": "сообщать", "beyond": "за, по ту сторону", "labyrinth": "лабиринт", "echoes": "эхо (мн.)", "rory": "Рори", "polite": "вежливый", "rude": "грубый", "hurts": "больно, обидно"}
     }
   ]
 }

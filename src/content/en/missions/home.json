@@ -87,6 +87,30 @@
         "shelf": {"kind": "answer", "task": "Спросите, может ли она починить эту полку.", "branches": [{"phrase": "ph:home.fix-shelf", "next": "end"}], "wrong": {"es": "Books in the forest? It's even wetter there!", "ru": "Книги — в лес? Там ещё сырее!"}},
         "end": {"kind": "say", "es": "I'll hold it, you fix it… There, the water won't reach them. And look what was between the books: a fragment of the forest map. Oswald brought it from the lighthouse. He says it's for you.", "ru": "Я подержу, а ты чини… Вот, туда вода не достанет. И смотри, что было между книгами: обрывок карты леса. Освальд принёс его с маяка. Говорит, это для тебя."}
       }
+    },
+    {
+      "id": "ms:home.5",
+      "chapter": 5,
+      "npc": "higgins",
+      "scene": "sc:home.5",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "I've got the phone in my hand. Will you help me talk to him? I'm so angry!", "ru": "Я уже держу телефон. Поможешь мне с ним поговорить? Я так зла!", "next": "heat"},
+        "heat": {"kind": "answer", "task": "Напомните миссис Хиггинс, что отопление не работает: об этом тоже надо сказать.", "branches": [{"phrase": "ph:home.heating", "next": "heatsay"}], "wrong": {"es": "The heating's working? Oh, come on! That's why I'm cold.", "ru": "Отопление работает? Да ну! Поэтому мне и холодно."}},
+        "heatsay": {"kind": "say", "es": "Right! I'll mention that too. He's answering… You speak first, or I'll start shouting.", "ru": "Точно! И об этом скажу. Он уже отвечает… Говори первым ты, а то я сорвусь на крик.", "next": "call"},
+        "call": {"kind": "answer", "task": "Начните разговор с хозяином квартиры: официально.", "branches": [{"phrase": "ph:home.calling-about-letter", "next": "callsay"}, {"phrase": "ph:home.whats-this-letter", "next": "callsay"}], "wrong": {"es": "What did you say to him? He says he didn't understand anything.", "ru": "Что ты ему сказал? Он говорит, что ничего не понял."}, "register": "formal", "tone": {"es": "Oh no! \"Hey\"? He's the landlord, not your cousin. Now he's offended.", "ru": "Ой, нет! «Слушай»? Это хозяин квартиры, а не твой двоюродный брат. Теперь он обиделся.", "fem": {"ru": "Что ты ему сказала? Он говорит, что ничего не понял."}}},
+        "callsay": {"kind": "say", "es": "He says he wrote \"Please pay when you can.\" The echo! But I'm still tired of all this stress: I'm moving out.", "ru": "Он говорит, что написал «Пожалуйста, заплатите, когда сможете». Эхо! И всё равно я устала от этих нервов: съеду отсюда.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:home.dont-leave-letter", "next": "object", "move": "object"}, {"phrase": "ph:home.find-another-flat", "next": "concede", "move": "concede"}, {"phrase": "ph:home.talk-in-person", "next": "compromise", "move": "compromise"}], "wrong": {"es": "What? I'm talking about the flat, not dinner.", "ru": "Что? Я про квартиру, а не про ужин."}},
+        "object": {"kind": "say", "es": "You're right. I've lived here for forty years. I'm not leaving because of a letter from the echo.", "ru": "Ты прав. Я живу здесь сорок лет. Из-за письма от эха не уеду.", "next": "water", "fem": {"ru": "Ты права. Я живу здесь сорок лет. Из-за письма от эха не уеду."}},
+        "concede": {"kind": "say", "es": "Yes… I'll look at flats nearer the park. But no rush.", "ru": "Да… посмотрю квартиры поближе к парку. Но без спешки.", "next": "water"},
+        "compromise": {"kind": "say", "es": "In person, of course. Then the echo can't change anything. I'll go and see him tomorrow.", "ru": "Лично, конечно. Тогда эхо ничего не изменит. Завтра схожу к нему.", "next": "water"},
+        "water": {"kind": "answer", "task": "Скажите, что на полу вода: опять протекает.", "branches": [{"phrase": "ph:home.water-floor", "next": "watersay"}], "wrong": {"es": "Echo on the floor? No, water. Lots of it!", "ru": "На полу эхо? Нет, вода. И много!"}},
+        "watersay": {"kind": "say", "es": "Again! It's the old pipe. You phone, please.", "ru": "Опять! Это старая труба. Позвони ты, пожалуйста.", "next": "plumber"},
+        "plumber": {"kind": "answer", "task": "Скажите по телефону, что у вас протечка и нужен сантехник.", "branches": [{"phrase": "ph:home.leak-plumber", "next": "plumbersay"}], "wrong": {"es": "A broken echo? A plumber can't fix that.", "ru": "Сломанное эхо? Такое сантехник не чинит."}},
+        "plumbersay": {"kind": "say", "es": "Well said. The plumber is coming this afternoon. And if I ever move, what should I ask first?", "ru": "Хорошо сказано. Сантехник придёт сегодня днём. А если я когда-нибудь перееду, что спросить первым делом?", "next": "costs"},
+        "costs": {"kind": "answer", "task": "Подскажите: спросить, сколько в месяц коммунальные платежи.", "branches": [{"phrase": "ph:home.utility-bills", "next": "end"}], "wrong": {"es": "How much is the echo? Nothing, but it's expensive.", "ru": "Сколько стоит эхо? Ничего, но обходится дорого."}},
+        "end": {"kind": "say", "es": "Good question. Here, this was in my grandmother's notebook: a fragment of the map of the Labyrinth. Next to it she wrote: \"A different voice for every door.\"", "ru": "Хороший вопрос. Держи, это лежало в бабушкиной тетради: обрывок карты Лабиринта. Рядом написано: «У каждой двери — другой голос»."}
+      }
     }
   ]
 }

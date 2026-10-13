@@ -89,6 +89,30 @@
         "enough": {"kind": "answer", "task": "Скажите, что больше ничего не нужно.", "branches": [{"phrase": "ph:market.thats-all", "next": "end"}], "wrong": {"es": "Nothing but tomatoes? Then tomatoes it is.", "ru": "Ничего, кроме помидоров? Значит, помидоры."}},
         "end": {"kind": "say", "es": "Take this too: a fragment of the forest map. The cheese farmer gave it to me. He says the trees don't make anything up, they only repeat.", "ru": "Возьми ещё вот это: обрывок карты леса. Мне дал его сыровар. Говорит, деревья ничего не выдумывают, только повторяют."}
       }
+    },
+    {
+      "id": "ms:market.5",
+      "chapter": 5,
+      "npc": "patel",
+      "scene": "sc:market.5",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Come here, love, I've kept the best for you. What can I weigh for you today?", "ru": "Иди сюда, дорогуша, я тебе лучшее отложила. Что тебе сегодня взвесить?", "next": "fruit"},
+        "fruit": {"kind": "answer", "task": "Спросите, какие фрукты сейчас по сезону.", "branches": [{"phrase": "ph:market.in-season", "next": "fruitsay"}], "wrong": {"es": "Fruit from the Labyrinth? None at all, love.", "ru": "Фрукты из Лабиринта? Никаких, дорогуша."}},
+        "fruitsay": {"kind": "say", "es": "Cherries, they're lovely right now. But oh, I'm in such a mood… Another customer answered me as if she were reading out a sentence in court.", "ru": "Черешня — она сейчас чудо как хороша. Но ох, я в таком настроении… Ещё одна покупательница ответила мне так, будто приговор зачитала.", "next": "calm"},
+        "calm": {"kind": "answer", "task": "Скажите миссис Патель, чтобы не принимала близко к сердцу. Она говорит только по-свойски.", "branches": [{"phrase": "ph:market.dont-take-personally", "next": "calmsay"}, {"phrase": "ph:market.please-dont-take", "next": "calmsay"}], "wrong": {"es": "Have a coffee? I've already had two cups.", "ru": "Выпить кофе? Я уже две чашки выпила."}, "register": "informal", "tone": {"es": "\"Madam\"? Love, you've known me for years! Don't talk to me like the echo.", "ru": "«Мадам»? Дорогуша, ты меня сто лет знаешь! Не говори со мной, как эхо."}},
+        "calmsay": {"kind": "say", "es": "You're right. But look what I'm going to do: a big sign. \"Here we say please.\"", "ru": "Ты прав. Но смотри, что я сделаю: большую табличку. «Здесь говорят „пожалуйста“».", "next": "dispute", "fem": {"ru": "Ты права. Но смотри, что я сделаю: большую табличку. «Здесь говорят „пожалуйста“»."}},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:market.sign-wont-fix", "next": "object", "move": "object"}, {"phrase": "ph:market.good-idea-sign", "next": "concede", "move": "concede"}, {"phrase": "ph:market.sign-with-humour", "next": "compromise", "move": "compromise"}], "wrong": {"es": "What are you saying? I'm talking about the sign, love.", "ru": "Что ты говоришь? Я про табличку, дорогуша."}},
+        "object": {"kind": "say", "es": "Yes… A sign won't stop the echo. I'd better smile and ask again.", "ru": "Да… Табличка эхо не остановит. Лучше улыбнусь и переспрошу.", "next": "cherries"},
+        "concede": {"kind": "say", "es": "There! I'll put it up by the entrance, big, in red letters.", "ru": "Вот! Повешу у входа, большую, красными буквами.", "next": "cherries"},
+        "compromise": {"kind": "say", "es": "With humour? I like it: \"Here we say please… and the echo pays double.\"", "ru": "С юмором? Мне нравится: «Здесь говорят „пожалуйста“… а эхо платит вдвойне».", "next": "cherries"},
+        "cherries": {"kind": "answer", "task": "Попросите полкило черешни.", "branches": [{"phrase": "ph:market.half-cherries", "next": "cherriessay"}], "wrong": {"es": "Half a kilo of sign? I don't sell that, love.", "ru": "Полкило таблички? Такое не продаётся, дорогуша."}},
+        "cherriessay": {"kind": "say", "es": "Here, the best ones. And the peaches? They're very sweet.", "ru": "Держи, самые лучшие. А персики? Они очень сладкие.", "next": "taste"},
+        "taste": {"kind": "answer", "task": "Спросите, можно ли попробовать.", "branches": [{"phrase": "ph:market.can-i-taste", "next": "tastesay"}], "wrong": {"es": "Can you pay? Not yet, try it first.", "ru": "Можно заплатить? Пока нет, сначала попробуй."}},
+        "tastesay": {"kind": "say", "es": "Of course! Here. Sweet, eh? Anything else?", "ru": "Конечно! Держи. Сладкий, а? Что-нибудь ещё?", "next": "enough"},
+        "enough": {"kind": "answer", "task": "Скажите, что больше ничего не нужно, спасибо.", "branches": [{"phrase": "ph:market.thats-all", "next": "end"}], "wrong": {"es": "Nothing but cherries? You've already got them.", "ru": "Ничего, кроме черешни? Так она у тебя уже есть."}},
+        "end": {"kind": "say", "es": "Lovely, love. And here: my mum kept a fragment of the map of the Labyrinth among her recipes. It says: \"Every voice has its own door.\"", "ru": "Отлично, дорогуша. И держи: мама хранила обрывок карты Лабиринта среди рецептов. На нём написано: «У каждого голоса своя дверь»."}
+      }
     }
   ]
 }

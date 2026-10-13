@@ -1,0 +1,864 @@
+{
+  "letters": [
+    {
+      "id": "lt:bank",
+      "location": "bank",
+      "chapter": 5,
+      "register": "formal",
+      "title": "Жалоба в банк",
+      "request": {
+        "es": "If you wish to dispute the charge, I will need a written complaint.",
+        "ru": "Если хотите оспорить списание, мне нужна письменная жалоба."
+      },
+      "task": "С вашей карты дважды списали 60 фунтов за один ужин. Напишите мистеру Уитмору официальную жалобу: что случилось, чего вы просите, вежливое прощание.",
+      "sample": "Dear Mr Whitmore,\nI am writing to complain about a charge on my account. On 3 May I was charged sixty pounds twice for the same dinner. Please find enclosed my bank statement. I would therefore be grateful if you could refund the second payment as soon as possible. Furthermore, I would appreciate written confirmation.\nI look forward to hearing from you.\nYours sincerely,",
+      "checks": [
+        {
+          "label": "Обращение",
+          "examples": [
+            "Dear Mr Whitmore,"
+          ]
+        },
+        {
+          "label": "Цель письма",
+          "examples": [
+            "I am writing to complain about"
+          ]
+        },
+        {
+          "label": "Связки",
+          "examples": [
+            "therefore",
+            "Furthermore"
+          ]
+        },
+        {
+          "label": "Вежливая просьба",
+          "examples": [
+            "be grateful if you could",
+            "I would appreciate"
+          ]
+        },
+        {
+          "label": "Вежливое прощание",
+          "examples": [
+            "I look forward to hearing from you",
+            "Yours sincerely"
+          ]
+        },
+        {
+          "label": "Регистр: без сокращений",
+          "examples": [
+            "I am writing",
+            "I would appreciate"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lt:hotel",
+      "location": "hotel",
+      "chapter": 5,
+      "register": "formal",
+      "title": "Перенос брони",
+      "request": {
+        "es": "Please send us your request in writing and we will see what we can do.",
+        "ru": "Пришлите нам просьбу письменно, и мы посмотрим, что можно сделать."
+      },
+      "task": "Вы забронировали номер на три ночи, но приедете на день позже. Напишите в отель: попросите перенести бронь и узнайте про парковку.",
+      "sample": "Dear Sir or Madam,\nI am writing with regard to my booking for three nights from 12 June. Unfortunately, I will be arriving one day later than planned. Could you therefore change my booking to 13 June? In addition, I would be grateful if you could tell me whether the hotel has parking.\nThank you in advance for your help.\nYours faithfully,",
+      "checks": [
+        {
+          "label": "Обращение",
+          "examples": [
+            "Dear Sir or Madam,"
+          ]
+        },
+        {
+          "label": "Цель письма",
+          "examples": [
+            "I am writing with regard to"
+          ]
+        },
+        {
+          "label": "Связки",
+          "examples": [
+            "Unfortunately",
+            "therefore",
+            "In addition"
+          ]
+        },
+        {
+          "label": "Вежливая просьба",
+          "examples": [
+            "Could you",
+            "I would be grateful if you could"
+          ]
+        },
+        {
+          "label": "Вежливое прощание",
+          "examples": [
+            "Thank you in advance",
+            "Yours faithfully"
+          ]
+        },
+        {
+          "label": "Регистр: без сокращений",
+          "examples": [
+            "I am writing",
+            "I will be arriving"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lt:airport",
+      "location": "airport",
+      "chapter": 5,
+      "register": "formal",
+      "title": "Потерянный багаж",
+      "request": {
+        "es": "Please write to the airline with all the details, and they will find your suitcase.",
+        "ru": "Напишите авиакомпании со всеми подробностями, и чемодан найдут."
+      },
+      "task": "Ваш чемодан не прилетел из Рима. Напишите авиакомпании: номер рейса, как выглядит чемодан и куда его доставить.",
+      "sample": "Dear Sir or Madam,\nI am writing to report that my suitcase did not arrive on flight BA 552 from Rome on 8 July. It is a large blue suitcase with a red ribbon on the handle. Should you find it, please deliver it to the Seaview Hotel, where I am staying until Sunday.\nI look forward to your reply.\nYours faithfully,",
+      "checks": [
+        {
+          "label": "Обращение",
+          "examples": [
+            "Dear Sir or Madam,"
+          ]
+        },
+        {
+          "label": "Цель письма",
+          "examples": [
+            "I am writing to report that"
+          ]
+        },
+        {
+          "label": "Связки и условие",
+          "examples": [
+            "Should you find it"
+          ]
+        },
+        {
+          "label": "Вежливая просьба",
+          "examples": [
+            "please deliver it to"
+          ]
+        },
+        {
+          "label": "Вежливое прощание",
+          "examples": [
+            "I look forward to your reply",
+            "Yours faithfully"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lt:office",
+      "location": "office",
+      "chapter": 5,
+      "register": "formal",
+      "title": "Сопроводительное письмо",
+      "request": {
+        "es": "If you are interested in the job, send me a covering letter with your CV.",
+        "ru": "Если вас интересует работа, пришлите сопроводительное письмо и резюме."
+      },
+      "task": "Вы хотите работать ассистентом в офисе Прии. Напишите сопроводительное письмо: кто вы, почему подходите, попросите о собеседовании.",
+      "sample": "Dear Ms Shah,\nI am writing to apply for the position of assistant in your office. I have three years of experience in customer service, and I am used to working under pressure. Moreover, I speak three languages. I would welcome the opportunity to discuss my application at an interview.\nThank you for your consideration.\nYours sincerely,",
+      "checks": [
+        {
+          "label": "Обращение",
+          "examples": [
+            "Dear Ms Shah,"
+          ]
+        },
+        {
+          "label": "Цель письма",
+          "examples": [
+            "I am writing to apply for"
+          ]
+        },
+        {
+          "label": "Связки",
+          "examples": [
+            "Moreover"
+          ]
+        },
+        {
+          "label": "Вежливая просьба",
+          "examples": [
+            "I would welcome the opportunity"
+          ]
+        },
+        {
+          "label": "Вежливое прощание",
+          "examples": [
+            "Thank you for your consideration",
+            "Yours sincerely"
+          ]
+        },
+        {
+          "label": "Регистр: без сокращений",
+          "examples": [
+            "I am used to",
+            "I would welcome"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lt:police",
+      "location": "police",
+      "chapter": 5,
+      "register": "formal",
+      "title": "Заявление о краже",
+      "request": {
+        "es": "To open an investigation, I need a written statement from you.",
+        "ru": "Чтобы начать расследование, мне нужно ваше письменное заявление."
+      },
+      "task": "У вас украли велосипед у вокзала. Напишите заявление инспектору Брэдли: когда и где это случилось, как выглядел велосипед и чего вы просите.",
+      "sample": "Dear Inspector Bradley,\nI wish to report the theft of my bicycle. On Monday 5 May, between eight and nine in the morning, it was stolen from outside the railway station. It is a green bicycle with a black basket. I would therefore be grateful if you could open an investigation and inform me of any progress.\nYours sincerely,",
+      "checks": [
+        {
+          "label": "Обращение",
+          "examples": [
+            "Dear Inspector Bradley,"
+          ]
+        },
+        {
+          "label": "Официальное начало",
+          "examples": [
+            "I wish to report"
+          ]
+        },
+        {
+          "label": "Связки",
+          "examples": [
+            "therefore"
+          ]
+        },
+        {
+          "label": "Вежливая просьба",
+          "examples": [
+            "be grateful if you could"
+          ]
+        },
+        {
+          "label": "Вежливое прощание",
+          "examples": [
+            "Yours sincerely"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lt:post",
+      "location": "post",
+      "chapter": 5,
+      "register": "formal",
+      "title": "Жалоба на повреждённую посылку",
+      "request": {
+        "es": "To make a claim, you must write to us and describe the damage.",
+        "ru": "Чтобы получить возмещение, напишите нам и опишите повреждения."
+      },
+      "task": "Посылка из Эдинбурга пришла разбитой. Напишите на почту: что было в посылке, в каком виде она пришла и чего вы просите.",
+      "sample": "Dear Sir or Madam,\nI am writing to complain about a parcel which I received yesterday from Edinburgh. It contained two china cups, and both of them arrived broken. As a result, I would like to claim compensation. Please find enclosed a photograph of the damage and the receipt.\nI look forward to hearing from you.\nYours faithfully,",
+      "checks": [
+        {
+          "label": "Обращение",
+          "examples": [
+            "Dear Sir or Madam,"
+          ]
+        },
+        {
+          "label": "Цель письма",
+          "examples": [
+            "I am writing to complain about"
+          ]
+        },
+        {
+          "label": "Связки",
+          "examples": [
+            "As a result"
+          ]
+        },
+        {
+          "label": "Вежливая просьба",
+          "examples": [
+            "I would like to claim compensation",
+            "Please find enclosed"
+          ]
+        },
+        {
+          "label": "Вежливое прощание",
+          "examples": [
+            "I look forward to hearing from you",
+            "Yours faithfully"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lt:cafe",
+      "location": "cafe",
+      "chapter": 5,
+      "register": "informal",
+      "title": "Ответ на приглашение",
+      "request": {
+        "es": "It's my birthday on Saturday! Will you come? Write back!",
+        "ru": "В субботу мой день рождения! Придёшь? Напиши!"
+      },
+      "task": "Молли зовёт вас на день рождения в субботу. Ответьте по-дружески: поблагодарите, скажите, что придёте, но опоздаете, и спросите, что принести.",
+      "sample": "Hi Molly!\nThanks so much for the invite! Of course I'm coming, but I'll be a bit late, because I've got to work till seven. Anyway, I'll be there by eight, I promise. By the way, do you want me to bring anything? Cake? Music?\nCan't wait!\nLots of love,",
+      "checks": [
+        {
+          "label": "Приветствие",
+          "examples": [
+            "Hi Molly!"
+          ]
+        },
+        {
+          "label": "Благодарность",
+          "examples": [
+            "Thanks so much for the invite!"
+          ]
+        },
+        {
+          "label": "Разговорные связки",
+          "examples": [
+            "Anyway",
+            "By the way"
+          ]
+        },
+        {
+          "label": "Дружеское прощание",
+          "examples": [
+            "Can't wait!",
+            "Lots of love"
+          ]
+        },
+        {
+          "label": "Регистр: сокращения",
+          "examples": [
+            "I'm coming",
+            "I'll be"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lt:home",
+      "location": "home",
+      "chapter": 5,
+      "register": "informal",
+      "title": "Записка соседке",
+      "request": {
+        "es": "Welcome back! Your flowers are fine, I watered them every day.",
+        "ru": "С возвращением! Цветы в порядке, я поливала их каждый день."
+      },
+      "task": "Пока вас не было неделю, миссис Хиггинс поливала ваши цветы. Напишите ей записку: поблагодарите, расскажите о поездке, позовите на чай.",
+      "sample": "Hi Mrs Higgins!\nThanks a million for watering my flowers, they look lovely! The trip was amazing: the sea was warm and the people were really friendly. Plus, I've brought you some biscuits from Scotland. Why don't you come round for tea on Sunday?\nSee you soon,",
+      "checks": [
+        {
+          "label": "Приветствие",
+          "examples": [
+            "Hi Mrs Higgins!"
+          ]
+        },
+        {
+          "label": "Благодарность",
+          "examples": [
+            "Thanks a million"
+          ]
+        },
+        {
+          "label": "Связки",
+          "examples": [
+            "Plus"
+          ]
+        },
+        {
+          "label": "Приглашение",
+          "examples": [
+            "Why don't you come round"
+          ]
+        },
+        {
+          "label": "Дружеское прощание",
+          "examples": [
+            "See you soon"
+          ]
+        },
+        {
+          "label": "Регистр: сокращения",
+          "examples": [
+            "I've brought",
+            "don't"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lt:gym",
+      "location": "gym",
+      "chapter": 5,
+      "register": "informal",
+      "title": "Извинение тренеру",
+      "request": {
+        "es": "You missed training! What happened?",
+        "ru": "Тебя не было на тренировке! Что случилось?"
+      },
+      "task": "Вы пропустили тренировку у Зои. Напишите ей по-дружески: извинитесь, объясните, что случилось, и договоритесь о новом дне.",
+      "sample": "Hi Zoe,\nReally sorry I missed training yesterday! My train got stuck in the forest for two hours, so there was no way I could make it. Anyway, how about Thursday at six instead? I promise I'll do twenty extra squats!\nCheers,",
+      "checks": [
+        {
+          "label": "Приветствие",
+          "examples": [
+            "Hi Zoe,"
+          ]
+        },
+        {
+          "label": "Извинение",
+          "examples": [
+            "Really sorry I missed"
+          ]
+        },
+        {
+          "label": "Разговорные связки",
+          "examples": [
+            "so",
+            "Anyway"
+          ]
+        },
+        {
+          "label": "Предложение",
+          "examples": [
+            "how about Thursday"
+          ]
+        },
+        {
+          "label": "Дружеское прощание",
+          "examples": [
+            "Cheers"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lt:beach",
+      "location": "beach",
+      "chapter": 5,
+      "register": "informal",
+      "title": "Ответ на турнир",
+      "request": {
+        "es": "Join my volleyball team for the tournament! Are you in?",
+        "ru": "Иди ко мне в команду на турнир по волейболу! Ты с нами?"
+      },
+      "task": "Финн зовёт вас в свою команду на турнир по волейболу. Ответьте по-дружески: вы бы с радостью, но играете плохо; предложите помочь по-другому.",
+      "sample": "Hey Finn!\nThanks for asking me, I'd love to! The thing is, I'm terrible at volleyball. Honestly, you'd lose because of me. But I could help in other ways: I can bring drinks, or keep the score. What do you think?\nTake care,",
+      "checks": [
+        {
+          "label": "Приветствие",
+          "examples": [
+            "Hey Finn!"
+          ]
+        },
+        {
+          "label": "Мягкий отказ",
+          "examples": [
+            "I'd love to! The thing is"
+          ]
+        },
+        {
+          "label": "Связки",
+          "examples": [
+            "Honestly",
+            "But"
+          ]
+        },
+        {
+          "label": "Предложение",
+          "examples": [
+            "I could help in other ways"
+          ]
+        },
+        {
+          "label": "Дружеское прощание",
+          "examples": [
+            "Take care"
+          ]
+        }
+      ]
+    }
+  ],
+  "notes": [
+    {
+      "id": "nt:cafe",
+      "location": "cafe",
+      "chapter": 2,
+      "register": "informal",
+      "title": "Ответ Молли",
+      "request": {
+        "es": "It's my birthday tomorrow! Leave me a note: are you coming or not?",
+        "ru": "Завтра мой день рождения! Оставь мне записочку: придёшь или нет?"
+      },
+      "task": "Молли зовёт вас завтра на день рождения. Ответьте ей: придёте ли вы, во сколько и что принесёте. Поздоровайтесь и попрощайтесь.",
+      "sample": "Hi Molly! Thanks for the invitation. Tomorrow I'm going to come to your party at eight. I'm going to bring a chocolate cake.\nSee you tomorrow! Love,",
+      "must": [
+        {
+          "label": "Когда: tomorrow",
+          "any": [
+            "tomorrow"
+          ],
+          "hint": "Скажите, когда придёте: tomorrow — «завтра»."
+        },
+        {
+          "label": "Планы: going to",
+          "any": [
+            "going to",
+            "gonna"
+          ],
+          "hint": "О планах говорят через going to + глагол: I'm going to come."
+        },
+        {
+          "label": "Приветствие и прощание",
+          "any": [
+            "hi",
+            "hello",
+            "see you",
+            "love",
+            "bye"
+          ],
+          "hint": "Начните с Hi и попрощайтесь: See you tomorrow!"
+        }
+      ]
+    },
+    {
+      "id": "nt:market",
+      "location": "market",
+      "chapter": 2,
+      "register": "informal",
+      "title": "Записка миссис Патель",
+      "request": {
+        "es": "Something wrong with your tomatoes, love? Leave me a note.",
+        "ru": "Что-то не так с помидорами, дорогуша? Оставь мне записку."
+      },
+      "task": "Вчера вы купили у миссис Патель помидоры, а дома часть оказалась гнилой. Напишите ей, что вы купили вчера, что не так и о чём вы просите.",
+      "sample": "Hello Mrs Patel! Yesterday I bought a kilo of tomatoes from you. At home I saw that three were bad. Can you change them, please? Thank you!",
+      "must": [
+        {
+          "label": "Когда: yesterday",
+          "any": [
+            "yesterday"
+          ],
+          "hint": "Скажите, когда купили: yesterday — «вчера»."
+        },
+        {
+          "label": "Прошедшее время: bought",
+          "any": [
+            "bought",
+            "saw",
+            "was",
+            "were"
+          ],
+          "hint": "Купил — bought, увидел — saw: Past Simple."
+        },
+        {
+          "label": "Просьба: change",
+          "any": [
+            "change",
+            "swap",
+            "exchange"
+          ],
+          "hint": "Попросите обменять: Can you change them, please?"
+        }
+      ]
+    },
+    {
+      "id": "nt:home",
+      "location": "home",
+      "chapter": 2,
+      "register": "informal",
+      "title": "Записка соседке",
+      "request": {
+        "es": "Going away again? Leave me a note.",
+        "ru": "Опять уезжаешь? Оставь мне записку."
+      },
+      "task": "На выходные вы уезжаете. Оставьте миссис Хиггинс записку: куда едете, когда вернётесь, и попросите полить цветы.",
+      "sample": "Hi Mrs Higgins! I'm going to the sea tomorrow. I'm coming back in three days. Could you water my flowers, please? Thank you so much!",
+      "must": [
+        {
+          "label": "Когда вернётесь: back",
+          "any": [
+            "back",
+            "return"
+          ],
+          "hint": "Скажите, когда вернётесь: I'm coming back in three days."
+        },
+        {
+          "label": "Когда уезжаете",
+          "any": [
+            "tomorrow",
+            "today",
+            "days",
+            "week"
+          ],
+          "hint": "Скажите, когда уезжаете: tomorrow, for three days."
+        },
+        {
+          "label": "Просьба: please",
+          "any": [
+            "please"
+          ],
+          "hint": "Попросите вежливо: Could you …, please?"
+        }
+      ]
+    },
+    {
+      "id": "nt:hotel",
+      "location": "hotel",
+      "chapter": 3,
+      "register": "formal",
+      "title": "Записка в отель",
+      "request": {
+        "es": "If you are arriving late, please let us know in writing.",
+        "ru": "Если вы приедете поздно, сообщите нам письменно."
+      },
+      "task": "Вы приедете в отель поздно вечером. Напишите Эмме официальную записку: когда приедете и о чём просите.",
+      "sample": "Dear Emma,\nI will arrive at eleven tonight, because my train is late. Could you please keep my room and leave the key at reception?\nThank you,",
+      "must": [
+        {
+          "label": "Обращение: Dear",
+          "any": [
+            "dear"
+          ],
+          "hint": "Официальная записка начинается с Dear …,"
+        },
+        {
+          "label": "Будущее время: will",
+          "any": [
+            "will"
+          ],
+          "hint": "О будущем: I will arrive …"
+        },
+        {
+          "label": "Вежливая просьба: could you",
+          "any": [
+            "could you",
+            "would you"
+          ],
+          "hint": "Вежливо: Could you please …?"
+        }
+      ]
+    },
+    {
+      "id": "nt:pharmacy",
+      "location": "pharmacy",
+      "chapter": 3,
+      "register": "formal",
+      "title": "Записка в аптеку",
+      "request": {
+        "es": "If you cannot come, just send me a note.",
+        "ru": "Если не можете прийти, просто пришлите записку."
+      },
+      "task": "Вы заболели и не можете выйти из дома. Напишите мистеру Шаху: что случилось, попросите отложить сироп от кашля и скажите, когда придёте.",
+      "sample": "Dear Mr Shah,\nI am ill and cannot leave the house today. Could you please keep the cough syrup for me? I will come tomorrow.\nThank you,",
+      "must": [
+        {
+          "label": "Почему не придёте",
+          "any": [
+            "ill",
+            "sick",
+            "cold",
+            "flu",
+            "cannot",
+            "can't"
+          ],
+          "hint": "Объясните причину: I am ill, I cannot leave the house."
+        },
+        {
+          "label": "Вежливая просьба: could you",
+          "any": [
+            "could you",
+            "would you"
+          ],
+          "hint": "Вежливо: Could you please keep …?"
+        },
+        {
+          "label": "Будущее время: will",
+          "any": [
+            "will"
+          ],
+          "hint": "Когда придёте: I will come tomorrow."
+        }
+      ]
+    },
+    {
+      "id": "nt:station",
+      "location": "station",
+      "chapter": 3,
+      "register": "informal",
+      "title": "Записка Грэму",
+      "request": {
+        "es": "Travelling on Saturday? Leave me a note, I'll keep an eye on your train.",
+        "ru": "Едешь в субботу? Оставь записку, я присмотрю за твоим поездом."
+      },
+      "task": "В субботу вы едете поездом к морю. Напишите Грэму: когда едете, попросите предупредить, если поезд задержится, и скажите, что сделаете, если не сможете поехать.",
+      "sample": "Hi Graham! I'm taking the nine o'clock train on Saturday. If it's late, please tell me. If I can't go, I'll call you on Friday.\nThanks!",
+      "must": [
+        {
+          "label": "Когда едете",
+          "any": [
+            "saturday",
+            "o'clock",
+            "morning",
+            "tomorrow"
+          ],
+          "hint": "Скажите, когда едете: on Saturday, at nine o'clock."
+        },
+        {
+          "label": "Условие: if",
+          "any": [
+            "if"
+          ],
+          "hint": "Условие: If it's late, … If I can't go, …"
+        },
+        {
+          "label": "Будущее время: will",
+          "any": [
+            "will",
+            "'ll"
+          ],
+          "hint": "Что сделаете: I'll call you."
+        }
+      ]
+    },
+    {
+      "id": "nt:park",
+      "location": "park",
+      "chapter": 4,
+      "register": "informal",
+      "title": "Записка Берту",
+      "request": {
+        "es": "They want to take away my old bench. What would you do? Leave me a note.",
+        "ru": "Мою старую скамейку хотят убрать. Что посоветуешь? Оставь записку."
+      },
+      "task": "Берт рассказал вам, что в парке хотят убрать его старую скамейку. Напишите ему: что бы вы сделали на его месте и чего бы вам хотелось.",
+      "sample": "Hi Bert! If I were you, I would talk to the council. I would ask them to repair the bench, not remove it. I wish they listened more!\nTake care,",
+      "must": [
+        {
+          "label": "Если бы: If I were you",
+          "any": [
+            "if i were",
+            "if i was"
+          ],
+          "hint": "Совет: If I were you, I would …"
+        },
+        {
+          "label": "Условное: would",
+          "any": [
+            "would",
+            "'d"
+          ],
+          "hint": "Что бы вы сделали: I would talk …"
+        },
+        {
+          "label": "Обращение и прощание",
+          "any": [
+            "hi",
+            "dear",
+            "take care",
+            "see you",
+            "cheers"
+          ],
+          "hint": "Начните с Hi Bert! и попрощайтесь."
+        }
+      ]
+    },
+    {
+      "id": "nt:school",
+      "location": "school",
+      "chapter": 4,
+      "register": "informal",
+      "title": "Записка учительнице",
+      "request": {
+        "es": "You missed my lesson. Leave me a note and tell me what happened.",
+        "ru": "Тебя не было на уроке. Оставь записку и расскажи, что случилось."
+      },
+      "task": "Вы пропустили урок: поезд застрял в лесу. Напишите мисс Эванс: извинитесь, объясните, что случилось, и что бы вы сделали, если бы знали заранее.",
+      "sample": "Dear Miss Evans, I'm sorry I missed your lesson. My train got stuck in the forest. If I had known, I would have taken the bus.\nSee you on Monday,",
+      "must": [
+        {
+          "label": "Извинение",
+          "any": [
+            "sorry",
+            "apologise"
+          ],
+          "hint": "Извинитесь: I'm sorry I missed …"
+        },
+        {
+          "label": "Если бы знал: had known",
+          "any": [
+            "had known",
+            "had heard",
+            "had seen"
+          ],
+          "hint": "Третий тип: If I had known, …"
+        },
+        {
+          "label": "То, чего не случилось: would have",
+          "any": [
+            "would have",
+            "would've"
+          ],
+          "hint": "Последствие: I would have taken the bus."
+        }
+      ]
+    },
+    {
+      "id": "nt:post",
+      "location": "post",
+      "chapter": 4,
+      "register": "informal",
+      "title": "Записка почтальону",
+      "request": {
+        "es": "Your letter finally came! Leave me a note, I like reading them.",
+        "ru": "Твоё письмо наконец пришло! Оставь записку, я люблю их читать."
+      },
+      "task": "Дэн наконец принёс письмо, которое вы давно ждали. Поблагодарите его, напишите, что вы думали раньше, и как он на вас посмотрел.",
+      "sample": "Thanks, Dan! I thought the letter had got lost forever. You looked at me as if you had brought me a treasure. You're the best postman!",
+      "must": [
+        {
+          "label": "Благодарность",
+          "any": [
+            "thanks",
+            "thank you"
+          ],
+          "hint": "Поблагодарите: Thanks, Dan!"
+        },
+        {
+          "label": "Давнопрошедшее: had got lost",
+          "any": [
+            "had got",
+            "had been",
+            "had gone",
+            "had lost"
+          ],
+          "hint": "Что думали раньше: I thought it had got lost."
+        },
+        {
+          "label": "Как будто: as if",
+          "any": [
+            "as if",
+            "as though"
+          ],
+          "hint": "Как будто: as if you had brought …"
+        }
+      ]
+    }
+  ]
+}

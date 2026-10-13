@@ -125,6 +125,33 @@ function partialStoryChecks(
       .map((i) => ({ ...i, where: `${i.where} (путница)` })),
     ...femFiles.flatMap(([dir, f]) => femIssues(f.data, `${dir}/${f.name}`).map((msg) => ({ level: 'error' as const, where: `${dir}/${f.name}`, msg }))),
     ...validateStory(scenes, missions, undefined, forks),
+    ...letterChecks(readFile<LettersFile>(lang, 'letters.json'), residents, coverage),
+    ...sphinxChecks(lang, npcs, coverage),
+  ];
+}
+
+/** Сфинкс закрытого курса (английский с 17.8): те же проверки, что у открытого, если файл уже есть. */
+function sphinxChecks(lang: Lang, npcs: NpcsFile | undefined, coverage: (text: string, level: number) => ReturnType<typeof textCoverage>): Issue[] {
+  const sphinx = readFile<SphinxFile>(lang, 'sphinx.json');
+  if (!sphinx) return [];
+  const chronicler = readFile<Chronicler>(lang, 'chronicler.json');
+  return validateSphinx(sphinx, {
+    coverage,
+    voices: {
+      ...Object.fromEntries((npcs?.npcs ?? []).map((n) => [n.id, n.voice.pitch])),
+      ...(chronicler ? { [chronicler.id]: chronicler.voice.pitch } : {}),
+    },
+  });
+}
+
+/** Письма и записки закрытого курса (английский с 17.8): как у открытого, и ещё раз в роде путницы. */
+function letterChecks(letters: LettersFile | undefined, residents: Record<string, string>, coverage: (text: string, level: number) => ReturnType<typeof textCoverage>): Issue[] {
+  if (!letters) return [];
+  const fem = forGender(letters, 'f');
+  return [
+    ...validateLetters(letters, residents),
+    ...validateNotes(letters, residents, coverage),
+    ...[...validateLetters(fem, residents), ...validateNotes(fem, residents)].map((i) => ({ ...i, where: `${i.where} (путница)` })),
   ];
 }
 

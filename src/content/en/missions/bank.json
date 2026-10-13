@@ -85,6 +85,30 @@
         "statement": {"kind": "answer", "task": "Скажите, что вам нужна выписка по счёту.", "branches": [{"phrase": "ph:bank.statement", "next": "end"}], "wrong": {"es": "A statement from a pipe? I do not smoke.", "ru": "Выписку из трубки? Я не курю."}},
         "end": {"kind": "say", "es": "Here you are. And one more thing: the gentleman with the old coins left this on the counter yesterday. A fragment of the forest map.", "ru": "Пожалуйста. И вот ещё: джентльмен со старыми монетами вчера забыл это на стойке. Обрывок карты леса."}
       }
+    },
+    {
+      "id": "ms:bank.5",
+      "chapter": 5,
+      "npc": "whitmore",
+      "scene": "sc:bank.5",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Please take a seat. Would you like anything before we look at the herald's account?", "ru": "Присаживайтесь, пожалуйста. Хотите чего-нибудь, прежде чем посмотреть счёт глашатая?", "next": "statement"},
+        "statement": {"kind": "answer", "task": "Скажите, что вам нужна выписка по вашему счёту.", "branches": [{"phrase": "ph:bank.statement", "next": "statementsay"}], "wrong": {"es": "A statement from the echo? No machine could print that.", "ru": "Выписку от эха? Её не напечатает ни одна машина."}},
+        "statementsay": {"kind": "say", "es": "Here you are. And now, the herald's account. What would you like to see?", "ru": "Пожалуйста. А теперь — счёт глашатая. Что вы хотите посмотреть?", "next": "show"},
+        "show": {"kind": "answer", "task": "Попросите мистера Уитмора показать операции по счёту. Он говорит только официально.", "branches": [{"phrase": "ph:bank.could-you-show", "next": "showsay"}, {"phrase": "ph:bank.show-me-account", "next": "showsay"}], "wrong": {"es": "I beg your pardon? We do not understand that question in our bank.", "ru": "Простите? Такого вопроса в нашем банке не понимают."}, "register": "formal", "tone": {"es": "\"Go on, show me\"? I beg you… I have enough of that in the echo's letters. In this bank we speak properly.", "ru": "«Давай, покажи»? Прошу вас… Мне хватает этого в письмах эха. В этом банке говорят как положено."}},
+        "showsay": {"kind": "say", "es": "Here: a hundred years without any transactions, and then yesterday, a coin. By the rules, such an old account must be closed. I shall close it.", "ru": "Вот: сто лет никаких операций, а вчера — монета. По правилам такой старый счёт закрывают. Я его закрою.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:bank.dont-close-account", "next": "object", "move": "object"}, {"phrase": "ph:bank.close-rules", "next": "concede", "move": "concede"}, {"phrase": "ph:bank.leave-open-year", "next": "compromise", "move": "compromise"}], "wrong": {"es": "I beg your pardon? We are discussing the herald's account.", "ru": "Простите? Мы говорим о счёте глашатая."}},
+        "object": {"kind": "say", "es": "You are right: he used it yesterday. One does not close a living account.", "ru": "Вы правы: вчера он им пользовался. Живой счёт не закрывают.", "next": "savings"},
+        "concede": {"kind": "say", "es": "I shall close it… but I will keep the note. Not every day does a customer ask for an answer.", "ru": "Закрою… но записку сохраню. Не каждый день клиент просит ответа.", "next": "savings"},
+        "compromise": {"kind": "say", "es": "One more year. That seems sensible. Perhaps within a year someone will answer him.", "ru": "Ещё на год. По-моему, разумно. Может, за год кто-нибудь ему ответит.", "next": "savings"},
+        "savings": {"kind": "answer", "task": "Спросите, есть ли у банка сберегательные счета.", "branches": [{"phrase": "ph:bank.savings-accounts", "next": "savingssay"}], "wrong": {"es": "Accounts for the echo? Fortunately not.", "ru": "Счета для эха? К счастью, нет."}},
+        "savingssay": {"kind": "say", "es": "Yes, several. Although I would not advise keeping money for a hundred years, like the herald.", "ru": "Да, несколько. Хотя не советую хранить деньги сто лет, как глашатай.", "next": "manager"},
+        "manager": {"kind": "answer", "task": "Скажите, что хотите поговорить с управляющим.", "branches": [{"phrase": "ph:bank.speak-manager", "next": "managersay"}], "wrong": {"es": "Speak to the echo? It only repeats.", "ru": "Поговорить с эхом? Оно только повторяет."}},
+        "managersay": {"kind": "say", "es": "I am the manager. Anything else?", "ru": "Управляющий — я. Что-нибудь ещё?", "next": "fraud"},
+        "fraud": {"kind": "answer", "task": "Скажите, что, по-вашему, эти письма — мошенничество.", "branches": [{"phrase": "ph:bank.its-fraud", "next": "end"}], "wrong": {"es": "Fraud in my bank? There is only the echo here.", "ru": "Мошенничество в моём банке? Здесь только эхо."}},
+        "end": {"kind": "say", "es": "Perhaps. That is why I am giving you this: it was in the herald's safe deposit box, next to the note. A fragment of the map of the Labyrinth.", "ru": "Может быть. Поэтому отдаю вам вот это: оно лежало в ячейке глашатая, рядом с запиской. Обрывок карты Лабиринта."}
+      }
     }
   ]
 }
