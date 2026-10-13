@@ -61,6 +61,31 @@
         "baja": {"kind": "answer", "task": "Скажите, что вам нужен больничный для работы.", "branches": [{"phrase": "ph:hospital.sick-note", "next": "end"}], "wrong": {"es": "A ticket for the Moon Train? That is at the station.", "ru": "Билет на лунный поезд? Это на вокзале."}},
         "end": {"kind": "say", "es": "Three days of rest. And take my fragment of the desert map. Remember: in the forest, listen.", "ru": "Три дня отдыха. И возьмите мой обрывок карты пустыни. Помните: в лесу — слушайте."}
       }
+    },
+    {
+      "id": "ms:hospital.4",
+      "chapter": 4,
+      "npc": "okafor",
+      "scene": "sc:hospital.4",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Come in. Oswald is sleeping a little. And I have something to decide.", "ru": "Проходите. Освальд немного спит. А мне пока нужно кое-что решить.", "next": "pressure"},
+        "pressure": {"kind": "answer", "task": "Спросите, измерили ли ему давление.", "branches": [{"phrase": "ph:hospital.blood-pressure-taken", "next": "pressuresay"}], "wrong": {"es": "Has he been taken to a party? No, everything is serious here.", "ru": "Его отвезли на праздник? Нет, здесь всё серьёзно."}},
+        "pressuresay": {"kind": "say", "es": "Yes, it's normal. And yesterday we did all the tests.", "ru": "Да, в норме. А вчера мы сделали ему все анализы.", "next": "mri"},
+        "mri": {"kind": "answer", "task": "Спросите, будут ли делать ему МРТ.", "branches": [{"phrase": "ph:hospital.have-mri", "next": "mrisay"}], "wrong": {"es": "Is he going to have a party? Not here.", "ru": "Ему устроят праздник? Здесь — нет."}},
+        "mrisay": {"kind": "say", "es": "There's no need. You can't see his illness on an MRI. So I've decided: a week in hospital, no visitors. He needs rest.", "ru": "Не нужно. Его болезнь на МРТ не увидишь. Поэтому я решила: неделя в больнице, без посетителей. Ему нужен отдых.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:hospital.needs-to-talk", "next": "object", "move": "object"}, {"phrase": "ph:hospital.youre-doctor", "next": "concede", "move": "concede"}, {"phrase": "ph:hospital.only-family", "next": "compromise", "move": "compromise"}], "wrong": {"es": "What did you say? Speak quietly, there are patients here.", "ru": "Что вы сказали? Говорите тише, здесь больные."}},
+        "object": {"kind": "say", "es": "To talk? You're right. A hundred years alone in a lighthouse… Loneliness is his illness. You can go in.", "ru": "Поговорить? Вы правы. Сто лет один на маяке… Одиночество — вот его болезнь. Можете пройти.", "next": "diag"},
+        "concede": {"kind": "say", "es": "Thank you for trusting me. But today, because it's you, five minutes.", "ru": "Спасибо за доверие. Но сегодня, раз это вы, — пять минут.", "next": "diag"},
+        "compromise": {"kind": "say", "es": "Only family? Then Mrs Higgins and you. You're almost family already.", "ru": "Только семья? Тогда миссис Хиггинс и вы. Вы уже почти родной.", "next": "diag", "fem": {"ru": "Только семья? Тогда миссис Хиггинс и вы. Вы уже почти родная."}},
+        "diag": {"kind": "say", "es": "Oswald is waiting for you. Is there anything else you want to know about him?", "ru": "Освальд вас ждёт. Хотите что-нибудь ещё о нём узнать?", "next": "diagask"},
+        "diagask": {"kind": "answer", "task": "Спросите, какой диагноз.", "branches": [{"phrase": "ph:hospital.diagnosis", "next": "diagsay"}], "wrong": {"es": "Which road? That's on the map.", "ru": "Какая дорога? Это по карте."}},
+        "diagsay": {"kind": "say", "es": "Fear and a lot of shame. In this town, fear passes from person to person very quickly.", "ru": "Страх и большой стыд. В этом городе страх очень быстро передаётся от человека к человеку.", "next": "contag"},
+        "contag": {"kind": "answer", "task": "Спросите, заразно ли это.", "branches": [{"phrase": "ph:hospital.contagious", "next": "contagsay"}], "wrong": {"es": "Is the raven contagious? Only his words.", "ru": "Ворон заразен? Только его слова."}},
+        "contagsay": {"kind": "say", "es": "Fear is. But so is courage. And you? You're walking strangely.", "ru": "Страх — да. Но и смелость тоже. А вы? Вы странно ходите.", "next": "foot"},
+        "foot": {"kind": "answer", "task": "Скажите, что у вас болит нога.", "branches": [{"phrase": "ph:hospital.foot-hurts", "next": "end"}], "wrong": {"es": "Your forest hurts? I can't treat that.", "ru": "У вас болит лес? Это я не лечу."}},
+        "end": {"kind": "say", "es": "You walk so much around town… Take this cream. And one more thing: Oswald gave me a fragment of the forest map for you. He says he'll come to the meeting this evening.", "ru": "Столько ходите по городу… Возьмите этот крем. И вот ещё: Освальд дал мне для вас обрывок карты леса. Говорит, вечером придёт на собрание."}
+      }
     }
   ]
 }

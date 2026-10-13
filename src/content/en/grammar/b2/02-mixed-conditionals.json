@@ -1,0 +1,151 @@
+{
+  "id": "b2.02-mixed-conditionals",
+  "district": "B2",
+  "order": 2,
+  "title": "Смешанные условные",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Условие и следствие бывают в разном времени. Прошлое влияет на настоящее: **If + had + V3, would + глагол**. If I **had taken** the map, I **wouldn't be** lost now. Настоящее объясняет прошлое: **If + Past Simple, would have + V3**. If I **were** braver, I **would have gone** in."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Связь",
+        "Форма",
+        "Пример"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "прошлое → сейчас",
+            "had + V3 → would + глагол",
+            "If I had slept, I wouldn't be tired now."
+          ]
+        },
+        {
+          "cells": [
+            "сейчас → прошлое",
+            "Past Simple → would have + V3",
+            "If she spoke English, she would have understood."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Слово now подсказывает, что следствие — в настоящем: **would be**, а не would have been."
+    }
+  ],
+  "examples": [
+    {
+      "es": "If I had taken the map, I wouldn't be lost now.",
+      "ru": "Если бы я взял карту, я бы сейчас не заблудился."
+    },
+    {
+      "es": "If she had studied medicine, she would be a doctor now.",
+      "ru": "Если бы она изучала медицину, она бы сейчас была врачом."
+    },
+    {
+      "es": "If I weren't so shy, I would have spoken to her.",
+      "ru": "Если бы я не был таким застенчивым, я бы с ней заговорил."
+    },
+    {
+      "es": "If he knew the forest, he would have found the path.",
+      "ru": "Если бы он знал лес, он бы нашёл тропу."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "b2.02-mixed-conditionals.1",
+      "kind": "choose",
+      "prompt": "«Если бы я вчера лёг рано, я бы сейчас не устал»:",
+      "options": [
+        "If I had gone to bed early, I wouldn't be tired now.",
+        "If I went to bed early, I wouldn't have been tired now.",
+        "If I had gone to bed early, I wouldn't have been tired now."
+      ],
+      "answer": 0,
+      "explain": "Прошлое → сейчас: had + V3, would be."
+    },
+    {
+      "id": "b2.02-mixed-conditionals.2",
+      "kind": "choose",
+      "prompt": "«Если бы я говорил по-английски, я бы понял её вчера»:",
+      "options": [
+        "If I spoke English, I would have understood her yesterday.",
+        "If I had spoken English, I would understand her yesterday.",
+        "If I speak English, I would understand her yesterday."
+      ],
+      "answer": 0,
+      "explain": "Сейчас → прошлое: Past Simple, would have + V3."
+    },
+    {
+      "id": "b2.02-mixed-conditionals.3",
+      "kind": "gap",
+      "sentence": "If you had saved some money, you ___ so poor now.",
+      "ru": "Если бы ты копил деньги, ты бы сейчас не был таким бедным.",
+      "options": [
+        "wouldn't be",
+        "wouldn't have been",
+        "won't be"
+      ],
+      "answer": 0,
+      "explain": "now → would be."
+    },
+    {
+      "id": "b2.02-mixed-conditionals.4",
+      "kind": "gap",
+      "sentence": "If Sam ___ afraid of heights, he would have climbed the tower.",
+      "ru": "Если бы Сэм не боялся высоты, он бы залез на башню.",
+      "options": [
+        "weren't",
+        "isn't",
+        "won't be"
+      ],
+      "answer": 0,
+      "explain": "Постоянное свойство сейчас — Past Simple."
+    },
+    {
+      "id": "b2.02-mixed-conditionals.5",
+      "kind": "truefalse",
+      "statement": "«If I had bought the house, I would live there now» — правильно.",
+      "answer": true,
+      "explain": "Прошлое → сейчас."
+    },
+    {
+      "id": "b2.02-mixed-conditionals.6",
+      "kind": "truefalse",
+      "statement": "В смешанном условном обе части всегда в одном времени.",
+      "answer": false,
+      "explain": "Части в разном времени."
+    },
+    {
+      "id": "b2.02-mixed-conditionals.7",
+      "kind": "truefalse",
+      "statement": "«If she wasn't so busy, she would have come yesterday» — возможно.",
+      "answer": true,
+      "explain": "Сейчас → прошлое."
+    },
+    {
+      "id": "b2.02-mixed-conditionals.8",
+      "kind": "build",
+      "ru": "Если бы я взял фонарь, я бы сейчас видел тропу.",
+      "answer": "If I had taken the lantern I would see the path now",
+      "extra": [
+        "will",
+        "saw"
+      ],
+      "explain": "had taken … would see now."
+    },
+    {
+      "id": "b2.02-mixed-conditionals.9",
+      "kind": "type",
+      "sentence": "If we had left on time, we ___ (be) home now.",
+      "ru": "Если бы мы вышли вовремя, мы бы сейчас были дома.",
+      "hint": "be",
+      "answer": "would be",
+      "explain": "now → would + глагол."
+    }
+  ]
+}

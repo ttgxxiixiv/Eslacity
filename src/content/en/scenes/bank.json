@@ -75,6 +75,53 @@
         {"q": "Что он собирается сделать в полнолуние?", "options": ["Купить белый город", "Уехать из города", "Открыть магазин"], "answer": 0}
       ],
       "gloss": {"oasis": "оазис", "banknotes": "купюры", "turned": "превратились", "moon": "луна", "either": "тоже (с отрицанием)"}
+    },
+    {
+      "id": "wh:bank.4",
+      "chapter": 4,
+      "mode": "overhear",
+      "npc": "whitmore",
+      "lines": [
+        {"who": "patel", "es": "I want to take out all the money from the inheritance my aunt left me. My nephew says he can make it ten times bigger with crypto.", "ru": "Хочу снять все деньги из наследства тёти. Племянник говорит, что на криптовалюте он увеличит их в десять раз."},
+        {"who": "npc", "es": "Your nephew is a great optimist. Did he tell you that you can lose everything in a week?", "ru": "Ваш племянник большой оптимист. А он сказал вам, что всё можно потерять за неделю?"},
+        {"who": "patel", "es": "Of course you'd say that. The bank wants the money to stay here.", "ru": "Ну конечно, что вы ещё скажете. Банку выгодно, чтобы деньги остались здесь."},
+        {"who": "npc", "es": "That's true, I won't argue. But I have seen customers cry at this desk, and not because of inflation.", "ru": "Это правда, не спорю. Но я видел, как клиенты плакали за этим столом, и не из-за инфляции."},
+        {"who": "patel", "es": "So what should I do? In the account, with prices like these, the money is worth less every year.", "ru": "И что мне делать? На счёте, при нынешних ценах, деньги с каждым годом дешевеют."},
+        {"who": "npc", "es": "There you are right. My advice: part in a pension, part at a fixed rate. And if you want to play, only what you don't mind losing.", "ru": "Тут вы правы. Мой совет: часть в пенсионный план, часть под фиксированную ставку. А если хочется поиграть — только то, что не жалко потерять."},
+        {"who": "patel", "es": "What I don't mind losing? I don't even lose a tomato, Mr Whitmore.", "ru": "Что не жалко потерять? Я даже помидор не теряю, мистер Уитмор."},
+        {"who": "npc", "es": "Then you have already answered your own question about crypto.", "ru": "Значит, насчёт криптовалюты вы себе уже ответили."},
+        {"who": "patel", "es": "All right… I'll talk to my nephew. But if he gets rich, it's your fault.", "ru": "Ладно… поговорю с племянником. Но если он разбогатеет, виноваты будете вы."}
+      ],
+      "questions": [
+        {"q": "Как миссис Патель сначала объясняет себе осторожность Уитмора?", "kind": "stance", "options": ["Он сам вложил деньги в криптовалюту", "Банку выгодно, чтобы деньги остались в банке", "Он не любит её племянника"], "answer": 1},
+        {"q": "Что Уитмор имел в виду, вспомнив клиентов, которые плакали за его столом?", "kind": "stance", "options": ["Кто-то уже терял всё на рискованных вложениях", "В банке плохо обслуживают", "Инфляция разоряет людей"], "answer": 0},
+        {"q": "В чём Уитмор соглашается с миссис Патель?", "kind": "stance", "options": ["Племянник прав", "Банки берут большие комиссии", "Деньги на обычном счёте из-за цен теряют ценность"], "answer": 2},
+        {"q": "Что Уитмор хотел сказать последней фразой о криптовалюте?", "kind": "stance", "options": ["Ей нужно спросить совета у тёти", "Раз она ничего не готова терять, такое вложение не для неё", "Криптовалюта скоро подешевеет"], "answer": 1}
+      ],
+      "gloss": {"crypto": "криптовалюта", "nephew": "племянник", "optimist": "оптимист", "inflation": "инфляция", "whitmore": "Уитмор", "aunt": "тётя", "rich": "богатый", "worth": "стоящий (worth less — дешевле)", "less": "меньше", "fault": "вина"}
+    },
+    {
+      "id": "sc:bank.4",
+      "chapter": 4,
+      "npc": "whitmore",
+      "lines": [
+        {"who": "npc", "es": "Good morning. I am afraid the queue is very long today.", "ru": "Доброе утро. Боюсь, сегодня очень длинная очередь."},
+        {"who": "hero", "es": "What happened?", "ru": "Что случилось?"},
+        {"who": "npc", "es": "Last night the forest spoke in my voice: \"There is no money in the bank.\" And now everybody wants to take out their savings.", "ru": "Вчера ночью лес сказал моим голосом: «В банке нет денег». И теперь все хотят снять сбережения."},
+        {"who": "hero", "es": "Is it true?", "ru": "А это правда?"},
+        {"who": "npc", "es": "Of course not! But something strange happened. Yesterday an old gentleman changed some very old coins.", "ru": "Конечно, нет! Но случилось кое-что странное. Вчера пожилой джентльмен обменял очень старые монеты."},
+        {"who": "hero", "es": "Old? How old?", "ru": "Старые? Насколько старые?"},
+        {"who": "npc", "es": "A hundred years old. Like the coins of the lighthouse keeper.", "ru": "Столетней давности. Как у смотрителя маяка."},
+        {"who": "hero", "es": "And who was the gentleman?", "ru": "А кто был этот джентльмен?"},
+        {"who": "npc", "es": "I cannot tell you that: it is confidential. I can only say that he smelt of pipe tobacco.", "ru": "Этого сказать не могу: это конфиденциально. Скажу только, что от него пахло трубочным табаком."}
+      ],
+      "questions": [
+        {"q": "Что лес сказал голосом Уитмора?", "options": ["Что банк закрывается", "Что в банке нет денег", "Что кредиты подорожали"], "answer": 1},
+        {"q": "Какие монеты обменял пожилой джентльмен?", "options": ["Столетние, как у смотрителя маяка", "Золотые, из пустыни", "Иностранные"], "answer": 0},
+        {"q": "Почему Уитмор не называет имя?", "options": ["Он его не знает", "Он боится", "Это конфиденциально"], "answer": 2},
+        {"q": "Чем пахло от джентльмена?", "options": ["Морем", "Трубочным табаком", "Кофе"], "answer": 1}
+      ],
+      "gloss": {"gentleman": "джентльмен", "tobacco": "табак", "smelt": "пахло"}
     }
   ]
 }

@@ -79,6 +79,54 @@
         {"q": "Какой совет передал Освальд?", "options": ["Не верь тому, что видишь, верь тому, что слышишь", "Иди только ночью", "Возьми много воды"], "answer": 0}
       ],
       "gloss": {"oswald": "Освальд", "either": "тоже (с отрицанием)"}
+    },
+    {
+      "id": "wh:cafe.4",
+      "chapter": 4,
+      "mode": "overhear",
+      "npc": "molly",
+      "lines": [
+        {"who": "npc", "es": "Have you seen the lad by the window? He's been sitting there for four hours with one coffee.", "ru": "Видел парня у окна? Сидит четыре часа с одной чашкой кофе."},
+        {"who": "dan", "es": "He's probably working from home. Well, from here. My cousin does the same, he says he can't concentrate at home.", "ru": "Наверное, работает удалённо. Ну, отсюда. Мой двоюродный брат тоже так делает, говорит, дома не может сосредоточиться."},
+        {"who": "npc", "es": "Yes, but the café is full, and people are waiting standing up. This isn't an office.", "ru": "Да, но зал битком, и люди ждут стоя. Здесь не офис."},
+        {"who": "dan", "es": "Well, he isn't bothering anybody. He's a regular, he comes every day.", "ru": "Ну, он же никому не мешает. Постоянный клиент, приходит каждый день."},
+        {"who": "npc", "es": "A regular of my socket, you mean. He charges everything here: his phone, his laptop…", "ru": "Постоянный клиент моей розетки, ты хотел сказать. Всё тут заряжает: телефон, ноутбук…"},
+        {"who": "dan", "es": "All right, all right. Then put up a sign: \"One hour per coffee.\" Let's see if he gets the message.", "ru": "Ладно, ладно. Тогда повесь объявление: «Час на один кофе». Посмотрим, дойдёт ли до него."},
+        {"who": "npc", "es": "And be known as the grumpy one in the whole street? No, I'll put up with it.", "ru": "И прослыть злюкой на всю улицу? Нет, лучше потерплю."},
+        {"who": "dan", "es": "Then don't complain. Make me another coffee, I'm actually leaving.", "ru": "Тогда не жалуйся. Сделай мне ещё кофе — я-то как раз ухожу."}
+      ],
+      "questions": [
+        {"q": "Почему Молли недовольна парнем у окна?", "kind": "stance", "options": ["Он часами сидит с одним кофе, а в зале нет мест", "Он громко разговаривает", "Он не оставил чаевых"], "answer": 0},
+        {"q": "Что Молли имела в виду: «постоянный клиент моей розетки»?", "kind": "stance", "options": ["Что он хорошо разбирается в технике", "Что он ходит сюда ради розетки, а не ради кафе", "Что он работает электриком"], "answer": 1},
+        {"q": "Как Дэн относится к этому парню?", "kind": "stance", "options": ["Тоже злится", "Не замечает его", "Заступается: тот никому не мешает"], "answer": 2},
+        {"q": "Почему Молли не хочет вешать объявление?", "kind": "stance", "options": ["Боится прослыть неприветливой", "Не умеет писать объявления", "Парень скоро уйдёт сам"], "answer": 0}
+      ],
+      "gloss": {"lad": "парень", "socket": "розетка", "grumpy": "ворчливый, злюка", "concentrate": "сосредоточиться", "standing": "стоя", "message": "намёк (get the message — понять намёк)", "per": "на, за (one hour per coffee — час на кофе)"}
+    },
+    {
+      "id": "sc:cafe.4",
+      "chapter": 4,
+      "npc": "molly",
+      "lines": [
+        {"who": "npc", "es": "At last! There's a letter for you. From Rory, the man who used to be the Merchant.", "ru": "Наконец-то! Тебе пришло письмо. От Рори, бывшего Купца."},
+        {"who": "hero", "es": "What does it say?", "ru": "Что там?"},
+        {"who": "npc", "es": "\"I live in the forest again. The trees repeat everything people say behind their backs.\"", "ru": "«Я снова живу в лесу. Деревья повторяют всё, что люди говорят друг о друге за спиной»."},
+        {"who": "hero", "es": "Everything? What we say here too?", "ru": "Всё? И то, что мы говорим здесь?"},
+        {"who": "npc", "es": "It seems so. He writes that the forest is full of voices from our town: gossip, complaints, arguments.", "ru": "Похоже, да. Пишет, что лес полон голосов нашего города: сплетни, жалобы, ссоры."},
+        {"who": "hero", "es": "And then what?", "ru": "И что тогда?"},
+        {"who": "npc", "es": "With all that noise, the Keeper of the Forest can't hear the path. Nobody can get through.", "ru": "При таком шуме Хранительница леса не слышит тропу. Никто не может пройти."},
+        {"who": "hero", "es": "What can we do?", "ru": "Что мы можем сделать?"},
+        {"who": "npc", "es": "Rory writes that every argument that ends in peace makes the forest a little quieter.", "ru": "Рори пишет, что каждый спор, который закончился миром, делает лес немного тише."},
+        {"who": "hero", "es": "Then we have to talk to people.", "ru": "Значит, надо говорить с людьми."},
+        {"who": "npc", "es": "Yes. And start with my family: Sam wants to go into the forest with you, and I don't want him to.", "ru": "Да. И начни с моей семьи: Сэм хочет пойти с тобой в лес, а я не хочу."}
+      ],
+      "questions": [
+        {"q": "Кто прислал письмо?", "options": ["Сэм", "Рори, бывший Купец", "Освальд"], "answer": 1},
+        {"q": "Что повторяют деревья?", "options": ["Всё, что люди говорят друг о друге за спиной", "Песни птиц", "Только правду"], "answer": 0},
+        {"q": "Почему никто не может пройти через лес?", "options": ["Тропу закрыли деревья", "Там слишком темно", "Из-за шума Хранительница не слышит тропу"], "answer": 2},
+        {"q": "Что делает лес тише?", "options": ["Дождь", "Спор, который закончился миром", "Музыка"], "answer": 1}
+      ],
+      "gloss": {"rory": "Рори", "merchant": "купец", "backs": "спины (behind their backs — за спиной)", "keeper": "хранительница", "complaints": "жалобы", "arguments": "ссоры, споры", "argument": "спор", "peace": "мир"}
     }
   ]
 }

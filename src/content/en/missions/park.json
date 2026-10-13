@@ -60,6 +60,31 @@
         "orto": {"kind": "answer", "task": "Спросите, принадлежит ли этот огород мэрии.", "branches": [{"phrase": "ph:park.allotment-council", "next": "end"}], "wrong": {"es": "Is it your allotment? No, it is not!", "ru": "Огород твой? Нет!"}},
         "end": {"kind": "say", "es": "It belongs to the town hall. I grow my own tomatoes there. And among the tomatoes I kept this: my fragment of the desert map, the real one.", "ru": "Это огород мэрии. У меня там свои помидоры. А среди помидоров я хранил вот это: мой обрывок карты пустыни, настоящий."}
       }
+    },
+    {
+      "id": "ms:park.4",
+      "chapter": 4,
+      "npc": "bert",
+      "scene": "sc:park.4",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "I'm in a bad mood today. Look at that notice: a concert this Saturday, right next to the owls' nest.", "ru": "Сегодня у меня плохое настроение. Смотри на объявление: концерт в эту субботу, прямо рядом с гнездом сов.", "next": "plants"},
+        "plants": {"kind": "answer", "task": "Скажите, что нужно беречь местные растения.", "branches": [{"phrase": "ph:park.protect-plants", "next": "plantssay"}], "wrong": {"es": "Protect the local pizza? Plants don't eat pizza.", "ru": "Беречь местную пиццу? Растения не едят пиццу."}},
+        "plantssay": {"kind": "say", "es": "That's what I say. And the animals too: the owls can't sleep with all this noise. I come every evening to listen to them. When do you come to the park?", "ru": "Вот и я о том же. И о животных тоже: совы уже не спят от такого шума. Я прихожу каждый вечер их послушать. А ты когда приходишь в парк?", "next": "walk"},
+        "walk": {"kind": "answer", "task": "Скажите, что очень любите гулять на закате.", "branches": [{"phrase": "ph:park.walk-at-sunset", "next": "walksay"}], "wrong": {"es": "You love walking an owl? Owls don't go on a lead.", "ru": "Любишь выгуливать сову? Совы не ходят на поводке."}},
+        "walksay": {"kind": "say", "es": "At sunset, like me. So listen: I'm going to collect signatures against the concert. They'll cancel it tomorrow.", "ru": "На закате, как и я. Так вот слушай: соберу подписи против концерта. Завтра его отменят.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:park.park-for-everyone", "next": "object", "move": "object"}, {"phrase": "ph:park.right-to-complain", "next": "concede", "move": "concede"}, {"phrase": "ph:park.concert-far-owls", "next": "compromise", "move": "compromise"}], "wrong": {"es": "What are you saying? The owls aren't asleep, I can't hear a thing.", "ru": "Что ты говоришь? Совы не спят, я ничего не слышу."}},
+        "object": {"kind": "say", "es": "For everyone? …Yes, young people too. I was young once, even if it doesn't look like it.", "ru": "Общий? …Да, и для молодёжи тоже. Я тоже был молодым, хоть по мне и не скажешь.", "next": "sorry"},
+        "concede": {"kind": "say", "es": "Thank you. At my age, complaining is almost a sport.", "ru": "Спасибо. В моём возрасте жаловаться — почти спорт.", "next": "sorry"},
+        "compromise": {"kind": "say", "es": "Far from the owls? On the other side of the lake… I can agree to that.", "ru": "Подальше от сов? На другом берегу озера… С этим я согласен.", "next": "sorry"},
+        "sorry": {"kind": "say", "es": "And now the hard part: I have to say sorry to Miss Evans. She's organising a clean-up on Sunday.", "ru": "А теперь мне предстоит трудное: попросить прощения у мисс Эванс. Она устраивает уборку в воскресенье.", "next": "cleanup"},
+        "cleanup": {"kind": "answer", "task": "Спросите, пойдёт ли он на субботник.", "branches": [{"phrase": "ph:park.join-clean-up", "next": "cleanupsay"}], "wrong": {"es": "Joining the nap day? Always.", "ru": "Записаться на день сна? Всегда пожалуйста."}},
+        "cleanupsay": {"kind": "say", "es": "I am. With my own bags, you know me. And that bottle on the ground?", "ru": "Записываюсь. Со своими мешками, ты же знаешь. А эта бутылка на земле?", "next": "recycle"},
+        "recycle": {"kind": "answer", "task": "Спросите, где это можно сдать в переработку.", "branches": [{"phrase": "ph:park.recycle-this", "next": "recyclesay"}], "wrong": {"es": "Where can you recycle an owl? Nowhere, what are you thinking!", "ru": "Где сдать в переработку сову? Нигде, что ты!"}},
+        "recyclesay": {"kind": "say", "es": "Over there, in the green bin. Look, the sky is going grey.", "ru": "Вон там, в зелёный контейнер. Смотри, небо сереет.", "next": "rain"},
+        "rain": {"kind": "answer", "task": "Скажите, что сейчас пойдёт дождь, и спросите, есть ли у него зонт.", "branches": [{"phrase": "ph:park.rain-umbrella", "next": "end"}], "wrong": {"es": "Is it going to rain owls? Only in the forest.", "ru": "Пойдёт дождь из сов? Только в лесу."}},
+        "end": {"kind": "say", "es": "I've got a big umbrella, come on. And here: I found this under the oak. A fragment of the forest map, and a black feather next to it.", "ru": "У меня большой зонт, пойдём. И держи: я нашёл это под дубом. Обрывок карты леса, а рядом чёрное перо."}
+      }
     }
   ]
 }

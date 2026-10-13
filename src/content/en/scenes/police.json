@@ -75,6 +75,52 @@
         {"q": "Какое послание оставила стражница?", "options": ["«Слушай деревья. Они не лгут»", "«Не ходи в лес»", "«Жду тебя в городе»"], "answer": 0}
       ],
       "gloss": {"rory": "Рори"}
+    },
+    {
+      "id": "wh:police.4",
+      "chapter": 4,
+      "mode": "overhear",
+      "npc": "bradley",
+      "lines": [
+        {"who": "npc", "es": "Somebody has painted huge graffiti on the wall of the post office. You start at six. Did you see anything?", "ru": "Кто-то нарисовал огромное граффити на стене почты. Вы начинаете в шесть. Ничего не видели?"},
+        {"who": "dan", "es": "Me? At that time I only see letters and cats.", "ru": "Я? В это время я вижу только письма и котов."},
+        {"who": "npc", "es": "Interesting. A neighbour says she saw a young man with a backpack talking to you.", "ru": "Любопытно. Одна соседка говорит, что видела, как с вами разговаривал парень с рюкзаком."},
+        {"who": "dan", "es": "I talk to a lot of people. I'm a postman, Inspector, not a detective.", "ru": "Я со многими разговариваю. Я почтальон, инспектор, а не детектив."},
+        {"who": "npc", "es": "Of course. And the graffiti says: \"Dan, you're the best uncle in the world.\" And instead of a name, a little star.", "ru": "Ну да. А надпись гласит: «Дэн, ты лучший дядя на свете». А вместо подписи — звёздочка."},
+        {"who": "dan", "es": "… All right. Maybe I know somebody who draws little stars.", "ru": "… Ну ладно. Может, я и знаю кое-кого, кто рисует звёздочки."},
+        {"who": "npc", "es": "I don't want to arrest anybody. But the wall must be cleaned, and somebody has to pay for it.", "ru": "Я не хочу никого задерживать. Но стену надо отмыть, и кто-то должен за это заплатить."},
+        {"who": "dan", "es": "He'll clean it himself on Saturday. I'll bring the bucket and the patience.", "ru": "Он сам её отмоет в субботу. С меня ведро и терпение."},
+        {"who": "npc", "es": "Excellent. And tell him to write you a letter next time. It's cheaper.", "ru": "Отлично. И передайте ему, чтобы в следующий раз написал вам письмо. Выйдет дешевле."}
+      ],
+      "questions": [
+        {"q": "Почему инспектор Брэдли расспрашивает Дэна?", "kind": "stance", "options": ["Дэн рано начинает работу и мог видеть, кто рисовал", "Дэн сам рисует", "Дэн потерял письма"], "answer": 0},
+        {"q": "Что Брэдли хотел показать, прочитав надпись на стене?", "kind": "stance", "options": ["Что надпись красивая", "Что знает: надпись сделал племянник Дэна", "Что Дэна все любят"], "answer": 1},
+        {"q": "Как Дэн сначала отвечает на вопросы?", "kind": "stance", "options": ["Сразу всё рассказывает", "Злится", "Уходит от ответа"], "answer": 2},
+        {"q": "Чего добивается Брэдли?", "kind": "stance", "options": ["Чтобы стену отмыли, а не чтобы кого-то наказать", "Чтобы Дэн заплатил штраф", "Чтобы парня арестовали"], "answer": 0}
+      ],
+      "gloss": {"graffiti": "граффити", "backpack": "рюкзак", "dan": "Дэн", "saturday": "суббота", "detective": "детектив", "uncle": "дядя", "star": "звезда", "stars": "звёзды", "bucket": "ведро", "patience": "терпение", "huge": "огромный", "cats": "коты", "cleaned": "отмыта", "excellent": "отлично"}
+    },
+    {
+      "id": "sc:police.4",
+      "chapter": 4,
+      "npc": "bradley",
+      "lines": [
+        {"who": "npc", "es": "Last night I was at the neighbours' meeting. I have never seen anything like it.", "ru": "Вчера вечером я был на собрании соседей. Никогда такого не видел."},
+        {"who": "hero", "es": "Did Oswald come?", "ru": "Освальд пришёл?"},
+        {"who": "npc", "es": "He did. He stood up and said to the whole town: \"I taught the raven to lie because I was afraid. Forgive me.\"", "ru": "Пришёл. Встал и сказал всему городу: «Я учил ворона лжи, потому что боялся. Простите меня»."},
+        {"who": "hero", "es": "And what did the neighbours do?", "ru": "А что сделали соседи?"},
+        {"who": "npc", "es": "First, silence. Then the young woman from the clothes shop gave him a hug. And the station master offered him some tobacco for his pipe.", "ru": "Сначала тишина. Потом девушка из магазина одежды его обняла. А начальник станции предложил ему табаку для трубки."},
+        {"who": "hero", "es": "And the forest?", "ru": "А лес?"},
+        {"who": "npc", "es": "At midnight it went quiet. And then a voice spoke, very clearly.", "ru": "В полночь он затих. И раздался голос, очень отчётливый."},
+        {"who": "hero", "es": "What did it say?", "ru": "Что он сказал?"},
+        {"who": "npc", "es": "\"Now I can hear the path. Let the one who brought peace come.\" I believe that means you.", "ru": "«Теперь я слышу тропу. Пусть придёт тот, кто принёс мир». Полагаю, это про вас."}
+      ],
+      "questions": [
+        {"q": "Что сказал Освальд на собрании?", "options": ["Что учил ворона лжи от страха, и попросил прощения", "Что уезжает из города", "Что он ни в чём не виноват"], "answer": 0},
+        {"q": "Как поступили соседи?", "options": ["Выгнали его", "Простили его: его обняли и предложили табаку", "Вызвали полицию"], "answer": 1},
+        {"q": "Что сказал голос в полночь?", "options": ["Лес закрыт", "Ворон вернётся", "Теперь тропа слышна, и пусть придёт тот, кто принёс мир"], "answer": 2}
+      ],
+      "gloss": {"neighbours'": "соседей", "oswald": "Освальд", "raven": "ворон", "hug": "объятие (give a hug — обнять)", "tobacco": "табак", "pipe": "трубка (курительная)", "clearly": "отчётливо", "peace": "мир", "master": "начальник (station master — начальник станции)", "midnight": "полночь"}
     }
   ]
 }

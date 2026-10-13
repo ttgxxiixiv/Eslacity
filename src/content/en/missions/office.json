@@ -62,6 +62,31 @@
         "promo": {"kind": "answer", "task": "Скажите, что хотите попросить повышения.", "branches": [{"phrase": "ph:office.ask-promotion", "next": "end"}], "wrong": {"es": "A new camel? There are no camels here!", "ru": "Нового верблюда? Тут нет верблюдов!"}},
         "end": {"kind": "say", "es": "A promotion on your first day? Rory laughed for the first time. Good practice. Take my fragment of the desert map.", "ru": "Повышение в первый же день? Рори впервые засмеялся. Хорошая тренировка. Держи мой обрывок карты пустыни."}
       }
+    },
+    {
+      "id": "ms:office.4",
+      "chapter": 4,
+      "npc": "priya",
+      "scene": "sc:office.4",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "I need to prepare tonight's meeting, and I don't know where to start.", "ru": "Мне надо подготовить сегодняшнее собрание, и я не знаю, с чего начать.", "next": "agenda"},
+        "agenda": {"kind": "answer", "task": "Спросите, какая повестка дня.", "branches": [{"phrase": "ph:office.whats-agenda", "next": "agendasay"}], "wrong": {"es": "What's on the raven? Feathers.", "ru": "Что на вороне? Перья."}},
+        "agendasay": {"kind": "say", "es": "First, the problem of the forest. Then, what to do about Oswald. I need someone to write everything down.", "ru": "Сначала — проблема леса. Потом — что делать с Освальдом. Мне нужен кто-то, кто всё запишет.", "next": "minutes"},
+        "minutes": {"kind": "answer", "task": "Скажите, что протокол составите вы.", "branches": [{"phrase": "ph:office.take-minutes", "next": "minutessay"}], "wrong": {"es": "You'll write a fairy tale? Not today, thanks.", "ru": "Напишешь сказку? Сегодня не надо, спасибо."}},
+        "minutessay": {"kind": "say", "es": "Thank you! Listen, I have a proposal: Oswald should apologise to the whole town tonight.", "ru": "Спасибо! Слушай, у меня предложение: пусть Освальд сегодня вечером попросит прощения перед всем городом.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:office.only-scare", "next": "object", "move": "object"}, {"phrase": "ph:office.fair-apologise", "next": "concede", "move": "concede"}, {"phrase": "ph:office.speak-if-wants", "next": "compromise", "move": "compromise"}], "wrong": {"es": "Sorry? My head is full today.", "ru": "Как? Прости, у меня сегодня голова забита."}},
+        "object": {"kind": "say", "es": "Scare him more? You're right. Fear has done enough damage. Nobody is going to pay for this.", "ru": "Сильнее напугает? Ты прав. Страх уже натворил достаточно. Никто не будет за это расплачиваться.", "next": "break", "fem": {"ru": "Сильнее напугает? Ты права. Страх уже натворил достаточно. Никто не будет за это расплачиваться."}},
+        "concede": {"kind": "say", "es": "That's what I think too. Everything should be said face to face, as the Keeper asks.", "ru": "Вот и я так думаю. Всё надо говорить в лицо, как просит Хранительница.", "next": "break"},
+        "compromise": {"kind": "say", "es": "He comes and speaks if he wants to… And if he doesn't, that's fine. I like it.", "ru": "Пусть придёт и говорит, если захочет… А не захочет — ничего страшного. Мне нравится.", "next": "break"},
+        "break": {"kind": "say", "es": "Good. We've been sitting with papers for two hours, and I can't think straight.", "ru": "Хорошо. Мы два часа сидим с бумагами, и я уже плохо соображаю.", "next": "rest"},
+        "rest": {"kind": "answer", "task": "Предложите сделать перерыв на кофе.", "branches": [{"phrase": "ph:office.coffee-break", "next": "restsay"}], "wrong": {"es": "Let's have a raven? No, a break.", "ru": "Сделаем ворона? Нет, перерыв."}},
+        "restsay": {"kind": "say", "es": "Yes, a short one. Then we need to copy the invitations.", "ru": "Да, ненадолго. Потом надо сделать копии приглашений.", "next": "copier"},
+        "copier": {"kind": "answer", "task": "Спросите, где ксерокс.", "branches": [{"phrase": "ph:office.photocopier", "next": "copiersay"}], "wrong": {"es": "Where's the forest? Far away, luckily.", "ru": "Где лес? Далеко, к счастью."}},
+        "copiersay": {"kind": "say", "es": "Over there, on the right. And tonight we need a big room.", "ru": "Вон там, справа. А на вечер нам нужен большой зал.", "next": "room"},
+        "room": {"kind": "answer", "task": "Спросите, где переговорная.", "branches": [{"phrase": "ph:office.meeting-room", "next": "end"}], "wrong": {"es": "Where's the raven? With the postman.", "ru": "Где ворон? У почтальона."}},
+        "end": {"kind": "say", "es": "At the end of the corridor, and it's free. And here: this was in Oswald's letter. A fragment of the forest map. I think that's his way of saying sorry.", "ru": "В конце коридора, и он свободен. И держи: это было в письме Освальда. Обрывок карты леса. Думаю, так он просит прощения."}
+      }
     }
   ]
 }

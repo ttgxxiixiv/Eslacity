@@ -75,6 +75,52 @@
         {"q": "Что нарисовано в его тетради?", "options": ["Дорога среди дюн и полная луна", "Маяк", "Портрет стражницы"], "answer": 0}
       ],
       "gloss": {"enrolled": "записался", "moon": "луна"}
+    },
+    {
+      "id": "wh:school.4",
+      "chapter": 4,
+      "mode": "overhear",
+      "npc": "evans",
+      "lines": [
+        {"who": "whitmore", "es": "Excuse me, why did my son get zero for his essay? He says he worked on it all evening.", "ru": "Простите, почему мой сын получил ноль за сочинение? Он говорит, что работал над ним весь вечер."},
+        {"who": "npc", "es": "All evening, maybe. But the text is exactly the same as a text from the internet, word for word. That is copying.", "ru": "Весь вечер — может быть. Но текст слово в слово совпадает с текстом из интернета. Это списывание."},
+        {"who": "whitmore", "es": "Surely he was only looking for ideas. All the children do that.", "ru": "Наверняка он просто искал идеи. Все дети так делают."},
+        {"who": "npc", "es": "Looking for ideas is fine. Copying it with all the spelling mistakes of the original, not so much.", "ru": "Искать идеи — нормально. Списывать вместе с орфографическими ошибками оригинала — не очень."},
+        {"who": "whitmore", "es": "Even the mistakes?", "ru": "Даже ошибки?"},
+        {"who": "npc", "es": "Even the mistakes. So here is my suggestion: he writes the essay again, in class, in front of me.", "ru": "Даже ошибки. Поэтому предлагаю вот что: пусть напишет сочинение ещё раз в классе, при мне."},
+        {"who": "whitmore", "es": "And if he writes it well, you will remove the zero?", "ru": "А если напишет хорошо, вы уберёте ноль?"},
+        {"who": "npc", "es": "If he writes it himself, yes. When he tries, he thinks very well. He lacks motivation, not ability.", "ru": "Если напишет сам — да. Когда старается, он хорошо рассуждает. Ему не хватает мотивации, а не способностей."},
+        {"who": "whitmore", "es": "I will talk to him this evening. And his phone stays at home this week.", "ru": "Поговорю с ним сегодня вечером. И телефон на этой неделе останется дома."}
+      ],
+      "questions": [
+        {"q": "Почему у сына Уитмора ноль за сочинение?", "kind": "stance", "options": ["Он его не сдал", "Сочинение списано из интернета", "Оно слишком короткое"], "answer": 1},
+        {"q": "Что мисс Эванс хотела доказать, упомянув ошибки оригинала?", "kind": "stance", "options": ["Что текст скопирован слово в слово", "Что мальчик плохо пишет", "Что в интернете много ошибок"], "answer": 0},
+        {"q": "Как мисс Эванс оценивает мальчика?", "kind": "stance", "options": ["Ленивый и неспособный", "Лучший в классе", "Способный, но ему не хватает мотивации"], "answer": 2},
+        {"q": "Что Уитмор решил в конце?", "kind": "stance", "options": ["Поговорить с сыном и оставить его телефон дома", "Перевести сына в другую школу", "Пожаловаться директору"], "answer": 0}
+      ],
+      "gloss": {"zero": "ноль", "essay": "сочинение", "internet": "интернет", "copying": "списывание", "spelling": "орфография", "original": "оригинал", "lacks": "не хватает", "motivation": "мотивация", "suggestion": "предложение", "remove": "убрать", "surely": "наверняка", "son": "сын"}
+    },
+    {
+      "id": "sc:school.4",
+      "chapter": 4,
+      "npc": "evans",
+      "lines": [
+        {"who": "npc", "es": "My pupils aren't speaking to me today. They're very hurt.", "ru": "Сегодня ученики со мной не разговаривают. Они на меня очень обиделись."},
+        {"who": "hero", "es": "Why?", "ru": "Почему?"},
+        {"who": "npc", "es": "Last night in the forest they heard my voice: \"This year's pupils are the worst ever.\"", "ru": "Вчера ночью в лесу они услышали мой голос: «Ученики в этом году — хуже некуда»."},
+        {"who": "hero", "es": "Did you say that?", "ru": "Ты это говорила?"},
+        {"who": "npc", "es": "Never! I love my pupils. But the voice was exactly like mine.", "ru": "Никогда! Я люблю своих учеников. Но голос был точно как мой."},
+        {"who": "hero", "es": "The same thing happened at the clothes shop and the pharmacy.", "ru": "В магазине одежды и в аптеке было то же самое."},
+        {"who": "npc", "es": "I know. And one pupil says he saw a black bird at the classroom window.", "ru": "Знаю. А один ученик говорит, что видел чёрную птицу на окне в классе."},
+        {"who": "hero", "es": "A bird?", "ru": "Птицу?"},
+        {"who": "npc", "es": "A bird that kept saying: \"Quiet, please!\" Like me, every morning.", "ru": "Птицу, которая повторяла: «Тише, пожалуйста!». Как я, каждое утро."}
+      ],
+      "questions": [
+        {"q": "Почему ученики не разговаривают с мисс Эванс?", "options": ["Она поставила всем плохие оценки", "В лесу они услышали, будто она назвала их худшими", "Она отменила каникулы"], "answer": 1},
+        {"q": "Говорила ли мисс Эванс это?", "options": ["Нет, она любит учеников", "Да, в сердцах", "Не помнит"], "answer": 0},
+        {"q": "Что видел ученик на окне класса?", "options": ["Белую сову", "Записку", "Чёрную птицу, которая повторяла слова учительницы"], "answer": 2}
+      ],
+      "gloss": {"pupils": "ученики", "year'": "года (this year's — в этом году)", "pupil": "ученик", "worst": "худший", "hurt": "обижены"}
     }
   ]
 }

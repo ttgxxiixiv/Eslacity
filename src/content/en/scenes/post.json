@@ -75,6 +75,51 @@
         {"q": "Что было в посылке?", "options": ["Настоящий обрывок карты пустыни", "Компас", "Письмо"], "answer": 0}
       ],
       "gloss": {"collected": "забрал"}
+    },
+    {
+      "id": "wh:post.4",
+      "chapter": 4,
+      "mode": "overhear",
+      "npc": "dan",
+      "lines": [
+        {"who": "graham", "es": "I got a notice: my parcel is being held at customs. A book about old trains!", "ru": "Мне пришло извещение: посылку задержали на таможне. Книгу о старых поездах!"},
+        {"who": "npc", "es": "I saw it. You need to pay the duty and fill in the customs forms.", "ru": "Я видел. Надо заплатить пошлину и заполнить таможенные бланки."},
+        {"who": "graham", "es": "Duty on a book? It's a present from a friend in Scotland.", "ru": "Пошлину за книгу? Это подарок от друга из Шотландии."},
+        {"who": "npc", "es": "The problem is the value on the form. It says five pounds, and online that book costs three hundred.", "ru": "Проблема в объявленной стоимости. Там указано пять фунтов, а в интернете эта книга стоит триста."},
+        {"who": "graham", "es": "My friend just wanted me to pay less, that's all.", "ru": "Мой друг просто хотел, чтобы я заплатил меньше, вот и всё."},
+        {"who": "npc", "es": "Right. And customs wants you to pay more. That's how it works.", "ru": "Ага, а таможня хочет, чтобы ты заплатил больше. Так это и работает."},
+        {"who": "graham", "es": "What bureaucracy! In my day parcels arrived without any questions.", "ru": "Ну и бюрократия! В моё время посылки приходили без всяких вопросов."},
+        {"who": "npc", "es": "In your day they also took three months. Come on, I'll help you with the forms.", "ru": "В твоё время они и шли по три месяца. Давай, помогу тебе с бумагами."}
+      ],
+      "questions": [
+        {"q": "Почему посылку Грэма задержали на таможне?", "kind": "stance", "options": ["В бланке указана слишком низкая стоимость", "Книги запрещено пересылать", "Нет адреса"], "answer": 0},
+        {"q": "Что Дэн имел в виду: «а таможня хочет, чтобы ты заплатил больше»?", "kind": "stance", "options": ["Таможня всегда ошибается", "Шутит: за попытку сэкономить таможня берёт своё", "Пошлина выросла"], "answer": 1},
+        {"q": "Как Грэм относится к происходящему?", "kind": "stance", "options": ["Спокойно", "Радуется подарку", "Возмущён бюрократией"], "answer": 2},
+        {"q": "Что Дэн ответил на «в моё время»?", "kind": "stance", "options": ["Раньше посылки тоже шли долго, так что не всё было лучше", "Раньше всё было лучше", "Раньше посылок не было"], "answer": 0}
+      ],
+      "gloss": {"duty": "пошлина", "scotland": "Шотландия", "value": "стоимость", "online": "в интернете", "bureaucracy": "бюрократия", "less": "меньше", "trains": "поезда"}
+    },
+    {
+      "id": "sc:post.4",
+      "chapter": 4,
+      "npc": "dan",
+      "lines": [
+        {"who": "npc", "es": "I need to tell you something, but don't tell anybody.", "ru": "Мне надо тебе кое-что рассказать, только никому не говори."},
+        {"who": "hero", "es": "What's happened?", "ru": "Что случилось?"},
+        {"who": "npc", "es": "You see my raven, Edgar? He always does the post with me.", "ru": "Видишь моего ворона, Эдгара? Он всегда разносит со мной почту."},
+        {"who": "hero", "es": "Yes, he's very smart.", "ru": "Да, он очень умный."},
+        {"who": "npc", "es": "Too smart. He remembers the voices of the people in every house. And at night he flies to the forest.", "ru": "Слишком умный. Он запоминает голоса людей в каждом доме. А по ночам летает в лес."},
+        {"who": "hero", "es": "Is he the one speaking in the neighbours' voices?", "ru": "Это он говорит голосами соседей?"},
+        {"who": "npc", "es": "I think so. But Edgar only repeats. Somebody is teaching him those words.", "ru": "Думаю, да. Но Эдгар только повторяет. Кто-то учит его этим фразам."},
+        {"who": "hero", "es": "Who?", "ru": "Кто?"},
+        {"who": "npc", "es": "I don't know. Every evening he comes back smelling of pipe tobacco.", "ru": "Не знаю. Каждый вечер он возвращается, и от него пахнет трубочным табаком."}
+      ],
+      "questions": [
+        {"q": "Кто подражает голосам жителей?", "options": ["Ворон Дэна", "Попугай из отеля", "Эхо в лесу"], "answer": 0},
+        {"q": "Что Дэн думает о фразах ворона?", "options": ["Ворон сам их придумывает", "Кто-то учит его этим фразам", "Это голос леса"], "answer": 1},
+        {"q": "Какую зацепку нашёл Дэн?", "options": ["Чёрное перо", "Письмо", "Ворон пахнет трубочным табаком"], "answer": 2}
+      ],
+      "gloss": {"raven": "ворон", "edgar": "Эдгар", "neighbours'": "соседей", "tobacco": "табак", "pipe": "трубка (курительная)", "smelling": "пахнет"}
     }
   ]
 }

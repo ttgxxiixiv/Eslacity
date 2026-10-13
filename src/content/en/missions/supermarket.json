@@ -65,6 +65,31 @@
         "home": {"kind": "answer", "task": "Спросите, доставляют ли покупки на дом.", "branches": [{"phrase": "ph:supermarket.home-delivery", "next": "end"}], "wrong": {"es": "Do you deliver camels? No, only shopping.", "ru": "Доставляете верблюдов? Нет, только покупки."}},
         "end": {"kind": "say", "es": "Of course, and I'll take it myself, to the last house before the sand. Take my fragment of the desert map. I found it at the shop door, covered in sand.", "ru": "Конечно, и отвезу сам, до последнего дома перед песком. Держи мой обрывок карты пустыни. Я нашёл его у дверей магазина, весь в песке."}
       }
+    },
+    {
+      "id": "ms:supermarket.4",
+      "chapter": 4,
+      "npc": "jake",
+      "scene": "sc:supermarket.4",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Hi. Lots of people today, but they're all buying earplugs.", "ru": "Привет. Сегодня много народу, но все покупают беруши.", "next": "bakery"},
+        "bakery": {"kind": "answer", "task": "Спросите, где отдел выпечки.", "branches": [{"phrase": "ph:supermarket.bakery-section", "next": "bakerysay"}], "wrong": {"es": "The earplug section? It's empty.", "ru": "Отдел берушей? Он пуст."}},
+        "bakerysay": {"kind": "say", "es": "Over there, on the right. Look, this new juice is on offer.", "ru": "Вон там, справа. Смотри, этот новый сок по акции.", "next": "additives"},
+        "additives": {"kind": "answer", "task": "Спросите, есть ли в нём консерванты.", "branches": [{"phrase": "ph:supermarket.preservatives", "next": "additivessay"}], "wrong": {"es": "Has it got noise in it? No, the noise comes from the forest.", "ru": "В нём есть шум? Нет, шум идёт из леса."}},
+        "additivessay": {"kind": "say", "es": "No preservatives. Listen, I'm worried: people are stockpiling. From tomorrow I'm not selling earplugs.", "ru": "Без консервантов. Слушай, я волнуюсь: люди скупают впрок. С завтрашнего дня беруши не продаю.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:supermarket.people-need-sleep", "next": "object", "move": "object"}, {"phrase": "ph:supermarket.nobody-stockpiles", "next": "concede", "move": "concede"}, {"phrase": "ph:supermarket.two-per-person", "next": "compromise", "move": "compromise"}], "wrong": {"es": "Sorry? I didn't sleep and I can't understand you.", "ru": "Как? Прости, я не выспался и не понимаю тебя."}},
+        "object": {"kind": "say", "es": "Without sleep? You're right… If people don't sleep, they argue more. And the forest gets louder.", "ru": "Без сна? Ты прав… Если люди не спят, они больше ссорятся. А лес шумит сильнее.", "next": "coupon", "fem": {"ru": "Без сна? Ты права… Если люди не спят, они больше ссорятся. А лес шумит сильнее."}},
+        "concede": {"kind": "say", "es": "Really? At last somebody understands me. Everybody's angry with me today.", "ru": "Правда? Наконец-то кто-то меня понимает. Сегодня все на меня злятся.", "next": "coupon"},
+        "compromise": {"kind": "say", "es": "Two per person… Yes, then nobody is left with nothing. I'll put up a sign.", "ru": "Две штуки в руки… Да, так никто не останется ни с чем. Напишу объявление.", "next": "coupon"},
+        "coupon": {"kind": "say", "es": "Right, let's go to the till. Have you got the voucher with you?", "ru": "Ну, пойдём на кассу. Купон у тебя с собой?", "next": "redeem"},
+        "redeem": {"kind": "answer", "task": "Скажите, что хотите воспользоваться купоном на скидку.", "branches": [{"phrase": "ph:supermarket.use-voucher", "next": "redeemsay"}], "wrong": {"es": "Exchange the forest? It isn't on offer.", "ru": "Обменять лес? Он не по акции."}},
+        "redeemsay": {"kind": "say", "es": "Done. By the way, last night I heard my own voice from the forest: \"That lady with the toaster is lying.\" How embarrassing! I'm taking her a new toaster.", "ru": "Готово. Кстати, вчера ночью я слышал свой голос из леса: «Эта дама с тостером врёт». Какой стыд! Отнесу ей новый тостер.", "next": "delivery"},
+        "delivery": {"kind": "answer", "task": "Спросите, доставляют ли покупки на дом.", "branches": [{"phrase": "ph:supermarket.home-delivery", "next": "deliverysay"}], "wrong": {"es": "Do you deliver the forest? It comes by itself at night.", "ru": "Доставляете лес на дом? Он и сам приходит по ночам."}},
+        "deliverysay": {"kind": "say", "es": "Usually, yes. But today I'll take it myself, with the toaster and a \"sorry\". Do you need anything else?", "ru": "Обычно да. Но сегодня отнесу сам, с тостером и «простите». Тебе ещё что-нибудь нужно?", "next": "milk"},
+        "milk": {"kind": "answer", "task": "Спросите, закончилось ли молоко.", "branches": [{"phrase": "ph:supermarket.milk-out", "next": "end"}], "wrong": {"es": "Is the forest out of stock? No, the forest has everything.", "ru": "Лес закончился? Нет, в лесу есть всё."}},
+        "end": {"kind": "say", "es": "There's one left. Take it. And one more thing: a fragment of the forest map. It was in the box of earplugs. Somebody wants you to find it.", "ru": "Осталась одна. Бери. И вот ещё: обрывок карты леса. Он лежал в коробке с берушами. Кто-то хочет, чтобы ты его нашёл.", "fem": {"ru": "Осталась одна. Бери. И вот ещё: обрывок карты леса. Он лежал в коробке с берушами. Кто-то хочет, чтобы ты его нашла."}}
+      }
     }
   ]
 }

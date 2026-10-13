@@ -1,0 +1,163 @@
+{
+  "id": "b2.05-must-have",
+  "district": "B2",
+  "order": 5,
+  "title": "Догадки о прошлом: must have, might have, can't have",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Догадка о прошлом: **must have + V3** — наверняка; **might / may / could have + V3** — возможно; **can't / couldn't have + V3** — не может быть. The path is wet: it **must have rained**."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Уверенность",
+        "Форма",
+        "Пример"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "почти точно да",
+            "must have + V3",
+            "He must have got lost."
+          ]
+        },
+        {
+          "cells": [
+            "возможно",
+            "might have + V3",
+            "She might have missed the bus."
+          ]
+        },
+        {
+          "cells": [
+            "почти точно нет",
+            "can't have + V3",
+            "Rory can't have stolen it, he was with me."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "«Не может быть» — **can't have**, а не «mustn't have»: mustn't значит запрет."
+    }
+  ],
+  "examples": [
+    {
+      "es": "The ground is wet. It must have rained.",
+      "ru": "Земля мокрая. Наверное, шёл дождь."
+    },
+    {
+      "es": "She might have forgotten.",
+      "ru": "Возможно, она забыла."
+    },
+    {
+      "es": "He can't have heard us, he was too far.",
+      "ru": "Он не мог нас услышать, он был слишком далеко."
+    },
+    {
+      "es": "Someone must have moved the stone.",
+      "ru": "Кто-то, должно быть, сдвинул камень."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "b2.05-must-have.1",
+      "kind": "choose",
+      "prompt": "«Он, наверное, заблудился»:",
+      "options": [
+        "He must have got lost.",
+        "He must get lost.",
+        "He can't have got lost."
+      ],
+      "answer": 0,
+      "explain": "Наверняка — must have."
+    },
+    {
+      "id": "b2.05-must-have.2",
+      "kind": "choose",
+      "prompt": "«Не может быть, что она это сказала»:",
+      "options": [
+        "She can't have said that.",
+        "She mustn't have said that.",
+        "She can't say that."
+      ],
+      "answer": 0,
+      "explain": "Не может быть — can't have."
+    },
+    {
+      "id": "b2.05-must-have.3",
+      "kind": "gap",
+      "sentence": "I can't find my keys. I ___ left them at the café.",
+      "ru": "Не могу найти ключи. Может, я оставил их в кафе.",
+      "options": [
+        "might have",
+        "must",
+        "can't have"
+      ],
+      "answer": 0,
+      "explain": "Возможно — might have."
+    },
+    {
+      "id": "b2.05-must-have.4",
+      "kind": "gap",
+      "sentence": "The door is open. Someone ___ been here.",
+      "ru": "Дверь открыта. Кто-то, наверное, был здесь.",
+      "options": [
+        "must have",
+        "can't have",
+        "should have"
+      ],
+      "answer": 0,
+      "explain": "Почти точно — must have."
+    },
+    {
+      "id": "b2.05-must-have.5",
+      "kind": "truefalse",
+      "statement": "«He mustn't have seen us» — обычный способ сказать «Он не мог нас видеть».",
+      "answer": false,
+      "explain": "Нужно He can't have seen us."
+    },
+    {
+      "id": "b2.05-must-have.6",
+      "kind": "truefalse",
+      "statement": "«She may have missed the train» — догадка.",
+      "answer": true,
+      "explain": "may have — возможно."
+    },
+    {
+      "id": "b2.05-must-have.7",
+      "kind": "truefalse",
+      "statement": "must have + V3 говорит о настоящем.",
+      "answer": false,
+      "explain": "О прошлом."
+    },
+    {
+      "id": "b2.05-must-have.8",
+      "kind": "build",
+      "ru": "Должно быть, шёл дождь.",
+      "answer": "It must have rained",
+      "extra": [
+        "rain",
+        "might"
+      ],
+      "explain": "must have + V3."
+    },
+    {
+      "id": "b2.05-must-have.9",
+      "kind": "type",
+      "sentence": "Sam knows the hills. He ___ (can't / get) lost.",
+      "ru": "Сэм знает холмы. Не мог он заблудиться.",
+      "hint": "can't get",
+      "answer": "can't have got",
+      "alt": [
+        "cannot have got",
+        "can't have gotten",
+        "cannot have gotten"
+      ],
+      "explain": "can't have + V3."
+    }
+  ]
+}

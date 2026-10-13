@@ -75,6 +75,53 @@
         {"q": "Куда уехал Рори?", "options": ["Домой, в лес", "В белый город", "На маяк"], "answer": 0}
       ],
       "gloss": {"envelope": "конверт", "rory": "Рори", "taught": "научила"}
+    },
+    {
+      "id": "wh:hotel.4",
+      "chapter": 4,
+      "mode": "overhear",
+      "npc": "emma",
+      "lines": [
+        {"who": "archie", "es": "My whole family is coming from Manchester for the long weekend. I need five rooms.", "ru": "На длинные выходные ко мне приезжает вся семья из Манчестера. Мне нужно пять номеров."},
+        {"who": "npc", "es": "Five? Our occupancy is a hundred per cent. There's even a waiting list.", "ru": "Пять? У нас заполняемость сто процентов. Есть даже лист ожидания."},
+        {"who": "archie", "es": "There's always something for a friend. Even rooms without a sea view.", "ru": "Для друга всегда что-нибудь найдётся. Пусть даже номера без вида на море."},
+        {"who": "npc", "es": "For a friend I can put an extra bed in a suite. But five rooms is impossible.", "ru": "Для друга могу поставить дополнительную кровать в люксе. Но пять номеров — невозможно."},
+        {"who": "archie", "es": "One bed? There are twelve of us. And my aunt doesn't share a room with anybody.", "ru": "Одну кровать? Нас двенадцать. А моя тётя ни с кем в одной комнате не спит."},
+        {"who": "npc", "es": "I'm really sorry. I can't make rooms out of thin air.", "ru": "Мне правда жаль. Номера из воздуха я не сделаю."},
+        {"who": "archie", "es": "And what if your boss comes to dinner at my place? I always keep the best table for him.", "ru": "А если твой начальник придёт ко мне поужинать? Я всегда оставляю ему лучший столик."},
+        {"who": "npc", "es": "Are you offering me a bribe? A fish pie bribe?", "ru": "Ты что, предлагаешь мне взятку? Взятку рыбным пирогом?"},
+        {"who": "archie", "es": "Not a bribe. An exchange of hospitality.", "ru": "Не взятку. Обмен гостеприимством."},
+        {"who": "npc", "es": "I'll call my cousin's hostel. It isn't cosy, but it's cheap. And I'll give your aunt a hotel bathrobe.", "ru": "Позвоню в хостел моей двоюродной сестры. Там неуютно, зато дёшево. А твоей тёте подарю халат из отеля."}
+      ],
+      "questions": [
+        {"q": "Почему Эмма не может дать Арчи пять номеров?", "kind": "stance", "options": ["Отель закрыт на ремонт", "Отель занят полностью", "Арчи не заплатил"], "answer": 1},
+        {"q": "На что намекает Арчи словами «для друга всегда что-нибудь найдётся»?", "kind": "stance", "options": ["Просит сделать исключение по дружбе", "Хочет номер подешевле", "Шутит про свою тётю"], "answer": 0},
+        {"q": "Как Эмма поняла предложение накормить её начальника?", "kind": "stance", "options": ["Как приглашение на ужин", "Как шутку", "Как взятку рыбным пирогом"], "answer": 2},
+        {"q": "Чем всё закончилось?", "kind": "stance", "options": ["Арчи получил пять номеров", "Эмма нашла хостел у своей двоюродной сестры", "Семья Арчи не приехала"], "answer": 1}
+      ],
+      "gloss": {"manchester": "Манчестер", "thin": "тонкий (out of thin air — из воздуха)", "air": "воздух", "pie": "пирог", "aunt": "тётя", "per": "на (per cent — процент)", "cent": "процент (per cent)", "impossible": "невозможно", "twelve": "двенадцать", "share": "делить", "exchange": "обмен", "cheap": "дешёвый", "waiting": "ожидания (waiting list — лист ожидания)", "list": "список"}
+    },
+    {
+      "id": "sc:hotel.4",
+      "chapter": 4,
+      "npc": "emma",
+      "lines": [
+        {"who": "npc", "es": "Good morning! Guess what? They've made me hotel manager.", "ru": "Доброе утро! Знаешь что? Меня назначили управляющей отелем."},
+        {"who": "hero", "es": "Congratulations!", "ru": "Поздравляю!"},
+        {"who": "npc", "es": "Thank you. And we have a special guest: Rory has come back from the forest to help us.", "ru": "Спасибо. А у нас особый гость: Рори вернулся из леса, чтобы нам помочь."},
+        {"who": "hero", "es": "What does he say about the forest?", "ru": "Что он рассказывает о лесе?"},
+        {"who": "npc", "es": "That it gets quieter every day. Every time somebody makes peace, a voice disappears.", "ru": "Что там с каждым днём тише. Каждый раз, когда кто-то мирится, один голос пропадает."},
+        {"who": "hero", "es": "Are there any voices left?", "ru": "А голоса ещё остались?"},
+        {"who": "npc", "es": "Only one, but a very loud one: Oswald's fear.", "ru": "Только один, зато очень громкий: страх Освальда."},
+        {"who": "hero", "es": "What does the Keeper want?", "ru": "Чего хочет Хранительница?"},
+        {"who": "npc", "es": "Rory says she wants to hear Oswald tell the truth. Face to face, in front of the whole town.", "ru": "Рори говорит, она хочет услышать, как Освальд скажет правду. В лицо, перед всем городом."}
+      ],
+      "questions": [
+        {"q": "Какая новость у Эммы?", "options": ["Она уезжает", "Она теперь управляющая отелем", "Отель закрывается"], "answer": 1},
+        {"q": "Что происходит с голосами в лесу?", "options": ["Когда кто-то мирится, один голос пропадает", "Их становится больше", "Они поют"], "answer": 0},
+        {"q": "Какой голос в лесу ещё остался?", "options": ["Голос Рори", "Голос ворона", "Страх Освальда"], "answer": 2}
+      ],
+      "gloss": {"rory": "Рори", "oswald'": "Освальда", "oswald": "Освальд", "keeper": "хранительница", "peace": "мир (make peace — мириться)", "congratulations": "поздравляю"}
     }
   ]
 }

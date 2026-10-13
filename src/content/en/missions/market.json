@@ -60,9 +60,34 @@
         "badsay": {"kind": "say", "es": "You're right, it's rotten. Take this one. And for the road?", "ru": "Ты прав, он гнилой. Возьми вот этот. А в дорогу?", "next": "beans", "fem": {"ru": "Ты права, он гнилой. Возьми вот этот. А в дорогу?"}},
         "beans": {"kind": "answer", "task": "Спросите, есть ли фасоль на развес.", "branches": [{"phrase": "ph:market.loose-beans", "next": "beanssay"}], "wrong": {"es": "Golden fruit? No, only good fruit.", "ru": "Золотые фрукты? Нет, только хорошие."}},
         "beanssay": {"kind": "say", "es": "Here you are. Just right for the desert: beans don't weigh much. That's twelve pounds.", "ru": "Держи. Для пустыни — то, что нужно: фасоль весит мало. С тебя двенадцать фунтов.", "next": "deal"},
-        "deal": {"kind": "answer", "task": "Попросите уступить в цене или скажите, что больше ничего не нужно.", "branches": [{"phrase": "ph:market.cheaper-deal", "next": "end"}, {"phrase": "ph:market.thats-all", "next": "endfull"}], "wrong": {"es": "If you dance, can you have it for free? No!", "ru": "Станцуешь — и отдам даром? Нет!"}},
+        "deal": {"kind": "answer", "task": "Попросите уступить в цене или скажите, что больше ничего не нужно.", "branches": [{"phrase": "ph:market.cheaper-deal", "next": "end", "sets": {"bargain": "bargain"}}, {"phrase": "ph:market.thats-all", "next": "endfull", "sets": {"bargain": "full"}}], "wrong": {"es": "If you dance, can you have it for free? No!", "ru": "Станцуешь — и отдам даром? Нет!"}},
         "endfull": {"kind": "say", "es": "Twelve pounds, no haggling. And take my fragment of the desert map, the real one. Look: the paper is old, and there is sand in it. The fake ones are new.", "ru": "Двенадцать фунтов, без торга. И держи мой обрывок карты пустыни, настоящий. Смотри: бумага старая, и в ней песок. Поддельные — новые."},
         "end": {"kind": "say", "es": "That's how we do it! Ten pounds. And take my fragment of the desert map, the real one. Look: the paper is old, and there is sand in it. The fake ones are new.", "ru": "Вот это по-нашему! Десять фунтов. И держи мой обрывок карты пустыни, настоящий. Смотри: бумага старая, и в ней песок. Поддельные — новые."}
+      }
+    },
+    {
+      "id": "ms:market.4",
+      "chapter": 4,
+      "npc": "patel",
+      "scene": "sc:market.4",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Nobody is buying anything from me today. They say my scales are dishonest. Do you need anything?", "ru": "Сегодня у меня никто ничего не покупает. Говорят, мои весы нечестные. Тебе что-нибудь нужно?", "next": "cheese"},
+        "cheese": {"kind": "answer", "task": "Спросите, откуда сыр.", "branches": [{"phrase": "ph:market.cheese-from", "next": "cheesesay"}], "wrong": {"es": "Where are the scales from? From a shop, like everybody's!", "ru": "Откуда весы? Из магазина, как у всех!"}},
+        "cheesesay": {"kind": "say", "es": "From a village near the forest. A farmer I've known for years makes it. Try some.", "ru": "Из деревни у леса. Его делает фермер, которого я знаю много лет. Попробуй.", "next": "deal"},
+        "deal": {"kind": "answer", "task": "Скажите, что это удачная покупка.", "branches": [{"phrase": "ph:market.a-bargain", "next": "dealsay"}], "wrong": {"es": "A bargain or a prawn? This is cheese.", "ru": "Удачная покупка или креветка? Это сыр."}},
+        "dealsay": {"kind": "say", "es": "Really? But people don't trust me any more. And it's all because of Archie. I'm never selling that man anything again.", "ru": "Правда? Но люди мне больше не доверяют. И всё из-за Арчи. Больше ничего этому человеку не продам.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:market.didnt-mean-hurt", "next": "object", "move": "object"}, {"phrase": "ph:market.understand-angry", "next": "concede", "move": "concede"}, {"phrase": "ph:market.weigh-together", "next": "compromise", "move": "compromise"}], "wrong": {"es": "What are you saying? Speak clearly, I'm in a bad mood today.", "ru": "Что ты говоришь? Говори ясно, у меня сегодня плохое настроение."}},
+        "object": {"kind": "say", "es": "He didn't mean to? But it hurt… Although it's true, Archie jokes with everybody.", "ru": "Не хотел? А мне было обидно… Хотя правда, Арчи со всеми шутит.", "next": "queue"},
+        "concede": {"kind": "say", "es": "Thank you. I needed somebody to say that. Yes, I'm angry, and for good reason.", "ru": "Спасибо. Мне нужно было, чтобы кто-то это сказал. Да, я сержусь, и не зря.", "next": "queue"},
+        "compromise": {"kind": "say", "es": "Weigh them together? Brilliant! Then everybody can see my scales don't lie.", "ru": "Взвесить вместе? Отличная идея! Так все увидят, что мои весы не врут.", "next": "queue"},
+        "queue": {"kind": "say", "es": "Look, here comes Archie to say sorry. And customers behind him. A queue at last!", "ru": "Смотри, вот идёт Арчи просить прощения. А за ним покупатели. Наконец-то очередь!", "next": "last"},
+        "last": {"kind": "answer", "task": "Спросите, кто последний в очереди.", "branches": [{"phrase": "ph:market.whos-last", "next": "lastsay"}], "wrong": {"es": "Who's last? Archie, as usual: he's always late.", "ru": "Кто последний? Арчи, как всегда: он вечно опаздывает."}},
+        "lastsay": {"kind": "say", "es": "You're last, ha-ha. Archie said sorry to me. One voice less in the forest. What can I get you?", "ru": "Последний — ты, ха-ха. Арчи сказал мне «прости». В лесу уже на один голос меньше. Что тебе положить?", "next": "cherries", "fem": {"ru": "Последняя — ты, ха-ха. Арчи сказал мне «прости». В лесу уже на один голос меньше. Что тебе положить?"}},
+        "cherries": {"kind": "answer", "task": "Попросите полкило черешни.", "branches": [{"phrase": "ph:market.half-cherries", "next": "cherriessay"}], "wrong": {"es": "Half a kilo of trees? That's for the forest.", "ru": "Полкило деревьев? Это в лес."}},
+        "cherriessay": {"kind": "say", "es": "Here you are. Weigh them yourself if you like. Anything else?", "ru": "Держи. Взвесь сам, если хочешь. Что-нибудь ещё?", "next": "enough", "fem": {"ru": "Держи. Взвесь сама, если хочешь. Что-нибудь ещё?"}},
+        "enough": {"kind": "answer", "task": "Скажите, что больше ничего не нужно.", "branches": [{"phrase": "ph:market.thats-all", "next": "end"}], "wrong": {"es": "Nothing but tomatoes? Then tomatoes it is.", "ru": "Ничего, кроме помидоров? Значит, помидоры."}},
+        "end": {"kind": "say", "es": "Take this too: a fragment of the forest map. The cheese farmer gave it to me. He says the trees don't make anything up, they only repeat.", "ru": "Возьми ещё вот это: обрывок карты леса. Мне дал его сыровар. Говорит, деревья ничего не выдумывают, только повторяют."}
       }
     }
   ]

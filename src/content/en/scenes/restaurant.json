@@ -75,6 +75,51 @@
         {"q": "Что будет, если солгать?", "options": ["Город исчезнет вместе с тобой", "Придётся заплатить", "Ничего"], "answer": 0}
       ],
       "gloss": {"oswald": "Освальд", "offers": "предлагает"}
+    },
+    {
+      "id": "wh:restaurant.4",
+      "chapter": 4,
+      "mode": "overhear",
+      "npc": "archie",
+      "lines": [
+        {"who": "priya", "es": "There will be thirty of us at the office dinner. We need a private room and a tasting menu.", "ru": "На корпоративном ужине нас будет тридцать. Нам нужен отдельный зал и дегустационное меню."},
+        {"who": "npc", "es": "With pleasure. With wine for each course? Our wine list is excellent.", "ru": "С удовольствием. С вином к каждому блюду? У нас отличная винная карта."},
+        {"who": "priya", "es": "With wine, yes. But nothing fried: half my team is on a diet.", "ru": "С вином, да. Но без жареного: половина моей команды на диете."},
+        {"who": "npc", "es": "No problem. Only this time I must ask you for a deposit, thirty per cent.", "ru": "Без проблем. Только на этот раз попрошу у вас предоплату — тридцать процентов."},
+        {"who": "priya", "es": "Before the dinner? You've never asked for anything like that. Don't you trust us?", "ru": "До ужина? Ты никогда ничего такого не просил. Ты нам не доверяешь?"},
+        {"who": "npc", "es": "I trust you. But last year you cancelled the dinner two hours before, and twenty kilos of seafood went in the bin.", "ru": "Тебе доверяю. Но в прошлом году вы отменили ужин за два часа до начала, и двадцать кило морепродуктов отправились в мусор."},
+        {"who": "priya", "es": "That was the director's fault, not mine. All right… I'll send you the money tomorrow.", "ru": "Это директор виноват, а не я. Ладно… переведу тебе деньги завтра."},
+        {"who": "npc", "es": "Excellent. And tell your director that this year the drinks are on him.", "ru": "Отлично. И передай директору, что в этом году напитки за его счёт."}
+      ],
+      "questions": [
+        {"q": "Почему Арчи просит заплатить заранее?", "kind": "stance", "options": ["В прошлом году ужин отменили в последний момент", "Подорожали продукты", "Так велит закон"], "answer": 0},
+        {"q": "Как Прия сначала отнеслась к этой просьбе?", "kind": "stance", "options": ["Сразу согласилась", "Обиделась: решила, что ей не доверяют", "Посмеялась"], "answer": 1},
+        {"q": "Кого Прия считает виноватым в прошлой отмене?", "kind": "stance", "options": ["Арчи", "Погоду", "Директора"], "answer": 2},
+        {"q": "Что Арчи имел в виду в последней реплике?", "kind": "stance", "options": ["Шутя дал понять, что директор должен отвечать за прошлую отмену", "Что напитки бесплатные", "Что директор не придёт"], "answer": 0}
+      ],
+      "gloss": {"fault": "вина", "tasting": "дегустационный", "course": "блюдо (часть ужина)", "fried": "жареный", "diet": "диета", "kilos": "килограммов", "seafood": "морепродукты", "director'": "директора", "per": "на (per cent — процент)", "cent": "процент (per cent)", "excellent": "отличный", "private": "отдельный", "pleasure": "удовольствие", "wine": "вино", "thirty": "тридцать"}
+    },
+    {
+      "id": "sc:restaurant.4",
+      "chapter": 4,
+      "npc": "archie",
+      "lines": [
+        {"who": "npc", "es": "I don't feel like cooking today. Do you know what the forest told me last night?", "ru": "Сегодня мне не хочется готовить. Знаешь, что мне ночью рассказал лес?"},
+        {"who": "hero", "es": "What?", "ru": "Что?"},
+        {"who": "npc", "es": "Priya's voice: \"Archie cooks with old oil.\" And after twenty years of friendship!", "ru": "Голос Прии: «Арчи готовит на старом масле». И это после двадцати лет дружбы!"},
+        {"who": "hero", "es": "Are you sure it was her?", "ru": "Ты уверен, что это была она?"},
+        {"who": "npc", "es": "I am. She said it to her team at last year's office dinner.", "ru": "Уверен. Она сказала это своей команде на прошлогоднем корпоративе."},
+        {"who": "hero", "es": "And is it true about the oil?", "ru": "А про масло это правда?"},
+        {"who": "npc", "es": "Of course not! My oil is fresh, from this month.", "ru": "Конечно, нет! Масло у меня свежее, этого месяца."},
+        {"who": "hero", "es": "So what are you going to do now?", "ru": "И что ты теперь будешь делать?"},
+        {"who": "npc", "es": "I don't know. Their new dinner is on Friday, and I don't want to cook for her.", "ru": "Не знаю. Их новый ужин в пятницу, и мне не хочется для неё готовить."}
+      ],
+      "questions": [
+        {"q": "Что лес сказал голосом Прии?", "options": ["Что Арчи готовит на старом масле", "Что ресторан закрывается", "Что рыба несвежая"], "answer": 0},
+        {"q": "Когда Прия это сказала?", "options": ["Вчера", "На прошлогоднем корпоративе", "Никогда не говорила"], "answer": 1},
+        {"q": "Почему Арчи не хочется готовить?", "options": ["Он заболел", "Нет продуктов", "Он обижен на Прию"], "answer": 2}
+      ],
+      "gloss": {"priya'": "Прии", "friendship": "дружба", "year'": "года (last year's — прошлогодний)", "oil": "масло (растительное)", "friday": "пятница"}
     }
   ]
 }

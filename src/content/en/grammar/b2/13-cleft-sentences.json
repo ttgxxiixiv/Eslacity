@@ -1,0 +1,156 @@
+{
+  "id": "b2.13-cleft-sentences",
+  "district": "B2",
+  "order": 13,
+  "title": "Выделение: It was … who, What I need is …",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Чтобы выделить главное, фразу перестраивают. **It is / was + выделенное + who / that**: **It was Rory who** took the map. **What + подлежащее + глагол + is**: **What I need is** a rest. По-русски так же выделяют интонацией или словом «именно»."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Обычная",
+        "С выделением"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Rory took the map.",
+            "It was Rory who took the map."
+          ]
+        },
+        {
+          "cells": [
+            "I need a rest.",
+            "What I need is a rest."
+          ]
+        },
+        {
+          "cells": [
+            "I like the silence.",
+            "What I like is the silence."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "После It was о людях — **who**, о вещах и обстоятельствах — **that**: It was in the forest **that** I saw him."
+    }
+  ],
+  "examples": [
+    {
+      "es": "It was Sam who found the path.",
+      "ru": "Именно Сэм нашёл тропу."
+    },
+    {
+      "es": "What I want is the truth.",
+      "ru": "Мне нужна правда."
+    },
+    {
+      "es": "It was in the swamp that we lost the lantern.",
+      "ru": "Именно на болоте мы потеряли фонарь."
+    },
+    {
+      "es": "What surprised me was the silence.",
+      "ru": "Меня удивила тишина."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "b2.13-cleft-sentences.1",
+      "kind": "choose",
+      "prompt": "«Именно Рори взял карту»:",
+      "options": [
+        "It was Rory who took the map.",
+        "It was Rory which took the map.",
+        "Was it Rory who took the map."
+      ],
+      "answer": 0,
+      "explain": "It was + человек + who."
+    },
+    {
+      "id": "b2.13-cleft-sentences.2",
+      "kind": "choose",
+      "prompt": "«Мне нужен отдых»:",
+      "options": [
+        "What I need is a rest.",
+        "What I need it is a rest.",
+        "That I need is a rest."
+      ],
+      "answer": 0,
+      "explain": "What I need is."
+    },
+    {
+      "id": "b2.13-cleft-sentences.3",
+      "kind": "gap",
+      "sentence": "It was at the station ___ I saw her.",
+      "ru": "Именно на вокзале я её увидел.",
+      "options": [
+        "that",
+        "who",
+        "what"
+      ],
+      "answer": 0,
+      "explain": "Место — that."
+    },
+    {
+      "id": "b2.13-cleft-sentences.4",
+      "kind": "gap",
+      "sentence": "___ I like about the forest is the smell.",
+      "ru": "Мне нравится в лесу запах.",
+      "options": [
+        "What",
+        "That",
+        "It"
+      ],
+      "answer": 0,
+      "explain": "What + I like."
+    },
+    {
+      "id": "b2.13-cleft-sentences.5",
+      "kind": "truefalse",
+      "statement": "«It was my sister who called» — правильно.",
+      "answer": true,
+      "explain": "Человек — who."
+    },
+    {
+      "id": "b2.13-cleft-sentences.6",
+      "kind": "truefalse",
+      "statement": "«What I need it is coffee» — правильно.",
+      "answer": false,
+      "explain": "What I need is coffee."
+    },
+    {
+      "id": "b2.13-cleft-sentences.7",
+      "kind": "truefalse",
+      "statement": "Такие фразы помогают выделить главное.",
+      "answer": true,
+      "explain": "Так и есть."
+    },
+    {
+      "id": "b2.13-cleft-sentences.8",
+      "kind": "build",
+      "ru": "Именно смотритель нас предупредил.",
+      "answer": "It was the keeper who warned us",
+      "extra": [
+        "which",
+        "what"
+      ],
+      "explain": "It was + человек + who."
+    },
+    {
+      "id": "b2.13-cleft-sentences.9",
+      "kind": "type",
+      "sentence": "It was Sam ___ found the hut.",
+      "ru": "Именно Сэм нашёл хижину.",
+      "answer": "who",
+      "alt": [
+        "that"
+      ],
+      "explain": "Человек — who."
+    }
+  ]
+}

@@ -77,6 +77,50 @@
         {"q": "Какое лекарство от этого?", "options": ["Вернуться домой", "Таблетки", "Отдых на море"], "answer": 0}
       ],
       "gloss": {"rory": "Рори", "cried": "заплакал", "cured": "вылечен"}
+    },
+    {
+      "id": "wh:hospital.4",
+      "chapter": 4,
+      "mode": "overhear",
+      "npc": "okafor",
+      "lines": [
+        {"who": "patel", "es": "Doctor, I want an MRI. Today, if possible. My knee hurts.", "ru": "Доктор, хочу сделать МРТ. Сегодня, если можно. У меня болит колено."},
+        {"who": "npc", "es": "It's ordinary pain. You stand at the market for ten hours a day.", "ru": "Это обычная боль. Вы по десять часов стоите на рынке."},
+        {"who": "patel", "es": "The internet says it could be something serious. I have all the symptoms.", "ru": "В интернете пишут, что это может быть что-то серьёзное. У меня все симптомы."},
+        {"who": "npc", "es": "The internet also says chocolate cures sadness. Not everything there is true.", "ru": "В интернете ещё пишут, что шоколад лечит от грусти. Не всё там правда."},
+        {"who": "patel", "es": "I want a second opinion. My neighbour knows a very good specialist.", "ru": "Я хочу услышать второе мнение. Моя соседка знает очень хорошего специалиста."},
+        {"who": "npc", "es": "You have every right. I'll write you a referral. But he'll tell you the same as me: rest and ice.", "ru": "Имеете полное право. Выпишу вам направление. Но он скажет то же, что и я: покой и лёд."},
+        {"who": "patel", "es": "And if he doesn't? What if it's a fracture?", "ru": "А если нет? А если это перелом?"},
+        {"who": "npc", "es": "With a fracture you wouldn't have walked here from the market with two bags of oranges.", "ru": "С переломом вы бы не пришли пешком с рынка с двумя сумками апельсинов."},
+        {"who": "patel", "es": "… They were lemons. All right, I'll try the ice. But I'll take the referral anyway.", "ru": "… Это были лимоны. Ладно, попробую лёд. Но направление всё-таки возьму."}
+      ],
+      "questions": [
+        {"q": "Почему доктор считает, что МРТ не нужна?", "kind": "stance", "options": ["Аппарат сломан", "Боль обычная: миссис Патель целый день на ногах", "Это слишком дорого"], "answer": 1},
+        {"q": "Что доктор имела в виду, упомянув шоколад от грусти?", "kind": "stance", "options": ["В интернете много неправды", "Миссис Патель надо меньше есть сладкого", "Ей грустно"], "answer": 0},
+        {"q": "Почему доктор уверена, что это не перелом?", "kind": "stance", "options": ["Она посмотрела снимок", "Колено не опухло", "Миссис Патель пришла пешком с тяжёлыми сумками"], "answer": 2},
+        {"q": "Как миссис Патель в итоге поступает?", "kind": "stance", "options": ["Соглашается на лёд, но направление всё равно берёт", "Уходит к другому врачу", "Отказывается от лечения"], "answer": 0}
+      ],
+      "gloss": {"knee": "колено", "internet": "интернет", "chocolate": "шоколад", "cures": "лечит", "sadness": "грусть", "ice": "лёд", "ordinary": "обычный", "lemons": "лимоны", "oranges": "апельсины"}
+    },
+    {
+      "id": "sc:hospital.4",
+      "chapter": 4,
+      "npc": "okafor",
+      "lines": [
+        {"who": "npc", "es": "Oswald was brought in last night. He fainted on the beach from the cold.", "ru": "Вчера ночью привезли Освальда. Он потерял сознание на пляже от холода."},
+        {"who": "hero", "es": "Is he all right?", "ru": "Он в порядке?"},
+        {"who": "npc", "es": "His heart is fine, his blood pressure too. But he isn't eating or sleeping.", "ru": "Сердце в порядке, давление тоже. Но он не ест и не спит."},
+        {"who": "hero", "es": "What's wrong with him?", "ru": "Что с ним?"},
+        {"who": "npc", "es": "The same as Rory had: fear. And shame. He knows the whole town knows the truth now.", "ru": "То же, что было у Рори: страх. И стыд. Он знает, что правда уже известна всему городу."},
+        {"who": "hero", "es": "Can I visit him?", "ru": "Можно его навестить?"},
+        {"who": "npc", "es": "He asked about you. He says he wants to tell you something face to face.", "ru": "Он спрашивал о тебе. Говорит, хочет сказать тебе кое-что в лицо."}
+      ],
+      "questions": [
+        {"q": "Что случилось с Освальдом?", "options": ["Потерял сознание на пляже от холода", "Упал с маяка", "Заблудился в лесу"], "answer": 0},
+        {"q": "Что, по словам доктора, с ним на самом деле?", "options": ["Простуда", "Страх и стыд", "Больное сердце"], "answer": 1},
+        {"q": "Чего хочет Освальд?", "options": ["Уехать из города", "Вернуться на маяк", "Сказать герою что-то в лицо"], "answer": 2}
+      ],
+      "gloss": {"oswald": "Освальд", "shame": "стыд", "rory": "Рори"}
     }
   ]
 }

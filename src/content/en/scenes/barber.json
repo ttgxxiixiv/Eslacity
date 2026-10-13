@@ -73,6 +73,52 @@
         {"q": "Почему он ушёл из леса?", "options": ["Не мог спать", "Искал работу", "Его прогнали"], "answer": 0}
       ],
       "gloss": {}
+    },
+    {
+      "id": "wh:barber.4",
+      "chapter": 4,
+      "mode": "overhear",
+      "npc": "liam",
+      "lines": [
+        {"who": "emma", "es": "Today I want a real change of look. Platinum blonde. Bleach it all.", "ru": "Сегодня хочу по-настоящему сменить образ. Платиновая блондинка. Осветляй всё."},
+        {"who": "npc", "es": "All of it? Look at these ends. Your hair has suffered enough this year.", "ru": "Всё? Посмотри на эти кончики. Твои волосы в этом году и так натерпелись."},
+        {"who": "emma", "es": "You always say that. You're the most careful hairdresser in town.", "ru": "Ты мне всегда это говоришь. Ты самый осторожный парикмахер в городе."},
+        {"who": "npc", "es": "Not careful, experienced. The last customer who went platinum came back a month later to ask about wigs.", "ru": "Не осторожный, а опытный. Последняя клиентка, которая так осветлилась, через месяц пришла спрашивать про парики."},
+        {"who": "emma", "es": "You're exaggerating. I just want people at the hotel to take me seriously. I'm still \"the girl at reception\".", "ru": "Ну ты и преувеличиваешь. Я просто хочу, чтобы в отеле меня воспринимали всерьёз. А то я всё ещё «девочка с ресепшена»."},
+        {"who": "npc", "es": "So this isn't about your hair. It's about the manager's job, isn't it?", "ru": "А, так дело не в волосах. Дело в должности управляющего, да?"},
+        {"who": "emma", "es": "… Maybe. Is it that obvious?", "ru": "… Может быть. Так заметно?"},
+        {"who": "npc", "es": "A little. Let's do this: highlights and a hair mask. In the interview, what matters isn't the colour, it's confidence.", "ru": "Немного. Давай так: мелирование и маска для волос. На собеседовании важен не оттенок, а уверенность в себе."},
+        {"who": "emma", "es": "All right, highlights. But if I get the job, next month I'm going platinum.", "ru": "Ладно, мелирование. Но если мне дадут должность, в следующем месяце я решусь на платину."}
+      ],
+      "questions": [
+        {"q": "Почему Лиам не хочет осветлять волосы полностью?", "kind": "stance", "options": ["У него нет краски", "Волосы Эммы и так повреждены", "Ему не нравится этот цвет"], "answer": 1},
+        {"q": "Что Лиам имел в виду, рассказав про клиентку и парики?", "kind": "stance", "options": ["Сильное осветление может погубить волосы", "Парики сейчас в моде", "Клиентка была недовольна ценой"], "answer": 0},
+        {"q": "Зачем на самом деле Эмма меняет образ?", "kind": "stance", "options": ["Она идёт на свадьбу", "Ей надоел её цвет", "Она хочет получить должность управляющей отелем"], "answer": 2},
+        {"q": "Как Эмма отнеслась к догадке Лиама?", "kind": "stance", "options": ["Рассердилась и ушла", "Смущённо признала, что он прав", "Посмеялась над ним"], "answer": 1}
+      ],
+      "gloss": {"platinum": "платиновый", "blonde": "блондинка", "bleach": "осветлять", "hairdresser": "парикмахер", "wigs": "парики", "seriously": "всерьёз", "highlights": "мелирование", "mask": "маска", "colour": "цвет", "confidence": "уверенность в себе", "experienced": "опытный", "suffered": "натерпелись", "obvious": "заметный", "exaggerating": "преувеличиваешь"}
+    },
+    {
+      "id": "sc:barber.4",
+      "chapter": 4,
+      "npc": "liam",
+      "lines": [
+        {"who": "npc", "es": "A strange customer came in yesterday. He wanted a shave with an old razor, the old way.", "ru": "Вчера приходил странный клиент. Хотел, чтобы его побрили старой бритвой, по старинке."},
+        {"who": "hero", "es": "Why strange?", "ru": "Почему странный?"},
+        {"who": "npc", "es": "He smelt of pipe tobacco, and there were black feathers on his coat.", "ru": "От него пахло трубочным табаком, а на пальто были чёрные перья."},
+        {"who": "hero", "es": "The postman has a raven like that!", "ru": "У почтальона такой же ворон!"},
+        {"who": "npc", "es": "I thought the same. And while I was shaving him, he said something very sad.", "ru": "Я тоже так подумал. А пока я его брил, он сказал кое-что очень грустное."},
+        {"who": "hero", "es": "What did he say?", "ru": "Что он сказал?"},
+        {"who": "npc", "es": "\"The sea took a hundred years of my life. The forest will not take anybody.\"", "ru": "«Море забрало сто лет моей жизни. Лес не заберёт никого»."},
+        {"who": "hero", "es": "Did you see his face?", "ru": "Ты видел его лицо?"},
+        {"who": "npc", "es": "Not really, it was covered in foam. But only one man in town smokes a pipe: the station master.", "ru": "Толком нет: всё лицо было в пене. Но в городе трубку курит только один человек — начальник станции."}
+      ],
+      "questions": [
+        {"q": "Чем странный клиент напомнил ворона почтальона?", "options": ["Чёрными перьями на пальто", "Громким голосом", "Тем, что пришёл ночью"], "answer": 0},
+        {"q": "Что сказал клиент?", "options": ["Что хочет уехать из города", "Что море забрало сто лет его жизни, а лес не заберёт никого", "Что лес опасен"], "answer": 1},
+        {"q": "Кого подозревает Лиам?", "options": ["Почтальона", "Смотрителя маяка", "Начальника станции"], "answer": 2}
+      ],
+      "gloss": {"razor": "бритва", "feathers": "перья", "foam": "пена", "tobacco": "табак", "smelt": "пахло", "shaving": "брил", "raven": "ворон", "pipe": "трубка (курительная)", "master": "начальник (station master — начальник станции)"}
     }
   ]
 }

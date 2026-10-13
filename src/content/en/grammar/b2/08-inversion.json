@@ -1,0 +1,160 @@
+{
+  "id": "b2.08-inversion",
+  "district": "B2",
+  "order": 8,
+  "title": "Инверсия после never, rarely, not only",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "В книжной и торжественной речи после отрицательных слов в начале фразы порядок как в вопросе: **Never have I seen** such a forest. **Rarely does** he speak. **Not only did** she win, but she also… **Hardly had** we arrived **when**…"
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Начало",
+        "Пример"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Never",
+            "Never have I heard such a voice."
+          ]
+        },
+        {
+          "cells": [
+            "Rarely / Seldom",
+            "Rarely do owls fly by day."
+          ]
+        },
+        {
+          "cells": [
+            "Not only",
+            "Not only did he lie, he also stole."
+          ]
+        },
+        {
+          "cells": [
+            "Hardly … when",
+            "Hardly had I sat down when the phone rang."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Инверсия нужна только когда слово стоит в начале: I have **never** seen it — без инверсии."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Never have I seen so many stars.",
+      "ru": "Никогда я не видел столько звёзд."
+    },
+    {
+      "es": "Rarely does the keeper leave the forest.",
+      "ru": "Смотритель редко покидает лес."
+    },
+    {
+      "es": "Not only did he return the fragments, he also apologised.",
+      "ru": "Он не только вернул обрывки, но и извинился."
+    },
+    {
+      "es": "Hardly had we entered the forest when it got dark.",
+      "ru": "Едва мы вошли в лес, как стемнело."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "b2.08-inversion.1",
+      "kind": "choose",
+      "prompt": "«Никогда я не слышал такой тишины»:",
+      "options": [
+        "Never have I heard such silence.",
+        "Never I have heard such silence.",
+        "Never I heard such silence."
+      ],
+      "answer": 0,
+      "explain": "Never + have + I."
+    },
+    {
+      "id": "b2.08-inversion.2",
+      "kind": "choose",
+      "prompt": "«Она не только пела, но и танцевала»:",
+      "options": [
+        "Not only did she sing, she also danced.",
+        "Not only she sang, she also danced.",
+        "Not only sang she, she also danced."
+      ],
+      "answer": 0,
+      "explain": "Not only + did + she."
+    },
+    {
+      "id": "b2.08-inversion.3",
+      "kind": "gap",
+      "sentence": "Rarely ___ such a beautiful clearing.",
+      "ru": "Редко увидишь такую красивую поляну.",
+      "options": [
+        "do you see",
+        "you see",
+        "you do see"
+      ],
+      "answer": 0,
+      "explain": "Rarely + do + you."
+    },
+    {
+      "id": "b2.08-inversion.4",
+      "kind": "gap",
+      "sentence": "Hardly ___ arrived when it started to rain.",
+      "ru": "Едва мы пришли, как начался дождь.",
+      "options": [
+        "had we",
+        "we had",
+        "did we"
+      ],
+      "answer": 0,
+      "explain": "Hardly had we … when."
+    },
+    {
+      "id": "b2.08-inversion.5",
+      "kind": "truefalse",
+      "statement": "«Never I have been so tired» — правильно.",
+      "answer": false,
+      "explain": "Never have I been."
+    },
+    {
+      "id": "b2.08-inversion.6",
+      "kind": "truefalse",
+      "statement": "«I have never been so tired» — правильно.",
+      "answer": true,
+      "explain": "never не в начале — без инверсии."
+    },
+    {
+      "id": "b2.08-inversion.7",
+      "kind": "truefalse",
+      "statement": "Инверсия звучит книжно и торжественно.",
+      "answer": true,
+      "explain": "Так и есть."
+    },
+    {
+      "id": "b2.08-inversion.8",
+      "kind": "build",
+      "ru": "Никогда я не видел такого леса.",
+      "answer": "Never have I seen such a forest",
+      "extra": [
+        "did",
+        "saw"
+      ],
+      "explain": "Never + have + I + V3."
+    },
+    {
+      "id": "b2.08-inversion.9",
+      "kind": "type",
+      "sentence": "Seldom ___ (he / speak) to strangers.",
+      "ru": "Он редко говорит с незнакомцами.",
+      "hint": "he speak",
+      "answer": "does he speak",
+      "explain": "Seldom + does + he + глагол."
+    }
+  ]
+}

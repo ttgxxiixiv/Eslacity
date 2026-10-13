@@ -1,0 +1,165 @@
+{
+  "id": "b2.04-should-have",
+  "district": "B2",
+  "order": 4,
+  "title": "Should have, could have, would have",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "**should have + V3** — следовало (но не сделали): You **should have** called. **shouldn't have** — не стоило (но сделали). **could have + V3** — мог бы (была возможность). **would have + V3** — сделал бы (при других условиях)."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Форма",
+        "Значение",
+        "Пример"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "should have + V3",
+            "надо было",
+            "I should have checked the map."
+          ]
+        },
+        {
+          "cells": [
+            "shouldn't have + V3",
+            "не надо было",
+            "You shouldn't have shouted."
+          ]
+        },
+        {
+          "cells": [
+            "could have + V3",
+            "мог бы",
+            "We could have taken a taxi."
+          ]
+        },
+        {
+          "cells": [
+            "would have + V3",
+            "сделал бы",
+            "I would have helped, but I didn't know."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "В разговоре звучит «should've», но пишется **should have**, а не «should of»."
+    }
+  ],
+  "examples": [
+    {
+      "es": "I should have listened to the guide.",
+      "ru": "Надо было послушать проводника."
+    },
+    {
+      "es": "You shouldn't have gone alone.",
+      "ru": "Не стоило тебе идти одному."
+    },
+    {
+      "es": "We could have taken the short path.",
+      "ru": "Мы могли пойти короткой тропой."
+    },
+    {
+      "es": "I would have called you, but my phone died.",
+      "ru": "Я бы тебе позвонил, но телефон сел."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "b2.04-should-have.1",
+      "kind": "choose",
+      "prompt": "«Тебе надо было мне сказать»:",
+      "options": [
+        "You should have told me.",
+        "You should told me.",
+        "You should have tell me."
+      ],
+      "answer": 0,
+      "explain": "should have + V3."
+    },
+    {
+      "id": "b2.04-should-have.2",
+      "kind": "choose",
+      "prompt": "«Мы могли бы поехать на поезде»:",
+      "options": [
+        "We could have gone by train.",
+        "We could go by train yesterday.",
+        "We could gone by train."
+      ],
+      "answer": 0,
+      "explain": "could have + V3."
+    },
+    {
+      "id": "b2.04-should-have.3",
+      "kind": "gap",
+      "sentence": "You ___ eaten that mushroom. It was poisonous!",
+      "ru": "Не надо было есть этот гриб. Он был ядовитый!",
+      "options": [
+        "shouldn't have",
+        "couldn't have",
+        "wouldn't have"
+      ],
+      "answer": 0,
+      "explain": "Не стоило — shouldn't have."
+    },
+    {
+      "id": "b2.04-should-have.4",
+      "kind": "gap",
+      "sentence": "I ___ helped you, but nobody asked me.",
+      "ru": "Я бы помог, но меня никто не попросил.",
+      "options": [
+        "would have",
+        "should have",
+        "must have"
+      ],
+      "answer": 0,
+      "explain": "would have — сделал бы."
+    },
+    {
+      "id": "b2.04-should-have.5",
+      "kind": "truefalse",
+      "statement": "«You should of told me» — правильно.",
+      "answer": false,
+      "explain": "Пишется should have."
+    },
+    {
+      "id": "b2.04-should-have.6",
+      "kind": "truefalse",
+      "statement": "«We could have won» значит, что была возможность, но мы не выиграли.",
+      "answer": true,
+      "explain": "Так и есть."
+    },
+    {
+      "id": "b2.04-should-have.7",
+      "kind": "truefalse",
+      "statement": "«I shouldn't have said that» — сожаление о сказанном.",
+      "answer": true,
+      "explain": "Так и есть."
+    },
+    {
+      "id": "b2.04-should-have.8",
+      "kind": "build",
+      "ru": "Надо было взять карту.",
+      "answer": "I should have taken the map",
+      "extra": [
+        "take",
+        "could"
+      ],
+      "explain": "should have + V3."
+    },
+    {
+      "id": "b2.04-should-have.9",
+      "kind": "type",
+      "sentence": "We ___ (could / take) a taxi. Why did we walk?",
+      "ru": "Мы могли взять такси. Зачем мы шли пешком?",
+      "hint": "could take",
+      "answer": "could have taken",
+      "explain": "could have + V3."
+    }
+  ]
+}

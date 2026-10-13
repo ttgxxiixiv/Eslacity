@@ -75,6 +75,50 @@
         {"q": "Что случилось с деревьями, когда он сошёл?", "options": ["Они успокоились", "Они исчезли", "Они зацвели"], "answer": 0}
       ],
       "gloss": {"blew": "занёс (о ветре)", "rory": "Рори"}
+    },
+    {
+      "id": "wh:airport.4",
+      "chapter": 4,
+      "mode": "overhear",
+      "npc": "tom",
+      "lines": [
+        {"who": "npc", "es": "Your suitcase weighs thirty-two kilos. The limit is twenty-three.", "ru": "Ваш чемодан весит тридцать два килограмма. Максимум — двадцать три."},
+        {"who": "chloe", "es": "Tom, it's me, from the clothes shop! I'm flying to London Fashion Week. It's for work.", "ru": "Том, это же я, из магазина одежды! Лечу на Неделю моды в Лондон. Это по работе."},
+        {"who": "npc", "es": "I know who you are. But the scales don't. That's sixty pounds for excess baggage.", "ru": "Я знаю, кто ты. А весы не знают. Шестьдесят фунтов за перевес."},
+        {"who": "chloe", "es": "Sixty? There are only dresses in there. Clothes don't weigh anything.", "ru": "Шестьдесят? Там же одни платья. Одежда ничего не весит."},
+        {"who": "npc", "es": "Twenty dresses, six pairs of shoes and… is that an iron?", "ru": "Двадцать платьев, шесть пар туфель и… это что, утюг?"},
+        {"who": "chloe", "es": "Silk gets creased in a suitcase. A professional doesn't arrive in London looking creased.", "ru": "Шёлк мнётся в чемодане. Профессионал не прилетает в Лондон в мятом."},
+        {"who": "npc", "es": "Look: wear your coat and your boots, and put the iron in your hand luggage.", "ru": "Смотри: надень пальто и сапоги, а утюг положи в ручную кладь."},
+        {"who": "chloe", "es": "My coat? It's thirty degrees outside!", "ru": "Пальто? На улице тридцать градусов!"},
+        {"who": "npc", "es": "It's cold in the cabin. And you'll save sixty pounds.", "ru": "В салоне холодно. Зато сэкономишь шестьдесят фунтов."}
+      ],
+      "questions": [
+        {"q": "В чём проблема Хлои?", "kind": "stance", "options": ["Она опоздала на рейс", "Чемодан весит больше нормы", "У неё нет билета"], "answer": 1},
+        {"q": "На что Хлоя рассчитывает, напоминая, кто она?", "kind": "stance", "options": ["Что знакомый сделает для неё исключение", "Что её пересадят в бизнес-класс", "Что ей помогут нести чемодан"], "answer": 0},
+        {"q": "Что Том имел в виду: «а весы не знают»?", "kind": "stance", "options": ["Весы сломаны", "Хлоя сильно изменилась", "Правила одни для всех, даже для знакомых"], "answer": 2},
+        {"q": "Как Том в итоге помогает Хлое?", "kind": "stance", "options": ["Не берёт с неё денег", "Советует надеть тяжёлые вещи на себя", "Отправляет утюг почтой"], "answer": 1}
+      ],
+      "gloss": {"london": "Лондон", "fashion": "мода", "creased": "мятый, помятый", "iron": "утюг", "sixty": "шестьдесят", "professional": "профессионал", "silk": "шёлк", "scales": "весы", "weighs": "весит", "kilos": "килограммов"}
+    },
+    {
+      "id": "sc:airport.4",
+      "chapter": 4,
+      "npc": "tom",
+      "lines": [
+        {"who": "npc", "es": "You have to hear this! This morning I flew over the forest.", "ru": "Ты должен это услышать! Сегодня утром я пролетал над лесом.", "fem": {"ru": "Ты должна это услышать! Сегодня утром я пролетал над лесом."}},
+        {"who": "hero", "es": "And what did you see?", "ru": "И что ты видел?"},
+        {"who": "npc", "es": "The fog is starting to lift. The trees are quiet, they're hardly moving.", "ru": "Туман начинает уходить. Деревья стоят тихо, почти не шевелятся."},
+        {"who": "hero", "es": "Has the noise stopped?", "ru": "Шум закончился?"},
+        {"who": "npc", "es": "Almost. And in the middle of the forest I saw a light, like a lantern.", "ru": "Почти. А в центре леса я видел свет, как от фонаря."},
+        {"who": "hero", "es": "Is it the Keeper of the Forest?", "ru": "Это Хранительница леса?"},
+        {"who": "npc", "es": "It must be. From above you can see a path that wasn't there before.", "ru": "Наверняка. Сверху видна тропа, которой раньше не было."}
+      ],
+      "questions": [
+        {"q": "Что происходит с туманом над лесом?", "options": ["Становится гуще", "Начинает уходить", "Спускается в город"], "answer": 1},
+        {"q": "Что Том видел в центре леса?", "options": ["Свет, как от фонаря", "Дым от костра", "Чёрную птицу"], "answer": 0},
+        {"q": "Что видно сверху?", "options": ["Старый маяк", "Белый город", "Тропу, которой раньше не было"], "answer": 2}
+      ],
+      "gloss": {"middle": "середина", "keeper": "хранительница", "lift": "рассеиваться (о тумане)"}
     }
   ]
 }

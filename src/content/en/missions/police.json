@@ -62,6 +62,29 @@
         "alc": {"kind": "answer", "task": "Спросите, нужно ли вам дуть в алкотестер.", "branches": [{"phrase": "ph:police.breathalyser", "next": "end"}], "wrong": {"es": "Do you have to bake a cake? No, not that.", "ru": "Вам надо испечь торт? Нет, не это."}},
         "end": {"kind": "say", "es": "You? You ride a bike and drink only water. Take my fragment of the desert map. And remember the message: listen to the trees.", "ru": "Вы? Вы ездите на велосипеде и пьёте только воду. Возьмите мой обрывок карты пустыни. И помните послание: слушайте деревья."}
       }
+    },
+    {
+      "id": "ms:police.4",
+      "chapter": 4,
+      "npc": "bradley",
+      "scene": "sc:police.4",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Come in. I have to close the case of the voices from the forest, and it is not easy.", "ru": "Проходите. Мне надо закрыть дело о голосах из леса, а это непросто.", "next": "proof"},
+        "proof": {"kind": "answer", "task": "Спросите, есть ли против него доказательства.", "branches": [{"phrase": "ph:police.evidence-against", "next": "proofsay"}], "wrong": {"es": "Are there feathers against him? Plenty, black ones.", "ru": "Против него есть перья? Много, чёрных."}},
+        "proofsay": {"kind": "say", "es": "Plenty: the coins, the feathers, the ticket… and what he said yesterday in front of the whole town.", "ru": "Много: монеты, перья, билет… и то, что он вчера сказал перед всем городом.", "next": "penalty"},
+        "penalty": {"kind": "answer", "task": "Спросите, какое наказание ему грозит.", "branches": [{"phrase": "ph:police.what-sentence", "next": "penaltysay"}], "wrong": {"es": "What a pity? Yes, poor man.", "ru": "Какая жалость? Да, бедняга."}},
+        "penaltysay": {"kind": "say", "es": "For the panic at the bank, a large fine. By law I have to fine him.", "ru": "За панику в банке — большой штраф. По закону я должен его оштрафовать.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:police.no-bad-intent", "next": "object", "move": "object"}, {"phrase": "ph:police.law-is-law", "next": "concede", "move": "concede"}, {"phrase": "ph:police.community-work", "next": "compromise", "move": "compromise"}], "wrong": {"es": "I beg your pardon? Speak more clearly, this is a police station.", "ru": "Простите? Говорите яснее, это полицейский участок."}},
+        "object": {"kind": "say", "es": "Only afraid? …That is true. And fines do not cure fear. No fine.", "ru": "Только страх? …Это правда. А страх штрафами не лечат. Без штрафа.", "next": "closed"},
+        "concede": {"kind": "say", "es": "Exactly. But I will pay half myself: I did not see the truth in time either.", "ru": "Именно. Но половину заплачу я: я тоже не увидел правду вовремя.", "next": "closed"},
+        "compromise": {"kind": "say", "es": "By helping the town? A month of painting the post office wall and looking after the park… I like that.", "ru": "Помогая городу? Месяц красить стену почты и ухаживать за парком… Мне нравится.", "next": "closed"},
+        "closed": {"kind": "say", "es": "Case closed. Tomorrow you go into the forest. Do you want an officer to go with you?", "ru": "Дело закрыто. Завтра вы входите в лес. Хотите, чтобы вас проводили?", "next": "agent"},
+        "agent": {"kind": "answer", "task": "Скажите, что вам нужен полицейский.", "branches": [{"phrase": "ph:police.police-officer", "next": "agentsay"}], "wrong": {"es": "You need a raven? It is resting now.", "ru": "Вам нужен ворон? Он уже отдыхает."}},
+        "agentsay": {"kind": "say", "es": "I will take you to the edge of the forest myself. But in the forest you go alone. Why not leave right now?", "ru": "Я сам провожу вас до опушки. Но в лесу вы пойдёте один. Почему бы не выехать прямо сейчас?", "next": "traffic", "fem": {"ru": "Я сам провожу вас до опушки. Но в лесу вы пойдёте одна. Почему бы не выехать прямо сейчас?"}},
+        "traffic": {"kind": "answer", "task": "Скажите, что на шоссе пробка.", "branches": [{"phrase": "ph:police.traffic-jam", "next": "end"}], "wrong": {"es": "Trees on the motorway? Not yet.", "ru": "На шоссе деревья? Пока нет."}},
+        "end": {"kind": "say", "es": "Then tomorrow at six. And take the last fragment of the forest map: it was among the evidence in the case. Now it is not evidence, it is your way.", "ru": "Тогда завтра в шесть. И возьмите последний обрывок карты леса: он лежал среди улик по делу. Теперь это не улика, а ваш путь."}
+      }
     }
   ]
 }

@@ -60,9 +60,34 @@
         "refundsay": {"kind": "say", "es": "Here is your money. Look how many people there are!", "ru": "Вот деньги. Смотри, сколько народу!", "next": "rush"},
         "rush": {"kind": "answer", "task": "Скажите, что в час пик очень много людей.", "branches": [{"phrase": "ph:station.rush-hour", "next": "rushsay"}], "wrong": {"es": "A lot of sand in the rush hour? No, a lot of people.", "ru": "В час пик много песка? Нет, много людей."}},
         "rushsay": {"kind": "say", "es": "Like always. And for Friday? The Moon Train.", "ru": "Как всегда. А на пятницу? Лунный поезд.", "next": "single"},
-        "single": {"kind": "answer", "task": "Попросите билет на лунный поезд: в одну сторону или туда и обратно.", "branches": [{"phrase": "ph:station.single-ticket", "next": "end"}, {"phrase": "ph:station.return-ticket", "next": "endround"}], "wrong": {"es": "A ticket to the moon? This train goes to the desert.", "ru": "Билет на Луну? Этот поезд идёт в пустыню."}},
+        "single": {"kind": "answer", "task": "Попросите билет на лунный поезд: в одну сторону или туда и обратно.", "branches": [{"phrase": "ph:station.single-ticket", "next": "end", "sets": {"ticket": "single"}}, {"phrase": "ph:station.return-ticket", "next": "endround", "sets": {"ticket": "round"}}], "wrong": {"es": "A ticket to the moon? This train goes to the desert.", "ru": "Билет на Луну? Этот поезд идёт в пустыню."}},
         "endround": {"kind": "say", "es": "A return, that's right: you will come back. Not like the man with the camel. Here's your ticket and my fragment of the desert map.", "ru": "Туда и обратно, правильно: ты вернёшься. Не как человек с верблюдом. Держи билет и мой обрывок карты пустыни."},
         "end": {"kind": "say", "es": "Only a single? Like the man with the camel… No, I'll give you a return: you will come back. Here's your ticket and my fragment of the desert map.", "ru": "Только в одну сторону? Как человек с верблюдом… Нет, я дам тебе туда и обратно: ты вернёшься. Держи билет и мой обрывок карты пустыни."}
+      }
+    },
+    {
+      "id": "ms:station.4",
+      "chapter": 4,
+      "npc": "graham",
+      "scene": "sc:station.4",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Nobody says hello to me today. Thirty years at this station, and now I'm the villain. And the train to the forest isn't running: there's work on the line.", "ru": "Сегодня со мной никто не здоровается. Тридцать лет на этой станции, а теперь я злодей. Да ещё поезд к лесу не идёт: ремонт путей.", "next": "alt"},
+        "alt": {"kind": "answer", "task": "Спросите, есть ли автобус взамен поезда.", "branches": [{"phrase": "ph:station.replacement-transport", "next": "altsay"}], "wrong": {"es": "Replacement tobacco? No, thank you.", "ru": "Табак взамен? Нет уж, спасибо."}},
+        "altsay": {"kind": "say", "es": "There's a bus at four. Do you want a seat?", "ru": "Есть автобус, в четыре. Хочешь ехать сидя?", "next": "seat"},
+        "seat": {"kind": "answer", "task": "Скажите, что хотите забронировать место.", "branches": [{"phrase": "ph:station.reserve-seat", "next": "seatsay"}], "wrong": {"es": "A nature reserve for ravens? That's in the forest.", "ru": "Заповедник для воронов? Это в лесу."}},
+        "seatsay": {"kind": "say", "es": "Reserved, by the window. …I can't take any more. I'm going to leave my job. If everybody thinks I'm a liar, I'll go.", "ru": "Забронировано, у окна. …Я больше не могу. Уйду с работы. Раз все думают, что я лжец, уйду.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:station.not-for-rumour", "next": "object", "move": "object"}, {"phrase": "ph:station.understand-tired", "next": "concede", "move": "concede"}, {"phrase": "ph:station.prove-where", "next": "compromise", "move": "compromise"}], "wrong": {"es": "What? There's a train coming, I can't hear you.", "ru": "Что? Поезд идёт, я тебя не слышу."}},
+        "object": {"kind": "say", "es": "Because of a rumour? …You're right. If I leave, the rumour wins. I'm staying.", "ru": "Из-за слуха? …Ты прав. Если уйду, победит слух. Остаюсь.", "next": "trip", "fem": {"ru": "Из-за слуха? …Ты права. Если уйду, победит слух. Остаюсь."}},
+        "concede": {"kind": "say", "es": "Tired, yes. Thirty years on the railway, and the thanks I get is gossip.", "ru": "Устал, да. Тридцать лет на железной дороге, а в благодарность — сплетни.", "next": "trip"},
+        "compromise": {"kind": "say", "es": "Prove it? My wife and the neighbour downstairs… Yes, and then the town will know the truth.", "ru": "Доказать? Жена и сосед снизу… Да, и тогда город узнает правду.", "next": "trip"},
+        "trip": {"kind": "say", "es": "Right, what else do you need to know about the journey?", "ru": "Ладно, что ещё тебе нужно знать про поездку?", "next": "punctual"},
+        "punctual": {"kind": "answer", "task": "Спросите, приходит ли поезд вовремя.", "branches": [{"phrase": "ph:station.on-time", "next": "punctualsay"}], "wrong": {"es": "Is the raven on time? More than the train.", "ru": "Ворон приходит вовремя? Чаще, чем поезд."}},
+        "punctualsay": {"kind": "say", "es": "Today, more than me. Ha-ha.", "ru": "Сегодня — вовремя больше, чем я. Ха-ха.", "next": "long"},
+        "long": {"kind": "answer", "task": "Спросите, сколько длится поездка.", "branches": [{"phrase": "ph:station.how-long-journey", "next": "longsay"}], "wrong": {"es": "How long is the pipe? I don't smoke.", "ru": "Какой длины трубка? Я не курю."}},
+        "longsay": {"kind": "say", "es": "Two hours, straight to the edge of the forest. Which ticket do you need?", "ru": "Два часа, прямо до опушки леса. Какой билет тебе нужен?", "next": "ticket"},
+        "ticket": {"kind": "answer", "task": "Попросите билет в одну сторону.", "branches": [{"phrase": "ph:station.single-ticket", "next": "end"}], "wrong": {"es": "A ticket for the raven? He flies for free.", "ru": "Билет для ворона? Он летает бесплатно."}},
+        "end": {"kind": "say", "es": "Only a single? No way: a return, I want to see you again. And here: the gentleman with the old coins left this at the ticket window. A fragment of the forest map.", "ru": "Только туда? Нет уж: туда и обратно, я хочу тебя снова увидеть. И держи: джентльмен со старыми монетами оставил это в окошке кассы. Обрывок карты леса."}
       }
     }
   ]

@@ -67,6 +67,31 @@
         "pay": {"kind": "answer", "task": "Попросите счёт.", "branches": [{"phrase": "ph:cafe.the-bill", "next": "end"}], "wrong": {"es": "Does the desert take money? It doesn't, but it's expensive in other ways.", "ru": "Пустыня берёт плату? Денег не берёт, но обходится дорого."}},
         "end": {"kind": "say", "es": "Sam is paying today: he left me some money. And take my fragment of the desert map. Remember what Oswald says: don't trust what you see.", "ru": "Сегодня угощает Сэм: он оставил мне деньги. И держи мой обрывок карты пустыни. Помни, что говорит Освальд: не верь тому, что видишь."}
       }
+    },
+    {
+      "id": "ms:cafe.4",
+      "chapter": 4,
+      "npc": "molly",
+      "scene": "sc:cafe.4",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Sit down. Sam is upstairs packing his backpack. And I'm nervous.", "ru": "Садись. Сэм наверху, собирает рюкзак. А я нервничаю.", "next": "talk"},
+        "talk": {"kind": "answer", "task": "Спросите, не нужно ли ей выговориться.", "branches": [{"phrase": "ph:cafe.need-to-talk", "next": "talksay"}], "wrong": {"es": "Do I need breakfast? No, I need to talk.", "ru": "Мне нужен завтрак? Нет, мне надо поговорить."}},
+        "talksay": {"kind": "say", "es": "Yes. When Sam went to the lighthouse, I didn't sleep for a year. I don't want that again.", "ru": "Да. Когда Сэм ушёл к маяку, я год не спала. Не хочу, чтобы это повторилось.", "next": "drink"},
+        "drink": {"kind": "answer", "task": "Предложите посидеть и поболтать за кофе.", "branches": [{"phrase": "ph:cafe.catch-up", "next": "drinksay"}], "wrong": {"es": "Let's have the forest? Coffee first.", "ru": "Возьмём лес? Сначала кофе."}},
+        "drinksay": {"kind": "say", "es": "All right, two coffees. But listen: Sam isn't going into the forest. He already lost a year at the lighthouse.", "ru": "Ладно, два кофе. Но послушай: Сэм в лес не пойдёт. Он уже потерял год на маяке.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:cafe.his-decision", "next": "object", "move": "object"}, {"phrase": "ph:cafe.better-stays", "next": "concede", "move": "concede"}, {"phrase": "ph:cafe.edge-of-forest", "next": "compromise", "move": "compromise"}], "wrong": {"es": "What? This isn't about you at all.", "ru": "Что? Это вообще не про тебя."}},
+        "object": {"kind": "say", "es": "His decision? Maybe you're right… He's my brother, not my son. I'll talk to him without shouting.", "ru": "Решает он? Может, ты и прав… Он мой брат, а не сын. Поговорю с ним без крика.", "next": "gossip", "fem": {"ru": "Решает он? Может, ты и права… Он мой брат, а не сын. Поговорю с ним без крика."}},
+        "concede": {"kind": "say", "es": "Thank you. I know Sam will be angry, but it's better if he's angry at home.", "ru": "Спасибо. Знаю, Сэм разозлится, но пусть лучше злится дома.", "next": "gossip"},
+        "compromise": {"kind": "say", "es": "To the edge? That sounds fair. There's a village there, and he can come back by train.", "ru": "До опушки? По-моему, справедливо. Там есть деревня, и он сможет вернуться поездом.", "next": "gossip"},
+        "gossip": {"kind": "say", "es": "And another thing. Rory writes that the forest repeats your voice: \"Molly is so boring.\" Did you say that?", "ru": "И ещё. Рори пишет, что лес повторяет твой голос: «Молли такая зануда». Ты так говорил?", "next": "sorry", "fem": {"ru": "И ещё. Рори пишет, что лес повторяет твой голос: «Молли такая зануда». Ты так говорила?"}},
+        "sorry": {"kind": "answer", "task": "Извинитесь: это было недоразумение.", "branches": [{"phrase": "ph:cafe.misunderstanding", "next": "sorrysay"}], "wrong": {"es": "A misunderstanding or bad coffee? Both are your fault.", "ru": "Недоразумение или плохой кофе? И то и другое — твоя вина."}},
+        "sorrysay": {"kind": "say", "es": "All right, I forgive you. That's one voice less in the forest. Do you want something to eat?", "ru": "Ладно, прощаю. Вот и на один голос в лесу меньше. Хочешь что-нибудь поесть?", "next": "pastry"},
+        "pastry": {"kind": "answer", "task": "Спросите, домашняя ли выпечка.", "branches": [{"phrase": "ph:cafe.homemade", "next": "pastrysay"}], "wrong": {"es": "Pastries from the forest? No, from my mum's recipe.", "ru": "Выпечка из леса? Нет, по маминому рецепту."}},
+        "pastrysay": {"kind": "say", "es": "Homemade, of course. Take two for the road.", "ru": "Домашняя, конечно. Возьми две в дорогу.", "next": "pay"},
+        "pay": {"kind": "answer", "task": "Скажите, что сегодня угощаете вы.", "branches": [{"phrase": "ph:cafe.my-treat", "next": "end"}], "wrong": {"es": "The forest is paying today? The forest doesn't pay.", "ru": "Сегодня угощает лес? Лес не платит."}},
+        "end": {"kind": "say", "es": "Thank you. And here: Rory sent you this fragment of the forest map. Listen to the trees, but don't believe everything they repeat.", "ru": "Спасибо. И держи: Рори прислал для тебя этот обрывок карты леса. Слушай деревья, но не верь всему, что они повторяют."}
+      }
     }
   ]
 }

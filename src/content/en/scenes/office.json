@@ -75,6 +75,52 @@
         {"q": "Что случилось с городом?", "options": ["Он не исчез", "Он исчез", "Он сгорел"], "answer": 0}
       ],
       "gloss": {"candidate": "кандидат", "rory": "Рори"}
+    },
+    {
+      "id": "wh:office.4",
+      "chapter": 4,
+      "mode": "overhear",
+      "npc": "priya",
+      "lines": [
+        {"who": "jake", "es": "I heard you're looking for someone for the office. I'm tired of the till.", "ru": "Мне сказали, что вы ищете человека в офис. Я устал от кассы."},
+        {"who": "npc", "es": "Yes. But the workload is heavy. Nobody leaves at five here.", "ru": "Да. Но нагрузка большая. Здесь никто не уходит в пять."},
+        {"who": "jake", "es": "I'm not afraid of work. At the till I have three hundred customers a day.", "ru": "Я не боюсь работы. На кассе у меня триста покупателей в день."},
+        {"who": "npc", "es": "I don't doubt it. But can you take minutes? Negotiate with investors on a video call?", "ru": "Не сомневаюсь. А протокол составить умеешь? Вести переговоры с инвесторами по видеосвязи?"},
+        {"who": "jake", "es": "I learn fast. And I know how to deal with difficult people. No training course teaches you that.", "ru": "Я быстро учусь. И умею обращаться с трудными людьми. Этому ни на каких курсах не научат."},
+        {"who": "npc", "es": "There you're right. I'm offering three months' probation. If it goes well, a permanent contract.", "ru": "Тут ты прав. Предлагаю три месяца испытательного срока. Если всё пойдёт хорошо — постоянный договор."},
+        {"who": "jake", "es": "Three months? And the salary? Do I get the same on probation?", "ru": "Три месяца? А зарплата? На испытательном сроке я получаю столько же?"},
+        {"who": "npc", "es": "A bit less. But with a bonus if you reach your targets.", "ru": "Немного меньше. Но с премией, если выполнишь план."},
+        {"who": "jake", "es": "A bit less… I see people haggle here too, like at the market.", "ru": "Немного меньше… Вижу, здесь тоже торгуются, как на рынке."}
+      ],
+      "questions": [
+        {"q": "Почему Джейк хочет перейти в офис?", "kind": "stance", "options": ["Устал работать на кассе", "Ему мало платят", "Он хочет работать из дома"], "answer": 0},
+        {"q": "Чем Прия сначала пытается его отпугнуть?", "kind": "stance", "options": ["Маленькой зарплатой", "Большой нагрузкой: здесь никто не уходит в пять", "Строгим начальником"], "answer": 1},
+        {"q": "Какое своё умение Джейк считает главным?", "kind": "stance", "options": ["Быстро считать", "Говорить по-французски", "Умение обращаться с трудными людьми"], "answer": 2},
+        {"q": "Что Джейк имел в виду, сравнив разговор с рынком?", "kind": "stance", "options": ["Прия торгуется с ним из-за зарплаты", "Он хочет работать на рынке", "В офисе шумно"], "answer": 0}
+      ],
+      "gloss": {"till": "касса", "less": "меньше", "targets": "план, цели", "months'": "месяцев", "permanent": "постоянный", "haggle": "торговаться", "negotiate": "вести переговоры", "deal": "иметь дело (deal with — обращаться с)"}
+    },
+    {
+      "id": "sc:office.4",
+      "chapter": 4,
+      "npc": "priya",
+      "lines": [
+        {"who": "npc", "es": "Guess what? The whole town knows that the man with the pipe is Oswald.", "ru": "Знаешь что? Весь город уже знает, что человек с трубкой — Освальд."},
+        {"who": "hero", "es": "And how have people taken it?", "ru": "И как люди это восприняли?"},
+        {"who": "npc", "es": "They're very angry. Some want to report him to the police. And some say he's an unhappy man.", "ru": "Очень злятся. Некоторые хотят заявить на него в полицию. А кто-то говорит, что он несчастный человек."},
+        {"who": "hero", "es": "And what do you think?", "ru": "А ты что думаешь?"},
+        {"who": "npc", "es": "That we need to talk. This evening I'm holding a meeting for the neighbours here, in the office.", "ru": "Что надо поговорить. Сегодня вечером я устраиваю собрание соседей здесь, в офисе."},
+        {"who": "hero", "es": "Will Oswald come?", "ru": "Освальд придёт?"},
+        {"who": "npc", "es": "I don't know. He left me a letter: \"I was afraid of losing someone again.\"", "ru": "Не знаю. Он оставил мне письмо: «Я боялся снова кого-то потерять»."},
+        {"who": "hero", "es": "Losing someone?", "ru": "Кого-то потерять?"},
+        {"who": "npc", "es": "In the lighthouse he lost a hundred years and all his family. That's why he doesn't want anybody to go into the forest.", "ru": "На маяке он потерял сто лет и всю свою семью. Поэтому и не хочет, чтобы кто-нибудь ходил в лес."}
+      ],
+      "questions": [
+        {"q": "Что хотят сделать некоторые жители?", "options": ["Заявить на Освальда в полицию", "Уехать из города", "Пойти в лес"], "answer": 0},
+        {"q": "Что Прия устраивает вечером?", "options": ["Праздник", "Собрание соседей в офисе", "Концерт"], "answer": 1},
+        {"q": "Почему Освальд пугал город лесом?", "options": ["Он хотел найти обрывки сам", "Он не любит гостей", "Боялся снова кого-то потерять"], "answer": 2}
+      ],
+      "gloss": {"oswald": "Освальд", "pipe": "трубка (курительная)", "unhappy": "несчастный"}
     }
   ]
 }

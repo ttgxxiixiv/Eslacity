@@ -64,6 +64,31 @@
         "gift": {"kind": "answer", "task": "Попросите подарочный чек.", "branches": [{"phrase": "ph:clothes.gift-receipt", "next": "end"}], "wrong": {"es": "A banknote made of sand? No, thank you!", "ru": "Купюру из песка? Нет, спасибо!"}},
         "end": {"kind": "say", "es": "Here is the gift receipt. And take my fragment of the desert map. It was sewn into an old dress: nobody will find it there.", "ru": "Вот подарочный чек. И держи мой обрывок карты пустыни. Он был зашит в старое платье: там его никто не найдёт."}
       }
+    },
+    {
+      "id": "ms:clothes.4",
+      "chapter": 4,
+      "npc": "chloe",
+      "scene": "sc:clothes.4",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Hi. Nobody has come in today: everybody thinks I sell fakes. Look, at least you: do you like this linen shirt?", "ru": "Привет. Сегодня никто не заходил: все думают, что я продаю подделки. Смотри, хоть ты: нравится эта льняная рубашка?", "next": "fabric"},
+        "fabric": {"kind": "answer", "task": "Спросите, дышит ли эта ткань.", "branches": [{"phrase": "ph:clothes.fabric-breathe", "next": "fabricsay"}], "wrong": {"es": "Is this fabric see-through? No, please!", "ru": "Эта ткань прозрачная? Нет уж, пожалуйста!"}},
+        "fabricsay": {"kind": "say", "es": "It does: it's real linen. Nothing here is fake. Try it on.", "ru": "Дышит, да: это настоящий лён. Здесь нет ничего поддельного. Примерь.", "next": "fit"},
+        "fit": {"kind": "answer", "task": "Спросите, как она на вас сидит.", "branches": [{"phrase": "ph:clothes.look-on-me", "next": "fitsay"}], "wrong": {"es": "How does the forest look on you? Very green.", "ru": "Как на тебе сидит лес? Очень зелёный."}},
+        "fitsay": {"kind": "say", "es": "It looks great. But I can't take any more. I'm going to close the shop for a week, until people forget.", "ru": "Сидит отлично. Но я больше не могу. Закрою магазин на неделю, пока люди не забудут.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:clothes.close-looks-true", "next": "object", "move": "object"}, {"phrase": "ph:clothes.rest-do-good", "next": "concede", "move": "concede"}, {"phrase": "ph:clothes.open-mornings", "next": "compromise", "move": "compromise"}], "wrong": {"es": "What? Sorry, I don't understand anything today.", "ru": "Что? Прости, я сегодня ничего не понимаю."}},
+        "object": {"kind": "say", "es": "Look true? …You're right. If I hide, the lie wins. I'm opening tomorrow, with my head held high.", "ru": "Решат, что правда? …Ты прав. Если я спрячусь, победит ложь. Открываюсь завтра, с гордо поднятой головой.", "next": "hem", "fem": {"ru": "Решат, что правда? …Ты права. Если я спрячусь, победит ложь. Открываюсь завтра, с гордо поднятой головой."}},
+        "concede": {"kind": "say", "es": "Really? I need to sleep. Although my regular customers will miss me.", "ru": "Правда? Мне надо выспаться. Хотя постоянные покупательницы будут скучать.", "next": "hem"},
+        "compromise": {"kind": "say", "es": "Only in the mornings… That way I can rest, and the shop doesn't close. That works for me.", "ru": "Только по утрам… Так я отдохну, а магазин не закроется. Меня устраивает.", "next": "hem"},
+        "hem": {"kind": "say", "es": "So, are you taking the shirt? The sleeves are fine, but it's a bit long.", "ru": "Ну что, берёшь рубашку? Рукава в порядке, но она длинновата.", "next": "hemask"},
+        "hemask": {"kind": "answer", "task": "Попросите подшить низ.", "branches": [{"phrase": "ph:clothes.take-up-hem", "next": "hemsay"}], "wrong": {"es": "Take up the forest? I don't sew things like that.", "ru": "Подшить лес? Такое я не шью."}},
+        "hemsay": {"kind": "say", "es": "Of course, ten minutes. By the way, Priya came in yesterday and we talked. I said sorry about the sock. Is the shirt for you or a present?", "ru": "Конечно, за десять минут. Кстати, вчера приходила Прия, и мы поговорили. Я извинилась за носок. Рубашка тебе или в подарок?", "next": "gift"},
+        "gift": {"kind": "answer", "task": "Попросите подарочный чек.", "branches": [{"phrase": "ph:clothes.gift-receipt", "next": "giftsay"}], "wrong": {"es": "A receipt for the forest? The forest doesn't bring anything back.", "ru": "Чек для леса? Лес ничего не возвращает."}},
+        "giftsay": {"kind": "say", "es": "Here's a gift receipt. Anything else?", "ru": "Держи подарочный чек. Что-нибудь ещё?", "next": "casual"},
+        "casual": {"kind": "answer", "task": "Попросите что-нибудь попроще, на каждый день.", "branches": [{"phrase": "ph:clothes.more-casual", "next": "end"}], "wrong": {"es": "Something more cosy for the owls? I only sell clothes for people.", "ru": "Что-нибудь поуютнее для сов? Я продаю одежду только для людей."}},
+        "end": {"kind": "say", "es": "Here, these jeans. And one more thing: this was in the shop window this morning, next to a black feather. A fragment of the forest map.", "ru": "Вот, эти джинсы. И вот ещё: это лежало утром на витрине рядом с чёрным пером. Обрывок карты леса."}
+      }
     }
   ]
 }

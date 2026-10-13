@@ -1,0 +1,163 @@
+{
+  "id": "b2.01-third-conditional",
+  "district": "B2",
+  "order": 1,
+  "title": "Условные третьего типа",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Третий тип — о прошлом, которое уже не изменить: **If + had + третья форма, would have + третья форма**. If I **had known**, I **would have come**. — Если бы я знал, я бы пришёл (но не знал и не пришёл)."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Часть",
+        "Форма",
+        "Пример"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "условие",
+            "had + V3",
+            "If we had left earlier,"
+          ]
+        },
+        {
+          "cells": [
+            "следствие",
+            "would have + V3",
+            "we would have caught the train."
+          ]
+        },
+        {
+          "cells": [
+            "отрицание",
+            "hadn't / wouldn't have",
+            "If he hadn't lied, I wouldn't have left."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "В части с if нет would: «If I would have known» — ошибка. Вместо would можно could have или might have: we **could have** won."
+    }
+  ],
+  "examples": [
+    {
+      "es": "If I had known, I would have helped you.",
+      "ru": "Если бы я знал, я бы тебе помог."
+    },
+    {
+      "es": "If we hadn't got lost, we would have arrived on time.",
+      "ru": "Если бы мы не заблудились, мы бы пришли вовремя."
+    },
+    {
+      "es": "She would have stayed if you had asked her.",
+      "ru": "Она бы осталась, если бы ты её попросил."
+    },
+    {
+      "es": "If Rory had told the truth, nobody would have followed him.",
+      "ru": "Если бы Рори сказал правду, никто бы за ним не пошёл."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "b2.01-third-conditional.1",
+      "kind": "choose",
+      "prompt": "«Если бы ты позвонил, я бы пришёл»:",
+      "options": [
+        "If you had called, I would have come.",
+        "If you would have called, I had come.",
+        "If you called, I would come."
+      ],
+      "answer": 0,
+      "explain": "had + V3, would have + V3."
+    },
+    {
+      "id": "b2.01-third-conditional.2",
+      "kind": "choose",
+      "prompt": "«Мы бы не заблудились, если бы взяли карту»:",
+      "options": [
+        "We wouldn't have got lost if we had taken the map.",
+        "We hadn't got lost if we would have taken the map.",
+        "We won't get lost if we take the map."
+      ],
+      "answer": 0,
+      "explain": "Следствие — would have, условие — had."
+    },
+    {
+      "id": "b2.01-third-conditional.3",
+      "kind": "gap",
+      "sentence": "If she had left earlier, she ___ the train.",
+      "ru": "Если бы она вышла раньше, она бы успела на поезд.",
+      "options": [
+        "would have caught",
+        "had caught",
+        "would catch"
+      ],
+      "answer": 0,
+      "explain": "would have + V3."
+    },
+    {
+      "id": "b2.01-third-conditional.4",
+      "kind": "gap",
+      "sentence": "If I ___ about the swamp, I wouldn't have gone that way.",
+      "ru": "Если бы я знал о болоте, я бы туда не пошёл.",
+      "options": [
+        "had known",
+        "would have known",
+        "knew"
+      ],
+      "answer": 0,
+      "explain": "В условии — had + V3."
+    },
+    {
+      "id": "b2.01-third-conditional.5",
+      "kind": "truefalse",
+      "statement": "«If I would have seen him, I would have said hello» — правильно.",
+      "answer": false,
+      "explain": "В условии нет would: If I had seen him."
+    },
+    {
+      "id": "b2.01-third-conditional.6",
+      "kind": "truefalse",
+      "statement": "Третий тип говорит о прошлом, которое уже не изменить.",
+      "answer": true,
+      "explain": "Так и есть."
+    },
+    {
+      "id": "b2.01-third-conditional.7",
+      "kind": "truefalse",
+      "statement": "«We could have won if we had trained more» — правильно.",
+      "answer": true,
+      "explain": "could have тоже можно."
+    },
+    {
+      "id": "b2.01-third-conditional.8",
+      "kind": "build",
+      "ru": "Если бы ты меня спросил, я бы сказал.",
+      "answer": "If you had asked me I would have told you",
+      "extra": [
+        "will",
+        "asking"
+      ],
+      "explain": "had asked … would have told."
+    },
+    {
+      "id": "b2.01-third-conditional.9",
+      "kind": "type",
+      "sentence": "If we had listened to the guide, we ___ (not get) lost.",
+      "ru": "Если бы мы послушали проводника, мы бы не заблудились.",
+      "hint": "not get",
+      "answer": "wouldn't have got",
+      "alt": [
+        "would not have got",
+        "would not have gotten",
+        "wouldn't have gotten"
+      ],
+      "explain": "would not have + V3."
+    }
+  ]
+}

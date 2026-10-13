@@ -63,6 +63,31 @@
         "gen": {"kind": "answer", "task": "Спросите, есть ли аналог подешевле.", "branches": [{"phrase": "ph:pharmacy.cheaper-generic", "next": "end"}], "wrong": {"es": "Oasis water? We don't sell mirages here!", "ru": "Вода оазиса? Здесь не продают миражи!"}},
         "end": {"kind": "say", "es": "Yes, and it is just as good. One before bed. And take my fragment of the desert map. If you dream of the white city, remember: don't trust what you see.", "ru": "Есть, и он ничуть не хуже. По одной перед сном. И возьмите мой обрывок карты пустыни. Если вам приснится белый город, помните: не верьте тому, что видите."}
       }
+    },
+    {
+      "id": "ms:pharmacy.4",
+      "chapter": 4,
+      "npc": "shah",
+      "scene": "sc:pharmacy.4",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Are you here for Doctor Okafor's prescription? Today the doctor won't even look at me.", "ru": "Вы за рецептом доктора Окафор? Сегодня доктор на меня даже не смотрит.", "next": "acid"},
+        "acid": {"kind": "answer", "task": "Спросите, есть ли что-нибудь от изжоги.", "branches": [{"phrase": "ph:pharmacy.for-heartburn", "next": "acidsay"}], "wrong": {"es": "Anything for sadness? We don't sell that in a pharmacy.", "ru": "Что-нибудь от грусти? Такое в аптеке не продают."}},
+        "acidsay": {"kind": "say", "es": "For heartburn, these tablets you chew. I take them myself after days like this.", "ru": "От изжоги — вот эти жевательные таблетки. После таких дней я и сам их пью.", "next": "side"},
+        "side": {"kind": "answer", "task": "Спросите, есть ли побочные эффекты.", "branches": [{"phrase": "ph:pharmacy.side-effects", "next": "sidesay"}], "wrong": {"es": "Any special effects? This isn't the cinema.", "ru": "Есть спецэффекты? Это не кино."}},
+        "sidesay": {"kind": "say", "es": "A few. The worst side effect is this rumour. I'm going to write a letter to the newspaper: everybody should know it's a lie.", "ru": "Немного. Худший побочный эффект — этот слух. Напишу письмо в газету: пусть все знают, что это ложь.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:pharmacy.letter-more-noise", "next": "object", "move": "object"}, {"phrase": "ph:pharmacy.understand-worried", "next": "concede", "move": "concede"}, {"phrase": "ph:pharmacy.explain-in-person", "next": "compromise", "move": "compromise"}], "wrong": {"es": "What did you say? My head isn't in the right place today.", "ru": "Что вы сказали? У меня сегодня голова не на месте."}},
+        "object": {"kind": "say", "es": "More noise? True… And there's enough noise in the forest already. No letters.", "ru": "Больше шума? Правда… А в лесу его и так хватает. Никаких писем.", "next": "recipe"},
+        "concede": {"kind": "say", "es": "Thank you. Thirty years in this pharmacy, and nobody has ever called me a liar.", "ru": "Спасибо. Тридцать лет в этой аптеке, и никто не называл меня лжецом.", "next": "recipe"},
+        "compromise": {"kind": "say", "es": "In person? It's awkward… but it's the honest way. I'll go to her surgery this evening.", "ru": "Лично? Мне неловко… но так будет честно. Схожу к ней на приём сегодня вечером.", "next": "recipe"},
+        "recipe": {"kind": "say", "es": "Now your prescription. The doctor has changed your medicine. Are you taking anything else?", "ru": "Теперь ваш рецепт. Доктор поменяла вам лекарства. Вы принимаете что-нибудь ещё?", "next": "interaction"},
+        "interaction": {"kind": "answer", "task": "Спросите, можно ли принимать это вместе с обезболивающим.", "branches": [{"phrase": "ph:pharmacy.with-ibuprofen", "next": "interactionsay"}], "wrong": {"es": "Can you take it with the forest? Only at night.", "ru": "Можно принимать с лесом? Только по ночам."}},
+        "interactionsay": {"kind": "say", "es": "Yes, no problem. But this syrup is taken before meals.", "ru": "Да, без проблем. Но этот сироп принимают до еды.", "next": "fasting"},
+        "fasting": {"kind": "answer", "task": "Спросите, нужно ли принимать его натощак.", "branches": [{"phrase": "ph:pharmacy.empty-stomach", "next": "fastingsay"}], "wrong": {"es": "Take it in the forest? No, at home.", "ru": "Принимать его в лесу? Нет, дома."}},
+        "fastingsay": {"kind": "say", "es": "Exactly, on an empty stomach. Anything else?", "ru": "Именно, натощак. Что-нибудь ещё?", "next": "generic"},
+        "generic": {"kind": "answer", "task": "Спросите, есть ли дженерик подешевле.", "branches": [{"phrase": "ph:pharmacy.cheaper-generic", "next": "end"}], "wrong": {"es": "A more expensive generic? Nobody asks for that.", "ru": "Дженерик подороже? Такого никто не просит."}},
+        "end": {"kind": "say", "es": "Yes, this one. And take this: a fragment of the forest map. I found it by the door this morning, next to a black feather.", "ru": "Да, вот этот. И возьмите: обрывок карты леса. Я нашёл его утром у двери рядом с чёрным пером."}
+      }
     }
   ]
 }

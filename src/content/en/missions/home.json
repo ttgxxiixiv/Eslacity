@@ -62,6 +62,31 @@
         "fault": {"kind": "answer", "task": "Скажите, что у вас протечка и нужен сантехник.", "branches": [{"phrase": "ph:home.leak-plumber", "next": "end"}], "wrong": {"es": "We need an umbrella? We need a plumber!", "ru": "Нужен зонт? Нам нужен сантехник!"}},
         "end": {"kind": "say", "es": "The plumber will come tomorrow. Take my fragment of the desert map. Oswald gave it to me for you: he says he kept it for a hundred years.", "ru": "Сантехник придёт завтра. Держи мой обрывок карты пустыни. Освальд дал его мне для тебя: говорит, он хранил его сто лет."}
       }
+    },
+    {
+      "id": "ms:home.4",
+      "chapter": 4,
+      "npc": "higgins",
+      "scene": "sc:home.4",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Come in, come in. Watch your step: the leak is back.", "ru": "Проходи, проходи. Смотри под ноги: протечка вернулась.", "next": "water"},
+        "water": {"kind": "answer", "task": "Скажите, что на полу вода.", "branches": [{"phrase": "ph:home.water-floor", "next": "watersay"}], "wrong": {"es": "Trees on the floor? No, it's water.", "ru": "На полу деревья? Нет, вода."}},
+        "watersay": {"kind": "say", "es": "Yes, and the bathroom is even worse. Go and have a look.", "ru": "Да, а в ванной ещё хуже. Сходи посмотри.", "next": "mould"},
+        "mould": {"kind": "answer", "task": "Скажите, что в ванной плесень.", "branches": [{"phrase": "ph:home.mould-bathroom", "next": "mouldsay"}], "wrong": {"es": "An owl in the bathroom? That would be something new!", "ru": "Сова в ванной? Вот это было бы что-то новое!"}},
+        "mouldsay": {"kind": "say", "es": "Mould, damp, leaks… And the landlord does nothing. So I've decided: I won't pay the rent until he fixes it.", "ru": "Плесень, сырость, протечки… А хозяин ничего не делает. Так что я решила: не плачу за квартиру, пока он не починит.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:home.could-evict", "next": "object", "move": "object"}, {"phrase": "ph:home.he-will-listen", "next": "concede", "move": "concede"}, {"phrase": "ph:home.quote-split", "next": "compromise", "move": "compromise"}], "wrong": {"es": "Pardon? I can't hear you over the water.", "ru": "Как? Из-за шума воды я тебя не слышу."}},
+        "object": {"kind": "say", "es": "Evict me? After forty years… You're right, I won't give him a reason.", "ru": "Выселить? После сорока лет… Ты прав, не дам ему такого повода.", "next": "contract", "fem": {"ru": "Выселить? После сорока лет… Ты права, не дам ему такого повода."}},
+        "concede": {"kind": "say", "es": "Really? Bert says I'm mad, but somebody has to do something.", "ru": "Правда? Берт говорит, что я сошла с ума, но кто-то же должен что-то делать.", "next": "contract"},
+        "compromise": {"kind": "say", "es": "Split it? It isn't fair, but it's better than waiting for another winter. I'll suggest it at the meeting.", "ru": "Пополам? Нечестно, но лучше, чем ждать ещё одну зиму. Предложу это на собрании.", "next": "contract"},
+        "contract": {"kind": "say", "es": "And my rental contract is ending soon, and the landlord says nothing.", "ru": "К тому же мой договор аренды скоро заканчивается, а хозяин молчит.", "next": "renew"},
+        "renew": {"kind": "answer", "task": "Спросите, когда продлевается договор.", "branches": [{"phrase": "ph:home.renew-contract", "next": "renewsay"}], "wrong": {"es": "When does the leak renew? Every night!", "ru": "Когда продлевается протечка? Каждую ночь!"}},
+        "renewsay": {"kind": "say", "es": "In January. We'll see. Listen, about the forest: my grandmother used to say the Keeper hears everything people say in secret. And she only lets through those who say it to your face. Brr, it's cold today!", "ru": "В январе. Посмотрим. Слушай, про лес: бабушка говорила, что Хранительница слышит всё, что говорят тайком. И пропускает только тех, кто говорит в лицо. Брр, как сегодня холодно!", "next": "heating"},
+        "heating": {"kind": "answer", "task": "Скажите, что отопление не работает.", "branches": [{"phrase": "ph:home.heating", "next": "heatingsay"}], "wrong": {"es": "The forest isn't working? It works too well.", "ru": "Лес не работает? Он работает слишком хорошо."}},
+        "heatingsay": {"kind": "say", "es": "No, it isn't. Another question for the meeting. Now help me save Oswald's books. Can you fix that shelf?", "ru": "Не работает. Ещё один вопрос для собрания. А теперь помоги спасти книги Освальда. Починишь ту полку?", "next": "shelf"},
+        "shelf": {"kind": "answer", "task": "Спросите, может ли она починить эту полку.", "branches": [{"phrase": "ph:home.fix-shelf", "next": "end"}], "wrong": {"es": "Books in the forest? It's even wetter there!", "ru": "Книги — в лес? Там ещё сырее!"}},
+        "end": {"kind": "say", "es": "I'll hold it, you fix it… There, the water won't reach them. And look what was between the books: a fragment of the forest map. Oswald brought it from the lighthouse. He says it's for you.", "ru": "Я подержу, а ты чини… Вот, туда вода не достанет. И смотри, что было между книгами: обрывок карты леса. Освальд принёс его с маяка. Говорит, это для тебя."}
+      }
     }
   ]
 }

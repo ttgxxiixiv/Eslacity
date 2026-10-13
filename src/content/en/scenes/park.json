@@ -75,6 +75,52 @@
         {"q": "Что сказал человек с верблюдом?", "options": ["«Люди верят в то, во что хотят верить»", "«Я вернусь завтра»", "«Карта не продаётся»"], "answer": 0}
       ],
       "gloss": {"among": "среди", "burying": "закапывал", "exactly": "вот именно", "lady": "young lady — девушка"}
+    },
+    {
+      "id": "wh:park.4",
+      "chapter": 4,
+      "mode": "overhear",
+      "npc": "bert",
+      "lines": [
+        {"who": "npc", "es": "Have you seen the notice? They want to hold an open-air concert by the lake.", "ru": "Видела объявление? Хотят устроить концерт под открытым небом у озера."},
+        {"who": "evans", "es": "How wonderful! I'll bring my pupils. They've never heard live music.", "ru": "Как здорово! Приведу своих учеников. Они никогда не слышали живую музыку."},
+        {"who": "npc", "es": "Good for your pupils. Not so good for the owls. They have a nest in that tree.", "ru": "Твоим ученикам — хорошо. А совам — не очень. У них гнездо на том дереве."},
+        {"who": "evans", "es": "Oh, come on, owls sleep in the day, and the concert is in the evening.", "ru": "Да ладно, совы спят днём, а концерт вечером."},
+        {"who": "npc", "es": "And afterwards? Last year the grass was covered in bottles for a week. And nobody cleaned up.", "ru": "А потом? В прошлом году газон неделю был весь в бутылках. И никто не убрал."},
+        {"who": "evans", "es": "You're right. What if we have a clean-up day the next morning? My pupils can help.", "ru": "Ты прав. А если на следующий день устроить субботник? Мои ученики могут помочь."},
+        {"who": "npc", "es": "Your pupils, cleaning on a Sunday morning? I'd like to see that.", "ru": "Твои ученики будут убирать в воскресенье утром? Хотел бы я на это посмотреть."},
+        {"who": "evans", "es": "You will. And you're coming too: you know every bush in this park.", "ru": "Посмотришь. И ты тоже придёшь: ты знаешь в парке каждый куст."},
+        {"who": "npc", "es": "All right, I'll come. But I'll bring my own bags. Just in case.", "ru": "Ладно, приду. Но мешки возьму свои. На всякий случай."}
+      ],
+      "questions": [
+        {"q": "Почему Берт не рад концерту?", "kind": "stance", "options": ["Боится за сов и за мусор после концерта", "Не любит музыку", "Концерт слишком дорогой"], "answer": 0},
+        {"q": "Что Берт имел в виду: «хотел бы я на это посмотреть»?", "kind": "stance", "options": ["Он хочет прийти на концерт", "Сомневается, что ученики придут убирать в воскресенье утром", "Он хочет учить детей"], "answer": 1},
+        {"q": "Почему мисс Эванс зовёт Берта на уборку?", "kind": "stance", "options": ["У него есть машина", "Он её сосед", "Он знает в парке каждый куст"], "answer": 2},
+        {"q": "Что значит, что Берт возьмёт свои мешки «на всякий случай»?", "kind": "stance", "options": ["Он всё ещё не очень верит, что всё пройдёт гладко", "У мисс Эванс нет мешков", "Он хочет собрать каштаны"], "answer": 0}
+      ],
+      "gloss": {"pupils": "ученики", "nest": "гнездо", "bush": "куст", "sunday": "воскресенье", "concert": "концерт", "notice": "объявление", "oh": "ох", "afterwards": "потом", "bottles": "бутылки", "bags": "мешки", "case": "случай (just in case — на всякий случай)"}
+    },
+    {
+      "id": "sc:park.4",
+      "chapter": 4,
+      "npc": "bert",
+      "lines": [
+        {"who": "npc", "es": "Sit with me by the old oak. Listen. Can you hear it?", "ru": "Садись со мной у старого дуба. Слушай. Слышишь?"},
+        {"who": "hero", "es": "The leaves?", "ru": "Листья?"},
+        {"who": "npc", "es": "Not just leaves. This oak is a child of the forest. At night it talks like its parents.", "ru": "Это не просто листья. Этот дуб — дитя леса. По ночам он говорит, как его родители."},
+        {"who": "hero", "es": "And what does it say?", "ru": "И что он говорит?"},
+        {"who": "npc", "es": "Last night it repeated in my voice: \"This concert is nonsense, and the teacher is a bore.\" How embarrassing.", "ru": "Вчера ночью он повторил моим голосом: «Этот концерт — глупость, а учительница — зануда». Какой стыд."},
+        {"who": "hero", "es": "Did you say that?", "ru": "Ты это сказал?"},
+        {"who": "npc", "es": "Yes, quietly, to my dog. But then I heard another voice, one I didn't know.", "ru": "Да, тихо, своей собаке. Но потом я услышал другой голос, незнакомый."},
+        {"who": "hero", "es": "What did it say?", "ru": "Что он говорил?"},
+        {"who": "npc", "es": "\"I am looking for someone who says the same thing to your face and behind your back.\" I think it was the Keeper.", "ru": "«Ищу того, кто в лицо говорит то же, что и за спиной». Думаю, это была Хранительница."}
+      ],
+      "questions": [
+        {"q": "Почему Берт считает дуб особенным?", "options": ["Это дитя леса: по ночам он говорит", "Ему тысяча лет", "Его посадил Освальд"], "answer": 0},
+        {"q": "Что дуб повторил голосом Берта?", "options": ["Что собака плохая", "Что концерт — глупость, а учительница — зануда", "Что парк закрывается"], "answer": 1},
+        {"q": "Кого ищет незнакомый голос?", "options": ["Почтальона", "Того, кто громко поёт", "Того, кто говорит одно и то же в лицо и за спиной"], "answer": 2}
+      ],
+      "gloss": {"oak": "дуб", "bore": "зануда", "embarrassing": "стыдно, неловко", "keeper": "хранительница", "nonsense": "глупость"}
     }
   ]
 }

@@ -64,6 +64,31 @@
         "walk": {"kind": "answer", "task": "Предложите прогуляться по набережной.", "branches": [{"phrase": "ph:beach.promenade", "next": "end"}], "wrong": {"es": "Let's go to the desert? Not today, traveller. Today the sea.", "ru": "Пойдём в пустыню? Не сегодня, путешественник. Сегодня к морю."}},
         "end": {"kind": "say", "es": "Come on. Look: the moon is almost full. Take my fragment of the desert map. And if you see the man with the camel, talk to him quietly. He's afraid.", "ru": "Пошли. Смотри: луна уже почти полная. Держи мой обрывок карты пустыни. А если увидишь человека с верблюдом, говори с ним тихо. Ему страшно."}
       }
+    },
+    {
+      "id": "ms:beach.4",
+      "chapter": 4,
+      "npc": "finn",
+      "scene": "sc:beach.4",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Hi. The sea is calm today, but I'm not.", "ru": "Привет. Сегодня море спокойное, а я — нет.", "next": "flag"},
+        "flag": {"kind": "answer", "task": "Спросите, безопасно ли купаться с таким флагом.", "branches": [{"phrase": "ph:beach.safe-flag", "next": "flagsay"}], "wrong": {"es": "A red raven? No, they're black.", "ru": "Красный ворон? Нет, они чёрные."}},
+        "flagsay": {"kind": "say", "es": "Yes, it's a green flag. You can swim. But the sun is very strong.", "ru": "Да, флаг зелёный. Можно купаться. Но солнце сильно печёт.", "next": "sun"},
+        "sun": {"kind": "answer", "task": "Скажите, что вам нужен крем с высокой защитой от солнца.", "branches": [{"phrase": "ph:beach.high-factor", "next": "sunsay"}], "wrong": {"es": "Sun cream for the forest? There is shade in the forest.", "ru": "Крем от солнца для леса? В лесу есть тень."}},
+        "sunsay": {"kind": "say", "es": "Have mine, factor fifty. Listen, about Oswald… I won't tell anybody. He's a good man. He spent a hundred years alone in the lighthouse.", "ru": "Держи мой, пятьдесят. Слушай, насчёт Освальда… Я никому ничего не скажу. Он хороший человек. Сто лет провёл один на маяке.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:beach.truth-matters", "next": "object", "move": "object"}, {"phrase": "ph:beach.your-decision", "next": "concede", "move": "concede"}, {"phrase": "ph:beach.tell-family", "next": "compromise", "move": "compromise"}], "wrong": {"es": "What are you saying? I can't hear you over the waves.", "ru": "Что ты говоришь? Из-за волн я тебя не слышу."}},
+        "object": {"kind": "say", "es": "Matters more? Yes… If I keep quiet, the forest will stay full of lies. All right.", "ru": "Важнее? Да… Если я промолчу, лес так и будет полон лжи. Ладно.", "next": "swim"},
+        "concede": {"kind": "say", "es": "Thanks. But the forest… All right, I'll think about what to do.", "ru": "Спасибо. Но лес… Ладно, подумаю, что делать.", "next": "swim"},
+        "compromise": {"kind": "say", "es": "His family? Yes, that's better. Mrs Higgins will know how to talk to him.", "ru": "Его семье? Да, так лучше. Миссис Хиггинс сумеет с ним поговорить.", "next": "swim"},
+        "swim": {"kind": "say", "es": "Right. And now a bit of sea, to help us think.", "ru": "Ладно. А теперь немного моря, чтобы лучше думалось.", "next": "dip"},
+        "dip": {"kind": "answer", "task": "Предложите окунуться.", "branches": [{"phrase": "ph:beach.quick-dip", "next": "dipsay"}], "wrong": {"es": "Let's have a raven? No, let's have a dip.", "ru": "Возьмём ворона? Нет, окунёмся."}},
+        "dipsay": {"kind": "say", "es": "Let's go! But careful: there's a current today.", "ru": "Пошли! Только осторожно: сегодня есть течение.", "next": "deep"},
+        "deep": {"kind": "answer", "task": "Спросите, глубоко ли здесь.", "branches": [{"phrase": "ph:beach.water-deep", "next": "deepsay"}], "wrong": {"es": "Is there a lighthouse here? Yes, over there, on the left.", "ru": "Здесь есть маяк? Да, вон там, слева."}},
+        "deepsay": {"kind": "say", "es": "A bit. If you're not a strong swimmer, stay close to me.", "ru": "Немного. Если плохо плаваешь, держись поближе.", "next": "shore"},
+        "shore": {"kind": "answer", "task": "Скажите, что останетесь у берега.", "branches": [{"phrase": "ph:beach.near-shore", "next": "end"}], "wrong": {"es": "Stay on the rocks? Like Oswald last night.", "ru": "Остаёшься на камнях? Как Освальд ночью."}},
+        "end": {"kind": "say", "es": "Good idea. And here: Oswald left this on the rocks last night. A fragment of the forest map. I think he wanted you to have it.", "ru": "Хорошая мысль. И держи: Освальд оставил это вчера ночью на камнях. Обрывок карты леса. Думаю, он хотел, чтобы обрывок достался тебе."}
+      }
     }
   ]
 }

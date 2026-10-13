@@ -62,6 +62,31 @@
         "review": {"kind": "answer", "task": "Скажите, что оставите хороший отзыв.", "branches": [{"phrase": "ph:hotel.good-review", "next": "end"}], "wrong": {"es": "You'll leave a camel? Not here, please.", "ru": "Оставишь верблюда? Только не здесь, пожалуйста."}},
         "end": {"kind": "say", "es": "Thank you very much. And take the envelope from Rory: the real fragments. And my fragment of the desert map too.", "ru": "Большое спасибо. И возьмите конверт от Рори: настоящие обрывки. И мой обрывок карты пустыни тоже."}
       }
+    },
+    {
+      "id": "ms:hotel.4",
+      "chapter": 4,
+      "npc": "emma",
+      "scene": "sc:hotel.4",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Welcome. The hotel is full today: everybody has come for the meeting. Are you staying the night?", "ru": "Добро пожаловать. Сегодня отель полон: все приехали на собрание. Остаёшься ночевать?", "next": "rooms"},
+        "rooms": {"kind": "answer", "task": "Спросите, есть ли свободные номера.", "branches": [{"phrase": "ph:hotel.rooms-available", "next": "roomssay"}], "wrong": {"es": "Any ravens available? Only one, and it isn't ours.", "ru": "Есть свободные вороны? Только один, и он не наш."}},
+        "roomssay": {"kind": "say", "es": "There is one left, a small one. Right under the roof.", "ru": "Остался один, маленький. Под самой крышей.", "next": "view"},
+        "view": {"kind": "answer", "task": "Спросите, видно ли из номера море.", "branches": [{"phrase": "ph:hotel.room-sea-view", "next": "viewsay"}], "wrong": {"es": "A forest view? You can't see the forest from here.", "ru": "Вид на лес? Отсюда его не видно."}},
+        "viewsay": {"kind": "say", "es": "A car park view, sorry. Listen, I have a problem: Rory wants to stay here, but I don't trust him. Not long ago he was selling lies. I'm not giving him a room.", "ru": "Вид на парковку, прости. Слушай, у меня проблема: Рори хочет здесь остановиться, но я ему не доверяю. Недавно он торговал ложью. Не дам ему номер.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:hotel.second-chance", "next": "object", "move": "object"}, {"phrase": "ph:hotel.dont-trust-him", "next": "concede", "move": "concede"}, {"phrase": "ph:hotel.work-for-room", "next": "compromise", "move": "compromise"}], "wrong": {"es": "What? There are so many guests, I can't hear you.", "ru": "Что? Тут столько гостей, я тебя не слышу."}},
+        "object": {"kind": "say", "es": "A second chance? …That's true. He was the first to tell the truth to the guardian of the white city. I'll give him a room.", "ru": "Второй шанс? …Это правда. Он первым сказал правду стражнице белого города. Даю ему номер.", "next": "checkout"},
+        "concede": {"kind": "say", "es": "Thank you. A manager has to think about her guests.", "ru": "Спасибо. Управляющая должна думать о своих гостях.", "next": "checkout"},
+        "compromise": {"kind": "say", "es": "Work here? I need someone on reception at night… It's a deal!", "ru": "Работать здесь? Мне нужен кто-то на ресепшене по ночам… Договорились!", "next": "checkout"},
+        "checkout": {"kind": "say", "es": "Your room is ready. When are you leaving tomorrow?", "ru": "Твой номер готов. Когда ты завтра уезжаешь?", "next": "late"},
+        "late": {"kind": "answer", "task": "Спросите, можно ли выехать попозже.", "branches": [{"phrase": "ph:hotel.late-checkout", "next": "latesay"}], "wrong": {"es": "A late walk into the forest? Tomorrow, with the map.", "ru": "Поздняя прогулка в лес? Завтра, с картой."}},
+        "latesay": {"kind": "say", "es": "Of course, you can check out at two. The meeting will finish late.", "ru": "Конечно, можно выехать в два. Собрание закончится поздно.", "next": "wake"},
+        "wake": {"kind": "answer", "task": "Спросите, можно ли заказать звонок-будильник.", "branches": [{"phrase": "ph:hotel.wake-up-call", "next": "wakesay"}], "wrong": {"es": "Can you book a raven? No, thank you.", "ru": "Можно заказать ворона? Нет, спасибо."}},
+        "wakesay": {"kind": "say", "es": "Yes, I'll call you at ten. Anything else?", "ru": "Да, позвоню тебе в десять. Что-нибудь ещё?", "next": "review"},
+        "review": {"kind": "answer", "task": "Скажите, что оставите хороший отзыв.", "branches": [{"phrase": "ph:hotel.good-review", "next": "end"}], "wrong": {"es": "You'll leave a feather? We've got enough of those.", "ru": "Оставишь перо? У нас их и так много."}},
+        "end": {"kind": "say", "es": "Thank you! And here: Rory brought this from the forest for you. A fragment of the map. He says it's almost complete.", "ru": "Спасибо! И держи: Рори принёс это из леса для тебя. Обрывок карты. Говорит, она почти собрана."}
+      }
     }
   ]
 }

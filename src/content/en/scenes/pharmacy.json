@@ -75,6 +75,52 @@
         {"q": "Что снится тем, кто купил воду?", "options": ["Белый город", "Море", "Маяк"], "answer": 0}
       ],
       "gloss": {"oasis": "оазис", "less": "меньше"}
+    },
+    {
+      "id": "wh:pharmacy.4",
+      "chapter": 4,
+      "mode": "overhear",
+      "npc": "shah",
+      "lines": [
+        {"who": "npc", "es": "Doctor, the lady you wrote a prescription for this morning… did you know she takes herbs for insomnia?", "ru": "Доктор, та дама, которой вы утром выписали рецепт… вы знаете, что она пьёт травы от бессонницы?"},
+        {"who": "okafor", "es": "I had no idea. She told me she wasn't taking anything else.", "ru": "Понятия не имела. Мне она сказала, что больше ничего не принимает."},
+        {"who": "npc", "es": "They all say that. But those herbs with your tablet… the combination could be dangerous.", "ru": "Так говорят все. Но эти травы вместе с вашей таблеткой… сочетание может быть опасным."},
+        {"who": "okafor", "es": "Patients think natural things don't count. And then they end up in A&E.", "ru": "Пациенты думают, что натуральное не считается. А потом попадают в неотложку."},
+        {"who": "npc", "es": "Or maybe nobody asks them calmly. You only have five minutes per patient.", "ru": "А может, их просто никто спокойно не спрашивает. У вас на пациента пять минут."},
+        {"who": "okafor", "es": "Are you saying I don't do my job properly?", "ru": "Вы хотите сказать, что я плохо делаю свою работу?"},
+        {"who": "npc", "es": "I'm saying five minutes isn't enough for anybody, not for you, not for me.", "ru": "Я говорю, что пяти минут никому не хватает, ни вам, ни мне."},
+        {"who": "okafor", "es": "There you're right. I'll call the lady and change her medicine.", "ru": "Тут вы правы. Позвоню этой даме и поменяю ей лекарства."},
+        {"who": "npc", "es": "And I'll explain to her, slowly, how to take it. This time there will be time.", "ru": "А я не спеша объясню ей, как их принимать. На этот раз время найдётся."}
+      ],
+      "questions": [
+        {"q": "Чем обеспокоен мистер Шах?", "kind": "stance", "options": ["Пациентка не заплатила", "Травы пациентки опасно сочетаются с её таблеткой", "В аптеке нет нужного лекарства"], "answer": 1},
+        {"q": "Что Шах имел в виду: «так говорят все»?", "kind": "stance", "options": ["Пациенты часто не считают травы лекарством и молчат о них", "Все пациенты врут", "Все любят травы"], "answer": 0},
+        {"q": "Как доктор Окафор сначала поняла слова о пяти минутах?", "kind": "stance", "options": ["Согласилась", "Посмеялась", "Обиделась: решила, что её упрекают"], "answer": 2},
+        {"q": "С чем в итоге согласились оба?", "kind": "stance", "options": ["Травы полезнее таблеток", "На приём слишком мало времени, чтобы всё выяснить", "Даме нужно в больницу"], "answer": 1}
+      ],
+      "gloss": {"herbs": "травы", "count": "считаться", "insomnia": "бессонница", "tablet": "таблетка", "combination": "сочетание", "natural": "натуральный", "properly": "как следует", "calmly": "спокойно", "idea": "понятие (I had no idea — понятия не имела)", "per": "на (per patient — на пациента)", "slowly": "не спеша"}
+    },
+    {
+      "id": "sc:pharmacy.4",
+      "chapter": 4,
+      "npc": "shah",
+      "lines": [
+        {"who": "npc", "es": "Good morning. I'm sorry, I'm very upset.", "ru": "Доброе утро. Простите, я очень встревожен."},
+        {"who": "hero", "es": "What's happened?", "ru": "Что случилось?"},
+        {"who": "npc", "es": "The forest is saying in my voice: \"The doctor is useless.\"", "ru": "Лес говорит моим голосом: «Доктор — бездарь»."},
+        {"who": "hero", "es": "And did you say that?", "ru": "А вы это говорили?"},
+        {"who": "npc", "es": "Never! We argued about herbs, yes, but I respect the doctor very much.", "ru": "Никогда! Мы поспорили из-за трав, да, но я очень уважаю доктора."},
+        {"who": "hero", "es": "Does the doctor know?", "ru": "А доктор об этом знает?"},
+        {"who": "npc", "es": "The whole town knows. This morning she didn't say hello to me.", "ru": "Весь город знает. Сегодня утром она со мной не поздоровалась."},
+        {"who": "hero", "es": "The same thing happened at the clothes shop.", "ru": "В магазине одежды было то же самое."},
+        {"who": "npc", "es": "Then I'm not the only one. Somebody is speaking in our voices.", "ru": "Значит, я не один такой. Кто-то говорит нашими голосами."}
+      ],
+      "questions": [
+        {"q": "Что лес сказал голосом мистера Шаха?", "options": ["Что доктор — бездарь", "Что аптека закрывается", "Что травы опасны"], "answer": 0},
+        {"q": "Говорил ли это мистер Шах?", "options": ["Да, в шутку", "Нет, никогда", "Да, но давно"], "answer": 1},
+        {"q": "Что понял мистер Шах?", "options": ["Доктор на него обиделась без причины", "Лес говорит правду", "Кто-то говорит голосами жителей"], "answer": 2}
+      ],
+      "gloss": {"useless": "бесполезный, бездарь", "argued": "поспорили", "herbs": "травы"}
     }
   ]
 }

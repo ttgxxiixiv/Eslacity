@@ -60,6 +60,31 @@
         "tax": {"kind": "answer", "task": "Спросите, нужно ли платить таможенную пошлину.", "branches": [{"phrase": "ph:post.customs", "next": "end"}], "wrong": {"es": "Pay the camel? The camel gets nothing!", "ru": "Платить верблюду? Верблюду — ничего!"}},
         "end": {"kind": "say", "es": "To the hospital? No, it's in town. And take my fragment of the desert map. Nobody will steal this one: I always keep it on my bike.", "ru": "В больницу? Нет, она в городе. И держи мой обрывок карты пустыни. Этот никто не украдёт: я всегда вожу его на велосипеде."}
       }
+    },
+    {
+      "id": "ms:post.4",
+      "chapter": 4,
+      "npc": "dan",
+      "scene": "sc:post.4",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Hi. Are you sending anything today?", "ru": "Привет. Отправляешь что-нибудь сегодня?", "next": "insure"},
+        "insure": {"kind": "answer", "task": "Скажите, что хотите застраховать посылку.", "branches": [{"phrase": "ph:post.insure-parcel", "next": "insuresay"}], "wrong": {"es": "Insure the raven? Nobody does that.", "ru": "Застраховать ворона? Так никто не делает."}},
+        "insuresay": {"kind": "say", "es": "Fine, done. Is it for Rory, in the forest? The post is slow out there.", "ru": "Хорошо, готово. Это Рори, в лес? Туда почта идёт медленно.", "next": "howlong"},
+        "howlong": {"kind": "answer", "task": "Спросите, когда она дойдёт.", "branches": [{"phrase": "ph:post.when-arrive", "next": "howlongsay"}], "wrong": {"es": "How long does it take to fly? For my raven, two minutes.", "ru": "Сколько лететь? Моему ворону — две минуты."}},
+        "howlongsay": {"kind": "say", "es": "Three days, if the raven doesn't eat the letters. My poor bird… I've decided to lock him up for good.", "ru": "Три дня, если ворон не съест письма. Бедная моя птица… Я решил запереть его навсегда.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:post.not-birds-fault", "next": "object", "move": "object"}, {"phrase": "ph:post.safest-for-now", "next": "concede", "move": "concede"}, {"phrase": "ph:post.home-at-night", "next": "compromise", "move": "compromise"}], "wrong": {"es": "What? The raven is so loud I can't hear you.", "ru": "Что? Ворон так кричит, что я тебя не слышу."}},
+        "object": {"kind": "say", "es": "Not to blame? …True. He only repeats. The one who teaches him is to blame.", "ru": "Не виноват? …Правда. Он только повторяет. Виноват тот, кто его учит.", "next": "track"},
+        "concede": {"kind": "say", "es": "Yes… even if it breaks my heart. He is my best partner.", "ru": "Да… хоть у меня сердце разрывается. Он мой лучший напарник.", "next": "track"},
+        "compromise": {"kind": "say", "es": "At home at night? Then he works with me in the day and doesn't fly to the forest. Great!", "ru": "Дома по ночам? Так днём он работает со мной и не летает в лес. Отлично!", "next": "track"},
+        "track": {"kind": "say", "es": "Now yours. Another parcel came for you, but I don't know where it is.", "ru": "Теперь твоё. Тебе пришла ещё одна посылка, но я не знаю, где она.", "next": "locate"},
+        "locate": {"kind": "answer", "task": "Спросите, может ли он отследить эту посылку.", "branches": [{"phrase": "ph:post.track-parcel", "next": "locatesay"}], "wrong": {"es": "Can you find the raven? He's on my shoulder.", "ru": "Можешь найти ворона? Он у меня на плече."}},
+        "locatesay": {"kind": "say", "es": "Found it: it's at the pick-up point. It came from abroad.", "ru": "Нашёл: она в пункте выдачи. Пришла из-за границы.", "next": "duties"},
+        "duties": {"kind": "answer", "task": "Спросите, нужно ли платить таможенную пошлину.", "branches": [{"phrase": "ph:post.customs", "next": "dutiessay"}], "wrong": {"es": "Do you have to pay the raven? He takes biscuits.", "ru": "Надо платить ворону? Он берёт печеньем."}},
+        "dutiessay": {"kind": "say", "es": "No, it's a present. Is the parcel in your name?", "ru": "Нет, это подарок. Посылка на твоё имя?", "next": "name"},
+        "name": {"kind": "answer", "task": "Скажите, что посылка на ваше имя.", "branches": [{"phrase": "ph:post.in-my-name", "next": "end"}], "wrong": {"es": "For the raven? He hasn't got a passport.", "ru": "Для ворона? У него нет паспорта."}},
+        "end": {"kind": "say", "es": "Great. And here: my raven brought this last night. A fragment of the forest map. At least he brings something good.", "ru": "Отлично. И держи: мой ворон принёс это вчера ночью. Обрывок карты леса. Хоть что-то хорошее он приносит."}
+      }
     }
   ]
 }

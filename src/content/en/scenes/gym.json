@@ -75,6 +75,51 @@
         {"q": "Что он делал на бегу?", "options": ["Закрывал уши руками", "Пел", "Смотрел на карту"], "answer": 0}
       ],
       "gloss": {"moonlight": "лунный свет", "athlete": "спортсмен", "covering": "закрывал"}
+    },
+    {
+      "id": "wh:gym.4",
+      "chapter": 4,
+      "mode": "overhear",
+      "npc": "zoe",
+      "lines": [
+        {"who": "npc", "es": "Doctor, this is the third time this week I've seen you here at six in the morning. And today you look exhausted.", "ru": "Доктор, я вижу вас здесь в шесть утра уже третий раз за неделю. А сегодня вы выглядите совсем измотанной."},
+        {"who": "okafor", "es": "I'm fine, really. I want to build some muscle before the summer.", "ru": "Я правда в порядке. Хочу набрать мышечную массу до лета."},
+        {"who": "npc", "es": "Fine? Your elbow is bandaged. That looks a lot like an injury from too much training.", "ru": "В порядке? У вас локоть забинтован. Очень похоже на травму от лишних тренировок."},
+        {"who": "okafor", "es": "It's nothing, it just hurts a bit. I always tell my patients that sport is the best medicine.", "ru": "Ерунда, немного побаливает. Я всегда говорю пациентам, что спорт — лучшее лекарство."},
+        {"who": "npc", "es": "And I suppose you tell them to rest too? Or is that part of the prescription only for them?", "ru": "А отдыхать вы им, наверное, тоже велите? Или эта часть рецепта только для них?"},
+        {"who": "okafor", "es": "Very funny. Rest is for people who have no time to train.", "ru": "Очень смешно. Отдых — для тех, у кого нет времени тренироваться."},
+        {"who": "npc", "es": "This is overtraining, Doctor. Without recovery there won't be any muscle, only injuries.", "ru": "Это перетренированность, доктор. Без восстановления не будет никаких мышц, будут травмы."},
+        {"who": "okafor", "es": "All right, all right. Two days off. Just don't tell my patients.", "ru": "Ладно, ладно. Два дня отдыха. Только не рассказывайте моим пациентам."}
+      ],
+      "questions": [
+        {"q": "Почему Зои беспокоится за доктора Окафор?", "kind": "stance", "options": ["Она тренируется слишком много и уже травмирована", "Она опаздывает на работу", "Она плохо спит"], "answer": 0},
+        {"q": "На что намекает Зои вопросом про «часть рецепта»?", "kind": "stance", "options": ["Что рецепт написан неразборчиво", "Что врач не следует своим же советам об отдыхе", "Что пациенты не слушают врача"], "answer": 1},
+        {"q": "Как доктор Окафор сначала отвечает на её замечания?", "kind": "stance", "options": ["Сразу соглашается", "Обижается и уходит", "Отшучивается и отмахивается"], "answer": 2},
+        {"q": "Почему доктор просит не рассказывать пациентам?", "kind": "stance", "options": ["Стыдно, что она сама не делала то, что им советует", "Пациенты будут волноваться", "Это врачебная тайна"], "answer": 0}
+      ],
+      "gloss": {"exhausted": "измотанный", "muscle": "мышцы", "elbow": "локоть", "bandaged": "забинтованный", "overtraining": "перетренированность", "prescription": "рецепт", "doctor": "доктор"}
+    },
+    {
+      "id": "sc:gym.4",
+      "chapter": 4,
+      "npc": "zoe",
+      "lines": [
+        {"who": "npc", "es": "Morning! When I was running at six today, I saw something very strange.", "ru": "Доброе утро! Сегодня на пробежке в шесть утра я увидела кое-что очень странное."},
+        {"who": "hero", "es": "What did you see?", "ru": "Что ты видела?"},
+        {"who": "npc", "es": "An old man in the garden behind the gym. He was talking to a raven.", "ru": "Пожилого мужчину в саду за спортзалом. Он разговаривал с вороном."},
+        {"who": "hero", "es": "And what was he saying?", "ru": "И что он говорил?"},
+        {"who": "npc", "es": "He was teaching it words, like a teacher: \"Repeat after me: the forest is dangerous.\"", "ru": "Учил его фразам, как учитель: «Повторяй за мной: лес опасен»."},
+        {"who": "hero", "es": "Did you see who it was?", "ru": "Ты видела, кто это был?"},
+        {"who": "npc", "es": "No. He was wearing a hat and walking slowly, with a stick made of very old wood.", "ru": "Нет. Он был в шляпе и шёл медленно, с палкой из очень старого дерева."},
+        {"who": "hero", "es": "Old wood?", "ru": "Старого дерева?"},
+        {"who": "npc", "es": "Very old and dark, like the wood in the old lighthouse.", "ru": "Очень старого и тёмного, как дерево в старом маяке."}
+      ],
+      "questions": [
+        {"q": "Что делал мужчина за спортзалом?", "options": ["Бегал", "Учил ворона фразам", "Рубил дрова"], "answer": 1},
+        {"q": "Какую фразу он учил?", "options": ["«Лес опасен»", "«Лес добрый»", "«Маяк закрыт»"], "answer": 0},
+        {"q": "Что было необычного в его палке?", "options": ["Она была золотая", "Она была сломана", "Она из старого тёмного дерева, как в маяке"], "answer": 2}
+      ],
+      "gloss": {"raven": "ворон", "stick": "палка"}
     }
   ]
 }

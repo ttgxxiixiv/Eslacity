@@ -75,6 +75,51 @@
         {"q": "Что, по словам Освальда, страшнее пустыни?", "options": ["Вернуться в изменившийся мир", "Остаться без воды", "Потерять карту"], "answer": 0}
       ],
       "gloss": {"oswald": "Освальд"}
+    },
+    {
+      "id": "wh:home.4",
+      "chapter": 4,
+      "mode": "overhear",
+      "npc": "higgins",
+      "lines": [
+        {"who": "npc", "es": "Are you coming to the residents' meeting on Thursday? We need to talk about the leak.", "ru": "Придёшь на собрание жильцов в четверг? Надо поговорить о протечке."},
+        {"who": "bert", "es": "I will, but it won't help. The landlord says the damp is our fault: we never open the windows.", "ru": "Приду, но толку не будет. Хозяин говорит, что сырость по нашей вине: мы не открываем окна."},
+        {"who": "npc", "es": "We never open the windows? I've got mould even in my wardrobe. It's the pipe from the flat upstairs.", "ru": "Мы не открываем окна? У меня плесень даже в шкафу. Это труба из квартиры сверху."},
+        {"who": "bert", "es": "The insurance should pay for the damage. I would ask a plumber for a quote.", "ru": "Ущерб должна покрыть страховка. Я бы попросил у сантехника смету."},
+        {"who": "npc", "es": "The insurance? I tried. They told me the problem was there before the contract.", "ru": "Страховка? Я уже пробовала. Мне сказали, что проблема была ещё до договора."},
+        {"who": "bert", "es": "I see. Then the landlord will have to pay for the repairs, whether he likes it or not.", "ru": "Вот как. Значит, хозяину придётся заплатить за ремонт, нравится ему это или нет."},
+        {"who": "npc", "es": "He won't. He's waiting for us to get tired and move out, so he can rent the flat for more.", "ru": "Не заплатит. Он ждёт, что нам надоест и мы съедем, а он сдаст квартиру подороже."},
+        {"who": "bert", "es": "Maybe. But I've lived here for forty years. Nobody is going to throw me out.", "ru": "Может быть. Но я живу здесь сорок лет. Отсюда меня никто не выгонит."}
+      ],
+      "questions": [
+        {"q": "Кого хозяин дома винит в сырости?", "kind": "stance", "options": ["Соседа сверху", "Жильцов: они не открывают окна", "Сантехника"], "answer": 1},
+        {"q": "Кто из соседей надеется на страховку?", "kind": "stance", "options": ["Берт", "Миссис Хиггинс", "Оба"], "answer": 0},
+        {"q": "Чего, по мнению миссис Хиггинс, на самом деле добивается хозяин?", "kind": "stance", "options": ["Продать дом", "Сделать ремонт", "Чтобы жильцы съехали, а он сдал квартиру дороже"], "answer": 2},
+        {"q": "Как Берт отвечает на догадку миссис Хиггинс?", "kind": "stance", "options": ["Не спорит, но уезжать не собирается", "Смеётся над ней", "Решает съехать"], "answer": 0}
+      ],
+      "gloss": {"residents'": "жильцов", "thursday": "четверг", "damp": "сырость", "mould": "плесень", "wardrobe": "шкаф", "quote": "смета", "whether": "ли (whether he likes it or not — нравится ему или нет)", "forty": "сорок", "fault": "вина", "throw": "выбросить (throw me out — выгнать)"}
+    },
+    {
+      "id": "sc:home.4",
+      "chapter": 4,
+      "npc": "higgins",
+      "lines": [
+        {"who": "npc", "es": "Come in, but be quiet: Oswald is sleeping. He didn't sleep at all last night.", "ru": "Проходи, только не шуми: Освальд спит. Ночью он совсем не спал."},
+        {"who": "hero", "es": "Because of the voices?", "ru": "Из-за голосов?"},
+        {"who": "npc", "es": "Because of the voices. He says that in the forest he heard a voice he knows: the voice of the Keeper.", "ru": "Из-за голосов. Говорит, в лесу он услышал знакомый голос: голос Хранительницы."},
+        {"who": "hero", "es": "Oswald knows the Keeper of the Forest?", "ru": "Освальд знает Хранительницу леса?"},
+        {"who": "npc", "es": "A hundred years ago she came past the lighthouse. They talked all night.", "ru": "Сто лет назад она проходила мимо маяка. Они проговорили всю ночь."},
+        {"who": "hero", "es": "And what did the voice say?", "ru": "И что говорил голос?"},
+        {"who": "npc", "es": "\"It's too noisy. I can't hear the path.\"", "ru": "«Слишком шумно. Я не слышу тропу»."},
+        {"who": "hero", "es": "Then we have to help her.", "ru": "Тогда надо ей помочь."},
+        {"who": "npc", "es": "Yes. But first help me: water is coming into the house again!", "ru": "Да. Но сначала помоги мне: вода снова течёт в дом!"}
+      ],
+      "questions": [
+        {"q": "Почему Освальд не спал?", "options": ["Из-за голосов из леса", "Из-за протечки", "Из-за ворона"], "answer": 0},
+        {"q": "Откуда Освальд знает Хранительницу?", "options": ["Они учились вместе", "Сто лет назад она проходила мимо маяка", "Она его сестра"], "answer": 1},
+        {"q": "Что сказал голос Хранительницы?", "options": ["Иди домой", "Лес опасен", "Слишком шумно, она не слышит тропу"], "answer": 2}
+      ],
+      "gloss": {"oswald": "Освальд", "keeper": "хранительница"}
     }
   ]
 }

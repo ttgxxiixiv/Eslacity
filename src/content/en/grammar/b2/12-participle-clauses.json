@@ -1,0 +1,158 @@
+{
+  "id": "b2.12-participle-clauses",
+  "district": "B2",
+  "order": 12,
+  "title": "Причастные обороты",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Вместо придаточного часто ставят причастие. **-ing** — действие одновременно или причина: **Walking** through the forest, I heard a voice. **Having + V3** — сначала одно, потом другое: **Having finished** the work, he left. **V3** — пассивный смысл: **Built** in 1800, the bridge is still strong."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Оборот",
+        "Значение",
+        "Пример"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "-ing",
+            "пока / так как",
+            "Feeling tired, she sat down."
+          ]
+        },
+        {
+          "cells": [
+            "Having + V3",
+            "после того как",
+            "Having read the letter, he burnt it."
+          ]
+        },
+        {
+          "cells": [
+            "V3",
+            "который был …",
+            "Written by hand, the map was hard to read."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Подлежащее оборота и главной части должно быть одно: «Walking in the forest, a tree fell» — получается, что шло дерево."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Walking through the forest, I heard a whisper.",
+      "ru": "Идя по лесу, я услышал шёпот."
+    },
+    {
+      "es": "Having lost the map, we asked a lumberjack.",
+      "ru": "Потеряв карту, мы спросили лесоруба."
+    },
+    {
+      "es": "Written in old English, the letter was hard to read.",
+      "ru": "Написанное на старом английском, письмо читалось с трудом."
+    },
+    {
+      "es": "Not knowing the way, she followed the stream.",
+      "ru": "Не зная дороги, она пошла вдоль ручья."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "b2.12-participle-clauses.1",
+      "kind": "choose",
+      "prompt": "«Закончив работу, он ушёл»:",
+      "options": [
+        "Having finished the work, he left.",
+        "Having finish the work, he left.",
+        "Finished the work, he left."
+      ],
+      "answer": 0,
+      "explain": "Having + V3."
+    },
+    {
+      "id": "b2.12-participle-clauses.2",
+      "kind": "choose",
+      "prompt": "«Не зная ответа, я промолчал»:",
+      "options": [
+        "Not knowing the answer, I said nothing.",
+        "Not known the answer, I said nothing.",
+        "Don't knowing the answer, I said nothing."
+      ],
+      "answer": 0,
+      "explain": "Not + -ing."
+    },
+    {
+      "id": "b2.12-participle-clauses.3",
+      "kind": "gap",
+      "sentence": "___ in 1850, the hut still stands.",
+      "ru": "Построенная в 1850 году, хижина всё ещё стоит.",
+      "options": [
+        "Built",
+        "Building",
+        "Having built"
+      ],
+      "answer": 0,
+      "explain": "Пассивный смысл — V3."
+    },
+    {
+      "id": "b2.12-participle-clauses.4",
+      "kind": "gap",
+      "sentence": "___ the noise, the owl flew away.",
+      "ru": "Услышав шум, сова улетела.",
+      "options": [
+        "Hearing",
+        "Heard",
+        "Hear"
+      ],
+      "answer": 0,
+      "explain": "Одновременно — -ing."
+    },
+    {
+      "id": "b2.12-participle-clauses.5",
+      "kind": "truefalse",
+      "statement": "«Having eaten, we went for a walk» — правильно.",
+      "answer": true,
+      "explain": "Having + V3."
+    },
+    {
+      "id": "b2.12-participle-clauses.6",
+      "kind": "truefalse",
+      "statement": "«Walking home, the rain started» — правильно.",
+      "answer": false,
+      "explain": "Шёл не дождь: подлежащее должно быть одно."
+    },
+    {
+      "id": "b2.12-participle-clauses.7",
+      "kind": "truefalse",
+      "statement": "Оборот с V3 передаёт пассивный смысл.",
+      "answer": true,
+      "explain": "Written by hand — написанный от руки."
+    },
+    {
+      "id": "b2.12-participle-clauses.8",
+      "kind": "build",
+      "ru": "Почувствовав усталость, она села.",
+      "answer": "Feeling tired she sat down",
+      "extra": [
+        "felt",
+        "sitting"
+      ],
+      "explain": "-ing — одновременно."
+    },
+    {
+      "id": "b2.12-participle-clauses.9",
+      "kind": "type",
+      "sentence": "___ (lose) our way, we stopped to ask.",
+      "ru": "Сбившись с пути, мы остановились спросить.",
+      "hint": "lose",
+      "answer": "Having lost",
+      "explain": "Сначала одно, потом другое — Having + V3."
+    }
+  ]
+}

@@ -75,6 +75,53 @@
         {"q": "Что обещает Грэм герою?", "options": ["Оставить место в поезде", "Продать карту", "Закрыть вокзал"], "answer": 0}
       ],
       "gloss": {"ah": "а", "moon": "луна", "edge": "край"}
+    },
+    {
+      "id": "wh:station.4",
+      "chapter": 4,
+      "mode": "overhear",
+      "npc": "graham",
+      "lines": [
+        {"who": "tom", "es": "Four flights have been cancelled today because of the fog. People at the airport are furious.", "ru": "Сегодня из-за тумана отменили четыре рейса. Люди в аэропорту в ярости."},
+        {"who": "npc", "es": "What a shame. Well, you know where to find us. The train isn't afraid of fog.", "ru": "Какая жалость. Ну, ты знаешь, где нас найти. Поезд тумана не боится."},
+        {"who": "tom", "es": "Right. And it doesn't like to hurry. Your long-distance train arrived two hours late yesterday.", "ru": "Ну да. И спешить он тоже не любит. Твой поезд дальнего следования вчера пришёл с опозданием на два часа."},
+        {"who": "npc", "es": "That was a problem at the level crossing. It never happens.", "ru": "Это была неполадка на переезде. Такого никогда не бывает."},
+        {"who": "tom", "es": "Never? And the replacement buses last week? Because of work on the line.", "ru": "Никогда? А автобусы вместо поездов на прошлой неделе? Из-за ремонта путей."},
+        {"who": "npc", "es": "That work is for the new fast line. In a year we'll get to London before your plane does.", "ru": "Ремонт ради новой скоростной линии. Через год мы будем приезжать в Лондон раньше твоего самолёта."},
+        {"who": "tom", "es": "You say that every year, Graham.", "ru": "Ты это каждый год говоришь, Грэм."},
+        {"who": "npc", "es": "And every year it gets closer. Come to the buffet car, I'll buy you a coffee while you wait for your flights.", "ru": "И с каждым годом это всё ближе. Пойдём в вагон-ресторан, угощу тебя кофе, пока ждёшь свои рейсы."}
+      ],
+      "questions": [
+        {"q": "Как Грэм воспринимает новость об отменённых рейсах?", "kind": "stance", "options": ["Злорадствует: поезду туман не страшен", "Сочувствует Тому", "Не верит"], "answer": 0},
+        {"q": "Что Том имел в виду: «и спешить он тоже не любит»?", "kind": "stance", "options": ["Поезда медленные, но надёжные", "Поезда тоже часто опаздывают", "Грэм ленивый"], "answer": 1},
+        {"q": "Что Том хотел сказать словами «ты это каждый год говоришь»?", "kind": "stance", "options": ["Грэм повторяется от старости", "Он ждёт новую линию", "Он не верит обещаниям о скоростной линии"], "answer": 2},
+        {"q": "Как они в итоге друг к другу относятся?", "kind": "stance", "options": ["Спорят по-дружески и остаются приятелями", "Ссорятся", "Не разговаривают"], "answer": 0}
+      ],
+      "gloss": {"furious": "в ярости", "level": "уровень (level crossing — переезд)", "crossing": "переезд", "london": "Лондон", "buffet": "буфет (buffet car — вагон-ресторан)", "graham": "Грэм", "hurry": "спешка", "replacement": "замена"}
+    },
+    {
+      "id": "sc:station.4",
+      "chapter": 4,
+      "npc": "graham",
+      "lines": [
+        {"who": "npc", "es": "Have you come to look at me like a criminal too?", "ru": "Ты тоже пришёл смотреть на меня как на преступника?", "fem": {"ru": "Ты тоже пришла смотреть на меня как на преступника?"}},
+        {"who": "hero", "es": "Why do you say that?", "ru": "Почему ты так говоришь?"},
+        {"who": "npc", "es": "The whole town says I'm the one teaching the postman's raven to lie. Because I smoke a pipe!", "ru": "Весь город говорит, что это я учу ворона почтальона лжи. Потому что я курю трубку!"},
+        {"who": "hero", "es": "And it isn't you?", "ru": "А это не ты?"},
+        {"who": "npc", "es": "Of course not! At night I'm asleep at home. My wife knows.", "ru": "Конечно, нет! По ночам я сплю дома. Жена знает."},
+        {"who": "hero", "es": "I believe you. But somebody smokes a pipe and talks to a raven.", "ru": "Я тебе верю. Но кто-то курит трубку и разговаривает с вороном."},
+        {"who": "npc", "es": "Thank you. You asked me for a single ticket too, remember? And you came back anyway.", "ru": "Спасибо. Ты ведь тоже просил билет только в одну сторону, помнишь? А всё-таки вернулся.", "fem": {"ru": "Спасибо. Ты ведь тоже просила билет только в одну сторону, помнишь? А всё-таки вернулась."}, "if": {"flag": "ticket", "is": "single"}},
+        {"who": "npc", "es": "Thank you. You asked for a return, and you came back. People who come back tell the truth.", "ru": "Спасибо. Ты просил туда и обратно — и вернулся. Кто возвращается, тот говорит правду.", "fem": {"ru": "Спасибо. Ты просила туда и обратно — и вернулась. Кто возвращается, тот говорит правду."}, "if": {"flag": "ticket", "is": "round"}},
+        {"who": "npc", "es": "I only know one thing: a week ago an old gentleman bought a ticket to the edge of the forest. A return.", "ru": "Я знаю только одно: неделю назад пожилой джентльмен купил билет до опушки леса. Туда и обратно."},
+        {"who": "hero", "es": "Who?", "ru": "Кто?"},
+        {"who": "npc", "es": "I didn't see his face. He paid with very old coins. Nobody takes them any more, but I did.", "ru": "Лица я не видел. Он заплатил очень старыми монетами. Их уже не принимают, но я взял."}
+      ],
+      "questions": [
+        {"q": "Почему весь город подозревает Грэма?", "options": ["Он курит трубку", "У него есть ворон", "Он ходит в лес"], "answer": 0},
+        {"q": "Где Грэм бывает по ночам?", "options": ["На станции", "Спит дома", "В лесу"], "answer": 1},
+        {"q": "Чем пожилой джентльмен заплатил за билет к лесу?", "options": ["Картой", "Обрывком карты", "Очень старыми монетами"], "answer": 2}
+      ],
+      "gloss": {"criminal": "преступник", "postman'": "почтальона", "raven": "ворон", "pipe": "трубка (курительная)", "gentleman": "джентльмен", "asleep": "спящий (I'm asleep — я сплю)", "wife": "жена"}
     }
   ]
 }

@@ -60,6 +60,31 @@
         "joint": {"kind": "answer", "task": "Скажите, что вы с Освальдом хотите открыть совместный счёт.", "branches": [{"phrase": "ph:bank.joint-account", "next": "end"}], "wrong": {"es": "Open the white city? The bank does not do that.", "ru": "Открыть белый город? Банк этим не занимается."}},
         "end": {"kind": "say", "es": "A joint account, with real money. Sign here. And take my fragment of the desert map. The rule of the bank: real things do not turn into sand.", "ru": "Совместный счёт, с настоящими деньгами. Подпишите здесь. И возьмите мой обрывок карты пустыни. Правило банка: настоящее в песок не превращается."}
       }
+    },
+    {
+      "id": "ms:bank.4",
+      "chapter": 4,
+      "npc": "whitmore",
+      "scene": "sc:bank.4",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "I apologise for the chaos. Today everybody wants their money back. Have you come to take out your savings too?", "ru": "Прошу прощения за суматоху. Сегодня все хотят забрать свои деньги. Вы тоже пришли снять сбережения?", "next": "payoff"},
+        "payoff": {"kind": "answer", "task": "Скажите, что хотите досрочно погасить часть кредита.", "branches": [{"phrase": "ph:bank.pay-off-part", "next": "payoffsay"}], "wrong": {"es": "Pay off the forest? The forest is not a loan.", "ru": "Погасить лес? Лес — это не кредит."}},
+        "payoffsay": {"kind": "say", "es": "What a pleasure! Somebody is bringing money in, not taking it out.", "ru": "Вот радость! Кто-то приносит деньги, а не уносит.", "next": "fee"},
+        "fee": {"kind": "answer", "task": "Спросите, есть ли за это штраф.", "branches": [{"phrase": "ph:bank.any-penalty", "next": "feesay"}], "wrong": {"es": "Is there a song? We do not sing here.", "ru": "Есть какая-нибудь песня? Мы здесь не поём."}},
+        "feesay": {"kind": "say", "es": "Not for you. But look at that queue… I am going to close the bank today. No bank, no panic.", "ru": "Для вас — никакого. Но посмотрите на эту очередь… Сегодня я закрою банк. Нет банка — нет паники.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:bank.closing-panic", "next": "object", "move": "object"}, {"phrase": "ph:bank.good-idea", "next": "concede", "move": "concede"}, {"phrase": "ph:bank.tell-truth", "next": "compromise", "move": "compromise"}], "wrong": {"es": "I beg your pardon? There are so many people here, I cannot hear you.", "ru": "Простите? Тут столько народу, я вас не слышу."}},
+        "object": {"kind": "say", "es": "Worse? You are right… A closed door looks like a confession. We stay open.", "ru": "Усилится? Вы правы… Закрытая дверь похожа на признание. Мы открыты.", "next": "calm"},
+        "concede": {"kind": "say", "es": "Thank you. Tomorrow we will open again, calmly.", "ru": "Спасибо. Завтра спокойно откроемся снова.", "next": "calm"},
+        "compromise": {"kind": "say", "es": "The truth? Yes. I will go out to the queue and say it out loud: the money is here, and the voice from the forest is lying.", "ru": "Правду? Да. Выйду к очереди и скажу вслух: деньги здесь, а голос из леса врёт.", "next": "calm"},
+        "calm": {"kind": "say", "es": "There, people are calming down. Anything else?", "ru": "Всё, люди успокаиваются. Что-нибудь ещё?", "next": "invest"},
+        "invest": {"kind": "answer", "task": "Скажите, что хотите вложить свои сбережения.", "branches": [{"phrase": "ph:bank.invest-savings", "next": "investsay"}], "wrong": {"es": "Invest in ravens? A bad idea.", "ru": "Вложиться в воронов? Плохая идея."}},
+        "investsay": {"kind": "say", "es": "Invest? Today you are my favourite customer. Not in crypto, I hope.", "ru": "Вложить? Сегодня вы мой любимый клиент. Надеюсь, не в криптовалюту.", "next": "rate"},
+        "rate": {"kind": "answer", "task": "Спросите, какая процентная ставка.", "branches": [{"phrase": "ph:bank.interest-rate", "next": "ratesay"}], "wrong": {"es": "How much is the forest a month? The forest is free.", "ru": "Сколько стоит лес в месяц? Лес бесплатный."}},
+        "ratesay": {"kind": "say", "es": "Three per cent, fixed, no surprises. Do you need anything else?", "ru": "Три процента, фиксированная, без сюрпризов. Вам ещё что-нибудь нужно?", "next": "statement"},
+        "statement": {"kind": "answer", "task": "Скажите, что вам нужна выписка по счёту.", "branches": [{"phrase": "ph:bank.statement", "next": "end"}], "wrong": {"es": "A statement from a pipe? I do not smoke.", "ru": "Выписку из трубки? Я не курю."}},
+        "end": {"kind": "say", "es": "Here you are. And one more thing: the gentleman with the old coins left this on the counter yesterday. A fragment of the forest map.", "ru": "Пожалуйста. И вот ещё: джентльмен со старыми монетами вчера забыл это на стойке. Обрывок карты леса."}
+      }
     }
   ]
 }

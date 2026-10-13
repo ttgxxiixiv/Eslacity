@@ -75,6 +75,52 @@
         {"q": "Что он надеется найти в белом городе?", "options": ["Тишину", "Золото", "Эликсир"], "answer": 0}
       ],
       "gloss": {"crying": "плакал"}
+    },
+    {
+      "id": "wh:beach.4",
+      "chapter": 4,
+      "mode": "overhear",
+      "npc": "finn",
+      "lines": [
+        {"who": "bert", "es": "Morning, young man. I'm going for my swim, like every day: out to the buoy and back.", "ru": "Доброе утро, молодой человек. Пойду окунусь, как всегда: до буя и обратно."},
+        {"who": "npc", "es": "Not today, Bert. Can't you see the red flag? There's been a storm since last night.", "ru": "Сегодня нельзя, Берт. Не видите красный флаг? Со вчерашнего вечера шторм."},
+        {"who": "bert", "es": "I've been swimming in this sea for fifty years. I know it better than you.", "ru": "Я пятьдесят лет купаюсь в этом море. Я знаю его лучше тебя."},
+        {"who": "npc", "es": "I don't doubt it. The man I rescued on Tuesday knew it well too.", "ru": "Не сомневаюсь. Человек, которого я спас во вторник, тоже хорошо его знал."},
+        {"who": "bert", "es": "You young people see danger everywhere.", "ru": "Вы, молодёжь, во всём видите опасность."},
+        {"who": "npc", "es": "Maybe. But if you go in, I'll have to swim after you. And the waves don't care who has more experience.", "ru": "Может быть. Но если вы зайдёте в воду, мне придётся плыть за вами. А волнам всё равно, у кого больше опыта."},
+        {"who": "bert", "es": "All right, all right. So what do I do? I can't start the day without the sea.", "ru": "Ладно, ладно. И что мне делать? Не могу начать день без моря."},
+        {"who": "npc", "es": "Walk with me along the beach to the dunes. You'll see the sea, and I won't lose sight of you.", "ru": "Пройдитесь со мной по берегу до дюн. И море увидите, и я не потеряю вас из виду."},
+        {"who": "bert", "es": "Deal. But tomorrow, with a green flag, I'll get to the buoy before you.", "ru": "Договорились. Но завтра, при зелёном флаге, доплыву до буя раньше тебя."}
+      ],
+      "questions": [
+        {"q": "Почему Финн не пускает Берта в воду?", "kind": "stance", "options": ["Вода слишком холодная", "Поднят красный флаг: шторм", "На пляже медузы"], "answer": 1},
+        {"q": "Что Финн имел в виду, вспомнив спасённого во вторник человека?", "kind": "stance", "options": ["Опыт не защищает от шторма", "Во вторник было много людей", "Тот человек был другом Берта"], "answer": 0},
+        {"q": "Что думает Берт о молодых?", "kind": "stance", "options": ["Они плохо плавают", "Они слишком много работают", "Они во всём видят опасность"], "answer": 2},
+        {"q": "Как Берт принимает предложение пройтись по берегу?", "kind": "stance", "options": ["Отказывается и уходит домой", "Соглашается, но в шутку вызывает Финна на заплыв", "Соглашается без слов"], "answer": 1}
+      ],
+      "gloss": {"buoy": "буй", "waves": "волны", "sight": "вид (lose sight — потерять из виду)", "bert": "Берт", "tuesday": "вторник"}
+    },
+    {
+      "id": "sc:beach.4",
+      "chapter": 4,
+      "npc": "finn",
+      "lines": [
+        {"who": "npc", "es": "I didn't sleep. Last night I saw a man with a pipe on the beach.", "ru": "Я не спал. Вчера ночью на пляже я видел человека с трубкой."},
+        {"who": "hero", "es": "Are you sure?", "ru": "Ты уверен?"},
+        {"who": "npc", "es": "I am. He was sitting on the rocks with a raven on his shoulder.", "ru": "Уверен. Он сидел на камнях с вороном на плече."},
+        {"who": "hero", "es": "What was he doing?", "ru": "Что он делал?"},
+        {"who": "npc", "es": "He was saying to the raven: \"Tell them the forest is evil. Nobody must go there.\" And he was crying.", "ru": "Говорил ворону: «Скажи им, что лес злой. Пусть никто туда не ходит». И плакал."},
+        {"who": "hero", "es": "Did you see his face?", "ru": "Ты видел его лицо?"},
+        {"who": "npc", "es": "Yes. In the light of the lighthouse I saw it clearly.", "ru": "Да. При свете маяка я хорошо его разглядел."},
+        {"who": "hero", "es": "And who was it?", "ru": "И кто это был?"},
+        {"who": "npc", "es": "Oswald. The man who spent a hundred years in the lighthouse.", "ru": "Освальд. Тот, кто сто лет провёл на маяке."}
+      ],
+      "questions": [
+        {"q": "Где Финн видел человека с трубкой?", "options": ["В кафе", "На камнях у пляжа", "На вокзале"], "answer": 1},
+        {"q": "Что человек говорил ворону?", "options": ["«Скажи им, что лес злой, пусть никто туда не ходит»", "«Лети к маяку»", "«Принеси мне обрывок карты»"], "answer": 0},
+        {"q": "Кто это был?", "options": ["Начальник станции", "Почтальон", "Освальд, который сто лет провёл на маяке"], "answer": 2}
+      ],
+      "gloss": {"evil": "злой", "raven": "ворон", "pipe": "трубка (курительная)", "oswald": "Освальд", "clearly": "хорошо, ясно"}
     }
   ]
 }

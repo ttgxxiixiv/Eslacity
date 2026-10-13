@@ -1,0 +1,167 @@
+{
+  "id": "b2.15-contrast",
+  "district": "B2",
+  "order": 15,
+  "title": "Although, despite, in spite of, however",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Противопоставление. **although / even though + предложение**: **Although** it was raining, we went out. **despite / in spite of + существительное или -ing**: **Despite** the rain… / **In spite of** feeling tired… **However** — новое предложение, после него запятая: It was late. **However**, we kept walking."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Слово",
+        "После него",
+        "Пример"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "although",
+            "предложение",
+            "Although he was tired, he walked on."
+          ]
+        },
+        {
+          "cells": [
+            "despite",
+            "существительное / -ing",
+            "Despite the fog, we found the path."
+          ]
+        },
+        {
+          "cells": [
+            "in spite of",
+            "существительное / -ing",
+            "In spite of being old, he is strong."
+          ]
+        },
+        {
+          "cells": [
+            "however",
+            "запятая, предложение",
+            "It was dark. However, we weren't afraid."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "«Despite of» — ошибка: либо despite, либо in spite of."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Although it was dark, we found the hut.",
+      "ru": "Хотя было темно, мы нашли хижину."
+    },
+    {
+      "es": "Despite the rain, the children played outside.",
+      "ru": "Несмотря на дождь, дети играли на улице."
+    },
+    {
+      "es": "In spite of being afraid, she went into the forest.",
+      "ru": "Несмотря на страх, она пошла в лес."
+    },
+    {
+      "es": "The path was long. However, nobody complained.",
+      "ru": "Тропа была длинной. Однако никто не жаловался."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "b2.15-contrast.1",
+      "kind": "choose",
+      "prompt": "«Несмотря на туман, мы нашли тропу»:",
+      "options": [
+        "Despite the fog, we found the path.",
+        "Despite of the fog, we found the path.",
+        "Although the fog, we found the path."
+      ],
+      "answer": 0,
+      "explain": "despite + существительное."
+    },
+    {
+      "id": "b2.15-contrast.2",
+      "kind": "choose",
+      "prompt": "«Хотя он устал, он шёл дальше»:",
+      "options": [
+        "Although he was tired, he walked on.",
+        "Despite he was tired, he walked on.",
+        "However he was tired, he walked on."
+      ],
+      "answer": 0,
+      "explain": "although + предложение."
+    },
+    {
+      "id": "b2.15-contrast.3",
+      "kind": "gap",
+      "sentence": "___ feeling ill, she went to work.",
+      "ru": "Несмотря на плохое самочувствие, она пошла на работу.",
+      "options": [
+        "In spite of",
+        "Although",
+        "However"
+      ],
+      "answer": 0,
+      "explain": "in spite of + -ing."
+    },
+    {
+      "id": "b2.15-contrast.4",
+      "kind": "gap",
+      "sentence": "It was expensive. ___, we bought it.",
+      "ru": "Это было дорого. Однако мы это купили.",
+      "options": [
+        "However",
+        "Despite",
+        "Although"
+      ],
+      "answer": 0,
+      "explain": "Новое предложение — However."
+    },
+    {
+      "id": "b2.15-contrast.5",
+      "kind": "truefalse",
+      "statement": "«Despite of the cold, we swam» — правильно.",
+      "answer": false,
+      "explain": "Despite the cold."
+    },
+    {
+      "id": "b2.15-contrast.6",
+      "kind": "truefalse",
+      "statement": "После although идёт целое предложение.",
+      "answer": true,
+      "explain": "Although it was cold."
+    },
+    {
+      "id": "b2.15-contrast.7",
+      "kind": "truefalse",
+      "statement": "«Even though he was rich, he was unhappy» — правильно.",
+      "answer": true,
+      "explain": "even though + предложение."
+    },
+    {
+      "id": "b2.15-contrast.8",
+      "kind": "build",
+      "ru": "Несмотря на дождь, мы пошли гулять.",
+      "answer": "Despite the rain we went for a walk",
+      "extra": [
+        "of",
+        "although"
+      ],
+      "explain": "despite + существительное."
+    },
+    {
+      "id": "b2.15-contrast.9",
+      "kind": "type",
+      "sentence": "___ the fog, we found the path.",
+      "ru": "Несмотря на туман, мы нашли тропу.",
+      "answer": "Despite",
+      "alt": [
+        "In spite of"
+      ],
+      "explain": "despite + существительное."
+    }
+  ]
+}

@@ -1,0 +1,154 @@
+{
+  "id": "b2.07-passive-reporting",
+  "district": "B2",
+  "order": 7,
+  "title": "It is said that: пассив с глаголами мнения",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Чтобы передать слухи и мнения, говорят **It is said / believed / thought that…** или **He is said to + глагол**. It **is said that** the forest talks. = The forest **is said to talk**. О прошлом: He **is believed to have left** — считается, что он ушёл."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Форма",
+        "Пример"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "It is said that …",
+            "It is said that a spirit lives here."
+          ]
+        },
+        {
+          "cells": [
+            "X is said to + глагол",
+            "A spirit is said to live here."
+          ]
+        },
+        {
+          "cells": [
+            "X is said to have + V3",
+            "Rory is said to have built a hut."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Не «It says that the forest talks» про слухи: it says — «написано» (в тексте, на табличке)."
+    }
+  ],
+  "examples": [
+    {
+      "es": "It is said that the trees can talk.",
+      "ru": "Говорят, деревья умеют разговаривать."
+    },
+    {
+      "es": "The keeper is believed to be very old.",
+      "ru": "Считается, что смотритель очень стар."
+    },
+    {
+      "es": "Rory is thought to have gone home.",
+      "ru": "Думают, что Рори ушёл домой."
+    },
+    {
+      "es": "It is known that owls hunt at night.",
+      "ru": "Известно, что совы охотятся ночью."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "b2.07-passive-reporting.1",
+      "kind": "choose",
+      "prompt": "«Говорят, в лесу живёт дух»:",
+      "options": [
+        "A spirit is said to live in the forest.",
+        "A spirit says to live in the forest.",
+        "A spirit is said living in the forest."
+      ],
+      "answer": 0,
+      "explain": "is said to + глагол."
+    },
+    {
+      "id": "b2.07-passive-reporting.2",
+      "kind": "choose",
+      "prompt": "«Считается, что он уехал»:",
+      "options": [
+        "He is believed to have left.",
+        "He is believed to leave yesterday.",
+        "He believes to have left."
+      ],
+      "answer": 0,
+      "explain": "О прошлом — to have + V3."
+    },
+    {
+      "id": "b2.07-passive-reporting.3",
+      "kind": "gap",
+      "sentence": "It ___ that the castle was built in a single night.",
+      "ru": "Говорят, что замок построили за одну ночь.",
+      "options": [
+        "is said",
+        "says",
+        "is saying"
+      ],
+      "answer": 0,
+      "explain": "It is said that."
+    },
+    {
+      "id": "b2.07-passive-reporting.4",
+      "kind": "gap",
+      "sentence": "The old oak is thought ___ five hundred years old.",
+      "ru": "Считается, что старому дубу пятьсот лет.",
+      "options": [
+        "to be",
+        "be",
+        "being"
+      ],
+      "answer": 0,
+      "explain": "is thought to be."
+    },
+    {
+      "id": "b2.07-passive-reporting.5",
+      "kind": "truefalse",
+      "statement": "«She is said to have won the competition» — о прошлом.",
+      "answer": true,
+      "explain": "to have + V3."
+    },
+    {
+      "id": "b2.07-passive-reporting.6",
+      "kind": "truefalse",
+      "statement": "«It says that the forest talks» — обычный способ передать слух.",
+      "answer": false,
+      "explain": "Слух — It is said that."
+    },
+    {
+      "id": "b2.07-passive-reporting.7",
+      "kind": "truefalse",
+      "statement": "«He is known to be honest» — правильно.",
+      "answer": true,
+      "explain": "is known to be."
+    },
+    {
+      "id": "b2.07-passive-reporting.8",
+      "kind": "build",
+      "ru": "Говорят, лес опасен.",
+      "answer": "The forest is said to be dangerous",
+      "extra": [
+        "says",
+        "being"
+      ],
+      "explain": "is said to be."
+    },
+    {
+      "id": "b2.07-passive-reporting.9",
+      "kind": "type",
+      "sentence": "Rory is believed ___ (leave) the city last spring.",
+      "ru": "Считается, что Рори покинул город прошлой весной.",
+      "hint": "leave",
+      "answer": "to have left",
+      "explain": "О прошлом — to have + V3."
+    }
+  ]
+}

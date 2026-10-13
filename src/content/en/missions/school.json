@@ -64,6 +64,31 @@
         "notes": {"kind": "answer", "task": "Скажите, что вам нужно повторить конспекты.", "branches": [{"phrase": "ph:school.revise-notes", "next": "end"}], "wrong": {"es": "You need to go to the beach? Not today, today you're studying!", "ru": "Тебе надо на пляж? Не сегодня, сегодня ты учишься!"}},
         "end": {"kind": "say", "es": "Excellent. Look carefully at the picture in the notebook: the road to the white city. And take my fragment of the desert map. If he knows the way, you must know it too.", "ru": "Отлично. Посмотри внимательно на рисунок в тетради: дорогу в белый город. И возьми мой обрывок карты пустыни. Если он знает дорогу, должен знать и ты."}
       }
+    },
+    {
+      "id": "ms:school.4",
+      "chapter": 4,
+      "npc": "evans",
+      "scene": "sc:school.4",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Today I was going to take the class on a trip to the forest. But the children aren't speaking to me, and the parents are nervous.", "ru": "Сегодня я собиралась вести класс на экскурсию в лес. Но дети со мной не разговаривают, а родители нервничают.", "next": "parents"},
+        "parents": {"kind": "answer", "task": "Спросите, когда родительское собрание.", "branches": [{"phrase": "ph:school.parents-evening", "next": "parentssay"}], "wrong": {"es": "A meeting of birds? That's at the window, every morning.", "ru": "Собрание птиц? Оно на окне, каждое утро."}},
+        "parentssay": {"kind": "say", "es": "Tomorrow at six. I'm sure they'll ask about the voice from the forest. Look at this test: something is wrong, but I can't see what.", "ru": "Завтра в шесть. Наверняка спросят про голос из леса. Посмотри на эту контрольную: что-то не так, но я не вижу что.", "next": "mistake"},
+        "mistake": {"kind": "answer", "task": "Спросите, где ошибка.", "branches": [{"phrase": "ph:school.where-mistake", "next": "mistakesay"}], "wrong": {"es": "Where's the bird? At the window, as always.", "ru": "Где птица? На окне, как всегда."}},
+        "mistakesay": {"kind": "say", "es": "There! \"Forest\" with one R too many. Never mind. I've decided: I'm cancelling the trip. If they don't trust me, we're not going.", "ru": "Вот! В слове «лес» лишняя буква. Ну да ладно. Я решила: отменяю экскурсию. Раз они мне не доверяют, не идём.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:school.deserve-explanation", "next": "object", "move": "object"}, {"phrase": "ph:school.normal-not-want", "next": "concede", "move": "concede"}, {"phrase": "ph:school.talk-before-decide", "next": "compromise", "move": "compromise"}], "wrong": {"es": "Sorry? Speak clearly, like in class.", "ru": "Прости? Говори яснее, как на уроке."}},
+        "object": {"kind": "say", "es": "To know why? You're right. If I cancel without a word, it will look like the voice is telling the truth.", "ru": "Знать почему? Ты прав. Если я отменю молча, покажется, что голос говорит правду.", "next": "talk", "fem": {"ru": "Знать почему? Ты права. Если я отменю молча, покажется, что голос говорит правду."}},
+        "concede": {"kind": "say", "es": "Thank you. Today I need a quiet day, without trips or birds.", "ru": "Спасибо. Сегодня мне нужен спокойный день, без экскурсий и птиц.", "next": "talk"},
+        "compromise": {"kind": "say", "es": "Talk first? Yes… Tomorrow in class I'll tell them about the bird.", "ru": "Сначала поговорить? Да… Завтра на уроке расскажу им про птицу.", "next": "talk"},
+        "talk": {"kind": "say", "es": "By the way, a shy pupil wants to tell the whole class about the forest.", "ru": "Кстати, один застенчивый ученик хочет рассказать всему классу про лес.", "next": "present"},
+        "present": {"kind": "answer", "task": "Спросите, помочь ли ему с докладом.", "branches": [{"phrase": "ph:school.help-presentation", "next": "presentsay"}], "wrong": {"es": "Help him with a bird show? Better not.", "ru": "Помочь ему с выставкой птиц? Лучше не надо."}},
+        "presentsay": {"kind": "say", "es": "Yes, please. He's shy, but he thinks very well. And you, are you still studying?", "ru": "Да, пожалуйста. Он застенчивый, но очень хорошо рассуждает. А ты всё ещё учишься?", "next": "study"},
+        "study": {"kind": "answer", "task": "Скажите, что учитесь в университете.", "branches": [{"phrase": "ph:school.at-university", "next": "studysay"}], "wrong": {"es": "You study in the forest? There are no exams there.", "ru": "Учишься в лесу? Там нет экзаменов."}},
+        "studysay": {"kind": "say", "es": "Wonderful. Here, you mark this test. In pencil, please.", "ru": "Здорово. Держи, проверь эту контрольную ты. Карандашом, пожалуйста.", "next": "rubber"},
+        "rubber": {"kind": "answer", "task": "Попросите у неё ластик.", "branches": [{"phrase": "ph:school.a-rubber", "next": "end"}], "wrong": {"es": "Have I got a forest? It isn't mine.", "ru": "Есть ли у меня лес? Он не мой."}},
+        "end": {"kind": "say", "es": "Here's a rubber. And one more thing: the shy pupil found this at the window, next to a black feather. A fragment of the forest map. He says the bird left it for you.", "ru": "Держи ластик. И вот ещё: застенчивый ученик нашёл это на окне рядом с чёрным пером. Обрывок карты леса. Говорит, птица оставила его для тебя."}
+      }
     }
   ]
 }

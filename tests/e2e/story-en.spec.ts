@@ -15,7 +15,9 @@ type Node = { kind: 'say' } | { kind: 'answer'; task: string; branches: { phrase
 
 const files = (dir: string) => readdirSync(join(CONTENT, dir)).filter((f) => f.endsWith('.json') && f !== 'thread.json');
 const read = (dir: string, f: string) => JSON.parse(readFileSync(join(CONTENT, dir, f), 'utf8'));
-const scenes = files('scenes').flatMap((f) => read('scenes', f).scenes as SceneData[]).filter((sc) => sc.mode !== 'overhear');
+const allScenes = files('scenes').flatMap((f) => read('scenes', f).scenes as SceneData[]);
+const scenes = allScenes.filter((sc) => sc.mode !== 'overhear');
+const whispers = allScenes.filter((sc) => sc.mode === 'overhear');
 const missions = files('missions').flatMap((f) => (read('missions', f).missions as { id: string; nodes: Record<string, Node> }[]).map((m) => ({ ...m, place: f.replace(/\.json$/, '') })));
 const phrases = new Map<string, string>(files('phrases').flatMap((f) => (read('phrases', f).phrases as { id: string; es: string }[]).map((p) => [p.id, phraseFull(p.es)])));
 
@@ -63,7 +65,7 @@ test('en: все сцены контента — реплики по поряд�
 });
 
 test('en: все миссии контента проходятся выбором без ошибок', async ({ page }) => {
-  test.setTimeout(360_000);
+  test.setTimeout(480_000);
   await openEnglish(page);
   for (const m of missions) await playMission(page, m.id);
 });
@@ -83,4 +85,37 @@ test('en: развилка главы II — Молли в главе III всп
   const sc = scenes.find((s) => s.id === 'sc:cafe.3')!;
   await playScene(page, sc, { treat: 'treat' });
   expect(sc.lines.some((l) => l.if?.is === 'treat' && l.es.includes('like you wanted to treat me'))).toBe(true);
+});
+
+test('en: все шёпоты главы IV — реплики голосом, все ответы на понимание верные', async ({ page }) => {
+  test.setTimeout(240_000);
+  expect(whispers).toHaveLength(20);
+  await openEnglish(page);
+  for (const wh of whispers) {
+    await page.goto(`./#/scene/${encodeURIComponent(wh.id)}`);
+    for (let i = 0; i < wh.lines.length; i++) {
+      await expect(page.getByText(`Реплика ${i + 1} из ${wh.lines.length}`), wh.id).toBeVisible();
+      await page.getByTestId('scene-next').click();
+    }
+    for (const q of wh.questions) {
+      await expect(page.getByTestId('scene-question')).toHaveText(q.q);
+      await page.getByRole('button', { name: q.options[q.answer], exact: true }).click();
+      await page.getByRole('button', { name: /дальше|итог/i }).click();
+    }
+    await expect(page.getByTestId('scene-result'), wh.id).toContainText(`Понято: ${wh.questions.length} из ${wh.questions.length}`);
+  }
+});
+
+test('en: развилка главы III — Грэм помнит, что герой брал билет туда и обратно', async ({ page }) => {
+  await openEnglish(page);
+  await playMission(page, 'ms:station.3', { 'Попросите билет на лунный поезд: в одну сторону или туда и обратно.': 1 });
+  const sc = scenes.find((s) => s.id === 'sc:station.4')!;
+  await playScene(page, sc, { ticket: 'round' });
+  expect(sc.lines.some((l) => l.if?.is === 'round' && l.es.includes('You asked for a return'))).toBe(true);
+});
+
+test('en: спор в миссии главы IV — можно уступить или предложить компромисс', async ({ page }) => {
+  await openEnglish(page);
+  await playMission(page, 'ms:cafe.4', { 'Возразите, уступите или предложите компромисс.': 1 });
+  await playMission(page, 'ms:market.4', { 'Возразите, уступите или предложите компромисс.': 2 });
 });
