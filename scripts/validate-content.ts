@@ -130,6 +130,7 @@ function partialStoryChecks(
     ...threadChecks(lang, threadFile, npcs, coverage),
     ...prologueChecks(lang, words, scrolls, (text) => uncoveredWords(text, 1, lexicon, forms, lang)),
     ...bookChecks(lang, coverage),
+    ...partialFestivalChecks(lang, npcs, words, scrolls, lessons),
     ...rumorDiaryChecks(lang, npcs, [...scenes.flatMap((f) => f.data.scenes ?? []), ...(threadFile?.data.scenes ?? [])], coverage),
     ...letterChecks(readFile<LettersFile>(lang, 'letters.json'), residents, coverage),
     ...sphinxChecks(lang, npcs, coverage),
@@ -158,6 +159,50 @@ function threadChecks(
       .issues.filter((i) => !i.msg.includes('из gloss нет в репликах'))
       .map((i) => ({ ...i, where: `${i.where} (путница)` })),
     ...femIssues(threadFile.data, where).map((msg) => ({ level: 'error' as const, where, msg })),
+  ];
+}
+
+/** Праздники закрытого курса (английский с 17.9): как у открытого, со своим словарём, и в роде путницы. */
+function partialFestivalChecks(
+  lang: Lang,
+  npcs: NpcsFile | undefined,
+  words: { name?: string; data: LocationWords }[],
+  scrolls: { name?: string; data: ScrollFile }[],
+  lessons: GrammarLesson[],
+): Issue[] {
+  const dir = join(root, lang, 'festivals');
+  if (!existsSync(dir)) return [];
+  const festivals = readJson<FestivalFile>(dir);
+  const { forms, freq } = langLexicon(lang, words, scrolls, lessons);
+  const lexicon = buildLexicon(
+    [
+      ...words.flatMap((f) => f.data.words),
+      ...scrolls.flatMap((f) => f.data.words.map((w) => ({ ...w, level: CHAPTERS[f.data.chapter - 1]?.levels[0] ?? 99 }))),
+      ...festivals.flatMap((f) => f.data.words ?? []),
+    ],
+    lessons,
+    freq,
+    (t) => lemmasIn(t, forms, lang),
+  );
+  const check = (data: { name: string; data: FestivalFile }[]) =>
+    validateFestivals(data, lang, {
+      residents: Object.fromEntries((npcs?.npcs ?? []).map((n) => [n.location, n.id])),
+      phrases: { lessons: new Set(lessons.map((g) => g.id)), uncovered: (text, level) => uncoveredWords(text, level, lexicon, forms, lang) },
+      missions: { scenes: new Set(), coverage: (text, level) => textCoverage(text, level, lexicon, forms, lang) },
+    });
+  return [
+    ...check(festivals),
+    ...check(festivals.map((f) => ({ name: f.name, data: forGender(f.data, 'f') })))
+      .filter((i) => !i.msg.includes('из gloss нет в репликах'))
+      .map((i) => ({ ...i, where: `${i.where} (путница)` })),
+    ...festivals.flatMap((f) => femIssues(f.data, `festivals/${f.name}`).map((msg) => ({ level: 'error' as const, where: `festivals/${f.name}`, msg }))),
+    ...validateTranslations(
+      [
+        ...(words as { name: string; data: LocationWords }[]),
+        ...festivals.map((f) => ({ name: `festivals/${f.name}`, data: { location: `fest-${f.data.id}` as LocationWords['location'], words: f.data.words ?? [] } })),
+      ],
+      scrolls as { name: string; data: ScrollFile }[],
+    ).filter((i) => i.where.includes('festivals/') || i.msg.includes('fest-')),
   ];
 }
 

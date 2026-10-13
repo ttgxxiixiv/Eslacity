@@ -1,4 +1,5 @@
 import type { LangProfile } from '../types';
+import { addDays, date } from '../util';
 import { EN_VERBS } from './verbs';
 
 /** Сокращения и полные формы (задача 17.1): ответ «don't» и «do not» — один и тот же. */
@@ -93,7 +94,36 @@ export const EN: LangProfile = {
   verbs: EN_VERBS,
   // Ударение без знаков на письме: ударный слог заглавными (REcord / reCORD), произношение — через `say`.
   pairKinds: ['swap', 'caps'],
-  festivals: [],
+  festivals: [
+    {
+      id: 'bonfire',
+      title: 'Ночь костров',
+      native: 'Bonfire Night',
+      town: 'вся Британия, 5 ноября',
+      host: 'park',
+      colors: ['#e8601c', '#1b1b2f', '#f2c94c'],
+      icon: '🎆',
+      medal: { title: 'Огни пятого ноября', text: 'Миссия Ночи костров в неделю праздника' },
+      // Пятое ноября и по три дня вокруг: костры жгут и в ближайшие выходные.
+      week: (year) => ({ start: date(year, 11, 2), end: date(year, 11, 8) }),
+    },
+    {
+      id: 'carnival',
+      title: 'Карнавал в Ноттинг-Хилле',
+      native: 'Notting Hill Carnival',
+      town: 'Лондон, последние выходные августа',
+      host: 'clothes',
+      colors: ['#009b3a', '#fed100', '#ce1126'],
+      icon: '🥁',
+      medal: { title: 'Стальной барабан', text: 'Миссия карнавала в неделю праздника' },
+      // Воскресенье и банковский понедельник в конце августа, неделя — с четверга до среды.
+      week: (year) => {
+        const last = date(year, 8, 31);
+        const monday = addDays(last, -((last.getDay() - 1 + 7) % 7));
+        return { start: addDays(monday, -4), end: addDays(monday, 2) };
+      },
+    },
+  ],
 
   // Обращение одно для путника и путницы: «traveller».
   hero: { words: [['traveller', 'traveller']], article: null, adjectives: [] },
