@@ -137,16 +137,16 @@ describe('слова глав I–III английского (задачи 17.3,
   const words = files<LocationWords>('words');
   const scrolls = files<ScrollFile>('scrolls');
 
-  it('20 мест по 10–12 слов на каждом уровне 1–4, по 30 на уровнях 5 и 6, свитки I–IV по плану', () => {
+  it('20 мест по 10–12 слов на каждом уровне 1–4, по 30 на уровнях 5 и 6, 25 слов (без выражений) на уровне 7, свитки I–V по плану', () => {
     expect(words).toHaveLength(20);
     for (const { name, data } of words) {
       for (const level of [1, 2, 3, 4]) {
         const n = data.words.filter((w) => w.level === level).length;
         expect(n >= 10 && n <= 12, `${name} уровень ${level}: ${n}`).toBe(true);
       }
-      for (const level of [5, 6]) expect(data.words.filter((w) => w.level === level), `${name} уровень ${level}`).toHaveLength(PLACE_LEVEL_MAX[level]);
+      for (const level of [5, 6, 7]) expect(data.words.filter((w) => w.level === level && !w.kind), `${name} уровень ${level}`).toHaveLength(PLACE_LEVEL_MAX[level]);
     }
-    expect(scrolls.map((s) => [s.data.chapter, s.data.words.length])).toEqual(CHAPTERS.slice(0, 4).map((c, i) => [i + 1, c.scroll]));
+    expect(scrolls.map((s) => [s.data.chapter, s.data.words.length])).toEqual(CHAPTERS.map((c, i) => [i + 1, c.scroll]));
   });
 
   it('проходят проверку слов, свитков и одинаковых переводов без замечаний', () => {
