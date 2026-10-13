@@ -1,7 +1,7 @@
 import { readdirSync, readFileSync, existsSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 import { validateChronicler, validateGrammar, validateGuardians, validateLetters, validateNotes, validateMissions, validateNpcs, validatePhrases, validateScenes, validatePortraits, validateScrolls, validateSphinx, validateTranslations, validateVerbs, validatePairs, validateFestivals, validatePrologue, validateThread, validateBooks, validateRumors, validateDiary, validateStory, STORY_FORKS, validateWords, type Issue } from '../src/content/validate';
-import type { Chronicler, GrammarLesson, GuardiansFile, LettersFile, SphinxFile, VerbsFile, PairsFile, FestivalFile, PrologueFile, LocationWords, LocationMissions, LocationPhrases, LocationScenes, NpcsFile, ScrollFile, ThreadFile, BookFile } from '../src/content/schema';
+import type { Chronicler, GrammarLesson, GuardiansFile, LettersFile, SphinxFile, VerbsFile, PairsFile, FestivalFile, PrologueFile, RumorsFile, DiaryFile, Scene, LocationWords, LocationMissions, LocationPhrases, LocationScenes, NpcsFile, ScrollFile, ThreadFile, BookFile } from '../src/content/schema';
 import { THREAD_CHAPTERS, THREAD_NOTES_MIN } from '../src/domain/thread';
 import { BOOK_CHAPTERS } from '../src/domain/books';
 import { LANGS, type Lang } from '../src/lang';
@@ -129,6 +129,8 @@ function partialStoryChecks(
     ...validateStory(scenes, missions, threadFile, forks),
     ...threadChecks(lang, threadFile, npcs, coverage),
     ...prologueChecks(lang, words, scrolls, (text) => uncoveredWords(text, 1, lexicon, forms, lang)),
+    ...bookChecks(lang, coverage),
+    ...rumorDiaryChecks(lang, npcs, [...scenes.flatMap((f) => f.data.scenes ?? []), ...(threadFile?.data.scenes ?? [])], coverage),
     ...letterChecks(readFile<LettersFile>(lang, 'letters.json'), residents, coverage),
     ...sphinxChecks(lang, npcs, coverage),
   ];
@@ -156,6 +158,30 @@ function threadChecks(
       .issues.filter((i) => !i.msg.includes('из gloss нет в репликах'))
       .map((i) => ({ ...i, where: `${i.where} (путница)` })),
     ...femIssues(threadFile.data, where).map((msg) => ({ level: 'error' as const, where, msg })),
+  ];
+}
+
+/** Книги Летописца закрытого курса (английский с 17.9): у каждой уже начатой главы все четыре текста. */
+function bookChecks(lang: Lang, coverage: (text: string, level: number) => ReturnType<typeof textCoverage>): Issue[] {
+  const dir = join(root, lang, 'books');
+  if (!existsSync(dir)) return [];
+  const books = readJson<BookFile>(dir);
+  return validateBooks(books, { chapters: books.map((f) => f.data.chapter), coverage, gender: LANGS[lang].gender });
+}
+
+/** Слухи и дневник путника закрытого курса (английский с 17.9): как у открытого, если файлы уже есть. */
+function rumorDiaryChecks(
+  lang: Lang,
+  npcs: NpcsFile | undefined,
+  scenes: Scene[],
+  coverage: (text: string, level: number) => ReturnType<typeof textCoverage>,
+): Issue[] {
+  const rumors = readFile<RumorsFile>(lang, 'rumors.json');
+  const diary = readFile<DiaryFile>(lang, 'diary.json');
+  const chronicler = readFile<Chronicler>(lang, 'chronicler.json');
+  return [
+    ...(rumors ? validateRumors(rumors, new Set([...(npcs?.npcs ?? []).map((n) => n.id), ...(chronicler ? [chronicler.id] : [])]), coverage) : []),
+    ...(diary ? validateDiary(diary, { scenes, rumors: rumors?.rumors ?? [] }) : []),
   ];
 }
 
@@ -275,10 +301,13 @@ function partialChecks(lang: Lang): void {
     ...tag(partialStoryChecks(lang, npcs, words, scrolls, grammar.map((g) => g.data))),
   );
   const thread = readFile<ThreadFile>(lang, 'scenes/thread.json');
+  const books = existsSync(join(root, lang, 'books')) ? readJson<BookFile>(join(root, lang, 'books')) : [];
+  const rumors = readFile<RumorsFile>(lang, 'rumors.json');
+  const diary = readFile<DiaryFile>(lang, 'diary.json');
   const wordCount = words.reduce((n, f) => n + f.data.words.length, 0) + scrolls.reduce((n, f) => n + f.data.words.length, 0);
   const count = (dir: string, key: 'phrases' | 'scenes' | 'missions') =>
     readJson<Record<typeof key, unknown[]>>(join(root, lang, dir)).filter((f) => f.name !== 'thread.json').reduce((n, f) => n + (f.data[key]?.length ?? 0), 0);
-  summary.push(`${lang} (курс закрыт): слов ${wordCount} в ${words.length} местах и ${scrolls.length} свитках, ${grammar.length} уроков, ${count('phrases', 'phrases')} фраз, ${count('scenes', 'scenes')} сцен, ${count('missions', 'missions')} миссий, ${npcs?.npcs.length ?? 0} жителей, ${guardians?.guardians.length ?? 0} стражей, ${verbs?.verbs.length ?? 0} глаголов в кузнице, ${pairs?.contrasts.reduce((n, c) => n + c.pairs.length, 0) ?? 0} пар в Звоннице${existsSync(join(root, lang, 'prologue.json')) ? ', пролог' : ''}${thread ? `, ${thread.scenes.length} сцен нити глав` : ''}`);
+  summary.push(`${lang} (курс закрыт): слов ${wordCount} в ${words.length} местах и ${scrolls.length} свитках, ${grammar.length} уроков, ${count('phrases', 'phrases')} фраз, ${count('scenes', 'scenes')} сцен, ${count('missions', 'missions')} миссий, ${npcs?.npcs.length ?? 0} жителей, ${guardians?.guardians.length ?? 0} стражей, ${verbs?.verbs.length ?? 0} глаголов в кузнице, ${pairs?.contrasts.reduce((n, c) => n + c.pairs.length, 0) ?? 0} пар в Звоннице${existsSync(join(root, lang, 'prologue.json')) ? ', пролог' : ''}${thread ? `, ${thread.scenes.length} сцен нити глав` : ''}${books.length ? `, ${books.reduce((n, f) => n + f.data.books.length, 0)} книг Летописца` : ''}${rumors ? `, ${rumors.rumors.length} слухов` : ''}${diary ? `, записей дневника: ${diary.entries.length}` : ''}`);
 }
 
 for (const lang of langs) {
@@ -388,7 +417,7 @@ for (const lang of langs) {
   const threadCheck = validateThread(threadFile, threadChecks);
   // Книги Летописца (задача 12.4).
   const books = existsSync(join(root, lang, 'books')) ? readJson<BookFile>(join(root, lang, 'books')) : [];
-  const bookIssues = validateBooks(books, { chapters: BOOK_CHAPTERS, coverage: (text, level) => textCoverage(text, level, lexicon, forms, lang) });
+  const bookIssues = validateBooks(books, { chapters: BOOK_CHAPTERS, coverage: (text, level) => textCoverage(text, level, lexicon, forms, lang), gender: LANGS[lang].gender });
   const sceneCheck = validateScenes(scenes, {
     residents: Object.fromEntries((npcs?.npcs ?? []).map((n) => [n.location, n.id])),
     pitch: Object.fromEntries((npcs?.npcs ?? []).map((n) => [n.id, n.voice.pitch])),

@@ -21,6 +21,37 @@ const whispers = allScenes.filter((sc) => sc.mode === 'overhear');
 const missions = files('missions').flatMap((f) => (read('missions', f).missions as { id: string; nodes: Record<string, Node> }[]).map((m) => ({ ...m, place: f.replace(/\.json$/, '') })));
 const phrases = new Map<string, string>(files('phrases').flatMap((f) => (read('phrases', f).phrases as { id: string; es: string }[]).map((p) => [p.id, phraseFull(p.es)])));
 
+/**
+ * Записать значения в meta базы английского курса. Сначала приложение должно запуститься: при старте оно само
+ * записывает путь в базу и затёрло бы запись теста. Главная нового игрока уводит в пролог, поэтому ждём экран настроек.
+ */
+async function putMeta(page: Page, values: Record<string, unknown>) {
+  await page.goto('./#/settings');
+  await expect(page.getByRole('heading', { name: 'Настройки' })).toBeVisible();
+  await page.evaluate(
+    (values) =>
+      new Promise<void>((resolve) => {
+        // База создаётся при запуске приложения: ждём, пока в ней появится таблица meta.
+        const attempt = () => {
+          const r = indexedDB.open('eslacity-en');
+          r.onsuccess = () => {
+            if (!r.result.objectStoreNames.contains('meta')) {
+              r.result.close();
+              setTimeout(attempt, 100);
+              return;
+            }
+            const tx = r.result.transaction(['meta'], 'readwrite');
+            for (const [key, value] of Object.entries(values)) tx.objectStore('meta').put({ key, value });
+            tx.oncomplete = () => resolve();
+          };
+        };
+        attempt();
+      }),
+    values,
+  );
+  await page.reload();
+}
+
 /** Пройти сцену: реплики по порядку (с флагами из `flags`), все ответы верные. */
 async function playScene(page: Page, sc: SceneData, flags: Record<string, string> = {}) {
   await page.goto(`./#/scene/${encodeURIComponent(sc.id)}`);
@@ -177,35 +208,70 @@ test('en: записка Молли — образец находит все п�
   const note = (read('.', 'letters.json').notes as { id: string; sample: string; must: unknown[] }[]).find((n) => n.id === 'nt:cafe')!;
   await openEnglish(page);
   // Записки открываются с главы II: глава открыта в базе английского курса.
-  // Сначала приложение должно запуститься: при старте оно само записывает путь в базу. Главная нового игрока
-  // уводит в пролог, поэтому ждём экран настроек.
-  await page.goto('./#/settings');
-  await expect(page.getByRole('heading', { name: 'Настройки' })).toBeVisible();
-  await page.evaluate(
-    () =>
-      new Promise<void>((resolve) => {
-        // База создаётся при запуске приложения: ждём, пока в ней появится таблица meta.
-        const attempt = () => {
-          const r = indexedDB.open('eslacity-en');
-          r.onsuccess = () => {
-            if (!r.result.objectStoreNames.contains('meta')) {
-              r.result.close();
-              setTimeout(attempt, 100);
-              return;
-            }
-            const tx = r.result.transaction(['meta'], 'readwrite');
-            tx.objectStore('meta').put({ key: 'journey', value: { fragments: {}, seals: {}, openedChapter: 2, celebrated: 2 } });
-            tx.oncomplete = () => resolve();
-          };
-        };
-        attempt();
-      }),
-  );
-  await page.reload();
+  await putMeta(page, { journey: { fragments: {}, seals: {}, openedChapter: 2, celebrated: 2 } });
   await page.goto(`./#/note/${encodeURIComponent(note.id)}`);
   await page.getByTestId('note-text').fill(note.sample);
   await page.getByRole('button', { name: 'Проверить' }).click();
   const items = page.getByTestId('note-must');
   await expect(items).toHaveCount(note.must.length);
   for (let i = 0; i < note.must.length; i++) await expect(items.nth(i)).toHaveAttribute('data-ok', 'true');
+});
+
+test('en: дневник путника — записи главы I открывают Летопись, слухи и дослушанный разговор', async ({ page }) => {
+  type Entry = { id: string; chapter: number; from: string; es: string };
+  const entries = (read('.', 'diary.json').entries as Entry[]).filter((e) => e.chapter === 1);
+  const rumors = read('.', 'rumors.json').rumors as { id: string }[];
+  expect(rumors).toHaveLength(20);
+  await openEnglish(page);
+  await putMeta(page, {
+    thread: { seen: Object.fromEntries(entries.filter((e) => e.from.startsWith('th:')).map((e) => [e.from, 1])) },
+    rumors: { got: entries.filter((e) => e.from.startsWith('rm:')).map((e) => e.from) },
+  });
+  await page.goto('./#/diary');
+  const known = entries.filter((e) => !e.from.startsWith('sc:'));
+  await expect(page.getByTestId('diary-progress')).toContainText(`Записано ${known.length} из ${entries.length}`);
+  for (const e of known) await expect(page.locator(`[data-testid=diary-entry][data-id="${e.id}"]`).getByTestId('diary-quote')).toHaveText(e.es);
+
+  // Разговор дослушан до вопросов — его запись открыта.
+  const talk = entries.find((e) => e.from.startsWith('sc:'))!;
+  await page.goto(`./#/scene/${encodeURIComponent(talk.from)}`);
+  for (let i = 0; i < 40 && !((await page.getByTestId('scene-next').textContent()) ?? '').includes('К вопросам'); i++) await page.getByTestId('scene-next').click();
+  await page.getByTestId('scene-next').click();
+  await expect(page.getByTestId('scene-question')).toBeVisible();
+  await page.goto('./#/diary');
+  await expect(page.locator(`[data-testid=diary-entry][data-id="${talk.id}"]`)).toHaveAttribute('data-open', 'true');
+});
+
+test('en: книги Летописца — все 20 текстов открыты по обрывкам, вопросы проходятся, слово книги — в мои слова', async ({ page }) => {
+  test.setTimeout(240_000);
+  type BookData = { words: { id: string; es: string; ru: string; forms: string[] }[]; books: { id: string; title: { es: string }; questions: { q: string; options: string[]; answer: number }[] }[] };
+  const places = files('words').map((f) => f.replace(/\.json$/, ''));
+  const fragments = Object.fromEntries([1, 2, 3, 4, 5].flatMap((c) => places.map((p) => [`${c}:${p}`, 1])));
+  await openEnglish(page);
+  await putMeta(page, { journey: { fragments, seals: { 1: 1, 2: 1, 3: 1, 4: 1 }, openedChapter: 5, celebrated: 5 } });
+  for (const chapter of [1, 2, 3, 4, 5]) {
+    const data = read('books', `${chapter}.json`) as BookData;
+    expect(data.books).toHaveLength(4);
+    for (const b of data.books) {
+      // Экран книги тот же: без перезагрузки он остался бы на итоге прошлого текста.
+      await page.goto('./#/book/' + encodeURIComponent(b.id));
+      await page.reload();
+      await expect(page.getByTestId('book-title'), b.id).toHaveText(b.title.es);
+      await page.getByTestId('book-quiz').click();
+      for (const q of b.questions) {
+        await expect(page.getByTestId('scene-question')).toHaveText(q.q);
+        await page.getByRole('button', { name: q.options[q.answer], exact: true }).click();
+        await page.getByRole('button', { name: /дальше|итог/i }).click();
+      }
+      await expect(page.getByTestId('scene-result'), b.id).toContainText(`Понято: ${b.questions.length} из ${b.questions.length}`);
+    }
+  }
+  // Слово словарика главы I: нажать в тексте и добавить в мои слова.
+  const word = (read('books', '1.json') as BookData).words[0];
+  await page.goto('./#/book/' + encodeURIComponent('book:1.4'));
+  await page.reload();
+  await page.getByTestId('book-text').getByRole('button', { name: word.forms[0], exact: true }).first().click();
+  await expect(page.getByTestId('book-word')).toContainText(`${word.es} — ${word.ru}`);
+  await page.getByTestId('book-add-word').click();
+  await expect(page.getByTestId('book-word-mine')).toBeVisible();
 });

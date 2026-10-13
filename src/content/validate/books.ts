@@ -12,6 +12,8 @@ export interface BookChecks {
   coverage?: (text: string, level: number) => { total: number; unknown: string[] };
   /** Главы, у которых книги уже написаны: у каждой все четыре текста. */
   chapters: number[];
+  /** Есть ли у существительных род (`gender` профиля языка): у английского нет, и `gender` у слова — ошибка. */
+  gender?: boolean;
 }
 
 /**
@@ -45,7 +47,8 @@ export function validateBooks(files: { name: string; data: BookFile }[], checks:
       if (empty(w.es) || empty(w.ru)) out.push({ level: 'error', where: at, msg: 'пустое слово или перевод' });
       if (w.level !== level) out.push({ level: 'error', where: at, msg: `уровень ${w.level}, у главы ${ch} — ${level}` });
       if (w.cefr !== plan.cefr) out.push({ level: 'error', where: at, msg: `CEFR ${w.cefr}, у главы — ${plan.cefr}` });
-      if (w.pos === 'noun' && !w.gender) out.push({ level: 'error', where: at, msg: 'у существительного нет рода' });
+      if (w.pos === 'noun' && checks.gender !== false && !w.gender) out.push({ level: 'error', where: at, msg: 'у существительного нет рода' });
+      if (checks.gender === false && w.gender) out.push({ level: 'error', where: at, msg: 'род у слова языка без рода' });
       if (empty(w.example?.es) || empty(w.example?.ru)) out.push({ level: 'error', where: at, msg: 'нет примера' });
       if (!w.forms?.length) out.push({ level: 'error', where: at, msg: 'нет форм в текстах (forms)' });
       for (const f of w.forms ?? []) forms.set(normalize(f), w.id);
