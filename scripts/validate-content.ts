@@ -96,7 +96,9 @@ function partialStoryChecks(
   lessons: GrammarLesson[],
 ): Issue[] {
   const phrases = readJson<LocationPhrases>(join(root, lang, 'phrases'));
-  const scenes = readJson<LocationScenes>(join(root, lang, 'scenes')).filter((f) => f.name !== 'thread.json');
+  const sceneFiles = readJson<LocationScenes>(join(root, lang, 'scenes'));
+  const scenes = sceneFiles.filter((f) => f.name !== 'thread.json');
+  const threadFile = sceneFiles.find((f) => f.name === 'thread.json') as { name: string; data: ThreadFile } | undefined;
   const missions = readJson<LocationMissions>(join(root, lang, 'missions'));
   if (!phrases.length && !scenes.length && !missions.length) return [];
   const { forms, lexicon } = langLexicon(lang, words, scrolls, lessons);
@@ -124,10 +126,52 @@ function partialStoryChecks(
       .filter((i) => !i.msg.includes('из gloss нет в репликах'))
       .map((i) => ({ ...i, where: `${i.where} (путница)` })),
     ...femFiles.flatMap(([dir, f]) => femIssues(f.data, `${dir}/${f.name}`).map((msg) => ({ level: 'error' as const, where: `${dir}/${f.name}`, msg }))),
-    ...validateStory(scenes, missions, undefined, forks),
+    ...validateStory(scenes, missions, threadFile, forks),
+    ...threadChecks(lang, threadFile, npcs, coverage),
+    ...prologueChecks(lang, words, scrolls, (text) => uncoveredWords(text, 1, lexicon, forms, lang)),
     ...letterChecks(readFile<LettersFile>(lang, 'letters.json'), residents, coverage),
     ...sphinxChecks(lang, npcs, coverage),
   ];
+}
+
+/** Нить глав закрытого курса (английский с 17.9): сцены Летописца и записки, если файл уже есть, и они же в роде путницы. */
+function threadChecks(
+  lang: Lang,
+  threadFile: { name: string; data: ThreadFile } | undefined,
+  npcs: NpcsFile | undefined,
+  coverage: (text: string, level: number) => ReturnType<typeof textCoverage>,
+): Issue[] {
+  if (!threadFile) return [];
+  const checks = {
+    chronicler: readFile<Chronicler>(lang, 'chronicler.json')?.id ?? '',
+    residents: (npcs?.npcs ?? []).map((n) => n.id),
+    chapters: THREAD_CHAPTERS,
+    notesMin: THREAD_NOTES_MIN,
+    coverage,
+  };
+  const where = `scenes/${threadFile.name}`;
+  return [
+    ...validateThread(threadFile, checks).issues,
+    ...validateThread({ name: threadFile.name, data: forGender(threadFile.data, 'f') }, checks)
+      .issues.filter((i) => !i.msg.includes('из gloss нет в репликах'))
+      .map((i) => ({ ...i, where: `${i.where} (путница)` })),
+    ...femIssues(threadFile.data, where).map((msg) => ({ level: 'error' as const, where, msg })),
+  ];
+}
+
+/** Пролог закрытого курса (английский с 17.9): как у открытого, если файл уже есть. */
+function prologueChecks(
+  lang: Lang,
+  words: { data: LocationWords }[],
+  scrolls: { data: ScrollFile }[],
+  uncovered: (text: string) => string[],
+): Issue[] {
+  const prologue = readFile<PrologueFile>(lang, 'prologue.json');
+  if (!prologue) return [];
+  return validatePrologue(prologue, {
+    words: new Map([...words.flatMap((f) => f.data.words), ...scrolls.flatMap((f) => f.data.words)].map((w) => [w.id, w])),
+    uncovered,
+  });
 }
 
 /** Сфинкс закрытого курса (английский с 17.8): те же проверки, что у открытого, если файл уже есть. */
@@ -230,10 +274,11 @@ function partialChecks(lang: Lang): void {
     ...tag(partialWordChecks(lang, words, scrolls, grammar.map((g) => g.data))),
     ...tag(partialStoryChecks(lang, npcs, words, scrolls, grammar.map((g) => g.data))),
   );
+  const thread = readFile<ThreadFile>(lang, 'scenes/thread.json');
   const wordCount = words.reduce((n, f) => n + f.data.words.length, 0) + scrolls.reduce((n, f) => n + f.data.words.length, 0);
   const count = (dir: string, key: 'phrases' | 'scenes' | 'missions') =>
     readJson<Record<typeof key, unknown[]>>(join(root, lang, dir)).filter((f) => f.name !== 'thread.json').reduce((n, f) => n + (f.data[key]?.length ?? 0), 0);
-  summary.push(`${lang} (курс закрыт): слов ${wordCount} в ${words.length} местах и ${scrolls.length} свитках, ${grammar.length} уроков, ${count('phrases', 'phrases')} фраз, ${count('scenes', 'scenes')} сцен, ${count('missions', 'missions')} миссий, ${npcs?.npcs.length ?? 0} жителей, ${guardians?.guardians.length ?? 0} стражей, ${verbs?.verbs.length ?? 0} глаголов в кузнице, ${pairs?.contrasts.reduce((n, c) => n + c.pairs.length, 0) ?? 0} пар в Звоннице`);
+  summary.push(`${lang} (курс закрыт): слов ${wordCount} в ${words.length} местах и ${scrolls.length} свитках, ${grammar.length} уроков, ${count('phrases', 'phrases')} фраз, ${count('scenes', 'scenes')} сцен, ${count('missions', 'missions')} миссий, ${npcs?.npcs.length ?? 0} жителей, ${guardians?.guardians.length ?? 0} стражей, ${verbs?.verbs.length ?? 0} глаголов в кузнице, ${pairs?.contrasts.reduce((n, c) => n + c.pairs.length, 0) ?? 0} пар в Звоннице${existsSync(join(root, lang, 'prologue.json')) ? ', пролог' : ''}${thread ? `, ${thread.scenes.length} сцен нити глав` : ''}`);
 }
 
 for (const lang of langs) {

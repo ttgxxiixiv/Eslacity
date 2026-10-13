@@ -64,6 +64,51 @@ test('en: все сцены контента — реплики по поряд�
   for (const sc of scenes) await playScene(page, sc);
 });
 
+test('en: все сцены нити глав — Летописец, реплики по порядку и все ответы верные', async ({ page }) => {
+  test.setTimeout(240_000);
+  await openEnglish(page);
+  const thread = read('scenes', 'thread.json') as { scenes: SceneData[]; notes: Record<string, unknown[]> };
+  expect(thread.scenes).toHaveLength(15);
+  for (const sc of thread.scenes) await playScene(page, sc);
+});
+
+test('en: пролог — ворота, три слова, кафе, обрывок пролога, потом главная', async ({ page }) => {
+  const p = read('.', 'prologue.json') as { gate: unknown[]; road: unknown[]; words: string[]; mission: { say: { es: string }; wrong: { es: string } }[] };
+  const ru = new Map<string, string>(
+    [...files('words').map((f) => read('words', f)), ...readdirSync(join(CONTENT, 'scrolls')).map((f) => read('scrolls', f))].flatMap((d: { words: { id: string; ru: string }[] }) =>
+      d.words.map((w) => [w.id, w.ru] as [string, string]),
+    ),
+  );
+  await openEnglish(page);
+  await page.goto('./');
+  const pro = page.getByTestId('prologue');
+  await expect(pro).toHaveAttribute('data-step', 'gate');
+  for (let i = 0; i < p.gate.length; i++) await page.getByTestId('prologue-next').click();
+  await expect(pro).toHaveAttribute('data-step', 'words');
+  for (let guard = 0; guard < 10 && (await pro.getAttribute('data-step')) === 'words'; guard++) {
+    const id = (await page.getByTestId('prologue-word').getAttribute('data-word'))!;
+    await page.getByTestId('prologue-next').click();
+    await page.getByTestId('prologue-meaning').filter({ hasText: ru.get(id)! }).first().click();
+    await expect(page.getByTestId('prologue-verdict')).toHaveAttribute('data-verdict', 'correct');
+    await page.getByTestId('prologue-next').click();
+  }
+  await expect(pro).toHaveAttribute('data-step', 'road');
+  for (let i = 0; i < p.road.length; i++) await page.getByTestId('prologue-next').click();
+  await expect(pro).toHaveAttribute('data-step', 'mission');
+  for (let i = 0; i < p.mission.length; i++) {
+    await expect(page.getByTestId('prologue-mission')).toContainText(p.mission[i].say.es);
+    await page.locator('[data-testid="prologue-option"][data-right="false"]').first().click();
+    await expect(page.getByTestId('prologue-mission')).toContainText(p.mission[i].wrong.es);
+    await page.locator('[data-testid="prologue-option"][data-right="true"]').click();
+    await page.getByTestId('prologue-next').click();
+  }
+  await expect(pro).toHaveAttribute('data-step', 'shard');
+  await expect(page.getByTestId('prologue-shard')).toContainText('Обрывок пролога');
+  await page.getByTestId('prologue-home').click();
+  await expect(page.getByTestId('continue')).toBeVisible();
+  await expect(page.getByTestId('review-card')).toBeVisible();
+});
+
 test('en: все миссии контента проходятся выбором без ошибок', async ({ page }) => {
   test.setTimeout(600_000);
   await openEnglish(page);
@@ -132,8 +177,8 @@ test('en: записка Молли — образец находит все п�
   const note = (read('.', 'letters.json').notes as { id: string; sample: string; must: unknown[] }[]).find((n) => n.id === 'nt:cafe')!;
   await openEnglish(page);
   // Записки открываются с главы II: глава открыта в базе английского курса.
-  // Сначала приложение должно запуститься: при старте оно само записывает путь в базу. Главная закрытого курса
-  // уводит в пролог, которого у него ещё нет, поэтому ждём экран настроек.
+  // Сначала приложение должно запуститься: при старте оно само записывает путь в базу. Главная нового игрока
+  // уводит в пролог, поэтому ждём экран настроек.
   await page.goto('./#/settings');
   await expect(page.getByRole('heading', { name: 'Настройки' })).toBeVisible();
   await page.evaluate(

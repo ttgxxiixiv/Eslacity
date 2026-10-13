@@ -1,0 +1,1996 @@
+{
+  "location": "thread",
+  "scenes": [
+    {
+      "id": "th:1.open",
+      "chapter": 1,
+      "trigger": "open",
+      "npc": "cronista",
+      "lines": [
+        {
+          "who": "npc",
+          "es": "Hello. In this book I write everything that happens in the town.",
+          "ru": "Здравствуй. В этой книге я записываю всё, что происходит в городе."
+        },
+        {
+          "who": "hero",
+          "es": "And what happens in the town?",
+          "ru": "И что происходит в городе?"
+        },
+        {
+          "who": "npc",
+          "es": "Many years ago, the town had an old map. The map shows the road to the Vault.",
+          "ru": "Много лет назад у города была старая карта. Карта показывает дорогу к Хранилищу."
+        },
+        {
+          "who": "npc",
+          "es": "But the map made people angry. So they cut it into twenty fragments.",
+          "ru": "Но из-за карты люди злились друг на друга. И тогда её разрезали на двадцать обрывков."
+        },
+        {
+          "who": "npc",
+          "es": "Every house has a fragment: the café, the market, the school, the bank…",
+          "ru": "У каждого дома есть обрывок: у кафе, у рынка, у школы, у банка…"
+        },
+        {
+          "who": "hero",
+          "es": "And how do I get the fragments?",
+          "ru": "А как мне получить обрывки?"
+        },
+        {
+          "who": "npc",
+          "es": "Talk to the neighbours in their language and help them. Then they give you their fragment.",
+          "ru": "Говори с соседями на их языке и помогай им. Тогда они отдадут тебе свой обрывок."
+        },
+        {
+          "who": "npc",
+          "es": "Twenty fragments and the guardian's seal, and the road is yours.",
+          "ru": "Двадцать обрывков и печать стража — и дорога твоя."
+        },
+        {
+          "who": "hero",
+          "es": "Where is the guardian?",
+          "ru": "Где страж?"
+        },
+        {
+          "who": "npc",
+          "es": "Outside the town. And one more thing: somebody writes letters with one word, “Come”.",
+          "ru": "За городом. И ещё: кто-то пишет письма с одним словом — «Приходи»."
+        },
+        {
+          "who": "npc",
+          "es": "Who writes them? Let's look for the answer together.",
+          "ru": "Кто их пишет? Будем искать ответ вместе."
+        }
+      ],
+      "questions": [
+        {
+          "q": "Почему карту разрезали?",
+          "options": [
+            "Люди злились из-за неё",
+            "Она была слишком старой",
+            "Её хотели продать"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "На сколько обрывков разрезали карту?",
+          "options": [
+            "На пять",
+            "На двадцать",
+            "На сто"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Как получить обрывок?",
+          "options": [
+            "Купить его в банке",
+            "Найти в парке",
+            "Говорить с жителем на его языке и помочь ему"
+          ],
+          "answer": 2
+        },
+        {
+          "q": "Что нужно, кроме обрывков?",
+          "options": [
+            "Печать стража",
+            "Билет на поезд",
+            "Ключ от школы"
+          ],
+          "answer": 0
+        }
+      ],
+      "gloss": {
+        "vault": "Хранилище",
+        "fragments": "обрывки",
+        "fragment": "обрывок",
+        "guardian": "страж",
+        "guardian'": "стража",
+        "seal": "печать"
+      }
+    },
+    {
+      "id": "th:1.half",
+      "chapter": 1,
+      "trigger": "half",
+      "npc": "cronista",
+      "lines": [
+        {
+          "who": "npc",
+          "es": "You have ten fragments already! That's half the map.",
+          "ru": "У тебя уже десять обрывков! Это половина карты."
+        },
+        {
+          "who": "npc",
+          "es": "I write down what the neighbours say. A company wants to buy all the fragments.",
+          "ru": "Я записываю, что говорят соседи. Какая-то компания хочет купить все обрывки."
+        },
+        {
+          "who": "hero",
+          "es": "Yes, a neighbour told me about it. The company pays a lot of money.",
+          "ru": "Да, одна соседка мне об этом говорила. Компания платит много денег."
+        },
+        {
+          "who": "npc",
+          "es": "And a man from the company went to the hills with no map. He fell on the road.",
+          "ru": "А человек из компании пошёл в горы без карты. Он упал на дороге."
+        },
+        {
+          "who": "hero",
+          "es": "Is he all right?",
+          "ru": "И он в порядке?"
+        },
+        {
+          "who": "npc",
+          "es": "Yes, they helped him at the hospital. But he doesn't speak English, and without words you can't pass.",
+          "ru": "Да, в больнице ему помогли. Но он не говорит по-английски, а без слов не пройти."
+        },
+        {
+          "who": "npc",
+          "es": "Look: nobody sells their fragment. Not the café, not the restaurant, not the bank.",
+          "ru": "Смотри: никто не продаёт свой обрывок. Ни кафе, ни ресторан, ни банк."
+        },
+        {
+          "who": "hero",
+          "es": "Then what is this company?",
+          "ru": "Тогда что же это за компания?"
+        },
+        {
+          "who": "npc",
+          "es": "Good question. Talk to Inspector Bradley. He knows a lot.",
+          "ru": "Хороший вопрос. Поговори с инспектором Брэдли. Он многое знает."
+        }
+      ],
+      "questions": [
+        {
+          "q": "Сколько обрывков у героя?",
+          "options": [
+            "Пять",
+            "Десять",
+            "Двадцать"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Чего хочет компания?",
+          "options": [
+            "Купить все обрывки",
+            "Открыть кафе",
+            "Найти стража"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Что случилось с человеком из компании?",
+          "options": [
+            "Он потерял деньги",
+            "Он уехал на поезде",
+            "Он упал на дороге в горы"
+          ],
+          "answer": 2
+        },
+        {
+          "q": "Кто продал свой обрывок?",
+          "options": [
+            "Банк",
+            "Никто",
+            "Ресторан"
+          ],
+          "answer": 1
+        }
+      ],
+      "gloss": {
+        "fragments": "обрывки",
+        "fragment": "обрывок",
+        "company": "компания",
+        "inspector": "инспектор",
+        "bradley": "Брэдли"
+      }
+    },
+    {
+      "id": "th:1.climax",
+      "chapter": 1,
+      "trigger": "climax",
+      "npc": "cronista",
+      "lines": [
+        {
+          "who": "npc",
+          "es": "Twenty fragments! The map of the town is complete.",
+          "ru": "Двадцать обрывков! Карта города собрана."
+        },
+        {
+          "who": "npc",
+          "es": "Now I know everything. The company is not a company. It was the guardian.",
+          "ru": "Теперь я знаю всё. Компания — вовсе не компания. Это был страж."
+        },
+        {
+          "who": "hero",
+          "es": "The guardian? Why?",
+          "ru": "Страж? Зачем?"
+        },
+        {
+          "who": "npc",
+          "es": "He wanted to know if the town would sell the map. And nobody sold it.",
+          "ru": "Он хотел узнать, продаст ли город карту. И никто её не продал."
+        },
+        {
+          "who": "npc",
+          "es": "And the “Come” letters… I wrote them. I was looking for the person who helps the neighbours.",
+          "ru": "А письма «Приходи»… их писал я. Я искал того, кто помогает соседям."
+        },
+        {
+          "who": "hero",
+          "es": "And you found me?",
+          "ru": "И нашёл меня?"
+        },
+        {
+          "who": "npc",
+          "es": "Yes. Now the guardian is waiting for you outside the town. After him, the road goes up into the hills.",
+          "ru": "Да. Теперь страж ждёт тебя за городом. За ним дорога уходит в горы."
+        },
+        {
+          "who": "npc",
+          "es": "And one more thing. Molly has a brother, Sam. A month ago he went to the hills, and now he doesn't write.",
+          "ru": "И ещё. У Молли есть брат, Сэм. Месяц назад он ушёл в горы и больше не пишет."
+        },
+        {
+          "who": "hero",
+          "es": "Where is Sam?",
+          "ru": "Где Сэм?"
+        },
+        {
+          "who": "npc",
+          "es": "I don't know. The hills will answer that question.",
+          "ru": "Не знаю. На этот вопрос ответят горы."
+        }
+      ],
+      "questions": [
+        {
+          "q": "Кем на самом деле была компания?",
+          "options": [
+            "Банком",
+            "Стражем",
+            "Летописцем"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Кто писал письма «Приходи»?",
+          "options": [
+            "Летописец",
+            "Молли",
+            "Страж"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Где ждёт страж?",
+          "options": [
+            "В кафе",
+            "На вокзале",
+            "За городом"
+          ],
+          "answer": 2
+        },
+        {
+          "q": "Что случилось с братом Молли?",
+          "options": [
+            "Ушёл в горы и перестал писать",
+            "Уехал на поезде",
+            "Открыл ресторан"
+          ],
+          "answer": 0
+        }
+      ],
+      "gloss": {
+        "fragments": "обрывки",
+        "complete": "собрана",
+        "company": "компания",
+        "guardian": "страж",
+        "hills": "горы"
+      }
+    },
+    {
+      "id": "th:2.open",
+      "chapter": 2,
+      "trigger": "open",
+      "npc": "cronista",
+      "lines": [
+        {
+          "who": "npc",
+          "es": "We got past the guardian. Now the road goes up into the hills.",
+          "ru": "Мы прошли стража. Теперь дорога поднимается в горы."
+        },
+        {
+          "who": "npc",
+          "es": "Up on the pass, there is a lighthouse. The second guardian lives there.",
+          "ru": "Наверху, на перевале, стоит маяк. Там живёт второй страж."
+        },
+        {
+          "who": "hero",
+          "es": "And what do we know about Sam, Molly's brother?",
+          "ru": "А что мы знаем о Сэме, брате Молли?"
+        },
+        {
+          "who": "npc",
+          "es": "A month ago he went up to the lighthouse. Since then he hasn't written.",
+          "ru": "Месяц назад он поднялся к маяку. С тех пор не пишет."
+        },
+        {
+          "who": "npc",
+          "es": "Mrs Patel saw him with a man in a grey coat.",
+          "ru": "Миссис Патель видела его с человеком в сером пальто."
+        },
+        {
+          "who": "npc",
+          "es": "This man bought lanterns in the town and paid with very old coins.",
+          "ru": "Этот человек купил в городе фонари и заплатил очень старыми монетами."
+        },
+        {
+          "who": "npc",
+          "es": "And he said: “The fog is coming soon.”",
+          "ru": "И сказал: «Скоро придёт туман»."
+        },
+        {
+          "who": "hero",
+          "es": "And what does the guardian of the lighthouse ask?",
+          "ru": "А о чём спрашивает страж маяка?"
+        },
+        {
+          "who": "npc",
+          "es": "He doesn't test words. He asks what you did. You must answer in the past.",
+          "ru": "Он проверяет не слова. Он спрашивает, что ты сделал. Отвечать надо в прошедшем времени."
+        },
+        {
+          "who": "npc",
+          "es": "Sam always said: “In the fog, only a voice can show you the way.”",
+          "ru": "Сэм всегда говорил: «В тумане дорогу покажет только голос»."
+        },
+        {
+          "who": "npc",
+          "es": "Who is the man in the grey coat? We'll find out and write it down together.",
+          "ru": "Кто этот человек в сером пальто? Узнаем — и запишем вместе."
+        }
+      ],
+      "questions": [
+        {
+          "q": "Где живёт второй страж?",
+          "options": [
+            "В банке",
+            "На маяке на перевале",
+            "На вокзале"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "С кем видели Сэма?",
+          "options": [
+            "С человеком в сером пальто",
+            "С инспектором",
+            "С Молли"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Чем незнакомец заплатил за фонари?",
+          "options": [
+            "Картой",
+            "Новыми деньгами",
+            "Очень старыми монетами"
+          ],
+          "answer": 2
+        },
+        {
+          "q": "Как надо отвечать стражу маяка?",
+          "options": [
+            "В прошедшем времени",
+            "Только «да» и «нет»",
+            "Шёпотом"
+          ],
+          "answer": 0
+        }
+      ],
+      "gloss": {
+        "guardian": "страж",
+        "pass": "перевал",
+        "lighthouse": "маяк",
+        "hills": "горы",
+        "lanterns": "фонари",
+        "coins": "монеты",
+        "fog": "туман",
+        "patel": "Патель"
+      }
+    },
+    {
+      "id": "th:2.half",
+      "chapter": 2,
+      "trigger": "half",
+      "npc": "cronista",
+      "lines": [
+        {
+          "who": "npc",
+          "es": "Ten fragments of the map of the hills. Look what I wrote down.",
+          "ru": "Десять обрывков карты гор. Смотри, что я записал."
+        },
+        {
+          "who": "npc",
+          "es": "Old Bert saw the man in the coat fifty years ago, on the same bench in the park.",
+          "ru": "Старина Берт видел человека в пальто пятьдесят лет назад, на той же скамейке в парке."
+        },
+        {
+          "who": "hero",
+          "es": "Fifty years ago? And he isn't any older?",
+          "ru": "Пятьдесят лет назад? И он не постарел?"
+        },
+        {
+          "who": "npc",
+          "es": "No. And at the pharmacy he asked what year it was.",
+          "ru": "Нет. А в аптеке он спросил, какой сейчас год."
+        },
+        {
+          "who": "npc",
+          "es": "Sam wrote to Molly: “The fog talks. I answer in the past.”",
+          "ru": "Сэм написал Молли: «Туман говорит. Я отвечаю в прошедшем времени»."
+        },
+        {
+          "who": "npc",
+          "es": "But a different person wrote the end of the letter: “He is fine. Wait.”",
+          "ru": "Но конец письма написал другой человек: «С ним всё хорошо. Жди»."
+        },
+        {
+          "who": "hero",
+          "es": "Who wrote it?",
+          "ru": "Кто это написал?"
+        },
+        {
+          "who": "npc",
+          "es": "At the bank there is an account from a hundred years ago. It belongs to the guardian of the lighthouse.",
+          "ru": "В банке есть счёт столетней давности. Он принадлежит стражу маяка."
+        },
+        {
+          "who": "npc",
+          "es": "His signature is the same as in the letter. The man in the coat is the guardian, and Sam is with him.",
+          "ru": "Его подпись такая же, как в письме. Человек в пальто — это страж, и Сэм у него."
+        },
+        {
+          "who": "hero",
+          "es": "But why doesn't he let Sam go?",
+          "ru": "Но почему он не отпускает Сэма?"
+        },
+        {
+          "who": "npc",
+          "es": "I don't know that yet.",
+          "ru": "Этого я пока не знаю."
+        }
+      ],
+      "questions": [
+        {
+          "q": "Что странного в человеке в пальто?",
+          "options": [
+            "Он не постарел за пятьдесят лет",
+            "Он не говорит по-английски",
+            "Он боится тумана"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Что Сэм написал сестре?",
+          "options": [
+            "«Приходи»",
+            "«Туман говорит. Я отвечаю в прошедшем времени»",
+            "«Я в больнице»"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Что нашли в банке?",
+          "options": [
+            "Обрывок карты",
+            "Старое письмо",
+            "Счёт стража маяка столетней давности"
+          ],
+          "answer": 2
+        },
+        {
+          "q": "Кто на самом деле человек в пальто?",
+          "options": [
+            "Страж маяка",
+            "Брат Молли",
+            "Начальник вокзала"
+          ],
+          "answer": 0
+        }
+      ],
+      "gloss": {
+        "fragments": "обрывки",
+        "hills": "горы",
+        "bert": "Берт",
+        "bench": "скамейка",
+        "fog": "туман",
+        "account": "счёт",
+        "belongs": "принадлежит",
+        "guardian": "страж",
+        "lighthouse": "маяк",
+        "signature": "подпись"
+      }
+    },
+    {
+      "id": "th:2.climax",
+      "chapter": 2,
+      "trigger": "climax",
+      "npc": "cronista",
+      "lines": [
+        {
+          "who": "npc",
+          "es": "Twenty fragments! And at last I know the whole story.",
+          "ru": "Двадцать обрывков! И наконец я знаю всю историю."
+        },
+        {
+          "who": "npc",
+          "es": "A hundred years ago, after a storm, a young traveller stayed at the lighthouse. His name was Oswald.",
+          "ru": "Сто лет назад, после грозы, на маяке остался молодой путник. Его звали Освальд."
+        },
+        {
+          "who": "npc",
+          "es": "Oswald helped the old guardian, and then he took his place. He is the man in the coat.",
+          "ru": "Освальд помогал старому стражу, а потом занял его место. Это и есть человек в пальто."
+        },
+        {
+          "who": "hero",
+          "es": "And Sam?",
+          "ru": "А Сэм?"
+        },
+        {
+          "who": "npc",
+          "es": "Sam came back with a broken foot. The guardian asked him three questions in the past.",
+          "ru": "Сэм вернулся со сломанной ногой. Страж задал ему три вопроса в прошедшем времени."
+        },
+        {
+          "who": "npc",
+          "es": "He answered two. The third was: “Who did you help?” He didn't know what to say.",
+          "ru": "На два он ответил. Третий был такой: «Кому ты помог?». Он не знал, что сказать."
+        },
+        {
+          "who": "npc",
+          "es": "The guardian can come down only when someone answers his questions. Now he is waiting for you.",
+          "ru": "Страж может спуститься, только когда кто-то ответит на его вопросы. Теперь он ждёт тебя."
+        },
+        {
+          "who": "hero",
+          "es": "If I answer, will Oswald go home?",
+          "ru": "Если я отвечу, Освальд вернётся домой?"
+        },
+        {
+          "who": "npc",
+          "es": "Yes. On the seven o'clock train. You have his old ticket.",
+          "ru": "Да. Поездом в семь. Его старый билет у тебя."
+        },
+        {
+          "who": "npc",
+          "es": "But listen: from his plane Tom saw sand past the lighthouse. Yesterday there was a white city there, and today there is nothing.",
+          "ru": "Но слушай: Том видел с самолёта песок за маяком. Вчера там был белый город, а сегодня ничего нет."
+        },
+        {
+          "who": "hero",
+          "es": "How can a city vanish?",
+          "ru": "Как может исчезнуть город?"
+        },
+        {
+          "who": "npc",
+          "es": "I don't know. That desert lies.",
+          "ru": "Не знаю. Эта пустыня обманывает."
+        }
+      ],
+      "questions": [
+        {
+          "q": "Кто такой Освальд?",
+          "options": [
+            "Начальник вокзала",
+            "Молодой путник, который сто лет назад остался на маяке",
+            "Брат Молли"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "На какой вопрос не ответил Сэм?",
+          "options": [
+            "«Кому ты помог?»",
+            "«Откуда ты?»",
+            "«Куда ты идёшь?»"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Когда страж может спуститься?",
+          "options": [
+            "После грозы",
+            "Ночью",
+            "Когда кто-то ответит на его вопросы"
+          ],
+          "answer": 2
+        },
+        {
+          "q": "Что Том видел с самолёта?",
+          "options": [
+            "Огромный лес",
+            "Белый город, который исчез",
+            "Маяк в тумане"
+          ],
+          "answer": 1
+        }
+      ],
+      "gloss": {
+        "fragments": "обрывки",
+        "storm": "гроза",
+        "lighthouse": "маяк",
+        "oswald": "Освальд",
+        "guardian": "страж",
+        "broken": "сломанный",
+        "vanish": "исчезнуть",
+        "desert": "пустыня",
+        "lies": "обманывает"
+      }
+    },
+    {
+      "id": "th:3.open",
+      "chapter": 3,
+      "trigger": "open",
+      "npc": "cronista",
+      "lines": [
+        {
+          "who": "npc",
+          "es": "Oswald came back to the town. At Molly's café he drank his first coffee in a hundred years.",
+          "ru": "Освальд вернулся в город. В кафе у Молли он выпил первый кофе за сто лет."
+        },
+        {
+          "who": "npc",
+          "es": "And he left you some advice: “In the desert, don't believe what you see. Believe what you hear.”",
+          "ru": "И оставил тебе совет: «В пустыне не верь тому, что видишь. Верь тому, что слышишь»."
+        },
+        {
+          "who": "hero",
+          "es": "Why? What is in the desert?",
+          "ru": "Почему? Что в пустыне?"
+        },
+        {
+          "who": "npc",
+          "es": "A white city. It appears when you are thirsty and vanishes when you get close.",
+          "ru": "Белый город. Он появляется, когда тебя мучает жажда, и исчезает, когда подходишь."
+        },
+        {
+          "who": "npc",
+          "es": "The third guardian lives there, a very old and very wise woman.",
+          "ru": "Там живёт третья стражница, очень старая и очень мудрая женщина."
+        },
+        {
+          "who": "npc",
+          "es": "She only speaks with “if”: “If you tell me the truth, I'll let you pass.”",
+          "ru": "Она говорит только через «если»: «Если скажешь мне правду, пропущу»."
+        },
+        {
+          "who": "hero",
+          "es": "And if somebody lies?",
+          "ru": "А если кто-то солжёт?"
+        },
+        {
+          "who": "npc",
+          "es": "Then the city vanishes, and the person with it.",
+          "ru": "Тогда город исчезает, и человек вместе с ним."
+        },
+        {
+          "who": "npc",
+          "es": "But the desert lies here too. A man with a camel is selling fake fragments of the map.",
+          "ru": "Но пустыня обманывает и здесь. Человек с верблюдом продаёт поддельные обрывки карты."
+        },
+        {
+          "who": "npc",
+          "es": "And at the edge of the sand they sell “oasis water”. The bottles look full, but they aren't.",
+          "ru": "А у края песков продают «воду оазиса». Бутылки кажутся полными, но это не так."
+        },
+        {
+          "who": "npc",
+          "es": "Who is the man with the camel? If you find out, I'll write it down.",
+          "ru": "Кто этот человек с верблюдом? Если узнаешь, я запишу."
+        }
+      ],
+      "questions": [
+        {
+          "q": "Какой совет оставил Освальд?",
+          "options": [
+            "Не верить тому, что видишь, а верить тому, что слышишь",
+            "Идти в пустыню только днём",
+            "Брать с собой много воды"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Когда исчезает белый город?",
+          "options": [
+            "Ночью",
+            "Когда к нему подходишь",
+            "Когда идёт дождь"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Как говорит третья стражница?",
+          "options": [
+            "Только шёпотом",
+            "Только в прошедшем времени",
+            "Только через «если»"
+          ],
+          "answer": 2
+        },
+        {
+          "q": "Что продаёт человек с верблюдом?",
+          "options": [
+            "Поддельные обрывки карты",
+            "Старые монеты",
+            "Фонари"
+          ],
+          "answer": 0
+        }
+      ],
+      "gloss": {
+        "oswald": "Освальд",
+        "desert": "пустыня",
+        "vanishes": "исчезает",
+        "guardian": "страж",
+        "lies": "обманывает",
+        "camel": "верблюд",
+        "fake": "поддельный",
+        "fragments": "обрывки",
+        "oasis": "оазис"
+      }
+    },
+    {
+      "id": "th:3.half",
+      "chapter": 3,
+      "trigger": "half",
+      "npc": "cronista",
+      "lines": [
+        {
+          "who": "npc",
+          "es": "Ten fragments of the map of the desert. And I already know a lot about the man with the camel.",
+          "ru": "Десять обрывков карты пустыни. И я уже многое знаю о человеке с верблюдом."
+        },
+        {
+          "who": "npc",
+          "es": "He signs his letters “The Merchant”. He buries new fragments in the sand, and they look old.",
+          "ru": "Он подписывает письма «Купец». Закапывает новые обрывки в песок, и они кажутся старыми."
+        },
+        {
+          "who": "hero",
+          "es": "And people buy them?",
+          "ru": "И люди их покупают?"
+        },
+        {
+          "who": "npc",
+          "es": "Yes. People believe what they want to believe.",
+          "ru": "Да. Люди верят в то, во что хотят верить."
+        },
+        {
+          "who": "npc",
+          "es": "In the “oasis water” there is only salt and the smell of flowers. But the people who bought it dream of the white city every night.",
+          "ru": "В «воде оазиса» только соль и запах цветов. Но те, кто её купил, каждую ночь видят во сне белый город."
+        },
+        {
+          "who": "npc",
+          "es": "He also bought an elegant suit. Once a year, on the night of the full moon, the white city becomes real.",
+          "ru": "А ещё он купил нарядный костюм. Раз в год, в ночь полнолуния, белый город становится настоящим."
+        },
+        {
+          "who": "npc",
+          "es": "And he went to Miss Evans to learn sentences with “if”. You can't lie in front of the guardian.",
+          "ru": "И ходил к мисс Эванс учить фразы с «если». При стражнице лгать нельзя."
+        },
+        {
+          "who": "hero",
+          "es": "And Sam's parcel? At the post office they told me it has gone.",
+          "ru": "А посылка Сэма? На почте мне сказали, что её уже нет."
+        },
+        {
+          "who": "npc",
+          "es": "He collected it, in your name. There was a real fragment inside.",
+          "ru": "Её забрал он, на твоё имя. Внутри был настоящий обрывок."
+        },
+        {
+          "who": "hero",
+          "es": "But what is he looking for in the white city?",
+          "ru": "Но что он ищет в белом городе?"
+        },
+        {
+          "who": "npc",
+          "es": "If I knew, I'd have written it down already.",
+          "ru": "Если бы я знал, уже записал бы."
+        }
+      ],
+      "questions": [
+        {
+          "q": "Как подписывается человек с верблюдом?",
+          "options": [
+            "«Страж»",
+            "«Купец»",
+            "«Летописец»"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Что на самом деле в «воде оазиса»?",
+          "options": [
+            "Соль и запах цветов",
+            "Морская вода",
+            "Лекарство"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Когда белый город настоящий?",
+          "options": [
+            "Каждое утро",
+            "После грозы",
+            "Раз в год, в ночь полнолуния"
+          ],
+          "answer": 2
+        },
+        {
+          "q": "Что случилось с посылкой Сэма?",
+          "options": [
+            "Её потерял почтальон",
+            "Купец забрал её на имя героя",
+            "Её принёс ворон"
+          ],
+          "answer": 1
+        }
+      ],
+      "gloss": {
+        "fragments": "обрывки",
+        "desert": "пустыня",
+        "camel": "верблюд",
+        "merchant": "Купец",
+        "buries": "закапывает",
+        "oasis": "оазис",
+        "guardian": "страж",
+        "evans": "Эванс",
+        "parcel": "посылка",
+        "collected": "забрал"
+      }
+    },
+    {
+      "id": "th:3.climax",
+      "chapter": 3,
+      "trigger": "climax",
+      "npc": "cronista",
+      "lines": [
+        {
+          "who": "npc",
+          "es": "Twenty fragments! And this story already has an ending.",
+          "ru": "Двадцать обрывков! И у этой истории уже есть конец."
+        },
+        {
+          "who": "npc",
+          "es": "The Merchant wanted to buy the white city. But his money turned into sand.",
+          "ru": "Купец хотел купить белый город. Но его деньги превращались в песок."
+        },
+        {
+          "who": "npc",
+          "es": "Without his beard he is young and sad. He has a tree drawn on his arm.",
+          "ru": "Без бороды он молодой и грустный. На руке у него нарисовано дерево."
+        },
+        {
+          "who": "hero",
+          "es": "A tree? Why?",
+          "ru": "Дерево? Почему?"
+        },
+        {
+          "who": "npc",
+          "es": "He comes from a forest where the trees whisper day and night. He left because he couldn't sleep.",
+          "ru": "Он из леса, где деревья день и ночь говорят шёпотом. Он ушёл, потому что не мог спать."
+        },
+        {
+          "who": "npc",
+          "es": "He sold lies so that he couldn't hear the trees. In the white city he was looking for silence.",
+          "ru": "Он продавал ложь, чтобы не слышать деревья. В белом городе он искал тишину."
+        },
+        {
+          "who": "npc",
+          "es": "On the night of the full moon the guardian told him: “If you tell me the truth, I'll let you pass.”",
+          "ru": "В ночь полнолуния стражница сказала ему: «Если скажешь мне правду, пропущу»."
+        },
+        {
+          "who": "npc",
+          "es": "And he answered: “I sell lies because I am afraid.” The city did not vanish.",
+          "ru": "И он ответил: «Я продаю ложь, потому что мне страшно». Город не исчез."
+        },
+        {
+          "who": "hero",
+          "es": "And now what?",
+          "ru": "И что теперь?"
+        },
+        {
+          "who": "npc",
+          "es": "Now he has a name: Rory. He gave people back their money, and he gave you the real fragments, Sam's too.",
+          "ru": "Теперь у него есть имя: Рори. Он вернул людям деньги, а тебе — настоящие обрывки, и обрывок Сэма тоже."
+        },
+        {
+          "who": "npc",
+          "es": "With a note: “The truth is not for sale.”",
+          "ru": "С запиской: «Правда не продаётся»."
+        },
+        {
+          "who": "npc",
+          "es": "From his plane Tom saw a huge forest in the fog past the desert. The trees move with no wind.",
+          "ru": "Том видел с самолёта за пустыней огромный лес в тумане. Деревья качаются без ветра."
+        },
+        {
+          "who": "npc",
+          "es": "And the guardian sends you a message: “If you get to the forest, listen to the trees. They do not lie.”",
+          "ru": "А стражница передаёт тебе: «Если дойдёшь до леса, слушай деревья. Они не лгут»."
+        },
+        {
+          "who": "hero",
+          "es": "What do the trees say?",
+          "ru": "Что говорят деревья?"
+        },
+        {
+          "who": "npc",
+          "es": "We'll find out in the forest.",
+          "ru": "Это мы узнаем в лесу."
+        }
+      ],
+      "questions": [
+        {
+          "q": "Что хотел купить Купец?",
+          "options": [
+            "Белый город",
+            "Маяк",
+            "Все фонари города"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Откуда пришёл Купец?",
+          "options": [
+            "С моря",
+            "Из гор",
+            "Из леса, где деревья говорят шёпотом"
+          ],
+          "answer": 2
+        },
+        {
+          "q": "Что Купец ответил стражнице?",
+          "options": [
+            "«Я ищу Хранилище»",
+            "«Я продаю ложь, потому что мне страшно»",
+            "«Я ничего не продаю»"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Что передала герою стражница?",
+          "options": [
+            "«Если дойдёшь до леса, слушай деревья»",
+            "«Не ходи в лес»",
+            "«Купи костюм»"
+          ],
+          "answer": 0
+        }
+      ],
+      "gloss": {
+        "fragments": "обрывки",
+        "merchant": "Купец",
+        "beard": "борода",
+        "whisper": "шепчут",
+        "lies": "ложь",
+        "silence": "тишина",
+        "guardian": "страж",
+        "vanish": "исчезнуть",
+        "rory": "Рори",
+        "fog": "туман",
+        "desert": "пустыня"
+      }
+    },
+    {
+      "id": "th:4.open",
+      "chapter": 4,
+      "trigger": "open",
+      "npc": "cronista",
+      "lines": [
+        {
+          "who": "npc",
+          "es": "Rory went back to his forest and wrote me a long letter.",
+          "ru": "Рори вернулся в свой лес и написал мне длинное письмо."
+        },
+        {
+          "who": "npc",
+          "es": "He writes that the trees repeat everything people say about each other behind their backs.",
+          "ru": "Он пишет, что деревья повторяют всё, что люди говорят друг о друге за спиной."
+        },
+        {
+          "who": "hero",
+          "es": "And what exactly do they repeat?",
+          "ru": "И что же они повторяют?"
+        },
+        {
+          "who": "npc",
+          "es": "The voices of our town: gossip, complaints, quarrels. The forest is full of noise.",
+          "ru": "Голоса нашего города: сплетни, жалобы, ссоры. Лес полон шума."
+        },
+        {
+          "who": "npc",
+          "es": "With all that noise, the Keeper of the Forest can't hear the path, and nobody can get through.",
+          "ru": "От такого шума Хранительница леса не слышит тропу, и никто не может пройти."
+        },
+        {
+          "who": "hero",
+          "es": "So what should we do?",
+          "ru": "Что же нам тогда делать?"
+        },
+        {
+          "who": "npc",
+          "es": "Every argument that ends in peace makes the forest quieter.",
+          "ru": "Каждый спор, который заканчивается миром, делает лес тише."
+        },
+        {
+          "who": "npc",
+          "es": "So help the neighbours reach an agreement. You can object, give in or suggest a compromise.",
+          "ru": "Так что помогай соседям договориться. Можно возразить, уступить или предложить компромисс."
+        },
+        {
+          "who": "npc",
+          "es": "Mrs Patel's grandmother used to say that the Keeper hears everything people whisper.",
+          "ru": "Бабушка миссис Патель говорила, что Хранительница слышит всё, что говорится шёпотом."
+        },
+        {
+          "who": "npc",
+          "es": "And she only lets through those who say things to your face.",
+          "ru": "И пропускает только тех, кто говорит в лицо."
+        },
+        {
+          "who": "hero",
+          "es": "But why do the trees repeat our voices?",
+          "ru": "А почему деревья повторяют именно наши голоса?"
+        },
+        {
+          "who": "npc",
+          "es": "That's the question. Somebody must be carrying them there.",
+          "ru": "Вот в чём вопрос. Кто-то должен их туда приносить."
+        }
+      ],
+      "questions": [
+        {
+          "q": "Что повторяют деревья?",
+          "options": [
+            "Песни птиц",
+            "То, что люди говорят друг о друге за спиной",
+            "Письма Летописца"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Почему Хранительница никого не пропускает?",
+          "options": [
+            "От шума она не слышит тропу",
+            "Она спит",
+            "Она боится людей"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Что делает лес тише?",
+          "options": [
+            "Дождь",
+            "Ночь",
+            "Спор, который закончился миром"
+          ],
+          "answer": 2
+        },
+        {
+          "q": "Кого пропускает Хранительница?",
+          "options": [
+            "Того, кто говорит в лицо",
+            "Того, кто молчит",
+            "Того, у кого есть карта"
+          ],
+          "answer": 0
+        }
+      ],
+      "gloss": {
+        "rory": "Рори",
+        "gossip": "сплетни",
+        "quarrels": "ссоры",
+        "keeper": "Хранительница",
+        "patel'": "Патель",
+        "object": "возразить",
+        "compromise": "компромисс"
+      }
+    },
+    {
+      "id": "th:4.half",
+      "chapter": 4,
+      "trigger": "half",
+      "npc": "cronista",
+      "lines": [
+        {
+          "who": "npc",
+          "es": "Ten fragments of the map of the forest. But now something strange is happening.",
+          "ru": "Десять обрывков карты леса. Но теперь происходит что-то странное."
+        },
+        {
+          "who": "npc",
+          "es": "The forest repeats sentences that nobody has ever said.",
+          "ru": "Лес повторяет фразы, которых никто никогда не говорил."
+        },
+        {
+          "who": "npc",
+          "es": "In Chloe's voice: “My designer dresses are fakes.” In Mrs Patel's voice: “My scales cheat.”",
+          "ru": "Голосом Хлои: «Мои брендовые платья — подделки». Голосом миссис Патель: «Мои весы обвешивают»."
+        },
+        {
+          "who": "hero",
+          "es": "But they would never say that.",
+          "ru": "Но они никогда бы такого не сказали."
+        },
+        {
+          "who": "npc",
+          "es": "Exactly. And the old oak in the park repeated the Keeper's voice: “I am looking for someone who says the same thing to your face and behind your back.”",
+          "ru": "Именно. А старый дуб в парке повторил голос Хранительницы: «Ищу того, кто в лицо говорит то же, что и за спиной»."
+        },
+        {
+          "who": "npc",
+          "es": "Black feathers are being found next to the fragments of the map.",
+          "ru": "Рядом с обрывками карты находят чёрные перья."
+        },
+        {
+          "who": "hero",
+          "es": "Feathers? A bird's?",
+          "ru": "Перья? Птичьи?"
+        },
+        {
+          "who": "npc",
+          "es": "A raven's. The postman admitted it: his raven Edgar remembers the voices in every house and flies to the forest at night.",
+          "ru": "Ворона. Почтальон признался: его ворон Эдгар запоминает голоса в каждом доме и по ночам летает в лес."
+        },
+        {
+          "who": "npc",
+          "es": "But Edgar doesn't invent the sentences himself. Somebody is teaching him.",
+          "ru": "Но Эдгар сам фразы не придумывает. Кто-то его учит."
+        },
+        {
+          "who": "npc",
+          "es": "And when he comes back, he smells of pipe tobacco.",
+          "ru": "А когда возвращается, от него пахнет трубочным табаком."
+        },
+        {
+          "who": "hero",
+          "es": "Who in the town smokes a pipe?",
+          "ru": "Кто в городе курит трубку?"
+        },
+        {
+          "who": "npc",
+          "es": "That's what we have to find out.",
+          "ru": "Это нам и предстоит узнать."
+        }
+      ],
+      "questions": [
+        {
+          "q": "Что странного стал повторять лес?",
+          "options": [
+            "Фразы, которых никто не говорил",
+            "Песни",
+            "Имена стражей"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Что повторил старый дуб?",
+          "options": [
+            "«Тише, тише»",
+            "«Ищу того, кто в лицо говорит то же, что и за спиной»",
+            "«Карта в лесу»"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Что делает ворон Эдгар?",
+          "options": [
+            "Носит письма",
+            "Прячет обрывки",
+            "Запоминает голоса в домах и летает в лес"
+          ],
+          "answer": 2
+        },
+        {
+          "q": "Чем пахнет ворон, когда возвращается?",
+          "options": [
+            "Трубочным табаком",
+            "Морем",
+            "Хлебом"
+          ],
+          "answer": 0
+        }
+      ],
+      "gloss": {
+        "fragments": "обрывки",
+        "chloe'": "Хлои",
+        "fakes": "подделки",
+        "patel'": "Патель",
+        "scales": "весы",
+        "cheat": "обвешивают",
+        "oak": "дуб",
+        "keeper'": "Хранительницы",
+        "feathers": "перья",
+        "raven": "ворон",
+        "edgar": "Эдгар",
+        "pipe": "трубка",
+        "tobacco": "табак"
+      }
+    },
+    {
+      "id": "th:4.climax",
+      "chapter": 4,
+      "trigger": "climax",
+      "npc": "cronista",
+      "lines": [
+        {
+          "who": "npc",
+          "es": "Twenty fragments. And the saddest story I have ever written down.",
+          "ru": "Двадцать обрывков. И самая грустная история, какую я записывал."
+        },
+        {
+          "who": "npc",
+          "es": "The forest repeated Mr Whitmore's voice: “There is no money in the bank.” The whole town queued to take out their savings.",
+          "ru": "Лес повторил голос мистера Уитмора: «В банке нет денег». Весь город встал в очередь забирать сбережения."
+        },
+        {
+          "who": "npc",
+          "es": "The trail led to an old man with a pipe. He was changing coins from a hundred years ago, like the lighthouse guardian's.",
+          "ru": "Следы вели к пожилому человеку с трубкой. Он менял монеты столетней давности, как у стража маяка."
+        },
+        {
+          "who": "hero",
+          "es": "Coins from a hundred years ago… Oswald?",
+          "ru": "Монеты столетней давности… Освальд?"
+        },
+        {
+          "who": "npc",
+          "es": "The town suspected Graham: he smokes a pipe too. But one night on the beach Finn saw his face in the moonlight. It was Oswald.",
+          "ru": "Город подозревал Грэма: он тоже курит трубку. Но однажды ночью на пляже Финн увидел его лицо при луне. Это был Освальд."
+        },
+        {
+          "who": "npc",
+          "es": "He lived for a hundred years at the lighthouse and was afraid the forest would take someone else. So he taught the raven to frighten people.",
+          "ru": "Он сто лет прожил на маяке и боялся, что лес заберёт кого-то ещё. Поэтому учил ворона пугать людей."
+        },
+        {
+          "who": "hero",
+          "es": "And what happened next?",
+          "ru": "И что было потом?"
+        },
+        {
+          "who": "npc",
+          "es": "At the neighbours' meeting he stood up and said: “I taught the raven to lie because I was afraid. Forgive me.”",
+          "ru": "На собрании соседей он встал и сказал: «Я учил ворона лжи, потому что боялся. Простите меня»."
+        },
+        {
+          "who": "npc",
+          "es": "Chloe hugged him, Graham offered him some tobacco, and at midnight the forest went quiet.",
+          "ru": "Хлоя обняла его, Грэм предложил ему табаку, и в полночь лес затих."
+        },
+        {
+          "who": "npc",
+          "es": "The Keeper finally spoke clearly: “Now I can hear the path. Let the one who brought peace come.”",
+          "ru": "Хранительница наконец заговорила ясно: «Теперь я слышу тропу. Пусть придёт тот, кто принёс мир»."
+        },
+        {
+          "who": "hero",
+          "es": "And what is beyond the forest?",
+          "ru": "А что за лесом?"
+        },
+        {
+          "who": "npc",
+          "es": "Stone. Stone passages where every word comes back in a different voice.",
+          "ru": "Камень. Каменные ходы, где каждое слово возвращается другим голосом."
+        },
+        {
+          "who": "npc",
+          "es": "Kind words sound cold, polite ones sound rude. Who lives there? I don't know yet.",
+          "ru": "Доброе звучит холодно, вежливое — грубо. Кто там живёт? Пока не знаю."
+        }
+      ],
+      "questions": [
+        {
+          "q": "Что лес повторил голосом мистера Уитмора?",
+          "options": [
+            "«В банке нет денег»",
+            "«Банк закрыт»",
+            "«Все монеты старые»"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Кого сначала подозревал город?",
+          "options": [
+            "Финна",
+            "Почтальона",
+            "Грэма"
+          ],
+          "answer": 2
+        },
+        {
+          "q": "Почему Освальд учил ворона пугать людей?",
+          "options": [
+            "Хотел денег",
+            "Боялся, что лес заберёт кого-то ещё",
+            "Хотел вернуться на маяк"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Что за лесом?",
+          "options": [
+            "Каменные ходы, где слова возвращаются другим голосом",
+            "Море",
+            "Белый город"
+          ],
+          "answer": 0
+        }
+      ],
+      "gloss": {
+        "fragments": "обрывки",
+        "whitmore'": "Уитмора",
+        "queued": "встал в очередь",
+        "savings": "сбережения",
+        "trail": "следы",
+        "pipe": "трубка",
+        "guardian'": "стража",
+        "lighthouse": "маяк",
+        "oswald": "Освальд",
+        "suspected": "подозревал",
+        "graham": "Грэм",
+        "finn": "Финн",
+        "raven": "ворон",
+        "chloe": "Хлоя",
+        "tobacco": "табак",
+        "keeper": "Хранительница",
+        "passages": "ходы",
+        "moonlight": "лунный свет",
+        "clearly": "ясно",
+        "beyond": "за",
+        "rude": "грубо"
+      }
+    },
+    {
+      "id": "th:5.open",
+      "chapter": 5,
+      "trigger": "open",
+      "npc": "cronista",
+      "lines": [
+        {
+          "who": "npc",
+          "es": "Beyond the quiet forest begins the Labyrinth of Echoes: stone passages where every word comes back in a different voice.",
+          "ru": "За притихшим лесом начинается Лабиринт Эха: каменные ходы, где каждое слово возвращается другим голосом."
+        },
+        {
+          "who": "npc",
+          "es": "Kind words sound cold, polite ones sound rude, and a joke comes back as an insult.",
+          "ru": "Доброе звучит холодно, вежливое — грубо, а шутка возвращается оскорблением."
+        },
+        {
+          "who": "hero",
+          "es": "And who guards it?",
+          "ru": "А кто его охраняет?"
+        },
+        {
+          "who": "npc",
+          "es": "The Master of Echoes. Beyond him are the Gates of the Vault.",
+          "ru": "Хозяин Эха. За ним — Врата Хранилища."
+        },
+        {
+          "who": "npc",
+          "es": "He only lets through those who can speak to everyone in the right tone: casually to a neighbour, formally to the mayor.",
+          "ru": "Он пропускает только того, кто умеет говорить с каждым в его тоне: с соседом запросто, с мэром официально."
+        },
+        {
+          "who": "npc",
+          "es": "And since the forest went quiet, the echo has been reaching the town. People take offence now not at words, but at tone.",
+          "ru": "А с тех пор как лес затих, эхо доходит и до города. Люди обижаются уже не на слова, а на тон."
+        },
+        {
+          "who": "hero",
+          "es": "Is that why Sam wrote “Dear Madam” to Molly?",
+          "ru": "Поэтому Сэм написал Молли «Уважаемая мадам»?"
+        },
+        {
+          "who": "npc",
+          "es": "Exactly. His letter went through the echo. And at Archie's restaurant a guest sat down in a cloak as grey as stone.",
+          "ru": "Именно. Его письмо прошло через эхо. А в ресторане у Арчи сел гость в сером, как камень, плаще."
+        },
+        {
+          "who": "npc",
+          "es": "He repeated words like an echo and said: “The Master of Echoes is looking for someone who can speak to everyone in the right tone.”",
+          "ru": "Он повторял слова, как эхо, и сказал: «Хозяин Эха ищет того, кто умеет говорить с каждым в его тоне»."
+        },
+        {
+          "who": "npc",
+          "es": "In Mrs Higgins's grandmother's notebook it says: “Whoever speaks the same way to everyone will get lost; whoever can change their voice will find the way out.”",
+          "ru": "В тетради бабушки миссис Хиггинс написано: «Кто говорит со всеми одинаково, заблудится; кто умеет менять голос, найдёт выход»."
+        },
+        {
+          "who": "hero",
+          "es": "But who is he, this Master of Echoes?",
+          "ru": "Но кто он, этот Хозяин Эха?"
+        },
+        {
+          "who": "npc",
+          "es": "That is what the town has to remember.",
+          "ru": "Это городу и предстоит вспомнить."
+        }
+      ],
+      "questions": [
+        {
+          "q": "Что происходит со словами в Лабиринте?",
+          "options": [
+            "Они исчезают",
+            "Они возвращаются другим голосом",
+            "Они становятся тише"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Кого пропускает Хозяин Эха?",
+          "options": [
+            "Того, кто умеет говорить с каждым в его тоне",
+            "Того, кто говорит громче всех",
+            "Того, у кого есть ключ"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "На что теперь обижаются люди в городе?",
+          "options": [
+            "На погоду",
+            "На цены",
+            "На тон"
+          ],
+          "answer": 2
+        },
+        {
+          "q": "Что написано в тетради бабушки миссис Хиггинс?",
+          "options": [
+            "Кто умеет менять голос, найдёт выход",
+            "Не ходи в Лабиринт",
+            "Говори со всеми одинаково"
+          ],
+          "answer": 0
+        }
+      ],
+      "gloss": {
+        "labyrinth": "Лабиринт",
+        "echoes": "Эха",
+        "passages": "ходы",
+        "insult": "оскорбление",
+        "vault": "Хранилище",
+        "archie'": "Арчи",
+        "cloak": "плащ",
+        "higgins'": "Хиггинс",
+        "beyond": "за",
+        "rude": "грубо",
+        "casually": "запросто",
+        "formally": "официально",
+        "offence": "обида"
+      }
+    },
+    {
+      "id": "th:5.half",
+      "chapter": 5,
+      "trigger": "half",
+      "npc": "cronista",
+      "lines": [
+        {
+          "who": "npc",
+          "es": "Ten fragments of the map of the Labyrinth. And the town has finally remembered.",
+          "ru": "Десять обрывков карты Лабиринта. И город наконец вспомнил."
+        },
+        {
+          "who": "npc",
+          "es": "The Master of Echoes was this town's herald. A hundred years ago he read out the news in the square.",
+          "ru": "Хозяин Эха был глашатаем этого города. Сто лет назад он читал новости на площади."
+        },
+        {
+          "who": "npc",
+          "es": "He spoke to everyone in the same formal way: to children, to old people, to the mayor.",
+          "ru": "Он со всеми говорил одинаково, официально: с детьми, со стариками, с мэром."
+        },
+        {
+          "who": "hero",
+          "es": "And what did people do?",
+          "ru": "А что люди?"
+        },
+        {
+          "who": "npc",
+          "es": "They laughed at him. Children copied him. One day he went to the forest and never came back.",
+          "ru": "Смеялись над ним. Дети его передразнивали. Однажды он ушёл к лесу и не вернулся."
+        },
+        {
+          "who": "npc",
+          "es": "Chloe's great-grandmother made him a grey cloak and wrote: “A polite and very lonely man. Nobody speaks to him like a friend.”",
+          "ru": "Прабабушка Хлои сшила ему серый плащ и записала: «Вежливый и очень одинокий человек. Никто не говорит с ним по-дружески»."
+        },
+        {
+          "who": "npc",
+          "es": "Mr Shah's grandfather sold him throat sweets. His last note: “I am going where a voice comes back.”",
+          "ru": "Дед мистера Шаха продавал ему леденцы от горла. Последняя запись: «Ухожу туда, где голос возвращается»."
+        },
+        {
+          "who": "npc",
+          "es": "And in the post office archive there was a hundred-year-old letter from schoolchildren that was never delivered.",
+          "ru": "А в архиве почты нашлось столетнее письмо от школьников, которое так и не доставили."
+        },
+        {
+          "who": "hero",
+          "es": "What does the letter say?",
+          "ru": "Что в письме?"
+        },
+        {
+          "who": "npc",
+          "es": "“Sorry. Now we're listening to you.” And notice: they talk to him like a friend.",
+          "ru": "«Прости. Теперь мы тебя слушаем». И заметь: они говорят с ним по-дружески."
+        },
+        {
+          "who": "hero",
+          "es": "But will he accept it after so many years?",
+          "ru": "А примет ли он его после стольких лет?"
+        },
+        {
+          "who": "npc",
+          "es": "I don't know. A hundred years is a long time to wait for an answer.",
+          "ru": "Не знаю. Сто лет — долгий срок, чтобы ждать ответа."
+        }
+      ],
+      "questions": [
+        {
+          "q": "Кем был Хозяин Эха?",
+          "options": [
+            "Почтальоном",
+            "Городским глашатаем",
+            "Мэром"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Почему над ним смеялись?",
+          "options": [
+            "Он со всеми говорил одинаково, официально",
+            "Он плохо пел",
+            "Он носил смешную шляпу"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Что записала прабабушка Хлои?",
+          "options": [
+            "«Он задолжал за плащ»",
+            "«Он ушёл в горы»",
+            "«Вежливый и очень одинокий человек»"
+          ],
+          "answer": 2
+        },
+        {
+          "q": "Что было в столетнем письме школьников?",
+          "options": [
+            "«Прости. Теперь мы тебя слушаем»",
+            "«Возвращайся домой»",
+            "«Мы тебя не знаем»"
+          ],
+          "answer": 0
+        }
+      ],
+      "gloss": {
+        "fragments": "обрывки",
+        "labyrinth": "Лабиринт",
+        "echoes": "Эха",
+        "herald": "глашатай",
+        "chloe'": "Хлои",
+        "cloak": "плащ",
+        "lonely": "одинокий",
+        "shah'": "Шаха",
+        "formal": "официальный",
+        "schoolchildren": "школьники",
+        "throat": "горло",
+        "archive": "архив"
+      }
+    },
+    {
+      "id": "th:5.climax",
+      "chapter": 5,
+      "trigger": "climax",
+      "npc": "cronista",
+      "lines": [
+        {
+          "who": "npc",
+          "es": "Twenty fragments. The map of the Labyrinth is complete, and the herald is close. He is waiting for an answer.",
+          "ru": "Двадцать обрывков. Карта Лабиринта собрана, а глашатай рядом. Он ждёт ответа."
+        },
+        {
+          "who": "npc",
+          "es": "Someone put an old coin into his bank account, with a note in his handwriting: “I do not need money. I need an answer.”",
+          "ru": "На его счёт в банке кто-то положил старую монету и записку его почерком: «Мне не нужны деньги. Мне нужен ответ»."
+        },
+        {
+          "who": "npc",
+          "es": "Priya found his contract in the town archive. Nobody ever dismissed him: officially he still works for the town.",
+          "ru": "Прия нашла в городском архиве его договор. Его никто не увольнял: официально он до сих пор служит городу."
+        },
+        {
+          "who": "npc",
+          "es": "There was also a speech he never read: “Dear neighbours, today I have brought you no news.”",
+          "ru": "Там же лежала речь, которую он так и не прочитал: «Дорогие соседи, сегодня я не принёс вам новостей»."
+        },
+        {
+          "who": "hero",
+          "es": "He wanted to talk to them like a friend.",
+          "ru": "Он хотел заговорить с ними как друг."
+        },
+        {
+          "who": "npc",
+          "es": "Yes. But that day they laughed at him before he could begin.",
+          "ru": "Да. Но в тот день над ним засмеялись раньше, чем он успел начать."
+        },
+        {
+          "who": "npc",
+          "es": "Inspector Bradley received an official letter from him: “With the greatest respect, I request that someone answer me.”",
+          "ru": "Инспектор Брэдли получил от него официальное письмо: «Со всем почтением прошу, чтобы кто-нибудь мне ответил»."
+        },
+        {
+          "who": "npc",
+          "es": "And from his plane Tom saw that the passages of the Labyrinth form letters: “CAN ANYONE HEAR ME?”",
+          "ru": "А Том с самолёта увидел, что ходы Лабиринта складываются в буквы: «МЕНЯ КТО-НИБУДЬ СЛЫШИТ?»."
+        },
+        {
+          "who": "npc",
+          "es": "Tomorrow at seven Graham is taking half the town to the forest by train. At the top, after a thousand steps, there is a stone door.",
+          "ru": "Завтра в семь Грэм повезёт полгорода к лесу на поезде. Наверху, после тысячи ступеней, — каменная дверь."
+        },
+        {
+          "who": "npc",
+          "es": "And behind the door a voice asks: “Who will answer me?”",
+          "ru": "А за дверью голос спрашивает: «Кто мне ответит?»."
+        },
+        {
+          "who": "hero",
+          "es": "I will. Like a friend.",
+          "ru": "Отвечу я. По-дружески."
+        },
+        {
+          "who": "npc",
+          "es": "And after that, the Gates of the Vault. Remember what was written on Miss Evans's fragment? Someone there asks questions.",
+          "ru": "А после — Врата Хранилища. Помнишь, что было написано на обрывке мисс Эванс? Там кто-то задаёт вопросы."
+        }
+      ],
+      "questions": [
+        {
+          "q": "Что было в записке на счёте глашатая?",
+          "options": [
+            "«Верните мой плащ»",
+            "«Мне не нужны деньги. Мне нужен ответ»",
+            "«Я скоро вернусь»"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Что нашла Прия в городском архиве?",
+          "options": [
+            "Договор глашатая и его непрочитанную речь",
+            "Старую карту",
+            "Письмо Сэма"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Во что складываются ходы Лабиринта?",
+          "options": [
+            "В карту города",
+            "В лицо глашатая",
+            "В буквы «МЕНЯ КТО-НИБУДЬ СЛЫШИТ?»"
+          ],
+          "answer": 2
+        },
+        {
+          "q": "Что ждёт за Лабиринтом?",
+          "options": [
+            "Врата Хранилища, где кто-то задаёт вопросы",
+            "Новый город",
+            "Море"
+          ],
+          "answer": 0
+        }
+      ],
+      "gloss": {
+        "fragments": "обрывки",
+        "labyrinth": "Лабиринт",
+        "herald": "глашатай",
+        "handwriting": "почерк",
+        "priya": "Прия",
+        "archive": "архив",
+        "dismissed": "увольнял",
+        "officially": "официально",
+        "bradley": "Брэдли",
+        "passages": "ходы",
+        "graham": "Грэм",
+        "vault": "Хранилище",
+        "evans'": "Эванс",
+        "speech": "речь"
+      }
+    }
+  ],
+  "notes": {
+    "1": [
+      {
+        "es": "Today I write a new page: another fragment of the map. Very good!",
+        "ru": "Сегодня в книге новая страница: ещё один обрывок карты. Очень хорошо!",
+        "gloss": {
+          "fragment": "обрывок",
+          "page": "страница"
+        }
+      },
+      {
+        "es": "One more neighbour gives you their fragment. The town is talking about you.",
+        "ru": "Ещё один сосед отдал тебе свой обрывок. Город говорит о тебе.",
+        "gloss": {
+          "fragment": "обрывок"
+        }
+      },
+      {
+        "es": "The map is bigger every day. Tomorrow we look for another fragment.",
+        "ru": "Карта растёт с каждым днём. Завтра ищем ещё один обрывок.",
+        "gloss": {
+          "fragment": "обрывок"
+        }
+      },
+      {
+        "es": "Tonight I don't sleep: I write your day in my book.",
+        "ru": "Этой ночью я не сплю: записываю твой день в книгу."
+      },
+      {
+        "es": "Another fragment. The Vault is a little closer.",
+        "ru": "Ещё один обрывок. Хранилище стало чуть ближе.",
+        "gloss": {
+          "fragment": "обрывок",
+          "vault": "Хранилище"
+        }
+      },
+      {
+        "es": "Thank you for helping the neighbours. I write it all down.",
+        "ru": "Спасибо, что помогаешь соседям. Я всё записываю."
+      },
+      {
+        "es": "Look at the map: every fragment is a house in the town.",
+        "ru": "Посмотри на карту: каждый обрывок — это дом в городе.",
+        "gloss": {
+          "fragment": "обрывок"
+        }
+      }
+    ],
+    "2": [
+      {
+        "es": "Today you went a little higher. The lighthouse is closer now.",
+        "ru": "Сегодня ты поднялся чуть выше. Маяк стал ближе.",
+        "gloss": {
+          "lighthouse": "маяк"
+        }
+      },
+      {
+        "es": "Another fragment of the map of the hills. The fog didn't stop you.",
+        "ru": "Ещё один обрывок карты гор. Туман тебя не остановил.",
+        "gloss": {
+          "fragment": "обрывок",
+          "hills": "горы",
+          "fog": "туман"
+        }
+      },
+      {
+        "es": "I wrote your day in the past, the way the guardian likes it.",
+        "ru": "Я записал твой день в прошедшем времени, как любит страж.",
+        "gloss": {
+          "guardian": "страж"
+        }
+      },
+      {
+        "es": "The neighbours talked about you at dinner. They said good things.",
+        "ru": "Соседи говорили о тебе за ужином. Говорили хорошее."
+      },
+      {
+        "es": "Another fragment. The light of the lighthouse is brighter tonight.",
+        "ru": "Ещё один обрывок. Сегодня свет маяка ярче.",
+        "gloss": {
+          "fragment": "обрывок",
+          "lighthouse": "маяк",
+          "brighter": "ярче"
+        }
+      },
+      {
+        "es": "You answered well today. The hills remember everything.",
+        "ru": "Ты сегодня хорошо отвечал. Горы всё помнят.",
+        "gloss": {
+          "hills": "горы"
+        }
+      },
+      {
+        "es": "One more page in my book. The road to the lighthouse is shorter.",
+        "ru": "Ещё одна страница в моей книге. Дорога к маяку стала короче.",
+        "gloss": {
+          "page": "страница",
+          "lighthouse": "маяк"
+        }
+      }
+    ],
+    "3": [
+      {
+        "es": "If you keep going like this, the desert won't trick you.",
+        "ru": "Если так пойдёт и дальше, пустыня тебя не обманет.",
+        "gloss": {
+          "desert": "пустыня",
+          "trick": "обмануть"
+        }
+      },
+      {
+        "es": "Another real fragment. Not a fake one, I checked.",
+        "ru": "Ещё один настоящий обрывок. Не поддельный, я проверил.",
+        "gloss": {
+          "fragment": "обрывок",
+          "fake": "поддельный"
+        }
+      },
+      {
+        "es": "Today the sand moved, but your map didn't.",
+        "ru": "Сегодня песок двигался, а твоя карта — нет."
+      },
+      {
+        "es": "If the white city appears tonight, I'll tell you.",
+        "ru": "Если белый город появится сегодня ночью, я тебе скажу."
+      },
+      {
+        "es": "One more fragment. The desert is less dangerous with a good map.",
+        "ru": "Ещё один обрывок. С хорошей картой пустыня не так опасна.",
+        "gloss": {
+          "fragment": "обрывок",
+          "desert": "пустыня",
+          "less": "менее"
+        }
+      },
+      {
+        "es": "You told the truth today. In the desert, the truth is worth more than water.",
+        "ru": "Сегодня ты сказал правду. В пустыне правда дороже воды.",
+        "gloss": {
+          "desert": "пустыня",
+          "worth": "стоит"
+        }
+      },
+      {
+        "es": "I'm writing by the light of a lantern. The page smells of sand.",
+        "ru": "Я пишу при свете фонаря. Страница пахнет песком.",
+        "gloss": {
+          "lantern": "фонарь",
+          "page": "страница"
+        }
+      }
+    ],
+    "4": [
+      {
+        "es": "Another argument ended in peace. The forest is a little quieter tonight.",
+        "ru": "Ещё один спор закончился миром. Сегодня лес чуть тише."
+      },
+      {
+        "es": "Today I heard the trees for a moment. They weren't angry.",
+        "ru": "Сегодня я на миг услышал деревья. Они не сердились."
+      },
+      {
+        "es": "One more fragment of the map of the forest. The path is getting clearer.",
+        "ru": "Ещё один обрывок карты леса. Тропа становится яснее.",
+        "gloss": {
+          "fragment": "обрывок"
+        }
+      },
+      {
+        "es": "You listened before you answered. The Keeper would approve.",
+        "ru": "Ты слушал, прежде чем ответить. Хранительница бы одобрила.",
+        "gloss": {
+          "keeper": "Хранительница",
+          "approve": "одобрить"
+        }
+      },
+      {
+        "es": "Less gossip in town today. I hardly needed my pen.",
+        "ru": "Сегодня в городе меньше сплетен. Перо мне почти не понадобилось.",
+        "gloss": {
+          "gossip": "сплетни",
+          "less": "меньше"
+        }
+      },
+      {
+        "es": "Another fragment. Edgar flew over the post office, silent for once.",
+        "ru": "Ещё один обрывок. Эдгар пролетел над почтой и на этот раз молчал.",
+        "gloss": {
+          "fragment": "обрывок",
+          "edgar": "Эдгар"
+        }
+      },
+      {
+        "es": "The neighbours are talking to each other again, face to face.",
+        "ru": "Соседи снова говорят друг с другом, лицом к лицу."
+      }
+    ],
+    "5": [
+      {
+        "es": "Today you spoke to everyone in the right tone. The echo stayed quiet.",
+        "ru": "Сегодня ты говорил с каждым в его тоне. Эхо молчало."
+      },
+      {
+        "es": "Another fragment of the Labyrinth. The stone passages are less confusing.",
+        "ru": "Ещё один обрывок Лабиринта. Каменные ходы уже не так запутанны.",
+        "gloss": {
+          "fragment": "обрывок",
+          "labyrinth": "Лабиринт",
+          "passages": "ходы",
+          "less": "менее"
+        }
+      },
+      {
+        "es": "A customer at the café said “Cheers, love” and nobody took offence. Progress.",
+        "ru": "Посетитель в кафе сказал «Спасибо, дорогуша», и никто не обиделся. Прогресс.",
+        "gloss": {
+          "offence": "обида"
+        }
+      },
+      {
+        "es": "I wrote your day formally, then casually. Both pages are true.",
+        "ru": "Я записал твой день официально, а потом запросто. Обе страницы правдивы.",
+        "gloss": {
+          "pages": "страницы",
+          "formally": "официально",
+          "casually": "запросто"
+        }
+      },
+      {
+        "es": "One more fragment. Somewhere in the stone, someone is listening.",
+        "ru": "Ещё один обрывок. Где-то в камне кто-то слушает.",
+        "gloss": {
+          "fragment": "обрывок"
+        }
+      },
+      {
+        "es": "The echo brought back a kind word today, and it was still kind.",
+        "ru": "Сегодня эхо вернуло доброе слово, и оно осталось добрым."
+      },
+      {
+        "es": "The Gates are close. I'm saving the last pages of my book for them.",
+        "ru": "Врата близко. Последние страницы книги я берегу для них.",
+        "gloss": {
+          "pages": "страницы"
+        }
+      }
+    ]
+  }
+}

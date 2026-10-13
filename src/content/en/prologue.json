@@ -1,0 +1,131 @@
+{
+  "gatekeeper": {
+    "id": "gatekeeper",
+    "name": "Привратник Джордж",
+    "role": "привратник у городских ворот",
+    "gender": "m",
+    "voice": {
+      "pitch": 0.85,
+      "rate": 0.9
+    },
+    "look": {
+      "skin": 2,
+      "hair": "#3b2a1a",
+      "style": "short",
+      "outfit": "#5b6b3a",
+      "pants": "#2e2216",
+      "extra": [
+        "mustache",
+        "cap"
+      ]
+    }
+  },
+  "words": [
+    "scroll1.hello",
+    "cafe.thank-you",
+    "airport.goodbye"
+  ],
+  "gate": [
+    {
+      "who": "gatekeeper",
+      "es": "Hello, traveller! This is the gate of the town.",
+      "ru": "Привет, путник! Это ворота города."
+    },
+    {
+      "who": "gatekeeper",
+      "es": "Here everyone says \"hello\", \"thank you\" and \"goodbye\". First, these three words.",
+      "ru": "Здесь все говорят «hello», «thank you» и «goodbye». Сначала — эти три слова."
+    },
+    {
+      "who": "hero",
+      "es": "Hello! Thank you!",
+      "ru": "Привет! Спасибо!"
+    }
+  ],
+  "road": [
+    {
+      "who": "gatekeeper",
+      "es": "Very good! Now go to the café. It is the first house in the street.",
+      "ru": "Очень хорошо! Теперь иди в кафе. Это первый дом на улице."
+    },
+    {
+      "who": "hero",
+      "es": "Thank you! Goodbye!",
+      "ru": "Спасибо! До свидания!"
+    }
+  ],
+  "mission": [
+    {
+      "say": {
+        "es": "Hello! Come in, come in.",
+        "ru": "Привет! Заходи, заходи."
+      },
+      "options": [
+        "Hello!",
+        "Goodbye!",
+        "Thank you"
+      ],
+      "answer": 0,
+      "wrong": {
+        "es": "What? You're here, you aren't leaving.",
+        "ru": "Как это? Ты же никуда не уходишь."
+      }
+    },
+    {
+      "say": {
+        "es": "Here's a cup of tea. It's on the house.",
+        "ru": "Вот тебе чашка чая. Угощает заведение."
+      },
+      "options": [
+        "Goodbye!",
+        "Thank you",
+        "Hello!"
+      ],
+      "answer": 1,
+      "wrong": {
+        "es": "I'm giving you a tea… and what do you say?",
+        "ru": "Я даю тебе чай… и что ты скажешь?"
+      }
+    },
+    {
+      "say": {
+        "es": "Right, I have a lot of work. See you later!",
+        "ru": "Ну, мне пора за работу. До скорого!"
+      },
+      "options": [
+        "Thank you",
+        "Hello!",
+        "Goodbye!"
+      ],
+      "answer": 2,
+      "wrong": {
+        "es": "I'm going to work. What do you say?",
+        "ru": "Я ухожу работать. Что говорят на прощание?"
+      }
+    }
+  ],
+  "finale": [
+    {
+      "who": "gatekeeper",
+      "es": "Very good, traveller! Look, a fragment of a map.",
+      "ru": "Очень хорошо, путник! Смотри, обрывок карты."
+    },
+    {
+      "who": "gatekeeper",
+      "es": "It is the road to the Vault. The town will teach you the rest.",
+      "ru": "Это путь к Хранилищу. Остальному тебя научит город."
+    }
+  ],
+  "gloss": {
+    "goodbye": "до свидания",
+    "words": "слова",
+    "first": "первый",
+    "fragment": "обрывок",
+    "vault": "Хранилище",
+    "rest": "остальное",
+    "everyone": "все",
+    "gate": "ворота",
+    "traveller": "путник",
+    "teach": "научит"
+  }
+}
