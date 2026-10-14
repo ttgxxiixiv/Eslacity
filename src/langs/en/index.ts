@@ -59,7 +59,7 @@ function articleSound(text: string): string[] {
 /** Английский курс: британский вариант (задача 17.1). Закрыт до 17.9: контент пишется в 17.2–17.8. */
 export const EN: LangProfile = {
   id: 'en',
-  released: false,
+  released: true,
   name: 'Английский',
   variety: 'Английский курс — британский вариант: «flat», «lift», «queue». Американское написание тоже засчитывается.',
   flag: '🇬🇧',
