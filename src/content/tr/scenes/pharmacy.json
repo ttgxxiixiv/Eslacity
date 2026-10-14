@@ -1,0 +1,55 @@
+{
+  "location": "pharmacy",
+  "scenes": [
+    {
+      "id": "sc:pharmacy.1",
+      "chapter": 1,
+      "npc": "zeynep",
+      "lines": [
+        {"who": "npc", "es": "İyi günler. Size nasıl yardımcı olabilirim?", "ru": "Добрый день. Чем вам помочь?"},
+        {"who": "hero", "es": "İyiyim, teşekkürler. Haritayı arıyorum. Siz çok şey biliyormuşsunuz.", "ru": "Я в порядке, спасибо. Я ищу карту. Говорят, вы много знаете."},
+        {"who": "npc", "es": "Çok şey biliyorum. İksirin ilaç olmadığını da biliyorum.", "ru": "Знаю много. И знаю, что Эликсир — не лекарство."},
+        {"who": "hero", "es": "Ne peki?", "ru": "А что тогда?"},
+        {"who": "npc", "es": "Onu içen, bizim dilimizi konuşur. Eczanede yok.", "ru": "Кто его выпьет, заговорит на нашем языке. В аптеке его нет."},
+        {"who": "hero", "es": "Sizde harita parçası var mı?", "ru": "У вас есть обрывок карты?"},
+        {"who": "npc", "es": "Burada, reçetelerle birlikte.", "ru": "Здесь, вместе с рецептами."},
+        {"who": "hero", "es": "Bana verir misiniz?", "ru": "Отдадите его мне?"},
+        {"who": "npc", "es": "Acele etmeyin. Önce: nasılsınız?", "ru": "Не спешите. Сначала: как вы себя чувствуете?"},
+        {"who": "hero", "es": "Başım ağrıyor.", "ru": "У меня болит голова."},
+        {"who": "npc", "es": "Peki. Önce başınıza bakalım.", "ru": "Хорошо. Сначала посмотрим вашу голову."}
+      ],
+      "questions": [
+        {"q": "Что Зейнеп-ханым знает об Эликсире?", "options": ["Это лекарство", "Это не лекарство", "Его продают в аптеке"], "answer": 1},
+        {"q": "Что будет с тем, кто выпьет Эликсир?", "options": ["Он заснёт", "Он заговорит на здешнем языке", "Он помолодеет"], "answer": 1},
+        {"q": "Где её обрывок карты?", "options": ["Вместе с рецептами", "В кармане", "Дома"], "answer": 0},
+        {"q": "Что болит у героя?", "options": ["Живот", "Горло", "Голова"], "answer": 2}
+      ],
+      "gloss": {"biliyormuşsunuz": "говорят, вы знаете", "iksirin": "Эликсира (iksir)", "onu": "его", "olmadığını": "что не является", "içen": "кто выпьет", "dilimizi": "наш язык", "parçası": "обрывок (parça)", "acele": "спешка", "etmeyin": "не делайте"}
+    },
+    {
+      "id": "sc:pharmacy.2",
+      "chapter": 2,
+      "npc": "zeynep",
+      "lines": [
+        {"who": "npc", "es": "İyi günler. Neden geldiğinizi biliyorum. Dağ, değil mi?", "ru": "Добрый день. Я знаю, зачем вы пришли. Горы, верно?"},
+        {"who": "hero", "es": "Yol için ne lazım?", "ru": "Что нужно в дорогу?"},
+        {"who": "npc", "es": "Kerem ne aldıysa, onu. O, baş dönmesi için hap ve sargı aldı.", "ru": "То же, что и Керему. Он купил таблетки от головокружения и бинт."},
+        {"who": "hero", "es": "Baş dönmesi mi?", "ru": "Головокружение?"},
+        {"who": "npc", "es": "Yukarıda, geçitte hava başka. Kulenin yanında çok kişinin başı döner.", "ru": "Наверху, на перевале, другой воздух. У башни у многих кружится голова."},
+        {"who": "hero", "es": "Gri paltolu adam da geldi mi?", "ru": "А человек в сером пальто тоже приходил?"},
+        {"who": "npc", "es": "Geldi. Hiçbir şey almadı. Bana çok garip bir soru sordu.", "ru": "Приходил. Ничего не купил. Задал мне очень странный вопрос."},
+        {"who": "hero", "es": "Ne sordu?", "ru": "Что он спросил?"},
+        {"who": "npc", "es": "“Hangi yıldayız?” diye sordu. Sanki bilmiyordu.", "ru": "Спросил: «Какой сейчас год?» Будто не знал."},
+        {"who": "hero", "es": "Ne garip!", "ru": "Как странно!"},
+        {"who": "npc", "es": "Çok garip. Ama ben ilaç satıyorum, cevap değil.", "ru": "Очень странно. Но я продаю лекарства, а не ответы."}
+      ],
+      "questions": [
+        {"q": "Что купил Керем?", "options": ["Таблетки от головокружения и бинт", "Витамины", "Капли от насморка"], "answer": 0},
+        {"q": "Почему у башни кружится голова?", "options": ["Там другой воздух", "Там шумно", "Там жарко"], "answer": 0},
+        {"q": "Купил ли что-нибудь человек в сером пальто?", "options": ["Да, лекарство", "Нет, ничего", "Да, бинт"], "answer": 1},
+        {"q": "Что он спросил?", "options": ["Где башня", "Какой сейчас год", "Сколько стоит лекарство"], "answer": 1}
+      ],
+      "gloss": {"geldiğinizi": "зачем вы пришли", "aldıysa": "что купил", "sargı": "бинт", "geçitte": "на перевале (geçit)", "kulenin": "башни (kule)", "döner": "кружится", "paltolu": "в пальто", "garip": "странный", "yıldayız": "год сейчас (yıl)", "diye": "(вводит чужие слова)", "sanki": "будто"}
+    }
+  ]
+}

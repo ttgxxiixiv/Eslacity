@@ -1,0 +1,57 @@
+{
+  "location": "hospital",
+  "scenes": [
+    {
+      "id": "sc:hospital.1",
+      "chapter": 1,
+      "npc": "gul",
+      "lines": [
+        {"who": "npc", "es": "İyi günler. Bugün nasılsınız?", "ru": "Добрый день. Как вы себя чувствуете сегодня?"},
+        {"who": "hero", "es": "İyiyim, teşekkürler. Şirketten gelen adam burada mı?", "ru": "Хорошо, спасибо. Человек из компании здесь?"},
+        {"who": "npc", "es": "Dört numaralı odada. Dağ yolunda düştü.", "ru": "Он в четвёртой палате. Упал на горной дороге."},
+        {"who": "hero", "es": "Dağa mı gitmek istedi?", "ru": "Он хотел в горы?"},
+        {"who": "npc", "es": "Evet, ama haritası ve kelimeleri yoktu. O yüzden geçemedi.", "ru": "Да, но у него не было ни карты, ни слов. Поэтому он не прошёл."},
+        {"who": "hero", "es": "“Gel” mektuplarını kim yazıyor, biliyor musunuz?", "ru": "Вы знаете, кто пишет письма с «Приходи»?"},
+        {"who": "npc", "es": "Biliyorum: Vakanüvis. Dün buradaydı.", "ru": "Знаю: Летописец. Он был здесь вчера."},
+        {"who": "hero", "es": "Vakanüvis mi? Neden?", "ru": "Летописец? Зачем?"},
+        {"who": "npc", "es": "Komşularına yardım eden birini arıyor. Mahzen'e sadece öyle biri varır.", "ru": "Он ищет того, кто помогает соседям. До Хранилища дойдёт только такой человек."},
+        {"who": "hero", "es": "Sizde harita parçası var mı?", "ru": "У вас есть обрывок карты?"},
+        {"who": "npc", "es": "Var. Ama şimdi doktor benim. Siz nasılsınız?", "ru": "Есть. Но сейчас врач здесь я. Как вы себя чувствуете?"}
+      ],
+      "questions": [
+        {"q": "Где человек из компании?", "options": ["В четвёртой палате", "В пансионе", "Улетел"], "answer": 0},
+        {"q": "Почему он не прошёл?", "options": ["У него не было ни карты, ни слов", "Было поздно", "Он заблудился"], "answer": 0},
+        {"q": "Кто пишет письма «Приходи»?", "options": ["Страж", "Летописец", "Доктор Гюль"], "answer": 1},
+        {"q": "Кого ищет Летописец?", "options": ["Того, кто помогает соседям", "Самого сильного", "Того, кто платит"], "answer": 0}
+      ],
+      "gloss": {"şirketten": "из компании (şirket)", "gelen": "который пришёл", "numaralı": "номер", "istedi": "хотел", "haritası": "его карта", "geçemedi": "не смог пройти", "mektuplarını": "письма (mektup)", "vakanüvis": "Летописец", "buradaydı": "был здесь", "komşularına": "своим соседям", "eden": "который делает", "birini": "кого-то", "mahzen": "Хранилище", "öyle": "такой", "varır": "дойдёт", "parçası": "обрывок (parça)"}
+    },
+    {
+      "id": "sc:hospital.2",
+      "chapter": 2,
+      "npc": "gul",
+      "lines": [
+        {"who": "npc", "es": "İyi günler. Bir haberim var: Kerem burada.", "ru": "Добрый день. У меня новость: Керем здесь."},
+        {"who": "hero", "es": "Kerem mi? Nasıl?", "ru": "Керем? Как он?"},
+        {"who": "npc", "es": "Ayağı kırık, ama iyi. Muhafız onu dağdan indirdi.", "ru": "У него сломана стопа, но он в порядке. Страж спустил его с горы."},
+        {"who": "npc", "es": "Geçen ayki sizin kolunuz gibi değil: onun ayağı gerçekten kırık.", "ru": "Не как ваша рука в прошлом месяце: у него и правда перелом.", "if": {"flag": "injury", "is": "arm"}},
+        {"who": "npc", "es": "Geçen ayki sizin kalbiniz gibi değil. Kalbi güçlü, sadece ayağı ağrıyor.", "ru": "Не как ваше сердце в прошлом месяце. Сердце у него сильное, болит только нога.", "if": {"flag": "injury", "is": "heart"}},
+        {"who": "hero", "es": "Kulede ne oldu?", "ru": "Что случилось в башне?"},
+        {"who": "npc", "es": "Bana anlattı. Muhafız üç soru soruyor, geçmiş zamanla.", "ru": "Он мне рассказал. Страж задаёт три вопроса, в прошедшем времени."},
+        {"who": "hero", "es": "Kerem cevap verdi mi?", "ru": "И Керем ответил?"},
+        {"who": "npc", "es": "İkisine cevap verdi. Üçüncüsünde ne diyeceğini bilemedi.", "ru": "Ответил на два. На третий не знал, что сказать."},
+        {"who": "hero", "es": "Üçüncü soru neydi?", "ru": "Какой был третий вопрос?"},
+        {"who": "npc", "es": "“Kime yardım ettin?”", "ru": "«Кому ты помог?»"},
+        {"who": "hero", "es": "Kime yardım ettim? Bunu biliyorum.", "ru": "Кому я помог? Это я знаю.", "fem": {"ru": "Кому я помогла? Это я знаю."}},
+        {"who": "npc", "es": "Muhafız Kerem'e dedi ki: “Bana haritalı yolcuyu getir.” Sıra sizde.", "ru": "Страж сказал Керему: «Приведи ко мне путника с картой». Ваша очередь."}
+      ],
+      "questions": [
+        {"q": "Что с Керемом?", "options": ["Сломана стопа", "Сломана рука", "Болит сердце"], "answer": 0},
+        {"q": "Кто спустил его с горы?", "options": ["Страж", "Капитан Исмаил", "Дениз"], "answer": 0},
+        {"q": "Сколько вопросов задаёт страж?", "options": ["Один", "Три", "Пять"], "answer": 1},
+        {"q": "Какой вопрос был третьим?", "options": ["«Откуда ты?»", "«Кому ты помог?»", "«Что ты ел?»"], "answer": 1}
+      ],
+      "gloss": {"haberim": "у меня новость", "muhafız": "страж", "indirdi": "спустил", "geçen": "прошлый", "ayki": "месяца", "kolunuz": "ваша рука", "kalbiniz": "ваше сердце", "gerçekten": "и правда", "kalbi": "его сердце", "kulede": "в башне", "geçmiş": "прошедшее", "zamanla": "временем", "ikisine": "на два", "üçüncüsünde": "на третьем", "diyeceğini": "что сказать", "bilemedi": "не смог понять", "üçüncü": "третий", "neydi": "какой был", "dedi": "сказал", "ki": "(вводит прямую речь)", "haritalı": "с картой", "getir": "приведи", "sıra": "очередь"}
+    }
+  ]
+}

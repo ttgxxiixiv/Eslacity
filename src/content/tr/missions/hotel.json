@@ -1,0 +1,45 @@
+{
+  "location": "hotel",
+  "missions": [
+    {
+      "id": "ms:hotel.1",
+      "chapter": 1,
+      "npc": "leyla",
+      "scene": "sc:hotel.1",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Günaydın. Bugün size bir oda ve harita parçamı vereceğim. Ne lazım?", "ru": "Доброе утро. Сегодня я дам вам номер и мой обрывок карты. Что вам нужно?", "next": "room"},
+        "room": {"kind": "answer", "task": "Попросите двухместный номер.", "branches": [{"phrase": "ph:hotel.iki-kisilik-oda", "next": "bfast"}], "wrong": {"es": "Masa mı? Restoran karşıda.", "ru": "Столик? Ресторан напротив."}},
+        "bfast": {"kind": "say", "es": "Yedi numara. Bir şey daha var mı?", "ru": "Номер семь. Что-нибудь ещё?", "next": "bfastq"},
+        "bfastq": {"kind": "answer", "task": "Спросите, включён ли завтрак.", "branches": [{"phrase": "ph:hotel.kahvalti-dahil-mi", "next": "lift"}], "wrong": {"es": "Akşam yemeği mi? Hayır, sadece kahvaltı var.", "ru": "Ужин? Нет, у нас только завтрак."}},
+        "lift": {"kind": "say", "es": "Dahil, saat yediden ona kadar. Oda üçüncü katta.", "ru": "Включён, с семи до десяти. Номер на третьем этаже.", "next": "liftq"},
+        "liftq": {"kind": "answer", "task": "Спросите, где лифт.", "branches": [{"phrase": "ph:hotel.asansor-nerede", "next": "noise"}], "wrong": {"es": "Banyo mu? Banyo odada.", "ru": "Ванная? Ванная в номере."}},
+        "noise": {"kind": "say", "es": "Sağda. İyi geceler.", "ru": "Справа. Спокойной ночи.", "next": "noiseq"},
+        "noiseq": {"kind": "answer", "task": "Утром пожалуйтесь, что в номере очень шумно.", "branches": [{"phrase": "ph:hotel.oda-gurultulu", "next": "blanket"}], "wrong": {"es": "Güzel mi? Teşekkürler, ama yüzünüz yorgun.", "ru": "Хорошо? Спасибо, но лицо у вас усталое."}},
+        "blanket": {"kind": "say", "es": "Biliyorum. Sekiz numaradaki adam: gece telefonla konuşuyor. Harita parçalarını almak istiyor.", "ru": "Знаю. Это человек из восьмого номера: по ночам говорит по телефону. Хочет купить обрывки карты.", "next": "blanketq"},
+        "blanketq": {"kind": "answer", "task": "Попросите ещё одно одеяло.", "branches": [{"phrase": "ph:hotel.bir-battaniye", "next": "end"}], "wrong": {"es": "Yastık mı? Yastık odada var.", "ru": "Подушка? Подушка в номере есть."}},
+        "end": {"kind": "say", "es": "Alın. Bu da haritanın bir parçası. Sekiz numaradaki adama hiçbir şey yok: para ile Türkçe öğrenilmez.", "ru": "Держите. А это обрывок карты. Человеку из восьмого — ничего: за деньги турецкому не научишься."}
+      }
+    },
+    {
+      "id": "ms:hotel.2",
+      "chapter": 2,
+      "npc": "leyla",
+      "scene": "sc:hotel.2",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "İyi akşamlar. Yarın kuleye çıkıyorsunuz, değil mi? Ne lazım?", "ru": "Добрый вечер. Завтра вы поднимаетесь к башне, верно? Что вам нужно?", "next": "free"},
+        "free": {"kind": "answer", "task": "Спросите, есть ли свободные номера.", "branches": [{"phrase": "ph:hotel.bos-oda-var-mi", "next": "safe"}], "wrong": {"es": "Kahvaltı mı? Sabah, saat yedide.", "ru": "Завтрак? Утром, в семь."}},
+        "safe": {"kind": "say", "es": "Sadece bir tane: sekiz. Yedi numara Orhan'ın.", "ru": "Только один: восьмой. Седьмой — Орхана.", "next": "safeq"},
+        "safeq": {"kind": "answer", "task": "Спросите, можно ли оставить здесь ваши вещи.", "branches": [{"phrase": "ph:hotel.esyalarim", "next": "key"}], "wrong": {"es": "Oda servisi mi? Bu saatte yok.", "ru": "Обслуживание в номерах? В это время нет."}},
+        "key": {"kind": "say", "es": "Tabii. İşte anahtarınız. Ah… düştü ve kırıldı!", "ru": "Конечно. Вот ваш ключ. Ой… упал и сломался!", "next": "keyq"},
+        "keyq": {"kind": "answer", "task": "Скажите, что ключ сломан и нужен новый.", "branches": [{"phrase": "ph:hotel.yeni-anahtar", "next": "wake"}], "wrong": {"es": "Kayıp mı? Hayır, burada, ama bozuk.", "ru": "Потерялся? Нет, вот он, но сломан."}},
+        "wake": {"kind": "say", "es": "Bir tane daha alın. Onu dağda kaybetmeyin.", "ru": "Возьмите ещё один. Не потеряйте его в горах.", "next": "wakeq"},
+        "wakeq": {"kind": "answer", "task": "Спросите, можно ли заказать звонок-будильник.", "branches": [{"phrase": "ph:hotel.uyandirma-servisi", "next": "out"}], "wrong": {"es": "Taksi mi? Sabah çağırırım.", "ru": "Такси? Утром вызову."}},
+        "out": {"kind": "say", "es": "Tabii. Saat beşte mi? Çok erken, ama kule bekliyor.", "ru": "Конечно. В пять? Очень рано, но башня ждёт.", "next": "outq"},
+        "outq": {"kind": "answer", "task": "Спросите, до которого часа нужно освободить номер.", "branches": [{"phrase": "ph:hotel.cikis-saat-kac", "next": "end"}], "wrong": {"es": "Fatura mı? Yarın, lütfen.", "ru": "Счёт? Завтра, пожалуйста."}},
+        "end": {"kind": "say", "es": "On ikiye kadar. Ama siz beşte gidiyorsunuz. Dağ haritasından benim parçamı alın. Orhan'a da söyleyin: odası onu bekliyor.", "ru": "До двенадцати. Но вы уходите в пять. Возьмите мой обрывок карты гор. И скажите Орхану, что его номер ждёт."}
+      }
+    }
+  ]
+}

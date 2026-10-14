@@ -1,0 +1,45 @@
+{
+  "location": "airport",
+  "missions": [
+    {
+      "id": "ms:airport.1",
+      "chapter": 1,
+      "npc": "burak",
+      "scene": "sc:airport.1",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Bugün dağların üstünden kısa bir uçuş var. Geliyor musun? Pasaport, lütfen.", "ru": "Сегодня короткий полёт над горами. Летишь? Паспорт, пожалуйста.", "next": "pass"},
+        "pass": {"kind": "answer", "task": "Отдайте паспорт.", "branches": [{"phrase": "ph:airport.pasaportum", "next": "bag"}], "wrong": {"es": "Bilet mi? Önce pasaport!", "ru": "Билет? Сначала паспорт!"}},
+        "bag": {"kind": "say", "es": "Teşekkürler. Ya bavul?", "ru": "Спасибо. А чемодан?", "next": "bagq"},
+        "bagq": {"kind": "answer", "task": "Спросите, где сдать багаж.", "branches": [{"phrase": "ph:airport.bagaj-nerede", "next": "sec"}], "wrong": {"es": "Kahve mi? Kahve uçakta.", "ru": "Кофе? Кофе в самолёте."}},
+        "sec": {"kind": "say", "es": "Orada, solda. Sonra güvenlik kontrolü.", "ru": "Вон там, слева. Потом досмотр.", "next": "secq"},
+        "secq": {"kind": "answer", "task": "Спросите, где досмотр.", "branches": [{"phrase": "ph:airport.guvenlik-nerede", "next": "gate"}], "wrong": {"es": "Tuvalet mi? Sağda.", "ru": "Туалет? Справа."}},
+        "gate": {"kind": "say", "es": "Düz git. Sonra biniş kapısına.", "ru": "Прямо. А потом к выходу на посадку.", "next": "gateq"},
+        "gateq": {"kind": "answer", "task": "Спросите, какой выход на посадку.", "branches": [{"phrase": "ph:airport.hangi-kapi", "next": "time"}], "wrong": {"es": "Pilot mu? Pilot benim!", "ru": "Пилот? Пилот — это я!"}},
+        "time": {"kind": "say", "es": "Üç numaralı kapı.", "ru": "Выход номер три.", "next": "timeq"},
+        "timeq": {"kind": "answer", "task": "Спросите, когда взлетает самолёт.", "branches": [{"phrase": "ph:airport.ucak-ne-zaman", "next": "end"}], "wrong": {"es": "Nereye mi? Dağlara, dedim!", "ru": "Куда? В горы, я же сказал!"}},
+        "end": {"kind": "say", "es": "Saat sekizde. Pencereden bak: işte dağlar ve yol. Al, bu haritanın bir parçası. Bir de yol için bir hediye.", "ru": "В восемь. Посмотри в окно: вон горы и дорога. Держи, это обрывок карты. И подарок в дорогу."}
+      }
+    },
+    {
+      "id": "ms:airport.2",
+      "chapter": 2,
+      "npc": "burak",
+      "scene": "sc:airport.2",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Bugün yine çölün üstünden uçuyorum. Geliyor musun? Uçuş kısa.", "ru": "Сегодня я снова лечу над пустыней. Летишь? Полёт короткий.", "next": "seat"},
+        "seat": {"kind": "answer", "task": "Попросите место у прохода.", "branches": [{"phrase": "ph:airport.koridor-tarafi", "next": "cabin"}], "wrong": {"es": "Pasaport mu? Pasaportunu gördüm.", "ru": "Паспорт? Твой паспорт я уже видел."}},
+        "cabin": {"kind": "say", "es": "Koridor mu? Cam kenarından çöl daha iyi görünür… Peki. Ya bu çanta?", "ru": "У прохода? У окна пустыню лучше видно… Ну ладно. А эта сумка?", "next": "cabinq"},
+        "cabinq": {"kind": "answer", "task": "Спросите, ручная ли это кладь.", "branches": [{"phrase": "ph:airport.kabin-bagaji-mi", "next": "liquid"}], "wrong": {"es": "Bavul mu? Hayır, bu küçük bir çanta.", "ru": "Чемодан? Нет, это маленькая сумка."}},
+        "liquid": {"kind": "say", "es": "Kabin bagajı, çok iyi. Su götürüyor musun?", "ru": "Ручная кладь, отлично. Воду везёшь?", "next": "liquidq"},
+        "liquidq": {"kind": "answer", "task": "Спросите, можно ли брать жидкости на борт.", "branches": [{"phrase": "ph:airport.sivi-alabilir", "next": "board"}], "wrong": {"es": "Yemek mi? Uçakta sandviç var.", "ru": "Еда? В самолёте есть сэндвичи."}},
+        "board": {"kind": "say", "es": "Biraz. Çöle su götürmek daha iyi.", "ru": "Немного. В пустыню лучше брать воду.", "next": "boardq"},
+        "boardq": {"kind": "answer", "task": "Спросите, во сколько начинается посадка.", "branches": [{"phrase": "ph:airport.binis-saat-kac", "next": "late"}], "wrong": {"es": "Saat kaç mı? Saat yedi.", "ru": "Который час? Семь."}},
+        "late": {"kind": "say", "es": "Şimdi başlıyor. Ama hava rüzgârlı…", "ru": "Прямо сейчас. Но погода ветреная…", "next": "lateq"},
+        "lateq": {"kind": "answer", "task": "Спросите, задерживается ли самолёт.", "branches": [{"phrase": "ph:airport.ucak-gecikiyor", "next": "end"}], "wrong": {"es": "İptal mi? Hayır, iptal yok.", "ru": "Отменили? Нет, не отменили."}},
+        "end": {"kind": "say", "es": "Hayır, zamanında. Sonra pencereden bak: kule, tren yolu ve kum. Beyaz şehri görüyor musun? Artık yok. Al, dağ haritasından benim parçam.", "ru": "Нет, вовремя. А потом смотри в окно: башня, железная дорога и песок. Видишь белый город? Его уже нет. Держи мой обрывок карты гор."}
+      }
+    }
+  ]
+}

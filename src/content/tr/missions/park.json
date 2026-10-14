@@ -1,0 +1,45 @@
+{
+  "location": "park",
+  "missions": [
+    {
+      "id": "ms:park.1",
+      "chapter": 1,
+      "npc": "riza",
+      "scene": "sc:park.1",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Günaydın! Bugün haritadaki yolun başına bakalım. Geliyor musun?", "ru": "Доброе утро! Сегодня посмотрим, где начинается дорога с карты. Идёшь?", "next": "walk"},
+        "walk": {"kind": "answer", "task": "Предложите погулять по парку.", "branches": [{"phrase": "ph:park.parkta-yuruyelim", "next": "sun"}], "wrong": {"es": "Oynamak mı? Sonra oynarız. Önce yürüyelim!", "ru": "Играть? Потом поиграем. Сначала погуляем!"}},
+        "sun": {"kind": "say", "es": "Yürüyelim. Ama ben yaşlıyım, çok yürüyemem.", "ru": "Пойдём. Только я старый, много ходить не могу.", "next": "sunq"},
+        "sunq": {"kind": "answer", "task": "Скажите, что очень солнечно, и предложите пойти в тень.", "branches": [{"phrase": "ph:park.gunes-var", "next": "bench"}], "wrong": {"es": "Yağmur mu? Hayır, bak, gökyüzü mavi.", "ru": "Дождь? Нет, смотри, небо синее."}},
+        "bench": {"kind": "say", "es": "Tamam, gölgeye. Köpeğim de yorgun.", "ru": "Хорошо, в тень. Моя собака тоже устала.", "next": "benchq"},
+        "benchq": {"kind": "answer", "task": "Спросите, есть ли здесь скамейка.", "branches": [{"phrase": "ph:park.bank-var-mi", "next": "lake"}], "wrong": {"es": "Bankaya mı gidiyorsun? Bankaya sonra git!", "ru": "В банк собрался? В банк потом!"}},
+        "lake": {"kind": "say", "es": "Orada, büyük çınarın altında. Şimdi göle gidelim.", "ru": "Вон там, под большим платаном. А теперь пойдём к озеру.", "next": "lakeq"},
+        "lakeq": {"kind": "answer", "task": "Спросите, где озеро.", "branches": [{"phrase": "ph:park.gol-nerede", "next": "see"}], "wrong": {"es": "Göz mü? Gözlerim iyi değil, ama yolu biliyorum.", "ru": "Глаза? Глаза у меня неважные, но дорогу я знаю."}},
+        "see": {"kind": "say", "es": "İşte göl. Haritadaki yol burada başlıyor.", "ru": "Вот и озеро. Здесь начинается дорога с карты.", "next": "seeq"},
+        "seeq": {"kind": "answer", "task": "Скажите, какой красивый парк или как здесь тихо.", "branches": [{"phrase": "ph:park.park-cok-guzel", "next": "end"}, {"phrase": "ph:park.burasi-sessiz", "next": "end"}], "wrong": {"es": "Ne? Kuşlar çok konuşuyor, duymadım.", "ru": "Что? Птицы очень шумят, я не расслышал."}},
+        "end": {"kind": "say", "es": "Evet. Al, bu haritanın bir parçası. Yol dağa çıkıyor. Ben yaşlıyım, sen gençsin. İyi yolculuklar!", "ru": "Да. Держи, это обрывок карты. Дорога уходит в горы. Я старый, а ты молодой. Счастливого пути!", "fem": {"ru": "Да. Держи, это обрывок карты. Дорога уходит в горы. Я старый, а ты молодая. Счастливого пути!"}}
+      }
+    },
+    {
+      "id": "ms:park.2",
+      "chapter": 2,
+      "npc": "riza",
+      "scene": "sc:park.2",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Günaydın. Bugün gölün yanında dolaşalım. Gri paltolu adam gelecek mi, bakmak istiyorum.", "ru": "Доброе утро. Сегодня погуляем у озера. Хочу посмотреть, не придёт ли человек в сером пальто.", "next": "picnic"},
+        "picnic": {"kind": "answer", "task": "Скажите, что погода отличная для пикника.", "branches": [{"phrase": "ph:park.piknik-havasi", "next": "sit"}], "wrong": {"es": "Pilav mı? Hayır, bugün ekmek ve peynir var.", "ru": "Плов? Нет, сегодня хлеб и сыр."}},
+        "sit": {"kind": "say", "es": "Piknik, evet! Ekmek ve peynir var. Nereye oturalım?", "ru": "Пикник — да! Есть хлеб и сыр. Куда сядем?", "next": "sitq"},
+        "sitq": {"kind": "answer", "task": "Спросите, можно ли сесть на траву.", "branches": [{"phrase": "ph:park.cimene-oturabilir", "next": "ducks"}], "wrong": {"es": "Ağaca mı çıkacağız? Ben yaşlıyım!", "ru": "На дерево полезем? Я старый!"}},
+        "ducks": {"kind": "say", "es": "Tabii, buraya. Göle bak. Ördekleri görüyor musun?", "ru": "Конечно, вот сюда. Посмотри на озеро. Видишь уток?", "next": "ducksq"},
+        "ducksq": {"kind": "answer", "task": "Скажите, что утки голодные.", "branches": [{"phrase": "ph:park.ordekler-ac", "next": "squirrel"}], "wrong": {"es": "Ördekler uyuyor mu? Hayır, bak, yüzüyorlar.", "ru": "Утки спят? Нет, смотри, плавают."}},
+        "squirrel": {"kind": "say", "es": "Al, biraz ekmek at. Gri paltolu adam da böyle yaptı.", "ru": "Держи, брось им хлеба. Человек в сером пальто делал так же.", "next": "squirrelq"},
+        "squirrelq": {"kind": "answer", "task": "Покажите Рызе белку на ветке.", "branches": [{"phrase": "ph:park.bak-sincap", "next": "rain"}], "wrong": {"es": "Kedi mi? Nerede? Ben göremiyorum.", "ru": "Кошка? Где? Я не вижу."}},
+        "rain": {"kind": "say", "es": "Ne güzel! Ah, gökyüzüne bak: çok karanlık.", "ru": "Какая красивая! Ой, посмотри на небо: совсем тёмное.", "next": "rainq"},
+        "rainq": {"kind": "answer", "task": "Скажите, что сейчас пойдёт дождь, и спросите, есть ли у него зонт.", "branches": [{"phrase": "ph:park.yagmur-yagacak", "next": "end"}], "wrong": {"es": "Güneş mi? Hayır, bak, bulutlar geliyor.", "ru": "Солнце? Нет, смотри, тучи идут."}},
+        "end": {"kind": "say", "es": "Şemsiyem var. Eve gidelim. Adam gelmedi. Ama al, dağ haritasından benim parçam. Onu görürsen yüzüne bak: elli yıl önceki gibi.", "ru": "Зонт у меня есть. Пойдём домой. Человек не пришёл. Но держи мой обрывок карты гор. Если увидишь его, посмотри на лицо: такое же, как пятьдесят лет назад."}
+      }
+    }
+  ]
+}

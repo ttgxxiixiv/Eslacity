@@ -1,0 +1,55 @@
+{
+  "location": "airport",
+  "scenes": [
+    {
+      "id": "sc:airport.1",
+      "chapter": 1,
+      "npc": "burak",
+      "lines": [
+        {"who": "npc", "es": "Pasaportunuz, lütfen. Nereye uçuyorsunuz?", "ru": "Ваш паспорт, пожалуйста. Куда летите?"},
+        {"who": "hero", "es": "Bugün hiçbir yere uçmuyorum. Bir harita parçası arıyorum.", "ru": "Сегодня я никуда не лечу. Я ищу обрывок карты."},
+        {"who": "npc", "es": "Haritalı yolcu! Ben de çok seyahat ediyorum. Bak, pasaportum.", "ru": "Путник с картой! Я тоже много путешествую. Смотри, мой паспорт."},
+        {"who": "hero", "es": "Ne kadar çok şehir!", "ru": "Сколько городов!"},
+        {"who": "npc", "es": "Dünyanın farklı şehirleri.", "ru": "Разные города мира."},
+        {"who": "hero", "es": "Ya şirketten gelen adam?", "ru": "А человек из компании?"},
+        {"who": "npc", "es": "Dün sabah uçtu. Kimse ona parça satmadı.", "ru": "Улетел вчера утром. Никто не продал ему обрывок."},
+        {"who": "hero", "es": "Çok iyi!", "ru": "Отлично!"},
+        {"who": "npc", "es": "Uçaktan dağları gördüm. Şehirden sonra yol dağa çıkıyor.", "ru": "С самолёта я видел горы. За городом дорога уходит в горы."},
+        {"who": "hero", "es": "Orada yol nasıl?", "ru": "А какая там дорога?"},
+        {"who": "npc", "es": "Orada hava çok soğuk. Bir palto al.", "ru": "Там очень холодно. Возьми пальто."}
+      ],
+      "questions": [
+        {"q": "Куда сегодня летит герой?", "options": ["На острова", "Никуда", "В горы"], "answer": 1},
+        {"q": "Что показывает Бурак?", "options": ["Свой паспорт", "Магнитики", "Карты"], "answer": 0},
+        {"q": "Купил ли человек из компании обрывок?", "options": ["Да, один", "Нет, никто не продал", "Да, все"], "answer": 1},
+        {"q": "Что советует Бурак взять в горы?", "options": ["Пальто", "Зонт", "Фонарь"], "answer": 0}
+      ],
+      "gloss": {"pasaportunuz": "ваш паспорт", "uçuyorsunuz": "летите", "uçmuyorum": "не лечу", "parçası": "обрывок (parça)", "haritalı": "с картой", "dünyanın": "мира", "farklı": "разных", "şehirleri": "города", "şirketten": "из компании (şirket)", "gelen": "который пришёл", "parça": "обрывок", "satmadı": "не продал", "şehirden": "за городом"}
+    },
+    {
+      "id": "sc:airport.2",
+      "chapter": 2,
+      "npc": "burak",
+      "lines": [
+        {"who": "npc", "es": "Yolcu! Dün geçidin üstünden uçtum. Sis yoktu.", "ru": "Путник! Вчера я летал над перевалом. Тумана не было."},
+        {"who": "hero", "es": "Ne gördün?", "ru": "И что ты видел?"},
+        {"who": "npc", "es": "Eski bir tren yolu. Kayanın üstündeki kuleye kadar çıkıyor.", "ru": "Старую железную дорогу. Она поднимается до самой башни на скале."},
+        {"who": "hero", "es": "Yüz yıl önceki tren.", "ru": "Поезд столетней давности."},
+        {"who": "npc", "es": "Kulenin arkasında yol aşağı iniyor. Kuma doğru.", "ru": "А за башней дорога спускается. К песку."},
+        {"who": "hero", "es": "Kum mu? Kerem de kumdan bahsetti.", "ru": "Песок? Керем тоже говорил о песке."},
+        {"who": "npc", "es": "Çok büyük bir çöl. Çölde beyaz bir şehir gördüm.", "ru": "Очень большая пустыня. А в пустыне я видел белый город."},
+        {"who": "hero", "es": "Çölde bir şehir mi?", "ru": "Город в пустыне?"},
+        {"who": "npc", "es": "Ben de öyle düşündüm. Ama bugün yine oradan uçtum ve şehir yoktu.", "ru": "Я тоже так подумал. Но сегодня я снова пролетал там, а города уже не было."},
+        {"who": "hero", "es": "Nasıl yoktu?", "ru": "Как это не было?"},
+        {"who": "npc", "es": "Hiçbir şey. Sadece kum. Bence çöl yalan söylüyor.", "ru": "Ничего. Только песок. По-моему, пустыня обманывает."}
+      ],
+      "questions": [
+        {"q": "Над чем летал Бурак?", "options": ["Над перевалом", "Над морем", "Над островами"], "answer": 0},
+        {"q": "Что он увидел по пути к башне?", "options": ["Старую железную дорогу", "Новый мост", "Деревню"], "answer": 0},
+        {"q": "Что лежит за башней?", "options": ["Море", "Пустыня", "Лес"], "answer": 1},
+        {"q": "Что стало с белым городом сегодня?", "options": ["Он исчез", "Он стал больше", "В нём горел свет"], "answer": 0}
+      ],
+      "gloss": {"geçidin": "перевала (geçit)", "üstünden": "над", "uçtum": "летал", "sis": "туман", "tren": "поезд", "kayanın": "скалы (kaya)", "üstündeki": "на", "kuleye": "до башни (kule)", "kulenin": "башни", "kuma": "к песку (kum)", "kumdan": "о песке", "bahsetti": "говорил", "çöl": "пустыня", "çölde": "в пустыне", "düşündüm": "подумал", "yalan": "ложь", "söylüyor": "говорит"}
+    }
+  ]
+}

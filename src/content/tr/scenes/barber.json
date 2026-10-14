@@ -1,0 +1,55 @@
+{
+  "location": "barber",
+  "scenes": [
+    {
+      "id": "sc:barber.1",
+      "chapter": 1,
+      "npc": "yusuf",
+      "lines": [
+        {"who": "npc", "es": "Gel, otur! Her zamanki gibi kısa mı?", "ru": "Заходи, садись! Коротко, как всегда?"},
+        {"who": "hero", "es": "Kısa, lütfen.", "ru": "Коротко, пожалуйста."},
+        {"who": "npc", "es": "Çok iyi. Aynaya bak. Biliyor musun, annem harita hakkında hep bir şey söylerdi.", "ru": "Отлично. Смотри в зеркало. Знаешь, моя мама всегда говорила кое-что о карте."},
+        {"who": "hero", "es": "Harita hakkında mı? Ne söylerdi?", "ru": "О карте? И что она говорила?"},
+        {"who": "npc", "es": "“Yirmi parça ve bir mühür: yol senin.”", "ru": "«Двадцать обрывков и печать — и дорога твоя»."},
+        {"who": "hero", "es": "Mühür mü? Postanedeki pul gibi mi?", "ru": "Печать? Как марка на почте?"},
+        {"who": "npc", "es": "Yok, yok. O, şehrin dışında, bir adamda.", "ru": "Нет-нет. Она за городом, у одного человека."},
+        {"who": "hero", "es": "Annen şimdi nerede?", "ru": "А где сейчас твоя мама?"},
+        {"who": "npc", "es": "Annem çok yaşlı, şimdi evde. Ama her sabah buraya gelir ve kahve içer.", "ru": "Мама очень старая, сейчас дома. Но каждое утро приходит сюда и пьёт кофе."},
+        {"who": "hero", "es": "Ya sende? Sende parça var mı?", "ru": "А у тебя? У тебя есть обрывок?"},
+        {"who": "npc", "es": "Var, aynanın arkasında. Ama önce saç! Şimdi kesiyoruz!", "ru": "Есть, за зеркалом. Но сначала волосы! А теперь стрижём!"}
+      ],
+      "questions": [
+        {"q": "Как герой хочет подстричься?", "options": ["Коротко", "Покрасить", "Только бороду"], "answer": 0},
+        {"q": "Что говорила мама Юсуфа?", "options": ["«Двадцать обрывков и печать — и дорога твоя»", "«Иди на голос»", "«Скоро придёт туман»"], "answer": 0},
+        {"q": "У кого печать карты?", "options": ["У почтальона", "У человека за городом", "У Юсуфа"], "answer": 1},
+        {"q": "Где обрывок Юсуфа?", "options": ["За зеркалом", "В кресле", "В шкафу"], "answer": 0}
+      ],
+      "gloss": {"söylerdi": "говорила (обычно)", "yirmi": "двадцать", "parça": "обрывок", "mühür": "печать", "postanedeki": "на почте", "dışında": "за, снаружи", "aynanın": "зеркала (ayna)", "arkasında": "за"}
+    },
+    {
+      "id": "sc:barber.2",
+      "chapter": 2,
+      "npc": "yusuf",
+      "lines": [
+        {"who": "npc", "es": "Buyur, otur! Her zamanki gibi mi?", "ru": "Заходи, садись! Как обычно?"},
+        {"who": "hero", "es": "Sadece uçlarını al. Ne var ne yok?", "ru": "Подровняй только кончики. Что нового?"},
+        {"who": "npc", "es": "Dün çok garip bir müşteri geldi. Gri paltolu. Tıraş olmak istedi.", "ru": "Вчера пришёл очень странный клиент. В сером пальто. Хотел побриться."},
+        {"who": "hero", "es": "Gri paltolu adam!", "ru": "Человек в сером пальто!"},
+        {"who": "npc", "es": "Onu tıraş ederken annemin sözlerini anlattım: “Yirmi parça ve bir mühür.”", "ru": "Пока я его брил, рассказал ему мамины слова: «Двадцать обрывков и печать»."},
+        {"who": "hero", "es": "Ne yaptı?", "ru": "И что он сделал?"},
+        {"who": "npc", "es": "Ağladı. Ve dedi ki: “Yüz yıldır cevap verecek birini bekliyorum.”", "ru": "Заплакал. И сказал: «Сто лет я жду того, кто ответит»."},
+        {"who": "hero", "es": "Neye cevap verecek?", "ru": "Ответит на что?"},
+        {"who": "npc", "es": "Söylemedi. Eski bir parayla ödedi ve gitti.", "ru": "Не сказал. Заплатил старой монетой и ушёл."},
+        {"who": "hero", "es": "Bence o, kulenin muhafızı.", "ru": "Думаю, это страж башни."},
+        {"who": "npc", "es": "Çok üzgün bir muhafız. Ve çok güzel bir sakalı var.", "ru": "Очень грустный страж. И с очень красивой бородой."}
+      ],
+      "questions": [
+        {"q": "Что хотел человек в сером пальто?", "options": ["Побриться", "Покрасить волосы", "Купить одеколон"], "answer": 0},
+        {"q": "Что сделал человек, услышав мамины слова?", "options": ["Засмеялся", "Заплакал", "Ушёл молча"], "answer": 1},
+        {"q": "Сколько лет он ждёт?", "options": ["Десять", "Пятьдесят", "Сто"], "answer": 2},
+        {"q": "Чем он заплатил?", "options": ["Картой", "Старой монетой", "Ничем"], "answer": 1}
+      ],
+      "gloss": {"buyur": "заходи, прошу", "garip": "странный", "müşteri": "клиент", "paltolu": "в пальто", "istedi": "хотел", "ederken": "пока делал", "sözlerini": "слова (söz)", "yirmi": "двадцать", "parça": "обрывок", "mühür": "печать", "ağladı": "заплакал", "dedi": "сказал", "ki": "(вводит прямую речь)", "yıldır": "уже … лет", "verecek": "который ответит", "birini": "кого-то", "parayla": "монетой", "ödedi": "заплатил", "kulenin": "башни (kule)", "muhafızı": "страж (muhafız)", "muhafız": "страж", "sakalı": "борода (sakal)"}
+    }
+  ]
+}

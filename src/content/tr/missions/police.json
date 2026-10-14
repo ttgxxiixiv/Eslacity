@@ -1,0 +1,47 @@
+{
+  "location": "police",
+  "missions": [
+    {
+      "id": "ms:police.1",
+      "chapter": 1,
+      "npc": "nihat",
+      "scene": "sc:police.1",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Yolcu, bakın! O genç cüzdanınızı aldı ve koşuyor!", "ru": "Путник, смотрите! Этот парень схватил ваш кошелёк и бежит!", "next": "help"},
+        "help": {"kind": "answer", "task": "Позовите на помощь: вор!", "branches": [{"phrase": "ph:police.imdat-hirsiz", "next": "station"}], "wrong": {"es": "Ne? Bir daha söyleyin!", "ru": "Что? Повторите!"}},
+        "station": {"kind": "say", "es": "İşte o! Merak etmeyin. Karakola gidelim.", "ru": "Вот он! Не волнуйтесь. Идём в участок.", "next": "stationq"},
+        "stationq": {"kind": "answer", "task": "Спросите, где полицейский участок.", "branches": [{"phrase": "ph:police.karakol-nerede", "next": "what"}], "wrong": {"es": "Hastane mi? Hastane lazım değil.", "ru": "Больница? Больница не нужна."}},
+        "what": {"kind": "say", "es": "Orada, sağda. İşte geldik. Ne oldu?", "ru": "Вон там, справа. Вот мы и пришли. Что случилось?", "next": "whatq"},
+        "whatq": {"kind": "answer", "task": "Скажите, что вор украл ваш кошелёк.", "branches": [{"phrase": "ph:police.cuzdanimi-caldi", "next": "pass"}], "wrong": {"es": "Kayboldunuz mu? Hayır, burası karakol.", "ru": "Вы заблудились? Нет, это участок."}},
+        "pass": {"kind": "say", "es": "İşte cüzdanınız. Ya pasaport?", "ru": "Вот ваш кошелёк. А паспорт?", "next": "passq"},
+        "passq": {"kind": "answer", "task": "Скажите, что потеряли паспорт.", "branches": [{"phrase": "ph:police.pasaportumu-kaybettim", "next": "report"}], "wrong": {"es": "Cüzdan mı? Cüzdanınız burada.", "ru": "Кошелёк? Кошелёк у вас."}},
+        "report": {"kind": "say", "es": "Cüzdanda. Şikâyet etmek istiyor musunuz?", "ru": "Он в кошельке. Хотите подать заявление?", "next": "reportq"},
+        "reportq": {"kind": "answer", "task": "Скажите, что хотите подать заявление.", "branches": [{"phrase": "ph:police.sikayet-etmek", "next": "ask"}], "wrong": {"es": "Hayır mı? Peki, siz bilirsiniz.", "ru": "Нет? Ну, как знаете."}},
+        "ask": {"kind": "say", "es": "Peki. Burayı imzalayın. Bir şey daha var mı?", "ru": "Хорошо. Распишитесь здесь. Что-нибудь ещё?", "next": "askq"},
+        "askq": {"kind": "answer", "task": "Попросите его помочь вам.", "branches": [{"phrase": "ph:police.yardim-eder-misiniz", "next": "end"}], "wrong": {"es": "Ne dediniz? Anlamadım.", "ru": "Что вы сказали? Не понял."}},
+        "end": {"kind": "say", "es": "Evet. İşte haritanın bir parçası. Muhafız sizi şehrin dışında bekliyor, yolcu.", "ru": "Да. Вот обрывок карты. Страж ждёт вас за городом, путник."}
+      }
+    },
+    {
+      "id": "ms:police.2",
+      "chapter": 2,
+      "npc": "nihat",
+      "scene": "sc:police.2",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Polis. Dinliyorum.", "ru": "Полиция. Слушаю.", "next": "need"},
+        "need": {"kind": "answer", "task": "Скажите, что вам нужен полицейский.", "branches": [{"phrase": "ph:police.polis-lazim", "next": "where"}], "wrong": {"es": "Ambulans mı? O zaman hastaneyi arayın.", "ru": "Скорая? Тогда звоните в больницу."}},
+        "where": {"kind": "say", "es": "Ben geliyorum. Neredesiniz?", "ru": "Еду сам. Где вы?", "next": "whereq"},
+        "whereq": {"kind": "answer", "task": "Скажите, что вы на углу площади.", "branches": [{"phrase": "ph:police.meydanin-kosesi", "next": "what"}], "wrong": {"es": "Evde misiniz? O zaman sorun ne?", "ru": "Вы дома? Тогда в чём дело?"}},
+        "what": {"kind": "say", "es": "Geliyorum. Ne oldu?", "ru": "Уже еду. Что случилось?", "next": "whatq"},
+        "whatq": {"kind": "answer", "task": "Скажите, что там был подозрительный человек.", "branches": [{"phrase": "ph:police.supheli-adam", "next": "cam"}], "wrong": {"es": "Kaza mı? Kimse yaralı mı?", "ru": "Авария? Кто-то ранен?"}},
+        "cam": {"kind": "say", "es": "Gri paltolu mu? Şimdi bakıyorum.", "ru": "В сером пальто? Сейчас посмотрю.", "next": "camq"},
+        "camq": {"kind": "answer", "task": "Спросите, есть ли на этой улице камеры.", "branches": [{"phrase": "ph:police.kamera-var-mi", "next": "cross"}], "wrong": {"es": "Avukat mı? Henüz lazım değil.", "ru": "Адвокат? Пока не нужен."}},
+        "cross": {"kind": "say", "es": "Var. Onu kamerada görüyorum. Koşuyorum! Komiser yolun karşısına koşuyor.", "ru": "Есть. Вижу его на камере. Бегу! Комиссар бежит через дорогу.", "next": "crossq"},
+        "crossq": {"kind": "answer", "task": "Скажите, что переходить нужно по зебре.", "branches": [{"phrase": "ph:police.yaya-gecidi", "next": "end"}], "wrong": {"es": "Ne dediniz? Trafik çok gürültülü!", "ru": "Что вы сказали? Машины очень шумят!"}},
+        "end": {"kind": "say", "es": "Haklısınız: polis de yaya geçidinden geçer. Bakın: şüpheli değil. Orhan, saat yedi treninin sefer saatlerini okuyor. Dağ haritasından benim parçamı alın. Yukarı çıkın, cevap verin ve Orhan'ı evine gönderin.", "ru": "Вы правы: даже полиция переходит улицу по зебре. Смотрите: он не подозрительный. Это Орхан, он читает расписание поезда в семь. Возьмите мой обрывок карты гор. Поднимитесь, ответьте и верните Орхана домой."}
+      }
+    }
+  ]
+}

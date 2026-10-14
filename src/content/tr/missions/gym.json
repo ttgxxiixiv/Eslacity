@@ -1,0 +1,50 @@
+{
+  "location": "gym",
+  "missions": [
+    {
+      "id": "ms:gym.1",
+      "chapter": 1,
+      "npc": "deniz",
+      "scene": "sc:gym.1",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Bugün yarışma var! Sen ve ben. Hazır mısın?", "ru": "Сегодня соревнование! Ты против меня. Готов?", "next": "room", "fem": {"ru": "Сегодня соревнование! Ты против меня. Готова?"}},
+        "room": {"kind": "answer", "task": "Спросите, где раздевалка.", "branches": [{"phrase": "ph:gym.soyunma-odasi", "next": "towel"}], "wrong": {"es": "Havuz mu? Önce soyunma odası!", "ru": "Бассейн? Сначала раздевалка!"}},
+        "towel": {"kind": "say", "es": "Orada. Üstünü değiştir ve gel. Ne lazım?", "ru": "Вон там. Переоденься и приходи. Что тебе нужно?", "next": "towelq"},
+        "towelq": {"kind": "answer", "task": "Скажите, что вам нужно полотенце.", "branches": [{"phrase": "ph:gym.havlu-lazim", "next": "water"}], "wrong": {"es": "Top mu? Top sonra!", "ru": "Мяч? Мяч потом!"}},
+        "water": {"kind": "say", "es": "Al. Şimdi suya. Suyu sever misin?", "ru": "Держи. А теперь в воду. Любишь воду?", "next": "waterq"},
+        "waterq": {"kind": "answer", "task": "Скажите, что любите плавать, или спросите, есть ли бассейн.", "branches": [{"phrase": "ph:gym.yuzmeyi-seviyorum", "next": "swim"}, {"phrase": "ph:gym.havuz-var-mi", "next": "pool"}], "wrong": {"es": "Ne? Bir daha söyle.", "ru": "Что? Скажи ещё раз."}},
+        "swim": {"kind": "say", "es": "Çok iyi! Ama ben senden hızlı yüzerim.", "ru": "Отлично! Но я плаваю быстрее тебя.", "next": "legs"},
+        "pool": {"kind": "say", "es": "Havuz var, büyük ve soğuk. Ama ben senden hızlı yüzerim!", "ru": "Бассейн есть, большой и холодный. Но я плаваю быстрее тебя!", "next": "legs"},
+        "legs": {"kind": "answer", "task": "Скажите, что у вас болят ноги.", "branches": [{"phrase": "ph:gym.bacaklarim-agriyor", "next": "ball"}], "wrong": {"es": "Kazandın mı? Hayır, daha bitmedi!", "ru": "Выиграл? Нет, ещё не конец!", "fem": {"ru": "Выиграла? Нет, ещё не конец!"}}},
+        "ball": {"kind": "say", "es": "Şimdiden mi? On dakika daha! Şimdi futbol.", "ru": "Уже? Ещё десять минут! А теперь футбол.", "next": "ballq"},
+        "ballq": {"kind": "answer", "task": "Предложите сыграть в футбол.", "branches": [{"phrase": "ph:gym.futbol-oynayalim", "next": "goal"}], "wrong": {"es": "Yüzelim mi? Yüzdük, şimdi futbol!", "ru": "Поплаваем? Уже плавали, теперь футбол!"}},
+        "goal": {"kind": "say", "es": "Gol! Üç-iki, senin takımın!", "ru": "Гол! Три — два в пользу твоей команды!", "next": "goalq"},
+        "goalq": {"kind": "answer", "task": "Скажите, что вы выиграли.", "branches": [{"phrase": "ph:gym.kazandik", "next": "end"}], "wrong": {"es": "Kaybettin mi? Hayır, kazandın!", "ru": "Проиграл? Нет, ты выиграл!", "fem": {"ru": "Проиграла? Нет, ты выиграла!"}}},
+        "end": {"kind": "say", "es": "Çok iyi! Annem sadece koşmayı biliyordu. Sen hem koşuyorsun hem konuşuyorsun. Al, bu haritanın bir parçası.", "ru": "Отлично! Моя мама умела только бегать. А ты и бегаешь, и говоришь. Держи, это обрывок карты."}
+      }
+    },
+    {
+      "id": "ms:gym.2",
+      "chapter": 2,
+      "npc": "deniz",
+      "scene": "sc:gym.2",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Bugün seni kulenin merdivenlerine hazırlıyorum. Ne istiyorsun?", "ru": "Сегодня готовлю тебя к ступенькам башни. Чего ты хочешь?", "next": "form"},
+        "form": {"kind": "answer", "task": "Скажите, что хотите быть в форме.", "branches": [{"phrase": "ph:gym.formda-olmak", "next": "warm"}], "wrong": {"es": "Kilo mu vermek istiyorsun? Hayır, sen güçlü olmalısın!", "ru": "Хочешь похудеть? Нет, тебе нужно быть сильным!", "fem": {"ru": "Хочешь похудеть? Нет, тебе нужно быть сильной!"}}},
+        "warm": {"kind": "say", "es": "İşte bu! Nereden başlayalım?", "ru": "Вот это по-нашему! С чего начнём?", "next": "warmq"},
+        "warmq": {"kind": "answer", "task": "Скажите, что сначала нужно размяться.", "branches": [{"phrase": "ph:gym.once-isinmak", "next": "plan"}], "wrong": {"es": "Hemen koşmak mı? Önce ısın!", "ru": "Сразу бежать? Сначала разомнись!"}},
+        "plan": {"kind": "say", "es": "Doğru: önce biraz koşu. Şimdi senin programın.", "ru": "Правильно: сначала немного пробежки. А теперь твоя программа.", "next": "planq"},
+        "planq": {"kind": "answer", "task": "Попросите составить вам программу.", "branches": [{"phrase": "ph:gym.program-yapar", "next": "push"}], "wrong": {"es": "Yoga mı? Yoga yarın.", "ru": "Йога? Йога завтра."}},
+        "push": {"kind": "say", "es": "Merdiven, şınav ve yoga. Başlıyoruz! Kaç şınav çekiyorsun?", "ru": "Ступеньки, отжимания и йога. Начинаем! Сколько отжиманий делаешь?", "next": "pushq"},
+        "pushq": {"kind": "answer", "task": "Скажите, что делаете двадцать отжиманий.", "branches": [{"phrase": "ph:gym.yirmi-sinav", "next": "knee"}], "wrong": {"es": "İki mi? Bu çok az!", "ru": "Два? Это очень мало!"}},
+        "knee": {"kind": "say", "es": "Yirmi mi? Bugün otuz! Hadi… Ne oldu?", "ru": "Двадцать? Сегодня — тридцать! Давай… Что с тобой?", "next": "kneeq"},
+        "kneeq": {"kind": "answer", "task": "Скажите, что у вас болит колено.", "branches": [{"phrase": "ph:gym.dizim-agriyor", "next": "yoga"}], "wrong": {"es": "Yoruldun mu? On tane daha!", "ru": "Устал? Ещё десять!", "fem": {"ru": "Устала? Ещё десять!"}}},
+        "yoga": {"kind": "say", "es": "O zaman yavaş. Kulede de yavaş yürümek lazım. Ya yarın?", "ru": "Тогда медленно. У башни тоже надо идти медленно. А завтра?", "next": "yogaq"},
+        "yogaq": {"kind": "answer", "task": "Спросите, во сколько занятие йогой.", "branches": [{"phrase": "ph:gym.yoga-ne-zaman", "next": "end"}], "wrong": {"es": "Futbol mu? Hayır, yarın yoga!", "ru": "Футбол? Нет, завтра йога!"}},
+        "end": {"kind": "say", "es": "Yedide. Yoga yukarıda nefes almaya yardım eder. Al, dağ haritasından benim parçam. Gri paltolu adamı görürsen, annem adına ona teşekkür et.", "ru": "В семь. Йога помогает дышать наверху. Держи мой обрывок карты гор. А если увидишь человека в сером пальто, поблагодари его от моей мамы."}
+      }
+    }
+  ]
+}

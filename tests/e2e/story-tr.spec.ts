@@ -85,3 +85,11 @@ test('tr: развилка базара — тётушка Фатма спраш
   await playScene(page, sc, { basket: 'potatoes' });
   expect(sc.lines.some((l) => l.if?.is === 'potatoes' && l.es.includes('Patateslerim'))).toBe(true);
 });
+
+test('tr: развилка больницы — доктор Гюль сравнивает перелом Керема с бедой героя', async ({ page }) => {
+  await openCourse(page, 'tr');
+  await playMission(page, 'ms:hospital.1', { 'Скажите, что у вас, кажется, сломана рука или что у вас болит сердце.': 1 });
+  const sc = scenes.find((s) => s.id === 'sc:hospital.2')!;
+  await playScene(page, sc, { injury: 'heart' });
+  expect(sc.lines.some((l) => l.if?.is === 'heart' && l.es.includes('kalbiniz'))).toBe(true);
+});

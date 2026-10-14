@@ -1,0 +1,45 @@
+{
+  "location": "post",
+  "missions": [
+    {
+      "id": "ms:post.1",
+      "chapter": 1,
+      "npc": "cemil",
+      "scene": "sc:post.1",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Merhaba! Ne lazım? Bugün çok iş var.", "ru": "Привет! Что тебе нужно? Сегодня много работы.", "next": "stamp"},
+        "stamp": {"kind": "answer", "task": "Попросите марку для этого письма.", "branches": [{"phrase": "ph:post.pul-istiyorum", "next": "env"}], "wrong": {"es": "Kitap mı? Burası postane, kitap yok!", "ru": "Книга? Это почта, книг нет!"}},
+        "env": {"kind": "say", "es": "On lira. Bir şey daha var mı?", "ru": "Десять лир. Что-нибудь ещё?", "next": "envq"},
+        "envq": {"kind": "answer", "task": "Спросите, есть ли конверты.", "branches": [{"phrase": "ph:post.zarf-var-mi", "next": "parcel"}], "wrong": {"es": "Pul mu? Pulun var, al!", "ru": "Марка? Марка у тебя есть, держи!"}},
+        "parcel": {"kind": "say", "es": "İşte zarf. Bu paket ne olacak?", "ru": "Вот конверт. А что с этой посылкой?", "next": "parcelq"},
+        "parcelq": {"kind": "answer", "task": "Спросите, сколько стоит отправить посылку.", "branches": [{"phrase": "ph:post.paket-kac-lira", "next": "fast"}], "wrong": {"es": "Paket mi? Evet, paket bu. Ne istiyorsun?", "ru": "Посылка? Да, это посылка. Чего ты хочешь?"}},
+        "fast": {"kind": "say", "es": "Beş lira. Acil mi?", "ru": "Пять лир. Срочно?", "next": "fastq"},
+        "fastq": {"kind": "answer", "task": "Скажите, что срочно.", "branches": [{"phrase": "ph:post.acil-gonder", "next": "sign"}], "wrong": {"es": "Ne? Anlamıyorum. Acil mi, değil mi?", "ru": "Что? Не понимаю. Срочно или нет?"}},
+        "sign": {"kind": "say", "es": "Acil, benim gibi! On lira.", "ru": "Срочно, как я! С тебя десять лир.", "next": "signq"},
+        "signq": {"kind": "answer", "task": "Спросите, где расписаться.", "branches": [{"phrase": "ph:post.nereye-imza", "next": "end"}], "wrong": {"es": "Para mı? Paranı verdin, şimdi imza!", "ru": "Деньги? Деньги ты отдал, теперь подпись!", "fem": {"ru": "Деньги? Деньги ты отдала, теперь подпись!"}}},
+        "end": {"kind": "say", "es": "Burayı. Al, bu da senin için: postanenin harita parçası. Mektup… özür dilerim, açtım. İçinde bir kelime var: “Gel.” Biri seni bekliyor.", "ru": "Вот здесь. И держи, это тебе: почтовый обрывок карты. А письмо… прости, я его открыл. Внутри одно слово: «Приходи». Кто-то тебя ждёт."}
+      }
+    },
+    {
+      "id": "ms:post.2",
+      "chapter": 2,
+      "npc": "cemil",
+      "scene": "sc:post.2",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Paketi almak için her şeyi doğru yapmalısın. Ne lazım?", "ru": "Чтобы забрать посылку, нужно всё сделать как следует. Что тебе нужно?", "next": "ask"},
+        "ask": {"kind": "answer", "task": "Спросите, есть ли для вас посылка.", "branches": [{"phrase": "ph:post.paketim-var", "next": "name"}], "wrong": {"es": "Pul mu? Bugün pul değil, paket!", "ru": "Марка? Сегодня не марка, а посылка!"}},
+        "name": {"kind": "say", "es": "Var. Kimin adına?", "ru": "Есть. На чьё имя?", "next": "nameq"},
+        "nameq": {"kind": "answer", "task": "Скажите, что посылка на ваше имя.", "branches": [{"phrase": "ph:post.paket-adima", "next": "id"}], "wrong": {"es": "Kerem'in adına mı? Hayır, burada senin adın var.", "ru": "На имя Керема? Нет, здесь твоё имя."}},
+        "id": {"kind": "say", "es": "Kimlik lazım.", "ru": "Нужно удостоверение.", "next": "idq"},
+        "idq": {"kind": "answer", "task": "Дайте удостоверение.", "branches": [{"phrase": "ph:post.kimligim", "next": "form"}], "wrong": {"es": "Para mı? Hayır, para değil, kimlik!", "ru": "Деньги? Нет, не деньги, удостоверение!"}},
+        "form": {"kind": "say", "es": "Teşekkürler. Bir de bu form.", "ru": "Спасибо. И вот этот бланк.", "next": "formq"},
+        "formq": {"kind": "answer", "task": "Спросите, нужно ли его заполнить.", "branches": [{"phrase": "ph:post.formu-dolduralim", "next": "track"}], "wrong": {"es": "Atayım mı? Hayır, bu form önemli!", "ru": "Выбросить? Нет, этот бланк важный!"}},
+        "track": {"kind": "say", "es": "Evet, burayı ve burayı. Çabuk, çabuk.", "ru": "Да, вот здесь и здесь. Быстрее, быстрее.", "next": "trackq"},
+        "trackq": {"kind": "answer", "task": "Спросите трек-номер, чтобы узнать, откуда посылка.", "branches": [{"phrase": "ph:post.takip-numarasi", "next": "end"}], "wrong": {"es": "Makbuz mu? Sonra. Önce nereden geldiğine bakalım.", "ru": "Квитанция? Потом. Сначала посмотрим, откуда она."}},
+        "end": {"kind": "say", "es": "İşte. Bak: paket üç gün önce kuleden çıkmış. Al, dağ haritasından benim parçam da senin. Sese doğru yürü.", "ru": "Вот он. Смотри: посылка ушла с башни три дня назад. Держи, и мой обрывок карты гор тоже твой. Иди на голос."}
+      }
+    }
+  ]
+}

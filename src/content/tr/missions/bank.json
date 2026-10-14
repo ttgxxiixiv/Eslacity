@@ -1,0 +1,45 @@
+{
+  "location": "bank",
+  "missions": [
+    {
+      "id": "ms:bank.1",
+      "chapter": 1,
+      "npc": "murat",
+      "scene": "sc:bank.1",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "İyi günler. Banka hesabınız var, çok güzel. Bugün ne yapmak istiyorsunuz?", "ru": "Добрый день. Счёт у вас уже есть, прекрасно. Что хотите сделать сегодня?", "next": "dep"},
+        "dep": {"kind": "answer", "task": "Скажите, что хотите положить деньги на счёт.", "branches": [{"phrase": "ph:bank.para-yatirmak", "next": "cash"}], "wrong": {"es": "Anlamadım. Ne yapmak istiyorsunuz?", "ru": "Не понял. Что вы хотите сделать?"}},
+        "cash": {"kind": "say", "es": "Çok güzel. Kart mı, kâğıt para mı?", "ru": "Прекрасно. Карта или наличные?", "next": "cashq"},
+        "cashq": {"kind": "answer", "task": "Скажите, что у вас только наличные.", "branches": [{"phrase": "ph:bank.sadece-nakit", "next": "sign"}], "wrong": {"es": "Kartınız mı var? O zaman kartı verin.", "ru": "У вас есть карта? Тогда дайте карту."}},
+        "sign": {"kind": "say", "es": "Kâğıt para. Peki. Yüz lira hesabınızda. Şimdi harita parçası için imza lazım.", "ru": "Наличные. Хорошо. Сто лир на вашем счёте. Теперь для обрывка карты нужна подпись.", "next": "signq"},
+        "signq": {"kind": "answer", "task": "Спросите, где поставить подпись.", "branches": [{"phrase": "ph:bank.imza-nereye", "next": "fee"}], "wrong": {"es": "Para mı çekmek istiyorsunuz? Ama yeni yatırdınız!", "ru": "Хотите снять деньги? Но вы только что их положили!"}},
+        "fee": {"kind": "say", "es": "Burayı. Ve burayı. Ve burayı. Başka bir şey?", "ru": "Здесь. И здесь. И здесь. Что-нибудь ещё?", "next": "feeq"},
+        "feeq": {"kind": "answer", "task": "Спросите, есть ли комиссия.", "branches": [{"phrase": "ph:bank.komisyon-var-mi", "next": "atm"}], "wrong": {"es": "Kahve mi? Bankada kahve yok, efendim.", "ru": "Кофе? В банке кофе нет."}},
+        "atm": {"kind": "say", "es": "Sizin için yok. Bankanın kuralı bu: bizim dilimizi konuşan ödemez.", "ru": "Для вас — нет. Таково правило банка: кто говорит на нашем языке, не платит.", "next": "atmq"},
+        "atmq": {"kind": "answer", "task": "Спросите, где банкомат.", "branches": [{"phrase": "ph:bank.bankamatik-nerede", "next": "end"}], "wrong": {"es": "Banka mı? Burası banka, efendim!", "ru": "Банк? Это и есть банк!"}},
+        "end": {"kind": "say", "es": "Kapının yanında. İşte harita parçanız. Unutmayın: Mahzen anahtarla değil, kelimelerle açılır.", "ru": "У двери. Вот ваш обрывок карты. Помните: Хранилище открывается не ключом, а словами."}
+      }
+    },
+    {
+      "id": "ms:bank.2",
+      "chapter": 2,
+      "npc": "murat",
+      "scene": "sc:bank.2",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "İyi günler. Dağda size para lazım olacak. Ne oldu?", "ru": "Добрый день. В горах вам понадобятся деньги. Что случилось?", "next": "card"},
+        "card": {"kind": "answer", "task": "Скажите, что ваша карта не работает.", "branches": [{"phrase": "ph:bank.kartim-calismiyor", "next": "pin"}], "wrong": {"es": "Kartınız güzel mi? Evet, ama sorun ne?", "ru": "Карта красивая? Да, но в чём проблема?"}},
+        "pin": {"kind": "say", "es": "Çalışmıyor. Bakalım. Şifrenizi hatırlıyor musunuz?", "ru": "Не работает. Посмотрим. Вы помните свой PIN-код?", "next": "pinq"},
+        "pinq": {"kind": "answer", "task": "Скажите, что забыли PIN-код.", "branches": [{"phrase": "ph:bank.sifremi-unuttum", "next": "mgr"}], "wrong": {"es": "Biliyor musunuz? O zaman sorun yok.", "ru": "Помните? Тогда всё в порядке."}},
+        "mgr": {"kind": "say", "es": "Unuttunuz. O zaman müdürle konuşmanız lazım.", "ru": "Забыли. Тогда вам нужно поговорить с управляющим.", "next": "mgrq"},
+        "mgrq": {"kind": "answer", "task": "Скажите, что хотите поговорить с управляющим.", "branches": [{"phrase": "ph:bank.mudurle-konusmak", "next": "stmt"}], "wrong": {"es": "Doktor mu? Doktor hastanede, efendim.", "ru": "Врач? Врач в больнице."}},
+        "stmt": {"kind": "say", "es": "Müdür benim. Peki: yeni kart. Başka bir şey?", "ru": "Управляющий — это я. Хорошо: новая карта. Что-нибудь ещё?", "next": "stmtq"},
+        "stmtq": {"kind": "answer", "task": "Попросите выписку по счёту.", "branches": [{"phrase": "ph:bank.hesap-ozeti", "next": "trip"}], "wrong": {"es": "Hesap mı açmak istiyorsunuz? Ama hesabınız var.", "ru": "Хотите открыть счёт? Но счёт у вас уже есть."}},
+        "trip": {"kind": "say", "es": "Buyurun. Her şey yolunda. Ya yolculuk için?", "ru": "Пожалуйста. Всё в порядке. А на поездку?", "next": "tripq"},
+        "tripq": {"kind": "answer", "task": "Попросите снять сто лир.", "branches": [{"phrase": "ph:bank.yuz-lira-cekmek", "next": "end"}], "wrong": {"es": "Yatırmak mı istiyorsunuz? Ama yola para lazım!", "ru": "Хотите положить? Но в дорогу нужны деньги!"}},
+        "end": {"kind": "say", "es": "Tamam, hazır. Bu da dağ haritasından benim parçam. Unutmayın: muhafıza parayla değil, kelimelerle ödenir.", "ru": "Хорошо, готово. А вот мой обрывок карты гор. Помните: стражу платят не деньгами, а словами."}
+      }
+    }
+  ]
+}

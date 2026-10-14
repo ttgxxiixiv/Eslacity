@@ -1,0 +1,45 @@
+{
+  "location": "barber",
+  "missions": [
+    {
+      "id": "ms:barber.1",
+      "chapter": 1,
+      "npc": "yusuf",
+      "scene": "sc:barber.1",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Buyur! Bugün sadece Türkçe konuşuyorum. Ne yapıyoruz?", "ru": "Заходи! Сегодня я говорю только по-турецки. Что будем делать?", "next": "cut"},
+        "cut": {"kind": "answer", "task": "Попросите только стрижку.", "branches": [{"phrase": "ph:barber.sac-kesimi", "next": "wash"}], "wrong": {"es": "Kahve mi? Kahve sonra, önce saç!", "ru": "Кофе? Кофе потом, сначала волосы!"}},
+        "wash": {"kind": "say", "es": "Çok iyi. Başka bir şey?", "ru": "Отлично. Что-нибудь ещё?", "next": "washq"},
+        "washq": {"kind": "answer", "task": "Попросите помыть вам голову.", "branches": [{"phrase": "ph:barber.saclarimi-yika", "next": "short"}], "wrong": {"es": "Yüzünü mü? Yüzün temiz, merak etme.", "ru": "Лицо? Лицо у тебя чистое, не волнуйся."}},
+        "short": {"kind": "say", "es": "Sıcak su… çok güzel! Nasıl keselim?", "ru": "Горячая вода… отлично! Как стричь?", "next": "shortq"},
+        "shortq": {"kind": "answer", "task": "Попросите подстричь коротко.", "branches": [{"phrase": "ph:barber.kisa-kes", "next": "beard"}], "wrong": {"es": "Uzun mu? Ama sen hep kısa istersin!", "ru": "Длинно? Но ты всегда просишь коротко!"}},
+        "beard": {"kind": "say", "es": "Kısa, her zamanki gibi. Ya sakal?", "ru": "Коротко, как всегда. А борода?", "next": "beardq"},
+        "beardq": {"kind": "answer", "task": "Спросите, подстрижёт ли он и бороду.", "branches": [{"phrase": "ph:barber.sakal-keser-misin", "next": "color"}], "wrong": {"es": "Kulak mı? Kulakları kesmem!", "ru": "Уши? Уши я не стригу!"}},
+        "color": {"kind": "say", "es": "Sakal da olur. Yeni bir renk ister misin?", "ru": "И бороду можно. Хочешь новый цвет?", "next": "colorq"},
+        "colorq": {"kind": "answer", "task": "Спросите, сколько стоит покраска.", "branches": [{"phrase": "ph:barber.boyamak-kac", "next": "end"}], "wrong": {"es": "Ne dedin? Makas çok konuşuyor, duymadım.", "ru": "Что ты сказал? Ножницы шумят, не расслышал.", "fem": {"ru": "Что ты сказала? Ножницы шумят, не расслышал."}}},
+        "end": {"kind": "say", "es": "Bugün renk yok: saçın çok güzel. Aynanın arkasında… haritanın bir parçası. Al, senin.", "ru": "Сегодня без цвета: волосы у тебя и так хороши. А за зеркалом… обрывок карты. Держи, он твой."}
+      }
+    },
+    {
+      "id": "ms:barber.2",
+      "chapter": 2,
+      "npc": "yusuf",
+      "scene": "sc:barber.2",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Kule için kısa saç ve temiz bir yüz. Ne yapalım?", "ru": "Для башни — короткие волосы и чистое лицо. Что сделаем?", "next": "tips"},
+        "tips": {"kind": "answer", "task": "Попросите подровнять только кончики.", "branches": [{"phrase": "ph:barber.uclarini-al", "next": "shave"}], "wrong": {"es": "Hepsini mi keseyim? Kel mi olmak istiyorsun?", "ru": "Состричь всё? Хочешь стать лысым?", "fem": {"ru": "Состричь всё? Хочешь стать лысой?"}}},
+        "shave": {"kind": "say", "es": "Biraz, tamam. Ya yüz?", "ru": "Немного, хорошо. А лицо?", "next": "shaveq"},
+        "shaveq": {"kind": "answer", "task": "Скажите, что хотите побриться.", "branches": [{"phrase": "ph:barber.tiras-olmak", "next": "grey"}], "wrong": {"es": "Bıyık mı? Bıyığın yok ki!", "ru": "Усы? Да у тебя нет усов!"}},
+        "grey": {"kind": "say", "es": "Seni de gri paltolu adam gibi tıraş ederim. Aynaya bak. Ne görüyorsun?", "ru": "Побрею тебя, как человека в пальто. Посмотри в зеркало. Что видишь?", "next": "greyq"},
+        "greyq": {"kind": "answer", "task": "Скажите, что у вас много седых волос.", "branches": [{"phrase": "ph:barber.beyaz-sac", "next": "dry"}], "wrong": {"es": "Yakışıklı bir yüz mü? Evet, biliyorum!", "ru": "Красивое лицо? Да, знаю!", "fem": {"es": "Güzel bir yüz mü? Evet, biliyorum!"}}},
+        "dry": {"kind": "say", "es": "Beyaz saç mı? Macera yüzünden! Sorun yok. Başka?", "ru": "Седина? Это от приключений! Ничего страшного. Что ещё?", "next": "dryq"},
+        "dryq": {"kind": "answer", "task": "Скажите, что у вас очень сухие волосы.", "branches": [{"phrase": "ph:barber.sacim-kuru", "next": "appt"}], "wrong": {"es": "Yağlı mı? Hayır, bence değil.", "ru": "Жирные? Нет, по-моему, нет."}},
+        "appt": {"kind": "say", "es": "Bu şampuan. Haftada bir kere.", "ru": "Вот этот шампунь. Раз в неделю.", "next": "apptq"},
+        "apptq": {"kind": "answer", "task": "Скажите, что хотите записаться на завтра.", "branches": [{"phrase": "ph:barber.yarina-randevu", "next": "end"}], "wrong": {"es": "Bugün mü? Bugün bitti, saçın temiz!", "ru": "Сегодня? Сегодня всё, волосы у тебя аккуратные!"}},
+        "end": {"kind": "say", "es": "Yarın mı? Yarın dağdasın. Dönünce gel. Al, dağ haritasından benim parçam. Gri paltolu adamı görürsen ona annemin sözlerini söyle. Belki güler.", "ru": "Завтра? Завтра ты будешь в горах. Приходи, когда вернёшься. Держи мой обрывок карты гор. Если увидишь человека в сером пальто, скажи ему мамины слова. Может, он улыбнётся."}
+      }
+    }
+  ]
+}

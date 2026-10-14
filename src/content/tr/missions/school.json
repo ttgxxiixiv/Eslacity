@@ -1,0 +1,49 @@
+{
+  "location": "school",
+  "missions": [
+    {
+      "id": "ms:school.1",
+      "chapter": 1,
+      "npc": "elif",
+      "scene": "sc:school.1",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Bugün derste harita parçasını okuyoruz. Hazır mısın?", "ru": "Сегодня на уроке читаем обрывок карты. Готов?", "next": "pen", "fem": {"ru": "Сегодня на уроке читаем обрывок карты. Готова?"}},
+        "pen": {"kind": "answer", "task": "Спросите, есть ли у неё ручка.", "branches": [{"phrase": "ph:school.kalemin-var-mi", "next": "word"}], "wrong": {"es": "Kahve mi? Derste kahve yok!", "ru": "Кофе? На уроке кофе нет!"}},
+        "word": {"kind": "say", "es": "Al. Haritaya bak. Burada çok eski bir kelime var.", "ru": "Держи. Посмотри на карту. Здесь очень старое слово.", "next": "wordq"},
+        "wordq": {"kind": "answer", "task": "Скажите, что не понимаете это слово.", "branches": [{"phrase": "ph:school.kelimeyi-anlamiyorum", "next": "again"}], "wrong": {"es": "Biliyor musun? Çok iyi! O zaman sen oku.", "ru": "Знаешь? Отлично! Тогда читай сам.", "fem": {"ru": "Знаешь? Отлично! Тогда читай сама."}}},
+        "again": {"kind": "say", "es": "Bu kelime “geçer”. Sadece konuşan geçer.", "ru": "Это слово — «пройдёт». Пройдёт только тот, кто говорит.", "next": "againq"},
+        "againq": {"kind": "answer", "task": "Попросите повторить.", "branches": [{"phrase": "ph:school.tekrar-eder-misin", "next": "spell"}], "wrong": {"es": "Bitti mi? Hayır, ders daha bitmedi.", "ru": "Закончили? Нет, урок ещё не кончился."}},
+        "spell": {"kind": "say", "es": "Bir daha, yavaş: sadece konuşan geçer.", "ru": "Ещё раз, медленно: пройдёт только тот, кто говорит.", "next": "spellq"},
+        "spellq": {"kind": "answer", "task": "Спросите, как она это пишет.", "branches": [{"phrase": "ph:school.nasil-yaziyorsun", "next": "book"}], "wrong": {"es": "Kaç lira mı? Ders para değil!", "ru": "Сколько стоит? Урок не за деньги!"}},
+        "book": {"kind": "say", "es": "Nasıl duyuyorsan öyle yaz. Defterine yaz.", "ru": "Как слышишь, так и пиши. Запиши в тетрадь.", "next": "bookq"},
+        "bookq": {"kind": "answer", "task": "Спросите, где ваша тетрадь.", "branches": [{"phrase": "ph:school.defterim-nerede", "next": "ask"}], "wrong": {"es": "Kalemin mi yok? Al, bir tane daha.", "ru": "Нет ручки? Держи ещё одну."}},
+        "ask": {"kind": "say", "es": "Çantanda, her zamanki gibi. Soru var mı?", "ru": "В сумке, как всегда. Есть вопросы?", "next": "askq"},
+        "askq": {"kind": "answer", "task": "Скажите, что у вас есть вопрос.", "branches": [{"phrase": "ph:school.bir-sorum-var", "next": "end"}], "wrong": {"es": "Yok mu? Peki, o zaman bitti.", "ru": "Нет? Ну, тогда всё."}},
+        "end": {"kind": "say", "es": "Mahzen'in kapısında kim var, bilmek mi istiyorsun? Kimse bilmiyor. Al, bu haritanın bir parçası. Bir gün bu haritayı anlayacaksın.", "ru": "Хочешь знать, кто у двери Хранилища? Никто не знает. Держи, это обрывок карты. Однажды ты поймёшь эту карту."}
+      }
+    },
+    {
+      "id": "ms:school.2",
+      "chapter": 2,
+      "npc": "elif",
+      "scene": "sc:school.2",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Bugün özel bir ders var. Kuleden önce geçmiş zaman sınavı.", "ru": "Сегодня особый урок. Перед башней — экзамен по прошедшему времени.", "next": "subj"},
+        "subj": {"kind": "answer", "task": "Спросите, какой сейчас урок.", "branches": [{"phrase": "ph:school.hangi-ders", "next": "dict"}], "wrong": {"es": "Saat mi? Saat dokuz, ders başladı.", "ru": "Время? Девять часов, урок начался."}},
+        "dict": {"kind": "say", "es": "Türkçe: geçmiş zaman. Birinci soru: dün ne yaptın?", "ru": "Турецкий: прошедшее время. Первый вопрос: что ты делал вчера?", "next": "dictq", "fem": {"ru": "Турецкий: прошедшее время. Первый вопрос: что ты делала вчера?"}},
+        "dictq": {"kind": "answer", "task": "Спросите, есть ли в классе словарь.", "branches": [{"phrase": "ph:school.sozluk-var-mi", "next": "check"}], "wrong": {"es": "Silgi mi? Bugün silgi lazım değil.", "ru": "Ластик? Сегодня ластик не нужен."}},
+        "check": {"kind": "say", "es": "Var, ama bugün sözlük yok. Cevabını yaz.", "ru": "Есть, но сегодня без словаря. Напиши свой ответ.", "next": "checkq"},
+        "checkq": {"kind": "answer", "task": "Попросите её проверить ваш ответ.", "branches": [{"phrase": "ph:school.kontrol-eder-misin", "next": "err"}], "wrong": {"es": "Bitti mi? Hayır, önce yazı!", "ru": "Закончил? Нет, сначала напиши!", "fem": {"ru": "Закончила? Нет, сначала напиши!"}}},
+        "err": {"kind": "say", "es": "Bakalım… Küçük bir hata var.", "ru": "Посмотрим… Есть маленькая ошибка.", "next": "errq"},
+        "errq": {"kind": "answer", "task": "Спросите, где ошибка.", "branches": [{"phrase": "ph:school.hata-nerede", "next": "ex"}], "wrong": {"es": "Sayfa mı? Sayfa doğru.", "ru": "Страница? Страница правильная."}},
+        "ex": {"kind": "say", "es": "İşte: “gitdim” değil, “gittim”. Görüyor musun?", "ru": "Вот: не «gitdim», а «gittim». Видишь?", "next": "exq"},
+        "exq": {"kind": "answer", "task": "Попросите объяснить на примере.", "branches": [{"phrase": "ph:school.ornekle-aciklar", "next": "pass"}], "wrong": {"es": "Anladın mı? Çok iyi!", "ru": "Понял? Отлично!", "fem": {"ru": "Поняла? Отлично!"}}},
+        "pass": {"kind": "say", "es": "Tabii: “Dün parka gittim. Kerem kuleye gitti.” Anladın mı?", "ru": "Конечно: «Вчера я ходила в парк. Керем ушёл к башне». Понимаешь?", "next": "passq"},
+        "passq": {"kind": "answer", "task": "Спросите, сдали ли вы экзамен.", "branches": [{"phrase": "ph:school.sinavi-gectim-mi", "next": "end"}], "wrong": {"es": "Yeni soru mu? Hayır, sınav bitti.", "ru": "Новый вопрос? Нет, экзамен окончен."}},
+        "end": {"kind": "say", "es": "Geçtin. Notun on üzerinden dokuz. Ödülün de dağ haritasından benim parçam. Sis sana soru sorunca geçmiş zamanla cevap ver.", "ru": "Сдал. Твоя оценка — девять из десяти. А награда — мой обрывок карты гор. Когда туман спросит тебя, отвечай в прошедшем времени.", "fem": {"ru": "Сдала. Твоя оценка — девять из десяти. А награда — мой обрывок карты гор. Когда туман спросит тебя, отвечай в прошедшем времени."}}
+      }
+    }
+  ]
+}

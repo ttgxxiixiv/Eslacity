@@ -1,0 +1,55 @@
+{
+  "location": "station",
+  "scenes": [
+    {
+      "id": "sc:station.1",
+      "chapter": 1,
+      "npc": "ismail",
+      "lines": [
+        {"who": "npc", "es": "Vapur saat onda kalkıyor. Geç kalma!", "ru": "Паром отходит в десять. Не опаздывай!"},
+        {"who": "hero", "es": "Dağa giden bir vapur var mı?", "ru": "Есть паром в горы?"},
+        {"who": "npc", "es": "Yok. Vapurlar adalara gider. Dağa herkes yürüyerek gidiyor.", "ru": "Нет. Паромы ходят на острова. В горы ходят пешком."},
+        {"who": "hero", "es": "Ya Mahzen'e?", "ru": "А в Хранилище?"},
+        {"who": "npc", "es": "Oraya hiçbir vapur gitmez, hiçbir tren de.", "ru": "Туда не ходит ни один паром. И ни один поезд."},
+        {"who": "hero", "es": "Harita hakkında bir şey biliyor musun?", "ru": "Ты что-нибудь знаешь о карте?"},
+        {"who": "npc", "es": "Yıllar önce saat yedi vapuruyla bir adam geldi. Her şeyi bir kitaba yazıyordu.", "ru": "Много лет назад паромом в семь приехал один человек. Он всё записывал в книгу."},
+        {"who": "hero", "es": "Kimdi?", "ru": "Кто это был?"},
+        {"who": "npc", "es": "Vakanüvis. Şimdi yolcularla yürüyor ve yollarını yazıyor.", "ru": "Летописец. Теперь он ходит с путниками и записывает их путь."},
+        {"who": "hero", "es": "Ya senin harita parçan?", "ru": "А твой обрывок карты?"},
+        {"who": "npc", "es": "Odamda, sefer saatleriyle birlikte. Geç kalma!", "ru": "У меня в кабинете, вместе с расписанием. И не опаздывай!"}
+      ],
+      "questions": [
+        {"q": "Куда ходят паромы?", "options": ["В горы", "На острова", "В Хранилище"], "answer": 1},
+        {"q": "Как добраться до гор?", "options": ["Паромом", "Поездом", "Пешком"], "answer": 2},
+        {"q": "Кто приехал много лет назад паромом в семь?", "options": ["Летописец", "Керем", "Страж"], "answer": 0},
+        {"q": "Где обрывок капитана?", "options": ["В кабинете", "На пароме", "В кассе"], "answer": 0}
+      ],
+      "gloss": {"mahzen": "Хранилище", "gitmez": "не ходит", "vapuruyla": "паромом", "yazıyordu": "записывал", "kimdi": "кто это был", "vakanüvis": "Летописец", "yolcularla": "с путниками", "yollarını": "их путь", "parçan": "твой обрывок (parça)", "odamda": "в моей комнате", "sefer": "рейс", "saatleriyle": "с расписанием"}
+    },
+    {
+      "id": "sc:station.2",
+      "chapter": 2,
+      "npc": "ismail",
+      "lines": [
+        {"who": "npc", "es": "Sen misin! Vapur onda.", "ru": "Это ты! Паром в десять."},
+        {"who": "hero", "es": "Bugün vapura binmiyorum. Kuleye yürüyerek gidiyorum.", "ru": "Сегодня я не сажусь на паром. Я иду к башне пешком."},
+        {"who": "npc", "es": "Yürüyerek mi? Yüz yıl önce kuleye bir tren giderdi.", "ru": "Пешком? Сто лет назад к башне ходил поезд."},
+        {"who": "hero", "es": "Kuleye bir tren mi?", "ru": "Поезд к башне?"},
+        {"who": "npc", "es": "Bu eski sefer saatlerine bak: “Kule treni, kalkış saat yedi.”", "ru": "Посмотри на это старое расписание: «Поезд к башне, отправление в семь»."},
+        {"who": "hero", "es": "Ne oldu?", "ru": "И что случилось?"},
+        {"who": "npc", "es": "Korkunç bir fırtına oldu ve tren dönmedi. Yolu kapattılar.", "ru": "Была страшная буря, и поезд не вернулся. Линию закрыли."},
+        {"who": "hero", "es": "Ya yolcular?", "ru": "А пассажиры?"},
+        {"who": "npc", "es": "Sadece bir yolcu vardı. Gri paltolu adam.", "ru": "Был всего один пассажир. Человек в сером пальто."},
+        {"who": "hero", "es": "O! Şimdi ne olacak?", "ru": "Он! И что теперь?"},
+        {"who": "npc", "es": "Dün geldi ve saat yedi treni için bilet istedi. Ona, bu tren yüz yıldır gitmiyor, dedim.", "ru": "Вчера пришёл и попросил билет на поезд в семь. Я сказал ему, что этот поезд не ходит уже сто лет."}
+      ],
+      "questions": [
+        {"q": "Как герой идёт к башне?", "options": ["Паромом", "Пешком", "На такси"], "answer": 1},
+        {"q": "Что ходило к башне сто лет назад?", "options": ["Поезд", "Паром", "Автобус"], "answer": 0},
+        {"q": "Почему поезд не вернулся?", "options": ["Была страшная буря", "Кончились деньги", "Сломался паровоз"], "answer": 0},
+        {"q": "Что попросил вчера человек в сером пальто?", "options": ["Билет на поезд в семь", "Карту", "Паром на остров"], "answer": 0}
+      ],
+      "gloss": {"kuleye": "к башне (kule)", "giderdi": "ходил", "sefer": "рейс", "saatlerine": "на расписание", "treni": "поезд", "korkunç": "страшный", "fırtına": "буря", "dönmedi": "не вернулся", "kapattılar": "закрыли", "paltolu": "в пальто", "istedi": "попросил", "yıldır": "уже … лет", "gitmiyor": "не ходит", "dedim": "сказал"}
+    }
+  ]
+}

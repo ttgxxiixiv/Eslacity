@@ -1,0 +1,55 @@
+{
+  "location": "police",
+  "scenes": [
+    {
+      "id": "sc:police.1",
+      "chapter": 1,
+      "npc": "nihat",
+      "lines": [
+        {"who": "npc", "es": "İyi günler. Size nasıl yardımcı olabilirim?", "ru": "Добрый день. Чем могу помочь?"},
+        {"who": "hero", "es": "Polisteki haritayı arıyorum.", "ru": "Я ищу карту, которая хранится в полиции."},
+        {"who": "npc", "es": "Bende. Ama benim de size bir sorum var: o şirket ne?", "ru": "Он у меня. Но и у меня к вам вопрос: что это за компания?"},
+        {"who": "hero", "es": "Bilmiyorum. Haritayı almak istedi.", "ru": "Не знаю. Она хотела купить карту."},
+        {"who": "npc", "es": "O şirket aslında bir şirket değil. Muhafızdı.", "ru": "Эта компания на самом деле не компания. Это был страж."},
+        {"who": "hero", "es": "Muhafız mı? Neden?", "ru": "Страж? Зачем?"},
+        {"who": "npc", "es": "Şehir haritayı satacak mı, bilmek istedi. Kimse satmadı.", "ru": "Он хотел узнать, продаст ли город карту. Никто не продал."},
+        {"who": "hero", "es": "Ya hastanedeki adam?", "ru": "А человек из больницы?"},
+        {"who": "npc", "es": "O, muhafız için çalışıyor. Şimdi daha iyi.", "ru": "Он работает на стража. Ему уже лучше."},
+        {"who": "hero", "es": "Şimdi ne olacak?", "ru": "И что теперь?"},
+        {"who": "npc", "es": "Şimdi siz. Muhafız sizi şehrin dışında bekliyor.", "ru": "А теперь — вы. Страж ждёт вас за городом."}
+      ],
+      "questions": [
+        {"q": "Что на самом деле была компания?", "options": ["Банк", "Страж", "Отель"], "answer": 1},
+        {"q": "Что хотел узнать страж?", "options": ["Продаст ли город карту", "Где Хранилище", "Кто такой герой"], "answer": 0},
+        {"q": "На кого работает человек из больницы?", "options": ["На компанию", "На стража", "На комиссара"], "answer": 1},
+        {"q": "Где страж ждёт героя?", "options": ["За городом", "В участке", "На пристани"], "answer": 0}
+      ],
+      "gloss": {"polisteki": "в полиции", "şirket": "компания", "istedi": "хотел", "aslında": "на самом деле", "muhafızdı": "был стражем", "muhafız": "страж", "satacak": "продаст", "satmadı": "не продал", "hastanedeki": "из больницы", "dışında": "за, снаружи"}
+    },
+    {
+      "id": "sc:police.2",
+      "chapter": 2,
+      "npc": "nihat",
+      "lines": [
+        {"who": "npc", "es": "İyi günler. Elimde yüz yıllık bir dosya var. Bugün onu kapatıyorum.", "ru": "Добрый день. У меня дело столетней давности. И сегодня я его закрываю."},
+        {"who": "hero", "es": "Kule treni mi?", "ru": "Поезд к башне?"},
+        {"who": "npc", "es": "Evet. Tren, fırtına ve tek bir yolcu: Orhan.", "ru": "Именно. Поезд, буря и один-единственный пассажир: Орхан."},
+        {"who": "hero", "es": "Orhan kulede kaldı.", "ru": "Орхан остался в башне."},
+        {"who": "npc", "es": "Eski muhafıza yardım etmek için kaldı. Eski muhafız gidince, Orhan onun yerini aldı.", "ru": "Он остался помогать старому стражу. Когда старый страж ушёл, Орхан занял его место."},
+        {"who": "hero", "es": "Neden aşağı inmiyor?", "ru": "А почему он не спускается?"},
+        {"who": "npc", "es": "Muhafız ancak bir yolcu sorularına cevap verince inebilir.", "ru": "Страж может спуститься, только когда какой-нибудь путник ответит на его вопросы."},
+        {"who": "hero", "es": "Kerem cevap veremedi.", "ru": "Керем не смог."},
+        {"who": "npc", "es": "Şimdi siz. Üç soru, geçmiş zamanla.", "ru": "Теперь вы. Три вопроса, в прошедшем времени."},
+        {"who": "hero", "es": "Cevap verirsem, Orhan evine döner mi?", "ru": "А если я отвечу, Орхан вернётся домой?"},
+        {"who": "npc", "es": "Saat yedi treniyle. Onun bileti sizde, değil mi?", "ru": "Поездом в семь. Его билет ведь у вас, верно?"}
+      ],
+      "questions": [
+        {"q": "Какое дело закрывает комиссар?", "options": ["Дело столетней давности", "Кражу кошелька", "Аварию"], "answer": 0},
+        {"q": "Кто был единственным пассажиром поезда?", "options": ["Керем", "Орхан", "Летописец"], "answer": 1},
+        {"q": "Когда страж может спуститься?", "options": ["Когда путник ответит на его вопросы", "Когда придёт поезд", "Никогда"], "answer": 0},
+        {"q": "Как Орхан вернётся домой?", "options": ["Паромом", "Поездом в семь", "Пешком"], "answer": 1}
+      ],
+      "gloss": {"yıllık": "летнее, возрастом в … лет", "dosya": "дело", "kapatıyorum": "закрываю", "kule": "башня", "treni": "поезд", "fırtına": "буря", "tek": "единственный", "orhan": "Орхан", "kulede": "в башне", "kaldı": "остался", "muhafıza": "стражу (muhafız)", "muhafız": "страж", "gidince": "когда ушёл", "yerini": "место", "inmiyor": "не спускается", "ancak": "только", "sorularına": "на вопросы", "verince": "когда ответит", "inebilir": "может спуститься", "veremedi": "не смог ответить", "geçmiş": "прошедшее", "zamanla": "временем", "verirsem": "если отвечу", "döner": "вернётся", "treniyle": "поездом"}
+    }
+  ]
+}

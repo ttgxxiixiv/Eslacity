@@ -1,0 +1,55 @@
+{
+  "location": "clothes",
+  "scenes": [
+    {
+      "id": "sc:clothes.1",
+      "chapter": 1,
+      "npc": "selin",
+      "lines": [
+        {"who": "npc", "es": "Günaydın! Bu gömlek size çok yakıştı.", "ru": "Доброе утро! Эта рубашка вам очень идёт."},
+        {"who": "hero", "es": "Teşekkürler. Yolculuk için kıyafet lazım.", "ru": "Спасибо. Мне нужна одежда для поездки."},
+        {"who": "npc", "es": "Yolculuk mu? Nereye?", "ru": "Поездка? Куда?"},
+        {"who": "hero", "es": "Dağa. Haritadaki yolu arıyorum.", "ru": "В горы. Я ищу дорогу с карты."},
+        {"who": "npc", "es": "Dağda hava çok soğuk. Size bir palto lazım.", "ru": "В горах очень холодно. Вам нужно пальто."},
+        {"who": "hero", "es": "Palto var mı?", "ru": "Пальто у вас есть?"},
+        {"who": "npc", "es": "Bir tane var, çok eski, annemin paltosu. Bakın, cebinde bir şey var.", "ru": "Есть одно, очень старое, мамино. Смотрите, в кармане что-то есть."},
+        {"who": "hero", "es": "Bir şey mi? Bu bir harita parçası!", "ru": "Что-то? Это обрывок карты!"},
+        {"who": "npc", "es": "Hiç bilmiyordum! Annem bir şey söylemedi.", "ru": "Я и не знала! Мама ничего не говорила."},
+        {"who": "hero", "es": "Deneyebilir miyim?", "ru": "Можно примерить?"},
+        {"who": "npc", "es": "Hayır, size büyük. Size güzel bir palto bulacağım. Parçayı da sonra konuşuruz.", "ru": "Нет, оно вам велико. Подберу вам хорошее пальто. А про обрывок поговорим потом."}
+      ],
+      "questions": [
+        {"q": "Зачем герою одежда?", "options": ["Для праздника", "Для поездки в горы", "Для работы"], "answer": 1},
+        {"q": "Чьё старое пальто?", "options": ["Селин", "Её мамы", "Керема"], "answer": 1},
+        {"q": "Что нашлось в кармане?", "options": ["Обрывок карты", "Письмо", "Монета"], "answer": 0},
+        {"q": "Почему герою нельзя взять это пальто?", "options": ["Оно велико", "Оно дорогое", "Оно мокрое"], "answer": 0}
+      ],
+      "gloss": {"yakıştı": "идёт, к лицу", "cebinde": "в кармане (cep)", "parçası": "обрывок (parça)", "parçayı": "обрывок (parça)", "bilmiyordum": "не знала"}
+    },
+    {
+      "id": "sc:clothes.2",
+      "chapter": 2,
+      "npc": "selin",
+      "lines": [
+        {"who": "npc", "es": "Günaydın! Dağ için kıyafet mi? Paltonuz var. Şimdi başka şeyler lazım.", "ru": "Доброе утро! Одежда для гор? Пальто у вас уже есть. Теперь нужно ещё кое-что."},
+        {"who": "hero", "es": "Başka ne lazım?", "ru": "Что ещё нужно?"},
+        {"who": "npc", "es": "Çizme, şapka ve eldiven. Kerem gibi. O da yola çıkmadan önce buraya geldi.", "ru": "Сапоги, шапка и перчатки. Как у Керема. Он тоже заходил сюда перед дорогой."},
+        {"who": "hero", "es": "Kerem ne aldı?", "ru": "Что купил Керем?"},
+        {"who": "npc", "es": "Kırmızı bir şapka. Bana dedi ki: “Siste kırmızı renk uzaktan görünür.”", "ru": "Красную шапку. Он сказал мне: «В тумане красный цвет видно издалека»."},
+        {"who": "hero", "es": "Kırmızı şapka… Bu önemli.", "ru": "Красная шапка… Это важно."},
+        {"who": "npc", "es": "Kışlık çizme de ısmarladı. Ama onları almaya hiç gelmedi.", "ru": "И заказал зимние сапоги. Но так и не пришёл за ними."},
+        {"who": "hero", "es": "Hâlâ burada mı?", "ru": "Они всё ещё здесь?"},
+        {"who": "npc", "es": "İşte. Onu bulunca bunları ona verin.", "ru": "Вот они. Отдайте их ему, когда найдёте."},
+        {"who": "hero", "es": "Veririm.", "ru": "Отдам."},
+        {"who": "npc", "es": "Size de sıcak bir şey lazım. Kulenin yanında hava çok soğuk.", "ru": "И вам нужно что-нибудь тёплое. У башни очень холодно."}
+      ],
+      "questions": [
+        {"q": "Что нужно герою кроме пальто?", "options": ["Сапоги, шапка и перчатки", "Зонт", "Рубашка"], "answer": 0},
+        {"q": "Что купил Керем?", "options": ["Красную шапку", "Серое пальто", "Синий свитер"], "answer": 0},
+        {"q": "Зачем ему красное?", "options": ["Это его любимый цвет", "В тумане красное видно издалека", "Так велел страж"], "answer": 1},
+        {"q": "Что Керем не забрал?", "options": ["Перчатки", "Зимние сапоги", "Пальто"], "answer": 1}
+      ],
+      "gloss": {"çıkmadan": "перед тем как отправиться", "dedi": "сказал", "ki": "(вводит прямую речь)", "siste": "в тумане (sis)", "uzaktan": "издалека", "görünür": "видно", "önemli": "важно", "kışlık": "зимние", "ısmarladı": "заказал", "almaya": "забрать", "bulunca": "когда найдёте", "kulenin": "башни (kule)"}
+    }
+  ]
+}

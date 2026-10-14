@@ -1,0 +1,55 @@
+{
+  "location": "school",
+  "scenes": [
+    {
+      "id": "sc:school.1",
+      "chapter": 1,
+      "npc": "elif",
+      "lines": [
+        {"who": "npc", "es": "Günaydın! Derse başlayalım mı?", "ru": "Доброе утро! Начнём урок?"},
+        {"who": "hero", "es": "Günaydın. Bugün bir sorum var.", "ru": "Доброе утро. Сегодня у меня вопрос."},
+        {"who": "npc", "es": "Çok iyi. Sorular her zaman iyidir.", "ru": "Очень хорошо. Вопросы — это всегда хорошо."},
+        {"who": "hero", "es": "Harita hakkında bir şey biliyor musun?", "ru": "Ты что-нибудь знаешь о карте?"},
+        {"who": "npc", "es": "Bende bir parça var. Bak: burada bazı kelimeler yazıyor.", "ru": "У меня есть обрывок. Смотри: здесь написаны какие-то слова."},
+        {"who": "hero", "es": "Bu kelimeyi anlamıyorum.", "ru": "Я не понимаю это слово."},
+        {"who": "npc", "es": "Bu çok eski Türkçe. Burada “Sadece konuşan geçer” yazıyor.", "ru": "Это очень старый турецкий. Здесь написано: «Пройдёт только тот, кто говорит»."},
+        {"who": "hero", "es": "Geçer mi? Nereye?", "ru": "Пройдёт? Куда?"},
+        {"who": "npc", "es": "Mahzen'e. Kapıda biri soru soruyor. Sadece cevabı bilen geçer.", "ru": "В Хранилище. У двери кто-то задаёт вопросы. Пройдёт только тот, кто знает ответ."},
+        {"who": "hero", "es": "Çok şey öğrenmem lazım.", "ru": "Мне нужно многому научиться."},
+        {"who": "npc", "es": "Bunun için buradasın. Başlıyoruz!", "ru": "Для этого ты здесь. Начинаем!"}
+      ],
+      "questions": [
+        {"q": "Что есть у учительницы Элиф?", "options": ["Обрывок карты", "Ключ", "Письмо Керема"], "answer": 0},
+        {"q": "На каком языке надпись?", "options": ["На очень старом турецком", "На греческом", "На русском"], "answer": 0},
+        {"q": "Что там написано?", "options": ["«Иди на голос»", "«Пройдёт только тот, кто говорит»", "«Скоро придёт туман»"], "answer": 1},
+        {"q": "Что происходит у двери Хранилища?", "options": ["Кто-то задаёт вопросы", "Там продают Эликсир", "Там всегда закрыто"], "answer": 0}
+      ],
+      "gloss": {"parça": "обрывок", "soruyor": "спрашивает", "konuşan": "кто говорит", "geçer": "пройдёт", "mahzen": "Хранилище", "bilen": "кто знает", "öğrenmem": "мне учиться"}
+    },
+    {
+      "id": "sc:school.2",
+      "chapter": 2,
+      "npc": "elif",
+      "lines": [
+        {"who": "npc", "es": "Günaydın! Kerem'in mektubu bende. Dün babası Hasan Usta verdi.", "ru": "Доброе утро! У меня письмо Керема. Вчера мне его дал его отец, Хасан-уста."},
+        {"who": "hero", "es": "Mektupta ne yazıyor?", "ru": "Что в письме?"},
+        {"who": "npc", "es": "Dinle: “Sise ulaştım. Sis konuşuyor. Ben geçmiş zamanla cevap veriyorum.”", "ru": "Слушай: «Я дошёл до тумана. Туман говорит. Я отвечаю в прошедшем времени»."},
+        {"who": "hero", "es": "Sis konuşuyor mu?", "ru": "Туман говорит?"},
+        {"who": "npc", "es": "Bence bu, muhafızın sesi. Ne yaptığını soruyor, sen de geçmiş zamanla cevap veriyorsun.", "ru": "Думаю, это голос стража. Он спрашивает, что ты сделал, а ты отвечаешь в прошедшем времени.", "fem": {"ru": "Думаю, это голос стража. Он спрашивает, что ты сделала, а ты отвечаешь в прошедшем времени."}},
+        {"who": "hero", "es": "Komşum da aynı şeyi söyledi.", "ru": "Моя соседка говорила то же самое."},
+        {"who": "npc", "es": "Evet. Ama mektubun sonuna bak: yazı başka.", "ru": "Вот именно. А посмотри в конец письма: почерк другой."},
+        {"who": "hero", "es": "Sonunda ne var?", "ru": "А что в конце?"},
+        {"who": "npc", "es": "Bunu başka biri yazdı. Sadece birkaç kelime: “O iyi. Bekle.”", "ru": "Это написал уже другой человек. Всего несколько слов: «С ним всё хорошо. Жди»."},
+        {"who": "hero", "es": "Kim?", "ru": "Кто?"},
+        {"who": "npc", "es": "Bilmiyorum. O yüzden bugün geçmiş zamanı çalışıyoruz. Başlıyoruz!", "ru": "Не знаю. Поэтому сегодня учим прошедшее время. Начинаем!"}
+      ],
+      "questions": [
+        {"q": "Кто дал Элиф письмо Керема?", "options": ["Его отец", "Почтальон", "Человек в сером пальто"], "answer": 0},
+        {"q": "Что пишет Керем о тумане?", "options": ["Туман говорит", "Туман уходит", "Туман холодный"], "answer": 0},
+        {"q": "Как отвечать туману?", "options": ["В будущем времени", "В прошедшем времени", "Молча"], "answer": 1},
+        {"q": "Что написано в конце другим почерком?", "options": ["«Приходи»", "«С ним всё хорошо. Жди»", "«Иди на голос»"], "answer": 1}
+      ],
+      "gloss": {"mektubu": "письмо (mektup)", "mektubun": "письма (mektup)", "sise": "до тумана (sis)", "ulaştım": "дошёл", "sis": "туман", "muhafızın": "стража (muhafız)", "yaptığını": "что ты сделал", "yazı": "почерк", "birkaç": "несколько", "geçmiş": "прошедшее", "zamanla": "временем", "zamanı": "время"}
+    }
+  ]
+}

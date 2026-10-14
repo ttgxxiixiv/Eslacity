@@ -1,0 +1,46 @@
+{
+  "location": "hospital",
+  "missions": [
+    {
+      "id": "ms:hospital.1",
+      "chapter": 1,
+      "npc": "gul",
+      "scene": "sc:hospital.1",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "İyi günler. Bugün hasta sizsiniz. Neyiniz var?", "ru": "Добрый день. Сегодня пациент — вы. Что с вами?", "next": "what"},
+        "what": {"kind": "answer", "task": "Скажите, что у вас, кажется, сломана рука или что у вас болит сердце.", "branches": [{"phrase": "ph:hospital.kolum-kirik", "next": "arm", "sets": {"injury": "arm"}}, {"phrase": "ph:hospital.kalbim-agriyor", "next": "heart", "sets": {"injury": "heart"}}], "wrong": {"es": "Anlamadım. Neresi ağrıyor?", "ru": "Не поняла. Что болит?"}},
+        "arm": {"kind": "say", "es": "Kol… Bakalım. Burası ağrıyor mu?", "ru": "Рука… Посмотрим. Здесь болит?", "next": "xray"},
+        "heart": {"kind": "say", "es": "Kalp… Kalbiniz iyi, ama kolunuza bakın. Kırmızı.", "ru": "Сердце… Сердце у вас в порядке, но посмотрите на руку. Она красная.", "next": "xray"},
+        "xray": {"kind": "answer", "task": "Спросите, нужен ли вам рентген.", "branches": [{"phrase": "ph:hospital.rontgen-lazim", "next": "serious"}], "wrong": {"es": "Kahve mi? Hastanede kahve yok.", "ru": "Кофе? В больнице кофе нет."}},
+        "serious": {"kind": "say", "es": "Evet, kola bakalım.", "ru": "Да, посмотрим на руку.", "next": "seriousq"},
+        "seriousq": {"kind": "answer", "task": "Спросите, серьёзно ли это.", "branches": [{"phrase": "ph:hospital.ciddi-mi", "next": "blood"}], "wrong": {"es": "Kaç lira mı? Burada para yok.", "ru": "Сколько стоит? Здесь денег не берут."}},
+        "blood": {"kind": "say", "es": "Ciddi bir şey yok. Kol kırık değil. Bir hafta spor yok.", "ru": "Ничего серьёзного. Рука не сломана. Неделя без спорта.", "next": "bloodq"},
+        "bloodq": {"kind": "answer", "task": "Спросите, нужно ли сдать кровь.", "branches": [{"phrase": "ph:hospital.kan-tahlili", "next": "thanks"}], "wrong": {"es": "Ameliyat mı? Hayır, hayır!", "ru": "Операция? Нет-нет!"}},
+        "thanks": {"kind": "say", "es": "Hayır, lazım değil. Şimdi? Nasılsınız?", "ru": "Нет, не нужно. А сейчас? Как вы?", "next": "thanksq"},
+        "thanksq": {"kind": "answer", "task": "Скажите, что вам уже лучше, и поблагодарите.", "branches": [{"phrase": "ph:hospital.daha-iyiyim", "next": "end"}], "wrong": {"es": "Hâlâ ağrıyor mu? O zaman bir saat daha bekleyin.", "ru": "Всё ещё болит? Тогда подождите ещё час."}},
+        "end": {"kind": "say", "es": "Güzel. Harita parçamı alın. Vakanüvis, komşularınıza yardım ediyorsunuz, diyor. Görüyorum: bugün doktorunuza yardım ettiniz.", "ru": "Хорошо. Возьмите мой обрывок карты. Летописец говорит, что вы помогаете соседям. Я это вижу: сегодня вы помогли своему врачу."}
+      }
+    },
+    {
+      "id": "ms:hospital.2",
+      "chapter": 2,
+      "npc": "gul",
+      "scene": "sc:hospital.2",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Ya siz? Kerem'i otobüsten buraya getirdiniz. Neyiniz var?", "ru": "А вы? Вы довели Керема сюда от автобуса. Что с вами?", "next": "pain"},
+        "pain": {"kind": "answer", "task": "Скажите, что у вас сильно болит плечо или болит стопа.", "branches": [{"phrase": "ph:hospital.omzum-agriyor", "next": "cut"}, {"phrase": "ph:hospital.ayagim-agriyor", "next": "cut"}], "wrong": {"es": "Anlamadım. Neresi ağrıyor?", "ru": "Не поняла. Что болит?"}},
+        "cut": {"kind": "say", "es": "Anlıyorum: Kerem'i uzun süre taşıdınız. Ciddi bir şey yok. Başka?", "ru": "Понятно: вы долго несли Керема. Ничего серьёзного. Что ещё?", "next": "cutq"},
+        "cutq": {"kind": "answer", "task": "Скажите, что порезали палец.", "branches": [{"phrase": "ph:hospital.parmagimi-kestim", "next": "eye"}], "wrong": {"es": "Kalbiniz mi? Kalbiniz çok iyi.", "ru": "Сердце? Сердце у вас отличное."}},
+        "eye": {"kind": "say", "es": "Bakalım… Sorun yok. Yara bandı, o kadar. Ya gözler? Kırmızı.", "ru": "Посмотрим… Ничего страшного. Пластырь — и всё. А глаза? Они красные.", "next": "eyeq"},
+        "eyeq": {"kind": "answer", "task": "Скажите, что вам что-то попало в глаз.", "branches": [{"phrase": "ph:hospital.gozumde-bir-sey", "next": "shot"}], "wrong": {"es": "Burnunuz mu? Burnunuz iyi.", "ru": "Нос? Нос в порядке."}},
+        "shot": {"kind": "say", "es": "Kum. Dağda kum yok… Rüzgâr onu kulenin arkasından getiriyor.", "ru": "Песок. В горах песка нет… Его приносит ветер из-за башни.", "next": "shotq"},
+        "shotq": {"kind": "answer", "task": "Спросите, нужен ли вам укол.", "branches": [{"phrase": "ph:hospital.igne-lazim", "next": "out"}], "wrong": {"es": "Ameliyat mı? Hayır, o kadar değil!", "ru": "Операция? Нет, не настолько!"}},
+        "out": {"kind": "say", "es": "Hayır, lazım değil. Yukarı çıkabilirsiniz.", "ru": "Нет, не нужно. Вы можете подниматься.", "next": "outq"},
+        "outq": {"kind": "answer", "task": "Спросите, когда вас выпишут.", "branches": [{"phrase": "ph:hospital.ne-zaman-taburcu", "next": "end"}], "wrong": {"es": "Doktor mu? Doktor benim!", "ru": "Врач? Врач — это я!"}},
+        "end": {"kind": "say", "es": "Hemen şimdi. Dağ haritasından benim parçamı alın. Üçüncü soruyu unutmayın: kime yardım ettiniz. Bunu herkesten iyi biliyorsunuz.", "ru": "Прямо сейчас. Возьмите мой обрывок карты гор. И помните третий вопрос: кому вы помогли. Вы это знаете лучше всех."}
+      }
+    }
+  ]
+}

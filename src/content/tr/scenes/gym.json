@@ -1,0 +1,55 @@
+{
+  "location": "gym",
+  "scenes": [
+    {
+      "id": "sc:gym.1",
+      "chapter": 1,
+      "npc": "deniz",
+      "lines": [
+        {"who": "npc", "es": "Hadi! On tane daha!", "ru": "Давай! Ещё десять!"},
+        {"who": "hero", "es": "Of! Bacaklarım ağrıyor.", "ru": "Уф! Ноги болят."},
+        {"who": "npc", "es": "Çok iyi! Haritadaki yol için güçlü bacaklar lazım.", "ru": "Отлично! Для дороги с карты нужны сильные ноги."},
+        {"who": "hero", "es": "Bu yolu biliyor musun?", "ru": "Ты знаешь эту дорогу?"},
+        {"who": "npc", "es": "Annem dağa gitti. İki gün yürüdü.", "ru": "Моя мама ходила в горы. Два дня шла пешком."},
+        {"who": "hero", "es": "Mahzen'i buldu mu?", "ru": "И нашла Хранилище?"},
+        {"who": "npc", "es": "Hayır. Yolda bir muhafız var. Bildiğin her kelimeye bakıyor.", "ru": "Нет. На дороге стоит страж. Он проверяет каждое слово, которое ты знаешь."},
+        {"who": "hero", "es": "Annen cevapları bilmiyor muydu?", "ru": "А твоя мама не знала ответов?"},
+        {"who": "npc", "es": "Çok iyi koşardı. Ama konuşmak… o kadar iyi değil.", "ru": "Бегала она отлично. А вот говорила… не очень."},
+        {"who": "hero", "es": "Ben hem koşmak hem konuşmak istiyorum.", "ru": "А я хочу и бегать, и говорить."},
+        {"who": "npc", "es": "İşte bu! On tane daha, Türkçe!", "ru": "Вот это по-нашему! Ещё десять — и по-турецки!"}
+      ],
+      "questions": [
+        {"q": "Что болит у героя?", "options": ["Ноги", "Спина", "Рука"], "answer": 0},
+        {"q": "Сколько дней мама Дениз шла в горы?", "options": ["Один", "Два", "Пять"], "answer": 1},
+        {"q": "Что проверяет страж?", "options": ["Силу", "Каждое слово, которое ты знаешь", "Деньги"], "answer": 1},
+        {"q": "Что мама Дениз умела хорошо?", "options": ["Говорить", "Бегать", "Плавать"], "answer": 1}
+      ],
+      "gloss": {"hadi": "давай", "of": "уф", "mahzen": "Хранилище", "muhafız": "страж", "bildiğin": "который ты знаешь", "koşardı": "бегала", "hem": "и … и"}
+    },
+    {
+      "id": "sc:gym.2",
+      "chapter": 2,
+      "npc": "deniz",
+      "lines": [
+        {"who": "npc", "es": "Hadi! Kuleye çıkmak için formda olmalısın.", "ru": "Давай! Чтобы подняться к башне, нужно быть в форме."},
+        {"who": "hero", "es": "Oraya çıkmak çok mu zor?", "ru": "Туда очень трудно подниматься?"},
+        {"who": "npc", "es": "Çok merdiven var. Kerem burada her hafta antrenman yapardı.", "ru": "Там очень много ступенек. Керем тренировался здесь каждую неделю."},
+        {"who": "hero", "es": "Ya gri paltolu adam? Onu tanıyor musun?", "ru": "А человек в сером пальто? Ты его знаешь?"},
+        {"who": "npc", "es": "Annem tanıyor. Yıllar önce bir fırtınada onu dağdan indirdi.", "ru": "Моя мама знает. Много лет назад в бурю он снёс её с горы."},
+        {"who": "hero", "es": "Ona yardım mı etti?", "ru": "Он ей помог?"},
+        {"who": "npc", "es": "Kollarında taşıdı, çok hızlı, genç bir adam gibi.", "ru": "Нёс её на руках, очень быстро, как молодой парень."},
+        {"who": "hero", "es": "O zaman kötü biri değil.", "ru": "Значит, он не злой."},
+        {"who": "npc", "es": "Bence değil. Annem, gözleri çok üzgündü, diyor.", "ru": "Думаю, нет. Мама говорит, что глаза у него были очень грустные."},
+        {"who": "hero", "es": "Onunla konuşacağım.", "ru": "Я с ним поговорю."},
+        {"who": "npc", "es": "Önce merdivenler. Hadi, on tane daha!", "ru": "Сначала ступеньки. Давай, ещё десять!"}
+      ],
+      "questions": [
+        {"q": "Что трудного в дороге к башне?", "options": ["Много ступенек", "Глубокая река", "Злые собаки"], "answer": 0},
+        {"q": "Как часто тренировался Керем?", "options": ["Каждый день", "Каждую неделю", "Никогда"], "answer": 1},
+        {"q": "Что сделал человек в сером пальто для мамы Дениз?", "options": ["Снёс её с горы в бурю", "Дал ей карту", "Научил её говорить"], "answer": 0},
+        {"q": "Какие у него глаза, по словам мамы?", "options": ["Весёлые", "Злые", "Очень грустные"], "answer": 2}
+      ],
+      "gloss": {"hadi": "давай", "kuleye": "к башне (kule)", "olmalısın": "ты должен быть", "merdiven": "ступеньки, лестница", "merdivenler": "ступеньки", "yapardı": "делал (обычно)", "paltolu": "в пальто", "fırtınada": "в бурю (fırtına)", "indirdi": "спустил", "kollarında": "на руках", "taşıdı": "нёс", "gözleri": "глаза (göz)", "üzgündü": "были грустные", "konuşacağım": "поговорю"}
+    }
+  ]
+}

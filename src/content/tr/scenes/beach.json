@@ -1,0 +1,55 @@
+{
+  "location": "beach",
+  "scenes": [
+    {
+      "id": "sc:beach.1",
+      "chapter": 1,
+      "npc": "can",
+      "lines": [
+        {"who": "npc", "es": "Ne sıcak! Denize girelim mi?", "ru": "Ну и жара! Пойдём купаться?"},
+        {"who": "hero", "es": "Çok sıcak.", "ru": "Очень жарко."},
+        {"who": "npc", "es": "Sakin ol. Burada kimse acele etmez.", "ru": "Спокойно. Здесь никто не спешит."},
+        {"who": "hero", "es": "Bir harita parçası arıyorum. Sende var mı?", "ru": "Я ищу обрывок карты. У тебя есть?"},
+        {"who": "npc", "es": "Bir gün deniz bir şişe getirdi. İçinde bir harita parçası vardı.", "ru": "Однажды море принесло бутылку. В ней был обрывок карты."},
+        {"who": "hero", "es": "Denizden mi? Nereden geldi?", "ru": "Из моря? А откуда он?"},
+        {"who": "npc", "es": "Kimse bilmiyor. Deniz konuşmaz.", "ru": "Никто не знает. Море не разговаривает."},
+        {"who": "hero", "es": "Bana verir misin?", "ru": "Отдашь мне?"},
+        {"who": "npc", "es": "Sakin ol, acele etme. Yol seni bekler.", "ru": "Спокойно, не спеши. Дорога тебя подождёт."},
+        {"who": "hero", "es": "Yol beni bekler mi?", "ru": "Дорога меня подождёт?"},
+        {"who": "npc", "es": "Harita bir yere gitmiyor. Şimdi, denize!", "ru": "Карта никуда не денется. А сейчас — в воду!"}
+      ],
+      "questions": [
+        {"q": "Какая сегодня погода?", "options": ["Жарко", "Холодно", "Дождь"], "answer": 0},
+        {"q": "Что принесло море?", "options": ["Бутылку с обрывком карты", "Лодку", "Письмо"], "answer": 0},
+        {"q": "Откуда обрывок?", "options": ["С башни", "Никто не знает", "Из пекарни"], "answer": 1},
+        {"q": "Что говорит Джан про дорогу?", "options": ["Она закрыта", "Она подождёт", "Она опасная"], "answer": 1}
+      ],
+      "gloss": {"sakin": "спокойно", "acele": "спешка", "etmez": "не делает", "parçası": "обрывок (parça)", "şişe": "бутылку", "getirdi": "принесло", "içinde": "внутри", "konuşmaz": "не разговаривает", "etme": "не делай", "bekler": "подождёт"}
+    },
+    {
+      "id": "sc:beach.2",
+      "chapter": 2,
+      "npc": "can",
+      "lines": [
+        {"who": "npc", "es": "Ne sıcak! Sakin ol, otur.", "ru": "Ну и жара! Спокойно, садись."},
+        {"who": "hero", "es": "Neye bakıyorsun?", "ru": "На что ты смотришь?"},
+        {"who": "npc", "es": "Dağa. Akşam buradan kule görünüyor.", "ru": "На гору. Вечером отсюда видно башню."},
+        {"who": "hero", "es": "Plajdan mı?", "ru": "С пляжа?"},
+        {"who": "npc", "es": "Bak. Orada, yukarıda. Bir ışık var.", "ru": "Смотри. Вон там, наверху. Там свет."},
+        {"who": "hero", "es": "Işık sönüyor… ve yine yanıyor.", "ru": "Свет гаснет… и снова загорается."},
+        {"who": "npc", "es": "Her akşam böyle. Üç kere. Bir kelime gibi.", "ru": "Так каждый вечер. Три раза. Как слово."},
+        {"who": "hero", "es": "Kelime mi?", "ru": "Слово?"},
+        {"who": "npc", "es": "Bence kule “Gel” diyor.", "ru": "Я думаю, башня говорит: «Приходи»."},
+        {"who": "hero", "es": "Mektuplardaki gibi.", "ru": "Как в письмах."},
+        {"who": "npc", "es": "Sakin ol, yolcu. Kule seni çağırıyor, ama deniz acele etmez.", "ru": "Спокойно, путник. Башня тебя зовёт, но море не спешит."}
+      ],
+      "questions": [
+        {"q": "Что видно с пляжа вечером?", "options": ["Башню", "Остров", "Пароход"], "answer": 0},
+        {"q": "Что делает свет?", "options": ["Горит всю ночь", "Гаснет и загорается три раза", "Меняет цвет"], "answer": 1},
+        {"q": "Что, по мнению Джана, говорит башня?", "options": ["«Уходи»", "«Приходи»", "«Жди»"], "answer": 1},
+        {"q": "С чем герой сравнивает этот знак?", "options": ["С письмами", "С картой", "С песней"], "answer": 0}
+      ],
+      "gloss": {"sakin": "спокойно", "kule": "башня", "görünüyor": "видно", "ışık": "свет", "sönüyor": "гаснет", "yanıyor": "горит", "diyor": "говорит", "mektuplardaki": "в письмах", "çağırıyor": "зовёт", "acele": "спешка", "etmez": "не делает"}
+    }
+  ]
+}

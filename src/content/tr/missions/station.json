@@ -1,0 +1,45 @@
+{
+  "location": "station",
+  "missions": [
+    {
+      "id": "ms:station.1",
+      "chapter": 1,
+      "npc": "ismail",
+      "scene": "sc:station.1",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Sen misin? Vapur beş dakika sonra kalkıyor. Ne lazım?", "ru": "Это ты? Паром отходит через пять минут. Что тебе нужно?", "next": "box"},
+        "box": {"kind": "answer", "task": "Спросите, где касса.", "branches": [{"phrase": "ph:station.gise-nerede", "next": "ticket"}], "wrong": {"es": "Tuvalet mi? Orada, ama vapur kalkıyor!", "ru": "Туалет? Вон там, но паром отходит!"}},
+        "ticket": {"kind": "say", "es": "Orada, sağda.", "ru": "Вон там, справа.", "next": "ticketq"},
+        "ticketq": {"kind": "answer", "task": "Попросите билет туда и обратно.", "branches": [{"phrase": "ph:station.gidis-donus", "next": "time"}], "wrong": {"es": "Sadece gidiş mi? Ama dönmek lazım!", "ru": "Только туда? Но возвращаться-то надо!"}},
+        "time": {"kind": "say", "es": "Gidiş dönüş, adaya. Kırk lira.", "ru": "Туда и обратно, на остров. Сорок лир.", "next": "timeq"},
+        "timeq": {"kind": "answer", "task": "Спросите, во сколько отправление.", "branches": [{"phrase": "ph:station.kalkis-saat-kac", "next": "late"}], "wrong": {"es": "Kaç lira mı? Kırk lira, dedim!", "ru": "Сколько стоит? Я же сказал: сорок лир!"}},
+        "late": {"kind": "say", "es": "Saat onda. Şimdi ona iki var.", "ru": "В десять. А сейчас без двух десять.", "next": "lateq"},
+        "lateq": {"kind": "answer", "task": "Спросите, не опаздывает ли он.", "branches": [{"phrase": "ph:station.gec-mi", "next": "seat"}], "wrong": {"es": "Erken mi? Hayır, saat onda!", "ru": "Рано? Нет, в десять!"}},
+        "seat": {"kind": "say", "es": "Geç mi? Benim vapurum hiç geç kalmaz! Gel. Bak, senin yerinde bir adam oturuyor.", "ru": "Опаздывает? Мой паром никогда не опаздывает! Пошли. Смотри, на твоём месте сидит какой-то человек.", "next": "seatq"},
+        "seatq": {"kind": "answer", "task": "Вежливо скажите этому человеку, что это ваше место.", "branches": [{"phrase": "ph:station.burasi-benim-yerim", "next": "end"}], "wrong": {"es": "Ne dedin? Adam anlamadı.", "ru": "Что ты сказал? Человек не понял.", "fem": {"ru": "Что ты сказала? Человек не понял."}}},
+        "end": {"kind": "say", "es": "Çok iyi. Al, odamdan: haritanın bir parçası. Vapur Mahzen'e gitmez, yolcu. Oraya yürüyerek gidiyoruz.", "ru": "Отлично. А это тебе из моего кабинета: обрывок карты. Паром в Хранилище не ходит, путник. Туда идут пешком."}
+      }
+    },
+    {
+      "id": "ms:station.2",
+      "chapter": 2,
+      "npc": "ismail",
+      "scene": "sc:station.2",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Yürüyerek gidiyorsan, ağır şeyleri burada bırak. Ne lazım?", "ru": "Если идёшь пешком, оставь тяжёлые вещи здесь. Что тебе нужно?", "next": "left"},
+        "left": {"kind": "answer", "task": "Спросите, где камера хранения.", "branches": [{"phrase": "ph:station.emanet-nerede", "next": "taxi"}], "wrong": {"es": "Gişe mi? Bugün bilet lazım değil!", "ru": "Касса? Сегодня билет не нужен!"}},
+        "taxi": {"kind": "say", "es": "Orada. Çantan burada kalır. Dağa nasıl gideceksin?", "ru": "Вон там. Сумка останется здесь. А как ты доберёшься до гор?", "next": "taxiq"},
+        "taxiq": {"kind": "answer", "task": "Спросите, есть ли у вокзала такси.", "branches": [{"phrase": "ph:station.taksi-var-mi", "next": "stop"}], "wrong": {"es": "Vapur mu? Vapur dağa gitmez!", "ru": "Паром? Паром в горы не ходит!"}},
+        "stop": {"kind": "say", "es": "Var, kapıda. Ama otobüs daha ucuz.", "ru": "Есть, у входа. Но автобус дешевле.", "next": "stopq"},
+        "stopq": {"kind": "answer", "task": "Спросите, на какой остановке вам выходить.", "branches": [{"phrase": "ph:station.hangi-durak", "next": "back"}], "wrong": {"es": "Kaç lira mı? Otobüs ucuz, dedim.", "ru": "Сколько стоит? Я же сказал, автобус дешёвый."}},
+        "back": {"kind": "say", "es": "“Dağ” durağında. Son durak. Ya dönmek için?", "ru": "На остановке «Горы». Она конечная. А чтобы вернуться?", "next": "backq"},
+        "backq": {"kind": "answer", "task": "Скажите, что хотите купить билет на завтра.", "branches": [{"phrase": "ph:station.yarin-icin-bilet", "next": "wait"}], "wrong": {"es": "Bugün mü? Bugün dağdasın!", "ru": "Сегодня? Сегодня ты в горах!"}},
+        "wait": {"kind": "say", "es": "Yarın için, saat ona. Ya şimdi?", "ru": "На завтра, на десять. А сейчас?", "next": "waitq"},
+        "waitq": {"kind": "answer", "task": "Скажите, что подождёте в зале ожидания.", "branches": [{"phrase": "ph:station.bekleme-salonu", "next": "end"}], "wrong": {"es": "Vapura mı biniyorsun? Hayır, otobüs bekliyorsun!", "ru": "На паром садишься? Нет, ты ждёшь автобус!"}},
+        "end": {"kind": "say", "es": "Peki. Otobüs on dakika sonra. Al, dağ haritasından benim parçam. Bir de bu: saat yedi treni için eski bir bilet. Onu gri paltolu adama ver. Yüz yıl geç kaldı, ama bilet onun.", "ru": "Хорошо. Автобус через десять минут. Держи мой обрывок карты гор. И вот ещё: старый билет на поезд в семь. Отдай его человеку в сером пальто. Он опоздал на сто лет, но билет его."}
+      }
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "location": "pharmacy",
+  "missions": [
+    {
+      "id": "ms:pharmacy.1",
+      "chapter": 1,
+      "npc": "zeynep",
+      "scene": "sc:pharmacy.1",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "İyi günler. Yavaş yavaş. Bugün neyiniz var?", "ru": "Добрый день. Не спеша. Что с вами сегодня?", "next": "pain"},
+        "pain": {"kind": "answer", "task": "Скажите, что у вас болит голова или живот.", "branches": [{"phrase": "ph:pharmacy.basim-agriyor", "next": "headq"}, {"phrase": "ph:pharmacy.midem-agriyor", "next": "stomq"}], "wrong": {"es": "Anlamadım. Neresi ağrıyor?", "ru": "Не поняла. Что болит?"}},
+        "headq": {"kind": "say", "es": "Baş ağrısı. Anlıyorum. Ateşiniz var mı?", "ru": "Болит голова. Понятно. Температура есть?", "next": "fever"},
+        "stomq": {"kind": "say", "es": "Mide ağrısı. Anlıyorum. Ateşiniz var mı?", "ru": "Болит живот. Понятно. Температура есть?", "next": "fever"},
+        "fever": {"kind": "answer", "task": "Скажите, что у вас температура.", "branches": [{"phrase": "ph:pharmacy.atesim-var", "next": "pill"}], "wrong": {"es": "Kardeşiniz mi var? Ama siz hastasınız, o değil!", "ru": "У вас есть брат? Но больны вы, а не он!"}},
+        "pill": {"kind": "say", "es": "Otuz sekiz. İşte, ateş için hap: sekiz saatte bir tane.", "ru": "Тридцать восемь. Вот таблетка от температуры: по одной каждые восемь часов.", "next": "throat"},
+        "throat": {"kind": "answer", "task": "Скажите, что у вас болит горло.", "branches": [{"phrase": "ph:pharmacy.bogazim-agriyor", "next": "rx"}], "wrong": {"es": "Dişiniz mi? O zaman dişçiye gidin.", "ru": "Зуб? Тогда идите к зубному."}},
+        "rx": {"kind": "say", "es": "Boğaz. Anlıyorum. Doktordan reçeteniz var mı?", "ru": "Горло. Понятно. У вас есть рецепт от врача?", "next": "rxq"},
+        "rxq": {"kind": "answer", "task": "Скажите, что у вас есть рецепт.", "branches": [{"phrase": "ph:pharmacy.recetem-var", "next": "syrup"}], "wrong": {"es": "Paranız mı var? Önce reçete lazım.", "ru": "Деньги у вас есть? Сначала нужен рецепт."}},
+        "syrup": {"kind": "say", "es": "Güzel. Reçeteye göre bu şurup: günde iki kere.", "ru": "Хорошо. По рецепту — этот сироп: два раза в день.", "next": "vit"},
+        "vit": {"kind": "answer", "task": "Спросите, есть ли витамины.", "branches": [{"phrase": "ph:pharmacy.vitamin-var-mi", "next": "end"}], "wrong": {"es": "Kahve mi? Kahve eczanede yok!", "ru": "Кофе? В аптеке кофе нет!"}},
+        "end": {"kind": "say", "es": "Bu vitaminler yol için iyi. Dolapta, reçetelerle birlikte… haritanın bir parçası. Alın. Unutmayın: İksir ilaç değil.", "ru": "Эти витамины хороши в дорогу. А в шкафу, с рецептами… обрывок карты. Возьмите. Помните: Эликсир — не лекарство."}
+      }
+    },
+    {
+      "id": "ms:pharmacy.2",
+      "chapter": 2,
+      "npc": "zeynep",
+      "scene": "sc:pharmacy.2",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Sırayla gidelim. Dağ için bir çanta ilaç. Önce ne lazım?", "ru": "Давайте по порядку. Аптечка для гор. Что вам нужно сначала?", "next": "pain"},
+        "pain": {"kind": "answer", "task": "Попросите обезболивающее.", "branches": [{"phrase": "ph:pharmacy.agri-kesici", "next": "dizzy"}], "wrong": {"es": "Şampuan mı? Şampuan dağda lazım değil.", "ru": "Шампунь? В горах шампунь не нужен."}},
+        "dizzy": {"kind": "say", "es": "Ağrı kesici. Güzel. Şimdi nasılsınız?", "ru": "Обезболивающее. Хорошо. А как вы себя сейчас чувствуете?", "next": "dizzyq"},
+        "dizzyq": {"kind": "answer", "task": "Скажите, что у вас кружится голова (вы только что поднялись по лестнице).", "branches": [{"phrase": "ph:pharmacy.basim-donuyor", "next": "drops"}], "wrong": {"es": "İyi misiniz? Ama yüzünüz beyaz!", "ru": "Вы в порядке? Но лицо у вас белое!"}},
+        "drops": {"kind": "say", "es": "Daha burada başınız dönüyor… Kulede daha kötü olacak. Bu damlaları alın.", "ru": "Голова кружится уже здесь… У башни будет хуже. Возьмите эти капли.", "next": "dropsq"},
+        "dropsq": {"kind": "answer", "task": "Спросите, сколько капель принимать.", "branches": [{"phrase": "ph:pharmacy.kac-damla", "next": "empty"}], "wrong": {"es": "Kaç lira mı? Sonra konuşuruz.", "ru": "Сколько стоит? Потом поговорим."}},
+        "empty": {"kind": "say", "es": "Günde iki kere, on damla.", "ru": "Десять капель два раза в день.", "next": "emptyq"},
+        "emptyq": {"kind": "answer", "task": "Спросите, нужно ли принимать натощак.", "branches": [{"phrase": "ph:pharmacy.ac-karnina-mi", "next": "side"}], "wrong": {"es": "Aç mısınız? Fırın karşıda.", "ru": "Вы голодны? Пекарня напротив."}},
+        "side": {"kind": "say", "es": "Hayır. Yemekle birlikte daha iyi.", "ru": "Нет. Лучше во время еды.", "next": "sideq"},
+        "sideq": {"kind": "answer", "task": "Спросите, есть ли побочные эффекты.", "branches": [{"phrase": "ph:pharmacy.yan-etkisi", "next": "norx"}], "wrong": {"es": "Yan masa mı? Burada masa yok.", "ru": "Соседний стол? Здесь нет столов."}},
+        "norx": {"kind": "say", "es": "Biraz uyku verir. Başka bir şey yok.", "ru": "Немного клонит в сон. Больше ничего.", "next": "norxq"},
+        "norxq": {"kind": "answer", "task": "Спросите, можно ли купить это без рецепта.", "branches": [{"phrase": "ph:pharmacy.recetesiz", "next": "end"}], "wrong": {"es": "Reçete mi yazayım? Ben doktor değilim.", "ru": "Рецепт вам выписать? Я не врач."}},
+        "end": {"kind": "say", "es": "Alabilirsiniz. Damlalarla birlikte dağ haritasından benim parçamı da alın. Gri paltolu adamı görürseniz, ona hangi yılda olduğumuzu söyleyin.", "ru": "Можно. А вместе с каплями возьмите мой обрывок карты гор. Если увидите человека в сером пальто, скажите ему, какой сейчас год."}
+      }
+    }
+  ]
+}

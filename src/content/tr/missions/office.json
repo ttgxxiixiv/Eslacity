@@ -1,0 +1,47 @@
+{
+  "location": "office",
+  "missions": [
+    {
+      "id": "ms:office.1",
+      "chapter": 1,
+      "npc": "ebru",
+      "scene": "sc:office.1",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Çabuk! Toplantı saat onda ve hiçbir şeyi bulamıyorum. Yardım eder misin?", "ru": "Быстрее! Совещание в десять, а я ничего не могу найти. Поможешь?", "next": "printer"},
+        "printer": {"kind": "answer", "task": "Спросите, где принтер.", "branches": [{"phrase": "ph:office.yazici-nerede", "next": "report"}], "wrong": {"es": "Kahve mi? Kahve sonra!", "ru": "Кофе? Кофе потом!"}},
+        "report": {"kind": "say", "es": "Orada, pencerenin yanında. Ya rapor? Rapor nerede?", "ru": "Вон там, у окна. А отчёт? Где отчёт?", "next": "reportq"},
+        "reportq": {"kind": "answer", "task": "Скажите, что отчёт у неё на столе.", "branches": [{"phrase": "ph:office.rapor-masanda", "next": "phone"}], "wrong": {"es": "Bilgisayarda mı? Hayır, orada yok.", "ru": "В компьютере? Нет, там его нет."}},
+        "phone": {"kind": "say", "es": "İşte! Teşekkürler. Sonra seni ararım.", "ru": "Вот он! Спасибо. Я тебе потом позвоню.", "next": "phoneq"},
+        "phoneq": {"kind": "answer", "task": "Спросите, есть ли у неё ваш номер телефона.", "branches": [{"phrase": "ph:office.numaram-var-mi", "next": "boss"}], "wrong": {"es": "Toplantı mı? Evet, saat onda!", "ru": "Совещание? Да, в десять!"}},
+        "boss": {"kind": "say", "es": "Var. Ya patron? Onu mu arıyorsun?", "ru": "Есть. А начальник? Ты его ищешь?", "next": "bossq"},
+        "bossq": {"kind": "answer", "task": "Спросите, где кабинет начальника.", "branches": [{"phrase": "ph:office.patronun-odasi", "next": "ring"}], "wrong": {"es": "Tuvalet mi? Sağda.", "ru": "Туалет? Справа."}},
+        "ring": {"kind": "say", "es": "Orada, solda. Senin telefonun çalıyor!", "ru": "Вон там, слева. А у тебя звонит телефон!", "next": "ringq"},
+        "ringq": {"kind": "answer", "task": "Скажите в телефон, что сейчас заняты и перезвоните позже.", "branches": [{"phrase": "ph:office.simdi-mesgulum", "next": "end"}], "wrong": {"es": "Ne? Telefon hâlâ çalıyor!", "ru": "Что? Телефон всё ещё звонит!"}},
+        "end": {"kind": "say", "es": "İşte bu. Yardım için teşekkürler. Al, bu haritanın bir parçası: harita satılmaz, yardım edene verilir. Ve bu “Gel” mektubu… biri bizi çağırıyor.", "ru": "Вот это по-нашему. Спасибо за помощь. Держи обрывок карты: карту не продают, её отдают тому, кто помогает. А это письмо с «Приходи»… кто-то нас зовёт."}
+      }
+    },
+    {
+      "id": "ms:office.2",
+      "chapter": 2,
+      "npc": "ebru",
+      "scene": "sc:office.2",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Vakanüvis'e tren hakkında bir rapor göndermem lazım. Yardım eder misin? Zamanım az.", "ru": "Мне нужно отправить Летописцу отчёт о поезде. Поможешь? У меня мало времени.", "next": "copy"},
+        "copy": {"kind": "answer", "task": "Спросите, где ксерокс.", "branches": [{"phrase": "ph:office.fotokopi-nerede", "next": "file"}], "wrong": {"es": "Kahve mi? Sonra, lütfen!", "ru": "Кофе? Потом, пожалуйста!"}},
+        "file": {"kind": "say", "es": "Orada, pencerenin yanında. Ya tren dosyası? Bulamıyorum.", "ru": "Вон там, у окна. А папка про поезд? Не могу найти.", "next": "fileq"},
+        "fileq": {"kind": "answer", "task": "Скажите, что папка в синей сумке.", "branches": [{"phrase": "ph:office.dosya-mavi", "next": "print"}], "wrong": {"es": "Bilgisayarda mı? Hayır, orada yok.", "ru": "В компьютере? Нет, там его нет."}},
+        "print": {"kind": "say", "es": "İşte! Teşekkürler.", "ru": "Вот он! Спасибо.", "next": "printq"},
+        "printq": {"kind": "answer", "task": "Попросите её распечатать отчёт для Летописца.", "branches": [{"phrase": "ph:office.cikti-alir", "next": "save"}], "wrong": {"es": "Silmek mi? Hayır, bu rapor önemli!", "ru": "Удалить? Нет, этот отчёт важный!"}},
+        "save": {"kind": "say", "es": "Hazır. Dosyayı kaydettim mi? Hatırlamıyorum.", "ru": "Готово. А я сохранила файл? Не помню.", "next": "saveq"},
+        "saveq": {"kind": "answer", "task": "Спросите, сохранила ли она файл.", "branches": [{"phrase": "ph:office.kaydettin-mi", "next": "attach"}], "wrong": {"es": "Ekran mı? Ekran çalışıyor.", "ru": "Экран? Экран работает."}},
+        "attach": {"kind": "say", "es": "Evet, kaydettim. Şimdi dosyayı Vakanüvis'e gönder, lütfen.", "ru": "Да, сохранила. А теперь отправь файл Летописцу, пожалуйста.", "next": "attachq"},
+        "attachq": {"kind": "answer", "task": "Скажите, что прикрепляете файл.", "branches": [{"phrase": "ph:office.dosyayi-ekliyorum", "next": "break"}], "wrong": {"es": "Telefon mu? Hayır, e-posta!", "ru": "Телефон? Нет, почта!"}},
+        "break": {"kind": "say", "es": "Geldi. Ne gece ama! Yoruldum.", "ru": "Получено. Ну и ночка! Я устала.", "next": "breakq"},
+        "breakq": {"kind": "answer", "task": "Предложите сделать перерыв на кофе.", "branches": [{"phrase": "ph:office.kahve-molasi", "next": "end"}], "wrong": {"es": "Yeni bir rapor mu? Bugün olmaz!", "ru": "Новый отчёт? Сегодня нет!"}},
+        "end": {"kind": "say", "es": "Kahve molası. Al, dağ haritasından benim parçam. Bir de tren raporu: onu Orhan'a ver. Şehrin onu unutmadığını bilsin.", "ru": "Перерыв на кофе. Держи мой обрывок карты гор. И отчёт о поезде: отдай его Орхану. Пусть знает, что город его помнит."}
+      }
+    }
+  ]
+}

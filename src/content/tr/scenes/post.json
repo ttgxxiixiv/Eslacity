@@ -1,0 +1,55 @@
+{
+  "location": "post",
+  "scenes": [
+    {
+      "id": "sc:post.1",
+      "chapter": 1,
+      "npc": "cemil",
+      "lines": [
+        {"who": "npc", "es": "Günaydın! Sana bir mektup var.", "ru": "Доброе утро! Тебе письмо."},
+        {"who": "hero", "es": "Bana mı? Kimden?", "ru": "Мне? От кого?"},
+        {"who": "npc", "es": "Bilmiyorum. Gönderenin adresi yok.", "ru": "Не знаю. Обратного адреса нет."},
+        {"who": "hero", "es": "Şehri iyi biliyor musun?", "ru": "Ты хорошо знаешь город?"},
+        {"who": "npc", "es": "Her evi, her sokağı biliyorum. Mektupları bisikletle, çok hızlı götürüyorum.", "ru": "Я знаю каждый дом и каждую улицу. Развожу письма на велосипеде, очень быстро."},
+        {"who": "hero", "es": "Harita kimde, biliyor musun?", "ru": "Ты знаешь, у кого карта?"},
+        {"who": "npc", "es": "Şehirdeki her yerde bir parça var.", "ru": "В каждом месте города есть по обрывку."},
+        {"who": "hero", "es": "Sende de var mı?", "ru": "А у тебя есть?"},
+        {"who": "npc", "es": "Bende de var, postanenin. Ama şimdi acelem var: bugün yüz mektup!", "ru": "У меня — почтовый обрывок. Но сейчас я спешу: сегодня сто писем!"},
+        {"who": "hero", "es": "Ya mektup?", "ru": "А письмо?"},
+        {"who": "npc", "es": "Evde aç! Yarın görüşürüz!", "ru": "Открой дома! До завтра!"}
+      ],
+      "questions": [
+        {"q": "От кого письмо?", "options": ["От Хасана", "Неизвестно", "От Летописца"], "answer": 1},
+        {"q": "Как Джемиль развозит письма?", "options": ["Пешком", "На велосипеде", "На пароме"], "answer": 1},
+        {"q": "Где есть обрывки карты?", "options": ["Только на почте", "В каждом месте города", "В башне"], "answer": 1},
+        {"q": "Почему Джемиль спешит?", "options": ["Сегодня сто писем", "Уходит паром", "Начинается дождь"], "answer": 0}
+      ],
+      "gloss": {"gönderenin": "отправителя", "sokağı": "улицу (sokak)", "hızlı": "быстро", "götürüyorum": "отвожу", "parça": "обрывок", "postanenin": "почты (postane)", "acelem": "я спешу (acele)"}
+    },
+    {
+      "id": "sc:post.2",
+      "chapter": 2,
+      "npc": "cemil",
+      "lines": [
+        {"who": "npc", "es": "Gel, gel, çabuk! Sana bir paket var. Dağdan.", "ru": "Иди сюда, быстрее! Тебе посылка. С гор."},
+        {"who": "hero", "es": "Dağdan mı? Kim gönderdi?", "ru": "С гор? Кто её прислал?"},
+        {"who": "npc", "es": "Sadece şu yazıyor: “Kuledeki arkadaşından.”", "ru": "Там написано только: «От твоего друга с башни»."},
+        {"who": "hero", "es": "Kuleden mi? Bu Kerem!", "ru": "С башни? Это Керем!"},
+        {"who": "npc", "es": "Belki. Dikkat et, kırılır. Yavaş aç.", "ru": "Может быть. Осторожно, хрупкое. Открывай медленно."},
+        {"who": "hero", "es": "İçinde bir pusula var. Bir de not.", "ru": "Внутри компас. И записка."},
+        {"who": "npc", "es": "Notta ne yazıyor?", "ru": "Что в записке?"},
+        {"who": "hero", "es": "“Sese doğru yürü” yazıyor.", "ru": "Там написано: «Иди на голос»."},
+        {"who": "npc", "es": "Kerem yaşıyor! Hasan Usta'ya koş!", "ru": "Керем жив! Беги к Хасану-уста!"},
+        {"who": "hero", "es": "Koşuyorum!", "ru": "Бегу!"},
+        {"who": "npc", "es": "Koş, koş! Benden hızlı kimse yok ama!", "ru": "Беги, беги! Хотя быстрее меня никого нет!"}
+      ],
+      "questions": [
+        {"q": "Откуда пришла посылка?", "options": ["С гор", "Из-за границы", "Из Измира"], "answer": 0},
+        {"q": "Что внутри?", "options": ["Компас и записка", "Монеты", "Шапка"], "answer": 0},
+        {"q": "Что написано в записке?", "options": ["«Жди»", "«Иди на голос»", "«Приходи»"], "answer": 1},
+        {"q": "К кому бежит герой?", "options": ["К Хасану-уста", "К стражу", "К Нермин-ханым"], "answer": 0}
+      ],
+      "gloss": {"çabuk": "быстрее", "kuledeki": "с башни", "arkadaşından": "от друга", "kuleden": "с башни (kule)", "kırılır": "бьётся", "yavaş": "медленно", "içinde": "внутри", "pusula": "компас", "not": "записка", "notta": "в записке", "sese": "на голос (ses)", "yaşıyor": "жив", "koş": "беги", "koşuyorum": "бегу", "hızlı": "быстрый"}
+    }
+  ]
+}

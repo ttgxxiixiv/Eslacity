@@ -1,0 +1,55 @@
+{
+  "location": "hotel",
+  "scenes": [
+    {
+      "id": "sc:hotel.1",
+      "chapter": 1,
+      "npc": "leyla",
+      "lines": [
+        {"who": "npc", "es": "İyi akşamlar. Rezervasyonunuz var mı?", "ru": "Добрый вечер. У вас есть бронь?"},
+        {"who": "hero", "es": "Var. Siz çok dil konuşuyor musunuz?", "ru": "Есть. Вы говорите на многих языках?"},
+        {"who": "npc", "es": "Beş dil. Ama sizinle sadece Türkçe: böylece öğrenirsiniz.", "ru": "На пяти. Но с вами — только по-турецки: так вы научитесь."},
+        {"who": "hero", "es": "Çok iyi. Otelde çok yolcu var mı?", "ru": "Отлично. В отеле много путников?"},
+        {"who": "npc", "es": "Bugün burada bir şirketten bir adam var. Harita parçalarını almak istiyor.", "ru": "Сегодня здесь человек из одной компании. Хочет купить обрывки карты."},
+        {"who": "hero", "es": "O şirket! Türkçe konuşuyor mu?", "ru": "Та самая компания! А он говорит по-турецки?"},
+        {"who": "npc", "es": "Hayır. Sadece paradan konuşuyor.", "ru": "Нет. Он говорит только о деньгах."},
+        {"who": "hero", "es": "Sizde parça var mı?", "ru": "У вас есть обрывок?"},
+        {"who": "npc", "es": "Var. Ona satmayacağım.", "ru": "Есть. Ему я его не продам."},
+        {"who": "hero", "es": "Ya bana?", "ru": "А мне?"},
+        {"who": "npc", "es": "Size yarın. Şimdi uyku zamanı: çok geç oldu.", "ru": "Вам — завтра. А сейчас пора спать: уже очень поздно."}
+      ],
+      "questions": [
+        {"q": "На скольких языках говорит Лейла-ханым?", "options": ["На двух", "На пяти", "На десяти"], "answer": 1},
+        {"q": "Почему с героем она говорит только по-турецки?", "options": ["Так он научится", "Другого языка не знает", "Так велит Летописец"], "answer": 0},
+        {"q": "Кто сегодня живёт в пансионе?", "options": ["Человек из компании", "Керем", "Страж"], "answer": 0},
+        {"q": "О чём говорит этот человек?", "options": ["О погоде", "Только о деньгах", "О горах"], "answer": 1}
+      ],
+      "gloss": {"rezervasyonunuz": "ваша бронь", "dil": "язык", "sizinle": "с вами", "böylece": "так", "öğrenirsiniz": "научитесь", "şirketten": "из компании (şirket)", "parçalarını": "обрывки (parça)", "şirket": "компания", "paradan": "о деньгах", "parça": "обрывок", "satmayacağım": "не продам", "uyku": "сон"}
+    },
+    {
+      "id": "sc:hotel.2",
+      "chapter": 2,
+      "npc": "leyla",
+      "lines": [
+        {"who": "npc", "es": "İyi akşamlar. Bugün bütün odalar dolu.", "ru": "Добрый вечер. Сегодня все номера заняты."},
+        {"who": "hero", "es": "Hepsi dolu mu? Neden?", "ru": "Все заняты? Почему?"},
+        {"who": "npc", "es": "Çok kişi balkondan kulenin ışığına bakmak istiyor.", "ru": "Многие хотят смотреть с балкона на свет башни."},
+        {"who": "hero", "es": "Bir sorum var. Çok eski bir rezervasyonunuz var mı?", "ru": "У меня вопрос. Есть у вас очень старая бронь?"},
+        {"who": "npc", "es": "Bir tane var. Yüz yıllık. Yedi numaralı oda, Orhan adına.", "ru": "Есть одна. Ей сто лет. Номер семь, на имя Орхана."},
+        {"who": "hero", "es": "Orhan! O, muhafız.", "ru": "Орхан! Это страж."},
+        {"who": "npc", "es": "Pansiyon onu hiç iptal etmedi. Bizim geleneğimiz bu.", "ru": "Пансион её так и не отменил. Такой у нас обычай."},
+        {"who": "hero", "es": "Oda boş mu?", "ru": "И номер свободен?"},
+        {"who": "npc", "es": "Her zaman. Her gün yedi numarayı temizliyoruz.", "ru": "Всегда. Каждый день мы убираем седьмой номер."},
+        {"who": "hero", "es": "Kuleden inince, uyuyacak bir yeri olacak.", "ru": "Когда он спустится с башни, ему будет где спать."},
+        {"who": "npc", "es": "Umarım. Kulede yüz yıl çok uzun.", "ru": "Надеюсь. Сто лет в башне — это долго."}
+      ],
+      "questions": [
+        {"q": "Почему все номера заняты?", "options": ["Праздник в городе", "Все хотят смотреть на свет башни", "Пришёл большой паром"], "answer": 1},
+        {"q": "На чьё имя старая бронь?", "options": ["Керема", "Орхана", "Летописца"], "answer": 1},
+        {"q": "Какой это номер?", "options": ["Третий", "Седьмой", "Восьмой"], "answer": 1},
+        {"q": "Что делают с этим номером каждый день?", "options": ["Сдают", "Убирают", "Закрывают"], "answer": 1}
+      ],
+      "gloss": {"balkondan": "с балкона", "kulenin": "башни (kule)", "ışığına": "на свет (ışık)", "rezervasyonunuz": "ваша бронь", "yıllık": "летняя, возрастом в … лет", "numaralı": "номер", "orhan": "Орхан", "adına": "на имя", "muhafız": "страж", "iptal": "отмена", "etmedi": "не сделал", "geleneğimiz": "наш обычай", "numarayı": "номер", "kuleden": "с башни", "inince": "когда спустится", "uyuyacak": "где спать", "umarım": "надеюсь", "kulede": "в башне"}
+    }
+  ]
+}

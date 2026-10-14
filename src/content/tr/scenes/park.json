@@ -1,0 +1,55 @@
+{
+  "location": "park",
+  "scenes": [
+    {
+      "id": "sc:park.1",
+      "chapter": 1,
+      "npc": "riza",
+      "lines": [
+        {"who": "npc", "es": "Günaydın, genç! Güzel bir gün, değil mi?", "ru": "Доброе утро, молодой человек! Хороший день, правда?", "fem": {"ru": "Доброе утро, девушка! Хороший день, правда?"}},
+        {"who": "hero", "es": "Ne güzel bir park!", "ru": "Какой красивый парк!"},
+        {"who": "npc", "es": "Her gün buraya geliyorum. Kuşlara ekmek veriyorum.", "ru": "Я прихожу сюда каждый день. Кормлю птиц хлебом."},
+        {"who": "hero", "es": "Bu köpek sizin mi?", "ru": "Это ваша собака?"},
+        {"who": "npc", "es": "Evet, adı Pamuk. Otur. Haritayı arıyorsun, değil mi?", "ru": "Да, её зовут Памук. Садись. Ты ищешь карту, верно?"},
+        {"who": "hero", "es": "Harita hakkında bir şey biliyor musunuz?", "ru": "Вы что-нибудь знаете о карте?"},
+        {"who": "npc", "es": "Gençken haritayı bütün olarak gördüm.", "ru": "В молодости я видел карту целиком."},
+        {"who": "hero", "es": "Haritada ne vardı?", "ru": "Что было на карте?"},
+        {"who": "npc", "es": "Bir yol. Şehirden çıkıyor, gölün yanından geçiyor ve dağa çıkıyor.", "ru": "Дорога. Она выходит из города, идёт мимо озера и поднимается в горы."},
+        {"who": "hero", "es": "Ya Mahzen?", "ru": "А Хранилище?"},
+        {"who": "npc", "es": "Çok uzakta, dağların arkasında. Ama yol burada, parkta başlıyor.", "ru": "Оно очень далеко, за горами. Но дорога начинается здесь, в парке."}
+      ],
+      "questions": [
+        {"q": "Что делает дядя Рыза каждый день в парке?", "options": ["Кормит птиц", "Играет в мяч", "Читает газету"], "answer": 0},
+        {"q": "Как зовут собаку?", "options": ["Пашá", "Памук", "Керем"], "answer": 1},
+        {"q": "Что он видел в молодости?", "options": ["Хранилище", "Карту целиком", "Стража"], "answer": 1},
+        {"q": "Где начинается дорога?", "options": ["На вокзале", "В горах", "В парке"], "answer": 2}
+      ],
+      "gloss": {"gençken": "в молодости", "Mahzen": "Хранилище", "uzakta": "далеко", "bütün": "целиком", "olarak": "как, в виде", "Pamuk": "Памук (кличка: «хлопок»)"}
+    },
+    {
+      "id": "sc:park.2",
+      "chapter": 2,
+      "npc": "riza",
+      "lines": [
+        {"who": "npc", "es": "Günaydın. Otur, sana bir şey anlatmam lazım.", "ru": "Доброе утро. Садись, мне нужно тебе кое-что рассказать."},
+        {"who": "hero", "es": "Ne oldu?", "ru": "Что случилось?"},
+        {"who": "npc", "es": "Dün bu banka bir adam oturdu. Üstünde gri bir palto vardı.", "ru": "Вчера на эту скамейку сел человек. На нём было серое пальто."},
+        {"who": "hero", "es": "Gri paltolu adam! Ne yaptı?", "ru": "Человек в сером пальто! Что он делал?"},
+        {"who": "npc", "es": "Ördeklere ekmek attı ve bana sisteki sesi sordu.", "ru": "Бросал уткам хлеб и спросил меня про голос в тумане."},
+        {"who": "hero", "es": "Siz ne dediniz?", "ru": "А вы что сказали?"},
+        {"who": "npc", "es": "Hiçbir şey. Çünkü onu tanıdım. Elli yıl önce onu burada, bu bankta gördüm.", "ru": "Ничего. Потому что я его узнал. Пятьдесят лет назад я видел его здесь, на этой скамейке."},
+        {"who": "hero", "es": "Elli yıl önce mi? Şimdi nasıl?", "ru": "Пятьдесят лет назад? И какой он теперь?"},
+        {"who": "npc", "es": "Hiç değişmemiş. Aynı yüz, aynı palto. Yaşlanmamış.", "ru": "Ничуть не изменился. То же лицо, то же пальто. Не постарел."},
+        {"who": "hero", "es": "Bu imkânsız.", "ru": "Это невозможно."},
+        {"who": "npc", "es": "Dağlarda imkânsız şeyler her gün olur, genç.", "ru": "В горах невозможное случается каждый день, молодой человек.", "fem": {"ru": "В горах невозможное случается каждый день, девушка."}}
+      ],
+      "questions": [
+        {"q": "Кто сел вчера на скамейку?", "options": ["Керем", "Человек в сером пальто", "Мехмет"], "answer": 1},
+        {"q": "О чём спросил этот человек?", "options": ["О голосе в тумане", "О дороге к озеру", "О нардах"], "answer": 0},
+        {"q": "Когда Рыза видел его раньше?", "options": ["Вчера", "Год назад", "Пятьдесят лет назад"], "answer": 2},
+        {"q": "Что странного в этом человеке?", "options": ["Он не постарел", "Он не говорит", "Он очень высокий"], "answer": 0}
+      ],
+      "gloss": {"sisteki": "в тумане", "tanıdım": "узнал", "değişmemiş": "не изменился", "yaşlanmamış": "не постарел", "imkânsız": "невозможно", "paltolu": "в пальто"}
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "location": "bank",
+  "scenes": [
+    {
+      "id": "sc:bank.1",
+      "chapter": 1,
+      "npc": "murat",
+      "lines": [
+        {"who": "npc", "es": "İyi günler. Size nasıl yardımcı olabilirim?", "ru": "Добрый день. Чем могу помочь?"},
+        {"who": "hero", "es": "Bir harita parçası arıyorum. Bankada var mı?", "ru": "Я ищу обрывок карты. В банке такой есть?"},
+        {"who": "npc", "es": "Var. Onu bankada, anahtarlı bir kutuda saklıyoruz.", "ru": "Есть. Мы храним его в банке, в ящике с ключом."},
+        {"who": "hero", "es": "Onu bana verebilir misiniz?", "ru": "Вы можете мне его отдать?"},
+        {"who": "npc", "es": "Her şey sırayla: banka hesabı olmadan hiçbir şey olmaz.", "ru": "Всё по порядку: без счёта в банке ничего не выйдет."},
+        {"who": "hero", "es": "Bir banka hesabı istiyorum.", "ru": "Я хочу счёт в банке."},
+        {"who": "npc", "es": "Çok güzel. O zaman burayı, burayı ve burayı imzalıyorsunuz.", "ru": "Прекрасно. Тогда вы расписываетесь здесь, здесь и здесь."},
+        {"who": "hero", "es": "Üç kere mi!", "ru": "Три раза!"},
+        {"who": "npc", "es": "Bankada imza önemlidir.", "ru": "В банке подпись — это важно."},
+        {"who": "hero", "es": "Ya haritadaki Mahzen? Banka gibi mi?", "ru": "А Хранилище с карты? Оно как банк?"},
+        {"who": "npc", "es": "Dünyanın en büyük bankası, derler. Ve anahtarla değil, sorularla açılır.", "ru": "Говорят, это самый большой банк в мире. И открывается он не ключом, а вопросами."}
+      ],
+      "questions": [
+        {"q": "Где банк хранит обрывок?", "options": ["В ящике с ключом", "В сейфе управляющего", "В книге"], "answer": 0},
+        {"q": "Что нужно, чтобы получить обрывок?", "options": ["Счёт в банке", "Сто лир", "Письмо"], "answer": 0},
+        {"q": "Сколько раз нужно расписаться?", "options": ["Один", "Два", "Три"], "answer": 2},
+        {"q": "Чем открывается Хранилище?", "options": ["Ключом", "Вопросами", "Золотом"], "answer": 1}
+      ],
+      "gloss": {"parçası": "обрывок (parça)", "anahtarlı": "с ключом", "saklıyoruz": "храним", "sırayla": "по порядку", "olmadan": "без", "imza": "подпись", "önemlidir": "важна", "mahzen": "Хранилище", "dünyanın": "мира", "derler": "говорят", "sorularla": "вопросами", "açılır": "открывается"}
+    },
+    {
+      "id": "sc:bank.2",
+      "chapter": 2,
+      "npc": "murat",
+      "lines": [
+        {"who": "npc", "es": "İyi günler. Sizin için bir şeyim var.", "ru": "Добрый день. У меня для вас кое-что есть."},
+        {"who": "hero", "es": "Benim için mi?", "ru": "Для меня?"},
+        {"who": "npc", "es": "Gri paltolu adamın paraları. Fırından Mehmet Bey getirdi. Yüz yıllık paralar.", "ru": "Монеты человека в сером пальто. Их принёс Мехмет-бей из пекарни. Им сто лет."},
+        {"who": "hero", "es": "Kimin paraları?", "ru": "Чьи это монеты?"},
+        {"who": "npc", "es": "Kayıtlarımızda çok eski bir hesap var. Yüz yıllık.", "ru": "В наших записях есть очень старый счёт. Ему сто лет."},
+        {"who": "hero", "es": "Kimin hesabı?", "ru": "Чей это счёт?"},
+        {"who": "npc", "es": "Kulenin muhafızının. Her zaman bu paralarla öder.", "ru": "Стража башни. Он всегда платит этими монетами."},
+        {"who": "hero", "es": "Gri paltolu adam muhafız mı?", "ru": "Человек в сером пальто — это страж?"},
+        {"who": "npc", "es": "Bence evet. İmzasına bakın: Kerem'in mektubunun sonundaki yazının aynısı.", "ru": "Думаю, да. Посмотрите на его подпись: точно как приписка в конце письма Керема."},
+        {"who": "hero", "es": "O zaman Kerem muhafızın yanında.", "ru": "Значит, Керем у стража."},
+        {"who": "npc", "es": "Ben de öyle düşünüyorum. Muhafızlar için bankada kural yok.", "ru": "Я тоже так думаю. Для стражей в банке правил нет."}
+      ],
+      "questions": [
+        {"q": "Кто принёс старые монеты?", "options": ["Мехмет-бей из пекарни", "Керем", "Почтальон"], "answer": 0},
+        {"q": "Сколько лет монетам?", "options": ["Десять", "Пятьдесят", "Сто"], "answer": 2},
+        {"q": "Чей старый счёт в банке?", "options": ["Стража башни", "Хасана-уста", "Летописца"], "answer": 0},
+        {"q": "На что похожа подпись стража?", "options": ["На приписку в письме Керема", "На подпись Мурат-бея", "На надпись на карте"], "answer": 0}
+      ],
+      "gloss": {"paltolu": "в пальто", "yıllık": "летние, возрастом в … лет", "kayıtlarımızda": "в наших записях", "kulenin": "башни (kule)", "muhafızının": "стража (muhafız)", "muhafız": "страж", "muhafızın": "стража", "muhafızlar": "стражи", "öder": "платит", "paralarla": "монетами", "imzasına": "на его подпись", "mektubunun": "письма (mektup)", "sonundaki": "в конце", "yazının": "надписи", "aynısı": "такая же", "düşünüyorum": "думаю"}
+    }
+  ]
+}

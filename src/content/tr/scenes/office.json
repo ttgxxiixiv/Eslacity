@@ -1,0 +1,55 @@
+{
+  "location": "office",
+  "scenes": [
+    {
+      "id": "sc:office.1",
+      "chapter": 1,
+      "npc": "ebru",
+      "lines": [
+        {"who": "npc", "es": "Günaydın. Beş dakika sonra toplantım var.", "ru": "Доброе утро. У меня совещание через пять минут."},
+        {"who": "hero", "es": "Sadece bir soru: sende harita parçası var mı?", "ru": "Только один вопрос: у тебя есть обрывок карты?"},
+        {"who": "npc", "es": "Var. Bir şirket de onu almak istiyor.", "ru": "Есть. И одна компания хочет его купить."},
+        {"who": "hero", "es": "Haritayı almak mı?", "ru": "Купить карту?"},
+        {"who": "npc", "es": "Bütün parçaları istiyorlar. Çok para veriyorlar.", "ru": "Им нужны все обрывки. Платят большие деньги."},
+        {"who": "hero", "es": "Sen ne diyorsun?", "ru": "А ты что отвечаешь?"},
+        {"who": "npc", "es": "“Hayır” diyorum. Harita satılık değil: konuşan içindir.", "ru": "Говорю «нет». Карта не продаётся: она для того, кто говорит."},
+        {"who": "hero", "es": "Bu hangi şirket?", "ru": "Что это за компания?"},
+        {"who": "npc", "es": "Bilmiyorum. Sadece mektup gönderiyorlar. Dün de bana tek kelimelik bir mektup geldi: “Gel.”", "ru": "Не знаю. Они только присылают письма. А вчера мне пришло письмо из одного слова: «Приходи»."},
+        {"who": "hero", "es": "Bende de böyle bir mektup var!", "ru": "У меня тоже есть такое письмо!"},
+        {"who": "npc", "es": "İlginç… Yarın konuşuruz. Şimdi toplantı!", "ru": "Интересно… Завтра поговорим. А сейчас — совещание!"}
+      ],
+      "questions": [
+        {"q": "Что хочет купить компания?", "options": ["Офис", "Обрывки карты", "Компьютеры"], "answer": 1},
+        {"q": "Что отвечает Эбру?", "options": ["«Да»", "«Нет»", "«Подумаю»"], "answer": 1},
+        {"q": "Для кого карта, по словам Эбру?", "options": ["Для того, кто платит", "Для того, кто говорит", "Для начальника"], "answer": 1},
+        {"q": "Какое слово было во вчерашнем письме?", "options": ["«Приходи»", "«Продай»", "«Жди»"], "answer": 0}
+      ],
+      "gloss": {"toplantım": "моё совещание", "parçası": "обрывок (parça)", "parçaları": "обрывки (parça)", "istiyorlar": "хотят", "veriyorlar": "дают", "diyorsun": "говоришь", "diyorum": "говорю", "satılık": "продаётся", "konuşan": "кто говорит", "şirket": "компания", "gönderiyorlar": "присылают", "tek": "одно", "kelimelik": "из … слов", "ilginç": "интересно"}
+    },
+    {
+      "id": "sc:office.2",
+      "chapter": 2,
+      "npc": "ebru",
+      "lines": [
+        {"who": "npc", "es": "Günaydın. Bugün gece vardiyam var, ama seni bekledim.", "ru": "Доброе утро. У меня сегодня ночная смена, но я тебя ждала."},
+        {"who": "hero", "es": "Ne oldu?", "ru": "Что случилось?"},
+        {"who": "npc", "es": "Şirketin eski belgelerine baktım. Şu eski gazeteye bak.", "ru": "Я просмотрела старые документы компании. Посмотри на эту старую газету."},
+        {"who": "hero", "es": "Hangi yıldan?", "ru": "Какого она года?"},
+        {"who": "npc", "es": "Yüz yıllık. Fırtınayı ve kule trenini anlatıyor.", "ru": "Ей сто лет. Там про бурю и поезд к башне."},
+        {"who": "hero", "es": "Ne yazıyor?", "ru": "Что там написано?"},
+        {"who": "npc", "es": "“Genç yolcu Orhan kulede kalıyor. Muhafıza yardım etmek istiyor.”", "ru": "«Молодой путник Орхан остаётся в башне. Он хочет помочь стражу»."},
+        {"who": "hero", "es": "Orhan mı? Gri paltolu adam mı?", "ru": "Орхан? Человек в сером пальто?"},
+        {"who": "npc", "es": "Fotoğrafa bak. Bu o. Hiç değişmemiş.", "ru": "Посмотри на фото. Это он. Ничуть не изменился."},
+        {"who": "hero", "es": "O zaman muhafız da benim gibi bir yolcuydu.", "ru": "Значит, страж тоже был путником, как я."},
+        {"who": "npc", "es": "Ve yüz yıldır orada, yukarıda. Bu çok uzun.", "ru": "И он уже сто лет там, наверху. Это слишком долго."}
+      ],
+      "questions": [
+        {"q": "Что нашла Эбру в документах компании?", "options": ["Старую газету", "Карту", "Билет"], "answer": 0},
+        {"q": "О чём газета?", "options": ["О буре и поезде к башне", "О новом пароме", "О празднике"], "answer": 0},
+        {"q": "Кто остался в башне сто лет назад?", "options": ["Керем", "Молодой путник Орхан", "Мехмет"], "answer": 1},
+        {"q": "Изменился ли он с тех пор?", "options": ["Да, сильно", "Ничуть", "Немного постарел"], "answer": 1}
+      ],
+      "gloss": {"orhan": "Орхан", "vardiyam": "моя смена", "bekledim": "ждала", "şirketin": "компании (şirket)", "belgelerine": "в документы (belge)", "gazeteye": "на газету", "yıldan": "года", "yıllık": "летняя, возрастом в … лет", "fırtınayı": "бурю (fırtına)", "kule": "башня", "trenini": "поезд", "anlatıyor": "рассказывает", "kulede": "в башне", "kalıyor": "остаётся", "muhafıza": "стражу (muhafız)", "muhafız": "страж", "paltolu": "в пальто", "değişmemiş": "не изменился", "yolcuydu": "был путником", "yıldır": "уже … лет"}
+    }
+  ]
+}

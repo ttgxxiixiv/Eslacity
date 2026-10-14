@@ -1,0 +1,45 @@
+{
+  "location": "beach",
+  "missions": [
+    {
+      "id": "ms:beach.1",
+      "chapter": 1,
+      "npc": "can",
+      "scene": "sc:beach.1",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Bugün çok güneş var. Ne yapalım?", "ru": "Сегодня очень солнечно. Чем займёмся?", "next": "go"},
+        "go": {"kind": "answer", "task": "Предложите пойти на пляж или пойти купаться.", "branches": [{"phrase": "ph:beach.plaja-gidelim", "next": "cream"}, {"phrase": "ph:beach.denize-girelim", "next": "cream"}], "wrong": {"es": "Okula mı? Bugün okul yok, yaz!", "ru": "В школу? Сегодня нет школы, лето!"}},
+        "cream": {"kind": "say", "es": "Hadi! Güneş bugün çok sıcak.", "ru": "Пошли! Солнце сегодня очень жаркое.", "next": "creamq"},
+        "creamq": {"kind": "answer", "task": "Спросите, есть ли у него солнцезащитный крем.", "branches": [{"phrase": "ph:beach.gunes-kremi", "next": "danger"}], "wrong": {"es": "Şapka mı? Şapkam yok, ama gözlüğüm var.", "ru": "Шапка? Шапки нет, но есть очки."}},
+        "danger": {"kind": "say", "es": "Al. Burada yüzelim mi?", "ru": "Держи. Поплаваем здесь?", "next": "dangerq"},
+        "dangerq": {"kind": "answer", "task": "Спросите, опасно ли здесь плавать.", "branches": [{"phrase": "ph:beach.burada-tehlikeli-mi", "next": "flag"}], "wrong": {"es": "Su soğuk mu? Hayır, ılık.", "ru": "Вода холодная? Нет, тёплая."}},
+        "flag": {"kind": "say", "es": "Bugün tehlikeli. Oraya bak.", "ru": "Сегодня опасно. Посмотри вон туда.", "next": "flagq"},
+        "flagq": {"kind": "answer", "task": "Скажите, что висит красный флаг.", "branches": [{"phrase": "ph:beach.kirmizi-bayrak", "next": "ice"}], "wrong": {"es": "Gemi mi? Hayır, oraya bak, bayrağa!", "ru": "Корабль? Нет, посмотри туда, на флаг!"}},
+        "ice": {"kind": "say", "es": "Doğru. Bugün yüzmüyoruz. Şimdi ne yapalım?", "ru": "Правильно. Сегодня не плаваем. Что теперь?", "next": "iceq"},
+        "iceq": {"kind": "answer", "task": "Предложите купить мороженое.", "branches": [{"phrase": "ph:beach.dondurma-alalim", "next": "end"}], "wrong": {"es": "Yüzelim mi? Hayır, bayrak kırmızı!", "ru": "Поплаваем? Нет, флаг красный!"}},
+        "end": {"kind": "say", "es": "İki dondurma! Al, bu da şişedeki harita parçası. Deniz onu senin için getirdi, yolcu.", "ru": "Два мороженых! И держи обрывок карты из бутылки. Море принесло его для тебя, путник."}
+      }
+    },
+    {
+      "id": "ms:beach.2",
+      "chapter": 2,
+      "npc": "can",
+      "scene": "sc:beach.2",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Bugün acele yok. Akşama kadar ne yapalım?", "ru": "Сегодня спешить некуда. Чем займёмся до вечера?", "next": "chair"},
+        "chair": {"kind": "answer", "task": "Спросите, сколько стоит шезлонг.", "branches": [{"phrase": "ph:beach.sezlong-kac", "next": "sea"}], "wrong": {"es": "Dondurma mı? Sonra!", "ru": "Мороженое? Потом!"}},
+        "sea": {"kind": "say", "es": "Yüz lira. Senin için bedava. Suya bak: sakin değil.", "ru": "Сто лир. Для тебя бесплатно. Посмотри на воду: неспокойная.", "next": "seaq"},
+        "seaq": {"kind": "answer", "task": "Скажите, что сегодня очень сильное течение.", "branches": [{"phrase": "ph:beach.akinti-guclu", "next": "jelly"}], "wrong": {"es": "Deniz ılık mı? Evet, ama bugün tehlikeli.", "ru": "Море тёплое? Да, но сегодня опасно."}},
+        "jelly": {"kind": "say", "es": "Çok güçlü. Bugün uzağa yüzmüyoruz. Aa! O ne?", "ru": "Очень сильное. Сегодня далеко не заплываем. Ой! Что это?", "next": "jellyq"},
+        "jellyq": {"kind": "answer", "task": "Крикните, что в воде медузы!", "branches": [{"phrase": "ph:beach.denizanasi", "next": "shore"}], "wrong": {"es": "Balık mı? Hayır, bak, bu balık değil!", "ru": "Рыба? Нет, смотри, это не рыба!"}},
+        "shore": {"kind": "say", "es": "Herkes sudan çıksın! Sakin ol, ben görüyorum. Sen ne yapacaksın?", "ru": "Все из воды! Спокойно, я их вижу. А ты что будешь делать?", "next": "shoreq"},
+        "shoreq": {"kind": "answer", "task": "Скажите, что останетесь у берега.", "branches": [{"phrase": "ph:beach.kiyida-kaliyorum", "next": "sunset"}], "wrong": {"es": "Uzağa mı yüzeceksin? Hayır, bugün olmaz!", "ru": "Заплывёшь далеко? Нет, сегодня нельзя!"}},
+        "sunset": {"kind": "say", "es": "Doğru. Akşam oldu. Ne yapalım?", "ru": "Правильно. Уже вечер. Что будем делать?", "next": "sunsetq"},
+        "sunsetq": {"kind": "answer", "task": "Предложите посмотреть на закат.", "branches": [{"phrase": "ph:beach.gun-batimi", "next": "end"}], "wrong": {"es": "Eve mi gidelim? Daha erken!", "ru": "Домой пойдём? Ещё рано!"}},
+        "end": {"kind": "say", "es": "Bak: kule. Işık üç kere yanıyor. Al, dağ haritasından benim parçam. Yukarı çıkınca sen de üç kere ışık yak. Ben seni buradan görürüm.", "ru": "Смотри: башня. Свет загорается три раза. Держи мой обрывок карты гор. Когда доберёшься наверх, тоже зажги свет три раза. Я увижу тебя отсюда."}
+      }
+    }
+  ]
+}

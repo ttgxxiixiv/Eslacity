@@ -1,0 +1,49 @@
+{
+  "location": "clothes",
+  "missions": [
+    {
+      "id": "ms:clothes.1",
+      "chapter": 1,
+      "npc": "selin",
+      "scene": "sc:clothes.1",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Bugün dağ için kıyafet seçiyoruz. Ne lazım?", "ru": "Сегодня подбираем одежду для гор. Что вам нужно?", "next": "coat"},
+        "coat": {"kind": "answer", "task": "Спросите, есть ли куртки.", "branches": [{"phrase": "ph:clothes.mont-var-mi", "next": "try"}], "wrong": {"es": "Masa mı? Burada masa yok, kıyafet var!", "ru": "Стол? Здесь нет столов, здесь одежда!"}},
+        "try": {"kind": "say", "es": "Bu siyah mont çok güzel. Bakmak ister misiniz?", "ru": "Эта чёрная куртка очень хорошая. Хотите посмотреть?", "next": "tryq"},
+        "tryq": {"kind": "answer", "task": "Спросите, можно ли примерить.", "branches": [{"phrase": "ph:clothes.deneyebilir-miyim", "next": "big"}], "wrong": {"es": "Almak mı istiyorsunuz? Önce deneyin!", "ru": "Хотите купить? Сначала примерьте!"}},
+        "big": {"kind": "say", "es": "Tabii. Nasıl?", "ru": "Конечно. Ну как?", "next": "bigq"},
+        "bigq": {"kind": "answer", "task": "Скажите, что вам велико.", "branches": [{"phrase": "ph:clothes.bana-buyuk", "next": "blue"}], "wrong": {"es": "Güzel mi? Evet, ama bence çok büyük.", "ru": "Красиво? Да, но, по-моему, очень велико."}},
+        "blue": {"kind": "say", "es": "Evet, çok büyük. Daha küçüğü var, siyah.", "ru": "Да, слишком большая. Есть поменьше, чёрная.", "next": "blueq"},
+        "blueq": {"kind": "answer", "task": "Спросите, есть ли такая же синяя.", "branches": [{"phrase": "ph:clothes.mavisi-var-mi", "next": "size"}], "wrong": {"es": "Kırmızı mı? Kırmızı yok, üzgünüm.", "ru": "Красная? Красной нет, к сожалению."}},
+        "size": {"kind": "say", "es": "İşte, mavi. Bedeniniz kaç?", "ru": "Вот, синяя. Какой у вас размер?", "next": "sizeq"},
+        "sizeq": {"kind": "answer", "task": "Скажите, что у вас сорок второй размер.", "branches": [{"phrase": "ph:clothes.bedenim-kac", "next": "shoes"}], "wrong": {"es": "Saat mi? Saat on.", "ru": "Время? Десять часов."}},
+        "shoes": {"kind": "say", "es": "Kırk iki, çok iyi. Size çok yakıştı! Başka bir şey?", "ru": "Сорок второй, очень хорошо. Вам очень идёт! Что-нибудь ещё?", "next": "shoesq"},
+        "shoesq": {"kind": "answer", "task": "Скажите, что вам нужны туфли.", "branches": [{"phrase": "ph:clothes.ayakkabi-lazim", "next": "end"}], "wrong": {"es": "Gömlek mi? Gömleğiniz var, şimdi ayakkabı lazım.", "ru": "Рубашка? Рубашка у вас есть, теперь нужна обувь."}},
+        "end": {"kind": "say", "es": "Dağ için bu ayakkabılar iyi. Alın, bu da haritanın bir parçası. Dağda hava soğuk, ama şimdi montunuz var.", "ru": "Для гор эти ботинки хороши. Держите, а это обрывок карты. В горах холодно, но теперь у вас есть куртка."}
+      }
+    },
+    {
+      "id": "ms:clothes.2",
+      "chapter": 2,
+      "npc": "selin",
+      "scene": "sc:clothes.2",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Sizi kule için giydirelim. Neyle başlayalım?", "ru": "Давайте оденем вас для башни. С чего начнём?", "next": "hat"},
+        "hat": {"kind": "answer", "task": "Спросите, есть ли тёплая шапка.", "branches": [{"phrase": "ph:clothes.sicak-sapka", "next": "gloves"}], "wrong": {"es": "Tişört mü? Dağda tişört olmaz!", "ru": "Футболка? В горах футболка не годится!"}},
+        "gloves": {"kind": "say", "es": "Bu şapka çok iyi. Kırmızı, Kerem gibi. Eller için de bir şey lazım.", "ru": "Вот отличная шапка. Красная, как у Керема. И для рук что-то нужно.", "next": "glovesq"},
+        "glovesq": {"kind": "answer", "task": "Спросите, где перчатки.", "branches": [{"phrase": "ph:clothes.eldivenler-nerede", "next": "sweater"}], "wrong": {"es": "Çoraplar mı? Çoraplar orada, ama eller için değil!", "ru": "Носки? Носки вон там, но не для рук!"}},
+        "sweater": {"kind": "say", "es": "Burada. Bu kazağı da deneyin.", "ru": "Здесь. И примерьте этот свитер.", "next": "fit"},
+        "fit": {"kind": "answer", "task": "Спросите, как сидит.", "branches": [{"phrase": "ph:clothes.nasil-oldu", "next": "tight"}], "wrong": {"es": "Kaç lira mı? Önce deneyin!", "ru": "Сколько стоит? Сначала примерьте!"}},
+        "tight": {"kind": "say", "es": "Hmm… Biraz küçük, değil mi?", "ru": "Хм… Маловат, да?", "next": "tightq"},
+        "tightq": {"kind": "answer", "task": "Скажите, что немного узко.", "branches": [{"phrase": "ph:clothes.biraz-dar", "next": "cotton"}], "wrong": {"es": "Rahat mı? Bence değil.", "ru": "Удобно? По-моему, нет."}},
+        "cotton": {"kind": "say", "es": "Evet. Bir beden büyüğünü alın. Çok sıcak.", "ru": "Да. Возьмите на размер больше. Он очень тёплый.", "next": "cottonq"},
+        "cottonq": {"kind": "answer", "task": "Спросите, хлопок ли это.", "branches": [{"phrase": "ph:clothes.pamuk-mu", "next": "boots"}], "wrong": {"es": "Pahalı mı? Hayır, sizin için ucuz.", "ru": "Дорого? Нет, для вас недорого."}},
+        "boots": {"kind": "say", "es": "Hayır, yün. Dağ için daha iyi. Başka bir şey?", "ru": "Нет, шерсть. Для гор так лучше. Что-нибудь ещё?", "next": "bootsq"},
+        "bootsq": {"kind": "answer", "task": "Скажите, что для гор нужны сапоги.", "branches": [{"phrase": "ph:clothes.cizme-lazim", "next": "end"}], "wrong": {"es": "Elbise mi? Dağa elbiseyle mi gideceksiniz?", "ru": "Платье? Вы в горы в платье пойдёте?"}},
+        "end": {"kind": "say", "es": "İşte, Kerem'in çizmeleri: onları ona götürün. Bu da dağ haritasından benim parçam. Siste kırmızı şapkayı arayın.", "ru": "Вот сапоги Керема: отнесите их ему. А это мой обрывок карты гор. Ищите в тумане красную шапку."}
+      }
+    }
+  ]
+}
