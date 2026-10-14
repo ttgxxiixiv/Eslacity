@@ -85,8 +85,8 @@ def strip() -> None:
     print('nav-strip.webp', out.size, geometry)
 
 
-def eyes() -> None:
-    im = Image.open(DESIGN / 'nav-wow-eyes.png').convert('RGB')
+def eyes(sheet: str, names: list[str]) -> None:
+    im = Image.open(DESIGN / sheet).convert('RGB')
     a = np.asarray(im).astype(int)
     r, g, b = a[..., 0], a[..., 1], a[..., 2]
     magenta = (r > 180) & (b > 180) & (g < 90)
@@ -97,7 +97,6 @@ def eyes() -> None:
             runs.append((start, p))
             start = c
     runs.append((start, cols[-1]))
-    names = ['eye-es', 'eye-it', 'eye-es-gold', 'eye-it-gold']
     assert len(runs) == len(names), runs
     for name, (x0, x1) in zip(names, runs):
         rows = np.where((~magenta[:, x0:x1 + 1]).sum(axis=1) > 10)[0]
@@ -115,4 +114,6 @@ def eyes() -> None:
 
 if __name__ == '__main__':
     strip()
-    eyes()
+    eyes('nav-wow-eyes.png', ['eye-es', 'eye-it', 'eye-es-gold', 'eye-it-gold'])
+    # Английский (2.186.0) — свой лист из двух медальонов: обычный и золотой.
+    eyes('nav-wow-eyes-en.png', ['eye-en', 'eye-en-gold'])

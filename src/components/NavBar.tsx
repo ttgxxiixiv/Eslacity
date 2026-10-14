@@ -5,7 +5,9 @@ import eyeEs from '../assets/nav/eye-es.webp';
 import eyeIt from '../assets/nav/eye-it.webp';
 import eyeEsGold from '../assets/nav/eye-es-gold.webp';
 import eyeItGold from '../assets/nav/eye-it-gold.webp';
-import { LANG } from '../lang';
+import eyeEn from '../assets/nav/eye-en.webp';
+import eyeEnGold from '../assets/nav/eye-en-gold.webp';
+import { LANG, type Lang } from '../lang';
 import { useSphinx } from '../store/sphinx';
 
 // Нижнее меню — рисованный ряд из четырёх каменных ячеек (`nav-strip.webp`) и медальон с глазом в гнезде над ними.
@@ -21,9 +23,13 @@ const TABS = [
   { to: '/errands', label: 'Повтор' },
   { to: '/profile', label: 'Профиль' },
 ];
-const EYES = { es: { plain: eyeEs, gold: eyeEsGold }, it: { plain: eyeIt, gold: eyeItGold } };
-/** Медальон языка курса; после Эликсира — золотой (задача 8.3). */
-export const eyeOf = (gold: boolean) => EYES[LANG === 'it' ? 'it' : 'es'][gold ? 'gold' : 'plain'];
+const EYES: Partial<Record<Lang, { plain: string; gold: string }>> = {
+  es: { plain: eyeEs, gold: eyeEsGold },
+  it: { plain: eyeIt, gold: eyeItGold },
+  en: { plain: eyeEn, gold: eyeEnGold },
+};
+/** Медальон языка курса; после Эликсира — золотой (задача 8.3). Курс без своего медальона берёт испанский. */
+export const eyeOf = (gold: boolean) => (EYES[LANG] ?? EYES.es!)[gold ? 'gold' : 'plain'];
 
 function activeTab(pathname: string): number {
   if (pathname.startsWith('/grammar')) return 1;

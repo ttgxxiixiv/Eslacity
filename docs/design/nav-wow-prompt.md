@@ -82,7 +82,7 @@ No text, no letters, no numbers, no shadow on the background.
 
 ## Английский курс: медальоны с глазом (с 2.185.0)
 
-Своих медальонов у английского пока нет: `eyeOf` в `NavBar.tsx` для любого языка, кроме итальянского, берёт испанский глаз. Нужны два медальона в той же манере, что `nav-wow-eyes.png`: обычный и золотой (после Эликсира). Генерировать лучше с приложенным листом `docs/design/nav-wow-eyes.png` как образцом, чтобы кольцо, руны и масштаб глаза совпали.
+С 2.186.0 медальоны английского готовы: `eye-en.webp` и `eye-en-gold.webp`, лист `docs/design/nav-wow-eyes-en.png`. Для следующих языков — два медальона в той же манере, что `nav-wow-eyes.png`: обычный и золотой (после Эликсира). Генерировать лучше с приложенным листом `docs/design/nav-wow-eyes.png` как образцом, чтобы кольцо, руны и масштаб глаза совпали.
 
 ```
 Sheet of 2 round UI medallions for a mobile fantasy RPG, in the hand-painted stylized art style of World of
@@ -103,4 +103,4 @@ Left to right:
 No text, no letters, no numbers, no shadow on the background. Do not use magenta or bright pink in the medallions.
 ```
 
-После генерации: лист — в `docs/design/nav-wow-eyes-en.png`; `scripts/build-nav-art.py` режет его так же, как остальные глаза, в `src/assets/nav/eye-en.webp` и `eye-en-gold.webp`; `eyeOf` берёт глаз по языку курса из таблицы на все три языка.
+После генерации: лист — в `docs/design/nav-wow-eyes-<язык>.png`, в `scripts/build-nav-art.py` — вызов `eyes(...)` с именами `eye-<язык>` и `eye-<язык>-gold`, в `EYES` в `NavBar.tsx` — строка языка.

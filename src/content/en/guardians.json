@@ -25,7 +25,7 @@
         "pitch": 0.8,
         "rate": 0.9
       },
-      "look": {
+      "look": {"portrait": "guardian1", 
         "skin": 2,
         "hair": "#3b2a1a",
         "style": "short",
@@ -62,7 +62,7 @@
         "pitch": 0.75,
         "rate": 0.9
       },
-      "look": {
+      "look": {"portrait": "guardian2", 
         "skin": 1,
         "hair": "#a0a0a0",
         "style": "short",
@@ -76,29 +76,29 @@
     {
       "chapter": 3,
       "name": "Стражница",
-      "role": "стражница города на белых скалах",
+      "role": "стражница белого города в пустыне",
       "gender": "f",
       "greeting": {
-        "es": "Welcome to the city on the white cliffs. Only clear words may pass.",
-        "ru": "Добро пожаловать в город на белых скалах. Пройдут только ясные слова."
+        "es": "Welcome to the white city. If you tell me the truth, I will let you pass.",
+        "ru": "Добро пожаловать в белый город. Если скажешь мне правду, я тебя пропущу."
       },
       "win": {
-        "es": "Clear as the sea in summer. The seal is yours.",
-        "ru": "Ясно, как летнее море. Печать твоя."
+        "es": "You told the truth, and the city did not vanish. The seal is yours.",
+        "ru": "Ты сказал правду, и город не исчез. Печать твоя.", "fem": {"ru": "Ты сказала правду, и город не исчез. Печать твоя."}
       },
       "lose": {
-        "es": "Your words are still cloudy. Come back tomorrow.",
-        "ru": "Твои слова пока мутные. Возвращайся завтра."
+        "es": "If you came back tomorrow, your words would be clearer.",
+        "ru": "Если бы ты пришёл завтра, твои слова были бы яснее.", "fem": {"ru": "Если бы ты пришла завтра, твои слова были бы яснее."}
       },
       "mid": {
-        "es": "Your words are getting clearer.",
-        "ru": "Твои слова становятся яснее."
+        "es": "If you keep going like this, the sand will not take you.",
+        "ru": "Если так пойдёт и дальше, песок тебя не заберёт."
       },
       "voice": {
         "pitch": 1.1,
         "rate": 0.9
       },
-      "look": {
+      "look": {"portrait": "guardian3", 
         "skin": 1,
         "hair": "#e0d0a0",
         "style": "long",
@@ -137,7 +137,7 @@
         "pitch": 1.0,
         "rate": 0.85
       },
-      "look": {
+      "look": {"portrait": "guardian4", 
         "skin": 2,
         "hair": "#4a6a3a",
         "style": "long",

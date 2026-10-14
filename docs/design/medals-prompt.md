@@ -137,7 +137,7 @@ readable at 64x64 pixels on a phone.
 
 ## 3а. Праздничные медали английского курса (с 2.184.0)
 
-Сейчас «Огни пятого ноября» (Ночь костров) и «Стальной барабан» (карнавал в Ноттинг-Хилле) собирает `scripts/build-en-festival-medals.py` из медалей Феррагосто и Карнавала: перекрашенный фейерверк и маска. Это временная замена. Рисованные медали — тем же промтом, что лист тайных медалей, с приложенным `docs/design/medal-secrets.png` как образцом оправы.
+С 2.186.0 обе медали рисованные, лист — `docs/design/medal-secrets-en.png`, режет его `scripts/build-medal-art.py` (`SECRETS_EN`). До этого их собирал из медалей Феррагосто и Карнавала временный скрипт.
 
 | Медаль | Праздник | Сцена в центре |
 |---|---|---|
@@ -163,7 +163,6 @@ Do not use magenta or bright pink anywhere in the medals. Consistent light from 
 readable at 64x64 pixels on a phone.
 ```
 
-После генерации: лист — в `docs/design/medal-secrets-en.png`; медали режутся так же, как остальные тайные (`scripts/build-medal-art.py`, имена `festival-bonfire` и `festival-carnival`), и заменяют собранные картинки; `scripts/build-en-festival-medals.py` тогда больше не нужен.
 
 ## После генерации
 
