@@ -135,6 +135,36 @@ Do not use magenta or bright pink anywhere in the medals. Consistent light from 
 readable at 64x64 pixels on a phone.
 ```
 
+## 3а. Праздничные медали английского курса (с 2.184.0)
+
+Сейчас «Огни пятого ноября» (Ночь костров) и «Стальной барабан» (карнавал в Ноттинг-Хилле) собирает `scripts/build-en-festival-medals.py` из медалей Феррагосто и Карнавала: перекрашенный фейерверк и маска. Это временная замена. Рисованные медали — тем же промтом, что лист тайных медалей, с приложенным `docs/design/medal-secrets.png` как образцом оправы.
+
+| Медаль | Праздник | Сцена в центре |
+|---|---|---|
+| Огни пятого ноября | Bonfire Night, 5 ноября | большой костёр на холме ночью, над ним золотые искры и фейерверк |
+| Стальной барабан | Notting Hill Carnival | стальной барабан стил-бэнда с палочками и яркие перья |
+
+```
+Stylized hand-painted fantasy MMO achievement icon art, in the spirit of World of Warcraft feat-of-strength
+medals: bold chunky shapes, thick painterly brushwork, saturated colors, strong rim light, heavy ornate metal.
+No text, no letters, no numbers. Match the attached reference sheet exactly in frame, size and lighting.
+
+Draw 2 secret medals side by side, exactly the same size and shape, front view, on a plain solid magenta
+(#FF00FF) background with generous empty space between them. Every medal has the same frame: an eight-pointed
+star of dark blackened metal with gold edges, a round inner disc, and a short ribbon tail at the bottom in deep
+purple and gold stripes (deep purple, not pink). Only the scene in the inner disc changes:
+
+1. A tall bonfire blazing on a dark hill at night, golden sparks rising, a few orange and gold fireworks bursting
+   in the night-blue sky above it.
+2. A shiny silver steel drum (steelpan) with two drumsticks, framed by bright green, yellow and red feathers of a
+   carnival costume, warm sunny light.
+
+Do not use magenta or bright pink anywhere in the medals. Consistent light from the top-left. Each medal must stay
+readable at 64x64 pixels on a phone.
+```
+
+После генерации: лист — в `docs/design/medal-secrets-en.png`; медали режутся так же, как остальные тайные (`scripts/build-medal-art.py`, имена `festival-bonfire` и `festival-carnival`), и заменяют собранные картинки; `scripts/build-en-festival-medals.py` тогда больше не нужен.
+
 ## После генерации
 
 - Проверить, что оправы одного размера и центр у всех пустой: эмблема ляжет в него кодом.

@@ -79,3 +79,28 @@ No text, no letters, no numbers, no shadow on the background.
 2. Скрипт (по образцу `scripts/build-dock-art.py`) ужимает ряд до 1536×364, снимает пурпурный фон с медальонов, режет их по кругу и сохраняет в `src/assets/nav/`.
 3. `NavBar` берёт ряд фоном `nav-art` целиком, без `backgroundSize` под старую картинку, а медальон — отдельной картинкой своего языка, золотой после Эликсира. Пропорция ряда в `--nav-h` (`index.css`) меняется с 768/182 на пропорцию новой картинки.
 4. Если ячейки нарисованы без подписей — добавить их кодом и проверить сквозным тестом меню (`app.spec.ts`).
+
+## Английский курс: медальоны с глазом (с 2.185.0)
+
+Своих медальонов у английского пока нет: `eyeOf` в `NavBar.tsx` для любого языка, кроме итальянского, берёт испанский глаз. Нужны два медальона в той же манере, что `nav-wow-eyes.png`: обычный и золотой (после Эликсира). Генерировать лучше с приложенным листом `docs/design/nav-wow-eyes.png` как образцом, чтобы кольцо, руны и масштаб глаза совпали.
+
+```
+Sheet of 2 round UI medallions for a mobile fantasy RPG, in the hand-painted stylized art style of World of
+Warcraft: chunky shapes, saturated colors, painterly textures, strong rim light. Not pixel art. Match the attached
+reference sheet exactly in ring shape, rune style, eye size and lighting.
+
+The 2 medallions are in one row, exactly the same size and perfectly circular, on a plain solid magenta (#FF00FF)
+background with generous empty space between them. Each medallion is a thick ring of carved stone with small
+glowing runes around it, and in the centre a large reptilian dragon eye with a vertical slit pupil, looking
+straight at the viewer. The iris is deep navy blue crossed by a bold red cross with thin white edges and white
+diagonal rays, like the colours of the British Union Flag, glowing softly. The eye has a strong silhouette that
+stays readable at 44x44 pixels.
+
+Left to right:
+1. Grey stone ring with pale blue glowing runes.
+2. The same eye, but the ring is polished gold with warm golden runes.
+
+No text, no letters, no numbers, no shadow on the background. Do not use magenta or bright pink in the medallions.
+```
+
+После генерации: лист — в `docs/design/nav-wow-eyes-en.png`; `scripts/build-nav-art.py` режет его так же, как остальные глаза, в `src/assets/nav/eye-en.webp` и `eye-en-gold.webp`; `eyeOf` берёт глаз по языку курса из таблицы на все три языка.
