@@ -53,8 +53,9 @@ export function tokens(text: string, lang?: string): string[] {
 export function lemmaCandidates(token: string, forms: Map<string, string>, lang: string): string[] {
   const analyze = profileOf(lang)?.analyze;
   if (!analyze) return [lemmaOf(token, forms, lang)];
+  // Сама форма — тоже кандидат: разбор не возвращает однобуквенные основы («o» — он, она).
   const hit = forms.get(token);
-  return hit ? [hit, ...analyze(token)] : analyze(token);
+  return [...new Set([...(hit ? [hit] : []), token, ...analyze(token)])];
 }
 
 /**

@@ -1,0 +1,45 @@
+{
+  "location": "restaurant",
+  "missions": [
+    {
+      "id": "ms:restaurant.1",
+      "chapter": 1,
+      "npc": "kemal",
+      "scene": "sc:restaurant.1",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Merhaba! Masa var mı, yok mu? Söyle bakalım.", "ru": "Здравствуй! Столик есть или нет? Ну-ка, скажи.", "next": "table"},
+        "table": {"kind": "answer", "task": "Скажите, что у вас забронирован столик, или попросите столик на одного.", "branches": [{"phrase": "ph:restaurant.rezervasyonum-var", "next": "sit"}, {"phrase": "ph:restaurant.bir-kisilik-masa", "next": "sit"}], "wrong": {"es": "Bir kedi mi? Kedi masaya oturmaz!", "ru": "Кошка? Кошки за стол не садятся!"}},
+        "sit": {"kind": "say", "es": "Tamam, buraya otur. Ne istersin?", "ru": "Хорошо, садись сюда. Что будешь?", "next": "order"},
+        "order": {"kind": "answer", "task": "Закажите суп и салат.", "branches": [{"phrase": "ph:restaurant.corba-ve-salata", "next": "fork"}], "wrong": {"es": "Bir kilo elma mı? Burası pazar değil!", "ru": "Килограмм яблок? Тут не базар!"}},
+        "fork": {"kind": "say", "es": "Çorba ve salata, hemen. Al.", "ru": "Суп и салат, сейчас же. Держи.", "next": "forkq"},
+        "forkq": {"kind": "answer", "task": "Попросите вилку для салата.", "branches": [{"phrase": "ph:restaurant.bir-catal", "next": "taste"}], "wrong": {"es": "Bir kalem mi? Salatayı kalemle mi yiyeceksin?", "ru": "Ручку? Ты будешь есть салат ручкой?"}},
+        "taste": {"kind": "say", "es": "Al, çatal. Nasıl? Güzel mi?", "ru": "Держи вилку. Ну как? Вкусно?", "next": "tasteq"},
+        "tasteq": {"kind": "answer", "task": "Скажите, что очень вкусно.", "branches": [{"phrase": "ph:restaurant.cok-lezzetli", "next": "dessert"}], "wrong": {"es": "Çok soğuk mu? Hayır, çorba sıcak!", "ru": "Очень холодно? Нет, суп горячий!"}},
+        "dessert": {"kind": "say", "es": "Teşekkürler! Bir şey daha?", "ru": "Спасибо! Что-нибудь ещё?", "next": "dessertq"},
+        "dessertq": {"kind": "answer", "task": "Спросите, что есть на десерт.", "branches": [{"phrase": "ph:restaurant.tatli-ne-var", "next": "end"}], "wrong": {"es": "Hesap mı? Önce tatlı!", "ru": "Счёт? Сначала десерт!"}},
+        "end": {"kind": "say", "es": "Bugün pasta var. Bir şey daha: annemin haritası. Senden önce gelen yolcu Türkçe bilmiyordu. Sen biliyorsun. Al, bu senin.", "ru": "Сегодня торт. И ещё кое-что: карта моей мамы. Путник, что приходил до тебя, не знал турецкого. А ты знаешь. Держи, это твоё."}
+      }
+    },
+    {
+      "id": "ms:restaurant.2",
+      "chapter": 2,
+      "npc": "kemal",
+      "scene": "sc:restaurant.2",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Yola çıkmadan önce iyi yemek lazım. Ne istersin?", "ru": "Перед дорогой надо хорошо поесть. Что будешь?", "next": "start"},
+        "start": {"kind": "answer", "task": "Спросите, какие есть закуски, или закажите на основное блюдо рыбу.", "branches": [{"phrase": "ph:restaurant.hangi-mezeler", "next": "spicy"}, {"phrase": "ph:restaurant.ana-yemek-balik", "next": "spicy"}], "wrong": {"es": "Dondurma mı? Önce yemek, sonra tatlı!", "ru": "Мороженое? Сначала еда, потом сладкое!"}},
+        "spicy": {"kind": "say", "es": "Güzel seçim. Bir de yeni bir yemeğim var, biberli.", "ru": "Хороший выбор. И у меня есть новое блюдо, с перцем.", "next": "spicyq"},
+        "spicyq": {"kind": "answer", "task": "Спросите, острое ли это блюдо.", "branches": [{"phrase": "ph:restaurant.aci-mi", "next": "soup"}], "wrong": {"es": "Soğuk mu? Hayır, bu yemek sıcak!", "ru": "Холодное? Нет, это блюдо горячее!"}},
+        "soup": {"kind": "say", "es": "Biraz acı. Ama önce yayla çorbası. Tat bakalım.", "ru": "Немного острое. Но сначала суп «яйла». Попробуй-ка.", "next": "soupq"},
+        "soupq": {"kind": "answer", "task": "Попробуйте суп и скажите, что он немного пересолен.", "branches": [{"phrase": "ph:restaurant.biraz-tuzlu", "next": "full"}], "wrong": {"es": "Çok tatlı mı? Çorba tatlı olmaz!", "ru": "Очень сладкий? Суп не бывает сладким!"}},
+        "full": {"kind": "say", "es": "Tuzlu mu? Kusura bakma! Bir tabak daha getireyim mi?", "ru": "Пересолен? Извини! Принести ещё тарелку?", "next": "fullq"},
+        "fullq": {"kind": "answer", "task": "Откажитесь: скажите, что вы сыты.", "branches": [{"phrase": "ph:restaurant.tokum", "next": "special"}], "wrong": {"es": "Aç mısın? İki tabak yedin!", "ru": "Голоден? Ты съел две тарелки!", "fem": {"ru": "Голодна? Ты съела две тарелки!"}}},
+        "special": {"kind": "say", "es": "Peki. Ama yarın yine gel.", "ru": "Ладно. Но завтра приходи снова.", "next": "specialq"},
+        "specialq": {"kind": "answer", "task": "Спросите, какое сегодня фирменное блюдо.", "branches": [{"phrase": "ph:restaurant.ozel-yemek", "next": "end"}], "wrong": {"es": "Bugünün havası mı? Güneşli, ama ben yemek soruyorum!", "ru": "Сегодняшняя погода? Солнечно, но я про еду спрашиваю!"}},
+        "end": {"kind": "say", "es": "Balık, tabii. Ama bugün özel bir şey var: dağ haritasından benim parçam. Kerem'i bulursan, söyle: çorbası onu bekliyor.", "ru": "Рыба, конечно. Но сегодня есть кое-что особенное: мой обрывок карты гор. Если найдёшь Керема, скажи: его суп ждёт."}
+      }
+    }
+  ]
+}

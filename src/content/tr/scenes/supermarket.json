@@ -1,0 +1,55 @@
+{
+  "location": "supermarket",
+  "scenes": [
+    {
+      "id": "sc:supermarket.1",
+      "chapter": 1,
+      "npc": "mehmet",
+      "lines": [
+        {"who": "npc", "es": "Günaydın! Ekmekler daha sıcak.", "ru": "Доброе утро! Хлеб ещё горячий."},
+        {"who": "hero", "es": "Bir ekmek, lütfen. Yumurta nerede?", "ru": "Один хлеб, пожалуйста. Где яйца?"},
+        {"who": "npc", "es": "Sütün yanında. Bugün sütte kampanya var.", "ru": "Рядом с молоком. Сегодня на молоко акция."},
+        {"who": "hero", "es": "Harika!", "ru": "Отлично!"},
+        {"who": "npc", "es": "Sen haritalı yolcusun, değil mi?", "ru": "Ты ведь тот путник с картой?"},
+        {"who": "hero", "es": "Evet. Haritanın parçalarını arıyorum.", "ru": "Да. Я ищу обрывки карты."},
+        {"who": "npc", "es": "Annem için bu harita çok önemli.", "ru": "Для мамы эта карта очень важна."},
+        {"who": "hero", "es": "Sen ne düşünüyorsun?", "ru": "А ты что думаешь?"},
+        {"who": "npc", "es": "Bana göre bu bir masal. Ama bir parçam var, kasada.", "ru": "По-моему, это сказка. Но обрывок у меня есть, в кассе."},
+        {"who": "hero", "es": "Bana verir misin?", "ru": "Отдашь мне?"},
+        {"who": "npc", "es": "Önce bir şey al!", "ru": "Сначала купи что-нибудь!"}
+      ],
+      "questions": [
+        {"q": "Где яйца?", "options": ["Рядом с молоком", "У кассы", "На полке с хлебом"], "answer": 0},
+        {"q": "На что сегодня акция?", "options": ["На хлеб", "На молоко", "На яйца"], "answer": 1},
+        {"q": "Что Мехмет думает о карте?", "options": ["Что это сказка", "Что она ведёт к морю", "Что её надо продать"], "answer": 0},
+        {"q": "Где у Мехмета обрывок?", "options": ["Дома", "В кассе", "У мамы"], "answer": 1}
+      ],
+      "gloss": {"haritalı": "с картой", "parçalarını": "обрывки (parça)", "masal": "сказка", "parçam": "мой обрывок"}
+    },
+    {
+      "id": "sc:supermarket.2",
+      "chapter": 2,
+      "npc": "mehmet",
+      "lines": [
+        {"who": "npc", "es": "Yolcu! Şimdi dağa mı gidiyorsun?", "ru": "Путник! Теперь в горы?"},
+        {"who": "hero", "es": "Bana bir fener lazım.", "ru": "Мне нужен фонарь."},
+        {"who": "npc", "es": "Kusura bakma. Dün bir adam buradaki yirmi fenerin hepsini aldı.", "ru": "Извини. Вчера один человек купил все двадцать фонарей, что тут были."},
+        {"who": "hero", "es": "Yirmi mi? Kimdi?", "ru": "Двадцать? Кто это был?"},
+        {"who": "npc", "es": "Adını söylemedi. Gri bir palto giyiyordu ve çok eski paralarla ödedi.", "ru": "Имени не сказал. Был в сером пальто и заплатил очень старыми монетами."},
+        {"who": "hero", "es": "Eski paralar mı?", "ru": "Старыми монетами?"},
+        {"who": "npc", "es": "Bak. Bu para yüz yıllık.", "ru": "Смотри. Этой монете сто лет."},
+        {"who": "hero", "es": "Ne garip! Başka bir şey söyledi mi?", "ru": "Как странно! Он сказал что-нибудь ещё?"},
+        {"who": "npc", "es": "Sadece “Yakında sis gelecek” dedi. Ve gitti.", "ru": "Сказал только: «Скоро придёт туман». И ушёл."},
+        {"who": "hero", "es": "Eskiden harita bir masal diyordun.", "ru": "Раньше ты говорил, что карта — сказка."},
+        {"who": "npc", "es": "Eskiden. Şimdi o kadar emin değilim.", "ru": "Раньше. А теперь я уже не так уверен."}
+      ],
+      "questions": [
+        {"q": "Что нужно герою?", "options": ["Фонарь", "Карта", "Хлеб"], "answer": 0},
+        {"q": "Сколько фонарей купил незнакомец?", "options": ["Два", "Десять", "Двадцать"], "answer": 2},
+        {"q": "Чем он заплатил?", "options": ["Картой", "Очень старыми монетами", "Золотом"], "answer": 1},
+        {"q": "Что он сказал?", "options": ["Скоро придёт туман", "Карта — сказка", "Я вернусь"], "answer": 0}
+      ],
+      "gloss": {"kusura": "kusura bakma — извини", "yıllık": "летний, возрастом (yüz yıllık — столетний)", "masal": "сказка"}
+    }
+  ]
+}

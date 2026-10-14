@@ -1,0 +1,47 @@
+{
+  "location": "home",
+  "missions": [
+    {
+      "id": "ms:home.1",
+      "chapter": 1,
+      "npc": "nermin",
+      "scene": "sc:home.1",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Yeni komşu! Merhaba. Bu dairede mi yaşıyorsun?", "ru": "Новый сосед! Привет. Ты живёшь в этой квартире?", "next": "key", "fem": {"ru": "Новая соседка! Привет. Ты живёшь в этой квартире?"}},
+        "key": {"kind": "answer", "task": "Спросите, есть ли у неё ключ.", "branches": [{"phrase": "ph:home.anahtar-var-mi", "next": "keysay"}], "wrong": {"es": "Kedi mi? Evet, kedim var. Ama ne soruyorsun?", "ru": "Кошка? Да, кошка у меня есть. Но что ты спрашиваешь?"}},
+        "keysay": {"kind": "say", "es": "Var, al.", "ru": "Есть, держи.", "next": "bath"},
+        "bath": {"kind": "answer", "task": "Спросите, где ванная.", "branches": [{"phrase": "ph:home.banyo-nerede", "next": "wash"}], "wrong": {"es": "Mutfak mı? Mutfak burada. Banyo da var!", "ru": "Кухня? Кухня здесь. И ванная есть!"}},
+        "wash": {"kind": "say", "es": "Banyo orada, sağda. Küçük ama güzel.", "ru": "Ванная вон там, справа. Маленькая, но хорошая.", "next": "washq"},
+        "washq": {"kind": "answer", "task": "Спросите, есть ли в квартире стиральная машина.", "branches": [{"phrase": "ph:home.camasir-makinesi", "next": "rent"}], "wrong": {"es": "Araba mı? Benim arabam yok.", "ru": "Машина? У меня нет машины."}},
+        "rent": {"kind": "say", "es": "Var, ama eski. Bir soru daha?", "ru": "Есть, но старая. Ещё вопрос?", "next": "rentq"},
+        "rentq": {"kind": "answer", "task": "Спросите, сколько стоит аренда.", "branches": [{"phrase": "ph:home.kira-ne-kadar", "next": "chair"}], "wrong": {"es": "Saat kaç mı? Saat on bir.", "ru": "Который час? Одиннадцать."}},
+        "chair": {"kind": "say", "es": "Kirayı bilmiyorum. Bak, bu sandalye senin.", "ru": "Про аренду не знаю. Смотри, этот стул — тебе.", "next": "chairq"},
+        "chairq": {"kind": "answer", "task": "Спросите, куда поставить стул.", "branches": [{"phrase": "ph:home.sandalye-nerede", "next": "clean"}], "wrong": {"es": "Sandalye mi istiyorsun? Al, burada!", "ru": "Хочешь стул? Держи, вот он!"}},
+        "clean": {"kind": "say", "es": "Pencerenin yanında olsun. Bugün ne yapacaksın?", "ru": "Пусть стоит у окна. Что будешь делать сегодня?", "next": "cleanq"},
+        "cleanq": {"kind": "answer", "task": "Скажите, что сегодня убираете дом.", "branches": [{"phrase": "ph:home.evi-temizliyorum", "next": "end"}], "wrong": {"es": "Ne? Anlamıyorum.", "ru": "Что? Не понимаю."}},
+        "end": {"kind": "say", "es": "Temizlik mi? Önce yemek! Al, bu da haritanın bir parçası. Artık komşuyuz.", "ru": "Уборка? Сначала поесть! Держи, это обрывок карты. Теперь мы соседи."}
+      }
+    },
+    {
+      "id": "ms:home.2",
+      "chapter": 2,
+      "npc": "nermin",
+      "scene": "sc:home.2",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Gel, gel! Soğuk mu? Evinde bir sorun mu var?", "ru": "Заходи, заходи! Холодно? Дома что-то случилось?", "next": "oven"},
+        "oven": {"kind": "answer", "task": "Скажите, что плита не работает.", "branches": [{"phrase": "ph:home.ocak-calismiyor", "next": "water"}], "wrong": {"es": "Kapı mı çalışmıyor? Kapı çalışmaz, açılır!", "ru": "Дверь не работает? Дверь не работает, она открывается!"}},
+        "water": {"kind": "say", "es": "Ocak mı? Benim mutfağımda yemek yaparsın. Başka?", "ru": "Плита? Будешь готовить у меня на кухне. Что ещё?", "next": "waterq"},
+        "waterq": {"kind": "answer", "task": "Скажите, что на полу вода.", "branches": [{"phrase": "ph:home.yerde-su", "next": "dishes"}], "wrong": {"es": "Yerde kedi mi? Benim kedim o, sorun yok.", "ru": "На полу кошка? Это моя кошка, всё в порядке."}},
+        "dishes": {"kind": "say", "es": "Su mu? Pencere açıktı, yağmur yağdı. Şimdi yemek yiyelim.", "ru": "Вода? Окно было открыто, шёл дождь. А теперь давай поедим.", "next": "dishesq"},
+        "dishesq": {"kind": "answer", "task": "Предложите вместе помыть посуду.", "branches": [{"phrase": "ph:home.bulasik-birlikte", "next": "trash"}], "wrong": {"es": "Dans mı edelim? Önce bulaşık, yavrum!", "ru": "Потанцуем? Сначала посуда, деточка!"}},
+        "trash": {"kind": "say", "es": "Ne iyi bir komşusun! Bir şey daha var…", "ru": "Какой ты хороший сосед! И ещё кое-что…", "next": "trashq", "fem": {"ru": "Какая ты хорошая соседка! И ещё кое-что…"}},
+        "trashq": {"kind": "answer", "task": "Скажите, что мусор вынесете вы.", "branches": [{"phrase": "ph:home.copu-ben", "next": "light"}], "wrong": {"es": "Çorbayı mı çıkaracaksın? Hayır, çorbayı yiyeceğiz!", "ru": "Суп вынесешь? Нет, суп мы съедим!"}},
+        "light": {"kind": "say", "es": "Teşekkürler. Şimdi bak, pencereden dağlar görünüyor. Gece daha güzel.", "ru": "Спасибо. А теперь смотри: из окна видно горы. Ночью ещё красивее.", "next": "lightq"},
+        "lightq": {"kind": "answer", "task": "Попросите выключить свет, чтобы увидеть горы.", "branches": [{"phrase": "ph:home.isigi-kapatir", "next": "end"}], "wrong": {"es": "Kapıyı mı kapatayım? Ama dağlar pencerede!", "ru": "Закрыть дверь? Но горы в окне!"}},
+        "end": {"kind": "say", "es": "Bak pencereye. Yukarıda, dağda bir ışık görüyor musun? Orası kule. Al, dağ haritasından benim parçam. Unutma: muhafız ne yaptığını sorar.", "ru": "Посмотри в окно. Видишь свет наверху, в горах? Там башня. Держи мой обрывок карты гор. И помни: страж спрашивает, что ты сделал.", "fem": {"ru": "Посмотри в окно. Видишь свет наверху, в горах? Там башня. Держи мой обрывок карты гор. И помни: страж спрашивает, что ты сделала."}}
+      }
+    }
+  ]
+}

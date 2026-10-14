@@ -1,0 +1,49 @@
+{
+  "location": "supermarket",
+  "missions": [
+    {
+      "id": "ms:supermarket.1",
+      "chapter": 1,
+      "npc": "mehmet",
+      "scene": "sc:supermarket.1",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Merhaba! Ne lazım?", "ru": "Привет! Что нужно?", "next": "cheese"},
+        "cheese": {"kind": "answer", "task": "Спросите, есть ли сыр.", "branches": [{"phrase": "ph:supermarket.peynir-var-mi", "next": "eggs"}], "wrong": {"es": "Kedi mi var? Hayır, burada kedi yok.", "ru": "Кошка есть? Нет, кошек тут нет."}},
+        "eggs": {"kind": "say", "es": "Var, beyaz peynir. Bir şey daha?", "ru": "Есть, белый сыр. Что-нибудь ещё?", "next": "eggq"},
+        "eggq": {"kind": "answer", "task": "Спросите, где яйца, или попросите десяток яиц.", "branches": [{"phrase": "ph:supermarket.yumurta-nerede", "next": "pasta"}, {"phrase": "ph:supermarket.on-yumurta", "next": "pasta"}], "wrong": {"es": "On kedi mi? Yok, yok!", "ru": "Десять кошек? Нет-нет!"}},
+        "pasta": {"kind": "say", "es": "Yumurta sütün yanında. Ne daha?", "ru": "Яйца рядом с молоком. Что ещё?", "next": "pastaq"},
+        "pastaq": {"kind": "answer", "task": "Спросите, где макароны.", "branches": [{"phrase": "ph:supermarket.makarna-nerede", "next": "sale"}], "wrong": {"es": "Deniz nerede mi? Deniz orada, ama makarna burada!", "ru": "Где море? Море там, а макароны здесь!"}},
+        "sale": {"kind": "say", "es": "Makarna orada. Bugün makarnada kampanya var.", "ru": "Макароны вон там. Сегодня на макароны акция.", "next": "saleq"},
+        "saleq": {"kind": "answer", "task": "Уточните, сегодня ли эта акция.", "branches": [{"phrase": "ph:supermarket.kampanya-bugun-mu", "next": "need"}], "wrong": {"es": "Yarın mı? Hayır, yarın değil.", "ru": "Завтра? Нет, не завтра."}},
+        "need": {"kind": "say", "es": "Evet, sadece bugün. Bir şey daha?", "ru": "Да, только сегодня. Что-нибудь ещё?", "next": "needq"},
+        "needq": {"kind": "answer", "task": "Скажите, что вам нужны хлеб и молоко.", "branches": [{"phrase": "ph:supermarket.ekmek-ve-sut", "next": "receipt"}], "wrong": {"es": "Bir kedi lazım mı? Burada kedi yok!", "ru": "Нужна кошка? Тут нет кошек!"}},
+        "receipt": {"kind": "say", "es": "Ekmek ve süt. Hepsi on beş lira.", "ru": "Хлеб и молоко. Всего пятнадцать лир.", "next": "receiptq"},
+        "receiptq": {"kind": "answer", "task": "Попросите чек.", "branches": [{"phrase": "ph:supermarket.fis", "next": "end"}], "wrong": {"es": "Bir simit daha mı? Tamam, ama önce öde!", "ru": "Ещё симит? Ладно, но сначала заплати!"}},
+        "end": {"kind": "say", "es": "Al, fişin. Ve bu… haritanın bir parçası. Annem için bu harita çok önemli. Ben bilmiyorum, ama artık senin.", "ru": "Держи чек. И вот… обрывок карты. Для мамы эта карта очень важна. Я не знаю, но теперь она твоя."}
+      }
+    },
+    {
+      "id": "ms:supermarket.2",
+      "chapter": 2,
+      "npc": "mehmet",
+      "scene": "sc:supermarket.2",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Yola hazırlanıyorsun, değil mi? Ne lazım?", "ru": "Готовишься в дорогу, да? Что нужно?", "next": "tuna"},
+        "tuna": {"kind": "answer", "task": "Спросите, где тунец.", "branches": [{"phrase": "ph:supermarket.ton-baligi-nerede", "next": "water"}], "wrong": {"es": "Balık mı tutuyorsun? Hayır, burada market var!", "ru": "Рыбу ловишь? Нет, тут магазин!"}},
+        "water": {"kind": "say", "es": "Ton balığı orada, rafta. Dağda su da lazım.", "ru": "Тунец вон там, на полке. В горах и вода нужна.", "next": "waterq"},
+        "waterq": {"kind": "answer", "task": "Спросите, есть ли минеральная вода.", "branches": [{"phrase": "ph:supermarket.maden-suyu-var-mi", "next": "flour"}], "wrong": {"es": "Deniz suyu mu? Onu içme!", "ru": "Морская вода? Её не пей!"}},
+        "flour": {"kind": "say", "es": "Var. Ekmek yapmak istersen un da var.", "ru": "Есть. Если хочешь печь хлеб, есть и мука.", "next": "flourq"},
+        "flourq": {"kind": "answer", "task": "Спросите, где мука.", "branches": [{"phrase": "ph:supermarket.un-nerede", "next": "yogurt"}], "wrong": {"es": "Kum mu? Kum plajda!", "ru": "Песок? Песок на пляже!"}},
+        "yogurt": {"kind": "say", "es": "Un orada. Bu yoğurdu da al, çok taze.", "ru": "Мука вон там. И йогурт этот возьми, очень свежий.", "next": "yogurtq"},
+        "yogurtq": {"kind": "answer", "task": "Скажите, что у этого йогурта истёк срок годности.", "branches": [{"phrase": "ph:supermarket.skt-gecmis", "next": "price"}], "wrong": {"es": "Yoğurt çok mu güzel? Evet, ama tarihine bak!", "ru": "Йогурт очень хороший? Да, но посмотри на дату!"}},
+        "price": {"kind": "say", "es": "Haklısın, özür dilerim! Başka ne alıyorsun?", "ru": "Ты прав, извини! Что ещё берёшь?", "next": "priceq", "fem": {"ru": "Ты права, извини! Что ещё берёшь?"}},
+        "priceq": {"kind": "answer", "task": "Спросите, сколько стоит этот товар.", "branches": [{"phrase": "ph:supermarket.urun-ne-kadar", "next": "discount"}], "wrong": {"es": "Saat kaç mı? Fiyat soruyorum sandım.", "ru": "Который час? Я думал, ты про цену."}},
+        "discount": {"kind": "say", "es": "Bu ürün yüz lira. Biraz pahalı, biliyorum.", "ru": "Этот товар стоит сто лир. Дороговато, знаю.", "next": "discountq"},
+        "discountq": {"kind": "answer", "task": "Спросите, есть ли скидка на эту марку.", "branches": [{"phrase": "ph:supermarket.markada-indirim", "next": "end"}], "wrong": {"es": "Bedava mı? Burada hiçbir şey bedava değil!", "ru": "Бесплатно? Тут ничего не даётся даром!"}},
+        "end": {"kind": "say", "es": "Haritalı yolcuya indirim var. Al, dağ haritasından benim parçam. Gri paltolu adamı görürsen, ona sor: bu eski paralar nereden?", "ru": "Для путника с картой скидка есть. Держи мой обрывок карты гор. Если увидишь человека в сером пальто, спроси его: откуда эти старые монеты?"}
+      }
+    }
+  ]
+}

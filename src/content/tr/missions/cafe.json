@@ -1,0 +1,50 @@
+{
+  "location": "cafe",
+  "missions": [
+    {
+      "id": "ms:cafe.1",
+      "chapter": 1,
+      "npc": "hasan",
+      "scene": "sc:cafe.1",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Yine merhaba! Bugün çay ocağımda sadece Türkçe konuşuyoruz. Ne istersin?", "ru": "Привет ещё раз! Сегодня в моей чайной говорят только по-турецки. Что будешь?", "next": "order"},
+        "order": {"kind": "answer", "task": "Закажите чай или кофе.", "branches": [{"phrase": "ph:cafe.bir-cay", "next": "tea", "sets": {"drink": "tea"}}, {"phrase": "ph:cafe.bir-kahve", "next": "coffee", "sets": {"drink": "coffee"}}], "wrong": {"es": "Bir kedi mi? Kusura bakma, menüde kedi yok.", "ru": "Кошку? Извини, кошек в меню нет."}},
+        "tea": {"kind": "say", "es": "Bir çay. Güzel! Su da ister misin?", "ru": "Чай. Отлично! Воды тоже хочешь?", "next": "water"},
+        "coffee": {"kind": "say", "es": "Kahve. Çok iyi konuşuyorsun! Su da ister misin?", "ru": "Кофе. Ты отлично говоришь! Воды тоже хочешь?", "next": "water"},
+        "water": {"kind": "answer", "task": "Попросите стакан воды.", "branches": [{"phrase": "ph:cafe.bir-bardak-su", "next": "sugarq"}], "wrong": {"es": "Bir bardak çorba mı? Burası çay ocağı, lokanta değil.", "ru": "Стакан супа? Это чайная, а не локанта."}},
+        "sugarq": {"kind": "say", "es": "Al, suyun. Şeker?", "ru": "Держи воду. Сахар?", "next": "sugar"},
+        "sugar": {"kind": "answer", "task": "Откажитесь от сахара и поблагодарите.", "branches": [{"phrase": "ph:cafe.sekersiz", "next": "simitq"}], "wrong": {"es": "On kilo şeker mi? Yok, yok!", "ru": "Десять кило сахара? Нет-нет!"}},
+        "simitq": {"kind": "say", "es": "Tamam. Simitler bugün çok taze.", "ru": "Хорошо. Симиты сегодня очень свежие.", "next": "simit"},
+        "simit": {"kind": "answer", "task": "Спросите, есть ли симиты.", "branches": [{"phrase": "ph:cafe.simit-var-mi", "next": "paysay"}], "wrong": {"es": "Kedi için simit mi? Kedi zaten çok yiyor.", "ru": "Симит для кошки? Кошка и так много ест."}},
+        "paysay": {"kind": "say", "es": "Var. Al, simidin.", "ru": "Есть. Держи свой симит.", "next": "payq"},
+        "payq": {"kind": "answer", "task": "Спросите, можно ли заплатить здесь.", "branches": [{"phrase": "ph:cafe.burada-odeyebilir", "next": "billsay"}], "wrong": {"es": "Çiçekle mi ödeyeceksin? Burada lira ile ödüyoruz.", "ru": "Заплатишь цветами? Здесь платят лирами."}},
+        "billsay": {"kind": "say", "es": "Evet, burada. Hesap bende.", "ru": "Да, здесь. Счёт у меня.", "next": "bill"},
+        "bill": {"kind": "answer", "task": "Попросите счёт.", "branches": [{"phrase": "ph:cafe.hesap", "next": "bye"}], "wrong": {"es": "Bir çay daha mı? Çayın daha bitmedi!", "ru": "Ещё чаю? Ты ещё этот не допил!"}},
+        "bye": {"kind": "say", "es": "Yirmi beş lira. Çok iyi konuşuyorsun! Al, bu harita parçası artık senin. Yarın görüşürüz.", "ru": "Двадцать пять лир. Ты отлично говоришь! Держи, этот обрывок карты теперь твой. До завтра."}
+      }
+    },
+    {
+      "id": "ms:cafe.2",
+      "chapter": 2,
+      "npc": "hasan",
+      "scene": "sc:cafe.2",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Yoldan önce güzel bir kahvaltı lazım. Nereye oturacaksın?", "ru": "Перед дорогой нужен хороший завтрак. Куда сядешь?", "next": "table"},
+        "table": {"kind": "answer", "task": "Спросите, свободно ли это место.", "branches": [{"phrase": "ph:cafe.bos-mu", "next": "tablesay"}], "wrong": {"es": "Kedi boş mu? Hayır, o komşunun kedisi.", "ru": "Кошка свободна? Нет, это соседская кошка."}},
+        "tablesay": {"kind": "say", "es": "Evet, otur. Ne istersin?", "ru": "Да, садись. Что будешь?", "next": "order"},
+        "order": {"kind": "answer", "task": "Закажите завтрак или большой стакан чая с симитом.", "branches": [{"phrase": "ph:cafe.kahvalti", "next": "ordersay"}, {"phrase": "ph:cafe.buyuk-bardak", "next": "ordersay"}], "wrong": {"es": "Balık çorbası mı? Sabahın sekizinde?", "ru": "Рыбный суп? В восемь утра?"}},
+        "ordersay": {"kind": "say", "es": "Güzel. Yol için sıcak bir şey ister misin?", "ru": "Отлично. А в дорогу хочешь чего-нибудь горячего?", "next": "more"},
+        "more": {"kind": "answer", "task": "Попросите ещё стакан чая.", "branches": [{"phrase": "ph:cafe.bir-cay-daha", "next": "moresay"}], "wrong": {"es": "Dondurma mı? Dağda hava soğuk!", "ru": "Мороженое? В горах холодно!"}},
+        "moresay": {"kind": "say", "es": "Bir çay daha, Kerem gibi. O da her sabah iki çay içerdi.", "ru": "Ещё чай, как Керем. Он тоже каждое утро пил два стакана.", "next": "napkin"},
+        "napkin": {"kind": "answer", "task": "Попросите салфетку.", "branches": [{"phrase": "ph:cafe.pecete", "next": "napkinsay"}], "wrong": {"es": "Muz mu? Burası çay ocağı, pazar değil!", "ru": "Банан? Это чайная, а не базар!"}},
+        "napkinsay": {"kind": "say", "es": "Al. Bak, bu da Kerem'in son mektubu.", "ru": "Держи. Смотри, а это последнее письмо Керема.", "next": "cash"},
+        "cash": {"kind": "answer", "task": "Спросите, можно ли заплатить наличными.", "branches": [{"phrase": "ph:cafe.nakit", "next": "cashsay"}], "wrong": {"es": "Poşetle mi ödeyeceksin? Benim poşetim var, sağ ol.", "ru": "Заплатишь пакетом? У меня есть пакет, спасибо."}},
+        "cashsay": {"kind": "say", "es": "Nakit iyi. Ama bir dakika bekle.", "ru": "Наличные — хорошо. Но подожди минутку.", "next": "treat"},
+        "treat": {"kind": "answer", "task": "Попросите счёт или скажите, что сегодня угощаете вы.", "branches": [{"phrase": "ph:cafe.hesap", "next": "end"}, {"phrase": "ph:cafe.ismarliyorum", "next": "end"}], "wrong": {"es": "Haritanı mı veriyorsun? Hayır, o sende kalsın.", "ru": "Отдаёшь мне свою карту? Нет, оставь себе."}},
+        "end": {"kind": "say", "es": "Hayır, bugün hiçbir şey ödemiyorsun. Bir de şunu dinle: sisin içinde Kerem'i görürsen, ona seslen. Hep derdi: sisli havada yolu sadece bir ses gösterir. Al, dağ haritasından benim parçam.", "ru": "Нет, сегодня ты ничего не платишь. И послушай: если увидишь Керема в тумане, позови его. Он всегда говорил: в тумане дорогу покажет только голос. Держи мой обрывок карты гор."}
+      }
+    }
+  ]
+}

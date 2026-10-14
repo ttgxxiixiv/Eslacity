@@ -1,0 +1,57 @@
+{
+  "location": "market",
+  "scenes": [
+    {
+      "id": "sc:market.1",
+      "chapter": 1,
+      "npc": "fatma",
+      "lines": [
+        {"who": "npc", "es": "Günaydın, yavrum! Bak, ne güzel domatesler. Bugün ne istersin?", "ru": "Доброе утро, милок! Смотри, какие помидоры. Что тебе сегодня?", "fem": {"ru": "Доброе утро, милая! Смотри, какие помидоры. Что тебе сегодня?"}},
+        {"who": "hero", "es": "Bir kilo domates ve iki portakal, lütfen.", "ru": "Килограмм помидоров и два апельсина, пожалуйста."},
+        {"who": "npc", "es": "Tamam. Çilek de ister misin? Bugün çok güzel.", "ru": "Хорошо. А клубнику? Сегодня она чудесная."},
+        {"who": "hero", "es": "Çilekler ne kadar?", "ru": "Сколько стоит клубника?"},
+        {"who": "npc", "es": "Kilosu on beş lira.", "ru": "Пятнадцать лир за килограмм."},
+        {"who": "hero", "es": "Çok pahalı!", "ru": "Это очень дорого!"},
+        {"who": "npc", "es": "Sana on lira olsun.", "ru": "Для тебя — десять."},
+        {"who": "hero", "es": "Tamam. Bir poşet de alabilir miyim?", "ru": "Хорошо. И можно пакет?"},
+        {"who": "npc", "es": "Al. Bak, sen eski bir harita arıyorsun, değil mi? Annemde bir parça vardı.", "ru": "Держи. Слушай, ты ведь ищешь старую карту? У моей мамы был обрывок."},
+        {"who": "hero", "es": "Şimdi nerede?", "ru": "А где он сейчас?"},
+        {"who": "npc", "es": "Burada, bende. Ama önce domatesler!", "ru": "Здесь, у меня. Но сначала — помидоры!"}
+      ],
+      "questions": [
+        {"q": "Что покупает герой сначала?", "options": ["Помидоры и апельсины", "Яблоки", "Картошку"], "answer": 0},
+        {"q": "Сколько стоит клубника?", "options": ["Пять лир", "Пятнадцать лир за килограмм", "Двадцать лир"], "answer": 1},
+        {"q": "Что делает тётушка Фатма, когда герой говорит «дорого»?", "options": ["Сердится", "Уступает в цене", "Уходит"], "answer": 1},
+        {"q": "Где обрывок карты?", "options": ["У Хасана-уста", "У Фатмы", "У Мехмета"], "answer": 1}
+      ],
+      "gloss": {"yavrum": "милок, деточка (ласково)", "kilosu": "за килограмм (kilo)", "annemde": "у моей мамы", "parça": "обрывок"}
+    },
+    {
+      "id": "sc:market.2",
+      "chapter": 2,
+      "npc": "fatma",
+      "lines": [
+        {"who": "npc", "es": "Yavrum! Bu peyniri tattın mı? Dağdaki köylüler yapıyor.", "ru": "Милок! Пробовал этот сыр? Его делают крестьяне в горах.", "fem": {"ru": "Милая! Пробовала этот сыр? Его делают крестьяне в горах."}},
+        {"who": "hero", "es": "Köylüler pazara geliyor mu?", "ru": "Крестьяне приходят на базар?"},
+        {"who": "npc", "es": "Her cumartesi geliyorlar. Peynir ve haber getiriyorlar.", "ru": "Каждую субботу приходят. Приносят сыр и новости."},
+        {"who": "hero", "es": "Ne haberi?", "ru": "Какие новости?"},
+        {"who": "npc", "es": "Geçen hafta garip bir şey anlattılar. Hasan Usta'nın oğlu Kerem'i görmüşler.", "ru": "На прошлой неделе рассказали странную вещь. Они видели Керема, сына Хасана-уста."},
+        {"who": "hero", "es": "Nerede görmüşler?", "ru": "Где они его видели?"},
+        {"who": "npc", "es": "Bir adamla kuleye çıkıyormuş. Adamı kimse tanımıyor. Üstünde gri bir palto varmış.", "ru": "Он поднимался к башне с каким-то человеком. Того никто не знает. На нём было серое пальто."},
+        {"who": "hero", "es": "Kimmiş bu adam?", "ru": "Кто же это был?"},
+        {"who": "npc", "es": "Kimse bilmiyor. Kimseyle konuşmamış.", "ru": "Никто не знает. Он ни с кем не говорил."},
+        {"who": "hero", "es": "Hasan Usta'ya söylemek lazım.", "ru": "Надо рассказать Хасану-уста."},
+        {"who": "npc", "es": "Dur. Önce peyniri tat.", "ru": "Погоди. Сначала попробуй сыр."},
+        {"who": "npc", "es": "Elmalarım nasıldı? Geçen sefer bir kilo almıştın.", "ru": "А как мои яблоки? В прошлый раз ты взял целый килограмм.", "fem": {"ru": "А как мои яблоки? В прошлый раз ты взяла целый килограмм."}, "if": {"flag": "basket", "is": "apples"}},
+        {"who": "npc", "es": "Patateslerim nasıldı? İki kilo! Hepsini pişirdin mi?", "ru": "А как моя картошка? Два килограмма! Ты всё приготовил?", "fem": {"ru": "А как моя картошка? Два килограмма! Ты всё приготовила?"}, "if": {"flag": "basket", "is": "potatoes"}}
+      ],
+      "questions": [
+        {"q": "Кто делает сыр?", "options": ["Фатма", "Крестьяне в горах", "Мехмет"], "answer": 1},
+        {"q": "Кого видели крестьяне?", "options": ["Керема", "Летописца", "Стража"], "answer": 0},
+        {"q": "Куда шёл Керем?", "options": ["К морю", "К башне", "На паром"], "answer": 1},
+        {"q": "Что было на незнакомце?", "options": ["Красная куртка", "Серое пальто", "Шляпа"], "answer": 1}
+      ],
+      "gloss": {"yavrum": "милок, деточка (ласково)", "görmüşler": "видели (говорят)", "çıkıyormuş": "поднимался (говорят)", "varmış": "было (говорят)", "kimmiş": "кто же (говорят)", "konuşmamış": "не разговаривал (говорят)", "almıştın": "ты брал(а)", "usta": "мастер (уважительно)"}
+    }
+  ]
+}

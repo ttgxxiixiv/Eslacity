@@ -1,9 +1,8 @@
 import { normalize } from '../../domain/answer';
 import { CHAPTERS as PLAN } from '../vocabPlan';
-import { sceneWords } from '../../domain/sceneText';
 import { BOOK_QUESTIONS, BOOK_UNKNOWN_MAX, BOOK_WORD_PREFIX, BOOK_WORDS, BOOKS_PER_CHAPTER, bookId, parseBookId, textWords } from '../../domain/books';
 import type { BookFile } from '../schema';
-import { type Issue, empty } from './common';
+import { type Issue, empty, textKeys as keysOfText } from './common';
 
 /** Книги Летописца. */
 
@@ -35,7 +34,7 @@ export function validateBooks(files: { name: string; data: BookFile }[], checks:
     seenChapters.add(ch);
     const level = Math.max(...plan.levels);
     const [minWords, maxWords] = BOOK_WORDS[ch] ?? [0, Infinity];
-    const keysOf = (text: string) => sceneWords(text).flatMap((p) => ('key' in p ? [normalize(p.key)] : []));
+    const keysOf = keysOfText;
     // Словарик главы: формы слов в текстах.
     const forms = new Map<string, string>();
     const ids = new Set<string>();

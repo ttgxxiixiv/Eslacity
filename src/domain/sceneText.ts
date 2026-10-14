@@ -4,16 +4,24 @@
  * Знаки, которые стоят вплотную к слову («¿», «?», «,»), идут вместе с ним в `pre` и `post`,
  * чтобы при переносе строки знак не отрывался от слова.
  */
+import { LANG, LANGS, type Lang } from '../lang';
+import { lowerText } from './answer';
+
 export type ScenePiece = { word: string; key: string; pre?: string; post?: string } | { text: string };
 
-const WORD = /([A-Za-zÀ-ÖØ-öø-ÿ]+'?)/;
+// Любые буквы: у турецкого есть ı, ğ, ş и İ, которых нет в латинице с диакритикой. Аффикс после апострофа
+// (Kerem'i) — часть слова, если так у языка (`apostropheSuffix` в профиле).
+const wordPattern = (lang: Lang) => (LANGS[lang].apostropheSuffix ? /(\p{L}+(?:'\p{L}+)?)/u : /(\p{L}+'?)/u);
+const keyOf = (w: string, lang: Lang) => LANGS[lang].wordKey?.(w) ?? lowerText(w, lang);
 
-export function sceneWords(line: string): ScenePiece[] {
+/** `lang` — язык текста: валидатор проверяет все курсы в одном запуске, приложение — язык курса. */
+export function sceneWords(line: string, lang: Lang = LANG): ScenePiece[] {
+  const WORD = wordPattern(lang);
   const raw = line
     .replace(/[’`]/g, "'")
     .split(WORD)
     .filter(Boolean)
-    .map((p) => (WORD.test(p) && /^[A-Za-zÀ-ÖØ-öø-ÿ]/.test(p) ? { word: p, key: p.toLowerCase() } : { text: p }));
+    .map((p) => (WORD.test(p) && /^\p{L}/u.test(p) ? { word: p, key: keyOf(p, lang) } : { text: p }));
   const out: ScenePiece[] = [];
   raw.forEach((p, i) => {
     if ('word' in p) {

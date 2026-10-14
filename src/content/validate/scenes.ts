@@ -1,9 +1,8 @@
 import { normalize } from '../../domain/answer';
 import { CHAPTERS as PLAN } from '../vocabPlan';
-import { sceneWords } from '../../domain/sceneText';
 import { THREAD_TRIGGERS, threadId } from '../../domain/thread';
 import { LOCATION_IDS, type LocationScenes, type Scene, type ThreadFile } from '../schema';
-import { type Issue, empty } from './common';
+import { type Issue, empty, textKeys } from './common';
 
 /** Сцены мест, шёпоты главы IV и нить глав (сцены Летописца и записки). */
 
@@ -102,7 +101,7 @@ function sceneBodyIssues(sc: Scene, at: string, npcIds: ReadonlySet<string>, che
   const text = lines.map((l) => l.es).join(' ');
   // Слова реплик так же, как их нажимают на экране сцены: «dell'Elisir» — это «dell'» и «elisir».
   // Женские формы реплик (`fem`) тоже нажимаются: их слова в gloss не лишние.
-  const keys = new Set(lines.flatMap((l) => [l.es ?? '', l.fem?.es ?? ''].flatMap((t) => sceneWords(t).flatMap((p) => ('key' in p ? [normalize(p.key)] : [])))));
+  const keys = new Set(lines.flatMap((l) => [l.es ?? '', l.fem?.es ?? ''].flatMap(textKeys)));
   const gloss = Object.fromEntries(Object.entries(sc.gloss ?? {}).map(([k, v]) => [k.toLowerCase(), v]));
   for (const [k, v] of Object.entries(gloss)) {
     if (empty(v)) out.push({ level: 'error', where: at, msg: `пустой перевод в gloss: "${k}"` });
@@ -180,7 +179,7 @@ export function validateThread(file: { name: string; data: ThreadFile } | undefi
         const gloss = new Set(Object.keys(n.gloss ?? {}).map((k) => k.toLowerCase()));
         const bare = [...new Set(checks.coverage(n.es, level).unknown)].filter((t) => !gloss.has(t));
         if (bare.length) out.push({ level: 'warning', where: at, msg: `нет в словаре уровня ${level} и в gloss: ${bare.join(', ')}` });
-        const words = new Set(sceneWords(n.es).flatMap((p) => ('key' in p ? [normalize(p.key)] : [])));
+        const words = new Set(textKeys(n.es));
         for (const [k, v] of Object.entries(n.gloss ?? {})) {
           if (empty(v)) out.push({ level: 'error', where: at, msg: `пустой перевод в gloss: "${k}"` });
           if (!words.has(normalize(k))) out.push({ level: 'warning', where: at, msg: `слова "${k}" из gloss нет в записке` });

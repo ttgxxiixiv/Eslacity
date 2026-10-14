@@ -1,7 +1,6 @@
 import { normalize } from '../../domain/answer';
-import { sceneWords } from '../../domain/sceneText';
 import { CHAPTERS } from '../../domain/chapters';
-import { type Issue, empty } from './common';
+import { type Issue, empty, textKeys } from './common';
 
 /** Слухи города. */
 
@@ -34,7 +33,7 @@ export function validateRumors(
     if (empty(r.es) || empty(r.ru)) err('нет реплики или перевода');
     else if (!/\p{Script=Latin}/u.test(r.es) || /\p{Script=Cyrillic}/u.test(r.es)) err('реплика не на изучаемом языке');
     const gloss = Object.fromEntries(Object.entries(r.gloss ?? {}).map(([k, v]) => [k.toLowerCase(), v]));
-    const keys = new Set(sceneWords(r.es ?? '').flatMap((p) => ('key' in p ? [normalize(p.key)] : [])));
+    const keys = new Set(textKeys(r.es ?? ''));
     for (const [k, v] of Object.entries(gloss)) {
       if (empty(v)) err(`пустой перевод в gloss: "${k}"`);
       if (!keys.has(normalize(k))) out.push({ level: 'warning', where, msg: `слова "${k}" из gloss нет в реплике` });

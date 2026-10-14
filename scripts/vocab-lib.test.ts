@@ -253,6 +253,11 @@ describe('турецкий: разбор аффиксов вместо табл�
     expect(uncoveredWords('Kitabı geldi.', 2, lex, none, 'tr')).toEqual([]);
   });
 
+  it('однобуквенная форма — сама себе лемма: «o» (он, она) разбор не возвращает', () => {
+    const lex1 = buildLexicon([{ es: 'o', level: 1, example: { es: 'O geldi.' } }], [], [], (t) => lemmasIn(t, none, 'tr'));
+    expect(uncoveredWords('O nerede?', 1, lex1, none, 'tr')).toEqual(['nerede']);
+  });
+
   it('перевод слова сцены по лемме разбора', () => {
     const g = glossIndex(words, none, 'tr');
     expect(g('evlerde')).toBe('дом');

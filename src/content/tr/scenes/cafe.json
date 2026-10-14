@@ -1,0 +1,57 @@
+{
+  "location": "cafe",
+  "scenes": [
+    {
+      "id": "sc:cafe.1",
+      "chapter": 1,
+      "npc": "hasan",
+      "lines": [
+        {"who": "npc", "es": "Günaydın! Ne içersin?", "ru": "Доброе утро! Что будешь пить?"},
+        {"who": "hero", "es": "Bir çay, lütfen. Şekersiz olsun.", "ru": "Один чай, пожалуйста. Без сахара."},
+        {"who": "npc", "es": "Tamam. Simit de ister misin? Sıcak sıcak.", "ru": "Хорошо. Симит тоже хочешь? Горяченький."},
+        {"who": "hero", "es": "Evet, bir simit. Ne kadar?", "ru": "Да, один симит. Сколько с меня?"},
+        {"who": "npc", "es": "Çay on lira, simit on beş lira.", "ru": "Чай десять лир, симит пятнадцать."},
+        {"who": "hero", "es": "Kartla ödeyebilir miyim?", "ru": "Можно заплатить картой?"},
+        {"who": "npc", "es": "Burada sadece nakit alıyoruz. Ama sorun değil, bugün çay benden.", "ru": "Здесь берём только наличными. Но ничего, сегодня чай за мой счёт."},
+        {"who": "hero", "es": "Çok teşekkür ederim!", "ru": "Большое спасибо!"},
+        {"who": "npc", "es": "Elinde bir harita var. Sen yolcu musun?", "ru": "У тебя в руках карта. Ты путник?"},
+        {"who": "hero", "es": "Evet. Haritanın parçalarını arıyorum.", "ru": "Да. Я ищу обрывки карты."},
+        {"who": "npc", "es": "Benim de bir parçam var. Önce çayını iç, sonra konuşuruz.", "ru": "У меня тоже есть обрывок. Сначала выпей чай, потом поговорим."}
+      ],
+      "questions": [
+        {"q": "Что пьёт герой?", "options": ["Чай без сахара", "Кофе с молоком", "Сок"], "answer": 0},
+        {"q": "Что ещё берёт герой?", "options": ["Печенье", "Симит", "Пахлаву"], "answer": 1},
+        {"q": "Как здесь платят?", "options": ["Только наличными", "Только картой", "Как угодно"], "answer": 0},
+        {"q": "Что есть у Хасана-уста?", "options": ["Новая карта", "Обрывок карты", "Ключ"], "answer": 1}
+      ],
+      "gloss": {"elinde": "у тебя в руке (el — рука)", "parçalarını": "обрывки (parça — обрывок)", "parçam": "мой обрывок"}
+    },
+    {
+      "id": "sc:cafe.2",
+      "chapter": 2,
+      "npc": "hasan",
+      "lines": [
+        {"who": "npc", "es": "Günaydın! Bugün çok ciddi görünüyorsun. Dağlara mı gidiyorsun?", "ru": "Доброе утро! Ты сегодня очень серьёзный. Идёшь в горы?", "fem": {"ru": "Доброе утро! Ты сегодня очень серьёзная. Идёшь в горы?"}},
+        {"who": "hero", "es": "Dün muhafız bana mührü verdi. Şimdi dağ yolunu arıyorum.", "ru": "Вчера страж отдал мне печать. Теперь я ищу дорогу в горы."},
+        {"who": "npc", "es": "Oğlum Kerem dağ rehberi. Dağdaki her yolu bilir.", "ru": "Мой сын Керем — горный проводник. Он знает в горах каждую тропу."},
+        {"who": "hero", "es": "Harika! O şimdi nerede?", "ru": "Отлично! А где он сейчас?"},
+        {"who": "npc", "es": "Bilmiyorum. Bir aydır mektup yazmıyor. Eskiden her hafta yazardı.", "ru": "Не знаю. Уже месяц не пишет. Раньше писал каждую неделю."},
+        {"who": "hero", "es": "Nereye gitti?", "ru": "Куда он ушёл?"},
+        {"who": "npc", "es": "Geçitteki kuleye gidiyorum dedi. Orada ikinci muhafız yaşıyor.", "ru": "Сказал, что идёт к башне на перевале. Там живёт второй страж."},
+        {"who": "hero", "es": "İkinci bir muhafız mı var?", "ru": "Есть и второй страж?"},
+        {"who": "npc", "es": "Her toprağın bir muhafızı var. Dağda sis de çok çabuk gelir.", "ru": "У каждой земли свой страж. А в горах туман приходит очень быстро."},
+        {"who": "hero", "es": "Kerem'i bulacağım ve ona söyleyeceğim: babana yaz!", "ru": "Я найду Керема и скажу ему: напиши отцу!"},
+        {"who": "npc", "es": "Sağ ol. Al, sıcak bir çay. Soğuğa iyi gelir.", "ru": "Спасибо. Держи горячий чай. От холода помогает."},
+        {"who": "npc", "es": "Bir dahaki sefere her zamanki çayın hazır, şekersiz. Biliyorum artık.", "ru": "В следующий раз — твой обычный чай без сахара. Я уже знаю.", "if": {"flag": "drink", "is": "tea"}},
+        {"who": "npc", "es": "Bir dahaki sefere her zamanki kahven hazır. Biliyorum artık.", "ru": "В следующий раз — твой обычный кофе. Я уже знаю.", "if": {"flag": "drink", "is": "coffee"}}
+      ],
+      "questions": [
+        {"q": "Кто сын Хасана-уста?", "options": ["Повар", "Горный проводник", "Почтальон"], "answer": 1},
+        {"q": "Почему Хасан волнуется?", "options": ["Сын месяц не пишет", "Чайная закрывается", "Пропала печать"], "answer": 0},
+        {"q": "Куда ушёл Керем?", "options": ["В Стамбул", "На базар", "К башне на перевале"], "answer": 2},
+        {"q": "Кто живёт в башне?", "options": ["Летописец", "Второй страж", "Пастухи"], "answer": 1}
+      ],
+      "gloss": {"mührü": "печать (mühür)", "rehberi": "проводник (rehber)", "geçitteki": "на перевале (geçit — перевал)", "zamanki": "her zamanki — обычный, привычный"}
+    }
+  ]
+}

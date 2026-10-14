@@ -1,0 +1,55 @@
+{
+  "location": "home",
+  "scenes": [
+    {
+      "id": "sc:home.1",
+      "chapter": 1,
+      "npc": "nermin",
+      "lines": [
+        {"who": "npc", "es": "Günaydın! Kahvaltı yaptın mı?", "ru": "Доброе утро! Ты уже завтракал?", "fem": {"ru": "Доброе утро! Ты уже завтракала?"}},
+        {"who": "hero", "es": "Hayır, daha yapmadım.", "ru": "Нет, ещё нет."},
+        {"who": "npc", "es": "Gel, gel! Burası mutfak. Çorba var.", "ru": "Заходи, заходи! Вот кухня. Есть суп."},
+        {"who": "hero", "es": "Teşekkür ederim. Eviniz çok güzel.", "ru": "Спасибо. У вас очень красивый дом."},
+        {"who": "npc", "es": "Küçük bir ev: iki oda, bir mutfak ve bir banyo.", "ru": "Маленький дом: две комнаты, кухня и ванная."},
+        {"who": "hero", "es": "Harita hakkında bir şey biliyor musunuz?", "ru": "Вы что-нибудь знаете о карте?"},
+        {"who": "npc", "es": "Benim parçam burada, eski yemek kitabımda.", "ru": "Мой обрывок здесь, в моей старой поваренной книге."},
+        {"who": "hero", "es": "Neden her evde bir parça var?", "ru": "Почему обрывок есть в каждом доме?"},
+        {"who": "npc", "es": "Yıllar önce herkes haritayı istedi. O yüzden harita bölündü.", "ru": "Много лет назад карту хотели все. Поэтому её разделили."},
+        {"who": "hero", "es": "Ya şimdi?", "ru": "А теперь?"},
+        {"who": "npc", "es": "Şimdi harita, her komşuyla konuşan kişinin. Ye, ye!", "ru": "Теперь карта достанется тому, кто поговорит с каждым соседом. Ешь, ешь!"}
+      ],
+      "questions": [
+        {"q": "Что предлагает Нермин-ханым?", "options": ["Суп", "Кофе", "Пахлаву"], "answer": 0},
+        {"q": "Сколько комнат в её доме?", "options": ["Одна", "Две", "Четыре"], "answer": 1},
+        {"q": "Где её обрывок карты?", "options": ["В шкафу", "В старой поваренной книге", "На балконе"], "answer": 1},
+        {"q": "Почему карту разделили?", "options": ["Её порвала кошка", "Её хотели все", "Она очень старая"], "answer": 1}
+      ],
+      "gloss": {"parçam": "мой обрывок", "parça": "обрывок", "bölündü": "разделили", "konuşan": "который говорит"}
+    },
+    {
+      "id": "sc:home.2",
+      "chapter": 2,
+      "npc": "nermin",
+      "lines": [
+        {"who": "npc", "es": "Günaydın! Bugün hava soğuk. Kahvaltı yaptın mı?", "ru": "Доброе утро! Сегодня холодно. Ты позавтракал?", "fem": {"ru": "Доброе утро! Сегодня холодно. Ты позавтракала?"}},
+        {"who": "hero", "es": "Teşekkürler. Yarın dağa gidiyorum.", "ru": "Спасибо. Завтра я иду в горы."},
+        {"who": "npc", "es": "Dağa mı! Ben orada doğdum, geçitteki köyde.", "ru": "В горы! Я там родилась, в деревне на перевале."},
+        {"who": "hero", "es": "Gerçekten mi? Nasıl bir yerdi?", "ru": "Правда? Какое это было место?"},
+        {"who": "npc", "es": "Küçük ve güzeldi. Ama bir gece korkunç bir fırtına oldu ve hepimiz şehre indik.", "ru": "Маленькое и красивое. Но однажды ночью была страшная буря, и все мы спустились в город."},
+        {"who": "hero", "es": "Ya köy?", "ru": "А деревня?"},
+        {"who": "npc", "es": "Şimdi boş. Sadece taşlar ve rüzgâr kaldı.", "ru": "Теперь пустая. Остались только камни и ветер."},
+        {"who": "hero", "es": "Kuleyi biliyor musunuz?", "ru": "А башню вы знаете?"},
+        {"who": "npc", "es": "Annem derdi: kulenin muhafızı kelime sormaz. Ne yaptığını sorar.", "ru": "Мама говорила: страж башни не спрашивает слов. Он спрашивает, что ты сделал."},
+        {"who": "hero", "es": "Ne yaptığımı mı?", "ru": "Что я сделал?"},
+        {"who": "npc", "es": "Yolunu, geçmiş zamanla. O zaman söyle bakalım: dün ne yaptın?", "ru": "Твой путь, в прошедшем времени. Так что скажи-ка: что ты делал вчера?", "fem": {"ru": "Твой путь, в прошедшем времени. Так что скажи-ка: что ты делала вчера?"}}
+      ],
+      "questions": [
+        {"q": "Где родилась Нермин-ханым?", "options": ["В Измире", "В деревне на перевале", "У моря"], "answer": 1},
+        {"q": "Почему жители ушли из деревни?", "options": ["Была страшная буря", "Деревню продали", "Пришёл страж"], "answer": 0},
+        {"q": "Что осталось в деревне?", "options": ["Люди", "Только камни и ветер", "Башня"], "answer": 1},
+        {"q": "Что спрашивает страж башни?", "options": ["Слова", "Что ты сделал", "Откуда ты"], "answer": 1}
+      ],
+      "gloss": {"geçitteki": "на перевале (geçit)", "muhafızı": "страж (muhafız)", "yaptığını": "что ты сделал", "yaptığımı": "что я сделал", "derdi": "говорила (обычно)"}
+    }
+  ]
+}

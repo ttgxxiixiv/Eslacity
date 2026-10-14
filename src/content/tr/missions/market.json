@@ -1,0 +1,49 @@
+{
+  "location": "market",
+  "missions": [
+    {
+      "id": "ms:market.1",
+      "chapter": 1,
+      "npc": "fatma",
+      "scene": "sc:market.1",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Merhaba! Bugün domatesler çok güzel. Ne istersin?", "ru": "Привет! Сегодня помидоры очень хорошие. Что хочешь?", "next": "basket"},
+        "basket": {"kind": "answer", "task": "Попросите килограмм яблок или два килограмма картошки.", "branches": [{"phrase": "ph:market.bir-kilo-elma", "next": "apples", "sets": {"basket": "apples"}}, {"phrase": "ph:market.iki-kilo-patates", "next": "potatoes", "sets": {"basket": "potatoes"}}], "wrong": {"es": "Bir kilo kedi mi? Pazarda kedi yok!", "ru": "Килограмм кошек? Кошек на базаре нет!"}},
+        "apples": {"kind": "say", "es": "Elma, güzel. Bunlar çok tatlı elmalar.", "ru": "Яблоки, хорошо. Это очень сладкие яблоки.", "next": "oranges"},
+        "potatoes": {"kind": "say", "es": "İki kilo patates. Akşam patates mi yiyeceksin?", "ru": "Два килограмма картошки. Вечером будешь есть картошку?", "next": "oranges"},
+        "oranges": {"kind": "answer", "task": "Спросите, сколько стоят апельсины.", "branches": [{"phrase": "ph:market.portakal-ne-kadar", "next": "price"}], "wrong": {"es": "Saat kaç mı? Saat on, ama ben portakal satıyorum.", "ru": "Который час? Десять, но я продаю апельсины."}},
+        "price": {"kind": "say", "es": "Bir kilo portakal on beş lira.", "ru": "Килограмм апельсинов — пятнадцать лир.", "next": "expensive"},
+        "expensive": {"kind": "answer", "task": "Скажите, что это очень дорого.", "branches": [{"phrase": "ph:market.cok-pahali", "next": "cheaper"}], "wrong": {"es": "Çok güzel mi? Evet, ama yine on beş lira.", "ru": "Очень красиво? Да, но всё равно пятнадцать лир."}},
+        "cheaper": {"kind": "say", "es": "Pahalı mı? Sana on lira olsun. Çilek de ister misin?", "ru": "Дорого? Тебе — десять. Клубнику тоже хочешь?", "next": "strawberry"},
+        "strawberry": {"kind": "answer", "task": "Спросите, дешёвая ли сегодня клубника.", "branches": [{"phrase": "ph:market.cilek-ucuz-mu", "next": "bag"}], "wrong": {"es": "Çilek mi? Evet, var. Ama ne istiyorsun?", "ru": "Клубника? Да, есть. Но что ты хочешь?"}},
+        "bag": {"kind": "say", "es": "Bugün ucuz, evet. Çok şey aldın!", "ru": "Сегодня дешёвая, да. Ты столько всего купил!", "next": "bagq", "fem": {"ru": "Сегодня дешёвая, да. Ты столько всего купила!"}},
+        "bagq": {"kind": "answer", "task": "Попросите пакет.", "branches": [{"phrase": "ph:market.poset", "next": "end"}], "wrong": {"es": "Bir kilo kedi daha mı? Yok, yok!", "ru": "Ещё килограмм кошек? Нет-нет!"}},
+        "end": {"kind": "say", "es": "Al, poşetin. Çok iyi konuşuyorsun! Annemin eski haritası burada. Al, bu artık senin.", "ru": "Держи пакет. Ты отлично говоришь! Вот старая карта моей мамы — её кусочек. Держи, теперь он твой."}
+      }
+    },
+    {
+      "id": "ms:market.2",
+      "chapter": 2,
+      "npc": "fatma",
+      "scene": "sc:market.2",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Dağa gidiyorsun, değil mi? Yola sebze lazım. Ne istersin?", "ru": "Ты ведь идёшь в горы? В дорогу нужны овощи. Что хочешь?", "next": "veg"},
+        "veg": {"kind": "answer", "task": "Попросите килограмм моркови или спросите, есть ли чеснок.", "branches": [{"phrase": "ph:market.bir-kilo-havuc", "next": "carrots"}, {"phrase": "ph:market.sarimsak-var-mi", "next": "garlic"}], "wrong": {"es": "Bir kilo taş mı? Dağda taş çok, yavrum.", "ru": "Килограмм камней? В горах камней и так много, милок.", "fem": {"ru": "Килограмм камней? В горах камней и так много, милая."}}},
+        "carrots": {"kind": "say", "es": "Havuç, iyi. Dağda göz için iyi gelir.", "ru": "Морковь — хорошо. В горах она полезна для глаз.", "next": "taste"},
+        "garlic": {"kind": "say", "es": "Sarımsak var. Köylüler der ki sarımsak soğuğa iyi gelir.", "ru": "Чеснок есть. Крестьяне говорят, что чеснок помогает от холода.", "next": "taste"},
+        "taste": {"kind": "answer", "task": "Спросите, можно ли попробовать.", "branches": [{"phrase": "ph:market.tadabilir-miyim", "next": "season"}], "wrong": {"es": "Satabilir miyim mi? Hayır, burada ben satıyorum!", "ru": "Можно ли тебе продавать? Нет, здесь продаю я!"}},
+        "season": {"kind": "say", "es": "Tabii, tat. Tatlı, değil mi?", "ru": "Конечно, попробуй. Сладко, правда?", "next": "seasonq"},
+        "seasonq": {"kind": "answer", "task": "Спросите, какие фрукты сейчас по сезону.", "branches": [{"phrase": "ph:market.mevsim-meyvesi", "next": "cherries"}], "wrong": {"es": "Hangi hava mı? Bugün güneşli, yavrum.", "ru": "Какая погода? Сегодня солнечно, милок.", "fem": {"ru": "Какая погода? Сегодня солнечно, милая."}}},
+        "cherries": {"kind": "say", "es": "Şimdi kiraz ve şeftali. Ne kadar istersin?", "ru": "Сейчас черешня и персики. Сколько хочешь?", "next": "cherryq"},
+        "cherryq": {"kind": "answer", "task": "Попросите полкило черешни.", "branches": [{"phrase": "ph:market.yarim-kilo-kiraz", "next": "peaches"}], "wrong": {"es": "Yarım kilo peynir mi? Peynir köylülerde.", "ru": "Полкило сыра? Сыр у крестьян."}},
+        "peaches": {"kind": "say", "es": "Al. Şeftaliler de bugün çok güzel.", "ru": "Держи. И персики сегодня очень хорошие.", "next": "peachq"},
+        "peachq": {"kind": "answer", "task": "Спросите, откуда эти персики.", "branches": [{"phrase": "ph:market.seftaliler-nereden", "next": "nomore"}], "wrong": {"es": "Şeftaliler ne zaman mı? Bugün, şimdi!", "ru": "Когда персики? Сегодня, сейчас!"}},
+        "nomore": {"kind": "say", "es": "Dağdaki köyden. Köylüler getirdi. Başka bir şey?", "ru": "Из горной деревни. Крестьяне привезли. Что-нибудь ещё?", "next": "thanks"},
+        "thanks": {"kind": "answer", "task": "Скажите, что больше ничего не нужно, и поблагодарите.", "branches": [{"phrase": "ph:market.baska-bir-sey-yok", "next": "end"}], "wrong": {"es": "Başka bir kilo mu? Poşetin doldu bile!", "ru": "Ещё килограмм? У тебя уже пакет полный!"}},
+        "end": {"kind": "say", "es": "Hepsi yüz lira. Bir de dinle: köylüler diyor ki kulede her gece bir ışık yanıyor. Orada biri yaşıyor. Al, dağ haritasından benim parçam.", "ru": "Всего сто лир. И послушай: крестьяне говорят, что в башне каждую ночь горит свет. Там кто-то живёт. Держи мой обрывок карты гор."}
+      }
+    }
+  ]
+}

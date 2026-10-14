@@ -19,6 +19,12 @@ describe('реплика по словам', () => {
     const groups = sceneChunks("In montagna, l'impossibile succede.").map((c) => ('words' in c ? c.words.map((w) => w.key).join('+') : '_'));
     expect(groups).toEqual(['in', '_', 'montagna', '_', "l'+impossibile", '_', 'succede']);
   });
+  it('турецкий: буквы ı, ğ, ş и İ в слове, аффикс после апострофа — часть слова, ключ как у автоперевода', () => {
+    const words = sceneWords("Kerem'i gördün mü? Hâlâ ılık, İzmir'de.", 'tr').filter((p) => 'word' in p);
+    expect(words.map((p) => ('word' in p ? p.word : ''))).toEqual(["Kerem'i", 'gördün', 'mü', 'Hâlâ', 'ılık', "İzmir'de"]);
+    expect(words.map((p) => ('key' in p ? p.key : ''))).toEqual(['kerem', 'gördün', 'mü', 'hala', 'ılık', 'izmir']);
+  });
+
   it('перевод: автор сцены важнее словаря', () => {
     expect(wordTranslation('claro', { claro: 'конечно' }, { claro: 'ясный' })).toBe('конечно');
     expect(wordTranslation('café', undefined, { café: 'кофе' })).toBe('кофе');

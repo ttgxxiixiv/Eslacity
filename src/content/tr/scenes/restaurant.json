@@ -1,0 +1,55 @@
+{
+  "location": "restaurant",
+  "scenes": [
+    {
+      "id": "sc:restaurant.1",
+      "chapter": 1,
+      "npc": "kemal",
+      "lines": [
+        {"who": "npc", "es": "Merhaba! Bugün balık var. Masa ister misin?", "ru": "Здравствуй! Сегодня есть рыба. Хочешь столик?"},
+        {"who": "hero", "es": "Bir masa, lütfen.", "ru": "Столик, пожалуйста."},
+        {"who": "npc", "es": "Buraya, pencerenin yanına. Ne yemek istersin?", "ru": "Сюда, у окна. Что хочешь поесть?"},
+        {"who": "hero", "es": "Ne tavsiye edersiniz?", "ru": "Что посоветуете?"},
+        {"who": "npc", "es": "Balık! Annem de bu balığı yapardı.", "ru": "Рыбу! Моя мама тоже готовила эту рыбу."},
+        {"who": "hero", "es": "Anneniz de aşçı mıydı?", "ru": "Ваша мама тоже была поваром?"},
+        {"who": "npc", "es": "Çok iyi bir aşçıydı. Bir gün haritalı bir yolcu için yemek yaptı, senin gibi.", "ru": "Очень хорошим. Однажды она готовила для путника с картой, как ты."},
+        {"who": "hero", "es": "Ve o yolcu yolunu buldu mu?", "ru": "И тот путник нашёл свою дорогу?"},
+        {"who": "npc", "es": "Hayır. Türkçe bilmiyordu ve kimse ona haritadan bir parça vermedi.", "ru": "Нет. Он не знал турецкого, и никто не дал ему обрывок карты."},
+        {"who": "hero", "es": "Ben Türkçe biliyorum.", "ru": "А я знаю турецкий."},
+        {"who": "npc", "es": "Görüyorum. Şimdi ye! Tabak tertemiz olsun!", "ru": "Вижу. А теперь ешь! Чтобы тарелка была чистой!"}
+      ],
+      "questions": [
+        {"q": "Что сегодня в локанте?", "options": ["Кебаб", "Рыба", "Суп"], "answer": 1},
+        {"q": "Где садится герой?", "options": ["У окна", "У двери", "На террасе"], "answer": 0},
+        {"q": "Кем была мама Кемаля-уста?", "options": ["Рыбачкой", "Поварихой", "Учительницей"], "answer": 1},
+        {"q": "Почему тот путник не получил обрывок?", "options": ["Он не знал турецкого", "Он не заплатил", "Он ушёл ночью"], "answer": 0}
+      ],
+      "gloss": {"yapardı": "готовила (обычно)", "haritalı": "с картой", "parça": "обрывок", "tertemiz": "совершенно чистый"}
+    },
+    {
+      "id": "sc:restaurant.2",
+      "chapter": 2,
+      "npc": "kemal",
+      "lines": [
+        {"who": "npc", "es": "Gel, gel! Bugün yayla çorbası var.", "ru": "Заходи, заходи! Сегодня у меня суп «яйла»."},
+        {"who": "hero", "es": "Yayla çorbası mı?", "ru": "Суп «яйла»?"},
+        {"who": "npc", "es": "Kerem dağa gitmeden önce burada bu çorbayı içti.", "ru": "Керем перед тем, как уйти в горы, ел здесь этот суп."},
+        {"who": "hero", "es": "Kerem burada mıydı?", "ru": "Керем был здесь?"},
+        {"who": "npc", "es": "Bir ay önce. İki tabak yedi ve yolculuğunu anlattı.", "ru": "Месяц назад. Съел две тарелки и рассказал о своём походе."},
+        {"who": "hero", "es": "Ne anlattı?", "ru": "И что он рассказал?"},
+        {"who": "npc", "es": "Kuleye çıkmak istiyordu. Bana dedi ki: “Sisli havada yolu sadece bir ses gösterir.”", "ru": "Хотел подняться к башне. Сказал мне: «В тумане дорогу покажет только голос»."},
+        {"who": "hero", "es": "Kulenin arkasında ne var?", "ru": "А что за башней?"},
+        {"who": "npc", "es": "Kerem der ki kuleden kum görünüyor. Çok kum var ve su gibi parlıyor.", "ru": "Керем говорит, что с башни виден песок. Много песка, и он блестит, как вода."},
+        {"who": "hero", "es": "Deniz kenarındaki kum mu?", "ru": "Песок у моря?"},
+        {"who": "npc", "es": "Plaj değil. Garip bir şey. Kendin göreceksin. Şimdi ye!", "ru": "Не пляж. Что-то странное. Сам увидишь. А теперь ешь!", "fem": {"ru": "Не пляж. Что-то странное. Сама увидишь. А теперь ешь!"}}
+      ],
+      "questions": [
+        {"q": "Какой суп сегодня?", "options": ["Чечевичный", "Суп «яйла»", "Рыбный"], "answer": 1},
+        {"q": "Когда Керем был в локанте?", "options": ["Вчера", "Неделю назад", "Месяц назад"], "answer": 2},
+        {"q": "Что Керем сказал о тумане?", "options": ["В тумане дорогу покажет только голос", "Туман приходит ночью", "В тумане нельзя идти"], "answer": 0},
+        {"q": "Что видно с башни?", "options": ["Море", "Песок, который блестит, как вода", "Город"], "answer": 1}
+      ],
+      "gloss": {"yayla": "горное пастбище; yayla çorbası — суп с йогуртом и рисом", "gitmeden": "перед тем как уйти", "sisli": "туманный (sis — туман)", "parlıyor": "блестит", "ki": "что (der ki — говорит, что)"}
+    }
+  ]
+}

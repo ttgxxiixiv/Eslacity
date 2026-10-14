@@ -1,3 +1,4 @@
+import { LANG_IDS } from '../../lang';
 import { normalize } from '../../domain/answer';
 import { sceneWords } from '../../domain/sceneText';
 import { SPHINX_LEVEL, SPHINX_UNKNOWN_MAX, type SphinxChecks } from './sphinx';
@@ -19,9 +20,17 @@ export const empty = (v: unknown) => typeof v !== 'string' || v.trim() === '';
 /** Число слов в строке. */
 export const wordCount = (s: string) => s.trim().split(/\s+/).length;
 
+/**
+ * Ключи слов, которые можно нажать в тексте. Валидатор проверяет все курсы в одном запуске, а слова у языков
+ * режутся по-разному (турецкое «Kerem'i» — одно слово с ключом kerem, итальянское «d'acqua» — два), поэтому
+ * берутся ключи по правилам всех профилей: проверке «слово из gloss есть в тексте» этого хватает.
+ */
+export const textKeys = (text: string): string[] =>
+  LANG_IDS.flatMap((l) => sceneWords(text, l).flatMap((p) => ('key' in p ? [normalize(p.key)] : [])));
+
 /** Слова, которые можно нажать в тексте, и проверка `gloss`: пустой перевод — ошибка, слова нет в тексте — предупреждение. */
 export function glossIssues(texts: string[], glossIn: Record<string, string> | undefined, at: string, out: Issue[]): Record<string, string> {
-  const keys = new Set(texts.flatMap((t) => sceneWords(t).flatMap((p) => ('key' in p ? [normalize(p.key)] : []))));
+  const keys = new Set(texts.flatMap(textKeys));
   const gloss = Object.fromEntries(Object.entries(glossIn ?? {}).map(([k, v]) => [k.toLowerCase(), v]));
   for (const [k, v] of Object.entries(gloss)) {
     if (empty(v)) out.push({ level: 'error', where: at, msg: `пустой перевод в gloss: "${k}"` });

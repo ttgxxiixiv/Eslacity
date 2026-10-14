@@ -51,6 +51,9 @@ export const TR: LangProfile = {
   infinitiveEnd: 3,
   verbs: TR_VERBS,
   analyze,
+  apostropheSuffix: true,
+  // Как tokens в scripts/vocab-lib.ts: без аффикса имени собственного и без циркумфлекса (Kerem'i → kerem, hâlâ → hala).
+  wordKey: (w) => lower(w).replace(/'.*$/, '').replace(/[âîû]/g, (c) => ({ â: 'a', î: 'i', û: 'u' })[c]!),
   // ı/i, o/ö (swap), долгота с циркумфлексом hala/hâlâ (stress — знак над буквой), eli/elli (double).
   pairKinds: ['swap', 'stress', 'double'],
   // Hıdrellez и 23 Nisan — в 18.9.
