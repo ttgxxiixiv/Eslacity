@@ -242,8 +242,9 @@ describe('турецкий: разбор аффиксов вместо табл�
   const none = new Map<string, string>();
   const lex = buildLexicon(words, [], [], (t) => lemmasIn(t, none, 'tr'));
 
-  it('строчные по-турецки, буквы ğ ı ş, аффикс имени собственного после апострофа отбрасывается', () => {
+  it('строчные по-турецки, буквы ğ ı ş, аффикс имени собственного после апострофа отбрасывается, циркумфлекс снимается', () => {
     expect(tokens("Mahzen'e gidiyorum. IRMAK, İzmir, ağaç, şişe", 'tr')).toEqual(['mahzen', 'gidiyorum', 'ırmak', 'izmir', 'ağaç', 'şişe']);
+    expect(tokens('Hâlâ bir hikâye, rüzgâr ve kâğıt.', 'tr')).toEqual(['hala', 'bir', 'hikaye', 'rüzgar', 've', 'kağıt']);
   });
 
   it('слово под аффиксами знакомо, если знакома его лемма к этому уровню', () => {

@@ -1,4 +1,4 @@
-import { normalize, splitArticle, stripAccents } from '../../domain/answer';
+import { normalize, normalizeIn, splitArticle, stripAccents } from '../../domain/answer';
 import { LANGS, type Lang } from '../../lang';
 import { CHAPTERS as PLAN, PLACE_EXPRESSIONS, PLACE_LEVEL_MAX } from '../vocabPlan';
 import { EXPRESSION_LEVEL, isExpression, KINDS, REGISTERS, USAGES } from '../../domain/expression';
@@ -110,6 +110,15 @@ export function checkWord(w: Word, at: string, lang: Lang, out: Issue[]) {
     const parts = stripAccents(normalize(w.es)).split(/[\s']+/).filter((t) => t.length > 3);
     const stems = parts.map((t) => (t.length > 5 ? t.slice(0, -2) : t));
     if (stems.length && !stems.some((t) => ex.includes(t))) out.push({ level: 'warning', where: at, msg: `в примере нет выражения "${w.es}"` });
+  } else if (w.example && !empty(w.example.es) && LANGS[lang].analyze) {
+    // Язык с разбором аффиксов (турецкий): слово в примере стоит в форме (kitap → kitabı, gitmek → gidiyorum),
+    // обрезанная основа его не найдёт. Каждое слово записи ищется в примере как есть или формой, которая в него
+    // разбирается: yardım etmek — «yardım eder misin».
+    const analyze = LANGS[lang].analyze!;
+    const words = (s: string) => normalizeIn(s, lang).split(/[^\p{L}]+/u).filter(Boolean);
+    const ex = words(w.example.es);
+    const found = words(w.es).every((l) => ex.some((t) => t === l || analyze(t, (x) => x === l).includes(l)));
+    if (!found) out.push({ level: 'warning', where: at, msg: `в примере нет слова "${w.es}"` });
   } else if (w.example && !empty(w.example.es)) {
     const ex = stripAccents(normalize(w.example.es));
     let core = stripAccents(splitArticle(w.es, lang).core);

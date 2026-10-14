@@ -1,4 +1,8 @@
+import { readdirSync, readFileSync } from 'node:fs';
+import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
+import type { LocationWords, ScrollFile } from '../../content/schema';
+import { CHAPTERS } from '../../content/vocabPlan';
 import { checkTyped, lowerText, normalizeIn, stripAccents } from '../../domain/answer';
 import { A, I, analyze, conjugate, noun, soften, verbOf } from './morph';
 import { TR } from '.';
@@ -174,5 +178,38 @@ describe('турецкая Звонница', () => {
     expect(pairIssue(stress, [w('kar', 'снег'), w('kır', 'поле')])).toBe('слова различаются не только ударением');
     const double = { id: 'x', title: 't', hint: 'h', kind: 'double' as const, pairs: [] };
     expect(pairIssue(double, [w('elli', 'пятьдесят'), w('eli', 'его рука')])).toBeNull();
+  });
+});
+
+describe('слова глав I–II турецкого (задача 18.3)', () => {
+  const dir = (name: string) => join(import.meta.dirname, '..', '..', 'content', 'tr', name);
+  const files = <T,>(name: string) =>
+    readdirSync(dir(name)).filter((f) => f.endsWith('.json')).sort().map((f) => ({ name: f, data: JSON.parse(readFileSync(join(dir(name), f), 'utf8')) as T }));
+  const words = files<LocationWords>('words');
+  const scrolls = files<ScrollFile>('scrolls');
+
+  it('20 мест по 12 слов на каждом уровне 1–4, свитки I и II по плану', () => {
+    expect(words).toHaveLength(20);
+    for (const { name, data } of words) for (const level of [1, 2, 3, 4]) expect(data.words.filter((w) => w.level === level), `${name} уровень ${level}`).toHaveLength(12);
+    expect(scrolls.map((s) => [s.data.chapter, s.data.words.length])).toEqual([[1, CHAPTERS[0].scroll], [2, CHAPTERS[1].scroll]]);
+  });
+
+  it('проходят проверку слов, свитков и одинаковых переводов без замечаний, рода нет', async () => {
+    const { validateWords, validateScrolls, validateTranslations } = await import('../../content/validate');
+    expect(validateWords(words, 'tr')).toEqual([]);
+    expect(validateScrolls(scrolls, words, 'tr')).toEqual([]);
+    expect(validateTranslations(words, scrolls)).toEqual([]);
+    for (const { data } of [...words, ...scrolls]) for (const w of data.words) expect(w.gender, w.id).toBeUndefined();
+  });
+
+  it('слово в примере ищется разбором аффиксов: kitabı — kitap, gidiyorum — gitmek, yardım eder — yardım etmek', async () => {
+    const { validateWords } = await import('../../content/validate');
+    const w = (es: string, pos: string, example: string) => ({ id: `cafe.${es.replace(/\s/g, '-')}`, es, ru: es, pos, level: 1, cefr: 'A1', example: { es: example, ru: 'пример' } });
+    const warn = (...ws: ReturnType<typeof w>[]) =>
+      validateWords([{ name: 'cafe.json', data: { location: 'cafe', words: ws } as unknown as LocationWords }], 'tr')
+        .map((i) => i.msg)
+        .filter((m) => m.startsWith('в примере'));
+    expect(warn(w('kitap', 'noun', 'Kitabı aç.'), w('gitmek', 'verb', 'Eve gidiyorum.'), w('yardım etmek', 'verb', 'Bana yardım eder misin?'))).toEqual([]);
+    expect(warn(w('kitap', 'noun', 'Defter burada.'))).toEqual(['в примере нет слова "kitap"']);
   });
 });

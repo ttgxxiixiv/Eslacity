@@ -140,12 +140,14 @@ function report(lang: string): string {
     );
   }
 
-  // Список недостающих слов для контентных задач.
+  // Список недостающих слов для контентных задач. У языка с разбором аффиксов (турецкий) леммы не из таблицы форм,
+  // а из словаря Zemberek и разбора (scripts/build-freq-tr.ts).
+  const lemmaSource = LANGS[lang as Lang].analyze ? 'словарь Zemberek (Apache 2.0) и разбор аффиксов' : 'lemmatization-lists (ODbL)';
   const md: string[] = [
     `# Частотные слова, которых нет в курсе (${LANGS[lang as Lang].name.toLowerCase()})`,
     '',
     'Файл собирается командой `npm run vocab`, вручную его не правят: взятые в курс слова пропадают из списка при следующей сборке.',
-    'Частоты: FrequencyWords (субтитры OpenSubtitles 2018, CC BY-SA 4.0), леммы: lemmatization-lists (ODbL). Как считается покрытие, описано в `scripts/vocab-lib.ts`. Ошибки лемматизации, имена и слова жанра субтитров убраны из списка по `scripts/data/skip-<язык>.txt`.',
+    `Частоты: FrequencyWords (субтитры OpenSubtitles 2018, CC BY-SA 4.0), леммы: ${lemmaSource}. Как считается покрытие, описано в \`scripts/vocab-lib.ts\`. Ошибки лемматизации, имена и слова жанра субтитров убраны из списка по \`scripts/data/skip-<язык>.txt\`.`,
     '',
     `Сейчас в курсе ${words.length} слов. Покрыто: из первых 1000 — ${s1.total} (${pct(s1.total, s1.n)}), из первых 3000 — ${s3.total} (${pct(s3.total, s3.n)}), из первых 5000 — ${s5.total} (${pct(s5.total, s5.n)}).`,
     '',

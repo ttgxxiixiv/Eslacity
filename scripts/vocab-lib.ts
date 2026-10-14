@@ -39,12 +39,13 @@ const profileOf = (lang: string): LangProfile | undefined => (LANGS as Record<st
 /**
  * Слова строки: строчными (по правилам языка: турецкое I → ı), с апострофом элизии на конце («l'», «dall'»).
  * Кириллица и цифры отбрасываются. Английские сокращения раскрываются («don't» → do, not), как при проверке
- * ответа. У турецкого аффикс имени собственного после апострофа отбрасывается: «Mahzen'e» → mahzen.
+ * ответа. У турецкого аффикс имени собственного после апострофа отбрасывается: «Mahzen'e» → mahzen, а циркумфлекс
+ * снимается: частоты собраны по субтитрам, где пишут hala, hikaye, rüzgar, а в курсе — hâlâ, hikâye, rüzgâr.
  */
 export function tokens(text: string, lang?: string): string[] {
   const low = profileOf(lang ?? '') ? lowerText(text, lang as Lang) : text.replace(/İ/g, 'i').toLowerCase();
   let s = low.replace(/[’`]/g, "'");
-  if (lang === 'tr') s = s.replace(/'\p{L}+/gu, '');
+  if (lang === 'tr') s = s.replace(/'\p{L}+/gu, '').replace(/[âîû]/g, (c) => ({ â: 'a', î: 'i', û: 'u' })[c]!);
   return (expandContractions(s).match(/[a-zà-öø-ÿğış]+'?/g) ?? []).filter((t) => t !== "'");
 }
 
