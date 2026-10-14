@@ -56,7 +56,7 @@ function articleSound(text: string): string[] {
   return out;
 }
 
-/** Английский курс: британский вариант (задача 17.1). Закрыт до 17.9: контент пишется в 17.2–17.8. */
+/** Английский курс: британский вариант (задача 17.1), открыт с 2.185.0. */
 export const EN: LangProfile = {
   id: 'en',
   released: true,

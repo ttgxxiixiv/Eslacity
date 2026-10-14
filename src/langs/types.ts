@@ -2,6 +2,7 @@ import type { District, Gender, LocationId } from '../content/schema';
 import type { EsTense } from './es/verbs';
 import type { ItTense } from './it/verbs';
 import type { EnTense } from './en/verbs';
+import type { TrTense } from './tr/morph';
 
 /**
  * Профиль языка курса (задача 16.6): всё, что в коде зависит от языка. Профиль — данные и чистые функции,
@@ -9,9 +10,9 @@ import type { EnTense } from './en/verbs';
  * Новый язык — папка `src/langs/<id>/`, строка в `src/langs/index.ts` и id в `Lang`.
  */
 
-export type Lang = 'es' | 'it' | 'en';
+export type Lang = 'es' | 'it' | 'en' | 'tr';
 
-export type Tense = EsTense | ItTense | EnTense;
+export type Tense = EsTense | ItTense | EnTense | TrTense;
 
 export interface VerbData {
   inf: string;
@@ -36,10 +37,14 @@ export interface VerbData {
   dbl?: boolean;
   /** Английский глагол состояния (know, want): в Continuous не употребляется, кузница его там не даёт. */
   stative?: boolean;
+  /** Турецкая основа озвончается перед гласной: git → gidiyor, et → ediyor. */
+  soft?: boolean;
+  /** Гласная турецкого широкого времени не по правилу: I (gelir) или A (gider). */
+  aorist?: 'I' | 'A';
 }
 
 /** Поля записи глагола, которые бывают не у всех языков. */
-export type VerbField = 'ch' | 'isc' | 'aux' | 'past' | 'dbl' | 'stative';
+export type VerbField = 'ch' | 'isc' | 'aux' | 'past' | 'dbl' | 'stative' | 'soft' | 'aorist';
 
 /** Кузница глаголов: времена, лица и генератор форм. */
 export interface VerbProfile {
@@ -137,8 +142,20 @@ export interface LangProfile {
 
   /** Буквы с диакритикой: ответ без них — «почти». */
   letters: string;
+  /**
+   * Отдельные буквы, похожие на латинские, но не их варианты: турецкие ı и İ. Замена такой буквы на латинскую
+   * в ответе — ошибка, а не «почти» (kır и kir — разные слова). Клавиши испытания берутся и из них.
+   */
+  distinct?: string;
   /** Клавиши над полем в испытании: все буквы с ударением и апостроф, одни и те же для любого ответа. */
   examKeys: string[];
+  /** Строчные буквы по правилам языка: у турецкого I → ı, İ → i. Без поля — обычные строчные. */
+  lower?(s: string): string;
+  /**
+   * Возможные леммы словоформы для скриптов словаря: у турецкого словоформ сотни, поэтому лемма ищется
+   * разбором аффиксов, а не по таблице форм. `known(лемма, глагол, как получена основа)` отсеивает леммы, которых нет в словаре.
+   */
+  analyze?(form: string, known?: (lemma: string, verb: boolean, how: 'plain' | 'drop' | 'double') => boolean): string[];
   /** Правила нормализации ответа: регулярное выражение и замена («l' acqua» → «l'acqua»). */
   answerRules: [RegExp, string][];
   /** Сокращения и полные формы: «don't» и «do not» — один ответ. Сводятся к полной форме при сравнении и разборе текста. */

@@ -6,6 +6,7 @@ const LOADERS: Record<Lang, () => Promise<typeof import('virtual:word-index/es')
   es: () => import('virtual:word-index/es'),
   it: () => import('virtual:word-index/it'),
   en: () => import('virtual:word-index/en'),
+  tr: () => import('virtual:word-index/tr'),
 };
 const { default: INDEX, EXPRESSIONS, MISSIONS, PAIRS, PHRASES, SCROLLS } = await LOADERS[LANG]();
 

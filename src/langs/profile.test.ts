@@ -16,7 +16,9 @@ describe.each(LANG_IDS)('профиль языка %s полный (задача
     for (const k of ['name', 'variety', 'flag', 'adverb', 'genitive', 'voicePrefix', 'locale', 'db', 'heroKey', 'voiceHint'] as const) {
       expect(p[k].trim(), k).not.toBe('');
     }
-    for (const k of ['voices', 'singular', 'plural', 'indefinite', 'pairKinds'] as const) expect(p[k].length, k).toBeGreaterThan(0);
+    for (const k of ['voices', 'pairKinds'] as const) expect(p[k].length, k).toBeGreaterThan(0);
+    // Артикли бывают не у всех языков (у турецкого их нет), но язык с родом без определённого артикля не бывает.
+    if (p.gender) for (const k of ['singular', 'plural'] as const) expect(p[k].length, k).toBeGreaterThan(0);
     // Клавиши испытаний нужны языку с буквами с диакритикой; возвратное окончание — языку с возвратными глаголами.
     if (p.letters) expect(p.examKeys.length).toBeGreaterThan(0);
     if (p.gender) expect(p.reflexive).not.toBe('');
@@ -36,7 +38,7 @@ describe.each(LANG_IDS)('профиль языка %s полный (задача
   it('род: есть — артикли сверяются; клавиши испытания — буквы языка', () => {
     if (p.gender) expect(p.articleIssue).toBeTypeOf('function');
     for (const c of p.letters) expect(c.normalize('NFD').length, c).toBeGreaterThan(1);
-    for (const k of p.examKeys) expect(p.letters.includes(k) || k === "'", k).toBe(true);
+    for (const k of p.examKeys) expect(p.letters.includes(k) || (p.distinct ?? '').includes(k) || k === "'", k).toBe(true);
     for (const [re] of p.answerRules) expect(re.global).toBe(true);
   });
 
@@ -114,9 +116,9 @@ describe('род существительного по профилю', () => {
 });
 
 describe('открытые курсы', () => {
-  it('открыты испанский, итальянский и английский (с 2.185.0)', () => {
+  it('открыты испанский, итальянский и английский (с 2.185.0), турецкий пока закрыт', () => {
     expect(RELEASED_LANGS).toEqual(['es', 'it', 'en']);
-    expect(RELEASED_LANGS).toEqual(LANG_IDS);
+    expect(LANG_IDS).toContain('tr');
   });
 });
 

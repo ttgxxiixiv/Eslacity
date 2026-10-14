@@ -27,14 +27,24 @@ const CONTRACTION_RE = CONTRACTIONS.size
 export const expandContractions = (s: string): string => (CONTRACTION_RE ? s.replace(CONTRACTION_RE, (m) => CONTRACTIONS.get(m) ?? m) : s);
 
 /**
+ * Строчные буквы по правилам языка (`lower` в профиле): у турецкого I → ı, İ → i. У остальных — обычные
+ * строчные, но İ → i без точки сверху (обычный toLowerCase дал бы «i̇»).
+ */
+export function lowerText(s: string, lang: Lang = LANG): string {
+  const own = LANGS[lang].lower;
+  return own ? own(s) : s.replace(/İ/g, 'i').toLowerCase();
+}
+
+/**
  * Регистр, пунктуация (включая ¿¡), лишние пробелы. Ударения сохраняются.
  * Апостроф остаётся (итальянское l'acqua); типографский ’ с телефонной клавиатуры приводится к '.
  * Правила языков — `answerRules` в профилях (`src/langs`).
  */
-export function normalize(s: string): string {
-  let out = s
-    .normalize('NFC')
-    .toLowerCase()
+export const normalize = (s: string): string => normalizeIn(s, LANG);
+
+/** То же для текста заданного языка: скрипты проверяют контент всех курсов. */
+export function normalizeIn(s: string, lang: Lang): string {
+  let out = lowerText(s.normalize('NFC'), lang)
     .replace(/[’‘`´]/g, "'")
     .replace(PUNCT, ' ');
   out = expandContractions(out);
@@ -49,7 +59,7 @@ const SPELLING = Object.fromEntries(
 
 /** Форма для сравнения ответов: нормализация и, у английского, британское написание вместо американского. */
 export function canon(s: string, lang: Lang = LANG): string {
-  const n = normalize(s);
+  const n = normalizeIn(s, lang);
   const sp = SPELLING[lang];
   return sp.size ? n.replace(/\p{L}+/gu, (w) => sp.get(w) ?? w) : n;
 }
@@ -60,6 +70,11 @@ export const MARKED_LETTERS = [...new Set(Object.values(LANGS).flatMap((p) => [.
 // Буква с диакритикой → без неё: á → a, ñ → n.
 const ACCENTS: Record<string, string> = Object.fromEntries([...MARKED_LETTERS].map((c) => [c, c.normalize('NFD')[0]]));
 const MARKED = new RegExp(`[${MARKED_LETTERS}]`, 'g');
+
+/** Отдельные буквы всех языков (`distinct` в профилях, турецкое ı) и их латинские двойники. */
+const DISTINCT_LETTERS = [...new Set(Object.values(LANGS).flatMap((p) => [...(p.distinct ?? '')].filter((c) => c === c.toLowerCase())))].join('');
+const DISTINCT = DISTINCT_LETTERS ? new RegExp(`[${DISTINCT_LETTERS}]`) : /(?!)/;
+const foldDistinct = (s: string) => (DISTINCT_LETTERS ? s.replace(new RegExp(`[${DISTINCT_LETTERS}]`, 'g'), (c) => (c === 'ı' ? 'i' : c)) : s);
 
 export function stripAccents(s: string): string {
   return s.replace(MARKED, (c) => ACCENTS[c]);
@@ -116,6 +131,8 @@ function checkOne(input: string, accepted: string): CheckResult {
   }
 
   if (stripAccents(n) === stripAccents(a)) return { verdict: 'almost', expected: accepted, reason: 'accent' };
+  // Отдельные буквы языка (турецкие ı и i): ответ, который отличается только ими, — другое слово (kır и kir).
+  if (DISTINCT.test(n + a) && foldDistinct(stripAccents(n)) === foldDistinct(stripAccents(a))) return { verdict: 'wrong', expected: accepted };
 
   const letters = stripAccents(exp.core).replace(/ /g, '').length;
   if (letters >= LESSON.typoMinLength && levenshtein(n, a) === 1) {

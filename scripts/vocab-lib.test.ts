@@ -232,3 +232,30 @@ describe('CEFR по частотности и рискованные слова 
     expect(issues.map((i) => i.id)).toEqual(['a', 'c']);
   });
 });
+
+describe('турецкий: разбор аффиксов вместо таблицы форм (задача 18.1)', () => {
+  const words = [
+    { es: 'ev', ru: 'дом', level: 1, example: { es: 'Bu ev büyük.' } },
+    { es: 'gelmek', ru: 'приходить', level: 1, example: { es: 'Yarın gel.' } },
+    { es: 'kitap', ru: 'книга', level: 2, example: { es: 'Bir kitap okuyorum.' } },
+  ];
+  const none = new Map<string, string>();
+  const lex = buildLexicon(words, [], [], (t) => lemmasIn(t, none, 'tr'));
+
+  it('строчные по-турецки, буквы ğ ı ş, аффикс имени собственного после апострофа отбрасывается', () => {
+    expect(tokens("Mahzen'e gidiyorum. IRMAK, İzmir, ağaç, şişe", 'tr')).toEqual(['mahzen', 'gidiyorum', 'ırmak', 'izmir', 'ağaç', 'şişe']);
+  });
+
+  it('слово под аффиксами знакомо, если знакома его лемма к этому уровню', () => {
+    expect(uncoveredWords('Evlerimizde misafir geliyor.', 1, lex, none, 'tr')).toEqual(['misafir']);
+    expect(uncoveredWords('Kitabı okudum.', 1, lex, none, 'tr')).toEqual(['kitabı', 'okudum']);
+    expect(uncoveredWords('Kitabı geldi.', 2, lex, none, 'tr')).toEqual([]);
+  });
+
+  it('перевод слова сцены по лемме разбора', () => {
+    const g = glossIndex(words, none, 'tr');
+    expect(g('evlerde')).toBe('дом');
+    expect(g('Geliyorlar')).toBe('приходить');
+    expect(g('masada')).toBeUndefined();
+  });
+});

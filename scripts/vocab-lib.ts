@@ -1,5 +1,5 @@
-import { expandContractions } from '../src/domain/answer';
-import { LANGS, type LangProfile } from '../src/lang';
+import { expandContractions, lowerText } from '../src/domain/answer';
+import { LANGS, type Lang, type LangProfile } from '../src/lang';
 
 /**
  * Сверка словаря курса с частотным списком (задача 0.4). Чистые функции, отчёт строит scripts/vocab-report.ts.
@@ -34,12 +34,26 @@ export function parseLemmas(text: string): Map<string, string> {
   );
 }
 
+const profileOf = (lang: string): LangProfile | undefined => (LANGS as Record<string, LangProfile | undefined>)[lang];
+
 /**
- * Слова строки: строчными, с апострофом элизии на конце («l'», «dall'»). Кириллица и цифры отбрасываются.
- * Английские сокращения раскрываются («don't» → do, not), как при проверке ответа.
+ * Слова строки: строчными (по правилам языка: турецкое I → ı), с апострофом элизии на конце («l'», «dall'»).
+ * Кириллица и цифры отбрасываются. Английские сокращения раскрываются («don't» → do, not), как при проверке
+ * ответа. У турецкого аффикс имени собственного после апострофа отбрасывается: «Mahzen'e» → mahzen.
  */
-export function tokens(text: string): string[] {
-  return (expandContractions(text.toLowerCase().replace(/[’`]/g, "'")).match(/[a-zà-öø-ÿ]+'?/g) ?? []).filter((t) => t !== "'");
+export function tokens(text: string, lang?: string): string[] {
+  const low = profileOf(lang ?? '') ? lowerText(text, lang as Lang) : text.replace(/İ/g, 'i').toLowerCase();
+  let s = low.replace(/[’`]/g, "'");
+  if (lang === 'tr') s = s.replace(/'\p{L}+/gu, '');
+  return (expandContractions(s).match(/[a-zà-öø-ÿğış]+'?/g) ?? []).filter((t) => t !== "'");
+}
+
+/** Возможные леммы формы: по таблице форм, у языков с разбором аффиксов (турецкий) — и все варианты разбора. */
+export function lemmaCandidates(token: string, forms: Map<string, string>, lang: string): string[] {
+  const analyze = profileOf(lang)?.analyze;
+  if (!analyze) return [lemmaOf(token, forms, lang)];
+  const hit = forms.get(token);
+  return hit ? [hit, ...analyze(token)] : analyze(token);
 }
 
 /**
@@ -56,7 +70,7 @@ export function lemmaOf(token: string, forms: Map<string, string>, lang: string)
 }
 
 export const lemmasIn = (text: string, forms: Map<string, string>, lang: string) =>
-  tokens(text).map((t) => lemmaOf(t, forms, lang));
+  tokens(text, lang).map((t) => lemmaOf(t, forms, lang));
 
 /** Уроки грамматики в том объёме, который нужен для лемм: теория, примеры, задания. */
 export interface LessonText {
@@ -237,6 +251,12 @@ function knownVerb(token: string, level: number, verbs: Map<string, number>): bo
  */
 /** Знает ли игрок слово к этому уровню: см. `uncoveredWords`. */
 export function isKnownWord(t: string, level: number, lex: Lexicon, forms: Map<string, string>, lang: string): boolean {
+  // Турецкий: словоформ у слова сотни, лемма ищется разбором аффиксов, и знакомой может оказаться любая.
+  if (profileOf(lang)?.analyze) {
+    return lemmaCandidates(t, forms, lang).some(
+      (l) => (lex.wordLevel.get(l) ?? Infinity) <= level || lex.grammar.has(l) || (lex.service.has(l) && lex.anywhere.has(l)),
+    );
+  }
   const l = lemmaOf(t, forms, lang);
   return (
     (lex.wordLevel.get(l) ?? Infinity) <= level ||
@@ -249,13 +269,13 @@ export function isKnownWord(t: string, level: number, lex: Lexicon, forms: Map<s
 
 export function uncoveredWords(text: string, level: number, lex: Lexicon, forms: Map<string, string>, lang: string): string[] {
   const out: string[] = [];
-  for (const t of tokens(text)) if (!isKnownWord(t, level, lex, forms, lang) && !out.includes(t)) out.push(t);
+  for (const t of tokens(text, lang)) if (!isKnownWord(t, level, lex, forms, lang) && !out.includes(t)) out.push(t);
   return out;
 }
 
 /** Покрытие текста сцены: всего слов (с повторами) и незнакомые (тоже с повторами, для доли). */
 export function textCoverage(text: string, level: number, lex: Lexicon, forms: Map<string, string>, lang: string): { total: number; unknown: string[] } {
-  const all = tokens(text);
+  const all = tokens(text, lang);
   return { total: all.length, unknown: all.filter((t) => !isKnownWord(t, level, lex, forms, lang)) };
 }
 
@@ -290,7 +310,7 @@ export function glossIndex(
     // Только однословные слова (артикль не в счёт): у словосочетаний «abrir una cuenta», «ida y vuelta»
     // отдельные слова значат другое, и «un» не должно переводиться как «открыть счёт».
     const arts = articlesOf(lang);
-    const single = [w.es, ...(w.alt ?? [])].map((x) => tokens(x)).filter((t) => t.length === 1 || (t.length === 2 && arts.has(t[0])));
+    const single = [w.es, ...(w.alt ?? [])].map((x) => tokens(x, lang)).filter((t) => t.length === 1 || (t.length === 2 && arts.has(t[0])));
     for (const l of single.map((t) => lemmaOf(t[t.length - 1], forms, lang))) {
       put(byLemma, l, v);
       put(byStem, stemOf(l), v);
@@ -300,7 +320,15 @@ export function glossIndex(
   }
   const levels = new Map([...verbs].map(([k, v]) => [k, v.level]));
   return (token) => {
-    const t = token.toLowerCase();
+    const t = profileOf(lang) ? lowerText(token, lang as Lang) : token.toLowerCase();
+    // Турецкий: перевод по первой лемме разбора, которая есть в словаре курса (evlerde → ev).
+    if (profileOf(lang)?.analyze) {
+      for (const l of lemmaCandidates(t, forms, lang)) {
+        const v = byLemma.get(l);
+        if (v) return v.ru;
+      }
+      return undefined;
+    }
     // По основе — только слова от четырёх букв: иначе «per» совпало бы с «pera», а «te» с «tè».
     const hit = byLemma.get(lemmaOf(t, forms, lang)) ?? (plain(t).length >= 4 ? byStem.get(stemOf(t)) : undefined);
     if (hit) return hit.ru;
@@ -387,7 +415,7 @@ export function lemmaRanks(cov: Coverage): Map<string, number> {
  */
 export function wordRank(es: string, forms: Map<string, string>, lang: string, ranks: Map<string, number>): number | undefined {
   const arts = articlesOf(lang);
-  const t = tokens(es).filter((x) => !arts.has(x));
+  const t = tokens(es, lang).filter((x) => !arts.has(x));
   if (t.length !== 1) return undefined;
   return ranks.get(lemmaOf(t[0], forms, lang)) ?? Infinity;
 }

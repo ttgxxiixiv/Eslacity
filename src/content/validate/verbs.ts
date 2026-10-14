@@ -1,3 +1,4 @@
+import { aoristVowel } from '../../langs/tr/morph';
 import { LANGS, type Lang } from '../../lang';
 import { conjugate, generated, participle, TENSES, type Tense } from '../../domain/verbs';
 import { pairIssue } from '../../domain/minimalPairs';
@@ -53,7 +54,7 @@ export function validateVerbs(file: VerbsFile | undefined, lang: Lang): Issue[] 
     const badInf = empty(v.inf) || !profile.infinitive.test(v.inf);
     if (badInf) out.push({ level: 'error', where: at, msg: 'инфинитив с неожиданным окончанием' });
     if (empty(v.ru)) out.push({ level: 'error', where: at, msg: 'нет перевода' });
-    for (const f of ['ch', 'isc', 'aux', 'past', 'dbl', 'stative'] as const) {
+    for (const f of ['ch', 'isc', 'aux', 'past', 'dbl', 'stative', 'soft', 'aorist'] as const) {
       if (v[f] !== undefined && !profile.fields.includes(f)) out.push({ level: 'error', where: at, msg: `поле ${f} не бывает у глаголов ${LANGS[lang].genitive}` });
     }
     // Генератор строит формы по окончанию инфинитива: с чужим окончанием дальше проверять нечего.
@@ -66,6 +67,11 @@ export function validateVerbs(file: VerbsFile | undefined, lang: Lang): Issue[] 
       out.push({ level: 'error', where: at, msg: 'прошедшее past совпадает с правильным, запись не нужна' });
     }
     if (v.pp && v.past && v.pp === v.past) out.push({ level: 'error', where: at, msg: 'причастие pp совпадает с past, запись не нужна' });
+    // Турецкие пометки: озвончается только основа на p, ç, t, k; гласная широкого времени — если не по правилу.
+    if (v.soft && !/[pçtk]m[ea]k$/.test(v.inf)) out.push({ level: 'error', where: at, msg: 'soft: основа не кончается на p, ç, t, k' });
+    if (v.aorist && /[^aeıioöuü]m[ea]k$/.test(v.inf) && aoristVowel({ stem: v.inf.slice(0, -3) }) === v.aorist) {
+      out.push({ level: 'error', where: at, msg: `aorist ${v.aorist} — гласная по правилу, запись не нужна` });
+    }
     for (const [t, forms] of Object.entries(v.forms ?? {})) {
       if (!TENSES[lang].includes(t as Tense)) {
         out.push({ level: 'error', where: at, msg: `неизвестное время "${t}"` });

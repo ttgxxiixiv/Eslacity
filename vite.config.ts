@@ -156,7 +156,7 @@ function withAutoGloss(code: string, lang: string): string {
   for (const sc of data.scenes) {
     const auto: Record<string, string> = {};
     // Женские формы реплик (`fem`) путница тоже нажимает.
-    for (const t of sc.lines.flatMap((l) => [...tokens(l.es), ...tokens(l.fem?.es ?? '')])) {
+    for (const t of sc.lines.flatMap((l) => [...tokens(l.es, lang), ...tokens(l.fem?.es ?? '', lang)])) {
       const ru = sc.gloss?.[t] ? undefined : g(t);
       if (ru) auto[t] = ru;
     }
@@ -171,7 +171,7 @@ function withBookGloss(code: string, lang: string): string {
   const g = glosser(lang);
   for (const b of data.books) {
     const auto: Record<string, string> = {};
-    for (const t of b.paragraphs.flatMap((p) => tokens(p.es))) {
+    for (const t of b.paragraphs.flatMap((p) => tokens(p.es, lang))) {
       const ru = b.gloss?.[t] ? undefined : g(t);
       if (ru) auto[t] = ru;
     }

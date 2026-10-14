@@ -1,0 +1,74 @@
+# Поправки к частотному списку турецкого (задача 18.1): что считать шумом и какие леммы на самом деле формы других.
+# Строка «слово» — лемма выбрасывается из списка, ранги идут дальше без неё.
+# Строка «слово > лемма» — это форма другой леммы: считается вместе с ней, и таблица форм ведёт к ней же.
+# Строка «слово > слово» — таблица форм уводит это слово к чужой лемме, а оно самостоятельное.
+# Списки читает scripts/vocab-lib.ts (applySkips), их используют отчёт npm run vocab и валидатор.
+
+# Обрывки разбора субтитров: отдельные аффиксы и буквы.
+ın
+i
+ı
+nin
+nın
+nun
+yi
+yı
+u
+yla
+na
+bi
+n
+s
+l
+m
+b
+a
+e
+in
+an
+un
+dan
+le
+la
+ta
+bun
+
+# Английские слова и имена из фильмов.
+the
+new
+john
+jack
+charlie
+michael
+mike
+george
+tom
+joe
+david
+peter
+paul
+henry
+max
+james
+alex
+danny
+mary
+sarah
+
+# Частые формы, которые разбор оставил словом: широкое время и будущее — формы глаголов.
+eder > etmek
+verdi > vermek
+bilir > bilmek
+gelir > gelmek
+gider > gitmek
+ister > istemek
+olur > olmak
+olmaz > olmak
+olamaz > olmak
+alacak > almak
+anlaşıldı > anlamak
+evin > ev
+günü > gün
+yolunmak > yol
+karımak > karı
+pekala > pekâlâ
