@@ -1,0 +1,196 @@
+{
+  "guardians": [
+    {
+      "chapter": 1,
+      "name": "Привратник",
+      "role": "страж городских ворот",
+      "gender": "m",
+      "greeting": {
+        "es": "Merhaba, yolcu. Türkçe biliyor musun? Sorularıma cevap ver.",
+        "ru": "Здравствуй, путник. Ты говоришь по-турецки? Ответь на мои вопросы."
+      },
+      "win": {
+        "es": "Aferin! İşte mühür. Yol senin.",
+        "ru": "Молодец! Вот печать. Путь открыт."
+      },
+      "lose": {
+        "es": "Henüz değil. Yarın gel.",
+        "ru": "Пока нет. Приходи завтра."
+      },
+      "mid": {
+        "es": "İyi konuşuyorsun. Ama mühür henüz senin değil.",
+        "ru": "Ты хорошо говоришь. Но печать ещё не твоя."
+      },
+      "voice": {
+        "pitch": 0.8,
+        "rate": 0.9
+      },
+      "look": {
+        "skin": 2,
+        "hair": "#3b2a1a",
+        "style": "short",
+        "outfit": "#5b6b3a",
+        "pants": "#2e2216",
+        "extra": [
+          "mustache",
+          "cap"
+        ]
+      }
+    },
+    {
+      "chapter": 2,
+      "name": "Орхан",
+      "role": "страж башни на перевале",
+      "gender": "m",
+      "greeting": {
+        "es": "Seni bekliyordum. Yolda ne yaptın? Kime yardım ettin?",
+        "ru": "Я ждал тебя. Что ты делал в пути? Кому помог?",
+        "fem": {
+          "ru": "Я ждал тебя. Что ты делала в пути? Кому помогла?"
+        }
+      },
+      "win": {
+        "es": "Yolun temiz. Mührü al.",
+        "ru": "Твой путь чист. Возьми печать."
+      },
+      "lose": {
+        "es": "Rüzgâr bugün çok sert. Yarın tekrar dene.",
+        "ru": "Сегодня слишком сильный ветер. Попробуй завтра."
+      },
+      "mid": {
+        "es": "Güzel. Rüzgâr diniyor.",
+        "ru": "Хорошо. Ветер стихает."
+      },
+      "voice": {
+        "pitch": 0.75,
+        "rate": 0.9
+      },
+      "look": {
+        "skin": 1,
+        "hair": "#a0a0a0",
+        "style": "short",
+        "outfit": "#2f4f6f",
+        "pants": "#2e2216",
+        "extra": [
+          "beard"
+        ]
+      }
+    },
+    {
+      "chapter": 3,
+      "name": "Стражница",
+      "role": "стражница белого города",
+      "gender": "f",
+      "greeting": {
+        "es": "Bana doğruyu söylersen geçmene izin veririm.",
+        "ru": "Если скажешь мне правду, я тебя пропущу."
+      },
+      "win": {
+        "es": "Doğruyu söyledin. Kapı açık, mühür senin.",
+        "ru": "Ты сказал правду. Ворота открыты, печать твоя.",
+        "fem": {
+          "ru": "Ты сказала правду. Ворота открыты, печать твоя."
+        }
+      },
+      "lose": {
+        "es": "Sözlerin henüz bulanık. Yarın dön.",
+        "ru": "Твои слова ещё мутные. Вернись завтра."
+      },
+      "mid": {
+        "es": "Beyaz duvarlar seni dinliyor.",
+        "ru": "Белые стены тебя слушают."
+      },
+      "voice": {
+        "pitch": 1.0,
+        "rate": 0.9
+      },
+      "look": {
+        "skin": 1,
+        "hair": "#e0d0a0",
+        "style": "long",
+        "outfit": "#e8e8e8",
+        "pants": "#6a6a7a",
+        "extra": [
+          "badge"
+        ]
+      }
+    },
+    {
+      "chapter": 4,
+      "name": "Хранительница леса",
+      "role": "слушает шёпот деревьев",
+      "gender": "f",
+      "greeting": {
+        "es": "Dinle. Ağaçlar konuşuyor. Onları duyuyor musun?",
+        "ru": "Слушай. Деревья говорят. Ты их слышишь?"
+      },
+      "win": {
+        "es": "Her fısıltıyı duydun. Mührü al.",
+        "ru": "Ты услышал каждый шёпот. Возьми печать.",
+        "fem": {
+          "ru": "Ты услышала каждый шёпот. Возьми печать."
+        }
+      },
+      "lose": {
+        "es": "Rüzgâr sözleri götürdü. Yarın gel.",
+        "ru": "Ветер унёс слова. Приходи завтра."
+      },
+      "mid": {
+        "es": "Orman sana güvenmeye başlıyor.",
+        "ru": "Лес начинает тебе доверять."
+      },
+      "voice": {
+        "pitch": 1.0,
+        "rate": 0.85
+      },
+      "look": {
+        "skin": 2,
+        "hair": "#4a6a3a",
+        "style": "long",
+        "outfit": "#3a5a2a",
+        "pants": "#2e2216",
+        "extra": []
+      },
+      "listen": true
+    },
+    {
+      "chapter": 5,
+      "name": "Хозяин Эха",
+      "role": "бывший городской глашатай: возвращает каждое слово другим тоном",
+      "gender": "m",
+      "greeting": {
+        "es": "Her söz bana geri döner. Onu doğru şekilde söyle.",
+        "ru": "Каждое слово возвращается ко мне. Скажи его как надо."
+      },
+      "win": {
+        "es": "Yankı sustu. Doğru tonu buldun. Mühür senin.",
+        "ru": "Эхо молчит. Ты нашёл верный тон. Печать твоя.",
+        "fem": {
+          "ru": "Эхо молчит. Ты нашла верный тон. Печать твоя."
+        }
+      },
+      "lose": {
+        "es": "Yankı hâlâ gülüyor. Yarın gel.",
+        "ru": "Эхо ещё смеётся. Приходи завтра."
+      },
+      "mid": {
+        "es": "Yankı azalıyor.",
+        "ru": "Эхо стихает."
+      },
+      "voice": {
+        "pitch": 0.7,
+        "rate": 0.9
+      },
+      "look": {
+        "skin": 3,
+        "hair": "#2a2a2a",
+        "style": "bald",
+        "outfit": "#5a2a4a",
+        "pants": "#1f1a2a",
+        "extra": [
+          "beard"
+        ]
+      }
+    }
+  ]
+}

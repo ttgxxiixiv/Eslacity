@@ -161,3 +161,18 @@ describe('валидатор турецкой кузницы', () => {
     expect(msgs([{ inf: 'sanmak', ru: 'думать', aorist: 'A' }])).toEqual([]);
   });
 });
+
+describe('турецкая Звонница', () => {
+  it('ı/i и o/ö — замена буквы, циркумфлекс — знак над той же гласной, двойная — одна согласная', async () => {
+    const { pairIssue } = await import('../../domain/minimalPairs');
+    const w = (es: string, ru: string) => ({ es, ru });
+    const swap = (a: string, b: string) => ({ id: 'x', title: 't', hint: 'h', kind: 'swap' as const, swap: [a, b] as [string, string], pairs: [] });
+    expect(pairIssue(swap('ı', 'i'), [w('kır', 'поле'), w('kir', 'грязь')])).toBeNull();
+    expect(pairIssue(swap('o', 'ö'), [w('kok', 'пахни'), w('kök', 'корень')])).toBeNull();
+    const stress = { id: 'x', title: 't', hint: 'h', kind: 'stress' as const, pairs: [] };
+    expect(pairIssue(stress, [w('hala', 'тётя'), w('hâlâ', 'всё ещё')])).toBeNull();
+    expect(pairIssue(stress, [w('kar', 'снег'), w('kır', 'поле')])).toBe('слова различаются не только ударением');
+    const double = { id: 'x', title: 't', hint: 'h', kind: 'double' as const, pairs: [] };
+    expect(pairIssue(double, [w('elli', 'пятьдесят'), w('eli', 'его рука')])).toBeNull();
+  });
+});
