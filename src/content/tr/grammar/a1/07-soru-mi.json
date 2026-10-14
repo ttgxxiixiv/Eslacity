@@ -1,0 +1,172 @@
+{
+  "id": "a1.07-soru-mi",
+  "district": "A1",
+  "order": 7,
+  "title": "Вопрос: частица mI",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Вопрос без вопросительного слова строится частицей **mı / mi / mu / mü** после слова, о котором спрашивают. Пишется отдельно, гласная — по гармонии: **Sıcak mı?** **Ev mi?**"
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Лицо",
+        "Вопрос"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "ben",
+            "hasta mıyım?"
+          ]
+        },
+        {
+          "cells": [
+            "sen",
+            "hasta mısın?"
+          ]
+        },
+        {
+          "cells": [
+            "o",
+            "hasta mı?"
+          ]
+        },
+        {
+          "cells": [
+            "biz",
+            "hasta mıyız?"
+          ]
+        },
+        {
+          "cells": [
+            "siz",
+            "hasta mısınız?"
+          ]
+        },
+        {
+          "cells": [
+            "onlar",
+            "hastalar mı?"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Личный аффикс переходит на частицу: hasta **mısın**? Частица ставится после того слова, которое под вопросом: **Sen mi** geldin? — Это ты пришёл?"
+    }
+  ],
+  "examples": [
+    {
+      "es": "Çay sıcak mı?",
+      "ru": "Чай горячий?"
+    },
+    {
+      "es": "Yorgun musun?",
+      "ru": "Ты устал?"
+    },
+    {
+      "es": "Bu senin çantan mı?",
+      "ru": "Это твоя сумка?"
+    },
+    {
+      "es": "Siz Rus musunuz?",
+      "ru": "Вы русский?"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "a1.07-soru-mi.1",
+      "kind": "choose",
+      "prompt": "Вопрос к «Ev büyük»:",
+      "options": [
+        "Ev büyük mü?",
+        "Ev büyük mı?",
+        "Ev mi büyük mü?"
+      ],
+      "answer": 0,
+      "explain": "Последняя гласная ü — частица mü."
+    },
+    {
+      "id": "a1.07-soru-mi.2",
+      "kind": "choose",
+      "prompt": "Какая частица после okul?",
+      "options": [
+        "mu",
+        "mı",
+        "mi"
+      ],
+      "answer": 0,
+      "explain": "Последняя гласная u — mu: okul mu?"
+    },
+    {
+      "id": "a1.07-soru-mi.3",
+      "kind": "gap",
+      "sentence": "Kahve soğuk ___?",
+      "ru": "Кофе холодный?",
+      "options": [
+        "mu",
+        "mı",
+        "mi"
+      ],
+      "answer": 0,
+      "explain": "soğuk — последняя u: mu."
+    },
+    {
+      "id": "a1.07-soru-mi.4",
+      "kind": "gap",
+      "sentence": "Hazır ___?",
+      "ru": "Ты готов?",
+      "options": [
+        "mısın",
+        "mıyım",
+        "mısınız"
+      ],
+      "answer": 0,
+      "explain": "sen — mısın."
+    },
+    {
+      "id": "a1.07-soru-mi.5",
+      "kind": "truefalse",
+      "statement": "Частица mi пишется слитно со словом.",
+      "answer": false,
+      "explain": "Пишется отдельно: güzel mi?"
+    },
+    {
+      "id": "a1.07-soru-mi.6",
+      "kind": "truefalse",
+      "statement": "Личный аффикс в вопросе переходит на частицу: yorgun musun?",
+      "answer": true,
+      "explain": "Да: yorgun musun."
+    },
+    {
+      "id": "a1.07-soru-mi.7",
+      "kind": "truefalse",
+      "statement": "«Türk müsünüz?» — вопрос к «вы».",
+      "answer": true,
+      "explain": "siz — müsünüz."
+    },
+    {
+      "id": "a1.07-soru-mi.8",
+      "kind": "build",
+      "ru": "Эта вода холодная?",
+      "answer": "Bu su soğuk mu?",
+      "extra": [
+        "mı",
+        "musun"
+      ],
+      "explain": "soğuk — последняя u: mu."
+    },
+    {
+      "id": "a1.07-soru-mi.9",
+      "kind": "type",
+      "sentence": "Burası boş ___?",
+      "ru": "Здесь свободно?",
+      "hint": "частица вопроса",
+      "answer": "mu",
+      "explain": "boş — последняя o: mu."
+    }
+  ]
+}

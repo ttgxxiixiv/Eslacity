@@ -1,0 +1,179 @@
+{
+  "id": "a1.28-idi",
+  "district": "A1",
+  "order": 28,
+  "title": "Был, была: -(y)DI у имени",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Прошедшее для имени — аффикс **-(y)dı** с короткими окончаниями: hasta**ydım** (я был болен), evde**ydi** (он был дома). После глухой согласной — **-tı**: küçük**tüm**. «Было, были» для var и yok — **vardı**, **yoktu**."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Лицо",
+        "hasta",
+        "evde"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "ben",
+            "hastaydım",
+            "evdeydim"
+          ]
+        },
+        {
+          "cells": [
+            "sen",
+            "hastaydın",
+            "evdeydin"
+          ]
+        },
+        {
+          "cells": [
+            "o",
+            "hastaydı",
+            "evdeydi"
+          ]
+        },
+        {
+          "cells": [
+            "biz",
+            "hastaydık",
+            "evdeydik"
+          ]
+        },
+        {
+          "cells": [
+            "siz",
+            "hastaydınız",
+            "evdeydiniz"
+          ]
+        },
+        {
+          "cells": [
+            "onlar",
+            "hastaydılar",
+            "evdeydiler"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Отрицание — **değildi** с окончанием: yorgun **değildim**. Вопрос — **mıydı**: evde **miydin**? (ты был дома?)"
+    }
+  ],
+  "examples": [
+    {
+      "es": "Dün çok yorgundum.",
+      "ru": "Вчера я очень устал."
+    },
+    {
+      "es": "Hava güzeldi.",
+      "ru": "Погода была хорошая."
+    },
+    {
+      "es": "Evde kimse yoktu.",
+      "ru": "Дома никого не было."
+    },
+    {
+      "es": "Çocukken İzmir'de miydin?",
+      "ru": "Ты в детстве был в Измире?"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "a1.28-idi.1",
+      "kind": "choose",
+      "prompt": "«Он был дома»:",
+      "options": [
+        "O evdeydi.",
+        "O evde oldu.",
+        "O evdeyim."
+      ],
+      "answer": 0,
+      "explain": "evde + ydi."
+    },
+    {
+      "id": "a1.28-idi.2",
+      "kind": "choose",
+      "prompt": "«Было много людей»:",
+      "options": [
+        "Çok insan vardı.",
+        "Çok insan oldu var.",
+        "Çok insan varım."
+      ],
+      "answer": 0,
+      "explain": "Прошедшее от var — vardı."
+    },
+    {
+      "id": "a1.28-idi.3",
+      "kind": "gap",
+      "sentence": "Dün çok ___.",
+      "ru": "Вчера мы были очень голодны.",
+      "options": [
+        "açtık",
+        "açız",
+        "açtım"
+      ],
+      "answer": 0,
+      "explain": "aç + tı + k: açtık."
+    },
+    {
+      "id": "a1.28-idi.4",
+      "kind": "gap",
+      "sentence": "Film güzel ___?",
+      "ru": "Разве фильм не был хорошим?",
+      "options": [
+        "değil miydi",
+        "değilim",
+        "değildik"
+      ],
+      "answer": 0,
+      "explain": "Вопрос-отрицание в прошлом: değil miydi."
+    },
+    {
+      "id": "a1.28-idi.5",
+      "kind": "truefalse",
+      "statement": "«Hastaydım» значит «я был болен».",
+      "answer": true,
+      "explain": "hasta + y + dım."
+    },
+    {
+      "id": "a1.28-idi.6",
+      "kind": "truefalse",
+      "statement": "Прошедшее от yok — yoktu.",
+      "answer": true,
+      "explain": "yok + tu."
+    },
+    {
+      "id": "a1.28-idi.7",
+      "kind": "truefalse",
+      "statement": "После гласной -(y)DI вставляет y: hastaydı.",
+      "answer": true,
+      "explain": "hasta + y + dı."
+    },
+    {
+      "id": "a1.28-idi.8",
+      "kind": "build",
+      "ru": "Вчера погода была очень хорошая.",
+      "answer": "Dün hava çok güzeldi.",
+      "extra": [
+        "güzel",
+        "güzelim"
+      ],
+      "explain": "Прошедшее — güzeldi."
+    },
+    {
+      "id": "a1.28-idi.9",
+      "kind": "type",
+      "sentence": "Ben dün ___.",
+      "ru": "Вчера я был дома.",
+      "hint": "evde, я, прошлое",
+      "answer": "evdeydim",
+      "explain": "evde + ydim."
+    }
+  ]
+}

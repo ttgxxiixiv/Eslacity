@@ -1,0 +1,170 @@
+{
+  "id": "a2.06-eme",
+  "district": "A2",
+  "order": 6,
+  "title": "Не могу: -(y)AmA",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "«Не мочь» — **-ama / -eme** вместо -Abil: gel**emem** (не могу прийти), yap**amaz** (не может сделать). После гласной — **y**: oku**yamıyorum**. С любым временем: gel**emedim** (не смог прийти), gel**emeyeceğim**."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Лицо",
+        "Широкое",
+        "Сейчас",
+        "Прошедшее"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "ben",
+            "gelemem",
+            "gelemiyorum",
+            "gelemedim"
+          ]
+        },
+        {
+          "cells": [
+            "sen",
+            "gelemezsin",
+            "gelemiyorsun",
+            "gelemedin"
+          ]
+        },
+        {
+          "cells": [
+            "o",
+            "gelemez",
+            "gelemiyor",
+            "gelemedi"
+          ]
+        },
+        {
+          "cells": [
+            "biz",
+            "gelemeyiz",
+            "gelemiyoruz",
+            "gelemedik"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Частая фраза: **Anlayamadım** — я не смог понять, не расслышал. **Bulamıyorum** — никак не найду."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Bugün gelemem, çok işim var.",
+      "ru": "Сегодня я не смогу прийти, у меня много дел."
+    },
+    {
+      "es": "Anahtarı bulamıyorum.",
+      "ru": "Я никак не найду ключ."
+    },
+    {
+      "es": "Dün uyuyamadım.",
+      "ru": "Вчера я не смог уснуть."
+    },
+    {
+      "es": "Bu kadar yemeği yiyemeyiz.",
+      "ru": "Мы не сможем съесть столько еды."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "a2.06-eme.1",
+      "kind": "choose",
+      "prompt": "«Я не могу прийти»:",
+      "options": [
+        "gelemem",
+        "gelmem",
+        "gelebilmem"
+      ],
+      "answer": 0,
+      "explain": "-eme + m: gelemem."
+    },
+    {
+      "id": "a2.06-eme.2",
+      "kind": "choose",
+      "prompt": "«Я не смог понять»:",
+      "options": [
+        "anlayamadım",
+        "anlamadım",
+        "anlayabildim"
+      ],
+      "answer": 0,
+      "explain": "anla + y + ama + dı + m."
+    },
+    {
+      "id": "a2.06-eme.3",
+      "kind": "gap",
+      "sentence": "Seni ___.",
+      "ru": "Я тебя не слышу (не могу расслышать).",
+      "options": [
+        "duyamıyorum",
+        "duymuyorum",
+        "duyabiliyorum"
+      ],
+      "answer": 0,
+      "explain": "Не могу — duyamıyorum."
+    },
+    {
+      "id": "a2.06-eme.4",
+      "kind": "gap",
+      "sentence": "Otobüsü kaçırdım, zamanında ___.",
+      "ru": "Я опоздал на автобус и не смог прийти вовремя.",
+      "options": [
+        "gelemedim",
+        "gelmedim",
+        "gelebildim"
+      ],
+      "answer": 0,
+      "explain": "Не смог — gelemedim."
+    },
+    {
+      "id": "a2.06-eme.5",
+      "kind": "truefalse",
+      "statement": "Gelmem и gelemem значат одно и то же.",
+      "answer": false,
+      "explain": "Gelmem — не приду, gelemem — не могу прийти."
+    },
+    {
+      "id": "a2.06-eme.6",
+      "kind": "truefalse",
+      "statement": "После гласной перед -AmA вставляется y: okuyamıyorum.",
+      "answer": true,
+      "explain": "oku + y + ama."
+    },
+    {
+      "id": "a2.06-eme.7",
+      "kind": "truefalse",
+      "statement": "«Uyuyamadım» значит «я не смог уснуть».",
+      "answer": true,
+      "explain": "uyu + y + ama + dı + m."
+    },
+    {
+      "id": "a2.06-eme.8",
+      "kind": "build",
+      "ru": "Я никак не найду дома свой телефон.",
+      "answer": "Evde telefonumu bulamıyorum.",
+      "extra": [
+        "bulabiliyorum",
+        "telefonum"
+      ],
+      "explain": "Не могу найти — bulamıyorum."
+    },
+    {
+      "id": "a2.06-eme.9",
+      "kind": "type",
+      "sentence": "Bu kutuyu ___. Çok ağır.",
+      "ru": "Я не могу поднять эту коробку. Она очень тяжёлая.",
+      "hint": "kaldırmak, не могу",
+      "answer": "kaldıramıyorum",
+      "explain": "kaldır + ama + yor + um."
+    }
+  ]
+}

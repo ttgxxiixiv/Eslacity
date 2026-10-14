@@ -1,0 +1,172 @@
+{
+  "id": "a2.27-li-siz",
+  "district": "A2",
+  "order": 27,
+  "title": "С и без: -lI, -sIz",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "**-lı / -li / -lu / -lü** — «с чем-то»: süt**lü** kahve (кофе с молоком), şeker**li** (сладкий, с сахаром). **-sız / -siz / -suz / -süz** — «без»: şeker**siz** (без сахара), para**sız** (бесплатный, без денег)."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Слово",
+        "-lI (с)",
+        "-sIz (без)"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "süt",
+            "sütlü",
+            "sütsüz"
+          ]
+        },
+        {
+          "cells": [
+            "şeker",
+            "şekerli",
+            "şekersiz"
+          ]
+        },
+        {
+          "cells": [
+            "tuz",
+            "tuzlu",
+            "tuzsuz"
+          ]
+        },
+        {
+          "cells": [
+            "bulut",
+            "bulutlu",
+            "bulutsuz"
+          ]
+        },
+        {
+          "cells": [
+            "para",
+            "paralı",
+            "parasız"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "-lI ещё значит «откуда родом»: **İzmirli** (из Измира), **Rusyalı** (из России). Вопрос: **Nerelisin?** — Откуда ты?"
+    }
+  ],
+  "examples": [
+    {
+      "es": "Şekersiz bir çay, lütfen.",
+      "ru": "Чай без сахара, пожалуйста."
+    },
+    {
+      "es": "Bugün hava bulutlu.",
+      "ru": "Сегодня облачно."
+    },
+    {
+      "es": "Ben Moskovalıyım.",
+      "ru": "Я из Москвы."
+    },
+    {
+      "es": "Müze bugün ücretsiz.",
+      "ru": "Сегодня музей бесплатный."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "a2.27-li-siz.1",
+      "kind": "choose",
+      "prompt": "«Кофе с молоком»:",
+      "options": [
+        "sütlü kahve",
+        "sütsüz kahve",
+        "süt kahve"
+      ],
+      "answer": 0,
+      "explain": "С — -lü: sütlü."
+    },
+    {
+      "id": "a2.27-li-siz.2",
+      "kind": "choose",
+      "prompt": "«Без соли»:",
+      "options": [
+        "tuzsuz",
+        "tuzlu",
+        "tuzsız"
+      ],
+      "answer": 0,
+      "explain": "tuz — последняя u: -suz."
+    },
+    {
+      "id": "a2.27-li-siz.3",
+      "kind": "gap",
+      "sentence": "Kahvem ___ olsun.",
+      "ru": "Мне кофе без сахара.",
+      "options": [
+        "şekersiz",
+        "şekerli",
+        "şeker"
+      ],
+      "answer": 0,
+      "explain": "Без — şekersiz."
+    },
+    {
+      "id": "a2.27-li-siz.4",
+      "kind": "gap",
+      "sentence": "Ben ___. Ya sen?",
+      "ru": "Я из Измира. А ты?",
+      "options": [
+        "İzmirliyim",
+        "İzmir'deyim",
+        "İzmirsizim"
+      ],
+      "answer": 0,
+      "explain": "Откуда родом — -li: İzmirliyim."
+    },
+    {
+      "id": "a2.27-li-siz.5",
+      "kind": "truefalse",
+      "statement": "«Parasız» значит «бесплатно, без денег».",
+      "answer": true,
+      "explain": "para + sız."
+    },
+    {
+      "id": "a2.27-li-siz.6",
+      "kind": "truefalse",
+      "statement": "«Bulutlu» значит «безоблачный».",
+      "answer": false,
+      "explain": "Bulutlu — облачный; безоблачный — bulutsuz."
+    },
+    {
+      "id": "a2.27-li-siz.7",
+      "kind": "truefalse",
+      "statement": "«Nerelisin?» значит «Откуда ты родом?».",
+      "answer": true,
+      "explain": "nere + li + sin."
+    },
+    {
+      "id": "a2.27-li-siz.8",
+      "kind": "build",
+      "ru": "Мне, пожалуйста, суп без лука.",
+      "answer": "Soğansız bir çorba, lütfen.",
+      "extra": [
+        "soğanlı",
+        "çorbası"
+      ],
+      "explain": "Без — -sız: soğansız."
+    },
+    {
+      "id": "a2.27-li-siz.9",
+      "kind": "type",
+      "sentence": "Bu çorba çok ___.",
+      "ru": "Этот суп очень солёный.",
+      "hint": "tuz, с",
+      "answer": "tuzlu",
+      "explain": "С солью — tuz + lu."
+    }
+  ]
+}

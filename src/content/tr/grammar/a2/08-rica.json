@@ -1,0 +1,165 @@
+{
+  "id": "a2.08-rica",
+  "district": "A2",
+  "order": 8,
+  "title": "Вежливая просьба",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Самая вежливая просьба — вопрос в широком времени: **Kapıyı açar mısınız?** — Не откроете дверь? **Yardım eder misin?** — Поможешь? Ещё вежливее — с -Abil: **açabilir misiniz?**"
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Как просят",
+        "Пример",
+        "Тон"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "основа + lütfen",
+            "Kapıyı aç, lütfen.",
+            "по-дружески"
+          ]
+        },
+        {
+          "cells": [
+            "-(y)In",
+            "Kapıyı açın, lütfen.",
+            "вежливо"
+          ]
+        },
+        {
+          "cells": [
+            "-Ar mIsInIz?",
+            "Kapıyı açar mısınız?",
+            "очень вежливо"
+          ]
+        },
+        {
+          "cells": [
+            "-Abilir misiniz?",
+            "Kapıyı açabilir misiniz?",
+            "очень вежливо"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Чтобы попросить вещь: **…alabilir miyim?** — Можно мне…? Ответ на благодарность — **Rica ederim** (не за что), согласие — **Tabii**, **Buyurun**."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Bir çay daha alabilir miyim?",
+      "ru": "Можно мне ещё чаю?"
+    },
+    {
+      "es": "Biraz yavaş konuşur musunuz?",
+      "ru": "Вы не могли бы говорить помедленнее?"
+    },
+    {
+      "es": "Tuzu uzatır mısın?",
+      "ru": "Передашь соль?"
+    },
+    {
+      "es": "Teşekkürler! — Rica ederim.",
+      "ru": "Спасибо! — Не за что."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "a2.08-rica.1",
+      "kind": "choose",
+      "prompt": "Самый вежливый вариант:",
+      "options": [
+        "Bekler misiniz?",
+        "Bekle!",
+        "Beklemelisin."
+      ],
+      "answer": 0,
+      "explain": "Вопрос в широком времени — вежливая просьба."
+    },
+    {
+      "id": "a2.08-rica.2",
+      "kind": "choose",
+      "prompt": "Ответ на «Teşekkürler»:",
+      "options": [
+        "Rica ederim.",
+        "Lütfen.",
+        "Afiyet olsun."
+      ],
+      "answer": 0,
+      "explain": "Не за что — rica ederim."
+    },
+    {
+      "id": "a2.08-rica.3",
+      "kind": "gap",
+      "sentence": "Pencereyi ___ mısınız?",
+      "ru": "Не откроете окно?",
+      "options": [
+        "açar",
+        "açın",
+        "açtı"
+      ],
+      "answer": 0,
+      "explain": "Просьба: açar mısınız?"
+    },
+    {
+      "id": "a2.08-rica.4",
+      "kind": "gap",
+      "sentence": "Bir bardak su ___ miyim?",
+      "ru": "Можно мне стакан воды?",
+      "options": [
+        "alabilir",
+        "alır",
+        "aldı"
+      ],
+      "answer": 0,
+      "explain": "Можно мне — alabilir miyim?"
+    },
+    {
+      "id": "a2.08-rica.5",
+      "kind": "truefalse",
+      "statement": "«Açar mısınız?» вежливее, чем «Aç!».",
+      "answer": true,
+      "explain": "Вопрос — вежливая просьба."
+    },
+    {
+      "id": "a2.08-rica.6",
+      "kind": "truefalse",
+      "statement": "«Rica ederim» говорят в ответ на спасибо.",
+      "answer": true,
+      "explain": "Не за что."
+    },
+    {
+      "id": "a2.08-rica.7",
+      "kind": "truefalse",
+      "statement": "Просьба «-Ar mısınız?» звучит грубо.",
+      "answer": false,
+      "explain": "Наоборот, очень вежливо."
+    },
+    {
+      "id": "a2.08-rica.8",
+      "kind": "build",
+      "ru": "Не могли бы вы повторить?",
+      "answer": "Tekrar eder misiniz?",
+      "extra": [
+        "tekrarla",
+        "misin"
+      ],
+      "explain": "Вежливая просьба к «вы»: eder misiniz."
+    },
+    {
+      "id": "a2.08-rica.9",
+      "kind": "type",
+      "sentence": "Bana yardım ___ misiniz?",
+      "ru": "Не поможете мне?",
+      "hint": "etmek, просьба",
+      "answer": "eder",
+      "explain": "yardım etmek → eder misiniz."
+    }
+  ]
+}

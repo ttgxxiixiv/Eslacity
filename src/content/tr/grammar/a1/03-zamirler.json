@@ -1,0 +1,172 @@
+{
+  "id": "a1.03-zamirler",
+  "district": "A1",
+  "order": 3,
+  "title": "Личные местоимения",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Местоимения: **ben** (я), **sen** (ты), **o** (он, она, оно), **biz** (мы), **siz** (вы), **onlar** (они). Рода нет: o — и «он», и «она»."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Местоимение",
+        "Перевод"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "ben",
+            "я"
+          ]
+        },
+        {
+          "cells": [
+            "sen",
+            "ты"
+          ]
+        },
+        {
+          "cells": [
+            "o",
+            "он, она, оно"
+          ]
+        },
+        {
+          "cells": [
+            "biz",
+            "мы"
+          ]
+        },
+        {
+          "cells": [
+            "siz",
+            "вы (много людей или вежливо)"
+          ]
+        },
+        {
+          "cells": [
+            "onlar",
+            "они"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Местоимение часто опускают: по окончанию глагола и так понятно, кто говорит. **Geliyorum** — «я иду», без ben."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Ben öğrenciyim.",
+      "ru": "Я студент."
+    },
+    {
+      "es": "O benim arkadaşım.",
+      "ru": "Он мой друг."
+    },
+    {
+      "es": "Biz İzmirliyiz.",
+      "ru": "Мы из Измира."
+    },
+    {
+      "es": "Siz Türk müsünüz?",
+      "ru": "Вы турок?"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "a1.03-zamirler.1",
+      "kind": "choose",
+      "prompt": "Как сказать «мы»?",
+      "options": [
+        "biz",
+        "siz",
+        "onlar"
+      ],
+      "answer": 0,
+      "explain": "biz — мы."
+    },
+    {
+      "id": "a1.03-zamirler.2",
+      "kind": "choose",
+      "prompt": "О — это…",
+      "options": [
+        "и «он», и «она»",
+        "только «он»",
+        "только «оно»"
+      ],
+      "answer": 0,
+      "explain": "Рода в турецком нет: o — он, она, оно."
+    },
+    {
+      "id": "a1.03-zamirler.3",
+      "kind": "gap",
+      "sentence": "___ öğretmenim.",
+      "ru": "Я учитель.",
+      "options": [
+        "Ben",
+        "Sen",
+        "O"
+      ],
+      "answer": 0,
+      "explain": "Окончание -im — я: Ben öğretmenim."
+    },
+    {
+      "id": "a1.03-zamirler.4",
+      "kind": "gap",
+      "sentence": "___ nerelisiniz?",
+      "ru": "Откуда вы?",
+      "options": [
+        "Siz",
+        "Biz",
+        "Sen"
+      ],
+      "answer": 0,
+      "explain": "Окончание -siniz — вы."
+    },
+    {
+      "id": "a1.03-zamirler.5",
+      "kind": "truefalse",
+      "statement": "Siz говорят и одному человеку из вежливости.",
+      "answer": true,
+      "explain": "Как русское «вы»."
+    },
+    {
+      "id": "a1.03-zamirler.6",
+      "kind": "truefalse",
+      "statement": "Onlar — это «они».",
+      "answer": true,
+      "explain": "onlar — они."
+    },
+    {
+      "id": "a1.03-zamirler.7",
+      "kind": "truefalse",
+      "statement": "Местоимение ben всегда обязательно.",
+      "answer": false,
+      "explain": "Его часто опускают: Geliyorum — я иду."
+    },
+    {
+      "id": "a1.03-zamirler.8",
+      "kind": "build",
+      "ru": "Мы хорошие друзья.",
+      "answer": "Biz iyi arkadaşız.",
+      "extra": [
+        "siz",
+        "arkadaşsınız"
+      ],
+      "explain": "biz — мы; -ız — окончание «мы»."
+    },
+    {
+      "id": "a1.03-zamirler.9",
+      "kind": "type",
+      "sentence": "___ çok yorgunlar.",
+      "ru": "Они очень устали.",
+      "hint": "они",
+      "answer": "Onlar",
+      "explain": "Они — onlar."
+    }
+  ]
+}

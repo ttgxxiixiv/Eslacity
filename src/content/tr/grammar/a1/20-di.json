@@ -1,0 +1,186 @@
+{
+  "id": "a1.20-di",
+  "district": "A1",
+  "order": 20,
+  "title": "Прошедшее время: -DI",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Что случилось, и мы это видели — аффикс **-dı / -di / -du / -dü**, после глухих согласных **-tı / -ti / -tu / -tü**: gel**dim** (я пришёл), yap**tım** (я сделал)."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Лицо",
+        "gelmek",
+        "yapmak",
+        "okumak"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "ben",
+            "geldim",
+            "yaptım",
+            "okudum"
+          ]
+        },
+        {
+          "cells": [
+            "sen",
+            "geldin",
+            "yaptın",
+            "okudun"
+          ]
+        },
+        {
+          "cells": [
+            "o",
+            "geldi",
+            "yaptı",
+            "okudu"
+          ]
+        },
+        {
+          "cells": [
+            "biz",
+            "geldik",
+            "yaptık",
+            "okuduk"
+          ]
+        },
+        {
+          "cells": [
+            "siz",
+            "geldiniz",
+            "yaptınız",
+            "okudunuz"
+          ]
+        },
+        {
+          "cells": [
+            "onlar",
+            "geldiler",
+            "yaptılar",
+            "okudular"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Личные окончания здесь короткие: **-m, -n, —, -k, -nIz, -lAr**. «Мы пришли» — gel**dik**, а не «geldiyiz»."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Dün İzmir'e gittik.",
+      "ru": "Вчера мы ездили в Измир."
+    },
+    {
+      "es": "Kahvaltıda ne yedin?",
+      "ru": "Что ты ел на завтрак?"
+    },
+    {
+      "es": "Tren geç geldi.",
+      "ru": "Поезд пришёл поздно."
+    },
+    {
+      "es": "Ödevimi bitirdim.",
+      "ru": "Я закончил домашнее задание."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "a1.20-di.1",
+      "kind": "choose",
+      "prompt": "«Я сделал»:",
+      "options": [
+        "yaptım",
+        "yapdım",
+        "yaptik"
+      ],
+      "answer": 0,
+      "explain": "p — глухая: -tı; я — -m."
+    },
+    {
+      "id": "a1.20-di.2",
+      "kind": "choose",
+      "prompt": "«Мы пришли»:",
+      "options": [
+        "geldik",
+        "geldiz",
+        "geldimiz"
+      ],
+      "answer": 0,
+      "explain": "Мы в прошедшем — -k: geldik."
+    },
+    {
+      "id": "a1.20-di.3",
+      "kind": "gap",
+      "sentence": "Dün akşam film ___.",
+      "ru": "Вчера вечером мы смотрели фильм.",
+      "options": [
+        "izledik",
+        "izliyoruz",
+        "izledim"
+      ],
+      "answer": 0,
+      "explain": "Мы, прошедшее: izledik."
+    },
+    {
+      "id": "a1.20-di.4",
+      "kind": "gap",
+      "sentence": "Sen bu kitabı ___?",
+      "ru": "Ты читал эту книгу?",
+      "options": [
+        "okudun mu",
+        "okudum mu",
+        "okuyor musun"
+      ],
+      "answer": 0,
+      "explain": "Ты, прошедшее: okudun mu."
+    },
+    {
+      "id": "a1.20-di.5",
+      "kind": "truefalse",
+      "statement": "После глухой согласной -DI становится -tı: içtim.",
+      "answer": true,
+      "explain": "ç — глухая: içtim."
+    },
+    {
+      "id": "a1.20-di.6",
+      "kind": "truefalse",
+      "statement": "«Gittik» значит «мы пошли».",
+      "answer": true,
+      "explain": "git + ti + k."
+    },
+    {
+      "id": "a1.20-di.7",
+      "kind": "truefalse",
+      "statement": "В прошедшем -DI окончание «я» — -ım: geldiım.",
+      "answer": false,
+      "explain": "Окончание «я» — -m: geldim."
+    },
+    {
+      "id": "a1.20-di.8",
+      "kind": "build",
+      "ru": "Вчера мы ездили на пляж.",
+      "answer": "Dün plaja gittik.",
+      "extra": [
+        "gidiyoruz",
+        "plajda"
+      ],
+      "explain": "Прошедшее, мы — gittik."
+    },
+    {
+      "id": "a1.20-di.9",
+      "kind": "type",
+      "sentence": "Geçen yıl Antalya'da ___.",
+      "ru": "В прошлом году я жил в Анталье.",
+      "hint": "yaşamak, я",
+      "answer": "yaşadım",
+      "explain": "yaşa + dı + m."
+    }
+  ]
+}

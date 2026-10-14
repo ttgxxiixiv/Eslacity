@@ -1,0 +1,158 @@
+{
+  "id": "a1.04-bu-su-o",
+  "district": "A1",
+  "order": 4,
+  "title": "Это и то: bu, şu, o",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "**bu** — это (рядом со мной), **şu** — вот это (чуть дальше, показываю), **o** — то (далеко). Перед существительным: **bu ev** — этот дом."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Слово",
+        "Значение",
+        "Место"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "bu",
+            "это, этот",
+            "здесь — burası"
+          ]
+        },
+        {
+          "cells": [
+            "şu",
+            "вот это, вон тот",
+            "там рядом — şurası"
+          ]
+        },
+        {
+          "cells": [
+            "o",
+            "то, тот",
+            "там — orası"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Во множественном: **bunlar** (эти), **şunlar**, **onlar** (те, они). «Здесь» — burada, «там» — orada."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Bu ne?",
+      "ru": "Что это?"
+    },
+    {
+      "es": "Bu benim çantam.",
+      "ru": "Это моя сумка."
+    },
+    {
+      "es": "Şu ev çok eski.",
+      "ru": "Вон тот дом очень старый."
+    },
+    {
+      "es": "Burası çok güzel.",
+      "ru": "Здесь очень красиво."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "a1.04-bu-su-o.1",
+      "kind": "choose",
+      "prompt": "Как спросить «Что это?» о вещи в руке?",
+      "options": [
+        "Bu ne?",
+        "O ne?",
+        "Kim bu?"
+      ],
+      "answer": 0,
+      "explain": "Вещь рядом — bu: Bu ne?"
+    },
+    {
+      "id": "a1.04-bu-su-o.2",
+      "kind": "choose",
+      "prompt": "Множественное от bu:",
+      "options": [
+        "bunlar",
+        "bular",
+        "buler"
+      ],
+      "answer": 0,
+      "explain": "bu → bunlar."
+    },
+    {
+      "id": "a1.04-bu-su-o.3",
+      "kind": "gap",
+      "sentence": "___ elma çok tatlı.",
+      "ru": "Это яблоко очень сладкое.",
+      "options": [
+        "Bu",
+        "Bunlar",
+        "Burası"
+      ],
+      "answer": 0,
+      "explain": "Перед существительным — bu."
+    },
+    {
+      "id": "a1.04-bu-su-o.4",
+      "kind": "gap",
+      "sentence": "___ çok güzel bir yer.",
+      "ru": "Здесь очень красивое место.",
+      "options": [
+        "Burası",
+        "Bu",
+        "Bunlar"
+      ],
+      "answer": 0,
+      "explain": "«Это место, здесь» — burası."
+    },
+    {
+      "id": "a1.04-bu-su-o.5",
+      "kind": "truefalse",
+      "statement": "O может значить и «он», и «тот».",
+      "answer": true,
+      "explain": "o — местоимение и указательное слово."
+    },
+    {
+      "id": "a1.04-bu-su-o.6",
+      "kind": "truefalse",
+      "statement": "«Bunlar elma» значит «Это яблоко».",
+      "answer": false,
+      "explain": "Bunlar — «эти»: Bunlar elma — «Это яблоки»."
+    },
+    {
+      "id": "a1.04-bu-su-o.7",
+      "kind": "truefalse",
+      "statement": "Şu показывает на то, что недалеко, «вот это».",
+      "answer": true,
+      "explain": "şu — «вот это, вон тот»."
+    },
+    {
+      "id": "a1.04-bu-su-o.8",
+      "kind": "build",
+      "ru": "Этот дом очень большой.",
+      "answer": "Bu ev çok büyük.",
+      "extra": [
+        "bunlar",
+        "şurası"
+      ],
+      "explain": "bu + существительное: bu ev."
+    },
+    {
+      "id": "a1.04-bu-su-o.9",
+      "kind": "type",
+      "sentence": "___ kim?",
+      "ru": "Кто это?",
+      "hint": "это",
+      "answer": "Bu",
+      "explain": "Человек рядом — bu: Bu kim?"
+    }
+  ]
+}

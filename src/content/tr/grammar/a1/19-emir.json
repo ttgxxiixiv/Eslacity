@@ -1,0 +1,170 @@
+{
+  "id": "a1.19-emir",
+  "district": "A1",
+  "order": 19,
+  "title": "Повелительное: gel, gelin",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Просьба к «ты» — **сама основа глагола**: gel! (иди сюда), otur! (садись), bak! (смотри). К «вы» — **-(y)In**: gel**in**, otur**un**, bekle**yin**. Вежливее — **-(y)InIz**: buyur**unuz**."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Глагол",
+        "Ты",
+        "Вы",
+        "Не делай"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "gelmek",
+            "gel",
+            "gelin",
+            "gelme"
+          ]
+        },
+        {
+          "cells": [
+            "oturmak",
+            "otur",
+            "oturun",
+            "oturma"
+          ]
+        },
+        {
+          "cells": [
+            "beklemek",
+            "bekle",
+            "bekleyin",
+            "bekleme"
+          ]
+        },
+        {
+          "cells": [
+            "bakmak",
+            "bak",
+            "bakın",
+            "bakma"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Запрет — **-mA**: gel**me** (не приходи), gel**meyin** (не приходите). Смягчает просьбу слово **lütfen**."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Buraya gel!",
+      "ru": "Иди сюда!"
+    },
+    {
+      "es": "Lütfen oturun.",
+      "ru": "Садитесь, пожалуйста."
+    },
+    {
+      "es": "Bekleyin, lütfen.",
+      "ru": "Подождите, пожалуйста."
+    },
+    {
+      "es": "Korkma, ben buradayım.",
+      "ru": "Не бойся, я здесь."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "a1.19-emir.1",
+      "kind": "choose",
+      "prompt": "«Садитесь» (вы):",
+      "options": [
+        "oturun",
+        "otur",
+        "oturma"
+      ],
+      "answer": 0,
+      "explain": "К «вы» — -un: oturun."
+    },
+    {
+      "id": "a1.19-emir.2",
+      "kind": "choose",
+      "prompt": "«Не жди» (ты):",
+      "options": [
+        "bekleme",
+        "bekle",
+        "beklemeyin"
+      ],
+      "answer": 0,
+      "explain": "Запрет к «ты» — -me: bekleme."
+    },
+    {
+      "id": "a1.19-emir.3",
+      "kind": "gap",
+      "sentence": "Kapıyı ___, lütfen.",
+      "ru": "Закрой дверь, пожалуйста.",
+      "options": [
+        "kapat",
+        "kapatın",
+        "kapatma"
+      ],
+      "answer": 0,
+      "explain": "К «ты» — основа: kapat."
+    },
+    {
+      "id": "a1.19-emir.4",
+      "kind": "gap",
+      "sentence": "Lütfen burada sigara ___.",
+      "ru": "Пожалуйста, не курите здесь.",
+      "options": [
+        "içmeyin",
+        "için",
+        "içme"
+      ],
+      "answer": 0,
+      "explain": "Запрет к «вы» — -meyin: içmeyin."
+    },
+    {
+      "id": "a1.19-emir.5",
+      "kind": "truefalse",
+      "statement": "Повелительное к «ты» — это просто основа: gel!",
+      "answer": true,
+      "explain": "gel, otur, bak."
+    },
+    {
+      "id": "a1.19-emir.6",
+      "kind": "truefalse",
+      "statement": "«Gelin» — это просьба к «вы».",
+      "answer": true,
+      "explain": "gelin — приходите (и ещё «невеста»)."
+    },
+    {
+      "id": "a1.19-emir.7",
+      "kind": "truefalse",
+      "statement": "Запрет «не смотри» — bakmayın.",
+      "answer": false,
+      "explain": "К «ты» — bakma. Bakmayın — к «вы»."
+    },
+    {
+      "id": "a1.19-emir.8",
+      "kind": "build",
+      "ru": "Пожалуйста, подождите здесь.",
+      "answer": "Lütfen burada bekleyin.",
+      "extra": [
+        "bekle",
+        "burası"
+      ],
+      "explain": "К «вы» — bekleyin."
+    },
+    {
+      "id": "a1.19-emir.9",
+      "kind": "type",
+      "sentence": "___ bak!",
+      "ru": "Посмотри на меня!",
+      "hint": "на меня",
+      "answer": "Bana",
+      "explain": "Смотреть на кого — дательный: bana."
+    }
+  ]
+}

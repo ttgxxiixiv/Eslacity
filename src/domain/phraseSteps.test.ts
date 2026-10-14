@@ -18,6 +18,8 @@ describe('задания фраз', () => {
     expect(phraseTokens('(Yo) quiero un té con leche.')).toEqual(['yo', 'quiero', 'un', 'té', 'con', 'leche']);
     expect(phraseTokens('Aquí tiene mi DNI.')).toEqual(['aquí', 'tiene', 'mi', 'DNI']);
     expect(phraseTokens('DNI, por favor')[0]).toBe('DNI');
+    // Турецкая İ в начале фразы — обычная i, без отдельной точки сверху (U+0307).
+    expect(phraseTokens('İki biletim var.')).toEqual(['iki', 'biletim', 'var']);
     const tiles = makeTiles(pool[2], pool, seeded(1));
     expect(tiles).toHaveLength(6 + EXTRA_TILES);
     const extra = tiles.filter((t) => !phraseTokens(pool[2].es).includes(t));

@@ -1,0 +1,172 @@
+{
+  "id": "a1.06-degil",
+  "district": "A1",
+  "order": 6,
+  "title": "Отрицание: değil",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Сказуемое-имя отрицается словом **değil**, а личный аффикс переходит на него: **Ben doktor değilim** — я не врач."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Лицо",
+        "Отрицание"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "ben",
+            "değilim"
+          ]
+        },
+        {
+          "cells": [
+            "sen",
+            "değilsin"
+          ]
+        },
+        {
+          "cells": [
+            "o",
+            "değil"
+          ]
+        },
+        {
+          "cells": [
+            "biz",
+            "değiliz"
+          ]
+        },
+        {
+          "cells": [
+            "siz",
+            "değilsiniz"
+          ]
+        },
+        {
+          "cells": [
+            "onlar",
+            "değiller"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "С глаголом değil не используют: «не иду» — gitmiyorum. Değil — только для имени: hasta değilim, evde değil."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Ben aç değilim.",
+      "ru": "Я не голоден."
+    },
+    {
+      "es": "Bu çay sıcak değil.",
+      "ru": "Этот чай не горячий."
+    },
+    {
+      "es": "Onlar evde değil.",
+      "ru": "Их нет дома."
+    },
+    {
+      "es": "Sen yalnız değilsin.",
+      "ru": "Ты не один."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "a1.06-degil.1",
+      "kind": "choose",
+      "prompt": "«Я не учитель»:",
+      "options": [
+        "Ben öğretmen değilim.",
+        "Ben öğretmenim değil.",
+        "Ben değil öğretmen."
+      ],
+      "answer": 0,
+      "explain": "Аффикс лица — на değil: değilim."
+    },
+    {
+      "id": "a1.06-degil.2",
+      "kind": "choose",
+      "prompt": "Отрицание «мы»:",
+      "options": [
+        "değiliz",
+        "değilsiniz",
+        "değiller"
+      ],
+      "answer": 0,
+      "explain": "biz — değiliz."
+    },
+    {
+      "id": "a1.06-degil.3",
+      "kind": "gap",
+      "sentence": "Bu oda büyük ___.",
+      "ru": "Эта комната не большая.",
+      "options": [
+        "değil",
+        "yok",
+        "değilim"
+      ],
+      "answer": 0,
+      "explain": "О комнате — değil без аффикса."
+    },
+    {
+      "id": "a1.06-degil.4",
+      "kind": "gap",
+      "sentence": "Sen hasta ___.",
+      "ru": "Ты не болен.",
+      "options": [
+        "değilsin",
+        "değilim",
+        "değiliz"
+      ],
+      "answer": 0,
+      "explain": "sen — değilsin."
+    },
+    {
+      "id": "a1.06-degil.5",
+      "kind": "truefalse",
+      "statement": "«Ben gitmek değilim» — так говорят «я не иду».",
+      "answer": false,
+      "explain": "Değil — для имени. «Не иду» — gitmiyorum."
+    },
+    {
+      "id": "a1.06-degil.6",
+      "kind": "truefalse",
+      "statement": "В отрицании личный аффикс стоит на değil.",
+      "answer": true,
+      "explain": "Yorgun değilim."
+    },
+    {
+      "id": "a1.06-degil.7",
+      "kind": "truefalse",
+      "statement": "«Onlar evde değil» — правильно.",
+      "answer": true,
+      "explain": "У третьего лица множественного -ler часто опускают."
+    },
+    {
+      "id": "a1.06-degil.8",
+      "kind": "build",
+      "ru": "Кафе сегодня не открыто.",
+      "answer": "Kafe bugün açık değil.",
+      "extra": [
+        "değilim",
+        "yok"
+      ],
+      "explain": "Отрицание имени: açık değil."
+    },
+    {
+      "id": "a1.06-degil.9",
+      "kind": "type",
+      "sentence": "Biz yorgun ___.",
+      "ru": "Мы не устали.",
+      "hint": "değil, мы",
+      "answer": "değiliz",
+      "explain": "biz — değiliz."
+    }
+  ]
+}

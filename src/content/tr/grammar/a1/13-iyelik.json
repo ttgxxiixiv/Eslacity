@@ -1,0 +1,179 @@
+{
+  "id": "a1.13-iyelik",
+  "district": "A1",
+  "order": 13,
+  "title": "Мой, твой: аффиксы принадлежности",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "«Мой дом» — не отдельное слово, а аффикс: ev**im** (мой дом), ev**in** (твой дом), ev**i** (его дом). После гласной: araba**m**, araba**n**, araba**sı**."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Чей?",
+        "После согласной",
+        "После гласной"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "benim",
+            "evim",
+            "arabam"
+          ]
+        },
+        {
+          "cells": [
+            "senin",
+            "evin",
+            "araban"
+          ]
+        },
+        {
+          "cells": [
+            "onun",
+            "evi",
+            "arabası"
+          ]
+        },
+        {
+          "cells": [
+            "bizim",
+            "evimiz",
+            "arabamız"
+          ]
+        },
+        {
+          "cells": [
+            "sizin",
+            "eviniz",
+            "arabanız"
+          ]
+        },
+        {
+          "cells": [
+            "onların",
+            "evleri",
+            "arabaları"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Местоимение (benim, senin…) можно добавить для ясности: **benim** evim. Конечные p, ç, t, k озвончаются: kitap → kitab**ım**, ağaç → ağac**ı**."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Benim adım Ali.",
+      "ru": "Меня зовут Али."
+    },
+    {
+      "es": "Annen nerede?",
+      "ru": "Где твоя мама?"
+    },
+    {
+      "es": "Evimiz denize yakın.",
+      "ru": "Наш дом рядом с морем."
+    },
+    {
+      "es": "Arabası çok eski.",
+      "ru": "Его машина очень старая."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "a1.13-iyelik.1",
+      "kind": "choose",
+      "prompt": "«Моя машина»:",
+      "options": [
+        "arabam",
+        "arabım",
+        "arabasım"
+      ],
+      "answer": 0,
+      "explain": "После гласной — -m: arabam."
+    },
+    {
+      "id": "a1.13-iyelik.2",
+      "kind": "choose",
+      "prompt": "«Его книга»:",
+      "options": [
+        "kitabı",
+        "kitapı",
+        "kitabsı"
+      ],
+      "answer": 0,
+      "explain": "p озвончается: kitabı."
+    },
+    {
+      "id": "a1.13-iyelik.3",
+      "kind": "gap",
+      "sentence": "___ çok güzel.",
+      "ru": "Твой дом очень красивый.",
+      "options": [
+        "Evin",
+        "Evim",
+        "Evi"
+      ],
+      "answer": 0,
+      "explain": "Твой — -in: evin."
+    },
+    {
+      "id": "a1.13-iyelik.4",
+      "kind": "gap",
+      "sentence": "Bizim ___ büyük.",
+      "ru": "Наша комната большая.",
+      "options": [
+        "odamız",
+        "odanız",
+        "odaları"
+      ],
+      "answer": 0,
+      "explain": "Наш — -mız: odamız."
+    },
+    {
+      "id": "a1.13-iyelik.5",
+      "kind": "truefalse",
+      "statement": "«Benim ev» — правильное «мой дом».",
+      "answer": false,
+      "explain": "Нужен аффикс: benim evim."
+    },
+    {
+      "id": "a1.13-iyelik.6",
+      "kind": "truefalse",
+      "statement": "После гласной у «его» аффикс -sı: arabası.",
+      "answer": true,
+      "explain": "araba + sı."
+    },
+    {
+      "id": "a1.13-iyelik.7",
+      "kind": "truefalse",
+      "statement": "Evleri может значить «их дом».",
+      "answer": true,
+      "explain": "onların evleri — их дом."
+    },
+    {
+      "id": "a1.13-iyelik.8",
+      "kind": "build",
+      "ru": "Мой брат живёт в Анкаре.",
+      "answer": "Kardeşim Ankara'da yaşıyor.",
+      "extra": [
+        "kardeşin",
+        "Ankara'ya"
+      ],
+      "explain": "Мой — -im; где — Ankara'da."
+    },
+    {
+      "id": "a1.13-iyelik.9",
+      "kind": "type",
+      "sentence": "Senin ___ ne?",
+      "ru": "Как тебя зовут?",
+      "hint": "ad, твой",
+      "answer": "adın",
+      "explain": "ad + ın: твоё имя."
+    }
+  ]
+}

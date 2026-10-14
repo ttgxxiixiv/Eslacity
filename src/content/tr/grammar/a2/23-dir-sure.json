@@ -1,0 +1,166 @@
+{
+  "id": "a2.23-dir-sure",
+  "district": "A2",
+  "order": 23,
+  "title": "Уже сколько: -DIr со временем",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Сколько времени длится до сих пор — **-dır / -dir / -dur / -dür** (после глухих **-tır…**) на слове времени и глагол в настоящем: **İki yıldır burada yaşıyorum** — я живу здесь уже два года."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Сочетание",
+        "Перевод"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "üç gündür",
+            "уже три дня"
+          ]
+        },
+        {
+          "cells": [
+            "bir saattir",
+            "уже час"
+          ]
+        },
+        {
+          "cells": [
+            "yıllardır",
+            "годами, много лет"
+          ]
+        },
+        {
+          "cells": [
+            "ne zamandır?",
+            "как давно?"
+          ]
+        },
+        {
+          "cells": [
+            "sabahtan beri",
+            "с утра"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Русское «уже два года живу» — **настоящее** время, как в турецком: iki yıldır yaşıyorum, а не прошедшее."
+    }
+  ],
+  "examples": [
+    {
+      "es": "İki saattir seni bekliyorum.",
+      "ru": "Я жду тебя уже два часа."
+    },
+    {
+      "es": "Ne zamandır Türkçe öğreniyorsun?",
+      "ru": "Как давно ты учишь турецкий?"
+    },
+    {
+      "es": "Yıllardır bu lokantaya geliriz.",
+      "ru": "Мы годами ходим в эту локанту."
+    },
+    {
+      "es": "Üç gündür yağmur yağıyor.",
+      "ru": "Уже три дня идёт дождь."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "a2.23-dir-sure.1",
+      "kind": "choose",
+      "prompt": "«Уже неделю»:",
+      "options": [
+        "bir haftadır",
+        "bir hafta önce",
+        "bir haftadan"
+      ],
+      "answer": 0,
+      "explain": "Длительность до сих пор — -dır."
+    },
+    {
+      "id": "a2.23-dir-sure.2",
+      "kind": "choose",
+      "prompt": "«Как давно?»:",
+      "options": [
+        "Ne zamandır?",
+        "Ne zaman?",
+        "Kaç zaman?"
+      ],
+      "answer": 0,
+      "explain": "Ne zamandır — как давно."
+    },
+    {
+      "id": "a2.23-dir-sure.3",
+      "kind": "gap",
+      "sentence": "Beş yıl___ İzmir'de yaşıyoruz.",
+      "ru": "Мы живём в Измире уже пять лет.",
+      "options": [
+        "dır",
+        "dan",
+        "a"
+      ],
+      "answer": 0,
+      "explain": "yıl + dır."
+    },
+    {
+      "id": "a2.23-dir-sure.4",
+      "kind": "gap",
+      "sentence": "Bir saattir seni ___.",
+      "ru": "Я жду тебя уже час.",
+      "options": [
+        "bekliyorum",
+        "bekledim",
+        "bekleyeceğim"
+      ],
+      "answer": 0,
+      "explain": "С -dır — настоящее время."
+    },
+    {
+      "id": "a2.23-dir-sure.5",
+      "kind": "truefalse",
+      "statement": "С -DIr длительности глагол стоит в настоящем.",
+      "answer": true,
+      "explain": "İki yıldır yaşıyorum."
+    },
+    {
+      "id": "a2.23-dir-sure.6",
+      "kind": "truefalse",
+      "statement": "«Üç gündür» значит «три дня назад».",
+      "answer": false,
+      "explain": "Уже три дня. Три дня назад — üç gün önce."
+    },
+    {
+      "id": "a2.23-dir-sure.7",
+      "kind": "truefalse",
+      "statement": "После глухой согласной -DIr становится -tır: bir saattir.",
+      "answer": true,
+      "explain": "saat — t: saattir."
+    },
+    {
+      "id": "a2.23-dir-sure.8",
+      "kind": "build",
+      "ru": "Я учу турецкий уже два месяца.",
+      "answer": "İki aydır Türkçe öğreniyorum.",
+      "extra": [
+        "öğrendim",
+        "ay"
+      ],
+      "explain": "Длительность — iki aydır."
+    },
+    {
+      "id": "a2.23-dir-sure.9",
+      "kind": "type",
+      "sentence": "On dakika___ otobüs bekliyoruz.",
+      "ru": "Мы ждём автобус уже десять минут.",
+      "hint": "аффикс длительности",
+      "answer": "dır",
+      "explain": "dakika + dır."
+    }
+  ]
+}

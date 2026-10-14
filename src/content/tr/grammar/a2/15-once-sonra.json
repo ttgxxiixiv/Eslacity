@@ -1,0 +1,218 @@
+{
+  "id": "a2.15-once-sonra",
+  "district": "A2",
+  "order": 15,
+  "title": "До и после: önce, sonra",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "**önce** — «до, раньше», **sonra** — «после, потом». С существительным — исходный падеж: **yemekten sonra** (после еды), **dersten önce** (перед уроком)."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Сочетание",
+        "Перевод"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "kahvaltıdan önce",
+            "до завтрака"
+          ]
+        },
+        {
+          "cells": [
+            "işten sonra",
+            "после работы"
+          ]
+        },
+        {
+          "cells": [
+            "iki gün önce",
+            "два дня назад"
+          ]
+        },
+        {
+          "cells": [
+            "bir saat sonra",
+            "через час"
+          ]
+        },
+        {
+          "cells": [
+            "daha sonra",
+            "позже"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Слово",
+        "Значение",
+        "Пример"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "henüz",
+            "ещё (не)",
+            "Henüz gelmedi."
+          ]
+        },
+        {
+          "cells": [
+            "artık",
+            "уже; больше (не)",
+            "Artık buradayım."
+          ]
+        },
+        {
+          "cells": [
+            "hep",
+            "всегда, всё время",
+            "Hep geç kalıyor."
+          ]
+        },
+        {
+          "cells": [
+            "sürekli",
+            "постоянно",
+            "Sürekli yağmur yağıyor."
+          ]
+        },
+        {
+          "cells": [
+            "geçen",
+            "прошлый",
+            "geçen hafta"
+          ]
+        },
+        {
+          "cells": [
+            "geri",
+            "назад, обратно",
+            "Geri dön!"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "С временем без аффикса: **üç gün önce** — три дня назад, **beş dakika sonra** — через пять минут. «Сначала… потом» — **önce… sonra…**"
+    }
+  ],
+  "examples": [
+    {
+      "es": "Yemekten sonra çay içeriz.",
+      "ru": "После еды мы пьём чай."
+    },
+    {
+      "es": "İki yıl önce buraya geldim.",
+      "ru": "Я приехал сюда два года назад."
+    },
+    {
+      "es": "Önce düşün, sonra konuş.",
+      "ru": "Сначала подумай, потом говори."
+    },
+    {
+      "es": "Bir saat sonra görüşürüz.",
+      "ru": "Увидимся через час."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "a2.15-once-sonra.1",
+      "kind": "choose",
+      "prompt": "«После работы»:",
+      "options": [
+        "işten sonra",
+        "işe sonra",
+        "işte sonra"
+      ],
+      "answer": 0,
+      "explain": "Исходный падеж + sonra."
+    },
+    {
+      "id": "a2.15-once-sonra.2",
+      "kind": "choose",
+      "prompt": "«Неделю назад»:",
+      "options": [
+        "bir hafta önce",
+        "bir haftadan önce",
+        "bir hafta sonra"
+      ],
+      "answer": 0,
+      "explain": "Срок без аффикса + önce."
+    },
+    {
+      "id": "a2.15-once-sonra.3",
+      "kind": "gap",
+      "sentence": "Dersten ___ kahve içelim.",
+      "ru": "Давай выпьем кофе перед уроком.",
+      "options": [
+        "önce",
+        "sonra",
+        "kadar"
+      ],
+      "answer": 0,
+      "explain": "Перед — önce."
+    },
+    {
+      "id": "a2.15-once-sonra.4",
+      "kind": "gap",
+      "sentence": "Beş dakika ___ tren kalkacak.",
+      "ru": "Через пять минут поезд отойдёт.",
+      "options": [
+        "sonra",
+        "önce",
+        "için"
+      ],
+      "answer": 0,
+      "explain": "Через — sonra."
+    },
+    {
+      "id": "a2.15-once-sonra.5",
+      "kind": "truefalse",
+      "statement": "«Yemekten sonra» значит «после еды».",
+      "answer": true,
+      "explain": "Исходный + sonra."
+    },
+    {
+      "id": "a2.15-once-sonra.6",
+      "kind": "truefalse",
+      "statement": "«Üç gün önce» значит «через три дня».",
+      "answer": false,
+      "explain": "Три дня назад. Через три дня — üç gün sonra."
+    },
+    {
+      "id": "a2.15-once-sonra.7",
+      "kind": "truefalse",
+      "statement": "С существительным önce требует исходного падежа.",
+      "answer": true,
+      "explain": "dersten önce."
+    },
+    {
+      "id": "a2.15-once-sonra.8",
+      "kind": "build",
+      "ru": "Позвони мне после ужина.",
+      "answer": "Akşam yemeğinden sonra beni ara.",
+      "extra": [
+        "önce",
+        "yemeğe"
+      ],
+      "explain": "После — -den sonra."
+    },
+    {
+      "id": "a2.15-once-sonra.9",
+      "kind": "type",
+      "sentence": "Kahvaltıdan ___ duş alıyorum.",
+      "ru": "Перед завтраком я принимаю душ.",
+      "hint": "до",
+      "answer": "önce",
+      "explain": "До, перед — önce."
+    }
+  ]
+}

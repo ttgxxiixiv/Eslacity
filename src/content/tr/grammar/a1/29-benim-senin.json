@@ -1,0 +1,179 @@
+{
+  "id": "a1.29-benim-senin",
+  "district": "A1",
+  "order": 29,
+  "title": "Мой, твой: benim, senin… и benimki",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Притяжательные местоимения — родительный падеж личных: **benim** (мой), **senin** (твой), **onun** (его, её), **bizim** (наш), **sizin** (ваш), **onların** (их). Вещь при них тоже получает аффикс: **benim evim**."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Местоимение",
+        "Мой…",
+        "«Мой» без вещи"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "ben",
+            "benim",
+            "benimki"
+          ]
+        },
+        {
+          "cells": [
+            "sen",
+            "senin",
+            "seninki"
+          ]
+        },
+        {
+          "cells": [
+            "o",
+            "onun",
+            "onunki"
+          ]
+        },
+        {
+          "cells": [
+            "biz",
+            "bizim",
+            "bizimki"
+          ]
+        },
+        {
+          "cells": [
+            "siz",
+            "sizin",
+            "sizinki"
+          ]
+        },
+        {
+          "cells": [
+            "onlar",
+            "onların",
+            "onlarınki"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "**-ki** заменяет повторённую вещь: Senin çantan büyük, **benimki** küçük — твоя сумка большая, моя маленькая. «Чей?» — **kimin?**"
+    }
+  ],
+  "examples": [
+    {
+      "es": "Bu senin mi?",
+      "ru": "Это твоё?"
+    },
+    {
+      "es": "Hayır, benim değil.",
+      "ru": "Нет, не моё."
+    },
+    {
+      "es": "Onun annesi doktor.",
+      "ru": "Его мама врач."
+    },
+    {
+      "es": "Senin araban mavi, benimki beyaz.",
+      "ru": "Твоя машина синяя, моя белая."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "a1.29-benim-senin.1",
+      "kind": "choose",
+      "prompt": "«Наш дом»:",
+      "options": [
+        "bizim evimiz",
+        "biz evimiz",
+        "bizim ev"
+      ],
+      "answer": 0,
+      "explain": "bizim + evimiz."
+    },
+    {
+      "id": "a1.29-benim-senin.2",
+      "kind": "choose",
+      "prompt": "«Моя» без повтора вещи:",
+      "options": [
+        "benimki",
+        "benim",
+        "benimi"
+      ],
+      "answer": 0,
+      "explain": "-ki заменяет вещь: benimki."
+    },
+    {
+      "id": "a1.29-benim-senin.3",
+      "kind": "gap",
+      "sentence": "Bu kitap ___?",
+      "ru": "Это книга твоя?",
+      "options": [
+        "senin mi",
+        "sen mi",
+        "seninki mi"
+      ],
+      "answer": 0,
+      "explain": "Твоя — senin."
+    },
+    {
+      "id": "a1.29-benim-senin.4",
+      "kind": "gap",
+      "sentence": "Benim kahvem sıcak, ___ soğuk.",
+      "ru": "Мой кофе горячий, твой холодный.",
+      "options": [
+        "seninki",
+        "senin",
+        "sen"
+      ],
+      "answer": 0,
+      "explain": "Твой без повтора — seninki."
+    },
+    {
+      "id": "a1.29-benim-senin.5",
+      "kind": "truefalse",
+      "statement": "«Onların» значит «их».",
+      "answer": true,
+      "explain": "onların — их."
+    },
+    {
+      "id": "a1.29-benim-senin.6",
+      "kind": "truefalse",
+      "statement": "«Benim ev» — правильно.",
+      "answer": false,
+      "explain": "Нужно benim evim."
+    },
+    {
+      "id": "a1.29-benim-senin.7",
+      "kind": "truefalse",
+      "statement": "«Kimin?» значит «чей?».",
+      "answer": true,
+      "explain": "kim + in."
+    },
+    {
+      "id": "a1.29-benim-senin.8",
+      "kind": "build",
+      "ru": "Это не моя сумка.",
+      "answer": "Bu benim çantam değil.",
+      "extra": [
+        "senin",
+        "çantan"
+      ],
+      "explain": "Моя — benim çantam."
+    },
+    {
+      "id": "a1.29-benim-senin.9",
+      "kind": "type",
+      "sentence": "Bu ___ telefonu mu?",
+      "ru": "Это его телефон?",
+      "hint": "его",
+      "answer": "onun",
+      "explain": "Его — onun."
+    }
+  ]
+}

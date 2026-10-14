@@ -1,0 +1,179 @@
+{
+  "id": "a1.15-iyor-olumsuz",
+  "district": "A1",
+  "order": 15,
+  "title": "Не делаю и делаешь ли: -mIyor, mU",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Отрицание — **-mI-** перед -yor: gel**mi**yorum (я не иду), yap**mı**yor (не делает). Вопрос — частица **mu** после -yor, личное окончание переходит на неё: geliyor **musun**?"
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Лицо",
+        "Отрицание",
+        "Вопрос"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "ben",
+            "gelmiyorum",
+            "geliyor muyum?"
+          ]
+        },
+        {
+          "cells": [
+            "sen",
+            "gelmiyorsun",
+            "geliyor musun?"
+          ]
+        },
+        {
+          "cells": [
+            "o",
+            "gelmiyor",
+            "geliyor mu?"
+          ]
+        },
+        {
+          "cells": [
+            "biz",
+            "gelmiyoruz",
+            "geliyor muyuz?"
+          ]
+        },
+        {
+          "cells": [
+            "siz",
+            "gelmiyorsunuz",
+            "geliyor musunuz?"
+          ]
+        },
+        {
+          "cells": [
+            "onlar",
+            "gelmiyorlar",
+            "geliyorlar mı?"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "После -yor частица всегда **mu**: гармония по o в -yor. «Не понимаю» — **anlamıyorum**, частый ответ ученика."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Anlamıyorum.",
+      "ru": "Я не понимаю."
+    },
+    {
+      "es": "Bugün çalışmıyorum.",
+      "ru": "Сегодня я не работаю."
+    },
+    {
+      "es": "Beni duyuyor musun?",
+      "ru": "Ты меня слышишь?"
+    },
+    {
+      "es": "Otobüs geliyor mu?",
+      "ru": "Автобус идёт?"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "a1.15-iyor-olumsuz.1",
+      "kind": "choose",
+      "prompt": "«Я не знаю»:",
+      "options": [
+        "bilmiyorum",
+        "bilmeyorum",
+        "biliyor değilim"
+      ],
+      "answer": 0,
+      "explain": "bil + mi + yor + um."
+    },
+    {
+      "id": "a1.15-iyor-olumsuz.2",
+      "kind": "choose",
+      "prompt": "«Ты идёшь?»:",
+      "options": [
+        "geliyor musun?",
+        "geliyorsun mu?",
+        "gelmiyor musun?"
+      ],
+      "answer": 0,
+      "explain": "Окончание лица — на частице: geliyor musun?"
+    },
+    {
+      "id": "a1.15-iyor-olumsuz.3",
+      "kind": "gap",
+      "sentence": "Ali bugün okula ___.",
+      "ru": "Али сегодня не идёт в школу.",
+      "options": [
+        "gitmiyor",
+        "gidiyor",
+        "gitmiyorum"
+      ],
+      "answer": 0,
+      "explain": "Отрицание — gitmiyor."
+    },
+    {
+      "id": "a1.15-iyor-olumsuz.4",
+      "kind": "gap",
+      "sentence": "Çay ___?",
+      "ru": "Ты будешь чай? (Хочешь чаю?)",
+      "options": [
+        "istiyor musun",
+        "istemiyor mu",
+        "istiyorsun mu"
+      ],
+      "answer": 0,
+      "explain": "sen — istiyor musun."
+    },
+    {
+      "id": "a1.15-iyor-olumsuz.5",
+      "kind": "truefalse",
+      "statement": "После -yor частица вопроса всегда mu.",
+      "answer": true,
+      "explain": "Гармония по o: mu."
+    },
+    {
+      "id": "a1.15-iyor-olumsuz.6",
+      "kind": "truefalse",
+      "statement": "«Gelmiyorum» значит «я не иду».",
+      "answer": true,
+      "explain": "gel + mi + yor + um."
+    },
+    {
+      "id": "a1.15-iyor-olumsuz.7",
+      "kind": "truefalse",
+      "statement": "«Anlıyor değilim» — правильное «я не понимаю».",
+      "answer": false,
+      "explain": "Değil — для имени. Правильно: anlamıyorum."
+    },
+    {
+      "id": "a1.15-iyor-olumsuz.8",
+      "kind": "build",
+      "ru": "Мы сегодня не работаем.",
+      "answer": "Biz bugün çalışmıyoruz.",
+      "extra": [
+        "çalışıyoruz",
+        "çalışmıyorum"
+      ],
+      "explain": "Отрицание — -mı-: çalışmıyoruz."
+    },
+    {
+      "id": "a1.15-iyor-olumsuz.9",
+      "kind": "type",
+      "sentence": "Seni ___.",
+      "ru": "Я тебя не слышу.",
+      "hint": "duymak, не",
+      "answer": "duymuyorum",
+      "explain": "duy + mu + yor + um."
+    }
+  ]
+}

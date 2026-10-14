@@ -1,0 +1,190 @@
+{
+  "id": "a2.01-sira-sayilari",
+  "district": "A2",
+  "order": 1,
+  "title": "Порядковые числительные: -(I)ncI",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Порядковые — аффикс **-ıncı / -inci / -uncu / -üncü**, после гласной — **-ncı…**: bir**inci** (первый), iki**nci** (второй), üç**üncü** (третий), dörd**üncü** (четвёртый, t → d)."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Число",
+        "Порядковое"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "bir",
+            "birinci"
+          ]
+        },
+        {
+          "cells": [
+            "iki",
+            "ikinci"
+          ]
+        },
+        {
+          "cells": [
+            "üç",
+            "üçüncü"
+          ]
+        },
+        {
+          "cells": [
+            "dört",
+            "dördüncü"
+          ]
+        },
+        {
+          "cells": [
+            "beş",
+            "beşinci"
+          ]
+        },
+        {
+          "cells": [
+            "altı",
+            "altıncı"
+          ]
+        },
+        {
+          "cells": [
+            "on",
+            "onuncu"
+          ]
+        },
+        {
+          "cells": [
+            "bir kez, bir kere",
+            "один раз"
+          ]
+        },
+        {
+          "cells": [
+            "iki kez, iki kere",
+            "два раза"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "В цифрах ставят точку: **3.** kat — третий этаж. «Первый» в смысле «впервые» — **ilk**: ilk gün, ilk kez."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Odamız üçüncü katta.",
+      "ru": "Наш номер на третьем этаже."
+    },
+    {
+      "es": "İkinci soru çok kolay.",
+      "ru": "Второй вопрос очень лёгкий."
+    },
+    {
+      "es": "Bu benim ilk yolculuğum.",
+      "ru": "Это моё первое путешествие."
+    },
+    {
+      "es": "Dördüncü sokaktan sağa dön.",
+      "ru": "Поверни направо на четвёртой улице."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "a2.01-sira-sayilari.1",
+      "kind": "choose",
+      "prompt": "«Пятый»:",
+      "options": [
+        "beşinci",
+        "beşüncü",
+        "beşnci"
+      ],
+      "answer": 0,
+      "explain": "beş — последняя e: -inci."
+    },
+    {
+      "id": "a2.01-sira-sayilari.2",
+      "kind": "choose",
+      "prompt": "«Четвёртый»:",
+      "options": [
+        "dördüncü",
+        "dörtüncü",
+        "dördinci"
+      ],
+      "answer": 0,
+      "explain": "t озвончается, гласная ü: dördüncü."
+    },
+    {
+      "id": "a2.01-sira-sayilari.3",
+      "kind": "gap",
+      "sentence": "Ofis ___ katta.",
+      "ru": "Офис на шестом этаже.",
+      "options": [
+        "altıncı",
+        "altinci",
+        "altıncü"
+      ],
+      "answer": 0,
+      "explain": "altı — после гласной -ncı."
+    },
+    {
+      "id": "a2.01-sira-sayilari.4",
+      "kind": "gap",
+      "sentence": "Bu benim ___ gelişim.",
+      "ru": "Я здесь впервые.",
+      "options": [
+        "ilk",
+        "birinci",
+        "bir"
+      ],
+      "answer": 0,
+      "explain": "Впервые — ilk."
+    },
+    {
+      "id": "a2.01-sira-sayilari.5",
+      "kind": "truefalse",
+      "statement": "Порядковое от iki — ikinci.",
+      "answer": true,
+      "explain": "После гласной -nci."
+    },
+    {
+      "id": "a2.01-sira-sayilari.6",
+      "kind": "truefalse",
+      "statement": "«Onuncu» значит «десятый».",
+      "answer": true,
+      "explain": "on + uncu."
+    },
+    {
+      "id": "a2.01-sira-sayilari.7",
+      "kind": "truefalse",
+      "statement": "Ilk и birinci всегда взаимозаменяемы.",
+      "answer": false,
+      "explain": "«Впервые, первый раз» — ilk: ilk kez."
+    },
+    {
+      "id": "a2.01-sira-sayilari.8",
+      "kind": "build",
+      "ru": "Поезд отходит со второй платформы.",
+      "answer": "Tren ikinci perondan kalkıyor.",
+      "extra": [
+        "iki",
+        "ikincide"
+      ],
+      "explain": "Второй — ikinci."
+    },
+    {
+      "id": "a2.01-sira-sayilari.9",
+      "kind": "type",
+      "sentence": "Yarışta ___ oldum.",
+      "ru": "Я стал третьим в гонке.",
+      "hint": "третий",
+      "answer": "üçüncü",
+      "explain": "üç + üncü."
+    }
+  ]
+}

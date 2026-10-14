@@ -1,0 +1,158 @@
+{
+  "id": "a1.08-var-yok",
+  "district": "A1",
+  "order": 8,
+  "title": "Есть и нет: var, yok",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "**var** — «есть, имеется», **yok** — «нет». Где-то есть что-то: **Masada çay var** — на столе есть чай. У кого-то есть: **Benim arabam var** — у меня есть машина."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Утверждение",
+        "Отрицание",
+        "Вопрос"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Su var.",
+            "Su yok.",
+            "Su var mı?"
+          ]
+        },
+        {
+          "cells": [
+            "Vaktim var.",
+            "Vaktim yok.",
+            "Vaktin var mı?"
+          ]
+        },
+        {
+          "cells": [
+            "Odada yatak var.",
+            "Odada yatak yok.",
+            "Odada yatak var mı?"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "«У меня есть» — не «ben var», а **принадлежность + var**: kardeş**im** var, para**m** yok. Слово benim можно добавить для ясности."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Bugün pazar var.",
+      "ru": "Сегодня работает базар."
+    },
+    {
+      "es": "Paran var mı?",
+      "ru": "У тебя есть деньги?"
+    },
+    {
+      "es": "Odada kimse yok.",
+      "ru": "В комнате никого нет."
+    },
+    {
+      "es": "Benim iki kardeşim var.",
+      "ru": "У меня двое братьев и сестёр."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "a1.08-var-yok.1",
+      "kind": "choose",
+      "prompt": "«У меня нет времени»:",
+      "options": [
+        "Vaktim yok.",
+        "Ben yok vakit.",
+        "Vakit değilim."
+      ],
+      "answer": 0,
+      "explain": "Принадлежность + yok: vaktim yok."
+    },
+    {
+      "id": "a1.08-var-yok.2",
+      "kind": "choose",
+      "prompt": "Вопрос «Есть сахар?»:",
+      "options": [
+        "Şeker var mı?",
+        "Şeker mı var?",
+        "Var şeker mi?"
+      ],
+      "answer": 0,
+      "explain": "var mı?"
+    },
+    {
+      "id": "a1.08-var-yok.3",
+      "kind": "gap",
+      "sentence": "Buzdolabında süt ___.",
+      "ru": "В холодильнике нет молока.",
+      "options": [
+        "yok",
+        "değil",
+        "var mı"
+      ],
+      "answer": 0,
+      "explain": "Нет — yok."
+    },
+    {
+      "id": "a1.08-var-yok.4",
+      "kind": "gap",
+      "sentence": "Bir sorum ___.",
+      "ru": "У меня есть вопрос.",
+      "options": [
+        "var",
+        "yok mu",
+        "değil"
+      ],
+      "answer": 0,
+      "explain": "Есть — var."
+    },
+    {
+      "id": "a1.08-var-yok.5",
+      "kind": "truefalse",
+      "statement": "«Ben arabam var» — правильная форма.",
+      "answer": false,
+      "explain": "Правильно: Benim arabam var (или просто Arabam var)."
+    },
+    {
+      "id": "a1.08-var-yok.6",
+      "kind": "truefalse",
+      "statement": "Yok — противоположность var.",
+      "answer": true,
+      "explain": "var — есть, yok — нет."
+    },
+    {
+      "id": "a1.08-var-yok.7",
+      "kind": "truefalse",
+      "statement": "«Çay var mı?» значит «Есть чай?».",
+      "answer": true,
+      "explain": "var mı — есть ли."
+    },
+    {
+      "id": "a1.08-var-yok.8",
+      "kind": "build",
+      "ru": "В парке есть озеро.",
+      "answer": "Parkta bir göl var.",
+      "extra": [
+        "yok",
+        "parka"
+      ],
+      "explain": "Где — местный падеж parkta; есть — var."
+    },
+    {
+      "id": "a1.08-var-yok.9",
+      "kind": "type",
+      "sentence": "Evde ekmek ___.",
+      "ru": "Дома нет хлеба.",
+      "hint": "нет",
+      "answer": "yok",
+      "explain": "Нет — yok."
+    }
+  ]
+}

@@ -1,0 +1,175 @@
+{
+  "id": "a2.26-ci",
+  "district": "A2",
+  "order": 26,
+  "title": "Кто делает: -CI",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Аффикс **-cı / -ci / -cu / -cü** образует занятие или профессию: balık**çı** (рыбак), kitap**çı** (книжный продавец), simit**çi** (продавец симитов), yol**cu** (путник). После глухих согласных — **-çı…**"
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Слово",
+        "С -CI",
+        "Перевод"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "balık",
+            "balıkçı",
+            "рыбак, торговец рыбой"
+          ]
+        },
+        {
+          "cells": [
+            "süt",
+            "sütçü",
+            "молочник"
+          ]
+        },
+        {
+          "cells": [
+            "çay",
+            "çaycı",
+            "чайханщик"
+          ]
+        },
+        {
+          "cells": [
+            "kapı",
+            "kapıcı",
+            "привратник, консьерж"
+          ]
+        },
+        {
+          "cells": [
+            "yol",
+            "yolcu",
+            "путник, пассажир"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Тот же аффикс у мест торговли: **kitapçı** — и продавец, и книжный магазин. «Я иду в книжный» — **kitapçıya gidiyorum**."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Balıkçı sabah erkenden denize açılır.",
+      "ru": "Рыбак рано утром выходит в море."
+    },
+    {
+      "es": "Simitçi her gün buradan geçer.",
+      "ru": "Продавец симитов каждый день проходит здесь."
+    },
+    {
+      "es": "Kapıcı bize anahtarı verdi.",
+      "ru": "Консьерж дал нам ключ."
+    },
+    {
+      "es": "Kitapçıya gidiyorum.",
+      "ru": "Я иду в книжный."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "a2.26-ci.1",
+      "kind": "choose",
+      "prompt": "«Молочник»:",
+      "options": [
+        "sütçü",
+        "sütcü",
+        "sütçı"
+      ],
+      "answer": 0,
+      "explain": "т — глухая, гласная ü: sütçü."
+    },
+    {
+      "id": "a2.26-ci.2",
+      "kind": "choose",
+      "prompt": "«Путник»:",
+      "options": [
+        "yolcu",
+        "yolçu",
+        "yolcı"
+      ],
+      "answer": 0,
+      "explain": "yol — последняя o: -cu."
+    },
+    {
+      "id": "a2.26-ci.3",
+      "kind": "gap",
+      "sentence": "Babam ___, her gün denize gider.",
+      "ru": "Мой папа рыбак, каждый день ходит в море.",
+      "options": [
+        "balıkçı",
+        "balıkcı",
+        "balık"
+      ],
+      "answer": 0,
+      "explain": "k — глухая: balıkçı."
+    },
+    {
+      "id": "a2.26-ci.4",
+      "kind": "gap",
+      "sentence": "___ bir kitap aldım.",
+      "ru": "Я купил в книжном одну книгу.",
+      "options": [
+        "Kitapçıdan",
+        "Kitapçıya",
+        "Kitapçı"
+      ],
+      "answer": 0,
+      "explain": "Откуда — kitapçıdan."
+    },
+    {
+      "id": "a2.26-ci.5",
+      "kind": "truefalse",
+      "statement": "Аффикс -CI образует профессии и занятия.",
+      "answer": true,
+      "explain": "balıkçı, simitçi."
+    },
+    {
+      "id": "a2.26-ci.6",
+      "kind": "truefalse",
+      "statement": "После глухой согласной -CI звучит как -çı: kitapçı.",
+      "answer": true,
+      "explain": "p — глухая."
+    },
+    {
+      "id": "a2.26-ci.7",
+      "kind": "truefalse",
+      "statement": "«Kapıcı» — это дверь.",
+      "answer": false,
+      "explain": "Kapı — дверь, kapıcı — привратник."
+    },
+    {
+      "id": "a2.26-ci.8",
+      "kind": "build",
+      "ru": "Чайханщик несёт чай на подносе.",
+      "answer": "Çaycı çayları tepsiyle getiriyor.",
+      "extra": [
+        "çay",
+        "tepsiye"
+      ],
+      "explain": "Кто — çaycı; чем — tepsiyle."
+    },
+    {
+      "id": "a2.26-ci.9",
+      "kind": "type",
+      "sentence": "Bu sabah ___ taze ekmek aldım.",
+      "ru": "Сегодня утром я купил свежий хлеб у пекаря.",
+      "hint": "пекарь, у кого",
+      "answer": "ekmekçiden",
+      "alt": [
+        "fırından"
+      ],
+      "explain": "ekmek + çi + den."
+    }
+  ]
+}

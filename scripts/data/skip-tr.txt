@@ -72,3 +72,64 @@ günü > gün
 yolunmak > yol
 karımak > karı
 pekala > pekâlâ
+
+# Циркумфлекс: курс пишет hâlâ, hikâye, а скрипты словаря сравнивают без него (tokens у турецкого) —
+# лемма со знаком считается вместе с той же без знака.
+hâlâ > hala
+pekâlâ > pekala
+hâl > hal
+hikâye > hikaye
+â > a
+imkân > imkan
+âşık > aşık
+herhâlde > herhalde
+dükkân > dükkan
+lâzım > lazım
+kâğıt > kağıt
+mahkûm > mahkum
+kâr > kar
+rüzgâr > rüzgar
+zekâ > zeka
+dâhil > dahil
+mekân > mekan
+hâkim > hakim
+şikâyet > şikayet
+inkâr > inkar
+pekâla > pekala
+kâbus > kabus
+evlât > evlat
+lânet > lanet
+derhâl > derhal
+bekâr > bekar
+sahtekâr > sahtekar
+tabiî > tabii
+mâl > mal
+selâm > selam
+dâhi > dahi
+
+# Шум после задачи 18.4: междометия и имена из субтитров, формы, которые разбор не свёл к лемме,
+# слитное написание (birşey, herşey — в курсе bir şey, her şey).
+oh
+ha
+ah
+vay
+hey
+be
+te
+sam
+frank
+ney
+burmak
+verecek > vermek
+gelen > gelmek
+adamı > adam
+bildik > bilmek
+olmadık > olmak
+elim > el
+azı > az
+çıkma > çıkmak
+umar > ummak
+sever > sevmek
+bitti > bitmek
+birşey > şey
+herşey > şey

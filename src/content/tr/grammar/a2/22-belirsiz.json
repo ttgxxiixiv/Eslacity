@@ -1,0 +1,217 @@
+{
+  "id": "a2.22-belirsiz",
+  "district": "A2",
+  "order": 22,
+  "title": "Кто-то, что-то, все",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Неопределённые: **biri** (кто-то), **bir şey** (что-то), **bir yer** (где-то), **bir gün** (однажды). Обобщающие: **herkes** (все), **her şey** (всё), **her yer** (везде), **her gün** (каждый день)."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Неопределённое",
+        "Обобщающее",
+        "Отрицательное"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "biri — кто-то",
+            "herkes — все",
+            "kimse — никто"
+          ]
+        },
+        {
+          "cells": [
+            "bir şey — что-то",
+            "her şey — всё",
+            "hiçbir şey — ничего"
+          ]
+        },
+        {
+          "cells": [
+            "bir yer — где-то",
+            "her yer — везде",
+            "hiçbir yer — нигде"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Слово",
+        "Значение",
+        "Пример"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "tüm, bütün",
+            "весь, все",
+            "tüm gün"
+          ]
+        },
+        {
+          "cells": [
+            "hepsi",
+            "все они, всё это",
+            "Hepsi burada."
+          ]
+        },
+        {
+          "cells": [
+            "bazı",
+            "некоторые",
+            "bazı insanlar"
+          ]
+        },
+        {
+          "cells": [
+            "birkaç",
+            "несколько",
+            "birkaç gün"
+          ]
+        },
+        {
+          "cells": [
+            "diğer",
+            "другой, остальной",
+            "diğer oda"
+          ]
+        },
+        {
+          "cells": [
+            "herhangi bir",
+            "любой",
+            "herhangi bir gün"
+          ]
+        },
+        {
+          "cells": [
+            "birileri",
+            "кто-то (несколько человек)",
+            "Birileri geldi."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "**her** + существительное в единственном: **her gün**, **her öğrenci**. Herkes согласуется с «он»: **Herkes geldi** — все пришли."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Kapıda biri var.",
+      "ru": "У двери кто-то есть."
+    },
+    {
+      "es": "Bir şey mi söyledin?",
+      "ru": "Ты что-то сказал?"
+    },
+    {
+      "es": "Herkes seni bekliyor.",
+      "ru": "Все тебя ждут."
+    },
+    {
+      "es": "Her yer çok kalabalık.",
+      "ru": "Везде очень многолюдно."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "a2.22-belirsiz.1",
+      "kind": "choose",
+      "prompt": "«Кто-то»:",
+      "options": [
+        "biri",
+        "herkes",
+        "kimse"
+      ],
+      "answer": 0,
+      "explain": "biri — кто-то."
+    },
+    {
+      "id": "a2.22-belirsiz.2",
+      "kind": "choose",
+      "prompt": "«Каждый день»:",
+      "options": [
+        "her gün",
+        "her günler",
+        "herkes gün"
+      ],
+      "answer": 0,
+      "explain": "her + единственное: her gün."
+    },
+    {
+      "id": "a2.22-belirsiz.3",
+      "kind": "gap",
+      "sentence": "___ hazır mı?",
+      "ru": "Всё готово?",
+      "options": [
+        "Her şey",
+        "Herkes",
+        "Biri"
+      ],
+      "answer": 0,
+      "explain": "Всё — her şey."
+    },
+    {
+      "id": "a2.22-belirsiz.4",
+      "kind": "gap",
+      "sentence": "Bir ___ seni arıyor.",
+      "ru": "Тебя кто-то ищет (какой-то человек).",
+      "options": [
+        "adam",
+        "herkes",
+        "kimse"
+      ],
+      "answer": 0,
+      "explain": "Какой-то — bir adam."
+    },
+    {
+      "id": "a2.22-belirsiz.5",
+      "kind": "truefalse",
+      "statement": "«Herkes geldiler» — самая частая форма.",
+      "answer": false,
+      "explain": "Herkes согласуется с «он»: herkes geldi."
+    },
+    {
+      "id": "a2.22-belirsiz.6",
+      "kind": "truefalse",
+      "statement": "«Bir yer» значит «где-то, какое-то место».",
+      "answer": true,
+      "explain": "bir yer — где-то."
+    },
+    {
+      "id": "a2.22-belirsiz.7",
+      "kind": "truefalse",
+      "statement": "«Her şey» значит «всё».",
+      "answer": true,
+      "explain": "her şey — всё."
+    },
+    {
+      "id": "a2.22-belirsiz.8",
+      "kind": "build",
+      "ru": "Все любят Хасана-уста.",
+      "answer": "Herkes Hasan Usta'yı seviyor.",
+      "extra": [
+        "kimse",
+        "seviyorlar"
+      ],
+      "explain": "Herkes + глагол «он»."
+    },
+    {
+      "id": "a2.22-belirsiz.9",
+      "kind": "type",
+      "sentence": "Sana ___ söylemek istiyorum.",
+      "ru": "Я хочу тебе кое-что сказать.",
+      "hint": "что-то",
+      "answer": "bir şey",
+      "explain": "Что-то — bir şey."
+    }
+  ]
+}

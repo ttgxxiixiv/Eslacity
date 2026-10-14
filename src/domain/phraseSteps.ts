@@ -1,5 +1,5 @@
 import type { Phrase } from '../content/schema';
-import { normalize, type Verdict } from './answer';
+import { lowerText, normalize, type Verdict } from './answer';
 import { shuffle, type Rng } from './generators';
 import { fullPhrase } from './phrase';
 import type { Grade, SrsCard } from './srs';
@@ -27,7 +27,8 @@ export function phraseTokens(text: string): string[] {
     .replace(/[¿¡?!.,;:"«»()…—–]/g, ' ')
     .split(/\s+/)
     .filter(Boolean);
-  if (tokens[0] && tokens[0] !== tokens[0].toUpperCase()) tokens[0] = tokens[0].toLowerCase();
+  // Строчные по правилам языка: toLowerCase делает из турецкой İ букву i с отдельной точкой сверху (U+0307).
+  if (tokens[0] && tokens[0] !== tokens[0].toUpperCase()) tokens[0] = lowerText(tokens[0]);
   return tokens;
 }
 

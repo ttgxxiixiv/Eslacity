@@ -1,0 +1,178 @@
+{
+  "id": "a1.17-saat",
+  "district": "A1",
+  "order": 17,
+  "title": "Который час и дни недели",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "**Saat kaç?** — Который час? Ответ: **Saat beş** (пять), **Saat beş buçuk** (полшестого). Во сколько? — **Saat kaçta?** — **Saat beşte** (в пять), местный падеж."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "День",
+        "Перевод"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "pazartesi",
+            "понедельник"
+          ]
+        },
+        {
+          "cells": [
+            "salı",
+            "вторник"
+          ]
+        },
+        {
+          "cells": [
+            "çarşamba",
+            "среда"
+          ]
+        },
+        {
+          "cells": [
+            "perşembe",
+            "четверг"
+          ]
+        },
+        {
+          "cells": [
+            "cuma",
+            "пятница"
+          ]
+        },
+        {
+          "cells": [
+            "cumartesi",
+            "суббота"
+          ]
+        },
+        {
+          "cells": [
+            "pazar",
+            "воскресенье"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "«В понедельник» — **pazartesi** или **pazartesi günü**, без аффикса. Половина первого — **yarım**: saat yarım. Утром — sabah, вечером — akşam: **akşam yedide**."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Saat kaç? — Saat dokuz.",
+      "ru": "Который час? — Девять."
+    },
+    {
+      "es": "Ders saat onda başlıyor.",
+      "ru": "Урок начинается в десять."
+    },
+    {
+      "es": "Cuma akşamı buluşalım.",
+      "ru": "Давай встретимся в пятницу вечером."
+    },
+    {
+      "es": "Vapur saat yedi buçukta kalkıyor.",
+      "ru": "Паром отходит в половине восьмого."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "a1.17-saat.1",
+      "kind": "choose",
+      "prompt": "«Во сколько?»:",
+      "options": [
+        "Saat kaçta?",
+        "Saat kaç?",
+        "Ne kadar?"
+      ],
+      "answer": 0,
+      "explain": "Во сколько — saat kaçta."
+    },
+    {
+      "id": "a1.17-saat.2",
+      "kind": "choose",
+      "prompt": "Суббота — это…",
+      "options": [
+        "cumartesi",
+        "cuma",
+        "pazar"
+      ],
+      "answer": 0,
+      "explain": "cumartesi — суббота, cuma — пятница."
+    },
+    {
+      "id": "a1.17-saat.3",
+      "kind": "gap",
+      "sentence": "Saat ___ buluşuyoruz.",
+      "ru": "Встречаемся в три.",
+      "options": [
+        "üçte",
+        "üç",
+        "üçe"
+      ],
+      "answer": 0,
+      "explain": "Во сколько — местный падеж: üçte."
+    },
+    {
+      "id": "a1.17-saat.4",
+      "kind": "gap",
+      "sentence": "Saat beş ___.",
+      "ru": "Полшестого.",
+      "options": [
+        "buçuk",
+        "yarım",
+        "çeyrek"
+      ],
+      "answer": 0,
+      "explain": "После числа — buçuk: beş buçuk."
+    },
+    {
+      "id": "a1.17-saat.5",
+      "kind": "truefalse",
+      "statement": "Pazar — это воскресенье.",
+      "answer": true,
+      "explain": "pazar — воскресенье (и базар)."
+    },
+    {
+      "id": "a1.17-saat.6",
+      "kind": "truefalse",
+      "statement": "«Saat kaç?» спрашивают, во сколько будет событие.",
+      "answer": false,
+      "explain": "Saat kaç? — который час. Во сколько — saat kaçta?"
+    },
+    {
+      "id": "a1.17-saat.7",
+      "kind": "truefalse",
+      "statement": "Çarşamba — это среда.",
+      "answer": true,
+      "explain": "çarşamba — среда."
+    },
+    {
+      "id": "a1.17-saat.8",
+      "kind": "build",
+      "ru": "Поезд отходит в восемь.",
+      "answer": "Tren saat sekizde kalkıyor.",
+      "extra": [
+        "sekize",
+        "sekiz"
+      ],
+      "explain": "Во сколько — sekizde."
+    },
+    {
+      "id": "a1.17-saat.9",
+      "kind": "type",
+      "sentence": "Saat ___? — Saat on bir.",
+      "ru": "Который час? — Одиннадцать.",
+      "hint": "вопрос",
+      "answer": "kaç",
+      "explain": "Который час — saat kaç."
+    }
+  ]
+}

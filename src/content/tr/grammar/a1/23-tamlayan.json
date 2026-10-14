@@ -1,0 +1,165 @@
+{
+  "id": "a1.23-tamlayan",
+  "district": "A1",
+  "order": 23,
+  "title": "Чей? Родительный и изафет",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "«Чей» — родительный падеж **-(n)In**: Ali**'nin**, ev**in**, araba**nın**. Тот, кому принадлежит, получает -In, а сама вещь — аффикс «его» -(s)I: **Ali'nin evi** — дом Али, **arabanın rengi** — цвет машины."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Владелец",
+        "Вещь",
+        "Вместе"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Ali",
+            "ev",
+            "Ali'nin evi"
+          ]
+        },
+        {
+          "cells": [
+            "kapı",
+            "renk",
+            "kapının rengi"
+          ]
+        },
+        {
+          "cells": [
+            "ben",
+            "kitap",
+            "benim kitabım"
+          ]
+        },
+        {
+          "cells": [
+            "okul",
+            "bahçe",
+            "okulun bahçesi"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Если владелец не конкретный, родительного нет: **okul çantası** (школьный рюкзак), **Türk kahvesi** (турецкий кофе), **otobüs durağı** (автобусная остановка)."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Annemin adı Fatma.",
+      "ru": "Мою маму зовут Фатма."
+    },
+    {
+      "es": "Evin kapısı kırmızı.",
+      "ru": "Дверь дома красная."
+    },
+    {
+      "es": "Bu, Murat Bey'in arabası.",
+      "ru": "Это машина Мурат-бея."
+    },
+    {
+      "es": "Bir Türk kahvesi, lütfen.",
+      "ru": "Турецкий кофе, пожалуйста."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "a1.23-tamlayan.1",
+      "kind": "choose",
+      "prompt": "«Дом Айше»:",
+      "options": [
+        "Ayşe'nin evi",
+        "Ayşe evi",
+        "Ayşe'nin ev"
+      ],
+      "answer": 0,
+      "explain": "Владелец -nin, вещь -i: Ayşe'nin evi."
+    },
+    {
+      "id": "a1.23-tamlayan.2",
+      "kind": "choose",
+      "prompt": "«Автобусная остановка»:",
+      "options": [
+        "otobüs durağı",
+        "otobüsün durak",
+        "otobüs durak"
+      ],
+      "answer": 0,
+      "explain": "Без конкретного владельца: otobüs durağı."
+    },
+    {
+      "id": "a1.23-tamlayan.3",
+      "kind": "gap",
+      "sentence": "Kedinin ___ beyaz.",
+      "ru": "Хвост у кошки белый.",
+      "options": [
+        "kuyruğu",
+        "kuyruk",
+        "kuyruğun"
+      ],
+      "answer": 0,
+      "explain": "Вещь получает «его»: kuyruğu."
+    },
+    {
+      "id": "a1.23-tamlayan.4",
+      "kind": "gap",
+      "sentence": "Bu ___ kitabı.",
+      "ru": "Это книга учителя.",
+      "options": [
+        "öğretmenin",
+        "öğretmen",
+        "öğretmene"
+      ],
+      "answer": 0,
+      "explain": "Чья — öğretmenin."
+    },
+    {
+      "id": "a1.23-tamlayan.5",
+      "kind": "truefalse",
+      "statement": "В «okul çantası» нет родительного падежа.",
+      "answer": true,
+      "explain": "Владелец не конкретный: okul çantası."
+    },
+    {
+      "id": "a1.23-tamlayan.6",
+      "kind": "truefalse",
+      "statement": "«Ali'nin ev» — правильно.",
+      "answer": false,
+      "explain": "Вещь тоже получает аффикс: Ali'nin evi."
+    },
+    {
+      "id": "a1.23-tamlayan.7",
+      "kind": "truefalse",
+      "statement": "После гласной родительный -nın: arabanın.",
+      "answer": true,
+      "explain": "araba + nın."
+    },
+    {
+      "id": "a1.23-tamlayan.8",
+      "kind": "build",
+      "ru": "Где ключ от машины?",
+      "answer": "Arabanın anahtarı nerede?",
+      "extra": [
+        "araba",
+        "anahtar"
+      ],
+      "explain": "Чей — arabanın; что — anahtarı."
+    },
+    {
+      "id": "a1.23-tamlayan.9",
+      "kind": "type",
+      "sentence": "Bu ___ telefonu.",
+      "ru": "Это телефон Мехмета.",
+      "hint": "Mehmet, чей",
+      "answer": "Mehmet'in",
+      "explain": "Чей — Mehmet + in."
+    }
+  ]
+}

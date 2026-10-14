@@ -1,0 +1,175 @@
+{
+  "id": "a2.21-olumsuz-zamirler",
+  "district": "A2",
+  "order": 21,
+  "title": "Никто, ничто, никогда",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Отрицательные слова идут с **отрицательным глаголом**: **Kimse gelmedi** — никто не пришёл. **Hiçbir şey bilmiyorum** — я ничего не знаю."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Слово",
+        "Значение",
+        "Пример"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "kimse",
+            "никто",
+            "Kimse yok."
+          ]
+        },
+        {
+          "cells": [
+            "hiçbir şey",
+            "ничего",
+            "Hiçbir şey görmedim."
+          ]
+        },
+        {
+          "cells": [
+            "hiçbir yer",
+            "нигде, никуда",
+            "Hiçbir yere gitmiyorum."
+          ]
+        },
+        {
+          "cells": [
+            "hiç",
+            "никогда, совсем",
+            "Hiç İstanbul'a gitmedim."
+          ]
+        },
+        {
+          "cells": [
+            "hiçbir",
+            "никакой",
+            "Hiçbir sorun yok."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Как и в русском, отрицание двойное: «никто **не** пришёл» — kimse gel**me**di. В вопросе hiç значит «когда-нибудь»: **Hiç Ankara'ya gittin mi?**"
+    }
+  ],
+  "examples": [
+    {
+      "es": "Evde kimse yok.",
+      "ru": "Дома никого нет."
+    },
+    {
+      "es": "Hiçbir şey anlamadım.",
+      "ru": "Я ничего не понял."
+    },
+    {
+      "es": "Bu yaz hiçbir yere gitmedik.",
+      "ru": "Этим летом мы никуда не ездили."
+    },
+    {
+      "es": "Hiç deniz gördün mü?",
+      "ru": "Ты когда-нибудь видел море?"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "a2.21-olumsuz-zamirler.1",
+      "kind": "choose",
+      "prompt": "«Никто не знает»:",
+      "options": [
+        "Kimse bilmiyor.",
+        "Kimse biliyor.",
+        "Hiç kimse biliyor."
+      ],
+      "answer": 0,
+      "explain": "Отрицательное слово + отрицательный глагол."
+    },
+    {
+      "id": "a2.21-olumsuz-zamirler.2",
+      "kind": "choose",
+      "prompt": "«Ничего»:",
+      "options": [
+        "hiçbir şey",
+        "bir şey",
+        "her şey"
+      ],
+      "answer": 0,
+      "explain": "hiçbir şey — ничего."
+    },
+    {
+      "id": "a2.21-olumsuz-zamirler.3",
+      "kind": "gap",
+      "sentence": "Ben ___ yere gitmiyorum.",
+      "ru": "Я никуда не иду.",
+      "options": [
+        "hiçbir",
+        "her",
+        "bir"
+      ],
+      "answer": 0,
+      "explain": "Никуда — hiçbir yere."
+    },
+    {
+      "id": "a2.21-olumsuz-zamirler.4",
+      "kind": "gap",
+      "sentence": "Bu yemekte ___ sorun yok.",
+      "ru": "С этим блюдом никаких проблем.",
+      "options": [
+        "hiçbir",
+        "kimse",
+        "hiç kimse"
+      ],
+      "answer": 0,
+      "explain": "Никакой — hiçbir."
+    },
+    {
+      "id": "a2.21-olumsuz-zamirler.5",
+      "kind": "truefalse",
+      "statement": "«Kimse geldi» значит «никто не пришёл».",
+      "answer": false,
+      "explain": "Нужен отрицательный глагол: kimse gelmedi."
+    },
+    {
+      "id": "a2.21-olumsuz-zamirler.6",
+      "kind": "truefalse",
+      "statement": "В вопросе hiç значит «когда-нибудь».",
+      "answer": true,
+      "explain": "Hiç deniz gördün mü?"
+    },
+    {
+      "id": "a2.21-olumsuz-zamirler.7",
+      "kind": "truefalse",
+      "statement": "«Hiçbir şey» значит «ничего».",
+      "answer": true,
+      "explain": "hiçbir şey — ничего."
+    },
+    {
+      "id": "a2.21-olumsuz-zamirler.8",
+      "kind": "build",
+      "ru": "Я ничего не слышал.",
+      "answer": "Ben hiçbir şey duymadım.",
+      "extra": [
+        "duydum",
+        "her"
+      ],
+      "explain": "Отрицательное слово + duymadım."
+    },
+    {
+      "id": "a2.21-olumsuz-zamirler.9",
+      "kind": "type",
+      "sentence": "Burada ___ yok.",
+      "ru": "Здесь никого нет.",
+      "hint": "никто",
+      "answer": "kimse",
+      "alt": [
+        "hiç kimse"
+      ],
+      "explain": "Никто — kimse."
+    }
+  ]
+}

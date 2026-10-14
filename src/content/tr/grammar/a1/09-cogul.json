@@ -1,0 +1,166 @@
+{
+  "id": "a1.09-cogul",
+  "district": "A1",
+  "order": 9,
+  "title": "Множественное число: -lAr",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Множественное число — аффикс **-lar** или **-ler** по гармонии: kitap**lar**, ev**ler**, kız**lar**, göz**ler**."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Слово",
+        "Множественное"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "elma",
+            "elmalar"
+          ]
+        },
+        {
+          "cells": [
+            "çocuk",
+            "çocuklar"
+          ]
+        },
+        {
+          "cells": [
+            "öğrenci",
+            "öğrenciler"
+          ]
+        },
+        {
+          "cells": [
+            "gül",
+            "güller"
+          ]
+        },
+        {
+          "cells": [
+            "otobüs",
+            "otobüsler"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "После числа и слов **çok, birkaç, kaç** существительное остаётся в единственном: **iki elma**, **çok insan**, а не «iki elmalar»."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Çocuklar okulda.",
+      "ru": "Дети в школе."
+    },
+    {
+      "es": "İki bilet, lütfen.",
+      "ru": "Два билета, пожалуйста."
+    },
+    {
+      "es": "Elmalar çok tatlı.",
+      "ru": "Яблоки очень сладкие."
+    },
+    {
+      "es": "Parkta çok insan var.",
+      "ru": "В парке много людей."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "a1.09-cogul.1",
+      "kind": "choose",
+      "prompt": "Множественное от öğrenci:",
+      "options": [
+        "öğrenciler",
+        "öğrencilar",
+        "öğrencilır"
+      ],
+      "answer": 0,
+      "explain": "Последняя i — передняя: -ler."
+    },
+    {
+      "id": "a1.09-cogul.2",
+      "kind": "choose",
+      "prompt": "«Три яблока»:",
+      "options": [
+        "üç elma",
+        "üç elmalar",
+        "üç elmaları"
+      ],
+      "answer": 0,
+      "explain": "После числа — единственное: üç elma."
+    },
+    {
+      "id": "a1.09-cogul.3",
+      "kind": "gap",
+      "sentence": "___ çok güzel.",
+      "ru": "Цветы очень красивые.",
+      "options": [
+        "Çiçekler",
+        "Çiçeklar",
+        "Çiçek"
+      ],
+      "answer": 0,
+      "explain": "çiçek — последняя e: çiçekler."
+    },
+    {
+      "id": "a1.09-cogul.4",
+      "kind": "gap",
+      "sentence": "Masada beş ___ var.",
+      "ru": "На столе пять стаканов.",
+      "options": [
+        "bardak",
+        "bardaklar",
+        "bardakler"
+      ],
+      "answer": 0,
+      "explain": "После числа — единственное: beş bardak."
+    },
+    {
+      "id": "a1.09-cogul.5",
+      "kind": "truefalse",
+      "statement": "«Çok insanlar» — правильно.",
+      "answer": false,
+      "explain": "После çok — единственное: çok insan."
+    },
+    {
+      "id": "a1.09-cogul.6",
+      "kind": "truefalse",
+      "statement": "Множественное от kitap — kitaplar.",
+      "answer": true,
+      "explain": "Последняя a: -lar."
+    },
+    {
+      "id": "a1.09-cogul.7",
+      "kind": "truefalse",
+      "statement": "Аффикс -lar/-ler выбирается по последней гласной слова.",
+      "answer": true,
+      "explain": "Это гармония гласных."
+    },
+    {
+      "id": "a1.09-cogul.8",
+      "kind": "build",
+      "ru": "Студенты сейчас в классе.",
+      "answer": "Öğrenciler şimdi sınıfta.",
+      "extra": [
+        "öğrencilar",
+        "sınıfa"
+      ],
+      "explain": "öğrenci → öğrenciler; где — sınıfta."
+    },
+    {
+      "id": "a1.09-cogul.9",
+      "kind": "type",
+      "sentence": "Bu ___ çok eski.",
+      "ru": "Эти дома очень старые.",
+      "hint": "ev, мн. ч.",
+      "answer": "evler",
+      "explain": "ev → evler."
+    }
+  ]
+}

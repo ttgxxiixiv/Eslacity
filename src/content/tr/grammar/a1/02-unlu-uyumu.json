@@ -1,0 +1,174 @@
+{
+  "id": "a1.02-unlu-uyumu",
+  "district": "A1",
+  "order": 2,
+  "title": "Гармония гласных",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Гласные делятся на **задние** (a, ı, o, u) и **передние** (e, i, ö, ü). Аффикс подстраивается под последнюю гласную слова: ev**ler**, kitap**lar**."
+    },
+    {
+      "kind": "text",
+      "md": "Двухвариантные аффиксы (обозначают **A**) бывают с a или e. Четырёхвариантные (**I**) — с ı, i, u или ü: после a, ı — ı; после e, i — i; после o, u — u; после ö, ü — ü."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Последняя гласная",
+        "A",
+        "I",
+        "Пример"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "a, ı",
+            "a",
+            "ı",
+            "kız — kızlar, kızı"
+          ]
+        },
+        {
+          "cells": [
+            "o, u",
+            "a",
+            "u",
+            "okul — okullar, okulu"
+          ]
+        },
+        {
+          "cells": [
+            "e, i",
+            "e",
+            "i",
+            "ev — evler, evi"
+          ]
+        },
+        {
+          "cells": [
+            "ö, ü",
+            "e",
+            "ü",
+            "göz — gözler, gözü"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Смотрите только на **последнюю** гласную слова: kitap — a, значит kitaplar; öğretmen — e, значит öğretmenler."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Evler büyük.",
+      "ru": "Дома большие."
+    },
+    {
+      "es": "Kızlar parkta.",
+      "ru": "Девочки в парке."
+    },
+    {
+      "es": "Okulu güzel.",
+      "ru": "Его школа красивая."
+    },
+    {
+      "es": "Gözlerin mavi.",
+      "ru": "У тебя голубые глаза."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "a1.02-unlu-uyumu.1",
+      "kind": "choose",
+      "prompt": "Множественное от okul:",
+      "options": [
+        "okullar",
+        "okuller",
+        "okulları"
+      ],
+      "answer": 0,
+      "explain": "Последняя гласная u — задняя: -lar."
+    },
+    {
+      "id": "a1.02-unlu-uyumu.2",
+      "kind": "choose",
+      "prompt": "Какой вариант аффикса I после ü (göz → göz_)?",
+      "options": [
+        "ü",
+        "ı",
+        "u"
+      ],
+      "answer": 0,
+      "explain": "После ö, ü — ü: gözü."
+    },
+    {
+      "id": "a1.02-unlu-uyumu.3",
+      "kind": "gap",
+      "sentence": "Bütün ___ açık.",
+      "ru": "Все окна открыты.",
+      "options": [
+        "pencereler",
+        "pencerelar",
+        "pencerelır"
+      ],
+      "answer": 0,
+      "explain": "Последняя гласная e — передняя: -ler."
+    },
+    {
+      "id": "a1.02-unlu-uyumu.4",
+      "kind": "gap",
+      "sentence": "Bu ___ çok eski.",
+      "ru": "Эти книги очень старые.",
+      "options": [
+        "kitaplar",
+        "kitapler",
+        "kitaplır"
+      ],
+      "answer": 0,
+      "explain": "kitap — последняя a: -lar."
+    },
+    {
+      "id": "a1.02-unlu-uyumu.5",
+      "kind": "truefalse",
+      "statement": "В слове öğretmen аффикс множественного числа — -lar.",
+      "answer": false,
+      "explain": "Последняя гласная e: öğretmenler."
+    },
+    {
+      "id": "a1.02-unlu-uyumu.6",
+      "kind": "truefalse",
+      "statement": "Гласные a, ı, o, u — задние.",
+      "answer": true,
+      "explain": "Задние: a, ı, o, u; передние: e, i, ö, ü."
+    },
+    {
+      "id": "a1.02-unlu-uyumu.7",
+      "kind": "truefalse",
+      "statement": "Гармония смотрит на первую гласную слова.",
+      "answer": false,
+      "explain": "На последнюю: kitap → kitaplar."
+    },
+    {
+      "id": "a1.02-unlu-uyumu.8",
+      "kind": "build",
+      "ru": "Дети играют в саду.",
+      "answer": "Çocuklar bahçede oynuyor.",
+      "extra": [
+        "çocukler",
+        "bahçeda"
+      ],
+      "explain": "çocuk — u: -lar; bahçe — e: -de."
+    },
+    {
+      "id": "a1.02-unlu-uyumu.9",
+      "kind": "type",
+      "sentence": "Bu ___ çok güzel.",
+      "ru": "Эти цветы очень красивые.",
+      "hint": "çiçek, мн. ч.",
+      "answer": "çiçekler",
+      "explain": "çiçek — последняя e: -ler."
+    }
+  ]
+}

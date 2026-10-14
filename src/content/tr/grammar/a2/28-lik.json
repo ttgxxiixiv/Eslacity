@@ -1,0 +1,172 @@
+{
+  "id": "a2.28-lik",
+  "district": "A2",
+  "order": 28,
+  "title": "Аффикс -lIk",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "**-lık / -lik / -luk / -lük** делает из слова вещь, место или отвлечённое понятие: göz → göz**lük** (очки), tuz → tuz**luk** (солонка), kitap → kitap**lık** (книжный шкаф), iyi → iyi**lik** (доброта, добро)."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Слово",
+        "С -lIk",
+        "Перевод"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "göz",
+            "gözlük",
+            "очки"
+          ]
+        },
+        {
+          "cells": [
+            "tuz",
+            "tuzluk",
+            "солонка"
+          ]
+        },
+        {
+          "cells": [
+            "kitap",
+            "kitaplık",
+            "книжный шкаф"
+          ]
+        },
+        {
+          "cells": [
+            "gün",
+            "günlük",
+            "дневник; ежедневный"
+          ]
+        },
+        {
+          "cells": [
+            "arkadaş",
+            "arkadaşlık",
+            "дружба"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "С числами и временем — «на столько-то»: **iki kişilik** oda (номер на двоих), **bir haftalık** tatil (отпуск на неделю). Перед гласной k → ğ: gözlüğ**üm**."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Gözlüğüm nerede?",
+      "ru": "Где мои очки?"
+    },
+    {
+      "es": "Tuzluk masada.",
+      "ru": "Солонка на столе."
+    },
+    {
+      "es": "İki kişilik bir oda istiyoruz.",
+      "ru": "Мы хотим номер на двоих."
+    },
+    {
+      "es": "Arkadaşlık çok önemli.",
+      "ru": "Дружба очень важна."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "a2.28-lik.1",
+      "kind": "choose",
+      "prompt": "«Очки»:",
+      "options": [
+        "gözlük",
+        "gözlik",
+        "gözlü"
+      ],
+      "answer": 0,
+      "explain": "göz — последняя ö: -lük."
+    },
+    {
+      "id": "a2.28-lik.2",
+      "kind": "choose",
+      "prompt": "«Отпуск на неделю»:",
+      "options": [
+        "bir haftalık tatil",
+        "bir hafta tatil",
+        "bir haftada tatil"
+      ],
+      "answer": 0,
+      "explain": "Срок + -lık: haftalık."
+    },
+    {
+      "id": "a2.28-lik.3",
+      "kind": "gap",
+      "sentence": "Kitaplar ___ duruyor.",
+      "ru": "Книги стоят в книжном шкафу.",
+      "options": [
+        "kitaplıkta",
+        "kitapta",
+        "kitaplıkla"
+      ],
+      "answer": 0,
+      "explain": "Где — kitaplıkta."
+    },
+    {
+      "id": "a2.28-lik.4",
+      "kind": "gap",
+      "sentence": "Bu ___ çok güzel.",
+      "ru": "Эта дружба очень хорошая.",
+      "options": [
+        "arkadaşlık",
+        "arkadaş",
+        "arkadaşı"
+      ],
+      "answer": 0,
+      "explain": "Дружба — arkadaşlık."
+    },
+    {
+      "id": "a2.28-lik.5",
+      "kind": "truefalse",
+      "statement": "«Tuzluk» — это солонка.",
+      "answer": true,
+      "explain": "tuz + luk."
+    },
+    {
+      "id": "a2.28-lik.6",
+      "kind": "truefalse",
+      "statement": "«İki kişilik oda» значит «номер на двоих».",
+      "answer": true,
+      "explain": "kişi + lik."
+    },
+    {
+      "id": "a2.28-lik.7",
+      "kind": "truefalse",
+      "statement": "Перед гласной k в -lIk остаётся: gözlükım.",
+      "answer": false,
+      "explain": "k → ğ: gözlüğüm."
+    },
+    {
+      "id": "a2.28-lik.8",
+      "kind": "build",
+      "ru": "Где мои солнечные очки?",
+      "answer": "Güneş gözlüğüm nerede?",
+      "extra": [
+        "gözlük",
+        "gözlüğün"
+      ],
+      "explain": "Мои — gözlüğüm."
+    },
+    {
+      "id": "a2.28-lik.9",
+      "kind": "type",
+      "sentence": "Her akşam ___ yazıyorum.",
+      "ru": "Каждый вечер я пишу дневник.",
+      "hint": "gün, дневник",
+      "answer": "günlük",
+      "explain": "gün + lük."
+    }
+  ]
+}

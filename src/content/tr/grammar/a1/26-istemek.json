@@ -1,0 +1,160 @@
+{
+  "id": "a1.26-istemek",
+  "district": "A1",
+  "order": 26,
+  "title": "Хочу сделать: istemek и -mAk",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Инфинитив — основа + **-mak / -mek**: gel**mek**, yap**mak**. С **istemek** (хотеть) он стоит без изменений: **Yüzmek istiyorum** — я хочу плавать."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Хочу…",
+        "Перевод"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Çay içmek istiyorum.",
+            "Я хочу выпить чаю."
+          ]
+        },
+        {
+          "cells": [
+            "Eve gitmek istiyoruz.",
+            "Мы хотим домой."
+          ]
+        },
+        {
+          "cells": [
+            "Ne yapmak istiyorsun?",
+            "Что ты хочешь делать?"
+          ]
+        },
+        {
+          "cells": [
+            "Uyumak istemiyorum.",
+            "Я не хочу спать."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Хотеть **вещь** — винительный или без аффикса: **Bir çay istiyorum** (хочу чаю). Вежливее — **istiyorum** заменить на **alabilir miyim?** (можно мне?)."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Türkçe öğrenmek istiyorum.",
+      "ru": "Я хочу выучить турецкий."
+    },
+    {
+      "es": "Denize girmek ister misin?",
+      "ru": "Хочешь искупаться в море?"
+    },
+    {
+      "es": "Bir şey söylemek istiyorum.",
+      "ru": "Я хочу кое-что сказать."
+    },
+    {
+      "es": "Kimse çalışmak istemiyor.",
+      "ru": "Никто не хочет работать."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "a1.26-istemek.1",
+      "kind": "choose",
+      "prompt": "«Я хочу пойти»:",
+      "options": [
+        "gitmek istiyorum",
+        "gidiyorum istemek",
+        "gitmeyi istiyorum"
+      ],
+      "answer": 0,
+      "explain": "Инфинитив + istiyorum: gitmek istiyorum."
+    },
+    {
+      "id": "a1.26-istemek.2",
+      "kind": "choose",
+      "prompt": "Инфинитив от gel-:",
+      "options": [
+        "gelmek",
+        "gelmak",
+        "gelme"
+      ],
+      "answer": 0,
+      "explain": "Последняя e: -mek."
+    },
+    {
+      "id": "a1.26-istemek.3",
+      "kind": "gap",
+      "sentence": "Ne ___ istiyorsun?",
+      "ru": "Что ты хочешь есть?",
+      "options": [
+        "yemek",
+        "yiyor",
+        "yedin"
+      ],
+      "answer": 0,
+      "explain": "Инфинитив — yemek."
+    },
+    {
+      "id": "a1.26-istemek.4",
+      "kind": "gap",
+      "sentence": "Bugün dışarı çıkmak ___.",
+      "ru": "Сегодня я не хочу выходить.",
+      "options": [
+        "istemiyorum",
+        "istiyorum",
+        "istemedim"
+      ],
+      "answer": 0,
+      "explain": "Не хочу — istemiyorum."
+    },
+    {
+      "id": "a1.26-istemek.5",
+      "kind": "truefalse",
+      "statement": "С istemek инфинитив стоит в форме -mak / -mek.",
+      "answer": true,
+      "explain": "Yüzmek istiyorum."
+    },
+    {
+      "id": "a1.26-istemek.6",
+      "kind": "truefalse",
+      "statement": "Инфинитив от okumak — okumek.",
+      "answer": false,
+      "explain": "Последняя u — задняя: okumak."
+    },
+    {
+      "id": "a1.26-istemek.7",
+      "kind": "truefalse",
+      "statement": "«Bir kahve istiyorum» значит «Я хочу кофе».",
+      "answer": true,
+      "explain": "Хотеть вещь — без инфинитива."
+    },
+    {
+      "id": "a1.26-istemek.8",
+      "kind": "build",
+      "ru": "Я хочу купить билет.",
+      "answer": "Bir bilet almak istiyorum.",
+      "extra": [
+        "alıyorum",
+        "istedim"
+      ],
+      "explain": "Инфинитив + istiyorum."
+    },
+    {
+      "id": "a1.26-istemek.9",
+      "kind": "type",
+      "sentence": "Seninle ___ istiyorum.",
+      "ru": "Я хочу с тобой поговорить.",
+      "hint": "konuşmak",
+      "answer": "konuşmak",
+      "explain": "Инфинитив — konuşmak."
+    }
+  ]
+}

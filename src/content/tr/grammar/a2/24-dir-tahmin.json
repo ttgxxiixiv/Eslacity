@@ -1,0 +1,166 @@
+{
+  "id": "a2.24-dir-tahmin",
+  "district": "A2",
+  "order": 24,
+  "title": "Наверное и всегда: -DIr у имени",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "У имени **-DIr** — уверенность или общее правило: **Yorgundur** — он, наверное, устал. **Sigara içmek yasaktır** — курить запрещено (на табличках, в правилах)."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Фраза",
+        "Значение"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Ali evdedir.",
+            "Али, наверное, дома."
+          ]
+        },
+        {
+          "cells": [
+            "Hava sıcaktır.",
+            "Наверное, жарко."
+          ]
+        },
+        {
+          "cells": [
+            "Giriş ücretsizdir.",
+            "Вход бесплатный (объявление)."
+          ]
+        },
+        {
+          "cells": [
+            "Dünya yuvarlaktır.",
+            "Земля круглая (факт)."
+          ]
+        },
+        {
+          "cells": [
+            "Muhtemelen evdedir.",
+            "Вероятно, он дома."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "В разговоре о себе и собеседнике -DIr обычно не нужен: **Ben yorgunum**, а не «yorgunumdur». На табличках и в инструкциях — встречается постоянно."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Kapıyı çalan Mehmet'tir.",
+      "ru": "В дверь стучит, наверное, Мехмет."
+    },
+    {
+      "es": "Müze pazartesi günleri kapalıdır.",
+      "ru": "По понедельникам музей закрыт."
+    },
+    {
+      "es": "Saat beşte dükkân kapanmıştır.",
+      "ru": "К пяти лавка, наверное, уже закрылась."
+    },
+    {
+      "es": "Burada yüzmek tehlikelidir.",
+      "ru": "Здесь купаться опасно."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "a2.24-dir-tahmin.1",
+      "kind": "choose",
+      "prompt": "Табличка «Здесь курить запрещено»:",
+      "options": [
+        "Burada sigara içmek yasaktır.",
+        "Burada sigara içmek yasak mı?",
+        "Burada sigara içiyorum yasak."
+      ],
+      "answer": 0,
+      "explain": "Правило — -tır."
+    },
+    {
+      "id": "a2.24-dir-tahmin.2",
+      "kind": "choose",
+      "prompt": "«Он, наверное, на работе»:",
+      "options": [
+        "O iştedir.",
+        "O işe.",
+        "O işten."
+      ],
+      "answer": 0,
+      "explain": "Предположение — işte + dir."
+    },
+    {
+      "id": "a2.24-dir-tahmin.3",
+      "kind": "gap",
+      "sentence": "Anneme sor, o bilir. Annem ___.",
+      "ru": "Спроси маму, она знает. Мама, наверное, дома.",
+      "options": [
+        "evdedir",
+        "evde mi",
+        "evden"
+      ],
+      "answer": 0,
+      "explain": "Наверное — evdedir."
+    },
+    {
+      "id": "a2.24-dir-tahmin.4",
+      "kind": "gap",
+      "sentence": "Giriş ___.",
+      "ru": "Вход бесплатный.",
+      "options": [
+        "ücretsizdir",
+        "ücretsiz mi",
+        "ücret"
+      ],
+      "answer": 0,
+      "explain": "Объявление — -dir."
+    },
+    {
+      "id": "a2.24-dir-tahmin.5",
+      "kind": "truefalse",
+      "statement": "-DIr у имени часто встречается на табличках и в правилах.",
+      "answer": true,
+      "explain": "Yasaktır, kapalıdır."
+    },
+    {
+      "id": "a2.24-dir-tahmin.6",
+      "kind": "truefalse",
+      "statement": "«Yorgundur» может значить «он, наверное, устал».",
+      "answer": true,
+      "explain": "Предположение."
+    },
+    {
+      "id": "a2.24-dir-tahmin.7",
+      "kind": "truefalse",
+      "statement": "О себе в разговоре обычно говорят «yorgunumdur».",
+      "answer": false,
+      "explain": "Обычно просто yorgunum."
+    },
+    {
+      "id": "a2.24-dir-tahmin.8",
+      "kind": "build",
+      "ru": "По воскресеньям банк закрыт.",
+      "answer": "Banka pazar günleri kapalıdır.",
+      "extra": [
+        "kapalı",
+        "açık"
+      ],
+      "explain": "Правило — kapalıdır."
+    },
+    {
+      "id": "a2.24-dir-tahmin.9",
+      "kind": "type",
+      "sentence": "Burada yüzmek ___.",
+      "ru": "Здесь купаться запрещено.",
+      "hint": "yasak, правило",
+      "answer": "yasaktır",
+      "explain": "Правило — yasak + tır."
+    }
+  ]
+}

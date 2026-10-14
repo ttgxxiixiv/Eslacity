@@ -1,0 +1,186 @@
+{
+  "id": "a1.05-ekfiil",
+  "district": "A1",
+  "order": 5,
+  "title": "Я врач: сказуемое -(y)Im",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Глагола «быть» в настоящем времени нет: к имени прибавляют личный аффикс. **Ben doktorum** — я врач, **Sen yorgunsun** — ты устал."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Лицо",
+        "Аффикс",
+        "После согласной",
+        "После гласной"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "ben",
+            "-(y)Im",
+            "doktorum",
+            "hastayım"
+          ]
+        },
+        {
+          "cells": [
+            "sen",
+            "-sIn",
+            "doktorsun",
+            "hastasın"
+          ]
+        },
+        {
+          "cells": [
+            "o",
+            "— (-DIr)",
+            "doktor",
+            "hasta"
+          ]
+        },
+        {
+          "cells": [
+            "biz",
+            "-(y)Iz",
+            "doktoruz",
+            "hastayız"
+          ]
+        },
+        {
+          "cells": [
+            "siz",
+            "-sInIz",
+            "doktorsunuz",
+            "hastasınız"
+          ]
+        },
+        {
+          "cells": [
+            "onlar",
+            "-lAr",
+            "doktorlar",
+            "hastalar"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "После гласной у «я» и «мы» вставляется **y**: hasta**y**ım, hasta**y**ız. Гласная аффикса — по гармонии: öğretmen**im**, yorgun**um**."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Ben öğretmenim.",
+      "ru": "Я учитель."
+    },
+    {
+      "es": "Sen çok iyisin.",
+      "ru": "Ты очень хороший."
+    },
+    {
+      "es": "Biz hazırız.",
+      "ru": "Мы готовы."
+    },
+    {
+      "es": "Onlar mutlu.",
+      "ru": "Они счастливы."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "a1.05-ekfiil.1",
+      "kind": "choose",
+      "prompt": "«Я студент»:",
+      "options": [
+        "Ben öğrenciyim.",
+        "Ben öğrencisin.",
+        "Ben öğrenci var."
+      ],
+      "answer": 0,
+      "explain": "После гласной — y: öğrenciyim."
+    },
+    {
+      "id": "a1.05-ekfiil.2",
+      "kind": "choose",
+      "prompt": "Аффикс «вы» для doktor:",
+      "options": [
+        "doktorsunuz",
+        "doktorsun",
+        "doktoruz"
+      ],
+      "answer": 0,
+      "explain": "siz — -sInIz: doktorsunuz."
+    },
+    {
+      "id": "a1.05-ekfiil.3",
+      "kind": "gap",
+      "sentence": "Biz çok ___.",
+      "ru": "Мы очень голодны.",
+      "options": [
+        "açız",
+        "açsın",
+        "açım"
+      ],
+      "answer": 0,
+      "explain": "biz — -ız: açız."
+    },
+    {
+      "id": "a1.05-ekfiil.4",
+      "kind": "gap",
+      "sentence": "Sen ___?",
+      "ru": "Ты готов?",
+      "options": [
+        "hazır mısın",
+        "hazırım mı",
+        "hazır mıyız"
+      ],
+      "answer": 0,
+      "explain": "sen — -sın, вопрос mı перед ним: hazır mısın?"
+    },
+    {
+      "id": "a1.05-ekfiil.5",
+      "kind": "truefalse",
+      "statement": "«Ben hastayım» — правильно.",
+      "answer": true,
+      "explain": "После гласной у ben вставляется y."
+    },
+    {
+      "id": "a1.05-ekfiil.6",
+      "kind": "truefalse",
+      "statement": "В турецком, как в английском, есть отдельный глагол «быть» в настоящем.",
+      "answer": false,
+      "explain": "Есть только личный аффикс: doktorum."
+    },
+    {
+      "id": "a1.05-ekfiil.7",
+      "kind": "truefalse",
+      "statement": "У «он» аффикса обычно нет: O doktor.",
+      "answer": true,
+      "explain": "O doktor — он врач."
+    },
+    {
+      "id": "a1.05-ekfiil.8",
+      "kind": "build",
+      "ru": "Мы очень счастливы.",
+      "answer": "Biz çok mutluyuz.",
+      "extra": [
+        "mutlusun",
+        "mutluyum"
+      ],
+      "explain": "mutlu оканчивается на гласную: y + uz."
+    },
+    {
+      "id": "a1.05-ekfiil.9",
+      "kind": "type",
+      "sentence": "Ben çok ___.",
+      "ru": "Я очень устал.",
+      "hint": "yorgun, я",
+      "answer": "yorgunum",
+      "explain": "yorgun + um."
+    }
+  ]
+}

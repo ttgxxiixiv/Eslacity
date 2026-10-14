@@ -1,0 +1,179 @@
+{
+  "id": "a1.21-di-olumsuz",
+  "district": "A1",
+  "order": 21,
+  "title": "Не сделал и сделал ли: -mAdI, mI",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Отрицание — **-mA-** перед -DI: gel**me**dim (не пришёл), yap**ma**dım (не сделал). Вопрос — частица после формы, лицо остаётся на глаголе: geldin **mi**?"
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Лицо",
+        "Отрицание",
+        "Вопрос"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "ben",
+            "gelmedim",
+            "geldim mi?"
+          ]
+        },
+        {
+          "cells": [
+            "sen",
+            "gelmedin",
+            "geldin mi?"
+          ]
+        },
+        {
+          "cells": [
+            "o",
+            "gelmedi",
+            "geldi mi?"
+          ]
+        },
+        {
+          "cells": [
+            "biz",
+            "gelmedik",
+            "geldik mi?"
+          ]
+        },
+        {
+          "cells": [
+            "siz",
+            "gelmediniz",
+            "geldiniz mi?"
+          ]
+        },
+        {
+          "cells": [
+            "onlar",
+            "gelmediler",
+            "geldiler mi?"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Здесь, в отличие от -Iyor, окончание лица стоит **на глаголе**, а частица — отдельно и без лица: gördün **mü**?"
+    }
+  ],
+  "examples": [
+    {
+      "es": "Dün işe gitmedim.",
+      "ru": "Вчера я не ходил на работу."
+    },
+    {
+      "es": "Kahvaltı yaptın mı?",
+      "ru": "Ты позавтракал?"
+    },
+    {
+      "es": "Otobüs daha gelmedi.",
+      "ru": "Автобус ещё не пришёл."
+    },
+    {
+      "es": "Beni anlamadınız mı?",
+      "ru": "Вы меня не поняли?"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "a1.21-di-olumsuz.1",
+      "kind": "choose",
+      "prompt": "«Я не видел»:",
+      "options": [
+        "görmedim",
+        "görmüyorum",
+        "görmedi"
+      ],
+      "answer": 0,
+      "explain": "gör + me + di + m."
+    },
+    {
+      "id": "a1.21-di-olumsuz.2",
+      "kind": "choose",
+      "prompt": "«Ты понял?»:",
+      "options": [
+        "anladın mı?",
+        "anladı mısın?",
+        "anlamadın?"
+      ],
+      "answer": 0,
+      "explain": "Лицо на глаголе, частица отдельно: anladın mı?"
+    },
+    {
+      "id": "a1.21-di-olumsuz.3",
+      "kind": "gap",
+      "sentence": "Biz hiç Ankara'ya ___.",
+      "ru": "Мы ни разу не ездили в Анкару.",
+      "options": [
+        "gitmedik",
+        "gitmiyoruz",
+        "gittik"
+      ],
+      "answer": 0,
+      "explain": "Отрицание, мы — gitmedik."
+    },
+    {
+      "id": "a1.21-di-olumsuz.4",
+      "kind": "gap",
+      "sentence": "Mektup ___?",
+      "ru": "Письмо пришло?",
+      "options": [
+        "geldi mi",
+        "gelmedi",
+        "geldin mi"
+      ],
+      "answer": 0,
+      "explain": "Оно, вопрос: geldi mi?"
+    },
+    {
+      "id": "a1.21-di-olumsuz.5",
+      "kind": "truefalse",
+      "statement": "В вопросе прошедшего лицо стоит на глаголе: geldin mi?",
+      "answer": true,
+      "explain": "geldin mi — не «geldi misin»."
+    },
+    {
+      "id": "a1.21-di-olumsuz.6",
+      "kind": "truefalse",
+      "statement": "«Yapmadım» значит «я не сделал».",
+      "answer": true,
+      "explain": "yap + ma + dı + m."
+    },
+    {
+      "id": "a1.21-di-olumsuz.7",
+      "kind": "truefalse",
+      "statement": "«Görmedim» и «görmüyorum» значат одно и то же.",
+      "answer": false,
+      "explain": "Görmedim — не видел, görmüyorum — не вижу."
+    },
+    {
+      "id": "a1.21-di-olumsuz.8",
+      "kind": "build",
+      "ru": "Мы ещё не ели.",
+      "answer": "Biz daha yemek yemedik.",
+      "extra": [
+        "yemiyoruz",
+        "yedik"
+      ],
+      "explain": "Прошедшее отрицание, мы — yemedik."
+    },
+    {
+      "id": "a1.21-di-olumsuz.9",
+      "kind": "type",
+      "sentence": "Dün seni ___.",
+      "ru": "Вчера я тебя не видел.",
+      "hint": "görmek, не, я",
+      "answer": "görmedim",
+      "explain": "gör + me + di + m."
+    }
+  ]
+}

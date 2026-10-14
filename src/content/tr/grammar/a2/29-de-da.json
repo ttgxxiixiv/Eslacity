@@ -1,0 +1,160 @@
+{
+  "id": "a2.29-de-da",
+  "district": "A2",
+  "order": 29,
+  "title": "Тоже и даже: de, da",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Частица **de / da** — «тоже, и, даже». Пишется **отдельно** от слова: **Ben de** geliyorum — я тоже иду. **Sen de mi** biliyorsun? — Ты тоже знаешь?"
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Фраза",
+        "Перевод"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Ben de.",
+            "Я тоже."
+          ]
+        },
+        {
+          "cells": [
+            "O da gelsin.",
+            "Пусть и он придёт."
+          ]
+        },
+        {
+          "cells": [
+            "Çay da var.",
+            "Есть и чай."
+          ]
+        },
+        {
+          "cells": [
+            "Sen de mi?",
+            "И ты?"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Не путайте с местным падежом: **evde** (дома) — слитно, **ev de** (и дом тоже) — отдельно. Гласная частицы — по гармонии: kahve **de**, çay **da**."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Ben de Türkçe öğreniyorum.",
+      "ru": "Я тоже учу турецкий."
+    },
+    {
+      "es": "Kardeşim de geliyor.",
+      "ru": "Мой брат тоже придёт."
+    },
+    {
+      "es": "Ekmek de aldım, peynir de.",
+      "ru": "Я купил и хлеб, и сыр."
+    },
+    {
+      "es": "Sen de yorgun musun?",
+      "ru": "Ты тоже устал?"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "a2.29-de-da.1",
+      "kind": "choose",
+      "prompt": "«Я тоже»:",
+      "options": [
+        "Ben de.",
+        "Bende.",
+        "Ben da."
+      ],
+      "answer": 0,
+      "explain": "Отдельно, по гармонии e: ben de."
+    },
+    {
+      "id": "a2.29-de-da.2",
+      "kind": "choose",
+      "prompt": "Где частица «тоже»?",
+      "options": [
+        "Ali de geldi.",
+        "Ali'de geldi.",
+        "Alide geldi."
+      ],
+      "answer": 0,
+      "explain": "Частица пишется отдельно."
+    },
+    {
+      "id": "a2.29-de-da.3",
+      "kind": "gap",
+      "sentence": "Annem ___ çok seviyor.",
+      "ru": "Мама тоже очень любит.",
+      "options": [
+        "de",
+        "da",
+        "den"
+      ],
+      "answer": 0,
+      "explain": "annem — последняя e: de."
+    },
+    {
+      "id": "a2.29-de-da.4",
+      "kind": "gap",
+      "sentence": "Çay ___ var mı?",
+      "ru": "А чай тоже есть?",
+      "options": [
+        "da",
+        "de",
+        "dan"
+      ],
+      "answer": 0,
+      "explain": "çay — последняя a: da."
+    },
+    {
+      "id": "a2.29-de-da.5",
+      "kind": "truefalse",
+      "statement": "Частица de/da пишется слитно со словом.",
+      "answer": false,
+      "explain": "Отдельно: ben de."
+    },
+    {
+      "id": "a2.29-de-da.6",
+      "kind": "truefalse",
+      "statement": "«Evde» — это «дома», а «ev de» — «и дом».",
+      "answer": true,
+      "explain": "Падеж — слитно, частица — отдельно."
+    },
+    {
+      "id": "a2.29-de-da.7",
+      "kind": "truefalse",
+      "statement": "«Sen de mi?» значит «И ты?».",
+      "answer": true,
+      "explain": "de + mi."
+    },
+    {
+      "id": "a2.29-de-da.8",
+      "kind": "build",
+      "ru": "Мы тоже идём на пляж.",
+      "answer": "Biz de plaja gidiyoruz.",
+      "extra": [
+        "da",
+        "bizde"
+      ],
+      "explain": "После biz — de, отдельно."
+    },
+    {
+      "id": "a2.29-de-da.9",
+      "kind": "type",
+      "sentence": "Ben çay istiyorum. — Ben ___.",
+      "ru": "Я хочу чаю. — Я тоже.",
+      "hint": "тоже",
+      "answer": "de",
+      "explain": "После ben — de."
+    }
+  ]
+}

@@ -1,0 +1,193 @@
+{
+  "id": "a1.18-soru-kelimeleri",
+  "district": "A1",
+  "order": 18,
+  "title": "Вопросительные слова",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Вопросительное слово обычно стоит перед глаголом, частица mi с ним не нужна: **Nereye gidiyorsun?** — Куда ты идёшь?"
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Слово",
+        "Значение"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "ne",
+            "что"
+          ]
+        },
+        {
+          "cells": [
+            "kim",
+            "кто"
+          ]
+        },
+        {
+          "cells": [
+            "nerede",
+            "где"
+          ]
+        },
+        {
+          "cells": [
+            "nereye",
+            "куда"
+          ]
+        },
+        {
+          "cells": [
+            "nereden",
+            "откуда"
+          ]
+        },
+        {
+          "cells": [
+            "ne zaman",
+            "когда"
+          ]
+        },
+        {
+          "cells": [
+            "neden, niye",
+            "почему"
+          ]
+        },
+        {
+          "cells": [
+            "nasıl",
+            "как"
+          ]
+        },
+        {
+          "cells": [
+            "hangi",
+            "какой, который"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Ne и kim изменяются по падежам: **neyi** (что, вин.), **kime** (кому), **kimin** (чей), **kimden** (от кого)."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Adın ne?",
+      "ru": "Как тебя зовут?"
+    },
+    {
+      "es": "Ne zaman geliyorsun?",
+      "ru": "Когда ты приходишь?"
+    },
+    {
+      "es": "Neden gülüyorsun?",
+      "ru": "Почему ты смеёшься?"
+    },
+    {
+      "es": "Hangi otobüs plaja gidiyor?",
+      "ru": "Какой автобус идёт на пляж?"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "a1.18-soru-kelimeleri.1",
+      "kind": "choose",
+      "prompt": "«Как дела?» — Nasılsın? Здесь nasıl значит…",
+      "options": [
+        "как",
+        "где",
+        "когда"
+      ],
+      "answer": 0,
+      "explain": "nasıl — как."
+    },
+    {
+      "id": "a1.18-soru-kelimeleri.2",
+      "kind": "choose",
+      "prompt": "«Кому?»:",
+      "options": [
+        "kime",
+        "kimi",
+        "kimin"
+      ],
+      "answer": 0,
+      "explain": "Дательный падеж: kime."
+    },
+    {
+      "id": "a1.18-soru-kelimeleri.3",
+      "kind": "gap",
+      "sentence": "___ geliyorsun? — İzmir'den.",
+      "ru": "Откуда ты? — Из Измира.",
+      "options": [
+        "Nereden",
+        "Nereye",
+        "Nerede"
+      ],
+      "answer": 0,
+      "explain": "Ответ с -den: значит nereden."
+    },
+    {
+      "id": "a1.18-soru-kelimeleri.4",
+      "kind": "gap",
+      "sentence": "Bu çanta ___?",
+      "ru": "Чья это сумка?",
+      "options": [
+        "kimin",
+        "kim",
+        "kime"
+      ],
+      "answer": 0,
+      "explain": "Чей — kimin."
+    },
+    {
+      "id": "a1.18-soru-kelimeleri.5",
+      "kind": "truefalse",
+      "statement": "В вопросе с nerede частица mi не нужна.",
+      "answer": true,
+      "explain": "Вопрос уже задан словом."
+    },
+    {
+      "id": "a1.18-soru-kelimeleri.6",
+      "kind": "truefalse",
+      "statement": "Ne zaman значит «почему».",
+      "answer": false,
+      "explain": "ne zaman — когда; почему — neden."
+    },
+    {
+      "id": "a1.18-soru-kelimeleri.7",
+      "kind": "truefalse",
+      "statement": "Hangi значит «какой, который».",
+      "answer": true,
+      "explain": "Hangi otobüs? — Какой автобус?"
+    },
+    {
+      "id": "a1.18-soru-kelimeleri.8",
+      "kind": "build",
+      "ru": "Где ты живёшь?",
+      "answer": "Sen nerede yaşıyorsun?",
+      "extra": [
+        "nereye",
+        "yaşıyorum"
+      ],
+      "explain": "Где — nerede."
+    },
+    {
+      "id": "a1.18-soru-kelimeleri.9",
+      "kind": "type",
+      "sentence": "___ geldin?",
+      "ru": "Почему ты пришёл?",
+      "hint": "почему",
+      "answer": "Neden",
+      "alt": [
+        "Niye"
+      ],
+      "explain": "Почему — neden."
+    }
+  ]
+}

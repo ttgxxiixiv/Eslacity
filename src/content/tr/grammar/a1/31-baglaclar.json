@@ -1,0 +1,193 @@
+{
+  "id": "a1.31-baglaclar",
+  "district": "A1",
+  "order": 31,
+  "title": "Союзы: ve, ama, çünkü, veya",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Союзы соединяют слова и фразы: **ve** (и), **ama / fakat** (но), **çünkü** (потому что), **veya / ya da** (или), **sonra** (потом)."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Союз",
+        "Значение",
+        "Пример"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "ve",
+            "и",
+            "çay ve kahve"
+          ]
+        },
+        {
+          "cells": [
+            "ama",
+            "но",
+            "ucuz ama güzel"
+          ]
+        },
+        {
+          "cells": [
+            "çünkü",
+            "потому что",
+            "Gelmedim, çünkü hastaydım."
+          ]
+        },
+        {
+          "cells": [
+            "veya",
+            "или",
+            "çay veya kahve"
+          ]
+        },
+        {
+          "cells": [
+            "ya da",
+            "или (в разговоре)",
+            "bugün ya da yarın"
+          ]
+        },
+        {
+          "cells": [
+            "fakat, ancak",
+            "но, однако (книжнее)",
+            "Ucuz, fakat güzel değil."
+          ]
+        },
+        {
+          "cells": [
+            "yoksa",
+            "или (в вопросе); а то",
+            "Çay mı yoksa kahve mi?"
+          ]
+        },
+        {
+          "cells": [
+            "yani",
+            "то есть",
+            "Yarın, yani cuma."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "«Тоже» — не союз, а частица **de / da** после слова: **Ben de** geliyorum — я тоже иду. Она пишется отдельно."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Ekmek ve peynir aldım.",
+      "ru": "Я купил хлеб и сыр."
+    },
+    {
+      "es": "Ucuz ama çok güzel.",
+      "ru": "Дёшево, но очень красиво."
+    },
+    {
+      "es": "Gelemedim, çünkü çok yorgundum.",
+      "ru": "Я не смог прийти, потому что очень устал."
+    },
+    {
+      "es": "Çay mı, kahve mi? Çay ya da kahve, fark etmez.",
+      "ru": "Чай или кофе? Чай или кофе, всё равно."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "a1.31-baglaclar.1",
+      "kind": "choose",
+      "prompt": "«Но»:",
+      "options": [
+        "ama",
+        "ve",
+        "çünkü"
+      ],
+      "answer": 0,
+      "explain": "ama — но."
+    },
+    {
+      "id": "a1.31-baglaclar.2",
+      "kind": "choose",
+      "prompt": "«Потому что»:",
+      "options": [
+        "çünkü",
+        "veya",
+        "sonra"
+      ],
+      "answer": 0,
+      "explain": "çünkü — потому что."
+    },
+    {
+      "id": "a1.31-baglaclar.3",
+      "kind": "gap",
+      "sentence": "Ev küçük ___ çok rahat.",
+      "ru": "Дом маленький, но очень уютный.",
+      "options": [
+        "ama",
+        "ve",
+        "çünkü"
+      ],
+      "answer": 0,
+      "explain": "Противопоставление — ama."
+    },
+    {
+      "id": "a1.31-baglaclar.4",
+      "kind": "gap",
+      "sentence": "Bugün ___ yarın gel.",
+      "ru": "Приходи сегодня или завтра.",
+      "options": [
+        "ya da",
+        "ama",
+        "çünkü"
+      ],
+      "answer": 0,
+      "explain": "Или — ya da."
+    },
+    {
+      "id": "a1.31-baglaclar.5",
+      "kind": "truefalse",
+      "statement": "Ve значит «и».",
+      "answer": true,
+      "explain": "çay ve kahve — чай и кофе."
+    },
+    {
+      "id": "a1.31-baglaclar.6",
+      "kind": "truefalse",
+      "statement": "«Тоже» по-турецки — союз ve.",
+      "answer": false,
+      "explain": "«Тоже» — частица de/da: ben de."
+    },
+    {
+      "id": "a1.31-baglaclar.7",
+      "kind": "truefalse",
+      "statement": "Fakat значит то же, что ama.",
+      "answer": true,
+      "explain": "fakat — но (книжнее)."
+    },
+    {
+      "id": "a1.31-baglaclar.8",
+      "kind": "build",
+      "ru": "Я не пришёл, потому что был болен.",
+      "answer": "Gelmedim çünkü hastaydım.",
+      "extra": [
+        "ama",
+        "hastayım"
+      ],
+      "explain": "Причина — çünkü."
+    },
+    {
+      "id": "a1.31-baglaclar.9",
+      "kind": "type",
+      "sentence": "Elma ___ armut aldık.",
+      "ru": "Мы купили яблоки и груши.",
+      "hint": "и",
+      "answer": "ve",
+      "explain": "И — ve."
+    }
+  ]
+}

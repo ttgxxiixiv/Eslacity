@@ -1,0 +1,158 @@
+{
+  "id": "a2.20-soz-dizimi",
+  "district": "A2",
+  "order": 20,
+  "title": "Порядок слов: глагол в конце",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Основной порядок: **подлежащее — дополнения — сказуемое**. Глагол в конце: **Ben her sabah denizde yüzerim** — я каждое утро плаваю в море."
+    },
+    {
+      "kind": "text",
+      "md": "Главное по смыслу слово ставят **прямо перед глаголом**: Ali **dün** geldi (Али пришёл вчера — важно когда), **Ali** dün geldi (вчера пришёл именно Али)."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Порядок",
+        "Пример"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "кто — когда — где — что — глагол",
+            "Ben yarın pazarda elma alacağım."
+          ]
+        },
+        {
+          "cells": [
+            "определение перед словом",
+            "çok güzel bir ev"
+          ]
+        },
+        {
+          "cells": [
+            "вопросительное слово перед глаголом",
+            "Sen nereye gidiyorsun?"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Определение всегда перед определяемым, придаточное — перед главным: **dün aldığım kitap** — книга, которую я вчера купил."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Annem her sabah çay demler.",
+      "ru": "Мама каждое утро заваривает чай."
+    },
+    {
+      "es": "Biz yarın İzmir'e gideceğiz.",
+      "ru": "Завтра мы поедем в Измир."
+    },
+    {
+      "es": "Kim geldi?",
+      "ru": "Кто пришёл?"
+    },
+    {
+      "es": "Bu sabah çok güzel bir kuş gördüm.",
+      "ru": "Сегодня утром я видел очень красивую птицу."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "a2.20-soz-dizimi.1",
+      "kind": "choose",
+      "prompt": "Правильный порядок:",
+      "options": [
+        "Ben kitap okuyorum.",
+        "Ben okuyorum kitap.",
+        "Okuyorum ben kitap."
+      ],
+      "answer": 0,
+      "explain": "Глагол — в конце."
+    },
+    {
+      "id": "a2.20-soz-dizimi.2",
+      "kind": "choose",
+      "prompt": "Где обычно стоит вопросительное слово?",
+      "options": [
+        "перед глаголом",
+        "в начале всегда",
+        "после глагола"
+      ],
+      "answer": 0,
+      "explain": "Прямо перед глаголом: Nereye gidiyorsun?"
+    },
+    {
+      "id": "a2.20-soz-dizimi.3",
+      "kind": "gap",
+      "sentence": "Ali her gün ___.",
+      "ru": "Али каждый день читает газету.",
+      "options": [
+        "gazete okur",
+        "okur gazete",
+        "okur her"
+      ],
+      "answer": 0,
+      "explain": "Дополнение, потом глагол."
+    },
+    {
+      "id": "a2.20-soz-dizimi.4",
+      "kind": "gap",
+      "sentence": "Ben ___ geldim.",
+      "ru": "Я пришёл вчера.",
+      "options": [
+        "dün",
+        "gelecek",
+        "sonra"
+      ],
+      "answer": 0,
+      "explain": "Когда — перед глаголом."
+    },
+    {
+      "id": "a2.20-soz-dizimi.5",
+      "kind": "truefalse",
+      "statement": "В турецком глагол обычно стоит в конце предложения.",
+      "answer": true,
+      "explain": "Порядок SOV."
+    },
+    {
+      "id": "a2.20-soz-dizimi.6",
+      "kind": "truefalse",
+      "statement": "Определение стоит после существительного: ev güzel bir.",
+      "answer": false,
+      "explain": "Перед: güzel bir ev."
+    },
+    {
+      "id": "a2.20-soz-dizimi.7",
+      "kind": "truefalse",
+      "statement": "Слово прямо перед глаголом — самое важное по смыслу.",
+      "answer": true,
+      "explain": "Туда ставят логическое ударение."
+    },
+    {
+      "id": "a2.20-soz-dizimi.8",
+      "kind": "build",
+      "ru": "Завтра я куплю на базаре фрукты.",
+      "answer": "Yarın pazardan meyve alacağım.",
+      "extra": [
+        "pazarda",
+        "alıyorum"
+      ],
+      "explain": "Глагол в конце; откуда купить — pazardan."
+    },
+    {
+      "id": "a2.20-soz-dizimi.9",
+      "kind": "type",
+      "sentence": "Sen ___ gidiyorsun?",
+      "ru": "Куда ты идёшь?",
+      "hint": "куда",
+      "answer": "nereye",
+      "explain": "Вопросительное слово перед глаголом."
+    }
+  ]
+}

@@ -1,0 +1,165 @@
+{
+  "id": "a1.16-sayilar",
+  "district": "A1",
+  "order": 16,
+  "title": "Числа и «сколько»",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Числа: **bir, iki, üç, dört, beş, altı, yedi, sekiz, dokuz, on**. Десятки: yirmi (20), otuz, kırk, elli, altmış, yetmiş, seksen, doksan; **yüz** (100), **bin** (1000). Составные — подряд: on iki (12), yirmi beş (25)."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Вопрос",
+        "Значение",
+        "Пример"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "kaç?",
+            "сколько (штук)",
+            "Kaç kardeşin var?"
+          ]
+        },
+        {
+          "cells": [
+            "ne kadar?",
+            "сколько (стоит, долго)",
+            "Bu ne kadar?"
+          ]
+        },
+        {
+          "cells": [
+            "kaç tane?",
+            "сколько штук",
+            "Kaç tane elma?"
+          ]
+        },
+        {
+          "cells": [
+            "kaç yaşında?",
+            "сколько лет",
+            "Kaç yaşındasın?"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "После числа и **kaç** существительное в единственном числе: **kaç bilet**, **üç bilet**. Слово **tane** — «штука»: iki tane çay."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Kaç yaşındasın? — Yirmi beş.",
+      "ru": "Сколько тебе лет? — Двадцать пять."
+    },
+    {
+      "es": "Bu elbise ne kadar?",
+      "ru": "Сколько стоит это платье?"
+    },
+    {
+      "es": "İki tane simit, lütfen.",
+      "ru": "Два симита, пожалуйста."
+    },
+    {
+      "es": "Otobüs on dakika sonra geliyor.",
+      "ru": "Автобус придёт через десять минут."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "a1.16-sayilar.1",
+      "kind": "choose",
+      "prompt": "15 — это…",
+      "options": [
+        "on beş",
+        "beş on",
+        "onbeşler"
+      ],
+      "answer": 0,
+      "explain": "Составные числа — подряд: on beş."
+    },
+    {
+      "id": "a1.16-sayilar.2",
+      "kind": "choose",
+      "prompt": "«Сколько стоит?»:",
+      "options": [
+        "Ne kadar?",
+        "Kaç tane?",
+        "Kaç yaşında?"
+      ],
+      "answer": 0,
+      "explain": "Цена — ne kadar."
+    },
+    {
+      "id": "a1.16-sayilar.3",
+      "kind": "gap",
+      "sentence": "___ kardeşin var?",
+      "ru": "Сколько у тебя братьев и сестёр?",
+      "options": [
+        "Kaç",
+        "Ne kadar",
+        "Nerede"
+      ],
+      "answer": 0,
+      "explain": "Счёт — kaç."
+    },
+    {
+      "id": "a1.16-sayilar.4",
+      "kind": "gap",
+      "sentence": "Üç ___ lütfen.",
+      "ru": "Три чая, пожалуйста.",
+      "options": [
+        "çay",
+        "çaylar",
+        "çayı"
+      ],
+      "answer": 0,
+      "explain": "После числа — единственное: üç çay."
+    },
+    {
+      "id": "a1.16-sayilar.5",
+      "kind": "truefalse",
+      "statement": "Kırk — это сорок.",
+      "answer": true,
+      "explain": "kırk — 40."
+    },
+    {
+      "id": "a1.16-sayilar.6",
+      "kind": "truefalse",
+      "statement": "«Kaç biletler?» — правильно.",
+      "answer": false,
+      "explain": "После kaç — единственное: kaç bilet."
+    },
+    {
+      "id": "a1.16-sayilar.7",
+      "kind": "truefalse",
+      "statement": "Yüz — это сто.",
+      "answer": true,
+      "explain": "yüz — 100 (и ещё «лицо»)."
+    },
+    {
+      "id": "a1.16-sayilar.8",
+      "kind": "build",
+      "ru": "У меня есть два билета.",
+      "answer": "İki biletim var.",
+      "extra": [
+        "biletlerim",
+        "yok"
+      ],
+      "explain": "После числа — единственное: iki biletim."
+    },
+    {
+      "id": "a1.16-sayilar.9",
+      "kind": "type",
+      "sentence": "Bir hafta ___ gün.",
+      "ru": "В неделе семь дней.",
+      "hint": "семь",
+      "answer": "yedi",
+      "explain": "7 — yedi."
+    }
+  ]
+}

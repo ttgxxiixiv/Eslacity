@@ -175,8 +175,13 @@ export async function openApp(page: Page, lang: Lang, path = '', opts: { prologu
  * Язык ставится в localStorage, озвучка подменяется, как в `openApp`.
  */
 export async function openEnglish(page: Page) {
-  await page.addInitScript(() => {
-    localStorage.setItem('eslacity.lang', 'en');
+  await openCourse(page, 'en');
+}
+
+/** Курс без пролога и города (закрытый — турецкий с 18.4): язык в localStorage, уроки открываются напрямую. */
+export async function openCourse(page: Page, lang: string) {
+  await page.addInitScript((lang) => {
+    localStorage.setItem('eslacity.lang', lang);
     localStorage.setItem('eslacity.e2e', '1');
     const scroll = Element.prototype.scrollIntoView;
     Element.prototype.scrollIntoView = function (this: Element, ...args: Parameters<Element['scrollIntoView']>) {
@@ -184,7 +189,7 @@ export async function openEnglish(page: Page) {
       return Promise.resolve() as unknown as void;
     };
     speechSynthesis.speak = () => {};
-  });
+  }, lang);
 }
 
 /** После смены языка новый курс начинается с пролога (задача 13.2): пропустить его, если он открылся. */
@@ -426,7 +431,8 @@ export function loadPhraseData(lang: Lang, place: string): PhraseData[] {
 export const phraseFull = (es: string) => es.replace(/[()]/g, '').replace(/\s+/g, ' ').trim();
 export const phraseTiles = (es: string) => {
   const t = phraseFull(es).replace(/[¿¡?!.,;:"«»()…—–]/g, ' ').split(/\s+/).filter(Boolean);
-  if (t[0] !== t[0].toUpperCase()) t[0] = t[0].toLowerCase();
+  // Как lowerText в приложении: турецкая İ — обычная i, а не i с отдельной точкой сверху.
+  if (t[0] !== t[0].toUpperCase()) t[0] = t[0].replace(/İ/g, 'i').toLowerCase();
   return t;
 };
 

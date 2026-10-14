@@ -1,0 +1,179 @@
+{
+  "id": "a2.11-genis-olumsuz",
+  "district": "A2",
+  "order": 11,
+  "title": "Не делаю (обычно): -mAz",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Отрицание широкого времени — **-maz / -mez**, а у «я» и «мы» — **-mam / -mem** и **-mayız / -meyiz**: gel**mem** (не приду), gel**mez** (не приходит)."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Лицо",
+        "Отрицание",
+        "Вопрос"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "ben",
+            "gelmem",
+            "gelir miyim?"
+          ]
+        },
+        {
+          "cells": [
+            "sen",
+            "gelmezsin",
+            "gelir misin?"
+          ]
+        },
+        {
+          "cells": [
+            "o",
+            "gelmez",
+            "gelir mi?"
+          ]
+        },
+        {
+          "cells": [
+            "biz",
+            "gelmeyiz",
+            "gelir miyiz?"
+          ]
+        },
+        {
+          "cells": [
+            "siz",
+            "gelmezsiniz",
+            "gelir misiniz?"
+          ]
+        },
+        {
+          "cells": [
+            "onlar",
+            "gelmezler",
+            "gelirler mi?"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Сочетание «-r mı -maz mı» — «…или нет?»: **Gelir mi gelmez mi?** — Придёт или нет? Вежливый отказ: **Teşekkürler, içmem** — спасибо, я не пью."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Ben et yemem.",
+      "ru": "Я не ем мясо."
+    },
+    {
+      "es": "Bu otobüs plaja gitmez.",
+      "ru": "Этот автобус не идёт на пляж."
+    },
+    {
+      "es": "Kedim sudan hoşlanmaz.",
+      "ru": "Моя кошка не любит воду."
+    },
+    {
+      "es": "Hiç yalan söylemeyiz.",
+      "ru": "Мы никогда не лжём."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "a2.11-genis-olumsuz.1",
+      "kind": "choose",
+      "prompt": "«Я не курю»:",
+      "options": [
+        "Sigara içmem.",
+        "Sigara içmezim.",
+        "Sigara içmiyorum değil."
+      ],
+      "answer": 0,
+      "explain": "Я — -mem: içmem."
+    },
+    {
+      "id": "a2.11-genis-olumsuz.2",
+      "kind": "choose",
+      "prompt": "«Он не знает» (вообще):",
+      "options": [
+        "bilmez",
+        "bilmem",
+        "bilmezler"
+      ],
+      "answer": 0,
+      "explain": "Он — -mez: bilmez."
+    },
+    {
+      "id": "a2.11-genis-olumsuz.3",
+      "kind": "gap",
+      "sentence": "Biz kahve ___.",
+      "ru": "Мы не пьём кофе.",
+      "options": [
+        "içmeyiz",
+        "içmeziz",
+        "içmem"
+      ],
+      "answer": 0,
+      "explain": "Мы — -meyiz."
+    },
+    {
+      "id": "a2.11-genis-olumsuz.4",
+      "kind": "gap",
+      "sentence": "Bu dükkân pazar günü ___.",
+      "ru": "Этот магазин по воскресеньям не открывается.",
+      "options": [
+        "açılmaz",
+        "açılmam",
+        "açılır"
+      ],
+      "answer": 0,
+      "explain": "Оно — -maz."
+    },
+    {
+      "id": "a2.11-genis-olumsuz.5",
+      "kind": "truefalse",
+      "statement": "Отрицание «я» в широком времени — gelmezim.",
+      "answer": false,
+      "explain": "Правильно: gelmem."
+    },
+    {
+      "id": "a2.11-genis-olumsuz.6",
+      "kind": "truefalse",
+      "statement": "«Gelir mi gelmez mi?» значит «придёт или нет?».",
+      "answer": true,
+      "explain": "Так спрашивают о неизвестном."
+    },
+    {
+      "id": "a2.11-genis-olumsuz.7",
+      "kind": "truefalse",
+      "statement": "«Gelmezsin» — форма «ты».",
+      "answer": true,
+      "explain": "gel + mez + sin."
+    },
+    {
+      "id": "a2.11-genis-olumsuz.8",
+      "kind": "build",
+      "ru": "Я не ем острое.",
+      "answer": "Ben acı yemek yemem.",
+      "extra": [
+        "yemez",
+        "yiyorum"
+      ],
+      "explain": "Я — yemem."
+    },
+    {
+      "id": "a2.11-genis-olumsuz.9",
+      "kind": "type",
+      "sentence": "Bu saatte otobüs ___.",
+      "ru": "В это время автобус не ходит.",
+      "hint": "gelmek, не",
+      "answer": "gelmez",
+      "explain": "Он — gel + mez."
+    }
+  ]
+}

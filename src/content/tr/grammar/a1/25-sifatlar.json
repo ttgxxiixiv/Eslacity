@@ -1,0 +1,186 @@
+{
+  "id": "a1.25-sifatlar",
+  "district": "A1",
+  "order": 25,
+  "title": "Прилагательные: çok, biraz, en",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Прилагательное стоит перед существительным и не изменяется: **büyük ev**, **büyük evler**, **büyük evde**. «Один, какой-то» — **bir** между ними: büyük **bir** ev."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Слово",
+        "Значение",
+        "Пример"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "çok",
+            "очень, много",
+            "çok güzel"
+          ]
+        },
+        {
+          "cells": [
+            "biraz",
+            "немного",
+            "biraz soğuk"
+          ]
+        },
+        {
+          "cells": [
+            "en",
+            "самый",
+            "en iyi"
+          ]
+        },
+        {
+          "cells": [
+            "daha",
+            "более, ещё",
+            "daha ucuz"
+          ]
+        },
+        {
+          "cells": [
+            "pek",
+            "не очень (с отрицанием)",
+            "pek iyi değil"
+          ]
+        },
+        {
+          "cells": [
+            "oldukça",
+            "довольно",
+            "oldukça sıcak"
+          ]
+        },
+        {
+          "cells": [
+            "tamamen",
+            "полностью, совсем",
+            "tamamen boş"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Прилагательное может быть сказуемым: **Ev büyük** — дом большой. В вопросе: **Ev büyük mü?** Порядок: güzel **bir** gün — «прекрасный день»."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Çok güzel bir gün!",
+      "ru": "Какой прекрасный день!"
+    },
+    {
+      "es": "Bu en iyi lokanta.",
+      "ru": "Это лучшая локанта."
+    },
+    {
+      "es": "Çay biraz soğuk.",
+      "ru": "Чай немного остыл."
+    },
+    {
+      "es": "Yeni evimiz çok büyük.",
+      "ru": "Наш новый дом очень большой."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "a1.25-sifatlar.1",
+      "kind": "choose",
+      "prompt": "«Самый дешёвый»:",
+      "options": [
+        "en ucuz",
+        "çok ucuz",
+        "daha ucuz"
+      ],
+      "answer": 0,
+      "explain": "Самый — en."
+    },
+    {
+      "id": "a1.25-sifatlar.2",
+      "kind": "choose",
+      "prompt": "Где bir в «старый дом»?",
+      "options": [
+        "eski bir ev",
+        "bir eski ev",
+        "eski ev bir"
+      ],
+      "answer": 0,
+      "explain": "Прилагательное, потом bir: eski bir ev."
+    },
+    {
+      "id": "a1.25-sifatlar.3",
+      "kind": "gap",
+      "sentence": "Bu elbise ___ güzel.",
+      "ru": "Это платье очень красивое.",
+      "options": [
+        "çok",
+        "en",
+        "biraz"
+      ],
+      "answer": 0,
+      "explain": "Очень — çok."
+    },
+    {
+      "id": "a1.25-sifatlar.4",
+      "kind": "gap",
+      "sentence": "Hava bugün ___ soğuk.",
+      "ru": "Сегодня немного холодно.",
+      "options": [
+        "biraz",
+        "en",
+        "pek"
+      ],
+      "answer": 0,
+      "explain": "Немного — biraz."
+    },
+    {
+      "id": "a1.25-sifatlar.5",
+      "kind": "truefalse",
+      "statement": "Прилагательное получает -lar вместе с существительным: büyükler evler.",
+      "answer": false,
+      "explain": "Прилагательное не изменяется: büyük evler."
+    },
+    {
+      "id": "a1.25-sifatlar.6",
+      "kind": "truefalse",
+      "statement": "«En güzel» значит «самый красивый».",
+      "answer": true,
+      "explain": "en — самый."
+    },
+    {
+      "id": "a1.25-sifatlar.7",
+      "kind": "truefalse",
+      "statement": "Pek обычно стоит с отрицанием: pek iyi değil.",
+      "answer": true,
+      "explain": "«Не очень хорошо»."
+    },
+    {
+      "id": "a1.25-sifatlar.8",
+      "kind": "build",
+      "ru": "Это очень красивый город.",
+      "answer": "Bu çok güzel bir şehir.",
+      "extra": [
+        "şehirler",
+        "en"
+      ],
+      "explain": "Прилагательное с bir перед существительным."
+    },
+    {
+      "id": "a1.25-sifatlar.9",
+      "kind": "type",
+      "sentence": "Bu otel ___ pahalı.",
+      "ru": "Этот отель самый дорогой.",
+      "hint": "самый",
+      "answer": "en",
+      "explain": "Самый — en."
+    }
+  ]
+}

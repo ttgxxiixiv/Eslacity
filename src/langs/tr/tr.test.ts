@@ -213,3 +213,19 @@ describe('слова глав I–II турецкого (задача 18.3)', ()
     expect(warn(w('kitap', 'noun', 'Defter burada.'))).toEqual(['в примере нет слова "kitap"']);
   });
 });
+
+describe('грамматика A1–A2 турецкого (задача 18.4)', () => {
+  const root = join(import.meta.dirname, '..', '..', 'content', 'tr', 'grammar');
+  const ids = readdirSync(root).flatMap((d) => readdirSync(join(root, d)).map((f) => `${d}.${f.replace(/\.json$/, '')}`));
+
+  it('по 31 уроку в районах A1 и A2', () => {
+    expect(ids.filter((i) => i.startsWith('a1.'))).toHaveLength(31);
+    expect(ids.filter((i) => i.startsWith('a2.'))).toHaveLength(31);
+  });
+
+  it('уроки, открывающие времена кузницы A1–A2, есть в контенте (-miş — урок B1, задача 18.6)', () => {
+    const tenses = TR.verbs.tenses.filter((t) => /^a[12]\./.test(t.lesson));
+    expect(tenses.map((t) => t.id)).toEqual(['iyor', 'di', 'ecek', 'ir']);
+    for (const t of tenses) expect(ids, t.id).toContain(t.lesson);
+  });
+});

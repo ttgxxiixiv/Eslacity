@@ -1,0 +1,190 @@
+{
+  "id": "a2.10-genis-zaman",
+  "district": "A2",
+  "order": 10,
+  "title": "Широкое время: -Ir, -Ar",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Что бывает обычно, всегда, в принципе — **широкое время**: gel**ir** (приходит, обычно), yap**ar** (делает). Им же дают обещания и вежливо просят: **Yardım ederim** — я помогу."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Лицо",
+        "gelmek",
+        "yapmak",
+        "okumak"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "ben",
+            "gelirim",
+            "yaparım",
+            "okurum"
+          ]
+        },
+        {
+          "cells": [
+            "sen",
+            "gelirsin",
+            "yaparsın",
+            "okursun"
+          ]
+        },
+        {
+          "cells": [
+            "o",
+            "gelir",
+            "yapar",
+            "okur"
+          ]
+        },
+        {
+          "cells": [
+            "biz",
+            "geliriz",
+            "yaparız",
+            "okuruz"
+          ]
+        },
+        {
+          "cells": [
+            "siz",
+            "gelirsiniz",
+            "yaparsınız",
+            "okursunuz"
+          ]
+        },
+        {
+          "cells": [
+            "onlar",
+            "gelirler",
+            "yaparlar",
+            "okurlar"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "text",
+      "md": "Какой аффикс: основа на гласную — **-r** (okur, bekler). Односложная основа — **-Ar** (yapar, gider, içer), кроме 13 глаголов на **-Ir**: al, bil, bul, dur, gel, gör, kal, ol, öl, san, var, ver, vur. Многосложная — **-Ir** (çalışır, getirir)."
+    },
+    {
+      "kind": "tip",
+      "md": "Gitmek и etmek озвончают t: **gider**, **eder**. Широкое время — обычное время пословиц и привычек: **Her sabah çay içerim** — каждое утро пью чай."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Her sabah denize girerim.",
+      "ru": "Каждое утро я купаюсь в море."
+    },
+    {
+      "es": "Kaptan İsmail her şeyi bilir.",
+      "ru": "Капитан Исмаил всё знает."
+    },
+    {
+      "es": "Kışın burada çok yağmur yağar.",
+      "ru": "Зимой здесь много дождей."
+    },
+    {
+      "es": "Merak etme, yarın gelirim.",
+      "ru": "Не волнуйся, завтра приду."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "a2.10-genis-zaman.1",
+      "kind": "choose",
+      "prompt": "Широкое время от bilmek для «он»:",
+      "options": [
+        "bilir",
+        "biler",
+        "bilar"
+      ],
+      "answer": 0,
+      "explain": "bil — из 13 глаголов на -Ir: bilir."
+    },
+    {
+      "id": "a2.10-genis-zaman.2",
+      "kind": "choose",
+      "prompt": "Широкое время от yapmak для «я»:",
+      "options": [
+        "yaparım",
+        "yapırım",
+        "yapıyorum"
+      ],
+      "answer": 0,
+      "explain": "Односложная основа — -Ar: yaparım."
+    },
+    {
+      "id": "a2.10-genis-zaman.3",
+      "kind": "gap",
+      "sentence": "Babam her gün gazete ___.",
+      "ru": "Папа каждый день читает газету.",
+      "options": [
+        "okur",
+        "okuyor mu",
+        "okudu"
+      ],
+      "answer": 0,
+      "explain": "Привычка — okur."
+    },
+    {
+      "id": "a2.10-genis-zaman.4",
+      "kind": "gap",
+      "sentence": "Çay ___ misin?",
+      "ru": "Будешь чай?",
+      "options": [
+        "içer",
+        "içersin",
+        "içti"
+      ],
+      "answer": 0,
+      "explain": "Предложение — içer misin?"
+    },
+    {
+      "id": "a2.10-genis-zaman.5",
+      "kind": "truefalse",
+      "statement": "Gitmek в широком времени — gider.",
+      "answer": true,
+      "explain": "Односложная основа, t → d."
+    },
+    {
+      "id": "a2.10-genis-zaman.6",
+      "kind": "truefalse",
+      "statement": "Gelmek в широком времени — geler.",
+      "answer": false,
+      "explain": "gel — из 13 исключений: gelir."
+    },
+    {
+      "id": "a2.10-genis-zaman.7",
+      "kind": "truefalse",
+      "statement": "Широким временем дают обещания: Yarın gelirim.",
+      "answer": true,
+      "explain": "«Завтра приду»."
+    },
+    {
+      "id": "a2.10-genis-zaman.8",
+      "kind": "build",
+      "ru": "Летом мы обычно ходим на пляж.",
+      "answer": "Yazın genellikle plaja gideriz.",
+      "extra": [
+        "gidiyoruz",
+        "plajda"
+      ],
+      "explain": "Привычка — gideriz."
+    },
+    {
+      "id": "a2.10-genis-zaman.9",
+      "kind": "type",
+      "sentence": "Ben genellikle saat yedide ___.",
+      "ru": "Обычно я встаю в семь.",
+      "hint": "kalkmak, я, обычно",
+      "answer": "kalkarım",
+      "explain": "kalk — односложная: -ar + ım."
+    }
+  ]
+}

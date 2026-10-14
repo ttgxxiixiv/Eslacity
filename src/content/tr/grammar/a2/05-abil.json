@@ -1,0 +1,179 @@
+{
+  "id": "a2.05-abil",
+  "district": "A2",
+  "order": 5,
+  "title": "Могу: -(y)Abil",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "«Мочь, уметь» — **-abil / -ebil** между основой и временем. Чаще всего с широким временем: gel**ebilirim** (я могу прийти), yap**abilir** (может сделать). После гласной — **y**: oku**yabilir**."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Лицо",
+        "gelmek",
+        "okumak"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "ben",
+            "gelebilirim",
+            "okuyabilirim"
+          ]
+        },
+        {
+          "cells": [
+            "sen",
+            "gelebilirsin",
+            "okuyabilirsin"
+          ]
+        },
+        {
+          "cells": [
+            "o",
+            "gelebilir",
+            "okuyabilir"
+          ]
+        },
+        {
+          "cells": [
+            "biz",
+            "gelebiliriz",
+            "okuyabiliriz"
+          ]
+        },
+        {
+          "cells": [
+            "siz",
+            "gelebilirsiniz",
+            "okuyabilirsiniz"
+          ]
+        },
+        {
+          "cells": [
+            "onlar",
+            "gelebilirler",
+            "okuyabilirler"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Вопрос-просьба: **Yardım edebilir misin?** — Можешь помочь? «Можно?» — **...-ebilir miyim?**: Girebilir miyim? Прошедшее: gel**ebildim** — смог прийти."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Türkçe konuşabilirim.",
+      "ru": "Я могу говорить по-турецки."
+    },
+    {
+      "es": "Pencereyi açabilir misin?",
+      "ru": "Можешь открыть окно?"
+    },
+    {
+      "es": "Buraya oturabilir miyim?",
+      "ru": "Можно сюда сесть?"
+    },
+    {
+      "es": "Yarın gelebiliriz.",
+      "ru": "Завтра мы можем прийти."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "a2.05-abil.1",
+      "kind": "choose",
+      "prompt": "«Я могу плавать»:",
+      "options": [
+        "yüzebilirim",
+        "yüzabilirim",
+        "yüzerim bilir"
+      ],
+      "answer": 0,
+      "explain": "Последняя ü — передняя: -ebil."
+    },
+    {
+      "id": "a2.05-abil.2",
+      "kind": "choose",
+      "prompt": "«Можно войти?»:",
+      "options": [
+        "Girebilir miyim?",
+        "Girebilirim mi?",
+        "Girmek miyim?"
+      ],
+      "answer": 0,
+      "explain": "Просьба: girebilir miyim?"
+    },
+    {
+      "id": "a2.05-abil.3",
+      "kind": "gap",
+      "sentence": "Bana ___ misin?",
+      "ru": "Можешь мне помочь?",
+      "options": [
+        "yardım edebilir",
+        "yardım edebilirsin",
+        "yardım eder"
+      ],
+      "answer": 0,
+      "explain": "Лицо на частице: edebilir misin."
+    },
+    {
+      "id": "a2.05-abil.4",
+      "kind": "gap",
+      "sentence": "Kartla ___ miyim?",
+      "ru": "Можно заплатить картой?",
+      "options": [
+        "ödeyebilir",
+        "ödeyebilirim",
+        "öder"
+      ],
+      "answer": 0,
+      "explain": "После гласной — y: ödeyebilir miyim?"
+    },
+    {
+      "id": "a2.05-abil.5",
+      "kind": "truefalse",
+      "statement": "После гласной перед -Abil вставляется y: okuyabilir.",
+      "answer": true,
+      "explain": "oku + y + abil + ir."
+    },
+    {
+      "id": "a2.05-abil.6",
+      "kind": "truefalse",
+      "statement": "«Gelebildim» значит «я смог прийти».",
+      "answer": true,
+      "explain": "Прошедшее от -ebil: gelebildim."
+    },
+    {
+      "id": "a2.05-abil.7",
+      "kind": "truefalse",
+      "statement": "-Abil ставится после личного окончания.",
+      "answer": false,
+      "explain": "-Abil — сразу после основы: gel-ebil-ir-im."
+    },
+    {
+      "id": "a2.05-abil.8",
+      "kind": "build",
+      "ru": "Можно посмотреть меню?",
+      "answer": "Menüye bakabilir miyim?",
+      "extra": [
+        "bakabilirim",
+        "menüyü"
+      ],
+      "explain": "Просьба: bakabilir miyim."
+    },
+    {
+      "id": "a2.05-abil.9",
+      "kind": "type",
+      "sentence": "Burada fotoğraf ___ miyim?",
+      "ru": "Здесь можно фотографировать?",
+      "hint": "çekmek, можно",
+      "answer": "çekebilir",
+      "explain": "çek + ebil + ir."
+    }
+  ]
+}

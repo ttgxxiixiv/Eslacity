@@ -1,0 +1,218 @@
+{
+  "id": "a2.16-yer-edatlari",
+  "district": "A2",
+  "order": 16,
+  "title": "На, под, рядом: послелоги места",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Место — сочетание «чего + послелог с аффиксом»: masa**nın üstünde** (на столе), kapı**nın önünde** (перед дверью), ev**in arkasında** (за домом)."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Послелог",
+        "Где?",
+        "Куда?",
+        "Перевод"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "üst",
+            "üstünde",
+            "üstüne",
+            "на, сверху"
+          ]
+        },
+        {
+          "cells": [
+            "alt",
+            "altında",
+            "altına",
+            "под"
+          ]
+        },
+        {
+          "cells": [
+            "ön",
+            "önünde",
+            "önüne",
+            "перед"
+          ]
+        },
+        {
+          "cells": [
+            "arka",
+            "arkasında",
+            "arkasına",
+            "за, позади"
+          ]
+        },
+        {
+          "cells": [
+            "yan",
+            "yanında",
+            "yanına",
+            "рядом"
+          ]
+        },
+        {
+          "cells": [
+            "iç",
+            "içinde",
+            "içine",
+            "внутри"
+          ]
+        },
+        {
+          "cells": [
+            "ara",
+            "arasında",
+            "arasına",
+            "между"
+          ]
+        },
+        {
+          "cells": [
+            "üzeri",
+            "üzerinde",
+            "üzerine",
+            "на (= üst)"
+          ]
+        },
+        {
+          "cells": [
+            "sağ",
+            "sağında",
+            "sağına",
+            "справа"
+          ]
+        },
+        {
+          "cells": [
+            "sol",
+            "solunda",
+            "soluna",
+            "слева"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Первое слово — в родительном: masa**nın** altında. С местоимениями: **benim yanımda** (рядом со мной), **senin önünde**."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Kedi masanın altında.",
+      "ru": "Кошка под столом."
+    },
+    {
+      "es": "Banka postanenin yanında.",
+      "ru": "Банк рядом с почтой."
+    },
+    {
+      "es": "Anahtar çantanın içinde.",
+      "ru": "Ключ в сумке."
+    },
+    {
+      "es": "Arabayı evin önüne park et.",
+      "ru": "Поставь машину перед домом."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "a2.16-yer-edatlari.1",
+      "kind": "choose",
+      "prompt": "«Под деревом» (где?):",
+      "options": [
+        "ağacın altında",
+        "ağaç altına",
+        "ağacın alt"
+      ],
+      "answer": 0,
+      "explain": "Родительный + altında."
+    },
+    {
+      "id": "a2.16-yer-edatlari.2",
+      "kind": "choose",
+      "prompt": "«Рядом со мной»:",
+      "options": [
+        "benim yanımda",
+        "ben yanında",
+        "bana yanında"
+      ],
+      "answer": 0,
+      "explain": "benim yanımda."
+    },
+    {
+      "id": "a2.16-yer-edatlari.3",
+      "kind": "gap",
+      "sentence": "Kitap rafın ___.",
+      "ru": "Книга на полке.",
+      "options": [
+        "üstünde",
+        "üstüne",
+        "altına"
+      ],
+      "answer": 0,
+      "explain": "Где — üstünde."
+    },
+    {
+      "id": "a2.16-yer-edatlari.4",
+      "kind": "gap",
+      "sentence": "Çantanı sandalyenin ___ koy.",
+      "ru": "Поставь сумку под стул.",
+      "options": [
+        "altına",
+        "altında",
+        "önünde"
+      ],
+      "answer": 0,
+      "explain": "Куда — altına."
+    },
+    {
+      "id": "a2.16-yer-edatlari.5",
+      "kind": "truefalse",
+      "statement": "«Evin arkasında» значит «за домом».",
+      "answer": true,
+      "explain": "arka — позади."
+    },
+    {
+      "id": "a2.16-yer-edatlari.6",
+      "kind": "truefalse",
+      "statement": "В «masanın üstünde» первое слово в родительном падеже.",
+      "answer": true,
+      "explain": "masa + nın."
+    },
+    {
+      "id": "a2.16-yer-edatlari.7",
+      "kind": "truefalse",
+      "statement": "Куда положить — «üstünde».",
+      "answer": false,
+      "explain": "Куда — üstüne; üstünde — где."
+    },
+    {
+      "id": "a2.16-yer-edatlari.8",
+      "kind": "build",
+      "ru": "Аптека между банком и почтой.",
+      "answer": "Eczane banka ile postane arasında.",
+      "extra": [
+        "arasına",
+        "bankada"
+      ],
+      "explain": "Между — arasında."
+    },
+    {
+      "id": "a2.16-yer-edatlari.9",
+      "kind": "type",
+      "sentence": "Araba evin ___.",
+      "ru": "Машина перед домом.",
+      "hint": "перед, где",
+      "answer": "önünde",
+      "explain": "Где — önünde."
+    }
+  ]
+}

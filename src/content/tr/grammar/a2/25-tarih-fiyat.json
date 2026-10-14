@@ -1,0 +1,208 @@
+{
+  "id": "a2.25-tarih-fiyat",
+  "district": "A2",
+  "order": 25,
+  "title": "Даты, месяцы и цены",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Дата — число и месяц без предлога: **beş mayıs** (5 мая). «Пятого мая» — **beş mayısta** или **mayısın beşinde**. Цена: **yüz elli lira**, мелкая монета — **kuruş**."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Месяц",
+        "Перевод"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "ocak",
+            "январь"
+          ]
+        },
+        {
+          "cells": [
+            "şubat",
+            "февраль"
+          ]
+        },
+        {
+          "cells": [
+            "mart",
+            "март"
+          ]
+        },
+        {
+          "cells": [
+            "nisan",
+            "апрель"
+          ]
+        },
+        {
+          "cells": [
+            "mayıs",
+            "май"
+          ]
+        },
+        {
+          "cells": [
+            "haziran",
+            "июнь"
+          ]
+        },
+        {
+          "cells": [
+            "temmuz",
+            "июль"
+          ]
+        },
+        {
+          "cells": [
+            "ağustos",
+            "август"
+          ]
+        },
+        {
+          "cells": [
+            "eylül",
+            "сентябрь"
+          ]
+        },
+        {
+          "cells": [
+            "ekim",
+            "октябрь"
+          ]
+        },
+        {
+          "cells": [
+            "kasım",
+            "ноябрь"
+          ]
+        },
+        {
+          "cells": [
+            "aralık",
+            "декабрь"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "«В мае» — **mayısta**, «в июле» — **temmuzda**. Год: **2026 yılında** — в 2026 году. Цена с копейками: **on lira elli kuruş**."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Doğum günüm on iki haziranda.",
+      "ru": "Мой день рождения двенадцатого июня."
+    },
+    {
+      "es": "Temmuzda deniz çok sıcak.",
+      "ru": "В июле море очень тёплое."
+    },
+    {
+      "es": "Bu bilet yüz yirmi lira.",
+      "ru": "Этот билет стоит сто двадцать лир."
+    },
+    {
+      "es": "Okullar eylülde açılıyor.",
+      "ru": "Школы открываются в сентябре."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "a2.25-tarih-fiyat.1",
+      "kind": "choose",
+      "prompt": "«В августе»:",
+      "options": [
+        "ağustosta",
+        "ağustos",
+        "ağustosa"
+      ],
+      "answer": 0,
+      "explain": "Когда — местный падеж: ağustosta."
+    },
+    {
+      "id": "a2.25-tarih-fiyat.2",
+      "kind": "choose",
+      "prompt": "Октябрь — это…",
+      "options": [
+        "ekim",
+        "eylül",
+        "kasım"
+      ],
+      "answer": 0,
+      "explain": "ekim — октябрь."
+    },
+    {
+      "id": "a2.25-tarih-fiyat.3",
+      "kind": "gap",
+      "sentence": "Yaz tatili ___ başlıyor.",
+      "ru": "Летние каникулы начинаются в июне.",
+      "options": [
+        "haziranda",
+        "haziran",
+        "hazirana"
+      ],
+      "answer": 0,
+      "explain": "Когда — haziranda."
+    },
+    {
+      "id": "a2.25-tarih-fiyat.4",
+      "kind": "gap",
+      "sentence": "Bu elbise iki yüz ___.",
+      "ru": "Это платье стоит двести лир.",
+      "options": [
+        "lira",
+        "liraya",
+        "liralar"
+      ],
+      "answer": 0,
+      "explain": "После числа — lira."
+    },
+    {
+      "id": "a2.25-tarih-fiyat.5",
+      "kind": "truefalse",
+      "statement": "Ocak — это январь.",
+      "answer": true,
+      "explain": "ocak — январь (и плита)."
+    },
+    {
+      "id": "a2.25-tarih-fiyat.6",
+      "kind": "truefalse",
+      "statement": "«В мае» — mayısa.",
+      "answer": false,
+      "explain": "Когда — местный: mayısta."
+    },
+    {
+      "id": "a2.25-tarih-fiyat.7",
+      "kind": "truefalse",
+      "statement": "Kuruş — мелкая монета, сотая часть лиры.",
+      "answer": true,
+      "explain": "on lira elli kuruş."
+    },
+    {
+      "id": "a2.25-tarih-fiyat.8",
+      "kind": "build",
+      "ru": "Мы приедем в Измир в сентябре.",
+      "answer": "Eylülde İzmir'e geleceğiz.",
+      "extra": [
+        "eylüle",
+        "İzmir'de"
+      ],
+      "explain": "Когда — eylülde; куда — İzmir'e."
+    },
+    {
+      "id": "a2.25-tarih-fiyat.9",
+      "kind": "type",
+      "sentence": "Yeni yıl ___ başlar.",
+      "ru": "Новый год начинается в январе.",
+      "hint": "январь, когда",
+      "answer": "ocakta",
+      "explain": "Когда — ocak + ta."
+    }
+  ]
+}

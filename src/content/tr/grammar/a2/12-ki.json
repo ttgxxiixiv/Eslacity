@@ -1,0 +1,172 @@
+{
+  "id": "a2.12-ki",
+  "district": "A2",
+  "order": 12,
+  "title": "Аффикс -ki: здешний, вчерашний, мой",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "**-ki** делает из слова прилагательное «который там / тогда»: masa**daki** kitap — книга на столе, **yarınki** toplantı — завтрашнее совещание, **bugünkü** gazete — сегодняшняя газета."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Слово",
+        "С -ki",
+        "Перевод"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "masada",
+            "masadaki",
+            "который на столе"
+          ]
+        },
+        {
+          "cells": [
+            "evde",
+            "evdeki",
+            "домашний, который дома"
+          ]
+        },
+        {
+          "cells": [
+            "yarın",
+            "yarınki",
+            "завтрашний"
+          ]
+        },
+        {
+          "cells": [
+            "bugün",
+            "bugünkü",
+            "сегодняшний"
+          ]
+        },
+        {
+          "cells": [
+            "benim",
+            "benimki",
+            "мой (без вещи)"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "-ki почти не меняется по гармонии; исключения — **bugünkü**, **dünkü** (вчерашний). Не путайте с союзом **ki** «что», он пишется отдельно."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Masadaki çay senin mi?",
+      "ru": "Чай на столе твой?"
+    },
+    {
+      "es": "Dünkü maçı izledin mi?",
+      "ru": "Ты смотрел вчерашний матч?"
+    },
+    {
+      "es": "Sahildeki lokanta çok güzel.",
+      "ru": "Ресторанчик на набережной очень хороший."
+    },
+    {
+      "es": "Benim çantam siyah, seninki mavi.",
+      "ru": "Моя сумка чёрная, твоя синяя."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "a2.12-ki.1",
+      "kind": "choose",
+      "prompt": "«Книга на полке»:",
+      "options": [
+        "raftaki kitap",
+        "rafta kitap",
+        "rafın kitap"
+      ],
+      "answer": 0,
+      "explain": "Где + ki: raftaki."
+    },
+    {
+      "id": "a2.12-ki.2",
+      "kind": "choose",
+      "prompt": "«Сегодняшний»:",
+      "options": [
+        "bugünkü",
+        "bugünki",
+        "bugündeki"
+      ],
+      "answer": 0,
+      "explain": "Исключение: bugünkü."
+    },
+    {
+      "id": "a2.12-ki.3",
+      "kind": "gap",
+      "sentence": "___ toplantı iptal oldu.",
+      "ru": "Завтрашнее совещание отменили.",
+      "options": [
+        "Yarınki",
+        "Yarında",
+        "Yarına"
+      ],
+      "answer": 0,
+      "explain": "Завтрашний — yarınki."
+    },
+    {
+      "id": "a2.12-ki.4",
+      "kind": "gap",
+      "sentence": "Bahçe___ ağaç çok yaşlı.",
+      "ru": "Дерево в саду очень старое.",
+      "options": [
+        "deki",
+        "de",
+        "den"
+      ],
+      "answer": 0,
+      "explain": "Который в саду — bahçedeki."
+    },
+    {
+      "id": "a2.12-ki.5",
+      "kind": "truefalse",
+      "statement": "«Evdeki» значит «который дома».",
+      "answer": true,
+      "explain": "evde + ki."
+    },
+    {
+      "id": "a2.12-ki.6",
+      "kind": "truefalse",
+      "statement": "Dünkü значит «вчерашний».",
+      "answer": true,
+      "explain": "dün + kü — исключение по гармонии."
+    },
+    {
+      "id": "a2.12-ki.7",
+      "kind": "truefalse",
+      "statement": "-ki в «masadaki» — это союз «что».",
+      "answer": false,
+      "explain": "Это аффикс, он пишется слитно."
+    },
+    {
+      "id": "a2.12-ki.8",
+      "kind": "build",
+      "ru": "Хлеб в холодильнике свежий.",
+      "answer": "Buzdolabındaki ekmek taze.",
+      "extra": [
+        "buzdolabında",
+        "ekmeği"
+      ],
+      "explain": "Который в холодильнике — buzdolabındaki."
+    },
+    {
+      "id": "a2.12-ki.9",
+      "kind": "type",
+      "sentence": "Senin araban büyük, ___ küçük.",
+      "ru": "Твоя машина большая, моя маленькая.",
+      "hint": "мой",
+      "answer": "benimki",
+      "explain": "Мой без вещи — benimki."
+    }
+  ]
+}

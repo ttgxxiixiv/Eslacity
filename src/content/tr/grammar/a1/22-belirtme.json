@@ -1,0 +1,170 @@
+{
+  "id": "a1.22-belirtme",
+  "district": "A1",
+  "order": 22,
+  "title": "Кого? Что? Винительный -(y)I",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Определённое прямое дополнение получает **-ı / -i / -u / -ü**: Kitab**ı** okuyorum — читаю (эту) книгу. После гласной — **y**: araba**yı**, su**yu**."
+    },
+    {
+      "kind": "text",
+      "md": "Неопределённое — без аффикса: **Bir kitap** okuyorum — читаю (какую-то) книгу. **Kitap** okuyorum — читаю книги, занимаюсь чтением."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Слово",
+        "Винительный"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "ev",
+            "evi"
+          ]
+        },
+        {
+          "cells": [
+            "çay",
+            "çayı"
+          ]
+        },
+        {
+          "cells": [
+            "kitap",
+            "kitabı"
+          ]
+        },
+        {
+          "cells": [
+            "araba",
+            "arabayı"
+          ]
+        },
+        {
+          "cells": [
+            "su",
+            "suyu"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Местоимения: **beni** (меня), **seni**, **onu**, **bizi**, **sizi**, **onları**. Вопрос — **neyi?** (что?) и **kimi?** (кого?)."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Kapıyı kapat.",
+      "ru": "Закрой дверь."
+    },
+    {
+      "es": "Seni seviyorum.",
+      "ru": "Я тебя люблю."
+    },
+    {
+      "es": "Bu filmi gördün mü?",
+      "ru": "Ты видел этот фильм?"
+    },
+    {
+      "es": "Bir kahve istiyorum.",
+      "ru": "Я хочу кофе."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "a1.22-belirtme.1",
+      "kind": "choose",
+      "prompt": "«Я вижу море»:",
+      "options": [
+        "Denizi görüyorum.",
+        "Denize görüyorum.",
+        "Denizde görüyorum."
+      ],
+      "answer": 0,
+      "explain": "Что вижу — винительный: denizi."
+    },
+    {
+      "id": "a1.22-belirtme.2",
+      "kind": "choose",
+      "prompt": "Винительный от su:",
+      "options": [
+        "suyu",
+        "sui",
+        "suyı"
+      ],
+      "answer": 0,
+      "explain": "После гласной — y: suyu."
+    },
+    {
+      "id": "a1.22-belirtme.3",
+      "kind": "gap",
+      "sentence": "Lütfen ___ aç.",
+      "ru": "Пожалуйста, открой окно.",
+      "options": [
+        "pencereyi",
+        "pencereye",
+        "pencerede"
+      ],
+      "answer": 0,
+      "explain": "Что открыть — pencereyi."
+    },
+    {
+      "id": "a1.22-belirtme.4",
+      "kind": "gap",
+      "sentence": "___ çok seviyorum.",
+      "ru": "Я очень люблю этот город.",
+      "options": [
+        "Bu şehri",
+        "Bu şehre",
+        "Bu şehirde"
+      ],
+      "answer": 0,
+      "explain": "Что люблю — şehri."
+    },
+    {
+      "id": "a1.22-belirtme.5",
+      "kind": "truefalse",
+      "statement": "«Bir kitap okuyorum» — книга неопределённая, без аффикса.",
+      "answer": true,
+      "explain": "bir kitap — какая-то книга."
+    },
+    {
+      "id": "a1.22-belirtme.6",
+      "kind": "truefalse",
+      "statement": "«Ben seni bekliyorum» — правильно.",
+      "answer": true,
+      "explain": "seni — тебя."
+    },
+    {
+      "id": "a1.22-belirtme.7",
+      "kind": "truefalse",
+      "statement": "Винительный от kitap — kitapı.",
+      "answer": false,
+      "explain": "p озвончается: kitabı."
+    },
+    {
+      "id": "a1.22-belirtme.8",
+      "kind": "build",
+      "ru": "Я ищу ключ от номера.",
+      "answer": "Oda anahtarını arıyorum.",
+      "extra": [
+        "anahtarı",
+        "anahtara"
+      ],
+      "explain": "oda anahtarı + n + ı: anahtarını."
+    },
+    {
+      "id": "a1.22-belirtme.9",
+      "kind": "type",
+      "sentence": "Dün ___ gördüm.",
+      "ru": "Вчера я видел Айше.",
+      "hint": "Ayşe, кого",
+      "answer": "Ayşe'yi",
+      "explain": "Кого — Ayşe + y + i."
+    }
+  ]
+}

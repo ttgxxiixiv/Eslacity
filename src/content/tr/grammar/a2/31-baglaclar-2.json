@@ -1,0 +1,210 @@
+{
+  "id": "a2.31-baglaclar-2",
+  "district": "A2",
+  "order": 31,
+  "title": "Поэтому, и… и, или… или",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Связки сложнее: **bu yüzden / bu nedenle** (поэтому), **hem… hem (de)** (и… и), **ya… ya (da)** (или… или), **ne… ne** (ни… ни), **ayrıca** (кроме того), **yine de** (всё же)."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Связка",
+        "Пример",
+        "Перевод"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "bu yüzden",
+            "Yağmur yağıyor, bu yüzden evdeyiz.",
+            "Идёт дождь, поэтому мы дома."
+          ]
+        },
+        {
+          "cells": [
+            "hem… hem",
+            "Hem ucuz hem güzel.",
+            "И дёшево, и красиво."
+          ]
+        },
+        {
+          "cells": [
+            "ya… ya",
+            "Ya bugün ya yarın.",
+            "Или сегодня, или завтра."
+          ]
+        },
+        {
+          "cells": [
+            "ne… ne",
+            "Ne çay ne kahve var.",
+            "Нет ни чая, ни кофе."
+          ]
+        },
+        {
+          "cells": [
+            "yine de",
+            "Yorgunum, yine de geleceğim.",
+            "Я устал, но всё же приду."
+          ]
+        },
+        {
+          "cells": [
+            "ayrıca",
+            "Ayrıca çok ucuz.",
+            "Кроме того, это очень дёшево."
+          ]
+        },
+        {
+          "cells": [
+            "hatta",
+            "Hatta denize girdik.",
+            "Мы даже искупались в море."
+          ]
+        },
+        {
+          "cells": [
+            "böylece",
+            "Erken çıktık, böylece vapuru kaçırmadık.",
+            "Мы вышли рано и потому не опоздали на паром."
+          ]
+        },
+        {
+          "cells": [
+            "sanki",
+            "Sanki yaz geldi.",
+            "Будто лето пришло."
+          ]
+        },
+        {
+          "cells": [
+            "sadece, yalnız",
+            "Sadece bir çay.",
+            "Только один чай."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "С **ne… ne** глагол обычно **утвердительный**: Ne çay ne kahve **var** — ни чая, ни кофе нет. Это не как в русском."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Hem çalışıyor hem okuyor.",
+      "ru": "Он и работает, и учится."
+    },
+    {
+      "es": "Ya otobüsle ya trenle gideriz.",
+      "ru": "Мы поедем или на автобусе, или на поезде."
+    },
+    {
+      "es": "Ne aç ne tok.",
+      "ru": "Ни голоден, ни сыт."
+    },
+    {
+      "es": "Çok yorgundum, bu yüzden erken yattım.",
+      "ru": "Я очень устал, поэтому рано лёг."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "a2.31-baglaclar-2.1",
+      "kind": "choose",
+      "prompt": "«Поэтому»:",
+      "options": [
+        "bu yüzden",
+        "bunun gibi",
+        "bu kadar"
+      ],
+      "answer": 0,
+      "explain": "bu yüzden — поэтому."
+    },
+    {
+      "id": "a2.31-baglaclar-2.2",
+      "kind": "choose",
+      "prompt": "«Ни… ни»:",
+      "options": [
+        "ne… ne",
+        "ya… ya",
+        "hem… hem"
+      ],
+      "answer": 0,
+      "explain": "ne… ne — ни… ни."
+    },
+    {
+      "id": "a2.31-baglaclar-2.3",
+      "kind": "gap",
+      "sentence": "___ ucuz hem lezzetli.",
+      "ru": "И дёшево, и вкусно.",
+      "options": [
+        "Hem",
+        "Ne",
+        "Ya"
+      ],
+      "answer": 0,
+      "explain": "И… и — hem… hem."
+    },
+    {
+      "id": "a2.31-baglaclar-2.4",
+      "kind": "gap",
+      "sentence": "Hasta, ___ okula gitmedi.",
+      "ru": "Он болен, поэтому не пошёл в школу.",
+      "options": [
+        "bu yüzden",
+        "ama",
+        "yine de"
+      ],
+      "answer": 0,
+      "explain": "Следствие — bu yüzden."
+    },
+    {
+      "id": "a2.31-baglaclar-2.5",
+      "kind": "truefalse",
+      "statement": "С ne… ne глагол обычно утвердительный.",
+      "answer": true,
+      "explain": "Ne çay ne kahve var."
+    },
+    {
+      "id": "a2.31-baglaclar-2.6",
+      "kind": "truefalse",
+      "statement": "«Ya bugün ya yarın» значит «и сегодня, и завтра».",
+      "answer": false,
+      "explain": "Или сегодня, или завтра."
+    },
+    {
+      "id": "a2.31-baglaclar-2.7",
+      "kind": "truefalse",
+      "statement": "«Yine de» значит «всё же, тем не менее».",
+      "answer": true,
+      "explain": "yine de — всё же."
+    },
+    {
+      "id": "a2.31-baglaclar-2.8",
+      "kind": "build",
+      "ru": "Или чай, или кофе — выбирай.",
+      "answer": "Ya çay ya kahve seç.",
+      "extra": [
+        "hem",
+        "ne"
+      ],
+      "explain": "Или… или — ya… ya."
+    },
+    {
+      "id": "a2.31-baglaclar-2.9",
+      "kind": "type",
+      "sentence": "Hava soğuk, ___ deniz çok güzel.",
+      "ru": "Холодно, но всё же море очень красивое.",
+      "hint": "всё же",
+      "answer": "yine de",
+      "alt": [
+        "ama"
+      ],
+      "explain": "Всё же — yine de."
+    }
+  ]
+}

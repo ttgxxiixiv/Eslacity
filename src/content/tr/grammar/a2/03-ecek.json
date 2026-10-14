@@ -1,0 +1,186 @@
+{
+  "id": "a2.03-ecek",
+  "district": "A2",
+  "order": 3,
+  "title": "Будущее время: -(y)AcAk",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Что будет — аффикс **-acak / -ecek** и личное окончание: gel**eceğim** (я приду), yap**acak** (сделает). После гласной — **y**: oku**yacağım**. Перед гласной окончания k → ğ: geleceğ**im**."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Лицо",
+        "gelmek",
+        "yapmak",
+        "okumak"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "ben",
+            "geleceğim",
+            "yapacağım",
+            "okuyacağım"
+          ]
+        },
+        {
+          "cells": [
+            "sen",
+            "geleceksin",
+            "yapacaksın",
+            "okuyacaksın"
+          ]
+        },
+        {
+          "cells": [
+            "o",
+            "gelecek",
+            "yapacak",
+            "okuyacak"
+          ]
+        },
+        {
+          "cells": [
+            "biz",
+            "geleceğiz",
+            "yapacağız",
+            "okuyacağız"
+          ]
+        },
+        {
+          "cells": [
+            "siz",
+            "geleceksiniz",
+            "yapacaksınız",
+            "okuyacaksınız"
+          ]
+        },
+        {
+          "cells": [
+            "onlar",
+            "gelecekler",
+            "yapacaklar",
+            "okuyacaklar"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "У gitmek и etmek t → d: **gideceğim**, **edeceğim**. Demek и yemek: **diyeceğim**, **yiyeceğim**."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Yarın sana telefon edeceğim.",
+      "ru": "Завтра я тебе позвоню."
+    },
+    {
+      "es": "Akşam ne yapacaksın?",
+      "ru": "Что ты будешь делать вечером?"
+    },
+    {
+      "es": "Vapur birazdan kalkacak.",
+      "ru": "Паром скоро отойдёт."
+    },
+    {
+      "es": "Gelecek yıl İstanbul'a taşınacağız.",
+      "ru": "В следующем году мы переедем в Стамбул."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "a2.03-ecek.1",
+      "kind": "choose",
+      "prompt": "«Я приду»:",
+      "options": [
+        "geleceğim",
+        "gelecekim",
+        "gelirim"
+      ],
+      "answer": 0,
+      "explain": "k перед гласной → ğ: geleceğim."
+    },
+    {
+      "id": "a2.03-ecek.2",
+      "kind": "choose",
+      "prompt": "Будущее от okumak для «он»:",
+      "options": [
+        "okuyacak",
+        "okuacak",
+        "okuyecek"
+      ],
+      "answer": 0,
+      "explain": "После гласной — y, гармония a: okuyacak."
+    },
+    {
+      "id": "a2.03-ecek.3",
+      "kind": "gap",
+      "sentence": "Yarın plaja ___.",
+      "ru": "Завтра мы пойдём на пляж.",
+      "options": [
+        "gideceğiz",
+        "gidiyoruz mu",
+        "gitti"
+      ],
+      "answer": 0,
+      "explain": "Мы, будущее: gideceğiz."
+    },
+    {
+      "id": "a2.03-ecek.4",
+      "kind": "gap",
+      "sentence": "Sen ne ___?",
+      "ru": "Что ты будешь есть?",
+      "options": [
+        "yiyeceksin",
+        "yiyecek",
+        "yemeyeceğim"
+      ],
+      "answer": 0,
+      "explain": "Ты: yiyeceksin."
+    },
+    {
+      "id": "a2.03-ecek.5",
+      "kind": "truefalse",
+      "statement": "В будущем gitmek превращается в gideceğim.",
+      "answer": true,
+      "explain": "t → d перед гласной."
+    },
+    {
+      "id": "a2.03-ecek.6",
+      "kind": "truefalse",
+      "statement": "«Geleceksiniz» — форма «вы».",
+      "answer": true,
+      "explain": "siz — -siniz."
+    },
+    {
+      "id": "a2.03-ecek.7",
+      "kind": "truefalse",
+      "statement": "Перед согласной окончания k остаётся: geleceksin.",
+      "answer": true,
+      "explain": "k → ğ только перед гласной."
+    },
+    {
+      "id": "a2.03-ecek.8",
+      "kind": "build",
+      "ru": "В субботу я позвоню маме.",
+      "answer": "Cumartesi anneme telefon edeceğim.",
+      "extra": [
+        "ediyorum",
+        "annemi"
+      ],
+      "explain": "Будущее, я — edeceğim; кому — anneme."
+    },
+    {
+      "id": "a2.03-ecek.9",
+      "kind": "type",
+      "sentence": "Akşam sana ___.",
+      "ru": "Вечером я тебе напишу.",
+      "hint": "yazmak, я, будущее",
+      "answer": "yazacağım",
+      "explain": "yaz + acak + ım, k → ğ."
+    }
+  ]
+}

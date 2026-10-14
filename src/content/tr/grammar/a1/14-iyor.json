@@ -1,0 +1,186 @@
+{
+  "id": "a1.14-iyor",
+  "district": "A1",
+  "order": 14,
+  "title": "Настоящее время: -Iyor",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Что происходит сейчас — аффикс **-Iyor** и личное окончание: gel**iyorum** (я иду), oku**yor** (читает). Гласная I — по гармонии: ı, i, u, ü."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Лицо",
+        "gelmek",
+        "yapmak",
+        "okumak"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "ben",
+            "geliyorum",
+            "yapıyorum",
+            "okuyorum"
+          ]
+        },
+        {
+          "cells": [
+            "sen",
+            "geliyorsun",
+            "yapıyorsun",
+            "okuyorsun"
+          ]
+        },
+        {
+          "cells": [
+            "o",
+            "geliyor",
+            "yapıyor",
+            "okuyor"
+          ]
+        },
+        {
+          "cells": [
+            "biz",
+            "geliyoruz",
+            "yapıyoruz",
+            "okuyoruz"
+          ]
+        },
+        {
+          "cells": [
+            "siz",
+            "geliyorsunuz",
+            "yapıyorsunuz",
+            "okuyorsunuz"
+          ]
+        },
+        {
+          "cells": [
+            "onlar",
+            "geliyorlar",
+            "yapıyorlar",
+            "okuyorlar"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Основа на a, e теряет эту гласную: başla → başl**ıyor**, bekle → bekl**iyor**. У gitmek, etmek t → d: **gidiyorum**, **ediyorum**."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Şimdi çay içiyorum.",
+      "ru": "Сейчас я пью чай."
+    },
+    {
+      "es": "Ne yapıyorsun?",
+      "ru": "Что ты делаешь?"
+    },
+    {
+      "es": "Çocuklar parkta oynuyor.",
+      "ru": "Дети играют в парке."
+    },
+    {
+      "es": "Yarın İzmir'e gidiyoruz.",
+      "ru": "Завтра мы едем в Измир."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "a1.14-iyor.1",
+      "kind": "choose",
+      "prompt": "«Я читаю»:",
+      "options": [
+        "okuyorum",
+        "okıyorum",
+        "okurum"
+      ],
+      "answer": 0,
+      "explain": "oku + yor + um."
+    },
+    {
+      "id": "a1.14-iyor.2",
+      "kind": "choose",
+      "prompt": "Форма gitmek для «он»:",
+      "options": [
+        "gidiyor",
+        "gitiyor",
+        "gidyor"
+      ],
+      "answer": 0,
+      "explain": "t → d: gidiyor."
+    },
+    {
+      "id": "a1.14-iyor.3",
+      "kind": "gap",
+      "sentence": "Biz şimdi ___.",
+      "ru": "Мы сейчас едим.",
+      "options": [
+        "yiyoruz",
+        "yeriz",
+        "yiyorsunuz"
+      ],
+      "answer": 0,
+      "explain": "yemek — yiyor, мы — -uz."
+    },
+    {
+      "id": "a1.14-iyor.4",
+      "kind": "gap",
+      "sentence": "Sen Türkçe ___?",
+      "ru": "Ты учишь турецкий?",
+      "options": [
+        "öğreniyor musun",
+        "öğreniyorum mu",
+        "öğreniyorlar mı"
+      ],
+      "answer": 0,
+      "explain": "sen — öğreniyor musun."
+    },
+    {
+      "id": "a1.14-iyor.5",
+      "kind": "truefalse",
+      "statement": "Başlamak в -Iyor — başlıyor.",
+      "answer": true,
+      "explain": "Конечная a выпадает: başl-ıyor."
+    },
+    {
+      "id": "a1.14-iyor.6",
+      "kind": "truefalse",
+      "statement": "«Geliyorum» значит «я пришёл».",
+      "answer": false,
+      "explain": "Geliyorum — я иду, прихожу (сейчас)."
+    },
+    {
+      "id": "a1.14-iyor.7",
+      "kind": "truefalse",
+      "statement": "-Iyor говорит и о ближайшем будущем: Yarın gidiyoruz.",
+      "answer": true,
+      "explain": "Как русское «завтра едем»."
+    },
+    {
+      "id": "a1.14-iyor.8",
+      "kind": "build",
+      "ru": "Мама готовит на кухне.",
+      "answer": "Annem mutfakta yemek yapıyor.",
+      "extra": [
+        "yapıyorum",
+        "mutfağa"
+      ],
+      "explain": "Мама — она: yapıyor; где — mutfakta."
+    },
+    {
+      "id": "a1.14-iyor.9",
+      "kind": "type",
+      "sentence": "Ben her sabah kahve ___.",
+      "ru": "Я каждое утро пью кофе.",
+      "hint": "içmek, я",
+      "answer": "içiyorum",
+      "explain": "içmek → içiyorum."
+    }
+  ]
+}

@@ -1,0 +1,165 @@
+{
+  "id": "a2.02-karsilastirma",
+  "district": "A2",
+  "order": 2,
+  "title": "Сравнение: daha, -DAn, en",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "С чем сравнивают — исходный падеж **-DAn**, перед прилагательным — **daha** (более): **Ali Ayşe'den daha uzun** — Али выше Айше. Daha часто опускают: Ali Ayşe'den uzun."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Степень",
+        "Пример",
+        "Перевод"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "обычная",
+            "ucuz",
+            "дешёвый"
+          ]
+        },
+        {
+          "cells": [
+            "сравнительная",
+            "daha ucuz",
+            "дешевле"
+          ]
+        },
+        {
+          "cells": [
+            "с чем",
+            "bundan daha ucuz",
+            "дешевле этого"
+          ]
+        },
+        {
+          "cells": [
+            "превосходная",
+            "en ucuz",
+            "самый дешёвый"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "«Чем это» — **bundan**, «чем то» — **ondan**, «чем я» — **benden**. «Такой же… как» — **kadar**: senin kadar uzun."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Deniz havuzdan daha güzel.",
+      "ru": "Море лучше бассейна."
+    },
+    {
+      "es": "Otobüs trenden daha ucuz.",
+      "ru": "Автобус дешевле поезда."
+    },
+    {
+      "es": "Bu en büyük oda.",
+      "ru": "Это самый большой номер."
+    },
+    {
+      "es": "Kardeşim benden genç.",
+      "ru": "Мой брат младше меня."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "a2.02-karsilastirma.1",
+      "kind": "choose",
+      "prompt": "«Дешевле этого»:",
+      "options": [
+        "bundan daha ucuz",
+        "bu daha ucuz",
+        "buna daha ucuz"
+      ],
+      "answer": 0,
+      "explain": "С чем — исходный: bundan."
+    },
+    {
+      "id": "a2.02-karsilastirma.2",
+      "kind": "choose",
+      "prompt": "«Самый красивый»:",
+      "options": [
+        "en güzel",
+        "daha güzel",
+        "çok güzel"
+      ],
+      "answer": 0,
+      "explain": "Самый — en."
+    },
+    {
+      "id": "a2.02-karsilastirma.3",
+      "kind": "gap",
+      "sentence": "Çay kahveden daha ___.",
+      "ru": "Чай дешевле кофе.",
+      "options": [
+        "ucuz",
+        "ucuzdan",
+        "en ucuz"
+      ],
+      "answer": 0,
+      "explain": "daha ucuz."
+    },
+    {
+      "id": "a2.02-karsilastirma.4",
+      "kind": "gap",
+      "sentence": "Ankara İzmir'___ daha soğuk.",
+      "ru": "В Анкаре холоднее, чем в Измире.",
+      "options": [
+        "den",
+        "e",
+        "de"
+      ],
+      "answer": 0,
+      "explain": "С чем — -den: İzmir'den."
+    },
+    {
+      "id": "a2.02-karsilastirma.5",
+      "kind": "truefalse",
+      "statement": "В сравнении то, с чем сравнивают, стоит в исходном падеже.",
+      "answer": true,
+      "explain": "Ayşe'den daha uzun."
+    },
+    {
+      "id": "a2.02-karsilastirma.6",
+      "kind": "truefalse",
+      "statement": "Daha в сравнении можно опустить.",
+      "answer": true,
+      "explain": "Ali Ayşe'den uzun."
+    },
+    {
+      "id": "a2.02-karsilastirma.7",
+      "kind": "truefalse",
+      "statement": "«Benden» значит «чем я» в сравнении.",
+      "answer": true,
+      "explain": "Benden genç — моложе меня."
+    },
+    {
+      "id": "a2.02-karsilastirma.8",
+      "kind": "build",
+      "ru": "Этот отель дороже того.",
+      "answer": "Bu otel ondan daha pahalı.",
+      "extra": [
+        "ona",
+        "en"
+      ],
+      "explain": "С чем — ondan."
+    },
+    {
+      "id": "a2.02-karsilastirma.9",
+      "kind": "type",
+      "sentence": "Bu yol ___ daha kısa.",
+      "ru": "Эта дорога короче той.",
+      "hint": "чем та",
+      "answer": "ondan",
+      "explain": "С чем — ondan."
+    }
+  ]
+}

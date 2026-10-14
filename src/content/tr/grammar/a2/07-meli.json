@@ -1,0 +1,179 @@
+{
+  "id": "a2.07-meli",
+  "district": "A2",
+  "order": 7,
+  "title": "Должен: -mAlI",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "«Должен, надо» — аффикс **-malı / -meli** и личное окончание: git**meliyim** (я должен идти), dinlen**melisin** (тебе надо отдохнуть)."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Лицо",
+        "gitmek",
+        "okumak"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "ben",
+            "gitmeliyim",
+            "okumalıyım"
+          ]
+        },
+        {
+          "cells": [
+            "sen",
+            "gitmelisin",
+            "okumalısın"
+          ]
+        },
+        {
+          "cells": [
+            "o",
+            "gitmeli",
+            "okumalı"
+          ]
+        },
+        {
+          "cells": [
+            "biz",
+            "gitmeliyiz",
+            "okumalıyız"
+          ]
+        },
+        {
+          "cells": [
+            "siz",
+            "gitmelisiniz",
+            "okumalısınız"
+          ]
+        },
+        {
+          "cells": [
+            "onlar",
+            "gitmeliler",
+            "okumalılar"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "«Не должен» — **-mAmAlI**: git**meme**liyim. Совет мягче, чем lazım: **Doktora gitmelisin** — тебе стоит сходить к врачу."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Şimdi gitmeliyim.",
+      "ru": "Мне пора идти."
+    },
+    {
+      "es": "Daha çok su içmelisin.",
+      "ru": "Тебе надо пить больше воды."
+    },
+    {
+      "es": "Bileti önceden almalıyız.",
+      "ru": "Билет надо купить заранее."
+    },
+    {
+      "es": "Burada sigara içmemelisiniz.",
+      "ru": "Здесь вам не следует курить."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "a2.07-meli.1",
+      "kind": "choose",
+      "prompt": "«Я должен работать»:",
+      "options": [
+        "çalışmalıyım",
+        "çalışmeliyim",
+        "çalışmalım"
+      ],
+      "answer": 0,
+      "explain": "Гармония a: -malı + yım."
+    },
+    {
+      "id": "a2.07-meli.2",
+      "kind": "choose",
+      "prompt": "«Не должен» для «ты»:",
+      "options": [
+        "gitmemelisin",
+        "gitmelisin değil",
+        "gitmelimisin"
+      ],
+      "answer": 0,
+      "explain": "-me + meli: gitmemelisin."
+    },
+    {
+      "id": "a2.07-meli.3",
+      "kind": "gap",
+      "sentence": "Bu ilacı her gün ___.",
+      "ru": "Ты должен принимать это лекарство каждый день.",
+      "options": [
+        "içmelisin",
+        "içmeliyim",
+        "içmeli"
+      ],
+      "answer": 0,
+      "explain": "Ты — içmelisin."
+    },
+    {
+      "id": "a2.07-meli.4",
+      "kind": "gap",
+      "sentence": "Çocuklar erken ___.",
+      "ru": "Детям надо ложиться спать рано.",
+      "options": [
+        "yatmalı",
+        "yatmalıyım",
+        "yatmalısın"
+      ],
+      "answer": 0,
+      "explain": "О других — yatmalı."
+    },
+    {
+      "id": "a2.07-meli.5",
+      "kind": "truefalse",
+      "statement": "-mAlI — совет или обязанность.",
+      "answer": true,
+      "explain": "gitmelisin — тебе стоит пойти."
+    },
+    {
+      "id": "a2.07-meli.6",
+      "kind": "truefalse",
+      "statement": "«Okumalıyız» значит «мы должны читать».",
+      "answer": true,
+      "explain": "oku + malı + yız."
+    },
+    {
+      "id": "a2.07-meli.7",
+      "kind": "truefalse",
+      "statement": "«Gelmemeli» значит «должен прийти».",
+      "answer": false,
+      "explain": "Gelmemeli — не должен приходить."
+    },
+    {
+      "id": "a2.07-meli.8",
+      "kind": "build",
+      "ru": "По-моему, тебе нужно пойти к врачу.",
+      "answer": "Bence doktora gitmelisin.",
+      "extra": [
+        "doktorda",
+        "gitmeliyim"
+      ],
+      "explain": "Куда — doktora; ты — gitmelisin."
+    },
+    {
+      "id": "a2.07-meli.9",
+      "kind": "type",
+      "sentence": "Yarın erken ___.",
+      "ru": "Завтра я должен рано встать.",
+      "hint": "kalkmak, я, должен",
+      "answer": "kalkmalıyım",
+      "explain": "kalk + malı + yım."
+    }
+  ]
+}

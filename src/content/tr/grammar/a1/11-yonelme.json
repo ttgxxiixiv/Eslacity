@@ -1,0 +1,172 @@
+{
+  "id": "a1.11-yonelme",
+  "district": "A1",
+  "order": 11,
+  "title": "Куда? Дательный падеж -(y)A",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Куда движемся и кому даём — аффикс **-a / -e**: ev**e** (домой), okul**a** (в школу), anne**me** (маме). После гласной вставляется **y**: araba**ya**, İzmir'e, Antalya'**ya**."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Слово",
+        "Куда?",
+        "Перевод"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "ev",
+            "eve",
+            "домой"
+          ]
+        },
+        {
+          "cells": [
+            "okul",
+            "okula",
+            "в школу"
+          ]
+        },
+        {
+          "cells": [
+            "deniz",
+            "denize",
+            "в море"
+          ]
+        },
+        {
+          "cells": [
+            "araba",
+            "arabaya",
+            "в машину"
+          ]
+        },
+        {
+          "cells": [
+            "kitap",
+            "kitaba",
+            "в книгу (p → b)"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Конечные **p, ç, t, k** перед гласной аффикса часто озвончаются: kitap → kitab**a**, sokak → soka**ğa**. Вопрос «куда?» — **nereye?**"
+    }
+  ],
+  "examples": [
+    {
+      "es": "Eve gidiyorum.",
+      "ru": "Я иду домой."
+    },
+    {
+      "es": "Yarın İstanbul'a gidiyoruz.",
+      "ru": "Завтра мы едем в Стамбул."
+    },
+    {
+      "es": "Bu hediyeyi anneme veriyorum.",
+      "ru": "Я дарю этот подарок маме."
+    },
+    {
+      "es": "Nereye gidiyorsun?",
+      "ru": "Куда ты идёшь?"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "a1.11-yonelme.1",
+      "kind": "choose",
+      "prompt": "«В школу»:",
+      "options": [
+        "okula",
+        "okulda",
+        "okuldan"
+      ],
+      "answer": 0,
+      "explain": "Куда — -a: okula."
+    },
+    {
+      "id": "a1.11-yonelme.2",
+      "kind": "choose",
+      "prompt": "Вопрос «куда?»:",
+      "options": [
+        "nereye",
+        "nerede",
+        "nereden"
+      ],
+      "answer": 0,
+      "explain": "nereye — куда."
+    },
+    {
+      "id": "a1.11-yonelme.3",
+      "kind": "gap",
+      "sentence": "Hadi ___ gidelim!",
+      "ru": "Пойдём на пляж!",
+      "options": [
+        "plaja",
+        "plajda",
+        "plajdan"
+      ],
+      "answer": 0,
+      "explain": "Куда — plaja."
+    },
+    {
+      "id": "a1.11-yonelme.4",
+      "kind": "gap",
+      "sentence": "Bu paketi ___ ver.",
+      "ru": "Отдай эту посылку Мехмету.",
+      "options": [
+        "Mehmet'e",
+        "Mehmet'te",
+        "Mehmet'ten"
+      ],
+      "answer": 0,
+      "explain": "Кому — -e: Mehmet'e."
+    },
+    {
+      "id": "a1.11-yonelme.5",
+      "kind": "truefalse",
+      "statement": "После гласной перед -a вставляется y: arabaya.",
+      "answer": true,
+      "explain": "araba + y + a."
+    },
+    {
+      "id": "a1.11-yonelme.6",
+      "kind": "truefalse",
+      "statement": "«Sokaka» — правильная форма от sokak.",
+      "answer": false,
+      "explain": "k озвончается: sokağa."
+    },
+    {
+      "id": "a1.11-yonelme.7",
+      "kind": "truefalse",
+      "statement": "Дательный падеж отвечает и на «куда?», и на «кому?».",
+      "answer": true,
+      "explain": "eve — домой, anneme — маме."
+    },
+    {
+      "id": "a1.11-yonelme.8",
+      "kind": "build",
+      "ru": "Завтра мы едем в Измир.",
+      "answer": "Yarın İzmir'e gidiyoruz.",
+      "extra": [
+        "İzmir'de",
+        "İzmir'den"
+      ],
+      "explain": "Куда — İzmir'e."
+    },
+    {
+      "id": "a1.11-yonelme.9",
+      "kind": "type",
+      "sentence": "Akşam ___ dönüyorum.",
+      "ru": "Вечером я возвращаюсь домой.",
+      "hint": "ev, куда",
+      "answer": "eve",
+      "explain": "Куда — ev + e."
+    }
+  ]
+}

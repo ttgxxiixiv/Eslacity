@@ -1,0 +1,179 @@
+{
+  "id": "a2.04-ecek-olumsuz",
+  "district": "A2",
+  "order": 4,
+  "title": "Не буду и будешь ли: -mAyAcAk",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Отрицание — **-mA-** + y + -AcAk: gel**meyeceğim** (не приду), yap**mayacak** (не сделает). Вопрос — частица после формы, лицо переходит на неё: gelecek **misin**?"
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Лицо",
+        "Отрицание",
+        "Вопрос"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "ben",
+            "gelmeyeceğim",
+            "gelecek miyim?"
+          ]
+        },
+        {
+          "cells": [
+            "sen",
+            "gelmeyeceksin",
+            "gelecek misin?"
+          ]
+        },
+        {
+          "cells": [
+            "o",
+            "gelmeyecek",
+            "gelecek mi?"
+          ]
+        },
+        {
+          "cells": [
+            "biz",
+            "gelmeyeceğiz",
+            "gelecek miyiz?"
+          ]
+        },
+        {
+          "cells": [
+            "siz",
+            "gelmeyeceksiniz",
+            "gelecek misiniz?"
+          ]
+        },
+        {
+          "cells": [
+            "onlar",
+            "gelmeyecekler",
+            "gelecekler mi?"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Как и в -Iyor, личное окончание в вопросе стоит **на частице**: yapacak **mısın**? А в прошедшем -DI — на глаголе: yaptın mı?"
+    }
+  ],
+  "examples": [
+    {
+      "es": "Bu akşam dışarı çıkmayacağım.",
+      "ru": "Сегодня вечером я не выйду из дома."
+    },
+    {
+      "es": "Yarın gelecek misin?",
+      "ru": "Ты завтра придёшь?"
+    },
+    {
+      "es": "Otobüs beklemeyecek.",
+      "ru": "Автобус ждать не будет."
+    },
+    {
+      "es": "Bir daha geç kalmayacağız.",
+      "ru": "Мы больше не будем опаздывать."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "a2.04-ecek-olumsuz.1",
+      "kind": "choose",
+      "prompt": "«Я не скажу»:",
+      "options": [
+        "söylemeyeceğim",
+        "söylemeyecekim",
+        "söyleyeceğim"
+      ],
+      "answer": 0,
+      "explain": "-me + y + ecek + im, k → ğ."
+    },
+    {
+      "id": "a2.04-ecek-olumsuz.2",
+      "kind": "choose",
+      "prompt": "«Ты придёшь?»:",
+      "options": [
+        "gelecek misin?",
+        "geleceksin mi?",
+        "gelmeyecek misin?"
+      ],
+      "answer": 0,
+      "explain": "Лицо на частице: gelecek misin?"
+    },
+    {
+      "id": "a2.04-ecek-olumsuz.3",
+      "kind": "gap",
+      "sentence": "Ben bu yemeği ___.",
+      "ru": "Я не буду есть это блюдо.",
+      "options": [
+        "yemeyeceğim",
+        "yemedim",
+        "yiyeceğim"
+      ],
+      "answer": 0,
+      "explain": "Отрицание будущего: yemeyeceğim."
+    },
+    {
+      "id": "a2.04-ecek-olumsuz.4",
+      "kind": "gap",
+      "sentence": "Toplantıya ___?",
+      "ru": "Вы придёте на совещание?",
+      "options": [
+        "gelecek misiniz",
+        "geleceksiniz mi",
+        "gelir misin"
+      ],
+      "answer": 0,
+      "explain": "Вы, вопрос: gelecek misiniz?"
+    },
+    {
+      "id": "a2.04-ecek-olumsuz.5",
+      "kind": "truefalse",
+      "statement": "В вопросе будущего лицо стоит на частице.",
+      "answer": true,
+      "explain": "gelecek misin."
+    },
+    {
+      "id": "a2.04-ecek-olumsuz.6",
+      "kind": "truefalse",
+      "statement": "«Yapmayacak» значит «он не сделает».",
+      "answer": true,
+      "explain": "yap + ma + y + acak."
+    },
+    {
+      "id": "a2.04-ecek-olumsuz.7",
+      "kind": "truefalse",
+      "statement": "«Gelmeyecekim» — правильная форма.",
+      "answer": false,
+      "explain": "k перед гласной → ğ: gelmeyeceğim."
+    },
+    {
+      "id": "a2.04-ecek-olumsuz.8",
+      "kind": "build",
+      "ru": "Мы не будем ждать долго.",
+      "answer": "Uzun süre beklemeyeceğiz.",
+      "extra": [
+        "bekleyeceğiz",
+        "beklemiyoruz"
+      ],
+      "explain": "Отрицание будущего, мы — beklemeyeceğiz."
+    },
+    {
+      "id": "a2.04-ecek-olumsuz.9",
+      "kind": "type",
+      "sentence": "Merak etme, ___.",
+      "ru": "Не волнуйся, я не забуду.",
+      "hint": "unutmak, не, я",
+      "answer": "unutmayacağım",
+      "explain": "unut + ma + y + acak + ım."
+    }
+  ]
+}

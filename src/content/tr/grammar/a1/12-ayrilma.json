@@ -1,0 +1,165 @@
+{
+  "id": "a1.12-ayrilma",
+  "district": "A1",
+  "order": 12,
+  "title": "Откуда? Исходный падеж -DAn",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Откуда — аффикс **-dan / -den**, после глухих согласных **-tan / -ten**: ev**den** (из дома), okul**dan** (из школы), park**tan** (из парка). Вопрос — **nereden?**"
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Слово",
+        "Откуда?",
+        "Перевод"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "ev",
+            "evden",
+            "из дома"
+          ]
+        },
+        {
+          "cells": [
+            "okul",
+            "okuldan",
+            "из школы"
+          ]
+        },
+        {
+          "cells": [
+            "market",
+            "marketten",
+            "из магазина"
+          ]
+        },
+        {
+          "cells": [
+            "Rusya",
+            "Rusya'dan",
+            "из России"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "-DAn нужен и в выражениях: **korkmak** (бояться) — köpek**ten** korkuyorum; **hoşlanmak** (нравиться) — çay**dan** hoşlanıyorum."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Ben Rusya'dan geliyorum.",
+      "ru": "Я из России."
+    },
+    {
+      "es": "Marketten ekmek aldım.",
+      "ru": "Я купил хлеб в магазине."
+    },
+    {
+      "es": "Okuldan saat dörtte çıkıyoruz.",
+      "ru": "Мы выходим из школы в четыре."
+    },
+    {
+      "es": "Nerelisin? Nereden geldin?",
+      "ru": "Откуда ты? Откуда ты приехал?"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "a1.12-ayrilma.1",
+      "kind": "choose",
+      "prompt": "«Из парка»:",
+      "options": [
+        "parktan",
+        "parkdan",
+        "parkta"
+      ],
+      "answer": 0,
+      "explain": "k — глухая: -tan."
+    },
+    {
+      "id": "a1.12-ayrilma.2",
+      "kind": "choose",
+      "prompt": "Вопрос «откуда?»:",
+      "options": [
+        "nereden",
+        "nereye",
+        "nerede"
+      ],
+      "answer": 0,
+      "explain": "nereden — откуда."
+    },
+    {
+      "id": "a1.12-ayrilma.3",
+      "kind": "gap",
+      "sentence": "Babam ___ dönüyor.",
+      "ru": "Папа возвращается с работы.",
+      "options": [
+        "işten",
+        "işe",
+        "işte"
+      ],
+      "answer": 0,
+      "explain": "Откуда — -ten: işten."
+    },
+    {
+      "id": "a1.12-ayrilma.4",
+      "kind": "gap",
+      "sentence": "Ben ___ geliyorum.",
+      "ru": "Я приехал из Москвы.",
+      "options": [
+        "Moskova'dan",
+        "Moskova'ya",
+        "Moskova'da"
+      ],
+      "answer": 0,
+      "explain": "Откуда — Moskova'dan."
+    },
+    {
+      "id": "a1.12-ayrilma.5",
+      "kind": "truefalse",
+      "statement": "«Kitapdan» — правильная форма.",
+      "answer": false,
+      "explain": "После p — -tan: kitaptan."
+    },
+    {
+      "id": "a1.12-ayrilma.6",
+      "kind": "truefalse",
+      "statement": "Korkmak требует исходного падежа: köpekten korkuyorum.",
+      "answer": true,
+      "explain": "«Боюсь собаки» — köpekten."
+    },
+    {
+      "id": "a1.12-ayrilma.7",
+      "kind": "truefalse",
+      "statement": "Evden значит «дома».",
+      "answer": false,
+      "explain": "Evden — из дома. Дома — evde."
+    },
+    {
+      "id": "a1.12-ayrilma.8",
+      "kind": "build",
+      "ru": "Поезд отходит из Анкары.",
+      "answer": "Tren Ankara'dan kalkıyor.",
+      "extra": [
+        "Ankara'ya",
+        "Ankara'da"
+      ],
+      "explain": "Откуда — Ankara'dan."
+    },
+    {
+      "id": "a1.12-ayrilma.9",
+      "kind": "type",
+      "sentence": "Paketi ___ aldım.",
+      "ru": "Я забрал посылку с почты.",
+      "hint": "postane, откуда",
+      "answer": "postaneden",
+      "explain": "Откуда — postane + den."
+    }
+  ]
+}

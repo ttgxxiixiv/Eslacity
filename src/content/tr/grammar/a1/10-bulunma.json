@@ -1,0 +1,172 @@
+{
+  "id": "a1.10-bulunma",
+  "district": "A1",
+  "order": 10,
+  "title": "Где? Местный падеж -DA",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Где находится что-то — аффикс **-da / -de**: ev**de** (дома), okul**da** (в школе). После глухих согласных (f, s, t, k, ç, ş, h, p) — **-ta / -te**: kitap**ta**, sokak**ta**."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Слово",
+        "Где?",
+        "Перевод"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "ev",
+            "evde",
+            "дома, в доме"
+          ]
+        },
+        {
+          "cells": [
+            "okul",
+            "okulda",
+            "в школе"
+          ]
+        },
+        {
+          "cells": [
+            "park",
+            "parkta",
+            "в парке"
+          ]
+        },
+        {
+          "cells": [
+            "mutfak",
+            "mutfakta",
+            "на кухне"
+          ]
+        },
+        {
+          "cells": [
+            "İzmir",
+            "İzmir'de",
+            "в Измире"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "У имён собственных аффикс отделяют апострофом: **İstanbul'da**, **Ayşe'de**. Вопрос «где?» — **nerede?**"
+    }
+  ],
+  "examples": [
+    {
+      "es": "Annem mutfakta.",
+      "ru": "Мама на кухне."
+    },
+    {
+      "es": "Kedi bahçede.",
+      "ru": "Кошка в саду."
+    },
+    {
+      "es": "Biz İzmir'de yaşıyoruz.",
+      "ru": "Мы живём в Измире."
+    },
+    {
+      "es": "Anahtar masada mı?",
+      "ru": "Ключ на столе?"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "a1.10-bulunma.1",
+      "kind": "choose",
+      "prompt": "«В парке»:",
+      "options": [
+        "parkta",
+        "parkda",
+        "parka"
+      ],
+      "answer": 0,
+      "explain": "k — глухая: -ta."
+    },
+    {
+      "id": "a1.10-bulunma.2",
+      "kind": "choose",
+      "prompt": "Вопрос «где?»:",
+      "options": [
+        "nerede",
+        "nereye",
+        "nereden"
+      ],
+      "answer": 0,
+      "explain": "nerede — где."
+    },
+    {
+      "id": "a1.10-bulunma.3",
+      "kind": "gap",
+      "sentence": "Babam ___.",
+      "ru": "Папа в банке.",
+      "options": [
+        "bankada",
+        "bankaya",
+        "bankadan"
+      ],
+      "answer": 0,
+      "explain": "Где — -da: bankada."
+    },
+    {
+      "id": "a1.10-bulunma.4",
+      "kind": "gap",
+      "sentence": "Çocuklar ___ oynuyor.",
+      "ru": "Дети играют на улице.",
+      "options": [
+        "sokakta",
+        "sokakda",
+        "sokağa"
+      ],
+      "answer": 0,
+      "explain": "k — глухая: sokakta."
+    },
+    {
+      "id": "a1.10-bulunma.5",
+      "kind": "truefalse",
+      "statement": "«Kitapda» — правильная форма.",
+      "answer": false,
+      "explain": "После p — -ta: kitapta."
+    },
+    {
+      "id": "a1.10-bulunma.6",
+      "kind": "truefalse",
+      "statement": "Имена собственные пишутся с апострофом: Ankara'da.",
+      "answer": true,
+      "explain": "Аффикс отделяют апострофом."
+    },
+    {
+      "id": "a1.10-bulunma.7",
+      "kind": "truefalse",
+      "statement": "Evde значит «домой».",
+      "answer": false,
+      "explain": "Evde — дома. Домой — eve."
+    },
+    {
+      "id": "a1.10-bulunma.8",
+      "kind": "build",
+      "ru": "Моя сумка в машине.",
+      "answer": "Benim çantam arabada.",
+      "extra": [
+        "arabaya",
+        "arabadan"
+      ],
+      "explain": "Где — -da: arabada."
+    },
+    {
+      "id": "a1.10-bulunma.9",
+      "kind": "type",
+      "sentence": "Ayşe şimdi ___.",
+      "ru": "Айше сейчас в школе.",
+      "hint": "okul, где",
+      "answer": "okulda",
+      "explain": "Где — okul + da."
+    }
+  ]
+}
