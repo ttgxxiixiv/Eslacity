@@ -50,6 +50,31 @@
         {"q": "Что он сказал?", "options": ["Скоро придёт туман", "Карта — сказка", "Я вернусь"], "answer": 0}
       ],
       "gloss": {"kusura": "kusura bakma — извини", "yıllık": "летний, возрастом (yüz yıllık — столетний)", "masal": "сказка"}
+    },
+    {
+      "id": "sc:supermarket.3",
+      "chapter": 3,
+      "npc": "mehmet",
+      "lines": [
+        {"who": "npc", "es": "Günaydın! Dün bir siparişi çölün ta kenarına götürdüm.", "ru": "Доброе утро! Вчера я отвёз заказ к самому краю пустыни."},
+        {"who": "hero", "es": "O kadar uzağa mı?", "ru": "Так далеко?"},
+        {"who": "npc", "es": "Kumdan önceki son küçük eve.", "ru": "В маленький дом, последний перед песками."},
+        {"who": "hero", "es": "Ne gördün?", "ru": "И что ты видел?"},
+        {"who": "npc", "es": "Bir adam şişelerde “vaha suyu” satıyordu. İnsanlar çok para ödüyordu.", "ru": "Человек продавал «воду оазиса» в бутылках. Люди платили за них огромные деньги."},
+        {"who": "hero", "es": "Sonra ne oldu?", "ru": "И что случилось?"},
+        {"who": "npc", "es": "Bir şişeyi açtım. Boştu. Ama açmadan önce dolu gibi görünüyordu.", "ru": "Я открыл одну бутылку. Она была пустая. А пока не откроешь, казалась полной."},
+        {"who": "hero", "es": "Beyaz şehir gibi.", "ru": "Как белый город."},
+        {"who": "npc", "es": "Çölde şişeler bile yalan söylüyor galiba.", "ru": "Похоже, в пустыне даже бутылки обманывают."},
+        {"who": "hero", "es": "Ya o adam?", "ru": "А тот человек?"},
+        {"who": "npc", "es": "Kayboldu. Kumda sadece izleri kaldı, rüzgâr onları da sildi.", "ru": "Исчез. Остались только следы на песке, и ветер их стёр."}
+      ],
+      "questions": [
+        {"q": "Куда Мехмет отвёз заказ?", "options": ["На остров", "К краю пустыни", "В башню"], "answer": 1},
+        {"q": "Что продавал человек?", "options": ["Фальшивые обрывки", "«Воду оазиса» в бутылках", "Соль"], "answer": 1},
+        {"q": "Что было в бутылке?", "options": ["Ничего, она была пустая", "Морская вода", "Песок"], "answer": 0},
+        {"q": "Что осталось от человека?", "options": ["Верблюд", "Следы на песке", "Письмо"], "answer": 1}
+      ],
+      "gloss": {"ta": "самый (усиление)", "kumdan": "перед песками", "şişelerde": "в бутылках", "şişeyi": "бутылку", "şişeler": "бутылки", "boştu": "была пустой", "açmadan": "не открыв", "dolu": "полный", "izleri": "его следы", "sildi": "стёр"}
     }
   ]
 }

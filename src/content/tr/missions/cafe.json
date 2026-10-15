@@ -42,8 +42,30 @@
         "napkinsay": {"kind": "say", "es": "Al. Bak, bu da Kerem'in son mektubu.", "ru": "Держи. Смотри, а это последнее письмо Керема.", "next": "cash"},
         "cash": {"kind": "answer", "task": "Спросите, можно ли заплатить наличными.", "branches": [{"phrase": "ph:cafe.nakit", "next": "cashsay"}], "wrong": {"es": "Poşetle mi ödeyeceksin? Benim poşetim var, sağ ol.", "ru": "Заплатишь пакетом? У меня есть пакет, спасибо."}},
         "cashsay": {"kind": "say", "es": "Nakit iyi. Ama bir dakika bekle.", "ru": "Наличные — хорошо. Но подожди минутку.", "next": "treat"},
-        "treat": {"kind": "answer", "task": "Попросите счёт или скажите, что сегодня угощаете вы.", "branches": [{"phrase": "ph:cafe.hesap", "next": "end"}, {"phrase": "ph:cafe.ismarliyorum", "next": "end"}], "wrong": {"es": "Haritanı mı veriyorsun? Hayır, o sende kalsın.", "ru": "Отдаёшь мне свою карту? Нет, оставь себе."}},
+        "treat": {"kind": "answer", "task": "Попросите счёт или скажите, что сегодня угощаете вы.", "branches": [{"phrase": "ph:cafe.hesap", "next": "end", "sets": {"treat": "paid"}}, {"phrase": "ph:cafe.ismarliyorum", "next": "end", "sets": {"treat": "treat"}}], "wrong": {"es": "Haritanı mı veriyorsun? Hayır, o sende kalsın.", "ru": "Отдаёшь мне свою карту? Нет, оставь себе."}},
         "end": {"kind": "say", "es": "Hayır, bugün hiçbir şey ödemiyorsun. Bir de şunu dinle: sisin içinde Kerem'i görürsen, ona seslen. Hep derdi: sisli havada yolu sadece bir ses gösterir. Al, dağ haritasından benim parçam.", "ru": "Нет, сегодня ты ничего не платишь. И послушай: если увидишь Керема в тумане, позови его. Он всегда говорил: в тумане дорогу покажет только голос. Держи мой обрывок карты гор."}
+      }
+    },
+    {
+      "id": "ms:cafe.3",
+      "chapter": 3,
+      "npc": "hasan",
+      "scene": "sc:cafe.3",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Bir dakikan var mı? Çölden önce seninle konuşmak istiyorum.", "ru": "Есть минутка? Хочу поговорить с тобой перед пустыней.", "next": "sit"},
+        "sit": {"kind": "answer", "task": "Предложите посидеть и поболтать.", "branches": [{"phrase": "ph:cafe.sohbet-edelim", "next": "tea"}], "wrong": {"es": "Gidiyor musun? Hayır, otur biraz!", "ru": "Уходишь? Нет, посиди немного!"}},
+        "tea": {"kind": "say", "es": "Tabii, otur. Her zamanki gibi mi?", "ru": "Конечно, садись. Как обычно?", "next": "teaq"},
+        "teaq": {"kind": "answer", "task": "Спросите, есть ли травяной чай.", "branches": [{"phrase": "ph:cafe.bitki-cayi-var-mi", "next": "cookie"}], "wrong": {"es": "Kahve mi? Bugün kahve bitti.", "ru": "Кофе? Сегодня кофе кончился."}},
+        "cookie": {"kind": "say", "es": "Ihlamur var. Orhan da bunu istedi. Tatlı bir şey de ister misin?", "ru": "Есть липовый. Орхан тоже такой просил. А сладкого хочешь?", "next": "cookieq"},
+        "cookieq": {"kind": "answer", "task": "Спросите, домашнее ли печенье.", "branches": [{"phrase": "ph:cafe.ev-yapimi-mi", "next": "why"}], "wrong": {"es": "Pahalı mı? Hayır, senin için değil.", "ru": "Дорого? Нет, не для тебя."}},
+        "why": {"kind": "say", "es": "Ev yapımı, annemin tarifi. Yol için bir tane al. Söylesene, buraya neden bu kadar sık geliyorsun?", "ru": "Домашнее, по маминому рецепту. Возьми одно в дорогу. Скажи-ка, почему ты так часто сюда приходишь?", "next": "whyq"},
+        "whyq": {"kind": "answer", "task": "Скажите, что приходите сюда отдохнуть.", "branches": [{"phrase": "ph:cafe.dinlenmeye-geliyorum", "next": "meet"}], "wrong": {"es": "Para için mi? Burada para yok, yavrum!", "ru": "За деньгами? Тут денег нет, сынок!", "fem": {"ru": "За деньгами? Тут денег нет, дочка!"}}},
+        "meet": {"kind": "say", "es": "Biliyorum. Ama bugün dinlenmek yok: bugün yolu hazırlıyoruz. Ne zaman buluşalım?", "ru": "Знаю. Но сегодня не отдыхаем: сегодня готовим поход. Когда встретимся?", "next": "meetq"},
+        "meetq": {"kind": "answer", "task": "Предложите встретиться до обеда.", "branches": [{"phrase": "ph:cafe.ogleden-once", "next": "bill"}], "wrong": {"es": "Gece mi? Gece çöl çok soğuk.", "ru": "Ночью? Ночью в пустыне очень холодно."}},
+        "bill": {"kind": "say", "es": "Öğleden önce, burada, Kerem ve çöl haritasıyla.", "ru": "До обеда, здесь, с Керемом и его картой пустыни.", "next": "billq"},
+        "billq": {"kind": "answer", "task": "Попросите счёт.", "branches": [{"phrase": "ph:cafe.hesap", "next": "end"}], "wrong": {"es": "Bir çay daha mı? Önce bunu bitir!", "ru": "Ещё чаю? Сначала допей этот!"}},
+        "end": {"kind": "say", "es": "Bugün Kerem ısmarlıyor: parayı bana bıraktı. Al, bu da çöl haritasından benim parçam. Unutma: gördüğüne değil, duyduğuna inan.", "ru": "Сегодня угощает Керем: он оставил мне деньги. Держи, а это мой обрывок карты пустыни. Помни: верь не тому, что видишь, а тому, что слышишь."}
       }
     }
   ]

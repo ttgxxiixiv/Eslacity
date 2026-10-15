@@ -40,6 +40,26 @@
         "trackq": {"kind": "answer", "task": "Спросите трек-номер, чтобы узнать, откуда посылка.", "branches": [{"phrase": "ph:post.takip-numarasi", "next": "end"}], "wrong": {"es": "Makbuz mu? Sonra. Önce nereden geldiğine bakalım.", "ru": "Квитанция? Потом. Сначала посмотрим, откуда она."}},
         "end": {"kind": "say", "es": "İşte. Bak: paket üç gün önce kuleden çıkmış. Al, dağ haritasından benim parçam da senin. Sese doğru yürü.", "ru": "Вот он. Смотри: посылка ушла с башни три дня назад. Держи, и мой обрывок карты гор тоже твой. Иди на голос."}
       }
+    },
+    {
+      "id": "ms:post.3",
+      "chapter": 3,
+      "npc": "cemil",
+      "scene": "sc:post.3",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Hadi gişeye! Bugün her şeyi halledeceğiz.", "ru": "Идём к окошку! Сегодня всё решим.", "next": "lost"},
+        "lost": {"kind": "answer", "task": "Скажите служащему, что ваша посылка потерялась.", "branches": [{"phrase": "ph:post.paketim-kayboldu", "next": "complain"}], "wrong": {"es": "Pul mu? Bugün pul değil, şikâyet!", "ru": "Марка? Сегодня не марка, а жалоба!"}},
+        "complain": {"kind": "say", "es": "Kayboldu mu? Çalındı. Ama formda “kayboldu” yazalım. Devam.", "ru": "Потерялась? Украдена. Но в бланке напишем «потерялась». Дальше.", "next": "complainq"},
+        "complainq": {"kind": "answer", "task": "Скажите, что хотите подать жалобу.", "branches": [{"phrase": "ph:post.sikayet-etmek-istiyorum", "next": "reg"}], "wrong": {"es": "Kargo mu? Kargo başka gişede.", "ru": "Курьерская доставка? Это другое окошко."}},
+        "reg": {"kind": "say", "es": "İşte form. Şimdi Kerem'e yaz: haber vermeden paket göndermesin.", "ru": "Вот бланк. А теперь напиши Керему: пусть больше не шлёт посылки без предупреждения.", "next": "regq"},
+        "regq": {"kind": "answer", "task": "Отправьте письмо Керему заказным.", "branches": [{"phrase": "ph:post.taahhutlu", "next": "pay"}], "wrong": {"es": "Kartpostal mı? Peki, ama mektup daha iyi.", "ru": "Открытку? Ладно, но письмо лучше."}},
+        "pay": {"kind": "say", "es": "Doğru: böylece kim aldığını biliriz. Otuz lira.", "ru": "Правильно: так мы будем знать, кто его получил. Тридцать лир.", "next": "payq"},
+        "payq": {"kind": "answer", "task": "Спросите, может ли заплатить получатель.", "branches": [{"phrase": "ph:post.alici-odesin", "next": "tax"}], "wrong": {"es": "İndirim mi? Postanede indirim yok!", "ru": "Скидка? На почте скидок нет!"}},
+        "tax": {"kind": "say", "es": "Olur: Kerem alınca öder. Başka bir şey?", "ru": "Можно: заплатит Керем, когда получит. Что-нибудь ещё?", "next": "taxq"},
+        "taxq": {"kind": "answer", "task": "Спросите, есть ли таможенная пошлина.", "branches": [{"phrase": "ph:post.gumruk-vergisi", "next": "end"}], "wrong": {"es": "Ne? Bir daha söyle.", "ru": "Что? Скажи ещё раз."}},
+        "end": {"kind": "say", "es": "Hastaneye mi? Hayır, hastane şehirde! Al, bu da çöl haritasından benim parçam. Bunu kimse çalamaz.", "ru": "В больницу? Нет, больница в городе! Держи, а это мой обрывок карты пустыни. Его никто не украдёт."}
+      }
     }
   ]
 }

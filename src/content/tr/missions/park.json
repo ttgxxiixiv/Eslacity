@@ -40,6 +40,26 @@
         "rainq": {"kind": "answer", "task": "Скажите, что сейчас пойдёт дождь, и спросите, есть ли у него зонт.", "branches": [{"phrase": "ph:park.yagmur-yagacak", "next": "end"}], "wrong": {"es": "Güneş mi? Hayır, bak, bulutlar geliyor.", "ru": "Солнце? Нет, смотри, тучи идут."}},
         "end": {"kind": "say", "es": "Şemsiyem var. Eve gidelim. Adam gelmedi. Ama al, dağ haritasından benim parçam. Onu görürsen yüzüne bak: elli yıl önceki gibi.", "ru": "Зонт у меня есть. Пойдём домой. Человек не пришёл. Но держи мой обрывок карты гор. Если увидишь его, посмотри на лицо: такое же, как пятьдесят лет назад."}
       }
+    },
+    {
+      "id": "ms:park.3",
+      "chapter": 3,
+      "npc": "riza",
+      "scene": "sc:park.3",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Gel, adamın kâğıtlarını arayalım. Geliyor musun? Pamuk da geliyor.", "ru": "Пойдём поищем бумаги того человека. Идёшь? Памук тоже идёт.", "next": "dog"},
+        "dog": {"kind": "answer", "task": "Спросите у сторожа, можно ли сюда с собакой.", "branches": [{"phrase": "ph:park.kopekle-girilir-mi", "next": "sunset"}], "wrong": {"es": "Bisiklet mi? Hayır, Pamuk bisiklete binmez!", "ru": "Велосипед? Нет, Памук на велосипеде не ездит!"}},
+        "sunset": {"kind": "say", "es": "Köpekle gelebilirsiniz. Bak, ne güzel bir ışık.", "ru": "С собакой можно. Смотри, какой свет.", "next": "sunsetq"},
+        "sunsetq": {"kind": "answer", "task": "Скажите, что обожаете гулять на закате.", "branches": [{"phrase": "ph:park.gun-batimini-severim", "next": "roses"}], "wrong": {"es": "Sabah mı? Hayır, şimdi akşam!", "ru": "Утром? Нет, сейчас вечер!"}},
+        "roses": {"kind": "say", "es": "Ben de. İşte güller. Yere bak.", "ru": "Я тоже. Вот и розы. Посмотри на землю.", "next": "rosesq"},
+        "rosesq": {"kind": "answer", "task": "Спросите, когда цветут розы.", "branches": [{"phrase": "ph:park.guller-ne-zaman", "next": "trash"}], "wrong": {"es": "Kaç lira mı? Güller satılık değil.", "ru": "Сколько стоят? Розы не продаются."}},
+        "trash": {"kind": "say", "es": "Haziranda. Ama yere bak: sahte kâğıtlar burada.", "ru": "В июне. Но посмотри на землю: тут поддельные бумаги.", "next": "trashq"},
+        "trashq": {"kind": "answer", "task": "Спросите, куда их можно выбросить.", "branches": [{"phrase": "ph:park.bunlari-nereye", "next": "garden"}], "wrong": {"es": "Saklayalım mı? Hayır, bunlar sahte!", "ru": "Оставим себе? Нет, это подделка!"}},
+        "garden": {"kind": "say", "es": "Şuradaki çöp kutusuna. Sahte kâğıtlar çöpe! Şu bahçeye de bak.", "ru": "В ту урну. Поддельные бумаги — в мусор! А посмотри на этот огород.", "next": "gardenq"},
+        "gardenq": {"kind": "answer", "task": "Спросите, чей это огород.", "branches": [{"phrase": "ph:park.bahce-kimin", "next": "end"}], "wrong": {"es": "Göl mü? Göl şurada.", "ru": "Озеро? Озеро вон там."}},
+        "end": {"kind": "say", "es": "Şehrin. Orada benim domateslerim var. Domateslerin arasında da bunu saklıyordum: çöl haritasından benim parçam. Gerçek olanı.", "ru": "Городской. Там мои помидоры. А среди помидоров я прятал вот это: мой обрывок карты пустыни. Настоящий."}
+      }
     }
   ]
 }

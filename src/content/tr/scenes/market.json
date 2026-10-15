@@ -52,6 +52,33 @@
         {"q": "Что было на незнакомце?", "options": ["Красная куртка", "Серое пальто", "Шляпа"], "answer": 1}
       ],
       "gloss": {"yavrum": "милок, деточка (ласково)", "görmüşler": "видели (говорят)", "çıkıyormuş": "поднимался (говорят)", "varmış": "было (говорят)", "kimmiş": "кто же (говорят)", "konuşmamış": "не разговаривал (говорят)", "almıştın": "ты брал(а)", "usta": "мастер (уважительно)"}
+    },
+    {
+      "id": "sc:market.3",
+      "chapter": 3,
+      "npc": "fatma",
+      "lines": [
+        {"who": "npc", "es": "Dağdaki havuçlar nasıldı? Kerem çok lezzetliydi, diyor.", "ru": "Как морковка в горах? Керем говорит, была очень вкусная.", "if": {"flag": "veg", "is": "carrots"}},
+        {"who": "npc", "es": "Ya sarımsak? Kerem, kulede bir hafta sarımsak koktu, diyor.", "ru": "А чеснок? Керем говорит, в башне неделю пахло чесноком.", "if": {"flag": "veg", "is": "garlic"}},
+        {"who": "npc", "es": "Gel, yavrum! Bu meyvelere bak. Çölden geldiler.", "ru": "Иди сюда, милок! Посмотри на эти фрукты. Они из пустыни.", "fem": {"ru": "Иди сюда, милая! Посмотри на эти фрукты. Они из пустыни."}},
+        {"who": "hero", "es": "Çölden mi? Kim getirdi?", "ru": "Из пустыни? Кто их привёз?"},
+        {"who": "npc", "es": "Çölden bir adam, devesiyle. Dün tuzla, meyveyle ve… harita parçalarıyla geldi.", "ru": "Человек из пустыни, с верблюдом. Приехал вчера с солью, фруктами и… обрывками карты."},
+        {"who": "hero", "es": "Çöl haritasının parçaları mı?", "ru": "Обрывками карты пустыни?"},
+        {"who": "npc", "es": "Öyle dedi. Ama ben ona inanmıyorum. Şuna bak: rengi eski, ama kâğıdı yeni.", "ru": "Так он сказал. Но я ему не верю. Посмотри на этот: цвет старый, а бумага новая."},
+        {"who": "hero", "es": "O zaman gerçek değil.", "ru": "Значит, он не настоящий."},
+        {"who": "npc", "es": "Beyaz şehir gibi: gerçek gibi görünüyor, ama değil.", "ru": "Как белый город: кажется настоящим, а на деле нет."},
+        {"who": "hero", "es": "Kaç parça sattı?", "ru": "Сколько обрывков он продал?"},
+        {"who": "npc", "es": "Çok. İnsanlar bir sürü para ödedi. Adam da rüzgâr gibi kayboldu.", "ru": "Много. Люди заплатили кучу денег. А тот человек исчез, как ветер."},
+        {"who": "hero", "es": "Sende gerçek bir parça var mı?", "ru": "А у тебя есть настоящий?"},
+        {"who": "npc", "es": "Var, işte. Bugün bana yardım edersen, senin.", "ru": "Есть, вот он. Если сегодня мне поможешь, он твой."}
+      ],
+      "questions": [
+        {"q": "Откуда фрукты?", "options": ["Из сада Фатмы", "Из пустыни", "С острова"], "answer": 1},
+        {"q": "Что ещё привёз человек с верблюдом?", "options": ["Обрывки карты", "Ковры", "Лекарства"], "answer": 0},
+        {"q": "Почему Фатма не верит обрывку?", "options": ["Цвет старый, а бумага новая", "Он слишком маленький", "На нём нет надписи"], "answer": 0},
+        {"q": "Что нужно сделать, чтобы получить настоящий обрывок?", "options": ["Заплатить", "Помочь Фатме", "Найти купца"], "answer": 1}
+      ],
+      "gloss": {"yavrum": "милок, дорогой", "havuçlar": "морковка", "koktu": "пахло", "devesiyle": "со своим верблюдом", "tuzla": "с солью", "meyveyle": "с фруктами", "parçalarıyla": "с обрывками", "kâğıdı": "его бумага", "sürü": "куча"}
     }
   ]
 }

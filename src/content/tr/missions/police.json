@@ -42,6 +42,26 @@
         "crossq": {"kind": "answer", "task": "Скажите, что переходить нужно по зебре.", "branches": [{"phrase": "ph:police.yaya-gecidi", "next": "end"}], "wrong": {"es": "Ne dediniz? Trafik çok gürültülü!", "ru": "Что вы сказали? Машины очень шумят!"}},
         "end": {"kind": "say", "es": "Haklısınız: polis de yaya geçidinden geçer. Bakın: şüpheli değil. Orhan, saat yedi treninin sefer saatlerini okuyor. Dağ haritasından benim parçamı alın. Yukarı çıkın, cevap verin ve Orhan'ı evine gönderin.", "ru": "Вы правы: даже полиция переходит улицу по зебре. Смотрите: он не подозрительный. Это Орхан, он читает расписание поезда в семь. Возьмите мой обрывок карты гор. Поднимитесь, ответьте и верните Орхана домой."}
       }
+    },
+    {
+      "id": "ms:police.3",
+      "chapter": 3,
+      "npc": "nihat",
+      "scene": "sc:police.3",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "İyi günler. Artık burada yaşıyorsunuz, belgeler lazım. Nasıl yardımcı olabilirim?", "ru": "Добрый день. Раз вы теперь живёте здесь, нужны документы. Чем помочь?", "next": "addr"},
+        "addr": {"kind": "answer", "task": "Спросите, кому сообщить ваш новый адрес.", "branches": [{"phrase": "ph:police.yeni-adres", "next": "permit"}], "wrong": {"es": "Kayıp mı? Ne kaybettiniz?", "ru": "Потеря? Что вы потеряли?"}},
+        "permit": {"kind": "say", "es": "Meydandaki büroya. Ya iş için?", "ru": "В контору на площади. А для работы?", "next": "permitq"},
+        "permitq": {"kind": "answer", "task": "Скажите, что для работы вам нужен вид на жительство.", "branches": [{"phrase": "ph:police.oturma-izni", "next": "thief"}], "wrong": {"es": "Ehliyet mi? O başka büroda.", "ru": "Права? Это в другой конторе."}},
+        "thief": {"kind": "say", "es": "Ebru Hanım'ın yanında çalışmak için, değil mi? İşte form. Başka bir şey?", "ru": "Чтобы работать у Эбру-ханым, да? Вот бланк. Что-нибудь ещё?", "next": "thiefq"},
+        "thiefq": {"kind": "answer", "task": "Скажите, что в автобусе был карманник.", "branches": [{"phrase": "ph:police.otobuste-hirsiz", "next": "lawyer"}], "wrong": {"es": "Kaza mı? Kimse yaralı mı?", "ru": "Авария? Кто-нибудь ранен?"}},
+        "lawyer": {"kind": "say", "es": "Yine mi… Onu bulacağız. Merak etmeyin. İyi misiniz?", "ru": "Опять… Мы его найдём. Не волнуйтесь. Вы в порядке?", "next": "lawyerq"},
+        "lawyerq": {"kind": "answer", "task": "В шутку скажите, что хотите поговорить со своим адвокатом.", "branches": [{"phrase": "ph:police.avukatimla", "next": "test"}], "wrong": {"es": "Hâkim mi? Hâkim mahkemede.", "ru": "Судья? Судья в суде."}},
+        "test": {"kind": "say", "es": "Avukat mı? Siz hiçbir şey yapmadınız ki! Bugün araba kullanıyor musunuz?", "ru": "Адвокат? Вы же ничего не сделали! Вы сегодня за рулём?", "next": "testq"},
+        "testq": {"kind": "answer", "task": "Спросите, нужно ли показать права.", "branches": [{"phrase": "ph:police.alkol-testi", "next": "end"}], "wrong": {"es": "Ceza mı? Hayır, ceza yok.", "ru": "Штраф? Нет, штрафа нет."}},
+        "end": {"kind": "say", "es": "Ehliyet mi? Siz bisiklete biniyorsunuz! Çöl haritasından benim parçamı alın. Unutmayın: doğruluk satılmaz.", "ru": "Права? Вы же ездите на велосипеде! Возьмите мой обрывок карты пустыни. Помните: правда не продаётся."}
+      }
     }
   ]
 }

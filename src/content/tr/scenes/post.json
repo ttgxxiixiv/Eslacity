@@ -50,6 +50,31 @@
         {"q": "К кому бежит герой?", "options": ["К Хасану-уста", "К стражу", "К Нермин-ханым"], "answer": 0}
       ],
       "gloss": {"çabuk": "быстрее", "kuledeki": "с башни", "arkadaşından": "от друга", "kuleden": "с башни (kule)", "kırılır": "бьётся", "yavaş": "медленно", "içinde": "внутри", "pusula": "компас", "not": "записка", "notta": "в записке", "sese": "на голос (ses)", "yaşıyor": "жив", "koş": "беги", "koşuyorum": "бегу", "hızlı": "быстрый"}
+    },
+    {
+      "id": "sc:post.3",
+      "chapter": 3,
+      "npc": "cemil",
+      "lines": [
+        {"who": "npc", "es": "Yolcu! Bir sorun var! Senin paketin!", "ru": "Путник! У меня проблема! Твоя посылка!"},
+        {"who": "hero", "es": "Hangi paket?", "ru": "Какая посылка?"},
+        {"who": "npc", "es": "Kerem sana hastaneden bir paket gönderdi. Şimdi yok.", "ru": "Керем отправил тебе посылку из больницы. А теперь её нет."},
+        {"who": "hero", "es": "Kayboldu mu?", "ru": "Она потерялась?"},
+        {"who": "npc", "es": "Ben de öyle düşündüm. Ama şu kâğıda bak: biri onu senin adına teslim almış.", "ru": "Я тоже так думал. Но посмотри на эту бумагу: кто-то забрал её на твоё имя."},
+        {"who": "hero", "es": "Benim adıma mı? Kim?", "ru": "На моё имя? Кто?"},
+        {"who": "npc", "es": "İmza: “Tüccar”. Kâğıdın üstünde de kum var.", "ru": "Подпись: «Купец». И на бумаге песок."},
+        {"who": "hero", "es": "Devesiyle o adam.", "ru": "Человек с верблюдом."},
+        {"who": "npc", "es": "Benim postanemde paket çalınmaz! Şikâyet edeceğim.", "ru": "На моей почте посылки не крадут! Я подам жалобу."},
+        {"who": "hero", "es": "Pakette ne vardı?", "ru": "Что было в посылке?"},
+        {"who": "npc", "es": "Kerem'e göre çöl haritasından onun parçası. Gerçek olanı.", "ru": "Керем говорит, что там был его обрывок карты пустыни. Настоящий."}
+      ],
+      "questions": [
+        {"q": "Кто отправил посылку?", "options": ["Керем", "Орхан", "Хасан-уста"], "answer": 0},
+        {"q": "Кто забрал посылку?", "options": ["Сам герой", "Кто-то на имя героя", "Почтальон"], "answer": 1},
+        {"q": "Как подписался похититель?", "options": ["«Купец»", "«Друг с башни»", "Никак"], "answer": 0},
+        {"q": "Что было в посылке?", "options": ["Компас", "Настоящий обрывок карты пустыни", "Письмо"], "answer": 1}
+      ],
+      "gloss": {"paketin": "твоя посылка", "hastaneden": "из больницы", "adına": "на имя", "almış": "забрал", "adıma": "на моё имя", "kâğıdın": "бумаги", "devesiyle": "со своим верблюдом", "postanemde": "на моей почте", "çalınmaz": "не крадут", "pakette": "в посылке"}
     }
   ]
 }

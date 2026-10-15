@@ -40,6 +40,26 @@
         "apptq": {"kind": "answer", "task": "Скажите, что хотите записаться на завтра.", "branches": [{"phrase": "ph:barber.yarina-randevu", "next": "end"}], "wrong": {"es": "Bugün mü? Bugün bitti, saçın temiz!", "ru": "Сегодня? Сегодня всё, волосы у тебя аккуратные!"}},
         "end": {"kind": "say", "es": "Yarın mı? Yarın dağdasın. Dönünce gel. Al, dağ haritasından benim parçam. Gri paltolu adamı görürsen ona annemin sözlerini söyle. Belki güler.", "ru": "Завтра? Завтра ты будешь в горах. Приходи, когда вернёшься. Держи мой обрывок карты гор. Если увидишь человека в сером пальто, скажи ему мамины слова. Может, он улыбнётся."}
       }
+    },
+    {
+      "id": "ms:barber.3",
+      "chapter": 3,
+      "npc": "yusuf",
+      "scene": "sc:barber.3",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Dolunay kutlaması için yakışıklı olmak lazım. Ne yapalım?", "ru": "К празднику полнолуния надо быть красавцем. Что тебе сделать?", "next": "frizz", "fem": {"es": "Dolunay kutlaması için güzel olmak lazım. Ne yapalım?", "ru": "К празднику полнолуния надо быть красавицей. Что тебе сделать?"}},
+        "frizz": {"kind": "answer", "task": "Скажите, что у вас очень сухие и растрёпанные волосы.", "branches": [{"phrase": "ph:barber.saclarim-kuru", "next": "ends"}], "wrong": {"es": "Sakal mı? Sakalına bugün başkası bakacak.", "ru": "Борода? Твоей бородой сегодня займётся другой мастер."}},
+        "ends": {"kind": "say", "es": "Çöl rüzgârı. Önce uçlar.", "ru": "Это ветер пустыни. Сначала кончики.", "next": "endsq"},
+        "endsq": {"kind": "answer", "task": "Попросите подстричь секущиеся кончики.", "branches": [{"phrase": "ph:barber.uclari-kirik", "next": "straight"}], "wrong": {"es": "Kel mi olmak istiyorsun? Hayır, hayır!", "ru": "Хочешь стать лысым? Нет-нет!", "fem": {"ru": "Хочешь стать лысой? Нет-нет!"}}},
+        "straight": {"kind": "say", "es": "Tamam. Düzleştirmek ister misin? Kutlama için çok iyi olur.", "ru": "Готово. Хочешь выпрямить? К празднику — самое то.", "next": "straightq"},
+        "straightq": {"kind": "answer", "task": "Спросите, сколько стоит сделать волосы прямыми.", "branches": [{"phrase": "ph:barber.duz-yapmak-kac", "next": "roots"}], "wrong": {"es": "Şampuan mı? Şampuan bedava.", "ru": "Шампунь? Шампунь бесплатно."}},
+        "roots": {"kind": "say", "es": "Üç yüz lira. Sana iki yüz. Ya renk?", "ru": "Триста лир. Для тебя — двести. А цвет?", "next": "rootsq"},
+        "rootsq": {"kind": "answer", "task": "Скажите, что нужно закрасить только седину.", "branches": [{"phrase": "ph:barber.sadece-beyazlar", "next": "stylist"}], "wrong": {"es": "Hepsini mi boyayalım? Kırmızı mı?", "ru": "Покрасить всё? В красный?"}},
+        "stylist": {"kind": "say", "es": "Sadece beyazlar. Tamam. Bugün başka işler de var: kuaför de gelecek.", "ru": "Только седину. Хорошо. Сегодня и другие дела есть: придёт стилист.", "next": "stylistq"},
+        "stylistq": {"kind": "answer", "task": "Спросите, работает ли сегодня стилист.", "branches": [{"phrase": "ph:barber.kuafor-bugun", "next": "end"}], "wrong": {"es": "Ne dedin? Makas çok gürültülü!", "ru": "Что ты сказал? Ножницы очень шумят!", "fem": {"ru": "Что ты сказала? Ножницы очень шумят!"}}},
+        "end": {"kind": "say", "es": "Saat beşte gelecek. Al, bu da çöl haritasından benim parçam. Devesiyle adamı görürsen, ona ormanını sor.", "ru": "Она придёт к пяти. И держи мой обрывок карты пустыни. Если увидишь человека с верблюдом, спроси его про его лес."}
+      }
     }
   ]
 }

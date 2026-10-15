@@ -30,7 +30,7 @@
       "start": "hi",
       "nodes": {
         "hi": {"kind": "say", "es": "Dağa gidiyorsun, değil mi? Yola sebze lazım. Ne istersin?", "ru": "Ты ведь идёшь в горы? В дорогу нужны овощи. Что хочешь?", "next": "veg"},
-        "veg": {"kind": "answer", "task": "Попросите килограмм моркови или спросите, есть ли чеснок.", "branches": [{"phrase": "ph:market.bir-kilo-havuc", "next": "carrots"}, {"phrase": "ph:market.sarimsak-var-mi", "next": "garlic"}], "wrong": {"es": "Bir kilo taş mı? Dağda taş çok, yavrum.", "ru": "Килограмм камней? В горах камней и так много, милок.", "fem": {"ru": "Килограмм камней? В горах камней и так много, милая."}}},
+        "veg": {"kind": "answer", "task": "Попросите килограмм моркови или спросите, есть ли чеснок.", "branches": [{"phrase": "ph:market.bir-kilo-havuc", "next": "carrots", "sets": {"veg": "carrots"}}, {"phrase": "ph:market.sarimsak-var-mi", "next": "garlic", "sets": {"veg": "garlic"}}], "wrong": {"es": "Bir kilo taş mı? Dağda taş çok, yavrum.", "ru": "Килограмм камней? В горах камней и так много, милок.", "fem": {"ru": "Килограмм камней? В горах камней и так много, милая."}}},
         "carrots": {"kind": "say", "es": "Havuç, iyi. Dağda göz için iyi gelir.", "ru": "Морковь — хорошо. В горах она полезна для глаз.", "next": "taste"},
         "garlic": {"kind": "say", "es": "Sarımsak var. Köylüler der ki sarımsak soğuğa iyi gelir.", "ru": "Чеснок есть. Крестьяне говорят, что чеснок помогает от холода.", "next": "taste"},
         "taste": {"kind": "answer", "task": "Спросите, можно ли попробовать.", "branches": [{"phrase": "ph:market.tadabilir-miyim", "next": "season"}], "wrong": {"es": "Satabilir miyim mi? Hayır, burada ben satıyorum!", "ru": "Можно ли тебе продавать? Нет, здесь продаю я!"}},
@@ -43,6 +43,26 @@
         "nomore": {"kind": "say", "es": "Dağdaki köyden. Köylüler getirdi. Başka bir şey?", "ru": "Из горной деревни. Крестьяне привезли. Что-нибудь ещё?", "next": "thanks"},
         "thanks": {"kind": "answer", "task": "Скажите, что больше ничего не нужно, и поблагодарите.", "branches": [{"phrase": "ph:market.baska-bir-sey-yok", "next": "end"}], "wrong": {"es": "Başka bir kilo mu? Poşetin doldu bile!", "ru": "Ещё килограмм? У тебя уже пакет полный!"}},
         "end": {"kind": "say", "es": "Hepsi yüz lira. Bir de dinle: köylüler diyor ki kulede her gece bir ışık yanıyor. Orada biri yaşıyor. Al, dağ haritasından benim parçam.", "ru": "Всего сто лир. И послушай: крестьяне говорят, что в башне каждую ночь горит свет. Там кто-то живёт. Держи мой обрывок карты гор."}
+      }
+    },
+    {
+      "id": "ms:market.3",
+      "chapter": 3,
+      "npc": "fatma",
+      "scene": "sc:market.3",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Ne gün! Pazar çok kalabalık. Herkes çöl için alışveriş yapıyor. Sana ne lazım?", "ru": "Ну и день! На базаре очень людно. Все закупаются для пустыни. Тебе что нужно?", "next": "queue"},
+        "queue": {"kind": "answer", "task": "Спросите, чья очередь.", "branches": [{"phrase": "ph:market.sira-kimde", "next": "tomato"}], "wrong": {"es": "Kilo mu? Önce sıra!", "ru": "Килограмм? Сначала очередь!"}},
+        "tomato": {"kind": "say", "es": "Şapkalı hanımdan sonra. İşte sıra sende! Ne koyayım?", "ru": "После дамы в шляпе. Вот и твоя очередь! Что тебе положить?", "next": "tomatoq"},
+        "tomatoq": {"kind": "answer", "task": "Спросите, органические ли помидоры.", "branches": [{"phrase": "ph:market.organik-mi", "next": "peach"}], "wrong": {"es": "Pahalı mı? Hayır, bugün ucuz.", "ru": "Дорогие? Нет, сегодня дешёвые."}},
+        "peach": {"kind": "say", "es": "Organik, kendi tarlamızdan. Şu şeftalilere de bak.", "ru": "Органические, с нашего поля. Посмотри и на эти персики.", "next": "peachq"},
+        "peachq": {"kind": "answer", "task": "Скажите, что этот персик гнилой.", "branches": [{"phrase": "ph:market.bu-curuk", "next": "beans"}], "wrong": {"es": "Olgun mu? Evet, çok olgun!", "ru": "Спелый? Да, очень спелый!"}},
+        "beans": {"kind": "say", "es": "Haklısın, çürük. Bunu al. Yol için ne lazım?", "ru": "Ты прав, гнилой. Возьми вот этот. А в дорогу что?", "next": "beansq", "fem": {"ru": "Ты права, гнилой. Возьми вот этот. А в дорогу что?"}},
+        "beansq": {"kind": "answer", "task": "Скажите, что возьмёте мешок картошки.", "branches": [{"phrase": "ph:market.bir-cuval", "next": "price"}], "wrong": {"es": "Karpuz mu? Çölde karpuz ağır gelir.", "ru": "Арбуз? В пустыне арбуз тяжело нести."}},
+        "price": {"kind": "say", "es": "Al. Ama çölde çuval ağır, deve taşısın. On iki lira.", "ru": "Держи. Но в пустыне мешок тяжёлый, пусть его везёт верблюд. Двенадцать лир.", "next": "priceq"},
+        "priceq": {"kind": "answer", "task": "Спросите её последнюю цену.", "branches": [{"phrase": "ph:market.son-fiyat", "next": "end"}], "wrong": {"es": "Ne dedin? Pazarda çok gürültü var!", "ru": "Что ты сказал? На базаре очень шумно!", "fem": {"ru": "Что ты сказала? На базаре очень шумно!"}}},
+        "end": {"kind": "say", "es": "İşte bu! On lira. Al, bu da çöl haritasından benim parçam, gerçek olanı. Kâğıda bak: eski.", "ru": "Вот это по-нашему! Десять лир. И держи мой обрывок карты пустыни, настоящий. Посмотри на бумагу: старая."}
       }
     }
   ]

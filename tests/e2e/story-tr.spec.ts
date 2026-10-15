@@ -93,3 +93,19 @@ test('tr: развилка больницы — доктор Гюль сравн
   await playScene(page, sc, { injury: 'heart' });
   expect(sc.lines.some((l) => l.if?.is === 'heart' && l.es.includes('kalbiniz'))).toBe(true);
 });
+
+test('tr: развилка чайной главы II — Хасан-уста вспоминает, как герой хотел его угостить', async ({ page }) => {
+  await openCourse(page, 'tr');
+  await playMission(page, 'ms:cafe.2', { 'Попросите счёт или скажите, что сегодня угощаете вы.': 1 });
+  const sc = scenes.find((s) => s.id === 'sc:cafe.3')!;
+  await playScene(page, sc, { treat: 'treat' });
+  expect(sc.lines.some((l) => l.if?.is === 'treat' && l.es.includes('ısmarlamak istediğin'))).toBe(true);
+});
+
+test('tr: развилка базара главы II — тётушка Фатма спрашивает про чеснок', async ({ page }) => {
+  await openCourse(page, 'tr');
+  await playMission(page, 'ms:market.2', { 'Попросите килограмм моркови или спросите, есть ли чеснок.': 1 });
+  const sc = scenes.find((s) => s.id === 'sc:market.3')!;
+  await playScene(page, sc, { veg: 'garlic' });
+  expect(sc.lines.some((l) => l.if?.is === 'garlic' && l.es.includes('sarımsak'))).toBe(true);
+});

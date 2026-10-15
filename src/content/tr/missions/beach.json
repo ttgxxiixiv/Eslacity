@@ -40,6 +40,26 @@
         "sunsetq": {"kind": "answer", "task": "Предложите посмотреть на закат.", "branches": [{"phrase": "ph:beach.gun-batimi", "next": "end"}], "wrong": {"es": "Eve mi gidelim? Daha erken!", "ru": "Домой пойдём? Ещё рано!"}},
         "end": {"kind": "say", "es": "Bak: kule. Işık üç kere yanıyor. Al, dağ haritasından benim parçam. Yukarı çıkınca sen de üç kere ışık yak. Ben seni buradan görürüm.", "ru": "Смотри: башня. Свет загорается три раза. Держи мой обрывок карты гор. Когда доберёшься наверх, тоже зажги свет три раза. Я увижу тебя отсюда."}
       }
+    },
+    {
+      "id": "ms:beach.3",
+      "chapter": 3,
+      "npc": "can",
+      "scene": "sc:beach.3",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Bugün plajda iğne atsan yere düşmez. Ne yapalım?", "ru": "Сегодня на пляже яблоку негде упасть. Что будем делать?", "next": "crowd"},
+        "crowd": {"kind": "answer", "task": "Скажите, что летом на пляже не протолкнуться.", "branches": [{"phrase": "ph:beach.plaj-dolu", "next": "cove"}], "wrong": {"es": "Boş mu? Hayır, bak!", "ru": "Пусто? Нет, смотри!"}},
+        "cove": {"kind": "say", "es": "Her zaman öyle. Sakin bir yer biliyor musun?", "ru": "Всегда так. Знаешь какое-нибудь тихое место?", "next": "coveq"},
+        "coveq": {"kind": "answer", "task": "Скажите, что знаете тихую бухточку.", "branches": [{"phrase": "ph:beach.sakin-bir-koy", "next": "swim"}], "wrong": {"es": "Havuz mu? Burada havuz yok.", "ru": "Бассейн? Здесь бассейна нет."}},
+        "swim": {"kind": "say", "es": "Koy mu? Dün gece o oradaydı. Hadi.", "ru": "Бухту? Он был там вчера ночью. Пошли.", "next": "swimq"},
+        "swimq": {"kind": "answer", "task": "Предложите поплавать: вода прохладная.", "branches": [{"phrase": "ph:beach.biraz-yuzelim", "next": "sun"}], "wrong": {"es": "Uyuyalım mı? Önce deniz!", "ru": "Поспать? Сначала море!"}},
+        "sun": {"kind": "say", "es": "Harika! … Bak, yüzün kıpkırmızı. İyi misin?", "ru": "Здорово! … Слушай, у тебя лицо всё красное. Ты в порядке?", "next": "sunq"},
+        "sunq": {"kind": "answer", "task": "Скажите, что у вас, кажется, солнечный удар.", "branches": [{"phrase": "ph:beach.gunes-carpti", "next": "walk"}], "wrong": {"es": "Acıktın mı? Dondurma alalım.", "ru": "Проголодался? Давай купим мороженое.", "fem": {"ru": "Проголодалась? Давай купим мороженое."}}},
+        "walk": {"kind": "say", "es": "Gölgeye, yavaş yavaş. İşte serin su. Daha iyi mi? Güneş batınca ne yapalım?", "ru": "В тень, потихоньку. Вот прохладная вода. Лучше? Что будем делать, когда сядет солнце?", "next": "walkq"},
+        "walkq": {"kind": "answer", "task": "Предложите прогуляться по берегу.", "branches": [{"phrase": "ph:beach.sahilde-yuruyelim", "next": "end"}], "wrong": {"es": "Eve mi? Daha erken!", "ru": "Домой? Ещё рано!"}},
+        "end": {"kind": "say", "es": "Hadi. Bak: ay neredeyse dolunay. Al, bu da çöl haritasından benim parçam. Deniz onu bir şişede getirdi, tıpkı ilk parçayı getirdiği gibi.", "ru": "Пошли. Смотри: луна уже почти полная. Держи мой обрывок карты пустыни. Море принесло его в бутылке, как и первый."}
+      }
     }
   ]
 }

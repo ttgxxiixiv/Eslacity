@@ -44,6 +44,26 @@
         "discountq": {"kind": "answer", "task": "Спросите, есть ли скидка на эту марку.", "branches": [{"phrase": "ph:supermarket.markada-indirim", "next": "end"}], "wrong": {"es": "Bedava mı? Burada hiçbir şey bedava değil!", "ru": "Бесплатно? Тут ничего не даётся даром!"}},
         "end": {"kind": "say", "es": "Haritalı yolcuya indirim var. Al, dağ haritasından benim parçam. Gri paltolu adamı görürsen, ona sor: bu eski paralar nereden?", "ru": "Для путника с картой скидка есть. Держи мой обрывок карты гор. Если увидишь человека в сером пальто, спроси его: откуда эти старые монеты?"}
       }
+    },
+    {
+      "id": "ms:supermarket.3",
+      "chapter": 3,
+      "npc": "mehmet",
+      "scene": "sc:supermarket.3",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Bugün fırın deli gibi kalabalık. Herkes çöl için alışveriş yapıyor. Ne lazım?", "ru": "Сегодня в пекарне сумасшедший дом. Все закупаются для пустыни. Что тебе нужно?", "next": "bottle"},
+        "bottle": {"kind": "answer", "task": "Попросите вернуть деньги за пустую бутылку «воды оазиса».", "branches": [{"phrase": "ph:supermarket.bos-sise-iade", "next": "cash"}], "wrong": {"es": "Simit mi? Bekle, yenisi fırında.", "ru": "Симит? Подожди, новые в печи."}},
+        "cash": {"kind": "say", "es": "Bu şişe mi? Benim dükkânımdan değil… O “vaha suyu” satan adamın. Ama sana bir simit veririm.", "ru": "Эта бутылка? Она не из моей лавки… Это того человека с «водой оазиса». Но я дам тебе симит.", "next": "cashq"},
+        "cashq": {"kind": "answer", "task": "Скажите, что касса не работает.", "branches": [{"phrase": "ph:supermarket.kasa-calismiyor", "next": "milk"}], "wrong": {"es": "Pahalı mı? Hayır, bugün kampanya var.", "ru": "Дорого? Нет, сегодня акция."}},
+        "milk": {"kind": "say", "es": "Yine mi? Bekle, düzeltiyorum. Tamam. Başka bir şey?", "ru": "Опять? Подожди, сейчас починю. Готово. Что-нибудь ещё?", "next": "milkq"},
+        "milkq": {"kind": "answer", "task": "Спросите, кончилось ли молоко.", "branches": [{"phrase": "ph:supermarket.sut-bitti-mi", "next": "bread"}], "wrong": {"es": "Şeker mi? Şeker rafta.", "ru": "Сахар? Сахар на полке."}},
+        "bread": {"kind": "say", "es": "Bitti. Herkes yol için süt alıyor. Ya ekmek?", "ru": "Кончилось. Все берут молоко в дорогу. А хлеб?", "next": "breadq"},
+        "breadq": {"kind": "answer", "task": "Спросите, есть ли хлеб без глютена.", "branches": [{"phrase": "ph:supermarket.glutensiz-ekmek", "next": "deliver"}], "wrong": {"es": "Pasta mı? Düğün için mi?", "ru": "Торт? На свадьбу?"}},
+        "deliver": {"kind": "say", "es": "Glutensiz, son tane. Bunları taşımak zor, değil mi?", "ru": "Без глютена, последний. Тяжело всё это нести, да?", "next": "deliverq"},
+        "deliverq": {"kind": "answer", "task": "Спросите, доставляют ли покупки на дом.", "branches": [{"phrase": "ph:supermarket.eve-getirir", "next": "end"}], "wrong": {"es": "Poşet mi? Poşet ücretsiz.", "ru": "Пакет? Пакет бесплатно."}},
+        "end": {"kind": "say", "es": "Tabii, kendim götürürüm, kumdan önceki son eve kadar. Al, bu da çöl haritasından benim parçam.", "ru": "Конечно, отвезу сам, до последнего дома перед песками. Держи, а это мой обрывок карты пустыни."}
+      }
     }
   ]
 }

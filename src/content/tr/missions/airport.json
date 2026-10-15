@@ -40,6 +40,26 @@
         "lateq": {"kind": "answer", "task": "Спросите, задерживается ли самолёт.", "branches": [{"phrase": "ph:airport.ucak-gecikiyor", "next": "end"}], "wrong": {"es": "İptal mi? Hayır, iptal yok.", "ru": "Отменили? Нет, не отменили."}},
         "end": {"kind": "say", "es": "Hayır, zamanında. Sonra pencereden bak: kule, tren yolu ve kum. Beyaz şehri görüyor musun? Artık yok. Al, dağ haritasından benim parçam.", "ru": "Нет, вовремя. А потом смотри в окно: башня, железная дорога и песок. Видишь белый город? Его уже нет. Держи мой обрывок карты гор."}
       }
+    },
+    {
+      "id": "ms:airport.3",
+      "chapter": 3,
+      "npc": "burak",
+      "scene": "sc:airport.3",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Yolcu! Yine uçuyoruz. Bugün daha uzağa. Sen nereye?", "ru": "Путник! Снова летим. Сегодня дальше. А ты куда?", "next": "transit"},
+        "transit": {"kind": "answer", "task": "Скажите, что вы транзитный пассажир.", "branches": [{"phrase": "ph:airport.transit-yolcuyum", "next": "bag"}], "wrong": {"es": "Pilot musun? Hayır, pilot benim!", "ru": "Ты пилот? Нет, пилот — я!"}},
+        "bag": {"kind": "say", "es": "Transit mi? Bütün gezginler gibi. Çok bagajın var mı?", "ru": "Транзитом? Как все путешественники. У тебя много багажа?", "next": "bagq"},
+        "bagq": {"kind": "answer", "task": "Спросите, какая норма багажа.", "branches": [{"phrase": "ph:airport.bagaj-hakki", "next": "ann"}], "wrong": {"es": "Bilet mi? Biletin cebinde.", "ru": "Билет? Билет у тебя в кармане."}},
+        "ann": {"kind": "say", "es": "Yirmi kilo. Yeter. … Dinle: kaptan bir şey söylüyor.", "ru": "Двадцать килограммов. Достаточно. … Слушай: капитан что-то говорит.", "next": "annq"},
+        "annq": {"kind": "answer", "task": "Перескажите Бураку объявление: сядем в другом месте.", "branches": [{"phrase": "ph:airport.baska-yere-inecegiz", "next": "jet"}], "wrong": {"es": "Kahve mi istiyor? Hayır, dinle!", "ru": "Он кофе хочет? Нет, послушай!"}},
+        "jet": {"kind": "say", "es": "Rüzgâr yüzünden! Aşağı bak: orman. … Geldik. Nasılsın?", "ru": "Из-за ветра! Смотри вниз: лес. … Мы прилетели. Как ты себя чувствуешь?", "next": "jetq"},
+        "jetq": {"kind": "answer", "task": "Скажите, что очень устали из-за разницы во времени.", "branches": [{"phrase": "ph:airport.saat-farki-yordu", "next": "lost"}], "wrong": {"es": "Acıktın mı? Uçakta sandviç vardı.", "ru": "Проголодался? В самолёте были сэндвичи.", "fem": {"ru": "Проголодалась? В самолёте были сэндвичи."}}},
+        "lost": {"kind": "say", "es": "Bir saatlik uçuştan mı? Ne kadar abartıyorsun! Uçakta bir şey mi unuttun?", "ru": "От часового полёта? Ну ты и преувеличиваешь! Что-нибудь забыл в самолёте?", "next": "lostq", "fem": {"ru": "От часового полёта? Ну ты и преувеличиваешь! Что-нибудь забыла в самолёте?"}},
+        "lostq": {"kind": "answer", "task": "Спросите, куда обратиться насчёт потерянных вещей.", "branches": [{"phrase": "ph:airport.kayip-esya-burosu", "next": "end"}], "wrong": {"es": "Tuvalet mi? Sağda.", "ru": "Туалет? Справа."}},
+        "end": {"kind": "say", "es": "Şurada. Arda da dün oraya gitti: yıllar önce ormanda kaybettiğini arıyordu. Al, çöl haritasından benim parçam.", "ru": "Вон там. Арда вчера тоже туда ходил: искал то, что много лет назад потерял в лесу. Держи мой обрывок карты пустыни."}
+      }
     }
   ]
 }

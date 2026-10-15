@@ -42,6 +42,26 @@
         "lightq": {"kind": "answer", "task": "Попросите выключить свет, чтобы увидеть горы.", "branches": [{"phrase": "ph:home.isigi-kapatir", "next": "end"}], "wrong": {"es": "Kapıyı mı kapatayım? Ama dağlar pencerede!", "ru": "Закрыть дверь? Но горы в окне!"}},
         "end": {"kind": "say", "es": "Bak pencereye. Yukarıda, dağda bir ışık görüyor musun? Orası kule. Al, dağ haritasından benim parçam. Unutma: muhafız ne yaptığını sorar.", "ru": "Посмотри в окно. Видишь свет наверху, в горах? Там башня. Держи мой обрывок карты гор. И помни: страж спрашивает, что ты сделал.", "fem": {"ru": "Посмотри в окно. Видишь свет наверху, в горах? Там башня. Держи мой обрывок карты гор. И помни: страж спрашивает, что ты сделала."}}
       }
+    },
+    {
+      "id": "ms:home.3",
+      "chapter": 3,
+      "npc": "nermin",
+      "scene": "sc:home.3",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Orhan için daire bakmaya gidiyoruz. Sen sor, ben çok heyecanlıyım.", "ru": "Идём смотреть квартиры для Орхана. Спрашивай ты, а то я волнуюсь.", "next": "flat"},
+        "flat": {"kind": "answer", "task": "Скажите хозяину, что ищете квартиру с хорошими соседями.", "branches": [{"phrase": "ph:home.komsulu-daire", "next": "furn"}], "wrong": {"es": "Büyük bir ev mi? Orhan tek başına yaşayacak.", "ru": "Большой дом? Орхан будет жить один."}},
+        "furn": {"kind": "say", "es": "Aynen. Yüz yıl sonra Orhan yalnız yaşamak istemiyor. Şu daireye bak.", "ru": "Вот именно. После ста лет Орхан не хочет жить один. Посмотри на эту квартиру.", "next": "furnq"},
+        "furnq": {"kind": "answer", "task": "Спросите, сдаётся ли квартира с мебелью.", "branches": [{"phrase": "ph:home.esyali-mi", "next": "fee"}], "wrong": {"es": "Balkon mu? Evet, balkonu var.", "ru": "Балкон? Да, балкон есть."}},
+        "fee": {"kind": "say", "es": "Eşyalı. Çok iyi: onun hiçbir şeyi yok. Burada yaşamak kaça?", "ru": "С мебелью. И хорошо: у него ведь ничего нет. А сколько стоит здесь жить?", "next": "feeq"},
+        "feeq": {"kind": "answer", "task": "Спросите, сколько в месяц взнос на дом.", "branches": [{"phrase": "ph:home.aidat-ne-kadar", "next": "dep"}], "wrong": {"es": "Kira mı? Kira da var, aidat da.", "ru": "Аренда? И аренда есть, и взнос."}},
+        "dep": {"kind": "say", "es": "Ayda beş yüz lira. Güzel. Başka ne ödemek lazım?", "ru": "Пятьсот лир в месяц. Хорошо. А что ещё нужно заплатить?", "next": "depq"},
+        "depq": {"kind": "answer", "task": "Спросите, сколько нужно заплатить вперёд.", "branches": [{"phrase": "ph:home.onceden-odeme", "next": "leak"}], "wrong": {"es": "Elektrik mi? Faturalar aylık.", "ru": "Электричество? Счета каждый месяц."}},
+        "leak": {"kind": "say", "es": "Bir aylık kira. Orhan eski paralarla ödemek istiyor… Bak! Mutfakta su var!", "ru": "Плата за месяц. Орхан хочет заплатить старыми монетами… Ой, смотри! На кухне вода!", "next": "leakq"},
+        "leakq": {"kind": "answer", "task": "Скажите, что кран сломан и нужен мастер.", "branches": [{"phrase": "ph:home.musluk-bozuk", "next": "end"}], "wrong": {"es": "Yağmur mu? Hayır, içeride yağmur yağmaz!", "ru": "Дождь? Нет, в доме дождя не бывает!"}},
+        "end": {"kind": "say", "es": "Tamirci yarın gelecek. Al, çöl haritasından benim parçam. Orhan bana verdi, senin için.", "ru": "Мастер придёт завтра. Держи мой обрывок карты пустыни. Мне его дал Орхан — для тебя."}
+      }
     }
   ]
 }

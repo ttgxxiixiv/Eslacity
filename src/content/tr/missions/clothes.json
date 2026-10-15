@@ -44,6 +44,26 @@
         "bootsq": {"kind": "answer", "task": "Скажите, что для гор нужны сапоги.", "branches": [{"phrase": "ph:clothes.cizme-lazim", "next": "end"}], "wrong": {"es": "Elbise mi? Dağa elbiseyle mi gideceksiniz?", "ru": "Платье? Вы в горы в платье пойдёте?"}},
         "end": {"kind": "say", "es": "İşte, Kerem'in çizmeleri: onları ona götürün. Bu da dağ haritasından benim parçam. Siste kırmızı şapkayı arayın.", "ru": "Вот сапоги Керема: отнесите их ему. А это мой обрывок карты гор. Ищите в тумане красную шапку."}
       }
+    },
+    {
+      "id": "ms:clothes.3",
+      "chapter": 3,
+      "npc": "selin",
+      "scene": "sc:clothes.3",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Beyaz şehirdeki kutlamaya gidiyorsanız, size şık bir kıyafet lazım. Ne arıyorsunuz?", "ru": "Если вы идёте на праздник в белый город, вам нужен наряд. Что ищете?", "next": "want"},
+        "want": {"kind": "answer", "task": "Скажите, что ищете что-нибудь нарядное для праздника.", "branches": [{"phrase": "ph:clothes.sik-bir-sey", "next": "simple"}], "wrong": {"es": "Spor ayakkabı mı? Kutlamaya mı?", "ru": "Кроссовки? На праздник?"}},
+        "simple": {"kind": "say", "es": "Şık… Bu lacivert takım elbise? Çok ciddi, çok güzel.", "ru": "Нарядное… Этот тёмно-синий костюм? Очень строгий, очень красивый.", "next": "simpleq"},
+        "simpleq": {"kind": "answer", "task": "Скажите, что лучше что-нибудь попроще.", "branches": [{"phrase": "ph:clothes.daha-sade", "next": "short"}], "wrong": {"es": "Daha pahalı mı? Peki, bakalım.", "ru": "Подороже? Ну, посмотрим."}},
+        "short": {"kind": "say", "es": "Daha sade mi? Büyük bir kutlama için? Peki… Bunları deneyin. Biraz uzun.", "ru": "Попроще? На большой праздник? Ну ладно… Примерьте эти. Длинноваты немного.", "next": "shortq"},
+        "shortq": {"kind": "answer", "task": "Спросите, могут ли укоротить брюки.", "branches": [{"phrase": "ph:clothes.kisaltabilir", "next": "match"}], "wrong": {"es": "Uzatmak mı? Ama zaten uzun!", "ru": "Удлинить? Но они и так длинные!"}},
+        "match": {"kind": "say", "es": "Tabii, yarın hazır. Başka bir şey? Belki Hasan Usta'nın kızı için?", "ru": "Конечно, завтра будут готовы. Что-нибудь ещё? Может, для дочки Хасана-уста?", "next": "matchq"},
+        "matchq": {"kind": "answer", "task": "Выберите пиджак и спросите, подходит ли он к её юбке.", "branches": [{"phrase": "ph:clothes.etekle-uyar-mi", "next": "gift"}], "wrong": {"es": "Çorap mı? Çoraplar orada.", "ru": "Носки? Носки вон там."}},
+        "gift": {"kind": "say", "es": "Çok iyi uyar. Hediye mi?", "ru": "Отлично подходит. Это подарок?", "next": "giftq"},
+        "giftq": {"kind": "answer", "task": "Попросите упаковать как подарок.", "branches": [{"phrase": "ph:clothes.hediye-paketi", "next": "end"}], "wrong": {"es": "Fiş mi? Fiş poşette.", "ru": "Чек? Чек в пакете."}},
+        "end": {"kind": "say", "es": "Tabii. Bu da çöl haritasından benim parçam. Annemin eski paltosunun içine dikilmişti.", "ru": "Конечно. А это мой обрывок карты пустыни. Он был зашит в мамино старое пальто."}
+      }
     }
   ]
 }

@@ -50,6 +50,31 @@
         {"q": "Что он спросил?", "options": ["Где башня", "Какой сейчас год", "Сколько стоит лекарство"], "answer": 1}
       ],
       "gloss": {"geldiğinizi": "зачем вы пришли", "aldıysa": "что купил", "sargı": "бинт", "geçitte": "на перевале (geçit)", "kulenin": "башни (kule)", "döner": "кружится", "paltolu": "в пальто", "garip": "странный", "yıldayız": "год сейчас (yıl)", "diye": "(вводит чужие слова)", "sanki": "будто"}
+    },
+    {
+      "id": "sc:pharmacy.3",
+      "chapter": 3,
+      "npc": "zeynep",
+      "lines": [
+        {"who": "npc", "es": "İyi günler. Şişede ne olduğunu artık biliyorum.", "ru": "Добрый день. Я уже знаю, что было в бутылке."},
+        {"who": "hero", "es": "Hangi şişede?", "ru": "В какой бутылке?"},
+        {"who": "npc", "es": "“Vaha suyu” şişesinde. Dolu gibi görünen şişede.", "ru": "В бутылке «воды оазиса». В той, что казалась полной."},
+        {"who": "hero", "es": "İçinde ne vardı?", "ru": "И что в ней было?"},
+        {"who": "npc", "es": "Hiçbir şey. Sadece biraz tuz. Bir de çiçek kokusu.", "ru": "Ничего. Только немного соли. И пахнет цветами."},
+        {"who": "hero", "es": "İnsanlar neden onu dolu görüyor?", "ru": "А почему люди видят её полной?"},
+        {"who": "npc", "es": "Çünkü susamışlar. Ve buna inanmak istiyorlar. Serap şişede değil, kafada.", "ru": "Потому что их мучает жажда. И потому что хотят в это верить. Мираж не в бутылке, а в голове."},
+        {"who": "hero", "es": "Çok kişi aldı mı?", "ru": "Многие её купили?"},
+        {"who": "npc", "es": "Fazla kişi. Şimdi uyuyamıyorlar. Her gece rüyalarında beyaz şehri görüyorlar.", "ru": "Слишком многие. И теперь они не спят. Каждую ночь им снится белый город."},
+        {"who": "hero", "es": "Bunun için bir ilacınız var mı?", "ru": "У вас есть что-нибудь от этого?"},
+        {"who": "npc", "es": "Uyumak için hap var. Daha az istemek için ilaç yok.", "ru": "Чтобы спать — таблетки есть. Чтобы меньше хотеть — лекарства нет."}
+      ],
+      "questions": [
+        {"q": "Что было в бутылке «воды оазиса»?", "options": ["Чистая вода", "Немного соли и запах цветов", "Лекарство"], "answer": 1},
+        {"q": "Где, по словам Зейнеп-ханым, мираж?", "options": ["В бутылке", "В голове", "В пустыне"], "answer": 1},
+        {"q": "Что снится тем, кто купил воду?", "options": ["Белый город", "Море", "Башня"], "answer": 0},
+        {"q": "От чего нет лекарства?", "options": ["От бессонницы", "Чтобы меньше хотеть", "От жажды"], "answer": 1}
+      ],
+      "gloss": {"şişede": "в бутылке", "olduğunu": "что (было)", "şişesinde": "в бутылке", "görünen": "которая кажется", "dolu": "полный", "kokusu": "запах", "susamışlar": "их мучает жажда", "rüyalarında": "во сне", "ilacınız": "ваше лекарство"}
     }
   ]
 }

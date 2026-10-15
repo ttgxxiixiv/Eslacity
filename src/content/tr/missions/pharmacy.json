@@ -43,6 +43,26 @@
         "norxq": {"kind": "answer", "task": "Спросите, можно ли купить это без рецепта.", "branches": [{"phrase": "ph:pharmacy.recetesiz", "next": "end"}], "wrong": {"es": "Reçete mi yazayım? Ben doktor değilim.", "ru": "Рецепт вам выписать? Я не врач."}},
         "end": {"kind": "say", "es": "Alabilirsiniz. Damlalarla birlikte dağ haritasından benim parçamı da alın. Gri paltolu adamı görürseniz, ona hangi yılda olduğumuzu söyleyin.", "ru": "Можно. А вместе с каплями возьмите мой обрывок карты гор. Если увидите человека в сером пальто, скажите ему, какой сейчас год."}
       }
+    },
+    {
+      "id": "ms:pharmacy.3",
+      "chapter": 3,
+      "npc": "zeynep",
+      "scene": "sc:pharmacy.3",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Eczane. Buyurun, sizi dinliyorum.", "ru": "Аптека. Слушаю вас.", "next": "duty"},
+        "duty": {"kind": "answer", "task": "Ночь, вы звоните по телефону. Спросите, где дежурная аптека.", "branches": [{"phrase": "ph:pharmacy.nobetci-nerede", "next": "sleep"}], "wrong": {"es": "Doktor mu? Hastaneyi arayın.", "ru": "Врач? Звоните в больницу."}},
+        "sleep": {"kind": "say", "es": "Nöbetçi eczane biziz. Bu gece ben nöbetteyim. Gelin. … Neyiniz var?", "ru": "Дежурная — это мы. Сегодня ночью дежурю я. Приходите. … Что с вами?", "next": "sleepq"},
+        "sleepq": {"kind": "answer", "task": "Скажите, что не можете спать из-за стресса.", "branches": [{"phrase": "ph:pharmacy.stresten-uyuyamiyorum", "next": "bp"}], "wrong": {"es": "Uyuyor musunuz? O zaman neden geldiniz?", "ru": "Вы спите? Тогда зачем пришли?"}},
+        "bp": {"kind": "say", "es": "Şehrin yarısı gibi. Siz de beyaz şehri mi görüyorsunuz? Tansiyonunuzu ölçelim.", "ru": "Как полгорода. Вам тоже снится белый город? Давайте измерим давление.", "next": "bpq"},
+        "bpq": {"kind": "answer", "task": "Скажите, что у вас высокое давление.", "branches": [{"phrase": "ph:pharmacy.tansiyonum-yuksek", "next": "cheap"}], "wrong": {"es": "Ateşiniz mi var? Termometre nerede?", "ru": "У вас температура? Где градусник?"}},
+        "cheap": {"kind": "say", "es": "Biraz yüksek, evet. Stres. Bu haplar iyi, ama pahalı.", "ru": "Немного высокое, да. Это стресс. Эти таблетки хорошие, но дорогие.", "next": "cheapq"},
+        "cheapq": {"kind": "answer", "task": "Спросите, есть ли лекарство подешевле.", "branches": [{"phrase": "ph:pharmacy.daha-ucuzu", "next": "side"}], "wrong": {"es": "Daha pahalı mı? Peki…", "ru": "Подороже? Ну…"}},
+        "side": {"kind": "say", "es": "Var, ve hiç kötü değil. Yatmadan önce bir tane.", "ru": "Есть, и ничуть не хуже. По одной перед сном.", "next": "sideq"},
+        "sideq": {"kind": "answer", "task": "Спросите, есть ли у лекарства побочные эффекты.", "branches": [{"phrase": "ph:pharmacy.yan-etkisi-var-mi", "next": "end"}], "wrong": {"es": "Aç karnına mı? Hayır, yemekten sonra.", "ru": "Натощак? Нет, после еды."}},
+        "end": {"kind": "say", "es": "Sadece biraz uyku verir. Bunu da alın: çöl haritasından benim parçam. Unutmayın: serap kafada.", "ru": "Только немного клонит в сон. И возьмите вот это: мой обрывок карты пустыни. Помните: мираж — в голове."}
+      }
     }
   ]
 }

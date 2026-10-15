@@ -40,6 +40,26 @@
         "outq": {"kind": "answer", "task": "Спросите, до которого часа нужно освободить номер.", "branches": [{"phrase": "ph:hotel.cikis-saat-kac", "next": "end"}], "wrong": {"es": "Fatura mı? Yarın, lütfen.", "ru": "Счёт? Завтра, пожалуйста."}},
         "end": {"kind": "say", "es": "On ikiye kadar. Ama siz beşte gidiyorsunuz. Dağ haritasından benim parçamı alın. Orhan'a da söyleyin: odası onu bekliyor.", "ru": "До двенадцати. Но вы уходите в пять. Возьмите мой обрывок карты гор. И скажите Орхану, что его номер ждёт."}
       }
+    },
+    {
+      "id": "ms:hotel.3",
+      "chapter": 3,
+      "npc": "leyla",
+      "scene": "sc:hotel.3",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Arda yola çıkmadan önce son gece için sessiz bir yer istiyor. Ona yardım edelim mi?", "ru": "Арда хочет тихое место на последнюю ночь перед дорогой. Поможем ему?", "next": "cottage"},
+        "cottage": {"kind": "answer", "task": "Скажите, что ищете тихий маленький домик.", "branches": [{"phrase": "ph:hotel.sessiz-bir-ev", "next": "incl"}], "wrong": {"es": "Lüks bir oda mı? O istemez.", "ru": "Роскошный номер? Он не захочет."}},
+        "incl": {"kind": "say", "es": "Vadide küçük bir ev var. Gürültü yok, ses yok.", "ru": "Есть маленький домик в долине. Без шума, без голосов.", "next": "inclq"},
+        "inclq": {"kind": "answer", "task": "Спросите, всё ли включено.", "branches": [{"phrase": "ph:hotel.her-sey-dahil", "next": "tax"}], "wrong": {"es": "Kahvaltı mı? Kahvaltı yedide.", "ru": "Завтрак? Завтрак в семь."}},
+        "tax": {"kind": "say", "es": "Her şey: akşam yemeği, kahvaltı ve sessizlik.", "ru": "Всё: ужин, завтрак и тишина.", "next": "taxq"},
+        "taxq": {"kind": "answer", "task": "Спросите, какой туристический сбор.", "branches": [{"phrase": "ph:hotel.turist-vergisi", "next": "cancel"}], "wrong": {"es": "Oda servisi mi? Orada yok.", "ru": "Обслуживание в номерах? Там его нет."}},
+        "cancel": {"kind": "say", "es": "Gecelik yirmi lira. Başka bir şey?", "ru": "Двадцать лир за ночь. Что-нибудь ещё?", "next": "cancelq"},
+        "cancelq": {"kind": "answer", "task": "Спросите, до какого срока можно отменить бронь.", "branches": [{"phrase": "ph:hotel.iptal-kosullari", "next": "review"}], "wrong": {"es": "Geç çıkış mı? Olur.", "ru": "Поздний выезд? Можно."}},
+        "review": {"kind": "say", "es": "Bir gün önceye kadar. Ama iptal etmez: buna ihtiyacı var.", "ru": "Не позже чем за день. Но он не отменит: ему это нужно.", "next": "reviewq"},
+        "reviewq": {"kind": "answer", "task": "Скажите, что напишете хороший отзыв.", "branches": [{"phrase": "ph:hotel.guzel-yorum", "next": "end"}], "wrong": {"es": "Şikâyet mi? Neden?", "ru": "Жалоба? Почему?"}},
+        "end": {"kind": "say", "es": "Çok teşekkürler. Arda'nın zarfını da alın: gerçek parçalar. Bu da çöl haritasından benim parçam.", "ru": "Большое спасибо. И возьмите конверт Арды: настоящие обрывки. А это мой обрывок карты пустыни."}
+      }
     }
   ]
 }

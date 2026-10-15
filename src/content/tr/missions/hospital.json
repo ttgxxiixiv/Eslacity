@@ -41,6 +41,26 @@
         "outq": {"kind": "answer", "task": "Спросите, когда вас выпишут.", "branches": [{"phrase": "ph:hospital.ne-zaman-taburcu", "next": "end"}], "wrong": {"es": "Doktor mu? Doktor benim!", "ru": "Врач? Врач — это я!"}},
         "end": {"kind": "say", "es": "Hemen şimdi. Dağ haritasından benim parçamı alın. Üçüncü soruyu unutmayın: kime yardım ettiniz. Bunu herkesten iyi biliyorsunuz.", "ru": "Прямо сейчас. Возьмите мой обрывок карты гор. И помните третий вопрос: кому вы помогли. Вы это знаете лучше всех."}
       }
+    },
+    {
+      "id": "ms:hospital.3",
+      "chapter": 3,
+      "npc": "gul",
+      "scene": "sc:hospital.3",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "İyi günler. Çölden ateşle döndünüz. Bakalım.", "ru": "Добрый день. Вы вернулись из пустыни с температурой. Посмотрим.", "next": "diag"},
+        "diag": {"kind": "answer", "task": "Спросите, чем вы больны.", "branches": [{"phrase": "ph:hospital.teshis-ne", "next": "contag"}], "wrong": {"es": "Taburcu mu? Daha değil.", "ru": "Выписка? Ещё нет."}},
+        "contag": {"kind": "say", "es": "Ciddi bir şey yok: kum, güneş ve çok yorgunluk.", "ru": "Ничего серьёзного: песок, солнце и сильная усталость.", "next": "contagq"},
+        "contagq": {"kind": "answer", "task": "Спросите, передаётся ли это другим.", "branches": [{"phrase": "ph:hospital.bulasici-mi", "next": "chronic"}], "wrong": {"es": "Ameliyat mı? Hayır, hayır!", "ru": "Операция? Нет-нет!"}},
+        "chronic": {"kind": "say", "es": "Hayır. Ama üzüntü bazen insandan insana geçer. Başka bir şikâyetiniz var mı?", "ru": "Нет. А вот грусть иногда передаётся от человека к человеку. Есть ещё жалобы?", "next": "chronicq"},
+        "chronicq": {"kind": "answer", "task": "Скажите, что у вас хроническое заболевание.", "branches": [{"phrase": "ph:hospital.kronik-hastalik", "next": "shot"}], "wrong": {"es": "Aç mısınız? Yemek saat on ikide.", "ru": "Вы голодны? Обед в двенадцать."}},
+        "shot": {"kind": "say", "es": "Biliyorum, dosyanızda var. Merak etmeyin. Size bir iğne yapacağım.", "ru": "Знаю, это есть в вашей карте. Не волнуйтесь. Сделаю вам укол.", "next": "shotq"},
+        "shotq": {"kind": "answer", "task": "Спросите, очень ли это больно.", "branches": [{"phrase": "ph:hospital.acitir-mi", "next": "note"}], "wrong": {"es": "İki iğne mi? Hayır, bir tane.", "ru": "Два укола? Нет, один."}},
+        "note": {"kind": "say", "es": "Hiç acıtmaz. Bitti! Başka ne lazım?", "ru": "Совсем не больно. Готово! Что ещё вам нужно?", "next": "noteq"},
+        "noteq": {"kind": "answer", "task": "Скажите, что вам нужна справка для работы.", "branches": [{"phrase": "ph:hospital.rapor-lazim", "next": "end"}], "wrong": {"es": "Reçete mi? Reçete lazım değil.", "ru": "Рецепт? Рецепт не нужен."}},
+        "end": {"kind": "say", "es": "Üç gün dinlenme. Çöl haritasından benim parçamı da alın. Unutmayın: ormanda dinlemek lazım.", "ru": "Три дня отдыха. И возьмите мой обрывок карты пустыни. Помните: в лесу нужно слушать."}
+      }
     }
   ]
 }

@@ -40,6 +40,26 @@
         "waitq": {"kind": "answer", "task": "Скажите, что подождёте в зале ожидания.", "branches": [{"phrase": "ph:station.bekleme-salonu", "next": "end"}], "wrong": {"es": "Vapura mı biniyorsun? Hayır, otobüs bekliyorsun!", "ru": "На паром садишься? Нет, ты ждёшь автобус!"}},
         "end": {"kind": "say", "es": "Peki. Otobüs on dakika sonra. Al, dağ haritasından benim parçam. Bir de bu: saat yedi treni için eski bir bilet. Onu gri paltolu adama ver. Yüz yıl geç kaldı, ama bilet onun.", "ru": "Хорошо. Автобус через десять минут. Держи мой обрывок карты гор. И вот ещё: старый билет на поезд в семь. Отдай его человеку в сером пальто. Он опоздал на сто лет, но билет его."}
       }
+    },
+    {
+      "id": "ms:station.3",
+      "chapter": 3,
+      "npc": "ismail",
+      "scene": "sc:station.3",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Bugün iskelede çok iş var. Senin bir sorunun mu var?", "ru": "Сегодня на пристани много работы. У тебя что-то случилось?", "next": "strike"},
+        "strike": {"kind": "answer", "task": "Спросите, ходят ли сегодня рейсы как обычно.", "branches": [{"phrase": "ph:station.seferler-normal", "next": "cancel"}], "wrong": {"es": "Bilet mi? Bekle biraz.", "ru": "Билет? Подожди немного."}},
+        "cancel": {"kind": "say", "es": "Normal değil. Sorunlar var. Hangi seferdesin?", "ru": "Не совсем. Есть проблемы. Какой у тебя рейс?", "next": "cancelq"},
+        "cancelq": {"kind": "answer", "task": "Скажите, что ваш рейс отменили.", "branches": [{"phrase": "ph:station.seferim-iptal", "next": "refund"}], "wrong": {"es": "Rötar mı? Hayır, bugün rötar yok.", "ru": "Задержка? Нет, сегодня задержек нет."}},
+        "refund": {"kind": "say", "es": "İptal, evet. Üzgünüm. Hepsi dolunay yüzünden.", "ru": "Отменён, да. Мне жаль. Всё из-за полнолуния.", "next": "refundq"},
+        "refundq": {"kind": "answer", "task": "Спросите, можно ли вернуть деньги за билет.", "branches": [{"phrase": "ph:station.paramin-iadesi", "next": "crowd"}], "wrong": {"es": "Yeni bilet mi? Önce paran.", "ru": "Новый билет? Сначала твои деньги."}},
+        "crowd": {"kind": "say", "es": "İşte paran. Bak, ne kadar çok insan!", "ru": "Вот твои деньги. Смотри, сколько народу!", "next": "crowdq"},
+        "crowdq": {"kind": "answer", "task": "Скажите, что по вечерам на пристани очень людно.", "branches": [{"phrase": "ph:station.cok-kalabalik", "next": "moon"}], "wrong": {"es": "Boş mu? Hayır, bak, herkes burada!", "ru": "Пусто? Нет, смотри, все здесь!"}},
+        "moon": {"kind": "say", "es": "Her zamanki gibi. Ya cuma? Ay treni.", "ru": "Как всегда. А на пятницу? Лунный поезд.", "next": "moonq"},
+        "moonq": {"kind": "answer", "task": "Попросите билет на лунный поезд.", "branches": [{"phrase": "ph:station.ay-treni-bilet", "next": "end"}], "wrong": {"es": "Vapur mu? Vapur çöle gitmez!", "ru": "Пароход? Пароход в пустыню не ходит!"}},
+        "end": {"kind": "say", "es": "Gidiş dönüş, tabii: sen döneceksin. Devesiyle o adam gibi değil. Al, bu da çöl haritasından benim parçam.", "ru": "Туда и обратно, конечно: ты вернёшься. Не как человек с верблюдом. Держи, а это мой обрывок карты пустыни."}
+      }
     }
   ]
 }

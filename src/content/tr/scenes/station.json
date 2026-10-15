@@ -50,6 +50,31 @@
         {"q": "Что попросил вчера человек в сером пальто?", "options": ["Билет на поезд в семь", "Карту", "Паром на остров"], "answer": 0}
       ],
       "gloss": {"kuleye": "к башне (kule)", "giderdi": "ходил", "sefer": "рейс", "saatlerine": "на расписание", "treni": "поезд", "korkunç": "страшный", "fırtına": "буря", "dönmedi": "не вернулся", "kapattılar": "закрыли", "paltolu": "в пальто", "istedi": "попросил", "yıldır": "уже … лет", "gitmiyor": "не ходит", "dedim": "сказал"}
+    },
+    {
+      "id": "sc:station.3",
+      "chapter": 3,
+      "npc": "ismail",
+      "lines": [
+        {"who": "npc", "es": "Sen misin! Çölden haberlerim var.", "ru": "Это ты! У меня новости из пустыни."},
+        {"who": "hero", "es": "Ne haberleri?", "ru": "Какие новости?"},
+        {"who": "npc", "es": "Kumların kenarına kadar giden bir tren varmış. Yılda sadece bir gece gidiyormuş.", "ru": "Есть поезд, который идёт до края песков. Он ходит только одну ночь в году."},
+        {"who": "hero", "es": "Dolunay gecesi mi?", "ru": "В ночь полнолуния?"},
+        {"who": "npc", "es": "Aynen. Bu cuma. Eski tarifemde var: “Ay treni”.", "ru": "Именно. В эту пятницу. Он есть в моём старом расписании: «Лунный поезд»."},
+        {"who": "hero", "es": "Bunu kim biliyor?", "ru": "А кто об этом знает?"},
+        {"who": "npc", "es": "Az kişi. Ama dün devesiyle o adam bir bilet aldı.", "ru": "Мало кто. Но вчера человек с верблюдом купил билет."},
+        {"who": "hero", "es": "Gidiş dönüş mü?", "ru": "Туда и обратно?"},
+        {"who": "npc", "es": "Hayır. Sadece gidiş. Dönmeyi düşünmüyor.", "ru": "Нет. Только в одну сторону. Он не собирается возвращаться."},
+        {"who": "hero", "es": "Ben de gidebilir miyim?", "ru": "А мне можно поехать?"},
+        {"who": "npc", "es": "Senin mutlaka gitmen lazım. Sana bir yer ayırırım.", "ru": "Тебе обязательно нужно ехать. Я придержу для тебя место."}
+      ],
+      "questions": [
+        {"q": "Когда ходит лунный поезд?", "options": ["Каждый день", "Одну ночь в году, в полнолуние", "Никогда"], "answer": 1},
+        {"q": "Где написано о поезде?", "options": ["В старом расписании", "В газете", "На карте"], "answer": 0},
+        {"q": "Какой билет купил человек с верблюдом?", "options": ["Туда и обратно", "Только в одну сторону", "Никакой"], "answer": 1},
+        {"q": "Что сделает Исмаил для героя?", "options": ["Придержит место", "Отвезёт на пароме", "Отдаст свой билет"], "answer": 0}
+      ],
+      "gloss": {"haberlerim": "мои новости", "kumların": "песков", "giden": "который идёт", "varmış": "есть (говорят)", "gidiyormuş": "ходит (говорят)", "tarifemde": "в моём расписании", "devesiyle": "со своим верблюдом", "dönmeyi": "возвращаться", "gitmen": "тебе ехать", "ayırırım": "придержу"}
     }
   ]
 }

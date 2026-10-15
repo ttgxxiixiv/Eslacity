@@ -40,6 +40,26 @@
         "tripq": {"kind": "answer", "task": "Попросите снять сто лир.", "branches": [{"phrase": "ph:bank.yuz-lira-cekmek", "next": "end"}], "wrong": {"es": "Yatırmak mı istiyorsunuz? Ama yola para lazım!", "ru": "Хотите положить? Но в дорогу нужны деньги!"}},
         "end": {"kind": "say", "es": "Tamam, hazır. Bu da dağ haritasından benim parçam. Unutmayın: muhafıza parayla değil, kelimelerle ödenir.", "ru": "Хорошо, готово. А вот мой обрывок карты гор. Помните: стражу платят не деньгами, а словами."}
       }
+    },
+    {
+      "id": "ms:bank.3",
+      "chapter": 3,
+      "npc": "murat",
+      "scene": "sc:bank.3",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "İyi günler. Deveyle olan hikâyeden sonra paranızı konuşalım. Ne yapmak istersiniz?", "ru": "Добрый день. После истории с верблюдом поговорим о ваших деньгах. Что хотите сделать?", "next": "save"},
+        "save": {"kind": "answer", "task": "Скажите, что хотите вложить свои сбережения.", "branches": [{"phrase": "ph:bank.birikim-yatirmak", "next": "rate"}], "wrong": {"es": "Para mı çekmek istiyorsunuz? Peki, ne kadar?", "ru": "Хотите снять деньги? Хорошо, сколько?"}},
+        "rate": {"kind": "say", "es": "Peki, ama dikkatle. Faizli bir tasarruf hesabımız var.", "ru": "Хорошо, но с осторожностью. У нас есть сберегательный счёт с процентами.", "next": "rateq"},
+        "rateq": {"kind": "answer", "task": "Спросите, какая процентная ставка.", "branches": [{"phrase": "ph:bank.faiz-orani", "next": "scam"}], "wrong": {"es": "Kart mı? Yeni kartınız hazır.", "ru": "Карта? Ваша новая карта готова."}},
+        "scam": {"kind": "say", "es": "Yüzde iki. Az, ama dürüst. “Vaha suyu” gibi değil.", "ru": "Два процента. Немного, зато честно. Не то что «вода оазиса».", "next": "scamq"},
+        "scamq": {"kind": "answer", "task": "Скажите, что «вода оазиса», по-вашему, мошенничество.", "branches": [{"phrase": "ph:bank.sahtekarlik", "next": "loan"}], "wrong": {"es": "Su mu almak istiyorsunuz? Bankada su yok, efendim.", "ru": "Хотите воды? В банке воды нет."}},
+        "loan": {"kind": "say", "es": "Aynen öyle. Yolculuk için kredi ister misiniz?", "ru": "Именно. Хотите кредит на поездку?", "next": "loanq"},
+        "loanq": {"kind": "answer", "task": "Скажите, что не хотите влезать в долги.", "branches": [{"phrase": "ph:bank.borca-girmek", "next": "joint"}], "wrong": {"es": "Evet mi? İmzalayın o zaman.", "ru": "Да? Тогда подпишите."}},
+        "joint": {"kind": "say", "es": "Çok akıllıca. Başka bir şey? Belki Orhan'la?", "ru": "Очень разумно. Что-нибудь ещё? Может, с Орханом?", "next": "jointq"},
+        "jointq": {"kind": "answer", "task": "Скажите, что хотите открыть общий счёт с другом (с Орханом).", "branches": [{"phrase": "ph:bank.ortak-hesap", "next": "end"}], "wrong": {"es": "Kiralık kasa mı? Hepsi dolu.", "ru": "Ячейку? Все заняты."}},
+        "end": {"kind": "say", "es": "Gerçek parayla ortak bir hesap. Burayı imzalayın. Bu da çöl haritasından benim parçam. Kasada sakladığımız gerçek parça.", "ru": "Общий счёт с настоящими деньгами. Подпишите здесь. А это мой обрывок карты пустыни. Настоящий, мы хранили его в сейфе."}
+      }
     }
   ]
 }

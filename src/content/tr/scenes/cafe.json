@@ -52,6 +52,33 @@
         {"q": "Кто живёт в башне?", "options": ["Летописец", "Второй страж", "Пастухи"], "answer": 1}
       ],
       "gloss": {"mührü": "печать (mühür)", "rehberi": "проводник (rehber)", "geçitteki": "на перевале (geçit — перевал)", "zamanki": "her zamanki — обычный, привычный"}
+    },
+    {
+      "id": "sc:cafe.3",
+      "chapter": 3,
+      "npc": "hasan",
+      "lines": [
+        {"who": "npc", "es": "Günaydın! Bu sabah burada kim vardı, biliyor musun?", "ru": "Доброе утро! Знаешь, кто был здесь сегодня утром?"},
+        {"who": "hero", "es": "Kim?", "ru": "Кто?"},
+        {"who": "npc", "es": "Orhan, kulenin muhafızı. Yüz yıl sonra ilk çayını içti. Çok güzelmiş, dedi.", "ru": "Орхан, страж башни. Выпил первый чай за сто лет. Сказал, что очень вкусно."},
+        {"who": "npc", "es": "Ondan para almadım. Geçen sefer senden de almamıştım, hatırlıyor musun?", "ru": "Денег я с него не взял. В прошлый раз я и с тебя не взял, помнишь?", "if": {"flag": "treat", "is": "paid"}},
+        {"who": "npc", "es": "Çayları ben ısmarladım, geçen sefer senin bana ısmarlamak istediğin gibi.", "ru": "Чай был за мой счёт — как в прошлый раз ты хотел угостить меня.", "if": {"flag": "treat", "is": "treat"}},
+        {"who": "hero", "es": "Sana ne anlattı?", "ru": "Что он тебе рассказал?"},
+        {"who": "npc", "es": "Çölü anlattı. Beyaz bir şehir varmış: susadığında görünüyormuş.", "ru": "Рассказывал о пустыне. Говорит, есть белый город: он появляется, когда тебя мучает жажда."},
+        {"who": "hero", "es": "Ya ona yaklaşınca?", "ru": "А когда к нему подходишь?"},
+        {"who": "npc", "es": "Kayboluyormuş. Ama Orhan, orada üçüncü muhafızın yaşadığını söylüyor.", "ru": "Он исчезает. Но Орхан говорит, что там живёт третья стражница."},
+        {"who": "hero", "es": "Olmayan bir şehirde mi?", "ru": "В городе, которого нет?"},
+        {"who": "npc", "es": "Öyle diyor. Sana da bir tavsiye verdi: “Çölde gördüğüne inanma. Duyduğuna inan.”", "ru": "Так он говорит. И передал тебе совет: «В пустыне не верь тому, что видишь. Верь тому, что слышишь»."},
+        {"who": "hero", "es": "Ya Kerem? Nasıl?", "ru": "А Керем? Как он?"},
+        {"who": "npc", "es": "Daha iyi. Seninle çöle gitmek istiyor, ama ayak bileği kırık. Çok kızgın.", "ru": "Лучше. Хочет идти с тобой в пустыню, но у него сломана лодыжка. Очень злится."}
+      ],
+      "questions": [
+        {"q": "Кто выпил первый чай за сто лет?", "options": ["Керем", "Орхан", "Купец"], "answer": 1},
+        {"q": "Когда появляется белый город?", "options": ["В полдень", "Когда тебя мучает жажда", "Зимой"], "answer": 1},
+        {"q": "Какой совет передал Орхан?", "options": ["Верь тому, что слышишь", "Иди только днём", "Не пей воду"], "answer": 0},
+        {"q": "Почему Керем не может идти?", "options": ["Он занят", "У него сломана лодыжка", "Он боится"], "answer": 1}
+      ],
+      "gloss": {"orhan": "Орхан", "muhafızı": "страж (muhafız)", "muhafızın": "стража", "güzelmiş": "было вкусно (говорит)", "susadığında": "когда хочется пить", "görünüyormuş": "появляется (говорят)", "kayboluyormuş": "исчезает (говорят)", "yaşadığını": "что живёт", "gördüğüne": "тому, что видишь", "duyduğuna": "тому, что слышишь", "istediğin": "как ты хотел", "almamıştım": "не взял (тогда)"}
     }
   ]
 }

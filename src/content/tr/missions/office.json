@@ -42,6 +42,26 @@
         "breakq": {"kind": "answer", "task": "Предложите сделать перерыв на кофе.", "branches": [{"phrase": "ph:office.kahve-molasi", "next": "end"}], "wrong": {"es": "Yeni bir rapor mu? Bugün olmaz!", "ru": "Новый отчёт? Сегодня нет!"}},
         "end": {"kind": "say", "es": "Kahve molası. Al, dağ haritasından benim parçam. Bir de tren raporu: onu Orhan'a ver. Şehrin onu unutmadığını bilsin.", "ru": "Перерыв на кофе. Держи мой обрывок карты гор. И отчёт о поезде: отдай его Орхану. Пусть знает, что город его помнит."}
       }
+    },
+    {
+      "id": "ms:office.3",
+      "chapter": 3,
+      "npc": "ebru",
+      "scene": "sc:office.3",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Arda'nın yarın iş görüşmesi var. Hadi alıştırma yapalım: sen aday ol, ben patron.", "ru": "У Арды завтра собеседование. Давай потренируемся: ты будешь кандидатом, а я начальником.", "next": "cv"},
+        "cv": {"kind": "answer", "task": "Скажите, что пришлёте ей своё резюме.", "branches": [{"phrase": "ph:office.ozgecmisimi-gonderirim", "next": "pay"}], "wrong": {"es": "Kahve mi? Görüşmede kahve yok!", "ru": "Кофе? На собеседовании кофе нет!"}},
+        "pay": {"kind": "say", "es": "Çok iyi. Geldi. Şimdi parayı konuşalım.", "ru": "Отлично. Получено. Теперь поговорим о деньгах.", "next": "payq"},
+        "payq": {"kind": "answer", "task": "Скажите, что хотите обсудить зарплату.", "branches": [{"phrase": "ph:office.maasi-konusalim", "next": "over"}], "wrong": {"es": "Tatil mi? Daha işe başlamadın!", "ru": "Отпуск? Ты ещё не начал работать!", "fem": {"ru": "Отпуск? Ты ещё не начала работать!"}}},
+        "over": {"kind": "say", "es": "Doğrudan. Hoşuma gitti. Eski işinde sorun var mıydı?", "ru": "Прямо в лоб. Мне нравится. На прежней работе были проблемы?", "next": "overq"},
+        "overq": {"kind": "answer", "task": "Скажите, что там не платят за сверхурочные.", "branches": [{"phrase": "ph:office.fazla-mesai-odenmiyor", "next": "home"}], "wrong": {"es": "Patron mu kötüydü? Herkes böyle der.", "ru": "Начальник был плохой? Все так говорят."}},
+        "home": {"kind": "say", "es": "Bu önemli. Biz fazla mesaiyi ödüyoruz. Bugün nerede çalışıyorsun?", "ru": "Это важно. Мы оплачиваем сверхурочные. А где ты сегодня работаешь?", "next": "homeq"},
+        "homeq": {"kind": "answer", "task": "Скажите, что сегодня работаете из дома.", "branches": [{"phrase": "ph:office.evden-calisiyorum", "next": "future"}], "wrong": {"es": "Ofiste mi? Ama ofis kapalı!", "ru": "В офисе? Но офис закрыт!"}},
+        "future": {"kind": "say", "es": "Evden. Çok modern. Son soru: gelecekte ne istiyorsun?", "ru": "Из дома. Очень современно. Последний вопрос: чего ты хочешь в будущем?", "next": "futureq"},
+        "futureq": {"kind": "answer", "task": "Скажите, что хотите попросить повышения.", "branches": [{"phrase": "ph:office.terfi-istiyorum", "next": "end"}], "wrong": {"es": "Emekli olmak mı? Daha çok gençsin!", "ru": "На пенсию? Ты ещё очень молод!", "fem": {"ru": "На пенсию? Ты ещё очень молода!"}}},
+        "end": {"kind": "say", "es": "İlk gün terfi mi? Arda ilk defa güldü. Güzel bir alıştırmaydı. Al, çöl haritasından benim parçam.", "ru": "Повышение в первый же день? Арда впервые засмеялся. Хорошая была тренировка. Держи мой обрывок карты пустыни."}
+      }
     }
   ]
 }

@@ -40,6 +40,26 @@
         "specialq": {"kind": "answer", "task": "Спросите, какое сегодня фирменное блюдо.", "branches": [{"phrase": "ph:restaurant.ozel-yemek", "next": "end"}], "wrong": {"es": "Bugünün havası mı? Güneşli, ama ben yemek soruyorum!", "ru": "Сегодняшняя погода? Солнечно, но я про еду спрашиваю!"}},
         "end": {"kind": "say", "es": "Balık, tabii. Ama bugün özel bir şey var: dağ haritasından benim parçam. Kerem'i bulursan, söyle: çorbası onu bekliyor.", "ru": "Рыба, конечно. Но сегодня есть кое-что особенное: мой обрывок карты гор. Если найдёшь Керема, скажи: его суп ждёт."}
       }
+    },
+    {
+      "id": "ms:restaurant.3",
+      "chapter": 3,
+      "npc": "kemal",
+      "scene": "sc:restaurant.3",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Bu akşam sen ve Orhan yemek yiyorsunuz. Ne getireyim?", "ru": "Сегодня ужинаете ты и Орхан. Что вам подать?", "next": "milk"},
+        "milk": {"kind": "answer", "task": "Скажите, что у вас аллергия на молоко.", "branches": [{"phrase": "ph:restaurant.sute-alerji", "next": "fish"}], "wrong": {"es": "Peynir mi istiyorsun? Tamam, bol peynir!", "ru": "Хочешь сыра? Хорошо, много сыра!"}},
+        "fish": {"kind": "say", "es": "O zaman peynir yok. Pilavla balık?", "ru": "Значит, никакого сыра. Рыбу с пловом?", "next": "fishq"},
+        "fishq": {"kind": "answer", "task": "Скажите, что у вас аллергия на рыбу.", "branches": [{"phrase": "ph:restaurant.baliga-alerji", "next": "full"}], "wrong": {"es": "İki balık mı? Tamam!", "ru": "Две рыбы? Хорошо!"}},
+        "full": {"kind": "say", "es": "O zaman balık yok. Pilavla tavuk. Beğendin mi?", "ru": "Значит, без рыбы. Курица с пловом. Нравится?", "next": "fullq"},
+        "fullq": {"kind": "answer", "task": "Скажите, что вы уже наелись.", "branches": [{"phrase": "ph:restaurant.cok-doydum", "next": "pay"}], "wrong": {"es": "Bir porsiyon daha mı? Hemen!", "ru": "Ещё порцию? Сейчас!"}},
+        "pay": {"kind": "say", "es": "Şimdiden mi? Tatlısız mı? Orhan üç tane yedi. Peki, hesap.", "ru": "Уже? Без десерта? Орхан съел три. Ладно, счёт.", "next": "payq"},
+        "payq": {"kind": "answer", "task": "Предложите Орхану заплатить пополам.", "branches": [{"phrase": "ph:restaurant.yari-yariya", "next": "joke"}], "wrong": {"es": "Ne? Mutfak çok gürültülü!", "ru": "Что? На кухне очень шумно!"}},
+        "joke": {"kind": "say", "es": "Orhan eski paralarla ödemek istiyor. Hiçbir işe yaramaz, ama hoşuma gidiyor.", "ru": "Орхан хочет заплатить старыми монетами. Они ни на что не годятся, но мне нравится.", "next": "jokeq"},
+        "jokeq": {"kind": "answer", "task": "В шутку скажите, что у вас жалоба на суп.", "branches": [{"phrase": "ph:restaurant.corbadan-sikayet", "next": "end"}], "wrong": {"es": "Bir şey mi dedin? Tamam, iyi geceler!", "ru": "Ты что-то сказал? Ну, спокойной ночи!", "fem": {"ru": "Ты что-то сказала? Ну, спокойной ночи!"}}},
+        "end": {"kind": "say", "es": "Şikâyet mi? Benim lokantamda mı? … Şaka yapıyorsun, değil mi? Peki. Al, çöl haritasından benim parçam.", "ru": "Жалоба? В моём ресторане? … Ты же шутишь, да? Ну хорошо. Держи мой обрывок карты пустыни."}
+      }
     }
   ]
 }

@@ -44,6 +44,26 @@
         "passq": {"kind": "answer", "task": "Спросите, сдали ли вы экзамен.", "branches": [{"phrase": "ph:school.sinavi-gectim-mi", "next": "end"}], "wrong": {"es": "Yeni soru mu? Hayır, sınav bitti.", "ru": "Новый вопрос? Нет, экзамен окончен."}},
         "end": {"kind": "say", "es": "Geçtin. Notun on üzerinden dokuz. Ödülün de dağ haritasından benim parçam. Sis sana soru sorunca geçmiş zamanla cevap ver.", "ru": "Сдал. Твоя оценка — девять из десяти. А награда — мой обрывок карты гор. Когда туман спросит тебя, отвечай в прошедшем времени.", "fem": {"ru": "Сдала. Твоя оценка — девять из десяти. А награда — мой обрывок карты гор. Когда туман спросит тебя, отвечай в прошедшем времени."}}
       }
+    },
+    {
+      "id": "ms:school.3",
+      "chapter": 3,
+      "npc": "elif",
+      "scene": "sc:school.3",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Sen de “eğer” ile konuşmayı öğrenmek ister misin? Kursuma gel.", "ru": "Ты тоже хочешь научиться говорить с «если»? Приходи на мой курс.", "next": "uni"},
+        "uni": {"kind": "answer", "task": "Скажите, что учитесь в университете.", "branches": [{"phrase": "ph:school.universitede-okuyorum", "next": "reg"}], "wrong": {"es": "Çalışıyor musun? Peki, akşam dersi var.", "ru": "Ты работаешь? Ладно, есть вечерний урок."}},
+        "reg": {"kind": "say", "es": "Üniversitede. O zaman bu kurs senin için kolay olacak.", "ru": "В университете. Значит, этот курс будет для тебя лёгким.", "next": "regq"},
+        "regq": {"kind": "answer", "task": "Спросите, когда можно записаться на курс.", "branches": [{"phrase": "ph:school.kursa-ne-zaman", "next": "burs"}], "wrong": {"es": "Sınav mı? Sınav yok, merak etme.", "ru": "Экзамен? Экзамена нет, не волнуйся."}},
+        "burs": {"kind": "say", "es": "Cumaya kadar. Elli lira.", "ru": "До пятницы. Пятьдесят лир.", "next": "bursq"},
+        "bursq": {"kind": "answer", "task": "Скажите, что хотите подать заявку на стипендию.", "branches": [{"phrase": "ph:school.burs-istiyorum", "next": "after"}], "wrong": {"es": "Kitap mı? Kitaplar ücretsiz.", "ru": "Книги? Книги бесплатные."}},
+        "after": {"kind": "say", "es": "Senin için kurs ücretsiz. Şehre yardım ediyorsun. Sorun var mı?", "ru": "Для тебя курс бесплатный. Ты помогаешь городу. Есть вопросы?", "next": "afterq"},
+        "afterq": {"kind": "answer", "task": "Спросите, можно ли подойти к ней после урока.", "branches": [{"phrase": "ph:school.dersten-sonra", "next": "notes"}], "wrong": {"es": "Teneffüs mü? Teneffüs on dakika.", "ru": "Перемена? Перемена десять минут."}},
+        "notes": {"kind": "say", "es": "Tabii, saat beşte, iki numaralı sınıfta. Bugün ne yapacaksın?", "ru": "Конечно, в пять, во втором классе. А что ты будешь делать сегодня?", "next": "notesq"},
+        "notesq": {"kind": "answer", "task": "Скажите, что вам нужно повторить конспекты.", "branches": [{"phrase": "ph:school.notlarimi-tekrar", "next": "end"}], "wrong": {"es": "Uyumak mı? Önce ders!", "ru": "Спать? Сначала уроки!"}},
+        "end": {"kind": "say", "es": "Çok iyi. Defterdeki resme dikkatle bak: beyaz şehrin yolu. Al, bu da çöl haritasından benim parçam.", "ru": "Отлично. Посмотри внимательно на рисунок в тетради: дорога в белый город. И держи мой обрывок карты пустыни."}
+      }
     }
   ]
 }

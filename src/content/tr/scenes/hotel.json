@@ -50,6 +50,31 @@
         {"q": "Что делают с этим номером каждый день?", "options": ["Сдают", "Убирают", "Закрывают"], "answer": 1}
       ],
       "gloss": {"balkondan": "с балкона", "kulenin": "башни (kule)", "ışığına": "на свет (ışık)", "rezervasyonunuz": "ваша бронь", "yıllık": "летняя, возрастом в … лет", "numaralı": "номер", "orhan": "Орхан", "adına": "на имя", "muhafız": "страж", "iptal": "отмена", "etmedi": "не сделал", "geleneğimiz": "наш обычай", "numarayı": "номер", "kuleden": "с башни", "inince": "когда спустится", "uyuyacak": "где спать", "umarım": "надеюсь", "kulede": "в башне"}
+    },
+    {
+      "id": "sc:hotel.3",
+      "chapter": 3,
+      "npc": "leyla",
+      "lines": [
+        {"who": "npc", "es": "İyi akşamlar. Resepsiyonda sizin için bir zarf var.", "ru": "Добрый вечер. На стойке для вас конверт."},
+        {"who": "hero", "es": "Kimden?", "ru": "От кого?"},
+        {"who": "npc", "es": "Arda'dan, devesiyle o adamdan. Bu sabah bıraktı.", "ru": "От Арды, человека с верблюдом. Он оставил его сегодня утром."},
+        {"who": "hero", "es": "İçinde ne var?", "ru": "Что внутри?"},
+        {"who": "npc", "es": "Harita parçaları. Gerçekleri. Çaldıkları.", "ru": "Обрывки карты. Настоящие. Те, что он украл."},
+        {"who": "hero", "es": "Kerem'in parçası da mı?", "ru": "И обрывок Керема тоже?"},
+        {"who": "npc", "es": "O da. Bir de not: “Özür dilerim. Muhafız bana doğruluğun satılmadığını öğretti.”", "ru": "Тоже. И записка: «Прости. Стражница научила меня, что правда не продаётся»."},
+        {"who": "hero", "es": "Arda nerede?", "ru": "Где Арда?"},
+        {"who": "npc", "es": "Geceyi gerçek parayla ödedi. Sabah erkenden sessizce gitti.", "ru": "Заплатил за ночь настоящими деньгами. А рано утром тихо ушёл."},
+        {"who": "hero", "es": "Nereye gitti?", "ru": "Куда он ушёл?"},
+        {"who": "npc", "es": "Havalimanına. Evine, ormana dönüyormuş.", "ru": "В аэропорт. Сказал, что возвращается домой, в лес."}
+      ],
+      "questions": [
+        {"q": "Что оставил Арда на стойке?", "options": ["Конверт с настоящими обрывками", "Деньги", "Ключ"], "answer": 0},
+        {"q": "Чей ещё обрывок был в конверте?", "options": ["Керема", "Лейлы-ханым", "Мехмета"], "answer": 0},
+        {"q": "Чему стражница научила Арду?", "options": ["Правда не продаётся", "Как зарабатывать", "Как не бояться"], "answer": 0},
+        {"q": "Куда ушёл Арда?", "options": ["В аэропорт, чтобы вернуться в лес", "В пустыню", "На пристань"], "answer": 0}
+      ],
+      "gloss": {"resepsiyonda": "на стойке", "zarf": "конверт", "arda": "Арда", "devesiyle": "со своим верблюдом", "gerçekleri": "настоящие", "çaldıkları": "те, что он украл", "muhafız": "стражница", "doğruluğun": "правды", "satılmadığını": "что не продаётся", "sessizce": "тихо", "havalimanına": "в аэропорт", "ormana": "в лес", "dönüyormuş": "возвращается (говорит)"}
     }
   ]
 }
