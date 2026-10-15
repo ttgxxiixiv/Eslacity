@@ -1,0 +1,2096 @@
+{
+  "location": "thread",
+  "scenes": [
+    {
+      "id": "th:1.open",
+      "chapter": 1,
+      "trigger": "open",
+      "npc": "cronista",
+      "lines": [
+        {
+          "who": "npc",
+          "es": "Merhaba. Bu kitaba şehirde olan her şeyi yazıyorum.",
+          "ru": "Здравствуй. В эту книгу я записываю всё, что происходит в городе."
+        },
+        {
+          "who": "hero",
+          "es": "Şehirde ne oluyor?",
+          "ru": "А что происходит в городе?"
+        },
+        {
+          "who": "npc",
+          "es": "Çok yıllar önce şehrin eski bir haritası vardı. Harita Mahzen'in yolunu gösteriyor.",
+          "ru": "Много лет назад у города была старая карта. Карта показывает дорогу к Хранилищу."
+        },
+        {
+          "who": "npc",
+          "es": "Ama insanlar harita için kavga etti. Bu yüzden haritayı yirmi parçaya böldüler.",
+          "ru": "Но люди ссорились из-за карты. Поэтому её разделили на двадцать обрывков."
+        },
+        {
+          "who": "npc",
+          "es": "Her yerde bir parça var: çay ocağında, pazarda, okulda, bankada…",
+          "ru": "Обрывок есть в каждом месте: в чайной, на базаре, в школе, в банке…"
+        },
+        {
+          "who": "hero",
+          "es": "Parçaları nasıl alırım?",
+          "ru": "А как мне получить обрывки?"
+        },
+        {
+          "who": "npc",
+          "es": "Komşularla onların dilinde konuş ve onlara yardım et. O zaman sana parçalarını verirler.",
+          "ru": "Говори с соседями на их языке и помогай им. Тогда они отдадут тебе свои обрывки."
+        },
+        {
+          "who": "npc",
+          "es": "Yirmi parça ve muhafızın mührü. Sonra yol senin.",
+          "ru": "Двадцать обрывков и печать стража. А потом дорога твоя."
+        },
+        {
+          "who": "hero",
+          "es": "Muhafız nerede?",
+          "ru": "Где страж?"
+        },
+        {
+          "who": "npc",
+          "es": "Şehrin dışında. Bir şey daha: biri tek kelimelik mektuplar yazıyor: “Gel.”",
+          "ru": "За городом. И ещё: кто-то пишет письма из одного слова: «Приходи»."
+        },
+        {
+          "who": "npc",
+          "es": "Onları kim yazıyor? Cevabı birlikte arayalım.",
+          "ru": "Кто их пишет? Будем искать ответ вместе."
+        }
+      ],
+      "questions": [
+        {
+          "q": "Почему карту разделили?",
+          "options": [
+            "Люди ссорились из-за неё",
+            "Она была слишком старой",
+            "Её хотели продать"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "На сколько обрывков разделили карту?",
+          "options": [
+            "На пять",
+            "На двадцать",
+            "На сто"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Как получить обрывок?",
+          "options": [
+            "Купить его в банке",
+            "Найти в парке",
+            "Говорить с жителем на его языке и помочь ему"
+          ],
+          "answer": 2
+        },
+        {
+          "q": "Что нужно, кроме обрывков?",
+          "options": [
+            "Печать стража",
+            "Билет на паром",
+            "Ключ от школы"
+          ],
+          "answer": 0
+        }
+      ],
+      "gloss": {
+        "kavga": "ссора",
+        "böldüler": "разделили",
+        "muhafızın": "стража",
+        "mührü": "печать",
+        "muhafız": "страж",
+        "kelimelik": "из (одного) слова",
+        "mahzen": "Хранилище",
+        "yirmi": "двадцать"
+      }
+    },
+    {
+      "id": "th:1.half",
+      "chapter": 1,
+      "trigger": "half",
+      "npc": "cronista",
+      "lines": [
+        {
+          "who": "npc",
+          "es": "On parçan var! Bu, haritanın yarısı.",
+          "ru": "У тебя уже десять обрывков! Это половина карты."
+        },
+        {
+          "who": "npc",
+          "es": "Komşuların söylediklerini yazıyorum. Bir şirket bütün parçaları almak istiyor.",
+          "ru": "Я записываю, что говорят соседи. Какая-то компания хочет купить все обрывки."
+        },
+        {
+          "who": "hero",
+          "es": "Evet, Leyla Hanım da bana söyledi. Şirket çok para veriyor.",
+          "ru": "Да, Лейла-ханым мне тоже говорила. Компания платит много денег."
+        },
+        {
+          "who": "npc",
+          "es": "Ve şirketten bir adam haritasız dağa gitti. Yolda düştü.",
+          "ru": "А человек из компании пошёл в горы без карты. Он упал на дороге."
+        },
+        {
+          "who": "hero",
+          "es": "İyi mi?",
+          "ru": "С ним всё в порядке?"
+        },
+        {
+          "who": "npc",
+          "es": "Evet, hastanede ona yardım ettiler. Ama Türkçe bilmiyor, ve kelimeler olmadan yol yok.",
+          "ru": "Да, в больнице ему помогли. Но он не знает турецкого, а без слов дороги нет."
+        },
+        {
+          "who": "npc",
+          "es": "Bak: kimse parçasını satmıyor. Ne çay ocağı, ne lokanta, ne banka.",
+          "ru": "Смотри: никто не продаёт свой обрывок. Ни чайная, ни локанта, ни банк."
+        },
+        {
+          "who": "hero",
+          "es": "O zaman bu nasıl bir şirket?",
+          "ru": "Тогда что это за компания?"
+        },
+        {
+          "who": "npc",
+          "es": "Güzel soru. Komiser Nihat ile konuş. O çok şey biliyor.",
+          "ru": "Хороший вопрос. Поговори с комиссаром Нихатом. Он многое знает."
+        }
+      ],
+      "questions": [
+        {
+          "q": "Сколько обрывков у героя?",
+          "options": [
+            "Пять",
+            "Десять",
+            "Двадцать"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Что хочет компания?",
+          "options": [
+            "Купить все обрывки",
+            "Построить отель",
+            "Открыть банк"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Что случилось с человеком из компании?",
+          "options": [
+            "Он уехал на пароме",
+            "Он упал на горной дороге",
+            "Он нашёл Хранилище"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "С кем Летописец советует поговорить?",
+          "options": [
+            "С тётушкой Фатмой",
+            "С комиссаром Нихатом",
+            "С Хасаном-уста"
+          ],
+          "answer": 1
+        }
+      ],
+      "gloss": {
+        "şirket": "компания",
+        "şirketten": "из компании",
+        "haritasız": "без карты",
+        "komiser": "комиссар",
+        "nihat": "Нихат",
+        "leyla": "Лейла",
+        "yarısı": "половина",
+        "hanım": "ханым (госпожа)"
+      }
+    },
+    {
+      "id": "th:1.climax",
+      "chapter": 1,
+      "trigger": "climax",
+      "npc": "cronista",
+      "lines": [
+        {
+          "who": "npc",
+          "es": "Yirmi parça! Şehrin haritası tamam.",
+          "ru": "Двадцать обрывков! Карта города собрана."
+        },
+        {
+          "who": "npc",
+          "es": "Şimdi her şeyi biliyorum. Şirket aslında şirket değil. Muhafızdı.",
+          "ru": "Теперь я знаю всё. Компания на самом деле не компания. Это был страж."
+        },
+        {
+          "who": "hero",
+          "es": "Muhafız mı? Neden?",
+          "ru": "Страж? Зачем?"
+        },
+        {
+          "who": "npc",
+          "es": "Şehrin haritayı satıp satmayacağını bilmek istedi. Ve kimse satmadı.",
+          "ru": "Он хотел узнать, продаст ли город карту. И никто её не продал."
+        },
+        {
+          "who": "npc",
+          "es": "Ve “Gel” mektupları… Onları ben yazdım. Komşularına yardım eden birini arıyordum.",
+          "ru": "А письма «Приходи»… их писал я. Я искал того, кто помогает соседям."
+        },
+        {
+          "who": "hero",
+          "es": "Ve beni mi buldun?",
+          "ru": "И нашёл меня?"
+        },
+        {
+          "who": "npc",
+          "es": "Evet. Şimdi muhafız seni şehrin dışında bekliyor. Onun arkasında yol dağlara gidiyor.",
+          "ru": "Да. Теперь страж ждёт тебя за городом. За ним дорога уходит в горы."
+        },
+        {
+          "who": "npc",
+          "es": "Bir şey daha. Hasan Usta'nın oğlu Kerem bir ay önce dağlara gitti. Artık yazmıyor.",
+          "ru": "И ещё. Сын Хасана-уста, Керем, месяц назад ушёл в горы. Больше не пишет."
+        },
+        {
+          "who": "hero",
+          "es": "Kerem nerede?",
+          "ru": "Где Керем?"
+        },
+        {
+          "who": "npc",
+          "es": "Bilmiyorum. Bu soruya dağlar cevap verecek.",
+          "ru": "Не знаю. На этот вопрос ответят горы."
+        }
+      ],
+      "questions": [
+        {
+          "q": "Кем на самом деле была компания?",
+          "options": [
+            "Банком",
+            "Стражем",
+            "Летописцем"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Что хотел узнать страж?",
+          "options": [
+            "Продаст ли город карту",
+            "Где Хранилище",
+            "Кто пишет письма"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Кто писал письма «Приходи»?",
+          "options": [
+            "Страж",
+            "Керем",
+            "Летописец"
+          ],
+          "answer": 2
+        },
+        {
+          "q": "Что случилось с Керемом?",
+          "options": [
+            "Он ушёл в горы и больше не пишет",
+            "Он открыл свою чайную",
+            "Он уехал на острова"
+          ],
+          "answer": 0
+        }
+      ],
+      "gloss": {
+        "şirket": "компания",
+        "muhafızdı": "это был страж",
+        "muhafız": "страж",
+        "satıp": "продаст ли",
+        "satmayacağını": "или не продаст",
+        "kerem": "Керем",
+        "hasan": "Хасан",
+        "yirmi": "двадцать",
+        "oğlu": "сын"
+      }
+    },
+    {
+      "id": "th:2.open",
+      "chapter": 2,
+      "trigger": "open",
+      "npc": "cronista",
+      "lines": [
+        {
+          "who": "npc",
+          "es": "Muhafızı geçtik. Şimdi yol dağlara çıkıyor.",
+          "ru": "Мы прошли стража. Теперь дорога поднимается в горы."
+        },
+        {
+          "who": "npc",
+          "es": "Yukarıda, geçitte bir kule var. Orada ikinci muhafız yaşıyor.",
+          "ru": "Наверху, на перевале, стоит башня. Там живёт второй страж."
+        },
+        {
+          "who": "hero",
+          "es": "Kerem hakkında ne biliyoruz?",
+          "ru": "А что мы знаем о Кереме?"
+        },
+        {
+          "who": "npc",
+          "es": "Bir ay önce kuleye çıktı. O zamandan beri yazmıyor.",
+          "ru": "Месяц назад он поднялся к башне. С тех пор не пишет."
+        },
+        {
+          "who": "npc",
+          "es": "Hasan Usta onu gri paltolu bir adamla görmüş.",
+          "ru": "Хасан-уста видел его с человеком в сером пальто."
+        },
+        {
+          "who": "npc",
+          "es": "Bu adam Mehmet'ten yirmi fener aldı ve çok eski paralarla ödedi. Ve “Yakında sis gelecek” dedi.",
+          "ru": "Этот человек купил у Мехмета двадцать фонарей и заплатил очень старыми монетами. И сказал: «Скоро придёт туман»."
+        },
+        {
+          "who": "npc",
+          "es": "Kerem hep şöyle derdi: “Sisli havada yolu sadece bir ses gösterir.”",
+          "ru": "Керем всегда говорил: «В тумане дорогу покажет только голос»."
+        },
+        {
+          "who": "hero",
+          "es": "Kuledeki muhafız ne soruyor?",
+          "ru": "А о чём спрашивает страж башни?"
+        },
+        {
+          "who": "npc",
+          "es": "Kelimeleri sormuyor. Ne yaptığını soruyor. Geçmiş zamanla cevap vermelisin.",
+          "ru": "Он не спрашивает слова. Он спрашивает, что ты сделал. Отвечать надо в прошедшем времени.",
+          "fem": {
+            "ru": "Он не спрашивает слова. Он спрашивает, что ты сделала. Отвечать надо в прошедшем времени."
+          }
+        },
+        {
+          "who": "npc",
+          "es": "Gri paltolu adam kim? Öğrenelim ve birlikte yazalım.",
+          "ru": "Кто этот человек в сером пальто? Узнаем — и запишем вместе."
+        }
+      ],
+      "questions": [
+        {
+          "q": "Где живёт второй страж?",
+          "options": [
+            "В башне на перевале",
+            "В порту",
+            "В лесу"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "С кем видели Керема?",
+          "options": [
+            "С комиссаром",
+            "С человеком в сером пальто",
+            "С тётушкой Фатмой"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Что сказал человек в сером пальто?",
+          "options": [
+            "«Скоро придёт туман»",
+            "«Карта не продаётся»",
+            "«Приходи»"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Как надо отвечать стражу башни?",
+          "options": [
+            "Шёпотом",
+            "В прошедшем времени",
+            "Песней"
+          ],
+          "answer": 1
+        }
+      ],
+      "gloss": {
+        "muhafızı": "стража",
+        "geçitte": "на перевале",
+        "kule": "башня",
+        "kuleye": "к башне",
+        "kuledeki": "в башне",
+        "muhafız": "страж",
+        "gri": "серый",
+        "paltolu": "в пальто",
+        "fener": "фонарь",
+        "sis": "туман",
+        "sisli": "туманный",
+        "kerem": "Керем",
+        "mehmet": "Мехмет",
+        "hasan": "Хасан",
+        "görmüş": "видел (говорят)",
+        "derdi": "говорил (обычно)"
+      }
+    },
+    {
+      "id": "th:2.half",
+      "chapter": 2,
+      "trigger": "half",
+      "npc": "cronista",
+      "lines": [
+        {
+          "who": "npc",
+          "es": "Dağların haritasından on parça. Bak, ne yazdım.",
+          "ru": "Десять обрывков карты гор. Смотри, что я записал."
+        },
+        {
+          "who": "npc",
+          "es": "Rıza Amca gri paltolu adamı elli yıl önce görmüş, parkta aynı bankta.",
+          "ru": "Дядя Рыза видел человека в пальто пятьдесят лет назад, в парке, на той же скамейке."
+        },
+        {
+          "who": "hero",
+          "es": "Elli yıl önce mi? Ve yaşlanmamış mı?",
+          "ru": "Пятьдесят лет назад? И он не постарел?"
+        },
+        {
+          "who": "npc",
+          "es": "Hayır. Ve eczanede hangi yılda olduğumuzu sormuş.",
+          "ru": "Нет. А в аптеке он спросил, какой сейчас год."
+        },
+        {
+          "who": "npc",
+          "es": "Kerem babasına yazdı: “Sis konuşuyor. Ben geçmiş zamanla cevap veriyorum.”",
+          "ru": "Керем написал отцу: «Туман говорит. Я отвечаю в прошедшем времени»."
+        },
+        {
+          "who": "npc",
+          "es": "Ama mektubun sonunu başka biri yazmış: “O iyi. Bekle.”",
+          "ru": "Но конец письма написал другой человек: «С ним всё хорошо. Жди»."
+        },
+        {
+          "who": "hero",
+          "es": "Bunu kim yazdı?",
+          "ru": "Кто это написал?"
+        },
+        {
+          "who": "npc",
+          "es": "Ebru Hanım eski bir gazete buldu. Yüz yıl önce genç bir yolcu kulede kalmış, muhafıza yardım etmek için. Adı Orhan.",
+          "ru": "Эбру-ханым нашла старую газету. Сто лет назад молодой путник остался в башне, чтобы помогать стражу. Его звали Орхан."
+        },
+        {
+          "who": "npc",
+          "es": "Bankada yüz yıllık bir hesap var. Hesaptaki imza, mektuptaki imza ile aynı.",
+          "ru": "В банке есть счёт столетней давности. Подпись на счёте такая же, как в письме."
+        },
+        {
+          "who": "hero",
+          "es": "Gri paltolu adam muhafız, ve Kerem onun yanında.",
+          "ru": "Человек в сером пальто — это страж, и Керем у него."
+        },
+        {
+          "who": "npc",
+          "es": "Ama neden Kerem'i bırakmıyor? Bunu henüz bilmiyorum.",
+          "ru": "Но почему он не отпускает Керема? Этого я пока не знаю."
+        }
+      ],
+      "questions": [
+        {
+          "q": "Где дядя Рыза видел человека в пальто?",
+          "options": [
+            "В парке, пятьдесят лет назад",
+            "На пароме, вчера",
+            "В банке, сто лет назад"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "О чём человек спросил в аптеке?",
+          "options": [
+            "Где Хранилище",
+            "Какой сейчас год",
+            "Сколько стоит лекарство"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Что нашла Эбру-ханым?",
+          "options": [
+            "Старую газету об Орхане",
+            "Карту гор",
+            "Письмо Керема"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Что такое в письме, как на счёте в банке?",
+          "options": [
+            "Адрес",
+            "Подпись",
+            "Дата"
+          ],
+          "answer": 1
+        }
+      ],
+      "gloss": {
+        "rıza": "Рыза",
+        "gri": "серый",
+        "paltolu": "в пальто",
+        "görmüş": "видел (говорят)",
+        "yaşlanmamış": "не постарел",
+        "sormuş": "спросил (говорят)",
+        "sis": "туман",
+        "yazmış": "написал (говорят)",
+        "ebru": "Эбру",
+        "kalmış": "остался (говорят)",
+        "muhafıza": "стражу",
+        "muhafız": "страж",
+        "kulede": "в башне",
+        "orhan": "Орхан",
+        "yıllık": "летний (давности)",
+        "hesap": "счёт",
+        "hesaptaki": "на счёте",
+        "imza": "подпись",
+        "mektuptaki": "в письме",
+        "kerem": "Керем",
+        "henüz": "пока ещё"
+      }
+    },
+    {
+      "id": "th:2.climax",
+      "chapter": 2,
+      "trigger": "climax",
+      "npc": "cronista",
+      "lines": [
+        {
+          "who": "npc",
+          "es": "Yirmi parça! Ve sonunda bütün hikâyeyi biliyorum.",
+          "ru": "Двадцать обрывков! И наконец я знаю всю историю."
+        },
+        {
+          "who": "npc",
+          "es": "Yüz yıl önce, bir fırtınadan sonra, genç bir yolcu kulede kaldı. Adı Orhan'dı.",
+          "ru": "Сто лет назад, после бури, в башне остался молодой путник. Его звали Орхан."
+        },
+        {
+          "who": "npc",
+          "es": "Orhan yaşlı muhafıza yardım etti, sonra onun yerini aldı. Gri paltolu adam o.",
+          "ru": "Орхан помогал старому стражу, а потом занял его место. Человек в сером пальто — это он."
+        },
+        {
+          "who": "hero",
+          "es": "Ya Kerem?",
+          "ru": "А Керем?"
+        },
+        {
+          "who": "npc",
+          "es": "Kerem kırık bir ayakla döndü. Muhafız ona geçmiş zamanla üç soru sordu.",
+          "ru": "Керем вернулся со сломанной ногой. Страж задал ему три вопроса в прошедшем времени."
+        },
+        {
+          "who": "npc",
+          "es": "İkisine cevap verdi. Üçüncüsü şuydu: “Kime yardım ettin?” Ne diyeceğini bilmedi.",
+          "ru": "На два он ответил. Третий был такой: «Кому ты помог?». Он не знал, что сказать."
+        },
+        {
+          "who": "npc",
+          "es": "Muhafız ancak biri sorularına cevap verince aşağı inebilir. Şimdi seni bekliyor.",
+          "ru": "Страж может спуститься, только когда кто-то ответит на его вопросы. Теперь он ждёт тебя."
+        },
+        {
+          "who": "hero",
+          "es": "Cevap verirsem Orhan eve döner mi?",
+          "ru": "Если я отвечу, Орхан вернётся домой?"
+        },
+        {
+          "who": "npc",
+          "es": "Evet. Saat yedideki trenle. Kaptan İsmail eski biletini sana verdi.",
+          "ru": "Да. Поездом в семь. Капитан Исмаил отдал тебе его старый билет."
+        },
+        {
+          "who": "npc",
+          "es": "Ama dinle: Burak uçaktan kulenin arkasında kum görmüş. Dün orada beyaz bir şehir varmış, bugün hiçbir şey yok.",
+          "ru": "Но слушай: Бурак видел с самолёта песок за башней. Вчера там был белый город, а сегодня ничего нет."
+        },
+        {
+          "who": "hero",
+          "es": "Bir şehir nasıl kaybolur?",
+          "ru": "Как может исчезнуть город?"
+        },
+        {
+          "who": "npc",
+          "es": "Bilmiyorum. Bu çöl aldatıyor.",
+          "ru": "Не знаю. Эта пустыня обманывает."
+        }
+      ],
+      "questions": [
+        {
+          "q": "Кем был Орхан?",
+          "options": [
+            "Молодым путником, который остался в башне",
+            "Братом Керема",
+            "Капитаном парома"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "На какой вопрос Керем не ответил?",
+          "options": [
+            "«Что ты ел?»",
+            "«Кому ты помог?»",
+            "«Куда ты идёшь?»"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Когда страж может спуститься?",
+          "options": [
+            "Зимой",
+            "Когда кто-то ответит на его вопросы",
+            "Никогда"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Что видел Бурак с самолёта?",
+          "options": [
+            "Лес",
+            "Песок и белый город, который исчез",
+            "Корабль"
+          ],
+          "answer": 1
+        }
+      ],
+      "gloss": {
+        "fırtınadan": "после бури",
+        "kulede": "в башне",
+        "orhan": "Орхан",
+        "muhafıza": "стражу",
+        "muhafız": "страж",
+        "gri": "серый",
+        "paltolu": "в пальто",
+        "kerem": "Керем",
+        "kırık": "сломанный",
+        "şuydu": "был такой",
+        "ancak": "только",
+        "inebilir": "может спуститься",
+        "kaptan": "капитан",
+        "ismail": "Исмаил",
+        "burak": "Бурак",
+        "kulenin": "башни",
+        "görmüş": "видел (говорят)",
+        "varmış": "был (говорят)",
+        "kaybolur": "исчезает",
+        "çöl": "пустыня",
+        "aldatıyor": "обманывает"
+      }
+    },
+    {
+      "id": "th:3.open",
+      "chapter": 3,
+      "trigger": "open",
+      "npc": "cronista",
+      "lines": [
+        {
+          "who": "npc",
+          "es": "Orhan şehre döndü. Hasan Usta'nın çay ocağında yüz yıl sonra ilk çayını içti.",
+          "ru": "Орхан вернулся в город. В чайной Хасана-уста он выпил первый чай за сто лет."
+        },
+        {
+          "who": "npc",
+          "es": "Ve sana bir öğüt bıraktı: “Çölde gördüğüne inanma. Duyduğuna inan.”",
+          "ru": "И оставил тебе совет: «В пустыне не верь тому, что видишь. Верь тому, что слышишь»."
+        },
+        {
+          "who": "hero",
+          "es": "Neden? Çölde ne var?",
+          "ru": "Почему? Что в пустыне?"
+        },
+        {
+          "who": "npc",
+          "es": "Beyaz bir şehir. Susadığında ortaya çıkıyor, yaklaştığında kayboluyor.",
+          "ru": "Белый город. Он появляется, когда тебя мучает жажда, и исчезает, когда подходишь."
+        },
+        {
+          "who": "npc",
+          "es": "Orada üçüncü muhafız yaşıyor, çok yaşlı ve çok bilge bir kadın.",
+          "ru": "Там живёт третья стражница, очень старая и очень мудрая женщина."
+        },
+        {
+          "who": "npc",
+          "es": "Sadece “eğer” ile konuşuyor: “Eğer bana doğruyu söylersen, seni geçiririm.”",
+          "ru": "Она говорит только через «если»: «Если скажешь мне правду, пропущу»."
+        },
+        {
+          "who": "hero",
+          "es": "Ya biri yalan söylerse?",
+          "ru": "А если кто-то солжёт?"
+        },
+        {
+          "who": "npc",
+          "es": "O zaman şehir kayboluyor, ve o insan da onunla birlikte.",
+          "ru": "Тогда город исчезает, и человек вместе с ним."
+        },
+        {
+          "who": "npc",
+          "es": "Ama çöl burada da aldatıyor. Develi bir adam sahte harita parçaları satıyor.",
+          "ru": "Но пустыня обманывает и здесь. Человек с верблюдом продаёт поддельные обрывки карты."
+        },
+        {
+          "who": "npc",
+          "es": "Kumların kenarında da “vaha suyu” satıyorlar. Şişeler dolu görünüyor, ama değil.",
+          "ru": "А у края песков продают «воду оазиса». Бутылки кажутся полными, но это не так."
+        },
+        {
+          "who": "npc",
+          "es": "Develi adam kim? Eğer öğrenirsen, yazarım.",
+          "ru": "Кто этот человек с верблюдом? Если узнаешь, я запишу."
+        }
+      ],
+      "questions": [
+        {
+          "q": "Какой совет оставил Орхан?",
+          "options": [
+            "В пустыне верь тому, что слышишь, а не тому, что видишь",
+            "Пей больше чая",
+            "Не ходи в пустыню"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Когда появляется белый город?",
+          "options": [
+            "Ночью",
+            "Когда тебя мучает жажда",
+            "Когда идёт дождь"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Как говорит третья стражница?",
+          "options": [
+            "Только шёпотом",
+            "Только через «если»",
+            "Только песнями"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Что продаёт человек с верблюдом?",
+          "options": [
+            "Поддельные обрывки карты",
+            "Ковры",
+            "Фонари"
+          ],
+          "answer": 0
+        }
+      ],
+      "gloss": {
+        "orhan": "Орхан",
+        "hasan": "Хасан",
+        "öğüt": "совет",
+        "çölde": "в пустыне",
+        "çöl": "пустыня",
+        "susadığında": "когда хочешь пить",
+        "muhafız": "страж",
+        "bilge": "мудрый",
+        "geçiririm": "пропущу",
+        "develi": "с верблюдом",
+        "sahte": "поддельный",
+        "kumların": "песков",
+        "vaha": "оазис",
+        "şişeler": "бутылки"
+      }
+    },
+    {
+      "id": "th:3.half",
+      "chapter": 3,
+      "trigger": "half",
+      "npc": "cronista",
+      "lines": [
+        {
+          "who": "npc",
+          "es": "Çölün haritasından on parça. Ve develi adam hakkında artık çok şey biliyorum.",
+          "ru": "Десять обрывков карты пустыни. И я уже многое знаю о человеке с верблюдом."
+        },
+        {
+          "who": "npc",
+          "es": "Mektuplarını “Tüccar” diye imzalıyor. Rıza Amca onu gece çocuk parkında gördü: yeni parçaları kuma gömüyordu.",
+          "ru": "Письма он подписывает «Купец». Дядя Рыза видел его ночью на детской площадке: он закапывал новые обрывки в песок."
+        },
+        {
+          "who": "npc",
+          "es": "Kumda kalınca parçalar eski görünüyor.",
+          "ru": "Полежав в песке, обрывки выглядят старыми."
+        },
+        {
+          "who": "hero",
+          "es": "Ve insanlar onları alıyor mu?",
+          "ru": "И люди их покупают?"
+        },
+        {
+          "who": "npc",
+          "es": "Evet. İnsanlar inanmak istediklerine inanıyor.",
+          "ru": "Да. Люди верят в то, во что хотят верить."
+        },
+        {
+          "who": "npc",
+          "es": "Zeynep Hanım “vaha suyu”na baktı: içinde sadece tuz ve çiçek kokusu var. Ama onu içenler her gece rüyada beyaz şehri görüyor.",
+          "ru": "Зейнеп-ханым проверила «воду оазиса»: внутри только соль и запах цветов. Но кто её выпил, каждую ночь видит во сне белый город."
+        },
+        {
+          "who": "npc",
+          "es": "Selin'e ve Murat Bey'e verdiği paralar ertesi gün kuma dönmüş.",
+          "ru": "Деньги, которые он дал Селин и Мурату-бею, на следующий день превратились в песок."
+        },
+        {
+          "who": "hero",
+          "es": "Neden bu kadar çok şey satın alıyor?",
+          "ru": "Зачем он столько всего покупает?"
+        },
+        {
+          "who": "npc",
+          "es": "Elif'ten “eğer” ile cümleler öğrendi. Çünkü muhafızın önünde yalan söylenmez.",
+          "ru": "Он учил у Элиф фразы с «если». Ведь перед стражницей лгать нельзя."
+        },
+        {
+          "who": "npc",
+          "es": "Ve Kaptan İsmail ondan tek yön bir bilet sattı: dolunay treni, çöle.",
+          "ru": "А капитан Исмаил продал ему билет в одну сторону: лунный поезд, в пустыню."
+        },
+        {
+          "who": "npc",
+          "es": "Ama beyaz şehirde ne arıyor? Eğer bilseydim, çoktan yazardım.",
+          "ru": "Но что он ищет в белом городе? Если бы я знал, уже записал бы."
+        }
+      ],
+      "questions": [
+        {
+          "q": "Как подписывает письма человек с верблюдом?",
+          "options": [
+            "«Купец»",
+            "«Страж»",
+            "«Друг»"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Что дядя Рыза видел ночью?",
+          "options": [
+            "Как купец закапывал обрывки в песок",
+            "Как купец пил чай",
+            "Как купец уезжал на пароме"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Что было в «воде оазиса»?",
+          "options": [
+            "Чистая вода",
+            "Только соль и запах цветов",
+            "Лекарство"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Что стало с деньгами купца?",
+          "options": [
+            "Они превратились в песок",
+            "Их украли",
+            "Их положили в банк"
+          ],
+          "answer": 0
+        }
+      ],
+      "gloss": {
+        "çölün": "пустыни",
+        "develi": "с верблюдом",
+        "tüccar": "купец",
+        "imzalıyor": "подписывает",
+        "rıza": "Рыза",
+        "kuma": "в песок",
+        "kumda": "в песке",
+        "gömüyordu": "закапывал",
+        "zeynep": "Зейнеп",
+        "vaha": "оазис",
+        "suyu": "вода",
+        "selin": "Селин",
+        "murat": "Мурат",
+        "dönmüş": "превратились (говорят)",
+        "elif": "Элиф",
+        "muhafızın": "стража",
+        "söylenmez": "не говорят",
+        "kaptan": "капитан",
+        "ismail": "Исмаил",
+        "dolunay": "полнолуние",
+        "çöle": "в пустыню",
+        "çoktan": "давно"
+      }
+    },
+    {
+      "id": "th:3.climax",
+      "chapter": 3,
+      "trigger": "climax",
+      "npc": "cronista",
+      "lines": [
+        {
+          "who": "npc",
+          "es": "Yirmi parça! Ve bu hikâyenin artık bir sonu var.",
+          "ru": "Двадцать обрывков! И у этой истории уже есть конец."
+        },
+        {
+          "who": "npc",
+          "es": "Tüccar beyaz şehri satın almak istedi. Ama parası kuma döndü.",
+          "ru": "Купец хотел купить белый город. Но его деньги превратились в песок."
+        },
+        {
+          "who": "npc",
+          "es": "Yusuf onun sakalını kesti. Sakalsız genç ve üzgün. Elinde bir ağaç resmi var.",
+          "ru": "Юсуф сбрил ему бороду. Без бороды он молодой и грустный. На руке у него нарисовано дерево."
+        },
+        {
+          "who": "hero",
+          "es": "Ağaç mı? Neden?",
+          "ru": "Дерево? Почему?"
+        },
+        {
+          "who": "npc",
+          "es": "Ağaçların gece gündüz fısıldadığı bir ormandan geliyor. Uyuyamadığı için gitmiş.",
+          "ru": "Он из леса, где деревья день и ночь говорят шёпотом. Ушёл, потому что не мог спать."
+        },
+        {
+          "who": "npc",
+          "es": "Ağaçları duymamak için yalan satıyordu. Beyaz şehirde sessizlik arıyordu.",
+          "ru": "Он продавал ложь, чтобы не слышать деревья. В белом городе он искал тишину."
+        },
+        {
+          "who": "npc",
+          "es": "Dolunay gecesi muhafız ona dedi ki: “Eğer bana doğruyu söylersen, seni geçiririm.”",
+          "ru": "В ночь полнолуния стражница сказала ему: «Если скажешь мне правду, пропущу»."
+        },
+        {
+          "who": "npc",
+          "es": "O da cevap verdi: “Yalan satıyorum, çünkü korkuyorum.” Ve şehir kaybolmadı.",
+          "ru": "И он ответил: «Я продаю ложь, потому что мне страшно». И город не исчез."
+        },
+        {
+          "who": "hero",
+          "es": "Ve şimdi?",
+          "ru": "И что теперь?"
+        },
+        {
+          "who": "npc",
+          "es": "Şimdi bir adı var: Arda. İnsanlara paralarını geri verdi, sana da gerçek parçaları.",
+          "ru": "Теперь у него есть имя: Арда. Он вернул людям деньги, а тебе — настоящие обрывки."
+        },
+        {
+          "who": "npc",
+          "es": "Leyla Hanım'a bir not bıraktı: “Doğruluk satılmaz.”",
+          "ru": "Лейле-ханым он оставил записку: «Правда не продаётся»."
+        },
+        {
+          "who": "npc",
+          "es": "Burak uçaktan çölün arkasında sisli, büyük bir orman gördü. Ağaçlar rüzgâr olmadan sallanıyor.",
+          "ru": "Бурак видел с самолёта за пустыней огромный лес в тумане. Деревья качаются без ветра."
+        },
+        {
+          "who": "npc",
+          "es": "Komiser Nihat muhafızın sözlerini getirdi: “Ormana varırsan ağaçları dinle. Onlar yalan söylemez.”",
+          "ru": "Комиссар Нихат передал слова стражницы: «Если дойдёшь до леса, слушай деревья. Они не лгут»."
+        },
+        {
+          "who": "hero",
+          "es": "Ağaçlar ne söylüyor?",
+          "ru": "Что говорят деревья?"
+        },
+        {
+          "who": "npc",
+          "es": "Bunu ormanda öğreneceğiz.",
+          "ru": "Это мы узнаем в лесу."
+        }
+      ],
+      "questions": [
+        {
+          "q": "Почему купец ушёл из своего леса?",
+          "options": [
+            "Он не мог спать от шёпота деревьев",
+            "Его прогнали",
+            "Он искал работу"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Что купец ответил стражнице?",
+          "options": [
+            "«Я продаю ложь, потому что мне страшно»",
+            "«Я ничего не продаю»",
+            "«Пропусти меня, я богат»"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Как зовут купца?",
+          "options": [
+            "Орхан",
+            "Арда",
+            "Керем"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Что стражница советует делать в лесу?",
+          "options": [
+            "Бежать",
+            "Слушать деревья",
+            "Молчать"
+          ],
+          "answer": 1
+        }
+      ],
+      "gloss": {
+        "tüccar": "купец",
+        "kuma": "в песок",
+        "yusuf": "Юсуф",
+        "sakalını": "бороду",
+        "sakalsız": "без бороды",
+        "fısıldadığı": "где шепчут",
+        "uyuyamadığı": "не мог спать",
+        "gitmiş": "ушёл (говорят)",
+        "dolunay": "полнолуние",
+        "muhafız": "страж",
+        "geçiririm": "пропущу",
+        "arda": "Арда",
+        "leyla": "Лейла",
+        "doğruluk": "правда",
+        "satılmaz": "не продаётся",
+        "burak": "Бурак",
+        "çölün": "пустыни",
+        "sisli": "туманный",
+        "sallanıyor": "качаются",
+        "komiser": "комиссар",
+        "nihat": "Нихат",
+        "muhafızın": "стражницы",
+        "varırsan": "если дойдёшь"
+      }
+    },
+    {
+      "id": "th:4.open",
+      "chapter": 4,
+      "trigger": "open",
+      "npc": "cronista",
+      "lines": [
+        {
+          "who": "npc",
+          "es": "Arda ormanına döndü ve bana uzun bir mektup yazdı.",
+          "ru": "Арда вернулся в свой лес и написал мне длинное письмо."
+        },
+        {
+          "who": "npc",
+          "es": "Ağaçların, insanların birbirinin arkasından söylediği her şeyi tekrarladığını yazıyor.",
+          "ru": "Он пишет, что деревья повторяют всё, что люди говорят друг о друге за спиной."
+        },
+        {
+          "who": "hero",
+          "es": "Peki ne tekrarlıyorlar?",
+          "ru": "И что же они повторяют?"
+        },
+        {
+          "who": "npc",
+          "es": "Şehrimizin seslerini: dedikoduları, şikâyetleri, kavgaları. Orman gürültüyle dolu.",
+          "ru": "Голоса нашего города: сплетни, жалобы, ссоры. Лес полон шума."
+        },
+        {
+          "who": "npc",
+          "es": "Bu gürültüde Ormanın Muhafızı yolu duyamıyor, ve kimse geçemiyor.",
+          "ru": "В таком шуме Хранительница леса не слышит тропу, и никто не может пройти."
+        },
+        {
+          "who": "hero",
+          "es": "O zaman ne yapmalıyız?",
+          "ru": "Что же нам тогда делать?"
+        },
+        {
+          "who": "npc",
+          "es": "Barışla biten her tartışma ormanı biraz daha sessiz yapıyor. Komşularının anlaşmasına yardım et.",
+          "ru": "Каждый спор, который заканчивается миром, делает лес немного тише. Помогай соседям договориться."
+        },
+        {
+          "who": "npc",
+          "es": "İtiraz edebilirsin, kabul edebilirsin, ya da orta yol önerebilirsin.",
+          "ru": "Можно возразить, уступить или предложить компромисс."
+        },
+        {
+          "who": "npc",
+          "es": "Nermin Hanım'ın ninesi şöyle derdi: Muhafız fısıltıyla söylenen her şeyi duyar. Ve sadece yüzüne söyleyeni geçirir.",
+          "ru": "Бабушка Нермин-ханым говорила: Хранительница слышит всё, что сказано шёпотом. И пропускает только того, кто говорит в лицо."
+        },
+        {
+          "who": "hero",
+          "es": "Ağaçlar neden tam da bizim seslerimizi tekrarlıyor?",
+          "ru": "А почему деревья повторяют именно наши голоса?"
+        },
+        {
+          "who": "npc",
+          "es": "Asıl soru bu. Birisi onları oraya taşıyor olmalı.",
+          "ru": "Вот в чём вопрос. Кто-то должен их туда приносить."
+        }
+      ],
+      "questions": [
+        {
+          "q": "Что повторяют деревья?",
+          "options": [
+            "Песни птиц",
+            "То, что люди говорят друг о друге за спиной",
+            "Новости по радио"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Почему никто не может пройти через лес?",
+          "options": [
+            "Хранительница не слышит тропу из-за шума",
+            "Лес горит",
+            "Дорогу закрыла полиция"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Что делает лес тише?",
+          "options": [
+            "Спор, который заканчивается миром",
+            "Музыка",
+            "Ночь"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Кого, по словам бабушки Нермин-ханым, пропускает Хранительница?",
+          "options": [
+            "Того, кто говорит в лицо",
+            "Того, кто громко кричит",
+            "Того, у кого есть билет"
+          ],
+          "answer": 0
+        }
+      ],
+      "gloss": {
+        "arda": "Арда",
+        "ormanına": "в свой лес",
+        "tekrarladığını": "что повторяют",
+        "tekrarlıyorlar": "повторяют",
+        "tekrarlıyor": "повторяют",
+        "dedikoduları": "сплетни",
+        "gürültüyle": "шумом",
+        "gürültüde": "в шуме",
+        "ormanın": "леса",
+        "muhafızı": "Хранительница",
+        "muhafız": "Хранительница",
+        "barışla": "миром",
+        "itiraz": "возражение",
+        "orta": "средний (orta yol — компромисс)",
+        "önerebilirsin": "можешь предложить",
+        "nermin": "Нермин",
+        "ninesi": "бабушка",
+        "fısıltıyla": "шёпотом",
+        "geçirir": "пропускает",
+        "taşıyor": "носит"
+      }
+    },
+    {
+      "id": "th:4.half",
+      "chapter": 4,
+      "trigger": "half",
+      "npc": "cronista",
+      "lines": [
+        {
+          "who": "npc",
+          "es": "Ormanın haritasından on parça. Ama şimdi garip bir şey oluyor.",
+          "ru": "Десять обрывков карты леса. Но теперь происходит что-то странное."
+        },
+        {
+          "who": "npc",
+          "es": "Orman kimsenin hiç söylemediği cümleleri tekrarlıyor.",
+          "ru": "Лес повторяет фразы, которых никто никогда не говорил."
+        },
+        {
+          "who": "npc",
+          "es": "Murat Bey'in sesiyle: “Bankada para yok.” Kaptan İsmail'in sesiyle: “Bu gece vapur yok.” Selin'in sesiyle: “Elbiselerim sahte.”",
+          "ru": "Голосом Мурата-бея: «В банке нет денег». Голосом капитана Исмаила: «Сегодня ночью парома не будет». Голосом Селин: «Мои платья — подделки»."
+        },
+        {
+          "who": "hero",
+          "es": "Ama onlar asla böyle bir şey söylemez.",
+          "ru": "Но они никогда бы такого не сказали."
+        },
+        {
+          "who": "npc",
+          "es": "Kesinlikle. Ve harita parçalarının yanında siyah tüyler buluyorlar.",
+          "ru": "Именно. А рядом с обрывками карты находят чёрные перья."
+        },
+        {
+          "who": "hero",
+          "es": "Tüy mü? Kuş tüyü mü?",
+          "ru": "Перья? Птичьи?"
+        },
+        {
+          "who": "npc",
+          "es": "Karga. Postacı Cemil itiraf etti: kargası Kara her evdeki sesleri ezberliyor ve geceleri ormana uçuyor.",
+          "ru": "Ворона. Почтальон Джемиль признался: его ворона Кара запоминает голоса в каждом доме и по ночам летает в лес."
+        },
+        {
+          "who": "npc",
+          "es": "Ama Kara cümleleri kendisi uydurmuyor. Biri ona öğretiyor.",
+          "ru": "Но Кара сама фразы не придумывает. Кто-то её учит."
+        },
+        {
+          "who": "npc",
+          "es": "Ve döndüğünde üstünde pipo tütünü kokusu oluyor.",
+          "ru": "А когда возвращается, от неё пахнет трубочным табаком."
+        },
+        {
+          "who": "hero",
+          "es": "Şehirde kim pipo içiyor?",
+          "ru": "Кто в городе курит трубку?"
+        },
+        {
+          "who": "npc",
+          "es": "İşte bunu öğreneceğiz.",
+          "ru": "Это нам и предстоит узнать."
+        }
+      ],
+      "questions": [
+        {
+          "q": "Что лес сказал голосом Мурата-бея?",
+          "options": [
+            "«В банке нет денег»",
+            "«Банк закрыт навсегда»",
+            "«Приходите завтра»"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Что находят рядом с обрывками карты?",
+          "options": [
+            "Монеты",
+            "Чёрные перья",
+            "Письма"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Кто такая Кара?",
+          "options": [
+            "Ворона почтальона Джемиля",
+            "Дочь Селин",
+            "Стражница леса"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Чем пахнет Кара, когда возвращается?",
+          "options": [
+            "Морем",
+            "Трубочным табаком",
+            "Хлебом"
+          ],
+          "answer": 1
+        }
+      ],
+      "gloss": {
+        "ormanın": "леса",
+        "garip": "странный",
+        "tekrarlıyor": "повторяет",
+        "murat": "Мурат",
+        "kaptan": "капитан",
+        "ismail": "Исмаил",
+        "vapur": "паром",
+        "selin": "Селин",
+        "sahte": "поддельный",
+        "tüyler": "перья",
+        "tüy": "перо",
+        "tüyü": "перо",
+        "karga": "ворона",
+        "kargası": "его ворона",
+        "cemil": "Джемиль",
+        "itiraf": "признание",
+        "kara": "Кара",
+        "ezberliyor": "запоминает",
+        "uydurmuyor": "не придумывает",
+        "pipo": "трубка",
+        "tütünü": "табак"
+      }
+    },
+    {
+      "id": "th:4.climax",
+      "chapter": 4,
+      "trigger": "climax",
+      "npc": "cronista",
+      "lines": [
+        {
+          "who": "npc",
+          "es": "Yirmi parça. Ve yazdığım en üzücü hikâye.",
+          "ru": "Двадцать обрывков. И самая грустная история, какую я записывал."
+        },
+        {
+          "who": "npc",
+          "es": "Orman Murat Bey'in sesini tekrarladı: “Bankada para yok.” Bütün şehir paralarını almak için sıraya girdi.",
+          "ru": "Лес повторил голос Мурата-бея: «В банке нет денег». Весь город встал в очередь забирать деньги."
+        },
+        {
+          "who": "npc",
+          "es": "İzler pipolu yaşlı bir adama gidiyordu. Bankada yüz yıllık paralar bozdurmuştu, kulenin muhafızınınkiler gibi.",
+          "ru": "Следы вели к пожилому человеку с трубкой. Он менял в банке монеты столетней давности, как у стража башни."
+        },
+        {
+          "who": "hero",
+          "es": "Yüz yıllık paralar… Orhan mı?",
+          "ru": "Монеты столетней давности… Орхан?"
+        },
+        {
+          "who": "npc",
+          "es": "Deniz yaşlı bir adamın kargaya “Orman tehlikeli” dediğini gördü. Ve bir gece Can onun yüzünü sahilde, fenerin ışığında tanıdı. Orhan'dı.",
+          "ru": "Дениз видела, как старик учил ворону «Лес опасен». А однажды ночью Джан узнал его лицо на пляже, в свете маяка. Это был Орхан."
+        },
+        {
+          "who": "npc",
+          "es": "Ebru Hanım'a yazdı: “Yine birini kaybetmekten korktum.” Ormanın birini daha almasından korkuyordu. Bu yüzden insanları korkutmak için kargaya yalan öğretti.",
+          "ru": "Эбру-ханым он написал: «Я снова боялся кого-то потерять». Он боялся, что лес заберёт кого-то ещё. Поэтому учил ворону лжи, чтобы пугать людей."
+        },
+        {
+          "who": "hero",
+          "es": "Sonra ne oldu?",
+          "ru": "И что было потом?"
+        },
+        {
+          "who": "npc",
+          "es": "Komşular toplantısında ayağa kalktı ve dedi ki: “Kargaya yalan öğrettim, çünkü korkuyordum. Beni affedin.”",
+          "ru": "На собрании соседей он встал и сказал: «Я учил ворону лжи, потому что боялся. Простите меня»."
+        },
+        {
+          "who": "npc",
+          "es": "Selin ona sarıldı, Kaptan İsmail piposu için tütün verdi, ve gece yarısı orman sustu.",
+          "ru": "Селин обняла его, капитан Исмаил дал ему табаку для трубки, и в полночь лес затих."
+        },
+        {
+          "who": "npc",
+          "es": "Muhafız sonunda açıkça konuştu: “Artık yolu duyuyorum. Barışı getiren gelsin.”",
+          "ru": "Хранительница наконец заговорила ясно: «Теперь я слышу тропу. Пусть придёт тот, кто принёс мир»."
+        },
+        {
+          "who": "hero",
+          "es": "Ormanın arkasında ne var?",
+          "ru": "А что за лесом?"
+        },
+        {
+          "who": "npc",
+          "es": "Taş. Her kelimenin başka bir sesle geri döndüğü taş yollar. İyi söz soğuk, kibar söz kaba duyuluyor. Orada kim yaşıyor? Henüz bilmiyorum.",
+          "ru": "Камень. Каменные ходы, где каждое слово возвращается другим голосом. Доброе звучит холодно, вежливое — грубо. Кто там живёт? Пока не знаю."
+        }
+      ],
+      "questions": [
+        {
+          "q": "Что случилось, когда лес сказал «В банке нет денег»?",
+          "options": [
+            "Весь город встал в очередь забирать деньги",
+            "Банк закрылся",
+            "Никто не поверил"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Кто учил ворону лжи?",
+          "options": [
+            "Арда",
+            "Орхан",
+            "Джемиль"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Почему он это делал?",
+          "options": [
+            "Хотел денег",
+            "Боялся, что лес заберёт кого-то ещё",
+            "Ему было скучно"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Что сказала Хранительница, когда лес затих?",
+          "options": [
+            "«Теперь я слышу тропу»",
+            "«Уходите»",
+            "«Лес закрыт»"
+          ],
+          "answer": 0
+        }
+      ],
+      "gloss": {
+        "üzücü": "грустный",
+        "murat": "Мурат",
+        "tekrarladı": "повторил",
+        "izler": "следы",
+        "pipolu": "с трубкой",
+        "yıllık": "летний (давности)",
+        "bozdurmuştu": "разменял",
+        "kulenin": "башни",
+        "muhafızınınkiler": "те, что у стража",
+        "orhan": "Орхан",
+        "deniz": "Дениз",
+        "kargaya": "вороне",
+        "tehlikeli": "опасный",
+        "can": "Джан",
+        "sahilde": "на берегу",
+        "fenerin": "маяка",
+        "tanıdı": "узнал",
+        "ebru": "Эбру",
+        "ormanın": "леса",
+        "korkutmak": "пугать",
+        "affedin": "простите",
+        "selin": "Селин",
+        "sarıldı": "обняла",
+        "kaptan": "капитан",
+        "ismail": "Исмаил",
+        "piposu": "его трубка",
+        "tütün": "табак",
+        "sustu": "замолчал",
+        "muhafız": "Хранительница",
+        "barışı": "мир",
+        "duyuluyor": "слышится",
+        "henüz": "пока ещё"
+      }
+    },
+    {
+      "id": "th:5.open",
+      "chapter": 5,
+      "trigger": "open",
+      "npc": "cronista",
+      "lines": [
+        {
+          "who": "npc",
+          "es": "Sessizleşen ormanın arkasında Yankı Labirenti başlıyor: her kelimenin başka bir sesle döndüğü taş yollar.",
+          "ru": "За притихшим лесом начинается Лабиринт Эха: каменные ходы, где каждое слово возвращается другим голосом."
+        },
+        {
+          "who": "npc",
+          "es": "İyi söz soğuk, kibar söz kaba geri geliyor. Şaka ise hakaret olarak dönüyor.",
+          "ru": "Доброе звучит холодно, вежливое возвращается грубым. А шутка возвращается оскорблением."
+        },
+        {
+          "who": "hero",
+          "es": "Onu kim koruyor?",
+          "ru": "А кто его охраняет?"
+        },
+        {
+          "who": "npc",
+          "es": "Yankının Efendisi. Onun arkasında Mahzen'in Kapısı var. Sadece herkesle kendi tonunda konuşabileni geçiriyor: komşuyla rahat, belediye başkanıyla resmî.",
+          "ru": "Хозяин Эха. За ним — Врата Хранилища. Он пропускает только того, кто умеет говорить с каждым в его тоне: с соседом запросто, с мэром официально."
+        },
+        {
+          "who": "npc",
+          "es": "Orman sustuğundan beri yankı şehre de ulaşıyor. İnsanlar artık sözlere değil, tona kırılıyor.",
+          "ru": "С тех пор как лес затих, эхо доходит и до города. Люди обижаются уже не на слова, а на тон."
+        },
+        {
+          "who": "hero",
+          "es": "Kerem babasına bu yüzden mi “Sayın Hasan Bey” diye yazdı?",
+          "ru": "Поэтому Керем написал отцу «Уважаемый Хасан-бей»?"
+        },
+        {
+          "who": "npc",
+          "es": "Kesinlikle. Mektubu yankıdan geçti.",
+          "ru": "Именно. Его письмо прошло через эхо."
+        },
+        {
+          "who": "npc",
+          "es": "Kemal Usta'nın lokantasına taş gibi gri pelerinli bir misafir geldi. Sözleri yankı gibi tekrarladı.",
+          "ru": "В локанту Кемаля-уста пришёл гость в сером, как камень, плаще. Он повторял слова, как эхо."
+        },
+        {
+          "who": "npc",
+          "es": "Ve dedi ki: “Yankının Efendisi, herkesle kendi tonunda konuşabilen birini arıyor.”",
+          "ru": "И сказал: «Хозяин Эха ищет того, кто умеет говорить с каждым в его тоне»."
+        },
+        {
+          "who": "npc",
+          "es": "Nermin Hanım'ın ninesinin defterinde şöyle yazıyor: “Herkesle aynı konuşan kaybolur; sesini değiştirmeyi bilen çıkışı bulur.”",
+          "ru": "В тетради бабушки Нермин-ханым написано: «Кто говорит со всеми одинаково, заблудится; кто умеет менять голос, найдёт выход»."
+        },
+        {
+          "who": "hero",
+          "es": "Ama bu Yankının Efendisi kim?",
+          "ru": "Но кто он, этот Хозяин Эха?"
+        },
+        {
+          "who": "npc",
+          "es": "Bunu şehrin hatırlaması gerekiyor.",
+          "ru": "Это городу и предстоит вспомнить."
+        }
+      ],
+      "questions": [
+        {
+          "q": "Что происходит со словами в Лабиринте Эха?",
+          "options": [
+            "Они возвращаются другим тоном",
+            "Они пропадают",
+            "Их записывают на камне"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Кого пропускает Хозяин Эха?",
+          "options": [
+            "Того, кто говорит громче всех",
+            "Того, кто умеет говорить с каждым в его тоне",
+            "Того, кто принёс золото"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Почему Керем написал отцу «Уважаемый Хасан-бей»?",
+          "options": [
+            "Он обиделся на отца",
+            "Его письмо прошло через эхо",
+            "Так принято в горах"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Что написано в тетради бабушки Нермин-ханым?",
+          "options": [
+            "Кто умеет менять голос, найдёт выход",
+            "Кто молчит, тот прав",
+            "Кто идёт быстро, дойдёт первым"
+          ],
+          "answer": 0
+        }
+      ],
+      "gloss": {
+        "sessizleşen": "притихший",
+        "ormanın": "леса",
+        "yankı": "эхо",
+        "labirenti": "Лабиринт",
+        "hakaret": "оскорбление",
+        "yankının": "Эха",
+        "efendisi": "Хозяин",
+        "mahzen": "Хранилище",
+        "geçiriyor": "пропускает",
+        "yankıdan": "через эхо",
+        "kerem": "Керем",
+        "hasan": "Хасан",
+        "kemal": "Кемаль",
+        "pelerinli": "в плаще",
+        "tekrarladı": "повторял",
+        "nermin": "Нермин",
+        "ninesinin": "бабушки",
+        "çıkışı": "выход"
+      }
+    },
+    {
+      "id": "th:5.half",
+      "chapter": 5,
+      "trigger": "half",
+      "npc": "cronista",
+      "lines": [
+        {
+          "who": "npc",
+          "es": "Labirentin haritasından on parça. Ve şehir sonunda hatırladı.",
+          "ru": "Десять обрывков карты Лабиринта. И город наконец вспомнил."
+        },
+        {
+          "who": "npc",
+          "es": "Yankının Efendisi bu şehrin tellalıydı. Yüz yıl önce meydanda haberleri okurdu.",
+          "ru": "Хозяин Эха был глашатаем этого города. Сто лет назад он читал новости на площади."
+        },
+        {
+          "who": "npc",
+          "es": "Herkesle aynı şekilde, resmî konuşurdu: çocuklarla, yaşlılarla, belediye başkanıyla.",
+          "ru": "Он со всеми говорил одинаково, официально: с детьми, со стариками, с мэром."
+        },
+        {
+          "who": "hero",
+          "es": "İnsanlar ne yaptı?",
+          "ru": "А что люди?"
+        },
+        {
+          "who": "npc",
+          "es": "Ona güldüler. Çocuklar onu taklit etti, aralarında küçük Orhan da vardı. Bir gün tek yön trenle ormana gitti ve dönmedi.",
+          "ru": "Смеялись над ним. Дети его передразнивали, среди них был и маленький Орхан. Однажды он уехал поездом в одну сторону к лесу и не вернулся."
+        },
+        {
+          "who": "npc",
+          "es": "Selin'in dükkânında eski bir sipariş defteri var. Büyük büyükannesi ona gri bir pelerin dikmiş ve yazmış: “Kibar ve çok yalnız bir adam. Kimse onunla dostça konuşmuyor.”",
+          "ru": "В лавке Селин есть старая книга заказов. Её прабабушка сшила ему серый плащ и записала: «Вежливый и очень одинокий человек. Никто не говорит с ним по-дружески»."
+        },
+        {
+          "who": "npc",
+          "es": "Eczacının dedesinin defterinde son bir not var: “Sesin geri döndüğü yere gidiyorum.”",
+          "ru": "В тетради деда аптекарши есть последняя запись: «Ухожу туда, где голос возвращается»."
+        },
+        {
+          "who": "npc",
+          "es": "Ve Cemil postanenin arşivinde, hiç ulaşmamış yüz yıllık bir mektup buldu. Okul çocuklarından.",
+          "ru": "А Джемиль нашёл в архиве почты столетнее письмо, которое так и не доставили. От школьников."
+        },
+        {
+          "who": "hero",
+          "es": "Mektupta ne yazıyor?",
+          "ru": "Что в письме?"
+        },
+        {
+          "who": "npc",
+          "es": "“Özür dileriz. Artık seni dinliyoruz.” Ve dikkat et: onunla dostça konuşuyorlar.",
+          "ru": "«Прости нас. Теперь мы тебя слушаем». И заметь: они говорят с ним по-дружески."
+        },
+        {
+          "who": "hero",
+          "es": "Bunca yıldan sonra mektubu kabul eder mi?",
+          "ru": "А примет ли он письмо после стольких лет?"
+        },
+        {
+          "who": "npc",
+          "es": "Bilmiyorum. Bir cevabı beklemek için yüz yıl uzun bir zaman.",
+          "ru": "Не знаю. Сто лет — долгий срок, чтобы ждать ответа."
+        }
+      ],
+      "questions": [
+        {
+          "q": "Кем был Хозяин Эха?",
+          "options": [
+            "Глашатаем города",
+            "Капитаном парома",
+            "Мэром"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Как он говорил с людьми?",
+          "options": [
+            "Со всеми одинаково, официально",
+            "С каждым по-своему",
+            "Только шёпотом"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Что записала прабабушка Селин?",
+          "options": [
+            "Что он вежливый и очень одинокий",
+            "Что он не заплатил за плащ",
+            "Что он уехал на острова"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Что было в столетнем письме школьников?",
+          "options": [
+            "«Прости нас. Теперь мы тебя слушаем»",
+            "«Приходи на праздник»",
+            "«Верни нам карту»"
+          ],
+          "answer": 0
+        }
+      ],
+      "gloss": {
+        "labirentin": "Лабиринта",
+        "yankının": "Эха",
+        "efendisi": "Хозяин",
+        "tellalıydı": "был глашатаем",
+        "okurdu": "читал (обычно)",
+        "konuşurdu": "говорил (обычно)",
+        "taklit": "подражание",
+        "orhan": "Орхан",
+        "selin": "Селин",
+        "sipariş": "заказ",
+        "büyükannesi": "бабушка (büyük büyükanne — прабабушка)",
+        "pelerin": "плащ",
+        "dikmiş": "сшила (говорят)",
+        "yazmış": "записала (говорят)",
+        "dostça": "по-дружески",
+        "eczacının": "аптекарши",
+        "dedesinin": "деда",
+        "cemil": "Джемиль",
+        "postanenin": "почты",
+        "arşivinde": "в архиве",
+        "ulaşmamış": "не доставленный",
+        "yıllık": "летний (давности)",
+        "bunca": "столько"
+      }
+    },
+    {
+      "id": "th:5.climax",
+      "chapter": 5,
+      "trigger": "climax",
+      "npc": "cronista",
+      "lines": [
+        {
+          "who": "npc",
+          "es": "Yirmi parça. Labirentin haritası tamam, ve tellal yakında. Bir cevap bekliyor.",
+          "ru": "Двадцать обрывков. Карта Лабиринта собрана, а глашатай рядом. Он ждёт ответа."
+        },
+        {
+          "who": "npc",
+          "es": "Biri bankadaki hesabına eski bir para ve onun el yazısıyla bir not koymuş: “Paraya ihtiyacım yok. Bir cevaba ihtiyacım var.”",
+          "ru": "Кто-то положил на его счёт в банке старую монету и записку его почерком: «Мне не нужны деньги. Мне нужен ответ»."
+        },
+        {
+          "who": "npc",
+          "es": "Leyla Hanım'ın pansiyonunda on ikinci oda yüz yıldır onun adına. Her gece kapısının altından ışık görünüyor.",
+          "ru": "В пансионе Лейлы-ханым двенадцатый номер сто лет записан на его имя. Каждую ночь из-под двери виден свет."
+        },
+        {
+          "who": "npc",
+          "es": "Ebru Hanım belediyenin arşivinde okumadığı konuşmayı buldu: “Sevgili komşular, bugün size haber getirmedim.”",
+          "ru": "Эбру-ханым нашла в архиве мэрии речь, которую он так и не прочитал: «Дорогие соседи, сегодня я не принёс вам новостей»."
+        },
+        {
+          "who": "hero",
+          "es": "Onlarla bir dost gibi konuşmak istemiş.",
+          "ru": "Он хотел заговорить с ними как друг."
+        },
+        {
+          "who": "npc",
+          "es": "Evet. Ama o gün, başlamadan önce ona güldüler.",
+          "ru": "Да. Но в тот день над ним засмеялись раньше, чем он успел начать."
+        },
+        {
+          "who": "npc",
+          "es": "Elif'in öğrencisi Efe, okul gösterisinde tellalı oynamak için çalışırken sesini kaybetti. Komiser Nihat'a da resmî bir mektup geldi: “Bana birinin cevap vermesini saygılarımla rica ederim.”",
+          "ru": "Ученик Элиф, Эфе, потерял голос, репетируя роль глашатая для школьного спектакля. А комиссару Нихату пришло официальное письмо: «Со всем почтением прошу, чтобы кто-нибудь мне ответил»."
+        },
+        {
+          "who": "npc",
+          "es": "Burak uçaktan labirentin yollarının harflere dönüştüğünü gördü: “BENİ DUYAN VAR MI?”",
+          "ru": "Бурак увидел с самолёта, что ходы Лабиринта складываются в буквы: «МЕНЯ КТО-НИБУДЬ СЛЫШИТ?»."
+        },
+        {
+          "who": "npc",
+          "es": "Ve dün gece sahilde Can ona “dostum” dedi. Tellal yüz yıl sonra ilk kez gülümsedi.",
+          "ru": "А вчера ночью на пляже Джан назвал его «друг мой». Глашатай впервые за сто лет улыбнулся."
+        },
+        {
+          "who": "npc",
+          "es": "Yukarıda, bin basamaktan sonra, taş bir kapı var. Kapının arkasında bir ses soruyor: “Bana kim cevap verecek?”",
+          "ru": "Наверху, после тысячи ступеней, — каменная дверь. А за дверью голос спрашивает: «Кто мне ответит?»."
+        },
+        {
+          "who": "hero",
+          "es": "Ben vereceğim. Dostça.",
+          "ru": "Отвечу я. По-дружески."
+        },
+        {
+          "who": "npc",
+          "es": "Ve sonra Mahzen'in Kapısı. Elif'in parçasında ne yazdığını hatırlıyor musun? Orada biri soru soruyor.",
+          "ru": "А после — Врата Хранилища. Помнишь, что было написано на обрывке Элиф? Там кто-то задаёт вопросы."
+        }
+      ],
+      "questions": [
+        {
+          "q": "Что было в записке на счёте глашатая?",
+          "options": [
+            "«Мне не нужны деньги. Мне нужен ответ»",
+            "«Верните мой плащ»",
+            "«Я скоро приду»"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Какую речь нашла Эбру-ханым?",
+          "options": [
+            "«Дорогие соседи, сегодня я не принёс вам новостей»",
+            "«Прощайте навсегда»",
+            "«Слушайте новости»"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Что случилось с Эфе?",
+          "options": [
+            "Он потерял голос, репетируя роль глашатая",
+            "Он ушёл в Лабиринт",
+            "Он нашёл обрывок"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Как Джан назвал глашатая?",
+          "options": [
+            "«Уважаемый»",
+            "«Друг мой»",
+            "«Господин»"
+          ],
+          "answer": 1
+        }
+      ],
+      "gloss": {
+        "labirentin": "Лабиринта",
+        "tellal": "глашатай",
+        "tellalı": "глашатая",
+        "koymuş": "положил (говорят)",
+        "ihtiyacım": "мне нужно",
+        "leyla": "Лейла",
+        "pansiyonunda": "в пансионе",
+        "ebru": "Эбру",
+        "arşivinde": "в архиве",
+        "istemiş": "хотел (говорят)",
+        "başlamadan": "не начав",
+        "elif": "Элиф",
+        "efe": "Эфе",
+        "komiser": "комиссар",
+        "nihat": "Нихат",
+        "saygılarımla": "с уважением",
+        "burak": "Бурак",
+        "dönüştüğünü": "что превратились",
+        "duyan": "слышащий",
+        "can": "Джан",
+        "dostum": "друг мой",
+        "gülümsedi": "улыбнулся",
+        "basamaktan": "ступеней",
+        "dostça": "по-дружески",
+        "mahzen": "Хранилище"
+      }
+    }
+  ],
+  "notes": {
+    "1": [
+      {
+        "es": "Bugün kitapta yeni bir sayfa: bir parça daha. Çok güzel!",
+        "ru": "Сегодня в книге новая страница: ещё один обрывок. Очень хорошо!",
+        "gloss": {
+          "sayfa": "страница"
+        }
+      },
+      {
+        "es": "Bir komşu daha sana parçasını verdi. Şehir senden bahsediyor.",
+        "ru": "Ещё один сосед отдал тебе свой обрывок. Город говорит о тебе.",
+        "gloss": {
+          "bahsediyor": "говорит (о ком-то)"
+        }
+      },
+      {
+        "es": "Harita her gün büyüyor. Yarın bir parça daha arıyoruz.",
+        "ru": "Карта растёт с каждым днём. Завтра ищем ещё один обрывок.",
+        "gloss": {
+          "büyüyor": "растёт"
+        }
+      },
+      {
+        "es": "Bu gece uyumuyorum: senin gününü kitabıma yazıyorum.",
+        "ru": "Этой ночью я не сплю: записываю твой день в свою книгу."
+      },
+      {
+        "es": "Bir parça daha. Mahzen biraz daha yakın.",
+        "ru": "Ещё один обрывок. Хранилище чуть ближе.",
+        "gloss": {
+          "mahzen": "Хранилище"
+        }
+      },
+      {
+        "es": "Hasan Usta bugün sana çay verdi ve güldü. Bunu da yazdım.",
+        "ru": "Хасан-уста сегодня налил тебе чаю и засмеялся. Это я тоже записал.",
+        "gloss": {
+          "hasan": "Хасан"
+        }
+      }
+    ],
+    "2": [
+      {
+        "es": "Dağların haritası büyüyor. Kulenin yolu artık daha kısa.",
+        "ru": "Карта гор растёт. Дорога к башне теперь короче.",
+        "gloss": {
+          "kulenin": "башни"
+        }
+      },
+      {
+        "es": "Bugün bir parça daha bulduk. Kerem'i de bulacağız.",
+        "ru": "Сегодня мы нашли ещё один обрывок. Найдём и Керема.",
+        "gloss": {
+          "kerem": "Керем"
+        }
+      },
+      {
+        "es": "Akşam sis geldi, ama sen yolu buldun. Kitabıma yazdım.",
+        "ru": "Вечером пришёл туман, но ты нашёл дорогу. Я записал в свою книгу.",
+        "fem": {
+          "ru": "Вечером пришёл туман, но ты нашла дорогу. Я записал в свою книгу."
+        },
+        "gloss": {
+          "sis": "туман"
+        }
+      },
+      {
+        "es": "Muhafız ne yaptığını soracak. Bugün çok şey yaptın.",
+        "ru": "Страж спросит, что ты сделал. Сегодня ты сделал многое.",
+        "fem": {
+          "ru": "Страж спросит, что ты сделала. Сегодня ты сделала многое."
+        },
+        "gloss": {
+          "muhafız": "страж"
+        }
+      },
+      {
+        "es": "Hasan Usta her akşam kapıya bakıyor. Bir parça daha, ve belki Kerem döner.",
+        "ru": "Хасан-уста каждый вечер смотрит на дверь. Ещё один обрывок — и, может, Керем вернётся.",
+        "gloss": {
+          "hasan": "Хасан",
+          "kerem": "Керем"
+        }
+      },
+      {
+        "es": "Yeni bir parça. Dağlar artık o kadar soğuk değil.",
+        "ru": "Новый обрывок. Горы уже не такие холодные."
+      }
+    ],
+    "3": [
+      {
+        "es": "Bugün çölde bir parça daha. Gördüğüne değil, duyduğuna inandın.",
+        "ru": "Сегодня в пустыне ещё один обрывок. Ты поверил не тому, что видел, а тому, что слышал.",
+        "fem": {
+          "ru": "Сегодня в пустыне ещё один обрывок. Ты поверила не тому, что видела, а тому, что слышала."
+        },
+        "gloss": {
+          "çölde": "в пустыне"
+        }
+      },
+      {
+        "es": "Eğer her gün bir parça bulursan, beyaz şehre yakında varırız.",
+        "ru": "Если будешь находить по обрывку в день, скоро дойдём до белого города.",
+        "gloss": {
+          "varırız": "дойдём"
+        }
+      },
+      {
+        "es": "Bugün sahte bir parça görmedik. Hepsi gerçek.",
+        "ru": "Сегодня мы не видели ни одного поддельного обрывка. Все настоящие.",
+        "gloss": {
+          "sahte": "поддельный"
+        }
+      },
+      {
+        "es": "Kum her yerde, ama harita büyüyor. Bunu da yazdım.",
+        "ru": "Песок повсюду, но карта растёт. Это я тоже записал."
+      },
+      {
+        "es": "Bu akşam develi adamı uzaktan gördüm. Eğer yarın gelirse, onunla konuşacağız.",
+        "ru": "Сегодня вечером я видел издали человека с верблюдом. Если он завтра придёт, поговорим с ним.",
+        "gloss": {
+          "develi": "с верблюдом"
+        }
+      },
+      {
+        "es": "Bir parça daha. Muhafız doğruyu sever; sen de doğruyu söyledin.",
+        "ru": "Ещё один обрывок. Стражница любит правду, и ты сказал правду.",
+        "fem": {
+          "ru": "Ещё один обрывок. Стражница любит правду, и ты сказала правду."
+        },
+        "gloss": {
+          "muhafız": "страж"
+        }
+      }
+    ],
+    "4": [
+      {
+        "es": "Bugün iki komşu barıştı. Orman biraz daha sessiz.",
+        "ru": "Сегодня два соседа помирились. Лес стал чуть тише.",
+        "gloss": {
+          "barıştı": "помирились"
+        }
+      },
+      {
+        "es": "Bir parça daha. Ağaçlar bu gece senin adını fısıldadı, ama kötü bir şey söylemedi.",
+        "ru": "Ещё один обрывок. Этой ночью деревья шептали твоё имя, но ничего плохого не сказали.",
+        "gloss": {
+          "fısıldadı": "шептали"
+        }
+      },
+      {
+        "es": "Kara bugün postaneye uçmadı. Belki o da yoruldu.",
+        "ru": "Кара сегодня не прилетала на почту. Может, тоже устала.",
+        "gloss": {
+          "kara": "Кара"
+        }
+      },
+      {
+        "es": "Tartışmada kimse kazanmadı, ama ikisi de güldü. Bunu kitabıma yazdım.",
+        "ru": "В споре никто не победил, но оба засмеялись. Это я записал в книгу."
+      },
+      {
+        "es": "Ormanın haritası büyüyor. Gürültü azalıyor.",
+        "ru": "Карта леса растёт. Шума всё меньше.",
+        "gloss": {
+          "ormanın": "леса",
+          "gürültü": "шум",
+          "azalıyor": "уменьшается"
+        }
+      },
+      {
+        "es": "Bugün birine arkasından değil, yüzüne söyledin. Muhafız bunu duydu.",
+        "ru": "Сегодня ты сказал человеку в лицо, а не за спиной. Хранительница это услышала.",
+        "fem": {
+          "ru": "Сегодня ты сказала человеку в лицо, а не за спиной. Хранительница это услышала."
+        },
+        "gloss": {
+          "muhafız": "Хранительница"
+        }
+      }
+    ],
+    "5": [
+      {
+        "es": "Bugün herkesle kendi tonunda konuştun. Yankı biraz daha sessiz.",
+        "ru": "Сегодня ты говорил с каждым в его тоне. Эхо стало чуть тише.",
+        "fem": {
+          "ru": "Сегодня ты говорила с каждым в его тоне. Эхо стало чуть тише."
+        },
+        "gloss": {
+          "yankı": "эхо"
+        }
+      },
+      {
+        "es": "Bir parça daha. Labirentin yolları artık o kadar karanlık değil.",
+        "ru": "Ещё один обрывок. Ходы Лабиринта уже не такие тёмные.",
+        "gloss": {
+          "labirentin": "Лабиринта"
+        }
+      },
+      {
+        "es": "Hasan Usta bugün Kerem'den yeni bir mektup aldı: “Canım babam.” Yankı geçti.",
+        "ru": "Хасан-уста сегодня получил от Керема новое письмо: «Папочка мой». Эхо прошло.",
+        "gloss": {
+          "hasan": "Хасан",
+          "kerem": "Керем",
+          "yankı": "эхо"
+        }
+      },
+      {
+        "es": "Bu akşam taş kapının arkasında bir şarkı duydum. Belki tellal şarkı söylüyor.",
+        "ru": "Этим вечером я слышал за каменной дверью песню. Может, это поёт глашатай.",
+        "gloss": {
+          "tellal": "глашатай"
+        }
+      },
+      {
+        "es": "Bugün resmî bir mektup yazdın ve bir dosta kısa bir not. İkisi de doğru tondaydı.",
+        "ru": "Сегодня ты написал официальное письмо и короткую записку другу. Обе в верном тоне.",
+        "fem": {
+          "ru": "Сегодня ты написала официальное письмо и короткую записку другу. Обе в верном тоне."
+        },
+        "gloss": {
+          "tondaydı": "были в тоне"
+        }
+      },
+      {
+        "es": "Mahzen'in Kapısı yakın. Kitabımın son sayfaları seni bekliyor.",
+        "ru": "Врата Хранилища близко. Последние страницы моей книги ждут тебя.",
+        "gloss": {
+          "mahzen": "Хранилище",
+          "sayfaları": "страницы"
+        }
+      }
+    ]
+  }
+}

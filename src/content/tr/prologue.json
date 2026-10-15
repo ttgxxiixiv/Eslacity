@@ -1,0 +1,132 @@
+{
+  "gatekeeper": {
+    "id": "gatekeeper",
+    "name": "Привратник Осман",
+    "role": "привратник у городских ворот",
+    "gender": "m",
+    "voice": {
+      "pitch": 0.85,
+      "rate": 0.9
+    },
+    "look": {
+      "skin": 3,
+      "hair": "#d9d9d9",
+      "style": "short",
+      "outfit": "#3e5c76",
+      "pants": "#2e2216",
+      "extra": [
+        "mustache",
+        "cap"
+      ]
+    }
+  },
+  "words": [
+    "scroll1.merhaba",
+    "cafe.tesekkur",
+    "scroll1.gule-gule"
+  ],
+  "gate": [
+    {
+      "who": "gatekeeper",
+      "es": "Merhaba, yolcu! Burası şehrin kapısı.",
+      "ru": "Привет, путник! Это ворота города."
+    },
+    {
+      "who": "gatekeeper",
+      "es": "Burada herkes “merhaba”, “teşekkür ederim” ve “güle güle” der. Önce bu üç kelime.",
+      "ru": "Здесь все говорят «merhaba», «teşekkür ederim» и «güle güle». Сначала — эти три слова."
+    },
+    {
+      "who": "hero",
+      "es": "Merhaba! Teşekkür ederim!",
+      "ru": "Привет! Спасибо!"
+    }
+  ],
+  "road": [
+    {
+      "who": "gatekeeper",
+      "es": "Çok güzel! Şimdi çay ocağına git. Sokaktaki ilk ev.",
+      "ru": "Очень хорошо! Теперь иди в чайную. Это первый дом на улице."
+    },
+    {
+      "who": "hero",
+      "es": "Teşekkür ederim!",
+      "ru": "Спасибо!"
+    },
+    {
+      "who": "gatekeeper",
+      "es": "Güle güle, yolcu! Giden kişiye “güle güle” deriz.",
+      "ru": "Пока, путник! Тому, кто уходит, говорят «güle güle»."
+    }
+  ],
+  "mission": [
+    {
+      "say": {
+        "es": "Merhaba! Gel, gel, otur.",
+        "ru": "Привет! Заходи, заходи, садись."
+      },
+      "options": [
+        "Merhaba!",
+        "Güle güle!",
+        "Teşekkür ederim"
+      ],
+      "answer": 0,
+      "wrong": {
+        "es": "Ne? Daha gitmiyorsun ki, yeni geldin.",
+        "ru": "Что? Ты же никуда не уходишь, только пришёл."
+      }
+    },
+    {
+      "say": {
+        "es": "Al, bir bardak çay. Benden olsun.",
+        "ru": "Держи стакан чаю. Угощаю."
+      },
+      "options": [
+        "Güle güle!",
+        "Teşekkür ederim",
+        "Merhaba!"
+      ],
+      "answer": 1,
+      "wrong": {
+        "es": "Sana çay veriyorum… ve sen ne diyorsun?",
+        "ru": "Я даю тебе чай… а ты что скажешь?"
+      }
+    },
+    {
+      "say": {
+        "es": "Neyse, benim çok işim var. Sonra görüşürüz!",
+        "ru": "Ладно, у меня много работы. Потом увидимся!"
+      },
+      "options": [
+        "Teşekkür ederim",
+        "Merhaba!",
+        "Güle güle!"
+      ],
+      "answer": 2,
+      "wrong": {
+        "es": "İşe gidiyorum. Gidene ne denir?",
+        "ru": "Я ухожу работать. Что говорят тому, кто уходит?"
+      }
+    }
+  ],
+  "finale": [
+    {
+      "who": "gatekeeper",
+      "es": "Çok güzel, yolcu! Bak, bir harita parçası.",
+      "ru": "Очень хорошо, путник! Смотри, обрывок карты."
+    },
+    {
+      "who": "gatekeeper",
+      "es": "Bu, Mahzen'e giden yol. Gerisini sana şehir öğretecek.",
+      "ru": "Это путь к Хранилищу. Остальному тебя научит город."
+    }
+  ],
+  "gloss": {
+    "kelime": "слово",
+    "mahzen": "Хранилище",
+    "denir": "говорят",
+    "kapısı": "ворота",
+    "parçası": "обрывок",
+    "yolcu": "путник"
+  }
+}
