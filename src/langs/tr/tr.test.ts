@@ -181,17 +181,20 @@ describe('турецкая Звонница', () => {
   });
 });
 
-describe('слова глав I–II турецкого (задача 18.3)', () => {
+describe('слова глав I–III турецкого (задачи 18.3, 18.6)', () => {
   const dir = (name: string) => join(import.meta.dirname, '..', '..', 'content', 'tr', name);
   const files = <T,>(name: string) =>
     readdirSync(dir(name)).filter((f) => f.endsWith('.json')).sort().map((f) => ({ name: f, data: JSON.parse(readFileSync(join(dir(name), f), 'utf8')) as T }));
   const words = files<LocationWords>('words');
   const scrolls = files<ScrollFile>('scrolls');
 
-  it('20 мест по 12 слов на каждом уровне 1–4, свитки I и II по плану', () => {
+  it('20 мест по 12 слов на каждом уровне 1–4 и 30 на уровне 5, свитки I–III по плану', () => {
     expect(words).toHaveLength(20);
-    for (const { name, data } of words) for (const level of [1, 2, 3, 4]) expect(data.words.filter((w) => w.level === level), `${name} уровень ${level}`).toHaveLength(12);
-    expect(scrolls.map((s) => [s.data.chapter, s.data.words.length])).toEqual([[1, CHAPTERS[0].scroll], [2, CHAPTERS[1].scroll]]);
+    for (const { name, data } of words) {
+      for (const level of [1, 2, 3, 4]) expect(data.words.filter((w) => w.level === level), `${name} уровень ${level}`).toHaveLength(12);
+      expect(data.words.filter((w) => w.level === 5), `${name} уровень 5`).toHaveLength(30);
+    }
+    expect(scrolls.map((s) => [s.data.chapter, s.data.words.length])).toEqual([1, 2, 3].map((ch) => [ch, CHAPTERS[ch - 1].scroll]));
   });
 
   it('проходят проверку слов, свитков и одинаковых переводов без замечаний, рода нет', async () => {
