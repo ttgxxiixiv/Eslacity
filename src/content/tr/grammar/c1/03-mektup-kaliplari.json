@@ -1,0 +1,203 @@
+{
+  "id": "c1.03-mektup-kaliplari",
+  "district": "C1",
+  "order": 3,
+  "title": "Формулы официального письма",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Официальное письмо (dilekçe, resmi yazı) строится по формулам. Начало — **Sayın …,** или адрес: **Belediye Başkanlığına**. Просьба — **…-mAsInI arz/rica ederim**. Конец — **Gereğini bilgilerinize arz ederim** (Прошу принять к сведению и исполнению), **Saygılarımla**. Ссылка на прежнее — **… tarihli yazınız üzerine**."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Часть письма",
+        "Формула",
+        "Перевод"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Обращение",
+            "Sayın Müdür,",
+            "Уважаемый директор,"
+          ]
+        },
+        {
+          "cells": [
+            "Ссылка",
+            "12 Mart tarihli yazınız üzerine",
+            "Ссылаясь на ваше письмо от 12 марта"
+          ]
+        },
+        {
+          "cells": [
+            "Просьба",
+            "… hususunda gereğinin yapılmasını arz ederim.",
+            "Прошу принять меры по …"
+          ]
+        },
+        {
+          "cells": [
+            "Конец",
+            "Saygılarımla,",
+            "С уважением,"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "В дружеском письме этих формул нет: **Sevgili Arda**, **Görüşmek üzere**, **Sevgiler**. Смешение регистров звучит странно: «Sayın Arda, nasılsın?» — так не пишут."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Sayın Müdür, 5 Nisan tarihli yazınız üzerine size yazıyorum.",
+      "ru": "Уважаемый директор, пишу вам в ответ на ваше письмо от 5 апреля."
+    },
+    {
+      "es": "Belgelerin incelenmesini arz ederim.",
+      "ru": "Прошу рассмотреть документы."
+    },
+    {
+      "es": "Gereğini bilgilerinize arz ederim.",
+      "ru": "Прошу принять к сведению и исполнению."
+    },
+    {
+      "es": "Sevgili Arda, mektubun için çok teşekkürler.",
+      "ru": "Дорогой Арда, большое спасибо за письмо."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "c1.03-mektup-kaliplari.1",
+      "kind": "choose",
+      "prompt": "Официальное начало письма директору:",
+      "options": [
+        "Sayın Müdür,",
+        "Sevgili Müdür,",
+        "Selam Müdür,"
+      ],
+      "answer": 0,
+      "explain": "Официально — Sayın."
+    },
+    {
+      "id": "c1.03-mektup-kaliplari.2",
+      "kind": "choose",
+      "prompt": "Официальный конец письма:",
+      "options": [
+        "Saygılarımla,",
+        "Sevgiler,",
+        "Görüşürüz!"
+      ],
+      "answer": 0,
+      "explain": "Saygılarımla — «С уважением»."
+    },
+    {
+      "id": "c1.03-mektup-kaliplari.3",
+      "kind": "gap",
+      "sentence": "Belgelerin incelenmesini ___ ederim.",
+      "ru": "Прошу рассмотреть документы.",
+      "options": [
+        "arz",
+        "rica mı",
+        "söz"
+      ],
+      "answer": 0,
+      "explain": "Формула — arz ederim."
+    },
+    {
+      "id": "c1.03-mektup-kaliplari.4",
+      "kind": "gap",
+      "sentence": "12 Mart tarihli yazınız ___ size yazıyorum.",
+      "ru": "Пишу вам в связи с вашим письмом от 12 марта.",
+      "options": [
+        "üzerine",
+        "için",
+        "ile"
+      ],
+      "answer": 0,
+      "explain": "Ссылка — yazınız üzerine."
+    },
+    {
+      "id": "c1.03-mektup-kaliplari.5",
+      "kind": "truefalse",
+      "statement": "«Gereğini bilgilerinize arz ederim» — формула конца официального письма.",
+      "answer": true,
+      "explain": "Прошу принять к сведению."
+    },
+    {
+      "id": "c1.03-mektup-kaliplari.6",
+      "kind": "truefalse",
+      "statement": "«Sayın Arda, nasılsın?» — обычное начало дружеского письма.",
+      "answer": false,
+      "explain": "Sayın — официально, nasılsın — по-свойски."
+    },
+    {
+      "id": "c1.03-mektup-kaliplari.7",
+      "kind": "truefalse",
+      "statement": "Дружеское письмо можно закончить словом «Sevgiler».",
+      "answer": true,
+      "explain": "Sevgiler — «с любовью»."
+    },
+    {
+      "id": "c1.03-mektup-kaliplari.8",
+      "kind": "build",
+      "ru": "С уважением, Нермин Йылмаз.",
+      "answer": "Saygılarımla Nermin Yılmaz",
+      "extra": [
+        "Sevgiler",
+        "saygı"
+      ],
+      "explain": "Официальная подпись."
+    },
+    {
+      "id": "c1.03-mektup-kaliplari.9",
+      "kind": "type",
+      "sentence": "Konunun incelenmesini ___ ederim.",
+      "ru": "Прошу рассмотреть вопрос.",
+      "hint": "формула просьбы",
+      "answer": "arz",
+      "explain": "Формула просьбы — arz ederim."
+    },
+    {
+      "id": "c1.03-mektup-kaliplari.10",
+      "kind": "register",
+      "source": "Selam, şu belgelere bir bakar mısın?",
+      "to": "formal",
+      "options": [
+        "Ekteki belgelerin incelenmesini arz ederim.",
+        "Belgelere bak işte.",
+        "Belgeler sende mi?"
+      ],
+      "answer": 0,
+      "explain": "Официально: incelenmesini arz ederim."
+    },
+    {
+      "id": "c1.03-mektup-kaliplari.11",
+      "kind": "register",
+      "source": "Sayın Arda Bey, bilgilerinize sunarım.",
+      "to": "informal",
+      "options": [
+        "Arda, haberin olsun!",
+        "Sayın Arda, gereğini arz ederim.",
+        "Arda Bey, saygılarımla."
+      ],
+      "answer": 0,
+      "explain": "По-свойски: haberin olsun."
+    },
+    {
+      "id": "c1.03-mektup-kaliplari.12",
+      "kind": "paraphrase",
+      "sentence": "Gereğini bilgilerinize arz ederim.",
+      "options": [
+        "Прошу принять к сведению и сделать необходимое.",
+        "Я не знаю, что делать.",
+        "Я уже всё сделал сам."
+      ],
+      "answer": 0,
+      "explain": "Это формула официальной просьбы."
+    }
+  ]
+}

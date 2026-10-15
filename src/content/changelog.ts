@@ -7,6 +7,11 @@ export interface Release {
 // Новые версии сверху. Версия первой записи должна совпадать с package.json (проверяется тестом).
 export const CHANGELOG: Release[] = [
   {
+    version: '2.200.0',
+    date: '2026-10-15',
+    notes: ['Турецкий курс (пока закрыт): 300 выражений и 20 уроков C1. У каждого места пары формул «официально — по-свойски», идиомы вроде ağzından kaçırmak и ayvayı yemek и ложный друг: hurma — это финик, kabak — кабачок, sandal — лодка. Уроки — официальное «вы», безличный стиль, формулы письма, порядок слов, -asım geldi, книжные связки и одна мысль в трёх регистрах.'],
+  },
+  {
     version: '2.199.0',
     date: '2026-10-15',
     notes: ['Турецкий курс (пока закрыт): 650 слов главы V. По 25 слов C1 у каждого места, от hasbihal и vefa в чайной до şartlı tahliye и faili meçhul в полиции, и свиток Лабиринта Эха: вежливые формулы (buyurun, rica ederim, estağfurullah), beyefendi, müsaade, kibir, tevazu, laubali, senli benli.'],

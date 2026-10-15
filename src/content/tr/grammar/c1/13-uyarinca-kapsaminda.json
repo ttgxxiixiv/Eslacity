@@ -1,0 +1,196 @@
+{
+  "id": "c1.13-uyarinca-kapsaminda",
+  "district": "C1",
+  "order": 13,
+  "title": "Официальные послелоги: uyarınca, itibaren, kapsamında",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Документный язык держится на послелогах. **-DAn itibaren** — начиная с: **1 Mayıs'tan itibaren**. **uyarınca / -A göre** — согласно: **Yönetmelik uyarınca**. **kapsamında** — в рамках: **Proje kapsamında**. **-A istinaden** — на основании: **Talebinize istinaden**. **hakkında** — о, касательно: **Konu hakkında bilgi**."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Послелог",
+        "Пример",
+        "Перевод"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "itibaren",
+            "Pazartesiden itibaren",
+            "начиная с понедельника"
+          ]
+        },
+        {
+          "cells": [
+            "uyarınca",
+            "Kanun uyarınca",
+            "согласно закону"
+          ]
+        },
+        {
+          "cells": [
+            "kapsamında",
+            "Kampanya kapsamında",
+            "в рамках кампании"
+          ]
+        },
+        {
+          "cells": [
+            "istinaden",
+            "Dilekçenize istinaden",
+            "на основании вашего заявления"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "**itibaren** требует исходного падежа (-dan), **istinaden** — дательного (-a). В разговоре вместо **istinaden** говорят **… üzerine** или **-A göre**."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Yarından itibaren müze sabah dokuzda açılacaktır.",
+      "ru": "С завтрашнего дня музей будет открываться в девять утра."
+    },
+    {
+      "es": "Yönetmelik uyarınca bu alanda sigara içilmez.",
+      "ru": "Согласно регламенту, в этой зоне не курят."
+    },
+    {
+      "es": "Kampanya kapsamında yüz fidan dikildi.",
+      "ru": "В рамках кампании посажено сто саженцев."
+    },
+    {
+      "es": "Dilekçenize istinaden belgeleriniz incelenmiştir.",
+      "ru": "На основании вашего заявления ваши документы рассмотрены."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "c1.13-uyarinca-kapsaminda.1",
+      "kind": "choose",
+      "prompt": "«Начиная с понедельника»:",
+      "options": [
+        "Pazartesiden itibaren",
+        "Pazartesiye itibaren",
+        "Pazartesi itibaren mi"
+      ],
+      "answer": 0,
+      "explain": "itibaren — с исходным падежом."
+    },
+    {
+      "id": "c1.13-uyarinca-kapsaminda.2",
+      "kind": "choose",
+      "prompt": "«На основании вашего заявления»:",
+      "options": [
+        "Dilekçenize istinaden",
+        "Dilekçenizden istinaden",
+        "Dilekçeniz istinaden"
+      ],
+      "answer": 0,
+      "explain": "istinaden — с дательным."
+    },
+    {
+      "id": "c1.13-uyarinca-kapsaminda.3",
+      "kind": "gap",
+      "sentence": "Kanun ___ herkes vergi ödemek zorundadır.",
+      "ru": "Согласно закону, каждый обязан платить налоги.",
+      "options": [
+        "uyarınca",
+        "itibaren",
+        "kapsamı"
+      ],
+      "answer": 0,
+      "explain": "Согласно — uyarınca."
+    },
+    {
+      "id": "c1.13-uyarinca-kapsaminda.4",
+      "kind": "gap",
+      "sentence": "Proje ___ okula yeni bir kütüphane açıldı.",
+      "ru": "В рамках проекта в школе открыли новую библиотеку.",
+      "options": [
+        "kapsamında",
+        "itibaren",
+        "istinaden"
+      ],
+      "answer": 0,
+      "explain": "В рамках — kapsamında."
+    },
+    {
+      "id": "c1.13-uyarinca-kapsaminda.5",
+      "kind": "truefalse",
+      "statement": "itibaren требует исходного падежа: -dan itibaren.",
+      "answer": true,
+      "explain": "Yarından itibaren."
+    },
+    {
+      "id": "c1.13-uyarinca-kapsaminda.6",
+      "kind": "truefalse",
+      "statement": "«istinaden» — разговорное слово.",
+      "answer": false,
+      "explain": "Это книжный документный послелог."
+    },
+    {
+      "id": "c1.13-uyarinca-kapsaminda.7",
+      "kind": "truefalse",
+      "statement": "«Kampanya kapsamında» — «в рамках кампании».",
+      "answer": true,
+      "explain": "kapsamında."
+    },
+    {
+      "id": "c1.13-uyarinca-kapsaminda.8",
+      "kind": "build",
+      "ru": "Начиная с завтрашнего дня, вход бесплатный.",
+      "answer": "Yarından itibaren giriş ücretsizdir",
+      "extra": [
+        "yarına",
+        "ücretli"
+      ],
+      "explain": "itibaren с исходным падежом."
+    },
+    {
+      "id": "c1.13-uyarinca-kapsaminda.9",
+      "kind": "type",
+      "sentence": "Talebinize ___ size yeni bir kart gönderilmiştir.",
+      "ru": "На основании вашего запроса вам отправлена новая карта.",
+      "hint": "на основании",
+      "answer": "istinaden",
+      "explain": "istinaden с дательным."
+    },
+    {
+      "id": "c1.13-uyarinca-kapsaminda.10",
+      "kind": "fix",
+      "sentence": "Önümüzdeki aya itibaren fiyatlar değişecektir.",
+      "ru": "Со следующего месяца цены изменятся.",
+      "wrong": 1,
+      "answer": "aydan",
+      "explain": "itibaren — с исходным падежом."
+    },
+    {
+      "id": "c1.13-uyarinca-kapsaminda.11",
+      "kind": "transform",
+      "source": "Yönetmeliğe göre burada park edilmez.",
+      "keyword": "uyarınca",
+      "ru": "Согласно регламенту, здесь не паркуются.",
+      "answer": "Yönetmelik uyarınca burada park edilmez.",
+      "explain": "-A göre → uyarınca."
+    },
+    {
+      "id": "c1.13-uyarinca-kapsaminda.12",
+      "kind": "register",
+      "source": "Mektubun üzerine sana yeni kart yolladık.",
+      "to": "formal",
+      "options": [
+        "Talebinize istinaden tarafınıza yeni bir kart gönderilmiştir.",
+        "Mektubun geldi, kart yolladık işte.",
+        "Kart mı istedin?"
+      ],
+      "answer": 0,
+      "explain": "Официально: istinaden, tarafınıza, пассив."
+    }
+  ]
+}

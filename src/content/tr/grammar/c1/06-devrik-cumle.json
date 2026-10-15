@@ -1,0 +1,199 @@
+{
+  "id": "c1.06-devrik-cumle",
+  "district": "C1",
+  "order": 6,
+  "title": "Инверсия: глагол не в конце",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "В живой речи и в стихах глагол иногда выносят вперёд — это **devrik cümle**. После глагола остаётся то, что уже известно или добавлено как уточнение: **Gördüm onu dün** — Видел я его вчера. **Gel buraya!** — Иди сюда! **Ne güzel konuştun sen!** — Как хорошо ты сказал!"
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Обычный порядок",
+        "Инверсия",
+        "Оттенок"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Onu dün gördüm.",
+            "Gördüm onu dün.",
+            "живой рассказ"
+          ]
+        },
+        {
+          "cells": [
+            "Buraya gel!",
+            "Gel buraya!",
+            "приказ, нетерпение"
+          ]
+        },
+        {
+          "cells": [
+            "Sen ne güzel konuştun!",
+            "Ne güzel konuştun sen!",
+            "восхищение"
+          ]
+        },
+        {
+          "cells": [
+            "Bunu bilmiyorum.",
+            "Bilmiyorum bunu.",
+            "досада"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "В официальном письме инверсия звучит неуместно: «Arz ederim gereğini» не пишут. Это средство разговора, песни и стиха: **Yine geldi bahar** — Снова пришла весна."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Gördüm onu, kuzgunla konuşuyordu.",
+      "ru": "Видел я его: он разговаривал с вороной."
+    },
+    {
+      "es": "Gel otur yanıma!",
+      "ru": "Иди садись рядом со мной!"
+    },
+    {
+      "es": "Ne güzel söyledin sen!",
+      "ru": "Как хорошо ты сказал!"
+    },
+    {
+      "es": "Bilmiyorum ben, kimseye sorma.",
+      "ru": "Не знаю я, никого не спрашивай."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "c1.06-devrik-cumle.1",
+      "kind": "choose",
+      "prompt": "Где инверсия?",
+      "options": [
+        "Gördüm onu dün.",
+        "Onu dün gördüm.",
+        "Dün onu gördüm."
+      ],
+      "answer": 0,
+      "explain": "Глагол вынесен вперёд."
+    },
+    {
+      "id": "c1.06-devrik-cumle.2",
+      "kind": "choose",
+      "prompt": "В каком тексте инверсия уместна?",
+      "options": [
+        "в песне и живом разговоре",
+        "в официальном письме",
+        "в договоре"
+      ],
+      "answer": 0,
+      "explain": "Это средство разговора и стиха."
+    },
+    {
+      "id": "c1.06-devrik-cumle.3",
+      "kind": "gap",
+      "sentence": "___ buraya, sana bir şey göstereceğim!",
+      "ru": "Иди сюда, я тебе кое-что покажу!",
+      "options": [
+        "Gel",
+        "Gelmek",
+        "Gelen"
+      ],
+      "answer": 0,
+      "explain": "Приказ с инверсией — Gel buraya."
+    },
+    {
+      "id": "c1.06-devrik-cumle.4",
+      "kind": "gap",
+      "sentence": "Ne güzel ___ sen!",
+      "ru": "Как хорошо ты пел!",
+      "options": [
+        "söyledin",
+        "söyledi",
+        "söylemek"
+      ],
+      "answer": 0,
+      "explain": "Ты — söyledin."
+    },
+    {
+      "id": "c1.06-devrik-cumle.5",
+      "kind": "truefalse",
+      "statement": "Devrik cümle — предложение, где глагол стоит не в конце.",
+      "answer": true,
+      "explain": "Gördüm onu."
+    },
+    {
+      "id": "c1.06-devrik-cumle.6",
+      "kind": "truefalse",
+      "statement": "В официальном письме инверсия звучит особенно вежливо.",
+      "answer": false,
+      "explain": "Она разговорная и неуместна в письме."
+    },
+    {
+      "id": "c1.06-devrik-cumle.7",
+      "kind": "truefalse",
+      "statement": "«Yine geldi bahar» — инверсия, типичная для песни.",
+      "answer": true,
+      "explain": "Глагол перед подлежащим."
+    },
+    {
+      "id": "c1.06-devrik-cumle.8",
+      "kind": "build",
+      "ru": "Видел я его вчера в парке.",
+      "answer": "Gördüm onu dün parkta",
+      "extra": [
+        "gördü",
+        "onun"
+      ],
+      "explain": "Глагол вперёд, остальное после."
+    },
+    {
+      "id": "c1.06-devrik-cumle.9",
+      "kind": "type",
+      "sentence": "Bilmiyorum ___, bana sorma!",
+      "ru": "Не знаю я, не спрашивай меня!",
+      "hint": "я",
+      "answer": "ben",
+      "explain": "Подлежащее после глагола."
+    },
+    {
+      "id": "c1.06-devrik-cumle.10",
+      "kind": "register",
+      "source": "Gördüm onu, vallahi gördüm!",
+      "to": "formal",
+      "options": [
+        "Kendisini gördüğümü beyan ederim.",
+        "Gördüm onu işte.",
+        "Onu görmedim ki."
+      ],
+      "answer": 0,
+      "explain": "Официально — без инверсии: gördüğümü beyan ederim."
+    },
+    {
+      "id": "c1.06-devrik-cumle.11",
+      "kind": "transform",
+      "source": "Onu dün gördüm.",
+      "keyword": "Gördüm",
+      "ru": "Видел я его вчера (живой рассказ).",
+      "answer": "Gördüm onu dün.",
+      "explain": "Инверсия: глагол вперёд."
+    },
+    {
+      "id": "c1.06-devrik-cumle.12",
+      "kind": "paraphrase",
+      "sentence": "Bilmiyorum bunu!",
+      "options": [
+        "Говорящий с досадой подчёркивает, что не знает.",
+        "Говорящий знает и сейчас расскажет.",
+        "Говорящий спрашивает, знают ли другие."
+      ],
+      "answer": 0,
+      "explain": "Инверсия передаёт досаду."
+    }
+  ]
+}

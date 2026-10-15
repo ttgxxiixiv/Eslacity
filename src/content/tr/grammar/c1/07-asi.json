@@ -1,0 +1,195 @@
+{
+  "id": "c1.07-asi",
+  "district": "C1",
+  "order": 7,
+  "title": "Редкая форма -(y)AsI: «так и хочется», «чтоб ему»",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Форма **-(y)AsI** (gidesi, göresi) — старая и выразительная. **-(y)AsI gelmek** — «захотелось»: **Onu göresim geldi** — Мне захотелось его увидеть. В проклятиях и восклицаниях: **Kahrolası!** — Проклятый! **Yerin dibine geçesim geldi** — Мне хотелось провалиться сквозь землю."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Лицо",
+        "görmek",
+        "gitmek"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "ben",
+            "göresim geldi",
+            "gidesim geldi"
+          ]
+        },
+        {
+          "cells": [
+            "sen",
+            "göresin geldi",
+            "gidesin geldi"
+          ]
+        },
+        {
+          "cells": [
+            "o",
+            "göresi geldi",
+            "gidesi geldi"
+          ]
+        },
+        {
+          "cells": [
+            "biz",
+            "göresimiz geldi",
+            "gidesimiz geldi"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "**-(y)AsI gelmek** — внезапное желание, сильнее, чем **istemek**: **Ağlayasım geldi** — Мне захотелось плакать. В отрицании: **Hiç çalışasım yok** — Совсем нет желания работать."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Denizi göresim geldi.",
+      "ru": "Мне захотелось увидеть море."
+    },
+    {
+      "es": "Utançtan yerin dibine geçesim geldi.",
+      "ru": "От стыда хотелось провалиться сквозь землю."
+    },
+    {
+      "es": "Bugün hiç çalışasım yok.",
+      "ru": "Сегодня совсем нет желания работать."
+    },
+    {
+      "es": "Kahrolası sis yine geldi!",
+      "ru": "Проклятый туман опять пришёл!"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "c1.07-asi.1",
+      "kind": "choose",
+      "prompt": "«Мне захотелось плакать»:",
+      "options": [
+        "Ağlayasım geldi.",
+        "Ağlamak geldi.",
+        "Ağladığım geldi."
+      ],
+      "answer": 0,
+      "explain": "-(y)AsI + gelmek."
+    },
+    {
+      "id": "c1.07-asi.2",
+      "kind": "choose",
+      "prompt": "«Совсем нет желания работать»:",
+      "options": [
+        "Hiç çalışasım yok.",
+        "Hiç çalışmıyorum yok.",
+        "Hiç çalışasım geldi."
+      ],
+      "answer": 0,
+      "explain": "Отрицание — -AsIm yok."
+    },
+    {
+      "id": "c1.07-asi.3",
+      "kind": "gap",
+      "sentence": "Annemi ___ geldi.",
+      "ru": "Мне захотелось увидеть маму.",
+      "options": [
+        "göresim",
+        "görmem",
+        "gördüğüm"
+      ],
+      "answer": 0,
+      "explain": "Я — göresim."
+    },
+    {
+      "id": "c1.07-asi.4",
+      "kind": "gap",
+      "sentence": "Bu sözlerden sonra yerin dibine ___ geldi.",
+      "ru": "После этих слов ему хотелось провалиться сквозь землю.",
+      "options": [
+        "geçesi",
+        "geçmesi",
+        "geçtiği"
+      ],
+      "answer": 0,
+      "explain": "Он — geçesi."
+    },
+    {
+      "id": "c1.07-asi.5",
+      "kind": "truefalse",
+      "statement": "-(y)AsI gelmek выражает внезапное сильное желание.",
+      "answer": true,
+      "explain": "göresim geldi."
+    },
+    {
+      "id": "c1.07-asi.6",
+      "kind": "truefalse",
+      "statement": "«Kahrolası!» — вежливая формула благодарности.",
+      "answer": false,
+      "explain": "Это ругательство: «Проклятый!»."
+    },
+    {
+      "id": "c1.07-asi.7",
+      "kind": "truefalse",
+      "statement": "«Gidesimiz geldi» — «Нам захотелось уйти».",
+      "answer": true,
+      "explain": "biz — gidesimiz."
+    },
+    {
+      "id": "c1.07-asi.8",
+      "kind": "build",
+      "ru": "Мне захотелось увидеть море.",
+      "answer": "Denizi göresim geldi",
+      "extra": [
+        "görmek",
+        "denize"
+      ],
+      "explain": "Желание — göresim geldi."
+    },
+    {
+      "id": "c1.07-asi.9",
+      "kind": "type",
+      "sentence": "Bu güzel havada ___ geldi.",
+      "ru": "В такую хорошую погоду мне захотелось погулять.",
+      "hint": "gezmek, я",
+      "answer": "gezesim",
+      "explain": "gez + esi + m."
+    },
+    {
+      "id": "c1.07-asi.10",
+      "kind": "fix",
+      "sentence": "Bugün hiç çalışasın yok, dinleneceğim.",
+      "ru": "Сегодня у меня совсем нет желания работать, отдохну.",
+      "wrong": 2,
+      "answer": "çalışasım",
+      "explain": "Я — çalışasım."
+    },
+    {
+      "id": "c1.07-asi.11",
+      "kind": "transform",
+      "source": "Birden onu görmek istedim.",
+      "keyword": "göresim",
+      "ru": "Мне вдруг захотелось его увидеть.",
+      "answer": "Birden onu göresim geldi.",
+      "explain": "istemek → -AsIm geldi."
+    },
+    {
+      "id": "c1.07-asi.12",
+      "kind": "paraphrase",
+      "sentence": "Ağlayasım geldi.",
+      "options": [
+        "Мне вдруг захотелось заплакать.",
+        "Я долго плакал.",
+        "Я никогда не плачу."
+      ],
+      "answer": 0,
+      "explain": "-AsI gelmek — внезапное желание."
+    }
+  ]
+}

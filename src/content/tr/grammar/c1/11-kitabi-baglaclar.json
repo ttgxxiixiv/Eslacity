@@ -1,0 +1,203 @@
+{
+  "id": "c1.11-kitabi-baglaclar",
+  "district": "C1",
+  "order": 11,
+  "title": "Книжные связки: oysa, halbuki, nitekim, zira",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "В письменной речи связки длиннее разговорных. **oysa / halbuki** — «а ведь, тогда как» (противопоставление ожиданию): **Herkes onu suçladı, oysa o masumdu**. **nitekim** — «и действительно, как и ожидалось»: **Fırtına uyarısı vardı; nitekim seferler iptal edildi**. **zira** — книжное «ибо, так как»: **Erken çıktık, zira yol uzundu**."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Разговорно",
+        "Книжно",
+        "Смысл"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "ama",
+            "oysa, halbuki",
+            "а ведь, тогда как"
+          ]
+        },
+        {
+          "cells": [
+            "çünkü",
+            "zira",
+            "ибо"
+          ]
+        },
+        {
+          "cells": [
+            "gerçekten de",
+            "nitekim",
+            "и действительно"
+          ]
+        },
+        {
+          "cells": [
+            "bu yüzden",
+            "dolayısıyla",
+            "следовательно"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "**halbuki** и **oysa** почти равны; **zira** стоит в начале второй части, как **çünkü**. **dolayısıyla** — «следовательно»: **Kanıt yok; dolayısıyla dava düştü**."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Herkes Orhan'ı suçladı, oysa o sadece korkmuştu.",
+      "ru": "Все винили Орхана, а ведь он просто боялся."
+    },
+    {
+      "es": "Fırtına uyarısı yapılmıştı; nitekim vapurlar kalkmadı.",
+      "ru": "Было штормовое предупреждение, и действительно, паромы не вышли."
+    },
+    {
+      "es": "Erken yola çıktık, zira labirent çok uzundu.",
+      "ru": "Мы вышли рано, ибо Лабиринт был очень длинным."
+    },
+    {
+      "es": "Kanıt bulunamadı; dolayısıyla dava kapandı.",
+      "ru": "Доказательств не нашли, следовательно, дело закрыли."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "c1.11-kitabi-baglaclar.1",
+      "kind": "choose",
+      "prompt": "Книжное «ибо»:",
+      "options": [
+        "zira",
+        "ama",
+        "yani"
+      ],
+      "answer": 0,
+      "explain": "zira = çünkü."
+    },
+    {
+      "id": "c1.11-kitabi-baglaclar.2",
+      "kind": "choose",
+      "prompt": "«Все думали, что он виноват, а ведь он был невиновен»:",
+      "options": [
+        "Herkes onu suçlu sandı, halbuki masumdu.",
+        "Herkes onu suçlu sandı, zira masumdu.",
+        "Herkes onu suçlu sandı, nitekim masumdu."
+      ],
+      "answer": 0,
+      "explain": "Противопоставление — halbuki."
+    },
+    {
+      "id": "c1.11-kitabi-baglaclar.3",
+      "kind": "gap",
+      "sentence": "Doktor dinlenmesini söylemişti; ___ hasta iki günde iyileşti.",
+      "ru": "Врач велел отдыхать, и действительно, больной поправился за два дня.",
+      "options": [
+        "nitekim",
+        "oysa",
+        "zira"
+      ],
+      "answer": 0,
+      "explain": "Подтверждение ожидания — nitekim."
+    },
+    {
+      "id": "c1.11-kitabi-baglaclar.4",
+      "kind": "gap",
+      "sentence": "Toplantıya katılamadım, ___ hastaydım.",
+      "ru": "Я не смог прийти на собрание, ибо был болен.",
+      "options": [
+        "zira",
+        "oysa",
+        "nitekim"
+      ],
+      "answer": 0,
+      "explain": "Причина — zira."
+    },
+    {
+      "id": "c1.11-kitabi-baglaclar.5",
+      "kind": "truefalse",
+      "statement": "oysa и halbuki противопоставляют сказанное ожиданию.",
+      "answer": true,
+      "explain": "«а ведь»."
+    },
+    {
+      "id": "c1.11-kitabi-baglaclar.6",
+      "kind": "truefalse",
+      "statement": "nitekim значит «однако, вопреки ожиданию».",
+      "answer": false,
+      "explain": "nitekim — «и действительно, как и ожидалось»."
+    },
+    {
+      "id": "c1.11-kitabi-baglaclar.7",
+      "kind": "truefalse",
+      "statement": "dolayısıyla — книжное «следовательно».",
+      "answer": true,
+      "explain": "Kanıt yok; dolayısıyla…"
+    },
+    {
+      "id": "c1.11-kitabi-baglaclar.8",
+      "kind": "build",
+      "ru": "Мы вышли рано, ибо дорога была длинной.",
+      "answer": "Erken çıktık zira yol uzundu",
+      "extra": [
+        "oysa",
+        "çıktı"
+      ],
+      "explain": "zira — причина."
+    },
+    {
+      "id": "c1.11-kitabi-baglaclar.9",
+      "kind": "type",
+      "sentence": "Herkes onu cimri sanıyor, ___ çok cömert biridir.",
+      "ru": "Все считают его скупым, а ведь он очень щедрый человек.",
+      "hint": "а ведь",
+      "answer": "oysa",
+      "alt": [
+        "halbuki"
+      ],
+      "explain": "Противопоставление — oysa."
+    },
+    {
+      "id": "c1.11-kitabi-baglaclar.10",
+      "kind": "combine",
+      "first": "Kanıt bulunamadı.",
+      "second": "Dava kapandı.",
+      "connector": "dolayısıyla",
+      "ru": "Доказательств не нашли, следовательно, дело закрыли.",
+      "answer": "Kanıt bulunamadı; dolayısıyla dava kapandı.",
+      "alt": [
+        "Kanıt bulunamadı, dolayısıyla dava kapandı."
+      ],
+      "explain": "Следствие — dolayısıyla."
+    },
+    {
+      "id": "c1.11-kitabi-baglaclar.11",
+      "kind": "register",
+      "source": "Gelemedim çünkü hastaydım.",
+      "to": "formal",
+      "options": [
+        "Rahatsızlığım nedeniyle katılamadım, zira raporluydum.",
+        "Gelemedim ya, hastaydım işte.",
+        "Hasta mıydım, gelemedim mi?"
+      ],
+      "answer": 0,
+      "explain": "Официально: zira, nedeniyle."
+    },
+    {
+      "id": "c1.11-kitabi-baglaclar.12",
+      "kind": "fix",
+      "sentence": "Seferler iptal edildi, zira fırtına uyarısı yapılmıştı; oysa vapurlar kalkmadı.",
+      "ru": "Рейсы отменили, так как было штормовое предупреждение; и действительно, паромы не вышли.",
+      "wrong": 7,
+      "answer": "nitekim",
+      "explain": "Подтверждение — nitekim, а не противопоставление."
+    }
+  ]
+}

@@ -1,0 +1,201 @@
+{
+  "id": "c1.16-tahmin-dereceleri",
+  "district": "C1",
+  "order": 16,
+  "title": "Насколько уверен: kesin, muhtemelen, galiba, belki",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Уверенность передают словом и формой вместе. **Kesin gelir** — Точно придёт. **Muhtemelen gelir / gelecektir** — Вероятно, придёт. **Galiba geldi** — Кажется, пришёл. **Belki gelir** — Может быть, придёт. О прошлом догадка — **-mIş olmalı** (B2) или книжное **-mIştIr**: **Yolu kaybetmiştir** — Он, наверное, заблудился."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Слово",
+        "Уверенность",
+        "Пример"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "kesin, mutlaka",
+            "почти 100%",
+            "Kesin bilir."
+          ]
+        },
+        {
+          "cells": [
+            "muhtemelen",
+            "высокая",
+            "Muhtemelen yetişir."
+          ]
+        },
+        {
+          "cells": [
+            "galiba, herhalde",
+            "средняя",
+            "Galiba unuttu."
+          ]
+        },
+        {
+          "cells": [
+            "belki",
+            "низкая",
+            "Belki gelir."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "**herhalde** в разговоре часто значит «конечно же»: **— Gelecek misin? — Herhalde!** — «Ну конечно!». **galiba** обычно с прошедшим или настоящим: **Galiba yağmur yağıyor**."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Kuzgun muhtemelen ormana uçmuştur.",
+      "ru": "Ворона, вероятно, улетела в лес."
+    },
+    {
+      "es": "Galiba Orhan bize bir şey söylemek istiyor.",
+      "ru": "Кажется, Орхан хочет нам что-то сказать."
+    },
+    {
+      "es": "Belki labirentin bir çıkışı vardır.",
+      "ru": "Может быть, у Лабиринта есть выход."
+    },
+    {
+      "es": "Arda yolu kesin biliyordur.",
+      "ru": "Арда точно знает дорогу."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "c1.16-tahmin-dereceleri.1",
+      "kind": "choose",
+      "prompt": "Самое уверенное:",
+      "options": [
+        "Kesin gelir.",
+        "Belki gelir.",
+        "Galiba gelir."
+      ],
+      "answer": 0,
+      "explain": "kesin — почти наверняка."
+    },
+    {
+      "id": "c1.16-tahmin-dereceleri.2",
+      "kind": "choose",
+      "prompt": "«— Ты придёшь? — Ну конечно!»:",
+      "options": [
+        "Herhalde!",
+        "Belki.",
+        "Galiba hayır."
+      ],
+      "answer": 0,
+      "explain": "herhalde в ответе — «конечно»."
+    },
+    {
+      "id": "c1.16-tahmin-dereceleri.3",
+      "kind": "gap",
+      "sentence": "___ yağmur yağacak, gökyüzü kapkara.",
+      "ru": "Наверняка будет дождь, небо совсем чёрное.",
+      "options": [
+        "Muhtemelen",
+        "Belki de değil",
+        "Hiç"
+      ],
+      "answer": 0,
+      "explain": "Высокая вероятность — muhtemelen."
+    },
+    {
+      "id": "c1.16-tahmin-dereceleri.4",
+      "kind": "gap",
+      "sentence": "Telefonu açmıyor, ___ uyuyor.",
+      "ru": "Не берёт трубку, наверное, спит.",
+      "options": [
+        "galiba",
+        "kesinlikle hiç",
+        "asla"
+      ],
+      "answer": 0,
+      "explain": "Догадка — galiba."
+    },
+    {
+      "id": "c1.16-tahmin-dereceleri.5",
+      "kind": "truefalse",
+      "statement": "belki выражает меньшую уверенность, чем muhtemelen.",
+      "answer": true,
+      "explain": "belki — может быть."
+    },
+    {
+      "id": "c1.16-tahmin-dereceleri.6",
+      "kind": "truefalse",
+      "statement": "«Yolu kaybetmiştir» — точное знание о прошлом.",
+      "answer": false,
+      "explain": "-mIştIr здесь — догадка: наверное, заблудился."
+    },
+    {
+      "id": "c1.16-tahmin-dereceleri.7",
+      "kind": "truefalse",
+      "statement": "herhalde в ответе может значить «конечно же».",
+      "answer": true,
+      "explain": "— Gelecek misin? — Herhalde!"
+    },
+    {
+      "id": "c1.16-tahmin-dereceleri.8",
+      "kind": "build",
+      "ru": "Кажется, он забыл ключи.",
+      "answer": "Galiba anahtarlarını unuttu",
+      "extra": [
+        "kesin",
+        "unutmak"
+      ],
+      "explain": "galiba — догадка."
+    },
+    {
+      "id": "c1.16-tahmin-dereceleri.9",
+      "kind": "type",
+      "sentence": "Saat on oldu, Can şimdiye kadar ___.",
+      "ru": "Уже десять, Джан, наверное, уже приехал.",
+      "hint": "gelmek, догадка о прошлом",
+      "answer": "gelmiştir",
+      "alt": [
+        "gelmiş olmalı"
+      ],
+      "explain": "gel + miş + tir — догадка."
+    },
+    {
+      "id": "c1.16-tahmin-dereceleri.10",
+      "kind": "transform",
+      "source": "Herhalde yolu kaybetti.",
+      "keyword": "kaybetmiştir",
+      "ru": "Он, наверное, заблудился (книжно).",
+      "answer": "Yolu kaybetmiştir.",
+      "alt": [
+        "Herhalde yolu kaybetmiştir."
+      ],
+      "explain": "Догадка — -mIştIr."
+    },
+    {
+      "id": "c1.16-tahmin-dereceleri.11",
+      "kind": "paraphrase",
+      "sentence": "Muhtemelen yetişir.",
+      "options": [
+        "Скорее всего, успеет.",
+        "Точно не успеет.",
+        "Уже успел."
+      ],
+      "answer": 0,
+      "explain": "muhtemelen — вероятно."
+    },
+    {
+      "id": "c1.16-tahmin-dereceleri.12",
+      "kind": "fix",
+      "sentence": "Kesin gelir, ama emin değilim.",
+      "ru": "Может быть, придёт, но я не уверен.",
+      "wrong": 0,
+      "answer": "Belki",
+      "explain": "С «не уверен» — belki."
+    }
+  ]
+}

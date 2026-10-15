@@ -1,0 +1,195 @@
+{
+  "id": "c1.04-dir-kesinlik",
+  "district": "C1",
+  "order": 4,
+  "title": "Частица -DIr: уверенность и официальность",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "**-DIr** после сказуемого делает высказывание общим, уверенным или официальным: **Sigara sağlığa zararlıdır** — Курение вредно (общая истина). **Toplantı saat onda başlayacaktır** — Собрание начнётся в десять (объявление). В разговоре **-DIr** — предположение: **Yorgundur** — Наверное, он устал."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Форма",
+        "Значение",
+        "Перевод"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Su 100 derecede kaynar.",
+            "общая истина",
+            "Вода кипит при 100 градусах."
+          ]
+        },
+        {
+          "cells": [
+            "Sergi pazartesi açılacaktır.",
+            "объявление",
+            "Выставка откроется в понедельник."
+          ]
+        },
+        {
+          "cells": [
+            "Şimdi evdedir.",
+            "предположение",
+            "Сейчас он, наверное, дома."
+          ]
+        },
+        {
+          "cells": [
+            "Bu kural herkes için geçerlidir.",
+            "правило",
+            "Это правило действует для всех."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Различает смысл контекст: в законе и объявлении **-DIr** — уверенность, в разговоре о другом человеке — догадка. Со 2-м лицом в догадке: **Yorulmuşsundur** — Ты, наверное, устал."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Herkesin söz hakkı vardır.",
+      "ru": "У каждого есть право голоса."
+    },
+    {
+      "es": "Kütüphane hafta sonu kapalıdır.",
+      "ru": "По выходным библиотека закрыта."
+    },
+    {
+      "es": "Orhan şimdi Nermin Hanım'ın evindedir.",
+      "ru": "Орхан сейчас, наверное, у Нермин-ханым."
+    },
+    {
+      "es": "Uzun yoldan geldiniz, acıkmışsınızdır.",
+      "ru": "Вы с дальней дороги, наверное, проголодались."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "c1.04-dir-kesinlik.1",
+      "kind": "choose",
+      "prompt": "Объявление «Выставка откроется в понедельник»:",
+      "options": [
+        "Sergi pazartesi açılacaktır.",
+        "Sergi pazartesi açılsın.",
+        "Sergi pazartesi açılıyor mu?"
+      ],
+      "answer": 0,
+      "explain": "Объявление — -AcAktIr."
+    },
+    {
+      "id": "c1.04-dir-kesinlik.2",
+      "kind": "choose",
+      "prompt": "«Ты, наверное, устал»:",
+      "options": [
+        "Yorulmuşsundur.",
+        "Yoruldun mu?",
+        "Yorulacaksın."
+      ],
+      "answer": 0,
+      "explain": "Догадка — -mIşsIndIr."
+    },
+    {
+      "id": "c1.04-dir-kesinlik.3",
+      "kind": "gap",
+      "sentence": "Bu kural herkes için ___.",
+      "ru": "Это правило действует для всех.",
+      "options": [
+        "geçerlidir",
+        "geçerli mi",
+        "geçersin"
+      ],
+      "answer": 0,
+      "explain": "Правило — -DIr."
+    },
+    {
+      "id": "c1.04-dir-kesinlik.4",
+      "kind": "gap",
+      "sentence": "Saat dokuz, Kemal Usta şimdi ___.",
+      "ru": "Девять часов, Кемаль-уста сейчас, наверное, на кухне.",
+      "options": [
+        "mutfaktadır",
+        "mutfakta mı",
+        "mutfağa"
+      ],
+      "answer": 0,
+      "explain": "Догадка — -DIr."
+    },
+    {
+      "id": "c1.04-dir-kesinlik.5",
+      "kind": "truefalse",
+      "statement": "В законе -DIr выражает уверенность и обязательность.",
+      "answer": true,
+      "explain": "Herkesin hakkı vardır."
+    },
+    {
+      "id": "c1.04-dir-kesinlik.6",
+      "kind": "truefalse",
+      "statement": "«Evdedir» в разговоре о соседе может значить «наверное, он дома».",
+      "answer": true,
+      "explain": "-DIr — предположение."
+    },
+    {
+      "id": "c1.04-dir-kesinlik.7",
+      "kind": "truefalse",
+      "statement": "-DIr ставят только после глаголов в прошедшем времени.",
+      "answer": false,
+      "explain": "И после имени: hastadır, evdedir."
+    },
+    {
+      "id": "c1.04-dir-kesinlik.8",
+      "kind": "build",
+      "ru": "Собрание начнётся в десять часов.",
+      "answer": "Toplantı saat onda başlayacaktır",
+      "extra": [
+        "başladı",
+        "toplantıyı"
+      ],
+      "explain": "Объявление — -AcAktIr."
+    },
+    {
+      "id": "c1.04-dir-kesinlik.9",
+      "kind": "type",
+      "sentence": "Uzun yoldan geldin, çok ___.",
+      "ru": "Ты с дальней дороги, наверное, очень устал.",
+      "hint": "yorulmak, ты, догадка",
+      "answer": "yorulmuşsundur",
+      "explain": "yorul + muş + sun + dur."
+    },
+    {
+      "id": "c1.04-dir-kesinlik.10",
+      "kind": "fix",
+      "sentence": "Kütüphane hafta sonları kapalıyız.",
+      "ru": "По выходным библиотека закрыта.",
+      "wrong": 3,
+      "answer": "kapalıdır",
+      "explain": "О библиотеке — 3-е лицо, официально: kapalıdır."
+    },
+    {
+      "id": "c1.04-dir-kesinlik.11",
+      "kind": "transform",
+      "source": "Toplantı yarın onda başlayacak.",
+      "keyword": "başlayacaktır",
+      "ru": "Собрание начнётся завтра в десять (объявление).",
+      "answer": "Toplantı yarın onda başlayacaktır.",
+      "explain": "Официальность — -DIr."
+    },
+    {
+      "id": "c1.04-dir-kesinlik.12",
+      "kind": "paraphrase",
+      "sentence": "Şimdi evdedir.",
+      "options": [
+        "Сейчас он, наверное, дома.",
+        "Сейчас он точно не дома.",
+        "Сейчас он идёт домой."
+      ],
+      "answer": 0,
+      "explain": "-DIr в разговоре — догадка."
+    }
+  ]
+}

@@ -1,0 +1,196 @@
+{
+  "id": "c1.02-edilgen-resmi",
+  "district": "C1",
+  "order": 2,
+  "title": "Безличный стиль: -(I)lIr и -mAktAdIr",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Официальные тексты избегают «я» и «вы»: действие подают безличным пассивом. **Başvurular cuma gününe kadar kabul edilir** — Заявления принимаются до пятницы. **Toplantı ertelenmiştir** — Собрание перенесено. Для длящегося состояния — книжное **-mAktAdIr**: **Çalışmalar sürmektedir** — Работы продолжаются."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Разговорно",
+        "Официально",
+        "Перевод"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Başvuruları cumaya kadar alıyoruz.",
+            "Başvurular cumaya kadar alınır.",
+            "Заявления принимаются до пятницы."
+          ]
+        },
+        {
+          "cells": [
+            "Toplantıyı erteledik.",
+            "Toplantı ertelenmiştir.",
+            "Собрание перенесено."
+          ]
+        },
+        {
+          "cells": [
+            "Hâlâ çalışıyoruz.",
+            "Çalışmalar sürmektedir.",
+            "Работы продолжаются."
+          ]
+        },
+        {
+          "cells": [
+            "Burada sigara içemezsiniz.",
+            "Burada sigara içilmez.",
+            "Здесь не курят."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "**-mIştIr** в объявлении — свершившийся факт: **Yol trafiğe kapatılmıştır** — Дорога закрыта для движения. Действующее лицо, если нужно, — **tarafından**: **Belediye tarafından onaylanmıştır** — Утверждено мэрией."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Seferler hava koşulları nedeniyle iptal edilmiştir.",
+      "ru": "Рейсы отменены из-за погодных условий."
+    },
+    {
+      "es": "Kayıp eşyalar danışmaya teslim edilir.",
+      "ru": "Потерянные вещи сдаются в справочное."
+    },
+    {
+      "es": "Ormandaki çalışmalar sürmektedir.",
+      "ru": "Работы в лесу продолжаются."
+    },
+    {
+      "es": "Karar yönetim kurulu tarafından alınmıştır.",
+      "ru": "Решение принято правлением."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "c1.02-edilgen-resmi.1",
+      "kind": "choose",
+      "prompt": "Официально: «Собрание перенесено»:",
+      "options": [
+        "Toplantı ertelenmiştir.",
+        "Toplantıyı erteledik ya.",
+        "Toplantı erteledi."
+      ],
+      "answer": 0,
+      "explain": "Пассив + -mIştIr."
+    },
+    {
+      "id": "c1.02-edilgen-resmi.2",
+      "kind": "choose",
+      "prompt": "Книжное «Работы продолжаются»:",
+      "options": [
+        "Çalışmalar sürmektedir.",
+        "Çalışıyoruz hâlâ.",
+        "Çalışmalar sürsün."
+      ],
+      "answer": 0,
+      "explain": "-mAktAdIr — длящееся состояние."
+    },
+    {
+      "id": "c1.02-edilgen-resmi.3",
+      "kind": "gap",
+      "sentence": "Başvurular e-posta ile ___.",
+      "ru": "Заявления принимаются по электронной почте.",
+      "options": [
+        "alınır",
+        "alır",
+        "alırız"
+      ],
+      "answer": 0,
+      "explain": "Безличный пассив — alınır."
+    },
+    {
+      "id": "c1.02-edilgen-resmi.4",
+      "kind": "gap",
+      "sentence": "Proje belediye ___ onaylanmıştır.",
+      "ru": "Проект утверждён мэрией.",
+      "options": [
+        "tarafından",
+        "için",
+        "ile"
+      ],
+      "answer": 0,
+      "explain": "Действующее лицо в пассиве — tarafından."
+    },
+    {
+      "id": "c1.02-edilgen-resmi.5",
+      "kind": "truefalse",
+      "statement": "В официальном объявлении действие часто подаётся пассивом без «мы».",
+      "answer": true,
+      "explain": "Toplantı ertelenmiştir."
+    },
+    {
+      "id": "c1.02-edilgen-resmi.6",
+      "kind": "truefalse",
+      "statement": "«Çalışmalar sürmektedir» — разговорная форма.",
+      "answer": false,
+      "explain": "-mAktAdIr — книжная форма."
+    },
+    {
+      "id": "c1.02-edilgen-resmi.7",
+      "kind": "truefalse",
+      "statement": "«Yol kapatılmıştır» сообщает о свершившемся факте.",
+      "answer": true,
+      "explain": "-mIştIr в объявлении."
+    },
+    {
+      "id": "c1.02-edilgen-resmi.8",
+      "kind": "build",
+      "ru": "Дорога закрыта для движения.",
+      "answer": "Yol trafiğe kapatılmıştır",
+      "extra": [
+        "kapattık",
+        "yolu"
+      ],
+      "explain": "Пассив + -mIştIr."
+    },
+    {
+      "id": "c1.02-edilgen-resmi.9",
+      "kind": "type",
+      "sentence": "Ziyaret saatleri değiştirilmiştir; yeni saatler panoda ___.",
+      "ru": "Часы посещений изменены; новое расписание вывешено на доске.",
+      "hint": "duyurmak, пассив, -mIştIr",
+      "answer": "duyurulmuştur",
+      "explain": "duyur + ul + muş + tur."
+    },
+    {
+      "id": "c1.02-edilgen-resmi.10",
+      "kind": "fix",
+      "sentence": "Başvurular cuma gününe kadar kabul ederiz.",
+      "ru": "Заявления принимаются до пятницы.",
+      "wrong": 5,
+      "answer": "edilir",
+      "explain": "Безличный пассив — kabul edilir."
+    },
+    {
+      "id": "c1.02-edilgen-resmi.11",
+      "kind": "transform",
+      "source": "Yarın toplantıyı yapacağız.",
+      "keyword": "yapılacaktır",
+      "ru": "Собрание состоится завтра.",
+      "answer": "Toplantı yarın yapılacaktır.",
+      "explain": "Пассив + -AcAktIr."
+    },
+    {
+      "id": "c1.02-edilgen-resmi.12",
+      "kind": "register",
+      "source": "Hâlâ ormanda çalışıyoruz, bitmedi.",
+      "to": "formal",
+      "options": [
+        "Ormandaki çalışmalar sürmektedir.",
+        "Ormanda çalışıyoruz işte.",
+        "Ormanda çalışalım mı?"
+      ],
+      "answer": 0,
+      "explain": "Книжное -mAktAdIr."
+    }
+  ]
+}

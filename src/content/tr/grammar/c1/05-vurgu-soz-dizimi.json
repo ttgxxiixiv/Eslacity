@@ -1,0 +1,190 @@
+{
+  "id": "c1.05-vurgu-soz-dizimi",
+  "district": "C1",
+  "order": 5,
+  "title": "Порядок слов: что стоит перед глаголом",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Обычный порядок — подлежащее, дополнение, сказуемое. Новое и главное ставят **прямо перед глаголом**: **Kitabı Ali aldı** — Книгу взял (именно) Али. **Ali kitabı dün aldı** — Али взял книгу (именно) вчера. Вопросительное слово тоже встаёт перед глаголом: **Kitabı kim aldı?**"
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Предложение",
+        "Что выделено"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Ali kitabı dün aldı.",
+            "вчера (когда)"
+          ]
+        },
+        {
+          "cells": [
+            "Dün kitabı Ali aldı.",
+            "Али (кто)"
+          ]
+        },
+        {
+          "cells": [
+            "Ali dün kitabı aldı.",
+            "книгу (что)"
+          ]
+        },
+        {
+          "cells": [
+            "Kitabı kim aldı?",
+            "вопрос «кто»"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Ответ повторяет порядок вопроса: **Fatma'ya kim yardım etti? — Fatma'ya Can yardım etti.** Отрицание выделяет слово перед ним: **Kitabı ben almadım** — Это не я взял книгу."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Bu mektubu Orhan yazdı.",
+      "ru": "Это письмо написал Орхан."
+    },
+    {
+      "es": "Kuzgun sözleri ormanda öğrendi.",
+      "ru": "Слова ворона выучила в лесу."
+    },
+    {
+      "es": "Yalanı ben söylemedim.",
+      "ru": "Это не я солгал."
+    },
+    {
+      "es": "Kapıyı kim açık bıraktı?",
+      "ru": "Кто оставил дверь открытой?"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "c1.05-vurgu-soz-dizimi.1",
+      "kind": "choose",
+      "prompt": "«Это письмо написала (именно) Нермин»:",
+      "options": [
+        "Bu mektubu Nermin yazdı.",
+        "Nermin bu mektubu yazdı mı.",
+        "Yazdı Nermin bu mektubu mu."
+      ],
+      "answer": 0,
+      "explain": "Выделенное — перед глаголом."
+    },
+    {
+      "id": "c1.05-vurgu-soz-dizimi.2",
+      "kind": "choose",
+      "prompt": "«Это не я разбил стакан»:",
+      "options": [
+        "Bardağı ben kırmadım.",
+        "Ben bardağı kırmadım mı.",
+        "Kırmadım ben bardak."
+      ],
+      "answer": 0,
+      "explain": "ben прямо перед отрицанием."
+    },
+    {
+      "id": "c1.05-vurgu-soz-dizimi.3",
+      "kind": "gap",
+      "sentence": "Kapıyı ___ açtı?",
+      "ru": "Кто открыл дверь?",
+      "options": [
+        "kim",
+        "kimi",
+        "kime"
+      ],
+      "answer": 0,
+      "explain": "Вопросительное слово — перед глаголом."
+    },
+    {
+      "id": "c1.05-vurgu-soz-dizimi.4",
+      "kind": "gap",
+      "sentence": "Kuzgunu ormana ___ götürdü.",
+      "ru": "Ворону в лес отнёс (именно) Орхан.",
+      "options": [
+        "Orhan",
+        "Orhan'ı",
+        "Orhan'a"
+      ],
+      "answer": 0,
+      "explain": "Подлежащее-фокус перед глаголом."
+    },
+    {
+      "id": "c1.05-vurgu-soz-dizimi.5",
+      "kind": "truefalse",
+      "statement": "В турецком главное новое слово обычно стоит прямо перед глаголом.",
+      "answer": true,
+      "explain": "Это позиция фокуса."
+    },
+    {
+      "id": "c1.05-vurgu-soz-dizimi.6",
+      "kind": "truefalse",
+      "statement": "«Ali kitabı dün aldı» выделяет, кто взял книгу.",
+      "answer": false,
+      "explain": "Выделено «вчера»: dün перед глаголом."
+    },
+    {
+      "id": "c1.05-vurgu-soz-dizimi.7",
+      "kind": "truefalse",
+      "statement": "Ответ на «Kitabı kim aldı?» естественно звучит «Kitabı Ali aldı».",
+      "answer": true,
+      "explain": "Ответ на месте вопроса."
+    },
+    {
+      "id": "c1.05-vurgu-soz-dizimi.8",
+      "kind": "build",
+      "ru": "Это письмо написал Арда.",
+      "answer": "Bu mektubu Arda yazdı",
+      "extra": [
+        "Arda'yı",
+        "yazdım"
+      ],
+      "explain": "Фокус — перед глаголом."
+    },
+    {
+      "id": "c1.05-vurgu-soz-dizimi.9",
+      "kind": "type",
+      "sentence": "Yalanı ___ söylemedim, inan bana!",
+      "ru": "Это не я солгал, поверь мне!",
+      "hint": "кто? не я",
+      "answer": "ben",
+      "explain": "ben прямо перед глаголом."
+    },
+    {
+      "id": "c1.05-vurgu-soz-dizimi.10",
+      "kind": "fix",
+      "sentence": "Kitabı kimi aldı?",
+      "ru": "Кто взял книгу?",
+      "wrong": 1,
+      "answer": "kim",
+      "explain": "Подлежащее «кто» — kim, в именительном."
+    },
+    {
+      "id": "c1.05-vurgu-soz-dizimi.11",
+      "kind": "transform",
+      "source": "Orhan kuzguna sözleri öğretti.",
+      "keyword": "kuzguna",
+      "ru": "Это вороне Орхан учил слова (а не кому-то ещё).",
+      "answer": "Orhan sözleri kuzguna öğretti.",
+      "explain": "Фокус — kuzguna перед глаголом."
+    },
+    {
+      "id": "c1.05-vurgu-soz-dizimi.12",
+      "kind": "paraphrase",
+      "sentence": "Kitabı ben almadım.",
+      "options": [
+        "Книгу взял не я.",
+        "Я не взял никакой книги и ничего не брал.",
+        "Я возьму книгу позже."
+      ],
+      "answer": 0,
+      "explain": "Отрицание выделяет ben: «не я»."
+    }
+  ]
+}

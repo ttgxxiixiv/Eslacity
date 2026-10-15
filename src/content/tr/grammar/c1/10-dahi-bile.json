@@ -1,0 +1,199 @@
+{
+  "id": "c1.10-dahi-bile",
+  "district": "C1",
+  "order": 10,
+  "title": "dahi и bile: «даже»",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "**bile** — разговорное «даже», ставится после слова: **Çocuk bile bilir** — Даже ребёнок знает. **dahi** — то же в книжной и официальной речи: **Bu konuda tek bir belge dahi bulunamadı** — По этому вопросу не найдено ни одного документа. С условным: **-sA bile / -sA dahi** — «даже если»."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Разговорно",
+        "Книжно",
+        "Перевод"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Çocuk bile bilir.",
+            "Bir çocuk dahi bilir.",
+            "Даже ребёнок знает."
+          ]
+        },
+        {
+          "cells": [
+            "Gelse bile konuşmam.",
+            "Gelse dahi konuşmam.",
+            "Даже если придёт, не буду говорить."
+          ]
+        },
+        {
+          "cells": [
+            "Bir kuruş bile yok.",
+            "Tek bir kuruş dahi yoktur.",
+            "Нет ни гроша."
+          ]
+        },
+        {
+          "cells": [
+            "Bana selam bile vermedi.",
+            "Selam dahi vermedi.",
+            "Он даже не поздоровался."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Не путайте **dahi** с **de/da** «тоже»: **Ben de geldim** — Я тоже пришёл, **Ben dahi geldim** — Даже я пришёл. Слово **dâhi** с долгим «а» — «гений»: Mozart bir dâhiydi."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Kuzgun bile yalan söylemeyi öğrenmiş.",
+      "ru": "Даже ворона научилась лгать."
+    },
+    {
+      "es": "Tek bir kanıt dahi bulunamadı.",
+      "ru": "Не найдено ни одного доказательства."
+    },
+    {
+      "es": "Yorulsa dahi yürümeye devam etti.",
+      "ru": "Даже уставая, он продолжал идти."
+    },
+    {
+      "es": "Bana teşekkür bile etmedi.",
+      "ru": "Он даже не поблагодарил меня."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "c1.10-dahi-bile.1",
+      "kind": "choose",
+      "prompt": "Книжное «Не найдено ни одного документа»:",
+      "options": [
+        "Tek bir belge dahi bulunamadı.",
+        "Bir belge de yok işte.",
+        "Belge bile mi yok?"
+      ],
+      "answer": 0,
+      "explain": "Официально — dahi."
+    },
+    {
+      "id": "c1.10-dahi-bile.2",
+      "kind": "choose",
+      "prompt": "«Даже если позвонит, не отвечу»:",
+      "options": [
+        "Arasa bile cevap vermem.",
+        "Ararsa da cevap verdim.",
+        "Arayınca bile cevap verdim."
+      ],
+      "answer": 0,
+      "explain": "-sA bile."
+    },
+    {
+      "id": "c1.10-dahi-bile.3",
+      "kind": "gap",
+      "sentence": "Bu soruyu çocuklar ___ bilir.",
+      "ru": "Этот вопрос знают даже дети.",
+      "options": [
+        "bile",
+        "de mi",
+        "ise"
+      ],
+      "answer": 0,
+      "explain": "Разговорное «даже» — bile."
+    },
+    {
+      "id": "c1.10-dahi-bile.4",
+      "kind": "gap",
+      "sentence": "Raporda tek bir hata ___ yoktur.",
+      "ru": "В отчёте нет ни одной ошибки.",
+      "options": [
+        "dahi",
+        "dâhi",
+        "ki"
+      ],
+      "answer": 0,
+      "explain": "Книжное «даже» — dahi."
+    },
+    {
+      "id": "c1.10-dahi-bile.5",
+      "kind": "truefalse",
+      "statement": "dahi — книжный вариант bile.",
+      "answer": true,
+      "explain": "Bir kuruş dahi."
+    },
+    {
+      "id": "c1.10-dahi-bile.6",
+      "kind": "truefalse",
+      "statement": "«Ben dahi geldim» значит «Я тоже пришёл».",
+      "answer": false,
+      "explain": "«Даже я пришёл»; «тоже» — de."
+    },
+    {
+      "id": "c1.10-dahi-bile.7",
+      "kind": "truefalse",
+      "statement": "dâhi с долгим «а» значит «гений».",
+      "answer": true,
+      "explain": "Mozart bir dâhiydi."
+    },
+    {
+      "id": "c1.10-dahi-bile.8",
+      "kind": "build",
+      "ru": "Он даже не поздоровался со мной.",
+      "answer": "Bana selam bile vermedi",
+      "extra": [
+        "de",
+        "vermek"
+      ],
+      "explain": "bile после слова."
+    },
+    {
+      "id": "c1.10-dahi-bile.9",
+      "kind": "type",
+      "sentence": "Yağmur yağsa ___ yola çıkacağız.",
+      "ru": "Даже если пойдёт дождь, мы отправимся в путь.",
+      "hint": "даже",
+      "answer": "bile",
+      "alt": [
+        "dahi"
+      ],
+      "explain": "-sA bile."
+    },
+    {
+      "id": "c1.10-dahi-bile.10",
+      "kind": "fix",
+      "sentence": "Toplantıya müdür dâhi gelmedi.",
+      "ru": "На собрание не пришёл даже директор.",
+      "wrong": 2,
+      "answer": "dahi",
+      "explain": "«Даже» — dahi без долгого «а»."
+    },
+    {
+      "id": "c1.10-dahi-bile.11",
+      "kind": "register",
+      "source": "Bir kuruş bile vermedi!",
+      "to": "formal",
+      "options": [
+        "Herhangi bir ödeme dahi yapılmamıştır.",
+        "Bir kuruş bile vermedi ya!",
+        "Para da yok işte."
+      ],
+      "answer": 0,
+      "explain": "Официально: dahi, безличный пассив."
+    },
+    {
+      "id": "c1.10-dahi-bile.12",
+      "kind": "transform",
+      "source": "Çocuklar bile bunu bilir.",
+      "keyword": "dahi",
+      "ru": "Даже дети это знают (книжно).",
+      "answer": "Çocuklar dahi bunu bilir.",
+      "explain": "bile → dahi."
+    }
+  ]
+}

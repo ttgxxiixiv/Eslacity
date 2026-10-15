@@ -1,0 +1,200 @@
+{
+  "id": "c1.18-ikilemeler",
+  "district": "C1",
+  "order": 18,
+  "title": "Удвоения: yavaş yavaş, eş dost, kitap mitap",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Турецкий любит удвоения (**ikileme**). Повтор слова — интенсивность или постепенность: **yavaş yavaş** (потихоньку), **ev ev** (дом за домом). Пары близких слов — обобщение: **eş dost** (друзья и родня), **kırık dökük** (поломанный). Удвоение с **m-**: **kitap mitap** — «книжки всякие», с пренебрежением."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Удвоение",
+        "Перевод"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "yavaş yavaş",
+            "потихоньку"
+          ]
+        },
+        {
+          "cells": [
+            "eş dost",
+            "друзья и близкие"
+          ]
+        },
+        {
+          "cells": [
+            "ufak tefek",
+            "мелкий, всякая мелочь"
+          ]
+        },
+        {
+          "cells": [
+            "çoluk çocuk",
+            "семья с детьми, домочадцы"
+          ]
+        },
+        {
+          "cells": [
+            "çay may",
+            "чай и всё такое"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "m-удвоение разговорное: **Para mara istemem** — Никаких денег не хочу. В официальном тексте его нет. Повтор прилагательного с усилительным префиксом — другое: **masmavi, kapkara** (совсем синий, чёрный-пречёрный)."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Sis yavaş yavaş dağılıyor.",
+      "ru": "Туман потихоньку рассеивается."
+    },
+    {
+      "es": "Bayramda eş dost bize geldi.",
+      "ru": "На праздник к нам пришли друзья и родня."
+    },
+    {
+      "es": "Kırık dökük bir sandalyeye oturdu.",
+      "ru": "Он сел на поломанный стул."
+    },
+    {
+      "es": "Para mara istemem, sadece doğruyu söyle.",
+      "ru": "Не нужны мне никакие деньги, скажи только правду."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "c1.18-ikilemeler.1",
+      "kind": "choose",
+      "prompt": "«потихоньку»:",
+      "options": [
+        "yavaş yavaş",
+        "yavaş mavaş",
+        "yavaşça yavaş"
+      ],
+      "answer": 0,
+      "explain": "Повтор — постепенность."
+    },
+    {
+      "id": "c1.18-ikilemeler.2",
+      "kind": "choose",
+      "prompt": "«друзья и близкие»:",
+      "options": [
+        "eş dost",
+        "dost dost",
+        "eş meş"
+      ],
+      "answer": 0,
+      "explain": "Пара близких слов."
+    },
+    {
+      "id": "c1.18-ikilemeler.3",
+      "kind": "gap",
+      "sentence": "Kuzgun ___ ev dolaşıp sesleri topluyordu.",
+      "ru": "Ворона облетала дом за домом и собирала голоса.",
+      "options": [
+        "ev",
+        "evler",
+        "evde"
+      ],
+      "answer": 0,
+      "explain": "ev ev — дом за домом."
+    },
+    {
+      "id": "c1.18-ikilemeler.4",
+      "kind": "gap",
+      "sentence": "Çantamda ___ tefek şeyler var.",
+      "ru": "В сумке у меня всякая мелочь.",
+      "options": [
+        "ufak",
+        "küçük",
+        "ince"
+      ],
+      "answer": 0,
+      "explain": "Устойчивая пара — ufak tefek."
+    },
+    {
+      "id": "c1.18-ikilemeler.5",
+      "kind": "truefalse",
+      "statement": "«Kitap mitap» звучит пренебрежительно: «книжки всякие».",
+      "answer": true,
+      "explain": "m-удвоение."
+    },
+    {
+      "id": "c1.18-ikilemeler.6",
+      "kind": "truefalse",
+      "statement": "m-удвоение уместно в официальном письме.",
+      "answer": false,
+      "explain": "Оно разговорное."
+    },
+    {
+      "id": "c1.18-ikilemeler.7",
+      "kind": "truefalse",
+      "statement": "«masmavi» — усиление цвета, а не удвоение с m-.",
+      "answer": true,
+      "explain": "Префикс mas-."
+    },
+    {
+      "id": "c1.18-ikilemeler.8",
+      "kind": "build",
+      "ru": "Туман потихоньку рассеивается.",
+      "answer": "Sis yavaş yavaş dağılıyor",
+      "extra": [
+        "yavaşça",
+        "dağıldı"
+      ],
+      "explain": "Повтор — постепенность."
+    },
+    {
+      "id": "c1.18-ikilemeler.9",
+      "kind": "type",
+      "sentence": "Bayramda bütün eş ___ bize geldi.",
+      "ru": "На праздник к нам пришли все друзья и родня.",
+      "hint": "пара к eş",
+      "answer": "dost",
+      "explain": "eş dost."
+    },
+    {
+      "id": "c1.18-ikilemeler.10",
+      "kind": "fix",
+      "sentence": "Para pora istemem, sadece doğruyu söyle.",
+      "ru": "Не нужны мне никакие деньги, скажи только правду.",
+      "wrong": 1,
+      "answer": "mara",
+      "explain": "m-удвоение: para mara."
+    },
+    {
+      "id": "c1.18-ikilemeler.11",
+      "kind": "register",
+      "source": "Para mara istemem!",
+      "to": "formal",
+      "options": [
+        "Herhangi bir ücret talep etmiyorum.",
+        "Para mara istemem ya!",
+        "Para istemem mi?"
+      ],
+      "answer": 0,
+      "explain": "Официально — без удвоения."
+    },
+    {
+      "id": "c1.18-ikilemeler.12",
+      "kind": "paraphrase",
+      "sentence": "Kırık dökük bir masa.",
+      "options": [
+        "Поломанный, видавший виды стол.",
+        "Совершенно новый стол.",
+        "Маленький, но крепкий стол."
+      ],
+      "answer": 0,
+      "explain": "kırık dökük — поломанный."
+    }
+  ]
+}

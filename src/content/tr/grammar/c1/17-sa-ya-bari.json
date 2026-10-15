@@ -1,0 +1,199 @@
+{
+  "id": "c1.17-sa-ya-bari",
+  "district": "C1",
+  "order": 17,
+  "title": "Желание и упрёк: -sA ya, bari, -sAnA",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Условная форма в восклицании выражает желание или упрёк. **Gelse ya!** — Пришёл бы уж! **Söyleseydin ya!** — Сказал бы ты! (упрёк о прошлом). **bari** — «хотя бы»: **Bari sen gel** — Хоть ты приходи. **-sAnA** — нетерпеливая просьба: **Anlatsana!** — Да расскажи же!"
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Форма",
+        "Оттенок",
+        "Перевод"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Gelse ya!",
+            "нетерпеливое желание",
+            "Пришёл бы уж!"
+          ]
+        },
+        {
+          "cells": [
+            "Söyleseydin ya!",
+            "упрёк о прошлом",
+            "Сказал бы ты!"
+          ]
+        },
+        {
+          "cells": [
+            "Bari sen gel.",
+            "уступка",
+            "Хоть ты приходи."
+          ]
+        },
+        {
+          "cells": [
+            "Anlatsana!",
+            "нетерпение",
+            "Да расскажи же!"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "**keşke** (B1) — грустное «жаль, что»: **Keşke gelseydi**. **-sAydI ya** — упрёк собеседнику: **Bana sorsaydın ya!** — Спросил бы меня!"
+    }
+  ],
+  "examples": [
+    {
+      "es": "Bu sis bir kalksa ya!",
+      "ru": "Рассеялся бы уже этот туман!"
+    },
+    {
+      "es": "Bana daha önce söyleseydin ya!",
+      "ru": "Сказал бы ты мне раньше!"
+    },
+    {
+      "es": "Herkes gitti, bari sen kal.",
+      "ru": "Все ушли, хоть ты останься."
+    },
+    {
+      "es": "Ne gördün? Anlatsana!",
+      "ru": "Что ты видел? Да расскажи же!"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "c1.17-sa-ya-bari.1",
+      "kind": "choose",
+      "prompt": "Упрёк о прошлом «Спросил бы меня!»:",
+      "options": [
+        "Bana sorsaydın ya!",
+        "Bana sorsana!",
+        "Bana sorarsan."
+      ],
+      "answer": 0,
+      "explain": "-sAydI ya — упрёк."
+    },
+    {
+      "id": "c1.17-sa-ya-bari.2",
+      "kind": "choose",
+      "prompt": "«Хоть ты приходи»:",
+      "options": [
+        "Bari sen gel.",
+        "Belki sen gel.",
+        "Keşke sen geldin."
+      ],
+      "answer": 0,
+      "explain": "bari — хотя бы."
+    },
+    {
+      "id": "c1.17-sa-ya-bari.3",
+      "kind": "gap",
+      "sentence": "Bu yağmur bir ___ ya!",
+      "ru": "Кончился бы уж этот дождь!",
+      "options": [
+        "dinse",
+        "dindi",
+        "dinsin mi"
+      ],
+      "answer": 0,
+      "explain": "Желание — -sA ya."
+    },
+    {
+      "id": "c1.17-sa-ya-bari.4",
+      "kind": "gap",
+      "sentence": "Kimse yardım etmiyor, ___ sen yardım et.",
+      "ru": "Никто не помогает, хоть ты помоги.",
+      "options": [
+        "bari",
+        "keşke",
+        "galiba"
+      ],
+      "answer": 0,
+      "explain": "Хотя бы — bari."
+    },
+    {
+      "id": "c1.17-sa-ya-bari.5",
+      "kind": "truefalse",
+      "statement": "«Gelse ya!» — нетерпеливое желание.",
+      "answer": true,
+      "explain": "Пришёл бы уж!"
+    },
+    {
+      "id": "c1.17-sa-ya-bari.6",
+      "kind": "truefalse",
+      "statement": "«Söyleseydin ya!» — вежливая просьба на будущее.",
+      "answer": false,
+      "explain": "Это упрёк о прошлом."
+    },
+    {
+      "id": "c1.17-sa-ya-bari.7",
+      "kind": "truefalse",
+      "statement": "-sAnA звучит нетерпеливо: Anlatsana!",
+      "answer": true,
+      "explain": "Да расскажи же!"
+    },
+    {
+      "id": "c1.17-sa-ya-bari.8",
+      "kind": "build",
+      "ru": "Хоть ты мне поверь.",
+      "answer": "Bari sen bana inan",
+      "extra": [
+        "belki",
+        "inanmak"
+      ],
+      "explain": "bari — хотя бы."
+    },
+    {
+      "id": "c1.17-sa-ya-bari.9",
+      "kind": "type",
+      "sentence": "Neden bekliyorsun? ___!",
+      "ru": "Чего ты ждёшь? Да говори же!",
+      "hint": "söylemek, нетерпение",
+      "answer": "Söylesene",
+      "explain": "söyle + sene."
+    },
+    {
+      "id": "c1.17-sa-ya-bari.10",
+      "kind": "register",
+      "source": "Anlatsana, ne oldu?",
+      "to": "formal",
+      "options": [
+        "Ne olduğunu anlatabilir misiniz?",
+        "Anlatsana be!",
+        "Ne oldu ya?"
+      ],
+      "answer": 0,
+      "explain": "Официально — -Abilir misiniz."
+    },
+    {
+      "id": "c1.17-sa-ya-bari.11",
+      "kind": "transform",
+      "source": "Neden bana daha önce söylemedin?",
+      "keyword": "söyleseydin",
+      "ru": "Сказал бы ты мне раньше!",
+      "answer": "Bana daha önce söyleseydin ya!",
+      "explain": "Упрёк — -sAydIn ya."
+    },
+    {
+      "id": "c1.17-sa-ya-bari.12",
+      "kind": "paraphrase",
+      "sentence": "Bari sen kal.",
+      "options": [
+        "Раз остальные уходят, останься хотя бы ты.",
+        "Ты обязательно уходи.",
+        "Может быть, ты останешься, а может, нет."
+      ],
+      "answer": 0,
+      "explain": "bari — «хотя бы»."
+    }
+  ]
+}

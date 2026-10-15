@@ -1,0 +1,196 @@
+{
+  "id": "c1.14-adlastirma",
+  "district": "C1",
+  "order": 14,
+  "title": "Номинализация: -mA и -Iş в официальном стиле",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Официальный стиль любит отглагольные имена вместо глаголов. **-mA** — действие как факт: **Toplantının ertelenmesi** (перенос собрания), **Girişin yasak olması** (то, что вход запрещён). **-Iş** — способ или единичное действие: **giriş** (вход), **çıkış**, **bakış**. Сказуемое становится существительным: **Yardım edilmesi gerekmektedir** — Необходимо оказать помощь."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Глаголом",
+        "Именем",
+        "Перевод"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Toplantıyı erteledik.",
+            "Toplantının ertelenmesi",
+            "перенос собрания"
+          ]
+        },
+        {
+          "cells": [
+            "Belgeleri incelemek lazım.",
+            "Belgelerin incelenmesi gerekmektedir.",
+            "Необходимо рассмотреть документы."
+          ]
+        },
+        {
+          "cells": [
+            "Neden geç kaldın?",
+            "Geç kalmanızın nedeni",
+            "причина вашего опоздания"
+          ]
+        },
+        {
+          "cells": [
+            "Kurallara uyun.",
+            "Kurallara uyulması rica olunur.",
+            "Просим соблюдать правила."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Номинализация с пассивом — сердце бюрократического языка: **incelenmesi, onaylanması, yapılması**. В живой речи то же скажут глаголом: «Belgelere bakmamız lazım»."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Toplantının ertelenmesi herkesi şaşırttı.",
+      "ru": "Перенос собрания всех удивил."
+    },
+    {
+      "es": "Belgelerin incelenmesi gerekmektedir.",
+      "ru": "Необходимо рассмотреть документы."
+    },
+    {
+      "es": "Geç kalmanızın nedenini açıklayınız.",
+      "ru": "Объясните причину вашего опоздания."
+    },
+    {
+      "es": "Kurallara uyulması rica olunur.",
+      "ru": "Просим соблюдать правила."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "c1.14-adlastirma.1",
+      "kind": "choose",
+      "prompt": "«Перенос собрания» именем:",
+      "options": [
+        "toplantının ertelenmesi",
+        "toplantıyı erteledik",
+        "toplantı ertelensin"
+      ],
+      "answer": 0,
+      "explain": "-mA + пассив: ertelenmesi."
+    },
+    {
+      "id": "c1.14-adlastirma.2",
+      "kind": "choose",
+      "prompt": "Официально «Необходимо рассмотреть документы»:",
+      "options": [
+        "Belgelerin incelenmesi gerekmektedir.",
+        "Belgelere bakalım ya.",
+        "Belgeleri inceledin mi?"
+      ],
+      "answer": 0,
+      "explain": "Номинализация + gerekmektedir."
+    },
+    {
+      "id": "c1.14-adlastirma.3",
+      "kind": "gap",
+      "sentence": "Kurallara ___ rica olunur.",
+      "ru": "Просим соблюдать правила.",
+      "options": [
+        "uyulması",
+        "uyun",
+        "uyduğu"
+      ],
+      "answer": 0,
+      "explain": "Пассивная номинализация — uyulması."
+    },
+    {
+      "id": "c1.14-adlastirma.4",
+      "kind": "gap",
+      "sentence": "Geç ___ nedenini açıklayınız.",
+      "ru": "Объясните причину вашего опоздания.",
+      "options": [
+        "kalmanızın",
+        "kaldınız",
+        "kalmak"
+      ],
+      "answer": 0,
+      "explain": "Ваше — kalmanızın."
+    },
+    {
+      "id": "c1.14-adlastirma.5",
+      "kind": "truefalse",
+      "statement": "Официальный стиль часто заменяет глагол отглагольным именем.",
+      "answer": true,
+      "explain": "incelenmesi, ertelenmesi."
+    },
+    {
+      "id": "c1.14-adlastirma.6",
+      "kind": "truefalse",
+      "statement": "«Belgelere bakmamız lazım» — официальнее, чем «belgelerin incelenmesi gerekmektedir».",
+      "answer": false,
+      "explain": "Наоборот: первое — разговорное."
+    },
+    {
+      "id": "c1.14-adlastirma.7",
+      "kind": "truefalse",
+      "statement": "-Iş образует имена вроде giriş, çıkış.",
+      "answer": true,
+      "explain": "gir + iş."
+    },
+    {
+      "id": "c1.14-adlastirma.8",
+      "kind": "build",
+      "ru": "Необходимо рассмотреть заявление.",
+      "answer": "Dilekçenin incelenmesi gerekmektedir",
+      "extra": [
+        "incele",
+        "dilekçeyi"
+      ],
+      "explain": "Номинализация + gerekmektedir."
+    },
+    {
+      "id": "c1.14-adlastirma.9",
+      "kind": "type",
+      "sentence": "Projenin ___ için müdürün imzası lazım.",
+      "ru": "Для утверждения проекта нужна подпись директора.",
+      "hint": "onaylanmak, имя",
+      "answer": "onaylanması",
+      "explain": "onay + la + n + ma + sı."
+    },
+    {
+      "id": "c1.14-adlastirma.10",
+      "kind": "transform",
+      "source": "Toplantıyı yarına erteledik.",
+      "keyword": "ertelenmesi",
+      "ru": "Принято решение о переносе собрания на завтра.",
+      "answer": "Toplantının yarına ertelenmesi kararlaştırılmıştır.",
+      "explain": "Номинализация + пассив."
+    },
+    {
+      "id": "c1.14-adlastirma.11",
+      "kind": "register",
+      "source": "Bu belgelere bir bakmamız lazım.",
+      "to": "formal",
+      "options": [
+        "Söz konusu belgelerin incelenmesi gerekmektedir.",
+        "Belgelere bakalım mı?",
+        "Bak şu belgelere!"
+      ],
+      "answer": 0,
+      "explain": "Официально: incelenmesi gerekmektedir."
+    },
+    {
+      "id": "c1.14-adlastirma.12",
+      "kind": "fix",
+      "sentence": "Kurallara uyun rica olunur.",
+      "ru": "Просим соблюдать правила.",
+      "wrong": 1,
+      "answer": "uyulması",
+      "explain": "С rica olunur — номинализация uyulması."
+    }
+  ]
+}

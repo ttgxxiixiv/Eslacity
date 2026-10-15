@@ -1,0 +1,192 @@
+{
+  "id": "c1.09-o-kadar-ki",
+  "district": "C1",
+  "order": 9,
+  "title": "Так…, что…: o kadar … ki, öyle … ki",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Следствие из степени передают конструкцией **o kadar / öyle … ki**: **O kadar yorgundum ki hemen uyudum** — Я так устал, что сразу уснул. **Öyle bir ses duydum ki** donup kaldım — Я услышал такой звук, что застыл. После **ki** идёт обычное предложение с личной формой."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Начало",
+        "Следствие"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "O kadar sıcaktı ki",
+            "denize koştuk."
+          ]
+        },
+        {
+          "cells": [
+            "Öyle güzel konuştu ki",
+            "herkes ağladı."
+          ]
+        },
+        {
+          "cells": [
+            "Öyle bir sessizlik vardı ki",
+            "yaprak sesi duyuluyordu."
+          ]
+        },
+        {
+          "cells": [
+            "O kadar çok çalıştı ki",
+            "hastalandı."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "**o kadar** — с прилагательным, наречием и глаголом; **öyle bir** — с существительным: **öyle bir gün ki**. Без **ki** то же можно сказать через **-DIğI için**, но мягче: **Yorgun olduğum için uyudum**."
+    }
+  ],
+  "examples": [
+    {
+      "es": "O kadar yorgundum ki hemen uyudum.",
+      "ru": "Я так устал, что сразу уснул."
+    },
+    {
+      "es": "Öyle bir sessizlik vardı ki kalbimizin sesini duyuyorduk.",
+      "ru": "Стояла такая тишина, что мы слышали стук сердец."
+    },
+    {
+      "es": "Labirent o kadar karanlıktı ki elimizi göremiyorduk.",
+      "ru": "В Лабиринте было так темно, что мы не видели своих рук."
+    },
+    {
+      "es": "Öyle güzel konuştu ki kimse itiraz etmedi.",
+      "ru": "Он говорил так хорошо, что никто не возразил."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "c1.09-o-kadar-ki.1",
+      "kind": "choose",
+      "prompt": "«Было так жарко, что мы побежали к морю»:",
+      "options": [
+        "O kadar sıcaktı ki denize koştuk.",
+        "O kadar sıcaktı için denize koştuk.",
+        "Sıcak ki kadar denize koştuk."
+      ],
+      "answer": 0,
+      "explain": "o kadar … ki."
+    },
+    {
+      "id": "c1.09-o-kadar-ki.2",
+      "kind": "choose",
+      "prompt": "С существительным — «такой день, что…»:",
+      "options": [
+        "öyle bir gün ki",
+        "o kadar gün ki",
+        "öyle günü ki"
+      ],
+      "answer": 0,
+      "explain": "öyle bir + существительное."
+    },
+    {
+      "id": "c1.09-o-kadar-ki.3",
+      "kind": "gap",
+      "sentence": "O kadar hızlı koştu ___ kimse yetişemedi.",
+      "ru": "Он бежал так быстро, что никто не догнал.",
+      "options": [
+        "ki",
+        "diye",
+        "gibi"
+      ],
+      "answer": 0,
+      "explain": "Следствие — ki."
+    },
+    {
+      "id": "c1.09-o-kadar-ki.4",
+      "kind": "gap",
+      "sentence": "___ bir ses duydum ki korktum.",
+      "ru": "Я услышал такой звук, что испугался.",
+      "options": [
+        "Öyle",
+        "O kadar",
+        "Böyle mi"
+      ],
+      "answer": 0,
+      "explain": "С существительным — öyle bir."
+    },
+    {
+      "id": "c1.09-o-kadar-ki.5",
+      "kind": "truefalse",
+      "statement": "После ki в этой конструкции идёт полное предложение с личной формой.",
+      "answer": true,
+      "explain": "… ki hemen uyudum."
+    },
+    {
+      "id": "c1.09-o-kadar-ki.6",
+      "kind": "truefalse",
+      "statement": "«O kadar yorgundum ki» значит «Я устал, потому что так было».",
+      "answer": false,
+      "explain": "«Я так устал, что…»."
+    },
+    {
+      "id": "c1.09-o-kadar-ki.7",
+      "kind": "truefalse",
+      "statement": "«öyle bir» ставят перед существительным.",
+      "answer": true,
+      "explain": "öyle bir gün."
+    },
+    {
+      "id": "c1.09-o-kadar-ki.8",
+      "kind": "build",
+      "ru": "Было так темно, что мы ничего не видели.",
+      "answer": "O kadar karanlıktı ki hiçbir şey görmedik",
+      "extra": [
+        "için",
+        "gibi"
+      ],
+      "explain": "o kadar … ki."
+    },
+    {
+      "id": "c1.09-o-kadar-ki.9",
+      "kind": "type",
+      "sentence": "O kadar çok güldük ___ karnımız ağrıdı.",
+      "ru": "Мы так смеялись, что заболели животы.",
+      "hint": "союз следствия",
+      "answer": "ki",
+      "explain": "Следствие — ki."
+    },
+    {
+      "id": "c1.09-o-kadar-ki.10",
+      "kind": "combine",
+      "first": "Çok yorgundum.",
+      "second": "Hemen uyudum.",
+      "connector": "ki",
+      "ru": "Я так устал, что сразу уснул.",
+      "answer": "O kadar yorgundum ki hemen uyudum.",
+      "explain": "Степень + следствие."
+    },
+    {
+      "id": "c1.09-o-kadar-ki.11",
+      "kind": "combine",
+      "first": "Sessizlik çok derindi.",
+      "second": "Kalbimizi duyuyorduk.",
+      "connector": "ki",
+      "ru": "Тишина была такой глубокой, что мы слышали свои сердца.",
+      "answer": "Sessizlik öyle derindi ki kalbimizi duyuyorduk.",
+      "explain": "öyle + прилагательное + ki."
+    },
+    {
+      "id": "c1.09-o-kadar-ki.12",
+      "kind": "paraphrase",
+      "sentence": "O kadar güzel konuştu ki herkes ağladı.",
+      "options": [
+        "Он говорил так хорошо, что все расплакались.",
+        "Все плакали, поэтому он говорил хорошо.",
+        "Он говорил хорошо, но никто не плакал."
+      ],
+      "answer": 0,
+      "explain": "ki вводит следствие."
+    }
+  ]
+}

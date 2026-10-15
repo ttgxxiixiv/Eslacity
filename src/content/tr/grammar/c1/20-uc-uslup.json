@@ -1,0 +1,208 @@
+{
+  "id": "c1.20-uc-uslup",
+  "district": "C1",
+  "order": 20,
+  "title": "Одна мысль в трёх регистрах",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Одну мысль можно сказать по-свойски, вежливо и официально. По-свойски: **Yarın gelsene, konuşuruz.** Вежливо: **Yarın gelebilir misiniz? Konuşmak isterim.** Официально: **Yarın görüşmeye katılımınızı rica ederiz.** Меняются местоимение (sen/siz/безлично), форма глагола и лексика (gel → katılmak, konuşmak → görüşme)."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "По-свойски",
+        "Вежливо",
+        "Официально"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Gelsene!",
+            "Gelebilir misiniz?",
+            "Katılımınızı rica ederiz."
+          ]
+        },
+        {
+          "cells": [
+            "Sağ ol.",
+            "Teşekkür ederim.",
+            "Teşekkürlerimizi sunarız."
+          ]
+        },
+        {
+          "cells": [
+            "Kusura bakma.",
+            "Kusura bakmayın.",
+            "Yaşanan aksaklıktan dolayı özür dileriz."
+          ]
+        },
+        {
+          "cells": [
+            "Haberin olsun.",
+            "Bilginiz olsun.",
+            "Bilgilerinize sunarız."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Смешивать регистры в одной фразе нельзя: «Sayın Müdür, gelsene!» звучит нелепо. В Лабиринте Эха каждая фраза возвращается в другом регистре, и путнику нужно узнать её в любом."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Sağ ol, çok yardımcı oldun.",
+      "ru": "Спасибо, ты очень помог."
+    },
+    {
+      "es": "Teşekkür ederim, çok yardımcı oldunuz.",
+      "ru": "Благодарю, вы очень помогли."
+    },
+    {
+      "es": "Değerli katkılarınız için teşekkürlerimizi sunarız.",
+      "ru": "Выражаем благодарность за ваш ценный вклад."
+    },
+    {
+      "es": "Yaşanan aksaklıktan dolayı özür dileriz.",
+      "ru": "Приносим извинения за возникшие неудобства."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "c1.20-uc-uslup.1",
+      "kind": "choose",
+      "prompt": "Официальное «Спасибо»:",
+      "options": [
+        "Teşekkürlerimizi sunarız.",
+        "Sağ ol.",
+        "Eyvallah."
+      ],
+      "answer": 0,
+      "explain": "Официально — teşekkürlerimizi sunarız."
+    },
+    {
+      "id": "c1.20-uc-uslup.2",
+      "kind": "choose",
+      "prompt": "Что звучит нелепо?",
+      "options": [
+        "Sayın Müdür, gelsene!",
+        "Sayın Müdür, gelebilir misiniz?",
+        "Müdür Bey, buyurun."
+      ],
+      "answer": 0,
+      "explain": "Смешение: Sayın + -sAnA."
+    },
+    {
+      "id": "c1.20-uc-uslup.3",
+      "kind": "gap",
+      "sentence": "Yaşanan aksaklık___ dolayı özür dileriz.",
+      "ru": "Приносим извинения за возникшие неудобства.",
+      "options": [
+        "tan",
+        "ta",
+        "ı"
+      ],
+      "answer": 0,
+      "explain": "dolayı — с исходным: aksaklıktan."
+    },
+    {
+      "id": "c1.20-uc-uslup.4",
+      "kind": "gap",
+      "sentence": "Toplantıya ___ rica ederiz.",
+      "ru": "Просим вас принять участие в собрании.",
+      "options": [
+        "katılımınızı",
+        "katılsana",
+        "katıldınız"
+      ],
+      "answer": 0,
+      "explain": "Официально — katılımınızı rica ederiz."
+    },
+    {
+      "id": "c1.20-uc-uslup.5",
+      "kind": "truefalse",
+      "statement": "Регистр меняет местоимение, форму глагола и слова.",
+      "answer": true,
+      "explain": "gel → katılım."
+    },
+    {
+      "id": "c1.20-uc-uslup.6",
+      "kind": "truefalse",
+      "statement": "«Haberin olsun» — официальная формула письма.",
+      "answer": false,
+      "explain": "По-свойски; официально — Bilgilerinize sunarız."
+    },
+    {
+      "id": "c1.20-uc-uslup.7",
+      "kind": "truefalse",
+      "statement": "«Kusura bakmayın» вежливее, чем «Kusura bakma».",
+      "answer": true,
+      "explain": "siz-форма."
+    },
+    {
+      "id": "c1.20-uc-uslup.8",
+      "kind": "build",
+      "ru": "Приносим извинения за неудобства.",
+      "answer": "Yaşanan aksaklıktan dolayı özür dileriz",
+      "extra": [
+        "kusura",
+        "bakma"
+      ],
+      "explain": "Официальное извинение."
+    },
+    {
+      "id": "c1.20-uc-uslup.9",
+      "kind": "type",
+      "sentence": "Değerli katkılarınız için ___ sunarız.",
+      "ru": "Выражаем благодарность за ваш ценный вклад.",
+      "hint": "благодарность, официально",
+      "answer": "teşekkürlerimizi",
+      "explain": "Официальная формула."
+    },
+    {
+      "id": "c1.20-uc-uslup.10",
+      "kind": "register",
+      "source": "Sağ ol, çok yardımcı oldun.",
+      "to": "formal",
+      "answer": "Teşekkür ederim çok yardımcı oldunuz",
+      "extra": [
+        "oldun",
+        "sağ"
+      ],
+      "explain": "Вежливо: teşekkür ederim, oldunuz."
+    },
+    {
+      "id": "c1.20-uc-uslup.11",
+      "kind": "register",
+      "source": "Bilgilerinize sunarız.",
+      "to": "informal",
+      "options": [
+        "Haberin olsun.",
+        "Bilginiz olsun efendim.",
+        "Arz ederiz."
+      ],
+      "answer": 0,
+      "explain": "По-свойски: haberin olsun."
+    },
+    {
+      "id": "c1.20-uc-uslup.12",
+      "kind": "cloze",
+      "text": "Sayın Müdür, 5 Mayıs tarihli yazınız ___ size yazıyorum. Belgelerin incelenmesini ___ ederim. ___,",
+      "ru": "Уважаемый директор, пишу вам в ответ на ваше письмо от 5 мая. Прошу рассмотреть документы. С уважением,",
+      "answers": [
+        [
+          "üzerine"
+        ],
+        [
+          "arz"
+        ],
+        [
+          "Saygılarımla"
+        ]
+      ],
+      "explain": "Формулы официального письма: yazınız üzerine, arz ederim, Saygılarımla."
+    }
+  ]
+}

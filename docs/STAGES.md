@@ -3204,3 +3204,13 @@ CI шёл около 35 минут: сквозные тесты одной за�
 - Покрытие первой тысячи частотного списка к концу главы V — 90,9%: цель плана (`COVERAGE_GOAL`, 90%) достигнута. Из первых 3000 покрыто 66,9%.
 
 Проверено: валидатор без ошибок и предупреждений (у турецкого 3598 слов), `npm run vocab`, юнит-тесты (`tr.test.ts`: по 25 слов уровня 7 у места, свитки I–V по плану), линтер, сборка, полный прогон сквозных тестов.
+
+## Версия 2.200.0. Выражения и уроки C1 турецкого курса (задача 18.8)
+
+Курс ещё закрыт: впереди фразы, разговоры и миссии главы V с тоном, письма и Сфинкс.
+
+- `src/content/tr/words/<место>.json`: по 15 выражений уровня 7 у каждого из 20 мест, всего 300. В каждом месте три пары формул «официально — по-свойски» (`pair`): Ne arzu edersiniz? — Ne alırsın?, Fiyatta bir indirim yapmanız mümkün mü? — Biraz kırsana!, Kimliğinizi ibraz ediniz. — Kimliğini göster.; шесть идиом с буквальным переводом (`literal`): ağzından kaçırmak, kazık atmak, ayvayı yemek, kılı kırk yarmak, dilinde tüy bitmek, Damlaya damlaya göl olur; два устойчивых сочетания (demli çay, kredi çekmek, suç işlemek) и ложный друг русскоговорящего с пояснением (`note`): hurma — финик, kabak — кабачок, sandal — лодка, kiler — кладовая, familya — семья, kabine — кабинет министров, direksiyon — руль.
+- `src/content/tr/grammar/c1/`: 20 уроков C1. Официальное «вы» (-(y)InIz, rica olunur), безличный стиль (-(I)lIr, -mAktAdIr), формулы официального письма (arz ederim, Saygılarımla, yazınız üzerine), частица -DIr, порядок слов и фокус перед глаголом, инверсия (devrik cümle), редкая форма -(y)AsI (göresim geldi), -mIşçAsInA, o kadar … ki, dahi и bile, книжные связки (oysa, halbuki, nitekim, zira, dolayısıyla), причина в официальной речи (nedeniyle, -dAn dolayı), послелоги документов (itibaren, uyarınca, kapsamında, istinaden), номинализация, ступени вежливой просьбы, степени уверенности, -sA ya и bari, удвоения (yavaş yavaş, eş dost, para mara), рамки идиом (derler ya, adeta, bir nevi, tabiri caizse) и одна мысль в трёх регистрах.
+- В каждом уроке теория, 4 примера и 12 заданий: пять базовых видов и не меньше трёх видов C1 (`transform`, `fix`, `register` выбором и плитками, `combine`, `cloze`, `paraphrase`). Примеры — про Лабиринт Эха и жителей города.
+
+Проверено: валидатор без ошибок и предупреждений (у турецкого 3898 слов и выражений, 132 урока), юнит-тесты (`grammarProductive.test.ts`: у каждого урока C1 есть сборка и ввод, лишние плитки не собирают второй ответ), линтер, сборка, сквозной `grammar-tr.spec.ts` (все 132 урока), полный прогон сквозных тестов.

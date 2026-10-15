@@ -1,0 +1,200 @@
+{
+  "id": "c1.15-nazik-rica",
+  "district": "C1",
+  "order": 15,
+  "title": "Вежливая просьба: от -sAnA до -mAnIz mümkün mü",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Просьбу можно смягчать ступенями. По-свойски — **Kapıyı kapatsana!**. Вежливо — **Kapıyı kapatır mısınız?**. Ещё мягче — **Kapıyı kapatabilir misiniz?**. Очень вежливо — **Kapıyı kapatmanız mümkün mü?** и **Kapıyı kapatırsanız çok sevinirim** (Буду очень рад, если закроете). Книжно — **… rica ediyorum**."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Ступень",
+        "Просьба"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "по-свойски",
+            "Pencereyi açsana."
+          ]
+        },
+        {
+          "cells": [
+            "вежливо",
+            "Pencereyi açar mısınız?"
+          ]
+        },
+        {
+          "cells": [
+            "мягко",
+            "Pencereyi açabilir misiniz?"
+          ]
+        },
+        {
+          "cells": [
+            "очень вежливо",
+            "Pencereyi açmanız mümkün mü?"
+          ]
+        },
+        {
+          "cells": [
+            "официально",
+            "Pencerenin açılmasını rica ederim."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Прошедшее время смягчает: **Bir şey sormak istiyordum** — Я хотел бы кое-что спросить. «-sAnA» с незнакомым звучит грубо: **Çekilsene!** — «Да отойди ты!»."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Biraz yardım edebilir misiniz?",
+      "ru": "Не могли бы вы немного помочь?"
+    },
+    {
+      "es": "Belgeleri yarına kadar göndermeniz mümkün mü?",
+      "ru": "Возможно ли прислать документы до завтра?"
+    },
+    {
+      "es": "Bana haber verirseniz çok sevinirim.",
+      "ru": "Буду очень рад, если вы мне сообщите."
+    },
+    {
+      "es": "Size bir şey sormak istiyordum.",
+      "ru": "Я хотел бы вас кое о чём спросить."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "c1.15-nazik-rica.1",
+      "kind": "choose",
+      "prompt": "Самая вежливая просьба открыть окно:",
+      "options": [
+        "Pencereyi açmanız mümkün mü?",
+        "Pencereyi açsana!",
+        "Pencereyi aç."
+      ],
+      "answer": 0,
+      "explain": "-mAnIz mümkün mü — очень вежливо."
+    },
+    {
+      "id": "c1.15-nazik-rica.2",
+      "kind": "choose",
+      "prompt": "Какая просьба грубовата с незнакомым?",
+      "options": [
+        "Çekilsene!",
+        "Biraz çekilebilir misiniz?",
+        "Müsaade eder misiniz?"
+      ],
+      "answer": 0,
+      "explain": "-sAnA — по-свойски, с чужим грубо."
+    },
+    {
+      "id": "c1.15-nazik-rica.3",
+      "kind": "gap",
+      "sentence": "Bana yardım ___ misiniz?",
+      "ru": "Не могли бы вы мне помочь?",
+      "options": [
+        "edebilir",
+        "edersen",
+        "etsene"
+      ],
+      "answer": 0,
+      "explain": "Мягко — -Abilir misiniz."
+    },
+    {
+      "id": "c1.15-nazik-rica.4",
+      "kind": "gap",
+      "sentence": "Haber ___ çok sevinirim.",
+      "ru": "Буду очень рад, если сообщите.",
+      "options": [
+        "verirseniz",
+        "versene",
+        "verdiniz"
+      ],
+      "answer": 0,
+      "explain": "-sAnIz … sevinirim."
+    },
+    {
+      "id": "c1.15-nazik-rica.5",
+      "kind": "truefalse",
+      "statement": "«Bir şey sormak istiyordum» мягче, чем «Bir şey soracağım».",
+      "answer": true,
+      "explain": "Прошедшее смягчает."
+    },
+    {
+      "id": "c1.15-nazik-rica.6",
+      "kind": "truefalse",
+      "statement": "«Kapatsana!» — самая вежливая форма просьбы.",
+      "answer": false,
+      "explain": "Это по-свойски, с чужим грубо."
+    },
+    {
+      "id": "c1.15-nazik-rica.7",
+      "kind": "truefalse",
+      "statement": "«-mAnIz mümkün mü» — очень вежливая просьба.",
+      "answer": true,
+      "explain": "Kapatmanız mümkün mü?"
+    },
+    {
+      "id": "c1.15-nazik-rica.8",
+      "kind": "build",
+      "ru": "Не могли бы вы закрыть дверь?",
+      "answer": "Kapıyı kapatabilir misiniz",
+      "extra": [
+        "kapatsana",
+        "kapı"
+      ],
+      "explain": "Мягкая просьба."
+    },
+    {
+      "id": "c1.15-nazik-rica.9",
+      "kind": "type",
+      "sentence": "Belgeleri bugün ___ mümkün mü?",
+      "ru": "Возможно ли прислать документы сегодня?",
+      "hint": "göndermek, вы",
+      "answer": "göndermeniz",
+      "explain": "gönder + me + niz."
+    },
+    {
+      "id": "c1.15-nazik-rica.10",
+      "kind": "register",
+      "source": "Şu çantayı taşısana!",
+      "to": "formal",
+      "answer": "Bu çantayı taşımanız mümkün mü",
+      "extra": [
+        "taşısana",
+        "taşı"
+      ],
+      "explain": "Очень вежливо: -mAnIz mümkün mü."
+    },
+    {
+      "id": "c1.15-nazik-rica.11",
+      "kind": "register",
+      "source": "Pencereyi açmanız mümkün mü?",
+      "to": "informal",
+      "options": [
+        "Pencereyi açsana!",
+        "Pencerenin açılmasını arz ederim.",
+        "Pencereyi açmanız rica olunur."
+      ],
+      "answer": 0,
+      "explain": "По-свойски — -sAnA."
+    },
+    {
+      "id": "c1.15-nazik-rica.12",
+      "kind": "transform",
+      "source": "Size bir şey soracağım.",
+      "keyword": "istiyordum",
+      "ru": "Я хотел бы вас кое о чём спросить.",
+      "answer": "Size bir şey sormak istiyordum.",
+      "explain": "Прошедшее смягчает просьбу."
+    }
+  ]
+}

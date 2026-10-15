@@ -1,0 +1,204 @@
+{
+  "id": "c1.12-nedeniyle-dolayi",
+  "district": "C1",
+  "order": 12,
+  "title": "Причина в официальной речи: nedeniyle, dolayı, ötürü",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "В объявлениях и письмах причину передают послелогами: **nedeniyle / sebebiyle** (из-за, по причине), **-DAn dolayı / -DAn ötürü** (вследствие): **Hava koşulları nedeniyle seferler iptal edilmiştir**. **Bakım çalışmalarından dolayı** su kesilecektir. С глаголом — **-mAsI nedeniyle**: **Yolun kapanması nedeniyle**."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Разговорно",
+        "Официально",
+        "Перевод"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Yağmur yüzünden",
+            "Yağış nedeniyle",
+            "из-за дождя"
+          ]
+        },
+        {
+          "cells": [
+            "Tamir yüzünden",
+            "Bakım çalışmalarından dolayı",
+            "из-за ремонтных работ"
+          ]
+        },
+        {
+          "cells": [
+            "Hasta olduğu için",
+            "Rahatsızlığı sebebiyle",
+            "по причине болезни"
+          ]
+        },
+        {
+          "cells": [
+            "Yol kapandığı için",
+            "Yolun kapanması nedeniyle",
+            "в связи с закрытием дороги"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "**yüzünden** звучит как упрёк: **Senin yüzünden geç kaldık** — Из-за тебя опоздали. В официальном тексте его заменяют **nedeniyle**. **dolayı** и **ötürü** требуют исходного падежа: **-dAn dolayı**."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Sis nedeniyle uçuşlar ertelenmiştir.",
+      "ru": "Из-за тумана рейсы отложены."
+    },
+    {
+      "es": "Bakım çalışmalarından dolayı müze kapalıdır.",
+      "ru": "В связи с ремонтными работами музей закрыт."
+    },
+    {
+      "es": "Müdürün rahatsızlığı sebebiyle toplantı ertelendi.",
+      "ru": "Из-за болезни директора собрание перенесли."
+    },
+    {
+      "es": "Yolun kapanması nedeniyle otobüs başka güzergâhtan gidecektir.",
+      "ru": "В связи с закрытием дороги автобус пойдёт другим маршрутом."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "c1.12-nedeniyle-dolayi.1",
+      "kind": "choose",
+      "prompt": "Официально «из-за тумана»:",
+      "options": [
+        "sis nedeniyle",
+        "sis yüzünden ya",
+        "sisi için"
+      ],
+      "answer": 0,
+      "explain": "nedeniyle — официально."
+    },
+    {
+      "id": "c1.12-nedeniyle-dolayi.2",
+      "kind": "choose",
+      "prompt": "Какая фраза звучит как упрёк?",
+      "options": [
+        "Senin yüzünden geç kaldık.",
+        "Trafik nedeniyle gecikme yaşandı.",
+        "Yoğunluktan dolayı gecikme oldu."
+      ],
+      "answer": 0,
+      "explain": "yüzünden — упрёк."
+    },
+    {
+      "id": "c1.12-nedeniyle-dolayi.3",
+      "kind": "gap",
+      "sentence": "Bakım çalışmaları___ dolayı su kesilecektir.",
+      "ru": "Из-за ремонтных работ отключат воду.",
+      "options": [
+        "ndan",
+        "na",
+        "yla"
+      ],
+      "answer": 0,
+      "explain": "dolayı — с исходным падежом."
+    },
+    {
+      "id": "c1.12-nedeniyle-dolayi.4",
+      "kind": "gap",
+      "sentence": "Yolun ___ nedeniyle sefer iptal edildi.",
+      "ru": "В связи с закрытием дороги рейс отменён.",
+      "options": [
+        "kapanması",
+        "kapandı",
+        "kapanmak"
+      ],
+      "answer": 0,
+      "explain": "Глагол — -mAsI nedeniyle."
+    },
+    {
+      "id": "c1.12-nedeniyle-dolayi.5",
+      "kind": "truefalse",
+      "statement": "dolayı и ötürü требуют исходного падежа.",
+      "answer": true,
+      "explain": "-dan dolayı."
+    },
+    {
+      "id": "c1.12-nedeniyle-dolayi.6",
+      "kind": "truefalse",
+      "statement": "«yüzünden» — самый нейтральный официальный вариант.",
+      "answer": false,
+      "explain": "Он звучит как упрёк."
+    },
+    {
+      "id": "c1.12-nedeniyle-dolayi.7",
+      "kind": "truefalse",
+      "statement": "«Rahatsızlığı sebebiyle» — «по причине болезни».",
+      "answer": true,
+      "explain": "sebebiyle = nedeniyle."
+    },
+    {
+      "id": "c1.12-nedeniyle-dolayi.8",
+      "kind": "build",
+      "ru": "Из-за тумана рейсы отложены.",
+      "answer": "Sis nedeniyle uçuşlar ertelenmiştir",
+      "extra": [
+        "yüzünden",
+        "sisi"
+      ],
+      "explain": "Официально — nedeniyle."
+    },
+    {
+      "id": "c1.12-nedeniyle-dolayi.9",
+      "kind": "type",
+      "sentence": "Yoğun kar yağışı ___ okullar tatil edilmiştir.",
+      "ru": "Из-за сильного снегопада занятия в школах отменены.",
+      "hint": "из-за (офиц.)",
+      "answer": "nedeniyle",
+      "alt": [
+        "sebebiyle"
+      ],
+      "explain": "Официальная причина."
+    },
+    {
+      "id": "c1.12-nedeniyle-dolayi.10",
+      "kind": "transform",
+      "source": "Yağmur yüzünden maç ertelendi.",
+      "keyword": "nedeniyle",
+      "ru": "Из-за дождя матч перенесён (официально).",
+      "answer": "Yağış nedeniyle maç ertelenmiştir.",
+      "alt": [
+        "Yağmur nedeniyle maç ertelendi.",
+        "Yağış nedeniyle maç ertelendi.",
+        "Yağmur nedeniyle maç ertelenmiştir."
+      ],
+      "explain": "yüzünden → nedeniyle, пассив -mIştIr."
+    },
+    {
+      "id": "c1.12-nedeniyle-dolayi.11",
+      "kind": "fix",
+      "sentence": "Bakım çalışmaları dolayı müze kapalıdır.",
+      "ru": "В связи с ремонтными работами музей закрыт.",
+      "wrong": 1,
+      "answer": "çalışmalarından",
+      "explain": "dolayı — с исходным падежом."
+    },
+    {
+      "id": "c1.12-nedeniyle-dolayi.12",
+      "kind": "register",
+      "source": "Senin yüzünden toplantıya geç kaldık!",
+      "to": "formal",
+      "options": [
+        "Yaşanan aksaklık nedeniyle toplantıya geç kalınmıştır.",
+        "Senin yüzünden geç kaldık işte.",
+        "Toplantı mı, geç mi kaldık?"
+      ],
+      "answer": 0,
+      "explain": "Официально: nedeniyle, безличный пассив."
+    }
+  ]
+}

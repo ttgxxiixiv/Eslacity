@@ -1,0 +1,196 @@
+{
+  "id": "c1.01-resmi-siz",
+  "district": "C1",
+  "order": 1,
+  "title": "Официальное «вы»: -(y)InIz и -(y)InIz rica olunur",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "В официальной речи к собеседнику обращаются на **siz**, а повелительное наклонение берёт длинную форму **-(y)InIz**: **Bekleyiniz**, **Oturunuz**, **Doldurunuz**. Короткое **bekleyin** вежливо в разговоре, длинное **bekleyiniz** звучит на табличках, в письмах и объявлениях. Ещё официальнее — безличное **rica olunur**: **Sigara içilmemesi rica olunur** — Просьба не курить."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "По-свойски",
+        "Вежливо",
+        "Официально"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Bekle.",
+            "Bekleyin.",
+            "Bekleyiniz."
+          ]
+        },
+        {
+          "cells": [
+            "Otur.",
+            "Oturun.",
+            "Oturunuz."
+          ]
+        },
+        {
+          "cells": [
+            "Formu doldur.",
+            "Formu doldurun.",
+            "Formu doldurunuz."
+          ]
+        },
+        {
+          "cells": [
+            "Sigara içme.",
+            "Sigara içmeyin.",
+            "Sigara içilmemesi rica olunur."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Отрицание — **-mAyInIz**: **Girmeyiniz** — Не входите. Не смешивайте: **gelin** — «приходите», а **gelinIZ** — та же просьба на бланке; «ваша невеста» тоже **geliniz**, но по контексту путаницы нет."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Lütfen sıranızı bekleyiniz.",
+      "ru": "Пожалуйста, ожидайте своей очереди."
+    },
+    {
+      "es": "Formu mavi kalemle doldurunuz.",
+      "ru": "Заполните бланк синей ручкой."
+    },
+    {
+      "es": "Kapıyı açık bırakmayınız.",
+      "ru": "Не оставляйте дверь открытой."
+    },
+    {
+      "es": "Bu alanda fotoğraf çekilmemesi rica olunur.",
+      "ru": "Просьба не фотографировать в этой зоне."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "c1.01-resmi-siz.1",
+      "kind": "choose",
+      "prompt": "Объявление в поезде «Не высовывайтесь из окна»:",
+      "options": [
+        "Pencereden sarkmayınız.",
+        "Pencereden sarkma.",
+        "Pencereden sarkmıyorsunuz."
+      ],
+      "answer": 0,
+      "explain": "Официальный запрет — -mAyInIz."
+    },
+    {
+      "id": "c1.01-resmi-siz.2",
+      "kind": "choose",
+      "prompt": "Самая официальная просьба «Просьба соблюдать тишину»:",
+      "options": [
+        "Sessiz olunması rica olunur.",
+        "Sessiz ol!",
+        "Sessiz olsana."
+      ],
+      "answer": 0,
+      "explain": "Безличное rica olunur."
+    },
+    {
+      "id": "c1.01-resmi-siz.3",
+      "kind": "gap",
+      "sentence": "Lütfen kimliğinizi ___.",
+      "ru": "Пожалуйста, предъявите удостоверение.",
+      "options": [
+        "gösteriniz",
+        "göster",
+        "gösterdiniz"
+      ],
+      "answer": 0,
+      "explain": "Официальное повелительное — gösteriniz."
+    },
+    {
+      "id": "c1.01-resmi-siz.4",
+      "kind": "gap",
+      "sentence": "Bu kapıdan ___.",
+      "ru": "Через эту дверь не входить.",
+      "options": [
+        "girmeyiniz",
+        "girmeyin mi",
+        "girmedin"
+      ],
+      "answer": 0,
+      "explain": "Запрет — girmeyiniz."
+    },
+    {
+      "id": "c1.01-resmi-siz.5",
+      "kind": "truefalse",
+      "statement": "«Bekleyiniz» звучит официальнее, чем «bekleyin».",
+      "answer": true,
+      "explain": "Длинная форма — для объявлений и писем."
+    },
+    {
+      "id": "c1.01-resmi-siz.6",
+      "kind": "truefalse",
+      "statement": "«Sigara içilmemesi rica olunur» обращено к одному конкретному человеку на «ты».",
+      "answer": false,
+      "explain": "Это безличная официальная просьба ко всем."
+    },
+    {
+      "id": "c1.01-resmi-siz.7",
+      "kind": "truefalse",
+      "statement": "Отрицательная официальная форма — -mAyInIz: girmeyiniz.",
+      "answer": true,
+      "explain": "gir + me + yiniz."
+    },
+    {
+      "id": "c1.01-resmi-siz.8",
+      "kind": "build",
+      "ru": "Пожалуйста, заполните бланк.",
+      "answer": "Lütfen formu doldurunuz",
+      "extra": [
+        "doldur",
+        "formun"
+      ],
+      "explain": "Официальное повелительное."
+    },
+    {
+      "id": "c1.01-resmi-siz.9",
+      "kind": "type",
+      "sentence": "Lütfen bavulunuzu burada ___.",
+      "ru": "Пожалуйста, оставьте свой чемодан здесь.",
+      "hint": "bırakmak, официально",
+      "answer": "bırakınız",
+      "explain": "bırak + ınız."
+    },
+    {
+      "id": "c1.01-resmi-siz.10",
+      "kind": "fix",
+      "sentence": "Sayın yolcular, lütfen kemerlerini bağlayınız.",
+      "ru": "Уважаемые пассажиры, пожалуйста, пристегните ремни.",
+      "wrong": 3,
+      "answer": "kemerlerinizi",
+      "explain": "Обращение на «вы» — kemerlerinizi."
+    },
+    {
+      "id": "c1.01-resmi-siz.11",
+      "kind": "register",
+      "source": "Otur, bekle biraz.",
+      "to": "formal",
+      "options": [
+        "Lütfen oturunuz, birazdan sizinle ilgileneceğiz.",
+        "Otursana, bekle biraz.",
+        "Oturdun mu, bekle."
+      ],
+      "answer": 0,
+      "explain": "Официально: oturunuz, birazdan ilgileneceğiz."
+    },
+    {
+      "id": "c1.01-resmi-siz.12",
+      "kind": "transform",
+      "source": "Burada fotoğraf çekmeyin.",
+      "keyword": "rica olunur",
+      "ru": "Просьба здесь не фотографировать.",
+      "answer": "Burada fotoğraf çekilmemesi rica olunur.",
+      "explain": "Безличный пассив + rica olunur."
+    }
+  ]
+}
