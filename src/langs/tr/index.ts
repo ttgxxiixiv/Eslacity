@@ -1,5 +1,5 @@
 import type { LangProfile } from '../types';
-import { word } from '../util';
+import { date, word } from '../util';
 import { analyze } from './morph';
 import { TR_VERBS } from './verbs';
 
@@ -56,8 +56,33 @@ export const TR: LangProfile = {
   wordKey: (w) => lower(w).replace(/'.*$/, '').replace(/[âîû]/g, (c) => ({ â: 'a', î: 'i', û: 'u' })[c]!),
   // ı/i, o/ö (swap), долгота с циркумфлексом hala/hâlâ (stress — знак над буквой), eli/elli (double).
   pairKinds: ['swap', 'stress', 'double'],
-  // Hıdrellez и 23 Nisan — в 18.9.
-  festivals: [],
+  // Праздники с постоянной датой (задача 18.9). Рамазан и Курбан-байрам идут по лунному календарю, правилом недели
+  // их не посчитать, поэтому их нет.
+  festivals: [
+    {
+      id: 'hidrellez',
+      title: 'Хыдырэллез',
+      native: 'Hıdrellez',
+      town: 'вся Турция, ночь с 5 на 6 мая',
+      host: 'home',
+      colors: ['#c2185b', '#3c8a3c', '#f2c94c'],
+      icon: '🌹',
+      medal: { title: 'Ленточка желаний', text: 'Миссия Хыдырэллеза в неделю праздника' },
+      // Ночь с пятого на шестое мая и по три дня вокруг.
+      week: (year) => ({ start: date(year, 5, 2), end: date(year, 5, 8) }),
+    },
+    {
+      id: 'nisan',
+      title: 'Детский праздник',
+      native: '23 Nisan',
+      town: 'вся Турция, 23 апреля',
+      host: 'school',
+      colors: ['#e30a17', '#ffffff'],
+      icon: '🪁',
+      medal: { title: 'Воздушный змей', text: 'Миссия 23 апреля в неделю праздника' },
+      week: (year) => ({ start: date(year, 4, 20), end: date(year, 4, 26) }),
+    },
+  ],
 
   // Обращение «yolcu» одно для путника и путницы; женская форма нужна только в русском переводе.
   hero: { words: [['yolcu', 'yolcu']], article: null, adjectives: [] },
