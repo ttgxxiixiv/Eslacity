@@ -86,6 +86,30 @@
         "ticketq": {"kind": "answer", "task": "Скажите, что хотите купить билет на завтра.", "branches": [{"phrase": "ph:station.yarin-icin-bilet", "next": "end"}], "wrong": {"es": "Bugün için mi? Bugün otobüs yok, yarın var.", "ru": "На сегодня? Сегодня автобуса нет, есть завтра."}},
         "end": {"kind": "say", "es": "Al, yarın için. Bir de bunu al: ormanın haritasından bir parça. Eski paralarla ödeyen o yaşlı beyefendi gişede unuttu.", "ru": "Держи, на завтра. И возьми ещё вот это: обрывок карты леса. Его забыл в кассе тот пожилой господин со старыми монетами."}
       }
+    },
+    {
+      "id": "ms:station.5",
+      "chapter": 5,
+      "npc": "ismail",
+      "scene": "sc:station.5",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Müfettiş tam saat on ikide gelecek. Bu arada sen bir yere mi gidiyorsun?", "ru": "Инспектор придёт ровно в двенадцать. А пока — ты куда-то едешь?", "next": "ticket"},
+        "ticket": {"kind": "answer", "task": "Скажите, что хотите купить билет на завтра.", "branches": [{"phrase": "ph:station.yarin-icin-bilet", "next": "ticketsay"}], "wrong": {"es": "Bugün mü? Bugün sefer yok.", "ru": "Сегодня? Сегодня рейсов нет."}},
+        "ticketsay": {"kind": "say", "es": "Hemen keserim. Bak, müfettiş geliyor. Sen sor.", "ru": "Сейчас выпишу. Смотри, вон идёт инспектор. Спроси его ты.", "next": "ask"},
+        "ask": {"kind": "answer", "task": "Спросите инспектора, можно ли пустить специальный поезд к лесу. Официально.", "branches": [{"phrase": "ph:station.ozel-tren-izin", "next": "asksay"}, {"phrase": "ph:station.treni-kaldirsana", "next": "asksay"}], "wrong": {"es": "Vapur mu? Vapur ormana gitmez.", "ru": "Паром? Паром в лес не ходит."}, "register": "formal", "tone": {"es": "“Baksana, treni kaldırsana” mı? Müfettiş yüzünü buruşturdu. Onunla resmi ve saygılı konuş.", "ru": "«Слушай, пусти поезд»? Инспектор поморщился. С ним официально и уважительно."}},
+        "asksay": {"kind": "say", "es": "Kabul etti! Bir tren, bir sefer. Ama ben sadece ikimizin gitmesini isterdim.", "ru": "Он согласился! Один поезд, один рейс. Но я бы хотел, чтобы поехали только мы двое.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:station.herkes-gelsin", "next": "object", "move": "object"}, {"phrase": "ph:station.sadece-ikimiz", "next": "concede", "move": "concede"}, {"phrase": "ph:station.cevap-verecekler", "next": "compromise", "move": "compromise"}], "wrong": {"es": "Ne? Bugün kulaklarım da yorgun. Bir daha söyle.", "ru": "Что? У меня сегодня и уши устали. Скажи ещё раз."}},
+        "object": {"kind": "say", "es": "Haklısın. Tellal herkes yüzünden gitti, ona cevap vermeye de herkes gelsin.", "ru": "Ты прав. Глашатай ушёл из-за всех, пусть все и едут ему отвечать.", "next": "punctual", "fem": {"ru": "Ты права. Глашатай ушёл из-за всех, пусть все и едут ему отвечать."}},
+        "concede": {"kind": "say", "es": "İşte bu! İki yolcu, zamanında ve gürültüsüz.", "ru": "Вот это по-нашему. Два пассажира, вовремя и без шума.", "next": "punctual"},
+        "compromise": {"kind": "say", "es": "İyi fikir. Kapıya bir liste asarım: “Sadece cevap vermek isteyenler için.”", "ru": "Хорошая идея. Повешу на дверь список: «Только для тех, кто хочет ответить».", "next": "punctual"},
+        "punctual": {"kind": "answer", "task": "Спросите, придёт ли паром вовремя.", "branches": [{"phrase": "ph:station.zamaninda-mi", "next": "punctualsay"}], "wrong": {"es": "Pahalı mı? Bilet ucuz.", "ru": "Дорого? Билет дешёвый."}},
+        "punctualsay": {"kind": "say", "es": "Benim iskelemde her zaman. Tren de sabah yedide kalkıyor.", "ru": "На моей пристани — всегда. А поезд отправляется в семь утра.", "next": "stop"},
+        "stop": {"kind": "answer", "task": "Спросите, на какой остановке выходить.", "branches": [{"phrase": "ph:station.hangi-durak", "next": "stopsay"}], "wrong": {"es": "Aktarma mı? Aktarma yok.", "ru": "Пересадка? Пересадки нет."}},
+        "stopsay": {"kind": "say", "es": "Sonuncusunda: tren doğrudan ormana gidiyor. Bavulunu şimdilik nereye bırakacaksın?", "ru": "На последней: поезд идёт прямо к лесу. А где ты пока оставишь чемодан?", "next": "locker"},
+        "locker": {"kind": "answer", "task": "Спросите, где камера хранения.", "branches": [{"phrase": "ph:station.emanet-nerede", "next": "end"}], "wrong": {"es": "Taksi mi? Taksi dışarıda.", "ru": "Такси? Такси снаружи."}},
+        "end": {"kind": "say", "es": "Salonun sonunda, sağda. Bir de şunu al: tarifenin içinde kullanılmamış bir bilet ve Labirentin haritasından bu parça vardı.", "ru": "В конце зала, направо. И держи: в расписании был неиспользованный билет и этот обрывок карты Лабиринта."}
+      }
     }
   ]
 }

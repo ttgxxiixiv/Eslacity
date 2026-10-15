@@ -85,6 +85,28 @@
         "apptq": {"kind": "answer", "task": "Скажите, что хотите записаться на завтра.", "branches": [{"phrase": "ph:barber.yarina-randevu", "next": "end"}], "wrong": {"es": "Bugün mü? Bugün dolu.", "ru": "Сегодня? Сегодня всё занято."}},
         "end": {"kind": "say", "es": "Yarın saat onda. Bir de şunu al: pipolu adam bunu koltukta unuttu. Ormanın haritasından bir parça, içinde de siyah bir tüy.", "ru": "Завтра в десять. И держи: человек с трубкой оставил это в кресле. Обрывок карты леса, а в нём чёрное перо."}
       }
+    },
+    {
+      "id": "ms:barber.5",
+      "chapter": 5,
+      "npc": "yusuf",
+      "scene": "sc:barber.5",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Belediye başkanının eşi geliyor, en sert müşterim. Sen selam ver, ben herkesle arkadaş gibi konuşuyorum.", "ru": "Входит жена мэра, моя самая строгая клиентка. Поздоровайся ты, а то я со всеми как с приятелями.", "next": "greet"},
+        "greet": {"kind": "answer", "task": "Поприветствуйте жену мэра и спросите, что она желает. Официально.", "branches": [{"phrase": "ph:barber.hos-geldiniz-hanimefendi", "next": "greetsay"}, {"phrase": "ph:barber.selam-ne-yapalim", "next": "greetsay"}], "wrong": {"es": "Jöle mi? Önce bir selam ver.", "ru": "Гель? Сначала поздоровайся."}, "register": "formal", "tone": {"es": "Eyvah! “Selam” mı? Yüzüne bak. Onunla her zaman resmi.", "ru": "Ой! «Привет»? Посмотри, какое у неё лицо. С ней всегда официально."}},
+        "greetsay": {"kind": "say", "es": "Sadece uçlarını aldırmak istiyor. Dinle, dedemin aynasını atmayı düşünüyorum. Beni korkutuyor.", "ru": "Она хочет только подровнять кончики. Слушай, я думаю выбросить дедушкино зеркало. Оно меня пугает.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:barber.aynayi-atma", "next": "object", "move": "object"}, {"phrase": "ph:barber.bodruma-koy", "next": "concede", "move": "concede"}, {"phrase": "ph:barber.havluyla-ort", "next": "compromise", "move": "compromise"}], "wrong": {"es": "Ne? Makine çok gürültülü, bir daha söyle.", "ru": "Что? Машинка очень шумит, повтори."}},
+        "object": {"kind": "say", "es": "Haklısın. Hem tellal içinden konuşuyorsa onu duymak istiyorum.", "ru": "Ты прав. К тому же, если через него говорит глашатай, я хочу его услышать.", "next": "appointment", "fem": {"ru": "Ты права. К тому же, если через него говорит глашатай, я хочу его услышать."}},
+        "concede": {"kind": "say", "es": "Evet… bodruma koyarım. Ama yazık, dedemin.", "ru": "Да… отнесу его в подвал. Но жалко, оно дедушкино.", "next": "appointment"},
+        "compromise": {"kind": "say", "es": "Havlu! Böylece rahat uyurum, ayna da burada kalır.", "ru": "Полотенце! Так я буду спать спокойно, а зеркало останется здесь.", "next": "appointment"},
+        "appointment": {"kind": "answer", "task": "Скажите, что хотите записаться на завтра.", "branches": [{"phrase": "ph:barber.yarina-randevu", "next": "appointmentsay"}], "wrong": {"es": "Bugün mü? Bugün dolu.", "ru": "Сегодня? Сегодня всё занято."}},
+        "appointmentsay": {"kind": "say", "es": "Yarın saat onda. Sana ne yapalım?", "ru": "Завтра в десять. Что тебе сделать?", "next": "trim"},
+        "trim": {"kind": "answer", "task": "Попросите подровнять только кончики.", "branches": [{"phrase": "ph:barber.uclarini-al", "next": "trimsay"}], "wrong": {"es": "Kısa mı? Çok kısa olmaz.", "ru": "Коротко? Слишком коротко не будет."}},
+        "trimsay": {"kind": "say", "es": "Anlaştık. Başka bir şey? Beyazlar çıkmış.", "ru": "Договорились. Что-нибудь ещё? Седина пробивается.", "next": "roots"},
+        "roots": {"kind": "answer", "task": "Предложите закрасить только седину.", "branches": [{"phrase": "ph:barber.sadece-beyazlar", "next": "end"}], "wrong": {"es": "Hepsini mi boyayalım? Ben önermem.", "ru": "Покрасить всё? Я бы не советовал."}},
+        "end": {"kind": "say", "es": "Tabii. Bir de şunu al: aynanın arkasında eski bir kâğıt vardı. Labirentin haritasından bir parça, üstünde dedemin el yazısı: “Tellal için, dönerse.”", "ru": "Конечно. И держи: за зеркалом была старая бумага. Обрывок карты Лабиринта, а на нём рукой деда: «Для глашатая, если вернётся»."}
+      }
     }
   ]
 }

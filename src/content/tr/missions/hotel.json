@@ -73,7 +73,7 @@
         "room": {"kind": "say", "es": "Bir tane kaldı, küçük. Tam çatının altında.", "ru": "Остался один, маленький. Под самой крышей.", "next": "viewq"},
         "viewq": {"kind": "answer", "task": "Спросите, видно ли из номера море.", "branches": [{"phrase": "ph:hotel.deniz-gorunuyor", "next": "view"}], "wrong": {"es": "Kaçıncı kat mı? Beşinci.", "ru": "Какой этаж? Пятый."}},
         "view": {"kind": "say", "es": "Otoparkı görüyor, kusura bakma. Dinle, bir sorunum var: Arda burada kalmak istiyor, ama ona güvenmiyorum. Kısa süre önce yalan satıyordu. Ona oda vermeyeceğim.", "ru": "Вид на парковку, прости. Слушай, у меня проблема: Арда хочет здесь остановиться, но я ему не доверяю. Недавно он торговал ложью. Не дам ему номер.", "next": "dispute"},
-        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:hotel.ikinci-sans", "next": "object", "move": "object"}, {"phrase": "ph:hotel.misafirlerini-dusun", "next": "concede", "move": "concede"}, {"phrase": "ph:hotel.burada-calissin", "next": "compromise", "move": "compromise"}], "wrong": {"es": "Ne dedin? Telefon çalıyor, bir daha söyle.", "ru": "Что ты сказал? Телефон звонит, повтори."}},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:hotel.ikinci-sans", "next": "object", "move": "object", "sets": {"room": "room"}}, {"phrase": "ph:hotel.misafirlerini-dusun", "next": "concede", "move": "concede", "sets": {"room": "refused"}}, {"phrase": "ph:hotel.burada-calissin", "next": "compromise", "move": "compromise", "sets": {"room": "work"}}], "wrong": {"es": "Ne dedin? Telefon çalıyor, bir daha söyle.", "ru": "Что ты сказал? Телефон звонит, повтори."}},
         "object": {"kind": "say", "es": "İkinci bir şans mı? … Doğru. Beyaz şehrin muhafızına doğruyu ilk o söyledi. Ona oda veriyorum.", "ru": "Второй шанс? …Это правда. Он первым сказал правду стражнице белого города. Даю ему номер.", "next": "ready"},
         "concede": {"kind": "say", "es": "Teşekkürler. Otel sahibi misafirlerini düşünmeli.", "ru": "Спасибо. Хозяйка отеля должна думать о своих гостях.", "next": "ready"},
         "compromise": {"kind": "say", "es": "Burada mı çalışsın? Geceleri resepsiyonda birine ihtiyacım var… Anlaştık!", "ru": "Работать здесь? Мне нужен кто-то на ресепшене по ночам… Договорились!", "next": "ready"},
@@ -84,6 +84,30 @@
         "wake": {"kind": "say", "es": "Evet, seni saat onda ararım. Başka bir şey?", "ru": "Да, позвоню тебе в десять. Что-нибудь ещё?", "next": "reviewq"},
         "reviewq": {"kind": "answer", "task": "Скажите, что напишете хороший отзыв.", "branches": [{"phrase": "ph:hotel.guzel-yorum", "next": "end"}], "wrong": {"es": "Anahtar mı? Anahtarın elinde.", "ru": "Ключ? Ключ у тебя в руке."}},
         "end": {"kind": "say", "es": "Teşekkürler! Bir de bunu al: Arda ormandan senin için getirdi. Haritanın bir parçası. Neredeyse tamamlandı, diyor.", "ru": "Спасибо! И держи: Арда принёс это из леса для тебя. Обрывок карты. Говорит, она почти собрана."}
+      }
+    },
+    {
+      "id": "ms:hotel.5",
+      "chapter": 5,
+      "npc": "leyla",
+      "scene": "sc:hotel.5",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Orhan düşünürken bana yardım et. Yarın çok insan gelecek, hepsi ormana gidiyor. Telefonda onlara ne diyeyim?", "ru": "Пока Орхан думает, помоги мне. Завтра приедет много народу, все едут к лесу. Что мне говорить им по телефону?", "next": "rooms"},
+        "rooms": {"kind": "answer", "task": "Спросите, есть ли свободные номера.", "branches": [{"phrase": "ph:hotel.bos-oda-var-mi", "next": "roomssay"}], "wrong": {"es": "Kahvaltı mı? Kahvaltı yedide.", "ru": "Завтрак? Завтрак в семь."}},
+        "roomssay": {"kind": "say", "es": "Üç tane kaldı. İyi. Şimdi lütfen Orhan'la konuş. Titriyor.", "ru": "Осталось три. Хорошо. Теперь поговори с Орханом, пожалуйста. Он дрожит.", "next": "calm"},
+        "calm": {"kind": "answer", "task": "Успокойте Орхана. Он просит говорить с ним по-свойски.", "branches": [{"phrase": "ph:hotel.korkma-yanindayiz", "next": "calmsay"}, {"phrase": "ph:hotel.endise-etmeyiniz", "next": "calmsay"}], "wrong": {"es": "Oda mı? Orhan oda istemiyor, cesaret istiyor.", "ru": "Номер? Орхану нужен не номер, а смелость."}, "register": "informal", "tone": {"es": "“Efendim” mi? Orhan diyor ki: “Tellal benimle böyle konuşurdu. Bari sen böyle konuşma.”", "ru": "«Сударь»? Орхан говорит: «Так со мной говорил глашатай. Хоть ты так не говори»."}},
+        "calmsay": {"kind": "say", "es": "Orhan diyor ki: “Sağ ol. Ama burada kalayım galiba. Labirente gitmeyi hak etmedim.”", "ru": "Орхан говорит: «Спасибо. Но, пожалуй, я останусь здесь. Я не заслужил идти в Лабиринт».", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:hotel.seni-bekliyor", "next": "object", "move": "object"}, {"phrase": "ph:hotel.korkunu-anliyorum", "next": "concede", "move": "concede"}, {"phrase": "ph:hotel.mektup-yazsan", "next": "compromise", "move": "compromise"}], "wrong": {"es": "Ne dedin? Telefon çalıyor, bir daha söyle.", "ru": "Что ты сказал? Телефон звонит, повтори."}},
+        "object": {"kind": "say", "es": "Orhan ayağa kalkıyor. “Haklısın. Beni bekliyorsa giderim. Ve kendi sesimle özür dilerim.”", "ru": "Орхан встаёт. «Ты прав. Если он ждёт, я поеду. И попрошу прощения своим голосом».", "next": "service", "fem": {"ru": "Орхан встаёт. «Ты права. Если он ждёт, я поеду. И попрошу прощения своим голосом»."}},
+        "concede": {"kind": "say", "es": "Orhan hafifçe gülümsüyor. “Anladığın için sağ ol. Ona üzgün olduğumu söyle.”", "ru": "Орхан чуть улыбается. «Спасибо, что понимаешь. Скажи ему, что мне жаль».", "next": "service"},
+        "compromise": {"kind": "say", "es": "Orhan kâğıt istiyor. “Mektup. Evet. Böylece sesim titremez.”", "ru": "Орхан просит бумагу. «Письмо. Да. Так у меня не будет дрожать голос».", "next": "service"},
+        "service": {"kind": "answer", "task": "Спросите, можно ли заказать еду в номер.", "branches": [{"phrase": "ph:hotel.oda-servisi", "next": "servicesay"}], "wrong": {"es": "Uyandırma mı? Onu yarın sabah ayarlarız.", "ru": "Звонок-будильник? Это настроим завтра утром."}},
+        "servicesay": {"kind": "say", "es": "Var, on iki numaraya da herkesten iyi bakacağız. Yolculuk için başka bir şey?", "ru": "Есть, а двенадцатый номер обслужим лучше всех. Что-нибудь ещё для поездки?", "next": "safe"},
+        "safe": {"kind": "answer", "task": "Спросите, есть ли в номере сейф.", "branches": [{"phrase": "ph:hotel.odada-kasa", "next": "safesay"}], "wrong": {"es": "Havlu mu? Banyoda.", "ru": "Полотенце? В ванной."}},
+        "safesay": {"kind": "say", "es": "Var. Çocukların mektubunu yarına kadar orada sakla. Yolcular için kahvaltı?", "ru": "Есть. Храни там письмо детей до завтра. А завтрак для путешественников?", "next": "included"},
+        "included": {"kind": "answer", "task": "Спросите, всё ли включено.", "branches": [{"phrase": "ph:hotel.her-sey-dahil", "next": "end"}], "wrong": {"es": "Fatura mı? Yarın veririm.", "ru": "Счёт? Дам завтра."}},
+        "end": {"kind": "say", "es": "Her şey dahil. Bir de şunu al: on iki numarada, yatağın altında bu kâğıt vardı. Labirentin haritasından bir parça.", "ru": "Всё включено. И держи: в двенадцатом номере, под кроватью, лежала эта бумага. Обрывок карты Лабиринта."}
       }
     }
   ]

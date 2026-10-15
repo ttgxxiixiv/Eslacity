@@ -122,6 +122,31 @@
         {"q": "Чего хочет Орхан?", "options": ["Сказать герою кое-что в лицо", "Уехать", "Спать"], "answer": 0}
       ],
       "gloss": {"orhan": "Орхан", "soğuktan": "от холода", "bayılmış": "потерял сознание", "tansiyonu": "его давление", "arda": "Арда", "utanç": "стыд", "bildiğini": "что знает", "ziyaret": "посещение", "sordu": "спрашивал", "istediğini": "что хочет"}
+    },
+    {
+      "id": "sc:hospital.5",
+      "chapter": 5,
+      "npc": "gul",
+      "lines": [
+        {"who": "npc", "es": "Buyurun, buyurun. Burada çok özel bir hastamız var: Elif Hanım'ın öğrencisi Efe.", "ru": "Проходите, проходите. У нас тут совсем особый пациент: Эфе, ученик Элиф-ханым."},
+        {"who": "hero", "es": "Efe mi? Ne oldu ona?", "ru": "Эфе? Что с ним случилось?"},
+        {"who": "npc", "es": "Sesini kaybetti. Okulda tellal rolünün provasını yapıyordu, onun cümlelerini bağırıyordu, sonra hiç ses yok.", "ru": "Потерял голос. Репетировал роль глашатая в школе, выкрикивал его фразы, а потом — ничего."},
+        {"who": "hero", "es": "Yankı yüzünden mi?", "ru": "Это из-за эха?"},
+        {"who": "npc", "es": "Bence evet. Sesi gitti ve dönmedi. Tellalınki gibi.", "ru": "Думаю, да. Его голос ушёл и не вернулся. Как у глашатая."},
+        {"who": "hero", "es": "Tedavisi var mı?", "ru": "Это лечится?"},
+        {"who": "npc", "es": "Ninemin notlarını okudum, o da doktordu. Şöyle yazmış: “Biri cevap verince ses geri döner.”", "ru": "Я прочитала записи моей бабушки, она тоже была врачом. Она написала: «Голос возвращается, когда кто-то отвечает»."},
+        {"who": "hero", "es": "Demek tellala cevap vermek lazım.", "ru": "Значит, нужно ответить глашатаю."},
+        {"who": "npc", "es": "Bence öyle. Belki o sesini geri alınca Efe de kendi sesini alır.", "ru": "Думаю, да. И, может быть, когда он вернёт себе голос, Эфе вернёт свой."},
+        {"who": "hero", "es": "Efe üzgün mü?", "ru": "Эфе грустит?"},
+        {"who": "npc", "es": "Çok. Yarın ormana yolculuk var, o da sessiz yardım edemeyeceğini düşünüyor. Onunla konuşun.", "ru": "Очень. Завтра поездка к лесу, а он думает, что без голоса не сможет помочь. Поговорите с ним."}
+      ],
+      "questions": [
+        {"q": "Кто особый пациент?", "options": ["Эфе, ученик Элиф-ханым", "Орхан", "Глашатай"], "answer": 0},
+        {"q": "Как Эфе потерял голос?", "options": ["Репетировал роль глашатая", "Простудился", "Кричал на базаре"], "answer": 0},
+        {"q": "Что написала бабушка доктора Гюль?", "options": ["«Голос возвращается, когда кто-то отвечает»", "«Пейте тёплый чай»", "«Молчание — золото»"], "answer": 0},
+        {"q": "Почему Эфе грустит?", "options": ["Думает, что без голоса не сможет помочь в поездке", "Не хочет в школу", "Скучает по маме"], "answer": 0}
+      ],
+      "gloss": {"efe": "Эфе", "elif": "Элиф", "tellal": "глашатай", "rolünün": "роли", "provasını": "репетицию", "cümlelerini": "его фразы", "bağırıyordu": "выкрикивал", "tellalınki": "как у глашатая", "ninemin": "моей бабушки", "tellala": "глашатаю", "sessiz": "без голоса", "edemeyeceğini": "что не сможет"}
     }
   ]
 }

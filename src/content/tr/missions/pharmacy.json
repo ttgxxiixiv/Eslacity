@@ -88,6 +88,30 @@
         "cheapq": {"kind": "answer", "task": "Спросите, есть ли лекарство подешевле.", "branches": [{"phrase": "ph:pharmacy.daha-ucuzu", "next": "end"}], "wrong": {"es": "Pahalı mı? Hayır, bu en ucuzu değil.", "ru": "Дорогое? Нет, это не самое дешёвое."}},
         "end": {"kind": "say", "es": "Evet, şu. Bir de bunu alın: ormanın haritasından bir parça. Sabah kapının önünde, siyah bir tüyün yanında buldum.", "ru": "Да, вот это. И возьмите ещё: обрывок карты леса. Я нашла его утром у двери рядом с чёрным пером."}
       }
+    },
+    {
+      "id": "ms:pharmacy.5",
+      "chapter": 5,
+      "npc": "zeynep",
+      "scene": "sc:pharmacy.5",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Evet. Siz bugün nasılsınız?", "ru": "Так-так. А вы как себя сегодня чувствуете?", "next": "sleep"},
+        "sleep": {"kind": "answer", "task": "Скажите, что не можете спать из-за стресса.", "branches": [{"phrase": "ph:pharmacy.stresten-uyuyamiyorum", "next": "sleepsay"}], "wrong": {"es": "Başınız mı dönüyor? Biraz oturun.", "ru": "Голова кружится? Присядьте."}},
+        "sleepsay": {"kind": "say", "es": "Yankı kimseyi uyutmuyor. Başka bir şeye ihtiyacınız var mı?", "ru": "Эхо никому не даёт спать. Вам нужно что-нибудь ещё?", "next": "throat"},
+        "throat": {"kind": "answer", "task": "Попросите Зейнеп-ханым посоветовать что-нибудь для горла. Официально.", "branches": [{"phrase": "ph:pharmacy.bogaz-icin-tavsiye", "next": "throatsay"}, {"phrase": "ph:pharmacy.bogaz-icin-ver", "next": "throatsay"}], "wrong": {"es": "Diş macunu mu? Rafta.", "ru": "Зубная паста? На полке."}, "register": "formal", "tone": {"es": "“Baksana, ver” mi? Benim eczanemde kurallara uygun konuşulur. Bunu bana dedem öğretti.", "ru": "«Слушай, дай»? В моей аптеке говорят как положено. Так меня научил дед."}},
+        "throatsay": {"kind": "say", "es": "Şu pastiller, tellalın aldıklarının aynısı. Dinleyin, dedemin defterini gazeteye götürmeyi düşünüyorum.", "ru": "Вот эти пастилки, такие же брал глашатай. Послушайте, я думаю отнести тетрадь деда в газету.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:pharmacy.dedenizin-sozleri", "next": "object", "move": "object"}, {"phrase": "ph:pharmacy.sehir-bilmeli", "next": "concede", "move": "concede"}, {"phrase": "ph:pharmacy.tek-bir-sayfa", "next": "compromise", "move": "compromise"}], "wrong": {"es": "Efendim? Bir daha söyler misiniz?", "ru": "Простите? Повторите, пожалуйста."}},
+        "object": {"kind": "say", "es": "Haklısınız. Bunlar dedemin sözleri, haber değil.", "ru": "Вы правы. Это слова моего деда, а не новость.", "next": "effects"},
+        "concede": {"kind": "say", "es": "Evet, şehir bunu bilmeli. Belki o zaman biri tellala cevap verir.", "ru": "Да, город должен это знать. Может, тогда кто-нибудь ответит глашатаю.", "next": "effects"},
+        "compromise": {"kind": "say", "es": "Tek bir sayfa… Bence adil. Gerisi aileme ait.", "ru": "Только одну страницу… По-моему, справедливо. Остальное принадлежит моей семье.", "next": "effects"},
+        "effects": {"kind": "answer", "task": "Спросите, есть ли побочные эффекты.", "branches": [{"phrase": "ph:pharmacy.yan-etkisi", "next": "effectssay"}], "wrong": {"es": "Dozu mu? Günde iki tane.", "ru": "Доза? Две в день."}},
+        "effectssay": {"kind": "say", "es": "Hiç yok, ballı pastiller. Dört saatte bir tane.", "ru": "Никаких, они медовые. По одной каждые четыре часа.", "next": "dose"},
+        "dose": {"kind": "answer", "task": "Спросите, какая доза.", "branches": [{"phrase": "ph:pharmacy.dozu-ne", "next": "dosesay"}], "wrong": {"es": "Reçete mi? Bunlar için reçete gerekmez.", "ru": "Рецепт? Для них рецепт не нужен."}},
+        "dosesay": {"kind": "say", "es": "Dediğim gibi, dört saatte bir. Yol için başka bir şey?", "ru": "Как я сказала, раз в четыре часа. Что-нибудь ещё в дорогу?", "next": "bandage"},
+        "bandage": {"kind": "answer", "task": "Скажите, что вам нужен бинт.", "branches": [{"phrase": "ph:pharmacy.sargi-lazim", "next": "end"}], "wrong": {"es": "Krem mi? Krem şurada.", "ru": "Крем? Крем вон там."}},
+        "end": {"kind": "say", "es": "Buyurun. Bir de şu: defterin son sayfasındaydı. Labirentin haritasından bir parça. Dedem yazmış: “Ona cevap verecek olana.”", "ru": "Вот, держите. И вот ещё: это лежало на последней странице тетради. Обрывок карты Лабиринта. Дед написал: «Тому, кто ему ответит»."}
+      }
     }
   ]
 }

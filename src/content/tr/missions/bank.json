@@ -85,6 +85,30 @@
         "stmtq": {"kind": "answer", "task": "Попросите выписку по счёту.", "branches": [{"phrase": "ph:bank.hesap-ozeti", "next": "end"}], "wrong": {"es": "Şifre mi? Şifreyi kimseye söylemeyin.", "ru": "PIN-код? Никому его не говорите."}},
         "end": {"kind": "say", "es": "Buyurun. Bir de şu: eski paralı beyefendi dün bunu gişede unuttu. Ormanın haritasından bir parça.", "ru": "Пожалуйста. И вот ещё: господин со старыми монетами вчера забыл это у окошка. Обрывок карты леса."}
       }
+    },
+    {
+      "id": "ms:bank.5",
+      "chapter": 5,
+      "npc": "murat",
+      "scene": "sc:bank.5",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Buyurun, oturun lütfen. Tellalın hesabına bakmadan önce bir şey ister misiniz?", "ru": "Присаживайтесь, пожалуйста. Хотите чего-нибудь, прежде чем посмотреть счёт глашатая?", "next": "statement"},
+        "statement": {"kind": "answer", "task": "Попросите выписку по вашему счёту.", "branches": [{"phrase": "ph:bank.hesap-ozeti", "next": "statementsay"}], "wrong": {"es": "Kredi mi? Bugün kredi konuşmayalım.", "ru": "Кредит? Сегодня о кредитах не будем."}},
+        "statementsay": {"kind": "say", "es": "Buyurun. Şimdi tellalın hesabı. Neye bakmak istersiniz?", "ru": "Пожалуйста. А теперь — счёт глашатая. Что вы хотите посмотреть?", "next": "show"},
+        "show": {"kind": "answer", "task": "Попросите Мурата-бея показать операции по счёту. Он говорит только официально.", "branches": [{"phrase": "ph:bank.islemleri-gosterir", "next": "showsay"}, {"phrase": "ph:bank.hadi-goster", "next": "showsay"}], "wrong": {"es": "Şifre mi? Şifreye gerek yok.", "ru": "PIN-код? PIN-код не нужен."}, "register": "formal", "tone": {"es": "“Hadi, göster” mi? Rica ederim… Yankının mektupları bana yetiyor. Bu bankada kurallara uygun konuşulur.", "ru": "«Давай, покажи»? Прошу вас… Мне хватает этого в письмах эха. В этом банке говорят как положено."}},
+        "showsay": {"kind": "say", "es": "İşte: yüz yıl hiçbir işlem yok, dün de bir para. Kurallara göre bu kadar eski bir hesap kapatılır. Kapatacağım.", "ru": "Вот: сто лет никаких операций, а вчера — монета. По правилам такой старый счёт закрывают. Я его закрою.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:bank.hesap-yasiyor", "next": "object", "move": "object"}, {"phrase": "ph:bank.kural-kuraldir", "next": "concede", "move": "concede"}, {"phrase": "ph:bank.bir-yil-daha", "next": "compromise", "move": "compromise"}], "wrong": {"es": "Efendim? Burada çok gürültü var, tekrar eder misiniz?", "ru": "Простите? Здесь очень шумно, не повторите?"}},
+        "object": {"kind": "say", "es": "Haklısınız: dün kullanmış. Yaşayan bir hesap kapatılmaz.", "ru": "Вы правы: вчера он им пользовался. Живой счёт не закрывают.", "next": "savings"},
+        "concede": {"kind": "say", "es": "Kapatacağım… ama notu saklarım. Her gün bir müşteri cevap istemiyor.", "ru": "Закрою… но записку сохраню. Не каждый день клиент просит ответа.", "next": "savings"},
+        "compromise": {"kind": "say", "es": "Bir yıl daha. Bence makul. Belki bir yılda biri ona cevap verir.", "ru": "Ещё на год. По-моему, разумно. Может, за год кто-нибудь ему ответит.", "next": "savings"},
+        "savings": {"kind": "answer", "task": "Скажите, что хотите вложить свои сбережения.", "branches": [{"phrase": "ph:bank.birikim-yatirmak", "next": "savingssay"}], "wrong": {"es": "Çekmek mi? Siz de mi?", "ru": "Снять? И вы туда же?"}},
+        "savingssay": {"kind": "say", "es": "Memnuniyetle. Gerçi parayı tellal gibi yüz yıl saklamanızı önermem.", "ru": "С удовольствием. Хотя не советую хранить деньги сто лет, как глашатай.", "next": "manager"},
+        "manager": {"kind": "answer", "task": "Скажите, что хотите поговорить с управляющим.", "branches": [{"phrase": "ph:bank.mudurle-konusmak", "next": "managersay"}], "wrong": {"es": "Kasa mı? Kasa solda.", "ru": "Касса? Касса слева."}},
+        "managersay": {"kind": "say", "es": "Müdür benim. Başka bir şey?", "ru": "Управляющий — я. Что-нибудь ещё?", "next": "fraud"},
+        "fraud": {"kind": "answer", "task": "Скажите, что не хотите влезать в долги.", "branches": [{"phrase": "ph:bank.borca-girmek", "next": "end"}], "wrong": {"es": "Faiz mi? Faiz yüzde üç.", "ru": "Процент? Три процента."}},
+        "end": {"kind": "say", "es": "Çok akıllıca. Bunu size veriyorum: tellalın kasasında, notun yanındaydı. Labirentin haritasından bir parça.", "ru": "Очень разумно. Отдаю вам вот это: оно лежало в ячейке глашатая, рядом с запиской. Обрывок карты Лабиринта."}
+      }
     }
   ]
 }

@@ -85,6 +85,30 @@
         "fullq": {"kind": "answer", "task": "Откажитесь: вы наелись.", "branches": [{"phrase": "ph:restaurant.cok-doydum", "next": "end"}], "wrong": {"es": "Baklava mı? Hemen getiriyorum!", "ru": "Пахлаву? Сейчас принесу!"}},
         "end": {"kind": "say", "es": "Tamam. Bir de bunu al: ormanın haritasından bir parça. Ebru dün masada unuttu. Yarın ona teşekkür edeceğim… sakin sakin.", "ru": "Хорошо. И держи ещё вот это: обрывок карты леса. Эбру вчера забыла его на столе. Завтра я её поблагодарю… спокойно."}
       }
+    },
+    {
+      "id": "ms:restaurant.5",
+      "chapter": 5,
+      "npc": "kemal",
+      "scene": "sc:restaurant.5",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "İşte orada. Ona ekmek götürüyorum. Sen konuş, sesim titriyor.", "ru": "Вот он. Я несу ему хлеб. Говори ты, а то у меня голос дрожит.", "next": "special"},
+        "special": {"kind": "answer", "task": "Спросите Кемаля-уста, какое сегодня фирменное блюдо, чтобы предложить гостю.", "branches": [{"phrase": "ph:restaurant.ozel-yemek", "next": "specialsay"}], "wrong": {"es": "Hesap mı? Daha bir şey yemedi!", "ru": "Счёт? Он ещё ничего не съел!"}},
+        "specialsay": {"kind": "say", "es": "Balık böreği. Ama önce ona sor. Misafir çok ciddi, sanki başka bir dünyadan.", "ru": "Рыбный пирог. Но сначала спроси его самого. Гость очень серьёзный, будто из другого мира.", "next": "ask"},
+        "ask": {"kind": "answer", "task": "Спросите гостя, не желает ли он чего-нибудь ещё. Он незнакомец — официально.", "branches": [{"phrase": "ph:restaurant.baska-arzunuz", "next": "asksay"}, {"phrase": "ph:restaurant.baska-ne-istersin", "next": "asksay"}], "wrong": {"es": "Tuz mu? Masada tuz var.", "ru": "Соль? Соль на столе."}, "register": "formal", "tone": {"es": "Eyvah! “Dostum” mu? Yüzüne bak: yankı bunu “Ne istiyorsun?” diye götürdü. Resmi konuş, lütfen!", "ru": "Ой! «Дружище»? Посмотри на его лицо: эхо донесло это как «Чего тебе?». Официально, пожалуйста!"}},
+        "asksay": {"kind": "say", "es": "Cevap verdi: “Başka bir şey istemem. Konuşmayı bilen birini arıyorum.” Bana da bakıyor… Beni sinirlendiriyor. Onu kovacağım.", "ru": "Он ответил: «Больше ничего. Ищу того, кто умеет говорить». И смотрит на меня… Он меня нервирует. Я его выгоню.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:restaurant.haber-getirdi", "next": "object", "move": "object"}, {"phrase": "ph:restaurant.kibarca-soyle", "next": "concede", "move": "concede"}, {"phrase": "ph:restaurant.yemegini-bitirsin", "next": "compromise", "move": "compromise"}], "wrong": {"es": "Ne? Mutfakta çok gürültü var, bir daha söyle.", "ru": "Что? На кухне очень шумно, повтори."}},
+        "object": {"kind": "say", "es": "Haklısın, bize haber getirdi. Sakinleşip ona tatlı götüreyim.", "ru": "Ты прав, он принёс весть. Успокоюсь и подам ему десерт.", "next": "soup", "fem": {"ru": "Ты права, он принёс весть. Успокоюсь и подам ему десерт."}},
+        "concede": {"kind": "say", "es": "Kibarca rica edeceğim… Bak! Kendi kalkıp gitti, masada da bir şey bıraktı.", "ru": "Попрошу его вежливо… Смотри! Он ушёл сам и что-то оставил на столе.", "next": "soup"},
+        "compromise": {"kind": "say", "es": "Peki, yemeğini bitirsin. Sonra ona Labirenti sorarız.", "ru": "Ладно, пусть доест. А потом спросим его о Лабиринте.", "next": "soup"},
+        "soup": {"kind": "answer", "task": "Попробуйте суп и скажите, что он немного пересолен.", "branches": [{"phrase": "ph:restaurant.biraz-tuzlu", "next": "soupsay"}], "wrong": {"es": "Acı mı? Hayır, hiç acı değil.", "ru": "Острый? Нет, совсем не острый."}},
+        "soupsay": {"kind": "say", "es": "Eyvah, doğru! Sinirden iki kere tuz attım.", "ru": "Ой, правда! Из-за нервов я посолил дважды.", "next": "split"},
+        "split": {"kind": "answer", "task": "Предложите заплатить пополам.", "branches": [{"phrase": "ph:restaurant.yari-yariya", "next": "splitsay"}], "wrong": {"es": "Bahşiş mi? Bugün gerek yok.", "ru": "Чаевые? Сегодня не нужно."}},
+        "splitsay": {"kind": "say", "es": "Asla! Bugün benden. Başka bir şey ister misin?", "ru": "Ни в коем случае! Сегодня угощаю я. Хочешь ещё чего-нибудь?", "next": "full"},
+        "full": {"kind": "answer", "task": "Откажитесь: вы наелись.", "branches": [{"phrase": "ph:restaurant.cok-doydum", "next": "end"}], "wrong": {"es": "Baklava mı? Hemen getiriyorum!", "ru": "Пахлаву? Сейчас принесу!"}},
+        "end": {"kind": "say", "es": "O zaman şunu al. Pelerinli adam masada Labirentin haritasından bir parça bıraktı. Üstünde yazıyor: “Tek ses, çok ton.”", "ru": "Тогда держи. Человек в плаще оставил на столе обрывок карты Лабиринта. На нём написано: «Один голос, много тонов»."}
+      }
     }
   ]
 }

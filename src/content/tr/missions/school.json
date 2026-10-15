@@ -89,6 +89,30 @@
         "eraserq": {"kind": "answer", "task": "Попросите у неё ластик.", "branches": [{"phrase": "ph:school.silgin-var-mi", "next": "end"}], "wrong": {"es": "Kalem mi? Kalem elinde!", "ru": "Карандаш? Он у тебя в руке!"}},
         "end": {"kind": "say", "es": "Al silgiyi. Bir de bu: utangaç öğrenci bunu pencerede, siyah bir tüyün yanında buldu. Ormanın haritasından bir parça. Kuş onu senin için bırakmış, diyor.", "ru": "Держи ластик. И вот ещё: застенчивый ученик нашёл это на окне рядом с чёрным пером. Обрывок карты леса. Говорит, птица оставила его для тебя."}
       }
+    },
+    {
+      "id": "ms:school.5",
+      "chapter": 5,
+      "npc": "elif",
+      "scene": "sc:school.5",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Efe kapının arkasında saklanıyor. Bir dakika bekle, önce listeyi bitireyim.", "ru": "Эфе прячется за дверью. Подожди минутку, сначала закончу список.", "next": "subject"},
+        "subject": {"kind": "answer", "task": "Спросите у Элиф, какой сейчас урок.", "branches": [{"phrase": "ph:school.hangi-ders", "next": "subjectsay"}], "wrong": {"es": "Sınav mı? Bugün sınav yok.", "ru": "Экзамен? Сегодня экзамена нет."}},
+        "subjectsay": {"kind": "say", "es": "Türkçe: ton. Efe'nin provaya başlama zamanı geldi. Onunla konuş, ölesiye korkuyor.", "ru": "Турецкий: тон. Эфе пора начинать репетицию. Поговори с ним, он до смерти боится.", "next": "cheer"},
+        "cheer": {"kind": "answer", "task": "Подбодрите Эфе. Ему десять лет — по-свойски.", "branches": [{"phrase": "ph:school.yaparsin-sen", "next": "cheersay"}, {"phrase": "ph:school.basaracaginizdan-eminim", "next": "cheersay"}], "wrong": {"es": "Ödev mi? Efe ödevini yaptı, korkusu başka.", "ru": "Домашнее задание? Эфе его сделал, боится он другого."}, "register": "informal", "tone": {"es": "“Başaracağınızdan eminim” mi? Efe şimdi seni müdür sandı, daha çok korkuyor.", "ru": "«Уверен, вы справитесь»? Теперь Эфе думает, что ты директор, и боится ещё больше.", "fem": {"ru": "Домашнее задание? Эфе его сделал, боится он другого."}}},
+        "cheersay": {"kind": "say", "es": "Çıktı! Okumaya başlıyor… Dinle, sonu değiştirmeyi düşünüyorum: tellal geri dönsün ve herkes sevinsin.", "ru": "Вышел! Начинает читать… Слушай, я думаю поменять финал: пусть глашатай вернётся, и все обрадуются.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:school.uzgun-hikaye", "next": "object", "move": "object"}, {"phrase": "ph:school.mutlu-son", "next": "concede", "move": "concede"}, {"phrase": "ph:school.acik-son", "next": "compromise", "move": "compromise"}], "wrong": {"es": "Efendim? Sınıfta çok gürültü var.", "ru": "Что-что? В классе очень шумно."}},
+        "object": {"kind": "say", "es": "Haklısın. Hikâye üzgün, çocuklar bunu bilmeli.", "ru": "Ты прав. История грустная, и дети должны это знать.", "next": "dictionary", "fem": {"ru": "Ты права. История грустная, и дети должны это знать."}},
+        "concede": {"kind": "say", "es": "İşte! Sonunda herkes ona kendi tonunda cevap veriyor. Çocuklar sevinecek.", "ru": "Вот! В конце все отвечают ему в его тоне. Дети будут довольны.", "next": "dictionary"},
+        "compromise": {"kind": "say", "es": "Açık son… Evet: seyirciler ona ne cevap vereceklerini düşünsün.", "ru": "Открытый финал… Да: пусть зрители подумают, что бы они ему ответили.", "next": "dictionary"},
+        "dictionary": {"kind": "answer", "task": "Спросите, есть ли в классе словарь.", "branches": [{"phrase": "ph:school.sozluk-var-mi", "next": "dictionarysay"}], "wrong": {"es": "Kütüphane mi? Kütüphane kapalı.", "ru": "Библиотека? Библиотека закрыта."}},
+        "dictionarysay": {"kind": "say", "es": "Evet, rafta. Efe “tellal” kelimesini bulmak istiyor.", "ru": "Да, на полке. Эфе хочет найти слово «глашатай».", "next": "example"},
+        "example": {"kind": "answer", "task": "Попросите Элиф объяснить это слово на примере.", "branches": [{"phrase": "ph:school.ornekle-aciklar", "next": "examplesay"}], "wrong": {"es": "Hangi sayfa mı? Önce kelimeyi bul.", "ru": "Какая страница? Сначала найди слово."}},
+        "examplesay": {"kind": "say", "es": "Tabii: tellal meydanda haberleri yüksek sesle okurdu. Şimdi tahtaya bir şey yaz.", "ru": "Конечно: глашатай читал новости вслух на площади. А теперь напиши что-нибудь на доске.", "next": "rubber"},
+        "rubber": {"kind": "answer", "task": "Попросите у неё ластик.", "branches": [{"phrase": "ph:school.silgin-var-mi", "next": "end"}], "wrong": {"es": "Kalem mi? Kalem elinde!", "ru": "Карандаш? Он у тебя в руке!"}},
+        "end": {"kind": "say", "es": "Al silgiyi. Bir de: Efe bunu sözlükte, “yankı” kelimesinin yanında buldu. Labirentin haritasından bir parça.", "ru": "Держи ластик. И ещё: Эфе нашёл это в словаре, рядом со словом «эхо». Обрывок карты Лабиринта."}
+      }
     }
   ]
 }

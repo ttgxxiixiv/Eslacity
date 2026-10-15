@@ -89,6 +89,30 @@
         "milkq": {"kind": "answer", "task": "Спросите, закончилось ли молоко.", "branches": [{"phrase": "ph:supermarket.sut-bitti-mi", "next": "end"}], "wrong": {"es": "Ekmek mi? Ekmek bitti, üzgünüm.", "ru": "Хлеб? Хлеб закончился, извини."}},
         "end": {"kind": "say", "es": "Bir tane kaldı. Al. Bir de bu: ormanın haritasından bir parça. Kulak tıkacı kutusunun içindeydi. Biri onu bulmanı istiyor.", "ru": "Осталась одна. Бери. И вот ещё: обрывок карты леса. Он лежал в коробке с берушами. Кто-то хочет, чтобы ты его нашёл.", "fem": {"ru": "Осталась одна. Бери. И вот ещё: обрывок карты леса. Он лежал в коробке с берушами. Кто-то хочет, чтобы ты его нашла."}}
       }
+    },
+    {
+      "id": "ms:supermarket.5",
+      "chapter": 5,
+      "npc": "mehmet",
+      "scene": "sc:supermarket.5",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Merhaba. Bir sonraki anonsu birlikte hazırlayalım. Ama önce, bir şey mi arıyorsun?", "ru": "Привет. Давай вместе подготовим следующее объявление. Но сначала — ты что-то ищешь?", "next": "bakery"},
+        "bakery": {"kind": "answer", "task": "Спросите, где отдел выпечки.", "branches": [{"phrase": "ph:supermarket.ekmek-bolumu", "next": "bakerysay"}], "wrong": {"es": "Kasa mı? Kasa orada.", "ru": "Касса? Касса вон там."}},
+        "bakerysay": {"kind": "say", "es": "Salonun sonunda, solda. Evet, anons. Şimdi markette çok yaşlı müşteri var. Onlara nasıl söyleyelim?", "ru": "В конце зала, налево. Так, объявление. Сейчас в магазине много пожилых покупателей. Как им сказать?", "next": "notice"},
+        "notice": {"kind": "answer", "task": "Подскажите объявление для пожилых покупателей: официально.", "branches": [{"phrase": "ph:supermarket.degerli-musterilerimiz", "next": "noticesay"}, {"phrase": "ph:supermarket.millet-yogurt", "next": "noticesay"}], "wrong": {"es": "Ekmek mi? Anons yoğurt için.", "ru": "Хлеб? Объявление про йогурт."}, "register": "formal", "tone": {"es": "“Arkadaşlar” mı? Hanımlar bana öyle bir bakar ki… Onlarla resmi konuşmak lazım.", "ru": "«Ребята»? Дамы на меня так посмотрят… С ними — официально."}},
+        "noticesay": {"kind": "say", "es": "Harika, öyle okuyacağım. Ama biliyor musun? Bıktım: hoparlörü sonsuza kadar kapatacağım.", "ru": "Отлично, так и прочитаю. Но знаешь что? Мне надоело: выключу громкоговоритель навсегда.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:supermarket.anonslar-lazim", "next": "object", "move": "object"}, {"phrase": "ph:supermarket.biraz-sessizlik", "next": "concede", "move": "concede"}, {"phrase": "ph:supermarket.yazili-anons", "next": "compromise", "move": "compromise"}], "wrong": {"es": "Ne dedin? Hoparlör yine bağırıyor.", "ru": "Что ты сказал? Громкоговоритель опять кричит."}},
+        "object": {"kind": "say", "es": "Doğru, anonslar olmadan kimse kampanyaları bulamıyor. Açık bırakacağım.", "ru": "Это правда, без объявлений никто не находит акции. Оставлю включённым.", "next": "yoghurt"},
+        "concede": {"kind": "say", "es": "Sağ ol. Bir hafta hoparlörsüz. Markette tam bir sessizlik.", "ru": "Спасибо. Неделя без громкоговорителя. В магазине полная тишина.", "next": "yoghurt"},
+        "compromise": {"kind": "say", "es": "Yazılı anonslar mı? İyi fikir! Yankı harfleri değiştirmez… umarım.", "ru": "Письменные объявления? Хорошая идея! Буквы эхо не меняет… надеюсь.", "next": "yoghurt"},
+        "yoghurt": {"kind": "answer", "task": "Скажите, что у этого йогурта истёк срок годности.", "branches": [{"phrase": "ph:supermarket.skt-gecmis", "next": "yoghurtsay"}], "wrong": {"es": "Yoğurt pahalı mı? Bugün indirimde!", "ru": "Йогурт дорогой? Сегодня со скидкой!"}},
+        "yoghurtsay": {"kind": "say", "es": "Eyvah! Hemen kaldırıyorum. Söylediğin için sağ ol.", "ru": "Ой! Сейчас же уберу. Спасибо, что сказал.", "next": "home", "fem": {"ru": "Ой! Сейчас же уберу. Спасибо, что сказала."}},
+        "home": {"kind": "answer", "task": "Спросите, доставляют ли покупки на дом.", "branches": [{"phrase": "ph:supermarket.eve-getirir", "next": "homesay"}], "wrong": {"es": "Kasa mı? Kasa açık.", "ru": "Касса? Касса открыта."}},
+        "homesay": {"kind": "say", "es": "Evet, saat sekize kadar. Başka bir şey alacak mısın?", "ru": "Да, до восьми. Возьмёшь что-нибудь ещё?", "next": "bread"},
+        "bread": {"kind": "answer", "task": "Спросите, есть ли хлеб без глютена.", "branches": [{"phrase": "ph:supermarket.glutensiz-ekmek", "next": "end"}], "wrong": {"es": "Süt mü? Süt bitti.", "ru": "Молоко? Молоко закончилось."}},
+        "end": {"kind": "say", "es": "Var, ekmek bölümünde. Bir de şunu al: kasada eski paraların yanındaydı. Labirentin haritasından bir parça.", "ru": "Есть, в отделе выпечки. И держи: это лежало в кассе рядом со старыми монетами. Обрывок карты Лабиринта."}
+      }
     }
   ]
 }

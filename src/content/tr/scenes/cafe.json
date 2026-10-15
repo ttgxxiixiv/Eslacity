@@ -127,6 +127,34 @@
         {"q": "Что делает лес тише?", "options": ["Деньги", "Ссора, которая закончилась миром", "Тишина в чайной"], "answer": 1}
       ],
       "gloss": {"arda": "Арда", "tüccar": "Купец", "söylediği": "что говорят", "tekrarlıyor": "повторяют", "söylediklerimizi": "то, что мы говорим", "şehrimizin": "нашего города", "muhafızı": "Хранительница (muhafız)", "biten": "который закончился", "sessizleştiriyor": "делает тише", "ailemden": "с моей семьи"}
+    },
+    {
+      "id": "sc:cafe.5",
+      "chapter": 5,
+      "npc": "hasan",
+      "lines": [
+        {"who": "npc", "es": "Geldiğine çok sevindim! Bak, Kerem'den mektup var. Ormanın öbür tarafında, Arda'yla birlikte.", "ru": "Как хорошо, что ты пришёл! Смотри: письмо от Керема. Он по ту сторону леса, вместе с Ардой.", "fem": {"ru": "Как хорошо, что ты пришла! Смотри: письмо от Керема. Он по ту сторону леса, вместе с Ардой."}},
+        {"who": "npc", "es": "Konuşmamızdan sonraki gün gitti. Onunla bağırmadan vedalaştım.", "ru": "Он ушёл на следующий день после нашего разговора. Я попрощался с ним без крика.", "if": {"flag": "kerem", "is": "free"}},
+        {"who": "npc", "es": "Konuştuğumuz gibi üç gün evde oturdu. Dördüncü gün hiçbir şey söylemeden gitti.", "ru": "Как мы решили, он три дня просидел дома. На четвёртый ушёл, ничего не сказав.", "if": {"flag": "kerem", "is": "home"}},
+        {"who": "npc", "es": "Sadece ormanın kenarına kadar gidecekti. Ama köyden sonra Arda'yla daha ileri gitti.", "ru": "Он должен был дойти только до опушки. Но после деревни пошёл с Ардой дальше.", "if": {"flag": "kerem", "is": "edge"}},
+        {"who": "hero", "es": "Ne yazıyor?", "ru": "Что он пишет?"},
+        {"who": "npc", "es": "“Sayın Hasan Bey, iyi olduğumu bildiririm.” Sayın Hasan Bey mi? Ben onun babasıyım!", "ru": "«Уважаемый Хасан-бей, сообщаю, что у меня всё хорошо». Уважаемый Хасан-бей? Я его отец!"},
+        {"who": "hero", "es": "Garip. Kerem hiç böyle yazmaz.", "ru": "Странно. Керем никогда так не пишет."},
+        {"who": "npc", "es": "Bir de Arda'dan bir not var: ormanın ötesinde Yankı Labirenti başlıyormuş.", "ru": "А ещё там записка от Арды: за лесом начинается Лабиринт Эха."},
+        {"who": "hero", "es": "Labirent mi?", "ru": "Лабиринт?"},
+        {"who": "npc", "es": "Evet. Orada her söz başka bir sesle geri dönüyormuş. Sevgi dolu söz soğuk, nazik söz kaba çıkıyormuş.", "ru": "Да. Там каждое слово возвращается другим голосом. Ласковое звучит холодно, вежливое — грубо."},
+        {"who": "hero", "es": "Demek mektup Labirentten geçmiş.", "ru": "Значит, письмо прошло через Лабиринт."},
+        {"who": "npc", "es": "Arda öyle yazıyor. Yankı şehre de ulaştı: bugün bir müşteri benimle komiser gibi konuştu.", "ru": "Так пишет Арда. Эхо уже дошло и до города: сегодня один посетитель говорил со мной, как комиссар."},
+        {"who": "hero", "es": "Senin suçun yok, bu yankı.", "ru": "Ты не виноват, это эхо."},
+        {"who": "npc", "es": "Biliyorum… ama kırıldım. Kerem bana yıllardır böyle yazmadı.", "ru": "Знаю… но мне обидно. Керем уже много лет мне так не писал."}
+      ],
+      "questions": [
+        {"q": "От кого письмо?", "options": ["От Керема", "От Орхана", "От комиссара"], "answer": 0},
+        {"q": "Что не так в письме?", "options": ["Сын пишет отцу официально, как чужому", "Оно без подписи", "Оно на другом языке"], "answer": 0},
+        {"q": "Что такое Лабиринт Эха?", "options": ["Место, где слова возвращаются другим голосом", "Старая пещера с сокровищами", "Новый рынок"], "answer": 0},
+        {"q": "Что случилось в чайной сегодня?", "options": ["Посетитель говорил с Хасаном, как комиссар", "Закончился чай", "Пришёл Керем"], "answer": 0}
+      ],
+      "gloss": {"kerem": "Керем", "arda": "Арда", "konuşmamızdan": "после нашего разговора", "bağırmadan": "без крика", "vedalaştım": "попрощался", "dördüncü": "четвёртый", "bildiririm": "сообщаю", "babasıyım": "я его отец", "ötesinde": "по ту сторону", "labirenti": "Лабиринт", "başlıyormuş": "начинается (говорят)", "dönüyormuş": "возвращается (говорят)", "dolu": "полный", "çıkıyormuş": "выходит (говорят)", "labirentten": "через Лабиринт", "geçmiş": "прошло", "ulaştı": "дошло", "komiser": "комиссар"}
     }
   ]
 }

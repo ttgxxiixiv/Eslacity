@@ -75,7 +75,7 @@
         "evid": {"kind": "say", "es": "Çok: paralar, tüyler, bilet… bir de dün bütün şehrin önünde söyledikleri.", "ru": "Много: монеты, перья, билет… и то, что он вчера сказал перед всем городом.", "next": "punq"},
         "punq": {"kind": "answer", "task": "Спросите, какое наказание ему грозит.", "branches": [{"phrase": "ph:police.cezasi-ne", "next": "pun"}], "wrong": {"es": "Adresi mi? Adresi Nermin Hanım'ın evi.", "ru": "Адрес? Его адрес — дом Нермин-ханым."}},
         "pun": {"kind": "say", "es": "Bankadaki panik için büyük bir para cezası. Kanuna göre onu cezalandırmam lazım.", "ru": "За панику в банке — большой штраф. По закону я должен его оштрафовать.", "next": "dispute"},
-        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:police.sadece-korkuydu", "next": "object", "move": "object"}, {"phrase": "ph:police.kanun-kanundur", "next": "concede", "move": "concede"}, {"phrase": "ph:police.sehre-yardim", "next": "compromise", "move": "compromise"}], "wrong": {"es": "Efendim? Lütfen daha açık konuşun.", "ru": "Простите? Говорите, пожалуйста, яснее."}},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:police.sadece-korkuydu", "next": "object", "move": "object", "sets": {"fine": "forgiven"}}, {"phrase": "ph:police.kanun-kanundur", "next": "concede", "move": "concede", "sets": {"fine": "paid"}}, {"phrase": "ph:police.sehre-yardim", "next": "compromise", "move": "compromise", "sets": {"fine": "work"}}], "wrong": {"es": "Efendim? Lütfen daha açık konuşun.", "ru": "Простите? Говорите, пожалуйста, яснее."}},
         "object": {"kind": "say", "es": "Sadece korku mu? … Doğru. Korku da para cezasıyla geçmez. Ceza yok.", "ru": "Только страх? …Это правда. А страх штрафами не лечат. Без штрафа.", "next": "closed"},
         "concede": {"kind": "say", "es": "Aynen. Ama yarısını ben ödeyeceğim: ben de doğruyu zamanında görmedim.", "ru": "Именно. Но половину заплачу я: я тоже не увидел правду вовремя.", "next": "closed"},
         "compromise": {"kind": "say", "es": "Şehre yardım ederek mi? Bir ay postanenin duvarını boyamak ve parka bakmak… Bu hoşuma gitti.", "ru": "Помогая городу? Месяц красить стену почты и ухаживать за парком… Мне нравится.", "next": "closed"},
@@ -84,6 +84,30 @@
         "cop": {"kind": "say", "es": "Sizi ormanın kenarına kadar ben götürürüm. Ama ormanda tek başınıza yürüyeceksiniz. Neden hemen şimdi çıkmıyoruz?", "ru": "Я сам провожу вас до опушки. Но в лесу вы пойдёте один. Почему бы не выехать прямо сейчас?", "next": "trafficq", "fem": {"ru": "Я сам провожу вас до опушки. Но в лесу вы пойдёте одна. Почему бы не выехать прямо сейчас?"}},
         "trafficq": {"kind": "answer", "task": "Скажите, что на шоссе пробка.", "branches": [{"phrase": "ph:police.yolda-trafik", "next": "end"}], "wrong": {"es": "Araba mı? Arabam hazır.", "ru": "Машина? Моя машина готова."}},
         "end": {"kind": "say", "es": "O zaman yarın saat altıda. Bir de ormanın haritasının son parçasını alın: dosyadaki kanıtların arasındaydı. Artık kanıt değil, sizin yolunuz.", "ru": "Тогда завтра в шесть. И возьмите последний обрывок карты леса: он лежал среди улик по делу. Теперь это не улика, а ваш путь."}
+      }
+    },
+    {
+      "id": "ms:police.5",
+      "chapter": 5,
+      "npc": "nihat",
+      "scene": "sc:police.5",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Yolculuktan önce ifadenize ihtiyacım var. Dün gece meydanda bir şey gördünüz mü?", "ru": "Перед поездкой мне нужны ваши показания. Вы видели что-нибудь вчера ночью на площади?", "next": "suspect"},
+        "suspect": {"kind": "answer", "task": "Скажите, что там был подозрительный человек.", "branches": [{"phrase": "ph:police.supheli-adam", "next": "suspectsay"}], "wrong": {"es": "Kedi mi? Kedileri sormuyorum.", "ru": "Кошка? Про кошек я не спрашиваю."}},
+        "suspectsay": {"kind": "say", "es": "Gri pelerinli bir adam, sanırım. Oydu: meydana son bir kez bakmaya gelmiş.", "ru": "Человек в сером плаще, полагаю. Это был он: пришёл взглянуть на площадь в последний раз.", "next": "cameras"},
+        "cameras": {"kind": "answer", "task": "Спросите, есть ли на этой улице камеры.", "branches": [{"phrase": "ph:police.kamera-var-mi", "next": "camerassay"}], "wrong": {"es": "Avukat mı? Henüz gerek yok.", "ru": "Адвокат? Пока не нужен."}},
+        "camerassay": {"kind": "say", "es": "Var. Eskiden haber okuduğu yerin önünde görünüyor. Peki. Şimdi yarın için neye ihtiyacınız olduğunu söyleyin.", "ru": "Есть. Его видно перед местом, где он раньше читал новости. Хорошо. Теперь скажите, что вам нужно на завтра.", "next": "escort"},
+        "escort": {"kind": "answer", "task": "Попросите комиссара Нихата сопроводить горожан со своими сотрудниками. Он говорит только официально.", "branches": [{"phrase": "ph:police.eslik-rica", "next": "escortsay"}, {"phrase": "ph:police.adamlarinla-gel", "next": "escortsay"}], "wrong": {"es": "Tren mi? Treni İsmail kaldırıyor, ben değil.", "ru": "Поезд? Поезд отправляет Исмаил, а не я."}, "register": "formal", "tone": {"es": "“Adamların” mı? Onlar polis memuru. Size eşlik ederiz, ama bu karakolda kurallara uygun konuşulur.", "ru": "«Твои ребята»? Это сотрудники полиции. Мы вас сопроводим, но в этом участке говорят как положено."}},
+        "escortsay": {"kind": "say", "es": "Gideriz. Ama sonra güvenlik için orman yolunu kapatacağım. Artık kimse Labirente girmeyecek.", "ru": "Поедем. Но потом ради безопасности я закрою лесную дорогу. Больше никто не войдёт в Лабиринт.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:police.yol-acik-kalsin", "next": "object", "move": "object"}, {"phrase": "ph:police.guvenlik-onemli", "next": "concede", "move": "concede"}, {"phrase": "ph:police.gece-nobetci", "next": "compromise", "move": "compromise"}], "wrong": {"es": "Efendim? Lütfen daha açık konuşun.", "ru": "Простите? Говорите, пожалуйста, яснее."}},
+        "object": {"kind": "say", "es": "Haklısınız. İnsanların birbirine cevap vermeyi öğrendiği bir yer tehlikeli değil. Yol açık kalıyor.", "ru": "Вы правы. Место, где люди учатся отвечать друг другу, не опасно. Дорога остаётся открытой.", "next": "officer"},
+        "concede": {"kind": "say", "es": "Sonra kapatırım. Ama yarın cevap vermek isteyen herkese açık.", "ru": "Закрою потом. Но завтра — открыта для всех, кто хочет ответить.", "next": "officer"},
+        "compromise": {"kind": "say", "es": "Gece nöbetçi bir polis, gündüz isteyen girer. Bence adil.", "ru": "Ночью — дежурный полицейский, днём проходит кто хочет. По-моему, справедливо.", "next": "officer"},
+        "officer": {"kind": "answer", "task": "Скажите, что вам нужен полицейский, чтобы нести письмо детей.", "branches": [{"phrase": "ph:police.polis-lazim", "next": "officersay"}], "wrong": {"es": "Avukat mı? Mektup için avukat gerekmez.", "ru": "Адвокат? Для письма адвокат не нужен."}},
+        "officersay": {"kind": "say", "es": "Sizi memur Ayhan götürecek. Yarın yediye çeyrek kala. Sizi nereden alalım?", "ru": "Вас отвезёт полицейский Айхан. Завтра, без четверти семь. Где вас забрать?", "next": "corner"},
+        "corner": {"kind": "answer", "task": "Скажите, что будете на углу площади.", "branches": [{"phrase": "ph:police.meydanin-kosesi", "next": "end"}], "wrong": {"es": "Evde mi? Evinizi bilmiyoruz.", "ru": "Дома? Мы не знаем, где вы живёте."}},
+        "end": {"kind": "say", "es": "Tamam. Yarın sabah tren ormana varacak. Orada bin taş basamak var, tepede de taştan bir kapı. Bunu alın: Labirentin haritasından bir parça, dosyanın içindeydi.", "ru": "Хорошо. Завтра утром поезд прибудет к лесу. Там тысяча каменных ступеней, а наверху — каменная дверь. Возьмите: обрывок карты Лабиринта, он лежал в деле."}
       }
     }
   ]

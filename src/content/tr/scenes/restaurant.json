@@ -121,6 +121,31 @@
         {"q": "Когда новый ужин фирмы?", "options": ["Завтра", "В пятницу", "Через месяц"], "answer": 1}
       ],
       "gloss": {"içimden": "мне хочется (içimden gelmek)", "ebru": "Эбру", "kemal": "Кемаль", "yağla": "на масле", "pişiriyor": "готовит", "yıllık": "летний (о сроке)", "arkadaşlıktan": "дружбы", "olduğundan": "что это была (она)", "yılki": "прошлогодний (geçen yılki)", "şirket": "фирма", "yemeğinde": "на ужине", "ekibine": "своей команде", "yağ": "масло", "yağım": "моё масло", "taze": "свежий"}
+    },
+    {
+      "id": "sc:restaurant.5",
+      "chapter": 5,
+      "npc": "kemal",
+      "lines": [
+        {"who": "npc", "es": "Gel, beşinci masadaki adama bak. Üstünde taş gibi gri bir pelerin var.", "ru": "Иди сюда, посмотри на человека за пятым столиком. На нём плащ, серый, как камень."},
+        {"who": "hero", "es": "Kim o?", "ru": "Кто это?"},
+        {"who": "npc", "es": "Bilmiyorum. Çorba istiyor ve sözlerimi tekrar ediyor: “çorba… çorba… çorba.”", "ru": "Не знаю. Заказывает суп и повторяет мои слова: «суп… суп… суп»."},
+        {"who": "hero", "es": "Yankı gibi mi?", "ru": "Как эхо?"},
+        {"who": "npc", "es": "Aynen. Sonra çok açık bir cümle söyledi.", "ru": "Вот именно. А потом сказал целую фразу, очень ясно."},
+        {"who": "hero", "es": "Hangi cümleyi?", "ru": "Какую фразу?"},
+        {"who": "npc", "es": "“Yankının Efendisi, herkesle kendi tonunda konuşmayı bilen birini arıyor.”", "ru": "«Хозяин Эха ищет того, кто умеет говорить с каждым в его тоне»."},
+        {"who": "hero", "es": "Yankının Efendisi mi? Labirentin muhafızı olmalı.", "ru": "Хозяин Эха? Наверное, это страж Лабиринта."},
+        {"who": "npc", "es": "Ben de öyle düşünüyorum. Ama beni sinirlendiriyor. Konuşunca sözlerim başka türlü dönüyor.", "ru": "Я тоже так думаю. Но он меня нервирует. Когда я говорю, мои слова возвращаются другими."},
+        {"who": "hero", "es": "Onunla konuşalım. Kibarca.", "ru": "Давай поговорим с ним. Вежливо."},
+        {"who": "npc", "es": "Evet, çok kibarca. Önce sen.", "ru": "Да, очень вежливо. Ты первый.", "fem": {"ru": "Да, очень вежливо. Ты первая."}}
+      ],
+      "questions": [
+        {"q": "Как одет человек за пятым столиком?", "options": ["В серый, как камень, плащ", "В красный пиджак", "В костюм повара"], "answer": 0},
+        {"q": "Что он делает со словами Кемаля?", "options": ["Повторяет их, как эхо", "Записывает", "Смеётся над ними"], "answer": 0},
+        {"q": "Кого ищет Хозяин Эха?", "options": ["Того, кто умеет говорить с каждым в его тоне", "Лучшего повара", "Глашатая"], "answer": 0},
+        {"q": "Как они решают говорить с гостем?", "options": ["Очень вежливо", "Грубо", "Через записку"], "answer": 0}
+      ],
+      "gloss": {"beşinci": "пятый", "masadaki": "за столом", "pelerin": "плащ", "yankının": "Эха", "efendisi": "хозяин", "bilen": "который умеет", "muhafızı": "страж", "sinirlendiriyor": "нервирует", "konuşunca": "когда говорю", "türlü": "образом (başka türlü — иначе)", "kibarca": "вежливо"}
     }
   ]
 }

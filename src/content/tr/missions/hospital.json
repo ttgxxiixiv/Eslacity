@@ -86,6 +86,30 @@
         "footq": {"kind": "answer", "task": "Скажите, что у вас болит стопа.", "branches": [{"phrase": "ph:hospital.ayagim-agriyor", "next": "end"}], "wrong": {"es": "Başınız mı? Başınız iyi görünüyor.", "ru": "Голова? Голова у вас в порядке."}},
         "end": {"kind": "say", "es": "Şehirde bu kadar yürüyorsunuz ki… Bu kremi alın. Bir de şu: Orhan Bey sizin için bana ormanın haritasından bir parça verdi. Akşam toplantıya geleceğini söylüyor.", "ru": "Столько ходите по городу… Возьмите этот крем. И вот ещё: Орхан-бей дал мне для вас обрывок карты леса. Говорит, вечером придёт на собрание."}
       }
+    },
+    {
+      "id": "ms:hospital.5",
+      "chapter": 5,
+      "npc": "gul",
+      "scene": "sc:hospital.5",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Önce bütün velilerin sorduğu şey. Cevap vermeme yardım edin.", "ru": "Сначала то, о чём меня спрашивают все родители. Помогите мне ответить.", "next": "diag"},
+        "diag": {"kind": "answer", "task": "Спросите, чем он болен.", "branches": [{"phrase": "ph:hospital.hastaligi-ne", "next": "diagsay"}], "wrong": {"es": "Ateş mi? Ateşi yok.", "ru": "Температура? Температуры нет."}},
+        "diagsay": {"kind": "say", "es": "Yankı yüzünden ses kaybı. İşte Efe. Siz selam verin: benimle konuşmak istemiyor… işaretle bile.", "ru": "Потеря голоса из-за эха. Вот Эфе. Поздоровайтесь вы: со мной он не хочет говорить… даже жестами.", "next": "greet"},
+        "greet": {"kind": "answer", "task": "Поздоровайтесь с Эфе. Ему десять лет, и вы друзья — по-свойски.", "branches": [{"phrase": "ph:hospital.nasilsin-kahraman", "next": "greetsay"}, {"phrase": "ph:hospital.bugun-nasilsiniz", "next": "greetsay"}], "wrong": {"es": "İğne mi? Efe iğneden korkar, sakın.", "ru": "Укол? Эфе боится уколов, не надо."}, "register": "informal", "tone": {"es": "“Bugün kendinizi nasıl hissediyorsunuz?” Efe çarşafın altına saklanıyor. Sanki tellal konuştu. Onunla arkadaş gibi konuşun!", "ru": "«Как вы себя сегодня чувствуете?» Эфе прячется под простыню. Будто с ним заговорил глашатай. Говорите с ним как с другом!"}},
+        "greetsay": {"kind": "say", "es": "Gülümsüyor! Bir kâğıda yazıyor: “Ormana gitmek istiyorum.” Ama doktor olarak yatakta kalmasını tercih ederim.", "ru": "Улыбается! Пишет на бумажке: «Хочу поехать к лесу». Но я как врач предпочла бы, чтобы он остался в постели.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:hospital.onun-oyunu", "next": "object", "move": "object"}, {"phrase": "ph:hospital.yatakta-kalsin", "next": "concede", "move": "concede"}, {"phrase": "ph:hospital.konusmadan-gelsin", "next": "compromise", "move": "compromise"}], "wrong": {"es": "Efendim? Daha sessiz konuşun, lütfen, burası hastane.", "ru": "Простите? Говорите тише, пожалуйста, здесь больница."}},
+        "object": {"kind": "say", "es": "Haklısınız. Bu onun oyunu ve onun sesi. Ben de gelirim, ne olur ne olmaz.", "ru": "Вы правы. Это его спектакль и его голос. Я тоже поеду, на всякий случай.", "next": "contagious"},
+        "concede": {"kind": "say", "es": "Teşekkürler. Benimle kalacak. Ama tellal için bana bir resim verdi.", "ru": "Спасибо. Он останется со мной. Но он дал мне рисунок для глашатая.", "next": "contagious"},
+        "compromise": {"kind": "say", "es": "Konuşmadan ve mektupla… Evet. Böylece yardım eder, sesi de dinlenir.", "ru": "Без разговоров и с письмом… Да. Так он поможет, а голос отдохнёт.", "next": "contagious"},
+        "contagious": {"kind": "answer", "task": "Спросите, передаётся ли это другим.", "branches": [{"phrase": "ph:hospital.bulasici-mi", "next": "contagioussay"}], "wrong": {"es": "Acıtır mı? Hayır, hiç acıtmaz.", "ru": "Больно ли? Нет, совсем не больно."}},
+        "contagioussay": {"kind": "say", "es": "Hayır, merak etmeyin. Velilerden başka soru var mı?", "ru": "Нет, не волнуйтесь. Ещё вопросы от родителей есть?", "next": "injection"},
+        "injection": {"kind": "answer", "task": "Спросите, нужен ли укол.", "branches": [{"phrase": "ph:hospital.igne-lazim", "next": "injectionsay"}], "wrong": {"es": "Aşı mı? Aşılar tamam.", "ru": "Прививки? С прививками всё в порядке."}},
+        "injectionsay": {"kind": "say", "es": "Gerek yok. Tek ilaç cevap. Başka bir şey?", "ru": "Не нужно. Единственное лекарство — ответ. Что-нибудь ещё?", "next": "home"},
+        "home": {"kind": "answer", "task": "Спросите, когда его выпишут.", "branches": [{"phrase": "ph:hospital.ne-zaman-taburcu", "next": "end"}], "wrong": {"es": "Rapor mu? Okul için rapor yazarım.", "ru": "Справка? Для школы справку напишу."}},
+        "end": {"kind": "say", "es": "Sesi dönünce. Bir de şunu alın: ninemin kâğıtlarının arasındaydı. Labirentin haritasından bir parça, üstünde not var: “Burada cevap verilir.”", "ru": "Когда вернётся голос. И возьмите: это было среди бумаг моей бабушки. Обрывок карты Лабиринта с пометкой: «Здесь отвечают»."}
+      }
     }
   ]
 }

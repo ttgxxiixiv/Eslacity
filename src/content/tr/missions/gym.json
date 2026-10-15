@@ -90,6 +90,30 @@
         "crampq": {"kind": "answer", "task": "Скажите, что у вас свело ногу.", "branches": [{"phrase": "ph:gym.kramp-girdi", "next": "end"}], "wrong": {"es": "Yoruldun mu? Daha on beş tane var!", "ru": "Устал? Ещё пятнадцать!", "fem": {"ru": "Устала? Ещё пятнадцать!"}}},
         "end": {"kind": "say", "es": "Çek, çek! Geçiyor bile. Al, biraz su iç. Bir de bu: o adamın olduğu bahçede buldum. Ormanın haritasından bir parça.", "ru": "Тяни, тяни! Уже проходит. Держи, попей воды. И вот ещё: я нашла это в саду, где был тот человек. Обрывок карты леса."}
       }
+    },
+    {
+      "id": "ms:gym.5",
+      "chapter": 5,
+      "npc": "deniz",
+      "scene": "sc:gym.5",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Önce her zamanki gibi. Başlamadan önce ne yapıyoruz?", "ru": "Сначала — как обычно. Что мы делаем перед началом?", "next": "warm"},
+        "warm": {"kind": "answer", "task": "Скажите, что сначала нужно размяться.", "branches": [{"phrase": "ph:gym.once-isinmak", "next": "warmsay"}], "wrong": {"es": "Koşmak mı? Önce ısınma, sonra koşu.", "ru": "Бежать? Сначала разминка, потом бег."}},
+        "warmsay": {"kind": "say", "es": "Aynen. Şimdi yirmi basamak… Of, yoruldum. Ya bine hiç ulaşamazsam?", "ru": "Точно. Теперь двадцать ступенек… Уф, я устала. А вдруг я никогда не дойду до тысячи?", "next": "cheer"},
+        "cheer": {"kind": "answer", "task": "Подбодрите Дениз. Вы тренируетесь вместе — по-свойски.", "branches": [{"phrase": "ph:gym.yaparsin-deniz", "next": "cheersay"}, {"phrase": "ph:gym.basaracaginiza-inaniyorum", "next": "cheersay"}], "wrong": {"es": "Su mu? Antrenmandan sonra.", "ru": "Вода? После тренировки."}, "register": "informal", "tone": {"es": "“Başaracağınıza inanıyorum” mu? Ben senin antrenörünüm, müdürün değil! Böyle beni cesaretlendiremezsin.", "ru": "«Я верю, что вы добьётесь своего»? Я твой тренер, а не начальница! Так ты меня не подбодришь."}},
+        "cheersay": {"kind": "say", "es": "Sağ ol! Dinle, yankı gidene kadar grup derslerini iptal etmeyi düşünüyorum.", "ru": "Спасибо! Слушай, я думаю отменить групповые занятия, пока не уйдёт эхо.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:gym.insanlar-hareket", "next": "object", "move": "object"}, {"phrase": "ph:gym.bir-hafta-ara", "next": "concede", "move": "concede"}, {"phrase": "ph:gym.disarida-ders", "next": "compromise", "move": "compromise"}], "wrong": {"es": "Ne? Müzik çok yüksek, bir daha söyle.", "ru": "Что? Музыка очень громкая, повтори."}},
+        "object": {"kind": "say", "es": "Haklısın, insanlar hareket etmeye geliyor. Yankıdan daha yüksek bağıracağım.", "ru": "Ты прав, люди приходят двигаться. Буду кричать громче эха.", "next": "fit", "fem": {"ru": "Ты права, люди приходят двигаться. Буду кричать громче эха."}},
+        "concede": {"kind": "say", "es": "Bir hafta derssiz. Ama biz ikimiz bin basamak için çalışırız.", "ru": "Неделя без занятий. Зато мы с тобой потренируемся для тысячи ступеней.", "next": "fit"},
+        "compromise": {"kind": "say", "es": "Dışarıda! Parkta duvar yok, yankı kaybolur.", "ru": "На улице! В парке нет стен, и эхо теряется.", "next": "fit"},
+        "fit": {"kind": "answer", "task": "Скажите, что хотите быть в форме.", "branches": [{"phrase": "ph:gym.formda-olmak", "next": "fitsay"}], "wrong": {"es": "Kilo mu? Mesele kilo değil, nefes.", "ru": "Вес? Дело не в весе, а в дыхании."}},
+        "fitsay": {"kind": "say", "es": "Ben bunun için buradayım. Sana özel bir şey hazırlayacağım.", "ru": "Для этого я и здесь. Подготовлю тебе что-то особенное.", "next": "routine"},
+        "routine": {"kind": "answer", "task": "Попросите составить вам программу.", "branches": [{"phrase": "ph:gym.program-yapar", "next": "routinesay"}], "wrong": {"es": "Yoga mı? Yoga akşam.", "ru": "Йога? Йога вечером."}},
+        "routinesay": {"kind": "say", "es": "Hazır: her gün merdiven. Bacakların nasıl?", "ru": "Готово: лестницы каждый день. Как ноги?", "next": "legs"},
+        "legs": {"kind": "answer", "task": "Скажите, что вашим ногам нужно больше силы.", "branches": [{"phrase": "ph:gym.bacaklarim-guclu-olmali", "next": "end"}], "wrong": {"es": "Kollar mı? Kollar yarın.", "ru": "Руки? Руки завтра."}},
+        "end": {"kind": "say", "es": "Benim programımla olacak. Bir de şunu al: annemin notunun içindeydi. Labirentin haritasından bir parça, üstüne bin basamak çizilmiş.", "ru": "С моей программой будет. И держи: это было в маминой записке. Обрывок карты Лабиринта с нарисованной тысячей ступеней."}
+      }
     }
   ]
 }

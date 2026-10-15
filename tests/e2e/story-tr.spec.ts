@@ -59,7 +59,7 @@ async function playMission(page: Page, id: string, pick: Record<string, number> 
 }
 
 test('tr: все сцены контента — реплики по порядку и все ответы верные', async ({ page }) => {
-  test.setTimeout(240_000);
+  test.setTimeout(360_000);
   await openCourse(page, 'tr');
   for (const sc of scenes) await playScene(page, sc);
 });
@@ -150,4 +150,20 @@ test('tr: спор в миссии главы IV — можно уступить
   await openCourse(page, 'tr');
   await playMission(page, 'ms:cafe.4', { 'Возразите, уступите или предложите компромисс.': 1 });
   await playMission(page, 'ms:market.4', { 'Возразите, уступите или предложите компромисс.': 2 });
+});
+
+test('tr: развилка комиссариата главы IV — Нихат-бей помнит, чем кончился штраф Орхана', async ({ page }) => {
+  await openCourse(page, 'tr');
+  await playMission(page, 'ms:police.4', { 'Возразите, уступите или предложите компромисс.': 2 });
+  const sc = scenes.find((s) => s.id === 'sc:police.5')!;
+  await playScene(page, sc, { fine: 'work' });
+  expect(sc.lines.some((l) => l.if?.is === 'work' && l.es.includes('mavi ellerle'))).toBe(true);
+});
+
+test('tr: развилка чайной главы IV — Хасан-уста рассказывает, как ушёл Керем', async ({ page }) => {
+  await openCourse(page, 'tr');
+  await playMission(page, 'ms:cafe.4', { 'Возразите, уступите или предложите компромисс.': 2 });
+  const sc = scenes.find((s) => s.id === 'sc:cafe.5')!;
+  await playScene(page, sc, { kerem: 'edge' });
+  expect(sc.lines.some((l) => l.if?.is === 'edge' && l.es.includes('ormanın kenarına'))).toBe(true);
 });

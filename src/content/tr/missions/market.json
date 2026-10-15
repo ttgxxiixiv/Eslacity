@@ -90,6 +90,30 @@
         "enough": {"kind": "answer", "task": "Скажите, что больше ничего не нужно.", "branches": [{"phrase": "ph:market.baska-bir-sey-yok", "next": "end"}], "wrong": {"es": "Domatesten başka bir şey yok mu? O zaman domates.", "ru": "Ничего, кроме помидоров? Значит, помидоры."}},
         "end": {"kind": "say", "es": "Bunu da al: orman haritasının bir parçası. Peynirci köylü verdi. Ağaçların hiçbir şey uydurmadığını, sadece tekrarladığını söylüyor.", "ru": "Возьми ещё вот это: обрывок карты леса. Мне дал его крестьянин-сыровар. Говорит, деревья ничего не выдумывают, только повторяют."}
       }
+    },
+    {
+      "id": "ms:market.5",
+      "chapter": 5,
+      "npc": "fatma",
+      "scene": "sc:market.5",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Gel yavrum, sana en iyisini ayırdım. Bugün ne tartayım?", "ru": "Иди сюда, дорогуша, я тебе лучшее отложила. Что тебе сегодня взвесить?", "next": "fruit"},
+        "fruit": {"kind": "answer", "task": "Спросите, какие фрукты сейчас по сезону.", "branches": [{"phrase": "ph:market.mevsim-meyvesi", "next": "fruitsay"}], "wrong": {"es": "Kış meyvesi mi? Yaz geldi, yavrum!", "ru": "Зимние фрукты? Лето пришло, дорогуша!"}},
+        "fruitsay": {"kind": "say", "es": "Kiraz, şimdi tam vakti. Ama ah, öyle bir moraldeyim ki… Bir müşteri daha bana mahkeme kararı okur gibi cevap verdi.", "ru": "Черешня, сейчас самое время. Но ох, у меня такое настроение… Ещё одна покупательница ответила мне так, будто приговор зачитала.", "next": "calm"},
+        "calm": {"kind": "answer", "task": "Скажите тётушке Фатме, чтобы не принимала близко к сердцу. Она говорит только по-свойски.", "branches": [{"phrase": "ph:market.kafana-takma-teyze", "next": "calmsay"}, {"phrase": "ph:market.onemsemeyiniz", "next": "calmsay"}], "wrong": {"es": "Kiraz mı kızgın? Kiraz hiç kızmaz.", "ru": "Черешня сердится? Черешня никогда не сердится."}, "register": "informal", "tone": {"es": "“Önemsemeyiniz” mi? Yavrum, sen beni yıllardır tanıyorsun! Benimle yankı gibi konuşma.", "ru": "«Не придавайте значения»? Дорогуша, ты меня сто лет знаешь! Не говори со мной, как эхо."}},
+        "calmsay": {"kind": "say", "es": "Haklısın. Ama bak ne yapacağım: büyük bir yazı. “Burada lütfen denir.”", "ru": "Ты прав. Но смотри, что я сделаю: большую табличку. «Здесь говорят „пожалуйста“».", "next": "dispute", "fem": {"ru": "Ты права. Но смотри, что я сделаю: большую табличку. «Здесь говорят „пожалуйста“»."}},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:market.yazi-yetmez", "next": "object", "move": "object"}, {"phrase": "ph:market.iyi-fikir-as", "next": "concede", "move": "concede"}, {"phrase": "ph:market.esprili-yaz", "next": "compromise", "move": "compromise"}], "wrong": {"es": "Ne? Pazarda çok gürültü var, yavrum.", "ru": "Что? На базаре так шумно, дорогуша."}},
+        "object": {"kind": "say", "es": "Evet… Yazı yankıyı durdurmaz. En iyisi gülümseyip bir daha sorarım.", "ru": "Да… Табличка эхо не остановит. Лучше улыбнусь и переспрошу.", "next": "cherries"},
+        "concede": {"kind": "say", "es": "İşte! Girişe asacağım, büyük, kırmızı harflerle.", "ru": "Вот! Повешу у входа, большую, красными буквами.", "next": "cherries"},
+        "compromise": {"kind": "say", "es": "Esprili mi? Bu hoşuma gitti: “Burada lütfen denir… yankı da iki katını öder.”", "ru": "С юмором? Мне нравится: «Здесь говорят „пожалуйста“… а эхо платит вдвойне».", "next": "cherries"},
+        "cherries": {"kind": "answer", "task": "Попросите полкило черешни.", "branches": [{"phrase": "ph:market.yarim-kilo-kiraz", "next": "cherriessay"}], "wrong": {"es": "Yarım kilo yankı mı? Onu satmıyorum!", "ru": "Полкило эха? Такого не продаю!"}},
+        "cherriessay": {"kind": "say", "es": "Al, en güzelleri. Ya şeftaliler? Çok tatlı.", "ru": "Держи, самые лучшие. А персики? Очень сладкие.", "next": "taste"},
+        "taste": {"kind": "answer", "task": "Спросите, можно ли попробовать.", "branches": [{"phrase": "ph:market.tadabilir-miyim", "next": "tastesay"}], "wrong": {"es": "Tartayım mı? Önce bir tat bakalım.", "ru": "Взвесить? Сначала попробуем."}},
+        "tastesay": {"kind": "say", "es": "Tabii! Al. Tatlı, değil mi? Başka bir şey?", "ru": "Конечно! Держи. Сладкий, а? Что-нибудь ещё?", "next": "enough"},
+        "enough": {"kind": "answer", "task": "Скажите, что больше ничего не нужно, спасибо.", "branches": [{"phrase": "ph:market.baska-bir-sey-yok", "next": "end"}], "wrong": {"es": "Bir kilo daha mı? Sepetin dolu, yavrum.", "ru": "Ещё кило? У тебя корзина полная, дорогуша."}},
+        "end": {"kind": "say", "es": "Harika, yavrum. Bir de bunu al: annem Labirentin haritasından bir parçayı tariflerin arasında saklamış. Üstünde yazıyor: “Her sesin kendi kapısı vardır.”", "ru": "Отлично, дорогуша. И держи: мама хранила обрывок карты Лабиринта среди рецептов. На нём написано: «У каждого голоса своя дверь»."}
+      }
     }
   ]
 }

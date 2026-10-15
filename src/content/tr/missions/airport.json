@@ -85,6 +85,30 @@
         "transitq": {"kind": "answer", "task": "Скажите, что вы транзитный пассажир.", "branches": [{"phrase": "ph:airport.transit-yolcuyum", "next": "end"}], "wrong": {"es": "Burada mı kalıyorsun? O zaman çıkış orada.", "ru": "Остаёшься здесь? Тогда выход вон там."}},
         "end": {"kind": "say", "es": "Transit, bu hafta herkes gibi. Al: uçuştan sonra kabinde buldum. Ormanın haritasından bir parça. Gökten düştü, ha ha.", "ru": "Транзитом, как и все на этой неделе. Держи: я нашёл это в салоне после рейса. Обрывок карты леса. Упал с неба, ха-ха."}
       }
+    },
+    {
+      "id": "ms:airport.5",
+      "chapter": 5,
+      "npc": "burak",
+      "scene": "sc:airport.5",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Önce her zamanki gibi. Binişten önce ne sorarsın?", "ru": "Сначала — как обычно. Что ты спрашиваешь перед посадкой?", "next": "boarding"},
+        "boarding": {"kind": "answer", "task": "Спросите, во сколько начинается посадка.", "branches": [{"phrase": "ph:airport.binis-saat-kac", "next": "boardingsay"}], "wrong": {"es": "Bagaj mı? Bagaj bandı orada.", "ru": "Багаж? Лента вон там."}},
+        "boardingsay": {"kind": "say", "es": "Hemen şimdi: uçak küçük, iki kişiyiz. Eşyan var mı?", "ru": "Прямо сейчас: самолёт маленький, нас двое. Вещи есть?", "next": "bag"},
+        "bag": {"kind": "answer", "task": "Спросите, это ручная кладь или нет.", "branches": [{"phrase": "ph:airport.kabin-bagaji-mi", "next": "bagsay"}], "wrong": {"es": "Pasaport mu? Bu uçuşta gerek yok.", "ru": "Паспорт? На этом рейсе не нужен."}},
+        "bagsay": {"kind": "say", "es": "Evet, sığar. Telsizi al. Kuleden izin iste.", "ru": "Да, поместится. Бери рацию. Попроси разрешения у вышки.", "next": "radio"},
+        "radio": {"kind": "answer", "task": "Попросите у диспетчерской вышки разрешения на полёт над лесом. Официально.", "branches": [{"phrase": "ph:airport.kuleden-izin", "next": "radiosay"}, {"phrase": "ph:airport.kule-izin-ver", "next": "radiosay"}], "wrong": {"es": "Hava mı? Hava güzel, sorun izin.", "ru": "Погода? Погода хорошая, дело в разрешении."}, "register": "formal", "tone": {"es": "Kule cevap veriyor: “İsteğinizi kurallara uygun tekrar ediniz, lütfen.” Telsizde her zaman resmi.", "ru": "Вышка отвечает: «Повторите запрос по форме, пожалуйста». По рации — всегда официально."}},
+        "radiosay": {"kind": "say", "es": "İzin geldi! Aşağı bak… Harfler! Yazıyor: “BENİ DUYAN VAR MI?” Yanında bir açıklık var. Oraya iniyorum.", "ru": "Разрешение получено! Смотри вниз… Буквы! Там написано: «МЕНЯ КТО-НИБУДЬ СЛЫШИТ?». Рядом поляна. Я сажусь туда.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:airport.oraya-inme", "next": "object", "move": "object"}, {"phrase": "ph:airport.sen-pilotsun", "next": "concede", "move": "concede"}, {"phrase": "ph:airport.bir-tur-daha", "next": "compromise", "move": "compromise"}], "wrong": {"es": "Ne? Motorlardan duyamadım.", "ru": "Что? Из-за моторов не расслышал."}},
+        "object": {"kind": "say", "es": "Haklısın, orada taşlar ve ağaçlar var. Dönüyoruz. Yarın yerden.", "ru": "Ты прав, там камни и деревья. Возвращаемся. Завтра — по земле.", "next": "liquids", "fem": {"ru": "Ты права, там камни и деревья. Возвращаемся. Завтра — по земле."}},
+        "concede": {"kind": "say", "es": "Sıkı tutun… İndik! Ama Labirentin kapısı kapalı. Şehre dönüyoruz.", "ru": "Держись… Приземлились! Но дверь Лабиринта закрыта. Возвращаемся в город.", "next": "liquids"},
+        "compromise": {"kind": "say", "es": "Harfleri iyi görmek için bir tur daha… yarın da İsmail'in treniyle.", "ru": "Ещё круг, чтобы хорошо рассмотреть буквы… а завтра — на поезде Исмаила.", "next": "liquids"},
+        "liquids": {"kind": "answer", "task": "Спросите, можно ли брать жидкости на борт: в дорогу нужна вода.", "branches": [{"phrase": "ph:airport.sivi-alabilir", "next": "liquidssay"}], "wrong": {"es": "Yemek mi? Uçakta yemek yok.", "ru": "Еда? В самолёте еды нет."}},
+        "liquidssay": {"kind": "say", "es": "Benim uçağımda evet. Zaten yerdeyiz. Gitmeden önce başka bir şey?", "ru": "В моём самолёте — да. Мы уже на земле. Что-нибудь ещё, прежде чем уйдёшь?", "next": "toilet"},
+        "toilet": {"kind": "answer", "task": "Спросите, знает ли он, где туалет.", "branches": [{"phrase": "ph:airport.tuvalet-nerede-havalimani", "next": "end"}], "wrong": {"es": "Kayıp eşya mı? Bir şey mi kaybettin?", "ru": "Потерянные вещи? Ты что-то потерял?", "fem": {"ru": "Потерянные вещи? Ты что-то потеряла?"}}},
+        "end": {"kind": "say", "es": "Salonun sonunda, solda. Bir de şunu al: Labirentin harflerini sana çizdim. Artık haritanın bir parçası daha sende.", "ru": "В конце зала, налево. И держи: я нарисовал тебе буквы Лабиринта. Теперь у тебя на один обрывок карты больше."}
+      }
     }
   ]
 }

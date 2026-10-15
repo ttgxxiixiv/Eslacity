@@ -85,6 +85,30 @@
         "nameq": {"kind": "answer", "task": "Скажите, что посылка на ваше имя.", "branches": [{"phrase": "ph:post.paket-adima", "next": "end"}], "wrong": {"es": "Adres mi? Adres doğru.", "ru": "Адрес? Адрес верный."}},
         "end": {"kind": "say", "es": "Harika. Bir de şunu al: kargam dün gece bunu getirdi. Ormanın haritasından bir parça. En azından iyi bir şey de getiriyor.", "ru": "Отлично. И держи: моя ворона принесла это вчера ночью. Обрывок карты леса. Хоть что-то хорошее она приносит."}
       }
+    },
+    {
+      "id": "ms:post.5",
+      "chapter": 5,
+      "npc": "cemil",
+      "scene": "sc:post.5",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Müdire birazdan gelir. Bu arada sana ne lazım?", "ru": "Начальница сейчас придёт. А пока — что тебе нужно?", "next": "pickup"},
+        "pickup": {"kind": "answer", "task": "Спросите, есть ли для вас посылка.", "branches": [{"phrase": "ph:post.paketim-var", "next": "pickupsay"}], "wrong": {"es": "Pul mu? Pullar orada.", "ru": "Марки? Марки вон там."}},
+        "pickupsay": {"kind": "say", "es": "Paketine sonra bakarız. Bak, müdire geldi. Sen konuş, mektup elimde titriyor.", "ru": "Твою посылку посмотрим потом. Смотри, начальница уже здесь. Говори ты, а то письмо у меня в руке дрожит.", "next": "ask"},
+        "ask": {"kind": "answer", "task": "Спросите начальницу почты, можно ли доставить старое письмо. Официально.", "branches": [{"phrase": "ph:post.teslim-izin", "next": "asksay"}, {"phrase": "ph:post.izin-versene", "next": "asksay"}], "wrong": {"es": "Paket mi? Paketin değil, mektubun derdi.", "ru": "Посылка? Сейчас речь не о посылке, а о письме."}, "register": "formal", "tone": {"es": "“Baksana” mı? Müdire sana çok sert bakıyor. Onunla resmi konuş, lütfen.", "ru": "«Слушай»? Начальница смотрит на тебя очень строго. С ней официально, пожалуйста."}},
+        "asksay": {"kind": "say", "es": "Kabul etti! Bir şartla: elden teslim. Ama Kara mektubu ormana uçarak götürmek istiyor. Daha hızlı.", "ru": "Она согласилась! С одним условием: вручить лично. Но Кара хочет отнести его к лесу по воздуху. Так быстрее.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:post.elden-teslim", "next": "object", "move": "object"}, {"phrase": "ph:post.kara-goturesin", "next": "concede", "move": "concede"}, {"phrase": "ph:post.kara-yol-gostersin", "next": "compromise", "move": "compromise"}], "wrong": {"es": "Ne? Kara yine bağırıyor, duyamadım.", "ru": "Что? Кара опять кричит, я не расслышал."}},
+        "object": {"kind": "say", "es": "Haklısın. Müdire açıkça söyledi: elden.", "ru": "Ты прав. Начальница ясно сказала: лично.", "next": "tracking", "fem": {"ru": "Ты права. Начальница ясно сказала: лично."}},
+        "concede": {"kind": "say", "es": "Tamam! Kara bu gece uçuyor. Umarım yankı mektubu değiştirmez.", "ru": "Ладно! Кара вылетает сегодня ночью. Надеюсь, эхо не изменит письмо.", "next": "tracking"},
+        "compromise": {"kind": "say", "es": "Harika! Kara bize yolu gösterir, mektubu ben taşırım.", "ru": "Отлично! Кара покажет нам дорогу, а письмо понесу я.", "next": "tracking"},
+        "tracking": {"kind": "answer", "task": "Спросите, есть ли трек-номер.", "branches": [{"phrase": "ph:post.takip-numarasi", "next": "trackingsay"}], "wrong": {"es": "Etiket mi? Etiket paketin üstünde.", "ru": "Наклейка? Наклейка на посылке."}},
+        "trackingsay": {"kind": "say", "es": "Var, al. Sen de bir şey mi gönderiyorsun?", "ru": "Есть, держи. Ты тоже что-то отправляешь?", "next": "fragile"},
+        "fragile": {"kind": "answer", "task": "Скажите, что внутри хрупкие вещи.", "branches": [{"phrase": "ph:post.kirilacak-esya", "next": "fragilesay"}], "wrong": {"es": "Ağır mı? Hayır, hafif.", "ru": "Тяжёлая? Нет, лёгкая."}},
+        "fragilesay": {"kind": "say", "es": "Kırılacak olarak işaretliyorum. Kayıtlı mı?", "ru": "Отмечу как хрупкое. Заказным?", "next": "recorded"},
+        "recorded": {"kind": "answer", "task": "Скажите, что хотите отправить письмо заказным.", "branches": [{"phrase": "ph:post.taahhutlu", "next": "end"}], "wrong": {"es": "Hızlı mı? Hızlı posta pahalı.", "ru": "Быстро? Срочная почта дорогая."}},
+        "end": {"kind": "say", "es": "Tamam. Bir de: zarfın içinde başka bir şey vardı. Labirentin haritasından bir parça. Çocuklar tellal dönebilsin diye koymuşlar.", "ru": "Готово. И ещё: в конверте было кое-что. Обрывок карты Лабиринта. Дети вложили его, чтобы глашатай смог вернуться."}
+      }
     }
   ]
 }

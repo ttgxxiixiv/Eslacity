@@ -87,6 +87,30 @@
         "roomq": {"kind": "answer", "task": "Спросите, свободна ли переговорная.", "branches": [{"phrase": "ph:office.toplanti-odasi", "next": "end"}], "wrong": {"es": "Mutfak mı? Mutfak çok küçük.", "ru": "Кухня? Кухня слишком маленькая."}},
         "end": {"kind": "say", "es": "Koridorun sonunda, boş. Bir de bunu al: Orhan'ın mektubunun içindeydi. Ormanın haritasından bir parça. Bence böyle özür diliyor.", "ru": "В конце коридора, свободна. И держи: это было в письме Орхана. Обрывок карты леса. Думаю, так он просит прощения."}
       }
+    },
+    {
+      "id": "ms:office.5",
+      "chapter": 5,
+      "npc": "ebru",
+      "scene": "sc:office.5",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Müdireye gitmeden önce iki işte bana yardım et. Ekiple nerede toplanacağız?", "ru": "Прежде чем идти к начальнице, помоги мне с двумя делами. Где мы соберёмся с командой?", "next": "room"},
+        "room": {"kind": "answer", "task": "Спросите, свободна ли переговорная.", "branches": [{"phrase": "ph:office.toplanti-odasi", "next": "roomsay"}], "wrong": {"es": "Mutfak mı? Mutfak çok küçük.", "ru": "Кухня? Кухня слишком маленькая."}},
+        "roomsay": {"kind": "say", "es": "Boş, saat onda. Şimdi müdire. İşte geliyor. Sen iste, onun yanında heyecanlanıyorum.", "ru": "Свободна, в десять. А теперь начальница. Вон она идёт. Попроси ты, а то я при ней нервничаю.", "next": "ask"},
+        "ask": {"kind": "answer", "task": "Попросите начальницу разрешить распечатать документ из архива. Официально.", "branches": [{"phrase": "ph:office.yazdirmama-izin", "next": "asksay"}, {"phrase": "ph:office.yazdirayim-mi", "next": "asksay"}], "wrong": {"es": "Kahve mi? Önce iş.", "ru": "Кофе? Сначала дело."}, "register": "formal", "tone": {"es": "“Baksana, çıktısını alayım mı” mı? Müdire kaşını kaldırdı. Onunla her zaman resmi.", "ru": "«Слушай, можно я это распечатаю»? Начальница подняла бровь. С ней всегда официально."}},
+        "asksay": {"kind": "say", "es": "İzin verdi! İşte konuşma. Dinle, bunu şehir gazetesinde yayımlamayı düşünüyorum. Herkes okusun.", "ru": "Она разрешила! Вот речь. Слушай, я думаю опубликовать её в городской газете. Пусть все прочитают.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:office.onun-sozleri", "next": "object", "move": "object"}, {"phrase": "ph:office.gazetede-yayimla", "next": "concede", "move": "concede"}, {"phrase": "ph:office.meydanda-birlikte", "next": "compromise", "move": "compromise"}], "wrong": {"es": "Ne? Yazıcı çok gürültülü, bir daha söyle.", "ru": "Что? Принтер очень шумит, повтори."}},
+        "object": {"kind": "say", "es": "Haklısın. Bunlar onun sözleri, ne zaman okunacağına o karar verir.", "ru": "Ты прав. Это его слова, ему решать, когда их читать.", "next": "print", "fem": {"ru": "Ты права. Это его слова, ему решать, когда их читать."}},
+        "concede": {"kind": "say", "es": "Yayımlayacağım. Belki yüz yıl önce gülenlerden biri okur ve pişman olur.", "ru": "Опубликую. Может, кто-то из тех, кто смеялся сто лет назад, прочитает и пожалеет.", "next": "print"},
+        "compromise": {"kind": "say", "es": "Birlikte, meydanda! Böylece sonunda kendisi okur, biz de dinleriz.", "ru": "Вместе, на площади! Так он наконец прочитает её сам, а мы послушаем.", "next": "print"},
+        "print": {"kind": "answer", "task": "Попросите распечатать отчёт.", "branches": [{"phrase": "ph:office.cikti-alir", "next": "printsay"}], "wrong": {"es": "Ekran mı? Ekran çalışıyor.", "ru": "Экран? Экран работает."}},
+        "printsay": {"kind": "say", "es": "Tabii, bir kopya da sana. Cemil'e de gönderir misin?", "ru": "Конечно, одну и тебе. Отправишь и Джемилю?", "next": "attach"},
+        "attach": {"kind": "answer", "task": "Скажите, что прикрепляете файл.", "branches": [{"phrase": "ph:office.dosyayi-ekliyorum", "next": "attachsay"}], "wrong": {"es": "Şifre mi? Şifre yok.", "ru": "Пароль? Пароля нет."}},
+        "attachsay": {"kind": "say", "es": "Harika. Of, ne sabah! Yoruldum.", "ru": "Отлично. Уф, ну и утро! Я устала.", "next": "break"},
+        "break": {"kind": "answer", "task": "Предложите сделать перерыв на кофе.", "branches": [{"phrase": "ph:office.kahve-molasi", "next": "end"}], "wrong": {"es": "Eve mi gidelim? Daha erken.", "ru": "Пойдём домой? Ещё рано."}},
+        "end": {"kind": "say", "es": "İyi fikir. Bir de şunu al: tellalın sözleşmesinin içinde katlanmış bu kâğıt vardı. Labirentin haritasından bir parça.", "ru": "Хорошая идея. И держи: в договоре глашатая был этот сложенный листок. Обрывок карты Лабиринта."}
+      }
     }
   ]
 }

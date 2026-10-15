@@ -87,6 +87,30 @@
         "shelfq": {"kind": "answer", "task": "Скажите, что полку почините вы.", "branches": [{"phrase": "ph:home.rafi-ben", "next": "end"}], "wrong": {"es": "Çöp mü? Çöpü sonra çıkarırız.", "ru": "Мусор? Мусор вынесем потом."}},
         "end": {"kind": "say", "es": "Ben tutarım, sen tamir et… İşte, su oraya ulaşamaz. Bak, kitapların arasında ne vardı: ormanın haritasından bir parça. Orhan yüz yıldır saklıyormuş. Senin için, diyor.", "ru": "Я подержу, а ты чини… Вот, туда вода не достанет. И смотри, что было между книгами: обрывок карты леса. Орхан, оказывается, хранил его сто лет. Говорит, это для тебя."}
       }
+    },
+    {
+      "id": "ms:home.5",
+      "chapter": 5,
+      "npc": "nermin",
+      "scene": "sc:home.5",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Telefon elimde. Onunla konuşmama yardım eder misin? Çok kızgınım!", "ru": "Я уже держу телефон. Поможешь мне с ним поговорить? Я так зла!", "next": "heat"},
+        "heat": {"kind": "answer", "task": "Напомните, что отопление не работает: об этом тоже надо сказать.", "branches": [{"phrase": "ph:home.kalorifer-calismiyor", "next": "heatsay"}], "wrong": {"es": "Pencere mi? Pencere kapalı.", "ru": "Окно? Окно закрыто."}},
+        "heatsay": {"kind": "say", "es": "Doğru! Onu da söyleyeceğim. Açtı bile… Önce sen konuş, yoksa bağıracağım.", "ru": "Точно! И об этом скажу. Он уже ответил… Говори первым ты, а то я сорвусь на крик.", "next": "call"},
+        "call": {"kind": "answer", "task": "Начните разговор с хозяином квартиры: официально.", "branches": [{"phrase": "ph:home.iyi-gunler-efendim", "next": "callsay"}, {"phrase": "ph:home.baksana-sen", "next": "callsay"}], "wrong": {"es": "Kira mı? Kirayı ödedim ben!", "ru": "Аренда? Я же заплатила за аренду!"}, "register": "formal", "tone": {"es": "Eyvah! “Baksana” mı? O ev sahibi, kuzenin değil. Şimdi alındı.", "ru": "Ой, нет! «Слушай»? Это хозяин квартиры, а не твой двоюродный брат. Теперь он обиделся."}},
+        "callsay": {"kind": "say", "es": "Diyor ki, “Lütfen, uygun olduğunuzda ödeyin” diye yazmış. Yankı! Yine de bu sinirlerden yoruldum: buradan taşınacağım.", "ru": "Он говорит, что написал «Пожалуйста, заплатите, когда сможете». Эхо! И всё равно я устала от этих нервов: съеду отсюда.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:home.kirk-yildir-buradasin", "next": "object", "move": "object"}, {"phrase": "ph:home.parka-yakin", "next": "concede", "move": "concede"}, {"phrase": "ph:home.yuz-yuze-konus", "next": "compromise", "move": "compromise"}], "wrong": {"es": "Ne dedin? Telefon cızırdıyor.", "ru": "Что ты сказал? Телефон трещит."}},
+        "object": {"kind": "say", "es": "Haklısın. Kırk yıldır burada yaşıyorum. Yankıdan gelen bir mektup yüzünden taşınmam.", "ru": "Ты прав. Я живу здесь сорок лет. Из-за письма от эха не уеду.", "next": "water", "fem": {"ru": "Ты права. Я живу здесь сорок лет. Из-за письма от эха не уеду."}},
+        "concede": {"kind": "say", "es": "Evet… parka yakın dairelere bakarım. Ama acele etmeden.", "ru": "Да… посмотрю квартиры поближе к парку. Но без спешки.", "next": "water"},
+        "compromise": {"kind": "say", "es": "Yüz yüze, tabii. O zaman yankı hiçbir şeyi değiştiremez. Yarın ona giderim.", "ru": "Лично, конечно. Тогда эхо ничего не изменит. Завтра схожу к нему.", "next": "water"},
+        "water": {"kind": "answer", "task": "Скажите, что на полу вода: опять протекает.", "branches": [{"phrase": "ph:home.yerde-su", "next": "watersay"}], "wrong": {"es": "Tavanda mı? Hayır, bu sefer aşağıda.", "ru": "На потолке? Нет, на этот раз внизу."}},
+        "watersay": {"kind": "say", "es": "Yine mi! Eski boru. Sen ara, lütfen.", "ru": "Опять! Это старая труба. Позвони ты, пожалуйста.", "next": "plumber"},
+        "plumber": {"kind": "answer", "task": "Скажите по телефону, что кран сломан и нужен мастер.", "branches": [{"phrase": "ph:home.musluk-bozuk", "next": "plumbersay"}], "wrong": {"es": "Ocak mı? Ocak çalışıyor.", "ru": "Плита? Плита работает."}},
+        "plumbersay": {"kind": "say", "es": "Güzel söyledin. Tamirci öğleden sonra gelecek. Bir gün taşınırsam önce ne sorayım?", "ru": "Хорошо сказано. Мастер придёт после обеда. А если я когда-нибудь перееду, что спросить первым делом?", "next": "costs"},
+        "costs": {"kind": "answer", "task": "Подскажите спросить, сколько стоит взнос на дом в месяц.", "branches": [{"phrase": "ph:home.aidat-ne-kadar", "next": "end"}], "wrong": {"es": "Balkon mu? Balkon güzel, ama önemli değil.", "ru": "Балкон? Балкон хороший, но это не главное."}},
+        "end": {"kind": "say", "es": "İyi soru. Al, ninemin defterindeydi: Labirentin haritasından bir parça. Yanında yazıyor: “Her kapının ayrı bir sesi var.”", "ru": "Хороший вопрос. Держи, это лежало в бабушкиной тетради: обрывок карты Лабиринта. Рядом написано: «У каждой двери — свой голос»."}
+      }
     }
   ]
 }

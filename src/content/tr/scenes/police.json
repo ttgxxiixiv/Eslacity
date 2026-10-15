@@ -122,6 +122,34 @@
         {"q": "Что сказал голос из леса?", "options": ["«Теперь я слышу тропу. Пусть придёт тот, кто принёс мир»", "«Уходите»", "«Лес закрыт»"], "answer": 0}
       ],
       "gloss": {"toplantısındaydım": "я был на собрании", "orhan": "Орхан", "ayağa": "(ayağa kalkmak — встать)", "kalktı": "встал", "kargaya": "вороне", "öğrettim": "учил", "korkuyordum": "боялся", "affedin": "простите", "sessizlik": "тишина", "giyim": "одежда", "dükkanındaki": "из лавки", "sarıldı": "обняла", "kaptan": "капитан", "ismail": "Исмаил", "piposu": "для его трубки", "tütün": "табак", "sustu": "затих", "duyuldu": "раздался", "barışı": "мир", "getiren": "который принёс", "oluyorsunuz": "это вы"}
+    },
+    {
+      "id": "sc:police.5",
+      "chapter": 5,
+      "npc": "nihat",
+      "lines": [
+        {"who": "npc", "es": "İyi günler. Oturun. Dün resmi bir mektup aldım. Bakın.", "ru": "Добрый день. Садитесь. Вчера я получил официальное письмо. Взгляните."},
+        {"who": "hero", "es": "Kimden?", "ru": "От кого оно?"},
+        {"who": "npc", "es": "Şehrin tellalından. Şöyle yazıyor: “Sayın Komiser, bana birinin cevap vermesini saygılarımla arz ederim.”", "ru": "От городского глашатая. Пишет так: «Уважаемый комиссар, со всем почтением прошу, чтобы кто-нибудь мне ответил»."},
+        {"who": "hero", "es": "Yardımı bile resmi bir dille istiyor.", "ru": "Даже о помощи он просит официально."},
+        {"who": "npc", "es": "Yüz yıldır böyle. İmzası da şöyle: “Hizmetkârınız, şehrin tellalı.”", "ru": "И так сто лет. А подпись: «Ваш покорный слуга, городской глашатай»."},
+        {"who": "hero", "es": "Ne yapacaksınız?", "ru": "Что вы будете делать?"},
+        {"who": "npc", "es": "Kanunun dediğini: bir komşuya cevap vermek. Yarın saat yedide ormana bir tren kalkıyor.", "ru": "То, что велит закон: ответить соседу. Завтра в семь к лесу отправляется поезд."},
+        {"who": "hero", "es": "Kim gidiyor?", "ru": "Кто едет?"},
+        {"who": "npc", "es": "Çocukların mektubuyla postacı, Orhan ve şehrin yarısı. Cevap vermek isteyen bu kadar insanı hiç görmedim.", "ru": "Почтальон с письмом детей, Орхан и полгорода. Никогда не видел, чтобы столько людей хотели ответить."},
+        {"who": "npc", "es": "Orhan memnun gidiyor. Cezayı ödemedi ve şimdi size borçlu olduğunu söylüyor.", "ru": "Орхан едет довольный. Штраф он не платил и говорит, что теперь у него долг перед вами.", "if": {"flag": "fine", "is": "forgiven"}},
+        {"who": "npc", "es": "Orhan cezanın yarısını ödedi, diğer yarısını ben. Artık borcumuz yok.", "ru": "Орхан уже заплатил свою половину штрафа, а я — другую. Теперь мы в расчёте.", "if": {"flag": "fine", "is": "paid"}},
+        {"who": "npc", "es": "Orhan mavi ellerle gidiyor: hâlâ postanenin duvarını boyuyor.", "ru": "Орхан едет с синими руками: он всё ещё красит стену почты.", "if": {"flag": "fine", "is": "work"}},
+        {"who": "hero", "es": "Demek her şey hazır.", "ru": "Значит, всё готово."},
+        {"who": "npc", "es": "Neredeyse. Siz eksiksiniz. Herkesle her tonda konuşmayı biliyorsunuz. Bu yüzden size de yazdı.", "ru": "Почти. Не хватает вас. Вы умеете говорить с каждым любым тоном. Поэтому он написал и вам."}
+      ],
+      "questions": [
+        {"q": "От кого пришло письмо?", "options": ["От городского глашатая", "От Орхана", "От Арды"], "answer": 0},
+        {"q": "Как глашатай просит о помощи?", "options": ["Очень официально", "По-дружески", "Криком"], "answer": 0},
+        {"q": "Что будет завтра в семь?", "options": ["Поезд к лесу", "Собрание в офисе", "Праздник на базаре"], "answer": 0},
+        {"q": "Почему глашатай написал и герою?", "options": ["Герой умеет говорить с каждым любым тоном", "Герой ему должен", "Герой — его родственник"], "answer": 0}
+      ],
+      "gloss": {"tellalından": "от глашатая", "tellalı": "глашатай", "komiser": "комиссар", "hizmetkârınız": "ваш слуга", "hizmetkarınız": "ваш слуга", "kalkıyor": "отправляется", "mektubuyla": "с письмом", "boyuyor": "красит", "eksiksiniz": "вас не хватает", "konuşmayı": "говорить", "orhan": "Орхан"}
     }
   ]
 }

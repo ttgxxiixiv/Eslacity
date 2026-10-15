@@ -80,7 +80,7 @@
         "talksay": {"kind": "say", "es": "Evet. Kerem kuleye gidince bir yıl uyuyamadım. Bunun tekrar olmasını istemiyorum.", "ru": "Да. Когда Керем ушёл к башне, я год не спал. Не хочу, чтобы это повторилось.", "next": "sit"},
         "sit": {"kind": "answer", "task": "Предложите посидеть и поболтать.", "branches": [{"phrase": "ph:cafe.sohbet-edelim", "next": "sitsay"}], "wrong": {"es": "Gidiyor musun? Hayır, otur biraz!", "ru": "Уходишь? Нет, посиди немного!"}},
         "sitsay": {"kind": "say", "es": "Tamam, iki çay. Ama dinle: Kerem ormana gitmeyecek. Kulede zaten bir yılını kaybetti.", "ru": "Ладно, два чая. Но послушай: Керем в лес не пойдёт. Он уже потерял год в башне.", "next": "dispute"},
-        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:cafe.onun-karari", "next": "object", "move": "object"}, {"phrase": "ph:cafe.endiseni-anliyorum", "next": "concede", "move": "concede"}, {"phrase": "ph:cafe.ormanin-kenarina", "next": "compromise", "move": "compromise"}], "wrong": {"es": "Ne diyorsun? Açık konuş, sinirlerim bozuk.", "ru": "Что ты говоришь? Говори ясно, у меня нервы на пределе."}},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:cafe.onun-karari", "next": "object", "move": "object", "sets": {"kerem": "free"}}, {"phrase": "ph:cafe.endiseni-anliyorum", "next": "concede", "move": "concede", "sets": {"kerem": "home"}}, {"phrase": "ph:cafe.ormanin-kenarina", "next": "compromise", "move": "compromise", "sets": {"kerem": "edge"}}], "wrong": {"es": "Ne diyorsun? Açık konuş, sinirlerim bozuk.", "ru": "Что ты говоришь? Говори ясно, у меня нервы на пределе."}},
         "object": {"kind": "say", "es": "Kararı o mu verecek? Belki haklısın… O benim oğlum, ama artık çocuk değil. Onunla bağırmadan konuşacağım.", "ru": "Решает он? Может, ты и прав… Он мой сын, но уже не ребёнок. Поговорю с ним без крика.", "next": "voice", "fem": {"ru": "Решает он? Может, ты и права… Он мой сын, но уже не ребёнок. Поговорю с ним без крика."}},
         "concede": {"kind": "say", "es": "Teşekkürler. Kerem kızacak, biliyorum, ama evde kızsın daha iyi.", "ru": "Спасибо. Знаю, Керем разозлится, но пусть лучше злится дома.", "next": "voice"},
         "compromise": {"kind": "say", "es": "Ormanın kenarına kadar mı? Bence adil. Orada bir köy var, oradan trenle dönebilir.", "ru": "До опушки? По-моему, справедливо. Там есть деревня, оттуда он сможет вернуться поездом.", "next": "voice"},
@@ -91,6 +91,30 @@
         "cookiesay": {"kind": "say", "es": "Tabii ev yapımı. Yol için iki tane al.", "ru": "Конечно, домашнее. Возьми два в дорогу.", "next": "treat"},
         "treat": {"kind": "answer", "task": "Скажите, что сегодня угощаете вы.", "branches": [{"phrase": "ph:cafe.ismarliyorum", "next": "end"}], "wrong": {"es": "Hesap mı? Bugün hesap yok!", "ru": "Счёт? Сегодня никакого счёта!"}},
         "end": {"kind": "say", "es": "Teşekkürler. Al: Arda senin için orman haritasının bu parçasını gönderdi. Ağaçları dinle, ama tekrarladıkları her şeye inanma.", "ru": "Спасибо. И держи: Арда прислал для тебя этот обрывок карты леса. Слушай деревья, но не верь всему, что они повторяют."}
+      }
+    },
+    {
+      "id": "ms:cafe.5",
+      "chapter": 5,
+      "npc": "hasan",
+      "scene": "sc:cafe.5",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Otur. Şu buz gibi mektubu bir daha okurken sana bir şey koyayım.", "ru": "Садись. Налью тебе чего-нибудь, пока перечитываю это ледяное письмо.", "next": "order"},
+        "order": {"kind": "answer", "task": "Закажите большой стакан чая и симит.", "branches": [{"phrase": "ph:cafe.buyuk-bardak", "next": "ordersay"}], "wrong": {"es": "Çay ve mektup mu? Mektubum zaten var, sağ ol.", "ru": "Чай и письмо? Письмо у меня уже есть, спасибо."}},
+        "ordersay": {"kind": "say", "es": "Hemen geliyor. Biliyor musun, bütün sabah Kerem'in bana kızgın olduğunu düşündüm.", "ru": "Сейчас будет. Знаешь, я всё утро думаю, что Керем на меня злится.", "next": "calm"},
+        "calm": {"kind": "answer", "task": "Успокойте Хасана-уста. Он друг — говорите по-свойски.", "branches": [{"phrase": "ph:cafe.kafana-takma", "next": "calmsay"}, {"phrase": "ph:cafe.sakin-olmanizi", "next": "calmsay"}], "wrong": {"es": "Çay mı beni sakinleştirecek? Üçüncü bardaktayım zaten.", "ru": "Чай меня успокоит? Да я уже третий стакан пью."}, "register": "informal", "tone": {"es": "“Rica ederim” mi? Sen de mi benimle banka gibi konuşuyorsun? Benim, Hasan!", "ru": "«Прошу вас»? Ты тоже со мной как в банке разговариваешь? Это же я, Хасан!"}},
+        "calmsay": {"kind": "say", "es": "Tamam, tamam. Nefes alıyorum. Ama ona ben de aynı soğuklukla cevap vereceğim: “Sayın Kerem Bey”.", "ru": "Ладно, ладно. Дышу. Но я отвечу ему так же холодно: «Уважаемый Керем-бей».", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:cafe.oyle-cevap-verme", "next": "object", "move": "object"}, {"phrase": "ph:cafe.ayni-sekilde", "next": "concede", "move": "concede"}, {"phrase": "ph:cafe.telefonla-ara", "next": "compromise", "move": "compromise"}], "wrong": {"es": "Ne? Bu hiç mektupla ilgili değil.", "ru": "Что? Это вообще не про письмо."}},
+        "object": {"kind": "say", "es": "Haklısın, böyle hiçbir şey düzelmez. Sıcak yazacağım, yankı değiştirse bile.", "ru": "Ты прав, так ничего не исправишь. Напишу ему тепло, пусть даже эхо это изменит.", "next": "treat", "fem": {"ru": "Ты права, так ничего не исправишь. Напишу ему тепло, пусть даже эхо это изменит."}},
+        "concede": {"kind": "say", "es": "Aynen. Bakalım o nasıl hissedecek. Gerçi mektup ona da başka bir tonla ulaşır.", "ru": "Вот именно. Пусть узнает, каково это. Хотя письмо и до него дойдёт другим тоном.", "next": "treat"},
+        "compromise": {"kind": "say", "es": "Telefonla mı? Tabii ki! Ses Labirentten geçmez. Bu akşam onu ararım.", "ru": "По телефону? Конечно! Голос через Лабиринт не проходит. Позвоню ему сегодня вечером.", "next": "treat"},
+        "treat": {"kind": "answer", "task": "Скажите, что сегодня угощаете вы.", "branches": [{"phrase": "ph:cafe.ismarliyorum", "next": "treatsay"}], "wrong": {"es": "Bugün yankı mı ısmarlıyor? Yankı para ödemez.", "ru": "Сегодня угощает эхо? Эхо не платит."}},
+        "treatsay": {"kind": "say", "es": "Ne tatlısın! Dinle, yola tatlı bir şey ister misin?", "ru": "Как мило! Слушай, хочешь чего-нибудь сладкого в дорогу?", "next": "pastry"},
+        "pastry": {"kind": "answer", "task": "Спросите, домашнее ли печенье.", "branches": [{"phrase": "ph:cafe.ev-yapimi-mi", "next": "pastrysay"}], "wrong": {"es": "Labirentten kurabiye mi? Hayır, annemin tarifinden.", "ru": "Печенье из Лабиринта? Нет, по маминому рецепту."}},
+        "pastrysay": {"kind": "say", "es": "Ev yapımı, her zamanki gibi. Şimdi söyle, Labirente ne zaman gidiyorsun?", "ru": "Домашнее, как всегда. А теперь скажи, когда ты уходишь к Лабиринту?", "next": "meet"},
+        "meet": {"kind": "answer", "task": "Предложите встретиться до обеда, перед дорогой.", "branches": [{"phrase": "ph:cafe.ogleden-once", "next": "end"}], "wrong": {"es": "Gece yarısı mı? O saatte uyuyorum.", "ru": "В полночь? Я в это время сплю."}},
+        "end": {"kind": "say", "es": "Harika. Bir de şunu al: Arda mektubun içine Labirentin haritasından bu parçayı koymuş. Orada herkesle kendi tonunda konuş.", "ru": "Отлично. И держи: Арда вложил в письмо этот обрывок карты Лабиринта. Там говори с каждым в его тоне."}
       }
     }
   ]

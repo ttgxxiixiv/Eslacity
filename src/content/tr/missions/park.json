@@ -85,6 +85,30 @@
         "rainq": {"kind": "answer", "task": "Скажите, что сейчас пойдёт дождь, и спросите, есть ли у него зонт.", "branches": [{"phrase": "ph:park.yagmur-yagacak", "next": "end"}], "wrong": {"es": "Güneş mi? Bugün güneş yok.", "ru": "Солнце? Сегодня солнца нет."}},
         "end": {"kind": "say", "es": "Büyük bir şemsiyem var, gel. Bir de bunu al: meşenin altında buldum. Ormanın haritasından bir parça, yanında da siyah bir tüy.", "ru": "У меня большой зонт, пойдём. И держи: я нашёл это под дубом. Обрывок карты леса, а рядом чёрное перо."}
       }
+    },
+    {
+      "id": "ms:park.5",
+      "chapter": 5,
+      "npc": "riza",
+      "scene": "sc:park.5",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Biraz yürüyelim mi? Bugün gölde yankı yok, sadece ördekler.", "ru": "Прогуляемся? Сегодня на озере нет эха, только утки.", "next": "ducks"},
+        "ducks": {"kind": "answer", "task": "Скажите, что утки голодные.", "branches": [{"phrase": "ph:park.ordekler-ac", "next": "duckssay"}], "wrong": {"es": "Sincap mı? Bugün görmedim.", "ru": "Белка? Сегодня я её не видел."}},
+        "duckssay": {"kind": "say", "es": "Onlara biraz ekmek al. Dinle, bu tellal hikâyesi beni hüzünlendirdi.", "ru": "Возьми для них хлеба. Слушай, мне грустно от этой истории про глашатая.", "next": "cheer"},
+        "cheer": {"kind": "answer", "task": "Подбодрите дядю Рызу. Он просит говорить с ним по-свойски.", "branches": [{"phrase": "ph:park.uzulme-amca", "next": "cheersay"}, {"phrase": "ph:park.endiselenmeyiniz", "next": "cheersay"}], "wrong": {"es": "Ördekler mi üzgün? Ördekler aç, o kadar.", "ru": "Утки грустят? Утки просто голодные."}, "register": "informal", "tone": {"es": "“Endişelenmeyiniz” mi? Benimle böyle konuşma, kendimi hemen o tellal gibi hissediyorum.", "ru": "«Не волнуйтесь»? Не говори со мной так, я сразу чувствую себя тем глашатаем."}},
+        "cheersay": {"kind": "say", "es": "Sağ ol. Ama yaşlı meşeyi kesmek istiyorum. O zaman yankı parkımda hiçbir şeyi tekrarlamaz.", "ru": "Спасибо. Но я хочу срубить старый дуб. Тогда эхо больше ничего не будет повторять в моём парке.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:park.mese-sucsuz", "next": "object", "move": "object"}, {"phrase": "ph:park.senin-parkin", "next": "concede", "move": "concede"}, {"phrase": "ph:park.birkac-dal", "next": "compromise", "move": "compromise"}], "wrong": {"es": "Ne dedin? Kulaklarım eskisi gibi değil.", "ru": "Что ты сказал? Уши у меня уже не те."}},
+        "object": {"kind": "say", "es": "Haklısın, zavallı meşe sadece tekrarlıyor. Üstelik o ormanın çocuğu.", "ru": "Ты прав, бедный дуб только повторяет. К тому же он дитя леса.", "next": "roses", "fem": {"ru": "Ты права, бедный дуб только повторяет. К тому же он дитя леса."}},
+        "concede": {"kind": "say", "es": "Şey… düşüneceğim. Ama ona acıyorum: iki yüz yaşında.", "ru": "Ну… подумаю. Но мне его жалко: ему двести лет.", "next": "roses"},
+        "compromise": {"kind": "say", "es": "Birkaç dal… Evet, o zaman çocuklar onunla bu kadar çok konuşmaz.", "ru": "Несколько веток… Да, тогда дети не будут так много с ним говорить.", "next": "roses"},
+        "roses": {"kind": "answer", "task": "Спросите, когда цветут розы.", "branches": [{"phrase": "ph:park.guller-ne-zaman", "next": "rosessay"}], "wrong": {"es": "Meşe mi? Meşe çiçek açmaz.", "ru": "Дуб? Дуб не цветёт."}},
+        "rosessay": {"kind": "say", "es": "Haziranda. Şimdi gökyüzüne bak: hava değişiyor.", "ru": "В июне. А теперь посмотри на небо: погода меняется.", "next": "rain"},
+        "rain": {"kind": "answer", "task": "Скажите, что пойдёт дождь, и спросите, есть ли у него зонт.", "branches": [{"phrase": "ph:park.yagmur-yagacak", "next": "rainsay"}], "wrong": {"es": "Güneş mi? Bugün güneş yok.", "ru": "Солнце? Сегодня солнца нет."}},
+        "rainsay": {"kind": "say", "es": "Evet, hep yanımda taşırım. Dönmeden önce biraz oturalım mı?", "ru": "Да, я всегда его ношу. Посидим немного, прежде чем возвращаться?", "next": "rest"},
+        "rest": {"kind": "answer", "task": "Предложите немного отдохнуть.", "branches": [{"phrase": "ph:park.biraz-dinlenelim", "next": "end"}], "wrong": {"es": "Koşalım mı? Benim yaşımda mı?", "ru": "Побежим? В моём-то возрасте?"}},
+        "end": {"kind": "say", "es": "Dinlen. Bir de şunu al: dedem Labirentin haritasından bu parçayı saklamış. Tellalın gitmeden önce bu bankta bıraktığını söylerdi.", "ru": "Отдыхай. И держи: дедушка хранил этот обрывок карты Лабиринта. Говорил, что глашатай оставил его на этой скамейке, перед тем как уйти."}
+      }
     }
   ]
 }

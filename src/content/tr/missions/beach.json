@@ -85,6 +85,30 @@
         "shoreq": {"kind": "answer", "task": "Скажите, что останетесь у берега.", "branches": [{"phrase": "ph:beach.kiyida-kaliyorum", "next": "end"}], "wrong": {"es": "Şamandıraya mı? Bugün olmaz.", "ru": "До буя? Сегодня нельзя."}},
         "end": {"kind": "say", "es": "İyi fikir. Bir de bunu al: Orhan dün gece taşların üstünde bıraktı. Ormanın haritasından bir parça. Bence senin almanı istedi.", "ru": "Хорошая мысль. И держи: Орхан оставил это вчера ночью на камнях. Обрывок карты леса. Думаю, он хотел, чтобы обрывок достался тебе."}
       }
+    },
+    {
+      "id": "ms:beach.5",
+      "chapter": 5,
+      "npc": "can",
+      "scene": "sc:beach.5",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Geceye daha çok var. Bu arada denize girelim mi?", "ru": "До ночи ещё далеко. Искупаемся пока?", "next": "swim"},
+        "swim": {"kind": "answer", "task": "Предложите немного поплавать.", "branches": [{"phrase": "ph:beach.biraz-yuzelim", "next": "swimsay"}], "wrong": {"es": "Fotoğraf mı? Sonra çekeriz.", "ru": "Фото? Потом сфотографируемся."}},
+        "swimsay": {"kind": "say", "es": "Hadi! … Of, soğuk. Bak: hava kararıyor. Deniz feneri ilk turunu yapıyor… İşte orada! Sen selam ver.", "ru": "Давай! … Уф, холодная. Смотри: темнеет. Маяк уже делает первый круг… Вот он! Поздоровайся ты.", "next": "greet"},
+        "greet": {"kind": "answer", "task": "Поздоровайтесь с глашатаем. Он сто лет ждёт дружеского слова — по-свойски.", "branches": [{"phrase": "ph:beach.selam-dostum", "next": "greetsay"}, {"phrase": "ph:beach.iyi-aksamlar-efendim", "next": "greetsay"}], "wrong": {"es": "Deniz mi? Deniz bu gece sakin.", "ru": "Море? Море сегодня спокойное."}, "register": "informal", "tone": {"es": "Eyvah. “İyi akşamlar efendim”… “Çok iyiyim, teşekkür ederim” dedi ve hüzünlendi. Onunla dost gibi konuş!", "ru": "Ох, нет. «Добрый вечер, сударь»… Он ответил «Очень хорошо, спасибо» и погрустнел. Говори с ним как с другом!"}},
+        "greetsay": {"kind": "say", "es": "Gülümsedi! Diyor ki: “Sizi Labirentte bekliyorum.” Ve sisin içine gidiyor… Şimdi peşinden gideceğim, tek başıma.", "ru": "Он улыбнулся! Говорит: «Жду вас в Лабиринте». И уходит в туман… Я пойду за ним прямо сейчас, один.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:beach.sisle-yalniz", "next": "object", "move": "object"}, {"phrase": "ph:beach.git-ama-dikkat", "next": "concede", "move": "concede"}, {"phrase": "ph:beach.safakta-birlikte", "next": "compromise", "move": "compromise"}], "wrong": {"es": "Ne? Dalgalardan duyamadım.", "ru": "Что? Из-за волн не расслышал."}},
+        "object": {"kind": "say", "es": "Haklısın, ben cankurtaranım ve biliyorum: siste tek başına gidilmez.", "ru": "Ты прав, я спасатель и знаю: в туман в одиночку не ходят.", "next": "current", "fem": {"ru": "Ты права, я спасатель и знаю: в туман в одиночку не ходят."}},
+        "concede": {"kind": "say", "es": "Tamam, gidiyorum. El feneri ve düdük alırım. Bir saatte dönmezsem komisere haber ver.", "ru": "Ладно, иду. Возьму фонарь и свисток. Если не вернусь через час, предупреди комиссара.", "next": "current"},
+        "compromise": {"kind": "say", "es": "Sabah erkenden, birlikte. Işıkta yol daha iyi görünür.", "ru": "Рано утром, вместе. При свете дорогу лучше видно.", "next": "current"},
+        "current": {"kind": "answer", "task": "Скажите, что сегодня очень сильное течение.", "branches": [{"phrase": "ph:beach.akinti-guclu", "next": "currentsay"}], "wrong": {"es": "Su mu soğuk? Evet, biraz.", "ru": "Вода холодная? Да, немного."}},
+        "currentsay": {"kind": "say", "es": "Evet, bu yüzden bugün bayrak kırmızı. Suda kalacak mısın?", "ru": "Да, поэтому сегодня флаг красный. Останешься в воде?", "next": "shore"},
+        "shore": {"kind": "answer", "task": "Скажите, что останетесь у берега.", "branches": [{"phrase": "ph:beach.kiyida-kaliyorum", "next": "shoresay"}], "wrong": {"es": "Şamandıraya mı? Bugün olmaz.", "ru": "До буя? Сегодня нельзя."}},
+        "shoresay": {"kind": "say", "es": "Doğru karar. Gitmeden önce gün batımını izleyelim mi?", "ru": "Правильное решение. Посмотрим на закат, прежде чем уходить?", "next": "sunset"},
+        "sunset": {"kind": "answer", "task": "Предложите посмотреть на закат.", "branches": [{"phrase": "ph:beach.gun-batimi", "next": "end"}], "wrong": {"es": "Liman mı? Liman uzak.", "ru": "Порт? Порт далеко."}},
+        "end": {"kind": "say", "es": "Hadi. Bir de şunu al: tellal bunu kumda, ayak izlerinin yanında bıraktı. Labirentin haritasından bir parça.", "ru": "Пойдём. И держи: глашатай оставил это на песке, рядом со своими следами. Обрывок карты Лабиринта."}
+      }
     }
   ]
 }
