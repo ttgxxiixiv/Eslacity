@@ -67,6 +67,31 @@
         "billq": {"kind": "answer", "task": "Попросите счёт.", "branches": [{"phrase": "ph:cafe.hesap", "next": "end"}], "wrong": {"es": "Bir çay daha mı? Önce bunu bitir!", "ru": "Ещё чаю? Сначала допей этот!"}},
         "end": {"kind": "say", "es": "Bugün Kerem ısmarlıyor: parayı bana bıraktı. Al, bu da çöl haritasından benim parçam. Unutma: gördüğüne değil, duyduğuna inan.", "ru": "Сегодня угощает Керем: он оставил мне деньги. Держи, а это мой обрывок карты пустыни. Помни: верь не тому, что видишь, а тому, что слышишь."}
       }
+    },
+    {
+      "id": "ms:cafe.4",
+      "chapter": 4,
+      "npc": "hasan",
+      "scene": "sc:cafe.4",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Otur. Kerem yukarıda, çantasını hazırlıyor. Ben de çok gerginim.", "ru": "Садись. Керем наверху, собирает рюкзак. А я очень нервничаю.", "next": "talk"},
+        "talk": {"kind": "answer", "task": "Спросите, не хочет ли он выговориться.", "branches": [{"phrase": "ph:cafe.icini-dokmek-ister", "next": "talksay"}], "wrong": {"es": "Çay mı? Önce otur!", "ru": "Чай? Сначала сядь!"}},
+        "talksay": {"kind": "say", "es": "Evet. Kerem kuleye gidince bir yıl uyuyamadım. Bunun tekrar olmasını istemiyorum.", "ru": "Да. Когда Керем ушёл к башне, я год не спал. Не хочу, чтобы это повторилось.", "next": "sit"},
+        "sit": {"kind": "answer", "task": "Предложите посидеть и поболтать.", "branches": [{"phrase": "ph:cafe.sohbet-edelim", "next": "sitsay"}], "wrong": {"es": "Gidiyor musun? Hayır, otur biraz!", "ru": "Уходишь? Нет, посиди немного!"}},
+        "sitsay": {"kind": "say", "es": "Tamam, iki çay. Ama dinle: Kerem ormana gitmeyecek. Kulede zaten bir yılını kaybetti.", "ru": "Ладно, два чая. Но послушай: Керем в лес не пойдёт. Он уже потерял год в башне.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:cafe.onun-karari", "next": "object", "move": "object"}, {"phrase": "ph:cafe.endiseni-anliyorum", "next": "concede", "move": "concede"}, {"phrase": "ph:cafe.ormanin-kenarina", "next": "compromise", "move": "compromise"}], "wrong": {"es": "Ne diyorsun? Açık konuş, sinirlerim bozuk.", "ru": "Что ты говоришь? Говори ясно, у меня нервы на пределе."}},
+        "object": {"kind": "say", "es": "Kararı o mu verecek? Belki haklısın… O benim oğlum, ama artık çocuk değil. Onunla bağırmadan konuşacağım.", "ru": "Решает он? Может, ты и прав… Он мой сын, но уже не ребёнок. Поговорю с ним без крика.", "next": "voice", "fem": {"ru": "Решает он? Может, ты и права… Он мой сын, но уже не ребёнок. Поговорю с ним без крика."}},
+        "concede": {"kind": "say", "es": "Teşekkürler. Kerem kızacak, biliyorum, ama evde kızsın daha iyi.", "ru": "Спасибо. Знаю, Керем разозлится, но пусть лучше злится дома.", "next": "voice"},
+        "compromise": {"kind": "say", "es": "Ormanın kenarına kadar mı? Bence adil. Orada bir köy var, oradan trenle dönebilir.", "ru": "До опушки? По-моему, справедливо. Там есть деревня, оттуда он сможет вернуться поездом.", "next": "voice"},
+        "voice": {"kind": "say", "es": "Bir şey daha. Arda, ormanın senin sesini tekrarladığını yazıyor: “Hasan Usta çok inatçı.” Bunu sen mi söyledin?", "ru": "И ещё. Арда пишет, что лес повторяет твой голос: «Хасан-уста такой упрямый». Ты так говорил?", "next": "sorry", "fem": {"ru": "И ещё. Арда пишет, что лес повторяет твой голос: «Хасан-уста такой упрямый». Ты так говорила?"}},
+        "sorry": {"kind": "answer", "task": "Извинитесь: это было недоразумение.", "branches": [{"phrase": "ph:cafe.yanlis-anlasilma", "next": "sorrysay"}], "wrong": {"es": "Gülüyor musun? Bu hiç komik değil.", "ru": "Ты смеёшься? Это совсем не смешно."}},
+        "sorrysay": {"kind": "say", "es": "Peki, affediyorum. Ormanda bir ses eksildi bile. Bir şey yer misin?", "ru": "Ладно, прощаю. Вот и на один голос в лесу меньше. Хочешь что-нибудь поесть?", "next": "cookie"},
+        "cookie": {"kind": "answer", "task": "Спросите, домашнее ли печенье.", "branches": [{"phrase": "ph:cafe.ev-yapimi-mi", "next": "cookiesay"}], "wrong": {"es": "Pahalı mı? Hayır, senin için değil.", "ru": "Дорогое? Нет, не для тебя."}},
+        "cookiesay": {"kind": "say", "es": "Tabii ev yapımı. Yol için iki tane al.", "ru": "Конечно, домашнее. Возьми два в дорогу.", "next": "treat"},
+        "treat": {"kind": "answer", "task": "Скажите, что сегодня угощаете вы.", "branches": [{"phrase": "ph:cafe.ismarliyorum", "next": "end"}], "wrong": {"es": "Hesap mı? Bugün hesap yok!", "ru": "Счёт? Сегодня никакого счёта!"}},
+        "end": {"kind": "say", "es": "Teşekkürler. Al: Arda senin için orman haritasının bu parçasını gönderdi. Ağaçları dinle, ama tekrarladıkları her şeye inanma.", "ru": "Спасибо. И держи: Арда прислал для тебя этот обрывок карты леса. Слушай деревья, но не верь всему, что они повторяют."}
+      }
     }
   ]
 }

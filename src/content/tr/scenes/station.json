@@ -75,6 +75,54 @@
         {"q": "Что сделает Исмаил для героя?", "options": ["Придержит место", "Отвезёт на пароме", "Отдаст свой билет"], "answer": 0}
       ],
       "gloss": {"haberlerim": "мои новости", "kumların": "песков", "giden": "который идёт", "varmış": "есть (говорят)", "gidiyormuş": "ходит (говорят)", "tarifemde": "в моём расписании", "devesiyle": "со своим верблюдом", "dönmeyi": "возвращаться", "gitmen": "тебе ехать", "ayırırım": "придержу"}
+    },
+    {
+      "id": "wh:station.4",
+      "chapter": 4,
+      "mode": "overhear",
+      "npc": "ismail",
+      "lines": [
+        {"who": "burak", "es": "Bugün sis yüzünden dört uçuş iptal edildi. Havalimanında insanlar çok kızgın.", "ru": "Сегодня из-за тумана отменили четыре рейса. Люди в аэропорту очень злые."},
+        {"who": "npc", "es": "Ne yazık. Bizi nerede bulacaklarını biliyorlar. Vapur sisten korkmaz.", "ru": "Какая жалость. Они знают, где нас найти. Паром тумана не боится."},
+        {"who": "burak", "es": "Tabii. Ama acele etmeyi de sevmez. Dünkü vapurun iki saat geç geldi.", "ru": "Ну да. Но и спешить он не любит. Твой вчерашний паром пришёл на два часа позже."},
+        {"who": "npc", "es": "Motorda küçük bir arıza vardı. Bu hiç olmaz.", "ru": "Была маленькая поломка в моторе. Такого никогда не бывает."},
+        {"who": "burak", "es": "Hiç mi? Geçen hafta vapur yerine otobüs vardı. İskelede tamir yüzünden.", "ru": "Никогда? На прошлой неделе вместо парома был автобус. Из-за ремонта на пристани."},
+        {"who": "npc", "es": "Tamir yeni hızlı vapur için. Bir yıl sonra adaya senin uçağından önce varacağız.", "ru": "Ремонт ради нового быстрого парома. Через год мы будем приходить на остров раньше твоего самолёта."},
+        {"who": "burak", "es": "Bunu her yıl söylüyorsun, İsmail.", "ru": "Ты это каждый год говоришь, Исмаил."},
+        {"who": "npc", "es": "Ve her yıl biraz daha yakın. Gel, uçuşlarını beklerken sana bir çay ısmarlayayım.", "ru": "И каждый год это немного ближе. Пойдём, угощу тебя чаем, пока ждёшь свои рейсы."}
+      ],
+      "questions": [
+        {"q": "Что Бурак думает о пароме?", "kind": "stance", "options": ["Что паром тоже часто опаздывает", "Что паром быстрее самолёта", "Что паром боится тумана"], "answer": 0},
+        {"q": "Как Исмаил объясняет вчерашнее опоздание?", "kind": "stance", "options": ["Туман", "Маленькая поломка в моторе, такого не бывает", "Много пассажиров"], "answer": 1},
+        {"q": "Что Бурак имел в виду: «ты это каждый год говоришь»?", "kind": "stance", "options": ["Что он не верит обещаниям про быстрый паром", "Что Исмаил плохо помнит", "Что ремонт уже закончен"], "answer": 0},
+        {"q": "Чем кончается разговор?", "kind": "stance", "options": ["Ссорой", "Исмаил зовёт Бурака на чай", "Бурак уходит на рейс"], "answer": 1}
+      ],
+      "gloss": {"sis": "туман", "uçuş": "рейс", "havalimanında": "в аэропорту", "bulacaklarını": "что найдут", "sisten": "тумана", "dünkü": "вчерашний", "motorda": "в моторе", "arıza": "поломка", "hızlı": "быстрый", "varacağız": "будем прибывать", "uçağından": "твоего самолёта", "uçuşlarını": "свои рейсы", "ısmarlayayım": "угощу", "ismail": "Исмаил"}
+    },
+    {
+      "id": "sc:station.4",
+      "chapter": 4,
+      "npc": "ismail",
+      "lines": [
+        {"who": "npc", "es": "Sen de mi bana suçlu gibi bakmaya geldin?", "ru": "Ты тоже пришёл смотреть на меня как на преступника?", "fem": {"ru": "Ты тоже пришла смотреть на меня как на преступника?"}},
+        {"who": "hero", "es": "Neden öyle diyorsun?", "ru": "Почему ты так говоришь?"},
+        {"who": "npc", "es": "Bütün şehir, ormanın benim sesimle yalan söylediğini anlatıyor. Ses diyor ki: “Bu gece vapur yok.” Ve insanlar iskeleye gelmiyor!", "ru": "Весь город рассказывает, что лес врёт моим голосом. Голос говорит: «Сегодня ночью парома нет». И люди не приходят на пристань!"},
+        {"who": "hero", "es": "Bunu sen söylemedin mi?", "ru": "А это не ты говорил?"},
+        {"who": "npc", "es": "Tabii ki hayır! Geceleri evde uyurum. Karım biliyor.", "ru": "Конечно, нет! По ночам я сплю дома. Жена знает."},
+        {"who": "hero", "es": "Sana inanıyorum. Ama biri senin sesini taklit ediyor.", "ru": "Я тебе верю. Но кто-то подражает твоему голосу."},
+        {"who": "npc", "es": "Sağ ol. Sen de benden sadece gidiş bileti almıştın, hatırlıyor musun? Ama yine de döndün.", "ru": "Спасибо. Ты ведь тоже брал у меня билет только в одну сторону, помнишь? А всё-таки вернулся.", "fem": {"ru": "Спасибо. Ты ведь тоже брала у меня билет только в одну сторону, помнишь? А всё-таки вернулась."}, "if": {"flag": "ticket", "is": "oneway"}},
+        {"who": "npc", "es": "Sağ ol. Sen gidiş dönüş bilet almıştın ve döndün. Dönen insan doğruyu söyler.", "ru": "Спасибо. Ты брал билет туда и обратно — и вернулся. Кто возвращается, тот говорит правду.", "fem": {"ru": "Спасибо. Ты брала билет туда и обратно — и вернулась. Кто возвращается, тот говорит правду."}, "if": {"flag": "ticket", "is": "return"}},
+        {"who": "npc", "es": "Tek bir şey biliyorum: bir hafta önce yaşlı bir beyefendi ormanın kenarına kadar bilet aldı. Gidiş dönüş.", "ru": "Я знаю только одно: неделю назад пожилой господин купил билет до опушки леса. Туда и обратно."},
+        {"who": "hero", "es": "Kim?", "ru": "Кто?"},
+        {"who": "npc", "es": "Yüzünü görmedim. Çok eski paralarla ödedi. Artık geçmiyorlar, ama aldım.", "ru": "Лица я не видел. Он заплатил очень старыми монетами. Их уже не принимают, но я взял."}
+      ],
+      "questions": [
+        {"q": "В чём город обвиняет Исмаила?", "options": ["Что лес его голосом врёт про паром", "Что он поднял цены", "Что паром опаздывает"], "answer": 0},
+        {"q": "Где Исмаил проводит ночи?", "options": ["На пристани", "Дома, жена знает", "В лесу"], "answer": 1},
+        {"q": "Куда пожилой господин купил билет?", "options": ["На остров", "До опушки леса, туда и обратно", "В пустыню"], "answer": 1},
+        {"q": "Чем он заплатил?", "options": ["Картой", "Очень старыми монетами", "Ничем"], "answer": 1}
+      ],
+      "gloss": {"suçlu": "преступник", "sesimle": "моим голосом", "söylediğini": "что говорит", "anlatıyor": "рассказывает", "ki": "(вводит прямую речь)", "iskeleye": "на пристань", "karım": "моя жена", "taklit": "подражание", "almıştın": "ты брал", "dönen": "тот, кто возвращается", "beyefendi": "господин", "paralarla": "монетами", "geçmiyorlar": "не принимают"}
     }
   ]
 }

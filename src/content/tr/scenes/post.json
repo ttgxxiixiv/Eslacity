@@ -75,6 +75,52 @@
         {"q": "Что было в посылке?", "options": ["Компас", "Настоящий обрывок карты пустыни", "Письмо"], "answer": 1}
       ],
       "gloss": {"paketin": "твоя посылка", "hastaneden": "из больницы", "adına": "на имя", "almış": "забрал", "adıma": "на моё имя", "kâğıdın": "бумаги", "devesiyle": "со своим верблюдом", "postanemde": "на моей почте", "çalınmaz": "не крадут", "pakette": "в посылке"}
+    },
+    {
+      "id": "wh:post.4",
+      "chapter": 4,
+      "mode": "overhear",
+      "npc": "cemil",
+      "lines": [
+        {"who": "ismail", "es": "Bir bildirim geldi: paketim gümrükte bekliyor. Eski vapurlar hakkında bir kitap!", "ru": "Мне пришло извещение: посылку держат на таможне. Книгу о старых паромах!"},
+        {"who": "npc", "es": "Gördüm. Gümrük vergisi ödemen ve formları doldurman lazım.", "ru": "Я видел. Надо заплатить пошлину и заполнить бланки."},
+        {"who": "ismail", "es": "Bir kitap için vergi mi? Bu, yurt dışındaki bir arkadaşımdan hediye.", "ru": "Пошлину за книгу? Это подарок от друга из-за границы."},
+        {"who": "npc", "es": "Sorun yazılan değerde. Beş lira yazıyor, ama internette bu kitap üç yüz lira.", "ru": "Проблема в указанной стоимости. Написано пять лир, а в интернете эта книга стоит триста."},
+        {"who": "ismail", "es": "Arkadaşım daha az ödememi istedi, o kadar.", "ru": "Мой друг просто хотел, чтобы я заплатил меньше, вот и всё."},
+        {"who": "npc", "es": "Gümrük de daha çok ödemeni istiyor. İşler böyle yürüyor.", "ru": "Ага, а таможня хочет, чтобы ты заплатил больше. Так это и работает."},
+        {"who": "ismail", "es": "Ne bürokrasi! Benim zamanımda paketler hiç soru sormadan gelirdi.", "ru": "Ну и бюрократия! В моё время посылки приходили без всяких вопросов."},
+        {"who": "npc", "es": "Senin zamanında üç ayda gelirdi. Hadi, kâğıtlar için sana yardım edeyim.", "ru": "В твоё время они и шли по три месяца. Давай, помогу тебе с бумагами."}
+      ],
+      "questions": [
+        {"q": "Почему посылку Исмаила держат на таможне?", "kind": "stance", "options": ["Указанная стоимость намного меньше настоящей", "Книга запрещена", "Нет адреса"], "answer": 0},
+        {"q": "Как Исмаил объясняет низкую стоимость?", "kind": "stance", "options": ["Друг хотел, чтобы он заплатил меньше", "Книга старая", "Это ошибка почты"], "answer": 0},
+        {"q": "Что Джемиль имел в виду: «в твоё время они и шли по три месяца»?", "kind": "stance", "options": ["Что раньше тоже было не лучше", "Что Исмаил старый", "Что посылка придёт через три месяца"], "answer": 0},
+        {"q": "Как Джемиль ведёт себя в конце?", "kind": "stance", "options": ["Предлагает помочь с бумагами", "Отказывается помогать", "Отдаёт посылку бесплатно"], "answer": 0}
+      ],
+      "gloss": {"bildirim": "извещение", "paketim": "моя посылка", "gümrükte": "на таможне", "vapurlar": "паромы", "gümrük": "таможня", "vergisi": "налог, пошлина", "formları": "бланки", "doldurman": "тебе заполнить", "vergi": "налог", "yurt": "родина (yurt dışı — заграница)", "dışındaki": "за пределами", "arkadaşımdan": "от моего друга", "yazılan": "указанный", "değerde": "в стоимости", "ödememi": "чтобы я заплатил", "ödemeni": "чтобы ты заплатил", "yürüyor": "идут (дела)", "bürokrasi": "бюрократия", "zamanımda": "в моё время", "gelirdi": "приходили", "zamanında": "в твоё время", "kâğıtlar": "бумаги"}
+    },
+    {
+      "id": "sc:post.4",
+      "chapter": 4,
+      "npc": "cemil",
+      "lines": [
+        {"who": "npc", "es": "Sana bir şey anlatmam lazım, ama kimseye söyleme.", "ru": "Мне надо тебе кое-что рассказать, только никому не говори."},
+        {"who": "hero", "es": "Ne oldu?", "ru": "Что случилось?"},
+        {"who": "npc", "es": "Kargamı görüyor musun? Adı Kara. Postayı hep benimle dağıtır.", "ru": "Видишь мою ворону? Её зовут Кара. Она всегда разносит со мной почту."},
+        {"who": "hero", "es": "Evet, çok akıllı.", "ru": "Да, она очень умная."},
+        {"who": "npc", "es": "Fazla akıllı. Her evdeki insanların seslerini aklında tutuyor. Geceleri de ormana uçuyor.", "ru": "Слишком умная. Запоминает голоса людей в каждом доме. А по ночам летает в лес."},
+        {"who": "hero", "es": "Komşuların sesleriyle konuşan o mu?", "ru": "Это она говорит голосами соседей?"},
+        {"who": "npc", "es": "Bence evet. Ama Kara sadece tekrarlıyor. Biri ona bu cümleleri öğretiyor.", "ru": "Думаю, да. Но Кара только повторяет. Кто-то учит её этим фразам."},
+        {"who": "hero", "es": "Kim?", "ru": "Кто?"},
+        {"who": "npc", "es": "Bilmiyorum. Her akşam dönüyor ve üstünde pipo tütünü kokusu var.", "ru": "Не знаю. Каждый вечер она возвращается, и от неё пахнет трубочным табаком."}
+      ],
+      "questions": [
+        {"q": "Как зовут ворону Джемиля?", "options": ["Кара", "Эдгар", "Арда"], "answer": 0},
+        {"q": "Что запоминает ворона?", "options": ["Голоса людей в каждом доме", "Адреса", "Песни"], "answer": 0},
+        {"q": "Куда она летает по ночам?", "options": ["В лес", "На пристань", "В пустыню"], "answer": 0},
+        {"q": "Чем пахнет ворона, когда возвращается?", "options": ["Трубочным табаком", "Цветами", "Морем"], "answer": 0}
+      ],
+      "gloss": {"kargamı": "мою ворону", "kara": "Кара (имя; kara — чёрный)", "dağıtır": "разносит", "evdeki": "в доме", "aklında": "в уме (aklında tutmak — запоминать)", "tutuyor": "держит", "uçuyor": "летает", "sesleriyle": "голосами", "konuşan": "который говорит", "cümleleri": "фразы", "öğretiyor": "учит", "üstünde": "на ней", "pipo": "трубка", "tütünü": "табак", "kokusu": "запах", "tekrarlıyor": "повторяет"}
     }
   ]
 }

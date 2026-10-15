@@ -77,6 +77,51 @@
         {"q": "Какое лекарство от этого?", "options": ["Вернуться домой", "Таблетки", "Сон"], "answer": 0}
       ],
       "gloss": {"arda": "Арда", "devesiyle": "со своим верблюдом", "uyuyamıyormuş": "не мог спать (говорит)", "duyuyormuş": "слышал (говорит)", "hastalığı": "его болезнь", "olduğunu": "что есть", "sıla": "родина", "hasreti": "тоска", "ağaçların": "деревьев", "fısıldıyor": "шепчут", "çağrı": "зов", "tedavisi": "лечение", "mutluluktan": "от счастья"}
+    },
+    {
+      "id": "wh:hospital.4",
+      "chapter": 4,
+      "mode": "overhear",
+      "npc": "gul",
+      "lines": [
+        {"who": "fatma", "es": "Doktor Hanım, dizimin filmini çektirmek istiyorum. Bugün, mümkünse. Dizim ağrıyor.", "ru": "Доктор, хочу сделать снимок колена. Сегодня, если можно. У меня болит колено."},
+        {"who": "npc", "es": "Bu normal bir ağrı. Pazarda günde on saat ayakta duruyorsunuz.", "ru": "Это обычная боль. Вы по десять часов стоите на базаре."},
+        {"who": "fatma", "es": "İnternette ciddi bir şey olabileceği yazıyor. Bende bütün belirtiler var.", "ru": "В интернете пишут, что это может быть что-то серьёзное. У меня все симптомы."},
+        {"who": "npc", "es": "İnternette çikolatanın üzüntüye iyi geldiği de yazıyor. Orada her şey doğru değil.", "ru": "В интернете ещё пишут, что шоколад лечит от грусти. Не всё там правда."},
+        {"who": "fatma", "es": "İkinci bir görüş istiyorum. Komşum çok iyi bir uzman tanıyor.", "ru": "Я хочу услышать второе мнение. Соседка знает очень хорошего специалиста."},
+        {"who": "npc", "es": "Tam hakkınız. Size sevk yazarım. Ama o da benim gibi söyleyecek: dinlenme ve buz.", "ru": "Имеете полное право. Выпишу вам направление. Но он скажет то же, что и я: покой и лёд."},
+        {"who": "fatma", "es": "Ya söylemezse? Ya kırıksa?", "ru": "А если нет? А если это перелом?"},
+        {"who": "npc", "es": "Kırık olsaydı, pazardan iki torba portakalla yürüyerek gelmezdiniz.", "ru": "С переломом вы бы не пришли пешком с базара с двумя сумками апельсинов."},
+        {"who": "fatma", "es": "Limondu onlar. Peki, buzu deneyeceğim. Ama sevki yine de alırım.", "ru": "Это были лимоны. Ладно, попробую лёд. Но направление всё-таки возьму."}
+      ],
+      "questions": [
+        {"q": "Почему доктор Гюль считает боль обычной?", "kind": "stance", "options": ["Фатма по десять часов стоит на базаре", "Это от погоды", "Фатма молодая"], "answer": 0},
+        {"q": "Что доктор имела в виду, упомянув шоколад от грусти?", "kind": "stance", "options": ["Что интернету не во всём можно верить", "Что Фатме надо есть шоколад", "Что Фатма грустит"], "answer": 0},
+        {"q": "Почему доктор уверена, что перелома нет?", "kind": "stance", "options": ["Фатма пришла пешком с тяжёлыми сумками", "Она сделала снимок", "Фатма не жалуется"], "answer": 0},
+        {"q": "Чем кончается разговор?", "kind": "stance", "options": ["Фатма попробует лёд, но направление возьмёт", "Фатма уходит к другому врачу", "Доктор обижается"], "answer": 0}
+      ],
+      "gloss": {"dizimin": "моего колена", "filmini": "снимок", "çektirmek": "сделать (снимок)", "ayakta": "стоя", "ciddi": "серьёзный", "olabileceği": "что может быть", "belirtiler": "симптомы", "çikolatanın": "что шоколад", "üzüntüye": "от грусти", "geldiği": "что идёт (iyi gelmek — помогать)", "görüş": "мнение", "uzman": "специалист", "sevk": "направление", "buz": "лёд", "kırıksa": "если перелом", "kırık": "перелом", "olsaydı": "если бы был", "torba": "сумка", "gelmezdiniz": "не пришли бы", "limondu": "были лимоны", "buzu": "лёд", "sevki": "направление"}
+    },
+    {
+      "id": "sc:hospital.4",
+      "chapter": 4,
+      "npc": "gul",
+      "lines": [
+        {"who": "npc", "es": "Dün gece Orhan'ı getirdiler. Plajda soğuktan bayılmış.", "ru": "Вчера ночью привезли Орхана. Он потерял сознание на пляже от холода."},
+        {"who": "hero", "es": "İyi mi?", "ru": "Он в порядке?"},
+        {"who": "npc", "es": "Kalbi iyi, tansiyonu da. Ama yemiyor, uyumuyor.", "ru": "Сердце в порядке, давление тоже. Но он не ест и не спит."},
+        {"who": "hero", "es": "Neyi var?", "ru": "Что с ним?"},
+        {"who": "npc", "es": "Arda'da olan şey: korku. Ve utanç. Bütün şehrin doğruyu bildiğini biliyor.", "ru": "То же, что было у Арды: страх. И стыд. Он знает, что правду уже знает весь город."},
+        {"who": "hero", "es": "Onu ziyaret edebilir miyim?", "ru": "Можно его навестить?"},
+        {"who": "npc", "es": "Sizi sordu. Size bir şeyi yüz yüze söylemek istediğini söylüyor.", "ru": "Он спрашивал о вас. Говорит, хочет сказать вам кое-что в лицо."}
+      ],
+      "questions": [
+        {"q": "Что случилось с Орханом?", "options": ["Потерял сознание на пляже от холода", "Упал с лодки", "Заблудился в лесу"], "answer": 0},
+        {"q": "Что с его сердцем?", "options": ["Всё в порядке", "Оно больное", "Неизвестно"], "answer": 0},
+        {"q": "Что с ним на самом деле?", "options": ["Страх и стыд", "Простуда", "Перелом"], "answer": 0},
+        {"q": "Чего хочет Орхан?", "options": ["Сказать герою кое-что в лицо", "Уехать", "Спать"], "answer": 0}
+      ],
+      "gloss": {"orhan": "Орхан", "soğuktan": "от холода", "bayılmış": "потерял сознание", "tansiyonu": "его давление", "arda": "Арда", "utanç": "стыд", "bildiğini": "что знает", "ziyaret": "посещение", "sordu": "спрашивал", "istediğini": "что хочет"}
     }
   ]
 }

@@ -75,6 +75,53 @@
         {"q": "Что передала стражница?", "options": ["«Если дойдёшь до леса, слушай деревья»", "«Не ходи в лес»", "«Купи билет»"], "answer": 0}
       ],
       "gloss": {"dosyayı": "дело", "kapatıyorum": "закрываю", "çalınan": "украденный", "arda": "Арда", "cezalandıracak": "накажете", "paralarını": "их деньги", "doğruluk": "правда", "cezadan": "чем штраф", "muhafızı": "страж, стражница", "sözlerini": "её слова", "iletmemi": "чтобы я передал", "varırsan": "если дойдёшь"}
+    },
+    {
+      "id": "wh:police.4",
+      "chapter": 4,
+      "mode": "overhear",
+      "npc": "nihat",
+      "lines": [
+        {"who": "npc", "es": "Biri postanenin duvarına kocaman bir yazı yazmış. Siz altıda başlıyorsunuz. Hiçbir şey görmediniz mi?", "ru": "Кто-то написал огромную надпись на стене почты. Вы начинаете в шесть. Ничего не видели?"},
+        {"who": "cemil", "es": "Ben mi? O saatte sadece mektupları ve kedileri görürüm.", "ru": "Я? В это время я вижу только письма и котов."},
+        {"who": "npc", "es": "İlginç. Bir komşu, sırt çantalı bir gencin sizinle konuştuğunu görmüş.", "ru": "Любопытно. Одна соседка говорит, что видела, как с вами разговаривал парень с рюкзаком."},
+        {"who": "cemil", "es": "Ben birçok insanla konuşurum. Ben postacıyım, komiserim, dedektif değil.", "ru": "Я со многими разговариваю. Я почтальон, комиссар, а не детектив."},
+        {"who": "npc", "es": "Tabii. Yazıda da şöyle diyor: “Cemil, dünyanın en iyi amcasısın.” İmza yerine de bir yıldız.", "ru": "Ну да. А надпись гласит: «Джемиль, ты лучший дядя на свете». А вместо подписи — звёздочка."},
+        {"who": "cemil", "es": "Peki. Belki yıldız çizen birini tanıyorum.", "ru": "Ну ладно. Может, я и знаю кое-кого, кто рисует звёздочки."},
+        {"who": "npc", "es": "Kimseyi tutuklamak istemiyorum. Ama duvarın temizlenmesi lazım ve birinin bunu ödemesi lazım.", "ru": "Я не хочу никого задерживать. Но стену надо отмыть, и кто-то должен за это заплатить."},
+        {"who": "cemil", "es": "Cumartesi kendisi temizler. Kova ve sabır benden.", "ru": "Он сам её отмоет в субботу. С меня ведро и терпение."},
+        {"who": "npc", "es": "Güzel. Ona da söyleyin: bir dahaki sefere size mektup yazsın. Daha ucuza gelir.", "ru": "Отлично. И передайте ему, чтобы в следующий раз написал вам письмо. Выйдет дешевле."}
+      ],
+      "questions": [
+        {"q": "Почему комиссар расспрашивает Джемиля?", "kind": "stance", "options": ["Надпись на стене почты, а Джемиль начинает в шесть", "Пропало письмо", "Джемиль опоздал"], "answer": 0},
+        {"q": "Что выдало автора надписи?", "kind": "stance", "options": ["Надпись обращена к Джемилю как к дяде", "Камера", "Отпечатки пальцев"], "answer": 0},
+        {"q": "Чего хочет комиссар?", "kind": "stance", "options": ["Не задерживать, а чтобы стену отмыли", "Арестовать парня", "Закрыть почту"], "answer": 0},
+        {"q": "Что комиссар имел в виду: «пусть в следующий раз напишет письмо»?", "kind": "stance", "options": ["Шутит, что признаться в любви можно и дешевле", "Что почта плохо работает", "Что парень не умеет писать"], "answer": 0}
+      ],
+      "gloss": {"postanenin": "почты", "duvarına": "на стену", "kocaman": "огромный", "altıda": "в шесть", "kedileri": "котов", "ilginç": "любопытно", "sırt": "спина (sırt çantası — рюкзак)", "çantalı": "с сумкой", "gencin": "что парень", "konuştuğunu": "разговаривал", "birçok": "многие", "postacıyım": "я почтальон", "komiserim": "мой комиссар", "dedektif": "детектив", "amcasısın": "ты дядя", "imza": "подпись", "yıldız": "звезда", "çizen": "который рисует", "tutuklamak": "задерживать", "temizlenmesi": "чтобы отмыли", "ödemesi": "чтобы заплатил", "kova": "ведро", "sabır": "терпение", "dahaki": "следующий", "ucuza": "дешевле", "cemil": "Джемиль"}
+    },
+    {
+      "id": "sc:police.4",
+      "chapter": 4,
+      "npc": "nihat",
+      "lines": [
+        {"who": "npc", "es": "Dün akşam komşu toplantısındaydım. Böyle bir şey hiç görmedim.", "ru": "Вчера вечером я был на собрании соседей. Никогда такого не видел."},
+        {"who": "hero", "es": "Orhan geldi mi?", "ru": "Орхан пришёл?"},
+        {"who": "npc", "es": "Geldi. Ayağa kalktı ve bütün şehre şöyle dedi: “Kargaya yalan öğrettim, çünkü korkuyordum. Beni affedin.”", "ru": "Пришёл. Встал и сказал всему городу: «Я учил ворону лжи, потому что боялся. Простите меня»."},
+        {"who": "hero", "es": "Komşular ne yaptı?", "ru": "А что сделали соседи?"},
+        {"who": "npc", "es": "Önce sessizlik. Sonra giyim dükkânındaki kız ona sarıldı. Kaptan İsmail de piposu için tütün verdi.", "ru": "Сначала тишина. Потом девушка из лавки одежды его обняла. А капитан Исмаил дал ему табаку для трубки."},
+        {"who": "hero", "es": "Ya orman?", "ru": "А лес?"},
+        {"who": "npc", "es": "Gece yarısı sustu. Ve bir ses duyuldu, çok açık.", "ru": "В полночь он затих. И раздался голос, очень отчётливый."},
+        {"who": "hero", "es": "Ne dedi?", "ru": "Что он сказал?"},
+        {"who": "npc", "es": "“Artık yolu duyuyorum. Barışı getiren gelsin.” Sanırım bu siz oluyorsunuz.", "ru": "«Теперь я слышу тропу. Пусть придёт тот, кто принёс мир». Полагаю, это про вас."}
+      ],
+      "questions": [
+        {"q": "Что Орхан сказал на собрании?", "options": ["Что учил ворону лжи из страха, и попросил прощения", "Что он ни при чём", "Что уезжает"], "answer": 0},
+        {"q": "Кто первым обнял Орхана?", "options": ["Девушка из лавки одежды", "Комиссар", "Нермин-ханым"], "answer": 0},
+        {"q": "Что сделал капитан Исмаил?", "options": ["Дал табаку для трубки", "Ушёл", "Позвал полицию"], "answer": 0},
+        {"q": "Что сказал голос из леса?", "options": ["«Теперь я слышу тропу. Пусть придёт тот, кто принёс мир»", "«Уходите»", "«Лес закрыт»"], "answer": 0}
+      ],
+      "gloss": {"toplantısındaydım": "я был на собрании", "orhan": "Орхан", "ayağa": "(ayağa kalkmak — встать)", "kalktı": "встал", "kargaya": "вороне", "öğrettim": "учил", "korkuyordum": "боялся", "affedin": "простите", "sessizlik": "тишина", "giyim": "одежда", "dükkanındaki": "из лавки", "sarıldı": "обняла", "kaptan": "капитан", "ismail": "Исмаил", "piposu": "для его трубки", "tütün": "табак", "sustu": "затих", "duyuldu": "раздался", "barışı": "мир", "getiren": "который принёс", "oluyorsunuz": "это вы"}
     }
   ]
 }

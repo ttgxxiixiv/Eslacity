@@ -60,6 +60,31 @@
         "jokeq": {"kind": "answer", "task": "В шутку скажите, что у вас жалоба на суп.", "branches": [{"phrase": "ph:restaurant.corbadan-sikayet", "next": "end"}], "wrong": {"es": "Bir şey mi dedin? Tamam, iyi geceler!", "ru": "Ты что-то сказал? Ну, спокойной ночи!", "fem": {"ru": "Ты что-то сказала? Ну, спокойной ночи!"}}},
         "end": {"kind": "say", "es": "Şikâyet mi? Benim lokantamda mı? … Şaka yapıyorsun, değil mi? Peki. Al, çöl haritasından benim parçam.", "ru": "Жалоба? В моём ресторане? … Ты же шутишь, да? Ну хорошо. Держи мой обрывок карты пустыни."}
       }
+    },
+    {
+      "id": "ms:restaurant.4",
+      "chapter": 4,
+      "npc": "kemal",
+      "scene": "sc:restaurant.4",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Otur, bugün benden. Moralim bozuk ve birine yemek yapmam lazım.", "ru": "Садись, сегодня угощаю. Настроение плохое, и мне нужно для кого-то приготовить.", "next": "dayq"},
+        "dayq": {"kind": "answer", "task": "Спросите, какое сегодня фирменное блюдо.", "branches": [{"phrase": "ph:restaurant.ozel-yemek", "next": "day"}], "wrong": {"es": "Hesap mı? Daha yemedin bile!", "ru": "Счёт? Ты ещё даже не поел!", "fem": {"ru": "Счёт? Ты ещё даже не поела!"}}},
+        "day": {"kind": "say", "es": "Bugün odun fırınında balık. Tat ve doğruyu söyle.", "ru": "Сегодня рыба из дровяной печи. Попробуй и скажи правду.", "next": "praiseq"},
+        "praiseq": {"kind": "answer", "task": "Похвалите блюдо и повара.", "branches": [{"phrase": "ph:restaurant.eline-saglik", "next": "praise"}], "wrong": {"es": "Tuzlu mu? Olamaz, iki kere tattım.", "ru": "Пересолено? Не может быть, я два раза пробовал."}},
+        "praise": {"kind": "say", "es": "Teşekkürler. Ama Ebru'nun yemeği için yemek yapmayacağım. Başka bir lokanta bulsun.", "ru": "Спасибо. Но для ужина Эбру я готовить не буду. Пусть ищет другой ресторан.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:restaurant.sen-de-saka", "next": "object", "move": "object"}, {"phrase": "ph:restaurant.uzgun-oldugunu", "next": "concede", "move": "concede"}, {"phrase": "ph:restaurant.yarin-sakin-konus", "next": "compromise", "move": "compromise"}], "wrong": {"es": "Ne? Mutfakta çok gürültü var, bir daha söyle.", "ru": "Что? На кухне очень шумно, повтори."}},
+        "object": {"kind": "say", "es": "Ben mi? Fatma'nın terazisi bir şakaydı! … Ama ona komik gelmedi. Peki, ikimiz de aynıyız.", "ru": "Я? Про весы Фатмы была шутка! …Ну, ей было не смешно. Ладно, мы друг друга стоим.", "next": "bill"},
+        "concede": {"kind": "say", "es": "Teşekkürler. Kızgınım, çünkü yağım yeni, bu ayın!", "ru": "Спасибо. Я злюсь, ведь масло у меня новое, этого месяца!", "next": "bill"},
+        "compromise": {"kind": "say", "es": "Yarın mı? Yarın menüyü tatmaya geliyor… Peki. Sakin konuşuruz. Ve yeni yağla.", "ru": "Завтра? Завтра она придёт пробовать меню… Ладно. Поговорим спокойно. И с новым маслом.", "next": "bill"},
+        "bill": {"kind": "say", "es": "İşte hesap. Ama dikkatli oku, bugün dalgınım.", "ru": "Вот счёт. Только прочитай внимательно, я сегодня рассеянный.", "next": "errq"},
+        "errq": {"kind": "answer", "task": "Скажите, что в счёте ошибка.", "branches": [{"phrase": "ph:restaurant.hesapta-hata", "next": "err"}], "wrong": {"es": "Tatlı mı? Tatlı sonra.", "ru": "Десерт? Десерт потом."}},
+        "err": {"kind": "say", "es": "Hata mı? Doğru, balığı yazmışım. Bugün benden. Ama tatlı… ne yapalım?", "ru": "Ошибка? Правда, я записал рыбу. Сегодня угощаю я. Но десерт… как быть?", "next": "splitq"},
+        "splitq": {"kind": "answer", "task": "Предложите заплатить пополам.", "branches": [{"phrase": "ph:restaurant.yari-yariya", "next": "split"}], "wrong": {"es": "Bahşiş mi? Bugün gerek yok.", "ru": "Чаевые? Сегодня не нужно."}},
+        "split": {"kind": "say", "es": "Yarı yarıya, harika. Bir tatlı daha?", "ru": "Пополам, отлично. Ещё десерт?", "next": "fullq"},
+        "fullq": {"kind": "answer", "task": "Откажитесь: вы наелись.", "branches": [{"phrase": "ph:restaurant.cok-doydum", "next": "end"}], "wrong": {"es": "Baklava mı? Hemen getiriyorum!", "ru": "Пахлаву? Сейчас принесу!"}},
+        "end": {"kind": "say", "es": "Tamam. Bir de bunu al: ormanın haritasından bir parça. Ebru dün masada unuttu. Yarın ona teşekkür edeceğim… sakin sakin.", "ru": "Хорошо. И держи ещё вот это: обрывок карты леса. Эбру вчера забыла его на столе. Завтра я её поблагодарю… спокойно."}
+      }
     }
   ]
 }

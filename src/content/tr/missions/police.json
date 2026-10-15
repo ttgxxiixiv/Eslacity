@@ -62,6 +62,29 @@
         "testq": {"kind": "answer", "task": "Спросите, нужно ли показать права.", "branches": [{"phrase": "ph:police.alkol-testi", "next": "end"}], "wrong": {"es": "Ceza mı? Hayır, ceza yok.", "ru": "Штраф? Нет, штрафа нет."}},
         "end": {"kind": "say", "es": "Ehliyet mi? Siz bisiklete biniyorsunuz! Çöl haritasından benim parçamı alın. Unutmayın: doğruluk satılmaz.", "ru": "Права? Вы же ездите на велосипеде! Возьмите мой обрывок карты пустыни. Помните: правда не продаётся."}
       }
+    },
+    {
+      "id": "ms:police.4",
+      "chapter": 4,
+      "npc": "nihat",
+      "scene": "sc:police.4",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Buyurun. Ormandaki sesler dosyasını kapatmam lazım, ama kolay değil.", "ru": "Проходите. Мне надо закрыть дело о голосах из леса, а это непросто.", "next": "evidq"},
+        "evidq": {"kind": "answer", "task": "Спросите, есть ли против него доказательства.", "branches": [{"phrase": "ph:police.kanit-var-mi", "next": "evid"}], "wrong": {"es": "Avukat mı? Henüz gerek yok.", "ru": "Адвокат? Пока не нужен."}},
+        "evid": {"kind": "say", "es": "Çok: paralar, tüyler, bilet… bir de dün bütün şehrin önünde söyledikleri.", "ru": "Много: монеты, перья, билет… и то, что он вчера сказал перед всем городом.", "next": "punq"},
+        "punq": {"kind": "answer", "task": "Спросите, какое наказание ему грозит.", "branches": [{"phrase": "ph:police.cezasi-ne", "next": "pun"}], "wrong": {"es": "Adresi mi? Adresi Nermin Hanım'ın evi.", "ru": "Адрес? Его адрес — дом Нермин-ханым."}},
+        "pun": {"kind": "say", "es": "Bankadaki panik için büyük bir para cezası. Kanuna göre onu cezalandırmam lazım.", "ru": "За панику в банке — большой штраф. По закону я должен его оштрафовать.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:police.sadece-korkuydu", "next": "object", "move": "object"}, {"phrase": "ph:police.kanun-kanundur", "next": "concede", "move": "concede"}, {"phrase": "ph:police.sehre-yardim", "next": "compromise", "move": "compromise"}], "wrong": {"es": "Efendim? Lütfen daha açık konuşun.", "ru": "Простите? Говорите, пожалуйста, яснее."}},
+        "object": {"kind": "say", "es": "Sadece korku mu? … Doğru. Korku da para cezasıyla geçmez. Ceza yok.", "ru": "Только страх? …Это правда. А страх штрафами не лечат. Без штрафа.", "next": "closed"},
+        "concede": {"kind": "say", "es": "Aynen. Ama yarısını ben ödeyeceğim: ben de doğruyu zamanında görmedim.", "ru": "Именно. Но половину заплачу я: я тоже не увидел правду вовремя.", "next": "closed"},
+        "compromise": {"kind": "say", "es": "Şehre yardım ederek mi? Bir ay postanenin duvarını boyamak ve parka bakmak… Bu hoşuma gitti.", "ru": "Помогая городу? Месяц красить стену почты и ухаживать за парком… Мне нравится.", "next": "closed"},
+        "closed": {"kind": "say", "es": "Dosya kapandı. Yarın ormana giriyorsunuz. Yanınızda biri olsun ister misiniz?", "ru": "Дело закрыто. Завтра вы входите в лес. Хотите, чтобы вас проводили?", "next": "copq"},
+        "copq": {"kind": "answer", "task": "Скажите, что вам нужен полицейский.", "branches": [{"phrase": "ph:police.polis-lazim", "next": "cop"}], "wrong": {"es": "Kamera mı? Ormanda kamera yok.", "ru": "Камера? В лесу камер нет."}},
+        "cop": {"kind": "say", "es": "Sizi ormanın kenarına kadar ben götürürüm. Ama ormanda tek başınıza yürüyeceksiniz. Neden hemen şimdi çıkmıyoruz?", "ru": "Я сам провожу вас до опушки. Но в лесу вы пойдёте один. Почему бы не выехать прямо сейчас?", "next": "trafficq", "fem": {"ru": "Я сам провожу вас до опушки. Но в лесу вы пойдёте одна. Почему бы не выехать прямо сейчас?"}},
+        "trafficq": {"kind": "answer", "task": "Скажите, что на шоссе пробка.", "branches": [{"phrase": "ph:police.yolda-trafik", "next": "end"}], "wrong": {"es": "Araba mı? Arabam hazır.", "ru": "Машина? Моя машина готова."}},
+        "end": {"kind": "say", "es": "O zaman yarın saat altıda. Bir de ormanın haritasının son parçasını alın: dosyadaki kanıtların arasındaydı. Artık kanıt değil, sizin yolunuz.", "ru": "Тогда завтра в шесть. И возьмите последний обрывок карты леса: он лежал среди улик по делу. Теперь это не улика, а ваш путь."}
+      }
     }
   ]
 }

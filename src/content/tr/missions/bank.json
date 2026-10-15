@@ -60,6 +60,31 @@
         "jointq": {"kind": "answer", "task": "Скажите, что хотите открыть общий счёт с другом (с Орханом).", "branches": [{"phrase": "ph:bank.ortak-hesap", "next": "end"}], "wrong": {"es": "Kiralık kasa mı? Hepsi dolu.", "ru": "Ячейку? Все заняты."}},
         "end": {"kind": "say", "es": "Gerçek parayla ortak bir hesap. Burayı imzalayın. Bu da çöl haritasından benim parçam. Kasada sakladığımız gerçek parça.", "ru": "Общий счёт с настоящими деньгами. Подпишите здесь. А это мой обрывок карты пустыни. Настоящий, мы хранили его в сейфе."}
       }
+    },
+    {
+      "id": "ms:bank.4",
+      "chapter": 4,
+      "npc": "murat",
+      "scene": "sc:bank.4",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Kusura bakmayın, bugün ortalık çok karışık. Herkes parasını çekmek istiyor. Siz de birikiminizi çekmeye mi geldiniz?", "ru": "Прошу прощения за суматоху. Сегодня все хотят забрать свои деньги. Вы тоже пришли снять сбережения?", "next": "loanq"},
+        "loanq": {"kind": "answer", "task": "Скажите, что хотите досрочно погасить часть кредита.", "branches": [{"phrase": "ph:bank.kredinin-bir-kismi", "next": "loan"}], "wrong": {"es": "Hesap mı açmak? Bugün olmaz, kuyruk çok uzun.", "ru": "Открыть счёт? Сегодня не получится, очередь очень длинная."}},
+        "loan": {"kind": "say", "es": "Ne güzel! Biri para getiriyor, götürmüyor.", "ru": "Вот радость! Кто-то приносит деньги, а не уносит.", "next": "feeq"},
+        "feeq": {"kind": "answer", "task": "Спросите, есть ли за это штраф.", "branches": [{"phrase": "ph:bank.ceza-var-mi", "next": "fee"}], "wrong": {"es": "Kur mu? Kur bugün aynı.", "ru": "Курс? Курс сегодня тот же."}},
+        "fee": {"kind": "say", "es": "Sizin için yok. Ama şu kuyruğa bakın… Bugün bankayı kapatacağım. Banka yoksa panik de yok.", "ru": "Для вас — никакого. Но посмотрите на эту очередь… Сегодня я закрою банк. Нет банка — нет паники.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:bank.panik-artar", "next": "object", "move": "object"}, {"phrase": "ph:bank.yoruldugunuzu", "next": "concede", "move": "concede"}, {"phrase": "ph:bank.dogruyu-soyleyin", "next": "compromise", "move": "compromise"}], "wrong": {"es": "Efendim? Burada çok gürültü var, tekrar eder misiniz?", "ru": "Простите? Здесь очень шумно, не повторите?"}},
+        "object": {"kind": "say", "es": "Artar mı? Haklısınız… Kapalı bir kapı itiraf gibi görünür. Açığız.", "ru": "Усилится? Вы правы… Закрытая дверь похожа на признание. Мы открыты.", "next": "calm"},
+        "concede": {"kind": "say", "es": "Teşekkür ederim. Yarın sakin sakin yeniden açarız.", "ru": "Спасибо. Завтра спокойно откроемся снова.", "next": "calm"},
+        "compromise": {"kind": "say", "es": "Doğruyu mu? Evet. Kuyruğa çıkıp yüksek sesle söyleyeceğim: para burada, ormandaki ses yalan söylüyor.", "ru": "Правду? Да. Выйду к очереди и скажу вслух: деньги здесь, а голос из леса врёт.", "next": "calm"},
+        "calm": {"kind": "say", "es": "Tamam, insanlar sakinleşiyor. Başka bir şey?", "ru": "Всё, люди успокаиваются. Что-нибудь ещё?", "next": "investq"},
+        "investq": {"kind": "answer", "task": "Скажите, что хотите вложить свои сбережения.", "branches": [{"phrase": "ph:bank.birikim-yatirmak", "next": "invest"}], "wrong": {"es": "Çekmek mi? Siz de mi?", "ru": "Снять? И вы туда же?"}},
+        "invest": {"kind": "say", "es": "Yatırmak mı? Bugün en sevdiğim müşterisiniz. Umarım kripto paraya değil.", "ru": "Вложить? Сегодня вы мой любимый клиент. Надеюсь, не в криптовалюту.", "next": "rateq"},
+        "rateq": {"kind": "answer", "task": "Спросите, какая процентная ставка.", "branches": [{"phrase": "ph:bank.faiz-orani", "next": "rate"}], "wrong": {"es": "Şube mi? Şube burası.", "ru": "Отделение? Отделение здесь."}},
+        "rate": {"kind": "say", "es": "Yüzde üç, sabit, sürprizsiz. Başka bir şey lazım mı?", "ru": "Три процента, фиксированная, без сюрпризов. Вам ещё что-нибудь нужно?", "next": "stmtq"},
+        "stmtq": {"kind": "answer", "task": "Попросите выписку по счёту.", "branches": [{"phrase": "ph:bank.hesap-ozeti", "next": "end"}], "wrong": {"es": "Şifre mi? Şifreyi kimseye söylemeyin.", "ru": "PIN-код? Никому его не говорите."}},
+        "end": {"kind": "say", "es": "Buyurun. Bir de şu: eski paralı beyefendi dün bunu gişede unuttu. Ormanın haritasından bir parça.", "ru": "Пожалуйста. И вот ещё: господин со старыми монетами вчера забыл это у окошка. Обрывок карты леса."}
+      }
     }
   ]
 }

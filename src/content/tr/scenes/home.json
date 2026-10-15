@@ -75,6 +75,52 @@
         {"q": "Что, по словам Орхана, страшнее пустыни?", "options": ["Вернуться в изменившийся мир", "Темнота", "Одиночество в башне"], "answer": 0}
       ],
       "gloss": {"orhan": "Орхан", "muhafızı": "страж (muhafız)", "akrabammış": "оказывается, мой родственник", "babaannemin": "моей бабушки (по отцу)", "anlatırdı": "рассказывала", "dayısı": "её дядя", "dönmemiş": "не вернулся", "kaybetmiş": "потерял", "bulana": "пока не найдёт", "değişmiş": "изменившийся", "ki": "(вводит чужие слова)"}
+    },
+    {
+      "id": "wh:home.4",
+      "chapter": 4,
+      "mode": "overhear",
+      "npc": "nermin",
+      "lines": [
+        {"who": "npc", "es": "Perşembe apartman toplantısına gelecek misin? Su sızıntısını konuşmamız lazım.", "ru": "Придёшь на собрание жильцов в четверг? Надо поговорить о протечке."},
+        {"who": "riza", "es": "Gelirim, ama bir şey değişmez. Ev sahibi nemin bizim suçumuz olduğunu söylüyor: pencereleri açmıyormuşuz.", "ru": "Приду, но ничего не изменится. Хозяин говорит, что сырость по нашей вине: мы, мол, не открываем окна."},
+        {"who": "npc", "es": "Pencereleri açmıyor muyuz? Dolabımda bile küf var. Bu, üst kattaki daireden gelen boru.", "ru": "Мы не открываем окна? У меня плесень даже в шкафу. Это труба из квартиры сверху."},
+        {"who": "riza", "es": "Zararı sigorta ödemeli. Ben olsam tesisatçıdan fiyat isterdim.", "ru": "Ущерб должна оплатить страховка. Я бы попросил у сантехника смету."},
+        {"who": "npc", "es": "Sigorta mı? Denedim. Sorunun sözleşmeden önce de olduğunu söylediler.", "ru": "Страховка? Я уже пробовала. Сказали, что проблема была ещё до договора."},
+        {"who": "riza", "es": "Öyle mi? O zaman tamiri ev sahibi ödeyecek, istese de istemese de.", "ru": "Вот как? Значит, ремонт оплатит хозяин, хочет он того или нет."},
+        {"who": "npc", "es": "Ödemez. Bıkıp taşınmamızı bekliyor, sonra daireyi daha pahalıya kiraya verecek.", "ru": "Не оплатит. Он ждёт, что нам надоест и мы съедем, а потом сдаст квартиру дороже."},
+        {"who": "riza", "es": "Belki. Ama ben burada kırk yıldır yaşıyorum. Beni buradan kimse çıkaramaz.", "ru": "Может быть. Но я живу здесь сорок лет. Отсюда меня никто не выгонит."}
+      ],
+      "questions": [
+        {"q": "В чём хозяин винит жильцов?", "kind": "stance", "options": ["Что они не открывают окна", "Что не платят", "Что шумят"], "answer": 0},
+        {"q": "Что Нермин думает о причине сырости?", "kind": "stance", "options": ["Виновата труба из квартиры сверху", "Виноваты окна", "Виноват дождь"], "answer": 0},
+        {"q": "Чего, по мнению Нермин, на самом деле ждёт хозяин?", "kind": "stance", "options": ["Что жильцы съедут и он сдаст квартиру дороже", "Что страховка заплатит", "Собрания жильцов"], "answer": 0},
+        {"q": "Как Рыза относится к угрозе выселения?", "kind": "stance", "options": ["Боится", "Уверен, что его никто не выгонит", "Сам хочет переехать"], "answer": 1}
+      ],
+      "gloss": {"apartman": "многоквартирный дом", "toplantısına": "на собрание", "sızıntısını": "протечку", "nemin": "что сырость", "suçumuz": "наша вина", "açmıyormuşuz": "мы, мол, не открываем", "dolabımda": "в моём шкафу", "küf": "плесень", "boru": "труба", "zararı": "ущерб", "sigorta": "страховка", "tesisatçıdan": "у сантехника", "isterdim": "попросил бы", "sözleşmeden": "договора", "istese": "хочет (istese de istemese de — хочет или нет)", "istemese": "не хочет", "bıkıp": "устав", "taşınmamızı": "что мы съедем", "kiraya": "в аренду", "çıkaramaz": "не выгонит"}
+    },
+    {
+      "id": "sc:home.4",
+      "chapter": 4,
+      "npc": "nermin",
+      "lines": [
+        {"who": "npc", "es": "Gel, ama sessiz ol: Orhan uyuyor. Bu gece hiç uyumadı.", "ru": "Проходи, только тише: Орхан спит. Ночью он совсем не спал."},
+        {"who": "hero", "es": "Seslerden mi?", "ru": "Из-за голосов?"},
+        {"who": "npc", "es": "Seslerden. Ormanda tanıdık bir ses duymuş: Ormanın Muhafızı konuşuyormuş.", "ru": "Из-за голосов. Говорит, в лесу он услышал знакомый голос: говорила Хранительница леса."},
+        {"who": "hero", "es": "Orhan onu tanıyor mu?", "ru": "Орхан её знает?"},
+        {"who": "npc", "es": "Yüz yıl önce, trenle giderken, ormanın kenarında onunla karşılaşmış. Bütün gece konuşmuşlar.", "ru": "Сто лет назад, когда уезжал на поезде, он встретил её на опушке леса. Они проговорили всю ночь."},
+        {"who": "hero", "es": "Ses ne diyordu?", "ru": "И что говорил голос?"},
+        {"who": "npc", "es": "“Çok gürültü var. Yolu duyamıyorum.”", "ru": "«Слишком шумно. Я не слышу тропу»."},
+        {"who": "hero", "es": "O zaman ona yardım etmemiz lazım.", "ru": "Тогда надо ей помочь."},
+        {"who": "npc", "es": "Evet. Ama önce bana yardım et: su yine eve giriyor!", "ru": "Да. Но сначала помоги мне: вода снова течёт в дом!"}
+      ],
+      "questions": [
+        {"q": "Почему Орхан не спал?", "options": ["Из-за голосов из леса", "Из-за протечки", "Из-за холода"], "answer": 0},
+        {"q": "Чей голос он узнал?", "options": ["Голос Хранительницы леса", "Голос Нермин", "Голос Летописца"], "answer": 0},
+        {"q": "Где Орхан её встретил?", "options": ["На опушке леса сто лет назад", "В пустыне", "На пристани"], "answer": 0},
+        {"q": "Что говорил голос?", "options": ["«Слишком шумно. Я не слышу тропу»", "«Уходите из леса»", "«Где моя карта?»"], "answer": 0}
+      ],
+      "gloss": {"duymuş": "услышал (говорят)", "muhafızı": "Хранительница (muhafız)", "konuşuyormuş": "говорила (говорят)", "giderken": "когда уезжал", "karşılaşmış": "встретил (говорят)", "konuşmuşlar": "проговорили (говорят)", "diyordu": "говорил", "orhan": "Орхан", "gürültü": "шум", "duyamıyorum": "не слышу"}
     }
   ]
 }

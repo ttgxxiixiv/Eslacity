@@ -60,6 +60,31 @@
         "taxq": {"kind": "answer", "task": "Спросите, есть ли таможенная пошлина.", "branches": [{"phrase": "ph:post.gumruk-vergisi", "next": "end"}], "wrong": {"es": "Ne? Bir daha söyle.", "ru": "Что? Скажи ещё раз."}},
         "end": {"kind": "say", "es": "Hastaneye mi? Hayır, hastane şehirde! Al, bu da çöl haritasından benim parçam. Bunu kimse çalamaz.", "ru": "В больницу? Нет, больница в городе! Держи, а это мой обрывок карты пустыни. Его никто не украдёт."}
       }
+    },
+    {
+      "id": "ms:post.4",
+      "chapter": 4,
+      "npc": "cemil",
+      "scene": "sc:post.4",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Merhaba. Bugün bir şey gönderiyor musun?", "ru": "Привет. Отправляешь что-нибудь сегодня?", "next": "insureq"},
+        "insureq": {"kind": "answer", "task": "Скажите, что хотите отправить посылку со страховкой.", "branches": [{"phrase": "ph:post.sigortali", "next": "insure"}], "wrong": {"es": "Mektup mu? Mektup kutusu dışarıda.", "ru": "Письмо? Почтовый ящик снаружи."}},
+        "insure": {"kind": "say", "es": "Tamam, oldu. Bu Arda için mi, ormana? Oraya posta yavaş gider.", "ru": "Хорошо, готово. Это Арде, в лес? Туда почта идёт медленно.", "next": "whenq"},
+        "whenq": {"kind": "answer", "task": "Спросите, когда она дойдёт.", "branches": [{"phrase": "ph:post.ne-zaman-ulasir", "next": "when"}], "wrong": {"es": "Ne kadar mı? Fiyatı sonra söylerim.", "ru": "Сколько? Цену скажу потом."}},
+        "when": {"kind": "say", "es": "Üç gün, karga mektupları yemezse. Zavallı kuşum… Onu sonsuza kadar kafeste tutmaya karar verdim.", "ru": "Три дня, если ворона не съест письма. Бедная моя птица… Я решил навсегда запереть её в клетке.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:post.onun-sucu-degil", "next": "object", "move": "object"}, {"phrase": "ph:post.zor-oldugunu", "next": "concede", "move": "concede"}, {"phrase": "ph:post.geceleri-evde", "next": "compromise", "move": "compromise"}], "wrong": {"es": "Ne? Kara yine bağırıyor, duyamadım.", "ru": "Что? Кара опять кричит, я не расслышал."}},
+        "object": {"kind": "say", "es": "Suçu değil mi? … Doğru. O sadece tekrarlıyor. Suçlu ona öğreten.", "ru": "Не виновата? …Правда. Она только повторяет. Виноват тот, кто её учит.", "next": "yours"},
+        "concede": {"kind": "say", "es": "Evet… kalbim kırılsa da. O benim en iyi arkadaşım.", "ru": "Да… хоть у меня сердце разрывается. Она мой лучший напарник.", "next": "yours"},
+        "compromise": {"kind": "say", "es": "Geceleri evde mi? Böylece gündüz benimle çalışır, ormana da uçmaz. Harika!", "ru": "Дома по ночам? Так днём она работает со мной и не летает в лес. Отлично!", "next": "yours"},
+        "yours": {"kind": "say", "es": "Şimdi seninki. Sana bir paket daha geldi, ama nerede bilmiyorum.", "ru": "Теперь твоё. Тебе пришла ещё одна посылка, но я не знаю, где она.", "next": "trackq"},
+        "trackq": {"kind": "answer", "task": "Спросите, может ли он отследить эту посылку.", "branches": [{"phrase": "ph:post.takip-edebilir", "next": "track"}], "wrong": {"es": "Kimlik mi? Önce paketi bulalım.", "ru": "Удостоверение? Сначала найдём посылку."}},
+        "track": {"kind": "say", "es": "Buldum: teslim noktasında. Yurt dışından gelmiş.", "ru": "Нашёл: она в пункте выдачи. Пришла из-за границы.", "next": "taxq"},
+        "taxq": {"kind": "answer", "task": "Спросите, нужно ли платить таможенную пошлину.", "branches": [{"phrase": "ph:post.gumruk-vergisi", "next": "tax"}], "wrong": {"es": "Makbuz mu? Makbuz sonra.", "ru": "Квитанция? Квитанция потом."}},
+        "tax": {"kind": "say", "es": "Hayır, bu bir hediye. Paket senin adına mı?", "ru": "Нет, это подарок. Посылка на твоё имя?", "next": "nameq"},
+        "nameq": {"kind": "answer", "task": "Скажите, что посылка на ваше имя.", "branches": [{"phrase": "ph:post.paket-adima", "next": "end"}], "wrong": {"es": "Adres mi? Adres doğru.", "ru": "Адрес? Адрес верный."}},
+        "end": {"kind": "say", "es": "Harika. Bir de şunu al: kargam dün gece bunu getirdi. Ormanın haritasından bir parça. En azından iyi bir şey de getiriyor.", "ru": "Отлично. И держи: моя ворона принесла это вчера ночью. Обрывок карты леса. Хоть что-то хорошее она приносит."}
+      }
     }
   ]
 }

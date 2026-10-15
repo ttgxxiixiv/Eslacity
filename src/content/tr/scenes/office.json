@@ -75,6 +75,53 @@
         {"q": "Что сделала Эбру?", "options": ["Прогнала его", "Решила дать ему шанс", "Позвонила в полицию"], "answer": 1}
       ],
       "gloss": {"defa": "раз", "aday": "кандидат", "devesiyle": "со своим верблюдом", "arda": "Арда", "özgeçmişini": "своё резюме", "istemiyormuş": "не хочет (говорит)", "istiyormuş": "хочет (говорит)", "muhafız": "стражница", "ki": "(вводит чужие слова)", "geçmene": "чтобы ты прошёл", "yıllardan": "с давних лет", "şans": "шанс"}
+    },
+    {
+      "id": "wh:office.4",
+      "chapter": 4,
+      "mode": "overhear",
+      "npc": "ebru",
+      "lines": [
+        {"who": "mehmet", "es": "Ofise birini aradığınızı söylediler. Kasadan yoruldum.", "ru": "Мне сказали, что вы ищете человека в офис. Я устал от кассы."},
+        {"who": "npc", "es": "Evet. Ama iş çok. Burada kimse beşte çıkmaz.", "ru": "Да. Но работы много. Здесь никто не уходит в пять."},
+        {"who": "mehmet", "es": "İşten korkmam. Kasada günde üç yüz müşterim var.", "ru": "Я не боюсь работы. На кассе у меня триста покупателей в день."},
+        {"who": "npc", "es": "Hiç şüphem yok. Peki tutanak tutmayı biliyor musun? Yatırımcılarla görüntülü görüşme yapmayı?", "ru": "Не сомневаюсь. А протокол составить умеешь? Вести переговоры с инвесторами по видеосвязи?"},
+        {"who": "mehmet", "es": "Çabuk öğrenirim. Zor insanlarla başa çıkmayı da bilirim. Bunu hiçbir kursta öğretmezler.", "ru": "Я быстро учусь. И умею обращаться с трудными людьми. Этому ни на каких курсах не научат."},
+        {"who": "npc", "es": "Orada haklısın. Üç ay deneme süresi öneriyorum. İyi giderse, kalıcı sözleşme.", "ru": "Тут ты прав. Предлагаю три месяца испытательного срока. Если всё пойдёт хорошо — постоянный договор."},
+        {"who": "mehmet", "es": "Üç ay mı? Ya maaş? Deneme süresinde aynısını mı alıyorum?", "ru": "Три месяца? А зарплата? На испытательном сроке я получаю столько же?"},
+        {"who": "npc", "es": "Biraz daha az. Ama hedefi tutturursan primle.", "ru": "Немного меньше. Но с премией, если выполнишь план."},
+        {"who": "mehmet", "es": "Biraz daha az… Burada da pazardaki gibi pazarlık yapılıyor, görüyorum.", "ru": "Немного меньше… Вижу, здесь тоже торгуются, как на базаре."}
+      ],
+      "questions": [
+        {"q": "Почему Мехмет хочет в офис?", "kind": "stance", "options": ["Устал от кассы", "Хочет больше денег", "Его уволили"], "answer": 0},
+        {"q": "Чем Мехмет гордится?", "kind": "stance", "options": ["Умеет обращаться с трудными людьми", "Знает языки", "Быстро печатает"], "answer": 0},
+        {"q": "Что предлагает Эбру?", "kind": "stance", "options": ["Три месяца испытательного срока", "Сразу постоянный договор", "Работу на полдня"], "answer": 0},
+        {"q": "Что Мехмет имел в виду: «здесь тоже торгуются, как на базаре»?", "kind": "stance", "options": ["Ему не нравится меньшая зарплата на испытательном сроке", "Он хочет работать на базаре", "Офис рядом с базаром"], "answer": 0}
+      ],
+      "gloss": {"ofise": "в офис", "aradığınızı": "что вы ищете", "kasadan": "от кассы", "beşte": "в пять", "şüphem": "моё сомнение", "tutanak": "протокол", "tutmayı": "вести", "yatırımcılarla": "с инвесторами", "görüntülü": "видео-", "başa": "(başa çıkmak — справляться)", "çıkmayı": "справляться", "kursta": "на курсах", "öğretmezler": "не научат", "deneme": "испытание", "süresi": "срок", "kalıcı": "постоянный", "süresinde": "в течение срока", "aynısını": "то же самое", "hedefi": "план, цель", "tutturursan": "если выполнишь", "primle": "с премией", "pazardaki": "на базаре", "yapılıyor": "делается"}
+    },
+    {
+      "id": "sc:office.4",
+      "chapter": 4,
+      "npc": "ebru",
+      "lines": [
+        {"who": "npc", "es": "Biliyor musun? Bütün şehir pipolu adamın Orhan olduğunu artık biliyor.", "ru": "Знаешь что? Весь город уже знает, что человек с трубкой — Орхан."},
+        {"who": "hero", "es": "İnsanlar nasıl karşıladı?", "ru": "И как люди это восприняли?"},
+        {"who": "npc", "es": "Çok kızgınlar. Bazıları onu polise şikâyet etmek istiyor. Bazıları da zavallı bir adam olduğunu söylüyor.", "ru": "Очень злятся. Некоторые хотят заявить на него в полицию. А кто-то говорит, что он несчастный человек."},
+        {"who": "hero", "es": "Sen ne düşünüyorsun?", "ru": "А ты что думаешь?"},
+        {"who": "npc", "es": "Konuşmak lazım. Bu akşam burada, ofiste bir komşu toplantısı yapıyorum.", "ru": "Что надо поговорить. Сегодня вечером я устраиваю собрание соседей здесь, в офисе."},
+        {"who": "hero", "es": "Orhan gelecek mi?", "ru": "Орхан придёт?"},
+        {"who": "npc", "es": "Bilmiyorum. Bana bir mektup bıraktı: “Yine birini kaybetmekten korktum.”", "ru": "Не знаю. Он оставил мне письмо: «Я боялся снова кого-то потерять»."},
+        {"who": "hero", "es": "Birini kaybetmekten mi?", "ru": "Кого-то потерять?"},
+        {"who": "npc", "es": "Çölde yüz yılını ve bütün ailesini kaybetti. O yüzden kimsenin ormana gitmesini istemiyor.", "ru": "В пустыне он потерял сто лет и всю свою семью. Поэтому и не хочет, чтобы кто-нибудь ходил в лес."}
+      ],
+      "questions": [
+        {"q": "Что знает весь город?", "options": ["Что человек с трубкой — Орхан", "Что лес закрыт", "Что Арда вернулся"], "answer": 0},
+        {"q": "Что устраивает Эбру?", "options": ["Собрание соседей в офисе", "Праздник", "Ужин"], "answer": 0},
+        {"q": "Что Орхан написал в письме?", "options": ["Что боялся снова кого-то потерять", "Что уезжает", "Что ни в чём не виноват"], "answer": 0},
+        {"q": "Почему Орхан не хочет, чтобы ходили в лес?", "options": ["В пустыне он потерял сто лет и семью", "Лес принадлежит ему", "В лесу опасные звери"], "answer": 0}
+      ],
+      "gloss": {"pipolu": "с трубкой", "orhan": "Орхан", "karşıladı": "восприняли", "kızgınlar": "злятся", "bazıları": "некоторые", "polise": "в полицию", "zavallı": "несчастный", "ofiste": "в офисе", "bıraktı": "оставил", "kaybetmekten": "потерять", "korktum": "боялся", "gitmesini": "чтобы ходил"}
     }
   ]
 }

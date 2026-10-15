@@ -75,6 +75,53 @@
         {"q": "Что нарисовано в тетради?", "options": ["Башня и туман", "Дорога среди дюн и полная луна", "Карта города"], "answer": 1}
       ],
       "gloss": {"devesiyle": "со своим верблюдом", "olsaydım": "если бы я был", "olsaydı": "если бы была", "söylenmez": "не говорят", "muhafız": "страж, стражница", "defterini": "свою тетрадь", "tepelerinin": "дюн (tepe)", "olduğu": "когда (он) есть"}
+    },
+    {
+      "id": "wh:school.4",
+      "chapter": 4,
+      "mode": "overhear",
+      "npc": "elif",
+      "lines": [
+        {"who": "murat", "es": "Affedersiniz, oğlum kompozisyondan neden sıfır aldı? Bütün akşam çalıştığını söylüyor.", "ru": "Простите, почему мой сын получил ноль за сочинение? Он говорит, что работал весь вечер."},
+        {"who": "npc", "es": "Bütün akşam, belki. Ama metin internetteki bir metinle kelimesi kelimesine aynı. Bu kopya.", "ru": "Весь вечер — может быть. Но текст слово в слово совпадает с текстом из интернета. Это списывание."},
+        {"who": "murat", "es": "Herhalde sadece fikir arıyordu. Bütün çocuklar öyle yapar.", "ru": "Наверняка он просто искал идеи. Все дети так делают."},
+        {"who": "npc", "es": "Fikir aramak normal. Orijinalin yazım hatalarıyla birlikte kopyalamak pek değil.", "ru": "Искать идеи — нормально. Списывать вместе с ошибками оригинала — не очень."},
+        {"who": "murat", "es": "Hataları bile mi?", "ru": "Даже ошибки?"},
+        {"who": "npc", "es": "Hataları bile. O yüzden şunu öneriyorum: kompozisyonu sınıfta, benim yanımda bir daha yazsın.", "ru": "Даже ошибки. Поэтому предлагаю вот что: пусть напишет сочинение ещё раз в классе, при мне."},
+        {"who": "murat", "es": "İyi yazarsa sıfırı siler misiniz?", "ru": "А если напишет хорошо, вы уберёте ноль?"},
+        {"who": "npc", "es": "Kendisi yazarsa, evet. Çalışınca iyi düşünüyor. Eksik olan motivasyon, yetenek değil.", "ru": "Если напишет сам — да. Когда старается, он хорошо рассуждает. Ему не хватает мотивации, а не способностей."},
+        {"who": "murat", "es": "Bu akşam onunla konuşacağım. Bu hafta telefon da evde kalacak.", "ru": "Поговорю с ним сегодня вечером. И телефон на этой неделе останется дома."}
+      ],
+      "questions": [
+        {"q": "Почему Элиф поставила ноль?", "kind": "stance", "options": ["Сочинение списано из интернета", "Сын Мурата опоздал", "Сочинение слишком короткое"], "answer": 0},
+        {"q": "Как Мурат-бей сначала оправдывает сына?", "kind": "stance", "options": ["Он просто искал идеи", "Он болел", "Задание было трудным"], "answer": 0},
+        {"q": "Что Элиф думает о сыне Мурата?", "kind": "stance", "options": ["Ему не хватает мотивации, а не способностей", "Он не умеет писать", "Он лучший в классе"], "answer": 0},
+        {"q": "Что решил Мурат-бей?", "kind": "stance", "options": ["Поговорить с сыном и оставить телефон дома", "Перевести сына в другую школу", "Пожаловаться директору"], "answer": 0}
+      ],
+      "gloss": {"oğlum": "мой сын", "kompozisyondan": "за сочинение", "sıfır": "ноль", "metin": "текст", "internetteki": "из интернета", "metinle": "с текстом", "kelimesi": "(kelimesi kelimesine — слово в слово)", "kelimesine": "слово в слово", "kopya": "списывание", "fikir": "идея", "orijinalin": "оригинала", "yazım": "правописание", "hatalarıyla": "с ошибками", "kopyalamak": "списывать", "öneriyorum": "предлагаю", "kompozisyonu": "сочинение", "sıfırı": "ноль", "siler": "сотрёте", "motivasyon": "мотивация", "yetenek": "способности"}
+    },
+    {
+      "id": "sc:school.4",
+      "chapter": 4,
+      "npc": "elif",
+      "lines": [
+        {"who": "npc", "es": "Bugün öğrenciler benimle konuşmuyor. Bana çok kırıldılar.", "ru": "Сегодня ученики со мной не разговаривают. Они на меня очень обиделись."},
+        {"who": "hero", "es": "Neden?", "ru": "Почему?"},
+        {"who": "npc", "es": "Dün gece ormanda benim sesimi duymuşlar: “Bu yılki öğrenciler berbat.”", "ru": "Вчера ночью они услышали в лесу мой голос: «Ученики в этом году — хуже некуда»."},
+        {"who": "hero", "es": "Bunu sen mi söyledin?", "ru": "Ты это говорила?"},
+        {"who": "npc", "es": "Asla! Öğrencilerimi seviyorum. Ama ses tıpkı benimki gibiydi.", "ru": "Никогда! Я люблю своих учеников. Но голос был точь-в-точь как мой."},
+        {"who": "hero", "es": "Giyim dükkânında ve eczanede de aynısı oldu.", "ru": "В лавке одежды и в аптеке было то же самое."},
+        {"who": "npc", "es": "Biliyorum. Bir öğrenci, sınıfın penceresinde siyah bir kuş gördüğünü söylüyor.", "ru": "Знаю. А один ученик говорит, что видел чёрную птицу на окне в классе."},
+        {"who": "hero", "es": "Kuş mu?", "ru": "Птицу?"},
+        {"who": "npc", "es": "Bir kuş, “Sessiz olun, lütfen!” diye tekrarlıyormuş. Benim gibi, her sabah.", "ru": "Птицу, которая повторяла: «Тише, пожалуйста!». Как я, каждое утро."}
+      ],
+      "questions": [
+        {"q": "Почему ученики обиделись на Элиф?", "options": ["Услышали в лесу её голос, будто ученики хуже некуда", "Она поставила всем двойки", "Она отменила урок"], "answer": 0},
+        {"q": "Говорила ли Элиф эти слова?", "options": ["Да", "Нет, никогда", "Не помнит"], "answer": 1},
+        {"q": "Что видел один ученик?", "options": ["Чёрную птицу на окне класса", "Сову в парке", "Огонь в лесу"], "answer": 0},
+        {"q": "Что повторяла птица?", "options": ["«Тише, пожалуйста!»", "«Доброе утро!»", "«Урок окончен!»"], "answer": 0}
+      ],
+      "gloss": {"kırıldılar": "обиделись", "duymuşlar": "услышали (говорят)", "yılki": "этого года (bu yılki)", "berbat": "ужасный", "tıpkı": "точь-в-точь", "benimki": "мой", "gibiydi": "был как", "giyim": "одежда", "dükkanında": "в лавке", "aynısı": "то же самое", "gördüğünü": "что видел", "tekrarlıyormuş": "повторяла (говорят)"}
     }
   ]
 }

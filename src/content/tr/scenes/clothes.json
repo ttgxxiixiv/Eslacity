@@ -75,6 +75,53 @@
         {"q": "Что теперь принимает Селин?", "options": ["Только наличные", "Только карты", "Всё"], "answer": 1}
       ],
       "gloss": {"devesiyle": "со своим верблюдом", "şehirdeki": "в городе", "kaybolan": "который исчезает", "oluyormuş": "становится (говорят)", "varmış": "существует (говорят)", "parayla": "купюрой", "döndü": "превратилась"}
+    },
+    {
+      "id": "wh:clothes.4",
+      "chapter": 4,
+      "mode": "overhear",
+      "npc": "selin",
+      "lines": [
+        {"who": "ebru", "es": "Şu ipek elbiseye bak. Bir kere yıkadım, iki beden küçüldü.", "ru": "Посмотри на это шёлковое платье. Я постирала его один раз, и оно село на два размера."},
+        {"who": "npc", "es": "Ne yazık. Etiketi okudun mu? Burada yazıyor: “Elde, soğuk suda yıkayın.”", "ru": "Как жалко. Ты читала ярлык? Тут написано: «Ручная стирка, холодная вода»."},
+        {"who": "ebru", "es": "Şey… makineye kısa programda koydum. Bu da neredeyse elde yıkamak gibi, değil mi?", "ru": "Ну… я положила её в машинку на короткую программу. Это ведь почти как вручную, разве нет?"},
+        {"who": "npc", "es": "Neredeyse. Ama ipek “neredeyse” kelimesini anlamaz.", "ru": "Почти. Только шёлк не понимает слова «почти»."},
+        {"who": "ebru", "es": "Yüz lira ödedim. O paraya kumaş daha sağlam olmalı.", "ru": "Я заплатила сто лир. За такие деньги ткань должна быть покрепче."},
+        {"who": "npc", "es": "Anlıyorum. Değiştiremem, ama keten bir elbisede sana indirim yaparım. Keten küçülmez.", "ru": "Понимаю. Поменять не могу, но сделаю тебе скидку на льняное. Лён не садится."},
+        {"who": "ebru", "es": "Keten mi? Bakınca bile buruşuyor. Her sabah ütülemem gerekir.", "ru": "Льняное? Оно мнётся, стоит на него посмотреть. Пришлось бы гладить каждое утро."},
+        {"who": "npc", "es": "İstersen başka kumaşlar göstereyim. Buruşmaz, küçülmez… ve hiç nefes almaz.", "ru": "Если хочешь, покажу другие ткани. Не мнётся, не садится… и совсем не дышит."},
+        {"who": "ebru", "es": "Keten olanı alıyorum. Sabah ütüsü de iyi gelir.", "ru": "Беру льняное. Утренняя глажка тоже полезна."}
+      ],
+      "questions": [
+        {"q": "Кто, по мнению Селин, виноват, что платье село?", "kind": "stance", "options": ["Сама Эбру: не прочитала ярлык", "Фабрика", "Стиральная машина"], "answer": 0},
+        {"q": "Что Селин имела в виду: «шёлк не понимает слова „почти“»?", "kind": "stance", "options": ["Что «почти вручную» для шёлка не годится", "Что шёлк дешёвый", "Что Эбру плохо говорит"], "answer": 0},
+        {"q": "Чем недовольна Эбру в льняном платье?", "kind": "stance", "options": ["Цветом", "Тем, что лён мнётся", "Ценой"], "answer": 1},
+        {"q": "Почему Селин говорит, что другие ткани «совсем не дышат»?", "kind": "stance", "options": ["Хвалит их", "Намекает, что они — плохой выбор", "Не знает, что сказать"], "answer": 1}
+      ],
+      "gloss": {"ipek": "шёлк", "elbiseye": "на платье", "beden": "размер", "küçüldü": "села", "etiketi": "ярлык", "elde": "вручную", "programda": "на программе", "neredeyse": "почти", "kelimesini": "слово", "elbisede": "на платье", "sağlam": "прочный", "keten": "лён", "küçülmez": "не садится", "buruşuyor": "мнётся", "ütülemem": "гладить мне", "buruşmaz": "не мнётся", "ütüsü": "глажка", "olanı": "то, что (keten olanı — льняное)"}
+    },
+    {
+      "id": "sc:clothes.4",
+      "chapter": 4,
+      "npc": "selin",
+      "lines": [
+        {"who": "npc", "es": "Orman benim hakkımda ne diyor, biliyor musun? Korkunç!", "ru": "Знаешь, что лес говорит обо мне? Это ужасно!"},
+        {"who": "hero", "es": "Ne diyor?", "ru": "Что он говорит?"},
+        {"who": "npc", "es": "Benim sesimle: “Ebru bir çorabı bile yıkamayı bilmiyor.” Bunu gerçekten söyledim, kabul ediyorum.", "ru": "Моим голосом: «Эбру даже носок постирать не умеет». Это я правда говорила, признаю."},
+        {"who": "hero", "es": "Başka?", "ru": "А что ещё?"},
+        {"who": "npc", "es": "Bir de: “Tasarım elbiselerim sahte.” Bunu hiç söylemedim!", "ru": "А ещё: «Мои дизайнерские платья — подделки». Такого я никогда не говорила!"},
+        {"who": "hero", "es": "Emin misin?", "ru": "Точно?"},
+        {"who": "npc", "es": "Eminim. Elbiselerim gerçek. Ama artık müşterilerim bana inanmıyor.", "ru": "Точно. Мои платья настоящие. Но теперь покупательницы мне не верят."},
+        {"who": "hero", "es": "Demek orman sadece tekrarlamıyor.", "ru": "Значит, лес не только повторяет."},
+        {"who": "npc", "es": "Öyle görünüyor. Biri ona yalan öğretiyor.", "ru": "Похоже на то. Кто-то учит его лжи."}
+      ],
+      "questions": [
+        {"q": "Что из сказанного лесом Селин правда говорила?", "options": ["Что Эбру не умеет постирать носок", "Что её платья — подделки", "Ничего"], "answer": 0},
+        {"q": "Что лес сказал неправду?", "options": ["Что платья Селин — подделки", "Что Селин устала", "Что лён мнётся"], "answer": 0},
+        {"q": "Что теперь делают покупательницы?", "options": ["Не верят Селин", "Покупают больше", "Просят скидку"], "answer": 0},
+        {"q": "Что поняли Селин и герой?", "options": ["Кто-то учит лес лжи", "Лес молчит", "Эбру всё выдумала"], "answer": 0}
+      ],
+      "gloss": {"ebru": "Эбру", "çorabı": "носок", "yıkamayı": "стирать", "kabul": "признание (kabul etmek — признавать)", "tasarım": "дизайнерский", "elbiselerim": "мои платья", "sahte": "поддельный", "müşterilerim": "мои покупательницы", "tekrarlamıyor": "не повторяет", "öğretiyor": "учит"}
     }
   ]
 }

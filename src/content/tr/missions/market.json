@@ -61,8 +61,34 @@
         "beans": {"kind": "say", "es": "Haklısın, çürük. Bunu al. Yol için ne lazım?", "ru": "Ты прав, гнилой. Возьми вот этот. А в дорогу что?", "next": "beansq", "fem": {"ru": "Ты права, гнилой. Возьми вот этот. А в дорогу что?"}},
         "beansq": {"kind": "answer", "task": "Скажите, что возьмёте мешок картошки.", "branches": [{"phrase": "ph:market.bir-cuval", "next": "price"}], "wrong": {"es": "Karpuz mu? Çölde karpuz ağır gelir.", "ru": "Арбуз? В пустыне арбуз тяжело нести."}},
         "price": {"kind": "say", "es": "Al. Ama çölde çuval ağır, deve taşısın. On iki lira.", "ru": "Держи. Но в пустыне мешок тяжёлый, пусть его везёт верблюд. Двенадцать лир.", "next": "priceq"},
-        "priceq": {"kind": "answer", "task": "Спросите её последнюю цену.", "branches": [{"phrase": "ph:market.son-fiyat", "next": "end"}], "wrong": {"es": "Ne dedin? Pazarda çok gürültü var!", "ru": "Что ты сказал? На базаре очень шумно!", "fem": {"ru": "Что ты сказала? На базаре очень шумно!"}}},
-        "end": {"kind": "say", "es": "İşte bu! On lira. Al, bu da çöl haritasından benim parçam, gerçek olanı. Kâğıda bak: eski.", "ru": "Вот это по-нашему! Десять лир. И держи мой обрывок карты пустыни, настоящий. Посмотри на бумагу: старая."}
+        "priceq": {"kind": "answer", "task": "Спросите её последнюю цену или скажите, что больше ничего не нужно.", "branches": [{"phrase": "ph:market.son-fiyat", "next": "end", "sets": {"bargain": "bargain"}}, {"phrase": "ph:market.baska-bir-sey-yok", "next": "endfull", "sets": {"bargain": "full"}}], "wrong": {"es": "Ne dedin? Pazarda çok gürültü var!", "ru": "Что ты сказал? На базаре очень шумно!", "fem": {"ru": "Что ты сказала? На базаре очень шумно!"}}},
+        "end": {"kind": "say", "es": "İşte bu! On lira. Al, bu da çöl haritasından benim parçam, gerçek olanı. Kâğıda bak: eski.", "ru": "Вот это по-нашему! Десять лир. И держи мой обрывок карты пустыни, настоящий. Посмотри на бумагу: старая."},
+        "endfull": {"kind": "say", "es": "On iki lira, pazarlıksız. Ne güzel! Al, bu da çöl haritasından benim parçam, gerçek olanı. Kâğıda bak: eski.", "ru": "Двенадцать лир, без торга. Вот это да! Держи и мой обрывок карты пустыни, настоящий. Посмотри на бумагу: старая."}
+      }
+    },
+    {
+      "id": "ms:market.4",
+      "chapter": 4,
+      "npc": "fatma",
+      "scene": "sc:market.4",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Bugün kimse benden bir şey almıyor. Terazim hileli diyorlar. Sana bir şey lazım mı?", "ru": "Сегодня у меня никто ничего не покупает. Говорят, мои весы жульнические. Тебе что-нибудь нужно?", "next": "cheese"},
+        "cheese": {"kind": "answer", "task": "Спросите, откуда этот сыр.", "branches": [{"phrase": "ph:market.peynir-nereden", "next": "cheesesay"}], "wrong": {"es": "Terazi mi nereden? Dükkândan, herkesinki gibi!", "ru": "Откуда весы? Из магазина, как у всех!"}},
+        "cheesesay": {"kind": "say", "es": "Ormanın yanındaki köyden. Yıllardır tanıdığım bir köylü yapıyor. Tat bakalım.", "ru": "Из деревни у леса. Его делает крестьянин, которого я знаю много лет. Попробуй.", "next": "deal"},
+        "deal": {"kind": "answer", "task": "Скажите, что это настоящая удача.", "branches": [{"phrase": "ph:market.tam-bir-firsat", "next": "dealsay"}], "wrong": {"es": "Peynir mi pahalı? Hayır, bugün ucuz.", "ru": "Сыр дорогой? Нет, сегодня дешёвый."}},
+        "dealsay": {"kind": "say", "es": "Gerçekten mi? Ama insanlar artık bana güvenmiyor. Hepsi Kemal yüzünden. O adama bir daha hiçbir şey satmam.", "ru": "Правда? Но люди мне больше не доверяют. И всё из-за Кемаля. Больше ничего этому человеку не продам.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:market.kirmak-istemedi", "next": "object", "move": "object"}, {"phrase": "ph:market.kizgin-olmani-anliyorum", "next": "concede", "move": "concede"}, {"phrase": "ph:market.birlikte-tartsaniz", "next": "compromise", "move": "compromise"}], "wrong": {"es": "Ne diyorsun? Açık konuş, bugün sinirliyim.", "ru": "Что ты говоришь? Говори ясно, у меня сегодня плохое настроение."}},
+        "object": {"kind": "say", "es": "İstemedi mi? Ama kırıldım… Gerçi doğru, Kemal herkesle şakalaşır.", "ru": "Не хотел? А мне было обидно… Хотя правда, Кемаль со всеми шутит.", "next": "queue"},
+        "concede": {"kind": "say", "es": "Teşekkürler. Birinin bunu söylemesine ihtiyacım vardı. Evet, kızgınım, hem de haklı olarak.", "ru": "Спасибо. Мне нужно было, чтобы кто-то это сказал. Да, я сержусь, и не зря.", "next": "queue"},
+        "compromise": {"kind": "say", "es": "Birlikte mi tartalım? Harika fikir! Böylece herkes terazimin yalan söylemediğini görür.", "ru": "Взвесить вместе? Отличная идея! Так все увидят, что мои весы не врут.", "next": "queue"},
+        "queue": {"kind": "say", "es": "Bak, Kemal özür dilemeye geliyor. Arkasında da müşteriler. Sonunda kuyruk!", "ru": "Смотри, вот идёт Кемаль просить прощения. А за ним покупатели. Наконец-то очередь!", "next": "last"},
+        "last": {"kind": "answer", "task": "Спросите, чья очередь.", "branches": [{"phrase": "ph:market.sira-kimde", "next": "lastsay"}], "wrong": {"es": "Kemal mi son? Her zamanki gibi: hep geç kalır.", "ru": "Кемаль последний? Как всегда: он вечно опаздывает."}},
+        "lastsay": {"kind": "say", "es": "Sıra sende, ha ha. Kemal benden özür diledi. Ormanda bir ses eksildi. Ne koyayım?", "ru": "Твоя очередь, ха-ха. Кемаль попросил у меня прощения. В лесу на один голос меньше. Что тебе положить?", "next": "cherries"},
+        "cherries": {"kind": "answer", "task": "Попросите полкило черешни.", "branches": [{"phrase": "ph:market.yarim-kilo-kiraz", "next": "cherriessay"}], "wrong": {"es": "Yarım kilo ağaç mı? O ormana.", "ru": "Полкило деревьев? Это в лес."}},
+        "cherriessay": {"kind": "say", "es": "Al. İstersen kendin tart. Başka bir şey?", "ru": "Держи. Взвесь сам, если хочешь. Что-нибудь ещё?", "next": "enough", "fem": {"ru": "Держи. Взвесь сама, если хочешь. Что-нибудь ещё?"}},
+        "enough": {"kind": "answer", "task": "Скажите, что больше ничего не нужно.", "branches": [{"phrase": "ph:market.baska-bir-sey-yok", "next": "end"}], "wrong": {"es": "Domatesten başka bir şey yok mu? O zaman domates.", "ru": "Ничего, кроме помидоров? Значит, помидоры."}},
+        "end": {"kind": "say", "es": "Bunu da al: orman haritasının bir parçası. Peynirci köylü verdi. Ağaçların hiçbir şey uydurmadığını, sadece tekrarladığını söylüyor.", "ru": "Возьми ещё вот это: обрывок карты леса. Мне дал его крестьянин-сыровар. Говорит, деревья ничего не выдумывают, только повторяют."}
       }
     }
   ]

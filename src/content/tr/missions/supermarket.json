@@ -64,6 +64,31 @@
         "deliverq": {"kind": "answer", "task": "Спросите, доставляют ли покупки на дом.", "branches": [{"phrase": "ph:supermarket.eve-getirir", "next": "end"}], "wrong": {"es": "Poşet mi? Poşet ücretsiz.", "ru": "Пакет? Пакет бесплатно."}},
         "end": {"kind": "say", "es": "Tabii, kendim götürürüm, kumdan önceki son eve kadar. Al, bu da çöl haritasından benim parçam.", "ru": "Конечно, отвезу сам, до последнего дома перед песками. Держи, а это мой обрывок карты пустыни."}
       }
+    },
+    {
+      "id": "ms:supermarket.4",
+      "chapter": 4,
+      "npc": "mehmet",
+      "scene": "sc:supermarket.4",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Merhaba. Bugün çok kalabalık, ama herkes kulak tıkacı alıyor.", "ru": "Привет. Сегодня много народу, но все покупают беруши.", "next": "breadq"},
+        "breadq": {"kind": "answer", "task": "Спросите, где отдел выпечки.", "branches": [{"phrase": "ph:supermarket.ekmek-bolumu", "next": "bread"}], "wrong": {"es": "Kasa mı? Kasa orada, ama önce alışveriş.", "ru": "Касса? Касса вон там, но сначала покупки."}},
+        "bread": {"kind": "say", "es": "Şurada, sağda. Bak, bu yeni meyve suyu indirimde.", "ru": "Вон там, справа. Смотри, этот новый сок по акции.", "next": "juiceq"},
+        "juiceq": {"kind": "answer", "task": "Спросите, есть ли в нём консерванты.", "branches": [{"phrase": "ph:supermarket.koruyucu-var-mi", "next": "juice"}], "wrong": {"es": "Fiyatı mı? Bugün çok ucuz.", "ru": "Цена? Сегодня очень дёшево."}},
+        "juice": {"kind": "say", "es": "Koruyucu yok. Dinle, endişeliyim: insanlar her şeyi stokluyor. Yarından itibaren kulak tıkacı satmayacağım.", "ru": "Без консервантов. Слушай, я волнуюсь: люди скупают всё впрок. С завтрашнего дня беруши не продаю.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:supermarket.uykusuz-kalir", "next": "object", "move": "object"}, {"phrase": "ph:supermarket.endiseli-oldugunu", "next": "concede", "move": "concede"}, {"phrase": "ph:supermarket.kisi-basi-iki", "next": "compromise", "move": "compromise"}], "wrong": {"es": "Ne dedin? Burada çok gürültü var.", "ru": "Что ты сказал? Здесь очень шумно."}},
+        "object": {"kind": "say", "es": "Uykusuz mu? Haklısın… İnsanlar uyumazsa daha çok kavga eder. Orman da daha çok gürültü yapar.", "ru": "Без сна? Ты прав… Если люди не спят, они больше ссорятся. А лес шумит сильнее.", "next": "pay", "fem": {"ru": "Без сна? Ты права… Если люди не спят, они больше ссорятся. А лес шумит сильнее."}},
+        "concede": {"kind": "say", "es": "Gerçekten mi? Sonunda biri beni anlıyor. Bugün herkes bana kızgın.", "ru": "Правда? Наконец-то кто-то меня понимает. Сегодня все на меня злятся.", "next": "pay"},
+        "compromise": {"kind": "say", "es": "Kişi başı iki paket… Evet, böylece kimse eli boş kalmaz. Bir yazı asarım.", "ru": "Две пачки в руки… Да, так никто не останется ни с чем. Повешу объявление.", "next": "pay"},
+        "pay": {"kind": "say", "es": "Hadi, kasaya gidelim. Kartın yanında mı?", "ru": "Ну, пойдём на кассу. Карта у тебя с собой?", "next": "couponq"},
+        "couponq": {"kind": "answer", "task": "Спросите, можно ли получить скидку по карте.", "branches": [{"phrase": "ph:supermarket.kartla-indirim", "next": "coupon"}], "wrong": {"es": "Poşet mi? Poşet bir lira.", "ru": "Пакет? Пакет стоит лиру."}},
+        "coupon": {"kind": "say", "es": "Tamam. Bu arada, dün gece ormandan kendi sesimi duydum: “Tost makinesi olan o kadın yalan söylüyor.” Ne ayıp! Ona yeni bir tost makinesi götüreceğim.", "ru": "Готово. Кстати, вчера ночью я слышал из леса свой голос: «Эта женщина с тостером врёт». Какой стыд! Отнесу ей новый тостер.", "next": "deliverq"},
+        "deliverq": {"kind": "answer", "task": "Спросите, доставляют ли покупки на дом.", "branches": [{"phrase": "ph:supermarket.eve-getirir", "next": "deliver"}], "wrong": {"es": "Kasa mı? Kasa burası.", "ru": "Касса? Касса здесь."}},
+        "deliver": {"kind": "say", "es": "Genelde evet. Ama bugün kendim götürürüm, tost makinesi ve bir “özür dilerim” ile. Başka bir şey lazım mı?", "ru": "Обычно да. Но сегодня отнесу сам, с тостером и «простите». Тебе ещё что-нибудь нужно?", "next": "milkq"},
+        "milkq": {"kind": "answer", "task": "Спросите, закончилось ли молоко.", "branches": [{"phrase": "ph:supermarket.sut-bitti-mi", "next": "end"}], "wrong": {"es": "Ekmek mi? Ekmek bitti, üzgünüm.", "ru": "Хлеб? Хлеб закончился, извини."}},
+        "end": {"kind": "say", "es": "Bir tane kaldı. Al. Bir de bu: ormanın haritasından bir parça. Kulak tıkacı kutusunun içindeydi. Biri onu bulmanı istiyor.", "ru": "Осталась одна. Бери. И вот ещё: обрывок карты леса. Он лежал в коробке с берушами. Кто-то хочет, чтобы ты его нашёл.", "fem": {"ru": "Осталась одна. Бери. И вот ещё: обрывок карты леса. Он лежал в коробке с берушами. Кто-то хочет, чтобы ты его нашла."}}
+      }
     }
   ]
 }

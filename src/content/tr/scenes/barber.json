@@ -75,6 +75,53 @@
         {"q": "Почему он ушёл из дома?", "options": ["Не мог спать", "Искал деньги", "Его выгнали"], "answer": 0}
       ],
       "gloss": {"buyur": "заходи, прошу", "devesiyle": "со своим верблюдом", "sakalsız": "без бороды", "göründüğünden": "чем кажется", "kolunda": "на руке", "olduğunu": "что это", "ormandanım": "я из леса", "fısıldayarak": "шёпотом", "gitmiş": "ушёл (говорят)", "uyuyamıyormuş": "не мог спать", "ormandan": "о лесе", "bıraktım": "перестал"}
+    },
+    {
+      "id": "wh:barber.4",
+      "chapter": 4,
+      "mode": "overhear",
+      "npc": "yusuf",
+      "lines": [
+        {"who": "deniz", "es": "Bugün gerçekten değişmek istiyorum. Platin sarısı. Hepsini aç.", "ru": "Сегодня хочу по-настоящему сменить образ. Платиновая блондинка. Осветляй всё."},
+        {"who": "npc", "es": "Hepsini mi? Şu uçlara bak. Saçların bu yıl zaten çok çekti.", "ru": "Всё? Посмотри на эти кончики. Твои волосы в этом году и так натерпелись."},
+        {"who": "deniz", "es": "Bunu bana hep söylüyorsun. Şehrin en dikkatli berberisin.", "ru": "Ты мне всегда это говоришь. Ты самый осторожный парикмахер в городе."},
+        {"who": "npc", "es": "Dikkatli değil, tecrübeli. Saçını böyle açan son müşterim bir ay sonra peruk sormaya geldi.", "ru": "Не осторожный, а опытный. Последняя клиентка, которая так осветлилась, через месяц пришла спрашивать про парики."},
+        {"who": "deniz", "es": "Abartıyorsun. Sadece spor kulübünde beni ciddiye almalarını istiyorum. Herkes bana hâlâ “küçük Deniz” diyor.", "ru": "Ну ты и преувеличиваешь. Я просто хочу, чтобы в клубе меня воспринимали всерьёз. А то все до сих пор зовут меня «малышка Дениз»."},
+        {"who": "npc", "es": "Ha, yani mesele saç değil. Baş antrenörlük, değil mi?", "ru": "А, так дело не в волосах. Дело в месте главного тренера, да?"},
+        {"who": "deniz", "es": "Belki. O kadar belli mi?", "ru": "Может быть. Так заметно?"},
+        {"who": "npc", "es": "Biraz. Şöyle yapalım: birkaç açık tutam ve bir saç maskesi. Görüşmede önemli olan renk değil, kendine güven.", "ru": "Немного. Давай так: несколько светлых прядей и маска для волос. На собеседовании важен не оттенок, а уверенность в себе."},
+        {"who": "deniz", "es": "Tamam, öyle olsun. Ama işi alırsam, gelecek ay hepsini açıyoruz.", "ru": "Ладно, пусть так. Но если мне дадут место, в следующем месяце осветляем всё."}
+      ],
+      "questions": [
+        {"q": "Почему Юсуф не хочет осветлять всё?", "kind": "stance", "options": ["Волосы Дениз и так натерпелись", "Нет краски", "Это дорого"], "answer": 0},
+        {"q": "Что Юсуф имел в виду историей про парики?", "kind": "stance", "options": ["Что после такого осветления волосы могут выпасть", "Что он продаёт парики", "Что клиентке понравилось"], "answer": 0},
+        {"q": "Чего на самом деле хочет Дениз?", "kind": "stance", "options": ["Чтобы в клубе её воспринимали всерьёз и дали место главного тренера", "Пойти на праздник", "Сменить клуб"], "answer": 0},
+        {"q": "На чём они сошлись?", "kind": "stance", "options": ["На светлых прядях и маске", "На платине", "На стрижке"], "answer": 0}
+      ],
+      "gloss": {"platin": "платина", "sarısı": "блонд", "aç": "осветли", "çekti": "натерпелись", "dikkatli": "осторожный", "berberisin": "ты парикмахер", "tecrübeli": "опытный", "açan": "которая осветлила", "peruk": "парик", "abartıyorsun": "преувеличиваешь", "ciddiye": "всерьёз", "almalarını": "чтобы воспринимали", "mesele": "дело", "baş": "главный", "antrenörlük": "место тренера", "belli": "заметно", "açık": "светлый", "tutam": "прядь", "maskesi": "маска", "görüşmede": "на собеседовании", "diyor": "говорит", "kulübünde": "в клубе"}
+    },
+    {
+      "id": "sc:barber.4",
+      "chapter": 4,
+      "npc": "yusuf",
+      "lines": [
+        {"who": "npc", "es": "Dün garip bir müşteri geldi. Eski bir usturayla, eski usulde tıraş olmak istedi.", "ru": "Вчера приходил странный клиент. Хотел, чтобы его побрили старой бритвой, по старинке."},
+        {"who": "hero", "es": "Neden garip?", "ru": "Почему странный?"},
+        {"who": "npc", "es": "Üstünde pipo tütünü kokusu vardı, paltosunda da siyah tüyler.", "ru": "От него пахло трубочным табаком, а на пальто были чёрные перья."},
+        {"who": "hero", "es": "Postacının kargası gibi!", "ru": "Как у вороны почтальона!"},
+        {"who": "npc", "es": "Ben de öyle düşündüm. Onu tıraş ederken çok üzücü bir şey söyledi.", "ru": "Я тоже так подумал. А пока я его брил, он сказал кое-что очень грустное."},
+        {"who": "hero", "es": "Ne dedi?", "ru": "Что он сказал?"},
+        {"who": "npc", "es": "“Çöl hayatımın yüz yılını aldı. Orman kimseyi almayacak.”", "ru": "«Пустыня забрала сто лет моей жизни. Лес не заберёт никого»."},
+        {"who": "hero", "es": "Yüzünü gördün mü?", "ru": "Ты видел его лицо?"},
+        {"who": "npc", "es": "Pek değil: yüzü köpükle doluydu. Ama şehirde pipo içen tek bir kişi var: Kaptan İsmail.", "ru": "Толком нет: всё лицо было в пене. Но в городе трубку курит только один человек — капитан Исмаил."}
+      ],
+      "questions": [
+        {"q": "Как хотел побриться клиент?", "options": ["Старой бритвой, по старинке", "Электробритвой", "Он не брился"], "answer": 0},
+        {"q": "Что было на его пальто?", "options": ["Чёрные перья", "Песок", "Краска"], "answer": 0},
+        {"q": "Что он сказал?", "options": ["Пустыня забрала сто лет его жизни, а лес не заберёт никого", "Что лес добрый", "Что он уезжает"], "answer": 0},
+        {"q": "Кого подозревает Юсуф?", "options": ["Капитана Исмаила", "Почтальона", "Героя"], "answer": 0}
+      ],
+      "gloss": {"usturayla": "бритвой", "usulde": "по способу (eski usulde — по старинке)", "pipo": "трубка", "tütünü": "табак", "kokusu": "запах", "paltosunda": "на его пальто", "tüyler": "перья", "postacının": "почтальона", "kargası": "ворона", "üzücü": "грустный", "hayatımın": "моей жизни", "köpükle": "пеной", "içen": "курящий", "kaptan": "капитан", "ismail": "Исмаил"}
     }
   ]
 }

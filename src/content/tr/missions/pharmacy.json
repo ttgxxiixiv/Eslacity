@@ -63,6 +63,31 @@
         "sideq": {"kind": "answer", "task": "Спросите, есть ли у лекарства побочные эффекты.", "branches": [{"phrase": "ph:pharmacy.yan-etkisi-var-mi", "next": "end"}], "wrong": {"es": "Aç karnına mı? Hayır, yemekten sonra.", "ru": "Натощак? Нет, после еды."}},
         "end": {"kind": "say", "es": "Sadece biraz uyku verir. Bunu da alın: çöl haritasından benim parçam. Unutmayın: serap kafada.", "ru": "Только немного клонит в сон. И возьмите вот это: мой обрывок карты пустыни. Помните: мираж — в голове."}
       }
+    },
+    {
+      "id": "ms:pharmacy.4",
+      "chapter": 4,
+      "npc": "zeynep",
+      "scene": "sc:pharmacy.4",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Doktor Gül'ün reçetesi için mi geldiniz? Bugün doktor yüzüme bile bakmıyor.", "ru": "Вы за рецептом доктора Гюль? Сегодня доктор на меня даже не смотрит.", "next": "heartq"},
+        "heartq": {"kind": "answer", "task": "Спросите, есть ли что-нибудь от изжоги.", "branches": [{"phrase": "ph:pharmacy.mide-yanmasi", "next": "heart"}], "wrong": {"es": "Diş macunu mu? Şurada, rafta.", "ru": "Зубная паста? Вон там, на полке."}},
+        "heart": {"kind": "say", "es": "Mide yanması için şu tabletler. Böyle günlerden sonra ben de içiyorum.", "ru": "От изжоги — вот эти таблетки. После таких дней я и сама их пью.", "next": "sideq"},
+        "sideq": {"kind": "answer", "task": "Спросите, есть ли побочные эффекты.", "branches": [{"phrase": "ph:pharmacy.yan-etkisi", "next": "side"}], "wrong": {"es": "Dozu mu? Günde iki tane.", "ru": "Доза? Две в день."}},
+        "side": {"kind": "say", "es": "Biraz. En kötü yan etki bu dedikodu. Gazeteye bir mektup yazacağım: herkes yalan olduğunu bilsin.", "ru": "Немного. Худший побочный эффект — эта сплетня. Напишу письмо в газету: пусть все знают, что это ложь.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:pharmacy.daha-cok-gurultu", "next": "object", "move": "object"}, {"phrase": "ph:pharmacy.uzgun-oldugunuzu", "next": "concede", "move": "concede"}, {"phrase": "ph:pharmacy.yuz-yuze-konusun", "next": "compromise", "move": "compromise"}], "wrong": {"es": "Efendim? Bir daha söyler misiniz?", "ru": "Простите? Повторите, пожалуйста."}},
+        "object": {"kind": "say", "es": "Daha çok gürültü mü? Doğru… Ormanda zaten yeterince var. Mektup yok.", "ru": "Больше шума? Правда… А в лесу его и так хватает. Никаких писем.", "next": "rx"},
+        "concede": {"kind": "say", "es": "Teşekkürler. Otuz yıldır bu eczanedeyim, kimse bana yalancı demedi.", "ru": "Спасибо. Тридцать лет в этой аптеке, и никто не называл меня лгуньей.", "next": "rx"},
+        "compromise": {"kind": "say", "es": "Yüz yüze mi? Utanıyorum… ama dürüst olan bu. Bu akşam ona giderim.", "ru": "Лично? Мне неловко… но так будет честно. Схожу к ней сегодня вечером.", "next": "rx"},
+        "rx": {"kind": "say", "es": "Şimdi reçeteniz. Doktor ilaçlarınızı değiştirdi. Başka bir şey alıyor musunuz?", "ru": "Теперь ваш рецепт. Доктор поменяла вам лекарства. Вы принимаете что-нибудь ещё?", "next": "painq"},
+        "painq": {"kind": "answer", "task": "Спросите, можно ли принимать это вместе с обезболивающим.", "branches": [{"phrase": "ph:pharmacy.agri-kesiciyle", "next": "pain"}], "wrong": {"es": "Reçetesiz mi? Bu ilaç olmaz.", "ru": "Без рецепта? Это лекарство нельзя."}},
+        "pain": {"kind": "say", "es": "Evet, sorun yok. Ama bu şurup yemekten önce içilir.", "ru": "Да, без проблем. Но этот сироп принимают до еды.", "next": "emptyq"},
+        "emptyq": {"kind": "answer", "task": "Спросите, нужно ли принимать его натощак.", "branches": [{"phrase": "ph:pharmacy.ac-karnina-mi", "next": "empty"}], "wrong": {"es": "Kaç damla mı? Damla değil, şurup.", "ru": "Сколько капель? Это не капли, а сироп."}},
+        "empty": {"kind": "say", "es": "Aynen, aç karnına. Başka bir şey?", "ru": "Именно, натощак. Что-нибудь ещё?", "next": "cheapq"},
+        "cheapq": {"kind": "answer", "task": "Спросите, есть ли лекарство подешевле.", "branches": [{"phrase": "ph:pharmacy.daha-ucuzu", "next": "end"}], "wrong": {"es": "Pahalı mı? Hayır, bu en ucuzu değil.", "ru": "Дорогое? Нет, это не самое дешёвое."}},
+        "end": {"kind": "say", "es": "Evet, şu. Bir de bunu alın: ormanın haritasından bir parça. Sabah kapının önünde, siyah bir tüyün yanında buldum.", "ru": "Да, вот это. И возьмите ещё: обрывок карты леса. Я нашла его утром у двери рядом с чёрным пером."}
+      }
     }
   ]
 }

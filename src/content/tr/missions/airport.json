@@ -60,6 +60,31 @@
         "lostq": {"kind": "answer", "task": "Спросите, куда обратиться насчёт потерянных вещей.", "branches": [{"phrase": "ph:airport.kayip-esya-burosu", "next": "end"}], "wrong": {"es": "Tuvalet mi? Sağda.", "ru": "Туалет? Справа."}},
         "end": {"kind": "say", "es": "Şurada. Arda da dün oraya gitti: yıllar önce ormanda kaybettiğini arıyordu. Al, çöl haritasından benim parçam.", "ru": "Вон там. Арда вчера тоже туда ходил: искал то, что много лет назад потерял в лесу. Держи мой обрывок карты пустыни."}
       }
+    },
+    {
+      "id": "ms:airport.4",
+      "chapter": 4,
+      "npc": "burak",
+      "scene": "sc:airport.4",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Bugün berbat bir gün. Ormanın üstündeki sis yüzünden üç uçuş gecikiyor. Seninki de.", "ru": "У меня сегодня ужасный день. Три рейса задерживаются из-за тумана над лесом. Твой тоже.", "next": "connq"},
+        "connq": {"kind": "answer", "task": "Спросите, не опоздаете ли вы на стыковочный рейс.", "branches": [{"phrase": "ph:airport.aktarmayi-kacirir", "next": "conn"}], "wrong": {"es": "Bagaj mı? Bagaj bandı orada.", "ru": "Багаж? Лента вон там."}},
+        "conn": {"kind": "say", "es": "Hayır, merak etme: ikinci uçuş da geç kalkıyor.", "ru": "Нет, не волнуйся: второй рейс тоже вылетает позже.", "next": "compq"},
+        "compq": {"kind": "answer", "task": "Спросите, можно ли вернуть деньги за задержку.", "branches": [{"phrase": "ph:airport.tazminat", "next": "comp"}], "wrong": {"es": "Bilet mi? Biletin geçerli.", "ru": "Билет? Твой билет действителен."}},
+        "comp": {"kind": "say", "es": "Şu formu doldur. Dinle, bir fikrim var: seni küçük bir uçakla doğrudan ormanın ortasına götüreyim. Hiç yürümeden.", "ru": "Заполни этот бланк. Слушай, у меня идея: отвезу тебя на маленьком самолёте прямо в центр леса. Никакой ходьбы.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:airport.yurumem-lazim", "next": "object", "move": "object"}, {"phrase": "ph:airport.daha-hizli-olur", "next": "concede", "move": "concede"}, {"phrase": "ph:airport.sadece-bakalim", "next": "compromise", "move": "compromise"}], "wrong": {"es": "Ne? Motorlardan duyamadım.", "ru": "Что? Из-за моторов не расслышал."}},
+        "object": {"kind": "say", "es": "Yürüyerek mi? Haklısın. Muhafız motorları değil, adımları duymak istiyor.", "ru": "Пешком? Ты прав. Хранительница хочет слышать шаги, а не моторы.", "next": "seat", "fem": {"ru": "Пешком? Ты права. Хранительница хочет слышать шаги, а не моторы."}},
+        "concede": {"kind": "say", "es": "Gerçekten mi? Gerçi… kule olmadan kalkamam. En iyisi düşünelim.", "ru": "Правда? Хотя… без диспетчерской вышки я не взлечу. Лучше подумаем.", "next": "seat"},
+        "compromise": {"kind": "say", "es": "Sadece bakmak mı? Harika: yirmi dakika, sonra herkes gibi yürürsün.", "ru": "Только посмотреть? Отлично: двадцать минут, а потом идёшь пешком, как все.", "next": "seat"},
+        "seat": {"kind": "say", "es": "Peki, uçuşunla ilgilenelim. Nerede oturmak istersin?", "ru": "Ладно, займёмся твоим рейсом. Где хочешь сидеть?", "next": "aisleq"},
+        "aisleq": {"kind": "answer", "task": "Попросите место у прохода.", "branches": [{"phrase": "ph:airport.koridor-tarafi", "next": "aisle"}], "wrong": {"es": "Cam kenarı mı? Cam kenarı dolu.", "ru": "У окна? У окна всё занято."}},
+        "aisle": {"kind": "say", "es": "Koridor, on iki sıra. Çantanda bir şey var mı?", "ru": "У прохода, двенадцатый ряд. Что-нибудь везёшь в сумке?", "next": "liquidq"},
+        "liquidq": {"kind": "answer", "task": "Спросите, можно ли брать жидкости на борт.", "branches": [{"phrase": "ph:airport.sivi-alabilir", "next": "liquid"}], "wrong": {"es": "Bilgisayar mı? Onu çıkar, lütfen.", "ru": "Компьютер? Его достань, пожалуйста."}},
+        "liquid": {"kind": "say", "es": "Biraz, küçük şişelerde. Bu uçuştan sonra devam ediyor musun?", "ru": "Немного, в маленьких флаконах. А после этого рейса летишь дальше?", "next": "transitq"},
+        "transitq": {"kind": "answer", "task": "Скажите, что вы транзитный пассажир.", "branches": [{"phrase": "ph:airport.transit-yolcuyum", "next": "end"}], "wrong": {"es": "Burada mı kalıyorsun? O zaman çıkış orada.", "ru": "Остаёшься здесь? Тогда выход вон там."}},
+        "end": {"kind": "say", "es": "Transit, bu hafta herkes gibi. Al: uçuştan sonra kabinde buldum. Ormanın haritasından bir parça. Gökten düştü, ha ha.", "ru": "Транзитом, как и все на этой неделе. Держи: я нашёл это в салоне после рейса. Обрывок карты леса. Упал с неба, ха-ха."}
+      }
     }
   ]
 }

@@ -75,6 +75,52 @@
         {"q": "Что будет, если солгать?", "options": ["Город исчезнет вместе с тобой", "Ничего", "Придётся заплатить"], "answer": 0}
       ],
       "gloss": {"orhan": "Орхан", "yememiş": "не ел", "muhafız": "страж, стражница", "yaşıyormuş": "живёт (говорят)", "bilge": "мудрый", "teklif": "предложение", "geçmene": "чтобы ты прошёл", "ki": "(вводит чужие слова)", "tok": "сытый", "karnına": "на желудок", "düşünülür": "думается"}
+    },
+    {
+      "id": "wh:restaurant.4",
+      "chapter": 4,
+      "mode": "overhear",
+      "npc": "kemal",
+      "lines": [
+        {"who": "ebru", "es": "Şirket yemeğinde otuz kişi olacağız. Ayrı bir salon ve tadım menüsü lazım.", "ru": "На ужине фирмы нас будет тридцать. Нужен отдельный зал и дегустационное меню."},
+        {"who": "npc", "es": "Memnuniyetle. Her yemekle bir içecek mi? Çok iyi bir şarap listemiz var.", "ru": "С удовольствием. С напитком к каждому блюду? У нас отличная винная карта."},
+        {"who": "ebru", "es": "Evet, ama kızartma olmasın: ekibimin yarısı diyette.", "ru": "Да, но без жареного: половина моей команды на диете."},
+        {"who": "npc", "es": "Sorun değil. Yalnız bu sefer önceden ödeme isteyeceğim, yüzde otuz.", "ru": "Без проблем. Только на этот раз попрошу предоплату, тридцать процентов."},
+        {"who": "ebru", "es": "Yemekten önce mi? Hiç böyle bir şey istemedin. Bize güvenmiyor musun?", "ru": "До ужина? Ты никогда такого не просил. Ты нам не доверяешь?"},
+        {"who": "npc", "es": "Sana güveniyorum. Ama geçen yıl yemeği iki saat önce iptal ettiniz ve yirmi kilo deniz ürünü çöpe gitti.", "ru": "Тебе доверяю. Но в прошлом году вы отменили ужин за два часа, и двадцать кило морепродуктов ушли в мусор."},
+        {"who": "ebru", "es": "O müdürün suçuydu, benim değil. Peki… parayı yarın gönderirim.", "ru": "Это директор виноват, а не я. Ладно… переведу деньги завтра."},
+        {"who": "npc", "es": "Harika. Müdürüne de söyle: bu yıl içecekler ondan.", "ru": "Отлично. И передай директору: в этом году напитки за его счёт."}
+      ],
+      "questions": [
+        {"q": "Почему Кемаль просит предоплату?", "kind": "stance", "options": ["В прошлом году ужин отменили за два часа", "Цены выросли", "Эбру ему не нравится"], "answer": 0},
+        {"q": "Как Эбру восприняла просьбу о предоплате?", "kind": "stance", "options": ["Обрадовалась", "Обиделась: решила, что ей не доверяют", "Сразу заплатила"], "answer": 1},
+        {"q": "Кого Эбру винит в прошлогодней отмене?", "kind": "stance", "options": ["Кемаля", "Директора", "Погоду"], "answer": 1},
+        {"q": "Что Кемаль имел в виду: «напитки за его счёт»?", "kind": "stance", "options": ["Шутливо наказывает директора за прошлый год", "Напитки бесплатные", "Директор не пьёт"], "answer": 0}
+      ],
+      "gloss": {"şirket": "фирма", "yemeğinde": "на ужине", "ayrı": "отдельный", "salon": "зал", "tadım": "дегустация", "menüsü": "меню", "memnuniyetle": "с удовольствием", "şarap": "вино", "listemiz": "наш список", "kızartma": "жареное", "ekibimin": "моей команды", "diyette": "на диете", "yüzde": "процент", "ürünü": "продукт (deniz ürünü — морепродукты)", "çöpe": "в мусор", "müdürün": "директора", "suçuydu": "была вина", "müdürüne": "своему директору"}
+    },
+    {
+      "id": "sc:restaurant.4",
+      "chapter": 4,
+      "npc": "kemal",
+      "lines": [
+        {"who": "npc", "es": "Bugün yemek yapmak içimden gelmiyor. Orman bu gece bana ne anlattı, biliyor musun?", "ru": "Сегодня мне не хочется готовить. Знаешь, что мне ночью рассказал лес?"},
+        {"who": "hero", "es": "Ne?", "ru": "Что?"},
+        {"who": "npc", "es": "Ebru'nun sesini duydum: “Kemal Usta eski yağla pişiriyor.” Yirmi yıllık arkadaşlıktan sonra!", "ru": "Я слышал голос Эбру: «Кемаль-уста готовит на старом масле». И это после двадцати лет дружбы!"},
+        {"who": "hero", "es": "Onun olduğundan emin misin?", "ru": "Ты уверен, что это была она?"},
+        {"who": "npc", "es": "Eminim. Bunu geçen yılki şirket yemeğinde ekibine söyledi.", "ru": "Уверен. Она сказала это своей команде на прошлогоднем ужине фирмы."},
+        {"who": "hero", "es": "Yağ konusu doğru mu?", "ru": "А про масло это правда?"},
+        {"who": "npc", "es": "Tabii ki değil! Yağım taze, bu ayın.", "ru": "Конечно, нет! Масло у меня свежее, этого месяца."},
+        {"who": "hero", "es": "Şimdi ne yapacaksın?", "ru": "И что ты теперь будешь делать?"},
+        {"who": "npc", "es": "Bilmiyorum. Yeni yemekleri cuma günü ve onun için yemek yapmak içimden gelmiyor.", "ru": "Не знаю. Их новый ужин в пятницу, и мне не хочется для неё готовить."}
+      ],
+      "questions": [
+        {"q": "Чей голос Кемаль слышал из леса?", "options": ["Голос Эбру", "Голос Фатмы", "Свой"], "answer": 0},
+        {"q": "Что говорил голос?", "options": ["Что Кемаль готовит на старом масле", "Что в ресторане дорого", "Что Кемаль опаздывает"], "answer": 0},
+        {"q": "Какое у Кемаля масло на самом деле?", "options": ["Старое", "Свежее, этого месяца", "Чужое"], "answer": 1},
+        {"q": "Когда новый ужин фирмы?", "options": ["Завтра", "В пятницу", "Через месяц"], "answer": 1}
+      ],
+      "gloss": {"içimden": "мне хочется (içimden gelmek)", "ebru": "Эбру", "kemal": "Кемаль", "yağla": "на масле", "pişiriyor": "готовит", "yıllık": "летний (о сроке)", "arkadaşlıktan": "дружбы", "olduğundan": "что это была (она)", "yılki": "прошлогодний (geçen yılki)", "şirket": "фирма", "yemeğinde": "на ужине", "ekibine": "своей команде", "yağ": "масло", "yağım": "моё масло", "taze": "свежий"}
     }
   ]
 }

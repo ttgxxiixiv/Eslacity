@@ -79,6 +79,54 @@
         {"q": "Почему Керем не может идти?", "options": ["Он занят", "У него сломана лодыжка", "Он боится"], "answer": 1}
       ],
       "gloss": {"orhan": "Орхан", "muhafızı": "страж (muhafız)", "muhafızın": "стража", "güzelmiş": "было вкусно (говорит)", "susadığında": "когда хочется пить", "görünüyormuş": "появляется (говорят)", "kayboluyormuş": "исчезает (говорят)", "yaşadığını": "что живёт", "gördüğüne": "тому, что видишь", "duyduğuna": "тому, что слышишь", "istediğin": "как ты хотел", "almamıştım": "не взял (тогда)"}
+    },
+    {
+      "id": "wh:cafe.4",
+      "chapter": 4,
+      "mode": "overhear",
+      "npc": "hasan",
+      "lines": [
+        {"who": "npc", "es": "Pencerenin yanındaki genci gördün mü? Dört saattir tek bir çayla oturuyor.", "ru": "Видел парня у окна? Четыре часа сидит с одним стаканом чая."},
+        {"who": "cemil", "es": "Uzaktan çalışıyordur. Buradan yani. Kuzenim de öyle yapıyor, evde odaklanamıyormuş.", "ru": "Наверное, работает удалённо. Ну, отсюда. Мой двоюродный брат тоже так делает, говорит, дома не может сосредоточиться."},
+        {"who": "npc", "es": "Olabilir, ama bahçe tıklım tıklım, insanlar ayakta bekliyor. Burası ofis değil.", "ru": "Может быть, но сад битком, люди ждут стоя. Здесь не офис."},
+        {"who": "cemil", "es": "Ama kimseyi rahatsız etmiyor. Her gün geliyor, sadık bir müşteri.", "ru": "Но он же никому не мешает. Приходит каждый день, постоянный клиент."},
+        {"who": "npc", "es": "Prizimin sadık müşterisi, demek istedin. Her şeyini burada şarj ediyor: telefon, bilgisayar…", "ru": "Постоянный клиент моей розетки, ты хотел сказать. Всё тут заряжает: телефон, компьютер…"},
+        {"who": "cemil", "es": "Tamam, tamam. O zaman bir yazı as: “Bir çay, bir saat.” Bakalım anlayacak mı.", "ru": "Ладно, ладно. Тогда повесь объявление: «Один чай — один час». Посмотрим, поймёт ли."},
+        {"who": "npc", "es": "Ve bütün sokakta huysuz diye mi tanınayım? Hayır, sabredeceğim.", "ru": "И прослыть ворчуном на всю улицу? Нет, лучше потерплю."},
+        {"who": "cemil", "es": "O zaman şikâyet etme. Bana bir çay daha ver, ben zaten gidiyorum.", "ru": "Тогда не жалуйся. Налей мне ещё чаю — я-то как раз ухожу."}
+      ],
+      "questions": [
+        {"q": "Чем недоволен Хасан-уста?", "kind": "stance", "options": ["Парень у окна четыре часа сидит с одним чаем", "Чай остыл", "Джемиль опоздал"], "answer": 0},
+        {"q": "Что Хасан имел в виду: «постоянный клиент моей розетки»?", "kind": "stance", "options": ["Парень чинит розетки", "Парень приходит только заряжать вещи", "Парень работает электриком"], "answer": 1},
+        {"q": "Как Джемиль относится к этому парню?", "kind": "stance", "options": ["Защищает его: тот никому не мешает", "Хочет его выгнать", "Не знает его"], "answer": 0},
+        {"q": "Почему Хасан не хочет вешать объявление?", "kind": "stance", "options": ["Не хочет прослыть ворчуном", "Нет бумаги", "Не умеет писать"], "answer": 0}
+      ],
+      "gloss": {"pencerenin": "окна", "saattir": "уже … часов", "çalışıyordur": "наверное, работает", "kuzenim": "мой двоюродный брат", "odaklanamıyormuş": "не может сосредоточиться (говорит)", "prizimin": "моей розетки", "yazı": "надпись, объявление", "as": "повесь", "huysuz": "ворчун", "tanınayım": "чтобы меня знали", "sabredeceğim": "потерплю"}
+    },
+    {
+      "id": "sc:cafe.4",
+      "chapter": 4,
+      "npc": "hasan",
+      "lines": [
+        {"who": "npc", "es": "Sonunda geldin! Sana bir mektup var. Arda'dan, eski Tüccar'dan.", "ru": "Наконец-то! Тебе письмо. От Арды, бывшего Купца."},
+        {"who": "hero", "es": "Ne yazıyor?", "ru": "Что он пишет?"},
+        {"who": "npc", "es": "“Yine ormanda yaşıyorum. Ağaçlar, insanların birbiri hakkında arkadan söylediği her şeyi tekrarlıyor.”", "ru": "«Я снова живу в лесу. Деревья повторяют всё, что люди говорят друг о друге за спиной»."},
+        {"who": "hero", "es": "Her şeyi mi? Burada söylediklerimizi de mi?", "ru": "Всё? И то, что мы говорим здесь?"},
+        {"who": "npc", "es": "Öyle görünüyor. Ormanın şehrimizin sesleriyle dolu olduğunu yazıyor: dedikodu, şikâyet, kavga.", "ru": "Похоже, да. Пишет, что лес полон голосов нашего города: сплетни, жалобы, ссоры."},
+        {"who": "hero", "es": "Peki ne olacak?", "ru": "И что тогда?"},
+        {"who": "npc", "es": "Bu gürültüde Ormanın Muhafızı yolu duyamıyor. Kimse geçemiyor.", "ru": "При таком шуме Хранительница леса не слышит тропу. Никто не может пройти."},
+        {"who": "hero", "es": "Ne yapabiliriz?", "ru": "Что мы можем сделать?"},
+        {"who": "npc", "es": "Arda'ya göre barışla biten her kavga ormanı biraz daha sessizleştiriyor.", "ru": "Арда пишет, что каждая ссора, которая закончилась миром, делает лес немного тише."},
+        {"who": "hero", "es": "O zaman insanlarla konuşmak lazım.", "ru": "Значит, надо говорить с людьми."},
+        {"who": "npc", "es": "Evet. Benim ailemden başla: Kerem seninle ormana gelmek istiyor, ben istemiyorum.", "ru": "Да. И начни с моей семьи: Керем хочет пойти с тобой в лес, а я не хочу."}
+      ],
+      "questions": [
+        {"q": "От кого письмо?", "options": ["От Арды", "От Керема", "От Орхана"], "answer": 0},
+        {"q": "Что повторяют деревья?", "options": ["Песни", "То, что люди говорят друг о друге за спиной", "Только имена"], "answer": 1},
+        {"q": "Почему никто не может пройти через лес?", "options": ["Хранительница не слышит тропу из-за шума", "Лес горит", "Дорогу закрыли"], "answer": 0},
+        {"q": "Что делает лес тише?", "options": ["Деньги", "Ссора, которая закончилась миром", "Тишина в чайной"], "answer": 1}
+      ],
+      "gloss": {"arda": "Арда", "tüccar": "Купец", "söylediği": "что говорят", "tekrarlıyor": "повторяют", "söylediklerimizi": "то, что мы говорим", "şehrimizin": "нашего города", "muhafızı": "Хранительница (muhafız)", "biten": "который закончился", "sessizleştiriyor": "делает тише", "ailemden": "с моей семьи"}
     }
   ]
 }

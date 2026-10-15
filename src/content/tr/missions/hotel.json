@@ -60,6 +60,31 @@
         "reviewq": {"kind": "answer", "task": "Скажите, что напишете хороший отзыв.", "branches": [{"phrase": "ph:hotel.guzel-yorum", "next": "end"}], "wrong": {"es": "Şikâyet mi? Neden?", "ru": "Жалоба? Почему?"}},
         "end": {"kind": "say", "es": "Çok teşekkürler. Arda'nın zarfını da alın: gerçek parçalar. Bu da çöl haritasından benim parçam.", "ru": "Большое спасибо. И возьмите конверт Арды: настоящие обрывки. А это мой обрывок карты пустыни."}
       }
+    },
+    {
+      "id": "ms:hotel.4",
+      "chapter": 4,
+      "npc": "leyla",
+      "scene": "sc:hotel.4",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Hoş geldin. Bugün otel dolu: herkes toplantı için geldi. Bu gece kalıyor musun?", "ru": "Добро пожаловать. Сегодня отель полон: все приехали на собрание. Остаёшься ночевать?", "next": "roomq"},
+        "roomq": {"kind": "answer", "task": "Спросите, есть ли свободные номера.", "branches": [{"phrase": "ph:hotel.bos-oda-var-mi", "next": "room"}], "wrong": {"es": "Kahvaltı mı? Kahvaltı yedide.", "ru": "Завтрак? Завтрак в семь."}},
+        "room": {"kind": "say", "es": "Bir tane kaldı, küçük. Tam çatının altında.", "ru": "Остался один, маленький. Под самой крышей.", "next": "viewq"},
+        "viewq": {"kind": "answer", "task": "Спросите, видно ли из номера море.", "branches": [{"phrase": "ph:hotel.deniz-gorunuyor", "next": "view"}], "wrong": {"es": "Kaçıncı kat mı? Beşinci.", "ru": "Какой этаж? Пятый."}},
+        "view": {"kind": "say", "es": "Otoparkı görüyor, kusura bakma. Dinle, bir sorunum var: Arda burada kalmak istiyor, ama ona güvenmiyorum. Kısa süre önce yalan satıyordu. Ona oda vermeyeceğim.", "ru": "Вид на парковку, прости. Слушай, у меня проблема: Арда хочет здесь остановиться, но я ему не доверяю. Недавно он торговал ложью. Не дам ему номер.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:hotel.ikinci-sans", "next": "object", "move": "object"}, {"phrase": "ph:hotel.misafirlerini-dusun", "next": "concede", "move": "concede"}, {"phrase": "ph:hotel.burada-calissin", "next": "compromise", "move": "compromise"}], "wrong": {"es": "Ne dedin? Telefon çalıyor, bir daha söyle.", "ru": "Что ты сказал? Телефон звонит, повтори."}},
+        "object": {"kind": "say", "es": "İkinci bir şans mı? … Doğru. Beyaz şehrin muhafızına doğruyu ilk o söyledi. Ona oda veriyorum.", "ru": "Второй шанс? …Это правда. Он первым сказал правду стражнице белого города. Даю ему номер.", "next": "ready"},
+        "concede": {"kind": "say", "es": "Teşekkürler. Otel sahibi misafirlerini düşünmeli.", "ru": "Спасибо. Хозяйка отеля должна думать о своих гостях.", "next": "ready"},
+        "compromise": {"kind": "say", "es": "Burada mı çalışsın? Geceleri resepsiyonda birine ihtiyacım var… Anlaştık!", "ru": "Работать здесь? Мне нужен кто-то на ресепшене по ночам… Договорились!", "next": "ready"},
+        "ready": {"kind": "say", "es": "Odan hazır. Yarın kaçta çıkıyorsun?", "ru": "Твой номер готов. Когда ты завтра выезжаешь?", "next": "lateq"},
+        "lateq": {"kind": "answer", "task": "Спросите, можно ли выехать попозже.", "branches": [{"phrase": "ph:hotel.gec-cikis", "next": "late"}], "wrong": {"es": "Fatura mı? Yarın veririm.", "ru": "Счёт? Дам завтра."}},
+        "late": {"kind": "say", "es": "Tabii, saat ikide çıkabilirsin. Toplantı geç bitecek.", "ru": "Конечно, можно выехать в два. Собрание закончится поздно.", "next": "wakeq"},
+        "wakeq": {"kind": "answer", "task": "Спросите, можно ли заказать звонок-будильник.", "branches": [{"phrase": "ph:hotel.uyandirma-servisi", "next": "wake"}], "wrong": {"es": "Oda servisi mi? Gece yok, üzgünüm.", "ru": "Обслуживание в номерах? Ночью нет, прости."}},
+        "wake": {"kind": "say", "es": "Evet, seni saat onda ararım. Başka bir şey?", "ru": "Да, позвоню тебе в десять. Что-нибудь ещё?", "next": "reviewq"},
+        "reviewq": {"kind": "answer", "task": "Скажите, что напишете хороший отзыв.", "branches": [{"phrase": "ph:hotel.guzel-yorum", "next": "end"}], "wrong": {"es": "Anahtar mı? Anahtarın elinde.", "ru": "Ключ? Ключ у тебя в руке."}},
+        "end": {"kind": "say", "es": "Teşekkürler! Bir de bunu al: Arda ormandan senin için getirdi. Haritanın bir parçası. Neredeyse tamamlandı, diyor.", "ru": "Спасибо! И держи: Арда принёс это из леса для тебя. Обрывок карты. Говорит, она почти собрана."}
+      }
     }
   ]
 }

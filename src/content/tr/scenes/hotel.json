@@ -75,6 +75,52 @@
         {"q": "Куда ушёл Арда?", "options": ["В аэропорт, чтобы вернуться в лес", "В пустыню", "На пристань"], "answer": 0}
       ],
       "gloss": {"resepsiyonda": "на стойке", "zarf": "конверт", "arda": "Арда", "devesiyle": "со своим верблюдом", "gerçekleri": "настоящие", "çaldıkları": "те, что он украл", "muhafız": "стражница", "doğruluğun": "правды", "satılmadığını": "что не продаётся", "sessizce": "тихо", "havalimanına": "в аэропорт", "ormana": "в лес", "dönüyormuş": "возвращается (говорит)"}
+    },
+    {
+      "id": "wh:hotel.4",
+      "chapter": 4,
+      "mode": "overhear",
+      "npc": "leyla",
+      "lines": [
+        {"who": "kemal", "es": "Bayramda bütün ailem köyden geliyor. Beş oda lazım.", "ru": "На праздник ко мне из деревни приезжает вся семья. Мне нужно пять номеров."},
+        {"who": "npc", "es": "Beş mi? Otel yüzde yüz dolu. Bekleme listesi bile var.", "ru": "Пять? У нас заполнено на сто процентов. Есть даже лист ожидания."},
+        {"who": "kemal", "es": "Bir dost için her zaman bir şey bulunur. Deniz manzarası olmasa da olur.", "ru": "Для друга всегда что-нибудь найдётся. Пусть даже без вида на море."},
+        {"who": "npc", "es": "Bir dost için büyük odaya fazladan bir yatak koyabilirim. Ama beş oda, imkânsız.", "ru": "Для друга могу поставить дополнительную кровать в большом номере. Но пять номеров — невозможно."},
+        {"who": "kemal", "es": "Bir yatak mı? On iki kişiyiz. Teyzem de kimseyle aynı odada uyumaz.", "ru": "Одну кровать? Нас двенадцать. А моя тётя ни с кем в одной комнате не спит."},
+        {"who": "npc", "es": "Gerçekten üzgünüm. Havadan oda yapamam.", "ru": "Мне правда жаль. Номера из воздуха я не сделаю."},
+        {"who": "kemal", "es": "Ortağın bana akşam yemeğine gelse? Ona hep en iyi masayı ayırırım.", "ru": "А если твой компаньон придёт ко мне поужинать? Я всегда оставляю ему лучший столик."},
+        {"who": "npc", "es": "Bana rüşvet mi teklif ediyorsun? Balık böreğiyle rüşvet mi?", "ru": "Ты что, предлагаешь мне взятку? Взятку рыбным пирогом?"},
+        {"who": "kemal", "es": "Rüşvet değil. Misafirperverlik değişimi.", "ru": "Не взятку. Обмен гостеприимством."},
+        {"who": "npc", "es": "Kuzenimin pansiyonunu arayayım. Rahat değil, ama ucuz. Teyzene de otelden bir bornoz hediye ederim.", "ru": "Позвоню в пансион моей двоюродной сестры. Там неуютно, зато дёшево. А твоей тёте подарю халат из отеля."}
+      ],
+      "questions": [
+        {"q": "Почему Лейла-ханым не может дать пять номеров?", "kind": "stance", "options": ["Отель заполнен на сто процентов", "Кемаль не заплатил", "Отель на ремонте"], "answer": 0},
+        {"q": "Что Кемаль на самом деле предлагает, зовя компаньона на ужин?", "kind": "stance", "options": ["Взятку ужином за номера", "Просто дружбу", "Новое меню"], "answer": 0},
+        {"q": "Как Лейла относится к его предложению?", "kind": "stance", "options": ["С иронией: «взятка рыбным пирогом»", "Соглашается", "Обижается и уходит"], "answer": 0},
+        {"q": "Чем Лейла всё-таки помогает?", "kind": "stance", "options": ["Звонит в пансион сестры и дарит тёте халат", "Даёт пять номеров", "Ничем"], "answer": 0}
+      ],
+      "gloss": {"bayramda": "на праздник", "köyden": "из деревни", "yüzde": "процент", "bekleme": "ожидание", "listesi": "список", "dost": "друг", "manzarası": "вид", "fazladan": "дополнительный", "imkânsız": "невозможно", "imkansız": "невозможно", "teyzem": "моя тётя", "havadan": "из воздуха", "ortağın": "твой компаньон", "ayırırım": "оставляю", "rüşvet": "взятка", "teklif": "предложение", "böreğiyle": "пирогом", "misafirperverlik": "гостеприимство", "değişimi": "обмен", "kuzenimin": "моей двоюродной сестры", "pansiyonunu": "пансион", "teyzene": "твоей тёте", "bornoz": "халат"}
+    },
+    {
+      "id": "sc:hotel.4",
+      "chapter": 4,
+      "npc": "leyla",
+      "lines": [
+        {"who": "npc", "es": "Günaydın! Biliyor musun? Özel bir misafirimiz var: Arda bize yardım etmek için ormandan döndü.", "ru": "Доброе утро! Знаешь что? У нас особый гость: Арда вернулся из леса, чтобы нам помочь."},
+        {"who": "hero", "es": "Orman hakkında ne anlatıyor?", "ru": "Что он рассказывает о лесе?"},
+        {"who": "npc", "es": "Orada her gün daha sessiz olduğunu. Biri barıştıkça bir ses kayboluyormuş.", "ru": "Что там с каждым днём тише. Каждый раз, когда кто-то мирится, один голос пропадает."},
+        {"who": "hero", "es": "Hâlâ ses kaldı mı?", "ru": "А голоса ещё остались?"},
+        {"who": "npc", "es": "Sadece bir tane, ama çok yüksek: Orhan'ın korkusu.", "ru": "Только один, зато очень громкий: страх Орхана."},
+        {"who": "hero", "es": "Muhafız ne istiyor?", "ru": "Чего хочет Хранительница?"},
+        {"who": "npc", "es": "Arda diyor ki Orhan'ın doğruyu söylediğini duymak istiyor. Yüz yüze, bütün şehrin önünde.", "ru": "Арда говорит, она хочет услышать, как Орхан скажет правду. В лицо, перед всем городом."}
+      ],
+      "questions": [
+        {"q": "Кто вернулся из леса?", "options": ["Арда", "Орхан", "Керем"], "answer": 0},
+        {"q": "Когда в лесу пропадает голос?", "options": ["Когда кто-то мирится", "Когда идёт дождь", "Ночью"], "answer": 0},
+        {"q": "Какой голос ещё остался?", "options": ["Страх Орхана", "Голос Лейлы", "Голос вороны"], "answer": 0},
+        {"q": "Чего хочет Хранительница?", "options": ["Чтобы Орхан сказал правду перед всем городом", "Чтобы все ушли из леса", "Новую карту"], "answer": 0}
+      ],
+      "gloss": {"misafirimiz": "наш гость", "arda": "Арда", "barıştıkça": "каждый раз, когда мирится", "kayboluyormuş": "пропадает (говорят)", "orhan": "Орхан", "korkusu": "его страх", "muhafız": "Хранительница", "söylediğini": "что говорит"}
     }
   ]
 }

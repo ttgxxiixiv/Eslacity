@@ -60,6 +60,31 @@
         "stylistq": {"kind": "answer", "task": "Спросите, работает ли сегодня стилист.", "branches": [{"phrase": "ph:barber.kuafor-bugun", "next": "end"}], "wrong": {"es": "Ne dedin? Makas çok gürültülü!", "ru": "Что ты сказал? Ножницы очень шумят!", "fem": {"ru": "Что ты сказала? Ножницы очень шумят!"}}},
         "end": {"kind": "say", "es": "Saat beşte gelecek. Al, bu da çöl haritasından benim parçam. Devesiyle adamı görürsen, ona ormanını sor.", "ru": "Она придёт к пяти. И держи мой обрывок карты пустыни. Если увидишь человека с верблюдом, спроси его про его лес."}
       }
+    },
+    {
+      "id": "ms:barber.4",
+      "chapter": 4,
+      "npc": "yusuf",
+      "scene": "sc:barber.4",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Otur. Bugün ne yapalım?", "ru": "Садись. Что тебе сегодня сделать?", "next": "beardq"},
+        "beardq": {"kind": "answer", "task": "Попросите только подровнять бороду.", "branches": [{"phrase": "ph:barber.sakal-duzelt", "next": "beard"}], "wrong": {"es": "Jöle mi? Bugün jöle yok.", "ru": "Гель? Сегодня геля нет."}},
+        "beard": {"kind": "say", "es": "Tamam. Ya saçın? Uçları biraz kırık.", "ru": "Готово. А волосы? Кончики немного секутся.", "next": "tipsq"},
+        "tipsq": {"kind": "answer", "task": "Скажите, что кончики секутся, и попросите их подстричь.", "branches": [{"phrase": "ph:barber.uclari-kirik", "next": "tips"}], "wrong": {"es": "Kolonya mı? Sonra, sonra.", "ru": "Одеколон? Потом, потом."}},
+        "tips": {"kind": "say", "es": "Görüyorum. O zaman bir de saç maskesi. Dinle, her şeyi düşündüm: bütün sokağa pipolu adamın İsmail olduğunu anlatacağım.", "ru": "Вижу. Тогда ещё маска для волос. Слушай, я всё обдумал: расскажу всей улице, что человек с трубкой — Исмаил.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:barber.kanitin-yok", "next": "object", "move": "object"}, {"phrase": "ph:barber.supheni-anliyorum", "next": "concede", "move": "concede"}, {"phrase": "ph:barber.yuzune-sor", "next": "compromise", "move": "compromise"}], "wrong": {"es": "Ne? Makine çok gürültülü, bir daha söyle.", "ru": "Что? Машинка очень шумит, повтори."}},
+        "object": {"kind": "say", "es": "Kanıt mı? … Doğru, sadece bir koku var. Koku da kanıt değil.", "ru": "Доказательств? …Правда, у меня только запах. А запах — не доказательство.", "next": "more"},
+        "concede": {"kind": "say", "es": "Gerçekten mi? Sonunda biri beni dinliyor. Gerçi… ben de yüzde yüz emin değilim.", "ru": "Правда? Наконец-то меня кто-то слушает. Хотя… я и сам не уверен на все сто.", "next": "more"},
+        "compromise": {"kind": "say", "es": "Yüzüne mi? Muhafızın istediği de bu, değil mi? Peki, yarın iskeleye giderim.", "ru": "В лицо? Этого ведь и хочет Хранительница? Ладно, завтра схожу на пристань.", "next": "more"},
+        "more": {"kind": "say", "es": "Peki, saçında seni başka ne rahatsız ediyor?", "ru": "Ладно, что ещё тебя беспокоит в волосах?", "next": "grayq"},
+        "grayq": {"kind": "answer", "task": "Скажите, что у вас много седых волос.", "branches": [{"phrase": "ph:barber.beyaz-sac", "next": "gray"}], "wrong": {"es": "Kuru mu? Maske onun için.", "ru": "Сухие? Маска как раз для этого."}},
+        "gray": {"kind": "say", "es": "Biraz, korkacak bir şey yok. Ne yapalım?", "ru": "Немного, ничего страшного. Что сделать?", "next": "rootsq"},
+        "rootsq": {"kind": "answer", "task": "Предложите закрасить только седину.", "branches": [{"phrase": "ph:barber.sadece-beyazlar", "next": "roots"}], "wrong": {"es": "Hepsini mi boyayalım? Ben önermem.", "ru": "Покрасить всё? Я бы не советовал."}},
+        "roots": {"kind": "say", "es": "Oldu. Çok yakıştı. Yine gelecek misin?", "ru": "Готово. Тебе очень идёт. Придёшь ещё?", "next": "apptq"},
+        "apptq": {"kind": "answer", "task": "Скажите, что хотите записаться на завтра.", "branches": [{"phrase": "ph:barber.yarina-randevu", "next": "end"}], "wrong": {"es": "Bugün mü? Bugün dolu.", "ru": "Сегодня? Сегодня всё занято."}},
+        "end": {"kind": "say", "es": "Yarın saat onda. Bir de şunu al: pipolu adam bunu koltukta unuttu. Ormanın haritasından bir parça, içinde de siyah bir tüy.", "ru": "Завтра в десять. И держи: человек с трубкой оставил это в кресле. Обрывок карты леса, а в нём чёрное перо."}
+      }
     }
   ]
 }

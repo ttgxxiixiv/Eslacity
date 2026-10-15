@@ -65,6 +65,31 @@
         "drinkq": {"kind": "answer", "task": "Скажите, что после тренировки пьёте много воды.", "branches": [{"phrase": "ph:gym.antrenmandan-sonra", "next": "end"}], "wrong": {"es": "Kahve mi? Hayır, kahve olmaz!", "ru": "Кофе? Нет, кофе нельзя!"}},
         "end": {"kind": "say", "es": "Çok iyi. Al, çöl haritasından benim parçam. Unutma: çölde koşma, yürü. Kaçan değil, varan ol.", "ru": "Отлично. Держи мой обрывок карты пустыни. И помни: в пустыне не беги, иди шагом. Будь не тем, кто убегает, а тем, кто доходит."}
       }
+    },
+    {
+      "id": "ms:gym.4",
+      "chapter": 4,
+      "npc": "deniz",
+      "scene": "sc:gym.4",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Antrenman yapalım mı? Bugün sinirliyim: hep kargalı o adamı düşünüyorum.", "ru": "Потренируемся? Я сегодня нервничаю: всё думаю о том человеке с вороной.", "next": "muscleq"},
+        "muscleq": {"kind": "answer", "task": "Скажите, что, кажется, потянули мышцу.", "branches": [{"phrase": "ph:gym.kasimi-cektim", "next": "muscle"}], "wrong": {"es": "Su mu? Antrenmandan sonra.", "ru": "Вода? После тренировки."}},
+        "muscle": {"kind": "say", "es": "Nerede? Sırtında mı? Bu duruştan: yanlış oturuyorsun.", "ru": "Где? В спине? Это от осанки: ты неправильно сидишь.", "next": "postureq"},
+        "postureq": {"kind": "answer", "task": "Скажите, что вам нужно исправить осанку.", "branches": [{"phrase": "ph:gym.durusumu-duzeltmem", "next": "posture"}], "wrong": {"es": "Kilo mu? Hayır, kilo değil, duruş.", "ru": "Вес? Нет, дело не в весе, а в осанке."}},
+        "posture": {"kind": "say", "es": "Sırt için egzersizler, her gün. Dinle, karar verdim: yarın altıda o adamı ormana kadar takip edeceğim. Tek başıma.", "ru": "Упражнения для спины, каждый день. Слушай, я решила: завтра в шесть пойду за тем человеком до самого леса. Одна.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:gym.cok-tehlikeli", "next": "object", "move": "object"}, {"phrase": "ph:gym.kimse-yetisemez", "next": "concede", "move": "concede"}, {"phrase": "ph:gym.birlikte-gidelim", "next": "compromise", "move": "compromise"}], "wrong": {"es": "Ne? Müzik çok yüksek, bir daha söyle.", "ru": "Что? Музыка очень громкая, повтори."}},
+        "object": {"kind": "say", "es": "Tehlikeli mi? Belki… Orman koşu bandı değil. Peki, tek başıma gitmem.", "ru": "Опасно? Может быть… Лес — не беговая дорожка. Ладно, одна не пойду.", "next": "first"},
+        "concede": {"kind": "say", "es": "Aynen öyle! Bana kimse yetişemez. Ama dikkatli olacağım, söz.", "ru": "Вот именно! Меня никто не догонит. Но буду осторожна, обещаю.", "next": "first"},
+        "compromise": {"kind": "say", "es": "Birlikte mi? Böylesi daha iyi. Sen konuşursun, gerekirse ben koşarım.", "ru": "Вместе? Так лучше. Ты говоришь, а я бегу, если понадобится.", "next": "first"},
+        "first": {"kind": "say", "es": "Ama önce antrenman. Nereden başlayalım?", "ru": "Но сначала — тренировка. С чего начнём?", "next": "warmq"},
+        "warmq": {"kind": "answer", "task": "Скажите, что сначала нужно размяться.", "branches": [{"phrase": "ph:gym.once-isinmak", "next": "warm"}], "wrong": {"es": "Yoga mı? Yoga akşam.", "ru": "Йога? Йога вечером."}},
+        "warm": {"kind": "say", "es": "Harika! On dakika. Sonra ne lazım?", "ru": "Отлично! Десять минут. А потом что тебе нужно?", "next": "legsq"},
+        "legsq": {"kind": "answer", "task": "Скажите, что вам нужно больше силы в ногах.", "branches": [{"phrase": "ph:gym.bacaklarim-guclu-olmali", "next": "legs"}], "wrong": {"es": "Kollar mı? Kollar yarın.", "ru": "Руки? Руки завтра."}},
+        "legs": {"kind": "say", "es": "O zaman çömelme. Yirmi tane! Hadi… Ne oldu sana?", "ru": "Тогда приседания. Двадцать! Давай… Что с тобой?", "next": "crampq"},
+        "crampq": {"kind": "answer", "task": "Скажите, что у вас свело ногу.", "branches": [{"phrase": "ph:gym.kramp-girdi", "next": "end"}], "wrong": {"es": "Yoruldun mu? Daha on beş tane var!", "ru": "Устал? Ещё пятнадцать!", "fem": {"ru": "Устала? Ещё пятнадцать!"}}},
+        "end": {"kind": "say", "es": "Çek, çek! Geçiyor bile. Al, biraz su iç. Bir de bu: o adamın olduğu bahçede buldum. Ormanın haritasından bir parça.", "ru": "Тяни, тяни! Уже проходит. Держи, попей воды. И вот ещё: я нашла это в саду, где был тот человек. Обрывок карты леса."}
+      }
     }
   ]
 }

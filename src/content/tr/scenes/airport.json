@@ -75,6 +75,51 @@
         {"q": "Что сказал Арда?", "options": ["«Теперь я больше не боюсь слушать»", "«Я никогда не вернусь»", "«Я куплю этот лес»"], "answer": 0}
       ],
       "gloss": {"çölün": "пустыни", "götürdü": "унёс", "ağaçların": "деревьев", "sallanıyordu": "качались", "arda": "Арда", "uçaktaydı": "был в самолёте", "ormandaki": "в лесу", "dinlemekten": "слушать", "inince": "когда сошёл", "sallanmayı": "качаться", "bıraktılar": "перестали", "sakinleştiler": "успокоились"}
+    },
+    {
+      "id": "wh:airport.4",
+      "chapter": 4,
+      "mode": "overhear",
+      "npc": "burak",
+      "lines": [
+        {"who": "npc", "es": "Bavulun otuz iki kilo. En fazla yirmi üç.", "ru": "Твой чемодан весит тридцать два килограмма. Максимум — двадцать три."},
+        {"who": "selin", "es": "Burak, benim, giyim dükkânından! Moda haftasına uçuyorum. İş için.", "ru": "Бурак, это же я, из лавки одежды! Лечу на неделю моды. Это по работе."},
+        {"who": "npc", "es": "Kim olduğunu biliyorum. Ama terazi bilmiyor. Fazla bagaj için altı yüz lira.", "ru": "Я знаю, кто ты. А весы не знают. Шестьсот лир за перевес."},
+        {"who": "selin", "es": "Altı yüz mü? İçinde sadece elbiseler var. Elbiseler hiçbir şey tartmaz.", "ru": "Шестьсот? Там же одни платья. Платья ничего не весят."},
+        {"who": "npc", "es": "Yirmi elbise, altı çift ayakkabı ve… bu ne, ütü mü?", "ru": "Двадцать платьев, шесть пар туфель и… это что, утюг?"},
+        {"who": "selin", "es": "İpek bavulda buruşuyor. Bir profesyonel buruşuk kıyafetle gitmez.", "ru": "Шёлк мнётся в чемодане. Профессионал не приезжает в мятом."},
+        {"who": "npc", "es": "Bak: paltonu ve çizmelerini giy, ütüyü de kabin bagajına koy.", "ru": "Смотри: надень пальто и сапоги, а утюг положи в ручную кладь."},
+        {"who": "selin", "es": "Palto mu? Dışarıda otuz derece var!", "ru": "Пальто? На улице тридцать градусов!"},
+        {"who": "npc", "es": "Uçakta soğuk. Ama altı yüz lira cebinde kalır.", "ru": "В самолёте холодно. Зато шестьсот лир останутся у тебя в кармане."}
+      ],
+      "questions": [
+        {"q": "В чём проблема Селин?", "kind": "stance", "options": ["Чемодан тяжелее нормы", "Она опоздала", "Потеряла паспорт"], "answer": 0},
+        {"q": "Как Селин оправдывает утюг?", "kind": "stance", "options": ["Профессионал не приезжает в мятом", "Это подарок", "Утюг лёгкий"], "answer": 0},
+        {"q": "Что предлагает Бурак?", "kind": "stance", "options": ["Надеть пальто и сапоги, а утюг взять в ручную кладь", "Оставить платья", "Заплатить за перевес"], "answer": 0},
+        {"q": "Что Бурак имел в виду: «зато шестьсот лир останутся в кармане»?", "kind": "stance", "options": ["Потерпеть в пальто выгоднее, чем платить", "Что в самолёте тепло", "Что билет дешёвый"], "answer": 0}
+      ],
+      "gloss": {"bavulun": "твой чемодан", "dükkanından": "из лавки", "moda": "мода", "haftasına": "на неделю", "terazi": "весы", "tartmaz": "не весят", "çift": "пара", "ütü": "утюг", "ipek": "шёлк", "bavulda": "в чемодане", "buruşuyor": "мнётся", "profesyonel": "профессионал", "buruşuk": "мятый", "kıyafetle": "в одежде", "paltonu": "своё пальто", "çizmelerini": "свои сапоги", "ütüyü": "утюг", "bagajına": "в багаж (kabin bagajı — ручная кладь)", "palto": "пальто", "derece": "градус", "cebinde": "в твоём кармане"}
+    },
+    {
+      "id": "sc:airport.4",
+      "chapter": 4,
+      "npc": "burak",
+      "lines": [
+        {"who": "npc", "es": "Bunu duyman lazım! Bu sabah ormanın üstünden uçtum.", "ru": "Ты должен это услышать! Сегодня утром я пролетал над лесом.", "fem": {"ru": "Ты должна это услышать! Сегодня утром я пролетал над лесом."}},
+        {"who": "hero", "es": "Ne gördün?", "ru": "И что ты видел?"},
+        {"who": "npc", "es": "Sis gitmeye başlıyor. Ağaçlar sessiz duruyor, neredeyse hiç kıpırdamıyor.", "ru": "Туман начинает уходить. Деревья стоят тихо, почти не шевелятся."},
+        {"who": "hero", "es": "Gürültü bitti mi?", "ru": "Шум закончился?"},
+        {"who": "npc", "es": "Neredeyse. Ve ormanın ortasında bir ışık gördüm, bir fener gibi.", "ru": "Почти. А в центре леса я видел свет, как от фонаря."},
+        {"who": "hero", "es": "Ormanın Muhafızı mı?", "ru": "Это Хранительница леса?"},
+        {"who": "npc", "es": "Kesin. Yukarıdan, daha önce olmayan bir yol görünüyor.", "ru": "Наверняка. Сверху видна тропа, которой раньше не было."}
+      ],
+      "questions": [
+        {"q": "Где Бурак пролетал утром?", "options": ["Над лесом", "Над морем", "Над пустыней"], "answer": 0},
+        {"q": "Что происходит с туманом?", "options": ["Он начинает уходить", "Он густеет", "Его нет"], "answer": 0},
+        {"q": "Что Бурак видел в центре леса?", "options": ["Свет, как от фонаря", "Пожар", "Ворону"], "answer": 0},
+        {"q": "Что видно сверху?", "options": ["Тропу, которой раньше не было", "Новый дом", "Озеро"], "answer": 0}
+      ],
+      "gloss": {"uçtum": "пролетел", "sis": "туман", "gitmeye": "уходить", "kıpırdamıyor": "не шевелится", "gürültü": "шум", "ortasında": "в центре", "fener": "фонарь", "muhafızı": "Хранительница (muhafız)", "yukarıdan": "сверху", "olmayan": "которой не было"}
     }
   ]
 }

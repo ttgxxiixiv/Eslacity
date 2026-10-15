@@ -75,6 +75,53 @@
         {"q": "Когда он собирается купить город?", "options": ["В ночь полнолуния", "Завтра", "Через сто лет"], "answer": 0}
       ],
       "gloss": {"suyunu": "воду", "devesiyle": "со своим верблюдом", "çöldeki": "в пустыне", "paralarına": "его деньги", "dokununca": "когда я потрогал", "döndüler": "превратились", "sahtekârlık": "мошенничество", "adına": "на имя", "alacakmış": "купит (говорит)", "alınır": "покупается", "bankamda": "в моём банке", "alınmaz": "не покупается"}
+    },
+    {
+      "id": "wh:bank.4",
+      "chapter": 4,
+      "mode": "overhear",
+      "npc": "murat",
+      "lines": [
+        {"who": "fatma", "es": "Teyzemden kalan bütün parayı çekmek istiyorum. Yeğenim, kripto parayla on katına çıkaracağını söylüyor.", "ru": "Хочу снять все деньги, что остались от тёти. Племянник говорит, что на криптовалюте увеличит их в десять раз."},
+        {"who": "npc", "es": "Yeğeniniz çok iyimser. Bir haftada her şeyi kaybedebileceğinizi de söyledi mi?", "ru": "Ваш племянник большой оптимист. А он сказал вам, что всё можно потерять за неделю?"},
+        {"who": "fatma", "es": "Tabii, siz başka ne diyeceksiniz. Paranın burada kalması bankanın işine geliyor.", "ru": "Ну конечно, что вы ещё скажете. Банку выгодно, чтобы деньги остались здесь."},
+        {"who": "npc", "es": "Doğru, itiraz etmiyorum. Ama bu masada ağlayan müşteriler gördüm, hem de enflasyon yüzünden değil.", "ru": "Это правда, не спорю. Но я видел, как клиенты плакали за этим столом, и не из-за инфляции."},
+        {"who": "fatma", "es": "Peki ne yapayım? Hesapta, bu fiyatlarla, para her yıl değer kaybediyor.", "ru": "И что мне делать? На счёте, при нынешних ценах, деньги с каждым годом дешевеют."},
+        {"who": "npc", "es": "Orada haklısınız. Tavsiyem: bir kısmı emeklilik planına, bir kısmı sabit faize. Oynamak isterseniz, sadece kaybetmeyi göze alabileceğiniz parayla.", "ru": "Тут вы правы. Мой совет: часть в пенсионный план, часть под фиксированную ставку. А если хочется поиграть — только тем, что не жалко потерять."},
+        {"who": "fatma", "es": "Kaybetmeyi göze almak mı? Ben bir domatesi bile kaybetmem, Murat Bey.", "ru": "Не жалко потерять? Я даже помидор не теряю, Мурат-бей."},
+        {"who": "npc", "es": "O zaman kripto para konusunda cevabınızı zaten verdiniz.", "ru": "Значит, насчёт криптовалюты вы себе уже ответили."},
+        {"who": "fatma", "es": "Peki… yeğenimle konuşacağım. Ama zengin olursa, suçlu sizsiniz.", "ru": "Ладно… поговорю с племянником. Но если он разбогатеет, виноваты будете вы."}
+      ],
+      "questions": [
+        {"q": "Чего хочет Фатма?", "kind": "stance", "options": ["Снять наследство тёти ради криптовалюты", "Открыть счёт", "Взять кредит"], "answer": 0},
+        {"q": "Что Фатма думает о совете банкира сначала?", "kind": "stance", "options": ["Что банку выгодно держать её деньги", "Что он прав", "Что он шутит"], "answer": 0},
+        {"q": "Что советует Мурат-бей?", "kind": "stance", "options": ["Часть в пенсионный план, часть под ставку, играть только тем, что не жалко", "Всё в криптовалюту", "Держать деньги дома"], "answer": 0},
+        {"q": "Что Мурат-бей имел в виду: «насчёт криптовалюты вы себе уже ответили»?", "kind": "stance", "options": ["Раз ей жалко даже помидор, рисковать ей не стоит", "Что криптовалюта запрещена", "Что она уже купила её"], "answer": 0}
+      ],
+      "gloss": {"teyzemden": "от моей тёти", "yeğenim": "мой племянник", "kripto": "крипто-", "katına": "в … раз", "çıkaracağını": "что увеличит", "yeğeniniz": "ваш племянник", "iyimser": "оптимист", "kaybedebileceğinizi": "что вы можете потерять", "diyeceksiniz": "скажете", "işine": "выгодно (işine gelmek)", "ağlayan": "плачущие", "enflasyon": "инфляция", "değer": "ценность", "kaybediyor": "теряет", "tavsiyem": "мой совет", "emeklilik": "пенсия", "planına": "в план", "sabit": "фиксированный", "faize": "под процент", "göze": "(göze almak — решиться, не жалеть)", "alabileceğiniz": "которые вы можете", "domatesi": "помидор", "cevabınızı": "свой ответ", "yeğenimle": "с племянником", "zengin": "богатый", "suçlu": "виноватый", "murat": "Мурат"}
+    },
+    {
+      "id": "sc:bank.4",
+      "chapter": 4,
+      "npc": "murat",
+      "lines": [
+        {"who": "npc", "es": "Günaydın. Korkarım bugün kuyruk çok uzun.", "ru": "Доброе утро. Боюсь, сегодня очень длинная очередь."},
+        {"who": "hero", "es": "Ne oldu?", "ru": "Что случилось?"},
+        {"who": "npc", "es": "Dün gece orman benim sesimle konuştu: “Bankada para yok.” Şimdi herkes birikimini çekmek istiyor.", "ru": "Вчера ночью лес сказал моим голосом: «В банке нет денег». И теперь все хотят снять сбережения."},
+        {"who": "hero", "es": "Bu doğru mu?", "ru": "А это правда?"},
+        {"who": "npc", "es": "Tabii ki hayır! Ama garip bir şey oldu. Dün yaşlı bir beyefendi çok eski paraları bozdurdu.", "ru": "Конечно, нет! Но случилось кое-что странное. Вчера пожилой господин обменял очень старые монеты."},
+        {"who": "hero", "es": "Eski mi? Ne kadar eski?", "ru": "Старые? Насколько старые?"},
+        {"who": "npc", "es": "Yüz yıllık. Çöl kulesinin muhafızının zamanındaki paralar gibi.", "ru": "Столетней давности. Как монеты времён стража пустынной башни."},
+        {"who": "hero", "es": "O beyefendi kimdi?", "ru": "А кто был этот господин?"},
+        {"who": "npc", "es": "Bunu söyleyemem: gizli. Sadece şunu söyleyeyim: üstünde pipo tütünü kokusu vardı.", "ru": "Этого я сказать не могу: это тайна. Скажу только, что от него пахло трубочным табаком."}
+      ],
+      "questions": [
+        {"q": "Что лес сказал голосом Мурата-бея?", "options": ["«В банке нет денег»", "«Банк закрывается»", "«Ставки растут»"], "answer": 0},
+        {"q": "Что теперь делают люди?", "options": ["Снимают сбережения", "Открывают счета", "Берут кредиты"], "answer": 0},
+        {"q": "Что обменял пожилой господин?", "options": ["Монеты столетней давности", "Доллары", "Золото"], "answer": 0},
+        {"q": "Чем от него пахло?", "options": ["Трубочным табаком", "Морем", "Цветами"], "answer": 0}
+      ],
+      "gloss": {"korkarım": "боюсь", "birikimini": "свои сбережения", "beyefendi": "господин", "paraları": "монеты, деньги", "bozdurdu": "разменял", "yıllık": "летний, давности", "kulesinin": "башни", "muhafızının": "стража", "zamanındaki": "времён", "gizli": "тайный", "pipo": "трубка", "tütünü": "табак", "kokusu": "запах"}
     }
   ]
 }

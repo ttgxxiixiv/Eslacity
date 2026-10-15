@@ -75,6 +75,53 @@
         {"q": "Что, по словам Джана, бывает с лжецами?", "options": ["Лжец — это иногда просто тот, кому страшно", "Лжец всегда злой", "Лжец всегда богат"], "answer": 0}
       ],
       "gloss": {"koyda": "в бухте", "oturmuş": "сидел", "konuşturur": "заставляет разговориться", "ormanında": "в его лесу", "fısıldıyormuş": "шепчут (говорит)", "duymamak": "не слышать", "satıyormuş": "продаёт (говорит)", "olduğunu": "что есть", "yalancı": "лжец", "korkan": "тот, кто боится"}
+    },
+    {
+      "id": "wh:beach.4",
+      "chapter": 4,
+      "mode": "overhear",
+      "npc": "can",
+      "lines": [
+        {"who": "riza", "es": "Günaydın delikanlı. Her zamanki gibi denize gireceğim: şamandıraya kadar ve geri.", "ru": "Доброе утро, молодой человек. Пойду окунусь, как всегда: до буя и обратно."},
+        {"who": "npc", "es": "Bugün olmaz, Rıza Amca. Kırmızı bayrağı görmüyor musunuz? Dün akşamdan beri fırtına var.", "ru": "Сегодня нельзя, дядя Рыза. Не видите красный флаг? Со вчерашнего вечера шторм."},
+        {"who": "riza", "es": "Elli yıldır bu denizde yüzüyorum. Onu senden iyi tanırım.", "ru": "Я пятьдесят лет купаюсь в этом море. Я знаю его лучше тебя."},
+        {"who": "npc", "es": "Hiç şüphem yok. Salı günü kurtardığım adam da onu iyi tanıyordu.", "ru": "Не сомневаюсь. Человек, которого я спас во вторник, тоже хорошо его знал."},
+        {"who": "riza", "es": "Siz gençler her şeyde tehlike görüyorsunuz.", "ru": "Вы, молодёжь, во всём видите опасность."},
+        {"who": "npc", "es": "Belki. Ama suya girerseniz, peşinizden yüzmem gerekir. Dalgalar da kimin daha tecrübeli olduğuna bakmaz.", "ru": "Может быть. Но если вы зайдёте в воду, мне придётся плыть за вами. А волнам всё равно, у кого больше опыта."},
+        {"who": "riza", "es": "Peki, peki. Ne yapayım? Denizsiz güne başlayamam.", "ru": "Ладно, ладно. И что мне делать? Не могу начать день без моря."},
+        {"who": "npc", "es": "Benimle kıyıdan kum tepelerine kadar yürüyün. Hem denizi görürsünüz, hem de ben sizi gözden kaybetmem.", "ru": "Пройдитесь со мной по берегу до дюн. И море увидите, и я не потеряю вас из виду."},
+        {"who": "riza", "es": "Anlaştık. Ama yarın, yeşil bayrakta, şamandıraya senden önce varırım.", "ru": "Договорились. Но завтра, при зелёном флаге, доплыву до буя раньше тебя."}
+      ],
+      "questions": [
+        {"q": "Почему Джан не пускает Рызу в море?", "kind": "stance", "options": ["Красный флаг: шторм", "Вода холодная", "Пляж закрыт на ремонт"], "answer": 0},
+        {"q": "Что Джан имел в виду, вспомнив человека, которого спас во вторник?", "kind": "stance", "options": ["Что опыт не спасает от шторма", "Что тот был его другом", "Что Рыза плохо плавает"], "answer": 0},
+        {"q": "Что предлагает Джан?", "kind": "stance", "options": ["Пройтись вместе по берегу до дюн", "Поплавать у берега", "Прийти вечером"], "answer": 0},
+        {"q": "Как Рыза принимает предложение?", "kind": "stance", "options": ["Соглашается, но обещает завтра обогнать Джана", "Обижается", "Всё равно лезет в воду"], "answer": 0}
+      ],
+      "gloss": {"delikanlı": "молодой человек", "şamandıraya": "до буя", "bayrağı": "флаг", "fırtına": "шторм", "şüphem": "моё сомнение", "kurtardığım": "которого я спас", "tanıyordu": "знал", "gençler": "молодёжь", "tehlike": "опасность", "peşinizden": "за вами", "dalgalar": "волны", "tecrübeli": "опытный", "denizsiz": "без моря", "kum": "песок", "tepelerine": "до холмов (kum tepeleri — дюны)", "gözden": "из виду", "kaybetmem": "не потеряю", "bayrakta": "при флаге", "rıza": "Рыза"}
+    },
+    {
+      "id": "sc:beach.4",
+      "chapter": 4,
+      "npc": "can",
+      "lines": [
+        {"who": "npc", "es": "Uyumadım. Dün gece plajda pipolu bir adam gördüm.", "ru": "Я не спал. Вчера ночью на пляже я видел человека с трубкой."},
+        {"who": "hero", "es": "Emin misin?", "ru": "Ты уверен?"},
+        {"who": "npc", "es": "Eminim. Taşların üstünde oturuyordu, omzunda da bir karga vardı.", "ru": "Уверен. Он сидел на камнях, а на плече у него была ворона."},
+        {"who": "hero", "es": "Ne yapıyordu?", "ru": "Что он делал?"},
+        {"who": "npc", "es": "Kargaya diyordu ki: “Onlara ormanın kötü olduğunu söyle. Kimse oraya gitmesin.” Ve ağlıyordu.", "ru": "Говорил вороне: «Скажи им, что лес злой. Пусть никто туда не ходит». И плакал."},
+        {"who": "hero", "es": "Yüzünü gördün mü?", "ru": "Ты видел его лицо?"},
+        {"who": "npc", "es": "Evet. Deniz fenerinin ışığında iyi gördüm.", "ru": "Да. При свете маяка я хорошо его разглядел."},
+        {"who": "hero", "es": "Kimdi?", "ru": "И кто это был?"},
+        {"who": "npc", "es": "Orhan. Yüz yılını çölde geçiren adam.", "ru": "Орхан. Тот, кто провёл сто лет в пустыне."}
+      ],
+      "questions": [
+        {"q": "Где Джан видел человека с трубкой?", "options": ["На камнях на пляже", "На пристани", "В лесу"], "answer": 0},
+        {"q": "Кто сидел у него на плече?", "options": ["Ворона", "Сова", "Кошка"], "answer": 0},
+        {"q": "Что он говорил вороне?", "options": ["Сказать всем, что лес злой", "Принести карту", "Улететь домой"], "answer": 0},
+        {"q": "Кто это был?", "options": ["Орхан", "Исмаил", "Джемиль"], "answer": 0}
+      ],
+      "gloss": {"pipolu": "с трубкой", "taşların": "камней", "oturuyordu": "сидел", "omzunda": "на плече", "karga": "ворона", "kargaya": "вороне", "gitmesin": "пусть не идёт", "ağlıyordu": "плакал", "fenerinin": "маяка", "ışığında": "при свете", "orhan": "Орхан", "geçiren": "который провёл"}
     }
   ]
 }

@@ -75,6 +75,53 @@
         {"q": "Что он сказал Рызе?", "options": ["Люди верят в то, во что хотят верить", "Скоро придёт туман", "Иди на голос"], "answer": 0}
       ],
       "gloss": {"batarken": "когда садится", "güllerin": "роз", "devesiyle": "со своим верблюдом", "gömüyordu": "закапывал", "çıkarıyordu": "доставал", "sahtelerinde": "в поддельных", "hangisinin": "какой из них", "anlaşılmıyor": "не понять", "istediklerine": "тому, чего хотят"}
+    },
+    {
+      "id": "wh:park.4",
+      "chapter": 4,
+      "mode": "overhear",
+      "npc": "riza",
+      "lines": [
+        {"who": "npc", "es": "İlanı gördün mü? Gölün yanında açık havada konser yapmak istiyorlar.", "ru": "Видела объявление? Хотят устроить концерт под открытым небом у озера."},
+        {"who": "elif", "es": "Ne güzel! Öğrencilerimi getiririm. Hiç canlı müzik dinlemediler.", "ru": "Как здорово! Приведу своих учеников. Они никогда не слышали живую музыку."},
+        {"who": "npc", "es": "Öğrencilerin için iyi. Ama baykuşlar için pek değil. Şu ağaçta yuvaları var.", "ru": "Твоим ученикам — хорошо. А совам — не очень. У них гнездо на том дереве."},
+        {"who": "elif", "es": "Hadi ama, baykuşlar gündüz uyur, konser akşam.", "ru": "Да ладно, совы спят днём, а концерт вечером."},
+        {"who": "npc", "es": "Ya sonra? Geçen yıl çimen bir hafta şişelerle doluydu. Kimse temizlemedi.", "ru": "А потом? В прошлом году газон неделю был весь в бутылках. И никто не убрал."},
+        {"who": "elif", "es": "Haklısın. Ertesi gün bir temizlik günü yapsak? Öğrencilerim yardım edebilir.", "ru": "Ты прав. А если на следующий день устроить уборку? Мои ученики могут помочь."},
+        {"who": "npc", "es": "Öğrencilerin pazar sabahı temizlik mi yapacak? Bunu görmek isterdim.", "ru": "Твои ученики будут убирать в воскресенье утром? Хотел бы я на это посмотреть."},
+        {"who": "elif", "es": "Göreceksin. Sen de geleceksin: parktaki her çalıyı tanıyorsun.", "ru": "Посмотришь. И ты тоже придёшь: ты знаешь в парке каждый куст."},
+        {"who": "npc", "es": "Peki, gelirim. Ama torbalarımı kendim getiririm. Ne olur ne olmaz.", "ru": "Ладно, приду. Но мешки возьму свои. На всякий случай."}
+      ],
+      "questions": [
+        {"q": "Почему Рыза против концерта?", "kind": "stance", "options": ["Из-за сов и мусора после концерта", "Не любит музыку", "Концерт слишком дорогой"], "answer": 0},
+        {"q": "Что Рыза имел в виду: «хотел бы я на это посмотреть»?", "kind": "stance", "options": ["Сомневается, что ученики придут убирать", "Хочет прийти на концерт", "Хочет увидеть сов"], "answer": 0},
+        {"q": "Что предлагает Элиф?", "kind": "stance", "options": ["Отменить концерт", "Устроить уборку на следующий день", "Перенести концерт в школу"], "answer": 1},
+        {"q": "Почему Рыза возьмёт свои мешки?", "kind": "stance", "options": ["На всякий случай: не верит, что мешки будут", "Его мешки красивее", "Он их продаёт"], "answer": 0}
+      ],
+      "gloss": {"ilanı": "объявление", "açık": "открытый (açık havada — под открытым небом)", "havada": "воздухе", "konser": "концерт", "canlı": "живой", "baykuşlar": "совы", "yuvaları": "их гнездо", "çimen": "газон", "şişelerle": "бутылками", "ertesi": "следующий", "temizlik": "уборка", "isterdim": "хотел бы", "çalıyı": "куст", "torbalarımı": "мои мешки", "olur": "(ne olur ne olmaz — на всякий случай)"}
+    },
+    {
+      "id": "sc:park.4",
+      "chapter": 4,
+      "npc": "riza",
+      "lines": [
+        {"who": "npc", "es": "Yaşlı meşenin yanına otur benimle. Dinle. Duyuyor musun?", "ru": "Садись со мной у старого дуба. Слушай. Слышишь?"},
+        {"who": "hero", "es": "Yapraklar mı?", "ru": "Листья?"},
+        {"who": "npc", "es": "Sadece yapraklar değil. Bu meşe ormanın çocuğu. Geceleri annesi babası gibi konuşuyor.", "ru": "Не просто листья. Этот дуб — дитя леса. По ночам он говорит, как его родители."},
+        {"who": "hero", "es": "Ne diyor?", "ru": "И что он говорит?"},
+        {"who": "npc", "es": "Dün gece benim sesimle tekrarladı: “Bu konser bir saçmalık, öğretmen de sıkıcı.” Ne ayıp.", "ru": "Вчера ночью он повторил моим голосом: «Этот концерт — глупость, а учительница — зануда». Какой стыд."},
+        {"who": "hero", "es": "Bunu sen mi söyledin?", "ru": "Ты это сказал?"},
+        {"who": "npc", "es": "Evet, sessizce, köpeğime. Ama sonra başka bir ses duydum, tanımadığım bir ses.", "ru": "Да, тихо, своей собаке. Но потом я услышал другой голос, незнакомый."},
+        {"who": "hero", "es": "Ne diyordu?", "ru": "Что он говорил?"},
+        {"who": "npc", "es": "“Arkadan söylediğini yüze de söyleyen birini arıyorum.” Bence Muhafızdı.", "ru": "«Ищу того, кто в лицо говорит то же, что и за спиной». Думаю, это была Хранительница."}
+      ],
+      "questions": [
+        {"q": "Почему дуб умеет говорить?", "options": ["Он дитя леса", "В нём живёт сова", "Это эхо"], "answer": 0},
+        {"q": "Что дуб повторил голосом Рызы?", "options": ["Что концерт — глупость, а учительница — зануда", "Что парк закроют", "Что пойдёт дождь"], "answer": 0},
+        {"q": "Кому Рыза это говорил?", "options": ["Своей собаке", "Элиф", "Герою"], "answer": 0},
+        {"q": "Кого ищет незнакомый голос?", "options": ["Того, кто в лицо говорит то же, что и за спиной", "Потерянную собаку", "Музыкантов"], "answer": 0}
+      ],
+      "gloss": {"meşenin": "дуба", "yapraklar": "листья", "meşe": "дуб", "babası": "его отец (annesi babası — его родители)", "konser": "концерт", "saçmalık": "глупость", "sıkıcı": "скучный, зануда", "köpeğime": "своей собаке", "tanımadığım": "незнакомый мне", "arkadan": "за спиной", "söylediğini": "то, что говорит", "yüze": "в лицо", "söyleyen": "который говорит", "muhafızdı": "была Хранительница"}
     }
   ]
 }

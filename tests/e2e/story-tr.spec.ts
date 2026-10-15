@@ -17,6 +17,7 @@ const files = (dir: string) => readdirSync(join(CONTENT, dir)).filter((f) => f.e
 const read = (dir: string, f: string) => JSON.parse(readFileSync(join(CONTENT, dir, f), 'utf8'));
 const allScenes = files('scenes').flatMap((f) => read('scenes', f).scenes as SceneData[]);
 const scenes = allScenes.filter((sc) => sc.mode !== 'overhear');
+const whispers = allScenes.filter((sc) => sc.mode === 'overhear');
 const missions = files('missions').flatMap((f) => (read('missions', f).missions as { id: string; nodes: Record<string, Node> }[]).map((m) => ({ ...m, place: f.replace(/\.json$/, '') })));
 const phrases = new Map<string, string>(files('phrases').flatMap((f) => (read('phrases', f).phrases as { id: string; es: string }[]).map((p) => [p.id, phraseFull(p.es)])));
 
@@ -108,4 +109,45 @@ test('tr: развилка базара главы II — тётушка Фат�
   const sc = scenes.find((s) => s.id === 'sc:market.3')!;
   await playScene(page, sc, { veg: 'garlic' });
   expect(sc.lines.some((l) => l.if?.is === 'garlic' && l.es.includes('sarımsak'))).toBe(true);
+});
+
+test('tr: все шёпоты главы IV — реплики голосом, все ответы на понимание верные', async ({ page }) => {
+  test.setTimeout(240_000);
+  expect(whispers).toHaveLength(20);
+  await openCourse(page, 'tr');
+  for (const wh of whispers) {
+    await page.goto(`./#/scene/${encodeURIComponent(wh.id)}`);
+    for (let i = 0; i < wh.lines.length; i++) {
+      await expect(page.getByText(`Реплика ${i + 1} из ${wh.lines.length}`), wh.id).toBeVisible();
+      await page.getByTestId('scene-next').click();
+    }
+    for (const q of wh.questions) {
+      await expect(page.getByTestId('scene-question')).toHaveText(q.q);
+      await page.getByRole('button', { name: q.options[q.answer], exact: true }).click();
+      await page.getByRole('button', { name: /дальше|итог/i }).click();
+    }
+    await expect(page.getByTestId('scene-result'), wh.id).toContainText(`Понято: ${wh.questions.length} из ${wh.questions.length}`);
+  }
+});
+
+test('tr: развилка базара главы III — тётушка Фатма помнит, что герой заплатил без торга', async ({ page }) => {
+  await openCourse(page, 'tr');
+  await playMission(page, 'ms:market.3', { 'Спросите её последнюю цену или скажите, что больше ничего не нужно.': 1 });
+  const sc = scenes.find((s) => s.id === 'sc:market.4')!;
+  await playScene(page, sc, { bargain: 'full' });
+  expect(sc.lines.some((l) => l.if?.is === 'full' && l.es.includes('pazarlıksız'))).toBe(true);
+});
+
+test('tr: развилка пристани главы III — капитан Исмаил помнит билет в одну сторону', async ({ page }) => {
+  await openCourse(page, 'tr');
+  await playMission(page, 'ms:station.3', { 'Попросите билет туда и обратно или только в одну сторону.': 1 });
+  const sc = scenes.find((s) => s.id === 'sc:station.4')!;
+  await playScene(page, sc, { ticket: 'oneway' });
+  expect(sc.lines.some((l) => l.if?.is === 'oneway' && l.es.includes('sadece gidiş'))).toBe(true);
+});
+
+test('tr: спор в миссии главы IV — можно уступить или предложить компромисс', async ({ page }) => {
+  await openCourse(page, 'tr');
+  await playMission(page, 'ms:cafe.4', { 'Возразите, уступите или предложите компромисс.': 1 });
+  await playMission(page, 'ms:market.4', { 'Возразите, уступите или предложите компромисс.': 2 });
 });

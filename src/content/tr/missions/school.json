@@ -64,6 +64,31 @@
         "notesq": {"kind": "answer", "task": "Скажите, что вам нужно повторить конспекты.", "branches": [{"phrase": "ph:school.notlarimi-tekrar", "next": "end"}], "wrong": {"es": "Uyumak mı? Önce ders!", "ru": "Спать? Сначала уроки!"}},
         "end": {"kind": "say", "es": "Çok iyi. Defterdeki resme dikkatle bak: beyaz şehrin yolu. Al, bu da çöl haritasından benim parçam.", "ru": "Отлично. Посмотри внимательно на рисунок в тетради: дорога в белый город. И держи мой обрывок карты пустыни."}
       }
+    },
+    {
+      "id": "ms:school.4",
+      "chapter": 4,
+      "npc": "elif",
+      "scene": "sc:school.4",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Bugün sınıfı ormana geziye götürecektim. Ama çocuklar benimle konuşmuyor, veliler de endişeli.", "ru": "Сегодня я собиралась вести класс на экскурсию в лес. Но дети со мной не разговаривают, а родители нервничают.", "next": "meetq"},
+        "meetq": {"kind": "answer", "task": "Спросите, когда родительское собрание.", "branches": [{"phrase": "ph:school.veli-toplantisi", "next": "meet"}], "wrong": {"es": "Ders mi? Bugün ders yok, gezi var.", "ru": "Урок? Сегодня нет урока, есть экскурсия."}},
+        "meet": {"kind": "say", "es": "Yarın saat altıda. Kesin ormandaki sesi soracaklar. Şu sınava bak: bir şey yanlış, ama göremiyorum.", "ru": "Завтра в шесть. Наверняка спросят про голос из леса. Посмотри на эту контрольную: что-то не так, но я не вижу что.", "next": "errq"},
+        "errq": {"kind": "answer", "task": "Спросите, где ошибка.", "branches": [{"phrase": "ph:school.hata-nerede", "next": "err"}], "wrong": {"es": "Not mu? Not sonra.", "ru": "Оценка? Оценка потом."}},
+        "err": {"kind": "say", "es": "İşte! “Orman” kelimesinde fazladan bir harf var. Neyse. Karar verdim: geziyi iptal ediyorum. Bana güvenmiyorlarsa, gitmiyoruz.", "ru": "Вот! В слове «лес» лишняя буква. Ну да ладно. Я решила: отменяю экскурсию. Раз они мне не доверяют, не идём.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:school.nedenini-bilmeli", "next": "object", "move": "object"}, {"phrase": "ph:school.sakin-bir-gun", "next": "concede", "move": "concede"}, {"phrase": "ph:school.once-konus", "next": "compromise", "move": "compromise"}], "wrong": {"es": "Efendim? Sınıfta çok gürültü var.", "ru": "Что-что? В классе очень шумно."}},
+        "object": {"kind": "say", "es": "Nedenini mi? Haklısın. Sessizce iptal edersem, ses doğruyu söylüyor gibi görünür.", "ru": "Знать почему? Ты прав. Если я отменю молча, покажется, что голос говорит правду.", "next": "shy", "fem": {"ru": "Знать почему? Ты права. Если я отменю молча, покажется, что голос говорит правду."}},
+        "concede": {"kind": "say", "es": "Teşekkürler. Bugün sakin bir güne ihtiyacım var, gezisiz ve kuşsuz.", "ru": "Спасибо. Сегодня мне нужен спокойный день, без экскурсий и птиц.", "next": "shy"},
+        "compromise": {"kind": "say", "es": "Önce konuşmak mı? Evet… Yarın derste onlara kuşu anlatırım.", "ru": "Сначала поговорить? Да… Завтра на уроке расскажу им про птицу.", "next": "shy"},
+        "shy": {"kind": "say", "es": "Bu arada, utangaç bir öğrenci bütün sınıfa ormanı anlatmak istiyor.", "ru": "Кстати, один застенчивый ученик хочет рассказать всему классу про лес.", "next": "helpq"},
+        "helpq": {"kind": "answer", "task": "Спросите, помочь ли ему с докладом.", "branches": [{"phrase": "ph:school.sunuma-yardim", "next": "help"}], "wrong": {"es": "Sözlük mü? Sözlük kütüphanede.", "ru": "Словарь? Словарь в библиотеке."}},
+        "help": {"kind": "say", "es": "Evet, lütfen. Utangaç, ama çok iyi düşünüyor. Sen hâlâ okuyor musun?", "ru": "Да, пожалуйста. Он застенчивый, но очень хорошо рассуждает. А ты всё ещё учишься?", "next": "uniq"},
+        "uniq": {"kind": "answer", "task": "Скажите, что учитесь в университете.", "branches": [{"phrase": "ph:school.universitede-okuyorum", "next": "uni"}], "wrong": {"es": "Burs mu? Onu sonra konuşalım.", "ru": "Стипендия? Об этом потом."}},
+        "uni": {"kind": "say", "es": "Harika. Al, bu sınavı sen kontrol et. Kurşun kalemle, lütfen.", "ru": "Здорово. Держи, проверь эту контрольную ты. Карандашом, пожалуйста.", "next": "eraserq"},
+        "eraserq": {"kind": "answer", "task": "Попросите у неё ластик.", "branches": [{"phrase": "ph:school.silgin-var-mi", "next": "end"}], "wrong": {"es": "Kalem mi? Kalem elinde!", "ru": "Карандаш? Он у тебя в руке!"}},
+        "end": {"kind": "say", "es": "Al silgiyi. Bir de bu: utangaç öğrenci bunu pencerede, siyah bir tüyün yanında buldu. Ormanın haritasından bir parça. Kuş onu senin için bırakmış, diyor.", "ru": "Держи ластик. И вот ещё: застенчивый ученик нашёл это на окне рядом с чёрным пером. Обрывок карты леса. Говорит, птица оставила его для тебя."}
+      }
     }
   ]
 }

@@ -60,6 +60,31 @@
         "gardenq": {"kind": "answer", "task": "Спросите, чей это огород.", "branches": [{"phrase": "ph:park.bahce-kimin", "next": "end"}], "wrong": {"es": "Göl mü? Göl şurada.", "ru": "Озеро? Озеро вон там."}},
         "end": {"kind": "say", "es": "Şehrin. Orada benim domateslerim var. Domateslerin arasında da bunu saklıyordum: çöl haritasından benim parçam. Gerçek olanı.", "ru": "Городской. Там мои помидоры. А среди помидоров я прятал вот это: мой обрывок карты пустыни. Настоящий."}
       }
+    },
+    {
+      "id": "ms:park.4",
+      "chapter": 4,
+      "npc": "riza",
+      "scene": "sc:park.4",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Bugün moralim bozuk. İlana bak: konser bu cumartesi, tam baykuşların yuvasının yanında.", "ru": "Сегодня у меня плохое настроение. Смотри на объявление: концерт в эту субботу, прямо рядом с гнездом сов.", "next": "plantsq"},
+        "plantsq": {"kind": "answer", "task": "Скажите, что нужно беречь здешние растения.", "branches": [{"phrase": "ph:park.bitkileri-korumak", "next": "plants"}], "wrong": {"es": "Çiçek mi? Çiçekler ilkbaharda.", "ru": "Цветы? Цветы весной."}},
+        "plants": {"kind": "say", "es": "Ben de bunu diyorum. Hayvanları da: baykuşlar artık bu gürültüyle uyuyamıyor. Ben her akşam onları dinlemeye gelirim. Sen parka ne zaman gelirsin?", "ru": "Вот и я о том же. И о животных тоже: совы уже не спят от такого шума. Я прихожу каждый вечер их послушать. А ты когда приходишь в парк?", "next": "sunsetq"},
+        "sunsetq": {"kind": "answer", "task": "Скажите, что очень любите гулять на закате.", "branches": [{"phrase": "ph:park.gun-batimini-severim", "next": "sunset"}], "wrong": {"es": "Köpeğin mi var? Benimki orada.", "ru": "У тебя собака? Моя вон там."}},
+        "sunset": {"kind": "say", "es": "Gün batımında, benim gibi. Dinle o zaman: konsere karşı imza toplayacağım. Yarın iptal ederler.", "ru": "На закате, как и я. Так вот слушай: соберу подписи против концерта. Завтра его отменят.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:park.herkesin-parki", "next": "object", "move": "object"}, {"phrase": "ph:park.sikayet-hakkin", "next": "concede", "move": "concede"}, {"phrase": "ph:park.golun-obur", "next": "compromise", "move": "compromise"}], "wrong": {"es": "Ne dedin? Kulaklarım eskisi gibi değil.", "ru": "Что ты сказал? Уши у меня уже не те."}},
+        "object": {"kind": "say", "es": "Herkesin mi? … Evet, gençlerin de. Ben de gençtim, belli olmasa da.", "ru": "Общий? …Да, и для молодёжи тоже. Я тоже был молодым, хоть по мне и не скажешь.", "next": "sorry"},
+        "concede": {"kind": "say", "es": "Teşekkürler. Benim yaşımda şikâyet etmek neredeyse spor.", "ru": "Спасибо. В моём возрасте жаловаться — почти спорт.", "next": "sorry"},
+        "compromise": {"kind": "say", "es": "Baykuşlardan uzakta mı? Gölün öbür tarafında… Buna katılıyorum.", "ru": "Подальше от сов? На другом берегу озера… С этим я согласен.", "next": "sorry"},
+        "sorry": {"kind": "say", "es": "Şimdi zor bir iş var: Elif Hanım'dan özür dilemek. Pazar günü temizlik yapıyor.", "ru": "А теперь меня ждёт трудное: попросить прощения у Элиф-ханым. Она устраивает уборку в воскресенье.", "next": "cleanq"},
+        "cleanq": {"kind": "answer", "task": "Спросите, придёт ли он в воскресенье убирать парк.", "branches": [{"phrase": "ph:park.temizlige-gelir", "next": "clean"}], "wrong": {"es": "Konsere mi? Hayır, konsere gitmem.", "ru": "На концерт? Нет, на концерт я не пойду."}},
+        "clean": {"kind": "say", "es": "Yazıldım. Kendi torbalarımla, biliyorsun. Ya yerdeki şu şişe?", "ru": "Записался. Со своими мешками, ты же знаешь. А эта бутылка на земле?", "next": "bottleq"},
+        "bottleq": {"kind": "answer", "task": "Спросите, куда это можно выбросить.", "branches": [{"phrase": "ph:park.bunlari-nereye", "next": "bottle"}], "wrong": {"es": "Su mu? Şişe boş.", "ru": "Вода? Бутылка пустая."}},
+        "bottle": {"kind": "say", "es": "Şuraya, yeşil kutuya. Bak, gökyüzü griye dönüyor.", "ru": "Вон туда, в зелёный контейнер. Смотри, небо сереет.", "next": "rainq"},
+        "rainq": {"kind": "answer", "task": "Скажите, что сейчас пойдёт дождь, и спросите, есть ли у него зонт.", "branches": [{"phrase": "ph:park.yagmur-yagacak", "next": "end"}], "wrong": {"es": "Güneş mi? Bugün güneş yok.", "ru": "Солнце? Сегодня солнца нет."}},
+        "end": {"kind": "say", "es": "Büyük bir şemsiyem var, gel. Bir de bunu al: meşenin altında buldum. Ormanın haritasından bir parça, yanında da siyah bir tüy.", "ru": "У меня большой зонт, пойдём. И держи: я нашёл это под дубом. Обрывок карты леса, а рядом чёрное перо."}
+      }
     }
   ]
 }

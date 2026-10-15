@@ -57,8 +57,34 @@
         "crowd": {"kind": "say", "es": "İşte paran. Bak, ne kadar çok insan!", "ru": "Вот твои деньги. Смотри, сколько народу!", "next": "crowdq"},
         "crowdq": {"kind": "answer", "task": "Скажите, что по вечерам на пристани очень людно.", "branches": [{"phrase": "ph:station.cok-kalabalik", "next": "moon"}], "wrong": {"es": "Boş mu? Hayır, bak, herkes burada!", "ru": "Пусто? Нет, смотри, все здесь!"}},
         "moon": {"kind": "say", "es": "Her zamanki gibi. Ya cuma? Ay treni.", "ru": "Как всегда. А на пятницу? Лунный поезд.", "next": "moonq"},
-        "moonq": {"kind": "answer", "task": "Попросите билет на лунный поезд.", "branches": [{"phrase": "ph:station.ay-treni-bilet", "next": "end"}], "wrong": {"es": "Vapur mu? Vapur çöle gitmez!", "ru": "Пароход? Пароход в пустыню не ходит!"}},
-        "end": {"kind": "say", "es": "Gidiş dönüş, tabii: sen döneceksin. Devesiyle o adam gibi değil. Al, bu da çöl haritasından benim parçam.", "ru": "Туда и обратно, конечно: ты вернёшься. Не как человек с верблюдом. Держи, а это мой обрывок карты пустыни."}
+        "moonq": {"kind": "answer", "task": "Попросите билет на лунный поезд.", "branches": [{"phrase": "ph:station.ay-treni-bilet", "next": "kind"}], "wrong": {"es": "Vapur mu? Vapur çöle gitmez!", "ru": "Пароход? Пароход в пустыню не ходит!"}},
+        "end": {"kind": "say", "es": "Gidiş dönüş, tabii: sen döneceksin. Devesiyle o adam gibi değil. Al, bu da çöl haritasından benim parçam.", "ru": "Туда и обратно, конечно: ты вернёшься. Не как человек с верблюдом. Держи, а это мой обрывок карты пустыни."},
+        "kind": {"kind": "say", "es": "Ay treni, tamam. Gidiş dönüş mü, sadece gidiş mi?", "ru": "Лунный поезд, хорошо. Туда и обратно или только в одну сторону?", "next": "kindq"},
+        "kindq": {"kind": "answer", "task": "Попросите билет туда и обратно или только в одну сторону.", "branches": [{"phrase": "ph:station.gidis-donus", "next": "end", "sets": {"ticket": "return"}}, {"phrase": "ph:station.sadece-gidis", "next": "endone", "sets": {"ticket": "oneway"}}], "wrong": {"es": "Birinci sınıf mı? Ay treninde sınıf yok.", "ru": "Первый класс? В лунном поезде нет классов."}},
+        "endone": {"kind": "say", "es": "Sadece gidiş mi? Devesiyle o adam gibi… Peki, ama dönersen bana uğra. Al, bu da çöl haritasından benim parçam.", "ru": "Только в одну сторону? Как тот человек с верблюдом… Ладно, но если вернёшься, загляни ко мне. Держи, а это мой обрывок карты пустыни."}
+      }
+    },
+    {
+      "id": "ms:station.4",
+      "chapter": 4,
+      "npc": "ismail",
+      "scene": "sc:station.4",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Bugün kimse bana selam vermiyor. Otuz yıldır bu iskeledeyim, şimdi kötü adam oldum. Bir de orman treni çalışmıyor: yolda tamir var.", "ru": "Сегодня со мной никто не здоровается. Тридцать лет на этой пристани, а теперь я злодей. Да ещё поезд к лесу не ходит: на путях ремонт.", "next": "busq"},
+        "busq": {"kind": "answer", "task": "Спросите, есть ли автобус вместо поезда.", "branches": [{"phrase": "ph:station.otobus-var-mi", "next": "bus"}], "wrong": {"es": "Vapur mu? Vapur ormana gitmez.", "ru": "Паром? Паром в лес не ходит."}},
+        "bus": {"kind": "say", "es": "Var, yarın saat dörtte. Oturarak gitmek ister misin?", "ru": "Есть, завтра в четыре. Хочешь ехать сидя?", "next": "seatq"},
+        "seatq": {"kind": "answer", "task": "Скажите, что хотите забронировать место.", "branches": [{"phrase": "ph:station.yer-ayirtmak", "next": "quit"}], "wrong": {"es": "Ayakta mı? Yol iki saat, otur bence.", "ru": "Стоя? Дорога два часа, лучше сядь."}},
+        "quit": {"kind": "say", "es": "Ayırdım, pencere kenarı. … Artık dayanamıyorum. İşi bırakacağım. Herkes yalancı olduğumu düşünüyorsa, bırakırım.", "ru": "Забронировал, у окна. …Я больше не могу. Уйду с работы. Раз все думают, что я лжец, уйду.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:station.dedikodu-yuzunden", "next": "object", "move": "object"}, {"phrase": "ph:station.yorgun-oldugunu", "next": "concede", "move": "concede"}, {"phrase": "ph:station.once-kanitlayalim", "next": "compromise", "move": "compromise"}], "wrong": {"es": "Ne? Bugün kulaklarım da yorgun. Bir daha söyle.", "ru": "Что? У меня сегодня и уши устали. Скажи ещё раз."}},
+        "object": {"kind": "say", "es": "Bir dedikodu yüzünden mi? … Haklısın. Gidersem dedikodu kazanır. Kalıyorum.", "ru": "Из-за сплетни? …Ты прав. Если уйду, победит сплетня. Остаюсь.", "next": "more", "fem": {"ru": "Из-за сплетни? …Ты права. Если уйду, победит сплетня. Остаюсь."}},
+        "concede": {"kind": "say", "es": "Yorgunum, evet. Otuz yıl iskelede, teşekkür olarak da dedikodu.", "ru": "Устал, да. Тридцать лет на пристани, а в благодарность — сплетни.", "next": "more"},
+        "compromise": {"kind": "say", "es": "Kanıtlamak mı? Karım ve alt kattaki komşu… Evet, o zaman şehir doğruyu öğrenir.", "ru": "Доказать? Жена и сосед снизу… Да, и тогда город узнает правду.", "next": "more"},
+        "more": {"kind": "say", "es": "Peki. Yolculuk hakkında başka ne bilmek istiyorsun?", "ru": "Ладно. Что ещё ты хочешь знать про поездку?", "next": "longq"},
+        "longq": {"kind": "answer", "task": "Спросите, сколько длится поездка.", "branches": [{"phrase": "ph:station.yolculuk-ne-kadar", "next": "long"}], "wrong": {"es": "Ne kadar mı? Bilet ucuz, merak etme.", "ru": "Сколько стоит? Билет дешёвый, не волнуйся."}},
+        "long": {"kind": "say", "es": "İki saat, ormanın kenarına kadar. Bileti şimdi mi alıyorsun?", "ru": "Два часа, до самой опушки. Билет берёшь сейчас?", "next": "ticketq"},
+        "ticketq": {"kind": "answer", "task": "Скажите, что хотите купить билет на завтра.", "branches": [{"phrase": "ph:station.yarin-icin-bilet", "next": "end"}], "wrong": {"es": "Bugün için mi? Bugün otobüs yok, yarın var.", "ru": "На сегодня? Сегодня автобуса нет, есть завтра."}},
+        "end": {"kind": "say", "es": "Al, yarın için. Bir de bunu al: ormanın haritasından bir parça. Eski paralarla ödeyen o yaşlı beyefendi gişede unuttu.", "ru": "Держи, на завтра. И возьми ещё вот это: обрывок карты леса. Его забыл в кассе тот пожилой господин со старыми монетами."}
       }
     }
   ]

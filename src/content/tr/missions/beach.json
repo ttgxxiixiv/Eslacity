@@ -60,6 +60,31 @@
         "walkq": {"kind": "answer", "task": "Предложите прогуляться по берегу.", "branches": [{"phrase": "ph:beach.sahilde-yuruyelim", "next": "end"}], "wrong": {"es": "Eve mi? Daha erken!", "ru": "Домой? Ещё рано!"}},
         "end": {"kind": "say", "es": "Hadi. Bak: ay neredeyse dolunay. Al, bu da çöl haritasından benim parçam. Deniz onu bir şişede getirdi, tıpkı ilk parçayı getirdiği gibi.", "ru": "Пошли. Смотри: луна уже почти полная. Держи мой обрывок карты пустыни. Море принесло его в бутылке, как и первый."}
       }
+    },
+    {
+      "id": "ms:beach.4",
+      "chapter": 4,
+      "npc": "can",
+      "scene": "sc:beach.4",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Merhaba. Bugün deniz sakin, ama ben değilim.", "ru": "Привет. Сегодня море спокойное, а я — нет.", "next": "flagq"},
+        "flagq": {"kind": "answer", "task": "Спросите, безопасно ли купаться с таким флагом.", "branches": [{"phrase": "ph:beach.bayrakla-guvenli", "next": "flag"}], "wrong": {"es": "Denizanası mı? Bugün yok.", "ru": "Медузы? Сегодня нет."}},
+        "flag": {"kind": "say", "es": "Evet, bayrak yeşil. Yüzebilirsin. Ama güneş çok yakıyor.", "ru": "Да, флаг зелёный. Можно купаться. Но солнце сильно печёт.", "next": "sunq"},
+        "sunq": {"kind": "answer", "task": "Скажите, что вам нужен крем с высокой защитой от солнца.", "branches": [{"phrase": "ph:beach.yuksek-korumali", "next": "sun"}], "wrong": {"es": "Şemsiye mi? Şemsiyeler dolu.", "ru": "Зонтик? Все зонтики заняты."}},
+        "sun": {"kind": "say", "es": "Benimkini al, elli. Dinle, Orhan hakkında… Kimseye bir şey söylemeyeceğim. O iyi bir adam. Yüz yıl çölde tek başına kaldı.", "ru": "Держи мой, пятьдесят. Слушай, насчёт Орхана… Я никому ничего не скажу. Он хороший человек. Сто лет провёл один в пустыне.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:beach.dogru-daha-onemli", "next": "object", "move": "object"}, {"phrase": "ph:beach.onu-korumak", "next": "concede", "move": "concede"}, {"phrase": "ph:beach.ailesine-soyle", "next": "compromise", "move": "compromise"}], "wrong": {"es": "Ne? Dalgalardan duyamadım.", "ru": "Что? Из-за волн не расслышал."}},
+        "object": {"kind": "say", "es": "Daha önemli mi? Evet… Susarsam orman yalanla dolu kalır. Peki.", "ru": "Важнее? Да… Если я промолчу, лес так и будет полон лжи. Ладно.", "next": "swim"},
+        "concede": {"kind": "say", "es": "Teşekkürler. Ama orman… Peki, ne yapacağımı düşüneceğim.", "ru": "Спасибо. Но лес… Ладно, подумаю, что делать.", "next": "swim"},
+        "compromise": {"kind": "say", "es": "Ailesine mi? Evet, böylesi daha iyi. Nermin Hanım onunla konuşmayı bilir.", "ru": "Его семье? Да, так лучше. Нермин-ханым сумеет с ним поговорить.", "next": "swim"},
+        "swim": {"kind": "say", "es": "Tamam. Şimdi biraz deniz, daha iyi düşünmek için.", "ru": "Ладно. А теперь немного моря, чтобы лучше думалось.", "next": "swimq"},
+        "swimq": {"kind": "answer", "task": "Предложите немного поплавать.", "branches": [{"phrase": "ph:beach.biraz-yuzelim", "next": "swimsay"}], "wrong": {"es": "Fotoğraf mı? Sonra çekeriz.", "ru": "Фото? Потом сфотографируемся."}},
+        "swimsay": {"kind": "say", "es": "Hadi! Ama dikkat: bugün akıntı var.", "ru": "Пошли! Только осторожно: сегодня есть течение.", "next": "deepq"},
+        "deepq": {"kind": "answer", "task": "Спросите, глубоко ли здесь.", "branches": [{"phrase": "ph:beach.derin-mi", "next": "deep"}], "wrong": {"es": "Soğuk mu? Hayır, su güzel.", "ru": "Холодно? Нет, вода хорошая."}},
+        "deep": {"kind": "say", "es": "Biraz. İyi yüzemiyorsan yakın dur.", "ru": "Немного. Если плохо плаваешь, держись поближе.", "next": "shoreq"},
+        "shoreq": {"kind": "answer", "task": "Скажите, что останетесь у берега.", "branches": [{"phrase": "ph:beach.kiyida-kaliyorum", "next": "end"}], "wrong": {"es": "Şamandıraya mı? Bugün olmaz.", "ru": "До буя? Сегодня нельзя."}},
+        "end": {"kind": "say", "es": "İyi fikir. Bir de bunu al: Orhan dün gece taşların üstünde bıraktı. Ormanın haritasından bir parça. Bence senin almanı istedi.", "ru": "Хорошая мысль. И держи: Орхан оставил это вчера ночью на камнях. Обрывок карты леса. Думаю, он хотел, чтобы обрывок достался тебе."}
+      }
     }
   ]
 }

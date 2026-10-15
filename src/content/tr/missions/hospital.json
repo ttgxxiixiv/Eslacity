@@ -61,6 +61,31 @@
         "noteq": {"kind": "answer", "task": "Скажите, что вам нужна справка для работы.", "branches": [{"phrase": "ph:hospital.rapor-lazim", "next": "end"}], "wrong": {"es": "Reçete mi? Reçete lazım değil.", "ru": "Рецепт? Рецепт не нужен."}},
         "end": {"kind": "say", "es": "Üç gün dinlenme. Çöl haritasından benim parçamı da alın. Unutmayın: ormanda dinlemek lazım.", "ru": "Три дня отдыха. И возьмите мой обрывок карты пустыни. Помните: в лесу нужно слушать."}
       }
+    },
+    {
+      "id": "ms:hospital.4",
+      "chapter": 4,
+      "npc": "gul",
+      "scene": "sc:hospital.4",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Buyurun. Orhan Bey biraz uyuyor. Bu arada benim bir karar vermem lazım.", "ru": "Проходите. Орхан-бей немного спит. А мне пока нужно кое-что решить.", "next": "bpq"},
+        "bpq": {"kind": "answer", "task": "Спросите, проверили ли ему давление.", "branches": [{"phrase": "ph:hospital.tansiyonu-olculdu", "next": "bp"}], "wrong": {"es": "Ateş mi? Ateşi yok.", "ru": "Температура? Температуры нет."}},
+        "bp": {"kind": "say", "es": "Evet, normal. Dün bütün tahlillerini de yaptık.", "ru": "Да, в норме. А вчера мы сделали ему все анализы.", "next": "testq"},
+        "testq": {"kind": "answer", "task": "Спросите, нужен ли ещё анализ крови.", "branches": [{"phrase": "ph:hospital.baska-tahlil", "next": "test"}], "wrong": {"es": "İğne mi? Hayır, iğne yok.", "ru": "Укол? Нет, уколов не будет."}},
+        "test": {"kind": "say", "es": "Gerek yok. Onun hastalığı tahlilde görünmez. O yüzden karar verdim: bir hafta hastanede, ziyaretçisiz. Dinlenmesi lazım.", "ru": "Не нужно. Его болезнь в анализах не увидишь. Поэтому я решила: неделя в больнице, без посетителей. Ему нужен отдых.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:hospital.konusmaya-ihtiyaci", "next": "object", "move": "object"}, {"phrase": "ph:hospital.dinlenmesi-lazim", "next": "concede", "move": "concede"}, {"phrase": "ph:hospital.sadece-ailesi", "next": "compromise", "move": "compromise"}], "wrong": {"es": "Efendim? Daha sessiz konuşun, lütfen, burası hastane.", "ru": "Простите? Говорите тише, пожалуйста, здесь больница."}},
+        "object": {"kind": "say", "es": "Konuşmak mı? Haklısınız. Yüz yıl çölde tek başına… Yalnızlık onun asıl hastalığı. Girebilirsiniz.", "ru": "Поговорить? Вы правы. Сто лет один в пустыне… Одиночество — вот его болезнь. Можете пройти.", "next": "wait"},
+        "concede": {"kind": "say", "es": "Güveniniz için teşekkürler. Ama bugün, siz olduğunuz için, beş dakika.", "ru": "Спасибо за доверие. Но сегодня, раз это вы, — пять минут.", "next": "wait"},
+        "compromise": {"kind": "say", "es": "Sadece ailesi mi? O zaman Nermin Hanım ve siz. Siz de neredeyse aileden oldunuz.", "ru": "Только семья? Тогда Нермин-ханым и вы. Вы уже почти родной.", "next": "wait", "fem": {"ru": "Только семья? Тогда Нермин-ханым и вы. Вы уже почти родная."}},
+        "wait": {"kind": "say", "es": "Orhan Bey sizi bekliyor. Onun hakkında başka bir şey bilmek ister misiniz?", "ru": "Орхан-бей вас ждёт. Хотите что-нибудь ещё о нём узнать?", "next": "diagq"},
+        "diagq": {"kind": "answer", "task": "Спросите, чем он болен.", "branches": [{"phrase": "ph:hospital.hastaligi-ne", "next": "diag"}], "wrong": {"es": "Ne zaman mı çıkıyor? Henüz bilmiyorum.", "ru": "Когда выпишут? Пока не знаю."}},
+        "diag": {"kind": "say", "es": "Korku ve büyük bir utanç. Bu şehirde korku insandan insana çok hızlı geçer.", "ru": "Страх и большой стыд. В этом городе страх очень быстро передаётся от человека к человеку.", "next": "contq"},
+        "contq": {"kind": "answer", "task": "Спросите, передаётся ли это другим.", "branches": [{"phrase": "ph:hospital.bulasici-mi", "next": "cont"}], "wrong": {"es": "Acıtır mı? Hayır, hiç acıtmaz.", "ru": "Больно ли? Нет, совсем не больно."}},
+        "cont": {"kind": "say", "es": "Korku, evet. Ama cesaret de. Ya siz? Garip yürüyorsunuz.", "ru": "Страх — да. Но и смелость тоже. А вы? Вы странно ходите.", "next": "footq"},
+        "footq": {"kind": "answer", "task": "Скажите, что у вас болит стопа.", "branches": [{"phrase": "ph:hospital.ayagim-agriyor", "next": "end"}], "wrong": {"es": "Başınız mı? Başınız iyi görünüyor.", "ru": "Голова? Голова у вас в порядке."}},
+        "end": {"kind": "say", "es": "Şehirde bu kadar yürüyorsunuz ki… Bu kremi alın. Bir de şu: Orhan Bey sizin için bana ormanın haritasından bir parça verdi. Akşam toplantıya geleceğini söylüyor.", "ru": "Столько ходите по городу… Возьмите этот крем. И вот ещё: Орхан-бей дал мне для вас обрывок карты леса. Говорит, вечером придёт на собрание."}
+      }
     }
   ]
 }

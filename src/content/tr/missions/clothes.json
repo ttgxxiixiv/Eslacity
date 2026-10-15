@@ -64,6 +64,31 @@
         "giftq": {"kind": "answer", "task": "Попросите упаковать как подарок.", "branches": [{"phrase": "ph:clothes.hediye-paketi", "next": "end"}], "wrong": {"es": "Fiş mi? Fiş poşette.", "ru": "Чек? Чек в пакете."}},
         "end": {"kind": "say", "es": "Tabii. Bu da çöl haritasından benim parçam. Annemin eski paltosunun içine dikilmişti.", "ru": "Конечно. А это мой обрывок карты пустыни. Он был зашит в мамино старое пальто."}
       }
+    },
+    {
+      "id": "ms:clothes.4",
+      "chapter": 4,
+      "npc": "selin",
+      "scene": "sc:clothes.4",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Merhaba. Bugün kimse gelmedi: herkes sahte şeyler sattığımı düşünüyor. Bak, en azından sen: bu keten pantolonu beğendin mi?", "ru": "Привет. Сегодня никто не заходил: все думают, что я продаю подделки. Смотри, хоть ты: нравятся эти льняные брюки?", "next": "fabricq"},
+        "fabricq": {"kind": "answer", "task": "Спросите, дышит ли эта ткань.", "branches": [{"phrase": "ph:clothes.kumas-nefes", "next": "fabric"}], "wrong": {"es": "Fiyatı mı? Bugün indirimde.", "ru": "Цена? Сегодня со скидкой."}},
+        "fabric": {"kind": "say", "es": "Alıyor, evet: bu gerçek keten. Burada sahte hiçbir şey yok. Dene.", "ru": "Дышит, да: это настоящий лён. Здесь нет ничего поддельного. Примерь.", "next": "fitq"},
+        "fitq": {"kind": "answer", "task": "Спросите, как они на вас сидят.", "branches": [{"phrase": "ph:clothes.nasil-oldu", "next": "fit"}], "wrong": {"es": "Renk mi? Başka renk yok.", "ru": "Цвет? Другого цвета нет."}},
+        "fit": {"kind": "say", "es": "Çok iyi oldu. Ama artık dayanamıyorum. İnsanlar unutana kadar dükkânı bir hafta kapatacağım.", "ru": "Сидят отлично. Но я больше не могу. Закрою лавку на неделю, пока люди не забудут.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:clothes.yalan-kazanir", "next": "object", "move": "object"}, {"phrase": "ph:clothes.dinlenmeye-ihtiyacin", "next": "concede", "move": "concede"}, {"phrase": "ph:clothes.sadece-sabahlari", "next": "compromise", "move": "compromise"}], "wrong": {"es": "Ne? Bugün kafam çok dolu, bir daha söyle.", "ru": "Что? У меня сегодня голова забита, повтори."}},
+        "object": {"kind": "say", "es": "Yalan mı kazanır? … Haklısın. Saklanırsam yalan kazanır. Yarın açıyorum, başım dik.", "ru": "Победит ложь? …Ты прав. Если я спрячусь, победит ложь. Открываюсь завтра, с гордо поднятой головой.", "next": "buy", "fem": {"ru": "Победит ложь? …Ты права. Если я спрячусь, победит ложь. Открываюсь завтра, с гордо поднятой головой."}},
+        "concede": {"kind": "say", "es": "Gerçekten mi? Uyumam lazım. Ama sadık müşterilerim beni özler.", "ru": "Правда? Мне надо выспаться. Хотя постоянные покупательницы будут скучать.", "next": "buy"},
+        "compromise": {"kind": "say", "es": "Sadece sabahları… Böylece dinlenirim, dükkân da kapanmaz. Bu bana uyar.", "ru": "Только по утрам… Так я отдохну, а лавка не закроется. Меня устраивает.", "next": "buy"},
+        "buy": {"kind": "say", "es": "Peki, pantolonu alıyor musun? Belden iyi, ama biraz uzun.", "ru": "Ну что, берёшь брюки? В поясе хорошо, но длинноваты.", "next": "shortq"},
+        "shortq": {"kind": "answer", "task": "Попросите их укоротить.", "branches": [{"phrase": "ph:clothes.kisaltabilir", "next": "short"}], "wrong": {"es": "Daha büyük mü? Bu en büyüğü.", "ru": "Побольше? Это самый большой."}},
+        "short": {"kind": "say", "es": "Tabii, on dakikada. Bu arada, dün Ebru geldi ve konuştuk. Çorap için özür diledim. Pantolon senin için mi, hediye mi?", "ru": "Конечно, за десять минут. Кстати, вчера приходила Эбру, и мы поговорили. Я извинилась за носок. Брюки тебе или в подарок?", "next": "giftq"},
+        "giftq": {"kind": "answer", "task": "Попросите подарочный чек.", "branches": [{"phrase": "ph:clothes.hediye-fisi", "next": "gift"}], "wrong": {"es": "Poşet mi? Al, bedava.", "ru": "Пакет? Держи, бесплатно."}},
+        "gift": {"kind": "say", "es": "Al, hediye fişin. Başka bir şey?", "ru": "Держи подарочный чек. Что-нибудь ещё?", "next": "plainq"},
+        "plainq": {"kind": "answer", "task": "Попросите что-нибудь попроще.", "branches": [{"phrase": "ph:clothes.daha-sade", "next": "end"}], "wrong": {"es": "Daha şık mı? Bundan şıkı yok!", "ru": "Понаряднее? Наряднее не бывает!"}},
+        "end": {"kind": "say", "es": "İşte, bu kot pantolon. Bir de bu: sabah vitrinde, siyah bir tüyün yanında duruyordu. Ormanın haritasından bir parça.", "ru": "Вот, эти джинсы. И ещё вот это: утром лежало на витрине рядом с чёрным пером. Обрывок карты леса."}
+      }
     }
   ]
 }

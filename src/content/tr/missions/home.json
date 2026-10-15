@@ -62,6 +62,31 @@
         "leakq": {"kind": "answer", "task": "Скажите, что кран сломан и нужен мастер.", "branches": [{"phrase": "ph:home.musluk-bozuk", "next": "end"}], "wrong": {"es": "Yağmur mu? Hayır, içeride yağmur yağmaz!", "ru": "Дождь? Нет, в доме дождя не бывает!"}},
         "end": {"kind": "say", "es": "Tamirci yarın gelecek. Al, çöl haritasından benim parçam. Orhan bana verdi, senin için.", "ru": "Мастер придёт завтра. Держи мой обрывок карты пустыни. Мне его дал Орхан — для тебя."}
       }
+    },
+    {
+      "id": "ms:home.4",
+      "chapter": 4,
+      "npc": "nermin",
+      "scene": "sc:home.4",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Gel, gel. Ayağının altına bak: sızıntı geri döndü.", "ru": "Проходи, проходи. Смотри под ноги: протечка вернулась.", "next": "floorq"},
+        "floorq": {"kind": "answer", "task": "Скажите, что на полу вода.", "branches": [{"phrase": "ph:home.yerde-su", "next": "floor"}], "wrong": {"es": "Tavanda mı? Hayır, bu sefer aşağıda.", "ru": "На потолке? Нет, на этот раз внизу."}},
+        "floor": {"kind": "say", "es": "Evet, banyoda daha kötü. Git bir bak.", "ru": "Да, а в ванной ещё хуже. Сходи посмотри.", "next": "bathq"},
+        "bathq": {"kind": "answer", "task": "Скажите, что в ванной плесень.", "branches": [{"phrase": "ph:home.banyoda-kuf", "next": "rent"}], "wrong": {"es": "Banyo mu nerede? Sağda, kapının yanında.", "ru": "Где ванная? Справа, у двери."}},
+        "rent": {"kind": "say", "es": "Küf, nem, sızıntı… Ev sahibi hiçbir şey yapmıyor. O yüzden karar verdim: tamir edene kadar kira ödemiyorum.", "ru": "Плесень, сырость, протечки… А хозяин ничего не делает. Так что я решила: не плачу за квартиру, пока он не починит.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:home.seni-cikarir", "next": "object", "move": "object"}, {"phrase": "ph:home.sabrin-tukendi", "next": "concede", "move": "concede"}, {"phrase": "ph:home.yarisini-odesin", "next": "compromise", "move": "compromise"}], "wrong": {"es": "Ne? Su sesinden duyamıyorum.", "ru": "Что? Из-за шума воды не слышу."}},
+        "object": {"kind": "say", "es": "Çıkarmak mı? Kırk yıldan sonra… Haklısın, ona bu fırsatı vermem.", "ru": "Выселить? После сорока лет… Ты прав, не дам ему такого повода.", "next": "contract", "fem": {"ru": "Выселить? После сорока лет… Ты права, не дам ему такого повода."}},
+        "concede": {"kind": "say", "es": "Gerçekten mi? Rıza deli olduğumu söylüyor, ama birinin bir şey yapması lazım.", "ru": "Правда? Рыза говорит, что я сошла с ума, но кто-то же должен что-то делать.", "next": "contract"},
+        "compromise": {"kind": "say", "es": "Yarı yarıya mı? Adil değil, ama bir kış daha beklemekten iyi. Toplantıda bunu söylerim.", "ru": "Пополам? Нечестно, но лучше, чем ждать ещё одну зиму. Предложу это на собрании.", "next": "contract"},
+        "contract": {"kind": "say", "es": "Bir de kira sözleşmem yakında bitiyor ve ev sahibi hiçbir şey söylemiyor.", "ru": "К тому же мой договор аренды скоро заканчивается, а хозяин молчит.", "next": "contractq"},
+        "contractq": {"kind": "answer", "task": "Спросите, когда заканчивается договор.", "branches": [{"phrase": "ph:home.sozlesme-ne-zaman", "next": "heat"}], "wrong": {"es": "Kira mı? Kira aynı, şimdilik.", "ru": "Аренда? Аренда та же, пока что."}},
+        "heat": {"kind": "say", "es": "Ocakta. Göreceğiz. Dinle, orman hakkında: annem derdi ki Muhafız gizlice söylenen her şeyi duyar. Ve sadece yüze söyleyenleri geçirir. Brr, bugün ne kadar soğuk!", "ru": "В январе. Посмотрим. Слушай, про лес: мама говорила, что Хранительница слышит всё, что говорят тайком. И пропускает только тех, кто говорит в лицо. Брр, как сегодня холодно!", "next": "heatq"},
+        "heatq": {"kind": "answer", "task": "Скажите, что отопление не работает.", "branches": [{"phrase": "ph:home.kalorifer-calismiyor", "next": "shelf"}], "wrong": {"es": "Pencere mi? Pencere kapalı.", "ru": "Окно? Окно закрыто."}},
+        "shelf": {"kind": "say", "es": "Çalışmıyor. Toplantı için bir konu daha. Şimdi Orhan'ın kitaplarını kurtarmama yardım et. Şu raf düşmek üzere.", "ru": "Не работает. Ещё один вопрос для собрания. А теперь помоги спасти книги Орхана. Вон та полка вот-вот упадёт.", "next": "shelfq"},
+        "shelfq": {"kind": "answer", "task": "Скажите, что полку почините вы.", "branches": [{"phrase": "ph:home.rafi-ben", "next": "end"}], "wrong": {"es": "Çöp mü? Çöpü sonra çıkarırız.", "ru": "Мусор? Мусор вынесем потом."}},
+        "end": {"kind": "say", "es": "Ben tutarım, sen tamir et… İşte, su oraya ulaşamaz. Bak, kitapların arasında ne vardı: ormanın haritasından bir parça. Orhan yüz yıldır saklıyormuş. Senin için, diyor.", "ru": "Я подержу, а ты чини… Вот, туда вода не достанет. И смотри, что было между книгами: обрывок карты леса. Орхан, оказывается, хранил его сто лет. Говорит, это для тебя."}
+      }
     }
   ]
 }

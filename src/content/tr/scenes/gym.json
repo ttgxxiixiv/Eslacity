@@ -75,6 +75,52 @@
         {"q": "Что он делал руками?", "options": ["Закрывал уши", "Махал", "Держал карту"], "answer": 0}
       ],
       "gloss": {"hadi": "давай", "devesiyle": "со своим верблюдом", "tepelerinde": "на дюнах", "koşarken": "когда бежал", "sporcu": "спортсмен", "kaçan": "убегающий", "sürekli": "всё время", "arkasına": "назад", "elleriyle": "руками", "kapatıyordu": "закрывал", "duyuyormuş": "как будто слышал", "neyse": "ладно", "varacaksın": "дойдёшь"}
+    },
+    {
+      "id": "wh:gym.4",
+      "chapter": 4,
+      "mode": "overhear",
+      "npc": "deniz",
+      "lines": [
+        {"who": "npc", "es": "Doktor Hanım, bu hafta sizi sabah altıda burada üçüncü kez görüyorum. Bugün de çok yorgun görünüyorsunuz.", "ru": "Доктор, я вижу вас здесь в шесть утра уже третий раз за неделю. А сегодня вы выглядите совсем измотанной."},
+        {"who": "gul", "es": "Gerçekten iyiyim. Yazdan önce kas yapmak istiyorum.", "ru": "Я правда в порядке. Хочу набрать мышцы до лета."},
+        {"who": "npc", "es": "İyi misiniz? Dirseğinizde bandaj var. Fazla antrenmandan bir sakatlığa çok benziyor.", "ru": "В порядке? У вас локоть забинтован. Очень похоже на травму от лишних тренировок."},
+        {"who": "gul", "es": "Önemli değil, biraz ağrıyor. Hastalarıma hep sporun en iyi ilaç olduğunu söylerim.", "ru": "Ерунда, немного побаливает. Я всегда говорю пациентам, что спорт — лучшее лекарство."},
+        {"who": "npc", "es": "Onlara dinlenmeyi de söylüyorsunuzdur? Yoksa reçetenin o kısmı sadece onlar için mi?", "ru": "А отдыхать вы им, наверное, тоже велите? Или эта часть рецепта только для них?"},
+        {"who": "gul", "es": "Çok komik. Dinlenmek, antrenman yapacak vakti olmayanlar için.", "ru": "Очень смешно. Отдых — для тех, у кого нет времени тренироваться."},
+        {"who": "npc", "es": "Bu aşırı antrenman, doktor. Dinlenmeden kas olmaz, sakatlık olur.", "ru": "Это перетренированность, доктор. Без отдыха не будет мышц, будут травмы."},
+        {"who": "gul", "es": "Peki, peki. İki gün dinlenirim. Ama hastalarıma söylemeyin.", "ru": "Ладно, ладно. Два дня отдыха. Только не говорите моим пациентам."}
+      ],
+      "questions": [
+        {"q": "Что беспокоит Дениз?", "kind": "stance", "options": ["Доктор тренируется слишком много и уже с травмой", "Доктор опаздывает", "Доктор не платит за зал"], "answer": 0},
+        {"q": "Что Дениз имела в виду: «эта часть рецепта только для них»?", "kind": "stance", "options": ["Доктор советует отдых другим, а сама не отдыхает", "Доктор плохо пишет рецепты", "Пациенты не слушаются"], "answer": 0},
+        {"q": "Как доктор Гюль сначала отвечает на совет?", "kind": "stance", "options": ["Отшучивается: отдых — для тех, кому некогда тренироваться", "Сразу соглашается", "Обижается и уходит"], "answer": 0},
+        {"q": "О чём доктор просит в конце?", "kind": "stance", "options": ["Не говорить её пациентам", "Дать ей скидку", "Составить программу"], "answer": 0}
+      ],
+      "gloss": {"altıda": "в шесть", "kas": "мышцы", "dirseğinizde": "на вашем локте", "bandaj": "повязка", "antrenmandan": "от тренировок", "sakatlığa": "на травму", "benziyor": "похоже", "hastalarıma": "моим пациентам", "sporun": "что спорт", "söylüyorsunuzdur": "наверное, говорите", "reçetenin": "рецепта", "kısmı": "часть", "vakti": "времени", "olmayanlar": "у кого нет", "aşırı": "чрезмерный", "sakatlık": "травма", "dinlenirim": "отдохну"}
+    },
+    {
+      "id": "sc:gym.4",
+      "chapter": 4,
+      "npc": "deniz",
+      "lines": [
+        {"who": "npc", "es": "Günaydın! Bugün sabah altıda koşarken çok garip bir şey gördüm.", "ru": "Доброе утро! Сегодня в шесть утра на пробежке я увидела кое-что очень странное."},
+        {"who": "hero", "es": "Ne gördün?", "ru": "Что ты видела?"},
+        {"who": "npc", "es": "Spor salonunun arkasındaki bahçede yaşlı bir adam. Bir kargayla konuşuyordu.", "ru": "Пожилого мужчину в саду за спортзалом. Он разговаривал с вороной."},
+        {"who": "hero", "es": "Ne diyordu?", "ru": "И что он говорил?"},
+        {"who": "npc", "es": "Ona bir öğretmen gibi cümleler öğretiyordu: “Benden sonra tekrarla: orman tehlikeli.”", "ru": "Учил её фразам, как учитель: «Повторяй за мной: лес опасен»."},
+        {"who": "hero", "es": "Kim olduğunu gördün mü?", "ru": "Ты видела, кто это был?"},
+        {"who": "npc", "es": "Hayır. Şapkası vardı ve yavaş yürüyordu, çok eski bir ağaçtan bir bastonla.", "ru": "Нет. Он был в шляпе и шёл медленно, с палкой из очень старого дерева."},
+        {"who": "hero", "es": "Eski bir ağaçtan mı?", "ru": "Из старого дерева?"},
+        {"who": "npc", "es": "Çok eski ve koyu, çöldeki kulenin kapısı gibi.", "ru": "Очень старого и тёмного, как дверь башни в пустыне."}
+      ],
+      "questions": [
+        {"q": "Где Дениз видела старика?", "options": ["В саду за спортзалом", "На пляже", "На пристани"], "answer": 0},
+        {"q": "С кем он разговаривал?", "options": ["С вороной", "С собакой", "С Дениз"], "answer": 0},
+        {"q": "Чему он учил ворону?", "options": ["«Лес опасен»", "«Доброе утро»", "«Тише, пожалуйста»"], "answer": 0},
+        {"q": "На что похожа его палка?", "options": ["На дверь башни в пустыне", "На весло", "На ветку дуба"], "answer": 0}
+      ],
+      "gloss": {"altıda": "в шесть", "koşarken": "когда бегала", "salonunun": "зала (spor salonu — спортзал)", "kargayla": "с вороной", "konuşuyordu": "разговаривал", "cümleler": "фразы", "öğretiyordu": "учил", "tehlikeli": "опасный", "şapkası": "его шляпа", "yürüyordu": "шёл", "bastonla": "с палкой", "koyu": "тёмный", "kulenin": "башни"}
     }
   ]
 }

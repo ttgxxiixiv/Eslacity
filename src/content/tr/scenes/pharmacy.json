@@ -75,6 +75,53 @@
         {"q": "От чего нет лекарства?", "options": ["От бессонницы", "Чтобы меньше хотеть", "От жажды"], "answer": 1}
       ],
       "gloss": {"şişede": "в бутылке", "olduğunu": "что (было)", "şişesinde": "в бутылке", "görünen": "которая кажется", "dolu": "полный", "kokusu": "запах", "susamışlar": "их мучает жажда", "rüyalarında": "во сне", "ilacınız": "ваше лекарство"}
+    },
+    {
+      "id": "wh:pharmacy.4",
+      "chapter": 4,
+      "mode": "overhear",
+      "npc": "zeynep",
+      "lines": [
+        {"who": "npc", "es": "Doktor Hanım, sabah reçete yazdığınız o hanım… uykusuzluk için bitki çayı içtiğini biliyor musunuz?", "ru": "Доктор, та дама, которой вы утром выписали рецепт… вы знаете, что она пьёт травы от бессонницы?"},
+        {"who": "gul", "es": "Hiç bilmiyordum. Bana başka hiçbir şey almadığını söyledi.", "ru": "Понятия не имела. Мне она сказала, что больше ничего не принимает."},
+        {"who": "npc", "es": "Herkes öyle der. Ama bu bitkiler sizin hapınızla birlikte… tehlikeli olabilir.", "ru": "Так говорят все. Но эти травы вместе с вашей таблеткой… это может быть опасно."},
+        {"who": "gul", "es": "Hastalar doğal olanın sayılmadığını düşünüyor. Sonra acile geliyorlar.", "ru": "Пациенты думают, что натуральное не считается. А потом попадают в неотложку."},
+        {"who": "npc", "es": "Belki de kimse onlara sakin sakin sormuyor. Bir hasta için beş dakikanız var.", "ru": "А может, их просто никто спокойно не спрашивает. У вас на пациента пять минут."},
+        {"who": "gul", "es": "İşimi kötü yaptığımı mı söylüyorsunuz?", "ru": "Вы хотите сказать, что я плохо делаю свою работу?"},
+        {"who": "npc", "es": "Beş dakikanın kimseye yetmediğini söylüyorum, ne size ne bana.", "ru": "Я говорю, что пяти минут никому не хватает, ни вам, ни мне."},
+        {"who": "gul", "es": "Orada haklısınız. O hanımı arayıp ilaçlarını değiştireceğim.", "ru": "Тут вы правы. Позвоню этой даме и поменяю ей лекарства."},
+        {"who": "npc", "es": "Ben de ona nasıl içeceğini acele etmeden anlatırım. Bu sefer zaman bulunur.", "ru": "А я не спеша объясню ей, как их принимать. На этот раз время найдётся."}
+      ],
+      "questions": [
+        {"q": "Что беспокоит Зейнеп-ханым?", "kind": "stance", "options": ["Травы вместе с таблеткой могут быть опасны", "Цена лекарства", "Очередь в аптеке"], "answer": 0},
+        {"q": "Почему, по мнению Зейнеп, пациенты молчат о травах?", "kind": "stance", "options": ["Их никто спокойно не спрашивает", "Они стесняются", "Травы запрещены"], "answer": 0},
+        {"q": "Как доктор Гюль сначала поняла слова Зейнеп?", "kind": "stance", "options": ["Как упрёк, что она плохо работает", "Как шутку", "Как благодарность"], "answer": 0},
+        {"q": "Чем кончается разговор?", "kind": "stance", "options": ["Обе берутся помочь даме", "Ссорой", "Доктор уходит"], "answer": 0}
+      ],
+      "gloss": {"reçete": "рецепт", "yazdığınız": "который вы выписали", "uykusuzluk": "бессонница", "bitki": "трава", "içtiğini": "что пьёт", "bitkiler": "травы", "hapınızla": "с вашей таблеткой", "tehlikeli": "опасный", "hastalar": "пациенты", "doğal": "натуральный", "sayılmadığını": "что не считается", "acile": "в неотложку", "yaptığımı": "что я делаю", "söylüyorsunuz": "вы говорите", "yetmediğini": "что не хватает", "arayıp": "позвонив", "içeceğini": "как принимать", "bulunur": "найдётся"}
+    },
+    {
+      "id": "sc:pharmacy.4",
+      "chapter": 4,
+      "npc": "zeynep",
+      "lines": [
+        {"who": "npc", "es": "Günaydın. Kusura bakmayın, çok endişeliyim.", "ru": "Доброе утро. Простите, я очень встревожена."},
+        {"who": "hero", "es": "Ne oldu?", "ru": "Что случилось?"},
+        {"who": "npc", "es": "Orman benim sesimle konuşuyor: “Doktor Gül işini bilmiyor.”", "ru": "Лес говорит моим голосом: «Доктор Гюль не знает своего дела»."},
+        {"who": "hero", "es": "Bunu siz mi söylediniz?", "ru": "А вы это говорили?"},
+        {"who": "npc", "es": "Asla! Bitkiler yüzünden tartıştık, evet, ama doktora çok saygım var.", "ru": "Никогда! Мы поспорили из-за трав, да, но я очень уважаю доктора."},
+        {"who": "hero", "es": "Doktor bunu biliyor mu?", "ru": "А доктор об этом знает?"},
+        {"who": "npc", "es": "Bütün şehir biliyor. Bu sabah bana selam vermedi.", "ru": "Весь город знает. Сегодня утром она со мной не поздоровалась."},
+        {"who": "hero", "es": "Giyim dükkânında da aynısı oldu.", "ru": "В лавке одежды было то же самое."},
+        {"who": "npc", "es": "Demek yalnız değilim. Biri bizim seslerimizle konuşuyor.", "ru": "Значит, я не одна такая. Кто-то говорит нашими голосами."}
+      ],
+      "questions": [
+        {"q": "Что лес говорит голосом Зейнеп?", "options": ["Что доктор Гюль не знает своего дела", "Что аптека закрывается", "Что травы полезны"], "answer": 0},
+        {"q": "Из-за чего Зейнеп и доктор поспорили?", "options": ["Из-за трав", "Из-за денег", "Из-за рецепта"], "answer": 0},
+        {"q": "Что сделала доктор утром?", "options": ["Не поздоровалась с Зейнеп", "Пришла извиниться", "Купила лекарство"], "answer": 0},
+        {"q": "Что поняла Зейнеп?", "options": ["Кто-то говорит голосами жителей", "Лес молчит", "Доктор всё выдумала"], "answer": 0}
+      ],
+      "gloss": {"kusura": "(kusura bakmayın — простите)", "gül": "Гюль", "bitkiler": "травы", "tartıştık": "поспорили", "saygım": "моё уважение", "giyim": "одежда", "dükkanında": "в лавке", "aynısı": "то же самое", "seslerimizle": "нашими голосами"}
     }
   ]
 }
