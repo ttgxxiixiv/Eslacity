@@ -1,0 +1,165 @@
+{
+  "id": "b2.17-makta",
+  "district": "B2",
+  "order": 17,
+  "title": "Книжное -mAktA(dIr)",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "**-makta / -mekte** — длительное действие в книжной и официальной речи (газета, объявление): **Söylentiler hızla yayılmaktadır** — Слухи быстро распространяются. В разговоре то же — **-ıyor**: yayılıyor. **-dır** добавляет официальность."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Разговорное",
+        "Книжное",
+        "Перевод"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "bekliyoruz",
+            "beklemekteyiz",
+            "мы ожидаем"
+          ]
+        },
+        {
+          "cells": [
+            "artıyor",
+            "artmaktadır",
+            "растёт"
+          ]
+        },
+        {
+          "cells": [
+            "devam ediyor",
+            "devam etmektedir",
+            "продолжается"
+          ]
+        },
+        {
+          "cells": [
+            "bilinmiyor",
+            "bilinmemektedir",
+            "неизвестно"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Узнавать -mAktAdIr нужно для газет и писем учреждений; в разговоре оно звучит как доклад. Отрицание: bil**me**mektedir."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Ormandaki sesler araştırılmaktadır.",
+      "ru": "Звуки в лесу изучаются."
+    },
+    {
+      "es": "Vapur seferleri normal şekilde devam etmektedir.",
+      "ru": "Рейсы пароходов продолжаются в обычном режиме."
+    },
+    {
+      "es": "Olayın sebebi henüz bilinmemektedir.",
+      "ru": "Причина происшествия пока неизвестна."
+    },
+    {
+      "es": "Bilgilerinizi beklemekteyiz.",
+      "ru": "Ожидаем ваших сведений."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "b2.17-makta.1",
+      "kind": "choose",
+      "prompt": "Книжный вариант «artıyor»:",
+      "options": [
+        "artmaktadır",
+        "artacaktır",
+        "artmıştır"
+      ],
+      "answer": 0,
+      "explain": "Длительное книжное — artmaktadır."
+    },
+    {
+      "id": "b2.17-makta.2",
+      "kind": "choose",
+      "prompt": "Где уместно -mAktAdIr?",
+      "options": [
+        "В газете и официальном письме",
+        "В разговоре с другом",
+        "В детской песне"
+      ],
+      "answer": 0,
+      "explain": "Это книжный стиль."
+    },
+    {
+      "id": "b2.17-makta.3",
+      "kind": "gap",
+      "sentence": "Söylentiler hızla ___.",
+      "ru": "Слухи быстро распространяются.",
+      "options": [
+        "yayılmaktadır",
+        "yayılmakta mı",
+        "yayılsın"
+      ],
+      "answer": 0,
+      "explain": "Книжное — yayılmaktadır."
+    },
+    {
+      "id": "b2.17-makta.4",
+      "kind": "gap",
+      "sentence": "Olayın sebebi henüz ___.",
+      "ru": "Причина события пока неизвестна.",
+      "options": [
+        "bilinmemektedir",
+        "bilmemektedir",
+        "bilinmiyordur"
+      ],
+      "answer": 0,
+      "explain": "Пассив + отрицание: bilinmemektedir."
+    },
+    {
+      "id": "b2.17-makta.5",
+      "kind": "truefalse",
+      "statement": "-mAktAdIr — книжный вариант длительного времени.",
+      "answer": true,
+      "explain": "devam etmektedir."
+    },
+    {
+      "id": "b2.17-makta.6",
+      "kind": "truefalse",
+      "statement": "«Beklemekteyiz» звучит естественно в разговоре с соседом.",
+      "answer": false,
+      "explain": "Это официальный стиль."
+    },
+    {
+      "id": "b2.17-makta.7",
+      "kind": "truefalse",
+      "statement": "Отрицание: bilinmemektedir.",
+      "answer": true,
+      "explain": "bilin + me + mekte + dir."
+    },
+    {
+      "id": "b2.17-makta.8",
+      "kind": "build",
+      "ru": "Расследование продолжается.",
+      "answer": "Soruşturma devam etmektedir.",
+      "extra": [
+        "ediyordu",
+        "soruşturmayı"
+      ],
+      "explain": "Книжное — devam etmektedir."
+    },
+    {
+      "id": "b2.17-makta.9",
+      "kind": "type",
+      "sentence": "Belediye yeni bir park ___.",
+      "ru": "Мэрия строит новый парк.",
+      "hint": "yapmak, книжно",
+      "answer": "yapmaktadır",
+      "explain": "yap + makta + dır."
+    }
+  ]
+}

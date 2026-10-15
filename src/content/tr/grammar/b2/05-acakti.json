@@ -1,0 +1,172 @@
+{
+  "id": "b2.05-acakti",
+  "district": "B2",
+  "order": 5,
+  "title": "Собирался: -(y)AcAktI",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "**-(y)acaktı / -(y)ecekti** — «собирался (сделать), должен был»: **Yarın gidecektim ama fırtına çıktı** — Я собирался ехать завтра, но поднялась буря. Часто намерение не исполнилось."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Лицо",
+        "gitmek",
+        "söylemek"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "ben",
+            "gidecektim",
+            "söyleyecektim"
+          ]
+        },
+        {
+          "cells": [
+            "sen",
+            "gidecektin",
+            "söyleyecektin"
+          ]
+        },
+        {
+          "cells": [
+            "o",
+            "gidecekti",
+            "söyleyecekti"
+          ]
+        },
+        {
+          "cells": [
+            "biz",
+            "gidecektik",
+            "söyleyecektik"
+          ]
+        },
+        {
+          "cells": [
+            "onlar",
+            "gideceklerdi",
+            "söyleyeceklerdi"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "С **tam** — «как раз собирался»: **Tam seni arayacaktım!** — Я как раз собирался тебе звонить! Отрицание: gitme**yecek**tim — не собирался."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Tam sana söyleyecektim, sen önce duydun.",
+      "ru": "Я как раз собирался тебе сказать, ты услышал раньше."
+    },
+    {
+      "es": "Ormana gidecektik ama sis çıktı.",
+      "ru": "Мы собирались в лес, но поднялся туман."
+    },
+    {
+      "es": "Orhan her şeyi itiraf edecekti.",
+      "ru": "Орхан собирался во всём признаться."
+    },
+    {
+      "es": "Bugün gelmeyecektin, değil mi?",
+      "ru": "Ты ведь сегодня не собирался приходить?"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "b2.05-acakti.1",
+      "kind": "choose",
+      "prompt": "«Я собирался позвонить»:",
+      "options": [
+        "arayacaktım",
+        "arayacağım",
+        "aradım"
+      ],
+      "answer": 0,
+      "explain": "Собирался — -acaktım."
+    },
+    {
+      "id": "b2.05-acakti.2",
+      "kind": "choose",
+      "prompt": "«Мы собирались, но…»:",
+      "options": [
+        "gidecektik ama",
+        "gideceğiz ama",
+        "gittik ama"
+      ],
+      "answer": 0,
+      "explain": "Неисполненное намерение — -ecektik."
+    },
+    {
+      "id": "b2.05-acakti.3",
+      "kind": "gap",
+      "sentence": "Tam seni ___, telefon çaldı.",
+      "ru": "Я как раз собирался тебе звонить, и зазвонил телефон.",
+      "options": [
+        "arayacaktım",
+        "arıyorum",
+        "arayacağım"
+      ],
+      "answer": 0,
+      "explain": "Как раз собирался — arayacaktım."
+    },
+    {
+      "id": "b2.05-acakti.4",
+      "kind": "gap",
+      "sentence": "Sana bir hediye ___ ama param bitti.",
+      "ru": "Я собирался купить тебе подарок, но кончились деньги.",
+      "options": [
+        "alacaktım",
+        "alacağım",
+        "alıyorum"
+      ],
+      "answer": 0,
+      "explain": "Собирался — alacaktım."
+    },
+    {
+      "id": "b2.05-acakti.5",
+      "kind": "truefalse",
+      "statement": "-AcAktI часто значит намерение, которое не исполнилось.",
+      "answer": true,
+      "explain": "gidecektim ama…"
+    },
+    {
+      "id": "b2.05-acakti.6",
+      "kind": "truefalse",
+      "statement": "«Gideceklerdi» значит «они ушли».",
+      "answer": false,
+      "explain": "Они собирались уйти."
+    },
+    {
+      "id": "b2.05-acakti.7",
+      "kind": "truefalse",
+      "statement": "«Tam seni arayacaktım» — я как раз собирался тебе звонить.",
+      "answer": true,
+      "explain": "tam + -acaktım."
+    },
+    {
+      "id": "b2.05-acakti.8",
+      "kind": "build",
+      "ru": "Я собирался прийти, но заболел.",
+      "answer": "Gelecektim ama hastalandım.",
+      "extra": [
+        "geleceğim",
+        "hasta"
+      ],
+      "explain": "Собирался — gelecektim."
+    },
+    {
+      "id": "b2.05-acakti.9",
+      "kind": "type",
+      "sentence": "Kuzgun bir şey ___ ama uçup gitti.",
+      "ru": "Ворон собирался что-то сказать, но улетел.",
+      "hint": "söylemek, собирался",
+      "answer": "söyleyecekti",
+      "explain": "söyle + y + ecek + ti."
+    }
+  ]
+}

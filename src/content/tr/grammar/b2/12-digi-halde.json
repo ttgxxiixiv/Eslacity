@@ -1,0 +1,154 @@
+{
+  "id": "b2.12-digi-halde",
+  "district": "B2",
+  "order": 12,
+  "title": "Хотя: -DIğI halde",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "**-dığı / -diği halde** — «хотя, несмотря на то что»: **Bildiği halde** söylemedi — Хотя он знал, он не сказал. Будущее — **-(y)acağı halde**. Оттенок — упрёк или удивление."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Фраза",
+        "Перевод"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Söz verdiğin halde gelmedin.",
+            "Хотя ты обещал, ты не пришёл."
+          ]
+        },
+        {
+          "cells": [
+            "Yorgun olduğum halde uyuyamadım.",
+            "Хотя я устал, я не мог уснуть."
+          ]
+        },
+        {
+          "cells": [
+            "Bildiği halde sustu.",
+            "Хотя знал, он промолчал."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Близко к **-masına rağmen**, но **-dığı halde** чаще звучит с упрёком: **Sana söylediğim halde!** — Я же тебе говорил!"
+    }
+  ],
+  "examples": [
+    {
+      "es": "Doğruyu bildiği halde kuzguna o sözü öğretti.",
+      "ru": "Хотя он знал правду, он научил ворона этим словам."
+    },
+    {
+      "es": "Söz verdiğin halde gelmedin.",
+      "ru": "Ты обещал, но не пришёл."
+    },
+    {
+      "es": "Çok aç olduğum halde yiyemedim.",
+      "ru": "Хотя я очень хотел есть, я не смог есть."
+    },
+    {
+      "es": "Sana söylediğim halde dinlemedin!",
+      "ru": "Я же тебе говорил, а ты не послушал!"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "b2.12-digi-halde.1",
+      "kind": "choose",
+      "prompt": "«Хотя он знал»:",
+      "options": [
+        "bildiği halde",
+        "bildiği için",
+        "bilerek halde"
+      ],
+      "answer": 0,
+      "explain": "Уступка — bildiği halde."
+    },
+    {
+      "id": "b2.12-digi-halde.2",
+      "kind": "choose",
+      "prompt": "Оттенок -DIğI halde часто такой:",
+      "options": [
+        "упрёк или удивление",
+        "цель",
+        "причина"
+      ],
+      "answer": 0,
+      "explain": "Söz verdiğin halde gelmedin!"
+    },
+    {
+      "id": "b2.12-digi-halde.3",
+      "kind": "gap",
+      "sentence": "Söz ___ halde gelmedi.",
+      "ru": "Хотя он обещал, он не пришёл.",
+      "options": [
+        "verdiği",
+        "vermesi",
+        "verdiğinden"
+      ],
+      "answer": 0,
+      "explain": "-dığı halde."
+    },
+    {
+      "id": "b2.12-digi-halde.4",
+      "kind": "gap",
+      "sentence": "Yorgun ___ halde çalışmaya devam etti.",
+      "ru": "Хотя он устал, он продолжал работать.",
+      "options": [
+        "olduğu",
+        "olması",
+        "olacak"
+      ],
+      "answer": 0,
+      "explain": "olduğu halde."
+    },
+    {
+      "id": "b2.12-digi-halde.5",
+      "kind": "truefalse",
+      "statement": "-DIğI halde значит «хотя».",
+      "answer": true,
+      "explain": "bildiği halde."
+    },
+    {
+      "id": "b2.12-digi-halde.6",
+      "kind": "truefalse",
+      "statement": "«Sana söylediğim halde!» — «Потому что я тебе сказал!»",
+      "answer": false,
+      "explain": "Я же тебе говорил! (упрёк)"
+    },
+    {
+      "id": "b2.12-digi-halde.7",
+      "kind": "truefalse",
+      "statement": "-DIğI halde близко по смыслу к -mAsInA rağmen.",
+      "answer": true,
+      "explain": "Оба — уступка."
+    },
+    {
+      "id": "b2.12-digi-halde.8",
+      "kind": "build",
+      "ru": "Хотя я звал, никто не ответил.",
+      "answer": "Seslendiğim halde kimse cevap vermedi.",
+      "extra": [
+        "seslendim",
+        "cevabı"
+      ],
+      "explain": "Уступка — seslendiğim halde."
+    },
+    {
+      "id": "b2.12-digi-halde.9",
+      "kind": "type",
+      "sentence": "Haklı ___ halde özür diledi.",
+      "ru": "Хотя он был прав, он извинился.",
+      "hint": "olmak, хотя",
+      "answer": "olduğu",
+      "explain": "ol + duğ + u."
+    }
+  ]
+}

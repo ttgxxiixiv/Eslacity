@@ -1,0 +1,158 @@
+{
+  "id": "b2.14-incaya-kadar",
+  "district": "B2",
+  "order": 14,
+  "title": "Пока не, до тех пор: -(y)IncAyA kadar",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "**-ıncaya / -inceye kadar** — «до тех пор, пока не; пока»: **Sis dağılıncaya kadar** bekledik — Мы ждали, пока не рассеется туман. В разговоре — **-(y)ana / -(y)ene kadar**: **Sen gelene kadar** buradayım — Я здесь, пока ты не придёшь."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Книжно",
+        "Разговорно",
+        "Перевод"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "gelinceye kadar",
+            "gelene kadar",
+            "пока не придёт"
+          ]
+        },
+        {
+          "cells": [
+            "bitinceye kadar",
+            "bitene kadar",
+            "пока не кончится"
+          ]
+        },
+        {
+          "cells": [
+            "anlayıncaya kadar",
+            "anlayana kadar",
+            "пока не поймёт"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "По-турецки главная часть утвердительная: **gelene kadar bekle** — жди, пока он не придёт (буквально «до его прихода»). Отрицание в -ana kadar не нужно."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Orman susana kadar bekleyeceğiz.",
+      "ru": "Мы будем ждать, пока лес не замолчит."
+    },
+    {
+      "es": "Gün doğuncaya kadar konuştuk.",
+      "ru": "Мы проговорили до рассвета."
+    },
+    {
+      "es": "Sen dönene kadar kuzguna ben bakarım.",
+      "ru": "Пока ты не вернёшься, я присмотрю за вороном."
+    },
+    {
+      "es": "Herkes anlayana kadar tekrar anlattı.",
+      "ru": "Он повторял, пока все не поняли."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "b2.14-incaya-kadar.1",
+      "kind": "choose",
+      "prompt": "«Пока он не придёт»:",
+      "options": [
+        "o gelene kadar",
+        "o gelmeyene kadar",
+        "o gelmedikçe kadar"
+      ],
+      "answer": 0,
+      "explain": "Отрицание не нужно: gelene kadar."
+    },
+    {
+      "id": "b2.14-incaya-kadar.2",
+      "kind": "choose",
+      "prompt": "Книжный вариант «gelene kadar»:",
+      "options": [
+        "gelinceye kadar",
+        "gelirken kadar",
+        "geldikçe"
+      ],
+      "answer": 0,
+      "explain": "-inceye kadar."
+    },
+    {
+      "id": "b2.14-incaya-kadar.3",
+      "kind": "gap",
+      "sentence": "Sis ___ kadar bekledik.",
+      "ru": "Мы ждали, пока не рассеется туман.",
+      "options": [
+        "dağılana",
+        "dağılmayana",
+        "dağıldıkça"
+      ],
+      "answer": 0,
+      "explain": "-ana kadar."
+    },
+    {
+      "id": "b2.14-incaya-kadar.4",
+      "kind": "gap",
+      "sentence": "Yemek ___ kadar masadan kalkma.",
+      "ru": "Не вставай из-за стола, пока не доешь.",
+      "options": [
+        "bitene",
+        "bitmeyene",
+        "biterken"
+      ],
+      "answer": 0,
+      "explain": "bitene kadar."
+    },
+    {
+      "id": "b2.14-incaya-kadar.5",
+      "kind": "truefalse",
+      "statement": "В -(y)AnA kadar отрицание не нужно: gelene kadar = пока не придёт.",
+      "answer": true,
+      "explain": "Буквально «до прихода»."
+    },
+    {
+      "id": "b2.14-incaya-kadar.6",
+      "kind": "truefalse",
+      "statement": "«Gün doğuncaya kadar» — «после рассвета».",
+      "answer": false,
+      "explain": "До рассвета."
+    },
+    {
+      "id": "b2.14-incaya-kadar.7",
+      "kind": "truefalse",
+      "statement": "-(y)IncAyA kadar — книжный вариант -(y)AnA kadar.",
+      "answer": true,
+      "explain": "gelinceye = gelene kadar."
+    },
+    {
+      "id": "b2.14-incaya-kadar.8",
+      "kind": "build",
+      "ru": "Я подожду здесь, пока ты не вернёшься.",
+      "answer": "Sen dönene kadar burada beklerim.",
+      "extra": [
+        "dönmeyene",
+        "dönünce"
+      ],
+      "explain": "-ene kadar."
+    },
+    {
+      "id": "b2.14-incaya-kadar.9",
+      "kind": "type",
+      "sentence": "Herkes ___ kadar sessiz kaldı.",
+      "ru": "Он молчал, пока все не ушли.",
+      "hint": "gitmek, пока не",
+      "answer": "gidene",
+      "explain": "gid + en + e kadar."
+    }
+  ]
+}

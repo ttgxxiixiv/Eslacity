@@ -1,0 +1,158 @@
+{
+  "id": "b2.09-saydi-gecmis",
+  "district": "B2",
+  "order": 9,
+  "title": "Если бы (тогда): -sAydI … -(I)rdI",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Нереальное условие о прошлом: **-saydı** + **-ırdı / -ardı**: **Erken gelseydin treni yakalardın** — Если бы ты пришёл рано, ты бы успел на поезд. Часто это сожаление: **Bilseydim söylerdim** — Знал бы я, сказал бы."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Условие",
+        "Следствие",
+        "Перевод"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Dinleseydin",
+            "anlardın.",
+            "Если бы ты послушал, ты бы понял."
+          ]
+        },
+        {
+          "cells": [
+            "Gitmeseydim",
+            "görmezdim.",
+            "Если бы я не пошёл, я бы не увидел."
+          ]
+        },
+        {
+          "cells": [
+            "Söyleseydiniz",
+            "yardım ederdik.",
+            "Скажи вы, мы бы помогли."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Иногда вместо -ırdı ставят -acaktı: **Gelseydin görecektin** — Пришёл бы — увидел бы. В разговоре часто опускают одну из частей: **Keşke söyleseydin!**"
+    }
+  ],
+  "examples": [
+    {
+      "es": "Orhan o gün inmeseydi her şey farklı olurdu.",
+      "ru": "Если бы Орхан не сошёл в тот день, всё было бы иначе."
+    },
+    {
+      "es": "Kuzgunu daha önce görseydik söylentiler başlamazdı.",
+      "ru": "Заметь мы ворона раньше, слухи бы не начались."
+    },
+    {
+      "es": "Bana sorsaydın sana yolu gösterirdim.",
+      "ru": "Спросил бы ты меня, я бы показал тебе дорогу."
+    },
+    {
+      "es": "Dikkat etseydim düşmezdim.",
+      "ru": "Был бы я внимательнее, я бы не упал."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "b2.09-saydi-gecmis.1",
+      "kind": "choose",
+      "prompt": "«Если бы ты пришёл (вчера), ты бы увидел»:",
+      "options": [
+        "Gelseydin görürdün.",
+        "Gelirsen görürsün.",
+        "Gelsen görürsün."
+      ],
+      "answer": 0,
+      "explain": "О прошлом — -seydin … -ürdün."
+    },
+    {
+      "id": "b2.09-saydi-gecmis.2",
+      "kind": "choose",
+      "prompt": "«Если бы я не пошёл»:",
+      "options": [
+        "gitmeseydim",
+        "gitmezsem",
+        "gitmesem"
+      ],
+      "answer": 0,
+      "explain": "Отрицание о прошлом — gitmeseydim."
+    },
+    {
+      "id": "b2.09-saydi-gecmis.3",
+      "kind": "gap",
+      "sentence": "Erken ___ treni kaçırmazdık.",
+      "ru": "Если бы мы вышли рано, мы бы не опоздали на поезд.",
+      "options": [
+        "çıksaydık",
+        "çıkarsak",
+        "çıktık"
+      ],
+      "answer": 0,
+      "explain": "О прошлом — çıksaydık."
+    },
+    {
+      "id": "b2.09-saydi-gecmis.4",
+      "kind": "gap",
+      "sentence": "Söyleseydin sana yardım ___.",
+      "ru": "Если бы ты сказал, я бы тебе помог.",
+      "options": [
+        "ederdim",
+        "ederim",
+        "edeceğim"
+      ],
+      "answer": 0,
+      "explain": "Следствие — ederdim."
+    },
+    {
+      "id": "b2.09-saydi-gecmis.5",
+      "kind": "truefalse",
+      "statement": "-sAydI … -rdI описывает нереальное условие о прошлом.",
+      "answer": true,
+      "explain": "gelseydin görürdün."
+    },
+    {
+      "id": "b2.09-saydi-gecmis.6",
+      "kind": "truefalse",
+      "statement": "«Bilseydim söylerdim» — «Если узнаю, скажу».",
+      "answer": false,
+      "explain": "Знал бы — сказал бы (о прошлом)."
+    },
+    {
+      "id": "b2.09-saydi-gecmis.7",
+      "kind": "truefalse",
+      "statement": "Вместо -rdı иногда ставят -acaktı: görecektin.",
+      "answer": true,
+      "explain": "Gelseydin görecektin."
+    },
+    {
+      "id": "b2.09-saydi-gecmis.8",
+      "kind": "build",
+      "ru": "Если бы ты меня послушал, ты бы не заблудился.",
+      "answer": "Beni dinleseydin kaybolmazdın.",
+      "extra": [
+        "dinlersen",
+        "kaybolmazsın"
+      ],
+      "explain": "О прошлом — dinleseydin … kaybolmazdın."
+    },
+    {
+      "id": "b2.09-saydi-gecmis.9",
+      "kind": "type",
+      "sentence": "Haritayı ___ yolu bulurduk.",
+      "ru": "Если бы мы взяли карту, мы бы нашли дорогу.",
+      "hint": "almak, если бы, мы",
+      "answer": "alsaydık",
+      "explain": "al + sa + y + dı + k."
+    }
+  ]
+}

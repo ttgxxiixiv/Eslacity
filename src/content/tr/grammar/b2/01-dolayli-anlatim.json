@@ -1,0 +1,165 @@
+{
+  "id": "b2.01-dolayli-anlatim",
+  "district": "B2",
+  "order": 1,
+  "title": "Косвенная речь: -DIğInI söyledi",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Чужие слова пересказывают причастием **-dığını / -eceğini** + söyledi, anlattı, dedi: **«Yoruldum» dedi** → **Yorulduğunu söyledi** — Он сказал, что устал. **«Geleceğim»** → **Geleceğini söyledi** — Он сказал, что придёт. Лицо переходит в притяжательный аффикс."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Прямая речь",
+        "Косвенная",
+        "Перевод"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "«Hastayım.»",
+            "Hasta olduğunu söyledi.",
+            "Он сказал, что болен."
+          ]
+        },
+        {
+          "cells": [
+            "«Gördüm.»",
+            "Gördüğünü söyledi.",
+            "Он сказал, что видел."
+          ]
+        },
+        {
+          "cells": [
+            "«Gideceğim.»",
+            "Gideceğini söyledi.",
+            "Он сказал, что уйдёт."
+          ]
+        },
+        {
+          "cells": [
+            "«Bilmiyorum.»",
+            "Bilmediğini söyledi.",
+            "Он сказал, что не знает."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Настоящее время в косвенной речи тоже передаётся через **-dığı**: «Seviyorum» → **Sevdiğini söyledi** — сказал, что любит. Будущее — через **-(y)acağı**."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Fatma Teyze terazisinin doğru olduğunu söyledi.",
+      "ru": "Тётушка Фатма сказала, что её весы точные."
+    },
+    {
+      "es": "Kemal Usta eski yağ kullanmadığını anlattı.",
+      "ru": "Кемаль-уста объяснил, что не пользуется старым маслом."
+    },
+    {
+      "es": "Orhan yarın geleceğini söyledi.",
+      "ru": "Орхан сказал, что придёт завтра."
+    },
+    {
+      "es": "Kimse onu gördüğünü söylemedi.",
+      "ru": "Никто не сказал, что видел его."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "b2.01-dolayli-anlatim.1",
+      "kind": "choose",
+      "prompt": "«Он сказал, что устал»:",
+      "options": [
+        "Yorulduğunu söyledi.",
+        "Yoruldu söyledi.",
+        "Yorulduğuna söyledi."
+      ],
+      "answer": 0,
+      "explain": "söylemek — винительный: yorulduğunu."
+    },
+    {
+      "id": "b2.01-dolayli-anlatim.2",
+      "kind": "choose",
+      "prompt": "«Она сказала, что придёт»:",
+      "options": [
+        "Geleceğini söyledi.",
+        "Geldiğini söyledi.",
+        "Gelecek söyledi."
+      ],
+      "answer": 0,
+      "explain": "Будущее — geleceğini."
+    },
+    {
+      "id": "b2.01-dolayli-anlatim.3",
+      "kind": "gap",
+      "sentence": "Doktor ilacın ___ söyledi.",
+      "ru": "Врач сказал, что лекарство помогает.",
+      "options": [
+        "işe yaradığını",
+        "işe yarar",
+        "işe yaradığına"
+      ],
+      "answer": 0,
+      "explain": "Косвенная речь — -dığını."
+    },
+    {
+      "id": "b2.01-dolayli-anlatim.4",
+      "kind": "gap",
+      "sentence": "Komşum hiçbir şey ___ söyledi.",
+      "ru": "Сосед сказал, что ничего не слышал.",
+      "options": [
+        "duymadığını",
+        "duymadı",
+        "duymamak"
+      ],
+      "answer": 0,
+      "explain": "Отрицание — duymadığını."
+    },
+    {
+      "id": "b2.01-dolayli-anlatim.5",
+      "kind": "truefalse",
+      "statement": "В косвенной речи «что» обычно передаётся причастием -dığı.",
+      "answer": true,
+      "explain": "gördüğünü söyledi."
+    },
+    {
+      "id": "b2.01-dolayli-anlatim.6",
+      "kind": "truefalse",
+      "statement": "«Seviyorum» в косвенной речи становится «seveceğini söyledi».",
+      "answer": false,
+      "explain": "Настоящее — sevdiğini söyledi."
+    },
+    {
+      "id": "b2.01-dolayli-anlatim.7",
+      "kind": "truefalse",
+      "statement": "Лицо говорящего переходит в притяжательный аффикс: geldiğimi, geldiğini.",
+      "answer": true,
+      "explain": "Моё/твоё/его."
+    },
+    {
+      "id": "b2.01-dolayli-anlatim.8",
+      "kind": "build",
+      "ru": "Он сказал, что не знает дороги.",
+      "answer": "Yolu bilmediğini söyledi.",
+      "extra": [
+        "bilmiyor",
+        "yola"
+      ],
+      "explain": "Косвенная речь, отрицание — bilmediğini."
+    },
+    {
+      "id": "b2.01-dolayli-anlatim.9",
+      "kind": "type",
+      "sentence": "Kerem kulede ___ anlattı.",
+      "ru": "Керем рассказал, что был в башне.",
+      "hint": "olmak, косвенная речь",
+      "answer": "olduğunu",
+      "explain": "ol + duğ + u + nu."
+    }
+  ]
+}

@@ -1,0 +1,154 @@
+{
+  "id": "b2.13-madikca",
+  "district": "B2",
+  "order": 13,
+  "title": "Пока не: -mAdIkçA",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "**-madıkça / -medikçe** — «пока не, если не»: **Doğruyu söylemedikçe** orman susmayacak — Пока не скажешь правду, лес не замолчит. Это отрицательная пара к **-dıkça** (по мере того как)."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Фраза",
+        "Перевод"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Sen gelmedikçe başlamayız.",
+            "Пока ты не придёшь, мы не начнём."
+          ]
+        },
+        {
+          "cells": [
+            "Çalışmadıkça başaramazsın.",
+            "Не будешь работать — не добьёшься."
+          ]
+        },
+        {
+          "cells": [
+            "Sorulmadıkça konuşma.",
+            "Не говори, пока не спросят."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Главная часть почти всегда отрицательная: «пока не… — не…». Сравните: **gördükçe** (всякий раз, как видит), **görmedikçe** (пока не увидит)."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Herkes özür dilemedikçe fısıltılar bitmeyecek.",
+      "ru": "Пока все не извинятся, шёпоты не утихнут."
+    },
+    {
+      "es": "Kanıt olmadıkça kimseyi suçlayamayız.",
+      "ru": "Пока нет доказательств, мы никого не можем обвинять."
+    },
+    {
+      "es": "Sis dağılmadıkça vapur kalkmaz.",
+      "ru": "Пока туман не рассеется, пароход не отойдёт."
+    },
+    {
+      "es": "Sen istemedikçe kimseye söylemem.",
+      "ru": "Пока ты сам не захочешь, никому не скажу."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "b2.13-madikca.1",
+      "kind": "choose",
+      "prompt": "«Пока ты не придёшь»:",
+      "options": [
+        "sen gelmedikçe",
+        "sen geldikçe",
+        "sen gelmeden önce"
+      ],
+      "answer": 0,
+      "explain": "Пока не — gelmedikçe."
+    },
+    {
+      "id": "b2.13-madikca.2",
+      "kind": "choose",
+      "prompt": "Пара к «gördükçe» (всякий раз, как видит):",
+      "options": [
+        "görmedikçe",
+        "görmeden",
+        "görmeyince"
+      ],
+      "answer": 0,
+      "explain": "Отрицательная — görmedikçe."
+    },
+    {
+      "id": "b2.13-madikca.3",
+      "kind": "gap",
+      "sentence": "Doğruyu ___ orman susmayacak.",
+      "ru": "Пока не скажешь правду, лес не замолчит.",
+      "options": [
+        "söylemedikçe",
+        "söyledikçe",
+        "söyleyince"
+      ],
+      "answer": 0,
+      "explain": "Пока не — söylemedikçe."
+    },
+    {
+      "id": "b2.13-madikca.4",
+      "kind": "gap",
+      "sentence": "Bilet ___ vapura binemezsin.",
+      "ru": "Без билета на пароход не сядешь.",
+      "options": [
+        "almadıkça",
+        "aldıkça",
+        "alarak"
+      ],
+      "answer": 0,
+      "explain": "Пока не купишь — almadıkça."
+    },
+    {
+      "id": "b2.13-madikca.5",
+      "kind": "truefalse",
+      "statement": "-mAdIkçA значит «пока не, если не».",
+      "answer": true,
+      "explain": "gelmedikçe."
+    },
+    {
+      "id": "b2.13-madikca.6",
+      "kind": "truefalse",
+      "statement": "После -mAdIkçA главная часть обычно утвердительная.",
+      "answer": false,
+      "explain": "Обычно отрицательная."
+    },
+    {
+      "id": "b2.13-madikca.7",
+      "kind": "truefalse",
+      "statement": "«Sorulmadıkça konuşma» — «Не говори, пока не спросят».",
+      "answer": true,
+      "explain": "Пассив + -madıkça."
+    },
+    {
+      "id": "b2.13-madikca.8",
+      "kind": "build",
+      "ru": "Пока не будет доказательств, никого не арестуют.",
+      "answer": "Kanıt bulunmadıkça kimse tutuklanmayacak.",
+      "extra": [
+        "bulundukça",
+        "tutuklanacak"
+      ],
+      "explain": "Пока не — bulunmadıkça."
+    },
+    {
+      "id": "b2.13-madikca.9",
+      "kind": "type",
+      "sentence": "Sen ___ başlamayacağız.",
+      "ru": "Пока ты не придёшь, мы не начнём.",
+      "hint": "gelmek, пока не",
+      "answer": "gelmedikçe",
+      "explain": "gel + me + dik + çe."
+    }
+  ]
+}

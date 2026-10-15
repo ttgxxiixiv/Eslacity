@@ -1,0 +1,154 @@
+{
+  "id": "b2.10-ki",
+  "district": "B2",
+  "order": 10,
+  "title": "Союз ki",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "**ki** вводит пояснение, как русское «что»: **Biliyorum ki haklısın** — Я знаю, что ты прав. **Öyle yorgunum ki** uyuyamıyorum — Я так устал, что не могу уснуть. После **o kadar / öyle / çok** — «так… что»."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Фраза",
+        "Перевод"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Duydum ki evleniyorsun.",
+            "Я слышал, что ты женишься."
+          ]
+        },
+        {
+          "cells": [
+            "O kadar güzel ki…",
+            "Так красиво, что…"
+          ]
+        },
+        {
+          "cells": [
+            "Bir baktım ki kapı açık.",
+            "Смотрю — а дверь открыта."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "ki пишется **отдельно** и не меняется по гармонии. В разговоре конструкция «Biliyorum ki…» звучит книжно, чаще — **Haklı olduğunu biliyorum**."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Duydum ki orman artık sessizmiş.",
+      "ru": "Я слышал, что в лесу теперь тихо."
+    },
+    {
+      "es": "Sis öyle yoğundu ki yolu göremedik.",
+      "ru": "Туман был такой густой, что мы не видели дороги."
+    },
+    {
+      "es": "Bir baktım ki kuzgun pencerede.",
+      "ru": "Смотрю — а ворон на окне."
+    },
+    {
+      "es": "O kadar korktu ki konuşamadı.",
+      "ru": "Он так испугался, что не мог говорить."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "b2.10-ki.1",
+      "kind": "choose",
+      "prompt": "«Так устал, что…»:",
+      "options": [
+        "O kadar yorgunum ki…",
+        "O kadar yorgunum gibi…",
+        "O kadar yorgunum diye…"
+      ],
+      "answer": 0,
+      "explain": "Так… что — o kadar … ki."
+    },
+    {
+      "id": "b2.10-ki.2",
+      "kind": "choose",
+      "prompt": "Как пишется ki-союз?",
+      "options": [
+        "Отдельно: biliyorum ki",
+        "Слитно: biliyorumki",
+        "Через дефис: biliyorum-ki"
+      ],
+      "answer": 0,
+      "explain": "Союз ki — отдельно."
+    },
+    {
+      "id": "b2.10-ki.3",
+      "kind": "gap",
+      "sentence": "Öyle güzel bir ses ___ herkes dinledi.",
+      "ru": "Такой красивый голос, что все слушали.",
+      "options": [
+        "ki",
+        "de",
+        "mi"
+      ],
+      "answer": 0,
+      "explain": "öyle … ki."
+    },
+    {
+      "id": "b2.10-ki.4",
+      "kind": "gap",
+      "sentence": "Duydum ___ yarın geliyorsun.",
+      "ru": "Я слышал, что ты завтра приедешь.",
+      "options": [
+        "ki",
+        "diye",
+        "gibi"
+      ],
+      "answer": 0,
+      "explain": "Пояснение — ki."
+    },
+    {
+      "id": "b2.10-ki.5",
+      "kind": "truefalse",
+      "statement": "ki меняется по гармонии гласных: kı, ku.",
+      "answer": false,
+      "explain": "Союз ki не меняется."
+    },
+    {
+      "id": "b2.10-ki.6",
+      "kind": "truefalse",
+      "statement": "«O kadar … ki» значит «так…, что».",
+      "answer": true,
+      "explain": "O kadar korktu ki…"
+    },
+    {
+      "id": "b2.10-ki.7",
+      "kind": "truefalse",
+      "statement": "«Bir baktım ki» значит «смотрю — а…».",
+      "answer": true,
+      "explain": "Неожиданное открытие."
+    },
+    {
+      "id": "b2.10-ki.8",
+      "kind": "build",
+      "ru": "Лес был такой тёмный, что мы испугались.",
+      "answer": "Orman o kadar karanlıktı ki korktuk.",
+      "extra": [
+        "diye",
+        "korkuyoruz"
+      ],
+      "explain": "o kadar … ki."
+    },
+    {
+      "id": "b2.10-ki.9",
+      "kind": "type",
+      "sentence": "Biliyorum ___ bana kızgınsın.",
+      "ru": "Я знаю, что ты на меня сердишься.",
+      "hint": "что",
+      "answer": "ki",
+      "explain": "Пояснение — ki."
+    }
+  ]
+}

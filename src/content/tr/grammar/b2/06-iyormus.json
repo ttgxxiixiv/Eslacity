@@ -1,0 +1,172 @@
+{
+  "id": "b2.06-iyormus",
+  "district": "B2",
+  "order": 6,
+  "title": "Говорят, делает: -Iyormuş",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "**-ıyormuş / -iyormuş** — пересказ о том, что происходит сейчас или происходило: **Ormanda ağaçlar konuşuyormuş** — Говорят, в лесу деревья разговаривают. Тоже для удивления: **Sen Türkçe biliyormuşsun!** — Да ты, оказывается, знаешь турецкий!"
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Лицо",
+        "gelmek",
+        "bilmek"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "ben",
+            "geliyormuşum",
+            "biliyormuşum"
+          ]
+        },
+        {
+          "cells": [
+            "sen",
+            "geliyormuşsun",
+            "biliyormuşsun"
+          ]
+        },
+        {
+          "cells": [
+            "o",
+            "geliyormuş",
+            "biliyormuş"
+          ]
+        },
+        {
+          "cells": [
+            "biz",
+            "geliyormuşuz",
+            "biliyormuşuz"
+          ]
+        },
+        {
+          "cells": [
+            "onlar",
+            "geliyorlarmış",
+            "biliyorlarmış"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Сравните: **geliyor** — идёт (знаю), **geliyormuş** — говорят, идёт. С будущим: **gelecekmiş** — говорят, придёт."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Kuzgun her gece ormana uçuyormuş.",
+      "ru": "Говорят, ворон каждую ночь летает в лес."
+    },
+    {
+      "es": "Komşular artık uyuyamıyormuş.",
+      "ru": "Говорят, соседи теперь не могут спать."
+    },
+    {
+      "es": "Meğer sen burada çalışıyormuşsun!",
+      "ru": "Оказывается, ты здесь работаешь!"
+    },
+    {
+      "es": "Orhan yarın gelecekmiş.",
+      "ru": "Говорят, Орхан завтра приедет."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "b2.06-iyormus.1",
+      "kind": "choose",
+      "prompt": "«Говорят, он работает в банке»:",
+      "options": [
+        "Bankada çalışıyormuş.",
+        "Bankada çalışıyor.",
+        "Bankada çalışmış."
+      ],
+      "answer": 0,
+      "explain": "Пересказ настоящего — -iyormuş."
+    },
+    {
+      "id": "b2.06-iyormus.2",
+      "kind": "choose",
+      "prompt": "«Оказывается, ты знаешь!»:",
+      "options": [
+        "Biliyormuşsun!",
+        "Biliyorsun!",
+        "Bilmişsin!"
+      ],
+      "answer": 0,
+      "explain": "Удивление — biliyormuşsun."
+    },
+    {
+      "id": "b2.06-iyormus.3",
+      "kind": "gap",
+      "sentence": "Ormanda ağaçlar ___.",
+      "ru": "Говорят, в лесу деревья шепчутся.",
+      "options": [
+        "fısıldaşıyormuş",
+        "fısıldaşıyor",
+        "fısıldaştı"
+      ],
+      "answer": 0,
+      "explain": "Пересказ — -iyormuş."
+    },
+    {
+      "id": "b2.06-iyormus.4",
+      "kind": "gap",
+      "sentence": "Kerem yarın ___.",
+      "ru": "Говорят, Керем завтра вернётся.",
+      "options": [
+        "dönecekmiş",
+        "dönüyor",
+        "döndü"
+      ],
+      "answer": 0,
+      "explain": "Пересказ будущего — dönecekmiş."
+    },
+    {
+      "id": "b2.06-iyormus.5",
+      "kind": "truefalse",
+      "statement": "-Iyormuş пересказывает то, что происходит.",
+      "answer": true,
+      "explain": "konuşuyormuş."
+    },
+    {
+      "id": "b2.06-iyormus.6",
+      "kind": "truefalse",
+      "statement": "«Geliyormuş» и «geliyor» значат одно и то же.",
+      "answer": false,
+      "explain": "Geliyormuş — со слов других."
+    },
+    {
+      "id": "b2.06-iyormus.7",
+      "kind": "truefalse",
+      "statement": "«Gelecekmiş» — говорят, придёт.",
+      "answer": true,
+      "explain": "Будущее + miş."
+    },
+    {
+      "id": "b2.06-iyormus.8",
+      "kind": "build",
+      "ru": "Говорят, в лесу кто-то живёт.",
+      "answer": "Ormanda biri yaşıyormuş.",
+      "extra": [
+        "yaşıyor",
+        "ormana"
+      ],
+      "explain": "Пересказ — yaşıyormuş."
+    },
+    {
+      "id": "b2.06-iyormus.9",
+      "kind": "type",
+      "sentence": "Fatma Teyze artık hiç ___.",
+      "ru": "Говорят, тётушка Фатма теперь совсем не смеётся.",
+      "hint": "gülmek, не, говорят",
+      "answer": "gülmüyormuş",
+      "explain": "gül + m + üyor + muş."
+    }
+  ]
+}

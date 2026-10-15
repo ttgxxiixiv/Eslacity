@@ -1,0 +1,160 @@
+{
+  "id": "b2.07-mis-olmali",
+  "district": "B2",
+  "order": 7,
+  "title": "Должно быть, сделал: -mIş olmalı",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Догадка о прошлом — **-mış olmalı**: **Kuzgun bu sözü birinden öğrenmiş olmalı** — Ворон, должно быть, у кого-то выучил эти слова. О настоящем — **-ıyor olmalı**: **Uyuyor olmalı** — Он, должно быть, спит. Слабее — **-mış olabilir** (может быть, сделал)."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Фраза",
+        "Перевод"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Gitmiş olmalı.",
+            "Должно быть, ушёл."
+          ]
+        },
+        {
+          "cells": [
+            "Unutmuş olabilir.",
+            "Может быть, забыл."
+          ]
+        },
+        {
+          "cells": [
+            "Duymamış olmalı.",
+            "Наверное, не слышал."
+          ]
+        },
+        {
+          "cells": [
+            "Yoruluyor olmalı.",
+            "Должно быть, устаёт."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Утверждение-вывод **-mıştır**: **Çoktan gitmiştir** — Он наверняка уже ушёл. От уверенности к сомнению: -mıştır > -mış olmalı > -mış olabilir."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Kuzgun bu sözleri birinden duymuş olmalı.",
+      "ru": "Ворон, должно быть, где-то услышал эти слова."
+    },
+    {
+      "es": "Mektubu yanlış adrese göndermiş olabilirler.",
+      "ru": "Возможно, они отправили письмо не по адресу."
+    },
+    {
+      "es": "Saat on bir, çoktan uyumuştur.",
+      "ru": "Одиннадцать часов, он наверняка уже спит."
+    },
+    {
+      "es": "Işıklar kapalı, evde yok olmalı.",
+      "ru": "Свет выключен, его, должно быть, нет дома."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "b2.07-mis-olmali.1",
+      "kind": "choose",
+      "prompt": "«Должно быть, он забыл»:",
+      "options": [
+        "Unutmuş olmalı.",
+        "Unutmalı.",
+        "Unuttu olmalı."
+      ],
+      "answer": 0,
+      "explain": "О прошлом — -mış olmalı."
+    },
+    {
+      "id": "b2.07-mis-olmali.2",
+      "kind": "choose",
+      "prompt": "Самое уверенное предположение:",
+      "options": [
+        "gitmiştir",
+        "gitmiş olabilir",
+        "gidebilir"
+      ],
+      "answer": 0,
+      "explain": "-mıştır — наверняка."
+    },
+    {
+      "id": "b2.07-mis-olmali.3",
+      "kind": "gap",
+      "sentence": "Kapı açık, biri içeri ___ olmalı.",
+      "ru": "Дверь открыта, кто-то, должно быть, вошёл.",
+      "options": [
+        "girmiş",
+        "girdi",
+        "girer"
+      ],
+      "answer": 0,
+      "explain": "Догадка о прошлом — girmiş olmalı."
+    },
+    {
+      "id": "b2.07-mis-olmali.4",
+      "kind": "gap",
+      "sentence": "Telefonu açmıyor, ___ olmalı.",
+      "ru": "Не берёт трубку, должно быть, спит.",
+      "options": [
+        "uyuyor",
+        "uyudu",
+        "uyusun"
+      ],
+      "answer": 0,
+      "explain": "О настоящем — uyuyor olmalı."
+    },
+    {
+      "id": "b2.07-mis-olmali.5",
+      "kind": "truefalse",
+      "statement": "-mış olmalı выражает догадку о прошлом.",
+      "answer": true,
+      "explain": "gitmiş olmalı."
+    },
+    {
+      "id": "b2.07-mis-olmali.6",
+      "kind": "truefalse",
+      "statement": "«Unutmuş olabilir» увереннее, чем «unutmuştur».",
+      "answer": false,
+      "explain": "-mıştır увереннее."
+    },
+    {
+      "id": "b2.07-mis-olmali.7",
+      "kind": "truefalse",
+      "statement": "«Uyuyor olmalı» — «Должно быть, он спит».",
+      "answer": true,
+      "explain": "-iyor olmalı."
+    },
+    {
+      "id": "b2.07-mis-olmali.8",
+      "kind": "build",
+      "ru": "Кто-то, должно быть, научил ворона.",
+      "answer": "Biri kuzgunu eğitmiş olmalı.",
+      "extra": [
+        "eğitti",
+        "kuzguna"
+      ],
+      "explain": "Догадка — eğitmiş olmalı."
+    },
+    {
+      "id": "b2.07-mis-olmali.9",
+      "kind": "type",
+      "sentence": "Yol ıslak, gece yağmur ___ olmalı.",
+      "ru": "Дорога мокрая, ночью, должно быть, шёл дождь.",
+      "hint": "yağmak, догадка",
+      "answer": "yağmış",
+      "explain": "yağ + mış."
+    }
+  ]
+}

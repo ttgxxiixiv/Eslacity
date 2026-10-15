@@ -1,0 +1,154 @@
+{
+  "id": "b2.18-digi-surece",
+  "district": "B2",
+  "order": 18,
+  "title": "Пока, при условии: -DIğI sürece",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "**-dığı / -diği sürece** — «пока, до тех пор пока; при условии что»: **Doğruyu söylediğin sürece** sana güvenirim — Пока ты говоришь правду, я тебе верю. С отрицанием — «если только не»: **Yağmur yağmadığı sürece** pikniğe gideriz."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Фраза",
+        "Перевод"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Burada kaldığın sürece güvendesin.",
+            "Пока ты здесь, ты в безопасности."
+          ]
+        },
+        {
+          "cells": [
+            "İstediğin sürece kalabilirsin.",
+            "Можешь оставаться, сколько захочешь."
+          ]
+        },
+        {
+          "cells": [
+            "Kural bozulmadığı sürece sorun yok.",
+            "Пока правила не нарушают, проблем нет."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Сравните: **-dığı sürece** (пока длится условие), **-madıkça** (пока не случится), **-ana kadar** (до момента)."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Birlikte olduğumuz sürece korkmuyorum.",
+      "ru": "Пока мы вместе, я не боюсь."
+    },
+    {
+      "es": "Kimseye zarar vermediği sürece kuzgun serbest.",
+      "ru": "Пока ворон никому не вредит, он свободен."
+    },
+    {
+      "es": "Doğruyu söylediğin sürece orman seni dinler.",
+      "ru": "Пока ты говоришь правду, лес тебя слушает."
+    },
+    {
+      "es": "İstediğin sürece burada kalabilirsin.",
+      "ru": "Можешь оставаться здесь сколько захочешь."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "b2.18-digi-surece.1",
+      "kind": "choose",
+      "prompt": "«Пока ты говоришь правду»:",
+      "options": [
+        "doğruyu söylediğin sürece",
+        "doğruyu söyleyince",
+        "doğruyu söylemeden"
+      ],
+      "answer": 0,
+      "explain": "Пока длится — -diğin sürece."
+    },
+    {
+      "id": "b2.18-digi-surece.2",
+      "kind": "choose",
+      "prompt": "«Если только не пойдёт дождь»:",
+      "options": [
+        "yağmur yağmadığı sürece",
+        "yağmur yağdığı sürece",
+        "yağmur yağana kadar"
+      ],
+      "answer": 0,
+      "explain": "Отрицание + sürece."
+    },
+    {
+      "id": "b2.18-digi-surece.3",
+      "kind": "gap",
+      "sentence": "Burada ___ sürece güvendesin.",
+      "ru": "Пока ты здесь, ты в безопасности.",
+      "options": [
+        "kaldığın",
+        "kalacak",
+        "kalırsan"
+      ],
+      "answer": 0,
+      "explain": "-dığın sürece."
+    },
+    {
+      "id": "b2.18-digi-surece.4",
+      "kind": "gap",
+      "sentence": "Kimseyi rahatsız ___ sürece müzik dinleyebilirsin.",
+      "ru": "Можешь слушать музыку, пока никому не мешаешь.",
+      "options": [
+        "etmediğin",
+        "etmeden",
+        "etmedikçe"
+      ],
+      "answer": 0,
+      "explain": "Отрицание — etmediğin sürece."
+    },
+    {
+      "id": "b2.18-digi-surece.5",
+      "kind": "truefalse",
+      "statement": "-DIğI sürece значит «пока, при условии что».",
+      "answer": true,
+      "explain": "söylediğin sürece."
+    },
+    {
+      "id": "b2.18-digi-surece.6",
+      "kind": "truefalse",
+      "statement": "«İstediğin sürece kalabilirsin» — «Уходи, когда захочешь».",
+      "answer": false,
+      "explain": "Можешь оставаться сколько захочешь."
+    },
+    {
+      "id": "b2.18-digi-surece.7",
+      "kind": "truefalse",
+      "statement": "С отрицанием -DIğI sürece значит «если только не».",
+      "answer": true,
+      "explain": "yağmadığı sürece."
+    },
+    {
+      "id": "b2.18-digi-surece.8",
+      "kind": "build",
+      "ru": "Пока мы вместе, нам нечего бояться.",
+      "answer": "Birlikte olduğumuz sürece korkacak bir şey yok.",
+      "extra": [
+        "olunca",
+        "korkuyoruz"
+      ],
+      "explain": "-duğumuz sürece."
+    },
+    {
+      "id": "b2.18-digi-surece.9",
+      "kind": "type",
+      "sentence": "Çalıştığın ___ başarırsın.",
+      "ru": "Пока будешь трудиться, добьёшься успеха.",
+      "hint": "пока, при условии",
+      "answer": "sürece",
+      "explain": "-dığın sürece."
+    }
+  ]
+}

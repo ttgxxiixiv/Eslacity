@@ -1,0 +1,179 @@
+{
+  "id": "b2.03-dolayli-istek",
+  "district": "B2",
+  "order": 3,
+  "title": "Косвенная просьба: -mAsInI istedi",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Просьбу и приказ пересказывают через **-masını / -mesini** + istemek, söylemek, rica etmek: **«Gel!»** → **Gelmemi istedi** — Он попросил, чтобы я пришёл. **«Gitme!»** → **Gitmemesini söyledi** — Он сказал ему не уходить."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Лицо",
+        "gelmek",
+        "beklemek"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "ben",
+            "gelmemi",
+            "beklememi"
+          ]
+        },
+        {
+          "cells": [
+            "sen",
+            "gelmeni",
+            "beklemeni"
+          ]
+        },
+        {
+          "cells": [
+            "o",
+            "gelmesini",
+            "beklemesini"
+          ]
+        },
+        {
+          "cells": [
+            "biz",
+            "gelmemizi",
+            "beklememizi"
+          ]
+        },
+        {
+          "cells": [
+            "siz",
+            "gelmenizi",
+            "beklemenizi"
+          ]
+        },
+        {
+          "cells": [
+            "onlar",
+            "gelmelerini",
+            "beklemelerini"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Отрицательная просьба — **-mamasını**: gel**me**mesini. С **rica etmek** (вежливо просить) — та же форма: **Kapıyı kapatmanızı rica ediyorum** — Прошу вас закрыть дверь."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Hasan Usta herkesin sakin olmasını istedi.",
+      "ru": "Хасан-уста попросил всех успокоиться."
+    },
+    {
+      "es": "Komiser kimsenin şehirden ayrılmamasını söyledi.",
+      "ru": "Комиссар сказал, чтобы никто не уезжал из города."
+    },
+    {
+      "es": "Bana beklememi söyledi.",
+      "ru": "Он сказал мне подождать."
+    },
+    {
+      "es": "Sessiz olmanızı rica ediyorum.",
+      "ru": "Прошу вас соблюдать тишину."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "b2.03-dolayli-istek.1",
+      "kind": "choose",
+      "prompt": "«Он попросил, чтобы я пришёл»:",
+      "options": [
+        "Gelmemi istedi.",
+        "Geldiğimi istedi.",
+        "Gelmeni istedi."
+      ],
+      "answer": 0,
+      "explain": "Я — gelmemi."
+    },
+    {
+      "id": "b2.03-dolayli-istek.2",
+      "kind": "choose",
+      "prompt": "«Она сказала ему не уходить»:",
+      "options": [
+        "Gitmemesini söyledi.",
+        "Gitmediğini söyledi.",
+        "Gitmesini söylemedi."
+      ],
+      "answer": 0,
+      "explain": "Запрет — -mamasını."
+    },
+    {
+      "id": "b2.03-dolayli-istek.3",
+      "kind": "gap",
+      "sentence": "Annem benim erken ___ istiyor.",
+      "ru": "Мама хочет, чтобы я вернулся пораньше.",
+      "options": [
+        "dönmemi",
+        "döndüğümü",
+        "dönmeyi"
+      ],
+      "answer": 0,
+      "explain": "Я — dönmemi."
+    },
+    {
+      "id": "b2.03-dolayli-istek.4",
+      "kind": "gap",
+      "sentence": "Kapıyı ___ rica ediyorum.",
+      "ru": "Прошу вас закрыть дверь.",
+      "options": [
+        "kapatmanızı",
+        "kapattığınızı",
+        "kapatmayı"
+      ],
+      "answer": 0,
+      "explain": "Вы — kapatmanızı."
+    },
+    {
+      "id": "b2.03-dolayli-istek.5",
+      "kind": "truefalse",
+      "statement": "Косвенная просьба строится с -mAsInI.",
+      "answer": true,
+      "explain": "gelmesini istedi."
+    },
+    {
+      "id": "b2.03-dolayli-istek.6",
+      "kind": "truefalse",
+      "statement": "«Gelmemi istedi» и «Geldiğimi söyledi» значат одно и то же.",
+      "answer": false,
+      "explain": "Просьба прийти ≠ сообщение, что пришёл."
+    },
+    {
+      "id": "b2.03-dolayli-istek.7",
+      "kind": "truefalse",
+      "statement": "Отрицательная просьба — -mamasını: gitmemesini.",
+      "answer": true,
+      "explain": "git + me + me + si + ni."
+    },
+    {
+      "id": "b2.03-dolayli-istek.8",
+      "kind": "build",
+      "ru": "Он попросил нас подождать.",
+      "answer": "Bizden beklememizi istedi.",
+      "extra": [
+        "beklediğimizi",
+        "bekleyin"
+      ],
+      "explain": "Мы — beklememizi."
+    },
+    {
+      "id": "b2.03-dolayli-istek.9",
+      "kind": "type",
+      "sentence": "Doktor bana çok su ___ söyledi.",
+      "ru": "Врач сказал мне пить много воды.",
+      "hint": "içmek, я, просьба",
+      "answer": "içmemi",
+      "explain": "iç + me + m + i."
+    }
+  ]
+}

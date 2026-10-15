@@ -1,0 +1,154 @@
+{
+  "id": "b2.15-ali",
+  "district": "B2",
+  "order": 15,
+  "title": "С тех пор как: -(y)AlI",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "**-alı / -eli** — «с тех пор как»: **Orman susalı** herkes uyuyor — С тех пор как лес умолк, все спят. С временем — **-alı beri** или срок: **Buraya geleli üç yıl oldu** — Прошло три года, как я сюда приехал."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Фраза",
+        "Перевод"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Taşınalı beri mutluyum.",
+            "С тех пор как переехал, я счастлив."
+          ]
+        },
+        {
+          "cells": [
+            "Görüşmeyeli çok oldu.",
+            "Давно не виделись."
+          ]
+        },
+        {
+          "cells": [
+            "Kerem gideli bir ay oldu.",
+            "Прошёл месяц, как Керем уехал."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "**Görüşmeyeli çok oldu!** — «Сколько лет, сколько зим!» — частая фраза при встрече. Синоним в разговоре: **-dığından beri**: geldiğimden beri."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Kuzgun gideli mahalle çok sakin.",
+      "ru": "С тех пор как улетел ворон, в квартале очень спокойно."
+    },
+    {
+      "es": "Görüşmeyeli çok oldu!",
+      "ru": "Давно не виделись!"
+    },
+    {
+      "es": "Orhan döneli şehir değişti.",
+      "ru": "С тех пор как вернулся Орхан, город изменился."
+    },
+    {
+      "es": "Bu işe başlayalı beş yıl oldu.",
+      "ru": "Прошло пять лет, как я начал эту работу."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "b2.15-ali.1",
+      "kind": "choose",
+      "prompt": "«Давно не виделись!»:",
+      "options": [
+        "Görüşmeyeli çok oldu!",
+        "Görüşmedikçe çok oldu!",
+        "Görüşelim çok oldu!"
+      ],
+      "answer": 0,
+      "explain": "Устойчивое — görüşmeyeli."
+    },
+    {
+      "id": "b2.15-ali.2",
+      "kind": "choose",
+      "prompt": "«С тех пор как я переехал»:",
+      "options": [
+        "taşınalı beri",
+        "taşınınca beri",
+        "taşınırken beri"
+      ],
+      "answer": 0,
+      "explain": "-alı beri."
+    },
+    {
+      "id": "b2.15-ali.3",
+      "kind": "gap",
+      "sentence": "Kerem ___ bir ay oldu.",
+      "ru": "Прошёл месяц, как уехал Керем.",
+      "options": [
+        "gideli",
+        "gidince",
+        "gidene"
+      ],
+      "answer": 0,
+      "explain": "-eli + срок."
+    },
+    {
+      "id": "b2.15-ali.4",
+      "kind": "gap",
+      "sentence": "Buraya ___ beri çok mutluyum.",
+      "ru": "С тех пор как я сюда приехал, я очень счастлив.",
+      "options": [
+        "geleli",
+        "gelirken",
+        "gelince"
+      ],
+      "answer": 0,
+      "explain": "-eli beri."
+    },
+    {
+      "id": "b2.15-ali.5",
+      "kind": "truefalse",
+      "statement": "-(y)AlI значит «с тех пор как».",
+      "answer": true,
+      "explain": "geleli."
+    },
+    {
+      "id": "b2.15-ali.6",
+      "kind": "truefalse",
+      "statement": "«Görüşmeyeli çok oldu» значит «скоро увидимся».",
+      "answer": false,
+      "explain": "Давно не виделись."
+    },
+    {
+      "id": "b2.15-ali.7",
+      "kind": "truefalse",
+      "statement": "В разговоре -(y)AlI заменяют на -dığından beri.",
+      "answer": true,
+      "explain": "geldiğimden beri."
+    },
+    {
+      "id": "b2.15-ali.8",
+      "kind": "build",
+      "ru": "С тех пор как замолчал лес, все спят.",
+      "answer": "Orman susalı herkes uyuyor.",
+      "extra": [
+        "susunca",
+        "uyudu"
+      ],
+      "explain": "-alı."
+    },
+    {
+      "id": "b2.15-ali.9",
+      "kind": "type",
+      "sentence": "Fırtına ___ elektrik yok.",
+      "ru": "С тех пор как началась буря, нет электричества.",
+      "hint": "başlamak, с тех пор как",
+      "answer": "başlayalı",
+      "explain": "başla + y + alı."
+    }
+  ]
+}

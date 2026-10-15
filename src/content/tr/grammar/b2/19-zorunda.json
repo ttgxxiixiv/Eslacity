@@ -1,0 +1,166 @@
+{
+  "id": "b2.19-zorunda",
+  "district": "B2",
+  "order": 19,
+  "title": "Вынужден: -mAk zorunda",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "**-mak / -mek zorunda** + лицо — «вынужден, обязан»: **Gitmek zorundayım** — Я вынужден уйти. Прошлое — **zorunda kaldım**: **Beklemek zorunda kaldık** — Нам пришлось ждать. Мягче — **-mak durumunda** (оказаться в положении)."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Лицо",
+        "gitmek"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "ben",
+            "gitmek zorundayım"
+          ]
+        },
+        {
+          "cells": [
+            "sen",
+            "gitmek zorundasın"
+          ]
+        },
+        {
+          "cells": [
+            "o",
+            "gitmek zorunda"
+          ]
+        },
+        {
+          "cells": [
+            "biz",
+            "gitmek zorundayız"
+          ]
+        },
+        {
+          "cells": [
+            "прошлое",
+            "gitmek zorunda kaldım"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Сравните: **-malıyım** (мне надо, совет себе), **-mak zorundayım** (я обязан, нет выбора), **mecburum** (вынужден, разг.). Отрицание: **gitmek zorunda değilsin** — ты не обязан идти."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Fırtına yüzünden vapurda kalmak zorunda kaldık.",
+      "ru": "Из-за бури нам пришлось остаться на пароходе."
+    },
+    {
+      "es": "Gerçeği söylemek zorundasın.",
+      "ru": "Ты обязан сказать правду."
+    },
+    {
+      "es": "Gelmek zorunda değilsin.",
+      "ru": "Ты не обязан приходить."
+    },
+    {
+      "es": "Herkes yeni kurallara uymak zorunda.",
+      "ru": "Все обязаны соблюдать новые правила."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "b2.19-zorunda.1",
+      "kind": "choose",
+      "prompt": "«Нам пришлось ждать»:",
+      "options": [
+        "Beklemek zorunda kaldık.",
+        "Beklemek zorundayız.",
+        "Beklemeliyiz."
+      ],
+      "answer": 0,
+      "explain": "Прошлое — zorunda kaldık."
+    },
+    {
+      "id": "b2.19-zorunda.2",
+      "kind": "choose",
+      "prompt": "«Ты не обязан идти»:",
+      "options": [
+        "Gitmek zorunda değilsin.",
+        "Gitmemek zorundasın.",
+        "Gitmemelisin."
+      ],
+      "answer": 0,
+      "explain": "Не обязан — zorunda değilsin."
+    },
+    {
+      "id": "b2.19-zorunda.3",
+      "kind": "gap",
+      "sentence": "Pasaportumu kaybettim, eve ___ zorundayım.",
+      "ru": "Я потерял паспорт, мне придётся вернуться домой.",
+      "options": [
+        "dönmek",
+        "dönmem",
+        "dönerek"
+      ],
+      "answer": 0,
+      "explain": "-mak zorundayım."
+    },
+    {
+      "id": "b2.19-zorunda.4",
+      "kind": "gap",
+      "sentence": "Sis yüzünden ___ zorunda kaldık.",
+      "ru": "Из-за тумана нам пришлось остановиться.",
+      "options": [
+        "durmak",
+        "durup",
+        "duralım"
+      ],
+      "answer": 0,
+      "explain": "-mak zorunda kaldık."
+    },
+    {
+      "id": "b2.19-zorunda.5",
+      "kind": "truefalse",
+      "statement": "-mAk zorunda значит «вынужден, обязан».",
+      "answer": true,
+      "explain": "gitmek zorundayım."
+    },
+    {
+      "id": "b2.19-zorunda.6",
+      "kind": "truefalse",
+      "statement": "«Gitmek zorunda değilsin» — «Тебе нельзя идти».",
+      "answer": false,
+      "explain": "Ты не обязан идти."
+    },
+    {
+      "id": "b2.19-zorunda.7",
+      "kind": "truefalse",
+      "statement": "Прошлое — -mAk zorunda kaldım.",
+      "answer": true,
+      "explain": "Мне пришлось."
+    },
+    {
+      "id": "b2.19-zorunda.8",
+      "kind": "build",
+      "ru": "Мы обязаны сказать правду.",
+      "answer": "Doğruyu söylemek zorundayız.",
+      "extra": [
+        "söylemeliyiz",
+        "doğru"
+      ],
+      "explain": "-mak zorundayız."
+    },
+    {
+      "id": "b2.19-zorunda.9",
+      "kind": "type",
+      "sentence": "Bilet kalmamış, yürümek ___ kaldık.",
+      "ru": "Билетов не осталось, нам пришлось идти пешком.",
+      "hint": "вынуждены",
+      "answer": "zorunda",
+      "explain": "-mak zorunda kaldık."
+    }
+  ]
+}

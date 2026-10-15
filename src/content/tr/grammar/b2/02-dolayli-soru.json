@@ -1,0 +1,165 @@
+{
+  "id": "b2.02-dolayli-soru",
+  "district": "B2",
+  "order": 2,
+  "title": "Косвенный вопрос",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Вопрос в косвенной речи — тоже причастие: **«Nereye gidiyorsun?» diye sordu** → **Nereye gittiğimi sordu** — Он спросил, куда я иду. Да-нет вопрос — **-ıp -madığını**: **Gelip gelmediğini sordu** — спросил, придёт ли он."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Прямой вопрос",
+        "Косвенный",
+        "Перевод"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Kim geldi?",
+            "Kimin geldiğini sordu.",
+            "Спросил, кто пришёл."
+          ]
+        },
+        {
+          "cells": [
+            "Ne istiyorsun?",
+            "Ne istediğimi sordu.",
+            "Спросил, чего я хочу."
+          ]
+        },
+        {
+          "cells": [
+            "Gelecek misin?",
+            "Gelip gelmeyeceğimi sordu.",
+            "Спросил, приду ли я."
+          ]
+        },
+        {
+          "cells": [
+            "Biliyor musun?",
+            "Bilip bilmediğimi sordu.",
+            "Спросил, знаю ли я."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Подлежащее вопроса — в родительном: **Kimin** geldiğini, **Ali'nin** nerede olduğunu. «Не знаю, правда ли это» — **Doğru olup olmadığını bilmiyorum**."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Komiser bana nerede olduğumu sordu.",
+      "ru": "Комиссар спросил меня, где я был."
+    },
+    {
+      "es": "Söylentinin doğru olup olmadığını bilmiyoruz.",
+      "ru": "Мы не знаем, правдив ли слух."
+    },
+    {
+      "es": "Kimin yalan söylediğini bulacağız.",
+      "ru": "Мы выясним, кто лжёт."
+    },
+    {
+      "es": "Bana gelip gelmeyeceğimi sordu.",
+      "ru": "Он спросил меня, приду ли я."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "b2.02-dolayli-soru.1",
+      "kind": "choose",
+      "prompt": "«Он спросил, куда я иду»:",
+      "options": [
+        "Nereye gittiğimi sordu.",
+        "Nereye gidiyorum sordu.",
+        "Nereye gittiğini sordum."
+      ],
+      "answer": 0,
+      "explain": "Я — gittiğimi."
+    },
+    {
+      "id": "b2.02-dolayli-soru.2",
+      "kind": "choose",
+      "prompt": "«Не знаю, правда ли это»:",
+      "options": [
+        "Doğru olup olmadığını bilmiyorum.",
+        "Doğru mu bilmiyorum ki.",
+        "Doğru olduğunu bilmiyor musun."
+      ],
+      "answer": 0,
+      "explain": "Да-нет — -ıp -madığını."
+    },
+    {
+      "id": "b2.02-dolayli-soru.3",
+      "kind": "gap",
+      "sentence": "Kimin ___ bilmiyorum.",
+      "ru": "Я не знаю, кто это сказал.",
+      "options": [
+        "söylediğini",
+        "söyledi",
+        "söylemek"
+      ],
+      "answer": 0,
+      "explain": "Косвенный вопрос — söylediğini."
+    },
+    {
+      "id": "b2.02-dolayli-soru.4",
+      "kind": "gap",
+      "sentence": "Bana yardım edip ___ sordu.",
+      "ru": "Он спросил, помогу ли я ему.",
+      "options": [
+        "etmeyeceğimi",
+        "etmeyeceğini",
+        "etmeyecek"
+      ],
+      "answer": 0,
+      "explain": "Я — etmeyeceğimi."
+    },
+    {
+      "id": "b2.02-dolayli-soru.5",
+      "kind": "truefalse",
+      "statement": "Да-нет вопрос в косвенной речи — через -ıp -madığını.",
+      "answer": true,
+      "explain": "gelip gelmediğini."
+    },
+    {
+      "id": "b2.02-dolayli-soru.6",
+      "kind": "truefalse",
+      "statement": "Подлежащее косвенного вопроса стоит в именительном: Ali nerede olduğunu.",
+      "answer": false,
+      "explain": "В родительном: Ali'nin nerede olduğunu."
+    },
+    {
+      "id": "b2.02-dolayli-soru.7",
+      "kind": "truefalse",
+      "statement": "«Ne istediğimi sordu» — «Он спросил, чего я хочу».",
+      "answer": true,
+      "explain": "istediğ-im-i."
+    },
+    {
+      "id": "b2.02-dolayli-soru.8",
+      "kind": "build",
+      "ru": "Спроси её, когда она придёт.",
+      "answer": "Ona ne zaman geleceğini sor.",
+      "extra": [
+        "geldiğini",
+        "onu"
+      ],
+      "explain": "Будущее — geleceğini; кого — ona."
+    },
+    {
+      "id": "b2.02-dolayli-soru.9",
+      "kind": "type",
+      "sentence": "Fatma'nın terazisinin doğru olup ___ bilen yok.",
+      "ru": "Никто не знает, точные ли весы у Фатмы.",
+      "hint": "olmak, да-нет",
+      "answer": "olmadığını",
+      "explain": "ol + ma + dığ + ı + nı."
+    }
+  ]
+}

@@ -1,0 +1,165 @@
+{
+  "id": "b2.08-sa-gercekdisi",
+  "district": "B2",
+  "order": 8,
+  "title": "Если бы (сейчас): -sA … -(I)r(dI)",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Нереальное условие о настоящем: **-sa** + **-ır(dı)/-ar(dı)**: **Param olsa** bir ev **alırdım** — Если бы у меня были деньги, я бы купил дом. В разговоре главная часть часто без -dı: **Bilsem söylerim**."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Условие",
+        "Следствие",
+        "Перевод"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Vaktim olsa",
+            "gelirdim.",
+            "Если бы у меня было время, я бы пришёл."
+          ]
+        },
+        {
+          "cells": [
+            "Kuş olsam",
+            "uçardım.",
+            "Будь я птицей, я бы летал."
+          ]
+        },
+        {
+          "cells": [
+            "Bilsen",
+            "şaşırırdın.",
+            "Если бы ты знал, ты бы удивился."
+          ]
+        },
+        {
+          "cells": [
+            "Yerinde olsam",
+            "gitmezdim.",
+            "На твоём месте я бы не пошёл."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "**Yerinde olsam** — «на твоём месте». Сравните реальное **olursa** (если будет) и нереальное **olsa** (если бы было)."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Ağaçlar konuşabilse ne derlerdi?",
+      "ru": "Если бы деревья могли говорить, что бы они сказали?"
+    },
+    {
+      "es": "Yerinde olsam o söylentiye inanmazdım.",
+      "ru": "На твоём месте я бы не верил этому слуху."
+    },
+    {
+      "es": "Vaktim olsa sana yardım ederdim.",
+      "ru": "Будь у меня время, я бы тебе помог."
+    },
+    {
+      "es": "Bilsem söylerdim.",
+      "ru": "Если бы я знал, я бы сказал."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "b2.08-sa-gercekdisi.1",
+      "kind": "choose",
+      "prompt": "«Будь у меня машина, я бы поехал»:",
+      "options": [
+        "Arabam olsa giderdim.",
+        "Arabam olursa gittim.",
+        "Arabam varsa giderim."
+      ],
+      "answer": 0,
+      "explain": "Нереальное — olsa … giderdim."
+    },
+    {
+      "id": "b2.08-sa-gercekdisi.2",
+      "kind": "choose",
+      "prompt": "«На твоём месте»:",
+      "options": [
+        "yerinde olsam",
+        "yerine olursa",
+        "yerimde olsan"
+      ],
+      "answer": 0,
+      "explain": "Устойчивое — yerinde olsam."
+    },
+    {
+      "id": "b2.08-sa-gercekdisi.3",
+      "kind": "gap",
+      "sentence": "Kuş ___ ormanın üstünden uçardım.",
+      "ru": "Будь я птицей, я бы пролетел над лесом.",
+      "options": [
+        "olsam",
+        "olursam",
+        "oldum"
+      ],
+      "answer": 0,
+      "explain": "Нереальное — olsam."
+    },
+    {
+      "id": "b2.08-sa-gercekdisi.4",
+      "kind": "gap",
+      "sentence": "Doğruyu bilseydin bu kadar ___.",
+      "ru": "Если бы ты знал правду, ты бы так не злился.",
+      "options": [
+        "kızmazdın",
+        "kızmadın",
+        "kızmazsın"
+      ],
+      "answer": 0,
+      "explain": "Следствие — -mazdın."
+    },
+    {
+      "id": "b2.08-sa-gercekdisi.5",
+      "kind": "truefalse",
+      "statement": "«Olsa» — нереальное условие, «olursa» — реальное.",
+      "answer": true,
+      "explain": "olsa ≠ olursa."
+    },
+    {
+      "id": "b2.08-sa-gercekdisi.6",
+      "kind": "truefalse",
+      "statement": "«Yerinde olsam» значит «если я буду на месте».",
+      "answer": false,
+      "explain": "На твоём месте."
+    },
+    {
+      "id": "b2.08-sa-gercekdisi.7",
+      "kind": "truefalse",
+      "statement": "Главная часть нереального условия — с -r(dı): giderdim.",
+      "answer": true,
+      "explain": "gid + er + di + m."
+    },
+    {
+      "id": "b2.08-sa-gercekdisi.8",
+      "kind": "build",
+      "ru": "Если бы я мог, я бы помог.",
+      "answer": "Yapabilsem yardım ederdim.",
+      "extra": [
+        "yapabilirsem",
+        "ederim"
+      ],
+      "explain": "Нереальное — yapabilsem … ederdim."
+    },
+    {
+      "id": "b2.08-sa-gercekdisi.9",
+      "kind": "type",
+      "sentence": "Param ___ o evi alırdım.",
+      "ru": "Будь у меня деньги, я бы купил тот дом.",
+      "hint": "olmak, если бы",
+      "answer": "olsa",
+      "explain": "ol + sa."
+    }
+  ]
+}
