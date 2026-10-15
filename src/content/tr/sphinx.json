@@ -1,0 +1,1544 @@
+{
+  "sphinx": {
+    "name": "Сфинкс",
+    "voice": {
+      "pitch": 0.6,
+      "rate": 0.8
+    },
+    "speech": {
+      "greeting": {
+        "es": "Yolcu, Mahzen'in Kapısına ulaştınız. Birçok kişi denedi, ama az kişi konuşmayı bildi. Ben güç sormam, söz sorarım.",
+        "ru": "Путник, вы дошли до Врат Хранилища. Многие пытались, немногие сумели говорить. Я спрашиваю не о силе, а о слове."
+      },
+      "again": {
+        "es": "Yine kapımdasınız. Sorular değişti, Mahzen hâlâ bekliyor.",
+        "ru": "Вы снова у моих Врат. Вопросы стали другими, а Хранилище всё ещё ждёт."
+      },
+      "hear": {
+        "es": "Birinci bilmece: dinleyin. Sadece sözleri duyan hiçbir şey duymamıştır. Bana ne demek istediklerini söyleyin.",
+        "ru": "Первая загадка: слушайте. Кто слышит одни слова, не услышал ничего. Скажите мне, что хотели сказать."
+      },
+      "word": {
+        "es": "İkinci bilmece: doğru söz. Tek bir harf bilgeyi, sadece bilge görüneni birbirinden ayırır.",
+        "ru": "Вторая загадка: точное слово. Одна буква отделяет мудреца от того, кто только кажется мудрым."
+      },
+      "wisdom": {
+        "es": "Üçüncü bilmece: sakin sakin okuyun ve sonra cevap verin; önce bir krala, sonra bir dosta konuşur gibi.",
+        "ru": "Третья загадка: прочтите не спеша и ответьте, сначала как перед королём, потом как перед другом."
+      },
+      "pass": {
+        "es": "İyi cevap verdiniz. Sizinle Mahzen arasında bir kapı eksildi.",
+        "ru": "Вы ответили верно. Одной дверью меньше между вами и Хранилищем."
+      },
+      "fail": {
+        "es": "Hayır. Bir kalbinizi alıyorum ve size başka bir soru soruyorum. Sabır da bir cevaptır.",
+        "ru": "Нет. Я забираю одно сердце и задаю другой вопрос. Терпение — тоже ответ."
+      },
+      "rest": {
+        "es": "Kalpleriniz söndü. Gidin ve üç gün sonra gelin; o zaman size başka bir şey sorarım.",
+        "ru": "Ваши сердца погасли. Уходите и возвращайтесь через три дня: тогда я спрошу о другом."
+      },
+      "waiting": {
+        "es": "Zaman henüz dolmadı. Kapılar acele edene açılmaz.",
+        "ru": "Время ещё не прошло. Врата не открываются тому, кто спешит."
+      },
+      "victory": {
+        "es": "Söylenmeyeni duydunuz, doğru sözü buldunuz, krallarla da dostlarla da konuştunuz. Girin: Mahzen sizindir.",
+        "ru": "Вы услышали несказанное, нашли точное слово и говорили и с королями, и с друзьями. Проходите: Хранилище ваше."
+      }
+    },
+    "vault": {
+      "before": [
+        {
+          "who": "sphinx",
+          "es": "Kapılar önünüzde açılıyor. İçeride ne altın var ne mücevher, sadece bir kâse.",
+          "ru": "Врата открываются перед вами. Внутри нет ни золота, ни драгоценностей, только чаша."
+        },
+        {
+          "who": "cronista",
+          "es": "İşte İksir. Yüz yıldır kimse onu içemedi.",
+          "ru": "Вот он, Эликсир. Сто лет никто не мог его выпить."
+        },
+        {
+          "who": "sphinx",
+          "es": "Size yeni bir dil vermeyecek. Zaten öğrendiğiniz dili hatırlatacak.",
+          "ru": "Он не даст вам нового языка. Он напомнит тот, что вы уже выучили."
+        },
+        {
+          "who": "cronista",
+          "es": "İç. Bunu kitabıma yazacağım.",
+          "ru": "Пей. Я запишу это в свою книгу."
+        }
+      ],
+      "after": [
+        {
+          "who": "cronista",
+          "es": "Hissediyor musun? Artık kafanda çeviri yapmıyorsun. Sadece konuşuyorsun.",
+          "ru": "Чувствуешь? Ты больше не переводишь в голове. Ты просто говоришь."
+        },
+        {
+          "who": "sphinx",
+          "es": "Artık altın gözü taşıyorsunuz. Bugünden sonra şehir size bir unvan verecek: Bilge.",
+          "ru": "Теперь на вас золотой глаз. Отныне город будет звать вас Мудрецом."
+        },
+        {
+          "who": "sphinx",
+          "es": "Ama unutmayın: kullanılmayan dil unutulur. Şehre dönün ve konuşun.",
+          "ru": "Но помните: язык, на котором не говорят, забывается. Возвращайтесь в город и говорите."
+        }
+      ]
+    },
+    "gloss": {
+      "bilmece": "загадка",
+      "bilgeyi": "мудреца",
+      "bilge": "мудрый; Мудрец",
+      "görüneni": "того, кто кажется",
+      "ayırır": "отделяет",
+      "krala": "королю",
+      "krallarla": "с королями",
+      "eksildi": "стало меньше",
+      "kalbinizi": "ваше сердце",
+      "kalpleriniz": "ваши сердца",
+      "söndü": "погасли",
+      "dolmadı": "не прошло (время)",
+      "söylenmeyeni": "несказанное",
+      "sizindir": "ваше",
+      "mücevher": "драгоценности",
+      "kâse": "чаша",
+      "kase": "чаша",
+      "iksir": "Эликсир",
+      "içemedi": "не мог выпить",
+      "kitabıma": "в мою книгу",
+      "çeviri": "перевод",
+      "altın": "золотой",
+      "unvan": "звание",
+      "kullanılmayan": "неиспользуемый",
+      "unutulur": "забывается",
+      "girin": "входите",
+      "öğrendiğiniz": "который вы выучили",
+      "hatırlatacak": "напомнит",
+      "taşıyorsunuz": "носите"
+    }
+  },
+  "word": [
+    {
+      "id": "sx:word.1",
+      "exercises": [
+        {
+          "id": "sx:word.1.1",
+          "kind": "transform",
+          "source": "Belki kapı kilitlidir.",
+          "keyword": "olmalı",
+          "ru": "Дверь, должно быть, заперта.",
+          "answer": "Kapı kilitli olmalı.",
+          "explain": "Догадка — olmalı."
+        },
+        {
+          "id": "sx:word.1.2",
+          "kind": "transform",
+          "source": "Ninemi dinlemediğim için pişmanım.",
+          "keyword": "keşke",
+          "ru": "Жаль, что я не послушал бабушку.",
+          "answer": "Keşke ninemi dinleseydim.",
+          "explain": "Сожаление о прошлом — keşke + -sAydI."
+        },
+        {
+          "id": "sx:word.1.3",
+          "kind": "transform",
+          "source": "Yorgun olmasına rağmen tırmanmaya devam etti.",
+          "keyword": "halde",
+          "ru": "Хотя он устал, он продолжал подниматься.",
+          "answer": "Yorgun olduğu halde tırmanmaya devam etti.",
+          "explain": "-mAsInA rağmen = -DIğI halde."
+        },
+        {
+          "id": "sx:word.1.4",
+          "kind": "cloze",
+          "text": "Gelmeni ___ (bilmek) seni beklerdim. Sağ salim ___ (varmak) için çok sevindim.",
+          "ru": "Если бы я знал, что ты придёшь, я бы тебя подождал. Очень рад, что ты благополучно добрался.",
+          "answers": [
+            [
+              "bilseydim"
+            ],
+            [
+              "vardığın"
+            ]
+          ],
+          "explain": "Нереальное прошлое — bilseydim; «что ты добрался» — vardığın için."
+        },
+        {
+          "id": "sx:word.1.5",
+          "kind": "cloze",
+          "text": "Kapıdan çıkar ___ yağmur başladı. Hayatımda böyle bir fırtına hiç ___ (görmek).",
+          "ru": "Едва мы вышли за дверь, начался дождь. Такой бури я в жизни не видел.",
+          "answers": [
+            [
+              "çıkmaz"
+            ],
+            [
+              "görmedim"
+            ]
+          ],
+          "explain": "çıkar çıkmaz — «как только»; görmedim."
+        },
+        {
+          "id": "sx:word.1.6",
+          "kind": "fix",
+          "sentence": "Fırtınayı dün bilseydim evde kalırım.",
+          "ru": "Если бы я вчера знал о буре, я бы остался дома.",
+          "wrong": 4,
+          "answer": "kalırdım",
+          "explain": "Нереальное прошлое: -sAydI … -IrdI."
+        },
+        {
+          "id": "sx:word.1.7",
+          "kind": "fix",
+          "sentence": "Doktor bana dinlenmek söyledi.",
+          "ru": "Врач сказал мне отдохнуть.",
+          "wrong": 2,
+          "answer": "dinlenmemi",
+          "explain": "Косвенная просьба — -mAmI: dinlenmemi."
+        },
+        {
+          "id": "sx:word.1.8",
+          "kind": "fix",
+          "sentence": "Ben gelince o çoktan gidecekti.",
+          "ru": "Когда я пришёл, он уже ушёл.",
+          "wrong": 4,
+          "answer": "gitmişti",
+          "explain": "Действие до другого в прошлом — -mIştI."
+        },
+        {
+          "id": "sx:word.1.9",
+          "kind": "type",
+          "sentence": "Bu maaşla iki yakam bir araya ___.",
+          "ru": "С такой зарплатой я не свожу концы с концами.",
+          "hint": "gelmek, отрицание",
+          "answer": "gelmiyor",
+          "explain": "iki yakası bir araya gelmemek — не сводить концы с концами."
+        },
+        {
+          "id": "sx:word.1.10",
+          "kind": "type",
+          "sentence": "Sırrı yanlışlıkla ağzından ___.",
+          "ru": "Он случайно проболтался о секрете.",
+          "hint": "kaçırmak, прошедшее",
+          "answer": "kaçırdı",
+          "explain": "ağzından kaçırmak — проболтаться."
+        }
+      ]
+    },
+    {
+      "id": "sx:word.2",
+      "exercises": [
+        {
+          "id": "sx:word.2.1",
+          "kind": "transform",
+          "source": "Yağmur yağdığı için maç ertelendi.",
+          "keyword": "nedeniyle",
+          "ru": "Из-за дождя матч перенесли.",
+          "answer": "Yağmur nedeniyle maç ertelendi.",
+          "explain": "Официальная причина — nedeniyle."
+        },
+        {
+          "id": "sx:word.2.2",
+          "kind": "transform",
+          "source": "Ona “Yarın gelirim” dedi.",
+          "keyword": "geleceğini",
+          "ru": "Он сказал ему, что придёт завтра.",
+          "answer": "Ona yarın geleceğini söyledi.",
+          "alt": [
+            "Yarın geleceğini ona söyledi."
+          ],
+          "explain": "Косвенная речь — -AcAğInI söyledi."
+        },
+        {
+          "id": "sx:word.2.3",
+          "kind": "transform",
+          "source": "Kapıyı kapatın lütfen.",
+          "keyword": "rica",
+          "ru": "Прошу вас закрыть дверь.",
+          "answer": "Kapıyı kapatmanızı rica ederim.",
+          "explain": "Вежливая просьба — -mAnIzI rica ederim."
+        },
+        {
+          "id": "sx:word.2.4",
+          "kind": "cloze",
+          "text": "Toplantı yarın saat onda ___ (başlamak). Katılımınızı ___ ederiz.",
+          "ru": "Собрание начнётся завтра в десять. Просим вас принять участие.",
+          "answers": [
+            [
+              "başlayacaktır",
+              "başlayacak"
+            ],
+            [
+              "rica"
+            ]
+          ],
+          "explain": "Объявление — başlayacaktır; формула — rica ederiz."
+        },
+        {
+          "id": "sx:word.2.5",
+          "kind": "cloze",
+          "text": "O kadar yorgundum ___ hemen uyudum. Sabah hiç ___ (kalkmak) istemedim.",
+          "ru": "Я так устал, что сразу уснул. Утром совсем не хотел вставать.",
+          "answers": [
+            [
+              "ki"
+            ],
+            [
+              "kalkmak"
+            ]
+          ],
+          "explain": "o kadar … ki; istemek + -mAk."
+        },
+        {
+          "id": "sx:word.2.6",
+          "kind": "fix",
+          "sentence": "Herkes onu suçladı, nitekim o masumdu.",
+          "ru": "Все его винили, а ведь он был невиновен.",
+          "wrong": 3,
+          "answer": "oysa",
+          "alt": [
+            "halbuki"
+          ],
+          "explain": "Противопоставление — oysa (halbuki)."
+        },
+        {
+          "id": "sx:word.2.7",
+          "kind": "fix",
+          "sentence": "Pazartesiye itibaren müze açıktır.",
+          "ru": "С понедельника музей открыт.",
+          "wrong": 0,
+          "answer": "Pazartesiden",
+          "explain": "itibaren — с исходным падежом."
+        },
+        {
+          "id": "sx:word.2.8",
+          "kind": "fix",
+          "sentence": "Bana yardım etmenizi rica ediyorsun.",
+          "ru": "Прошу вас мне помочь.",
+          "wrong": 4,
+          "answer": "ediyorum",
+          "alt": [
+            "ederim"
+          ],
+          "explain": "Просит говорящий — rica ediyorum."
+        },
+        {
+          "id": "sx:word.2.9",
+          "kind": "type",
+          "sentence": "Bu yeni yönetmelik hepimize baş ___ oldu.",
+          "ru": "Этот новый регламент стал для всех головной болью.",
+          "hint": "головная боль",
+          "answer": "ağrısı",
+          "explain": "baş ağrısı olmak — быть головной болью."
+        },
+        {
+          "id": "sx:word.2.10",
+          "kind": "type",
+          "sentence": "Fatma Teyze tartmadan, göz ___ koyuyor.",
+          "ru": "Тётушка Фатма кладёт на глаз, не взвешивая.",
+          "hint": "на глаз",
+          "answer": "kararı",
+          "explain": "göz kararı — на глаз."
+        }
+      ]
+    },
+    {
+      "id": "sx:word.3",
+      "exercises": [
+        {
+          "id": "sx:word.3.1",
+          "kind": "transform",
+          "source": "Belki bir çıkış vardır.",
+          "keyword": "muhtemelen",
+          "ru": "Вероятно, выход есть.",
+          "answer": "Muhtemelen bir çıkış vardır.",
+          "explain": "Высокая вероятность — muhtemelen."
+        },
+        {
+          "id": "sx:word.3.2",
+          "kind": "transform",
+          "source": "Birden denizi görmek istedim.",
+          "keyword": "göresim",
+          "ru": "Мне вдруг захотелось увидеть море.",
+          "answer": "Birden denizi göresim geldi.",
+          "explain": "-AsI gelmek — внезапное желание."
+        },
+        {
+          "id": "sx:word.3.3",
+          "kind": "transform",
+          "source": "Hiçbir şey olmamış gibi gülüyordu.",
+          "keyword": "olmamışçasına",
+          "ru": "Он смеялся, как будто ничего не случилось.",
+          "answer": "Hiçbir şey olmamışçasına gülüyordu.",
+          "explain": "-mIş gibi → книжное -mIşçAsInA."
+        },
+        {
+          "id": "sx:word.3.4",
+          "kind": "cloze",
+          "text": "Sevgili Arda, mektubun için çok ___. Bu arada, ne zaman ___ (dönmek)?",
+          "ru": "Дорогой Арда, большое спасибо за письмо. Кстати, когда ты вернёшься?",
+          "answers": [
+            [
+              "teşekkürler",
+              "teşekkür ederim"
+            ],
+            [
+              "döneceksin",
+              "dönüyorsun"
+            ]
+          ],
+          "explain": "Дружеское письмо: teşekkürler; будущее — döneceksin."
+        },
+        {
+          "id": "sx:word.3.5",
+          "kind": "cloze",
+          "text": "Herkes onu cimri sanıyor, ___ çok cömert biridir. ___ her bayram komşulara hediye verir.",
+          "ru": "Все считают его скупым, а ведь он очень щедрый человек. И действительно, на каждый праздник он дарит соседям подарки.",
+          "answers": [
+            [
+              "oysa",
+              "halbuki"
+            ],
+            [
+              "Nitekim"
+            ]
+          ],
+          "explain": "oysa — а ведь; nitekim — и действительно."
+        },
+        {
+          "id": "sx:word.3.6",
+          "kind": "fix",
+          "sentence": "Yağmur yağsa dahi yola çıkmadık.",
+          "ru": "Даже если пойдёт дождь, мы отправимся в путь.",
+          "wrong": 4,
+          "answer": "çıkacağız",
+          "explain": "-sA dahi + будущее: çıkacağız."
+        },
+        {
+          "id": "sx:word.3.7",
+          "kind": "fix",
+          "sentence": "Çalışmadıkça daha iyi anlarsın.",
+          "ru": "Чем больше занимаешься, тем лучше понимаешь.",
+          "wrong": 0,
+          "answer": "Çalıştıkça",
+          "explain": "-DIkçA — «чем больше»."
+        },
+        {
+          "id": "sx:word.3.8",
+          "kind": "fix",
+          "sentence": "Toplantının ertelemesi herkesi şaşırttı.",
+          "ru": "Перенос собрания всех удивил.",
+          "wrong": 1,
+          "answer": "ertelenmesi",
+          "explain": "Пассивная номинализация — ertelenmesi."
+        },
+        {
+          "id": "sx:word.3.9",
+          "kind": "type",
+          "sentence": "Bu kadar pahalı telefon almak parayı ___ atmak.",
+          "ru": "Покупать такой дорогой телефон — бросать деньги на ветер.",
+          "hint": "на улицу",
+          "answer": "sokağa",
+          "explain": "parayı sokağa atmak — бросать деньги на ветер."
+        },
+        {
+          "id": "sx:word.3.10",
+          "kind": "type",
+          "sentence": "Lafı ___, ne oldu söyle.",
+          "ru": "Не ходи вокруг да около, говори, что случилось.",
+          "hint": "dolandırmak, запрет",
+          "answer": "dolandırma",
+          "explain": "lafı dolandırmak — ходить вокруг да около."
+        }
+      ]
+    }
+  ],
+  "hear": [
+    {
+      "id": "sx:hear.1",
+      "monologue": {
+        "who": "cronista",
+        "lines": [
+          {
+            "es": "Bu yolun hikâyesini yıllardır yazıyorum ve hiç kimsenin bu kadar uzağa geldiğini görmedim.",
+            "ru": "Я много лет пишу историю этой дороги и никогда не видел, чтобы кто-то зашёл так далеко."
+          },
+          {
+            "es": "İlk gününü hatırlıyorum: bir çay bile zor ısmarlıyordun. Hasan Usta fiyatı üç kez tekrar etmek zorunda kaldı.",
+            "ru": "Помню твой первый день: ты едва мог заказать чай. Хасану-уста пришлось трижды повторить цену."
+          },
+          {
+            "es": "Sonra geçitteki kule geldi. Orada ne yaptığını anlatmayı öğrendin, çünkü kulenin muhafızı sadece hikâye dinlerdi.",
+            "ru": "Потом была башня на перевале. Там ты научился рассказывать, что сделал, ведь страж башни слушал только истории."
+          },
+          {
+            "es": "Çöl sana sözlerin aldatabileceğini ve basit bir “eğer”in bütün bir cümlenin anlamını değiştirdiğini gösterdi.",
+            "ru": "Пустыня показала тебе, что слова могут обманывать и что простое «если» меняет смысл целой фразы."
+          },
+          {
+            "es": "Orman, insanların yüksek sesle söylemediklerini duymayı öğretti.",
+            "ru": "Лес научил тебя слышать то, чего люди не говорят вслух."
+          },
+          {
+            "es": "Bunu öğrenmek kolay olmadı. Bir akşam ormandan çok yorgun döndün ve bana, bütün gün tek bir kelime bile anlamadığını söyledin. Ama ertesi sabah yine yola çıktın.",
+            "ru": "Это далось нелегко. Однажды вечером ты вернулся из леса очень усталым и сказал мне, что за весь день не понял ни одного слова. Но на следующее утро ты снова отправился в путь."
+          },
+          {
+            "es": "Ben de o gün defterime şunu yazdım: bu yolcu dinlemeyi biliyor, ve dinlemeyi bilen er geç anlar.",
+            "ru": "А я в тот день записал в тетрадь: этот путник умеет слушать, а кто умеет слушать, рано или поздно поймёт."
+          },
+          {
+            "es": "Labirentte ise birçok bilgenin hiç anlamadığı bir şeyi anladın: aynı düşünce, tonuna göre iyi de kötü de duyulabilir.",
+            "ru": "А в Лабиринте ты понял то, чего многие мудрецы так и не понимают: одна и та же мысль может прозвучать по-доброму или жестоко, смотря каким тоном."
+          },
+          {
+            "es": "Şimdi Mahzen'in kapısının önündesin. İçeride, insanı buradakiler gibi konuşturan bir iksir olduğunu söylüyorlar.",
+            "ru": "Теперь ты стоишь перед дверью Хранилища. Говорят, внутри есть эликсир, после которого заговоришь, как здешние люди."
+          },
+          {
+            "es": "Ben o kadar emin değilim. Bence en önemli şey iksir değil.",
+            "ru": "Я в этом не так уверен. Думаю, эликсир — не самое важное."
+          },
+          {
+            "es": "Önemli olan, zaten yanında taşıdıkların: sana yardım eden her komşu, seni güldüren her hata.",
+            "ru": "Важно то, что ты уже несёшь с собой: каждого соседа, который тебе помог, каждую ошибку, которая тебя рассмешила."
+          },
+          {
+            "es": "Sfenks sana zor sorular soracak. Acele etme. Sfenks saate bakmaz; sadece gerçekten dinleyip dinlemediğini bilmek ister.",
+            "ru": "Сфинкс задаст тебе трудные вопросы. Не спеши. Сфинкс не смотрит на часы: он хочет знать только, слушаешь ли ты по-настоящему."
+          }
+        ]
+      },
+      "dispute": [
+        {
+          "who": "murat",
+          "es": "Fatma Hanım, bir plan hazırladım. Mahzen açılınca küçük bir giriş ücreti alacağız. Bu parayla köprüyü tamir ederiz.",
+          "ru": "Фатма-ханым, я подготовил план. Когда Хранилище откроется, будем брать небольшую плату за вход. На эти деньги починим мост."
+        },
+        {
+          "who": "fatma",
+          "es": "Giriş ücreti mi? Hadi canım, Murat Bey! Mahzen müze değil, herkesin.",
+          "ru": "Плату за вход? Да брось, Мурат-бей! Хранилище не музей, оно общее."
+        },
+        {
+          "who": "murat",
+          "es": "Köprüyü de herkes kullanıyor ve kimse para ödemiyor. Sorun tam da bu.",
+          "ru": "Мостом тоже все пользуются, и никто за него не платит. В этом-то и беда."
+        },
+        {
+          "who": "fatma",
+          "es": "Yani fakirler Mahzen'e giremeyecek, zenginler girecek, öyle mi? Ne güzel fikir, söyleyecek söz yok.",
+          "ru": "Значит, бедным в Хранилище нельзя, а богатым можно? Чудесная мысль, ничего не скажешь."
+        },
+        {
+          "who": "murat",
+          "es": "Öyle bir şey söylemedim. Çocuklar ve emekliler elbette ücretsiz girer.",
+          "ru": "Я этого не говорил. Дети и пенсионеры, разумеется, проходили бы бесплатно."
+        },
+        {
+          "who": "fatma",
+          "es": "Hmm. Peki ne kadar olacağına kim karar verecek? Siz mi? Bankanız mı?",
+          "ru": "Хм. А кто решает, сколько? Вы? Ваш банк?"
+        },
+        {
+          "who": "murat",
+          "es": "Belediye meclisi, bütün şehrin toplantısından sonra. Ben bankacıyım, Fatma Hanım, kral değil.",
+          "ru": "Городской совет, после общего собрания. Я банкир, Фатма-ханым, а не король."
+        },
+        {
+          "who": "fatma",
+          "es": "Eh, bütün şehir oy verirse… belki. Ama bir lira, bir kuruş fazla değil.",
+          "ru": "Ну, если весь город проголосует… может быть. Но одна лира, и ни куруша больше."
+        },
+        {
+          "who": "murat",
+          "es": "Anlaştık, bir lira. Sizinle pazarlık etmek zor.",
+          "ru": "Договорились, лира. С вами трудно торговаться."
+        }
+      ],
+      "questions": [
+        {
+          "q": "Что Летописец вспоминает о первом дне героя?",
+          "options": [
+            "Герой сразу подружился со стражем",
+            "Герой едва мог заказать чай",
+            "Герой заблудился на перевале"
+          ],
+          "answer": 1,
+          "kind": "gist",
+          "part": "monologue"
+        },
+        {
+          "q": "Чему, по словам Летописца, героя научил лес?",
+          "options": [
+            "Слышать то, чего люди не говорят вслух",
+            "Рассказывать о прошлом",
+            "Торговаться на базаре"
+          ],
+          "answer": 0,
+          "kind": "gist",
+          "part": "monologue"
+        },
+        {
+          "q": "Как Летописец относится к эликсиру?",
+          "options": [
+            "Мечтает выпить его сам",
+            "Боится, что эликсира нет",
+            "Считает, что эликсир — не самое важное"
+          ],
+          "answer": 2,
+          "kind": "stance",
+          "part": "monologue"
+        },
+        {
+          "q": "Что Летописец хочет сказать словами «Сфинкс не смотрит на часы»?",
+          "options": [
+            "Отвечать нужно не спеша и внимательно",
+            "Сфинкс опаздывает",
+            "У Сфинкса нет часов"
+          ],
+          "answer": 0,
+          "kind": "hint",
+          "part": "monologue"
+        },
+        {
+          "q": "Что предлагает Мурат-бей?",
+          "options": [
+            "Закрыть Хранилище",
+            "Брать плату за вход и починить мост",
+            "Продать мост"
+          ],
+          "answer": 1,
+          "kind": "gist",
+          "part": "dispute"
+        },
+        {
+          "q": "Почему Фатма против платы?",
+          "options": [
+            "Хранилище принадлежит всем",
+            "Она не любит банки",
+            "Мост не нужен"
+          ],
+          "answer": 0,
+          "kind": "stance",
+          "part": "dispute"
+        },
+        {
+          "q": "На каком условии Фатма соглашается?",
+          "options": [
+            "Если весь город проголосует и плата будет одна лира",
+            "Если банк заплатит за мост",
+            "Ни на каком"
+          ],
+          "answer": 0,
+          "kind": "stance",
+          "part": "dispute"
+        },
+        {
+          "q": "Что Фатма имела в виду: «Чудесная мысль, ничего не скажешь»?",
+          "options": [
+            "Она искренне хвалит план",
+            "Это ирония: ей план не нравится",
+            "Она не поняла план"
+          ],
+          "answer": 1,
+          "kind": "hint",
+          "part": "dispute"
+        }
+      ],
+      "gloss": {
+        "geçitteki": "на перевале",
+        "kulenin": "башни",
+        "muhafızı": "страж",
+        "dinlerdi": "слушал",
+        "aldatabileceğini": "что могут обмануть",
+        "söylemediklerini": "то, чего не говорят",
+        "bilgenin": "мудреца",
+        "anlamadığı": "не понимал",
+        "tonuna": "по тону",
+        "duyulabilir": "может прозвучать",
+        "buradakiler": "здешние",
+        "konuşturan": "заставляющий говорить",
+        "iksir": "эликсир",
+        "taşıdıkların": "то, что несёшь",
+        "güldüren": "рассмешившая",
+        "sfenks": "Сфинкс",
+        "dinleyip": "слушаешь ли",
+        "dinlemediğini": "или нет",
+        "ücreti": "плата",
+        "köprüyü": "мост",
+        "müze": "музей",
+        "fakirler": "бедные",
+        "zenginler": "богатые",
+        "emekliler": "пенсионеры",
+        "olacağına": "сколько будет",
+        "bankanız": "ваш банк",
+        "meclisi": "совет",
+        "bankacıyım": "я банкир",
+        "kral": "король",
+        "kuruş": "куруш",
+        "pazarlık": "торг",
+        "murat": "Мурат",
+        "fatma": "Фатма",
+        "açılınca": "когда откроется",
+        "hmm": "хм",
+        "eh": "ну"
+      }
+    },
+    {
+      "id": "sx:hear.2",
+      "monologue": {
+        "who": "hasan",
+        "lines": [
+          {
+            "es": "Otur, otur. Sana bir şey anlatayım, çay da demlensin.",
+            "ru": "Садись, садись. Расскажу тебе кое-что, пока чай заваривается."
+          },
+          {
+            "es": "Dün akşam Kerem'i telefonla aradım. Biliyor musun, sesi hiç soğuk değildi.",
+            "ru": "Вчера вечером я позвонил Керему. Знаешь, голос у него был совсем не холодный."
+          },
+          {
+            "es": "Mektubu ben yazmadım, baba, dedi. Yani ben yazdım, ama Labirent sözlerimi değiştirdi.",
+            "ru": "«Это не я писал письмо, папа», — сказал он. То есть писал он, но Лабиринт изменил его слова."
+          },
+          {
+            "es": "Bana “Sayın Hasan Bey” diye yazmış. Kerem! Bana hayatında bir kez bile “Bey” demedi.",
+            "ru": "Написал мне «Уважаемый Хасан-бей». Керем! Он ни разу в жизни не называл меня «бей»."
+          },
+          {
+            "es": "Telefonda güldük. Sonra bir şey söyledi, hâlâ aklımda.",
+            "ru": "По телефону мы посмеялись. Потом он сказал одну вещь, она до сих пор у меня в голове."
+          },
+          {
+            "es": "Sonra annesini sordu, dükkânı sordu, hatta eski kedimizi bile sordu. Bir saat konuştuk. Yıllardır bu kadar uzun konuşmamıştık.",
+            "ru": "Потом он спросил про маму, про лавку, даже про нашего старого кота. Мы проговорили час. Столько мы не разговаривали много лет."
+          },
+          {
+            "es": "“Baba, sen de herkesle aynı şekilde konuşuyorsun. Müşterilerle, komşularla, benimle. Hep aynı sert ses.”",
+            "ru": "«Папа, ты ведь тоже со всеми говоришь одинаково. С посетителями, с соседями, со мной. Всегда одним и тем же строгим голосом»."
+          },
+          {
+            "es": "İlk başta kızdım. Sonra düşündüm. Belki haklı. Otuz yıl bu tezgâhın arkasında durunca insan sesini unutuyor.",
+            "ru": "Сначала я рассердился. Потом подумал. Может, он прав. Когда тридцать лет стоишь за этим прилавком, забываешь собственный голос."
+          },
+          {
+            "es": "O yüzden bu sabah her müşteriye başka türlü selam verdim. Rıza Amca'ya şaka yaptım, Murat Bey'e “efendim” dedim.",
+            "ru": "Поэтому сегодня утром я поздоровался с каждым посетителем по-своему. С дядей Рызой пошутил, Мурату-бею сказал «сударь»."
+          },
+          {
+            "es": "İnanır mısın, ikisi de bahşiş bıraktı. Murat Bey hayatında ilk kez!",
+            "ru": "Поверишь ли, оба оставили чаевые. Мурат-бей — впервые в жизни!"
+          },
+          {
+            "es": "Öğleden sonra karıma da “canım” dedim. Önce şaşırdı, sonra güldü ve bana bir tabak tatlı getirdi.",
+            "ru": "После обеда я и жене сказал «милая». Сначала она удивилась, потом засмеялась и принесла мне тарелку сладкого."
+          },
+          {
+            "es": "Hadi, çayını iç. Labirentte de herkesle kendi dilinde konuş. Ve dönünce gel, bana anlat.",
+            "ru": "Давай, пей чай. И в Лабиринте говори с каждым на его языке. А когда вернёшься, приходи и расскажи мне."
+          }
+        ]
+      },
+      "dispute": [
+        {
+          "who": "kemal",
+          "es": "Leyla Hanım, dönenler için büyük bir akşam yemeği düşünüyorum. Benim lokantamda, bütün şehir için.",
+          "ru": "Лейла-ханым, я думаю устроить большой ужин для тех, кто вернётся. В моём ресторане, для всего города."
+        },
+        {
+          "who": "leyla",
+          "es": "Çok güzel bir fikir, Kemal Usta. Ama bütün şehir lokantana sığmaz. Otelin bahçesi daha büyük.",
+          "ru": "Очень хорошая мысль, Кемаль-уста. Но весь город в твой ресторан не поместится. Сад отеля больше."
+        },
+        {
+          "who": "kemal",
+          "es": "Bahçe mi? Yemek soğur! Benim mutfağım lokantada, bahçede değil.",
+          "ru": "Сад? Еда остынет! Моя кухня в ресторане, а не в саду."
+        },
+        {
+          "who": "leyla",
+          "es": "Mutfağın yerinde kalsın. Garsonlarım tabakları taşır, beş dakika bile sürmez.",
+          "ru": "Пусть кухня остаётся на месте. Мои официанты донесут тарелки, это и пяти минут не займёт."
+        },
+        {
+          "who": "kemal",
+          "es": "Senin garsonların mı? Geçen bayram bütün mezeleri yere düşürdüler.",
+          "ru": "Твои официанты? В прошлый праздник они уронили на пол все закуски."
+        },
+        {
+          "who": "leyla",
+          "es": "Bir kere oldu, bir kere! Sen de o gün tatlıyı unuttun, ben hiçbir şey demedim.",
+          "ru": "Это было один раз, один! Ты в тот день тоже забыл про десерт, а я ничего не сказала."
+        },
+        {
+          "who": "kemal",
+          "es": "Hmm. Peki. Yemekleri ben yaparım, sen bahçeyi hazırlarsın, ama tabakları benim çırağım taşır.",
+          "ru": "Хм. Ладно. Готовлю я, ты готовишь сад, но тарелки носит мой подмастерье."
+        },
+        {
+          "who": "leyla",
+          "es": "Anlaştık. Bir de müzik olsun. Tellal geri dönerse, onun için masanın başında bir yer ayıralım.",
+          "ru": "Договорились. И пусть будет музыка. Если глашатай вернётся, оставим для него место во главе стола."
+        },
+        {
+          "who": "kemal",
+          "es": "Baş köşe onun. Ve ona ilk tabağı ben getireceğim.",
+          "ru": "Почётное место — его. И первую тарелку ему принесу я."
+        }
+      ],
+      "questions": [
+        {
+          "q": "Каким был голос Керема по телефону?",
+          "options": [
+            "Холодным",
+            "Совсем не холодным",
+            "Сердитым"
+          ],
+          "answer": 1,
+          "kind": "gist",
+          "part": "monologue"
+        },
+        {
+          "q": "Что Керем сказал отцу о его манере говорить?",
+          "options": [
+            "Что отец со всеми говорит одинаково строго",
+            "Что отец говорит слишком тихо",
+            "Что отец много шутит"
+          ],
+          "answer": 0,
+          "kind": "gist",
+          "part": "monologue"
+        },
+        {
+          "q": "Как Хасан-уста в итоге отнёсся к словам сына?",
+          "options": [
+            "Обиделся навсегда",
+            "Подумал и решил, что сын, может быть, прав",
+            "Не поверил ему"
+          ],
+          "answer": 1,
+          "kind": "stance",
+          "part": "monologue"
+        },
+        {
+          "q": "Что Хасан хочет сказать историей о чаевых Мурата-бея?",
+          "options": [
+            "Что подходящий тон меняет отношение людей",
+            "Что Мурат-бей богатый",
+            "Что чай подорожал"
+          ],
+          "answer": 0,
+          "kind": "hint",
+          "part": "monologue"
+        },
+        {
+          "q": "Что хочет устроить Кемаль-уста?",
+          "options": [
+            "Большой ужин для вернувшихся",
+            "Новый ресторан",
+            "Праздник в лесу"
+          ],
+          "answer": 0,
+          "kind": "gist",
+          "part": "dispute"
+        },
+        {
+          "q": "Почему Лейла предлагает сад отеля?",
+          "options": [
+            "Весь город не поместится в ресторан",
+            "В ресторане шумно",
+            "У Кемаля нет кухни"
+          ],
+          "answer": 0,
+          "kind": "stance",
+          "part": "dispute"
+        },
+        {
+          "q": "Чем Кемаль недоволен в предложении Лейлы?",
+          "options": [
+            "Еда остынет, а её официанты роняют тарелки",
+            "Сад слишком маленький",
+            "Лейла не умеет готовить"
+          ],
+          "answer": 0,
+          "kind": "stance",
+          "part": "dispute"
+        },
+        {
+          "q": "Что значит «Почётное место — его»?",
+          "options": [
+            "Если глашатай вернётся, он сядет во главе стола",
+            "Кемаль хочет сидеть во главе стола",
+            "Место уже занято"
+          ],
+          "answer": 0,
+          "kind": "hint",
+          "part": "dispute"
+        }
+      ],
+      "gloss": {
+        "demlensin": "пусть заварится",
+        "kerem": "Керем",
+        "değildi": "не был",
+        "yazmış": "написал",
+        "aklımda": "в голове",
+        "tezgâhın": "прилавка",
+        "tezgahın": "прилавка",
+        "selam": "приветствие",
+        "rıza": "Рыза",
+        "murat": "Мурат",
+        "bıraktı": "оставили",
+        "lokantamda": "в моём ресторане",
+        "sığmaz": "не поместится",
+        "lokantana": "в твой ресторан",
+        "soğur": "остынет",
+        "mutfağım": "моя кухня",
+        "mutfağın": "твоя кухня",
+        "garsonlarım": "мои официанты",
+        "sürmez": "не займёт",
+        "garsonların": "твои официанты",
+        "düşürdüler": "уронили",
+        "çırağım": "мой подмастерье",
+        "tellal": "глашатай",
+        "başında": "во главе",
+        "köşe": "угол (baş köşe — почётное место)",
+        "kemal": "Кемаль",
+        "leyla": "Лейла",
+        "bayram": "праздник",
+        "hmm": "хм"
+      }
+    },
+    {
+      "id": "sx:hear.3",
+      "monologue": {
+        "who": "nermin",
+        "lines": [
+          {
+            "es": "Gel, gel, otur. Orhan uyuyor, ama sana onun dün gece anlattıklarını söylemem lazım.",
+            "ru": "Заходи, садись. Орхан спит, но мне нужно рассказать тебе, что он говорил вчера ночью."
+          },
+          {
+            "es": "Yüz yıl önce, çocukken, meydanda tellalı taklit ederdi. Herkes gülerdi, o da gülerdi.",
+            "ru": "Сто лет назад, когда он был ребёнком, он передразнивал глашатая на площади. Все смеялись, и он смеялся."
+          },
+          {
+            "es": "Bir gün tellal durdu ve ona baktı. Hiçbir şey söylemedi. Sadece baktı.",
+            "ru": "Однажды глашатай остановился и посмотрел на него. Ничего не сказал. Просто посмотрел."
+          },
+          {
+            "es": "Ertesi sabah tellal gitmişti. Orhan o bakışı yüz yıl unutmadı.",
+            "ru": "На следующее утро глашатая уже не было. Орхан не забывал этот взгляд сто лет."
+          },
+          {
+            "es": "Herkes tellalın başka bir şehre gittiğini söyledi. Ama Orhan, onun kendisi yüzünden gittiğini düşündü. Çocuktu, her şeyi kendi üstüne aldı.",
+            "ru": "Все говорили, что глашатай уехал в другой город. Но Орхан думал, что тот ушёл из-за него. Он был ребёнком и всё принимал на свой счёт."
+          },
+          {
+            "es": "Sonra büyüdü, yolcu oldu, uzak yerlere gitti. Ama nereye gitse o sessiz bakış da onunla geldi.",
+            "ru": "Потом он вырос, стал путником, уходил в далёкие края. Но куда бы он ни шёл, этот молчаливый взгляд шёл с ним."
+          },
+          {
+            "es": "Çölde, kulede, yalnız geçen bütün o yıllarda hep aynı soruyu sormuş kendine: Neden bir kez bile özür dilemedim?",
+            "ru": "В пустыне, в башне, все эти годы в одиночестве он задавал себе один и тот же вопрос: почему я ни разу не попросил прощения?"
+          },
+          {
+            "es": "Dün gece bana dedi ki: “Korkuyorum, Nermin. Ya beni tanırsa? Ya affetmezse?”",
+            "ru": "Вчера ночью он мне сказал: «Я боюсь, Нермин. А вдруг он меня узнает? А вдруг не простит?»"
+          },
+          {
+            "es": "Ben de ona ninemin sözünü söyledim: Özür dilemek için hiçbir zaman çok geç değildir, ama her gün biraz daha zor olur.",
+            "ru": "А я сказала ему бабушкины слова: попросить прощения никогда не поздно, но с каждым днём это всё труднее."
+          },
+          {
+            "es": "Uzun süre sustu. Sonra bir kâğıt istedi ve yazmaya başladı. Sabaha kadar yazdı.",
+            "ru": "Он долго молчал. Потом попросил бумагу и начал писать. Писал до утра."
+          },
+          {
+            "es": "Mektubu okumadım, onun mektubu. Ama zarfın üstünde sadece bir kelime var: “Dostuma.”",
+            "ru": "Письмо я не читала, это его письмо. Но на конверте только одно слово: «Другу»."
+          },
+          {
+            "es": "Labirente gidince bu zarfı yanına al, lütfen. Orhan yürüyemezse, onun yerine sen ver.",
+            "ru": "Когда пойдёшь в Лабиринт, возьми, пожалуйста, этот конверт с собой. Если Орхан не сможет идти, отдай его вместо него."
+          }
+        ]
+      },
+      "dispute": [
+        {
+          "who": "selin",
+          "es": "Komiser Bey, tellal için meydanda büyük bir şenlik yapmak istiyorum. Herkes eski kıyafetler giysin, yüz yıl önceki gibi.",
+          "ru": "Комиссар, я хочу устроить на площади большой праздник для глашатая. Пусть все наденут старинную одежду, как сто лет назад."
+        },
+        {
+          "who": "nihat",
+          "es": "Güzel bir düşünce. Ancak meydanda bir etkinlik için belediyeden izin almanız gerekir.",
+          "ru": "Хорошая мысль. Однако для мероприятия на площади вам нужно разрешение мэрии."
+        },
+        {
+          "who": "selin",
+          "es": "İzin mi? Bu bir şenlik, miting değil! Sadece müzik, kostümler ve biraz çay.",
+          "ru": "Разрешение? Это праздник, а не митинг! Только музыка, костюмы и немного чая."
+        },
+        {
+          "who": "nihat",
+          "es": "Müzik gece kaçta bitecek? Komşulardan şikâyet gelirse ilk benim kapımı çalarlar.",
+          "ru": "А во сколько закончится музыка? Если соседи пожалуются, первым делом постучат в мою дверь."
+        },
+        {
+          "who": "selin",
+          "es": "Saat onda biter, söz veriyorum. Hem Rıza Amca'yı da davet edeceğiz, o ilk şikâyet edecek kişi.",
+          "ru": "В десять закончится, обещаю. К тому же мы пригласим дядю Рызу: он первым жалуется."
+        },
+        {
+          "who": "nihat",
+          "es": "Akıllıca. Peki ya kostümler? Yüz yıl önceki polis üniforması giymemi beklemiyorsunuz umarım.",
+          "ru": "Разумно. А костюмы? Надеюсь, вы не ждёте, что я надену полицейскую форму столетней давности."
+        },
+        {
+          "who": "selin",
+          "es": "Tam olarak bunu bekliyorum! Size çok yakışacak. Hem tellal sizi tanır.",
+          "ru": "Именно этого я и жду! Вам очень пойдёт. И глашатай вас узнает."
+        },
+        {
+          "who": "nihat",
+          "es": "Hmm. Dilekçenizi yarın sabaha kadar getirin. Kostüm konusunu… sonra konuşuruz.",
+          "ru": "Хм. Принесите заявление до завтрашнего утра. Насчёт костюма… поговорим потом."
+        },
+        {
+          "who": "selin",
+          "es": "Yani evet! Teşekkürler, Komiser Bey. Ölçünüzü de alırım.",
+          "ru": "Значит, да! Спасибо, комиссар. И мерки с вас сниму."
+        }
+      ],
+      "questions": [
+        {
+          "q": "Что Орхан делал на площади сто лет назад?",
+          "options": [
+            "Передразнивал глашатая",
+            "Продавал газеты",
+            "Читал новости"
+          ],
+          "answer": 0,
+          "kind": "gist",
+          "part": "monologue"
+        },
+        {
+          "q": "Что сделал Орхан этой ночью?",
+          "options": [
+            "Ушёл в лес",
+            "Писал письмо до утра",
+            "Спал"
+          ],
+          "answer": 1,
+          "kind": "gist",
+          "part": "monologue"
+        },
+        {
+          "q": "Как Нермин-ханым относится к страху Орхана?",
+          "options": [
+            "Смеётся над ним",
+            "Поддерживает: просить прощения никогда не поздно",
+            "Советует забыть"
+          ],
+          "answer": 1,
+          "kind": "stance",
+          "part": "monologue"
+        },
+        {
+          "q": "Что значит слово на конверте «Другу»?",
+          "options": [
+            "Орхан хочет говорить с глашатаем как друг",
+            "Письмо для Нермин",
+            "Письмо для героя"
+          ],
+          "answer": 0,
+          "kind": "hint",
+          "part": "monologue"
+        },
+        {
+          "q": "Что хочет устроить Селин?",
+          "options": [
+            "Праздник для глашатая на площади",
+            "Распродажу",
+            "Показ мод в мэрии"
+          ],
+          "answer": 0,
+          "kind": "gist",
+          "part": "dispute"
+        },
+        {
+          "q": "Что беспокоит комиссара?",
+          "options": [
+            "Разрешение и жалобы соседей",
+            "Цена костюмов",
+            "Погода"
+          ],
+          "answer": 0,
+          "kind": "stance",
+          "part": "dispute"
+        },
+        {
+          "q": "Как комиссар относится к старинной форме?",
+          "options": [
+            "Сразу соглашается",
+            "Уходит от ответа: «поговорим потом»",
+            "Отказывается наотрез"
+          ],
+          "answer": 1,
+          "kind": "stance",
+          "part": "dispute"
+        },
+        {
+          "q": "Почему Селин говорит «Значит, да!»?",
+          "options": [
+            "Она поняла намёк: комиссар в целом согласен",
+            "Комиссар сказал «да» прямо",
+            "Она его не услышала"
+          ],
+          "answer": 0,
+          "kind": "hint",
+          "part": "dispute"
+        }
+      ],
+      "gloss": {
+        "orhan": "Орхан",
+        "anlattıklarını": "то, что рассказывал",
+        "tellalı": "глашатая",
+        "ederdi": "делал (обычно)",
+        "gülerdi": "смеялся",
+        "tellal": "глашатай",
+        "gitmişti": "ушёл",
+        "bakışı": "взгляд",
+        "kulede": "в башне",
+        "sormuş": "спрашивал (говорят)",
+        "dilemedim": "не попросил",
+        "tanırsa": "если узнает",
+        "affetmezse": "если не простит",
+        "ninemin": "моей бабушки",
+        "zarfın": "конверта",
+        "dostuma": "Другу",
+        "labirente": "в Лабиринт",
+        "yürüyemezse": "если не сможет идти",
+        "şenlik": "праздник",
+        "kıyafetler": "одежда",
+        "giysin": "пусть наденут",
+        "etkinlik": "мероприятие",
+        "belediyeden": "от мэрии",
+        "almanız": "вам получить",
+        "miting": "митинг",
+        "kostümler": "костюмы",
+        "çalarlar": "постучат",
+        "rıza": "Рыза",
+        "üniforması": "форма",
+        "giymemi": "чтобы я надел",
+        "yakışacak": "пойдёт",
+        "dilekçenizi": "ваше заявление",
+        "kostüm": "костюм",
+        "ölçünüzü": "ваши мерки",
+        "nermin": "Нермин",
+        "komiser": "комиссар",
+        "akıllıca": "разумно",
+        "hmm": "хм"
+      }
+    }
+  ],
+  "wisdom": [
+    {
+      "id": "sx:wisdom.1",
+      "title": "Yüz yıl cevapsız",
+      "text": [
+        {
+          "es": "Yüz yıl boyunca şehrimizde kimse tellala ne olduğunu bilmedi. Yaşlılar, bir gün meydanda haberleri okuduktan sonra ormana doğru yürüdüğünü ve bir daha dönmediğini anlatırdı. Çocuklar ise onu bir masal kahramanı yaptı: gri pelerinli, herkesle sanki karşısında padişah varmış gibi konuşan adam.",
+          "ru": "Сто лет никто в нашем городе не знал, что случилось с глашатаем. Старики рассказывали, что однажды, прочитав новости на площади, он пошёл к лесу и больше не вернулся. А дети сделали его героем сказки: человек в сером плаще, который со всеми говорил так, будто перед ним султан."
+        },
+        {
+          "es": "Gerçek hikâye daha basit ve daha üzücü. Eski belediye kâğıtlarından öğrendiğimize göre tellal çok çalışkan, çok dürüst bir adamdı. Tek bir sorunu vardı: herkesle aynı şekilde konuşurdu. Fırıncıya da, belediye başkanına da, sokakta oynayan çocuklara da “Sayın efendim” derdi. İnsanlar önce gülümsedi, sonra güldü, en sonunda da onunla dalga geçmeye başladı.",
+          "ru": "Настоящая история проще и печальнее. Из старых бумаг мэрии мы узнали, что глашатай был очень трудолюбивым и очень честным человеком. У него была одна беда: со всеми он говорил одинаково. И пекарю, и мэру, и детям, игравшим на улице, он говорил «Уважаемый сударь». Люди сначала улыбались, потом смеялись, а в конце концов стали над ним издеваться."
+        },
+        {
+          "es": "Tellal bunu fark etti ve değişmek istedi. Kâğıtların arasında onun el yazısıyla bir konuşma bulduk. Bu konuşmada komşularına “siz” yerine “sen” diyor, onlara şaka yapıyor, çocuklara isimleriyle sesleniyor. Bu konuşmayı bayram günü meydanda okumayı planlamıştı. Ama o sabah bir çocuk onu taklit etti, bütün meydan güldü ve tellal tek kelime söylemeden gitti.",
+          "ru": "Глашатай это заметил и захотел измениться. Среди бумаг мы нашли речь, написанную его рукой. В этой речи он обращается к соседям на «ты», а не на «вы», шутит с ними, зовёт детей по именам. Он собирался прочитать эту речь на площади в праздник. Но в то утро один ребёнок передразнил его, вся площадь засмеялась, и глашатай ушёл, не сказав ни слова."
+        },
+        {
+          "es": "O gün meydanda olanlar bu sahneyi hiç unutmadı. Bir kadın, yıllar sonra torunlarına şöyle anlatmış: “Gülmemiz kötü bir şey değildi aslında. Ama tellalın yüzünü görünce gülmeyi bıraktık. Ona bir şey söylemek istedik, hiçbirimiz cesaret edemedik. Ertesi gün çok geçti.” Bu kadının mektubu da belediye kâğıtlarının arasındaydı.",
+          "ru": "Те, кто был в тот день на площади, так и не забыли эту сцену. Одна женщина много лет спустя рассказывала внукам: «Само то, что мы смеялись, было не так уж плохо. Но, увидев лицо глашатая, мы перестали смеяться. Мы хотели ему что-то сказать, но никто из нас не решился. А на следующий день было поздно». Письмо этой женщины тоже лежало среди бумаг мэрии."
+        },
+        {
+          "es": "Belediye başkanı tellalı aramaları için iki adam gönderdi. Adamlar üç gün boyunca ormanda yürüdü, ama sadece onun gri pelerinini buldu. Pelerin bir ağacın dalına asılmıştı, sanki biri onu orada bırakıp yeni bir hayata başlamak istemiş gibi. Şehirde bir süre bu konuşuldu, sonra herkes kendi işine döndü ve tellal yavaş yavaş unutuldu.",
+          "ru": "Мэр отправил двоих людей искать глашатая. Три дня они ходили по лесу, но нашли только его серый плащ. Плащ висел на ветке дерева, будто кто-то оставил его там, чтобы начать новую жизнь. Какое-то время в городе об этом говорили, потом все вернулись к своим делам, и глашатая понемногу забыли."
+        },
+        {
+          "es": "Ormanın ötesinde, bugün Labirent dediğimiz yerde, tellal yüz yıl yaşadı. Orada konuşacak kimse yoktu, sadece taş duvarlar ve kendi sesi vardı. Labirentten dönen yolcular, duvarların her cümleyi başka bir tonla tekrar ettiğini söylüyor: kibar sözü kaba, kaba sözü kibar. Bazı bilgeler bunun bir intikam olduğunu düşünüyor. Bazıları ise bunun bir yardım çağrısı olduğuna inanıyor: “Beni anlayın, ama doğru tonla.”",
+          "ru": "За лесом, там, что мы сегодня зовём Лабиринтом, глашатай прожил сто лет. Говорить там было не с кем, были только каменные стены и его собственный голос. Путники, вернувшиеся из Лабиринта, рассказывают, что стены повторяют каждую фразу другим тоном: вежливые слова грубо, грубые вежливо. Одни мудрецы считают, что это месть. Другие верят, что это зов о помощи: «Поймите меня, но правильным тоном»."
+        },
+        {
+          "es": "Yıllar içinde Labirente giren pek çok yolcu oldu. Çoğu birkaç saat sonra korkuyla geri döndü. Duvarlara bağırdılar, tellalı suçladılar, bazıları da ona kibar olmak için her cümleyi uzun uzun süsledi. Hiçbiri işe yaramadı. Sesler her seferinde daha yüksek ve daha karışık geri geldi.",
+          "ru": "За эти годы в Лабиринт входили многие путники. Большинство через несколько часов в страхе возвращались. Они кричали на стены, обвиняли глашатая, а некоторые, чтобы быть с ним вежливыми, долго украшали каждую фразу. Ничего не помогало. Голоса каждый раз возвращались громче и путанее."
+        },
+        {
+          "es": "Bu yıl bir yolcu Labirente girdi ve tellalla konuştu. Ne dediğini tam bilmiyoruz. Bildiğimiz şu: yolcu ona her seferinde doğru tonla cevap verdi, ve duvarlar sustu. Birkaç gün sonra tellal şehre döndü. Meydanda durdu, yüz yıl önce okuyamadığı konuşmayı okudu. Bu sefer kimse gülmedi.",
+          "ru": "В этом году один путник вошёл в Лабиринт и поговорил с глашатаем. Что именно он сказал, мы точно не знаем. Знаем вот что: путник каждый раз отвечал ему правильным тоном, и стены замолчали. Через несколько дней глашатай вернулся в город. Он встал на площади и прочитал речь, которую не смог прочитать сто лет назад. На этот раз никто не смеялся."
+        },
+        {
+          "es": "Bu hikâyeden ne öğreniyoruz? Bize göre en önemli ders şu: bir insan, başkalarının bir dakikada verebileceği bir cevabı bütün hayatı boyunca bekleyebilir. Bir gülümseme, bir özür, doğru zamanda söylenmiş tek bir kelime. Tellalın kendisi ise başka bir şey öğrendiğini söylüyor: doğru ton diye bir şey yokmuş. Her insanın kendi tonu varmış, ve iyi konuşmak, o tonu bulmak demekmiş.",
+          "ru": "Чему нас учит эта история? По-нашему, главный урок такой: человек может всю жизнь ждать ответа, который другие могли бы дать за минуту. Улыбки, извинения, одного слова, сказанного вовремя. А сам глашатай говорит, что понял другое: правильного тона, оказывается, не бывает. У каждого человека свой тон, и хорошо говорить — значит этот тон найти."
+        }
+      ],
+      "questions": [
+        {
+          "q": "Почему над глашатаем смеялись?",
+          "options": [
+            "Он плохо читал новости",
+            "Он носил смешной плащ",
+            "Он со всеми говорил одинаково официально"
+          ],
+          "answer": 2
+        },
+        {
+          "q": "Что нашли в старых бумагах мэрии?",
+          "options": [
+            "Письмо мэра глашатаю",
+            "Речь, где глашатай говорит с соседями по-дружески",
+            "Карту Лабиринта"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "О чём спорят мудрецы?",
+          "options": [
+            "Где находится Лабиринт",
+            "Было ли эхо местью или зовом о помощи",
+            "Кто написал речь глашатая"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Какой урок газета считает главным?",
+          "options": [
+            "В лес нельзя ходить одному",
+            "Нужно всегда говорить официально",
+            "Человек может всю жизнь ждать ответа, который другим стоил бы минуты"
+          ],
+          "answer": 2
+        },
+        {
+          "q": "Что понял сам глашатай?",
+          "options": [
+            "Правильного тона нет: у каждого человека свой",
+            "Говорить нужно только по-дружески",
+            "Лучше не разговаривать с соседями"
+          ],
+          "answer": 0
+        }
+      ],
+      "register": [
+        {
+          "id": "sx:wisdom.1.1",
+          "kind": "register",
+          "source": "Baksana, bana tellalın hikâyesini anlatır mısın?",
+          "to": "formal",
+          "answer": "Bana tellalın hikâyesini anlatabilir misiniz",
+          "extra": [
+            "baksana",
+            "anlatır"
+          ],
+          "explain": "Официально: без baksana, anlatabilir misiniz."
+        },
+        {
+          "id": "sx:wisdom.1.2",
+          "kind": "register",
+          "source": "Lütfen içten özürlerimizi kabul ediniz.",
+          "to": "informal",
+          "answer": "Gerçekten çok üzgünüz",
+          "extra": [
+            "kabul",
+            "ediniz"
+          ],
+          "explain": "По-дружески: коротко gerçekten çok üzgünüz вместо формулы."
+        }
+      ],
+      "gloss": {
+        "pelerinli": "в плаще",
+        "padişah": "султан",
+        "üzücü": "печальный",
+        "sesleniyor": "обращается",
+        "bayram": "праздник",
+        "pelerinini": "его плащ",
+        "pelerin": "плащ",
+        "asılmıştı": "был повешен",
+        "konuşuldu": "об этом говорили",
+        "unutuldu": "был забыт",
+        "süsledi": "украсили",
+        "tellal": "глашатай",
+        "tellalı": "глашатая",
+        "tellala": "глашатаю",
+        "tellalın": "глашатая",
+        "tellalla": "с глашатаем",
+        "labirent": "Лабиринт",
+        "labirente": "в Лабиринт",
+        "labirentten": "из Лабиринта"
+      }
+    },
+    {
+      "id": "sx:wisdom.2",
+      "title": "Mahzen'in kapısındaki bekçi",
+      "text": [
+        {
+          "es": "Şehrin en eski efsanesi, ilk sakinlerin buraya nasıl geldiğini anlatır. Söylendiğine göre onlar farklı ülkelerden gelmiş, farklı diller konuşan insanlardı. İlk yıllarda birbirlerini hiç anlamıyorlardı. Biri ekmek istediğinde öbürü su getiriyor, biri “yardım edin” dediğinde öbürü kapıyı kapatıyordu. Kavgalar çoktu, dostluk azdı.",
+          "ru": "Самая старая легенда города рассказывает, как сюда пришли первые жители. Говорят, это были люди из разных стран, говорившие на разных языках. Первые годы они совсем не понимали друг друга. Один просил хлеба, а другой приносил воду, один кричал «помогите», а другой закрывал дверь. Ссор было много, дружбы мало."
+        },
+        {
+          "es": "Sonra bir kadın, bugün sadece “Ana” diye andığımız kadın, bir fikir buldu. Her akşam herkesi meydanda topladı ve her dilden bir kelime öğretti. Ekmek, su, ev, teşekkürler, özür dilerim. Yavaş yavaş insanlar ortak bir dil kurdu. Bu dilin her kelimesi bir taşa yazıldı, ve taşlar şehrin altında, derin bir mahzende saklandı. Bugün ona sadece Mahzen diyoruz.",
+          "ru": "Потом одна женщина, которую мы сегодня вспоминаем просто как «Мать», придумала выход. Каждый вечер она собирала всех на площади и учила по слову из каждого языка. Хлеб, вода, дом, спасибо, простите. Понемногу люди построили общий язык. Каждое его слово записали на камне, а камни спрятали под городом, в глубоком подвале. Этот подвал мы и называем Хранилищем."
+        },
+        {
+          "es": "Bu mahzenin yeri uzun süre gizli kaldı. Sadece birkaç aile anahtarın nerede olduğunu biliyordu, ve bu sırrı babadan oğula, anneden kıza anlatırlardı. Her yıl ilkbaharda o aileler gece mahzene iner, yeni öğrenilen kelimeleri yeni taşlara yazarlardı. Çünkü bir dil hiç durmaz; her yıl yeni kelimeler doğar, bazıları da sessizce kaybolur.",
+          "ru": "Место этого подвала долго оставалось тайной. Только несколько семей знали, где ключ, и передавали этот секрет от отца к сыну, от матери к дочери. Каждый год весной эти семьи ночью спускались в подвал и записывали новые слова на новые камни. Ведь язык никогда не стоит на месте: каждый год рождаются новые слова, а некоторые тихо исчезают."
+        },
+        {
+          "es": "Peki neden kapıda bir Sfenks var? Efsane bu konuda iki farklı şey söylüyor. Birinci anlatıma göre Ana, kelimelerin yanlış ellere düşmesinden korkuyordu. Kelimelerle yalan söylenebilir, insanlar aldatılabilir. Bu yüzden kapıya, sadece dili gerçekten anlayan birini içeri bırakacak bir bekçi koydu.",
+          "ru": "Но почему у двери Сфинкс? Тут легенда говорит две разные вещи. По первому рассказу Мать боялась, что слова попадут в плохие руки. Словами можно лгать, людей можно обмануть. Поэтому она поставила у двери стража, который впустит только того, кто по-настоящему понимает язык."
+        },
+        {
+          "es": "İkinci anlatım daha ilginç. Buna göre Sfenks bir bekçi değil, bir öğretmendir. Ana, bir dilin kitaplardan öğrenilemeyeceğini biliyordu. Bir dil, insanlarla konuşarak, hata yaparak, gülerek ve bazen utanarak öğrenilir. Sfenks bu yüzden yolcuya kelime sormaz; ona bir hikâye dinletir, bir şaka anlatır, bir mektubu başka bir tonla yeniden yazdırır. Yolcunun cevabından, yolda gerçekten ne yaşadığını anlar.",
+          "ru": "Второй рассказ интереснее. По нему Сфинкс не страж, а учитель. Мать знала, что язык нельзя выучить по книгам. Язык учат, разговаривая с людьми, ошибаясь, смеясь, а иногда и краснея. Поэтому Сфинкс не спрашивает у путника слова: он даёт ему послушать историю, рассказывает шутку, просит переписать письмо другим тоном. По ответу путника он понимает, что тот на самом деле пережил в дороге."
+        },
+        {
+          "es": "Bu anlatıma göre Sfenks, yolcunun mükemmel konuşmasını beklemez. Küçük hatalar onu rahatsız etmez. Onu rahatsız eden şey, dinlemeyen biridir: sadece kendi sözlerini düşünen, karşısındakinin ne hissettiğine bakmayan biri. Böyle bir yolcu bütün kelimeleri bilse de kapıdan geçemez. Çünkü Ana'nın dili, kelimelerden önce dinlemekle başlamıştı.",
+          "ru": "По этому рассказу Сфинкс не ждёт от путника безупречной речи. Мелкие ошибки его не тревожат. Тревожит его тот, кто не слушает: кто думает только о своих словах и не смотрит, что чувствует собеседник. Такой путник не пройдёт в дверь, даже если знает все слова. Ведь язык Матери начинался не со слов, а с умения слушать."
+        },
+        {
+          "es": "Eski kitaplarda, Sfenksin bir zamanlar bir kralı bile geri çevirdiği yazılıdır. Kral kırk dil bildiğini söylemiş ve kapının hemen açılmasını istemiş. Sfenks ona sadece bir soru sormuş: “Bu sabah sana çay getiren kızın adı ne?” Kral bilmiyormuş. Ertesi gün öğrenip geri gelmiş, ama Sfenks yine de ona bir yıl daha beklemesini söylemiş.",
+          "ru": "В старых книгах написано, что Сфинкс однажды не пропустил даже короля. Король сказал, что знает сорок языков, и потребовал немедленно открыть дверь. Сфинкс задал ему лишь один вопрос: «Как зовут девушку, которая сегодня утром принесла тебе чай?» Король не знал. На следующий день он выяснил и вернулся, но Сфинкс всё равно велел ему подождать ещё год."
+        },
+        {
+          "es": "Hangi anlatım doğru? Belki ikisi de. Şehrin yaşlıları, Sfenksin hiçbir yolcuyu sonsuza kadar geri çevirmediğini söyler. Yanlış cevap veren dinlenir, birkaç gün bekler ve tekrar gelir. Sfenks sabırlıdır, çünkü Ana da sabırlıydı. Mahzen'in kapısı kilitli değildir; sadece henüz hazır olmayan biri için kapalıdır.",
+          "ru": "Какой рассказ верный? Может быть, оба. Старики города говорят, что Сфинкс никогда не прогонял путника навсегда. Кто ответил неверно, отдыхает, ждёт несколько дней и приходит снова. Сфинкс терпелив, потому что терпеливой была и Мать. Дверь Хранилища не заперта: она закрыта только для того, кто ещё не готов."
+        },
+        {
+          "es": "İçeride ne olduğunu kimse kesin bilmiyor. Kimileri altın der, kimileri bir iksir. Ama efsanenin son cümlesi hep aynıdır: “Mahzen'e giren, orada yeni bir şey bulmaz. Yolda zaten bulduklarını görür.” Belki de en büyük hazine, bir dili konuşabildiğimiz için tanıdığımız insanlardır.",
+          "ru": "Что внутри, точно не знает никто. Одни говорят — золото, другие — эликсир. Но последняя фраза легенды всегда одна: «Кто войдёт в Хранилище, не найдёт там ничего нового. Он увидит то, что уже нашёл в пути». Может быть, самое большое сокровище — это люди, которых мы узнали, потому что можем говорить на их языке."
+        }
+      ],
+      "questions": [
+        {
+          "q": "Почему первые жители города ссорились?",
+          "options": [
+            "Им не хватало хлеба и воды",
+            "Они говорили на разных языках и не понимали друг друга",
+            "Они спорили, кто будет мэром"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Что Мать делала каждый вечер?",
+          "options": [
+            "Учила всех словам из каждого языка",
+            "Охраняла подвал",
+            "Писала книгу о городе"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Каким по второму рассказу видят Сфинкса?",
+          "options": [
+            "Строгим стражем золота",
+            "Учителем, который проверяет, что путник пережил в дороге",
+            "Врагом Матери"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Что происходит с путником, который ответил неверно?",
+          "options": [
+            "Его прогоняют навсегда",
+            "Он отдыхает, ждёт и может прийти снова",
+            "Он остаётся в Лабиринте"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Что, по последней фразе легенды, видит тот, кто вошёл в Хранилище?",
+          "options": [
+            "Золото Матери",
+            "То, что он уже нашёл в пути",
+            "Новый язык"
+          ],
+          "answer": 1
+        }
+      ],
+      "register": [
+        {
+          "id": "sx:wisdom.2.1",
+          "kind": "register",
+          "source": "Kapıyı aç, içeri gireceğim.",
+          "to": "formal",
+          "answer": "Kapıyı açar mısınız lütfen",
+          "extra": [
+            "aç",
+            "gireceğim"
+          ],
+          "explain": "Вежливо: açar mısınız lütfen вместо повелительного aç."
+        },
+        {
+          "id": "sx:wisdom.2.2",
+          "kind": "register",
+          "source": "Sizi tekrar görmekten büyük memnuniyet duydum.",
+          "to": "informal",
+          "answer": "Seni gördüğüme çok sevindim",
+          "extra": [
+            "memnuniyet",
+            "duydum"
+          ],
+          "explain": "По-дружески: seni gördüğüme çok sevindim вместо книжной формулы."
+        }
+      ],
+      "gloss": {
+        "birbirlerini": "друг друга",
+        "yazıldı": "было записано",
+        "sfenks": "Сфинкс",
+        "sfenksin": "Сфинкса",
+        "aldatılabilir": "можно обмануть",
+        "öğrenilemeyeceğini": "что нельзя выучить",
+        "öğrenilir": "учат",
+        "yazdırır": "заставляет написать",
+        "iksir": "эликсир",
+        "hazine": "сокровище",
+        "ana": "Мать"
+      }
+    },
+    {
+      "id": "sx:wisdom.3",
+      "title": "Geç kalmış bir mektup",
+      "text": [
+        {
+          "es": "Geçen hafta kulenin eski bekçisi Orhan, şehrin meydanında tellala bir zarf verdi. Zarfın üstünde tek bir kelime vardı: “Dostuma.” İki yaşlı adam bir süre hiç konuşmadan birbirine baktı. Sonra tellal zarfı açtı, mektubu okudu ve Orhan'a sarıldı. Meydandakilerin çoğu ağlıyordu, ama ne olduğunu tam olarak anlayan azdı.",
+          "ru": "На прошлой неделе Орхан, бывший смотритель башни, на городской площади передал глашатаю конверт. На конверте было одно слово: «Другу». Двое стариков какое-то время молча смотрели друг на друга. Потом глашатай открыл конверт, прочитал письмо и обнял Орхана. Многие на площади плакали, но мало кто до конца понимал, что произошло."
+        },
+        {
+          "es": "Hikâyeyi bilmeyenler için kısaca anlatalım. Orhan yüz yıl önce bir çocukken meydanda tellalı taklit etmişti. Herkes gülmüştü. Ertesi gün tellal şehirden gitmişti. Orhan bütün hayatı boyunca bunun kendi suçu olduğunu düşündü. Özür dilemek istedi, ama ne zaman yazmaya başlasa korktu ve kâğıdı yırttı.",
+          "ru": "Для тех, кто не знает истории, расскажем коротко. Сто лет назад Орхан, ещё ребёнком, передразнил глашатая на площади. Все смеялись. На следующий день глашатай ушёл из города. Всю жизнь Орхан думал, что в этом его вина. Он хотел попросить прощения, но всякий раз, когда начинал писать, пугался и рвал бумагу."
+        },
+        {
+          "es": "Orhan şehirden uzaklaştı, çölde ve dağlarda yaşadı, sonunda geçitteki kulenin bekçisi oldu. Yalnızdı, ama yalnızlık ona düşünmek için çok zaman verdi. Her kış aynı mektubu yeniden yazmaya çalıştı. Kulenin bir odası yarım kalmış mektuplarla doluydu. Kimisi iki satır, kimisi beş sayfa. Hiçbirini göndermedi, çünkü hangisinin doğru olduğunu bilmiyordu.",
+          "ru": "Орхан уехал из города, жил в пустыне и в горах и в конце концов стал смотрителем башни на перевале. Он был одинок, но одиночество дало ему много времени подумать. Каждую зиму он пытался заново написать то же письмо. Одна комната башни была полна недописанных писем. Какие-то в две строчки, какие-то на пять страниц. Он не отправил ни одного, потому что не знал, какое из них правильное."
+        },
+        {
+          "es": "Peki neden bu kadar zor? Özür dilemek neden bazen bir dağa tırmanmaktan daha zordur? Bize göre üç sebebi var. Birincisi, özür dileyen kişi hatasını kabul eder, ve hata kabul etmek kimsenin hoşuna gitmez. İkincisi, karşıdaki insanın ne diyeceğini bilmeyiz; belki affetmez, belki bizi hiç hatırlamaz. Üçüncüsü ve en önemlisi, zaman geçtikçe sessizlik de bir alışkanlık olur.",
+          "ru": "Но почему это так трудно? Почему извиниться иногда труднее, чем подняться на гору? По-нашему, причин три. Во-первых, тот, кто извиняется, признаёт свою ошибку, а признавать ошибки никому не нравится. Во-вторых, мы не знаем, что скажет другой человек: может, не простит, может, вообще нас не помнит. В-третьих, и это главное, со временем молчание тоже становится привычкой."
+        },
+        {
+          "es": "Orhan'ın mektubunu okumadık; o mektup tellala ait. Ama tellal bize bir cümlesini söyledi: “Sana o gün kızmadım. Kendime kızdım, çünkü benimle gülen bir çocuğa bile nasıl konuşacağımı bilmiyordum.” Yani yüz yıl boyunca iki adam da aynı şey için kendini suçlamış. İkisi de diğerinin kızgın olduğunu sanmış.",
+          "ru": "Письма Орхана мы не читали: оно принадлежит глашатаю. Но глашатай пересказал нам одну его фразу: «Я не сердился на тебя в тот день. Я сердился на себя, потому что не знал, как говорить даже с ребёнком, который смеялся надо мной». То есть сто лет оба винили себя в одном и том же. И каждый думал, что сердится другой."
+        },
+        {
+          "es": "Bunu öğrenince insanın aklına ister istemez bir soru geliyor: ya biri yüz yıl önce sadece bir kapıyı çalsaydı? Ya Orhan, korkusuna rağmen o ilk mektubu gönderseydi? Belki tellal Labirente hiç gitmeyecekti. Belki duvarlar hiç konuşmayacaktı. Bunu bilemeyiz. Ama şunu biliyoruz: bir özrü ertelemek, onu daha kolay yapmıyor, sadece daha ağır yapıyor.",
+          "ru": "Узнав это, невольно задаёшься вопросом: а если бы сто лет назад кто-то просто постучал в дверь? А если бы Орхан, несмотря на страх, отправил то первое письмо? Может быть, глашатай так и не ушёл бы в Лабиринт. Может быть, стены никогда бы не заговорили. Этого мы знать не можем. Но знаем другое: если откладывать извинение, оно не становится легче, только тяжелее."
+        },
+        {
+          "es": "Bu hikâye bize iyi bir özrün ne olduğunu da gösteriyor. Orhan uzun cümleler kurmamış, kendini savunmamış, “ama” dememiş. Ne yaptığını açıkça yazmış, ne hissettiğini söylemiş ve tek bir şey istemiş: yeniden dost olmak. Tonu ne çok resmî ne çok rahatmış; sadece samimiymiş. Belki de doğru ton budur: karşındakini kendin kadar ciddiye alan ton.",
+          "ru": "Эта история показывает нам и то, каким бывает хорошее извинение. Орхан не строил длинных фраз, не оправдывался, не говорил «но». Он прямо написал, что сделал, сказал, что чувствовал, и попросил только об одном: снова стать друзьями. Тон был ни слишком официальным, ни слишком свободным: просто искренним. Может быть, это и есть правильный тон: тот, в котором другого принимаешь так же всерьёз, как себя."
+        },
+        {
+          "es": "Tellalın cevabı da kısa oldu. Mektubu okuduktan sonra uzun bir konuşma yapmadı, Orhan'a ne kadar acı çektiğini anlatmadı. Sadece “Gel, bir çay içelim” dedi. Meydandaki bir çocuk, annesine bunun neden bu kadar önemli olduğunu sordu. Annesi biraz düşündü ve şöyle cevap verdi: “Bazen bir davet, en güzel affetme şeklidir.” Bize göre bu cevap, bu yazıdaki bütün düşüncelerden daha akıllıca.",
+          "ru": "Ответ глашатая тоже был коротким. Прочитав письмо, он не произнёс длинной речи, не рассказал Орхану, как сильно страдал. Он сказал только: «Пойдём выпьем чаю». Один ребёнок на площади спросил маму, почему это так важно. Мама немного подумала и ответила: «Иногда приглашение — самый лучший способ простить». По-нашему, этот ответ мудрее всех мыслей этой статьи."
+        },
+        {
+          "es": "Şimdi iki yaşlı adam her sabah Hasan Usta'nın kahvesinde birlikte çay içiyor. Tellal hâlâ herkese biraz fazla kibar konuşuyor, Orhan hâlâ herkesi taklit ediyor. Ama artık ikisi de gülüyor.",
+          "ru": "Теперь двое стариков каждое утро вместе пьют чай в кофейне Хасана-уста. Глашатай всё ещё со всеми чуточку слишком вежлив, Орхан всё ещё всех передразнивает. Но теперь смеются оба."
+        }
+      ],
+      "questions": [
+        {
+          "q": "Что было написано на конверте Орхана?",
+          "options": [
+            "Имя глашатая",
+            "Одно слово: «Другу»",
+            "Ничего"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Почему Орхан так долго не писал письмо?",
+          "options": [
+            "Он не знал, где глашатай",
+            "Каждый раз пугался и рвал бумагу",
+            "Он забыл ту историю"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Какую причину статья называет главной?",
+          "options": [
+            "Со временем молчание становится привычкой",
+            "Признавать ошибки неприятно",
+            "Другой человек может не простить"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "На кого, по его словам, сердился глашатай в тот день?",
+          "options": [
+            "На Орхана",
+            "На всю площадь",
+            "На себя"
+          ],
+          "answer": 2
+        },
+        {
+          "q": "Каким был тон письма Орхана?",
+          "options": [
+            "Очень официальным",
+            "Искренним, без оправданий и «но»",
+            "Шутливым"
+          ],
+          "answer": 1
+        }
+      ],
+      "register": [
+        {
+          "id": "sx:wisdom.3.1",
+          "kind": "register",
+          "source": "Mektubu bana ver.",
+          "to": "formal",
+          "answer": "Mektubu bana verir misiniz",
+          "extra": [
+            "ver",
+            "versene"
+          ],
+          "explain": "Вежливо: verir misiniz вместо ver."
+        },
+        {
+          "id": "sx:wisdom.3.2",
+          "kind": "register",
+          "source": "Bu konuda yardımınızı rica ediyorum.",
+          "to": "informal",
+          "answer": "Bana bir yardım eder misin",
+          "extra": [
+            "rica",
+            "ediyorum"
+          ],
+          "explain": "По-дружески: eder misin вместо rica ediyorum."
+        }
+      ],
+      "gloss": {
+        "yırttı": "порвал",
+        "akıllıca": "мудро",
+        "orhan": "Орхан",
+        "tellal": "глашатай",
+        "tellala": "глашатаю",
+        "tellalı": "глашатая",
+        "tellalın": "глашатая",
+        "labirente": "в Лабиринт",
+        "dostuma": "Другу",
+        "zarf": "конверт",
+        "zarfı": "конверт",
+        "zarfın": "конверта"
+      }
+    }
+  ]
+}

@@ -19,7 +19,7 @@ function inputs(e: GrammarExercise): GrammarInput[] {
   }
 }
 
-describe.each(['es', 'it', 'en'])('Сфинкс, загадка слова: %s', (lang) => {
+describe.each(['es', 'it', 'en', 'tr'])('Сфинкс, загадка слова: %s', (lang) => {
   const file = real(lang);
   it('три набора одинакового состава, валидатор без замечаний', () => {
     expect(file.word).toHaveLength(SPHINX_SETS);
@@ -74,7 +74,7 @@ describe('validateSphinx', () => {
   });
 });
 
-describe.each(['es', 'it', 'en'])('Сфинкс, загадка слуха: %s', (lang) => {
+describe.each(['es', 'it', 'en', 'tr'])('Сфинкс, загадка слуха: %s', (lang) => {
   const file = real(lang);
   const npcs = JSON.parse(readFileSync(join(import.meta.dirname, lang, 'npcs.json'), 'utf8')) as { npcs: { id: string; voice: { pitch: number } }[] };
   const voices = { ...Object.fromEntries(npcs.npcs.map((n) => [n.id, n.voice.pitch])), cronista: 0.8 };
@@ -128,7 +128,7 @@ describe('validateSphinx: загадка слуха', () => {
   });
 });
 
-describe.each(['es', 'it', 'en'])('Сфинкс, загадка мудрости: %s', (lang) => {
+describe.each(['es', 'it', 'en', 'tr'])('Сфинкс, загадка мудрости: %s', (lang) => {
   const file = real(lang);
   it('три набора: текст, пять вопросов, тон официальный и дружеский', () => {
     expect(file.wisdom).toHaveLength(SPHINX_SETS);

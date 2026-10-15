@@ -1,34 +1,38 @@
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { expect, test, type Page } from '@playwright/test';
-import { answerGrammar, exact, openEnglish } from './fixtures';
+import { answerGrammar, exact, openCourse } from './fixtures';
 
 /**
- * Английский курс закрыт (задача 17.8): Сфинкс и Хранилище открываются напрямую. Три загадки первым набором
- * проходятся без ошибок, потом сцена Хранилища и Эликсир. Остальные наборы проверяет `src/content/sphinx.test.ts`.
+ * Курсы без города (английский писался закрытым, задача 17.8; турецкий — 18.8): Сфинкс и Хранилище открываются
+ * напрямую. Три загадки первым набором проходятся без ошибок, потом сцена Хранилища и Эликсир. Остальные наборы
+ * проверяет `src/content/sphinx.test.ts`.
  */
-const CONTENT = join(import.meta.dirname, '..', '..', 'src', 'content', 'en');
+const COURSES = ['en', 'tr'] as const;
+type Course = (typeof COURSES)[number];
+const DBS: Record<Course, string> = { en: 'eslacity-en', tr: 'eslacity-tr' };
 type Question = { q: string; options: string[]; answer: number };
 type Exercises = Parameters<typeof answerGrammar>[1]['exercises'];
-const sx = JSON.parse(readFileSync(join(CONTENT, 'sphinx.json'), 'utf8')) as {
+type SphinxFile = {
   sphinx: { speech: Record<string, { es: string }>; vault: { before: { es: string }[]; after: { es: string }[] } };
   word: { exercises: Exercises }[];
   hear: { monologue: { lines: unknown[] }; dispute: unknown[]; questions: Question[] }[];
   wisdom: { title: string; questions: Question[]; register: Exercises }[];
 };
+const load = (lang: Course) => JSON.parse(readFileSync(join(import.meta.dirname, '..', '..', 'src', 'content', lang, 'sphinx.json'), 'utf8')) as SphinxFile;
 
 /** Печать главы V получена, глава V открыта; `sphinx` — запись Врат, если нужна. */
-async function seedGates(page: Page, sphinx?: unknown) {
+async function seedGates(page: Page, db: string, sphinx?: unknown) {
   // Сначала приложение должно запуститься: при старте оно само записывает путь в базу. Главная закрытого курса
   // уводит в пролог, которого у него ещё нет, поэтому ждём экран настроек.
   await page.goto('./#/settings');
   await expect(page.getByRole('heading', { name: 'Настройки' })).toBeVisible();
   await page.evaluate(
-    ({ sphinx }) =>
+    ({ db, sphinx }) =>
       new Promise<void>((resolve, reject) => {
         // База создаётся при запуске приложения: ждём, пока в ней появится таблица meta.
         const attempt = () => {
-          const r = indexedDB.open('eslacity-en');
+          const r = indexedDB.open(db);
           r.onerror = () => reject(r.error);
           r.onsuccess = () => {
             if (!r.result.objectStoreNames.contains('meta')) {
@@ -44,7 +48,7 @@ async function seedGates(page: Page, sphinx?: unknown) {
         };
         attempt();
       }),
-    { sphinx },
+    { db, sphinx },
   );
   await page.reload();
 }
@@ -79,10 +83,11 @@ async function answerRound(page: Page, questions: Question[], exercises: Exercis
   throw new Error('Раунд не закончился');
 }
 
-test('en: Сфинкс — три загадки без ошибок, потом Хранилище и Эликсир', async ({ page }) => {
+for (const lang of COURSES) test(`${lang}: Сфинкс — три загадки без ошибок, потом Хранилище и Эликсир`, async ({ page }) => {
   test.setTimeout(240_000);
-  await openEnglish(page);
-  await seedGates(page);
+  const sx = load(lang);
+  await openCourse(page, lang);
+  await seedGates(page, DBS[lang]);
   await page.goto('./#/sphinx');
   await expect(page.getByTestId('sphinx-greeting')).toContainText(sx.sphinx.speech.greeting.es);
 
