@@ -1,0 +1,856 @@
+{
+  "letters": [
+    {
+      "id": "lt:bank",
+      "location": "bank",
+      "chapter": 5,
+      "register": "formal",
+      "title": "Жалоба в банк",
+      "request": {
+        "es": "Ücrete itiraz etmek istiyorsanız yazılı bir şikâyet dilekçesine ihtiyacım var.",
+        "ru": "Если хотите оспорить списание, мне нужна письменная жалоба."
+      },
+      "task": "С вашей карты дважды списали 600 лир за один ужин. Напишите Мурату-бею официальную жалобу: что случилось, чего вы просите, вежливое прощание.",
+      "sample": "Sayın Murat Bey,\n3 Mayıs tarihinde kartımdan aynı akşam yemeği için iki kez altı yüz lira çekilmiştir. Hesap özetimi ekte sunuyorum. Bu nedenle ikinci ödemenin en kısa sürede iadesini rica ederim. Ayrıca konuyla ilgili yazılı bir onay almak isterim.\nGereğini bilgilerinize arz ederim.\nSaygılarımla,",
+      "checks": [
+        {
+          "label": "Обращение",
+          "examples": [
+            "Sayın Murat Bey,"
+          ]
+        },
+        {
+          "label": "Что случилось — безлично",
+          "examples": [
+            "çekilmiştir"
+          ]
+        },
+        {
+          "label": "Связки",
+          "examples": [
+            "Bu nedenle",
+            "Ayrıca"
+          ]
+        },
+        {
+          "label": "Вежливая просьба",
+          "examples": [
+            "iadesini rica ederim",
+            "almak isterim"
+          ]
+        },
+        {
+          "label": "Формула конца и прощание",
+          "examples": [
+            "Gereğini bilgilerinize arz ederim",
+            "Saygılarımla"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lt:hotel",
+      "location": "hotel",
+      "chapter": 5,
+      "register": "formal",
+      "title": "Бронирование для делегации",
+      "request": {
+        "es": "Grup rezervasyonları için resmi bir e-posta yazmanız gerekiyor.",
+        "ru": "Для групповой брони нужно официальное письмо."
+      },
+      "task": "Вы бронируете в отеле Лейлы-ханым три номера для жителей, которые едут к Лабиринту. Напишите официально: даты, сколько номеров, вопрос о завтраке, прощание.",
+      "sample": "Sayın Leyla Hanım,\nŞehrimizden Labirente gidecek bir grup adına yazıyorum. 12–14 Haziran tarihleri arasında üç oda ayırtmak istiyoruz. Ayrıca kahvaltının fiyata dahil olup olmadığını öğrenmek isteriz. Uygun odanız varsa bilgi vermenizi rica ederim. Grubumuz sabah erken yola çıkacaktır.\nİlginiz için şimdiden teşekkür ederim.\nSaygılarımla,",
+      "checks": [
+        {
+          "label": "Обращение",
+          "examples": [
+            "Sayın Leyla Hanım,"
+          ]
+        },
+        {
+          "label": "Цель письма",
+          "examples": [
+            "adına yazıyorum"
+          ]
+        },
+        {
+          "label": "Связка",
+          "examples": [
+            "Ayrıca"
+          ]
+        },
+        {
+          "label": "Вежливая просьба",
+          "examples": [
+            "bilgi vermenizi rica ederim",
+            "öğrenmek isteriz"
+          ]
+        },
+        {
+          "label": "Прощание",
+          "examples": [
+            "şimdiden teşekkür ederim",
+            "Saygılarımla"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lt:airport",
+      "location": "airport",
+      "chapter": 5,
+      "register": "formal",
+      "title": "Потерянный багаж",
+      "request": {
+        "es": "Kayıp bagaj için resmi bir başvuru formu doldurmanız lazım.",
+        "ru": "Для потерянного багажа нужно заполнить официальное заявление."
+      },
+      "task": "Ваш чемодан не прилетел вместе с вами. Напишите в службу потерянного багажа: номер рейса, как выглядит чемодан, что вы просите, прощание.",
+      "sample": "Sayın Yetkili,\n5 Haziran tarihli TK 123 sefer sayılı uçuşla geldim, ancak bavulum teslim edilmemiştir. Bavul mavi renkli ve orta boydadır; üzerinde adım ve telefon numaram yazılıdır. Bu nedenle bavulun bulunarak otel adresime gönderilmesini rica ederim. Bavulun içinde önemli belgelerim de bulunmaktadır.\nGereğini bilgilerinize arz ederim.\nSaygılarımla,",
+      "checks": [
+        {
+          "label": "Обращение",
+          "examples": [
+            "Sayın Yetkili,"
+          ]
+        },
+        {
+          "label": "Связки",
+          "examples": [
+            "ancak",
+            "Bu nedenle"
+          ]
+        },
+        {
+          "label": "Описание",
+          "examples": [
+            "mavi renkli"
+          ]
+        },
+        {
+          "label": "Вежливая просьба",
+          "examples": [
+            "gönderilmesini rica ederim"
+          ]
+        },
+        {
+          "label": "Формула конца и прощание",
+          "examples": [
+            "Gereğini bilgilerinize arz ederim",
+            "Saygılarımla"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lt:office",
+      "location": "office",
+      "chapter": 5,
+      "register": "formal",
+      "title": "Отказ от предложения",
+      "request": {
+        "es": "Teklifimizi kabul edemiyorsanız lütfen bize resmi bir cevap yazın.",
+        "ru": "Если не можете принять наше предложение, напишите нам официальный ответ."
+      },
+      "task": "Эбру-ханым предложила вам работу в офисе, но вы уходите к Лабиринту. Откажитесь вежливо и официально: поблагодарите, объясните причину, оставьте дверь открытой.",
+      "sample": "Sayın Ebru Hanım,\nBana yaptığınız iş teklifi için çok teşekkür ederim. Ne yazık ki şu anda bu teklifi kabul edemiyorum, zira yakında uzun bir yolculuğa çıkacağım. Bununla birlikte, döndüğümde sizinle yeniden görüşmekten memnuniyet duyarım.\nAnlayışınız için teşekkür eder, iyi çalışmalar dilerim.\nSaygılarımla,",
+      "checks": [
+        {
+          "label": "Обращение",
+          "examples": [
+            "Sayın Ebru Hanım,"
+          ]
+        },
+        {
+          "label": "Благодарность",
+          "examples": [
+            "çok teşekkür ederim"
+          ]
+        },
+        {
+          "label": "Связки",
+          "examples": [
+            "zira",
+            "Bununla birlikte"
+          ]
+        },
+        {
+          "label": "Вежливый отказ",
+          "examples": [
+            "Ne yazık ki"
+          ]
+        },
+        {
+          "label": "Прощание",
+          "examples": [
+            "iyi çalışmalar dilerim",
+            "Saygılarımla"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lt:police",
+      "location": "police",
+      "chapter": 5,
+      "register": "formal",
+      "title": "Заявление в полицию",
+      "request": {
+        "es": "Gördüklerinizi yazılı bir ifade olarak bildirmeniz gerekiyor.",
+        "ru": "То, что вы видели, нужно изложить в письменных показаниях."
+      },
+      "task": "Вы видели ночью на площади человека в сером плаще. Напишите комиссару Нихату официальное заявление: когда и где, что вы видели, вежливое прощание.",
+      "sample": "Sayın Komiser,\nDün gece saat on bir sularında Ana Meydanda gri pelerinli bir adam gördüğümü bildirmek isterim. Adam eskiden haber okunan yerin önünde durdu ve bir süre sonra orman yoluna doğru gitti. Ayrıca yerde eski bir para buldum ve ekte sunuyorum.\nBilgilerinize arz ederim.\nSaygılarımla,",
+      "checks": [
+        {
+          "label": "Обращение",
+          "examples": [
+            "Sayın Komiser,"
+          ]
+        },
+        {
+          "label": "Цель письма",
+          "examples": [
+            "bildirmek isterim"
+          ]
+        },
+        {
+          "label": "Связка",
+          "examples": [
+            "Ayrıca"
+          ]
+        },
+        {
+          "label": "Документ во вложении",
+          "examples": [
+            "ekte sunuyorum"
+          ]
+        },
+        {
+          "label": "Формула конца и прощание",
+          "examples": [
+            "Bilgilerinize arz ederim",
+            "Saygılarımla"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lt:post",
+      "location": "post",
+      "chapter": 5,
+      "register": "formal",
+      "title": "Просьба о доставке",
+      "request": {
+        "es": "Arşivden bir mektup çıkarmak için müdireye resmi bir dilekçe yazmalısınız.",
+        "ru": "Чтобы вынести письмо из архива, нужно официальное заявление начальнице."
+      },
+      "task": "Попросите начальницу почты разрешить доставить письмо столетней давности глашатаю. Официально: обращение, суть просьбы, причина, прощание.",
+      "sample": "Sayın Müdire Hanım,\nArşivde bulunan ve yüz yıl önce teslim edilemeyen bir mektup hakkında yazıyorum. Mektup şehrin tellalına yazılmıştır. Alıcı hâlâ yaşadığından, mektubun kendisine elden teslim edilmesine izin vermenizi rica ederim. Mektubu yolculuk boyunca özenle koruyacağımızı bildiririm.\nGereğini bilgilerinize arz ederim.\nSaygılarımla,",
+      "checks": [
+        {
+          "label": "Обращение",
+          "examples": [
+            "Sayın Müdire Hanım,"
+          ]
+        },
+        {
+          "label": "Цель письма",
+          "examples": [
+            "hakkında yazıyorum"
+          ]
+        },
+        {
+          "label": "Вежливая просьба",
+          "examples": [
+            "izin vermenizi rica ederim"
+          ]
+        },
+        {
+          "label": "Формула конца",
+          "examples": [
+            "Gereğini bilgilerinize arz ederim"
+          ]
+        },
+        {
+          "label": "Прощание",
+          "examples": [
+            "Saygılarımla"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lt:cafe",
+      "location": "cafe",
+      "chapter": 5,
+      "register": "informal",
+      "title": "Письмо Керему",
+      "request": {
+        "es": "Kerem'e bir mektup yazar mısın? Benimkiler hep buz gibi çıkıyor.",
+        "ru": "Напишешь Керему письмо? У меня все выходят ледяными."
+      },
+      "task": "Хасан-уста просит вас написать Керему по-дружески: расскажите новости из чайной, скажите, что отец по нему скучает, позовите домой, тепло попрощайтесь.",
+      "sample": "Selam Kerem,\nNasılsın? Burada her şey yolunda, çay bahçesi her akşam tıklım tıklım. Baban seni çok özlüyor, her gün senden bahsediyor. Bu arada, mektubun biraz soğuk gelmiş, ama bunun yankı yüzünden olduğunu biliyoruz. Ne zaman dönüyorsun? Seni bekliyoruz!\nKendine iyi bak, sevgiler,",
+      "checks": [
+        {
+          "label": "Приветствие",
+          "examples": [
+            "Selam Kerem,"
+          ]
+        },
+        {
+          "label": "Вопрос о делах",
+          "examples": [
+            "Nasılsın?"
+          ]
+        },
+        {
+          "label": "Разговорная связка",
+          "examples": [
+            "Bu arada"
+          ]
+        },
+        {
+          "label": "Тёплые слова",
+          "examples": [
+            "seni çok özlüyor"
+          ]
+        },
+        {
+          "label": "Тёплое прощание",
+          "examples": [
+            "Kendine iyi bak",
+            "sevgiler"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lt:home",
+      "location": "home",
+      "chapter": 5,
+      "register": "informal",
+      "title": "Письмо подруге",
+      "request": {
+        "es": "Eski komşum Ayşe'ye yazmak istiyorum ama ne diyeceğimi bilmiyorum. Bana yardım et.",
+        "ru": "Хочу написать бывшей соседке Айше, но не знаю, что сказать. Помоги мне."
+      },
+      "task": "Помогите Нермин-ханым написать старой подруге Айше: что нового в доме, про Орхана, пригласите в гости, тепло попрощайтесь.",
+      "sample": "Sevgili Ayşe,\nUzun zamandır yazamadım, kusura bakma. Burada her şey iyi, sadece banyoda yine sızıntı var, hah! Bil bakalım ne oldu: babaannemin kardeşi Orhan yüz yıl sonra döndü ve şimdi bizimle yaşıyor. Bu yaz bize gelsene, sana her şeyi anlatırım.\nÖpüyorum, görüşmek üzere!",
+      "checks": [
+        {
+          "label": "Обращение",
+          "examples": [
+            "Sevgili Ayşe,"
+          ]
+        },
+        {
+          "label": "Извинение по-дружески",
+          "examples": [
+            "kusura bakma"
+          ]
+        },
+        {
+          "label": "Новость",
+          "examples": [
+            "Bil bakalım ne oldu"
+          ]
+        },
+        {
+          "label": "Приглашение",
+          "examples": [
+            "bize gelsene"
+          ]
+        },
+        {
+          "label": "Тёплое прощание",
+          "examples": [
+            "Öpüyorum",
+            "görüşmek üzere"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lt:gym",
+      "location": "gym",
+      "chapter": 5,
+      "register": "informal",
+      "title": "Записка ученикам",
+      "request": {
+        "es": "Grup derslerinden önce herkese kısa ve samimi bir mesaj yazalım mı?",
+        "ru": "Напишем всем перед групповыми занятиями короткое дружеское сообщение?"
+      },
+      "task": "Помогите Дениз написать ученикам дружеское сообщение: занятия переносятся в парк из-за эха, во сколько, что взять с собой, бодрое прощание.",
+      "sample": "Selam arkadaşlar!\nBu hafta derslerimizi parkta yapıyoruz, çünkü salonda yankı yüzünden kimse komutlarımı anlamıyor, haha. Cumartesi sabah dokuzda gölün yanında buluşalım. Yanınıza su, havlu ve bol enerji alın! Kim gelemeyecekse bana haber versin. Yağmur yağarsa salonda buluşuruz.\nHadi, görüşürüz, sizi bekliyorum!",
+      "checks": [
+        {
+          "label": "Приветствие",
+          "examples": [
+            "Selam arkadaşlar!"
+          ]
+        },
+        {
+          "label": "Разговорная связка",
+          "examples": [
+            "çünkü"
+          ]
+        },
+        {
+          "label": "Время встречи",
+          "examples": [
+            "sabah dokuzda"
+          ]
+        },
+        {
+          "label": "Призыв",
+          "examples": [
+            "alın!"
+          ]
+        },
+        {
+          "label": "Бодрое прощание",
+          "examples": [
+            "Hadi, görüşürüz"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lt:beach",
+      "location": "beach",
+      "chapter": 5,
+      "register": "informal",
+      "title": "Письмо глашатаю",
+      "request": {
+        "es": "Tellal dostça bir söz bekliyor. Ona benimle birlikte bir not yazar mısın?",
+        "ru": "Глашатай ждёт дружеского слова. Напишешь ему со мной записку?"
+      },
+      "task": "Напишите глашатаю дружеское письмо от себя и Джана: поздоровайтесь как с другом, скажите, что его ждут, позовите на берег, тепло попрощайтесь.",
+      "sample": "Selam dostum,\nBen ve Can sana yazıyoruz. Seni dün gece kıyıda gördük ve çok sevindik. Biliyor musun, artık bütün şehir seni dinlemek istiyor. Bu akşam deniz fenerinin yanına gel, birlikte çay içelim. Seni bekliyoruz, tamam mı?\nGörüşmek üzere, kendine iyi bak!",
+      "checks": [
+        {
+          "label": "Дружеское обращение",
+          "examples": [
+            "Selam dostum,"
+          ]
+        },
+        {
+          "label": "Разговорный вопрос",
+          "examples": [
+            "Biliyor musun"
+          ]
+        },
+        {
+          "label": "Приглашение",
+          "examples": [
+            "birlikte çay içelim"
+          ]
+        },
+        {
+          "label": "Разговорное «ладно?»",
+          "examples": [
+            "tamam mı?"
+          ]
+        },
+        {
+          "label": "Тёплое прощание",
+          "examples": [
+            "Görüşmek üzere",
+            "kendine iyi bak"
+          ]
+        }
+      ]
+    }
+  ],
+  "notes": [
+    {
+      "id": "nt:cafe",
+      "location": "cafe",
+      "chapter": 2,
+      "register": "informal",
+      "title": "Ответ Хасану-уста",
+      "request": {
+        "es": "Yarın doğum günüm! Bana bir not bırak: geliyor musun?",
+        "ru": "Завтра мой день рождения! Оставь мне записку: придёшь?"
+      },
+      "task": "Хасан-уста зовёт вас завтра на день рождения. Ответьте: придёте ли, во сколько и что принесёте. Поздоровайтесь и попрощайтесь.",
+      "sample": "Merhaba Hasan Usta! Davet için teşekkürler. Yarın akşam sekizde geleceğim. Bir çikolatalı pasta getireceğim.\nYarın görüşürüz!",
+      "must": [
+        {
+          "label": "Когда: yarın",
+          "any": [
+            "yarın"
+          ],
+          "hint": "Скажите, когда придёте: yarın — «завтра»."
+        },
+        {
+          "label": "Будущее время: -AcAğIm",
+          "any": [
+            "*eceğim",
+            "*acağım",
+            "*ecem",
+            "*acam"
+          ],
+          "hint": "О планах — будущее время: geleceğim, getireceğim."
+        },
+        {
+          "label": "Приветствие и прощание",
+          "any": [
+            "merhaba",
+            "selam",
+            "görüşürüz",
+            "hoşça kal"
+          ],
+          "hint": "Начните с Merhaba и попрощайтесь: Yarın görüşürüz!"
+        }
+      ]
+    },
+    {
+      "id": "nt:market",
+      "location": "market",
+      "chapter": 2,
+      "register": "informal",
+      "title": "Записка тётушке Фатме",
+      "request": {
+        "es": "Yarın pazara gelemiyorum. Bana bir not yaz: ne lazım?",
+        "ru": "Завтра я не смогу прийти на базар. Напиши мне записку: что тебе нужно?"
+      },
+      "task": "Тётушка Фатма соберёт для вас корзину. Напишите, что вам нужно и сколько: фрукты, овощи. Вежливо попросите и поблагодарите.",
+      "sample": "Fatma Teyze, merhaba! Bana bir kilo domates, iki kilo patates ve yarım kilo kiraz lazım. Sepeti akşam alırım. Çok teşekkürler!",
+      "must": [
+        {
+          "label": "Сколько: kilo",
+          "any": [
+            "kilo"
+          ],
+          "hint": "Укажите вес: bir kilo, yarım kilo."
+        },
+        {
+          "label": "Нужно: lazım",
+          "any": [
+            "lazım",
+            "istiyorum",
+            "ister misin"
+          ],
+          "hint": "Скажите, что нужно: … lazım."
+        },
+        {
+          "label": "Благодарность",
+          "any": [
+            "teşekkürler",
+            "teşekkür ederim",
+            "sağ ol",
+            "sağ olun"
+          ],
+          "hint": "Поблагодарите: Çok teşekkürler!"
+        }
+      ]
+    },
+    {
+      "id": "nt:home",
+      "location": "home",
+      "chapter": 2,
+      "register": "informal",
+      "title": "Записка соседке",
+      "request": {
+        "es": "Bu hafta sonu evde yokum. Çiçeklerimi sulayabilir misin? Bana yaz.",
+        "ru": "На выходных меня не будет дома. Польёшь мои цветы? Напиши мне."
+      },
+      "task": "Нермин-ханым уезжает на выходные. Ответьте ей запиской: польёте ли цветы, когда, и попрощайтесь.",
+      "sample": "Merhaba Nermin Hanım! Tabii, çiçeklerinizi sulayacağım. Cumartesi sabah ve pazar akşam gelirim. İyi yolculuklar, görüşürüz!",
+      "must": [
+        {
+          "label": "Согласие",
+          "any": [
+            "tabii",
+            "olur",
+            "tamam"
+          ],
+          "hint": "Скажите, что согласны: Tabii!"
+        },
+        {
+          "label": "Будущее время",
+          "any": [
+            "*eceğim",
+            "*acağım",
+            "*erim",
+            "*arım",
+            "*irim",
+            "*ırım",
+            "*urum",
+            "*ürüm"
+          ],
+          "hint": "Пообещайте: sulayacağım, gelirim."
+        },
+        {
+          "label": "Пожелание и прощание",
+          "any": [
+            "iyi yolculuklar",
+            "görüşürüz",
+            "hoşça kal"
+          ],
+          "hint": "Пожелайте хорошей дороги: İyi yolculuklar!"
+        }
+      ]
+    },
+    {
+      "id": "nt:hotel",
+      "location": "hotel",
+      "chapter": 3,
+      "register": "informal",
+      "title": "Записка Лейле-ханым",
+      "request": {
+        "es": "Kahvaltı saatini bilmek istiyorum. Bana kısa bir not bırakır mısın?",
+        "ru": "Хочу знать, во сколько ты завтракаешь. Оставишь мне записку?"
+      },
+      "task": "Лейла-ханым готовит завтрак для путников. Напишите, во сколько вы встанете, что любите на завтрак, и если бы могли — что бы попросили ещё.",
+      "sample": "Merhaba Leyla Hanım! Yarın sabah yedide kalkacağım. Kahvaltıda peynir ve zeytin severim. Eğer mümkünse bir bardak taze portakal suyu da isterim. Teşekkürler!",
+      "must": [
+        {
+          "label": "Время",
+          "any": [
+            "*de",
+            "*da",
+            "*te",
+            "*ta"
+          ],
+          "hint": "Скажите время: saat yedide."
+        },
+        {
+          "label": "Если: eğer, -sA",
+          "any": [
+            "eğer",
+            "*se",
+            "*sa"
+          ],
+          "hint": "Добавьте условие: Eğer mümkünse…"
+        },
+        {
+          "label": "Благодарность",
+          "any": [
+            "teşekkürler",
+            "teşekkür ederim",
+            "sağ ol",
+            "sağ olun"
+          ],
+          "hint": "Поблагодарите в конце."
+        }
+      ]
+    },
+    {
+      "id": "nt:pharmacy",
+      "location": "pharmacy",
+      "chapter": 3,
+      "register": "formal",
+      "title": "Записка Зейнеп-ханым",
+      "request": {
+        "es": "Reçetenizi hazırlamam için bana yazılı bir not bırakın lütfen.",
+        "ru": "Оставьте мне, пожалуйста, записку, чтобы я подготовила ваш рецепт."
+      },
+      "task": "Напишите Зейнеп-ханым вежливую записку: на что жалуетесь, какое лекарство уже принимаете, попросите совета. Обращайтесь на «вы».",
+      "sample": "Zeynep Hanım, iyi günler. İki gündür başım ağrıyor ve uyuyamıyorum. Şu anda başka bir ilaç almıyorum. Bana ne tavsiye edersiniz? Teşekkür ederim.",
+      "must": [
+        {
+          "label": "Вежливое приветствие",
+          "any": [
+            "iyi günler",
+            "merhaba"
+          ],
+          "hint": "Поздоровайтесь: İyi günler."
+        },
+        {
+          "label": "Обращение на «вы»: -sInIz",
+          "any": [
+            "*siniz",
+            "*sınız",
+            "*sunuz",
+            "*sünüz"
+          ],
+          "hint": "Спросите на «вы»: tavsiye edersiniz?"
+        },
+        {
+          "label": "Что болит",
+          "any": [
+            "ağrıyor",
+            "ağrı",
+            "hasta"
+          ],
+          "hint": "Скажите, что болит: başım ağrıyor."
+        }
+      ]
+    },
+    {
+      "id": "nt:station",
+      "location": "station",
+      "chapter": 3,
+      "register": "informal",
+      "title": "Записка капитану Исмаилу",
+      "request": {
+        "es": "Bana yolculuk planını yaz, ben de biletini ayırayım.",
+        "ru": "Напиши мне план поездки, а я придержу тебе билет."
+      },
+      "task": "Напишите Исмаилу, куда и когда хотите поехать и какой нужен билет. Если на пароме нет мест — что сделаете.",
+      "sample": "Selam Kaptan! Cuma sabahı adaya gitmek istiyorum. Gidiş dönüş bir bilet lazım. Eğer vapurda yer yoksa trenle giderim. Sağ ol!",
+      "must": [
+        {
+          "label": "Куда: -A",
+          "any": [
+            "*ya",
+            "*ye",
+            "*a",
+            "*e"
+          ],
+          "hint": "Скажите, куда: adaya."
+        },
+        {
+          "label": "Если: eğer, -sA",
+          "any": [
+            "eğer",
+            "*se",
+            "*sa"
+          ],
+          "hint": "Добавьте условие: Eğer yer yoksa…"
+        },
+        {
+          "label": "Какой билет",
+          "any": [
+            "gidiş",
+            "dönüş",
+            "bilet"
+          ],
+          "hint": "Скажите, какой билет: gidiş dönüş."
+        }
+      ]
+    },
+    {
+      "id": "nt:park",
+      "location": "park",
+      "chapter": 4,
+      "register": "informal",
+      "title": "Записка дяде Рызе",
+      "request": {
+        "es": "Konser için imza toplamayı düşünüyorum. Sen ne dersin? Bana yaz.",
+        "ru": "Думаю собирать подписи против концерта. Что скажешь? Напиши мне."
+      },
+      "task": "Ответьте дяде Рызе запиской: что вы думаете о его идее, предложите другой выход и мягко объясните почему.",
+      "sample": "Amca, merhaba! Bence imza toplamak yerine öğretmenle konuşmalısın. Müzik gölün öbür tarafında olursa baykuşlar rahat eder. Ne dersin?",
+      "must": [
+        {
+          "label": "Мнение: bence",
+          "any": [
+            "bence",
+            "sanırım",
+            "galiba"
+          ],
+          "hint": "Начните с мнения: Bence…"
+        },
+        {
+          "label": "Совет: -mAlIsIn",
+          "any": [
+            "*malısın",
+            "*melisin",
+            "*malısınız",
+            "*melisiniz"
+          ],
+          "hint": "Посоветуйте: konuşmalısın."
+        },
+        {
+          "label": "Условие: -sA",
+          "any": [
+            "*rsa",
+            "*rse",
+            "eğer"
+          ],
+          "hint": "Добавьте условие: … olursa."
+        }
+      ]
+    },
+    {
+      "id": "nt:school",
+      "location": "school",
+      "chapter": 4,
+      "register": "informal",
+      "title": "Записка Элиф",
+      "request": {
+        "es": "Veli toplantısında ne söyleyeceğimi bilmiyorum. Bana bir fikir yaz.",
+        "ru": "Не знаю, что сказать на родительском собрании. Напиши мне идею."
+      },
+      "task": "Элиф-ханым волнуется перед собранием. Напишите ей: что вы советуете сказать родителям и почему, подбодрите её.",
+      "sample": "Elif, merhaba! Velilere kuşu anlatmanı tavsiye ederim, çünkü korkuyu yenmek için gerçeği bilmeleri lazım. Sen çok iyi bir öğretmensin, merak etme!",
+      "must": [
+        {
+          "label": "Совет",
+          "any": [
+            "tavsiye",
+            "bence",
+            "*malısın",
+            "*melisin"
+          ],
+          "hint": "Посоветуйте: … tavsiye ederim."
+        },
+        {
+          "label": "Причина: çünkü",
+          "any": [
+            "çünkü",
+            "için"
+          ],
+          "hint": "Объясните почему: çünkü…"
+        },
+        {
+          "label": "Поддержка",
+          "any": [
+            "merak etme",
+            "yaparsın",
+            "iyi bir",
+            "başarırsın"
+          ],
+          "hint": "Подбодрите: Merak etme!"
+        }
+      ]
+    },
+    {
+      "id": "nt:post",
+      "location": "post",
+      "chapter": 4,
+      "register": "informal",
+      "title": "Записка Джемилю",
+      "request": {
+        "es": "Kargayı ne yapacağımı bilmiyorum. Bana bir not yazar mısın?",
+        "ru": "Не знаю, что делать с вороной. Напишешь мне записку?"
+      },
+      "task": "Джемиль хочет запереть ворону Кару. Напишите ему: что вы думаете, что предлагаете вместо этого и почему.",
+      "sample": "Cemil, selam! Bence Kara'nın suçu yok, sadece duyduğunu tekrar ediyor. Geceleri evde kalırsa ormana uçmaz. Gündüz seninle çalışabilir. Ne dersin?",
+      "must": [
+        {
+          "label": "Мнение: bence",
+          "any": [
+            "bence",
+            "sanırım",
+            "galiba"
+          ],
+          "hint": "Начните с мнения: Bence…"
+        },
+        {
+          "label": "Условие: -sA",
+          "any": [
+            "*rsa",
+            "*rse",
+            "eğer"
+          ],
+          "hint": "Добавьте условие: evde kalırsa."
+        },
+        {
+          "label": "Вопрос в конце",
+          "any": [
+            "ne dersin",
+            "olur mu",
+            "tamam mı"
+          ],
+          "hint": "Спросите мнение друга: Ne dersin?"
+        }
+      ]
+    }
+  ]
+}
