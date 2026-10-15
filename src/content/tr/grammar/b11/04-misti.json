@@ -1,0 +1,179 @@
+{
+  "id": "b11.04-misti",
+  "district": "B1.1",
+  "order": 4,
+  "title": "Давнопрошедшее: -mIştI",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "**-mıştı / -mişti / -muştu / -müştü** — действие, которое случилось **раньше другого** прошлого: **Vardığımızda kervan gitmişti** — Когда мы пришли, караван уже ушёл. Часто с **zaten** (уже) и **daha önce** (раньше)."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Лицо",
+        "gitmek",
+        "görmek"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "ben",
+            "gitmiştim",
+            "görmüştüm"
+          ]
+        },
+        {
+          "cells": [
+            "sen",
+            "gitmiştin",
+            "görmüştün"
+          ]
+        },
+        {
+          "cells": [
+            "o",
+            "gitmişti",
+            "görmüştü"
+          ]
+        },
+        {
+          "cells": [
+            "biz",
+            "gitmiştik",
+            "görmüştük"
+          ]
+        },
+        {
+          "cells": [
+            "siz",
+            "gitmiştiniz",
+            "görmüştünüz"
+          ]
+        },
+        {
+          "cells": [
+            "onlar",
+            "gitmişlerdi",
+            "görmüşlerdi"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "«Я уже видел это раньше» — **Bunu daha önce görmüştüm**. Отрицание: git**me**mişti — ещё не ушёл (к тому времени)."
+    }
+  ],
+  "examples": [
+    {
+      "es": "İstasyona vardığımızda tren kalkmıştı.",
+      "ru": "Когда мы приехали на станцию, поезд уже ушёл."
+    },
+    {
+      "es": "Bu şehri daha önce rüyamda görmüştüm.",
+      "ru": "Я уже видел этот город во сне."
+    },
+    {
+      "es": "Fırtına başladığında eve dönmüştük.",
+      "ru": "Когда началась буря, мы уже вернулись домой."
+    },
+    {
+      "es": "Kerem o zaman henüz yazmamıştı.",
+      "ru": "Керем к тому времени ещё не написал."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "b11.04-misti.1",
+      "kind": "choose",
+      "prompt": "«Он уже ушёл (к тому моменту)»:",
+      "options": [
+        "gitmişti",
+        "gitti",
+        "gidiyordu"
+      ],
+      "answer": 0,
+      "explain": "Раньше другого прошлого — gitmişti."
+    },
+    {
+      "id": "b11.04-misti.2",
+      "kind": "choose",
+      "prompt": "-mişti от görmek для «я»:",
+      "options": [
+        "görmüştüm",
+        "görmiştim",
+        "görmüşüm"
+      ],
+      "answer": 0,
+      "explain": "görmek — ü: görmüştüm."
+    },
+    {
+      "id": "b11.04-misti.3",
+      "kind": "gap",
+      "sentence": "Sen geldiğinde ben zaten ___.",
+      "ru": "Когда ты пришёл, я уже поел.",
+      "options": [
+        "yemiştim",
+        "yedim",
+        "yiyorum"
+      ],
+      "answer": 0,
+      "explain": "Раньше твоего прихода — yemiştim."
+    },
+    {
+      "id": "b11.04-misti.4",
+      "kind": "gap",
+      "sentence": "Bunu daha önce hiç ___.",
+      "ru": "Я такого раньше никогда не видел.",
+      "options": [
+        "görmemiştim",
+        "görmedim",
+        "görmüyorum"
+      ],
+      "answer": 0,
+      "explain": "Раньше, отрицание — görmemiştim."
+    },
+    {
+      "id": "b11.04-misti.5",
+      "kind": "truefalse",
+      "statement": "-mişti описывает действие, случившееся раньше другого прошлого.",
+      "answer": true,
+      "explain": "Давнопрошедшее."
+    },
+    {
+      "id": "b11.04-misti.6",
+      "kind": "truefalse",
+      "statement": "«Gitmişlerdi» — они уже ушли (к тому времени).",
+      "answer": true,
+      "explain": "-miş + ler + di."
+    },
+    {
+      "id": "b11.04-misti.7",
+      "kind": "truefalse",
+      "statement": "«Görmüştüm» — я вижу сейчас.",
+      "answer": false,
+      "explain": "Это давнопрошедшее: я уже видел раньше."
+    },
+    {
+      "id": "b11.04-misti.8",
+      "kind": "build",
+      "ru": "Когда мы пришли, вода уже кончилась.",
+      "answer": "Geldiğimizde su bitmişti.",
+      "extra": [
+        "bitti",
+        "geliyoruz"
+      ],
+      "explain": "Раньше нашего прихода — bitmişti."
+    },
+    {
+      "id": "b11.04-misti.9",
+      "kind": "type",
+      "sentence": "Vahaya vardığımızda kuyu çoktan ___.",
+      "ru": "Когда мы дошли до оазиса, колодец давно высох.",
+      "hint": "kurumak, давно",
+      "answer": "kurumuştu",
+      "explain": "kuru + muş + tu."
+    }
+  ]
+}

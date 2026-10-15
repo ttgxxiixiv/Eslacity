@@ -1,0 +1,160 @@
+{
+  "id": "b12.02-ise",
+  "district": "B1.2",
+  "order": 2,
+  "title": "Если с именем: ise, varsa, yoksa",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "С существительным и прилагательным «если» — **ise** или слитно **-(y)sA**: **Zenginsen** öde — Если ты богат, плати. **Hastaysan** dinlen — Если ты болен, отдыхай. «Если есть» — **varsa**, «если нет» — **yoksa**."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Фраза",
+        "Перевод"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Suyun varsa ver.",
+            "Если у тебя есть вода, дай."
+          ]
+        },
+        {
+          "cells": [
+            "Vaktin yoksa yarın gel.",
+            "Если у тебя нет времени, приходи завтра."
+          ]
+        },
+        {
+          "cells": [
+            "Doğruysa söyle.",
+            "Если это правда, скажи."
+          ]
+        },
+        {
+          "cells": [
+            "Evdeyse ara.",
+            "Если он дома, позвони."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "**yoksa** ещё значит «или; а то»: **Çay mı, yoksa kahve mi?** — Чай или кофе? **Acele et, yoksa geç kalırız** — Поторопись, а то опоздаем. После гласной — y: hasta**y**sa."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Sorun varsa bana söyle.",
+      "ru": "Если есть проблема, скажи мне."
+    },
+    {
+      "es": "Haritan yoksa kaybolursun.",
+      "ru": "Если у тебя нет карты, ты заблудишься."
+    },
+    {
+      "es": "Bu doğruysa çok korkunç.",
+      "ru": "Если это правда, это ужасно."
+    },
+    {
+      "es": "Çay mı istersin, yoksa kahve mi?",
+      "ru": "Хочешь чаю или кофе?"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "b12.02-ise.1",
+      "kind": "choose",
+      "prompt": "«Если у тебя есть время»:",
+      "options": [
+        "Vaktin varsa",
+        "Vaktin yoksa",
+        "Vaktin var ise mi"
+      ],
+      "answer": 0,
+      "explain": "Если есть — varsa."
+    },
+    {
+      "id": "b12.02-ise.2",
+      "kind": "choose",
+      "prompt": "«Если он болен»:",
+      "options": [
+        "hastaysa",
+        "hastasa",
+        "hastayse"
+      ],
+      "answer": 0,
+      "explain": "После гласной — y; гармония a: hastaysa."
+    },
+    {
+      "id": "b12.02-ise.3",
+      "kind": "gap",
+      "sentence": "Paran ___ yarın öde.",
+      "ru": "Если у тебя нет денег, заплати завтра.",
+      "options": [
+        "yoksa",
+        "varsa",
+        "değilse"
+      ],
+      "answer": 0,
+      "explain": "Если нет — yoksa."
+    },
+    {
+      "id": "b12.02-ise.4",
+      "kind": "gap",
+      "sentence": "Acele et, ___ kervanı kaçırırız.",
+      "ru": "Поторопись, а то упустим караван.",
+      "options": [
+        "yoksa",
+        "varsa",
+        "ise"
+      ],
+      "answer": 0,
+      "explain": "«А то» — yoksa."
+    },
+    {
+      "id": "b12.02-ise.5",
+      "kind": "truefalse",
+      "statement": "«Varsa» значит «если есть».",
+      "answer": true,
+      "explain": "var + sa."
+    },
+    {
+      "id": "b12.02-ise.6",
+      "kind": "truefalse",
+      "statement": "«Yoksa» может значить «или» в вопросе.",
+      "answer": true,
+      "explain": "Çay mı, yoksa kahve mi?"
+    },
+    {
+      "id": "b12.02-ise.7",
+      "kind": "truefalse",
+      "statement": "«Hastasa» — правильная форма «если он болен».",
+      "answer": false,
+      "explain": "После гласной нужен y: hastaysa."
+    },
+    {
+      "id": "b12.02-ise.8",
+      "kind": "build",
+      "ru": "Если это правда, я тебе верю.",
+      "answer": "Bu doğruysa sana inanıyorum.",
+      "extra": [
+        "doğru",
+        "seni"
+      ],
+      "explain": "Если правда — doğruysa; кому — sana."
+    },
+    {
+      "id": "b12.02-ise.9",
+      "kind": "type",
+      "sentence": "Sorunun ___ sor.",
+      "ru": "Если у тебя есть вопрос, спрашивай.",
+      "hint": "если есть",
+      "answer": "varsa",
+      "explain": "var + sa."
+    }
+  ]
+}

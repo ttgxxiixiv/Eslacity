@@ -1,0 +1,172 @@
+{
+  "id": "b11.03-imis",
+  "district": "B1.1",
+  "order": 3,
+  "title": "Пересказ с именем: -(y)mIş",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "С существительным и прилагательным пересказ — **-(y)mış / -(y)miş…** или отдельно **imiş**: **Hasta imiş** = **Hastaymış** — Говорят, он болен. «Не» — **değilmiş**. «Есть» и «нет» — **varmış, yokmuş**."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Слово",
+        "Пересказ",
+        "Перевод"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "zengin",
+            "zenginmiş",
+            "говорят, богат"
+          ]
+        },
+        {
+          "cells": [
+            "hasta",
+            "hastaymış",
+            "говорят, болен"
+          ]
+        },
+        {
+          "cells": [
+            "evde",
+            "evdeymiş",
+            "говорят, дома"
+          ]
+        },
+        {
+          "cells": [
+            "su var",
+            "su varmış",
+            "говорят, вода есть"
+          ]
+        },
+        {
+          "cells": [
+            "doğru değil",
+            "doğru değilmiş",
+            "оказывается, неправда"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "После гласной вставляется **y**: hasta**y**mış, kuyuda**y**mış. С **-di** у имени (было) и **-miş** (говорят, было) сравните: **Evdeydi** — он был дома (знаю); **Evdeymiş** — говорят, он дома."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Tüccar aslında çok fakirmiş.",
+      "ru": "Оказывается, купец на самом деле очень беден."
+    },
+    {
+      "es": "Vahada su varmış.",
+      "ru": "Говорят, в оазисе есть вода."
+    },
+    {
+      "es": "Bu harita gerçek değilmiş.",
+      "ru": "Оказывается, эта карта не настоящая."
+    },
+    {
+      "es": "Şehrin muhafızı çok yaşlıymış.",
+      "ru": "Говорят, стражница города очень старая."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "b11.03-imis.1",
+      "kind": "choose",
+      "prompt": "«Говорят, он богат»:",
+      "options": [
+        "Zenginmiş.",
+        "Zengin.",
+        "Zengindi."
+      ],
+      "answer": 0,
+      "explain": "Пересказ с именем — zenginmiş."
+    },
+    {
+      "id": "b11.03-imis.2",
+      "kind": "choose",
+      "prompt": "«Оказывается, это неправда»:",
+      "options": [
+        "Doğru değilmiş.",
+        "Doğru yokmuş.",
+        "Doğrumuş değil."
+      ],
+      "answer": 0,
+      "explain": "Не — değilmiş."
+    },
+    {
+      "id": "b11.03-imis.3",
+      "kind": "gap",
+      "sentence": "Kuyuda hiç su ___.",
+      "ru": "Оказывается, в колодце совсем нет воды.",
+      "options": [
+        "yokmuş",
+        "yoktu",
+        "değilmiş"
+      ],
+      "answer": 0,
+      "explain": "Нет + пересказ — yokmuş."
+    },
+    {
+      "id": "b11.03-imis.4",
+      "kind": "gap",
+      "sentence": "Kerem şimdi ___.",
+      "ru": "Говорят, Керем сейчас в больнице.",
+      "options": [
+        "hastanedeymiş",
+        "hastanedemiş",
+        "hastanede"
+      ],
+      "answer": 0,
+      "explain": "После гласной — y: hastanedeymiş."
+    },
+    {
+      "id": "b11.03-imis.5",
+      "kind": "truefalse",
+      "statement": "«Hasta imiş» и «hastaymış» значат одно и то же.",
+      "answer": true,
+      "explain": "imiş отдельно или -ymış слитно."
+    },
+    {
+      "id": "b11.03-imis.6",
+      "kind": "truefalse",
+      "statement": "«Evdeydi» — пересказ: говорят, он был дома.",
+      "answer": false,
+      "explain": "Evdeydi — знаю сам; пересказ — evdeymiş."
+    },
+    {
+      "id": "b11.03-imis.7",
+      "kind": "truefalse",
+      "statement": "После гласной в -(y)mış вставляется y.",
+      "answer": true,
+      "explain": "kuyuda + y + mış."
+    },
+    {
+      "id": "b11.03-imis.8",
+      "kind": "build",
+      "ru": "Говорят, белый город очень красивый.",
+      "answer": "Beyaz şehir çok güzelmiş.",
+      "extra": [
+        "güzeldi",
+        "şehri"
+      ],
+      "explain": "Пересказ — güzelmiş."
+    },
+    {
+      "id": "b11.03-imis.9",
+      "kind": "type",
+      "sentence": "Bu parça sahte ___.",
+      "ru": "Оказывается, этот обрывок поддельный.",
+      "hint": "пересказ, отдельно",
+      "answer": "imiş",
+      "explain": "Отдельно — imiş."
+    }
+  ]
+}

@@ -1,0 +1,172 @@
+{
+  "id": "b12.09-edilgen-2",
+  "district": "B1.2",
+  "order": 9,
+  "title": "Пассив: кем, отрицание, времена",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Пассив принимает любое время: yap**ıl**ıyor (делается), yap**ıl**dı (сделали), yap**ıl**acak (сделают), yap**ıl**mış (говорят, сделали). Отрицание — после пассива: yap**ıl-ma**dı. Деятель — **tarafından**: **Bu harita Vakanüvis tarafından çizildi** — Эту карту нарисовал Летописец."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Время",
+        "Форма",
+        "Перевод"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "настоящее",
+            "satılıyor",
+            "продаётся"
+          ]
+        },
+        {
+          "cells": [
+            "прошедшее",
+            "satıldı",
+            "продали"
+          ]
+        },
+        {
+          "cells": [
+            "будущее",
+            "satılacak",
+            "продадут"
+          ]
+        },
+        {
+          "cells": [
+            "пересказ",
+            "satılmış",
+            "говорят, продали"
+          ]
+        },
+        {
+          "cells": [
+            "отрицание",
+            "satılmadı",
+            "не продали"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "В живой речи tarafından употребляют редко: деятеля обычно не называют. Чтобы назвать, проще сказать активно: **Vakanüvis haritayı çizdi**."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Yeni pansiyon gelecek yıl açılacak.",
+      "ru": "Новый пансион откроют в следующем году."
+    },
+    {
+      "es": "Bu sır hiç söylenmedi.",
+      "ru": "Эту тайну так никто и не рассказал."
+    },
+    {
+      "es": "Şehir yüz yıl önce terk edilmiş.",
+      "ru": "Говорят, город покинули сто лет назад."
+    },
+    {
+      "es": "Mektup Kerem tarafından yazıldı.",
+      "ru": "Письмо написал Керем."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "b12.09-edilgen-2.1",
+      "kind": "choose",
+      "prompt": "«Продадут»:",
+      "options": [
+        "satılacak",
+        "satacak",
+        "sattıracak"
+      ],
+      "answer": 0,
+      "explain": "Пассив + будущее: satılacak."
+    },
+    {
+      "id": "b12.09-edilgen-2.2",
+      "kind": "choose",
+      "prompt": "«Не нашли»:",
+      "options": [
+        "bulunmadı",
+        "bulmadı",
+        "bulunmamadı"
+      ],
+      "answer": 0,
+      "explain": "Пассив + отрицание: bulun + ma + dı."
+    },
+    {
+      "id": "b12.09-edilgen-2.3",
+      "kind": "gap",
+      "sentence": "Bu harita yüz yıl önce ___.",
+      "ru": "Эту карту нарисовали сто лет назад.",
+      "options": [
+        "çizildi",
+        "çizdi",
+        "çizilecek"
+      ],
+      "answer": 0,
+      "explain": "Пассив, прошлое — çizildi."
+    },
+    {
+      "id": "b12.09-edilgen-2.4",
+      "kind": "gap",
+      "sentence": "Kapı Leyla Hanım ___ açıldı.",
+      "ru": "Дверь открыла Лейла-ханым.",
+      "options": [
+        "tarafından",
+        "için",
+        "gibi"
+      ],
+      "answer": 0,
+      "explain": "Деятель — tarafından."
+    },
+    {
+      "id": "b12.09-edilgen-2.5",
+      "kind": "truefalse",
+      "statement": "Отрицание у пассива стоит после -Il: yapılmadı.",
+      "answer": true,
+      "explain": "yap + ıl + ma + dı."
+    },
+    {
+      "id": "b12.09-edilgen-2.6",
+      "kind": "truefalse",
+      "statement": "«Tarafından» вводит того, кто делает действие.",
+      "answer": true,
+      "explain": "Kerem tarafından."
+    },
+    {
+      "id": "b12.09-edilgen-2.7",
+      "kind": "truefalse",
+      "statement": "«Açılacak» значит «открыли».",
+      "answer": false,
+      "explain": "Будущее: откроют."
+    },
+    {
+      "id": "b12.09-edilgen-2.8",
+      "kind": "build",
+      "ru": "Обрывок нашли в песке.",
+      "answer": "Parça kumda bulundu.",
+      "extra": [
+        "buldu",
+        "kuma"
+      ],
+      "explain": "Пассив — bulundu; где — kumda."
+    },
+    {
+      "id": "b12.09-edilgen-2.9",
+      "kind": "type",
+      "sentence": "Vapur seferleri fırtına yüzünden ___.",
+      "ru": "Рейсы пароходов отменили из-за бури.",
+      "hint": "iptal etmek, пассив",
+      "answer": "iptal edildi",
+      "explain": "iptal ed + il + di."
+    }
+  ]
+}

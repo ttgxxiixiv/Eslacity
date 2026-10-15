@@ -1,0 +1,179 @@
+{
+  "id": "b12.12-donuslu",
+  "district": "B1.2",
+  "order": 12,
+  "title": "Возвратный и взаимный: -In, -Iş",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "**Возвратный** (на себя) — **-ın / -in / -un / -ün**: yıka → yıka**n**mak (мыться), giy → giy**in**mek (одеваться). **Взаимный** (друг с другом) — **-ış / -iş / -uş / -üş**: gör → gör**üş**mek (встречаться, видеться), tanı → tanı**ş**mak (знакомиться)."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Глагол",
+        "Залог",
+        "Перевод"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "yıkamak",
+            "yıkanmak",
+            "мыться"
+          ]
+        },
+        {
+          "cells": [
+            "giymek",
+            "giyinmek",
+            "одеваться"
+          ]
+        },
+        {
+          "cells": [
+            "hazırlamak",
+            "hazırlanmak",
+            "готовиться"
+          ]
+        },
+        {
+          "cells": [
+            "görmek",
+            "görüşmek",
+            "встречаться, видеться"
+          ]
+        },
+        {
+          "cells": [
+            "bulmak",
+            "buluşmak",
+            "встречаться (условившись)"
+          ]
+        },
+        {
+          "cells": [
+            "anlamak",
+            "anlaşmak",
+            "договариваться"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Прощание **Görüşürüz!** — «Увидимся!» — это взаимный залог: gör-**üş**-ür-üz. **Sarılmak** (обниматься) и **sevişmek** — тоже по этому образцу."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Sabah erkenden yıkanıp giyindim.",
+      "ru": "Рано утром я помылся и оделся."
+    },
+    {
+      "es": "Yarın vahada buluşalım.",
+      "ru": "Давай завтра встретимся в оазисе."
+    },
+    {
+      "es": "Fiyatta anlaştık.",
+      "ru": "Мы договорились о цене."
+    },
+    {
+      "es": "Yolculuğa hazırlanıyoruz.",
+      "ru": "Мы готовимся к путешествию."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "b12.12-donuslu.1",
+      "kind": "choose",
+      "prompt": "«Мыться»:",
+      "options": [
+        "yıkanmak",
+        "yıkaşmak",
+        "yıkatmak"
+      ],
+      "answer": 0,
+      "explain": "Возвратный — -n: yıkanmak."
+    },
+    {
+      "id": "b12.12-donuslu.2",
+      "kind": "choose",
+      "prompt": "«Видеться, встречаться»:",
+      "options": [
+        "görüşmek",
+        "görünmek",
+        "göstermek"
+      ],
+      "answer": 0,
+      "explain": "Взаимный — -üş: görüşmek."
+    },
+    {
+      "id": "b12.12-donuslu.3",
+      "kind": "gap",
+      "sentence": "Yarın sabah iskelede ___.",
+      "ru": "Давай завтра утром встретимся на пристани.",
+      "options": [
+        "buluşalım",
+        "bulalım",
+        "bulunalım"
+      ],
+      "answer": 0,
+      "explain": "Встретиться условившись — buluşalım."
+    },
+    {
+      "id": "b12.12-donuslu.4",
+      "kind": "gap",
+      "sentence": "Çabuk ___, geç kalıyoruz!",
+      "ru": "Быстро одевайся, мы опаздываем!",
+      "options": [
+        "giyin",
+        "giy",
+        "giyiş"
+      ],
+      "answer": 0,
+      "explain": "Одеваться — giyin."
+    },
+    {
+      "id": "b12.12-donuslu.5",
+      "kind": "truefalse",
+      "statement": "«Görüşürüz» происходит от взаимного залога görüşmek.",
+      "answer": true,
+      "explain": "gör + üş."
+    },
+    {
+      "id": "b12.12-donuslu.6",
+      "kind": "truefalse",
+      "statement": "Возвратный залог значит «друг с другом».",
+      "answer": false,
+      "explain": "Возвратный — на себя; «друг с другом» — взаимный."
+    },
+    {
+      "id": "b12.12-donuslu.7",
+      "kind": "truefalse",
+      "statement": "«Anlaşmak» — договариваться, взаимный от anlamak.",
+      "answer": true,
+      "explain": "anla + ş."
+    },
+    {
+      "id": "b12.12-donuslu.8",
+      "kind": "build",
+      "ru": "Мы познакомились в чайной.",
+      "answer": "Çay ocağında tanıştık.",
+      "extra": [
+        "tanıdık",
+        "ocağı"
+      ],
+      "explain": "Взаимный — tanıştık."
+    },
+    {
+      "id": "b12.12-donuslu.9",
+      "kind": "type",
+      "sentence": "Kervan yola ___.",
+      "ru": "Караван готовится в путь.",
+      "hint": "hazırlamak, возвратный",
+      "answer": "hazırlanıyor",
+      "explain": "hazırla + n + ıyor."
+    }
+  ]
+}

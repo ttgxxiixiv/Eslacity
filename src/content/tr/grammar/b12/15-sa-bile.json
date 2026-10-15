@@ -1,0 +1,166 @@
+{
+  "id": "b12.15-sa-bile",
+  "district": "B1.2",
+  "order": 15,
+  "title": "Даже если: -sA bile, -sA da",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Уступка — **-sa bile** или **-sa da**: **Yorgun olsam bile** yürüyeceğim — Даже если я устану, я пойду. **Ne kadar** + **-sa da** — «как бы ни»: **Ne kadar ararsan ara**, bulamazsın — Сколько ни ищи, не найдёшь."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Фраза",
+        "Перевод"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Yağmur yağsa bile gideceğiz.",
+            "Даже если пойдёт дождь, мы пойдём."
+          ]
+        },
+        {
+          "cells": [
+            "Pahalı olsa da alacağım.",
+            "Даже если дорого, куплю."
+          ]
+        },
+        {
+          "cells": [
+            "Ne kadar çalışsa da yetmiyor.",
+            "Сколько он ни работает, не хватает."
+          ]
+        },
+        {
+          "cells": [
+            "Kim gelirse gelsin.",
+            "Кто бы ни пришёл."
+          ]
+        },
+        {
+          "cells": [
+            "Ne olursa olsun.",
+            "Что бы ни случилось."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Здесь -sa идёт прямо после основы: yağ**sa** bile, ol**sa** da. Сравните с условием: **gelirse** — если придёт, **gelse bile** — даже если придёт."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Şehir kaybolsa bile yolumuza devam edeceğiz.",
+      "ru": "Даже если город исчезнет, мы продолжим путь."
+    },
+    {
+      "es": "Ne olursa olsun doğruyu söyle.",
+      "ru": "Что бы ни случилось, говори правду."
+    },
+    {
+      "es": "Tüccar ne kadar yalvarsa da muhafız dinlemedi.",
+      "ru": "Как ни умолял купец, стражница не послушала."
+    },
+    {
+      "es": "Zor olsa da pes etmeyeceğim.",
+      "ru": "Даже если будет трудно, я не сдамся."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "b12.15-sa-bile.1",
+      "kind": "choose",
+      "prompt": "«Даже если пойдёт дождь»:",
+      "options": [
+        "yağmur yağsa bile",
+        "yağmur yağarsa",
+        "yağmur yağdığı için"
+      ],
+      "answer": 0,
+      "explain": "Даже если — -sa bile."
+    },
+    {
+      "id": "b12.15-sa-bile.2",
+      "kind": "choose",
+      "prompt": "«Что бы ни случилось»:",
+      "options": [
+        "Ne olursa olsun.",
+        "Ne olsa bile.",
+        "Ne olduysa."
+      ],
+      "answer": 0,
+      "explain": "Устойчивое выражение."
+    },
+    {
+      "id": "b12.15-sa-bile.3",
+      "kind": "gap",
+      "sentence": "Pahalı ___ da alacağım.",
+      "ru": "Даже если будет дорого, куплю.",
+      "options": [
+        "olsa",
+        "olursa",
+        "oldu"
+      ],
+      "answer": 0,
+      "explain": "Уступка — olsa da."
+    },
+    {
+      "id": "b12.15-sa-bile.4",
+      "kind": "gap",
+      "sentence": "Ne kadar ___ da bulamadık.",
+      "ru": "Сколько ни искали, не нашли.",
+      "options": [
+        "aradıysak",
+        "arasak",
+        "ararsak"
+      ],
+      "answer": 1,
+      "explain": "Ne kadar + -sa da: arasak da."
+    },
+    {
+      "id": "b12.15-sa-bile.5",
+      "kind": "truefalse",
+      "statement": "«-sa bile» и «-sa da» значат «даже если».",
+      "answer": true,
+      "explain": "olsa bile = olsa da."
+    },
+    {
+      "id": "b12.15-sa-bile.6",
+      "kind": "truefalse",
+      "statement": "«Gelse bile» значит «если придёт» (обычное условие).",
+      "answer": false,
+      "explain": "Обычное условие — gelirse; gelse bile — даже если придёт."
+    },
+    {
+      "id": "b12.15-sa-bile.7",
+      "kind": "truefalse",
+      "statement": "«Kim gelirse gelsin» — «Кто бы ни пришёл».",
+      "answer": true,
+      "explain": "Устойчивая конструкция."
+    },
+    {
+      "id": "b12.15-sa-bile.8",
+      "kind": "build",
+      "ru": "Даже если устану, я не остановлюсь.",
+      "answer": "Yorulsam bile durmayacağım.",
+      "extra": [
+        "yorulursam",
+        "duracağım"
+      ],
+      "explain": "Даже если — yorulsam bile."
+    },
+    {
+      "id": "b12.15-sa-bile.9",
+      "kind": "type",
+      "sentence": "Zor ___ bile bu çölü geçeceğiz.",
+      "ru": "Даже если будет трудно, мы перейдём эту пустыню.",
+      "hint": "olmak, даже если",
+      "answer": "olsa",
+      "explain": "ol + sa."
+    }
+  ]
+}

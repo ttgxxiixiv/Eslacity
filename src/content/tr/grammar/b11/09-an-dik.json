@@ -1,0 +1,165 @@
+{
+  "id": "b11.09-an-dik",
+  "district": "B1.1",
+  "order": 9,
+  "title": "-(y)An или -DIk?",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Если определяемое слово **само делает** действие — **-an**: **beni gören adam** — человек, который меня видел. Если действие делает **кто-то другой**, а слово — объект или место — **-dık + лицо**: **gördüğüm adam** — человек, которого я видел."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Фраза",
+        "Кто делает",
+        "Перевод"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "kitabı okuyan öğrenci",
+            "öğrenci",
+            "ученик, который читает книгу"
+          ]
+        },
+        {
+          "cells": [
+            "öğrencinin okuduğu kitap",
+            "öğrenci",
+            "книга, которую читает ученик"
+          ]
+        },
+        {
+          "cells": [
+            "köye giden yol",
+            "yol",
+            "дорога, ведущая в деревню"
+          ]
+        },
+        {
+          "cells": [
+            "gittiğimiz köy",
+            "biz",
+            "деревня, в которую мы едем"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Проверка вопросом: «кто?» — -an (**gelen** кто? человек), «что? куда? где?» с другим деятелем — -dık (**geldiğim** куда? город)."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Bizi karşılayan kadın Leyla Hanım.",
+      "ru": "Женщина, которая нас встретила, — Лейла-ханым."
+    },
+    {
+      "es": "Karşıladığımız misafir çok yorgundu.",
+      "ru": "Гость, которого мы встретили, очень устал."
+    },
+    {
+      "es": "Suyu bulan deve çok akıllı.",
+      "ru": "Верблюд, который нашёл воду, очень умный."
+    },
+    {
+      "es": "Bulduğumuz kuyu çok derin.",
+      "ru": "Колодец, который мы нашли, очень глубокий."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "b11.09-an-dik.1",
+      "kind": "choose",
+      "prompt": "«Человек, которого я видел»:",
+      "options": [
+        "gördüğüm adam",
+        "gören adam",
+        "görecek adam"
+      ],
+      "answer": 0,
+      "explain": "Видел я, а не человек — gördüğüm."
+    },
+    {
+      "id": "b11.09-an-dik.2",
+      "kind": "choose",
+      "prompt": "«Человек, который меня видел»:",
+      "options": [
+        "beni gören adam",
+        "beni gördüğüm adam",
+        "benim gördüğüm adam"
+      ],
+      "answer": 0,
+      "explain": "Видел сам человек — gören."
+    },
+    {
+      "id": "b11.09-an-dik.3",
+      "kind": "gap",
+      "sentence": "Bize yolu ___ çoban çok yaşlıydı.",
+      "ru": "Пастух, который показал нам дорогу, был очень стар.",
+      "options": [
+        "gösteren",
+        "gösterdiğimiz",
+        "gösterdiği"
+      ],
+      "answer": 0,
+      "explain": "Показал сам пастух — gösteren."
+    },
+    {
+      "id": "b11.09-an-dik.4",
+      "kind": "gap",
+      "sentence": "Çobanın ___ yol çok kısaydı.",
+      "ru": "Дорога, которую показал пастух, была очень короткой.",
+      "options": [
+        "gösterdiği",
+        "gösteren",
+        "gösterdiğim"
+      ],
+      "answer": 0,
+      "explain": "Показал пастух, дорога — объект: gösterdiği."
+    },
+    {
+      "id": "b11.09-an-dik.5",
+      "kind": "truefalse",
+      "statement": "В «köye giden yol» дорога сама «идёт» в деревню, поэтому -an.",
+      "answer": true,
+      "explain": "yol — подлежащее gitmek."
+    },
+    {
+      "id": "b11.09-an-dik.6",
+      "kind": "truefalse",
+      "statement": "«Okuduğum kitap» и «okuyan kitap» значат одно и то же.",
+      "answer": false,
+      "explain": "Книга сама не читает: только okuduğum kitap."
+    },
+    {
+      "id": "b11.09-an-dik.7",
+      "kind": "truefalse",
+      "statement": "В «gittiğimiz köy» деревню выбрали мы: -dık + лицо.",
+      "answer": true,
+      "explain": "gittiğimiz — мы идём."
+    },
+    {
+      "id": "b11.09-an-dik.8",
+      "kind": "build",
+      "ru": "Ребёнок, который нашёл краба, очень рад.",
+      "answer": "Yengeci bulan çocuk çok mutlu.",
+      "extra": [
+        "bulduğu",
+        "çocuğun"
+      ],
+      "explain": "Нашёл сам ребёнок — bulan."
+    },
+    {
+      "id": "b11.09-an-dik.9",
+      "kind": "type",
+      "sentence": "Senin ___ simit hâlâ sıcak.",
+      "ru": "Симит, который ты купил, ещё горячий.",
+      "hint": "almak, ты",
+      "answer": "aldığın",
+      "explain": "al + dığ + ın."
+    }
+  ]
+}

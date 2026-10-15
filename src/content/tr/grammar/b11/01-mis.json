@@ -1,0 +1,186 @@
+{
+  "id": "b11.01-mis",
+  "district": "B1.1",
+  "order": 1,
+  "title": "Пересказ: -mIş",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "**-mış / -miş / -muş / -müş** — прошедшее, которое говорящий **не видел сам**: узнал от других или догадался по следам. **Tüccar dün gelmiş** — Купец, говорят, вчера приехал. Сравните: **Tüccar dün geldi** — я видел, что он приехал."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Лицо",
+        "gelmek",
+        "yapmak",
+        "okumak"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "ben",
+            "gelmişim",
+            "yapmışım",
+            "okumuşum"
+          ]
+        },
+        {
+          "cells": [
+            "sen",
+            "gelmişsin",
+            "yapmışsın",
+            "okumuşsun"
+          ]
+        },
+        {
+          "cells": [
+            "o",
+            "gelmiş",
+            "yapmış",
+            "okumuş"
+          ]
+        },
+        {
+          "cells": [
+            "biz",
+            "gelmişiz",
+            "yapmışız",
+            "okumuşuz"
+          ]
+        },
+        {
+          "cells": [
+            "siz",
+            "gelmişsiniz",
+            "yapmışsınız",
+            "okumuşsunuz"
+          ]
+        },
+        {
+          "cells": [
+            "onlar",
+            "gelmişler",
+            "yapmışlar",
+            "okumuşlar"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Русскому «оказывается», «говорят» часто соответствует одно -miş: **Kapı açıkmış!** — Дверь-то, оказывается, открыта! Про себя -miş говорят, когда не помнят: **Uyumuşum** — я, оказывается, уснул."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Beyaz şehir dün gece görünmüş.",
+      "ru": "Говорят, белый город появился прошлой ночью."
+    },
+    {
+      "es": "Tüccar sahte parçalar satmış.",
+      "ru": "Оказывается, купец продавал поддельные обрывки."
+    },
+    {
+      "es": "Yağmur yağmış, yollar ıslak.",
+      "ru": "Прошёл дождь: дороги мокрые."
+    },
+    {
+      "es": "Çok yorulmuşsun.",
+      "ru": "Ты, видно, очень устал."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "b11.01-mis.1",
+      "kind": "choose",
+      "prompt": "«Говорят, он уехал» (сам не видел):",
+      "options": [
+        "Gitmiş.",
+        "Gitti.",
+        "Gidiyor."
+      ],
+      "answer": 0,
+      "explain": "Не видел сам — -miş: gitmiş."
+    },
+    {
+      "id": "b11.01-mis.2",
+      "kind": "choose",
+      "prompt": "-miş от okumak для «они»:",
+      "options": [
+        "okumuşlar",
+        "okumişler",
+        "okumuşlır"
+      ],
+      "answer": 0,
+      "explain": "okumak — последняя u: -muş, потом -lar."
+    },
+    {
+      "id": "b11.01-mis.3",
+      "kind": "gap",
+      "sentence": "Komşular söylüyor: Kerem kuleye ___.",
+      "ru": "Соседи говорят: Керем ушёл к башне.",
+      "options": [
+        "gitmiş",
+        "gitti",
+        "gidecek"
+      ],
+      "answer": 0,
+      "explain": "Знаем со слов соседей — gitmiş."
+    },
+    {
+      "id": "b11.01-mis.4",
+      "kind": "gap",
+      "sentence": "Bak, kapı ___!",
+      "ru": "Смотри, дверь-то открыта!",
+      "options": [
+        "açılmış",
+        "açıldı",
+        "açılıyor"
+      ],
+      "answer": 0,
+      "explain": "Удивление, увидели результат — açılmış."
+    },
+    {
+      "id": "b11.01-mis.5",
+      "kind": "truefalse",
+      "statement": "-miş говорят о прошлом, которое видели своими глазами.",
+      "answer": false,
+      "explain": "Своими глазами — -di; -miş — пересказ или вывод."
+    },
+    {
+      "id": "b11.01-mis.6",
+      "kind": "truefalse",
+      "statement": "«Uyumuşum» может значить «я, оказывается, уснул».",
+      "answer": true,
+      "explain": "Про себя -miş — когда не заметил сам."
+    },
+    {
+      "id": "b11.01-mis.7",
+      "kind": "truefalse",
+      "statement": "Гласная -miş меняется по гармонии: gelmiş, yapmış, okumuş, görmüş.",
+      "answer": true,
+      "explain": "Четыре варианта: ı, i, u, ü."
+    },
+    {
+      "id": "b11.01-mis.8",
+      "kind": "build",
+      "ru": "Говорят, купец уехал в пустыню.",
+      "answer": "Tüccar çöle gitmiş.",
+      "extra": [
+        "gitti",
+        "çölde"
+      ],
+      "explain": "Пересказ — gitmiş; куда — çöle."
+    },
+    {
+      "id": "b11.01-mis.9",
+      "kind": "type",
+      "sentence": "Sokaklar ıslak. Gece yağmur ___.",
+      "ru": "Улицы мокрые. Ночью, видно, шёл дождь.",
+      "hint": "yağmak, -miş",
+      "answer": "yağmış",
+      "explain": "Вывод по следам — yağ + mış."
+    }
+  ]
+}

@@ -1,0 +1,165 @@
+{
+  "id": "b11.02-mis-olumsuz",
+  "district": "B1.1",
+  "order": 2,
+  "title": "-mIş: отрицание и вопрос",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Отрицание — **-ma / -me** перед -miş: gel**memiş** (оказывается, не пришёл), yap**mamış**. Вопрос — **mı** после -miş: **Gelmiş mi?** — Он (как говорят) пришёл?"
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Форма",
+        "gelmek",
+        "almak"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "да",
+            "gelmiş",
+            "almış"
+          ]
+        },
+        {
+          "cells": [
+            "нет",
+            "gelmemiş",
+            "almamış"
+          ]
+        },
+        {
+          "cells": [
+            "вопрос",
+            "gelmiş mi?",
+            "almış mı?"
+          ]
+        },
+        {
+          "cells": [
+            "не… ли?",
+            "gelmemiş mi?",
+            "almamış mı?"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Лицо в вопросе встаёт после mı: **Duymuş musun?** — Ты слышал (говорят)? **Görmemişler mi?** — Разве они не видели?"
+    }
+  ],
+  "examples": [
+    {
+      "es": "Tüccar parayı geri vermemiş.",
+      "ru": "Купец, оказывается, не вернул деньги."
+    },
+    {
+      "es": "Mektubu okumamışsın.",
+      "ru": "Ты, оказывается, не прочитал письмо."
+    },
+    {
+      "es": "Şehir gerçekten kaybolmuş mu?",
+      "ru": "Город правда исчез?"
+    },
+    {
+      "es": "Kimse onu görmemiş.",
+      "ru": "Говорят, никто его не видел."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "b11.02-mis-olumsuz.1",
+      "kind": "choose",
+      "prompt": "«Оказывается, он не знал»:",
+      "options": [
+        "Bilmemiş.",
+        "Bilmiyor.",
+        "Bilmemişti mi."
+      ],
+      "answer": 0,
+      "explain": "Отрицание -me + miş: bilmemiş."
+    },
+    {
+      "id": "b11.02-mis-olumsuz.2",
+      "kind": "choose",
+      "prompt": "Вопрос «Ты (как говорят) слышал?»:",
+      "options": [
+        "Duymuş musun?",
+        "Duymuşsun mu?",
+        "Duymuş mısın?"
+      ],
+      "answer": 0,
+      "explain": "Гармония: duymuş → mu, лицо после: musun."
+    },
+    {
+      "id": "b11.02-mis-olumsuz.3",
+      "kind": "gap",
+      "sentence": "Kervan dün gece ___.",
+      "ru": "Караван, говорят, вчера ночью не пришёл.",
+      "options": [
+        "gelmemiş",
+        "gelmedi",
+        "gelmemişti"
+      ],
+      "answer": 0,
+      "explain": "Пересказ отрицания — gelmemiş."
+    },
+    {
+      "id": "b11.02-mis-olumsuz.4",
+      "kind": "gap",
+      "sentence": "Kuyu gerçekten ___ mı?",
+      "ru": "Колодец правда высох?",
+      "options": [
+        "kurumuş",
+        "kurudu",
+        "kuruyor"
+      ],
+      "answer": 0,
+      "explain": "Вопрос к пересказу: kurumuş mu."
+    },
+    {
+      "id": "b11.02-mis-olumsuz.5",
+      "kind": "truefalse",
+      "statement": "Отрицание -miş: -me стоит перед -miş: gelmemiş.",
+      "answer": true,
+      "explain": "gel + me + miş."
+    },
+    {
+      "id": "b11.02-mis-olumsuz.6",
+      "kind": "truefalse",
+      "statement": "Вопрос пишется слитно: gelmişmi.",
+      "answer": false,
+      "explain": "Отдельно: gelmiş mi."
+    },
+    {
+      "id": "b11.02-mis-olumsuz.7",
+      "kind": "truefalse",
+      "statement": "«Görmemişler mi?» — «Разве они не видели?»",
+      "answer": true,
+      "explain": "Отрицание + вопрос."
+    },
+    {
+      "id": "b11.02-mis-olumsuz.8",
+      "kind": "build",
+      "ru": "Оказывается, никто ему не поверил.",
+      "answer": "Kimse ona inanmamış.",
+      "extra": [
+        "inanmış",
+        "onu"
+      ],
+      "explain": "Отрицание — inanmamış; кому — ona."
+    },
+    {
+      "id": "b11.02-mis-olumsuz.9",
+      "kind": "type",
+      "sentence": "Para kutuda yok. Tüccar parayı geri ___.",
+      "ru": "Денег в коробке нет. Купец, оказывается, не вернул деньги.",
+      "hint": "vermek, -miş, не",
+      "answer": "vermemiş",
+      "explain": "ver + me + miş."
+    }
+  ]
+}

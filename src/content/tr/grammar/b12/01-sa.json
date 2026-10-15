@@ -1,0 +1,179 @@
+{
+  "id": "b12.01-sa",
+  "district": "B1.2",
+  "order": 1,
+  "title": "Если: -sA",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "**-sa / -se** + лицо — «если»: **Doğruyu söylersen** geçersin — Если скажешь правду, пройдёшь. Обычно -sa стоит после широкого времени: söyle-**r-sen**, gel-**ir-se**. Главная часть — в широком, будущем или повелительном."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Лицо",
+        "gelmek",
+        "yapmak"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "ben",
+            "gelirsem",
+            "yaparsam"
+          ]
+        },
+        {
+          "cells": [
+            "sen",
+            "gelirsen",
+            "yaparsan"
+          ]
+        },
+        {
+          "cells": [
+            "o",
+            "gelirse",
+            "yaparsa"
+          ]
+        },
+        {
+          "cells": [
+            "biz",
+            "gelirsek",
+            "yaparsak"
+          ]
+        },
+        {
+          "cells": [
+            "siz",
+            "gelirseniz",
+            "yaparsanız"
+          ]
+        },
+        {
+          "cells": [
+            "onlar",
+            "gelirlerse",
+            "yaparlarsa"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Отрицание: gel**mez**se (если не придёт), yap**maz**san. Для усиления спереди ставят **eğer**: **Eğer** yağmur yağarsa evde kalırız."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Doğruyu söylersen şehir kaybolmaz.",
+      "ru": "Если скажешь правду, город не исчезнет."
+    },
+    {
+      "es": "Yağmur yağarsa evde kalırız.",
+      "ru": "Если пойдёт дождь, останемся дома."
+    },
+    {
+      "es": "Acele etmezsek treni kaçırırız.",
+      "ru": "Если не поторопимся, опоздаем на поезд."
+    },
+    {
+      "es": "Eğer susarsan, sana yardım edemem.",
+      "ru": "Если будешь молчать, я не смогу тебе помочь."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "b12.01-sa.1",
+      "kind": "choose",
+      "prompt": "«Если ты придёшь»:",
+      "options": [
+        "gelirsen",
+        "gelsen",
+        "gelirsan"
+      ],
+      "answer": 0,
+      "explain": "Реальное условие — gelir + sen."
+    },
+    {
+      "id": "b12.01-sa.2",
+      "kind": "choose",
+      "prompt": "«Если он не позвонит»:",
+      "options": [
+        "aramazsa",
+        "aramasa",
+        "aramıyorsa"
+      ],
+      "answer": 0,
+      "explain": "Отрицание широкого — aramaz + sa."
+    },
+    {
+      "id": "b12.01-sa.3",
+      "kind": "gap",
+      "sentence": "Erken ___ güneşi görürüz.",
+      "ru": "Если встанем рано, увидим солнце.",
+      "options": [
+        "kalkarsak",
+        "kalkınca",
+        "kalkıp"
+      ],
+      "answer": 0,
+      "explain": "Если — kalkar + sak."
+    },
+    {
+      "id": "b12.01-sa.4",
+      "kind": "gap",
+      "sentence": "Yalan ___ şehir kaybolur.",
+      "ru": "Если солжёшь, город исчезнет.",
+      "options": [
+        "söylersen",
+        "söylersan",
+        "söyledin"
+      ],
+      "answer": 0,
+      "explain": "söyle — e: söylersen."
+    },
+    {
+      "id": "b12.01-sa.5",
+      "kind": "truefalse",
+      "statement": "-sa обычно присоединяется после широкого времени: gelirse.",
+      "answer": true,
+      "explain": "gel + ir + se."
+    },
+    {
+      "id": "b12.01-sa.6",
+      "kind": "truefalse",
+      "statement": "«Yapmazsan» значит «если сделаешь».",
+      "answer": false,
+      "explain": "Отрицание: если не сделаешь."
+    },
+    {
+      "id": "b12.01-sa.7",
+      "kind": "truefalse",
+      "statement": "Слово eğer можно поставить в начало для усиления.",
+      "answer": true,
+      "explain": "Eğer gelirsen…"
+    },
+    {
+      "id": "b12.01-sa.8",
+      "kind": "build",
+      "ru": "Если найдём колодец, мы спасёмся.",
+      "answer": "Kuyuyu bulursak kurtuluruz.",
+      "extra": [
+        "bulunca",
+        "kuyu"
+      ],
+      "explain": "Если — bulursak."
+    },
+    {
+      "id": "b12.01-sa.9",
+      "kind": "type",
+      "sentence": "Erken ___ otobüsü kaçırmazsın.",
+      "ru": "Если выйдешь рано, не опоздаешь на автобус.",
+      "hint": "çıkmak, если",
+      "answer": "çıkarsan",
+      "explain": "çık + ar + san."
+    }
+  ]
+}

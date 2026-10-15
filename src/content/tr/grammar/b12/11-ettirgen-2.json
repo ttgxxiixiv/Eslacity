@@ -1,0 +1,160 @@
+{
+  "id": "b12.11-ettirgen-2",
+  "district": "B1.2",
+  "order": 11,
+  "title": "Кому велели: понудительный с дательным",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Кого заставили — в **дательном**: **Çocuğa** odayı temizlettim — Я заставил ребёнка убрать комнату. **Tüccara** doğruyu söylettiler — Купца заставили сказать правду. Если объекта нет — в винительном: **Çocuğu** güldürdüm — Я рассмешил ребёнка."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Фраза",
+        "Перевод"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Öğrencilere şiir okuttu.",
+            "Он заставил учеников читать стихи."
+          ]
+        },
+        {
+          "cells": [
+            "Arabayı tamirciye yaptırdım.",
+            "Я отдал машину в ремонт мастеру."
+          ]
+        },
+        {
+          "cells": [
+            "Bebeği uyuttu.",
+            "Она уложила малыша спать."
+          ]
+        },
+        {
+          "cells": [
+            "Herkesi güldürdü.",
+            "Он всех рассмешил."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Двойной понудительный бывает: yap-**tır**-**t**mak (велеть, чтобы кто-то велел). В B1 его хватает узнавать, не строить."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Muhafız tüccara doğruyu söyletti.",
+      "ru": "Стражница заставила купца сказать правду."
+    },
+    {
+      "es": "Elif öğrencilere kompozisyon yazdırdı.",
+      "ru": "Элиф задала ученикам написать сочинение."
+    },
+    {
+      "es": "Yusuf herkesi güldürür.",
+      "ru": "Юсуф всех смешит."
+    },
+    {
+      "es": "Saatimi tamirciye tamir ettirdim.",
+      "ru": "Я отдал часы в починку мастеру."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "b12.11-ettirgen-2.1",
+      "kind": "choose",
+      "prompt": "«Я заставил брата помыть посуду»:",
+      "options": [
+        "Kardeşime bulaşık yıkattım.",
+        "Kardeşimi bulaşık yıkattım.",
+        "Kardeşim bulaşık yıkadı."
+      ],
+      "answer": 0,
+      "explain": "Кого заставили (при объекте) — дательный."
+    },
+    {
+      "id": "b12.11-ettirgen-2.2",
+      "kind": "choose",
+      "prompt": "«Он рассмешил ребёнка»:",
+      "options": [
+        "Çocuğu güldürdü.",
+        "Çocuğa güldürdü.",
+        "Çocuk güldü."
+      ],
+      "answer": 0,
+      "explain": "Без объекта — винительный."
+    },
+    {
+      "id": "b12.11-ettirgen-2.3",
+      "kind": "gap",
+      "sentence": "Öğretmen ___ şiir okuttu.",
+      "ru": "Учитель заставил учеников читать стихи.",
+      "options": [
+        "öğrencilere",
+        "öğrencileri",
+        "öğrenciler"
+      ],
+      "answer": 0,
+      "explain": "Есть объект (şiir) — дательный."
+    },
+    {
+      "id": "b12.11-ettirgen-2.4",
+      "kind": "gap",
+      "sentence": "Annem ___ uyuttu.",
+      "ru": "Мама уложила малыша спать.",
+      "options": [
+        "bebeği",
+        "bebeğe",
+        "bebek"
+      ],
+      "answer": 0,
+      "explain": "Без объекта — винительный."
+    },
+    {
+      "id": "b12.11-ettirgen-2.5",
+      "kind": "truefalse",
+      "statement": "Того, кого заставили, при наличии объекта ставят в дательный.",
+      "answer": true,
+      "explain": "çocuğa odayı temizlettim."
+    },
+    {
+      "id": "b12.11-ettirgen-2.6",
+      "kind": "truefalse",
+      "statement": "«Herkesi güldürdü» — «Все над ним смеялись».",
+      "answer": false,
+      "explain": "Он всех рассмешил."
+    },
+    {
+      "id": "b12.11-ettirgen-2.7",
+      "kind": "truefalse",
+      "statement": "«Tamirciye yaptırdım» — я отдал в ремонт мастеру.",
+      "answer": true,
+      "explain": "yaptırmak + дательный."
+    },
+    {
+      "id": "b12.11-ettirgen-2.8",
+      "kind": "build",
+      "ru": "Я велел мастеру починить крышу.",
+      "answer": "Tamirciye çatıyı tamir ettirdim.",
+      "extra": [
+        "tamirciyi",
+        "ettim"
+      ],
+      "explain": "Кому — tamirciye; понудительный — ettirdim."
+    },
+    {
+      "id": "b12.11-ettirgen-2.9",
+      "kind": "type",
+      "sentence": "Tüccara doğruyu ___.",
+      "ru": "Купца заставили сказать правду.",
+      "hint": "söylemek, понудительный, они",
+      "answer": "söylettiler",
+      "explain": "söyle + t + ti + ler."
+    }
+  ]
+}

@@ -1,0 +1,179 @@
+{
+  "id": "b12.03-keske",
+  "district": "B1.2",
+  "order": 3,
+  "title": "Если бы: keşke и -sAydI",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Желание и сожаление — **keşke** + **-sa** (о настоящем и будущем) или **-saydı** (о прошлом): **Keşke burada olsan** — Жаль, что тебя здесь нет (если бы ты был здесь). **Keşke gelseydin** — Жаль, что ты не пришёл."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Лицо",
+        "-sA",
+        "-sAydI"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "ben",
+            "gelsem",
+            "gelseydim"
+          ]
+        },
+        {
+          "cells": [
+            "sen",
+            "gelsen",
+            "gelseydin"
+          ]
+        },
+        {
+          "cells": [
+            "o",
+            "gelse",
+            "gelseydi"
+          ]
+        },
+        {
+          "cells": [
+            "biz",
+            "gelsek",
+            "gelseydik"
+          ]
+        },
+        {
+          "cells": [
+            "siz",
+            "gelseniz",
+            "gelseydiniz"
+          ]
+        },
+        {
+          "cells": [
+            "onlar",
+            "gelseler",
+            "gelselerdi"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Здесь -sa идёт **прямо после основы**, без широкого времени: gel**se**, al**sa**. С **-sa** выходит и мягкое предложение: **Biraz dinlensek?** — Может, отдохнём?"
+    }
+  ],
+  "examples": [
+    {
+      "es": "Keşke Kerem de burada olsa.",
+      "ru": "Если бы Керем тоже был здесь."
+    },
+    {
+      "es": "Keşke haritayı satmasaydım.",
+      "ru": "Жаль, что я продал карту."
+    },
+    {
+      "es": "Keşke Türkçeyi daha önce öğrenseydim.",
+      "ru": "Жаль, что я не выучил турецкий раньше."
+    },
+    {
+      "es": "Biraz otursak mı?",
+      "ru": "Может, немного посидим?"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "b12.03-keske.1",
+      "kind": "choose",
+      "prompt": "«Если бы ты пришёл (вчера)»:",
+      "options": [
+        "Keşke gelseydin.",
+        "Keşke gelirsen.",
+        "Keşke geldin."
+      ],
+      "answer": 0,
+      "explain": "О прошлом — -saydı."
+    },
+    {
+      "id": "b12.03-keske.2",
+      "kind": "choose",
+      "prompt": "«Если бы у меня было время (сейчас)»:",
+      "options": [
+        "Keşke vaktim olsa.",
+        "Keşke vaktim olsaydım.",
+        "Keşke vaktim olursa."
+      ],
+      "answer": 0,
+      "explain": "О настоящем — olsa."
+    },
+    {
+      "id": "b12.03-keske.3",
+      "kind": "gap",
+      "sentence": "Keşke o yalanı ___.",
+      "ru": "Жаль, что я сказал ту ложь.",
+      "options": [
+        "söylemeseydim",
+        "söylemesem",
+        "söylemezsem"
+      ],
+      "answer": 0,
+      "explain": "Сожаление о прошлом, отрицание: söylemeseydim."
+    },
+    {
+      "id": "b12.03-keske.4",
+      "kind": "gap",
+      "sentence": "Keşke bir devem ___.",
+      "ru": "Был бы у меня верблюд!",
+      "options": [
+        "olsa",
+        "olursa",
+        "oldu"
+      ],
+      "answer": 0,
+      "explain": "Желание о настоящем — olsa."
+    },
+    {
+      "id": "b12.03-keske.5",
+      "kind": "truefalse",
+      "statement": "После keşke -sa идёт прямо после основы: gelse.",
+      "answer": true,
+      "explain": "Без широкого времени."
+    },
+    {
+      "id": "b12.03-keske.6",
+      "kind": "truefalse",
+      "statement": "«Keşke gelseydin» — «Хорошо, что ты пришёл».",
+      "answer": false,
+      "explain": "Жаль, что ты не пришёл."
+    },
+    {
+      "id": "b12.03-keske.7",
+      "kind": "truefalse",
+      "statement": "«Biraz dinlensek?» — мягкое предложение: может, отдохнём?",
+      "answer": true,
+      "explain": "-sek + вопрос."
+    },
+    {
+      "id": "b12.03-keske.8",
+      "kind": "build",
+      "ru": "Если бы я знал правду!",
+      "answer": "Keşke doğruyu bilseydim!",
+      "extra": [
+        "bilirsem",
+        "doğru"
+      ],
+      "explain": "О прошлом — bilseydim."
+    },
+    {
+      "id": "b12.03-keske.9",
+      "kind": "type",
+      "sentence": "Keşke kuyuda biraz su ___.",
+      "ru": "Если бы в колодце была хоть немного воды.",
+      "hint": "olmak, желание",
+      "answer": "olsa",
+      "explain": "ol + sa."
+    }
+  ]
+}

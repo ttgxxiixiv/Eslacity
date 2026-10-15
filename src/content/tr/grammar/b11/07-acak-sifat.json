@@ -1,0 +1,172 @@
+{
+  "id": "b11.07-acak-sifat",
+  "district": "B1.1",
+  "order": 7,
+  "title": "Причастие -(y)AcAk: то, что будет",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "**-(y)acağı / -(y)eceği** + принадлежность — «который я (сделаю)»: **okuyacağım kitap** — книга, которую я буду читать. **Yarın gideceğimiz yer** — место, куда мы пойдём завтра. Без принадлежности — «будущий»: **gelecek hafta** — следующая неделя."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Лицо",
+        "gitmek",
+        "yapmak"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "ben",
+            "gideceğim yer",
+            "yapacağım iş"
+          ]
+        },
+        {
+          "cells": [
+            "sen",
+            "gideceğin yer",
+            "yapacağın iş"
+          ]
+        },
+        {
+          "cells": [
+            "o",
+            "gideceği yer",
+            "yapacağı iş"
+          ]
+        },
+        {
+          "cells": [
+            "biz",
+            "gideceğimiz yer",
+            "yapacağımız iş"
+          ]
+        },
+        {
+          "cells": [
+            "onlar",
+            "gidecekleri yer",
+            "yapacakları iş"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Как и у -dık, k → ğ перед гласной: gidecek + im → gide**ceğ**im. «То, что сделаем» с винительным: **Ne yapacağımızı bilmiyoruz** — Мы не знаем, что будем делать."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Gideceğimiz yol çölden geçiyor.",
+      "ru": "Дорога, по которой мы пойдём, идёт через пустыню."
+    },
+    {
+      "es": "Söyleyeceğin her şeyi dinliyorum.",
+      "ru": "Я слушаю всё, что ты скажешь."
+    },
+    {
+      "es": "Ne yapacağımı bilmiyorum.",
+      "ru": "Не знаю, что мне делать."
+    },
+    {
+      "es": "Gelecek ay vahaya gidiyoruz.",
+      "ru": "В следующем месяце мы едем в оазис."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "b11.07-acak-sifat.1",
+      "kind": "choose",
+      "prompt": "«Место, куда мы пойдём»:",
+      "options": [
+        "gideceğimiz yer",
+        "gittiğimiz yer",
+        "gidecek yerimiz"
+      ],
+      "answer": 0,
+      "explain": "Будущее — -eceğimiz."
+    },
+    {
+      "id": "b11.07-acak-sifat.2",
+      "kind": "choose",
+      "prompt": "«Следующая неделя»:",
+      "options": [
+        "gelecek hafta",
+        "geleceğim hafta",
+        "geldiğim hafta"
+      ],
+      "answer": 0,
+      "explain": "Без лица — gelecek hafta."
+    },
+    {
+      "id": "b11.07-acak-sifat.3",
+      "kind": "gap",
+      "sentence": "Yarın ___ işi şimdi anlat.",
+      "ru": "Расскажи сейчас о работе, которую ты сделаешь завтра.",
+      "options": [
+        "yapacağın",
+        "yaptığın",
+        "yapan"
+      ],
+      "answer": 0,
+      "explain": "Будущее, ты — yapacağın."
+    },
+    {
+      "id": "b11.07-acak-sifat.4",
+      "kind": "gap",
+      "sentence": "Tüccarın ne ___ kimse bilmiyor.",
+      "ru": "Никто не знает, что скажет купец.",
+      "options": [
+        "söyleyeceğini",
+        "söylediğine",
+        "söyleyecek"
+      ],
+      "answer": 0,
+      "explain": "Будущее + винительный."
+    },
+    {
+      "id": "b11.07-acak-sifat.5",
+      "kind": "truefalse",
+      "statement": "В «gideceğim yer» k превращается в ğ.",
+      "answer": true,
+      "explain": "gidecek + im."
+    },
+    {
+      "id": "b11.07-acak-sifat.6",
+      "kind": "truefalse",
+      "statement": "«Okuyacağım kitap» — книга, которую я прочитал.",
+      "answer": false,
+      "explain": "Будущее: которую я буду читать."
+    },
+    {
+      "id": "b11.07-acak-sifat.7",
+      "kind": "truefalse",
+      "statement": "После гласной перед -acak вставляется y: okuyacağım.",
+      "answer": true,
+      "explain": "oku + y + acak."
+    },
+    {
+      "id": "b11.07-acak-sifat.8",
+      "kind": "build",
+      "ru": "Я не знаю, что мне сказать.",
+      "answer": "Ne söyleyeceğimi bilmiyorum.",
+      "extra": [
+        "söylediğimi",
+        "biliyorum"
+      ],
+      "explain": "Будущее + винительный: söyleyeceğimi."
+    },
+    {
+      "id": "b11.07-acak-sifat.9",
+      "kind": "type",
+      "sentence": "___ kitabı bana ver.",
+      "ru": "Дай мне книгу, которую ты будешь читать.",
+      "hint": "okumak, ты, будущее",
+      "answer": "Okuyacağın",
+      "explain": "oku + y + acağ + ın."
+    }
+  ]
+}

@@ -1,0 +1,172 @@
+{
+  "id": "b12.08-edilgen",
+  "district": "B1.2",
+  "order": 8,
+  "title": "Страдательный залог: -Il, -In",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Пассив — **-ıl / -il / -ul / -ül**: yap → yap**ıl**mak (делаться), sat → sat**ıl**mak (продаваться). После гласной и после **l** — **-n / -ın**: oku → oku**n**mak, bil → bil**in**mek. **Bu kuyu yüz yıl önce kazıldı** — Этот колодец выкопали сто лет назад."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Глагол",
+        "Пассив",
+        "Пример"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "yapmak",
+            "yapılmak",
+            "Ev taştan yapıldı."
+          ]
+        },
+        {
+          "cells": [
+            "satmak",
+            "satılmak",
+            "Su burada satılıyor."
+          ]
+        },
+        {
+          "cells": [
+            "okumak",
+            "okunmak",
+            "Mektup okundu."
+          ]
+        },
+        {
+          "cells": [
+            "bilmek",
+            "bilinmek",
+            "Bu yol bilinmiyor."
+          ]
+        },
+        {
+          "cells": [
+            "yemek",
+            "yenmek",
+            "Bu meyve yenmez."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Русскому неопределённо-личному «говорят, делают» часто соответствует пассив: **Burada Türkçe konuşulur** — Здесь говорят по-турецки."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Bu ekmek her sabah pişirilir.",
+      "ru": "Этот хлеб пекут каждое утро."
+    },
+    {
+      "es": "Parçalar kuma gömülmüş.",
+      "ru": "Обрывки, оказывается, закопаны в песок."
+    },
+    {
+      "es": "Mektup dün gönderildi.",
+      "ru": "Письмо отправили вчера."
+    },
+    {
+      "es": "Çölde gece soğuk olur, bu herkes tarafından bilinir.",
+      "ru": "Ночью в пустыне холодно — это всем известно."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "b12.08-edilgen.1",
+      "kind": "choose",
+      "prompt": "Пассив от satmak:",
+      "options": [
+        "satılmak",
+        "satınmak",
+        "sattırmak"
+      ],
+      "answer": 0,
+      "explain": "После согласной — -ıl: satılmak."
+    },
+    {
+      "id": "b12.08-edilgen.2",
+      "kind": "choose",
+      "prompt": "Пассив от okumak:",
+      "options": [
+        "okunmak",
+        "okulmak",
+        "okutmak"
+      ],
+      "answer": 0,
+      "explain": "После гласной — -n: okunmak."
+    },
+    {
+      "id": "b12.08-edilgen.3",
+      "kind": "gap",
+      "sentence": "Bu kuyu yüz yıl önce ___.",
+      "ru": "Этот колодец выкопали сто лет назад.",
+      "options": [
+        "kazıldı",
+        "kazdı",
+        "kazdırdı"
+      ],
+      "answer": 0,
+      "explain": "Пассив — kazıldı."
+    },
+    {
+      "id": "b12.08-edilgen.4",
+      "kind": "gap",
+      "sentence": "Burada Türkçe ___.",
+      "ru": "Здесь говорят по-турецки.",
+      "options": [
+        "konuşulur",
+        "konuşur",
+        "konuşturur"
+      ],
+      "answer": 0,
+      "explain": "Неопределённо-личное — konuşulur."
+    },
+    {
+      "id": "b12.08-edilgen.5",
+      "kind": "truefalse",
+      "statement": "После гласной пассив образуется с -n: okunmak.",
+      "answer": true,
+      "explain": "oku + n."
+    },
+    {
+      "id": "b12.08-edilgen.6",
+      "kind": "truefalse",
+      "statement": "После l пассив образуется с -ın/-in: bilinmek.",
+      "answer": true,
+      "explain": "bil + in."
+    },
+    {
+      "id": "b12.08-edilgen.7",
+      "kind": "truefalse",
+      "statement": "«Ev taştan yapıldı» — «Он построил дом из камня».",
+      "answer": false,
+      "explain": "Пассив: дом построен из камня."
+    },
+    {
+      "id": "b12.08-edilgen.8",
+      "kind": "build",
+      "ru": "Эту песню поют по всей стране.",
+      "answer": "Bu şarkı her yerde söylenir.",
+      "extra": [
+        "söyler",
+        "şarkıyı"
+      ],
+      "explain": "Пассив — söylenir."
+    },
+    {
+      "id": "b12.08-edilgen.9",
+      "kind": "type",
+      "sentence": "Mektup dün ___.",
+      "ru": "Письмо вчера прочитали.",
+      "hint": "okumak, пассив",
+      "answer": "okundu",
+      "explain": "oku + n + du."
+    }
+  ]
+}

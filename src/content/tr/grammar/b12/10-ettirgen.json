@@ -1,0 +1,179 @@
+{
+  "id": "b12.10-ettirgen",
+  "district": "B1.2",
+  "order": 10,
+  "title": "Понудительный залог: -DIr, -t",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Понудительный залог — «заставить, дать сделать»: **-dır / -dir / -dur / -dür** (после глухих **-tır…**): yap → yap**tır**mak (заставить сделать, заказать), öl → öl**dür**mek (убить). После гласной и после r, l в многосложных — **-t**: oku → oku**t**mak, anla → anla**t**mak (рассказать)."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Глагол",
+        "Понудительный",
+        "Перевод"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "yapmak",
+            "yaptırmak",
+            "заказать, велеть сделать"
+          ]
+        },
+        {
+          "cells": [
+            "okumak",
+            "okutmak",
+            "заставить читать; учить"
+          ]
+        },
+        {
+          "cells": [
+            "anlamak",
+            "anlatmak",
+            "рассказать (дать понять)"
+          ]
+        },
+        {
+          "cells": [
+            "içmek",
+            "içirmek",
+            "напоить"
+          ]
+        },
+        {
+          "cells": [
+            "düşmek",
+            "düşürmek",
+            "уронить"
+          ]
+        },
+        {
+          "cells": [
+            "bitmek",
+            "bitirmek",
+            "закончить"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Некоторые глаголы берут **-ır / -er**: iç → iç**ir**mek, piş → piş**ir**mek, çık → çık**ar**mak. Их лучше запоминать целиком."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Selin'e yeni bir elbise diktirdim.",
+      "ru": "Я заказал Селин новое платье."
+    },
+    {
+      "es": "Hasan Usta bize çay içirdi.",
+      "ru": "Хасан-уста напоил нас чаем."
+    },
+    {
+      "es": "Kervanı geç kaldırdın!",
+      "ru": "Из-за тебя караван опоздал!"
+    },
+    {
+      "es": "Bu hikâyeyi bana anlat.",
+      "ru": "Расскажи мне эту историю."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "b12.10-ettirgen.1",
+      "kind": "choose",
+      "prompt": "«Заказать (велеть сделать)»:",
+      "options": [
+        "yaptırmak",
+        "yapılmak",
+        "yapınmak"
+      ],
+      "answer": 0,
+      "explain": "Понудительный — yaptırmak."
+    },
+    {
+      "id": "b12.10-ettirgen.2",
+      "kind": "choose",
+      "prompt": "Понудительный от okumak:",
+      "options": [
+        "okutmak",
+        "okudurmak",
+        "okunmak"
+      ],
+      "answer": 0,
+      "explain": "После гласной — -t: okutmak."
+    },
+    {
+      "id": "b12.10-ettirgen.3",
+      "kind": "gap",
+      "sentence": "Saçımı berbere ___.",
+      "ru": "Я подстригся у парикмахера (дал постричь).",
+      "options": [
+        "kestirdim",
+        "kestim",
+        "kesildim"
+      ],
+      "answer": 0,
+      "explain": "Дал сделать другому — kestirdim."
+    },
+    {
+      "id": "b12.10-ettirgen.4",
+      "kind": "gap",
+      "sentence": "Bardağı yere ___.",
+      "ru": "Я уронил стакан на пол.",
+      "options": [
+        "düşürdüm",
+        "düştüm",
+        "düşüldü"
+      ],
+      "answer": 0,
+      "explain": "Уронить = заставить упасть: düşürdüm."
+    },
+    {
+      "id": "b12.10-ettirgen.5",
+      "kind": "truefalse",
+      "statement": "Понудительный залог значит «заставить или дать сделать».",
+      "answer": true,
+      "explain": "yaptırmak."
+    },
+    {
+      "id": "b12.10-ettirgen.6",
+      "kind": "truefalse",
+      "statement": "«Anlatmak» — это понудительный от «anlamak».",
+      "answer": true,
+      "explain": "anla + t."
+    },
+    {
+      "id": "b12.10-ettirgen.7",
+      "kind": "truefalse",
+      "statement": "«Kestirdim» — «я сам себя подстриг».",
+      "answer": false,
+      "explain": "Подстриг кто-то другой по моей просьбе."
+    },
+    {
+      "id": "b12.10-ettirgen.8",
+      "kind": "build",
+      "ru": "Мама накормила ребёнка супом.",
+      "answer": "Annem çocuğa çorba içirdi.",
+      "extra": [
+        "içti",
+        "çocuk"
+      ],
+      "explain": "Напоить, накормить жидким — içirdi."
+    },
+    {
+      "id": "b12.10-ettirgen.9",
+      "kind": "type",
+      "sentence": "Ekmeği fırında ___.",
+      "ru": "Я испёк хлеб в печи.",
+      "hint": "pişmek → понудительный",
+      "answer": "pişirdim",
+      "explain": "piş + ir + dim."
+    }
+  ]
+}

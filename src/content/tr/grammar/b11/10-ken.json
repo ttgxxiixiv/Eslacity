@@ -1,0 +1,172 @@
+{
+  "id": "b11.10-ken",
+  "district": "B1.1",
+  "order": 10,
+  "title": "-(y)ken: когда, пока",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "**-ken** — «когда, пока, в то время как»: **Çölde yürürken** bir ses duydum — Когда я шёл по пустыне, я услышал голос. Ставится после широкого времени (**yürür-ken**), -iyor (**okuyor-ken**) или после имени (**çocuk-ken** — в детстве)."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Основа",
+        "С -ken",
+        "Перевод"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "yürür",
+            "yürürken",
+            "когда шёл / иду"
+          ]
+        },
+        {
+          "cells": [
+            "uyuyor",
+            "uyurken",
+            "пока спал"
+          ]
+        },
+        {
+          "cells": [
+            "çocuk",
+            "çocukken",
+            "в детстве"
+          ]
+        },
+        {
+          "cells": [
+            "evde",
+            "evdeyken",
+            "когда был дома"
+          ]
+        },
+        {
+          "cells": [
+            "genç",
+            "gençken",
+            "в молодости"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "-ken не меняет гласную: всегда **-ken**. После гласной имени — **-yken**: hasta**yken** (когда болел), evde**yken**."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Çocukken çölde yaşıyordum.",
+      "ru": "В детстве я жил в пустыне."
+    },
+    {
+      "es": "Uyurken bir rüya gördüm.",
+      "ru": "Пока я спал, мне приснился сон."
+    },
+    {
+      "es": "Ben yemek yaparken sen masayı hazırla.",
+      "ru": "Пока я готовлю, накрой на стол."
+    },
+    {
+      "es": "Gençken çok seyahat ettim.",
+      "ru": "В молодости я много путешествовал."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "b11.10-ken.1",
+      "kind": "choose",
+      "prompt": "«В детстве»:",
+      "options": [
+        "çocukken",
+        "çocukkan",
+        "çocuktayken"
+      ],
+      "answer": 0,
+      "explain": "-ken всегда с e: çocukken."
+    },
+    {
+      "id": "b11.10-ken.2",
+      "kind": "choose",
+      "prompt": "«Когда я был дома»:",
+      "options": [
+        "evdeyken",
+        "evdeken",
+        "evdekin"
+      ],
+      "answer": 0,
+      "explain": "После гласной — y: evdeyken."
+    },
+    {
+      "id": "b11.10-ken.3",
+      "kind": "gap",
+      "sentence": "Yolda ___ bir tüccarla karşılaştık.",
+      "ru": "Когда мы шли по дороге, мы встретили купца.",
+      "options": [
+        "yürürken",
+        "yürüdük",
+        "yürüyecekken"
+      ],
+      "answer": 0,
+      "explain": "Пока шли — yürürken."
+    },
+    {
+      "id": "b11.10-ken.4",
+      "kind": "gap",
+      "sentence": "Ben ___ telefon çaldı.",
+      "ru": "Пока я спал, зазвонил телефон.",
+      "options": [
+        "uyurken",
+        "uyudum",
+        "uyuyan"
+      ],
+      "answer": 0,
+      "explain": "Пока — uyurken."
+    },
+    {
+      "id": "b11.10-ken.5",
+      "kind": "truefalse",
+      "statement": "Гласная в -ken меняется по гармонии: yürürkan.",
+      "answer": false,
+      "explain": "-ken не меняется: yürürken."
+    },
+    {
+      "id": "b11.10-ken.6",
+      "kind": "truefalse",
+      "statement": "«Gençken» значит «в молодости».",
+      "answer": true,
+      "explain": "genç + ken."
+    },
+    {
+      "id": "b11.10-ken.7",
+      "kind": "truefalse",
+      "statement": "После гласной имени — -yken: hastayken.",
+      "answer": true,
+      "explain": "hasta + y + ken."
+    },
+    {
+      "id": "b11.10-ken.8",
+      "kind": "build",
+      "ru": "Когда я был в Измире, я учил турецкий.",
+      "answer": "İzmir'deyken Türkçe öğrendim.",
+      "extra": [
+        "İzmir'de",
+        "öğrenirken"
+      ],
+      "explain": "Когда был — İzmir'deyken."
+    },
+    {
+      "id": "b11.10-ken.9",
+      "kind": "type",
+      "sentence": "Hasan Usta çay ___ şarkı söylüyor.",
+      "ru": "Хасан-уста поёт, пока заваривает чай.",
+      "hint": "demlemek, пока",
+      "answer": "demlerken",
+      "explain": "demle + r + ken."
+    }
+  ]
+}

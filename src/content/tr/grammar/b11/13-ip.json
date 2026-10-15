@@ -1,0 +1,154 @@
+{
+  "id": "b11.13-ip",
+  "district": "B1.1",
+  "order": 13,
+  "title": "-(y)Ip: сделав и…",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "**-ıp / -ip / -up / -üp** соединяет два действия вместо «и»: **Eve gidip** uyudum — Я пошёл домой и уснул. Время и лицо показывает **только последний глагол**: **gidip uyuyacağım** — пойду и усну."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Без -Ip",
+        "С -Ip"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Kalktım ve yıkandım.",
+            "Kalkıp yıkandım."
+          ]
+        },
+        {
+          "cells": [
+            "Oturacağız ve konuşacağız.",
+            "Oturup konuşacağız."
+          ]
+        },
+        {
+          "cells": [
+            "Gel ve bak!",
+            "Gelip bak!"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "После гласной — **y**: bekle**y**ip. Отрицание -Ip почти не используют: отрицают последний глагол, и оно относится к обоим."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Kuyuya gidip su getirdim.",
+      "ru": "Я сходил к колодцу и принёс воды."
+    },
+    {
+      "es": "Oturup biraz dinlenelim.",
+      "ru": "Давай сядем и немного отдохнём."
+    },
+    {
+      "es": "Mektubu okuyup ağladı.",
+      "ru": "Она прочитала письмо и заплакала."
+    },
+    {
+      "es": "Kalkıp pencereyi açtı.",
+      "ru": "Он встал и открыл окно."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "b11.13-ip.1",
+      "kind": "choose",
+      "prompt": "«Пойду и посмотрю»:",
+      "options": [
+        "gidip bakacağım",
+        "gidip bakıp",
+        "gidecek bakacağım"
+      ],
+      "answer": 0,
+      "explain": "Время — только у последнего: bakacağım."
+    },
+    {
+      "id": "b11.13-ip.2",
+      "kind": "choose",
+      "prompt": "-Ip от okumak:",
+      "options": [
+        "okuyup",
+        "okup",
+        "okuyip"
+      ],
+      "answer": 0,
+      "explain": "После гласной — y; гармония u: okuyup."
+    },
+    {
+      "id": "b11.13-ip.3",
+      "kind": "gap",
+      "sentence": "Pazara ___ elma aldım.",
+      "ru": "Я сходил на рынок и купил яблок.",
+      "options": [
+        "gidip",
+        "gidince",
+        "giderek"
+      ],
+      "answer": 0,
+      "explain": "Одно за другим, «и» — gidip."
+    },
+    {
+      "id": "b11.13-ip.4",
+      "kind": "gap",
+      "sentence": "Eve ___ yattım.",
+      "ru": "Я пришёл домой и лёг.",
+      "options": [
+        "gelip",
+        "gelince",
+        "gelerek"
+      ],
+      "answer": 0,
+      "explain": "Последовательно, «и» — gelip."
+    },
+    {
+      "id": "b11.13-ip.5",
+      "kind": "truefalse",
+      "statement": "В цепочке с -Ip время показывает последний глагол.",
+      "answer": true,
+      "explain": "gidip uyuyacağım."
+    },
+    {
+      "id": "b11.13-ip.6",
+      "kind": "truefalse",
+      "statement": "«Kalkıp yıkandım» — я встал и умылся.",
+      "answer": true,
+      "explain": "kalk + ıp."
+    },
+    {
+      "id": "b11.13-ip.7",
+      "kind": "truefalse",
+      "statement": "-Ip всегда звучит -ip, без гармонии.",
+      "answer": false,
+      "explain": "Четыре варианта: ıp, ip, up, üp."
+    },
+    {
+      "id": "b11.13-ip.8",
+      "kind": "build",
+      "ru": "Он взял деньги и ушёл.",
+      "answer": "Parayı alıp gitti.",
+      "extra": [
+        "alarak",
+        "parası"
+      ],
+      "explain": "Последовательно — alıp."
+    },
+    {
+      "id": "b11.13-ip.9",
+      "kind": "type",
+      "sentence": "Haritayı ___ yola çıktık.",
+      "ru": "Мы взяли карту и отправились в путь.",
+      "hint": "almak, и",
+      "answer": "alıp",
+      "explain": "al + ıp."
+    }
+  ]
+}

@@ -1,0 +1,179 @@
+{
+  "id": "b11.05-dik",
+  "district": "B1.1",
+  "order": 5,
+  "title": "Причастие -DIk: книга, которую я читаю",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "**-dık / -dik / -duk / -dük** (после глухих **-tık…**) + принадлежность делает причастие «который я/ты… (делал, делаю)»: oku**duğum** kitap — книга, которую я читаю (читал). Подлежащее — в притяжательном: **benim okuduğum**, **senin aldığın**."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Лицо",
+        "okumak",
+        "almak"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "ben",
+            "okuduğum",
+            "aldığım"
+          ]
+        },
+        {
+          "cells": [
+            "sen",
+            "okuduğun",
+            "aldığın"
+          ]
+        },
+        {
+          "cells": [
+            "o",
+            "okuduğu",
+            "aldığı"
+          ]
+        },
+        {
+          "cells": [
+            "biz",
+            "okuduğumuz",
+            "aldığımız"
+          ]
+        },
+        {
+          "cells": [
+            "siz",
+            "okuduğunuz",
+            "aldığınız"
+          ]
+        },
+        {
+          "cells": [
+            "onlar",
+            "okudukları",
+            "aldıkları"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Перед гласной аффикса **k → ğ**: oku-duk → okudu**ğ**um. Будущее и прошлое здесь не различаются: **gördüğüm şehir** — город, который я вижу или видел."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Okuduğum kitap çok ilginç.",
+      "ru": "Книга, которую я читаю, очень интересная."
+    },
+    {
+      "es": "Tüccarın sattığı parçalar sahte.",
+      "ru": "Обрывки, которые продаёт купец, поддельные."
+    },
+    {
+      "es": "Gördüğümüz şehir bir serapmış.",
+      "ru": "Город, который мы видели, оказался миражом."
+    },
+    {
+      "es": "Senin aldığın simit sıcak mı?",
+      "ru": "Симит, который ты купил, горячий?"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "b11.05-dik.1",
+      "kind": "choose",
+      "prompt": "«Письмо, которое ты написал»:",
+      "options": [
+        "yazdığın mektup",
+        "yazdığım mektup",
+        "yazan mektup"
+      ],
+      "answer": 0,
+      "explain": "Ты — -dığın."
+    },
+    {
+      "id": "b11.05-dik.2",
+      "kind": "choose",
+      "prompt": "-dık от içmek для «мы»:",
+      "options": [
+        "içtiğimiz",
+        "içdiğimiz",
+        "içtikimiz"
+      ],
+      "answer": 0,
+      "explain": "ç — глухая: -tik; k → ğ: içtiğimiz."
+    },
+    {
+      "id": "b11.05-dik.3",
+      "kind": "gap",
+      "sentence": "Dün ___ film çok güzeldi.",
+      "ru": "Фильм, который мы вчера смотрели, был очень хорош.",
+      "options": [
+        "izlediğimiz",
+        "izlediğim",
+        "izleyen"
+      ],
+      "answer": 0,
+      "explain": "Мы — -diğimiz."
+    },
+    {
+      "id": "b11.05-dik.4",
+      "kind": "gap",
+      "sentence": "Bu, annemin ___ kilim.",
+      "ru": "Это килим, который соткала моя мама.",
+      "options": [
+        "dokuduğu",
+        "dokuduğum",
+        "dokuyan"
+      ],
+      "answer": 0,
+      "explain": "Подлежащее annemin — 3 лицо: dokuduğu."
+    },
+    {
+      "id": "b11.05-dik.5",
+      "kind": "truefalse",
+      "statement": "В причастии -dık подлежащее стоит в родительном: benim aldığım.",
+      "answer": true,
+      "explain": "benim / senin / onun…"
+    },
+    {
+      "id": "b11.05-dik.6",
+      "kind": "truefalse",
+      "statement": "В «okuduğum» k из -duk переходит в ğ.",
+      "answer": true,
+      "explain": "okuduk + um → okuduğum."
+    },
+    {
+      "id": "b11.05-dik.7",
+      "kind": "truefalse",
+      "statement": "«Tüccarın sattığı parça» значит «купец, которого продали».",
+      "answer": false,
+      "explain": "Это обрывок, который продаёт купец."
+    },
+    {
+      "id": "b11.05-dik.8",
+      "kind": "build",
+      "ru": "Вода, которую ты принёс, холодная.",
+      "answer": "Getirdiğin su soğuk.",
+      "extra": [
+        "getiren",
+        "sıcak"
+      ],
+      "explain": "Ты принёс — getirdiğin."
+    },
+    {
+      "id": "b11.05-dik.9",
+      "kind": "type",
+      "sentence": "___ yol çok uzundu.",
+      "ru": "Дорога, по которой мы шли, была очень длинной.",
+      "hint": "yürümek, мы",
+      "answer": "Yürüdüğümüz",
+      "explain": "yürü + düğ + ümüz."
+    }
+  ]
+}

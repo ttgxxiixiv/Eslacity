@@ -1,0 +1,166 @@
+{
+  "id": "b12.14-abilir",
+  "district": "B1.2",
+  "order": 14,
+  "title": "Может быть: -(y)AbilIr",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "**-(y)abilir / -(y)ebilir** — не только «может (умеет)», но и **«возможно, вероятно»**: **Yağmur yağabilir** — Может пойти дождь. **O seraptır, gerçek olamaz** — Это мираж, он не может быть настоящим. Предположение о сейчас — **-ıyor olabilir**: **Uyuyor olabilir** — Он, может быть, спит."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Фраза",
+        "Перевод"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Gelebilir.",
+            "Он может прийти."
+          ]
+        },
+        {
+          "cells": [
+            "Gelmeyebilir.",
+            "Он может не прийти."
+          ]
+        },
+        {
+          "cells": [
+            "Gelemez.",
+            "Он не может прийти / не придёт."
+          ]
+        },
+        {
+          "cells": [
+            "Evde olabilir.",
+            "Он, возможно, дома."
+          ]
+        },
+        {
+          "cells": [
+            "Yorgun olmalı.",
+            "Он, должно быть, устал."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Сравните уверенность: **olabilir** (может быть) — **olmalı** (должно быть) — **-dır** (наверняка): Yorgun**dur** — Он наверняка устал. «Может не» — **-mayabilir**, «не может» — **-amaz**."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Kervan bu gece gelebilir.",
+      "ru": "Караван может прийти этой ночью."
+    },
+    {
+      "es": "Tüccar yalan söylüyor olabilir.",
+      "ru": "Возможно, купец лжёт."
+    },
+    {
+      "es": "Bu su içilmeyebilir, dikkat et.",
+      "ru": "Эту воду, может быть, нельзя пить, осторожно."
+    },
+    {
+      "es": "Kerem çok yorgun olmalı.",
+      "ru": "Керем, должно быть, очень устал."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "b12.14-abilir.1",
+      "kind": "choose",
+      "prompt": "«Может пойти дождь»:",
+      "options": [
+        "Yağmur yağabilir.",
+        "Yağmur yağmalı.",
+        "Yağmur yağamaz."
+      ],
+      "answer": 0,
+      "explain": "Вероятность — yağabilir."
+    },
+    {
+      "id": "b12.14-abilir.2",
+      "kind": "choose",
+      "prompt": "«Он может не прийти»:",
+      "options": [
+        "Gelmeyebilir.",
+        "Gelemez.",
+        "Gelmez."
+      ],
+      "answer": 0,
+      "explain": "Может не — gelmeyebilir."
+    },
+    {
+      "id": "b12.14-abilir.3",
+      "kind": "gap",
+      "sentence": "Şu an ___ olabilir, sessiz ol.",
+      "ru": "Может быть, он сейчас спит, тише.",
+      "options": [
+        "uyuyor",
+        "uyudu",
+        "uyuyacak"
+      ],
+      "answer": 0,
+      "explain": "Предположение о сейчас — uyuyor olabilir."
+    },
+    {
+      "id": "b12.14-abilir.4",
+      "kind": "gap",
+      "sentence": "Bu bir serap, gerçek ___.",
+      "ru": "Это мираж, он не может быть настоящим.",
+      "options": [
+        "olamaz",
+        "olabilir",
+        "olmalı"
+      ],
+      "answer": 0,
+      "explain": "Не может быть — olamaz."
+    },
+    {
+      "id": "b12.14-abilir.5",
+      "kind": "truefalse",
+      "statement": "-(y)AbilIr может выражать вероятность: «возможно».",
+      "answer": true,
+      "explain": "yağabilir."
+    },
+    {
+      "id": "b12.14-abilir.6",
+      "kind": "truefalse",
+      "statement": "«Gelmeyebilir» и «gelemez» значат одно и то же.",
+      "answer": false,
+      "explain": "Может не прийти ≠ не может прийти."
+    },
+    {
+      "id": "b12.14-abilir.7",
+      "kind": "truefalse",
+      "statement": "«Olmalı» показывает большую уверенность, чем «olabilir».",
+      "answer": true,
+      "explain": "должно быть > может быть."
+    },
+    {
+      "id": "b12.14-abilir.8",
+      "kind": "build",
+      "ru": "Возможно, город — мираж.",
+      "answer": "Şehir bir serap olabilir.",
+      "extra": [
+        "olmalıyız",
+        "serabı"
+      ],
+      "explain": "Вероятность — olabilir."
+    },
+    {
+      "id": "b12.14-abilir.9",
+      "kind": "type",
+      "sentence": "Hava kararıyor, fırtına ___.",
+      "ru": "Темнеет, может начаться буря.",
+      "hint": "çıkmak, вероятность",
+      "answer": "çıkabilir",
+      "explain": "çık + abil + ir."
+    }
+  ]
+}

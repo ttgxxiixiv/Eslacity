@@ -1,0 +1,172 @@
+{
+  "id": "b11.08-an",
+  "district": "B1.1",
+  "order": 8,
+  "title": "Причастие -(y)An: тот, кто…",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "**-an / -en** — «который делает, сделал»: **gelen adam** — человек, который пришёл (приходит). Если сам предмет — подлежащее действия, берём -an: **su satan tüccar** — купец, который продаёт воду. После гласной — **-yan / -yen**: oku**yan**."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Глагол",
+        "-(y)An",
+        "Пример"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "gelmek",
+            "gelen",
+            "dün gelen yolcu"
+          ]
+        },
+        {
+          "cells": [
+            "satmak",
+            "satan",
+            "su satan tüccar"
+          ]
+        },
+        {
+          "cells": [
+            "okumak",
+            "okuyan",
+            "kitap okuyan çocuk"
+          ]
+        },
+        {
+          "cells": [
+            "bilmek",
+            "bilen",
+            "cevabı bilen"
+          ]
+        },
+        {
+          "cells": [
+            "olmak",
+            "olan",
+            "burada olan herkes"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "-an само по себе — «тот, кто»: **Bilen söylesin** — Пусть скажет тот, кто знает. **Sadece konuşan geçer** — Пройдёт только тот, кто говорит."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Su satan tüccar dün kayboldu.",
+      "ru": "Купец, который продавал воду, вчера исчез."
+    },
+    {
+      "es": "Haritayı bilen kimse yok mu?",
+      "ru": "Нет никого, кто знает карту?"
+    },
+    {
+      "es": "Kuyuya giden yol burada.",
+      "ru": "Дорога, которая ведёт к колодцу, здесь."
+    },
+    {
+      "es": "Doğruyu söyleyen geçer.",
+      "ru": "Тот, кто говорит правду, пройдёт."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "b11.08-an.1",
+      "kind": "choose",
+      "prompt": "«Человек, который пришёл»:",
+      "options": [
+        "gelen adam",
+        "geldiği adam",
+        "gelecek adam"
+      ],
+      "answer": 0,
+      "explain": "Подлежащее — сам человек: gelen."
+    },
+    {
+      "id": "b11.08-an.2",
+      "kind": "choose",
+      "prompt": "-(y)An от okumak:",
+      "options": [
+        "okuyan",
+        "okuan",
+        "okuyen"
+      ],
+      "answer": 0,
+      "explain": "После гласной — y; гармония а: okuyan."
+    },
+    {
+      "id": "b11.08-an.3",
+      "kind": "gap",
+      "sentence": "Kervanda Türkçe ___ biri var mı?",
+      "ru": "В караване есть кто-нибудь, кто говорит по-турецки?",
+      "options": [
+        "konuşan",
+        "konuştuğu",
+        "konuşacağı"
+      ],
+      "answer": 0,
+      "explain": "Тот, кто говорит, — konuşan."
+    },
+    {
+      "id": "b11.08-an.4",
+      "kind": "gap",
+      "sentence": "Bize yardım ___ köylüye teşekkür ettik.",
+      "ru": "Мы поблагодарили крестьянина, который нам помог.",
+      "options": [
+        "eden",
+        "ettiğimiz",
+        "edecek"
+      ],
+      "answer": 0,
+      "explain": "Помог сам крестьянин — eden."
+    },
+    {
+      "id": "b11.08-an.5",
+      "kind": "truefalse",
+      "statement": "В «gelen adam» человек сам пришёл.",
+      "answer": true,
+      "explain": "-an — подлежащее действия."
+    },
+    {
+      "id": "b11.08-an.6",
+      "kind": "truefalse",
+      "statement": "«Bilen söylesin» — «Пусть скажет тот, кто знает».",
+      "answer": true,
+      "explain": "-an без существительного."
+    },
+    {
+      "id": "b11.08-an.7",
+      "kind": "truefalse",
+      "statement": "После гласной -an превращается в -man: okuman.",
+      "answer": false,
+      "explain": "После гласной -yan: okuyan."
+    },
+    {
+      "id": "b11.08-an.8",
+      "kind": "build",
+      "ru": "Девочка, которая читает книгу, — моя сестра.",
+      "answer": "Kitap okuyan kız kardeşim.",
+      "extra": [
+        "okuduğum",
+        "kızın"
+      ],
+      "explain": "Девочка сама читает — okuyan."
+    },
+    {
+      "id": "b11.08-an.9",
+      "kind": "type",
+      "sentence": "Çölde ___ biri bize yolu gösterdi.",
+      "ru": "Человек, который живёт в пустыне, показал нам дорогу.",
+      "hint": "yaşamak, -an",
+      "answer": "yaşayan",
+      "explain": "yaşa + y + an."
+    }
+  ]
+}

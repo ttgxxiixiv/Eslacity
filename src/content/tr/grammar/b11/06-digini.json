@@ -1,0 +1,160 @@
+{
+  "id": "b11.06-digini",
+  "district": "B1.1",
+  "order": 6,
+  "title": "То, что…: -DIğI + падеж",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Причастие -dığı с падежом заменяет русское «что»: **Geldiğini biliyorum** — Я знаю, что ты пришёл. **Ne dediğini anlamadım** — Я не понял, что ты сказал. Падеж — тот, которого требует глагол: bilmek, görmek → **-ı/-i** (винительный)."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Фраза",
+        "Перевод"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Geldiğini gördüm.",
+            "Я видел, что он пришёл."
+          ]
+        },
+        {
+          "cells": [
+            "Ne istediğini söyle.",
+            "Скажи, чего ты хочешь."
+          ]
+        },
+        {
+          "cells": [
+            "Nerede olduğunu bilmiyoruz.",
+            "Мы не знаем, где он."
+          ]
+        },
+        {
+          "cells": [
+            "Haklı olduğuna inanıyorum.",
+            "Я верю, что ты прав."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "С inanmak (верить) нужен дательный: **olduğuna inanıyorum**. Вопросительное слово внутри: **Kimin geldiğini** bilmiyorum — Не знаю, кто пришёл."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Tüccarın yalan söylediğini biliyorum.",
+      "ru": "Я знаю, что купец лжёт."
+    },
+    {
+      "es": "Kerem'in nerede olduğunu kimse bilmiyor.",
+      "ru": "Никто не знает, где Керем."
+    },
+    {
+      "es": "Ne düşündüğünü bana anlat.",
+      "ru": "Расскажи мне, о чём ты думаешь."
+    },
+    {
+      "es": "Şehrin gerçek olduğuna inanmıyorum.",
+      "ru": "Я не верю, что город настоящий."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "b11.06-digini.1",
+      "kind": "choose",
+      "prompt": "«Я знаю, что ты прав»:",
+      "options": [
+        "Haklı olduğunu biliyorum.",
+        "Haklı olduğuna biliyorum.",
+        "Haklısın biliyorum ki."
+      ],
+      "answer": 0,
+      "explain": "bilmek — винительный: olduğunu."
+    },
+    {
+      "id": "b11.06-digini.2",
+      "kind": "choose",
+      "prompt": "«Я верю, что он придёт»:",
+      "options": [
+        "Geleceğine inanıyorum.",
+        "Geleceğini inanıyorum.",
+        "Gelecek inanıyorum."
+      ],
+      "answer": 0,
+      "explain": "inanmak — дательный: geleceğine."
+    },
+    {
+      "id": "b11.06-digini.3",
+      "kind": "gap",
+      "sentence": "Ne ___ anlamadım.",
+      "ru": "Я не понял, что ты сказал.",
+      "options": [
+        "dediğini",
+        "dediğin",
+        "dediğine"
+      ],
+      "answer": 0,
+      "explain": "anlamak — винительный: dediğini."
+    },
+    {
+      "id": "b11.06-digini.4",
+      "kind": "gap",
+      "sentence": "Tüccarın kim ___ bilmiyorum.",
+      "ru": "Я не знаю, кто такой купец.",
+      "options": [
+        "olduğunu",
+        "olduğuna",
+        "olduğu"
+      ],
+      "answer": 0,
+      "explain": "bilmek — винительный."
+    },
+    {
+      "id": "b11.06-digini.5",
+      "kind": "truefalse",
+      "statement": "В турецком «что» в «я знаю, что…» обычно передаётся причастием -dığı.",
+      "answer": true,
+      "explain": "geldiğini biliyorum."
+    },
+    {
+      "id": "b11.06-digini.6",
+      "kind": "truefalse",
+      "statement": "С inanmak причастие стоит в дательном: olduğuna inanıyorum.",
+      "answer": true,
+      "explain": "inanmak + -e."
+    },
+    {
+      "id": "b11.06-digini.7",
+      "kind": "truefalse",
+      "statement": "«Nerede olduğunu biliyorum» — «Я знаю, откуда он».",
+      "answer": false,
+      "explain": "Nerede — где: «Я знаю, где он»."
+    },
+    {
+      "id": "b11.06-digini.8",
+      "kind": "build",
+      "ru": "Скажи мне, чего ты хочешь.",
+      "answer": "Bana ne istediğini söyle.",
+      "extra": [
+        "istediğine",
+        "istiyorsun"
+      ],
+      "explain": "söylemek — винительный: istediğini."
+    },
+    {
+      "id": "b11.06-digini.9",
+      "kind": "type",
+      "sentence": "Kervanın nereye ___ biliyor musun?",
+      "ru": "Ты знаешь, куда пошёл караван?",
+      "hint": "gitmek, винительный",
+      "answer": "gittiğini",
+      "explain": "git + tiğ + i + ni."
+    }
+  ]
+}

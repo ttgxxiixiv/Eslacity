@@ -1,0 +1,172 @@
+{
+  "id": "b12.06-digi-icin",
+  "district": "B1.2",
+  "order": 6,
+  "title": "Потому что: -DIğI için",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Причина — **-dığı / -diği için** + лицо: **Yorgun olduğum için** erken yattım — Я рано лёг, потому что устал. Будущее — **-(y)acağı için**: **Yağmur yağacağı için** şemsiye aldım — Я взял зонт, потому что будет дождь."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Лицо",
+        "Причина",
+        "Перевод"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "ben",
+            "geç kaldığım için",
+            "потому что я опоздал"
+          ]
+        },
+        {
+          "cells": [
+            "sen",
+            "yalan söylediğin için",
+            "потому что ты солгал"
+          ]
+        },
+        {
+          "cells": [
+            "o",
+            "hasta olduğu için",
+            "потому что он болен"
+          ]
+        },
+        {
+          "cells": [
+            "biz",
+            "yorulduğumuz için",
+            "потому что мы устали"
+          ]
+        },
+        {
+          "cells": [
+            "onlar",
+            "bilmedikleri için",
+            "потому что они не знают"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Не путайте: **-mak için** — цель (чтобы), **-dığı için** — причина (потому что). Короче в разговоре: **çünkü** + обычное предложение."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Su olmadığı için vahadan döndük.",
+      "ru": "Мы вернулись из оазиса, потому что там не было воды."
+    },
+    {
+      "es": "Doğruyu söylediğin için geçebilirsin.",
+      "ru": "Ты можешь пройти, потому что сказал правду."
+    },
+    {
+      "es": "Fırtına çıkacağı için yola çıkmadık.",
+      "ru": "Мы не выехали, потому что будет буря."
+    },
+    {
+      "es": "Tüccar yalan söylediği için şehir kayboldu.",
+      "ru": "Город исчез, потому что купец солгал."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "b12.06-digi-icin.1",
+      "kind": "choose",
+      "prompt": "«Потому что я устал»:",
+      "options": [
+        "yorulduğum için",
+        "yorulmak için",
+        "yorulunca için"
+      ],
+      "answer": 0,
+      "explain": "Причина — -duğum için."
+    },
+    {
+      "id": "b12.06-digi-icin.2",
+      "kind": "choose",
+      "prompt": "«Чтобы» или «потому что»: «okumak için»",
+      "options": [
+        "чтобы читать",
+        "потому что читал",
+        "пока читал"
+      ],
+      "answer": 0,
+      "explain": "-mak için — цель."
+    },
+    {
+      "id": "b12.06-digi-icin.3",
+      "kind": "gap",
+      "sentence": "Hasta ___ için gelemedi.",
+      "ru": "Он не смог прийти, потому что болен.",
+      "options": [
+        "olduğu",
+        "olmak",
+        "olacak"
+      ],
+      "answer": 0,
+      "explain": "Причина — olduğu için."
+    },
+    {
+      "id": "b12.06-digi-icin.4",
+      "kind": "gap",
+      "sentence": "Yağmur ___ için şemsiye aldım.",
+      "ru": "Я взял зонт, потому что будет дождь.",
+      "options": [
+        "yağacağı",
+        "yağmak",
+        "yağdığım"
+      ],
+      "answer": 0,
+      "explain": "Причина в будущем — yağacağı için."
+    },
+    {
+      "id": "b12.06-digi-icin.5",
+      "kind": "truefalse",
+      "statement": "-DIğI için выражает причину.",
+      "answer": true,
+      "explain": "olduğu için."
+    },
+    {
+      "id": "b12.06-digi-icin.6",
+      "kind": "truefalse",
+      "statement": "«Geç kaldığım için özür dilerim» — «Простите, что опоздал».",
+      "answer": true,
+      "explain": "Причина извинения."
+    },
+    {
+      "id": "b12.06-digi-icin.7",
+      "kind": "truefalse",
+      "statement": "«-mak için» и «-dığı için» значат одно и то же.",
+      "answer": false,
+      "explain": "Цель и причина."
+    },
+    {
+      "id": "b12.06-digi-icin.8",
+      "kind": "build",
+      "ru": "Я не пришёл, потому что не знал.",
+      "answer": "Bilmediğim için gelmedim.",
+      "extra": [
+        "bilmek",
+        "geldim"
+      ],
+      "explain": "Причина — bilmediğim için."
+    },
+    {
+      "id": "b12.06-digi-icin.9",
+      "kind": "type",
+      "sentence": "Vakit ___ için sana yazamadım.",
+      "ru": "Я не смог тебе написать, потому что не было времени.",
+      "hint": "olmamak, причина",
+      "answer": "olmadığı",
+      "explain": "ol + ma + dığı."
+    }
+  ]
+}
