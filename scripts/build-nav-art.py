@@ -117,3 +117,5 @@ if __name__ == '__main__':
     eyes('nav-wow-eyes.png', ['eye-es', 'eye-it', 'eye-es-gold', 'eye-it-gold'])
     # Английский (2.186.0) — свой лист из двух медальонов: обычный и золотой.
     eyes('nav-wow-eyes-en.png', ['eye-en', 'eye-en-gold'])
+    # Турецкий (2.207.0) — тоже свой лист.
+    eyes('nav-wow-eyes-tr.png', ['eye-tr', 'eye-tr-gold'])

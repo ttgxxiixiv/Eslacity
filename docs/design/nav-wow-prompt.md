@@ -107,7 +107,7 @@ No text, no letters, no numbers, no shadow on the background. Do not use magenta
 
 ## Турецкий курс: медальоны с глазом
 
-Пока своего медальона у турецкого нет, меню берёт испанский (`eyeOf`). Лист из двух медальонов, как у английского, генерировать с приложенным образцом `docs/design/nav-wow-eyes.png`.
+С 2.207.0 медальоны готовы: `eye-tr.webp` и `eye-tr-gold.webp`, лист `docs/design/nav-wow-eyes-tr.png`. Лист из двух медальонов, как у английского, генерировать с приложенным образцом `docs/design/nav-wow-eyes.png`.
 
 ```
 Sheet of 2 round UI medallions for a mobile fantasy RPG, in the hand-painted stylized art style of World of
