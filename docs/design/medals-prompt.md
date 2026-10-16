@@ -164,6 +164,37 @@ readable at 64x64 pixels on a phone.
 ```
 
 
+## 3б. Праздничные медали турецкого курса (с 2.206.0)
+
+Пока обе медали собирает из готовых `scripts/build-tr-festival-medals.py`: костёр Ночи костров в розово-зелёной гамме и барабан карнавала в цветах флага. Рисованный лист — `docs/design/medal-secrets-tr.png`, генерировать с приложенным образцом `docs/design/medal-secrets-en.png`, чтобы оправа и масштаб совпали.
+
+| Медаль | Праздник | Сцена в центре |
+|---|---|---|
+| Ленточка желаний | Hıdrellez, ночь с 5 на 6 мая | цветущий розовый куст с привязанными ленточками, рядом маленький костёр, весенняя ночь |
+| Воздушный змей | 23 Nisan, Детский праздник | красно-белый воздушный змей с длинным хвостом над школьным двором с флажками |
+
+```
+Stylized hand-painted fantasy MMO achievement icon art, in the spirit of World of Warcraft feat-of-strength
+medals: bold chunky shapes, thick painterly brushwork, saturated colors, strong rim light, heavy ornate metal.
+No text, no letters, no numbers. Match the attached reference sheet exactly in frame, size and lighting.
+
+Draw 2 secret medals side by side, exactly the same size and shape, front view, on a plain solid magenta
+(#FF00FF) background with generous empty space between them. Every medal has the same frame: an eight-pointed
+star of dark blackened metal with gold edges, a round inner disc, and a short ribbon tail at the bottom in deep
+purple and gold stripes (deep purple, not pink). Only the scene in the inner disc changes:
+
+1. A blooming rose bush with deep red roses and green leaves, many small coloured cloth ribbons tied to its
+   branches as wishes, a small campfire with golden sparks in front of it, a deep blue spring night sky with
+   a few stars behind.
+2. A bright red and white diamond-shaped kite with a long tail of small bows, flying high in a clear sunny
+   blue sky, below it the edge of a stone schoolyard wall with a row of small red pennants.
+
+Do not use magenta or bright pink anywhere in the medals: the roses are deep red, not pink. Consistent light from
+the top-left. Each medal must stay readable at 64x64 pixels on a phone.
+```
+
+После генерации: лист — в `docs/design/medal-secrets-tr.png`, в `scripts/build-medal-art.py` — `SECRETS_TR = ['festival-hidrellez', 'festival-nisan']` и нарезка, как у английского; временный `scripts/build-tr-festival-medals.py` удалить.
+
 ## После генерации
 
 - Проверить, что оправы одного размера и центр у всех пустой: эмблема ляжет в него кодом.
