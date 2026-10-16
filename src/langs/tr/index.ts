@@ -18,7 +18,7 @@ const SIZ_VERB = '\\p{L}{2,}(?:yorsunuz|acaksınız|eceksiniz|mışsınız|mişs
  */
 export const TR: LangProfile = {
   id: 'tr',
-  released: false,
+  released: true,
   name: 'Турецкий',
   variety: 'Турецкий курс — стамбульский литературный язык: обращение на sen и на siz, kolay gelsin, afiyet olsun.',
   flag: '🇹🇷',

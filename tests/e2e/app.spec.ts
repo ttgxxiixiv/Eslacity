@@ -10,8 +10,8 @@ test('переключение языка сохраняет прогресс к
   await expect(page.getByText('всего 500 XP')).toBeVisible();
 
   await page.goto('./#/settings/language');
-  // С 2.185.0 открыт и английский: в выборе три языка.
-  await expect(page.getByRole('button', { name: /испанский|итальянский|английский/i })).toHaveCount(3);
+  // С 2.185.0 открыт английский, с 2.208.0 — турецкий: в выборе четыре языка.
+  await expect(page.getByRole('button', { name: /испанский|итальянский|английский|турецкий/i })).toHaveCount(4);
   await Promise.all([page.waitForEvent('load'), page.getByRole('button', { name: /итальянский/i }).click()]);
   // Новый курс начинается с пролога.
   await skipPrologue(page);
@@ -24,6 +24,14 @@ test('переключение языка сохраняет прогресс к
   await Promise.all([page.waitForEvent('load'), page.getByRole('button', { name: /английский/i }).click()]);
   await skipPrologue(page);
   expect(await page.evaluate(() => localStorage.getItem('eslacity.lang'))).toBe('en');
+  await page.goto('./#/profile');
+  await expect(page.getByText('всего 0 XP')).toBeVisible();
+
+  // Турецкий тоже свой курс, своя база.
+  await page.goto('./#/settings/language');
+  await Promise.all([page.waitForEvent('load'), page.getByRole('button', { name: /турецкий/i }).click()]);
+  await skipPrologue(page);
+  expect(await page.evaluate(() => localStorage.getItem('eslacity.lang'))).toBe('tr');
   await page.goto('./#/profile');
   await expect(page.getByText('всего 0 XP')).toBeVisible();
 

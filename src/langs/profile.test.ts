@@ -116,9 +116,9 @@ describe('род существительного по профилю', () => {
 });
 
 describe('открытые курсы', () => {
-  it('открыты испанский, итальянский и английский (с 2.185.0), турецкий пока закрыт', () => {
-    expect(RELEASED_LANGS).toEqual(['es', 'it', 'en']);
-    expect(LANG_IDS).toContain('tr');
+  it('открыты испанский, итальянский, английский (с 2.185.0) и турецкий (с 2.208.0)', () => {
+    expect(RELEASED_LANGS).toEqual(['es', 'it', 'en', 'tr']);
+    expect(LANG_IDS).toEqual(RELEASED_LANGS);
   });
 });
 
