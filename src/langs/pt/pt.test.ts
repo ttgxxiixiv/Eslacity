@@ -1,3 +1,4 @@
+import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import { checkTyped } from '../../domain/answer';
 import type { VerbData } from '../types';
@@ -92,5 +93,29 @@ describe('проверка ответа', () => {
     expect(checkTyped('você', ['você']).verdict).toBe('correct');
     expect(checkTyped('coracao', ['coração']).verdict).toBe('almost');
     expect(checkTyped('avo', ['avô']).verdict).toBe('almost');
+  });
+});
+
+describe('кузница курса: глаголы из verbs.json', () => {
+  const file = JSON.parse(readFileSync(new URL('../../content/pt/verbs.json', import.meta.url), 'utf8')) as { verbs: VerbData[] };
+  const verb = (inf: string) => file.verbs.find((v) => v.inf === inf)!;
+
+  it('у каждого глагола во всех временах шесть непустых форм', () => {
+    for (const v of file.verbs) {
+      for (const t of PT.verbs.tenses) expect(f(v, t.id).filter(Boolean), `${v.inf} ${t.id}`).toHaveLength(6);
+    }
+  });
+
+  it('неправильные формы: записанные и выведенные из них', () => {
+    expect(f(verb('fazer'), 'subjuntivo')[0]).toBe('faça');
+    expect(f(verb('fazer'), 'futsubj')[0]).toBe('fizer');
+    expect(f(verb('ter'), 'subjuntivo')[0]).toBe('tenha');
+    expect(f(verb('vir'), 'futsubj')[5]).toBe('vierem');
+    expect(f(verb('pôr'), 'futuro')[0]).toBe('porei');
+    expect(f(verb('pôr'), 'infpessoal')[3]).toBe('pormos');
+    expect(f(verb('sair'), 'futsubj')[5]).toBe('saírem');
+    expect(f(verb('saber'), 'presente')[0]).toBe('sei');
+    expect(f(verb('ver'), 'futsubj')[0]).toBe('vir');
+    expect(PT.verbs.participle(verb('sair'))).toBe('saído');
   });
 });

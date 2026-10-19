@@ -1,0 +1,196 @@
+{
+  "guardians": [
+    {
+      "chapter": 1,
+      "name": "Привратник",
+      "role": "страж городских ворот",
+      "gender": "m",
+      "greeting": {
+        "es": "Olá, viajante. Você fala português? Responda às minhas perguntas.",
+        "ru": "Здравствуй, путник. Ты говоришь по-португальски? Ответь на мои вопросы."
+      },
+      "win": {
+        "es": "Muito bem! Aqui está o selo. O caminho está aberto.",
+        "ru": "Молодец! Вот печать. Путь открыт."
+      },
+      "lose": {
+        "es": "Ainda não. Volte amanhã.",
+        "ru": "Пока нет. Приходи завтра."
+      },
+      "mid": {
+        "es": "Você fala bem. Mas o selo ainda não é seu.",
+        "ru": "Ты хорошо говоришь. Но печать ещё не твоя."
+      },
+      "voice": {
+        "pitch": 0.8,
+        "rate": 0.9
+      },
+      "look": {
+        "skin": 2,
+        "hair": "#3b2a1a",
+        "style": "short",
+        "outfit": "#5b6b3a",
+        "pants": "#2e2216",
+        "extra": [
+          "mustache",
+          "cap"
+        ]
+      }
+    },
+    {
+      "chapter": 2,
+      "name": "Северину",
+      "role": "страж башни на перевале",
+      "gender": "m",
+      "greeting": {
+        "es": "Eu estava esperando você. O que você fez no caminho? Quem você ajudou?",
+        "ru": "Я ждал тебя. Что ты делал в пути? Кому помог?",
+        "fem": {
+          "ru": "Я ждал тебя. Что ты делала в пути? Кому помогла?"
+        }
+      },
+      "win": {
+        "es": "Seu caminho está limpo. Pegue o selo.",
+        "ru": "Твой путь чист. Возьми печать."
+      },
+      "lose": {
+        "es": "Hoje o vento está forte demais. Tente amanhã.",
+        "ru": "Сегодня слишком сильный ветер. Попробуй завтра."
+      },
+      "mid": {
+        "es": "Bom. O vento está passando.",
+        "ru": "Хорошо. Ветер стихает."
+      },
+      "voice": {
+        "pitch": 0.75,
+        "rate": 0.9
+      },
+      "look": {
+        "skin": 3,
+        "hair": "#a0a0a0",
+        "style": "short",
+        "outfit": "#2f4f6f",
+        "pants": "#2e2216",
+        "extra": [
+          "beard"
+        ]
+      }
+    },
+    {
+      "chapter": 3,
+      "name": "Стражница",
+      "role": "стражница белого города",
+      "gender": "f",
+      "greeting": {
+        "es": "Se você me disser a verdade, eu deixo você passar.",
+        "ru": "Если скажешь мне правду, я тебя пропущу."
+      },
+      "win": {
+        "es": "Você disse a verdade. O portão está aberto, o selo é seu.",
+        "ru": "Ты сказал правду. Ворота открыты, печать твоя.",
+        "fem": {
+          "ru": "Ты сказала правду. Ворота открыты, печать твоя."
+        }
+      },
+      "lose": {
+        "es": "Suas palavras ainda estão confusas. Volte amanhã.",
+        "ru": "Твои слова ещё путаются. Вернись завтра."
+      },
+      "mid": {
+        "es": "Os muros brancos estão ouvindo você.",
+        "ru": "Белые стены тебя слушают."
+      },
+      "voice": {
+        "pitch": 1.0,
+        "rate": 0.9
+      },
+      "look": {
+        "skin": 2,
+        "hair": "#2a1a10",
+        "style": "long",
+        "outfit": "#e8e8e8",
+        "pants": "#6a6a7a",
+        "extra": [
+          "badge"
+        ]
+      }
+    },
+    {
+      "chapter": 4,
+      "name": "Хранительница леса",
+      "role": "слушает шёпот деревьев",
+      "gender": "f",
+      "greeting": {
+        "es": "Escute. As árvores estão falando. Você está ouvindo?",
+        "ru": "Слушай. Деревья говорят. Ты их слышишь?"
+      },
+      "win": {
+        "es": "Você ouviu cada sussurro. Pegue o selo.",
+        "ru": "Ты услышал каждый шёпот. Возьми печать.",
+        "fem": {
+          "ru": "Ты услышала каждый шёпот. Возьми печать."
+        }
+      },
+      "lose": {
+        "es": "O vento levou as palavras. Volte amanhã.",
+        "ru": "Ветер унёс слова. Приходи завтра."
+      },
+      "mid": {
+        "es": "A mata começa a confiar em você.",
+        "ru": "Лес начинает тебе доверять."
+      },
+      "voice": {
+        "pitch": 1.0,
+        "rate": 0.85
+      },
+      "look": {
+        "skin": 3,
+        "hair": "#2a1a10",
+        "style": "long",
+        "outfit": "#3a5a2a",
+        "pants": "#2e2216",
+        "extra": []
+      },
+      "listen": true
+    },
+    {
+      "chapter": 5,
+      "name": "Хозяин Эха",
+      "role": "бывший городской глашатай: возвращает каждое слово другим тоном",
+      "gender": "m",
+      "greeting": {
+        "es": "Toda palavra volta para mim. Diga do jeito certo.",
+        "ru": "Каждое слово возвращается ко мне. Скажи его как надо."
+      },
+      "win": {
+        "es": "O eco se calou. Você encontrou o tom certo. O selo é seu.",
+        "ru": "Эхо молчит. Ты нашёл верный тон. Печать твоя.",
+        "fem": {
+          "ru": "Эхо молчит. Ты нашла верный тон. Печать твоя."
+        }
+      },
+      "lose": {
+        "es": "O eco ainda está rindo. Volte amanhã.",
+        "ru": "Эхо ещё смеётся. Приходи завтра."
+      },
+      "mid": {
+        "es": "O eco está diminuindo.",
+        "ru": "Эхо стихает."
+      },
+      "voice": {
+        "pitch": 0.7,
+        "rate": 0.9
+      },
+      "look": {
+        "skin": 4,
+        "hair": "#2a2a2a",
+        "style": "bald",
+        "outfit": "#5a2a4a",
+        "pants": "#1f1a2a",
+        "extra": [
+          "beard"
+        ]
+      }
+    }
+  ]
+}

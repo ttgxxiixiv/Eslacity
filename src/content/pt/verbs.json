@@ -1,0 +1,778 @@
+{
+  "smith": {
+    "name": "Мастер Бене",
+    "role": "кузнец глаголов",
+    "gender": "m",
+    "greeting": {
+      "es": "Olá! Esta é a forja. Aqui a gente forja os verbos.",
+      "ru": "Привет! Это кузница. Здесь мы куём глаголы."
+    },
+    "voice": {
+      "pitch": 0.75,
+      "rate": 0.9
+    },
+    "look": {
+      "skin": 4,
+      "hair": "#1a1a1a",
+      "style": "short",
+      "outfit": "#5a4a3a",
+      "pants": "#2e2216",
+      "extra": [
+        "apron",
+        "beard"
+      ]
+    }
+  },
+  "verbs": [
+    {
+      "inf": "ser",
+      "ru": "быть (постоянно)",
+      "forms": {
+        "presente": [
+          "sou",
+          "és",
+          "é",
+          "somos",
+          "sois",
+          "são"
+        ],
+        "perfeito": [
+          "fui",
+          "foste",
+          "foi",
+          "fomos",
+          "fostes",
+          "foram"
+        ],
+        "imperfeito": [
+          "era",
+          "eras",
+          "era",
+          "éramos",
+          "éreis",
+          "eram"
+        ],
+        "subjuntivo": [
+          "seja",
+          "sejas",
+          "seja",
+          "sejamos",
+          "sejais",
+          "sejam"
+        ]
+      }
+    },
+    {
+      "inf": "estar",
+      "ru": "быть, находиться",
+      "forms": {
+        "presente": [
+          "estou",
+          "estás",
+          "está",
+          "estamos",
+          "estais",
+          "estão"
+        ],
+        "perfeito": [
+          "estive",
+          "estiveste",
+          "esteve",
+          "estivemos",
+          "estivestes",
+          "estiveram"
+        ],
+        "subjuntivo": [
+          "esteja",
+          "estejas",
+          "esteja",
+          "estejamos",
+          "estejais",
+          "estejam"
+        ]
+      }
+    },
+    {
+      "inf": "ter",
+      "ru": "иметь",
+      "forms": {
+        "presente": [
+          "tenho",
+          "tens",
+          "tem",
+          "temos",
+          "tendes",
+          "têm"
+        ],
+        "perfeito": [
+          "tive",
+          "tiveste",
+          "teve",
+          "tivemos",
+          "tivestes",
+          "tiveram"
+        ],
+        "imperfeito": [
+          "tinha",
+          "tinhas",
+          "tinha",
+          "tínhamos",
+          "tínheis",
+          "tinham"
+        ]
+      }
+    },
+    {
+      "inf": "ir",
+      "ru": "идти, ехать",
+      "forms": {
+        "presente": [
+          "vou",
+          "vais",
+          "vai",
+          "vamos",
+          "ides",
+          "vão"
+        ],
+        "perfeito": [
+          "fui",
+          "foste",
+          "foi",
+          "fomos",
+          "fostes",
+          "foram"
+        ],
+        "subjuntivo": [
+          "vá",
+          "vás",
+          "vá",
+          "vamos",
+          "vades",
+          "vão"
+        ]
+      }
+    },
+    {
+      "inf": "fazer",
+      "ru": "делать",
+      "fut": "far",
+      "pp": "feito",
+      "forms": {
+        "presente": [
+          "faço",
+          "fazes",
+          "faz",
+          "fazemos",
+          "fazeis",
+          "fazem"
+        ],
+        "perfeito": [
+          "fiz",
+          "fizeste",
+          "fez",
+          "fizemos",
+          "fizestes",
+          "fizeram"
+        ]
+      }
+    },
+    {
+      "inf": "dizer",
+      "ru": "сказать",
+      "fut": "dir",
+      "pp": "dito",
+      "forms": {
+        "presente": [
+          "digo",
+          "dizes",
+          "diz",
+          "dizemos",
+          "dizeis",
+          "dizem"
+        ],
+        "perfeito": [
+          "disse",
+          "disseste",
+          "disse",
+          "dissemos",
+          "dissestes",
+          "disseram"
+        ]
+      }
+    },
+    {
+      "inf": "poder",
+      "ru": "мочь",
+      "yo": "posso",
+      "forms": {
+        "perfeito": [
+          "pude",
+          "pudeste",
+          "pôde",
+          "pudemos",
+          "pudestes",
+          "puderam"
+        ]
+      }
+    },
+    {
+      "inf": "querer",
+      "ru": "хотеть",
+      "forms": {
+        "presente": [
+          "quero",
+          "queres",
+          "quer",
+          "queremos",
+          "quereis",
+          "querem"
+        ],
+        "perfeito": [
+          "quis",
+          "quiseste",
+          "quis",
+          "quisemos",
+          "quisestes",
+          "quiseram"
+        ],
+        "subjuntivo": [
+          "queira",
+          "queiras",
+          "queira",
+          "queiramos",
+          "queirais",
+          "queiram"
+        ]
+      }
+    },
+    {
+      "inf": "saber",
+      "ru": "знать",
+      "yo": "sei",
+      "forms": {
+        "perfeito": [
+          "soube",
+          "soubeste",
+          "soube",
+          "soubemos",
+          "soubestes",
+          "souberam"
+        ],
+        "subjuntivo": [
+          "saiba",
+          "saibas",
+          "saiba",
+          "saibamos",
+          "saibais",
+          "saibam"
+        ]
+      }
+    },
+    {
+      "inf": "vir",
+      "ru": "приходить",
+      "pp": "vindo",
+      "forms": {
+        "presente": [
+          "venho",
+          "vens",
+          "vem",
+          "vimos",
+          "vindes",
+          "vêm"
+        ],
+        "perfeito": [
+          "vim",
+          "vieste",
+          "veio",
+          "viemos",
+          "viestes",
+          "vieram"
+        ],
+        "imperfeito": [
+          "vinha",
+          "vinhas",
+          "vinha",
+          "vínhamos",
+          "vínheis",
+          "vinham"
+        ]
+      }
+    },
+    {
+      "inf": "dar",
+      "ru": "давать",
+      "forms": {
+        "presente": [
+          "dou",
+          "dás",
+          "dá",
+          "damos",
+          "dais",
+          "dão"
+        ],
+        "perfeito": [
+          "dei",
+          "deste",
+          "deu",
+          "demos",
+          "destes",
+          "deram"
+        ],
+        "subjuntivo": [
+          "dê",
+          "dês",
+          "dê",
+          "demos",
+          "deis",
+          "deem"
+        ]
+      }
+    },
+    {
+      "inf": "ver",
+      "ru": "видеть",
+      "pp": "visto",
+      "forms": {
+        "presente": [
+          "vejo",
+          "vês",
+          "vê",
+          "vemos",
+          "vedes",
+          "veem"
+        ],
+        "perfeito": [
+          "vi",
+          "viste",
+          "viu",
+          "vimos",
+          "vistes",
+          "viram"
+        ]
+      }
+    },
+    {
+      "inf": "pôr",
+      "ru": "класть, ставить",
+      "fut": "por",
+      "pp": "posto",
+      "forms": {
+        "presente": [
+          "ponho",
+          "pões",
+          "põe",
+          "pomos",
+          "pondes",
+          "põem"
+        ],
+        "perfeito": [
+          "pus",
+          "puseste",
+          "pôs",
+          "pusemos",
+          "pusestes",
+          "puseram"
+        ],
+        "imperfeito": [
+          "punha",
+          "punhas",
+          "punha",
+          "púnhamos",
+          "púnheis",
+          "punham"
+        ],
+        "infpessoal": [
+          "pôr",
+          "pores",
+          "pôr",
+          "pormos",
+          "pordes",
+          "porem"
+        ]
+      }
+    },
+    {
+      "inf": "trazer",
+      "ru": "приносить",
+      "fut": "trar",
+      "forms": {
+        "presente": [
+          "trago",
+          "trazes",
+          "traz",
+          "trazemos",
+          "trazeis",
+          "trazem"
+        ],
+        "perfeito": [
+          "trouxe",
+          "trouxeste",
+          "trouxe",
+          "trouxemos",
+          "trouxestes",
+          "trouxeram"
+        ]
+      }
+    },
+    {
+      "inf": "ler",
+      "ru": "читать",
+      "forms": {
+        "presente": [
+          "leio",
+          "lês",
+          "lê",
+          "lemos",
+          "ledes",
+          "leem"
+        ]
+      }
+    },
+    {
+      "inf": "sair",
+      "ru": "выходить",
+      "pp": "saído",
+      "forms": {
+        "presente": [
+          "saio",
+          "sais",
+          "sai",
+          "saímos",
+          "saís",
+          "saem"
+        ],
+        "perfeito": [
+          "saí",
+          "saíste",
+          "saiu",
+          "saímos",
+          "saístes",
+          "saíram"
+        ],
+        "imperfeito": [
+          "saía",
+          "saías",
+          "saía",
+          "saíamos",
+          "saíeis",
+          "saíam"
+        ],
+        "infpessoal": [
+          "sair",
+          "saíres",
+          "sair",
+          "sairmos",
+          "sairdes",
+          "saírem"
+        ],
+        "futsubj": [
+          "sair",
+          "saíres",
+          "sair",
+          "sairmos",
+          "sairdes",
+          "saírem"
+        ]
+      }
+    },
+    {
+      "inf": "subir",
+      "ru": "подниматься",
+      "forms": {
+        "presente": [
+          "subo",
+          "sobes",
+          "sobe",
+          "subimos",
+          "subis",
+          "sobem"
+        ]
+      }
+    },
+    {
+      "inf": "ouvir",
+      "ru": "слышать",
+      "yo": "ouço"
+    },
+    {
+      "inf": "pedir",
+      "ru": "просить, заказывать",
+      "yo": "peço"
+    },
+    {
+      "inf": "dormir",
+      "ru": "спать",
+      "yo": "durmo"
+    },
+    {
+      "inf": "sentir",
+      "ru": "чувствовать",
+      "yo": "sinto"
+    },
+    {
+      "inf": "seguir",
+      "ru": "следовать, идти дальше",
+      "yo": "sigo"
+    },
+    {
+      "inf": "preferir",
+      "ru": "предпочитать",
+      "yo": "prefiro"
+    },
+    {
+      "inf": "vestir",
+      "ru": "надевать",
+      "yo": "visto"
+    },
+    {
+      "inf": "servir",
+      "ru": "подавать, годиться",
+      "yo": "sirvo"
+    },
+    {
+      "inf": "repetir",
+      "ru": "повторять",
+      "yo": "repito"
+    },
+    {
+      "inf": "conseguir",
+      "ru": "суметь, добиться",
+      "yo": "consigo"
+    },
+    {
+      "inf": "perder",
+      "ru": "терять, опаздывать",
+      "yo": "perco"
+    },
+    {
+      "inf": "descobrir",
+      "ru": "открывать, узнавать",
+      "yo": "descubro",
+      "pp": "descoberto"
+    },
+    {
+      "inf": "abrir",
+      "ru": "открывать",
+      "pp": "aberto"
+    },
+    {
+      "inf": "escrever",
+      "ru": "писать",
+      "pp": "escrito"
+    },
+    {
+      "inf": "pagar",
+      "ru": "платить",
+      "pp": "pago"
+    },
+    {
+      "inf": "falar",
+      "ru": "говорить"
+    },
+    {
+      "inf": "morar",
+      "ru": "жить (где-то)"
+    },
+    {
+      "inf": "trabalhar",
+      "ru": "работать"
+    },
+    {
+      "inf": "estudar",
+      "ru": "учиться"
+    },
+    {
+      "inf": "comprar",
+      "ru": "покупать"
+    },
+    {
+      "inf": "chegar",
+      "ru": "приходить, прибывать"
+    },
+    {
+      "inf": "ficar",
+      "ru": "оставаться"
+    },
+    {
+      "inf": "começar",
+      "ru": "начинать"
+    },
+    {
+      "inf": "gostar",
+      "ru": "нравиться (gostar de)"
+    },
+    {
+      "inf": "achar",
+      "ru": "находить, считать"
+    },
+    {
+      "inf": "pensar",
+      "ru": "думать"
+    },
+    {
+      "inf": "levar",
+      "ru": "нести, брать с собой"
+    },
+    {
+      "inf": "deixar",
+      "ru": "оставлять"
+    },
+    {
+      "inf": "encontrar",
+      "ru": "встречать, находить"
+    },
+    {
+      "inf": "esperar",
+      "ru": "ждать, надеяться"
+    },
+    {
+      "inf": "perguntar",
+      "ru": "спрашивать"
+    },
+    {
+      "inf": "ajudar",
+      "ru": "помогать"
+    },
+    {
+      "inf": "tomar",
+      "ru": "пить, принимать"
+    },
+    {
+      "inf": "chamar",
+      "ru": "звать"
+    },
+    {
+      "inf": "olhar",
+      "ru": "смотреть"
+    },
+    {
+      "inf": "lembrar",
+      "ru": "помнить"
+    },
+    {
+      "inf": "precisar",
+      "ru": "нуждаться (precisar de)"
+    },
+    {
+      "inf": "entrar",
+      "ru": "входить"
+    },
+    {
+      "inf": "viajar",
+      "ru": "путешествовать"
+    },
+    {
+      "inf": "jogar",
+      "ru": "играть"
+    },
+    {
+      "inf": "tocar",
+      "ru": "трогать, играть (на инструменте)"
+    },
+    {
+      "inf": "almoçar",
+      "ru": "обедать"
+    },
+    {
+      "inf": "dançar",
+      "ru": "танцевать"
+    },
+    {
+      "inf": "cantar",
+      "ru": "петь"
+    },
+    {
+      "inf": "mandar",
+      "ru": "посылать"
+    },
+    {
+      "inf": "procurar",
+      "ru": "искать"
+    },
+    {
+      "inf": "contar",
+      "ru": "считать, рассказывать"
+    },
+    {
+      "inf": "voltar",
+      "ru": "возвращаться"
+    },
+    {
+      "inf": "acordar",
+      "ru": "просыпаться"
+    },
+    {
+      "inf": "comer",
+      "ru": "есть"
+    },
+    {
+      "inf": "beber",
+      "ru": "пить"
+    },
+    {
+      "inf": "correr",
+      "ru": "бежать"
+    },
+    {
+      "inf": "vender",
+      "ru": "продавать"
+    },
+    {
+      "inf": "aprender",
+      "ru": "учить, узнавать"
+    },
+    {
+      "inf": "entender",
+      "ru": "понимать"
+    },
+    {
+      "inf": "escolher",
+      "ru": "выбирать"
+    },
+    {
+      "inf": "receber",
+      "ru": "получать"
+    },
+    {
+      "inf": "responder",
+      "ru": "отвечать"
+    },
+    {
+      "inf": "conhecer",
+      "ru": "знать (кого-то), знакомиться"
+    },
+    {
+      "inf": "esquecer",
+      "ru": "забывать"
+    },
+    {
+      "inf": "parecer",
+      "ru": "казаться"
+    },
+    {
+      "inf": "viver",
+      "ru": "жить"
+    },
+    {
+      "inf": "partir",
+      "ru": "уезжать"
+    },
+    {
+      "inf": "decidir",
+      "ru": "решать"
+    },
+    {
+      "inf": "assistir",
+      "ru": "смотреть (assistir a)"
+    },
+    {
+      "inf": "dirigir",
+      "ru": "вести машину"
+    },
+    {
+      "inf": "abraçar",
+      "ru": "обнимать"
+    }
+  ]
+}
