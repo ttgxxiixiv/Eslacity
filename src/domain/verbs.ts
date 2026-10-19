@@ -81,7 +81,7 @@ export function forgeTasks(
   verbs: VerbData[], lang: Lang, tenses: Tense[], due: string[], size: number, rng: () => number,
 ): ForgeTask[] {
   const byInf = new Map(verbs.map((v) => [v.inf, v]));
-  const persons = [0, 1, 2, 3, 4, 5];
+  const persons = VERBS(lang).used ?? [0, 1, 2, 3, 4, 5];
   // Время, которого у глагола не бывает (английские глаголы состояния без Continuous), в плавку не идёт.
   const usable = (v: VerbData, t: Tense) => !VERBS(lang).skip?.(v, t);
   const task = (v: VerbData, tense: Tense, person: number): ForgeTask => {

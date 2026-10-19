@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+import { readFileSync } from 'node:fs';
 import { applySkips, applySkipsToForms, cefrIssues, cefrOfRank, loweredCefr, parseRisky, rarityIssues, riskyIssues, buildLexicon, coverage, parseSkips, glossIndex, lemmaRanks, median, stemOf, wordRank, textCoverage, lemmaOf, lemmasIn, parseFreq, parseLemmas, share, tokens, uncoveredWords } from './vocab-lib';
 
 const freq = parseFreq(['# шапка', '1\tel\t100\t?', '2\tser\t90\t', '3\tjohn\t80\t?', '4\tcasa\t70\t', '5\tque\t60\t?', '6\tperro\t50\t'].join('\n'));
@@ -263,5 +264,22 @@ describe('турецкий: разбор аффиксов вместо табл�
     expect(g('evlerde')).toBe('дом');
     expect(g('Geliyorlar')).toBe('приходить');
     expect(g('masada')).toBeUndefined();
+  });
+});
+
+describe('португальский: слияния и формы (задача 19.1)', () => {
+  const forms = parseLemmas(readFileSync(new URL('./data/lemmas-pt.tsv', import.meta.url), 'utf8'));
+
+  it('буквы ã õ ç â ê ô, возвратный глагол через дефис делится на два слова', () => {
+    expect(tokens('Não, o coração é você. Lavar-se à noite.', 'pt')).toEqual(['não', 'o', 'coração', 'é', 'você', 'lavar', 'se', 'à', 'noite']);
+  });
+
+  it('слияния предлога с артиклем и местоимением сводятся к предлогу или местоимению', () => {
+    expect(['do', 'na', 'pelo', 'ao', 'desse', 'dele', 'pra'].map((t) => lemmaOf(t, forms, 'pt'))).toEqual(['de', 'em', 'por', 'a', 'esse', 'ele', 'para']);
+  });
+
+  it('формы глаголов и прилагательных — к лемме, «nós» — местоимение, а не «узел»', () => {
+    expect(['fiquei', 'vamos', 'boa', 'nova'].map((t) => lemmaOf(t, forms, 'pt'))).toEqual(['ficar', 'ir', 'bom', 'novo']);
+    expect(lemmaOf('nós', forms, 'pt')).toBe('nós');
   });
 });

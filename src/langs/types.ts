@@ -3,6 +3,7 @@ import type { EsTense } from './es/verbs';
 import type { ItTense } from './it/verbs';
 import type { EnTense } from './en/verbs';
 import type { TrTense } from './tr/morph';
+import type { PtTense } from './pt/verbs';
 
 /**
  * Профиль языка курса (задача 16.6): всё, что в коде зависит от языка. Профиль — данные и чистые функции,
@@ -10,9 +11,9 @@ import type { TrTense } from './tr/morph';
  * Новый язык — папка `src/langs/<id>/`, строка в `src/langs/index.ts` и id в `Lang`.
  */
 
-export type Lang = 'es' | 'it' | 'en' | 'tr';
+export type Lang = 'es' | 'it' | 'en' | 'tr' | 'pt';
 
-export type Tense = EsTense | ItTense | EnTense | TrTense;
+export type Tense = EsTense | ItTense | EnTense | TrTense | PtTense;
 
 export interface VerbData {
   inf: string;
@@ -52,6 +53,11 @@ export interface VerbProfile {
   tenses: { id: Tense; ru: string; lesson: string }[];
   /** Лица от «я» до «они». */
   persons: string[];
+  /**
+   * Какие лица давать в кузнице (номера в `persons`). Без поля — все шесть. У португальского — бразильские
+   * eu, você, nós, vocês: tu и vós курс не учит, хотя генератор строит и их.
+   */
+  used?: number[];
   /** Окончание инфинитива: глагол с другим окончанием валидатор не пропустит. */
   infinitive: RegExp;
   /** Поля записи глагола, которые у языка бывают (остальные — ошибка валидатора). */

@@ -1,11 +1,11 @@
 /**
  * Строит частотный список лемм для сверки словаря (задача 0.4 в docs/ROADMAP.md).
  *
- *   npx tsx scripts/build-freq.ts <язык> <частоты.txt> <лемматизация.txt>   (es, it, en)
+ *   npx tsx scripts/build-freq.ts <язык> <частоты.txt> <лемматизация.txt>   (es, it, en, pt)
  *
  * Источники (скачиваются вручную, в репозиторий не кладутся):
  * - частоты словоформ по субтитрам OpenSubtitles 2018: github.com/hermitdave/FrequencyWords,
- *   content/2018/<язык>/<язык>_50k.txt, лицензия CC BY-SA 4.0;
+ *   content/2018/<язык>/<язык>_50k.txt (у португальского — pt_br/pt_br_50k.txt, бразильские субтитры), лицензия CC BY-SA 4.0;
  * - лемматизация «лемма<TAB>форма»: github.com/michmech/lemmatization-lists,
  *   lemmatization-<язык>.txt, лицензия ODbL.
  *
@@ -24,11 +24,12 @@ if (!lang || !freqPath || !lemPath) {
 }
 
 const KEEP = 7000;
-const WORD = /^[a-záéíóúüñàèìòùç']+$/;
+const WORD = /^[a-záéíóúüñàèìòùçâêôãõ']+$/;
 // Ругательства часты в субтитрах, но в курс их не берём.
 const SKIP: Record<string, string[]> = {
   es: ['joder', 'mierda', 'puta', 'puto', 'coño', 'cabrón', 'carajo', 'gilipollas', 'pendejo', 'culo', 'follar', 'chingar'],
   it: ['cazzo', 'merda', 'fottere', 'stronzo', 'puttana', 'fanculo', 'cazzata', 'culo', 'coglione', 'troia', 'scopare', 'bastardo'],
+  pt: ['porra', 'merda', 'caralho', 'puta', 'foder', 'cacete', 'bosta', 'droga', 'cu', 'buceta', 'viado', 'babaca', 'otário', 'desgraçado'],
   en: ['fuck', 'fucking', 'shit', 'bitch', 'damn', 'ass', 'asshole', 'bastard', 'crap', 'dick', 'cunt', 'piss', 'motherfucker', 'goddamn', 'whore', 'slut', 'jerk'],
 };
 
@@ -52,6 +53,24 @@ const OVERRIDE: Record<string, Record<string, string>> = {
     uno: 'uno', meno: 'meno', nulla: 'nulla', visto: 'vedere', visti: 'vedere', vista: 'vista',
     come: 'come', ancora: 'ancora', dopo: 'dopo', sopra: 'sopra',
   },
+  // Предлоги сливаются с артиклем (do = de + o, na = em + a, pelo = por + o, à = a + a): слитные формы — к предлогу,
+  // артикли — к «o» и «um». «para» — предлог, а не форма parar; «como», «sobre», «entre» — не глаголы.
+  pt: {
+    a: 'o', os: 'o', as: 'o', uma: 'um', uns: 'um', umas: 'um', o: 'o', um: 'um',
+    do: 'de', da: 'de', dos: 'de', das: 'de', dum: 'de', duma: 'de',
+    no: 'em', na: 'em', nos: 'em', nas: 'em', num: 'em', numa: 'em', nuns: 'em', numas: 'em',
+    ao: 'a', aos: 'a', à: 'a', às: 'a', pelo: 'por', pela: 'por', pelos: 'por', pelas: 'por',
+    para: 'para', pra: 'para', pro: 'para', como: 'como', sobre: 'sobre', entre: 'entre', era: 'ser',
+    é: 'ser', foi: 'ser', está: 'estar', tá: 'estar', né: 'né', cadê: 'cadê',
+    // Слияния с указательными и личными местоимениями: desse = de + esse, nele = em + ele.
+    desse: 'esse', dessa: 'esse', desses: 'esse', dessas: 'esse', deste: 'este', desta: 'este', destes: 'este', destas: 'este',
+    nesse: 'esse', nessa: 'esse', nesses: 'esse', nessas: 'esse', neste: 'este', nesta: 'este',
+    disso: 'isso', disto: 'isto', nisso: 'isso', nisto: 'isto', daquilo: 'aquilo', naquilo: 'aquilo',
+    daquele: 'aquele', daquela: 'aquele', naquele: 'aquele', naquela: 'aquele', àquele: 'aquele',
+    dele: 'ele', dela: 'ele', deles: 'ele', delas: 'ele', nele: 'ele', nela: 'ele', neles: 'ele', nelas: 'ele',
+    daqui: 'aqui', dali: 'ali', daí: 'aí', nós: 'nós', antes: 'antes', equipe: 'equipe', idéia: 'ideia',
+    boa: 'bom', boas: 'bom', nova: 'novo', novas: 'novo', última: 'último', certa: 'certo',
+  },
   // Субтитры режут сокращения на части: «don» + «'t», «'m», «'re». Части сводятся к полным словам.
   en: {
     "'t": 'not', "'m": 'be', "'re": 'be', "'ve": 'have', "'ll": 'will', "'d": 'would', "'s": "'s",
@@ -64,6 +83,7 @@ const OVERRIDE: Record<string, Record<string, string>> = {
 const NUMBERS: Record<string, string[]> = {
   es: ['dos', 'tres', 'cuatro', 'cinco', 'seis', 'siete', 'ocho', 'nueve', 'diez', 'once', 'doce', 'quince', 'veinte', 'treinta', 'cien', 'ciento', 'mil'],
   it: ['due', 'tre', 'quattro', 'cinque', 'sette', 'otto', 'nove', 'dieci', 'undici', 'dodici', 'quindici', 'venti', 'trenta', 'cento', 'mille'],
+  pt: ['dois', 'duas', 'três', 'quatro', 'cinco', 'seis', 'sete', 'oito', 'nove', 'dez', 'onze', 'doze', 'quinze', 'vinte', 'trinta', 'cem', 'cento', 'mil'],
   en: ['two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve', 'fifteen', 'twenty', 'thirty', 'hundred', 'thousand', 'million'],
 };
 
