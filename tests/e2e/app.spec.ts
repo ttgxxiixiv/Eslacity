@@ -42,6 +42,46 @@ test('переключение языка сохраняет прогресс к
   await expect(page.getByText('всего 500 XP')).toBeVisible();
 });
 
+test('меню языка у медальона: список открытых курсов, закрытие и переключение', async ({ page }) => {
+  await openApp(page, 'es');
+  await seedXp(page, 'es', 300);
+  await page.goto('./#/grammar');
+  const eye = page.getByTestId('nav-eye-button');
+  await expect(eye).toHaveAttribute('aria-expanded', 'false');
+  await eye.click();
+  const menu = page.getByTestId('lang-menu');
+  await expect(menu).toBeVisible();
+  const options = menu.getByTestId('lang-option');
+  await expect(options).toHaveCount(4);
+  await expect(options.filter({ hasText: 'Испанский' })).toHaveAttribute('aria-checked', 'true');
+  for (const [lang, name] of [['it', 'Итальянский'], ['en', 'Английский'], ['tr', 'Турецкий']]) {
+    await expect(menu.locator(`[data-lang=${lang}]`)).toContainText(name);
+    await expect(menu.locator(`[data-lang=${lang}] img`)).toHaveAttribute('src', new RegExp(`eye-${lang}`));
+  }
+  // Нажатие мимо меню и Escape закрывают его, язык не меняется.
+  await page.getByTestId('lang-menu-backdrop').click({ position: { x: 20, y: 20 } });
+  await expect(menu).toHaveCount(0);
+  await eye.click();
+  await page.keyboard.press('Escape');
+  await expect(menu).toHaveCount(0);
+  // Текущий язык: меню просто закрывается.
+  await eye.click();
+  await menu.locator('[data-lang=es]').click();
+  await expect(menu).toHaveCount(0);
+  expect(await page.evaluate(() => localStorage.getItem('eslacity.lang'))).toBe('es');
+
+  // Другой язык: приложение перезапускается в его курсе, прогресс испанского на месте.
+  await eye.click();
+  await Promise.all([page.waitForEvent('load'), menu.locator('[data-lang=it]').click()]);
+  await skipPrologue(page);
+  expect(await page.evaluate(() => localStorage.getItem('eslacity.lang'))).toBe('it');
+  await expect(page.getByTestId('nav-art')).toHaveAttribute('data-src', /eye-it/);
+  await page.getByTestId('nav-eye-button').click();
+  await Promise.all([page.waitForEvent('load'), page.getByTestId('lang-menu').locator('[data-lang=es]').click()]);
+  await page.goto('./#/profile');
+  await expect(page.getByText('всего 300 XP')).toBeVisible();
+});
+
 for (const lang of LANGS) {
   test.describe(lang, () => {
     test('верхняя панель: серый огонёк до цели дня, полоска уровня под дорогой дня', async ({ page }) => {

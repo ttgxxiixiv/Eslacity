@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import strip from '../assets/nav/nav-strip.webp';
 import geometry from '../assets/nav/nav-strip.json';
@@ -9,7 +10,7 @@ import eyeEn from '../assets/nav/eye-en.webp';
 import eyeEnGold from '../assets/nav/eye-en-gold.webp';
 import eyeTr from '../assets/nav/eye-tr.webp';
 import eyeTrGold from '../assets/nav/eye-tr-gold.webp';
-import { LANG, type Lang } from '../lang';
+import { LANG, LANGS, RELEASED_LANGS, switchLang, type Lang } from '../lang';
 import { useSphinx } from '../store/sphinx';
 
 // Нижнее меню — рисованный ряд из четырёх каменных ячеек (`nav-strip.webp`) и медальон с глазом в гнезде над ними.
@@ -31,8 +32,12 @@ const EYES: Partial<Record<Lang, { plain: string; gold: string }>> = {
   en: { plain: eyeEn, gold: eyeEnGold },
   tr: { plain: eyeTr, gold: eyeTrGold },
 };
-/** Медальон языка курса; после Эликсира — золотой (задача 8.3). Курс без своего медальона берёт испанский. */
-export const eyeOf = (gold: boolean) => (EYES[LANG] ?? EYES.es!)[gold ? 'gold' : 'plain'];
+/** Медальон языка; после Эликсира — золотой (задача 8.3). Курс без своего медальона берёт испанский. */
+const eyeFor = (lang: Lang, gold: boolean) => (EYES[lang] ?? EYES.es!)[gold ? 'gold' : 'plain'];
+/** Медальон языка курса. */
+export const eyeOf = (gold: boolean) => eyeFor(LANG, gold);
+/** Языки в меню медальона: открытые курсы и текущий, даже если он закрыт. */
+const MENU_LANGS = RELEASED_LANGS.includes(LANG) ? RELEASED_LANGS : [...RELEASED_LANGS, LANG];
 
 function activeTab(pathname: string): number {
   if (pathname.startsWith('/grammar')) return 1;
@@ -49,8 +54,32 @@ export function NavBar() {
   const gold = useSphinx((s) => s.rec.elixir !== undefined);
   const eye = eyeOf(gold);
   const d = 2 * EYE.r * EYE_SCALE;
+  const [open, setOpen] = useState(false);
+  // Меню языка закрывается при переходе на другой экран и по Escape.
+  useEffect(() => {
+    setOpen(false);
+  }, [pathname]);
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setOpen(false);
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [open]);
   return (
     <nav className="pointer-events-none fixed inset-x-0 bottom-0 z-10">
+      {/* Пока меню языка открыто, нажатие мимо него закрывает его. */}
+      {open && (
+        <button
+          type="button"
+          aria-label="Закрыть выбор языка"
+          tabIndex={-1}
+          onClick={() => setOpen(false)}
+          className="pointer-events-auto fixed inset-0 cursor-default"
+          data-testid="lang-menu-backdrop"
+        />
+      )}
       {/* Высота ряда — `--nav-h` из index.css; ширина — в пропорции картинки. По бокам узкого ряда — тёмный камень. */}
       <div className="flex justify-center">
         <div
@@ -60,14 +89,46 @@ export function NavBar() {
           data-gold={gold || undefined}
           style={{ height: 'var(--nav-h)', width: `calc(var(--nav-h) * ${W / H})`, backgroundImage: `url(${strip})`, backgroundSize: '100% 100%' }}
         >
-          <img
-            src={eye}
-            alt=""
-            draggable={false}
-            className="absolute -translate-x-1/2 -translate-y-1/2 select-none"
-            style={{ left: pct(EYE.x, W), top: pct(EYE.y, H), width: pct(d, W), height: 'auto' }}
-            data-testid="nav-eye"
-          />
+          {/* Медальон — кнопка выбора языка курса: над рядом открывается список открытых курсов. */}
+          <button
+            type="button"
+            aria-label={`Язык курса: ${LANGS[LANG].name}. Сменить язык`}
+            aria-expanded={open}
+            aria-haspopup="menu"
+            onClick={() => setOpen((v) => !v)}
+            className="pointer-events-auto absolute z-10 -translate-x-1/2 -translate-y-1/2 rounded-full"
+            style={{ left: pct(EYE.x, W), top: pct(EYE.y, H), width: pct(d, W) }}
+            data-testid="nav-eye-button"
+          >
+            <img src={eye} alt="" draggable={false} className="block h-auto w-full select-none" data-testid="nav-eye" />
+          </button>
+          {open && (
+            <div
+              role="menu"
+              aria-label="Язык курса"
+              className="pointer-events-auto absolute bottom-full left-1/2 z-20 mb-3 w-64 max-w-[calc(100vw-2rem)] -translate-x-1/2 rounded-2xl border-2 border-wood bg-white p-2 shadow-xl"
+              data-testid="lang-menu"
+            >
+              {MENU_LANGS.map((id) => (
+                <button
+                  key={id}
+                  type="button"
+                  role="menuitemradio"
+                  aria-checked={id === LANG}
+                  onClick={() => (id === LANG ? setOpen(false) : switchLang(id))}
+                  className={`press flex w-full items-center gap-3 rounded-xl px-2 py-1.5 text-left font-semibold ${
+                    id === LANG ? 'bg-stone-100 text-wood' : 'text-wood'
+                  }`}
+                  data-testid="lang-option"
+                  data-lang={id}
+                >
+                  <img src={eyeFor(id, id === LANG && gold)} alt="" className="h-9 w-9" />
+                  <span className="flex-1">{LANGS[id].name}</span>
+                  {id === LANG && <span className="shrink-0 text-sm text-stone-500">сейчас</span>}
+                </button>
+              ))}
+            </div>
+          )}
           {TABS.map((t, i) => {
             const [x0, x1] = TILES[i];
             // Подпись — по середине внутренней панели ячейки, а не всей ячейки с каменным краем.
