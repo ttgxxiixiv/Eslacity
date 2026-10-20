@@ -42,6 +42,26 @@
         "comfyq": {"kind": "answer", "task": "Скажите, что очень удобно.", "branches": [{"phrase": "ph:clothes.e-confortavel", "next": "end"}], "wrong": {"es": "É muito caro? Não, hoje tem desconto!", "ru": "Очень дорого? Нет, сегодня скидка!"}},
         "end": {"kind": "say", "es": "Que bom. Aqui estão as botas do Caio: leva para ele. E esse é o meu fragmento do mapa da serra. Procura um gorro vermelho na neblina.", "ru": "Как хорошо. Вот ботинки Каю: отнеси их ему. А это мой обрывок карты гор. Ищи в тумане красную шапку."}
       }
+    },
+    {
+      "id": "ms:clothes.3",
+      "chapter": 3,
+      "npc": "juliana",
+      "scene": "sc:clothes.3",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Para o deserto você precisa de roupa leve. O que você procura?", "ru": "В пустыню нужна лёгкая одежда. Что ищешь?", "next": "linen"},
+        "linen": {"kind": "answer", "task": "Спросите, есть ли льняная рубашка.", "branches": [{"phrase": "ph:clothes.de-linho", "next": "linensay"}], "wrong": {"es": "Um casaco de lã? No deserto? Você vai derreter!", "ru": "Шерстяное пальто? В пустыню? Ты растаешь!"}},
+        "linensay": {"kind": "say", "es": "Tenho essa, branca. Experimenta. Ficou um pouco grande na cintura.", "ru": "Есть вот эта, белая. Примерь. Немного великовата в талии.", "next": "fit"},
+        "fit": {"kind": "answer", "task": "Попросите подогнать по талии.", "branches": [{"phrase": "ph:clothes.pode-ajustar", "next": "fitsay"}], "wrong": {"es": "Pode aumentar? Já está grande!", "ru": "Сделать больше? Она и так велика!"}},
+        "fitsay": {"kind": "say", "es": "Posso, em dez minutos. E para os pés? Olha essa sandália.", "ru": "Могу, за десять минут. А на ноги? Посмотри на эти сандалии.", "next": "match"},
+        "match": {"kind": "answer", "task": "Спросите, подходит ли это к сандалиям.", "branches": [{"phrase": "ph:clothes.combina-com", "next": "matchsay"}], "wrong": {"es": "Combina com o camelo? Não sei, eu não vi o camelo de perto!", "ru": "Подходит к верблюду? Не знаю, я его вблизи не видела!"}},
+        "matchsay": {"kind": "say", "es": "Combina, sim. E olha esse terno, igual ao do homem do camelo.", "ru": "Подходит. А посмотри на этот костюм, такой же, как у человека с верблюдом.", "next": "suit"},
+        "suit": {"kind": "answer", "task": "Скажите, что для вас это слишком нарядно.", "branches": [{"phrase": "ph:clothes.elegante-demais", "next": "suitsay"}], "wrong": {"es": "Quer dois ternos? Um já é muito caro!", "ru": "Два костюма? Даже один очень дорогой!"}},
+        "suitsay": {"kind": "say", "es": "Tudo bem. A camisa e a sandália, então. Vai ficar ótimo no deserto.", "ru": "Ладно. Тогда рубашка и сандалии. В пустыне будет отлично.", "next": "sale", "fem": {"es": "Tudo bem. A camisa e a sandália, então. Vai ficar ótima no deserto.", "ru": "Ладно. Тогда рубашка и сандалии. В пустыне будешь отлично выглядеть."}},
+        "sale": {"kind": "answer", "task": "Спросите, по распродаже ли это.", "branches": [{"phrase": "ph:clothes.esta-em-liquidacao", "next": "end"}], "wrong": {"es": "Paga com areia? Não, aqui só cartão!", "ru": "Платишь песком? Нет, у меня только карта!"}},
+        "end": {"kind": "say", "es": "Está, metade do preço. E no bolso da camisa tem uma coisa: o homem do camelo esqueceu aqui um fragmento do mapa. Esse é verdadeiro. Leva.", "ru": "По распродаже, за полцены. А в кармане рубашки кое-что есть: человек с верблюдом забыл здесь обрывок карты. Этот настоящий. Забирай."}
+      }
     }
   ]
 }

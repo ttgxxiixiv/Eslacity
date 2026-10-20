@@ -40,6 +40,27 @@
         "fullq": {"kind": "answer", "task": "Скажите, что автобус переполнен.", "branches": [{"phrase": "ph:station.o-onibus-esta-lotado", "next": "end"}], "wrong": {"es": "O ônibus está dançando? Não, ele está cheio!", "ru": "Автобус танцует? Нет, он полный!"}},
         "end": {"kind": "say", "es": "Tem outro em dez minutos. Toma o meu fragmento do mapa da serra. E mais uma coisa: uma passagem velha para o trem das sete. Entrega para o homem do casaco cinza. Ele chegou cem anos atrasado, mas a passagem é dele.", "ru": "Через десять минут будет другой. Держи мой обрывок карты гор. И вот ещё: старый билет на поезд в семь. Отдай его человеку в сером пальто. Он опоздал на сто лет, но билет его."}
       }
+    },
+    {
+      "id": "ms:station.3",
+      "chapter": 3,
+      "npc": "raimundo",
+      "scene": "sc:station.3",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "O Trem da Lua sai na sexta. Vem comprar a sua passagem.", "ru": "Лунный поезд уходит в пятницу. Иди покупай билет.", "next": "route"},
+        "route": {"kind": "answer", "task": "Спросите, какой маршрут у поезда.", "branches": [{"phrase": "ph:station.qual-e-a-rota", "next": "routesay"}], "wrong": {"es": "Qual é a cor do trem? Prata, como a lua!", "ru": "Какого цвета поезд? Серебристого, как луна!"}},
+        "routesay": {"kind": "say", "es": "Sai daqui, atravessa a serra e vai até o fim da areia. Depois, só a cidade branca.", "ru": "Отсюда, через горы и до края песков. Дальше — только белый город.", "next": "stop"},
+        "stop": {"kind": "answer", "task": "Спросите, где остановка.", "branches": [{"phrase": "ph:station.onde-fica-a-parada", "next": "stopsay"}], "wrong": {"es": "Onde fica o camelo? Na areia, claro!", "ru": "Где верблюд? В песках, конечно!"}},
+        "stopsay": {"kind": "say", "es": "A última parada é no meio das dunas. Que passagem você quer?", "ru": "Последняя остановка — посреди дюн. Какой билет хочешь?", "next": "ticket"},
+        "ticket": {"kind": "answer", "task": "Попросите билет в одну сторону или туда и обратно.", "branches": [{"phrase": "ph:station.so-de-ida", "next": "oneway"}, {"phrase": "ph:station.passagem-ida-e-volta", "next": "return"}], "wrong": {"es": "Uma passagem para a lua? Esse trem não voa!", "ru": "Билет на Луну? Этот поезд не летает!"}},
+        "oneway": {"kind": "say", "es": "Só de ida, como o homem do camelo. Mas você vai voltar, eu sei.", "ru": "В одну сторону, как у человека с верблюдом. Но ты вернёшься, я знаю.", "next": "seat"},
+        "return": {"kind": "say", "es": "Ida e volta. Muito bem: quem volta conta a história.", "ru": "Туда и обратно. Правильно: кто возвращается, тот и рассказывает.", "next": "seat"},
+        "seat": {"kind": "answer", "task": "Попросите придержать для вас место.", "branches": [{"phrase": "ph:station.guarda-um-lugar", "next": "seatsay"}], "wrong": {"es": "Guardar o trem? O trem é grande demais!", "ru": "Придержать поезд? Он слишком большой!"}},
+        "seatsay": {"kind": "say", "es": "Já guardei: o lugar sete, perto da janela. O trem sai à meia-noite.", "ru": "Уже придержал: место семь, у окна. Поезд отправляется в полночь.", "next": "time"},
+        "time": {"kind": "answer", "task": "Спросите, во сколько прибытие.", "branches": [{"phrase": "ph:station.a-que-horas-chega", "next": "end"}], "wrong": {"es": "Que dia é hoje? Hoje é quarta!", "ru": "Какой сегодня день? Сегодня среда!"}},
+        "end": {"kind": "say", "es": "Quando o sol nascer, você chega. E toma, isso estava no meu horário antigo: um fragmento do mapa do deserto.", "ru": "Когда взойдёт солнце, приедешь. И держи, это лежало в моём старом расписании: обрывок карты пустыни."}
+      }
     }
   ]
 }

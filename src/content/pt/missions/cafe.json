@@ -42,8 +42,28 @@
         "napkinsay": {"kind": "say", "es": "Toma. Olha, essa é a última carta do Caio.", "ru": "Держи. Смотри, а это последнее письмо Каю.", "next": "cash"},
         "cash": {"kind": "answer", "task": "Спросите, можно ли заплатить картой.", "branches": [{"phrase": "ph:cafe.com-cartao", "next": "cashsay"}], "wrong": {"es": "Vai pagar com uma sacola? Eu já tenho sacola, obrigado.", "ru": "Заплатишь пакетом? У меня уже есть пакет, спасибо."}},
         "cashsay": {"kind": "say", "es": "Hoje pode. Mas espera um minuto.", "ru": "Сегодня можно. Но подожди минутку.", "next": "treat"},
-        "treat": {"kind": "answer", "task": "Попросите счёт или скажите, что сегодня угощаете вы.", "branches": [{"phrase": "ph:cafe.a-conta", "next": "end"}, {"phrase": "ph:cafe.eu-convido", "next": "end"}], "wrong": {"es": "Vai me dar o seu mapa? Não, ele fica com você.", "ru": "Отдаёшь мне свою карту? Нет, оставь себе."}},
+        "treat": {"kind": "answer", "task": "Попросите счёт или скажите, что сегодня угощаете вы.", "branches": [{"phrase": "ph:cafe.a-conta", "next": "end", "sets": {"treat": "paid"}}, {"phrase": "ph:cafe.eu-convido", "next": "end", "sets": {"treat": "host"}}], "wrong": {"es": "Vai me dar o seu mapa? Não, ele fica com você.", "ru": "Отдаёшь мне свою карту? Нет, оставь себе."}},
         "end": {"kind": "say", "es": "Não, hoje você não paga nada. E escuta: se você vir o Caio na neblina, chama por ele. Ele sempre dizia: na neblina, só uma voz mostra o caminho. Toma, o meu fragmento do mapa da serra.", "ru": "Нет, сегодня ты ничего не платишь. И послушай: если увидишь Каю в тумане, позови его. Он всегда говорил: в тумане дорогу покажет только голос. Держи мой обрывок карты гор."}
+      }
+    },
+    {
+      "id": "ms:cafe.3",
+      "chapter": 3,
+      "npc": "tonho",
+      "scene": "sc:cafe.3",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Até que enfim! O Severino já foi embora. Você chegou tarde.", "ru": "Наконец-то! Северину уже ушёл. Ты опоздал.", "next": "sorry", "fem": {"ru": "Наконец-то! Северину уже ушёл. Ты опоздала."}},
+        "sorry": {"kind": "answer", "task": "Извинитесь за опоздание.", "branches": [{"phrase": "ph:cafe.me-atrasei", "next": "sorrysay"}], "wrong": {"es": "Desculpa o gato? O gato não fez nada!", "ru": "Извиняешься за кошку? Кошка ничего не сделала!"}},
+        "sorrysay": {"kind": "say", "es": "Tudo bem, o atraso de sempre. Hoje o dia está bonito. Onde você quer sentar?", "ru": "Ладно, как всегда опаздываешь. Сегодня хороший день. Где хочешь сесть?", "next": "table"},
+        "table": {"kind": "answer", "task": "Спросите, можно ли сесть за столик на улице.", "branches": [{"phrase": "ph:cafe.mesa-da-calcada", "next": "tablesay"}], "wrong": {"es": "Na cozinha? Lá só eu entro!", "ru": "На кухне? Туда вхожу только я!"}},
+        "tablesay": {"kind": "say", "es": "Pode. Essa é a mesa preferida do Severino. O que vai tomar?", "ru": "Можно. Это любимый столик Северину. Что будешь пить?", "next": "order"},
+        "order": {"kind": "answer", "task": "Закажите кофе из фильтра.", "branches": [{"phrase": "ph:cafe.cafe-coado", "next": "ordersay"}], "wrong": {"es": "Água do oásis? Aqui não vendo mentira!", "ru": "Воду оазиса? Я здесь ложь не продаю!"}},
+        "ordersay": {"kind": "say", "es": "Café coado, como antigamente. Desculpa, esfriou um pouco: fiquei falando.", "ru": "Кофе из фильтра, как в старину. Извини, немного остыл: я заговорился.", "next": "warm"},
+        "warm": {"kind": "answer", "task": "Попросите подогреть кофе.", "branches": [{"phrase": "ph:cafe.pode-esquentar", "next": "warmsay"}], "wrong": {"es": "Pode esfriar mais? Mais frio, só sorvete.", "ru": "Остудить ещё? Холоднее — только мороженое."}},
+        "warmsay": {"kind": "say", "es": "Pronto, quentinho. O Severino quer falar com você antes do deserto.", "ru": "Готово, горячий. Северину хочет поговорить с тобой до пустыни.", "next": "meet"},
+        "meet": {"kind": "answer", "task": "Предложите договориться о встрече.", "branches": [{"phrase": "ph:cafe.combinar-um-encontro", "next": "end"}], "wrong": {"es": "Um encontro com o camelo? Melhor não.", "ru": "Встречу с верблюдом? Лучше не надо."}},
+        "end": {"kind": "say", "es": "Amanhã, aqui, às sete. E toma o meu fragmento do mapa do deserto. Lembra o que ele disse: no deserto, acredite no que ouve.", "ru": "Завтра, здесь, в семь. И держи мой обрывок карты пустыни. Помни, что он сказал: в пустыне верь тому, что слышишь."}
       }
     }
   ]

@@ -42,6 +42,26 @@
         "recordq": {"kind": "answer", "task": "Скажите, что побили свой рекорд.", "branches": [{"phrase": "ph:gym.bati-o-recorde", "next": "end"}], "wrong": {"es": "Bati o carro? Não, você bateu o recorde!", "ru": "Я разбил машину? Нет, ты побил рекорд!", "fem": {"ru": "Я разбила машину? Нет, ты побила рекорд!"}}},
         "end": {"kind": "say", "es": "Bateu! Agora você pode subir até a torre. Toma o meu fragmento do mapa da serra. E se você vir o homem do casaco cinza, agradece por mim e pela minha mãe.", "ru": "Побил! Теперь ты сможешь подняться к башне. Держи мой обрывок карты гор. А если увидишь человека в сером пальто, поблагодари его от меня и от мамы.", "fem": {"ru": "Побила! Теперь ты сможешь подняться к башне. Держи мой обрывок карты гор. А если увидишь человека в сером пальто, поблагодари его от меня и от мамы."}}
       }
+    },
+    {
+      "id": "ms:gym.3",
+      "chapter": 3,
+      "npc": "tati",
+      "scene": "sc:gym.3",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Hoje é treino para o deserto. Pronto?", "ru": "Сегодня тренировка для пустыни. Готов?", "next": "warm", "fem": {"es": "Hoje é treino para o deserto. Pronta?", "ru": "Сегодня тренировка для пустыни. Готова?"}},
+        "warm": {"kind": "answer", "task": "Скажите, что сначала разминка.", "branches": [{"phrase": "ph:gym.primeiro-o-aquecimento", "next": "warmsay"}], "wrong": {"es": "Primeiro um sorvete? Depois do treino!", "ru": "Сначала мороженое? После тренировки!"}},
+        "warmsay": {"kind": "say", "es": "Isso! Sem aquecimento, a lesão vem. Pronto, agora a esteira.", "ru": "Правильно! Без разминки будет травма. Готово, теперь дорожка.", "next": "goal"},
+        "goal": {"kind": "answer", "task": "Спросите, какая цель на сегодня.", "branches": [{"phrase": "ph:gym.qual-e-a-meta", "next": "goalsay"}], "wrong": {"es": "Qual é o camelo? Aqui não tem camelo!", "ru": "Какой верблюд? Здесь нет верблюдов!"}},
+        "goalsay": {"kind": "say", "es": "Cinco quilômetros, como nas dunas. Vai! … Ei, o que foi?", "ru": "Пять километров, как по дюнам. Давай! … Эй, что случилось?", "next": "hurt"},
+        "hurt": {"kind": "answer", "task": "Скажите, что, кажется, ушибли колено.", "branches": [{"phrase": "ph:gym.machuquei", "next": "hurtsay"}], "wrong": {"es": "Machucou o camelo? Ele nem está aqui!", "ru": "Верблюда ушиб? Его тут даже нет!"}},
+        "hurtsay": {"kind": "say", "es": "Deixa eu ver. Não é nada sério. Mas você precisa parar um pouco.", "ru": "Дай посмотрю. Ничего серьёзного. Но тебе надо немного остановиться.", "next": "rest"},
+        "rest": {"kind": "answer", "task": "Скажите, что вам нужен отдых.", "branches": [{"phrase": "ph:gym.preciso-de-descanso", "next": "restsay"}], "wrong": {"es": "Mais dez quilômetros? Com esse joelho, não!", "ru": "Ещё десять километров? С таким коленом — нет!"}},
+        "restsay": {"kind": "say", "es": "Descanso, sim. Enquanto isso, olha a roda de capoeira lá no canto.", "ru": "Да, отдых. А пока посмотри на круг капоэйры вон в углу.", "next": "roda"},
+        "roda": {"kind": "answer", "task": "Спросите, можно ли войти в круг капоэйры.", "branches": [{"phrase": "ph:gym.roda-de-capoeira", "next": "end"}], "wrong": {"es": "Pode dormir na roda? Ninguém dorme na roda!", "ru": "Можно поспать в кругу? В кругу никто не спит!"}},
+        "end": {"kind": "say", "es": "Hoje só para olhar, com esse joelho. O mestre pediu para te dar isso: o homem do camelo perdeu nas dunas. Um fragmento do mapa.", "ru": "Сегодня только смотреть, с таким коленом. Мастер просил передать тебе это: человек с верблюдом потерял на дюнах. Обрывок карты."}
+      }
     }
   ]
 }

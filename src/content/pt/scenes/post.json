@@ -50,6 +50,31 @@
         {"q": "Что в записке?", "options": ["Иди на голос", "Жди меня", "Не ходи в горы"], "answer": 0}
       ],
       "gloss": {"mandou": "прислал (mandar)", "escrito": "написано (escrever)", "bússola": "компас", "siga": "иди, следуй (seguir)", "vivo": "живой", "correndo": "бегом (correr)"}
+    },
+    {
+      "id": "sc:post.3",
+      "chapter": 3,
+      "npc": "edson",
+      "lines": [
+        {"who": "npc", "es": "Viajante! Tenho um problema! A sua encomenda!", "ru": "Путешественник! У меня проблема! Твоя посылка!", "fem": {"ru": "Путешественница! У меня проблема! Твоя посылка!"}},
+        {"who": "hero", "es": "Que encomenda?", "ru": "Какая посылка?"},
+        {"who": "npc", "es": "O Caio mandou uma encomenda para você do hospital. E agora ela não está aqui.", "ru": "Каю отправил тебе посылку из больницы. А теперь её здесь нет."},
+        {"who": "hero", "es": "Ela se perdeu?", "ru": "Она потерялась?"},
+        {"who": "npc", "es": "Eu também pensei. Mas olha o papel: alguém retirou com o seu nome.", "ru": "Я тоже так подумал. Но посмотри на бумагу: кто-то забрал её на твоё имя."},
+        {"who": "hero", "es": "Com o meu nome? Quem?", "ru": "На моё имя? Кто?"},
+        {"who": "npc", "es": "A assinatura é: «Mercador». E no papel tem areia.", "ru": "Подпись: «Купец». И на бумаге песок."},
+        {"who": "hero", "es": "O homem do camelo.", "ru": "Человек с верблюдом."},
+        {"who": "npc", "es": "No meu correio ninguém rouba encomenda! Vou fazer uma reclamação.", "ru": "На моей почте посылки не крадут! Я подам жалобу."},
+        {"who": "hero", "es": "O que tinha na encomenda?", "ru": "Что было в посылке?"},
+        {"who": "npc", "es": "O Caio diz que era o fragmento dele do mapa do deserto. O verdadeiro.", "ru": "Каю говорит, что там был его обрывок карты пустыни. Настоящий."}
+      ],
+      "questions": [
+        {"q": "Кто отправил посылку?", "options": ["Северину", "Каю", "Сеу Тоньо"], "answer": 1},
+        {"q": "Что случилось с посылкой?", "options": ["Её забрали на имя героя", "Её съел верблюд", "Её вернули"], "answer": 0},
+        {"q": "Как подписался тот, кто её забрал?", "options": ["«Купец»", "«Страж»", "«Друг»"], "answer": 0},
+        {"q": "Что было в посылке?", "options": ["Компас", "Настоящий обрывок карты пустыни", "Письмо"], "answer": 1}
+      ],
+      "gloss": {"encomenda": "посылка", "mandou": "отправил (mandar)", "perdeu": "потерялась (perder-se)", "pensei": "подумал (pensar)", "papel": "бумага", "retirou": "забрал (retirar)", "assinatura": "подпись", "Mercador": "Купец", "correio": "почта", "rouba": "крадёт (roubar)", "reclamação": "жалоба", "Caio": "Каю"}
     }
   ]
 }

@@ -52,6 +52,33 @@
         {"q": "Что было на незнакомце?", "options": ["Красная куртка", "Серое пальто", "Шляпа"], "answer": 1}
       ],
       "gloss": {"freguês": "покупатель (постоянный)", "freguesa": "покупательница", "sitiantes": "фермеры, хозяева маленьких ферм", "serra": "горы", "subia": "поднимался (subir)", "torre": "башня", "usava": "носил (usar)", "casaco": "пальто, куртка", "cinza": "серый", "levou": "взял(а) (levar)", "cozinhou": "приготовил(а) (cozinhar)"}
+    },
+    {
+      "id": "sc:market.3",
+      "chapter": 3,
+      "npc": "graca",
+      "lines": [
+        {"who": "npc", "es": "E a cenoura na serra? O Caio diz que estava muito boa.", "ru": "Как морковка в горах? Каю говорит, была очень вкусная.", "if": {"flag": "veg", "is": "carrots"}},
+        {"who": "npc", "es": "E o alho? O Caio diz que a torre ficou uma semana com cheiro de alho.", "ru": "А чеснок? Каю говорит, в башне неделю пахло чесноком.", "if": {"flag": "veg", "is": "garlic"}},
+        {"who": "npc", "es": "Vem cá, meu bem! Olha essas frutas. Vieram do deserto.", "ru": "Иди сюда, милый! Посмотри на эти фрукты. Они из пустыни.", "fem": {"ru": "Иди сюда, милая! Посмотри на эти фрукты. Они из пустыни."}},
+        {"who": "hero", "es": "Do deserto? Quem trouxe?", "ru": "Из пустыни? Кто их привёз?"},
+        {"who": "npc", "es": "Um homem do deserto, com um camelo. Chegou ontem com sal, frutas e… fragmentos do mapa.", "ru": "Человек из пустыни, с верблюдом. Приехал вчера с солью, фруктами и… обрывками карты."},
+        {"who": "hero", "es": "Fragmentos do mapa do deserto?", "ru": "Обрывками карты пустыни?"},
+        {"who": "npc", "es": "Foi o que ele disse. Mas eu não acredito. Olha esse: a cor é de mapa velho, mas o papel é novo.", "ru": "Так он сказал. Но я не верю. Посмотри на этот: цвет как у старой карты, а бумага новая."},
+        {"who": "hero", "es": "Então é falso.", "ru": "Значит, он поддельный."},
+        {"who": "npc", "es": "Como a cidade branca: parece verdade, mas não é.", "ru": "Как белый город: кажется правдой, а на деле нет."},
+        {"who": "hero", "es": "Quantos fragmentos ele vendeu?", "ru": "Сколько обрывков он продал?"},
+        {"who": "npc", "es": "Muitos. O pessoal pagou uma fortuna. E o homem sumiu, como o vento.", "ru": "Много. Люди заплатили целое состояние. А тот человек исчез, как ветер."},
+        {"who": "hero", "es": "E você tem um verdadeiro?", "ru": "А у тебя есть настоящий?"},
+        {"who": "npc", "es": "Tenho, sim. E vou te dar, se você me ajudar hoje.", "ru": "Есть. И я тебе его отдам, если сегодня поможешь."}
+      ],
+      "questions": [
+        {"q": "Откуда фрукты?", "options": ["С гор", "Из пустыни", "С моря"], "answer": 1},
+        {"q": "Что ещё привёз человек с верблюдом?", "options": ["Обрывки карты", "Фонари", "Письма"], "answer": 0},
+        {"q": "Почему Дона Граса не верит обрывку?", "options": ["Он слишком маленький", "Бумага новая", "Он без рисунка"], "answer": 1},
+        {"q": "Что она отдаст герою?", "options": ["Корзину фруктов", "Настоящий обрывок", "Верблюда"], "answer": 1}
+      ],
+      "gloss": {"parece": "кажется (parecer)", "cenoura": "морковь", "alho": "чеснок", "vieram": "пришли, прибыли (vir)", "trouxe": "привёз (trazer)", "camelo": "верблюд", "sal": "соль", "papel": "бумага", "pessoal": "люди, народ", "fortuna": "состояние, богатство", "sumiu": "исчез (sumir)", "Caio": "Каю", "semana": "неделя", "cheiro": "запах"}
     }
   ]
 }

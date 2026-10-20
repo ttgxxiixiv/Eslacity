@@ -50,6 +50,31 @@
         {"q": "Что делают с седьмым номером каждый день?", "options": ["Убирают", "Сдают", "Закрывают"], "answer": 0}
       ],
       "gloss": {"severino": "Северину (имя)", "ocupados": "заняты (ocupado)", "pousada": "пусада, гостевой дом", "cancelou": "отменила (cancelar)", "costume": "обычай", "descer": "спустится (descer)", "numa": "в (em + uma)"}
+    },
+    {
+      "id": "sc:hotel.3",
+      "chapter": 3,
+      "npc": "helena",
+      "lines": [
+        {"who": "npc", "es": "Boa noite. Tem um envelope para você no balcão.", "ru": "Добрый вечер. На стойке для тебя конверт."},
+        {"who": "hero", "es": "De quem?", "ru": "От кого?"},
+        {"who": "npc", "es": "Do Davi, o homem do camelo. Ele deixou hoje de manhã.", "ru": "От Дави, человека с верблюдом. Он оставил его сегодня утром."},
+        {"who": "hero", "es": "O que tem dentro?", "ru": "Что внутри?"},
+        {"who": "npc", "es": "Fragmentos do mapa. Verdadeiros. Os que ele roubou.", "ru": "Обрывки карты. Настоящие. Те, что он украл."},
+        {"who": "hero", "es": "O do Caio também?", "ru": "И обрывок Каю тоже?"},
+        {"who": "npc", "es": "Também. E um bilhete: «Desculpa. A guardiã me ensinou que a verdade não se vende».", "ru": "Тоже. И записка: «Прости. Стражница научила меня, что правда не продаётся»."},
+        {"who": "hero", "es": "Onde está o Davi?", "ru": "Где Дави?"},
+        {"who": "npc", "es": "Pagou a noite com dinheiro de verdade. E saiu bem cedo, sem barulho.", "ru": "Заплатил за ночь настоящими деньгами. И рано утром тихо ушёл."},
+        {"who": "hero", "es": "Para onde ele foi?", "ru": "Куда он ушёл?"},
+        {"who": "npc", "es": "Para o aeroporto. Disse que ia voltar para casa, para a floresta.", "ru": "В аэропорт. Сказал, что возвращается домой, в лес."}
+      ],
+      "questions": [
+        {"q": "Что лежит на стойке?", "options": ["Конверт", "Ключ", "Чемодан"], "answer": 0},
+        {"q": "Что в конверте?", "options": ["Деньги", "Настоящие обрывки карты", "Билет"], "answer": 1},
+        {"q": "Что написано в записке?", "options": ["«Правда не продаётся»", "«Я вернусь»", "«Спасибо за ночь»"], "answer": 0},
+        {"q": "Куда ушёл Дави?", "options": ["В аэропорт", "В пустыню", "На вокзал"], "answer": 0}
+      ],
+      "gloss": {"envelope": "конверт", "balcão": "стойка", "Davi": "Дави", "deixou": "оставил (deixar)", "dentro": "внутри", "roubou": "украл (roubar)", "bilhete": "записка", "ensinou": "научила (ensinar)", "vende": "продаётся (vender)", "saiu": "ушёл (sair)", "barulho": "шум", "floresta": "лес", "Caio": "Каю", "cedo": "рано"}
     }
   ]
 }

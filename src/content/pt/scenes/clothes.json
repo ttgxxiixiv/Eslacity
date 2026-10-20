@@ -50,6 +50,31 @@
         {"q": "Что просит Жулиана?", "options": ["Отдать ботинки Каю", "Заплатить за них", "Продать их"], "answer": 0}
       ],
       "gloss": {"botas": "ботинки, сапоги (bota)", "gorro": "вязаная шапка", "luvas": "перчатки (luva)", "vê": "se vê — видно (ver)", "longe": "de longe — издалека", "inverno": "зима", "buscar": "забрать"}
+    },
+    {
+      "id": "sc:clothes.3",
+      "chapter": 3,
+      "npc": "juliana",
+      "lines": [
+        {"who": "npc", "es": "Sabe quem veio ontem? O homem do camelo.", "ru": "Знаешь, кто вчера приходил? Человек с верблюдом."},
+        {"who": "hero", "es": "O que ele comprou?", "ru": "Что он купил?"},
+        {"who": "npc", "es": "Um terno muito elegante. Disse que era para uma festa na cidade branca.", "ru": "Очень нарядный костюм. Сказал, что для праздника в белом городе."},
+        {"who": "hero", "es": "Uma festa numa cidade que some?", "ru": "Праздник в городе, который исчезает?"},
+        {"who": "npc", "es": "Eu também perguntei. Ele disse que, uma vez por ano, na lua cheia, a cidade é de verdade.", "ru": "Я тоже спросила. Он сказал, что раз в год, в полнолуние, город настоящий."},
+        {"who": "hero", "es": "Uma noite por ano?", "ru": "Одну ночь в году?"},
+        {"who": "npc", "es": "A noite da grande festa da cidade. Nessa noite, tudo o que a gente vê lá existe mesmo.", "ru": "Ночь большого праздника города. В эту ночь всё, что там видишь, существует на самом деле."},
+        {"who": "hero", "es": "E quando é?", "ru": "И когда это?"},
+        {"who": "npc", "es": "Não quis dizer. Pagou com uma nota… que depois virou areia.", "ru": "Не захотел сказать. Заплатил купюрой… которая потом превратилась в песок."},
+        {"who": "hero", "es": "Outra miragem!", "ru": "Ещё один мираж!"},
+        {"who": "npc", "es": "Por isso agora eu só aceito cartão.", "ru": "Поэтому теперь я принимаю только карты."}
+      ],
+      "questions": [
+        {"q": "Что купил человек с верблюдом?", "options": ["Шляпу", "Нарядный костюм", "Сандалии"], "answer": 1},
+        {"q": "Когда белый город настоящий?", "options": ["Раз в год, в полнолуние", "Каждую ночь", "Никогда"], "answer": 0},
+        {"q": "Чем он заплатил?", "options": ["Картой", "Купюрой, которая стала песком", "Обрывком карты"], "answer": 1},
+        {"q": "Что теперь принимает Жулиана?", "options": ["Только наличные", "Только карты", "Всё"], "answer": 1}
+      ],
+      "gloss": {"veio": "пришёл (vir)", "comprou": "купил (comprar)", "festa": "праздник", "some": "исчезает (sumir)", "perguntei": "спросила (perguntar)", "existe": "существует (existir)", "quis": "захотел (querer)", "nota": "купюра", "virou": "превратилась (virar)", "aceito": "принимаю (aceitar)"}
     }
   ]
 }

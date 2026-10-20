@@ -42,6 +42,26 @@
         "calmq": {"kind": "answer", "task": "Скажите, как здесь спокойно.", "branches": [{"phrase": "ph:park.que-calmo", "next": "end"}], "wrong": {"es": "Que frio aqui? Hoje faz trinta graus!", "ru": "Как здесь холодно? Сегодня тридцать градусов!"}},
         "end": {"kind": "say", "es": "É verdade. O homem não veio. Mas toma o meu fragmento do mapa da serra. Se você vir aquele homem, olha bem a cara dele: é a mesma de cinquenta anos atrás.", "ru": "Правда. Человек не пришёл. Но держи мой обрывок карты гор. Если увидишь его, посмотри на лицо: такое же, как пятьдесят лет назад."}
       }
+    },
+    {
+      "id": "ms:park.3",
+      "chapter": 3,
+      "npc": "valdir",
+      "scene": "sc:park.3",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Vem, vamos procurar os papéis que o homem enterrou. Mas primeiro, olha esse plástico no chão.", "ru": "Пойдём поищем бумаги, которые закопал тот человек. Но сначала посмотри на этот пластик на земле.", "next": "trash"},
+        "trash": {"kind": "answer", "task": "Скажите, что выбросите это в мусор.", "branches": [{"phrase": "ph:park.jogar-no-lixo", "next": "trashsay"}], "wrong": {"es": "Vai enterrar também? Não, chega de enterrar coisas!", "ru": "Тоже закопаешь? Нет, хватит закапывать!"}},
+        "trashsay": {"kind": "say", "es": "Muito bem. O homem foi pela trilha, ali.", "ru": "Молодец. Тот человек ушёл по тропе, вон туда.", "next": "trail"},
+        "trail": {"kind": "answer", "task": "Спросите, ведёт ли эта тропа к водопаду.", "branches": [{"phrase": "ph:park.a-trilha", "next": "trailsay"}], "wrong": {"es": "Vai até o deserto? Não, aqui é o parque!", "ru": "Ведёт в пустыню? Нет, это парк!"}},
+        "trailsay": {"kind": "say", "es": "Vai, sim. Olha os micos! Eles querem o seu pão.", "ru": "Ведёт. Смотри, мартышки! Хотят твой хлеб.", "next": "monkeys"},
+        "monkeys": {"kind": "answer", "task": "Скажите, что мартышек кормить нельзя.", "branches": [{"phrase": "ph:park.nao-alimente", "next": "monkeysay"}], "wrong": {"es": "Dar pão para o camelo? O camelo já foi embora!", "ru": "Дать хлеба верблюду? Верблюд уже ушёл!"}},
+        "monkeysay": {"kind": "say", "es": "Isso. Ontem teve jogo no estádio, e o homem do camelo ficou olhando. Sabe o resultado?", "ru": "Верно. Вчера на стадионе был матч, и человек с верблюдом смотрел. Знаешь, как сыграли?", "next": "game"},
+        "game": {"kind": "answer", "task": "Скажите, что игра закончилась вничью.", "branches": [{"phrase": "ph:park.deu-empate", "next": "gamesay"}], "wrong": {"es": "Ganhou o camelo? Camelo não joga futebol!", "ru": "Выиграл верблюд? Верблюды в футбол не играют!"}},
+        "gamesay": {"kind": "say", "es": "Empate. Ele disse que gostava de futebol na juventude, lá na floresta. Floresta, imagina!", "ru": "Ничья. Он сказал, что в юности любил футбол, там, в лесу. В лесу, представляешь!", "next": "remember"},
+        "remember": {"kind": "answer", "task": "Скажите, что вы это помните.", "branches": [{"phrase": "ph:park.me-lembro", "next": "end"}], "wrong": {"es": "Esqueceu o gol? Que pena!", "ru": "Забыл гол? Как жаль!", "fem": {"ru": "Забыла гол? Как жаль!"}}},
+        "end": {"kind": "say", "es": "Você se lembra de tudo, como eu. Olha, perto da cachoeira, embaixo da pedra: um fragmento velho de verdade. Esse é seu.", "ru": "Ты всё помнишь, как и я. Смотри, у водопада, под камнем: по-настоящему старый обрывок. Он твой."}
+      }
     }
   ]
 }

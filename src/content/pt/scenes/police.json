@@ -50,6 +50,31 @@
         {"q": "У кого билет Северину?", "options": ["У героя", "У делегаду", "У Каю"], "answer": 0}
       ],
       "gloss": {"severino": "Северину (имя)", "caso": "дело", "exatamente": "именно", "tempestade": "буря", "passageiro": "пассажир", "partiu": "ушёл (partir)", "desce": "спускается (descer)", "descer": "спуститься", "viajante": "путешественник, путник", "responde": "ответит (responder)", "conseguiu": "смог (conseguir)", "passado": "прошедшее время", "responder": "отвечу (responder)"}
+    },
+    {
+      "id": "sc:police.3",
+      "chapter": 3,
+      "npc": "moreira",
+      "lines": [
+        {"who": "npc", "es": "Boa tarde. Estou fechando mais um caso: fragmentos falsos e uma encomenda roubada.", "ru": "Добрый день. Закрываю ещё одно дело: поддельные обрывки и украденная посылка."},
+        {"who": "hero", "es": "E quem fez isso?", "ru": "А кто это сделал?"},
+        {"who": "npc", "es": "O Davi. Ele veio falar comigo antes de ir embora. Contou tudo.", "ru": "Дави. Пришёл поговорить со мной перед отъездом. Всё рассказал."},
+        {"who": "hero", "es": "O senhor vai castigar o Davi?", "ru": "Вы его накажете?"},
+        {"who": "npc", "es": "Não. Ele devolveu os fragmentos verdadeiros, e o dinheiro das pessoas. E disse a verdade.", "ru": "Нет. Он вернул настоящие обрывки, а людям — их деньги. И сказал правду."},
+        {"who": "hero", "es": "E isso basta?", "ru": "И этого достаточно?"},
+        {"who": "npc", "es": "Nesta cidade, basta. A verdade vale mais que uma multa.", "ru": "В этом городе — достаточно. Правда важнее штрафа."},
+        {"who": "hero", "es": "E a guardiã da cidade branca?", "ru": "А стражница белого города?"},
+        {"who": "npc", "es": "O Davi me deixou as palavras dela para o senhor.", "ru": "Дави передал мне для вас её слова.", "fem": {"es": "O Davi me deixou as palavras dela para a senhora."}},
+        {"who": "hero", "es": "Quais?", "ru": "Какие?"},
+        {"who": "npc", "es": "«Se você chegar à floresta, escute as árvores. Elas não mentem».", "ru": "«Если дойдёшь до леса, слушай деревья. Они не лгут»."}
+      ],
+      "questions": [
+        {"q": "Какое дело закрывает делегаду?", "options": ["Поддельные обрывки и украденная посылка", "Пропажа верблюда", "Кража в банке"], "answer": 0},
+        {"q": "Что сделал Дави?", "options": ["Сбежал", "Вернул обрывки и деньги и сказал правду", "Заплатил штраф"], "answer": 1},
+        {"q": "Что важнее штрафа?", "options": ["Правда", "Деньги", "Закон"], "answer": 0},
+        {"q": "Что советует стражница?", "options": ["Слушать деревья", "Не ходить в лес", "Идти ночью"], "answer": 0}
+      ],
+      "gloss": {"caso": "дело", "falsos": "поддельные", "encomenda": "посылка", "roubada": "украденная", "Davi": "Дави", "castigar": "наказать", "devolveu": "вернул (devolver)", "basta": "хватает (bastar)", "vale": "стоит (valer)", "multa": "штраф", "guardiã": "стражница", "deixou": "оставил (deixar)", "chegar": "дойдёшь (chegar)", "floresta": "лес", "escute": "слушай (escutar)", "árvores": "деревья", "mentem": "лгут (mentir)"}
     }
   ]
 }

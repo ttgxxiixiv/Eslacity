@@ -42,6 +42,26 @@
         "sunsetq": {"kind": "answer", "task": "Предложите посмотреть на закат.", "branches": [{"phrase": "ph:beach.olha-o-por-do-sol", "next": "end"}], "wrong": {"es": "Vamos ver o nascer da lua? Ainda é cedo!", "ru": "Посмотрим на восход луны? Ещё рано!"}},
         "end": {"kind": "say", "es": "Olha: a torre. A luz acende três vezes. Toma o meu fragmento do mapa da serra. Quando você chegar lá em cima, acende uma luz três vezes também. Eu vou ver você daqui.", "ru": "Смотри: башня. Свет загорается три раза. Держи мой обрывок карты гор. Когда доберёшься наверх, тоже зажги свет три раза. Я увижу тебя отсюда."}
       }
+    },
+    {
+      "id": "ms:beach.3",
+      "chapter": 3,
+      "npc": "bruno",
+      "scene": "sc:beach.3",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Vamos procurar o rastro do camelo na areia. Mas o mar sobe rápido aqui.", "ru": "Поищем след верблюда на песке. Но море здесь быстро поднимается.", "next": "tide"},
+        "tide": {"kind": "answer", "task": "Спросите, сейчас ли отлив.", "branches": [{"phrase": "ph:beach.a-mare-baixa", "next": "tidesay"}], "wrong": {"es": "O mar está doce? Não, é salgado!", "ru": "Море сладкое? Нет, солёное!"}},
+        "tidesay": {"kind": "say", "es": "Está baixa, dá para andar. Olha, aqui tem rastro. Ei, cuidado onde pisa!", "ru": "Отлив, можно идти. Смотри, вот след. Эй, осторожно, куда ступаешь!", "next": "jelly"},
+        "jelly": {"kind": "answer", "task": "Предупредите: осторожно, медуза!", "branches": [{"phrase": "ph:beach.cuidado-agua-viva", "next": "jellysay"}], "wrong": {"es": "Cuidado com o camelo? Ele já foi embora!", "ru": "Осторожно, верблюд? Он уже ушёл!"}},
+        "jellysay": {"kind": "say", "es": "Boa! Você tem olho bom. Que calor, hein?", "ru": "Молодец! Глаз у тебя хороший. Ну и жара, а?", "next": "sun"},
+        "sun": {"kind": "answer", "task": "Скажите, что солнце слишком сильное.", "branches": [{"phrase": "ph:beach.o-sol-esta-forte", "next": "sunsay"}], "wrong": {"es": "Está frio? Aqui nunca faz frio!", "ru": "Холодно? Здесь никогда не бывает холодно!"}},
+        "sunsay": {"kind": "say", "es": "Forte mesmo. Senta na sombra um pouco.", "ru": "Сильное, это точно. Посиди немного в тени.", "next": "chair"},
+        "chair": {"kind": "answer", "task": "Скажите, что хотите взять напрокат пляжное кресло.", "branches": [{"phrase": "ph:beach.alugar-uma-cadeira", "next": "chairsay"}], "wrong": {"es": "Alugar o camelo? Ele não é meu!", "ru": "Взять напрокат верблюда? Он не мой!"}},
+        "chairsay": {"kind": "say", "es": "Toma, essa é de graça para você. E depois, quando o sol baixar?", "ru": "Держи, для тебя бесплатно. А потом, когда солнце сядет?", "next": "walk"},
+        "walk": {"kind": "answer", "task": "Предложите прогуляться по набережной.", "branches": [{"phrase": "ph:beach.vamos-caminhar", "next": "end"}], "wrong": {"es": "Vamos nadar com a água-viva? Nunca!", "ru": "Поплаваем с медузой? Ни за что!"}},
+        "end": {"kind": "say", "es": "Vamos. E olha o que o mar trouxe hoje, perto do rastro: um fragmento do mapa, molhado mas verdadeiro.", "ru": "Пойдём. И смотри, что море принесло сегодня, рядом со следом: обрывок карты, мокрый, но настоящий."}
+      }
     }
   ]
 }

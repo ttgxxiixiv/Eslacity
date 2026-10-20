@@ -40,6 +40,26 @@
         "lateq": {"kind": "answer", "task": "Спросите, не задерживается ли самолёт.", "branches": [{"phrase": "ph:airport.o-aviao-esta-atrasado", "next": "end"}], "wrong": {"es": "O avião está com fome? Não, ele está no portão!", "ru": "Самолёт голодный? Нет, он у выхода!"}},
         "end": {"kind": "say", "es": "Não, está no horário. E depois olha pela janela: a torre, a linha do trem e a areia. Está vendo a cidade branca? Ela não está mais lá. Toma o meu fragmento do mapa da serra.", "ru": "Нет, вовремя. А потом смотри в окно: башня, железная дорога и песок. Видишь белый город? Его уже нет. Держи мой обрывок карты гор."}
       }
+    },
+    {
+      "id": "ms:airport.3",
+      "chapter": 3,
+      "npc": "thiago",
+      "scene": "sc:airport.3",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Que confusão hoje! A tempestade de areia fechou o aeroporto. Posso ajudar?", "ru": "Ну и неразбериха сегодня! Песчаная буря закрыла аэропорт. Чем помочь?", "next": "cancel"},
+        "cancel": {"kind": "answer", "task": "Спросите, не отменили ли ваш рейс.", "branches": [{"phrase": "ph:airport.o-voo-cancelado", "next": "cancelsay"}], "wrong": {"es": "O meu camelo foi cancelado? Camelo não voa!", "ru": "Моего верблюда отменили? Верблюды не летают!"}},
+        "cancelsay": {"kind": "say", "es": "Foi, infelizmente. E você tinha uma conexão depois, não é?", "ru": "Отменили, к сожалению. А у тебя потом была пересадка, да?", "next": "conn"},
+        "conn": {"kind": "answer", "task": "Скажите, что опоздали на пересадку.", "branches": [{"phrase": "ph:airport.perdi-a-conexao", "next": "connsay"}], "wrong": {"es": "Perdi o camelo? Esse não é problema meu!", "ru": "Потерял верблюда? Это не моя проблема!", "fem": {"ru": "Потеряла верблюда? Это не моя проблема!"}}},
+        "connsay": {"kind": "say", "es": "Que pena. Mas tem solução.", "ru": "Жаль. Но выход есть.", "next": "rebook"},
+        "rebook": {"kind": "answer", "task": "Спросите, можно ли перенести билет.", "branches": [{"phrase": "ph:airport.posso-remarcar", "next": "rebooksay"}], "wrong": {"es": "Posso ir de trem? Pode, mas aqui é aeroporto!", "ru": "Можно поехать поездом? Можно, но здесь аэропорт!"}},
+        "rebooksay": {"kind": "say", "es": "Pode, para amanhã de manhã. E a sua mala?", "ru": "Можно, на завтрашнее утро. А твой чемодан?", "next": "bag"},
+        "bag": {"kind": "answer", "task": "Скажите, что ваш багаж потерялся.", "branches": [{"phrase": "ph:airport.a-bagagem-extraviada", "next": "bagsay"}], "wrong": {"es": "A minha mala é de areia? Não, é de couro!", "ru": "Мой чемодан из песка? Нет, кожаный!"}},
+        "bagsay": {"kind": "say", "es": "Vou procurar… Achei! Estava no voo do Davi. Amanhã você embarca às nove.", "ru": "Сейчас поищу… Нашёл! Он был на рейсе Дави. Завтра посадка в девять.", "next": "gate"},
+        "gate": {"kind": "answer", "task": "Спросите, где выход на посадку.", "branches": [{"phrase": "ph:airport.o-portao-de-embarque", "next": "end"}], "wrong": {"es": "Qual é a cor do avião? Branco, como a cidade!", "ru": "Какого цвета самолёт? Белого, как город!"}},
+        "end": {"kind": "say", "es": "Portão sete. E dentro da sua mala tinha isso, que não é seu: um fragmento do mapa com um bilhete do Davi: «Para quem ainda tem caminho».", "ru": "Выход семь. А в твоём чемодане было вот это, не твоё: обрывок карты с запиской от Дави: «Тому, у кого ещё есть дорога»."}
+      }
     }
   ]
 }

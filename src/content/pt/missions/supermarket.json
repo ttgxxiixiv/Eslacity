@@ -44,6 +44,26 @@
         "brandq": {"kind": "answer", "task": "Спросите, какую марку он советует.", "branches": [{"phrase": "ph:supermarket.qual-marca", "next": "end"}], "wrong": {"es": "Qual é o seu nome? Wellington, mas e a marca?", "ru": "Как меня зовут? Веллингтон, а марка-то?"}},
         "end": {"kind": "say", "es": "Para o viajante do mapa, essa aqui com desconto. E toma o meu fragmento do mapa da serra. Se você vir o homem do casaco cinza, pergunta: de onde são essas moedas velhas?", "ru": "Для путника с картой — вот эту, со скидкой. И держи мой обрывок карты гор. Если увидишь человека в сером пальто, спроси его: откуда эти старые монеты?", "fem": {"es": "Para a viajante do mapa, essa aqui com desconto. E toma o meu fragmento do mapa da serra. Se você vir o homem do casaco cinza, pergunta: de onde são essas moedas velhas?", "ru": "Для путницы с картой — вот эту, со скидкой. И держи мой обрывок карты гор. Если увидишь человека в сером пальто, спроси его: откуда эти старые монеты?"}}
       }
+    },
+    {
+      "id": "ms:supermarket.3",
+      "chapter": 3,
+      "npc": "wellington",
+      "scene": "sc:supermarket.3",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Para o deserto você precisa de muita água. De verdade, não do oásis! O que você procura?", "ru": "В пустыню нужно много воды. Настоящей, не из оазиса! Что ищешь?", "next": "water"},
+        "water": {"kind": "answer", "task": "Спросите, правда ли этого товара нет в наличии.", "branches": [{"phrase": "ph:supermarket.em-falta", "next": "watersay"}], "wrong": {"es": "Água do oásis? Aqui não, só água de verdade!", "ru": "Воду оазиса? Здесь нет, только настоящую!"}},
+        "watersay": {"kind": "say", "es": "A água grande está em falta, todo mundo comprou para o deserto. Mas tem essa garrafa nova. Olha.", "ru": "Больших бутылок нет, все раскупили для пустыни. Но есть вот эта новая бутылка. Смотри.", "next": "label"},
+        "label": {"kind": "answer", "task": "Спросите, можно ли прочитать этикетку.", "branches": [{"phrase": "ph:supermarket.ler-o-rotulo", "next": "labelsay"}], "wrong": {"es": "Ler a garrafa? A garrafa não fala!", "ru": "Читать бутылку? Бутылка не разговаривает!"}},
+        "labelsay": {"kind": "say", "es": "Pode. Água mineral, de verdade. E hoje tem oferta: leve três, pague duas.", "ru": "Можно. Минеральная вода, настоящая. А сегодня акция: три по цене двух.", "next": "offer"},
+        "offer": {"kind": "answer", "task": "Скажите, что воспользуетесь предложением.", "branches": [{"phrase": "ph:supermarket.aproveitar-a-oferta", "next": "offersay"}], "wrong": {"es": "Leve três camelos? Não, é água!", "ru": "Три верблюда? Нет, это вода!"}},
+        "offersay": {"kind": "say", "es": "Boa! Toma o troco: são cinco reais.", "ru": "Отлично! Держи сдачу: пять реалов.", "next": "change"},
+        "change": {"kind": "answer", "task": "Скажите, что сдача, кажется, неправильная.", "branches": [{"phrase": "ph:supermarket.o-troco-errado", "next": "changesay"}], "wrong": {"es": "Está certo? Conta de novo!", "ru": "Всё верно? Пересчитай!"}},
+        "changesay": {"kind": "say", "es": "Errado? Ah, essa nota… é areia! Alguém pagou com areia. Foi o homem do camelo!", "ru": "Неправильная? Ах, эта купюра… это песок! Кто-то заплатил песком. Это был человек с верблюдом!", "next": "refund"},
+        "refund": {"kind": "answer", "task": "Попросите вернуть деньги.", "branches": [{"phrase": "ph:supermarket.quero-o-reembolso", "next": "end"}], "wrong": {"es": "Quer mais areia? Já tenho areia demais!", "ru": "Хочешь ещё песка? У меня и так слишком много!"}},
+        "end": {"kind": "say", "es": "Claro, aqui está o seu dinheiro, de verdade. E leva também esse fragmento do mapa: estava no fundo da caixa, embaixo da areia.", "ru": "Конечно, вот твои деньги, настоящие. И возьми ещё этот обрывок карты: он лежал на дне кассы, под песком."}
+      }
     }
   ]
 }

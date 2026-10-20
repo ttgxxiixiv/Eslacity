@@ -4,7 +4,7 @@ import { expect, test, type Page } from '@playwright/test';
 import { openCourse, phraseFull } from './fixtures';
 
 /**
- * Португальский курс закрыт (задача 19.5): сцены и миссии открываются напрямую, без пролога и города.
+ * Португальский курс закрыт (задачи 19.5–19.6): сцены и миссии открываются напрямую, без пролога и города.
  * Каждая сцена и каждая миссия проходится целиком, как в scenes.spec.ts и missions.spec.ts.
  */
 const CONTENT = join(import.meta.dirname, '..', '..', 'src', 'content', 'pt');
@@ -58,13 +58,13 @@ async function playMission(page: Page, id: string, pick: Record<string, number> 
 }
 
 test('pt: все сцены контента — реплики по порядку и все ответы верные', async ({ page }) => {
-  test.setTimeout(360_000);
+  test.setTimeout(540_000);
   await openCourse(page, 'pt');
   for (const sc of scenes) await playScene(page, sc);
 });
 
 test('pt: все миссии контента проходятся выбором без ошибок', async ({ page }) => {
-  test.setTimeout(600_000);
+  test.setTimeout(900_000);
   await openCourse(page, 'pt');
   for (const m of missions) await playMission(page, m.id);
 });
@@ -92,4 +92,20 @@ test('pt: развилка больницы — доктор Фернанда с
   const sc = scenes.find((s) => s.id === 'sc:hospital.2')!;
   await playScene(page, sc, { injury: 'heart' });
   expect(sc.lines.some((l) => l.if?.is === 'heart' && l.es.includes('o seu coração'))).toBe(true);
+});
+
+test('pt: развилка кафе главы II — Сеу Тоньо угощал Северину, как хотел угостить герой', async ({ page }) => {
+  await openCourse(page, 'pt');
+  await playMission(page, 'ms:cafe.2', { 'Попросите счёт или скажите, что сегодня угощаете вы.': 1 });
+  const sc = scenes.find((s) => s.id === 'sc:cafe.3')!;
+  await playScene(page, sc, { treat: 'host' });
+  expect(sc.lines.some((l) => l.if?.is === 'host' && l.es.includes('quem convidou fui eu'))).toBe(true);
+});
+
+test('pt: развилка рынка главы II — Дона Граса спрашивает про чеснок', async ({ page }) => {
+  await openCourse(page, 'pt');
+  await playMission(page, 'ms:market.2', { 'Попросите килограмм моркови или спросите, есть ли чеснок.': 1 });
+  const sc = scenes.find((s) => s.id === 'sc:market.3')!;
+  await playScene(page, sc, { veg: 'garlic' });
+  expect(sc.lines.some((l) => l.if?.is === 'garlic' && l.es.includes('cheiro de alho'))).toBe(true);
 });

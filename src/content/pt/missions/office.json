@@ -44,6 +44,26 @@
         "respq": {"kind": "answer", "task": "Скажите, что это большая ответственность.", "branches": [{"phrase": "ph:office.e-muita-responsabilidade", "next": "end"}], "wrong": {"es": "É muita banana? Não, é muito trabalho!", "ru": "Много бананов? Нет, много работы!"}},
         "end": {"kind": "say", "es": "É verdade. Toma o meu fragmento do mapa da serra. E o relatório sobre o trem: entrega para o Severino. Ele precisa saber que a cidade lembra dele.", "ru": "Правда. Держи мой обрывок карты гор. И отчёт о поезде: отдай его Северину. Пусть знает, что город его помнит."}
       }
+    },
+    {
+      "id": "ms:office.3",
+      "chapter": 3,
+      "npc": "patricia",
+      "scene": "sc:office.3",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Me ajuda a preparar a entrevista do Davi? Tem muito trabalho hoje.", "ru": "Поможешь подготовить собеседование для Дави? Сегодня много работы.", "next": "deadline"},
+        "deadline": {"kind": "answer", "task": "Спросите, какой срок.", "branches": [{"phrase": "ph:office.o-prazo", "next": "deadlinesay"}], "wrong": {"es": "Qual é o camelo? O camelo ficou lá fora!", "ru": "Какой верблюд? Верблюд остался снаружи!"}},
+        "deadlinesay": {"kind": "say", "es": "Até as três. Primeiro, manda o horário para ele por e-mail.", "ru": "До трёх. Сначала отправь ему время письмом.", "next": "attach"},
+        "attach": {"kind": "answer", "task": "Скажите, что прикрепите файл.", "branches": [{"phrase": "ph:office.anexar-o-arquivo", "next": "attachsay"}], "wrong": {"es": "Vai enterrar o arquivo? Não, isso era o Davi!", "ru": "Закопаешь файл? Нет, это делал Дави!"}},
+        "attachsay": {"kind": "say", "es": "Ótimo. Agora o currículo dele, em papel, para o chefe.", "ru": "Отлично. Теперь его резюме, на бумаге, для начальника.", "next": "print"},
+        "print": {"kind": "answer", "task": "Спросите, можно ли распечатать копию.", "branches": [{"phrase": "ph:office.pode-imprimir", "next": "printsay"}], "wrong": {"es": "Pode apagar? Não, o chefe precisa ler!", "ru": "Стереть? Нет, начальнику нужно прочитать!"}},
+        "printsay": {"kind": "say", "es": "Pode. O chefe vai perguntar uma coisa para você também: como você trabalha?", "ru": "Можно. Начальник и тебя кое о чём спросит: как ты работаешь?", "next": "team"},
+        "team": {"kind": "answer", "task": "Скажите, что любите работать в команде.", "branches": [{"phrase": "ph:office.trabalhar-em-equipe", "next": "teamsay"}], "wrong": {"es": "Gosto de trabalhar sozinho no deserto? Isso não parece bom.", "ru": "Люблю работать один в пустыне? Звучит не очень.", "fem": {"es": "Gosto de trabalhar sozinha no deserto? Isso não parece bom.", "ru": "Люблю работать одна в пустыне? Звучит не очень."}}},
+        "teamsay": {"kind": "say", "es": "Resposta certa! Bom, tudo pronto antes do prazo. E agora?", "ru": "Верный ответ! Ну вот, всё готово до срока. А теперь?", "next": "break"},
+        "break": {"kind": "answer", "task": "Предложите перерыв на кофе.", "branches": [{"phrase": "ph:office.uma-pausa", "next": "end"}], "wrong": {"es": "Mais hora extra? Hoje não!", "ru": "Ещё сверхурочно? Сегодня нет!"}},
+        "end": {"kind": "say", "es": "Merecemos. E olha: o Davi mandou junto com o currículo um fragmento do mapa. Ele escreveu: «Esse não é meu. É de quem procura o caminho».", "ru": "Заслужили. И смотри: Дави вместе с резюме прислал обрывок карты. Он написал: «Этот не мой. Он того, кто ищет дорогу»."}
+      }
     }
   ]
 }

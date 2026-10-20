@@ -40,6 +40,26 @@
         "withdrawq": {"kind": "answer", "task": "Скажите, что вам нужно снять деньги.", "branches": [{"phrase": "ph:bank.preciso-sacar-dinheiro", "next": "end"}], "wrong": {"es": "Precisa de um bolo? Aqui é banco, senhor.", "ru": "Вам нужен торт? Это банк, сеньор.", "fem": {"es": "Precisa de um bolo? Aqui é banco, senhora.", "ru": "Вам нужен торт? Это банк, сеньора."}}},
         "end": {"kind": "say", "es": "Tudo bem, pronto. E aqui está o meu fragmento do mapa da serra. Lembre: o guarda não recebe dinheiro, ele recebe palavras.", "ru": "Хорошо, готово. А вот мой обрывок карты гор. Помните: стражу платят не деньгами, а словами."}
       }
+    },
+    {
+      "id": "ms:bank.3",
+      "chapter": 3,
+      "npc": "ricardo",
+      "scene": "sc:bank.3",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "O senhor quer abrir uma conta para a viagem? Antes, uma pergunta: o senhor é cliente novo?", "ru": "Вы хотите открыть счёт для поездки? Сначала вопрос: вы новый клиент?", "next": "reg", "fem": {"es": "A senhora quer abrir uma conta para a viagem? Antes, uma pergunta: a senhora é cliente nova?"}},
+        "reg": {"kind": "answer", "task": "Спросите, нужно ли зарегистрироваться.", "branches": [{"phrase": "ph:bank.fazer-o-cadastro", "next": "regsay"}], "wrong": {"es": "Precisa de um camelo? Não, só de um documento.", "ru": "Нужен верблюд? Нет, только документ."}},
+        "regsay": {"kind": "say", "es": "Precisa, sim. É rápido. O homem do camelo não quis fazer o cadastro. Diz que ele não tem nome.", "ru": "Нужно. Это быстро. Человек с верблюдом не захотел регистрироваться. Говорит, у него нет имени.", "next": "total"},
+        "total": {"kind": "answer", "task": "Спросите, какова общая сумма.", "branches": [{"phrase": "ph:bank.o-valor-total", "next": "totalsay"}], "wrong": {"es": "Quanto vale o deserto? Nada, senhor.", "ru": "Сколько стоит пустыня? Нисколько.", "fem": {"es": "Quanto vale o deserto? Nada, senhora."}}},
+        "totalsay": {"kind": "say", "es": "Para a viagem, quinhentos reais. O senhor paga as suas contas em dia?", "ru": "На поездку — пятьсот реалов. Вы оплачиваете счета вовремя?", "next": "onday", "fem": {"es": "Para a viagem, quinhentos reais. A senhora paga as suas contas em dia?"}},
+        "onday": {"kind": "answer", "task": "Скажите, что всегда платите вовремя.", "branches": [{"phrase": "ph:bank.pagar-em-dia", "next": "ondaysay"}], "wrong": {"es": "Paga com areia? Isso não, por favor!", "ru": "Платите песком? Только не это!"}},
+        "ondaysay": {"kind": "say", "es": "Excelente. Aqui está o seu dinheiro, de verdade.", "ru": "Превосходно. Вот ваши деньги, настоящие.", "next": "receipt"},
+        "receipt": {"kind": "answer", "task": "Попросите квитанцию.", "branches": [{"phrase": "ph:bank.o-comprovante", "next": "receiptsay"}], "wrong": {"es": "Um recibo de areia? Não, de papel.", "ru": "Квитанцию из песка? Нет, из бумаги."}},
+        "receiptsay": {"kind": "say", "es": "Claro. E uma coisa: o homem do camelo deixou algo no cofre.", "ru": "Конечно. И ещё: человек с верблюдом оставил кое-что в сейфе.", "next": "vault"},
+        "vault": {"kind": "answer", "task": "Спросите, можно ли посмотреть старый сейф.", "branches": [{"phrase": "ph:bank.o-cofre-antigo", "next": "end"}], "wrong": {"es": "Abrir o caixa? O caixa é do banco, senhor.", "ru": "Открыть кассу? Касса принадлежит банку.", "fem": {"es": "Abrir o caixa? O caixa é do banco, senhora."}}},
+        "end": {"kind": "say", "es": "Pode. Olhe: um fragmento do mapa. Ele queria trocar por uma conta no nome da cidade branca. Eu não aceitei. Agora é do senhor.", "ru": "Можно. Посмотрите: обрывок карты. Он хотел обменять его на счёт на имя белого города. Я не согласился. Теперь он ваш.", "fem": {"es": "Pode. Olhe: um fragmento do mapa. Ele queria trocar por uma conta no nome da cidade branca. Eu não aceitei. Agora é da senhora."}}
+      }
     }
   ]
 }

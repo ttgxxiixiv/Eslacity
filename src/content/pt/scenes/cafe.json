@@ -52,6 +52,33 @@
         {"q": "Кто живёт в башне?", "options": ["Летописец", "Второй страж", "Пастухи"], "answer": 1}
       ],
       "gloss": {"serra": "горы, горный хребет", "selo": "печать", "guia": "проводник", "torre": "башня", "neblina": "туман", "escrevia": "писал (раньше, escrever)", "ia": "шёл (ir)"}
+    },
+    {
+      "id": "sc:cafe.3",
+      "chapter": 3,
+      "npc": "tonho",
+      "lines": [
+        {"who": "npc", "es": "Bom dia! Sabe quem esteve aqui hoje cedo?", "ru": "Доброе утро! Знаешь, кто был здесь сегодня утром?"},
+        {"who": "hero", "es": "Quem?", "ru": "Кто?"},
+        {"who": "npc", "es": "O Severino, o guarda da torre. Tomou o primeiro cafezinho em cem anos. Disse que estava ótimo.", "ru": "Северину, страж башни. Выпил первый кофе за сто лет. Сказал, что отличный."},
+        {"who": "npc", "es": "E eu não cobrei nada dele. De você também não cobrei da última vez, lembra?", "ru": "И я не взял с него денег. С тебя в прошлый раз тоже не взял, помнишь?", "if": {"flag": "treat", "is": "paid"}},
+        {"who": "npc", "es": "E quem convidou fui eu, como você quis me convidar da última vez.", "ru": "И угощал я, как ты хотел угостить меня в прошлый раз.", "fem": {"ru": "И угощал я, как ты хотела угостить меня в прошлый раз."}, "if": {"flag": "treat", "is": "host"}},
+        {"who": "hero", "es": "E o que ele contou?", "ru": "И что он рассказал?"},
+        {"who": "npc", "es": "Falou do deserto. Disse que a cidade branca aparece quando a sede é grande.", "ru": "Рассказал о пустыне. Говорит, белый город появляется, когда мучает жажда."},
+        {"who": "hero", "es": "E quando a gente chega perto?", "ru": "А когда подходишь ближе?"},
+        {"who": "npc", "es": "Ela some. Mas o Severino diz que lá mora a terceira guardiã.", "ru": "Он исчезает. Но Северину говорит, что там живёт третья стражница."},
+        {"who": "hero", "es": "Numa cidade que não existe?", "ru": "В городе, которого нет?"},
+        {"who": "npc", "es": "Foi o que ele disse. E deixou um conselho para você: no deserto, não acredite no que vê. Acredite no que ouve.", "ru": "Так он сказал. И оставил тебе совет: в пустыне не верь тому, что видишь. Верь тому, что слышишь."},
+        {"who": "hero", "es": "E o Caio? Como ele está?", "ru": "А Каю? Как он?"},
+        {"who": "npc", "es": "Melhor. Quer ir com você para o deserto, mas com o pé quebrado não pode. Está muito bravo.", "ru": "Лучше. Хочет идти с тобой в пустыню, но со сломанной стопой не может. Очень сердится."}
+      ],
+      "questions": [
+        {"q": "Кто выпил первый кофе за сто лет?", "options": ["Каю", "Северину", "Купец"], "answer": 1},
+        {"q": "Когда появляется белый город?", "options": ["Когда мучает жажда", "Ночью", "После дождя"], "answer": 0},
+        {"q": "Какой совет оставил Северину?", "options": ["Не ходить в пустыню", "Верить тому, что слышишь", "Идти только днём"], "answer": 1},
+        {"q": "Почему Каю не может пойти?", "options": ["Он занят в кафе", "У него сломана стопа", "Он боится"], "answer": 1}
+      ],
+      "gloss": {"cobrei": "взял денег (cobrar — брать плату)", "convidou": "угощал (convidar)", "quis": "хотел (querer)", "some": "исчезает (sumir)", "terceira": "третья", "quebrado": "сломанный", "bravo": "сердитый", "Severino": "Северину", "Caio": "Каю", "cedo": "рано"}
     }
   ]
 }

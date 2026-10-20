@@ -44,6 +44,26 @@
         "passq": {"kind": "answer", "task": "Спросите, сдали ли вы экзамен.", "branches": [{"phrase": "ph:school.passei-na-prova", "next": "end"}], "wrong": {"es": "Passei na praia? Não, você está na escola!", "ru": "Я прошёл по пляжу? Нет, ты в школе!", "fem": {"ru": "Я прошла по пляжу? Нет, ты в школе!"}}},
         "end": {"kind": "say", "es": "Passou! A sua nota é nove. E o prêmio é o meu fragmento do mapa da serra. Quando a neblina perguntar, responde no passado.", "ru": "Сдал! Твоя оценка — девять. А награда — мой обрывок карты гор. Когда туман спросит тебя, отвечай в прошедшем времени.", "fem": {"ru": "Сдала! Твоя оценка — девять. А награда — мой обрывок карты гор. Когда туман спросит тебя, отвечай в прошедшем времени."}}
       }
+    },
+    {
+      "id": "ms:school.3",
+      "chapter": 3,
+      "npc": "marcia",
+      "scene": "sc:school.3",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Vamos ler o caderno do homem do camelo juntos. Tem palavras difíceis.", "ru": "Давай почитаем тетрадь человека с верблюдом вместе. Там трудные слова.", "next": "word"},
+        "word": {"kind": "answer", "task": "Спросите, что значит это слово.", "branches": [{"phrase": "ph:school.o-que-significa", "next": "wordsay"}], "wrong": {"es": "Quem escreveu? O homem do camelo, claro!", "ru": "Кто написал? Человек с верблюдом, конечно!"}},
+        "wordsay": {"kind": "say", "es": "«Miragem»: uma coisa que a gente vê, mas que não existe. Agora lê essa linha.", "ru": "«Miragem» — это то, что видишь, но чего нет. Теперь прочитай эту строчку.", "next": "say1"},
+        "say1": {"kind": "answer", "task": "Спросите, как это произносится.", "branches": [{"phrase": "ph:school.como-se-pronuncia", "next": "say1say"}], "wrong": {"es": "Como se escreve? Já está escrito, olha!", "ru": "Как пишется? Уже написано, смотри!"}},
+        "say1say": {"kind": "say", "es": "«Se eu disser a verdade, a cidade fica». Muito bem. E essa frase aqui, em outra língua?", "ru": "«Если я скажу правду, город останется». Отлично. А вот эта фраза, на другом языке?", "next": "translate"},
+        "translate": {"kind": "answer", "task": "Попросите перевести для вас.", "branches": [{"phrase": "ph:school.pode-traduzir", "next": "translatesay"}], "wrong": {"es": "Pode apagar? Não, é o caderno dele!", "ru": "Стереть? Нет, это его тетрадь!"}},
+        "translatesay": {"kind": "say", "es": "É a língua da floresta. Diz: «As árvores falam o meu nome». Agora escreve você: «se eu fosse…».", "ru": "Это язык леса. Тут написано: «Деревья говорят моё имя». Теперь напиши ты: «если бы я был…».", "next": "check"},
+        "check": {"kind": "answer", "task": "Спросите, правильно ли так.", "branches": [{"phrase": "ph:school.esta-correto", "next": "checksay"}], "wrong": {"es": "Está bonito? Bonito está, mas está certo?", "ru": "Красиво? Красиво, а правильно ли?"}},
+        "checksay": {"kind": "say", "es": "Correto! Você aprende mais rápido que ele. Quer estudar mais em casa?", "ru": "Правильно! Ты учишься быстрее него. Хочешь ещё позаниматься дома?", "next": "book"},
+        "book": {"kind": "answer", "task": "Спросите, можно ли взять книгу.", "branches": [{"phrase": "ph:school.emprestar-um-livro", "next": "end"}], "wrong": {"es": "Pode levar o quadro? Não, esse fica na escola!", "ru": "Забрать доску? Нет, она остаётся в школе!"}},
+        "end": {"kind": "say", "es": "Pode. Toma esse, de frases com «se». E dentro do livro tem um fragmento do mapa: estava no caderno dele. Esse é para você.", "ru": "Можно. Держи эту, про фразы с «если». А внутри книги — обрывок карты: он был в его тетради. Это тебе."}
+      }
     }
   ]
 }

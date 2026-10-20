@@ -45,6 +45,26 @@
         "homeq": {"kind": "answer", "task": "Спросите, когда Каю сможет пойти домой.", "branches": [{"phrase": "ph:hospital.quando-posso-ir-para-casa", "next": "end"}], "wrong": {"es": "Quando eu posso ir para a lua? Nunca!", "ru": "Когда я смогу полететь на луну? Никогда!"}},
         "end": {"kind": "say", "es": "Amanhã, com muletas. Toma o meu fragmento do mapa da serra. E lembra da terceira pergunta: quem você ajudou. Você sabe isso melhor do que ninguém.", "ru": "Завтра, на костылях. Возьми мой обрывок карты гор. И помни третий вопрос: кому ты помог. Ты знаешь это лучше всех.", "fem": {"ru": "Завтра, на костылях. Возьми мой обрывок карты гор. И помни третий вопрос: кому ты помогла. Ты знаешь это лучше всех."}}
       }
+    },
+    {
+      "id": "ms:hospital.3",
+      "chapter": 3,
+      "npc": "fernanda",
+      "scene": "sc:hospital.3",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "O Caio tem consulta hoje. Você veio com ele?", "ru": "У Каю сегодня приём. Ты пришёл с ним?", "next": "companion", "fem": {"ru": "У Каю сегодня приём. Ты пришла с ним?"}},
+        "companion": {"kind": "answer", "task": "Скажите, что вы его сопровождающий.", "branches": [{"phrase": "ph:hospital.sou-acompanhante", "next": "companionsay"}], "wrong": {"es": "Sou o médico? Não, a médica sou eu!", "ru": "Я врач? Нет, врач здесь я!", "fem": {"es": "Sou a médica? Não, a médica sou eu!"}}},
+        "companionsay": {"kind": "say", "es": "Ótimo, entra. Caio, como está o pé? … Ele diz que hoje a perna dói menos.", "ru": "Хорошо, входи. Каю, как нога? … Он говорит, что сегодня болит меньше.", "next": "exam"},
+        "exam": {"kind": "answer", "task": "Спросите, готов ли результат анализа.", "branches": [{"phrase": "ph:hospital.o-resultado-do-exame", "next": "examsay"}], "wrong": {"es": "Já saiu o trem? Isso é na estação!", "ru": "Поезд уже ушёл? Это на вокзале спрашивают!"}},
+        "examsay": {"kind": "say", "es": "Saiu, está tudo bem. A fratura está fechando. E você? Está andando estranho.", "ru": "Готов, всё хорошо. Перелом срастается. А ты? Ты как-то странно ходишь.", "next": "twist"},
+        "twist": {"kind": "answer", "task": "Скажите, что, кажется, подвернули ногу.", "branches": [{"phrase": "ph:hospital.torci-o-pe", "next": "twistsay"}], "wrong": {"es": "Quebrei a lua? Isso não dá!", "ru": "Сломал луну? Так не бывает!", "fem": {"ru": "Сломала луну? Так не бывает!"}}},
+        "twistsay": {"kind": "say", "es": "Deixa eu ver. Onde dói?", "ru": "Дай посмотрю. Где болит?", "next": "swollen"},
+        "swollen": {"kind": "answer", "task": "Скажите, что лодыжка опухла.", "branches": [{"phrase": "ph:hospital.esta-inchado", "next": "swollensay"}], "wrong": {"es": "Está com areia? Areia não dói!", "ru": "Там песок? Песок не болит!"}},
+        "swollensay": {"kind": "say", "es": "Um pouco inchado. Não é fratura. Gelo e repouso por um dia, depois pode ir para o deserto.", "ru": "Немного опухла. Это не перелом. Лёд и покой на день, потом можешь идти в пустыню.", "next": "discharge"},
+        "discharge": {"kind": "answer", "task": "Спросите, когда вас выпишут.", "branches": [{"phrase": "ph:hospital.quando-tenho-alta", "next": "end"}], "wrong": {"es": "Quando eu tenho férias? Isso é com o seu chefe!", "ru": "Когда у меня отпуск? Это к начальнику!"}},
+        "end": {"kind": "say", "es": "Amanhã cedo. E o Caio pediu para te dar isso: o fragmento que o Davi devolveu. Vai com ele no deserto, por nós dois.", "ru": "Завтра утром. И Каю просил передать тебе это: обрывок, который вернул Дави. Возьми его в пустыню, за нас обоих."}
+      }
     }
   ]
 }

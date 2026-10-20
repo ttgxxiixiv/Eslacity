@@ -50,6 +50,31 @@
         {"q": "Что он сказал?", "options": ["Скоро придёт туман", "Карта — легенда", "Я вернусь"], "answer": 0}
       ],
       "gloss": {"viajante": "путешественник, путник", "lanterna": "фонарь", "lanternas": "фонари (lanterna)", "usava": "носил (usar)", "casaco": "пальто, куртка", "cinza": "серый", "moedas": "монеты (moeda)", "embora": "ir embora — уходить", "lenda": "легенда", "certeza": "уверенность"}
+    },
+    {
+      "id": "sc:supermarket.3",
+      "chapter": 3,
+      "npc": "wellington",
+      "lines": [
+        {"who": "npc", "es": "Viajante! Ontem eu levei uma entrega até o fim do mundo: a última casa antes do deserto.", "ru": "Путешественник! Вчера я отвёз заказ на край света: в последний дом перед пустыней.", "fem": {"ru": "Путешественница! Вчера я отвёз заказ на край света: в последний дом перед пустыней."}},
+        {"who": "hero", "es": "Tão longe?", "ru": "Так далеко?"},
+        {"who": "npc", "es": "Muito longe. De bicicleta, com o sol forte. Quase morri de sede.", "ru": "Очень далеко. На велосипеде, под палящим солнцем. Чуть не умер от жажды."},
+        {"who": "hero", "es": "E o que você viu lá?", "ru": "И что ты там видел?"},
+        {"who": "npc", "es": "Um homem vendia água do oásis em garrafas. O pessoal pagava uma fortuna.", "ru": "Человек продавал воду оазиса в бутылках. Люди платили целое состояние."},
+        {"who": "hero", "es": "E aí?", "ru": "И что?"},
+        {"who": "npc", "es": "Eu abri uma garrafa. Estava vazia. Mas antes de abrir, parecia cheia.", "ru": "Я открыл одну бутылку. Она была пустая. А пока не откроешь, казалась полной."},
+        {"who": "hero", "es": "Como a cidade branca.", "ru": "Как белый город."},
+        {"who": "npc", "es": "Pois é. No deserto até as garrafas mentem.", "ru": "Вот именно. В пустыне даже бутылки лгут."},
+        {"who": "hero", "es": "E o homem?", "ru": "А тот человек?"},
+        {"who": "npc", "es": "Sumiu. Ficou só o rastro na areia, e o vento apagou.", "ru": "Исчез. Остался только след на песке, и ветер его стёр."}
+      ],
+      "questions": [
+        {"q": "Куда Веллингтон отвёз заказ?", "options": ["В горы", "В последний дом перед пустыней", "На пляж"], "answer": 1},
+        {"q": "Что продавал человек?", "options": ["Воду оазиса", "Фрукты", "Карты"], "answer": 0},
+        {"q": "Что было в бутылке?", "options": ["Морская вода", "Ничего", "Песок"], "answer": 1},
+        {"q": "Что стало со следом?", "options": ["Его стёр ветер", "Он ведёт в город", "Его нашли собаки"], "answer": 0}
+      ],
+      "gloss": {"parecia": "казалась (parecer)", "pois": "ведь (pois é — вот именно)", "entrega": "доставка, заказ", "levei": "отвёз (levar)", "morri": "умер (morrer)", "vendia": "продавал (vender)", "garrafas": "бутылки", "pagava": "платили (pagar)", "fortuna": "состояние", "abri": "открыл (abrir)", "vazia": "пустая", "cheia": "полная", "mentem": "лгут (mentir)", "apagou": "стёр (apagar)", "pessoal": "люди"}
     }
   ]
 }

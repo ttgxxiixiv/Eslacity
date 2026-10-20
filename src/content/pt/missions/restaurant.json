@@ -42,6 +42,26 @@
         "specialq": {"kind": "answer", "task": "Спросите, какое фирменное блюдо.", "branches": [{"phrase": "ph:restaurant.qual-e-a-especialidade", "next": "end"}], "wrong": {"es": "Qual é a cidade? Você está aqui, no restaurante!", "ru": "Какой город? Ты здесь, в ресторане!"}},
         "end": {"kind": "say", "es": "A moqueca, claro. Mas hoje tem uma coisa especial: o meu fragmento do mapa da serra. Se você encontrar o Caio, diz que o caldo dele está esperando.", "ru": "Мокека, конечно. Но сегодня есть кое-что особенное: мой обрывок карты гор. Если найдёшь Каю, скажи: его суп ждёт."}
       }
+    },
+    {
+      "id": "ms:restaurant.3",
+      "chapter": 3,
+      "npc": "dita",
+      "scene": "sc:restaurant.3",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Senta, senta! Hoje você come antes do deserto. O que vai ser?", "ru": "Садись, садись! Сегодня ты поешь перед пустыней. Что будешь?", "next": "dish"},
+        "dish": {"kind": "answer", "task": "Спросите, какое сегодня блюдо дня.", "branches": [{"phrase": "ph:restaurant.o-prato-do-dia", "next": "dishsay"}], "wrong": {"es": "Areia do dia? Isso só no deserto!", "ru": "Песок дня? Это только в пустыне!"}},
+        "dishsay": {"kind": "say", "es": "Hoje tem picanha com farofa. E a carne, como você quer?", "ru": "Сегодня пиканья с фарофой. А мясо как тебе?", "next": "meat"},
+        "meat": {"kind": "answer", "task": "Попросите хорошо прожаренное.", "branches": [{"phrase": "ph:restaurant.bem-passado", "next": "meatsay"}], "wrong": {"es": "Crua como um camelo? Não, aqui não!", "ru": "Сырое, как верблюд? Нет, у меня так нельзя!"}},
+        "meatsay": {"kind": "say", "es": "Bem passada, como o Severino. Quer a minha pimenta?", "ru": "Хорошо прожаренная, как у Северину. Хочешь моего перца?", "next": "pepper"},
+        "pepper": {"kind": "answer", "task": "Попросите без перца малагета.", "branches": [{"phrase": "ph:restaurant.sem-pimenta", "next": "peppersay"}], "wrong": {"es": "Muita pimenta? No deserto você vai querer água!", "ru": "Много перца? В пустыне захочется воды!"}},
+        "peppersay": {"kind": "say", "es": "Sem pimenta, tudo bem. O Caio vem comer com você hoje.", "ru": "Без перца, хорошо. Каю сегодня придёт поесть с тобой.", "next": "split"},
+        "split": {"kind": "answer", "task": "Спросите, можно ли разделить счёт.", "branches": [{"phrase": "ph:restaurant.dividir-a-conta", "next": "splitsay"}], "wrong": {"es": "Dividir a picanha? Não, cada um come a sua!", "ru": "Разделить пиканью? Нет, каждому своя!"}},
+        "splitsay": {"kind": "say", "es": "Pode, sim. Metade para você, metade para o Caio.", "ru": "Можно. Половина тебе, половина Каю.", "next": "tax"},
+        "tax": {"kind": "answer", "task": "Спросите, включена ли плата за обслуживание.", "branches": [{"phrase": "ph:restaurant.a-taxa-de-servico", "next": "end"}], "wrong": {"es": "A taxa do camelo? Camelo não paga!", "ru": "Плата за верблюда? Верблюд не платит!"}},
+        "end": {"kind": "say", "es": "Está, mas hoje é opcional. E toma: o Severino deixou esse fragmento do mapa para você, embaixo do prato.", "ru": "Включена, но сегодня по желанию. И держи: Северину оставил тебе этот обрывок карты, под тарелкой."}
+      }
     }
   ]
 }

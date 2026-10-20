@@ -42,6 +42,26 @@
         "codeq": {"kind": "answer", "task": "Спросите номер посылки, чтобы узнать, откуда она.", "branches": [{"phrase": "ph:post.o-codigo", "next": "end"}], "wrong": {"es": "Qual é o código do gato? Gato não tem código!", "ru": "Какой номер у кота? У котов нет номеров!"}},
         "end": {"kind": "say", "es": "Olha: a encomenda saiu da torre há três dias. Toma, e o meu fragmento do mapa da serra também é seu. Siga a voz.", "ru": "Смотри: посылка ушла с башни три дня назад. Держи, и мой обрывок карты гор тоже твой. Иди на голос."}
       }
+    },
+    {
+      "id": "ms:post.3",
+      "chapter": 3,
+      "npc": "edson",
+      "scene": "sc:post.3",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Vamos resolver isso. Primeiro: tem mais alguma coisa para você aqui. Quer ver?", "ru": "Давай разберёмся. Сначала: здесь для тебя есть ещё кое-что. Хочешь посмотреть?", "next": "pick"},
+        "pick": {"kind": "answer", "task": "Скажите, что хотите забрать посылку.", "branches": [{"phrase": "ph:post.quero-retirar", "next": "picksay"}], "wrong": {"es": "Quer mandar o camelo? Camelo não cabe na caixa!", "ru": "Отправить верблюда? Верблюд в коробку не влезет!"}},
+        "picksay": {"kind": "say", "es": "Aqui está. Uma caixa pequena, sem nome.", "ru": "Вот. Маленькая коробка, без имени.", "next": "sender"},
+        "sender": {"kind": "answer", "task": "Спросите, кто отправитель.", "branches": [{"phrase": "ph:post.quem-e-o-remetente", "next": "sendersay"}], "wrong": {"es": "Quem é o carteiro? Sou eu, ué!", "ru": "Кто почтальон? Я, вообще-то!"}},
+        "sendersay": {"kind": "say", "es": "Remetente desconhecido. Chegou com três dias de atraso, de um lugar perto do deserto.", "ru": "Отправитель неизвестен. Пришла с опозданием на три дня, откуда-то рядом с пустыней.", "next": "delay"},
+        "delay": {"kind": "answer", "task": "Спросите, почему так долго.", "branches": [{"phrase": "ph:post.por-que-a-demora", "next": "delaysay"}], "wrong": {"es": "Por que tão rápido? Não foi rápido!", "ru": "Почему так быстро? Вовсе не быстро!"}},
+        "delaysay": {"kind": "say", "es": "No deserto não tem estrada. Agora você quer mandar uma carta para o Caio?", "ru": "В пустыне нет дорог. А теперь хочешь отправить письмо Каю?", "next": "letter"},
+        "letter": {"kind": "answer", "task": "Скажите, что хотите отправить заказное письмо.", "branches": [{"phrase": "ph:post.carta-registrada", "next": "lettersay"}], "wrong": {"es": "Uma carta de areia? Não, de papel!", "ru": "Письмо из песка? Нет, из бумаги!"}},
+        "lettersay": {"kind": "say", "es": "Registrada, assim ninguém retira com o nome errado. E a caixa?", "ru": "Заказное — так никто не заберёт на чужое имя. А коробка?", "next": "insure"},
+        "insure": {"kind": "answer", "task": "Спросите, можно ли отправить со страховкой.", "branches": [{"phrase": "ph:post.com-seguro", "next": "end"}], "wrong": {"es": "Mandar sem nada? Depois some de novo!", "ru": "Отправить просто так? Потом опять пропадёт!"}},
+        "end": {"kind": "say", "es": "Pode, com seguro. Mas abre primeiro. Olha: dentro tem um fragmento do mapa, com um bilhete: «Desculpa. M.».", "ru": "Можно, со страховкой. Но сначала открой. Смотри: внутри обрывок карты и записка: «Прости. К.»."}
+      }
     }
   ]
 }

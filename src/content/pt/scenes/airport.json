@@ -50,6 +50,31 @@
         {"q": "Что было там сегодня?", "options": ["Тот же город", "Только песок", "Туман"], "answer": 1}
       ],
       "gloss": {"viajante": "путешественник, путник", "voei": "летал (voar)", "tinha": "было (ter)", "linha": "линия, путь", "sobe": "поднимается (subir)", "atrás": "назад (anos atrás)", "desce": "спускается (descer)", "deserto": "пустыня", "achei": "подумал (achar)", "passei": "пролетал (passar)", "estava": "был (estar)", "engana": "обманывает (enganar)"}
+    },
+    {
+      "id": "sc:airport.3",
+      "chapter": 3,
+      "npc": "thiago",
+      "lines": [
+        {"who": "npc", "es": "Viajante! Ontem o vento levou o nosso avião para depois do deserto.", "ru": "Путешественник! Вчера ветер унёс наш самолёт за пустыню.", "fem": {"ru": "Путешественница! Вчера ветер унёс наш самолёт за пустыню."}},
+        {"who": "hero", "es": "E o que você viu?", "ru": "И что ты видел?"},
+        {"who": "npc", "es": "Uma floresta enorme. Verde, escura, com neblina entre as árvores.", "ru": "Огромный лес. Зелёный, тёмный, с туманом между деревьями."},
+        {"who": "hero", "es": "Uma floresta depois do deserto?", "ru": "Лес после пустыни?"},
+        {"who": "npc", "es": "E as árvores se mexiam… mas não tinha vento.", "ru": "И деревья качались… но ветра не было."},
+        {"who": "hero", "es": "É a floresta do Davi!", "ru": "Это лес, откуда Дави!"},
+        {"who": "npc", "es": "O Davi estava no avião. Olhava pela janela e sorria.", "ru": "Дави был в самолёте. Смотрел в окно и улыбался."},
+        {"who": "hero", "es": "Ele voltou para casa?", "ru": "Он вернулся домой?"},
+        {"who": "npc", "es": "Ele desceu numa aldeia da floresta. Me disse: «Agora eu não tenho mais medo de ouvir».", "ru": "Он сошёл в лесной деревне. Сказал мне: «Теперь я больше не боюсь слушать»."},
+        {"who": "hero", "es": "E as árvores?", "ru": "А деревья?"},
+        {"who": "npc", "es": "Quando ele desceu, pararam de se mexer. Como se finalmente estivessem tranquilas.", "ru": "Когда он сошёл, они перестали качаться. Будто наконец успокоились."}
+      ],
+      "questions": [
+        {"q": "Куда ветер унёс самолёт?", "options": ["За пустыню", "В горы", "К морю"], "answer": 0},
+        {"q": "Что увидел Тьягу?", "options": ["Белый город", "Огромный лес", "Оазис"], "answer": 1},
+        {"q": "Что странного было с деревьями?", "options": ["Они качались без ветра", "Они были белые", "Их не было"], "answer": 0},
+        {"q": "Что сказал Дави?", "options": ["«Теперь я больше не боюсь слушать»", "«Я вернусь в пустыню»", "«Здесь слишком шумно»"], "answer": 0}
+      ],
+      "gloss": {"levou": "унёс (levar)", "avião": "самолёт", "floresta": "лес", "enorme": "огромный", "escura": "тёмная", "neblina": "туман", "árvores": "деревья", "mexiam": "двигались (mexer-se)", "Davi": "Дави", "olhava": "смотрел (olhar)", "sorria": "улыбался (sorrir)", "desceu": "сошёл (descer)", "aldeia": "деревня", "pararam": "перестали (parar)", "estivessem": "были бы (estar)", "tranquilas": "спокойные"}
     }
   ]
 }

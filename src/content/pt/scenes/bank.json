@@ -50,6 +50,31 @@
         {"q": "Что похоже на подпись стража?", "options": ["Приписка в конце письма Каю", "Надпись на монете", "Подпись управляющего"], "answer": 0}
       ],
       "gloss": {"wellington": "Веллингтон (имя)", "igual": "одинаковый, такой же", "moedas": "монеты (moeda)", "casaco": "пальто, куртка", "cinza": "серый", "trouxe": "принёс (trazer)", "papéis": "бумаги (papel)", "paga": "платит (pagar)", "assinatura": "подпись", "regras": "правила (regra)"}
+    },
+    {
+      "id": "sc:bank.3",
+      "chapter": 3,
+      "npc": "ricardo",
+      "lines": [
+        {"who": "npc", "es": "Boa tarde. Ontem um homem com um camelo veio falar comigo.", "ru": "Добрый день. Вчера ко мне приходил человек с верблюдом."},
+        {"who": "hero", "es": "O que ele queria?", "ru": "Что он хотел?"},
+        {"who": "npc", "es": "Investir muito dinheiro. Queria comprar toda a água do oásis do deserto.", "ru": "Вложить много денег. Хотел скупить всю воду оазиса в пустыне."},
+        {"who": "hero", "es": "Mas essa água é uma mentira.", "ru": "Но эта вода — обман."},
+        {"who": "npc", "es": "Foi o que eu disse a ele. E as notas dele, quando eu toquei, viraram areia.", "ru": "Я так ему и сказал. А его купюры, когда я их потрогал, превратились в песок."},
+        {"who": "hero", "es": "Acho que é um golpe.", "ru": "По-моему, это мошенничество."},
+        {"who": "npc", "es": "É mesmo. Depois ele pediu uma coisa mais estranha: abrir uma conta no nome da cidade branca.", "ru": "Так и есть. А потом попросил о ещё более странном: открыть счёт на имя белого города."},
+        {"who": "hero", "es": "Para quê?", "ru": "Зачем?"},
+        {"who": "npc", "es": "Ele diz que na noite da lua cheia vai comprar a cidade.", "ru": "Говорит, что в ночь полнолуния купит этот город."},
+        {"who": "hero", "es": "Dá para comprar uma cidade?", "ru": "Разве можно купить город?"},
+        {"who": "npc", "es": "No meu banco, não. E, acho, no deserto também não.", "ru": "В моём банке — нет. И, думаю, в пустыне тоже."}
+      ],
+      "questions": [
+        {"q": "Что хотел человек с верблюдом?", "options": ["Взять кредит", "Скупить всю воду оазиса", "Продать верблюда"], "answer": 1},
+        {"q": "Что стало с его купюрами?", "options": ["Они превратились в песок", "Их украли", "Они промокли"], "answer": 0},
+        {"q": "На чьё имя он хотел открыть счёт?", "options": ["На своё", "На имя белого города", "На имя стражницы"], "answer": 1},
+        {"q": "Когда он собирался купить город?", "options": ["В ночь полнолуния", "Завтра", "Через год"], "answer": 0}
+      ],
+      "gloss": {"investir": "вложить деньги", "oásis": "оазис", "notas": "купюры", "toquei": "потрогал (tocar)", "viraram": "превратились (virar)", "golpe": "мошенничество, афера", "estranha": "странная", "cheia": "полная"}
     }
   ]
 }

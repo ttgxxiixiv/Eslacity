@@ -30,7 +30,7 @@
       "start": "hi",
       "nodes": {
         "hi": {"kind": "say", "es": "Vai para a serra, não é? Para a viagem precisa de comida. O que você quer?", "ru": "Ты ведь идёшь в горы? В дорогу нужна еда. Что хочешь?", "next": "veg"},
-        "veg": {"kind": "answer", "task": "Попросите килограмм моркови или спросите, есть ли чеснок.", "branches": [{"phrase": "ph:market.um-quilo-de-cenoura", "next": "carrots"}, {"phrase": "ph:market.tem-alho", "next": "garlic"}], "wrong": {"es": "Um quilo de pedra? Na serra já tem muita pedra, freguês.", "ru": "Килограмм камней? В горах и так много камней, покупатель.", "fem": {"es": "Um quilo de pedra? Na serra já tem muita pedra, freguesa.", "ru": "Килограмм камней? В горах и так много камней, покупательница."}}},
+        "veg": {"kind": "answer", "task": "Попросите килограмм моркови или спросите, есть ли чеснок.", "branches": [{"phrase": "ph:market.um-quilo-de-cenoura", "next": "carrots", "sets": {"veg": "carrots"}}, {"phrase": "ph:market.tem-alho", "next": "garlic", "sets": {"veg": "garlic"}}], "wrong": {"es": "Um quilo de pedra? Na serra já tem muita pedra, freguês.", "ru": "Килограмм камней? В горах и так много камней, покупатель.", "fem": {"es": "Um quilo de pedra? Na serra já tem muita pedra, freguesa.", "ru": "Килограмм камней? В горах и так много камней, покупательница."}}},
         "carrots": {"kind": "say", "es": "Cenoura, muito bem. Na serra é boa para os olhos.", "ru": "Морковь — хорошо. В горах она полезна для глаз.", "next": "taste"},
         "garlic": {"kind": "say", "es": "Tem alho, sim. Dizem que alho é bom para o frio.", "ru": "Чеснок есть. Фермеры говорят, что чеснок помогает от холода.", "next": "taste"},
         "taste": {"kind": "answer", "task": "Спросите, можно ли попробовать.", "branches": [{"phrase": "ph:market.posso-provar", "next": "season"}], "wrong": {"es": "Posso pagar? Pode, mas primeiro escolhe!", "ru": "Можно ли заплатить? Можно, но сначала выбери!"}},
@@ -43,6 +43,27 @@
         "nomore": {"kind": "say", "es": "São da serra. Mais alguma coisa?", "ru": "С гор. Что-нибудь ещё?", "next": "thanks"},
         "thanks": {"kind": "answer", "task": "Скажите, что больше ничего не нужно, и поблагодарите.", "branches": [{"phrase": "ph:market.mais-nada", "next": "end"}], "wrong": {"es": "Mais um quilo? A sua sacola já está cheia!", "ru": "Ещё килограмм? У тебя уже полный пакет!"}},
         "end": {"kind": "say", "es": "Tudo dá trinta reais. E escuta: o pessoal diz que na torre tem uma luz toda noite. Alguém mora lá. Toma o meu fragmento do mapa da serra.", "ru": "Всего тридцать реалов. И послушай: фермеры говорят, что в башне каждую ночь горит свет. Там кто-то живёт. Держи мой обрывок карты гор."}
+      }
+    },
+    {
+      "id": "ms:market.3",
+      "chapter": 3,
+      "npc": "graca",
+      "scene": "sc:market.3",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Hoje você vai me ajudar a vender. Mas antes, escolhe as suas frutas.", "ru": "Сегодня поможешь мне торговать. Но сначала выбери себе фрукты.", "next": "fruit"},
+        "fruit": {"kind": "answer", "task": "Спросите, есть ли сегодня кешью, или попросите килограмм бананов.", "branches": [{"phrase": "ph:market.tem-caju", "next": "caju"}, {"phrase": "ph:market.um-quilo-de-banana", "next": "banana"}], "wrong": {"es": "Tem camelo? Não, o camelo foi embora com o homem!", "ru": "Есть верблюд? Нет, верблюд ушёл вместе с тем человеком!"}},
+        "caju": {"kind": "say", "es": "Tem caju, sim, bem doce. Mas cuidado: alguns estão ruins.", "ru": "Кешью есть, очень сладкие. Но осторожно: некоторые плохие.", "next": "care"},
+        "banana": {"kind": "say", "es": "Um quilo de banana, como sempre. Mas cuidado: algumas estão ruins.", "ru": "Килограмм бананов, как всегда. Но осторожно: некоторые плохие.", "next": "care"},
+        "care": {"kind": "answer", "task": "Скажите, что выберете внимательно.", "branches": [{"phrase": "ph:market.escolher-com-cuidado", "next": "caresay"}], "wrong": {"es": "Vai escolher de olhos fechados? Assim você leva fruta ruim!", "ru": "Будешь выбирать с закрытыми глазами? Так унесёшь плохие фрукты!"}},
+        "caresay": {"kind": "say", "es": "Isso. E essa aqui, o que você acha?", "ru": "Вот. А эта как тебе?", "next": "rotten"},
+        "rotten": {"kind": "answer", "task": "Скажите, что этот фрукт гнилой.", "branches": [{"phrase": "ph:market.esta-podre", "next": "rottensay"}], "wrong": {"es": "Está ótima? Olha de novo, meu bem!", "ru": "Отличная? Посмотри ещё раз, милый!", "fem": {"ru": "Отличная? Посмотри ещё раз, милая!"}}},
+        "rottensay": {"kind": "say", "es": "Podre, sim. Você tem olho bom. O homem do camelo queria vender a mercadoria dele por cem reais. E a minha é dez.", "ru": "Гнилая, да. У тебя хороший глаз. Человек с верблюдом хотел продать свой товар за сто реалов. А мой стоит десять.", "next": "price"},
+        "price": {"kind": "answer", "task": "Скажите, что это честная цена.", "branches": [{"phrase": "ph:market.preco-justo", "next": "pricesay"}], "wrong": {"es": "Cem reais é pouco? Que nada, é muito!", "ru": "Сто реалов — мало? Да что ты, это много!"}},
+        "pricesay": {"kind": "say", "es": "Justo, como a minha balança. Agora você é freguês de sempre.", "ru": "Честная, как мои весы. Теперь ты мой постоянный покупатель.", "next": "gift", "fem": {"es": "Justo, como a minha balança. Agora você é freguesa de sempre.", "ru": "Честная, как мои весы. Теперь ты моя постоянная покупательница."}},
+        "gift": {"kind": "answer", "task": "Спросите, будет ли подарочек.", "branches": [{"phrase": "ph:market.um-brinde", "next": "end"}], "wrong": {"es": "Um desconto de cem por cento? Aí eu fico pobre!", "ru": "Скидка сто процентов? Так я обеднею!"}},
+        "end": {"kind": "say", "es": "Claro que tem! O brinde é o meu fragmento do mapa. Esse é verdadeiro: o papel é velho de verdade.", "ru": "Конечно, будет! Подарочек — мой обрывок карты. Этот настоящий: бумага и правда старая."}
       }
     }
   ]

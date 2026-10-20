@@ -40,6 +40,26 @@
         "mysteryq": {"kind": "answer", "task": "Скажите: какая загадка!", "branches": [{"phrase": "ph:police.que-misterio", "next": "end"}], "wrong": {"es": "Que mistura? Não, que mistério!", "ru": "Какая смесь? Нет, какая загадка!"}},
         "end": {"kind": "say", "es": "Mistério nenhum. Ele não é suspeito. É o Severino, ele está lendo o horário do trem das sete. Tome o meu fragmento do mapa da serra. Suba, responda e traga o Severino para casa.", "ru": "Никакой загадки. Он не подозрительный. Это Северину, он читает расписание поезда в семь. Возьмите мой обрывок карты гор. Поднимитесь, ответьте и верните Северину домой."}
       }
+    },
+    {
+      "id": "ms:police.3",
+      "chapter": 3,
+      "npc": "moreira",
+      "scene": "sc:police.3",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "O senhor veio falar do caso do Davi? Sente-se.", "ru": "Вы пришли по делу Дави? Садитесь.", "next": "report", "fem": {"es": "A senhora veio falar do caso do Davi? Sente-se."}},
+        "report": {"kind": "answer", "task": "Скажите, что хотите сообщить о преступлении.", "branches": [{"phrase": "ph:police.fazer-uma-denuncia", "next": "reportsay"}], "wrong": {"es": "Quer comprar um camelo? Aqui é a delegacia, não é a feira.", "ru": "Хотите купить верблюда? Здесь полиция, а не ярмарка."}},
+        "reportsay": {"kind": "say", "es": "Uma denúncia. Sobre o quê?", "ru": "Сообщение. О чём?", "next": "note"},
+        "note": {"kind": "answer", "task": "Попросите записать.", "branches": [{"phrase": "ph:police.pode-anotar", "next": "notesay"}], "wrong": {"es": "Pode apagar tudo? Não, aqui a gente anota.", "ru": "Стереть всё? Нет, здесь мы записываем."}},
+        "notesay": {"kind": "say", "es": "Anotando. O pessoal diz que o Davi foi para a floresta com o dinheiro da cidade.", "ru": "Записываю. Люди говорят, что Дави уехал в лес с деньгами города.", "next": "false"},
+        "false": {"kind": "answer", "task": "Скажите, что это ложный след.", "branches": [{"phrase": "ph:police.uma-pista-falsa", "next": "falsesay"}], "wrong": {"es": "É verdade? Isso o senhor precisa provar.", "ru": "Это правда? Это вам ещё нужно доказать.", "fem": {"es": "É verdade? Isso a senhora precisa provar."}}},
+        "falsesay": {"kind": "say", "es": "Falsa, sim. Ele devolveu tudo. O senhor acha que ele é culpado?", "ru": "Ложный, да. Он всё вернул. Вы считаете его виновным?", "next": "innocent", "fem": {"es": "Falsa, sim. Ele devolveu tudo. A senhora acha que ele é culpado?"}},
+        "innocent": {"kind": "answer", "task": "Скажите, что он невиновен.", "branches": [{"phrase": "ph:police.ele-e-inocente", "next": "innocentsay"}], "wrong": {"es": "Ele é o camelo? Não, o camelo é o camelo.", "ru": "Он верблюд? Нет, верблюд — это верблюд."}},
+        "innocentsay": {"kind": "say", "es": "Inocente agora, sim. Ele disse a verdade, e a verdade vale mais que uma multa.", "ru": "Теперь невиновен. Он сказал правду, а правда стоит больше штрафа.", "next": "closed"},
+        "closed": {"kind": "answer", "task": "Спросите, закрыто ли дело.", "branches": [{"phrase": "ph:police.o-caso-esta-arquivado", "next": "end"}], "wrong": {"es": "O caso está aberto para sempre? Não, senhor.", "ru": "Дело открыто навсегда? Нет.", "fem": {"es": "O caso está aberto para sempre? Não, senhora."}}},
+        "end": {"kind": "say", "es": "Arquivado. E aqui está o último fragmento que o Davi deixou comigo. É do senhor. Quando chegar à floresta, escute as árvores.", "ru": "Закрыто. А вот последний обрывок, который Дави оставил у меня. Он ваш. Когда дойдёте до леса, слушайте деревья.", "fem": {"es": "Arquivado. E aqui está o último fragmento que o Davi deixou comigo. É da senhora. Quando chegar à floresta, escute as árvores."}}
+      }
     }
   ]
 }

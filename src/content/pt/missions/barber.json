@@ -40,6 +40,26 @@
         "bookq": {"kind": "answer", "task": "Скажите, что хотите записаться на завтра.", "branches": [{"phrase": "ph:barber.quero-marcar", "next": "end"}], "wrong": {"es": "Quero marcar um gol? Aqui não é campo de futebol!", "ru": "Хочу забить гол? Здесь не футбольное поле!"}},
         "end": {"kind": "say", "es": "Amanhã? Amanhã você vai estar na serra. Volta quando chegar. Toma o meu fragmento do mapa da serra. Se você vir o homem do casaco cinza, diz as palavras da minha mãe. Talvez ele sorria.", "ru": "Завтра? Завтра ты будешь в горах. Приходи, когда вернёшься. Держи мой обрывок карты гор. Если увидишь человека в сером пальто, скажи ему мамины слова. Может, он улыбнётся."}
       }
+    },
+    {
+      "id": "ms:barber.3",
+      "chapter": 3,
+      "npc": "zecarlos",
+      "scene": "sc:barber.3",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Senta aí. Vai para o deserto, então? Lá faz calor. O que vamos fazer hoje?", "ru": "Садись. Значит, в пустыню? Там жарко. Что сегодня делаем?", "next": "beard"},
+        "beard": {"kind": "answer", "task": "Попросите только бороду.", "branches": [{"phrase": "ph:barber.so-a-barba", "next": "beardsay"}], "wrong": {"es": "Careca? Assim o sol queima a cabeça!", "ru": "Наголо? Так солнце обожжёт голову!"}},
+        "beardsay": {"kind": "say", "es": "Só a barba. Máquina ou navalha?", "ru": "Только бороду. Машинкой или бритвой?", "next": "razor"},
+        "razor": {"kind": "answer", "task": "Спросите, можно ли бритвой.", "branches": [{"phrase": "ph:barber.com-a-navalha", "next": "razorsay"}], "wrong": {"es": "Com uma faca de cozinha? Não, por favor!", "ru": "Кухонным ножом? Нет уж, пожалуйста!"}},
+        "razorsay": {"kind": "say", "es": "Com a navalha antiga, a mesma do homem do camelo. Enquanto isso, a gente conversa.", "ru": "Старой бритвой, той же, что у человека с верблюдом. А пока поговорим.", "next": "news"},
+        "news": {"kind": "answer", "task": "Спросите, о чём сегодня говорят.", "branches": [{"phrase": "ph:barber.qual-e-o-assunto", "next": "newssay"}], "wrong": {"es": "Qual é o seu nome? Já sei, é você!", "ru": "Как тебя зовут? Я уже знаю, это ты!"}},
+        "newssay": {"kind": "say", "es": "O pessoal diz que o homem do camelo é um fantasma da cidade branca.", "ru": "Люди говорят, что человек с верблюдом — призрак белого города.", "next": "rumor"},
+        "rumor": {"kind": "answer", "task": "Скажите, что это слухи.", "branches": [{"phrase": "ph:barber.isso-e-boato", "next": "rumorsay"}], "wrong": {"es": "É verdade? Eu fiz a barba dele, fantasma não tem barba!", "ru": "Правда? Я его брил, у призраков бороды не бывает!"}},
+        "rumorsay": {"kind": "say", "es": "Boato, claro. Ele é de carne e osso, e triste. Pronto. Quer gel?", "ru": "Слухи, конечно. Он из плоти и крови, и грустный. Готово. Гель хочешь?", "next": "gel"},
+        "gel": {"kind": "answer", "task": "Попросите без геля.", "branches": [{"phrase": "ph:barber.sem-gel", "next": "end"}], "wrong": {"es": "Muito gel? No deserto o cabelo vai virar pedra!", "ru": "Много геля? В пустыне волосы станут камнем!"}},
+        "end": {"kind": "say", "es": "Sem gel. E toma: ele deixou isso na cadeira. Um fragmento do mapa, com cheiro de floresta.", "ru": "Без геля. И держи: он оставил это на кресле. Обрывок карты, пахнет лесом."}
+      }
     }
   ]
 }

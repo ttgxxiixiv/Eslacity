@@ -44,6 +44,26 @@
         "porchq": {"kind": "answer", "task": "Предложите пойти на веранду.", "branches": [{"phrase": "ph:home.vamos-para-a-varanda", "next": "end"}], "wrong": {"es": "Vamos para a geladeira? Não cabe ninguém lá!", "ru": "Пойдём в холодильник? Там никто не поместится!"}},
         "end": {"kind": "say", "es": "Olha lá em cima. Está vendo uma luz na serra? É a torre. Toma o meu fragmento do mapa da serra. E lembra: o guarda pergunta o que você fez.", "ru": "Посмотри наверх. Видишь свет в горах? Это башня. Держи мой обрывок карты гор. И помни: страж спрашивает, что ты сделал.", "fem": {"ru": "Посмотри наверх. Видишь свет в горах? Это башня. Держи мой обрывок карты гор. И помни: страж спрашивает, что ты сделала."}}
       }
+    },
+    {
+      "id": "ms:home.3",
+      "chapter": 3,
+      "npc": "lourdes",
+      "scene": "sc:home.3",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Achei um apartamento para o Severino! Vem comigo ver?", "ru": "Я нашла квартиру для Северину! Пойдёшь со мной посмотреть?", "next": "owner"},
+        "owner": {"kind": "answer", "task": "Спросите, кто владелец.", "branches": [{"phrase": "ph:home.quem-e-o-proprietario", "next": "ownersay"}], "wrong": {"es": "Quem é o camelo? Não, aqui não tem camelo!", "ru": "Кто верблюд? Нет, здесь верблюдов нет!"}},
+        "ownersay": {"kind": "say", "es": "É o Seu Valdir, do parque. Ele é muito bom. Olha, a sala é grande.", "ru": "Сеу Валдир, из парка. Он очень хороший. Смотри, гостиная большая.", "next": "roof"},
+        "roof": {"kind": "answer", "task": "Спросите, не протекает ли крыша.", "branches": [{"phrase": "ph:home.tem-goteira", "next": "roofsay"}], "wrong": {"es": "Tem areia no telhado? Aqui não é o deserto!", "ru": "Песок на крыше? Здесь не пустыня!"}},
+        "roofsay": {"kind": "say", "es": "Tinha uma goteira, mas o encanador já consertou. E o aluguel é barato.", "ru": "Была протечка, но сантехник уже починил. И аренда дешёвая.", "next": "contract"},
+        "contract": {"kind": "answer", "task": "Попросите посмотреть договор аренды.", "branches": [{"phrase": "ph:home.o-contrato", "next": "contractsay"}], "wrong": {"es": "O contrato do deserto? Isso não existe!", "ru": "Договор пустыни? Такого не бывает!"}},
+        "contractsay": {"kind": "say", "es": "Toma. Tudo certinho, com a assinatura do Seu Valdir.", "ru": "Держи. Всё в порядке, с подписью Сеу Валдира.", "next": "light"},
+        "light": {"kind": "answer", "task": "Спросите, входит ли счёт за свет в цену.", "branches": [{"phrase": "ph:home.a-conta-de-luz", "next": "lightsay"}], "wrong": {"es": "A luz da lua? Essa é de graça!", "ru": "Лунный свет? Он бесплатный!"}},
+        "lightsay": {"kind": "say", "es": "Não está, mas o Severino gasta pouco. Ele dormia cem anos sem luz!", "ru": "Не входит, но Северину тратит мало. Он сто лет спал без света!", "next": "move"},
+        "move": {"kind": "answer", "task": "Скажите, что поможете с переездом.", "branches": [{"phrase": "ph:home.eu-ajudo-na-mudanca", "next": "end"}], "wrong": {"es": "Vai morar aqui você? Não, é para o Severino!", "ru": "Ты сам будешь здесь жить? Нет, это для Северину!", "fem": {"ru": "Ты сама будешь здесь жить? Нет, это для Северину!"}}},
+        "end": {"kind": "say", "es": "Que bom! Ele tem pouca coisa: uma mala velha e esse fragmento do mapa. Ele pediu para eu te dar.", "ru": "Как хорошо! У него мало вещей: старый чемодан и этот обрывок карты. Он просил передать его тебе."}
+      }
     }
   ]
 }

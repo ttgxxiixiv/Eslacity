@@ -52,6 +52,31 @@
         {"q": "На какой вопрос не ответил Каю?", "options": ["Кому ты помог?", "Откуда ты?", "Что ты ел?"], "answer": 0}
       ],
       "gloss": {"trouxe": "принёс, привёл (trazer)", "passado": "прошедшее время, прошлое", "contou": "рассказал (contar)", "respondeu": "ответил (responder)", "terceira": "третья (terceiro)", "sabia": "знал (saber)", "ajudou": "помог (ajudar)", "ajudei": "я помог (ajudar)", "traz": "приведи (trazer)", "viajante": "путешественник, путник"}
+    },
+    {
+      "id": "sc:hospital.3",
+      "chapter": 3,
+      "npc": "fernanda",
+      "lines": [
+        {"who": "npc", "es": "Boa tarde. Ontem o Davi, o homem do camelo, veio aqui.", "ru": "Добрый день. Вчера приходил Дави, человек с верблюдом."},
+        {"who": "hero", "es": "Ele está doente?", "ru": "Он болен?"},
+        {"who": "npc", "es": "Ele achava que sim. Não dormia, ouvia vozes. Pensava que tinha uma doença grave.", "ru": "Он так думал. Не спал, слышал голоса. Думал, что у него тяжёлая болезнь."},
+        {"who": "hero", "es": "E qual foi o diagnóstico?", "ru": "И какой был диагноз?"},
+        {"who": "npc", "es": "Saudade. Saudade de casa. Ele quer voltar.", "ru": "Саудади. Тоска по дому. Он хочет вернуться."},
+        {"who": "hero", "es": "E as vozes das árvores?", "ru": "А голоса деревьев?"},
+        {"who": "npc", "es": "As árvores falam o nome dele porque esperam por ele. Não é perigo: é um chamado.", "ru": "Деревья шепчут его имя, потому что ждут его. Это не опасность: это зов."},
+        {"who": "hero", "es": "Tem cura?", "ru": "Это лечится?"},
+        {"who": "npc", "es": "Só tem um remédio: voltar. Eu disse isso a ele, e ele chorou. Mas dessa vez de alegria.", "ru": "Лекарство только одно: вернуться. Я ему это сказала, и он заплакал. Но в этот раз от радости."},
+        {"who": "hero", "es": "Então ele vai voltar para a floresta.", "ru": "Значит, он вернётся в лес."},
+        {"who": "npc", "es": "Espero que sim. E você, cuidado: depois do deserto vem a floresta. Lá é preciso escutar.", "ru": "Надеюсь. А ты осторожнее: после пустыни — лес. Там нужно слушать."}
+      ],
+      "questions": [
+        {"q": "Что беспокоило Дави?", "options": ["Не спал и слышал голоса", "Болела нога", "Обгорел на солнце"], "answer": 0},
+        {"q": "Какой диагноз поставила доктор?", "options": ["Простуда", "Тоска по дому", "Перелом"], "answer": 1},
+        {"q": "Почему деревья шепчут его имя?", "options": ["Они ждут его", "Они злятся", "Это ветер"], "answer": 0},
+        {"q": "Какое лекарство назвала доктор?", "options": ["Таблетки", "Вернуться домой", "Отдых у моря"], "answer": 1}
+      ],
+      "gloss": {"Davi": "Дави", "doente": "больной", "achava": "думал, считал (achar)", "dormia": "спал (dormir)", "ouvia": "слышал (ouvir)", "vozes": "голоса", "doença": "болезнь", "grave": "тяжёлый", "diagnóstico": "диагноз", "saudade": "тоска по чему-то любимому и далёкому", "árvores": "деревья", "esperam": "ждут (esperar)", "chamado": "зов", "cura": "излечение", "chorou": "заплакал (chorar)", "alegria": "радость", "floresta": "лес", "escutar": "слушать"}
     }
   ]
 }

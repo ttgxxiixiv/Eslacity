@@ -40,6 +40,26 @@
         "seriousq": {"kind": "answer", "task": "Спросите, серьёзно ли это.", "branches": [{"phrase": "ph:pharmacy.e-grave", "next": "end"}], "wrong": {"es": "É grande? Não, é pequena. Mas é grave?", "ru": "Большой? Нет, маленький. Но серьёзно ли это?"}},
         "end": {"kind": "say", "es": "Não é nada grave. Passa essa pomada. E junto com a pomada, leva o meu fragmento do mapa da serra. Se você vir o homem do casaco cinza, diz para ele em que ano estamos.", "ru": "Ничего серьёзного. Намажь этой мазью. А вместе с мазью возьми мой обрывок карты гор. Если увидишь человека в сером пальто, скажи ему, какой сейчас год."}
       }
+    },
+    {
+      "id": "ms:pharmacy.3",
+      "chapter": 3,
+      "npc": "rosa",
+      "scene": "sc:pharmacy.3",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "O seu amigo Caio não dorme. Sonha com a cidade branca. Você veio por ele?", "ru": "Твой друг Каю не спит. Ему снится белый город. Ты пришёл из-за него?", "next": "sleep", "fem": {"ru": "Твой друг Каю не спит. Ему снится белый город. Ты пришла из-за него?"}},
+        "sleep": {"kind": "answer", "task": "Спросите, есть ли что-нибудь от бессонницы.", "branches": [{"phrase": "ph:pharmacy.algo-para-insonia", "next": "sleepsay"}], "wrong": {"es": "Algo para acordar? Ele já acorda toda hora!", "ru": "Что-нибудь, чтобы проснуться? Он и так просыпается каждый час!"}},
+        "sleepsay": {"kind": "say", "es": "Tem esse remédio, mas é forte.", "ru": "Есть вот это лекарство, но оно сильное.", "next": "side"},
+        "side": {"kind": "answer", "task": "Спросите, есть ли побочные действия.", "branches": [{"phrase": "ph:pharmacy.tem-efeito-colateral", "next": "sidesay"}], "wrong": {"es": "Tem sabor de morango? Não, é remédio, não é bala!", "ru": "Со вкусом клубники? Нет, это лекарство, а не конфета!"}},
+        "sidesay": {"kind": "say", "es": "Tem, um pouco de tontura. Está tudo na bula.", "ru": "Есть, лёгкое головокружение. Всё написано в инструкции.", "next": "leaflet"},
+        "leaflet": {"kind": "answer", "task": "Скажите, что прочитаете инструкцию.", "branches": [{"phrase": "ph:pharmacy.ler-a-bula", "next": "leafletsay"}], "wrong": {"es": "Jogar a bula fora? Não! Lê primeiro.", "ru": "Выбросить инструкцию? Нет! Сначала прочти."}},
+        "leafletsay": {"kind": "say", "es": "Isso. Ou, se você preferir, tem uma coisa mais leve.", "ru": "Правильно. Или, если хочешь, есть кое-что полегче.", "next": "tea"},
+        "tea": {"kind": "answer", "task": "Попросите успокаивающий чай.", "branches": [{"phrase": "ph:pharmacy.um-cha-calmante", "next": "teasay"}], "wrong": {"es": "Um café forte? Aí ninguém dorme!", "ru": "Крепкий кофе? Тогда никто не уснёт!"}},
+        "teasay": {"kind": "say", "es": "Chá de camomila, ótimo para a noite. E para o deserto, você precisa de mais alguma coisa? O sol lá queima.", "ru": "Ромашковый чай, отлично на ночь. А для пустыни тебе ещё что-нибудь нужно? Там солнце обжигает.", "next": "burn"},
+        "burn": {"kind": "answer", "task": "Попросите мазь от ожогов.", "branches": [{"phrase": "ph:pharmacy.pomada-para-queimadura", "next": "end"}], "wrong": {"es": "Água do oásis? Essa não cura nada!", "ru": "Воду оазиса? Она ничего не лечит!"}},
+        "end": {"kind": "say", "es": "Toma. Com babosa, a melhor. E leva esse fragmento do mapa: uma cliente trocou por remédio e disse que era do deserto.", "ru": "Держи. С алоэ, лучшая. И возьми этот обрывок карты: одна покупательница обменяла его на лекарство и сказала, что он из пустыни."}
+      }
     }
   ]
 }
