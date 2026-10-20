@@ -1,0 +1,160 @@
+{
+  "id": "a1.04-estar",
+  "district": "A1",
+  "order": 4,
+  "title": "Глагол estar",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "**Estar** — «быть» для временного: где ты сейчас, как себя чувствуешь, какое сейчас состояние. **Estou cansado**, **o café está quente**, **ela está em casa**."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Лицо",
+        "estar"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "eu",
+            "estou"
+          ]
+        },
+        {
+          "cells": [
+            "você / ele / ela",
+            "está"
+          ]
+        },
+        {
+          "cells": [
+            "nós",
+            "estamos"
+          ]
+        },
+        {
+          "cells": [
+            "vocês / eles / elas",
+            "estão"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "В разговоре estar часто сокращают: **tô**, **tá**, **tamo**. «Tá bom!» — «Ладно!». В письме курса — полные формы."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Estou com pressa.",
+      "ru": "Я спешу."
+    },
+    {
+      "es": "Onde você está?",
+      "ru": "Где ты?"
+    },
+    {
+      "es": "A loja está fechada.",
+      "ru": "Магазин закрыт."
+    },
+    {
+      "es": "Estamos na praia.",
+      "ru": "Мы на пляже."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "a1.04-estar.1",
+      "kind": "choose",
+      "prompt": "«Они» + estar:",
+      "options": [
+        "estão",
+        "estamos",
+        "está"
+      ],
+      "answer": 0,
+      "explain": "Eles estão."
+    },
+    {
+      "id": "a1.04-estar.2",
+      "kind": "choose",
+      "prompt": "«Я устал»:",
+      "options": [
+        "Estou cansado.",
+        "Sou cansado.",
+        "Está cansado."
+      ],
+      "answer": 0,
+      "explain": "Состояние сейчас — estar."
+    },
+    {
+      "id": "a1.04-estar.3",
+      "kind": "gap",
+      "sentence": "O café ___ frio.",
+      "ru": "Кофе холодный (остыл).",
+      "options": [
+        "está",
+        "é",
+        "estou"
+      ],
+      "answer": 0,
+      "explain": "Состояние — estar."
+    },
+    {
+      "id": "a1.04-estar.4",
+      "kind": "gap",
+      "sentence": "Nós ___ no hotel.",
+      "ru": "Мы в гостинице.",
+      "options": [
+        "estamos",
+        "somos",
+        "estão"
+      ],
+      "answer": 0,
+      "explain": "Где сейчас — estar."
+    },
+    {
+      "id": "a1.04-estar.5",
+      "kind": "truefalse",
+      "statement": "«Estou em casa» значит «Я дома».",
+      "answer": true,
+      "explain": "Местонахождение — estar."
+    },
+    {
+      "id": "a1.04-estar.6",
+      "kind": "truefalse",
+      "statement": "«Tá» — разговорная форма от «está».",
+      "answer": true,
+      "explain": "Tá bom = está bom."
+    },
+    {
+      "id": "a1.04-estar.7",
+      "kind": "truefalse",
+      "statement": "«Ela é doente» — обычное «она больна (сейчас)».",
+      "answer": false,
+      "explain": "Сейчас — Ela está doente."
+    },
+    {
+      "id": "a1.04-estar.8",
+      "kind": "build",
+      "ru": "Мама сейчас на кухне.",
+      "answer": "A mãe está na cozinha agora.",
+      "extra": [
+        "é",
+        "estou"
+      ],
+      "explain": "Где сейчас — está."
+    },
+    {
+      "id": "a1.04-estar.9",
+      "kind": "type",
+      "sentence": "Você ___ bem?",
+      "ru": "Ты в порядке?",
+      "hint": "estar, você",
+      "answer": "está",
+      "explain": "Você está."
+    }
+  ]
+}

@@ -1,0 +1,166 @@
+{
+  "id": "a1.25-numeros-100",
+  "district": "A1",
+  "order": 25,
+  "title": "Числа до 100 и цены",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Десятки: **vinte** (20), **trinta**, **quarenta**, **cinquenta**, **sessenta**, **setenta**, **oitenta**, **noventa**, **cem** (100). Между десятками и единицами — **e**: **vinte e cinco**, **noventa e nove**."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Число",
+        "Слово"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "21",
+            "vinte e um"
+          ]
+        },
+        {
+          "cells": [
+            "35",
+            "trinta e cinco"
+          ]
+        },
+        {
+          "cells": [
+            "42",
+            "quarenta e dois"
+          ]
+        },
+        {
+          "cells": [
+            "58",
+            "cinquenta e oito"
+          ]
+        },
+        {
+          "cells": [
+            "100",
+            "cem"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Цены: **R$ 12,50** читают **doze reais e cinquenta centavos** или коротко **doze e cinquenta**. Дробную часть отделяет запятая, а не точка."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Custa trinta e cinco reais.",
+      "ru": "Стоит тридцать пять реалов."
+    },
+    {
+      "es": "Meu avô tem noventa anos.",
+      "ru": "Моему дедушке девяносто лет."
+    },
+    {
+      "es": "São cem reais.",
+      "ru": "Сто реалов."
+    },
+    {
+      "es": "Quarenta e dois, por favor.",
+      "ru": "Сорок два, пожалуйста."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "a1.25-numeros-100.1",
+      "kind": "choose",
+      "prompt": "«47»:",
+      "options": [
+        "quarenta e sete",
+        "quarenta sete",
+        "quatro e sete"
+      ],
+      "answer": 0,
+      "explain": "Десятки + e + единицы."
+    },
+    {
+      "id": "a1.25-numeros-100.2",
+      "kind": "choose",
+      "prompt": "«Ровно сто»:",
+      "options": [
+        "cem",
+        "cento",
+        "um cem"
+      ],
+      "answer": 0,
+      "explain": "Ровно 100 — cem."
+    },
+    {
+      "id": "a1.25-numeros-100.3",
+      "kind": "gap",
+      "sentence": "Custa ___ reais.",
+      "ru": "Стоит пятьдесят реалов.",
+      "options": [
+        "cinquenta",
+        "quinze",
+        "cinco dez"
+      ],
+      "answer": 0,
+      "explain": "50 — cinquenta."
+    },
+    {
+      "id": "a1.25-numeros-100.4",
+      "kind": "gap",
+      "sentence": "Ele tem ___ e dois anos.",
+      "ru": "Ему шестьдесят два года.",
+      "options": [
+        "sessenta",
+        "setenta",
+        "seiscentos"
+      ],
+      "answer": 0,
+      "explain": "60 — sessenta."
+    },
+    {
+      "id": "a1.25-numeros-100.5",
+      "kind": "truefalse",
+      "statement": "«Vinte e um» — 21.",
+      "answer": true,
+      "explain": "Vinte + e + um."
+    },
+    {
+      "id": "a1.25-numeros-100.6",
+      "kind": "truefalse",
+      "statement": "«Setenta» — 60.",
+      "answer": false,
+      "explain": "Setenta — 70."
+    },
+    {
+      "id": "a1.25-numeros-100.7",
+      "kind": "truefalse",
+      "statement": "В цене R$ 12,50 запятая отделяет сентаво.",
+      "answer": true,
+      "explain": "Doze e cinquenta."
+    },
+    {
+      "id": "a1.25-numeros-100.8",
+      "kind": "build",
+      "ru": "Это стоит тридцать пять реалов.",
+      "answer": "Isso custa trinta e cinco reais.",
+      "extra": [
+        "treze",
+        "cinquenta"
+      ],
+      "explain": "Trinta e cinco."
+    },
+    {
+      "id": "a1.25-numeros-100.9",
+      "kind": "type",
+      "sentence": "São ___ e nove reais.",
+      "ru": "Девяносто девять реалов.",
+      "hint": "90",
+      "answer": "noventa",
+      "explain": "90 — noventa."
+    }
+  ]
+}

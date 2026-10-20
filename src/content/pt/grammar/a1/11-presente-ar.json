@@ -1,0 +1,172 @@
+{
+  "id": "a1.11-presente-ar",
+  "district": "A1",
+  "order": 11,
+  "title": "Настоящее время: глаголы на -ar",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Большинство глаголов кончается на **-ar**: falar, morar, trabalhar. Отбрасываем -ar и добавляем окончание лица."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Лицо",
+        "falar",
+        "morar"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "eu",
+            "falo",
+            "moro"
+          ]
+        },
+        {
+          "cells": [
+            "você / ele / ela",
+            "fala",
+            "mora"
+          ]
+        },
+        {
+          "cells": [
+            "nós",
+            "falamos",
+            "moramos"
+          ]
+        },
+        {
+          "cells": [
+            "a gente",
+            "fala",
+            "mora"
+          ]
+        },
+        {
+          "cells": [
+            "vocês / eles / elas",
+            "falam",
+            "moram"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Настоящее время в португальском — и «обычно», и «сейчас», и ближайшее будущее: **Amanhã eu trabalho** — «завтра я работаю»."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Eu moro perto da praia.",
+      "ru": "Я живу у пляжа."
+    },
+    {
+      "es": "Você fala inglês?",
+      "ru": "Ты говоришь по-английски?"
+    },
+    {
+      "es": "Nós trabalhamos de manhã.",
+      "ru": "Мы работаем утром."
+    },
+    {
+      "es": "Eles estudam muito.",
+      "ru": "Они много учатся."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "a1.11-presente-ar.1",
+      "kind": "choose",
+      "prompt": "«Мы покупаем»:",
+      "options": [
+        "compramos",
+        "compram",
+        "compro"
+      ],
+      "answer": 0,
+      "explain": "Nós — -amos."
+    },
+    {
+      "id": "a1.11-presente-ar.2",
+      "kind": "choose",
+      "prompt": "«Ты работаешь»:",
+      "options": [
+        "você trabalha",
+        "você trabalho",
+        "você trabalham"
+      ],
+      "answer": 0,
+      "explain": "Você — как ele: trabalha."
+    },
+    {
+      "id": "a1.11-presente-ar.3",
+      "kind": "gap",
+      "sentence": "Eu ___ português.",
+      "ru": "Я говорю по-португальски.",
+      "options": [
+        "falo",
+        "fala",
+        "falam"
+      ],
+      "answer": 0,
+      "explain": "Eu — -o."
+    },
+    {
+      "id": "a1.11-presente-ar.4",
+      "kind": "gap",
+      "sentence": "Eles ___ no centro.",
+      "ru": "Они живут в центре.",
+      "options": [
+        "moram",
+        "mora",
+        "moramos"
+      ],
+      "answer": 0,
+      "explain": "Eles — -am."
+    },
+    {
+      "id": "a1.11-presente-ar.5",
+      "kind": "truefalse",
+      "statement": "«A gente trabalha» — правильная форма.",
+      "answer": true,
+      "explain": "A gente + 3-е лицо."
+    },
+    {
+      "id": "a1.11-presente-ar.6",
+      "kind": "truefalse",
+      "statement": "Настоящее время может значить и ближайшее будущее.",
+      "answer": true,
+      "explain": "Amanhã eu viajo."
+    },
+    {
+      "id": "a1.11-presente-ar.7",
+      "kind": "truefalse",
+      "statement": "Форма «eu falo» — от глагола falar.",
+      "answer": true,
+      "explain": "Fal + o."
+    },
+    {
+      "id": "a1.11-presente-ar.8",
+      "kind": "build",
+      "ru": "Мы покупаем фрукты на рынке.",
+      "answer": "Nós compramos frutas na feira.",
+      "extra": [
+        "compram",
+        "no"
+      ],
+      "explain": "Nós compramos, na feira."
+    },
+    {
+      "id": "a1.11-presente-ar.9",
+      "kind": "type",
+      "sentence": "Ela ___ na farmácia.",
+      "ru": "Она работает в аптеке.",
+      "hint": "trabalhar, ela",
+      "answer": "trabalha",
+      "explain": "Ela trabalha."
+    }
+  ]
+}

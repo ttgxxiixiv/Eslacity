@@ -1,0 +1,172 @@
+{
+  "id": "a1.15-ter-anos",
+  "district": "A1",
+  "order": 15,
+  "title": "Возраст и estar com",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Возраст — через **ter**: **Tenho trinta anos** (мне тридцать лет). Голод, жажда, холод, страх — через **estar com**: **Estou com fome**, **ela está com frio**, **estamos com pressa**."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "По-русски",
+        "По-португальски"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "мне 20 лет",
+            "tenho vinte anos"
+          ]
+        },
+        {
+          "cells": [
+            "я голоден",
+            "estou com fome"
+          ]
+        },
+        {
+          "cells": [
+            "мне хочется пить",
+            "estou com sede"
+          ]
+        },
+        {
+          "cells": [
+            "мне холодно",
+            "estou com frio"
+          ]
+        },
+        {
+          "cells": [
+            "я спешу",
+            "estou com pressa"
+          ]
+        },
+        {
+          "cells": [
+            "мне страшно",
+            "estou com medo"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "«Sou fome» и «tenho fome» в Бразилии не говорят: только **estou com fome**. «Ter medo» встречается: **Tenho medo do escuro** — боюсь темноты (вообще)."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Quantos anos você tem?",
+      "ru": "Сколько тебе лет?"
+    },
+    {
+      "es": "Estou com muita fome!",
+      "ru": "Я очень голоден!"
+    },
+    {
+      "es": "As crianças estão com sono.",
+      "ru": "Дети хотят спать."
+    },
+    {
+      "es": "Ele tem medo de cachorro.",
+      "ru": "Он боится собак."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "a1.15-ter-anos.1",
+      "kind": "choose",
+      "prompt": "«Мне холодно»:",
+      "options": [
+        "Estou com frio.",
+        "Tenho frio.",
+        "Sou frio."
+      ],
+      "answer": 0,
+      "explain": "Estar com frio."
+    },
+    {
+      "id": "a1.15-ter-anos.2",
+      "kind": "choose",
+      "prompt": "«Ей пять лет»:",
+      "options": [
+        "Ela tem cinco anos.",
+        "Ela é cinco anos.",
+        "Ela está com cinco anos."
+      ],
+      "answer": 0,
+      "explain": "Возраст — ter."
+    },
+    {
+      "id": "a1.15-ter-anos.3",
+      "kind": "gap",
+      "sentence": "Nós ___ com sede.",
+      "ru": "Мы хотим пить.",
+      "options": [
+        "estamos",
+        "temos",
+        "somos"
+      ],
+      "answer": 0,
+      "explain": "Estar com sede."
+    },
+    {
+      "id": "a1.15-ter-anos.4",
+      "kind": "gap",
+      "sentence": "Quantos anos você ___?",
+      "ru": "Сколько тебе лет?",
+      "options": [
+        "tem",
+        "é",
+        "está"
+      ],
+      "answer": 0,
+      "explain": "Ter … anos."
+    },
+    {
+      "id": "a1.15-ter-anos.5",
+      "kind": "truefalse",
+      "statement": "«Estou com pressa» значит «я спешу».",
+      "answer": true,
+      "explain": "Estar com pressa."
+    },
+    {
+      "id": "a1.15-ter-anos.6",
+      "kind": "truefalse",
+      "statement": "«Sou fome» — так говорят о голоде.",
+      "answer": false,
+      "explain": "Estou com fome."
+    },
+    {
+      "id": "a1.15-ter-anos.7",
+      "kind": "truefalse",
+      "statement": "«Tenho medo do escuro» — «боюсь темноты».",
+      "answer": true,
+      "explain": "Ter medo de."
+    },
+    {
+      "id": "a1.15-ter-anos.8",
+      "kind": "build",
+      "ru": "Ребёнок хочет спать.",
+      "answer": "A criança está com sono.",
+      "extra": [
+        "tem",
+        "é"
+      ],
+      "explain": "Estar com sono."
+    },
+    {
+      "id": "a1.15-ter-anos.9",
+      "kind": "type",
+      "sentence": "Meu avô ___ oitenta anos.",
+      "ru": "Моему дедушке восемьдесят лет.",
+      "hint": "ter, ele",
+      "answer": "tem",
+      "explain": "Ter … anos."
+    }
+  ]
+}

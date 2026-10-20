@@ -1,0 +1,157 @@
+{
+  "id": "a1.18-contracoes-de-em",
+  "district": "A1",
+  "order": 18,
+  "title": "Слияния: do, da, no, na",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Предлоги **de** и **em** сливаются с артиклем: **de + o = do**, **de + a = da**, **em + o = no**, **em + a = na**. Во множественном — **dos, das, nos, nas**. Писать «de o» или «em a» нельзя."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "",
+        "o",
+        "a",
+        "os",
+        "as"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "de",
+            "do",
+            "da",
+            "dos",
+            "das"
+          ]
+        },
+        {
+          "cells": [
+            "em",
+            "no",
+            "na",
+            "nos",
+            "nas"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "С неопределённым артиклем слияние необязательно: **numa casa** и **em uma casa** — оба верно, в бразильском письме чаще второе. С **ele, ela**: **dele**, **dela**, **nele**, **nela**."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Sou do Rio.",
+      "ru": "Я из Рио."
+    },
+    {
+      "es": "O livro está na mesa.",
+      "ru": "Книга на столе."
+    },
+    {
+      "es": "A casa da Ana é azul.",
+      "ru": "Дом Аны синий."
+    },
+    {
+      "es": "Moramos no centro.",
+      "ru": "Мы живём в центре."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "a1.18-contracoes-de-em.1",
+      "kind": "choose",
+      "prompt": "«В доме»:",
+      "options": [
+        "na casa",
+        "em a casa",
+        "no casa"
+      ],
+      "answer": 0,
+      "explain": "Em + a = na."
+    },
+    {
+      "id": "a1.18-contracoes-de-em.2",
+      "kind": "choose",
+      "prompt": "«Из Бразилии»:",
+      "options": [
+        "do Brasil",
+        "de o Brasil",
+        "da Brasil"
+      ],
+      "answer": 0,
+      "explain": "De + o = do."
+    },
+    {
+      "id": "a1.18-contracoes-de-em.3",
+      "kind": "gap",
+      "sentence": "As chaves estão ___ bolsa.",
+      "ru": "Ключи в сумке.",
+      "options": [
+        "na",
+        "no",
+        "da"
+      ],
+      "answer": 0,
+      "explain": "Em + a bolsa = na."
+    },
+    {
+      "id": "a1.18-contracoes-de-em.4",
+      "kind": "gap",
+      "sentence": "O carro ___ meu pai é velho.",
+      "ru": "Машина моего отца старая.",
+      "options": [
+        "do",
+        "da",
+        "no"
+      ],
+      "answer": 0,
+      "explain": "De + o pai = do."
+    },
+    {
+      "id": "a1.18-contracoes-de-em.5",
+      "kind": "truefalse",
+      "statement": "«De o» по-португальски пишется слитно: «do».",
+      "answer": true,
+      "explain": "Слияние обязательно."
+    },
+    {
+      "id": "a1.18-contracoes-de-em.6",
+      "kind": "truefalse",
+      "statement": "«Nos» — это «em + os».",
+      "answer": true,
+      "explain": "Nos livros."
+    },
+    {
+      "id": "a1.18-contracoes-de-em.7",
+      "kind": "truefalse",
+      "statement": "«Em uma casa» — ошибка.",
+      "answer": false,
+      "explain": "С um слияние необязательно."
+    },
+    {
+      "id": "a1.18-contracoes-de-em.8",
+      "kind": "build",
+      "ru": "Дети на пляже.",
+      "answer": "As crianças estão na praia.",
+      "extra": [
+        "no",
+        "em"
+      ],
+      "explain": "Em + a praia = na."
+    },
+    {
+      "id": "a1.18-contracoes-de-em.9",
+      "kind": "type",
+      "sentence": "Gosto ___ mar.",
+      "ru": "Я люблю море.",
+      "hint": "de + o",
+      "answer": "do",
+      "explain": "Gostar de + o mar = do."
+    }
+  ]
+}

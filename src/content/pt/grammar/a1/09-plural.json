@@ -1,0 +1,172 @@
+{
+  "id": "a1.09-plural",
+  "district": "A1",
+  "order": 9,
+  "title": "Множественное число",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Обычно добавляют **-s**: casa → casas, livro → livros. На **-r, -z** — **-es**: mar → mares, luz → luzes. На **-m** → **-ns**: homem → homens. На **-l** → **-is**: animal → animais, papel → papéis."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Окончание",
+        "Ед. ч.",
+        "Мн. ч."
+      ],
+      "rows": [
+        {
+          "cells": [
+            "гласная",
+            "a casa",
+            "as casas"
+          ]
+        },
+        {
+          "cells": [
+            "-r, -z",
+            "o mar",
+            "os mares"
+          ]
+        },
+        {
+          "cells": [
+            "-m",
+            "o homem",
+            "os homens"
+          ]
+        },
+        {
+          "cells": [
+            "-al, -el",
+            "o animal",
+            "os animais"
+          ]
+        },
+        {
+          "cells": [
+            "-ão",
+            "o pão / a mão",
+            "os pães / as mãos"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "У **-ão** три вида: **pães**, **mãos**, **corações**. Чаще всего **-ões**; формы надо учить. Прилагательное тоже во множественном: **as casas brancas**."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Duas cervejas, por favor.",
+      "ru": "Два пива, пожалуйста."
+    },
+    {
+      "es": "Os animais estão no parque.",
+      "ru": "Животные в парке."
+    },
+    {
+      "es": "Comprei três pães.",
+      "ru": "Я купил три булочки."
+    },
+    {
+      "es": "As flores são lindas.",
+      "ru": "Цветы прекрасны."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "a1.09-plural.1",
+      "kind": "choose",
+      "prompt": "Множественное от «o homem»:",
+      "options": [
+        "os homens",
+        "os homems",
+        "os homes"
+      ],
+      "answer": 0,
+      "explain": "-m → -ns."
+    },
+    {
+      "id": "a1.09-plural.2",
+      "kind": "choose",
+      "prompt": "Множественное от «o papel»:",
+      "options": [
+        "os papéis",
+        "os papels",
+        "os papeles"
+      ],
+      "answer": 0,
+      "explain": "-el → -éis."
+    },
+    {
+      "id": "a1.09-plural.3",
+      "kind": "gap",
+      "sentence": "As ___ estão abertas.",
+      "ru": "Окна открыты.",
+      "options": [
+        "janelas",
+        "janela",
+        "janeles"
+      ],
+      "answer": 0,
+      "explain": "Janela → janelas."
+    },
+    {
+      "id": "a1.09-plural.4",
+      "kind": "gap",
+      "sentence": "Tem muitos ___ no céu.",
+      "ru": "В небе много облаков.",
+      "options": [
+        "aviões",
+        "avião",
+        "aviãos"
+      ],
+      "answer": 0,
+      "explain": "Avião → aviões."
+    },
+    {
+      "id": "a1.09-plural.5",
+      "kind": "truefalse",
+      "statement": "Множественное от «o mar» — «os mares».",
+      "answer": true,
+      "explain": "-r → -es."
+    },
+    {
+      "id": "a1.09-plural.6",
+      "kind": "truefalse",
+      "statement": "Множественное от «a mão» — «as mões».",
+      "answer": false,
+      "explain": "As mãos."
+    },
+    {
+      "id": "a1.09-plural.7",
+      "kind": "truefalse",
+      "statement": "Прилагательное согласуется в числе: as casas brancas.",
+      "answer": true,
+      "explain": "Branca → brancas."
+    },
+    {
+      "id": "a1.09-plural.8",
+      "kind": "build",
+      "ru": "Цветы в саду красные.",
+      "answer": "As flores do jardim são vermelhas.",
+      "extra": [
+        "vermelha",
+        "flor"
+      ],
+      "explain": "Flores — vermelhas (мн. ч.)."
+    },
+    {
+      "id": "a1.09-plural.9",
+      "kind": "type",
+      "sentence": "Dois ___ de queijo, por favor.",
+      "ru": "Две сырные булочки, пожалуйста.",
+      "hint": "pão, мн. ч.",
+      "answer": "pães",
+      "explain": "Pão → pães."
+    }
+  ]
+}

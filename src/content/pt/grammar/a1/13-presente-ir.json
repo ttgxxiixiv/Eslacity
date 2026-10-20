@@ -1,0 +1,165 @@
+{
+  "id": "a1.13-presente-ir",
+  "district": "A1",
+  "order": 13,
+  "title": "Настоящее время: глаголы на -ir",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Глаголы на **-ir**: partir, abrir, decidir, assistir. Почти как -er, только у nós — **-imos**: **partimos**."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Лицо",
+        "abrir",
+        "decidir"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "eu",
+            "abro",
+            "decido"
+          ]
+        },
+        {
+          "cells": [
+            "você / ele / ela",
+            "abre",
+            "decide"
+          ]
+        },
+        {
+          "cells": [
+            "nós",
+            "abrimos",
+            "decidimos"
+          ]
+        },
+        {
+          "cells": [
+            "vocês / eles / elas",
+            "abrem",
+            "decidem"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "У некоторых глаголов меняется гласная в форме **eu**: **dormir → durmo**, **sentir → sinto**, **preferir → prefiro**, **seguir → sigo**. Остальные формы правильные: dorme, sente."
+    }
+  ],
+  "examples": [
+    {
+      "es": "A loja abre às nove.",
+      "ru": "Магазин открывается в девять."
+    },
+    {
+      "es": "Nós partimos amanhã.",
+      "ru": "Мы уезжаем завтра."
+    },
+    {
+      "es": "Eu durmo cedo.",
+      "ru": "Я рано ложусь спать."
+    },
+    {
+      "es": "Vocês assistem futebol?",
+      "ru": "Вы смотрите футбол?"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "a1.13-presente-ir.1",
+      "kind": "choose",
+      "prompt": "«Мы открываем»:",
+      "options": [
+        "abrimos",
+        "abremos",
+        "abrem"
+      ],
+      "answer": 0,
+      "explain": "-ir: nós -imos."
+    },
+    {
+      "id": "a1.13-presente-ir.2",
+      "kind": "choose",
+      "prompt": "«Я сплю»:",
+      "options": [
+        "durmo",
+        "dormo",
+        "dorme"
+      ],
+      "answer": 0,
+      "explain": "Dormir → durmo."
+    },
+    {
+      "id": "a1.13-presente-ir.3",
+      "kind": "gap",
+      "sentence": "Eu ___ chá.",
+      "ru": "Я предпочитаю чай.",
+      "options": [
+        "prefiro",
+        "prefero",
+        "prefere"
+      ],
+      "answer": 0,
+      "explain": "Preferir → prefiro."
+    },
+    {
+      "id": "a1.13-presente-ir.4",
+      "kind": "gap",
+      "sentence": "Eles ___ o jogo na TV.",
+      "ru": "Они смотрят игру по телевизору.",
+      "options": [
+        "assistem",
+        "assistam",
+        "assiste"
+      ],
+      "answer": 0,
+      "explain": "Eles — -em."
+    },
+    {
+      "id": "a1.13-presente-ir.5",
+      "kind": "truefalse",
+      "statement": "«Nós decidemos» — правильная форма.",
+      "answer": false,
+      "explain": "Decidimos."
+    },
+    {
+      "id": "a1.13-presente-ir.6",
+      "kind": "truefalse",
+      "statement": "«Sentir» в форме eu — «sinto».",
+      "answer": true,
+      "explain": "E → i только у eu."
+    },
+    {
+      "id": "a1.13-presente-ir.7",
+      "kind": "truefalse",
+      "statement": "«Ele dorme» — правильная форма.",
+      "answer": true,
+      "explain": "Только eu меняет гласную."
+    },
+    {
+      "id": "a1.13-presente-ir.8",
+      "kind": "build",
+      "ru": "Мы уезжаем завтра утром.",
+      "answer": "Nós partimos amanhã de manhã.",
+      "extra": [
+        "partem",
+        "na"
+      ],
+      "explain": "Nós partimos."
+    },
+    {
+      "id": "a1.13-presente-ir.9",
+      "kind": "type",
+      "sentence": "O banco ___ às dez.",
+      "ru": "Банк открывается в десять.",
+      "hint": "abrir, ele",
+      "answer": "abre",
+      "explain": "Ele abre."
+    }
+  ]
+}

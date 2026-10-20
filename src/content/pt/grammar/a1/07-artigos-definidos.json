@@ -1,0 +1,151 @@
+{
+  "id": "a1.07-artigos-definidos",
+  "district": "A1",
+  "order": 7,
+  "title": "Определённый артикль",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "**O, a, os, as** — «тот самый», известный предмет. В бразильском португальском артикль часто стоит и перед именем (**o Pedro**, **a Ana**) и почти всегда перед притяжательным (**o meu carro** — можно и **meu carro**)."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "",
+        "Ед. ч.",
+        "Мн. ч."
+      ],
+      "rows": [
+        {
+          "cells": [
+            "мужской",
+            "o",
+            "os"
+          ]
+        },
+        {
+          "cells": [
+            "женский",
+            "a",
+            "as"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Перед странами чаще с артиклем: **o Brasil**, **a Itália**, но **Portugal** без него. С городами — без: **Moro em Natal**."
+    }
+  ],
+  "examples": [
+    {
+      "es": "O ônibus chegou.",
+      "ru": "Автобус пришёл."
+    },
+    {
+      "es": "As crianças brincam.",
+      "ru": "Дети играют."
+    },
+    {
+      "es": "A Ana mora aqui.",
+      "ru": "Ана живёт здесь."
+    },
+    {
+      "es": "Os livros estão na mochila.",
+      "ru": "Книги в рюкзаке."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "a1.07-artigos-definidos.1",
+      "kind": "choose",
+      "prompt": "Артикль для «crianças»:",
+      "options": [
+        "as",
+        "os",
+        "a"
+      ],
+      "answer": 0,
+      "explain": "Женский, множественное — as."
+    },
+    {
+      "id": "a1.07-artigos-definidos.2",
+      "kind": "choose",
+      "prompt": "Как сказать «Я люблю Бразилию»?",
+      "options": [
+        "Eu amo o Brasil.",
+        "Eu amo Brasil.",
+        "Eu amo a Brasil."
+      ],
+      "answer": 0,
+      "explain": "O Brasil — с артиклем."
+    },
+    {
+      "id": "a1.07-artigos-definidos.3",
+      "kind": "gap",
+      "sentence": "___ meninos jogam bola.",
+      "ru": "Мальчики играют в мяч.",
+      "options": [
+        "Os",
+        "As",
+        "O"
+      ],
+      "answer": 0,
+      "explain": "Мужской, мн. ч. — os."
+    },
+    {
+      "id": "a1.07-artigos-definidos.4",
+      "kind": "gap",
+      "sentence": "___ praia está cheia.",
+      "ru": "Пляж полон людей.",
+      "options": [
+        "A",
+        "O",
+        "As"
+      ],
+      "answer": 0,
+      "explain": "A praia."
+    },
+    {
+      "id": "a1.07-artigos-definidos.5",
+      "kind": "truefalse",
+      "statement": "Перед именем человека в Бразилии часто ставят артикль: o Pedro.",
+      "answer": true,
+      "explain": "Разговорно — да."
+    },
+    {
+      "id": "a1.07-artigos-definidos.6",
+      "kind": "truefalse",
+      "statement": "«Moro no Natal» — правильно для города Наталь.",
+      "answer": false,
+      "explain": "С городами без артикля: em Natal."
+    },
+    {
+      "id": "a1.07-artigos-definidos.7",
+      "kind": "truefalse",
+      "statement": "«Os» — артикль мужского рода множественного числа.",
+      "answer": true,
+      "explain": "Os livros."
+    },
+    {
+      "id": "a1.07-artigos-definidos.8",
+      "kind": "build",
+      "ru": "Девочки на пляже.",
+      "answer": "As meninas estão na praia.",
+      "extra": [
+        "Os",
+        "no"
+      ],
+      "explain": "As meninas, na praia."
+    },
+    {
+      "id": "a1.07-artigos-definidos.9",
+      "kind": "type",
+      "sentence": "___ ilhas são lindas.",
+      "ru": "Острова прекрасны.",
+      "hint": "артикль",
+      "answer": "As",
+      "explain": "A ilha → as ilhas."
+    }
+  ]
+}

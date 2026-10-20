@@ -1,0 +1,178 @@
+{
+  "id": "a1.27-interrogativos",
+  "district": "A1",
+  "order": 27,
+  "title": "Вопросительные слова",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Вопрос строится словом в начале и интонацией, порядок слов прежний: **Onde você mora?** **O que** — что, **quem** — кто, **onde** — где, **quando** — когда, **como** — как, **por que** — почему, **quanto** — сколько, **qual** — какой."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Слово",
+        "Пример"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "o que",
+            "O que você quer?"
+          ]
+        },
+        {
+          "cells": [
+            "quem",
+            "Quem é ele?"
+          ]
+        },
+        {
+          "cells": [
+            "onde",
+            "Onde fica o banco?"
+          ]
+        },
+        {
+          "cells": [
+            "quando",
+            "Quando você chega?"
+          ]
+        },
+        {
+          "cells": [
+            "quanto / quanta",
+            "Quanto custa?"
+          ]
+        },
+        {
+          "cells": [
+            "qual / quais",
+            "Qual é o seu nome?"
+          ]
+        },
+        {
+          "cells": [
+            "por que",
+            "Por que você está triste?"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "«Почему?» — **por que** (раздельно), «потому что» — **porque** (слитно). В конце фразы — **por quê?** с ударением. Разговорное «где?» — **cadê?**: **Cadê o meu celular?**"
+    }
+  ],
+  "examples": [
+    {
+      "es": "Como você se chama?",
+      "ru": "Как тебя зовут?"
+    },
+    {
+      "es": "Quanto custa o abacaxi?",
+      "ru": "Сколько стоит ананас?"
+    },
+    {
+      "es": "Por que você não veio?",
+      "ru": "Почему ты не пришёл?"
+    },
+    {
+      "es": "Cadê a chave?",
+      "ru": "Где ключ?"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "a1.27-interrogativos.1",
+      "kind": "choose",
+      "prompt": "«Какое твоё имя?»:",
+      "options": [
+        "Qual é o seu nome?",
+        "Que é o seu nome?",
+        "Quem é o seu nome?"
+      ],
+      "answer": 0,
+      "explain": "Qual é…?"
+    },
+    {
+      "id": "a1.27-interrogativos.2",
+      "kind": "choose",
+      "prompt": "«Почему ты грустишь?»:",
+      "options": [
+        "Por que você está triste?",
+        "Porque você está triste?",
+        "Por quê você está triste?"
+      ],
+      "answer": 0,
+      "explain": "В начале вопроса — por que раздельно."
+    },
+    {
+      "id": "a1.27-interrogativos.3",
+      "kind": "gap",
+      "sentence": "___ você mora?",
+      "ru": "Где ты живёшь?",
+      "options": [
+        "Onde",
+        "Quando",
+        "Quanto"
+      ],
+      "answer": 0,
+      "explain": "Где — onde."
+    },
+    {
+      "id": "a1.27-interrogativos.4",
+      "kind": "gap",
+      "sentence": "___ é aquele homem?",
+      "ru": "Кто тот мужчина?",
+      "options": [
+        "Quem",
+        "Qual",
+        "Que"
+      ],
+      "answer": 0,
+      "explain": "Кто — quem."
+    },
+    {
+      "id": "a1.27-interrogativos.5",
+      "kind": "truefalse",
+      "statement": "«Porque» слитно — это «потому что».",
+      "answer": true,
+      "explain": "Porque = потому что."
+    },
+    {
+      "id": "a1.27-interrogativos.6",
+      "kind": "truefalse",
+      "statement": "«Cadê?» — разговорное «где?».",
+      "answer": true,
+      "explain": "Cadê o mapa?"
+    },
+    {
+      "id": "a1.27-interrogativos.7",
+      "kind": "truefalse",
+      "statement": "«Quantos anos você tem?» — «Сколько тебе лет?».",
+      "answer": true,
+      "explain": "Quanto согласуется: quantos anos."
+    },
+    {
+      "id": "a1.27-interrogativos.8",
+      "kind": "build",
+      "ru": "Когда ты приезжаешь в Ресифи?",
+      "answer": "Quando você chega a Recife?",
+      "extra": [
+        "Onde",
+        "chegar"
+      ],
+      "explain": "Quando + обычный порядок."
+    },
+    {
+      "id": "a1.27-interrogativos.9",
+      "kind": "type",
+      "sentence": "___ custa a passagem?",
+      "ru": "Сколько стоит билет?",
+      "hint": "сколько",
+      "answer": "Quanto",
+      "explain": "Сколько стоит — quanto custa."
+    }
+  ]
+}

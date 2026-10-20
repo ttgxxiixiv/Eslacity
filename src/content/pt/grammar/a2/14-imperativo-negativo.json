@@ -1,0 +1,165 @@
+{
+  "id": "a2.14-imperativo-negativo",
+  "district": "A2",
+  "order": 14,
+  "title": "Не делай!",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Запрет в бразильской речи — **não** + та же разговорная форма: **Não fala alto!** В письме и вежливо — сослагательное: **Não fale alto**, **Não faça isso**, **Não fume**."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Глагол",
+        "Разговор",
+        "Вежливо, письменно"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "falar",
+            "não fala",
+            "não fale"
+          ]
+        },
+        {
+          "cells": [
+            "correr",
+            "não corre",
+            "não corra"
+          ]
+        },
+        {
+          "cells": [
+            "fazer",
+            "não faz",
+            "não faça"
+          ]
+        },
+        {
+          "cells": [
+            "ir",
+            "não vai",
+            "não vá"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "**Não se preocupe!** — «Не беспокойтесь!», разговорно — **Não se preocupa!** или просто **Relaxa!**"
+    }
+  ],
+  "examples": [
+    {
+      "es": "Não esquece a chave!",
+      "ru": "Не забудь ключ!"
+    },
+    {
+      "es": "Não fume aqui.",
+      "ru": "Здесь не курите."
+    },
+    {
+      "es": "Não se preocupe.",
+      "ru": "Не беспокойтесь."
+    },
+    {
+      "es": "Não vá embora!",
+      "ru": "Не уходите!"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "a2.14-imperativo-negativo.1",
+      "kind": "choose",
+      "prompt": "Табличка «Не курить»:",
+      "options": [
+        "Não fume",
+        "Não fuma-se",
+        "Não fumar-se"
+      ],
+      "answer": 0,
+      "explain": "Вежливо — não fume."
+    },
+    {
+      "id": "a2.14-imperativo-negativo.2",
+      "kind": "choose",
+      "prompt": "Вежливое «Не уходите!»:",
+      "options": [
+        "Não vá embora!",
+        "Não vai embora!",
+        "Não ir embora!"
+      ],
+      "answer": 0,
+      "explain": "Ir → vá."
+    },
+    {
+      "id": "a2.14-imperativo-negativo.3",
+      "kind": "gap",
+      "sentence": "Não ___ isso!",
+      "ru": "Не делай этого! (вежливо)",
+      "options": [
+        "faça",
+        "faz",
+        "fazer"
+      ],
+      "answer": 0,
+      "explain": "Faça."
+    },
+    {
+      "id": "a2.14-imperativo-negativo.4",
+      "kind": "gap",
+      "sentence": "Não ___ nada para ninguém!",
+      "ru": "Никому ничего не говори! (разговор)",
+      "options": [
+        "fala",
+        "fale",
+        "falar"
+      ],
+      "answer": 0,
+      "explain": "Разговор — não fala."
+    },
+    {
+      "id": "a2.14-imperativo-negativo.5",
+      "kind": "truefalse",
+      "statement": "«Não se preocupe» — «Не беспокойтесь».",
+      "answer": true,
+      "explain": "Вежливая форма."
+    },
+    {
+      "id": "a2.14-imperativo-negativo.6",
+      "kind": "truefalse",
+      "statement": "В вежливом запрете от «ir» — «não vá».",
+      "answer": true,
+      "explain": "Vá."
+    },
+    {
+      "id": "a2.14-imperativo-negativo.7",
+      "kind": "truefalse",
+      "statement": "«Não fazer isso!» — обычный запрет.",
+      "answer": false,
+      "explain": "Não faça / não faz isso."
+    },
+    {
+      "id": "a2.14-imperativo-negativo.8",
+      "kind": "build",
+      "ru": "Не беги у бассейна!",
+      "answer": "Não corra perto da piscina!",
+      "extra": [
+        "corre",
+        "correr"
+      ],
+      "explain": "Вежливо — não corra."
+    },
+    {
+      "id": "a2.14-imperativo-negativo.9",
+      "kind": "type",
+      "sentence": "Não ___ a porta, por favor.",
+      "ru": "Не закрывайте дверь, пожалуйста.",
+      "hint": "fechar, вежливо",
+      "answer": "feche",
+      "explain": "Fecho → feche."
+    }
+  ]
+}

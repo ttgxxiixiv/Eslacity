@@ -1,0 +1,151 @@
+{
+  "id": "a1.08-artigos-indefinidos",
+  "district": "A1",
+  "order": 8,
+  "title": "Неопределённый артикль",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "**Um, uma** — «какой-то, один»: впервые упомянутое. Множественное **uns, umas** значит «несколько, примерно»: **uns dez reais**."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "",
+        "Ед. ч.",
+        "Мн. ч."
+      ],
+      "rows": [
+        {
+          "cells": [
+            "мужской",
+            "um",
+            "uns"
+          ]
+        },
+        {
+          "cells": [
+            "женский",
+            "uma",
+            "umas"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "«Один» как число — тоже **um / uma**: **um café e duas águas**. Женская форма у чисел есть только у **um** и **dois** (**duas**)."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Quero um café.",
+      "ru": "Я хочу кофе."
+    },
+    {
+      "es": "Tem uma farmácia aqui?",
+      "ru": "Здесь есть аптека?"
+    },
+    {
+      "es": "Comprei umas frutas.",
+      "ru": "Я купил немного фруктов."
+    },
+    {
+      "es": "Custa uns vinte reais.",
+      "ru": "Стоит около двадцати реалов."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "a1.08-artigos-indefinidos.1",
+      "kind": "choose",
+      "prompt": "«Одна чашка»:",
+      "options": [
+        "uma xícara",
+        "um xícara",
+        "una xícara"
+      ],
+      "answer": 0,
+      "explain": "Xícara — женский род: uma."
+    },
+    {
+      "id": "a1.08-artigos-indefinidos.2",
+      "kind": "choose",
+      "prompt": "«Около десяти минут»:",
+      "options": [
+        "uns dez minutos",
+        "umas dez minutos",
+        "um dez minutos"
+      ],
+      "answer": 0,
+      "explain": "Minuto — мужской: uns."
+    },
+    {
+      "id": "a1.08-artigos-indefinidos.3",
+      "kind": "gap",
+      "sentence": "Ele tem ___ cachorro.",
+      "ru": "У него есть собака.",
+      "options": [
+        "um",
+        "uma",
+        "uns"
+      ],
+      "answer": 0,
+      "explain": "O cachorro — um."
+    },
+    {
+      "id": "a1.08-artigos-indefinidos.4",
+      "kind": "gap",
+      "sentence": "Preciso de ___ caneta.",
+      "ru": "Мне нужна ручка.",
+      "options": [
+        "uma",
+        "um",
+        "umas"
+      ],
+      "answer": 0,
+      "explain": "A caneta — uma."
+    },
+    {
+      "id": "a1.08-artigos-indefinidos.5",
+      "kind": "truefalse",
+      "statement": "«Uns» может значить «примерно»: uns cem reais.",
+      "answer": true,
+      "explain": "Около ста реалов."
+    },
+    {
+      "id": "a1.08-artigos-indefinidos.6",
+      "kind": "truefalse",
+      "statement": "«Dois» в женском роде — «duas».",
+      "answer": true,
+      "explain": "Duas casas."
+    },
+    {
+      "id": "a1.08-artigos-indefinidos.7",
+      "kind": "truefalse",
+      "statement": "«Uma problema» — правильно.",
+      "answer": false,
+      "explain": "Um problema."
+    },
+    {
+      "id": "a1.08-artigos-indefinidos.8",
+      "kind": "build",
+      "ru": "Я хочу апельсиновый сок.",
+      "answer": "Eu quero um suco de laranja.",
+      "extra": [
+        "uma",
+        "o"
+      ],
+      "explain": "O suco — um suco."
+    },
+    {
+      "id": "a1.08-artigos-indefinidos.9",
+      "kind": "type",
+      "sentence": "Tem ___ banco perto daqui?",
+      "ru": "Здесь рядом есть банк?",
+      "hint": "неопределённый артикль",
+      "answer": "um",
+      "explain": "O banco — um."
+    }
+  ]
+}

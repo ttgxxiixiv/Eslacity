@@ -1,0 +1,170 @@
+{
+  "id": "a2.20-perfeito-regular",
+  "district": "A2",
+  "order": 20,
+  "title": "Прошедшее время: правильные глаголы",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "**Pretérito perfeito** — законченное действие: **Ontem falei com ela** — «вчера я поговорил с ней». Окончания по группам:"
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Лицо",
+        "falar",
+        "comer",
+        "partir"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "eu",
+            "falei",
+            "comi",
+            "parti"
+          ]
+        },
+        {
+          "cells": [
+            "você / ele / ela",
+            "falou",
+            "comeu",
+            "partiu"
+          ]
+        },
+        {
+          "cells": [
+            "nós",
+            "falamos",
+            "comemos",
+            "partimos"
+          ]
+        },
+        {
+          "cells": [
+            "vocês / eles / elas",
+            "falaram",
+            "comeram",
+            "partiram"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "У nós формы прошедшего и настоящего совпадают: **falamos** — «говорим» и «поговорили», смысл ясен из контекста (**ontem**, **hoje**). Орфография: **ficar → fiquei**, **chegar → cheguei**, **começar → comecei**."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Ontem eu trabalhei muito.",
+      "ru": "Вчера я много работал."
+    },
+    {
+      "es": "Ela comeu todo o bolo.",
+      "ru": "Она съела весь торт."
+    },
+    {
+      "es": "Vocês partiram cedo?",
+      "ru": "Вы рано уехали?"
+    },
+    {
+      "es": "Cheguei tarde.",
+      "ru": "Я пришёл поздно."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "a2.20-perfeito-regular.1",
+      "kind": "choose",
+      "prompt": "«Я купил»:",
+      "options": [
+        "comprei",
+        "comprou",
+        "comprí"
+      ],
+      "answer": 0,
+      "explain": "-ar, eu: -ei."
+    },
+    {
+      "id": "a2.20-perfeito-regular.2",
+      "kind": "choose",
+      "prompt": "«Они выпили»:",
+      "options": [
+        "beberam",
+        "beberão",
+        "bebaram"
+      ],
+      "answer": 0,
+      "explain": "-er, eles: -eram."
+    },
+    {
+      "id": "a2.20-perfeito-regular.3",
+      "kind": "gap",
+      "sentence": "Ele ___ para a mãe ontem.",
+      "ru": "Вчера он позвонил маме.",
+      "options": [
+        "ligou",
+        "ligei",
+        "ligue"
+      ],
+      "answer": 0,
+      "explain": "-ar, ele: -ou."
+    },
+    {
+      "id": "a2.20-perfeito-regular.4",
+      "kind": "gap",
+      "sentence": "Eu ___ cedo hoje.",
+      "ru": "Сегодня я пришёл рано.",
+      "options": [
+        "cheguei",
+        "chegei",
+        "chegou"
+      ],
+      "answer": 0,
+      "explain": "G → gu перед e: cheguei."
+    },
+    {
+      "id": "a2.20-perfeito-regular.5",
+      "kind": "truefalse",
+      "statement": "«Falamos» может значить и «говорим», и «поговорили».",
+      "answer": true,
+      "explain": "Формы nós совпадают."
+    },
+    {
+      "id": "a2.20-perfeito-regular.6",
+      "kind": "truefalse",
+      "statement": "«Fiquei» — от ficar.",
+      "answer": true,
+      "explain": "C → qu перед e."
+    },
+    {
+      "id": "a2.20-perfeito-regular.7",
+      "kind": "truefalse",
+      "statement": "«Eles partiram» — «они уезжают».",
+      "answer": false,
+      "explain": "Partiram — уехали."
+    },
+    {
+      "id": "a2.20-perfeito-regular.8",
+      "kind": "build",
+      "ru": "Вчера мы ужинали в ресторане.",
+      "answer": "Ontem nós jantamos no restaurante.",
+      "extra": [
+        "jantaram",
+        "na"
+      ],
+      "explain": "Nós jantamos (прошедшее)."
+    },
+    {
+      "id": "a2.20-perfeito-regular.9",
+      "kind": "type",
+      "sentence": "Você ___ a carta?",
+      "ru": "Ты получил письмо?",
+      "hint": "receber, você",
+      "answer": "recebeu",
+      "explain": "-er, você: -eu."
+    }
+  ]
+}

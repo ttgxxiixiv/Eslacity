@@ -1,0 +1,160 @@
+{
+  "id": "a2.11-colocacao",
+  "district": "A2",
+  "order": 11,
+  "title": "Где стоит местоимение",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "В Бразилии местоимение **me, te, se, nos** ставят **перед** глаголом, даже в начале фразы: **Me ajuda!**, **Me dá um café**, **Se cuida!**. С двумя глаголами — перед вторым: **Vou te ligar**, **Pode me ajudar?**"
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Бразилия",
+        "Португалия"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Me ajuda!",
+            "Ajuda-me!"
+          ]
+        },
+        {
+          "cells": [
+            "Ele se chama Rui.",
+            "Ele chama-se Rui."
+          ]
+        },
+        {
+          "cells": [
+            "Vou te contar.",
+            "Vou contar-te."
+          ]
+        },
+        {
+          "cells": [
+            "Não me diga!",
+            "Não me digas!"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "**Não me diga!** — «Да ты что!», **Me empresta?** — «Одолжишь?». После **não**, вопросительных слов и **que** местоимение всегда впереди и в Португалии."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Me passa o sal?",
+      "ru": "Передашь мне соль?"
+    },
+    {
+      "es": "Se cuida!",
+      "ru": "Береги себя!"
+    },
+    {
+      "es": "Vou te mostrar a cidade.",
+      "ru": "Я покажу тебе город."
+    },
+    {
+      "es": "Não me diga!",
+      "ru": "Да ты что!"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "a2.11-colocacao.1",
+      "kind": "choose",
+      "prompt": "Бразильское «Помоги мне!»:",
+      "options": [
+        "Me ajuda!",
+        "Ajuda-me!",
+        "Ajuda eu!"
+      ],
+      "answer": 0,
+      "explain": "В Бразилии — перед глаголом."
+    },
+    {
+      "id": "a2.11-colocacao.2",
+      "kind": "choose",
+      "prompt": "«Я тебе расскажу»:",
+      "options": [
+        "Vou te contar.",
+        "Vou contar te.",
+        "Te vou contar a."
+      ],
+      "answer": 0,
+      "explain": "Перед вторым глаголом."
+    },
+    {
+      "id": "a2.11-colocacao.3",
+      "kind": "gap",
+      "sentence": "Você pode ___ ajudar?",
+      "ru": "Можешь мне помочь?",
+      "options": [
+        "me",
+        "eu",
+        "mim"
+      ],
+      "answer": 0,
+      "explain": "Pode me ajudar."
+    },
+    {
+      "id": "a2.11-colocacao.4",
+      "kind": "gap",
+      "sentence": "___ dá um copo de água?",
+      "ru": "Дашь мне стакан воды?",
+      "options": [
+        "Me",
+        "Eu",
+        "Mim"
+      ],
+      "answer": 0,
+      "explain": "Me dá…"
+    },
+    {
+      "id": "a2.11-colocacao.5",
+      "kind": "truefalse",
+      "statement": "В Бразилии фраза может начинаться с местоимения: Me espera!",
+      "answer": true,
+      "explain": "Me espera aí!"
+    },
+    {
+      "id": "a2.11-colocacao.6",
+      "kind": "truefalse",
+      "statement": "«Não me diga!» значит «Да ты что!».",
+      "answer": true,
+      "explain": "Удивление."
+    },
+    {
+      "id": "a2.11-colocacao.7",
+      "kind": "truefalse",
+      "statement": "«Ajuda-me» — обычная бразильская разговорная форма.",
+      "answer": false,
+      "explain": "Это португальская норма; в Бразилии — Me ajuda."
+    },
+    {
+      "id": "a2.11-colocacao.8",
+      "kind": "build",
+      "ru": "Покажи мне карту!",
+      "answer": "Me mostra o mapa!",
+      "extra": [
+        "eu",
+        "mim"
+      ],
+      "explain": "Me + глагол."
+    },
+    {
+      "id": "a2.11-colocacao.9",
+      "kind": "type",
+      "sentence": "Vou ___ esperar na praça.",
+      "ru": "Я подожду тебя на площади.",
+      "hint": "тебя",
+      "answer": "te",
+      "explain": "Перед вторым глаголом — te."
+    }
+  ]
+}

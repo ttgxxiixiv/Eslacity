@@ -1,0 +1,154 @@
+{
+  "id": "a2.29-perfeito-imperfeito",
+  "district": "A2",
+  "order": 29,
+  "title": "Perfeito или imperfeito",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "В одном рассказе встречаются оба: **imperfeito** — декорации и то, что шло, **perfeito** — то, что случилось. **Eu dormia quando o telefone tocou** — «я спал (шло), когда зазвонил телефон (случилось)»."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Imperfeito — фон",
+        "Perfeito — событие"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Chovia muito.",
+            "De repente, a luz apagou."
+          ]
+        },
+        {
+          "cells": [
+            "Eu estava na praia…",
+            "…quando vi uma tartaruga."
+          ]
+        },
+        {
+          "cells": [
+            "Ele morava em Natal.",
+            "Em 2020 ele mudou para Recife."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Спросите себя: это картина или кадр? Картина — imperfeito (**estava**, **era**, **tinha**), кадр — perfeito (**foi**, **chegou**, **viu**)."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Eu jantava quando você ligou.",
+      "ru": "Я ужинал, когда ты позвонил."
+    },
+    {
+      "es": "Estava frio e começou a chover.",
+      "ru": "Было холодно, и пошёл дождь."
+    },
+    {
+      "es": "Quando cheguei, a loja estava fechada.",
+      "ru": "Когда я пришёл, магазин был закрыт."
+    },
+    {
+      "es": "Ela era criança quando mudou para cá.",
+      "ru": "Она была ребёнком, когда переехала сюда."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "a2.29-perfeito-imperfeito.1",
+      "kind": "choose",
+      "prompt": "«Я читал, когда он вошёл»:",
+      "options": [
+        "Eu lia quando ele entrou.",
+        "Eu li quando ele entrava.",
+        "Eu lia quando ele entrava."
+      ],
+      "answer": 0,
+      "explain": "Фон — lia, событие — entrou."
+    },
+    {
+      "id": "a2.29-perfeito-imperfeito.2",
+      "kind": "choose",
+      "prompt": "«Когда я пришёл, все спали»:",
+      "options": [
+        "Quando cheguei, todos dormiam.",
+        "Quando chegava, todos dormiram.",
+        "Quando cheguei, todos dormiram."
+      ],
+      "answer": 0,
+      "explain": "Событие — cheguei, фон — dormiam."
+    },
+    {
+      "id": "a2.29-perfeito-imperfeito.3",
+      "kind": "gap",
+      "sentence": "O sol ___ quando saímos.",
+      "ru": "Светило солнце, когда мы вышли.",
+      "options": [
+        "brilhava",
+        "brilhou",
+        "brilha"
+      ],
+      "answer": 0,
+      "explain": "Фон — imperfeito."
+    },
+    {
+      "id": "a2.29-perfeito-imperfeito.4",
+      "kind": "gap",
+      "sentence": "Eu tomava banho quando a campainha ___.",
+      "ru": "Я мылся, когда зазвонил звонок.",
+      "options": [
+        "tocou",
+        "tocava",
+        "toca"
+      ],
+      "answer": 0,
+      "explain": "Событие — perfeito."
+    },
+    {
+      "id": "a2.29-perfeito-imperfeito.5",
+      "kind": "truefalse",
+      "statement": "Фон рассказа — imperfeito, события — perfeito.",
+      "answer": true,
+      "explain": "Картина и кадр."
+    },
+    {
+      "id": "a2.29-perfeito-imperfeito.6",
+      "kind": "truefalse",
+      "statement": "«Ela era criança quando mudou» — правильное сочетание времён.",
+      "answer": true,
+      "explain": "Фон + событие."
+    },
+    {
+      "id": "a2.29-perfeito-imperfeito.7",
+      "kind": "truefalse",
+      "statement": "В «Ontem fui à praia» нужен imperfeito.",
+      "answer": false,
+      "explain": "Одно законченное событие — perfeito."
+    },
+    {
+      "id": "a2.29-perfeito-imperfeito.8",
+      "kind": "build",
+      "ru": "Шёл дождь, когда мы пришли.",
+      "answer": "Chovia quando nós chegamos.",
+      "extra": [
+        "choveu",
+        "chegávamos"
+      ],
+      "explain": "Фон — chovia, событие — chegamos."
+    },
+    {
+      "id": "a2.29-perfeito-imperfeito.9",
+      "kind": "type",
+      "sentence": "A loja ___ fechada quando cheguei.",
+      "ru": "Магазин был закрыт, когда я пришёл.",
+      "hint": "estar, фон",
+      "answer": "estava",
+      "explain": "Состояние — imperfeito."
+    }
+  ]
+}

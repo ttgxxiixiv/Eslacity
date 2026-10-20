@@ -1,0 +1,165 @@
+{
+  "id": "a2.04-demonstrativos",
+  "district": "A2",
+  "order": 4,
+  "title": "Este, esse, aquele",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "**Este** — «этот» рядом со мной, **esse** — рядом с тобой, **aquele** — там, далеко. В Бразилии **este** и **esse** в разговоре почти слились: говорят **esse** для близкого. Средний род — **isto, isso, aquilo**: «это» без существительного."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "",
+        "м. р.",
+        "ж. р.",
+        "без сущ."
+      ],
+      "rows": [
+        {
+          "cells": [
+            "этот (у меня)",
+            "este",
+            "esta",
+            "isto"
+          ]
+        },
+        {
+          "cells": [
+            "этот (у тебя)",
+            "esse",
+            "essa",
+            "isso"
+          ]
+        },
+        {
+          "cells": [
+            "тот (там)",
+            "aquele",
+            "aquela",
+            "aquilo"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Слияния: **de + esse = desse**, **em + essa = nessa**, **a + aquele = àquele**. **Isso!** — «Точно! Вот именно!»."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Essa camisa é bonita.",
+      "ru": "Эта рубашка красивая."
+    },
+    {
+      "es": "Aquele barco é do meu tio.",
+      "ru": "Та лодка моего дяди."
+    },
+    {
+      "es": "O que é isso?",
+      "ru": "Что это?"
+    },
+    {
+      "es": "Moro nessa rua.",
+      "ru": "Я живу на этой улице."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "a2.04-demonstrativos.1",
+      "kind": "choose",
+      "prompt": "«Та женщина (там)»:",
+      "options": [
+        "aquela mulher",
+        "essa mulher",
+        "aquele mulher"
+      ],
+      "answer": 0,
+      "explain": "Далеко — aquela."
+    },
+    {
+      "id": "a2.04-demonstrativos.2",
+      "kind": "choose",
+      "prompt": "«Что это?» (без существительного):",
+      "options": [
+        "O que é isso?",
+        "O que é esse?",
+        "O que é essa?"
+      ],
+      "answer": 0,
+      "explain": "Без существительного — isso."
+    },
+    {
+      "id": "a2.04-demonstrativos.3",
+      "kind": "gap",
+      "sentence": "Gosto ___ música.",
+      "ru": "Мне нравится эта песня.",
+      "options": [
+        "dessa",
+        "de essa",
+        "nessa"
+      ],
+      "answer": 0,
+      "explain": "De + essa = dessa."
+    },
+    {
+      "id": "a2.04-demonstrativos.4",
+      "kind": "gap",
+      "sentence": "___ prédio é muito antigo.",
+      "ru": "То здание (там) очень старое.",
+      "options": [
+        "Aquele",
+        "Aquela",
+        "Aquilo"
+      ],
+      "answer": 0,
+      "explain": "O prédio — aquele."
+    },
+    {
+      "id": "a2.04-demonstrativos.5",
+      "kind": "truefalse",
+      "statement": "В бразильском разговоре «esse» часто значит «этот» рядом с говорящим.",
+      "answer": true,
+      "explain": "Este и esse слились."
+    },
+    {
+      "id": "a2.04-demonstrativos.6",
+      "kind": "truefalse",
+      "statement": "«Nesse» — это em + esse.",
+      "answer": true,
+      "explain": "Слияние."
+    },
+    {
+      "id": "a2.04-demonstrativos.7",
+      "kind": "truefalse",
+      "statement": "«Aquilo» ставят перед существительным: «aquilo carro».",
+      "answer": false,
+      "explain": "Aquele carro."
+    },
+    {
+      "id": "a2.04-demonstrativos.8",
+      "kind": "build",
+      "ru": "Эта сумка моя.",
+      "answer": "Essa bolsa é minha.",
+      "extra": [
+        "Esse",
+        "meu"
+      ],
+      "explain": "A bolsa — essa, minha."
+    },
+    {
+      "id": "a2.04-demonstrativos.9",
+      "kind": "type",
+      "sentence": "Você mora ___ casa amarela?",
+      "ru": "Ты живёшь в этом жёлтом доме?",
+      "hint": "em + essa",
+      "answer": "nessa",
+      "alt": [
+        "nesta"
+      ],
+      "explain": "Em + essa = nessa."
+    }
+  ]
+}

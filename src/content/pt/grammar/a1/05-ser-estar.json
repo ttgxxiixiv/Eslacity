@@ -1,0 +1,160 @@
+{
+  "id": "a1.05-ser-estar",
+  "district": "A1",
+  "order": 5,
+  "title": "Ser или estar",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Одно прилагательное меняет смысл: **ele é chato** — он зануда (характер), **ele está chato** — он сейчас не в духе. **A sopa é boa** — суп хороший (вообще), **a sopa está boa** — суп сегодня вкусный."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "ser — всегда",
+        "estar — сейчас"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Ela é bonita.",
+            "Ela está bonita hoje."
+          ]
+        },
+        {
+          "cells": [
+            "Ele é calmo.",
+            "Ele está calmo."
+          ]
+        },
+        {
+          "cells": [
+            "O mar é azul.",
+            "O mar está agitado."
+          ]
+        },
+        {
+          "cells": [
+            "Sou de Belém.",
+            "Estou em Belém."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Где **находится** город, здание, дорога — в Бразилии чаще **ficar**: **A praia fica perto**. Где сейчас человек или вещь — **estar**: **O livro está na mesa**."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Ela é alegre, mas hoje está triste.",
+      "ru": "Она весёлая, но сегодня грустит."
+    },
+    {
+      "es": "O hotel fica na praia.",
+      "ru": "Гостиница на пляже."
+    },
+    {
+      "es": "O peixe está ótimo!",
+      "ru": "Рыба сегодня отличная!"
+    },
+    {
+      "es": "Ele é muito alto.",
+      "ru": "Он очень высокий."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "a1.05-ser-estar.1",
+      "kind": "choose",
+      "prompt": "«Сегодня ты красивая!» (сегодня особенно):",
+      "options": [
+        "Você está linda hoje!",
+        "Você é linda hoje!",
+        "Você fica linda hoje!"
+      ],
+      "answer": 0,
+      "explain": "Сегодня, сейчас — estar."
+    },
+    {
+      "id": "a1.05-ser-estar.2",
+      "kind": "choose",
+      "prompt": "«Банк находится на площади»:",
+      "options": [
+        "O banco fica na praça.",
+        "O banco é na praça.",
+        "O banco tem na praça."
+      ],
+      "answer": 0,
+      "explain": "Где расположено здание — ficar."
+    },
+    {
+      "id": "a1.05-ser-estar.3",
+      "kind": "gap",
+      "sentence": "Meu avô ___ muito simpático.",
+      "ru": "Мой дедушка очень приветливый (по характеру).",
+      "options": [
+        "é",
+        "está",
+        "fica"
+      ],
+      "answer": 0,
+      "explain": "Характер — ser."
+    },
+    {
+      "id": "a1.05-ser-estar.4",
+      "kind": "gap",
+      "sentence": "A porta ___ aberta.",
+      "ru": "Дверь открыта.",
+      "options": [
+        "está",
+        "é",
+        "fica"
+      ],
+      "answer": 0,
+      "explain": "Состояние — estar."
+    },
+    {
+      "id": "a1.05-ser-estar.5",
+      "kind": "truefalse",
+      "statement": "«Ele é nervoso» — он нервный по натуре.",
+      "answer": true,
+      "explain": "Ser — постоянное."
+    },
+    {
+      "id": "a1.05-ser-estar.6",
+      "kind": "truefalse",
+      "statement": "«Estou de Moscou» значит «я из Москвы».",
+      "answer": false,
+      "explain": "Откуда — ser: Sou de Moscou."
+    },
+    {
+      "id": "a1.05-ser-estar.7",
+      "kind": "truefalse",
+      "statement": "«A sopa está boa» хвалит суп сегодня.",
+      "answer": true,
+      "explain": "Estar — как сейчас."
+    },
+    {
+      "id": "a1.05-ser-estar.8",
+      "kind": "build",
+      "ru": "Почта находится рядом с банком.",
+      "answer": "O correio fica perto do banco.",
+      "extra": [
+        "é",
+        "está"
+      ],
+      "explain": "Где расположено — fica."
+    },
+    {
+      "id": "a1.05-ser-estar.9",
+      "kind": "type",
+      "sentence": "Hoje eu ___ feliz!",
+      "ru": "Сегодня я счастлив!",
+      "hint": "estar, eu",
+      "answer": "estou",
+      "explain": "Сейчас — estar."
+    }
+  ]
+}

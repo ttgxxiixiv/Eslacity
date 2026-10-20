@@ -1,0 +1,166 @@
+{
+  "id": "a1.26-horas",
+  "district": "A1",
+  "order": 26,
+  "title": "Который час",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "**Que horas são?** — «Который час?». Ответ — **são** + число: **São três horas**. Час — **é uma hora**, полдень — **é meio-dia**, полночь — **é meia-noite**. Минуты — через **e**: **são duas e quinze** (2:15), **duas e meia** (2:30)."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Время",
+        "Как сказать"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "1:00",
+            "É uma hora."
+          ]
+        },
+        {
+          "cells": [
+            "3:15",
+            "São três e quinze."
+          ]
+        },
+        {
+          "cells": [
+            "6:30",
+            "São seis e meia."
+          ]
+        },
+        {
+          "cells": [
+            "12:00",
+            "É meio-dia."
+          ]
+        },
+        {
+          "cells": [
+            "8:50",
+            "São dez para as nove."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "«Без десяти девять» — **dez para as nove**. В Бразилии часто говорят по-24-часовому только в расписаниях: **o ônibus sai às 18h** («dezoito horas»)."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Que horas são?",
+      "ru": "Который час?"
+    },
+    {
+      "es": "São quatro e meia.",
+      "ru": "Половина пятого."
+    },
+    {
+      "es": "É meio-dia, vamos almoçar.",
+      "ru": "Полдень, пойдём обедать."
+    },
+    {
+      "es": "Chego às oito e quinze.",
+      "ru": "Я приду в восемь пятнадцать."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "a1.26-horas.1",
+      "kind": "choose",
+      "prompt": "«Час дня» (1:00):",
+      "options": [
+        "É uma hora.",
+        "São uma hora.",
+        "É um hora."
+      ],
+      "answer": 0,
+      "explain": "Один час — é uma hora."
+    },
+    {
+      "id": "a1.26-horas.2",
+      "kind": "choose",
+      "prompt": "«Половина седьмого» (6:30):",
+      "options": [
+        "seis e meia",
+        "seis e meio",
+        "meia sete"
+      ],
+      "answer": 0,
+      "explain": "Meia (hora) — ж. р."
+    },
+    {
+      "id": "a1.26-horas.3",
+      "kind": "gap",
+      "sentence": "___ três horas.",
+      "ru": "Три часа.",
+      "options": [
+        "São",
+        "É",
+        "Está"
+      ],
+      "answer": 0,
+      "explain": "Больше одного часа — são."
+    },
+    {
+      "id": "a1.26-horas.4",
+      "kind": "gap",
+      "sentence": "É ___.",
+      "ru": "Полдень.",
+      "options": [
+        "meio-dia",
+        "meia-dia",
+        "meio dia e"
+      ],
+      "answer": 0,
+      "explain": "Meio-dia."
+    },
+    {
+      "id": "a1.26-horas.5",
+      "kind": "truefalse",
+      "statement": "«Dez para as nove» — без десяти девять.",
+      "answer": true,
+      "explain": "8:50."
+    },
+    {
+      "id": "a1.26-horas.6",
+      "kind": "truefalse",
+      "statement": "«São meio-dia» — правильно.",
+      "answer": false,
+      "explain": "É meio-dia."
+    },
+    {
+      "id": "a1.26-horas.7",
+      "kind": "truefalse",
+      "statement": "«Às oito» значит «в восемь».",
+      "answer": true,
+      "explain": "A + as."
+    },
+    {
+      "id": "a1.26-horas.8",
+      "kind": "build",
+      "ru": "Сейчас половина третьего.",
+      "answer": "Agora são duas e meia.",
+      "extra": [
+        "é",
+        "meio"
+      ],
+      "explain": "São duas e meia."
+    },
+    {
+      "id": "a1.26-horas.9",
+      "kind": "type",
+      "sentence": "O ônibus sai às sete e ___.",
+      "ru": "Автобус отправляется в половине восьмого.",
+      "hint": "30 минут",
+      "answer": "meia",
+      "explain": "Половина — meia."
+    }
+  ]
+}

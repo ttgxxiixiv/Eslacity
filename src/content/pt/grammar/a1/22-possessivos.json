@@ -1,0 +1,166 @@
+{
+  "id": "a1.22-possessivos",
+  "district": "A1",
+  "order": 22,
+  "title": "Притяжательные: meu, seu, nosso",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Притяжательное согласуется с **предметом**, а не с хозяином: **meu carro**, **minha casa**, **meus livros**. Часто с артиклем: **o meu carro** — оба варианта верны."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Чей",
+        "м. р.",
+        "ж. р.",
+        "м. мн.",
+        "ж. мн."
+      ],
+      "rows": [
+        {
+          "cells": [
+            "мой",
+            "meu",
+            "minha",
+            "meus",
+            "minhas"
+          ]
+        },
+        {
+          "cells": [
+            "твой (você)",
+            "seu",
+            "sua",
+            "seus",
+            "suas"
+          ]
+        },
+        {
+          "cells": [
+            "наш",
+            "nosso",
+            "nossa",
+            "nossos",
+            "nossas"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "**Seu** в Бразилии — «твой» (к você) и «ваш» (к o senhor). Чтобы сказать «его, её», берут **dele, dela** (следующий урок): **o carro dele**."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Minha casa é azul.",
+      "ru": "Мой дом синий."
+    },
+    {
+      "es": "Esse é o seu quarto.",
+      "ru": "Это твоя комната."
+    },
+    {
+      "es": "Nossos amigos chegaram.",
+      "ru": "Наши друзья пришли."
+    },
+    {
+      "es": "Cadê as minhas chaves?",
+      "ru": "Где мои ключи?"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "a1.22-possessivos.1",
+      "kind": "choose",
+      "prompt": "«Мои сёстры»:",
+      "options": [
+        "minhas irmãs",
+        "meus irmãs",
+        "minha irmãs"
+      ],
+      "answer": 0,
+      "explain": "Ж. р., мн. ч. — minhas."
+    },
+    {
+      "id": "a1.22-possessivos.2",
+      "kind": "choose",
+      "prompt": "«Наш город»:",
+      "options": [
+        "nossa cidade",
+        "nosso cidade",
+        "nossas cidade"
+      ],
+      "answer": 0,
+      "explain": "A cidade — nossa."
+    },
+    {
+      "id": "a1.22-possessivos.3",
+      "kind": "gap",
+      "sentence": "Esse é o ___ carro.",
+      "ru": "Это моя машина.",
+      "options": [
+        "meu",
+        "minha",
+        "meus"
+      ],
+      "answer": 0,
+      "explain": "O carro — м. р.: meu."
+    },
+    {
+      "id": "a1.22-possessivos.4",
+      "kind": "gap",
+      "sentence": "Onde está a ___ mala?",
+      "ru": "Где твой чемодан?",
+      "options": [
+        "sua",
+        "seu",
+        "suas"
+      ],
+      "answer": 0,
+      "explain": "A mala — ж. р.: sua."
+    },
+    {
+      "id": "a1.22-possessivos.5",
+      "kind": "truefalse",
+      "statement": "Притяжательное согласуется с хозяином.",
+      "answer": false,
+      "explain": "С предметом: minha casa, даже если хозяин мужчина."
+    },
+    {
+      "id": "a1.22-possessivos.6",
+      "kind": "truefalse",
+      "statement": "«O meu carro» и «meu carro» — оба верны.",
+      "answer": true,
+      "explain": "Артикль необязателен."
+    },
+    {
+      "id": "a1.22-possessivos.7",
+      "kind": "truefalse",
+      "statement": "«Seu» может значить «твой».",
+      "answer": true,
+      "explain": "К você — seu."
+    },
+    {
+      "id": "a1.22-possessivos.8",
+      "kind": "build",
+      "ru": "Наши дети в школе.",
+      "answer": "Nossos filhos estão na escola.",
+      "extra": [
+        "nossas",
+        "no"
+      ],
+      "explain": "Os filhos — nossos."
+    },
+    {
+      "id": "a1.22-possessivos.9",
+      "kind": "type",
+      "sentence": "As ___ chaves estão na mesa.",
+      "ru": "Мои ключи на столе.",
+      "hint": "мой",
+      "answer": "minhas",
+      "explain": "As chaves — ж. р., мн. ч."
+    }
+  ]
+}

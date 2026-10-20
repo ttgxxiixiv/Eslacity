@@ -1,0 +1,175 @@
+{
+  "id": "a2.27-imperfeito",
+  "district": "A2",
+  "order": 27,
+  "title": "Imperfeito: образование",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "**Imperfeito** — прошедшее «фоновое»: что было обычно, что происходило, каким было. Окончания простые, неправильных глаголов всего четыре: **ser**, **ter**, **vir**, **pôr**."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Лицо",
+        "falar",
+        "comer / partir",
+        "ser",
+        "ter"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "eu",
+            "falava",
+            "comia",
+            "era",
+            "tinha"
+          ]
+        },
+        {
+          "cells": [
+            "você / ele",
+            "falava",
+            "comia",
+            "era",
+            "tinha"
+          ]
+        },
+        {
+          "cells": [
+            "nós",
+            "falávamos",
+            "comíamos",
+            "éramos",
+            "tínhamos"
+          ]
+        },
+        {
+          "cells": [
+            "vocês / eles",
+            "falavam",
+            "comiam",
+            "eram",
+            "tinham"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "У **eu** и **ele** формы совпадают: **eu morava**, **ele morava** — поэтому местоимение обычно называют. **Ir** правильный: **ia, íamos** (основа пустая)."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Eu morava em Natal.",
+      "ru": "Я жил в Натале."
+    },
+    {
+      "es": "Quando era criança, brincava na rua.",
+      "ru": "В детстве я играл на улице."
+    },
+    {
+      "es": "Nós tínhamos um cachorro.",
+      "ru": "У нас была собака."
+    },
+    {
+      "es": "Ela ia à praia todo dia.",
+      "ru": "Она каждый день ходила на пляж."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "a2.27-imperfeito.1",
+      "kind": "choose",
+      "prompt": "«Мы говорили (обычно)»:",
+      "options": [
+        "falávamos",
+        "falamos",
+        "falavamos"
+      ],
+      "answer": 0,
+      "explain": "-ar: -ávamos с ударением."
+    },
+    {
+      "id": "a2.27-imperfeito.2",
+      "kind": "choose",
+      "prompt": "«У меня было» (imperfeito):",
+      "options": [
+        "tinha",
+        "tive",
+        "tenha"
+      ],
+      "answer": 0,
+      "explain": "Ter → tinha."
+    },
+    {
+      "id": "a2.27-imperfeito.3",
+      "kind": "gap",
+      "sentence": "Antigamente ele ___ no porto.",
+      "ru": "Раньше он работал в порту.",
+      "options": [
+        "trabalhava",
+        "trabalhou",
+        "trabalha"
+      ],
+      "answer": 0,
+      "explain": "Привычное — imperfeito."
+    },
+    {
+      "id": "a2.27-imperfeito.4",
+      "kind": "gap",
+      "sentence": "Nós ___ crianças felizes.",
+      "ru": "Мы были счастливыми детьми.",
+      "options": [
+        "éramos",
+        "fomos",
+        "somos"
+      ],
+      "answer": 0,
+      "explain": "Описание прошлого — éramos."
+    },
+    {
+      "id": "a2.27-imperfeito.5",
+      "kind": "truefalse",
+      "statement": "В imperfeito формы eu и ele совпадают.",
+      "answer": true,
+      "explain": "Eu falava, ele falava."
+    },
+    {
+      "id": "a2.27-imperfeito.6",
+      "kind": "truefalse",
+      "statement": "Imperfeito от ir — «ia».",
+      "answer": true,
+      "explain": "Ia, íamos."
+    },
+    {
+      "id": "a2.27-imperfeito.7",
+      "kind": "truefalse",
+      "statement": "«Comiava» — imperfeito от comer.",
+      "answer": false,
+      "explain": "Comia."
+    },
+    {
+      "id": "a2.27-imperfeito.8",
+      "kind": "build",
+      "ru": "В детстве я жил у моря.",
+      "answer": "Quando era criança eu morava perto do mar.",
+      "extra": [
+        "morei",
+        "fui"
+      ],
+      "explain": "Фон прошлого — morava, era."
+    },
+    {
+      "id": "a2.27-imperfeito.9",
+      "kind": "type",
+      "sentence": "Ela ___ muito bonita.",
+      "ru": "Она была очень красивой.",
+      "hint": "ser, ela",
+      "answer": "era",
+      "explain": "Ser → era."
+    }
+  ]
+}

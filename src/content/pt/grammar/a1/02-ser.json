@@ -1,0 +1,160 @@
+{
+  "id": "a1.02-ser",
+  "district": "A1",
+  "order": 2,
+  "title": "Глагол ser",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "**Ser** — «быть» для постоянного: кто ты, откуда, какой. Формы неправильные, их учат сразу."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Лицо",
+        "ser"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "eu",
+            "sou"
+          ]
+        },
+        {
+          "cells": [
+            "você / ele / ela",
+            "é"
+          ]
+        },
+        {
+          "cells": [
+            "nós",
+            "somos"
+          ]
+        },
+        {
+          "cells": [
+            "vocês / eles / elas",
+            "são"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "В русском «быть» в настоящем выпадает («Я врач»), в португальском — никогда: **Eu sou médico.**"
+    }
+  ],
+  "examples": [
+    {
+      "es": "Eu sou estudante.",
+      "ru": "Я студент."
+    },
+    {
+      "es": "Ela é do Recife.",
+      "ru": "Она из Ресифи."
+    },
+    {
+      "es": "Nós somos irmãos.",
+      "ru": "Мы братья."
+    },
+    {
+      "es": "Vocês são daqui?",
+      "ru": "Вы отсюда?"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "a1.02-ser.1",
+      "kind": "choose",
+      "prompt": "«Они» + ser:",
+      "options": [
+        "são",
+        "somos",
+        "é"
+      ],
+      "answer": 0,
+      "explain": "Eles são."
+    },
+    {
+      "id": "a1.02-ser.2",
+      "kind": "choose",
+      "prompt": "«Я» + ser:",
+      "options": [
+        "sou",
+        "é",
+        "estou"
+      ],
+      "answer": 0,
+      "explain": "Eu sou."
+    },
+    {
+      "id": "a1.02-ser.3",
+      "kind": "gap",
+      "sentence": "Ele ___ médico.",
+      "ru": "Он врач.",
+      "options": [
+        "é",
+        "sou",
+        "são"
+      ],
+      "answer": 0,
+      "explain": "Ele é."
+    },
+    {
+      "id": "a1.02-ser.4",
+      "kind": "gap",
+      "sentence": "Nós ___ do Brasil.",
+      "ru": "Мы из Бразилии.",
+      "options": [
+        "somos",
+        "são",
+        "sou"
+      ],
+      "answer": 0,
+      "explain": "Nós somos."
+    },
+    {
+      "id": "a1.02-ser.5",
+      "kind": "truefalse",
+      "statement": "В предложении «Я учитель» по-португальски можно пропустить глагол.",
+      "answer": false,
+      "explain": "Нужно: Eu sou professor."
+    },
+    {
+      "id": "a1.02-ser.6",
+      "kind": "truefalse",
+      "statement": "«Você é» и «ele é» — одна и та же форма.",
+      "answer": true,
+      "explain": "Обе — é."
+    },
+    {
+      "id": "a1.02-ser.7",
+      "kind": "truefalse",
+      "statement": "«São» — форма для vocês и eles.",
+      "answer": true,
+      "explain": "Vocês são, eles são."
+    },
+    {
+      "id": "a1.02-ser.8",
+      "kind": "build",
+      "ru": "Мы из Салвадора.",
+      "answer": "Nós somos de Salvador.",
+      "extra": [
+        "são",
+        "em"
+      ],
+      "explain": "Nós somos + de (откуда)."
+    },
+    {
+      "id": "a1.02-ser.9",
+      "kind": "type",
+      "sentence": "Eu ___ brasileiro.",
+      "ru": "Я бразилец.",
+      "hint": "ser, eu",
+      "answer": "sou",
+      "explain": "Eu sou."
+    }
+  ]
+}

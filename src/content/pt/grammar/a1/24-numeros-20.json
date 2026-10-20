@@ -1,0 +1,178 @@
+{
+  "id": "a1.24-numeros-20",
+  "district": "A1",
+  "order": 24,
+  "title": "Числа до 20",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Числа 1–20. **Um** и **dois** имеют женскую форму: **uma**, **duas**: **duas horas**, **uma mesa**."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "1–5",
+        "6–10",
+        "11–15",
+        "16–20"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "um, uma",
+            "seis",
+            "onze",
+            "dezesseis"
+          ]
+        },
+        {
+          "cells": [
+            "dois, duas",
+            "sete",
+            "doze",
+            "dezessete"
+          ]
+        },
+        {
+          "cells": [
+            "três",
+            "oito",
+            "treze",
+            "dezoito"
+          ]
+        },
+        {
+          "cells": [
+            "quatro",
+            "nove",
+            "catorze",
+            "dezenove"
+          ]
+        },
+        {
+          "cells": [
+            "cinco",
+            "dez",
+            "quinze",
+            "vinte"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Бразильское написание — **dezesseis**, **dezessete**, **dezenove** (в Португалии — dezasseis). **Catorze** пишут и **quatorze**."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Tenho dois irmãos e uma irmã.",
+      "ru": "У меня двое братьев и одна сестра."
+    },
+    {
+      "es": "São duas horas.",
+      "ru": "Два часа."
+    },
+    {
+      "es": "Ela tem quinze anos.",
+      "ru": "Ей пятнадцать лет."
+    },
+    {
+      "es": "Dezoito reais, por favor.",
+      "ru": "Восемнадцать реалов, пожалуйста."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "a1.24-numeros-20.1",
+      "kind": "choose",
+      "prompt": "«Две чашки»:",
+      "options": [
+        "duas xícaras",
+        "dois xícaras",
+        "duas xícara"
+      ],
+      "answer": 0,
+      "explain": "Xícara — ж. р.: duas."
+    },
+    {
+      "id": "a1.24-numeros-20.2",
+      "kind": "choose",
+      "prompt": "16 по-бразильски:",
+      "options": [
+        "dezesseis",
+        "dezasseis",
+        "dez e seis"
+      ],
+      "answer": 0,
+      "explain": "Dezesseis."
+    },
+    {
+      "id": "a1.24-numeros-20.3",
+      "kind": "gap",
+      "sentence": "Ela tem ___ anos.",
+      "ru": "Ей девятнадцать лет.",
+      "options": [
+        "dezenove",
+        "dezanove",
+        "dez nove"
+      ],
+      "answer": 0,
+      "explain": "Dezenove."
+    },
+    {
+      "id": "a1.24-numeros-20.4",
+      "kind": "gap",
+      "sentence": "São ___ horas.",
+      "ru": "Два часа.",
+      "options": [
+        "duas",
+        "dois",
+        "dos"
+      ],
+      "answer": 0,
+      "explain": "A hora — ж. р.: duas."
+    },
+    {
+      "id": "a1.24-numeros-20.5",
+      "kind": "truefalse",
+      "statement": "У «três» есть женская форма «tresa».",
+      "answer": false,
+      "explain": "Только um/uma и dois/duas."
+    },
+    {
+      "id": "a1.24-numeros-20.6",
+      "kind": "truefalse",
+      "statement": "«Catorze» и «quatorze» — одно число.",
+      "answer": true,
+      "explain": "14."
+    },
+    {
+      "id": "a1.24-numeros-20.7",
+      "kind": "truefalse",
+      "statement": "«Doze» — двенадцать.",
+      "answer": true,
+      "explain": "12."
+    },
+    {
+      "id": "a1.24-numeros-20.8",
+      "kind": "build",
+      "ru": "У меня два брата и одна сестра.",
+      "answer": "Tenho dois irmãos e uma irmã.",
+      "extra": [
+        "duas",
+        "um"
+      ],
+      "explain": "Dois irmãos, uma irmã."
+    },
+    {
+      "id": "a1.24-numeros-20.9",
+      "kind": "type",
+      "sentence": "São ___ pessoas na mesa.",
+      "ru": "За столом двенадцать человек.",
+      "hint": "12",
+      "answer": "doze",
+      "explain": "12 — doze."
+    }
+  ]
+}

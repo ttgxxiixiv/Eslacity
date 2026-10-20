@@ -1,0 +1,166 @@
+{
+  "id": "a1.28-negacao",
+  "district": "A1",
+  "order": 28,
+  "title": "Отрицание",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "**Não** ставится перед глаголом: **Não falo inglês.** Отрицательные слова **nunca, nada, ninguém, nenhum** после глагола требуют **não** впереди: **Não vi ninguém** — «я никого не видел». Перед глаголом **não** не нужно: **Ninguém veio.**"
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Слово",
+        "Пример"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "não",
+            "Ele não está."
+          ]
+        },
+        {
+          "cells": [
+            "nunca",
+            "Nunca bebo café. / Não bebo café nunca."
+          ]
+        },
+        {
+          "cells": [
+            "nada",
+            "Não quero nada."
+          ]
+        },
+        {
+          "cells": [
+            "ninguém",
+            "Não tem ninguém aqui."
+          ]
+        },
+        {
+          "cells": [
+            "nenhum / nenhuma",
+            "Não tenho nenhuma ideia."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "В разговоре **não** часто повторяют в конце: **Não sei, não.** А ответ «да» дают глаголом: **— Você mora aqui? — Moro.** («Живу».)"
+    }
+  ],
+  "examples": [
+    {
+      "es": "Não entendo nada.",
+      "ru": "Я ничего не понимаю."
+    },
+    {
+      "es": "Ninguém sabe o caminho.",
+      "ru": "Никто не знает дороги."
+    },
+    {
+      "es": "Ele nunca chega atrasado.",
+      "ru": "Он никогда не опаздывает."
+    },
+    {
+      "es": "— Você gosta? — Gosto!",
+      "ru": "— Тебе нравится? — Нравится!"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "a1.28-negacao.1",
+      "kind": "choose",
+      "prompt": "«Я никого не видел»:",
+      "options": [
+        "Não vi ninguém.",
+        "Vi ninguém.",
+        "Não vi alguém."
+      ],
+      "answer": 0,
+      "explain": "Ninguém после глагола — с não."
+    },
+    {
+      "id": "a1.28-negacao.2",
+      "kind": "choose",
+      "prompt": "«Никто не пришёл»:",
+      "options": [
+        "Ninguém veio.",
+        "Não ninguém veio.",
+        "Ninguém não veio."
+      ],
+      "answer": 0,
+      "explain": "Перед глаголом — без não."
+    },
+    {
+      "id": "a1.28-negacao.3",
+      "kind": "gap",
+      "sentence": "Eu ___ quero nada, obrigado.",
+      "ru": "Мне ничего не нужно, спасибо.",
+      "options": [
+        "não",
+        "nunca",
+        "nem"
+      ],
+      "answer": 0,
+      "explain": "Não + quero nada."
+    },
+    {
+      "id": "a1.28-negacao.4",
+      "kind": "gap",
+      "sentence": "Não tenho ___ dinheiro.",
+      "ru": "У меня нет никаких денег.",
+      "options": [
+        "nenhum",
+        "ninguém",
+        "nada de"
+      ],
+      "answer": 0,
+      "explain": "Nenhum dinheiro."
+    },
+    {
+      "id": "a1.28-negacao.5",
+      "kind": "truefalse",
+      "statement": "«Não quero nada» — двойное отрицание, и это нормально.",
+      "answer": true,
+      "explain": "Так и говорят."
+    },
+    {
+      "id": "a1.28-negacao.6",
+      "kind": "truefalse",
+      "statement": "На вопрос «Você mora aqui?» можно ответить одним глаголом: «Moro».",
+      "answer": true,
+      "explain": "Ответ глаголом."
+    },
+    {
+      "id": "a1.28-negacao.7",
+      "kind": "truefalse",
+      "statement": "«Ninguém não sabe» — правильно.",
+      "answer": false,
+      "explain": "Ninguém sabe."
+    },
+    {
+      "id": "a1.28-negacao.8",
+      "kind": "build",
+      "ru": "Я никогда не пью кофе вечером.",
+      "answer": "Eu nunca bebo café à noite.",
+      "extra": [
+        "não",
+        "bebe"
+      ],
+      "explain": "Nunca перед глаголом — без não."
+    },
+    {
+      "id": "a1.28-negacao.9",
+      "kind": "type",
+      "sentence": "Não tem ___ em casa.",
+      "ru": "Дома никого нет.",
+      "hint": "никто",
+      "answer": "ninguém",
+      "explain": "Никто — ninguém."
+    }
+  ]
+}

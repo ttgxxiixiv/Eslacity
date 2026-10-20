@@ -1,0 +1,161 @@
+{
+  "id": "a1.21-tem-ha",
+  "district": "A1",
+  "order": 21,
+  "title": "Есть, имеется: tem",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "«Есть, имеется» в Бразилии — **tem**: **Tem uma farmácia aqui perto?** — «Здесь рядом есть аптека?». В книжной речи — **há**: **Há muitas pessoas**. Форма одна для единственного и множественного: **tem duas lojas**."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Разговор",
+        "Книжно",
+        "Перевод"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Tem café?",
+            "Há café?",
+            "Кофе есть?"
+          ]
+        },
+        {
+          "cells": [
+            "Não tem lugar.",
+            "Não há lugar.",
+            "Мест нет."
+          ]
+        },
+        {
+          "cells": [
+            "Tem muita gente.",
+            "Há muita gente.",
+            "Много народу."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "**Tem** не меняется: «tem dois bancos», а не «têm dois bancos». Где конкретная вещь — **estar**: **O banco está ali**."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Tem pão hoje?",
+      "ru": "Хлеб сегодня есть?"
+    },
+    {
+      "es": "Não tem ninguém em casa.",
+      "ru": "Дома никого нет."
+    },
+    {
+      "es": "Tem muitos turistas na praia.",
+      "ru": "На пляже много туристов."
+    },
+    {
+      "es": "Há uma pousada na ilha.",
+      "ru": "На острове есть пусада."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "a1.21-tem-ha.1",
+      "kind": "choose",
+      "prompt": "«На рынке много фруктов»:",
+      "options": [
+        "Tem muitas frutas na feira.",
+        "Têm muitas frutas na feira.",
+        "Estão muitas frutas na feira."
+      ],
+      "answer": 0,
+      "explain": "Tem — одна форма."
+    },
+    {
+      "id": "a1.21-tem-ha.2",
+      "kind": "choose",
+      "prompt": "Книжный вариант «tem»:",
+      "options": [
+        "há",
+        "é",
+        "está"
+      ],
+      "answer": 0,
+      "explain": "Há."
+    },
+    {
+      "id": "a1.21-tem-ha.3",
+      "kind": "gap",
+      "sentence": "___ um ônibus às oito?",
+      "ru": "Есть автобус в восемь?",
+      "options": [
+        "Tem",
+        "É",
+        "Está"
+      ],
+      "answer": 0,
+      "explain": "Есть, имеется — tem."
+    },
+    {
+      "id": "a1.21-tem-ha.4",
+      "kind": "gap",
+      "sentence": "O banco ___ na praça.",
+      "ru": "Банк — на площади.",
+      "options": [
+        "está",
+        "tem",
+        "há"
+      ],
+      "answer": 0,
+      "explain": "Где конкретная вещь — está (или fica)."
+    },
+    {
+      "id": "a1.21-tem-ha.5",
+      "kind": "truefalse",
+      "statement": "«Tem dois bancos aqui» — правильно.",
+      "answer": true,
+      "explain": "Tem не меняется."
+    },
+    {
+      "id": "a1.21-tem-ha.6",
+      "kind": "truefalse",
+      "statement": "«Não tem problema» значит «без проблем».",
+      "answer": true,
+      "explain": "Не беда."
+    },
+    {
+      "id": "a1.21-tem-ha.7",
+      "kind": "truefalse",
+      "statement": "«Há» в Бразилии — обычное разговорное слово.",
+      "answer": false,
+      "explain": "В разговоре — tem."
+    },
+    {
+      "id": "a1.21-tem-ha.8",
+      "kind": "build",
+      "ru": "В этом городе много пляжей.",
+      "answer": "Tem muitas praias nesta cidade.",
+      "extra": [
+        "têm",
+        "está"
+      ],
+      "explain": "Tem — одна форма."
+    },
+    {
+      "id": "a1.21-tem-ha.9",
+      "kind": "type",
+      "sentence": "Não ___ água na geladeira.",
+      "ru": "В холодильнике нет воды.",
+      "hint": "есть, имеется",
+      "answer": "tem",
+      "alt": [
+        "há"
+      ],
+      "explain": "Не имеется — não tem."
+    }
+  ]
+}

@@ -1,0 +1,179 @@
+{
+  "id": "a2.10-pronomes-objeto",
+  "district": "A2",
+  "order": 10,
+  "title": "Местоимения-дополнения",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "В бразильской разговорной речи «его, её» как прямое дополнение часто говорят **ele, ela** после глагола: **Vi ele ontem**. В письме — **o, a**: **Eu o vi ontem**. «Меня, тебя, нас» — **me, te, nos** перед глаголом: **Ele me ajudou**, **Te amo**."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Кого",
+        "Разговор",
+        "Письмо"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "меня",
+            "me",
+            "me"
+          ]
+        },
+        {
+          "cells": [
+            "тебя",
+            "te / você",
+            "te / o, a"
+          ]
+        },
+        {
+          "cells": [
+            "его, её",
+            "ele, ela",
+            "o, a"
+          ]
+        },
+        {
+          "cells": [
+            "нас",
+            "nos / a gente",
+            "nos"
+          ]
+        },
+        {
+          "cells": [
+            "их",
+            "eles, elas",
+            "os, as"
+          ]
+        },
+        {
+          "cells": [
+            "со мной, с тобой",
+            "comigo, com você",
+            "comigo, contigo"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "**Te** в Бразилии идёт с **você**: «Eu te ligo» — я тебе позвоню. После инфинитива в письме: **vou visitá-lo** (r выпадает, добавляется -lo). В курсе — разговорный вариант."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Ele me chamou.",
+      "ru": "Он меня позвал."
+    },
+    {
+      "es": "Te espero na praça.",
+      "ru": "Жду тебя на площади."
+    },
+    {
+      "es": "Vi ela no mercado.",
+      "ru": "Я видел её на рынке."
+    },
+    {
+      "es": "Você nos ajuda?",
+      "ru": "Ты нам поможешь?"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "a2.10-pronomes-objeto.1",
+      "kind": "choose",
+      "prompt": "«Он меня видел»:",
+      "options": [
+        "Ele me viu.",
+        "Ele viu me.",
+        "Ele eu viu."
+      ],
+      "answer": 0,
+      "explain": "Me — перед глаголом."
+    },
+    {
+      "id": "a2.10-pronomes-objeto.2",
+      "kind": "choose",
+      "prompt": "«Я тебя жду» (разговор):",
+      "options": [
+        "Te espero.",
+        "Espero te.",
+        "Você espero."
+      ],
+      "answer": 0,
+      "explain": "Te перед глаголом."
+    },
+    {
+      "id": "a2.10-pronomes-objeto.3",
+      "kind": "gap",
+      "sentence": "A professora ___ ajudou muito.",
+      "ru": "Учительница мне очень помогла.",
+      "options": [
+        "me",
+        "eu",
+        "mim"
+      ],
+      "answer": 0,
+      "explain": "Дополнение — me."
+    },
+    {
+      "id": "a2.10-pronomes-objeto.4",
+      "kind": "gap",
+      "sentence": "Eu conheço ___ desde criança.",
+      "ru": "Я знаю его с детства.",
+      "options": [
+        "ele",
+        "lhe",
+        "eu"
+      ],
+      "answer": 0,
+      "explain": "В разговоре — ele после глагола."
+    },
+    {
+      "id": "a2.10-pronomes-objeto.5",
+      "kind": "truefalse",
+      "statement": "«Vi ela ontem» — обычная бразильская разговорная фраза.",
+      "answer": true,
+      "explain": "В письме — eu a vi."
+    },
+    {
+      "id": "a2.10-pronomes-objeto.6",
+      "kind": "truefalse",
+      "statement": "«Te amo» — правильно в Бразилии.",
+      "answer": true,
+      "explain": "Te перед глаголом."
+    },
+    {
+      "id": "a2.10-pronomes-objeto.7",
+      "kind": "truefalse",
+      "statement": "«Ele viu eu» — правильно.",
+      "answer": false,
+      "explain": "Ele me viu."
+    },
+    {
+      "id": "a2.10-pronomes-objeto.8",
+      "kind": "build",
+      "ru": "Ты позвонишь мне завтра?",
+      "answer": "Você me liga amanhã?",
+      "extra": [
+        "eu",
+        "mim"
+      ],
+      "explain": "Me перед глаголом."
+    },
+    {
+      "id": "a2.10-pronomes-objeto.9",
+      "kind": "type",
+      "sentence": "Eu ___ amo muito, mãe!",
+      "ru": "Я тебя очень люблю, мама!",
+      "hint": "тебя",
+      "answer": "te",
+      "explain": "Тебя — te."
+    }
+  ]
+}

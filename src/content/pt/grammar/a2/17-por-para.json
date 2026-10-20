@@ -1,0 +1,160 @@
+{
+  "id": "a2.17-por-para",
+  "district": "A2",
+  "order": 17,
+  "title": "Por и para",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "**Para** — цель и направление: **para você** (для тебя), **vou para casa**, **para aprender**. **Por** — причина, путь, обмен, «за»: **por causa da chuva**, **passar pelo parque**, **obrigado pelo café**, **por dez reais**."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "para",
+        "por"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "цель: estudo para aprender",
+            "причина: por causa de"
+          ]
+        },
+        {
+          "cells": [
+            "адресат: um presente para ela",
+            "путь: pela praia"
+          ]
+        },
+        {
+          "cells": [
+            "куда: vou para Recife",
+            "за что: obrigado pela ajuda"
+          ]
+        },
+        {
+          "cells": [
+            "срок: para amanhã",
+            "цена, обмен: por cem reais"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "**Pra** — разговорное para: **pra mim**, **pra casa**. **Por favor** и **por exemplo** — устойчивые выражения."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Esse presente é para você.",
+      "ru": "Этот подарок для тебя."
+    },
+    {
+      "es": "Obrigado pela ajuda!",
+      "ru": "Спасибо за помощь!"
+    },
+    {
+      "es": "Passamos pela ponte.",
+      "ru": "Мы прошли по мосту."
+    },
+    {
+      "es": "Estudo para ser médico.",
+      "ru": "Я учусь, чтобы стать врачом."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "a2.17-por-para.1",
+      "kind": "choose",
+      "prompt": "«Спасибо за всё»:",
+      "options": [
+        "Obrigado por tudo.",
+        "Obrigado para tudo.",
+        "Obrigado pra tudo."
+      ],
+      "answer": 0,
+      "explain": "За что — por."
+    },
+    {
+      "id": "a2.17-por-para.2",
+      "kind": "choose",
+      "prompt": "«Я еду в Ресифи»:",
+      "options": [
+        "Vou para Recife.",
+        "Vou por Recife.",
+        "Vou pelo Recife."
+      ],
+      "answer": 0,
+      "explain": "Куда — para."
+    },
+    {
+      "id": "a2.17-por-para.3",
+      "kind": "gap",
+      "sentence": "Comprei o vestido ___ cinquenta reais.",
+      "ru": "Я купила платье за пятьдесят реалов.",
+      "options": [
+        "por",
+        "para",
+        "pelo"
+      ],
+      "answer": 0,
+      "explain": "Цена — por."
+    },
+    {
+      "id": "a2.17-por-para.4",
+      "kind": "gap",
+      "sentence": "Esse bolo é ___ a festa.",
+      "ru": "Этот торт для праздника.",
+      "options": [
+        "para",
+        "por",
+        "pela"
+      ],
+      "answer": 0,
+      "explain": "Для чего — para."
+    },
+    {
+      "id": "a2.17-por-para.5",
+      "kind": "truefalse",
+      "statement": "«Por causa da chuva» — «из-за дождя».",
+      "answer": true,
+      "explain": "Причина — por."
+    },
+    {
+      "id": "a2.17-por-para.6",
+      "kind": "truefalse",
+      "statement": "«Pra» — разговорная форма para.",
+      "answer": true,
+      "explain": "Pra você."
+    },
+    {
+      "id": "a2.17-por-para.7",
+      "kind": "truefalse",
+      "statement": "«Estudo por aprender» — обычное «учусь, чтобы знать».",
+      "answer": false,
+      "explain": "Цель — para aprender."
+    },
+    {
+      "id": "a2.17-por-para.8",
+      "kind": "build",
+      "ru": "Мы пошли домой через парк.",
+      "answer": "Fomos para casa pelo parque.",
+      "extra": [
+        "por",
+        "pela"
+      ],
+      "explain": "Куда — para, путь — pelo."
+    },
+    {
+      "id": "a2.17-por-para.9",
+      "kind": "type",
+      "sentence": "Obrigada ___ presente!",
+      "ru": "Спасибо за подарок!",
+      "hint": "por + o",
+      "answer": "pelo",
+      "explain": "Por + o = pelo."
+    }
+  ]
+}

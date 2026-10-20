@@ -1,0 +1,157 @@
+{
+  "id": "a1.19-contracoes-a-por",
+  "district": "A1",
+  "order": 19,
+  "title": "Слияния: ao, à, pelo",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Предлог **a** сливается: **a + o = ao**, **a + a = à** (с обратным ударением). **Por** сливается в **pelo, pela, pelos, pelas**: **passei pela praça** — «прошёл через площадь»."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "",
+        "o",
+        "a",
+        "os",
+        "as"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "a",
+            "ao",
+            "à",
+            "aos",
+            "às"
+          ]
+        },
+        {
+          "cells": [
+            "por",
+            "pelo",
+            "pela",
+            "pelos",
+            "pelas"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Время: **às oito** (в восемь), **à uma** (в час). **Obrigado pelo café** — «спасибо за кофе». Знак **à** звучит как обычное «а», это слияние двух a."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Vou à farmácia.",
+      "ru": "Я иду в аптеку."
+    },
+    {
+      "es": "Chego às sete.",
+      "ru": "Я приду в семь."
+    },
+    {
+      "es": "Obrigado pelo presente!",
+      "ru": "Спасибо за подарок!"
+    },
+    {
+      "es": "Passamos pela ponte.",
+      "ru": "Мы прошли по мосту."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "a1.19-contracoes-a-por.1",
+      "kind": "choose",
+      "prompt": "«В восемь часов»:",
+      "options": [
+        "às oito",
+        "as oito",
+        "ao oito"
+      ],
+      "answer": 0,
+      "explain": "A + as horas = às."
+    },
+    {
+      "id": "a1.19-contracoes-a-por.2",
+      "kind": "choose",
+      "prompt": "«Спасибо за помощь»:",
+      "options": [
+        "Obrigado pela ajuda.",
+        "Obrigado por a ajuda.",
+        "Obrigado pelo ajuda."
+      ],
+      "answer": 0,
+      "explain": "Por + a = pela."
+    },
+    {
+      "id": "a1.19-contracoes-a-por.3",
+      "kind": "gap",
+      "sentence": "Vamos ___ cinema?",
+      "ru": "Пойдём в кино?",
+      "options": [
+        "ao",
+        "à",
+        "no"
+      ],
+      "answer": 0,
+      "explain": "A + o cinema = ao."
+    },
+    {
+      "id": "a1.19-contracoes-a-por.4",
+      "kind": "gap",
+      "sentence": "Ele passou ___ parque.",
+      "ru": "Он прошёл через парк.",
+      "options": [
+        "pelo",
+        "pela",
+        "por"
+      ],
+      "answer": 0,
+      "explain": "Por + o = pelo."
+    },
+    {
+      "id": "a1.19-contracoes-a-por.5",
+      "kind": "truefalse",
+      "statement": "«À» — это слияние a + a.",
+      "answer": true,
+      "explain": "Vou à praia."
+    },
+    {
+      "id": "a1.19-contracoes-a-por.6",
+      "kind": "truefalse",
+      "statement": "«Às duas» значит «в два часа».",
+      "answer": true,
+      "explain": "A + as."
+    },
+    {
+      "id": "a1.19-contracoes-a-por.7",
+      "kind": "truefalse",
+      "statement": "«Por o caminho» — правильная запись.",
+      "answer": false,
+      "explain": "Pelo caminho."
+    },
+    {
+      "id": "a1.19-contracoes-a-por.8",
+      "kind": "build",
+      "ru": "Спасибо за вкусный кофе!",
+      "answer": "Obrigado pelo café gostoso!",
+      "extra": [
+        "pela",
+        "por"
+      ],
+      "explain": "Por + o café = pelo."
+    },
+    {
+      "id": "a1.19-contracoes-a-por.9",
+      "kind": "type",
+      "sentence": "A aula começa ___ nove.",
+      "ru": "Урок начинается в девять.",
+      "hint": "a + as",
+      "answer": "às",
+      "explain": "A + as nove."
+    }
+  ]
+}

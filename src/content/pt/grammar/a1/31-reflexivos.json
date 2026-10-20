@@ -1,0 +1,172 @@
+{
+  "id": "a1.31-reflexivos",
+  "district": "A1",
+  "order": 31,
+  "title": "Возвратные глаголы и день",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Возвратный глагол в словаре — с **-se**: **levantar-se** (вставать), **chamar-se** (называться). В Бразилии местоимение ставят **перед** глаголом: **Eu me levanto cedo**, **Como você se chama?**"
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Лицо",
+        "Местоимение",
+        "Пример"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "eu",
+            "me",
+            "Eu me chamo Ana."
+          ]
+        },
+        {
+          "cells": [
+            "você / ele / ela",
+            "se",
+            "Ela se chama Rosa."
+          ]
+        },
+        {
+          "cells": [
+            "nós",
+            "nos",
+            "Nós nos vestimos rápido."
+          ]
+        },
+        {
+          "cells": [
+            "a gente",
+            "se",
+            "A gente se vê amanhã."
+          ]
+        },
+        {
+          "cells": [
+            "vocês / eles",
+            "se",
+            "Eles se casaram."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "В разговоре многие глаголы теряют местоимение: **eu acordo**, **eu deito cedo**, **sento aqui**. **A gente se vê!** — «Увидимся!»."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Eu me chamo Pedro.",
+      "ru": "Меня зовут Педру."
+    },
+    {
+      "es": "A gente se vê amanhã!",
+      "ru": "Увидимся завтра!"
+    },
+    {
+      "es": "Ela se veste rápido.",
+      "ru": "Она быстро одевается."
+    },
+    {
+      "es": "Eu acordo às seis.",
+      "ru": "Я просыпаюсь в шесть."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "a1.31-reflexivos.1",
+      "kind": "choose",
+      "prompt": "«Меня зовут Ана»:",
+      "options": [
+        "Eu me chamo Ana.",
+        "Eu chamo Ana.",
+        "Eu se chamo Ana."
+      ],
+      "answer": 0,
+      "explain": "Eu — me."
+    },
+    {
+      "id": "a1.31-reflexivos.2",
+      "kind": "choose",
+      "prompt": "«Увидимся!»:",
+      "options": [
+        "A gente se vê!",
+        "A gente nos vê!",
+        "A gente vê se!"
+      ],
+      "answer": 0,
+      "explain": "A gente — se."
+    },
+    {
+      "id": "a1.31-reflexivos.3",
+      "kind": "gap",
+      "sentence": "Como você ___ chama?",
+      "ru": "Как тебя зовут?",
+      "options": [
+        "se",
+        "me",
+        "te"
+      ],
+      "answer": 0,
+      "explain": "Você — se."
+    },
+    {
+      "id": "a1.31-reflexivos.4",
+      "kind": "gap",
+      "sentence": "Nós ___ levantamos cedo.",
+      "ru": "Мы встаём рано.",
+      "options": [
+        "nos",
+        "se",
+        "me"
+      ],
+      "answer": 0,
+      "explain": "Nós — nos."
+    },
+    {
+      "id": "a1.31-reflexivos.5",
+      "kind": "truefalse",
+      "statement": "В Бразилии местоимение обычно перед глаголом: eu me levanto.",
+      "answer": true,
+      "explain": "Так звучит естественно."
+    },
+    {
+      "id": "a1.31-reflexivos.6",
+      "kind": "truefalse",
+      "statement": "«Ela se chama» — «её зовут».",
+      "answer": true,
+      "explain": "Chamar-se."
+    },
+    {
+      "id": "a1.31-reflexivos.7",
+      "kind": "truefalse",
+      "statement": "В разговоре «eu acordo» без me — ошибка.",
+      "answer": false,
+      "explain": "Так часто говорят."
+    },
+    {
+      "id": "a1.31-reflexivos.8",
+      "kind": "build",
+      "ru": "Как зовут твою сестру?",
+      "answer": "Como se chama a sua irmã?",
+      "extra": [
+        "me",
+        "chamo"
+      ],
+      "explain": "Ela se chama."
+    },
+    {
+      "id": "a1.31-reflexivos.9",
+      "kind": "type",
+      "sentence": "Eu ___ chamo Lucas.",
+      "ru": "Меня зовут Лукас.",
+      "hint": "местоимение, eu",
+      "answer": "me",
+      "explain": "Eu — me."
+    }
+  ]
+}

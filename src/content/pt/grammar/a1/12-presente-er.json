@@ -1,0 +1,165 @@
+{
+  "id": "a1.12-presente-er",
+  "district": "A1",
+  "order": 12,
+  "title": "Настоящее время: глаголы на -er",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Глаголы на **-er**: comer, beber, vender, aprender. Окончания похожи на -ar, но с **e**: **come**, **comem**."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Лицо",
+        "comer",
+        "vender"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "eu",
+            "como",
+            "vendo"
+          ]
+        },
+        {
+          "cells": [
+            "você / ele / ela",
+            "come",
+            "vende"
+          ]
+        },
+        {
+          "cells": [
+            "nós",
+            "comemos",
+            "vendemos"
+          ]
+        },
+        {
+          "cells": [
+            "vocês / eles / elas",
+            "comem",
+            "vendem"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Перед -o меняется орфография: **conhecer** → **conheço**, **esquecer** → **esqueço**: c перед o пишется ç, чтобы звук остался «с»."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Eu como pão de manhã.",
+      "ru": "Утром я ем хлеб."
+    },
+    {
+      "es": "Ela vende frutas.",
+      "ru": "Она продаёт фрукты."
+    },
+    {
+      "es": "Vocês bebem café?",
+      "ru": "Вы пьёте кофе?"
+    },
+    {
+      "es": "Eu conheço o caminho.",
+      "ru": "Я знаю дорогу."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "a1.12-presente-er.1",
+      "kind": "choose",
+      "prompt": "«Они едят»:",
+      "options": [
+        "comem",
+        "comam",
+        "comen"
+      ],
+      "answer": 0,
+      "explain": "Eles — -em."
+    },
+    {
+      "id": "a1.12-presente-er.2",
+      "kind": "choose",
+      "prompt": "«Я знаю (его)»:",
+      "options": [
+        "conheço",
+        "conheco",
+        "conhece"
+      ],
+      "answer": 0,
+      "explain": "C → ç перед o."
+    },
+    {
+      "id": "a1.12-presente-er.3",
+      "kind": "gap",
+      "sentence": "Nós ___ muita água.",
+      "ru": "Мы пьём много воды.",
+      "options": [
+        "bebemos",
+        "bebimos",
+        "bebem"
+      ],
+      "answer": 0,
+      "explain": "Nós — -emos."
+    },
+    {
+      "id": "a1.12-presente-er.4",
+      "kind": "gap",
+      "sentence": "Você ___ português rápido.",
+      "ru": "Ты быстро учишь португальский.",
+      "options": [
+        "aprende",
+        "aprendo",
+        "aprendem"
+      ],
+      "answer": 0,
+      "explain": "Você — -e."
+    },
+    {
+      "id": "a1.12-presente-er.5",
+      "kind": "truefalse",
+      "statement": "«Eu esqueço» пишется с ç.",
+      "answer": true,
+      "explain": "Esquecer → esqueço."
+    },
+    {
+      "id": "a1.12-presente-er.6",
+      "kind": "truefalse",
+      "statement": "«Ele bebe» и «você bebe» — одна форма.",
+      "answer": true,
+      "explain": "Bebe."
+    },
+    {
+      "id": "a1.12-presente-er.7",
+      "kind": "truefalse",
+      "statement": "У глаголов на -er форма «nós» — «-amos».",
+      "answer": false,
+      "explain": "Comemos — -emos."
+    },
+    {
+      "id": "a1.12-presente-er.8",
+      "kind": "build",
+      "ru": "Дона Граса продаёт манго.",
+      "answer": "Dona Graça vende manga.",
+      "extra": [
+        "vendem",
+        "come"
+      ],
+      "explain": "Ela vende."
+    },
+    {
+      "id": "a1.12-presente-er.9",
+      "kind": "type",
+      "sentence": "Eu ___ arroz com feijão.",
+      "ru": "Я ем рис с фасолью.",
+      "hint": "comer, eu",
+      "answer": "como",
+      "explain": "Eu como."
+    }
+  ]
+}

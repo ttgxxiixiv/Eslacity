@@ -1,0 +1,166 @@
+{
+  "id": "a1.06-genero",
+  "district": "A1",
+  "order": 6,
+  "title": "Род существительных",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Каждое существительное мужского или женского рода. На **-o** — обычно мужской (**o livro**), на **-a** — женский (**a casa**). На **-dade**, **-ção** — женский (**a cidade**, **a canção**). На **-e** и согласную — учить с артиклем (**o leite**, **a noite**, **o mar**)."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Мужской",
+        "Женский"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "o menino",
+            "a menina"
+          ]
+        },
+        {
+          "cells": [
+            "o professor",
+            "a professora"
+          ]
+        },
+        {
+          "cells": [
+            "o pão",
+            "a mão"
+          ]
+        },
+        {
+          "cells": [
+            "o dia",
+            "a cidade"
+          ]
+        },
+        {
+          "cells": [
+            "o problema",
+            "a lição"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Исключения: **o dia**, **o mapa**, **o problema**, **o sistema** — мужской род на -a; **a mão**, **a foto**, **a tribo** — женский. Род по-русски часто другой: **o leite** (молоко), **a árvore** (дерево)."
+    }
+  ],
+  "examples": [
+    {
+      "es": "O mapa é velho.",
+      "ru": "Карта старая."
+    },
+    {
+      "es": "A cidade é bonita.",
+      "ru": "Город красивый."
+    },
+    {
+      "es": "O leite está quente.",
+      "ru": "Молоко горячее."
+    },
+    {
+      "es": "A professora chegou.",
+      "ru": "Учительница пришла."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "a1.06-genero.1",
+      "kind": "choose",
+      "prompt": "Какой артикль у «dia»?",
+      "options": [
+        "o",
+        "a",
+        "os"
+      ],
+      "answer": 0,
+      "explain": "O dia — исключение на -a."
+    },
+    {
+      "id": "a1.06-genero.2",
+      "kind": "choose",
+      "prompt": "Какой артикль у «cidade»?",
+      "options": [
+        "a",
+        "o",
+        "as"
+      ],
+      "answer": 0,
+      "explain": "-dade — женский род."
+    },
+    {
+      "id": "a1.06-genero.3",
+      "kind": "gap",
+      "sentence": "___ problema é sério.",
+      "ru": "Проблема серьёзная.",
+      "options": [
+        "O",
+        "A",
+        "Os"
+      ],
+      "answer": 0,
+      "explain": "O problema — мужской род."
+    },
+    {
+      "id": "a1.06-genero.4",
+      "kind": "gap",
+      "sentence": "___ mão está fria.",
+      "ru": "Рука холодная.",
+      "options": [
+        "A",
+        "O",
+        "As"
+      ],
+      "answer": 0,
+      "explain": "A mão — женский род."
+    },
+    {
+      "id": "a1.06-genero.5",
+      "kind": "truefalse",
+      "statement": "«Leite» — женского рода, как русское «молоко» среднего.",
+      "answer": false,
+      "explain": "O leite — мужской."
+    },
+    {
+      "id": "a1.06-genero.6",
+      "kind": "truefalse",
+      "statement": "Слова на -ção обычно женского рода.",
+      "answer": true,
+      "explain": "A lição, a canção."
+    },
+    {
+      "id": "a1.06-genero.7",
+      "kind": "truefalse",
+      "statement": "«A mapa» — правильно.",
+      "answer": false,
+      "explain": "O mapa."
+    },
+    {
+      "id": "a1.06-genero.8",
+      "kind": "build",
+      "ru": "Карта на столе.",
+      "answer": "O mapa está na mesa.",
+      "extra": [
+        "A",
+        "no"
+      ],
+      "explain": "O mapa, na mesa."
+    },
+    {
+      "id": "a1.06-genero.9",
+      "kind": "type",
+      "sentence": "___ árvore é muito alta.",
+      "ru": "Дерево очень высокое.",
+      "hint": "артикль",
+      "answer": "A",
+      "explain": "A árvore — женский род."
+    }
+  ]
+}

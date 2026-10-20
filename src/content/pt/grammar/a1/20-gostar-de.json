@@ -1,0 +1,160 @@
+{
+  "id": "a1.20-gostar-de",
+  "district": "A1",
+  "order": 20,
+  "title": "Gostar de",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "**Gostar** — «нравиться, любить» — всегда с **de**: **Gosto de café** — «я люблю кофе». С артиклем — слияние: **gosto do mar**, **gosto da praia**. С глаголом — инфинитив: **gosto de nadar**."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Пример",
+        "Перевод"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Eu gosto de chocolate.",
+            "Я люблю шоколад."
+          ]
+        },
+        {
+          "cells": [
+            "Ela gosta do Rio.",
+            "Ей нравится Рио."
+          ]
+        },
+        {
+          "cells": [
+            "Gostamos de dançar.",
+            "Мы любим танцевать."
+          ]
+        },
+        {
+          "cells": [
+            "Você gosta da música?",
+            "Тебе нравится музыка?"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "В отличие от русского «мне нравится», подлежащее — тот, кто любит: **Eu gosto** (я), а не «me gusta», как в испанском. **Adoro** — «обожаю» — без de: **Adoro praia**."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Gosto muito de você.",
+      "ru": "Ты мне очень нравишься."
+    },
+    {
+      "es": "Ele não gosta de peixe.",
+      "ru": "Он не любит рыбу."
+    },
+    {
+      "es": "Você gosta de ler?",
+      "ru": "Ты любишь читать?"
+    },
+    {
+      "es": "Adoro o pão de queijo.",
+      "ru": "Обожаю сырные булочки."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "a1.20-gostar-de.1",
+      "kind": "choose",
+      "prompt": "«Мне нравится пляж»:",
+      "options": [
+        "Gosto da praia.",
+        "Gosto a praia.",
+        "Me gosta a praia."
+      ],
+      "answer": 0,
+      "explain": "Gostar de + a = da."
+    },
+    {
+      "id": "a1.20-gostar-de.2",
+      "kind": "choose",
+      "prompt": "«Мы любим петь»:",
+      "options": [
+        "Gostamos de cantar.",
+        "Gostamos cantar.",
+        "Gostamos de cantamos."
+      ],
+      "answer": 0,
+      "explain": "Gostar de + инфинитив."
+    },
+    {
+      "id": "a1.20-gostar-de.3",
+      "kind": "gap",
+      "sentence": "Eles gostam ___ futebol.",
+      "ru": "Они любят футбол.",
+      "options": [
+        "de",
+        "do",
+        "da"
+      ],
+      "answer": 0,
+      "explain": "Без артикля — de."
+    },
+    {
+      "id": "a1.20-gostar-de.4",
+      "kind": "gap",
+      "sentence": "Você gosta ___ cidade?",
+      "ru": "Тебе нравится город?",
+      "options": [
+        "da",
+        "do",
+        "de a"
+      ],
+      "answer": 0,
+      "explain": "De + a cidade = da."
+    },
+    {
+      "id": "a1.20-gostar-de.5",
+      "kind": "truefalse",
+      "statement": "После gostar всегда нужен предлог de.",
+      "answer": true,
+      "explain": "Gosto de…"
+    },
+    {
+      "id": "a1.20-gostar-de.6",
+      "kind": "truefalse",
+      "statement": "«Adoro de praia» — правильно.",
+      "answer": false,
+      "explain": "Adorar без de."
+    },
+    {
+      "id": "a1.20-gostar-de.7",
+      "kind": "truefalse",
+      "statement": "В «Eu gosto de café» подлежащее — тот, кто любит.",
+      "answer": true,
+      "explain": "Eu gosto."
+    },
+    {
+      "id": "a1.20-gostar-de.8",
+      "kind": "build",
+      "ru": "Моя мама любит готовить.",
+      "answer": "A minha mãe gosta de cozinhar.",
+      "extra": [
+        "gosto",
+        "do"
+      ],
+      "explain": "Gostar de + инфинитив."
+    },
+    {
+      "id": "a1.20-gostar-de.9",
+      "kind": "type",
+      "sentence": "Eu gosto ___ mar.",
+      "ru": "Я люблю море.",
+      "hint": "de + o",
+      "answer": "do",
+      "explain": "De + o mar."
+    }
+  ]
+}

@@ -1,0 +1,165 @@
+{
+  "id": "a1.23-dele-dela",
+  "district": "A1",
+  "order": 23,
+  "title": "Его, её: dele, dela",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "«Его» и «её» в Бразилии — **dele** и **dela** (de + ele, de + ela), после предмета: **o carro dele** — его машина, **a casa dela** — её дом. «Их» — **deles, delas**."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Чей",
+        "Форма",
+        "Пример"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "его",
+            "dele",
+            "o livro dele"
+          ]
+        },
+        {
+          "cells": [
+            "её",
+            "dela",
+            "a bolsa dela"
+          ]
+        },
+        {
+          "cells": [
+            "их (м.)",
+            "deles",
+            "a casa deles"
+          ]
+        },
+        {
+          "cells": [
+            "их (ж.)",
+            "delas",
+            "o carro delas"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "**Dele** не меняется по предмету: **os livros dele**, **a casa dele**. Меняется только по хозяину: dele (он) — dela (она)."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Esse é o irmão dela.",
+      "ru": "Это её брат."
+    },
+    {
+      "es": "A casa deles fica na praia.",
+      "ru": "Их дом на пляже."
+    },
+    {
+      "es": "Gosto do jeito dele.",
+      "ru": "Мне нравится его манера."
+    },
+    {
+      "es": "As filhas dele moram em São Paulo.",
+      "ru": "Его дочери живут в Сан-Паулу."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "a1.23-dele-dela.1",
+      "kind": "choose",
+      "prompt": "«Её машина»:",
+      "options": [
+        "o carro dela",
+        "o carro dele",
+        "a carro dela"
+      ],
+      "answer": 0,
+      "explain": "Хозяйка — dela."
+    },
+    {
+      "id": "a1.23-dele-dela.2",
+      "kind": "choose",
+      "prompt": "«Его сёстры»:",
+      "options": [
+        "as irmãs dele",
+        "as irmãs delas",
+        "as dele irmãs"
+      ],
+      "answer": 0,
+      "explain": "Хозяин он — dele, после предмета."
+    },
+    {
+      "id": "a1.23-dele-dela.3",
+      "kind": "gap",
+      "sentence": "A mochila ___ é pesada.",
+      "ru": "Его рюкзак тяжёлый.",
+      "options": [
+        "dele",
+        "dela",
+        "deles"
+      ],
+      "answer": 0,
+      "explain": "Его — dele."
+    },
+    {
+      "id": "a1.23-dele-dela.4",
+      "kind": "gap",
+      "sentence": "O pai ___ é pescador.",
+      "ru": "Их отец — рыбак (у них, мальчиков).",
+      "options": [
+        "deles",
+        "dele",
+        "delas"
+      ],
+      "answer": 0,
+      "explain": "Их (м.) — deles."
+    },
+    {
+      "id": "a1.23-dele-dela.5",
+      "kind": "truefalse",
+      "statement": "«Dele» меняется по роду предмета: «dela casa».",
+      "answer": false,
+      "explain": "Меняется по хозяину; ставится после: a casa dele."
+    },
+    {
+      "id": "a1.23-dele-dela.6",
+      "kind": "truefalse",
+      "statement": "«Dela» — это de + ela.",
+      "answer": true,
+      "explain": "Слияние."
+    },
+    {
+      "id": "a1.23-dele-dela.7",
+      "kind": "truefalse",
+      "statement": "«A casa deles» значит «их дом».",
+      "answer": true,
+      "explain": "Deles — их."
+    },
+    {
+      "id": "a1.23-dele-dela.8",
+      "kind": "build",
+      "ru": "Её брат работает в банке.",
+      "answer": "O irmão dela trabalha no banco.",
+      "extra": [
+        "dele",
+        "na"
+      ],
+      "explain": "Её — dela."
+    },
+    {
+      "id": "a1.23-dele-dela.9",
+      "kind": "type",
+      "sentence": "O cachorro ___ é muito bonito.",
+      "ru": "Её собака очень красивая.",
+      "hint": "её",
+      "answer": "dela",
+      "explain": "Её — dela."
+    }
+  ]
+}

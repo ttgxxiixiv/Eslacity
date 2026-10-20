@@ -1,0 +1,165 @@
+{
+  "id": "a2.06-ter-que",
+  "district": "A2",
+  "order": 6,
+  "title": "Надо: ter que, precisar, dever",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "**Ter que** + инфинитив — «надо, придётся»: **Tenho que trabalhar**. **Precisar (de)** — «нужно»: **Preciso estudar**, **preciso de ajuda**. **Dever** — «следует» (совет, долг): **Você deve descansar**."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Форма",
+        "Оттенок",
+        "Пример"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "ter que",
+            "надо, обязан",
+            "Temos que sair cedo."
+          ]
+        },
+        {
+          "cells": [
+            "precisar de + сущ.",
+            "нужно что-то",
+            "Preciso de um médico."
+          ]
+        },
+        {
+          "cells": [
+            "precisar + инф.",
+            "нужно сделать",
+            "Preciso ligar para ela."
+          ]
+        },
+        {
+          "cells": [
+            "dever",
+            "стоит, следует",
+            "Você deve beber água."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Перед существительным **precisar de** — с de: **preciso de dinheiro**. Перед инфинитивом de в Бразилии обычно опускают."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Tenho que ir ao banco.",
+      "ru": "Мне надо в банк."
+    },
+    {
+      "es": "Precisamos de um táxi.",
+      "ru": "Нам нужно такси."
+    },
+    {
+      "es": "Você deve dormir mais.",
+      "ru": "Тебе стоит больше спать."
+    },
+    {
+      "es": "Eles têm que pagar hoje.",
+      "ru": "Им надо заплатить сегодня."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "a2.06-ter-que.1",
+      "kind": "choose",
+      "prompt": "«Мне нужна помощь»:",
+      "options": [
+        "Preciso de ajuda.",
+        "Preciso ajuda de.",
+        "Tenho que ajuda."
+      ],
+      "answer": 0,
+      "explain": "Precisar de + сущ."
+    },
+    {
+      "id": "a2.06-ter-que.2",
+      "kind": "choose",
+      "prompt": "«Нам надо уходить»:",
+      "options": [
+        "Temos que sair.",
+        "Temos sair.",
+        "Somos que sair."
+      ],
+      "answer": 0,
+      "explain": "Ter que + инф."
+    },
+    {
+      "id": "a2.06-ter-que.3",
+      "kind": "gap",
+      "sentence": "Você ___ ver esse filme!",
+      "ru": "Тебе стоит посмотреть этот фильм!",
+      "options": [
+        "deve",
+        "tem",
+        "precisa de"
+      ],
+      "answer": 0,
+      "explain": "Совет — dever."
+    },
+    {
+      "id": "a2.06-ter-que.4",
+      "kind": "gap",
+      "sentence": "Eu ___ que estudar hoje.",
+      "ru": "Мне сегодня надо заниматься.",
+      "options": [
+        "tenho",
+        "preciso",
+        "devo"
+      ],
+      "answer": 0,
+      "explain": "Ter que."
+    },
+    {
+      "id": "a2.06-ter-que.5",
+      "kind": "truefalse",
+      "statement": "Перед существительным precisar требует de.",
+      "answer": true,
+      "explain": "Preciso de um carro."
+    },
+    {
+      "id": "a2.06-ter-que.6",
+      "kind": "truefalse",
+      "statement": "«Tenho que trabalhar» — «мне надо работать».",
+      "answer": true,
+      "explain": "Ter que."
+    },
+    {
+      "id": "a2.06-ter-que.7",
+      "kind": "truefalse",
+      "statement": "«Dever» — самая сильная обязанность, сильнее ter que.",
+      "answer": false,
+      "explain": "Dever — скорее совет."
+    },
+    {
+      "id": "a2.06-ter-que.8",
+      "kind": "build",
+      "ru": "Мне надо позвонить маме.",
+      "answer": "Eu tenho que ligar para a minha mãe.",
+      "extra": [
+        "tem",
+        "de"
+      ],
+      "explain": "Tenho que + инф."
+    },
+    {
+      "id": "a2.06-ter-que.9",
+      "kind": "type",
+      "sentence": "Nós ___ de um médico.",
+      "ru": "Нам нужен врач.",
+      "hint": "precisar, nós",
+      "answer": "precisamos",
+      "explain": "Precisar de + сущ."
+    }
+  ]
+}

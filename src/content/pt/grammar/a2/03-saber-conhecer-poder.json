@@ -1,0 +1,158 @@
+{
+  "id": "a2.03-saber-conhecer-poder",
+  "district": "A2",
+  "order": 3,
+  "title": "Saber, conhecer, poder",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "**Saber** — знать факт или уметь: **Sei o endereço**, **sei nadar**. **Conhecer** — быть знакомым с человеком или местом: **Conheço a Ana**, **conheço Recife**. **Poder** — иметь возможность или разрешение: **Posso ir amanhã**."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Глагол",
+        "Что",
+        "Пример"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "saber",
+            "факт, умение",
+            "Você sabe onde fica?"
+          ]
+        },
+        {
+          "cells": [
+            "conhecer",
+            "человек, место",
+            "Você conhece o Tonho?"
+          ]
+        },
+        {
+          "cells": [
+            "poder",
+            "можно, есть возможность",
+            "Posso fumar aqui?"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "«Я знаю Рио» — **conheço o Rio** (бывал там). «Я знаю, где Рио» — **sei onde fica o Rio**. Саber: **eu sei**, а не «eu sabo»."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Você sabe que horas são?",
+      "ru": "Ты знаешь, который час?"
+    },
+    {
+      "es": "Conheço um bom restaurante.",
+      "ru": "Я знаю хороший ресторан."
+    },
+    {
+      "es": "Não posso sair hoje.",
+      "ru": "Сегодня я не могу выйти."
+    },
+    {
+      "es": "Ela sabe falar inglês.",
+      "ru": "Она умеет говорить по-английски."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "a2.03-saber-conhecer-poder.1",
+      "kind": "choose",
+      "prompt": "«Ты знаешь мою сестру?»:",
+      "options": [
+        "Você conhece a minha irmã?",
+        "Você sabe a minha irmã?",
+        "Você pode a minha irmã?"
+      ],
+      "answer": 0,
+      "explain": "Человек — conhecer."
+    },
+    {
+      "id": "a2.03-saber-conhecer-poder.2",
+      "kind": "choose",
+      "prompt": "«Я знаю, что он здесь»:",
+      "options": [
+        "Sei que ele está aqui.",
+        "Conheço que ele está aqui.",
+        "Posso que ele está aqui."
+      ],
+      "answer": 0,
+      "explain": "Факт — saber."
+    },
+    {
+      "id": "a2.03-saber-conhecer-poder.3",
+      "kind": "gap",
+      "sentence": "Eu não ___ dirigir.",
+      "ru": "Я не умею водить.",
+      "options": [
+        "sei",
+        "conheço",
+        "posso"
+      ],
+      "answer": 0,
+      "explain": "Уметь — saber."
+    },
+    {
+      "id": "a2.03-saber-conhecer-poder.4",
+      "kind": "gap",
+      "sentence": "Você ___ Salvador?",
+      "ru": "Ты бывал в Салвадоре?",
+      "options": [
+        "conhece",
+        "sabe",
+        "pode"
+      ],
+      "answer": 0,
+      "explain": "Место — conhecer."
+    },
+    {
+      "id": "a2.03-saber-conhecer-poder.5",
+      "kind": "truefalse",
+      "statement": "«Sei nadar» — «я умею плавать».",
+      "answer": true,
+      "explain": "Saber + инфинитив."
+    },
+    {
+      "id": "a2.03-saber-conhecer-poder.6",
+      "kind": "truefalse",
+      "statement": "«Conheço onde fica o banco» — правильно.",
+      "answer": false,
+      "explain": "Sei onde fica."
+    },
+    {
+      "id": "a2.03-saber-conhecer-poder.7",
+      "kind": "truefalse",
+      "statement": "«Posso entrar?» — просьба о разрешении.",
+      "answer": true,
+      "explain": "Poder."
+    },
+    {
+      "id": "a2.03-saber-conhecer-poder.8",
+      "kind": "build",
+      "ru": "Ты знаешь, где почта?",
+      "answer": "Você sabe onde fica o correio?",
+      "extra": [
+        "conhece",
+        "pode"
+      ],
+      "explain": "Факт — saber."
+    },
+    {
+      "id": "a2.03-saber-conhecer-poder.9",
+      "kind": "type",
+      "sentence": "Eu ___ o dono da padaria.",
+      "ru": "Я знаком с хозяином пекарни.",
+      "hint": "conhecer, eu",
+      "answer": "conheço",
+      "explain": "Человек — conhecer."
+    }
+  ]
+}

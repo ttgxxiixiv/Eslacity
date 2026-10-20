@@ -1,0 +1,184 @@
+{
+  "id": "a2.31-conectores",
+  "district": "A2",
+  "order": 31,
+  "title": "Союзы: e, mas, porque, então, quando, se",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "**E** — и; **mas** — но; **ou** — или; **porque** — потому что; **então** — поэтому, итак; **quando** — когда; **se** — если; **que** — что (после «сказал, думаю»): **Acho que vai chover**."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Союз",
+        "Пример"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "mas",
+            "Quero ir, mas estou cansado."
+          ]
+        },
+        {
+          "cells": [
+            "porque",
+            "Não fui porque choveu."
+          ]
+        },
+        {
+          "cells": [
+            "então",
+            "Choveu, então ficamos em casa."
+          ]
+        },
+        {
+          "cells": [
+            "se",
+            "Se chover, a gente fica."
+          ]
+        },
+        {
+          "cells": [
+            "que",
+            "Ele disse que vem."
+          ]
+        },
+        {
+          "cells": [
+            "quando",
+            "Quando chego, te ligo."
+          ]
+        },
+        {
+          "cells": [
+            "embora",
+            "Fui, embora estivesse cansado."
+          ]
+        },
+        {
+          "cells": [
+            "senão",
+            "Corre, senão perde o ônibus."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "**Por isso** — «поэтому»: **Estava cansado, por isso dormi cedo**. **Que** нельзя пропустить, как английское that: «Acho vai chover» — ошибка."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Gosto de praia, mas hoje está frio.",
+      "ru": "Я люблю пляж, но сегодня холодно."
+    },
+    {
+      "es": "Não vou porque estou doente.",
+      "ru": "Я не пойду, потому что болею."
+    },
+    {
+      "es": "Acho que ele já saiu.",
+      "ru": "Думаю, он уже ушёл."
+    },
+    {
+      "es": "Se você quiser, a gente vai junto.",
+      "ru": "Если хочешь, пойдём вместе."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "a2.31-conectores.1",
+      "kind": "choose",
+      "prompt": "«Думаю, что будет дождь»:",
+      "options": [
+        "Acho que vai chover.",
+        "Acho vai chover.",
+        "Acho porque vai chover."
+      ],
+      "answer": 0,
+      "explain": "Que обязателен."
+    },
+    {
+      "id": "a2.31-conectores.2",
+      "kind": "choose",
+      "prompt": "«Поэтому»:",
+      "options": [
+        "por isso",
+        "porque",
+        "por que"
+      ],
+      "answer": 0,
+      "explain": "Por isso — поэтому."
+    },
+    {
+      "id": "a2.31-conectores.3",
+      "kind": "gap",
+      "sentence": "Quero ir, ___ não tenho tempo.",
+      "ru": "Хочу пойти, но нет времени.",
+      "options": [
+        "mas",
+        "e",
+        "se"
+      ],
+      "answer": 0,
+      "explain": "Но — mas."
+    },
+    {
+      "id": "a2.31-conectores.4",
+      "kind": "gap",
+      "sentence": "___ chover, fico em casa.",
+      "ru": "Если будет дождь, останусь дома.",
+      "options": [
+        "Se",
+        "Quando",
+        "Mas"
+      ],
+      "answer": 0,
+      "explain": "Если — se."
+    },
+    {
+      "id": "a2.31-conectores.5",
+      "kind": "truefalse",
+      "statement": "«Porque» — «потому что».",
+      "answer": true,
+      "explain": "Слитно."
+    },
+    {
+      "id": "a2.31-conectores.6",
+      "kind": "truefalse",
+      "statement": "«Que» после «acho» можно пропустить.",
+      "answer": false,
+      "explain": "Acho que…"
+    },
+    {
+      "id": "a2.31-conectores.7",
+      "kind": "truefalse",
+      "statement": "«Então» может значить «итак, поэтому».",
+      "answer": true,
+      "explain": "Então."
+    },
+    {
+      "id": "a2.31-conectores.8",
+      "kind": "build",
+      "ru": "Я не пришёл, потому что шёл дождь.",
+      "answer": "Não fui porque estava chovendo.",
+      "extra": [
+        "mas",
+        "se"
+      ],
+      "explain": "Причина — porque."
+    },
+    {
+      "id": "a2.31-conectores.9",
+      "kind": "type",
+      "sentence": "Ele disse ___ vem amanhã.",
+      "ru": "Он сказал, что придёт завтра.",
+      "hint": "что",
+      "answer": "que",
+      "explain": "Союз «что» — que."
+    }
+  ]
+}

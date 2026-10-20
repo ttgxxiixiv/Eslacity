@@ -1,0 +1,214 @@
+{
+  "id": "a2.30-indefinidos",
+  "district": "A2",
+  "order": 30,
+  "title": "Algum, nenhum, todo, tudo, cada",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "**Algum / alguma** — какой-то, некоторый; **nenhum / nenhuma** — никакой; **todo / toda** — весь (**todo o dia** — весь день; **todo dia** — каждый день); **tudo** — всё (без существительного); **cada** — каждый, не меняется; **alguém** — кто-то; **algo, alguma coisa** — что-то."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Слово",
+        "Пример"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "algum",
+            "Tem algum banco aqui?"
+          ]
+        },
+        {
+          "cells": [
+            "nenhum",
+            "Não tem nenhuma farmácia aberta."
+          ]
+        },
+        {
+          "cells": [
+            "todo / toda",
+            "Trabalhei o dia todo."
+          ]
+        },
+        {
+          "cells": [
+            "tudo",
+            "Tudo bem? Comi tudo."
+          ]
+        },
+        {
+          "cells": [
+            "cada",
+            "Cada pessoa paga a sua conta."
+          ]
+        },
+        {
+          "cells": [
+            "alguém",
+            "Alguém viu o meu celular?"
+          ]
+        },
+        {
+          "cells": [
+            "outro / outra",
+            "Quero outro café."
+          ]
+        },
+        {
+          "cells": [
+            "mesmo / mesma",
+            "Moramos na mesma rua."
+          ]
+        },
+        {
+          "cells": [
+            "qualquer",
+            "Qualquer ônibus serve."
+          ]
+        },
+        {
+          "cells": [
+            "vários / várias",
+            "Tenho vários amigos aqui."
+          ]
+        },
+        {
+          "cells": [
+            "ambos / ambas",
+            "Ambos são bons."
+          ]
+        },
+        {
+          "cells": [
+            "tanto / tanta",
+            "Nunca vi tanta gente."
+          ]
+        },
+        {
+          "cells": [
+            "tal",
+            "Um tal de Zé ligou."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "**Todo dia** — «каждый день» (бразильское), **o dia todo** — «весь день». **Tudo** не ставят перед существительным: «tudo o mundo» — ошибка, нужно **todo mundo** (все)."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Todo mundo gosta de praia.",
+      "ru": "Все любят пляж."
+    },
+    {
+      "es": "Alguém quer café?",
+      "ru": "Кто-нибудь хочет кофе?"
+    },
+    {
+      "es": "Cada um tem a sua opinião.",
+      "ru": "У каждого своё мнение."
+    },
+    {
+      "es": "Não tenho nenhuma ideia.",
+      "ru": "Понятия не имею."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "a2.30-indefinidos.1",
+      "kind": "choose",
+      "prompt": "«Все» (люди):",
+      "options": [
+        "todo mundo",
+        "tudo mundo",
+        "todos mundo"
+      ],
+      "answer": 0,
+      "explain": "Todo mundo."
+    },
+    {
+      "id": "a2.30-indefinidos.2",
+      "kind": "choose",
+      "prompt": "«Каждый день»:",
+      "options": [
+        "todo dia",
+        "tudo dia",
+        "cada dias"
+      ],
+      "answer": 0,
+      "explain": "Todo dia."
+    },
+    {
+      "id": "a2.30-indefinidos.3",
+      "kind": "gap",
+      "sentence": "Você quer ___ coisa?",
+      "ru": "Ты хочешь что-нибудь?",
+      "options": [
+        "alguma",
+        "algum",
+        "nenhuma"
+      ],
+      "answer": 0,
+      "explain": "A coisa — alguma."
+    },
+    {
+      "id": "a2.30-indefinidos.4",
+      "kind": "gap",
+      "sentence": "Comi ___, estava delicioso!",
+      "ru": "Я съел всё, было восхитительно!",
+      "options": [
+        "tudo",
+        "todo",
+        "toda"
+      ],
+      "answer": 0,
+      "explain": "Всё без сущ. — tudo."
+    },
+    {
+      "id": "a2.30-indefinidos.5",
+      "kind": "truefalse",
+      "statement": "«Cada» не меняется по роду.",
+      "answer": true,
+      "explain": "Cada dia, cada semana."
+    },
+    {
+      "id": "a2.30-indefinidos.6",
+      "kind": "truefalse",
+      "statement": "«O dia todo» — «весь день».",
+      "answer": true,
+      "explain": "Todo после."
+    },
+    {
+      "id": "a2.30-indefinidos.7",
+      "kind": "truefalse",
+      "statement": "«Tudo o mundo» значит «все люди».",
+      "answer": false,
+      "explain": "Todo mundo."
+    },
+    {
+      "id": "a2.30-indefinidos.8",
+      "kind": "build",
+      "ru": "Кто-нибудь видел мой телефон?",
+      "answer": "Alguém viu o meu celular?",
+      "extra": [
+        "algum",
+        "ninguém"
+      ],
+      "explain": "Кто-то — alguém."
+    },
+    {
+      "id": "a2.30-indefinidos.9",
+      "kind": "type",
+      "sentence": "Não tem ___ ônibus agora.",
+      "ru": "Сейчас нет никакого автобуса.",
+      "hint": "никакой",
+      "answer": "nenhum",
+      "explain": "O ônibus — nenhum."
+    }
+  ]
+}

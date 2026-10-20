@@ -1,0 +1,166 @@
+{
+  "id": "a2.23-perfeito-uso",
+  "district": "A2",
+  "order": 23,
+  "title": "Когда нужен perfeito",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "**Perfeito** — законченное событие с понятной точкой во времени: **ontem**, **no sábado**, **em 2019**, **há dois dias**. Он отвечает на вопрос «что произошло?». Подходит и для только что случившегося: **Chegou uma carta!**"
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Маркер",
+        "Пример"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "ontem",
+            "Ontem choveu muito."
+          ]
+        },
+        {
+          "cells": [
+            "na semana passada",
+            "Na semana passada fui a Recife."
+          ]
+        },
+        {
+          "cells": [
+            "há … dias",
+            "Cheguei há três dias."
+          ]
+        },
+        {
+          "cells": [
+            "de repente",
+            "De repente a luz apagou."
+          ]
+        },
+        {
+          "cells": [
+            "já",
+            "Já comi, obrigado."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Русское «я уже ел» — **já comi**. Русский совершенный вид чаще всего переводится perfeito: «прочитал», «купил», «пришёл»."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Na semana passada fui ao médico.",
+      "ru": "На прошлой неделе я ходил к врачу."
+    },
+    {
+      "es": "Já almocei, obrigado.",
+      "ru": "Я уже пообедал, спасибо."
+    },
+    {
+      "es": "O que aconteceu?",
+      "ru": "Что случилось?"
+    },
+    {
+      "es": "De repente começou a chover.",
+      "ru": "Вдруг пошёл дождь."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "a2.23-perfeito-uso.1",
+      "kind": "choose",
+      "prompt": "«Что случилось?»:",
+      "options": [
+        "O que aconteceu?",
+        "O que acontecia?",
+        "O que acontece?"
+      ],
+      "answer": 0,
+      "explain": "Событие — perfeito."
+    },
+    {
+      "id": "a2.23-perfeito-uso.2",
+      "kind": "choose",
+      "prompt": "«Я уже поел»:",
+      "options": [
+        "Já comi.",
+        "Já como.",
+        "Já comia."
+      ],
+      "answer": 0,
+      "explain": "Já + perfeito."
+    },
+    {
+      "id": "a2.23-perfeito-uso.3",
+      "kind": "gap",
+      "sentence": "No ano passado eu ___ para o Brasil.",
+      "ru": "В прошлом году я переехал в Бразилию.",
+      "options": [
+        "mudei",
+        "mudava",
+        "mudo"
+      ],
+      "answer": 0,
+      "explain": "Законченное — perfeito."
+    },
+    {
+      "id": "a2.23-perfeito-uso.4",
+      "kind": "gap",
+      "sentence": "Ela ___ há dez minutos.",
+      "ru": "Она вышла десять минут назад.",
+      "options": [
+        "saiu",
+        "sai",
+        "saía"
+      ],
+      "answer": 0,
+      "explain": "Há + время — perfeito."
+    },
+    {
+      "id": "a2.23-perfeito-uso.5",
+      "kind": "truefalse",
+      "statement": "«Ontem» обычно требует perfeito или imperfeito, а не настоящее.",
+      "answer": true,
+      "explain": "Прошедшее."
+    },
+    {
+      "id": "a2.23-perfeito-uso.6",
+      "kind": "truefalse",
+      "statement": "«Já comi» — «я уже поел».",
+      "answer": true,
+      "explain": "Já + perfeito."
+    },
+    {
+      "id": "a2.23-perfeito-uso.7",
+      "kind": "truefalse",
+      "statement": "Perfeito описывает привычку в прошлом: «в детстве я часто плавал».",
+      "answer": false,
+      "explain": "Привычка — imperfeito (урок 28)."
+    },
+    {
+      "id": "a2.23-perfeito-uso.8",
+      "kind": "build",
+      "ru": "На прошлой неделе я ездил в Ресифи.",
+      "answer": "Na semana passada eu fui a Recife.",
+      "extra": [
+        "ia",
+        "vou"
+      ],
+      "explain": "Законченное — fui."
+    },
+    {
+      "id": "a2.23-perfeito-uso.9",
+      "kind": "type",
+      "sentence": "O que ___ com você ontem?",
+      "ru": "Что с тобой вчера случилось?",
+      "hint": "acontecer, perfeito",
+      "answer": "aconteceu",
+      "explain": "Acontecer → aconteceu."
+    }
+  ]
+}

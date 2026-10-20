@@ -1,0 +1,160 @@
+{
+  "id": "a2.26-tenho-feito",
+  "district": "A2",
+  "order": 26,
+  "title": "Tenho feito: в последнее время",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "**Ter** в настоящем + причастие (**tenho trabalhado**) значит не «я поработал», а «в последнее время я много/часто работаю» — повторяющееся до сегодня. Законченное событие — простой perfeito: **trabalhei**."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Форма",
+        "Смысл"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Tenho dormido mal.",
+            "В последнее время плохо сплю."
+          ]
+        },
+        {
+          "cells": [
+            "Ela tem viajado muito.",
+            "Она в последнее время много ездит."
+          ]
+        },
+        {
+          "cells": [
+            "Dormi mal.",
+            "Я плохо спал (раз)."
+          ]
+        },
+        {
+          "cells": [
+            "Temos estudado juntos.",
+            "Мы последнее время занимаемся вместе."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Это ловушка для знающих английский: «I have worked» — чаще **trabalhei**. **Tenho trabalhado** — только «в последнее время, постоянно»."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Tenho trabalhado muito.",
+      "ru": "В последнее время я много работаю."
+    },
+    {
+      "es": "Tem chovido todo dia.",
+      "ru": "Последнее время каждый день идёт дождь."
+    },
+    {
+      "es": "Você tem dormido bem?",
+      "ru": "Ты хорошо спишь в последнее время?"
+    },
+    {
+      "es": "Temos ido à praia aos domingos.",
+      "ru": "В последнее время мы ходим на пляж по воскресеньям."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "a2.26-tenho-feito.1",
+      "kind": "choose",
+      "prompt": "«В последнее время я много читаю»:",
+      "options": [
+        "Tenho lido muito.",
+        "Li muito.",
+        "Tenho ler muito."
+      ],
+      "answer": 0,
+      "explain": "Ter + причастие."
+    },
+    {
+      "id": "a2.26-tenho-feito.2",
+      "kind": "choose",
+      "prompt": "«Я прочитал эту книгу» (один раз):",
+      "options": [
+        "Li esse livro.",
+        "Tenho lido esse livro.",
+        "Tenho lendo esse livro."
+      ],
+      "answer": 0,
+      "explain": "Законченное — perfeito."
+    },
+    {
+      "id": "a2.26-tenho-feito.3",
+      "kind": "gap",
+      "sentence": "Ela tem ___ muito ultimamente.",
+      "ru": "Она в последнее время много ездит.",
+      "options": [
+        "viajado",
+        "viajada",
+        "viajou"
+      ],
+      "answer": 0,
+      "explain": "С ter причастие не меняется."
+    },
+    {
+      "id": "a2.26-tenho-feito.4",
+      "kind": "gap",
+      "sentence": "Nós ___ estudado juntos.",
+      "ru": "Мы последнее время занимаемся вместе.",
+      "options": [
+        "temos",
+        "tivemos",
+        "estamos"
+      ],
+      "answer": 0,
+      "explain": "Ter в настоящем."
+    },
+    {
+      "id": "a2.26-tenho-feito.5",
+      "kind": "truefalse",
+      "statement": "«Tenho trabalhado» = «я поработал (один раз)».",
+      "answer": false,
+      "explain": "Это повторяющееся до сегодня."
+    },
+    {
+      "id": "a2.26-tenho-feito.6",
+      "kind": "truefalse",
+      "statement": "С ter причастие не согласуется: «ela tem viajado».",
+      "answer": true,
+      "explain": "Не меняется."
+    },
+    {
+      "id": "a2.26-tenho-feito.7",
+      "kind": "truefalse",
+      "statement": "«Tem chovido muito» — «последнее время много дождей».",
+      "answer": true,
+      "explain": "Повторяется."
+    },
+    {
+      "id": "a2.26-tenho-feito.8",
+      "kind": "build",
+      "ru": "В последнее время я плохо сплю.",
+      "answer": "Eu tenho dormido mal.",
+      "extra": [
+        "dormi",
+        "dormida"
+      ],
+      "explain": "Ter + dormido."
+    },
+    {
+      "id": "a2.26-tenho-feito.9",
+      "kind": "type",
+      "sentence": "Você tem ___ a sua mãe?",
+      "ru": "Ты в последнее время навещаешь маму?",
+      "hint": "visitar, причастие",
+      "answer": "visitado",
+      "explain": "Visitar → visitado."
+    }
+  ]
+}

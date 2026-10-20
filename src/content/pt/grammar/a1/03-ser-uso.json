@@ -1,0 +1,166 @@
+{
+  "id": "a1.03-ser-uso",
+  "district": "A1",
+  "order": 3,
+  "title": "Когда нужен ser",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "**Ser** называет то, что не меняется от минуты к минуте: имя и профессию (**Sou o Tonho, sou garçom**), происхождение (**sou de Natal**), характер и внешность (**ela é alta**), материал (**a mesa é de madeira**), время и дату (**são duas horas**, **hoje é sábado**)."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Что",
+        "Пример"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "кто",
+            "Ele é o meu irmão."
+          ]
+        },
+        {
+          "cells": [
+            "профессия",
+            "Ela é médica."
+          ]
+        },
+        {
+          "cells": [
+            "откуда",
+            "Somos de Fortaleza."
+          ]
+        },
+        {
+          "cells": [
+            "какой (всегда)",
+            "O mar é azul."
+          ]
+        },
+        {
+          "cells": [
+            "время, день",
+            "É meio-dia. Hoje é domingo."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Перед профессией артикль не ставится: **Ele é professor**, а не «é um professor»."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Ela é muito inteligente.",
+      "ru": "Она очень умная."
+    },
+    {
+      "es": "A casa é de pedra.",
+      "ru": "Дом из камня."
+    },
+    {
+      "es": "São três horas.",
+      "ru": "Три часа."
+    },
+    {
+      "es": "Hoje é sexta-feira.",
+      "ru": "Сегодня пятница."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "a1.03-ser-uso.1",
+      "kind": "choose",
+      "prompt": "«Он врач»:",
+      "options": [
+        "Ele é médico.",
+        "Ele está médico.",
+        "Ele é um médico."
+      ],
+      "answer": 0,
+      "explain": "Профессия — ser, без артикля."
+    },
+    {
+      "id": "a1.03-ser-uso.2",
+      "kind": "choose",
+      "prompt": "«Сейчас два часа»:",
+      "options": [
+        "São duas horas.",
+        "É duas horas.",
+        "Estão duas horas."
+      ],
+      "answer": 0,
+      "explain": "С часами — são (кроме «É uma hora»)."
+    },
+    {
+      "id": "a1.03-ser-uso.3",
+      "kind": "gap",
+      "sentence": "A camisa ___ de algodão.",
+      "ru": "Рубашка из хлопка.",
+      "options": [
+        "é",
+        "está",
+        "são"
+      ],
+      "answer": 0,
+      "explain": "Материал — ser."
+    },
+    {
+      "id": "a1.03-ser-uso.4",
+      "kind": "gap",
+      "sentence": "Hoje ___ domingo.",
+      "ru": "Сегодня воскресенье.",
+      "options": [
+        "é",
+        "está",
+        "tem"
+      ],
+      "answer": 0,
+      "explain": "День недели — ser."
+    },
+    {
+      "id": "a1.03-ser-uso.5",
+      "kind": "truefalse",
+      "statement": "«Ele é um professor» — нормальное «он учитель».",
+      "answer": false,
+      "explain": "Без артикля: Ele é professor."
+    },
+    {
+      "id": "a1.03-ser-uso.6",
+      "kind": "truefalse",
+      "statement": "«Sou de Natal» значит «Я из Наталя».",
+      "answer": true,
+      "explain": "Ser de — откуда."
+    },
+    {
+      "id": "a1.03-ser-uso.7",
+      "kind": "truefalse",
+      "statement": "«É uma hora» — правильно, а не «são uma hora».",
+      "answer": true,
+      "explain": "Один час — é."
+    },
+    {
+      "id": "a1.03-ser-uso.8",
+      "kind": "build",
+      "ru": "Моя сестра — учительница.",
+      "answer": "Minha irmã é professora.",
+      "extra": [
+        "uma",
+        "está"
+      ],
+      "explain": "Профессия без артикля: é professora."
+    },
+    {
+      "id": "a1.03-ser-uso.9",
+      "kind": "type",
+      "sentence": "Eles ___ de Manaus.",
+      "ru": "Они из Манауса.",
+      "hint": "ser, eles",
+      "answer": "são",
+      "explain": "Eles são de…"
+    }
+  ]
+}

@@ -1,4 +1,4 @@
-import { readFileSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import { checkTyped } from '../../domain/answer';
 import type { VerbData } from '../types';
@@ -117,5 +117,14 @@ describe('кузница курса: глаголы из verbs.json', () => {
     expect(f(verb('saber'), 'presente')[0]).toBe('sei');
     expect(f(verb('ver'), 'futsubj')[0]).toBe('vir');
     expect(PT.verbs.participle(verb('sair'))).toBe('saído');
+  });
+});
+
+describe('уроки времён кузницы', () => {
+  it('времена A1–A2 открываются уроками, которые уже есть в курсе', () => {
+    const lesson = (id: string) => new URL(`../../content/pt/grammar/${id.split('.')[0]}/${id.split('.')[1]}.json`, import.meta.url);
+    const early = PT.verbs.tenses.filter((t) => /^a[12]\./.test(t.lesson));
+    expect(early.map((t) => t.id)).toEqual(['presente', 'perfeito', 'imperfeito']);
+    for (const t of early) expect(existsSync(lesson(t.lesson)), t.lesson).toBe(true);
   });
 });

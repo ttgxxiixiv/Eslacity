@@ -1,0 +1,170 @@
+{
+  "id": "a1.29-querer-poder",
+  "district": "A1",
+  "order": 29,
+  "title": "Querer, poder, saber + инфинитив",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "После **querer** (хотеть), **poder** (мочь), **saber** (уметь), **precisar** (нужно) идёт инфинитив: **Quero viajar**, **Posso entrar?**, **Sei nadar**, **Preciso de dormir** (de часто опускают: **Preciso dormir**)."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Лицо",
+        "querer",
+        "poder",
+        "saber"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "eu",
+            "quero",
+            "posso",
+            "sei"
+          ]
+        },
+        {
+          "cells": [
+            "você / ele / ela",
+            "quer",
+            "pode",
+            "sabe"
+          ]
+        },
+        {
+          "cells": [
+            "nós",
+            "queremos",
+            "podemos",
+            "sabemos"
+          ]
+        },
+        {
+          "cells": [
+            "vocês / eles / elas",
+            "querem",
+            "podem",
+            "sabem"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "**Posso…?** — вежливая просьба: **Posso sentar aqui?** «Уметь плавать» — **saber nadar**, а не poder: poder — «иметь возможность»."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Quero aprender português.",
+      "ru": "Я хочу выучить португальский."
+    },
+    {
+      "es": "Posso pagar com cartão?",
+      "ru": "Можно заплатить картой?"
+    },
+    {
+      "es": "Você sabe dirigir?",
+      "ru": "Ты умеешь водить?"
+    },
+    {
+      "es": "Preciso trabalhar amanhã.",
+      "ru": "Мне нужно работать завтра."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "a1.29-querer-poder.1",
+      "kind": "choose",
+      "prompt": "«Можно войти?»:",
+      "options": [
+        "Posso entrar?",
+        "Sei entrar?",
+        "Quero entrar?"
+      ],
+      "answer": 0,
+      "explain": "Разрешение — poder."
+    },
+    {
+      "id": "a1.29-querer-poder.2",
+      "kind": "choose",
+      "prompt": "«Я умею плавать»:",
+      "options": [
+        "Sei nadar.",
+        "Posso nadar.",
+        "Sou nadar."
+      ],
+      "answer": 0,
+      "explain": "Уметь — saber."
+    },
+    {
+      "id": "a1.29-querer-poder.3",
+      "kind": "gap",
+      "sentence": "Ela ___ ir à praia.",
+      "ru": "Она хочет пойти на пляж.",
+      "options": [
+        "quer",
+        "quero",
+        "querem"
+      ],
+      "answer": 0,
+      "explain": "Ela quer."
+    },
+    {
+      "id": "a1.29-querer-poder.4",
+      "kind": "gap",
+      "sentence": "Nós não ___ ficar.",
+      "ru": "Мы не можем остаться.",
+      "options": [
+        "podemos",
+        "pode",
+        "podem"
+      ],
+      "answer": 0,
+      "explain": "Nós podemos."
+    },
+    {
+      "id": "a1.29-querer-poder.5",
+      "kind": "truefalse",
+      "statement": "После querer идёт инфинитив.",
+      "answer": true,
+      "explain": "Quero comer."
+    },
+    {
+      "id": "a1.29-querer-poder.6",
+      "kind": "truefalse",
+      "statement": "«Eu quer» — правильная форма.",
+      "answer": false,
+      "explain": "Eu quero."
+    },
+    {
+      "id": "a1.29-querer-poder.7",
+      "kind": "truefalse",
+      "statement": "«Preciso dormir» — разговорное «мне нужно поспать».",
+      "answer": true,
+      "explain": "De можно опустить."
+    },
+    {
+      "id": "a1.29-querer-poder.8",
+      "kind": "build",
+      "ru": "Ты можешь мне помочь?",
+      "answer": "Você pode me ajudar?",
+      "extra": [
+        "posso",
+        "ajuda"
+      ],
+      "explain": "Pode + инфинитив."
+    },
+    {
+      "id": "a1.29-querer-poder.9",
+      "kind": "type",
+      "sentence": "Eu não ___ nadar.",
+      "ru": "Я не умею плавать.",
+      "hint": "saber, eu",
+      "answer": "sei",
+      "explain": "Уметь — saber: eu sei."
+    }
+  ]
+}

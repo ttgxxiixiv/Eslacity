@@ -1,0 +1,179 @@
+{
+  "id": "a1.01-pronomes",
+  "district": "A1",
+  "order": 1,
+  "title": "Личные местоимения",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Подлежащее в бразильском португальском обычно называют: **eu falo**, **você fala**. **Você** — это «ты» в разговоре (формально — третье лицо, глагол как у ele). Вежливое «вы» одному человеку — **o senhor**, **a senhora**. «Мы» — **nós** или разговорное **a gente** (глагол как у ele: a gente fala)."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Лицо",
+        "Местоимение",
+        "Глагол ser"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "я",
+            "eu",
+            "sou"
+          ]
+        },
+        {
+          "cells": [
+            "ты",
+            "você",
+            "é"
+          ]
+        },
+        {
+          "cells": [
+            "он / она",
+            "ele / ela",
+            "é"
+          ]
+        },
+        {
+          "cells": [
+            "мы",
+            "nós / a gente",
+            "somos / é"
+          ]
+        },
+        {
+          "cells": [
+            "вы (многим)",
+            "vocês",
+            "são"
+          ]
+        },
+        {
+          "cells": [
+            "они",
+            "eles / elas",
+            "são"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "**Tu** в Бразилии слышно на юге и на севере, но курс учит **você**: оно понятно везде. **Vós** — только в старых текстах и молитвах."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Eu sou do Rio.",
+      "ru": "Я из Рио."
+    },
+    {
+      "es": "Você é o novo vizinho?",
+      "ru": "Ты новый сосед?"
+    },
+    {
+      "es": "A gente mora aqui.",
+      "ru": "Мы живём здесь."
+    },
+    {
+      "es": "O senhor é o gerente?",
+      "ru": "Вы управляющий?"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "a1.01-pronomes.1",
+      "kind": "choose",
+      "prompt": "«Мы» в разговорной речи:",
+      "options": [
+        "a gente",
+        "o gente",
+        "as gentes"
+      ],
+      "answer": 0,
+      "explain": "A gente — «мы», глагол в 3-м лице: a gente vai."
+    },
+    {
+      "id": "a1.01-pronomes.2",
+      "kind": "choose",
+      "prompt": "Вежливое «вы» к женщине:",
+      "options": [
+        "a senhora",
+        "você",
+        "ela"
+      ],
+      "answer": 0,
+      "explain": "A senhora — вежливое обращение к женщине."
+    },
+    {
+      "id": "a1.01-pronomes.3",
+      "kind": "gap",
+      "sentence": "___ somos amigos.",
+      "ru": "Мы друзья.",
+      "options": [
+        "Nós",
+        "A gente",
+        "Eles"
+      ],
+      "answer": 0,
+      "explain": "Somos — форма для nós."
+    },
+    {
+      "id": "a1.01-pronomes.4",
+      "kind": "gap",
+      "sentence": "___ é muito simpático.",
+      "ru": "Ты очень приветливый.",
+      "options": [
+        "Você",
+        "Eu",
+        "Nós"
+      ],
+      "answer": 0,
+      "explain": "Você + é."
+    },
+    {
+      "id": "a1.01-pronomes.5",
+      "kind": "truefalse",
+      "statement": "С você глагол стоит в той же форме, что с ele.",
+      "answer": true,
+      "explain": "Você fala, ele fala."
+    },
+    {
+      "id": "a1.01-pronomes.6",
+      "kind": "truefalse",
+      "statement": "«A gente» требует глагол во множественном числе: a gente vamos.",
+      "answer": false,
+      "explain": "Правильно: a gente vai."
+    },
+    {
+      "id": "a1.01-pronomes.7",
+      "kind": "truefalse",
+      "statement": "Vocês — «вы» нескольким людям.",
+      "answer": true,
+      "explain": "Vocês são — вы (многие)."
+    },
+    {
+      "id": "a1.01-pronomes.8",
+      "kind": "build",
+      "ru": "Мы живём у моря.",
+      "answer": "A gente mora perto do mar.",
+      "extra": [
+        "moramos",
+        "longe"
+      ],
+      "explain": "A gente + mora (3-е лицо)."
+    },
+    {
+      "id": "a1.01-pronomes.9",
+      "kind": "type",
+      "sentence": "___ é professora?",
+      "ru": "Вы учительница? (вежливо, к женщине)",
+      "hint": "вежливое «вы», ж. р.",
+      "answer": "A senhora",
+      "explain": "Вежливо к женщине — a senhora."
+    }
+  ]
+}

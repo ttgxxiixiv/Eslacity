@@ -1,0 +1,194 @@
+{
+  "id": "a2.22-perfeito-irregular-2",
+  "district": "A2",
+  "order": 22,
+  "title": "Прошедшее: poder, querer, dizer, trazer, vir, ver, dar",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Ещё группа неправильных: основа меняется целиком, окончания свои."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Глагол",
+        "eu",
+        "ele",
+        "eles"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "poder",
+            "pude",
+            "pôde",
+            "puderam"
+          ]
+        },
+        {
+          "cells": [
+            "querer",
+            "quis",
+            "quis",
+            "quiseram"
+          ]
+        },
+        {
+          "cells": [
+            "dizer",
+            "disse",
+            "disse",
+            "disseram"
+          ]
+        },
+        {
+          "cells": [
+            "trazer",
+            "trouxe",
+            "trouxe",
+            "trouxeram"
+          ]
+        },
+        {
+          "cells": [
+            "vir",
+            "vim",
+            "veio",
+            "vieram"
+          ]
+        },
+        {
+          "cells": [
+            "ver",
+            "vi",
+            "viu",
+            "viram"
+          ]
+        },
+        {
+          "cells": [
+            "dar",
+            "dei",
+            "deu",
+            "deram"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "**Pôde** (смог, прошедшее) и **pode** (может, настоящее) различает только знак. **Vim** — «я пришёл», **vi** — «я увидел»."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Ele não pôde vir.",
+      "ru": "Он не смог прийти."
+    },
+    {
+      "es": "Ela disse que sim.",
+      "ru": "Она сказала «да»."
+    },
+    {
+      "es": "Trouxe um presente para você.",
+      "ru": "Я принёс тебе подарок."
+    },
+    {
+      "es": "Vi o pôr do sol.",
+      "ru": "Я видел закат."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "a2.22-perfeito-irregular-2.1",
+      "kind": "choose",
+      "prompt": "«Она сказала»:",
+      "options": [
+        "disse",
+        "dizeu",
+        "dissou"
+      ],
+      "answer": 0,
+      "explain": "Dizer → disse."
+    },
+    {
+      "id": "a2.22-perfeito-irregular-2.2",
+      "kind": "choose",
+      "prompt": "«Я пришёл»:",
+      "options": [
+        "vim",
+        "vi",
+        "vinhei"
+      ],
+      "answer": 0,
+      "explain": "Vir → vim."
+    },
+    {
+      "id": "a2.22-perfeito-irregular-2.3",
+      "kind": "gap",
+      "sentence": "Eles ___ a festa toda.",
+      "ru": "Они видели весь праздник.",
+      "options": [
+        "viram",
+        "vieram",
+        "veram"
+      ],
+      "answer": 0,
+      "explain": "Ver → viram."
+    },
+    {
+      "id": "a2.22-perfeito-irregular-2.4",
+      "kind": "gap",
+      "sentence": "Ele não ___ ajudar.",
+      "ru": "Он не смог помочь.",
+      "options": [
+        "pôde",
+        "pode",
+        "podeu"
+      ],
+      "answer": 0,
+      "explain": "Прошедшее — pôde."
+    },
+    {
+      "id": "a2.22-perfeito-irregular-2.5",
+      "kind": "truefalse",
+      "statement": "«Vieram» — «они пришли».",
+      "answer": true,
+      "explain": "Vir → vieram."
+    },
+    {
+      "id": "a2.22-perfeito-irregular-2.6",
+      "kind": "truefalse",
+      "statement": "«Eu trazi» — правильная форма.",
+      "answer": false,
+      "explain": "Eu trouxe."
+    },
+    {
+      "id": "a2.22-perfeito-irregular-2.7",
+      "kind": "truefalse",
+      "statement": "«Deu certo!» — «Получилось!».",
+      "answer": true,
+      "explain": "Dar → deu."
+    },
+    {
+      "id": "a2.22-perfeito-irregular-2.8",
+      "kind": "build",
+      "ru": "Он принёс фрукты с рынка.",
+      "answer": "Ele trouxe frutas da feira.",
+      "extra": [
+        "trazeu",
+        "trouxeram"
+      ],
+      "explain": "Trazer → trouxe."
+    },
+    {
+      "id": "a2.22-perfeito-irregular-2.9",
+      "kind": "type",
+      "sentence": "Ela ___ tudo para mim.",
+      "ru": "Она мне всё рассказала.",
+      "hint": "dizer, ela",
+      "answer": "disse",
+      "explain": "Dizer → disse."
+    }
+  ]
+}

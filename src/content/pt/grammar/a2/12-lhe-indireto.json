@@ -1,0 +1,172 @@
+{
+  "id": "a2.12-lhe-indireto",
+  "district": "A2",
+  "order": 12,
+  "title": "Кому: me, te, lhe, para ele",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Косвенное дополнение («кому») — **me, te, nos** перед глаголом: **Ele me deu um presente**. «Ему, ей» в разговоре — **para ele, para ela**: **Dei o livro para ela**. **Lhe** — книжно или вежливо к o senhor: **Posso lhe ajudar?**"
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Кому",
+        "Разговор",
+        "Вежливо / книжно"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "мне",
+            "me",
+            "me"
+          ]
+        },
+        {
+          "cells": [
+            "тебе",
+            "te",
+            "te"
+          ]
+        },
+        {
+          "cells": [
+            "ему, ей",
+            "para ele, para ela",
+            "lhe"
+          ]
+        },
+        {
+          "cells": [
+            "вам (o senhor)",
+            "para o senhor",
+            "lhe"
+          ]
+        },
+        {
+          "cells": [
+            "нам",
+            "nos",
+            "nos"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "**Lhe** в Бразилии — признак вежливости: в банке скажут **Posso lhe oferecer um café?** Между друзьями — **Posso te oferecer um café?**"
+    }
+  ],
+  "examples": [
+    {
+      "es": "Ele me mandou uma carta.",
+      "ru": "Он прислал мне письмо."
+    },
+    {
+      "es": "Vou dar um presente para ela.",
+      "ru": "Я подарю ей подарок."
+    },
+    {
+      "es": "Posso lhe ajudar, senhor?",
+      "ru": "Могу вам помочь?"
+    },
+    {
+      "es": "Me conta tudo!",
+      "ru": "Расскажи мне всё!"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "a2.12-lhe-indireto.1",
+      "kind": "choose",
+      "prompt": "«Я дал ей книгу» (разговор):",
+      "options": [
+        "Dei o livro para ela.",
+        "Dei ela o livro.",
+        "Dei-lhe o livro a ela."
+      ],
+      "answer": 0,
+      "explain": "Para ela."
+    },
+    {
+      "id": "a2.12-lhe-indireto.2",
+      "kind": "choose",
+      "prompt": "Вежливо: «Могу вам предложить кофе?»:",
+      "options": [
+        "Posso lhe oferecer um café?",
+        "Posso te oferecer um café?",
+        "Posso ela oferecer um café?"
+      ],
+      "answer": 0,
+      "explain": "Вежливо — lhe."
+    },
+    {
+      "id": "a2.12-lhe-indireto.3",
+      "kind": "gap",
+      "sentence": "A avó ___ deu um bolo.",
+      "ru": "Бабушка дала мне пирог.",
+      "options": [
+        "me",
+        "mim",
+        "eu"
+      ],
+      "answer": 0,
+      "explain": "Мне — me."
+    },
+    {
+      "id": "a2.12-lhe-indireto.4",
+      "kind": "gap",
+      "sentence": "Mandei uma mensagem ___ ele.",
+      "ru": "Я отправил ему сообщение.",
+      "options": [
+        "para",
+        "de",
+        "com"
+      ],
+      "answer": 0,
+      "explain": "Para ele."
+    },
+    {
+      "id": "a2.12-lhe-indireto.5",
+      "kind": "truefalse",
+      "statement": "«Lhe» звучит вежливо или книжно.",
+      "answer": true,
+      "explain": "В банке, в письме."
+    },
+    {
+      "id": "a2.12-lhe-indireto.6",
+      "kind": "truefalse",
+      "statement": "«Dei ele o presente» — нормальное «я дал ему подарок».",
+      "answer": false,
+      "explain": "Dei o presente para ele."
+    },
+    {
+      "id": "a2.12-lhe-indireto.7",
+      "kind": "truefalse",
+      "statement": "«Me conta!» — «Расскажи мне!».",
+      "answer": true,
+      "explain": "Me + глагол."
+    },
+    {
+      "id": "a2.12-lhe-indireto.8",
+      "kind": "build",
+      "ru": "Я напишу ей письмо.",
+      "answer": "Vou escrever uma carta para ela.",
+      "extra": [
+        "dela",
+        "lhe"
+      ],
+      "explain": "Para ela."
+    },
+    {
+      "id": "a2.12-lhe-indireto.9",
+      "kind": "type",
+      "sentence": "Ele ___ deu o endereço.",
+      "ru": "Он дал мне адрес.",
+      "hint": "мне",
+      "answer": "me",
+      "explain": "Мне — me."
+    }
+  ]
+}

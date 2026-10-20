@@ -1,0 +1,175 @@
+{
+  "id": "a2.13-imperativo",
+  "district": "A2",
+  "order": 13,
+  "title": "Повелительное наклонение",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Просьба к **você**: в разговоре — как третье лицо настоящего: **Fala!**, **Come!**, **Abre a porta!** В вежливой и письменной речи — форма сослагательного от формы eu: **Fale**, **Coma**, **Abra** (falo → fale, como → coma)."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Глагол",
+        "Разговор",
+        "Вежливо"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "falar",
+            "fala",
+            "fale"
+          ]
+        },
+        {
+          "cells": [
+            "comer",
+            "come",
+            "coma"
+          ]
+        },
+        {
+          "cells": [
+            "abrir",
+            "abre",
+            "abra"
+          ]
+        },
+        {
+          "cells": [
+            "fazer",
+            "faz",
+            "faça"
+          ]
+        },
+        {
+          "cells": [
+            "pedir",
+            "pede",
+            "peça"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "На табличках и в инструкциях — вежливая форма: **Aguarde**, **Empurre**, **Não fume**. Мягче приказа — **Pode…?**: **Pode abrir a janela?**"
+    }
+  ],
+  "examples": [
+    {
+      "es": "Olha só!",
+      "ru": "Смотри-ка!"
+    },
+    {
+      "es": "Fala mais devagar, por favor.",
+      "ru": "Говори медленнее, пожалуйста."
+    },
+    {
+      "es": "Aguarde, por favor.",
+      "ru": "Подождите, пожалуйста."
+    },
+    {
+      "es": "Faça o favor de entrar.",
+      "ru": "Будьте добры, войдите."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "a2.13-imperativo.1",
+      "kind": "choose",
+      "prompt": "Разговорное «Открой!»:",
+      "options": [
+        "Abre!",
+        "Abra-se!",
+        "Abrir!"
+      ],
+      "answer": 0,
+      "explain": "Как 3-е лицо: abre."
+    },
+    {
+      "id": "a2.13-imperativo.2",
+      "kind": "choose",
+      "prompt": "Вежливое «Сделайте!»:",
+      "options": [
+        "Faça!",
+        "Faz!",
+        "Fazi!"
+      ],
+      "answer": 0,
+      "explain": "Faço → faça."
+    },
+    {
+      "id": "a2.13-imperativo.3",
+      "kind": "gap",
+      "sentence": "___ aqui, por favor.",
+      "ru": "Подождите здесь, пожалуйста.",
+      "options": [
+        "Espere",
+        "Espero",
+        "Esperem-se"
+      ],
+      "answer": 0,
+      "explain": "Вежливо: espere."
+    },
+    {
+      "id": "a2.13-imperativo.4",
+      "kind": "gap",
+      "sentence": "___ o sal, por favor!",
+      "ru": "Передай соль, пожалуйста!",
+      "options": [
+        "Passa",
+        "Passo",
+        "Passar"
+      ],
+      "answer": 0,
+      "explain": "Разговор: passa."
+    },
+    {
+      "id": "a2.13-imperativo.5",
+      "kind": "truefalse",
+      "statement": "На табличках пишут вежливую форму: «Aguarde».",
+      "answer": true,
+      "explain": "Aguardar → aguarde."
+    },
+    {
+      "id": "a2.13-imperativo.6",
+      "kind": "truefalse",
+      "statement": "Вежливое повелительное от fazer — «faça».",
+      "answer": true,
+      "explain": "Faço → faça."
+    },
+    {
+      "id": "a2.13-imperativo.7",
+      "kind": "truefalse",
+      "statement": "Разговорное «Ешь!» — «Coma!».",
+      "answer": false,
+      "explain": "Разговор — Come!; coma — вежливо."
+    },
+    {
+      "id": "a2.13-imperativo.8",
+      "kind": "build",
+      "ru": "Подождите минутку, пожалуйста.",
+      "answer": "Espere um minuto, por favor.",
+      "extra": [
+        "Espero",
+        "minutos"
+      ],
+      "explain": "Вежливо — espere."
+    },
+    {
+      "id": "a2.13-imperativo.9",
+      "kind": "type",
+      "sentence": "___ a janela, está calor!",
+      "ru": "Открой окно, жарко!",
+      "hint": "abrir, разговорно",
+      "answer": "Abre",
+      "alt": [
+        "Abra"
+      ],
+      "explain": "Разговор — abre."
+    }
+  ]
+}

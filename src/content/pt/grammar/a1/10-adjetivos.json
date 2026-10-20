@@ -1,0 +1,165 @@
+{
+  "id": "a1.10-adjetivos",
+  "district": "A1",
+  "order": 10,
+  "title": "Прилагательные",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Прилагательное обычно стоит **после** существительного и согласуется в роде и числе: **o carro novo**, **a casa nova**, **os carros novos**. На **-e** и согласную род не меняют: **o mar azul**, **a camisa azul**."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "",
+        "Ед. ч.",
+        "Мн. ч."
+      ],
+      "rows": [
+        {
+          "cells": [
+            "м. р.",
+            "bonito",
+            "bonitos"
+          ]
+        },
+        {
+          "cells": [
+            "ж. р.",
+            "bonita",
+            "bonitas"
+          ]
+        },
+        {
+          "cells": [
+            "на -e",
+            "grande",
+            "grandes"
+          ]
+        },
+        {
+          "cells": [
+            "на -l",
+            "azul",
+            "azuis"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Перед существительным прилагательное меняет оттенок: **um grande homem** — великий человек, **um homem grande** — крупный. **Bom** и **mau** чаще стоят впереди: **um bom dia**."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Tenho um carro novo.",
+      "ru": "У меня новая машина."
+    },
+    {
+      "es": "A água está fria.",
+      "ru": "Вода холодная."
+    },
+    {
+      "es": "Os meninos são altos.",
+      "ru": "Мальчики высокие."
+    },
+    {
+      "es": "Uma camisa azul, por favor.",
+      "ru": "Синюю рубашку, пожалуйста."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "a1.10-adjetivos.1",
+      "kind": "choose",
+      "prompt": "«Новые дома»:",
+      "options": [
+        "as casas novas",
+        "as casas novos",
+        "as novas casa"
+      ],
+      "answer": 0,
+      "explain": "Casa — ж. р., мн. ч.: novas."
+    },
+    {
+      "id": "a1.10-adjetivos.2",
+      "kind": "choose",
+      "prompt": "«Синие рубашки»:",
+      "options": [
+        "as camisas azuis",
+        "as camisas azuls",
+        "as camisas azul"
+      ],
+      "answer": 0,
+      "explain": "Azul → azuis."
+    },
+    {
+      "id": "a1.10-adjetivos.3",
+      "kind": "gap",
+      "sentence": "A sopa está ___.",
+      "ru": "Суп горячий.",
+      "options": [
+        "quente",
+        "quenta",
+        "quentes"
+      ],
+      "answer": 0,
+      "explain": "Quente не меняется в роде."
+    },
+    {
+      "id": "a1.10-adjetivos.4",
+      "kind": "gap",
+      "sentence": "Os quartos são ___.",
+      "ru": "Комнаты маленькие.",
+      "options": [
+        "pequenos",
+        "pequenas",
+        "pequeno"
+      ],
+      "answer": 0,
+      "explain": "O quarto — м. р., мн. ч."
+    },
+    {
+      "id": "a1.10-adjetivos.5",
+      "kind": "truefalse",
+      "statement": "Прилагательное обычно стоит после существительного.",
+      "answer": true,
+      "explain": "O carro novo."
+    },
+    {
+      "id": "a1.10-adjetivos.6",
+      "kind": "truefalse",
+      "statement": "«Grande» в женском роде — «granda».",
+      "answer": false,
+      "explain": "Grande одинаково в обоих родах."
+    },
+    {
+      "id": "a1.10-adjetivos.7",
+      "kind": "truefalse",
+      "statement": "«Um grande homem» значит «великий человек».",
+      "answer": true,
+      "explain": "Впереди — оценка."
+    },
+    {
+      "id": "a1.10-adjetivos.8",
+      "kind": "build",
+      "ru": "У меня красное платье.",
+      "answer": "Eu tenho um vestido vermelho.",
+      "extra": [
+        "vermelha",
+        "uma"
+      ],
+      "explain": "O vestido — vermelho."
+    },
+    {
+      "id": "a1.10-adjetivos.9",
+      "kind": "type",
+      "sentence": "As ruas são muito ___.",
+      "ru": "Улицы очень узкие.",
+      "hint": "estreito",
+      "answer": "estreitas",
+      "explain": "A rua → estreitas."
+    }
+  ]
+}
