@@ -121,10 +121,8 @@ describe('кузница курса: глаголы из verbs.json', () => {
 });
 
 describe('уроки времён кузницы', () => {
-  it('времена A1–A2 открываются уроками, которые уже есть в курсе', () => {
+  it('каждое время открывается уроком, который уже есть в курсе', () => {
     const lesson = (id: string) => new URL(`../../content/pt/grammar/${id.split('.')[0]}/${id.split('.')[1]}.json`, import.meta.url);
-    const early = PT.verbs.tenses.filter((t) => /^a[12]\./.test(t.lesson));
-    expect(early.map((t) => t.id)).toEqual(['presente', 'perfeito', 'imperfeito']);
-    for (const t of early) expect(existsSync(lesson(t.lesson)), t.lesson).toBe(true);
+    for (const t of PT.verbs.tenses) expect(existsSync(lesson(t.lesson)), t.lesson).toBe(true);
   });
 });

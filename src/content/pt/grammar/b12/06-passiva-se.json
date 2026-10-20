@@ -1,0 +1,160 @@
+{
+  "id": "b12.06-passiva-se",
+  "district": "B1.2",
+  "order": 6,
+  "title": "Vende-se: пассив с se",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "На вывесках и в объявлениях — **se** при глаголе: **vende-se casa** — «продаётся дом», **alugam-se quartos** — «сдаются комнаты». Глагол согласуется с существительным. Без существительного **se** значит «вообще, у нас»: **aqui se fala português**."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Вывеска",
+        "Перевод"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Vende-se.",
+            "Продаётся."
+          ]
+        },
+        {
+          "cells": [
+            "Alugam-se quartos.",
+            "Сдаются комнаты."
+          ]
+        },
+        {
+          "cells": [
+            "Precisa-se de garçom.",
+            "Требуется официант."
+          ]
+        },
+        {
+          "cells": [
+            "Aqui se come bem.",
+            "Здесь хорошо кормят."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "В разговоре Бразилии **se** ставят перед глаголом: **aqui se fala**; на вывесках остаётся **vende-se**. Многие говорят и «vende-se casas» — в письме лучше **vendem-se casas**."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Vende-se esta casa.",
+      "ru": "Этот дом продаётся."
+    },
+    {
+      "es": "Alugam-se bicicletas.",
+      "ru": "Сдаются велосипеды."
+    },
+    {
+      "es": "Precisa-se de ajudante.",
+      "ru": "Требуется помощник."
+    },
+    {
+      "es": "Aqui se fala português.",
+      "ru": "Здесь говорят по-португальски."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "b12.06-passiva-se.1",
+      "kind": "choose",
+      "prompt": "«Сдаются комнаты»:",
+      "options": [
+        "Alugam-se quartos.",
+        "Aluga-se quartos de.",
+        "Alugam quartos-se."
+      ],
+      "answer": 0,
+      "explain": "Мн. ч. — alugam-se."
+    },
+    {
+      "id": "b12.06-passiva-se.2",
+      "kind": "choose",
+      "prompt": "«Требуется официант»:",
+      "options": [
+        "Precisa-se de garçom.",
+        "Precisam-se garçom.",
+        "Precisa-se garçom de."
+      ],
+      "answer": 0,
+      "explain": "Precisar de."
+    },
+    {
+      "id": "b12.06-passiva-se.3",
+      "kind": "gap",
+      "sentence": "___ casa na praia.",
+      "ru": "Продаётся дом на пляже.",
+      "options": [
+        "Vende-se",
+        "Vendem-se",
+        "Vendeu-se"
+      ],
+      "answer": 0,
+      "explain": "Ед. ч. — vende-se."
+    },
+    {
+      "id": "b12.06-passiva-se.4",
+      "kind": "gap",
+      "sentence": "Aqui se ___ bem.",
+      "ru": "Здесь хорошо кормят.",
+      "options": [
+        "come",
+        "comem",
+        "comer"
+      ],
+      "answer": 0,
+      "explain": "Se без существительного — 3-е лицо ед."
+    },
+    {
+      "id": "b12.06-passiva-se.5",
+      "kind": "truefalse",
+      "statement": "В «vendem-se casas» глагол согласуется с casas.",
+      "answer": true,
+      "explain": "Мн. ч."
+    },
+    {
+      "id": "b12.06-passiva-se.6",
+      "kind": "truefalse",
+      "statement": "«Aqui se fala português» — «здесь говорят по-португальски».",
+      "answer": true,
+      "explain": "Se — вообще, у нас."
+    },
+    {
+      "id": "b12.06-passiva-se.7",
+      "kind": "truefalse",
+      "statement": "«Precisa-se garçom» — правильно без de.",
+      "answer": false,
+      "explain": "Precisa-se de."
+    },
+    {
+      "id": "b12.06-passiva-se.8",
+      "kind": "build",
+      "ru": "Здесь говорят по-португальски.",
+      "answer": "Aqui se fala português.",
+      "extra": [
+        "falam",
+        "falou"
+      ],
+      "explain": "Se + fala."
+    },
+    {
+      "id": "b12.06-passiva-se.9",
+      "kind": "type",
+      "sentence": "___-se bicicletas.",
+      "ru": "Сдаются велосипеды.",
+      "hint": "alugar, мн. ч.",
+      "answer": "Alugam",
+      "explain": "Мн. ч.: alugam-se."
+    }
+  ]
+}

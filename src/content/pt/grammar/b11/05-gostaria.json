@@ -1,0 +1,165 @@
+{
+  "id": "b11.05-gostaria",
+  "district": "B1.1",
+  "order": 5,
+  "title": "Вежливо: gostaria, poderia, deveria",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Условное смягчает просьбу и совет. **Eu gostaria de…** — «мне бы хотелось», **Você poderia…?** — «не могли бы вы», **Você deveria…** — «тебе бы стоило»."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Прямо",
+        "Мягче",
+        "Перевод"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Quero um café.",
+            "Gostaria de um café.",
+            "Мне бы кофе."
+          ]
+        },
+        {
+          "cells": [
+            "Pode abrir a janela?",
+            "Poderia abrir a janela?",
+            "Не могли бы вы открыть окно?"
+          ]
+        },
+        {
+          "cells": [
+            "Você deve descansar.",
+            "Você deveria descansar.",
+            "Тебе бы отдохнуть."
+          ]
+        },
+        {
+          "cells": [
+            "É melhor ir.",
+            "Seria melhor ir.",
+            "Лучше бы пойти."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "После **gostar** остаётся **de**: **gostaria de saber**. В кафе и в банке это обычная вежливость, не книжная."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Gostaria de fazer uma reserva.",
+      "ru": "Я бы хотел забронировать."
+    },
+    {
+      "es": "O senhor poderia repetir?",
+      "ru": "Не могли бы вы повторить?"
+    },
+    {
+      "es": "Você deveria ir ao médico.",
+      "ru": "Тебе стоило бы сходить к врачу."
+    },
+    {
+      "es": "Seria possível trocar o quarto?",
+      "ru": "Можно было бы поменять номер?"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "b11.05-gostaria.1",
+      "kind": "choose",
+      "prompt": "Вежливо «я хотел бы узнать»:",
+      "options": [
+        "Gostaria de saber.",
+        "Gostaria saber.",
+        "Gosto saber."
+      ],
+      "answer": 0,
+      "explain": "Gostaria de + инфинитив."
+    },
+    {
+      "id": "b11.05-gostaria.2",
+      "kind": "choose",
+      "prompt": "«Не могли бы вы помочь?»:",
+      "options": [
+        "Poderia me ajudar?",
+        "Pôde me ajudar?",
+        "Podia me ajudou?"
+      ],
+      "answer": 0,
+      "explain": "Poderia — мягкая просьба."
+    },
+    {
+      "id": "b11.05-gostaria.3",
+      "kind": "gap",
+      "sentence": "Você ___ dormir mais.",
+      "ru": "Тебе бы стоило больше спать.",
+      "options": [
+        "deveria",
+        "devia de",
+        "deverá"
+      ],
+      "answer": 0,
+      "explain": "Deveria — мягкий совет."
+    },
+    {
+      "id": "b11.05-gostaria.4",
+      "kind": "gap",
+      "sentence": "Eu gostaria ___ um quarto de casal.",
+      "ru": "Мне бы номер с двуспальной кроватью.",
+      "options": [
+        "de",
+        "que",
+        "a"
+      ],
+      "answer": 0,
+      "explain": "Gostar de."
+    },
+    {
+      "id": "b11.05-gostaria.5",
+      "kind": "truefalse",
+      "statement": "«Gostaria de» вежливее, чем «quero».",
+      "answer": true,
+      "explain": "Условное смягчает."
+    },
+    {
+      "id": "b11.05-gostaria.6",
+      "kind": "truefalse",
+      "statement": "«Você deveria» — приказ.",
+      "answer": false,
+      "explain": "Мягкий совет."
+    },
+    {
+      "id": "b11.05-gostaria.7",
+      "kind": "truefalse",
+      "statement": "«Seria possível…?» — вежливая просьба.",
+      "answer": true,
+      "explain": "Было бы возможно."
+    },
+    {
+      "id": "b11.05-gostaria.8",
+      "kind": "build",
+      "ru": "Не могли бы вы повторить, пожалуйста?",
+      "answer": "Poderia repetir, por favor?",
+      "extra": [
+        "pôde",
+        "repetiu"
+      ],
+      "explain": "Poderia + инфинитив."
+    },
+    {
+      "id": "b11.05-gostaria.9",
+      "kind": "type",
+      "sentence": "Eu ___ de um suco, por favor.",
+      "ru": "Мне бы сок, пожалуйста.",
+      "hint": "gostar, eu, вежливо",
+      "answer": "gostaria",
+      "explain": "Gostar в условном."
+    }
+  ]
+}

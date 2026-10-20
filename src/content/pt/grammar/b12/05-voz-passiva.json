@@ -1,0 +1,165 @@
+{
+  "id": "b12.05-voz-passiva",
+  "district": "B1.2",
+  "order": 5,
+  "title": "Пассив: foi construído",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Пассив — **ser** + причастие, которое согласуется с подлежащим: **a ponte foi construída em 1920** — «мост построили в 1920 году». Кто сделал — через **por**: **por um engenheiro**."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Время",
+        "Пример",
+        "Перевод"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "presente",
+            "A carta é escrita à mão.",
+            "Письмо пишется от руки."
+          ]
+        },
+        {
+          "cells": [
+            "perfeito",
+            "A torre foi construída há cem anos.",
+            "Башню построили сто лет назад."
+          ]
+        },
+        {
+          "cells": [
+            "futuro",
+            "O prêmio será entregue amanhã.",
+            "Награду вручат завтра."
+          ]
+        },
+        {
+          "cells": [
+            "com por",
+            "O livro foi escrito por ela.",
+            "Книгу написала она."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Причастие согласуется: **o mapa foi feito**, **as cartas foram feitas**. В разговоре пассив редок, чаще говорят **construíram a ponte** или **a gente fez**."
+    }
+  ],
+  "examples": [
+    {
+      "es": "A torre foi construída há cem anos.",
+      "ru": "Башню построили сто лет назад."
+    },
+    {
+      "es": "As cartas foram escritas pelo Cronista.",
+      "ru": "Письма написал Летописец."
+    },
+    {
+      "es": "O mapa será entregue amanhã.",
+      "ru": "Карту передадут завтра."
+    },
+    {
+      "es": "A ponte foi fechada.",
+      "ru": "Мост закрыли."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "b12.05-voz-passiva.1",
+      "kind": "choose",
+      "prompt": "«Башню построили»:",
+      "options": [
+        "A torre foi construída.",
+        "A torre foi construído.",
+        "A torre construiu."
+      ],
+      "answer": 0,
+      "explain": "Согласование: construída."
+    },
+    {
+      "id": "b12.05-voz-passiva.2",
+      "kind": "choose",
+      "prompt": "«Письма были написаны»:",
+      "options": [
+        "As cartas foram escritas.",
+        "As cartas foi escrita.",
+        "As cartas foram escrevidas."
+      ],
+      "answer": 0,
+      "explain": "Escrever → escrito."
+    },
+    {
+      "id": "b12.05-voz-passiva.3",
+      "kind": "gap",
+      "sentence": "O livro foi escrito ___ ela.",
+      "ru": "Книгу написала она.",
+      "options": [
+        "por",
+        "para",
+        "de"
+      ],
+      "answer": 0,
+      "explain": "Кем — por."
+    },
+    {
+      "id": "b12.05-voz-passiva.4",
+      "kind": "gap",
+      "sentence": "As portas foram ___ às dez.",
+      "ru": "Двери закрыли в десять.",
+      "options": [
+        "fechadas",
+        "fechados",
+        "fechada"
+      ],
+      "answer": 0,
+      "explain": "Portas — fechadas."
+    },
+    {
+      "id": "b12.05-voz-passiva.5",
+      "kind": "truefalse",
+      "statement": "В пассиве причастие согласуется с подлежащим.",
+      "answer": true,
+      "explain": "A ponte foi construída."
+    },
+    {
+      "id": "b12.05-voz-passiva.6",
+      "kind": "truefalse",
+      "statement": "В пассиве деятеля вводит «para».",
+      "answer": false,
+      "explain": "Por."
+    },
+    {
+      "id": "b12.05-voz-passiva.7",
+      "kind": "truefalse",
+      "statement": "В разговоре пассив часто заменяют активом.",
+      "answer": true,
+      "explain": "Construíram a ponte."
+    },
+    {
+      "id": "b12.05-voz-passiva.8",
+      "kind": "build",
+      "ru": "Книгу написал Летописец.",
+      "answer": "O livro foi escrito pelo Cronista.",
+      "extra": [
+        "escrevido",
+        "para"
+      ],
+      "explain": "Escrito + pelo."
+    },
+    {
+      "id": "b12.05-voz-passiva.9",
+      "kind": "type",
+      "sentence": "O mapa ___ entregue amanhã.",
+      "ru": "Карту передадут завтра.",
+      "hint": "ser, будущее",
+      "answer": "será",
+      "explain": "Ser в будущем."
+    }
+  ]
+}

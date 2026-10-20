@@ -1,0 +1,165 @@
+{
+  "id": "b12.12-gerundio",
+  "district": "B1.2",
+  "order": 12,
+  "title": "Estar, ficar, ir, vir + gerúndio",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Бразильский португальский любит **gerúndio**: **estou falando** — «я говорю (сейчас)». С другими глаголами он показывает ход действия: **fico esperando** — «жду (долго)», **vai melhorando** — «понемногу улучшается», **vem chegando** — «приближается», **continua chovendo** — «всё ещё идёт дождь»."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Связка",
+        "Пример",
+        "Перевод"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "estar + gerúndio",
+            "Estou procurando o mapa.",
+            "Я ищу карту."
+          ]
+        },
+        {
+          "cells": [
+            "ficar + gerúndio",
+            "Fiquei esperando uma hora.",
+            "Я прождал час."
+          ]
+        },
+        {
+          "cells": [
+            "ir + gerúndio",
+            "O tempo vai melhorando.",
+            "Погода понемногу налаживается."
+          ]
+        },
+        {
+          "cells": [
+            "continuar + gerúndio",
+            "Continua chovendo.",
+            "Всё ещё идёт дождь."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Gerúndio: **-ando**, **-endo**, **-indo** — без исключений, **pondo** от pôr. В Португалии говорят **estou a falar**, в Бразилии — **estou falando**."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Estou procurando o Caio.",
+      "ru": "Я ищу Каю."
+    },
+    {
+      "es": "Ficamos esperando o trem.",
+      "ru": "Мы всё ждали поезд."
+    },
+    {
+      "es": "A neblina vai sumindo.",
+      "ru": "Туман понемногу рассеивается."
+    },
+    {
+      "es": "Continua chovendo na serra.",
+      "ru": "В горах всё ещё идёт дождь."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "b12.12-gerundio.1",
+      "kind": "choose",
+      "prompt": "«Я ищу (сейчас)»:",
+      "options": [
+        "Estou procurando.",
+        "Estou procurar.",
+        "Estou procurado."
+      ],
+      "answer": 0,
+      "explain": "Estar + gerúndio."
+    },
+    {
+      "id": "b12.12-gerundio.2",
+      "kind": "choose",
+      "prompt": "«Всё ещё идёт дождь»:",
+      "options": [
+        "Continua chovendo.",
+        "Continua a chovendo.",
+        "Continua chover."
+      ],
+      "answer": 0,
+      "explain": "Continuar + gerúndio."
+    },
+    {
+      "id": "b12.12-gerundio.3",
+      "kind": "gap",
+      "sentence": "Fiquei ___ uma hora.",
+      "ru": "Я прождал час.",
+      "options": [
+        "esperando",
+        "esperar",
+        "esperado"
+      ],
+      "answer": 0,
+      "explain": "Ficar + gerúndio."
+    },
+    {
+      "id": "b12.12-gerundio.4",
+      "kind": "gap",
+      "sentence": "O tempo vai ___.",
+      "ru": "Погода понемногу налаживается.",
+      "options": [
+        "melhorando",
+        "melhorar",
+        "melhorado"
+      ],
+      "answer": 0,
+      "explain": "Ir + gerúndio — постепенно."
+    },
+    {
+      "id": "b12.12-gerundio.5",
+      "kind": "truefalse",
+      "statement": "«Estou falando» — бразильская форма.",
+      "answer": true,
+      "explain": "В Португалии — estou a falar."
+    },
+    {
+      "id": "b12.12-gerundio.6",
+      "kind": "truefalse",
+      "statement": "«Vai melhorando» значит «улучшится завтра».",
+      "answer": false,
+      "explain": "Понемногу улучшается."
+    },
+    {
+      "id": "b12.12-gerundio.7",
+      "kind": "truefalse",
+      "statement": "Gerúndio от pôr — pondo.",
+      "answer": true,
+      "explain": "Без исключений."
+    },
+    {
+      "id": "b12.12-gerundio.8",
+      "kind": "build",
+      "ru": "Мы всё ждали поезд.",
+      "answer": "Ficamos esperando o trem.",
+      "extra": [
+        "esperar",
+        "esperado"
+      ],
+      "explain": "Ficar + gerúndio."
+    },
+    {
+      "id": "b12.12-gerundio.9",
+      "kind": "type",
+      "sentence": "Estou ___ o mapa.",
+      "ru": "Я ищу карту.",
+      "hint": "procurar, gerúndio",
+      "answer": "procurando",
+      "explain": "Procurar → procurando."
+    }
+  ]
+}

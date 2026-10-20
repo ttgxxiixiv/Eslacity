@@ -1,0 +1,160 @@
+{
+  "id": "b11.14-para-que",
+  "district": "B1.1",
+  "order": 14,
+  "title": "Para que, antes que, sem que",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Союзы цели и условия всегда требуют subjuntivo: **para que** (чтобы), **antes que** (прежде чем), **sem que** (без того чтобы), **a não ser que** (если только не), **caso** (в случае если)."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Союз",
+        "Пример"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "para que",
+            "Falo devagar para que você entenda."
+          ]
+        },
+        {
+          "cells": [
+            "antes que",
+            "Vamos antes que escureça."
+          ]
+        },
+        {
+          "cells": [
+            "sem que",
+            "Ele sai sem que ninguém perceba."
+          ]
+        },
+        {
+          "cells": [
+            "caso",
+            "Caso precise, me liga."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Если подлежащее одно, удобнее предлог с инфинитивом: **para entender**, **antes de sair**, **sem falar**. А с разными подлежащими и в разговоре часто — личный инфинитив: **para você entender**."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Falo devagar para que você entenda.",
+      "ru": "Я говорю медленно, чтобы ты понял."
+    },
+    {
+      "es": "Vamos embora antes que chova.",
+      "ru": "Пойдём, пока не пошёл дождь."
+    },
+    {
+      "es": "Caso precise de ajuda, me chama.",
+      "ru": "Если понадобится помощь, позови меня."
+    },
+    {
+      "es": "Saio cedo a não ser que esteja chovendo.",
+      "ru": "Я выхожу рано, если только не идёт дождь."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "b11.14-para-que.1",
+      "kind": "choose",
+      "prompt": "«Чтобы ты понял»:",
+      "options": [
+        "para que você entenda",
+        "para que você entende",
+        "para você que entenda"
+      ],
+      "answer": 0,
+      "explain": "Para que + subjuntivo."
+    },
+    {
+      "id": "b11.14-para-que.2",
+      "kind": "choose",
+      "prompt": "«Пока не стемнело»:",
+      "options": [
+        "antes que escureça",
+        "antes que escurece",
+        "antes de que escureceu"
+      ],
+      "answer": 0,
+      "explain": "Antes que + subjuntivo."
+    },
+    {
+      "id": "b11.14-para-que.3",
+      "kind": "gap",
+      "sentence": "Caso você ___ ajuda, me chama.",
+      "ru": "Если понадобится помощь, позови меня.",
+      "options": [
+        "precise",
+        "precisa",
+        "precisou"
+      ],
+      "answer": 0,
+      "explain": "Caso + subjuntivo."
+    },
+    {
+      "id": "b11.14-para-que.4",
+      "kind": "gap",
+      "sentence": "Ele sai sem que a gente ___.",
+      "ru": "Он уходит так, что мы не замечаем.",
+      "options": [
+        "perceba",
+        "percebe",
+        "percebeu"
+      ],
+      "answer": 0,
+      "explain": "Sem que + subjuntivo."
+    },
+    {
+      "id": "b11.14-para-que.5",
+      "kind": "truefalse",
+      "statement": "После «para que» — subjuntivo.",
+      "answer": true,
+      "explain": "Para que entenda."
+    },
+    {
+      "id": "b11.14-para-que.6",
+      "kind": "truefalse",
+      "statement": "«Antes de sair» — ошибка, нужно «antes que sair».",
+      "answer": false,
+      "explain": "С одним подлежащим — antes de + инфинитив."
+    },
+    {
+      "id": "b11.14-para-que.7",
+      "kind": "truefalse",
+      "statement": "«Caso» значит «в случае если».",
+      "answer": true,
+      "explain": "Caso precise."
+    },
+    {
+      "id": "b11.14-para-que.8",
+      "kind": "build",
+      "ru": "Пойдём, пока не пошёл дождь.",
+      "answer": "Vamos embora antes que chova.",
+      "extra": [
+        "chove",
+        "choveu"
+      ],
+      "explain": "Antes que + chova."
+    },
+    {
+      "id": "b11.14-para-que.9",
+      "kind": "type",
+      "sentence": "Falo devagar para que você ___.",
+      "ru": "Я говорю медленно, чтобы ты понял.",
+      "hint": "entender, você",
+      "answer": "entenda",
+      "explain": "Entendo → entenda."
+    }
+  ]
+}

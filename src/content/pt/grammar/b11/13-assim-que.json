@@ -1,0 +1,165 @@
+{
+  "id": "b11.13-assim-que",
+  "district": "B1.1",
+  "order": 13,
+  "title": "Assim que, enquanto, se: будущее после союзов",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "После союзов времени и условия о будущем — тоже futuro do subjuntivo: **assim que**, **logo que** (как только), **enquanto** (пока), **sempre que** (всякий раз), **conforme** (по мере того). Главная часть — в будущем или повелительном."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Союз",
+        "Пример",
+        "Перевод"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "assim que",
+            "Assim que eu souber, te conto.",
+            "Как только узнаю, расскажу."
+          ]
+        },
+        {
+          "cells": [
+            "enquanto",
+            "Enquanto houver luz, a gente anda.",
+            "Пока есть свет, идём."
+          ]
+        },
+        {
+          "cells": [
+            "sempre que",
+            "Sempre que puder, venha.",
+            "Приходи, когда сможешь."
+          ]
+        },
+        {
+          "cells": [
+            "se",
+            "Se chover, ficamos.",
+            "Если пойдёт дождь, останемся."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "О прошлом и о привычке — индикатив: **quando eu era criança**, **sempre que posso, venho** (обычно так и делаю). Будущее — subjuntivo."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Assim que o sol nascer, partimos.",
+      "ru": "Как только взойдёт солнце, выходим."
+    },
+    {
+      "es": "Enquanto você estiver aqui, está seguro.",
+      "ru": "Пока ты здесь, ты в безопасности."
+    },
+    {
+      "es": "Sempre que quiser, pode vir.",
+      "ru": "Приходи, когда захочешь."
+    },
+    {
+      "es": "Se der tempo, passo aí.",
+      "ru": "Если успею, заскочу."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "b11.13-assim-que.1",
+      "kind": "choose",
+      "prompt": "«Как только узнаю, расскажу»:",
+      "options": [
+        "Assim que eu souber, te conto.",
+        "Assim que eu sei, te conto.",
+        "Assim que eu saber, te conto."
+      ],
+      "answer": 0,
+      "explain": "Souberam → souber."
+    },
+    {
+      "id": "b11.13-assim-que.2",
+      "kind": "choose",
+      "prompt": "О привычке: «когда могу, прихожу»:",
+      "options": [
+        "Sempre que posso, venho.",
+        "Sempre que puder, venho ontem.",
+        "Sempre que pudesse, vim."
+      ],
+      "answer": 0,
+      "explain": "Привычка — индикатив."
+    },
+    {
+      "id": "b11.13-assim-que.3",
+      "kind": "gap",
+      "sentence": "Se ___ tempo, passo aí.",
+      "ru": "Если успею, заскочу.",
+      "options": [
+        "der",
+        "dar",
+        "dá"
+      ],
+      "answer": 0,
+      "explain": "Deram → der."
+    },
+    {
+      "id": "b11.13-assim-que.4",
+      "kind": "gap",
+      "sentence": "Enquanto vocês ___ aqui, nada vai acontecer.",
+      "ru": "Пока вы здесь, ничего не случится.",
+      "options": [
+        "estiverem",
+        "estão",
+        "estarem"
+      ],
+      "answer": 0,
+      "explain": "Estiveram → estiverem."
+    },
+    {
+      "id": "b11.13-assim-que.5",
+      "kind": "truefalse",
+      "statement": "После «assim que» о будущем — futuro do subjuntivo.",
+      "answer": true,
+      "explain": "Assim que souber."
+    },
+    {
+      "id": "b11.13-assim-que.6",
+      "kind": "truefalse",
+      "statement": "«Quando eu era criança» — ошибка, нужно futuro do subjuntivo.",
+      "answer": false,
+      "explain": "Прошлое — индикатив."
+    },
+    {
+      "id": "b11.13-assim-que.7",
+      "kind": "truefalse",
+      "statement": "«Se chover, ficamos» — правильная фраза.",
+      "answer": true,
+      "explain": "Choveram → chover."
+    },
+    {
+      "id": "b11.13-assim-que.8",
+      "kind": "build",
+      "ru": "Как только взойдёт солнце, выходим.",
+      "answer": "Assim que o sol nascer, partimos.",
+      "extra": [
+        "nasce",
+        "nasceu"
+      ],
+      "explain": "Assim que + nascer."
+    },
+    {
+      "id": "b11.13-assim-que.9",
+      "kind": "type",
+      "sentence": "Sempre que ___, pode vir.",
+      "ru": "Приходи, когда захочешь.",
+      "hint": "querer, você",
+      "answer": "quiser",
+      "explain": "Quiseram → quiser."
+    }
+  ]
+}

@@ -1,0 +1,165 @@
+{
+  "id": "b12.10-relativos",
+  "district": "B1.2",
+  "order": 10,
+  "title": "Que, quem, onde, o qual",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Относительные слова связывают части предложения. **Que** — «который» для людей и вещей: **o homem que mora aqui**. **Quem** — о людях после предлога: **a pessoa com quem falei**. **Onde** — место: **a cidade onde nasci**. **O qual / a qual** — после длинных предлогов: **a ponte sobre a qual passamos**."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Слово",
+        "Пример",
+        "Перевод"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "que",
+            "O livro que comprei.",
+            "Книга, которую я купил."
+          ]
+        },
+        {
+          "cells": [
+            "quem",
+            "O amigo com quem viajei.",
+            "Друг, с которым я путешествовал."
+          ]
+        },
+        {
+          "cells": [
+            "onde",
+            "A casa onde moro.",
+            "Дом, где я живу."
+          ]
+        },
+        {
+          "cells": [
+            "o qual",
+            "A razão pela qual voltei.",
+            "Причина, по которой я вернулся."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "После коротких предлогов можно и **que**: **o assunto de que falamos**. В разговоре предлог часто теряют: «o assunto que falamos» — в письме так не пишут."
+    }
+  ],
+  "examples": [
+    {
+      "es": "O homem que mora aqui é pescador.",
+      "ru": "Человек, который здесь живёт, — рыбак."
+    },
+    {
+      "es": "A amiga com quem viajei é de Recife.",
+      "ru": "Подруга, с которой я ездил, из Ресифи."
+    },
+    {
+      "es": "A cidade onde nasci é pequena.",
+      "ru": "Город, где я родился, маленький."
+    },
+    {
+      "es": "A razão pela qual voltei é simples.",
+      "ru": "Причина, по которой я вернулся, проста."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "b12.10-relativos.1",
+      "kind": "choose",
+      "prompt": "«Друг, с которым я говорил»:",
+      "options": [
+        "o amigo com quem falei",
+        "o amigo quem falei com",
+        "o amigo onde falei"
+      ],
+      "answer": 0,
+      "explain": "Предлог + quem."
+    },
+    {
+      "id": "b12.10-relativos.2",
+      "kind": "choose",
+      "prompt": "«Город, где я живу»:",
+      "options": [
+        "a cidade onde moro",
+        "a cidade quem moro",
+        "a cidade qual moro"
+      ],
+      "answer": 0,
+      "explain": "Место — onde."
+    },
+    {
+      "id": "b12.10-relativos.3",
+      "kind": "gap",
+      "sentence": "O livro ___ comprei é ótimo.",
+      "ru": "Книга, которую я купил, отличная.",
+      "options": [
+        "que",
+        "quem",
+        "onde"
+      ],
+      "answer": 0,
+      "explain": "Вещь — que."
+    },
+    {
+      "id": "b12.10-relativos.4",
+      "kind": "gap",
+      "sentence": "A razão ___ qual voltei.",
+      "ru": "Причина, по которой я вернулся.",
+      "options": [
+        "pela",
+        "pelo",
+        "para"
+      ],
+      "answer": 0,
+      "explain": "Por + a = pela."
+    },
+    {
+      "id": "b12.10-relativos.5",
+      "kind": "truefalse",
+      "statement": "«Quem» после предлога относится к людям.",
+      "answer": true,
+      "explain": "Com quem."
+    },
+    {
+      "id": "b12.10-relativos.6",
+      "kind": "truefalse",
+      "statement": "«Onde» можно сказать о человеке.",
+      "answer": false,
+      "explain": "Onde — место."
+    },
+    {
+      "id": "b12.10-relativos.7",
+      "kind": "truefalse",
+      "statement": "«Que» подходит и для людей, и для вещей.",
+      "answer": true,
+      "explain": "O homem que, o livro que."
+    },
+    {
+      "id": "b12.10-relativos.8",
+      "kind": "build",
+      "ru": "Человек, который здесь живёт, — рыбак.",
+      "answer": "O homem que mora aqui é pescador.",
+      "extra": [
+        "quem",
+        "onde"
+      ],
+      "explain": "Que — подлежащее."
+    },
+    {
+      "id": "b12.10-relativos.9",
+      "kind": "type",
+      "sentence": "A amiga com ___ viajei é de Recife.",
+      "ru": "Подруга, с которой я ездил, из Ресифи.",
+      "hint": "о человеке после com",
+      "answer": "quem",
+      "explain": "Люди после предлога — quem."
+    }
+  ]
+}

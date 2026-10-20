@@ -1,0 +1,165 @@
+{
+  "id": "b11.15-embora",
+  "district": "B1.1",
+  "order": 15,
+  "title": "Embora и mesmo que",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "**Embora** — «хотя»: после него subjuntivo, даже если факт известен. **Embora esteja cansado, continuo** — «хоть и устал, продолжаю». **Mesmo que** — «даже если»: **mesmo que chova, vamos**."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Союз",
+        "Пример",
+        "Перевод"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "embora",
+            "Embora seja tarde, vamos.",
+            "Хоть и поздно, пойдём."
+          ]
+        },
+        {
+          "cells": [
+            "mesmo que",
+            "Mesmo que custe caro, compro.",
+            "Даже если дорого, куплю."
+          ]
+        },
+        {
+          "cells": [
+            "ainda que",
+            "Ainda que ele peça, não vou.",
+            "Даже если он попросит, не пойду."
+          ]
+        },
+        {
+          "cells": [
+            "apesar de",
+            "Apesar de ser tarde, vamos.",
+            "Несмотря на поздний час, пойдём."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "**Apesar de** — с инфинитивом или существительным, без subjuntivo: **apesar da chuva**. **Mesmo assim** — «и всё же»: **está chovendo, mesmo assim vou**."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Embora seja difícil, vou tentar.",
+      "ru": "Хоть это и трудно, я попробую."
+    },
+    {
+      "es": "Mesmo que chova, a gente sai.",
+      "ru": "Даже если пойдёт дождь, мы выйдем."
+    },
+    {
+      "es": "Apesar do frio, ele foi à praia.",
+      "ru": "Несмотря на холод, он пошёл на пляж."
+    },
+    {
+      "es": "Está tarde, mesmo assim vou.",
+      "ru": "Поздно, и всё же я пойду."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "b11.15-embora.1",
+      "kind": "choose",
+      "prompt": "«Хоть и поздно, пойдём»:",
+      "options": [
+        "Embora seja tarde, vamos.",
+        "Embora é tarde, vamos.",
+        "Embora ser tarde, vamos."
+      ],
+      "answer": 0,
+      "explain": "Embora + subjuntivo."
+    },
+    {
+      "id": "b11.15-embora.2",
+      "kind": "choose",
+      "prompt": "«Несмотря на дождь»:",
+      "options": [
+        "apesar da chuva",
+        "apesar que a chuva",
+        "embora a chuva"
+      ],
+      "answer": 0,
+      "explain": "Apesar de + существительное."
+    },
+    {
+      "id": "b11.15-embora.3",
+      "kind": "gap",
+      "sentence": "Mesmo que ___ caro, eu compro.",
+      "ru": "Даже если дорого, я куплю.",
+      "options": [
+        "custe",
+        "custa",
+        "custou"
+      ],
+      "answer": 0,
+      "explain": "Mesmo que + subjuntivo."
+    },
+    {
+      "id": "b11.15-embora.4",
+      "kind": "gap",
+      "sentence": "Embora ele ___ cansado, continua.",
+      "ru": "Хоть он и устал, он продолжает.",
+      "options": [
+        "esteja",
+        "está",
+        "estava"
+      ],
+      "answer": 0,
+      "explain": "Embora + subjuntivo."
+    },
+    {
+      "id": "b11.15-embora.5",
+      "kind": "truefalse",
+      "statement": "После «embora» — subjuntivo.",
+      "answer": true,
+      "explain": "Embora seja."
+    },
+    {
+      "id": "b11.15-embora.6",
+      "kind": "truefalse",
+      "statement": "После «apesar de» нужен subjuntivo.",
+      "answer": false,
+      "explain": "Инфинитив или существительное."
+    },
+    {
+      "id": "b11.15-embora.7",
+      "kind": "truefalse",
+      "statement": "«Mesmo assim» значит «и всё же».",
+      "answer": true,
+      "explain": "Mesmo assim vou."
+    },
+    {
+      "id": "b11.15-embora.8",
+      "kind": "build",
+      "ru": "Хоть это и трудно, я попробую.",
+      "answer": "Embora seja difícil, vou tentar.",
+      "extra": [
+        "é",
+        "era"
+      ],
+      "explain": "Embora + seja."
+    },
+    {
+      "id": "b11.15-embora.9",
+      "kind": "type",
+      "sentence": "Mesmo que ___, a gente sai.",
+      "ru": "Даже если пойдёт дождь, мы выйдем.",
+      "hint": "chover",
+      "answer": "chova",
+      "explain": "Chover → chova."
+    }
+  ]
+}

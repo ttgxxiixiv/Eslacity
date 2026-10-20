@@ -1,0 +1,165 @@
+{
+  "id": "b12.04-mais-que-perfeito",
+  "district": "B1.2",
+  "order": 4,
+  "title": "Давнопрошедшее: tinha feito",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "**Mais-que-perfeito composto** — действие раньше другого прошлого: **quando cheguei, o trem já tinha saído** — «когда я пришёл, поезд уже ушёл». Строится из **ter** в imperfeito и причастия: **tinha feito**, **tínhamos visto**."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Лицо",
+        "ter",
+        "Причастие"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "eu",
+            "tinha",
+            "falado / feito"
+          ]
+        },
+        {
+          "cells": [
+            "você / ele",
+            "tinha",
+            "comido / visto"
+          ]
+        },
+        {
+          "cells": [
+            "nós",
+            "tínhamos",
+            "saído / dito"
+          ]
+        },
+        {
+          "cells": [
+            "vocês / eles",
+            "tinham",
+            "chegado / posto"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Причастие не меняется: **elas tinham chegado**. В книгах встречается простая форма — **falara**, **fizera**: её достаточно узнавать."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Quando cheguei, o trem já tinha saído.",
+      "ru": "Когда я пришёл, поезд уже ушёл."
+    },
+    {
+      "es": "Ela nunca tinha visto o mar.",
+      "ru": "Она никогда раньше не видела моря."
+    },
+    {
+      "es": "A gente já tinha jantado.",
+      "ru": "Мы уже поужинали к тому времени."
+    },
+    {
+      "es": "Ele disse que tinha perdido o mapa.",
+      "ru": "Он сказал, что потерял карту."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "b12.04-mais-que-perfeito.1",
+      "kind": "choose",
+      "prompt": "«Поезд уже ушёл» (раньше другого прошлого):",
+      "options": [
+        "o trem já tinha saído",
+        "o trem já tem saído",
+        "o trem já saía"
+      ],
+      "answer": 0,
+      "explain": "Tinha + причастие."
+    },
+    {
+      "id": "b12.04-mais-que-perfeito.2",
+      "kind": "choose",
+      "prompt": "«Мы уже видели»:",
+      "options": [
+        "tínhamos visto",
+        "tínhamos vido",
+        "temos visto ontem"
+      ],
+      "answer": 0,
+      "explain": "Ver → visto."
+    },
+    {
+      "id": "b12.04-mais-que-perfeito.3",
+      "kind": "gap",
+      "sentence": "Ela nunca ___ visto o mar.",
+      "ru": "Она никогда не видела моря.",
+      "options": [
+        "tinha",
+        "tem",
+        "teve"
+      ],
+      "answer": 0,
+      "explain": "Tinha + причастие."
+    },
+    {
+      "id": "b12.04-mais-que-perfeito.4",
+      "kind": "gap",
+      "sentence": "Ele disse que tinha ___ o mapa.",
+      "ru": "Он сказал, что потерял карту.",
+      "options": [
+        "perdido",
+        "perdeu",
+        "perdia"
+      ],
+      "answer": 0,
+      "explain": "Причастие: perdido."
+    },
+    {
+      "id": "b12.04-mais-que-perfeito.5",
+      "kind": "truefalse",
+      "statement": "Mais-que-perfeito composto — ter в imperfeito и причастие.",
+      "answer": true,
+      "explain": "Tinha feito."
+    },
+    {
+      "id": "b12.04-mais-que-perfeito.6",
+      "kind": "truefalse",
+      "statement": "Причастие меняется по роду: «elas tinham chegadas».",
+      "answer": false,
+      "explain": "Tinham chegado."
+    },
+    {
+      "id": "b12.04-mais-que-perfeito.7",
+      "kind": "truefalse",
+      "statement": "«Fizera» — книжная форма давнопрошедшего.",
+      "answer": true,
+      "explain": "Простая форма."
+    },
+    {
+      "id": "b12.04-mais-que-perfeito.8",
+      "kind": "build",
+      "ru": "Когда я пришёл, поезд уже ушёл.",
+      "answer": "Quando cheguei, o trem já tinha saído.",
+      "extra": [
+        "saiu",
+        "tem"
+      ],
+      "explain": "Tinha saído."
+    },
+    {
+      "id": "b12.04-mais-que-perfeito.9",
+      "kind": "type",
+      "sentence": "A gente já ___ jantado.",
+      "ru": "Мы уже поужинали.",
+      "hint": "ter, a gente",
+      "answer": "tinha",
+      "explain": "A gente + tinha."
+    }
+  ]
+}

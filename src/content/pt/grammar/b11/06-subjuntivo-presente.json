@@ -1,0 +1,215 @@
+{
+  "id": "b11.06-subjuntivo-presente",
+  "district": "B1.1",
+  "order": 6,
+  "title": "Presente do subjuntivo: образование",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "**Subjuntivo** — наклонение желания, сомнения и чувства: **quero que você fale** — «хочу, чтобы ты сказал». Основа — от формы **eu** настоящего без -o, а гласная окончания меняется: у -ar становится **e**, у -er и -ir — **a**."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Лицо",
+        "falar",
+        "comer",
+        "partir"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "eu",
+            "fale",
+            "coma",
+            "parta"
+          ]
+        },
+        {
+          "cells": [
+            "você / ele",
+            "fale",
+            "coma",
+            "parta"
+          ]
+        },
+        {
+          "cells": [
+            "nós",
+            "falemos",
+            "comamos",
+            "partamos"
+          ]
+        },
+        {
+          "cells": [
+            "vocês / eles",
+            "falem",
+            "comam",
+            "partam"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "table",
+      "head": [
+        "eu (presente)",
+        "subjuntivo"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "faço",
+            "faça"
+          ]
+        },
+        {
+          "cells": [
+            "tenho",
+            "tenha"
+          ]
+        },
+        {
+          "cells": [
+            "digo",
+            "diga"
+          ]
+        },
+        {
+          "cells": [
+            "vejo",
+            "veja"
+          ]
+        },
+        {
+          "cells": [
+            "venho",
+            "venha"
+          ]
+        },
+        {
+          "cells": [
+            "ponho",
+            "ponha"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Неправильная форма eu переходит в subjuntivo целиком: **faço → faça**, **peço → peça**, **durmo → durma**. Орфография -ar: **ficar → fique**, **chegar → chegue**, **começar → comece**."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Quero que você fale com ela.",
+      "ru": "Я хочу, чтобы ты поговорил с ней."
+    },
+    {
+      "es": "Espero que ele venha.",
+      "ru": "Надеюсь, он придёт."
+    },
+    {
+      "es": "É bom que a gente coma agora.",
+      "ru": "Хорошо бы нам поесть сейчас."
+    },
+    {
+      "es": "Peço que vocês tenham calma.",
+      "ru": "Прошу вас сохранять спокойствие."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "b11.06-subjuntivo-presente.1",
+      "kind": "choose",
+      "prompt": "Subjuntivo от fazer (eu):",
+      "options": [
+        "faça",
+        "faze",
+        "faço"
+      ],
+      "answer": 0,
+      "explain": "Faço → faça."
+    },
+    {
+      "id": "b11.06-subjuntivo-presente.2",
+      "kind": "choose",
+      "prompt": "Subjuntivo от chegar (ele):",
+      "options": [
+        "chegue",
+        "chega",
+        "chegou"
+      ],
+      "answer": 0,
+      "explain": "G → gu перед e."
+    },
+    {
+      "id": "b11.06-subjuntivo-presente.3",
+      "kind": "gap",
+      "sentence": "Quero que você ___ a verdade.",
+      "ru": "Я хочу, чтобы ты сказал правду.",
+      "options": [
+        "diga",
+        "diz",
+        "dizer"
+      ],
+      "answer": 0,
+      "explain": "Digo → diga."
+    },
+    {
+      "id": "b11.06-subjuntivo-presente.4",
+      "kind": "gap",
+      "sentence": "Espero que eles ___ cedo.",
+      "ru": "Надеюсь, они придут рано.",
+      "options": [
+        "venham",
+        "vêm",
+        "vieram"
+      ],
+      "answer": 0,
+      "explain": "Venho → venham."
+    },
+    {
+      "id": "b11.06-subjuntivo-presente.5",
+      "kind": "truefalse",
+      "statement": "Основа subjuntivo — от формы eu настоящего.",
+      "answer": true,
+      "explain": "Tenho → tenha."
+    },
+    {
+      "id": "b11.06-subjuntivo-presente.6",
+      "kind": "truefalse",
+      "statement": "У глаголов на -ar subjuntivo кончается на -a.",
+      "answer": false,
+      "explain": "На -e: fale."
+    },
+    {
+      "id": "b11.06-subjuntivo-presente.7",
+      "kind": "truefalse",
+      "statement": "«Durma» — subjuntivo от dormir.",
+      "answer": true,
+      "explain": "Durmo → durma."
+    },
+    {
+      "id": "b11.06-subjuntivo-presente.8",
+      "kind": "build",
+      "ru": "Я хочу, чтобы вы сохраняли спокойствие.",
+      "answer": "Quero que vocês tenham calma.",
+      "extra": [
+        "têm",
+        "tinham"
+      ],
+      "explain": "Quero que + subjuntivo."
+    },
+    {
+      "id": "b11.06-subjuntivo-presente.9",
+      "kind": "type",
+      "sentence": "É bom que você ___ aqui.",
+      "ru": "Хорошо, что ты остаёшься здесь.",
+      "hint": "ficar, você",
+      "answer": "fique",
+      "explain": "Ficar → fique."
+    }
+  ]
+}

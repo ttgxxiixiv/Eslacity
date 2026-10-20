@@ -1,0 +1,205 @@
+{
+  "id": "b11.01-futuro",
+  "district": "B1.1",
+  "order": 1,
+  "title": "Будущее время: falarei",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "**Futuro do presente** строится от целого инфинитива с окончаниями **-ei, -á, -emos, -ão**: **falarei**, **comerá**, **partiremos**. В разговоре его чаще заменяет **ir + инфинитив**, а в письме, новостях и обещаниях он обычен."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Лицо",
+        "falar",
+        "comer",
+        "partir"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "eu",
+            "falarei",
+            "comerei",
+            "partirei"
+          ]
+        },
+        {
+          "cells": [
+            "você / ele / ela",
+            "falará",
+            "comerá",
+            "partirá"
+          ]
+        },
+        {
+          "cells": [
+            "nós",
+            "falaremos",
+            "comeremos",
+            "partiremos"
+          ]
+        },
+        {
+          "cells": [
+            "vocês / eles / elas",
+            "falarão",
+            "comerão",
+            "partirão"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Глагол",
+        "Основа",
+        "eu",
+        "ele"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "dizer",
+            "dir-",
+            "direi",
+            "dirá"
+          ]
+        },
+        {
+          "cells": [
+            "fazer",
+            "far-",
+            "farei",
+            "fará"
+          ]
+        },
+        {
+          "cells": [
+            "trazer",
+            "trar-",
+            "trarei",
+            "trará"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Неправильных всего три: **dizer, fazer, trazer** теряют -ze-. У **pôr** основа по инфинитиву: **porei**. Ударение всегда на окончании: **falará**, **falarão**."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Amanhã falarei com o guarda.",
+      "ru": "Завтра я поговорю со стражником."
+    },
+    {
+      "es": "O trem chegará às sete.",
+      "ru": "Поезд придёт в семь."
+    },
+    {
+      "es": "Faremos o possível.",
+      "ru": "Мы сделаем всё возможное."
+    },
+    {
+      "es": "Ele dirá a verdade.",
+      "ru": "Он скажет правду."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "b11.01-futuro.1",
+      "kind": "choose",
+      "prompt": "«Мы поедем» (futuro):",
+      "options": [
+        "viajaremos",
+        "viajamos",
+        "viajávamos"
+      ],
+      "answer": 0,
+      "explain": "Инфинитив + -emos."
+    },
+    {
+      "id": "b11.01-futuro.2",
+      "kind": "choose",
+      "prompt": "«Я сделаю»:",
+      "options": [
+        "farei",
+        "fazerei",
+        "fazei"
+      ],
+      "answer": 0,
+      "explain": "Fazer → far-: farei."
+    },
+    {
+      "id": "b11.01-futuro.3",
+      "kind": "gap",
+      "sentence": "O Cronista ___ tudo amanhã.",
+      "ru": "Летописец всё расскажет завтра.",
+      "options": [
+        "contará",
+        "contou",
+        "contava"
+      ],
+      "answer": 0,
+      "explain": "Будущее: contar + -á."
+    },
+    {
+      "id": "b11.01-futuro.4",
+      "kind": "gap",
+      "sentence": "Eles ___ o mapa na sexta.",
+      "ru": "Они принесут карту в пятницу.",
+      "options": [
+        "trarão",
+        "trazerão",
+        "trouxeram"
+      ],
+      "answer": 0,
+      "explain": "Trazer → trar-: trarão."
+    },
+    {
+      "id": "b11.01-futuro.5",
+      "kind": "truefalse",
+      "statement": "Futuro do presente строится от целого инфинитива.",
+      "answer": true,
+      "explain": "Falar + ei = falarei."
+    },
+    {
+      "id": "b11.01-futuro.6",
+      "kind": "truefalse",
+      "statement": "«Dizerei» — правильная форма.",
+      "answer": false,
+      "explain": "Direi."
+    },
+    {
+      "id": "b11.01-futuro.7",
+      "kind": "truefalse",
+      "statement": "В разговоре вместо futuro часто говорят ir + инфинитив.",
+      "answer": true,
+      "explain": "Vou falar = falarei."
+    },
+    {
+      "id": "b11.01-futuro.8",
+      "kind": "build",
+      "ru": "Завтра мы сделаем всё возможное.",
+      "answer": "Amanhã faremos o possível.",
+      "extra": [
+        "fazeremos",
+        "fizemos"
+      ],
+      "explain": "Fazer → far-: faremos."
+    },
+    {
+      "id": "b11.01-futuro.9",
+      "kind": "type",
+      "sentence": "Eu ___ a verdade.",
+      "ru": "Я скажу правду.",
+      "hint": "dizer, eu, будущее",
+      "answer": "direi",
+      "explain": "Dizer → dir-: direi."
+    }
+  ]
+}

@@ -1,0 +1,165 @@
+{
+  "id": "b11.02-futuro-ir",
+  "district": "B1.1",
+  "order": 2,
+  "title": "Vou fazer или farei",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Для будущего есть две формы. **Ir + инфинитив** — обычная в разговоре: **vou ligar**, **a gente vai sair**. **Futuro** — в письме, новостях, торжественных обещаниях и прогнозах: **o tempo melhorará**. По смыслу они почти не различаются."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Разговор",
+        "Письмо",
+        "Перевод"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Vou ligar amanhã.",
+            "Ligarei amanhã.",
+            "Я позвоню завтра."
+          ]
+        },
+        {
+          "cells": [
+            "Vai chover.",
+            "Choverá.",
+            "Пойдёт дождь."
+          ]
+        },
+        {
+          "cells": [
+            "A gente vai voltar.",
+            "Voltaremos.",
+            "Мы вернёмся."
+          ]
+        },
+        {
+          "cells": [
+            "Eles vão ver.",
+            "Eles verão.",
+            "Они увидят."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "С **ir** будущее самого ir — просто **vou**: «vou ir» звучит неуклюже, говорят **vou** или **irei**. **Vou à praia amanhã** — «завтра пойду на пляж»."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Vou te ligar mais tarde.",
+      "ru": "Я позвоню тебе позже."
+    },
+    {
+      "es": "O museu abrirá às nove.",
+      "ru": "Музей откроется в девять."
+    },
+    {
+      "es": "A gente vai jantar fora.",
+      "ru": "Мы поужинаем в городе."
+    },
+    {
+      "es": "Prometo que voltarei.",
+      "ru": "Обещаю, что вернусь."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "b11.02-futuro-ir.1",
+      "kind": "choose",
+      "prompt": "Разговорное «я позвоню»:",
+      "options": [
+        "Vou ligar.",
+        "Ligo amanhã ontem.",
+        "Liguei."
+      ],
+      "answer": 0,
+      "explain": "Ir + инфинитив."
+    },
+    {
+      "id": "b11.02-futuro-ir.2",
+      "kind": "choose",
+      "prompt": "Что звучит как новость?",
+      "options": [
+        "O banco fechará às cinco.",
+        "O banco vai fechou.",
+        "O banco fechar às cinco."
+      ],
+      "answer": 0,
+      "explain": "Futuro — в новостях и объявлениях."
+    },
+    {
+      "id": "b11.02-futuro-ir.3",
+      "kind": "gap",
+      "sentence": "Amanhã a gente ___ sair cedo.",
+      "ru": "Завтра мы выйдем рано.",
+      "options": [
+        "vai",
+        "vamos",
+        "irá"
+      ],
+      "answer": 0,
+      "explain": "A gente + vai."
+    },
+    {
+      "id": "b11.02-futuro-ir.4",
+      "kind": "gap",
+      "sentence": "Ele ___ que vai chegar tarde.",
+      "ru": "Он говорит, что придёт поздно.",
+      "options": [
+        "diz",
+        "dirá",
+        "disse"
+      ],
+      "answer": 0,
+      "explain": "Сейчас говорит — presente."
+    },
+    {
+      "id": "b11.02-futuro-ir.5",
+      "kind": "truefalse",
+      "statement": "«Vou ligar» и «ligarei» значат почти одно и то же.",
+      "answer": true,
+      "explain": "Разница в стиле."
+    },
+    {
+      "id": "b11.02-futuro-ir.6",
+      "kind": "truefalse",
+      "statement": "«Vou ir à praia» — обычная форма.",
+      "answer": false,
+      "explain": "Говорят vou à praia."
+    },
+    {
+      "id": "b11.02-futuro-ir.7",
+      "kind": "truefalse",
+      "statement": "Прогноз погоды может сказать «choverá».",
+      "answer": true,
+      "explain": "Futuro в письменном стиле."
+    },
+    {
+      "id": "b11.02-futuro-ir.8",
+      "kind": "build",
+      "ru": "Мы поужинаем в городе.",
+      "answer": "A gente vai jantar fora.",
+      "extra": [
+        "vamos",
+        "jantará"
+      ],
+      "explain": "A gente vai + инфинитив."
+    },
+    {
+      "id": "b11.02-futuro-ir.9",
+      "kind": "type",
+      "sentence": "Eles ___ ver o pôr do sol.",
+      "ru": "Они пойдут смотреть закат.",
+      "hint": "ir, eles",
+      "answer": "vão",
+      "explain": "Ir для eles — vão."
+    }
+  ]
+}

@@ -1,0 +1,160 @@
+{
+  "id": "b11.11-subjuntivo-duvida",
+  "district": "B1.1",
+  "order": 11,
+  "title": "Сомнение: talvez, duvido que, não acho que",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Сомнение и отрицание мнения тоже требуют subjuntivo. **Acho que é verdade** — уверен, индикатив; **não acho que seja verdade** — сомневаюсь, subjuntivo. **Talvez** перед глаголом — тоже subjuntivo."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Уверенность",
+        "Сомнение"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Acho que ele vem.",
+            "Não acho que ele venha."
+          ]
+        },
+        {
+          "cells": [
+            "Tenho certeza que é aqui.",
+            "Duvido que seja aqui."
+          ]
+        },
+        {
+          "cells": [
+            "Ele vem, com certeza.",
+            "Talvez ele venha."
+          ]
+        },
+        {
+          "cells": [
+            "É verdade que sabe.",
+            "Não é verdade que saiba."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "**Talvez** после глагола не меняет его: **ele vem, talvez**. Перед — subjuntivo: **talvez ele venha**."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Duvido que o mapa seja falso.",
+      "ru": "Сомневаюсь, что карта поддельная."
+    },
+    {
+      "es": "Talvez a gente chegue amanhã.",
+      "ru": "Может быть, мы приедем завтра."
+    },
+    {
+      "es": "Não acho que ele saiba.",
+      "ru": "Не думаю, что он знает."
+    },
+    {
+      "es": "Acho que vai chover.",
+      "ru": "Думаю, пойдёт дождь."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "b11.11-subjuntivo-duvida.1",
+      "kind": "choose",
+      "prompt": "«Не думаю, что это правда»:",
+      "options": [
+        "Não acho que seja verdade.",
+        "Não acho que é verdade.",
+        "Acho que não seja verdade."
+      ],
+      "answer": 0,
+      "explain": "Отрицание мнения — subjuntivo."
+    },
+    {
+      "id": "b11.11-subjuntivo-duvida.2",
+      "kind": "choose",
+      "prompt": "«Думаю, что он прав» (уверен):",
+      "options": [
+        "Acho que ele tem razão.",
+        "Acho que ele tenha razão.",
+        "Talvez ele tem razão."
+      ],
+      "answer": 0,
+      "explain": "Уверенность — индикатив."
+    },
+    {
+      "id": "b11.11-subjuntivo-duvida.3",
+      "kind": "gap",
+      "sentence": "Talvez ela ___ hoje.",
+      "ru": "Может, она придёт сегодня.",
+      "options": [
+        "venha",
+        "vem",
+        "veio"
+      ],
+      "answer": 0,
+      "explain": "Talvez + subjuntivo."
+    },
+    {
+      "id": "b11.11-subjuntivo-duvida.4",
+      "kind": "gap",
+      "sentence": "Duvido que o trem ___ na hora.",
+      "ru": "Сомневаюсь, что поезд придёт вовремя.",
+      "options": [
+        "chegue",
+        "chega",
+        "chegará"
+      ],
+      "answer": 0,
+      "explain": "Duvido que + subjuntivo."
+    },
+    {
+      "id": "b11.11-subjuntivo-duvida.5",
+      "kind": "truefalse",
+      "statement": "После «acho que» обычно индикатив.",
+      "answer": true,
+      "explain": "Acho que vem."
+    },
+    {
+      "id": "b11.11-subjuntivo-duvida.6",
+      "kind": "truefalse",
+      "statement": "После «duvido que» — индикатив.",
+      "answer": false,
+      "explain": "Subjuntivo."
+    },
+    {
+      "id": "b11.11-subjuntivo-duvida.7",
+      "kind": "truefalse",
+      "statement": "«Talvez ele venha» — правильно.",
+      "answer": true,
+      "explain": "Talvez перед глаголом."
+    },
+    {
+      "id": "b11.11-subjuntivo-duvida.8",
+      "kind": "build",
+      "ru": "Сомневаюсь, что карта поддельная.",
+      "answer": "Duvido que o mapa seja falso.",
+      "extra": [
+        "é",
+        "era"
+      ],
+      "explain": "Duvido que + seja."
+    },
+    {
+      "id": "b11.11-subjuntivo-duvida.9",
+      "kind": "type",
+      "sentence": "Não acho que ele ___ a resposta.",
+      "ru": "Не думаю, что он знает ответ.",
+      "hint": "saber, ele",
+      "answer": "saiba",
+      "explain": "Saber → saiba."
+    }
+  ]
+}

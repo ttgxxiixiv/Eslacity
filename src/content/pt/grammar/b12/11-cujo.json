@@ -1,0 +1,160 @@
+{
+  "id": "b12.11-cujo",
+  "district": "B1.2",
+  "order": 11,
+  "title": "Cujo: чей",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "**Cujo** — «чей», «у которого»: согласуется с тем, чем владеют, а не с владельцем. **O homem cuja filha mora aqui** — «человек, чья дочь здесь живёт». Артикль после cujo не ставят."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Форма",
+        "Пример"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "cujo",
+            "O guia cujo filho sumiu."
+          ]
+        },
+        {
+          "cells": [
+            "cuja",
+            "A cidade cuja torre caiu."
+          ]
+        },
+        {
+          "cells": [
+            "cujos",
+            "A mulher cujos irmãos moram no Rio."
+          ]
+        },
+        {
+          "cells": [
+            "cujas",
+            "O livro cujas páginas rasgaram."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "В разговоре cujo звучит книжно, его обходят: **o guia que o filho sumiu** — так говорят, но не пишут. Лучше знать cujo и узнавать оба варианта."
+    }
+  ],
+  "examples": [
+    {
+      "es": "O guia cujo filho sumiu é o Seu Tonho.",
+      "ru": "Проводник, чей сын пропал, — Сеу Тоньо."
+    },
+    {
+      "es": "A cidade cuja torre caiu.",
+      "ru": "Город, чья башня упала."
+    },
+    {
+      "es": "A mulher cujos irmãos moram no Rio.",
+      "ru": "Женщина, чьи братья живут в Рио."
+    },
+    {
+      "es": "O livro cujas páginas rasgaram.",
+      "ru": "Книга, у которой порвали страницы."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "b12.11-cujo.1",
+      "kind": "choose",
+      "prompt": "«Город, чья башня упала»:",
+      "options": [
+        "a cidade cuja torre caiu",
+        "a cidade cujo torre caiu",
+        "a cidade cuja a torre caiu"
+      ],
+      "answer": 0,
+      "explain": "Cuja — по torre, без артикля."
+    },
+    {
+      "id": "b12.11-cujo.2",
+      "kind": "choose",
+      "prompt": "«Человек, чьи дети учатся здесь»:",
+      "options": [
+        "o homem cujos filhos estudam aqui",
+        "o homem cujo filhos estudam aqui",
+        "o homem que cujos filhos estudam"
+      ],
+      "answer": 0,
+      "explain": "Cujos — по filhos."
+    },
+    {
+      "id": "b12.11-cujo.3",
+      "kind": "gap",
+      "sentence": "O guia ___ filho sumiu.",
+      "ru": "Проводник, чей сын пропал.",
+      "options": [
+        "cujo",
+        "cuja",
+        "que o"
+      ],
+      "answer": 0,
+      "explain": "Filho — cujo."
+    },
+    {
+      "id": "b12.11-cujo.4",
+      "kind": "gap",
+      "sentence": "A mulher ___ casa fica na praia.",
+      "ru": "Женщина, чей дом на пляже.",
+      "options": [
+        "cuja",
+        "cujo",
+        "cuja a"
+      ],
+      "answer": 0,
+      "explain": "Casa — cuja."
+    },
+    {
+      "id": "b12.11-cujo.5",
+      "kind": "truefalse",
+      "statement": "Cujo согласуется с тем, чем владеют.",
+      "answer": true,
+      "explain": "Cuja torre."
+    },
+    {
+      "id": "b12.11-cujo.6",
+      "kind": "truefalse",
+      "statement": "После cujo ставят артикль: «cujo o filho».",
+      "answer": false,
+      "explain": "Без артикля."
+    },
+    {
+      "id": "b12.11-cujo.7",
+      "kind": "truefalse",
+      "statement": "В разговоре cujo часто обходят.",
+      "answer": true,
+      "explain": "Звучит книжно."
+    },
+    {
+      "id": "b12.11-cujo.8",
+      "kind": "build",
+      "ru": "Проводник, чей сын пропал, живёт здесь.",
+      "answer": "O guia cujo filho sumiu mora aqui.",
+      "extra": [
+        "cuja",
+        "cujos"
+      ],
+      "explain": "Cujo filho."
+    },
+    {
+      "id": "b12.11-cujo.9",
+      "kind": "type",
+      "sentence": "O livro ___ páginas rasgaram.",
+      "ru": "Книга, у которой порвали страницы.",
+      "hint": "чей, по páginas",
+      "answer": "cujas",
+      "explain": "Páginas — cujas."
+    }
+  ]
+}

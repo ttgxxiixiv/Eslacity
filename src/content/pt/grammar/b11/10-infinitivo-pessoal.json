@@ -1,0 +1,170 @@
+{
+  "id": "b11.10-infinitivo-pessoal",
+  "district": "B1.1",
+  "order": 10,
+  "title": "Личный инфинитив: para eles saberem",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "В португальском у инфинитива бывают окончания лица: **para nós sabermos** — «чтобы мы знали». Это **infinitivo pessoal**. Он нужен, когда у инфинитива свой подлежащий, особенно после **para**, **sem**, **antes de**, **depois de**, **é melhor**."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Лицо",
+        "falar",
+        "fazer",
+        "ser"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "eu",
+            "falar",
+            "fazer",
+            "ser"
+          ]
+        },
+        {
+          "cells": [
+            "você / ele",
+            "falar",
+            "fazer",
+            "ser"
+          ]
+        },
+        {
+          "cells": [
+            "nós",
+            "falarmos",
+            "fazermos",
+            "sermos"
+          ]
+        },
+        {
+          "cells": [
+            "vocês / eles",
+            "falarem",
+            "fazerem",
+            "serem"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Окончания: у nós **-mos**, у eles **-em**, у eu и ele — ничего. Неправильных нет: всегда от целого инфинитива, **termos**, **irem**, **pormos**."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Trouxe o mapa para vocês verem.",
+      "ru": "Я принёс карту, чтобы вы посмотрели."
+    },
+    {
+      "es": "É melhor a gente sair cedo.",
+      "ru": "Лучше нам выйти пораньше."
+    },
+    {
+      "es": "Depois de jantarmos, saímos.",
+      "ru": "Поужинав, мы вышли."
+    },
+    {
+      "es": "Sem eles saberem, ela foi embora.",
+      "ru": "Без их ведома она ушла."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "b11.10-infinitivo-pessoal.1",
+      "kind": "choose",
+      "prompt": "«Чтобы мы знали»:",
+      "options": [
+        "para nós sabermos",
+        "para nós sabemos",
+        "para nós saibamos"
+      ],
+      "answer": 0,
+      "explain": "Личный инфинитив: saber + mos."
+    },
+    {
+      "id": "b11.10-infinitivo-pessoal.2",
+      "kind": "choose",
+      "prompt": "«Перед тем как они уйдут»:",
+      "options": [
+        "antes de eles saírem",
+        "antes de eles saem",
+        "antes de eles sair"
+      ],
+      "answer": 0,
+      "explain": "Sair + em: saírem."
+    },
+    {
+      "id": "b11.10-infinitivo-pessoal.3",
+      "kind": "gap",
+      "sentence": "Liguei para vocês não ___ preocupados.",
+      "ru": "Я позвонил, чтобы вы не волновались.",
+      "options": [
+        "ficarem",
+        "ficam",
+        "fiquem"
+      ],
+      "answer": 0,
+      "explain": "Para + личный инфинитив."
+    },
+    {
+      "id": "b11.10-infinitivo-pessoal.4",
+      "kind": "gap",
+      "sentence": "É melhor nós ___ agora.",
+      "ru": "Лучше нам уйти сейчас.",
+      "options": [
+        "irmos",
+        "vamos",
+        "formos"
+      ],
+      "answer": 0,
+      "explain": "Ir + mos."
+    },
+    {
+      "id": "b11.10-infinitivo-pessoal.5",
+      "kind": "truefalse",
+      "statement": "У личного инфинитива нет неправильных форм.",
+      "answer": true,
+      "explain": "Всегда от инфинитива."
+    },
+    {
+      "id": "b11.10-infinitivo-pessoal.6",
+      "kind": "truefalse",
+      "statement": "У eu личный инфинитив кончается на -mos.",
+      "answer": false,
+      "explain": "У eu окончания нет."
+    },
+    {
+      "id": "b11.10-infinitivo-pessoal.7",
+      "kind": "truefalse",
+      "statement": "«Para eles verem» — «чтобы они увидели».",
+      "answer": true,
+      "explain": "Ver + em."
+    },
+    {
+      "id": "b11.10-infinitivo-pessoal.8",
+      "kind": "build",
+      "ru": "Я принёс карту, чтобы вы её посмотрели.",
+      "answer": "Trouxe o mapa para vocês verem.",
+      "extra": [
+        "veem",
+        "vejam"
+      ],
+      "explain": "Para + verem."
+    },
+    {
+      "id": "b11.10-infinitivo-pessoal.9",
+      "kind": "type",
+      "sentence": "Depois de ___, saímos.",
+      "ru": "Поужинав, мы вышли.",
+      "hint": "jantar, nós",
+      "answer": "jantarmos",
+      "explain": "Jantar + mos."
+    }
+  ]
+}

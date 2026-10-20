@@ -1,0 +1,160 @@
+{
+  "id": "b12.09-discurso-indireto-passado",
+  "district": "B1.2",
+  "order": 9,
+  "title": "Косвенная речь в прошлом: disse que ia",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Если вводный глагол в прошедшем (**disse**, **perguntou**), время сдвигается назад: presente → imperfeito, perfeito → mais-que-perfeito, futuro → условное или **ia** + инфинитив."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Прямая речь",
+        "Ele disse que…"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "«Estou cansado.»",
+            "estava cansado."
+          ]
+        },
+        {
+          "cells": [
+            "«Perdi o mapa.»",
+            "tinha perdido o mapa."
+          ]
+        },
+        {
+          "cells": [
+            "«Vou voltar.»",
+            "ia voltar."
+          ]
+        },
+        {
+          "cells": [
+            "«Voltarei.»",
+            "voltaria."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Меняются и слова времени: **hoje → naquele dia**, **amanhã → no dia seguinte**, **ontem → no dia anterior**. В разговоре это делают не всегда."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Ele disse que estava cansado.",
+      "ru": "Он сказал, что устал."
+    },
+    {
+      "es": "Ela disse que tinha perdido a chave.",
+      "ru": "Она сказала, что потеряла ключ."
+    },
+    {
+      "es": "O Caio disse que ia voltar.",
+      "ru": "Каю сказал, что вернётся."
+    },
+    {
+      "es": "Perguntaram se a gente sabia o caminho.",
+      "ru": "Спросили, знаем ли мы дорогу."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "b12.09-discurso-indireto-passado.1",
+      "kind": "choose",
+      "prompt": "«Vou voltar» → Ele disse que…",
+      "options": [
+        "ia voltar",
+        "vai voltar ontem",
+        "voltou amanhã"
+      ],
+      "answer": 0,
+      "explain": "Vou → ia."
+    },
+    {
+      "id": "b12.09-discurso-indireto-passado.2",
+      "kind": "choose",
+      "prompt": "«Perdi o mapa» → Ela disse que…",
+      "options": [
+        "tinha perdido o mapa",
+        "perde o mapa",
+        "perderá o mapa"
+      ],
+      "answer": 0,
+      "explain": "Perfeito → mais-que-perfeito."
+    },
+    {
+      "id": "b12.09-discurso-indireto-passado.3",
+      "kind": "gap",
+      "sentence": "Ele disse que ___ cansado.",
+      "ru": "Он сказал, что устал.",
+      "options": [
+        "estava",
+        "está",
+        "esteja"
+      ],
+      "answer": 0,
+      "explain": "Presente → imperfeito."
+    },
+    {
+      "id": "b12.09-discurso-indireto-passado.4",
+      "kind": "gap",
+      "sentence": "Perguntaram se a gente ___ o caminho.",
+      "ru": "Спросили, знаем ли мы дорогу.",
+      "options": [
+        "sabia",
+        "sabe",
+        "saiba"
+      ],
+      "answer": 0,
+      "explain": "Presente → imperfeito."
+    },
+    {
+      "id": "b12.09-discurso-indireto-passado.5",
+      "kind": "truefalse",
+      "statement": "После «disse que» presente обычно сдвигается в imperfeito.",
+      "answer": true,
+      "explain": "Estou → estava."
+    },
+    {
+      "id": "b12.09-discurso-indireto-passado.6",
+      "kind": "truefalse",
+      "statement": "«Amanhã» в пересказе прошлого становится «ontem».",
+      "answer": false,
+      "explain": "No dia seguinte."
+    },
+    {
+      "id": "b12.09-discurso-indireto-passado.7",
+      "kind": "truefalse",
+      "statement": "«Voltarei» в пересказе становится «voltaria».",
+      "answer": true,
+      "explain": "Futuro → условное."
+    },
+    {
+      "id": "b12.09-discurso-indireto-passado.8",
+      "kind": "build",
+      "ru": "Каю сказал, что вернётся.",
+      "answer": "O Caio disse que ia voltar.",
+      "extra": [
+        "vai",
+        "voltou"
+      ],
+      "explain": "Vou → ia."
+    },
+    {
+      "id": "b12.09-discurso-indireto-passado.9",
+      "kind": "type",
+      "sentence": "Ela disse que ___ perdido a chave.",
+      "ru": "Она сказала, что потеряла ключ.",
+      "hint": "ter, ela",
+      "answer": "tinha",
+      "explain": "Mais-que-perfeito: tinha."
+    }
+  ]
+}

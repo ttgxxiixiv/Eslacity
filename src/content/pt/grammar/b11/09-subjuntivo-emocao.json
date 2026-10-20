@@ -1,0 +1,160 @@
+{
+  "id": "b11.09-subjuntivo-emocao",
+  "district": "B1.1",
+  "order": 9,
+  "title": "Чувство: fico feliz que, que pena que",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "После слов о чувстве — радость, страх, жалость, удивление — тоже subjuntivo: **fico feliz que você esteja aqui** — «рад, что ты здесь»."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Чувство",
+        "Пример"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "fico feliz que",
+            "Fico feliz que você goste."
+          ]
+        },
+        {
+          "cells": [
+            "tenho medo que",
+            "Tenho medo que chova."
+          ]
+        },
+        {
+          "cells": [
+            "que pena que",
+            "Que pena que ele não venha."
+          ]
+        },
+        {
+          "cells": [
+            "me surpreende que",
+            "Me surpreende que ela saiba."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Если чувство и действие у одного человека, ставят инфинитив: **fico feliz de estar aqui** — «рад быть здесь»."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Fico feliz que vocês estejam bem.",
+      "ru": "Я рад, что у вас всё хорошо."
+    },
+    {
+      "es": "Tenho medo que a ponte caia.",
+      "ru": "Боюсь, что мост рухнет."
+    },
+    {
+      "es": "Que pena que você não possa vir!",
+      "ru": "Как жаль, что ты не можешь прийти!"
+    },
+    {
+      "es": "Fico feliz de te ver.",
+      "ru": "Рад тебя видеть."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "b11.09-subjuntivo-emocao.1",
+      "kind": "choose",
+      "prompt": "«Рад, что тебе нравится»:",
+      "options": [
+        "Fico feliz que você goste.",
+        "Fico feliz que você gosta.",
+        "Fico feliz você gostar que."
+      ],
+      "answer": 0,
+      "explain": "Чувство + que + subjuntivo."
+    },
+    {
+      "id": "b11.09-subjuntivo-emocao.2",
+      "kind": "choose",
+      "prompt": "«Рад быть здесь» (сам):",
+      "options": [
+        "Fico feliz de estar aqui.",
+        "Fico feliz que esteja aqui eu.",
+        "Fico feliz que estou aqui."
+      ],
+      "answer": 0,
+      "explain": "Сам — инфинитив."
+    },
+    {
+      "id": "b11.09-subjuntivo-emocao.3",
+      "kind": "gap",
+      "sentence": "Que pena que ele não ___ vir.",
+      "ru": "Жаль, что он не может прийти.",
+      "options": [
+        "possa",
+        "pode",
+        "pôde"
+      ],
+      "answer": 0,
+      "explain": "Posso → possa."
+    },
+    {
+      "id": "b11.09-subjuntivo-emocao.4",
+      "kind": "gap",
+      "sentence": "Tenho medo que ___ amanhã.",
+      "ru": "Боюсь, что завтра пойдёт дождь.",
+      "options": [
+        "chova",
+        "chove",
+        "choveu"
+      ],
+      "answer": 0,
+      "explain": "Chover → chova."
+    },
+    {
+      "id": "b11.09-subjuntivo-emocao.5",
+      "kind": "truefalse",
+      "statement": "После «que pena que» нужен subjuntivo.",
+      "answer": true,
+      "explain": "Que pena que não venha."
+    },
+    {
+      "id": "b11.09-subjuntivo-emocao.6",
+      "kind": "truefalse",
+      "statement": "«Tenho medo que» требует индикатива.",
+      "answer": false,
+      "explain": "Subjuntivo."
+    },
+    {
+      "id": "b11.09-subjuntivo-emocao.7",
+      "kind": "truefalse",
+      "statement": "«Fico feliz de te ver» — правильно, раз радуюсь я и вижу я.",
+      "answer": true,
+      "explain": "Инфинитив."
+    },
+    {
+      "id": "b11.09-subjuntivo-emocao.8",
+      "kind": "build",
+      "ru": "Жаль, что ты не можешь прийти.",
+      "answer": "Que pena que você não possa vir.",
+      "extra": [
+        "pode",
+        "pôde"
+      ],
+      "explain": "Poder → possa."
+    },
+    {
+      "id": "b11.09-subjuntivo-emocao.9",
+      "kind": "type",
+      "sentence": "Fico feliz que você ___ aqui.",
+      "ru": "Я рад, что ты здесь.",
+      "hint": "estar, você",
+      "answer": "esteja",
+      "explain": "Estar → esteja."
+    }
+  ]
+}

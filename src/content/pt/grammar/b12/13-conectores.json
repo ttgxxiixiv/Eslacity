@@ -1,0 +1,165 @@
+{
+  "id": "b12.13-conectores",
+  "district": "B1.2",
+  "order": 13,
+  "title": "Связки: porém, no entanto, além disso",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Связки делают речь связной. Противопоставление: **mas**, **porém**, **no entanto**, **só que** (разговорное). Добавление: **além disso**, **também**. Следствие: **por isso**, **então**, **portanto**. Причина: **porque**, **já que**, **como**."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Значение",
+        "Разговор",
+        "Письмо"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "но",
+            "mas, só que",
+            "porém, no entanto"
+          ]
+        },
+        {
+          "cells": [
+            "кроме того",
+            "e também",
+            "além disso"
+          ]
+        },
+        {
+          "cells": [
+            "поэтому",
+            "por isso, então",
+            "portanto"
+          ]
+        },
+        {
+          "cells": [
+            "раз уж",
+            "já que",
+            "uma vez que"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "**Como** в начале — «так как»: **como estava chovendo, ficamos**. **Já que** — «раз уж»: **já que você está aqui, me ajuda**."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Queria ir, só que estava chovendo.",
+      "ru": "Я хотел пойти, только шёл дождь."
+    },
+    {
+      "es": "O mapa é velho; no entanto, funciona.",
+      "ru": "Карта старая, однако работает."
+    },
+    {
+      "es": "Já que você está aqui, me ajuda.",
+      "ru": "Раз уж ты здесь, помоги мне."
+    },
+    {
+      "es": "Estava cansado, por isso fiquei.",
+      "ru": "Я устал, поэтому остался."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "b12.13-conectores.1",
+      "kind": "choose",
+      "prompt": "«Однако» в письме:",
+      "options": [
+        "no entanto",
+        "só que",
+        "então"
+      ],
+      "answer": 0,
+      "explain": "No entanto — книжное «однако»."
+    },
+    {
+      "id": "b12.13-conectores.2",
+      "kind": "choose",
+      "prompt": "«Раз уж ты здесь»:",
+      "options": [
+        "Já que você está aqui",
+        "Porque você está aqui já",
+        "Portanto você está aqui"
+      ],
+      "answer": 0,
+      "explain": "Já que."
+    },
+    {
+      "id": "b12.13-conectores.3",
+      "kind": "gap",
+      "sentence": "Estava cansado, ___ fiquei em casa.",
+      "ru": "Я устал, поэтому остался дома.",
+      "options": [
+        "por isso",
+        "porém",
+        "além disso"
+      ],
+      "answer": 0,
+      "explain": "Следствие — por isso."
+    },
+    {
+      "id": "b12.13-conectores.4",
+      "kind": "gap",
+      "sentence": "___ estava chovendo, ficamos.",
+      "ru": "Так как шёл дождь, мы остались.",
+      "options": [
+        "Como",
+        "Mas",
+        "Então"
+      ],
+      "answer": 0,
+      "explain": "Como в начале — «так как»."
+    },
+    {
+      "id": "b12.13-conectores.5",
+      "kind": "truefalse",
+      "statement": "«Só que» — разговорное «но».",
+      "answer": true,
+      "explain": "Só que estava chovendo."
+    },
+    {
+      "id": "b12.13-conectores.6",
+      "kind": "truefalse",
+      "statement": "«Além disso» значит «поэтому».",
+      "answer": false,
+      "explain": "Кроме того."
+    },
+    {
+      "id": "b12.13-conectores.7",
+      "kind": "truefalse",
+      "statement": "«Portanto» — книжное «поэтому».",
+      "answer": true,
+      "explain": "Следствие."
+    },
+    {
+      "id": "b12.13-conectores.8",
+      "kind": "build",
+      "ru": "Я хотел пойти, только шёл дождь.",
+      "answer": "Queria ir, só que estava chovendo.",
+      "extra": [
+        "porque",
+        "portanto"
+      ],
+      "explain": "Só que — но."
+    },
+    {
+      "id": "b12.13-conectores.9",
+      "kind": "type",
+      "sentence": "O mapa é velho; no ___, funciona.",
+      "ru": "Карта старая, однако работает.",
+      "hint": "однако, письмо",
+      "answer": "entanto",
+      "explain": "No entanto."
+    }
+  ]
+}

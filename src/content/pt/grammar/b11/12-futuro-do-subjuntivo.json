@@ -1,0 +1,193 @@
+{
+  "id": "b11.12-futuro-do-subjuntivo",
+  "district": "B1.1",
+  "order": 12,
+  "title": "Futuro do subjuntivo: quando eu for",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "В португальском есть особое время — **futuro do subjuntivo**. Его ставят после **quando** и **se**, если речь о будущем: **quando eu for ao Rio** — «когда я поеду в Рио», **se você quiser** — «если захочешь». Основа — от прошедшего eles без -am: **fizeram → fizer**, **foram → for**."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Глагол",
+        "eles (perfeito)",
+        "eu / ele",
+        "nós",
+        "eles"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "falar",
+            "falaram",
+            "falar",
+            "falarmos",
+            "falarem"
+          ]
+        },
+        {
+          "cells": [
+            "fazer",
+            "fizeram",
+            "fizer",
+            "fizermos",
+            "fizerem"
+          ]
+        },
+        {
+          "cells": [
+            "ser / ir",
+            "foram",
+            "for",
+            "formos",
+            "forem"
+          ]
+        },
+        {
+          "cells": [
+            "ter",
+            "tiveram",
+            "tiver",
+            "tivermos",
+            "tiverem"
+          ]
+        },
+        {
+          "cells": [
+            "querer",
+            "quiseram",
+            "quiser",
+            "quisermos",
+            "quiserem"
+          ]
+        },
+        {
+          "cells": [
+            "poder",
+            "puderam",
+            "puder",
+            "pudermos",
+            "puderem"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "У правильных глаголов форма совпадает с личным инфинитивом: **quando eu chegar**. Различие видно у неправильных: **quando eu fizer**, **se eu puder**. В испанском такого времени в живой речи нет, а в бразильском оно на каждом шагу."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Quando eu for ao Rio, te aviso.",
+      "ru": "Когда поеду в Рио, дам тебе знать."
+    },
+    {
+      "es": "Se você quiser, a gente vai junto.",
+      "ru": "Если хочешь, пойдём вместе."
+    },
+    {
+      "es": "Quando o trem chegar, me liga.",
+      "ru": "Когда придёт поезд, позвони мне."
+    },
+    {
+      "es": "Se eu puder, ajudo.",
+      "ru": "Если смогу, помогу."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "b11.12-futuro-do-subjuntivo.1",
+      "kind": "choose",
+      "prompt": "«Когда я сделаю»:",
+      "options": [
+        "quando eu fizer",
+        "quando eu fazer",
+        "quando eu faço"
+      ],
+      "answer": 0,
+      "explain": "Fizeram → fizer."
+    },
+    {
+      "id": "b11.12-futuro-do-subjuntivo.2",
+      "kind": "choose",
+      "prompt": "«Если ты сможешь»:",
+      "options": [
+        "se você puder",
+        "se você poder",
+        "se você pode amanhã"
+      ],
+      "answer": 0,
+      "explain": "Puderam → puder."
+    },
+    {
+      "id": "b11.12-futuro-do-subjuntivo.3",
+      "kind": "gap",
+      "sentence": "Quando vocês ___ tempo, venham.",
+      "ru": "Когда у вас будет время, приходите.",
+      "options": [
+        "tiverem",
+        "terem",
+        "têm"
+      ],
+      "answer": 0,
+      "explain": "Tiveram → tiverem."
+    },
+    {
+      "id": "b11.12-futuro-do-subjuntivo.4",
+      "kind": "gap",
+      "sentence": "Se ele ___ aqui amanhã, falo com ele.",
+      "ru": "Если он будет здесь завтра, поговорю с ним.",
+      "options": [
+        "estiver",
+        "estar",
+        "está"
+      ],
+      "answer": 0,
+      "explain": "Estiveram → estiver."
+    },
+    {
+      "id": "b11.12-futuro-do-subjuntivo.5",
+      "kind": "truefalse",
+      "statement": "Основа futuro do subjuntivo — от eles в прошедшем.",
+      "answer": true,
+      "explain": "Foram → for."
+    },
+    {
+      "id": "b11.12-futuro-do-subjuntivo.6",
+      "kind": "truefalse",
+      "statement": "«Quando eu ir» — правильная форма.",
+      "answer": false,
+      "explain": "Quando eu for."
+    },
+    {
+      "id": "b11.12-futuro-do-subjuntivo.7",
+      "kind": "truefalse",
+      "statement": "У правильных глаголов форма совпадает с личным инфинитивом.",
+      "answer": true,
+      "explain": "Quando eu chegar."
+    },
+    {
+      "id": "b11.12-futuro-do-subjuntivo.8",
+      "kind": "build",
+      "ru": "Если хочешь, пойдём вместе.",
+      "answer": "Se você quiser, a gente vai junto.",
+      "extra": [
+        "querer",
+        "quer"
+      ],
+      "explain": "Quiseram → quiser."
+    },
+    {
+      "id": "b11.12-futuro-do-subjuntivo.9",
+      "kind": "type",
+      "sentence": "Quando eu ___ ao Rio, te aviso.",
+      "ru": "Когда поеду в Рио, дам тебе знать.",
+      "hint": "ir, eu",
+      "answer": "for",
+      "explain": "Foram → for."
+    }
+  ]
+}

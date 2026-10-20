@@ -1,0 +1,160 @@
+{
+  "id": "b12.15-deve-ter",
+  "district": "B1.2",
+  "order": 15,
+  "title": "Догадка: deve estar, deve ter saído",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "**Dever** + инфинитив выражает догадку: **ele deve estar cansado** — «он, наверное, устал». О прошлом — **dever ter** + причастие: **ela deve ter saído** — «она, должно быть, ушла». Отрицание: **não deve saber** — «вряд ли знает»."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Фраза",
+        "Перевод"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Ele deve estar em casa.",
+            "Он, наверное, дома."
+          ]
+        },
+        {
+          "cells": [
+            "Deve ser difícil.",
+            "Должно быть, это трудно."
+          ]
+        },
+        {
+          "cells": [
+            "Ela deve ter esquecido.",
+            "Она, видно, забыла."
+          ]
+        },
+        {
+          "cells": [
+            "Eles não devem saber.",
+            "Они вряд ли знают."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "**Dever** ещё значит «быть должным»: **você deve pagar** — «ты должен заплатить». Догадку обычно выдают **estar**, **ser**, **ter** + причастие после dever."
+    }
+  ],
+  "examples": [
+    {
+      "es": "O Caio deve estar na serra.",
+      "ru": "Каю, наверное, в горах."
+    },
+    {
+      "es": "Deve ser muito velho.",
+      "ru": "Должно быть, он очень старый."
+    },
+    {
+      "es": "O trem deve ter saído.",
+      "ru": "Поезд, должно быть, ушёл."
+    },
+    {
+      "es": "Eles não devem saber do mapa.",
+      "ru": "Они вряд ли знают о карте."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "b12.15-deve-ter.1",
+      "kind": "choose",
+      "prompt": "«Он, наверное, устал»:",
+      "options": [
+        "Ele deve estar cansado.",
+        "Ele deve de estou cansado.",
+        "Ele devia cansado."
+      ],
+      "answer": 0,
+      "explain": "Dever + estar."
+    },
+    {
+      "id": "b12.15-deve-ter.2",
+      "kind": "choose",
+      "prompt": "«Она, должно быть, ушла»:",
+      "options": [
+        "Ela deve ter saído.",
+        "Ela deve saiu.",
+        "Ela deve ter saiu."
+      ],
+      "answer": 0,
+      "explain": "Dever ter + причастие."
+    },
+    {
+      "id": "b12.15-deve-ter.3",
+      "kind": "gap",
+      "sentence": "___ ser difícil.",
+      "ru": "Должно быть, это трудно.",
+      "options": [
+        "Deve",
+        "Deveu",
+        "Tem"
+      ],
+      "answer": 0,
+      "explain": "Deve ser."
+    },
+    {
+      "id": "b12.15-deve-ter.4",
+      "kind": "gap",
+      "sentence": "O trem deve ter ___.",
+      "ru": "Поезд, должно быть, ушёл.",
+      "options": [
+        "saído",
+        "saiu",
+        "sair"
+      ],
+      "answer": 0,
+      "explain": "Ter + причастие."
+    },
+    {
+      "id": "b12.15-deve-ter.5",
+      "kind": "truefalse",
+      "statement": "«Deve ter esquecido» — догадка о прошлом.",
+      "answer": true,
+      "explain": "Dever ter + причастие."
+    },
+    {
+      "id": "b12.15-deve-ter.6",
+      "kind": "truefalse",
+      "statement": "«Não deve saber» значит «не должен знать (запрещено)» и только так.",
+      "answer": false,
+      "explain": "Чаще — «вряд ли знает»."
+    },
+    {
+      "id": "b12.15-deve-ter.7",
+      "kind": "truefalse",
+      "statement": "«Você deve pagar» — «ты должен заплатить».",
+      "answer": true,
+      "explain": "Обязанность."
+    },
+    {
+      "id": "b12.15-deve-ter.8",
+      "kind": "build",
+      "ru": "Каю, наверное, в горах.",
+      "answer": "O Caio deve estar na serra.",
+      "extra": [
+        "devia",
+        "está"
+      ],
+      "explain": "Deve estar."
+    },
+    {
+      "id": "b12.15-deve-ter.9",
+      "kind": "type",
+      "sentence": "Ela deve ter ___.",
+      "ru": "Она, видно, забыла.",
+      "hint": "esquecer, причастие",
+      "answer": "esquecido",
+      "explain": "Esquecer → esquecido."
+    }
+  ]
+}

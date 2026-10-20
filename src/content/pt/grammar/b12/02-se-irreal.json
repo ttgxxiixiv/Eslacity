@@ -1,0 +1,165 @@
+{
+  "id": "b12.02-se-irreal",
+  "district": "B1.2",
+  "order": 2,
+  "title": "Нереальное условие: se eu fosse, eu iria",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Нереальное условие: **se** + imperfeito do subjuntivo, а в главной части — условное. **Se eu fosse rico, compraria um barco** — «будь я богат, купил бы лодку». В разговоре вместо условного часто ставят imperfeito: **se eu pudesse, eu ia**."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Условие",
+        "Следствие",
+        "Перевод"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Se eu tivesse dinheiro,",
+            "compraria a casa.",
+            "Будь у меня деньги, купил бы дом."
+          ]
+        },
+        {
+          "cells": [
+            "Se você estudasse,",
+            "passaria.",
+            "Если бы ты учился, сдал бы."
+          ]
+        },
+        {
+          "cells": [
+            "Se chovesse,",
+            "a gente ficaria.",
+            "Если бы шёл дождь, мы бы остались."
+          ]
+        },
+        {
+          "cells": [
+            "Se eu fosse você,",
+            "não iria.",
+            "Я бы на твоём месте не пошёл."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Реальное будущее — futuro do subjuntivo: **se eu tiver tempo, vou** (может, и будет время). Нереальное — imperfeito: **se eu tivesse tempo, iria** (времени нет)."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Se eu fosse você, ficaria aqui.",
+      "ru": "На твоём месте я бы остался здесь."
+    },
+    {
+      "es": "Se a gente tivesse o mapa, já saberia o caminho.",
+      "ru": "Будь у нас карта, мы бы уже знали дорогу."
+    },
+    {
+      "es": "Se pudesse, eu ia junto.",
+      "ru": "Если бы мог, пошёл бы вместе."
+    },
+    {
+      "es": "Se tiver tempo, eu vou.",
+      "ru": "Если будет время, я пойду."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "b12.02-se-irreal.1",
+      "kind": "choose",
+      "prompt": "«На твоём месте я бы не пошёл»:",
+      "options": [
+        "Se eu fosse você, não iria.",
+        "Se eu for você, não iria.",
+        "Se eu era você, não vou."
+      ],
+      "answer": 0,
+      "explain": "Se + fosse, условное."
+    },
+    {
+      "id": "b12.02-se-irreal.2",
+      "kind": "choose",
+      "prompt": "Реальное: «если будет время, пойду»:",
+      "options": [
+        "Se eu tiver tempo, vou.",
+        "Se eu tivesse tempo, vou.",
+        "Se eu tenho tempo amanhã, iria."
+      ],
+      "answer": 0,
+      "explain": "Будущее — futuro do subjuntivo."
+    },
+    {
+      "id": "b12.02-se-irreal.3",
+      "kind": "gap",
+      "sentence": "Se eu ___ dinheiro, compraria a casa.",
+      "ru": "Будь у меня деньги, я бы купил дом.",
+      "options": [
+        "tivesse",
+        "tiver",
+        "tenho"
+      ],
+      "answer": 0,
+      "explain": "Нереальное — tivesse."
+    },
+    {
+      "id": "b12.02-se-irreal.4",
+      "kind": "gap",
+      "sentence": "Se você estudasse, ___.",
+      "ru": "Если бы ты учился, ты бы сдал.",
+      "options": [
+        "passaria",
+        "passará",
+        "passou"
+      ],
+      "answer": 0,
+      "explain": "Следствие — условное."
+    },
+    {
+      "id": "b12.02-se-irreal.5",
+      "kind": "truefalse",
+      "statement": "В нереальном условии после se — imperfeito do subjuntivo.",
+      "answer": true,
+      "explain": "Se eu fosse."
+    },
+    {
+      "id": "b12.02-se-irreal.6",
+      "kind": "truefalse",
+      "statement": "«Se eu teria tempo» — правильно.",
+      "answer": false,
+      "explain": "Se eu tivesse."
+    },
+    {
+      "id": "b12.02-se-irreal.7",
+      "kind": "truefalse",
+      "statement": "В разговоре вместо «iria» могут сказать «ia».",
+      "answer": true,
+      "explain": "Se pudesse, eu ia."
+    },
+    {
+      "id": "b12.02-se-irreal.8",
+      "kind": "build",
+      "ru": "Будь у нас карта, мы бы знали дорогу.",
+      "answer": "Se a gente tivesse o mapa, saberia o caminho.",
+      "extra": [
+        "tiver",
+        "sabe"
+      ],
+      "explain": "Tivesse + saberia."
+    },
+    {
+      "id": "b12.02-se-irreal.9",
+      "kind": "type",
+      "sentence": "Se eu ___ você, ficaria aqui.",
+      "ru": "На твоём месте я бы остался здесь.",
+      "hint": "ser, eu",
+      "answer": "fosse",
+      "explain": "Ser → fosse."
+    }
+  ]
+}

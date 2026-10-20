@@ -1,0 +1,160 @@
+{
+  "id": "b12.08-discurso-indireto",
+  "district": "B1.2",
+  "order": 8,
+  "title": "Косвенная речь: ele diz que",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Пересказ: **ele diz que…**, **ela pergunta se…**. Если вводный глагол в настоящем, время не меняется: «Estou cansado» → **ele diz que está cansado**. Меняются лица и слова места: **eu → ele**, **aqui → lá**."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Прямая речь",
+        "Косвенная"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "«Estou cansado.»",
+            "Ele diz que está cansado."
+          ]
+        },
+        {
+          "cells": [
+            "«Você vem?»",
+            "Ela pergunta se você vem."
+          ]
+        },
+        {
+          "cells": [
+            "«Onde fica a torre?»",
+            "Ele quer saber onde fica a torre."
+          ]
+        },
+        {
+          "cells": [
+            "«Venha!»",
+            "Ela pede que você venha."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Вопрос «да или нет» передаётся через **se**: **pergunta se**. Просьба и приказ — **pedir que / mandar que** + subjuntivo."
+    }
+  ],
+  "examples": [
+    {
+      "es": "O Caio diz que está bem.",
+      "ru": "Каю говорит, что с ним всё хорошо."
+    },
+    {
+      "es": "Ela pergunta se a gente vai.",
+      "ru": "Она спрашивает, пойдём ли мы."
+    },
+    {
+      "es": "O guarda quer saber de onde você é.",
+      "ru": "Стражник хочет знать, откуда ты."
+    },
+    {
+      "es": "A avó pede que você ligue.",
+      "ru": "Бабушка просит, чтобы ты позвонил."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "b12.08-discurso-indireto.1",
+      "kind": "choose",
+      "prompt": "«Ты придёшь?» → косвенная:",
+      "options": [
+        "Ela pergunta se você vem.",
+        "Ela pergunta que você vem.",
+        "Ela pergunta você vem se."
+      ],
+      "answer": 0,
+      "explain": "Да/нет — se."
+    },
+    {
+      "id": "b12.08-discurso-indireto.2",
+      "kind": "choose",
+      "prompt": "«Позвони!» → косвенная:",
+      "options": [
+        "Ela pede que você ligue.",
+        "Ela pede que você liga.",
+        "Ela pede se você ligue."
+      ],
+      "answer": 0,
+      "explain": "Pedir que + subjuntivo."
+    },
+    {
+      "id": "b12.08-discurso-indireto.3",
+      "kind": "gap",
+      "sentence": "Ele diz ___ está cansado.",
+      "ru": "Он говорит, что устал.",
+      "options": [
+        "que",
+        "se",
+        "de"
+      ],
+      "answer": 0,
+      "explain": "Утверждение — que."
+    },
+    {
+      "id": "b12.08-discurso-indireto.4",
+      "kind": "gap",
+      "sentence": "Ela quer saber ___ fica a estação.",
+      "ru": "Она хочет знать, где вокзал.",
+      "options": [
+        "onde",
+        "se",
+        "que"
+      ],
+      "answer": 0,
+      "explain": "Вопросительное слово остаётся."
+    },
+    {
+      "id": "b12.08-discurso-indireto.5",
+      "kind": "truefalse",
+      "statement": "Если вводный глагол в настоящем, время пересказа не меняется.",
+      "answer": true,
+      "explain": "Diz que está."
+    },
+    {
+      "id": "b12.08-discurso-indireto.6",
+      "kind": "truefalse",
+      "statement": "Вопрос «да или нет» передаётся через «que».",
+      "answer": false,
+      "explain": "Через se."
+    },
+    {
+      "id": "b12.08-discurso-indireto.7",
+      "kind": "truefalse",
+      "statement": "«Pedir que» требует subjuntivo.",
+      "answer": true,
+      "explain": "Pede que ligue."
+    },
+    {
+      "id": "b12.08-discurso-indireto.8",
+      "kind": "build",
+      "ru": "Она спрашивает, пойдём ли мы.",
+      "answer": "Ela pergunta se a gente vai.",
+      "extra": [
+        "que",
+        "vamos"
+      ],
+      "explain": "Pergunta se."
+    },
+    {
+      "id": "b12.08-discurso-indireto.9",
+      "kind": "type",
+      "sentence": "O Caio diz ___ está bem.",
+      "ru": "Каю говорит, что с ним всё хорошо.",
+      "hint": "союз",
+      "answer": "que",
+      "explain": "Утверждение — que."
+    }
+  ]
+}

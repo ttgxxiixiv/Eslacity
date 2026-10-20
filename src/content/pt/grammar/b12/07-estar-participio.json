@@ -1,0 +1,160 @@
+{
+  "id": "b12.07-estar-participio",
+  "district": "B1.2",
+  "order": 7,
+  "title": "Estar + причастие: está fechado",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "**Estar** + причастие — состояние после действия: **a porta está fechada** — «дверь закрыта». **Ser** + причастие — само действие: **a porta foi fechada às dez** — «дверь закрыли в десять»."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "estar — состояние",
+        "ser — действие"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "A loja está fechada.",
+            "A loja foi fechada pela polícia."
+          ]
+        },
+        {
+          "cells": [
+            "O mapa está rasgado.",
+            "O mapa foi rasgado ontem."
+          ]
+        },
+        {
+          "cells": [
+            "Estou cansado.",
+            "—"
+          ]
+        },
+        {
+          "cells": [
+            "O jantar está pronto.",
+            "O jantar foi feito pela avó."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Причастие и здесь согласуется: **as janelas estão abertas**. У некоторых глаголов при estar короткая форма: **está aceso** (горит), **está pago** (оплачено), **está entregue**."
+    }
+  ],
+  "examples": [
+    {
+      "es": "A farmácia está fechada.",
+      "ru": "Аптека закрыта."
+    },
+    {
+      "es": "O quarto já está pago.",
+      "ru": "Номер уже оплачен."
+    },
+    {
+      "es": "As luzes estão acesas.",
+      "ru": "Свет горит."
+    },
+    {
+      "es": "A carta foi entregue ontem.",
+      "ru": "Письмо доставили вчера."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "b12.07-estar-participio.1",
+      "kind": "choose",
+      "prompt": "«Магазин закрыт» (состояние):",
+      "options": [
+        "A loja está fechada.",
+        "A loja é fechada agora.",
+        "A loja foi fechando."
+      ],
+      "answer": 0,
+      "explain": "Estar + причастие."
+    },
+    {
+      "id": "b12.07-estar-participio.2",
+      "kind": "choose",
+      "prompt": "«Окна открыты»:",
+      "options": [
+        "As janelas estão abertas.",
+        "As janelas estão aberto.",
+        "As janelas estão abridas."
+      ],
+      "answer": 0,
+      "explain": "Abrir → aberto, согласование."
+    },
+    {
+      "id": "b12.07-estar-participio.3",
+      "kind": "gap",
+      "sentence": "O jantar ___ pronto.",
+      "ru": "Ужин готов.",
+      "options": [
+        "está",
+        "é",
+        "foi"
+      ],
+      "answer": 0,
+      "explain": "Состояние — está."
+    },
+    {
+      "id": "b12.07-estar-participio.4",
+      "kind": "gap",
+      "sentence": "O quarto já está ___.",
+      "ru": "Номер уже оплачен.",
+      "options": [
+        "pago",
+        "pagado",
+        "pagou"
+      ],
+      "answer": 0,
+      "explain": "Короткая форма: pago."
+    },
+    {
+      "id": "b12.07-estar-participio.5",
+      "kind": "truefalse",
+      "statement": "«A porta está fechada» — состояние.",
+      "answer": true,
+      "explain": "Estar + причастие."
+    },
+    {
+      "id": "b12.07-estar-participio.6",
+      "kind": "truefalse",
+      "statement": "«A loja foi fechada pela polícia» — состояние.",
+      "answer": false,
+      "explain": "Действие: ser."
+    },
+    {
+      "id": "b12.07-estar-participio.7",
+      "kind": "truefalse",
+      "statement": "«Aceso» — причастие от acender.",
+      "answer": true,
+      "explain": "As luzes estão acesas."
+    },
+    {
+      "id": "b12.07-estar-participio.8",
+      "kind": "build",
+      "ru": "Свет горит, а дверь открыта.",
+      "answer": "As luzes estão acesas e a porta está aberta.",
+      "extra": [
+        "abrida",
+        "é"
+      ],
+      "explain": "Estar + aceso, aberto."
+    },
+    {
+      "id": "b12.07-estar-participio.9",
+      "kind": "type",
+      "sentence": "A farmácia está ___.",
+      "ru": "Аптека закрыта.",
+      "hint": "fechar, причастие",
+      "answer": "fechada",
+      "explain": "Farmácia — fechada."
+    }
+  ]
+}

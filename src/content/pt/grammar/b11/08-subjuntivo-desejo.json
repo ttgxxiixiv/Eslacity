@@ -1,0 +1,165 @@
+{
+  "id": "b11.08-subjuntivo-desejo",
+  "district": "B1.1",
+  "order": 8,
+  "title": "Желание: quero que, espero que, tomara que",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Если хочешь, чтобы что-то сделал другой, после **que** идёт subjuntivo: **quero que você venha**. Если хочешь сам — инфинитив без que: **quero vir**."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Сам",
+        "Другой",
+        "Перевод"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Quero sair.",
+            "Quero que você saia.",
+            "Хочу выйти / чтобы ты вышел."
+          ]
+        },
+        {
+          "cells": [
+            "Espero voltar.",
+            "Espero que ele volte.",
+            "Надеюсь вернуться / что он вернётся."
+          ]
+        },
+        {
+          "cells": [
+            "Prefiro ficar.",
+            "Prefiro que a gente fique.",
+            "Предпочту остаться / чтобы мы остались."
+          ]
+        },
+        {
+          "cells": [
+            "—",
+            "Tomara que dê certo!",
+            "Лишь бы получилось!"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "**Tomara que** — «хоть бы», «дай бог»: всегда с subjuntivo. **Peço que**, **deixo que**, **mando que** — тоже."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Quero que você me escute.",
+      "ru": "Я хочу, чтобы ты меня выслушал."
+    },
+    {
+      "es": "Espero que o trem chegue na hora.",
+      "ru": "Надеюсь, поезд придёт вовремя."
+    },
+    {
+      "es": "Tomara que faça sol!",
+      "ru": "Хоть бы было солнце!"
+    },
+    {
+      "es": "Prefiro que vocês esperem aqui.",
+      "ru": "Я бы предпочёл, чтобы вы подождали здесь."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "b11.08-subjuntivo-desejo.1",
+      "kind": "choose",
+      "prompt": "«Я хочу, чтобы ты остался»:",
+      "options": [
+        "Quero que você fique.",
+        "Quero você ficar que.",
+        "Quero que você fica."
+      ],
+      "answer": 0,
+      "explain": "Que + subjuntivo."
+    },
+    {
+      "id": "b11.08-subjuntivo-desejo.2",
+      "kind": "choose",
+      "prompt": "«Я хочу остаться» (сам):",
+      "options": [
+        "Quero ficar.",
+        "Quero que eu fique.",
+        "Quero que fico."
+      ],
+      "answer": 0,
+      "explain": "Сам — инфинитив."
+    },
+    {
+      "id": "b11.08-subjuntivo-desejo.3",
+      "kind": "gap",
+      "sentence": "Tomara que ele ___ logo.",
+      "ru": "Хоть бы он скорее вернулся.",
+      "options": [
+        "volte",
+        "volta",
+        "voltou"
+      ],
+      "answer": 0,
+      "explain": "Tomara que + subjuntivo."
+    },
+    {
+      "id": "b11.08-subjuntivo-desejo.4",
+      "kind": "gap",
+      "sentence": "Peço que vocês ___ silêncio.",
+      "ru": "Прошу вас соблюдать тишину.",
+      "options": [
+        "façam",
+        "fazem",
+        "fizeram"
+      ],
+      "answer": 0,
+      "explain": "Faço → façam."
+    },
+    {
+      "id": "b11.08-subjuntivo-desejo.5",
+      "kind": "truefalse",
+      "statement": "После «tomara que» всегда subjuntivo.",
+      "answer": true,
+      "explain": "Tomara que dê certo."
+    },
+    {
+      "id": "b11.08-subjuntivo-desejo.6",
+      "kind": "truefalse",
+      "statement": "«Quero que eu saia» — обычная фраза.",
+      "answer": false,
+      "explain": "Сам — quero sair."
+    },
+    {
+      "id": "b11.08-subjuntivo-desejo.7",
+      "kind": "truefalse",
+      "statement": "«Espero que» вводит subjuntivo.",
+      "answer": true,
+      "explain": "Espero que volte."
+    },
+    {
+      "id": "b11.08-subjuntivo-desejo.8",
+      "kind": "build",
+      "ru": "Надеюсь, поезд придёт вовремя.",
+      "answer": "Espero que o trem chegue na hora.",
+      "extra": [
+        "chega",
+        "chegou"
+      ],
+      "explain": "Chegar → chegue."
+    },
+    {
+      "id": "b11.08-subjuntivo-desejo.9",
+      "kind": "type",
+      "sentence": "Tomara que ___ certo!",
+      "ru": "Лишь бы получилось!",
+      "hint": "dar, subjuntivo",
+      "answer": "dê",
+      "explain": "Dar → dê."
+    }
+  ]
+}

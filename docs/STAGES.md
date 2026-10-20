@@ -3403,3 +3403,14 @@ CI шёл около 35 минут: сквозные тесты одной за�
 
 Проверено: валидатор без ошибок и предупреждений, `npm run vocab`, юнит-тесты, линтер, сборка, полный прогон сквозных тестов.
 
+## Версия 2.217.0. Грамматика B1 португальского (задача 19.6, часть 2)
+
+Курс закрыт. Вторая часть задачи 19.6: 30 уроков главы III, районы B1.1 и B1.2 по 15 уроков.
+
+- B1.1: futuro do presente (falarei; dizer, fazer, trazer теряют -ze-), ir + инфинитив против futuro, «será que» и догадки, futuro do pretérito и вежливые gostaria, poderia, deveria; presente do subjuntivo (основа от формы eu: faço → faça) и семь неправильных (seja, esteja, vá, dê, saiba, queira, haja); subjuntivo после желания, чувства и сомнения (talvez, duvido que, não acho que); личный инфинитив (para nós sabermos); futuro do subjuntivo (quando eu for, se você quiser) и союзы assim que, enquanto, sempre que; para que, antes que, caso; embora и mesmo que.
+- B1.2: imperfeito do subjuntivo (tivesse, fôssemos), нереальное условие (se eu fosse, iria; в разговоре и «eu ia»), como se, mais-que-perfeito composto (tinha feito), пассив с ser и с se (vende-se, alugam-se), estar + причастие, косвенная речь в настоящем и прошлом, que / quem / onde / o qual, cujo, ficar / ir / vir / continuar + gerúndio, связки (porém, no entanto, só que, já que), ficar / virar / tornar-se, догадки с dever (deve ter saído).
+- Пять времён кузницы, которые ждали уроков B1, теперь открываются ими: futuro (`b11.01-futuro`), futuro do pretérito (`b11.04`), presente do subjuntivo (`b11.06`), личный инфинитив (`b11.10`) и futuro do subjuntivo (`b11.12`). Таблицы уроков совпадают с генератором форм `src/langs/pt/verbs.ts`; тест профиля теперь проверяет, что урок есть у каждого времени.
+- В каждом уроке пять базовых видов заданий, лишние плитки не собирают другую верную фразу (`grammarProductive.test.ts`: у португальского 92 урока), `grammar-courses.spec.ts` проходит новые уроки целиком.
+
+Проверено: валидатор без ошибок и предупреждений, юнит-тесты, линтер, сборка, полный прогон сквозных тестов.
+

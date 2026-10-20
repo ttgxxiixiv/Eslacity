@@ -1,0 +1,193 @@
+{
+  "id": "b12.01-imperfeito-subjuntivo",
+  "district": "B1.2",
+  "order": 1,
+  "title": "Imperfeito do subjuntivo: se eu tivesse",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "**Imperfeito do subjuntivo** — subjuntivo о прошлом и о нереальном: **queria que você viesse** — «я хотел, чтобы ты пришёл», **se eu tivesse tempo** — «если бы у меня было время». Основа та же, что у futuro do subjuntivo: прошедшее eles без -ram, плюс **-sse**."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Глагол",
+        "eles (perfeito)",
+        "eu / ele",
+        "nós",
+        "eles"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "falar",
+            "falaram",
+            "falasse",
+            "falássemos",
+            "falassem"
+          ]
+        },
+        {
+          "cells": [
+            "comer",
+            "comeram",
+            "comesse",
+            "comêssemos",
+            "comessem"
+          ]
+        },
+        {
+          "cells": [
+            "ter",
+            "tiveram",
+            "tivesse",
+            "tivéssemos",
+            "tivessem"
+          ]
+        },
+        {
+          "cells": [
+            "ser / ir",
+            "foram",
+            "fosse",
+            "fôssemos",
+            "fossem"
+          ]
+        },
+        {
+          "cells": [
+            "fazer",
+            "fizeram",
+            "fizesse",
+            "fizéssemos",
+            "fizessem"
+          ]
+        },
+        {
+          "cells": [
+            "poder",
+            "puderam",
+            "pudesse",
+            "pudéssemos",
+            "pudessem"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "У nós ударение со знаком: **falássemos**, **tivéssemos**, **fôssemos**. Если главный глагол в прошедшем, subjuntivo тоже уходит в прошлое: **quero que venha** → **queria que viesse**."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Queria que você viesse comigo.",
+      "ru": "Я хотел, чтобы ты пошёл со мной."
+    },
+    {
+      "es": "Se eu tivesse tempo, viajaria mais.",
+      "ru": "Если бы у меня было время, я бы больше путешествовал."
+    },
+    {
+      "es": "Ela pediu que a gente esperasse.",
+      "ru": "Она попросила нас подождать."
+    },
+    {
+      "es": "Se fosse fácil, todo mundo faria.",
+      "ru": "Если бы это было легко, все бы так делали."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "b12.01-imperfeito-subjuntivo.1",
+      "kind": "choose",
+      "prompt": "«Если бы у меня было»:",
+      "options": [
+        "se eu tivesse",
+        "se eu tinha tido",
+        "se eu tiver"
+      ],
+      "answer": 0,
+      "explain": "Tiveram → tivesse."
+    },
+    {
+      "id": "b12.01-imperfeito-subjuntivo.2",
+      "kind": "choose",
+      "prompt": "«Если бы мы были»:",
+      "options": [
+        "se nós fôssemos",
+        "se nós fossemos",
+        "se nós formos"
+      ],
+      "answer": 0,
+      "explain": "Знак у nós: fôssemos."
+    },
+    {
+      "id": "b12.01-imperfeito-subjuntivo.3",
+      "kind": "gap",
+      "sentence": "Ela pediu que eu ___ cedo.",
+      "ru": "Она попросила, чтобы я пришёл рано.",
+      "options": [
+        "chegasse",
+        "chegue",
+        "chegar"
+      ],
+      "answer": 0,
+      "explain": "Pediu (прошлое) → chegasse."
+    },
+    {
+      "id": "b12.01-imperfeito-subjuntivo.4",
+      "kind": "gap",
+      "sentence": "Se ele ___ a verdade, contaria.",
+      "ru": "Если бы он знал правду, он бы рассказал.",
+      "options": [
+        "soubesse",
+        "sabia",
+        "saber"
+      ],
+      "answer": 0,
+      "explain": "Souberam → soubesse."
+    },
+    {
+      "id": "b12.01-imperfeito-subjuntivo.5",
+      "kind": "truefalse",
+      "statement": "Основа imperfeito do subjuntivo — от прошедшего eles.",
+      "answer": true,
+      "explain": "Fizeram → fizesse."
+    },
+    {
+      "id": "b12.01-imperfeito-subjuntivo.6",
+      "kind": "truefalse",
+      "statement": "«Se eu poderia» — правильная форма.",
+      "answer": false,
+      "explain": "Se eu pudesse."
+    },
+    {
+      "id": "b12.01-imperfeito-subjuntivo.7",
+      "kind": "truefalse",
+      "statement": "После «queria que» нужен imperfeito do subjuntivo.",
+      "answer": true,
+      "explain": "Queria que viesse."
+    },
+    {
+      "id": "b12.01-imperfeito-subjuntivo.8",
+      "kind": "build",
+      "ru": "Я хотел, чтобы ты пошёл со мной.",
+      "answer": "Queria que você viesse comigo.",
+      "extra": [
+        "venha",
+        "vinha"
+      ],
+      "explain": "Queria que + viesse."
+    },
+    {
+      "id": "b12.01-imperfeito-subjuntivo.9",
+      "kind": "type",
+      "sentence": "Se ___ fácil, todo mundo faria.",
+      "ru": "Если бы это было легко, все бы так делали.",
+      "hint": "ser, imperfeito do subjuntivo",
+      "answer": "fosse",
+      "explain": "Foram → fosse."
+    }
+  ]
+}
