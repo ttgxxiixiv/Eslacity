@@ -1,0 +1,57 @@
+{
+  "location": "hospital",
+  "scenes": [
+    {
+      "id": "sc:hospital.1",
+      "chapter": 1,
+      "npc": "fernanda",
+      "lines": [
+        {"who": "npc", "es": "Boa tarde. Como você está hoje?", "ru": "Добрый день. Как ты себя сегодня чувствуешь?"},
+        {"who": "hero", "es": "Estou bem, obrigado. O homem da empresa está aqui?", "ru": "Хорошо, спасибо. Человек из компании здесь?", "fem": {"es": "Estou bem, obrigada. O homem da empresa está aqui?"}},
+        {"who": "npc", "es": "Está no quarto quatro. Ele caiu na montanha.", "ru": "Он в четвёртой палате. Упал в горах."},
+        {"who": "hero", "es": "Ele queria ir para as montanhas?", "ru": "Он хотел в горы?"},
+        {"who": "npc", "es": "Queria, mas ele não tinha mapa nem palavras. Por isso não passou.", "ru": "Да, но у него не было ни карты, ни слов. Поэтому он не прошёл."},
+        {"who": "hero", "es": "Você sabe quem escreve as cartas com «Vem»?", "ru": "Ты знаешь, кто пишет письма с «Приходи»?"},
+        {"who": "npc", "es": "Sei: o Cronista. Ele esteve aqui ontem.", "ru": "Знаю: Летописец. Он был здесь вчера."},
+        {"who": "hero", "es": "O Cronista? Para quê?", "ru": "Летописец? Зачем?"},
+        {"who": "npc", "es": "Ele procura alguém que ajuda os vizinhos. Só essa pessoa chega ao Cofre.", "ru": "Он ищет того, кто помогает соседям. До Хранилища дойдёт только такой человек."},
+        {"who": "hero", "es": "Você tem um fragmento do mapa?", "ru": "У тебя есть обрывок карты?"},
+        {"who": "npc", "es": "Tenho. Mas agora a médica aqui sou eu. Como você está se sentindo?", "ru": "Есть. Но сейчас врач здесь я. Как ты себя чувствуешь?"}
+      ],
+      "questions": [
+        {"q": "Где человек из компании?", "options": ["В четвёртой палате", "В гостинице", "В горах"], "answer": 0},
+        {"q": "Почему он не прошёл?", "options": ["У него не было ни карты, ни слов", "Была буря", "Он заблудился"], "answer": 0},
+        {"q": "Кто пишет письма с «Приходи»?", "options": ["Каю", "Летописец", "Страж"], "answer": 1},
+        {"q": "Кого ищет Летописец?", "options": ["Того, кто помогает соседям", "Самого сильного", "Того, у кого много денег"], "answer": 0}
+      ],
+      "gloss": {"empresa": "компания", "caiu": "упал (cair)", "queria": "хотел (querer)", "tinha": "было (ter)", "nem": "ни", "passou": "прошёл (passar)", "cronista": "летописец", "esteve": "был (estar)", "cofre": "o Cofre — Хранилище", "fragmento": "обрывок", "médica": "врач (о женщине)", "sentindo": "чувствуешь (sentir)"}
+    },
+    {
+      "id": "sc:hospital.2",
+      "chapter": 2,
+      "npc": "fernanda",
+      "lines": [
+        {"who": "npc", "es": "Boa tarde. Tenho uma notícia: o Caio está aqui.", "ru": "Добрый день. У меня новость: Каю здесь."},
+        {"who": "hero", "es": "O Caio? Como ele está?", "ru": "Каю? Как он?"},
+        {"who": "npc", "es": "Ele quebrou o pé, mas está bem. O guarda trouxe ele da serra.", "ru": "У него сломана стопа, но он в порядке. Страж спустил его с гор."},
+        {"who": "npc", "es": "Não é como a sua cabeça no mês passado: ele quebrou mesmo.", "ru": "Не как твоя голова в прошлом месяце: у него и правда перелом.", "if": {"flag": "injury", "is": "head"}},
+        {"who": "npc", "es": "Não é como o seu coração no mês passado. O coração dele é forte, só o pé dói.", "ru": "Не как твоё сердце в прошлом месяце. Сердце у него сильное, болит только нога.", "if": {"flag": "injury", "is": "heart"}},
+        {"who": "hero", "es": "O que aconteceu na torre?", "ru": "Что случилось в башне?"},
+        {"who": "npc", "es": "Ele me contou. O guarda faz três perguntas, no passado.", "ru": "Он мне рассказал. Страж задаёт три вопроса, в прошедшем времени."},
+        {"who": "hero", "es": "E o Caio respondeu?", "ru": "И Каю ответил?"},
+        {"who": "npc", "es": "Respondeu duas. A terceira ele não sabia.", "ru": "Ответил на два. На третий не знал, что сказать."},
+        {"who": "hero", "es": "Qual foi a terceira pergunta?", "ru": "Какой был третий вопрос?"},
+        {"who": "npc", "es": "«Quem você ajudou?»", "ru": "«Кому ты помог?»"},
+        {"who": "hero", "es": "Quem eu ajudei? Isso eu sei.", "ru": "Кому я помог? Это я знаю.", "fem": {"ru": "Кому я помогла? Это я знаю."}},
+        {"who": "npc", "es": "O guarda disse para o Caio: «Traz o viajante do mapa». Agora é a sua vez.", "ru": "Страж сказал Каю: «Приведи ко мне путника с картой». Твоя очередь."}
+      ],
+      "questions": [
+        {"q": "Что случилось с Каю?", "options": ["Он сломал стопу", "Он заболел", "Он потерял карту"], "answer": 0},
+        {"q": "Кто спустил Каю с гор?", "options": ["Летописец", "Страж", "Бруну"], "answer": 1},
+        {"q": "Сколько вопросов задаёт страж?", "options": ["Один", "Три", "Пять"], "answer": 1},
+        {"q": "На какой вопрос не ответил Каю?", "options": ["Кому ты помог?", "Откуда ты?", "Что ты ел?"], "answer": 0}
+      ],
+      "gloss": {"trouxe": "принёс, привёл (trazer)", "passado": "прошедшее время, прошлое", "contou": "рассказал (contar)", "respondeu": "ответил (responder)", "terceira": "третья (terceiro)", "sabia": "знал (saber)", "ajudou": "помог (ajudar)", "ajudei": "я помог (ajudar)", "traz": "приведи (trazer)", "viajante": "путешественник, путник"}
+    }
+  ]
+}

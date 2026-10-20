@@ -1,0 +1,45 @@
+{
+  "location": "airport",
+  "missions": [
+    {
+      "id": "ms:airport.1",
+      "chapter": 1,
+      "npc": "thiago",
+      "scene": "sc:airport.1",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Bom dia! Documento, por favor.", "ru": "Доброе утро! Документ, пожалуйста.", "next": "passport"},
+        "passport": {"kind": "answer", "task": "Отдайте паспорт.", "branches": [{"phrase": "ph:airport.aqui-esta-o-passaporte", "next": "luggage"}], "wrong": {"es": "Aqui está o meu sanduíche? Obrigado, mas não!", "ru": "Вот мой бутерброд? Спасибо, не надо!"}},
+        "luggage": {"kind": "say", "es": "Obrigado. Você tem bagagem?", "ru": "Спасибо. У тебя есть багаж?", "next": "luggageq"},
+        "luggageq": {"kind": "answer", "task": "Скажите, что у вас только ручная кладь.", "branches": [{"phrase": "ph:airport.so-tenho-mala-de-mao", "next": "gate"}], "wrong": {"es": "Só tenho um gato? Gato precisa de passaporte também!", "ru": "У меня только кот? Коту тоже нужен паспорт!"}},
+        "gate": {"kind": "say", "es": "Muito bem. Agora você vai para o portão.", "ru": "Хорошо. Теперь иди к выходу на посадку.", "next": "gateq"},
+        "gateq": {"kind": "answer", "task": "Спросите, какой выход на посадку.", "branches": [{"phrase": "ph:airport.qual-e-o-portao", "next": "time"}], "wrong": {"es": "Qual é o seu nome? Thiago, mas e o portão?", "ru": "Как меня зовут? Тьягу, а выход-то?"}},
+        "time": {"kind": "say", "es": "Portão sete.", "ru": "Выход номер семь.", "next": "timeq"},
+        "timeq": {"kind": "answer", "task": "Спросите, во сколько рейс.", "branches": [{"phrase": "ph:airport.a-que-horas-e-o-voo", "next": "love"}], "wrong": {"es": "A que horas é o jantar? No avião, às oito!", "ru": "Во сколько ужин? В самолёте, в восемь!"}},
+        "love": {"kind": "say", "es": "Às oito. Você gosta de avião?", "ru": "В восемь. Ты любишь самолёты?", "next": "loveq"},
+        "loveq": {"kind": "answer", "task": "Скажите, что очень любите путешествовать.", "branches": [{"phrase": "ph:airport.gosto-de-viajar", "next": "end"}], "wrong": {"es": "Gosto de dormir? No avião todo mundo dorme!", "ru": "Люблю спать? В самолёте все спят!"}},
+        "end": {"kind": "say", "es": "Eu também! Olha pela janela: lá estão as montanhas e o caminho. Toma, esse é um fragmento do mapa. E um presente para a viagem.", "ru": "Я тоже! Посмотри в окно: вон горы и дорога. Держи, это обрывок карты. И подарок в дорогу."}
+      }
+    },
+    {
+      "id": "ms:airport.2",
+      "chapter": 2,
+      "npc": "thiago",
+      "scene": "sc:airport.2",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Hoje você vai voar comigo até o pé da serra. Pronto?", "ru": "Сегодня ты летишь со мной к подножию гор. Готов?", "next": "seat", "fem": {"es": "Hoje você vai voar comigo até o pé da serra. Pronta?", "ru": "Сегодня ты летишь со мной к подножию гор. Готова?"}},
+        "seat": {"kind": "answer", "task": "Попросите место у иллюминатора.", "branches": [{"phrase": "ph:airport.quero-sentar-na-janela", "next": "bag"}], "wrong": {"es": "Quero sentar no teto? Não, não!", "ru": "Хочу сесть на крышу? Нет-нет!"}},
+        "bag": {"kind": "say", "es": "Janela, muito bem. E essa mala?", "ru": "У окна, хорошо. А этот чемодан?", "next": "bagq"},
+        "bagq": {"kind": "answer", "task": "Спросите, где сдать чемодан.", "branches": [{"phrase": "ph:airport.onde-eu-despacho", "next": "liquids"}], "wrong": {"es": "Onde eu durmo? No avião, na sua cadeira!", "ru": "Где я сплю? В самолёте, в своём кресле!"}},
+        "liquids": {"kind": "say", "es": "Ali, no balcão. E na mala de mão, o que você tem?", "ru": "Вон там, у стойки. А что у тебя в ручной клади?", "next": "liquidsq"},
+        "liquidsq": {"kind": "answer", "task": "Спросите, можно ли брать с собой жидкости.", "branches": [{"phrase": "ph:airport.posso-levar-liquidos", "next": "board"}], "wrong": {"es": "Posso levar o mar? Ele não cabe na mala!", "ru": "Можно взять море? Оно не поместится в чемодан!"}},
+        "board": {"kind": "say", "es": "Só um pouco. E agora, o embarque.", "ru": "Только немного. А теперь посадка.", "next": "boardq"},
+        "boardq": {"kind": "answer", "task": "Спросите, во сколько посадка.", "branches": [{"phrase": "ph:airport.onde-e-o-embarque", "next": "late"}], "wrong": {"es": "A que horas é a praia? A praia não tem hora!", "ru": "Во сколько пляж? У пляжа нет расписания!"}},
+        "late": {"kind": "say", "es": "Às nove e meia. Mas olha o painel…", "ru": "В половине десятого. Но посмотри на табло…", "next": "lateq"},
+        "lateq": {"kind": "answer", "task": "Спросите, не задерживается ли самолёт.", "branches": [{"phrase": "ph:airport.o-aviao-esta-atrasado", "next": "end"}], "wrong": {"es": "O avião está com fome? Não, ele está no portão!", "ru": "Самолёт голодный? Нет, он у выхода!"}},
+        "end": {"kind": "say", "es": "Não, está no horário. E depois olha pela janela: a torre, a linha do trem e a areia. Está vendo a cidade branca? Ela não está mais lá. Toma o meu fragmento do mapa da serra.", "ru": "Нет, вовремя. А потом смотри в окно: башня, железная дорога и песок. Видишь белый город? Его уже нет. Держи мой обрывок карты гор."}
+      }
+    }
+  ]
+}

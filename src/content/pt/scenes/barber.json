@@ -1,0 +1,55 @@
+{
+  "location": "barber",
+  "scenes": [
+    {
+      "id": "sc:barber.1",
+      "chapter": 1,
+      "npc": "zecarlos",
+      "lines": [
+        {"who": "npc", "es": "Entra, senta! Curto, como sempre?", "ru": "Заходи, садись! Коротко, как всегда?"},
+        {"who": "hero", "es": "Curto, por favor.", "ru": "Коротко, пожалуйста."},
+        {"who": "npc", "es": "Muito bem. Olha no espelho. Sabe, a minha mãe sempre dizia uma coisa sobre o mapa.", "ru": "Отлично. Смотри в зеркало. Знаешь, моя мама всегда говорила кое-что о карте."},
+        {"who": "hero", "es": "Sobre o mapa? E o que ela dizia?", "ru": "О карте? И что она говорила?"},
+        {"who": "npc", "es": "«Vinte fragmentos e um selo, e o caminho é seu».", "ru": "«Двадцать обрывков и печать — и дорога твоя»."},
+        {"who": "hero", "es": "Um selo? Como no correio?", "ru": "Печать? Как марка на почте?"},
+        {"who": "npc", "es": "Não, não. Ele fica fora da cidade, com um homem.", "ru": "Нет-нет. Она за городом, у одного человека."},
+        {"who": "hero", "es": "E onde está a sua mãe agora?", "ru": "А где сейчас твоя мама?"},
+        {"who": "npc", "es": "A minha mãe é muito velha, ela está em casa. Mas toda manhã ela vem aqui tomar café.", "ru": "Мама очень старая, сейчас дома. Но каждое утро приходит сюда пить кофе."},
+        {"who": "hero", "es": "E você? Você tem um fragmento?", "ru": "А ты? У тебя есть обрывок?"},
+        {"who": "npc", "es": "Tenho, atrás do espelho. Mas primeiro o cabelo! Vamos cortar!", "ru": "Есть, за зеркалом. Но сначала волосы! Стрижём!"}
+      ],
+      "questions": [
+        {"q": "Какую стрижку хочет герой?", "options": ["Короткую", "Длинную", "Только бороду"], "answer": 0},
+        {"q": "Что говорила мама Зе Карлоса?", "options": ["Двадцать обрывков и печать — и дорога твоя", "Не ходи в горы", "Карта — легенда"], "answer": 0},
+        {"q": "Где печать?", "options": ["На почте", "За городом, у одного человека", "В банке"], "answer": 1},
+        {"q": "Где обрывок Зе Карлоса?", "options": ["За зеркалом", "У мамы", "В кассе"], "answer": 0}
+      ],
+      "gloss": {"senta": "садись (sentar)", "caminho": "дорога, путь", "dizia": "говорила (dizer)", "fragmentos": "обрывки (fragmento)", "selo": "печать; марка", "fora": "fora da cidade — за городом"}
+    },
+    {
+      "id": "sc:barber.2",
+      "chapter": 2,
+      "npc": "zecarlos",
+      "lines": [
+        {"who": "npc", "es": "Entra, senta! O de sempre?", "ru": "Заходи, садись! Как обычно?"},
+        {"who": "hero", "es": "Só as pontas. Alguma novidade?", "ru": "Только кончики. Что нового?"},
+        {"who": "npc", "es": "Ontem veio um cliente muito estranho. De casaco cinza. Queria fazer a barba.", "ru": "Вчера пришёл очень странный клиент. В сером пальто. Хотел побриться."},
+        {"who": "hero", "es": "O homem do casaco cinza!", "ru": "Человек в сером пальто!"},
+        {"who": "npc", "es": "Enquanto eu fazia a barba dele, contei as palavras da minha mãe: «Vinte fragmentos e um selo».", "ru": "Пока я его брил, рассказал ему мамины слова: «Двадцать обрывков и печать»."},
+        {"who": "hero", "es": "E o que ele fez?", "ru": "И что он сделал?"},
+        {"who": "npc", "es": "Chorou. E disse: «Faz cem anos que eu espero alguém que responda».", "ru": "Заплакал. И сказал: «Сто лет я жду того, кто ответит»."},
+        {"who": "hero", "es": "Responda o quê?", "ru": "Ответит на что?"},
+        {"who": "npc", "es": "Não disse. Pagou com uma moeda velha e foi embora.", "ru": "Не сказал. Заплатил старой монетой и ушёл."},
+        {"who": "hero", "es": "Eu acho que é o guarda da torre.", "ru": "Думаю, это страж башни."},
+        {"who": "npc", "es": "Um guarda muito triste. E com uma barba muito bonita.", "ru": "Очень грустный страж. И с очень красивой бородой."}
+      ],
+      "questions": [
+        {"q": "Чего хотел странный клиент?", "options": ["Побриться", "Подстричься", "Покраситься"], "answer": 0},
+        {"q": "Что сделал клиент, услышав мамины слова?", "options": ["Засмеялся", "Заплакал", "Ушёл без денег"], "answer": 1},
+        {"q": "Чего он ждёт сто лет?", "options": ["Поезда", "Того, кто ответит", "Письма"], "answer": 1},
+        {"q": "Чем он заплатил?", "options": ["Старой монетой", "Картой", "Ничем"], "answer": 0}
+      ],
+      "gloss": {"casaco": "пальто, куртка", "cinza": "серый", "queria": "хотел (querer)", "enquanto": "пока", "fazia": "делал (fazer)", "contei": "рассказал (contar)", "fragmentos": "обрывки (fragmento)", "selo": "печать", "fez": "сделал (fazer)", "chorou": "заплакал (chorar)", "responda": "ответит (responder)", "pagou": "заплатил (pagar)", "moeda": "монета", "embora": "foi embora — ушёл"}
+    }
+  ]
+}

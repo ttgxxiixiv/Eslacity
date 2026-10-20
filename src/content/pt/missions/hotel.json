@@ -1,0 +1,47 @@
+{
+  "location": "hotel",
+  "missions": [
+    {
+      "id": "ms:hotel.1",
+      "chapter": 1,
+      "npc": "helena",
+      "scene": "sc:hotel.1",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Boa noite! Bem-vindo à pousada. Em que posso ajudar?", "ru": "Добрый вечер! Добро пожаловать в пусаду. Чем могу помочь?", "next": "room", "fem": {"es": "Boa noite! Bem-vinda à pousada. Em que posso ajudar?"}},
+        "room": {"kind": "answer", "task": "Попросите двухместный номер.", "branches": [{"phrase": "ph:hotel.um-quarto-duplo", "next": "nights"}], "wrong": {"es": "Um barco duplo? Aqui é pousada, não é porto!", "ru": "Двухместную лодку? Это пусада, а не порт!"}},
+        "nights": {"kind": "say", "es": "Tenho um quarto livre. Quantas noites?", "ru": "Есть свободный номер. На сколько ночей?", "next": "nightsq"},
+        "nightsq": {"kind": "answer", "task": "Скажите, что пробудете три ночи.", "branches": [{"phrase": "ph:hotel.vou-ficar-tres-noites", "next": "breakfast"}], "wrong": {"es": "Vou ficar três anos? É muito tempo!", "ru": "Пробуду три года? Это очень долго!"}},
+        "breakfast": {"kind": "say", "es": "Três noites, muito bem. Mais alguma pergunta?", "ru": "Три ночи, хорошо. Ещё вопросы?", "next": "breakfastq"},
+        "breakfastq": {"kind": "answer", "task": "Спросите, включён ли завтрак.", "branches": [{"phrase": "ph:hotel.o-cafe-esta-incluido", "next": "lift"}], "wrong": {"es": "O gato está incluído? Não, o gato é meu!", "ru": "Кошка включена? Нет, кошка моя!"}},
+        "lift": {"kind": "say", "es": "Está, sim: sete frutas e suco de maracujá.", "ru": "Включён: семь видов фруктов и сок маракуйи.", "next": "liftq"},
+        "liftq": {"kind": "answer", "task": "Спросите, где лифт.", "branches": [{"phrase": "ph:hotel.onde-fica-o-elevador", "next": "noise"}], "wrong": {"es": "Onde fica a montanha? Longe, viajante!", "ru": "Где гора? Далеко, путник!"}},
+        "noise": {"kind": "say", "es": "Ali. … Bom dia! Dormiu bem?", "ru": "Вон там. … Доброе утро! Хорошо спал?", "next": "noiseq", "fem": {"ru": "Вон там. … Доброе утро! Хорошо спала?"}},
+        "noiseq": {"kind": "answer", "task": "Пожалуйтесь, что в номере очень шумно.", "branches": [{"phrase": "ph:hotel.o-quarto-e-barulhento", "next": "blanket"}], "wrong": {"es": "O quarto é um gato? Não, é um quarto!", "ru": "Номер — это кошка? Нет, это номер!"}},
+        "blanket": {"kind": "say", "es": "Desculpa! É o homem do quarto oito. E à noite faz frio?", "ru": "Извини! Это человек из восьмого номера. А ночью холодно?", "next": "blanketq"},
+        "blanketq": {"kind": "answer", "task": "Попросите ещё одно одеяло.", "branches": [{"phrase": "ph:hotel.mais-um-cobertor", "next": "end"}], "wrong": {"es": "Mais um sorvete? À noite não!", "ru": "Ещё мороженое? Только не ночью!"}},
+        "end": {"kind": "say", "es": "Toma. E aqui está o fragmento do mapa. Para o homem do quarto oito, nada: com dinheiro ninguém aprende português.", "ru": "Держи. А вот обрывок карты. Человеку из восьмого — ничего: за деньги португальскому не научишься."}
+      }
+    },
+    {
+      "id": "ms:hotel.2",
+      "chapter": 2,
+      "npc": "helena",
+      "scene": "sc:hotel.2",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Boa noite! Hoje a pousada está cheia.", "ru": "Добрый вечер! Сегодня пусада полная.", "next": "free"},
+        "free": {"kind": "answer", "task": "Спросите, есть ли свободный номер.", "branches": [{"phrase": "ph:hotel.tem-quarto-disponivel", "next": "luggage"}], "wrong": {"es": "Tem um gato disponível? Gato não se aluga!", "ru": "Есть свободная кошка? Кошек не сдают!"}},
+        "luggage": {"kind": "say", "es": "Só o quarto sete, e ele não é para alugar. Mas você vai para a serra, não é?", "ru": "Только седьмой номер, а его не сдают. Но ты ведь идёшь в горы?", "next": "luggageq"},
+        "luggageq": {"kind": "answer", "task": "Спросите, можно ли оставить здесь чемодан.", "branches": [{"phrase": "ph:hotel.posso-deixar-a-mala", "next": "key"}], "wrong": {"es": "Posso deixar o mar aqui? O mar não cabe!", "ru": "Можно оставить здесь море? Оно не поместится!"}},
+        "key": {"kind": "say", "es": "Pode. E aqui a chave do armário.", "ru": "Можно. И вот ключ от шкафа.", "next": "keyq"},
+        "keyq": {"kind": "answer", "task": "Скажите, что ключ не работает.", "branches": [{"phrase": "ph:hotel.a-chave-nao-funciona", "next": "checkout"}], "wrong": {"es": "A chave está cantando? Não, ela não abre!", "ru": "Ключ поёт? Нет, он не открывает!"}},
+        "checkout": {"kind": "say", "es": "Desculpa, toma outra. Essa funciona.", "ru": "Извини, вот другой. Этот работает.", "next": "checkoutq"},
+        "checkoutq": {"kind": "answer", "task": "Спросите, во сколько нужно освободить номер.", "branches": [{"phrase": "ph:hotel.a-que-horas-e-o-check-out", "next": "wifi"}], "wrong": {"es": "A que horas é o jantar? Às oito, mas e o check-out?", "ru": "Во сколько ужин? В восемь, а выезд-то?"}},
+        "wifi": {"kind": "say", "es": "Ao meio-dia. Mas você sai às cinco da manhã.", "ru": "В полдень. Но ты уходишь в пять утра.", "next": "wifiq"},
+        "wifiq": {"kind": "answer", "task": "Спросите пароль от вайфая.", "branches": [{"phrase": "ph:hotel.qual-e-a-senha-do-wifi", "next": "end"}], "wrong": {"es": "Qual é a senha do cofre? Isso eu não digo!", "ru": "Какой код от сейфа? Этого я не скажу!"}},
+        "end": {"kind": "say", "es": "É «pousada» e o número sete. Toma o meu fragmento do mapa da serra. E diz para o Severino que o quarto dele está esperando.", "ru": "«Pousada» и цифра семь. Возьми мой обрывок карты гор. И скажи Северину, что его номер ждёт."}
+      }
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "location": "beach",
+  "missions": [
+    {
+      "id": "ms:beach.1",
+      "chapter": 1,
+      "npc": "bruno",
+      "scene": "sc:beach.1",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "E aí! O dia está perfeito. O que a gente faz?", "ru": "Привет! День идеальный. Чем займёмся?", "next": "beach"},
+        "beach": {"kind": "answer", "task": "Предложите пойти на пляж.", "branches": [{"phrase": "ph:beach.vamos-a-praia", "next": "hot"}], "wrong": {"es": "Vamos à farmácia? Você está doente?", "ru": "Пойдём в аптеку? Ты заболел?", "fem": {"ru": "Пойдём в аптеку? Ты заболела?"}}},
+        "hot": {"kind": "say", "es": "Vamos! Olha o sol!", "ru": "Пошли! Смотри, какое солнце!", "next": "hotq"},
+        "hotq": {"kind": "answer", "task": "Скажите, что очень жарко: какая жара!", "branches": [{"phrase": "ph:beach.que-calor", "next": "sand"}], "wrong": {"es": "Que frio? Hoje faz trinta e cinco graus!", "ru": "Какой холод? Сегодня тридцать пять градусов!"}},
+        "sand": {"kind": "say", "es": "Muito calor. Cuidado com os pés!", "ru": "Очень жарко. Береги ноги!", "next": "sandq"},
+        "sandq": {"kind": "answer", "task": "Скажите, что песок очень горячий.", "branches": [{"phrase": "ph:beach.a-areia-esta-quente", "next": "danger"}], "wrong": {"es": "A areia está cantando? Não, ela está quente!", "ru": "Песок поёт? Нет, он горячий!"}},
+        "danger": {"kind": "say", "es": "É, sim. Vamos para a água?", "ru": "Да. Пойдём в воду?", "next": "dangerq"},
+        "dangerq": {"kind": "answer", "task": "Спросите, опасно ли здесь плавать.", "branches": [{"phrase": "ph:beach.e-perigoso", "next": "calm"}], "wrong": {"es": "É perigoso comer aqui? Não, só nadar longe.", "ru": "Опасно здесь есть? Нет, только заплывать далеко."}},
+        "calm": {"kind": "say", "es": "Aqui não. Mas olha o mar.", "ru": "Здесь нет. Но посмотри на море.", "next": "calmq"},
+        "calmq": {"kind": "answer", "task": "Скажите, что сегодня море спокойное.", "branches": [{"phrase": "ph:beach.o-mar-esta-calmo", "next": "end"}], "wrong": {"es": "O mar está com fome? Não, o mar está calmo!", "ru": "Море голодное? Нет, море спокойное!"}},
+        "end": {"kind": "say", "es": "Calmo, sim. E toma o fragmento do mapa da garrafa. O mar trouxe ele para você, viajante.", "ru": "Спокойное, да. И держи обрывок карты из бутылки. Море принесло его для тебя, путник."}
+      }
+    },
+    {
+      "id": "ms:beach.2",
+      "chapter": 2,
+      "npc": "bruno",
+      "scene": "sc:beach.2",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Hoje o mar não está bom. Fica comigo na torre de salva-vidas?", "ru": "Сегодня море неспокойное. Посидишь со мной на вышке спасателя?", "next": "flag"},
+        "flag": {"kind": "answer", "task": "Скажите, что висит красный флаг.", "branches": [{"phrase": "ph:beach.a-bandeira-esta-vermelha", "next": "forbidden"}], "wrong": {"es": "A bandeira está dançando? Não, ela está vermelha!", "ru": "Флаг танцует? Нет, он красный!"}},
+        "forbidden": {"kind": "say", "es": "Vermelha. Hoje o mar é perigoso.", "ru": "Красный. Сегодня море опасное.", "next": "forbiddenq"},
+        "forbiddenq": {"kind": "answer", "task": "Спросите, запрещено ли здесь плавать.", "branches": [{"phrase": "ph:beach.e-proibido-nadar", "next": "stay"}], "wrong": {"es": "É proibido comer sorvete? Não, isso pode!", "ru": "Запрещено есть мороженое? Нет, это можно!"}},
+        "stay": {"kind": "say", "es": "Hoje é. E você, vai para a água?", "ru": "Сегодня — да. А ты пойдёшь в воду?", "next": "stayq"},
+        "stayq": {"kind": "answer", "task": "Скажите, что останетесь у берега.", "branches": [{"phrase": "ph:beach.vou-ficar-perto", "next": "rocks"}], "wrong": {"es": "Vou ficar na lua? Muito longe!", "ru": "Я останусь на луне? Слишком далеко!"}},
+        "rocks": {"kind": "say", "es": "Muito bem. Mas olha onde você anda!", "ru": "Правильно. Но смотри, куда идёшь!", "next": "rocksq"},
+        "rocksq": {"kind": "answer", "task": "Предупредите: осторожно с камнями!", "branches": [{"phrase": "ph:beach.cuidado-com-as-pedras", "next": "coco"}], "wrong": {"es": "Cuidado com o sorvete? Ele não é perigoso!", "ru": "Осторожно с мороженым? Оно не опасное!"}},
+        "coco": {"kind": "say", "es": "Isso. Agora a gente merece descansar.", "ru": "Вот. А теперь мы заслужили отдых.", "next": "cocoq"},
+        "cocoq": {"kind": "answer", "task": "Предложите выпить кокосовой воды.", "branches": [{"phrase": "ph:beach.uma-agua-de-coco", "next": "sunset"}], "wrong": {"es": "Vamos tomar banho de lama? Não, obrigado!", "ru": "Примем грязевую ванну? Нет, спасибо!"}},
+        "sunset": {"kind": "say", "es": "Ótima ideia. O sol já está indo embora.", "ru": "Отличная идея. Солнце уже садится.", "next": "sunsetq"},
+        "sunsetq": {"kind": "answer", "task": "Предложите посмотреть на закат.", "branches": [{"phrase": "ph:beach.olha-o-por-do-sol", "next": "end"}], "wrong": {"es": "Vamos ver o nascer da lua? Ainda é cedo!", "ru": "Посмотрим на восход луны? Ещё рано!"}},
+        "end": {"kind": "say", "es": "Olha: a torre. A luz acende três vezes. Toma o meu fragmento do mapa da serra. Quando você chegar lá em cima, acende uma luz três vezes também. Eu vou ver você daqui.", "ru": "Смотри: башня. Свет загорается три раза. Держи мой обрывок карты гор. Когда доберёшься наверх, тоже зажги свет три раза. Я увижу тебя отсюда."}
+      }
+    }
+  ]
+}

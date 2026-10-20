@@ -1,0 +1,47 @@
+{
+  "location": "gym",
+  "missions": [
+    {
+      "id": "ms:gym.1",
+      "chapter": 1,
+      "npc": "tati",
+      "scene": "sc:gym.1",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Oi! Primeiro dia na academia? Vamos lá!", "ru": "Привет! Первый день в спортзале? Поехали!", "next": "gym"},
+        "gym": {"kind": "answer", "task": "Спросите, любит ли она спорт.", "branches": [{"phrase": "ph:gym.qual-esporte", "next": "swim"}], "wrong": {"es": "Qual é o seu sapato? Aqui a gente usa tênis!", "ru": "Какая у тебя туфля? Здесь носят кроссовки!"}},
+        "swim": {"kind": "say", "es": "Muito! Corrida, vôlei e capoeira. E você, gosta de quê?", "ru": "Очень! Бег, волейбол и капоэйра. А ты что любишь?", "next": "swimq"},
+        "swimq": {"kind": "answer", "task": "Скажите, что любите плавать или бегаете по пляжу.", "branches": [{"phrase": "ph:gym.gosto-de-nadar", "next": "legs"}, {"phrase": "ph:gym.eu-corro-na-praia", "next": "legs"}], "wrong": {"es": "Gosto de dormir? Aqui a gente não dorme!", "ru": "Люблю спать? Здесь не спят!"}},
+        "legs": {"kind": "say", "es": "Muito bem! Agora, vinte vezes. Mais um, você consegue?", "ru": "Отлично! А теперь двадцать раз. Ещё один, сможешь?", "next": "moreq"},
+        "moreq": {"kind": "answer", "task": "Скажите: ещё один, вы сможете!", "branches": [{"phrase": "ph:gym.mais-um", "next": "volley"}], "wrong": {"es": "Mais um bolo? Aqui não tem bolo!", "ru": "Ещё торт? Здесь торта нет!"}},
+        "volley": {"kind": "say", "es": "Isso! Agora vamos para a praia?", "ru": "Вот! А теперь пойдём на пляж?", "next": "volleyq"},
+        "volleyq": {"kind": "answer", "task": "Предложите сыграть в волейбол.", "branches": [{"phrase": "ph:gym.vamos-jogar-volei", "next": "win"}], "wrong": {"es": "Vamos jogar dominó? Isso é com o Seu Valdir!", "ru": "Сыграем в домино? Это к Сеу Валдиру!"}},
+        "win": {"kind": "say", "es": "Vamos! … Que jogo! Quem ganhou?", "ru": "Пошли! … Какая игра! Кто выиграл?", "next": "winq"},
+        "winq": {"kind": "answer", "task": "Скажите, что вы выиграли.", "branches": [{"phrase": "ph:gym.ganhei", "next": "end"}], "wrong": {"es": "Eu ganhei um gato? Não, você ganhou o jogo!", "ru": "Я выиграл кошку? Нет, ты выиграл игру!", "fem": {"ru": "Я выиграла кошку? Нет, ты выиграла игру!"}}},
+        "end": {"kind": "say", "es": "Ótimo! A minha mãe só sabia correr. Você corre e fala. Toma, esse é um fragmento do mapa.", "ru": "Отлично! Моя мама умела только бегать. А ты и бегаешь, и говоришь. Держи, это обрывок карты."}
+      }
+    },
+    {
+      "id": "ms:gym.2",
+      "chapter": 2,
+      "npc": "tati",
+      "scene": "sc:gym.2",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Para a torre, você precisa de um treino especial. Pronto?", "ru": "Для башни тебе нужна особая тренировка. Готов?", "next": "objective", "fem": {"es": "Para a torre, você precisa de um treino especial. Pronta?", "ru": "Для башни тебе нужна особая тренировка. Готова?"}},
+        "objective": {"kind": "answer", "task": "Спросите, какая цель на сегодня.", "branches": [{"phrase": "ph:gym.qual-e-o-objetivo", "next": "stretch"}], "wrong": {"es": "Qual é o seu nome? Tati, mas e o treino?", "ru": "Как меня зовут? Тати, а тренировка-то?"}},
+        "stretch": {"kind": "say", "es": "Hoje: escada, cem degraus. Vamos começar?", "ru": "Сегодня — лестница, сто ступенек. Начинаем?", "next": "stretchq"},
+        "stretchq": {"kind": "answer", "task": "Скажите, что сначала нужна растяжка.", "branches": [{"phrase": "ph:gym.primeiro-alongamento", "next": "series"}], "wrong": {"es": "Primeiro o almoço? Depois do treino!", "ru": "Сначала обед? После тренировки!"}},
+        "series": {"kind": "say", "es": "Muito bem, você sabe! Agora, escada!", "ru": "Правильно, ты знаешь! А теперь — лестница!", "next": "seriesq"},
+        "seriesq": {"kind": "answer", "task": "Скажите: ещё подход по десять.", "branches": [{"phrase": "ph:gym.mais-uma-serie", "next": "knee"}], "wrong": {"es": "Mais uma sopa? Aqui não é restaurante!", "ru": "Ещё суп? Здесь не ресторан!"}},
+        "knee": {"kind": "say", "es": "Isso! Mas por que você parou?", "ru": "Вот! Но почему ты остановился?", "next": "kneeq", "fem": {"ru": "Вот! Но почему ты остановилась?"}},
+        "kneeq": {"kind": "answer", "task": "Скажите, что у вас болит колено.", "branches": [{"phrase": "ph:gym.meu-joelho-doi", "next": "breathe"}], "wrong": {"es": "O meu joelho está dançando? Não, ele está doendo!", "ru": "Моё колено танцует? Нет, оно болит!"}},
+        "breathe": {"kind": "say", "es": "Então para um minuto.", "ru": "Тогда передохни минутку.", "next": "breatheq"},
+        "breatheq": {"kind": "answer", "task": "Скажите, что вам нужно перевести дух.", "branches": [{"phrase": "ph:gym.preciso-respirar", "next": "record"}], "wrong": {"es": "Preciso comer? Depois, depois!", "ru": "Мне нужно поесть? Потом, потом!"}},
+        "record": {"kind": "say", "es": "Respira… E agora, os últimos degraus!", "ru": "Дыши… А теперь последние ступеньки!", "next": "recordq"},
+        "recordq": {"kind": "answer", "task": "Скажите, что побили свой рекорд.", "branches": [{"phrase": "ph:gym.bati-o-recorde", "next": "end"}], "wrong": {"es": "Bati o carro? Não, você bateu o recorde!", "ru": "Я разбил машину? Нет, ты побил рекорд!", "fem": {"ru": "Я разбила машину? Нет, ты побила рекорд!"}}},
+        "end": {"kind": "say", "es": "Bateu! Agora você pode subir até a torre. Toma o meu fragmento do mapa da serra. E se você vir o homem do casaco cinza, agradece por mim e pela minha mãe.", "ru": "Побил! Теперь ты сможешь подняться к башне. Держи мой обрывок карты гор. А если увидишь человека в сером пальто, поблагодари его от меня и от мамы.", "fem": {"ru": "Побила! Теперь ты сможешь подняться к башне. Держи мой обрывок карты гор. А если увидишь человека в сером пальто, поблагодари его от меня и от мамы."}}
+      }
+    }
+  ]
+}

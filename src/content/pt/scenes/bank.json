@@ -1,0 +1,55 @@
+{
+  "location": "bank",
+  "scenes": [
+    {
+      "id": "sc:bank.1",
+      "chapter": 1,
+      "npc": "ricardo",
+      "lines": [
+        {"who": "npc", "es": "Boa tarde. Em que posso ajudar o senhor?", "ru": "Добрый день. Чем могу вам помочь?", "fem": {"es": "Boa tarde. Em que posso ajudar a senhora?"}},
+        {"who": "hero", "es": "Estou procurando um fragmento do mapa. O banco tem um?", "ru": "Я ищу обрывок карты. В банке такой есть?"},
+        {"who": "npc", "es": "Tem, sim. Ele está guardado no banco, numa caixa com chave.", "ru": "Есть. Он хранится в банке, в ящике с ключом."},
+        {"who": "hero", "es": "O senhor pode me dar o fragmento?", "ru": "Вы можете мне его отдать?"},
+        {"who": "npc", "es": "Tudo na ordem: sem conta no banco, nada feito.", "ru": "Всё по порядку: без счёта в банке ничего не выйдет."},
+        {"who": "hero", "es": "Eu quero abrir uma conta.", "ru": "Я хочу открыть счёт."},
+        {"who": "npc", "es": "Muito bem. Então o senhor assina aqui, aqui e aqui.", "ru": "Прекрасно. Тогда вы расписываетесь здесь, здесь и здесь.", "fem": {"es": "Muito bem. Então a senhora assina aqui, aqui e aqui."}},
+        {"who": "hero", "es": "Três vezes!", "ru": "Три раза!"},
+        {"who": "npc", "es": "No banco, a assinatura é importante.", "ru": "В банке подпись — это важно."},
+        {"who": "hero", "es": "E o Cofre do mapa? Ele é como um banco?", "ru": "А Хранилище с карты? Оно как банк?"},
+        {"who": "npc", "es": "Dizem que é o maior banco do mundo. E ele não abre com chave, abre com perguntas.", "ru": "Говорят, это самый большой банк в мире. И открывается он не ключом, а вопросами."}
+      ],
+      "questions": [
+        {"q": "Где хранится обрывок карты?", "options": ["В ящике с ключом", "В кармане управляющего", "На столе"], "answer": 0},
+        {"q": "Что нужно, чтобы получить обрывок?", "options": ["Счёт в банке", "Тысяча реалов", "Паспорт"], "answer": 0},
+        {"q": "Сколько раз нужно расписаться?", "options": ["Один", "Два", "Три"], "answer": 2},
+        {"q": "Чем открывается Хранилище?", "options": ["Ключом", "Вопросами", "Деньгами"], "answer": 1}
+      ],
+      "gloss": {"fragmento": "обрывок", "guardado": "хранится (guardar)", "numa": "в (em + uma)", "ordem": "порядок", "feito": "nada feito — ничего не выйдет", "vezes": "раз (vez)", "assina": "расписывается (assinar)", "assinatura": "подпись", "cofre": "o Cofre — Хранилище", "dizem": "говорят (dizer)"}
+    },
+    {
+      "id": "sc:bank.2",
+      "chapter": 2,
+      "npc": "ricardo",
+      "lines": [
+        {"who": "npc", "es": "Boa tarde. Tenho uma coisa para o senhor.", "ru": "Добрый день. У меня для вас кое-что есть.", "fem": {"es": "Boa tarde. Tenho uma coisa para a senhora."}},
+        {"who": "hero", "es": "Para mim?", "ru": "Для меня?"},
+        {"who": "npc", "es": "As moedas do homem do casaco cinza. O Wellington trouxe do mercado. Elas têm cem anos.", "ru": "Монеты человека в сером пальто. Их принёс Веллингтон из магазина. Им сто лет."},
+        {"who": "hero", "es": "De quem são essas moedas?", "ru": "Чьи это монеты?"},
+        {"who": "npc", "es": "Nos nossos papéis tem uma conta muito velha. Ela tem cem anos.", "ru": "В наших бумагах есть очень старый счёт. Ему сто лет."},
+        {"who": "hero", "es": "De quem é essa conta?", "ru": "Чей это счёт?"},
+        {"who": "npc", "es": "Do guarda da torre. Ele sempre paga com essas moedas.", "ru": "Стража башни. Он всегда платит этими монетами."},
+        {"who": "hero", "es": "O homem do casaco cinza é o guarda?", "ru": "Человек в сером пальто — это страж?"},
+        {"who": "npc", "es": "Acho que sim. Olhe a assinatura dele: é igual ao fim da carta do Caio.", "ru": "Думаю, да. Посмотрите на его подпись: точно как приписка в конце письма Каю."},
+        {"who": "hero", "es": "Então o Caio está com o guarda.", "ru": "Значит, Каю у стража."},
+        {"who": "npc", "es": "Eu também acho. Para os guardas, o banco não tem regras.", "ru": "Я тоже так думаю. Для стражей в банке правил нет."}
+      ],
+      "questions": [
+        {"q": "Кто принёс монеты в банк?", "options": ["Веллингтон", "Сеу Тоньо", "Каю"], "answer": 0},
+        {"q": "Сколько лет счёту?", "options": ["Десять", "Пятьдесят", "Сто"], "answer": 2},
+        {"q": "Чей это счёт?", "options": ["Стража башни", "Летописца", "Доны Граса"], "answer": 0},
+        {"q": "Что похоже на подпись стража?", "options": ["Приписка в конце письма Каю", "Надпись на монете", "Подпись управляющего"], "answer": 0}
+      ],
+      "gloss": {"wellington": "Веллингтон (имя)", "igual": "одинаковый, такой же", "moedas": "монеты (moeda)", "casaco": "пальто, куртка", "cinza": "серый", "trouxe": "принёс (trazer)", "papéis": "бумаги (papel)", "paga": "платит (pagar)", "assinatura": "подпись", "regras": "правила (regra)"}
+    }
+  ]
+}

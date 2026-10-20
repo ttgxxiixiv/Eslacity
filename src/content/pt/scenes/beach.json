@@ -1,0 +1,55 @@
+{
+  "location": "beach",
+  "scenes": [
+    {
+      "id": "sc:beach.1",
+      "chapter": 1,
+      "npc": "bruno",
+      "lines": [
+        {"who": "npc", "es": "Que calor! Vamos nadar?", "ru": "Ну и жара! Пойдём купаться?"},
+        {"who": "hero", "es": "Está muito quente.", "ru": "Очень жарко."},
+        {"who": "npc", "es": "Calma. Aqui ninguém tem pressa.", "ru": "Спокойно. Здесь никто не спешит."},
+        {"who": "hero", "es": "Estou procurando um fragmento do mapa. Você tem?", "ru": "Я ищу обрывок карты. У тебя есть?"},
+        {"who": "npc", "es": "Um dia o mar trouxe uma garrafa. Dentro tinha um fragmento do mapa.", "ru": "Однажды море принесло бутылку. В ней был обрывок карты."},
+        {"who": "hero", "es": "Do mar? E de onde ele é?", "ru": "Из моря? А откуда он?"},
+        {"who": "npc", "es": "Ninguém sabe. O mar não fala.", "ru": "Никто не знает. Море не разговаривает."},
+        {"who": "hero", "es": "Você me dá?", "ru": "Отдашь мне?"},
+        {"who": "npc", "es": "Calma, sem pressa. O caminho espera você.", "ru": "Спокойно, не спеши. Дорога тебя подождёт."},
+        {"who": "hero", "es": "O caminho me espera?", "ru": "Дорога меня подождёт?"},
+        {"who": "npc", "es": "O mapa não vai fugir. E agora, para a água!", "ru": "Карта никуда не денется. А сейчас — в воду!"}
+      ],
+      "questions": [
+        {"q": "Что предлагает Бруну?", "options": ["Пойти купаться", "Поиграть в футбол", "Пообедать"], "answer": 0},
+        {"q": "Что принесло море?", "options": ["Бутылку с обрывком карты", "Рыбу", "Лодку"], "answer": 0},
+        {"q": "Откуда обрывок?", "options": ["С башни", "Никто не знает", "Из банка"], "answer": 1},
+        {"q": "Что говорит Бруну о дороге?", "options": ["Она ждёт тебя", "Она опасная", "Её нет"], "answer": 0}
+      ],
+      "gloss": {"pressa": "спешка (ter pressa — спешить)", "procurando": "ищу (procurar)", "fragmento": "обрывок", "trouxe": "принесло (trazer)", "dentro": "внутри", "tinha": "был (ter)", "caminho": "дорога, путь", "fugir": "убежать, деться"}
+    },
+    {
+      "id": "sc:beach.2",
+      "chapter": 2,
+      "npc": "bruno",
+      "lines": [
+        {"who": "npc", "es": "Que calor! Calma, senta aí.", "ru": "Ну и жара! Спокойно, садись."},
+        {"who": "hero", "es": "O que você está olhando?", "ru": "На что ты смотришь?"},
+        {"who": "npc", "es": "A serra. À noite, daqui se vê a torre.", "ru": "На горы. Вечером отсюда видно башню."},
+        {"who": "hero", "es": "Da praia?", "ru": "С пляжа?"},
+        {"who": "npc", "es": "Olha. Lá, em cima. Tem uma luz.", "ru": "Смотри. Вон там, наверху. Там свет."},
+        {"who": "hero", "es": "A luz apaga… e acende de novo.", "ru": "Свет гаснет… и снова загорается."},
+        {"who": "npc", "es": "Toda noite é assim. Três vezes. Como uma palavra.", "ru": "Так каждый вечер. Три раза. Как слово."},
+        {"who": "hero", "es": "Uma palavra?", "ru": "Слово?"},
+        {"who": "npc", "es": "Eu acho que a torre diz: «Vem».", "ru": "Я думаю, башня говорит: «Приходи»."},
+        {"who": "hero", "es": "Como nas cartas.", "ru": "Как в письмах."},
+        {"who": "npc", "es": "Calma, viajante. A torre chama você, mas o mar não tem pressa.", "ru": "Спокойно, путник. Башня тебя зовёт, но море не спешит."}
+      ],
+      "questions": [
+        {"q": "Что видно с пляжа вечером?", "options": ["Башню", "Остров", "Белый город"], "answer": 0},
+        {"q": "Сколько раз загорается свет?", "options": ["Один", "Три", "Десять"], "answer": 1},
+        {"q": "Что, по мнению Бруну, говорит башня?", "options": ["Уходи", "Приходи", "Жди"], "answer": 1},
+        {"q": "На что это похоже?", "options": ["На письма", "На песню", "На маяк для лодок"], "answer": 0}
+      ],
+      "gloss": {"aí": "там, тут (senta aí — садись)", "olhando": "смотришь (olhar)", "vê": "se vê — видно (ver)", "apaga": "гаснет (apagar)", "acende": "загорается (acender)", "pressa": "спешка (ter pressa — спешить)"}
+    }
+  ]
+}

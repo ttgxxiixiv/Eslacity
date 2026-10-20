@@ -1,0 +1,50 @@
+{
+  "location": "hospital",
+  "missions": [
+    {
+      "id": "ms:hospital.1",
+      "chapter": 1,
+      "npc": "fernanda",
+      "scene": "sc:hospital.1",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Boa tarde! Senta aqui. O que aconteceu?", "ru": "Добрый день! Садись сюда. Что случилось?", "next": "what"},
+        "what": {"kind": "answer", "task": "Скажите, что у вас болит голова или сердце.", "branches": [{"phrase": "ph:hospital.minha-cabeca-doi", "next": "head", "sets": {"injury": "head"}}, {"phrase": "ph:hospital.meu-coracao-doi", "next": "heart", "sets": {"injury": "heart"}}], "wrong": {"es": "Não entendi. O que está doendo?", "ru": "Не поняла. Что болит?"}},
+        "head": {"kind": "say", "es": "A cabeça? Deixa eu ver… Olha para a luz.", "ru": "Голова? Дай посмотрю… Посмотри на свет.", "next": "xray"},
+        "heart": {"kind": "say", "es": "O coração? Deixa eu ouvir… Respira fundo.", "ru": "Сердце? Дай послушаю… Глубоко вдохни.", "next": "xray"},
+        "xray": {"kind": "answer", "task": "Спросите, нужен ли вам рентген.", "branches": [{"phrase": "ph:hospital.preciso-de-raio-x", "next": "blood"}], "wrong": {"es": "Preciso de um sorvete? Não, de um médico!", "ru": "Мне нужно мороженое? Нет, тебе нужен врач!"}},
+        "blood": {"kind": "say", "es": "Acho que não. Mas vou fazer mais um exame.", "ru": "Думаю, нет. Но я сделаю ещё одно обследование.", "next": "bloodq"},
+        "bloodq": {"kind": "answer", "task": "Спросите, нужно ли сдать кровь.", "branches": [{"phrase": "ph:hospital.preciso-de-exame-de-sangue", "next": "help"}], "wrong": {"es": "Preciso fazer um bolo? Aqui é hospital!", "ru": "Мне нужно испечь торт? Это больница!"}},
+        "help": {"kind": "say", "es": "Não precisa. Mas olha, aquele senhor caiu! Me ajuda?", "ru": "Не нужно. Но смотри, тот сеньор упал! Поможешь мне?", "next": "helpq"},
+        "helpq": {"kind": "answer", "task": "Крикните, что нужна помощь.", "branches": [{"phrase": "ph:hospital.preciso-de-ajuda", "next": "ambulance"}], "wrong": {"es": "Preciso de um táxi? Não, de ajuda!", "ru": "Мне нужно такси? Нет, помощь!"}},
+        "ambulance": {"kind": "say", "es": "Isso! E ele precisa ir para o outro hospital.", "ru": "Да! И ему нужно в другую больницу.", "next": "ambulanceq"},
+        "ambulanceq": {"kind": "answer", "task": "Скажите: вызовите скорую!", "branches": [{"phrase": "ph:hospital.chama-uma-ambulancia", "next": "better"}], "wrong": {"es": "Chama um gato? Não, uma ambulância!", "ru": "Позвать кота? Нет, скорую!"}},
+        "better": {"kind": "say", "es": "Pronto, ela já vem. E você, como está agora?", "ru": "Всё, она уже едет. А ты как сейчас?", "next": "betterq"},
+        "betterq": {"kind": "answer", "task": "Скажите, что вам уже лучше, и поблагодарите.", "branches": [{"phrase": "ph:hospital.ja-estou-melhor", "next": "end"}], "wrong": {"es": "Já estou com fome? Então vai almoçar!", "ru": "Я уже голоден? Тогда иди обедать!", "fem": {"ru": "Я уже голодна? Тогда иди обедать!"}}},
+        "end": {"kind": "say", "es": "Muito bem. Toma o meu fragmento do mapa. O Cronista diz que você ajuda os vizinhos. Eu estou vendo: hoje você ajudou a sua médica.", "ru": "Хорошо. Возьми мой обрывок карты. Летописец говорит, что ты помогаешь соседям. Я это вижу: сегодня ты помог своему врачу.", "fem": {"ru": "Хорошо. Возьми мой обрывок карты. Летописец говорит, что ты помогаешь соседям. Я это вижу: сегодня ты помогла своему врачу."}}
+      }
+    },
+    {
+      "id": "ms:hospital.2",
+      "chapter": 2,
+      "npc": "fernanda",
+      "scene": "sc:hospital.2",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Boa tarde! Você veio ver o Caio?", "ru": "Добрый день! Ты пришёл к Каю?", "next": "visit", "fem": {"ru": "Добрый день! Ты пришла к Каю?"}},
+        "visit": {"kind": "answer", "task": "Скажите, что пришли навестить друга.", "branches": [{"phrase": "ph:hospital.vim-visitar", "next": "worry"}], "wrong": {"es": "Vim visitar a praia? A praia não fica aqui!", "ru": "Пришёл навестить пляж? Пляж не здесь!", "fem": {"ru": "Пришла навестить пляж? Пляж не здесь!"}}},
+        "worry": {"kind": "say", "es": "Ele está no quarto dois. O pé está muito inchado.", "ru": "Он во второй палате. Нога очень опухла.", "next": "worryq"},
+        "worryq": {"kind": "answer", "task": "Скажите, что беспокоитесь за него.", "branches": [{"phrase": "ph:hospital.estou-preocupado", "next": "diag"}], "wrong": {"es": "Estou com fome? Depois a gente almoça!", "ru": "Я голоден? Потом пообедаем!", "fem": {"ru": "Я голодна? Потом пообедаем!"}}},
+        "diag": {"kind": "say", "es": "Fica calmo. Eu já fiz todos os exames.", "ru": "Не волнуйся. Я уже сделала все обследования.", "next": "diagq", "fem": {"es": "Fica calma. Eu já fiz todos os exames."}},
+        "diagq": {"kind": "answer", "task": "Спросите, какой диагноз.", "branches": [{"phrase": "ph:hospital.qual-e-o-diagnostico", "next": "accident"}], "wrong": {"es": "Qual é o dia? Hoje é sexta, mas e o diagnóstico?", "ru": "Какой день? Сегодня пятница, а диагноз-то?"}},
+        "accident": {"kind": "say", "es": "O pé está quebrado. Ele caiu na escada da torre.", "ru": "Стопа сломана. Он упал на лестнице башни.", "next": "accidentq"},
+        "accidentq": {"kind": "answer", "task": "Скажите, что это был несчастный случай.", "branches": [{"phrase": "ph:hospital.foi-um-acidente", "next": "long"}], "wrong": {"es": "Foi um bolo? Não, foi um acidente!", "ru": "Это был торт? Нет, несчастный случай!"}},
+        "long": {"kind": "say", "es": "Foi, sim. Ninguém teve culpa.", "ru": "Да. Никто не виноват.", "next": "longq"},
+        "longq": {"kind": "answer", "task": "Спросите, долгое ли лечение.", "branches": [{"phrase": "ph:hospital.o-tratamento-e-longo", "next": "home"}], "wrong": {"es": "O tratamento é azul? Não, é longo!", "ru": "Лечение синее? Нет, долгое!"}},
+        "home": {"kind": "say", "es": "Um mês. Mas ele vai ficar bom.", "ru": "Месяц. Но он поправится.", "next": "homeq"},
+        "homeq": {"kind": "answer", "task": "Спросите, когда Каю сможет пойти домой.", "branches": [{"phrase": "ph:hospital.quando-posso-ir-para-casa", "next": "end"}], "wrong": {"es": "Quando eu posso ir para a lua? Nunca!", "ru": "Когда я смогу полететь на луну? Никогда!"}},
+        "end": {"kind": "say", "es": "Amanhã, com muletas. Toma o meu fragmento do mapa da serra. E lembra da terceira pergunta: quem você ajudou. Você sabe isso melhor do que ninguém.", "ru": "Завтра, на костылях. Возьми мой обрывок карты гор. И помни третий вопрос: кому ты помог. Ты знаешь это лучше всех.", "fem": {"ru": "Завтра, на костылях. Возьми мой обрывок карты гор. И помни третий вопрос: кому ты помогла. Ты знаешь это лучше всех."}}
+      }
+    }
+  ]
+}

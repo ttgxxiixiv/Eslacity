@@ -1,0 +1,55 @@
+{
+  "location": "hotel",
+  "scenes": [
+    {
+      "id": "sc:hotel.1",
+      "chapter": 1,
+      "npc": "helena",
+      "lines": [
+        {"who": "npc", "es": "Boa noite. Você tem reserva?", "ru": "Добрый вечер. У тебя есть бронь?"},
+        {"who": "hero", "es": "Tenho. A senhora fala muitas línguas?", "ru": "Есть. Вы говорите на многих языках?"},
+        {"who": "npc", "es": "Cinco. Mas com você, só português: assim você aprende.", "ru": "На пяти. Но с тобой — только по-португальски: так ты научишься."},
+        {"who": "hero", "es": "Ótimo. Tem muitos viajantes na pousada?", "ru": "Отлично. В пусаде много путешественников?"},
+        {"who": "npc", "es": "Hoje tem um homem de uma empresa. Ele quer comprar fragmentos do mapa.", "ru": "Сегодня здесь человек из одной компании. Хочет купить обрывки карты."},
+        {"who": "hero", "es": "A empresa! E ele fala português?", "ru": "Та самая компания! А он говорит по-португальски?"},
+        {"who": "npc", "es": "Não. Ele só fala de dinheiro.", "ru": "Нет. Он говорит только о деньгах."},
+        {"who": "hero", "es": "A senhora tem um fragmento?", "ru": "У вас есть обрывок?"},
+        {"who": "npc", "es": "Tenho. Para ele eu não vendo.", "ru": "Есть. Ему я его не продам."},
+        {"who": "hero", "es": "E para mim?", "ru": "А мне?"},
+        {"who": "npc", "es": "Para você, amanhã. Agora é hora de dormir: já é muito tarde.", "ru": "Тебе — завтра. А сейчас пора спать: уже очень поздно."}
+      ],
+      "questions": [
+        {"q": "На скольких языках говорит Дона Элена?", "options": ["На двух", "На пяти", "На десяти"], "answer": 1},
+        {"q": "На каком языке она говорит с героем?", "options": ["Только по-португальски", "По-английски", "По-русски"], "answer": 0},
+        {"q": "Чего хочет человек из компании?", "options": ["Купить обрывки карты", "Снять номер", "Найти Каю"], "answer": 0},
+        {"q": "Когда Элена отдаст обрывок герою?", "options": ["Сейчас", "Завтра", "Никогда"], "answer": 1}
+      ],
+      "gloss": {"reserva": "бронь", "línguas": "языки (língua)", "português": "португальский язык", "viajantes": "путешественники (viajante)", "pousada": "пусада, гостевой дом", "empresa": "компания", "fragmentos": "обрывки (fragmento)", "fragmento": "обрывок", "vendo": "продаю (vender)"}
+    },
+    {
+      "id": "sc:hotel.2",
+      "chapter": 2,
+      "npc": "helena",
+      "lines": [
+        {"who": "npc", "es": "Boa noite. Hoje todos os quartos estão ocupados.", "ru": "Добрый вечер. Сегодня все номера заняты."},
+        {"who": "hero", "es": "Todos ocupados? Por quê?", "ru": "Все заняты? Почему?"},
+        {"who": "npc", "es": "Muita gente quer ver a luz da torre da varanda.", "ru": "Многие хотят смотреть с веранды на свет башни."},
+        {"who": "hero", "es": "Tenho uma pergunta. A senhora tem uma reserva muito velha?", "ru": "У меня вопрос. У вас есть очень старая бронь?"},
+        {"who": "npc", "es": "Tenho uma. Ela tem cem anos. Quarto sete, no nome de Severino.", "ru": "Есть одна. Ей сто лет. Номер семь, на имя Северину."},
+        {"who": "hero", "es": "Severino! É o guarda.", "ru": "Северину! Это страж."},
+        {"who": "npc", "es": "A pousada nunca cancelou a reserva. É o nosso costume.", "ru": "Пусада так и не отменила бронь. Такой у нас обычай."},
+        {"who": "hero", "es": "E o quarto está livre?", "ru": "И номер свободен?"},
+        {"who": "npc", "es": "Sempre. Todo dia a gente limpa o quarto sete.", "ru": "Всегда. Каждый день мы убираем седьмой номер."},
+        {"who": "hero", "es": "Quando ele descer da torre, ele vai ter onde dormir.", "ru": "Когда он спустится с башни, ему будет где спать."},
+        {"who": "npc", "es": "Espero que sim. Cem anos numa torre é muito tempo.", "ru": "Надеюсь. Сто лет в башне — это долго."}
+      ],
+      "questions": [
+        {"q": "Почему все номера заняты?", "options": ["Все хотят смотреть на свет башни", "Праздник", "Ремонт"], "answer": 0},
+        {"q": "Сколько лет старой брони?", "options": ["Десять", "Пятьдесят", "Сто"], "answer": 2},
+        {"q": "На чьё имя бронь?", "options": ["Каю", "Северину", "Летописца"], "answer": 1},
+        {"q": "Что делают с седьмым номером каждый день?", "options": ["Убирают", "Сдают", "Закрывают"], "answer": 0}
+      ],
+      "gloss": {"severino": "Северину (имя)", "ocupados": "заняты (ocupado)", "pousada": "пусада, гостевой дом", "cancelou": "отменила (cancelar)", "costume": "обычай", "descer": "спустится (descer)", "numa": "в (em + uma)"}
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "location": "airport",
+  "scenes": [
+    {
+      "id": "sc:airport.1",
+      "chapter": 1,
+      "npc": "thiago",
+      "lines": [
+        {"who": "npc", "es": "O seu passaporte, por favor. Para onde você vai?", "ru": "Твой паспорт, пожалуйста. Куда летишь?"},
+        {"who": "hero", "es": "Hoje eu não vou viajar. Estou procurando um fragmento do mapa.", "ru": "Сегодня я никуда не лечу. Я ищу обрывок карты."},
+        {"who": "npc", "es": "Um viajante com mapa! Eu também viajo muito. Olha o meu passaporte.", "ru": "Путешественник с картой! Я тоже много путешествую. Смотри, мой паспорт.", "fem": {"es": "Uma viajante com mapa! Eu também viajo muito. Olha o meu passaporte.", "ru": "Путешественница с картой! Я тоже много путешествую. Смотри, мой паспорт."}},
+        {"who": "hero", "es": "Quantas cidades!", "ru": "Сколько городов!"},
+        {"who": "npc", "es": "Cidades do mundo todo.", "ru": "Города со всего мира."},
+        {"who": "hero", "es": "E o homem da empresa?", "ru": "А человек из компании?"},
+        {"who": "npc", "es": "Voou ontem de manhã. Ninguém vendeu um fragmento para ele.", "ru": "Улетел вчера утром. Никто не продал ему обрывок."},
+        {"who": "hero", "es": "Ótimo!", "ru": "Отлично!"},
+        {"who": "npc", "es": "Do avião eu vi as montanhas. Fora da cidade, o caminho sobe para as montanhas.", "ru": "С самолёта я видел горы. За городом дорога уходит в горы."},
+        {"who": "hero", "es": "E como é o caminho?", "ru": "А какая там дорога?"},
+        {"who": "npc", "es": "Lá faz muito frio. Leva um casaco.", "ru": "Там очень холодно. Возьми куртку."}
+      ],
+      "questions": [
+        {"q": "Куда сегодня летит герой?", "options": ["Никуда", "В Сан-Паулу", "В Лиссабон"], "answer": 0},
+        {"q": "Что показывает Тьягу?", "options": ["Свой паспорт", "Билет", "Карту"], "answer": 0},
+        {"q": "Что случилось с человеком из компании?", "options": ["Улетел, ничего не купив", "Купил обрывок", "Остался в городе"], "answer": 0},
+        {"q": "Что Тьягу видел с самолёта?", "options": ["Море", "Горы и дорогу", "Белый город"], "answer": 1}
+      ],
+      "gloss": {"procurando": "ищу (procurar)", "fragmento": "обрывок", "viajante": "путешественник, путник", "empresa": "компания", "voou": "улетел (voar)", "vendeu": "продал (vender)", "montanhas": "горы (montanha)", "fora": "fora da cidade — за городом", "caminho": "дорога, путь", "sobe": "поднимается (subir)", "faz": "faz frio — холодно", "leva": "возьми (levar)", "casaco": "куртка, пальто"}
+    },
+    {
+      "id": "sc:airport.2",
+      "chapter": 2,
+      "npc": "thiago",
+      "lines": [
+        {"who": "npc", "es": "Viajante! Ontem eu voei em cima da serra. Não tinha neblina.", "ru": "Путник! Вчера я летал над горами. Тумана не было."},
+        {"who": "hero", "es": "E o que você viu?", "ru": "И что ты видел?"},
+        {"who": "npc", "es": "Uma linha de trem velha. Ela sobe até a torre, em cima da pedra.", "ru": "Старую железную дорогу. Она поднимается до самой башни на скале."},
+        {"who": "hero", "es": "O trem de cem anos atrás.", "ru": "Поезд столетней давности."},
+        {"who": "npc", "es": "E depois da torre, o caminho desce. Para a areia.", "ru": "А за башней дорога спускается. К песку."},
+        {"who": "hero", "es": "Areia? O Caio também falou de areia.", "ru": "Песок? Каю тоже говорил о песке."},
+        {"who": "npc", "es": "Um deserto muito grande. E no deserto eu vi uma cidade branca.", "ru": "Очень большая пустыня. А в пустыне я видел белый город."},
+        {"who": "hero", "es": "Uma cidade no deserto?", "ru": "Город в пустыне?"},
+        {"who": "npc", "es": "Eu também achei estranho. Mas hoje eu passei lá de novo, e a cidade não estava mais lá.", "ru": "Я тоже так подумал. Но сегодня я снова пролетал там, а города уже не было."},
+        {"who": "hero", "es": "Como assim, não estava?", "ru": "Как это не было?"},
+        {"who": "npc", "es": "Nada. Só areia. Eu acho que o deserto engana.", "ru": "Ничего. Только песок. По-моему, пустыня обманывает."}
+      ],
+      "questions": [
+        {"q": "Что Тьягу видел над горами?", "options": ["Старую железную дорогу до башни", "Туман", "Лодку"], "answer": 0},
+        {"q": "Что за башней?", "options": ["Море", "Песок и пустыня", "Лес"], "answer": 1},
+        {"q": "Что было в пустыне вчера?", "options": ["Белый город", "Поезд", "Каю"], "answer": 0},
+        {"q": "Что было там сегодня?", "options": ["Тот же город", "Только песок", "Туман"], "answer": 1}
+      ],
+      "gloss": {"viajante": "путешественник, путник", "voei": "летал (voar)", "tinha": "было (ter)", "linha": "линия, путь", "sobe": "поднимается (subir)", "atrás": "назад (anos atrás)", "desce": "спускается (descer)", "deserto": "пустыня", "achei": "подумал (achar)", "passei": "пролетал (passar)", "estava": "был (estar)", "engana": "обманывает (enganar)"}
+    }
+  ]
+}

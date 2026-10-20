@@ -1,0 +1,45 @@
+{
+  "location": "bank",
+  "missions": [
+    {
+      "id": "ms:bank.1",
+      "chapter": 1,
+      "npc": "ricardo",
+      "scene": "sc:bank.1",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Bom dia. O senhor deseja?", "ru": "Доброе утро. Что желаете?", "next": "open", "fem": {"es": "Bom dia. A senhora deseja?"}},
+        "open": {"kind": "answer", "task": "Скажите, что хотите открыть счёт.", "branches": [{"phrase": "ph:bank.quero-abrir-uma-conta", "next": "cash"}], "wrong": {"es": "Quer abrir a janela? Ela já está aberta.", "ru": "Хотите открыть окно? Оно уже открыто."}},
+        "cash": {"kind": "say", "es": "Muito bem. O senhor tem cartão de outro banco?", "ru": "Очень хорошо. У вас есть карта другого банка?", "next": "cashq", "fem": {"es": "Muito bem. A senhora tem cartão de outro banco?"}},
+        "cashq": {"kind": "answer", "task": "Скажите, что у вас только наличные.", "branches": [{"phrase": "ph:bank.so-tenho-dinheiro", "next": "sign"}], "wrong": {"es": "Só tem um gato? Gato não abre conta.", "ru": "Только кошка? Кошки счёт не открывают."}},
+        "sign": {"kind": "say", "es": "Não tem problema. E o que o senhor quer fazer com o dinheiro?", "ru": "Ничего страшного. А что вы хотите сделать с деньгами?", "next": "signq", "fem": {"es": "Não tem problema. E o que a senhora quer fazer com o dinheiro?"}},
+        "signq": {"kind": "answer", "task": "Скажите, что хотите положить деньги на счёт.", "branches": [{"phrase": "ph:bank.quero-depositar", "next": "fee"}], "wrong": {"es": "Quero comer o dinheiro? Isso não!", "ru": "Хотите съесть деньги? Только не это!"}},
+        "fee": {"kind": "say", "es": "Muito bem. Notas ou moedas?", "ru": "Хорошо. Купюры или монеты?", "next": "feeq"},
+        "feeq": {"kind": "answer", "task": "Скажите, что у вас много монет.", "branches": [{"phrase": "ph:bank.tenho-muitas-moedas", "next": "atm"}], "wrong": {"es": "Tenho muitas bananas? Aqui não é feira!", "ru": "У вас много бананов? Это не ярмарка!"}},
+        "atm": {"kind": "say", "es": "Sem problema. Pronto, a conta está aberta.", "ru": "Без проблем. Готово, счёт открыт.", "next": "atmq"},
+        "atmq": {"kind": "answer", "task": "Спросите, где банкомат.", "branches": [{"phrase": "ph:bank.onde-fica-o-caixa-eletronico", "next": "end"}], "wrong": {"es": "Onde fica a praia? Longe do banco, senhor.", "ru": "Где пляж? Далеко от банка, сеньор.", "fem": {"es": "Onde fica a praia? Longe do banco, senhora.", "ru": "Где пляж? Далеко от банка, сеньора."}}},
+        "end": {"kind": "say", "es": "Perto da porta. E aqui está o seu fragmento do mapa. Lembre: o Cofre não abre com chave, abre com palavras.", "ru": "У двери. А вот ваш обрывок карты. Помните: Хранилище открывается не ключом, а словами."}
+      }
+    },
+    {
+      "id": "ms:bank.2",
+      "chapter": 2,
+      "npc": "ricardo",
+      "scene": "sc:bank.2",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Boa tarde. Algum problema com a sua conta?", "ru": "Добрый день. Какая-то проблема со счётом?", "next": "card"},
+        "card": {"kind": "answer", "task": "Скажите, что ваша карта не работает.", "branches": [{"phrase": "ph:bank.o-cartao-nao-funciona", "next": "pin"}], "wrong": {"es": "O meu gato não funciona? Isso não é com o banco.", "ru": "Мой кот не работает? Это не к банку."}},
+        "pin": {"kind": "say", "es": "Não funciona? O senhor digitou a senha certa?", "ru": "Не работает? Вы правильно ввели пин-код?", "next": "pinq", "fem": {"es": "Não funciona? A senhora digitou a senha certa?"}},
+        "pinq": {"kind": "answer", "task": "Скажите, что забыли пин-код.", "branches": [{"phrase": "ph:bank.esqueci-a-senha", "next": "manager"}], "wrong": {"es": "Esqueci o guarda-chuva? Está ali, na porta.", "ru": "Забыли зонт? Он вон там, у двери."}},
+        "manager": {"kind": "say", "es": "Isso acontece. Precisa de ajuda?", "ru": "Такое бывает. Нужна помощь?", "next": "managerq"},
+        "managerq": {"kind": "answer", "task": "Скажите, что хотите поговорить с управляющим.", "branches": [{"phrase": "ph:bank.falo-com-o-gerente", "next": "balance"}], "wrong": {"es": "Quer falar com o padeiro? Ele está na padaria.", "ru": "Хотите поговорить с пекарем? Он в пекарне."}},
+        "balance": {"kind": "say", "es": "O gerente sou eu. O que mais?", "ru": "Управляющий — это я. Что ещё?", "next": "balanceq"},
+        "balanceq": {"kind": "answer", "task": "Спросите, какой у вас остаток на счёте.", "branches": [{"phrase": "ph:bank.qual-e-o-meu-saldo", "next": "withdraw"}], "wrong": {"es": "Qual é o meu sapato? Esse é o seu sapato, senhor.", "ru": "Какая моя туфля? Это ваша туфля, сеньор.", "fem": {"es": "Qual é o meu sapato? Esse é o seu sapato, senhora.", "ru": "Какая моя туфля? Это ваша туфля, сеньора."}}},
+        "withdraw": {"kind": "say", "es": "O seu saldo é de trezentos reais.", "ru": "Остаток — триста реалов.", "next": "withdrawq"},
+        "withdrawq": {"kind": "answer", "task": "Скажите, что вам нужно снять деньги.", "branches": [{"phrase": "ph:bank.preciso-sacar-dinheiro", "next": "end"}], "wrong": {"es": "Precisa de um bolo? Aqui é banco, senhor.", "ru": "Вам нужен торт? Это банк, сеньор.", "fem": {"es": "Precisa de um bolo? Aqui é banco, senhora.", "ru": "Вам нужен торт? Это банк, сеньора."}}},
+        "end": {"kind": "say", "es": "Tudo bem, pronto. E aqui está o meu fragmento do mapa da serra. Lembre: o guarda não recebe dinheiro, ele recebe palavras.", "ru": "Хорошо, готово. А вот мой обрывок карты гор. Помните: стражу платят не деньгами, а словами."}
+      }
+    }
+  ]
+}

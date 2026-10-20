@@ -1,0 +1,55 @@
+{
+  "location": "station",
+  "scenes": [
+    {
+      "id": "sc:station.1",
+      "chapter": 1,
+      "npc": "raimundo",
+      "lines": [
+        {"who": "npc", "es": "O barco para a ilha sai às dez. Não chega tarde!", "ru": "Лодка на остров отходит в десять. Не опаздывай!"},
+        {"who": "hero", "es": "Tem barco para as montanhas?", "ru": "Есть лодка в горы?"},
+        {"who": "npc", "es": "Não. Os barcos vão para as ilhas. Para as montanhas a gente vai a pé.", "ru": "Нет. Лодки ходят на острова. В горы ходят пешком."},
+        {"who": "hero", "es": "E para o Cofre?", "ru": "А в Хранилище?"},
+        {"who": "npc", "es": "Para lá não vai nenhum barco. Nenhum ônibus também.", "ru": "Туда не ходит ни одна лодка. И ни один автобус."},
+        {"who": "hero", "es": "O senhor sabe alguma coisa do mapa?", "ru": "Вы что-нибудь знаете о карте?"},
+        {"who": "npc", "es": "Muitos anos atrás, um homem chegou no barco das sete. Ele escrevia tudo num livro.", "ru": "Много лет назад на лодке в семь приехал один человек. Он всё записывал в книгу."},
+        {"who": "hero", "es": "Quem era?", "ru": "Кто это был?"},
+        {"who": "npc", "es": "O Cronista. Agora ele anda com os viajantes e escreve o caminho deles.", "ru": "Летописец. Теперь он ходит с путешественниками и записывает их путь."},
+        {"who": "hero", "es": "E o seu fragmento do mapa?", "ru": "А ваш обрывок карты?"},
+        {"who": "npc", "es": "Está no meu escritório, com os horários. E não chega tarde!", "ru": "У меня в кабинете, вместе с расписанием. И не опаздывай!"}
+      ],
+      "questions": [
+        {"q": "Куда ходят лодки?", "options": ["На острова", "В горы", "В Хранилище"], "answer": 0},
+        {"q": "Как попадают в горы?", "options": ["На автобусе", "Пешком", "На лодке"], "answer": 1},
+        {"q": "Кто приехал на лодке в семь?", "options": ["Каю", "Летописец", "Страж"], "answer": 1},
+        {"q": "Где обрывок Сеу Раймунду?", "options": ["В кабинете с расписанием", "На лодке", "Дома"], "answer": 0}
+      ],
+      "gloss": {"montanhas": "горы (montanha)", "cofre": "o Cofre — Хранилище", "atrás": "назад (anos atrás)", "escrevia": "записывал (escrever)", "num": "в (em + um)", "era": "был (ser)", "cronista": "летописец", "viajantes": "путешественники (viajante)", "caminho": "путь, дорога", "deles": "их", "fragmento": "обрывок", "escritório": "кабинет, контора", "horários": "расписание (horário)"}
+    },
+    {
+      "id": "sc:station.2",
+      "chapter": 2,
+      "npc": "raimundo",
+      "lines": [
+        {"who": "npc", "es": "É você! O barco sai às dez.", "ru": "Это ты! Лодка в десять."},
+        {"who": "hero", "es": "Hoje eu não vou de barco. Vou a pé até a torre.", "ru": "Сегодня я не еду на лодке. Я иду к башне пешком."},
+        {"who": "npc", "es": "A pé? Cem anos atrás tinha um trem para a torre.", "ru": "Пешком? Сто лет назад к башне ходил поезд."},
+        {"who": "hero", "es": "Um trem para a torre?", "ru": "Поезд к башне?"},
+        {"who": "npc", "es": "Olha esse horário velho: «Trem para a torre, saída às sete».", "ru": "Посмотри на это старое расписание: «Поезд к башне, отправление в семь»."},
+        {"who": "hero", "es": "E o que aconteceu?", "ru": "И что случилось?"},
+        {"who": "npc", "es": "Teve uma tempestade terrível, e o trem não voltou. Fecharam a linha.", "ru": "Была страшная буря, и поезд не вернулся. Линию закрыли."},
+        {"who": "hero", "es": "E os passageiros?", "ru": "А пассажиры?"},
+        {"who": "npc", "es": "Só tinha um passageiro. O homem do casaco cinza.", "ru": "Был всего один пассажир. Человек в сером пальто."},
+        {"who": "hero", "es": "É ele! E agora?", "ru": "Это он! И что теперь?"},
+        {"who": "npc", "es": "Ontem ele veio e pediu uma passagem para o trem das sete. Eu disse que esse trem não passa há cem anos.", "ru": "Вчера пришёл и попросил билет на поезд в семь. Я сказал ему, что этот поезд не ходит уже сто лет."}
+      ],
+      "questions": [
+        {"q": "Как герой идёт к башне?", "options": ["На лодке", "Пешком", "На поезде"], "answer": 1},
+        {"q": "Что было сто лет назад?", "options": ["Поезд к башне", "Аэропорт", "Порт"], "answer": 0},
+        {"q": "Почему закрыли линию?", "options": ["Поезд не вернулся после бури", "Не было пассажиров", "Поезд был старый"], "answer": 0},
+        {"q": "Что попросил вчера человек в сером пальто?", "options": ["Билет на поезд в семь", "Лодку на остров", "Карту"], "answer": 0}
+      ],
+      "gloss": {"tinha": "был (ter)", "saída": "отправление", "teve": "была (ter)", "tempestade": "буря", "terrível": "страшный", "voltou": "вернулся (voltar)", "fecharam": "закрыли (fechar)", "linha": "линия", "casaco": "пальто, куртка", "cinza": "серый", "pediu": "попросил (pedir)", "passa": "ходит (passar)"}
+    }
+  ]
+}

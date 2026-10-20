@@ -1,0 +1,55 @@
+{
+  "location": "gym",
+  "scenes": [
+    {
+      "id": "sc:gym.1",
+      "chapter": 1,
+      "npc": "tati",
+      "lines": [
+        {"who": "npc", "es": "Vamos! Mais dez!", "ru": "Давай! Ещё десять!"},
+        {"who": "hero", "es": "As minhas pernas estão doendo.", "ru": "Ноги болят."},
+        {"who": "npc", "es": "Ótimo! Para a viagem do mapa precisa de pernas fortes.", "ru": "Отлично! Для путешествия по карте нужны сильные ноги."},
+        {"who": "hero", "es": "Você conhece essa viagem?", "ru": "Ты знаешь этот путь?"},
+        {"who": "npc", "es": "A minha mãe foi para as montanhas. Andou dois dias a pé.", "ru": "Моя мама ходила в горы. Два дня шла пешком."},
+        {"who": "hero", "es": "E ela encontrou o Cofre?", "ru": "И нашла Хранилище?"},
+        {"who": "npc", "es": "Não. Lá tem um guarda. Ele faz perguntas sobre cada palavra.", "ru": "Нет. Там стоит страж. Он задаёт вопросы о каждом слове."},
+        {"who": "hero", "es": "E a sua mãe não sabia as respostas?", "ru": "А твоя мама не знала ответов?"},
+        {"who": "npc", "es": "Correr ela corria muito bem. Mas falar… nem tanto.", "ru": "Бегала она отлично. А вот говорила… не очень."},
+        {"who": "hero", "es": "Eu quero correr e falar.", "ru": "А я хочу и бегать, и говорить."},
+        {"who": "npc", "es": "Assim que eu gosto! Mais dez, e em português!", "ru": "Вот это по-нашему! Ещё десять — и по-португальски!"}
+      ],
+      "questions": [
+        {"q": "Что болит у героя?", "options": ["Ноги", "Спина", "Голова"], "answer": 0},
+        {"q": "Сколько дней мама Тати шла в горы?", "options": ["Один", "Два", "Пять"], "answer": 1},
+        {"q": "О чём спрашивает страж?", "options": ["О силе", "О каждом слове", "О документах"], "answer": 1},
+        {"q": "Почему мама Тати не прошла?", "options": ["Плохо бегала", "Плохо говорила", "Заблудилась"], "answer": 1}
+      ],
+      "gloss": {"pernas": "ноги (perna)", "encontrou": "нашла (encontrar)", "montanhas": "горы (montanha)", "andou": "шла (andar)", "cofre": "o Cofre — Хранилище", "guarda": "страж", "sabia": "знала (saber)", "respostas": "ответы (resposta)", "corria": "бегала (correr)", "português": "португальский язык"}
+    },
+    {
+      "id": "sc:gym.2",
+      "chapter": 2,
+      "npc": "tati",
+      "lines": [
+        {"who": "npc", "es": "Vamos! Para subir até a torre, precisa estar em forma.", "ru": "Давай! Чтобы подняться к башне, нужно быть в форме."},
+        {"who": "hero", "es": "É muito difícil subir lá?", "ru": "Туда очень трудно подниматься?"},
+        {"who": "npc", "es": "Lá tem muita escada. O Caio treinava aqui toda semana.", "ru": "Там очень много ступенек. Каю тренировался здесь каждую неделю."},
+        {"who": "hero", "es": "E o homem do casaco cinza? Você conhece?", "ru": "А человек в сером пальто? Ты его знаешь?"},
+        {"who": "npc", "es": "A minha mãe conhece. Muitos anos atrás, numa tempestade, ele desceu a montanha com ela.", "ru": "Моя мама знает. Много лет назад в бурю он снёс её с горы."},
+        {"who": "hero", "es": "Ele ajudou a sua mãe?", "ru": "Он помог твоей маме?"},
+        {"who": "npc", "es": "Ele levou a minha mãe nos braços, muito rápido, como um rapaz.", "ru": "Нёс её на руках, очень быстро, как молодой парень."},
+        {"who": "hero", "es": "Então ele não é mau.", "ru": "Значит, он не злой."},
+        {"who": "npc", "es": "Acho que não. A minha mãe diz que os olhos dele eram muito tristes.", "ru": "Думаю, нет. Мама говорит, что глаза у него были очень грустные."},
+        {"who": "hero", "es": "Eu vou falar com ele.", "ru": "Я с ним поговорю."},
+        {"who": "npc", "es": "Primeiro a escada. Vamos, mais dez!", "ru": "Сначала ступеньки. Давай, ещё десять!"}
+      ],
+      "questions": [
+        {"q": "Где тренировался Каю?", "options": ["В этом спортзале", "На пляже", "В горах"], "answer": 0},
+        {"q": "Что сделал человек в сером пальто для мамы Тати?", "options": ["Снёс её с горы в бурю", "Дал ей карту", "Продал фонарь"], "answer": 0},
+        {"q": "Как он её нёс?", "options": ["Медленно", "Очень быстро, как молодой", "На лошади"], "answer": 1},
+        {"q": "Какие у него были глаза?", "options": ["Злые", "Весёлые", "Очень грустные"], "answer": 2}
+      ],
+      "gloss": {"subir": "подниматься", "forma": "estar em forma — быть в форме", "treinava": "тренировался (treinar)", "casaco": "пальто, куртка", "cinza": "серый", "atrás": "назад (anos atrás)", "numa": "в (em + uma)", "tempestade": "буря", "desceu": "спустился (descer)", "levou": "нёс (levar)", "rapaz": "парень", "mau": "злой, плохой", "eram": "были (ser)"}
+    }
+  ]
+}

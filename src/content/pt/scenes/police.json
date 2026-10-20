@@ -1,0 +1,55 @@
+{
+  "location": "police",
+  "scenes": [
+    {
+      "id": "sc:police.1",
+      "chapter": 1,
+      "npc": "moreira",
+      "lines": [
+        {"who": "npc", "es": "Boa tarde. Em que posso ajudar?", "ru": "Добрый день. Чем могу помочь?"},
+        {"who": "hero", "es": "Estou procurando o fragmento do mapa que fica na delegacia.", "ru": "Я ищу обрывок карты, который хранится в полиции."},
+        {"who": "npc", "es": "Ele está comigo. Mas eu também tenho uma pergunta: que empresa é essa?", "ru": "Он у меня. Но и у меня к вам вопрос: что это за компания?"},
+        {"who": "hero", "es": "Não sei. Ela queria comprar o mapa.", "ru": "Не знаю. Она хотела купить карту."},
+        {"who": "npc", "es": "Essa empresa não é uma empresa de verdade. Era o guarda.", "ru": "Эта компания на самом деле не компания. Это был страж."},
+        {"who": "hero", "es": "O guarda? Para quê?", "ru": "Страж? Зачем?"},
+        {"who": "npc", "es": "Ele queria saber se a cidade vende o mapa. Ninguém vendeu.", "ru": "Он хотел узнать, продаст ли город карту. Никто не продал."},
+        {"who": "hero", "es": "E o homem do hospital?", "ru": "А человек из больницы?"},
+        {"who": "npc", "es": "Ele trabalha para o guarda. Já está melhor.", "ru": "Он работает на стража. Ему уже лучше."},
+        {"who": "hero", "es": "E agora?", "ru": "И что теперь?"},
+        {"who": "npc", "es": "Agora é o senhor. O guarda espera o senhor fora da cidade.", "ru": "А теперь — вы. Страж ждёт вас за городом.", "fem": {"es": "Agora é a senhora. O guarda espera a senhora fora da cidade."}}
+      ],
+      "questions": [
+        {"q": "Где обрывок карты полиции?", "options": ["У делегаду Морейры", "В банке", "У стража"], "answer": 0},
+        {"q": "Кем оказалась компания?", "options": ["Стражем", "Летописцем", "Банком"], "answer": 0},
+        {"q": "Что хотел узнать страж?", "options": ["Продаст ли город карту", "Где Каю", "Сколько стоит обрывок"], "answer": 0},
+        {"q": "Где страж ждёт героя?", "options": ["За городом", "В кафе", "На вокзале"], "answer": 0}
+      ],
+      "gloss": {"procurando": "ищу (procurar)", "fragmento": "обрывок", "delegacia": "полицейский участок", "empresa": "компания", "queria": "хотела (querer)", "era": "был (ser)", "vendeu": "продал (vender)", "fora": "fora da cidade — за городом"}
+    },
+    {
+      "id": "sc:police.2",
+      "chapter": 2,
+      "npc": "moreira",
+      "lines": [
+        {"who": "npc", "es": "Boa tarde. Tenho aqui um caso de cem anos. E hoje eu fecho esse caso.", "ru": "Добрый день. У меня дело столетней давности. И сегодня я его закрываю."},
+        {"who": "hero", "es": "O trem da torre?", "ru": "Поезд к башне?"},
+        {"who": "npc", "es": "Exatamente. O trem, a tempestade e um só passageiro: Severino.", "ru": "Именно. Поезд, буря и один-единственный пассажир: Северину."},
+        {"who": "hero", "es": "O Severino ficou na torre.", "ru": "Северину остался в башне."},
+        {"who": "npc", "es": "Ele ficou para ajudar o velho guarda. Quando o velho guarda partiu, Severino ficou no lugar dele.", "ru": "Он остался помогать старому стражу. Когда старый страж ушёл, Северину занял его место."},
+        {"who": "hero", "es": "E por que ele não desce?", "ru": "А почему он не спускается?"},
+        {"who": "npc", "es": "O guarda só pode descer quando um viajante responde às perguntas dele.", "ru": "Страж может спуститься, только когда какой-нибудь путник ответит на его вопросы."},
+        {"who": "hero", "es": "O Caio não conseguiu.", "ru": "Каю не смог."},
+        {"who": "npc", "es": "Agora é o senhor. Três perguntas, no passado.", "ru": "Теперь вы. Три вопроса, в прошедшем времени.", "fem": {"es": "Agora é a senhora. Três perguntas, no passado."}},
+        {"who": "hero", "es": "E se eu responder, o Severino volta para casa?", "ru": "А если я отвечу, Северину вернётся домой?"},
+        {"who": "npc", "es": "No trem das sete. A passagem dele está com o senhor, não está?", "ru": "Поездом в семь. Его билет ведь у вас, верно?", "fem": {"es": "No trem das sete. A passagem dele está com a senhora, não está?"}}
+      ],
+      "questions": [
+        {"q": "Какое дело закрывает делегаду?", "options": ["Дело о поезде к башне", "Дело о краже", "Дело о компании"], "answer": 0},
+        {"q": "Почему Северину остался в башне?", "options": ["Помогать старому стражу", "Его заперли", "Он заблудился"], "answer": 0},
+        {"q": "Когда страж может спуститься?", "options": ["Когда путник ответит на его вопросы", "Никогда", "Через сто лет"], "answer": 0},
+        {"q": "У кого билет Северину?", "options": ["У героя", "У делегаду", "У Каю"], "answer": 0}
+      ],
+      "gloss": {"severino": "Северину (имя)", "caso": "дело", "exatamente": "именно", "tempestade": "буря", "passageiro": "пассажир", "partiu": "ушёл (partir)", "desce": "спускается (descer)", "descer": "спуститься", "viajante": "путешественник, путник", "responde": "ответит (responder)", "conseguiu": "смог (conseguir)", "passado": "прошедшее время", "responder": "отвечу (responder)"}
+    }
+  ]
+}

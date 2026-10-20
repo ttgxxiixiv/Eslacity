@@ -85,3 +85,11 @@ test('pt: развилка рынка — Дона Граса спрашивае
   await playScene(page, sc, { basket: 'potatoes' });
   expect(sc.lines.some((l) => l.if?.is === 'potatoes' && l.es.includes('minhas batatas'))).toBe(true);
 });
+
+test('pt: развилка больницы — доктор Фернанда сравнивает перелом Каю с бедой героя', async ({ page }) => {
+  await openCourse(page, 'pt');
+  await playMission(page, 'ms:hospital.1', { 'Скажите, что у вас болит голова или сердце.': 1 });
+  const sc = scenes.find((s) => s.id === 'sc:hospital.2')!;
+  await playScene(page, sc, { injury: 'heart' });
+  expect(sc.lines.some((l) => l.if?.is === 'heart' && l.es.includes('o seu coração'))).toBe(true);
+});

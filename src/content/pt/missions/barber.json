@@ -1,0 +1,45 @@
+{
+  "location": "barber",
+  "missions": [
+    {
+      "id": "ms:barber.1",
+      "chapter": 1,
+      "npc": "zecarlos",
+      "scene": "sc:barber.1",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Oi! Que bom te ver. O que vai ser hoje?", "ru": "Привет! Рад тебя видеть. Что сегодня?", "next": "cut"},
+        "cut": {"kind": "answer", "task": "Попросите только стрижку.", "branches": [{"phrase": "ph:barber.so-o-corte", "next": "short"}], "wrong": {"es": "Só o café? Café é com o Seu Tonho!", "ru": "Только кофе? Кофе — это к Сеу Тоньо!"}},
+        "short": {"kind": "say", "es": "Corte, muito bem. Como você quer?", "ru": "Стрижка, хорошо. Как хочешь?", "next": "shortq"},
+        "shortq": {"kind": "answer", "task": "Попросите подстричь коротко.", "branches": [{"phrase": "ph:barber.curto-por-favor", "next": "beard"}], "wrong": {"es": "Azul, por favor? Cabelo azul? Hoje não!", "ru": "Синие, пожалуйста? Синие волосы? Сегодня нет!"}},
+        "beard": {"kind": "say", "es": "Curto. E essa barba aí?", "ru": "Коротко. А эта борода?", "next": "beardq"},
+        "beardq": {"kind": "answer", "task": "Спросите, подстрижёт ли он и бороду.", "branches": [{"phrase": "ph:barber.corta-a-barba-tambem", "next": "mirror"}], "wrong": {"es": "Você corta o pão também? Eu corto cabelo, não pão!", "ru": "Ты и хлеб режешь? Я стригу волосы, а не хлеб!"}},
+        "mirror": {"kind": "say", "es": "Corto, claro. Pronto!", "ru": "Подстригу, конечно. Готово!", "next": "mirrorq"},
+        "mirrorq": {"kind": "answer", "task": "Попросите дать посмотреть в зеркало.", "branches": [{"phrase": "ph:barber.olha-no-espelho", "next": "joke"}], "wrong": {"es": "Deixa eu olhar no mar? O mar fica na praia!", "ru": "Дай посмотреть в море? Море на пляже!"}},
+        "joke": {"kind": "say", "es": "E aí, gostou?", "ru": "Ну как, нравится?", "next": "jokeq"},
+        "jokeq": {"kind": "answer", "task": "Попросите его рассказать анекдот.", "branches": [{"phrase": "ph:barber.conta-uma-piada", "next": "end"}], "wrong": {"es": "Conta o dinheiro? Primeiro a piada!", "ru": "Пересчитать деньги? Сначала анекдот!"}},
+        "end": {"kind": "say", "es": "Sabe por que o mar é salgado? Porque ninguém põe açúcar! E atrás do espelho… um fragmento do mapa. Toma, é seu.", "ru": "Знаешь, почему море солёное? Потому что никто не кладёт туда сахар! А за зеркалом… обрывок карты. Держи, он твой."}
+      }
+    },
+    {
+      "id": "ms:barber.2",
+      "chapter": 2,
+      "npc": "zecarlos",
+      "scene": "sc:barber.2",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "O de sempre, campeão?", "ru": "Как обычно, чемпион?", "next": "tips", "fem": {"es": "O de sempre, campeã?", "ru": "Как обычно, чемпионка?"}},
+        "tips": {"kind": "answer", "task": "Попросите подровнять только кончики.", "branches": [{"phrase": "ph:barber.so-as-pontas", "next": "shave"}], "wrong": {"es": "Só as pedras? Aqui é barbearia, não é serra!", "ru": "Только камни? Это парикмахерская, а не горы!"}},
+        "shave": {"kind": "say", "es": "Só as pontas. E a barba?", "ru": "Только кончики. А борода?", "next": "shaveq"},
+        "shaveq": {"kind": "answer", "task": "Скажите, что хотите побриться.", "branches": [{"phrase": "ph:barber.quero-fazer-a-barba", "next": "dry"}], "wrong": {"es": "Quero fazer um bolo? Bolo é com a Dona Dita!", "ru": "Хочу испечь торт? Торт — это к Доне Дите!"}},
+        "dry": {"kind": "say", "es": "Fazer a barba, como o homem de ontem. E o cabelo, como está?", "ru": "Побриться, как вчерашний клиент. А волосы как?", "next": "dryq"},
+        "dryq": {"kind": "answer", "task": "Скажите, что у вас очень сухие волосы.", "branches": [{"phrase": "ph:barber.meu-cabelo-esta-seco", "next": "news"}], "wrong": {"es": "Meu cabelo está cantando? Não, ele está seco!", "ru": "Мои волосы поют? Нет, они сухие!"}},
+        "news": {"kind": "say", "es": "É o sol da praia. Tenho um xampu bom.", "ru": "Это пляжное солнце. У меня есть хороший шампунь.", "next": "newsq"},
+        "newsq": {"kind": "answer", "task": "Спросите, что нового в районе.", "branches": [{"phrase": "ph:barber.alguma-novidade", "next": "book"}], "wrong": {"es": "Alguma banana no bairro? Na feira tem muitas!", "ru": "Бананы в районе? На ярмарке их полно!"}},
+        "book": {"kind": "say", "es": "Novidade? O homem do casaco cinza voltou ontem. Ele vai voltar amanhã.", "ru": "Новости? Вчера снова приходил человек в сером пальто. Завтра опять придёт.", "next": "bookq"},
+        "bookq": {"kind": "answer", "task": "Скажите, что хотите записаться на завтра.", "branches": [{"phrase": "ph:barber.quero-marcar", "next": "end"}], "wrong": {"es": "Quero marcar um gol? Aqui não é campo de futebol!", "ru": "Хочу забить гол? Здесь не футбольное поле!"}},
+        "end": {"kind": "say", "es": "Amanhã? Amanhã você vai estar na serra. Volta quando chegar. Toma o meu fragmento do mapa da serra. Se você vir o homem do casaco cinza, diz as palavras da minha mãe. Talvez ele sorria.", "ru": "Завтра? Завтра ты будешь в горах. Приходи, когда вернёшься. Держи мой обрывок карты гор. Если увидишь человека в сером пальто, скажи ему мамины слова. Может, он улыбнётся."}
+      }
+    }
+  ]
+}

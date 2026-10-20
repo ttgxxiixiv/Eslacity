@@ -1,0 +1,49 @@
+{
+  "location": "office",
+  "missions": [
+    {
+      "id": "ms:office.1",
+      "chapter": 1,
+      "npc": "patricia",
+      "scene": "sc:office.1",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Oi! Que bom que você veio. Hoje o escritório está uma loucura. Me ajuda?", "ru": "Привет! Как хорошо, что ты пришёл. Сегодня в конторе сумасшедший дом. Поможешь?", "next": "boss", "fem": {"ru": "Привет! Как хорошо, что ты пришла. Сегодня в конторе сумасшедший дом. Поможешь?"}},
+        "boss": {"kind": "answer", "task": "Спросите, где начальник.", "branches": [{"phrase": "ph:office.onde-esta-o-chefe", "next": "printer"}], "wrong": {"es": "Onde está o mar? Lá fora, mas aqui é escritório!", "ru": "Где море? Снаружи, а здесь контора!"}},
+        "printer": {"kind": "say", "es": "O chefe está de férias. E a impressora…", "ru": "Начальник в отпуске. А принтер…", "next": "printerq"},
+        "printerq": {"kind": "answer", "task": "Скажите, что принтер не работает.", "branches": [{"phrase": "ph:office.a-impressora-nao-funciona", "next": "papers"}], "wrong": {"es": "A impressora está dançando? Não, ela está quebrada!", "ru": "Принтер танцует? Нет, он сломан!"}},
+        "papers": {"kind": "say", "es": "De novo! E onde estão os papéis da reunião?", "ru": "Опять! А где бумаги для совещания?", "next": "papersq"},
+        "papersq": {"kind": "answer", "task": "Скажите, что бумаги в синей папке.", "branches": [{"phrase": "ph:office.a-pasta-azul", "next": "email"}], "wrong": {"es": "Os papéis estão no mar? Não, estão na mesa!", "ru": "Бумаги в море? Нет, на столе!"}},
+        "email": {"kind": "say", "es": "Ótimo. Você recebeu o meu e-mail?", "ru": "Отлично. Ты получил моё письмо?", "next": "emailq", "fem": {"ru": "Отлично. Ты получила моё письмо?"}},
+        "emailq": {"kind": "answer", "task": "Скажите, что получили её письмо.", "branches": [{"phrase": "ph:office.recebi-o-email", "next": "phone"}], "wrong": {"es": "Recebi o seu gato? Não, o e-mail!", "ru": "Я получил твою кошку? Нет, письмо!", "fem": {"ru": "Я получила твою кошку? Нет, письмо!"}}},
+        "phone": {"kind": "say", "es": "Que bom. Ih, o telefone! É para você.", "ru": "Отлично. Ой, телефон! Это тебя.", "next": "phoneq"},
+        "phoneq": {"kind": "answer", "task": "Скажите в трубку, что сейчас очень заняты.", "branches": [{"phrase": "ph:office.estou-muito-ocupado", "next": "later"}], "wrong": {"es": "Estou muito feliz? Que bom, mas atende!", "ru": "Я очень счастлив? Хорошо, но ответь!", "fem": {"ru": "Я очень счастлива? Хорошо, но ответь!"}}},
+        "later": {"kind": "say", "es": "E o que mais você diz?", "ru": "А что ещё скажешь?", "next": "laterq"},
+        "laterq": {"kind": "answer", "task": "Скажите, что перезвоните позже.", "branches": [{"phrase": "ph:office.ligo-depois", "next": "end"}], "wrong": {"es": "Ligo para a lua? Lá não tem telefone!", "ru": "Позвоню на луну? Там нет телефона!"}},
+        "end": {"kind": "say", "es": "Assim que eu gosto. Obrigada pela ajuda. Toma o fragmento do mapa: o mapa não se vende, ele é de quem ajuda. E essa carta com «Vem»… alguém está chamando a gente.", "ru": "Вот это по-нашему. Спасибо за помощь. Держи обрывок карты: карту не продают, её отдают тому, кто помогает. А это письмо с «Приходи»… кто-то нас зовёт."}
+      }
+    },
+    {
+      "id": "ms:office.2",
+      "chapter": 2,
+      "npc": "patricia",
+      "scene": "sc:office.2",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Hoje eu preciso preparar um relatório sobre o trem da torre. Me ajuda?", "ru": "Сегодня мне нужно подготовить отчёт о поезде к башне. Поможешь?", "next": "start"},
+        "start": {"kind": "answer", "task": "Предложите начать.", "branches": [{"phrase": "ph:office.vamos-comecar", "next": "phone"}], "wrong": {"es": "Vamos dormir? Agora não, temos trabalho!", "ru": "Поспим? Не сейчас, у нас работа!"}},
+        "phone": {"kind": "say", "es": "Vamos. Ih, o telefone de novo.", "ru": "Начнём. Ой, опять телефон.", "next": "phoneq"},
+        "phoneq": {"kind": "answer", "task": "Попросите её ответить на звонок.", "branches": [{"phrase": "ph:office.pode-atender", "next": "call"}], "wrong": {"es": "Pode atender a porta? Ninguém bateu!", "ru": "Можешь открыть дверь? Никто не стучал!"}},
+        "call": {"kind": "say", "es": "Alô? … É para você.", "ru": "Алло? … Это тебя.", "next": "callq"},
+        "callq": {"kind": "answer", "task": "Скажите, что вам надо закончить проект.", "branches": [{"phrase": "ph:office.preciso-terminar", "next": "report"}], "wrong": {"es": "Preciso de um sorvete? Depois do trabalho!", "ru": "Мне нужно мороженое? После работы!"}},
+        "report": {"kind": "say", "es": "Muito bem. E o relatório, como está?", "ru": "Отлично. А отчёт как?", "next": "reportq"},
+        "reportq": {"kind": "answer", "task": "Скажите, что отчёт готов.", "branches": [{"phrase": "ph:office.o-relatorio-esta-pronto", "next": "coffee"}], "wrong": {"es": "O relatório está com fome? Não, ele está pronto!", "ru": "Отчёт голодный? Нет, он готов!"}},
+        "coffee": {"kind": "say", "es": "Pronto! Você trabalha bem. E agora?", "ru": "Готов! Ты хорошо работаешь. А теперь?", "next": "coffeeq"},
+        "coffeeq": {"kind": "answer", "task": "Предложите выпить кофе.", "branches": [{"phrase": "ph:office.vamos-tomar-um-cafezinho", "next": "resp"}], "wrong": {"es": "Vamos tomar banho? No escritório, não!", "ru": "Пойдём в душ? Только не в конторе!"}},
+        "resp": {"kind": "say", "es": "Com certeza! Mas esse trabalho é sério…", "ru": "Конечно! Но эта работа серьёзная…", "next": "respq"},
+        "respq": {"kind": "answer", "task": "Скажите, что это большая ответственность.", "branches": [{"phrase": "ph:office.e-muita-responsabilidade", "next": "end"}], "wrong": {"es": "É muita banana? Não, é muito trabalho!", "ru": "Много бананов? Нет, много работы!"}},
+        "end": {"kind": "say", "es": "É verdade. Toma o meu fragmento do mapa da serra. E o relatório sobre o trem: entrega para o Severino. Ele precisa saber que a cidade lembra dele.", "ru": "Правда. Держи мой обрывок карты гор. И отчёт о поезде: отдай его Северину. Пусть знает, что город его помнит."}
+      }
+    }
+  ]
+}

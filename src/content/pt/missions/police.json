@@ -1,0 +1,45 @@
+{
+  "location": "police",
+  "missions": [
+    {
+      "id": "ms:police.1",
+      "chapter": 1,
+      "npc": "moreira",
+      "scene": "sc:police.1",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Boa tarde. Calma, calma. O que foi?", "ru": "Добрый день. Спокойно, спокойно. Что случилось?", "next": "thief"},
+        "thief": {"kind": "answer", "task": "Позовите на помощь: вор!", "branches": [{"phrase": "ph:police.socorro-ladrao", "next": "where"}], "wrong": {"es": "Socorro, um sorvete? Isso não é crime!", "ru": "Помогите, мороженое? Это не преступление!"}},
+        "where": {"kind": "say", "es": "Um ladrão! Onde?", "ru": "Вор! Где?", "next": "whereq"},
+        "whereq": {"kind": "answer", "task": "Скажите, что у вас украли сумку.", "branches": [{"phrase": "ph:police.roubaram-a-minha-bolsa", "next": "lost"}], "wrong": {"es": "Roubaram a lua? Ela ainda está no céu!", "ru": "Украли луну? Она ещё на небе!"}},
+        "lost": {"kind": "say", "es": "A bolsa. E o senhor sabe onde está agora?", "ru": "Сумку. А вы знаете, где сейчас находитесь?", "next": "lostq", "fem": {"es": "A bolsa. E a senhora sabe onde está agora?"}},
+        "lostq": {"kind": "answer", "task": "Скажите, что заблудились.", "branches": [{"phrase": "ph:police.estou-perdido", "next": "help"}], "wrong": {"es": "Estou com sono? Primeiro a bolsa!", "ru": "Я хочу спать? Сначала сумка!"}},
+        "help": {"kind": "say", "es": "Não tem problema. A delegacia é aqui. Do que o senhor precisa?", "ru": "Ничего страшного. Участок здесь. Что вам нужно?", "next": "helpq", "fem": {"es": "Não tem problema. A delegacia é aqui. Do que a senhora precisa?"}},
+        "helpq": {"kind": "answer", "task": "Скажите, что вам нужна помощь.", "branches": [{"phrase": "ph:police.preciso-de-ajuda", "next": "problem"}], "wrong": {"es": "Preciso de um bolo? A padaria é na outra rua.", "ru": "Вам нужен торт? Пекарня на соседней улице."}},
+        "problem": {"kind": "say", "es": "Estou aqui para isso. Mais alguma coisa?", "ru": "Я здесь для этого. Что-нибудь ещё?", "next": "problemq"},
+        "problemq": {"kind": "answer", "task": "Спросите, в чём проблема.", "branches": [{"phrase": "ph:police.qual-e-o-problema", "next": "end"}], "wrong": {"es": "Qual é a sua cor? Isso não importa.", "ru": "Какого вы цвета? Это неважно."}},
+        "end": {"kind": "say", "es": "Problema nenhum: a sua bolsa já está aqui, o ladrão era um menino. E aqui está o fragmento do mapa. O guarda espera o senhor fora da cidade, viajante.", "ru": "Никакой проблемы: ваша сумка уже здесь, вором был мальчишка. А вот обрывок карты. Страж ждёт вас за городом, путник.", "fem": {"es": "Problema nenhum: a sua bolsa já está aqui, o ladrão era um menino. E aqui está o fragmento do mapa. O guarda espera a senhora fora da cidade, viajante."}}
+      }
+    },
+    {
+      "id": "ms:police.2",
+      "chapter": 2,
+      "npc": "moreira",
+      "scene": "sc:police.2",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Boa tarde. O senhor está nervoso. O que houve?", "ru": "Добрый день. Вы взволнованы. Что произошло?", "next": "saw", "fem": {"es": "Boa tarde. A senhora está nervosa. O que houve?"}},
+        "saw": {"kind": "answer", "task": "Скажите, что видели подозрительного человека.", "branches": [{"phrase": "ph:police.vi-um-homem-suspeito", "next": "happened"}], "wrong": {"es": "Vi um gato suspeito? Gato não é crime.", "ru": "Видели подозрительного кота? Кот — не преступление."}},
+        "happened": {"kind": "say", "es": "Suspeito? Ele estava de carro?", "ru": "Подозрительного? Он был на машине?", "next": "happenedq"},
+        "happenedq": {"kind": "answer", "task": "Скажите, что видели номер машины.", "branches": [{"phrase": "ph:police.anotei-a-placa", "next": "describe"}], "wrong": {"es": "Viu um bolo? Isso não ajuda!", "ru": "Видели торт? Это не поможет!"}},
+        "describe": {"kind": "say", "es": "Muito bem. O senhor pode me dizer como ele é?", "ru": "Очень хорошо. Вы можете сказать, как он выглядит?", "next": "describeq", "fem": {"es": "Muito bem. A senhora pode me dizer como ele é?"}},
+        "describeq": {"kind": "answer", "task": "Скажите, что можете описать этого человека.", "branches": [{"phrase": "ph:police.posso-descrever", "next": "ran"}], "wrong": {"es": "Posso dançar? Agora não!", "ru": "Можно потанцевать? Не сейчас!"}},
+        "ran": {"kind": "say", "es": "Ótimo. Alto, casaco cinza, barba. E para onde ele foi?", "ru": "Отлично. Высокий, серое пальто, борода. А куда он пошёл?", "next": "ranq"},
+        "ranq": {"kind": "answer", "task": "Скажите, что он убежал по улице.", "branches": [{"phrase": "ph:police.ele-fugiu-pela-rua", "next": "mystery"}], "wrong": {"es": "Ele fugiu pelo céu? Ele não é passarinho!", "ru": "Он улетел по небу? Он же не птичка!"}},
+        "mystery": {"kind": "say", "es": "Pela rua do porto… Hum. Eu conheço esse homem.", "ru": "По улице к порту… Хм. Я знаю этого человека.", "next": "mysteryq"},
+        "mysteryq": {"kind": "answer", "task": "Скажите: какая загадка!", "branches": [{"phrase": "ph:police.que-misterio", "next": "end"}], "wrong": {"es": "Que mistura? Não, que mistério!", "ru": "Какая смесь? Нет, какая загадка!"}},
+        "end": {"kind": "say", "es": "Mistério nenhum. Ele não é suspeito. É o Severino, ele está lendo o horário do trem das sete. Tome o meu fragmento do mapa da serra. Suba, responda e traga o Severino para casa.", "ru": "Никакой загадки. Он не подозрительный. Это Северину, он читает расписание поезда в семь. Возьмите мой обрывок карты гор. Поднимитесь, ответьте и верните Северину домой."}
+      }
+    }
+  ]
+}

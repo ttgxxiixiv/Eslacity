@@ -1,0 +1,55 @@
+{
+  "location": "office",
+  "scenes": [
+    {
+      "id": "sc:office.1",
+      "chapter": 1,
+      "npc": "patricia",
+      "lines": [
+        {"who": "npc", "es": "Bom dia. Eu tenho uma reunião em cinco minutos.", "ru": "Доброе утро. У меня совещание через пять минут."},
+        {"who": "hero", "es": "Só uma pergunta: você tem um fragmento do mapa?", "ru": "Только один вопрос: у тебя есть обрывок карты?"},
+        {"who": "npc", "es": "Tenho. E uma empresa quer comprar o fragmento.", "ru": "Есть. И одна компания хочет его купить."},
+        {"who": "hero", "es": "Comprar o mapa?", "ru": "Купить карту?"},
+        {"who": "npc", "es": "Eles querem todos os fragmentos. Pagam muito dinheiro.", "ru": "Им нужны все обрывки. Платят большие деньги."},
+        {"who": "hero", "es": "E o que você responde?", "ru": "А ты что отвечаешь?"},
+        {"who": "npc", "es": "Eu digo «não». O mapa não está à venda: ele é para quem fala.", "ru": "Говорю «нет». Карта не продаётся: она для того, кто говорит."},
+        {"who": "hero", "es": "Que empresa é essa?", "ru": "Что это за компания?"},
+        {"who": "npc", "es": "Não sei. Eles só mandam cartas. E ontem eu recebi uma carta com uma palavra: «Vem».", "ru": "Не знаю. Они только присылают письма. А вчера мне пришло письмо из одного слова: «Приходи»."},
+        {"who": "hero", "es": "Eu também tenho uma carta assim!", "ru": "У меня тоже есть такое письмо!"},
+        {"who": "npc", "es": "Interessante… Amanhã a gente conversa. Agora, reunião!", "ru": "Интересно… Завтра поговорим. А сейчас — совещание!"}
+      ],
+      "questions": [
+        {"q": "Что есть у Патрисии?", "options": ["Обрывок карты", "Старая газета", "Ключ"], "answer": 0},
+        {"q": "Чего хочет компания?", "options": ["Купить все обрывки", "Нанять героя", "Открыть кафе"], "answer": 0},
+        {"q": "Что отвечает Патрисия?", "options": ["Да", "Нет", "Подумаю"], "answer": 1},
+        {"q": "Какое письмо она получила вчера?", "options": ["Из одного слова: «Приходи»", "Счёт", "Приглашение на работу"], "answer": 0}
+      ],
+      "gloss": {"fragmento": "обрывок", "fragmentos": "обрывки (fragmento)", "pagam": "платят (pagar)", "venda": "продажа (à venda — в продаже)", "interessante": "интересно", "conversa": "поговорим (conversar)"}
+    },
+    {
+      "id": "sc:office.2",
+      "chapter": 2,
+      "npc": "patricia",
+      "lines": [
+        {"who": "npc", "es": "Bom dia. Hoje eu trabalho à noite, mas estava esperando você.", "ru": "Доброе утро. У меня сегодня ночная смена, но я тебя ждала."},
+        {"who": "hero", "es": "O que aconteceu?", "ru": "Что случилось?"},
+        {"who": "npc", "es": "Eu olhei os papéis velhos da empresa. Olha esse jornal velho.", "ru": "Я просмотрела старые бумаги компании. Посмотри на эту старую газету."},
+        {"who": "hero", "es": "De que ano ele é?", "ru": "Какого она года?"},
+        {"who": "npc", "es": "Ele tem cem anos. Fala da tempestade e do trem da torre.", "ru": "Ей сто лет. Там про бурю и поезд к башне."},
+        {"who": "hero", "es": "O que está escrito?", "ru": "Что там написано?"},
+        {"who": "npc", "es": "«O jovem viajante Severino fica na torre. Ele quer ajudar o guarda».", "ru": "«Молодой путешественник Северину остаётся в башне. Он хочет помочь стражу»."},
+        {"who": "hero", "es": "Severino? O homem do casaco cinza?", "ru": "Северину? Человек в сером пальто?"},
+        {"who": "npc", "es": "Olha a foto. É ele. Igualzinho.", "ru": "Посмотри на фото. Это он. Ничуть не изменился."},
+        {"who": "hero", "es": "Então o guarda também foi viajante, como eu.", "ru": "Значит, страж тоже был путешественником, как я.", "fem": {"ru": "Значит, страж тоже был путешественником, как и я."}},
+        {"who": "npc", "es": "E ele está lá em cima há cem anos. É tempo demais.", "ru": "И он уже сто лет там, наверху. Это слишком долго."}
+      ],
+      "questions": [
+        {"q": "Что нашла Патрисия?", "options": ["Старую газету", "Обрывок карты", "Билет"], "answer": 0},
+        {"q": "Сколько лет газете?", "options": ["Десять", "Пятьдесят", "Сто"], "answer": 2},
+        {"q": "Как зовут молодого путешественника из газеты?", "options": ["Каю", "Северину", "Эдсон"], "answer": 1},
+        {"q": "Что он хотел сделать?", "options": ["Помочь стражу", "Найти Хранилище", "Продать карту"], "answer": 0}
+      ],
+      "gloss": {"estava": "была (estar)", "esperando": "ждала (esperar)", "olhei": "просмотрела (olhar)", "tempestade": "буря", "escrito": "написано (escrever)", "jovem": "молодой", "severino": "Северину (имя)", "viajante": "путешественник, путник", "casaco": "пальто, куртка", "cinza": "серый", "igualzinho": "точь-в-точь такой же"}
+    }
+  ]
+}
