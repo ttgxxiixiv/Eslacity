@@ -5,10 +5,11 @@ import { PT_VERBS } from './verbs';
 /**
  * Слияния предлога с артиклем, которые в португальском обязательны: «de o» пишется do, «em a» — na, «por os» — pelos,
  * «a a» — à. Раздельное написание в тексте курса — ошибка (кроме редкого «de o» перед инфинитивом, его в курсе нет).
+ * С неопределённым артиклем слияние необязательно: в бразильском письме обычны и «de uma», «em um», и «numa».
  */
 const MERGE: [RegExp, (art: string) => string][] = [
-  [/\bde (o|a|os|as|um|uma|uns|umas)\b/giu, (a) => 'd' + a],
-  [/\bem (o|a|os|as|um|uma|uns|umas)\b/giu, (a) => 'n' + a],
+  [/\bde (o|a|os|as)\b/giu, (a) => 'd' + a],
+  [/\bem (o|a|os|as)\b/giu, (a) => 'n' + a],
   [/\bpor (o|a|os|as)\b/giu, (a) => 'pel' + a],
   [/(?<![\p{L}])a (o|os)\b/giu, (a) => 'a' + a],
   [/(?<![\p{L}])a (a|as)\b/giu, (a) => 'à' + a.slice(1)],
