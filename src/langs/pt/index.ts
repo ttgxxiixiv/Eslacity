@@ -7,12 +7,13 @@ import { PT_VERBS } from './verbs';
  * «a a» — à. Раздельное написание в тексте курса — ошибка (кроме редкого «de o» перед инфинитивом, его в курсе нет).
  * С неопределённым артиклем слияние необязательно: в бразильском письме обычны и «de uma», «em um», и «numa».
  */
+// Границы слова — через \p{L}, а не \b: \b знает только латиницу без знаков, и «de açúcar» читалось бы как «de a».
 const MERGE: [RegExp, (art: string) => string][] = [
-  [/\bde (o|a|os|as)\b/giu, (a) => 'd' + a],
-  [/\bem (o|a|os|as)\b/giu, (a) => 'n' + a],
-  [/\bpor (o|a|os|as)\b/giu, (a) => 'pel' + a],
-  [/(?<![\p{L}])a (o|os)\b/giu, (a) => 'a' + a],
-  [/(?<![\p{L}])a (a|as)\b/giu, (a) => 'à' + a.slice(1)],
+  [/(?<!\p{L})de (o|a|os|as)(?!\p{L})/giu, (a) => 'd' + a],
+  [/(?<!\p{L})em (o|a|os|as)(?!\p{L})/giu, (a) => 'n' + a],
+  [/(?<!\p{L})por (o|a|os|as)(?!\p{L})/giu, (a) => 'pel' + a],
+  [/(?<!\p{L})a (o|os)(?!\p{L})/giu, (a) => 'a' + a],
+  [/(?<!\p{L})a (a|as)(?!\p{L})/giu, (a) => 'à' + a.slice(1)],
 ];
 
 function mergeIssues(text: string): string[] {

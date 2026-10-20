@@ -1,0 +1,47 @@
+{
+  "location": "post",
+  "missions": [
+    {
+      "id": "ms:post.1",
+      "chapter": 1,
+      "npc": "edson",
+      "scene": "sc:post.1",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Oi! Correio aberto, mas eu estou com pressa. O que você quer?", "ru": "Привет! Почта открыта, но я спешу. Что тебе нужно?", "next": "send"},
+        "send": {"kind": "answer", "task": "Скажите, что хотите отправить письмо.", "branches": [{"phrase": "ph:post.quero-mandar-uma-carta", "next": "stamp"}], "wrong": {"es": "Quer mandar um gato? Gato não vai pelo correio!", "ru": "Хочешь отправить кошку? Кошек по почте не отправляют!"}},
+        "stamp": {"kind": "say", "es": "Muito bem. E o que precisa para a carta?", "ru": "Хорошо. А что нужно для письма?", "next": "stampq"},
+        "stampq": {"kind": "answer", "task": "Попросите марку для этого письма.", "branches": [{"phrase": "ph:post.um-selo", "next": "env"}], "wrong": {"es": "Um sorvete para a carta? Não, não!", "ru": "Мороженое для письма? Нет-нет!"}},
+        "env": {"kind": "say", "es": "Toma o selo. E a carta está sem envelope!", "ru": "Держи марку. А письмо-то без конверта!", "next": "envq"},
+        "envq": {"kind": "answer", "task": "Спросите, есть ли конверты.", "branches": [{"phrase": "ph:post.tem-envelope", "next": "addr"}], "wrong": {"es": "Tem bicicleta? Tem, mas é minha!", "ru": "Есть велосипед? Есть, но он мой!"}},
+        "addr": {"kind": "say", "es": "Tem, sim. Agora escreve o endereço.", "ru": "Есть. Теперь напиши адрес.", "next": "addrq"},
+        "addrq": {"kind": "answer", "task": "Спросите, какой адрес.", "branches": [{"phrase": "ph:post.qual-e-o-endereco", "next": "received"}], "wrong": {"es": "Qual é a cor? A carta é branca, mas e o endereço?", "ru": "Какой цвет? Письмо белое, а адрес-то?"}},
+        "received": {"kind": "say", "es": "O endereço do Cronista: rua do Porto, número dez. E você, recebeu alguma coisa?", "ru": "Адрес Летописца: улица Порту, дом десять. А ты что-нибудь получил?", "next": "receivedq", "fem": {"ru": "Адрес Летописца: улица Порту, дом десять. А ты что-нибудь получила?"}},
+        "receivedq": {"kind": "answer", "task": "Скажите, что получили письмо.", "branches": [{"phrase": "ph:post.recebi-uma-carta", "next": "end"}], "wrong": {"es": "Recebi um peixe? Não, aqui é correio!", "ru": "Получил рыбу? Нет, это почта!", "fem": {"ru": "Получила рыбу? Нет, это почта!"}}},
+        "end": {"kind": "say", "es": "Eu sei! Fui eu que levei. Toma, isso também é para você: o fragmento do correio. E a carta… desculpa, eu abri. Dentro tem só uma palavra: «Vem». Alguém está esperando você.", "ru": "Знаю! Это я её принёс. Держи, это тоже тебе: почтовый обрывок карты. А письмо… прости, я его открыл. Внутри одно слово: «Приходи». Кто-то тебя ждёт."}
+      }
+    },
+    {
+      "id": "ms:post.2",
+      "chapter": 2,
+      "npc": "edson",
+      "scene": "sc:post.2",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Você de novo! Hoje o correio está cheio. O que você precisa?", "ru": "Снова ты! Сегодня на почте полно народу. Что тебе нужно?", "next": "parcel"},
+        "parcel": {"kind": "answer", "task": "Спросите, есть ли для вас посылка.", "branches": [{"phrase": "ph:post.tem-uma-encomenda-para-mim", "next": "name"}], "wrong": {"es": "Tem um bolo para mim? Aqui é correio, não é padaria!", "ru": "Есть для меня торт? Это почта, а не пекарня!"}},
+        "name": {"kind": "say", "es": "Pode ser. Mas de quem?", "ru": "Может быть. Но на чьё имя?", "next": "nameq"},
+        "nameq": {"kind": "answer", "task": "Скажите, что посылка на ваше имя.", "branches": [{"phrase": "ph:post.esta-no-meu-nome", "next": "doc"}], "wrong": {"es": "Está no meu gato? Não, gato não recebe encomenda!", "ru": "На моего кота? Нет, коты посылок не получают!"}},
+        "doc": {"kind": "say", "es": "Então eu preciso ver um documento.", "ru": "Тогда мне нужно посмотреть документ.", "next": "docq"},
+        "docq": {"kind": "answer", "task": "Дайте документ.", "branches": [{"phrase": "ph:post.aqui-esta-o-documento", "next": "form"}], "wrong": {"es": "Aqui está a minha banana? Obrigado, mas não!", "ru": "Вот мой банан? Спасибо, не надо!"}},
+        "form": {"kind": "say", "es": "Tudo certo. Agora tem esse papel aqui.", "ru": "Всё в порядке. Теперь вот эта бумага.", "next": "formq"},
+        "formq": {"kind": "answer", "task": "Спросите, нужно ли заполнить бланк.", "branches": [{"phrase": "ph:post.preciso-preencher", "next": "sign"}], "wrong": {"es": "Preciso cantar o formulário? Não, escrever!", "ru": "Нужно спеть бланк? Нет, написать!"}},
+        "sign": {"kind": "say", "es": "Precisa, sim. Nome e data.", "ru": "Нужно. Имя и дата.", "next": "signq"},
+        "signq": {"kind": "answer", "task": "Спросите, где расписаться.", "branches": [{"phrase": "ph:post.onde-assino", "next": "code"}], "wrong": {"es": "Onde eu durmo? Em casa, não no correio!", "ru": "Где я сплю? Дома, а не на почте!"}},
+        "code": {"kind": "say", "es": "Aqui embaixo. Pronto! A encomenda é sua.", "ru": "Вот здесь, внизу. Готово! Посылка твоя.", "next": "codeq"},
+        "codeq": {"kind": "answer", "task": "Спросите номер посылки, чтобы узнать, откуда она.", "branches": [{"phrase": "ph:post.o-codigo", "next": "end"}], "wrong": {"es": "Qual é o código do gato? Gato não tem código!", "ru": "Какой номер у кота? У котов нет номеров!"}},
+        "end": {"kind": "say", "es": "Olha: a encomenda saiu da torre há três dias. Toma, e o meu fragmento do mapa da serra também é seu. Siga a voz.", "ru": "Смотри: посылка ушла с башни три дня назад. Держи, и мой обрывок карты гор тоже твой. Иди на голос."}
+      }
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "location": "home",
+  "scenes": [
+    {
+      "id": "sc:home.1",
+      "chapter": 1,
+      "npc": "lourdes",
+      "lines": [
+        {"who": "npc", "es": "Bom dia, meu bem! Você já tomou café da manhã?", "ru": "Доброе утро, дорогой! Ты уже завтракал?", "fem": {"ru": "Доброе утро, дорогая! Ты уже завтракала?"}},
+        {"who": "hero", "es": "Ainda não.", "ru": "Ещё нет."},
+        {"who": "npc", "es": "Entra, entra! Essa é a cozinha. Tem bolo de milho.", "ru": "Заходи, заходи! Вот кухня. Есть кукурузный пирог."},
+        {"who": "hero", "es": "Obrigado. A sua casa é muito bonita.", "ru": "Спасибо. У вас очень красивый дом.", "fem": {"es": "Obrigada. A sua casa é muito bonita."}},
+        {"who": "npc", "es": "É uma casa pequena: dois quartos, a cozinha e o banheiro.", "ru": "Маленький дом: две комнаты, кухня и ванная."},
+        {"who": "hero", "es": "A senhora sabe alguma coisa do mapa?", "ru": "Вы что-нибудь знаете о карте?"},
+        {"who": "npc", "es": "O meu fragmento está aqui, no meu caderno de receitas velho.", "ru": "Мой обрывок здесь, в моей старой тетради с рецептами."},
+        {"who": "hero", "es": "Por que cada casa tem um fragmento?", "ru": "Почему обрывок есть в каждом доме?"},
+        {"who": "npc", "es": "Muitos anos atrás, todo mundo queria o mapa. Por isso ele foi dividido.", "ru": "Много лет назад карту хотели все. Поэтому её разделили."},
+        {"who": "hero", "es": "E agora?", "ru": "А теперь?"},
+        {"who": "npc", "es": "Agora o mapa é de quem conversa com cada vizinho. Come, come!", "ru": "Теперь карта достанется тому, кто поговорит с каждым соседом. Ешь, ешь!"}
+      ],
+      "questions": [
+        {"q": "Что предлагает Дона Лурдес?", "options": ["Суп", "Кукурузный пирог", "Кофе"], "answer": 1},
+        {"q": "Сколько спален в её доме?", "options": ["Одна", "Две", "Четыре"], "answer": 1},
+        {"q": "Где её обрывок карты?", "options": ["В шкафу", "В старой тетради с рецептами", "На веранде"], "answer": 1},
+        {"q": "Почему карту разделили?", "options": ["Её порвала кошка", "Её хотели все", "Она очень старая"], "answer": 1}
+      ],
+      "gloss": {"bem": "meu bem — дорогой, дорогая (ласково)", "milho": "кукуруза", "fragmento": "обрывок", "caderno": "тетрадь", "receitas": "рецепты (receita)", "queria": "хотел (querer)", "dividido": "разделён (dividir)", "conversa": "разговаривает (conversar)"}
+    },
+    {
+      "id": "sc:home.2",
+      "chapter": 2,
+      "npc": "lourdes",
+      "lines": [
+        {"who": "npc", "es": "Bom dia! Hoje está frio. Você tomou café?", "ru": "Доброе утро! Сегодня холодно. Ты позавтракал?", "fem": {"ru": "Доброе утро! Сегодня холодно. Ты позавтракала?"}},
+        {"who": "hero", "es": "Tomei, obrigado. Amanhã eu vou para a serra.", "ru": "Да, спасибо. Завтра я иду в горы.", "fem": {"es": "Tomei, obrigada. Amanhã eu vou para a serra."}},
+        {"who": "npc", "es": "Para a serra! Eu nasci lá, numa vila perto da torre.", "ru": "В горы! Я там родилась, в деревне у башни."},
+        {"who": "hero", "es": "É mesmo? Como era a vila?", "ru": "Правда? Какая это была деревня?"},
+        {"who": "npc", "es": "Pequena e bonita. Mas uma noite teve uma tempestade terrível, e todo mundo desceu para a cidade.", "ru": "Маленькая и красивая. Но однажды ночью была страшная буря, и все спустились в город."},
+        {"who": "hero", "es": "E a vila?", "ru": "А деревня?"},
+        {"who": "npc", "es": "Agora está vazia. Só ficaram as pedras e o vento.", "ru": "Теперь пустая. Остались только камни и ветер."},
+        {"who": "hero", "es": "A senhora conhece a torre?", "ru": "Вы знаете башню?"},
+        {"who": "npc", "es": "A minha mãe dizia: o guarda da torre não pergunta palavras. Ele pergunta o que você fez.", "ru": "Мама говорила: страж башни не спрашивает слов. Он спрашивает, что ты сделал.", "fem": {"ru": "Мама говорила: страж башни не спрашивает слов. Он спрашивает, что ты сделала."}},
+        {"who": "hero", "es": "O que eu fiz?", "ru": "Что я сделал?", "fem": {"ru": "Что я сделала?"}},
+        {"who": "npc", "es": "O seu caminho, no passado. Então me diz: o que você fez ontem?", "ru": "Твой путь, в прошедшем времени. Так что скажи-ка: что ты делал вчера?", "fem": {"ru": "Твой путь, в прошедшем времени. Так что скажи-ка: что ты делала вчера?"}}
+      ],
+      "questions": [
+        {"q": "Где родилась Дона Лурдес?", "options": ["В Ресифи", "В деревне у башни", "У моря"], "answer": 1},
+        {"q": "Почему жители ушли из деревни?", "options": ["Была страшная буря", "Деревню продали", "Пришёл страж"], "answer": 0},
+        {"q": "Что осталось в деревне?", "options": ["Люди", "Только камни и ветер", "Башня"], "answer": 1},
+        {"q": "Что спрашивает страж башни?", "options": ["Слова", "Что ты сделал", "Откуда ты"], "answer": 1}
+      ],
+      "gloss": {"tomou": "tomar café — позавтракать", "tomei": "да (tomar: я позавтракал)", "nasci": "родилась (nascer)", "numa": "в (em + uma)", "vila": "деревня, посёлок", "era": "была (ser)", "teve": "была (ter)", "tempestade": "буря", "terrível": "страшный, ужасный", "desceu": "спустились (descer)", "ficaram": "остались (ficar)", "dizia": "говорила (dizer)", "fez": "сделал (fazer)", "fiz": "я сделал (fazer)", "passado": "прошлое, прошедшее время"}
+    }
+  ]
+}

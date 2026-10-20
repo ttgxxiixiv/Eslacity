@@ -1,0 +1,55 @@
+{
+  "location": "supermarket",
+  "scenes": [
+    {
+      "id": "sc:supermarket.1",
+      "chapter": 1,
+      "npc": "wellington",
+      "lines": [
+        {"who": "npc", "es": "Bom dia! O pão está quentinho.", "ru": "Доброе утро! Хлеб ещё тёплый."},
+        {"who": "hero", "es": "Um pão, por favor. Onde estão os ovos?", "ru": "Один хлеб, пожалуйста. Где яйца?"},
+        {"who": "npc", "es": "Perto do leite. Hoje tem promoção de leite.", "ru": "Рядом с молоком. Сегодня акция на молоко."},
+        {"who": "hero", "es": "Que bom!", "ru": "Отлично!"},
+        {"who": "npc", "es": "Você é o viajante do mapa, não é?", "ru": "Ты ведь тот путешественник с картой?", "fem": {"es": "Você é a viajante do mapa, não é?", "ru": "Ты ведь та путешественница с картой?"}},
+        {"who": "hero", "es": "Sou. Estou procurando os fragmentos do mapa.", "ru": "Да. Я ищу обрывки карты."},
+        {"who": "npc", "es": "Para a minha mãe esse mapa é muito importante.", "ru": "Для мамы эта карта очень важна."},
+        {"who": "hero", "es": "E você, o que acha?", "ru": "А ты что думаешь?"},
+        {"who": "npc", "es": "Eu acho que é uma lenda. Mas tenho um fragmento, aqui no caixa.", "ru": "По-моему, это легенда. Но обрывок у меня есть, тут, в кассе."},
+        {"who": "hero", "es": "Você me dá o fragmento?", "ru": "Отдашь мне обрывок?"},
+        {"who": "npc", "es": "Primeiro compra alguma coisa!", "ru": "Сначала купи что-нибудь!"}
+      ],
+      "questions": [
+        {"q": "Где яйца?", "options": ["Рядом с молоком", "У кассы", "На полке с хлебом"], "answer": 0},
+        {"q": "На что сегодня акция?", "options": ["На хлеб", "На молоко", "На яйца"], "answer": 1},
+        {"q": "Что Веллингтон думает о карте?", "options": ["Что это легенда", "Что она ведёт к морю", "Что её надо продать"], "answer": 0},
+        {"q": "Где у Веллингтона обрывок?", "options": ["Дома", "В кассе", "У мамы"], "answer": 1}
+      ],
+      "gloss": {"quentinho": "тёпленький (quente — горячий)", "ovos": "яйца (ovo)", "viajante": "путешественник, путник", "procurando": "ищу (procurar)", "fragmentos": "обрывки (fragmento)", "acha": "думаешь (achar)", "lenda": "легенда", "compra": "купи (comprar)"}
+    },
+    {
+      "id": "sc:supermarket.2",
+      "chapter": 2,
+      "npc": "wellington",
+      "lines": [
+        {"who": "npc", "es": "Viajante! Agora vai para a serra?", "ru": "Путник! Теперь в горы?"},
+        {"who": "hero", "es": "Vou. Preciso de uma lanterna.", "ru": "Да. Мне нужен фонарь."},
+        {"who": "npc", "es": "Desculpa. Ontem um homem comprou as vinte lanternas da loja.", "ru": "Извини. Вчера один человек купил все двадцать фонарей в магазине."},
+        {"who": "hero", "es": "Vinte? Quem era?", "ru": "Двадцать? Кто это был?"},
+        {"who": "npc", "es": "Não disse o nome. Usava um casaco cinza e pagou com moedas muito velhas.", "ru": "Имени не сказал. Был в сером пальто и заплатил очень старыми монетами."},
+        {"who": "hero", "es": "Moedas velhas?", "ru": "Старыми монетами?"},
+        {"who": "npc", "es": "Olha. Essa moeda tem cem anos.", "ru": "Смотри. Этой монете сто лет."},
+        {"who": "hero", "es": "Que estranho! Ele disse mais alguma coisa?", "ru": "Как странно! Он сказал что-нибудь ещё?"},
+        {"who": "npc", "es": "Só disse: «A neblina vai chegar logo». E foi embora.", "ru": "Сказал только: «Скоро придёт туман». И ушёл."},
+        {"who": "hero", "es": "Antes você disse que o mapa era uma lenda.", "ru": "Раньше ты говорил, что карта — легенда."},
+        {"who": "npc", "es": "Antes. Agora eu já não tenho tanta certeza.", "ru": "Раньше. А теперь я уже не так уверен."}
+      ],
+      "questions": [
+        {"q": "Что нужно герою?", "options": ["Фонарь", "Карта", "Хлеб"], "answer": 0},
+        {"q": "Сколько фонарей купил незнакомец?", "options": ["Два", "Десять", "Двадцать"], "answer": 2},
+        {"q": "Чем он заплатил?", "options": ["Картой", "Очень старыми монетами", "Золотом"], "answer": 1},
+        {"q": "Что он сказал?", "options": ["Скоро придёт туман", "Карта — легенда", "Я вернусь"], "answer": 0}
+      ],
+      "gloss": {"viajante": "путешественник, путник", "lanterna": "фонарь", "lanternas": "фонари (lanterna)", "usava": "носил (usar)", "casaco": "пальто, куртка", "cinza": "серый", "moedas": "монеты (moeda)", "embora": "ir embora — уходить", "lenda": "легенда", "certeza": "уверенность"}
+    }
+  ]
+}

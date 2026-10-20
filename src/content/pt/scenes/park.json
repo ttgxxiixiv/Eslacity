@@ -1,0 +1,55 @@
+{
+  "location": "park",
+  "scenes": [
+    {
+      "id": "sc:park.1",
+      "chapter": 1,
+      "npc": "valdir",
+      "lines": [
+        {"who": "npc", "es": "Bom dia, rapaz! Que dia bonito, não é?", "ru": "Доброе утро, молодой человек! Хороший день, правда?", "fem": {"es": "Bom dia, moça! Que dia bonito, não é?", "ru": "Доброе утро, девушка! Хороший день, правда?"}},
+        {"who": "hero", "es": "Que parque bonito!", "ru": "Какой красивый парк!"},
+        {"who": "npc", "es": "Eu venho aqui todo dia. Dou pão para os pombos e jogo dominó.", "ru": "Я прихожу сюда каждый день. Кормлю голубей хлебом и играю в домино."},
+        {"who": "hero", "es": "Esse cachorro é do senhor?", "ru": "Это ваша собака?"},
+        {"who": "npc", "es": "É, sim. O nome dele é Pipoca. Você está procurando o mapa, não é?", "ru": "Да. Её зовут Пипока. Ты ищешь карту, верно?"},
+        {"who": "hero", "es": "O senhor sabe alguma coisa do mapa?", "ru": "Вы что-нибудь знаете о карте?"},
+        {"who": "npc", "es": "Quando eu era novo, eu vi o mapa todo.", "ru": "В молодости я видел карту целиком."},
+        {"who": "hero", "es": "E o que tinha no mapa?", "ru": "А что было на карте?"},
+        {"who": "npc", "es": "Um caminho. Ele sai da cidade, passa perto do lago e vai para as montanhas.", "ru": "Дорога. Она выходит из города, идёт мимо озера и поднимается в горы."},
+        {"who": "hero", "es": "E o Cofre?", "ru": "А Хранилище?"},
+        {"who": "npc", "es": "Fica muito longe, atrás das montanhas. Mas o caminho começa aqui, no parque.", "ru": "Оно очень далеко, за горами. Но дорога начинается здесь, в парке."}
+      ],
+      "questions": [
+        {"q": "Что делает Сеу Валдир в парке каждый день?", "options": ["Кормит голубей и играет в домино", "Бегает", "Продаёт попкорн"], "answer": 0},
+        {"q": "Как зовут собаку?", "options": ["Пипока", "Бола", "Каю"], "answer": 0},
+        {"q": "Что было на карте?", "options": ["Море", "Дорога в горы", "Только город"], "answer": 1},
+        {"q": "Где начинается дорога?", "options": ["На вокзале", "В парке", "У моря"], "answer": 1}
+      ],
+      "gloss": {"rapaz": "молодой человек", "moça": "девушка", "dou": "даю (dar)", "procurando": "ищешь (procurar)", "era": "был (ser)", "vi": "видел (ver)", "tinha": "было (ter)", "caminho": "дорога, путь", "lago": "озеро", "montanhas": "горы (montanha)", "cofre": "o Cofre — Хранилище", "atrás": "atrás de — за"}
+    },
+    {
+      "id": "sc:park.2",
+      "chapter": 2,
+      "npc": "valdir",
+      "lines": [
+        {"who": "npc", "es": "Bom dia. Preciso te contar uma coisa.", "ru": "Доброе утро. Мне нужно тебе кое-что рассказать."},
+        {"who": "hero", "es": "O que aconteceu?", "ru": "Что случилось?"},
+        {"who": "npc", "es": "Ontem um homem sentou nesse banco. Ele usava um casaco cinza.", "ru": "Вчера на эту скамейку сел человек. На нём было серое пальто."},
+        {"who": "hero", "es": "O homem do casaco cinza! O que ele fazia?", "ru": "Человек в сером пальто! Что он делал?"},
+        {"who": "npc", "es": "Dava pão para os patos e me perguntou sobre a voz na neblina.", "ru": "Бросал уткам хлеб и спросил меня про голос в тумане."},
+        {"who": "hero", "es": "E o senhor disse o quê?", "ru": "А вы что сказали?"},
+        {"who": "npc", "es": "Nada. Porque eu conheci aquele homem. Cinquenta anos atrás eu vi ele aqui, nesse banco.", "ru": "Ничего. Потому что я его узнал. Пятьдесят лет назад я видел его здесь, на этой скамейке."},
+        {"who": "hero", "es": "Cinquenta anos atrás? E como ele está agora?", "ru": "Пятьдесят лет назад? И какой он теперь?"},
+        {"who": "npc", "es": "Igualzinho. A mesma cara, o mesmo casaco. Ele não ficou velho.", "ru": "Точно такой же. То же лицо, то же пальто. Он не постарел."},
+        {"who": "hero", "es": "Isso é impossível.", "ru": "Это невозможно."},
+        {"who": "npc", "es": "Na serra, o impossível acontece todo dia, rapaz.", "ru": "В горах невозможное случается каждый день, молодой человек.", "fem": {"es": "Na serra, o impossível acontece todo dia, moça.", "ru": "В горах невозможное случается каждый день, девушка."}}
+      ],
+      "questions": [
+        {"q": "Кто сел на скамейку?", "options": ["Каю", "Человек в сером пальто", "Летописец"], "answer": 1},
+        {"q": "О чём он спросил?", "options": ["О голосе в тумане", "О дороге к морю", "О домино"], "answer": 0},
+        {"q": "Когда Сеу Валдир видел его раньше?", "options": ["Вчера", "Пятьдесят лет назад", "Никогда"], "answer": 1},
+        {"q": "Как изменился незнакомец?", "options": ["Постарел", "Совсем не изменился", "Стал выше"], "answer": 1}
+      ],
+      "gloss": {"usava": "носил (usar)", "casaco": "пальто, куртка", "cinza": "серый", "fazia": "делал (fazer)", "dava": "давал (dar)", "conheci": "узнал (conhecer)", "aquele": "тот", "atrás": "назад (anos atrás)", "igualzinho": "точь-в-точь такой же", "rapaz": "молодой человек", "moça": "девушка", "impossível": "невозможное"}
+    }
+  ]
+}

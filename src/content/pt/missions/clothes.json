@@ -1,0 +1,47 @@
+{
+  "location": "clothes",
+  "missions": [
+    {
+      "id": "ms:clothes.1",
+      "chapter": 1,
+      "npc": "juliana",
+      "scene": "sc:clothes.1",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Bom dia! Posso te ajudar?", "ru": "Доброе утро! Чем тебе помочь?", "next": "need"},
+        "need": {"kind": "answer", "task": "Скажите, что вам нужна одежда для поездки.", "branches": [{"phrase": "ph:clothes.preciso-de-roupa", "next": "size"}], "wrong": {"es": "Precisa de um peixe? Aqui é loja de roupa!", "ru": "Нужна рыба? Это магазин одежды!"}},
+        "size": {"kind": "say", "es": "Claro! Olha essa camisa. É muito bonita.", "ru": "Конечно! Посмотри на эту рубашку. Очень красивая.", "next": "sizeq"},
+        "sizeq": {"kind": "answer", "task": "Спросите, какой это размер.", "branches": [{"phrase": "ph:clothes.qual-e-o-tamanho", "next": "blue"}], "wrong": {"es": "Qual é o seu nome? Juliana, mas e a camisa?", "ru": "Как меня зовут? Жулиана, а рубашка-то?"}},
+        "blue": {"kind": "say", "es": "É o tamanho M. Mas a cor… vermelha. Você gosta?", "ru": "Это размер M. Но цвет… красный. Тебе нравится?", "next": "blueq"},
+        "blueq": {"kind": "answer", "task": "Спросите, есть ли эта рубашка в синем.", "branches": [{"phrase": "ph:clothes.tem-camisa-azul", "next": "short"}], "wrong": {"es": "Tem essa camisa em sopa? Não, só em algodão!", "ru": "Есть эта рубашка в супе? Нет, только в хлопке!"}},
+        "short": {"kind": "say", "es": "Tem, sim. E esse vestido também é azul.", "ru": "Есть. И это платье тоже синее.", "next": "shortq"},
+        "shortq": {"kind": "answer", "task": "Скажите, что это платье слишком короткое.", "branches": [{"phrase": "ph:clothes.o-vestido-e-curto", "next": "shoes"}], "wrong": {"es": "O vestido é um gato? Não, é um vestido!", "ru": "Платье — это кошка? Нет, это платье!"}},
+        "shoes": {"kind": "say", "es": "Curto? Tudo bem. E para os pés?", "ru": "Короткое? Ладно. А для ног?", "next": "shoesq"},
+        "shoesq": {"kind": "answer", "task": "Скажите, что вам нужны туфли.", "branches": [{"phrase": "ph:clothes.preciso-de-sapato", "next": "end"}], "wrong": {"es": "Precisa de um chapéu para os pés? Não, não!", "ru": "Нужна шляпа для ног? Нет-нет!"}},
+        "end": {"kind": "say", "es": "Para as montanhas, esse sapato é bom. Toma, e esse é um fragmento do mapa. Nas montanhas faz frio, mas agora você tem roupa.", "ru": "Для гор эти туфли хороши. Держи, а это обрывок карты. В горах холодно, но теперь у тебя есть одежда."}
+      }
+    },
+    {
+      "id": "ms:clothes.2",
+      "chapter": 2,
+      "npc": "juliana",
+      "scene": "sc:clothes.2",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Agora as coisas para a serra. O que você quer primeiro?", "ru": "Теперь вещи для гор. Что хочешь сначала?", "next": "coat"},
+        "coat": {"kind": "answer", "task": "Спросите, есть ли куртки.", "branches": [{"phrase": "ph:clothes.tem-casaco", "next": "try"}], "wrong": {"es": "Tem cachorro? Não, só roupa!", "ru": "Есть собаки? Нет, только одежда!"}},
+        "try": {"kind": "say", "es": "Tem, sim. Esse aqui é quente. Experimenta!", "ru": "Есть. Вот эта тёплая. Примерь!", "next": "tryq"},
+        "tryq": {"kind": "answer", "task": "Спросите, где примерочная.", "branches": [{"phrase": "ph:clothes.posso-experimentar", "next": "fit"}], "wrong": {"es": "Onde fica a praia? Longe, e lá não precisa de casaco!", "ru": "Где пляж? Далеко, и там куртка не нужна!"}},
+        "fit": {"kind": "say", "es": "Ali, perto da janela. E então?", "ru": "Там, у окна. Ну как?", "next": "fitq"},
+        "fitq": {"kind": "answer", "task": "Спросите, как сидит.", "branches": [{"phrase": "ph:clothes.ficou-bem", "next": "tight"}], "wrong": {"es": "Como você se chama? Juliana. Mas e o casaco?", "ru": "Как тебя зовут? Жулиана. А куртка-то?"}},
+        "tight": {"kind": "say", "es": "Ficou bonito. Mas e aí, está bom?", "ru": "Красиво. Ну а тебе как, хорошо?", "next": "tightq"},
+        "tightq": {"kind": "answer", "task": "Скажите, что немного тесно.", "branches": [{"phrase": "ph:clothes.esta-apertado", "next": "cotton"}], "wrong": {"es": "Está cantando? Não, o casaco não canta!", "ru": "Поёт? Нет, куртка не поёт!"}},
+        "cotton": {"kind": "say", "es": "Então esse, um tamanho maior. Olha a camisa também.", "ru": "Тогда вот эту, на размер больше. И посмотри рубашку.", "next": "cottonq"},
+        "cottonq": {"kind": "answer", "task": "Спросите, хлопок ли это.", "branches": [{"phrase": "ph:clothes.e-de-algodao", "next": "comfy"}], "wrong": {"es": "É de chocolate? Não, é roupa!", "ru": "Это шоколад? Нет, это одежда!"}},
+        "comfy": {"kind": "say", "es": "É, sim, de algodão. E agora?", "ru": "Да, хлопок. А теперь?", "next": "comfyq"},
+        "comfyq": {"kind": "answer", "task": "Скажите, что очень удобно.", "branches": [{"phrase": "ph:clothes.e-confortavel", "next": "end"}], "wrong": {"es": "É muito caro? Não, hoje tem desconto!", "ru": "Очень дорого? Нет, сегодня скидка!"}},
+        "end": {"kind": "say", "es": "Que bom. Aqui estão as botas do Caio: leva para ele. E esse é o meu fragmento do mapa da serra. Procura um gorro vermelho na neblina.", "ru": "Как хорошо. Вот ботинки Каю: отнеси их ему. А это мой обрывок карты гор. Ищи в тумане красную шапку."}
+      }
+    }
+  ]
+}

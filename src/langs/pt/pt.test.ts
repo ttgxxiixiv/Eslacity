@@ -81,7 +81,7 @@ describe('артикли и слияния', () => {
   });
 
   it('правильные тексты без замечаний', () => {
-    for (const t of ['Eu vou do centro para a praia.', 'Ela mora na casa da avó.', 'Vamos à feira e ao mercado.', 'Passei pelo parque num dia de sol.', 'Preciso de uma cebola.', 'Moro em um apartamento.', 'A casa é bonita.', 'Para a escola, por favor.']) {
+    for (const t of ['Eu vou do centro para a praia.', 'Ela mora na casa da avó.', 'Vamos à feira e ao mercado.', 'Passei pelo parque num dia de sol.', 'Preciso de uma cebola.', 'Dez quilos de açúcar.', 'Um copo de água.', 'Moro em um apartamento.', 'A casa é bonita.', 'Para a escola, por favor.']) {
       expect(PT.textIssues!(t), t).toEqual([]);
     }
   });

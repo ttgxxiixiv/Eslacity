@@ -1,0 +1,55 @@
+{
+  "location": "restaurant",
+  "scenes": [
+    {
+      "id": "sc:restaurant.1",
+      "chapter": 1,
+      "npc": "dita",
+      "lines": [
+        {"who": "npc", "es": "Olá! Hoje tem peixe. Quer uma mesa?", "ru": "Здравствуй! Сегодня есть рыба. Хочешь столик?"},
+        {"who": "hero", "es": "Uma mesa, por favor.", "ru": "Столик, пожалуйста."},
+        {"who": "npc", "es": "Aqui, perto da janela. O que você quer comer?", "ru": "Сюда, у окна. Что хочешь поесть?"},
+        {"who": "hero", "es": "O que é bom hoje?", "ru": "Что сегодня хорошее?"},
+        {"who": "npc", "es": "O peixe! A minha mãe também fazia esse peixe.", "ru": "Рыба! Моя мама тоже готовила эту рыбу."},
+        {"who": "hero", "es": "A sua mãe também era cozinheira?", "ru": "Ваша мама тоже была поварихой?"},
+        {"who": "npc", "es": "Muito boa. Um dia ela cozinhou para um viajante com um mapa, como você.", "ru": "Очень хорошей. Однажды она готовила для путешественника с картой, как ты."},
+        {"who": "hero", "es": "E esse viajante encontrou o caminho?", "ru": "И тот путешественник нашёл свою дорогу?"},
+        {"who": "npc", "es": "Não. Ele não falava português, e ninguém deu um fragmento do mapa para ele.", "ru": "Нет. Он не говорил по-португальски, и никто не дал ему обрывок карты."},
+        {"who": "hero", "es": "Eu falo português.", "ru": "А я говорю по-португальски."},
+        {"who": "npc", "es": "Estou vendo. Agora come! Quero o prato limpo!", "ru": "Вижу. А теперь ешь! Чтобы тарелка была чистой!"}
+      ],
+      "questions": [
+        {"q": "Что сегодня в ресторане?", "options": ["Курица", "Рыба", "Суп"], "answer": 1},
+        {"q": "Где садится герой?", "options": ["У окна", "У двери", "На террасе"], "answer": 0},
+        {"q": "Кем была мама Доны Диты?", "options": ["Рыбачкой", "Поварихой", "Учительницей"], "answer": 1},
+        {"q": "Почему тот путешественник не получил обрывок?", "options": ["Он не говорил по-португальски", "Он не заплатил", "Он ушёл ночью"], "answer": 0}
+      ],
+      "gloss": {"fazia": "делала, готовила (fazer)", "encontrou": "нашёл (encontrar)", "caminho": "дорога, путь", "português": "португальский язык", "cozinheira": "повариха", "cozinhou": "готовила (cozinhar)", "viajante": "путешественник, путник", "falava": "говорил (falar)", "fragmento": "обрывок", "vendo": "вижу (ver, estou vendo)"}
+    },
+    {
+      "id": "sc:restaurant.2",
+      "chapter": 2,
+      "npc": "dita",
+      "lines": [
+        {"who": "npc", "es": "Entra, entra! Hoje tem caldo de feijão.", "ru": "Заходи, заходи! Сегодня фасолевый суп."},
+        {"who": "hero", "es": "Caldo de feijão?", "ru": "Фасолевый суп?"},
+        {"who": "npc", "es": "O Caio comeu esse caldo aqui antes de ir para a serra.", "ru": "Каю ел здесь этот суп перед тем, как уйти в горы."},
+        {"who": "hero", "es": "O Caio esteve aqui?", "ru": "Каю был здесь?"},
+        {"who": "npc", "es": "Faz um mês. Comeu dois pratos e contou sobre a viagem.", "ru": "Месяц назад. Съел две тарелки и рассказал о своём походе."},
+        {"who": "hero", "es": "E o que ele contou?", "ru": "И что он рассказал?"},
+        {"who": "npc", "es": "Ele queria subir até a torre. Me disse: «Na neblina, só uma voz mostra o caminho».", "ru": "Хотел подняться к башне. Сказал мне: «В тумане дорогу покажет только голос»."},
+        {"who": "hero", "es": "E o que tem depois da torre?", "ru": "А что за башней?"},
+        {"who": "npc", "es": "O Caio diz que da torre se vê areia. Muita areia, e ela brilha como água.", "ru": "Каю говорит, что с башни виден песок. Много песка, и он блестит, как вода."},
+        {"who": "hero", "es": "Areia de praia?", "ru": "Песок как на пляже?"},
+        {"who": "npc", "es": "Não é praia. É uma coisa estranha. Você vai ver. Agora come!", "ru": "Не пляж. Что-то странное. Сам увидишь. А теперь ешь!", "fem": {"ru": "Не пляж. Что-то странное. Сама увидишь. А теперь ешь!"}}
+      ],
+      "questions": [
+        {"q": "Какой суп сегодня?", "options": ["Рыбный", "Фасолевый", "Куриный"], "answer": 1},
+        {"q": "Когда Каю был в ресторане?", "options": ["Вчера", "Неделю назад", "Месяц назад"], "answer": 2},
+        {"q": "Что Каю сказал о тумане?", "options": ["В тумане дорогу покажет только голос", "Туман приходит ночью", "В тумане нельзя ходить"], "answer": 0},
+        {"q": "Что видно с башни?", "options": ["Море", "Песок, который блестит, как вода", "Город"], "answer": 1}
+      ],
+      "gloss": {"caldo": "густой суп, бульон", "esteve": "был (estar)", "contou": "рассказал (contar)", "queria": "хотел (querer)", "brilha": "блестит (brilhar)"}
+    }
+  ]
+}

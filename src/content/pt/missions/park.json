@@ -1,0 +1,47 @@
+{
+  "location": "park",
+  "missions": [
+    {
+      "id": "ms:park.1",
+      "chapter": 1,
+      "npc": "valdir",
+      "scene": "sc:park.1",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Oi! O dia está bonito, não está? Vamos fazer alguma coisa?", "ru": "Привет! Хороший день, правда? Займёмся чем-нибудь?", "next": "walk"},
+        "walk": {"kind": "answer", "task": "Предложите погулять по парку.", "branches": [{"phrase": "ph:park.vamos-andar-no-parque", "next": "sun"}], "wrong": {"es": "Vamos andar na praia? A praia é longe!", "ru": "Пойдём по пляжу? Пляж далеко!"}},
+        "sun": {"kind": "say", "es": "Vamos! Mas que calor!", "ru": "Пойдём! Но какая жара!", "next": "sunq"},
+        "sunq": {"kind": "answer", "task": "Скажите, что солнце сильно печёт.", "branches": [{"phrase": "ph:park.o-sol-esta-forte", "next": "bench"}], "wrong": {"es": "O sol está frio? Hoje não, rapaz!", "ru": "Солнце холодное? Только не сегодня, молодой человек!", "fem": {"es": "O sol está frio? Hoje não, moça!", "ru": "Солнце холодное? Только не сегодня, девушка!"}}},
+        "bench": {"kind": "say", "es": "Está, sim. Eu preciso sentar um pouco.", "ru": "Да, печёт. Мне нужно немного посидеть.", "next": "benchq"},
+        "benchq": {"kind": "answer", "task": "Спросите, есть ли здесь скамейка.", "branches": [{"phrase": "ph:park.tem-banco-aqui", "next": "flower"}], "wrong": {"es": "Tem um ônibus aqui? Não, aqui é parque.", "ru": "Здесь есть автобус? Нет, это парк."}},
+        "flower": {"kind": "say", "es": "Tem, ali. Olha as flores perto do banco.", "ru": "Есть, вон там. Посмотри на цветы у скамейки.", "next": "flowerq"},
+        "flowerq": {"kind": "answer", "task": "Скажите, какой красивый цветок.", "branches": [{"phrase": "ph:park.olha-a-flor", "next": "pretty"}], "wrong": {"es": "Olha que gato bonito? Mas é uma flor!", "ru": "Какой красивый кот? Но это же цветок!"}},
+        "pretty": {"kind": "say", "es": "É bonita, sim. E o parque, você gosta?", "ru": "Красивый, да. А парк тебе нравится?", "next": "prettyq"},
+        "prettyq": {"kind": "answer", "task": "Скажите, какой красивый парк.", "branches": [{"phrase": "ph:park.que-parque-bonito", "next": "end"}], "wrong": {"es": "Que praia bonita? Aqui é parque, rapaz!", "ru": "Какой красивый пляж? Это же парк, молодой человек!", "fem": {"es": "Que praia bonita? Aqui é parque, moça!", "ru": "Какой красивый пляж? Это же парк, девушка!"}}},
+        "end": {"kind": "say", "es": "É mesmo. Toma, esse é um fragmento do mapa. O caminho vai para as montanhas. Eu sou velho, você é novo. Boa viagem!", "ru": "Правда. Держи, это обрывок карты. Дорога уходит в горы. Я старый, а ты молодой. Счастливого пути!", "fem": {"es": "É mesmo. Toma, esse é um fragmento do mapa. O caminho vai para as montanhas. Eu sou velho, você é nova. Boa viagem!", "ru": "Правда. Держи, это обрывок карты. Дорога уходит в горы. Я старый, а ты молодая. Счастливого пути!"}}
+      }
+    },
+    {
+      "id": "ms:park.2",
+      "chapter": 2,
+      "npc": "valdir",
+      "scene": "sc:park.2",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Hoje eu vou esperar aquele homem aqui. Fica comigo?", "ru": "Сегодня я буду ждать здесь того человека. Посидишь со мной?", "next": "picnic"},
+        "picnic": {"kind": "answer", "task": "Скажите, что погода отличная для пикника.", "branches": [{"phrase": "ph:park.bom-dia-para-piquenique", "next": "grass"}], "wrong": {"es": "O dia está ótimo para nadar? Aqui não tem mar!", "ru": "День отличный для купания? Здесь нет моря!"}},
+        "grass": {"kind": "say", "es": "Ótimo! Eu trouxe pão e café.", "ru": "Отлично! Я принёс хлеб и кофе.", "next": "grassq"},
+        "grassq": {"kind": "answer", "task": "Спросите, можно ли сесть на траву.", "branches": [{"phrase": "ph:park.posso-sentar-na-grama", "next": "game"}], "wrong": {"es": "Posso sentar no lago? Você vai ficar molhado!", "ru": "Можно сесть в пруд? Ты же промокнешь!", "fem": {"es": "Posso sentar no lago? Você vai ficar molhada!"}}},
+        "game": {"kind": "say", "es": "Pode. Enquanto a gente espera, vamos jogar?", "ru": "Можно. Пока ждём, сыграем?", "next": "gameq"},
+        "gameq": {"kind": "answer", "task": "Предложите сыграть ещё партию.", "branches": [{"phrase": "ph:park.mais-uma-partida", "next": "turn"}], "wrong": {"es": "Mais uma pipoca? Os pombos já comeram tudo!", "ru": "Ещё попкорна? Голуби уже всё съели!"}},
+        "turn": {"kind": "say", "es": "Isso! Agora quem joga?", "ru": "Вот! Теперь кто ходит?", "next": "turnq"},
+        "turnq": {"kind": "answer", "task": "Скажите, что теперь его ход.", "branches": [{"phrase": "ph:park.e-a-sua-vez", "next": "monkey"}], "wrong": {"es": "É a sua bicicleta? Não, eu não tenho bicicleta.", "ru": "Это твой велосипед? Нет, у меня нет велосипеда."}},
+        "monkey": {"kind": "say", "es": "Minha vez… Ganhei! Mas olha, o que é aquilo?", "ru": "Мой ход… Я выиграл! Но смотри, что это там?", "next": "monkeyq"},
+        "monkeyq": {"kind": "answer", "task": "Покажите Сеу Валдиру обезьяну на дереве.", "branches": [{"phrase": "ph:park.olha-o-macaco", "next": "calm"}], "wrong": {"es": "Olha o carro na árvore? Que coisa estranha!", "ru": "Смотри, машина на дереве? Как странно!"}},
+        "calm": {"kind": "say", "es": "Um macaco! Ele quer o meu pão. E o homem não vem.", "ru": "Обезьяна! Она хочет мой хлеб. А человек не идёт.", "next": "calmq"},
+        "calmq": {"kind": "answer", "task": "Скажите, как здесь спокойно.", "branches": [{"phrase": "ph:park.que-calmo", "next": "end"}], "wrong": {"es": "Que frio aqui? Hoje faz trinta graus!", "ru": "Как здесь холодно? Сегодня тридцать градусов!"}},
+        "end": {"kind": "say", "es": "É verdade. O homem não veio. Mas toma o meu fragmento do mapa da serra. Se você vir aquele homem, olha bem a cara dele: é a mesma de cinquenta anos atrás.", "ru": "Правда. Человек не пришёл. Но держи мой обрывок карты гор. Если увидишь его, посмотри на лицо: такое же, как пятьдесят лет назад."}
+      }
+    }
+  ]
+}

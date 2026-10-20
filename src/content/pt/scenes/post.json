@@ -1,0 +1,55 @@
+{
+  "location": "post",
+  "scenes": [
+    {
+      "id": "sc:post.1",
+      "chapter": 1,
+      "npc": "edson",
+      "lines": [
+        {"who": "npc", "es": "Bom dia! Tem uma carta para você.", "ru": "Доброе утро! Тебе письмо."},
+        {"who": "hero", "es": "Para mim? De quem?", "ru": "Мне? От кого?"},
+        {"who": "npc", "es": "Não sei. Não tem nome atrás.", "ru": "Не знаю. На обороте нет имени."},
+        {"who": "hero", "es": "Você conhece bem a cidade?", "ru": "Ты хорошо знаешь город?"},
+        {"who": "npc", "es": "Conheço cada casa e cada rua. Levo as cartas de bicicleta, muito rápido.", "ru": "Я знаю каждый дом и каждую улицу. Развожу письма на велосипеде, очень быстро."},
+        {"who": "hero", "es": "Você sabe quem tem o mapa?", "ru": "Ты знаешь, у кого карта?"},
+        {"who": "npc", "es": "Cada lugar da cidade tem um fragmento.", "ru": "В каждом месте города есть по обрывку."},
+        {"who": "hero", "es": "E você tem um?", "ru": "А у тебя есть?"},
+        {"who": "npc", "es": "Tenho o fragmento do correio. Mas agora estou com pressa: hoje são cem cartas!", "ru": "У меня — почтовый обрывок. Но сейчас я спешу: сегодня сто писем!"},
+        {"who": "hero", "es": "E a carta?", "ru": "А письмо?"},
+        {"who": "npc", "es": "Abre em casa! Até amanhã!", "ru": "Открой дома! До завтра!"}
+      ],
+      "questions": [
+        {"q": "От кого письмо?", "options": ["От мамы", "Неизвестно", "От Каю"], "answer": 1},
+        {"q": "На чём ездит Эдсон?", "options": ["На велосипеде", "На автобусе", "На мотоцикле"], "answer": 0},
+        {"q": "У кого обрывки карты?", "options": ["Только у Эдсона", "В каждом месте города", "У стража"], "answer": 1},
+        {"q": "Почему Эдсон спешит?", "options": ["Сегодня сто писем", "Почта закрывается", "Идёт дождь"], "answer": 0}
+      ],
+      "gloss": {"atrás": "на обороте, сзади", "levo": "развожу, несу (levar)", "fragmento": "обрывок", "pressa": "estar com pressa — спешить"}
+    },
+    {
+      "id": "sc:post.2",
+      "chapter": 2,
+      "npc": "edson",
+      "lines": [
+        {"who": "npc", "es": "Vem cá, rápido! Tem uma encomenda para você. Da serra.", "ru": "Иди сюда, быстрее! Тебе посылка. С гор."},
+        {"who": "hero", "es": "Da serra? Quem mandou?", "ru": "С гор? Кто прислал?"},
+        {"who": "npc", "es": "Só tem escrito: «Do seu amigo da torre».", "ru": "Там написано только: «От твоего друга с башни»."},
+        {"who": "hero", "es": "Da torre? É o Caio!", "ru": "С башни? Это Каю!"},
+        {"who": "npc", "es": "Pode ser. Cuidado, é frágil. Abre devagar.", "ru": "Может быть. Осторожно, хрупкое. Открывай медленно."},
+        {"who": "hero", "es": "Tem uma bússola dentro. E um recado.", "ru": "Внутри компас. И записка."},
+        {"who": "npc", "es": "O que diz o recado?", "ru": "Что в записке?"},
+        {"who": "hero", "es": "Diz: «Siga a voz».", "ru": "Там написано: «Иди на голос»."},
+        {"who": "npc", "es": "O Caio está vivo! Corre para o café do Seu Tonho!", "ru": "Каю жив! Беги в кафе к Сеу Тоньо!"},
+        {"who": "hero", "es": "Vou correndo!", "ru": "Бегу!"},
+        {"who": "npc", "es": "Corre, corre! Mas ninguém é mais rápido do que eu!", "ru": "Беги, беги! Хотя быстрее меня никого нет!"}
+      ],
+      "questions": [
+        {"q": "Откуда посылка?", "options": ["С моря", "С гор", "Из Сан-Паулу"], "answer": 1},
+        {"q": "Что написано на посылке?", "options": ["От твоего друга с башни", "Для Сеу Тоньо", "Не открывать"], "answer": 0},
+        {"q": "Что внутри?", "options": ["Компас и записка", "Ботинки", "Обрывок карты"], "answer": 0},
+        {"q": "Что в записке?", "options": ["Иди на голос", "Жди меня", "Не ходи в горы"], "answer": 0}
+      ],
+      "gloss": {"mandou": "прислал (mandar)", "escrito": "написано (escrever)", "bússola": "компас", "siga": "иди, следуй (seguir)", "vivo": "живой", "correndo": "бегом (correr)"}
+    }
+  ]
+}

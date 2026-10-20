@@ -1,0 +1,49 @@
+{
+  "location": "school",
+  "missions": [
+    {
+      "id": "ms:school.1",
+      "chapter": 1,
+      "npc": "marcia",
+      "scene": "sc:school.1",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Bom dia! Hoje a aula é de conversa. Pronto?", "ru": "Доброе утро! Сегодня урок разговора. Готов?", "next": "pen", "fem": {"es": "Bom dia! Hoje a aula é de conversa. Pronta?", "ru": "Доброе утро! Сегодня урок разговора. Готова?"}},
+        "pen": {"kind": "answer", "task": "Спросите, есть ли у неё ручка.", "branches": [{"phrase": "ph:school.voce-tem-uma-caneta", "next": "notebook"}], "wrong": {"es": "Você tem um peixe? Aqui é escola!", "ru": "У тебя есть рыба? Это школа!"}},
+        "notebook": {"kind": "say", "es": "Tenho. Toma. E o seu caderno?", "ru": "Есть. Держи. А твоя тетрадь?", "next": "notebookq"},
+        "notebookq": {"kind": "answer", "task": "Спросите, где ваша тетрадь.", "branches": [{"phrase": "ph:school.onde-esta-o-meu-caderno", "next": "word"}], "wrong": {"es": "Onde está o mar? Lá fora, mas e o caderno?", "ru": "Где море? Снаружи, а тетрадь-то?"}},
+        "word": {"kind": "say", "es": "Na mesa. Agora lê essa palavra: «saudade».", "ru": "На столе. Теперь прочитай это слово: «саудаде».", "next": "wordq"},
+        "wordq": {"kind": "answer", "task": "Скажите, что не поняли это слово.", "branches": [{"phrase": "ph:school.nao-entendi-a-palavra", "next": "repeat"}], "wrong": {"es": "Não entendi o gato? O gato não fala!", "ru": "Не понял кота? Кот не разговаривает!", "fem": {"ru": "Не поняла кота? Кот не разговаривает!"}}},
+        "repeat": {"kind": "say", "es": "Saudade é quando você sente falta de alguém. Uma palavra muito nossa.", "ru": "Саудаде — это когда ты скучаешь по кому-то. Очень наше слово.", "next": "repeatq"},
+        "repeatq": {"kind": "answer", "task": "Попросите повторить.", "branches": [{"phrase": "ph:school.pode-repetir", "next": "write"}], "wrong": {"es": "Pode dançar? Agora não, é hora da aula!", "ru": "Можно потанцевать? Не сейчас, сейчас урок!"}},
+        "write": {"kind": "say", "es": "Claro: sau-da-de. Agora escreve no caderno.", "ru": "Конечно: сау-да-де. Теперь напиши в тетради.", "next": "writeq"},
+        "writeq": {"kind": "answer", "task": "Спросите, как она это пишет.", "branches": [{"phrase": "ph:school.como-se-escreve", "next": "question"}], "wrong": {"es": "Como você se chama? Márcia. Mas e a palavra?", "ru": "Как тебя зовут? Марсия. А слово-то?"}},
+        "question": {"kind": "say", "es": "Assim, olha. Muito bem! Mais alguma coisa?", "ru": "Вот так, смотри. Молодец! Что-нибудь ещё?", "next": "questionq"},
+        "questionq": {"kind": "answer", "task": "Скажите, что у вас есть вопрос.", "branches": [{"phrase": "ph:school.tenho-uma-pergunta", "next": "end"}], "wrong": {"es": "Tenho uma banana? Que bom, mas aqui é aula!", "ru": "У меня банан? Отлично, но у нас урок!"}},
+        "end": {"kind": "say", "es": "Você quer saber quem está na porta do Cofre? Ninguém sabe. Toma, esse é um fragmento do mapa. Um dia você vai entender esse mapa.", "ru": "Хочешь знать, кто у двери Хранилища? Никто не знает. Держи, это обрывок карты. Однажды ты поймёшь эту карту."}
+      }
+    },
+    {
+      "id": "ms:school.2",
+      "chapter": 2,
+      "npc": "marcia",
+      "scene": "sc:school.2",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Hoje tem prova! Você está pronto?", "ru": "Сегодня экзамен! Ты готов?", "next": "class", "fem": {"es": "Hoje tem prova! Você está pronta?", "ru": "Сегодня экзамен! Ты готова?"}},
+        "class": {"kind": "answer", "task": "Спросите, какой сейчас урок.", "branches": [{"phrase": "ph:school.qual-e-a-aula", "next": "dict"}], "wrong": {"es": "Qual é a praia? Hoje não tem praia, tem prova!", "ru": "Какой пляж? Сегодня не пляж, а экзамен!"}},
+        "dict": {"kind": "say", "es": "Agora é aula de português: o passado.", "ru": "Сейчас урок португальского: прошедшее время.", "next": "dictq"},
+        "dictq": {"kind": "answer", "task": "Спросите, есть ли в классе словарь.", "branches": [{"phrase": "ph:school.tem-dicionario", "next": "check"}], "wrong": {"es": "Tem sorvete na sala? Não, só livros!", "ru": "В классе есть мороженое? Нет, только книги!"}},
+        "check": {"kind": "say", "es": "Tem, na mesa. Agora responde: o que você fez ontem?", "ru": "Есть, на столе. А теперь ответь: что ты делал вчера?", "next": "checkq", "fem": {"ru": "Есть, на столе. А теперь ответь: что ты делала вчера?"}},
+        "checkq": {"kind": "answer", "task": "Попросите её проверить ваш ответ.", "branches": [{"phrase": "ph:school.pode-corrigir", "next": "error"}], "wrong": {"es": "Pode cantar a resposta? Não, escreve!", "ru": "Можно спеть ответ? Нет, напиши!"}},
+        "error": {"kind": "say", "es": "Quase certo. Tem um erro aqui.", "ru": "Почти правильно. Тут одна ошибка.", "next": "errorq"},
+        "errorq": {"kind": "answer", "task": "Спросите, где ошибка.", "branches": [{"phrase": "ph:school.onde-esta-o-erro", "next": "example"}], "wrong": {"es": "Onde está o Caio? Ninguém sabe. Mas e o erro?", "ru": "Где Каю? Никто не знает. А ошибка-то?"}},
+        "example": {"kind": "say", "es": "Aqui: «eu fazi». O certo é «eu fiz».", "ru": "Вот: «eu fazi». Правильно — «eu fiz».", "next": "exampleq"},
+        "exampleq": {"kind": "answer", "task": "Попросите объяснить на примере.", "branches": [{"phrase": "ph:school.um-exemplo", "next": "pass"}], "wrong": {"es": "Pode explicar com uma banana? Não, com uma frase!", "ru": "Объяснить на банане? Нет, на предложении!"}},
+        "pass": {"kind": "say", "es": "«Ontem eu fiz um bolo». Entendeu?", "ru": "«Вчера я испёк торт». Понял?", "next": "passq", "fem": {"ru": "«Вчера я испёк торт». Поняла?"}},
+        "passq": {"kind": "answer", "task": "Спросите, сдали ли вы экзамен.", "branches": [{"phrase": "ph:school.passei-na-prova", "next": "end"}], "wrong": {"es": "Passei na praia? Não, você está na escola!", "ru": "Я прошёл по пляжу? Нет, ты в школе!", "fem": {"ru": "Я прошла по пляжу? Нет, ты в школе!"}}},
+        "end": {"kind": "say", "es": "Passou! A sua nota é nove. E o prêmio é o meu fragmento do mapa da serra. Quando a neblina perguntar, responde no passado.", "ru": "Сдал! Твоя оценка — девять. А награда — мой обрывок карты гор. Когда туман спросит тебя, отвечай в прошедшем времени.", "fem": {"ru": "Сдала! Твоя оценка — девять. А награда — мой обрывок карты гор. Когда туман спросит тебя, отвечай в прошедшем времени."}}
+      }
+    }
+  ]
+}

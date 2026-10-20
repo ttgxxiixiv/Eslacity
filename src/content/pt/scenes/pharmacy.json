@@ -1,0 +1,55 @@
+{
+  "location": "pharmacy",
+  "scenes": [
+    {
+      "id": "sc:pharmacy.1",
+      "chapter": 1,
+      "npc": "rosa",
+      "lines": [
+        {"who": "npc", "es": "Boa tarde. Como posso ajudar?", "ru": "Добрый день. Чем могу помочь?"},
+        {"who": "hero", "es": "Eu estou bem, obrigado. Estou procurando o mapa. Dizem que a senhora sabe muito.", "ru": "Я в порядке, спасибо. Я ищу карту. Говорят, вы много знаете.", "fem": {"es": "Eu estou bem, obrigada. Estou procurando o mapa. Dizem que a senhora sabe muito."}},
+        {"who": "npc", "es": "Sei muito, sim. E sei que o Elixir não é um remédio.", "ru": "Знаю много. И знаю, что Эликсир — не лекарство."},
+        {"who": "hero", "es": "O que ele é, então?", "ru": "А что тогда?"},
+        {"who": "npc", "es": "Quem toma o Elixir fala a nossa língua. Ele não tem na farmácia.", "ru": "Кто выпьет Эликсир, заговорит на нашем языке. В аптеке его нет."},
+        {"who": "hero", "es": "A senhora tem um fragmento do mapa?", "ru": "У вас есть обрывок карты?"},
+        {"who": "npc", "es": "Aqui, com as receitas.", "ru": "Здесь, вместе с рецептами."},
+        {"who": "hero", "es": "A senhora me dá o fragmento?", "ru": "Отдадите его мне?"},
+        {"who": "npc", "es": "Calma. Primeiro: como você está?", "ru": "Не спеши. Сначала: как ты себя чувствуешь?"},
+        {"who": "hero", "es": "Estou com dor de cabeça.", "ru": "У меня болит голова."},
+        {"who": "npc", "es": "Muito bem. Primeiro a cabeça, depois o mapa.", "ru": "Хорошо. Сначала голова, потом карта."}
+      ],
+      "questions": [
+        {"q": "Что Дона Роза знает об Эликсире?", "options": ["Это не лекарство", "Он продаётся в аптеке", "Он очень дорогой"], "answer": 0},
+        {"q": "Что даёт Эликсир?", "options": ["Здоровье", "Знание языка", "Деньги"], "answer": 1},
+        {"q": "Где её обрывок карты?", "options": ["С рецептами", "В шкафу дома", "У доктора"], "answer": 0},
+        {"q": "Что болит у героя?", "options": ["Живот", "Голова", "Нога"], "answer": 1}
+      ],
+      "gloss": {"procurando": "ищу (procurar)", "dizem": "говорят (dizer)", "elixir": "Эликсир", "língua": "язык", "fragmento": "обрывок", "receitas": "рецепты (receita)"}
+    },
+    {
+      "id": "sc:pharmacy.2",
+      "chapter": 2,
+      "npc": "rosa",
+      "lines": [
+        {"who": "npc", "es": "Boa tarde. Eu sei por que você veio. A serra, não é?", "ru": "Добрый день. Я знаю, зачем ты пришёл. Горы, верно?", "fem": {"ru": "Добрый день. Я знаю, зачем ты пришла. Горы, верно?"}},
+        {"who": "hero", "es": "Do que eu preciso para a viagem?", "ru": "Что мне нужно в дорогу?"},
+        {"who": "npc", "es": "O mesmo que o Caio. Ele comprou um remédio para tontura e um curativo.", "ru": "То же, что и Каю. Он купил лекарство от головокружения и бинт."},
+        {"who": "hero", "es": "Tontura?", "ru": "Головокружение?"},
+        {"who": "npc", "es": "Lá em cima, na serra, o ar é diferente. Perto da torre muita gente fica tonta.", "ru": "Там наверху, в горах, другой воздух. У башни у многих кружится голова."},
+        {"who": "hero", "es": "E o homem do casaco cinza também veio aqui?", "ru": "А человек в сером пальто тоже приходил?"},
+        {"who": "npc", "es": "Veio. Não comprou nada. Fez uma pergunta muito estranha.", "ru": "Приходил. Ничего не купил. Задал очень странный вопрос."},
+        {"who": "hero", "es": "O que ele perguntou?", "ru": "Что он спросил?"},
+        {"who": "npc", "es": "Perguntou: «Em que ano estamos?». Como se não soubesse.", "ru": "Спросил: «Какой сейчас год?». Будто не знал."},
+        {"who": "hero", "es": "Que estranho!", "ru": "Как странно!"},
+        {"who": "npc", "es": "Muito estranho. Mas eu vendo remédios, não respostas.", "ru": "Очень странно. Но я продаю лекарства, а не ответы."}
+      ],
+      "questions": [
+        {"q": "Что купил Каю?", "options": ["Лекарство от головокружения и бинт", "Витамины", "Солнцезащитный крем"], "answer": 0},
+        {"q": "Почему у башни кружится голова?", "options": ["Там другой воздух", "Там очень жарко", "Там шумно"], "answer": 0},
+        {"q": "Что купил человек в сером пальто?", "options": ["Сироп", "Ничего", "Бинт"], "answer": 1},
+        {"q": "Что он спросил?", "options": ["Где башня", "Какой сейчас год", "Сколько стоит лекарство"], "answer": 1}
+      ],
+      "gloss": {"tontura": "головокружение", "curativo": "бинт, пластырь", "tonta": "с кружащейся головой (tonto)", "casaco": "пальто, куртка", "cinza": "серый", "fez": "задал (fazer)", "estamos": "em que ano estamos — какой сейчас год", "soubesse": "знал (saber)", "respostas": "ответы (resposta)"}
+    }
+  ]
+}

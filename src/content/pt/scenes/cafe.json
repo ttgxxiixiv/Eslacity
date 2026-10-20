@@ -1,0 +1,57 @@
+{
+  "location": "cafe",
+  "scenes": [
+    {
+      "id": "sc:cafe.1",
+      "chapter": 1,
+      "npc": "tonho",
+      "lines": [
+        {"who": "npc", "es": "Bom dia! O que você vai tomar?", "ru": "Доброе утро! Что будешь пить?"},
+        {"who": "hero", "es": "Um café, por favor. Sem açúcar.", "ru": "Кофе, пожалуйста. Без сахара."},
+        {"who": "npc", "es": "Sem açúcar? Aqui todo mundo toma café doce! Quer pão de queijo também? Está quentinho.", "ru": "Без сахара? Здесь все пьют сладкий кофе! Сырную булочку тоже хочешь? Тёпленькая."},
+        {"who": "hero", "es": "Quero, sim. Quanto é?", "ru": "Хочу, да. Сколько с меня?"},
+        {"who": "npc", "es": "O café é cinco reais, o pão de queijo é seis.", "ru": "Кофе пять реалов, булочка шесть."},
+        {"who": "hero", "es": "Posso pagar com cartão?", "ru": "Можно заплатить картой?"},
+        {"who": "npc", "es": "Aqui é só dinheiro. Mas não tem problema: hoje o café é por minha conta.", "ru": "Здесь только наличными. Но ничего страшного: сегодня кофе за мой счёт."},
+        {"who": "hero", "es": "Muito obrigado!", "ru": "Большое спасибо!", "fem": {"es": "Muito obrigada!"}},
+        {"who": "npc", "es": "Você tem um mapa na mão. É viajante?", "ru": "У тебя в руке карта. Ты путешественник?", "fem": {"ru": "У тебя в руке карта. Ты путешественница?"}},
+        {"who": "hero", "es": "Sou. Estou procurando os fragmentos do mapa.", "ru": "Да. Я ищу обрывки карты."},
+        {"who": "npc", "es": "Eu também tenho um fragmento. Primeiro toma o seu café, depois a gente conversa.", "ru": "У меня тоже есть обрывок. Сначала выпей кофе, потом поговорим."}
+      ],
+      "questions": [
+        {"q": "Что пьёт герой?", "options": ["Кофе без сахара", "Чай с молоком", "Сок"], "answer": 0},
+        {"q": "Что ещё берёт герой?", "options": ["Печенье", "Сырную булочку", "Торт"], "answer": 1},
+        {"q": "Как здесь платят?", "options": ["Только наличными", "Только картой", "Как угодно"], "answer": 0},
+        {"q": "Что есть у Сеу Тоньо?", "options": ["Новая карта", "Обрывок карты", "Ключ"], "answer": 1}
+      ],
+      "gloss": {"quentinho": "тёпленький (quente — горячий)", "só": "только", "conversa": "поговорим (conversar — разговаривать)", "procurando": "ищу (procurar)", "fragmentos": "обрывки (fragmento)"}
+    },
+    {
+      "id": "sc:cafe.2",
+      "chapter": 2,
+      "npc": "tonho",
+      "lines": [
+        {"who": "npc", "es": "Bom dia! Você está muito sério hoje. Vai para a serra?", "ru": "Доброе утро! Ты сегодня очень серьёзный. Идёшь в горы?", "fem": {"es": "Bom dia! Você está muito séria hoje. Vai para a serra?", "ru": "Доброе утро! Ты сегодня очень серьёзная. Идёшь в горы?"}},
+        {"who": "hero", "es": "Ontem o guarda me deu o selo. Agora estou procurando o caminho da serra.", "ru": "Вчера страж отдал мне печать. Теперь я ищу дорогу в горы."},
+        {"who": "npc", "es": "Meu filho Caio é guia da serra. Ele conhece todos os caminhos lá em cima.", "ru": "Мой сын Каю — горный проводник. Он знает там наверху все тропы."},
+        {"who": "hero", "es": "Que ótimo! E onde ele está agora?", "ru": "Отлично! А где он сейчас?"},
+        {"who": "npc", "es": "Não sei. Faz um mês que ele não escreve. Antes ele escrevia toda semana.", "ru": "Не знаю. Уже месяц не пишет. Раньше писал каждую неделю."},
+        {"who": "hero", "es": "Para onde ele foi?", "ru": "Куда он ушёл?"},
+        {"who": "npc", "es": "Ele disse que ia até a torre da serra. Lá mora o segundo guarda.", "ru": "Сказал, что идёт к башне в горах. Там живёт второй страж."},
+        {"who": "hero", "es": "Tem um segundo guarda?", "ru": "Есть и второй страж?"},
+        {"who": "npc", "es": "Cada terra tem o seu guarda. E na serra a neblina chega muito rápido.", "ru": "У каждой земли свой страж. А в горах туман приходит очень быстро."},
+        {"who": "hero", "es": "Eu vou encontrar o Caio e vou dizer a ele: escreve para o seu pai!", "ru": "Я найду Каю и скажу ему: напиши отцу!"},
+        {"who": "npc", "es": "Obrigado. Toma um café quente. É bom para o frio.", "ru": "Спасибо. Выпей горячего кофе. Помогает от холода."},
+        {"who": "npc", "es": "Da próxima vez o seu cafezinho já está pronto, sem açúcar. Eu já sei.", "ru": "В следующий раз твой кофе будет готов сразу, без сахара. Я уже знаю.", "if": {"flag": "drink", "is": "coffee"}},
+        {"who": "npc", "es": "Da próxima vez o seu suco de laranja já está pronto. Eu já sei.", "ru": "В следующий раз твой апельсиновый сок будет готов сразу. Я уже знаю.", "if": {"flag": "drink", "is": "juice"}}
+      ],
+      "questions": [
+        {"q": "Кто сын Сеу Тоньо?", "options": ["Повар", "Горный проводник", "Почтальон"], "answer": 1},
+        {"q": "Почему Сеу Тоньо волнуется?", "options": ["Сын месяц не пишет", "Кафе закрывается", "Пропала печать"], "answer": 0},
+        {"q": "Куда ушёл Каю?", "options": ["В Сан-Паулу", "На рынок", "К башне в горах"], "answer": 2},
+        {"q": "Кто живёт в башне?", "options": ["Летописец", "Второй страж", "Пастухи"], "answer": 1}
+      ],
+      "gloss": {"serra": "горы, горный хребет", "selo": "печать", "guia": "проводник", "torre": "башня", "neblina": "туман", "escrevia": "писал (раньше, escrever)", "ia": "шёл (ir)"}
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "location": "market",
+  "missions": [
+    {
+      "id": "ms:market.1",
+      "chapter": 1,
+      "npc": "graca",
+      "scene": "sc:market.1",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Oi! Hoje o tomate está lindo. O que você quer?", "ru": "Привет! Сегодня помидоры прекрасные. Что хочешь?", "next": "basket"},
+        "basket": {"kind": "answer", "task": "Попросите килограмм бананов или два килограмма картошки.", "branches": [{"phrase": "ph:market.um-quilo-de-banana", "next": "bananas", "sets": {"basket": "bananas"}}, {"phrase": "ph:market.dois-quilos-de-batata", "next": "potatoes", "sets": {"basket": "potatoes"}}], "wrong": {"es": "Um quilo de gato? Na feira não tem gato!", "ru": "Килограмм кошек? На ярмарке кошек нет!"}},
+        "bananas": {"kind": "say", "es": "Banana, que bom. Essas são muito doces.", "ru": "Бананы, хорошо. Эти очень сладкие.", "next": "oranges"},
+        "potatoes": {"kind": "say", "es": "Dois quilos de batata. Vai comer batata no jantar?", "ru": "Два килограмма картошки. На ужин будешь есть картошку?", "next": "oranges"},
+        "oranges": {"kind": "answer", "task": "Спросите, сколько стоят апельсины.", "branches": [{"phrase": "ph:market.quanto-custa-a-laranja", "next": "price"}], "wrong": {"es": "Que horas são? São dez, mas eu vendo laranja.", "ru": "Который час? Десять, но я продаю апельсины."}},
+        "price": {"kind": "say", "es": "O quilo da laranja é oito reais.", "ru": "Килограмм апельсинов — восемь реалов.", "next": "expensive"},
+        "expensive": {"kind": "answer", "task": "Скажите, что это очень дорого.", "branches": [{"phrase": "ph:market.muito-caro", "next": "cheaper"}], "wrong": {"es": "Muito bonito? Sim, mas custa oito reais.", "ru": "Очень красиво? Да, но стоит восемь реалов."}},
+        "cheaper": {"kind": "say", "es": "Caro? Para você, seis. Quer manga também?", "ru": "Дорого? Тебе — шесть. Манго тоже хочешь?", "next": "mango"},
+        "mango": {"kind": "answer", "task": "Спросите, дешёвое ли сегодня манго.", "branches": [{"phrase": "ph:market.a-manga-esta-barata", "next": "bag"}], "wrong": {"es": "Manga? Tem, sim. Mas o que você quer?", "ru": "Манго? Есть, конечно. Но что ты хочешь?"}},
+        "bag": {"kind": "say", "es": "Hoje está barata, sim. Você comprou muita coisa!", "ru": "Сегодня дешёвое, да. Ты столько всего купил!", "next": "bagq", "fem": {"ru": "Сегодня дешёвое, да. Ты столько всего купила!"}},
+        "bagq": {"kind": "answer", "task": "Спросите, есть ли лимоны.", "branches": [{"phrase": "ph:market.tem-limao", "next": "end"}], "wrong": {"es": "Mais um quilo de gato? Não, não!", "ru": "Ещё килограмм кошек? Нет-нет!"}},
+        "end": {"kind": "say", "es": "Tem, sim. Toma. Você fala muito bem! O mapa velho da minha mãe está aqui. Toma, esse fragmento agora é seu.", "ru": "Есть, конечно. Держи. Ты отлично говоришь! Вот старая карта моей мамы. Держи, этот обрывок теперь твой."}
+      }
+    },
+    {
+      "id": "ms:market.2",
+      "chapter": 2,
+      "npc": "graca",
+      "scene": "sc:market.2",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Vai para a serra, não é? Para a viagem precisa de comida. O que você quer?", "ru": "Ты ведь идёшь в горы? В дорогу нужна еда. Что хочешь?", "next": "veg"},
+        "veg": {"kind": "answer", "task": "Попросите килограмм моркови или спросите, есть ли чеснок.", "branches": [{"phrase": "ph:market.um-quilo-de-cenoura", "next": "carrots"}, {"phrase": "ph:market.tem-alho", "next": "garlic"}], "wrong": {"es": "Um quilo de pedra? Na serra já tem muita pedra, freguês.", "ru": "Килограмм камней? В горах и так много камней, покупатель.", "fem": {"es": "Um quilo de pedra? Na serra já tem muita pedra, freguesa.", "ru": "Килограмм камней? В горах и так много камней, покупательница."}}},
+        "carrots": {"kind": "say", "es": "Cenoura, muito bem. Na serra é boa para os olhos.", "ru": "Морковь — хорошо. В горах она полезна для глаз.", "next": "taste"},
+        "garlic": {"kind": "say", "es": "Tem alho, sim. Dizem que alho é bom para o frio.", "ru": "Чеснок есть. Фермеры говорят, что чеснок помогает от холода.", "next": "taste"},
+        "taste": {"kind": "answer", "task": "Спросите, можно ли попробовать.", "branches": [{"phrase": "ph:market.posso-provar", "next": "season"}], "wrong": {"es": "Posso pagar? Pode, mas primeiro escolhe!", "ru": "Можно ли заплатить? Можно, но сначала выбери!"}},
+        "season": {"kind": "say", "es": "Claro, prova. É doce, não é?", "ru": "Конечно, попробуй. Сладко, правда?", "next": "seasonq"},
+        "seasonq": {"kind": "answer", "task": "Спросите, какие фрукты сейчас по сезону.", "branches": [{"phrase": "ph:market.fruta-da-estacao", "next": "grapes"}], "wrong": {"es": "Qual é o tempo? Hoje faz sol, freguês.", "ru": "Какая погода? Сегодня солнечно, покупатель.", "fem": {"es": "Qual é o tempo? Hoje faz sol, freguesa.", "ru": "Какая погода? Сегодня солнечно, покупательница."}}},
+        "grapes": {"kind": "say", "es": "Agora é tempo de uva e de manga. E ovos, você quer?", "ru": "Сейчас время винограда и манго. А яйца хочешь?", "next": "eggs"},
+        "eggs": {"kind": "answer", "task": "Попросите полдюжины яиц.", "branches": [{"phrase": "ph:market.meia-duzia-de-ovos", "next": "uvas"}], "wrong": {"es": "Meia dúzia de queijos? Hoje não tem queijo.", "ru": "Полдюжины сыров? Сегодня сыра нет."}},
+        "uvas": {"kind": "say", "es": "Toma. As uvas também estão muito boas hoje.", "ru": "Держи. И виноград сегодня очень хороший.", "next": "uvaq"},
+        "uvaq": {"kind": "answer", "task": "Спросите, откуда этот виноград.", "branches": [{"phrase": "ph:market.de-onde-sao-as-uvas", "next": "nomore"}], "wrong": {"es": "Quando são as uvas? Hoje, agora!", "ru": "Когда виноград? Сегодня, сейчас!"}},
+        "nomore": {"kind": "say", "es": "São da serra. Mais alguma coisa?", "ru": "С гор. Что-нибудь ещё?", "next": "thanks"},
+        "thanks": {"kind": "answer", "task": "Скажите, что больше ничего не нужно, и поблагодарите.", "branches": [{"phrase": "ph:market.mais-nada", "next": "end"}], "wrong": {"es": "Mais um quilo? A sua sacola já está cheia!", "ru": "Ещё килограмм? У тебя уже полный пакет!"}},
+        "end": {"kind": "say", "es": "Tudo dá trinta reais. E escuta: o pessoal diz que na torre tem uma luz toda noite. Alguém mora lá. Toma o meu fragmento do mapa da serra.", "ru": "Всего тридцать реалов. И послушай: фермеры говорят, что в башне каждую ночь горит свет. Там кто-то живёт. Держи мой обрывок карты гор."}
+      }
+    }
+  ]
+}

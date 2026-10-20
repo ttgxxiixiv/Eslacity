@@ -1,0 +1,47 @@
+{
+  "location": "restaurant",
+  "missions": [
+    {
+      "id": "ms:restaurant.1",
+      "chapter": 1,
+      "npc": "dita",
+      "scene": "sc:restaurant.1",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Boa tarde! Bem-vindo! Você tem reserva?", "ru": "Добрый день! Добро пожаловать! У тебя есть бронь?", "next": "table", "fem": {"es": "Boa tarde! Bem-vinda! Você tem reserva?"}},
+        "table": {"kind": "answer", "task": "Попросите столик на одного.", "branches": [{"phrase": "ph:restaurant.uma-mesa-para-um", "next": "order"}], "wrong": {"es": "Uma mesa para o gato? Não, aqui não.", "ru": "Столик для кошки? Нет, здесь нельзя."}},
+        "order": {"kind": "say", "es": "Aqui, perto da janela. O que vai ser?", "ru": "Сюда, у окна. Что будешь?", "next": "orderq"},
+        "orderq": {"kind": "answer", "task": "Закажите суп или курицу с рисом.", "branches": [{"phrase": "ph:restaurant.uma-sopa", "next": "salad"}, {"phrase": "ph:restaurant.frango-com-arroz", "next": "salad"}], "wrong": {"es": "Um sapato? Isso não se come!", "ru": "Ботинок? Это не едят!"}},
+        "salad": {"kind": "say", "es": "Muito bem. Para começar, uma salada?", "ru": "Отлично. Для начала салат?", "next": "saladq"},
+        "saladq": {"kind": "answer", "task": "Закажите салат.", "branches": [{"phrase": "ph:restaurant.uma-salada", "next": "fork"}], "wrong": {"es": "Uma sala? A sala é ali, mas a comida é aqui.", "ru": "Гостиную? Гостиная там, а еда здесь."}},
+        "fork": {"kind": "say", "es": "Aqui está a salada. Falta alguma coisa?", "ru": "Вот салат. Чего-то не хватает?", "next": "forkq"},
+        "forkq": {"kind": "answer", "task": "Попросите вилку для салата.", "branches": [{"phrase": "ph:restaurant.um-garfo", "next": "taste"}], "wrong": {"es": "Uma faca para o sorvete? Não, não.", "ru": "Нож для мороженого? Нет-нет."}},
+        "taste": {"kind": "say", "es": "Toma. E então, está bom?", "ru": "Держи. Ну как, вкусно?", "next": "tasteq"},
+        "tasteq": {"kind": "answer", "task": "Скажите, что очень вкусно.", "branches": [{"phrase": "ph:restaurant.muito-bom", "next": "dessert"}], "wrong": {"es": "Está muito frio? Mas o prato está quente!", "ru": "Очень холодно? Но тарелка горячая!"}},
+        "dessert": {"kind": "say", "es": "Que bom! A receita é da minha mãe.", "ru": "Как хорошо! Рецепт моей мамы.", "next": "dessertq"},
+        "dessertq": {"kind": "answer", "task": "Спросите, что на десерт.", "branches": [{"phrase": "ph:restaurant.qual-e-a-sobremesa", "next": "end"}], "wrong": {"es": "Qual é a conta? Primeiro come, depois paga!", "ru": "Какой счёт? Сначала ешь, потом платишь!"}},
+        "end": {"kind": "say", "es": "Hoje é bolo. E mais uma coisa: o mapa da minha mãe. O viajante de antes não falava português. Você fala. Toma, é seu.", "ru": "Сегодня торт. И ещё кое-что: карта моей мамы. Путник, что приходил раньше, не говорил по-португальски. А ты говоришь. Держи, это твоё."}
+      }
+    },
+    {
+      "id": "ms:restaurant.2",
+      "chapter": 2,
+      "npc": "dita",
+      "scene": "sc:restaurant.2",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Você de novo! Hoje a cozinha está cheia de coisas boas. Vai pedir o quê?", "ru": "Снова ты! Сегодня на кухне много вкусного. Что закажешь?", "next": "order"},
+        "order": {"kind": "answer", "task": "Спросите, что она посоветует, или скажите, что хотите попробовать вяленое мясо.", "branches": [{"phrase": "ph:restaurant.o-que-recomenda", "next": "fish"}, {"phrase": "ph:restaurant.quero-experimentar", "next": "fish"}], "wrong": {"es": "Quer experimentar o meu gato? Ele não é comida!", "ru": "Хочешь попробовать мою кошку? Она не еда!"}},
+        "fish": {"kind": "say", "es": "Hoje também tem peixe, muito fresco.", "ru": "Сегодня есть ещё и рыба, очень свежая.", "next": "fishq"},
+        "fishq": {"kind": "answer", "task": "Спросите, жареная рыба или запечённая.", "branches": [{"phrase": "ph:restaurant.e-frito", "next": "soup"}], "wrong": {"es": "O peixe é azul? Não sei, ele está no prato.", "ru": "Рыба синяя? Не знаю, она на тарелке."}},
+        "soup": {"kind": "say", "es": "Assado, com molho. Mas primeiro prova o caldo.", "ru": "Запечённая, с соусом. Но сначала попробуй суп.", "next": "soupq"},
+        "soupq": {"kind": "answer", "task": "Попробуйте суп и скажите, что он немного пересолен.", "branches": [{"phrase": "ph:restaurant.a-sopa-esta-salgada", "next": "more"}], "wrong": {"es": "A sopa está dançando? Não, ela está no prato!", "ru": "Суп танцует? Нет, он в тарелке!"}},
+        "more": {"kind": "say", "es": "Salgada? Desculpa! E agora, mais um prato?", "ru": "Пересолен? Извини! А теперь — ещё тарелку?", "next": "moreq"},
+        "moreq": {"kind": "answer", "task": "Откажитесь: скажите, что вы сыты.", "branches": [{"phrase": "ph:restaurant.estou-satisfeito", "next": "special"}], "wrong": {"es": "Está cansado? Então senta mais um pouco.", "ru": "Устал? Тогда посиди ещё немного.", "fem": {"ru": "Устала? Тогда посиди ещё немного."}}},
+        "special": {"kind": "say", "es": "Satisfeito? Mas você ainda não viu a especialidade!", "ru": "Сыт? Но ты ещё не видел фирменного блюда!", "next": "specialq", "fem": {"es": "Satisfeita? Mas você ainda não viu a especialidade!", "ru": "Сыта? Но ты ещё не видела фирменного блюда!"}},
+        "specialq": {"kind": "answer", "task": "Спросите, какое фирменное блюдо.", "branches": [{"phrase": "ph:restaurant.qual-e-a-especialidade", "next": "end"}], "wrong": {"es": "Qual é a cidade? Você está aqui, no restaurante!", "ru": "Какой город? Ты здесь, в ресторане!"}},
+        "end": {"kind": "say", "es": "A moqueca, claro. Mas hoje tem uma coisa especial: o meu fragmento do mapa da serra. Se você encontrar o Caio, diz que o caldo dele está esperando.", "ru": "Мокека, конечно. Но сегодня есть кое-что особенное: мой обрывок карты гор. Если найдёшь Каю, скажи: его суп ждёт."}
+      }
+    }
+  ]
+}

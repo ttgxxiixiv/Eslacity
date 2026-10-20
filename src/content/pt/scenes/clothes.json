@@ -1,0 +1,55 @@
+{
+  "location": "clothes",
+  "scenes": [
+    {
+      "id": "sc:clothes.1",
+      "chapter": 1,
+      "npc": "juliana",
+      "lines": [
+        {"who": "npc", "es": "Bom dia! Essa camisa fica linda em você.", "ru": "Доброе утро! Эта рубашка тебе очень идёт."},
+        {"who": "hero", "es": "Obrigado. Preciso de roupa para a viagem.", "ru": "Спасибо. Мне нужна одежда для поездки.", "fem": {"es": "Obrigada. Preciso de roupa para a viagem."}},
+        {"who": "npc", "es": "Viagem? Para onde?", "ru": "Поездка? Куда?"},
+        {"who": "hero", "es": "Para as montanhas. Estou procurando o caminho do mapa.", "ru": "В горы. Я ищу дорогу с карты."},
+        {"who": "npc", "es": "Nas montanhas faz muito frio. Você precisa de um casaco.", "ru": "В горах очень холодно. Тебе нужна куртка."},
+        {"who": "hero", "es": "Você tem casaco?", "ru": "У тебя есть куртки?"},
+        {"who": "npc", "es": "Tenho um, muito velho, da minha mãe. Olha, tem alguma coisa no bolso.", "ru": "Есть одна, очень старая, мамина. Смотри, в кармане что-то есть."},
+        {"who": "hero", "es": "Alguma coisa? É um fragmento do mapa!", "ru": "Что-то? Это обрывок карты!"},
+        {"who": "npc", "es": "Eu não sabia! A minha mãe nunca disse nada.", "ru": "Я и не знала! Мама ничего не говорила."},
+        {"who": "hero", "es": "Posso usar esse casaco?", "ru": "Можно мне эту куртку?"},
+        {"who": "npc", "es": "Não, ele é grande demais para você. Eu escolho um casaco bom. Do fragmento a gente fala depois.", "ru": "Нет, она тебе велика. Подберу тебе хорошую куртку. А про обрывок поговорим потом."}
+      ],
+      "questions": [
+        {"q": "Зачем герою одежда?", "options": ["Для поездки в горы", "Для праздника", "Для работы"], "answer": 0},
+        {"q": "Что нужно в горах?", "options": ["Шляпа", "Тёплая куртка", "Шлёпанцы"], "answer": 1},
+        {"q": "Где нашёлся обрывок карты?", "options": ["В кармане старой куртки", "В сумке", "На витрине"], "answer": 0},
+        {"q": "Почему герой не берёт старую куртку?", "options": ["Она дорогая", "Она велика", "Она грязная"], "answer": 1}
+      ],
+      "gloss": {"montanhas": "горы (montanha)", "procurando": "ищу (procurar)", "caminho": "дорога, путь", "faz": "faz frio — холодно", "casaco": "куртка, пальто", "bolso": "карман", "fragmento": "обрывок", "sabia": "знала (saber)", "escolho": "выберу (escolher)"}
+    },
+    {
+      "id": "sc:clothes.2",
+      "chapter": 2,
+      "npc": "juliana",
+      "lines": [
+        {"who": "npc", "es": "Bom dia! Roupa para a serra? O casaco você já tem. Agora precisa de mais coisas.", "ru": "Доброе утро! Одежда для гор? Куртка у тебя уже есть. Теперь нужно ещё кое-что."},
+        {"who": "hero", "es": "Do que mais eu preciso?", "ru": "Что ещё мне нужно?"},
+        {"who": "npc", "es": "Botas, gorro e luvas. Como o Caio. Ele também veio aqui antes da viagem.", "ru": "Ботинки, шапка и перчатки. Как у Каю. Он тоже заходил сюда перед дорогой."},
+        {"who": "hero", "es": "O que o Caio comprou?", "ru": "Что купил Каю?"},
+        {"who": "npc", "es": "Um gorro vermelho. Ele me disse: «Na neblina, o vermelho se vê de longe».", "ru": "Красную шапку. Он сказал мне: «В тумане красный цвет видно издалека»."},
+        {"who": "hero", "es": "Um gorro vermelho… Isso é importante.", "ru": "Красная шапка… Это важно."},
+        {"who": "npc", "es": "E pediu umas botas de inverno. Mas ele nunca voltou para buscar.", "ru": "И заказал зимние ботинки. Но так и не пришёл за ними."},
+        {"who": "hero", "es": "Elas ainda estão aqui?", "ru": "Они всё ещё здесь?"},
+        {"who": "npc", "es": "Estão aqui. Entrega para ele quando você encontrar o Caio.", "ru": "Вот они. Отдай их ему, когда найдёшь Каю."},
+        {"who": "hero", "es": "Eu entrego.", "ru": "Отдам."},
+        {"who": "npc", "es": "E você precisa de alguma coisa quente. Perto da torre faz muito frio.", "ru": "И тебе нужно что-нибудь тёплое. У башни очень холодно."}
+      ],
+      "questions": [
+        {"q": "Что купил Каю?", "options": ["Красную шапку", "Синюю куртку", "Шлёпанцы"], "answer": 0},
+        {"q": "Почему красный цвет?", "options": ["Это любимый цвет Каю", "В тумане его видно издалека", "Он был дешевле"], "answer": 1},
+        {"q": "Что Каю не забрал?", "options": ["Зимние ботинки", "Перчатки", "Куртку"], "answer": 0},
+        {"q": "Что просит Жулиана?", "options": ["Отдать ботинки Каю", "Заплатить за них", "Продать их"], "answer": 0}
+      ],
+      "gloss": {"botas": "ботинки, сапоги (bota)", "gorro": "вязаная шапка", "luvas": "перчатки (luva)", "vê": "se vê — видно (ver)", "longe": "de longe — издалека", "inverno": "зима", "buscar": "забрать"}
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "location": "home",
+  "missions": [
+    {
+      "id": "ms:home.1",
+      "chapter": 1,
+      "npc": "lourdes",
+      "scene": "sc:home.1",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Oi, vizinho! Você vai morar aqui na rua?", "ru": "Привет, сосед! Ты будешь жить здесь, на нашей улице?", "next": "key", "fem": {"es": "Oi, vizinha! Você vai morar aqui na rua?", "ru": "Привет, соседка! Ты будешь жить здесь, на нашей улице?"}},
+        "key": {"kind": "answer", "task": "Спросите, есть ли у неё ключ.", "branches": [{"phrase": "ph:home.voce-tem-a-chave", "next": "keysay"}], "wrong": {"es": "Você tem um gato? Tenho, mas não é a chave!", "ru": "У тебя есть кошка? Есть, но это не ключ!"}},
+        "keysay": {"kind": "say", "es": "Tenho, sim. Entra! A casa é pequena.", "ru": "Есть. Заходи! Дом маленький.", "next": "bath"},
+        "bath": {"kind": "answer", "task": "Спросите, где ванная.", "branches": [{"phrase": "ph:home.onde-fica-o-banheiro", "next": "bathsay"}], "wrong": {"es": "Onde fica a praia? Longe, meu bem.", "ru": "Где пляж? Далеко, дорогой.", "fem": {"ru": "Где пляж? Далеко, дорогая."}}},
+        "bathsay": {"kind": "say", "es": "Ali, perto do quarto.", "ru": "Вон там, рядом со спальней.", "next": "chair"},
+        "chair": {"kind": "answer", "task": "Спросите, где стул.", "branches": [{"phrase": "ph:home.onde-ponho-a-cadeira", "next": "window"}], "wrong": {"es": "Onde fica o mar? O mar fica na praia!", "ru": "Где море? Море на пляже!"}},
+        "window": {"kind": "say", "es": "Perto da mesa. Está calor, não é?", "ru": "У стола. Жарко, правда?", "next": "windowq"},
+        "windowq": {"kind": "answer", "task": "Попросите открыть окно.", "branches": [{"phrase": "ph:home.abre-a-janela", "next": "pretty"}], "wrong": {"es": "Abre a geladeira? Mas eu não estou com fome!", "ru": "Открыть холодильник? Но я не голодна!"}},
+        "pretty": {"kind": "say", "es": "Pronto. Agora entra um ventinho do mar.", "ru": "Готово. Теперь с моря дует ветерок.", "next": "prettyq"},
+        "prettyq": {"kind": "answer", "task": "Скажите, что у неё очень красивый дом.", "branches": [{"phrase": "ph:home.a-casa-e-bonita", "next": "sleep"}], "wrong": {"es": "A casa é um gato? Não, a casa é uma casa!", "ru": "Дом — это кошка? Нет, дом — это дом!"}},
+        "sleep": {"kind": "say", "es": "Obrigada! E você, já está cansado da viagem?", "ru": "Спасибо! А ты уже устал с дороги?", "next": "sleepq", "fem": {"ru": "Спасибо! А ты уже устала с дороги?"}},
+        "sleepq": {"kind": "answer", "task": "Скажите, что сегодня рано ляжете спать.", "branches": [{"phrase": "ph:home.vou-dormir-cedo", "next": "end"}], "wrong": {"es": "Vai dormir na praia? Não, aqui tem cama!", "ru": "Будешь спать на пляже? Нет, здесь есть кровать!"}},
+        "end": {"kind": "say", "es": "Muito bem. Mas primeiro, come um pedaço de bolo! E toma: esse é o fragmento do mapa. Agora a gente é vizinho.", "ru": "Правильно. Но сначала съешь кусочек пирога! И держи: это обрывок карты. Теперь мы соседи."}
+      }
+    },
+    {
+      "id": "ms:home.2",
+      "chapter": 2,
+      "npc": "lourdes",
+      "scene": "sc:home.2",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Que bom que você veio! A casa está uma bagunça hoje.", "ru": "Как хорошо, что ты пришёл! У меня сегодня в доме беспорядок.", "next": "stove", "fem": {"ru": "Как хорошо, что ты пришла! У меня сегодня в доме беспорядок."}},
+        "stove": {"kind": "answer", "task": "Скажите, что плита не работает.", "branches": [{"phrase": "ph:home.o-fogao-nao-funciona", "next": "stovesay"}], "wrong": {"es": "O gato não funciona? Ele só dorme!", "ru": "Кот не работает? Он только спит!"}},
+        "stovesay": {"kind": "say", "es": "Não funciona? Ai, de novo! Amanhã chamo o técnico.", "ru": "Не работает? Ой, опять! Завтра вызову мастера.", "next": "clean"},
+        "clean": {"kind": "answer", "task": "Скажите, что сегодня уберёте дом.", "branches": [{"phrase": "ph:home.vou-limpar-a-casa", "next": "dishes"}], "wrong": {"es": "Vai limpar a praia? A praia é muito grande!", "ru": "Будешь убирать пляж? Пляж слишком большой!"}},
+        "dishes": {"kind": "say", "es": "Você é um anjo! E os pratos?", "ru": "Ты просто ангел! А тарелки?", "next": "dishesq"},
+        "dishesq": {"kind": "answer", "task": "Скажите, что помоете тарелки.", "branches": [{"phrase": "ph:home.lavo-os-pratos", "next": "room"}], "wrong": {"es": "Você lava o gato? Ele não gosta de água!", "ru": "Ты моешь кота? Он не любит воду!"}},
+        "room": {"kind": "say", "es": "Obrigada. E o quarto do meu neto está uma confusão.", "ru": "Спасибо. А комната моего внука — полный беспорядок.", "next": "roomq"},
+        "roomq": {"kind": "answer", "task": "Скажите, что уберёте комнату.", "branches": [{"phrase": "ph:home.arrumo-o-quarto", "next": "plants"}], "wrong": {"es": "Você arruma a lua? Ela está muito longe!", "ru": "Ты уберёшь луну? Она слишком далеко!"}},
+        "plants": {"kind": "say", "es": "Que maravilha. Ai, e as minhas plantas!", "ru": "Какое чудо. Ой, а мои растения!", "next": "plantsq"},
+        "plantsq": {"kind": "answer", "task": "Скажите, что растениям нужна вода.", "branches": [{"phrase": "ph:home.as-plantas-precisam-de-agua", "next": "porch"}], "wrong": {"es": "As plantas precisam de sorvete? Não, de água!", "ru": "Растениям нужно мороженое? Нет, вода!"}},
+        "porch": {"kind": "say", "es": "É verdade. Pronto, tudo limpo! Agora a gente descansa.", "ru": "Правда. Всё, чисто! Теперь можно отдохнуть.", "next": "porchq"},
+        "porchq": {"kind": "answer", "task": "Предложите пойти на веранду.", "branches": [{"phrase": "ph:home.vamos-para-a-varanda", "next": "end"}], "wrong": {"es": "Vamos para a geladeira? Não cabe ninguém lá!", "ru": "Пойдём в холодильник? Там никто не поместится!"}},
+        "end": {"kind": "say", "es": "Olha lá em cima. Está vendo uma luz na serra? É a torre. Toma o meu fragmento do mapa da serra. E lembra: o guarda pergunta o que você fez.", "ru": "Посмотри наверх. Видишь свет в горах? Это башня. Держи мой обрывок карты гор. И помни: страж спрашивает, что ты сделал.", "fem": {"ru": "Посмотри наверх. Видишь свет в горах? Это башня. Держи мой обрывок карты гор. И помни: страж спрашивает, что ты сделала."}}
+      }
+    }
+  ]
+}

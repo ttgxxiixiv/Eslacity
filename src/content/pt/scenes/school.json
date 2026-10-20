@@ -1,0 +1,55 @@
+{
+  "location": "school",
+  "scenes": [
+    {
+      "id": "sc:school.1",
+      "chapter": 1,
+      "npc": "marcia",
+      "lines": [
+        {"who": "npc", "es": "Bom dia! Vamos começar a aula?", "ru": "Доброе утро! Начнём урок?"},
+        {"who": "hero", "es": "Bom dia. Hoje eu tenho uma pergunta.", "ru": "Доброе утро. Сегодня у меня вопрос."},
+        {"who": "npc", "es": "Muito bem. Perguntas são sempre boas.", "ru": "Очень хорошо. Вопросы — это всегда хорошо."},
+        {"who": "hero", "es": "Você sabe alguma coisa do mapa?", "ru": "Ты что-нибудь знаешь о карте?"},
+        {"who": "npc", "es": "Eu tenho um fragmento. Olha: aqui tem umas palavras escritas.", "ru": "У меня есть обрывок. Смотри: здесь написаны какие-то слова."},
+        {"who": "hero", "es": "Eu não entendo essa palavra.", "ru": "Я не понимаю это слово."},
+        {"who": "npc", "es": "É um português muito velho. Aqui está escrito: «Só passa quem fala».", "ru": "Это очень старый португальский. Здесь написано: «Пройдёт только тот, кто говорит»."},
+        {"who": "hero", "es": "Passa? Para onde?", "ru": "Пройдёт? Куда?"},
+        {"who": "npc", "es": "Para o Cofre. Na porta, alguém faz perguntas. Só passa quem sabe a resposta.", "ru": "В Хранилище. У двери кто-то задаёт вопросы. Пройдёт только тот, кто знает ответ."},
+        {"who": "hero", "es": "Eu preciso aprender muito.", "ru": "Мне нужно многому научиться."},
+        {"who": "npc", "es": "Por isso você está aqui. Vamos começar!", "ru": "Для этого ты здесь. Начинаем!"}
+      ],
+      "questions": [
+        {"q": "Что есть у Профессоры Марсии?", "options": ["Обрывок карты", "Старая книга", "Ключ"], "answer": 0},
+        {"q": "Что написано на обрывке?", "options": ["Пройдёт только тот, кто говорит", "Иди к морю", "Хранилище закрыто"], "answer": 0},
+        {"q": "Что ждёт у двери Хранилища?", "options": ["Стражник с мечом", "Кто-то задаёт вопросы", "Пустая комната"], "answer": 1},
+        {"q": "Что решает герой?", "options": ["Уйти", "Многому научиться", "Продать обрывок"], "answer": 1}
+      ],
+      "gloss": {"fragmento": "обрывок", "escritas": "написанные (escrever)", "escrito": "написано (escrever)", "português": "португальский язык", "passa": "проходит (passar)", "cofre": "o Cofre — Хранилище", "porta": "дверь"}
+    },
+    {
+      "id": "sc:school.2",
+      "chapter": 2,
+      "npc": "marcia",
+      "lines": [
+        {"who": "npc", "es": "Bom dia! Eu tenho uma carta do Caio. O pai dele, o Seu Tonho, me deu ontem.", "ru": "Доброе утро! У меня письмо Каю. Вчера мне его дал его отец, Сеу Тоньо."},
+        {"who": "hero", "es": "O que diz a carta?", "ru": "Что в письме?"},
+        {"who": "npc", "es": "Escuta: «Cheguei à neblina. A neblina fala. Eu respondo no passado».", "ru": "Слушай: «Я дошёл до тумана. Туман говорит. Я отвечаю в прошедшем времени»."},
+        {"who": "hero", "es": "A neblina fala?", "ru": "Туман говорит?"},
+        {"who": "npc", "es": "Eu acho que é a voz do guarda. Ele pergunta o que você fez, e você responde no passado.", "ru": "Думаю, это голос стража. Он спрашивает, что ты сделал, а ты отвечаешь в прошедшем времени.", "fem": {"ru": "Думаю, это голос стража. Он спрашивает, что ты сделала, а ты отвечаешь в прошедшем времени."}},
+        {"who": "hero", "es": "A minha vizinha disse a mesma coisa.", "ru": "Моя соседка говорила то же самое."},
+        {"who": "npc", "es": "Isso mesmo. E olha o fim da carta: a letra é outra.", "ru": "Вот именно. А посмотри в конец письма: почерк другой."},
+        {"who": "hero", "es": "E o que diz no fim?", "ru": "А что в конце?"},
+        {"who": "npc", "es": "Foi outra pessoa que escreveu. Só umas palavras: «Ele está bem. Espera».", "ru": "Это написал уже другой человек. Всего несколько слов: «С ним всё хорошо. Жди»."},
+        {"who": "hero", "es": "Quem?", "ru": "Кто?"},
+        {"who": "npc", "es": "Não sei. Por isso hoje a gente estuda o passado. Vamos começar!", "ru": "Не знаю. Поэтому сегодня учим прошедшее время. Начинаем!"}
+      ],
+      "questions": [
+        {"q": "От кого письмо?", "options": ["От Каю", "От Сеу Тоньо", "От стража"], "answer": 0},
+        {"q": "Как Каю отвечает туману?", "options": ["Шёпотом", "В прошедшем времени", "Песней"], "answer": 1},
+        {"q": "Что странного в конце письма?", "options": ["Его написал другой человек", "Оно мокрое", "Там рисунок"], "answer": 0},
+        {"q": "Что написано в конце?", "options": ["Приходи скорее", "С ним всё хорошо. Жди", "Не ищи его"], "answer": 1}
+      ],
+      "gloss": {"cheguei": "я дошёл (chegar)", "respondo": "отвечаю (responder)", "passado": "прошедшее время, прошлое", "fez": "сделал (fazer)", "letra": "почерк, буква", "escreveu": "написал (escrever)"}
+    }
+  ]
+}

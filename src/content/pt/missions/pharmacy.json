@@ -1,0 +1,45 @@
+{
+  "location": "pharmacy",
+  "missions": [
+    {
+      "id": "ms:pharmacy.1",
+      "chapter": 1,
+      "npc": "rosa",
+      "scene": "sc:pharmacy.1",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Boa tarde. Hoje você está com uma cara cansada. O que você tem?", "ru": "Добрый день. У тебя сегодня усталый вид. Что с тобой?", "next": "pain"},
+        "pain": {"kind": "answer", "task": "Скажите, что у вас болит голова или что вы болеете.", "branches": [{"phrase": "ph:pharmacy.estou-com-dor-de-cabeca", "next": "fever"}, {"phrase": "ph:pharmacy.estou-doente", "next": "fever"}], "wrong": {"es": "Está com fome? Aqui é farmácia, não é restaurante!", "ru": "Ты голоден? Это аптека, а не ресторан!", "fem": {"ru": "Ты голодна? Это аптека, а не ресторан!"}}},
+        "fever": {"kind": "say", "es": "Coitado! E febre, você tem?", "ru": "Бедняга! А температура есть?", "next": "feverq", "fem": {"es": "Coitada! E febre, você tem?"}},
+        "feverq": {"kind": "answer", "task": "Скажите, что у вас температура.", "branches": [{"phrase": "ph:pharmacy.estou-com-febre", "next": "throat"}], "wrong": {"es": "Está com um gato? Não, eu perguntei da febre!", "ru": "У тебя кошка? Нет, я спросила про температуру!"}},
+        "throat": {"kind": "say", "es": "Febre. E a garganta?", "ru": "Температура. А горло?", "next": "throatq"},
+        "throatq": {"kind": "answer", "task": "Скажите, что у вас болит горло.", "branches": [{"phrase": "ph:pharmacy.estou-com-dor-de-garganta", "next": "medicine"}], "wrong": {"es": "Dor de sapato? Isso não existe!", "ru": "Боль в туфлях? Такого не бывает!"}},
+        "medicine": {"kind": "say", "es": "Entendi. Você precisa de quê?", "ru": "Понятно. Что тебе нужно?", "next": "medicineq"},
+        "medicineq": {"kind": "answer", "task": "Скажите, что вам нужно лекарство.", "branches": [{"phrase": "ph:pharmacy.preciso-de-um-remedio", "next": "doctor"}], "wrong": {"es": "Precisa de uma bicicleta? Primeiro o remédio!", "ru": "Нужен велосипед? Сначала лекарство!"}},
+        "doctor": {"kind": "say", "es": "Toma esse xarope. Mas se a febre não passar, vai ao médico.", "ru": "Возьми этот сироп. Но если температура не пройдёт, иди к врачу.", "next": "doctorq"},
+        "doctorq": {"kind": "answer", "task": "Спросите, где здесь врач.", "branches": [{"phrase": "ph:pharmacy.onde-tem-um-medico", "next": "end"}], "wrong": {"es": "Onde tem um mercado? Na rua de baixo, mas e o médico?", "ru": "Где магазин? На нижней улице, а врач-то?"}},
+        "end": {"kind": "say", "es": "No hospital, perto do porto. E no armário, com as receitas… um fragmento do mapa. Leva. E lembra: o Elixir não é remédio.", "ru": "В больнице, у порта. А в шкафу, с рецептами… обрывок карты. Возьми. И помни: Эликсир — не лекарство."}
+      }
+    },
+    {
+      "id": "ms:pharmacy.2",
+      "chapter": 2,
+      "npc": "rosa",
+      "scene": "sc:pharmacy.2",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Para a serra você precisa de uma pequena farmácia na mochila. O que vai levar?", "ru": "В горы тебе нужна маленькая аптечка в рюкзаке. Что возьмёшь?", "next": "sun"},
+        "sun": {"kind": "answer", "task": "Спросите, есть ли солнцезащитный крем.", "branches": [{"phrase": "ph:pharmacy.tem-protetor-solar", "next": "vitamin"}], "wrong": {"es": "Tem sorvete? Não, aqui não tem sorvete.", "ru": "Есть мороженое? Нет, здесь мороженого нет."}},
+        "vitamin": {"kind": "say", "es": "Tem. Na serra o sol queima. E mais?", "ru": "Есть. В горах солнце жжёт. А ещё?", "next": "vitaminq"},
+        "vitaminq": {"kind": "answer", "task": "Спросите, есть ли витамины в дорогу.", "branches": [{"phrase": "ph:pharmacy.tem-vitamina", "next": "dose"}], "wrong": {"es": "Tem vinho? Na farmácia, não!", "ru": "Есть вино? В аптеке — нет!"}},
+        "dose": {"kind": "say", "es": "Tem, sim. É bom para a viagem.", "ru": "Есть. Хорош в дорогу.", "next": "doseq"},
+        "doseq": {"kind": "answer", "task": "Спросите, какая доза.", "branches": [{"phrase": "ph:pharmacy.qual-e-a-dose", "next": "bite"}], "wrong": {"es": "Qual é a cor? É laranja, mas e a dose?", "ru": "Какой цвет? Оранжевый, а доза-то?"}},
+        "bite": {"kind": "say", "es": "Um comprimido por dia, de manhã. Mais alguma coisa?", "ru": "Одна таблетка в день, утром. Что-нибудь ещё?", "next": "biteq"},
+        "biteq": {"kind": "answer", "task": "Скажите, что вас укусил комар.", "branches": [{"phrase": "ph:pharmacy.tenho-uma-picada", "next": "serious"}], "wrong": {"es": "Tenho uma pizza? Aqui é farmácia!", "ru": "У меня пицца? Это аптека!"}},
+        "serious": {"kind": "say", "es": "Deixa eu ver… Hum.", "ru": "Дай посмотрю… Хм.", "next": "seriousq"},
+        "seriousq": {"kind": "answer", "task": "Спросите, серьёзно ли это.", "branches": [{"phrase": "ph:pharmacy.e-grave", "next": "end"}], "wrong": {"es": "É grande? Não, é pequena. Mas é grave?", "ru": "Большой? Нет, маленький. Но серьёзно ли это?"}},
+        "end": {"kind": "say", "es": "Não é nada grave. Passa essa pomada. E junto com a pomada, leva o meu fragmento do mapa da serra. Se você vir o homem do casaco cinza, diz para ele em que ano estamos.", "ru": "Ничего серьёзного. Намажь этой мазью. А вместе с мазью возьми мой обрывок карты гор. Если увидишь человека в сером пальто, скажи ему, какой сейчас год."}
+      }
+    }
+  ]
+}

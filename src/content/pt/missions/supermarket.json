@@ -1,0 +1,49 @@
+{
+  "location": "supermarket",
+  "missions": [
+    {
+      "id": "ms:supermarket.1",
+      "chapter": 1,
+      "npc": "wellington",
+      "scene": "sc:supermarket.1",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Oi! Primeiro compra, depois o fragmento. O que você procura?", "ru": "Привет! Сначала покупка, потом обрывок. Что ищешь?", "next": "cheese"},
+        "cheese": {"kind": "answer", "task": "Спросите, есть ли сыр.", "branches": [{"phrase": "ph:supermarket.tem-queijo", "next": "cheesesay"}], "wrong": {"es": "Tem gato? Não, aqui não vende gato.", "ru": "Есть кошки? Нет, кошек здесь не продают."}},
+        "cheesesay": {"kind": "say", "es": "Tem, sim. Queijo de minas, muito bom. Mais alguma coisa?", "ru": "Есть. Сыр минас, очень хороший. Что-нибудь ещё?", "next": "rice"},
+        "rice": {"kind": "answer", "task": "Спросите, где рис, или попросите бутылку воды.", "branches": [{"phrase": "ph:supermarket.onde-esta-o-arroz", "next": "pasta"}, {"phrase": "ph:supermarket.uma-garrafa-de-agua", "next": "pasta"}], "wrong": {"es": "Onde está a praia? Lá fora, mas aqui é mercado.", "ru": "Где пляж? Там, снаружи, а здесь магазин."}},
+        "pasta": {"kind": "say", "es": "Tudo bem. Aqui está. E macarrão? Hoje está barato.", "ru": "Хорошо. Вот, пожалуйста. А макароны? Сегодня дешёвые.", "next": "pastaq"},
+        "pastaq": {"kind": "answer", "task": "Спросите, где макароны.", "branches": [{"phrase": "ph:supermarket.onde-esta-o-macarrao", "next": "promo"}], "wrong": {"es": "O macarrão está cansado? Não, ele está na prateleira.", "ru": "Макароны устали? Нет, они на полке."}},
+        "promo": {"kind": "say", "es": "Ali, na prateleira de cima. E tem promoção de café.", "ru": "Вон там, на верхней полке. И на кофе акция.", "next": "promoq"},
+        "promoq": {"kind": "answer", "task": "Уточните, сегодня ли эта акция.", "branches": [{"phrase": "ph:supermarket.a-promocao-e-hoje", "next": "need"}], "wrong": {"es": "A promoção é um gato? Não, é café!", "ru": "Акция — это кошка? Нет, это кофе!"}},
+        "need": {"kind": "say", "es": "É hoje, sim. O que mais você precisa?", "ru": "Сегодня, да. Что тебе ещё нужно?", "next": "needq"},
+        "needq": {"kind": "answer", "task": "Скажите, что вам нужны хлеб и молоко.", "branches": [{"phrase": "ph:supermarket.preciso-de-pao-e-leite", "next": "card"}], "wrong": {"es": "Precisa de uma bicicleta? Aqui é mercado!", "ru": "Нужен велосипед? Это магазин!"}},
+        "card": {"kind": "say", "es": "Pão e leite, pronto. Vai pagar como?", "ru": "Хлеб и молоко, готово. Как будешь платить?", "next": "cardq"},
+        "cardq": {"kind": "answer", "task": "Скажите, что заплатите картой.", "branches": [{"phrase": "ph:supermarket.aceita-cartao", "next": "end"}], "wrong": {"es": "Vai pagar com banana? Não, obrigado.", "ru": "Заплатишь бананом? Нет, спасибо."}},
+        "end": {"kind": "say", "es": "Pode, sim. Pronto. E toma… o fragmento do mapa. Para a minha mãe ele é muito importante. Eu não sei, mas agora ele é seu.", "ru": "Можно. Готово. И держи… обрывок карты. Для мамы он очень важен. Я не знаю, но теперь он твой."}
+      }
+    },
+    {
+      "id": "ms:supermarket.2",
+      "chapter": 2,
+      "npc": "wellington",
+      "scene": "sc:supermarket.2",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Você vai para a serra e precisa de comida. O que você está procurando?", "ru": "Ты идёшь в горы, тебе нужна еда. Что ищешь?", "next": "flour"},
+        "flour": {"kind": "answer", "task": "Спросите, где мука.", "branches": [{"phrase": "ph:supermarket.onde-esta-a-farinha", "next": "floursay"}], "wrong": {"es": "Onde está a neblina? Na serra, não aqui.", "ru": "Где туман? В горах, не здесь."}},
+        "floursay": {"kind": "say", "es": "Corredor três. E mais?", "ru": "Третий проход. А ещё?", "next": "milk"},
+        "milk": {"kind": "answer", "task": "Спросите, закончилось ли молоко.", "branches": [{"phrase": "ph:supermarket.o-leite-acabou", "next": "milksay"}], "wrong": {"es": "O mercado acabou? Não, ele está aberto!", "ru": "Магазин закончился? Нет, он открыт!"}},
+        "milksay": {"kind": "say", "es": "Acabou, desculpa. Mas tem café.", "ru": "Закончилось, извини. Но есть кофе.", "next": "coffee"},
+        "coffee": {"kind": "answer", "task": "Попросите пачку кофе или спросите, есть ли помидоры в банках.", "branches": [{"phrase": "ph:supermarket.um-pacote-de-cafe", "next": "yogurt"}, {"phrase": "ph:supermarket.uma-lata-de-tomate", "next": "yogurt"}], "wrong": {"es": "Uma caixa de gato? Não, não!", "ru": "Коробку кошек? Нет-нет!"}},
+        "yogurt": {"kind": "say", "es": "Pronto. Quer iogurte também? Esse aqui é muito bom.", "ru": "Готово. Йогурт тоже хочешь? Вот этот очень хороший.", "next": "yogurtq"},
+        "yogurtq": {"kind": "answer", "task": "Скажите, что у этого йогурта истёк срок годности.", "branches": [{"phrase": "ph:supermarket.esta-vencido", "next": "price"}], "wrong": {"es": "O iogurte está cantando? Não, ele está na geladeira.", "ru": "Йогурт поёт? Нет, он в холодильнике."}},
+        "price": {"kind": "say", "es": "Vencido! Desculpa, vou trocar. Olha esse produto novo.", "ru": "Просрочен! Извини, сейчас поменяю. Посмотри на этот новый товар.", "next": "priceq"},
+        "priceq": {"kind": "answer", "task": "Спросите, сколько стоит этот товар.", "branches": [{"phrase": "ph:supermarket.quanto-custa-esse-produto", "next": "brand"}], "wrong": {"es": "Quantos anos tem? Não sei, é um produto!", "ru": "Сколько ему лет? Не знаю, это же товар!"}},
+        "brand": {"kind": "say", "es": "Doze reais. Mas tem outra marca.", "ru": "Двенадцать реалов. Но есть другая марка.", "next": "brandq"},
+        "brandq": {"kind": "answer", "task": "Спросите, какую марку он советует.", "branches": [{"phrase": "ph:supermarket.qual-marca", "next": "end"}], "wrong": {"es": "Qual é o seu nome? Wellington, mas e a marca?", "ru": "Как меня зовут? Веллингтон, а марка-то?"}},
+        "end": {"kind": "say", "es": "Para o viajante do mapa, essa aqui com desconto. E toma o meu fragmento do mapa da serra. Se você vir o homem do casaco cinza, pergunta: de onde são essas moedas velhas?", "ru": "Для путника с картой — вот эту, со скидкой. И держи мой обрывок карты гор. Если увидишь человека в сером пальто, спроси его: откуда эти старые монеты?", "fem": {"es": "Para a viajante do mapa, essa aqui com desconto. E toma o meu fragmento do mapa da serra. Se você vir o homem do casaco cinza, pergunta: de onde são essas moedas velhas?", "ru": "Для путницы с картой — вот эту, со скидкой. И держи мой обрывок карты гор. Если увидишь человека в сером пальто, спроси его: откуда эти старые монеты?"}}
+      }
+    }
+  ]
+}

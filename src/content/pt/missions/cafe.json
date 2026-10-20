@@ -1,0 +1,50 @@
+{
+  "location": "cafe",
+  "missions": [
+    {
+      "id": "ms:cafe.1",
+      "chapter": 1,
+      "npc": "tonho",
+      "scene": "sc:cafe.1",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Oi de novo! Hoje no meu café a gente só fala português. O que vai ser?", "ru": "Снова привет! Сегодня в моём кафе говорим только по-португальски. Что будешь?", "next": "order"},
+        "order": {"kind": "answer", "task": "Закажите кофе или апельсиновый сок.", "branches": [{"phrase": "ph:cafe.um-cafe", "next": "coffee", "sets": {"drink": "coffee"}}, {"phrase": "ph:cafe.um-suco", "next": "juice", "sets": {"drink": "juice"}}], "wrong": {"es": "Um gato? Desculpa, não tem gato no cardápio.", "ru": "Кошку? Извини, кошек в меню нет."}},
+        "coffee": {"kind": "say", "es": "Um café. Muito bem! Quer água também?", "ru": "Кофе. Отлично! Воды тоже хочешь?", "next": "water"},
+        "juice": {"kind": "say", "es": "Um suco de laranja. Você fala muito bem! Quer água também?", "ru": "Апельсиновый сок. Ты отлично говоришь! Воды тоже хочешь?", "next": "water"},
+        "water": {"kind": "answer", "task": "Попросите стакан воды.", "branches": [{"phrase": "ph:cafe.um-copo-de-agua", "next": "sugarq"}], "wrong": {"es": "Um copo de sopa? Aqui é café, não é restaurante.", "ru": "Стакан супа? Это кафе, а не ресторан."}},
+        "sugarq": {"kind": "say", "es": "Toma a sua água. Açúcar?", "ru": "Держи воду. Сахар?", "next": "sugar"},
+        "sugar": {"kind": "answer", "task": "Откажитесь от сахара и поблагодарите.", "branches": [{"phrase": "ph:cafe.sem-acucar", "next": "breadq"}], "wrong": {"es": "Dez quilos de açúcar? Não, não!", "ru": "Десять кило сахара? Нет-нет!"}},
+        "breadq": {"kind": "say", "es": "Tudo bem. O pão de queijo está muito bom hoje.", "ru": "Ладно. Сырные булочки сегодня очень хорошие.", "next": "bread"},
+        "bread": {"kind": "answer", "task": "Спросите, есть ли сырные булочки.", "branches": [{"phrase": "ph:cafe.tem-pao-de-queijo", "next": "paysay"}], "wrong": {"es": "Pão de queijo para o gato? O gato já come muito.", "ru": "Сырную булочку для кошки? Кошка и так много ест."}},
+        "paysay": {"kind": "say", "es": "Tem, sim. Toma o seu pão de queijo.", "ru": "Есть, конечно. Держи булочку.", "next": "payq"},
+        "payq": {"kind": "answer", "task": "Спросите, можно ли заплатить здесь.", "branches": [{"phrase": "ph:cafe.posso-pagar-aqui", "next": "billsay"}], "wrong": {"es": "Vai pagar com flores? Aqui a gente paga com reais.", "ru": "Заплатишь цветами? Здесь платят реалами."}},
+        "billsay": {"kind": "say", "es": "Pode, sim. A conta está comigo.", "ru": "Можно, да. Счёт у меня.", "next": "bill"},
+        "bill": {"kind": "answer", "task": "Попросите счёт.", "branches": [{"phrase": "ph:cafe.a-conta", "next": "bye"}], "wrong": {"es": "Mais um café? Você ainda não terminou esse!", "ru": "Ещё кофе? Ты этот ещё не допил!", "fem": {"ru": "Ещё кофе? Ты этот ещё не допила!"}}},
+        "bye": {"kind": "say", "es": "Onze reais. Você fala muito bem! Toma, esse fragmento do mapa agora é seu. Até amanhã.", "ru": "Одиннадцать реалов. Ты отлично говоришь! Держи, этот обрывок карты теперь твой. До завтра."}
+      }
+    },
+    {
+      "id": "ms:cafe.2",
+      "chapter": 2,
+      "npc": "tonho",
+      "scene": "sc:cafe.2",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Antes da viagem, um bom café da manhã. Onde você vai sentar?", "ru": "Перед дорогой — хороший завтрак. Куда сядешь?", "next": "table"},
+        "table": {"kind": "answer", "task": "Спросите, свободен ли этот стол.", "branches": [{"phrase": "ph:cafe.esta-livre", "next": "tablesay"}], "wrong": {"es": "O gato está livre? Não, é o gato da vizinha.", "ru": "Кошка свободна? Нет, это соседская кошка."}},
+        "tablesay": {"kind": "say", "es": "Está, sim. Senta. O que vai querer?", "ru": "Свободен. Садись. Что будешь?", "next": "order"},
+        "order": {"kind": "answer", "task": "Закажите завтрак или большой стакан сока с сырной булочкой.", "branches": [{"phrase": "ph:cafe.cafe-da-manha", "next": "ordersay"}, {"phrase": "ph:cafe.copo-grande", "next": "ordersay"}], "wrong": {"es": "Moqueca de peixe? Às oito da manhã?", "ru": "Мокеку из рыбы? В восемь утра?"}},
+        "ordersay": {"kind": "say", "es": "Ótimo. E para a viagem, quer alguma coisa quente?", "ru": "Отлично. А в дорогу хочешь чего-нибудь горячего?", "next": "more"},
+        "more": {"kind": "answer", "task": "Попросите ещё кофе.", "branches": [{"phrase": "ph:cafe.mais-um-cafe", "next": "moresay"}], "wrong": {"es": "Sorvete? Na serra faz frio!", "ru": "Мороженое? В горах холодно!"}},
+        "moresay": {"kind": "say", "es": "Mais um café, como o Caio. Ele também tomava dois cafés toda manhã.", "ru": "Ещё кофе, как Каю. Он тоже каждое утро пил две чашки.", "next": "napkin"},
+        "napkin": {"kind": "answer", "task": "Попросите салфетку.", "branches": [{"phrase": "ph:cafe.um-guardanapo", "next": "napkinsay"}], "wrong": {"es": "Uma banana? Aqui é café, não é feira!", "ru": "Банан? Это кафе, а не рынок!"}},
+        "napkinsay": {"kind": "say", "es": "Toma. Olha, essa é a última carta do Caio.", "ru": "Держи. Смотри, а это последнее письмо Каю.", "next": "cash"},
+        "cash": {"kind": "answer", "task": "Спросите, можно ли заплатить картой.", "branches": [{"phrase": "ph:cafe.com-cartao", "next": "cashsay"}], "wrong": {"es": "Vai pagar com uma sacola? Eu já tenho sacola, obrigado.", "ru": "Заплатишь пакетом? У меня уже есть пакет, спасибо."}},
+        "cashsay": {"kind": "say", "es": "Hoje pode. Mas espera um minuto.", "ru": "Сегодня можно. Но подожди минутку.", "next": "treat"},
+        "treat": {"kind": "answer", "task": "Попросите счёт или скажите, что сегодня угощаете вы.", "branches": [{"phrase": "ph:cafe.a-conta", "next": "end"}, {"phrase": "ph:cafe.eu-convido", "next": "end"}], "wrong": {"es": "Vai me dar o seu mapa? Não, ele fica com você.", "ru": "Отдаёшь мне свою карту? Нет, оставь себе."}},
+        "end": {"kind": "say", "es": "Não, hoje você não paga nada. E escuta: se você vir o Caio na neblina, chama por ele. Ele sempre dizia: na neblina, só uma voz mostra o caminho. Toma, o meu fragmento do mapa da serra.", "ru": "Нет, сегодня ты ничего не платишь. И послушай: если увидишь Каю в тумане, позови его. Он всегда говорил: в тумане дорогу покажет только голос. Держи мой обрывок карты гор."}
+      }
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "location": "market",
+  "scenes": [
+    {
+      "id": "sc:market.1",
+      "chapter": 1,
+      "npc": "graca",
+      "lines": [
+        {"who": "npc", "es": "Bom dia, freguês! Olha que tomate bonito. O que vai ser hoje?", "ru": "Доброе утро, покупатель! Смотри, какие красивые помидоры. Что тебе сегодня?", "fem": {"es": "Bom dia, freguesa! Olha que tomate bonito. O que vai ser hoje?", "ru": "Доброе утро, покупательница! Смотри, какие красивые помидоры. Что тебе сегодня?"}},
+        {"who": "hero", "es": "Um quilo de tomate e duas laranjas, por favor.", "ru": "Килограмм помидоров и два апельсина, пожалуйста."},
+        {"who": "npc", "es": "Muito bem. E manga? Hoje está uma beleza.", "ru": "Хорошо. А манго? Сегодня просто чудо."},
+        {"who": "hero", "es": "Quanto custa a manga?", "ru": "Сколько стоит манго?"},
+        {"who": "npc", "es": "Oito reais o quilo.", "ru": "Восемь реалов за килограмм."},
+        {"who": "hero", "es": "Está muito caro!", "ru": "Это очень дорого!"},
+        {"who": "npc", "es": "Para você, seis.", "ru": "Для тебя — шесть."},
+        {"who": "hero", "es": "Está bem. Pode me dar uma sacola?", "ru": "Ладно. Можете дать мне пакет?"},
+        {"who": "npc", "es": "Toma. Escuta, você está procurando um mapa velho, não é? A minha mãe tinha um fragmento.", "ru": "Держи. Слушай, ты ведь ищешь старую карту? У моей мамы был обрывок."},
+        {"who": "hero", "es": "E onde ele está agora?", "ru": "А где он сейчас?"},
+        {"who": "npc", "es": "Aqui, comigo. Mas primeiro, os tomates!", "ru": "Здесь, у меня. Но сначала — помидоры!"}
+      ],
+      "questions": [
+        {"q": "Что покупает герой сначала?", "options": ["Помидоры и апельсины", "Яблоки", "Картошку"], "answer": 0},
+        {"q": "Сколько стоит манго?", "options": ["Пять реалов", "Восемь реалов за килограмм", "Двадцать реалов"], "answer": 1},
+        {"q": "Что делает Дона Граса, когда герой говорит «дорого»?", "options": ["Сердится", "Уступает в цене", "Уходит"], "answer": 1},
+        {"q": "Где обрывок карты?", "options": ["У Сеу Тоньо", "У Доны Грасы", "У Веллингтона"], "answer": 1}
+      ],
+      "gloss": {"freguês": "покупатель (постоянный)", "freguesa": "покупательница", "sacola": "пакет", "beleza": "красота, чудо", "escuta": "слушай (escutar)", "procurando": "ищешь (procurar)", "tinha": "было (ter)", "fragmento": "обрывок", "comigo": "у меня, со мной"}
+    },
+    {
+      "id": "sc:market.2",
+      "chapter": 2,
+      "npc": "graca",
+      "lines": [
+        {"who": "npc", "es": "Freguês! Já provou esse queijo? É dos sitiantes da serra.", "ru": "Покупатель! Пробовал этот сыр? Его делают фермеры с гор.", "fem": {"es": "Freguesa! Já provou esse queijo? É dos sitiantes da serra.", "ru": "Покупательница! Пробовала этот сыр? Его делают фермеры с гор."}},
+        {"who": "hero", "es": "Os sitiantes vêm à feira?", "ru": "Фермеры приходят на ярмарку?"},
+        {"who": "npc", "es": "Vêm todo sábado. Trazem queijo e notícias.", "ru": "Каждую субботу. Приносят сыр и новости."},
+        {"who": "hero", "es": "Que notícias?", "ru": "Какие новости?"},
+        {"who": "npc", "es": "Na semana passada contaram uma coisa estranha. Eles viram o Caio, o filho do Seu Tonho.", "ru": "На прошлой неделе рассказали странную вещь. Они видели Каю, сына Сеу Тоньо."},
+        {"who": "hero", "es": "Onde eles viram o Caio?", "ru": "Где они видели Каю?"},
+        {"who": "npc", "es": "Ele subia para a torre com um homem. Ninguém conhece esse homem. Ele usava um casaco cinza.", "ru": "Он поднимался к башне с каким-то человеком. Того никто не знает. На нём было серое пальто."},
+        {"who": "hero", "es": "Quem era esse homem?", "ru": "Кто же это был?"},
+        {"who": "npc", "es": "Ninguém sabe. Ele não falou com ninguém.", "ru": "Никто не знает. Он ни с кем не говорил."},
+        {"who": "hero", "es": "Preciso contar isso ao Seu Tonho.", "ru": "Надо рассказать это Сеу Тоньо."},
+        {"who": "npc", "es": "Espera. Primeiro prova o queijo.", "ru": "Погоди. Сначала попробуй сыр."},
+        {"who": "npc", "es": "E as minhas bananas? Da última vez você levou um quilo inteiro.", "ru": "А как мои бананы? В прошлый раз ты взял целый килограмм.", "fem": {"ru": "А как мои бананы? В прошлый раз ты взяла целый килограмм."}, "if": {"flag": "basket", "is": "bananas"}},
+        {"who": "npc", "es": "E as minhas batatas? Dois quilos! Você cozinhou tudo?", "ru": "А как моя картошка? Два килограмма! Ты всё приготовил?", "fem": {"ru": "А как моя картошка? Два килограмма! Ты всё приготовила?"}, "if": {"flag": "basket", "is": "potatoes"}}
+      ],
+      "questions": [
+        {"q": "Кто делает сыр?", "options": ["Дона Граса", "Фермеры с гор", "Веллингтон"], "answer": 1},
+        {"q": "Кого видели фермеры?", "options": ["Каю", "Летописца", "Стража"], "answer": 0},
+        {"q": "Куда шёл Каю?", "options": ["К морю", "К башне", "На остров"], "answer": 1},
+        {"q": "Что было на незнакомце?", "options": ["Красная куртка", "Серое пальто", "Шляпа"], "answer": 1}
+      ],
+      "gloss": {"freguês": "покупатель (постоянный)", "freguesa": "покупательница", "sitiantes": "фермеры, хозяева маленьких ферм", "serra": "горы", "subia": "поднимался (subir)", "torre": "башня", "usava": "носил (usar)", "casaco": "пальто, куртка", "cinza": "серый", "levou": "взял(а) (levar)", "cozinhou": "приготовил(а) (cozinhar)"}
+    }
+  ]
+}
