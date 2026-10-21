@@ -1,0 +1,194 @@
+{
+  "id": "c1.10-atenuacao",
+  "district": "C1",
+  "order": 10,
+  "title": "Смягчение: ao que tudo indica, talvez fosse o caso",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "В споре и в официальной речи мысль смягчают: **parece que…**, **ao que tudo indica…** (судя по всему), **não estou certo de que…**, **talvez fosse o caso de…** (может, стоило бы), **eu diria que…**, **de certo modo** (в какой-то мере). Это не слабость, а вежливость."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Прямо",
+        "Мягче"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Você está errado.",
+            "Talvez você não tenha razão nisso."
+          ]
+        },
+        {
+          "cells": [
+            "É mentira.",
+            "Não estou certo de que seja verdade."
+          ]
+        },
+        {
+          "cells": [
+            "Precisamos mudar.",
+            "Talvez fosse o caso de mudar."
+          ]
+        },
+        {
+          "cells": [
+            "Ele mentiu.",
+            "Ao que tudo indica, ele não disse a verdade."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "После **não estou certo de que**, **talvez** и **é possível que** — subjuntivo: **é possível que ele tenha esquecido**."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Ao que tudo indica, o eco vem do labirinto.",
+      "ru": "Судя по всему, эхо идёт из лабиринта."
+    },
+    {
+      "es": "Talvez fosse o caso de esperar.",
+      "ru": "Может, стоило бы подождать."
+    },
+    {
+      "es": "Eu diria que ele exagerou um pouco.",
+      "ru": "Я бы сказал, что он немного преувеличил."
+    },
+    {
+      "es": "De certo modo, todos têm culpa.",
+      "ru": "В какой-то мере виноваты все."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "c1.10-atenuacao.1",
+      "kind": "choose",
+      "prompt": "Мягко «ты ошибаешься»:",
+      "options": [
+        "Talvez você não tenha razão nisso.",
+        "Você está errado e pronto.",
+        "Errado, viu?"
+      ],
+      "answer": 0,
+      "explain": "Смягчение."
+    },
+    {
+      "id": "c1.10-atenuacao.2",
+      "kind": "choose",
+      "prompt": "«Судя по всему»:",
+      "options": [
+        "ao que tudo indica",
+        "de todo jeito",
+        "tudo bem"
+      ],
+      "answer": 0,
+      "explain": "Ao que tudo indica."
+    },
+    {
+      "id": "c1.10-atenuacao.3",
+      "kind": "gap",
+      "sentence": "Não estou certo de que ___ verdade.",
+      "ru": "Не уверен, что это правда.",
+      "options": [
+        "seja",
+        "é",
+        "foi"
+      ],
+      "answer": 0,
+      "explain": "Сомнение — subjuntivo."
+    },
+    {
+      "id": "c1.10-atenuacao.4",
+      "kind": "gap",
+      "sentence": "Talvez ___ o caso de esperar.",
+      "ru": "Может, стоило бы подождать.",
+      "options": [
+        "fosse",
+        "era",
+        "seja"
+      ],
+      "answer": 0,
+      "explain": "Talvez fosse o caso."
+    },
+    {
+      "id": "c1.10-atenuacao.5",
+      "kind": "truefalse",
+      "statement": "«Eu diria que…» смягчает утверждение.",
+      "answer": true,
+      "explain": "Условное смягчает."
+    },
+    {
+      "id": "c1.10-atenuacao.6",
+      "kind": "truefalse",
+      "statement": "После «é possível que» нужен индикатив.",
+      "answer": false,
+      "explain": "Subjuntivo."
+    },
+    {
+      "id": "c1.10-atenuacao.7",
+      "kind": "truefalse",
+      "statement": "«De certo modo» — «в какой-то мере».",
+      "answer": true,
+      "explain": "Смягчение."
+    },
+    {
+      "id": "c1.10-atenuacao.8",
+      "kind": "build",
+      "ru": "Может, стоило бы подождать.",
+      "answer": "Talvez fosse o caso de esperar.",
+      "extra": [
+        "era",
+        "espera"
+      ],
+      "explain": "Talvez fosse o caso."
+    },
+    {
+      "id": "c1.10-atenuacao.9",
+      "kind": "type",
+      "sentence": "É possível que ele ___ esquecido.",
+      "ru": "Возможно, он забыл.",
+      "hint": "ter, subjuntivo",
+      "answer": "tenha",
+      "explain": "Subjuntivo о прошлом."
+    },
+    {
+      "id": "c1.10-atenuacao.10",
+      "kind": "register",
+      "source": "Você mentiu!",
+      "to": "formal",
+      "options": [
+        "Ao que tudo indica, o senhor não disse a verdade.",
+        "Mentiroso!",
+        "Cê mentiu, né?"
+      ],
+      "answer": 0,
+      "explain": "Смягчённо и официально."
+    },
+    {
+      "id": "c1.10-atenuacao.11",
+      "kind": "transform",
+      "source": "Ele exagerou um pouco.",
+      "keyword": "diria",
+      "ru": "Я бы сказал, что он немного преувеличил.",
+      "answer": "Eu diria que ele exagerou um pouco.",
+      "explain": "Смягчение: eu diria que."
+    },
+    {
+      "id": "c1.10-atenuacao.12",
+      "kind": "paraphrase",
+      "sentence": "Ao que tudo indica, choveu à noite.",
+      "options": [
+        "Parece que choveu à noite.",
+        "Choveu, com certeza absoluta.",
+        "Não choveu nunca."
+      ],
+      "answer": 0,
+      "explain": "Ao que tudo indica = parece que."
+    }
+  ]
+}

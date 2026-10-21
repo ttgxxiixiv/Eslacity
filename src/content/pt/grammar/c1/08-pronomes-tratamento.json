@@ -1,0 +1,199 @@
+{
+  "id": "c1.08-pronomes-tratamento",
+  "district": "C1",
+  "order": 8,
+  "title": "Vossa Excelência, o senhor: формы обращения",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "В официальной речи к человеку обращаются через его должность: **Vossa Excelência** (судья, министр), **Vossa Senhoria** (в деловых письмах), **Vossa Majestade** (король). Глагол — в 3-м лице: **Vossa Excelência deseja…**. О человеке говорят **Sua Excelência** — «его превосходительство»."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Кому",
+        "Форма",
+        "Сокращение"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "судья, министр",
+            "Vossa Excelência",
+            "V. Exa."
+          ]
+        },
+        {
+          "cells": [
+            "деловое письмо",
+            "Vossa Senhoria",
+            "V. Sa."
+          ]
+        },
+        {
+          "cells": [
+            "ректор",
+            "Vossa Magnificência",
+            "V. Maga."
+          ]
+        },
+        {
+          "cells": [
+            "каждый день",
+            "o senhor / a senhora",
+            "—"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Притяжательное тоже в 3-м лице: **Vossa Excelência e sua família** — не «vossa família». В жизни почти всегда хватает **o senhor / a senhora**."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Vossa Excelência deseja falar agora?",
+      "ru": "Ваше превосходительство желает выступить сейчас?"
+    },
+    {
+      "es": "Solicito a Vossa Senhoria que compareça.",
+      "ru": "Прошу вас явиться."
+    },
+    {
+      "es": "Sua Excelência, o prefeito, chegou.",
+      "ru": "Прибыл его превосходительство мэр."
+    },
+    {
+      "es": "O senhor aceita um café?",
+      "ru": "Вы выпьете кофе?"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "c1.08-pronomes-tratamento.1",
+      "kind": "choose",
+      "prompt": "Обращение к судье:",
+      "options": [
+        "Vossa Excelência",
+        "Você",
+        "Vossa Majestade"
+      ],
+      "answer": 0,
+      "explain": "Судья — Excelência."
+    },
+    {
+      "id": "c1.08-pronomes-tratamento.2",
+      "kind": "choose",
+      "prompt": "Глагол после «Vossa Senhoria»:",
+      "options": [
+        "deseja",
+        "desejais",
+        "desejas"
+      ],
+      "answer": 0,
+      "explain": "3-е лицо."
+    },
+    {
+      "id": "c1.08-pronomes-tratamento.3",
+      "kind": "gap",
+      "sentence": "Vossa Excelência e ___ família estão convidados.",
+      "ru": "Ваше превосходительство и ваша семья приглашены.",
+      "options": [
+        "sua",
+        "vossa",
+        "tua"
+      ],
+      "answer": 0,
+      "explain": "Притяжательное в 3-м лице."
+    },
+    {
+      "id": "c1.08-pronomes-tratamento.4",
+      "kind": "gap",
+      "sentence": "Solicito a Vossa Senhoria que ___.",
+      "ru": "Прошу вас явиться.",
+      "options": [
+        "compareça",
+        "compareçais",
+        "compareces"
+      ],
+      "answer": 0,
+      "explain": "3-е лицо, subjuntivo."
+    },
+    {
+      "id": "c1.08-pronomes-tratamento.5",
+      "kind": "truefalse",
+      "statement": "«Sua Excelência» — о человеке, к которому не обращаются.",
+      "answer": true,
+      "explain": "Его превосходительство."
+    },
+    {
+      "id": "c1.08-pronomes-tratamento.6",
+      "kind": "truefalse",
+      "statement": "После «Vossa Excelência» глагол во 2-м лице мн. ч.",
+      "answer": false,
+      "explain": "В 3-м лице."
+    },
+    {
+      "id": "c1.08-pronomes-tratamento.7",
+      "kind": "truefalse",
+      "statement": "В обычной жизни хватает «o senhor».",
+      "answer": true,
+      "explain": "Так и есть."
+    },
+    {
+      "id": "c1.08-pronomes-tratamento.8",
+      "kind": "build",
+      "ru": "Вы выпьете кофе?",
+      "answer": "O senhor aceita um café?",
+      "extra": [
+        "você",
+        "aceitas"
+      ],
+      "explain": "O senhor + 3-е лицо."
+    },
+    {
+      "id": "c1.08-pronomes-tratamento.9",
+      "kind": "type",
+      "sentence": "Vossa Excelência ___ falar agora?",
+      "ru": "Ваше превосходительство желает выступить сейчас?",
+      "hint": "desejar",
+      "answer": "deseja",
+      "explain": "3-е лицо."
+    },
+    {
+      "id": "c1.08-pronomes-tratamento.10",
+      "kind": "register",
+      "source": "Você quer falar agora?",
+      "to": "formal",
+      "options": [
+        "Vossa Excelência deseja falar agora?",
+        "Cê quer falar agora?",
+        "Fala aí agora?"
+      ],
+      "answer": 0,
+      "explain": "К судье — Vossa Excelência."
+    },
+    {
+      "id": "c1.08-pronomes-tratamento.11",
+      "kind": "fix",
+      "sentence": "Vossa Excelência e vossa família estão convidados.",
+      "ru": "Ваше превосходительство и ваша семья приглашены.",
+      "wrong": 3,
+      "answer": "sua",
+      "explain": "Притяжательное — sua."
+    },
+    {
+      "id": "c1.08-pronomes-tratamento.12",
+      "kind": "paraphrase",
+      "sentence": "Sua Excelência chegou.",
+      "options": [
+        "Ele, a autoridade, chegou.",
+        "Você chegou.",
+        "Eu cheguei."
+      ],
+      "answer": 0,
+      "explain": "О третьем лице."
+    }
+  ]
+}

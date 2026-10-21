@@ -1,0 +1,193 @@
+{
+  "id": "c1.18-crase",
+  "district": "C1",
+  "order": 18,
+  "title": "Crase: à, àquele",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Когда предлог **a** встречает артикль **a**, они сливаются в **à** (это и есть crase): **vou à praia** (a + a praia). Так же с **aquele**: **àquele**, **àquela**. Перед словами мужского рода, перед глаголом и перед большинством местоимений crase нет: **vou ao mercado**, **começou a chover**, **falei a ela**."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Есть crase",
+        "Нет crase"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "vou à feira",
+            "vou ao mercado"
+          ]
+        },
+        {
+          "cells": [
+            "às três horas",
+            "a partir de amanhã"
+          ]
+        },
+        {
+          "cells": [
+            "àquela casa",
+            "a esta casa"
+          ]
+        },
+        {
+          "cells": [
+            "à moda baiana",
+            "a pé, a cavalo"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Проверка: замени слово на мужское. Если получается **ao** — нужна crase: à praia → ao mar. Если **a** — не нужна: a pé."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Vou à feira no sábado.",
+      "ru": "В субботу пойду на ярмарку."
+    },
+    {
+      "es": "A reunião é às três horas.",
+      "ru": "Собрание в три часа."
+    },
+    {
+      "es": "Fui àquela loja de novo.",
+      "ru": "Я снова ходил в тот магазин."
+    },
+    {
+      "es": "Moqueca à moda baiana.",
+      "ru": "Мокека по-баиянски."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "c1.18-crase.1",
+      "kind": "choose",
+      "prompt": "«Иду на пляж»:",
+      "options": [
+        "Vou à praia.",
+        "Vou a praia.",
+        "Vou á praia."
+      ],
+      "answer": 0,
+      "explain": "A + a praia = à."
+    },
+    {
+      "id": "c1.18-crase.2",
+      "kind": "choose",
+      "prompt": "Где crase не нужна?",
+      "options": [
+        "Vou a pé.",
+        "Vou à feira.",
+        "Às três horas."
+      ],
+      "answer": 0,
+      "explain": "A pé — без артикля."
+    },
+    {
+      "id": "c1.18-crase.3",
+      "kind": "gap",
+      "sentence": "A reunião é ___ três horas.",
+      "ru": "Собрание в три часа.",
+      "options": [
+        "às",
+        "as",
+        "aos"
+      ],
+      "answer": 0,
+      "explain": "Часы — às."
+    },
+    {
+      "id": "c1.18-crase.4",
+      "kind": "gap",
+      "sentence": "Fui ___ loja de novo.",
+      "ru": "Я снова ходил в тот магазин.",
+      "options": [
+        "àquela",
+        "aquela",
+        "a aquela"
+      ],
+      "answer": 0,
+      "explain": "A + aquela."
+    },
+    {
+      "id": "c1.18-crase.5",
+      "kind": "truefalse",
+      "statement": "Перед словами мужского рода crase нет.",
+      "answer": true,
+      "explain": "Vou ao mercado."
+    },
+    {
+      "id": "c1.18-crase.6",
+      "kind": "truefalse",
+      "statement": "«Começou à chover» — правильно.",
+      "answer": false,
+      "explain": "Перед глаголом — a."
+    },
+    {
+      "id": "c1.18-crase.7",
+      "kind": "truefalse",
+      "statement": "Проверка: заменить на мужское слово.",
+      "answer": true,
+      "explain": "À praia → ao mar."
+    },
+    {
+      "id": "c1.18-crase.8",
+      "kind": "build",
+      "ru": "В субботу пойду на ярмарку.",
+      "answer": "No sábado vou à feira.",
+      "extra": [
+        "a",
+        "ao"
+      ],
+      "explain": "A + a feira."
+    },
+    {
+      "id": "c1.18-crase.9",
+      "kind": "type",
+      "sentence": "Moqueca ___ moda baiana.",
+      "ru": "Мокека по-баиянски.",
+      "hint": "предлог + артикль",
+      "answer": "à",
+      "explain": "À moda."
+    },
+    {
+      "id": "c1.18-crase.10",
+      "kind": "fix",
+      "sentence": "Vou a praia amanhã cedo.",
+      "ru": "Завтра рано утром пойду на пляж.",
+      "wrong": 1,
+      "answer": "à",
+      "explain": "A + a praia = à."
+    },
+    {
+      "id": "c1.18-crase.11",
+      "kind": "fix",
+      "sentence": "Começou à chover na serra.",
+      "ru": "В горах начался дождь.",
+      "wrong": 1,
+      "answer": "a",
+      "explain": "Перед глаголом crase нет."
+    },
+    {
+      "id": "c1.18-crase.12",
+      "kind": "cloze",
+      "text": "Fui ___ feira e depois ___ mercado.",
+      "ru": "Я сходил на ярмарку, а потом в магазин.",
+      "answers": [
+        [
+          "à"
+        ],
+        [
+          "ao"
+        ]
+      ],
+      "explain": "À feira, ao mercado."
+    }
+  ]
+}

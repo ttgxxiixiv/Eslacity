@@ -1,0 +1,196 @@
+{
+  "id": "c1.05-passiva-modal",
+  "district": "C1",
+  "order": 5,
+  "title": "Há de ser feito, deve ser entregue",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Пассив сочетается с модальными глаголами: **deve ser entregue** — «должен быть доставлен», **pode ser visto** — «можно увидеть», **precisa ser feito** — «нужно сделать», **há de ser lembrado** — «его будут помнить». Причастие согласуется с подлежащим."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Модальный",
+        "Пример",
+        "Перевод"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "dever ser",
+            "A carta deve ser entregue hoje.",
+            "Письмо должно быть доставлено сегодня."
+          ]
+        },
+        {
+          "cells": [
+            "poder ser",
+            "O farol pode ser visto de longe.",
+            "Маяк виден издалека."
+          ]
+        },
+        {
+          "cells": [
+            "precisar ser",
+            "Tudo precisa ser revisto.",
+            "Всё нужно пересмотреть."
+          ]
+        },
+        {
+          "cells": [
+            "haver de ser",
+            "Ele há de ser lembrado.",
+            "Его будут помнить."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Причастия с короткой формой: **entregue**, **pago**, **aceito**, **ganho**, **gasto**: **a conta deve ser paga**."
+    }
+  ],
+  "examples": [
+    {
+      "es": "A carta deve ser entregue hoje.",
+      "ru": "Письмо должно быть доставлено сегодня."
+    },
+    {
+      "es": "O farol pode ser visto de longe.",
+      "ru": "Маяк виден издалека."
+    },
+    {
+      "es": "As regras precisam ser cumpridas.",
+      "ru": "Правила нужно соблюдать."
+    },
+    {
+      "es": "O pregoeiro há de ser lembrado.",
+      "ru": "Глашатая будут помнить."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "c1.05-passiva-modal.1",
+      "kind": "choose",
+      "prompt": "«Счёт должен быть оплачен»:",
+      "options": [
+        "A conta deve ser paga.",
+        "A conta deve ser pagado.",
+        "A conta deve pagar."
+      ],
+      "answer": 0,
+      "explain": "Короткая форма: paga."
+    },
+    {
+      "id": "c1.05-passiva-modal.2",
+      "kind": "choose",
+      "prompt": "«Правила нужно соблюдать»:",
+      "options": [
+        "As regras precisam ser cumpridas.",
+        "As regras precisam ser cumprido.",
+        "As regras precisa ser cumpridas."
+      ],
+      "answer": 0,
+      "explain": "Согласование с regras."
+    },
+    {
+      "id": "c1.05-passiva-modal.3",
+      "kind": "gap",
+      "sentence": "O farol pode ser ___ de longe.",
+      "ru": "Маяк виден издалека.",
+      "options": [
+        "visto",
+        "vido",
+        "vendo"
+      ],
+      "answer": 0,
+      "explain": "Ver → visto."
+    },
+    {
+      "id": "c1.05-passiva-modal.4",
+      "kind": "gap",
+      "sentence": "A encomenda deve ser ___ amanhã.",
+      "ru": "Посылку должны доставить завтра.",
+      "options": [
+        "entregue",
+        "entregada",
+        "entregou"
+      ],
+      "answer": 0,
+      "explain": "Entregar → entregue."
+    },
+    {
+      "id": "c1.05-passiva-modal.5",
+      "kind": "truefalse",
+      "statement": "В пассиве с модальным глаголом причастие согласуется с подлежащим.",
+      "answer": true,
+      "explain": "As cartas devem ser entregues."
+    },
+    {
+      "id": "c1.05-passiva-modal.6",
+      "kind": "truefalse",
+      "statement": "«Há de ser lembrado» — «его забудут».",
+      "answer": false,
+      "explain": "Его будут помнить."
+    },
+    {
+      "id": "c1.05-passiva-modal.7",
+      "kind": "truefalse",
+      "statement": "«A conta deve ser paga» — правильно.",
+      "answer": true,
+      "explain": "Pago — короткая форма."
+    },
+    {
+      "id": "c1.05-passiva-modal.8",
+      "kind": "build",
+      "ru": "Письма должны быть доставлены сегодня.",
+      "answer": "As cartas devem ser entregues hoje.",
+      "extra": [
+        "entregadas",
+        "deve"
+      ],
+      "explain": "Devem ser entregues."
+    },
+    {
+      "id": "c1.05-passiva-modal.9",
+      "kind": "type",
+      "sentence": "Tudo precisa ser ___.",
+      "ru": "Всё нужно пересмотреть.",
+      "hint": "rever, причастие",
+      "answer": "revisto",
+      "explain": "Rever → revisto."
+    },
+    {
+      "id": "c1.05-passiva-modal.10",
+      "kind": "transform",
+      "source": "Alguém deve entregar a carta hoje.",
+      "keyword": "ser",
+      "ru": "Письмо должно быть доставлено сегодня.",
+      "answer": "A carta deve ser entregue hoje.",
+      "explain": "Актив → пассив."
+    },
+    {
+      "id": "c1.05-passiva-modal.11",
+      "kind": "fix",
+      "sentence": "As contas devem ser pagado hoje.",
+      "ru": "Счета должны быть оплачены сегодня.",
+      "wrong": 4,
+      "answer": "pagas",
+      "explain": "Короткая форма и согласование: pagas."
+    },
+    {
+      "id": "c1.05-passiva-modal.12",
+      "kind": "register",
+      "source": "Tem que pagar a conta hoje.",
+      "to": "formal",
+      "options": [
+        "A conta deve ser paga hoje.",
+        "Paga a conta hoje, viu?",
+        "Bora pagar a conta."
+      ],
+      "answer": 0,
+      "explain": "Официально — пассив."
+    }
+  ]
+}

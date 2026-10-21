@@ -1,0 +1,202 @@
+{
+  "id": "c1.16-falsos-amigos",
+  "district": "C1",
+  "order": 16,
+  "title": "Ложные друзья: esquisito, embaraçado, polvo",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Португальский рядом с испанским и русским подкидывает ловушки. С испанским: **esquisito** — «странный» (не «изысканный»), **embaraçado** — «смущённый» (не «беременная»), **polvo** — «осьминог» (не «пыль»), **oficina** — «мастерская» (не «офис»), **pelado** — «голый». С русским: **a pomada** — мазь, **o tapete** — ковёр, **o bilhete** — записка, **o paletó** — пиджак."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Слово",
+        "Значение",
+        "Не путать"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "esquisito",
+            "странный",
+            "изысканный — requintado"
+          ]
+        },
+        {
+          "cells": [
+            "embaraçado",
+            "смущённый",
+            "беременная — grávida"
+          ]
+        },
+        {
+          "cells": [
+            "polvo",
+            "осьминог",
+            "пыль — a poeira"
+          ]
+        },
+        {
+          "cells": [
+            "oficina",
+            "мастерская",
+            "офис — o escritório"
+          ]
+        },
+        {
+          "cells": [
+            "pomada",
+            "мазь",
+            "помада — o batom"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Если слово похоже на испанское или русское, проверь его в словаре: сходство часто обманывает."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Que comida esquisita!",
+      "ru": "Какая странная еда!"
+    },
+    {
+      "es": "Ela ficou embaraçada com o elogio.",
+      "ru": "Похвала её смутила."
+    },
+    {
+      "es": "O polvo vive nas pedras.",
+      "ru": "Осьминог живёт среди камней."
+    },
+    {
+      "es": "O carro está na oficina.",
+      "ru": "Машина в мастерской."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "c1.16-falsos-amigos.1",
+      "kind": "choose",
+      "prompt": "«Esquisito» значит:",
+      "options": [
+        "странный",
+        "изысканный",
+        "вкусный"
+      ],
+      "answer": 0,
+      "explain": "Ложный друг испанского exquisito."
+    },
+    {
+      "id": "c1.16-falsos-amigos.2",
+      "kind": "choose",
+      "prompt": "«Беременная» по-португальски:",
+      "options": [
+        "grávida",
+        "embaraçada",
+        "pelada"
+      ],
+      "answer": 0,
+      "explain": "Embaraçada — смущённая."
+    },
+    {
+      "id": "c1.16-falsos-amigos.3",
+      "kind": "gap",
+      "sentence": "O carro do chefe está na ___.",
+      "ru": "Машина начальника в мастерской.",
+      "options": [
+        "oficina",
+        "escritório",
+        "pasta"
+      ],
+      "answer": 0,
+      "explain": "Oficina — мастерская."
+    },
+    {
+      "id": "c1.16-falsos-amigos.4",
+      "kind": "gap",
+      "sentence": "Passe a ___ no machucado.",
+      "ru": "Намажь ушиб мазью.",
+      "options": [
+        "pomada",
+        "batom",
+        "pasta"
+      ],
+      "answer": 0,
+      "explain": "Pomada — мазь."
+    },
+    {
+      "id": "c1.16-falsos-amigos.5",
+      "kind": "truefalse",
+      "statement": "«Polvo» по-португальски — пыль.",
+      "answer": false,
+      "explain": "Осьминог."
+    },
+    {
+      "id": "c1.16-falsos-amigos.6",
+      "kind": "truefalse",
+      "statement": "«O tapete» — ковёр.",
+      "answer": true,
+      "explain": "Не тапки."
+    },
+    {
+      "id": "c1.16-falsos-amigos.7",
+      "kind": "truefalse",
+      "statement": "«O bilhete» — короткая записка.",
+      "answer": true,
+      "explain": "Билет — a passagem."
+    },
+    {
+      "id": "c1.16-falsos-amigos.8",
+      "kind": "build",
+      "ru": "Похвала её смутила.",
+      "answer": "Ela ficou embaraçada com o elogio.",
+      "extra": [
+        "grávida",
+        "esquisita"
+      ],
+      "explain": "Embaraçada — смущённая."
+    },
+    {
+      "id": "c1.16-falsos-amigos.9",
+      "kind": "type",
+      "sentence": "Que comida ___!",
+      "ru": "Какая странная еда!",
+      "hint": "странный, ж. р.",
+      "answer": "esquisita",
+      "explain": "Esquisito — странный."
+    },
+    {
+      "id": "c1.16-falsos-amigos.10",
+      "kind": "fix",
+      "sentence": "O jantar estava esquisito, parabéns ao chef!",
+      "ru": "Ужин был изысканным, браво шефу!",
+      "wrong": 3,
+      "answer": "requintado",
+      "explain": "Изысканный — requintado."
+    },
+    {
+      "id": "c1.16-falsos-amigos.11",
+      "kind": "fix",
+      "sentence": "Trabalho num oficina no centro, sou secretária.",
+      "ru": "Я работаю в офисе в центре, я секретарь.",
+      "wrong": 2,
+      "answer": "escritório",
+      "explain": "Офис — escritório."
+    },
+    {
+      "id": "c1.16-falsos-amigos.12",
+      "kind": "paraphrase",
+      "sentence": "O paletó é de linho.",
+      "options": [
+        "O casaco curto de terno é de linho.",
+        "O sobretudo é de lã.",
+        "A calça é de linho."
+      ],
+      "answer": 0,
+      "explain": "Paletó — пиджак."
+    }
+  ]
+}

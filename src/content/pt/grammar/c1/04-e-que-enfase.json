@@ -1,0 +1,190 @@
+{
+  "id": "c1.04-e-que-enfase",
+  "district": "C1",
+  "order": 4,
+  "title": "Эмфаза: eu é que sei, foi ele quem",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Чтобы выделить часть фразы, португальский использует **é que** и **foi … quem / que**: **eu é que sei** — «это я знаю», **foi o corvo que repetiu** — «это ворон повторил». В вопросе **é que** звучит разговорно: **onde é que você estava?**"
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Нейтрально",
+        "С выделением"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Eu sei.",
+            "Eu é que sei."
+          ]
+        },
+        {
+          "cells": [
+            "O corvo repetiu.",
+            "Foi o corvo que repetiu."
+          ]
+        },
+        {
+          "cells": [
+            "Ela pagou.",
+            "Quem pagou foi ela."
+          ]
+        },
+        {
+          "cells": [
+            "Onde você estava?",
+            "Onde é que você estava?"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "С прошедшим временем связка тоже в прошедшем: **foi ela quem falou**, а не «é ela quem falou ontem». **Quem** — о людях, **que** — обо всём."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Eu é que sei o caminho.",
+      "ru": "Это я знаю дорогу."
+    },
+    {
+      "es": "Foi o Severino quem ensinou o corvo.",
+      "ru": "Это Северину учил ворона."
+    },
+    {
+      "es": "Quem pagou a conta foi ela.",
+      "ru": "Заплатила по счёту она."
+    },
+    {
+      "es": "O que é que você quer?",
+      "ru": "Чего ты, собственно, хочешь?"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "c1.04-e-que-enfase.1",
+      "kind": "choose",
+      "prompt": "«Это я плачу»:",
+      "options": [
+        "Eu é que pago.",
+        "Eu que é pago.",
+        "É eu que pago."
+      ],
+      "answer": 0,
+      "explain": "Eu é que."
+    },
+    {
+      "id": "c1.04-e-que-enfase.2",
+      "kind": "choose",
+      "prompt": "«Это она сказала (вчера)»:",
+      "options": [
+        "Foi ela quem disse.",
+        "É ela quem disse ontem.",
+        "Ela foi que disse quem."
+      ],
+      "answer": 0,
+      "explain": "Прошедшее — foi."
+    },
+    {
+      "id": "c1.04-e-que-enfase.3",
+      "kind": "gap",
+      "sentence": "___ o corvo que repetiu a frase.",
+      "ru": "Это ворон повторил фразу.",
+      "options": [
+        "Foi",
+        "É",
+        "Era que"
+      ],
+      "answer": 0,
+      "explain": "Foi … que."
+    },
+    {
+      "id": "c1.04-e-que-enfase.4",
+      "kind": "gap",
+      "sentence": "Onde ___ que você estava?",
+      "ru": "Где ты, собственно, был?",
+      "options": [
+        "é",
+        "foi",
+        "era"
+      ],
+      "answer": 0,
+      "explain": "Разговорное é que."
+    },
+    {
+      "id": "c1.04-e-que-enfase.5",
+      "kind": "truefalse",
+      "statement": "«Eu é que sei» выделяет «я».",
+      "answer": true,
+      "explain": "Эмфаза."
+    },
+    {
+      "id": "c1.04-e-que-enfase.6",
+      "kind": "truefalse",
+      "statement": "«Foi … quem» используют только о вещах.",
+      "answer": false,
+      "explain": "Quem — о людях."
+    },
+    {
+      "id": "c1.04-e-que-enfase.7",
+      "kind": "truefalse",
+      "statement": "В вопросе «é que» делает его разговорным.",
+      "answer": true,
+      "explain": "Onde é que…"
+    },
+    {
+      "id": "c1.04-e-que-enfase.8",
+      "kind": "build",
+      "ru": "Это Северину учил ворона.",
+      "answer": "Foi o Severino quem ensinou o corvo.",
+      "extra": [
+        "é",
+        "ensinava"
+      ],
+      "explain": "Foi … quem."
+    },
+    {
+      "id": "c1.04-e-que-enfase.9",
+      "kind": "type",
+      "sentence": "Quem pagou a conta ___ ela.",
+      "ru": "Заплатила по счёту она.",
+      "hint": "ser, прошедшее",
+      "answer": "foi",
+      "explain": "Прошедшее — foi."
+    },
+    {
+      "id": "c1.04-e-que-enfase.10",
+      "kind": "transform",
+      "source": "O corvo repetiu a frase.",
+      "keyword": "foi",
+      "ru": "Это ворон повторил фразу.",
+      "answer": "Foi o corvo que repetiu a frase.",
+      "explain": "Выделение: foi … que."
+    },
+    {
+      "id": "c1.04-e-que-enfase.11",
+      "kind": "fix",
+      "sentence": "É ela quem falou ontem.",
+      "ru": "Это она вчера говорила.",
+      "wrong": 0,
+      "answer": "Foi",
+      "explain": "О прошлом — foi."
+    },
+    {
+      "id": "c1.04-e-que-enfase.12",
+      "kind": "paraphrase",
+      "sentence": "Eu é que fiquei sem resposta.",
+      "options": [
+        "Fui eu quem ficou sem resposta.",
+        "Ninguém ficou sem resposta.",
+        "Você ficou sem resposta."
+      ],
+      "answer": 0,
+      "explain": "Выделение того же «я»."
+    }
+  ]
+}

@@ -571,7 +571,8 @@
       "example": {
         "es": "Posso ver o cardápio?",
         "ru": "Можно посмотреть меню?"
-      }
+      },
+      "topical": true
     },
     {
       "id": "cafe.cliente",
@@ -1672,6 +1673,230 @@
         "es": "Eles falam com intimidade.",
         "ru": "Они говорят по-свойски."
       }
+    },
+    {
+      "id": "cafe.o-senhor-deseja",
+      "es": "o senhor deseja",
+      "ru": "что вам угодно",
+      "pos": "phrase",
+      "level": 7,
+      "cefr": "C1",
+      "example": {
+        "es": "O senhor deseja mais alguma coisa?",
+        "ru": "Вам угодно что-нибудь ещё?"
+      },
+      "kind": "formula",
+      "register": "formal",
+      "pair": "cafe.vai-querer-o-que"
+    },
+    {
+      "id": "cafe.vai-querer-o-que",
+      "es": "vai querer o quê",
+      "ru": "что будешь",
+      "pos": "phrase",
+      "level": 7,
+      "cefr": "C1",
+      "example": {
+        "es": "E aí, vai querer o quê hoje?",
+        "ru": "Ну что, что будешь сегодня?"
+      },
+      "kind": "formula",
+      "register": "informal",
+      "pair": "cafe.o-senhor-deseja"
+    },
+    {
+      "id": "cafe.permite-sentar",
+      "es": "permite que eu me sente",
+      "ru": "позвольте присесть",
+      "pos": "phrase",
+      "level": 7,
+      "cefr": "C1",
+      "example": {
+        "es": "Permite que eu me sente aqui?",
+        "ru": "Позвольте мне присесть здесь?"
+      },
+      "kind": "formula",
+      "register": "formal",
+      "pair": "cafe.chega-pra-la"
+    },
+    {
+      "id": "cafe.chega-pra-la",
+      "es": "chega pra lá",
+      "ru": "подвинься",
+      "pos": "phrase",
+      "level": 7,
+      "cefr": "C1",
+      "example": {
+        "es": "Chega pra lá, quero ver a rua.",
+        "ru": "Подвинься, хочу смотреть на улицу."
+      },
+      "kind": "formula",
+      "register": "informal",
+      "pair": "cafe.permite-sentar"
+    },
+    {
+      "id": "cafe.faco-questao-pagar",
+      "es": "faço questão de pagar",
+      "ru": "позвольте мне заплатить",
+      "pos": "phrase",
+      "level": 7,
+      "cefr": "C1",
+      "example": {
+        "es": "Por favor, faço questão de pagar.",
+        "ru": "Прошу вас, позвольте мне заплатить."
+      },
+      "kind": "formula",
+      "register": "formal",
+      "pair": "cafe.essa-e-minha"
+    },
+    {
+      "id": "cafe.essa-e-minha",
+      "es": "essa é por minha conta",
+      "ru": "эта за мой счёт",
+      "pos": "phrase",
+      "level": 7,
+      "cefr": "C1",
+      "example": {
+        "es": "Guarda a carteira, essa é por minha conta.",
+        "ru": "Убери кошелёк, эта за мой счёт."
+      },
+      "kind": "formula",
+      "register": "informal",
+      "pair": "cafe.faco-questao-pagar"
+    },
+    {
+      "id": "cafe.jogar-conversa-fora",
+      "es": "jogar conversa fora",
+      "ru": "болтать о пустяках",
+      "pos": "phrase",
+      "level": 7,
+      "cefr": "C1",
+      "example": {
+        "es": "Passamos a tarde jogando conversa fora.",
+        "ru": "Мы весь вечер болтали о пустяках."
+      },
+      "kind": "idiom",
+      "register": "informal",
+      "literal": "выбрасывать разговор"
+    },
+    {
+      "id": "cafe.encher-linguica",
+      "es": "encher linguiça",
+      "ru": "лить воду (в речи)",
+      "pos": "phrase",
+      "level": 7,
+      "cefr": "C1",
+      "example": {
+        "es": "Para de encher linguiça e conta logo.",
+        "ru": "Хватит лить воду, рассказывай."
+      },
+      "kind": "idiom",
+      "register": "informal",
+      "literal": "набивать колбасу"
+    },
+    {
+      "id": "cafe.dar-com-a-lingua",
+      "es": "dar com a língua nos dentes",
+      "ru": "проболтаться",
+      "pos": "phrase",
+      "level": 7,
+      "cefr": "C1",
+      "example": {
+        "es": "Ele deu com a língua nos dentes.",
+        "ru": "Он проболтался."
+      },
+      "kind": "idiom",
+      "register": "informal",
+      "literal": "ударить языком о зубы"
+    },
+    {
+      "id": "cafe.falar-pelos-cotovelos",
+      "es": "falar pelos cotovelos",
+      "ru": "болтать без умолку",
+      "pos": "phrase",
+      "level": 7,
+      "cefr": "C1",
+      "example": {
+        "es": "A vizinha fala pelos cotovelos.",
+        "ru": "Соседка болтает без умолку."
+      },
+      "kind": "idiom",
+      "register": "informal",
+      "literal": "говорить локтями"
+    },
+    {
+      "id": "cafe.tempestade-copo",
+      "es": "tempestade em copo d'água",
+      "ru": "буря в стакане воды",
+      "pos": "phrase",
+      "level": 7,
+      "cefr": "C1",
+      "example": {
+        "es": "A briga foi uma tempestade em copo d'água.",
+        "ru": "Ссора была бурей в стакане воды."
+      },
+      "kind": "idiom",
+      "register": "neutral",
+      "literal": "буря в стакане воды"
+    },
+    {
+      "id": "cafe.cair-a-ficha",
+      "es": "cair a ficha",
+      "ru": "дойти (о понимании)",
+      "pos": "phrase",
+      "level": 7,
+      "cefr": "C1",
+      "example": {
+        "es": "Só agora caiu a ficha: ele não volta.",
+        "ru": "Только сейчас до меня дошло: он не вернётся."
+      },
+      "kind": "idiom",
+      "register": "informal",
+      "literal": "упасть жетону (телефонному)"
+    },
+    {
+      "id": "cafe.cafe-forte",
+      "es": "café forte",
+      "ru": "крепкий кофе",
+      "pos": "phrase",
+      "level": 7,
+      "cefr": "C1",
+      "example": {
+        "es": "Preciso de um café forte hoje.",
+        "ru": "Мне сегодня нужен крепкий кофе."
+      },
+      "kind": "collocation",
+      "register": "neutral"
+    },
+    {
+      "id": "cafe.puxar-conversa",
+      "es": "puxar conversa",
+      "ru": "заводить разговор",
+      "pos": "phrase",
+      "level": 7,
+      "cefr": "C1",
+      "example": {
+        "es": "Ele gosta de puxar conversa com estranhos.",
+        "ru": "Он любит заговаривать с незнакомцами."
+      },
+      "kind": "collocation",
+      "register": "neutral"
+    },
+    {
+      "id": "cafe.pastel",
+      "es": "o pastel",
+      "ru": "пастел (жареный пирожок)",
+      "pos": "noun",
+      "gender": "m",
+      "level": 7,
+      "cefr": "B2",
+      "example": {
+        "es": "O pastel de queijo é o mais pedido.",
+        "ru": "Пастел с сыром заказывают чаще всего."
+      },
+      "kind": "false-friend",
+      "register": "neutral",
+      "note": "Не «пастель». Pastel — жареный пирожок из тонкого теста, его едят в кафе и на ярмарке. Пастель (краски) — o pastel seco или giz pastel."
     }
   ]
 }

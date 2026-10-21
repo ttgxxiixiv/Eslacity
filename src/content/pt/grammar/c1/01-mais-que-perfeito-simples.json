@@ -1,0 +1,195 @@
+{
+  "id": "c1.01-mais-que-perfeito-simples",
+  "district": "C1",
+  "order": 1,
+  "title": "Книжное давнопрошедшее: fizera, dissera",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "В книгах и газетах вместо **tinha feito** встречается простая форма **mais-que-perfeito**: **fizera**, **dissera**, **chegara**. Строится от прошедшего eles без -ram, плюс **-ra**: fizeram → **fizera**. В разговоре её не услышишь, но узнавать надо."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Разговор",
+        "Книга",
+        "Перевод"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "tinha feito",
+            "fizera",
+            "сделал (раньше)"
+          ]
+        },
+        {
+          "cells": [
+            "tinha dito",
+            "dissera",
+            "сказал (раньше)"
+          ]
+        },
+        {
+          "cells": [
+            "tinha chegado",
+            "chegara",
+            "пришёл (раньше)"
+          ]
+        },
+        {
+          "cells": [
+            "tinha partido",
+            "partira",
+            "ушёл (раньше)"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Форма eles совпадает с perfeito: **falaram** — и «говорили», и «говорили раньше». Различает контекст. В выражениях она живёт и в разговоре: **quem me dera!** — «если бы!», **pudera!** — «ещё бы!»."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Quando chegamos, o trem já partira.",
+      "ru": "Когда мы пришли, поезд уже ушёл."
+    },
+    {
+      "es": "Ele dissera que voltaria.",
+      "ru": "Он говорил, что вернётся."
+    },
+    {
+      "es": "Quem me dera ter um mapa!",
+      "ru": "Если бы у меня была карта!"
+    },
+    {
+      "es": "Pudera! Ele não dormia havia dias.",
+      "ru": "Ещё бы! Он не спал несколько дней."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "c1.01-mais-que-perfeito-simples.1",
+      "kind": "choose",
+      "prompt": "Книжная форма от tinha feito:",
+      "options": [
+        "fizera",
+        "fazera",
+        "fizesse"
+      ],
+      "answer": 0,
+      "explain": "Fizeram → fizera."
+    },
+    {
+      "id": "c1.01-mais-que-perfeito-simples.2",
+      "kind": "choose",
+      "prompt": "«Quem me dera!» значит:",
+      "options": [
+        "Если бы!",
+        "Кто мне дал?",
+        "Спасибо!"
+      ],
+      "answer": 0,
+      "explain": "Устойчивое восклицание."
+    },
+    {
+      "id": "c1.01-mais-que-perfeito-simples.3",
+      "kind": "gap",
+      "sentence": "Quando cheguei, ele já ___ .",
+      "ru": "Когда я пришёл, он уже ушёл.",
+      "options": [
+        "saíra",
+        "saía",
+        "sairá"
+      ],
+      "answer": 0,
+      "explain": "Saíram → saíra."
+    },
+    {
+      "id": "c1.01-mais-que-perfeito-simples.4",
+      "kind": "gap",
+      "sentence": "Ela ___ que o caminho era longo.",
+      "ru": "Она говорила, что путь долгий.",
+      "options": [
+        "dissera",
+        "dizera",
+        "disse-ra"
+      ],
+      "answer": 0,
+      "explain": "Disseram → dissera."
+    },
+    {
+      "id": "c1.01-mais-que-perfeito-simples.5",
+      "kind": "truefalse",
+      "statement": "«Fizera» в разговоре звучит естественно.",
+      "answer": false,
+      "explain": "Это книжная форма."
+    },
+    {
+      "id": "c1.01-mais-que-perfeito-simples.6",
+      "kind": "truefalse",
+      "statement": "«Pudera!» — «ещё бы!».",
+      "answer": true,
+      "explain": "Выражение."
+    },
+    {
+      "id": "c1.01-mais-que-perfeito-simples.7",
+      "kind": "truefalse",
+      "statement": "Простой mais-que-perfeito строится от формы eles прошедшего.",
+      "answer": true,
+      "explain": "Disseram → dissera."
+    },
+    {
+      "id": "c1.01-mais-que-perfeito-simples.8",
+      "kind": "build",
+      "ru": "Когда мы пришли, поезд уже ушёл.",
+      "answer": "Quando chegamos o trem já partira.",
+      "extra": [
+        "partia",
+        "partirá"
+      ],
+      "explain": "Книжное давнопрошедшее: partira."
+    },
+    {
+      "id": "c1.01-mais-que-perfeito-simples.9",
+      "kind": "type",
+      "sentence": "O guarda ___ cem anos na torre.",
+      "ru": "Страж провёл сто лет в башне (до того).",
+      "hint": "passar, книжная форма",
+      "answer": "passara",
+      "explain": "Passaram → passara."
+    },
+    {
+      "id": "c1.01-mais-que-perfeito-simples.10",
+      "kind": "transform",
+      "source": "Ele tinha dito a verdade.",
+      "keyword": "dissera",
+      "ru": "Он сказал правду (до того).",
+      "answer": "Ele dissera a verdade.",
+      "explain": "Tinha dito → dissera."
+    },
+    {
+      "id": "c1.01-mais-que-perfeito-simples.11",
+      "kind": "fix",
+      "sentence": "Quando cheguei, ela já saira.",
+      "ru": "Когда я пришёл, она уже ушла.",
+      "wrong": 4,
+      "answer": "saíra",
+      "explain": "Saíra — со знаком на í."
+    },
+    {
+      "id": "c1.01-mais-que-perfeito-simples.12",
+      "kind": "paraphrase",
+      "sentence": "O pregoeiro partira antes da festa.",
+      "options": [
+        "O pregoeiro tinha partido antes da festa.",
+        "O pregoeiro partirá depois da festa.",
+        "O pregoeiro parte durante a festa."
+      ],
+      "answer": 0,
+      "explain": "Partira = tinha partido."
+    }
+  ]
+}

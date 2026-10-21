@@ -1,0 +1,196 @@
+{
+  "id": "c1.13-concessivas-formais",
+  "district": "C1",
+  "order": 13,
+  "title": "Conquanto, posto que, malgrado",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Книжные уступительные союзы: **conquanto** и **posto que** (хотя) — с subjuntivo; **malgrado** (несмотря на) — как предлог; **ainda que** — нейтральное. Осторожно: в разговоре **posto que** часто путают с «потому что», в строгом письме это «хотя»."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Союз",
+        "Пример",
+        "Перевод"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "conquanto",
+            "Conquanto seja tarde, prossigamos.",
+            "Хотя и поздно, продолжим."
+          ]
+        },
+        {
+          "cells": [
+            "posto que",
+            "Posto que cansado, ele continuou.",
+            "Хотя и уставший, он продолжал."
+          ]
+        },
+        {
+          "cells": [
+            "malgrado",
+            "Malgrado a chuva, a festa ocorreu.",
+            "Несмотря на дождь, праздник состоялся."
+          ]
+        },
+        {
+          "cells": [
+            "ainda que",
+            "Ainda que chova, vamos.",
+            "Даже если пойдёт дождь, пойдём."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "В разговоре вместо всего этого — **mesmo** и **apesar de**: **mesmo cansado, ele continuou**."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Conquanto seja tarde, prossigamos.",
+      "ru": "Хотя и поздно, продолжим."
+    },
+    {
+      "es": "Malgrado a chuva, a festa ocorreu.",
+      "ru": "Несмотря на дождь, праздник состоялся."
+    },
+    {
+      "es": "Posto que cansado, ele continuou.",
+      "ru": "Хотя и уставший, он продолжал."
+    },
+    {
+      "es": "Mesmo cansado, ele continuou.",
+      "ru": "Даже уставший, он продолжал."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "c1.13-concessivas-formais.1",
+      "kind": "choose",
+      "prompt": "Книжное «хотя» с subjuntivo:",
+      "options": [
+        "conquanto",
+        "porque",
+        "logo"
+      ],
+      "answer": 0,
+      "explain": "Conquanto."
+    },
+    {
+      "id": "c1.13-concessivas-formais.2",
+      "kind": "choose",
+      "prompt": "«Несмотря на дождь» (книжно):",
+      "options": [
+        "malgrado a chuva",
+        "malgrado que chova",
+        "porque a chuva"
+      ],
+      "answer": 0,
+      "explain": "Malgrado — как предлог."
+    },
+    {
+      "id": "c1.13-concessivas-formais.3",
+      "kind": "gap",
+      "sentence": "Conquanto ___ tarde, prossigamos.",
+      "ru": "Хотя и поздно, продолжим.",
+      "options": [
+        "seja",
+        "é",
+        "era"
+      ],
+      "answer": 0,
+      "explain": "Conquanto + subjuntivo."
+    },
+    {
+      "id": "c1.13-concessivas-formais.4",
+      "kind": "gap",
+      "sentence": "___ a chuva, a festa ocorreu.",
+      "ru": "Несмотря на дождь, праздник состоялся.",
+      "options": [
+        "Malgrado",
+        "Conquanto",
+        "Posto que"
+      ],
+      "answer": 0,
+      "explain": "Перед существительным — malgrado."
+    },
+    {
+      "id": "c1.13-concessivas-formais.5",
+      "kind": "truefalse",
+      "statement": "«Posto que» в строгом письме значит «хотя».",
+      "answer": true,
+      "explain": "Уступка."
+    },
+    {
+      "id": "c1.13-concessivas-formais.6",
+      "kind": "truefalse",
+      "statement": "После «conquanto» — индикатив.",
+      "answer": false,
+      "explain": "Subjuntivo."
+    },
+    {
+      "id": "c1.13-concessivas-formais.7",
+      "kind": "truefalse",
+      "statement": "В разговоре вместо «conquanto» скажут «mesmo» или «apesar de».",
+      "answer": true,
+      "explain": "Так и есть."
+    },
+    {
+      "id": "c1.13-concessivas-formais.8",
+      "kind": "build",
+      "ru": "Несмотря на дождь, праздник состоялся.",
+      "answer": "Malgrado a chuva a festa ocorreu.",
+      "extra": [
+        "conquanto",
+        "que"
+      ],
+      "explain": "Malgrado + существительное."
+    },
+    {
+      "id": "c1.13-concessivas-formais.9",
+      "kind": "type",
+      "sentence": "Conquanto ___ cansado, ele continuou.",
+      "ru": "Хотя он и устал, он продолжал.",
+      "hint": "estar, ele, прошлое",
+      "answer": "estivesse",
+      "explain": "Прошлое — imperfeito do subjuntivo."
+    },
+    {
+      "id": "c1.13-concessivas-formais.10",
+      "kind": "transform",
+      "source": "Apesar da chuva, a festa ocorreu.",
+      "keyword": "malgrado",
+      "ru": "Несмотря на дождь, праздник состоялся.",
+      "answer": "Malgrado a chuva, a festa ocorreu.",
+      "explain": "Книжный синоним."
+    },
+    {
+      "id": "c1.13-concessivas-formais.11",
+      "kind": "register",
+      "source": "Mesmo cansado, ele continuou.",
+      "to": "formal",
+      "options": [
+        "Conquanto estivesse cansado, ele prosseguiu.",
+        "Cansadão, ele foi.",
+        "Mesmo assim, foi, né."
+      ],
+      "answer": 0,
+      "explain": "Книжный вариант."
+    },
+    {
+      "id": "c1.13-concessivas-formais.12",
+      "kind": "fix",
+      "sentence": "Conquanto é tarde, prossigamos.",
+      "ru": "Хотя и поздно, продолжим.",
+      "wrong": 1,
+      "answer": "seja",
+      "explain": "Conquanto + subjuntivo."
+    }
+  ]
+}

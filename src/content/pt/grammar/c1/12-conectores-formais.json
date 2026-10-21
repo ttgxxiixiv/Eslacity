@@ -1,0 +1,204 @@
+{
+  "id": "c1.12-conectores-formais",
+  "district": "C1",
+  "order": 12,
+  "title": "Ademais, por conseguinte, todavia",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "В письменной речи связки строже разговорных. Добавление: **ademais**, **além disso**, **outrossim** (очень книжно). Следствие: **por conseguinte**, **portanto**, **logo**. Противопоставление: **todavia**, **contudo**, **no entanto**. Пример: **isto é**, **a saber**."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Разговор",
+        "Письмо",
+        "Значение"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "e também",
+            "ademais",
+            "кроме того"
+          ]
+        },
+        {
+          "cells": [
+            "então",
+            "por conseguinte",
+            "следовательно"
+          ]
+        },
+        {
+          "cells": [
+            "mas",
+            "todavia",
+            "однако"
+          ]
+        },
+        {
+          "cells": [
+            "tipo",
+            "a saber",
+            "а именно"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "**Logo** в начале — «следовательно»: **penso, logo existo**. **Logo** после глагола — «скоро»: **volto logo**."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Ademais, o prazo terminou.",
+      "ru": "Кроме того, срок истёк."
+    },
+    {
+      "es": "Ninguém respondeu; por conseguinte, o caso foi arquivado.",
+      "ru": "Никто не ответил; следовательно, дело закрыли."
+    },
+    {
+      "es": "O plano era bom; todavia, falhou.",
+      "ru": "План был хорош, однако провалился."
+    },
+    {
+      "es": "Três pessoas faltaram, a saber: o Caio, a Tati e o Bruno.",
+      "ru": "Не пришли трое, а именно: Каю, Тати и Бруну."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "c1.12-conectores-formais.1",
+      "kind": "choose",
+      "prompt": "Книжное «однако»:",
+      "options": [
+        "todavia",
+        "tipo",
+        "né"
+      ],
+      "answer": 0,
+      "explain": "Todavia."
+    },
+    {
+      "id": "c1.12-conectores-formais.2",
+      "kind": "choose",
+      "prompt": "«Следовательно» в письме:",
+      "options": [
+        "por conseguinte",
+        "aí",
+        "tipo assim"
+      ],
+      "answer": 0,
+      "explain": "Por conseguinte."
+    },
+    {
+      "id": "c1.12-conectores-formais.3",
+      "kind": "gap",
+      "sentence": "O plano era bom; ___, falhou.",
+      "ru": "План был хорош, однако провалился.",
+      "options": [
+        "todavia",
+        "ademais",
+        "a saber"
+      ],
+      "answer": 0,
+      "explain": "Противопоставление."
+    },
+    {
+      "id": "c1.12-conectores-formais.4",
+      "kind": "gap",
+      "sentence": "___, o prazo terminou.",
+      "ru": "Кроме того, срок истёк.",
+      "options": [
+        "Ademais",
+        "Todavia",
+        "Logo"
+      ],
+      "answer": 0,
+      "explain": "Добавление."
+    },
+    {
+      "id": "c1.12-conectores-formais.5",
+      "kind": "truefalse",
+      "statement": "«A saber» вводит перечисление.",
+      "answer": true,
+      "explain": "А именно."
+    },
+    {
+      "id": "c1.12-conectores-formais.6",
+      "kind": "truefalse",
+      "statement": "«Logo» в начале фразы значит «скоро».",
+      "answer": false,
+      "explain": "Следовательно."
+    },
+    {
+      "id": "c1.12-conectores-formais.7",
+      "kind": "truefalse",
+      "statement": "«Outrossim» — очень книжное «кроме того».",
+      "answer": true,
+      "explain": "Так и есть."
+    },
+    {
+      "id": "c1.12-conectores-formais.8",
+      "kind": "build",
+      "ru": "План был хорош, однако провалился.",
+      "answer": "O plano era bom todavia falhou.",
+      "extra": [
+        "ademais",
+        "logo"
+      ],
+      "explain": "Todavia."
+    },
+    {
+      "id": "c1.12-conectores-formais.9",
+      "kind": "type",
+      "sentence": "Ninguém respondeu; por ___, o caso foi arquivado.",
+      "ru": "Никто не ответил; следовательно, дело закрыли.",
+      "hint": "следовательно",
+      "answer": "conseguinte",
+      "explain": "Por conseguinte."
+    },
+    {
+      "id": "c1.12-conectores-formais.10",
+      "kind": "combine",
+      "first": "O plano era bom.",
+      "second": "Falhou.",
+      "connector": "todavia",
+      "ru": "План был хорош, однако провалился.",
+      "answer": "O plano era bom; todavia, falhou.",
+      "alt": [
+        "O plano era bom, todavia falhou.",
+        "O plano era bom; todavia falhou."
+      ],
+      "explain": "Todavia — однако."
+    },
+    {
+      "id": "c1.12-conectores-formais.11",
+      "kind": "register",
+      "source": "Ninguém veio, então a gente fechou.",
+      "to": "formal",
+      "options": [
+        "Ninguém compareceu; por conseguinte, encerramos.",
+        "Ninguém veio, aí fechou, né.",
+        "Galera não veio, fechamos."
+      ],
+      "answer": 0,
+      "explain": "Письменная связка."
+    },
+    {
+      "id": "c1.12-conectores-formais.12",
+      "kind": "paraphrase",
+      "sentence": "O prazo terminou; ademais, faltam documentos.",
+      "options": [
+        "O prazo terminou e, além disso, faltam documentos.",
+        "O prazo não terminou.",
+        "Todos os documentos chegaram."
+      ],
+      "answer": 0,
+      "explain": "Ademais = além disso."
+    }
+  ]
+}

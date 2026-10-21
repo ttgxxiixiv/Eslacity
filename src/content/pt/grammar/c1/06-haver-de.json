@@ -1,0 +1,195 @@
+{
+  "id": "c1.06-haver-de",
+  "district": "C1",
+  "order": 6,
+  "title": "Hei de voltar: haver de + инфинитив",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "**Haver de** + инфинитив — твёрдое намерение или уверенность в будущем: **hei de voltar** — «я непременно вернусь», **há de dar certo** — «обязательно получится». Звучит торжественно, в разговоре чаще **vou** или **com certeza**."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Лицо",
+        "haver",
+        "Пример"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "eu",
+            "hei",
+            "Hei de encontrar o caminho."
+          ]
+        },
+        {
+          "cells": [
+            "você / ele",
+            "há",
+            "Há de dar certo."
+          ]
+        },
+        {
+          "cells": [
+            "nós",
+            "havemos",
+            "Havemos de vencer."
+          ]
+        },
+        {
+          "cells": [
+            "eles",
+            "hão",
+            "Eles hão de entender."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "**Ter de** и **ter que** — «должен»: **tenho de ir**, разговорное **tenho que ir**. **Haver de** — не долг, а уверенность."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Hei de encontrar o caminho.",
+      "ru": "Я непременно найду дорогу."
+    },
+    {
+      "es": "Há de dar tudo certo.",
+      "ru": "Всё обязательно получится."
+    },
+    {
+      "es": "Havemos de voltar.",
+      "ru": "Мы ещё вернёмся."
+    },
+    {
+      "es": "Eles hão de entender um dia.",
+      "ru": "Когда-нибудь они поймут."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "c1.06-haver-de.1",
+      "kind": "choose",
+      "prompt": "«Я непременно вернусь»:",
+      "options": [
+        "Hei de voltar.",
+        "Hei voltar.",
+        "Há de voltei."
+      ],
+      "answer": 0,
+      "explain": "Haver de + инфинитив."
+    },
+    {
+      "id": "c1.06-haver-de.2",
+      "kind": "choose",
+      "prompt": "«Всё получится»:",
+      "options": [
+        "Há de dar certo.",
+        "Hão de dar certo tudo.",
+        "Hei de dar certo."
+      ],
+      "answer": 0,
+      "explain": "Há de."
+    },
+    {
+      "id": "c1.06-haver-de.3",
+      "kind": "gap",
+      "sentence": "Nós ___ de vencer.",
+      "ru": "Мы победим.",
+      "options": [
+        "havemos",
+        "hemos",
+        "haver"
+      ],
+      "answer": 0,
+      "explain": "Nós — havemos."
+    },
+    {
+      "id": "c1.06-haver-de.4",
+      "kind": "gap",
+      "sentence": "Eles ___ de entender.",
+      "ru": "Они поймут.",
+      "options": [
+        "hão",
+        "há",
+        "hei"
+      ],
+      "answer": 0,
+      "explain": "Eles — hão."
+    },
+    {
+      "id": "c1.06-haver-de.5",
+      "kind": "truefalse",
+      "statement": "«Haver de» выражает твёрдое намерение.",
+      "answer": true,
+      "explain": "Hei de voltar."
+    },
+    {
+      "id": "c1.06-haver-de.6",
+      "kind": "truefalse",
+      "statement": "«Ter de» и «haver de» значат одно и то же.",
+      "answer": false,
+      "explain": "Ter de — долг."
+    },
+    {
+      "id": "c1.06-haver-de.7",
+      "kind": "truefalse",
+      "statement": "«Havemos de voltar» звучит торжественно.",
+      "answer": true,
+      "explain": "Книжный оттенок."
+    },
+    {
+      "id": "c1.06-haver-de.8",
+      "kind": "build",
+      "ru": "Я непременно найду дорогу.",
+      "answer": "Hei de encontrar o caminho.",
+      "extra": [
+        "há",
+        "encontro"
+      ],
+      "explain": "Hei de + инфинитив."
+    },
+    {
+      "id": "c1.06-haver-de.9",
+      "kind": "type",
+      "sentence": "Um dia você ___ de entender.",
+      "ru": "Когда-нибудь ты поймёшь.",
+      "hint": "haver, você",
+      "answer": "há",
+      "explain": "Você — há."
+    },
+    {
+      "id": "c1.06-haver-de.10",
+      "kind": "transform",
+      "source": "Com certeza eu vou voltar.",
+      "keyword": "hei",
+      "ru": "Я непременно вернусь.",
+      "answer": "Hei de voltar.",
+      "explain": "Торжественно: hei de."
+    },
+    {
+      "id": "c1.06-haver-de.11",
+      "kind": "fix",
+      "sentence": "Eles há de entender.",
+      "ru": "Они поймут.",
+      "wrong": 1,
+      "answer": "hão",
+      "explain": "Eles — hão."
+    },
+    {
+      "id": "c1.06-haver-de.12",
+      "kind": "paraphrase",
+      "sentence": "Há de chover amanhã.",
+      "options": [
+        "Com certeza vai chover amanhã.",
+        "Não vai chover amanhã.",
+        "Choveu ontem."
+      ],
+      "answer": 0,
+      "explain": "Уверенность в будущем."
+    }
+  ]
+}

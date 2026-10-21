@@ -1,0 +1,195 @@
+{
+  "id": "c1.03-infinitivo-composto",
+  "district": "C1",
+  "order": 3,
+  "title": "Por ter feito, apesar de terem sido",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Инфинитив тоже бывает составным: **ter feito** — «сделать (раньше)». С предлогами он заменяет придаточное о прошлом: **por ter mentido** — «за то, что солгал», **depois de terem chegado** — «после того как они пришли», **apesar de ter avisado** — «хотя предупредил»."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Оборот",
+        "Пример",
+        "Перевод"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "por ter + прич.",
+            "Pediu desculpas por ter mentido.",
+            "Извинился за то, что солгал."
+          ]
+        },
+        {
+          "cells": [
+            "depois de ter + прич.",
+            "Depois de terem jantado, saíram.",
+            "Поужинав, они ушли."
+          ]
+        },
+        {
+          "cells": [
+            "apesar de ter + прич.",
+            "Apesar de ter avisado, ninguém veio.",
+            "Хотя я предупредил, никто не пришёл."
+          ]
+        },
+        {
+          "cells": [
+            "sem ter + прич.",
+            "Saiu sem ter pago.",
+            "Ушёл, не заплатив."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Ter здесь может получать личное окончание: **por termos chegado tarde**, **depois de terem saído**."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Ele pediu desculpas por ter mentido.",
+      "ru": "Он извинился за то, что солгал."
+    },
+    {
+      "es": "Depois de terem jantado, saíram.",
+      "ru": "Поужинав, они ушли."
+    },
+    {
+      "es": "Saiu sem ter pago a conta.",
+      "ru": "Он ушёл, не заплатив по счёту."
+    },
+    {
+      "es": "Obrigado por ter vindo.",
+      "ru": "Спасибо, что пришёл."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "c1.03-infinitivo-composto.1",
+      "kind": "choose",
+      "prompt": "«Спасибо, что пришёл»:",
+      "options": [
+        "Obrigado por ter vindo.",
+        "Obrigado por vir ontem.",
+        "Obrigado para ter vindo."
+      ],
+      "answer": 0,
+      "explain": "Por ter + причастие."
+    },
+    {
+      "id": "c1.03-infinitivo-composto.2",
+      "kind": "choose",
+      "prompt": "«После того как мы пришли»:",
+      "options": [
+        "depois de termos chegado",
+        "depois de temos chegado",
+        "depois de chegamos"
+      ],
+      "answer": 0,
+      "explain": "Termos + причастие."
+    },
+    {
+      "id": "c1.03-infinitivo-composto.3",
+      "kind": "gap",
+      "sentence": "Ele pediu desculpas por ___ mentido.",
+      "ru": "Он извинился за то, что солгал.",
+      "options": [
+        "ter",
+        "tem",
+        "tivesse"
+      ],
+      "answer": 0,
+      "explain": "Por ter."
+    },
+    {
+      "id": "c1.03-infinitivo-composto.4",
+      "kind": "gap",
+      "sentence": "Saiu sem ter ___ a conta.",
+      "ru": "Ушёл, не заплатив.",
+      "options": [
+        "pago",
+        "pagou",
+        "pagar"
+      ],
+      "answer": 0,
+      "explain": "Причастие pago."
+    },
+    {
+      "id": "c1.03-infinitivo-composto.5",
+      "kind": "truefalse",
+      "statement": "«Por ter mentido» — «за то, что солгал».",
+      "answer": true,
+      "explain": "Причина в прошлом."
+    },
+    {
+      "id": "c1.03-infinitivo-composto.6",
+      "kind": "truefalse",
+      "statement": "В составном инфинитиве ter не меняется по лицам.",
+      "answer": false,
+      "explain": "Termos, terem."
+    },
+    {
+      "id": "c1.03-infinitivo-composto.7",
+      "kind": "truefalse",
+      "statement": "«Sem ter pago» — «не заплатив».",
+      "answer": true,
+      "explain": "Sem + ter + причастие."
+    },
+    {
+      "id": "c1.03-infinitivo-composto.8",
+      "kind": "build",
+      "ru": "Он извинился за то, что солгал.",
+      "answer": "Ele pediu desculpas por ter mentido.",
+      "extra": [
+        "mentiu",
+        "tinha"
+      ],
+      "explain": "Por ter mentido."
+    },
+    {
+      "id": "c1.03-infinitivo-composto.9",
+      "kind": "type",
+      "sentence": "Depois de ___ jantado, saíram.",
+      "ru": "Поужинав, они ушли.",
+      "hint": "ter, eles",
+      "answer": "terem",
+      "explain": "Eles — terem."
+    },
+    {
+      "id": "c1.03-infinitivo-composto.10",
+      "kind": "transform",
+      "source": "Ele pediu desculpas porque mentiu.",
+      "keyword": "ter",
+      "ru": "Он извинился за то, что солгал.",
+      "answer": "Ele pediu desculpas por ter mentido.",
+      "explain": "Porque mentiu → por ter mentido."
+    },
+    {
+      "id": "c1.03-infinitivo-composto.11",
+      "kind": "fix",
+      "sentence": "Obrigado por ter vir.",
+      "ru": "Спасибо, что пришёл.",
+      "wrong": 3,
+      "answer": "vindo",
+      "explain": "После ter — причастие vindo."
+    },
+    {
+      "id": "c1.03-infinitivo-composto.12",
+      "kind": "paraphrase",
+      "sentence": "Apesar de ter avisado, ninguém veio.",
+      "options": [
+        "Embora eu tenha avisado, ninguém veio.",
+        "Como avisei, todos vieram.",
+        "Não avisei e ninguém veio."
+      ],
+      "answer": 0,
+      "explain": "Apesar de ter avisado = embora tenha avisado."
+    }
+  ]
+}

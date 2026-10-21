@@ -1,0 +1,206 @@
+{
+  "id": "c1.20-registro",
+  "district": "C1",
+  "order": 20,
+  "title": "Один смысл — два тона: tá / está, pra / para, cadê / onde está",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Бразильская речь легко переключается между регистрами. Разговорный: **tá** (está), **pra** (para), **cadê** (onde está), **a gente** (nós), **você** → **cê**, **né?**, **tipo**. Официальный: полные формы, **o senhor**, пассив, номинализация, мезоклиза в документах. Одна мысль — два тона: **Cadê o relatório?** — **Onde se encontra o relatório?**"
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Разговор",
+        "Официально",
+        "Перевод"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Cadê o mapa?",
+            "Onde está o mapa?",
+            "Где карта?"
+          ]
+        },
+        {
+          "cells": [
+            "Tá tudo certo.",
+            "Está tudo em ordem.",
+            "Всё в порядке."
+          ]
+        },
+        {
+          "cells": [
+            "A gente vai pra lá.",
+            "Nós iremos para lá.",
+            "Мы пойдём туда."
+          ]
+        },
+        {
+          "cells": [
+            "Valeu!",
+            "Agradeço a atenção.",
+            "Спасибо!"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Ошибка — не разговорное слово, а не тот тон в не том месте: **Valeu, Excelência!** звучит странно, а **Agradeço a atenção** другу — холодно."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Cadê o mapa? — Onde se encontra o mapa?",
+      "ru": "Где карта?"
+    },
+    {
+      "es": "Tá tudo certo. — Está tudo em ordem.",
+      "ru": "Всё в порядке."
+    },
+    {
+      "es": "A gente vai pra lá. — Nós iremos para lá.",
+      "ru": "Мы пойдём туда."
+    },
+    {
+      "es": "Valeu! — Agradeço a atenção.",
+      "ru": "Спасибо!"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "c1.20-registro.1",
+      "kind": "choose",
+      "prompt": "Официально «Где карта?»:",
+      "options": [
+        "Onde se encontra o mapa?",
+        "Cadê o mapa?",
+        "Cê viu o mapa?"
+      ],
+      "answer": 0,
+      "explain": "Полная форма."
+    },
+    {
+      "id": "c1.20-registro.2",
+      "kind": "choose",
+      "prompt": "Разговорно «Всё в порядке»:",
+      "options": [
+        "Tá tudo certo.",
+        "Encontra-se tudo em ordem.",
+        "Está tudo nos conformes legais."
+      ],
+      "answer": 0,
+      "explain": "Tá."
+    },
+    {
+      "id": "c1.20-registro.3",
+      "kind": "gap",
+      "sentence": "A gente vai ___ lá.",
+      "ru": "Мы пойдём туда (разговорно).",
+      "options": [
+        "pra",
+        "para a",
+        "per"
+      ],
+      "answer": 0,
+      "explain": "Разговорное pra."
+    },
+    {
+      "id": "c1.20-registro.4",
+      "kind": "gap",
+      "sentence": "___ o relatório?",
+      "ru": "Где отчёт? (разговорно)",
+      "options": [
+        "Cadê",
+        "Onde se encontra",
+        "Qual"
+      ],
+      "answer": 0,
+      "explain": "Cadê."
+    },
+    {
+      "id": "c1.20-registro.5",
+      "kind": "truefalse",
+      "statement": "«Cadê» — разговорное «где».",
+      "answer": true,
+      "explain": "Cadê = onde está."
+    },
+    {
+      "id": "c1.20-registro.6",
+      "kind": "truefalse",
+      "statement": "«Valeu, Excelência!» — естественное обращение к судье.",
+      "answer": false,
+      "explain": "Не тот тон."
+    },
+    {
+      "id": "c1.20-registro.7",
+      "kind": "truefalse",
+      "statement": "«Cê» — разговорное «você».",
+      "answer": true,
+      "explain": "Так и есть."
+    },
+    {
+      "id": "c1.20-registro.8",
+      "kind": "build",
+      "ru": "Мы пойдём туда (официально).",
+      "answer": "Nós iremos para lá.",
+      "extra": [
+        "pra",
+        "ir"
+      ],
+      "explain": "Официальные формы."
+    },
+    {
+      "id": "c1.20-registro.9",
+      "kind": "type",
+      "sentence": "___ tudo em ordem.",
+      "ru": "Всё в порядке (официально).",
+      "hint": "estar, официально",
+      "answer": "Está",
+      "explain": "Полная форма."
+    },
+    {
+      "id": "c1.20-registro.10",
+      "kind": "register",
+      "source": "Cadê o relatório, gente?",
+      "to": "formal",
+      "answer": "Onde se encontra o relatório?",
+      "extra": [
+        "cadê",
+        "gente"
+      ],
+      "explain": "Официально — полная форма."
+    },
+    {
+      "id": "c1.20-registro.11",
+      "kind": "register",
+      "source": "Agradeço a atenção.",
+      "to": "informal",
+      "options": [
+        "Valeu!",
+        "Atenciosamente.",
+        "Agradecemos a preferência."
+      ],
+      "answer": 0,
+      "explain": "Разговорно — valeu."
+    },
+    {
+      "id": "c1.20-registro.12",
+      "kind": "cloze",
+      "text": "Oi, ___ tudo bem? A gente vai ___ praia amanhã.",
+      "ru": "Привет, всё нормально? Мы завтра идём на пляж.",
+      "answers": [
+        [
+          "tá"
+        ],
+        [
+          "pra",
+          "para a"
+        ]
+      ],
+      "explain": "Разговорные формы."
+    }
+  ]
+}

@@ -1,0 +1,197 @@
+{
+  "id": "c1.09-carta-formal",
+  "district": "C1",
+  "order": 9,
+  "title": "Официальное письмо: prezado, venho por meio desta",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Официальное письмо строится по формулам. Начало: **Prezado Senhor**, **Prezada Senhora**, **Ilustríssimo Senhor** (очень формально). Вступление: **Venho por meio desta** + инфинитив, **Em resposta à sua carta de…**. Просьба: **Solicito que…**, **Gostaria de solicitar…**. Конец: **Sem mais para o momento**, **Atenciosamente**, **Cordialmente**."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Часть",
+        "Формула"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "обращение",
+            "Prezado Senhor Ricardo,"
+          ]
+        },
+        {
+          "cells": [
+            "вступление",
+            "Venho por meio desta informar que…"
+          ]
+        },
+        {
+          "cells": [
+            "просьба",
+            "Solicito a gentileza de…"
+          ]
+        },
+        {
+          "cells": [
+            "прощание",
+            "Atenciosamente, / Cordialmente,"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "После обращения — запятая. **Atenciosamente** — к старшему и незнакомому, **cordialmente** — к коллеге. Дружеское письмо: **Querido Caio**, **Um abraço**, **Beijos**."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Prezado Senhor, venho por meio desta solicitar uma reunião.",
+      "ru": "Уважаемый господин, настоящим прошу о встрече."
+    },
+    {
+      "es": "Em resposta à sua carta de 5 de março, informo que…",
+      "ru": "В ответ на ваше письмо от 5 марта сообщаю, что…"
+    },
+    {
+      "es": "Solicito a gentileza de responder até sexta.",
+      "ru": "Прошу вас любезно ответить до пятницы."
+    },
+    {
+      "es": "Sem mais para o momento, atenciosamente.",
+      "ru": "На этом всё, с уважением."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "c1.09-carta-formal.1",
+      "kind": "choose",
+      "prompt": "Начало официального письма:",
+      "options": [
+        "Prezado Senhor,",
+        "Oi, tudo bem?",
+        "Querido amigo,"
+      ],
+      "answer": 0,
+      "explain": "Prezado Senhor."
+    },
+    {
+      "id": "c1.09-carta-formal.2",
+      "kind": "choose",
+      "prompt": "Прощание с незнакомым адресатом:",
+      "options": [
+        "Atenciosamente,",
+        "Beijos,",
+        "Tchau!"
+      ],
+      "answer": 0,
+      "explain": "Atenciosamente."
+    },
+    {
+      "id": "c1.09-carta-formal.3",
+      "kind": "gap",
+      "sentence": "Venho por meio ___ informar a mudança.",
+      "ru": "Настоящим сообщаю о переезде.",
+      "options": [
+        "desta",
+        "deste",
+        "esta"
+      ],
+      "answer": 0,
+      "explain": "Por meio desta (carta)."
+    },
+    {
+      "id": "c1.09-carta-formal.4",
+      "kind": "gap",
+      "sentence": "___ a gentileza de responder até sexta.",
+      "ru": "Прошу вас любезно ответить до пятницы.",
+      "options": [
+        "Solicito",
+        "Peço-te",
+        "Manda"
+      ],
+      "answer": 0,
+      "explain": "Solicito a gentileza."
+    },
+    {
+      "id": "c1.09-carta-formal.5",
+      "kind": "truefalse",
+      "statement": "«Cordialmente» подходит для письма коллеге.",
+      "answer": true,
+      "explain": "Сердечно-вежливо."
+    },
+    {
+      "id": "c1.09-carta-formal.6",
+      "kind": "truefalse",
+      "statement": "«Beijos» — подходящее прощание для банка.",
+      "answer": false,
+      "explain": "Это для друзей."
+    },
+    {
+      "id": "c1.09-carta-formal.7",
+      "kind": "truefalse",
+      "statement": "После обращения ставят запятую.",
+      "answer": true,
+      "explain": "Prezado Senhor,"
+    },
+    {
+      "id": "c1.09-carta-formal.8",
+      "kind": "build",
+      "ru": "Настоящим прошу о встрече.",
+      "answer": "Venho por meio desta solicitar uma reunião.",
+      "extra": [
+        "deste",
+        "pedir"
+      ],
+      "explain": "Formula: venho por meio desta."
+    },
+    {
+      "id": "c1.09-carta-formal.9",
+      "kind": "type",
+      "sentence": "Sem mais para o momento, ___.",
+      "ru": "На этом всё, с уважением.",
+      "hint": "с уважением",
+      "answer": "atenciosamente",
+      "explain": "Официальное прощание."
+    },
+    {
+      "id": "c1.09-carta-formal.10",
+      "kind": "register",
+      "source": "Oi, só pra avisar que mudei de endereço.",
+      "to": "formal",
+      "answer": "Venho por meio desta informar que mudei de endereço.",
+      "extra": [
+        "oi",
+        "pra"
+      ],
+      "explain": "Официально: venho por meio desta informar."
+    },
+    {
+      "id": "c1.09-carta-formal.11",
+      "kind": "cloze",
+      "text": "Prezado Senhor, ___ por meio desta solicitar um prazo. Sem mais para o momento, ___.",
+      "ru": "Уважаемый господин, настоящим прошу об отсрочке. На этом всё, с уважением.",
+      "answers": [
+        [
+          "venho"
+        ],
+        [
+          "atenciosamente",
+          "cordialmente"
+        ]
+      ],
+      "explain": "Формулы начала и конца."
+    },
+    {
+      "id": "c1.09-carta-formal.12",
+      "kind": "fix",
+      "sentence": "Prezado Senhor, venho por meio deste solicitar uma reunião.",
+      "ru": "Уважаемый господин, настоящим прошу о встрече.",
+      "wrong": 5,
+      "answer": "desta",
+      "explain": "Por meio desta (carta)."
+    }
+  ]
+}

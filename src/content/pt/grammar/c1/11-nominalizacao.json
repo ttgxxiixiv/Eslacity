@@ -1,0 +1,199 @@
+{
+  "id": "c1.11-nominalizacao",
+  "district": "C1",
+  "order": 11,
+  "title": "Номинализация: decidir → a decisão",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Официальный стиль любит существительные вместо глаголов: **decidiram** → **a decisão**, **chegou** → **a chegada**, **resolver** → **a resolução**. **Após a chegada do trem** вместо **depois que o trem chegou**. Текст становится короче, но суше."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Глагол",
+        "Существительное",
+        "Пример"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "chegar",
+            "a chegada",
+            "após a chegada do trem"
+          ]
+        },
+        {
+          "cells": [
+            "decidir",
+            "a decisão",
+            "a decisão do delegado"
+          ]
+        },
+        {
+          "cells": [
+            "investigar",
+            "a investigação",
+            "a investigação do caso"
+          ]
+        },
+        {
+          "cells": [
+            "reabrir",
+            "a reabertura",
+            "a reabertura da linha"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Типичные суффиксы: **-ção** (a investigação), **-mento** (o pagamento), **-da** (a chegada, a saída), **-ura** (a abertura). Род: -ção, -da, -ura — женский, -mento — мужской."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Após a chegada do trem, a estação fechou.",
+      "ru": "После прибытия поезда вокзал закрылся."
+    },
+    {
+      "es": "A decisão do delegado foi justa.",
+      "ru": "Решение делегаду было справедливым."
+    },
+    {
+      "es": "A reabertura da linha está prevista para maio.",
+      "ru": "Возобновление линии запланировано на май."
+    },
+    {
+      "es": "O pagamento deve ser feito até sexta.",
+      "ru": "Оплату нужно внести до пятницы."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "c1.11-nominalizacao.1",
+      "kind": "choose",
+      "prompt": "Существительное от «investigar»:",
+      "options": [
+        "a investigação",
+        "o investigamento",
+        "a investigada"
+      ],
+      "answer": 0,
+      "explain": "-ção."
+    },
+    {
+      "id": "c1.11-nominalizacao.2",
+      "kind": "choose",
+      "prompt": "«После прибытия поезда»:",
+      "options": [
+        "após a chegada do trem",
+        "após chegar o trem",
+        "após o chego do trem"
+      ],
+      "answer": 0,
+      "explain": "A chegada."
+    },
+    {
+      "id": "c1.11-nominalizacao.3",
+      "kind": "gap",
+      "sentence": "A ___ do caso durou um ano.",
+      "ru": "Расследование дела длилось год.",
+      "options": [
+        "investigação",
+        "investigar",
+        "investigou"
+      ],
+      "answer": 0,
+      "explain": "Существительное."
+    },
+    {
+      "id": "c1.11-nominalizacao.4",
+      "kind": "gap",
+      "sentence": "O ___ deve ser feito até sexta.",
+      "ru": "Оплату нужно внести до пятницы.",
+      "options": [
+        "pagamento",
+        "pagação",
+        "pago"
+      ],
+      "answer": 0,
+      "explain": "Pagar → o pagamento."
+    },
+    {
+      "id": "c1.11-nominalizacao.5",
+      "kind": "truefalse",
+      "statement": "Слова на -ção — женского рода.",
+      "answer": true,
+      "explain": "A decisão."
+    },
+    {
+      "id": "c1.11-nominalizacao.6",
+      "kind": "truefalse",
+      "statement": "Номинализация делает текст разговорнее.",
+      "answer": false,
+      "explain": "Официальнее и суше."
+    },
+    {
+      "id": "c1.11-nominalizacao.7",
+      "kind": "truefalse",
+      "statement": "«A reabertura» — от «reabrir».",
+      "answer": true,
+      "explain": "-ura."
+    },
+    {
+      "id": "c1.11-nominalizacao.8",
+      "kind": "build",
+      "ru": "Решение делегаду было справедливым.",
+      "answer": "A decisão do delegado foi justa.",
+      "extra": [
+        "decidiu",
+        "o"
+      ],
+      "explain": "A decisão."
+    },
+    {
+      "id": "c1.11-nominalizacao.9",
+      "kind": "type",
+      "sentence": "A ___ do labirinto foi lenta.",
+      "ru": "Выход из лабиринта был медленным.",
+      "hint": "sair, существительное",
+      "answer": "saída",
+      "explain": "Sair → a saída."
+    },
+    {
+      "id": "c1.11-nominalizacao.10",
+      "kind": "transform",
+      "source": "Depois que o trem chegou, a estação fechou.",
+      "keyword": "chegada",
+      "ru": "После прибытия поезда вокзал закрылся.",
+      "answer": "Após a chegada do trem, a estação fechou.",
+      "alt": [
+        "Depois da chegada do trem, a estação fechou."
+      ],
+      "explain": "Глагол → существительное."
+    },
+    {
+      "id": "c1.11-nominalizacao.11",
+      "kind": "fix",
+      "sentence": "O pagação deve ser feito hoje.",
+      "ru": "Оплату нужно внести сегодня.",
+      "wrong": 1,
+      "answer": "pagamento",
+      "explain": "Pagar → o pagamento."
+    },
+    {
+      "id": "c1.11-nominalizacao.12",
+      "kind": "register",
+      "source": "A gente decidiu fechar a linha.",
+      "to": "formal",
+      "options": [
+        "Foi tomada a decisão de fechar a linha.",
+        "A gente fechou a linha, tá?",
+        "Bora fechar a linha."
+      ],
+      "answer": 0,
+      "explain": "Официально — номинализация."
+    }
+  ]
+}

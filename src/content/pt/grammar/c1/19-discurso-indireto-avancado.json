@@ -1,0 +1,193 @@
+{
+  "id": "c1.19-discurso-indireto-avancado",
+  "district": "C1",
+  "order": 19,
+  "title": "Пересказ: alegou que, garantiu que, negou que",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "В пересказе меняются не только времена, но и слова времени и места: **hoje** → **naquele dia**, **amanhã** → **no dia seguinte**, **aqui** → **ali**, **este** → **aquele**. Глагол пересказа задаёт тон: **alegou** (оправдываясь), **garantiu** (уверял), **negou** (отрицал + subjuntivo или инфинитив), **insinuou** (намекнул)."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Прямая речь",
+        "Пересказ"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "«Volto amanhã.»",
+            "Ele garantiu que voltaria no dia seguinte."
+          ]
+        },
+        {
+          "cells": [
+            "«Não fui eu.»",
+            "Ele negou ter sido ele."
+          ]
+        },
+        {
+          "cells": [
+            "«Estou aqui há uma hora.»",
+            "Ela alegou que estava ali havia uma hora."
+          ]
+        },
+        {
+          "cells": [
+            "«Este mapa é meu.»",
+            "Ele afirmou que aquele mapa era dele."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "**Há uma hora** в пересказе прошлого становится **havia uma hora**. **Negou que** + subjuntivo: **negou que tivesse mentido**."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Ele garantiu que voltaria no dia seguinte.",
+      "ru": "Он уверял, что вернётся на следующий день."
+    },
+    {
+      "es": "Ela alegou que estava ali havia uma hora.",
+      "ru": "Она уверяла в оправдание, что ждала там уже час."
+    },
+    {
+      "es": "O pregoeiro negou que tivesse mentido.",
+      "ru": "Глашатай отрицал, что лгал."
+    },
+    {
+      "es": "Ele insinuou que o eco sabia tudo.",
+      "ru": "Он намекнул, что эхо всё знает."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "c1.19-discurso-indireto-avancado.1",
+      "kind": "choose",
+      "prompt": "«Volto amanhã» → Ele garantiu que…",
+      "options": [
+        "voltaria no dia seguinte",
+        "volto amanhã",
+        "voltou ontem"
+      ],
+      "answer": 0,
+      "explain": "Время и слова времени меняются."
+    },
+    {
+      "id": "c1.19-discurso-indireto-avancado.2",
+      "kind": "choose",
+      "prompt": "«Não menti» → Ele negou que…",
+      "options": [
+        "tivesse mentido",
+        "mentiu amanhã",
+        "minta ontem"
+      ],
+      "answer": 0,
+      "explain": "Negar que + subjuntivo."
+    },
+    {
+      "id": "c1.19-discurso-indireto-avancado.3",
+      "kind": "gap",
+      "sentence": "Ela alegou que estava ali ___ uma hora.",
+      "ru": "Она уверяла, что ждала там уже час.",
+      "options": [
+        "havia",
+        "há",
+        "haverá"
+      ],
+      "answer": 0,
+      "explain": "Há → havia."
+    },
+    {
+      "id": "c1.19-discurso-indireto-avancado.4",
+      "kind": "gap",
+      "sentence": "Ele afirmou que ___ mapa era dele.",
+      "ru": "Он заявил, что та карта его.",
+      "options": [
+        "aquele",
+        "este",
+        "esse aqui"
+      ],
+      "answer": 0,
+      "explain": "Este → aquele."
+    },
+    {
+      "id": "c1.19-discurso-indireto-avancado.5",
+      "kind": "truefalse",
+      "statement": "«Amanhã» в пересказе прошлого становится «no dia seguinte».",
+      "answer": true,
+      "explain": "Так и есть."
+    },
+    {
+      "id": "c1.19-discurso-indireto-avancado.6",
+      "kind": "truefalse",
+      "statement": "После «negou que» — индикатив.",
+      "answer": false,
+      "explain": "Subjuntivo."
+    },
+    {
+      "id": "c1.19-discurso-indireto-avancado.7",
+      "kind": "truefalse",
+      "statement": "«Insinuou» — «намекнул».",
+      "answer": true,
+      "explain": "Глагол пересказа."
+    },
+    {
+      "id": "c1.19-discurso-indireto-avancado.8",
+      "kind": "build",
+      "ru": "Он уверял, что вернётся на следующий день.",
+      "answer": "Ele garantiu que voltaria no dia seguinte.",
+      "extra": [
+        "volta",
+        "amanhã"
+      ],
+      "explain": "Voltaria no dia seguinte."
+    },
+    {
+      "id": "c1.19-discurso-indireto-avancado.9",
+      "kind": "type",
+      "sentence": "O pregoeiro negou que ___ mentido.",
+      "ru": "Глашатай отрицал, что лгал.",
+      "hint": "ter, imperfeito do subjuntivo",
+      "answer": "tivesse",
+      "explain": "Negar que + tivesse."
+    },
+    {
+      "id": "c1.19-discurso-indireto-avancado.10",
+      "kind": "transform",
+      "source": "«Não fui eu», disse ele.",
+      "keyword": "negou",
+      "ru": "Он отрицал, что это был он.",
+      "answer": "Ele negou ter sido ele.",
+      "alt": [
+        "Ele negou que tivesse sido ele."
+      ],
+      "explain": "Negar + инфинитив."
+    },
+    {
+      "id": "c1.19-discurso-indireto-avancado.11",
+      "kind": "fix",
+      "sentence": "Ontem ele afirmou que este mapa era dele.",
+      "ru": "Вчера он заявил, что та карта его.",
+      "wrong": 4,
+      "answer": "aquele",
+      "explain": "В пересказе este → aquele."
+    },
+    {
+      "id": "c1.19-discurso-indireto-avancado.12",
+      "kind": "paraphrase",
+      "sentence": "Ela alegou que não sabia de nada.",
+      "options": [
+        "Ela disse, para se defender, que não sabia de nada.",
+        "Ela confessou tudo.",
+        "Ela sabia de tudo e contou."
+      ],
+      "answer": 0,
+      "explain": "Alegar — заявлять в оправдание."
+    }
+  ]
+}

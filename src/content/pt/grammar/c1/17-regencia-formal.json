@@ -1,0 +1,199 @@
+{
+  "id": "c1.17-regencia-formal",
+  "district": "C1",
+  "order": 17,
+  "title": "Assistir a, visar a, aspirar a",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Некоторые глаголы меняют смысл с предлогом. **Assistir a** — смотреть (assistir ao jogo), **assistir** без предлога — помогать (o médico assiste o paciente). **Visar a** — стремиться, **visar** — ставить визу. **Aspirar a** — стремиться, **aspirar** — вдыхать. В разговоре предлог часто опускают: «assisti o filme» — в письме **assisti ao filme**."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Глагол",
+        "С a",
+        "Без предлога"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "assistir",
+            "смотреть: assistir ao show",
+            "помогать: assistir o doente"
+          ]
+        },
+        {
+          "cells": [
+            "visar",
+            "стремиться: visar ao bem",
+            "визировать: visar o passaporte"
+          ]
+        },
+        {
+          "cells": [
+            "aspirar",
+            "стремиться: aspirar a um cargo",
+            "вдыхать: aspirar o ar"
+          ]
+        },
+        {
+          "cells": [
+            "obedecer",
+            "obedecer às regras",
+            "—"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "**Obedecer a**, **responder a**, **agradar a** — в письме с предлогом: **respondeu à carta**. **Esquecer** без se — без предлога: **esqueci o nome**; с se — с de: **esqueci-me do nome**."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Assisti ao jogo ontem.",
+      "ru": "Вчера я смотрел матч."
+    },
+    {
+      "es": "O médico assiste o paciente.",
+      "ru": "Врач помогает пациенту."
+    },
+    {
+      "es": "Ela aspira a um cargo melhor.",
+      "ru": "Она стремится к лучшей должности."
+    },
+    {
+      "es": "Todos devem obedecer às regras.",
+      "ru": "Все должны соблюдать правила."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "c1.17-regencia-formal.1",
+      "kind": "choose",
+      "prompt": "«Я смотрел фильм» (письменно):",
+      "options": [
+        "Assisti ao filme.",
+        "Assisti o filme de.",
+        "Assisti no filme."
+      ],
+      "answer": 0,
+      "explain": "Assistir a."
+    },
+    {
+      "id": "c1.17-regencia-formal.2",
+      "kind": "choose",
+      "prompt": "«Врач помогает пациенту»:",
+      "options": [
+        "O médico assiste o paciente.",
+        "O médico assiste ao paciente.",
+        "O médico aspira o paciente."
+      ],
+      "answer": 0,
+      "explain": "Без предлога — помогать."
+    },
+    {
+      "id": "c1.17-regencia-formal.3",
+      "kind": "gap",
+      "sentence": "Ela aspira ___ um cargo melhor.",
+      "ru": "Она стремится к лучшей должности.",
+      "options": [
+        "a",
+        "de",
+        "em"
+      ],
+      "answer": 0,
+      "explain": "Aspirar a."
+    },
+    {
+      "id": "c1.17-regencia-formal.4",
+      "kind": "gap",
+      "sentence": "Todos devem obedecer ___ regras.",
+      "ru": "Все должны соблюдать правила.",
+      "options": [
+        "às",
+        "as",
+        "das"
+      ],
+      "answer": 0,
+      "explain": "Obedecer a + as = às."
+    },
+    {
+      "id": "c1.17-regencia-formal.5",
+      "kind": "truefalse",
+      "statement": "«Aspirar o ar» — вдыхать воздух.",
+      "answer": true,
+      "explain": "Без предлога."
+    },
+    {
+      "id": "c1.17-regencia-formal.6",
+      "kind": "truefalse",
+      "statement": "В письме «assisti o filme» — образцовая форма.",
+      "answer": false,
+      "explain": "Assisti ao filme."
+    },
+    {
+      "id": "c1.17-regencia-formal.7",
+      "kind": "truefalse",
+      "statement": "«Respondeu à carta» — с предлогом.",
+      "answer": true,
+      "explain": "Responder a."
+    },
+    {
+      "id": "c1.17-regencia-formal.8",
+      "kind": "build",
+      "ru": "Вчера я смотрел матч.",
+      "answer": "Ontem assisti ao jogo.",
+      "extra": [
+        "o",
+        "no"
+      ],
+      "explain": "Assistir a + o = ao."
+    },
+    {
+      "id": "c1.17-regencia-formal.9",
+      "kind": "type",
+      "sentence": "Todos devem obedecer ___ lei.",
+      "ru": "Все должны соблюдать закон.",
+      "hint": "предлог + артикль",
+      "answer": "à",
+      "explain": "A + a = à."
+    },
+    {
+      "id": "c1.17-regencia-formal.10",
+      "kind": "fix",
+      "sentence": "Ontem assisti o show na praça.",
+      "ru": "Вчера я смотрел концерт на площади.",
+      "wrong": 2,
+      "answer": "ao",
+      "explain": "В письме: assistir ao."
+    },
+    {
+      "id": "c1.17-regencia-formal.11",
+      "kind": "register",
+      "source": "Cê viu o jogo ontem?",
+      "to": "formal",
+      "options": [
+        "O senhor assistiu ao jogo ontem?",
+        "Viu o jogo, mano?",
+        "Tu viu o jogo?"
+      ],
+      "answer": 0,
+      "explain": "Официально — с предлогом."
+    },
+    {
+      "id": "c1.17-regencia-formal.12",
+      "kind": "paraphrase",
+      "sentence": "Ela visa a uma vida tranquila.",
+      "options": [
+        "Ela deseja uma vida tranquila.",
+        "Ela carimba o passaporte.",
+        "Ela vive tranquila."
+      ],
+      "answer": 0,
+      "explain": "Visar a — стремиться."
+    }
+  ]
+}

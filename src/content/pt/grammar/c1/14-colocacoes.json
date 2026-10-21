@@ -1,0 +1,205 @@
+{
+  "id": "c1.14-colocacoes",
+  "district": "C1",
+  "order": 14,
+  "title": "Устойчивые сочетания: tomar uma decisão, levantar uma questão",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Некоторые слова любят друг друга: решение **tomam** (tomar uma decisão), вопрос **levantam** (levantar uma questão), сон **têm** (ter um sonho), обещание **cumprem** (cumprir uma promessa). Переводить по словам опасно: «fazer uma decisão» — ошибка."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Существительное",
+        "Глагол",
+        "Перевод"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "uma decisão",
+            "tomar",
+            "принять решение"
+          ]
+        },
+        {
+          "cells": [
+            "uma questão",
+            "levantar",
+            "поднять вопрос"
+          ]
+        },
+        {
+          "cells": [
+            "uma promessa",
+            "cumprir",
+            "сдержать обещание"
+          ]
+        },
+        {
+          "cells": [
+            "um crime",
+            "cometer",
+            "совершить преступление"
+          ]
+        },
+        {
+          "cells": [
+            "atenção",
+            "prestar",
+            "уделить внимание"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "**Prestar atenção** — «обращать внимание», **prestar contas** — «отчитываться», **prestar depoimento** — «давать показания»."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Precisamos tomar uma decisão.",
+      "ru": "Нам нужно принять решение."
+    },
+    {
+      "es": "Ela levantou uma questão importante.",
+      "ru": "Она подняла важный вопрос."
+    },
+    {
+      "es": "Ele cumpriu a promessa.",
+      "ru": "Он сдержал обещание."
+    },
+    {
+      "es": "Preste atenção no eco.",
+      "ru": "Обратите внимание на эхо."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "c1.14-colocacoes.1",
+      "kind": "choose",
+      "prompt": "«Принять решение»:",
+      "options": [
+        "tomar uma decisão",
+        "fazer uma decisão",
+        "pegar uma decisão"
+      ],
+      "answer": 0,
+      "explain": "Tomar."
+    },
+    {
+      "id": "c1.14-colocacoes.2",
+      "kind": "choose",
+      "prompt": "«Сдержать обещание»:",
+      "options": [
+        "cumprir a promessa",
+        "fazer a promessa cumprida",
+        "segurar a promessa"
+      ],
+      "answer": 0,
+      "explain": "Cumprir."
+    },
+    {
+      "id": "c1.14-colocacoes.3",
+      "kind": "gap",
+      "sentence": "Ela ___ uma questão importante.",
+      "ru": "Она подняла важный вопрос.",
+      "options": [
+        "levantou",
+        "fez",
+        "pegou"
+      ],
+      "answer": 0,
+      "explain": "Levantar uma questão."
+    },
+    {
+      "id": "c1.14-colocacoes.4",
+      "kind": "gap",
+      "sentence": "Preste ___ no eco.",
+      "ru": "Обратите внимание на эхо.",
+      "options": [
+        "atenção",
+        "cuidado de",
+        "olho"
+      ],
+      "answer": 0,
+      "explain": "Prestar atenção."
+    },
+    {
+      "id": "c1.14-colocacoes.5",
+      "kind": "truefalse",
+      "statement": "«Fazer uma decisão» — естественное сочетание.",
+      "answer": false,
+      "explain": "Tomar uma decisão."
+    },
+    {
+      "id": "c1.14-colocacoes.6",
+      "kind": "truefalse",
+      "statement": "«Prestar depoimento» — давать показания.",
+      "answer": true,
+      "explain": "Сочетание."
+    },
+    {
+      "id": "c1.14-colocacoes.7",
+      "kind": "truefalse",
+      "statement": "«Cometer um crime» — совершить преступление.",
+      "answer": true,
+      "explain": "Сочетание."
+    },
+    {
+      "id": "c1.14-colocacoes.8",
+      "kind": "build",
+      "ru": "Нам нужно принять решение.",
+      "answer": "Precisamos tomar uma decisão.",
+      "extra": [
+        "fazer",
+        "pegar"
+      ],
+      "explain": "Tomar uma decisão."
+    },
+    {
+      "id": "c1.14-colocacoes.9",
+      "kind": "type",
+      "sentence": "Ele ___ a promessa.",
+      "ru": "Он сдержал обещание.",
+      "hint": "cumprir, прошедшее",
+      "answer": "cumpriu",
+      "explain": "Cumprir."
+    },
+    {
+      "id": "c1.14-colocacoes.10",
+      "kind": "fix",
+      "sentence": "Precisamos fazer uma decisão hoje.",
+      "ru": "Нам нужно принять решение сегодня.",
+      "wrong": 1,
+      "answer": "tomar",
+      "explain": "Tomar uma decisão."
+    },
+    {
+      "id": "c1.14-colocacoes.11",
+      "kind": "cloze",
+      "text": "O delegado ___ uma decisão e a testemunha ___ depoimento.",
+      "ru": "Делегаду принял решение, и свидетель дал показания.",
+      "answers": [
+        [
+          "tomou"
+        ],
+        [
+          "prestou"
+        ]
+      ],
+      "explain": "Tomar decisão, prestar depoimento."
+    },
+    {
+      "id": "c1.14-colocacoes.12",
+      "kind": "transform",
+      "source": "Ela fez uma pergunta importante na reunião.",
+      "keyword": "levantou",
+      "ru": "Она подняла важный вопрос на собрании.",
+      "answer": "Ela levantou uma questão importante na reunião.",
+      "explain": "Levantar uma questão."
+    }
+  ]
+}

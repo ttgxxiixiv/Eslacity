@@ -1,0 +1,191 @@
+{
+  "id": "c1.02-futuro-subjuntivo-composto",
+  "district": "C1",
+  "order": 2,
+  "title": "Quando tiver terminado",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "**Futuro do subjuntivo composto** — действие, которое завершится раньше другого будущего: **quando você tiver lido a carta, me liga** — «когда прочтёшь письмо, позвони». Строится из **tiver** и причастия."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Лицо",
+        "ter",
+        "Пример"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "eu / ele",
+            "tiver",
+            "Quando eu tiver terminado…"
+          ]
+        },
+        {
+          "cells": [
+            "nós",
+            "tivermos",
+            "Se tivermos chegado…"
+          ]
+        },
+        {
+          "cells": [
+            "eles",
+            "tiverem",
+            "Assim que tiverem saído…"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Часто его можно заменить простой формой: **quando terminar**. Составная подчёркивает, что действие уже будет закончено."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Quando você tiver lido a carta, me liga.",
+      "ru": "Когда прочтёшь письмо, позвони."
+    },
+    {
+      "es": "Se até sexta ele não tiver voltado, vamos procurá-lo.",
+      "ru": "Если к пятнице он не вернётся, будем его искать."
+    },
+    {
+      "es": "Assim que tivermos jantado, saímos.",
+      "ru": "Как только поужинаем, выйдем."
+    },
+    {
+      "es": "Só descanso quando tiver terminado.",
+      "ru": "Отдохну, только когда закончу."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "c1.02-futuro-subjuntivo-composto.1",
+      "kind": "choose",
+      "prompt": "«Когда я закончу (будет закончено)»:",
+      "options": [
+        "quando eu tiver terminado",
+        "quando eu tinha terminado",
+        "quando eu terei terminado"
+      ],
+      "answer": 0,
+      "explain": "Tiver + причастие."
+    },
+    {
+      "id": "c1.02-futuro-subjuntivo-composto.2",
+      "kind": "choose",
+      "prompt": "«Если они уже уйдут»:",
+      "options": [
+        "se eles tiverem saído",
+        "se eles terem saído",
+        "se eles tinham saído"
+      ],
+      "answer": 0,
+      "explain": "Tiverem + причастие."
+    },
+    {
+      "id": "c1.02-futuro-subjuntivo-composto.3",
+      "kind": "gap",
+      "sentence": "Assim que ___ jantado, saímos.",
+      "ru": "Как только поужинаем, выйдем.",
+      "options": [
+        "tivermos",
+        "temos",
+        "termos"
+      ],
+      "answer": 0,
+      "explain": "Nós — tivermos."
+    },
+    {
+      "id": "c1.02-futuro-subjuntivo-composto.4",
+      "kind": "gap",
+      "sentence": "Se até sexta ele não tiver ___, vamos procurá-lo.",
+      "ru": "Если к пятнице он не вернётся, будем искать.",
+      "options": [
+        "voltado",
+        "voltar",
+        "volta"
+      ],
+      "answer": 0,
+      "explain": "Причастие."
+    },
+    {
+      "id": "c1.02-futuro-subjuntivo-composto.5",
+      "kind": "truefalse",
+      "statement": "«Quando tiver lido» — действие закончится раньше другого будущего.",
+      "answer": true,
+      "explain": "Futuro do subjuntivo composto."
+    },
+    {
+      "id": "c1.02-futuro-subjuntivo-composto.6",
+      "kind": "truefalse",
+      "statement": "«Quando eu terei terminado» — правильно.",
+      "answer": false,
+      "explain": "Quando eu tiver terminado."
+    },
+    {
+      "id": "c1.02-futuro-subjuntivo-composto.7",
+      "kind": "truefalse",
+      "statement": "Составную форму часто можно заменить простой.",
+      "answer": true,
+      "explain": "Quando terminar."
+    },
+    {
+      "id": "c1.02-futuro-subjuntivo-composto.8",
+      "kind": "build",
+      "ru": "Когда прочтёшь письмо, позвони мне.",
+      "answer": "Quando você tiver lido a carta me liga.",
+      "extra": [
+        "tinha",
+        "ler"
+      ],
+      "explain": "Tiver lido."
+    },
+    {
+      "id": "c1.02-futuro-subjuntivo-composto.9",
+      "kind": "type",
+      "sentence": "Só descanso quando ___ terminado.",
+      "ru": "Отдохну, только когда закончу.",
+      "hint": "ter, eu",
+      "answer": "tiver",
+      "explain": "Eu — tiver."
+    },
+    {
+      "id": "c1.02-futuro-subjuntivo-composto.10",
+      "kind": "transform",
+      "source": "Quando você ler a carta, me liga.",
+      "keyword": "tiver",
+      "ru": "Когда прочтёшь письмо, позвони.",
+      "answer": "Quando você tiver lido a carta, me liga.",
+      "explain": "Tiver lido — действие уже завершено."
+    },
+    {
+      "id": "c1.02-futuro-subjuntivo-composto.11",
+      "kind": "fix",
+      "sentence": "Assim que eles tiveram saído, fechamos.",
+      "ru": "Как только они уйдут, закроем.",
+      "wrong": 3,
+      "answer": "tiverem",
+      "explain": "О будущем — tiverem."
+    },
+    {
+      "id": "c1.02-futuro-subjuntivo-composto.12",
+      "kind": "combine",
+      "first": "Você vai terminar o trabalho.",
+      "second": "Me avisa.",
+      "connector": "quando",
+      "ru": "Когда закончишь работу, дай знать.",
+      "answer": "Quando você tiver terminado o trabalho, me avisa.",
+      "alt": [
+        "Me avisa quando você tiver terminado o trabalho.",
+        "Quando você terminar o trabalho, me avisa.",
+        "Me avisa quando você terminar o trabalho."
+      ],
+      "explain": "Quando + tiver terminado."
+    }
+  ]
+}

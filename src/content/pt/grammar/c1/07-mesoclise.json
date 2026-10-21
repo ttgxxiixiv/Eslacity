@@ -1,0 +1,199 @@
+{
+  "id": "c1.07-mesoclise",
+  "district": "C1",
+  "order": 7,
+  "title": "Far-se-á, dir-lhe-ia: местоимение внутри глагола",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "В будущем и условном официальный стиль вставляет местоимение внутрь глагола: **far-se-á** (будет сделано), **dir-lhe-ia** (я бы сказал вам). Это **mesóclise**. В Бразилии её пишут только в законах, торжественных речах и старых письмах; в разговоре скажут **vai ser feito**, **eu lhe diria**."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Мезоклиза",
+        "Обычно",
+        "Перевод"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "far-se-á",
+            "vai ser feito",
+            "будет сделано"
+          ]
+        },
+        {
+          "cells": [
+            "dir-lhe-ia",
+            "eu lhe diria",
+            "я бы сказал вам"
+          ]
+        },
+        {
+          "cells": [
+            "encontrar-nos-emos",
+            "a gente se encontra",
+            "мы встретимся"
+          ]
+        },
+        {
+          "cells": [
+            "dar-lhe-ei",
+            "vou lhe dar",
+            "я дам вам"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Если перед глаголом есть отрицание или вопросительное слово, мезоклизы нет: **não se fará**, **quem lhe dirá?**"
+    }
+  ],
+  "examples": [
+    {
+      "es": "Far-se-á justiça.",
+      "ru": "Справедливость восторжествует."
+    },
+    {
+      "es": "Dir-lhe-ia a verdade, se pudesse.",
+      "ru": "Я бы сказал вам правду, если бы мог."
+    },
+    {
+      "es": "Encontrar-nos-emos no Cofre.",
+      "ru": "Мы встретимся в Хранилище."
+    },
+    {
+      "es": "Não se fará nada sem ordem.",
+      "ru": "Без приказа ничего не будет сделано."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "c1.07-mesoclise.1",
+      "kind": "choose",
+      "prompt": "Обычный вариант для «far-se-á»:",
+      "options": [
+        "vai ser feito",
+        "fazer-se-á",
+        "foi feito"
+      ],
+      "answer": 0,
+      "explain": "Будущее пассива."
+    },
+    {
+      "id": "c1.07-mesoclise.2",
+      "kind": "choose",
+      "prompt": "Где мезоклизы нет?",
+      "options": [
+        "Não se fará nada.",
+        "Far-se-á tudo.",
+        "Dir-lhe-ei amanhã."
+      ],
+      "answer": 0,
+      "explain": "После não — местоимение перед глаголом."
+    },
+    {
+      "id": "c1.07-mesoclise.3",
+      "kind": "gap",
+      "sentence": "___ a verdade, se pudesse.",
+      "ru": "Я бы сказал вам правду, если бы мог.",
+      "options": [
+        "Dir-lhe-ia",
+        "Diria-lhe",
+        "Lhe diria-ia"
+      ],
+      "answer": 0,
+      "explain": "Мезоклиза в условном."
+    },
+    {
+      "id": "c1.07-mesoclise.4",
+      "kind": "gap",
+      "sentence": "Não se ___ nada sem ordem.",
+      "ru": "Без приказа ничего не будет сделано.",
+      "options": [
+        "fará",
+        "far-se-á",
+        "faz-se-á"
+      ],
+      "answer": 0,
+      "explain": "После não — se fará."
+    },
+    {
+      "id": "c1.07-mesoclise.5",
+      "kind": "truefalse",
+      "statement": "Мезоклиза — примета официального стиля.",
+      "answer": true,
+      "explain": "Законы, речи."
+    },
+    {
+      "id": "c1.07-mesoclise.6",
+      "kind": "truefalse",
+      "statement": "В бразильском разговоре «far-se-á» звучит обычно.",
+      "answer": false,
+      "explain": "Говорят vai ser feito."
+    },
+    {
+      "id": "c1.07-mesoclise.7",
+      "kind": "truefalse",
+      "statement": "После «não» мезоклизы не бывает.",
+      "answer": true,
+      "explain": "Não se fará."
+    },
+    {
+      "id": "c1.07-mesoclise.8",
+      "kind": "build",
+      "ru": "Мы встретимся в Хранилище.",
+      "answer": "Encontrar-nos-emos no Cofre.",
+      "extra": [
+        "Encontraremos-nos",
+        "nos"
+      ],
+      "explain": "Мезоклиза: encontrar-nos-emos."
+    },
+    {
+      "id": "c1.07-mesoclise.9",
+      "kind": "type",
+      "sentence": "___ justiça.",
+      "ru": "Справедливость восторжествует.",
+      "hint": "fazer + se, будущее",
+      "answer": "Far-se-á",
+      "explain": "Мезоклиза."
+    },
+    {
+      "id": "c1.07-mesoclise.10",
+      "kind": "register",
+      "source": "Eu vou te dar a resposta amanhã.",
+      "to": "formal",
+      "options": [
+        "Dar-lhe-ei a resposta amanhã.",
+        "Amanhã te dou a resposta, tá?",
+        "Te passo a resposta amanhã."
+      ],
+      "answer": 0,
+      "explain": "Официально — мезоклиза."
+    },
+    {
+      "id": "c1.07-mesoclise.11",
+      "kind": "fix",
+      "sentence": "Não far-se-á nada sem ordem.",
+      "ru": "Без приказа ничего не будет сделано.",
+      "wrong": 1,
+      "answer": "fará",
+      "explain": "После não: não se fará."
+    },
+    {
+      "id": "c1.07-mesoclise.12",
+      "kind": "paraphrase",
+      "sentence": "Dir-lhe-ia tudo.",
+      "options": [
+        "Eu lhe diria tudo.",
+        "Eu lhe disse tudo.",
+        "Ele me diz tudo."
+      ],
+      "answer": 0,
+      "explain": "Условное с местоимением."
+    }
+  ]
+}
