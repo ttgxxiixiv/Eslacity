@@ -75,6 +75,54 @@
         {"q": "Что сделает Сеу Раймунду?", "options": ["Придержит место для героя", "Закроет вокзал", "Позовёт полицию"], "answer": 0}
       ],
       "gloss": {"ah": "а!", "notícias": "новости", "fim": "конец, край", "passa": "проходит (passar)", "cheia": "полная", "sexta": "пятница", "horário": "расписание", "antigo": "старый", "pouca": "мало", "comprou": "купил (comprar)", "passagem": "билет", "guardo": "придержу (guardar)"}
+    },
+    {
+      "id": "sc:station.4",
+      "chapter": 4,
+      "npc": "raimundo",
+      "lines": [
+        {"who": "npc", "es": "Você também veio me olhar como se eu fosse criminoso?", "ru": "Ты тоже пришёл смотреть на меня как на преступника?", "fem": {"ru": "Ты тоже пришла смотреть на меня как на преступника?"}},
+        {"who": "hero", "es": "Por que você diz isso?", "ru": "Почему ты так говоришь?"},
+        {"who": "npc", "es": "A cidade toda diz que sou eu quem ensina mentira ao corvo do carteiro. Porque eu fumo cachimbo!", "ru": "Весь город говорит, что это я учу ворона почтальона лжи. Потому что я курю трубку!"},
+        {"who": "hero", "es": "E não é você?", "ru": "А это не ты?"},
+        {"who": "npc", "es": "Claro que não! À noite eu durmo em casa. A minha mulher sabe.", "ru": "Конечно, нет! По ночам я сплю дома. Жена знает."},
+        {"who": "hero", "es": "Eu acredito. Mas alguém fuma cachimbo e fala com o corvo.", "ru": "Я верю. Но кто-то курит трубку и разговаривает с вороном."},
+        {"who": "npc", "es": "Obrigado. Você também pediu passagem só de ida, lembra? E voltou mesmo assim.", "ru": "Спасибо. Ты ведь тоже просил билет только в одну сторону, помнишь? А всё-таки вернулся.", "fem": {"ru": "Спасибо. Ты ведь тоже просила билет только в одну сторону, помнишь? А всё-таки вернулась."}, "if": {"flag": "ticket", "is": "oneway"}},
+        {"who": "npc", "es": "Obrigado. Você pediu ida e volta, e voltou. Quem volta fala a verdade.", "ru": "Спасибо. Ты просил туда и обратно — и вернулся. Кто возвращается, тот говорит правду.", "fem": {"ru": "Спасибо. Ты просила туда и обратно — и вернулась. Кто возвращается, тот говорит правду."}, "if": {"flag": "ticket", "is": "return"}},
+        {"who": "npc", "es": "Eu só sei uma coisa: há uma semana um senhor de idade comprou uma passagem até a orla da mata. Ida e volta.", "ru": "Я знаю только одно: неделю назад пожилой господин купил билет до опушки леса. Туда и обратно."},
+        {"who": "hero", "es": "Quem?", "ru": "Кто?"},
+        {"who": "npc", "es": "Não vi o rosto. Ele pagou com moedas muito antigas. Ninguém aceita mais, mas eu aceitei.", "ru": "Лица я не видел. Он заплатил очень старыми монетами. Их уже никто не принимает, но я взял."}
+      ],
+      "questions": [
+        {"q": "В чём город подозревает Сеу Раймунду?", "options": ["Что он учит ворона лжи", "Что он продаёт поддельные билеты", "Что он закрыл вокзал"], "answer": 0},
+        {"q": "Почему его подозревают?", "options": ["Он курит трубку", "Он живёт у леса", "У него есть ворон"], "answer": 0},
+        {"q": "Что купил пожилой господин?", "options": ["Билет до опушки леса туда и обратно", "Билет до Рио", "Карту"], "answer": 0},
+        {"q": "Чем он заплатил?", "options": ["Очень старыми монетами", "Картой", "Обрывком карты"], "answer": 0}
+      ],
+      "gloss": {"criminoso": "преступник", "fosse": "был бы (ser)", "ensina": "учит (ensinar)", "mentira": "ложь", "corvo": "ворон", "carteiro": "почтальон", "fumo": "курю (fumar)", "fuma": "курит (fumar)", "cachimbo": "трубка", "mulher": "жена", "idade": "возраст (de idade — пожилой)", "orla": "край (orla da mata — опушка)", "mata": "лес", "moedas": "монеты", "antigas": "старинные", "aceita": "принимает (aceitar)", "aceitei": "принял (aceitar)"}
+    },
+    {
+      "id": "wh:station.4",
+      "chapter": 4,
+      "mode": "overhear",
+      "npc": "raimundo",
+      "lines": [
+        {"who": "npc", "es": "Thiago, você soube? Querem acabar com a linha de barco para a ilha.", "ru": "Тьягу, слышал? Хотят закрыть лодочную линию на остров."},
+        {"who": "thiago", "es": "Soube. Com o voo novo, ninguém mais pega barco. Uma hora de avião contra quatro de mar.", "ru": "Слышал. С новым рейсом никто больше не плавает на лодке. Час самолётом против четырёх морем."},
+        {"who": "npc", "es": "E quem não tem dinheiro para avião? O pescador, a senhora que vende peixe?", "ru": "А у кого нет денег на самолёт? Рыбак, женщина, что продаёт рыбу?"},
+        {"who": "thiago", "es": "Tem razão, mas o barco anda vazio. A empresa perde dinheiro toda semana.", "ru": "Ты прав, но лодка ходит пустая. Компания каждую неделю теряет деньги."},
+        {"who": "npc", "es": "Vazio porque vocês vendem passagem barata. Isso não é justo!", "ru": "Пустая, потому что вы продаёте дешёвые билеты. Это несправедливо!"},
+        {"who": "thiago", "es": "Eu só trabalho no balcão, Seu Raimundo. Não decido preço.", "ru": "Я только на стойке работаю, Сеу Раймунду. Цены не я назначаю."},
+        {"who": "npc", "es": "Eu sei, eu sei. Desculpa. É que eu trabalho nessa linha há trinta anos.", "ru": "Знаю, знаю. Прости. Просто я на этой линии тридцать лет."},
+        {"who": "thiago", "es": "Então vamos juntar assinaturas contra isso. Eu assino primeiro.", "ru": "Тогда давай соберём подписи против этого. Я подпишусь первым."}
+      ],
+      "questions": [
+        {"q": "Что волнует Сеу Раймунду?", "kind": "stance", "options": ["Хотят закрыть лодочную линию на остров", "Новый вокзал", "Его увольнение"], "answer": 0},
+        {"q": "Как Тьягу объясняет закрытие?", "kind": "stance", "options": ["Лодка ходит пустой и компания теряет деньги", "Лодка старая", "Моряки бастуют"], "answer": 0},
+        {"q": "Почему Сеу Раймунду извиняется?", "kind": "stance", "options": ["Понял, что зря обвинил Тьягу: тот цены не назначает", "Он опоздал", "Он сломал стойку"], "answer": 0},
+        {"q": "Что предлагает Тьягу?", "kind": "stance", "options": ["Собрать подписи против закрытия", "Купить лодку", "Летать самолётом"], "answer": 0}
+      ],
+      "gloss": {"acabar": "покончить (acabar com — закрыть)", "ilha": "остров", "pega": "садится на (pegar)", "avião": "самолёт", "pescador": "рыбак", "empresa": "компания", "barata": "дешёвая", "balcão": "стойка", "decido": "решаю (decidir)", "assinaturas": "подписи", "assino": "подписываю (assinar)", "Thiago": "Тьягу", "Raimundo": "Раймунду"}
     }
   ]
 }

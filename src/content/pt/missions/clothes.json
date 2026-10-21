@@ -62,6 +62,29 @@
         "sale": {"kind": "answer", "task": "Спросите, по распродаже ли это.", "branches": [{"phrase": "ph:clothes.esta-em-liquidacao", "next": "end"}], "wrong": {"es": "Paga com areia? Não, aqui só cartão!", "ru": "Платишь песком? Нет, у меня только карта!"}},
         "end": {"kind": "say", "es": "Está, metade do preço. E no bolso da camisa tem uma coisa: o homem do camelo esqueceu aqui um fragmento do mapa. Esse é verdadeiro. Leva.", "ru": "По распродаже, за полцены. А в кармане рубашки кое-что есть: человек с верблюдом забыл здесь обрывок карты. Этот настоящий. Забирай."}
       }
+    },
+    {
+      "id": "ms:clothes.4",
+      "chapter": 4,
+      "npc": "juliana",
+      "scene": "sc:clothes.4",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Uma cliente voltou com essa bolsa. Diz que é falsa por causa da floresta.", "ru": "Покупательница вернулась с этой сумкой. Говорит, что она поддельная, — из-за леса.", "next": "x0"},
+        "x0": {"kind": "answer", "task": "Похвалите сумку.", "branches": [{"phrase": "ph:clothes.que-lindo", "next": "x0say"}], "wrong": {"es": "Que feio? Olha de novo, é couro bom!", "ru": "Некрасиво? Посмотри ещё раз, хорошая кожа!"}},
+        "x0say": {"kind": "say", "es": "Linda, né? E é verdadeira. Mas escuta o que a cliente disse.", "ru": "Красивая, правда? И настоящая. Но послушай, что сказала покупательница.", "next": "real"},
+        "real": {"kind": "answer", "task": "Спросите, подлинная ли это вещь.", "branches": [{"phrase": "ph:clothes.e-autentico", "next": "realsay"}], "wrong": {"es": "É de areia? Não, é de couro!", "ru": "Она из песка? Нет, из кожи!"}},
+        "realsay": {"kind": "say", "es": "Autêntica! Olha o couro, a etiqueta. Mas ela não acredita. Quer o dinheiro de volta.", "ru": "Подлинная! Посмотри на кожу, на бирку. Но она не верит. Хочет вернуть деньги.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:clothes.prove-que-e-verdadeiro", "next": "object", "move": "object"}, {"phrase": "ph:clothes.nao-vale-a-briga", "next": "concede", "move": "concede"}, {"phrase": "ph:clothes.um-certificado", "next": "compromise", "move": "compromise"}], "wrong": {"es": "Vender a floresta? Ela não cabe na vitrine!", "ru": "Продать лес? Он в витрину не влезет!"}},
+        "object": {"kind": "say", "es": "A nota fiscal! Claro, está na gaveta. Com papel ninguém discute.", "ru": "Чек! Конечно, он в ящике. С бумагой никто не спорит.", "next": "seam"},
+        "concede": {"kind": "say", "es": "Deixar para lá… Tá. Devolvo o dinheiro. Cliente feliz fala bem da loja.", "ru": "Бросить… Ладно. Верну деньги. Довольная покупательница хорошо говорит о магазине.", "next": "seam"},
+        "compromise": {"kind": "say", "es": "Uma etiqueta de autenticidade em cada peça. Assim nenhuma floresta fala mal das minhas roupas.", "ru": "Бирка подлинности на каждой вещи. Тогда никакой лес не скажет плохо о моих вещах.", "next": "seam"},
+        "seam": {"kind": "say", "es": "Ufa. E a sua camisa de linho, como está depois do deserto?", "ru": "Уф. А твоя льняная рубашка как после пустыни?", "next": "seamq"},
+        "seamq": {"kind": "answer", "task": "Скажите, что тут разошёлся шов.", "branches": [{"phrase": "ph:clothes.a-costura-soltou", "next": "seamsay"}], "wrong": {"es": "Encolheu? Não, só está suja!", "ru": "Села? Нет, просто грязная!"}},
+        "seamsay": {"kind": "say", "es": "Soltou, coitada. Eu conserto agora. E a cintura, quer que eu ajuste também?", "ru": "Разошёлся, бедняжка. Сейчас зашью. А талию тоже подогнать?", "next": "fit"},
+        "fit": {"kind": "answer", "task": "Попросите подогнать по талии.", "branches": [{"phrase": "ph:clothes.pode-ajustar", "next": "end"}], "wrong": {"es": "Pode encolher? Já encolheu sozinha!", "ru": "Сделать меньше? Она сама уже села!"}},
+        "end": {"kind": "say", "es": "Ajusto, sim. E no bolso tinha isso: um fragmento do mapa da floresta. Alguém deixou aqui para você, com cheiro de cachimbo.", "ru": "Подгоню. А в кармане было вот что: обрывок карты леса. Кто-то оставил его тут для тебя, пахнет трубкой."}
+      }
     }
   ]
 }

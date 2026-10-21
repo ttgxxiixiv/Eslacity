@@ -75,6 +75,50 @@
         {"q": "Куда ушёл Дави?", "options": ["В аэропорт", "В пустыню", "На вокзал"], "answer": 0}
       ],
       "gloss": {"envelope": "конверт", "balcão": "стойка", "Davi": "Дави", "deixou": "оставил (deixar)", "dentro": "внутри", "roubou": "украл (roubar)", "bilhete": "записка", "ensinou": "научила (ensinar)", "vende": "продаётся (vender)", "saiu": "ушёл (sair)", "barulho": "шум", "floresta": "лес", "Caio": "Каю", "cedo": "рано"}
+    },
+    {
+      "id": "sc:hotel.4",
+      "chapter": 4,
+      "npc": "helena",
+      "lines": [
+        {"who": "npc", "es": "Bom dia! Temos um hóspede especial: o Davi voltou da floresta para ajudar a gente.", "ru": "Доброе утро! У нас особый гость: Дави вернулся из леса, чтобы нам помочь."},
+        {"who": "hero", "es": "O que ele conta da floresta?", "ru": "Что он рассказывает о лесе?"},
+        {"who": "npc", "es": "Que lá está mais quieto a cada dia. Cada vez que alguém faz as pazes, some uma voz.", "ru": "Что там с каждым днём тише. Каждый раз, когда кто-то мирится, один голос пропадает."},
+        {"who": "hero", "es": "E ainda tem vozes?", "ru": "А голоса ещё остались?"},
+        {"who": "npc", "es": "Só uma, mas muito alta: o medo do Severino.", "ru": "Только один, зато очень громкий: страх Северину."},
+        {"who": "hero", "es": "O que a guardiã quer?", "ru": "Чего хочет Хранительница?"},
+        {"who": "npc", "es": "O Davi diz que ela quer ouvir o Severino dizer a verdade. Na cara, na frente da cidade toda.", "ru": "Дави говорит, она хочет услышать, как Северину скажет правду. В лицо, перед всем городом."}
+      ],
+      "questions": [
+        {"q": "Кто вернулся из леса?", "options": ["Дави", "Каю", "Северину"], "answer": 0},
+        {"q": "Что происходит, когда кто-то мирится?", "options": ["Один голос в лесу пропадает", "Лес шумит сильнее", "Приходит ворон"], "answer": 0},
+        {"q": "Какой голос остался?", "options": ["Страх Северину", "Голос Доны Грасы", "Голос Дави"], "answer": 0},
+        {"q": "Чего хочет Хранительница?", "options": ["Чтобы Северину сказал правду перед всем городом", "Чтобы все ушли из леса", "Денег"], "answer": 0}
+      ],
+      "gloss": {"hóspede": "гость", "especial": "особый", "Davi": "Дави", "quieto": "тихий", "pazes": "мир (fazer as pazes — помириться)", "some": "пропадает (sumir)", "vozes": "голоса", "alta": "громкая", "guardiã": "хранительница", "cara": "лицо", "Severino": "Северину"}
+    },
+    {
+      "id": "wh:hotel.4",
+      "chapter": 4,
+      "mode": "overhear",
+      "npc": "helena",
+      "lines": [
+        {"who": "npc", "es": "Wellington, o seu fornecedor deixou as caixas de água na porta da pousada de novo.", "ru": "Веллингтон, твой поставщик опять оставил ящики с водой у дверей пусады."},
+        {"who": "wellington", "es": "Desculpa, Dona Helena. O caminhão não cabe na minha rua.", "ru": "Простите, Дона Элена. Грузовик не помещается на моей улице."},
+        {"who": "npc", "es": "E na minha cabe? Os hóspedes tropeçam nas caixas com a mala na mão.", "ru": "А на моей помещается? Гости спотыкаются о ящики с чемоданами в руках."},
+        {"who": "wellington", "es": "É só meia hora, até eu buscar com o carrinho.", "ru": "Это всего на полчаса, пока я не заберу их тележкой."},
+        {"who": "npc", "es": "Meia hora que vira duas. Ontem as caixas ficaram até o almoço.", "ru": "Полчаса, которые превращаются в два часа. Вчера ящики простояли до обеда."},
+        {"who": "wellington", "es": "Ontem eu estava sozinho na loja. Hoje vou mais rápido, prometo.", "ru": "Вчера я был в магазине один. Сегодня буду быстрее, обещаю."},
+        {"who": "npc", "es": "Promessa não tira caixa da porta. Combina outro horário com ele, de madrugada.", "ru": "Обещание ящики от двери не уберёт. Договорись с ним о другом времени, рано утром."},
+        {"who": "wellington", "es": "De madrugada… Tá bom. E a senhora ganha um pacote de café de presente pelo incômodo.", "ru": "Рано утром… Ладно. А вам пачка кофе в подарок за беспокойство."}
+      ],
+      "questions": [
+        {"q": "Чем недовольна Дона Элена?", "kind": "stance", "options": ["Ящики поставщика стоят у дверей пусады", "Веллингтон шумит", "Вода дорогая"], "answer": 0},
+        {"q": "Как Веллингтон оправдывается?", "kind": "stance", "options": ["Грузовик не помещается на его улице", "Он не знал", "Это не его ящики"], "answer": 0},
+        {"q": "Что она имеет в виду: «обещание ящики от двери не уберёт»?", "kind": "stance", "options": ["Ей нужны действия, а не слова", "Она не верит в Веллингтона вообще", "Ей нравятся ящики"], "answer": 0},
+        {"q": "На чём сходятся?", "kind": "stance", "options": ["Поставка рано утром и кофе в подарок", "Ящики будут стоять всегда", "Они перестанут общаться"], "answer": 0}
+      ],
+      "gloss": {"fornecedor": "поставщик", "caixas": "ящики", "pousada": "пусада", "caminhão": "грузовик", "cabe": "помещается (caber)", "hóspedes": "гости", "tropeçam": "спотыкаются (tropeçar)", "mala": "чемодан", "buscar": "забрать", "carrinho": "тележка", "vira": "превращается (virar)", "prometo": "обещаю (prometer)", "promessa": "обещание", "madrugada": "раннее утро", "pacote": "пачка", "incômodo": "беспокойство", "Wellington": "Веллингтон", "Helena": "Элена", "tá": "ладно"}
     }
   ]
 }

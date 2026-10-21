@@ -62,6 +62,29 @@
         "insure": {"kind": "answer", "task": "Спросите, можно ли отправить со страховкой.", "branches": [{"phrase": "ph:post.com-seguro", "next": "end"}], "wrong": {"es": "Mandar sem nada? Depois some de novo!", "ru": "Отправить просто так? Потом опять пропадёт!"}},
         "end": {"kind": "say", "es": "Pode, com seguro. Mas abre primeiro. Olha: dentro tem um fragmento do mapa, com um bilhete: «Desculpa. M.».", "ru": "Можно, со страховкой. Но сначала открой. Смотри: внутри обрывок карты и записка: «Прости. К.»."}
       }
+    },
+    {
+      "id": "ms:post.4",
+      "chapter": 4,
+      "npc": "edson",
+      "scene": "sc:post.4",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "O Bento voltou de novo com cheiro de cachimbo. E hoje tem uma pilha de cartas estranhas.", "ru": "Бенту опять вернулся, пахнет трубкой. А сегодня ещё и куча странных писем.", "next": "x0"},
+        "x0": {"kind": "answer", "task": "Спросите, нет ли для вас посылки.", "branches": [{"phrase": "ph:post.tem-uma-encomenda-para-mim", "next": "x0say"}], "wrong": {"es": "Tem um corvo para você? O Bento é meu!", "ru": "Ворон для тебя? Бенту мой!"}},
+        "x0say": {"kind": "say", "es": "Encomenda não, mas carta tem. Muitas.", "ru": "Посылки нет, а письма есть. Много.", "next": "anon"},
+        "anon": {"kind": "answer", "task": "Спросите, пришло ли анонимное письмо.", "branches": [{"phrase": "ph:post.uma-carta-anonima", "next": "anonsay"}], "wrong": {"es": "Chegou o corvo? Ele está aqui no ombro!", "ru": "Ворон прилетел? Он здесь, на плече!"}},
+        "anonsay": {"kind": "say", "es": "Chegaram dez! Todas sem remetente: «A floresta é perigosa. Não vá». E o pessoal quer prender o Bento.", "ru": "Десять! Все без отправителя: «Лес опасен. Не ходи». А люди хотят посадить Бенту в клетку.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:post.o-corvo-e-inocente", "next": "object", "move": "object"}, {"phrase": "ph:post.deixa-ele-em-casa", "next": "concede", "move": "concede"}, {"phrase": "ph:post.siga-o-corvo", "next": "compromise", "move": "compromise"}], "wrong": {"es": "Mandar o corvo pelo correio? Ele voa sozinho!", "ru": "Отправить ворона почтой? Он и сам летает!"}},
+        "object": {"kind": "say", "es": "Inocente, sim. Ele só repete o que ouve. Vou dizer isso para todo mundo.", "ru": "Ни при чём, да. Он только повторяет, что слышит. Скажу это всем.", "next": "track"},
+        "concede": {"kind": "say", "es": "Em casa, por uns dias… Ele vai ficar triste, mas é melhor para todos.", "ru": "Дома, несколько дней… Ему будет грустно, но так лучше для всех.", "next": "track"},
+        "compromise": {"kind": "say", "es": "Seguir o Bento à noite! Assim a gente descobre quem ensina as frases. Hoje, à meia-noite.", "ru": "Проследить за Бенту ночью! Так мы узнаем, кто учит его фразам. Сегодня, в полночь.", "next": "track"},
+        "track": {"kind": "say", "es": "E essas cartas sem nome? Quero saber de onde saíram.", "ru": "А эти письма без имени? Хочу знать, откуда они.", "next": "trackq"},
+        "trackq": {"kind": "answer", "task": "Спросите, можно ли отследить письмо.", "branches": [{"phrase": "ph:post.da-para-rastrear", "next": "tracksay"}], "wrong": {"es": "Dá para comer a carta? Não, nem o Bento come!", "ru": "Можно съесть письмо? Нет, даже Бенту не ест!"}},
+        "tracksay": {"kind": "say", "es": "Sem código, não. Mas o carimbo é da estação. Alguém postou lá.", "ru": "Без трек-номера нет. Но штемпель с вокзала. Кто-то отправил оттуда.", "next": "insure"},
+        "insure": {"kind": "answer", "task": "Спросите, можно ли отправить со страховкой.", "branches": [{"phrase": "ph:post.com-seguro", "next": "end"}], "wrong": {"es": "Mandar sem nada? Depois some!", "ru": "Отправить просто так? Потом пропадёт!"}},
+        "end": {"kind": "say", "es": "Pode, com seguro. E toma: uma das cartas tinha isso dentro. Um fragmento do mapa da floresta. Esse não é anônimo: atrás tem um «S».", "ru": "Можно, со страховкой. И держи: в одном из писем было вот это. Обрывок карты леса. Он не анонимный: на обороте буква «S»."}
+      }
     }
   ]
 }

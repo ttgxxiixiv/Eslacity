@@ -75,6 +75,52 @@
         {"q": "Что теперь принимает Жулиана?", "options": ["Только наличные", "Только карты", "Всё"], "answer": 1}
       ],
       "gloss": {"veio": "пришёл (vir)", "comprou": "купил (comprar)", "festa": "праздник", "some": "исчезает (sumir)", "perguntei": "спросила (perguntar)", "existe": "существует (existir)", "quis": "захотел (querer)", "nota": "купюра", "virou": "превратилась (virar)", "aceito": "принимаю (aceitar)"}
+    },
+    {
+      "id": "sc:clothes.4",
+      "chapter": 4,
+      "npc": "juliana",
+      "lines": [
+        {"who": "npc", "es": "Sabe o que a floresta fala de mim? É horrível!", "ru": "Знаешь, что лес говорит обо мне? Это ужасно!"},
+        {"who": "hero", "es": "O que ela fala?", "ru": "Что он говорит?"},
+        {"who": "npc", "es": "Com a minha voz: «A Patrícia não sabe nem lavar uma meia». Isso eu falei mesmo, confesso.", "ru": "Моим голосом: «Патрисия даже носок постирать не умеет». Это я правда говорила, признаю."},
+        {"who": "hero", "es": "E o que mais?", "ru": "А что ещё?"},
+        {"who": "npc", "es": "E também: «As minhas roupas de grife são falsificadas». Isso eu nunca disse!", "ru": "А ещё: «Мои дизайнерские вещи — подделки». Такого я никогда не говорила!"},
+        {"who": "hero", "es": "Tem certeza?", "ru": "Точно?"},
+        {"who": "npc", "es": "Tenho. As minhas roupas são autênticas. Mas agora as clientes não acreditam em mim.", "ru": "Точно. Мои вещи подлинные. Но теперь покупательницы мне не верят."},
+        {"who": "hero", "es": "Então a floresta não só repete.", "ru": "Значит, лес не только повторяет."},
+        {"who": "npc", "es": "Parece que não. Alguém está ensinando mentira para ela.", "ru": "Похоже, нет. Кто-то учит его лжи."}
+      ],
+      "questions": [
+        {"q": "Что из сказанного лесом Жулиана правда говорила?", "options": ["Что Патрисия не умеет стирать носки", "Что её вещи поддельные", "Что лавка закрывается"], "answer": 0},
+        {"q": "Чего она никогда не говорила?", "options": ["Что её вещи поддельные", "Что любит синий цвет", "Что устала"], "answer": 0},
+        {"q": "Почему ей плохо?", "options": ["Покупательницы ей не верят", "Нет новых вещей", "Она заболела"], "answer": 0},
+        {"q": "Какой вывод делает Жулиана?", "options": ["Кто-то учит лес лжи", "Лес сломался", "Это шутка Патрисии"], "answer": 0}
+      ],
+      "gloss": {"horrível": "ужасно", "Patrícia": "Патрисия", "lavar": "стирать", "meia": "носок", "confesso": "признаю (confessar)", "grife": "дизайнерская марка", "falsificadas": "поддельные", "disse": "сказала (dizer)", "certeza": "уверенность", "autênticas": "подлинные", "clientes": "клиентки", "ensinando": "уча (ensinar)", "mentira": "ложь"}
+    },
+    {
+      "id": "wh:clothes.4",
+      "chapter": 4,
+      "mode": "overhear",
+      "npc": "juliana",
+      "lines": [
+        {"who": "npc", "es": "Viu a calça que a professora Márcia usou na reunião? Rasgada no joelho!", "ru": "Видела брюки, в которых Профессора Марсия была на собрании? Порванные на коленке!"},
+        {"who": "tati", "es": "É moda, Ju. Hoje a calça já vem rasgada da loja.", "ru": "Это мода, Жу. Сейчас брюки продаются уже порванными."},
+        {"who": "npc", "es": "Moda para a sua idade. Professora tem que dar exemplo.", "ru": "Мода для твоего возраста. Учительница должна подавать пример."},
+        {"who": "tati", "es": "Exemplo de quê? De usar o que a Juliana vende?", "ru": "Пример чего? Носить то, что продаёт Жулиана?"},
+        {"who": "npc", "es": "Ai, que maldade. Eu só acho que cada roupa tem o seu lugar.", "ru": "Ой, как зло. Я просто считаю, что у каждой одежды своё место."},
+        {"who": "tati", "es": "E a sua blusa de ontem, com brilho às oito da manhã? Também tinha lugar?", "ru": "А твоя вчерашняя кофточка с блёстками в восемь утра? У неё тоже было место?"},
+        {"who": "npc", "es": "Era para uma foto da loja! Trabalho é trabalho.", "ru": "Это было для фото магазина! Работа есть работа."},
+        {"who": "tati", "es": "Então deixa a professora em paz. Cada um usa o que quer.", "ru": "Тогда оставь учительницу в покое. Каждый носит что хочет."}
+      ],
+      "questions": [
+        {"q": "Что не понравилось Жулиане?", "kind": "stance", "options": ["Порванные брюки учительницы на собрании", "Цвет её кофты", "Её туфли"], "answer": 0},
+        {"q": "Как Тати относится к этим брюкам?", "kind": "stance", "options": ["Считает, что это просто мода", "Тоже возмущена", "Хочет купить такие же"], "answer": 0},
+        {"q": "Что Тати подразумевает, вспоминая кофточку с блёстками?", "kind": "stance", "options": ["Что Жулиана сама одевается не по правилам", "Что кофта красивая", "Что ей нужна такая же"], "answer": 0},
+        {"q": "Чем заканчивается разговор?", "kind": "stance", "options": ["Тати просит оставить учительницу в покое", "Жулиана соглашается дать скидку", "Они ссорятся навсегда"], "answer": 0}
+      ],
+      "gloss": {"calça": "брюки", "Márcia": "Марсия", "usou": "носила (usar)", "rasgada": "порванная", "joelho": "колено", "Ju": "Жу (уменьшительное от Жулиана)", "moda": "мода", "idade": "возраст", "exemplo": "пример", "maldade": "злость, злая шутка", "ai": "ой", "blusa": "кофточка", "brilho": "блеск, блёстки", "foto": "фото", "Juliana": "Жулиана", "deixa": "оставь (deixar)"}
     }
   ]
 }

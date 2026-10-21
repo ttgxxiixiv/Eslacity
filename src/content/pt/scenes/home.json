@@ -75,6 +75,52 @@
         {"q": "Что Северину считает самым страшным?", "options": ["Пустыню", "Вернуться в изменившийся мир", "Бурю"], "answer": 1}
       ],
       "gloss": {"incrível": "невероятный", "aconteceu": "случилось (acontecer)", "irmão": "брат", "avó": "бабушка", "contava": "рассказывала (contar)", "tio": "дядя", "aldeia": "деревня", "vazia": "пустая", "achar": "найти", "pior": "худшее", "mudou": "изменился (mudar)", "Severino": "Северину", "sério": "правда, серьёзно"}
+    },
+    {
+      "id": "sc:home.4",
+      "chapter": 4,
+      "npc": "lourdes",
+      "lines": [
+        {"who": "npc", "es": "Entra, mas não faz barulho: o Severino está dormindo. Ele passou a noite acordado.", "ru": "Проходи, только не шуми: Северину спит. Он всю ночь не спал."},
+        {"who": "hero", "es": "Por causa das vozes?", "ru": "Из-за голосов?"},
+        {"who": "npc", "es": "Das vozes. Ele diz que, na floresta, ouviu uma voz conhecida: a voz da guardiã.", "ru": "Из-за голосов. Говорит, в лесу он услышал знакомый голос: голос Хранительницы."},
+        {"who": "hero", "es": "O Severino conhece a guardiã da floresta?", "ru": "Северину знает Хранительницу леса?"},
+        {"who": "npc", "es": "Há cem anos ela passou pela torre. Eles conversaram a noite inteira.", "ru": "Сто лет назад она проходила мимо башни. Они проговорили всю ночь."},
+        {"who": "hero", "es": "E o que dizia a voz?", "ru": "И что говорил голос?"},
+        {"who": "npc", "es": "«Tem barulho demais. Não consigo ouvir a trilha».", "ru": "«Слишком шумно. Я не слышу тропу»."},
+        {"who": "hero", "es": "Então é preciso ajudar.", "ru": "Тогда надо ей помочь."},
+        {"who": "npc", "es": "É. Mas antes me ajuda aqui: a água está entrando em casa de novo!", "ru": "Да. Но сначала помоги мне: вода снова течёт в дом!"}
+      ],
+      "questions": [
+        {"q": "Почему Северину спит днём?", "options": ["Он всю ночь не спал из-за голосов", "Он болен", "Он вернулся из пустыни"], "answer": 0},
+        {"q": "Чей голос он услышал в лесу?", "options": ["Голос Хранительницы", "Голос Каю", "Голос ворона"], "answer": 0},
+        {"q": "Когда Северину встречал Хранительницу?", "options": ["Сто лет назад у башни", "Вчера", "Никогда"], "answer": 0},
+        {"q": "Что говорила Хранительница?", "options": ["«Слишком шумно, я не слышу тропу»", "«Приходите все»", "«Лес закрыт»"], "answer": 0}
+      ],
+      "gloss": {"acordado": "бодрствуя", "vozes": "голоса", "conhecida": "знакомая", "guardiã": "хранительница", "inteira": "целая", "dizia": "говорил (dizer)", "consigo": "могу (conseguir)", "trilha": "тропа", "entrando": "входя (entrar)", "Severino": "Северину", "conversaram": "проговорили (conversar)"}
+    },
+    {
+      "id": "wh:home.4",
+      "chapter": 4,
+      "mode": "overhear",
+      "npc": "lourdes",
+      "lines": [
+        {"who": "npc", "es": "O senhor viu o carro do vizinho novo? Parado na frente da minha garagem de novo.", "ru": "Видели машину нового соседа? Опять стоит перед моим гаражом."},
+        {"who": "valdir", "es": "Vi. Mas a senhora nem tem carro, Dona Lurdes.", "ru": "Видел. Но у вас и машины-то нет, Дона Лурдес."},
+        {"who": "npc", "es": "Não tenho, mas a garagem é minha. E se eu precisar de uma ambulância?", "ru": "Нет, но гараж мой. А если мне понадобится скорая?"},
+        {"who": "valdir", "es": "Então fala com ele. Ele parece um rapaz educado.", "ru": "Тогда поговорите с ним. Он вроде вежливый парень."},
+        {"who": "npc", "es": "Educado? Ele não dá nem bom-dia. E toca música alta até meia-noite.", "ru": "Вежливый? Он даже не здоровается. И музыку громко включает до полуночи."},
+        {"who": "valdir", "es": "Música de que tipo? Se for samba, eu não reclamo.", "ru": "Какую музыку? Если самба, я не жалуюсь."},
+        {"who": "npc", "es": "Ai, o senhor não leva nada a sério. Vou escrever um bilhete para ele.", "ru": "Ой, вы ничего всерьёз не воспринимаете. Напишу ему записку."},
+        {"who": "valdir", "es": "Bilhete, não. Leva um bolo e conversa. Bolo resolve mais do que bilhete.", "ru": "Только не записку. Отнесите пирог и поговорите. Пирог решает больше, чем записка."}
+      ],
+      "questions": [
+        {"q": "Чем недовольна Дона Лурдес?", "kind": "stance", "options": ["Машиной соседа перед её гаражом и шумом", "Ценами", "Погодой"], "answer": 0},
+        {"q": "Что Сеу Валдир замечает про гараж?", "kind": "stance", "options": ["Что у неё даже нет машины", "Что гараж сломан", "Что гараж его"], "answer": 0},
+        {"q": "Как Сеу Валдир относится к жалобам?", "kind": "stance", "options": ["Немного подшучивает и советует поговорить", "Полностью согласен", "Злится на соседа"], "answer": 0},
+        {"q": "Что он советует вместо записки?", "kind": "stance", "options": ["Отнести пирог и поговорить", "Вызвать полицию", "Переехать"], "answer": 0}
+      ],
+      "gloss": {"parado": "стоящий", "garagem": "гараж", "ambulância": "скорая помощь", "rapaz": "парень", "educado": "вежливый", "bom": "хороший (bom-dia — «доброе утро»)", "toca": "включает, играет (tocar)", "alta": "громкая", "samba": "самба", "sério": "серьёзный (a sério — всерьёз)", "bilhete": "записка", "bolo": "пирог", "resolve": "решает (resolver)", "Lurdes": "Лурдес", "ai": "ой"}
     }
   ]
 }

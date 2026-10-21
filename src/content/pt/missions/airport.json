@@ -60,6 +60,29 @@
         "gate": {"kind": "answer", "task": "Спросите, где выход на посадку.", "branches": [{"phrase": "ph:airport.o-portao-de-embarque", "next": "end"}], "wrong": {"es": "Qual é a cor do avião? Branco, como a cidade!", "ru": "Какого цвета самолёт? Белого, как город!"}},
         "end": {"kind": "say", "es": "Portão sete. E dentro da sua mala tinha isso, que não é seu: um fragmento do mapa com um bilhete do Davi: «Para quem ainda tem caminho».", "ru": "Выход семь. А в твоём чемодане было вот это, не твоё: обрывок карты с запиской от Дави: «Тому, у кого ещё есть дорога»."}
       }
+    },
+    {
+      "id": "ms:airport.4",
+      "chapter": 4,
+      "npc": "thiago",
+      "scene": "sc:airport.4",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Que bom que você veio! Tenho novidade da floresta.", "ru": "Как хорошо, что ты пришёл! У меня новости из леса.", "next": "x0", "fem": {"ru": "Как хорошо, что ты пришла! У меня новости из леса."}},
+        "x0": {"kind": "answer", "task": "Спросите, не задерживается ли самолёт.", "branches": [{"phrase": "ph:airport.o-aviao-esta-atrasado", "next": "x0say"}], "wrong": {"es": "O corvo está atrasado? Ele nem tem passagem!", "ru": "Ворон опаздывает? У него даже билета нет!"}},
+        "x0say": {"kind": "say", "es": "Um pouco, por causa da neblina. Mas escuta a novidade.", "ru": "Немного, из-за тумана. Но послушай новость.", "next": "seen"},
+        "seen": {"kind": "answer", "task": "Спросите, что он видел сверху.", "branches": [{"phrase": "ph:airport.o-que-voce-viu-de-cima", "next": "seensay"}], "wrong": {"es": "O que você comeu no voo? Isso não importa!", "ru": "Что ты ел в полёте? Это не важно!"}},
+        "seensay": {"kind": "say", "es": "Uma trilha nova. Mas tem neblina de novo hoje, e o comandante quer cancelar os voos.", "ru": "Новую тропу. Но сегодня снова туман, и командир хочет отменить рейсы.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:airport.voe-de-novo", "next": "object", "move": "object"}, {"phrase": "ph:airport.melhor-esperar-o-tempo", "next": "concede", "move": "concede"}, {"phrase": "ph:airport.um-voo-curto", "next": "compromise", "move": "compromise"}], "wrong": {"es": "Voar sem avião? Isso só o corvo!", "ru": "Лететь без самолёта? Так только ворон умеет!"}},
+        "object": {"kind": "say", "es": "Voar de novo… Com cuidado, a gente vai. Eu falo com o comandante.", "ru": "Лететь снова… Осторожно — полетим. Поговорю с командиром.", "next": "flight"},
+        "concede": {"kind": "say", "es": "Esperar… É o mais seguro. Neblina não é brincadeira.", "ru": "Подождать… Так безопаснее. Туман — это не шутки.", "next": "flight"},
+        "compromise": {"kind": "say", "es": "Só até a orla, onde não tem neblina. O comandante vai gostar disso.", "ru": "Только до опушки, где нет тумана. Командиру это понравится.", "next": "flight"},
+        "flight": {"kind": "say", "es": "E você? Quer ir junto, ou vai de trem?", "ru": "А ты? Полетишь с нами или поедешь поездом?", "next": "flightq"},
+        "flightq": {"kind": "answer", "task": "Спросите, есть ли сегодня рейс в лес.", "branches": [{"phrase": "ph:airport.tem-voo-para-a-floresta", "next": "flightsay"}], "wrong": {"es": "Tem voo para a lua? Ainda não!", "ru": "Есть рейс на луну? Пока нет!"}},
+        "flightsay": {"kind": "say", "es": "Tem, às cinco, se o tempo deixar. Portão sete, como sempre.", "ru": "Есть, в пять, если погода позволит. Выход семь, как всегда.", "next": "gate"},
+        "gate": {"kind": "answer", "task": "Спросите, где выход на посадку.", "branches": [{"phrase": "ph:airport.o-portao-de-embarque", "next": "end"}], "wrong": {"es": "Qual é a cor do avião? Branco!", "ru": "Какого цвета самолёт? Белого!"}},
+        "end": {"kind": "say", "es": "Portão sete, no fim do corredor. E toma: um fragmento do mapa que eu fotografei lá de cima e imprimi. É a trilha nova.", "ru": "Выход семь, в конце коридора. И держи: обрывок карты, который я сфотографировал сверху и распечатал. Это новая тропа."}
+      }
     }
   ]
 }

@@ -62,6 +62,29 @@
         "key": {"kind": "answer", "task": "Спросите, есть ли запасной ключ.", "branches": [{"phrase": "ph:hotel.a-chave-reserva", "next": "end"}], "wrong": {"es": "Tem uma chave do deserto? O deserto não tem porta!", "ru": "Ключ от пустыни? У пустыни нет двери!"}},
         "end": {"kind": "say", "es": "Tem, aqui no balcão. E o envelope do Davi: tem mais um fragmento dentro, com o seu nome. Leva.", "ru": "Есть, здесь, на стойке. И конверт от Дави: там внутри ещё один обрывок, с твоим именем. Забирай."}
       }
+    },
+    {
+      "id": "ms:hotel.4",
+      "chapter": 4,
+      "npc": "helena",
+      "scene": "sc:hotel.4",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "O Davi precisa de um quarto por um mês. Mas eu tenho medo: ele já mentiu para tanta gente.", "ru": "Дави нужна комната на месяц. Но я боюсь: он уже стольким людям лгал.", "next": "x0"},
+        "x0": {"kind": "answer", "task": "Спросите, есть ли свободный номер.", "branches": [{"phrase": "ph:hotel.tem-quarto-disponivel", "next": "x0say"}], "wrong": {"es": "Tem quarto para o camelo? Não, isso acabou!", "ru": "Номер для верблюда? Нет, это в прошлом!"}},
+        "x0say": {"kind": "say", "es": "Para você, sempre. Mas o problema é outro.", "ru": "Для тебя — всегда. Но проблема в другом.", "next": "room"},
+        "room": {"kind": "answer", "task": "Спросите, есть ли для него место.", "branches": [{"phrase": "ph:hotel.tem-vaga-para-ele", "next": "roomsay"}], "wrong": {"es": "Tem vaga para o corvo? Bicho não entra!", "ru": "Есть место для ворона? С животными нельзя!"}},
+        "roomsay": {"kind": "say", "es": "Tem, o quarto doze. Mas e se ele for embora sem pagar, como antes?", "ru": "Есть, двенадцатый номер. А если он уйдёт не заплатив, как раньше?", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:hotel.de-o-quarto-a-ele", "next": "object", "move": "object"}, {"phrase": "ph:hotel.a-senhora-tem-razao", "next": "concede", "move": "concede"}, {"phrase": "ph:hotel.trabalho-em-troca", "next": "compromise", "move": "compromise"}], "wrong": {"es": "Dar o quarto para a floresta? Ela não dorme!", "ru": "Отдать номер лесу? Лес не спит!"}},
+        "object": {"kind": "say", "es": "Ele mudou… É, ele devolveu tudo. Todo mundo merece uma segunda chance.", "ru": "Он изменился… Да, он всё вернул. Каждый заслуживает второго шанса.", "next": "price"},
+        "concede": {"kind": "say", "es": "Obrigada por entender. Vou pedir o pagamento adiantado, só isso.", "ru": "Спасибо, что понимаешь. Попрошу оплату вперёд, только и всего.", "next": "price"},
+        "compromise": {"kind": "say", "es": "Trabalhar em troca… Preciso de alguém à noite na recepção. Ele não dorme mesmo!", "ru": "Работать за номер… Мне нужен кто-то ночью на ресепшене. Он всё равно не спит!", "next": "price"},
+        "price": {"kind": "say", "es": "E você? Vai ficar aqui antes da floresta?", "ru": "А ты? Остановишься здесь перед лесом?", "next": "priceq"},
+        "priceq": {"kind": "answer", "task": "Спросите, сколько стоит неделя.", "branches": [{"phrase": "ph:hotel.a-tarifa", "next": "pricesay"}], "wrong": {"es": "Quanto custa a floresta? Nada, mas é longe!", "ru": "Сколько стоит лес? Ничего, но он далеко!"}},
+        "pricesay": {"kind": "say", "es": "Para você, preço de amigo. Com café colonial. E o mosquiteiro, você vai precisar: na floresta tem muito mosquito.", "ru": "Для тебя — цена для друзей. С домашним завтраком. И москитная сетка тебе понадобится: в лесу много комаров.", "next": "net"},
+        "net": {"kind": "answer", "task": "Спросите, есть ли в номере москитная сетка.", "branches": [{"phrase": "ph:hotel.tem-mosquiteiro", "next": "end"}], "wrong": {"es": "Tem piscina na floresta? Só rio!", "ru": "В лесу есть бассейн? Только река!"}},
+        "end": {"kind": "say", "es": "Tem, claro. E o Davi trouxe isso para você da floresta: um fragmento do mapa, com folha seca grudada.", "ru": "Есть, конечно. А Дави привёз тебе из леса вот это: обрывок карты с прилипшим сухим листом."}
+      }
     }
   ]
 }

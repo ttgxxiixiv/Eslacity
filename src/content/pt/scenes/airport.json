@@ -75,6 +75,50 @@
         {"q": "Что сказал Дави?", "options": ["«Теперь я больше не боюсь слушать»", "«Я вернусь в пустыню»", "«Здесь слишком шумно»"], "answer": 0}
       ],
       "gloss": {"levou": "унёс (levar)", "avião": "самолёт", "floresta": "лес", "enorme": "огромный", "escura": "тёмная", "neblina": "туман", "árvores": "деревья", "mexiam": "двигались (mexer-se)", "Davi": "Дави", "olhava": "смотрел (olhar)", "sorria": "улыбался (sorrir)", "desceu": "сошёл (descer)", "aldeia": "деревня", "pararam": "перестали (parar)", "estivessem": "были бы (estar)", "tranquilas": "спокойные"}
+    },
+    {
+      "id": "sc:airport.4",
+      "chapter": 4,
+      "npc": "thiago",
+      "lines": [
+        {"who": "npc", "es": "Você precisa ouvir isso! Hoje de manhã eu passei por cima da floresta.", "ru": "Ты должен это услышать! Сегодня утром я пролетал над лесом.", "fem": {"ru": "Ты должна это услышать! Сегодня утром я пролетал над лесом."}},
+        {"who": "hero", "es": "E o que você viu?", "ru": "И что ты видел?"},
+        {"who": "npc", "es": "A neblina está indo embora. As árvores estão quietas, quase não se mexem.", "ru": "Туман уходит. Деревья стоят тихо, почти не шевелятся."},
+        {"who": "hero", "es": "O barulho acabou?", "ru": "Шум закончился?"},
+        {"who": "npc", "es": "Quase. E no meio da floresta eu vi uma luz, como de lanterna.", "ru": "Почти. А посреди леса я видел свет, как от фонаря."},
+        {"who": "hero", "es": "É a guardiã da floresta?", "ru": "Это Хранительница леса?"},
+        {"who": "npc", "es": "Com certeza. Lá de cima dá para ver uma trilha que não existia antes.", "ru": "Наверняка. Сверху видна тропа, которой раньше не было."}
+      ],
+      "questions": [
+        {"q": "Где пролетал Тьягу?", "options": ["Над лесом", "Над пустыней", "Над морем"], "answer": 0},
+        {"q": "Что происходит с туманом?", "options": ["Он уходит", "Он густеет", "Он стал белым"], "answer": 0},
+        {"q": "Что он увидел посреди леса?", "options": ["Свет, как от фонаря", "Дым", "Ворона"], "answer": 0},
+        {"q": "Что видно сверху?", "options": ["Новую тропу", "Белый город", "Башню"], "answer": 0}
+      ],
+      "gloss": {"cima": "верх (por cima — над, lá de cima — сверху)", "neblina": "туман", "indo": "уходя (ir)", "quietas": "тихие", "mexem": "шевелятся (mexer-se)", "meio": "середина", "lanterna": "фонарь", "guardiã": "хранительница", "certeza": "уверенность (com certeza — наверняка)", "trilha": "тропа", "existia": "существовала (existir)"}
+    },
+    {
+      "id": "wh:airport.4",
+      "chapter": 4,
+      "mode": "overhear",
+      "npc": "thiago",
+      "lines": [
+        {"who": "npc", "es": "Dona Lurdes, a senhora de novo trouxe doce de caju na mala de mão? Não pode passar.", "ru": "Дона Лурдес, вы опять везёте варенье из кешью в ручной клади? Нельзя."},
+        {"who": "lourdes", "es": "É para a minha neta em São Paulo. Ela não come doce de lá.", "ru": "Это внучке в Сан-Паулу. Она тамошнее варенье не ест."},
+        {"who": "npc", "es": "Eu entendo, mas é líquido. Mais de cem mililitros não pode.", "ru": "Понимаю, но это жидкость. Больше ста миллилитров нельзя."},
+        {"who": "lourdes", "es": "Líquido? É doce de caju, meu filho, você corta com faca!", "ru": "Жидкость? Это варенье из кешью, сынок, его ножом режут!"},
+        {"who": "npc", "es": "A regra não sabe disso. E se eu deixar passar, o meu chefe me pega.", "ru": "Правило этого не знает. А если я пропущу, мне попадёт от начальника."},
+        {"who": "lourdes", "es": "Então você vai jogar fora o doce da minha avó? A receita tem cem anos!", "ru": "Значит, ты выбросишь варенье по рецепту моей бабушки? Рецепту сто лет!"},
+        {"who": "npc", "es": "Jogar fora, nunca. Despacha na mala grande, embrulhado em jornal. Eu ajudo.", "ru": "Выбросить — никогда. Сдайте в большой чемодан, завернув в газету. Я помогу."},
+        {"who": "lourdes", "es": "Ah, assim sim. E você leva um pote para casa, pelo trabalho.", "ru": "А, так можно. И ты возьмёшь баночку домой, за труды."}
+      ],
+      "questions": [
+        {"q": "Почему Тьягу не пропускает варенье?", "kind": "stance", "options": ["В ручной клади нельзя больше ста миллилитров жидкости", "Варенье испорчено", "Нужен билет"], "answer": 0},
+        {"q": "Как Дона Лурдес возражает?", "kind": "stance", "options": ["Варенье такое густое, что его режут ножом", "Она его съест в самолёте", "Она не знала правил"], "answer": 0},
+        {"q": "Почему для неё это важно?", "kind": "stance", "options": ["Это варенье по столетнему бабушкиному рецепту для внучки", "Оно дорогое", "Она его продаёт"], "answer": 0},
+        {"q": "Какой выход находит Тьягу?", "kind": "stance", "options": ["Сдать варенье в багаж, завернув в газету", "Выбросить его", "Пропустить, нарушив правило"], "answer": 0}
+      ],
+      "gloss": {"ah": "а!", "doce": "варенье", "caju": "кешью", "mala": "чемодан (mala de mão — ручная кладь)", "neta": "внучка", "líquido": "жидкость", "mililitros": "миллилитры", "corta": "режут (cortar)", "faca": "нож", "regra": "правило", "pega": "поймает (pegar)", "avó": "бабушка", "receita": "рецепт", "despacha": "сдайте в багаж (despachar)", "embrulhado": "завёрнутый", "jornal": "газета", "pote": "баночка", "Lurdes": "Лурдес", "Paulo": "Паулу"}
     }
   ]
 }

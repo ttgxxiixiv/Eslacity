@@ -75,6 +75,52 @@
         {"q": "Что нарисовано в тетради?", "options": ["Верблюд", "Дорога среди дюн и полная луна", "Башня"], "answer": 1}
       ],
       "gloss": {"aluno": "ученик", "estranho": "странный", "aula": "урок, занятие", "semana": "неделя", "passada": "прошлая", "fosse": "был бы (ser)", "tivesse": "было бы (ter)", "mentir": "лгать", "estuda": "учится (estudar)", "esqueceu": "забыл (esquecer)", "caderno": "тетрадь", "desenho": "рисунок", "dunas": "дюны"}
+    },
+    {
+      "id": "sc:school.4",
+      "chapter": 4,
+      "npc": "marcia",
+      "lines": [
+        {"who": "npc", "es": "Hoje os alunos não falam comigo. Estão muito magoados.", "ru": "Сегодня ученики со мной не разговаривают. Они очень обиделись."},
+        {"who": "hero", "es": "Por quê?", "ru": "Почему?"},
+        {"who": "npc", "es": "Ontem à noite, na floresta, eles ouviram a minha voz: «Os alunos deste ano são os piores».", "ru": "Вчера ночью в лесу они услышали мой голос: «Ученики этого года — худшие»."},
+        {"who": "hero", "es": "A senhora disse isso?", "ru": "Вы это говорили?"},
+        {"who": "npc", "es": "Nunca! Eu amo os meus alunos. Mas a voz era igualzinha à minha.", "ru": "Никогда! Я люблю своих учеников. Но голос был точь-в-точь мой."},
+        {"who": "hero", "es": "Na loja de roupas e na farmácia aconteceu o mesmo.", "ru": "В магазине одежды и в аптеке было то же самое."},
+        {"who": "npc", "es": "Eu sei. E um aluno diz que viu um pássaro preto na janela da sala.", "ru": "Знаю. А один ученик говорит, что видел чёрную птицу на окне класса."},
+        {"who": "hero", "es": "Um pássaro?", "ru": "Птицу?"},
+        {"who": "npc", "es": "Um pássaro que repetia: «Silêncio, por favor!». Como eu, toda manhã.", "ru": "Птицу, которая повторяла: «Тише, пожалуйста!». Как я, каждое утро."}
+      ],
+      "questions": [
+        {"q": "Почему ученики обиделись?", "options": ["Лес сказал её голосом, что они худшие", "Она поставила плохие оценки", "Она опоздала"], "answer": 0},
+        {"q": "Говорила ли она это?", "options": ["Никогда", "Да, в шутку", "Да, на собрании"], "answer": 0},
+        {"q": "Что видел ученик?", "options": ["Чёрную птицу на окне", "Верблюда", "Человека с трубкой"], "answer": 0},
+        {"q": "Что повторяла птица?", "options": ["«Тише, пожалуйста!»", "«Доброе утро!»", "«Урок окончен!»"], "answer": 0}
+      ],
+      "gloss": {"alunos": "ученики", "magoados": "обиженные", "deste": "этого", "piores": "худшие", "amo": "люблю (amar)", "igualzinha": "точь-в-точь такая же", "roupas": "одежда", "farmácia": "аптека", "aconteceu": "случилось (acontecer)", "pássaro": "птица", "preto": "чёрный", "sala": "класс", "repetia": "повторяла (repetir)", "silêncio": "тишина"}
+    },
+    {
+      "id": "wh:school.4",
+      "chapter": 4,
+      "mode": "overhear",
+      "npc": "marcia",
+      "lines": [
+        {"who": "npc", "es": "O filho do Seu Zé foi pego com cola na prova de história.", "ru": "Сына Сеу Зе поймали со шпаргалкой на контрольной по истории."},
+        {"who": "zecarlos", "es": "Pego, não. Ele estava com o papel no bolso. Isso não prova nada.", "ru": "Не поймали. У него просто была бумажка в кармане. Это ничего не доказывает."},
+        {"who": "npc", "es": "Um papel com todas as datas da prova, Zé. Por acaso?", "ru": "Бумажка со всеми датами из контрольной, Зе. Случайно?"},
+        {"who": "zecarlos", "es": "Ele estudou com aquele papel em casa. Esqueceu no bolso. Menino é assim.", "ru": "Он дома учил по этой бумажке. Забыл в кармане. Мальчишки такие."},
+        {"who": "npc", "es": "Pode ser. Mas a regra é clara: com cola, é zero.", "ru": "Может быть. Но правило ясное: со шпаргалкой — ноль."},
+        {"who": "zecarlos", "es": "Zero por um papel no bolso? Que injustiça. Deixa ele fazer outra prova.", "ru": "Ноль за бумажку в кармане? Какая несправедливость. Дай ему переписать."},
+        {"who": "npc", "es": "Outra prova… Só se for oral, na frente da turma toda.", "ru": "Переписать… Только если устно, перед всем классом."},
+        {"who": "zecarlos", "es": "Fechado. Ele sabe as datas. Ele cantava elas no salão o dia todo.", "ru": "Договорились. Он знает даты. Он их весь день в салоне распевал."}
+      ],
+      "questions": [
+        {"q": "В чём обвиняют сына Зе Карлоса?", "kind": "stance", "options": ["Что он списывал на контрольной", "Что он подрался", "Что он прогулял"], "answer": 0},
+        {"q": "Как отец объясняет бумажку?", "kind": "stance", "options": ["Сын учил по ней дома и забыл в кармане", "Это не его бумажка", "Это список покупок"], "answer": 0},
+        {"q": "Что считает несправедливым Зе Карлос?", "kind": "stance", "options": ["Ноль за бумажку в кармане", "Трудные вопросы", "Строгого учителя"], "answer": 0},
+        {"q": "Как Марсия в итоге соглашается?", "kind": "stance", "options": ["На устный ответ перед классом", "Отменить контрольную", "Поставить пятёрку"], "answer": 0}
+      ],
+      "gloss": {"pego": "пойманный", "cola": "шпаргалка", "prova": "контрольная; доказывает (provar)", "história": "история", "bolso": "карман", "datas": "даты", "acaso": "случай (por acaso — случайно)", "menino": "мальчик", "regra": "правило", "zero": "ноль", "injustiça": "несправедливость", "oral": "устный", "turma": "класс", "fechado": "договорились", "cantava": "распевал (cantar)", "salão": "салон", "Zé": "Зе"}
     }
   ]
 }

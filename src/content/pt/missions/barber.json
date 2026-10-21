@@ -60,6 +60,29 @@
         "gel": {"kind": "answer", "task": "Попросите без геля.", "branches": [{"phrase": "ph:barber.sem-gel", "next": "end"}], "wrong": {"es": "Muito gel? No deserto o cabelo vai virar pedra!", "ru": "Много геля? В пустыне волосы станут камнем!"}},
         "end": {"kind": "say", "es": "Sem gel. E toma: ele deixou isso na cadeira. Um fragmento do mapa, com cheiro de floresta.", "ru": "Без геля. И держи: он оставил это на кресле. Обрывок карты, пахнет лесом."}
       }
+    },
+    {
+      "id": "ms:barber.4",
+      "chapter": 4,
+      "npc": "zecarlos",
+      "scene": "sc:barber.4",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Senta. Hoje eu preciso de um conselho mais do que você precisa de um corte.", "ru": "Садись. Сегодня мне совет нужен больше, чем тебе стрижка.", "next": "x0"},
+        "x0": {"kind": "answer", "task": "Спросите, есть ли новости в квартале.", "branches": [{"phrase": "ph:barber.alguma-novidade", "next": "x0say"}], "wrong": {"es": "Alguma novidade no deserto? Isso foi antes!", "ru": "Новости из пустыни? Это было раньше!"}},
+        "x0say": {"kind": "say", "es": "Novidade tem, e é grande. Por isso eu chamei você.", "ru": "Новость есть, и большая. Поэтому я тебя и позвал.", "next": "trust"},
+        "trust": {"kind": "answer", "task": "Скажите, что ему можно доверять: вы умеете хранить тайну.", "branches": [{"phrase": "ph:barber.guardo-segredo", "next": "trustsay"}], "wrong": {"es": "Vai contar para a floresta? Nem pensar!", "ru": "Расскажешь лесу? Даже не думай!"}},
+        "trustsay": {"kind": "say", "es": "Eu sei quem é o homem do cachimbo. Vi o rosto dele no espelho, depois que tirei a espuma. É o Severino.", "ru": "Я знаю, кто человек с трубкой. Я видел его лицо в зеркале, когда стёр пену. Это Северину.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:barber.conta-para-todos", "next": "object", "move": "object"}, {"phrase": "ph:barber.nao-conta-nada", "next": "concede", "move": "concede"}, {"phrase": "ph:barber.fala-com-ele-primeiro", "next": "compromise", "move": "compromise"}], "wrong": {"es": "Cortar o cabelo da floresta? Muito galho!", "ru": "Подстричь лес? Слишком много веток!"}},
+        "object": {"kind": "say", "es": "Contar para todos… É, se eu ficar calado, a floresta fala por mim mesmo.", "ru": "Рассказать всем… Да, если я промолчу, лес всё равно скажет за меня.", "next": "brows"},
+        "concede": {"kind": "say", "es": "Não é da nossa conta… Talvez. Barbeiro bom sabe ficar calado.", "ru": "Не наше дело… Может быть. Хороший парикмахер умеет молчать.", "next": "brows"},
+        "compromise": {"kind": "say", "es": "Falar com ele primeiro. Ele merece isso. Vou levar a navalha antiga de presente.", "ru": "Сначала поговорить с ним. Он это заслужил. Отнесу ему старую бритву в подарок.", "next": "brows"},
+        "brows": {"kind": "say", "es": "Agora você. O cabelo está bom, mas…", "ru": "Теперь ты. Волосы в порядке, но…", "next": "browsq"},
+        "browsq": {"kind": "answer", "task": "Попросите подровнять брови.", "branches": [{"phrase": "ph:barber.aparar-as-sobrancelhas", "next": "browsay"}], "wrong": {"es": "Cortar a barba toda? Hoje não!", "ru": "Сбрить всю бороду? Сегодня нет!"}},
+        "browsay": {"kind": "say", "es": "Pronto, ficou ótimo. Quer gel?", "ru": "Готово, отлично вышло. Гель хочешь?", "next": "gel"},
+        "gel": {"kind": "answer", "task": "Попросите без геля.", "branches": [{"phrase": "ph:barber.sem-gel", "next": "end"}], "wrong": {"es": "Gel na floresta? Vai juntar folha!", "ru": "Гель в лесу? Листья налипнут!"}},
+        "end": {"kind": "say", "es": "Sem gel. E toma: o Severino deixou isso na cadeira, junto com uma pena preta. Um fragmento do mapa da floresta.", "ru": "Без геля. И держи: Северину оставил это на кресле, вместе с чёрным пером. Обрывок карты леса."}
+      }
     }
   ]
 }

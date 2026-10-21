@@ -75,6 +75,52 @@
         {"q": "Что стало со следом?", "options": ["Его стёр ветер", "Он ведёт в город", "Его нашли собаки"], "answer": 0}
       ],
       "gloss": {"parecia": "казалась (parecer)", "pois": "ведь (pois é — вот именно)", "entrega": "доставка, заказ", "levei": "отвёз (levar)", "morri": "умер (morrer)", "vendia": "продавал (vender)", "garrafas": "бутылки", "pagava": "платили (pagar)", "fortuna": "состояние", "abri": "открыл (abrir)", "vazia": "пустая", "cheia": "полная", "mentem": "лгут (mentir)", "apagou": "стёр (apagar)", "pessoal": "люди"}
+    },
+    {
+      "id": "sc:supermarket.4",
+      "chapter": 4,
+      "npc": "wellington",
+      "lines": [
+        {"who": "npc", "es": "Bom dia. Desculpa a cara: não dormi nada essa noite.", "ru": "Доброе утро. Прости за вид: я этой ночью совсем не спал."},
+        {"who": "hero", "es": "Por causa das vozes da floresta?", "ru": "Из-за голосов леса?"},
+        {"who": "npc", "es": "É. Elas chegam com o vento, à meia-noite. Parece conversa de vizinho.", "ru": "Да. Приходят с ветром, в полночь. Похоже на разговоры соседей."},
+        {"who": "hero", "es": "E o que as pessoas fazem?", "ru": "И что делают люди?"},
+        {"who": "npc", "es": "Compram protetor de ouvido, vela, café… Tem gente fazendo a compra do mês.", "ru": "Покупают беруши, свечи, кофе… Некоторые закупаются на месяц."},
+        {"who": "hero", "es": "Do mês? Por quê?", "ru": "На месяц? Почему?"},
+        {"who": "npc", "es": "Dizem que o barulho vai piorar, e amanhã não vai ter mais nada nas lojas.", "ru": "Говорят, шум будет только сильнее, и завтра в магазинах ничего не останется."},
+        {"who": "hero", "es": "Isso é verdade?", "ru": "Это правда?"},
+        {"who": "npc", "es": "Não. Mas, se todo mundo acredita, vira verdade: as prateleiras já estão meio vazias.", "ru": "Нет. Но если все в это верят, это становится правдой: полки уже наполовину пусты."}
+      ],
+      "questions": [
+        {"q": "Почему Веллингтон не спал?", "options": ["Из-за голосов леса", "Из-за работы", "Из-за жары"], "answer": 0},
+        {"q": "Что покупают люди?", "options": ["Беруши, свечи, кофе", "Фрукты", "Одежду"], "answer": 0},
+        {"q": "Почему некоторые закупаются на месяц?", "options": ["Боятся, что завтра в магазинах ничего не будет", "Уезжают", "Скидки"], "answer": 0},
+        {"q": "Что значит «если все верят, это становится правдой»?", "options": ["Полки и правда пустеют", "Шум усиливается", "Магазин закроют"], "answer": 0}
+      ],
+      "gloss": {"cara": "лицо, вид", "vozes": "голоса", "vizinho": "сосед", "protetor": "защита (protetor de ouvido — беруши)", "ouvido": "ухо", "vela": "свеча", "piorar": "ухудшиться", "lojas": "магазины", "vira": "становится (virar)", "meio": "наполовину", "prateleiras": "полки"}
+    },
+    {
+      "id": "wh:supermarket.4",
+      "chapter": 4,
+      "mode": "overhear",
+      "npc": "wellington",
+      "lines": [
+        {"who": "npc", "es": "A senhora viu a promoção do mercado grande? Leve três, pague dois em tudo.", "ru": "Видели акцию в большом супермаркете? На всё — три по цене двух."},
+        {"who": "lourdes", "es": "Vi, meu filho. Mas lá tudo é longe, tudo é grande, e ninguém sabe o meu nome.", "ru": "Видела, сынок. Но там всё далеко, всё огромное, и никто не знает моего имени."},
+        {"who": "npc", "es": "É, mas o pessoal do bairro está indo para lá. Ontem vendi metade do normal.", "ru": "Да, но люди из квартала ходят туда. Вчера я продал половину от обычного."},
+        {"who": "lourdes", "es": "Quem vai lá volta. Lá ninguém leva a compra até a porta para uma velha como eu.", "ru": "Кто туда ходит, вернётся. Там никто не принесёт покупки к двери такой старушке, как я."},
+        {"who": "npc", "es": "A senhora fala isso porque é minha amiga. Os jovens só olham o preço.", "ru": "Вы так говорите, потому что вы мне друг. Молодые смотрят только на цену."},
+        {"who": "lourdes", "es": "Então faz uma promoção também. Mas pequena, para não falir.", "ru": "Тогда сделай тоже акцию. Только маленькую, чтобы не разориться."},
+        {"who": "npc", "es": "E se eles abaixarem mais o preço? Eu não ganho deles nunca.", "ru": "А если они ещё снизят цену? Мне их никогда не обогнать."},
+        {"who": "lourdes", "es": "Não precisa ganhar. Precisa ser o Wellington. Agora me vê o pão, que esfria.", "ru": "И не надо обгонять. Надо оставаться Веллингтоном. А теперь дай мне хлеба, остывает."}
+      ],
+      "questions": [
+        {"q": "Почему Веллингтон волнуется?", "kind": "stance", "options": ["Покупатели уходят в большой супермаркет", "У него кончился хлеб", "Он заболел"], "answer": 0},
+        {"q": "Почему Дона Лурдес не ходит в большой магазин?", "kind": "stance", "options": ["Там дорого", "Там никто её не знает и не принесёт покупки домой", "Там нет хлеба"], "answer": 1},
+        {"q": "Что она советует?", "kind": "stance", "options": ["Закрыть магазин", "Сделать небольшую акцию", "Поднять цены"], "answer": 1},
+        {"q": "Что она имеет в виду: «надо оставаться Веллингтоном»?", "kind": "stance", "options": ["Его сила — в том, что он свой для квартала", "Ему надо сменить имя", "Ему надо работать больше"], "answer": 0}
+      ],
+      "gloss": {"promoção": "акция", "grande": "большой", "leve": "возьми (levar)", "pague": "заплати (pagar)", "pessoal": "люди", "indo": "идя (ir)", "metade": "половина", "velha": "старушка", "jovens": "молодые", "falir": "разориться", "abaixarem": "снизят (abaixar)", "ganho": "выигрываю, обгоняю (ganhar)", "ganhar": "выиграть", "esfria": "остывает (esfriar)", "Wellington": "Веллингтон"}
     }
   ]
 }

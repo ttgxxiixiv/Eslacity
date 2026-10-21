@@ -65,6 +65,29 @@
         "meet": {"kind": "answer", "task": "Предложите договориться о встрече.", "branches": [{"phrase": "ph:cafe.combinar-um-encontro", "next": "end"}], "wrong": {"es": "Um encontro com o camelo? Melhor não.", "ru": "Встречу с верблюдом? Лучше не надо."}},
         "end": {"kind": "say", "es": "Amanhã, aqui, às sete. E toma o meu fragmento do mapa do deserto. Lembra o que ele disse: no deserto, acredite no que ouve.", "ru": "Завтра, здесь, в семь. И держи мой обрывок карты пустыни. Помни, что он сказал: в пустыне верь тому, что слышишь."}
       }
+    },
+    {
+      "id": "ms:cafe.4",
+      "chapter": 4,
+      "npc": "tonho",
+      "scene": "sc:cafe.4",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Senta. O Caio está lá em cima arrumando a mochila. E eu estou nervoso.", "ru": "Садись. Каю наверху собирает рюкзак. А я нервничаю.", "next": "talk"},
+        "talk": {"kind": "answer", "task": "Спросите, не хочет ли он выговориться.", "branches": [{"phrase": "ph:cafe.quer-desabafar", "next": "talksay"}], "wrong": {"es": "Quer um cafezinho? Não, eu quero falar.", "ru": "Хочу кофейку? Нет, я хочу поговорить."}},
+        "talksay": {"kind": "say", "es": "Quero. Quando o Caio foi para a torre, eu passei um ano sem dormir. Não quero isso de novo.", "ru": "Хочу. Когда Каю ушёл к башне, я год не спал. Не хочу снова.", "next": "coffee"},
+        "coffee": {"kind": "answer", "task": "Закажите кофе из фильтра.", "branches": [{"phrase": "ph:cafe.cafe-coado", "next": "coffeesay"}], "wrong": {"es": "Um café da floresta? Primeiro o coado.", "ru": "Лесной кофе? Сначала из фильтра."}},
+        "coffeesay": {"kind": "say", "es": "Dois coados, então. Mas escuta: o Caio não vai para a floresta. Ele já perdeu um ano na serra.", "ru": "Тогда два из фильтра. Но послушай: Каю в лес не пойдёт. Он уже потерял год в горах.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:cafe.a-decisao-e-dele", "next": "object", "move": "object"}, {"phrase": "ph:cafe.melhor-ele-ficar", "next": "concede", "move": "concede"}, {"phrase": "ph:cafe.so-ate-a-orla", "next": "compromise", "move": "compromise"}], "wrong": {"es": "O quê? Isso não tem nada a ver com você.", "ru": "Что? Это вообще не про тебя."}},
+        "object": {"kind": "say", "es": "A decisão é dele? Talvez você tenha razão… Ele é meu filho, mas já é homem. Vou falar com ele sem gritar.", "ru": "Решать ему? Может, ты и прав… Он мой сын, но уже взрослый. Поговорю с ним без крика.", "next": "gossip", "fem": {"ru": "Решать ему? Может, ты и права… Он мой сын, но уже взрослый. Поговорю с ним без крика."}},
+        "concede": {"kind": "say", "es": "Obrigado. Sei que o Caio vai ficar bravo, mas é melhor bravo em casa.", "ru": "Спасибо. Знаю, Каю разозлится, но пусть лучше злится дома.", "next": "gossip"},
+        "compromise": {"kind": "say", "es": "Até a orla? Parece justo. Lá tem uma aldeia, e ele volta de trem.", "ru": "До опушки? По-моему, справедливо. Там есть деревня, и он вернётся поездом.", "next": "gossip"},
+        "gossip": {"kind": "say", "es": "E tem outra coisa. O Davi escreve que a floresta repete a sua voz: «O Tonho é muito chato». Você falou isso?", "ru": "И ещё. Дави пишет, что лес повторяет твой голос: «Тоньо такой зануда». Ты это говорил?", "next": "sorry", "fem": {"ru": "И ещё. Дави пишет, что лес повторяет твой голос: «Тоньо такой зануда». Ты это говорила?"}},
+        "sorry": {"kind": "answer", "task": "Скажите, что это было недоразумение.", "branches": [{"phrase": "ph:cafe.foi-um-mal-entendido", "next": "sorrysay"}], "wrong": {"es": "Foi o café que estava ruim? Isso também é culpa sua.", "ru": "Это кофе был плохой? Это тоже твоя вина."}},
+        "sorrysay": {"kind": "say", "es": "Tá bom, eu perdoo. Uma voz a menos na floresta. Quer marcar com o Caio?", "ru": "Ладно, прощаю. На один голос в лесу меньше. Договоришься с Каю?", "next": "meet"},
+        "meet": {"kind": "answer", "task": "Предложите договориться о встрече.", "branches": [{"phrase": "ph:cafe.combinar-um-encontro", "next": "end"}], "wrong": {"es": "Um encontro na floresta? Primeiro aqui!", "ru": "Встреча в лесу? Сначала здесь!"}},
+        "end": {"kind": "say", "es": "Amanhã cedo, aqui. E toma o meu fragmento do mapa da floresta. O Davi mandou junto com a carta.", "ru": "Завтра рано, здесь. И держи мой обрывок карты леса. Дави прислал его вместе с письмом."}
+      }
     }
   ]
 }

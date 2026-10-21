@@ -75,6 +75,52 @@
         {"q": "Что снится покупателям?", "options": ["Белый город", "Верблюд", "Море"], "answer": 0}
       ],
       "gloss": {"parecia": "казалась (parecer)", "garrafa": "бутылка", "cheia": "полная", "dentro": "внутри", "sal": "соль", "cheiro": "запах", "flores": "цветы", "veem": "видят (ver)", "cabeça": "голова", "sonham": "видят во сне (sonhar)", "demais": "слишком", "pessoas": "люди", "algum": "какой-нибудь", "remédio": "лекарство"}
+    },
+    {
+      "id": "sc:pharmacy.4",
+      "chapter": 4,
+      "npc": "rosa",
+      "lines": [
+        {"who": "npc", "es": "Bom dia. Desculpa, estou muito preocupada.", "ru": "Доброе утро. Простите, я очень встревожена."},
+        {"who": "hero", "es": "O que aconteceu?", "ru": "Что случилось?"},
+        {"who": "npc", "es": "A floresta fala com a minha voz: «A doutora Fernanda não sabe nada».", "ru": "Лес говорит моим голосом: «Доктор Фернанда ничего не знает»."},
+        {"who": "hero", "es": "A senhora falou isso?", "ru": "Вы это говорили?"},
+        {"who": "npc", "es": "Nunca! A gente discutiu por causa das plantas medicinais, é verdade, mas eu respeito muito a doutora.", "ru": "Никогда! Мы поспорили из-за лекарственных трав, это правда, но я очень уважаю доктора."},
+        {"who": "hero", "es": "E a doutora sabe disso?", "ru": "А доктор об этом знает?"},
+        {"who": "npc", "es": "A cidade toda sabe. Hoje de manhã ela não me deu bom-dia.", "ru": "Весь город знает. Сегодня утром она со мной не поздоровалась."},
+        {"who": "hero", "es": "Na loja de roupas aconteceu a mesma coisa.", "ru": "В магазине одежды было то же самое."},
+        {"who": "npc", "es": "Então não sou só eu. Alguém está falando com as nossas vozes.", "ru": "Значит, не я одна. Кто-то говорит нашими голосами."}
+      ],
+      "questions": [
+        {"q": "Что сказал лес голосом Доны Розы?", "options": ["Что доктор Фернанда ничего не знает", "Что аптека закрыта", "Что лекарства дорогие"], "answer": 0},
+        {"q": "Говорила ли Дона Роза это?", "options": ["Никогда", "Да, в шутку", "Да, вчера"], "answer": 0},
+        {"q": "Из-за чего они с доктором спорили?", "options": ["Из-за лекарственных трав", "Из-за денег", "Из-за Каю"], "answer": 0},
+        {"q": "Что сделала доктор утром?", "options": ["Не поздоровалась", "Пришла извиниться", "Купила лекарство"], "answer": 0}
+      ],
+      "gloss": {"preocupada": "встревоженная", "Fernanda": "Фернанда", "discutiu": "поспорили (discutir)", "plantas": "растения", "medicinais": "лекарственные", "respeito": "уважаю (respeitar)", "bom": "хороший (bom-dia — «доброе утро»)", "roupas": "одежда", "vozes": "голоса", "aconteceu": "случилось (acontecer)"}
+    },
+    {
+      "id": "wh:pharmacy.4",
+      "chapter": 4,
+      "mode": "overhear",
+      "npc": "rosa",
+      "lines": [
+        {"who": "npc", "es": "A senhora viu? O Seu Valdir agora toma chá de boldo para tudo. Até para o joelho.", "ru": "Видели? Сеу Валдир теперь пьёт чай с больдо от всего. Даже от колена."},
+        {"who": "fernanda", "es": "Vi. Ele me disse que não precisa mais do remédio de pressão. Isso me preocupa.", "ru": "Видела. Он сказал мне, что больше не нуждается в лекарстве от давления. Это меня тревожит."},
+        {"who": "npc", "es": "O chá não faz mal, doutora. A avó dele tomava, a mãe tomava…", "ru": "Чай не вредит, доктор. Его бабушка пила, мать пила…"},
+        {"who": "fernanda", "es": "O chá não faz mal. Parar o remédio por conta própria faz.", "ru": "Чай не вредит. Вредно бросать лекарство самовольно."},
+        {"who": "npc", "es": "Então a senhora acha que a culpa é minha? Fui eu que vendi o chá.", "ru": "Так вы считаете, что это моя вина? Это я продала ему чай."},
+        {"who": "fernanda", "es": "Não falei isso. Só peço que, quando ele comprar, a senhora lembre do remédio.", "ru": "Я этого не говорила. Прошу только: когда он покупает, напоминайте про лекарство."},
+        {"who": "npc", "es": "Posso lembrar. Mas a senhora também podia explicar com mais calma. Ele saiu daqui com medo.", "ru": "Могу напоминать. Но и вы могли бы объяснять спокойнее. Он ушёл отсюда испуганный."},
+        {"who": "fernanda", "es": "Tem razão. Vou ligar para ele hoje. Chá e remédio, os dois juntos.", "ru": "Вы правы. Позвоню ему сегодня. Чай и лекарство, вместе."}
+      ],
+      "questions": [
+        {"q": "Что тревожит доктора Фернанду?", "kind": "stance", "options": ["Сеу Валдир бросил лекарство от давления", "Чай с больдо ядовит", "Аптека дорогая"], "answer": 0},
+        {"q": "Как Дона Роза поначалу воспринимает её слова?", "kind": "stance", "options": ["Как упрёк себе", "Как похвалу", "Не обращает внимания"], "answer": 0},
+        {"q": "В чём Дона Роза упрекает доктора?", "kind": "stance", "options": ["Что та напугала Сеу Валдира резкостью", "Что она опоздала", "Что она не любит чай"], "answer": 0},
+        {"q": "К чему они приходят?", "kind": "stance", "options": ["Чай и лекарство вместе, доктор позвонит ему", "Запретить чай", "Закрыть аптеку"], "answer": 0}
+      ],
+      "gloss": {"boldo": "больдо (лекарственная трава)", "joelho": "колено", "pressão": "давление", "preocupa": "тревожит (preocupar)", "avó": "бабушка", "tomava": "пила (tomar)", "parar": "бросить", "conta": "счёт (por conta própria — самовольно)", "própria": "собственная", "vendi": "продала (vender)", "peço": "прошу (pedir)", "podia": "могли бы (poder)", "explicar": "объяснять", "Valdir": "Валдир", "doutora": "доктор (женщина)"}
     }
   ]
 }

@@ -64,6 +64,29 @@
         "break": {"kind": "answer", "task": "Предложите перерыв на кофе.", "branches": [{"phrase": "ph:office.uma-pausa", "next": "end"}], "wrong": {"es": "Mais hora extra? Hoje não!", "ru": "Ещё сверхурочно? Сегодня нет!"}},
         "end": {"kind": "say", "es": "Merecemos. E olha: o Davi mandou junto com o currículo um fragmento do mapa. Ele escreveu: «Esse não é meu. É de quem procura o caminho».", "ru": "Заслужили. И смотри: Дави вместе с резюме прислал обрывок карты. Он написал: «Этот не мой. Он того, кто ищет дорогу»."}
       }
+    },
+    {
+      "id": "ms:office.4",
+      "chapter": 4,
+      "npc": "patricia",
+      "scene": "sc:office.4",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "A reunião é às sete. Me ajuda a organizar? Tem gente furiosa vindo.", "ru": "Собрание в семь. Поможешь организовать? Придут разъярённые люди.", "next": "x0"},
+        "x0": {"kind": "answer", "task": "Предложите начать.", "branches": [{"phrase": "ph:office.vamos-comecar", "next": "x0say"}], "wrong": {"es": "Vamos dormir? Não, hoje tem trabalho!", "ru": "Пойдём спать? Нет, сегодня работа!"}},
+        "x0say": {"kind": "say", "es": "Vamos. Primeiro a parte difícil.", "ru": "Давай. Сначала сложное.", "next": "agenda"},
+        "agenda": {"kind": "answer", "task": "Спросите, какая повестка собрания.", "branches": [{"phrase": "ph:office.qual-e-a-pauta", "next": "agendasay"}], "wrong": {"es": "Qual é o cardápio? Não é jantar, é reunião!", "ru": "Какое меню? Это не ужин, а собрание!"}},
+        "agendasay": {"kind": "say", "es": "Um ponto só: o Severino e as vozes da floresta. Mas metade da cidade quer gritar, e a outra metade quer chorar.", "ru": "Один пункт: Северину и голоса леса. Но половина города хочет кричать, а другая — плакать.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:office.todos-devem-ouvir", "next": "object", "move": "object"}, {"phrase": "ph:office.melhor-adiar", "next": "concede", "move": "concede"}, {"phrase": "ph:office.primeiro-os-vizinhos", "next": "compromise", "move": "compromise"}], "wrong": {"es": "Convidar a floresta? Ela não cabe na sala!", "ru": "Пригласить лес? Он в зал не поместится!"}},
+        "object": {"kind": "say", "es": "Todos devem ouvir… Sim. Ninguém fala antes de ele terminar. Vou escrever isso na porta.", "ru": "Все должны выслушать… Да. Никто не говорит, пока он не закончит. Напишу это на двери.", "next": "minutes"},
+        "concede": {"kind": "say", "es": "Esperar… Talvez. Mas se esperar demais, a floresta fala por ele.", "ru": "Подождать… Может быть. Но если ждать слишком долго, лес скажет за него.", "next": "minutes"},
+        "compromise": {"kind": "say", "es": "Primeiro ele, depois os vizinhos, um de cada vez. Com hora marcada. Isso funciona.", "ru": "Сначала он, потом соседи, по одному. С регламентом. Так получится.", "next": "minutes"},
+        "minutes": {"kind": "say", "es": "E alguém precisa escrever tudo, para ninguém dizer depois que não foi assim.", "ru": "И кто-то должен всё записывать, чтобы потом никто не сказал, что было иначе.", "next": "minutesq"},
+        "minutesq": {"kind": "answer", "task": "Скажите, что будете вести протокол.", "branches": [{"phrase": "ph:office.eu-escrevo-a-ata", "next": "minutessay"}], "wrong": {"es": "Eu como a ata? Não, você escreve!", "ru": "Я съем протокол? Нет, ты его пишешь!"}},
+        "minutessay": {"kind": "say", "es": "Ótimo. E depois você manda para todo mundo por e-mail.", "ru": "Отлично. А потом разошлёшь всем по почте.", "next": "attach"},
+        "attach": {"kind": "answer", "task": "Скажите, что прикрепите файл.", "branches": [{"phrase": "ph:office.anexar-o-arquivo", "next": "end"}], "wrong": {"es": "Vai imprimir mil cópias? Não, só manda!", "ru": "Напечатаешь тысячу копий? Нет, просто отправь!"}},
+        "end": {"kind": "say", "es": "Perfeito. E isso estava dentro da carta do Severino: um fragmento do mapa. Ele escreveu: «Para quem vai à floresta no meu lugar».", "ru": "Прекрасно. А это было в письме Северину: обрывок карты. Он написал: «Тому, кто пойдёт в лес вместо меня»."}
+      }
     }
   ]
 }

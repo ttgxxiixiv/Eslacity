@@ -79,6 +79,54 @@
         {"q": "Почему Каю не может пойти?", "options": ["Он занят в кафе", "У него сломана стопа", "Он боится"], "answer": 1}
       ],
       "gloss": {"cobrei": "взял денег (cobrar — брать плату)", "convidou": "угощал (convidar)", "quis": "хотел (querer)", "some": "исчезает (sumir)", "terceira": "третья", "quebrado": "сломанный", "bravo": "сердитый", "Severino": "Северину", "Caio": "Каю", "cedo": "рано"}
+    },
+    {
+      "id": "sc:cafe.4",
+      "chapter": 4,
+      "npc": "tonho",
+      "lines": [
+        {"who": "npc", "es": "Até que enfim! Chegou uma carta para você. Do Davi, o antigo Mercador.", "ru": "Наконец-то! Тебе пришло письмо. От Дави, бывшего Купца."},
+        {"who": "hero", "es": "O que ele diz?", "ru": "Что он пишет?"},
+        {"who": "npc", "es": "«Voltei a morar na floresta. As árvores repetem tudo o que as pessoas falam umas das outras pelas costas».", "ru": "«Я снова живу в лесу. Деревья повторяют всё, что люди говорят друг о друге за спиной»."},
+        {"who": "hero", "es": "Tudo? Até o que a gente fala aqui?", "ru": "Всё? Даже то, что мы говорим здесь?"},
+        {"who": "npc", "es": "Parece que sim. Ele escreve que a floresta está cheia das vozes da nossa cidade: fofoca, queixa, briga.", "ru": "Похоже, да. Пишет, что лес полон голосов нашего города: сплетни, жалобы, ссоры."},
+        {"who": "hero", "es": "E aí?", "ru": "И что тогда?"},
+        {"who": "npc", "es": "Com tanto barulho, a guardiã da floresta não ouve a trilha. Ninguém consegue passar.", "ru": "При таком шуме Хранительница леса не слышит тропу. Никто не может пройти."},
+        {"who": "hero", "es": "O que a gente pode fazer?", "ru": "Что мы можем сделать?"},
+        {"who": "npc", "es": "O Davi escreve que cada briga que termina em paz deixa a floresta um pouco mais quieta.", "ru": "Дави пишет, что каждая ссора, которая закончилась миром, делает лес чуть тише."},
+        {"who": "hero", "es": "Então é preciso conversar com as pessoas.", "ru": "Значит, надо говорить с людьми."},
+        {"who": "npc", "es": "É. E começa pela minha família: o Caio quer ir com você para a floresta, e eu não quero.", "ru": "Да. И начни с моей семьи: Каю хочет пойти с тобой в лес, а я не хочу."}
+      ],
+      "questions": [
+        {"q": "От кого письмо?", "options": ["От Северину", "От Дави", "От Каю"], "answer": 1},
+        {"q": "Что повторяют деревья?", "options": ["Песни", "То, что люди говорят друг о друге за спиной", "Имена путников"], "answer": 1},
+        {"q": "Почему никто не может пройти через лес?", "options": ["Хранительница не слышит тропу из-за шума", "Тропа заросла", "Идёт дождь"], "answer": 0},
+        {"q": "Что делает лес тише?", "options": ["Тишина в городе", "Ссора, которая закончилась миром", "Свеча на окне"], "answer": 1}
+      ],
+      "gloss": {"conversar": "разговаривать", "Davi": "Дави", "antigo": "бывший", "Mercador": "Купец", "umas": "одни (umas das outras — друг о друге)", "outras": "другие", "cheia": "полная", "vozes": "голоса", "tanto": "такой, столько", "consegue": "может (conseguir)", "termina": "заканчивается (terminar)", "quieta": "тихая", "Caio": "Каю", "escreve": "пишет (escrever)"}
+    },
+    {
+      "id": "wh:cafe.4",
+      "chapter": 4,
+      "mode": "overhear",
+      "npc": "tonho",
+      "lines": [
+        {"who": "npc", "es": "Viu o rapaz da janela? Está sentado há quatro horas com um cafezinho só.", "ru": "Видел парня у окна? Сидит четыре часа с одной чашечкой кофе."},
+        {"who": "edson", "es": "Deve estar trabalhando. O meu primo faz igual, diz que em casa não consegue se concentrar.", "ru": "Наверное, работает. Мой двоюродный брат так же делает, говорит, дома не может сосредоточиться."},
+        {"who": "npc", "es": "Tá, mas o café está lotado, e tem gente esperando em pé. Aqui não é escritório.", "ru": "Ладно, но кафе битком, и люди ждут стоя. Здесь не контора."},
+        {"who": "edson", "es": "Ah, ele não incomoda ninguém. É freguês de sempre, vem todo dia.", "ru": "Да он никому не мешает. Постоянный посетитель, приходит каждый день."},
+        {"who": "npc", "es": "Freguês de sempre da minha tomada, você quer dizer. Ele carrega tudo aqui: o celular, o computador…", "ru": "Постоянный посетитель моей розетки, хочешь сказать. Всё тут заряжает: телефон, компьютер…"},
+        {"who": "edson", "es": "Então coloca um aviso: «Uma hora por café». Vamos ver se ele entende.", "ru": "Тогда повесь объявление: «Час на один кофе». Посмотрим, поймёт ли."},
+        {"who": "npc", "es": "E ficar com fama de chato na rua toda? Não, prefiro aguentar.", "ru": "И прослыть занудой на всю улицу? Нет, лучше потерплю."},
+        {"who": "edson", "es": "Então não reclama. Me vê mais um café, que eu, pelo menos, já vou embora.", "ru": "Тогда не жалуйся. Налей мне ещё кофе — я-то как раз ухожу."}
+      ],
+      "questions": [
+        {"q": "Почему Сеу Тоньо недоволен парнем у окна?", "kind": "stance", "options": ["Он часами сидит с одним кофе, а мест нет", "Он громко разговаривает", "Он не платит"], "answer": 0},
+        {"q": "Что Сеу Тоньо имел в виду: «постоянный посетитель моей розетки»?", "kind": "stance", "options": ["Что тот разбирается в технике", "Что он ходит ради розетки, а не ради кафе", "Что он электрик"], "answer": 1},
+        {"q": "Как Эдсон относится к этому парню?", "kind": "stance", "options": ["Тоже злится", "Заступается: тот никому не мешает", "Не замечает его"], "answer": 1},
+        {"q": "Почему Сеу Тоньо не вешает объявление?", "kind": "stance", "options": ["Боится прослыть занудой", "Не умеет писать", "Парень уйдёт сам"], "answer": 0}
+      ],
+      "gloss": {"ah": "ну", "rapaz": "парень", "primo": "двоюродный брат", "concentrar": "сосредоточиться", "tá": "ладно (разг. от está)", "pé": "нога (em pé — стоя)", "escritório": "контора, офис", "tomada": "розетка", "carrega": "заряжает (carregar)", "computador": "компьютер", "chato": "зануда", "aguentar": "терпеть", "menos": "меньше (pelo menos — по крайней мере)", "incomoda": "мешает (incomodar)"}
     }
   ]
 }

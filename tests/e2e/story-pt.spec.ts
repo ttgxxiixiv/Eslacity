@@ -4,7 +4,7 @@ import { expect, test, type Page } from '@playwright/test';
 import { openCourse, phraseFull } from './fixtures';
 
 /**
- * Португальский курс закрыт (задачи 19.5–19.6): сцены и миссии открываются напрямую, без пролога и города.
+ * Португальский курс закрыт (задачи 19.5–19.7): сцены и миссии открываются напрямую, без пролога и города.
  * Каждая сцена и каждая миссия проходится целиком, как в scenes.spec.ts и missions.spec.ts.
  */
 const CONTENT = join(import.meta.dirname, '..', '..', 'src', 'content', 'pt');
@@ -108,4 +108,47 @@ test('pt: развилка рынка главы II — Дона Граса сп
   const sc = scenes.find((s) => s.id === 'sc:market.3')!;
   await playScene(page, sc, { veg: 'garlic' });
   expect(sc.lines.some((l) => l.if?.is === 'garlic' && l.es.includes('cheiro de alho'))).toBe(true);
+});
+
+const whispers = allScenes.filter((sc) => sc.mode === 'overhear');
+
+test('pt: все шёпоты главы IV — реплики голосом, все ответы на понимание верные', async ({ page }) => {
+  test.setTimeout(240_000);
+  expect(whispers).toHaveLength(20);
+  await openCourse(page, 'pt');
+  for (const wh of whispers) {
+    await page.goto(`./#/scene/${encodeURIComponent(wh.id)}`);
+    for (let i = 0; i < wh.lines.length; i++) {
+      await expect(page.getByText(`Реплика ${i + 1} из ${wh.lines.length}`), wh.id).toBeVisible();
+      await page.getByTestId('scene-next').click();
+    }
+    for (const q of wh.questions) {
+      await expect(page.getByTestId('scene-question')).toHaveText(q.q);
+      await page.getByRole('button', { name: q.options[q.answer], exact: true }).click();
+      await page.getByRole('button', { name: /дальше|итог/i }).click();
+    }
+    await expect(page.getByTestId('scene-result'), wh.id).toContainText(`Понято: ${wh.questions.length} из ${wh.questions.length}`);
+  }
+});
+
+test('pt: развилка рынка главы III — Дона Граса помнит, что герой брал бананы', async ({ page }) => {
+  await openCourse(page, 'pt');
+  await playMission(page, 'ms:market.3', { 'Спросите, есть ли сегодня кешью, или попросите килограмм бананов.': 1 });
+  const sc = scenes.find((s) => s.id === 'sc:market.4')!;
+  await playScene(page, sc, { fruit: 'banana' });
+  expect(sc.lines.some((l) => l.if?.is === 'banana' && l.es.includes('levou banana'))).toBe(true);
+});
+
+test('pt: развилка вокзала главы III — Сеу Раймунду помнит билет в одну сторону', async ({ page }) => {
+  await openCourse(page, 'pt');
+  await playMission(page, 'ms:station.3', { 'Попросите билет в одну сторону или туда и обратно.': 0 });
+  const sc = scenes.find((s) => s.id === 'sc:station.4')!;
+  await playScene(page, sc, { ticket: 'oneway' });
+  expect(sc.lines.some((l) => l.if?.is === 'oneway' && l.es.includes('só de ida'))).toBe(true);
+});
+
+test('pt: спор в миссии главы IV — можно уступить или предложить компромисс', async ({ page }) => {
+  await openCourse(page, 'pt');
+  await playMission(page, 'ms:cafe.4', { 'Возразите, уступите или предложите компромисс.': 1 });
+  await playMission(page, 'ms:market.4', { 'Возразите, уступите или предложите компромисс.': 2 });
 });

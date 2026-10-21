@@ -75,6 +75,52 @@
         {"q": "Что он сказал Сеу Валдиру?", "options": ["«Пустыня обманывает»", "«Люди верят в то, во что хотят верить»", "«Я скоро вернусь»"], "answer": 1}
       ],
       "gloss": {"jovem": "молодой", "passear": "гулять", "estranha": "странная", "ultimamente": "в последнее время", "camelo": "верблюд", "flores": "цветы", "achei": "показалось, счёл (achar)", "enterrava": "закапывал (enterrar)", "papéis": "бумаги", "parquinho": "детская площадка", "tirava": "доставал (tirar)", "falsos": "поддельные", "pessoas": "люди"}
+    },
+    {
+      "id": "sc:park.4",
+      "chapter": 4,
+      "npc": "valdir",
+      "lines": [
+        {"who": "npc", "es": "Senta comigo debaixo do ipê velho. Escuta. Está ouvindo?", "ru": "Садись со мной под старым ипе. Слушай. Слышишь?"},
+        {"who": "hero", "es": "As folhas?", "ru": "Листья?"},
+        {"who": "npc", "es": "Não são só folhas. Esse ipê é filho da floresta. À noite ele fala como os pais.", "ru": "Это не просто листья. Этот ипе — дитя леса. По ночам он говорит, как его родители."},
+        {"who": "hero", "es": "E o que ele diz?", "ru": "И что он говорит?"},
+        {"who": "npc", "es": "Ontem à noite ele repetiu a minha voz: «Esse show é bobagem, e a professora é chata». Que vergonha.", "ru": "Вчера ночью он повторил моим голосом: «Этот концерт — глупость, а учительница — зануда». Какой стыд."},
+        {"who": "hero", "es": "O senhor falou isso?", "ru": "Вы это сказали?"},
+        {"who": "npc", "es": "Falei, baixinho, para o meu cachorro. Mas depois ouvi outra voz, que eu não conhecia.", "ru": "Сказал, тихонько, своей собаке. Но потом я услышал другой голос, незнакомый."},
+        {"who": "hero", "es": "E o que dizia?", "ru": "И что он говорил?"},
+        {"who": "npc", "es": "«Procuro quem diz na cara o mesmo que diz pelas costas». Acho que era a guardiã.", "ru": "«Ищу того, кто в лицо говорит то же, что и за спиной». Думаю, это была Хранительница."}
+      ],
+      "questions": [
+        {"q": "Что такое старое ипе в парке?", "options": ["Дитя леса", "Новое дерево", "Скамейка"], "answer": 0},
+        {"q": "Что повторило дерево голосом Сеу Валдира?", "options": ["Что концерт — глупость, а учительница — зануда", "Что парк закрыт", "Что он устал"], "answer": 0},
+        {"q": "Кому он это сказал?", "options": ["Своей собаке", "Учительнице", "Герою"], "answer": 0},
+        {"q": "Кого ищет незнакомый голос?", "options": ["Того, кто в лицо говорит то же, что за спиной", "Нового стража", "Пропавшую собаку"], "answer": 0}
+      ],
+      "gloss": {"ipê": "ипе (бразильское дерево)", "debaixo": "под", "folhas": "листья", "pais": "родители", "repetiu": "повторил (repetir)", "bobagem": "глупость", "chata": "зануда", "vergonha": "стыд", "baixinho": "тихонько", "cachorro": "собака", "conhecia": "знал (conhecer)", "dizia": "говорил (dizer)", "cara": "лицо", "costas": "спина (pelas costas — за спиной)", "guardiã": "хранительница", "show": "концерт"}
+    },
+    {
+      "id": "wh:park.4",
+      "chapter": 4,
+      "mode": "overhear",
+      "npc": "valdir",
+      "lines": [
+        {"who": "npc", "es": "A senhora soube? A prefeitura quer cortar as mangueiras da praça para fazer estacionamento.", "ru": "Слышали? Мэрия хочет вырубить манговые деревья на площади под парковку."},
+        {"who": "marcia", "es": "Soube. Os pais dos meus alunos estão a favor. Dizem que não tem onde parar o carro.", "ru": "Слышала. Родители моих учеников за. Говорят, машину негде поставить."},
+        {"who": "npc", "es": "Parar o carro! E onde as crianças vão brincar? No estacionamento?", "ru": "Машину поставить! А где будут играть дети? На парковке?"},
+        {"who": "marcia", "es": "Eu também não gosto. Mas é verdade que de manhã a rua vira uma confusão.", "ru": "Мне тоже не нравится. Но правда, что по утрам улица превращается в кашу."},
+        {"who": "npc", "es": "Confusão sempre teve. Mangueira de cem anos não volta.", "ru": "Каша была всегда. А столетнее манговое дерево не вернёшь."},
+        {"who": "marcia", "es": "E se fizerem o estacionamento atrás da escola? Lá só tem mato.", "ru": "А если сделать парковку за школой? Там один бурьян."},
+        {"who": "npc", "es": "Atrás da escola… Isso a senhora devia falar na reunião, não para mim.", "ru": "За школой… Это вам надо сказать на собрании, а не мне."},
+        {"who": "marcia", "es": "Vou falar. Mas o senhor vem junto e não diz que a professora é chata.", "ru": "Скажу. Но вы пойдёте со мной и не будете говорить, что учительница — зануда."}
+      ],
+      "questions": [
+        {"q": "Против чего Сеу Валдир?", "kind": "stance", "options": ["Против вырубки манговых деревьев под парковку", "Против новой школы", "Против концерта"], "answer": 0},
+        {"q": "Как к этому относятся родители учеников?", "kind": "stance", "options": ["Они за парковку", "Они против", "Им всё равно"], "answer": 0},
+        {"q": "Что предлагает Профессора Марсия?", "kind": "stance", "options": ["Сделать парковку за школой", "Вырубить деревья", "Закрыть улицу"], "answer": 0},
+        {"q": "Что значит её последняя фраза?", "kind": "stance", "options": ["Она знает, что он о ней говорил, и шутливо упрекает", "Она обижена и не пойдёт", "Она хвалит его"], "answer": 0}
+      ],
+      "gloss": {"mangueira": "манговое дерево", "soube": "узнали (saber)", "prefeitura": "мэрия", "cortar": "вырубить", "mangueiras": "манговые деревья", "praça": "площадь", "estacionamento": "парковка", "pais": "родители", "favor": "за (a favor — за)", "parar": "поставить, остановить", "brincar": "играть", "vira": "превращается (virar)", "fizerem": "сделают (fazer)", "mato": "бурьян", "devia": "следовало бы (dever)", "chata": "зануда", "junto": "вместе"}
     }
   ]
 }

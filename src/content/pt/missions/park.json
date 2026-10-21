@@ -62,6 +62,29 @@
         "remember": {"kind": "answer", "task": "Скажите, что вы это помните.", "branches": [{"phrase": "ph:park.me-lembro", "next": "end"}], "wrong": {"es": "Esqueceu o gol? Que pena!", "ru": "Забыл гол? Как жаль!", "fem": {"ru": "Забыла гол? Как жаль!"}}},
         "end": {"kind": "say", "es": "Você se lembra de tudo, como eu. Olha, perto da cachoeira, embaixo da pedra: um fragmento velho de verdade. Esse é seu.", "ru": "Ты всё помнишь, как и я. Смотри, у водопада, под камнем: по-настоящему старый обрывок. Он твой."}
       }
+    },
+    {
+      "id": "ms:park.4",
+      "chapter": 4,
+      "npc": "valdir",
+      "scene": "sc:park.4",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Hoje à noite tem show na praça. E eu não sei se fico feliz ou bravo.", "ru": "Сегодня вечером на площади концерт. И я не знаю, радоваться или злиться.", "next": "whisper"},
+        "whisper": {"kind": "answer", "task": "Скажите, что слышали шёпот в деревьях.", "branches": [{"phrase": "ph:park.ouvi-um-sussurro", "next": "whispersay"}], "wrong": {"es": "Ouviu o samba? Ainda não começou!", "ru": "Слышал самбу? Она ещё не началась!", "fem": {"ru": "Слышала самбу? Она ещё не началась!"}}},
+        "whispersay": {"kind": "say", "es": "Também ouvi. A floresta repete tudo. E repete que eu acho o show bobagem. É que o show vai até as duas da manhã!", "ru": "Я тоже. Лес повторяет всё. И повторяет, что я считаю концерт глупостью. Просто концерт идёт до двух ночи!", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:park.o-show-fica", "next": "object", "move": "object"}, {"phrase": "ph:park.o-senhor-tem-razao", "next": "concede", "move": "concede"}, {"phrase": "ph:park.show-ate-as-dez", "next": "compromise", "move": "compromise"}], "wrong": {"es": "Cortar a floresta? Nunca!", "ru": "Вырубить лес? Никогда!"}},
+        "object": {"kind": "say", "es": "A praça é de todos… É verdade. Eu também já dancei aqui, na juventude.", "ru": "Площадь для всех… Это правда. Я тоже здесь танцевал в молодости.", "next": "branch"},
+        "concede": {"kind": "say", "es": "Obrigado. Mas eu não quero brigar com a professora. Vou só pedir menos volume.", "ru": "Спасибо. Но я не хочу ссориться с учительницей. Попрошу только потише.", "next": "branch"},
+        "compromise": {"kind": "say", "es": "Até as dez? Assim as crianças dançam e os velhos dormem. Vou propor isso à professora.", "ru": "До десяти? Так дети потанцуют, а старики выспятся. Предложу это учительнице.", "next": "branch"},
+        "branch": {"kind": "say", "es": "Agora me ajuda com o palco. Tem um galho seco bem em cima.", "ru": "А теперь помоги мне со сценой. Прямо над ней сухая ветка.", "next": "prune"},
+        "prune": {"kind": "answer", "task": "Предложите обрезать сухую ветку.", "branches": [{"phrase": "ph:park.vamos-podar", "next": "prunesay"}], "wrong": {"es": "Cortar a árvore toda? Não, só o galho!", "ru": "Срубить всё дерево? Нет, только ветку!"}},
+        "prunesay": {"kind": "say", "es": "Pronto. E esse plástico que caiu?", "ru": "Готово. А этот пластик, что упал?", "next": "trash"},
+        "trash": {"kind": "answer", "task": "Скажите, что выбросите это в мусор.", "branches": [{"phrase": "ph:park.jogar-no-lixo", "next": "trashsay"}], "wrong": {"es": "Vai enterrar? Isso não, viajante!", "ru": "Закопаешь? Только не это, путник!", "fem": {"ru": "Закопаешь? Только не это, путница!"}}},
+        "trashsay": {"kind": "say", "es": "Muito bem. Lembra o jogo da semana passada? Os dois times saíram amigos.", "ru": "Молодец. Помнишь матч на прошлой неделе? Обе команды ушли друзьями.", "next": "game"},
+        "game": {"kind": "answer", "task": "Скажите, что игра закончилась вничью.", "branches": [{"phrase": "ph:park.deu-empate", "next": "end"}], "wrong": {"es": "Ganhou a floresta? Ela nem joga!", "ru": "Выиграл лес? Он даже не играет!"}},
+        "end": {"kind": "say", "es": "Empate. Como hoje: ninguém perdeu. E olha, no galho seco tinha um ninho com um fragmento do mapa dentro. É seu.", "ru": "Ничья. Как сегодня: никто не проиграл. И смотри, на сухой ветке было гнездо, а в нём обрывок карты. Он твой."}
+      }
     }
   ]
 }

@@ -60,6 +60,29 @@
         "burn": {"kind": "answer", "task": "Попросите мазь от ожогов.", "branches": [{"phrase": "ph:pharmacy.pomada-para-queimadura", "next": "end"}], "wrong": {"es": "Água do oásis? Essa não cura nada!", "ru": "Воду оазиса? Она ничего не лечит!"}},
         "end": {"kind": "say", "es": "Toma. Com babosa, a melhor. E leva esse fragmento do mapa: uma cliente trocou por remédio e disse que era do deserto.", "ru": "Держи. С алоэ, лучшая. И возьми этот обрывок карты: одна покупательница обменяла его на лекарство и сказала, что он из пустыни."}
       }
+    },
+    {
+      "id": "ms:pharmacy.4",
+      "chapter": 4,
+      "npc": "rosa",
+      "scene": "sc:pharmacy.4",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Que bom que você veio. Estou com uma dor de cabeça horrível desde ontem.", "ru": "Хорошо, что ты пришёл. У меня со вчера ужасно болит голова.", "next": "x0", "fem": {"ru": "Хорошо, что ты пришла. У меня со вчера ужасно болит голова."}},
+        "x0": {"kind": "answer", "task": "Спросите, серьёзно ли это.", "branches": [{"phrase": "ph:pharmacy.e-grave", "next": "x0say"}], "wrong": {"es": "É contagioso? Não, é só estresse!", "ru": "Заразно? Нет, просто стресс!"}},
+        "x0say": {"kind": "say", "es": "Grave, não. É estresse.", "ru": "Нет, не серьёзно. Это стресс.", "next": "migraine"},
+        "migraine": {"kind": "answer", "task": "Спросите, есть ли что-нибудь от мигрени.", "branches": [{"phrase": "ph:pharmacy.tem-algo-para-enxaqueca", "next": "migrainesay"}], "wrong": {"es": "Tem algo para a floresta? Para ela não tem remédio!", "ru": "Есть что-нибудь для леса? От него лекарства нет!"}},
+        "migrainesay": {"kind": "say", "es": "Tenho, mas é forte. Eu sei a causa: a doutora Fernanda não fala mais comigo.", "ru": "Есть, но сильное. Я знаю причину: доктор Фернанда больше со мной не разговаривает.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:pharmacy.fala-com-a-doutora", "next": "object", "move": "object"}, {"phrase": "ph:pharmacy.deixa-o-tempo-passar", "next": "concede", "move": "concede"}, {"phrase": "ph:pharmacy.uma-carta-para-ela", "next": "compromise", "move": "compromise"}], "wrong": {"es": "Um chá para a floresta? Ela não bebe chá!", "ru": "Чай для леса? Лес чай не пьёт!"}},
+        "object": {"kind": "say", "es": "Hoje mesmo? Você tem razão. Quanto mais eu espero, pior fica.", "ru": "Сегодня же? Ты прав. Чем дольше жду, тем хуже.", "next": "dose", "fem": {"ru": "Сегодня же? Ты права. Чем дольше жду, тем хуже."}},
+        "concede": {"kind": "say", "es": "Deixar o tempo passar… É, talvez ela precise de uns dias.", "ru": "Дать времени пройти… Да, может, ей нужно несколько дней.", "next": "dose"},
+        "compromise": {"kind": "say", "es": "Uma carta. Com calma, sem gritos. Escrevo ainda hoje, e você leva para ela.", "ru": "Письмо. Спокойно, без крика. Напишу сегодня же, а ты ей отнесёшь.", "next": "dose"},
+        "dose": {"kind": "say", "es": "Agora o meu remédio. Você me ajuda a ler a bula? Os meus óculos ficaram em casa.", "ru": "А теперь моё лекарство. Поможешь прочитать инструкцию? Очки остались дома.", "next": "doseq"},
+        "doseq": {"kind": "answer", "task": "Спросите, какая дозировка.", "branches": [{"phrase": "ph:pharmacy.qual-e-a-dosagem", "next": "dosesay"}], "wrong": {"es": "Qual é a cor? Branca, mas isso não importa!", "ru": "Какого цвета? Белого, но это не важно!"}},
+        "dosesay": {"kind": "say", "es": "Um comprimido, só um. Obrigada. Tem efeito colateral?", "ru": "Одна таблетка, только одна. Спасибо. Есть побочные действия?", "next": "side"},
+        "side": {"kind": "answer", "task": "Спросите, есть ли побочные действия.", "branches": [{"phrase": "ph:pharmacy.tem-efeito-colateral", "next": "end"}], "wrong": {"es": "Tem sabor de manga? Quem me dera!", "ru": "Со вкусом манго? Если бы!"}},
+        "end": {"kind": "say", "es": "Um pouco de sono. Perfeito, assim eu durmo. E toma, isso é para você: um fragmento do mapa que uma cliente trocou por chá de boldo.", "ru": "Немного сонливости. Отлично, хоть посплю. И держи, это тебе: обрывок карты, который одна покупательница обменяла на чай с больдо."}
+      }
     }
   ]
 }

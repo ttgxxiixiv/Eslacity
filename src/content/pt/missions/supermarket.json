@@ -64,6 +64,29 @@
         "refund": {"kind": "answer", "task": "Попросите вернуть деньги.", "branches": [{"phrase": "ph:supermarket.quero-o-reembolso", "next": "end"}], "wrong": {"es": "Quer mais areia? Já tenho areia demais!", "ru": "Хочешь ещё песка? У меня и так слишком много!"}},
         "end": {"kind": "say", "es": "Claro, aqui está o seu dinheiro, de verdade. E leva também esse fragmento do mapa: estava no fundo da caixa, embaixo da areia.", "ru": "Конечно, вот твои деньги, настоящие. И возьми ещё этот обрывок карты: он лежал на дне кассы, под песком."}
       }
+    },
+    {
+      "id": "ms:supermarket.4",
+      "chapter": 4,
+      "npc": "wellington",
+      "scene": "sc:supermarket.4",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Olha essa confusão! Todo mundo quer levar dez pacotes de vela.", "ru": "Смотри, какая неразбериха! Каждый хочет унести по десять пачек свечей.", "next": "empty"},
+        "empty": {"kind": "answer", "task": "Спросите, почему полка пустая.", "branches": [{"phrase": "ph:supermarket.falta-na-prateleira", "next": "emptysay"}], "wrong": {"es": "Por que a floresta está cheia? Isso eu não sei.", "ru": "Почему лес полон? Этого я не знаю."}},
+        "emptysay": {"kind": "say", "es": "Medo. O pessoal acha que amanhã não vai ter nada. E a Dona Lurdes ficou sem vela.", "ru": "Страх. Люди думают, что завтра ничего не будет. А Дона Лурдес осталась без свечей.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:supermarket.limitar-por-cliente", "next": "object", "move": "object"}, {"phrase": "ph:supermarket.cada-um-compra", "next": "concede", "move": "concede"}, {"phrase": "ph:supermarket.dois-por-pessoa", "next": "compromise", "move": "compromise"}], "wrong": {"es": "Vender a floresta? Ela não é minha!", "ru": "Продать лес? Он не мой!"}},
+        "object": {"kind": "say", "es": "Ninguém leva tudo? É, você tem razão. Se não, quem chega tarde fica sem nada.", "ru": "Ограничить? Да, ты прав. Иначе кто придёт поздно, останется ни с чем.", "next": "receipt", "fem": {"ru": "Ограничить? Да, ты права. Иначе кто придёт поздно, останется ни с чем."}},
+        "concede": {"kind": "say", "es": "Cada um compra o que quiser… Tá bom, mas eu guardo um pacote para a Dona Lurdes.", "ru": "Пусть каждый покупает сколько хочет… Ладно, но одну пачку я оставлю Доне Лурдес.", "next": "receipt"},
+        "compromise": {"kind": "say", "es": "Dois por pessoa. É justo, e ninguém briga na fila.", "ru": "По две в одни руки. Справедливо, и в очереди никто не поссорится.", "next": "receipt"},
+        "receipt": {"kind": "say", "es": "Pronto. Agora o caixa. Você também vai levar?", "ru": "Готово. Теперь касса. Ты тоже берёшь?", "next": "bill"},
+        "bill": {"kind": "answer", "task": "Попросите чек.", "branches": [{"phrase": "ph:supermarket.a-nota-fiscal", "next": "billsay"}], "wrong": {"es": "A nota do vento? O vento não compra!", "ru": "Чек для ветра? Ветер не покупает!"}},
+        "billsay": {"kind": "say", "es": "Aqui está. E sabe de onde vem esse medo? Alguém espalhou que a fábrica de vela fechou.", "ru": "Вот. А знаешь, откуда этот страх? Кто-то пустил слух, что свечная фабрика закрылась.", "next": "label"},
+        "label": {"kind": "answer", "task": "Спросите, можно ли прочитать этикетку.", "branches": [{"phrase": "ph:supermarket.ler-o-rotulo", "next": "labelsay"}], "wrong": {"es": "Ler a vela? A vela não fala!", "ru": "Читать свечу? Свеча не разговаривает!"}},
+        "labelsay": {"kind": "say", "es": "Lê: «Fabricado este mês». Então a fábrica está aberta! O boato era falso.", "ru": "Читай: «Изготовлено в этом месяце». Значит, фабрика работает! Слух был ложный.", "next": "offer"},
+        "offer": {"kind": "answer", "task": "Скажите, что воспользуетесь предложением.", "branches": [{"phrase": "ph:supermarket.aproveitar-a-oferta", "next": "end"}], "wrong": {"es": "Vai levar tudo? Não, dois por pessoa!", "ru": "Заберёшь всё? Нет, по две в руки!"}},
+        "end": {"kind": "say", "es": "Aproveita. E leva isso também: a fábrica mandou um fragmento do mapa na caixa de velas. Diz «floresta» atrás.", "ru": "Пользуйся. И возьми ещё вот это: фабрика вложила обрывок карты в коробку со свечами. На обороте написано «лес»."}
+      }
     }
   ]
 }

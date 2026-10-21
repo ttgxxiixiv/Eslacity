@@ -75,6 +75,52 @@
         {"q": "Когда он собирался купить город?", "options": ["В ночь полнолуния", "Завтра", "Через год"], "answer": 0}
       ],
       "gloss": {"investir": "вложить деньги", "oásis": "оазис", "notas": "купюры", "toquei": "потрогал (tocar)", "viraram": "превратились (virar)", "golpe": "мошенничество, афера", "estranha": "странная", "cheia": "полная"}
+    },
+    {
+      "id": "sc:bank.4",
+      "chapter": 4,
+      "npc": "ricardo",
+      "lines": [
+        {"who": "npc", "es": "Bom dia. Infelizmente, a fila hoje está enorme.", "ru": "Доброе утро. К сожалению, очередь сегодня огромная."},
+        {"who": "hero", "es": "O que aconteceu?", "ru": "Что случилось?"},
+        {"who": "npc", "es": "Ontem à noite a floresta falou com a minha voz: «No banco não tem dinheiro». E agora todos querem sacar a poupança.", "ru": "Вчера ночью лес сказал моим голосом: «В банке нет денег». И теперь все хотят снять сбережения."},
+        {"who": "hero", "es": "E é verdade?", "ru": "А это правда?"},
+        {"who": "npc", "es": "Claro que não! Mas aconteceu uma coisa estranha. Ontem um senhor de idade trocou moedas muito antigas.", "ru": "Конечно, нет! Но случилось кое-что странное. Вчера пожилой господин обменял очень старые монеты."},
+        {"who": "hero", "es": "Antigas? Quanto?", "ru": "Старые? Насколько?"},
+        {"who": "npc", "es": "De cem anos atrás. Como as do guarda da torre.", "ru": "Столетней давности. Как у стража башни."},
+        {"who": "hero", "es": "E quem era esse senhor?", "ru": "А кто был этот господин?"},
+        {"who": "npc", "es": "Isso eu não posso dizer: é confidencial. Digo apenas que ele tinha cheiro de fumo de cachimbo.", "ru": "Этого сказать не могу: это конфиденциально. Скажу только, что от него пахло трубочным табаком."}
+      ],
+      "questions": [
+        {"q": "Что сказал лес голосом Сеньора Рикардо?", "options": ["«В банке нет денег»", "«Банк закрыт»", "«Проценты выросли»"], "answer": 0},
+        {"q": "Что делают люди?", "options": ["Хотят снять сбережения", "Берут кредиты", "Открывают счета"], "answer": 0},
+        {"q": "Что обменял пожилой господин?", "options": ["Столетние монеты", "Доллары", "Старые карты"], "answer": 0},
+        {"q": "Чем от него пахло?", "options": ["Трубочным табаком", "Морем", "Цветами"], "answer": 0}
+      ],
+      "gloss": {"infelizmente": "к сожалению", "fila": "очередь", "sacar": "снять (деньги)", "poupança": "сбережения", "aconteceu": "случилось (acontecer)", "estranha": "странная", "idade": "возраст (de idade — пожилой)", "trocou": "обменял (trocar)", "moedas": "монеты", "antigas": "старинные", "atrás": "назад", "confidencial": "конфиденциальный", "apenas": "только", "fumo": "табак", "cachimbo": "трубка"}
+    },
+    {
+      "id": "wh:bank.4",
+      "chapter": 4,
+      "mode": "overhear",
+      "npc": "ricardo",
+      "lines": [
+        {"who": "npc", "es": "Dona Helena, a senhora pediu um empréstimo para reformar a pousada?", "ru": "Дона Элена, вы просили кредит на ремонт пусады?"},
+        {"who": "helena", "es": "Pedi, Seu Ricardo. O telhado está velho, e a temporada começa em dezembro.", "ru": "Просила, Сеу Рикардо. Крыша старая, а сезон начинается в декабре."},
+        {"who": "npc", "es": "Entendo. Mas a pousada já tem uma dívida antiga. Os juros vão ficar altos.", "ru": "Понимаю. Но у пусады уже есть старый долг. Проценты будут высокими."},
+        {"who": "helena", "es": "A dívida é do meu pai. Eu sempre paguei em dia.", "ru": "Долг — моего отца. Я всегда платила вовремя."},
+        {"who": "npc", "es": "Eu sei, e isso conta muito. Mas o sistema olha o nome da pousada, não o seu.", "ru": "Знаю, и это много значит. Но система смотрит на название пусады, а не на ваше имя."},
+        {"who": "helena", "es": "Então o sistema está errado. Trinta anos de trabalho não valem nada?", "ru": "Значит, система ошибается. Тридцать лет работы ничего не стоят?"},
+        {"who": "npc", "es": "Valem. Por isso vou falar com a diretoria pessoalmente. Não prometo, mas vou tentar.", "ru": "Стоят. Поэтому я лично поговорю с правлением. Не обещаю, но попробую."},
+        {"who": "helena", "es": "Obrigada. Se der certo, o primeiro café colonial da temporada é do senhor.", "ru": "Спасибо. Если получится, первый большой завтрак сезона — ваш."}
+      ],
+      "questions": [
+        {"q": "Зачем Доне Элене кредит?", "kind": "stance", "options": ["На ремонт крыши пусады", "На покупку машины", "На поездку"], "answer": 0},
+        {"q": "Что мешает выдать кредит?", "kind": "stance", "options": ["Старый долг пусады", "Её возраст", "Нет документов"], "answer": 0},
+        {"q": "Почему Дона Элена считает это несправедливым?", "kind": "stance", "options": ["Долг — отцовский, а она всегда платила вовремя", "Проценты везде высокие", "Банк закрывается"], "answer": 0},
+        {"q": "Что решает Сеньор Рикардо?", "kind": "stance", "options": ["Лично поговорить с правлением, не обещая результата", "Сразу выдать кредит", "Отказать"], "answer": 0}
+      ],
+      "gloss": {"dezembro": "декабрь", "empréstimo": "кредит", "reformar": "отремонтировать", "pousada": "пусада, гостевой дом", "telhado": "крыша", "temporada": "сезон", "dívida": "долг", "juros": "проценты", "paguei": "платила (pagar)", "sistema": "система", "valem": "стоят (valer)", "diretoria": "правление", "pessoalmente": "лично", "prometo": "обещаю (prometer)", "colonial": "домашний, деревенский", "Helena": "Элена", "Ricardo": "Рикардо"}
     }
   ]
 }

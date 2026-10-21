@@ -77,6 +77,50 @@
         {"q": "Какое лекарство назвала доктор?", "options": ["Таблетки", "Вернуться домой", "Отдых у моря"], "answer": 1}
       ],
       "gloss": {"Davi": "Дави", "doente": "больной", "achava": "думал, считал (achar)", "dormia": "спал (dormir)", "ouvia": "слышал (ouvir)", "vozes": "голоса", "doença": "болезнь", "grave": "тяжёлый", "diagnóstico": "диагноз", "saudade": "тоска по чему-то любимому и далёкому", "árvores": "деревья", "esperam": "ждут (esperar)", "chamado": "зов", "cura": "излечение", "chorou": "заплакал (chorar)", "alegria": "радость", "floresta": "лес", "escutar": "слушать"}
+    },
+    {
+      "id": "sc:hospital.4",
+      "chapter": 4,
+      "npc": "fernanda",
+      "lines": [
+        {"who": "npc", "es": "Ontem à noite trouxeram o Severino. Ele desmaiou de frio na praia.", "ru": "Вчера ночью привезли Северину. Он потерял сознание от холода на пляже."},
+        {"who": "hero", "es": "Ele está bem?", "ru": "Он в порядке?"},
+        {"who": "npc", "es": "O coração está bem, a pressão também. Mas ele não come e não dorme.", "ru": "Сердце в порядке, давление тоже. Но он не ест и не спит."},
+        {"who": "hero", "es": "O que ele tem?", "ru": "Что с ним?"},
+        {"who": "npc", "es": "O mesmo que o Davi tinha: medo. E vergonha. Ele sabe que a cidade toda já sabe a verdade.", "ru": "То же, что было у Дави: страх. И стыд. Он знает, что весь город уже знает правду."},
+        {"who": "hero", "es": "Posso visitar?", "ru": "Можно его навестить?"},
+        {"who": "npc", "es": "Ele perguntou por você. Diz que quer te falar uma coisa na cara.", "ru": "Он спрашивал о тебе. Говорит, хочет сказать тебе кое-что в лицо."}
+      ],
+      "questions": [
+        {"q": "Почему Северину в больнице?", "options": ["Потерял сознание от холода на пляже", "Упал с лестницы", "Отравился"], "answer": 0},
+        {"q": "Что с его сердцем?", "options": ["Всё в порядке", "Инфаркт", "Нужна операция"], "answer": 0},
+        {"q": "Что его мучает, по словам доктора?", "options": ["Страх и стыд", "Голод", "Боль в ноге"], "answer": 0},
+        {"q": "Чего хочет Северину?", "options": ["Сказать герою кое-что в лицо", "Уехать", "Чтобы его не навещали"], "answer": 0}
+      ],
+      "gloss": {"trouxeram": "привезли (trazer)", "desmaiou": "потерял сознание (desmaiar)", "pressão": "давление", "vergonha": "стыд", "perguntou": "спрашивал (perguntar)", "cara": "лицо", "Severino": "Северину", "Davi": "Дави", "tinha": "имел (ter)"}
+    },
+    {
+      "id": "wh:hospital.4",
+      "chapter": 4,
+      "mode": "overhear",
+      "npc": "fernanda",
+      "lines": [
+        {"who": "npc", "es": "Delegado, os seus policiais estacionaram de novo na vaga da ambulância.", "ru": "Делегаду, ваши полицейские опять встали на место скорой."},
+        {"who": "moreira", "es": "Foi por dois minutos, doutora. Estavam trazendo um ferido.", "ru": "Это было на две минуты, доктор. Они везли раненого."},
+        {"who": "npc", "es": "Ontem trouxeram um ferido. Hoje vieram tomar café na cantina.", "ru": "Вчера везли раненого. А сегодня пришли пить кофе в столовой."},
+        {"who": "moreira", "es": "Policial também é gente. Trabalham doze horas sem parar.", "ru": "Полицейские тоже люди. Работают по двенадцать часов без перерыва."},
+        {"who": "npc", "es": "Eu sei, eu também. Mas, se a ambulância não entra, alguém pode morrer.", "ru": "Знаю, я тоже. Но если скорая не проедет, кто-то может умереть."},
+        {"who": "moreira", "es": "A senhora tem razão. Vou dar uma ordem: vaga da ambulância é sagrada.", "ru": "Вы правы. Отдам приказ: место скорой — святое."},
+        {"who": "npc", "es": "Obrigada. E o café da cantina é bom, eles podem vir. Só estacionem na rua.", "ru": "Спасибо. А кофе в столовой хороший, пусть приходят. Только паркуются на улице."},
+        {"who": "moreira", "es": "Combinado. E se sobrar um cafezinho para o delegado, melhor ainda.", "ru": "Договорились. А если и делегаду достанется чашечка кофе, ещё лучше."}
+      ],
+      "questions": [
+        {"q": "Чем недовольна доктор Фернанда?", "kind": "stance", "options": ["Полицейские ставят машину на место скорой", "Полицейские шумят", "Полиция не приехала"], "answer": 0},
+        {"q": "Что она подразумевает, говоря о кофе в столовой?", "kind": "stance", "options": ["Что сегодня они встали там вовсе не из-за раненого", "Что кофе плохой", "Что столовая закрыта"], "answer": 0},
+        {"q": "Как делегаду сначала защищает своих людей?", "kind": "stance", "options": ["Они тоже люди и работают по двенадцать часов", "Они ни при чём", "Это была ошибка доктора"], "answer": 0},
+        {"q": "Чем всё заканчивается?", "kind": "stance", "options": ["Он запрещает занимать место скорой, а кофе пить можно", "Полицейским запрещают приходить", "Они ссорятся"], "answer": 0}
+      ],
+      "gloss": {"policiais": "полицейские", "estacionaram": "поставили машину (estacionar)", "vaga": "место (парковочное)", "ambulância": "скорая", "trazendo": "везя (trazer)", "ferido": "раненый", "cantina": "столовая", "gente": "люди", "sagrada": "святая", "estacionem": "паркуются (estacionar)", "sobrar": "останется", "delegado": "делегаду, начальник полиции", "doutora": "доктор (женщина)"}
     }
   ]
 }

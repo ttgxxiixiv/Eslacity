@@ -64,6 +64,29 @@
         "book": {"kind": "answer", "task": "Спросите, можно ли взять книгу.", "branches": [{"phrase": "ph:school.emprestar-um-livro", "next": "end"}], "wrong": {"es": "Pode levar o quadro? Não, esse fica na escola!", "ru": "Забрать доску? Нет, она остаётся в школе!"}},
         "end": {"kind": "say", "es": "Pode. Toma esse, de frases com «se». E dentro do livro tem um fragmento do mapa: estava no caderno dele. Esse é para você.", "ru": "Можно. Держи эту, про фразы с «если». А внутри книги — обрывок карты: он был в его тетради. Это тебе."}
       }
+    },
+    {
+      "id": "ms:school.4",
+      "chapter": 4,
+      "npc": "marcia",
+      "scene": "sc:school.4",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Me ajuda a preparar a aula de amanhã? Os alunos ainda estão magoados.", "ru": "Поможешь подготовить урок на завтра? Ученики всё ещё обижены.", "next": "x0"},
+        "x0": {"kind": "answer", "task": "Скажите, что у вас вопрос.", "branches": [{"phrase": "ph:school.tenho-uma-pergunta", "next": "x0say"}], "wrong": {"es": "Tenho uma prova? Não, hoje não!", "ru": "У меня контрольная? Нет, сегодня нет!"}},
+        "x0say": {"kind": "say", "es": "Depois. Primeiro me ajuda a pensar: como falar com eles?", "ru": "Потом. Сначала помоги мне подумать: как с ними поговорить?", "next": "reason"},
+        "reason": {"kind": "answer", "task": "Скажите, что ученики её любят.", "branches": [{"phrase": "ph:school.eles-gostam-de-voce", "next": "reasonsay"}], "wrong": {"es": "Eles odeiam a escola? Hoje, talvez!", "ru": "Они ненавидят школу? Сегодня — может быть!"}},
+        "reasonsay": {"kind": "say", "es": "Obrigada. Mas como eles vão acreditar em mim, se ouviram a minha voz?", "ru": "Спасибо. Но как им мне поверить, если они слышали мой голос?", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:school.explique-para-eles", "next": "object", "move": "object"}, {"phrase": "ph:school.espere-eles-virem", "next": "concede", "move": "concede"}, {"phrase": "ph:school.um-recado-no-quadro", "next": "compromise", "move": "compromise"}], "wrong": {"es": "Dar aula para a floresta? Ela não tem cadeira!", "ru": "Вести урок для леса? У него нет парты!"}},
+        "object": {"kind": "say", "es": "Explicar na aula… É, olho no olho. Eles merecem a verdade.", "ru": "Объяснить на уроке… Да, глаза в глаза. Они заслуживают правды.", "next": "task"},
+        "concede": {"kind": "say", "es": "Esperar… Tá bom. Mas se até sexta ninguém vier, eu falo.", "ru": "Ждать… Ладно. Но если до пятницы никто не придёт, я сама скажу.", "next": "task"},
+        "compromise": {"kind": "say", "es": "Um recado no quadro: «Eu nunca disse isso. Eu gosto de vocês». Simples. Gostei.", "ru": "Записка на доске: «Я никогда этого не говорила. Я вас люблю». Просто. Мне нравится.", "next": "task"},
+        "task": {"kind": "say", "es": "Agora a tarefa de amanhã: «O que é um boato?». Eles vão ter que explicar.", "ru": "Теперь задание на завтра: «Что такое слух?». Им придётся объяснить.", "next": "justify"},
+        "justify": {"kind": "answer", "task": "Спросите, нужно ли обосновать ответ.", "branches": [{"phrase": "ph:school.justifique-a-resposta", "next": "justifysay"}], "wrong": {"es": "Precisa desenhar? Não, precisa pensar!", "ru": "Нужно нарисовать? Нет, нужно подумать!"}},
+        "justifysay": {"kind": "say", "es": "Precisa, sim. Toda resposta precisa de um porquê. E essa palavra aqui no texto, «mexerico»?", "ru": "Нужно. У каждого ответа должно быть «почему». А вот это слово в тексте, «mexerico»?", "next": "word"},
+        "word": {"kind": "answer", "task": "Спросите, что значит это слово.", "branches": [{"phrase": "ph:school.o-que-significa", "next": "end"}], "wrong": {"es": "Como se escreve? Já está escrito!", "ru": "Как пишется? Уже написано!"}},
+        "end": {"kind": "say", "es": "Mexerico é fofoca, conversa pelas costas. E olha o que o pássaro deixou na janela hoje: um fragmento do mapa, com cheiro de cachimbo. Leva.", "ru": "Mexerico — это сплетня, разговоры за спиной. И посмотри, что птица сегодня оставила на окне: обрывок карты, пахнет трубкой. Забирай."}
+      }
     }
   ]
 }

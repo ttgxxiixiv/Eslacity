@@ -62,6 +62,29 @@
         "roda": {"kind": "answer", "task": "Спросите, можно ли войти в круг капоэйры.", "branches": [{"phrase": "ph:gym.roda-de-capoeira", "next": "end"}], "wrong": {"es": "Pode dormir na roda? Ninguém dorme na roda!", "ru": "Можно поспать в кругу? В кругу никто не спит!"}},
         "end": {"kind": "say", "es": "Hoje só para olhar, com esse joelho. O mestre pediu para te dar isso: o homem do camelo perdeu nas dunas. Um fragmento do mapa.", "ru": "Сегодня только смотреть, с таким коленом. Мастер просил передать тебе это: человек с верблюдом потерял на дюнах. Обрывок карты."}
       }
+    },
+    {
+      "id": "ms:gym.4",
+      "chapter": 4,
+      "npc": "tati",
+      "scene": "sc:gym.4",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Antes da floresta, treino leve. Mas primeiro o aquecimento.", "ru": "Перед лесом — лёгкая тренировка. Но сначала разминка.", "next": "x0"},
+        "x0": {"kind": "answer", "task": "Скажите, что сегодня вы полны сил.", "branches": [{"phrase": "ph:gym.estou-cheio-de-energia", "next": "x0say"}], "wrong": {"es": "Está cansado? Mas a gente nem começou!", "ru": "Устал? Да мы ещё не начали!", "fem": {"es": "Está cansada? Mas a gente nem começou!", "ru": "Устала? Да мы ещё не начали!"}}},
+        "x0say": {"kind": "say", "es": "Ótimo! Então hoje a gente treina sério.", "ru": "Отлично! Тогда сегодня тренируемся всерьёз.", "next": "warm"},
+        "warm": {"kind": "answer", "task": "Скажите, что сначала сделаете растяжку.", "branches": [{"phrase": "ph:gym.vamos-alongar", "next": "warmsay"}], "wrong": {"es": "Vamos correr dez quilômetros direto? Calma!", "ru": "Сразу бежим десять километров? Спокойно!"}},
+        "warmsay": {"kind": "say", "es": "Isso. E enquanto alonga, me ajuda com um problema: o grupo da praia e o meu grupo não se falam.", "ru": "Правильно. А пока тянешься, помоги мне с проблемой: группа с пляжа и моя группа не разговаривают.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:gym.a-roda-e-para-todos", "next": "object", "move": "object"}, {"phrase": "ph:gym.melhor-separar", "next": "concede", "move": "concede"}, {"phrase": "ph:gym.uma-roda-juntos", "next": "compromise", "move": "compromise"}], "wrong": {"es": "Treinar a floresta? Ela não sai do lugar!", "ru": "Тренировать лес? Он с места не двигается!"}},
+        "object": {"kind": "say", "es": "A roda é para todos… É o que o meu mestre dizia. Eu esqueci.", "ru": "Круг — для всех… Так говорил мой мастер. А я забыла.", "next": "hurt"},
+        "concede": {"kind": "say", "es": "Separar, por enquanto. Cada um no seu canto, sem provocação.", "ru": "Пока разделить. Каждый в своём углу, без провокаций.", "next": "hurt"},
+        "compromise": {"kind": "say", "es": "Uma roda juntos no sábado, na praia. Com berimbau dos dois lados. Gostei!", "ru": "Общий круг в субботу, на пляже. С беримбау с обеих сторон. Мне нравится!", "next": "hurt"},
+        "hurt": {"kind": "say", "es": "Ei, cuidado! Você caiu feio. Está doendo?", "ru": "Эй, осторожно! Ты неудачно упал. Болит?", "next": "hurtq", "fem": {"ru": "Эй, осторожно! Ты неудачно упала. Болит?"}},
+        "hurtq": {"kind": "answer", "task": "Скажите, что, кажется, это растяжение.", "branches": [{"phrase": "ph:gym.acho-que-foi-entorse", "next": "hurtsay"}], "wrong": {"es": "Foi um golpe de capoeira? Não, foi o chão!", "ru": "Это был приём капоэйры? Нет, это был пол!"}},
+        "hurtsay": {"kind": "say", "es": "Deixa eu ver… Não é nada grave. Mas hoje você precisa parar.", "ru": "Дай посмотрю… Ничего серьёзного. Но сегодня тебе надо остановиться.", "next": "rest"},
+        "rest": {"kind": "answer", "task": "Скажите, что вам нужен отдых.", "branches": [{"phrase": "ph:gym.preciso-de-descanso", "next": "end"}], "wrong": {"es": "Mais uma corrida? Com esse pé, não!", "ru": "Ещё пробежку? С такой ногой — нет!"}},
+        "end": {"kind": "say", "es": "Descanso e gelo. E olha o que o senhor da bengala deixou no jardim hoje cedo: um fragmento do mapa. Guarda para a floresta.", "ru": "Отдых и лёд. И смотри, что господин с тростью оставил сегодня утром в саду: обрывок карты. Сохрани для леса."}
+      }
     }
   ]
 }

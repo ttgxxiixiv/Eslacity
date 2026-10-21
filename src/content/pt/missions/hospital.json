@@ -65,6 +65,29 @@
         "discharge": {"kind": "answer", "task": "Спросите, когда вас выпишут.", "branches": [{"phrase": "ph:hospital.quando-tenho-alta", "next": "end"}], "wrong": {"es": "Quando eu tenho férias? Isso é com o seu chefe!", "ru": "Когда у меня отпуск? Это к начальнику!"}},
         "end": {"kind": "say", "es": "Amanhã cedo. E o Caio pediu para te dar isso: o fragmento que o Davi devolveu. Vai com ele no deserto, por nós dois.", "ru": "Завтра утром. И Каю просил передать тебе это: обрывок, который вернул Дави. Возьми его в пустыню, за нас обоих."}
       }
+    },
+    {
+      "id": "ms:hospital.4",
+      "chapter": 4,
+      "npc": "fernanda",
+      "scene": "sc:hospital.4",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "O Severino está acordado. Você quer subir?", "ru": "Северину проснулся. Хочешь подняться?", "next": "x0"},
+        "x0": {"kind": "answer", "task": "Скажите, что волнуетесь за него.", "branches": [{"phrase": "ph:hospital.estou-preocupado", "next": "x0say"}], "wrong": {"es": "Está com fome? A cantina fica lá embaixo.", "ru": "Хочешь есть? Столовая внизу."}},
+        "x0say": {"kind": "say", "es": "Eu também estou. Mas ele está melhor.", "ru": "Я тоже. Но ему лучше.", "next": "visit"},
+        "visit": {"kind": "answer", "task": "Спросите, можно ли навестить пациента.", "branches": [{"phrase": "ph:hospital.posso-visitar", "next": "visitsay"}], "wrong": {"es": "Posso levar o corvo? Bicho não entra no hospital!", "ru": "Можно взять ворона? Животным в больницу нельзя!"}},
+        "visitsay": {"kind": "say", "es": "Pode, dez minutos. Ele quer ir à reunião de hoje à noite. Mas eu não sei se ele aguenta.", "ru": "Можно, десять минут. Он хочет пойти на собрание сегодня вечером. Но я не знаю, выдержит ли он.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:hospital.ele-precisa-falar", "next": "object", "move": "object"}, {"phrase": "ph:hospital.primeiro-a-saude", "next": "concede", "move": "concede"}, {"phrase": "ph:hospital.eu-vou-com-ele", "next": "compromise", "move": "compromise"}], "wrong": {"es": "Operar a floresta? Não sou cirurgiã de árvore!", "ru": "Оперировать лес? Я не хирург для деревьев!"}},
+        "object": {"kind": "say", "es": "Falar com a cidade… Talvez seja o melhor remédio para ele. Dou alta às seis.", "ru": "Поговорить с городом… Может, это для него лучшее лекарство. Выпишу в шесть.", "next": "prog"},
+        "concede": {"kind": "say", "es": "Obrigada. A saúde primeiro. Eu mesma explico para a Patrícia.", "ru": "Спасибо. Сначала здоровье. Я сама объясню Патрисии.", "next": "prog"},
+        "compromise": {"kind": "say", "es": "Com você do lado, e com uma cadeira de rodas, eu deixo. Mas só uma hora.", "ru": "С тобой рядом и в инвалидном кресле — отпущу. Но только на час.", "next": "prog"},
+        "prog": {"kind": "say", "es": "Ele perguntou se vai ficar bom. O que eu digo?", "ru": "Он спросил, поправится ли. Что мне ему сказать?", "next": "progq"},
+        "progq": {"kind": "answer", "task": "Спросите, какой прогноз.", "branches": [{"phrase": "ph:hospital.qual-e-o-prognostico", "next": "progsay"}], "wrong": {"es": "Qual é o diagnóstico da floresta? Barulho demais!", "ru": "Какой диагноз у леса? Слишком много шума!"}},
+        "progsay": {"kind": "say", "es": "Bom. O corpo está forte. É o coração que precisa de paz. E o Caio, como está o pé dele?", "ru": "Хороший. Тело крепкое. Мир нужен сердцу. А Каю, как его нога?", "next": "exam"},
+        "exam": {"kind": "answer", "task": "Спросите, готов ли результат анализа.", "branches": [{"phrase": "ph:hospital.o-resultado-do-exame", "next": "end"}], "wrong": {"es": "Já saiu o trem? Isso é na estação!", "ru": "Поезд уже ушёл? Это на вокзале!"}},
+        "end": {"kind": "say", "es": "Saiu: o pé do Caio está curado. Ele vai com você até a orla. E o Severino pediu para te dar isso: um fragmento do mapa, o último que ele guardava na torre.", "ru": "Готов: нога Каю зажила. Он пойдёт с тобой до опушки. А Северину просил передать тебе это: обрывок карты, последний, что он хранил в башне."}
+      }
     }
   ]
 }

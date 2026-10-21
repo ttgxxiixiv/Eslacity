@@ -75,6 +75,52 @@
         {"q": "Что советует стражница?", "options": ["Слушать деревья", "Не ходить в лес", "Идти ночью"], "answer": 0}
       ],
       "gloss": {"caso": "дело", "falsos": "поддельные", "encomenda": "посылка", "roubada": "украденная", "Davi": "Дави", "castigar": "наказать", "devolveu": "вернул (devolver)", "basta": "хватает (bastar)", "vale": "стоит (valer)", "multa": "штраф", "guardiã": "стражница", "deixou": "оставил (deixar)", "chegar": "дойдёшь (chegar)", "floresta": "лес", "escute": "слушай (escutar)", "árvores": "деревья", "mentem": "лгут (mentir)"}
+    },
+    {
+      "id": "sc:police.4",
+      "chapter": 4,
+      "npc": "moreira",
+      "lines": [
+        {"who": "npc", "es": "Ontem à noite eu fui à reunião de vizinhos. Nunca vi nada parecido.", "ru": "Вчера вечером я был на собрании соседей. Никогда такого не видел."},
+        {"who": "hero", "es": "O Severino foi?", "ru": "Северину пришёл?"},
+        {"who": "npc", "es": "Foi. Ficou de pé e disse para a cidade toda: «Eu ensinei mentira ao corvo porque tive medo. Me perdoem».", "ru": "Пришёл. Встал и сказал всему городу: «Я учил ворона лжи, потому что боялся. Простите меня»."},
+        {"who": "hero", "es": "E o que os vizinhos fizeram?", "ru": "А что сделали соседи?"},
+        {"who": "npc", "es": "Primeiro, silêncio. Depois a moça da loja de roupas abraçou ele. E o Seu Raimundo ofereceu fumo para o cachimbo dele.", "ru": "Сначала тишина. Потом девушка из магазина одежды его обняла. А Сеу Раймунду предложил ему табаку для трубки."},
+        {"who": "hero", "es": "E a floresta?", "ru": "А лес?"},
+        {"who": "npc", "es": "À meia-noite ela ficou calada. E uma voz falou, muito clara.", "ru": "В полночь он замолчал. И заговорил голос, очень отчётливый."},
+        {"who": "hero", "es": "O que ela disse?", "ru": "Что он сказал?"},
+        {"who": "npc", "es": "«Agora eu ouço a trilha. Que venha quem trouxe a paz». Acho que é o senhor.", "ru": "«Теперь я слышу тропу. Пусть придёт тот, кто принёс мир». Полагаю, это про вас.", "fem": {"es": "«Agora eu ouço a trilha. Que venha quem trouxe a paz». Acho que é a senhora."}}
+      ],
+      "questions": [
+        {"q": "Что сказал Северину на собрании?", "options": ["«Я учил ворона лжи, потому что боялся. Простите меня»", "«Я ни в чём не виноват»", "«Я уезжаю»"], "answer": 0},
+        {"q": "Что сделала девушка из магазина одежды?", "options": ["Обняла его", "Ушла", "Накричала на него"], "answer": 0},
+        {"q": "Что предложил Сеу Раймунду?", "options": ["Табаку для трубки", "Билет", "Работу"], "answer": 0},
+        {"q": "Что сказал голос из леса?", "options": ["«Теперь я слышу тропу. Пусть придёт тот, кто принёс мир»", "«Уходите»", "«Лес закрыт»"], "answer": 0}
+      ],
+      "gloss": {"reunião": "собрание", "parecido": "похожий", "pé": "нога (de pé — стоя)", "ensinei": "учил (ensinar)", "mentira": "ложь", "corvo": "ворон", "tive": "испытывал (ter)", "perdoem": "простите (perdoar)", "silêncio": "тишина", "moça": "девушка", "roupas": "одежда", "abraçou": "обняла (abraçar)", "ofereceu": "предложил (oferecer)", "fumo": "табак", "cachimbo": "трубка", "calada": "молчаливая", "clara": "отчётливая", "trouxe": "принёс (trazer)", "paz": "мир", "Raimundo": "Раймунду", "Severino": "Северину"}
+    },
+    {
+      "id": "wh:police.4",
+      "chapter": 4,
+      "mode": "overhear",
+      "npc": "moreira",
+      "lines": [
+        {"who": "npc", "es": "Raimundo, a sua festa de aniversário foi até as três da manhã. Recebi quatro queixas.", "ru": "Раймунду, твой день рождения продолжался до трёх ночи. Я получил четыре жалобы."},
+        {"who": "raimundo", "es": "Quatro? Só tem três casas na minha rua!", "ru": "Четыре? На моей улице всего три дома!"},
+        {"who": "npc", "es": "Uma veio da rua de trás. O seu samba atravessa paredes.", "ru": "Одна с соседней улицы. Твоя самба проходит сквозь стены."},
+        {"who": "raimundo", "es": "Sessenta anos, delegado. A gente faz sessenta anos uma vez só.", "ru": "Шестьдесят лет, делегаду. Шестьдесят исполняется только раз."},
+        {"who": "npc", "es": "E os vizinhos acordam às cinco para trabalhar todo dia.", "ru": "А соседи встают в пять на работу каждый день."},
+        {"who": "raimundo", "es": "Eu convidei todos! Quem veio dançou. Quem não veio reclamou.", "ru": "Я всех пригласил! Кто пришёл — танцевал. Кто не пришёл — жаловался."},
+        {"who": "npc", "es": "Não vou multar. Mas leve um bolo para cada um e peça desculpas.", "ru": "Штрафовать не буду. Но отнеси каждому пирог и извинись."},
+        {"who": "raimundo", "es": "Bolo da festa sobrou muito. Fechado, delegado.", "ru": "Праздничного пирога осталось много. Договорились, делегаду."}
+      ],
+      "questions": [
+        {"q": "На что жалуются соседи?", "kind": "stance", "options": ["На шумный день рождения до трёх ночи", "На дым от трубки", "На машину"], "answer": 0},
+        {"q": "Как Сеу Раймунду оправдывается?", "kind": "stance", "options": ["Шестьдесят лет бывает раз в жизни, он всех приглашал", "Музыка была тихая", "Это был не он"], "answer": 0},
+        {"q": "Что делегаду имеет в виду про соседей, встающих в пять?", "kind": "stance", "options": ["Что у них есть право выспаться", "Что они ленивые", "Что им надо было прийти"], "answer": 0},
+        {"q": "Чем заканчивается разговор?", "kind": "stance", "options": ["Без штрафа, но с пирогом и извинениями", "Большим штрафом", "Арестом"], "answer": 0}
+      ],
+      "gloss": {"trás": "зад (de trás — задний, соседний)", "festa": "праздник", "aniversário": "день рождения", "queixas": "жалобы", "atravessa": "проходит сквозь (atravessar)", "paredes": "стены", "delegado": "делегаду, начальник полиции", "sessenta": "шестьдесят", "acordam": "просыпаются (acordar)", "convidei": "пригласил (convidar)", "dançou": "танцевал (dançar)", "reclamou": "жаловался (reclamar)", "multar": "штрафовать", "bolo": "пирог", "sobrou": "осталось (sobrar)", "fechado": "договорились", "samba": "самба", "Raimundo": "Раймунду"}
     }
   ]
 }

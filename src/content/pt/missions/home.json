@@ -64,6 +64,29 @@
         "move": {"kind": "answer", "task": "Скажите, что поможете с переездом.", "branches": [{"phrase": "ph:home.eu-ajudo-na-mudanca", "next": "end"}], "wrong": {"es": "Vai morar aqui você? Não, é para o Severino!", "ru": "Ты сам будешь здесь жить? Нет, это для Северину!", "fem": {"ru": "Ты сама будешь здесь жить? Нет, это для Северину!"}}},
         "end": {"kind": "say", "es": "Que bom! Ele tem pouca coisa: uma mala velha e esse fragmento do mapa. Ele pediu para eu te dar.", "ru": "Как хорошо! У него мало вещей: старый чемодан и этот обрывок карты. Он просил передать его тебе."}
       }
+    },
+    {
+      "id": "ms:home.4",
+      "chapter": 4,
+      "npc": "lourdes",
+      "scene": "sc:home.4",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Olha o teto! Pinga água sem parar.", "ru": "Посмотри на потолок! Вода капает без остановки.", "next": "pipe"},
+        "pipe": {"kind": "answer", "task": "Скажите, что, кажется, где-то протечка.", "branches": [{"phrase": "ph:home.o-cano-estourou", "next": "pipesay"}], "wrong": {"es": "É chuva? Hoje não choveu nada!", "ru": "Это дождь? Сегодня не было дождя!"}},
+        "pipesay": {"kind": "say", "es": "Tem, sim. O cano estourou no apartamento de cima.", "ru": "Есть, да. Наверху, в квартире, лопнула труба.", "next": "plumber"},
+        "plumber": {"kind": "answer", "task": "Предложите вызвать сантехника.", "branches": [{"phrase": "ph:home.chamar-o-encanador", "next": "plumbersay"}], "wrong": {"es": "Chamar a floresta? Ela já fala demais!", "ru": "Позвать лес? Он и так много говорит!"}},
+        "plumbersay": {"kind": "say", "es": "Já chamei. Mas quem paga? O vizinho de cima diz que o cano é do prédio.", "ru": "Уже вызвала. А кто платит? Сосед сверху говорит, что труба общая.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:home.a-culpa-e-do-vizinho", "next": "object", "move": "object"}, {"phrase": "ph:home.a-gente-divide", "next": "concede", "move": "concede"}, {"phrase": "ph:home.falar-com-o-sindico", "next": "compromise", "move": "compromise"}], "wrong": {"es": "Pagar com folhas? O encanador não aceita!", "ru": "Заплатить листьями? Сантехник не возьмёт!"}},
+        "object": {"kind": "say", "es": "Também acho. Vou subir e falar com ele, mas com calma, sem gritar.", "ru": "Я тоже так думаю. Поднимусь и поговорю с ним, но спокойно, без крика.", "next": "contract"},
+        "concede": {"kind": "say", "es": "Dividir? Tá bom. Briga com vizinho custa mais caro que cano.", "ru": "Пополам? Ладно. Ссора с соседом дороже трубы.", "next": "contract"},
+        "compromise": {"kind": "say", "es": "Com o síndico, juntos. Ele sabe de quem é o cano. Boa ideia.", "ru": "С управдомом, вместе. Он знает, чья это труба. Хорошая мысль.", "next": "contract"},
+        "contract": {"kind": "say", "es": "O síndico pediu o meu contrato de aluguel, para ver quem paga.", "ru": "Управдом попросил мой договор аренды, чтобы понять, кто платит.", "next": "contractq"},
+        "contractq": {"kind": "answer", "task": "Попросите посмотреть договор аренды.", "branches": [{"phrase": "ph:home.o-contrato", "next": "contractsay"}], "wrong": {"es": "O contrato da floresta? Não existe!", "ru": "Договор с лесом? Такого нет!"}},
+        "contractsay": {"kind": "say", "es": "Toma. Está escrito: cano do prédio, conserto do prédio. Ninguém precisa brigar. Mas o meu quarto ficou molhado: vou mudar para a sala.", "ru": "Держи. Написано: труба общая, ремонт за счёт дома. Никому не надо ссориться. Но моя комната промокла: перееду в гостиную.", "next": "move"},
+        "move": {"kind": "answer", "task": "Скажите, что поможете с переездом.", "branches": [{"phrase": "ph:home.eu-ajudo-na-mudanca", "next": "end"}], "wrong": {"es": "Vai embora? Agora que a casa está molhada?", "ru": "Уходишь? Сейчас, когда дома всё мокрое?"}},
+        "end": {"kind": "say", "es": "Ajuda, sim: tem que tirar os móveis do lugar. E olha o que caiu do teto com a água: um fragmento do mapa, embrulhado em papel velho.", "ru": "Помоги, да: надо отодвинуть мебель. И посмотри, что упало с потолка вместе с водой: обрывок карты, завёрнутый в старую бумагу."}
+      }
     }
   ]
 }

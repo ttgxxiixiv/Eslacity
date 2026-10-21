@@ -75,6 +75,52 @@
         {"q": "Что он делал руками?", "options": ["Махал", "Закрывал уши", "Держал карту"], "answer": 1}
       ],
       "gloss": {"dunas": "дюны", "pernas": "ноги", "correndo": "бегущим (correr)", "corria": "бежал (correr)", "atleta": "спортсмен", "foge": "убегает (fugir)", "olhava": "смотрел (olhar)", "trás": "зад (para trás — назад)", "tapava": "закрывал (tapar)", "orelhas": "уши", "ouvisse": "слышал бы (ouvir)", "vozes": "голоса", "treinar": "тренироваться"}
+    },
+    {
+      "id": "sc:gym.4",
+      "chapter": 4,
+      "npc": "tati",
+      "lines": [
+        {"who": "npc", "es": "Bom dia! Hoje, correndo às seis da manhã, eu vi uma coisa muito estranha.", "ru": "Доброе утро! Сегодня на пробежке в шесть утра я увидела кое-что очень странное."},
+        {"who": "hero", "es": "O que você viu?", "ru": "Что ты видела?"},
+        {"who": "npc", "es": "Um senhor de idade no jardim atrás da academia. Ele falava com um corvo.", "ru": "Пожилого мужчину в саду за спортзалом. Он разговаривал с вороном."},
+        {"who": "hero", "es": "E o que ele dizia?", "ru": "И что он говорил?"},
+        {"who": "npc", "es": "Ensinava frases para ele, como um professor: «Repete comigo: a floresta é perigosa».", "ru": "Учил его фразам, как учитель: «Повторяй за мной: лес опасен»."},
+        {"who": "hero", "es": "Você viu quem era?", "ru": "Ты видела, кто это был?"},
+        {"who": "npc", "es": "Não. Ele estava de chapéu e andava devagar, com uma bengala de madeira muito velha.", "ru": "Нет. Он был в шляпе и шёл медленно, с тростью из очень старого дерева."},
+        {"who": "hero", "es": "Madeira velha?", "ru": "Старого дерева?"},
+        {"who": "npc", "es": "Muito velha e escura, como a madeira da torre antiga.", "ru": "Очень старого и тёмного, как дерево старой башни."}
+      ],
+      "questions": [
+        {"q": "Когда Тати видела мужчину?", "options": ["В шесть утра на пробежке", "Вечером", "В обед"], "answer": 0},
+        {"q": "С кем он разговаривал?", "options": ["С вороном", "С Каю", "С собакой"], "answer": 0},
+        {"q": "Чему он учил ворона?", "options": ["«Лес опасен»", "«Добрый день»", "«Иди домой»"], "answer": 0},
+        {"q": "Из чего его трость?", "options": ["Из очень старого тёмного дерева, как в башне", "Из металла", "Из бамбука"], "answer": 0}
+      ],
+      "gloss": {"correndo": "бегая (correr)", "idade": "возраст (de idade — пожилой)", "jardim": "сад", "academia": "спортзал", "corvo": "ворон", "dizia": "говорил (dizer)", "ensinava": "учил (ensinar)", "frases": "фразы", "repete": "повторяй (repetir)", "perigosa": "опасная", "chapéu": "шляпа", "andava": "шёл (andar)", "bengala": "трость", "madeira": "дерево (материал)", "escura": "тёмная"}
+    },
+    {
+      "id": "wh:gym.4",
+      "chapter": 4,
+      "mode": "overhear",
+      "npc": "tati",
+      "lines": [
+        {"who": "npc", "es": "Bruno, você viu o grupo novo de capoeira? Treina na praia de manhã cedo.", "ru": "Бруну, видел новую группу капоэйры? Тренируются на пляже рано утром."},
+        {"who": "bruno", "es": "Vi. São bons. O mestre deles é de Salvador.", "ru": "Видел. Они хорошие. Их мастер из Салвадора."},
+        {"who": "npc", "es": "Bons? Eles estão levando os meus alunos. Já perdi três este mês.", "ru": "Хорошие? Они уводят моих учеников. Я уже потеряла троих в этом месяце."},
+        {"who": "bruno", "es": "Ah, Tati. Na praia é de graça, aqui eles pagam. Normal, né?", "ru": "Ну, Тати. На пляже бесплатно, а здесь они платят. Нормально же?"},
+        {"who": "npc", "es": "Normal? Eu pago aluguel, luz, professor… E eles usam a praia de todos.", "ru": "Нормально? Я плачу аренду, свет, тренеру… А они пользуются общим пляжем."},
+        {"who": "bruno", "es": "A praia é de todos, exatamente. Inclusive dos seus alunos.", "ru": "Пляж общий, вот именно. В том числе для твоих учеников."},
+        {"who": "npc", "es": "Você está do lado de quem, afinal?", "ru": "Ты вообще на чьей стороне?"},
+        {"who": "bruno", "es": "Do lado da capoeira. Chama o mestre deles para uma roda aqui. Aposto que vocês se dão bem.", "ru": "На стороне капоэйры. Позови их мастера на круг сюда. Спорим, вы поладите."}
+      ],
+      "questions": [
+        {"q": "Почему Тати недовольна новой группой?", "kind": "stance", "options": ["Они уводят её учеников", "Они шумят", "Они плохо тренируются"], "answer": 0},
+        {"q": "Как Бруну объясняет уход учеников?", "kind": "stance", "options": ["На пляже бесплатно", "Мастер лучше", "В зале жарко"], "answer": 0},
+        {"q": "Что Тати имеет в виду: «ты вообще на чьей стороне»?", "kind": "stance", "options": ["Ей кажется, что Бруну защищает соперников", "Она спрашивает, где он живёт", "Она шутит про футбол"], "answer": 0},
+        {"q": "Что предлагает Бруну?", "kind": "stance", "options": ["Пригласить их мастера на общий круг", "Закрыть пляж", "Снизить цены"], "answer": 0}
+      ],
+      "gloss": {"ah": "ну", "grupo": "группа", "capoeira": "капоэйра", "treina": "тренируется (treinar)", "mestre": "мастер", "Salvador": "Салвадор", "levando": "уводя (levar)", "perdi": "потеряла (perder)", "graça": "даром (de graça — бесплатно)", "né": "не так ли", "aluguel": "аренда", "exatamente": "именно", "inclusive": "в том числе", "lado": "сторона", "roda": "круг", "aposto": "спорим (apostar)", "dão": "дают (dar-se bem — ладить)", "Bruno": "Бруну", "Tati": "Тати"}
     }
   ]
 }

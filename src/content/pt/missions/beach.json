@@ -62,6 +62,29 @@
         "walk": {"kind": "answer", "task": "Предложите прогуляться по набережной.", "branches": [{"phrase": "ph:beach.vamos-caminhar", "next": "end"}], "wrong": {"es": "Vamos nadar com a água-viva? Nunca!", "ru": "Поплаваем с медузой? Ни за что!"}},
         "end": {"kind": "say", "es": "Vamos. E olha o que o mar trouxe hoje, perto do rastro: um fragmento do mapa, molhado mas verdadeiro.", "ru": "Пойдём. И смотри, что море принесло сегодня, рядом со следом: обрывок карты, мокрый, но настоящий."}
       }
+    },
+    {
+      "id": "ms:beach.4",
+      "chapter": 4,
+      "npc": "bruno",
+      "scene": "sc:beach.4",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Calma, senta aqui. Eu preciso decidir o que faço com o que eu vi.", "ru": "Спокойно, садись. Мне надо решить, что делать с тем, что я видел.", "next": "x0"},
+        "x0": {"kind": "answer", "task": "Скажите, что море сегодня спокойное.", "branches": [{"phrase": "ph:beach.o-mar-esta-calmo", "next": "x0say"}], "wrong": {"es": "O mar está bravo? Olha, nem onda tem!", "ru": "Море бушует? Смотри, даже волн нет!"}},
+        "x0say": {"kind": "say", "es": "Calmo. Só eu que não estou.", "ru": "Спокойное. Только я — нет.", "next": "sure"},
+        "sure": {"kind": "answer", "task": "Спросите, уверен ли он.", "branches": [{"phrase": "ph:beach.voce-tem-certeza", "next": "suresay"}], "wrong": {"es": "Você tem sede? Toma água de coco!", "ru": "Хочешь пить? Выпей кокосовой воды!"}},
+        "suresay": {"kind": "say", "es": "Certeza absoluta. Era o Severino. E se eu contar, a cidade vai ficar furiosa com ele.", "ru": "Абсолютно. Это был Северину. И если я расскажу, город на него разозлится.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:beach.fala-com-ele-hoje", "next": "object", "move": "object"}, {"phrase": "ph:beach.deixa-ele-falar-primeiro", "next": "concede", "move": "concede"}, {"phrase": "ph:beach.leva-ele-ao-medico", "next": "compromise", "move": "compromise"}], "wrong": {"es": "Contar para o mar? O mar já sabe tudo!", "ru": "Рассказать морю? Море и так всё знает!"}},
+        "object": {"kind": "say", "es": "Hoje… É, antes que a fofoca chegue primeiro. Vou procurar ele na pedra.", "ru": "Сегодня… Да, пока сплетня не опередила. Пойду искать его на камнях.", "next": "current"},
+        "concede": {"kind": "say", "es": "Ele mesmo… Tem razão. A história é dele. Eu só fico perto, se ele precisar.", "ru": "Пусть сам… Ты прав. Это его история. Я просто буду рядом, если понадоблюсь.", "next": "current", "fem": {"ru": "Пусть сам… Ты права. Это его история. Я просто буду рядом, если понадоблюсь."}},
+        "compromise": {"kind": "say", "es": "Para a doutora primeiro. Ele estava gelado ontem. Depois a gente pensa no resto.", "ru": "Сначала к доктору. Вчера он был совсем замёрзший. Об остальном подумаем потом.", "next": "current"},
+        "current": {"kind": "say", "es": "Olha aquele menino ali, perto das pedras!", "ru": "Смотри на того мальчика, у камней!", "next": "currentq"},
+        "currentq": {"kind": "answer", "task": "Предупредите об отбойном течении.", "branches": [{"phrase": "ph:beach.cuidado-com-a-corrente", "next": "currentsay"}], "wrong": {"es": "Cuidado com o coco? Não, é a água!", "ru": "Осторожно, кокос? Нет, вода!"}},
+        "currentsay": {"kind": "say", "es": "Ei, menino, sai daí! … Ufa, ele saiu. Você tem bom olho. E o sol hoje?", "ru": "Эй, мальчик, выходи оттуда! … Уф, вышел. У тебя хороший глаз. А солнце сегодня?", "next": "sun"},
+        "sun": {"kind": "answer", "task": "Скажите, что солнце слишком сильное.", "branches": [{"phrase": "ph:beach.o-sol-esta-forte", "next": "end"}], "wrong": {"es": "Está nublado? Olha o céu!", "ru": "Пасмурно? Посмотри на небо!"}},
+        "end": {"kind": "say", "es": "Forte demais. Vai para a sombra. E toma: o Severino deixou isso na pedra ontem. Um fragmento do mapa, molhado de lágrima.", "ru": "Слишком сильное. Иди в тень. И держи: Северину оставил это вчера на камне. Обрывок карты, мокрый от слёз."}
+      }
     }
   ]
 }

@@ -60,6 +60,29 @@
         "vault": {"kind": "answer", "task": "Спросите, можно ли посмотреть старый сейф.", "branches": [{"phrase": "ph:bank.o-cofre-antigo", "next": "end"}], "wrong": {"es": "Abrir o caixa? O caixa é do banco, senhor.", "ru": "Открыть кассу? Касса принадлежит банку.", "fem": {"es": "Abrir o caixa? O caixa é do banco, senhora."}}},
         "end": {"kind": "say", "es": "Pode. Olhe: um fragmento do mapa. Ele queria trocar por uma conta no nome da cidade branca. Eu não aceitei. Agora é do senhor.", "ru": "Можно. Посмотрите: обрывок карты. Он хотел обменять его на счёт на имя белого города. Я не согласился. Теперь он ваш.", "fem": {"es": "Pode. Olhe: um fragmento do mapa. Ele queria trocar por uma conta no nome da cidade branca. Eu não aceitei. Agora é da senhora."}}
       }
+    },
+    {
+      "id": "ms:bank.4",
+      "chapter": 4,
+      "npc": "ricardo",
+      "scene": "sc:bank.4",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Que bom ver um rosto calmo. O senhor também veio sacar tudo?", "ru": "Как приятно видеть спокойное лицо. Вы тоже пришли снять всё?", "next": "x0", "fem": {"es": "Que bom ver um rosto calmo. A senhora também veio sacar tudo?"}},
+        "x0": {"kind": "answer", "task": "Спросите, какой у вас остаток на счёте.", "branches": [{"phrase": "ph:bank.qual-e-o-meu-saldo", "next": "x0say"}], "wrong": {"es": "Qual é o saldo do corvo? Ele não tem conta.", "ru": "Какой остаток у ворона? У него нет счёта."}},
+        "x0say": {"kind": "say", "es": "O saldo está intacto, como sempre. Mas veja a fila lá fora.", "ru": "Остаток не тронут, как всегда. Но посмотрите на очередь снаружи.", "next": "safe"},
+        "safe": {"kind": "answer", "task": "Спросите, в безопасности ли ваши деньги.", "branches": [{"phrase": "ph:bank.o-dinheiro-esta-seguro", "next": "safesay"}], "wrong": {"es": "O meu dinheiro virou folha? Não, senhor, não é a floresta!", "ru": "Мои деньги стали листьями? Нет, это не лес!", "fem": {"es": "O meu dinheiro virou folha? Não, senhora, não é a floresta!"}}},
+        "safesay": {"kind": "say", "es": "Totalmente seguro. Mas a fila não acredita. A diretoria quer fechar o banco até a floresta se calar.", "ru": "В полной безопасности. Но очередь не верит. Правление хочет закрыть банк, пока лес не замолчит.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:bank.nao-feche-o-banco", "next": "object", "move": "object"}, {"phrase": "ph:bank.feche-por-um-dia", "next": "concede", "move": "concede"}, {"phrase": "ph:bank.um-aviso-na-porta", "next": "compromise", "move": "compromise"}], "wrong": {"es": "Pagar a floresta? Ela não tem conta aqui.", "ru": "Заплатить лесу? У него здесь нет счёта."}},
+        "object": {"kind": "say", "es": "Não fechar… O senhor tem razão: banco fechado parece banco sem dinheiro.", "ru": "Не закрывать… Вы правы: закрытый банк выглядит как банк без денег.", "next": "statement", "fem": {"es": "Não fechar… A senhora tem razão: banco fechado parece banco sem dinheiro."}},
+        "concede": {"kind": "say", "es": "Um dia, só para acalmar a cidade. Talvez seja prudente.", "ru": "Один день, только чтобы город успокоился. Может, это разумно.", "next": "statement"},
+        "compromise": {"kind": "say", "es": "Um aviso: «O dinheiro está aqui. Quem quiser, pode ver o cofre». Transparência acalma.", "ru": "Объявление: «Деньги здесь. Кто хочет, может посмотреть хранилище». Открытость успокаивает.", "next": "statement"},
+        "statement": {"kind": "say", "es": "E o senhor, deseja alguma coisa hoje?", "ru": "А вы желаете сегодня что-нибудь?", "next": "statementq", "fem": {"es": "E a senhora, deseja alguma coisa hoje?"}},
+        "statementq": {"kind": "answer", "task": "Скажите, что хотите посмотреть свой текущий счёт.", "branches": [{"phrase": "ph:bank.quero-o-extrato", "next": "statementsay"}], "wrong": {"es": "Uma moeda de cem anos? Só o tal senhor tem!", "ru": "Столетнюю монету? Такая только у того господина!"}},
+        "statementsay": {"kind": "say", "es": "Aqui está. Tudo certo, como sempre. Mais alguma coisa?", "ru": "Вот. Всё в порядке, как всегда. Что-нибудь ещё?", "next": "receipt"},
+        "receipt": {"kind": "answer", "task": "Попросите квитанцию.", "branches": [{"phrase": "ph:bank.o-comprovante", "next": "end"}], "wrong": {"es": "Um comprovante da floresta? Isso não existe.", "ru": "Квитанцию от леса? Такого нет."}},
+        "end": {"kind": "say", "es": "Claro. E, entre nós: o senhor das moedas antigas esqueceu isso no balcão. Um fragmento do mapa. Acho que é do senhor.", "ru": "Конечно. И, между нами: господин со старыми монетами забыл это на стойке. Обрывок карты. Думаю, он ваш.", "fem": {"es": "Claro. E, entre nós: o senhor das moedas antigas esqueceu isso no balcão. Um fragmento do mapa. Acho que é da senhora."}}
+      }
     }
   ]
 }

@@ -75,6 +75,52 @@
         {"q": "Что будет, если солгать?", "options": ["Город исчезнет вместе с тобой", "Она рассердится", "Ничего"], "answer": 0}
       ],
       "gloss": {"cozinhei": "готовила (cozinhar)", "comesse": "ел бы (comer)", "comia": "ел (comer)", "terceira": "третья", "propõe": "предлагает (propor)", "disser": "скажешь (dizer)", "deixo": "пропущу, позволю (deixar)", "mentir": "солгать", "some": "исчезает (sumir)", "barriga": "живот", "cheia": "полная", "Severino": "Северину"}
+    },
+    {
+      "id": "sc:restaurant.4",
+      "chapter": 4,
+      "npc": "dita",
+      "lines": [
+        {"who": "npc", "es": "Hoje eu não tenho vontade de cozinhar. Sabe o que a floresta me contou essa noite?", "ru": "Сегодня мне не хочется готовить. Знаешь, что лес мне рассказал ночью?"},
+        {"who": "hero", "es": "O quê?", "ru": "Что?"},
+        {"who": "npc", "es": "A voz da Patrícia: «A Dita cozinha com óleo velho». Depois de vinte anos de amizade!", "ru": "Голос Патрисии: «Дита готовит на старом масле». После двадцати лет дружбы!"},
+        {"who": "hero", "es": "Tem certeza de que era ela?", "ru": "Ты уверена, что это была она?"},
+        {"who": "npc", "es": "Tenho. Ela falou isso para a equipe dela na festa do ano passado.", "ru": "Уверена. Она сказала это своей команде на прошлогоднем празднике."},
+        {"who": "hero", "es": "E é verdade, isso do óleo?", "ru": "А про масло это правда?"},
+        {"who": "npc", "es": "Claro que não! O meu óleo é novo, deste mês.", "ru": "Конечно, нет! Масло у меня свежее, этого месяца."},
+        {"who": "hero", "es": "E agora, o que você vai fazer?", "ru": "И что ты теперь будешь делать?"},
+        {"who": "npc", "es": "Não sei. O jantar da empresa dela é na sexta, e eu não quero cozinhar para ela.", "ru": "Не знаю. Ужин её компании в пятницу, и мне не хочется для неё готовить."}
+      ],
+      "questions": [
+        {"q": "Что сказал голос из леса?", "options": ["Что Дита готовит на старом масле", "Что ресторан закрывается", "Что еда острая"], "answer": 0},
+        {"q": "Чей это был голос?", "options": ["Патрисии", "Доны Грасы", "Каю"], "answer": 0},
+        {"q": "Когда Патрисия это сказала?", "options": ["На прошлогоднем празднике", "Вчера", "Никогда"], "answer": 0},
+        {"q": "Чего не хочет Дита?", "options": ["Готовить для Патрисии", "Покупать масло", "Уезжать"], "answer": 0}
+      ],
+      "gloss": {"vontade": "желание", "cozinhar": "готовить", "Patrícia": "Патрисия", "cozinha": "готовит (cozinhar)", "óleo": "масло (растительное)", "amizade": "дружба", "certeza": "уверенность", "equipe": "команда", "empresa": "компания", "Dita": "Дита", "deste": "этого"}
+    },
+    {
+      "id": "wh:restaurant.4",
+      "chapter": 4,
+      "mode": "overhear",
+      "npc": "dita",
+      "lines": [
+        {"who": "npc", "es": "A mesa sete pediu a conta dividida em oito. Oito! Com uma moqueca só.", "ru": "Седьмой столик попросил разделить счёт на восемь. На восемь! С одной мокекой."},
+        {"who": "patricia", "es": "Ué, é normal. Cada um paga o seu. Na empresa a gente sempre faz assim.", "ru": "Ну и что, это нормально. Каждый платит за своё. В компании мы всегда так делаем."},
+        {"who": "npc", "es": "Na empresa, talvez. Mas o garçom vai passar meia hora fazendo conta.", "ru": "В компании, может быть. Но официант полчаса будет считать."},
+        {"who": "patricia", "es": "Então põe uma máquina melhor. Hoje tem aplicativo para tudo.", "ru": "Тогда поставь аппарат получше. Сейчас на всё есть приложение."},
+        {"who": "npc", "es": "Aplicativo? Eu mal sei mandar mensagem, Patrícia.", "ru": "Приложение? Я еле сообщения отправлять умею, Патрисия."},
+        {"who": "patricia", "es": "Eu te ensino. Em dez minutos você aprende.", "ru": "Я тебя научу. За десять минут освоишь."},
+        {"who": "npc", "es": "Dez minutos que eu não tenho. A moqueca não espera aplicativo.", "ru": "Десяти минут у меня нет. Мокека не ждёт приложения."},
+        {"who": "patricia", "es": "Então divide em oito você mesma e cobra a taxa. Problema resolvido.", "ru": "Тогда дели на восемь сама и бери плату за обслуживание. Проблема решена."}
+      ],
+      "questions": [
+        {"q": "Что раздражает Диту?", "kind": "stance", "options": ["Седьмой столик хочет разделить счёт на восемь", "Клиенты не пришли", "Мокека подгорела"], "answer": 0},
+        {"q": "Как Патрисия относится к такому счёту?", "kind": "stance", "options": ["Считает это нормальным", "Тоже злится", "Не понимает, о чём речь"], "answer": 0},
+        {"q": "Почему Дита не хочет приложение?", "kind": "stance", "options": ["Она плохо разбирается в технике и занята", "Оно дорогое", "Оно не работает"], "answer": 0},
+        {"q": "Что в итоге предлагает Патрисия?", "kind": "stance", "options": ["Разделить самой и взять плату за обслуживание", "Закрыть ресторан", "Отказать клиентам"], "answer": 0}
+      ],
+      "gloss": {"Patrícia": "Патрисия", "dividida": "разделённая", "oito": "восемь", "ué": "ну и что (удивление)", "garçom": "официант", "conta": "счёт", "máquina": "аппарат, машинка", "aplicativo": "приложение", "mal": "еле", "mensagem": "сообщение", "ensino": "научу (ensinar)", "divide": "дели (dividir)", "cobra": "бери плату (cobrar)", "taxa": "плата, сбор", "resolvido": "решённый", "moqueca": "мокека"}
     }
   ]
 }

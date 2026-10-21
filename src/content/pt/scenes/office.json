@@ -75,6 +75,52 @@
         {"q": "Что сделала Патрисия?", "options": ["Отказала ему", "Решила дать ему шанс", "Позвонила в полицию"], "answer": 1}
       ],
       "gloss": {"candidato": "кандидат", "empresa": "компания", "Davi": "Дави", "cedo": "рано", "mandou": "прислал (mandar)", "currículo": "резюме", "mentiras": "ложь (мн. ч.)", "aconteceu": "случилось (acontecer)", "guardiã": "стражница", "disser": "скажешь (dizer)", "deixo": "пропущу (deixar)", "sumiu": "исчез (sumir)", "chance": "шанс"}
+    },
+    {
+      "id": "sc:office.4",
+      "chapter": 4,
+      "npc": "patricia",
+      "lines": [
+        {"who": "npc", "es": "Sabe de uma coisa? A cidade toda já sabe que o homem do cachimbo é o Severino.", "ru": "Знаешь что? Весь город уже знает, что человек с трубкой — Северину."},
+        {"who": "hero", "es": "E como as pessoas reagiram?", "ru": "И как люди это восприняли?"},
+        {"who": "npc", "es": "Muito bravas. Alguns querem denunciar ele à polícia. Outros dizem que ele é um coitado.", "ru": "Очень злятся. Некоторые хотят заявить на него в полицию. Другие говорят, что он несчастный человек."},
+        {"who": "hero", "es": "E você, o que acha?", "ru": "А ты что думаешь?"},
+        {"who": "npc", "es": "Que é preciso conversar. Hoje à noite vou fazer uma reunião de vizinhos aqui, no escritório.", "ru": "Что надо поговорить. Сегодня вечером я устраиваю собрание соседей здесь, в конторе."},
+        {"who": "hero", "es": "O Severino vem?", "ru": "Северину придёт?"},
+        {"who": "npc", "es": "Não sei. Ele me deixou uma carta: «Eu tive medo de perder alguém de novo».", "ru": "Не знаю. Он оставил мне письмо: «Я боялся снова кого-то потерять»."},
+        {"who": "hero", "es": "Perder alguém?", "ru": "Кого-то потерять?"},
+        {"who": "npc", "es": "Na torre ele perdeu cem anos e toda a família. Por isso não quer que ninguém vá para a floresta.", "ru": "В башне он потерял сто лет и всю семью. Поэтому не хочет, чтобы кто-нибудь ходил в лес."}
+      ],
+      "questions": [
+        {"q": "Что уже знает весь город?", "options": ["Что человек с трубкой — Северину", "Что лес замолчал", "Что Дави вернулся"], "answer": 0},
+        {"q": "Как люди реагируют?", "options": ["Одни злятся, другие жалеют его", "Все радуются", "Никто не верит"], "answer": 0},
+        {"q": "Что устраивает Патрисия?", "options": ["Собрание соседей в конторе", "Праздник", "Суд"], "answer": 0},
+        {"q": "Почему Северину не хочет, чтобы ходили в лес?", "options": ["Боится снова кого-то потерять", "Там его дом", "Там опасные звери"], "answer": 0}
+      ],
+      "gloss": {"conversar": "разговаривать", "cachimbo": "трубка", "reagiram": "отреагировали (reagir)", "bravas": "сердитые", "denunciar": "заявить (в полицию)", "coitado": "бедняга", "reunião": "собрание", "escritório": "контора", "tive": "имел, испытывал (ter)", "perder": "потерять", "perdeu": "потерял (perder)", "família": "семья", "Severino": "Северину"}
+    },
+    {
+      "id": "wh:office.4",
+      "chapter": 4,
+      "mode": "overhear",
+      "npc": "patricia",
+      "lines": [
+        {"who": "npc", "es": "Seu Ricardo, o banco mandou a mesma carta de cobrança três vezes para a empresa.", "ru": "Сеу Рикардо, банк трижды прислал компании одно и то же письмо с требованием оплаты."},
+        {"who": "ricardo", "es": "O sistema manda automaticamente, Dona Patrícia. A conta está atrasada.", "ru": "Система отправляет автоматически, Дона Патрисия. Счёт просрочен."},
+        {"who": "npc", "es": "Atrasada um dia! Por causa do feriado. Três cartas por um dia?", "ru": "На один день! Из-за праздника. Три письма за один день?"},
+        {"who": "ricardo", "es": "Entendo a irritação. Mas a regra é igual para todos os clientes.", "ru": "Понимаю ваше раздражение. Но правило одинаковое для всех клиентов."},
+        {"who": "npc", "es": "Regra igual, mas o cliente não é igual. A gente paga em dia há dez anos.", "ru": "Правило одинаковое, а клиенты разные. Мы платим вовремя уже десять лет."},
+        {"who": "ricardo", "es": "É verdade. Posso anotar no cadastro que a empresa é cliente de confiança.", "ru": "Это правда. Могу отметить в карточке, что компания — надёжный клиент."},
+        {"who": "npc", "es": "E isso muda o quê?", "ru": "И что это изменит?"},
+        {"who": "ricardo", "es": "Na próxima vez, antes da carta, eu ligo pessoalmente. Sem sistema.", "ru": "В следующий раз перед письмом я позвоню лично. Без системы."}
+      ],
+      "questions": [
+        {"q": "Чем недовольна Патрисия?", "kind": "stance", "options": ["Банк трижды прислал письмо из-за просрочки на день", "Банк закрыл счёт", "Проценты выросли"], "answer": 0},
+        {"q": "Как Сеньор Рикардо поначалу оправдывается?", "kind": "stance", "options": ["Письма отправляет система, правило для всех одно", "Это ошибка почты", "Он ничего не знал"], "answer": 0},
+        {"q": "Что имеет в виду Патрисия: «правило одинаковое, а клиенты разные»?", "kind": "stance", "options": ["Что надёжного клиента надо отличать от других", "Что правило плохое", "Что клиентов слишком много"], "answer": 0},
+        {"q": "Что в итоге обещает Сеньор Рикардо?", "kind": "stance", "options": ["Звонить лично перед письмом", "Отменить проценты", "Закрыть систему"], "answer": 0}
+      ],
+      "gloss": {"cobrança": "требование оплаты", "empresa": "компания", "sistema": "система", "automaticamente": "автоматически", "atrasada": "просроченная", "feriado": "праздник, выходной", "irritação": "раздражение", "regra": "правило", "igual": "одинаковый", "cadastro": "учётная карточка", "confiança": "доверие", "próxima": "следующая", "pessoalmente": "лично", "Patrícia": "Патрисия", "Ricardo": "Рикардо"}
     }
   ]
 }

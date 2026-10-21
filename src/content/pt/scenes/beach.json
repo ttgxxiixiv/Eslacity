@@ -75,6 +75,52 @@
         {"q": "Что он ищет в белом городе?", "options": ["Тишину", "Сокровище", "Друзей"], "answer": 0}
       ],
       "gloss": {"aconteceu": "случилось (acontecer)", "baía": "бухта", "camelo": "верблюд", "bebia": "пил (beber)", "sentado": "сидя", "chorando": "плача (chorar)", "sentei": "сел (sentar)", "lado": "сторона (do lado — рядом)", "conversar": "разговаривать", "árvores": "деревья", "floresta": "лес", "miragens": "миражи", "silêncio": "тишина", "mau": "злой", "mente": "лжёт (mentir)"}
+    },
+    {
+      "id": "sc:beach.4",
+      "chapter": 4,
+      "npc": "bruno",
+      "lines": [
+        {"who": "npc", "es": "Eu não dormi. Ontem à noite, na praia, eu vi o homem do cachimbo.", "ru": "Я не спал. Вчера ночью на пляже я видел человека с трубкой."},
+        {"who": "hero", "es": "Tem certeza?", "ru": "Ты уверен?"},
+        {"who": "npc", "es": "Tenho. Ele estava sentado nas pedras com o corvo no ombro.", "ru": "Уверен. Он сидел на камнях с вороном на плече."},
+        {"who": "hero", "es": "O que ele fazia?", "ru": "Что он делал?"},
+        {"who": "npc", "es": "Falava para o corvo: «Diz a eles que a floresta é má. Que ninguém vá». E chorava.", "ru": "Говорил ворону: «Скажи им, что лес злой. Пусть никто туда не ходит». И плакал."},
+        {"who": "hero", "es": "Você viu o rosto dele?", "ru": "Ты видел его лицо?"},
+        {"who": "npc", "es": "Vi. Com a luz do farol, vi bem.", "ru": "Видел. В свете маяка я хорошо его разглядел."},
+        {"who": "hero", "es": "E quem era?", "ru": "И кто это был?"},
+        {"who": "npc", "es": "O Severino. O homem que passou cem anos na torre.", "ru": "Северину. Человек, который сто лет провёл в башне."}
+      ],
+      "questions": [
+        {"q": "Где Бруну видел человека с трубкой?", "options": ["На камнях на пляже", "На вокзале", "В парке"], "answer": 0},
+        {"q": "Что тот говорил ворону?", "options": ["«Скажи им, что лес злой»", "«Лети домой»", "«Ищи тропу»"], "answer": 0},
+        {"q": "Как Бруну разглядел лицо?", "options": ["В свете маяка", "При луне", "Утром"], "answer": 0},
+        {"q": "Кто это был?", "options": ["Северину", "Сеу Раймунду", "Дави"], "answer": 0}
+      ],
+      "gloss": {"cachimbo": "трубка", "certeza": "уверенность", "pedras": "камни", "corvo": "ворон", "ombro": "плечо", "fazia": "делал (fazer)", "falava": "говорил (falar)", "má": "злая", "chorava": "плакал (chorar)", "farol": "маяк", "Severino": "Северину", "passou": "провёл (passar)"}
+    },
+    {
+      "id": "wh:beach.4",
+      "chapter": 4,
+      "mode": "overhear",
+      "npc": "bruno",
+      "lines": [
+        {"who": "npc", "es": "Ju, você colocou o guarda-sol bem na frente do meu posto de novo.", "ru": "Жу, ты опять поставила зонтик прямо перед моей вышкой."},
+        {"who": "juliana", "es": "É o único lugar com sombra boa, Bruno. E a minha pele não aguenta sol.", "ru": "Это единственное место с хорошей тенью, Бруну. А моя кожа не выносит солнца."},
+        {"who": "npc", "es": "Mas eu não vejo a água! Se alguém se afogar, a culpa é do guarda-sol?", "ru": "Но я не вижу воду! Если кто-то утонет, виноват будет зонтик?"},
+        {"who": "juliana", "es": "Ninguém vai se afogar às oito da manhã. A praia está vazia.", "ru": "Никто не утонет в восемь утра. Пляж пустой."},
+        {"who": "npc", "es": "Vazia agora. Às nove chegam os turistas, e você não sai daí até o almoço.", "ru": "Сейчас пустой. В девять придут туристы, а ты не уходишь отсюда до обеда."},
+        {"who": "juliana", "es": "Então me arruma outro lugar com sombra. Você conhece a praia melhor que eu.", "ru": "Тогда найди мне другое место с тенью. Ты знаешь пляж лучше меня."},
+        {"who": "npc", "es": "Embaixo do coqueiro grande. Sombra a manhã toda, e eu vejo o mar.", "ru": "Под большой кокосовой пальмой. Тень всё утро, и я вижу море."},
+        {"who": "juliana", "es": "Debaixo do coqueiro? E se cair um coco na minha cabeça? Aí a culpa é sua!", "ru": "Под пальмой? А если мне на голову упадёт кокос? Тогда виноват будешь ты!"}
+      ],
+      "questions": [
+        {"q": "Что мешает Бруну?", "kind": "stance", "options": ["Зонтик Жулианы закрывает ему обзор моря", "Шум", "Мусор"], "answer": 0},
+        {"q": "Почему Жулиана ставит зонтик именно там?", "kind": "stance", "options": ["Там хорошая тень, а её кожа не выносит солнца", "Там ближе к кафе", "Ей нравится Бруну"], "answer": 0},
+        {"q": "Что предлагает Бруну?", "kind": "stance", "options": ["Место под большой пальмой", "Уйти с пляжа", "Новый зонтик"], "answer": 0},
+        {"q": "Чем отвечает Жулиана в конце?", "kind": "stance", "options": ["Шутливо возражает, что может упасть кокос", "Сразу соглашается", "Обижается и уходит"], "answer": 0}
+      ],
+      "gloss": {"Ju": "Жу (уменьшительное от Жулиана)", "guarda": "охрана (guarda-sol — пляжный зонт)", "sol": "солнце", "posto": "пост, вышка", "único": "единственный", "sombra": "тень", "pele": "кожа", "aguenta": "выносит (aguentar)", "afogar": "утонуть (afogar-se)", "turistas": "туристы", "arruma": "найди, устрой (arrumar)", "coqueiro": "кокосовая пальма", "coco": "кокос", "cair": "упасть", "debaixo": "под", "Bruno": "Бруну", "cabeça": "голова"}
     }
   ]
 }

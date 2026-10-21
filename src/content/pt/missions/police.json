@@ -60,6 +60,29 @@
         "closed": {"kind": "answer", "task": "Спросите, закрыто ли дело.", "branches": [{"phrase": "ph:police.o-caso-esta-arquivado", "next": "end"}], "wrong": {"es": "O caso está aberto para sempre? Não, senhor.", "ru": "Дело открыто навсегда? Нет.", "fem": {"es": "O caso está aberto para sempre? Não, senhora."}}},
         "end": {"kind": "say", "es": "Arquivado. E aqui está o último fragmento que o Davi deixou comigo. É do senhor. Quando chegar à floresta, escute as árvores.", "ru": "Закрыто. А вот последний обрывок, который Дави оставил у меня. Он ваш. Когда дойдёте до леса, слушайте деревья.", "fem": {"es": "Arquivado. E aqui está o último fragmento que o Davi deixou comigo. É da senhora. Quando chegar à floresta, escute as árvores."}}
       }
+    },
+    {
+      "id": "ms:police.4",
+      "chapter": 4,
+      "npc": "moreira",
+      "scene": "sc:police.4",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Sente-se. O senhor estava na reunião ontem?", "ru": "Садитесь. Вы были вчера на собрании?", "next": "x0", "fem": {"es": "Sente-se. A senhora estava na reunião ontem?"}},
+        "x0": {"kind": "answer", "task": "Спросите, что случилось.", "branches": [{"phrase": "ph:police.o-que-aconteceu", "next": "x0say"}], "wrong": {"es": "Qual é o caminho? Primeiro o caso!", "ru": "Какая дорога? Сначала дело!"}},
+        "x0say": {"kind": "say", "es": "Aconteceu que a cidade toda espera uma decisão minha.", "ru": "Случилось то, что весь город ждёт от меня решения.", "next": "meeting"},
+        "meeting": {"kind": "answer", "task": "Спросите, как прошло собрание.", "branches": [{"phrase": "ph:police.como-foi-a-reuniao", "next": "meetingsay"}], "wrong": {"es": "Como foi o jantar? Não teve jantar, teve verdade.", "ru": "Как прошёл ужин? Ужина не было, была правда."}},
+        "meetingsay": {"kind": "say", "es": "Foi bem. Mas agora preciso decidir o que fazer com o Severino. Ele enganou a cidade toda.", "ru": "Хорошо. Но теперь мне надо решить, что делать с Северину. Он обманул весь город.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:police.ele-e-inocente-agora", "next": "object", "move": "object"}, {"phrase": "ph:police.uma-multa-justa", "next": "concede", "move": "concede"}, {"phrase": "ph:police.servico-comunitario", "next": "compromise", "move": "compromise"}], "wrong": {"es": "Prender a floresta? Ela não cabe na cela!", "ru": "Посадить лес? Он в камеру не влезет!"}},
+        "object": {"kind": "say", "es": "Perdão… A verdade vale mais que a multa. Já disse isso uma vez, e digo de novo.", "ru": "Прощение… Правда дороже штрафа. Я уже говорил это однажды и скажу снова.", "next": "note"},
+        "concede": {"kind": "say", "es": "Uma multa pequena, simbólica. Para a lei ser igual para todos.", "ru": "Небольшой штраф, символический. Чтобы закон был один для всех.", "next": "note"},
+        "compromise": {"kind": "say", "es": "Serviço comunitário na floresta… Ele ajuda a guardiã a abrir a trilha. Gostei. Muito justo.", "ru": "Общественные работы в лесу… Он поможет Хранительнице открыть тропу. Мне нравится. Очень справедливо.", "next": "note"},
+        "note": {"kind": "say", "es": "Preciso registrar tudo no caderno. Pode me ajudar?", "ru": "Мне нужно всё записать в журнал. Поможете?", "next": "noteq"},
+        "noteq": {"kind": "answer", "task": "Попросите записать.", "branches": [{"phrase": "ph:police.pode-anotar", "next": "notesay"}], "wrong": {"es": "Pode apagar? Não, aqui tudo fica escrito.", "ru": "Стереть? Нет, здесь всё остаётся записанным."}},
+        "notesay": {"kind": "say", "es": "Anotado. Agora, o caso: posso arquivar?", "ru": "Записано. Теперь дело: можно закрывать?", "next": "closed"},
+        "closed": {"kind": "answer", "task": "Спросите, закрыто ли дело.", "branches": [{"phrase": "ph:police.o-caso-esta-arquivado", "next": "end"}], "wrong": {"es": "O caso está aberto para sempre? Não.", "ru": "Дело открыто навсегда? Нет."}},
+        "end": {"kind": "say", "es": "Arquivado. E aqui está o fragmento do mapa que o Severino deixou na delegacia: o último da floresta. O caminho está aberto para o senhor.", "ru": "Закрыто. А вот обрывок карты, который Северину оставил в полиции: последний из леса. Дорога для вас открыта.", "fem": {"es": "Arquivado. E aqui está o fragmento do mapa que o Severino deixou na delegacia: o último da floresta. O caminho está aberto para a senhora."}}
+      }
     }
   ]
 }

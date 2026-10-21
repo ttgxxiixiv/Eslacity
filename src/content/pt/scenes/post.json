@@ -75,6 +75,52 @@
         {"q": "Что было в посылке?", "options": ["Компас", "Настоящий обрывок карты пустыни", "Письмо"], "answer": 1}
       ],
       "gloss": {"encomenda": "посылка", "mandou": "отправил (mandar)", "perdeu": "потерялась (perder-se)", "pensei": "подумал (pensar)", "papel": "бумага", "retirou": "забрал (retirar)", "assinatura": "подпись", "Mercador": "Купец", "correio": "почта", "rouba": "крадёт (roubar)", "reclamação": "жалоба", "Caio": "Каю"}
+    },
+    {
+      "id": "sc:post.4",
+      "chapter": 4,
+      "npc": "edson",
+      "lines": [
+        {"who": "npc", "es": "Preciso te contar uma coisa, mas não conta para ninguém.", "ru": "Мне надо тебе кое-что рассказать, только никому не говори."},
+        {"who": "hero", "es": "O que aconteceu?", "ru": "Что случилось?"},
+        {"who": "npc", "es": "Sabe o meu corvo, o Bento? Ele sempre entrega as cartas comigo.", "ru": "Знаешь моего ворона, Бенту? Он всегда разносит со мной письма."},
+        {"who": "hero", "es": "Sei, ele é muito esperto.", "ru": "Знаю, он очень умный."},
+        {"who": "npc", "es": "Esperto demais. Ele guarda a voz das pessoas de cada casa. E à noite voa para a floresta.", "ru": "Слишком умный. Он запоминает голоса людей в каждом доме. А по ночам летает в лес."},
+        {"who": "hero", "es": "É ele que fala com a voz dos vizinhos?", "ru": "Это он говорит голосами соседей?"},
+        {"who": "npc", "es": "Acho que é. Mas o Bento só repete. Alguém ensina essas frases para ele.", "ru": "Думаю, да. Но Бенту только повторяет. Кто-то учит его этим фразам."},
+        {"who": "hero", "es": "Quem?", "ru": "Кто?"},
+        {"who": "npc", "es": "Não sei. Toda noite ele volta com cheiro de fumo de cachimbo.", "ru": "Не знаю. Каждый вечер он возвращается, и от него пахнет трубочным табаком."}
+      ],
+      "questions": [
+        {"q": "Как зовут ворона Эдсона?", "options": ["Бенту", "Каю", "Дави"], "answer": 0},
+        {"q": "Что умеет ворон?", "options": ["Запоминать голоса людей", "Читать письма", "Петь самбу"], "answer": 0},
+        {"q": "Куда он летает ночью?", "options": ["В лес", "На пляж", "В горы"], "answer": 0},
+        {"q": "Чем пахнет ворон, когда возвращается?", "options": ["Трубочным табаком", "Морем", "Кофе"], "answer": 0}
+      ],
+      "gloss": {"corvo": "ворон", "Bento": "Бенту", "entrega": "разносит (entregar)", "esperto": "умный", "guarda": "хранит, запоминает (guardar)", "voa": "летает (voar)", "vizinhos": "соседи", "repete": "повторяет (repetir)", "ensina": "учит (ensinar)", "frases": "фразы", "fumo": "табак", "cachimbo": "трубка"}
+    },
+    {
+      "id": "wh:post.4",
+      "chapter": 4,
+      "mode": "overhear",
+      "npc": "edson",
+      "lines": [
+        {"who": "npc", "es": "Dona Graça, a senhora de novo mandou laranja pelo correio para a sua irmã?", "ru": "Дона Граса, вы опять отправили сестре апельсины по почте?"},
+        {"who": "graca", "es": "Mandei. Ela mora longe e diz que laranja de lá não presta.", "ru": "Отправила. Она живёт далеко и говорит, что апельсины у них никуда не годятся."},
+        {"who": "npc", "es": "A caixa chegou toda molhada. Cheiro de laranja no correio a semana inteira!", "ru": "Коробка пришла вся мокрая. Апельсинами пахло на почте всю неделю!"},
+        {"who": "graca", "es": "E a culpa é minha? Quem jogou a caixa no chão foram vocês.", "ru": "И это моя вина? Это вы бросили коробку на пол."},
+        {"who": "npc", "es": "Ninguém jogou nada. Fruta não é coisa de mandar pelo correio.", "ru": "Никто ничего не бросал. Фрукты — не то, что отправляют почтой."},
+        {"who": "graca", "es": "Então como eu mando carinho para a minha irmã? Por telegrama?", "ru": "А как мне тогда передать сестре заботу? Телеграммой?"},
+        {"who": "npc", "es": "Manda doce de laranja, num pote fechado. Chega bem e não molha nada.", "ru": "Отправьте апельсиновое варенье, в закрытой банке. Дойдёт хорошо и ничего не намочит."},
+        {"who": "graca", "es": "Doce… Ela vai achar que eu fiquei preguiçosa. Mas tá, vou tentar.", "ru": "Варенье… Она решит, что я обленилась. Но ладно, попробую."}
+      ],
+      "questions": [
+        {"q": "Чем недоволен Эдсон?", "kind": "stance", "options": ["Мокрой коробкой апельсинов на почте", "Тем, что Дона Граса не платит", "Шумом на рынке"], "answer": 0},
+        {"q": "Как Дона Граса воспринимает упрёк?", "kind": "stance", "options": ["Перекладывает вину на почту", "Сразу извиняется", "Смеётся"], "answer": 0},
+        {"q": "Что для неё значат апельсины?", "kind": "stance", "options": ["Способ проявить заботу о сестре", "Способ заработать", "Ненужную вещь"], "answer": 0},
+        {"q": "Чем заканчивается разговор?", "kind": "stance", "options": ["Она согласна попробовать отправить варенье", "Она больше не будет ничего отправлять", "Эдсон уступает"], "answer": 0}
+      ],
+      "gloss": {"laranja": "апельсин", "correio": "почта", "irmã": "сестра", "presta": "годится (prestar)", "caixa": "коробка", "molhada": "мокрая", "inteira": "целая", "jogou": "бросил (jogar)", "chão": "пол", "carinho": "забота, ласка", "telegrama": "телеграмма", "doce": "варенье", "pote": "банка", "fechado": "закрытый", "molha": "намочит (molhar)", "preguiçosa": "ленивая", "Graça": "Граса", "tá": "ладно"}
     }
   ]
 }

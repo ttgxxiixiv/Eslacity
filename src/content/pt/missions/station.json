@@ -53,13 +53,36 @@
         "routesay": {"kind": "say", "es": "Sai daqui, atravessa a serra e vai até o fim da areia. Depois, só a cidade branca.", "ru": "Отсюда, через горы и до края песков. Дальше — только белый город.", "next": "stop"},
         "stop": {"kind": "answer", "task": "Спросите, где остановка.", "branches": [{"phrase": "ph:station.onde-fica-a-parada", "next": "stopsay"}], "wrong": {"es": "Onde fica o camelo? Na areia, claro!", "ru": "Где верблюд? В песках, конечно!"}},
         "stopsay": {"kind": "say", "es": "A última parada é no meio das dunas. Que passagem você quer?", "ru": "Последняя остановка — посреди дюн. Какой билет хочешь?", "next": "ticket"},
-        "ticket": {"kind": "answer", "task": "Попросите билет в одну сторону или туда и обратно.", "branches": [{"phrase": "ph:station.so-de-ida", "next": "oneway"}, {"phrase": "ph:station.passagem-ida-e-volta", "next": "return"}], "wrong": {"es": "Uma passagem para a lua? Esse trem não voa!", "ru": "Билет на Луну? Этот поезд не летает!"}},
+        "ticket": {"kind": "answer", "task": "Попросите билет в одну сторону или туда и обратно.", "branches": [{"phrase": "ph:station.so-de-ida", "next": "oneway", "sets": {"ticket": "oneway"}}, {"phrase": "ph:station.passagem-ida-e-volta", "next": "return", "sets": {"ticket": "return"}}], "wrong": {"es": "Uma passagem para a lua? Esse trem não voa!", "ru": "Билет на Луну? Этот поезд не летает!"}},
         "oneway": {"kind": "say", "es": "Só de ida, como o homem do camelo. Mas você vai voltar, eu sei.", "ru": "В одну сторону, как у человека с верблюдом. Но ты вернёшься, я знаю.", "next": "seat"},
         "return": {"kind": "say", "es": "Ida e volta. Muito bem: quem volta conta a história.", "ru": "Туда и обратно. Правильно: кто возвращается, тот и рассказывает.", "next": "seat"},
         "seat": {"kind": "answer", "task": "Попросите придержать для вас место.", "branches": [{"phrase": "ph:station.guarda-um-lugar", "next": "seatsay"}], "wrong": {"es": "Guardar o trem? O trem é grande demais!", "ru": "Придержать поезд? Он слишком большой!"}},
         "seatsay": {"kind": "say", "es": "Já guardei: o lugar sete, perto da janela. O trem sai à meia-noite.", "ru": "Уже придержал: место семь, у окна. Поезд отправляется в полночь.", "next": "time"},
         "time": {"kind": "answer", "task": "Спросите, во сколько прибытие.", "branches": [{"phrase": "ph:station.a-que-horas-chega", "next": "end"}], "wrong": {"es": "Que dia é hoje? Hoje é quarta!", "ru": "Какой сегодня день? Сегодня среда!"}},
         "end": {"kind": "say", "es": "Quando o sol nascer, você chega. E toma, isso estava no meu horário antigo: um fragmento do mapa do deserto.", "ru": "Когда взойдёт солнце, приедешь. И держи, это лежало в моём старом расписании: обрывок карты пустыни."}
+      }
+    },
+    {
+      "id": "ms:station.4",
+      "chapter": 4,
+      "npc": "raimundo",
+      "scene": "sc:station.4",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Mais um olhar torto. Você também acha que fui eu?", "ru": "Ещё один косой взгляд. Ты тоже думаешь, что это я?", "next": "x0"},
+        "x0": {"kind": "answer", "task": "Спросите, не отменили ли лодку.", "branches": [{"phrase": "ph:station.o-barco-foi-cancelado", "next": "x0say"}], "wrong": {"es": "O trem voou? Trem não voa!", "ru": "Поезд улетел? Поезда не летают!"}},
+        "x0say": {"kind": "say", "es": "Hoje não, o mar está calmo. Mas o meu problema é outro.", "ru": "Сегодня нет, море спокойное. Но у меня другая проблема.", "next": "believe"},
+        "believe": {"kind": "answer", "task": "Скажите, что верите ему.", "branches": [{"phrase": "ph:station.eu-acredito-em-voce", "next": "believesay"}], "wrong": {"es": "Você ensinou o corvo? Ah, pergunta errada!", "ru": "Ты учил ворона? Ну и вопрос!"}},
+        "believesay": {"kind": "say", "es": "Obrigado. Mas o povo quer que eu deixe a estação até tudo se resolver.", "ru": "Спасибо. Но люди хотят, чтобы я ушёл с вокзала, пока всё не прояснится.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:station.mostre-o-cachimbo", "next": "object", "move": "object"}, {"phrase": "ph:station.fique-uns-dias-em-casa", "next": "concede", "move": "concede"}, {"phrase": "ph:station.vamos-juntos-a-noite", "next": "compromise", "move": "compromise"}], "wrong": {"es": "Vender a estação? Ela não é minha!", "ru": "Продать вокзал? Он не мой!"}},
+        "object": {"kind": "say", "es": "Mostrar o cachimbo? O meu fumo é doce, de cereja. O do corvo é forte. Todo mundo vai sentir a diferença!", "ru": "Показать трубку? Мой табак сладкий, вишнёвый. А от ворона пахнет крепким. Все почувствуют разницу!", "next": "ticket"},
+        "concede": {"kind": "say", "es": "Uns dias em casa… A minha mulher vai gostar. Mas volto na segunda.", "ru": "Несколько дней дома… Жене понравится. Но в понедельник вернусь.", "next": "ticket"},
+        "compromise": {"kind": "say", "es": "Juntos, à noite, no jardim atrás da academia. A Tati disse que é lá. Combinado.", "ru": "Вместе, ночью, в саду за спортзалом. Тати сказала, что там. Договорились.", "next": "ticket"},
+        "ticket": {"kind": "say", "es": "Agora, trabalho. Você vai para a floresta? O trem para na orla.", "ru": "А теперь работа. Ты поедешь в лес? Поезд останавливается у опушки.", "next": "ticketq"},
+        "ticketq": {"kind": "answer", "task": "Попросите билет до опушки леса.", "branches": [{"phrase": "ph:station.ate-a-orla-da-mata", "next": "ticketsay"}], "wrong": {"es": "Uma passagem até a lua? Esse trem já passou!", "ru": "Билет до луны? Этот поезд уже ушёл!"}},
+        "ticketsay": {"kind": "say", "es": "Aqui está. E o trem chega lá a que horas, você quer saber?", "ru": "Вот. А когда поезд туда приходит, хочешь знать?", "next": "time"},
+        "time": {"kind": "answer", "task": "Спросите, во сколько прибытие.", "branches": [{"phrase": "ph:station.a-que-horas-chega", "next": "end"}], "wrong": {"es": "A que horas sai o corvo? Ele voa quando quer!", "ru": "Во сколько отправляется ворон? Он летает когда хочет!"}},
+        "end": {"kind": "say", "es": "Às seis da manhã. E toma isso: as moedas antigas do senhor da bengala vinham embrulhadas num fragmento do mapa. Não quero isso aqui.", "ru": "В шесть утра. И возьми вот это: старые монеты господина с тростью были завёрнуты в обрывок карты. Мне он здесь не нужен."}
       }
     }
   ]

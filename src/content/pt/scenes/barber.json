@@ -75,6 +75,52 @@
         {"q": "Почему он ушёл из леса?", "options": ["Не мог спать", "Искал работу", "Потерял дом"], "answer": 0}
       ],
       "gloss": {"barba": "борода", "jovem": "молодой", "parece": "кажется (parecer)", "triste": "грустный", "desenho": "рисунок", "braço": "рука", "árvore": "дерево", "respondeu": "ответил (responder)", "floresta": "лес", "árvores": "деревья", "baixinho": "тихонько, шёпотом", "conseguia": "мог (conseguir)", "parei": "перестал (parar)", "cantar": "петь"}
+    },
+    {
+      "id": "sc:barber.4",
+      "chapter": 4,
+      "npc": "zecarlos",
+      "lines": [
+        {"who": "npc", "es": "Ontem veio um cliente estranho. Queria fazer a barba com navalha antiga, à moda antiga.", "ru": "Вчера приходил странный клиент. Хотел бриться старой бритвой, по старинке."},
+        {"who": "hero", "es": "Por que estranho?", "ru": "Почему странный?"},
+        {"who": "npc", "es": "Tinha cheiro de fumo de cachimbo, e no casaco tinha penas pretas.", "ru": "От него пахло трубочным табаком, а на пальто были чёрные перья."},
+        {"who": "hero", "es": "O corvo do carteiro tem penas assim!", "ru": "У ворона почтальона такие перья!"},
+        {"who": "npc", "es": "Também pensei. E enquanto eu fazia a barba, ele disse uma coisa muito triste.", "ru": "Я тоже так подумал. А пока я его брил, он сказал кое-что очень грустное."},
+        {"who": "hero", "es": "O que ele disse?", "ru": "Что он сказал?"},
+        {"who": "npc", "es": "«A serra tirou cem anos da minha vida. A floresta não vai tirar ninguém».", "ru": "«Горы забрали сто лет моей жизни. Лес никого не заберёт»."},
+        {"who": "hero", "es": "Você viu o rosto dele?", "ru": "Ты видел его лицо?"},
+        {"who": "npc", "es": "Não direito: estava todo com espuma. Mas na cidade só um homem fuma cachimbo: o Seu Raimundo, da estação.", "ru": "Толком нет: всё было в пене. Но в городе трубку курит только один человек — Сеу Раймунду с вокзала."}
+      ],
+      "questions": [
+        {"q": "Как хотел бриться клиент?", "options": ["Старой бритвой, по старинке", "Машинкой", "Сам"], "answer": 0},
+        {"q": "Что было на его пальто?", "options": ["Чёрные перья", "Песок", "Краска"], "answer": 0},
+        {"q": "Что он сказал?", "options": ["«Горы забрали сто лет моей жизни. Лес никого не заберёт»", "«Я скоро уеду»", "«Брейте быстрее»"], "answer": 0},
+        {"q": "Кого подозревает Зе Карлос?", "options": ["Сеу Раймунду с вокзала", "Почтальона", "Каю"], "answer": 0}
+      ],
+      "gloss": {"moda": "манера (à moda antiga — по старинке)", "fumo": "табак", "cachimbo": "трубка", "casaco": "пальто", "penas": "перья", "pretas": "чёрные", "carteiro": "почтальон", "fazia": "делал (fazer)", "tirou": "забрала (tirar)", "tirar": "забрать", "direito": "как следует", "espuma": "пена", "fuma": "курит (fumar)", "Raimundo": "Раймунду", "triste": "грустный"}
+    },
+    {
+      "id": "wh:barber.4",
+      "chapter": 4,
+      "mode": "overhear",
+      "npc": "zecarlos",
+      "lines": [
+        {"who": "npc", "es": "Seu Tonho, o seu filho pediu para cortar o cabelo bem curtinho, quase careca.", "ru": "Сеу Тоньо, ваш сын попросил постричь его совсем коротко, почти наголо."},
+        {"who": "tonho", "es": "O Caio? Careca? Ele sempre teve o cabelo comprido, desde menino.", "ru": "Каю? Наголо? У него всегда были длинные волосы, с детства."},
+        {"who": "npc", "es": "Diz que na floresta cabelo comprido pega em tudo: galho, cipó, espinho.", "ru": "Говорит, в лесу длинные волосы цепляются за всё: ветки, лианы, колючки."},
+        {"who": "tonho", "es": "Na floresta… Então ele vai mesmo. E ninguém me avisou.", "ru": "В лесу… Значит, он и правда пойдёт. И никто меня не предупредил."},
+        {"who": "npc", "es": "Opa, pensei que o senhor sabia. Não quero criar briga em família.", "ru": "Ой, я думал, вы знаете. Не хочу устраивать семейную ссору."},
+        {"who": "tonho", "es": "Briga já tem. Ele não me conta nada, conta para o barbeiro.", "ru": "Ссора уже есть. Он мне ничего не говорит, а парикмахеру говорит."},
+        {"who": "npc", "es": "Cliente conta tudo para barbeiro, Seu Tonho. É a cadeira. Mas ele fala muito do senhor.", "ru": "Клиенты всё рассказывают парикмахеру, Сеу Тоньо. Это кресло такое. Но о вас он много говорит."},
+        {"who": "tonho", "es": "Fala? E o que ele diz?", "ru": "Говорит? И что же?"}
+      ],
+      "questions": [
+        {"q": "Что удивило Сеу Тоньо?", "kind": "stance", "options": ["Сын хочет постричься почти наголо", "Сын уезжает в Рио", "Сын бросил работу"], "answer": 0},
+        {"q": "Что он понял из этого?", "kind": "stance", "options": ["Что Каю правда пойдёт в лес", "Что Каю болен", "Что Каю женится"], "answer": 0},
+        {"q": "Почему Сеу Тоньо обижен?", "kind": "stance", "options": ["Сын рассказывает всё парикмахеру, а не ему", "Стрижка дорогая", "Зе Карлос сплетничает"], "answer": 0},
+        {"q": "Как Зе Карлос сглаживает ситуацию?", "kind": "stance", "options": ["Говорит, что Каю много рассказывает об отце", "Предлагает скидку", "Меняет тему на футбол"], "answer": 0}
+      ],
+      "gloss": {"curtinho": "коротенько", "careca": "лысый, наголо", "comprido": "длинный", "menino": "мальчик", "pega": "цепляется (pegar)", "cipó": "лиана", "espinho": "колючка", "avisou": "предупредил (avisar)", "opa": "ой", "criar": "создавать", "barbeiro": "парикмахер", "cadeira": "кресло", "Tonho": "Тоньо", "Caio": "Каю"}
     }
   ]
 }

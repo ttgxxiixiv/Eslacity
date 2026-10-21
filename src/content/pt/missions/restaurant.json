@@ -62,6 +62,29 @@
         "tax": {"kind": "answer", "task": "Спросите, включена ли плата за обслуживание.", "branches": [{"phrase": "ph:restaurant.a-taxa-de-servico", "next": "end"}], "wrong": {"es": "A taxa do camelo? Camelo não paga!", "ru": "Плата за верблюда? Верблюд не платит!"}},
         "end": {"kind": "say", "es": "Está, mas hoje é opcional. E toma: o Severino deixou esse fragmento do mapa para você, embaixo do prato.", "ru": "Включена, но сегодня по желанию. И держи: Северину оставил тебе этот обрывок карты, под тарелкой."}
       }
+    },
+    {
+      "id": "ms:restaurant.4",
+      "chapter": 4,
+      "npc": "dita",
+      "scene": "sc:restaurant.4",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Senta. Pelo menos você eu ainda gosto de alimentar. O que vai ser?", "ru": "Садись. Тебя-то я ещё люблю кормить. Что будешь?", "next": "dish"},
+        "dish": {"kind": "answer", "task": "Спросите, какое сегодня блюдо дня.", "branches": [{"phrase": "ph:restaurant.o-prato-do-dia", "next": "dishsay"}], "wrong": {"es": "O prato da floresta? Folha não se come!", "ru": "Лесное блюдо? Листья не едят!"}},
+        "dishsay": {"kind": "say", "es": "Moqueca, com o meu óleo novo. Prova e me diz a verdade.", "ru": "Мокека, на моём свежем масле. Попробуй и скажи правду.", "next": "praise"},
+        "praise": {"kind": "answer", "task": "Похвалите еду.", "branches": [{"phrase": "ph:restaurant.a-comida-esta-otima", "next": "praisesay"}], "wrong": {"es": "Está ruim? Então por que você comeu tudo?", "ru": "Плохо? Тогда почему ты всё съел?", "fem": {"ru": "Плохо? Тогда почему ты всё съела?"}}},
+        "praisesay": {"kind": "say", "es": "Obrigada. Mas a Patrícia não acha. E sexta tem o jantar dela aqui.", "ru": "Спасибо. Но Патрисия так не считает. А в пятницу у неё здесь ужин.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:restaurant.nao-cozinhe-para-ela", "next": "object", "move": "object"}, {"phrase": "ph:restaurant.cozinhe-mesmo-assim", "next": "concede", "move": "concede"}, {"phrase": "ph:restaurant.convide-ela-para-a-cozinha", "next": "compromise", "move": "compromise"}], "wrong": {"es": "Cozinhar a floresta? Não cabe na panela!", "ru": "Приготовить лес? В кастрюлю не влезет!"}},
+        "object": {"kind": "say", "es": "Não cozinhar? Seria justo… Mas aí todo mundo ia saber da briga. Vou pensar.", "ru": "Не готовить? Было бы справедливо… Но тогда все узнают о ссоре. Подумаю.", "next": "secret"},
+        "concede": {"kind": "say", "es": "Comida une… É, a minha avó dizia isso. Vou fazer a melhor moqueca da vida dela.", "ru": "Еда объединяет… Да, моя бабушка так говорила. Приготовлю ей лучшую мокеку в её жизни.", "next": "secret"},
+        "compromise": {"kind": "say", "es": "Para a cozinha? Para ela ver o óleo com os próprios olhos… Gostei.", "ru": "На кухню? Чтобы она увидела масло своими глазами… Мне нравится.", "next": "secret"},
+        "secret": {"kind": "say", "es": "E se ela perguntar do meu tempero, eu não conto nada!", "ru": "А если она спросит про мою приправу, я ничего не скажу!", "next": "spice"},
+        "spice": {"kind": "answer", "task": "Спросите, секрет ли приправа.", "branches": [{"phrase": "ph:restaurant.o-tempero-e-segredo", "next": "spicesay"}], "wrong": {"es": "O tempero é areia? Isso era no deserto!", "ru": "Приправа из песка? Это было в пустыне!"}},
+        "spicesay": {"kind": "say", "es": "Segredo de família. Mas para você eu conto: coentro e muito amor. Mais alguma coisa?", "ru": "Семейный секрет. Но тебе скажу: кинза и много любви. Что-нибудь ещё?", "next": "bill"},
+        "bill": {"kind": "answer", "task": "Спросите, можно ли разделить счёт.", "branches": [{"phrase": "ph:restaurant.dividir-a-conta", "next": "end"}], "wrong": {"es": "Dividir em oito? Você está sozinho!", "ru": "Разделить на восемь? Ты же один!", "fem": {"es": "Dividir em oito? Você está sozinha!", "ru": "Разделить на восемь? Ты же одна!"}}},
+        "end": {"kind": "say", "es": "Você está sozinho, não tem o que dividir! Hoje é por minha conta. E leva esse fragmento do mapa: a Patrícia mandou ontem, com um bilhete. Ainda não abri.", "ru": "Ты же один, нечего делить! Сегодня я угощаю. И возьми этот обрывок карты: Патрисия прислала вчера, с запиской. Я ещё не открывала.", "fem": {"es": "Você está sozinha, não tem o que dividir! Hoje é por minha conta. E leva esse fragmento do mapa: a Patrícia mandou ontem, com um bilhete. Ainda não abri.", "ru": "Ты же одна, нечего делить! Сегодня я угощаю. И возьми этот обрывок карты: Патрисия прислала вчера, с запиской. Я ещё не открывала."}}
+      }
     }
   ]
 }

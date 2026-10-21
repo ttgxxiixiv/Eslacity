@@ -79,6 +79,54 @@
         {"q": "Что она отдаст герою?", "options": ["Корзину фруктов", "Настоящий обрывок", "Верблюда"], "answer": 1}
       ],
       "gloss": {"parece": "кажется (parecer)", "cenoura": "морковь", "alho": "чеснок", "vieram": "пришли, прибыли (vir)", "trouxe": "привёз (trazer)", "camelo": "верблюд", "sal": "соль", "papel": "бумага", "pessoal": "люди, народ", "fortuna": "состояние, богатство", "sumiu": "исчез (sumir)", "Caio": "Каю", "semana": "неделя", "cheiro": "запах"}
+    },
+    {
+      "id": "sc:market.4",
+      "chapter": 4,
+      "npc": "graca",
+      "lines": [
+        {"who": "npc", "es": "Que noite! Você também ouviu as vozes da floresta?", "ru": "Ну и ночка! Ты тоже слышал голоса из леса?", "fem": {"ru": "Ну и ночка! Ты тоже слышала голоса из леса?"}},
+        {"who": "hero", "es": "Ouvi um pouco. O que elas diziam?", "ru": "Немного. Что они говорили?"},
+        {"who": "npc", "es": "Uma voz dizia: «A balança da Dona Graça é generosa». E era a voz da Dita!", "ru": "Один голос говорил: «Весы у Доны Грасы щедрые». И это был голос Диты!"},
+        {"who": "hero", "es": "A floresta repete o que as pessoas falam?", "ru": "Лес повторяет то, что говорят люди?"},
+        {"who": "npc", "es": "Parece. Tudo o que a gente fala escondido, a floresta repete em voz alta.", "ru": "Похоже. Всё, что говоришь тайком, лес повторяет вслух."},
+        {"who": "hero", "es": "E os seus fregueses ouviram?", "ru": "И твои покупатели это слышали?"},
+        {"who": "npc", "es": "A rua toda. Hoje ninguém compra nada. Dizem que a minha balança é viciada.", "ru": "Вся улица. Сегодня никто ничего не покупает. Говорят, у меня подкручены весы."},
+        {"who": "npc", "es": "E você sabe: da última vez você levou caju, e eu pesei na sua frente, grama por grama.", "ru": "А ты-то знаешь: в прошлый раз ты брал кешью, и я взвешивала при тебе, грамм за граммом.", "if": {"flag": "fruit", "is": "caju"}},
+        {"who": "npc", "es": "E você sabe: da última vez você levou banana, e o quilo era quilo mesmo.", "ru": "А ты-то знаешь: в прошлый раз ты брал бананы, и килограмм был честный.", "if": {"flag": "fruit", "is": "banana"}},
+        {"who": "hero", "es": "Sinto muito.", "ru": "Мне очень жаль."},
+        {"who": "npc", "es": "A minha avó dizia: «Cuidado com as palavras, as árvores escutam». Eu achava que era lenda.", "ru": "Бабушка говорила: «Осторожнее со словами, деревья слушают». Я думала, это сказка."}
+      ],
+      "questions": [
+        {"q": "Что сказал голос из леса?", "options": ["Что весы Доны Грасы щедрые", "Что фрукты гнилые", "Что рынок закрывается"], "answer": 0},
+        {"q": "Чей это был голос?", "options": ["Диты", "Каю", "Жулианы"], "answer": 0},
+        {"q": "Что теперь думают покупатели?", "options": ["Что весы подкручены", "Что цены низкие", "Что Дона Граса уезжает"], "answer": 0},
+        {"q": "Что говорила бабушка Доны Грасы?", "options": ["«Осторожнее со словами, деревья слушают»", "«Не верь продавцам»", "«Покупай с утра»"], "answer": 0}
+      ],
+      "gloss": {"diziam": "говорили (dizer)", "dizia": "говорил (dizer)", "generosa": "щедрая", "escondido": "тайком", "alta": "громкая (em voz alta — вслух)", "viciada": "подкрученная", "pesei": "взвешивала (pesar)", "grama": "грамм", "avó": "бабушка", "achava": "думала (achar)", "Dita": "Дита", "Graça": "Граса", "vozes": "голоса", "levou": "взял (levar)"}
+    },
+    {
+      "id": "wh:market.4",
+      "chapter": 4,
+      "mode": "overhear",
+      "npc": "graca",
+      "lines": [
+        {"who": "npc", "es": "Viu o moço da banca nova? Vende manga a dois reais o quilo.", "ru": "Видела парня с нового прилавка? Продаёт манго по два реала за кило."},
+        {"who": "dita", "es": "Vi. Comprei ontem para a cozinha. A manga estava boa, viu?", "ru": "Видела. Вчера купила на кухню. Манго было хорошее, между прочим."},
+        {"who": "npc", "es": "Boa? Com esse preço, ou ele rouba, ou a fruta é de ontem.", "ru": "Хорошее? По такой цене либо он ворует, либо фрукты вчерашние."},
+        {"who": "dita", "es": "Ou ele compra direto do produtor, sem atravessador. Você mesma fazia isso antes.", "ru": "Или покупает прямо у производителя, без перекупщика. Ты сама так раньше делала."},
+        {"who": "npc", "es": "Antes. Hoje o produtor quer o preço do mercado, e eu não vou trabalhar de graça.", "ru": "Раньше. Теперь производитель хочет рыночную цену, а я бесплатно работать не стану."},
+        {"who": "dita", "es": "Ninguém pediu isso. Só não fala mal do rapaz. Ele é novo aqui.", "ru": "Никто и не просит. Только не говори плохо о парне. Он здесь новенький."},
+        {"who": "npc", "es": "Tá, tá. Mas se a freguesia for toda para ele, quem vai comprar o meu caju?", "ru": "Ладно, ладно. Но если все покупатели уйдут к нему, кто купит мой кешью?"},
+        {"who": "dita", "es": "Eu. Como sempre. Agora me dá meio quilo, que a moqueca não espera.", "ru": "Я. Как всегда. А теперь дай мне полкило, мокека не ждёт."}
+      ],
+      "questions": [
+        {"q": "Что думает Дона Граса о новом продавце?", "kind": "stance", "options": ["Что он хороший человек", "Что при такой цене он ворует или продаёт вчерашнее", "Что он её родственник"], "answer": 1},
+        {"q": "Как Дита объясняет низкую цену?", "kind": "stance", "options": ["Он покупает прямо у производителя", "Он богат", "Манго гнилое"], "answer": 0},
+        {"q": "Чего на самом деле боится Дона Граса?", "kind": "stance", "options": ["Что покупатели уйдут к нему", "Что манго кончится", "Что её оштрафуют"], "answer": 0},
+        {"q": "Что Дита имеет в виду, отвечая «Я. Как всегда»?", "kind": "stance", "options": ["Что она останется её покупательницей", "Что она сама откроет прилавок", "Что она больше не придёт"], "answer": 0}
+      ],
+      "gloss": {"rapaz": "парень", "moço": "парень", "banca": "прилавок", "manga": "манго", "rouba": "ворует (roubar)", "produtor": "производитель", "atravessador": "перекупщик", "fazia": "делала (fazer)", "graça": "даром (de graça — бесплатно)", "freguesia": "покупатели", "moqueca": "мокека (рагу из рыбы)", "tá": "ладно", "meio": "половина", "viu": "вот, между прочим (разг.)"}
     }
   ]
 }

@@ -53,7 +53,7 @@
       "start": "hi",
       "nodes": {
         "hi": {"kind": "say", "es": "Hoje você vai me ajudar a vender. Mas antes, escolhe as suas frutas.", "ru": "Сегодня поможешь мне торговать. Но сначала выбери себе фрукты.", "next": "fruit"},
-        "fruit": {"kind": "answer", "task": "Спросите, есть ли сегодня кешью, или попросите килограмм бананов.", "branches": [{"phrase": "ph:market.tem-caju", "next": "caju"}, {"phrase": "ph:market.um-quilo-de-banana", "next": "banana"}], "wrong": {"es": "Tem camelo? Não, o camelo foi embora com o homem!", "ru": "Есть верблюд? Нет, верблюд ушёл вместе с тем человеком!"}},
+        "fruit": {"kind": "answer", "task": "Спросите, есть ли сегодня кешью, или попросите килограмм бананов.", "branches": [{"phrase": "ph:market.tem-caju", "next": "caju", "sets": {"fruit": "caju"}}, {"phrase": "ph:market.um-quilo-de-banana", "next": "banana", "sets": {"fruit": "banana"}}], "wrong": {"es": "Tem camelo? Não, o camelo foi embora com o homem!", "ru": "Есть верблюд? Нет, верблюд ушёл вместе с тем человеком!"}},
         "caju": {"kind": "say", "es": "Tem caju, sim, bem doce. Mas cuidado: alguns estão ruins.", "ru": "Кешью есть, очень сладкие. Но осторожно: некоторые плохие.", "next": "care"},
         "banana": {"kind": "say", "es": "Um quilo de banana, como sempre. Mas cuidado: algumas estão ruins.", "ru": "Килограмм бананов, как всегда. Но осторожно: некоторые плохие.", "next": "care"},
         "care": {"kind": "answer", "task": "Скажите, что выберете внимательно.", "branches": [{"phrase": "ph:market.escolher-com-cuidado", "next": "caresay"}], "wrong": {"es": "Vai escolher de olhos fechados? Assim você leva fruta ruim!", "ru": "Будешь выбирать с закрытыми глазами? Так унесёшь плохие фрукты!"}},
@@ -64,6 +64,29 @@
         "pricesay": {"kind": "say", "es": "Justo, como a minha balança. Agora você é freguês de sempre.", "ru": "Честная, как мои весы. Теперь ты мой постоянный покупатель.", "next": "gift", "fem": {"es": "Justo, como a minha balança. Agora você é freguesa de sempre.", "ru": "Честная, как мои весы. Теперь ты моя постоянная покупательница."}},
         "gift": {"kind": "answer", "task": "Спросите, будет ли подарочек.", "branches": [{"phrase": "ph:market.um-brinde", "next": "end"}], "wrong": {"es": "Um desconto de cem por cento? Aí eu fico pobre!", "ru": "Скидка сто процентов? Так я обеднею!"}},
         "end": {"kind": "say", "es": "Claro que tem! O brinde é o meu fragmento do mapa. Esse é verdadeiro: o papel é velho de verdade.", "ru": "Конечно, будет! Подарочек — мой обрывок карты. Этот настоящий: бумага и правда старая."}
+      }
+    },
+    {
+      "id": "ms:market.4",
+      "chapter": 4,
+      "npc": "graca",
+      "scene": "sc:market.4",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Ninguém compra comigo hoje. Fica um pouco aqui, me ajuda.", "ru": "Сегодня у меня никто не покупает. Побудь здесь немного, помоги мне.", "next": "calumny"},
+        "calumny": {"kind": "answer", "task": "Скажите, что это клевета.", "branches": [{"phrase": "ph:market.isso-e-calunia", "next": "calumnysay"}], "wrong": {"es": "É verdade? Nunca! A minha balança é honesta.", "ru": "Это правда? Никогда! Мои весы честные."}},
+        "calumnysay": {"kind": "say", "es": "Calúnia, sim. Mas a Dita disse aquilo. Agora a freguesia não confia em mim.", "ru": "Клевета, да. Но Дита это сказала. Теперь покупатели мне не доверяют.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:market.a-balanca-e-justa", "next": "object", "move": "object"}, {"phrase": "ph:market.melhor-pesar-de-novo", "next": "concede", "move": "concede"}, {"phrase": "ph:market.uma-balanca-nova", "next": "compromise", "move": "compromise"}], "wrong": {"es": "Pesar a floresta? Ela é grande demais, meu bem.", "ru": "Взвесить лес? Он слишком большой, милый."}},
+        "object": {"kind": "say", "es": "Você viu? Então fala isso alto, para a rua toda ouvir!", "ru": "Ты видел? Тогда скажи это громко, чтобы вся улица слышала!", "next": "origin", "fem": {"ru": "Ты видела? Тогда скажи это громко, чтобы вся улица слышала!"}},
+        "concede": {"kind": "say", "es": "Na frente de todos… Tá bom. Quem não deve não teme.", "ru": "При всех… Ладно. Кому нечего скрывать, тому нечего бояться.", "next": "origin"},
+        "compromise": {"kind": "say", "es": "Uma balança nova, com selo da prefeitura? Boa ideia. Ninguém vai reclamar.", "ru": "Новые весы, с пломбой мэрии? Хорошая мысль. Никто не будет жаловаться.", "next": "origin"},
+        "origin": {"kind": "say", "es": "Pronto. Olha, já tem gente voltando. Um freguês quer saber de onde vem o caju.", "ru": "Ну вот. Смотри, люди уже возвращаются. Один покупатель хочет знать, откуда кешью.", "next": "originq"},
+        "originq": {"kind": "answer", "task": "Спросите, откуда эти фрукты.", "branches": [{"phrase": "ph:market.qual-e-a-origem", "next": "originsay"}], "wrong": {"es": "Qual é o preço? Isso ele já sabe!", "ru": "Какая цена? Это он уже знает!"}},
+        "originsay": {"kind": "say", "es": "Da roça do meu irmão, sem agrotóxico. E o freguês ficou contente. Quer provar?", "ru": "С участка моего брата, без пестицидов. И покупатель доволен. Хочешь попробовать?", "next": "taste"},
+        "taste": {"kind": "answer", "task": "Спросите, можно ли попробовать.", "branches": [{"phrase": "ph:market.posso-provar", "next": "tastesay"}], "wrong": {"es": "Posso levar tudo? Calma, deixa para os outros!", "ru": "Можно забрать всё? Тише, оставь другим!"}},
+        "tastesay": {"kind": "say", "es": "Prova. E a Dita? Ela veio pedir desculpas. Disse que falou aquilo de brincadeira, há um ano.", "ru": "Пробуй. А Дита? Она пришла извиниться. Сказала, что сболтнула это в шутку год назад.", "next": "gift"},
+        "gift": {"kind": "answer", "task": "Спросите, будет ли подарочек.", "branches": [{"phrase": "ph:market.um-brinde", "next": "end"}], "wrong": {"es": "Um desconto para a floresta? Ela não paga!", "ru": "Скидка для леса? Лес не платит!"}},
+        "end": {"kind": "say", "es": "Claro. O brinde de hoje é o meu fragmento do mapa da floresta. E uma voz a menos lá dentro.", "ru": "Конечно. Подарочек сегодня — мой обрывок карты леса. И на один голос там меньше."}
       }
     }
   ]
