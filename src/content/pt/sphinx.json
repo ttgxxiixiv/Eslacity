@@ -1,0 +1,1441 @@
+{
+  "sphinx": {
+    "name": "Сфинкс",
+    "voice": {
+      "pitch": 0.6,
+      "rate": 0.8
+    },
+    "speech": {
+      "greeting": {
+        "es": "Viajante, chegou aos Portões do Cofre. Muitos tentaram, poucos souberam falar. Não pergunto pela força, pergunto pela palavra.",
+        "ru": "Путник, вы дошли до Врат Хранилища. Многие пытались, немногие сумели говорить. Я спрашиваю не о силе, а о слове."
+      },
+      "again": {
+        "es": "De novo diante dos meus portões. As perguntas mudaram; o Cofre continua esperando.",
+        "ru": "Вы снова у моих Врат. Вопросы стали другими, а Хранилище всё ещё ждёт."
+      },
+      "hear": {
+        "es": "Primeiro enigma: escute. Quem ouve só as palavras não ouviu nada. Diga-me o que quiseram dizer.",
+        "ru": "Первая загадка: слушайте. Кто слышит одни слова, не услышал ничего. Скажите мне, что хотели сказать."
+      },
+      "word": {
+        "es": "Segundo enigma: a palavra exata. Uma só letra separa o sábio de quem apenas parece sábio.",
+        "ru": "Вторая загадка: точное слово. Одна буква отделяет мудреца от того, кто только кажется мудрым."
+      },
+      "wisdom": {
+        "es": "Terceiro enigma: leia com calma e responda, primeiro como diante de um rei, depois como diante de um amigo.",
+        "ru": "Третья загадка: прочтите не спеша и ответьте, сначала как перед королём, потом как перед другом."
+      },
+      "pass": {
+        "es": "Respondeu bem. Agora há uma porta a menos até o Cofre.",
+        "ru": "Вы ответили верно. Теперь до Хранилища одной дверью меньше."
+      },
+      "fail": {
+        "es": "Não. Tomo um dos seus corações e faço outra pergunta. A paciência também é uma resposta.",
+        "ru": "Нет. Я забираю одно ваше сердце и задаю другой вопрос. Терпение — тоже ответ."
+      },
+      "rest": {
+        "es": "Os seus corações se apagaram. Vá e volte em três dias: então perguntarei outra coisa.",
+        "ru": "Ваши сердца погасли. Уходите и возвращайтесь через три дня: тогда я спрошу о другом."
+      },
+      "waiting": {
+        "es": "O tempo ainda não passou. Os portões não se abrem para quem tem pressa.",
+        "ru": "Время ещё не прошло. Врата не открываются тому, кто спешит."
+      },
+      "victory": {
+        "es": "Ouviu o que não foi dito, achou a palavra exata e falou tanto com reis quanto com amigos. Entre: o Cofre é seu.",
+        "ru": "Вы услышали несказанное, нашли точное слово и говорили и с королями, и с друзьями. Проходите: Хранилище ваше."
+      }
+    },
+    "vault": {
+      "before": [
+        {
+          "who": "sphinx",
+          "es": "Os portões se abrem. Lá dentro não há ouro nem joias, só uma taça.",
+          "ru": "Врата открываются. Внутри нет ни золота, ни драгоценностей, только чаша."
+        },
+        {
+          "who": "cronista",
+          "es": "Aqui está o Elixir. Há cem anos ninguém consegue bebê-lo.",
+          "ru": "Вот он, Эликсир. Сто лет никто не мог его выпить."
+        },
+        {
+          "who": "sphinx",
+          "es": "Ele não dá uma língua nova. Faz lembrar aquela que já foi aprendida.",
+          "ru": "Он не даёт нового языка. Он напоминает тот, что уже выучен."
+        },
+        {
+          "who": "cronista",
+          "es": "Bebe. Vou escrever isso no meu livro.",
+          "ru": "Пей. Я запишу это в свою книгу."
+        }
+      ],
+      "after": [
+        {
+          "who": "cronista",
+          "es": "Está sentindo? Você não traduz mais na cabeça. Você simplesmente fala.",
+          "ru": "Чувствуешь? Ты больше не переводишь в голове. Ты просто говоришь."
+        },
+        {
+          "who": "sphinx",
+          "es": "Agora traz o olho de ouro. De hoje em diante, a cidade inteira vai escutar a sua palavra.",
+          "ru": "Теперь на вас золотой глаз. Отныне весь город будет прислушиваться к вашему слову."
+        },
+        {
+          "who": "sphinx",
+          "es": "Mas lembre-se: língua que não se usa se esquece. Volte à cidade e fale.",
+          "ru": "Но помните: язык, на котором не говорят, забывается. Возвращайтесь в город и говорите."
+        }
+      ]
+    },
+    "gloss": {
+      "portões": "врата",
+      "cofre": "Хранилище",
+      "enigma": "загадка",
+      "sábio": "мудрец",
+      "exata": "точная",
+      "terceiro": "третий",
+      "corações": "сердца",
+      "apagaram": "погасли (apagar-se)",
+      "pressa": "спешка",
+      "reis": "короли",
+      "joias": "драгоценности",
+      "taça": "чаша",
+      "elixir": "Эликсир",
+      "bebê": "выпить (beber)",
+      "traduz": "переводишь (traduzir)",
+      "ouro": "золото"
+    }
+  },
+  "word": [
+    {
+      "id": "sx:word.1",
+      "exercises": [
+        {
+          "id": "sx:word.1.1",
+          "kind": "transform",
+          "source": "Talvez a porta esteja trancada.",
+          "keyword": "deve",
+          "ru": "Дверь, должно быть, заперта.",
+          "answer": "A porta deve estar trancada.",
+          "explain": "Уверенная догадка — dever + инфинитив."
+        },
+        {
+          "id": "sx:word.1.2",
+          "kind": "transform",
+          "source": "Que pena que eu não ouvi a minha avó.",
+          "keyword": "quem dera",
+          "ru": "Жаль, что я не послушал бабушку.",
+          "answer": "Quem dera eu tivesse ouvido a minha avó.",
+          "alt": [
+            "Quem dera tivesse ouvido a minha avó."
+          ],
+          "explain": "Сожаление о прошлом — quem dera + mais-que-perfeito do subjuntivo."
+        },
+        {
+          "id": "sx:word.1.3",
+          "kind": "transform",
+          "source": "Embora estivesse cansado, continuou subindo.",
+          "keyword": "apesar de",
+          "ru": "Хотя он устал, он продолжал подниматься.",
+          "answer": "Apesar de estar cansado, continuou subindo.",
+          "explain": "embora + subjuntivo = apesar de + инфинитив."
+        },
+        {
+          "id": "sx:word.1.4",
+          "kind": "cloze",
+          "text": "Se eu ___ (saber) que você vinha, teria esperado. Fico feliz que você ___ (chegar) bem.",
+          "ru": "Если бы я знал, что ты едешь, я бы подождал. Рад, что ты благополучно добрался.",
+          "answers": [
+            [
+              "soubesse"
+            ],
+            [
+              "tenha chegado"
+            ]
+          ],
+          "explain": "Нереальное условие — soubesse; после fico feliz que — subjuntivo: tenha chegado."
+        },
+        {
+          "id": "sx:word.1.5",
+          "kind": "cloze",
+          "text": "Mal ___ (sair) de casa, começou a chover. Nunca ___ (ver) uma tempestade assim na vida.",
+          "ru": "Едва мы вышли из дома, начался дождь. Такой бури я в жизни не видел.",
+          "answers": [
+            [
+              "saímos"
+            ],
+            [
+              "vi"
+            ]
+          ],
+          "explain": "mal + прошедшее — «едва»; nunca vi — «никогда не видел»."
+        },
+        {
+          "id": "sx:word.1.6",
+          "kind": "fix",
+          "sentence": "Se eu soubesse da tempestade ontem, fico em casa.",
+          "ru": "Если бы я вчера знал о буре, я бы остался дома.",
+          "wrong": 6,
+          "answer": "teria ficado",
+          "alt": [
+            "tinha ficado"
+          ],
+          "explain": "Нереальное прошлое: se + mais-que-perfeito do subjuntivo … teria + причастие."
+        },
+        {
+          "id": "sx:word.1.7",
+          "kind": "fix",
+          "sentence": "O médico pediu que eu descanso.",
+          "ru": "Врач попросил меня отдохнуть.",
+          "wrong": 5,
+          "answer": "descansasse",
+          "explain": "После pedir que в прошлом — imperfeito do subjuntivo: descansasse."
+        },
+        {
+          "id": "sx:word.1.8",
+          "kind": "fix",
+          "sentence": "Quando cheguei, ele já sairá.",
+          "ru": "Когда я пришёл, он уже ушёл.",
+          "wrong": 4,
+          "answer": "tinha saído",
+          "alt": [
+            "havia saído",
+            "saíra"
+          ],
+          "explain": "Действие раньше другого в прошлом — mais-que-perfeito: tinha saído."
+        },
+        {
+          "id": "sx:word.1.9",
+          "kind": "type",
+          "sentence": "Só ontem ___ a ficha: ele não volta mais.",
+          "ru": "Только вчера до меня дошло: он больше не вернётся.",
+          "hint": "cair, прошедшее",
+          "answer": "caiu",
+          "explain": "cair a ficha — дойти (о понимании)."
+        },
+        {
+          "id": "sx:word.1.10",
+          "kind": "type",
+          "sentence": "Ele ___ com a língua nos dentes e contou o segredo.",
+          "ru": "Он проболтался и выдал секрет.",
+          "hint": "dar, прошедшее",
+          "answer": "deu",
+          "explain": "dar com a língua nos dentes — проболтаться."
+        }
+      ]
+    },
+    {
+      "id": "sx:word.2",
+      "exercises": [
+        {
+          "id": "sx:word.2.1",
+          "kind": "transform",
+          "source": "É provável que ele tenha perdido o trem.",
+          "keyword": "deve",
+          "ru": "Он, наверное, опоздал на поезд.",
+          "answer": "Ele deve ter perdido o trem.",
+          "explain": "Догадка о прошлом — dever ter + причастие."
+        },
+        {
+          "id": "sx:word.2.2",
+          "kind": "transform",
+          "source": "Se você não estudar, não vai passar.",
+          "keyword": "a menos que",
+          "ru": "Если не будешь заниматься, не сдашь.",
+          "answer": "Você não vai passar a menos que estude.",
+          "alt": [
+            "A menos que estude, você não vai passar."
+          ],
+          "explain": "a menos que + presente do subjuntivo = se não."
+        },
+        {
+          "id": "sx:word.2.3",
+          "kind": "transform",
+          "source": "Dizem que o pregoeiro foi visto no farol.",
+          "keyword": "teria",
+          "ru": "Говорят, глашатая видели у маяка.",
+          "answer": "O pregoeiro teria sido visto no farol.",
+          "explain": "Непроверенный слух — condicional: teria sido visto."
+        },
+        {
+          "id": "sx:word.2.4",
+          "kind": "cloze",
+          "text": "Caso ___ (chover), a festa será no salão. Quando você ___ (chegar), me avise.",
+          "ru": "Если пойдёт дождь, праздник будет в зале. Когда приедешь, сообщи мне.",
+          "answers": [
+            [
+              "chova"
+            ],
+            [
+              "chegar"
+            ]
+          ],
+          "explain": "caso + presente do subjuntivo: chova; quando + futuro do subjuntivo: chegar."
+        },
+        {
+          "id": "sx:word.2.5",
+          "kind": "cloze",
+          "text": "Por mais que ___ (tentar), ele não conseguiu abrir a porta. Foi o Davi ___ trouxe a chave.",
+          "ru": "Как он ни старался, он не смог открыть дверь. Это Дави принёс ключ.",
+          "answers": [
+            [
+              "tentasse"
+            ],
+            [
+              "quem",
+              "que"
+            ]
+          ],
+          "explain": "por mais que + subjuntivo: tentasse; выделение — foi … quem."
+        },
+        {
+          "id": "sx:word.2.6",
+          "kind": "fix",
+          "sentence": "Espero que você vem amanhã.",
+          "ru": "Надеюсь, ты придёшь завтра.",
+          "wrong": 3,
+          "answer": "venha",
+          "explain": "После esperar que — presente do subjuntivo: venha."
+        },
+        {
+          "id": "sx:word.2.7",
+          "kind": "fix",
+          "sentence": "Vamos falar com ele antes que ele vai embora.",
+          "ru": "Давай поговорим с ним, пока он не ушёл.",
+          "wrong": 7,
+          "answer": "vá",
+          "explain": "antes que + subjuntivo: vá."
+        },
+        {
+          "id": "sx:word.2.8",
+          "kind": "fix",
+          "sentence": "Se ele tivesse estudado, passaria na prova ontem.",
+          "ru": "Если бы он занимался, он бы вчера сдал экзамен.",
+          "wrong": 4,
+          "answer": "teria passado",
+          "alt": [
+            "tinha passado"
+          ],
+          "explain": "Нереальное прошлое: teria passado."
+        },
+        {
+          "id": "sx:word.2.9",
+          "kind": "type",
+          "sentence": "O negócio vai de vento em ___.",
+          "ru": "Дело идёт как по маслу.",
+          "hint": "корма",
+          "answer": "popa",
+          "explain": "de vento em popa — как по маслу."
+        },
+        {
+          "id": "sx:word.2.10",
+          "kind": "type",
+          "sentence": "Não adianta ___ linguiça: conta logo o que aconteceu.",
+          "ru": "Не лей воду: рассказывай сразу, что случилось.",
+          "hint": "наполнять",
+          "answer": "encher",
+          "explain": "encher linguiça — лить воду."
+        }
+      ]
+    },
+    {
+      "id": "sx:word.3",
+      "exercises": [
+        {
+          "id": "sx:word.3.1",
+          "kind": "transform",
+          "source": "Não é possível que ele tenha mentido.",
+          "keyword": "pode",
+          "ru": "Не может быть, чтобы он солгал.",
+          "answer": "Ele não pode ter mentido.",
+          "explain": "Невозможность в прошлом — não poder ter + причастие."
+        },
+        {
+          "id": "sx:word.3.2",
+          "kind": "transform",
+          "source": "Ele saiu e ninguém percebeu.",
+          "keyword": "sem que",
+          "ru": "Он ушёл, и никто не заметил.",
+          "answer": "Ele saiu sem que ninguém percebesse.",
+          "explain": "sem que + imperfeito do subjuntivo."
+        },
+        {
+          "id": "sx:word.3.3",
+          "kind": "transform",
+          "source": "A cidade ignorou o pregoeiro durante cem anos.",
+          "keyword": "foi",
+          "ru": "Город сто лет не замечал глашатая.",
+          "answer": "O pregoeiro foi ignorado pela cidade durante cem anos.",
+          "explain": "Пассив: ser + причастие, исполнитель — por."
+        },
+        {
+          "id": "sx:word.3.4",
+          "kind": "cloze",
+          "text": "Se a gente ___ (responder) antes, ele não teria ido embora. Tomara que ainda ___ (dar) tempo.",
+          "ru": "Если бы мы ответили раньше, он бы не ушёл. Только бы ещё успеть.",
+          "answers": [
+            [
+              "tivesse respondido"
+            ],
+            [
+              "dê"
+            ]
+          ],
+          "explain": "Нереальное прошлое — tivesse respondido; tomara que + presente do subjuntivo: dê."
+        },
+        {
+          "id": "sx:word.3.5",
+          "kind": "cloze",
+          "text": "À medida que a gente ___ (avançar), o eco ficava mais fraco. Ninguém sabia o que ___ (fazer).",
+          "ru": "По мере того как мы продвигались, эхо становилось слабее. Никто не знал, что делать.",
+          "answers": [
+            [
+              "avançava"
+            ],
+            [
+              "fazer"
+            ]
+          ],
+          "explain": "à medida que + imperfeito: avançava; o que fazer — инфинитив."
+        },
+        {
+          "id": "sx:word.3.6",
+          "kind": "fix",
+          "sentence": "Caso você precisa de ajuda, me liga.",
+          "ru": "Если понадобится помощь, позвони мне.",
+          "wrong": 2,
+          "answer": "precise",
+          "explain": "caso + presente do subjuntivo: precise."
+        },
+        {
+          "id": "sx:word.3.7",
+          "kind": "fix",
+          "sentence": "Duvido que ele sabe a verdade.",
+          "ru": "Сомневаюсь, что он знает правду.",
+          "wrong": 3,
+          "answer": "saiba",
+          "explain": "После duvidar que — subjuntivo: saiba."
+        },
+        {
+          "id": "sx:word.3.8",
+          "kind": "fix",
+          "sentence": "É melhor vocês esperar aqui.",
+          "ru": "Вам лучше подождать здесь.",
+          "wrong": 3,
+          "answer": "esperarem",
+          "explain": "Личный инфинитив при vocês: esperarem."
+        },
+        {
+          "id": "sx:word.3.9",
+          "kind": "type",
+          "sentence": "Ponho a ___ no fogo pelo Severino: ele mudou.",
+          "ru": "Ручаюсь за Северину: он изменился.",
+          "hint": "рука",
+          "answer": "mão",
+          "explain": "pôr a mão no fogo — поручиться."
+        },
+        {
+          "id": "sx:word.3.10",
+          "kind": "type",
+          "sentence": "Depois da demissão, ele cortou um ___.",
+          "ru": "После увольнения он хлебнул горя.",
+          "hint": "двойной",
+          "answer": "dobrado",
+          "explain": "cortar um dobrado — хлебнуть горя."
+        }
+      ]
+    }
+  ],
+  "hear": [
+    {
+      "id": "sx:hear.1",
+      "monologue": {
+        "who": "cronista",
+        "lines": [
+          {
+            "es": "Há muitos anos escrevo a história deste caminho, e nunca vi ninguém chegar tão longe.",
+            "ru": "Я много лет пишу историю этой дороги и никогда не видел, чтобы кто-то зашёл так далеко."
+          },
+          {
+            "es": "Lembro do seu primeiro dia: você mal conseguia pedir um cafezinho. O Seu Tonho teve que repetir o preço três vezes.",
+            "ru": "Помню твой первый день: ты едва мог заказать кофе. Сеу Тоньо пришлось трижды повторить цену."
+          },
+          {
+            "es": "Depois veio a torre da serra. Lá você aprendeu a contar o que tinha feito, porque o guardião só escutava histórias.",
+            "ru": "Потом была башня в горах. Там ты научился рассказывать о том, что сделал, ведь страж слушал только истории."
+          },
+          {
+            "es": "O deserto mostrou que as palavras podem enganar e que um simples «se» muda o sentido de uma frase inteira.",
+            "ru": "Пустыня показала, что слова могут обманывать и что простое «если» меняет смысл целой фразы."
+          },
+          {
+            "es": "A floresta ensinou a ouvir o que as pessoas não dizem em voz alta.",
+            "ru": "Лес научил слышать то, чего люди не говорят вслух."
+          },
+          {
+            "es": "Não foi fácil. Uma noite você voltou da floresta sem forças e me disse que não tinha entendido uma palavra o dia inteiro.",
+            "ru": "Это далось нелегко. Однажды вечером ты вернулся из леса без сил и сказал мне, что за весь день не понял ни слова."
+          },
+          {
+            "es": "Mas na manhã seguinte você pegou a estrada de novo. Naquele dia escrevi no meu caderno: «Quem volta à estrada já sabe mais do que pensa».",
+            "ru": "Но на следующее утро ты снова вышел в путь. В тот день я записал в тетради: «Кто возвращается на дорогу, знает больше, чем думает»."
+          },
+          {
+            "es": "Agora você está diante da Esfinge. Muita gente acha que o importante é o Elixir lá dentro.",
+            "ru": "Теперь ты перед Сфинксом. Многие думают, что главное — Эликсир там, внутри."
+          },
+          {
+            "es": "Eu não acho. O Elixir só lembra o que já está em você. O caminho é que fez o trabalho.",
+            "ru": "Я так не думаю. Эликсир лишь напоминает то, что уже есть в тебе. Всю работу сделала дорога."
+          },
+          {
+            "es": "Um conselho: a Esfinge não olha o relógio. Ouça cada palavra até o fim, e só depois responda.",
+            "ru": "Один совет: Сфинкс не смотрит на часы. Выслушай каждое слово до конца и только потом отвечай."
+          },
+          {
+            "es": "E se errar, não tenha vergonha. Ninguém nesta cidade aprendeu a falar sem errar primeiro.",
+            "ru": "А если ошибёшься, не стыдись. Никто в этом городе не научился говорить, не ошибаясь сначала."
+          },
+          {
+            "es": "Vá. Eu vou estar aqui, com o caderno aberto, esperando o último capítulo.",
+            "ru": "Иди. Я буду здесь, с открытой тетрадью, ждать последнюю главу."
+          }
+        ]
+      },
+      "dispute": [
+        {
+          "who": "ricardo",
+          "es": "Dona Graça, preparei um plano. Quando o Cofre abrir, vamos cobrar uma pequena entrada. Com esse dinheiro consertamos a ponte.",
+          "ru": "Дона Граса, я подготовил план. Когда Хранилище откроется, будем брать небольшую плату за вход. На эти деньги починим мост."
+        },
+        {
+          "who": "graca",
+          "es": "Entrada? Ah, faça-me o favor, Seu Ricardo! O Cofre não é museu, é de todo mundo.",
+          "ru": "Плату за вход? Ой, да бросьте, Сеньор Рикардо! Хранилище не музей, оно общее."
+        },
+        {
+          "who": "ricardo",
+          "es": "A ponte também é de todo mundo, e ninguém paga nada por ela. O problema é exatamente esse.",
+          "ru": "Мост тоже общий, и никто за него ничего не платит. В этом-то и беда."
+        },
+        {
+          "who": "graca",
+          "es": "Então quem é pobre não entra, e quem é rico entra, é isso? Que ideia linda, hein. Parabéns.",
+          "ru": "Значит, бедные не войдут, а богатые войдут, так? Чудесная мысль, ничего не скажешь. Поздравляю."
+        },
+        {
+          "who": "ricardo",
+          "es": "Eu não disse isso. Crianças e aposentados, naturalmente, entrariam de graça.",
+          "ru": "Я этого не говорил. Дети и пенсионеры, разумеется, проходили бы бесплатно."
+        },
+        {
+          "who": "graca",
+          "es": "Hum. E quem decide quanto custa? O senhor? O seu banco?",
+          "ru": "Хм. А кто решает, сколько это стоит? Вы? Ваш банк?"
+        },
+        {
+          "who": "ricardo",
+          "es": "A cidade decide. Podemos votar na praça, com todos os moradores.",
+          "ru": "Решает город. Можно проголосовать на площади, со всеми жителями."
+        },
+        {
+          "who": "graca",
+          "es": "Votar eu aceito. Mas se a entrada passar de um real, eu mesma fico na porta deixando todo mundo entrar.",
+          "ru": "Голосовать я согласна. Но если плата будет больше одного реала, я сама встану у двери и буду всех пропускать."
+        },
+        {
+          "who": "ricardo",
+          "es": "Um real. Combinado. A senhora sempre ganha as discussões, não é?",
+          "ru": "Один реал. Договорились. Вы всегда выигрываете споры, правда?"
+        }
+      ],
+      "questions": [
+        {
+          "q": "Что Летописец вспоминает о первом дне героя?",
+          "options": [
+            "Герой сразу подружился со стражем",
+            "Герой едва мог заказать кофе",
+            "Герой заблудился в горах"
+          ],
+          "answer": 1,
+          "kind": "gist",
+          "part": "monologue"
+        },
+        {
+          "q": "Чему, по словам Летописца, героя научил лес?",
+          "options": [
+            "Слышать то, чего люди не говорят вслух",
+            "Рассказывать о прошлом",
+            "Торговаться на рынке"
+          ],
+          "answer": 0,
+          "kind": "gist",
+          "part": "monologue"
+        },
+        {
+          "q": "Как Летописец относится к Эликсиру?",
+          "options": [
+            "Мечтает выпить его сам",
+            "Боится, что Эликсира нет",
+            "Считает, что главное сделал путь, а не Эликсир"
+          ],
+          "answer": 2,
+          "kind": "stance",
+          "part": "monologue"
+        },
+        {
+          "q": "Что Летописец хочет сказать словами «Сфинкс не смотрит на часы»?",
+          "options": [
+            "Отвечать нужно не спеша и внимательно",
+            "Сфинкс опаздывает",
+            "У Сфинкса нет часов"
+          ],
+          "answer": 0,
+          "kind": "hint",
+          "part": "monologue"
+        },
+        {
+          "q": "Что предлагает Сеньор Рикардо?",
+          "options": [
+            "Закрыть Хранилище",
+            "Брать плату за вход и починить мост",
+            "Продать мост"
+          ],
+          "answer": 1,
+          "kind": "gist",
+          "part": "dispute"
+        },
+        {
+          "q": "Почему Дона Граса против платы?",
+          "options": [
+            "Хранилище принадлежит всем",
+            "Она не любит банки",
+            "Мост не нужен"
+          ],
+          "answer": 0,
+          "kind": "stance",
+          "part": "dispute"
+        },
+        {
+          "q": "На каком условии Дона Граса соглашается?",
+          "options": [
+            "Если город проголосует, а плата будет не больше реала",
+            "Если банк заплатит за мост",
+            "Ни на каком"
+          ],
+          "answer": 0,
+          "kind": "stance",
+          "part": "dispute"
+        },
+        {
+          "q": "Что Дона Граса имела в виду: «Чудесная мысль, ничего не скажешь»?",
+          "options": [
+            "Она искренне хвалит план",
+            "Это ирония: план ей не нравится",
+            "Она не поняла план"
+          ],
+          "answer": 1,
+          "kind": "hint",
+          "part": "dispute"
+        }
+      ],
+      "gloss": {
+        "relógio": "часы",
+        "capítulo": "глава",
+        "ah": "ах",
+        "museu": "музей",
+        "hein": "а? (разг.)",
+        "naturalmente": "разумеется",
+        "hum": "хм",
+        "votar": "голосовать",
+        "moradores": "жители",
+        "esfinge": "Сфинкс",
+        "elixir": "Эликсир",
+        "cofre": "Хранилище"
+      }
+    },
+    {
+      "id": "sx:hear.2",
+      "monologue": {
+        "who": "tonho",
+        "lines": [
+          {
+            "es": "Sabe por que eu passo o café tão devagar? Foi o meu pai que me ensinou.",
+            "ru": "Знаешь, почему я так медленно варю кофе? Меня этому научил отец."
+          },
+          {
+            "es": "Ele dizia: café com pressa fica amargo, e conversa com pressa também.",
+            "ru": "Он говорил: кофе в спешке горчит, и разговор в спешке тоже."
+          },
+          {
+            "es": "Eu não escutei. Passei a vida inteira correndo: abrir o café, fechar o café, pagar as contas.",
+            "ru": "Я не слушал. Всю жизнь бегал: открыть кафе, закрыть кафе, оплатить счета."
+          },
+          {
+            "es": "Quando o Caio era pequeno, ele vinha me contar as coisas da escola, e eu respondia sem levantar os olhos do balcão.",
+            "ru": "Когда Каю был маленьким, он приходил рассказать мне про школу, а я отвечал, не поднимая глаз от стойки."
+          },
+          {
+            "es": "Um dia ele parou de vir. Achei que era coisa da idade. Não era.",
+            "ru": "Однажды он перестал приходить. Я думал, это возраст. Оказалось, нет."
+          },
+          {
+            "es": "Quando ele subiu a serra e não voltou, eu entendi tudo de uma vez. Ele não estava fugindo de mim. Estava procurando alguém que o escutasse.",
+            "ru": "Когда он ушёл в горы и не вернулся, я понял всё разом. Он не бежал от меня. Он искал того, кто его выслушает."
+          },
+          {
+            "es": "Por isso, quando você apareceu aqui pedindo um cafezinho com aquele sotaque, eu prestei atenção.",
+            "ru": "Поэтому, когда ты появился здесь и попросил кофе с этим своим акцентом, я стал слушать внимательно."
+          },
+          {
+            "es": "Você falava devagar, errava, começava de novo. E eu pensei: esse aí tem paciência. Quem tem paciência chega.",
+            "ru": "Ты говорил медленно, ошибался, начинал заново. И я подумал: у этого есть терпение. А у кого есть терпение, тот дойдёт."
+          },
+          {
+            "es": "Agora o Caio escreve cartas. Começa com «Prezado Senhor Antônio», como se eu fosse um banco.",
+            "ru": "Теперь Каю пишет письма. Начинает с «Уважаемый сеньор Антониу», будто я банк."
+          },
+          {
+            "es": "Eu rio, mas fico feliz. Pelo menos agora ele fala, e eu escuto.",
+            "ru": "Я смеюсь, но я счастлив. Теперь он хотя бы говорит, а я слушаю."
+          },
+          {
+            "es": "Então vá até a Esfinge e escute com calma. Mas volte depois, que o café vai estar quente.",
+            "ru": "Так что иди к Сфинксу и слушай спокойно. Но потом возвращайся: кофе будет горячим."
+          }
+        ]
+      },
+      "dispute": [
+        {
+          "who": "helena",
+          "es": "Delegado, os seus guardas querem fechar a estrada do Labirinto à noite. Os meus hóspedes chegam justamente à noite.",
+          "ru": "Делегаду, ваши охранники хотят по ночам закрывать дорогу к Лабиринту. А мои гости приезжают как раз ночью."
+        },
+        {
+          "who": "moreira",
+          "es": "Dona Helena, à noite tem neblina na estrada. Na semana passada um carro quase caiu no rio.",
+          "ru": "Дона Элена, ночью на дороге туман. На прошлой неделе машина чуть не упала в реку."
+        },
+        {
+          "who": "helena",
+          "es": "Quase. Ninguém caiu. E agora por causa de um susto a cidade inteira fica parada?",
+          "ru": "Чуть не упала. Никто не упал. И теперь из-за одного испуга весь город будет стоять?"
+        },
+        {
+          "who": "moreira",
+          "es": "Prefiro um susto a um enterro. Com todo o respeito, a senhora pensa nas diárias; eu penso nas pessoas.",
+          "ru": "Лучше испуг, чем похороны. При всём уважении, вы думаете о плате за номера, а я — о людях."
+        },
+        {
+          "who": "helena",
+          "es": "Os meus hóspedes também são pessoas, delegado. E dormir no carro, na beira da estrada, é mais seguro?",
+          "ru": "Мои гости тоже люди, делегаду. А спать в машине на обочине — это безопаснее?"
+        },
+        {
+          "who": "moreira",
+          "es": "Hum. Nisso a senhora tem um ponto. Eu não tinha pensado em quem já está no caminho.",
+          "ru": "Хм. В этом вы правы. Я не подумал о тех, кто уже в пути."
+        },
+        {
+          "who": "helena",
+          "es": "Então faça o seguinte: deixe a estrada aberta, mas com um guarda e uma lanterna na ponte.",
+          "ru": "Тогда сделайте вот что: оставьте дорогу открытой, но с охранником и фонарём у моста."
+        },
+        {
+          "who": "moreira",
+          "es": "Um guarda na ponte e outro na entrada da pousada. E a senhora serve café para os dois.",
+          "ru": "Один охранник у моста, другой у входа в гостиницу. А вы угощаете обоих кофе."
+        },
+        {
+          "who": "helena",
+          "es": "Café e bolo. Fechado, delegado. Viu como dá para conversar?",
+          "ru": "Кофе и пирог. Договорились, делегаду. Видите, можно же договориться?"
+        }
+      ],
+      "questions": [
+        {
+          "q": "Чему отец научил Сеу Тоньо?",
+          "options": [
+            "Варить кофе не спеша",
+            "Считать деньги",
+            "Рано вставать"
+          ],
+          "answer": 0,
+          "kind": "gist",
+          "part": "monologue"
+        },
+        {
+          "q": "Почему Каю ушёл в горы, по словам Тоньо?",
+          "options": [
+            "Искал работу",
+            "Искал того, кто его выслушает",
+            "Убегал от долгов"
+          ],
+          "answer": 1,
+          "kind": "gist",
+          "part": "monologue"
+        },
+        {
+          "q": "Как Тоньо относится к официальным письмам Каю?",
+          "options": [
+            "Обижается",
+            "Смеётся, но рад, что сын говорит с ним",
+            "Не читает их"
+          ],
+          "answer": 1,
+          "kind": "stance",
+          "part": "monologue"
+        },
+        {
+          "q": "Что Тоньо имеет в виду: «у кого есть терпение, тот дойдёт»?",
+          "options": [
+            "Герой медленный",
+            "Он верит, что герой дойдёт до конца пути",
+            "Дорога очень длинная"
+          ],
+          "answer": 1,
+          "kind": "hint",
+          "part": "monologue"
+        },
+        {
+          "q": "О чём спорят Дона Элена и делегаду?",
+          "options": [
+            "Закрывать ли ночью дорогу к Лабиринту",
+            "Сколько стоит номер",
+            "Кто починит мост"
+          ],
+          "answer": 0,
+          "kind": "gist",
+          "part": "dispute"
+        },
+        {
+          "q": "Почему делегаду хочет закрыть дорогу?",
+          "options": [
+            "Ночью на ней туман и опасно",
+            "Гости шумят",
+            "Ему не нравится гостиница"
+          ],
+          "answer": 0,
+          "kind": "stance",
+          "part": "dispute"
+        },
+        {
+          "q": "Чем убеждает его Дона Элена?",
+          "options": [
+            "Тем, кто уже в пути, ночевать на обочине опаснее",
+            "Гостиница заплатит штраф",
+            "Туман скоро уйдёт"
+          ],
+          "answer": 0,
+          "kind": "stance",
+          "part": "dispute"
+        },
+        {
+          "q": "Что значит «Видите, можно же договориться?»",
+          "options": [
+            "Элена довольна, что спор кончился уступками с обеих сторон",
+            "Элена недовольна",
+            "Элена передумала"
+          ],
+          "answer": 0,
+          "kind": "hint",
+          "part": "dispute"
+        }
+      ],
+      "gloss": {
+        "errava": "ошибался (errar)",
+        "antônio": "Антониу",
+        "justamente": "как раз",
+        "helena": "Элена",
+        "susto": "испуг",
+        "enterro": "похороны",
+        "beira": "край, обочина",
+        "hum": "хм",
+        "lanterna": "фонарь",
+        "esfinge": "Сфинкс",
+        "labirinto": "Лабиринт"
+      }
+    },
+    {
+      "id": "sx:hear.3",
+      "monologue": {
+        "who": "lourdes",
+        "lines": [
+          {
+            "es": "Neste prédio moram doze famílias, e durante trinta anos eu achei que conhecia todas.",
+            "ru": "В этом доме живут двенадцать семей, и тридцать лет я думала, что знаю их всех."
+          },
+          {
+            "es": "Eu sabia quem chegava tarde, quem brigava, quem cozinhava com alho. Sabia tudo, menos o que importava.",
+            "ru": "Я знала, кто приходит поздно, кто ругается, кто готовит с чесноком. Знала всё, кроме главного."
+          },
+          {
+            "es": "Quando o eco começou a mudar as vozes, o vizinho do terceiro andar passou a me cumprimentar como um juiz: «Excelentíssima senhora».",
+            "ru": "Когда эхо начало менять голоса, сосед с третьего этажа стал здороваться со мной, как судья: «Превосходительнейшая сеньора»."
+          },
+          {
+            "es": "No começo eu achei graça. Depois fiquei com raiva. Depois percebi que eu também falava com ele como uma estranha.",
+            "ru": "Сначала мне было смешно. Потом я разозлилась. Потом поняла, что я и сама говорила с ним как чужая."
+          },
+          {
+            "es": "Trinta anos de «bom dia» e «boa noite», e nunca uma pergunta de verdade.",
+            "ru": "Тридцать лет «доброе утро» и «добрый вечер» — и ни одного настоящего вопроса."
+          },
+          {
+            "es": "Então um dia eu bati na porta dele com um pedaço de bolo e perguntei: «Como o senhor está, de verdade?».",
+            "ru": "И вот однажды я постучала к нему с куском пирога и спросила: «Как вы, по правде?»"
+          },
+          {
+            "es": "Ele ficou parado um tempo. Depois me convidou para entrar e falou duas horas da mulher dele, que morreu no ano passado.",
+            "ru": "Он долго стоял молча. Потом пригласил меня войти и два часа говорил о жене, которая умерла в прошлом году."
+          },
+          {
+            "es": "Ninguém no prédio sabia. Nem eu, que sei de tudo.",
+            "ru": "Никто в доме не знал. Даже я, хоть я и знаю всё."
+          },
+          {
+            "es": "O pregoeiro passou cem anos esperando que alguém fizesse essa pergunta. Às vezes acho que a cidade toda é um prédio como o meu.",
+            "ru": "Глашатай сто лет ждал, что кто-нибудь задаст этот вопрос. Иногда мне кажется, что весь город — такой же дом, как мой."
+          },
+          {
+            "es": "Por isso, quando você estiver diante da Esfinge, lembre: escutar não é esperar a sua vez de falar.",
+            "ru": "Поэтому, когда будешь перед Сфинксом, помни: слушать — не значит ждать своей очереди говорить."
+          }
+        ]
+      },
+      "dispute": [
+        {
+          "who": "patricia",
+          "es": "Seu Valdir, a prefeitura quer dar o nome do pregoeiro à praça. «Praça do Pregoeiro». Bonito, né?",
+          "ru": "Сеу Валдир, мэрия хочет назвать площадь в честь глашатая. «Площадь Глашатая». Красиво, правда?"
+        },
+        {
+          "who": "valdir",
+          "es": "Bonito no papel. Cem anos rindo dele, e agora uma placa resolve tudo?",
+          "ru": "На бумаге красиво. Сто лет над ним смеялись, а теперь табличка всё исправит?"
+        },
+        {
+          "who": "patricia",
+          "es": "Não resolve tudo, mas é um começo. As pessoas vão lembrar dele todo dia.",
+          "ru": "Не всё, но это начало. Люди будут вспоминать его каждый день."
+        },
+        {
+          "who": "valdir",
+          "es": "Vão lembrar do nome. Da história, ninguém vai saber. Placa não conta nada.",
+          "ru": "Будут вспоминать имя. А истории никто не узнает. Табличка ничего не рассказывает."
+        },
+        {
+          "who": "patricia",
+          "es": "Então o que o senhor sugere? Não fazer nada?",
+          "ru": "Тогда что вы предлагаете? Ничего не делать?"
+        },
+        {
+          "who": "valdir",
+          "es": "Eu sugiro um banco na praça, com o discurso dele escrito. Quem sentar, lê.",
+          "ru": "Я предлагаю поставить на площади скамейку с его речью. Кто сядет — прочтёт."
+        },
+        {
+          "who": "patricia",
+          "es": "Um banco… Gostei. Mas e o nome? Os vizinhos já votaram.",
+          "ru": "Скамейку… Мне нравится. А название? Соседи уже проголосовали."
+        },
+        {
+          "who": "valdir",
+          "es": "Deixa o nome. Mas embaixo da placa escreve: «Ele perguntou se alguém escutava. Hoje a cidade responde: sim».",
+          "ru": "Пусть будет название. Но под табличкой напиши: «Он спросил, слышит ли его кто-нибудь. Сегодня город отвечает: да»."
+        },
+        {
+          "who": "patricia",
+          "es": "Seu Valdir, o senhor devia trabalhar na prefeitura.",
+          "ru": "Сеу Валдир, вам бы в мэрии работать."
+        }
+      ],
+      "questions": [
+        {
+          "q": "Что Дона Лурдес поняла о соседях?",
+          "options": [
+            "Знала мелочи, но не главное",
+            "Знала о них всё",
+            "Не знала никого"
+          ],
+          "answer": 0,
+          "kind": "gist",
+          "part": "monologue"
+        },
+        {
+          "q": "Что она сделала, чтобы поговорить с соседом?",
+          "options": [
+            "Написала письмо",
+            "Пришла к нему с пирогом и спросила, как он",
+            "Позвала его на собрание"
+          ],
+          "answer": 1,
+          "kind": "gist",
+          "part": "monologue"
+        },
+        {
+          "q": "Как Лурдес теперь относится к своим тридцати годам «доброго утра»?",
+          "options": [
+            "Гордится ими",
+            "Жалеет, что не было настоящих вопросов",
+            "Ей всё равно"
+          ],
+          "answer": 1,
+          "kind": "stance",
+          "part": "monologue"
+        },
+        {
+          "q": "Что она имеет в виду: «слушать — не значит ждать своей очереди говорить»?",
+          "options": [
+            "Нужно слушать по-настоящему, а не готовить ответ",
+            "Нужно молчать",
+            "Нужно говорить первым"
+          ],
+          "answer": 0,
+          "kind": "hint",
+          "part": "monologue"
+        },
+        {
+          "q": "Что хочет сделать мэрия?",
+          "options": [
+            "Назвать площадь в честь глашатая",
+            "Снести площадь",
+            "Поставить памятник Валдиру"
+          ],
+          "answer": 0,
+          "kind": "gist",
+          "part": "dispute"
+        },
+        {
+          "q": "Почему Сеу Валдир сомневается?",
+          "options": [
+            "Табличка не расскажет историю",
+            "Ему не нравится глашатай",
+            "Это дорого"
+          ],
+          "answer": 0,
+          "kind": "stance",
+          "part": "dispute"
+        },
+        {
+          "q": "Что предлагает Валдир?",
+          "options": [
+            "Скамейку с речью и надпись под табличкой",
+            "Отменить голосование",
+            "Ничего не делать"
+          ],
+          "answer": 0,
+          "kind": "stance",
+          "part": "dispute"
+        },
+        {
+          "q": "Что Патрисия имеет в виду: «вам бы в мэрии работать»?",
+          "options": [
+            "Это похвала его идее",
+            "Она хочет, чтобы он ушёл",
+            "Она его ругает"
+          ],
+          "answer": 0,
+          "kind": "hint",
+          "part": "dispute"
+        }
+      ],
+      "gloss": {
+        "terceiro": "третий",
+        "excelentíssima": "превосходительнейшая",
+        "valdir": "Валдир",
+        "prefeitura": "мэрия",
+        "votaram": "проголосовали (votar)",
+        "esfinge": "Сфинкс",
+        "pregoeiro": "глашатай"
+      }
+    }
+  ],
+  "wisdom": [
+    {
+      "id": "sx:wisdom.1",
+      "title": "Cem anos sem resposta",
+      "text": [
+        {
+          "es": "Durante cem anos, ninguém na nossa cidade soube o que tinha acontecido com o pregoeiro. Os mais velhos contavam que, um dia, depois de ler as notícias na praça, ele caminhou em direção à floresta e nunca mais voltou. As crianças fizeram dele um personagem de conto: o homem de capa cinza que falava com todo mundo como se estivesse diante de um rei.",
+          "ru": "Сто лет никто в нашем городе не знал, что случилось с глашатаем. Старики рассказывали, что однажды, прочитав новости на площади, он пошёл в сторону леса и больше не вернулся. Дети сделали его героем сказки: человек в сером плаще, который со всеми говорил так, будто перед ним король."
+        },
+        {
+          "es": "A história verdadeira é mais simples e mais triste. Pelos papéis antigos da prefeitura, sabemos que o pregoeiro era um homem trabalhador e muito honesto. Tinha um único problema: falava com todos do mesmo jeito. Ao padeiro, ao prefeito e às crianças que brincavam na rua, ele dizia «Prezado senhor». As pessoas primeiro sorriram, depois riram e, no fim, começaram a zombar dele.",
+          "ru": "Настоящая история проще и печальнее. Из старых бумаг мэрии мы знаем, что глашатай был трудолюбивым и очень честным человеком. У него была одна беда: со всеми он говорил одинаково. И пекарю, и мэру, и детям, которые играли на улице, он говорил «Уважаемый господин». Люди сначала улыбались, потом смеялись, а в конце концов стали над ним издеваться."
+        },
+        {
+          "es": "O pregoeiro percebeu e quis mudar. Entre os papéis, encontramos um discurso escrito com a letra dele. Nesse discurso, ele tenta falar com os vizinhos como um amigo: «Queridos vizinhos, hoje não trago notícias. Trago uma pergunta: alguém me escuta?». O texto está cheio de palavras riscadas, como se cada frase tivesse custado uma noite inteira.",
+          "ru": "Глашатай это заметил и захотел измениться. Среди бумаг мы нашли речь, написанную его почерком. В этой речи он пытается говорить с соседями как друг: «Дорогие соседи, сегодня я не принёс новостей. Я принёс вопрос: меня кто-нибудь слышит?» Текст полон зачёркнутых слов, будто каждая фраза стоила ему целой ночи."
+        },
+        {
+          "es": "Ele nunca leu esse discurso. No dia marcado, a praça estava cheia, mas, quando subiu na tribuna, alguém gritou «Prezado senhor!», e todos riram. O pregoeiro dobrou o papel, desceu e foi embora pelo caminho da floresta. Naquela noite começou o eco.",
+          "ru": "Он так и не прочитал эту речь. В назначенный день площадь была полна, но, когда он поднялся на трибуну, кто-то крикнул «Уважаемый господин!», и все засмеялись. Глашатай сложил бумагу, спустился и ушёл по дороге в лес. В ту ночь и началось эхо."
+        },
+        {
+          "es": "Os sábios da cidade discutem até hoje o sentido do eco. Uns dizem que foi uma vingança: o pregoeiro queria que a cidade sentisse o que ele sentiu, por isso o eco transforma as palavras amigáveis em frias e as palavras frias em grosseiras. Outros acreditam que não foi vingança, e sim um pedido de socorro, porque um eco, afinal, só repete a voz de quem chama.",
+          "ru": "Мудрецы города до сих пор спорят о смысле эха. Одни говорят, что это была месть: глашатай хотел, чтобы город почувствовал то же, что и он, поэтому эхо превращает дружеские слова в холодные, а холодные — в грубые. Другие считают, что это была не месть, а просьба о помощи, ведь эхо в конце концов только повторяет голос того, кто зовёт."
+        },
+        {
+          "es": "Talvez as duas coisas sejam verdade. O certo é que a cidade, durante cem anos, ouviu o eco e não entendeu a pergunta. Os comerciantes perderam fregueses, as cartas chegavam ofensivas, os vizinhos deixaram de se cumprimentar. E ninguém pensou em responder.",
+          "ru": "Может быть, верно и то и другое. Ясно одно: сто лет город слышал эхо и не понимал вопроса. Торговцы теряли покупателей, письма приходили оскорбительными, соседи перестали здороваться. И никто не подумал ответить."
+        },
+        {
+          "es": "A lição, para nós, parece clara. Não existe um tom certo para todas as pessoas. Com o rei se fala de um jeito, com o amigo de outro, e quem confunde os dois não é mal-educado, apenas ainda não aprendeu. O pior não é errar o tom; o pior é rir de quem erra.",
+          "ru": "Урок для нас, кажется, ясен. Нет одного правильного тона для всех. С королём говорят одним образом, с другом — другим, и кто их путает, не невоспитан, а просто ещё не научился. Хуже всего не ошибиться тоном; хуже всего — смеяться над тем, кто ошибается."
+        },
+        {
+          "es": "Há também uma lição mais escondida. Uma pessoa pode passar a vida inteira esperando uma resposta que, para os outros, custaria um minuto. Um «bom dia» de verdade, uma pergunta simples, um sorriso sem zombaria.",
+          "ru": "Есть и урок поглубже. Человек может всю жизнь ждать ответа, который другим стоил бы минуты. Настоящего «доброго утра», простого вопроса, улыбки без насмешки."
+        },
+        {
+          "es": "Hoje o discurso do pregoeiro está na praça, numa cópia grande, e as crianças leem em voz alta. Ninguém ri. Quando chegam à última frase, alguém sempre responde: «Sim, a gente escuta».",
+          "ru": "Сегодня речь глашатая висит на площади, большой копией, и дети читают её вслух. Никто не смеётся. Когда они доходят до последней фразы, кто-нибудь всегда отвечает: «Да, мы слышим»."
+        }
+      ],
+      "questions": [
+        {
+          "q": "Почему над глашатаем смеялись?",
+          "options": [
+            "Он плохо читал новости",
+            "Он носил смешной плащ",
+            "Он со всеми говорил одинаково официально"
+          ],
+          "answer": 2
+        },
+        {
+          "q": "Что нашли в старых бумагах мэрии?",
+          "options": [
+            "Письмо мэра глашатаю",
+            "Речь, где глашатай пытается говорить с соседями по-дружески",
+            "Карту Лабиринта"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "О чём спорят мудрецы города?",
+          "options": [
+            "Где находится Лабиринт",
+            "Было ли эхо местью или просьбой о помощи",
+            "Кто написал речь глашатая"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Что, по тексту, хуже всего?",
+          "options": [
+            "Ошибиться тоном",
+            "Смеяться над тем, кто ошибается",
+            "Говорить официально"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Что происходит сегодня, когда дети читают речь?",
+          "options": [
+            "Кто-нибудь отвечает: «Да, мы слышим»",
+            "Все смеются",
+            "Начинается эхо"
+          ],
+          "answer": 0
+        }
+      ],
+      "register": [
+        {
+          "id": "sx:wisdom.1.1",
+          "kind": "register",
+          "source": "Ô, me conta a história do pregoeiro?",
+          "to": "formal",
+          "answer": "O senhor poderia me contar a história do pregoeiro",
+          "extra": [
+            "ô",
+            "conta"
+          ],
+          "explain": "Официально: без ô, o senhor poderia contar."
+        },
+        {
+          "id": "sx:wisdom.1.2",
+          "kind": "register",
+          "source": "Pedimos que aceite as nossas sinceras desculpas.",
+          "to": "informal",
+          "answer": "Foi mal mesmo",
+          "extra": [
+            "pedimos",
+            "aceite"
+          ],
+          "explain": "По-свойски: коротко foi mal mesmo вместо формулы."
+        }
+      ],
+      "gloss": {
+        "personagem": "персонаж",
+        "prefeitura": "мэрия",
+        "padeiro": "пекарь",
+        "prefeito": "мэр",
+        "zombar": "издеваться",
+        "riscadas": "зачёркнутые",
+        "amigáveis": "дружеские",
+        "grosseiras": "грубые",
+        "comerciantes": "торговцы",
+        "zombaria": "насмешка",
+        "leem": "читают (ler)",
+        "pregoeiro": "глашатай"
+      }
+    },
+    {
+      "id": "sx:wisdom.2",
+      "title": "O guardião dos portões",
+      "text": [
+        {
+          "es": "Nos livros antigos, a Esfinge aparece como um monstro que devora quem não sabe responder. Em nossa cidade, a história é outra. A Esfinge que guarda os portões do Cofre não come ninguém. Ela apenas tira um coração de quem erra e manda a pessoa voltar mais tarde.",
+          "ru": "В старых книгах Сфинкс — чудовище, которое пожирает тех, кто не может ответить. В нашем городе история другая. Сфинкс, который охраняет Врата Хранилища, никого не ест. Он лишь забирает сердце у того, кто ошибся, и отправляет его вернуться позже."
+        },
+        {
+          "es": "Quem a colocou ali? Os papéis da prefeitura não dizem. Uma lenda conta que foi o primeiro prefeito, que tinha medo de que o Elixir caísse em mãos erradas. Outra lenda diz que a própria Esfinge escolheu o lugar, porque gostava de ouvir as pessoas pensarem antes de falar.",
+          "ru": "Кто его туда поставил? Бумаги мэрии молчат. Одна легенда говорит, что это был первый мэр, который боялся, что Эликсир попадёт не в те руки. Другая — что Сфинкс сам выбрал это место, потому что любил слушать, как люди думают, прежде чем говорить."
+        },
+        {
+          "es": "As três perguntas da Esfinge não mudam há séculos, embora as palavras mudem a cada visita. Primeiro ela quer saber se o viajante entende o que não foi dito. Depois, se ele sabe escolher a palavra exata. Por último, se consegue falar com reis e com amigos sem confundir os dois.",
+          "ru": "Три вопроса Сфинкса не меняются веками, хотя слова меняются с каждым визитом. Сначала он хочет знать, понимает ли путник несказанное. Потом — умеет ли выбрать точное слово. И наконец — может ли говорить и с королями, и с друзьями, не путая одних с другими."
+        },
+        {
+          "es": "Muitos chegaram aos portões convencidos de que bastava decorar regras. Voltaram sem corações, irritados, dizendo que a Esfinge era injusta. Mas quem conversou com ela depois conta outra coisa: ela não pergunta o que está nos livros, pergunta o que está na vida.",
+          "ru": "Многие приходили к Вратам уверенными, что достаточно вызубрить правила. Возвращались без сердец, раздражённые, и говорили, что Сфинкс несправедлив. Но те, кто потом с ним разговаривал, рассказывают другое: он спрашивает не о том, что в книгах, а о том, что в жизни."
+        },
+        {
+          "es": "Um velho comerciante, que passou pelos portões na juventude, explicou assim: «Ela me fez ouvir uma discussão entre duas vizinhas e depois perguntou o que cada uma queria de verdade. Eu tinha entendido todas as palavras e nenhuma das intenções».",
+          "ru": "Один старый торговец, который прошёл через Врата в молодости, объяснял так: «Он дал мне послушать спор двух соседок, а потом спросил, чего на самом деле хотела каждая. Я понял все слова и ни одного намерения»."
+        },
+        {
+          "es": "Esse é o ponto. Saber uma língua não é conhecer muitas palavras, e sim perceber o que as pessoas querem dizer com elas. Uma frase como «Que ideia linda, hein» pode ser um elogio ou uma crítica, e só o tom, o rosto e a situação mostram qual das duas.",
+          "ru": "В этом всё дело. Знать язык — не значит знать много слов, а значит понимать, что люди хотят ими сказать. Фраза вроде «Чудесная мысль, ничего не скажешь» может быть и похвалой, и упрёком, и только тон, лицо и обстановка показывают, чем именно."
+        },
+        {
+          "es": "Por isso a Esfinge não tem pressa. Quem chega correndo, querendo terminar logo, costuma errar justamente onde a resposta parecia fácil. Quem espera, escuta até o fim e pensa antes de responder, raramente perde mais de um coração. A pressa, diz a Esfinge, é a forma mais educada de não escutar ninguém, e os viajantes apressados são sempre os primeiros a dizer que as perguntas eram difíceis demais.",
+          "ru": "Поэтому Сфинкс не спешит. Кто прибегает, желая поскорее закончить, обычно ошибается как раз там, где ответ казался лёгким. Кто ждёт, дослушивает до конца и думает, прежде чем ответить, редко теряет больше одного сердца. Спешка, говорит Сфинкс, — самый вежливый способ никого не слушать, и торопливые путники всегда первыми говорят, что вопросы были слишком трудными."
+        },
+        {
+          "es": "Dizem também que a Esfinge se lembra de cada viajante. Quem volta depois de três dias encontra perguntas novas, mas a mesma voz grave e paciente, como a de um professor que não desiste de um aluno teimoso.",
+          "ru": "Говорят ещё, что Сфинкс помнит каждого путника. Кто возвращается через три дня, находит новые вопросы, но тот же низкий терпеливый голос, как у учителя, который не сдаётся с упрямым учеником."
+        },
+        {
+          "es": "Talvez seja essa a última lição dos portões: o erro não fecha o caminho, apenas o deixa mais longo. E quem aceita o caminho mais longo, cedo ou tarde, chega.",
+          "ru": "Может быть, это и есть последний урок Врат: ошибка не закрывает дорогу, а лишь делает её длиннее. А кто соглашается на длинную дорогу, рано или поздно доходит."
+        }
+      ],
+      "questions": [
+        {
+          "q": "Чем Сфинкс нашего города отличается от Сфинкса из старых книг?",
+          "options": [
+            "Он никого не ест, а только забирает сердце",
+            "Он не задаёт вопросов",
+            "Он охраняет мост"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Что говорят две легенды о том, как Сфинкс оказался у Врат?",
+          "options": [
+            "Его поставил первый мэр или он сам выбрал место",
+            "Он пришёл из леса",
+            "Его привёз купец"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Что понял старый торговец?",
+          "options": [
+            "Он понял все слова, но не намерения",
+            "Сфинкс несправедлив",
+            "Нужно учить больше правил"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Кто, по тексту, редко теряет больше одного сердца?",
+          "options": [
+            "Кто дослушивает до конца и думает перед ответом",
+            "Кто отвечает быстро",
+            "Кто вызубрил правила"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Какой последний урок Врат?",
+          "options": [
+            "Ошибка не закрывает дорогу, а делает её длиннее",
+            "Без Эликсира нельзя",
+            "Нужно приходить каждый день"
+          ],
+          "answer": 0
+        }
+      ],
+      "register": [
+        {
+          "id": "sx:wisdom.2.1",
+          "kind": "register",
+          "source": "E aí, posso entrar ou não?",
+          "to": "formal",
+          "answer": "Seria possível eu entrar",
+          "extra": [
+            "aí",
+            "ou",
+            "não"
+          ],
+          "explain": "Официально: без e aí, вежливое seria possível."
+        },
+        {
+          "id": "sx:wisdom.2.2",
+          "kind": "register",
+          "source": "Solicito que me informe o horário de abertura dos portões.",
+          "to": "informal",
+          "answer": "Que horas os portões abrem",
+          "extra": [
+            "solicito",
+            "informe"
+          ],
+          "explain": "По-свойски: прямой вопрос вместо solicito que me informe."
+        }
+      ],
+      "gloss": {
+        "devora": "пожирает (devorar)",
+        "prefeitura": "мэрия",
+        "prefeito": "мэр",
+        "exata": "точная",
+        "bastava": "было достаточно (bastar)",
+        "decorar": "вызубрить",
+        "comerciante": "торговец",
+        "hein": "а? (разг.)",
+        "justamente": "как раз",
+        "raramente": "редко",
+        "esfinge": "Сфинкс",
+        "apressados": "торопливые"
+      }
+    },
+    {
+      "id": "sx:wisdom.3",
+      "title": "Uma carta atrasada",
+      "text": [
+        {
+          "es": "No quarto doze da pousada, debaixo de uma tábua solta do chão, o Davi encontrou uma carta que esperou cem anos para ser lida. O papel estava amarelo, e a letra era de criança: grande, torta, com uma mancha de tinta no canto.",
+          "ru": "В двенадцатом номере гостиницы, под расшатанной доской пола, Дави нашёл письмо, которое сто лет ждало, чтобы его прочли. Бумага пожелтела, а почерк был детский: крупный, кривой, с кляксой в углу."
+        },
+        {
+          "es": "«Desculpa, pregoeiro. Eu ri de você na praça. Agora a gente te escuta». Embaixo, a assinatura: Severino. O mesmo Severino que passou cem anos na torre da serra, que ensinou mentiras ao corvo por medo e que, na reunião de vizinhos, pediu perdão à cidade inteira.",
+          "ru": "«Прости, глашатай. Я смеялся над тобой на площади. Теперь мы тебя слышим». Внизу подпись: Северину. Тот самый Северину, который сто лет провёл в башне в горах, который из страха учил ворона лжи и который на собрании соседей попросил прощения у всего города."
+        },
+        {
+          "es": "Quando era menino, Severino estava na praça no dia do discurso. Foi ele quem gritou «Prezado senhor!» e fez todos rirem. Naquela mesma noite, arrependido, escreveu a carta e foi até a pousada para entregá-la. Mas o quarto doze já estava vazio: o pregoeiro tinha partido.",
+          "ru": "Мальчиком Северину был на площади в день речи. Это он крикнул «Уважаемый господин!» и рассмешил всех. В ту же ночь, раскаявшись, он написал письмо и пошёл в гостиницу, чтобы отдать его. Но двенадцатый номер был уже пуст: глашатай ушёл."
+        },
+        {
+          "es": "O menino escondeu a carta debaixo do chão, talvez esperando que um dia o dono voltasse. Depois cresceu, viajou, subiu a serra e esqueceu. Ou fingiu esquecer, o que às vezes dá no mesmo.",
+          "ru": "Мальчик спрятал письмо под полом, может быть, надеясь, что однажды хозяин вернётся. Потом вырос, путешествовал, поднялся в горы и забыл. Или сделал вид, что забыл, а это иногда одно и то же."
+        },
+        {
+          "es": "Quando a carta apareceu, Severino ficou dois dias sem sair da pousada. Dona Helena levava café e ele não bebia. Dizia que não tinha coragem de entregar a carta, porque cem anos de atraso eram uma vergonha maior do que a própria zombaria.",
+          "ru": "Когда письмо нашлось, Северину два дня не выходил из гостиницы. Дона Элена носила ему кофе, а он не пил. Говорил, что не решается отдать письмо, потому что сто лет опоздания — позор больше, чем сама насмешка."
+        },
+        {
+          "es": "Foi um viajante quem o convenceu, e não com argumentos. Sentou ao lado dele na poltrona e disse apenas: «Vem com a gente, sem medo». Não disse «senhor», não fez discurso. Falou como se fala com um amigo que se perdeu e precisa de alguém que o chame pelo nome.",
+          "ru": "Убедил его путник, и не доводами. Сел рядом с ним в кресло и сказал только: «Пойдём с нами, не бойся». Не сказал «сеньор», не произнёс речь. Сказал так, как говорят с другом, который заблудился и кому нужно, чтобы кто-то позвал его по имени."
+        },
+        {
+          "es": "Há uma ideia comum de que um pedido de desculpas só vale se chegar logo. A carta de Severino mostra o contrário. Uma desculpa atrasada continua sendo uma desculpa, desde que seja verdadeira. O que estraga um pedido de perdão não é a demora, e sim a falta de coragem de entregá-lo.",
+          "ru": "Есть расхожее мнение, что извинение чего-то стоит, только если пришло вовремя. Письмо Северину показывает обратное. Запоздавшее извинение остаётся извинением, если оно искреннее. Губит просьбу о прощении не задержка, а нехватка смелости её передать."
+        },
+        {
+          "es": "Também há uma lição sobre o tom. A carta começa com «Desculpa», e não com «Peço que aceite as minhas sinceras desculpas». O menino escreveu como falava, e por isso, cem anos depois, ainda dá para ouvir a voz dele no papel. As fórmulas servem para os contratos; para o coração, servem as palavras simples.",
+          "ru": "Есть и урок о тоне. Письмо начинается с «Прости», а не с «Прошу принять мои искренние извинения». Мальчик писал так, как говорил, и поэтому сто лет спустя в бумаге всё ещё слышен его голос. Формулы годятся для договоров; для сердца годятся простые слова."
+        },
+        {
+          "es": "Hoje a carta viaja no trem das sete, rumo ao Labirinto, nas mãos de um velho que já foi menino. Ninguém sabe se o pregoeiro vai ler. Mas a cidade inteira concorda: desta vez, ela vai chegar.",
+          "ru": "Сегодня письмо едет в поезде в семь утра к Лабиринту, в руках старика, который когда-то был мальчиком. Никто не знает, прочтёт ли его глашатай. Но весь город согласен: на этот раз оно дойдёт."
+        }
+      ],
+      "questions": [
+        {
+          "q": "Где Дави нашёл письмо?",
+          "options": [
+            "Под доской пола в двенадцатом номере",
+            "В архиве мэрии",
+            "На почте"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Почему Северину не отдал письмо сто лет назад?",
+          "options": [
+            "Глашатай уже ушёл из гостиницы",
+            "Он потерял письмо",
+            "Он не хотел извиняться"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Как путник убедил Северину?",
+          "options": [
+            "Простыми дружескими словами",
+            "Долгой речью",
+            "Приказом делегаду"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Что, по тексту, губит просьбу о прощении?",
+          "options": [
+            "Нехватка смелости её передать",
+            "Опоздание",
+            "Простые слова"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Почему в письме до сих пор слышен голос мальчика?",
+          "options": [
+            "Он писал так, как говорил",
+            "Он писал официальными формулами",
+            "Письмо читали вслух"
+          ],
+          "answer": 0
+        }
+      ],
+      "register": [
+        {
+          "id": "sx:wisdom.3.1",
+          "kind": "register",
+          "source": "Desculpa aí, foi mal.",
+          "to": "formal",
+          "answer": "Peço que aceite as minhas desculpas",
+          "extra": [
+            "aí",
+            "foi",
+            "mal"
+          ],
+          "explain": "Официально: peço que aceite as minhas desculpas вместо foi mal."
+        },
+        {
+          "id": "sx:wisdom.3.2",
+          "kind": "register",
+          "source": "Venho por meio desta comunicar a minha chegada.",
+          "to": "informal",
+          "answer": "Gente, já cheguei",
+          "extra": [
+            "venho",
+            "desta",
+            "comunicar"
+          ],
+          "explain": "По-свойски: просто gente, já cheguei вместо формулы."
+        }
+      ],
+      "gloss": {
+        "tábua": "доска",
+        "davi": "Дави",
+        "tinta": "чернила",
+        "helena": "Элена",
+        "zombaria": "насмешка",
+        "fórmulas": "формулы"
+      }
+    }
+  ]
+}

@@ -4,13 +4,13 @@ import { expect, test, type Page } from '@playwright/test';
 import { answerGrammar, exact, openCourse } from './fixtures';
 
 /**
- * Курсы без города (английский писался закрытым, задача 17.8; турецкий — 18.8): Сфинкс и Хранилище открываются
+ * Курсы без города (английский писался закрытым, задача 17.8; турецкий — 18.8; португальский — 19.8): Сфинкс и Хранилище открываются
  * напрямую. Три загадки первым набором проходятся без ошибок, потом сцена Хранилища и Эликсир. Остальные наборы
  * проверяет `src/content/sphinx.test.ts`.
  */
-const COURSES = ['en', 'tr'] as const;
+const COURSES = ['en', 'tr', 'pt'] as const;
 type Course = (typeof COURSES)[number];
-const DBS: Record<Course, string> = { en: 'eslacity-en', tr: 'eslacity-tr' };
+const DBS: Record<Course, string> = { en: 'eslacity-en', tr: 'eslacity-tr', pt: 'eslacity-pt' };
 type Question = { q: string; options: string[]; answer: number };
 type Exercises = Parameters<typeof answerGrammar>[1]['exercises'];
 type SphinxFile = {
