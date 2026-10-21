@@ -1,0 +1,878 @@
+{
+  "letters": [
+    {
+      "id": "lt:bank",
+      "location": "bank",
+      "chapter": 5,
+      "register": "formal",
+      "title": "Жалоба в банк",
+      "request": {
+        "es": "Se o senhor quiser contestar a cobrança, preciso de uma reclamação por escrito.",
+        "ru": "Если хотите оспорить списание, мне нужна письменная жалоба.",
+        "fem": {
+          "es": "Se a senhora quiser contestar a cobrança, preciso de uma reclamação por escrito."
+        }
+      },
+      "task": "С вашей карты дважды списали 120 реалов за один ужин. Напишите Сеньору Рикардо официальную жалобу: что случилось, чего вы просите, вежливое прощание.",
+      "sample": "Prezado Senhor Ricardo,\nNo dia 3 de maio, foram cobrados duas vezes cento e vinte reais pelo mesmo jantar no meu cartão. Envio em anexo o extrato da conta. Por isso, solicito a devolução da segunda cobrança o quanto antes. Além disso, gostaria de receber uma confirmação por escrito.\nAgradeço desde já a sua atenção.\nAtenciosamente,",
+      "checks": [
+        {
+          "label": "Обращение",
+          "examples": [
+            "Prezado Senhor Ricardo,"
+          ]
+        },
+        {
+          "label": "Что случилось — страдательный залог",
+          "examples": [
+            "foram cobrados"
+          ]
+        },
+        {
+          "label": "Связки",
+          "examples": [
+            "Por isso",
+            "Além disso"
+          ]
+        },
+        {
+          "label": "Вежливая просьба",
+          "examples": [
+            "solicito a devolução",
+            "gostaria de receber"
+          ]
+        },
+        {
+          "label": "Формула конца и прощание",
+          "examples": [
+            "Agradeço desde já a sua atenção",
+            "Atenciosamente"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lt:hotel",
+      "location": "hotel",
+      "chapter": 5,
+      "register": "formal",
+      "title": "Бронь для делегации",
+      "request": {
+        "es": "Para uma reserva de grupo, preciso de uma mensagem oficial.",
+        "ru": "Для групповой брони мне нужно официальное письмо."
+      },
+      "task": "Вы бронируете в гостинице Доны Элены три номера для жителей, которые едут к Лабиринту. Напишите официально: даты, сколько номеров, вопрос о завтраке, прощание.",
+      "sample": "Prezada Dona Helena,\nVenho por meio desta solicitar a reserva de três quartos duplos para o período de 10 a 13 de junho. Trata-se de um grupo de moradores que vai visitar o Labirinto do Eco. Gostaria de saber se o café da manhã está incluído na diária.\nFico no aguardo da sua resposta.\nCordialmente,",
+      "checks": [
+        {
+          "label": "Обращение",
+          "examples": [
+            "Prezada Dona Helena,"
+          ]
+        },
+        {
+          "label": "Официальное вступление",
+          "examples": [
+            "Venho por meio desta"
+          ]
+        },
+        {
+          "label": "Даты и номера",
+          "examples": [
+            "três quartos duplos",
+            "de 10 a 13 de junho"
+          ]
+        },
+        {
+          "label": "Вежливый вопрос",
+          "examples": [
+            "Gostaria de saber se"
+          ]
+        },
+        {
+          "label": "Формула конца и прощание",
+          "examples": [
+            "Fico no aguardo da sua resposta",
+            "Cordialmente"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lt:airport",
+      "location": "airport",
+      "chapter": 5,
+      "register": "formal",
+      "title": "Потерянный багаж",
+      "request": {
+        "es": "Para bagagem extraviada, é preciso fazer uma reclamação oficial.",
+        "ru": "Для потерянного багажа нужно подать официальное заявление."
+      },
+      "task": "Ваш чемодан не прилетел вместе с вами. Напишите в службу потерянного багажа: номер рейса и дату, как выглядит чемодан, что вы просите, прощание.",
+      "sample": "Prezados senhores,\nViajei no voo 2041, de Salvador para cá, no dia 8 de julho. Infelizmente, a minha mala não chegou. Trata-se de uma mala vermelha, grande, com uma fita amarela. Solicito que me informem assim que ela for localizada.\nDesde já, agradeço a atenção.\nAtenciosamente,",
+      "checks": [
+        {
+          "label": "Обращение",
+          "examples": [
+            "Prezados senhores,"
+          ]
+        },
+        {
+          "label": "Рейс и дата",
+          "examples": [
+            "voo 2041",
+            "no dia 8 de julho"
+          ]
+        },
+        {
+          "label": "Связка",
+          "examples": [
+            "Infelizmente"
+          ]
+        },
+        {
+          "label": "Описание",
+          "examples": [
+            "Trata-se de uma mala vermelha"
+          ]
+        },
+        {
+          "label": "Просьба с сослагательным",
+          "examples": [
+            "Solicito que me informem",
+            "assim que ela for localizada"
+          ]
+        },
+        {
+          "label": "Прощание",
+          "examples": [
+            "Atenciosamente"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lt:office",
+      "location": "office",
+      "chapter": 5,
+      "register": "formal",
+      "title": "Отказ от предложения",
+      "request": {
+        "es": "Se você não puder aceitar a nossa proposta, preciso de uma resposta oficial para a empresa.",
+        "ru": "Если не сможешь принять наше предложение, мне нужен официальный ответ для компании."
+      },
+      "task": "Патрисия предложила вам работу в конторе, но вы уходите к Лабиринту. Откажитесь вежливо и официально: поблагодарите, объясните причину, оставьте дверь открытой.",
+      "sample": "Prezada Senhora Patrícia,\nAgradeço sinceramente o convite para trabalhar no escritório. No entanto, não poderei aceitar a proposta neste momento, pois parto em breve para o Labirinto do Eco. Caso surja uma nova oportunidade no futuro, terei muito prazer em conversar.\nAtenciosamente,",
+      "checks": [
+        {
+          "label": "Обращение",
+          "examples": [
+            "Prezada Senhora Patrícia,"
+          ]
+        },
+        {
+          "label": "Благодарность",
+          "examples": [
+            "Agradeço sinceramente"
+          ]
+        },
+        {
+          "label": "Отказ со связкой",
+          "examples": [
+            "No entanto",
+            "não poderei aceitar"
+          ]
+        },
+        {
+          "label": "Причина",
+          "examples": [
+            "pois parto em breve"
+          ]
+        },
+        {
+          "label": "Дверь открыта",
+          "examples": [
+            "Caso surja uma nova oportunidade"
+          ]
+        },
+        {
+          "label": "Прощание",
+          "examples": [
+            "Atenciosamente"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lt:police",
+      "location": "police",
+      "chapter": 5,
+      "register": "formal",
+      "title": "Показания в полицию",
+      "request": {
+        "es": "O que o senhor viu precisa ser registrado num depoimento por escrito.",
+        "ru": "То, что вы видели, нужно изложить в письменных показаниях.",
+        "fem": {
+          "es": "O que a senhora viu precisa ser registrado num depoimento por escrito."
+        }
+      },
+      "task": "Вы видели ночью на площади человека в сером плаще. Напишите делегаду Морейре официальные показания: когда и где, что вы видели, вежливое прощание.",
+      "sample": "Prezado Delegado Moreira,\nVenho por meio desta relatar o que presenciei na noite de 14 de agosto, por volta das 23 horas, na praça central. Um homem de capa cinza falava sozinho diante da fonte e, em seguida, desapareceu na neblina. Coloco-me à disposição para quaisquer esclarecimentos.\nRespeitosamente,",
+      "checks": [
+        {
+          "label": "Обращение",
+          "examples": [
+            "Prezado Delegado Moreira,"
+          ]
+        },
+        {
+          "label": "Когда и где",
+          "examples": [
+            "na noite de 14 de agosto",
+            "na praça central"
+          ]
+        },
+        {
+          "label": "Что вы видели",
+          "examples": [
+            "Um homem de capa cinza"
+          ]
+        },
+        {
+          "label": "Связка",
+          "examples": [
+            "em seguida"
+          ]
+        },
+        {
+          "label": "Формула конца и прощание",
+          "examples": [
+            "Coloco-me à disposição",
+            "Respeitosamente"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lt:post",
+      "location": "post",
+      "chapter": 5,
+      "register": "formal",
+      "title": "Просьба о доставке",
+      "request": {
+        "es": "Para tirar a carta do arquivo, a chefe precisa de um pedido oficial.",
+        "ru": "Чтобы вынести письмо из архива, начальнице нужно официальное заявление."
+      },
+      "task": "Попросите начальницу почты разрешить доставить глашатаю письмо столетней давности. Официально: обращение, суть просьбы, причина, прощание.",
+      "sample": "Prezada Senhora Chefe,\nSolicito a sua autorização para entregar ao pregoeiro a carta guardada no arquivo há cem anos. Trata-se de uma mensagem que nunca chegou ao destinatário. Por esse motivo, acredito que ainda é possível corrigir esse erro antigo.\nAgradeço antecipadamente a sua compreensão.\nAtenciosamente,",
+      "checks": [
+        {
+          "label": "Обращение",
+          "examples": [
+            "Prezada Senhora Chefe,"
+          ]
+        },
+        {
+          "label": "Просьба",
+          "examples": [
+            "Solicito a sua autorização"
+          ]
+        },
+        {
+          "label": "Суть",
+          "examples": [
+            "Trata-se de uma mensagem"
+          ]
+        },
+        {
+          "label": "Причина",
+          "examples": [
+            "Por esse motivo"
+          ]
+        },
+        {
+          "label": "Формула конца и прощание",
+          "examples": [
+            "Agradeço antecipadamente",
+            "Atenciosamente"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lt:cafe",
+      "location": "cafe",
+      "chapter": 5,
+      "register": "informal",
+      "title": "Письмо Каю",
+      "request": {
+        "es": "Escreve uma carta pro Caio? As minhas saem todas geladas.",
+        "ru": "Напишешь письмо Каю? У меня все выходят ледяными."
+      },
+      "task": "Сеу Тоньо просит вас написать Каю по-дружески: расскажите новости из кафе, скажите, что отец по нему скучает, позовите домой, тепло попрощайтесь.",
+      "sample": "Oi, Caio!\nTudo bem por aí? Aqui no café tá tudo igual: o pão de queijo continua saindo quentinho às sete. Olha, o seu pai sente muito a sua falta, mesmo sem falar. Volta pra casa quando puder, tá? A gente te espera de braços abertos.\nUm abraço bem forte,",
+      "checks": [
+        {
+          "label": "Приветствие",
+          "examples": [
+            "Oi, Caio!"
+          ]
+        },
+        {
+          "label": "Дружеский вопрос",
+          "examples": [
+            "Tudo bem por aí?"
+          ]
+        },
+        {
+          "label": "Разговорные формы",
+          "examples": [
+            "tá",
+            "pra"
+          ]
+        },
+        {
+          "label": "Чувства",
+          "examples": [
+            "sente muito a sua falta"
+          ]
+        },
+        {
+          "label": "Приглашение",
+          "examples": [
+            "Volta pra casa quando puder"
+          ]
+        },
+        {
+          "label": "Тёплое прощание",
+          "examples": [
+            "Um abraço bem forte"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lt:home",
+      "location": "home",
+      "chapter": 5,
+      "register": "informal",
+      "title": "Письмо подруге",
+      "request": {
+        "es": "Quero escrever pra minha antiga vizinha, a Cida, mas não sei o que dizer. Me ajuda?",
+        "ru": "Хочу написать бывшей соседке Сиде, но не знаю, что сказать. Поможешь?"
+      },
+      "task": "Помогите Доне Лурдес написать старой подруге Сиде: что нового в доме, как вы скучаете, пригласите в гости, тепло попрощайтесь.",
+      "sample": "Querida Cida,\nQuanto tempo! Aqui no prédio tá tudo mudado: pintaram a fachada de amarelo e o vizinho do terceiro andar finalmente consertou o cano. Que saudade das nossas conversas na varanda! Vem passar um fim de semana comigo, vai? Eu faço aquele bolo de fubá que você adora.\nBeijos e saudades,\nLourdes",
+      "checks": [
+        {
+          "label": "Приветствие",
+          "examples": [
+            "Querida Cida,"
+          ]
+        },
+        {
+          "label": "Восклицания",
+          "examples": [
+            "Quanto tempo!",
+            "Que saudade"
+          ]
+        },
+        {
+          "label": "Новости",
+          "examples": [
+            "pintaram a fachada"
+          ]
+        },
+        {
+          "label": "Приглашение",
+          "examples": [
+            "Vem passar um fim de semana comigo"
+          ]
+        },
+        {
+          "label": "Тёплое прощание",
+          "examples": [
+            "Beijos e saudades"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lt:gym",
+      "location": "gym",
+      "chapter": 5,
+      "register": "informal",
+      "title": "Сообщение группе",
+      "request": {
+        "es": "Vamos mandar uma mensagem animada pra turma antes da aula?",
+        "ru": "Отправим группе бодрое сообщение перед занятием?"
+      },
+      "task": "Помогите Тати написать ученикам дружеское сообщение: занятие переносится в парк из-за эха, во сколько, что взять с собой, бодрое прощание.",
+      "sample": "Oi, galera!\nPor causa do eco, a aula de sábado vai ser no parque, perto do lago. A gente começa às oito em ponto, então não se atrasem! Tragam água, protetor solar e uma toalha. Quem chegar primeiro escolhe a música do aquecimento.\nBora suar! Beijo,\nTati",
+      "checks": [
+        {
+          "label": "Приветствие",
+          "examples": [
+            "Oi, galera!"
+          ]
+        },
+        {
+          "label": "Причина",
+          "examples": [
+            "Por causa do eco"
+          ]
+        },
+        {
+          "label": "Когда и где",
+          "examples": [
+            "no parque",
+            "às oito em ponto"
+          ]
+        },
+        {
+          "label": "Что взять",
+          "examples": [
+            "Tragam água"
+          ]
+        },
+        {
+          "label": "Бодрое прощание",
+          "examples": [
+            "Bora suar!"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lt:beach",
+      "location": "beach",
+      "chapter": 5,
+      "register": "informal",
+      "title": "Письмо глашатаю",
+      "request": {
+        "es": "O pregoeiro espera uma palavra de amigo. Escreve um bilhete comigo?",
+        "ru": "Глашатай ждёт дружеского слова. Напишешь со мной записку?"
+      },
+      "task": "Напишите глашатаю дружеское письмо от себя и Бруну: поздоровайтесь как с другом, скажите, что его ждут, позовите на пляж, тепло попрощайтесь.",
+      "sample": "E aí, meu amigo!\nAqui é o Bruno, com um amigo novo do meu lado. A cidade inteira tá esperando você voltar. Ninguém mais vai rir de você, prometo. Hoje à noite a gente acende uma fogueira na praia, e tem lugar pra você perto do fogo. Aparece, vai?\nUm abraço dos seus amigos,",
+      "checks": [
+        {
+          "label": "Приветствие",
+          "examples": [
+            "E aí, meu amigo!"
+          ]
+        },
+        {
+          "label": "Его ждут",
+          "examples": [
+            "A cidade inteira tá esperando você voltar"
+          ]
+        },
+        {
+          "label": "Обещание",
+          "examples": [
+            "prometo"
+          ]
+        },
+        {
+          "label": "Приглашение",
+          "examples": [
+            "Aparece, vai?"
+          ]
+        },
+        {
+          "label": "Тёплое прощание",
+          "examples": [
+            "Um abraço dos seus amigos"
+          ]
+        }
+      ]
+    }
+  ],
+  "notes": [
+    {
+      "id": "nt:cafe",
+      "location": "cafe",
+      "chapter": 2,
+      "register": "informal",
+      "title": "Ответ Сеу Тоньо",
+      "request": {
+        "es": "Amanhã é o meu aniversário! Me deixa um bilhete: você vem?",
+        "ru": "Завтра мой день рождения! Оставь мне записку: придёшь?"
+      },
+      "task": "Сеу Тоньо зовёт вас завтра на день рождения. Ответьте: придёте ли, во сколько и что принесёте. Поздоровайтесь и попрощайтесь.",
+      "sample": "Oi, Seu Tonho! Obrigado pelo convite. Amanhã eu vou chegar às oito. Vou levar um bolo de chocolate. Até amanhã!",
+      "must": [
+        {
+          "label": "Когда: amanhã",
+          "any": [
+            "amanhã"
+          ],
+          "hint": "Скажите, когда придёте: amanhã — «завтра»."
+        },
+        {
+          "label": "Будущее: vou + инфинитив",
+          "any": [
+            "vou",
+            "vamos",
+            "levo",
+            "chego"
+          ],
+          "hint": "О планах — ir + инфинитив: vou chegar, vou levar."
+        },
+        {
+          "label": "Приветствие и прощание",
+          "any": [
+            "oi",
+            "olá",
+            "até amanhã",
+            "tchau",
+            "abraço",
+            "beijo"
+          ],
+          "hint": "Начните с Oi и попрощайтесь: Até amanhã!"
+        }
+      ],
+      "fem": {
+        "sample": "Oi, Seu Tonho! Obrigada pelo convite. Amanhã eu vou chegar às oito. Vou levar um bolo de chocolate. Até amanhã!"
+      }
+    },
+    {
+      "id": "nt:market",
+      "location": "market",
+      "chapter": 2,
+      "register": "informal",
+      "title": "Записка Доне Грасе",
+      "request": {
+        "es": "Deixa um bilhete com o que você precisa, que eu separo a cesta.",
+        "ru": "Оставь записку, что тебе нужно, и я соберу корзину."
+      },
+      "task": "Дона Граса соберёт для вас корзину. Напишите, что вам нужно и сколько: фрукты, овощи. Вежливо попросите и поблагодарите.",
+      "sample": "Bom dia, Dona Graça! Eu preciso de um quilo de tomate, meio quilo de cebola e seis bananas, por favor. Muito obrigado!",
+      "must": [
+        {
+          "label": "Сколько: quilo",
+          "any": [
+            "quilo",
+            "quilos"
+          ],
+          "hint": "Скажите, сколько: um quilo, meio quilo."
+        },
+        {
+          "label": "Нужно: preciso de",
+          "any": [
+            "preciso",
+            "quero",
+            "queria"
+          ],
+          "hint": "Что нужно — preciso de…: preciso de um quilo de tomate."
+        },
+        {
+          "label": "Благодарность",
+          "any": [
+            "obrigado",
+            "obrigada",
+            "valeu"
+          ],
+          "hint": "Поблагодарите: Muito obrigado! или Muito obrigada!"
+        }
+      ],
+      "fem": {
+        "sample": "Bom dia, Dona Graça! Eu preciso de um quilo de tomate, meio quilo de cebola e seis bananas, por favor. Muito obrigada!"
+      }
+    },
+    {
+      "id": "nt:home",
+      "location": "home",
+      "chapter": 2,
+      "register": "informal",
+      "title": "Записка соседке",
+      "request": {
+        "es": "Vou viajar no fim de semana. Você pode regar as minhas plantas?",
+        "ru": "Я уезжаю на выходные. Можешь полить мои цветы?"
+      },
+      "task": "Дона Лурдес уезжает на выходные. Ответьте ей запиской: польёте ли цветы, когда, и попрощайтесь.",
+      "sample": "Claro, Dona Lourdes! Eu vou regar as plantas no sábado e no domingo de manhã. Boa viagem e até segunda!",
+      "must": [
+        {
+          "label": "Согласие",
+          "any": [
+            "claro",
+            "pode deixar",
+            "sim",
+            "com certeza"
+          ],
+          "hint": "Сначала согласитесь: Claro! или Pode deixar!"
+        },
+        {
+          "label": "Будущее: vou + инфинитив",
+          "any": [
+            "vou"
+          ],
+          "hint": "Что сделаете — vou + инфинитив: vou regar."
+        },
+        {
+          "label": "Пожелание и прощание",
+          "any": [
+            "boa viagem",
+            "até",
+            "beijo",
+            "abraço"
+          ],
+          "hint": "Пожелайте хорошей поездки: Boa viagem!"
+        }
+      ]
+    },
+    {
+      "id": "nt:hotel",
+      "location": "hotel",
+      "chapter": 3,
+      "register": "informal",
+      "title": "Записка Доне Элене",
+      "request": {
+        "es": "Amanhã eu faço o café da manhã dos viajantes. Me escreve do que você gosta.",
+        "ru": "Завтра я готовлю завтрак для путников. Напиши мне, что ты любишь."
+      },
+      "task": "Дона Элена готовит завтрак для путников. Напишите, во сколько вы встанете, что любите на завтрак и что попросили бы ещё, если можно.",
+      "sample": "Bom dia, Dona Helena! Eu acordo às sete. Gosto de pão de queijo e café com leite. Se for possível, queria também uma fruta. Obrigado!",
+      "must": [
+        {
+          "label": "Время: às…",
+          "any": [
+            "às"
+          ],
+          "hint": "Скажите, во сколько встанете: às sete."
+        },
+        {
+          "label": "Условие: se",
+          "any": [
+            "se"
+          ],
+          "hint": "Вежливое условие — se for possível: «если можно»."
+        },
+        {
+          "label": "Благодарность",
+          "any": [
+            "obrigado",
+            "obrigada",
+            "valeu"
+          ],
+          "hint": "Поблагодарите в конце."
+        }
+      ],
+      "fem": {
+        "sample": "Bom dia, Dona Helena! Eu acordo às sete. Gosto de pão de queijo e café com leite. Se for possível, queria também uma fruta. Obrigada!"
+      }
+    },
+    {
+      "id": "nt:pharmacy",
+      "location": "pharmacy",
+      "chapter": 3,
+      "register": "formal",
+      "title": "Записка Доне Розе",
+      "request": {
+        "es": "Se o senhor não puder esperar, deixe um bilhete com o que está sentindo.",
+        "ru": "Если не можете ждать, оставьте записку, что вы чувствуете.",
+        "fem": {
+          "es": "Se a senhora não puder esperar, deixe um bilhete com o que está sentindo."
+        }
+      },
+      "task": "Напишите Доне Розе вежливую записку: на что жалуетесь, какое лекарство уже принимаете, попросите совета. Обращайтесь на «вы».",
+      "sample": "Bom dia, Dona Rosa. Estou com dor de garganta há três dias. Já tomo um xarope. A senhora poderia me recomendar outro remédio? Obrigado.",
+      "must": [
+        {
+          "label": "Вежливое приветствие",
+          "any": [
+            "bom dia",
+            "boa tarde",
+            "boa noite"
+          ],
+          "hint": "Поздоровайтесь: Bom dia, Dona Rosa."
+        },
+        {
+          "label": "На «вы»: a senhora",
+          "any": [
+            "a senhora",
+            "o senhor"
+          ],
+          "hint": "Обращайтесь на «вы»: a senhora poderia…"
+        },
+        {
+          "label": "Что болит",
+          "any": [
+            "dor",
+            "doendo",
+            "dói"
+          ],
+          "hint": "Скажите, что болит: estou com dor de…"
+        }
+      ],
+      "fem": {
+        "sample": "Bom dia, Dona Rosa. Estou com dor de garganta há três dias. Já tomo um xarope. A senhora poderia me recomendar outro remédio? Obrigada."
+      }
+    },
+    {
+      "id": "nt:station",
+      "location": "station",
+      "chapter": 3,
+      "register": "informal",
+      "title": "Записка Сеу Раймунду",
+      "request": {
+        "es": "Me deixa um bilhete com a viagem, que eu reservo a passagem.",
+        "ru": "Оставь мне записку про поездку, и я забронирую билет."
+      },
+      "task": "Напишите Сеу Раймунду, куда и когда хотите поехать и какой нужен билет. Если мест нет — что сделаете.",
+      "sample": "Seu Raimundo, quero ir para a serra no sábado de manhã. Preciso de uma passagem de ida e volta. Se não tiver lugar, vou no domingo.",
+      "must": [
+        {
+          "label": "Куда: para",
+          "any": [
+            "para",
+            "pra"
+          ],
+          "hint": "Куда едете — para: para a serra."
+        },
+        {
+          "label": "Условие: se",
+          "any": [
+            "se"
+          ],
+          "hint": "Что будет, если мест нет: Se não tiver lugar…"
+        },
+        {
+          "label": "Какой билет",
+          "any": [
+            "ida",
+            "volta",
+            "passagem"
+          ],
+          "hint": "Какой билет: passagem de ida e volta."
+        }
+      ]
+    },
+    {
+      "id": "nt:park",
+      "location": "park",
+      "chapter": 4,
+      "register": "formal",
+      "title": "Записка Сеу Валдиру",
+      "request": {
+        "es": "O que você acha da minha ideia? Me responde num bilhete, com calma.",
+        "ru": "Что ты думаешь о моей идее? Ответь мне запиской, спокойно."
+      },
+      "task": "Ответьте Сеу Валдиру запиской: что вы думаете о его идее, мягко посоветуйте другое и объясните, при каком условии.",
+      "sample": "Seu Valdir, acho que a sua ideia é boa, mas o senhor deveria falar com os vizinhos primeiro. Se eles concordarem, o show pode ficar até as dez.",
+      "must": [
+        {
+          "label": "Мнение: acho que",
+          "any": [
+            "acho que",
+            "na minha opinião",
+            "para mim"
+          ],
+          "hint": "Начните со своего мнения: acho que…"
+        },
+        {
+          "label": "Совет: deveria",
+          "any": [
+            "deveria",
+            "devia",
+            "poderia"
+          ],
+          "hint": "Мягкий совет — deveria: o senhor deveria falar…"
+        },
+        {
+          "label": "Условие: se",
+          "any": [
+            "se"
+          ],
+          "hint": "Условие с будущим сослагательным: se eles concordarem…"
+        }
+      ]
+    },
+    {
+      "id": "nt:school",
+      "location": "school",
+      "chapter": 4,
+      "register": "informal",
+      "title": "Записка Профессоре Марсии",
+      "request": {
+        "es": "Amanhã tem reunião com os pais e eu estou nervosa. Me escreve um conselho?",
+        "ru": "Завтра собрание с родителями, а я нервничаю. Напишешь мне совет?"
+      },
+      "task": "Профессора Марсия волнуется перед собранием. Напишите ей: что советуете сказать родителям и почему, подбодрите её.",
+      "sample": "Professora Márcia, fale com calma e mostre os trabalhos dos alunos, porque os pais gostam de ver exemplos. Você consegue! Vai dar tudo certo.",
+      "must": [
+        {
+          "label": "Совет: повелительное",
+          "any": [
+            "fale",
+            "mostre",
+            "tente",
+            "deveria",
+            "conte"
+          ],
+          "hint": "Советуйте повелительным: fale com calma, mostre…"
+        },
+        {
+          "label": "Причина: porque",
+          "any": [
+            "porque",
+            "pois"
+          ],
+          "hint": "Объясните почему: porque…"
+        },
+        {
+          "label": "Поддержка",
+          "any": [
+            "você consegue",
+            "vai dar tudo certo",
+            "força",
+            "confio"
+          ],
+          "hint": "Подбодрите: Você consegue! Vai dar tudo certo."
+        }
+      ]
+    },
+    {
+      "id": "nt:post",
+      "location": "post",
+      "chapter": 4,
+      "register": "informal",
+      "title": "Записка Эдсону",
+      "request": {
+        "es": "Vou trancar o corvo na gaiola. O que você acha? Me escreve.",
+        "ru": "Я запру ворона в клетке. Что ты думаешь? Напиши мне."
+      },
+      "task": "Эдсон хочет запереть ворона. Напишите ему: что вы думаете, что предлагаете вместо этого и при каком условии.",
+      "sample": "Edson, acho que prender o corvo não é justo. Que tal deixar ele voar só de dia? Se ele trouxer as cartas, todo mundo ganha.",
+      "must": [
+        {
+          "label": "Мнение: acho que",
+          "any": [
+            "acho que",
+            "na minha opinião",
+            "para mim"
+          ],
+          "hint": "Скажите, что думаете: acho que…"
+        },
+        {
+          "label": "Предложение: que tal",
+          "any": [
+            "que tal",
+            "e se",
+            "por que não"
+          ],
+          "hint": "Предложите другое: Que tal…? E se…?"
+        },
+        {
+          "label": "Условие: se",
+          "any": [
+            "se"
+          ],
+          "hint": "Условие с будущим сослагательным: se ele trouxer…"
+        }
+      ]
+    }
+  ]
+}

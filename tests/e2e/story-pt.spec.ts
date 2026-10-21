@@ -178,3 +178,47 @@ test('pt: развилка полиции главы IV — Северину з�
   await playScene(page, sc, { fine: 'paid' });
   expect(sc.lines.some((l) => l.if?.is === 'paid' && l.es.includes('multa simbólica'))).toBe(true);
 });
+
+/** Записать значения в meta базы португальского курса (как в story-tr.spec.ts) и перезагрузить страницу. */
+async function putMeta(page: Page, values: Record<string, unknown>) {
+  await page.goto('./#/settings');
+  await expect(page.getByRole('heading', { name: 'Настройки' })).toBeVisible();
+  await page.evaluate(
+    (values) =>
+      new Promise<void>((resolve) => {
+        const attempt = () => {
+          const r = indexedDB.open('eslacity-pt');
+          r.onsuccess = () => {
+            if (!r.result.objectStoreNames.contains('meta')) {
+              r.result.close();
+              setTimeout(attempt, 100);
+              return;
+            }
+            const tx = r.result.transaction(['meta'], 'readwrite');
+            for (const [key, value] of Object.entries(values)) tx.objectStore('meta').put({ key, value });
+            tx.oncomplete = () => resolve();
+          };
+        };
+        attempt();
+      }),
+    values,
+  );
+  await page.reload();
+}
+
+test('pt: записки глав II–IV — образец каждой находит все пункты проверки', async ({ page }) => {
+  const notes = read('.', 'letters.json').notes as { id: string; sample: string; must: unknown[] }[];
+  expect(notes).toHaveLength(9);
+  await openCourse(page, 'pt');
+  await putMeta(page, { journey: { fragments: {}, seals: {}, openedChapter: 4, celebrated: 4 } });
+  for (const note of notes) {
+    await page.goto(`./#/note/${encodeURIComponent(note.id)}`);
+    // Экран записки при смене id не сбрасывает отправленную: открываем каждую заново.
+    await page.reload();
+    await page.getByTestId('note-text').fill(note.sample);
+    await page.getByRole('button', { name: 'Проверить' }).click();
+    const items = page.getByTestId('note-must');
+    await expect(items, note.id).toHaveCount(note.must.length);
+    for (let i = 0; i < note.must.length; i++) await expect(items.nth(i), note.id).toHaveAttribute('data-ok', 'true');
+  }
+});
