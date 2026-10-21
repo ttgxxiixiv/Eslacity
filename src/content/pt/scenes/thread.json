@@ -1,0 +1,1927 @@
+{
+  "location": "thread",
+  "scenes": [
+    {
+      "id": "th:1.open",
+      "chapter": 1,
+      "trigger": "open",
+      "npc": "cronista",
+      "lines": [
+        {
+          "who": "npc",
+          "es": "Olá. Neste livro eu escrevo tudo o que acontece na cidade.",
+          "ru": "Здравствуй. В эту книгу я записываю всё, что происходит в городе."
+        },
+        {
+          "who": "hero",
+          "es": "E o que acontece na cidade?",
+          "ru": "А что происходит в городе?"
+        },
+        {
+          "who": "npc",
+          "es": "Há muitos anos, a cidade tinha um mapa velho. O mapa mostra o caminho para o Cofre.",
+          "ru": "Много лет назад у города была старая карта. Карта показывает дорогу к Хранилищу."
+        },
+        {
+          "who": "npc",
+          "es": "Mas as pessoas brigaram pelo mapa. Por isso dividiram o mapa em vinte fragmentos.",
+          "ru": "Но люди ссорились из-за карты. Поэтому её разделили на двадцать обрывков."
+        },
+        {
+          "who": "npc",
+          "es": "Cada lugar tem um fragmento: no café, na feira, na escola, no banco…",
+          "ru": "Обрывок есть в каждом месте: в кафе, на рынке, в школе, в банке…"
+        },
+        {
+          "who": "hero",
+          "es": "Como eu pego os fragmentos?",
+          "ru": "А как мне получить обрывки?"
+        },
+        {
+          "who": "npc",
+          "es": "Fala com os vizinhos na língua deles e ajuda eles. Então eles te dão os fragmentos.",
+          "ru": "Говори с соседями на их языке и помогай им. Тогда они отдадут тебе обрывки."
+        },
+        {
+          "who": "npc",
+          "es": "Vinte fragmentos e o selo do guardião. Depois o caminho é seu.",
+          "ru": "Двадцать обрывков и печать стража. А потом дорога твоя."
+        },
+        {
+          "who": "hero",
+          "es": "Onde está o guardião?",
+          "ru": "Где страж?"
+        },
+        {
+          "who": "npc",
+          "es": "Fora da cidade. E mais uma coisa: o filho do Seu Tonho, o Caio, sumiu na serra.",
+          "ru": "За городом. И ещё: сын Сеу Тоньо, Каю, пропал в горах."
+        },
+        {
+          "who": "npc",
+          "es": "Onde ele está? Vamos procurar a resposta juntos.",
+          "ru": "Где он? Будем искать ответ вместе."
+        }
+      ],
+      "questions": [
+        {
+          "q": "Почему карту разделили?",
+          "options": [
+            "Люди ссорились из-за неё",
+            "Она была слишком старой",
+            "Её хотели продать"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "На сколько обрывков разделили карту?",
+          "options": [
+            "На пять",
+            "На двадцать",
+            "На сто"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Как получить обрывок?",
+          "options": [
+            "Купить его в банке",
+            "Найти в парке",
+            "Говорить с жителем на его языке и помогать ему"
+          ],
+          "answer": 2
+        },
+        {
+          "q": "Кто пропал в горах?",
+          "options": [
+            "Каю, сын Сеу Тоньо",
+            "Страж",
+            "Почтальон"
+          ],
+          "answer": 0
+        }
+      ],
+      "gloss": {
+        "brigaram": "ссорились (brigar)",
+        "dividiram": "разделили (dividir)",
+        "vinte": "двадцать",
+        "fragmentos": "обрывки",
+        "fragmento": "обрывок",
+        "selo": "печать",
+        "guardião": "страж",
+        "cofre": "Хранилище",
+        "serra": "горы",
+        "sumiu": "пропал (sumir)"
+      }
+    },
+    {
+      "id": "th:1.half",
+      "chapter": 1,
+      "trigger": "half",
+      "npc": "cronista",
+      "lines": [
+        {
+          "who": "npc",
+          "es": "Dez fragmentos! Metade do mapa já está com você.",
+          "ru": "Десять обрывков! Половина карты уже у тебя."
+        },
+        {
+          "who": "npc",
+          "es": "Mas olha o que eu escrevi hoje. Um homem de casaco cinza comprou vinte lanternas do Wellington.",
+          "ru": "Но посмотри, что я записал сегодня. Человек в сером пальто купил у Веллингтона двадцать фонарей."
+        },
+        {
+          "who": "hero",
+          "es": "Vinte lanternas? Para quê?",
+          "ru": "Двадцать фонарей? Зачем?"
+        },
+        {
+          "who": "npc",
+          "es": "Ele não disse. Ele pagou com moedas muito velhas, de cem anos atrás.",
+          "ru": "Он не сказал. Он заплатил очень старыми монетами, столетней давности."
+        },
+        {
+          "who": "npc",
+          "es": "E na porta ele disse uma frase: «A neblina vai chegar logo».",
+          "ru": "А в дверях сказал одну фразу: «Скоро придёт туман»."
+        },
+        {
+          "who": "hero",
+          "es": "O Caio também falava da neblina.",
+          "ru": "Каю тоже говорил про туман."
+        },
+        {
+          "who": "npc",
+          "es": "É verdade. O Caio dizia: «Na neblina, só uma voz mostra o caminho».",
+          "ru": "Верно. Каю говорил: «В тумане дорогу показывает только голос»."
+        },
+        {
+          "who": "npc",
+          "es": "O Caio foi visto com esse homem. Eu acho que as duas coisas são uma só.",
+          "ru": "Каю видели с этим человеком. Думаю, это одна и та же история."
+        },
+        {
+          "who": "npc",
+          "es": "Continua. Mais dez fragmentos, e a gente vai saber mais.",
+          "ru": "Продолжай. Ещё десять обрывков, и мы узнаем больше."
+        }
+      ],
+      "questions": [
+        {
+          "q": "Что купил человек в сером пальто?",
+          "options": [
+            "Двадцать фонарей",
+            "Карту",
+            "Билет"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Чем он заплатил?",
+          "options": [
+            "Старыми монетами",
+            "Картой",
+            "Ничем"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Что он сказал?",
+          "options": [
+            "«Скоро придёт туман»",
+            "«Прощайте»",
+            "«Где Каю?»"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Что думает Летописец?",
+          "options": [
+            "Что история Каю и этого человека — одна",
+            "Что человек лжёт",
+            "Что фонари не нужны"
+          ],
+          "answer": 0
+        }
+      ],
+      "gloss": {
+        "fragmentos": "обрывки",
+        "metade": "половина",
+        "casaco": "пальто",
+        "cinza": "серый",
+        "lanternas": "фонари",
+        "moedas": "монеты",
+        "neblina": "туман",
+        "logo": "скоро",
+        "wellington": "Веллингтон"
+      }
+    },
+    {
+      "id": "th:1.climax",
+      "chapter": 1,
+      "trigger": "climax",
+      "npc": "cronista",
+      "lines": [
+        {
+          "who": "npc",
+          "es": "Vinte fragmentos! O mapa da cidade está pronto.",
+          "ru": "Двадцать обрывков! Карта города готова."
+        },
+        {
+          "who": "npc",
+          "es": "Agora você precisa do selo. O guardião está na porta da cidade e faz perguntas.",
+          "ru": "Теперь тебе нужна печать. Страж стоит у ворот города и задаёт вопросы."
+        },
+        {
+          "who": "hero",
+          "es": "Que perguntas?",
+          "ru": "Какие вопросы?"
+        },
+        {
+          "who": "npc",
+          "es": "Palavras, números, o caminho. Tudo o que você aprendeu aqui.",
+          "ru": "Слова, числа, дорога. Всё, чему ты здесь научился.",
+          "fem": {
+            "ru": "Слова, числа, дорога. Всё, чему ты здесь научилась."
+          }
+        },
+        {
+          "who": "npc",
+          "es": "E tem mais uma coisa. A Dona Lourdes me contou uma coisa.",
+          "ru": "И ещё кое-что. Дона Лурдес мне кое-что рассказала."
+        },
+        {
+          "who": "npc",
+          "es": "Ela nasceu numa casa perto de uma torre, lá na serra.",
+          "ru": "Она родилась в доме возле башни, там, в горах."
+        },
+        {
+          "who": "hero",
+          "es": "E o Caio foi para lá?",
+          "ru": "И Каю пошёл туда?"
+        },
+        {
+          "who": "npc",
+          "es": "Acho que sim. Na torre mora outro guardião. Ele pergunta o que você fez.",
+          "ru": "Думаю, да. В башне живёт другой страж. Он спрашивает, что ты сделал."
+        },
+        {
+          "who": "npc",
+          "es": "Mas primeiro, o guardião da cidade. Vai!",
+          "ru": "Но сначала — страж города. Вперёд!"
+        }
+      ],
+      "questions": [
+        {
+          "q": "Что нужно после двадцати обрывков?",
+          "options": [
+            "Печать стража",
+            "Карта",
+            "Фонарь"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "О чём спрашивает страж у ворот?",
+          "options": [
+            "О словах, числах и дороге",
+            "О Каю",
+            "О деньгах"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Где родилась Дона Лурдес?",
+          "options": [
+            "В доме у башни в горах",
+            "В городе",
+            "У моря"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Что спрашивает страж башни?",
+          "options": [
+            "Что ты сделал",
+            "Как тебя зовут",
+            "Сколько тебе лет"
+          ],
+          "answer": 0
+        }
+      ],
+      "gloss": {
+        "fragmentos": "обрывки",
+        "selo": "печать",
+        "guardião": "страж",
+        "nasceu": "родилась (nascer)",
+        "torre": "башня",
+        "serra": "горы",
+        "lourdes": "Лурдес"
+      }
+    },
+    {
+      "id": "th:2.open",
+      "chapter": 2,
+      "trigger": "open",
+      "npc": "cronista",
+      "lines": [
+        {
+          "who": "npc",
+          "es": "O selo da cidade é seu. Agora o caminho sobe para a serra.",
+          "ru": "Печать города твоя. Теперь дорога поднимается в горы."
+        },
+        {
+          "who": "npc",
+          "es": "Lá em cima está a torre. A neblina chegou, como o homem do casaco cinza disse.",
+          "ru": "Наверху — башня. Туман пришёл, как и говорил человек в сером пальто."
+        },
+        {
+          "who": "hero",
+          "es": "E o Caio? Alguém teve notícias?",
+          "ru": "А Каю? Есть о нём новости?"
+        },
+        {
+          "who": "npc",
+          "es": "Chegou uma encomenda da torre para você. Dentro tinha uma bússola e um bilhete.",
+          "ru": "Из башни пришла посылка для тебя. Внутри были компас и записка."
+        },
+        {
+          "who": "npc",
+          "es": "O bilhete diz: «Siga a voz».",
+          "ru": "В записке сказано: «Иди на голос»."
+        },
+        {
+          "who": "hero",
+          "es": "Que voz?",
+          "ru": "Какой голос?"
+        },
+        {
+          "who": "npc",
+          "es": "Não sei. Mas na serra as pessoas contam histórias. Talvez a voz seja uma história.",
+          "ru": "Не знаю. Но в горах люди рассказывают истории. Может быть, голос — это история."
+        },
+        {
+          "who": "npc",
+          "es": "Aprende a contar o que você fez ontem, na semana passada, no ano passado.",
+          "ru": "Научись рассказывать, что ты сделал вчера, на прошлой неделе, в прошлом году."
+        },
+        {
+          "who": "npc",
+          "es": "O guardião da torre só escuta quem sabe contar a própria história.",
+          "ru": "Страж башни слушает только тех, кто умеет рассказать свою историю."
+        },
+        {
+          "who": "npc",
+          "es": "Vinte fragmentos novos esperam por você nesta terra. Vamos.",
+          "ru": "В этой земле тебя ждут двадцать новых обрывков. Идём."
+        }
+      ],
+      "questions": [
+        {
+          "q": "Куда теперь ведёт дорога?",
+          "options": [
+            "В горы, к башне",
+            "К морю",
+            "В пустыню"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Что было в посылке из башни?",
+          "options": [
+            "Компас и записка",
+            "Карта",
+            "Фонарь"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Что написано в записке?",
+          "options": [
+            "«Иди на голос»",
+            "«Не приходи»",
+            "«Каю здесь»"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Кого слушает страж башни?",
+          "options": [
+            "Того, кто умеет рассказать свою историю",
+            "Всех",
+            "Никого"
+          ],
+          "answer": 0
+        }
+      ],
+      "gloss": {
+        "selo": "печать",
+        "sobe": "поднимается (subir)",
+        "serra": "горы",
+        "torre": "башня",
+        "neblina": "туман",
+        "casaco": "пальто",
+        "cinza": "серый",
+        "encomenda": "посылка",
+        "bússola": "компас",
+        "bilhete": "записка",
+        "siga": "иди (seguir)",
+        "guardião": "страж",
+        "própria": "собственная",
+        "fragmentos": "обрывки",
+        "histórias": "истории"
+      }
+    },
+    {
+      "id": "th:2.half",
+      "chapter": 2,
+      "trigger": "half",
+      "npc": "cronista",
+      "lines": [
+        {
+          "who": "npc",
+          "es": "Dez fragmentos da serra. E a Patrícia achou um jornal muito antigo.",
+          "ru": "Десять обрывков с гор. А Патрисия нашла очень старую газету."
+        },
+        {
+          "who": "npc",
+          "es": "Escuta: «Há cem anos, um jovem viajante, Severino, ficou na torre para ajudar o guardião».",
+          "ru": "Слушай: «Сто лет назад молодой путешественник Северину остался в башне помогать стражу»."
+        },
+        {
+          "who": "hero",
+          "es": "Cem anos? Ele ainda está vivo?",
+          "ru": "Сто лет? Он ещё жив?"
+        },
+        {
+          "who": "npc",
+          "es": "As pessoas da serra dizem que sim. E dizem que ele não ficou velho.",
+          "ru": "Жители гор говорят, что да. И говорят, что он не постарел."
+        },
+        {
+          "who": "npc",
+          "es": "Na pousada da Dona Helena, o quarto sete sempre fica livre para ele.",
+          "ru": "В гостинице Доны Элены седьмой номер всегда держат свободным для него."
+        },
+        {
+          "who": "hero",
+          "es": "E o Seu Raimundo?",
+          "ru": "А Сеу Раймунду?"
+        },
+        {
+          "who": "npc",
+          "es": "Ele me deu um bilhete de trem velho, para o trem das sete. Ele disse que é para você.",
+          "ru": "Он дал мне старый билет на поезд в семь. Сказал, что это для тебя."
+        },
+        {
+          "who": "npc",
+          "es": "Muitas pistas e nenhuma resposta. Mas a história está ficando clara.",
+          "ru": "Много следов и ни одного ответа. Но история проясняется."
+        },
+        {
+          "who": "npc",
+          "es": "Continua contando o seu caminho. O guardião vai querer ouvir tudo.",
+          "ru": "Продолжай рассказывать о своём пути. Страж захочет услышать всё."
+        }
+      ],
+      "questions": [
+        {
+          "q": "Что нашла Патрисия?",
+          "options": [
+            "Старую газету",
+            "Ключ",
+            "Письмо Каю"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Кто остался в башне сто лет назад?",
+          "options": [
+            "Северину",
+            "Каю",
+            "Тоньо"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Что говорят о Северину жители гор?",
+          "options": [
+            "Что он не постарел",
+            "Что он умер",
+            "Что он уехал"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Что дал Сеу Раймунду?",
+          "options": [
+            "Старый билет на поезд в семь",
+            "Компас",
+            "Монету"
+          ],
+          "answer": 0
+        }
+      ],
+      "gloss": {
+        "fragmentos": "обрывки",
+        "serra": "горы",
+        "jornal": "газета",
+        "jovem": "молодой",
+        "viajante": "путешественник",
+        "torre": "башня",
+        "guardião": "страж",
+        "vivo": "живой",
+        "pousada": "гостиница",
+        "bilhete": "билет",
+        "pistas": "следы",
+        "patrícia": "Патрисия",
+        "helena": "Элена",
+        "raimundo": "Раймунду"
+      }
+    },
+    {
+      "id": "th:2.climax",
+      "chapter": 2,
+      "trigger": "climax",
+      "npc": "cronista",
+      "lines": [
+        {
+          "who": "npc",
+          "es": "Vinte fragmentos. E uma notícia: o Caio voltou!",
+          "ru": "Двадцать обрывков. И новость: Каю вернулся!"
+        },
+        {
+          "who": "hero",
+          "es": "Ele está bem?",
+          "ru": "С ним всё хорошо?"
+        },
+        {
+          "who": "npc",
+          "es": "Quebrou o pé na serra. A doutora Fernanda cuida dele.",
+          "ru": "Сломал ногу в горах. Доктор Фернанда его лечит."
+        },
+        {
+          "who": "npc",
+          "es": "Ele subiu até a torre e falou com o guardião. O guardião fez três perguntas.",
+          "ru": "Он поднялся к башне и говорил со стражем. Страж задал три вопроса."
+        },
+        {
+          "who": "npc",
+          "es": "O Caio respondeu às duas primeiras. Na terceira, ficou calado.",
+          "ru": "Каю ответил на первые два. На третьем промолчал."
+        },
+        {
+          "who": "hero",
+          "es": "Qual era a terceira pergunta?",
+          "ru": "Каким был третий вопрос?"
+        },
+        {
+          "who": "npc",
+          "es": "«Quem você ajudou?». O Caio só pensava em subir e não ajudou ninguém.",
+          "ru": "«Кому ты помог?». Каю думал только о том, чтобы подняться, и никому не помог."
+        },
+        {
+          "who": "npc",
+          "es": "Agora é a sua vez. Pensa em todo mundo que você ajudou nesta terra.",
+          "ru": "Теперь твоя очередь. Вспомни всех, кому ты помог в этой земле."
+        },
+        {
+          "who": "hero",
+          "es": "A Dona Graça, o Seu Raimundo, o Edson…",
+          "ru": "Дона Граса, Сеу Раймунду, Эдсон…"
+        },
+        {
+          "who": "npc",
+          "es": "Isso. Conta para o guardião. Ele espera por você na torre.",
+          "ru": "Вот. Расскажи стражу. Он ждёт тебя в башне."
+        }
+      ],
+      "questions": [
+        {
+          "q": "Что случилось с Каю?",
+          "options": [
+            "Он сломал ногу в горах",
+            "Он заблудился",
+            "Он остался в башне"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "На какой вопрос Каю не ответил?",
+          "options": [
+            "«Кому ты помог?»",
+            "«Как тебя зовут?»",
+            "«Откуда ты?»"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Почему Каю не ответил?",
+          "options": [
+            "Он никому не помог",
+            "Он не понял вопрос",
+            "Он устал"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Что советует Летописец?",
+          "options": [
+            "Вспомнить всех, кому помог",
+            "Не ходить в башню",
+            "Ждать Каю"
+          ],
+          "answer": 0
+        }
+      ],
+      "gloss": {
+        "fragmentos": "обрывки",
+        "quebrou": "сломал (quebrar)",
+        "serra": "горы",
+        "cuida": "лечит (cuidar)",
+        "subiu": "поднялся (subir)",
+        "torre": "башня",
+        "guardião": "страж",
+        "calado": "молча",
+        "vez": "очередь",
+        "raimundo": "Раймунду",
+        "fernanda": "Фернанда",
+        "edson": "Эдсон",
+        "terceira": "третий"
+      }
+    },
+    {
+      "id": "th:3.open",
+      "chapter": 3,
+      "trigger": "open",
+      "npc": "cronista",
+      "lines": [
+        {
+          "who": "npc",
+          "es": "O selo da torre é seu. E o Severino desceu da serra!",
+          "ru": "Печать башни твоя. А Северину спустился с гор!"
+        },
+        {
+          "who": "npc",
+          "es": "Ele tomou o primeiro cafezinho em cem anos no café do Seu Tonho.",
+          "ru": "Он выпил первый за сто лет кофе в кафе Сеу Тоньо."
+        },
+        {
+          "who": "hero",
+          "es": "E o que ele disse?",
+          "ru": "И что он сказал?"
+        },
+        {
+          "who": "npc",
+          "es": "Deixou um conselho para você: «No deserto, não acredite no que vê. Acredite no que ouve».",
+          "ru": "Оставил тебе совет: «В пустыне не верь тому, что видишь. Верь тому, что слышишь»."
+        },
+        {
+          "who": "npc",
+          "es": "O nosso próximo caminho passa pelo deserto. E lá tem um mercador estranho.",
+          "ru": "Наш следующий путь лежит через пустыню. А там странный торговец."
+        },
+        {
+          "who": "hero",
+          "es": "Estranho como?",
+          "ru": "Чем странный?"
+        },
+        {
+          "who": "npc",
+          "es": "Ele anda com um camelo, assina «Mercador» e vende fragmentos do mapa.",
+          "ru": "Он ходит с верблюдом, подписывается «Торговец» и продаёт обрывки карты."
+        },
+        {
+          "who": "npc",
+          "es": "Mas ninguém sabe se os fragmentos dele são verdadeiros.",
+          "ru": "Но никто не знает, настоящие ли у него обрывки."
+        },
+        {
+          "who": "npc",
+          "es": "Nesta terra você vai aprender a dizer «se» e «talvez». Vai precisar deles para separar a verdade da mentira.",
+          "ru": "В этой земле ты научишься говорить «если» и «может быть». Они понадобятся, чтобы отличить правду от лжи."
+        },
+        {
+          "who": "npc",
+          "es": "Cuidado com o que você compra. Vamos.",
+          "ru": "Осторожнее с тем, что покупаешь. Идём."
+        }
+      ],
+      "questions": [
+        {
+          "q": "Что сделал Северину в городе?",
+          "options": [
+            "Выпил первый за сто лет кофе",
+            "Купил карту",
+            "Уехал на поезде"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Какой совет он оставил?",
+          "options": [
+            "В пустыне верь тому, что слышишь",
+            "Не ходи в пустыню",
+            "Покупай обрывки"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Что продаёт торговец?",
+          "options": [
+            "Обрывки карты",
+            "Верблюдов",
+            "Воду"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Зачем учить «если» и «может быть»?",
+          "options": [
+            "Чтобы отличить правду от лжи",
+            "Чтобы торговаться",
+            "Чтобы писать письма"
+          ],
+          "answer": 0
+        }
+      ],
+      "gloss": {
+        "selo": "печать",
+        "torre": "башня",
+        "desceu": "спустился (descer)",
+        "serra": "горы",
+        "deserto": "пустыня",
+        "mercador": "торговец",
+        "camelo": "верблюд",
+        "assina": "подписывается (assinar)",
+        "fragmentos": "обрывки",
+        "conselho": "совет"
+      }
+    },
+    {
+      "id": "th:3.half",
+      "chapter": 3,
+      "trigger": "half",
+      "npc": "cronista",
+      "lines": [
+        {
+          "who": "npc",
+          "es": "Dez fragmentos do deserto. E muitas notícias estranhas.",
+          "ru": "Десять обрывков из пустыни. И много странных новостей."
+        },
+        {
+          "who": "npc",
+          "es": "O Seu Ricardo recebeu do mercador umas notas de dinheiro. No dia seguinte, viraram areia.",
+          "ru": "Сеньор Рикардо получил от торговца купюры. На следующий день они превратились в песок."
+        },
+        {
+          "who": "npc",
+          "es": "O Wellington vendeu garrafas de «água do oásis». Estavam vazias.",
+          "ru": "Веллингтон продал бутылки «воды из оазиса». Они были пустыми."
+        },
+        {
+          "who": "hero",
+          "es": "Então o mercador mente.",
+          "ru": "Значит, торговец лжёт."
+        },
+        {
+          "who": "npc",
+          "es": "Mente. Mas o Zé Carlos fez a barba dele e viu outra coisa.",
+          "ru": "Лжёт. Но Зе Карлос его побрил и увидел другое."
+        },
+        {
+          "who": "npc",
+          "es": "Sem barba, ele é jovem e triste. E tem uma árvore desenhada no braço.",
+          "ru": "Без бороды он молодой и грустный. А на руке у него нарисовано дерево."
+        },
+        {
+          "who": "hero",
+          "es": "Uma árvore? No deserto?",
+          "ru": "Дерево? В пустыне?"
+        },
+        {
+          "who": "npc",
+          "es": "A doutora Fernanda diz que ele tem saudade. Saudade de casa, de uma floresta onde as árvores falam o nome dele.",
+          "ru": "Доктор Фернанда говорит, что у него saudade. Тоска по дому, по лесу, где деревья шепчут его имя."
+        },
+        {
+          "who": "npc",
+          "es": "Talvez ele não seja mau. Talvez só esteja perdido.",
+          "ru": "Может быть, он не злой. Может быть, он просто заблудился."
+        }
+      ],
+      "questions": [
+        {
+          "q": "Что стало с купюрами торговца?",
+          "options": [
+            "Превратились в песок",
+            "Пропали",
+            "Оказались настоящими"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Что было в бутылках «воды из оазиса»?",
+          "options": [
+            "Ничего",
+            "Вода",
+            "Песок"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Что увидел Зе Карлос?",
+          "options": [
+            "Что торговец молодой и грустный, с деревом на руке",
+            "Что торговец старый",
+            "Что у него нет верблюда"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Что думает Летописец о торговце?",
+          "options": [
+            "Что он, может быть, просто заблудился",
+            "Что он злодей",
+            "Что он богач"
+          ],
+          "answer": 0
+        }
+      ],
+      "gloss": {
+        "fragmentos": "обрывки",
+        "deserto": "пустыня",
+        "mercador": "торговец",
+        "notas": "купюры",
+        "viraram": "превратились (virar)",
+        "areia": "песок",
+        "garrafas": "бутылки",
+        "oásis": "оазис",
+        "vazias": "пустые",
+        "mente": "лжёт (mentir)",
+        "barba": "борода",
+        "jovem": "молодой",
+        "desenhada": "нарисованное",
+        "saudade": "тоска",
+        "floresta": "лес",
+        "perdido": "заблудившийся",
+        "wellington": "Веллингтон",
+        "fernanda": "Фернанда"
+      }
+    },
+    {
+      "id": "th:3.climax",
+      "chapter": 3,
+      "trigger": "climax",
+      "npc": "cronista",
+      "lines": [
+        {
+          "who": "npc",
+          "es": "Vinte fragmentos. E agora sabemos o nome do mercador: Davi.",
+          "ru": "Двадцать обрывков. И теперь мы знаем имя торговца: Дави."
+        },
+        {
+          "who": "npc",
+          "es": "Ele devolveu os fragmentos verdadeiros com um bilhete: «A verdade não se vende».",
+          "ru": "Он вернул настоящие обрывки с запиской: «Правду не продают»."
+        },
+        {
+          "who": "hero",
+          "es": "Por que ele mudou?",
+          "ru": "Почему он изменился?"
+        },
+        {
+          "who": "npc",
+          "es": "Ele foi até a guardiã da cidade branca. Ela perguntou por que ele vendia mentiras.",
+          "ru": "Он ходил к стражнице белого города. Она спросила, почему он продаёт ложь."
+        },
+        {
+          "who": "npc",
+          "es": "E ele respondeu a verdade: «Eu vendo mentiras porque tenho medo».",
+          "ru": "И он ответил правду: «Я продаю ложь, потому что боюсь»."
+        },
+        {
+          "who": "npc",
+          "es": "Quando ele disse isso, a cidade branca não desapareceu. As mentiras desaparecem, a verdade fica.",
+          "ru": "Когда он это сказал, белый город не исчез. Ложь исчезает, правда остаётся."
+        },
+        {
+          "who": "hero",
+          "es": "E agora é a minha vez.",
+          "ru": "А теперь моя очередь."
+        },
+        {
+          "who": "npc",
+          "es": "É. A guardiã faz perguntas com «se». Se você responder bem, a cidade fica de pé.",
+          "ru": "Да. Стражница задаёт вопросы с «если». Ответишь хорошо — город устоит."
+        },
+        {
+          "who": "npc",
+          "es": "O Davi pediu trabalho de verdade para a Patrícia. E depois vai voar para a floresta dele.",
+          "ru": "Дави попросил у Патрисии настоящую работу. А потом улетит в свой лес."
+        },
+        {
+          "who": "npc",
+          "es": "Escuta bem, e não acredita no que vê. Boa sorte.",
+          "ru": "Слушай внимательно и не верь глазам. Удачи."
+        }
+      ],
+      "questions": [
+        {
+          "q": "Как зовут торговца?",
+          "options": [
+            "Дави",
+            "Северину",
+            "Каю"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Что было в записке Дави?",
+          "options": [
+            "«Правду не продают»",
+            "«Прощайте»",
+            "«Купите карту»"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Что Дави ответил стражнице?",
+          "options": [
+            "«Я продаю ложь, потому что боюсь»",
+            "«Я не лгу»",
+            "«Я ничего не продаю»"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Какие вопросы задаёт стражница?",
+          "options": [
+            "С «если»",
+            "О числах",
+            "О погоде"
+          ],
+          "answer": 0
+        }
+      ],
+      "gloss": {
+        "fragmentos": "обрывки",
+        "mercador": "торговец",
+        "davi": "Дави",
+        "devolveu": "вернул (devolver)",
+        "bilhete": "записка",
+        "vende": "продаётся (vender)",
+        "guardiã": "стражница",
+        "branca": "белый",
+        "mentiras": "ложь",
+        "desapareceu": "исчез (desaparecer)",
+        "desaparecem": "исчезают (desaparecer)",
+        "vez": "очередь",
+        "voar": "лететь",
+        "floresta": "лес",
+        "patrícia": "Патрисия",
+        "sorte": "удача"
+      }
+    },
+    {
+      "id": "th:4.open",
+      "chapter": 4,
+      "trigger": "open",
+      "npc": "cronista",
+      "lines": [
+        {
+          "who": "npc",
+          "es": "O selo da cidade branca é seu. Agora o caminho entra na floresta.",
+          "ru": "Печать белого города твоя. Теперь дорога уходит в лес."
+        },
+        {
+          "who": "npc",
+          "es": "E a floresta está falando. Ela repete o que as pessoas dizem umas das outras pelas costas.",
+          "ru": "А лес разговаривает. Он повторяет то, что люди говорят друг о друге за спиной."
+        },
+        {
+          "who": "hero",
+          "es": "Com as vozes delas?",
+          "ru": "Их голосами?"
+        },
+        {
+          "who": "npc",
+          "es": "Com as vozes delas. Ontem a floresta disse, com a voz do Seu Ricardo: «No banco não tem dinheiro».",
+          "ru": "Их голосами. Вчера лес сказал голосом Сеньора Рикардо: «В банке нет денег»."
+        },
+        {
+          "who": "npc",
+          "es": "Metade da cidade correu para o banco. O Seu Ricardo ficou furioso.",
+          "ru": "Полгорода побежало в банк. Сеньор Рикардо был в ярости."
+        },
+        {
+          "who": "hero",
+          "es": "Mas ele nunca disse isso!",
+          "ru": "Но он никогда этого не говорил!"
+        },
+        {
+          "who": "npc",
+          "es": "Exatamente. Alguém está ensinando mentiras à floresta.",
+          "ru": "Именно. Кто-то учит лес лжи."
+        },
+        {
+          "who": "npc",
+          "es": "Nesta terra você vai ouvir muitas conversas pela metade. Escuta o que as pessoas pensam, não só o que dizem.",
+          "ru": "В этой земле ты услышишь много обрывков разговоров. Слушай, что люди думают, а не только что говорят."
+        },
+        {
+          "who": "npc",
+          "es": "E aprende a discordar com educação. Vai ter muita briga por aqui.",
+          "ru": "И научись вежливо не соглашаться. Ссор здесь будет много."
+        },
+        {
+          "who": "npc",
+          "es": "Vamos descobrir quem ensina a floresta a mentir.",
+          "ru": "Давай выясним, кто учит лес лгать."
+        }
+      ],
+      "questions": [
+        {
+          "q": "Что делает лес?",
+          "options": [
+            "Повторяет, что люди говорят друг о друге за спиной",
+            "Молчит",
+            "Поёт"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Что лес сказал голосом Сеньора Рикардо?",
+          "options": [
+            "«В банке нет денег»",
+            "«Банк закрыт»",
+            "«Деньги в лесу»"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Что происходит с лесом, по мнению Летописца?",
+          "options": [
+            "Кто-то учит его лжи",
+            "Он болен",
+            "Он спит"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Чему советует научиться Летописец?",
+          "options": [
+            "Вежливо не соглашаться",
+            "Кричать",
+            "Молчать"
+          ],
+          "answer": 0
+        }
+      ],
+      "gloss": {
+        "selo": "печать",
+        "branca": "белый",
+        "floresta": "лес",
+        "repete": "повторяет (repetir)",
+        "costas": "спина",
+        "vozes": "голоса",
+        "furioso": "в ярости",
+        "ensinando": "уча (ensinar)",
+        "mentiras": "ложь",
+        "metade": "половина",
+        "discordar": "не соглашаться",
+        "briga": "ссора",
+        "mentir": "лгать",
+        "descobrir": "выяснить",
+        "exatamente": "именно",
+        "educação": "вежливость"
+      }
+    },
+    {
+      "id": "th:4.half",
+      "chapter": 4,
+      "trigger": "half",
+      "npc": "cronista",
+      "lines": [
+        {
+          "who": "npc",
+          "es": "Dez fragmentos da floresta. E tenho uma pista.",
+          "ru": "Десять обрывков из леса. И у меня есть след."
+        },
+        {
+          "who": "npc",
+          "es": "O Bento, o corvo do Edson, aprende as vozes de cada casa. De noite, ele voa para a floresta.",
+          "ru": "Бенту, ворон Эдсона, запоминает голоса в каждом доме. Ночью он летает в лес."
+        },
+        {
+          "who": "hero",
+          "es": "Então é o corvo que conta as mentiras?",
+          "ru": "Значит, ложь рассказывает ворон?"
+        },
+        {
+          "who": "npc",
+          "es": "O corvo só repete. Alguém ensina a ele. E ele volta com cheiro de cachimbo.",
+          "ru": "Ворон только повторяет. Кто-то его учит. И возвращается он с запахом трубки."
+        },
+        {
+          "who": "npc",
+          "es": "Na cidade só o Seu Raimundo fuma cachimbo. Agora todo mundo fala mal dele.",
+          "ru": "В городе трубку курит только Сеу Раймунду. Теперь все о нём плохо говорят."
+        },
+        {
+          "who": "hero",
+          "es": "Mas o Seu Raimundo é um homem bom.",
+          "ru": "Но Сеу Раймунду хороший человек."
+        },
+        {
+          "who": "npc",
+          "es": "Eu também acho. E a Tati viu outra pessoa: um velho de bengala ensinando o corvo a dizer «A floresta é perigosa».",
+          "ru": "Я тоже так думаю. А Тати видела другого: старика с тростью, который учил ворона говорить «Лес опасен»."
+        },
+        {
+          "who": "npc",
+          "es": "Um velho que não quer que ninguém vá para a floresta… Quem será?",
+          "ru": "Старик, который не хочет, чтобы кто-нибудь ходил в лес… Кто бы это мог быть?"
+        },
+        {
+          "who": "npc",
+          "es": "Não fala nada ainda. Escuta mais.",
+          "ru": "Пока ничего не говори. Слушай дальше."
+        }
+      ],
+      "questions": [
+        {
+          "q": "Что делает ворон Бенту?",
+          "options": [
+            "Запоминает голоса и летает в лес",
+            "Носит письма",
+            "Ворует еду"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Почему подозревают Сеу Раймунду?",
+          "options": [
+            "Ворон пахнет трубкой",
+            "Он ненавидит лес",
+            "Он купил ворона"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Кого видела Тати?",
+          "options": [
+            "Старика с тростью, который учил ворона",
+            "Раймунду",
+            "Дави"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Что советует Летописец?",
+          "options": [
+            "Пока ничего не говорить и слушать",
+            "Поймать ворона",
+            "Уйти из леса"
+          ],
+          "answer": 0
+        }
+      ],
+      "gloss": {
+        "fragmentos": "обрывки",
+        "floresta": "лес",
+        "pista": "след",
+        "corvo": "ворон",
+        "vozes": "голоса",
+        "voa": "летает (voar)",
+        "mentiras": "ложь",
+        "repete": "повторяет (repetir)",
+        "cheiro": "запах",
+        "cachimbo": "трубка",
+        "fuma": "курит (fumar)",
+        "bengala": "трость",
+        "perigosa": "опасный",
+        "raimundo": "Раймунду",
+        "edson": "Эдсон",
+        "bento": "Бенту",
+        "tati": "Тати"
+      }
+    },
+    {
+      "id": "th:4.climax",
+      "chapter": 4,
+      "trigger": "climax",
+      "npc": "cronista",
+      "lines": [
+        {
+          "who": "npc",
+          "es": "Vinte fragmentos. E ontem foi a noite mais importante desta terra.",
+          "ru": "Двадцать обрывков. А вчерашняя ночь была самой важной в этой земле."
+        },
+        {
+          "who": "npc",
+          "es": "Na reunião de vizinhos, o Severino ficou de pé e disse a verdade para a cidade toda.",
+          "ru": "На собрании соседей Северину встал и сказал правду всему городу."
+        },
+        {
+          "who": "hero",
+          "es": "Era ele que ensinava o corvo?",
+          "ru": "Это он учил ворона?"
+        },
+        {
+          "who": "npc",
+          "es": "Era. Ele tinha medo de perder alguém de novo, como perdeu na torre. Por isso queria todo mundo longe da floresta.",
+          "ru": "Он. Он боялся снова кого-то потерять, как потерял в башне. Поэтому хотел, чтобы все держались подальше от леса."
+        },
+        {
+          "who": "npc",
+          "es": "A Juliana abraçou ele. O Seu Raimundo ofereceu fumo para o cachimbo dele.",
+          "ru": "Жулиана его обняла. Сеу Раймунду предложил ему табака для трубки."
+        },
+        {
+          "who": "npc",
+          "es": "E à meia-noite a floresta falou com uma voz nova: «Agora eu ouço a trilha. Que venha quem trouxe a paz».",
+          "ru": "А в полночь лес заговорил новым голосом: «Теперь я слышу тропу. Пусть придёт тот, кто принёс мир»."
+        },
+        {
+          "who": "hero",
+          "es": "Quem trouxe a paz?",
+          "ru": "Кто принёс мир?"
+        },
+        {
+          "who": "npc",
+          "es": "Acho que é você. A guardiã da floresta te espera. Ela fala baixo: as palavras dela você só vai ouvir.",
+          "ru": "Думаю, ты. Хранительница леса ждёт тебя. Она говорит тихо: её слова ты будешь только слышать."
+        },
+        {
+          "who": "npc",
+          "es": "Fecha os olhos e escuta. Boa sorte.",
+          "ru": "Закрой глаза и слушай. Удачи."
+        }
+      ],
+      "questions": [
+        {
+          "q": "Кто учил ворона?",
+          "options": [
+            "Северину",
+            "Сеу Раймунду",
+            "Дави"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Почему он это делал?",
+          "options": [
+            "Боялся снова кого-то потерять",
+            "Хотел денег",
+            "Ненавидел город"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Что сказал лес в полночь?",
+          "options": [
+            "«Пусть придёт тот, кто принёс мир»",
+            "«Уходите»",
+            "«Я молчу»"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Как говорит Хранительница леса?",
+          "options": [
+            "Тихо: её слова только слышно",
+            "Громко",
+            "Письмами"
+          ],
+          "answer": 0
+        }
+      ],
+      "gloss": {
+        "fragmentos": "обрывки",
+        "reunião": "собрание",
+        "corvo": "ворон",
+        "torre": "башня",
+        "floresta": "лес",
+        "abraçou": "обняла (abraçar)",
+        "fumo": "табак",
+        "cachimbo": "трубка",
+        "trilha": "тропа",
+        "venha": "пусть придёт (vir)",
+        "paz": "мир",
+        "guardiã": "хранительница",
+        "raimundo": "Раймунду",
+        "juliana": "Жулиана",
+        "sorte": "удача"
+      }
+    },
+    {
+      "id": "th:5.open",
+      "chapter": 5,
+      "trigger": "open",
+      "npc": "cronista",
+      "lines": [
+        {
+          "who": "npc",
+          "es": "O selo da floresta é seu. E chegou uma carta do Caio para o pai.",
+          "ru": "Печать леса твоя. А от Каю пришло письмо отцу."
+        },
+        {
+          "who": "npc",
+          "es": "Ele escreveu: «Prezado Senhor Antônio, venho por meio desta informar que estou bem».",
+          "ru": "Он написал: «Уважаемый господин Антониу, настоящим сообщаю, что у меня всё хорошо»."
+        },
+        {
+          "who": "hero",
+          "es": "Assim, para o próprio pai?",
+          "ru": "Так — родному отцу?"
+        },
+        {
+          "who": "npc",
+          "es": "Não é culpa dele. Depois da floresta começa o Labirinto do Eco. Lá cada palavra volta com outro tom.",
+          "ru": "Это не его вина. За лесом начинается Лабиринт Эха. Там каждое слово возвращается другим тоном."
+        },
+        {
+          "who": "npc",
+          "es": "E o eco já chegou à cidade. O carinho soa frio, a educação soa grossa.",
+          "ru": "И эхо уже дошло до города. Нежность звучит холодно, вежливость — грубо."
+        },
+        {
+          "who": "hero",
+          "es": "Quem fez isso?",
+          "ru": "Кто это сделал?"
+        },
+        {
+          "who": "npc",
+          "es": "O Seu Valdir lembrou uma história do avô dele: a do pregoeiro, que falava com todos do mesmo jeito.",
+          "ru": "Сеу Валдир вспомнил дедушкину историю: о глашатае, который со всеми говорил одинаково."
+        },
+        {
+          "who": "npc",
+          "es": "Riram dele. Um dia ele foi para a floresta e não voltou. Talvez ele seja o Senhor do Eco.",
+          "ru": "Над ним смеялись. Однажды он ушёл в лес и не вернулся. Может быть, он и есть Хозяин Эха."
+        },
+        {
+          "who": "npc",
+          "es": "Nesta terra você vai aprender a falar com cada um no seu tom: com o rei de um jeito, com o amigo de outro.",
+          "ru": "В этой земле ты научишься говорить с каждым в его тоне: с королём — одним образом, с другом — другим."
+        },
+        {
+          "who": "npc",
+          "es": "É a última terra antes do Cofre. Vamos.",
+          "ru": "Это последняя земля перед Хранилищем. Идём."
+        }
+      ],
+      "questions": [
+        {
+          "q": "Как Каю обратился к отцу?",
+          "options": [
+            "«Уважаемый господин Антониу»",
+            "«Привет, папа»",
+            "Никак"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Что делает Лабиринт Эха?",
+          "options": [
+            "Возвращает слова другим тоном",
+            "Стирает слова",
+            "Переводит слова"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Кто такой глашатай?",
+          "options": [
+            "Человек, который со всеми говорил одинаково",
+            "Страж леса",
+            "Торговец"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Чему нужно научиться в этой земле?",
+          "options": [
+            "Говорить с каждым в его тоне",
+            "Молчать",
+            "Писать письма"
+          ],
+          "answer": 0
+        }
+      ],
+      "gloss": {
+        "selo": "печать",
+        "floresta": "лес",
+        "prezado": "уважаемый",
+        "antônio": "Антониу",
+        "desta": "этим (письмом)",
+        "informar": "сообщить",
+        "próprio": "собственный",
+        "culpa": "вина",
+        "labirinto": "Лабиринт",
+        "eco": "эхо",
+        "tom": "тон",
+        "carinho": "нежность",
+        "soa": "звучит (soar)",
+        "educação": "вежливость",
+        "grossa": "грубая",
+        "pregoeiro": "глашатай",
+        "riram": "смеялись (rir)",
+        "cofre": "Хранилище",
+        "rei": "король",
+        "valdir": "Валдир"
+      }
+    },
+    {
+      "id": "th:5.half",
+      "chapter": 5,
+      "trigger": "half",
+      "npc": "cronista",
+      "lines": [
+        {
+          "who": "npc",
+          "es": "Dez fragmentos do Labirinto. E a Patrícia achou no arquivo o último discurso do pregoeiro.",
+          "ru": "Десять обрывков Лабиринта. А Патрисия нашла в архиве последнюю речь глашатая."
+        },
+        {
+          "who": "npc",
+          "es": "Ele nunca leu em público. Termina assim: «Queridos vizinhos, hoje não trago notícias. Trago uma pergunta: alguém me escuta?».",
+          "ru": "Он так и не прочитал её на людях. Кончается она так: «Дорогие соседи, сегодня я не принёс новостей. Я принёс вопрос: меня кто-нибудь слышит?»."
+        },
+        {
+          "who": "hero",
+          "es": "E ninguém respondeu.",
+          "ru": "И никто не ответил."
+        },
+        {
+          "who": "npc",
+          "es": "Ninguém, durante cem anos. No banco tem uma conta dele com uma moeda nova e um bilhete: «Não preciso de dinheiro. Preciso de uma resposta».",
+          "ru": "Никто, сто лет. В банке есть его счёт, а на нём новая монета и записка: «Мне не нужны деньги. Мне нужен ответ»."
+        },
+        {
+          "who": "npc",
+          "es": "E o Bruno falou com ele na praia. Disse «E aí, meu amigo». O pregoeiro sorriu.",
+          "ru": "А Бруну говорил с ним на пляже. Сказал: «Привет, дружище». Глашатай улыбнулся."
+        },
+        {
+          "who": "hero",
+          "es": "Então ele não quer vingança.",
+          "ru": "Значит, он не хочет мести."
+        },
+        {
+          "who": "npc",
+          "es": "Acho que não. Ele quer que alguém responda. No tom certo.",
+          "ru": "Думаю, нет. Он хочет, чтобы кто-нибудь ответил. Правильным тоном."
+        },
+        {
+          "who": "npc",
+          "es": "Com o rei, você fala como diante do rei. Com o amigo, como amigo. O pregoeiro nunca aprendeu isso.",
+          "ru": "С королём говоришь как перед королём. С другом — как с другом. Глашатай так этому и не научился."
+        },
+        {
+          "who": "npc",
+          "es": "Você está aprendendo. Continua.",
+          "ru": "А ты учишься. Продолжай."
+        }
+      ],
+      "questions": [
+        {
+          "q": "Чем кончается речь глашатая?",
+          "options": [
+            "Вопросом: «меня кто-нибудь слышит?»",
+            "Новостями",
+            "Прощанием"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Что лежит на счёте глашатая?",
+          "options": [
+            "Монета и записка «Мне нужен ответ»",
+            "Миллион",
+            "Ничего"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Как Бруну обратился к глашатаю?",
+          "options": [
+            "«Привет, дружище»",
+            "«Уважаемый господин»",
+            "Никак"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Чего, по мнению Летописца, хочет глашатай?",
+          "options": [
+            "Чтобы кто-нибудь ответил правильным тоном",
+            "Мести",
+            "Денег"
+          ],
+          "answer": 0
+        }
+      ],
+      "gloss": {
+        "fragmentos": "обрывки",
+        "labirinto": "Лабиринт",
+        "arquivo": "архив",
+        "discurso": "речь",
+        "pregoeiro": "глашатай",
+        "público": "публика",
+        "queridos": "дорогие",
+        "trago": "приношу (trazer)",
+        "escuta": "слышит (escutar)",
+        "moeda": "монета",
+        "bilhete": "записка",
+        "sorriu": "улыбнулся (sorrir)",
+        "vingança": "месть",
+        "tom": "тон",
+        "rei": "король",
+        "patrícia": "Патрисия",
+        "bruno": "Бруну"
+      }
+    },
+    {
+      "id": "th:5.climax",
+      "chapter": 5,
+      "trigger": "climax",
+      "npc": "cronista",
+      "lines": [
+        {
+          "who": "npc",
+          "es": "Vinte fragmentos. O mapa do Labirinto está completo.",
+          "ru": "Двадцать обрывков. Карта Лабиринта собрана."
+        },
+        {
+          "who": "npc",
+          "es": "E a cidade inteira escreveu a resposta. O delegado assinou, os vizinhos assinaram, as crianças desenharam.",
+          "ru": "И весь город написал ответ. Подписал делегаду, подписали соседи, дети нарисовали рисунки."
+        },
+        {
+          "who": "npc",
+          "es": "O Severino leva a carta que escreveu quando era menino. «Desculpa, pregoeiro. Agora a gente te escuta».",
+          "ru": "Северину везёт письмо, которое написал мальчиком. «Прости, глашатай. Теперь мы тебя слышим»."
+        },
+        {
+          "who": "hero",
+          "es": "E eu? O que eu levo?",
+          "ru": "А я? Что везу я?"
+        },
+        {
+          "who": "npc",
+          "es": "Você leva a voz. O Senhor do Eco vai fazer perguntas difíceis: achar a palavra errada, dizer a mesma coisa em outro tom.",
+          "ru": "Ты везёшь голос. Хозяин Эха будет задавать трудные вопросы: найти неверное слово, сказать то же самое другим тоном."
+        },
+        {
+          "who": "npc",
+          "es": "Ele não quer vencer você. Quer saber se alguém, finalmente, sabe falar com cada um.",
+          "ru": "Он не хочет тебя победить. Он хочет знать, умеет ли наконец кто-нибудь говорить с каждым."
+        },
+        {
+          "who": "hero",
+          "es": "E se eu errar?",
+          "ru": "А если я ошибусь?"
+        },
+        {
+          "who": "npc",
+          "es": "Então volta amanhã. Ele esperou cem anos; pode esperar mais um dia.",
+          "ru": "Тогда вернись завтра. Он ждал сто лет — подождёт ещё день."
+        },
+        {
+          "who": "npc",
+          "es": "O trem sai às sete. Depois do Labirinto ficam só os portões do Cofre.",
+          "ru": "Поезд уходит в семь. После Лабиринта остаются только Врата Хранилища."
+        },
+        {
+          "who": "npc",
+          "es": "Vai. Eu vou escrever este capítulo devagar, palavra por palavra.",
+          "ru": "Иди. Эту главу я буду писать медленно, слово за словом."
+        }
+      ],
+      "questions": [
+        {
+          "q": "Кто написал ответ глашатаю?",
+          "options": [
+            "Весь город",
+            "Только делегаду",
+            "Летописец"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Что везёт Северину?",
+          "options": [
+            "Детское письмо с извинением",
+            "Деньги",
+            "Карту"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Чего хочет Хозяин Эха?",
+          "options": [
+            "Узнать, умеет ли кто-нибудь говорить с каждым",
+            "Победить героя",
+            "Закрыть Лабиринт"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Что делать, если ошибёшься?",
+          "options": [
+            "Вернуться завтра",
+            "Уйти навсегда",
+            "Ничего"
+          ],
+          "answer": 0
+        }
+      ],
+      "gloss": {
+        "fragmentos": "обрывки",
+        "labirinto": "Лабиринт",
+        "completo": "собранный",
+        "delegado": "делегаду",
+        "assinou": "подписал (assinar)",
+        "assinaram": "подписали (assinar)",
+        "desenharam": "нарисовали (desenhar)",
+        "menino": "мальчик",
+        "pregoeiro": "глашатай",
+        "escuta": "слышим (escutar)",
+        "eco": "эхо",
+        "tom": "тон",
+        "vencer": "победить",
+        "finalmente": "наконец",
+        "portões": "врата",
+        "cofre": "Хранилище",
+        "capítulo": "глава"
+      }
+    }
+  ],
+  "notes": {
+    "1": [
+      {
+        "es": "Hoje no livro tem uma página nova: mais um fragmento. Muito bem!",
+        "ru": "Сегодня в книге новая страница: ещё один обрывок. Очень хорошо!",
+        "gloss": {
+          "página": "страница",
+          "fragmento": "обрывок"
+        }
+      },
+      {
+        "es": "Hoje você falou com um vizinho novo. A cidade está ficando menor.",
+        "ru": "Сегодня ты говорил с новым соседом. Город становится меньше.",
+        "gloss": {
+          "menor": "меньше"
+        },
+        "fem": {
+          "ru": "Сегодня ты говорила с новым соседом. Город становится меньше."
+        }
+      },
+      {
+        "es": "Mais um fragmento. O Seu Tonho guardou um cafezinho para você.",
+        "ru": "Ещё один обрывок. Сеу Тоньо оставил для тебя кофе.",
+        "gloss": {
+          "fragmento": "обрывок",
+          "guardou": "оставил (guardar)"
+        }
+      },
+      {
+        "es": "Escrevi o seu nome no livro hoje. Com letra bonita.",
+        "ru": "Сегодня я записал твоё имя в книгу. Красивым почерком.",
+        "gloss": {
+          "letra": "почерк"
+        }
+      },
+      {
+        "es": "Um fragmento hoje, outro amanhã. Assim se faz um mapa.",
+        "ru": "Обрывок сегодня, другой завтра. Так и собирается карта.",
+        "gloss": {
+          "fragmento": "обрывок"
+        }
+      },
+      {
+        "es": "Ninguém sabe do Caio ainda. Mas cada fragmento é um passo.",
+        "ru": "О Каю пока никто ничего не знает. Но каждый обрывок — шаг.",
+        "gloss": {
+          "fragmento": "обрывок",
+          "passo": "шаг"
+        }
+      }
+    ],
+    "2": [
+      {
+        "es": "Hoje a serra ficou um pouco mais perto. Mais um fragmento!",
+        "ru": "Сегодня горы стали чуть ближе. Ещё один обрывок!",
+        "gloss": {
+          "serra": "горы",
+          "fragmento": "обрывок"
+        }
+      },
+      {
+        "es": "Você contou o seu dia muito bem hoje. O guardião vai gostar.",
+        "ru": "Ты сегодня очень хорошо рассказал о своём дне. Стражу понравится.",
+        "gloss": {
+          "guardião": "страж"
+        },
+        "fem": {
+          "ru": "Ты сегодня очень хорошо рассказала о своём дне. Стражу понравится."
+        }
+      },
+      {
+        "es": "A neblina estava forte hoje, mas você não parou.",
+        "ru": "Сегодня туман был густой, но ты не остановился.",
+        "gloss": {
+          "neblina": "туман",
+          "parou": "остановился (parar)"
+        },
+        "fem": {
+          "ru": "Сегодня туман был густой, но ты не остановилась."
+        }
+      },
+      {
+        "es": "Mais um fragmento. A bússola do Caio aponta para a torre.",
+        "ru": "Ещё один обрывок. Компас Каю показывает на башню.",
+        "gloss": {
+          "fragmento": "обрывок",
+          "bússola": "компас",
+          "aponta": "показывает (apontar)",
+          "torre": "башня"
+        }
+      },
+      {
+        "es": "Escrevi hoje: o viajante ajudou mais uma pessoa.",
+        "ru": "Сегодня я записал: путник помог ещё одному человеку.",
+        "gloss": {
+          "viajante": "путник",
+          "ajudou": "помог (ajudar)"
+        }
+      },
+      {
+        "es": "Ontem foi difícil, hoje foi melhor. É assim que se sobe uma serra.",
+        "ru": "Вчера было трудно, сегодня лучше. Так и поднимаются в горы.",
+        "gloss": {
+          "sobe": "поднимаются (subir)",
+          "serra": "горы"
+        }
+      }
+    ],
+    "3": [
+      {
+        "es": "Hoje o deserto mostrou mais um fragmento verdadeiro.",
+        "ru": "Сегодня пустыня показала ещё один настоящий обрывок.",
+        "gloss": {
+          "deserto": "пустыня",
+          "fragmento": "обрывок"
+        }
+      },
+      {
+        "es": "Se o mercador voltar, você já sabe o que perguntar.",
+        "ru": "Если торговец вернётся, ты уже знаешь, что спросить.",
+        "gloss": {
+          "mercador": "торговец"
+        }
+      },
+      {
+        "es": "Hoje você ouviu mais do que viu. O Severino teria orgulho.",
+        "ru": "Сегодня ты услышал больше, чем увидел. Северину бы гордился.",
+        "gloss": {
+          "orgulho": "гордость"
+        },
+        "fem": {
+          "ru": "Сегодня ты услышала больше, чем увидела. Северину бы гордился."
+        }
+      },
+      {
+        "es": "Mais um fragmento, e nenhum virou areia. Bom sinal.",
+        "ru": "Ещё один обрывок, и ни один не превратился в песок. Хороший знак.",
+        "gloss": {
+          "fragmento": "обрывок",
+          "virou": "превратился (virar)",
+          "areia": "песок",
+          "sinal": "знак"
+        }
+      },
+      {
+        "es": "Talvez amanhã a gente descubra o nome do mercador.",
+        "ru": "Может быть, завтра мы узнаем имя торговца.",
+        "gloss": {
+          "descubra": "узнаем (descobrir)",
+          "mercador": "торговец"
+        }
+      },
+      {
+        "es": "Hoje escrevi uma frase com «se» no livro. Aprendi com você.",
+        "ru": "Сегодня я записал в книгу фразу с «если». Научился у тебя."
+      }
+    ],
+    "4": [
+      {
+        "es": "Hoje a floresta ficou um pouco mais calada. Bom trabalho.",
+        "ru": "Сегодня лес стал чуть тише. Хорошая работа.",
+        "gloss": {
+          "floresta": "лес",
+          "calada": "тихий"
+        }
+      },
+      {
+        "es": "Você discordou com educação hoje. Isso é raro.",
+        "ru": "Сегодня ты вежливо не согласился. Это редкость.",
+        "gloss": {
+          "discordou": "не согласился (discordar)",
+          "raro": "редкий",
+          "educação": "вежливость"
+        },
+        "fem": {
+          "ru": "Сегодня ты вежливо не согласилась. Это редкость."
+        }
+      },
+      {
+        "es": "Mais um fragmento. O Bento não falou nenhuma mentira hoje.",
+        "ru": "Ещё один обрывок. Бенту сегодня не сказал ни одной лжи.",
+        "gloss": {
+          "fragmento": "обрывок",
+          "mentira": "ложь",
+          "bento": "Бенту"
+        }
+      },
+      {
+        "es": "Duas pessoas fizeram as pazes hoje. Na floresta, uma voz sumiu.",
+        "ru": "Сегодня двое помирились. В лесу пропал один голос.",
+        "gloss": {
+          "pazes": "мир (fazer as pazes)",
+          "floresta": "лес",
+          "sumiu": "пропал (sumir)"
+        }
+      },
+      {
+        "es": "Escuta o que as pessoas não dizem. Você está ficando bom nisso.",
+        "ru": "Слушай то, чего люди не говорят. У тебя это начинает получаться."
+      },
+      {
+        "es": "Mais um passo na trilha. A floresta está te ouvindo.",
+        "ru": "Ещё шаг по тропе. Лес тебя слышит.",
+        "gloss": {
+          "passo": "шаг",
+          "trilha": "тропа",
+          "floresta": "лес"
+        }
+      }
+    ],
+    "5": [
+      {
+        "es": "Hoje você falou no tom certo. O eco ficou mais fraco.",
+        "ru": "Сегодня ты говорил правильным тоном. Эхо стало слабее.",
+        "gloss": {
+          "tom": "тон",
+          "eco": "эхо"
+        },
+        "fem": {
+          "ru": "Сегодня ты говорила правильным тоном. Эхо стало слабее."
+        }
+      },
+      {
+        "es": "Mais um fragmento do Labirinto. Falta pouco.",
+        "ru": "Ещё один обрывок Лабиринта. Осталось немного.",
+        "gloss": {
+          "fragmento": "обрывок",
+          "labirinto": "Лабиринт"
+        }
+      },
+      {
+        "es": "Com o rei de um jeito, com o amigo de outro. Você aprendeu.",
+        "ru": "С королём — одним образом, с другом — другим. Ты научился.",
+        "gloss": {
+          "rei": "король"
+        },
+        "fem": {
+          "ru": "С королём — одним образом, с другом — другим. Ты научилась."
+        }
+      },
+      {
+        "es": "Hoje alguém respondeu ao pregoeiro. Escrevi isso em letra grande.",
+        "ru": "Сегодня кто-то ответил глашатаю. Я записал это крупными буквами.",
+        "gloss": {
+          "pregoeiro": "глашатай",
+          "letra": "буквы"
+        }
+      },
+      {
+        "es": "As cartas da cidade estão voltando ao normal. Uma por uma.",
+        "ru": "Письма в городе возвращаются к обычным. Одно за другим.",
+        "gloss": {
+          "normal": "обычный"
+        }
+      },
+      {
+        "es": "O último capítulo está perto. Eu já preparei a tinta.",
+        "ru": "Последняя глава уже близко. Я уже приготовил чернила.",
+        "gloss": {
+          "capítulo": "глава",
+          "tinta": "чернила"
+        }
+      }
+    ]
+  }
+}

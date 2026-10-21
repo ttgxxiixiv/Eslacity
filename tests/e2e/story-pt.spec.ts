@@ -222,3 +222,48 @@ test('pt: записки глав II–IV — образец каждой нах
     for (let i = 0; i < note.must.length; i++) await expect(items.nth(i), note.id).toHaveAttribute('data-ok', 'true');
   }
 });
+
+test('pt: все сцены нити глав — Летописец, реплики по порядку и все ответы верные', async ({ page }) => {
+  test.setTimeout(240_000);
+  await openCourse(page, 'pt');
+  const thread = read('scenes', 'thread.json') as { scenes: SceneData[]; notes: Record<string, unknown[]> };
+  expect(thread.scenes).toHaveLength(15);
+  for (const sc of thread.scenes) await playScene(page, sc);
+});
+
+test('pt: пролог — ворота, три слова, кафе, обрывок пролога, потом главная', async ({ page }) => {
+  const p = read('.', 'prologue.json') as { gate: unknown[]; road: unknown[]; words: string[]; mission: { say: { es: string }; wrong: { es: string } }[] };
+  const ru = new Map<string, string>(
+    [...files('words').map((f) => read('words', f)), ...readdirSync(join(CONTENT, 'scrolls')).map((f) => read('scrolls', f))].flatMap((d: { words: { id: string; ru: string }[] }) =>
+      d.words.map((w) => [w.id, w.ru] as [string, string]),
+    ),
+  );
+  await openCourse(page, 'pt');
+  await page.goto('./');
+  const pro = page.getByTestId('prologue');
+  await expect(pro).toHaveAttribute('data-step', 'gate');
+  for (let i = 0; i < p.gate.length; i++) await page.getByTestId('prologue-next').click();
+  await expect(pro).toHaveAttribute('data-step', 'words');
+  for (let guard = 0; guard < 10 && (await pro.getAttribute('data-step')) === 'words'; guard++) {
+    const id = (await page.getByTestId('prologue-word').getAttribute('data-word'))!;
+    await page.getByTestId('prologue-next').click();
+    await page.getByTestId('prologue-meaning').filter({ hasText: ru.get(id)! }).first().click();
+    await expect(page.getByTestId('prologue-verdict')).toHaveAttribute('data-verdict', 'correct');
+    await page.getByTestId('prologue-next').click();
+  }
+  await expect(pro).toHaveAttribute('data-step', 'road');
+  for (let i = 0; i < p.road.length; i++) await page.getByTestId('prologue-next').click();
+  await expect(pro).toHaveAttribute('data-step', 'mission');
+  for (let i = 0; i < p.mission.length; i++) {
+    await expect(page.getByTestId('prologue-mission')).toContainText(p.mission[i].say.es);
+    await page.locator('[data-testid="prologue-option"][data-right="false"]').first().click();
+    await expect(page.getByTestId('prologue-mission')).toContainText(p.mission[i].wrong.es);
+    await page.locator('[data-testid="prologue-option"][data-right="true"]').click();
+    await page.getByTestId('prologue-next').click();
+  }
+  await expect(pro).toHaveAttribute('data-step', 'shard');
+  await expect(page.getByTestId('prologue-shard')).toContainText('Обрывок пролога');
+  await page.getByTestId('prologue-home').click();
+  await expect(page.getByTestId('continue')).toBeVisible();
+  await expect(page.getByTestId('review-card')).toBeVisible();
+});

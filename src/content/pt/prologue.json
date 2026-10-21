@@ -1,0 +1,128 @@
+{
+  "gatekeeper": {
+    "id": "porteiro",
+    "name": "Привратник Жоакин",
+    "role": "привратник у городских ворот",
+    "gender": "m",
+    "voice": {
+      "pitch": 0.85,
+      "rate": 0.9
+    },
+    "look": {
+      "skin": 4,
+      "hair": "#2b1d12",
+      "style": "short",
+      "outfit": "#3f6b4a",
+      "pants": "#2e2216",
+      "extra": [
+        "mustache",
+        "cap"
+      ]
+    }
+  },
+  "words": [
+    "scroll1.ola",
+    "cafe.por-favor",
+    "scroll1.tchau"
+  ],
+  "gate": [
+    {
+      "who": "gatekeeper",
+      "es": "Olá, viajante! Aqui é a porta da cidade.",
+      "ru": "Здравствуй, путник! Это ворота города."
+    },
+    {
+      "who": "gatekeeper",
+      "es": "Aqui todo mundo diz «olá», «por favor» e «tchau». Primeiro, essas três palavras.",
+      "ru": "Здесь все говорят «olá», «por favor» и «tchau». Сначала — эти три слова."
+    },
+    {
+      "who": "hero",
+      "es": "Olá! Por favor!",
+      "ru": "Здравствуйте! Пожалуйста!"
+    }
+  ],
+  "road": [
+    {
+      "who": "gatekeeper",
+      "es": "Muito bem! Agora vai ao café. É a primeira casa da rua.",
+      "ru": "Очень хорошо! Теперь иди в кафе. Это первый дом на улице."
+    },
+    {
+      "who": "hero",
+      "es": "Tchau!",
+      "ru": "Пока!"
+    },
+    {
+      "who": "gatekeeper",
+      "es": "Tchau, viajante! Para quem vai embora, a gente diz «tchau».",
+      "ru": "Пока, путник! Тому, кто уходит, говорят «tchau»."
+    }
+  ],
+  "mission": [
+    {
+      "say": {
+        "es": "Olá! Entra, entra.",
+        "ru": "Привет! Заходи, заходи."
+      },
+      "options": [
+        "Olá!",
+        "Tchau!",
+        "Por favor"
+      ],
+      "answer": 0,
+      "wrong": {
+        "es": "Como assim? Você acabou de chegar.",
+        "ru": "Как это? Ты же только пришёл."
+      }
+    },
+    {
+      "say": {
+        "es": "Quer um cafezinho?",
+        "ru": "Хочешь кофе?"
+      },
+      "options": [
+        "Tchau!",
+        "Por favor",
+        "Olá!"
+      ],
+      "answer": 1,
+      "wrong": {
+        "es": "Eu ofereço um café… e o que você diz?",
+        "ru": "Я предлагаю кофе… и что ты скажешь?"
+      }
+    },
+    {
+      "say": {
+        "es": "Bom, tenho muito trabalho. Até logo!",
+        "ru": "Ну, мне пора за работу. До скорого!"
+      },
+      "options": [
+        "Por favor",
+        "Olá!",
+        "Tchau!"
+      ],
+      "answer": 2,
+      "wrong": {
+        "es": "Eu vou trabalhar. O que a gente diz?",
+        "ru": "Я ухожу работать. Что говорят на прощание?"
+      }
+    }
+  ],
+  "finale": [
+    {
+      "who": "gatekeeper",
+      "es": "Muito bem, viajante! Olha, um fragmento do mapa.",
+      "ru": "Очень хорошо, путник! Смотри, обрывок карты."
+    },
+    {
+      "who": "gatekeeper",
+      "es": "É o caminho para o Cofre. O resto, a cidade vai te ensinar.",
+      "ru": "Это путь к Хранилищу. Остальному тебя научит город."
+    }
+  ],
+  "gloss": {
+    "palavras": "слова",
+    "resto": "остальное"
+  }
+}
