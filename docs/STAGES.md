@@ -3463,3 +3463,14 @@ CI шёл около 35 минут: сквозные тесты одной за�
 
 Проверено: валидатор без ошибок и предупреждений (в том числе в роде путницы), юнит-тесты, линтер, сборка, полный прогон сквозных тестов.
 
+## Версия 2.222.0. Слова главы V португальского (задача 19.8, часть 1)
+
+Курс закрыт. Первая часть задачи 19.8: словарь главы V без выражений (выражения — следующей версией).
+
+- 500 слов уровня 7: по 25 на место. Профессиональная лексика C1 (o fiador, a rescisão, a bitola, o pós-operatório, a fuselagem, o perjúrio) и слова, которые понадобятся сюжету о глашатае и тоне: o pregoeiro и o edital в парке, prezado и atenciosamente в банке, a norma culta, o registro formal и o pronome de tratamento в школе, a saudação formal и a despedida cordial на почте, o ofício и o memorando в конторе, vossa senhoria в полиции.
+- 62 места из 500 отданы частым словам, которых курсу не хватало до цели «90% первой тысячи к концу пути»: conversar, o rapaz, desculpar, o povo, verificar, confirmar, o juiz, o tribunal, quieto, sofrer, dirigir и другие. С ними из первой тысячи частотного списка покрыто 93,3% (до замены было 87,1%). CEFR у них свой, B1 — уровень места этого не меняет.
+- Свиток V — 150 слов: лабиринт и эхо (o labirinto, ressoar, a encruzilhada, o esquecimento), чувства (o remorso, a clemência, atônito), доводы (refutar, a nuance, indiscutível, o consenso, o paradoxo), тон и регистр (a eloquência, condescendente, o eufemismo, o tom solene, cortês, rude, a entonação, a retratação) и конец пути (o elixir, o cálice, a esfinge, o legado, o desfecho).
+- Произношение для озвучки у o IPTU. В курсе 3598 слов.
+
+Проверено: валидатор без ошибок и предупреждений, `npm run vocab`, `npm run say`, юнит-тесты, линтер, сборка, полный прогон сквозных тестов.
+
