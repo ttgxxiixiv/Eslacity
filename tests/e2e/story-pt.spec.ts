@@ -267,3 +267,62 @@ test('pt: пролог — ворота, три слова, кафе, обрыв
   await expect(page.getByTestId('continue')).toBeVisible();
   await expect(page.getByTestId('review-card')).toBeVisible();
 });
+
+test('pt: дневник путника — записи главы I открывают Летопись, слухи и дослушанный разговор', async ({ page }) => {
+  type Entry = { id: string; chapter: number; from: string; es: string };
+  const entries = (read('.', 'diary.json').entries as Entry[]).filter((e) => e.chapter === 1);
+  const rumors = read('.', 'rumors.json').rumors as { id: string }[];
+  expect(rumors).toHaveLength(20);
+  await openCourse(page, 'pt');
+  await putMeta(page, {
+    thread: { seen: Object.fromEntries(entries.filter((e) => e.from.startsWith('th:')).map((e) => [e.from, 1])) },
+    rumors: { got: entries.filter((e) => e.from.startsWith('rm:')).map((e) => e.from) },
+  });
+  await page.goto('./#/diary');
+  const known = entries.filter((e) => !e.from.startsWith('sc:'));
+  await expect(page.getByTestId('diary-progress')).toContainText(`Записано ${known.length} из ${entries.length}`);
+  for (const e of known) await expect(page.locator(`[data-testid=diary-entry][data-id="${e.id}"]`).getByTestId('diary-quote')).toHaveText(e.es);
+
+  // Разговор дослушан до вопросов — его запись открыта.
+  const talk = entries.find((e) => e.from.startsWith('sc:'))!;
+  await page.goto(`./#/scene/${encodeURIComponent(talk.from)}`);
+  for (let i = 0; i < 40 && !((await page.getByTestId('scene-next').textContent()) ?? '').includes('К вопросам'); i++) await page.getByTestId('scene-next').click();
+  await page.getByTestId('scene-next').click();
+  await expect(page.getByTestId('scene-question')).toBeVisible();
+  await page.goto('./#/diary');
+  await expect(page.locator(`[data-testid=diary-entry][data-id="${talk.id}"]`)).toHaveAttribute('data-open', 'true');
+});
+
+test('pt: книги Летописца — все 20 текстов открыты по обрывкам, вопросы проходятся, слово книги — в мои слова', async ({ page }) => {
+  test.setTimeout(240_000);
+  type BookData = { words: { id: string; es: string; ru: string; forms: string[] }[]; books: { id: string; title: { es: string }; questions: { q: string; options: string[]; answer: number }[] }[] };
+  const places = files('words').map((f) => f.replace(/\.json$/, ''));
+  const fragments = Object.fromEntries([1, 2, 3, 4, 5].flatMap((c) => places.map((p) => [`${c}:${p}`, 1])));
+  await openCourse(page, 'pt');
+  await putMeta(page, { journey: { fragments, seals: { 1: 1, 2: 1, 3: 1, 4: 1 }, openedChapter: 5, celebrated: 5 } });
+  for (const chapter of [1, 2, 3, 4, 5]) {
+    const data = read('books', `${chapter}.json`) as BookData;
+    expect(data.books).toHaveLength(4);
+    for (const b of data.books) {
+      // Экран книги тот же: без перезагрузки он остался бы на итоге прошлого текста.
+      await page.goto('./#/book/' + encodeURIComponent(b.id));
+      await page.reload();
+      await expect(page.getByTestId('book-title'), b.id).toHaveText(b.title.es);
+      await page.getByTestId('book-quiz').click();
+      for (const q of b.questions) {
+        await expect(page.getByTestId('scene-question')).toHaveText(q.q);
+        await page.getByRole('button', { name: q.options[q.answer], exact: true }).click();
+        await page.getByRole('button', { name: /дальше|итог/i }).click();
+      }
+      await expect(page.getByTestId('scene-result'), b.id).toContainText(`Понято: ${b.questions.length} из ${b.questions.length}`);
+    }
+  }
+  // Слово словарика главы I: нажать в тексте и добавить в мои слова.
+  const word = (read('books', '1.json') as BookData).words[0];
+  await page.goto('./#/book/' + encodeURIComponent('book:1.4'));
+  await page.reload();
+  await page.getByTestId('book-text').getByRole('button', { name: word.forms[0], exact: true }).first().click();
+  await expect(page.getByTestId('book-word')).toContainText(`${word.es} — ${word.ru}`);
+  await page.getByTestId('book-add-word').click();
+  await expect(page.getByTestId('book-word-mine')).toBeVisible();
+});
