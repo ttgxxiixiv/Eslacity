@@ -1,5 +1,5 @@
 import type { LangProfile } from '../types';
-import { word } from '../util';
+import { addDays, date, easter, word } from '../util';
 import { PT_VERBS } from './verbs';
 
 /**
@@ -71,7 +71,35 @@ export const PT: LangProfile = {
   // pão / pau (носовые, swap), avó / avô и país / pais (знак над буквой, stress), caro / carro (double).
   pairKinds: ['swap', 'stress', 'double'],
   // Festa Junina и Carnaval — в 19.9.
-  festivals: [],
+  festivals: [
+    {
+      id: 'junina',
+      title: 'Праздник июня',
+      native: 'Festa Junina',
+      town: 'вся Бразилия, ночь с 23 на 24 июня',
+      host: 'park',
+      colors: ['#e53935', '#fdd835', '#1e88e5', '#43a047'],
+      icon: '🔥',
+      medal: { title: 'Июньский костёр', text: 'Миссия Праздника июня в неделю праздника' },
+      // Иванова ночь с 23 на 24 июня и дни вокруг неё.
+      week: (year) => ({ start: date(year, 6, 20), end: date(year, 6, 26) }),
+    },
+    {
+      id: 'carnaval',
+      title: 'Бразильский карнавал',
+      native: 'Carnaval',
+      town: 'вся Бразилия, перед Великим постом',
+      host: 'beach',
+      colors: ['#009c3b', '#ffdf00', '#002776'],
+      icon: '🎊',
+      medal: { title: 'Зонтик фрево', text: 'Миссия Карнавала в неделю праздника' },
+      // Шесть дней до Жирного вторника и он сам (Жирный вторник — за 47 дней до Пасхи).
+      week: (year) => {
+        const tuesday = addDays(easter(year), -47);
+        return { start: addDays(tuesday, -6), end: tuesday };
+      },
+    },
+  ],
 
   // «Viajante» одного вида для путника и путницы, род виден по артиклю: o viajante, a viajante.
   hero: { words: [['viajante', 'viajante']], article: ['O', 'A'], adjectives: [] },

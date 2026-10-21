@@ -326,3 +326,31 @@ test('pt: книги Летописца — все 20 текстов откры�
   await page.getByTestId('book-add-word').click();
   await expect(page.getByTestId('book-word-mine')).toBeVisible();
 });
+
+for (const [id, day] of [
+  ['junina', new Date(2026, 5, 24, 20)],
+  ['carnaval', new Date(2026, 1, 14, 16)],
+] as const) {
+  test(`pt: праздник ${id} — неделя идёт, миссия хозяина проходится, тайная медаль`, async ({ page }) => {
+    const data = read('festivals', `${id}.json`) as { phrases: { id: string; es: string }[]; missions: { nodes: Record<string, Node> }[] };
+    const own = new Map(data.phrases.map((p) => [p.id, phraseFull(p.es)]));
+    const answers = Object.values(data.missions[0].nodes).filter((n): n is Extract<Node, { kind: 'answer' }> => n.kind === 'answer');
+    await page.clock.install({ time: day });
+    await openCourse(page, 'pt');
+    await page.goto(`./#/festival/${id}`);
+    await expect(page.getByTestId('festival-when')).toContainText('Праздник идёт');
+    await page.getByTestId('festival-mission').click();
+    for (let i = 0; i < 60 && !(await page.getByTestId('mission-result').count()); i++) {
+      if (await page.getByTestId('hero-turn').count()) {
+        const task = ((await page.getByTestId('hero-task').textContent()) ?? '').trim();
+        const node = answers.find((a) => a.task === task)!;
+        await page.getByTestId('hero-turn').getByRole('button', { name: own.get(node.branches[0].phrase)!, exact: true }).click();
+        continue;
+      }
+      await page.getByTestId('mission-next').click();
+    }
+    await expect(page.getByTestId('mission-result')).toContainText(`Верных ответов: ${answers.length} из ${answers.length} (100%)`);
+    await page.getByRole('button', { name: 'Готово' }).click();
+    await expect(page.getByTestId('festival-medal')).toContainText('получена');
+  });
+}
