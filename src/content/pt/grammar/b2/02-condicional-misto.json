@@ -1,0 +1,160 @@
+{
+  "id": "b2.02-condicional-misto",
+  "district": "B2",
+  "order": 2,
+  "title": "Смешанные условия",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Условие и следствие могут относиться к разным временам. Прошлое условие — сегодняшнее следствие: **se eu tivesse estudado, hoje falaria melhor**. Постоянное условие — прошлое следствие: **se eu fosse mais calmo, não teria brigado**."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Условие",
+        "Следствие"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Se eu tivesse aceitado o emprego (тогда),",
+            "hoje moraria no Rio."
+          ]
+        },
+        {
+          "cells": [
+            "Se ela fosse mais paciente (вообще),",
+            "não teria gritado ontem."
+          ]
+        },
+        {
+          "cells": [
+            "Se não tivesse chovido,",
+            "a trilha estaria seca agora."
+          ]
+        },
+        {
+          "cells": [
+            "Se eu falasse a língua da floresta,",
+            "teria entendido o recado."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Смотри на время каждой части отдельно: tivesse + причастие — о прошлом, fosse / falasse — о сейчас и вообще; teria + причастие — следствие в прошлом, -ia — сейчас."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Se eu tivesse aceitado o emprego, hoje moraria no Rio.",
+      "ru": "Если бы я тогда согласился на работу, сейчас жил бы в Рио."
+    },
+    {
+      "es": "Se ela fosse mais paciente, não teria gritado.",
+      "ru": "Будь она терпеливее, она бы не накричала."
+    },
+    {
+      "es": "Se não tivesse chovido, a trilha estaria seca.",
+      "ru": "Если бы не было дождя, тропа была бы сухой."
+    },
+    {
+      "es": "Se eu falasse a língua da floresta, teria entendido.",
+      "ru": "Если бы я знал язык леса, я бы понял."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "b2.02-condicional-misto.1",
+      "kind": "choose",
+      "prompt": "«Если бы я тогда учился, сейчас говорил бы лучше»:",
+      "options": [
+        "Se eu tivesse estudado, hoje falaria melhor.",
+        "Se eu estudasse, hoje teria falado melhor.",
+        "Se eu tiver estudado, hoje falo melhor."
+      ],
+      "answer": 0,
+      "explain": "Прошлое условие, нынешнее следствие."
+    },
+    {
+      "id": "b2.02-condicional-misto.2",
+      "kind": "choose",
+      "prompt": "«Будь он спокойнее (вообще), он бы не поссорился (вчера)»:",
+      "options": [
+        "Se ele fosse mais calmo, não teria brigado.",
+        "Se ele tivesse sido calmo, não brigaria amanhã.",
+        "Se ele é calmo, não brigou."
+      ],
+      "answer": 0,
+      "explain": "Fosse — вообще, teria — в прошлом."
+    },
+    {
+      "id": "b2.02-condicional-misto.3",
+      "kind": "gap",
+      "sentence": "Se não tivesse chovido, a trilha ___ seca agora.",
+      "ru": "Если бы не было дождя, тропа сейчас была бы сухой.",
+      "options": [
+        "estaria",
+        "teria estado",
+        "estará"
+      ],
+      "answer": 0,
+      "explain": "Следствие сейчас — estaria."
+    },
+    {
+      "id": "b2.02-condicional-misto.4",
+      "kind": "gap",
+      "sentence": "Se eu ___ a língua da floresta, teria entendido.",
+      "ru": "Если бы я знал язык леса, я бы понял.",
+      "options": [
+        "falasse",
+        "tivesse falado",
+        "falar"
+      ],
+      "answer": 0,
+      "explain": "Постоянное условие — falasse."
+    },
+    {
+      "id": "b2.02-condicional-misto.5",
+      "kind": "truefalse",
+      "statement": "В смешанном условии части могут быть в разных временах.",
+      "answer": true,
+      "explain": "Прошлое и сейчас."
+    },
+    {
+      "id": "b2.02-condicional-misto.6",
+      "kind": "truefalse",
+      "statement": "«Hoje moraria» — следствие в прошлом.",
+      "answer": false,
+      "explain": "Это сейчас."
+    },
+    {
+      "id": "b2.02-condicional-misto.7",
+      "kind": "truefalse",
+      "statement": "«Se ela fosse mais paciente» говорит о характере вообще.",
+      "answer": true,
+      "explain": "Fosse — вообще."
+    },
+    {
+      "id": "b2.02-condicional-misto.8",
+      "kind": "build",
+      "ru": "Если бы я тогда согласился, сейчас жил бы в Рио.",
+      "answer": "Se eu tivesse aceitado hoje moraria no Rio.",
+      "extra": [
+        "moro",
+        "teria"
+      ],
+      "explain": "Tivesse aceitado… moraria."
+    },
+    {
+      "id": "b2.02-condicional-misto.9",
+      "kind": "type",
+      "sentence": "Se ela fosse mais paciente, não ___ gritado.",
+      "ru": "Будь она терпеливее, она бы не накричала.",
+      "hint": "ter, условное",
+      "answer": "teria",
+      "explain": "Следствие в прошлом — teria."
+    }
+  ]
+}

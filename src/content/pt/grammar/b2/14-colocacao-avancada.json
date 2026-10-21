@@ -1,0 +1,160 @@
+{
+  "id": "b2.14-colocacao-avancada",
+  "district": "B2",
+  "order": 14,
+  "title": "Где стоит местоимение: me disse, disse-me, dir-se-ia",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "В Бразилии в разговоре местоимение обычно перед глаголом: **ele me disse**, **me passa o sal**. В письме и в Португалии — после: **disse-me**. Отрицание, вопросительные слова, **que**, **já**, **nunca** тянут его вперёд везде: **não me disse**, **quem te contou?**. Будущее и условное в книжном стиле разрывают глагол: **dir-se-ia**, **far-se-á** — это достаточно узнавать."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Разговор (Бразилия)",
+        "Письмо"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Me passa o mapa.",
+            "Passe-me o mapa."
+          ]
+        },
+        {
+          "cells": [
+            "Ele me disse.",
+            "Ele disse-me. / Ele me disse."
+          ]
+        },
+        {
+          "cells": [
+            "Não me disse.",
+            "Não me disse."
+          ]
+        },
+        {
+          "cells": [
+            "Vou te contar.",
+            "Vou contar-te."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Начинать фразу с местоимения в бразильском разговоре нормально: **me ajuda?**. В официальном письме так не пишут: **ajude-me**, **peço-lhe**."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Me passa o mapa?",
+      "ru": "Передашь мне карту?"
+    },
+    {
+      "es": "Ninguém me contou nada.",
+      "ru": "Мне никто ничего не рассказал."
+    },
+    {
+      "es": "Peço-lhe desculpas.",
+      "ru": "Прошу у вас прощения."
+    },
+    {
+      "es": "Dir-se-ia que a floresta escuta.",
+      "ru": "Можно было бы сказать, что лес слушает."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "b2.14-colocacao-avancada.1",
+      "kind": "choose",
+      "prompt": "Разговорное «помоги мне»:",
+      "options": [
+        "Me ajuda?",
+        "Ajuda-me-se?",
+        "Ajudar me?"
+      ],
+      "answer": 0,
+      "explain": "В Бразилии — me ajuda."
+    },
+    {
+      "id": "b2.14-colocacao-avancada.2",
+      "kind": "choose",
+      "prompt": "Официальное письмо: «прошу у вас прощения»:",
+      "options": [
+        "Peço-lhe desculpas.",
+        "Lhe peço desculpa, né.",
+        "Te peço desculpas."
+      ],
+      "answer": 0,
+      "explain": "В письме — после глагола."
+    },
+    {
+      "id": "b2.14-colocacao-avancada.3",
+      "kind": "gap",
+      "sentence": "Ninguém ___ contou nada.",
+      "ru": "Мне никто ничего не рассказал.",
+      "options": [
+        "me",
+        "-me",
+        "mim"
+      ],
+      "answer": 0,
+      "explain": "Ninguém тянет вперёд."
+    },
+    {
+      "id": "b2.14-colocacao-avancada.4",
+      "kind": "gap",
+      "sentence": "Quem ___ disse isso?",
+      "ru": "Кто тебе это сказал?",
+      "options": [
+        "te",
+        "-te",
+        "ti"
+      ],
+      "answer": 0,
+      "explain": "Вопросительное слово тянет вперёд."
+    },
+    {
+      "id": "b2.14-colocacao-avancada.5",
+      "kind": "truefalse",
+      "statement": "«Dir-se-ia» — книжная форма условного с местоимением внутри.",
+      "answer": true,
+      "explain": "Мезоклиза."
+    },
+    {
+      "id": "b2.14-colocacao-avancada.6",
+      "kind": "truefalse",
+      "statement": "После «não» местоимение ставят после глагола: «não disse-me».",
+      "answer": false,
+      "explain": "Não me disse."
+    },
+    {
+      "id": "b2.14-colocacao-avancada.7",
+      "kind": "truefalse",
+      "statement": "В бразильском разговоре можно начать фразу с «me».",
+      "answer": true,
+      "explain": "Me ajuda?"
+    },
+    {
+      "id": "b2.14-colocacao-avancada.8",
+      "kind": "build",
+      "ru": "Мне никто ничего не рассказал.",
+      "answer": "Ninguém me contou nada.",
+      "extra": [
+        "-me",
+        "mim"
+      ],
+      "explain": "Ninguém me."
+    },
+    {
+      "id": "b2.14-colocacao-avancada.9",
+      "kind": "type",
+      "sentence": "Não ___ disse a verdade.",
+      "ru": "Он не сказал мне правду.",
+      "hint": "мне",
+      "answer": "me",
+      "explain": "После não — перед глаголом."
+    }
+  ]
+}

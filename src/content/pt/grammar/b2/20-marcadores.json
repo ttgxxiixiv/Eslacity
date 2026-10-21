@@ -1,0 +1,165 @@
+{
+  "id": "b2.20-marcadores",
+  "district": "B2",
+  "order": 20,
+  "title": "Né, aliás, quer dizer, pois é",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Разговорные слова-связки помогают держать разговор: **né?** (не так ли? — из **não é**), **pois é** (вот именно), **aliás** (кстати, вернее), **quer dizer** (то есть), **enfim** (короче, в общем), **sabe?** (понимаешь?), **olha** (слушай), **tipo** (типа, разговорное)."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Слово",
+        "Функция",
+        "Пример"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "né?",
+            "ищет согласия",
+            "Tá frio, né?"
+          ]
+        },
+        {
+          "cells": [
+            "pois é",
+            "соглашается",
+            "— Choveu muito. — Pois é."
+          ]
+        },
+        {
+          "cells": [
+            "aliás",
+            "поправляет",
+            "Ele vem amanhã. Aliás, depois de amanhã."
+          ]
+        },
+        {
+          "cells": [
+            "enfim",
+            "подводит итог",
+            "Enfim, deu tudo certo."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "**Tipo** и **sabe** в избытке звучат по-подростковому. **Né** — повсюду, даже у профессоров."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Tá frio hoje, né?",
+      "ru": "Холодно сегодня, да?"
+    },
+    {
+      "es": "— A floresta ficou quieta. — Pois é.",
+      "ru": "— Лес затих. — Вот именно."
+    },
+    {
+      "es": "Ele vem amanhã. Aliás, depois de amanhã.",
+      "ru": "Он придёт завтра. Вернее, послезавтра."
+    },
+    {
+      "es": "Enfim, deu tudo certo.",
+      "ru": "В общем, всё получилось."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "b2.20-marcadores.1",
+      "kind": "choose",
+      "prompt": "Согласиться: «— Сегодня жарко. — …»",
+      "options": [
+        "Pois é.",
+        "Aliás.",
+        "Tipo."
+      ],
+      "answer": 0,
+      "explain": "Pois é — вот именно."
+    },
+    {
+      "id": "b2.20-marcadores.2",
+      "kind": "choose",
+      "prompt": "Поправить себя: «завтра… вернее, послезавтра»:",
+      "options": [
+        "Amanhã. Aliás, depois de amanhã.",
+        "Amanhã. Pois é, depois de amanhã.",
+        "Amanhã. Né, depois de amanhã."
+      ],
+      "answer": 0,
+      "explain": "Aliás — вернее."
+    },
+    {
+      "id": "b2.20-marcadores.3",
+      "kind": "gap",
+      "sentence": "Tá frio, ___?",
+      "ru": "Холодно, да?",
+      "options": [
+        "né",
+        "pois",
+        "aliás"
+      ],
+      "answer": 0,
+      "explain": "Né — ищет согласия."
+    },
+    {
+      "id": "b2.20-marcadores.4",
+      "kind": "gap",
+      "sentence": "___, deu tudo certo.",
+      "ru": "В общем, всё получилось.",
+      "options": [
+        "Enfim",
+        "Aliás",
+        "Né"
+      ],
+      "answer": 0,
+      "explain": "Enfim — итог."
+    },
+    {
+      "id": "b2.20-marcadores.5",
+      "kind": "truefalse",
+      "statement": "«Né» — сокращение от «não é».",
+      "answer": true,
+      "explain": "Tá bom, né?"
+    },
+    {
+      "id": "b2.20-marcadores.6",
+      "kind": "truefalse",
+      "statement": "«Quer dizer» значит «хочет сказать» и не бывает связкой.",
+      "answer": false,
+      "explain": "То есть."
+    },
+    {
+      "id": "b2.20-marcadores.7",
+      "kind": "truefalse",
+      "statement": "Злоупотребление «tipo» звучит по-подростковому.",
+      "answer": true,
+      "explain": "Разговорное."
+    },
+    {
+      "id": "b2.20-marcadores.8",
+      "kind": "build",
+      "ru": "В общем, всё получилось.",
+      "answer": "Enfim deu tudo certo.",
+      "extra": [
+        "aliás",
+        "pois"
+      ],
+      "explain": "Enfim — итог."
+    },
+    {
+      "id": "b2.20-marcadores.9",
+      "kind": "type",
+      "sentence": "— Choveu muito. — ___ é.",
+      "ru": "— Много дождя было. — Вот именно.",
+      "hint": "вот именно",
+      "answer": "Pois",
+      "explain": "Pois é."
+    }
+  ]
+}

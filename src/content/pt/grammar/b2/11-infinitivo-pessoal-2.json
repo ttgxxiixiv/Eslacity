@@ -1,0 +1,165 @@
+{
+  "id": "b2.11-infinitivo-pessoal-2",
+  "district": "B2",
+  "order": 11,
+  "title": "Личный инфинитив: ao chegarmos, por serem",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Личный инфинитив после предлогов заменяет придаточное: **ao chegarmos** — «когда мы пришли», **por serem jovens** — «потому что они молоды», **apesar de estarem cansados** — «хотя они устали», **até eles voltarem** — «пока они не вернутся»."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Оборот",
+        "Значение",
+        "Пример"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "ao + инф.",
+            "когда",
+            "Ao chegarmos, chovia."
+          ]
+        },
+        {
+          "cells": [
+            "por + инф.",
+            "потому что",
+            "Por serem vizinhos, se ajudam."
+          ]
+        },
+        {
+          "cells": [
+            "apesar de + инф.",
+            "хотя",
+            "Apesar de estarem cansados, vieram."
+          ]
+        },
+        {
+          "cells": [
+            "até + инф.",
+            "пока не",
+            "Espera até eles voltarem."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Если подлежащее то же, что в главной части, окончание можно не ставить: **ao chegar, liguei**. С другим подлежащим — нужно: **ao chegarmos, ele ligou**."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Ao chegarmos, a floresta ficou calada.",
+      "ru": "Когда мы пришли, лес умолк."
+    },
+    {
+      "es": "Por serem vizinhos, eles se ajudam.",
+      "ru": "Они помогают друг другу, потому что соседи."
+    },
+    {
+      "es": "Apesar de estarem cansados, vieram.",
+      "ru": "Хотя они устали, они пришли."
+    },
+    {
+      "es": "Espera até eles voltarem.",
+      "ru": "Подожди, пока они не вернутся."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "b2.11-infinitivo-pessoal-2.1",
+      "kind": "choose",
+      "prompt": "«Когда мы пришли»:",
+      "options": [
+        "ao chegarmos",
+        "ao chegamos",
+        "ao cheguemos"
+      ],
+      "answer": 0,
+      "explain": "Ao + личный инфинитив."
+    },
+    {
+      "id": "b2.11-infinitivo-pessoal-2.2",
+      "kind": "choose",
+      "prompt": "«Потому что они соседи»:",
+      "options": [
+        "por serem vizinhos",
+        "por são vizinhos",
+        "por sejam vizinhos"
+      ],
+      "answer": 0,
+      "explain": "Por + serem."
+    },
+    {
+      "id": "b2.11-infinitivo-pessoal-2.3",
+      "kind": "gap",
+      "sentence": "Apesar de ___ cansados, vieram.",
+      "ru": "Хотя они устали, они пришли.",
+      "options": [
+        "estarem",
+        "estão",
+        "estejam"
+      ],
+      "answer": 0,
+      "explain": "Apesar de + estarem."
+    },
+    {
+      "id": "b2.11-infinitivo-pessoal-2.4",
+      "kind": "gap",
+      "sentence": "Espera até eles ___.",
+      "ru": "Подожди, пока они не вернутся.",
+      "options": [
+        "voltarem",
+        "voltam",
+        "voltem"
+      ],
+      "answer": 0,
+      "explain": "Até + voltarem."
+    },
+    {
+      "id": "b2.11-infinitivo-pessoal-2.5",
+      "kind": "truefalse",
+      "statement": "«Ao chegarmos» значит «когда мы пришли».",
+      "answer": true,
+      "explain": "Ao + инфинитив."
+    },
+    {
+      "id": "b2.11-infinitivo-pessoal-2.6",
+      "kind": "truefalse",
+      "statement": "При том же подлежащем окончание личного инфинитива обязательно.",
+      "answer": false,
+      "explain": "Можно опустить."
+    },
+    {
+      "id": "b2.11-infinitivo-pessoal-2.7",
+      "kind": "truefalse",
+      "statement": "«Por serem jovens» — «так как они молоды».",
+      "answer": true,
+      "explain": "Por + инфинитив."
+    },
+    {
+      "id": "b2.11-infinitivo-pessoal-2.8",
+      "kind": "build",
+      "ru": "Они помогают друг другу, потому что соседи.",
+      "answer": "Por serem vizinhos eles se ajudam.",
+      "extra": [
+        "são",
+        "sejam"
+      ],
+      "explain": "Por + serem."
+    },
+    {
+      "id": "b2.11-infinitivo-pessoal-2.9",
+      "kind": "type",
+      "sentence": "Ao ___, a floresta ficou calada.",
+      "ru": "Когда мы пришли, лес умолк.",
+      "hint": "chegar, nós",
+      "answer": "chegarmos",
+      "explain": "Chegar + mos."
+    }
+  ]
+}

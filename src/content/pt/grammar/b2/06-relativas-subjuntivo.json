@@ -1,0 +1,160 @@
+{
+  "id": "b2.06-relativas-subjuntivo",
+  "district": "B2",
+  "order": 6,
+  "title": "Procuro alguém que saiba",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Если предмет или человек неизвестен или его, может быть, нет — в придаточном subjuntivo: **procuro alguém que saiba o caminho** — «ищу кого-нибудь, кто знает дорогу». Если он известен — индикатив: **conheço alguém que sabe**."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Известно — индикатив",
+        "Неизвестно — subjuntivo"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Tenho um amigo que fala tupi.",
+            "Procuro alguém que fale tupi."
+          ]
+        },
+        {
+          "cells": [
+            "Esse é o livro que explica tudo.",
+            "Quero um livro que explique tudo."
+          ]
+        },
+        {
+          "cells": [
+            "Há uma trilha que leva ao rio.",
+            "Não há trilha que leve ao rio."
+          ]
+        },
+        {
+          "cells": [
+            "Fiz o que ele pediu.",
+            "Faço o que você pedir."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "После отрицания **não há ninguém que**, **não existe nada que** — всегда subjuntivo: **não há ninguém que entenda isso**."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Procuro alguém que saiba o caminho.",
+      "ru": "Ищу кого-нибудь, кто знает дорогу."
+    },
+    {
+      "es": "Conheço uma mulher que sabe o caminho.",
+      "ru": "Я знаю женщину, которая знает дорогу."
+    },
+    {
+      "es": "Não há ninguém que entenda a floresta.",
+      "ru": "Нет никого, кто понимает лес."
+    },
+    {
+      "es": "Faço o que você pedir.",
+      "ru": "Сделаю, что попросишь."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "b2.06-relativas-subjuntivo.1",
+      "kind": "choose",
+      "prompt": "«Ищу кого-нибудь, кто говорит по-английски»:",
+      "options": [
+        "Procuro alguém que fale inglês.",
+        "Procuro alguém que fala inglês.",
+        "Procuro alguém quem fale inglês."
+      ],
+      "answer": 0,
+      "explain": "Неизвестный — subjuntivo."
+    },
+    {
+      "id": "b2.06-relativas-subjuntivo.2",
+      "kind": "choose",
+      "prompt": "«У меня есть друг, который говорит по-английски»:",
+      "options": [
+        "Tenho um amigo que fala inglês.",
+        "Tenho um amigo que fale inglês.",
+        "Tenho um amigo quem fala inglês."
+      ],
+      "answer": 0,
+      "explain": "Известный — индикатив."
+    },
+    {
+      "id": "b2.06-relativas-subjuntivo.3",
+      "kind": "gap",
+      "sentence": "Não há ninguém que ___ isso.",
+      "ru": "Никто этого не понимает.",
+      "options": [
+        "entenda",
+        "entende",
+        "entendeu"
+      ],
+      "answer": 0,
+      "explain": "После отрицания — subjuntivo."
+    },
+    {
+      "id": "b2.06-relativas-subjuntivo.4",
+      "kind": "gap",
+      "sentence": "Quero um mapa que ___ a trilha.",
+      "ru": "Мне нужна карта, на которой есть тропа.",
+      "options": [
+        "mostre",
+        "mostra",
+        "mostrou"
+      ],
+      "answer": 0,
+      "explain": "Неизвестная карта — mostre."
+    },
+    {
+      "id": "b2.06-relativas-subjuntivo.5",
+      "kind": "truefalse",
+      "statement": "О неизвестном человеке в придаточном — subjuntivo.",
+      "answer": true,
+      "explain": "Alguém que saiba."
+    },
+    {
+      "id": "b2.06-relativas-subjuntivo.6",
+      "kind": "truefalse",
+      "statement": "«Conheço alguém que saiba» — обычная фраза.",
+      "answer": false,
+      "explain": "Знакомый — sabe."
+    },
+    {
+      "id": "b2.06-relativas-subjuntivo.7",
+      "kind": "truefalse",
+      "statement": "«Faço o que você pedir» — с futuro do subjuntivo.",
+      "answer": true,
+      "explain": "Pedir — futuro do subjuntivo."
+    },
+    {
+      "id": "b2.06-relativas-subjuntivo.8",
+      "kind": "build",
+      "ru": "Ищу кого-нибудь, кто знает дорогу.",
+      "answer": "Procuro alguém que saiba o caminho.",
+      "extra": [
+        "sabe",
+        "conhece"
+      ],
+      "explain": "Неизвестный — saiba."
+    },
+    {
+      "id": "b2.06-relativas-subjuntivo.9",
+      "kind": "type",
+      "sentence": "Não existe nada que ___ a floresta.",
+      "ru": "Нет ничего, что заставило бы лес замолчать.",
+      "hint": "calar, subjuntivo",
+      "answer": "cale",
+      "explain": "Calar → cale."
+    }
+  ]
+}

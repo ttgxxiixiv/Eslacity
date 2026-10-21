@@ -1,0 +1,160 @@
+{
+  "id": "b2.12-concessivas",
+  "district": "B2",
+  "order": 12,
+  "title": "Ainda que, por mais que, não obstante",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Уступка с оттенками: **ainda que** и **mesmo que** (даже если) — с subjuntivo; **por mais que** (как ни) — с subjuntivo; **se bem que** (хотя, впрочем) — с индикативом; **não obstante**, **todavia** (тем не менее) — книжные связки."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Связка",
+        "Пример"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "ainda que",
+            "Ainda que chova, vamos."
+          ]
+        },
+        {
+          "cells": [
+            "por mais que",
+            "Por mais que grite, ninguém ouve."
+          ]
+        },
+        {
+          "cells": [
+            "se bem que",
+            "Vou, se bem que estou cansado."
+          ]
+        },
+        {
+          "cells": [
+            "não obstante",
+            "Choveu; não obstante, a festa aconteceu."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "**Por mais + прилагательное + que**: **por mais difícil que seja** — «как бы трудно ни было»."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Ainda que chova, vamos à floresta.",
+      "ru": "Даже если пойдёт дождь, пойдём в лес."
+    },
+    {
+      "es": "Por mais que ele grite, ninguém ouve.",
+      "ru": "Как он ни кричит, никто не слышит."
+    },
+    {
+      "es": "Vou, se bem que estou cansado.",
+      "ru": "Пойду, хоть и устал."
+    },
+    {
+      "es": "Por mais difícil que seja, vamos tentar.",
+      "ru": "Как бы трудно ни было, попробуем."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "b2.12-concessivas.1",
+      "kind": "choose",
+      "prompt": "«Как бы трудно ни было»:",
+      "options": [
+        "por mais difícil que seja",
+        "por mais difícil que é",
+        "por mais que difícil seja"
+      ],
+      "answer": 0,
+      "explain": "Por mais + прил. + que + subjuntivo."
+    },
+    {
+      "id": "b2.12-concessivas.2",
+      "kind": "choose",
+      "prompt": "«Пойду, хоть и устал» (впрочем):",
+      "options": [
+        "Vou, se bem que estou cansado.",
+        "Vou, se bem que esteja cansado.",
+        "Vou, ainda que estou cansado."
+      ],
+      "answer": 0,
+      "explain": "Se bem que + индикатив."
+    },
+    {
+      "id": "b2.12-concessivas.3",
+      "kind": "gap",
+      "sentence": "Ainda que ___, vamos.",
+      "ru": "Даже если пойдёт дождь, пойдём.",
+      "options": [
+        "chova",
+        "chove",
+        "choveu"
+      ],
+      "answer": 0,
+      "explain": "Ainda que + subjuntivo."
+    },
+    {
+      "id": "b2.12-concessivas.4",
+      "kind": "gap",
+      "sentence": "Por mais que ele ___, ninguém ouve.",
+      "ru": "Как он ни кричит, никто не слышит.",
+      "options": [
+        "grite",
+        "grita",
+        "gritou"
+      ],
+      "answer": 0,
+      "explain": "Por mais que + subjuntivo."
+    },
+    {
+      "id": "b2.12-concessivas.5",
+      "kind": "truefalse",
+      "statement": "«Não obstante» — книжное «тем не менее».",
+      "answer": true,
+      "explain": "Связка письма."
+    },
+    {
+      "id": "b2.12-concessivas.6",
+      "kind": "truefalse",
+      "statement": "После «se bem que» обычно subjuntivo.",
+      "answer": false,
+      "explain": "Индикатив."
+    },
+    {
+      "id": "b2.12-concessivas.7",
+      "kind": "truefalse",
+      "statement": "«Ainda que» и «mesmo que» значат «даже если».",
+      "answer": true,
+      "explain": "С subjuntivo."
+    },
+    {
+      "id": "b2.12-concessivas.8",
+      "kind": "build",
+      "ru": "Как бы трудно ни было, попробуем.",
+      "answer": "Por mais difícil que seja vamos tentar.",
+      "extra": [
+        "é",
+        "for"
+      ],
+      "explain": "Por mais… que seja."
+    },
+    {
+      "id": "b2.12-concessivas.9",
+      "kind": "type",
+      "sentence": "Ainda que ele ___ desculpas, ela não perdoa.",
+      "ru": "Даже если он извинится, она не простит.",
+      "hint": "pedir, subjuntivo",
+      "answer": "peça",
+      "explain": "Pedir → peça."
+    }
+  ]
+}

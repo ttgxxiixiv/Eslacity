@@ -1,0 +1,165 @@
+{
+  "id": "b2.18-perifrases",
+  "district": "B2",
+  "order": 18,
+  "title": "Vir a, chegar a, deixar de, voltar a",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Глагольные обороты меняют оттенок действия: **voltar a** + инф. — снова (**voltou a chover**), **deixar de** — перестать (**deixou de fumar**), **chegar a** — дойти до того, чтобы (**chegou a chorar**), **acabar por** — в итоге (**acabou por aceitar**), **vir a** — оказаться в будущем (**veio a ser guarda**), **pôr-se a** — приняться (**pôs-se a cantar**)."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Оборот",
+        "Пример",
+        "Перевод"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "voltar a",
+            "A floresta voltou a sussurrar.",
+            "Лес снова зашептал."
+          ]
+        },
+        {
+          "cells": [
+            "deixar de",
+            "Ele deixou de mentir.",
+            "Он перестал лгать."
+          ]
+        },
+        {
+          "cells": [
+            "chegar a",
+            "Cheguei a pensar que era fantasma.",
+            "Я даже подумал, что это призрак."
+          ]
+        },
+        {
+          "cells": [
+            "acabar por",
+            "Acabou por pedir perdão.",
+            "В итоге попросил прощения."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "**Não deixe de** + инф. — «обязательно»: **não deixe de visitar a cachoeira** — «обязательно сходи к водопаду»."
+    }
+  ],
+  "examples": [
+    {
+      "es": "A floresta voltou a sussurrar.",
+      "ru": "Лес снова зашептал."
+    },
+    {
+      "es": "Ele deixou de mentir.",
+      "ru": "Он перестал лгать."
+    },
+    {
+      "es": "Cheguei a pensar que era um fantasma.",
+      "ru": "Я даже подумал, что это призрак."
+    },
+    {
+      "es": "Não deixe de ouvir as árvores.",
+      "ru": "Обязательно послушай деревья."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "b2.18-perifrases.1",
+      "kind": "choose",
+      "prompt": "«Снова пошёл дождь»:",
+      "options": [
+        "Voltou a chover.",
+        "Voltou de chover.",
+        "Voltou chover."
+      ],
+      "answer": 0,
+      "explain": "Voltar a + инф."
+    },
+    {
+      "id": "b2.18-perifrases.2",
+      "kind": "choose",
+      "prompt": "«Он перестал курить»:",
+      "options": [
+        "Ele deixou de fumar.",
+        "Ele deixou a fumar.",
+        "Ele deixou fumando."
+      ],
+      "answer": 0,
+      "explain": "Deixar de."
+    },
+    {
+      "id": "b2.18-perifrases.3",
+      "kind": "gap",
+      "sentence": "Ele acabou ___ aceitar.",
+      "ru": "В итоге он согласился.",
+      "options": [
+        "por",
+        "de",
+        "a"
+      ],
+      "answer": 0,
+      "explain": "Acabar por."
+    },
+    {
+      "id": "b2.18-perifrases.4",
+      "kind": "gap",
+      "sentence": "Cheguei ___ pensar que era um fantasma.",
+      "ru": "Я даже подумал, что это призрак.",
+      "options": [
+        "a",
+        "de",
+        "por"
+      ],
+      "answer": 0,
+      "explain": "Chegar a."
+    },
+    {
+      "id": "b2.18-perifrases.5",
+      "kind": "truefalse",
+      "statement": "«Não deixe de visitar» значит «обязательно посети».",
+      "answer": true,
+      "explain": "Устойчивый оборот."
+    },
+    {
+      "id": "b2.18-perifrases.6",
+      "kind": "truefalse",
+      "statement": "«Deixar de» значит «оставить, чтобы».",
+      "answer": false,
+      "explain": "Перестать."
+    },
+    {
+      "id": "b2.18-perifrases.7",
+      "kind": "truefalse",
+      "statement": "«Veio a ser guarda» — «в итоге стал стражем».",
+      "answer": true,
+      "explain": "Vir a."
+    },
+    {
+      "id": "b2.18-perifrases.8",
+      "kind": "build",
+      "ru": "Лес снова зашептал.",
+      "answer": "A floresta voltou a sussurrar.",
+      "extra": [
+        "de",
+        "sussurrando"
+      ],
+      "explain": "Voltar a."
+    },
+    {
+      "id": "b2.18-perifrases.9",
+      "kind": "type",
+      "sentence": "Ele deixou ___ mentir.",
+      "ru": "Он перестал лгать.",
+      "hint": "предлог",
+      "answer": "de",
+      "explain": "Deixar de."
+    }
+  ]
+}

@@ -1,0 +1,160 @@
+{
+  "id": "b2.13-causais-consecutivas",
+  "district": "B2",
+  "order": 13,
+  "title": "Visto que, de modo que, tanto que",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Причина: **porque**, **já que**, **visto que**, **uma vez que**, **dado que** (книжные). Следствие: **de modo que**, **de maneira que**, **por isso**, **tanto… que**, **tão… que**."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Значение",
+        "Пример"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "visto que",
+            "Visto que ninguém veio, encerramos."
+          ]
+        },
+        {
+          "cells": [
+            "uma vez que",
+            "Uma vez que você sabe, conta."
+          ]
+        },
+        {
+          "cells": [
+            "tão … que",
+            "Estava tão cansado que dormiu."
+          ]
+        },
+        {
+          "cells": [
+            "tanto que",
+            "Gritou tanto que perdeu a voz."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "**De modo que** с индикативом — следствие: **choveu, de modo que ficamos**. С subjuntivo — цель: **fala alto, de modo que todos ouçam**."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Visto que ninguém veio, encerramos a reunião.",
+      "ru": "Поскольку никто не пришёл, мы закрыли собрание."
+    },
+    {
+      "es": "Estava tão cansado que dormiu na mesa.",
+      "ru": "Он так устал, что уснул за столом."
+    },
+    {
+      "es": "Gritou tanto que perdeu a voz.",
+      "ru": "Кричал так, что потерял голос."
+    },
+    {
+      "es": "Fala alto, de modo que todos ouçam.",
+      "ru": "Говори громко, чтобы все слышали."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "b2.13-causais-consecutivas.1",
+      "kind": "choose",
+      "prompt": "«Он так устал, что уснул»:",
+      "options": [
+        "Estava tão cansado que dormiu.",
+        "Estava tanto cansado que dormiu.",
+        "Estava tão cansado de dormiu."
+      ],
+      "answer": 0,
+      "explain": "Tão + прил. + que."
+    },
+    {
+      "id": "b2.13-causais-consecutivas.2",
+      "kind": "choose",
+      "prompt": "«Поскольку никто не пришёл» (книжно):",
+      "options": [
+        "Visto que ninguém veio",
+        "Visto ninguém que veio",
+        "De modo que ninguém veio"
+      ],
+      "answer": 0,
+      "explain": "Visto que — причина."
+    },
+    {
+      "id": "b2.13-causais-consecutivas.3",
+      "kind": "gap",
+      "sentence": "Gritou ___ que perdeu a voz.",
+      "ru": "Кричал так, что потерял голос.",
+      "options": [
+        "tanto",
+        "tão",
+        "muito"
+      ],
+      "answer": 0,
+      "explain": "С глаголом — tanto."
+    },
+    {
+      "id": "b2.13-causais-consecutivas.4",
+      "kind": "gap",
+      "sentence": "Fala alto, de modo que todos ___.",
+      "ru": "Говори громко, чтобы все слышали.",
+      "options": [
+        "ouçam",
+        "ouvem",
+        "ouviram"
+      ],
+      "answer": 0,
+      "explain": "Цель — subjuntivo."
+    },
+    {
+      "id": "b2.13-causais-consecutivas.5",
+      "kind": "truefalse",
+      "statement": "«Uma vez que» может значить «поскольку».",
+      "answer": true,
+      "explain": "Причина."
+    },
+    {
+      "id": "b2.13-causais-consecutivas.6",
+      "kind": "truefalse",
+      "statement": "С прилагательным говорят «tanto cansado».",
+      "answer": false,
+      "explain": "Tão cansado."
+    },
+    {
+      "id": "b2.13-causais-consecutivas.7",
+      "kind": "truefalse",
+      "statement": "«De modo que» с индикативом выражает следствие.",
+      "answer": true,
+      "explain": "Choveu, de modo que ficamos."
+    },
+    {
+      "id": "b2.13-causais-consecutivas.8",
+      "kind": "build",
+      "ru": "Он так устал, что уснул за столом.",
+      "answer": "Estava tão cansado que dormiu na mesa.",
+      "extra": [
+        "tanto",
+        "de"
+      ],
+      "explain": "Tão… que."
+    },
+    {
+      "id": "b2.13-causais-consecutivas.9",
+      "kind": "type",
+      "sentence": "___ que ninguém veio, encerramos.",
+      "ru": "Поскольку никто не пришёл, мы закрыли собрание.",
+      "hint": "книжное «поскольку»",
+      "answer": "Visto",
+      "explain": "Visto que."
+    }
+  ]
+}

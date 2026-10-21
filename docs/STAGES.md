@@ -3437,3 +3437,16 @@ CI шёл около 35 минут: сквозные тесты одной за�
 
 Проверено: валидатор без ошибок и предупреждений, `npm run vocab`, `npm run say`, юнит-тесты, линтер, сборка, полный прогон сквозных тестов.
 
+## Версия 2.220.0. Грамматика B2 португальского (задача 19.7, часть 2)
+
+Курс закрыт. Вторая часть задачи 19.7: 20 уроков района B2.
+
+- Сложные времена и условия: нереальное условие в прошлом (se eu tivesse sabido, teria vindo; в разговоре и «tinha vindo»), смешанные условия, futuro composto (terei feito, и как догадка: ele terá esquecido), pretérito perfeito do subjuntivo (espero que tenha chegado), согласование времён (peço que fale — pedi que falasse).
+- Subjuntivo в определительных (procuro alguém que saiba — conheço alguém que sabe) и в оборотах quem quer que, onde quer que, por mais que, seja quem for.
+- Безличная передача слухов (dizem que, diz-se que, é considerado) и глаголы пересказа (afirmar, negar, admitir, alegar, sugerir) — пригодятся сплетням главы IV.
+- Gerúndio и причастие вместо придаточного (chegando lá, me liga; terminada a reunião), личный инфинитив после предлогов (ao chegarmos, por serem vizinhos), уступительные и причинные связки (ainda que, por mais… que, se bem que, visto que, tão… que).
+- Бразильская разговорная грамматика отдельными уроками: место местоимения (me passa — passe-me, dir-se-ia узнавать), «eu vi ele» в разговоре и «eu o vi», vê-lo, chamá-la в письме, глаголы с предлогами (pensar em, sonhar com, contar com), выражения с dar, fazer, pôr, levar (fazer questão, dar-se bem, levar a mal), обороты voltar a, deixar de, chegar a, acabar por, уменьшительные и увеличительные (cafezinho, um minutinho, amigão), разговорные связки né, pois é, aliás, quer dizer, enfim.
+- В каждом уроке пять базовых видов заданий; лишние плитки не собирают другую верную фразу (у урока про chamá-la лишние плитки — chamar-a и chamar-la, а не разговорное «chamar ela», которое было бы верным). `grammarProductive.test.ts`: у португальского 112 уроков.
+
+Проверено: валидатор без ошибок и предупреждений, юнит-тесты, линтер, сборка, полный прогон сквозных тестов.
+

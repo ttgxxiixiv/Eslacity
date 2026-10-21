@@ -1,0 +1,165 @@
+{
+  "id": "b2.03-futuro-composto",
+  "district": "B2",
+  "order": 3,
+  "title": "Будущее совершённое: terei feito",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "**Futuro composto** — что будет сделано к моменту в будущем: **amanhã já terei terminado** — «завтра я уже закончу». Строится из **ter** в будущем и причастия. Ещё он выражает догадку о прошлом: **ele terá esquecido** — «он, наверное, забыл»."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Лицо",
+        "ter",
+        "Пример"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "eu",
+            "terei",
+            "Terei acabado até as cinco."
+          ]
+        },
+        {
+          "cells": [
+            "você / ele",
+            "terá",
+            "Ela terá saído."
+          ]
+        },
+        {
+          "cells": [
+            "nós",
+            "teremos",
+            "Teremos chegado à noite."
+          ]
+        },
+        {
+          "cells": [
+            "eles",
+            "terão",
+            "Eles terão entendido."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "В разговоре вместо него обычно говорят **vou ter terminado** или просто **já vou ter acabado**, а догадку — **deve ter esquecido**."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Até sexta, terei lido o livro.",
+      "ru": "К пятнице я прочту книгу."
+    },
+    {
+      "es": "Quando você chegar, a gente já terá jantado.",
+      "ru": "Когда ты придёшь, мы уже поужинаем."
+    },
+    {
+      "es": "Ele terá esquecido o recado.",
+      "ru": "Он, наверное, забыл о поручении."
+    },
+    {
+      "es": "Daqui a um ano, tudo terá mudado.",
+      "ru": "Через год всё изменится."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "b2.03-futuro-composto.1",
+      "kind": "choose",
+      "prompt": "«К пятнице я прочту книгу (будет прочитана)»:",
+      "options": [
+        "Até sexta, terei lido o livro.",
+        "Até sexta, tinha lido o livro.",
+        "Até sexta, teria lido o livro."
+      ],
+      "answer": 0,
+      "explain": "Terei + причастие."
+    },
+    {
+      "id": "b2.03-futuro-composto.2",
+      "kind": "choose",
+      "prompt": "Догадка: «он, наверное, забыл»:",
+      "options": [
+        "Ele terá esquecido.",
+        "Ele terá esquecer.",
+        "Ele tinha esquecerá."
+      ],
+      "answer": 0,
+      "explain": "Futuro composto — и догадка о прошлом."
+    },
+    {
+      "id": "b2.03-futuro-composto.3",
+      "kind": "gap",
+      "sentence": "Quando você chegar, a gente já ___ jantado.",
+      "ru": "Когда ты придёшь, мы уже поужинаем.",
+      "options": [
+        "terá",
+        "teria",
+        "tinha"
+      ],
+      "answer": 0,
+      "explain": "A gente terá."
+    },
+    {
+      "id": "b2.03-futuro-composto.4",
+      "kind": "gap",
+      "sentence": "Daqui a um ano, tudo terá ___.",
+      "ru": "Через год всё изменится.",
+      "options": [
+        "mudado",
+        "mudar",
+        "mudando"
+      ],
+      "answer": 0,
+      "explain": "Причастие: mudado."
+    },
+    {
+      "id": "b2.03-futuro-composto.5",
+      "kind": "truefalse",
+      "statement": "Futuro composto — ter в будущем и причастие.",
+      "answer": true,
+      "explain": "Terei feito."
+    },
+    {
+      "id": "b2.03-futuro-composto.6",
+      "kind": "truefalse",
+      "statement": "«Ele terá esquecido» может значить «он, наверное, забыл».",
+      "answer": true,
+      "explain": "Догадка о прошлом."
+    },
+    {
+      "id": "b2.03-futuro-composto.7",
+      "kind": "truefalse",
+      "statement": "В разговоре futuro composto встречается чаще, чем «vou ter terminado».",
+      "answer": false,
+      "explain": "В разговоре — vou ter."
+    },
+    {
+      "id": "b2.03-futuro-composto.8",
+      "kind": "build",
+      "ru": "К пятнице я прочту книгу.",
+      "answer": "Até sexta terei lido o livro.",
+      "extra": [
+        "teria",
+        "lerei"
+      ],
+      "explain": "Terei lido."
+    },
+    {
+      "id": "b2.03-futuro-composto.9",
+      "kind": "type",
+      "sentence": "Eles ___ entendido o recado.",
+      "ru": "Они, наверное, поняли поручение.",
+      "hint": "ter, eles, будущее",
+      "answer": "terão",
+      "explain": "Eles — terão."
+    }
+  ]
+}

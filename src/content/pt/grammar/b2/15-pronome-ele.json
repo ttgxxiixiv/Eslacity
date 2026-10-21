@@ -1,0 +1,165 @@
+{
+  "id": "b2.15-pronome-ele",
+  "district": "B2",
+  "order": 15,
+  "title": "Eu vi ele или eu o vi",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "В письме прямое дополнение — **o, a, os, as**: **eu o vi**, **encontrei-a**. В бразильском разговоре вместо них часто говорят **ele, ela**: **eu vi ele ontem**, или просто опускают: **viu o mapa? — vi**. После -r, -s, -z форма меняется: **vê-lo**, **fazê-lo**, **encontramo-la**; после носового — **viram-no**."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Разговор",
+        "Письмо",
+        "Перевод"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Eu vi ele.",
+            "Eu o vi.",
+            "Я его видел."
+          ]
+        },
+        {
+          "cells": [
+            "Vou chamar ela.",
+            "Vou chamá-la.",
+            "Я её позову."
+          ]
+        },
+        {
+          "cells": [
+            "Comprou o pão? Comprei.",
+            "Comprou o pão? Comprei-o.",
+            "Купил хлеб? Купил."
+          ]
+        },
+        {
+          "cells": [
+            "Eles chamaram ele.",
+            "Chamaram-no.",
+            "Его позвали."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "На экзамене и в письме — **o / a**; в живом разговоре **ele / ela** в роли дополнения никого не удивит, но звучит просто."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Eu vi ele ontem na praça.",
+      "ru": "Я видел его вчера на площади."
+    },
+    {
+      "es": "Eu o vi ontem na praça.",
+      "ru": "Я видел его вчера на площади (письменно)."
+    },
+    {
+      "es": "Vou chamá-la.",
+      "ru": "Я её позову."
+    },
+    {
+      "es": "Viu o corvo? Vi.",
+      "ru": "Видел ворона? Видел."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "b2.15-pronome-ele.1",
+      "kind": "choose",
+      "prompt": "Письменно «я её позову»:",
+      "options": [
+        "Vou chamá-la.",
+        "Vou chamar ela-a.",
+        "Vou chamar-a."
+      ],
+      "answer": 0,
+      "explain": "После -r: -la, и r выпадает."
+    },
+    {
+      "id": "b2.15-pronome-ele.2",
+      "kind": "choose",
+      "prompt": "Разговорно «я видел его»:",
+      "options": [
+        "Eu vi ele.",
+        "Eu vi-lo.",
+        "Eu vi lhe."
+      ],
+      "answer": 0,
+      "explain": "Ele в роли дополнения."
+    },
+    {
+      "id": "b2.15-pronome-ele.3",
+      "kind": "gap",
+      "sentence": "Eu ___ vi ontem.",
+      "ru": "Я видел его вчера (письменно).",
+      "options": [
+        "o",
+        "lhe",
+        "ele o"
+      ],
+      "answer": 0,
+      "explain": "Прямое дополнение — o."
+    },
+    {
+      "id": "b2.15-pronome-ele.4",
+      "kind": "gap",
+      "sentence": "Chamaram-___.",
+      "ru": "Его позвали.",
+      "options": [
+        "no",
+        "o",
+        "lo"
+      ],
+      "answer": 0,
+      "explain": "После носового — no."
+    },
+    {
+      "id": "b2.15-pronome-ele.5",
+      "kind": "truefalse",
+      "statement": "«Fazê-lo» — форма fazer + o.",
+      "answer": true,
+      "explain": "Fazer + o = fazê-lo."
+    },
+    {
+      "id": "b2.15-pronome-ele.6",
+      "kind": "truefalse",
+      "statement": "«Eu vi ele» — ошибка, которой не бывает в Бразилии.",
+      "answer": false,
+      "explain": "Обычно в разговоре."
+    },
+    {
+      "id": "b2.15-pronome-ele.7",
+      "kind": "truefalse",
+      "statement": "В ответе дополнение можно опустить: «Comprou? Comprei».",
+      "answer": true,
+      "explain": "Нулевое дополнение."
+    },
+    {
+      "id": "b2.15-pronome-ele.8",
+      "kind": "build",
+      "ru": "Я позову её завтра.",
+      "answer": "Vou chamá-la amanhã.",
+      "extra": [
+        "chamar-a",
+        "chamar-la"
+      ],
+      "explain": "Chamar + a = chamá-la."
+    },
+    {
+      "id": "b2.15-pronome-ele.9",
+      "kind": "type",
+      "sentence": "Preciso ___-lo hoje.",
+      "ru": "Мне нужно увидеть его сегодня.",
+      "hint": "ver",
+      "answer": "vê",
+      "explain": "Ver + o = vê-lo."
+    }
+  ]
+}

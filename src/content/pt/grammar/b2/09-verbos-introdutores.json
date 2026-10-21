@@ -1,0 +1,160 @@
+{
+  "id": "b2.09-verbos-introdutores",
+  "district": "B2",
+  "order": 9,
+  "title": "Afirmar, negar, admitir, alegar",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Пересказывая, выбирай глагол точнее, чем **dizer**: **afirmar** (утверждать), **negar** (отрицать), **admitir** (признать), **alegar** (заявлять в оправдание), **garantir** (уверять), **sugerir** (предлагать), **reclamar** (жаловаться)."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Глагол",
+        "Пример"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "afirmar",
+            "Ele afirmou que não sabia."
+          ]
+        },
+        {
+          "cells": [
+            "negar",
+            "Ela negou ter dito isso."
+          ]
+        },
+        {
+          "cells": [
+            "admitir",
+            "Ele admitiu que mentiu."
+          ]
+        },
+        {
+          "cells": [
+            "sugerir",
+            "Sugeri que ele pedisse desculpas."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "После **negar** и **sugerir** часто subjuntivo или инфинитив: **nego que seja verdade**, **sugiro que você fale**. После **afirmar**, **admitir** — индикатив."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Ele afirmou que não sabia de nada.",
+      "ru": "Он утверждал, что ничего не знал."
+    },
+    {
+      "es": "Ela negou ter espalhado o boato.",
+      "ru": "Она отрицала, что распустила слух."
+    },
+    {
+      "es": "Ele admitiu que mentiu.",
+      "ru": "Он признал, что солгал."
+    },
+    {
+      "es": "Sugeri que ele pedisse desculpas.",
+      "ru": "Я предложил ему извиниться."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "b2.09-verbos-introdutores.1",
+      "kind": "choose",
+      "prompt": "«Он признал, что солгал»:",
+      "options": [
+        "Ele admitiu que mentiu.",
+        "Ele admitiu que mentisse.",
+        "Ele negou que mentiu."
+      ],
+      "answer": 0,
+      "explain": "Admitir + индикатив."
+    },
+    {
+      "id": "b2.09-verbos-introdutores.2",
+      "kind": "choose",
+      "prompt": "«Я предложил ему извиниться»:",
+      "options": [
+        "Sugeri que ele pedisse desculpas.",
+        "Sugeri que ele pediu desculpas.",
+        "Sugeri que ele pede desculpas."
+      ],
+      "answer": 0,
+      "explain": "Sugerir + subjuntivo."
+    },
+    {
+      "id": "b2.09-verbos-introdutores.3",
+      "kind": "gap",
+      "sentence": "Ela ___ ter dito isso.",
+      "ru": "Она отрицала, что сказала это.",
+      "options": [
+        "negou",
+        "admitiu",
+        "sugeriu"
+      ],
+      "answer": 0,
+      "explain": "Отрицать — negar."
+    },
+    {
+      "id": "b2.09-verbos-introdutores.4",
+      "kind": "gap",
+      "sentence": "Ele ___ que não sabia de nada.",
+      "ru": "Он утверждал, что ничего не знал.",
+      "options": [
+        "afirmou",
+        "negou",
+        "sugeriu"
+      ],
+      "answer": 0,
+      "explain": "Утверждать — afirmar."
+    },
+    {
+      "id": "b2.09-verbos-introdutores.5",
+      "kind": "truefalse",
+      "statement": "«Alegar» — заявлять в своё оправдание.",
+      "answer": true,
+      "explain": "Ele alegou que não sabia."
+    },
+    {
+      "id": "b2.09-verbos-introdutores.6",
+      "kind": "truefalse",
+      "statement": "После «sugerir que» обычно индикатив.",
+      "answer": false,
+      "explain": "Subjuntivo."
+    },
+    {
+      "id": "b2.09-verbos-introdutores.7",
+      "kind": "truefalse",
+      "statement": "«Negar ter dito» — «отрицать, что сказал».",
+      "answer": true,
+      "explain": "Negar + инфинитив."
+    },
+    {
+      "id": "b2.09-verbos-introdutores.8",
+      "kind": "build",
+      "ru": "Он признал, что солгал.",
+      "answer": "Ele admitiu que mentiu.",
+      "extra": [
+        "negou",
+        "mentisse"
+      ],
+      "explain": "Admitir + mentiu."
+    },
+    {
+      "id": "b2.09-verbos-introdutores.9",
+      "kind": "type",
+      "sentence": "Sugeri que ele ___ desculpas.",
+      "ru": "Я предложил ему извиниться.",
+      "hint": "pedir, imperfeito do subjuntivo",
+      "answer": "pedisse",
+      "explain": "Sugerir (прошлое) + pedisse."
+    }
+  ]
+}

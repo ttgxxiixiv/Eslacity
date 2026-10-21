@@ -1,0 +1,165 @@
+{
+  "id": "b2.04-tenha-feito",
+  "district": "B2",
+  "order": 4,
+  "title": "Espero que tenha chegado",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "**Pretérito perfeito do subjuntivo** — subjuntivo о том, что уже случилось: **espero que ele tenha chegado bem** — «надеюсь, он добрался». Строится из **tenha** и причастия."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Главная часть",
+        "Придаточное",
+        "Перевод"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Espero que",
+            "você tenha gostado.",
+            "Надеюсь, тебе понравилось."
+          ]
+        },
+        {
+          "cells": [
+            "Duvido que",
+            "ele tenha dito isso.",
+            "Сомневаюсь, что он это сказал."
+          ]
+        },
+        {
+          "cells": [
+            "Que bom que",
+            "vocês tenham vindo!",
+            "Как хорошо, что вы пришли!"
+          ]
+        },
+        {
+          "cells": [
+            "Talvez",
+            "a gente tenha errado.",
+            "Может быть, мы ошиблись."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Сравни: **espero que ele venha** — что будет; **espero que ele tenha vindo** — что уже было. После прошедшего в главной части — **tivesse**: **esperava que tivesse vindo**."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Espero que você tenha gostado.",
+      "ru": "Надеюсь, тебе понравилось."
+    },
+    {
+      "es": "Duvido que ele tenha dito isso.",
+      "ru": "Сомневаюсь, что он это сказал."
+    },
+    {
+      "es": "Que bom que vocês tenham vindo!",
+      "ru": "Как хорошо, что вы пришли!"
+    },
+    {
+      "es": "Talvez a gente tenha errado o caminho.",
+      "ru": "Может, мы ошиблись дорогой."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "b2.04-tenha-feito.1",
+      "kind": "choose",
+      "prompt": "«Надеюсь, он добрался» (уже):",
+      "options": [
+        "Espero que ele tenha chegado.",
+        "Espero que ele chegou.",
+        "Espero que ele tem chegado."
+      ],
+      "answer": 0,
+      "explain": "Tenha + причастие."
+    },
+    {
+      "id": "b2.04-tenha-feito.2",
+      "kind": "choose",
+      "prompt": "«Сомневаюсь, что она это сказала»:",
+      "options": [
+        "Duvido que ela tenha dito isso.",
+        "Duvido que ela disse isso.",
+        "Duvido que ela tinha dizido isso."
+      ],
+      "answer": 0,
+      "explain": "Сомнение о прошлом — tenha dito."
+    },
+    {
+      "id": "b2.04-tenha-feito.3",
+      "kind": "gap",
+      "sentence": "Que bom que vocês ___ vindo!",
+      "ru": "Как хорошо, что вы пришли!",
+      "options": [
+        "tenham",
+        "têm",
+        "tinham"
+      ],
+      "answer": 0,
+      "explain": "Vocês — tenham."
+    },
+    {
+      "id": "b2.04-tenha-feito.4",
+      "kind": "gap",
+      "sentence": "Talvez a gente ___ errado.",
+      "ru": "Может быть, мы ошиблись.",
+      "options": [
+        "tenha",
+        "tem",
+        "tivemos"
+      ],
+      "answer": 0,
+      "explain": "Talvez + tenha."
+    },
+    {
+      "id": "b2.04-tenha-feito.5",
+      "kind": "truefalse",
+      "statement": "«Tenha feito» — subjuntivo о том, что уже случилось.",
+      "answer": true,
+      "explain": "Espero que tenha feito."
+    },
+    {
+      "id": "b2.04-tenha-feito.6",
+      "kind": "truefalse",
+      "statement": "«Espero que ele venha» говорит о прошлом.",
+      "answer": false,
+      "explain": "О будущем."
+    },
+    {
+      "id": "b2.04-tenha-feito.7",
+      "kind": "truefalse",
+      "statement": "После «esperava que» ставят tivesse + причастие.",
+      "answer": true,
+      "explain": "Esperava que tivesse vindo."
+    },
+    {
+      "id": "b2.04-tenha-feito.8",
+      "kind": "build",
+      "ru": "Надеюсь, тебе понравилось.",
+      "answer": "Espero que você tenha gostado.",
+      "extra": [
+        "gostou",
+        "tem"
+      ],
+      "explain": "Tenha gostado."
+    },
+    {
+      "id": "b2.04-tenha-feito.9",
+      "kind": "type",
+      "sentence": "Duvido que ele ___ dito isso.",
+      "ru": "Сомневаюсь, что он это сказал.",
+      "hint": "ter, subjuntivo",
+      "answer": "tenha",
+      "explain": "Сомнение о прошлом — tenha."
+    }
+  ]
+}

@@ -1,0 +1,165 @@
+{
+  "id": "b2.01-se-tivesse-feito",
+  "district": "B2",
+  "order": 1,
+  "title": "Нереальное в прошлом: se eu tivesse sabido",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Условие, которое не сбылось в прошлом: **se** + mais-que-perfeito do subjuntivo (**tivesse** + причастие), в главной части — **teria** + причастие. **Se eu tivesse sabido, teria vindo** — «если бы я знал, я бы пришёл»."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Условие",
+        "Следствие",
+        "Перевод"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Se eu tivesse sabido,",
+            "teria vindo.",
+            "Знал бы — пришёл бы."
+          ]
+        },
+        {
+          "cells": [
+            "Se você tivesse escutado,",
+            "não teria se perdido.",
+            "Послушал бы — не заблудился бы."
+          ]
+        },
+        {
+          "cells": [
+            "Se a gente tivesse saído cedo,",
+            "teria chegado.",
+            "Вышли бы рано — успели бы."
+          ]
+        },
+        {
+          "cells": [
+            "Se ele não tivesse mentido,",
+            "ninguém teria brigado.",
+            "Не солгал бы — никто бы не поссорился."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "В разговоре вместо **teria feito** часто говорят **tinha feito**: **se eu soubesse, tinha vindo**. В письме лучше **teria**."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Se eu tivesse sabido, teria vindo.",
+      "ru": "Если бы я знал, я бы пришёл."
+    },
+    {
+      "es": "Se você tivesse escutado a floresta, não teria se perdido.",
+      "ru": "Если бы ты слушал лес, ты бы не заблудился."
+    },
+    {
+      "es": "Se ele não tivesse mentido, ninguém teria brigado.",
+      "ru": "Если бы он не солгал, никто бы не поссорился."
+    },
+    {
+      "es": "Se eu soubesse, tinha falado.",
+      "ru": "Знал бы — сказал бы."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "b2.01-se-tivesse-feito.1",
+      "kind": "choose",
+      "prompt": "«Если бы я знал (тогда), я бы пришёл»:",
+      "options": [
+        "Se eu tivesse sabido, teria vindo.",
+        "Se eu saberia, tinha vindo.",
+        "Se eu tiver sabido, viria."
+      ],
+      "answer": 0,
+      "explain": "Tivesse + причастие, teria + причастие."
+    },
+    {
+      "id": "b2.01-se-tivesse-feito.2",
+      "kind": "choose",
+      "prompt": "Следствие: «мы бы успели»:",
+      "options": [
+        "teríamos chegado",
+        "tínhamos chegarmos",
+        "teremos chegado"
+      ],
+      "answer": 0,
+      "explain": "Teria + причастие."
+    },
+    {
+      "id": "b2.01-se-tivesse-feito.3",
+      "kind": "gap",
+      "sentence": "Se você ___ escutado, não teria se perdido.",
+      "ru": "Если бы ты слушал, ты бы не заблудился.",
+      "options": [
+        "tivesse",
+        "tinha",
+        "tiver"
+      ],
+      "answer": 0,
+      "explain": "Условие — tivesse."
+    },
+    {
+      "id": "b2.01-se-tivesse-feito.4",
+      "kind": "gap",
+      "sentence": "Se ele não tivesse mentido, ninguém ___ brigado.",
+      "ru": "Если бы он не солгал, никто бы не поссорился.",
+      "options": [
+        "teria",
+        "tinha tido",
+        "terá"
+      ],
+      "answer": 0,
+      "explain": "Следствие — teria."
+    },
+    {
+      "id": "b2.01-se-tivesse-feito.5",
+      "kind": "truefalse",
+      "statement": "В нереальном условии о прошлом после se — tivesse + причастие.",
+      "answer": true,
+      "explain": "Se eu tivesse sabido."
+    },
+    {
+      "id": "b2.01-se-tivesse-feito.6",
+      "kind": "truefalse",
+      "statement": "«Se eu teria sabido» — правильная форма.",
+      "answer": false,
+      "explain": "Se eu tivesse sabido."
+    },
+    {
+      "id": "b2.01-se-tivesse-feito.7",
+      "kind": "truefalse",
+      "statement": "В разговоре «tinha vindo» может заменить «teria vindo».",
+      "answer": true,
+      "explain": "Se eu soubesse, tinha vindo."
+    },
+    {
+      "id": "b2.01-se-tivesse-feito.8",
+      "kind": "build",
+      "ru": "Если бы я знал, я бы пришёл.",
+      "answer": "Se eu tivesse sabido teria vindo.",
+      "extra": [
+        "tinha",
+        "viria"
+      ],
+      "explain": "Tivesse sabido, teria vindo."
+    },
+    {
+      "id": "b2.01-se-tivesse-feito.9",
+      "kind": "type",
+      "sentence": "Se a gente ___ saído cedo, teria chegado.",
+      "ru": "Если бы мы вышли рано, мы бы успели.",
+      "hint": "ter, a gente",
+      "answer": "tivesse",
+      "explain": "A gente — tivesse."
+    }
+  ]
+}

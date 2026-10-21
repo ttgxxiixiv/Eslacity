@@ -1,0 +1,160 @@
+{
+  "id": "b2.05-correlacao",
+  "district": "B2",
+  "order": 5,
+  "title": "Согласование времён",
+  "theory": [
+    {
+      "kind": "text",
+      "md": "Время subjuntivo зависит от главной части. Главная в настоящем или будущем — presente do subjuntivo: **quero que você venha**. Главная в прошедшем или условном — imperfeito: **queria que você viesse**, **gostaria que você viesse**."
+    },
+    {
+      "kind": "table",
+      "head": [
+        "Главная",
+        "Придаточное"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Peço que você fale.",
+            "presente → presente"
+          ]
+        },
+        {
+          "cells": [
+            "Pedi que você falasse.",
+            "perfeito → imperfeito"
+          ]
+        },
+        {
+          "cells": [
+            "Pedia que você falasse.",
+            "imperfeito → imperfeito"
+          ]
+        },
+        {
+          "cells": [
+            "Pediria que você falasse.",
+            "условное → imperfeito"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "tip",
+      "md": "Та же логика с **para que**, **antes que**, **sem que**: **falei devagar para que ela entendesse**."
+    }
+  ],
+  "examples": [
+    {
+      "es": "Pedi que ele falasse baixo.",
+      "ru": "Я попросил его говорить тише."
+    },
+    {
+      "es": "Gostaria que vocês ficassem.",
+      "ru": "Мне бы хотелось, чтобы вы остались."
+    },
+    {
+      "es": "Falei devagar para que ela entendesse.",
+      "ru": "Я говорил медленно, чтобы она поняла."
+    },
+    {
+      "es": "Peço que você me escute.",
+      "ru": "Прошу тебя выслушать меня."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "b2.05-correlacao.1",
+      "kind": "choose",
+      "prompt": "«Я попросил, чтобы он ушёл»:",
+      "options": [
+        "Pedi que ele saísse.",
+        "Pedi que ele saia.",
+        "Pedi que ele sai."
+      ],
+      "answer": 0,
+      "explain": "Прошедшее → imperfeito."
+    },
+    {
+      "id": "b2.05-correlacao.2",
+      "kind": "choose",
+      "prompt": "«Мне бы хотелось, чтобы ты пришёл»:",
+      "options": [
+        "Gostaria que você viesse.",
+        "Gostaria que você venha.",
+        "Gostaria que você vem."
+      ],
+      "answer": 0,
+      "explain": "Условное → imperfeito."
+    },
+    {
+      "id": "b2.05-correlacao.3",
+      "kind": "gap",
+      "sentence": "Falei devagar para que ela ___.",
+      "ru": "Я говорил медленно, чтобы она поняла.",
+      "options": [
+        "entendesse",
+        "entenda",
+        "entende"
+      ],
+      "answer": 0,
+      "explain": "Прошедшее → entendesse."
+    },
+    {
+      "id": "b2.05-correlacao.4",
+      "kind": "gap",
+      "sentence": "Peço que você me ___.",
+      "ru": "Прошу тебя выслушать меня.",
+      "options": [
+        "escute",
+        "escutasse",
+        "escuta"
+      ],
+      "answer": 0,
+      "explain": "Настоящее → escute."
+    },
+    {
+      "id": "b2.05-correlacao.5",
+      "kind": "truefalse",
+      "statement": "После «queria que» нужен imperfeito do subjuntivo.",
+      "answer": true,
+      "explain": "Queria que viesse."
+    },
+    {
+      "id": "b2.05-correlacao.6",
+      "kind": "truefalse",
+      "statement": "«Pedi que ele fale» — обычная форма в письме.",
+      "answer": false,
+      "explain": "Pedi que falasse."
+    },
+    {
+      "id": "b2.05-correlacao.7",
+      "kind": "truefalse",
+      "statement": "После «gostaria que» — imperfeito do subjuntivo.",
+      "answer": true,
+      "explain": "Gostaria que ficassem."
+    },
+    {
+      "id": "b2.05-correlacao.8",
+      "kind": "build",
+      "ru": "Я попросил его говорить тише.",
+      "answer": "Pedi que ele falasse baixo.",
+      "extra": [
+        "fale",
+        "fala"
+      ],
+      "explain": "Pedi → falasse."
+    },
+    {
+      "id": "b2.05-correlacao.9",
+      "kind": "type",
+      "sentence": "Gostaria que vocês ___.",
+      "ru": "Мне бы хотелось, чтобы вы остались.",
+      "hint": "ficar, vocês",
+      "answer": "ficassem",
+      "explain": "Условное → ficassem."
+    }
+  ]
+}
