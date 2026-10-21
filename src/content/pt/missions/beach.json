@@ -85,6 +85,29 @@
         "sun": {"kind": "answer", "task": "Скажите, что солнце слишком сильное.", "branches": [{"phrase": "ph:beach.o-sol-esta-forte", "next": "end"}], "wrong": {"es": "Está nublado? Olha o céu!", "ru": "Пасмурно? Посмотри на небо!"}},
         "end": {"kind": "say", "es": "Forte demais. Vai para a sombra. E toma: o Severino deixou isso na pedra ontem. Um fragmento do mapa, molhado de lágrima.", "ru": "Слишком сильное. Иди в тень. И держи: Северину оставил это вчера на камне. Обрывок карты, мокрый от слёз."}
       }
+    },
+    {
+      "id": "ms:beach.5",
+      "chapter": 5,
+      "npc": "bruno",
+      "scene": "sc:beach.5",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Olha, a luz do farol já deu duas voltas. Ali, nas pedras: é ele.", "ru": "Смотри, луч маяка уже сделал два круга. Вон там, на камнях: это он.", "next": "tone"},
+        "tone": {"kind": "answer", "task": "Поприветствуйте глашатая. Ему нужен дружеский голос — по-свойски.", "branches": [{"phrase": "ph:beach.e-ai-meu-amigo", "next": "tonesay"}, {"phrase": "ph:beach.boa-noite-cavalheiro", "next": "tonesay"}], "wrong": {"es": "Tá com calor? À noite? Não!", "ru": "Тебе жарко? Ночью? Нет!"}, "register": "informal", "tone": {"es": "«Posso lhe ser útil?»… «útil»… «útil» — o eco devolve a frase fria, e o homem se encolhe na capa.", "ru": "«Чем могу быть полезен?»… «полезен»… «полезен» — эхо холодно возвращает фразу, и человек кутается в плащ."}},
+        "tonesay": {"kind": "say", "es": "Ele sorriu! Disse que está com frio e com medo do escuro. O que a gente faz?", "ru": "Он улыбнулся! Сказал, что ему холодно и страшно в темноте. Что будем делать?", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:beach.acende-o-farol", "next": "object", "move": "object"}, {"phrase": "ph:beach.deixa-escuro", "next": "concede", "move": "concede"}, {"phrase": "ph:beach.uma-fogueira", "next": "compromise", "move": "compromise"}], "wrong": {"es": "Nadar até o eco? Ele não está no mar!", "ru": "Плыть к эху? Оно не в море!"}},
+        "object": {"kind": "say", "es": "O farol! Claro, ele vai ver o caminho de volta para a cidade.", "ru": "Маяк! Конечно, он увидит дорогу обратно в город.", "next": "tide"},
+        "concede": {"kind": "say", "es": "Escuro… Tá. Às vezes a pessoa precisa de sombra para falar.", "ru": "Темно… Ладно. Иногда человеку нужна тень, чтобы заговорить.", "next": "tide"},
+        "compromise": {"kind": "say", "es": "Uma fogueira! Calor e luz, sem a luz forte do farol. Ele se senta perto. Perfeito.", "ru": "Костёр! Тепло и свет, без яркого маяка. Он садится рядом. Идеально.", "next": "tide"},
+        "tide": {"kind": "say", "es": "Mas olha a água subindo perto das pedras.", "ru": "Но смотри, вода у камней поднимается.", "next": "tideq"},
+        "tideq": {"kind": "answer", "task": "Спросите, сейчас ли отлив.", "branches": [{"phrase": "ph:beach.a-mare-baixa", "next": "tidesay"}], "wrong": {"es": "O mar está doce? Não!", "ru": "Море сладкое? Нет!"}},
+        "tidesay": {"kind": "say", "es": "Não, está subindo! Vamos sair das pedras. E de dia, amanhã, o sol vai estar forte.", "ru": "Нет, прилив! Уходим с камней. А днём, завтра, солнце будет сильным.", "next": "sun"},
+        "sun": {"kind": "answer", "task": "Скажите, что солнце слишком сильное.", "branches": [{"phrase": "ph:beach.o-sol-esta-forte", "next": "sunsay"}], "wrong": {"es": "Vai nevar? Aqui não!", "ru": "Пойдёт снег? Здесь — нет!"}},
+        "sunsay": {"kind": "say", "es": "Forte demais. Amanhã a gente caminha cedo pela orla com ele.", "ru": "Слишком сильное. Завтра рано пройдёмся с ним по набережной.", "next": "walk"},
+        "walk": {"kind": "answer", "task": "Предложите прогуляться по набережной.", "branches": [{"phrase": "ph:beach.vamos-caminhar", "next": "end"}], "wrong": {"es": "Vamos nadar com o eco? Não!", "ru": "Поплаваем с эхом? Нет!"}},
+        "end": {"kind": "say", "es": "Vamos. E ele deixou isso na areia antes de sumir: um fragmento do mapa, escrito «Ao primeiro amigo em cem anos».", "ru": "Пойдём. А он, прежде чем исчезнуть, оставил на песке вот это: обрывок карты с надписью «Первому другу за сто лет»."}
+      }
     }
   ]
 }

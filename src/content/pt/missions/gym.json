@@ -85,6 +85,29 @@
         "rest": {"kind": "answer", "task": "Скажите, что вам нужен отдых.", "branches": [{"phrase": "ph:gym.preciso-de-descanso", "next": "end"}], "wrong": {"es": "Mais uma corrida? Com esse pé, não!", "ru": "Ещё пробежку? С такой ногой — нет!"}},
         "end": {"kind": "say", "es": "Descanso e gelo. E olha o que o senhor da bengala deixou no jardim hoje cedo: um fragmento do mapa. Guarda para a floresta.", "ru": "Отдых и лёд. И смотри, что господин с тростью оставил сегодня утром в саду: обрывок карты. Сохрани для леса."}
       }
+    },
+    {
+      "id": "ms:gym.5",
+      "chapter": 5,
+      "npc": "tati",
+      "scene": "sc:gym.5",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "A turma voltou! Mas eu não posso gritar: o eco estraga tudo. Grita você.", "ru": "Группа вернулась! Но мне кричать нельзя: эхо всё портит. Кричи ты.", "next": "tone"},
+        "tone": {"kind": "answer", "task": "Скомандуйте группе бежать — по-свойски.", "branches": [{"phrase": "ph:gym.bora-galera-corre", "next": "tonesay"}, {"phrase": "ph:gym.solicito-que-corram", "next": "tonesay"}], "wrong": {"es": "Bora dormir? Não, correr!", "ru": "Пошли спать? Нет, бегать!"}, "register": "informal", "tone": {"es": "«Solicito que os senhores corram»? A turma senta de novo e começa a pensar.", "ru": "«Прошу вас, господа, бежать»? Группа снова садится и задумывается."}},
+        "tonesay": {"kind": "say", "es": "Correram! Mas metade da turma está com medo do eco. Querem que eu cancele as aulas até ele sumir.", "ru": "Побежали! Но половина группы боится эха. Хотят, чтобы я отменила занятия, пока оно не исчезнет.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:gym.treina-todo-mundo-junto", "next": "object", "move": "object"}, {"phrase": "ph:gym.cancela-a-aula", "next": "concede", "move": "concede"}, {"phrase": "ph:gym.usa-o-apito", "next": "compromise", "move": "compromise"}], "wrong": {"es": "Treinar o eco? Ele não tem perna!", "ru": "Тренировать эхо? У него нет ног!"}},
+        "object": {"kind": "say", "es": "Juntos, como sempre. O medo passa correndo.", "ru": "Вместе, как всегда. Страх проходит на бегу.", "next": "warm"},
+        "concede": {"kind": "say", "es": "Cancelar… Tá. Mas amanhã a gente corre em dobro.", "ru": "Отменить… Ладно. Но завтра бегаем вдвойне.", "next": "warm"},
+        "compromise": {"kind": "say", "es": "O apito! Apito não tem tom, não tem educação, não tem eco. Perfeito!", "ru": "Свисток! У свистка нет тона, нет вежливости, нет эха. Идеально!", "next": "warm"},
+        "warm": {"kind": "say", "es": "Agora você. Mil degraus te esperam.", "ru": "А теперь ты. Тебя ждут тысяча ступеней.", "next": "warmq"},
+        "warmq": {"kind": "answer", "task": "Скажите, что сначала разминка.", "branches": [{"phrase": "ph:gym.primeiro-o-aquecimento", "next": "warmsay"}], "wrong": {"es": "Primeiro um café? Depois!", "ru": "Сначала кофе? Потом!"}},
+        "warmsay": {"kind": "say", "es": "Isso. Qual é a meta, você sabe?", "ru": "Правильно. Какая цель, знаешь?", "next": "goal"},
+        "goal": {"kind": "answer", "task": "Спросите, какая цель на сегодня.", "branches": [{"phrase": "ph:gym.qual-e-a-meta", "next": "goalsay"}], "wrong": {"es": "Qual é o eco? Ele não tem meta!", "ru": "Какое эхо? У него нет цели!"}},
+        "goalsay": {"kind": "say", "es": "Mil degraus na arquibancada do estádio. Vai! … E aí, tudo bem?", "ru": "Тысяча ступеней на трибуне стадиона. Давай! … Ну как, нормально?", "next": "rest"},
+        "rest": {"kind": "answer", "task": "Скажите, что вам нужен отдых.", "branches": [{"phrase": "ph:gym.preciso-de-descanso", "next": "end"}], "wrong": {"es": "Mais mil? Não!", "ru": "Ещё тысячу? Нет!"}},
+        "end": {"kind": "say", "es": "Descanso merecido. E toma: a minha mãe deixou esse fragmento do mapa no primeiro degrau do Labirinto. Ela pediu que fosse para você.", "ru": "Заслуженный отдых. И держи: мама оставила этот обрывок карты на первой ступени Лабиринта. Просила передать тебе."}
+      }
     }
   ]
 }

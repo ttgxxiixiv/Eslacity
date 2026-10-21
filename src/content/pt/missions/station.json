@@ -84,6 +84,29 @@
         "time": {"kind": "answer", "task": "Спросите, во сколько прибытие.", "branches": [{"phrase": "ph:station.a-que-horas-chega", "next": "end"}], "wrong": {"es": "A que horas sai o corvo? Ele voa quando quer!", "ru": "Во сколько отправляется ворон? Он летает когда хочет!"}},
         "end": {"kind": "say", "es": "Às seis da manhã. E toma isso: as moedas antigas do senhor da bengala vinham embrulhadas num fragmento do mapa. Não quero isso aqui.", "ru": "В шесть утра. И возьми вот это: старые монеты господина с тростью были завёрнуты в обрывок карты. Мне он здесь не нужен."}
       }
+    },
+    {
+      "id": "ms:station.5",
+      "chapter": 5,
+      "npc": "raimundo",
+      "scene": "sc:station.5",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "O inspetor chegou. Fala você, que eu me enrolo com as palavras difíceis.", "ru": "Инспектор приехал. Говори ты, я путаюсь в трудных словах.", "next": "tone"},
+        "tone": {"kind": "answer", "task": "Попросите у инспектора разрешения на старую линию — официально.", "branches": [{"phrase": "ph:station.solicitamos-autorizacao-trem", "next": "tonesay"}, {"phrase": "ph:station.libera-a-linha", "next": "tonesay"}], "wrong": {"es": "Pedir o trem da lua? Esse já passou!", "ru": "Просить лунный поезд? Он уже прошёл!"}, "register": "formal", "tone": {"es": "«Abre aí, vai»? O inspetor fecha a pasta. — Volte quando aprender a pedir.", "ru": "«Ну открой линию»? Инспектор закрывает папку. — Приходите, когда научитесь просить."}},
+        "tonesay": {"kind": "say", "es": "Ele autorizou! Mas pergunta: quantas pessoas vão? Meia cidade quer ir.", "ru": "Он разрешил! Но спрашивает: сколько человек поедет? Полгорода хочет.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:station.vamos-todos", "next": "object", "move": "object"}, {"phrase": "ph:station.so-poucas-pessoas", "next": "concede", "move": "concede"}, {"phrase": "ph:station.dois-trens", "next": "compromise", "move": "compromise"}], "wrong": {"es": "Levar o eco no trem? Ele já está lá!", "ru": "Везти эхо в поезде? Оно уже там!"}},
+        "object": {"kind": "say", "es": "Todos! A cidade inteira deve uma resposta a ele. Vou arranjar mais vagões.", "ru": "Все! Весь город задолжал ему ответ. Раздобуду ещё вагонов.", "next": "route"},
+        "concede": {"kind": "say", "es": "Poucas pessoas… É mais seguro nos trilhos velhos. Vou escolher com cuidado.", "ru": "Несколько человек… На старых рельсах так безопаснее. Выберу внимательно.", "next": "route"},
+        "compromise": {"kind": "say", "es": "Dois trens! Um de manhã, outro à tarde. O inspetor gostou.", "ru": "Два поезда! Утром и днём. Инспектору понравилось.", "next": "route"},
+        "route": {"kind": "say", "es": "E a rota, você quer saber?", "ru": "А маршрут хочешь знать?", "next": "routeq"},
+        "routeq": {"kind": "answer", "task": "Спросите, какой маршрут у поезда.", "branches": [{"phrase": "ph:station.qual-e-a-rota", "next": "routesay"}], "wrong": {"es": "Qual é a cor do eco? Ele não tem cor!", "ru": "Какого цвета эхо? У него нет цвета!"}},
+        "routesay": {"kind": "say", "es": "Praça, serra, deserto, floresta, Labirinto. Cem anos de viagem num dia. Quer lugar?", "ru": "Площадь, горы, пустыня, лес, Лабиринт. Сто лет пути за день. Место нужно?", "next": "seat"},
+        "seat": {"kind": "answer", "task": "Попросите придержать для вас место.", "branches": [{"phrase": "ph:station.guarda-um-lugar", "next": "seatsay"}], "wrong": {"es": "Guardar o trem? Ele é grande!", "ru": "Придержать поезд? Он большой!"}},
+        "seatsay": {"kind": "say", "es": "Lugar sete, como sempre. Ida e volta, dessa vez, viu?", "ru": "Место семь, как всегда. В этот раз туда и обратно, слышишь?", "next": "ticket"},
+        "ticket": {"kind": "answer", "task": "Попросите билет туда и обратно.", "branches": [{"phrase": "ph:station.passagem-ida-e-volta", "next": "end"}], "wrong": {"es": "Só ida? Não, dessa vez você volta!", "ru": "В одну сторону? Нет, на этот раз ты вернёшься!"}},
+        "end": {"kind": "say", "es": "Ida e volta. E toma: no horário velho, na linha do pregoeiro, tinha um fragmento do mapa preso com alfinete.", "ru": "Туда и обратно. И держи: в старом расписании, на строчке глашатая, был приколот обрывок карты."}
+      }
     }
   ]
 }

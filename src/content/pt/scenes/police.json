@@ -121,6 +121,31 @@
         {"q": "Чем заканчивается разговор?", "kind": "stance", "options": ["Без штрафа, но с пирогом и извинениями", "Большим штрафом", "Арестом"], "answer": 0}
       ],
       "gloss": {"trás": "зад (de trás — задний, соседний)", "festa": "праздник", "aniversário": "день рождения", "queixas": "жалобы", "atravessa": "проходит сквозь (atravessar)", "paredes": "стены", "delegado": "делегаду, начальник полиции", "sessenta": "шестьдесят", "acordam": "просыпаются (acordar)", "convidei": "пригласил (convidar)", "dançou": "танцевал (dançar)", "reclamou": "жаловался (reclamar)", "multar": "штрафовать", "bolo": "пирог", "sobrou": "осталось (sobrar)", "fechado": "договорились", "samba": "самба", "Raimundo": "Раймунду"}
+    },
+    {
+      "id": "sc:police.5",
+      "chapter": 5,
+      "npc": "moreira",
+      "lines": [
+        {"who": "npc", "es": "Bom dia. Sente-se, por favor. Antes de tudo, notícias do Severino.", "ru": "Доброе утро. Садитесь, пожалуйста. Прежде всего — новости о Северину."},
+        {"who": "npc", "es": "O Severino foi perdoado, como o senhor pediu. Agora ele varre a praça toda manhã, por vontade própria.", "ru": "Северину простили, как вы и просили. Теперь он каждое утро подметает площадь по своей воле.", "fem": {"es": "O Severino foi perdoado, como a senhora pediu. Agora ele varre a praça toda manhã, por vontade própria."}, "if": {"flag": "fine", "is": "forgiven"}},
+        {"who": "npc", "es": "O Severino pagou a multa simbólica, como o senhor sugeriu. Pagou em moedas antigas, uma por uma.", "ru": "Северину заплатил символический штраф, как вы и предлагали. Старыми монетами, по одной.", "fem": {"es": "O Severino pagou a multa simbólica, como a senhora sugeriu. Pagou em moedas antigas, uma por uma."}, "if": {"flag": "fine", "is": "paid"}},
+        {"who": "npc", "es": "O Severino abriu a trilha da floresta, como o senhor propôs. Trabalho honesto, do nascer ao pôr do sol.", "ru": "Северину расчистил лесную тропу, как вы и предложили. Честная работа, от рассвета до заката.", "fem": {"es": "O Severino abriu a trilha da floresta, como a senhora propôs. Trabalho honesto, do nascer ao pôr do sol."}, "if": {"flag": "fine", "is": "work"}},
+        {"who": "hero", "es": "Fico feliz. E o que mais aconteceu?", "ru": "Я рад. А что ещё случилось?", "fem": {"ru": "Я рада. А что ещё случилось?"}},
+        {"who": "npc", "es": "Hoje de manhã chegou uma carta à delegacia. Papel amarelo, tinta de cem anos.", "ru": "Сегодня утром в участок пришло письмо. Жёлтая бумага, чернила столетней давности."},
+        {"who": "hero", "es": "Quem mandou?", "ru": "Кто прислал?"},
+        {"who": "npc", "es": "Leia o senhor mesmo: «Prezado Delegado, solicito que alguém me responda. Seu humilde servo, o pregoeiro».", "ru": "Прочтите сами: «Уважаемый делегаду, прошу, чтобы кто-нибудь мне ответил. Ваш покорный слуга, глашатай».", "fem": {"es": "Leia a senhora mesma: «Prezado Delegado, solicito que alguém me responda. Seu humilde servo, o pregoeiro»."}},
+        {"who": "hero", "es": "Ele escreve para a polícia porque ninguém mais respondia.", "ru": "Он пишет в полицию, потому что больше никто не отвечал."},
+        {"who": "npc", "es": "Exatamente. E em trinta anos de carreira, eu nunca deixei uma carta sem resposta.", "ru": "Именно. А за тридцать лет службы я ни разу не оставил письмо без ответа."},
+        {"who": "npc", "es": "O trem para o Labirinto sai amanhã às sete. A resposta tem que ir nele.", "ru": "Поезд в Лабиринт уходит завтра в семь. Ответ должен уехать на нём."}
+      ],
+      "questions": [
+        {"q": "Что пришло в участок?", "options": ["Столетнее письмо глашатая", "Штраф", "Посылка"], "answer": 0},
+        {"q": "О чём просит глашатай?", "options": ["Чтобы кто-нибудь ему ответил", "Чтобы его арестовали", "Чтобы ему вернули деньги"], "answer": 0},
+        {"q": "Чем гордится делегаду?", "options": ["Он ни разу не оставил письмо без ответа", "Он поймал вора", "Он никогда не опаздывает"], "answer": 0},
+        {"q": "Когда уходит поезд в Лабиринт?", "options": ["Завтра в семь", "Сегодня вечером", "Через неделю"], "answer": 0}
+      ],
+      "gloss": {"perdoado": "прощён (perdoar)", "varre": "подметает (varrer)", "vontade": "воля", "própria": "собственная", "multa": "штраф", "simbólica": "символический", "sugeriu": "предложили (sugerir)", "moedas": "монеты", "trilha": "тропа", "propôs": "предложили (propor)", "honesto": "честный", "nascer": "восход", "pôr": "закат (pôr do sol)", "delegacia": "участок", "amarelo": "жёлтая", "tinta": "чернила", "prezado": "уважаемый", "delegado": "делегаду", "solicito": "прошу (solicitar)", "humilde": "покорный", "servo": "слуга", "pregoeiro": "глашатай", "carreira": "служба", "Labirinto": "Лабиринт"}
     }
   ]
 }

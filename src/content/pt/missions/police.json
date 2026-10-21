@@ -73,7 +73,7 @@
         "x0say": {"kind": "say", "es": "Aconteceu que a cidade toda espera uma decisão minha.", "ru": "Случилось то, что весь город ждёт от меня решения.", "next": "meeting"},
         "meeting": {"kind": "answer", "task": "Спросите, как прошло собрание.", "branches": [{"phrase": "ph:police.como-foi-a-reuniao", "next": "meetingsay"}], "wrong": {"es": "Como foi o jantar? Não teve jantar, teve verdade.", "ru": "Как прошёл ужин? Ужина не было, была правда."}},
         "meetingsay": {"kind": "say", "es": "Foi bem. Mas agora preciso decidir o que fazer com o Severino. Ele enganou a cidade toda.", "ru": "Хорошо. Но теперь мне надо решить, что делать с Северину. Он обманул весь город.", "next": "dispute"},
-        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:police.ele-e-inocente-agora", "next": "object", "move": "object"}, {"phrase": "ph:police.uma-multa-justa", "next": "concede", "move": "concede"}, {"phrase": "ph:police.servico-comunitario", "next": "compromise", "move": "compromise"}], "wrong": {"es": "Prender a floresta? Ela não cabe na cela!", "ru": "Посадить лес? Он в камеру не влезет!"}},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:police.ele-e-inocente-agora", "next": "object", "move": "object", "sets": {"fine": "forgiven"}}, {"phrase": "ph:police.uma-multa-justa", "next": "concede", "move": "concede", "sets": {"fine": "paid"}}, {"phrase": "ph:police.servico-comunitario", "next": "compromise", "move": "compromise", "sets": {"fine": "work"}}], "wrong": {"es": "Prender a floresta? Ela não cabe na cela!", "ru": "Посадить лес? Он в камеру не влезет!"}},
         "object": {"kind": "say", "es": "Perdão… A verdade vale mais que a multa. Já disse isso uma vez, e digo de novo.", "ru": "Прощение… Правда дороже штрафа. Я уже говорил это однажды и скажу снова.", "next": "note"},
         "concede": {"kind": "say", "es": "Uma multa pequena, simbólica. Para a lei ser igual para todos.", "ru": "Небольшой штраф, символический. Чтобы закон был один для всех.", "next": "note"},
         "compromise": {"kind": "say", "es": "Serviço comunitário na floresta… Ele ajuda a guardiã a abrir a trilha. Gostei. Muito justo.", "ru": "Общественные работы в лесу… Он поможет Хранительнице открыть тропу. Мне нравится. Очень справедливо.", "next": "note"},
@@ -82,6 +82,29 @@
         "notesay": {"kind": "say", "es": "Anotado. Agora, o caso: posso arquivar?", "ru": "Записано. Теперь дело: можно закрывать?", "next": "closed"},
         "closed": {"kind": "answer", "task": "Спросите, закрыто ли дело.", "branches": [{"phrase": "ph:police.o-caso-esta-arquivado", "next": "end"}], "wrong": {"es": "O caso está aberto para sempre? Não.", "ru": "Дело открыто навсегда? Нет."}},
         "end": {"kind": "say", "es": "Arquivado. E aqui está o fragmento do mapa que o Severino deixou na delegacia: o último da floresta. O caminho está aberto para o senhor.", "ru": "Закрыто. А вот обрывок карты, который Северину оставил в полиции: последний из леса. Дорога для вас открыта.", "fem": {"es": "Arquivado. E aqui está o fragmento do mapa que o Severino deixou na delegacia: o último da floresta. O caminho está aberto para a senhora."}}
+      }
+    },
+    {
+      "id": "ms:police.5",
+      "chapter": 5,
+      "npc": "moreira",
+      "scene": "sc:police.5",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Vamos redigir a resposta. O senhor dita, eu escrevo. Comece pela saudação.", "ru": "Составим ответ. Вы диктуете, я пишу. Начните с обращения.", "next": "tone", "fem": {"es": "Vamos redigir a resposta. A senhora dita, eu escrevo. Comece pela saudação."}},
+        "tone": {"kind": "answer", "task": "Продиктуйте обращение к глашатаю — официально, как он писал сам.", "branches": [{"phrase": "ph:police.prezado-pregoeiro", "next": "tonesay"}, {"phrase": "ph:police.oi-pregoeiro", "next": "tonesay"}], "wrong": {"es": "Prender o pregoeiro? Ele não fez nada!", "ru": "Арестовать глашатая? Он ничего не сделал!"}, "register": "formal", "tone": {"es": "«Oi, tudo bem aí»? A uma carta de cem anos? O delegado risca a linha. — Recomece, por favor.", "ru": "«Привет, как ты там»? В ответ на столетнее письмо? Делегаду вычёркивает строчку. — Начните сначала, пожалуйста."}},
+        "tonesay": {"kind": "say", "es": "Perfeito. Agora, a assinatura. Quem deve assinar?", "ru": "Прекрасно. Теперь подпись. Кто должен подписать?", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:police.a-cidade-assina", "next": "object", "move": "object"}, {"phrase": "ph:police.o-senhor-assina", "next": "concede", "move": "concede"}, {"phrase": "ph:police.assinamos-juntos", "next": "compromise", "move": "compromise"}], "wrong": {"es": "Assinar com o eco? Ele assina o nome de todo mundo!", "ru": "Подписаться эхом? Оно подпишется за всех!"}},
+        "object": {"kind": "say", "es": "A cidade toda… Vou colocar a carta no balcão da delegacia. Até a noite teremos mil nomes.", "ru": "Весь город… Положу письмо на стойку участка. К вечеру будет тысяча имён.", "next": "note"},
+        "concede": {"kind": "say", "es": "Então eu assino, com o carimbo oficial. Uma carta de delegado ninguém ignora.", "ru": "Тогда подписываю я, с официальной печатью. Письмо делегаду никто не проигнорирует.", "next": "note"},
+        "compromise": {"kind": "say", "es": "Juntos. O delegado e o viajante. A lei e o caminho. Gostei.", "ru": "Вместе. Делегаду и путник. Закон и дорога. Мне нравится.", "next": "note"},
+        "note": {"kind": "say", "es": "Mais uma frase. Ele foi acusado de mentiroso, cem anos atrás. O que o senhor quer dizer sobre isso?", "ru": "Ещё одна фраза. Сто лет назад его обвинили во лжи. Что вы хотите сказать об этом?", "next": "noteq", "fem": {"es": "Mais uma frase. Ele foi acusado de mentiroso, cem anos atrás. O que a senhora quer dizer sobre isso?"}},
+        "noteq": {"kind": "answer", "task": "Скажите, что он невиновен.", "branches": [{"phrase": "ph:police.ele-e-inocente", "next": "notesay"}], "wrong": {"es": "Ele é culpado? Não, isso não é verdade!", "ru": "Он виновен? Нет, это неправда!"}},
+        "notesay": {"kind": "say", "es": "Inocente. Quer que eu registre isso também?", "ru": "Невиновен. Хотите, я внесу это и в протокол?", "next": "write"},
+        "write": {"kind": "answer", "task": "Попросите записать.", "branches": [{"phrase": "ph:police.pode-anotar", "next": "writesay"}], "wrong": {"es": "Apagar a carta? Nunca!", "ru": "Стереть письмо? Ни за что!"}},
+        "writesay": {"kind": "say", "es": "Anotado. Trinta anos de carreira e é o caso mais estranho que já vi.", "ru": "Записано. Тридцать лет службы, а такого странного дела я ещё не видел.", "next": "mystery"},
+        "mystery": {"kind": "answer", "task": "Скажите, какая это загадка.", "branches": [{"phrase": "ph:police.que-misterio", "next": "end"}], "wrong": {"es": "Que chato? Não, que bonito!", "ru": "Какая скука? Нет, как красиво!"}},
+        "end": {"kind": "say", "es": "Mistério que hoje termina. E dentro do envelope do pregoeiro havia isto: um fragmento do mapa do Labirinto. O último. Boa viagem.", "ru": "Загадка, которая сегодня кончается. А в конверте глашатая было вот это: обрывок карты Лабиринта. Последний. Доброго пути."}
       }
     }
   ]

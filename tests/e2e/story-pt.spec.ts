@@ -4,7 +4,7 @@ import { expect, test, type Page } from '@playwright/test';
 import { openCourse, phraseFull } from './fixtures';
 
 /**
- * Португальский курс закрыт (задачи 19.5–19.7): сцены и миссии открываются напрямую, без пролога и города.
+ * Португальский курс закрыт (задачи 19.5–19.8): сцены и миссии открываются напрямую, без пролога и города.
  * Каждая сцена и каждая миссия проходится целиком, как в scenes.spec.ts и missions.spec.ts.
  */
 const CONTENT = join(import.meta.dirname, '..', '..', 'src', 'content', 'pt');
@@ -58,13 +58,13 @@ async function playMission(page: Page, id: string, pick: Record<string, number> 
 }
 
 test('pt: все сцены контента — реплики по порядку и все ответы верные', async ({ page }) => {
-  test.setTimeout(540_000);
+  test.setTimeout(720_000);
   await openCourse(page, 'pt');
   for (const sc of scenes) await playScene(page, sc);
 });
 
 test('pt: все миссии контента проходятся выбором без ошибок', async ({ page }) => {
-  test.setTimeout(900_000);
+  test.setTimeout(1_200_000);
   await openCourse(page, 'pt');
   for (const m of missions) await playMission(page, m.id);
 });
@@ -151,4 +151,30 @@ test('pt: спор в миссии главы IV — можно уступить
   await openCourse(page, 'pt');
   await playMission(page, 'ms:cafe.4', { 'Возразите, уступите или предложите компромисс.': 1 });
   await playMission(page, 'ms:market.4', { 'Возразите, уступите или предложите компромисс.': 2 });
+});
+
+const DISPUTE = 'Возразите, уступите или предложите компромисс.';
+
+test('pt: развилка кафе главы IV — Сеу Тоньо помнит, что Каю шёл только до опушки', async ({ page }) => {
+  await openCourse(page, 'pt');
+  await playMission(page, 'ms:cafe.4', { [DISPUTE]: 2 });
+  const sc = scenes.find((s) => s.id === 'sc:cafe.5')!;
+  await playScene(page, sc, { caio: 'edge' });
+  expect(sc.lines.some((l) => l.if?.is === 'edge' && l.es.includes('só até a orla'))).toBe(true);
+});
+
+test('pt: развилка гостиницы главы IV — Дави работает ночью на ресепшене', async ({ page }) => {
+  await openCourse(page, 'pt');
+  await playMission(page, 'ms:hotel.4', { [DISPUTE]: 2 });
+  const sc = scenes.find((s) => s.id === 'sc:hotel.5')!;
+  await playScene(page, sc, { room: 'work' });
+  expect(sc.lines.some((l) => l.if?.is === 'work' && l.es.includes('na recepção'))).toBe(true);
+});
+
+test('pt: развилка полиции главы IV — Северину заплатил символический штраф', async ({ page }) => {
+  await openCourse(page, 'pt');
+  await playMission(page, 'ms:police.4', { [DISPUTE]: 1 });
+  const sc = scenes.find((s) => s.id === 'sc:police.5')!;
+  await playScene(page, sc, { fine: 'paid' });
+  expect(sc.lines.some((l) => l.if?.is === 'paid' && l.es.includes('multa simbólica'))).toBe(true);
 });

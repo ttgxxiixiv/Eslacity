@@ -121,6 +121,31 @@
         {"q": "Что решает Сеньор Рикардо?", "kind": "stance", "options": ["Лично поговорить с правлением, не обещая результата", "Сразу выдать кредит", "Отказать"], "answer": 0}
       ],
       "gloss": {"dezembro": "декабрь", "empréstimo": "кредит", "reformar": "отремонтировать", "pousada": "пусада, гостевой дом", "telhado": "крыша", "temporada": "сезон", "dívida": "долг", "juros": "проценты", "paguei": "платила (pagar)", "sistema": "система", "valem": "стоят (valer)", "diretoria": "правление", "pessoalmente": "лично", "prometo": "обещаю (prometer)", "colonial": "домашний, деревенский", "Helena": "Элена", "Ricardo": "Рикардо"}
+    },
+    {
+      "id": "sc:bank.5",
+      "chapter": 5,
+      "npc": "ricardo",
+      "lines": [
+        {"who": "npc", "es": "Boa tarde. Que bom vê-lo. Preciso lhe mostrar algo estranho.", "ru": "Добрый день. Рад вас видеть. Мне нужно показать вам кое-что странное.", "fem": {"es": "Boa tarde. Que bom vê-la. Preciso lhe mostrar algo estranho."}},
+        {"who": "hero", "es": "O que aconteceu?", "ru": "Что случилось?"},
+        {"who": "npc", "es": "Revendo as contas antigas, achei uma de cem anos atrás. O titular é o pregoeiro da cidade.", "ru": "Проверяя старые счета, я нашёл один столетней давности. Владелец — городской глашатай."},
+        {"who": "hero", "es": "E tem dinheiro nela?", "ru": "И на нём есть деньги?"},
+        {"who": "npc", "es": "O salário de dez anos. Ele não gastou um centavo.", "ru": "Вся его зарплата за десять лет. Он не потратил ни сентаво."},
+        {"who": "hero", "es": "Estranho. E por que o senhor me mostra isso agora?", "ru": "Странно. А почему вы показываете это сейчас?"},
+        {"who": "npc", "es": "Porque ontem alguém depositou nela uma moeda antiga e um bilhete.", "ru": "Потому что вчера кто-то положил на этот счёт старинную монету и записку."},
+        {"who": "hero", "es": "O que diz o bilhete?", "ru": "Что в записке?"},
+        {"who": "npc", "es": "«Não preciso de dinheiro. Preciso de uma resposta». Com a letra do pregoeiro.", "ru": "«Мне не нужны деньги. Мне нужен ответ». Почерком глашатая."},
+        {"who": "hero", "es": "Então ele está perto. E ainda espera.", "ru": "Значит, он рядом. И всё ещё ждёт."},
+        {"who": "npc", "es": "Parece que sim. Enquanto isso, o eco muda as nossas cartas: os clientes recebem «Ô, passa a grana».", "ru": "Похоже на то. А тем временем эхо меняет наши письма: клиенты получают «Ну-ка, гони бабки»."}
+      ],
+      "questions": [
+        {"q": "Что нашёл Сеньор Рикардо?", "options": ["Столетний счёт глашатая", "Клад", "Поддельные деньги"], "answer": 0},
+        {"q": "Сколько денег на счёте?", "options": ["Зарплата за десять лет", "Ни сентаво", "Миллион"], "answer": 0},
+        {"q": "Что было в записке?", "options": ["«Мне не нужны деньги. Мне нужен ответ»", "«Закройте счёт»", "«Прощайте»"], "answer": 0},
+        {"q": "Что эхо делает с письмами банка?", "options": ["Делает их грубыми", "Стирает их", "Переводит"], "answer": 0}
+      ],
+      "gloss": {"revendo": "проверяя (rever)", "titular": "владелец", "pregoeiro": "глашатай", "salário": "зарплата", "gastou": "потратил (gastar)", "centavo": "сентаво (копейка)", "depositou": "положил (depositar)", "moeda": "монета", "bilhete": "записка", "letra": "почерк", "eco": "эхо", "grana": "бабки (деньги)", "ô": "эй", "clientes": "клиенты"}
     }
   ]
 }

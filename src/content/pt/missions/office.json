@@ -87,6 +87,29 @@
         "attach": {"kind": "answer", "task": "Скажите, что прикрепите файл.", "branches": [{"phrase": "ph:office.anexar-o-arquivo", "next": "end"}], "wrong": {"es": "Vai imprimir mil cópias? Não, só manda!", "ru": "Напечатаешь тысячу копий? Нет, просто отправь!"}},
         "end": {"kind": "say", "es": "Perfeito. E isso estava dentro da carta do Severino: um fragmento do mapa. Ele escreveu: «Para quem vai à floresta no meu lugar».", "ru": "Прекрасно. А это было в письме Северину: обрывок карты. Он написал: «Тому, кто пойдёт в лес вместо меня»."}
       }
+    },
+    {
+      "id": "ms:office.5",
+      "chapter": 5,
+      "npc": "patricia",
+      "scene": "sc:office.5",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "O chefe do arquivo chegou. Fala você, que o eco estraga tudo o que eu digo.", "ru": "Начальник архива пришёл. Говори ты: эхо портит всё, что я скажу.", "next": "tone"},
+        "tone": {"kind": "answer", "task": "Попросите у начальника архива одолжить речь — официально.", "branches": [{"phrase": "ph:office.poderia-nos-emprestar", "next": "tonesay"}, {"phrase": "ph:office.me-empresta-esse-papel", "next": "tonesay"}], "wrong": {"es": "Emprestar o arquivo inteiro? Não cabe no bolso!", "ru": "Одолжить весь архив? В карман не влезет!"}, "register": "formal", "tone": {"es": "«Me empresta aí»? O chefe guarda o papel na gaveta. — Aqui é um arquivo, não uma feira.", "ru": "«Дай-ка»? Начальник убирает бумагу в ящик. — Здесь архив, а не базар."}},
+        "tonesay": {"kind": "say", "es": "Ele emprestou! Mas o papel é muito velho. Ler na praça ou deixar no arquivo?", "ru": "Одолжил! Но бумага очень старая. Читать на площади или оставить в архиве?", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:office.leia-na-praca", "next": "object", "move": "object"}, {"phrase": "ph:office.guarde-no-arquivo", "next": "concede", "move": "concede"}, {"phrase": "ph:office.uma-copia-para-a-praca", "next": "compromise", "move": "compromise"}], "wrong": {"es": "Ler o discurso para o eco? Ele já sabe de cor!", "ru": "Прочитать речь эху? Оно и так знает её наизусть!"}},
+        "object": {"kind": "say", "es": "Em voz alta, na praça… Sim. Cem anos depois, alguém vai escutar.", "ru": "Вслух, на площади… Да. Через сто лет кто-то услышит.", "next": "deadline"},
+        "concede": {"kind": "say", "es": "No arquivo, então. A gente lê aqui dentro, com as portas abertas.", "ru": "Тогда в архиве. Прочитаем здесь, с открытыми дверями.", "next": "deadline"},
+        "compromise": {"kind": "say", "es": "Uma cópia! O papel velho fica seguro, e a praça ouve as palavras dele.", "ru": "Копию! Старая бумага останется в сохранности, а площадь услышит его слова.", "next": "deadline"},
+        "deadline": {"kind": "say", "es": "A cidade precisa responder antes de você entrar no Labirinto.", "ru": "Город должен ответить до того, как ты войдёшь в Лабиринт.", "next": "deadq"},
+        "deadq": {"kind": "answer", "task": "Спросите, какой срок.", "branches": [{"phrase": "ph:office.o-prazo", "next": "deadsay"}], "wrong": {"es": "O prazo do eco? Ele não tem relógio!", "ru": "Срок у эха? У него нет часов!"}},
+        "deadsay": {"kind": "say", "es": "Sexta, ao meio-dia. Antes disso, uma reunião com os vizinhos.", "ru": "Пятница, полдень. А до этого — собрание с соседями.", "next": "meet"},
+        "meet": {"kind": "answer", "task": "Спросите, важное ли это совещание.", "branches": [{"phrase": "ph:office.a-reuniao-e-importante", "next": "meetsay"}], "wrong": {"es": "Uma festa? Não, é trabalho!", "ru": "Праздник? Нет, это работа!"}},
+        "meetsay": {"kind": "say", "es": "A mais importante do ano. Cada um vai precisar do discurso na mão.", "ru": "Самое важное в году. Каждому понадобится речь в руках.", "next": "print"},
+        "print": {"kind": "answer", "task": "Попросите распечатать копию.", "branches": [{"phrase": "ph:office.pode-imprimir", "next": "end"}], "wrong": {"es": "Imprimir o eco? Ele não sai no papel!", "ru": "Распечатать эхо? Оно на бумаге не выходит!"}},
+        "end": {"kind": "say", "es": "Imprimo cem, uma para cada ano. E olha o que caiu de dentro do discurso: um fragmento do mapa do Labirinto.", "ru": "Распечатаю сто — по одной на каждый год. И смотри, что выпало из речи: обрывок карты Лабиринта."}
+      }
     }
   ]
 }

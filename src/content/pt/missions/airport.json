@@ -83,6 +83,29 @@
         "gate": {"kind": "answer", "task": "Спросите, где выход на посадку.", "branches": [{"phrase": "ph:airport.o-portao-de-embarque", "next": "end"}], "wrong": {"es": "Qual é a cor do avião? Branco!", "ru": "Какого цвета самолёт? Белого!"}},
         "end": {"kind": "say", "es": "Portão sete, no fim do corredor. E toma: um fragmento do mapa que eu fotografei lá de cima e imprimi. É a trilha nova.", "ru": "Выход семь, в конце коридора. И держи: обрывок карты, который я сфотографировал сверху и распечатал. Это новая тропа."}
       }
+    },
+    {
+      "id": "ms:airport.5",
+      "chapter": 5,
+      "npc": "thiago",
+      "scene": "sc:airport.5",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Senta aí. Hoje você fala no rádio. Se eu falar, o eco transforma tudo em declaração de amor.", "ru": "Садись. Сегодня по радио говоришь ты. Если заговорю я, эхо превратит всё в признание в любви.", "next": "tone"},
+        "tone": {"kind": "answer", "task": "Попросите у вышки разрешения на взлёт — по всем правилам, официально.", "branches": [{"phrase": "ph:airport.solicito-autorizacao-decolar", "next": "tonesay"}, {"phrase": "ph:airport.deixa-a-gente-subir", "next": "tonesay"}], "wrong": {"es": "Decolar com o eco? Ele não tem asa!", "ru": "Взлететь вместе с эхом? У него нет крыльев!"}, "register": "formal", "tone": {"es": "«Ô torre, deixa a gente subir»? Silêncio no rádio. Depois: — Repita com o protocolo, por favor.", "ru": "«Эй, вышка, дай взлететь»? В эфире тишина. Потом: — Повторите по форме, пожалуйста."}},
+        "tonesay": {"kind": "say", "es": "Autorizado! Agora: como a gente responde ao pregoeiro?", "ru": "Разрешено! Теперь: как мы ответим глашатаю?", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:airport.escreve-a-resposta", "next": "object", "move": "object"}, {"phrase": "ph:airport.o-ceu-nao-e-quadro", "next": "concede", "move": "concede"}, {"phrase": "ph:airport.luzes-na-pista", "next": "compromise", "move": "compromise"}], "wrong": {"es": "Responder com o eco? Ele só repete!", "ru": "Ответить эхом? Оно только повторяет!"}},
+        "object": {"kind": "say", "es": "No céu, com fumaça branca: «NÓS TE ESCUTAMOS». Vou treinar as curvas.", "ru": "В небе, белым дымом: «МЫ ТЕБЯ СЛЫШИМ». Пойду тренировать виражи.", "next": "time"},
+        "concede": {"kind": "say", "es": "Tá certo, o céu é de todo mundo. A gente responde lá embaixo, em pessoa.", "ru": "Ладно, небо общее. Ответим внизу, лично.", "next": "time"},
+        "compromise": {"kind": "say", "es": "Luzes na pista! De cima ele vai ver a resposta acesa no chão. Genial.", "ru": "Огни на полосе! Сверху он увидит ответ, зажжённый на земле. Гениально.", "next": "time"},
+        "time": {"kind": "say", "es": "Primeiro o voo de reconhecimento. Você vai junto.", "ru": "Сначала разведывательный полёт. Ты летишь со мной.", "next": "timeq"},
+        "timeq": {"kind": "answer", "task": "Спросите, во сколько рейс.", "branches": [{"phrase": "ph:airport.a-que-horas-e-o-voo", "next": "timesay"}], "wrong": {"es": "A que horas é o eco? Ele não tem hora!", "ru": "Во сколько эхо? У него нет расписания!"}},
+        "timesay": {"kind": "say", "es": "Às quatro em ponto. Mas antes tem fila na segurança.", "ru": "Ровно в четыре. Но перед этим очередь на досмотр.", "next": "board"},
+        "board": {"kind": "answer", "task": "Спросите, во сколько посадка.", "branches": [{"phrase": "ph:airport.onde-e-o-embarque", "next": "boardsay"}], "wrong": {"es": "O embarque é no mar? Não, aqui é aeroporto!", "ru": "Посадка в море? Нет, здесь аэропорт!"}},
+        "boardsay": {"kind": "say", "es": "Três e meia. Me mostra o seu cartão, eu deixo tudo pronto.", "ru": "В половине четвёртого. Покажи мне свой посадочный, я всё подготовлю.", "next": "card"},
+        "card": {"kind": "answer", "task": "Покажите посадочный талон.", "branches": [{"phrase": "ph:airport.aqui-esta-o-cartao-de-embarque", "next": "end"}], "wrong": {"es": "O cartão do eco? Ele não viaja!", "ru": "Посадочный эха? Оно не путешествует!"}},
+        "end": {"kind": "say", "es": "Tudo certo. E olha: na última foto aérea, debaixo da fumaça, dá para ver um fragmento do mapa do Labirinto. Imprimi para você.", "ru": "Всё в порядке. И смотри: на последнем снимке сверху, под дымом, виден обрывок карты Лабиринта. Я распечатал его для тебя."}
+      }
     }
   ]
 }

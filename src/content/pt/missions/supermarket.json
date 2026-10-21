@@ -87,6 +87,29 @@
         "offer": {"kind": "answer", "task": "Скажите, что воспользуетесь предложением.", "branches": [{"phrase": "ph:supermarket.aproveitar-a-oferta", "next": "end"}], "wrong": {"es": "Vai levar tudo? Não, dois por pessoa!", "ru": "Заберёшь всё? Нет, по две в руки!"}},
         "end": {"kind": "say", "es": "Aproveita. E leva isso também: a fábrica mandou um fragmento do mapa na caixa de velas. Diz «floresta» atrás.", "ru": "Пользуйся. И возьми ещё вот это: фабрика вложила обрывок карты в коробку со свечами. На обороте написано «лес»."}
       }
+    },
+    {
+      "id": "ms:supermarket.5",
+      "chapter": 5,
+      "npc": "wellington",
+      "scene": "sc:supermarket.5",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Me ajuda com o anúncio do iogurte? Fala no microfone, que a sua voz o eco ainda não conhece.", "ru": "Поможешь с объявлением про йогурт? Скажи в микрофон, твой голос эхо ещё не знает.", "next": "tone"},
+        "tone": {"kind": "answer", "task": "Объявите акцию для молодёжи в зале — по-свойски.", "branches": [{"phrase": "ph:supermarket.galera-iogurte", "next": "tonesay"}, {"phrase": "ph:supermarket.prezados-clientes-iogurte", "next": "tonesay"}], "wrong": {"es": "Iogurte de graça? Não, pela metade!", "ru": "Йогурт бесплатно? Нет, за полцены!"}, "register": "informal", "tone": {"es": "«Prezados clientes»? Os meninos já foram embora rindo. Fala como gente!", "ru": "«Уважаемые покупатели»? Ребята уже ушли со смехом. Говори по-человечески!"}},
+        "tonesay": {"kind": "say", "es": "Funcionou! Os meninos voltaram. Mas as senhoras reclamam do barulho. O que eu faço com o alto-falante?", "ru": "Сработало! Ребята вернулись. Но дамы жалуются на шум. Что мне делать с громкоговорителем?", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:supermarket.desliga-o-alto-falante", "next": "object", "move": "object"}, {"phrase": "ph:supermarket.deixa-os-anuncios", "next": "concede", "move": "concede"}, {"phrase": "ph:supermarket.escreve-num-cartaz", "next": "compromise", "move": "compromise"}], "wrong": {"es": "Vender o alto-falante? Quem vai querer?", "ru": "Продать громкоговоритель? Кому он нужен?"}},
+        "object": {"kind": "say", "es": "Desligar… É, silêncio também vende. Pronto, desliguei.", "ru": "Выключить… Да, тишина тоже продаёт. Всё, выключил.", "next": "label"},
+        "concede": {"kind": "say", "es": "Deixar assim? As senhoras vão ficar felizes. E os meninos, eu chamo pessoalmente.", "ru": "Оставить так? Дамы будут довольны. А ребят я позову сам.", "next": "label"},
+        "compromise": {"kind": "say", "es": "O quadro! Giz não tem eco. Escrevo com letra grande: «IOGURTE PELA METADE!».", "ru": "Доска! У мела нет эха. Напишу крупно: «ЙОГУРТ ЗА ПОЛЦЕНЫ!».", "next": "label"},
+        "label": {"kind": "say", "es": "E você, vai levar iogurte para a viagem?", "ru": "А ты возьмёшь йогурт в дорогу?", "next": "labelq"},
+        "labelq": {"kind": "answer", "task": "Спросите, можно ли прочитать этикетку.", "branches": [{"phrase": "ph:supermarket.ler-o-rotulo", "next": "labelsay"}], "wrong": {"es": "Ler o eco? Ele não tem rótulo!", "ru": "Читать эхо? У него нет этикетки!"}},
+        "labelsay": {"kind": "say", "es": "Lê. Sem açúcar, sem conservante. E o troco, confere.", "ru": "Читай. Без сахара, без консервантов. И проверь сдачу.", "next": "change"},
+        "change": {"kind": "answer", "task": "Скажите, что сдача, кажется, неправильная.", "branches": [{"phrase": "ph:supermarket.o-troco-errado", "next": "changesay"}], "wrong": {"es": "Está certo? Conta de novo!", "ru": "Всё верно? Пересчитай!"}},
+        "changesay": {"kind": "say", "es": "Errado? Ah, você tem razão, faltou um real. Desculpa! Leva mais um iogurte de presente.", "ru": "Неправильная? Ах, ты прав, не хватает реала. Прости! Возьми ещё йогурт в подарок.", "next": "offer", "fem": {"ru": "Неправильная? Ах, ты права, не хватает реала. Прости! Возьми ещё йогурт в подарок."}},
+        "offer": {"kind": "answer", "task": "Скажите, что воспользуетесь предложением.", "branches": [{"phrase": "ph:supermarket.aproveitar-a-oferta", "next": "end"}], "wrong": {"es": "Vai levar o alto-falante? Não!", "ru": "Заберёшь громкоговоритель? Нет!"}},
+        "end": {"kind": "say", "es": "Aproveita. E isso aqui chegou na entrega de ontem, com uma etiqueta muito formal: «Ao viajante que sabe mudar o tom». Um fragmento do mapa.", "ru": "Пользуйся. А это пришло во вчерашней поставке, с очень официальной биркой: «Путнику, который умеет менять тон». Обрывок карты.", "fem": {"es": "Aproveita. E isso aqui chegou na entrega de ontem, com uma etiqueta muito formal: «À viajante que sabe mudar o tom». Um fragmento do mapa.", "ru": "Пользуйся. А это пришло во вчерашней поставке, с очень официальной биркой: «Путнице, которая умеет менять тон». Обрывок карты."}}
+      }
     }
   ]
 }

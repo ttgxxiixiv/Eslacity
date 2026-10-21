@@ -83,6 +83,29 @@
         "side": {"kind": "answer", "task": "Спросите, есть ли побочные действия.", "branches": [{"phrase": "ph:pharmacy.tem-efeito-colateral", "next": "end"}], "wrong": {"es": "Tem sabor de manga? Quem me dera!", "ru": "Со вкусом манго? Если бы!"}},
         "end": {"kind": "say", "es": "Um pouco de sono. Perfeito, assim eu durmo. E toma, isso é para você: um fragmento do mapa que uma cliente trocou por chá de boldo.", "ru": "Немного сонливости. Отлично, хоть посплю. И держи, это тебе: обрывок карты, который одна покупательница обменяла на чай с больдо."}
       }
+    },
+    {
+      "id": "ms:pharmacy.5",
+      "chapter": 5,
+      "npc": "rosa",
+      "scene": "sc:pharmacy.5",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Me ajuda? Esse menino, o Pedrinho, chegou chorando: a voz dele virou um sussurro.", "ru": "Поможешь? Этот мальчик, Педринью, пришёл в слезах: его голос стал шёпотом.", "next": "tone"},
+        "tone": {"kind": "answer", "task": "Успокойте мальчика. Ему восемь лет — говорите по-свойски.", "branches": [{"phrase": "ph:pharmacy.fica-tranquilo-pequeno", "next": "tonesay"}, {"phrase": "ph:pharmacy.mantenha-a-calma-jovem", "next": "tonesay"}], "wrong": {"es": "Calma você! Ele é que está com medo.", "ru": "Сам успокойся! Это ему страшно."}, "register": "informal", "tone": {"es": "«Mantenha a calma, jovem»? O Pedrinho arregala os olhos e chora mais.", "ru": "«Сохраняйте спокойствие, молодой человек»? Педринью округляет глаза и плачет ещё сильнее.", "fem": {"ru": "Сама успокойся! Это ему страшно."}}},
+        "tonesay": {"kind": "say", "es": "Ele sorriu. A mãe quer remédio forte. Eu não sei se é para tanto.", "ru": "Он улыбнулся. Мама хочет сильное лекарство. Я не знаю, стоит ли.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:pharmacy.da-o-xarope", "next": "object", "move": "object"}, {"phrase": "ph:pharmacy.so-cha-de-mel", "next": "concede", "move": "concede"}, {"phrase": "ph:pharmacy.pergunta-a-doutora", "next": "compromise", "move": "compromise"}], "wrong": {"es": "Remédio para o eco? Não existe!", "ru": "Лекарство от эха? Такого нет!"}},
+        "object": {"kind": "say", "es": "O xarope… É leve, pode ser. Só uma colher à noite.", "ru": "Сироп… Он мягкий, можно. Только ложку на ночь.", "next": "grave"},
+        "concede": {"kind": "say", "es": "Chá com mel, como a minha avó fazia. Tem razão: menos é mais.", "ru": "Чай с мёдом, как делала моя бабушка. Ты прав: меньше — лучше.", "next": "grave", "fem": {"ru": "Чай с мёдом, как делала моя бабушка. Ты права: меньше — лучше."}},
+        "compromise": {"kind": "say", "es": "A doutora Fernanda. Claro, ligo agora para ela. Juntas a gente decide.", "ru": "Доктор Фернанда. Конечно, сейчас ей позвоню. Вместе решим.", "next": "grave"},
+        "grave": {"kind": "say", "es": "A mãe pergunta se é perigoso.", "ru": "Мама спрашивает, опасно ли это.", "next": "graveq"},
+        "graveq": {"kind": "answer", "task": "Спросите, серьёзно ли это.", "branches": [{"phrase": "ph:pharmacy.e-grave", "next": "gravesay"}], "wrong": {"es": "É contagioso? O eco não pega!", "ru": "Заразно? Эхо не передаётся!"}},
+        "gravesay": {"kind": "say", "es": "Grave, não. A voz vai voltar. E você, para a viagem, quer algo calmante?", "ru": "Не серьёзно. Голос вернётся. А тебе в дорогу что-нибудь успокаивающее?", "next": "tea"},
+        "tea": {"kind": "answer", "task": "Попросите успокаивающий чай.", "branches": [{"phrase": "ph:pharmacy.um-cha-calmante", "next": "teasay"}], "wrong": {"es": "Um café forte? Antes do Labirinto, não!", "ru": "Крепкий кофе? Перед Лабиринтом — нет!"}},
+        "teasay": {"kind": "say", "es": "Camomila. E leia a bula, viu?", "ru": "Ромашка. И прочитай инструкцию, слышишь?", "next": "leaflet"},
+        "leaflet": {"kind": "answer", "task": "Скажите, что прочитаете инструкцию.", "branches": [{"phrase": "ph:pharmacy.ler-a-bula", "next": "end"}], "wrong": {"es": "Jogar fora a bula? Não!", "ru": "Выбросить инструкцию? Нет!"}},
+        "end": {"kind": "say", "es": "Muito bem. E toma, do caderno do meu avô: um fragmento do mapa que o pregoeiro esqueceu aqui no último dia, embrulhado numa pastilha.", "ru": "Молодец. И держи, из дедовой тетради: обрывок карты, который глашатай забыл здесь в последний день, завёрнутый в пастилку."}
+      }
     }
   ]
 }

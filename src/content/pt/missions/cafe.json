@@ -78,7 +78,7 @@
         "talksay": {"kind": "say", "es": "Quero. Quando o Caio foi para a torre, eu passei um ano sem dormir. Não quero isso de novo.", "ru": "Хочу. Когда Каю ушёл к башне, я год не спал. Не хочу снова.", "next": "coffee"},
         "coffee": {"kind": "answer", "task": "Закажите кофе из фильтра.", "branches": [{"phrase": "ph:cafe.cafe-coado", "next": "coffeesay"}], "wrong": {"es": "Um café da floresta? Primeiro o coado.", "ru": "Лесной кофе? Сначала из фильтра."}},
         "coffeesay": {"kind": "say", "es": "Dois coados, então. Mas escuta: o Caio não vai para a floresta. Ele já perdeu um ano na serra.", "ru": "Тогда два из фильтра. Но послушай: Каю в лес не пойдёт. Он уже потерял год в горах.", "next": "dispute"},
-        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:cafe.a-decisao-e-dele", "next": "object", "move": "object"}, {"phrase": "ph:cafe.melhor-ele-ficar", "next": "concede", "move": "concede"}, {"phrase": "ph:cafe.so-ate-a-orla", "next": "compromise", "move": "compromise"}], "wrong": {"es": "O quê? Isso não tem nada a ver com você.", "ru": "Что? Это вообще не про тебя."}},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:cafe.a-decisao-e-dele", "next": "object", "move": "object", "sets": {"caio": "free"}}, {"phrase": "ph:cafe.melhor-ele-ficar", "next": "concede", "move": "concede", "sets": {"caio": "home"}}, {"phrase": "ph:cafe.so-ate-a-orla", "next": "compromise", "move": "compromise", "sets": {"caio": "edge"}}], "wrong": {"es": "O quê? Isso não tem nada a ver com você.", "ru": "Что? Это вообще не про тебя."}},
         "object": {"kind": "say", "es": "A decisão é dele? Talvez você tenha razão… Ele é meu filho, mas já é homem. Vou falar com ele sem gritar.", "ru": "Решать ему? Может, ты и прав… Он мой сын, но уже взрослый. Поговорю с ним без крика.", "next": "gossip", "fem": {"ru": "Решать ему? Может, ты и права… Он мой сын, но уже взрослый. Поговорю с ним без крика."}},
         "concede": {"kind": "say", "es": "Obrigado. Sei que o Caio vai ficar bravo, mas é melhor bravo em casa.", "ru": "Спасибо. Знаю, Каю разозлится, но пусть лучше злится дома.", "next": "gossip"},
         "compromise": {"kind": "say", "es": "Até a orla? Parece justo. Lá tem uma aldeia, e ele volta de trem.", "ru": "До опушки? По-моему, справедливо. Там есть деревня, и он вернётся поездом.", "next": "gossip"},
@@ -87,6 +87,30 @@
         "sorrysay": {"kind": "say", "es": "Tá bom, eu perdoo. Uma voz a menos na floresta. Quer marcar com o Caio?", "ru": "Ладно, прощаю. На один голос в лесу меньше. Договоришься с Каю?", "next": "meet"},
         "meet": {"kind": "answer", "task": "Предложите договориться о встрече.", "branches": [{"phrase": "ph:cafe.combinar-um-encontro", "next": "end"}], "wrong": {"es": "Um encontro na floresta? Primeiro aqui!", "ru": "Встреча в лесу? Сначала здесь!"}},
         "end": {"kind": "say", "es": "Amanhã cedo, aqui. E toma o meu fragmento do mapa da floresta. O Davi mandou junto com a carta.", "ru": "Завтра рано, здесь. И держи мой обрывок карты леса. Дави прислал его вместе с письмом."}
+      }
+    },
+    {
+      "id": "ms:cafe.5",
+      "chapter": 5,
+      "npc": "tonho",
+      "scene": "sc:cafe.5",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Senta. Hoje eu preciso de um café e de um amigo.", "ru": "Садись. Мне сегодня нужен кофе и друг.", "next": "order"},
+        "order": {"kind": "answer", "task": "Закажите кофе из фильтра.", "branches": [{"phrase": "ph:cafe.cafe-coado", "next": "ordersay"}], "wrong": {"es": "Um eco, por favor? Isso já tem demais!", "ru": "Эхо, пожалуйста? Его и так слишком много!"}},
+        "ordersay": {"kind": "say", "es": "Coado, como sempre. Mas olha essa carta do Caio de novo… «Prezado Senhor». Estou tão chateado.", "ru": "Из фильтра, как всегда. Но посмотри снова на письмо Каю… «Уважаемый господин». Мне так обидно.", "next": "calm"},
+        "calm": {"kind": "answer", "task": "Успокойте Сеу Тоньо. Он друг — говорите по-свойски.", "branches": [{"phrase": "ph:cafe.nao-esquenta", "next": "calmsay"}, {"phrase": "ph:cafe.peco-que-mantenha-calma", "next": "calmsay"}], "wrong": {"es": "Calma você! Eu estou calmo, quem está nervoso é você.", "ru": "Это ты успокойся! Я спокоен, это ты нервничаешь."}, "register": "informal", "tone": {"es": "«Peço que o senhor…»? Você também vai falar comigo como no banco? Sou eu, o Tonho!", "ru": "«Прошу вас…»? Ты тоже со мной как в банке разговариваешь? Это же я, Тоньо!"}},
+        "calmsay": {"kind": "say", "es": "Tá bom, tá bom. Mas o pior: escrevi uma resposta brava. «Prezado filho, ótimo saber que sou um senhor».", "ru": "Ладно, ладно. Но хуже всего: я написал сердитый ответ. «Уважаемый сын, приятно узнать, что я господин».", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:cafe.nao-responde-assim", "next": "object", "move": "object"}, {"phrase": "ph:cafe.responde-do-mesmo-jeito", "next": "concede", "move": "concede"}, {"phrase": "ph:cafe.liga-pra-ele", "next": "compromise", "move": "compromise"}], "wrong": {"es": "Responder para o eco? Ele responde sozinho!", "ru": "Ответить эху? Оно и само отвечает!"}},
+        "object": {"kind": "say", "es": "É, você tem razão. A carta é do eco, não do meu filho. Vou rasgar a minha.", "ru": "Да, ты прав. Письмо от эха, а не от моего сына. Порву своё.", "next": "treat", "fem": {"ru": "Да, ты права. Письмо от эха, а не от моего сына. Порву своё."}},
+        "concede": {"kind": "say", "es": "Do mesmo jeito? Hum… Ele vai rir quando ler «Prezado filho». Talvez seja bom.", "ru": "Так же? Хм… Он посмеётся, когда прочитает «Уважаемый сын». Может, это и хорошо.", "next": "treat"},
+        "compromise": {"kind": "say", "es": "Ligar! Claro. O telefone não passa pelo Labirinto. Ligo hoje à noite.", "ru": "Позвонить! Конечно. Телефон через Лабиринт не идёт. Позвоню сегодня вечером.", "next": "treat"},
+        "treat": {"kind": "answer", "task": "Скажите, что сегодня угощаете вы.", "branches": [{"phrase": "ph:cafe.eu-convido", "next": "treatsay"}], "wrong": {"es": "Vai pagar com eco? Aqui só real!", "ru": "Заплатишь эхом? Здесь только реалы!"}},
+        "treatsay": {"kind": "say", "es": "Você convida? Obrigado, amigo. E tem pão de queijo quentinho.", "ru": "Ты угощаешь? Спасибо, друг. И есть горячие сырные булочки.", "next": "bread", "fem": {"es": "Você convida? Obrigado, amiga. E tem pão de queijo quentinho.", "ru": "Ты угощаешь? Спасибо, подруга. И есть горячие сырные булочки."}},
+        "bread": {"kind": "answer", "task": "Спросите, есть ли сырные булочки.", "branches": [{"phrase": "ph:cafe.tem-pao-de-queijo", "next": "breadsay"}], "wrong": {"es": "Tem pão de eco? Não, só de queijo!", "ru": "Есть хлеб из эха? Нет, только сырный!"}},
+        "breadsay": {"kind": "say", "es": "Tem, sim. E antes de ir para o Labirinto, vamos marcar um último café?", "ru": "Есть. А перед Лабиринтом договоримся о последней чашке кофе?", "next": "meet"},
+        "meet": {"kind": "answer", "task": "Предложите договориться о встрече.", "branches": [{"phrase": "ph:cafe.combinar-um-encontro", "next": "end"}], "wrong": {"es": "Um encontro com o eco? Ele não aparece!", "ru": "Встреча с эхом? Оно не приходит!"}},
+        "end": {"kind": "say", "es": "Amanhã, às sete, antes do trem. E toma o meu fragmento do mapa do Labirinto. O Caio mandou na carta, junto com o «Prezado Senhor».", "ru": "Завтра в семь, перед поездом. И держи мой обрывок карты Лабиринта. Каю прислал его в письме, вместе с «Уважаемым господином»."}
       }
     }
   ]

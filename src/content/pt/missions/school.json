@@ -87,6 +87,29 @@
         "word": {"kind": "answer", "task": "Спросите, что значит это слово.", "branches": [{"phrase": "ph:school.o-que-significa", "next": "end"}], "wrong": {"es": "Como se escreve? Já está escrito!", "ru": "Как пишется? Уже написано!"}},
         "end": {"kind": "say", "es": "Mexerico é fofoca, conversa pelas costas. E olha o que o pássaro deixou na janela hoje: um fragmento do mapa, com cheiro de cachimbo. Leva.", "ru": "Mexerico — это сплетня, разговоры за спиной. И посмотри, что птица сегодня оставила на окне: обрывок карты, пахнет трубкой. Забирай."}
       }
+    },
+    {
+      "id": "ms:school.5",
+      "chapter": 5,
+      "npc": "marcia",
+      "scene": "sc:school.5",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "O Pedrinho está ali, tremendo. O ensaio começa em dez minutos.", "ru": "Педринью вон там, дрожит. Репетиция через десять минут.", "next": "tone"},
+        "tone": {"kind": "answer", "task": "Подбодрите Педринью. Ему восемь — по-свойски.", "branches": [{"phrase": "ph:school.voce-vai-arrasar", "next": "tonesay"}, {"phrase": "ph:school.confio-no-seu-desempenho", "next": "tonesay"}], "wrong": {"es": "Vai fazer prova? Não, é teatro!", "ru": "Будет контрольная? Нет, это театр!"}, "register": "informal", "tone": {"es": "«Confio plenamente no seu desempenho»? O Pedrinho olha para você como se fosse o diretor da escola.", "ru": "«Я полностью уверен в вашем выступлении»? Педринью смотрит на тебя, как на директора школы.", "fem": {"es": "«Confio plenamente no seu desempenho»? O Pedrinho olha para você como se fosse a diretora da escola.", "ru": "«Я полностью уверена в вашем выступлении»? Педринью смотрит на тебя, как на директора школы."}}},
+        "tonesay": {"kind": "say", "es": "Ele riu! Mas os pais acham que ele não vai aguentar. Querem outro aluno no papel.", "ru": "Он засмеялся! Но родители думают, что он не справится. Хотят другого ученика на эту роль.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:school.ele-deve-fazer-o-papel", "next": "object", "move": "object"}, {"phrase": "ph:school.troca-de-ator", "next": "concede", "move": "concede"}, {"phrase": "ph:school.dois-pregoeiros", "next": "compromise", "move": "compromise"}], "wrong": {"es": "Dar o papel ao eco? Ele só repete!", "ru": "Отдать роль эху? Оно только повторяет!"}},
+        "object": {"kind": "say", "es": "Mesmo com medo… É assim que a gente cresce. Ele faz o papel.", "ru": "Даже если страшно… Так и растут. Он сыграет.", "next": "word"},
+        "concede": {"kind": "say", "es": "Trocar… Tá. Mas o Pedrinho vai ser o narrador, ele gosta de livros.", "ru": "Заменить… Ладно. Но Педринью будет рассказчиком, он любит книги.", "next": "word"},
+        "compromise": {"kind": "say", "es": "Dois pregoeiros: um fala formal, o outro fala como amigo. Que ideia! É a lição da semana.", "ru": "Два глашатая: один говорит официально, другой — как друг. Вот идея! Это и есть урок недели.", "next": "word"},
+        "word": {"kind": "say", "es": "Agora me ajuda com o texto da peça. Tem uma palavra difícil aqui: «outrossim».", "ru": "А теперь помоги с текстом пьесы. Тут трудное слово: «outrossim».", "next": "wordq"},
+        "wordq": {"kind": "answer", "task": "Спросите, что значит это слово.", "branches": [{"phrase": "ph:school.o-que-significa", "next": "wordsay"}], "wrong": {"es": "Como se escreve? Já está escrito!", "ru": "Как пишется? Уже написано!"}},
+        "wordsay": {"kind": "say", "es": "Significa «além disso», bem formal. E como se pronuncia, você sabe?", "ru": "Значит «кроме того», очень официально. А как произносится, знаешь?", "next": "say1"},
+        "say1": {"kind": "answer", "task": "Спросите, как это произносится.", "branches": [{"phrase": "ph:school.como-se-pronuncia", "next": "say1say"}], "wrong": {"es": "Como se traduz? Já traduzi!", "ru": "Как переводится? Я уже перевела!"}},
+        "say1say": {"kind": "say", "es": "«Ou-tro-ssim». Muito bem. E a frase está correta assim, com vírgula?", "ru": "«Оу-тро-сим». Отлично. А так фраза правильная, с запятой?", "next": "check"},
+        "check": {"kind": "answer", "task": "Спросите, так ли правильно.", "branches": [{"phrase": "ph:school.esta-correto", "next": "end"}], "wrong": {"es": "Está bonito? Bonito está!", "ru": "Красиво? Красиво!"}},
+        "end": {"kind": "say", "es": "Correto. E toma: os alunos acharam isso no armário de teatro, dentro da capa velha do pregoeiro. Um fragmento do mapa.", "ru": "Правильно. И держи: ученики нашли это в театральном шкафу, в старом плаще глашатая. Обрывок карты."}
+      }
     }
   ]
 }

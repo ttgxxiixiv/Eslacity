@@ -83,6 +83,29 @@
         "gel": {"kind": "answer", "task": "Попросите без геля.", "branches": [{"phrase": "ph:barber.sem-gel", "next": "end"}], "wrong": {"es": "Gel na floresta? Vai juntar folha!", "ru": "Гель в лесу? Листья налипнут!"}},
         "end": {"kind": "say", "es": "Sem gel. E toma: o Severino deixou isso na cadeira, junto com uma pena preta. Um fragmento do mapa da floresta.", "ru": "Без геля. И держи: Северину оставил это на кресле, вместе с чёрным пером. Обрывок карты леса."}
       }
+    },
+    {
+      "id": "ms:barber.5",
+      "chapter": 5,
+      "npc": "zecarlos",
+      "scene": "sc:barber.5",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Senta. Hoje eu cortei o cabelo novo, olha só. O que você acha?", "ru": "Садись. Я сегодня новую стрижку сделал, глянь. Как тебе?", "next": "tone"},
+        "tone": {"kind": "answer", "task": "Похвалите новую стрижку Зе Карлоса. Он друг — по-свойски.", "branches": [{"phrase": "ph:barber.ce-ta-bonitao", "next": "tonesay"}, {"phrase": "ph:barber.o-senhor-esta-elegante", "next": "tonesay"}], "wrong": {"es": "Ficou feio? Valeu, hein!", "ru": "Плохо вышло? Ну спасибо!"}, "register": "informal", "tone": {"es": "«O senhor está elegante»? Até você virou espelho? Sou eu, o Zé!", "ru": "«Вы элегантны»? Ты тоже зеркалом заделался? Это же я, Зе!"}},
+        "tonesay": {"kind": "say", "es": "Valeu! Agora o espelho. Um colecionador quer comprar ele, e eu não sei o que fazer.", "ru": "Спасибо! А теперь зеркало. Его хочет купить коллекционер, и я не знаю, что делать.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:barber.guarda-o-espelho", "next": "object", "move": "object"}, {"phrase": "ph:barber.vende-o-espelho", "next": "concede", "move": "concede"}, {"phrase": "ph:barber.pendura-na-praca", "next": "compromise", "move": "compromise"}], "wrong": {"es": "Cortar o cabelo do espelho? Ele não tem!", "ru": "Подстричь зеркало? У него нет волос!"}},
+        "object": {"kind": "say", "es": "Guardar… É do meu avô, e talvez ele ainda queira dizer alguma coisa.", "ru": "Оставить… Оно дедушкино, и, может, ещё хочет что-то сказать.", "next": "news"},
+        "concede": {"kind": "say", "es": "Vender… Com o dinheiro eu pago a viagem de todos para o Labirinto. Tá bom.", "ru": "Продать… На эти деньги оплачу всем поездку к Лабиринту. Ладно.", "next": "news"},
+        "compromise": {"kind": "say", "es": "Na praça! Onde o pregoeiro falava. Assim ele conversa com todo mundo, e não só com a tesoura.", "ru": "На площади! Там, где говорил глашатай. Тогда оно будет говорить со всеми, а не только с ножницами.", "next": "news"},
+        "news": {"kind": "say", "es": "E as fofocas de hoje, quer saber?", "ru": "А сегодняшние новости хочешь знать?", "next": "newsq"},
+        "newsq": {"kind": "answer", "task": "Спросите, о чём сегодня говорят.", "branches": [{"phrase": "ph:barber.qual-e-o-assunto", "next": "newssay"}], "wrong": {"es": "Qual é o seu nome? Já sei!", "ru": "Как тебя зовут? Я и так знаю!"}},
+        "newssay": {"kind": "say", "es": "O assunto é um só: o pregoeiro e o trem para o Labirinto. E você, quer a barba?", "ru": "Тема одна: глашатай и поезд к Лабиринту. А тебе бороду?", "next": "beard"},
+        "beard": {"kind": "answer", "task": "Попросите только бороду.", "branches": [{"phrase": "ph:barber.so-a-barba", "next": "beardsay"}], "wrong": {"es": "Careca? Antes do Labirinto, não!", "ru": "Наголо? Перед Лабиринтом — нет!"}},
+        "beardsay": {"kind": "say", "es": "Só a barba, com a navalha do meu avô. Gel?", "ru": "Только бороду, дедовой бритвой. Гель?", "next": "gel"},
+        "gel": {"kind": "answer", "task": "Попросите без геля.", "branches": [{"phrase": "ph:barber.sem-gel", "next": "end"}], "wrong": {"es": "Gel no espelho? Não!", "ru": "Гель на зеркало? Нет!"}},
+        "end": {"kind": "say", "es": "Sem gel. E olha: atrás do espelho tinha isso, colado há cem anos. Um fragmento do mapa, com a letra do pregoeiro: «Obrigado pelo domingo».", "ru": "Без геля. И смотри: за зеркалом было вот это, приклеенное сто лет назад. Обрывок карты, почерком глашатая: «Спасибо за воскресенья»."}
+      }
     }
   ]
 }

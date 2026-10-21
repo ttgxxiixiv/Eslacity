@@ -127,6 +127,32 @@
         {"q": "Почему Сеу Тоньо не вешает объявление?", "kind": "stance", "options": ["Боится прослыть занудой", "Не умеет писать", "Парень уйдёт сам"], "answer": 0}
       ],
       "gloss": {"ah": "ну", "rapaz": "парень", "primo": "двоюродный брат", "concentrar": "сосредоточиться", "tá": "ладно (разг. от está)", "pé": "нога (em pé — стоя)", "escritório": "контора, офис", "tomada": "розетка", "carrega": "заряжает (carregar)", "computador": "компьютер", "chato": "зануда", "aguentar": "терпеть", "menos": "меньше (pelo menos — по крайней мере)", "incomoda": "мешает (incomodar)"}
+    },
+    {
+      "id": "sc:cafe.5",
+      "chapter": 5,
+      "npc": "tonho",
+      "lines": [
+        {"who": "npc", "es": "Que bom que você veio! Olha: uma carta do Caio. Ele está do outro lado da floresta, com o Davi.", "ru": "Как хорошо, что ты пришёл! Смотри: письмо от Каю. Он по ту сторону леса, вместе с Дави.", "fem": {"ru": "Как хорошо, что ты пришла! Смотри: письмо от Каю. Он по ту сторону леса, вместе с Дави."}},
+        {"who": "npc", "es": "Ele foi no dia seguinte à nossa conversa. Eu me despedi dele sem gritar.", "ru": "Он ушёл на следующий день после нашего разговора. Я попрощался с ним без крика.", "if": {"flag": "caio", "is": "free"}},
+        {"who": "npc", "es": "Como a gente decidiu, ele ficou três dias em casa. No quarto dia, foi embora sem dizer nada.", "ru": "Как мы решили, он три дня просидел дома. На четвёртый ушёл, ничего не сказав.", "if": {"flag": "caio", "is": "home"}},
+        {"who": "npc", "es": "Ele ia só até a orla. Mas, depois da aldeia, seguiu com o Davi.", "ru": "Он должен был дойти только до опушки. Но после деревни пошёл с Дави дальше.", "if": {"flag": "caio", "is": "edge"}},
+        {"who": "hero", "es": "O que ele escreve?", "ru": "Что он пишет?"},
+        {"who": "npc", "es": "«Prezado Senhor Antônio, venho por meio desta informar que estou bem». Prezado Senhor? Eu sou o pai dele!", "ru": "«Уважаемый господин Антониу, настоящим сообщаю, что у меня всё хорошо». Уважаемый господин? Я его отец!"},
+        {"who": "hero", "es": "Estranho. O Caio nunca escreve assim.", "ru": "Странно. Каю никогда так не пишет."},
+        {"who": "npc", "es": "E tem um bilhete do Davi: depois da floresta começa o Labirinto do Eco.", "ru": "А ещё там записка от Дави: за лесом начинается Лабиринт Эха."},
+        {"who": "hero", "es": "Labirinto?", "ru": "Лабиринт?"},
+        {"who": "npc", "es": "É. Lá cada palavra volta com outra voz. O carinho soa frio, a educação soa grossa.", "ru": "Да. Там каждое слово возвращается другим голосом. Ласковое звучит холодно, вежливое — грубо."},
+        {"who": "hero", "es": "Então a carta passou pelo Labirinto.", "ru": "Значит, письмо прошло через Лабиринт."},
+        {"who": "npc", "es": "Foi o que o Davi escreveu. E o eco já chegou na cidade: hoje um freguês falou comigo como um delegado.", "ru": "Так пишет Дави. И эхо уже дошло до города: сегодня один посетитель говорил со мной, как делегаду."}
+      ],
+      "questions": [
+        {"q": "Где сейчас Каю?", "options": ["По ту сторону леса, с Дави", "Дома", "В горах"], "answer": 0},
+        {"q": "Что странного в письме Каю?", "options": ["Он пишет отцу официально", "Оно без подписи", "Оно на другом языке"], "answer": 0},
+        {"q": "Что начинается за лесом?", "options": ["Лабиринт Эха", "Белый город", "Пустыня"], "answer": 0},
+        {"q": "Что делает эхо со словами?", "options": ["Возвращает их другим тоном", "Стирает их", "Повторяет громче"], "answer": 0}
+      ],
+      "gloss": {"seguinte": "следующий", "despedi": "попрощался (despedir-se)", "quarto": "четвёртый", "aldeia": "деревня", "Antônio": "Антониу", "Labirinto": "Лабиринт", "eco": "эхо", "carinho": "ласка", "soa": "звучит (soar)", "educação": "вежливость", "grossa": "грубая", "delegado": "делегаду, начальник полиции", "Caio": "Каю", "Davi": "Дави", "freguês": "посетитель"}
     }
   ]
 }

@@ -88,6 +88,29 @@
         "gift": {"kind": "answer", "task": "Спросите, будет ли подарочек.", "branches": [{"phrase": "ph:market.um-brinde", "next": "end"}], "wrong": {"es": "Um desconto para a floresta? Ela não paga!", "ru": "Скидка для леса? Лес не платит!"}},
         "end": {"kind": "say", "es": "Claro. O brinde de hoje é o meu fragmento do mapa da floresta. E uma voz a menos lá dentro.", "ru": "Конечно. Подарочек сегодня — мой обрывок карты леса. И на один голос там меньше."}
       }
+    },
+    {
+      "id": "ms:market.5",
+      "chapter": 5,
+      "npc": "graca",
+      "scene": "sc:market.5",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Ninguém quer comprar de mim hoje: acham que eu sou grossa.", "ru": "Сегодня у меня никто не покупает: думают, что я грубиянка.", "next": "calm"},
+        "calm": {"kind": "answer", "task": "Успокойте Дону Грасу. Она подруга — говорите по-свойски.", "branches": [{"phrase": "ph:market.relaxa-dona-graca", "next": "calmsay"}, {"phrase": "ph:market.compreendo-a-sua-preocupacao", "next": "calmsay"}], "wrong": {"es": "Relaxar? Com a feira vazia? Não dá!", "ru": "Расслабиться? С пустой ярмаркой? Не выйдет!"}, "register": "informal", "tone": {"es": "«Compreendo a sua preocupação, senhora»? Agora até você fala comigo assim? Sou eu, a Graça da banca!", "ru": "«Понимаю ваше беспокойство, сеньора»? Теперь и ты так со мной говоришь? Это же я, Граса с прилавка!"}},
+        "calmsay": {"kind": "say", "es": "Tá, tá. Mas me diz: eu paro de falar «meu bem»? Uma freguesa achou que eu estava rindo dela.", "ru": "Ладно, ладно. Но скажи: перестать говорить «милый»? Одной покупательнице показалось, что я над ней смеюсь.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:market.continua-falando-meu-bem", "next": "object", "move": "object"}, {"phrase": "ph:market.melhor-falar-diferente", "next": "concede", "move": "concede"}, {"phrase": "ph:market.um-cartaz", "next": "compromise", "move": "compromise"}], "wrong": {"es": "Vender o eco? Ninguém compra!", "ru": "Продавать эхо? Никто не купит!"}},
+        "object": {"kind": "say", "es": "Continuar! Isso é meu, ninguém tira. Quem me conhece sabe.", "ru": "Продолжать! Это моё, этого никто не отнимет. Кто меня знает, тот поймёт.", "next": "fruit"},
+        "concede": {"kind": "say", "es": "Mais formal… «A senhora deseja levar o quê?». Que esquisito! Mas tá bom, por uns dias.", "ru": "Официальнее… «Что вы желаете взять?». Как странно! Но ладно, на несколько дней.", "next": "fruit"},
+        "compromise": {"kind": "say", "es": "Um aviso: «Se a Graça soar grossa, a culpa é do eco». Gostei!", "ru": "Объявление: «Если Граса звучит грубо, виновато эхо». Мне нравится!", "next": "fruit"},
+        "fruit": {"kind": "say", "es": "Pronto. Agora escolhe a sua fruta, que hoje ninguém escolheu nada.", "ru": "Ну вот. А теперь выбери себе фрукты, сегодня никто ничего не выбрал.", "next": "caju"},
+        "caju": {"kind": "answer", "task": "Спросите, есть ли сегодня кешью.", "branches": [{"phrase": "ph:market.tem-caju", "next": "cajusay"}], "wrong": {"es": "Tem eco hoje? Até demais!", "ru": "Есть сегодня эхо? Даже слишком!"}},
+        "cajusay": {"kind": "say", "es": "Tem, docinho. E o preço, você acha justo?", "ru": "Есть, сладенький. А цена, по-твоему, честная?", "next": "price"},
+        "price": {"kind": "answer", "task": "Скажите, что это честная цена.", "branches": [{"phrase": "ph:market.preco-justo", "next": "pricesay"}], "wrong": {"es": "É caro? Para quem? Para o eco?", "ru": "Дорого? Для кого? Для эха?"}},
+        "pricesay": {"kind": "say", "es": "Justo. Como a minha balança. E tem brinde, como sempre.", "ru": "Честная. Как мои весы. И подарочек, как всегда.", "next": "gift"},
+        "gift": {"kind": "answer", "task": "Спросите, будет ли подарочек.", "branches": [{"phrase": "ph:market.um-brinde", "next": "end"}], "wrong": {"es": "Um desconto do eco? Ele não dá nada!", "ru": "Скидка от эха? Оно ничего не даёт!"}},
+        "end": {"kind": "say", "es": "O brinde é o meu fragmento do mapa do Labirinto. Um freguês trouxe da floresta e disse, todo formal: «Para a feirante mais simpática».", "ru": "Подарочек — мой обрывок карты Лабиринта. Один покупатель принёс его из леса и сказал очень официально: «Самой приветливой торговке»."}
+      }
     }
   ]
 }

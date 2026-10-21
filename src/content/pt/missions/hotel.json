@@ -75,7 +75,7 @@
         "x0say": {"kind": "say", "es": "Para você, sempre. Mas o problema é outro.", "ru": "Для тебя — всегда. Но проблема в другом.", "next": "room"},
         "room": {"kind": "answer", "task": "Спросите, есть ли для него место.", "branches": [{"phrase": "ph:hotel.tem-vaga-para-ele", "next": "roomsay"}], "wrong": {"es": "Tem vaga para o corvo? Bicho não entra!", "ru": "Есть место для ворона? С животными нельзя!"}},
         "roomsay": {"kind": "say", "es": "Tem, o quarto doze. Mas e se ele for embora sem pagar, como antes?", "ru": "Есть, двенадцатый номер. А если он уйдёт не заплатив, как раньше?", "next": "dispute"},
-        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:hotel.de-o-quarto-a-ele", "next": "object", "move": "object"}, {"phrase": "ph:hotel.a-senhora-tem-razao", "next": "concede", "move": "concede"}, {"phrase": "ph:hotel.trabalho-em-troca", "next": "compromise", "move": "compromise"}], "wrong": {"es": "Dar o quarto para a floresta? Ela não dorme!", "ru": "Отдать номер лесу? Лес не спит!"}},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:hotel.de-o-quarto-a-ele", "next": "object", "move": "object", "sets": {"room": "room"}}, {"phrase": "ph:hotel.a-senhora-tem-razao", "next": "concede", "move": "concede", "sets": {"room": "prepaid"}}, {"phrase": "ph:hotel.trabalho-em-troca", "next": "compromise", "move": "compromise", "sets": {"room": "work"}}], "wrong": {"es": "Dar o quarto para a floresta? Ela não dorme!", "ru": "Отдать номер лесу? Лес не спит!"}},
         "object": {"kind": "say", "es": "Ele mudou… É, ele devolveu tudo. Todo mundo merece uma segunda chance.", "ru": "Он изменился… Да, он всё вернул. Каждый заслуживает второго шанса.", "next": "price"},
         "concede": {"kind": "say", "es": "Obrigada por entender. Vou pedir o pagamento adiantado, só isso.", "ru": "Спасибо, что понимаешь. Попрошу оплату вперёд, только и всего.", "next": "price"},
         "compromise": {"kind": "say", "es": "Trabalhar em troca… Preciso de alguém à noite na recepção. Ele não dorme mesmo!", "ru": "Работать за номер… Мне нужен кто-то ночью на ресепшене. Он всё равно не спит!", "next": "price"},
@@ -84,6 +84,29 @@
         "pricesay": {"kind": "say", "es": "Para você, preço de amigo. Com café colonial. E o mosquiteiro, você vai precisar: na floresta tem muito mosquito.", "ru": "Для тебя — цена для друзей. С домашним завтраком. И москитная сетка тебе понадобится: в лесу много комаров.", "next": "net"},
         "net": {"kind": "answer", "task": "Спросите, есть ли в номере москитная сетка.", "branches": [{"phrase": "ph:hotel.tem-mosquiteiro", "next": "end"}], "wrong": {"es": "Tem piscina na floresta? Só rio!", "ru": "В лесу есть бассейн? Только река!"}},
         "end": {"kind": "say", "es": "Tem, claro. E o Davi trouxe isso para você da floresta: um fragmento do mapa, com folha seca grudada.", "ru": "Есть, конечно. А Дави привёз тебе из леса вот это: обрывок карты с прилипшим сухим листом."}
+      }
+    },
+    {
+      "id": "ms:hotel.5",
+      "chapter": 5,
+      "npc": "helena",
+      "scene": "sc:hotel.5",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "O Severino está ali, na poltrona. Fala com ele como amigo. Ele já ouviu muito «senhor» na vida.", "ru": "Северину вон там, в кресле. Поговори с ним как друг. Он и так за жизнь наслушался «сеньоров».", "next": "tone"},
+        "tone": {"kind": "answer", "task": "Позовите Северину с собой — по-дружески.", "branches": [{"phrase": "ph:hotel.vem-com-a-gente", "next": "tonesay"}, {"phrase": "ph:hotel.queira-nos-acompanhar", "next": "tonesay"}], "wrong": {"es": "Acompanhar o eco? Ele vai na frente sozinho!", "ru": "Проводить эхо? Оно и само впереди идёт!"}, "register": "informal", "tone": {"es": "«Queira nos acompanhar»? O Severino se encolhe. — Assim fala a polícia. Eu fico aqui.", "ru": "«Будьте любезны проследовать»? Северину съёживается. — Так говорит полиция. Я останусь здесь."}},
+        "tonesay": {"kind": "say", "es": "Ele levantou! Diz que vai. Mas e a carta? Ele mesmo entrega, ou fica aqui comigo?", "ru": "Он встал! Говорит, что пойдёт. А письмо? Он сам отдаст или оно останется у меня?", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:hotel.ele-entrega-a-carta", "next": "object", "move": "object"}, {"phrase": "ph:hotel.a-senhora-guarda-a-carta", "next": "concede", "move": "concede"}, {"phrase": "ph:hotel.leio-com-ele", "next": "compromise", "move": "compromise"}], "wrong": {"es": "Mandar a carta pelo eco? Ela volta para cá!", "ru": "Отправить письмо через эхо? Оно вернётся сюда!"}},
+        "object": {"kind": "say", "es": "Ele mesmo… Sim. Cem anos esperando, a carta tem que chegar pela mão dele.", "ru": "Сам… Да. Сто лет ждало, письмо должно прийти из его рук.", "next": "key"},
+        "concede": {"kind": "say", "es": "Fica comigo, no cofre do hotel. Quando ele estiver pronto, ele vem buscar.", "ru": "Пусть лежит у меня, в сейфе гостиницы. Когда он будет готов, придёт за ним.", "next": "key"},
+        "compromise": {"kind": "say", "es": "Juntos. Você lê em voz alta, e ele segura o papel. Ele aceitou.", "ru": "Вместе. Ты читаешь вслух, а он держит бумагу. Он согласился.", "next": "key"},
+        "key": {"kind": "say", "es": "Antes de sair, você quer ver o quarto doze? A porta está trancada desde ontem.", "ru": "Перед уходом хочешь посмотреть двенадцатый номер? Дверь со вчерашнего дня заперта.", "next": "keyq"},
+        "keyq": {"kind": "answer", "task": "Спросите, есть ли запасной ключ.", "branches": [{"phrase": "ph:hotel.a-chave-reserva", "next": "keysay"}], "wrong": {"es": "Abrir com o eco? Ele não abre porta!", "ru": "Открыть эхом? Эхо дверей не открывает!"}},
+        "keysay": {"kind": "say", "es": "Tem. O quarto está vazio, só com a cama do pregoeiro. Vai deixar as suas coisas aqui?", "ru": "Есть. Номер пустой, только кровать глашатая. Оставишь здесь свои вещи?", "next": "bag"},
+        "bag": {"kind": "answer", "task": "Спросите, можно ли оставить здесь чемодан.", "branches": [{"phrase": "ph:hotel.posso-deixar-a-mala", "next": "bagsay"}], "wrong": {"es": "Deixar o Severino na mala? Não!", "ru": "Оставить Северину в чемодане? Нет!"}},
+        "bagsay": {"kind": "say", "es": "Pode. O trem sai cedo amanhã. Quer que eu te acorde?", "ru": "Можно. Поезд уходит завтра рано. Разбудить тебя?", "next": "wake"},
+        "wake": {"kind": "answer", "task": "Попросите разбудить вас в шесть.", "branches": [{"phrase": "ph:hotel.o-servico-de-despertador", "next": "end"}], "wrong": {"es": "Acordar o eco? Ele não dorme!", "ru": "Разбудить эхо? Оно не спит!"}},
+        "end": {"kind": "say", "es": "Às seis, com café. E o Davi achou isso junto com a carta: um fragmento do mapa do Labirinto, desenhado pelo próprio pregoeiro.", "ru": "В шесть, с кофе. А Дави нашёл вместе с письмом вот это: обрывок карты Лабиринта, нарисованный самим глашатаем."}
       }
     }
   ]

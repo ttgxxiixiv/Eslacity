@@ -85,6 +85,29 @@
         "game": {"kind": "answer", "task": "Скажите, что игра закончилась вничью.", "branches": [{"phrase": "ph:park.deu-empate", "next": "end"}], "wrong": {"es": "Ganhou a floresta? Ela nem joga!", "ru": "Выиграл лес? Он даже не играет!"}},
         "end": {"kind": "say", "es": "Empate. Como hoje: ninguém perdeu. E olha, no galho seco tinha um ninho com um fragmento do mapa dentro. É seu.", "ru": "Ничья. Как сегодня: никто не проиграл. И смотри, на сухой ветке было гнездо, а в нём обрывок карты. Он твой."}
       }
+    },
+    {
+      "id": "ms:park.5",
+      "chapter": 5,
+      "npc": "valdir",
+      "scene": "sc:park.5",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Quer ouvir o resto da história do pregoeiro? Senta aqui comigo.", "ru": "Хочешь услышать продолжение истории глашатая? Садись рядом.", "next": "tone"},
+        "tone": {"kind": "answer", "task": "Попросите Сеу Валдира рассказывать дальше. Он старый друг — по-свойски.", "branches": [{"phrase": "ph:park.que-historia-seu-valdir", "next": "tonesay"}, {"phrase": "ph:park.poderia-prosseguir", "next": "tonesay"}], "wrong": {"es": "Contar para o eco? Ele só repete!", "ru": "Рассказать эху? Оно только повторяет!"}, "register": "informal", "tone": {"es": "«Prosseguir com o relato»? Credo, parece o pregoeiro falando! Sou o Valdir, do dominó!", "ru": "«Продолжить рассказ»? Батюшки, прямо как глашатай заговорил! Я же Валдир, из домино!"}},
+        "tonesay": {"kind": "say", "es": "Conto. O meu avô era uma das crianças que riam dele. Morreu com vergonha disso. E a prefeitura quer cortar o ipê por causa do eco.", "ru": "Расскажу. Мой дед был одним из детей, что над ним смеялись. Он до смерти этого стыдился. А мэрия хочет спилить ипе из-за эха.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:park.a-arvore-fica", "next": "object", "move": "object"}, {"phrase": "ph:park.melhor-podar-a-arvore", "next": "concede", "move": "concede"}, {"phrase": "ph:park.um-aviso-na-arvore", "next": "compromise", "move": "compromise"}], "wrong": {"es": "Cortar o eco? Ele não tem tronco!", "ru": "Спилить эхо? У него нет ствола!"}},
+        "object": {"kind": "say", "es": "A árvore fica! Ela tem cem anos, viu o pregoeiro passar. Vou dizer isso na prefeitura.", "ru": "Дерево останется! Ему сто лет, оно видело, как проходил глашатай. Скажу это в мэрии.", "next": "trail"},
+        "concede": {"kind": "say", "es": "Só os galhos… Tá bom. A árvore sobrevive, e a prefeitura fica contente.", "ru": "Только ветви… Ладно. Дерево выживет, и мэрия будет довольна.", "next": "trail"},
+        "compromise": {"kind": "say", "es": "Um aviso: «Esta árvore repete com educação. Não se assuste». Ha! Gostei.", "ru": "Табличка: «Это дерево вежливо повторяет. Не пугайтесь». Ха! Нравится.", "next": "trail"},
+        "trail": {"kind": "say", "es": "Agora vamos caminhar. O pregoeiro sempre ia pela trilha da cachoeira.", "ru": "А теперь пройдёмся. Глашатай всегда ходил по тропе к водопаду.", "next": "trailq"},
+        "trailq": {"kind": "answer", "task": "Спросите, ведёт ли эта тропа к водопаду.", "branches": [{"phrase": "ph:park.a-trilha", "next": "trailsay"}], "wrong": {"es": "Vai até o Labirinto? Ainda não!", "ru": "Ведёт в Лабиринт? Пока нет!"}},
+        "trailsay": {"kind": "say", "es": "Vai. E olha os micos de novo, querendo o seu lanche.", "ru": "Ведёт. И смотри, опять мартышки хотят твой перекус.", "next": "monkeys"},
+        "monkeys": {"kind": "answer", "task": "Скажите, что мартышек кормить нельзя.", "branches": [{"phrase": "ph:park.nao-alimente", "next": "monkeysay"}], "wrong": {"es": "Dar pão para o eco? Ele não come!", "ru": "Дать хлеба эху? Оно не ест!"}},
+        "monkeysay": {"kind": "say", "es": "Isso. E você lembra o que o meu avô fez na juventude?", "ru": "Верно. А помнишь, что мой дед сделал в юности?", "next": "remember"},
+        "remember": {"kind": "answer", "task": "Скажите, что вы это помните.", "branches": [{"phrase": "ph:park.me-lembro", "next": "end"}], "wrong": {"es": "Esqueceu? Que pena!", "ru": "Забыл? Как жаль!", "fem": {"ru": "Забыла? Как жаль!"}}},
+        "end": {"kind": "say", "es": "Lembra. E eu quero consertar isso por ele. Toma: o meu avô guardou esse fragmento do mapa a vida inteira. Escreveu atrás: «Para quem responder ao pregoeiro».", "ru": "Помнишь. И я хочу исправить это за него. Держи: дед всю жизнь хранил этот обрывок карты. На обороте написал: «Тому, кто ответит глашатаю»."}
+      }
     }
   ]
 }

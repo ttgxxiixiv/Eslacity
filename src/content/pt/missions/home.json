@@ -87,6 +87,28 @@
         "move": {"kind": "answer", "task": "Скажите, что поможете с переездом.", "branches": [{"phrase": "ph:home.eu-ajudo-na-mudanca", "next": "end"}], "wrong": {"es": "Vai embora? Agora que a casa está molhada?", "ru": "Уходишь? Сейчас, когда дома всё мокрое?"}},
         "end": {"kind": "say", "es": "Ajuda, sim: tem que tirar os móveis do lugar. E olha o que caiu do teto com a água: um fragmento do mapa, embrulhado em papel velho.", "ru": "Помоги, да: надо отодвинуть мебель. И посмотри, что упало с потолка вместе с водой: обрывок карты, завёрнутый в старую бумагу."}
       }
+    },
+    {
+      "id": "ms:home.5",
+      "chapter": 5,
+      "npc": "lourdes",
+      "scene": "sc:home.5",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Vou responder ao dono do apartamento. Mas estou tão brava que nem sei o que escrever.", "ru": "Отвечу хозяину квартиры. Но я так злюсь, что даже не знаю, что писать.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:home.liga-agora", "next": "object", "move": "object"}, {"phrase": "ph:home.espera-ate-amanha", "next": "concede", "move": "concede"}, {"phrase": "ph:home.escreve-uma-carta", "next": "compromise", "move": "compromise"}], "wrong": {"es": "Responder para o eco? Ele não lê!", "ru": "Ответить эху? Оно не читает!"}},
+        "object": {"kind": "say", "es": "Ligar agora… Sim, a voz no telefone não passa pelo Labirinto. Mas antes me ajuda a começar.", "ru": "Позвонить сейчас… Да, голос в телефоне через Лабиринт не идёт. Но сначала помоги мне начать.", "next": "tone"},
+        "concede": {"kind": "say", "es": "De cabeça fria… Tem razão. Mas amanhã você me ajuda a começar, combinado?", "ru": "На свежую голову… Ты прав. Но завтра поможешь мне начать, договорились?", "next": "tone", "fem": {"ru": "На свежую голову… Ты права. Но завтра поможешь мне начать, договорились?"}},
+        "compromise": {"kind": "say", "es": "Uma carta educada. Ele é o dono, afinal. Me ajuda com a primeira frase?", "ru": "Вежливое письмо. Он всё-таки хозяин. Поможешь с первой фразой?", "next": "tone"},
+        "tone": {"kind": "answer", "task": "Подскажите первую фразу ответа хозяину квартиры — официально.", "branches": [{"phrase": "ph:home.prezado-proprietario", "next": "tonesay"}, {"phrase": "ph:home.oi-qual-e-a-sua", "next": "tonesay"}], "wrong": {"es": "Escrever para o corvo? Ele não paga aluguel!", "ru": "Писать ворону? Он за квартиру не платит!"}, "register": "formal", "tone": {"es": "«Qual é a sua, hein»? Assim ele vai me despejar amanhã mesmo!", "ru": "«Ты чего, а»? Так он меня завтра же выселит!"}},
+        "tonesay": {"kind": "say", "es": "Perfeito. «Prezado senhor». Agora ele vai entender que eu sou educada. E depois, na carta, falo da goteira.", "ru": "Отлично. «Уважаемый господин». Теперь он поймёт, что я вежливая. А потом в письме скажу про протечку.", "next": "roof"},
+        "roof": {"kind": "answer", "task": "Спросите, не протекает ли крыша.", "branches": [{"phrase": "ph:home.tem-goteira", "next": "roofsay"}], "wrong": {"es": "Tem eco no telhado? Só pombo!", "ru": "На крыше эхо? Только голуби!"}},
+        "roofsay": {"kind": "say", "es": "Tem, no quarto. E a conta de luz também veio errada. Será que está incluída no aluguel?", "ru": "Есть, в спальне. И счёт за свет пришёл неправильный. Может, он входит в аренду?", "next": "light"},
+        "light": {"kind": "answer", "task": "Спросите, входит ли счёт за свет в цену.", "branches": [{"phrase": "ph:home.a-conta-de-luz", "next": "lightsay"}], "wrong": {"es": "A luz da lua? Essa é de graça!", "ru": "Лунный свет? Он бесплатный!"}},
+        "lightsay": {"kind": "say", "es": "Vou perguntar na carta. E você vai para o Labirinto amanhã… Quer ajuda com a mala?", "ru": "Спрошу в письме. А ты завтра в Лабиринт… Помочь с чемоданом?", "next": "move"},
+        "move": {"kind": "answer", "task": "Скажите, что поможете с переездом.", "branches": [{"phrase": "ph:home.eu-ajudo-na-mudanca", "next": "end"}], "wrong": {"es": "Vai morar no Labirinto? Não, só passar!", "ru": "Будешь жить в Лабиринте? Нет, только пройти!"}},
+        "end": {"kind": "say", "es": "Você ajuda todo mundo, menos a si. Toma: no caderno da minha avó tinha isso guardado. Um fragmento do mapa do Labirinto, com uma frase: «Muda a voz, acha a saída».", "ru": "Ты всем помогаешь, кроме себя. Держи: в бабушкиной тетради было вот это. Обрывок карты Лабиринта с фразой: «Меняй голос — найдёшь выход»."}
+      }
     }
   ]
 }

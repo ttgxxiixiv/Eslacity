@@ -85,6 +85,29 @@
         "fit": {"kind": "answer", "task": "Попросите подогнать по талии.", "branches": [{"phrase": "ph:clothes.pode-ajustar", "next": "end"}], "wrong": {"es": "Pode encolher? Já encolheu sozinha!", "ru": "Сделать меньше? Она сама уже села!"}},
         "end": {"kind": "say", "es": "Ajusto, sim. E no bolso tinha isso: um fragmento do mapa da floresta. Alguém deixou aqui para você, com cheiro de cachimbo.", "ru": "Подгоню. А в кармане было вот что: обрывок карты леса. Кто-то оставил его тут для тебя, пахнет трубкой."}
       }
+    },
+    {
+      "id": "ms:clothes.5",
+      "chapter": 5,
+      "npc": "juliana",
+      "scene": "sc:clothes.5",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Ele chegou! O secretário. Fala você primeiro, por favor, que eu travo.", "ru": "Он пришёл! Секретарь. Говори ты первым, пожалуйста, а то я теряюсь.", "next": "tone", "fem": {"ru": "Он пришёл! Секретарь. Говори ты первой, пожалуйста, а то я теряюсь."}},
+        "tone": {"kind": "answer", "task": "Встретьте секретаря мэрии — официально.", "branches": [{"phrase": "ph:clothes.bom-dia-secretario", "next": "tonesay"}, {"phrase": "ph:clothes.e-ai-cara-terno", "next": "tonesay"}], "wrong": {"es": "Vender o eco para ele? Não!", "ru": "Продать ему эхо? Нет!"}, "register": "formal", "tone": {"es": "«E aí, cara»? O secretário levanta a sobrancelha. Juliana fica vermelha de novo.", "ru": "«Привет, чувак»? Секретарь поднимает бровь. Жулиана снова краснеет."}},
+        "tonesay": {"kind": "say", "es": "Ufa, ele sorriu. Mas eu ainda estou com vergonha do que falei ontem. O que eu faço?", "ru": "Уф, он улыбнулся. Но мне всё ещё стыдно за вчерашнее. Что мне делать?", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:clothes.conta-a-verdade-pra-ele", "next": "object", "move": "object"}, {"phrase": "ph:clothes.pede-desculpas-e-pronto", "next": "concede", "move": "concede"}, {"phrase": "ph:clothes.da-um-desconto", "next": "compromise", "move": "compromise"}], "wrong": {"es": "Costurar o eco? Ele não tem tamanho!", "ru": "Сшить эхо? У него нет размера!"}},
+        "object": {"kind": "say", "es": "A verdade: foi o eco. Ele riu de novo e disse que, na prefeitura, o eco transformou o prefeito num poeta.", "ru": "Правду: это было эхо. Он снова посмеялся и сказал, что в мэрии эхо превратило мэра в поэта.", "next": "linen"},
+        "concede": {"kind": "say", "es": "Desculpas e pronto. Ele aceitou com um aperto de mão. Simples.", "ru": "Извиниться, и всё. Он принял извинения рукопожатием. Просто.", "next": "linen"},
+        "compromise": {"kind": "say", "es": "Um desconto no terno… Ele aceitou e ainda prometeu voltar. Cliente novo!", "ru": "Скидка на костюм… Он согласился и ещё пообещал вернуться. Новый клиент!", "next": "linen"},
+        "linen": {"kind": "say", "es": "E você, para o Labirinto, precisa de roupa nova?", "ru": "А тебе для Лабиринта нужна новая одежда?", "next": "linenq"},
+        "linenq": {"kind": "answer", "task": "Спросите, есть ли льняная рубашка.", "branches": [{"phrase": "ph:clothes.de-linho", "next": "linensay"}], "wrong": {"es": "Tem capa cinza? Essa é do pregoeiro!", "ru": "Есть серый плащ? Он глашатая!"}},
+        "linensay": {"kind": "say", "es": "Tenho essa, branca. E combina com a sua sandália nova.", "ru": "Есть вот эта, белая. И подходит к твоим новым сандалиям.", "next": "match"},
+        "match": {"kind": "answer", "task": "Спросите, подходит ли это к сандалиям.", "branches": [{"phrase": "ph:clothes.combina-com", "next": "matchsay"}], "wrong": {"es": "Combina com o eco? Ele não usa roupa!", "ru": "Подходит к эху? Оно одежду не носит!"}},
+        "matchsay": {"kind": "say", "es": "Combina perfeitamente. Está em liquidação, aliás.", "ru": "Подходит идеально. Кстати, по распродаже.", "next": "sale"},
+        "sale": {"kind": "answer", "task": "Спросите, по распродаже ли это.", "branches": [{"phrase": "ph:clothes.esta-em-liquidacao", "next": "end"}], "wrong": {"es": "Paga com eco? Não!", "ru": "Платишь эхом? Нет!"}},
+        "end": {"kind": "say", "es": "Está, metade do preço. E toma: no livro de encomendas, junto à capa do pregoeiro, tinha um fragmento do mapa costurado na página.", "ru": "Да, за полцены. И держи: в книге заказов, рядом с плащом глашатая, был обрывок карты, пришитый к странице."}
+      }
     }
   ]
 }

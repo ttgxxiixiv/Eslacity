@@ -121,6 +121,31 @@
         {"q": "Что в итоге обещает Сеньор Рикардо?", "kind": "stance", "options": ["Звонить лично перед письмом", "Отменить проценты", "Закрыть систему"], "answer": 0}
       ],
       "gloss": {"cobrança": "требование оплаты", "empresa": "компания", "sistema": "система", "automaticamente": "автоматически", "atrasada": "просроченная", "feriado": "праздник, выходной", "irritação": "раздражение", "regra": "правило", "igual": "одинаковый", "cadastro": "учётная карточка", "confiança": "доверие", "próxima": "следующая", "pessoalmente": "лично", "Patrícia": "Патрисия", "Ricardo": "Рикардо"}
+    },
+    {
+      "id": "sc:office.5",
+      "chapter": 5,
+      "npc": "patricia",
+      "lines": [
+        {"who": "npc", "es": "Você não vai acreditar. O eco agora escreve os meus e-mails.", "ru": "Ты не поверишь. Теперь мои письма пишет эхо."},
+        {"who": "hero", "es": "Como assim?", "ru": "Как это?"},
+        {"who": "npc", "es": "Eu escrevo «Bora almoçar?» e a pessoa recebe «Ilustríssima Senhora, venho por meio desta convidá-la para o almoço».", "ru": "Я пишу «Пошли обедать?», а человек получает «Высокоуважаемая госпожа, настоящим приглашаю вас на обед»."},
+        {"who": "hero", "es": "Pelo menos é educado.", "ru": "Зато вежливо."},
+        {"who": "npc", "es": "Educado demais! Ninguém mais almoça comigo. Mas não foi por isso que te chamei.", "ru": "Слишком вежливо! Со мной больше никто не обедает. Но позвала я тебя не поэтому."},
+        {"who": "hero", "es": "Então foi por quê?", "ru": "А почему?"},
+        {"who": "npc", "es": "No arquivo da prefeitura achei o último discurso do pregoeiro. Ele nunca leu em público.", "ru": "В архиве мэрии я нашла последнюю речь глашатая. Он так и не прочитал её на людях."},
+        {"who": "hero", "es": "O que está escrito?", "ru": "Что там написано?"},
+        {"who": "npc", "es": "«Queridos vizinhos, hoje não trago notícias. Trago uma pergunta: alguém me escuta?».", "ru": "«Дорогие соседи, сегодня я не принёс новостей. Я принёс вопрос: меня кто-нибудь слышит?»."},
+        {"who": "hero", "es": "E ninguém respondeu.", "ru": "И никто не ответил."},
+        {"who": "npc", "es": "Ninguém. O chefe do arquivo guarda o papel como um tesouro. E ele só fala com quem fala bonito.", "ru": "Никто. Начальник архива бережёт эту бумагу как сокровище. И разговаривает только с теми, кто говорит красиво."}
+      ],
+      "questions": [
+        {"q": "Что эхо делает с письмами Патрисии?", "options": ["Делает их слишком вежливыми", "Стирает их", "Делает их грубыми"], "answer": 0},
+        {"q": "Что Патрисия нашла в архиве?", "options": ["Последнюю речь глашатая", "Старую карту", "Письмо Северину"], "answer": 0},
+        {"q": "Чем заканчивается речь?", "options": ["Вопросом: «меня кто-нибудь слышит?»", "Новостями", "Прощанием"], "answer": 0},
+        {"q": "С кем разговаривает начальник архива?", "options": ["Только с теми, кто говорит красиво", "Со всеми", "Ни с кем"], "answer": 0}
+      ],
+      "gloss": {"eco": "эхо", "bora": "пошли (разг.)", "ilustríssima": "высокоуважаемая", "desta": "этим (de + esta)", "convidá": "пригласить (convidar)", "educado": "вежливо", "arquivo": "архив", "prefeitura": "мэрия", "discurso": "речь", "pregoeiro": "глашатай", "público": "публика", "queridos": "дорогие", "trago": "приношу (trazer)", "escuta": "слышит (escutar)", "tesouro": "сокровище"}
     }
   ]
 }

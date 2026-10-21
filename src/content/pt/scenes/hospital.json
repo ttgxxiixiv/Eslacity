@@ -121,6 +121,31 @@
         {"q": "Чем всё заканчивается?", "kind": "stance", "options": ["Он запрещает занимать место скорой, а кофе пить можно", "Полицейским запрещают приходить", "Они ссорятся"], "answer": 0}
       ],
       "gloss": {"policiais": "полицейские", "estacionaram": "поставили машину (estacionar)", "vaga": "место (парковочное)", "ambulância": "скорая", "trazendo": "везя (trazer)", "ferido": "раненый", "cantina": "столовая", "gente": "люди", "sagrada": "святая", "estacionem": "паркуются (estacionar)", "sobrar": "останется", "delegado": "делегаду, начальник полиции", "doutora": "доктор (женщина)"}
+    },
+    {
+      "id": "sc:hospital.5",
+      "chapter": 5,
+      "npc": "fernanda",
+      "lines": [
+        {"who": "npc", "es": "Ainda bem que você veio. Tenho um paciente que não fala: o Pedrinho, aluno da professora Márcia.", "ru": "Хорошо, что ты пришёл. У меня пациент, который не говорит: Педринью, ученик профессоры Марсии.", "fem": {"ru": "Хорошо, что ты пришла. У меня пациент, который не говорит: Педринью, ученик профессоры Марсии."}},
+        {"who": "hero", "es": "Ele está doente?", "ru": "Он болен?"},
+        {"who": "npc", "es": "A garganta está perfeita. Mas a voz sumiu. Desde segunda, nem uma palavra.", "ru": "Горло в полном порядке. А голос пропал. С понедельника ни слова."},
+        {"who": "hero", "es": "O que aconteceu na segunda?", "ru": "А что было в понедельник?"},
+        {"who": "npc", "es": "Na chamada da escola ele disse «presente», bem baixinho. Ninguém ouviu. E a voz foi embora.", "ru": "На перекличке в школе он сказал «здесь», совсем тихо. Никто не услышал. И голос ушёл."},
+        {"who": "hero", "es": "Igual ao pregoeiro. Ele falava e ninguém ouvia.", "ru": "Как у глашатая. Он говорил, а его никто не слышал."},
+        {"who": "npc", "es": "Pois é. Vovó dizia: «A voz volta quando alguém responde». Na faculdade eu ria disso.", "ru": "Вот именно. Бабушка говорила: «Голос возвращается, когда кто-то отвечает». В институте я над этим смеялась."},
+        {"who": "hero", "es": "E agora?", "ru": "А теперь?"},
+        {"who": "npc", "es": "Agora eu tenho um menino sem voz e nenhum remédio. Pode ser que a avó tivesse razão.", "ru": "А теперь у меня мальчик без голоса и ни одного лекарства. Может, бабушка была права."},
+        {"who": "hero", "es": "Ele quer ver alguém?", "ru": "Он хочет кого-нибудь видеть?"},
+        {"who": "npc", "es": "Ele escreveu o seu nome num papel. Mas cuidado: ele é tímido, e qualquer palavra dura assusta ele.", "ru": "Он написал на бумажке твоё имя. Только осторожно: он застенчивый, и любое резкое слово его пугает."}
+      ],
+      "questions": [
+        {"q": "Что случилось с Педринью?", "options": ["Пропал голос", "Сломал ногу", "Заболело горло"], "answer": 0},
+        {"q": "Когда пропал голос?", "options": ["После того как его не услышали на перекличке", "После праздника", "Ночью"], "answer": 0},
+        {"q": "Что говорила бабушка Фернанды?", "options": ["«Голос возвращается, когда кто-то отвечает»", "«Молчание — золото»", "«Пей чай»"], "answer": 0},
+        {"q": "Каким должен быть разговор с Педринью?", "options": ["Мягким: он застенчивый", "Строгим", "Коротким"], "answer": 0}
+      ],
+      "gloss": {"paciente": "пациент", "aluno": "ученик", "professora": "учительница", "garganta": "горло", "perfeita": "в порядке", "sumiu": "пропал (sumir)", "chamada": "перекличка", "presente": "здесь (на перекличке)", "baixinho": "тихонько", "pregoeiro": "глашатай", "vovó": "бабушка", "faculdade": "институт", "ria": "смеялась (rir)", "remédio": "лекарство", "avó": "бабушка", "tivesse": "была (ter)", "tímido": "застенчивый", "Pedrinho": "Педринью", "dura": "резкая", "assusta": "пугает (assustar)"}
     }
   ]
 }

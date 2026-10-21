@@ -83,6 +83,29 @@
         "receipt": {"kind": "answer", "task": "Попросите квитанцию.", "branches": [{"phrase": "ph:bank.o-comprovante", "next": "end"}], "wrong": {"es": "Um comprovante da floresta? Isso não existe.", "ru": "Квитанцию от леса? Такого нет."}},
         "end": {"kind": "say", "es": "Claro. E, entre nós: o senhor das moedas antigas esqueceu isso no balcão. Um fragmento do mapa. Acho que é do senhor.", "ru": "Конечно. И, между нами: господин со старыми монетами забыл это на стойке. Обрывок карты. Думаю, он ваш.", "fem": {"es": "Claro. E, entre nós: o senhor das moedas antigas esqueceu isso no balcão. Um fragmento do mapa. Acho que é da senhora."}}
       }
+    },
+    {
+      "id": "ms:bank.5",
+      "chapter": 5,
+      "npc": "ricardo",
+      "scene": "sc:bank.5",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Sente-se, por favor. Antes de falarmos do pregoeiro, o senhor deseja ver a sua conta?", "ru": "Присаживайтесь, пожалуйста. Прежде чем говорить о глашатае, желаете посмотреть свой счёт?", "next": "statement", "fem": {"es": "Sente-se, por favor. Antes de falarmos do pregoeiro, a senhora deseja ver a sua conta?"}},
+        "statement": {"kind": "answer", "task": "Скажите, что хотите посмотреть свой текущий счёт.", "branches": [{"phrase": "ph:bank.quero-o-extrato", "next": "statementsay"}], "wrong": {"es": "A conta do eco? Ela não existe.", "ru": "Счёт эха? Такого нет."}},
+        "statementsay": {"kind": "say", "es": "Tudo certo, como sempre. Agora, a conta do pregoeiro. Quer ver o que aconteceu ontem?", "ru": "Всё в порядке, как всегда. А теперь счёт глашатая. Хотите увидеть, что было вчера?", "next": "show"},
+        "show": {"kind": "answer", "task": "Попросите Сеньора Рикардо показать операции по счёту. Он говорит только официально.", "branches": [{"phrase": "ph:bank.poderia-mostrar-movimentacao", "next": "showsay"}, {"phrase": "ph:bank.mostra-ai", "next": "showsay"}], "wrong": {"es": "Abrir o cofre do pregoeiro? Isso não é possível.", "ru": "Открыть сейф глашатая? Это невозможно."}, "register": "formal", "tone": {"es": "«Mostra aí, vai»? Por favor… As cartas do eco já me bastam. Neste banco se fala com cortesia.", "ru": "«Ну покажи»? Прошу вас… Мне хватает писем эха. В этом банке говорят учтиво."}},
+        "showsay": {"kind": "say", "es": "Certamente. Ontem, às três: depósito de uma moeda. Mas a diretoria quer encerrar a conta: cem anos sem movimento.", "ru": "Конечно. Вчера в три: внесена одна монета. Но правление хочет закрыть счёт: сто лет без движения.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:bank.a-conta-esta-viva", "next": "object", "move": "object"}, {"phrase": "ph:bank.regra-e-regra", "next": "concede", "move": "concede"}, {"phrase": "ph:bank.mais-um-ano", "next": "compromise", "move": "compromise"}], "wrong": {"es": "Depositar o eco? Ele não vale nada.", "ru": "Положить на счёт эхо? Оно ничего не стоит."}},
+        "object": {"kind": "say", "es": "Viva… Tem razão. Um depósito ontem é movimento. Vou escrever isso à diretoria.", "ru": "Живой… Вы правы. Вчерашний взнос — это движение. Напишу это правлению.", "next": "manager"},
+        "concede": {"kind": "say", "es": "Regra é regra… Mas o dinheiro vai para um fundo da cidade, com o nome dele. É o mínimo.", "ru": "Правило есть правило… Но деньги пойдут в городской фонд, с его именем. Это меньшее, что можно сделать.", "next": "manager"},
+        "compromise": {"kind": "say", "es": "Mais um ano. Se ele não voltar, decidimos depois. Prudente.", "ru": "Ещё год. Если он не вернётся, решим потом. Разумно.", "next": "manager"},
+        "manager": {"kind": "say", "es": "O senhor gostaria de falar com a diretoria pessoalmente?", "ru": "Вы хотели бы лично поговорить с правлением?", "next": "managerq", "fem": {"es": "A senhora gostaria de falar com a diretoria pessoalmente?"}},
+        "managerq": {"kind": "answer", "task": "Скажите, что хотите поговорить с управляющим.", "branches": [{"phrase": "ph:bank.falo-com-o-gerente", "next": "managersay"}], "wrong": {"es": "Falar com o eco? Ele só repete.", "ru": "Поговорить с эхом? Оно только повторяет."}},
+        "managersay": {"kind": "say", "es": "O gerente sou eu, e estou à disposição. Mais alguma coisa? Um comprovante, talvez?", "ru": "Управляющий — я, и я к вашим услугам. Что-нибудь ещё? Может, квитанцию?", "next": "receipt"},
+        "receipt": {"kind": "answer", "task": "Попросите квитанцию.", "branches": [{"phrase": "ph:bank.o-comprovante", "next": "end"}], "wrong": {"es": "Um comprovante do eco? Não existe.", "ru": "Квитанцию от эха? Такой нет."}},
+        "end": {"kind": "say", "es": "Aqui está. E, junto com a moeda, veio isto: um fragmento do mapa do Labirinto. Creio que pertence ao senhor.", "ru": "Вот. А вместе с монетой пришло вот это: обрывок карты Лабиринта. Полагаю, он принадлежит вам.", "fem": {"es": "Aqui está. E, junto com a moeda, veio isto: um fragmento do mapa do Labirinto. Creio que pertence à senhora."}}
+      }
     }
   ]
 }

@@ -85,6 +85,29 @@
         "bill": {"kind": "answer", "task": "Спросите, можно ли разделить счёт.", "branches": [{"phrase": "ph:restaurant.dividir-a-conta", "next": "end"}], "wrong": {"es": "Dividir em oito? Você está sozinho!", "ru": "Разделить на восемь? Ты же один!", "fem": {"es": "Dividir em oito? Você está sozinha!", "ru": "Разделить на восемь? Ты же одна!"}}},
         "end": {"kind": "say", "es": "Você está sozinho, não tem o que dividir! Hoje é por minha conta. E leva esse fragmento do mapa: a Patrícia mandou ontem, com um bilhete. Ainda não abri.", "ru": "Ты же один, нечего делить! Сегодня я угощаю. И возьми этот обрывок карты: Патрисия прислала вчера, с запиской. Я ещё не открывала.", "fem": {"es": "Você está sozinha, não tem o que dividir! Hoje é por minha conta. E leva esse fragmento do mapa: a Patrícia mandou ontem, com um bilhete. Ainda não abri.", "ru": "Ты же одна, нечего делить! Сегодня я угощаю. И возьми этот обрывок карты: Патрисия прислала вчера, с запиской. Я ещё не открывала."}}
       }
+    },
+    {
+      "id": "ms:restaurant.5",
+      "chapter": 5,
+      "npc": "dita",
+      "scene": "sc:restaurant.5",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "Ele ainda está aí, na mesa cinco. Vai você falar com ele?", "ru": "Он всё ещё там, за пятым столиком. Пойдёшь поговоришь с ним?", "next": "tone"},
+        "tone": {"kind": "answer", "task": "Обратитесь к гостю в сером плаще. Он незнакомец — говорите официально.", "branches": [{"phrase": "ph:restaurant.o-senhor-deseja-pedir", "next": "tonesay"}, {"phrase": "ph:restaurant.vai-pedir-o-que", "next": "tonesay"}], "wrong": {"es": "Vai pagar a conta dele? Primeiro pergunta!", "ru": "Заплатишь за него? Сначала спроси!"}, "register": "formal", "tone": {"es": "«E aí»… «E aí»… — o eco devolve a sua voz com frieza, e o homem vira o rosto.", "ru": "«Ну что»… «Ну что»… — эхо холодно возвращает твой голос, и человек отворачивается."}},
+        "tonesay": {"kind": "say", "es": "Ele respondeu: «Uma sopa, por gentileza». Uma frase normal! Mas o pessoal das outras mesas está com medo dele.", "ru": "Он ответил: «Суп, будьте любезны». Нормальная фраза! Но люди за другими столиками его боятся.", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:restaurant.deixa-ele-em-paz", "next": "object", "move": "object"}, {"phrase": "ph:restaurant.melhor-chamar-a-policia", "next": "concede", "move": "concede"}, {"phrase": "ph:restaurant.sirva-uma-sopa", "next": "compromise", "move": "compromise"}], "wrong": {"es": "Cozinhar o eco? Não tem receita!", "ru": "Приготовить эхо? Рецепта нет!"}},
+        "object": {"kind": "say", "es": "Em paz… É verdade, ele só come e repete. Ninguém morre por causa de um eco.", "ru": "В покое… Правда, он только ест и повторяет. От эха никто не умирает.", "next": "dish"},
+        "concede": {"kind": "say", "es": "O delegado… Tá bom, vou ligar. Mas com educação, para ele não se assustar.", "ru": "Делегаду… Ладно, позвоню. Но вежливо, чтобы он не испугался.", "next": "dish"},
+        "compromise": {"kind": "say", "es": "Sopa por conta da casa. Ele sorriu! Faz cem anos que ninguém lhe dá nada, deve ser.", "ru": "Суп за счёт заведения. Он улыбнулся! Наверное, лет сто ему никто ничего не дарил.", "next": "dish"},
+        "dish": {"kind": "say", "es": "E você? Já comeu?", "ru": "А ты? Уже ел?", "next": "dishq", "fem": {"ru": "А ты? Уже ела?"}},
+        "dishq": {"kind": "answer", "task": "Спросите, какое блюдо дня.", "branches": [{"phrase": "ph:restaurant.o-prato-do-dia", "next": "dishsay"}], "wrong": {"es": "O prato do eco? Ele só repete!", "ru": "Блюдо эха? Оно только повторяет!"}},
+        "dishsay": {"kind": "say", "es": "Moqueca, como sempre. Quer pimenta?", "ru": "Мокека, как всегда. Перца хочешь?", "next": "pepper"},
+        "pepper": {"kind": "answer", "task": "Попросите без перца малагета.", "branches": [{"phrase": "ph:restaurant.sem-pimenta", "next": "peppersay"}], "wrong": {"es": "Muita pimenta? Depois o eco pega fogo!", "ru": "Много перца? Потом и эхо загорится!"}},
+        "peppersay": {"kind": "say", "es": "Sem pimenta. E a conta, a taxa você conhece.", "ru": "Без перца. А по счёту — про плату за обслуживание ты знаешь.", "next": "tax"},
+        "tax": {"kind": "answer", "task": "Спросите, включена ли плата за обслуживание.", "branches": [{"phrase": "ph:restaurant.a-taxa-de-servico", "next": "end"}], "wrong": {"es": "A taxa do eco? Ele não paga!", "ru": "Плата за эхо? Оно не платит!"}},
+        "end": {"kind": "say", "es": "Hoje não tem taxa. E olha: o homem de capa deixou isso debaixo do prato. Um fragmento do mapa e um bilhete: «Obrigado pela sopa e pelo tom».", "ru": "Сегодня без платы. И смотри: человек в плаще оставил это под тарелкой. Обрывок карты и записка: «Спасибо за суп и за тон»."}
+      }
     }
   ]
 }

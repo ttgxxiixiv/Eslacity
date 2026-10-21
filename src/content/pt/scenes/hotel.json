@@ -119,6 +119,32 @@
         {"q": "На чём сходятся?", "kind": "stance", "options": ["Поставка рано утром и кофе в подарок", "Ящики будут стоять всегда", "Они перестанут общаться"], "answer": 0}
       ],
       "gloss": {"fornecedor": "поставщик", "caixas": "ящики", "pousada": "пусада", "caminhão": "грузовик", "cabe": "помещается (caber)", "hóspedes": "гости", "tropeçam": "спотыкаются (tropeçar)", "mala": "чемодан", "buscar": "забрать", "carrinho": "тележка", "vira": "превращается (virar)", "prometo": "обещаю (prometer)", "promessa": "обещание", "madrugada": "раннее утро", "pacote": "пачка", "incômodo": "беспокойство", "Wellington": "Веллингтон", "Helena": "Элена", "tá": "ладно"}
+    },
+    {
+      "id": "sc:hotel.5",
+      "chapter": 5,
+      "npc": "helena",
+      "lines": [
+        {"who": "npc", "es": "Que bom que você chegou. Aconteceu uma coisa no quarto doze.", "ru": "Как хорошо, что ты пришёл. В двенадцатом номере кое-что случилось.", "fem": {"ru": "Как хорошо, что ты пришла. В двенадцатом номере кое-что случилось."}},
+        {"who": "npc", "es": "O Davi continua no quarto doze, como você pediu. E paga em dia, acredita?", "ru": "Дави так и живёт в двенадцатом номере, как ты просил. И платит вовремя, представляешь?", "fem": {"ru": "Дави так и живёт в двенадцатом номере, как ты просила. И платит вовремя, представляешь?"}, "if": {"flag": "room", "is": "room"}},
+        {"who": "npc", "es": "O Davi pagou o mês adiantado, como a gente combinou. E pagou o próximo também.", "ru": "Дави заплатил за месяц вперёд, как мы договорились. И за следующий тоже.", "if": {"flag": "room", "is": "prepaid"}},
+        {"who": "npc", "es": "O Davi trabalha à noite na recepção, como a gente combinou. Nunca dormiu no turno.", "ru": "Дави работает ночью на ресепшене, как мы договорились. Ни разу не уснул на смене.", "if": {"flag": "room", "is": "work"}},
+        {"who": "hero", "es": "E o que aconteceu no quarto?", "ru": "А что случилось в номере?"},
+        {"who": "npc", "es": "O Davi achou uma carta debaixo do chão. Uma carta de cem anos, de criança.", "ru": "Дави нашёл под полом письмо. Столетнее, детское."},
+        {"who": "hero", "es": "De criança? Para quem?", "ru": "Детское? Кому?"},
+        {"who": "npc", "es": "Para o pregoeiro. «Desculpa, pregoeiro. Eu ri de você na praça. Agora a gente te escuta». E a assinatura: Severino.", "ru": "Глашатаю. «Прости, глашатай. Я смеялся над тобой на площади. Теперь мы тебя слышим». И подпись: Северину."},
+        {"who": "hero", "es": "O Severino era um dos meninos que riam dele?", "ru": "Северину был одним из мальчишек, которые над ним смеялись?"},
+        {"who": "npc", "es": "Era. Ele escreveu a carta e nunca teve coragem de entregar. O pregoeiro morava no quarto doze.", "ru": "Был. Он написал письмо и так и не решился его отдать. Глашатай жил в двенадцатом номере."},
+        {"who": "hero", "es": "E o Severino já sabe que a carta apareceu?", "ru": "А Северину уже знает, что письмо нашлось?"},
+        {"who": "npc", "es": "Sabe. Está lá embaixo, na recepção, tremendo de vergonha. Ele não quer ir ao Labirinto.", "ru": "Знает. Сидит внизу, на ресепшене, дрожит от стыда. Он не хочет идти в Лабиринт."}
+      ],
+      "questions": [
+        {"q": "Что Дави нашёл в номере?", "options": ["Столетнее детское письмо", "Ключ", "Деньги"], "answer": 0},
+        {"q": "Кто написал письмо?", "options": ["Северину", "Дави", "Глашатай"], "answer": 0},
+        {"q": "Кто жил в двенадцатом номере сто лет назад?", "options": ["Глашатай", "Дона Элена", "Каю"], "answer": 0},
+        {"q": "Почему Северину не хочет идти в Лабиринт?", "options": ["Ему стыдно", "Он болен", "Он занят"], "answer": 0}
+      ],
+      "gloss": {"continua": "продолжает (continuar)", "Davi": "Дави", "adiantado": "вперёд", "combinou": "договорились (combinar)", "recepção": "ресепшен", "turno": "смена", "criança": "ребёнок", "pregoeiro": "глашатай", "ri": "смеялся (rir)", "escuta": "слышим (escutar)", "assinatura": "подпись", "meninos": "мальчишки", "riam": "смеялись (rir)", "coragem": "смелость", "entregar": "отдать", "morava": "жил (morar)", "apareceu": "нашлось (aparecer)", "embaixo": "внизу", "tremendo": "дрожа (tremer)", "vergonha": "стыд", "Labirinto": "Лабиринт"}
     }
   ]
 }

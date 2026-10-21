@@ -85,6 +85,29 @@
         "insure": {"kind": "answer", "task": "Спросите, можно ли отправить со страховкой.", "branches": [{"phrase": "ph:post.com-seguro", "next": "end"}], "wrong": {"es": "Mandar sem nada? Depois some!", "ru": "Отправить просто так? Потом пропадёт!"}},
         "end": {"kind": "say", "es": "Pode, com seguro. E toma: uma das cartas tinha isso dentro. Um fragmento do mapa da floresta. Esse não é anônimo: atrás tem um «S».", "ru": "Можно, со страховкой. И держи: в одном из писем было вот это. Обрывок карты леса. Он не анонимный: на обороте буква «S»."}
       }
+    },
+    {
+      "id": "ms:post.5",
+      "chapter": 5,
+      "npc": "edson",
+      "scene": "sc:post.5",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "A chefe está na sala dela. Fala você, que comigo ela sempre briga.", "ru": "Начальница у себя в кабинете. Говори ты, со мной она вечно ругается.", "next": "tone"},
+        "tone": {"kind": "answer", "task": "Попросите у начальницы почты разрешения — официально.", "branches": [{"phrase": "ph:post.solicito-autorizacao", "next": "tonesay"}, {"phrase": "ph:post.deixa-eu-levar", "next": "tonesay"}], "wrong": {"es": "Mandar a chefe pelo correio? Melhor não!", "ru": "Отправить начальницу почтой? Лучше не надо!"}, "register": "formal", "tone": {"es": "«Deixa eu levar, vai»? A chefe tira os óculos devagar. — Como disse?", "ru": "«Дай отвезти, ну»? Начальница медленно снимает очки. — Простите, что?"}},
+        "tonesay": {"kind": "say", "es": "Ela pensou e disse: «Uma carta de cem anos é patrimônio. O que fazemos com a original?».", "ru": "Она подумала и сказала: «Столетнее письмо — это достояние. Что делать с оригиналом?».", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:post.a-carta-tem-que-chegar", "next": "object", "move": "object"}, {"phrase": "ph:post.deixa-no-arquivo", "next": "concede", "move": "concede"}, {"phrase": "ph:post.uma-copia", "next": "compromise", "move": "compromise"}], "wrong": {"es": "Arquivar o eco? Ele não cabe na pasta!", "ru": "Подшить эхо в архив? Оно в папку не влезет!"}},
+        "object": {"kind": "say", "es": "Tem que chegar! A chefe sorriu: «Então leve com seguro e traga o recibo».", "ru": "Должно дойти! Начальница улыбнулась: «Тогда везите со страховкой и привезите расписку».", "next": "insure"},
+        "concede": {"kind": "say", "es": "No arquivo… Ela concordou. Mas eu copio as palavras num papel novo e levo.", "ru": "В архив… Она согласилась. Но я перепишу слова на новую бумагу и отвезу.", "next": "insure"},
+        "compromise": {"kind": "say", "es": "Uma cópia e a original no arquivo. A chefe disse: «Excelente solução». Ela nunca disse isso!", "ru": "Копию — с собой, оригинал — в архив. Начальница сказала: «Превосходное решение». Она такого никогда не говорила!", "next": "insure"},
+        "insure": {"kind": "say", "es": "Pronto. Agora preciso mandar isso direito.", "ru": "Готово. Теперь надо отправить как следует.", "next": "insureq"},
+        "insureq": {"kind": "answer", "task": "Спросите, можно ли отправить со страховкой.", "branches": [{"phrase": "ph:post.com-seguro", "next": "insuresay"}], "wrong": {"es": "Mandar sem nada? Depois some!", "ru": "Отправить просто так? Потом пропадёт!"}},
+        "insuresay": {"kind": "say", "es": "Com seguro. E quem é o remetente? Tem que escrever.", "ru": "Со страховкой. А кто отправитель? Надо написать.", "next": "sender"},
+        "sender": {"kind": "answer", "task": "Спросите, кто отправитель.", "branches": [{"phrase": "ph:post.quem-e-o-remetente", "next": "sendersay"}], "wrong": {"es": "Quem é o carteiro? Sou eu!", "ru": "Кто почтальон? Я!"}},
+        "sendersay": {"kind": "say", "es": "«As crianças da escola, cem anos depois». Bonito, né? E vai registrada.", "ru": "«Школьники, сто лет спустя». Красиво, да? И отправим заказным.", "next": "reg"},
+        "reg": {"kind": "answer", "task": "Скажите, что хотите отправить заказное письмо.", "branches": [{"phrase": "ph:post.carta-registrada", "next": "end"}], "wrong": {"es": "Uma carta de areia? Não!", "ru": "Письмо из песка? Нет!"}},
+        "end": {"kind": "say", "es": "Registrada. E dentro do envelope antigo tinha mais uma coisa: um fragmento do mapa do Labirinto. As crianças desenharam o caminho até ele.", "ru": "Заказным. А в старом конверте было ещё кое-что: обрывок карты Лабиринта. Дети нарисовали к нему дорогу."}
+      }
     }
   ]
 }

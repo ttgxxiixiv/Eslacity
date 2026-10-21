@@ -88,6 +88,29 @@
         "exam": {"kind": "answer", "task": "Спросите, готов ли результат анализа.", "branches": [{"phrase": "ph:hospital.o-resultado-do-exame", "next": "end"}], "wrong": {"es": "Já saiu o trem? Isso é na estação!", "ru": "Поезд уже ушёл? Это на вокзале!"}},
         "end": {"kind": "say", "es": "Saiu: o pé do Caio está curado. Ele vai com você até a orla. E o Severino pediu para te dar isso: um fragmento do mapa, o último que ele guardava na torre.", "ru": "Готов: нога Каю зажила. Он пойдёт с тобой до опушки. А Северину просил передать тебе это: обрывок карты, последний, что он хранил в башне."}
       }
+    },
+    {
+      "id": "ms:hospital.5",
+      "chapter": 5,
+      "npc": "fernanda",
+      "scene": "sc:hospital.5",
+      "start": "hi",
+      "nodes": {
+        "hi": {"kind": "say", "es": "O Pedrinho está no quarto três, debaixo do cobertor. Fala com ele com carinho, como irmão mais velho.", "ru": "Педринью в третьей палате, под одеялом. Поговори с ним ласково, как старший брат.", "next": "tone", "fem": {"es": "O Pedrinho está no quarto três, debaixo do cobertor. Fala com ele com carinho, como irmã mais velha.", "ru": "Педринью в третьей палате, под одеялом. Поговори с ним ласково, как старшая сестра."}},
+        "tone": {"kind": "answer", "task": "Заговорите с Педринью — мягко, по-свойски.", "branches": [{"phrase": "ph:hospital.fala-comigo-pedrinho", "next": "tonesay"}, {"phrase": "ph:hospital.prezado-jovem", "next": "tonesay"}], "wrong": {"es": "Operar a voz? Não é assim que funciona!", "ru": "Оперировать голос? Так это не работает!"}, "register": "informal", "tone": {"es": "«Prezado jovem, queira nos dizer alguma coisa»? O Pedrinho puxa o cobertor por cima da cabeça.", "ru": "«Уважаемый юноша, будьте любезны что-нибудь нам сказать»? Педринью натягивает одеяло на голову."}},
+        "tonesay": {"kind": "say", "es": "Ele disse «oi»! Baixinho, mas disse! Agora ele quer ir com você ao Labirinto. Eu não sei…", "ru": "Он сказал «привет»! Тихо, но сказал! Теперь он хочет пойти с тобой в Лабиринт. Не знаю…", "next": "dispute"},
+        "dispute": {"kind": "answer", "task": "Возразите, уступите или предложите компромисс.", "branches": [{"phrase": "ph:hospital.ele-vai-com-a-gente", "next": "object", "move": "object"}, {"phrase": "ph:hospital.ele-fica-descansando", "next": "concede", "move": "concede"}, {"phrase": "ph:hospital.uma-carta-dele", "next": "compromise", "move": "compromise"}], "wrong": {"es": "Dar injeção no eco? Ele não tem braço!", "ru": "Сделать эху укол? У него нет руки!"}},
+        "object": {"kind": "say", "es": "Com vocês… Talvez ele precise ouvir a resposta com os próprios ouvidos. Eu deixo.", "ru": "С вами… Может, ему нужно услышать ответ своими ушами. Отпущу.", "next": "home"},
+        "concede": {"kind": "say", "es": "Aqui, descansando. Eu fico com ele e ligo o rádio na hora da resposta.", "ru": "Здесь, отдыхать. Я посижу с ним и включу радио, когда будут отвечать.", "next": "home"},
+        "compromise": {"kind": "say", "es": "Uma carta! Ele já começou a escrever, com letra grande: «Eu também escuto».", "ru": "Письмо! Он уже начал писать крупными буквами: «Я тоже слышу».", "next": "home"},
+        "home": {"kind": "say", "es": "A mãe dele chegou e me olha com cara de pergunta.", "ru": "Пришла его мама и смотрит на меня с вопросом в глазах.", "next": "homeq"},
+        "homeq": {"kind": "answer", "task": "Спросите, когда он сможет пойти домой.", "branches": [{"phrase": "ph:hospital.quando-posso-ir-para-casa", "next": "homesay"}], "wrong": {"es": "Quando o eco vai para casa? Ele não tem casa!", "ru": "Когда эхо пойдёт домой? У него нет дома!"}},
+        "homesay": {"kind": "say", "es": "Quando a voz voltar inteira. Pode ser amanhã, pode ser em um mês. Você parece nervoso.", "ru": "Когда голос вернётся целиком. Может, завтра, может, через месяц. Ты, кажется, нервничаешь.", "next": "worry", "fem": {"es": "Quando a voz voltar inteira. Pode ser amanhã, pode ser em um mês. Você parece nervosa."}},
+        "worry": {"kind": "answer", "task": "Скажите, что беспокоитесь за него.", "branches": [{"phrase": "ph:hospital.estou-preocupado", "next": "worrysay"}], "wrong": {"es": "Preocupado com o cobertor? Ele está limpo!", "ru": "Беспокоишься за одеяло? Оно чистое!", "fem": {"es": "Preocupada com o cobertor? Ele está limpo!"}}},
+        "worrysay": {"kind": "say", "es": "Eu também. Mas olha: ele está te ouvindo. Diz alguma coisa para ele.", "ru": "Я тоже. Но смотри: он тебя слушает. Скажи ему что-нибудь.", "next": "calm"},
+        "calm": {"kind": "answer", "task": "Успокойте Педринью: всё будет хорошо.", "branches": [{"phrase": "ph:hospital.fica-tranquilo", "next": "end"}], "wrong": {"es": "Grita mais alto? Não, assim ele se assusta!", "ru": "Кричать громче? Нет, так он испугается!"}},
+        "end": {"kind": "say", "es": "Ele sorriu. E tirou isso de baixo do travesseiro: um fragmento do mapa do Labirinto. Achou no pátio da escola.", "ru": "Он улыбнулся. И достал из-под подушки вот это: обрывок карты Лабиринта. Нашёл во дворе школы."}
+      }
     }
   ]
 }
