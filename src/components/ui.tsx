@@ -53,7 +53,7 @@ export function SpeakButton({ text, className = '', size = 'md' }: { text: strin
 export function TopBar({ title, back = true, right }: { title?: ReactNode; back?: boolean; right?: ReactNode }) {
   const nav = useNavigate();
   return (
-    <header className="sticky top-0 z-10 flex h-14 items-center gap-2 border-b-2 border-stone-300 bg-stone-50/95 px-2">
+    <header className="sticky top-[var(--safe-top)] z-10 flex h-14 items-center gap-2 border-b-2 border-stone-300 bg-stone-50/95 px-2">
       {back && (
         <button type="button" aria-label="Назад" onClick={() => nav(-1)} className="press h-10 w-10 rounded-full text-xl">
           ←

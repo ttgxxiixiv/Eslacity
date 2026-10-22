@@ -12,14 +12,12 @@ export const APK_FILE = 'eslacity.apk';
 export const APK_URL = SITE + APK_FILE;
 
 /**
- * Настройка приложения для Android при запуске. Страница без `viewport-fit=cover`: тогда WebView сам отступает от
- * строки состояния и навигации, и шапка экранов не уходит под часы. Системная кнопка «Назад» листает экраны
- * игры назад, а на главной сворачивает приложение.
+ * Настройка приложения для Android при запуске. Строка состояния и навигация спрятаны (`MainActivity.java`),
+ * от выреза камеры страница отступает сама (`--safe-top` в `src/index.css`). Системная кнопка «Назад» листает
+ * экраны игры назад, а на главной сворачивает приложение.
  */
 export function initNative() {
   if (!NATIVE) return;
-  const meta = document.querySelector('meta[name="viewport"]');
-  meta?.setAttribute('content', (meta.getAttribute('content') ?? '').replace(/,?\s*viewport-fit=cover/, ''));
   void App.addListener('backButton', () => {
     const atHome = location.hash === '' || location.hash === '#/' || location.hash === '#';
     if (atHome) void App.minimizeApp();

@@ -9,8 +9,9 @@ const config: CapacitorConfig = {
   appName: 'Eslacity',
   webDir: 'dist',
   plugins: {
-    // Страница без viewport-fit=cover: WebView получает отступы от строки состояния и навигации, шапка не уходит под часы.
-    SystemBars: { insetsHandling: 'native' },
+    // Строка состояния и навигация спрятаны (MainActivity), страница всегда с viewport-fit=cover: отступ от выреза
+    // камеры она берёт из env(safe-area-inset-top). Подсказка `cover` — чтобы WebView не перекладывал вёрстку при запуске.
+    SystemBars: { insetsHandling: 'native', initialViewportFitValueHint: 'cover' },
     // Напоминания (задача 10.4): белый силуэт медальона в строке состояния (`scripts/build-icons.py`), цвет — золото.
     LocalNotifications: { smallIcon: 'ic_stat_eslacity', iconColor: '#d4a017' },
   },

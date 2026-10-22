@@ -90,7 +90,7 @@ export function LevelUpToast() {
   }, [levelUp]);
   if (levelUp === null) return null;
   return (
-    <div className="pointer-events-none fixed inset-x-0 top-3 z-30 flex justify-center px-4" role="status" aria-live="polite">
+    <div className="pointer-events-none fixed inset-x-0 top-[calc(0.75rem+var(--safe-top))] z-30 flex justify-center px-4" role="status" aria-live="polite">
       <div className="level-up rounded-xl border-2 border-gold bg-wood px-5 py-3 text-center text-stone-50 shadow-xl">
         <div className="font-pixel text-xs tracking-widest text-gold uppercase">Новый уровень</div>
         <div className="text-2xl font-bold">⭐ {levelUp}</div>

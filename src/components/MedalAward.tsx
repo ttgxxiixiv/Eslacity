@@ -25,7 +25,7 @@ export function MedalAward() {
   const tier = award.kind === 'line' ? award.tier : 'gold';
   const color = award.kind === 'line' ? TIER_INFO[award.tier].color : '#e0b43c';
   return (
-    <div className="pointer-events-none fixed inset-x-0 top-3 z-30 flex justify-center px-4" role="status" aria-live="polite">
+    <div className="pointer-events-none fixed inset-x-0 top-[calc(0.75rem+var(--safe-top))] z-30 flex justify-center px-4" role="status" aria-live="polite">
       {tier === 'diamond' && <div className="medal-flash fixed inset-0" aria-hidden />}
       <div
         key={award.kind === 'line' ? `${award.line.id}.${award.tier}` : award.secret.id}

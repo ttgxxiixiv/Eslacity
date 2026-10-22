@@ -76,16 +76,28 @@
   --nav-h: min(calc(min(100vw, 28rem) * 443 / 1536), 14vh);
   /* Сколько места оставить под меню внизу экрана с вкладками. */
   --nav-space: calc(var(--nav-h) + env(safe-area-inset-bottom));
+  /*
+   * Вырез камеры сверху (приложение для Android на весь экран, сайт на iPhone): страница начинается ниже него.
+   * Без выреза и в обычном браузере — 0.
+   */
+  --safe-top: env(safe-area-inset-top, 0px);
 }
 
 html {
   background: #e9d8ab;
 }
 
+/* Экраны во всю высоту — без полосы под вырезом камеры, иначе страница прокручивалась бы на её высоту. */
+.min-h-dvh {
+  min-height: calc(100dvh - var(--safe-top));
+}
+
 body {
   /* Пергамент: светлый центр, потемнее к краям. */
   background: radial-gradient(ellipse at 50% 30%, #f6ecd0 0%, #ecdcb3 60%, #dcc58f 100%) #e9d8ab;
   min-height: 100dvh;
+  box-sizing: border-box;
+  padding-top: var(--safe-top);
   color: #261d13;
   overscroll-behavior-y: none;
   /* Длинное слово («неплатёжеспособность» крупным шрифтом) переносится, а не раздвигает экран вбок. */
