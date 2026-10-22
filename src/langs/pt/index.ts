@@ -32,7 +32,7 @@ function mergeIssues(text: string): string[] {
  */
 export const PT: LangProfile = {
   id: 'pt',
-  released: false,
+  released: true,
   name: 'Португальский',
   variety: 'Португальский курс — бразильский вариант: você и o senhor, «ônibus», «trem», «celular».',
   flag: '🇧🇷',

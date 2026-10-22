@@ -10,8 +10,8 @@ test('переключение языка сохраняет прогресс к
   await expect(page.getByText('всего 500 XP')).toBeVisible();
 
   await page.goto('./#/settings/language');
-  // С 2.185.0 открыт английский, с 2.208.0 — турецкий: в выборе четыре языка.
-  await expect(page.getByRole('button', { name: /испанский|итальянский|английский|турецкий/i })).toHaveCount(4);
+  // С 2.185.0 открыт английский, с 2.208.0 — турецкий, с 2.231.0 — португальский: в выборе пять языков.
+  await expect(page.getByRole('button', { name: /испанский|итальянский|английский|турецкий|португальский/i })).toHaveCount(5);
   await Promise.all([page.waitForEvent('load'), page.getByRole('button', { name: /итальянский/i }).click()]);
   // Новый курс начинается с пролога.
   await skipPrologue(page);
@@ -35,6 +35,14 @@ test('переключение языка сохраняет прогресс к
   await page.goto('./#/profile');
   await expect(page.getByText('всего 0 XP')).toBeVisible();
 
+  // Португальский (Бразилия) — тоже свой курс.
+  await page.goto('./#/settings/language');
+  await Promise.all([page.waitForEvent('load'), page.getByRole('button', { name: /португальский/i }).click()]);
+  await skipPrologue(page);
+  expect(await page.evaluate(() => localStorage.getItem('eslacity.lang'))).toBe('pt');
+  await page.goto('./#/profile');
+  await expect(page.getByText('всего 0 XP')).toBeVisible();
+
   await page.goto('./#/settings/language');
   await Promise.all([page.waitForEvent('load'), page.getByRole('button', { name: /испанский/i }).click()]);
   await expect(page.getByTestId('continue')).toBeVisible();
@@ -52,9 +60,9 @@ test('меню языка у медальона: список открытых �
   const menu = page.getByTestId('lang-menu');
   await expect(menu).toBeVisible();
   const options = menu.getByTestId('lang-option');
-  await expect(options).toHaveCount(4);
+  await expect(options).toHaveCount(5);
   await expect(options.filter({ hasText: 'Испанский' })).toHaveAttribute('aria-checked', 'true');
-  for (const [lang, name] of [['it', 'Итальянский'], ['en', 'Английский'], ['tr', 'Турецкий']]) {
+  for (const [lang, name] of [['it', 'Итальянский'], ['en', 'Английский'], ['tr', 'Турецкий'], ['pt', 'Португальский']]) {
     await expect(menu.locator(`[data-lang=${lang}]`)).toContainText(name);
     await expect(menu.locator(`[data-lang=${lang}] img`)).toHaveAttribute('src', new RegExp(`eye-${lang}`));
   }
