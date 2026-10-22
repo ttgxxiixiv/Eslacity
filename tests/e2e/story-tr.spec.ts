@@ -17,6 +17,8 @@ const files = (dir: string) => readdirSync(join(CONTENT, dir)).filter((f) => f.e
 const read = (dir: string, f: string) => JSON.parse(readFileSync(join(CONTENT, dir, f), 'utf8'));
 const allScenes = files('scenes').flatMap((f) => read('scenes', f).scenes as SceneData[]);
 const scenes = allScenes.filter((sc) => sc.mode !== 'overhear');
+const chapterOf = (id: string) => Number(id.slice(id.lastIndexOf('.') + 1));
+
 const whispers = allScenes.filter((sc) => sc.mode === 'overhear');
 const missions = files('missions').flatMap((f) => (read('missions', f).missions as { id: string; nodes: Record<string, Node> }[]).map((m) => ({ ...m, place: f.replace(/\.json$/, '') })));
 const phrases = new Map<string, string>(files('phrases').flatMap((f) => (read('phrases', f).phrases as { id: string; es: string }[]).map((p) => [p.id, phraseFull(p.es)])));
@@ -58,17 +60,26 @@ async function playMission(page: Page, id: string, pick: Record<string, number> 
   await expect(page.getByTestId('mission-result'), id).toContainText(`Верных ответов: ${answers.length} из ${answers.length} (100%)`);
 }
 
-test('tr: все сцены контента — реплики по порядку и все ответы верные', { tag: ['@content', '@tr'] }, async ({ page }) => {
-  test.setTimeout(360_000);
-  await openCourse(page, 'tr');
-  for (const sc of scenes) await playScene(page, sc);
-});
+// Обход по главам (задача 20.6): пять тестов вместо одного расходятся по шардам CI.
+for (const chapter of [1, 2, 3, 4, 5]) {
+  test(`tr: все сцены главы ${chapter} — реплики по порядку и все ответы верные`, { tag: ['@content', '@tr'] }, async ({ page }) => {
+    test.setTimeout(240_000);
+    await openCourse(page, 'tr');
+    const part = scenes.filter((sc) => chapterOf(sc.id) === chapter);
+    expect(part.length).toBeGreaterThan(0);
+    for (const sc of part) await playScene(page, sc);
+  });
+}
 
-test('tr: все миссии контента проходятся выбором без ошибок', { tag: ['@content', '@tr'] }, async ({ page }) => {
-  test.setTimeout(600_000);
-  await openCourse(page, 'tr');
-  for (const m of missions) await playMission(page, m.id);
-});
+for (const chapter of [1, 2, 3, 4, 5]) {
+  test(`tr: все миссии главы ${chapter} проходятся выбором без ошибок`, { tag: ['@content', '@tr'] }, async ({ page }) => {
+    test.setTimeout(360_000);
+    await openCourse(page, 'tr');
+    const part = missions.filter((m) => chapterOf(m.id) === chapter);
+    expect(part.length).toBeGreaterThan(0);
+    for (const m of part) await playMission(page, m.id);
+  });
+}
 
 test('tr: развилка чайной — Хасан-уста помнит, что герой пил кофе', async ({ page }) => {
   await openCourse(page, 'tr');

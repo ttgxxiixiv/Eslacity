@@ -53,14 +53,18 @@ for (const lang of LANGS) {
       await expect(page).toHaveURL(/#\/loc\/cafe$/);
     });
 
-    test('все сцены контента: реплики по порядку и все ответы верные', { tag: ['@content', `@${lang}`] }, async ({ page }) => {
+    // Обход по главам (задача 20.6): пять тестов вместо одного расходятся по шардам CI.
+    for (const chapter of [1, 2, 3, 4, 5]) {
+    test(`все сцены главы ${chapter}: реплики по порядку и все ответы верные`, { tag: ['@content', `@${lang}`] }, async ({ page }) => {
       test.setTimeout(240_000);
       await openApp(page, lang);
       const all = readdirSync(join(CONTENT, lang, 'scenes'))
         .filter((f) => f.endsWith('.json'))
         .flatMap((f) => JSON.parse(readFileSync(join(CONTENT, lang, 'scenes', f), 'utf8')).scenes as (typeof scene & { id: string; mode?: string })[])
         // Шёпоты проходятся по-своему: whispers.spec.ts.
-        .filter((sc) => sc.mode !== 'overhear');
+        .filter((sc) => sc.mode !== 'overhear')
+        .filter((sc) => Number(sc.id.slice(sc.id.lastIndexOf('.') + 1)) === chapter);
+      expect(all.length).toBeGreaterThan(0);
       for (const sc of all) {
         const place = sc.id;
         await page.goto(`./#/scene/${encodeURIComponent(sc.id)}`);
@@ -78,5 +82,6 @@ for (const lang of LANGS) {
         await expect(page.getByTestId('scene-result'), place).toContainText(`Понято: ${sc.questions.length} из ${sc.questions.length}`);
       }
     });
+    }
   });
 }

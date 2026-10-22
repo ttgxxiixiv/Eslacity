@@ -72,19 +72,23 @@ for (const lang of LANGS) {
       await expect(page.getByTestId('mission-link')).toContainText('✓ выполнена');
     });
 
-    test('все миссии контента проходятся выбором без ошибок', { tag: ['@content', `@${lang}`] }, async ({ page }) => {
-      // Сто миссий (пять глав по двадцать мест) идут около четырёх минут.
-      test.setTimeout(360_000);
+    // Обход по главам (задача 20.6): пять тестов вместо одного расходятся по шардам CI.
+    for (const chapter of [1, 2, 3, 4, 5]) {
+    test(`все миссии главы ${chapter} проходятся выбором без ошибок`, { tag: ['@content', `@${lang}`] }, async ({ page }) => {
+      test.setTimeout(240_000);
       await openApp(page, lang);
-      for (const { place, id } of allMissions(lang)) {
+      const part = allMissions(lang).filter((m) => Number(m.id.slice(m.id.lastIndexOf('.') + 1)) === chapter);
+      expect(part.length).toBeGreaterThan(0);
+      for (const { place, id } of part) {
         await page.goto(`./#/mission/${encodeURIComponent(id)}`);
         await playMission(page, lang, [], place, id);
         const { answers } = missionData(lang, place, id);
         await expect(page.getByTestId('mission-result'), id).toContainText(`Верных ответов: ${answers.length} из ${answers.length} (100%)`);
       }
       const done = Object.keys((await readMeta<Record<string, unknown>>(page, lang, 'missions')) ?? {}).sort();
-      expect(done).toEqual(allMissions(lang).map((m) => m.id).sort());
+      expect(done).toEqual(part.map((m) => m.id).sort());
     });
+    }
 
     test('глава II открыта: в кафе две миссии, миссия главы II ждёт отношений «Приятель»', async ({ page }) => {
       await openApp(page, lang);
