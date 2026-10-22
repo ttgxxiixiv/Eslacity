@@ -1,3 +1,5 @@
+import { LANG } from '../lang';
+import { COURSE_OFFLINE_TEXT, courseReady, useCourse } from '../lib/course';
 import { useUpdate } from '../lib/update';
 
 /** Плашка над нижним меню, когда на сайте есть новая версия. */
@@ -26,6 +28,17 @@ export function UpdateBanner() {
           {status === 'failed' ? 'Ещё раз' : 'Обновить'}
         </button>
       </div>
+    </div>
+  );
+}
+
+/** Плашка над нижним меню, когда курс скачан не целиком, а сети нет (задача 20.4): часть мест может не открыться. */
+export function CourseBanner() {
+  const state = useCourse((s) => s.state);
+  if (state !== 'offline' || courseReady(LANG)) return null;
+  return (
+    <div className="fixed inset-x-0 bottom-[var(--nav-space)] z-10 mx-auto max-w-md px-3 pb-2" data-testid="course-offline">
+      <div className="dialog-box rounded-xl px-4 py-3 text-sm">{COURSE_OFFLINE_TEXT} Пока без сети откроется только то, где вы уже были.</div>
     </div>
   );
 }

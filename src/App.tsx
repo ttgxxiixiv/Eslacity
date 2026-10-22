@@ -11,7 +11,7 @@ import { LearnScreen } from './screens/Learn';
 import { PhraseLessonScreen } from './screens/PhraseLesson';
 import { useMotivation } from './store/motivation';
 import { ErrorBoundary } from './components/ErrorBoundary';
-import { UpdateBanner } from './components/UpdateBanner';
+import { CourseBanner, UpdateBanner } from './components/UpdateBanner';
 import { NavBar } from './components/NavBar';
 import { LevelUpToast } from './components/HeroLevel';
 import { MedalAward } from './components/MedalAward';
@@ -93,6 +93,7 @@ function TabLayout() {
         </Suspense>
       </div>
       <UpdateBanner />
+      <CourseBanner />
       <NavBar />
       {/* Сцена новой главы — на экранах с меню, после итогов урока, а не поверх него. */}
       <ChapterScene />

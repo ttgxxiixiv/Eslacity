@@ -12,7 +12,7 @@ for (const lang of LANGS) {
       // Слова аэропорта ещё не грузились (здание закрыто): задерживаем их чанк.
       let release!: () => void;
       const held = new Promise<void>((r) => (release = r));
-      await page.route(/\/assets\/airport-[^/]+\.js$/, async (route) => {
+      await page.route(/\/assets\/(?:[a-z]{2}\/)?airport-[^/]+\.js$/, async (route) => {
         await held;
         await route.continue();
       });
@@ -54,7 +54,8 @@ test('главный чанк меньше 350 КБ, экраны и индек�
   const code = readFileSync(join(assets, main), 'utf8');
   expect(code).not.toContain('Карта города на главной теперь в той же рамке');
   expect(files.some((f) => /^changelog-.*\.js$/.test(f))).toBe(true);
-  expect(files.filter((f) => /^(es|it)-.*\.js$/.test(f))).toHaveLength(2);
+  // Индекс слов — свой чанк на язык, в папке курса (задача 20.4).
+  for (const lang of ['es', 'it']) expect(readdirSync(join(assets, lang)).filter((f) => f.startsWith(`${lang}-`) && f.endsWith('.js'))).toHaveLength(1);
 });
 
 /** Входной чанк и все, что `index.html` грузит заранее (`modulepreload`): то, что браузер скачивает при запуске. */
@@ -82,6 +83,6 @@ test('при запуске грузится не больше 1000 КБ JS, т�
     ];
     for (const text of texts) expect(code.includes(JSON.stringify(text).slice(1, -1)), `${lang}: ${text}`).toBe(false);
   }
-  const assets = readdirSync(join(import.meta.dirname, '..', '..', 'dist', 'assets'));
-  expect(assets.filter((f) => /^core-(es|it|en|tr|pt)-.*\.js$/.test(f))).toHaveLength(5);
+  const assets = join(import.meta.dirname, '..', '..', 'dist', 'assets');
+  for (const lang of ['es', 'it', 'en', 'tr', 'pt']) expect(readdirSync(join(assets, lang)).filter((f) => /^core-.*\.js$/.test(f)), lang).toHaveLength(1);
 });

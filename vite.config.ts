@@ -10,6 +10,7 @@ import { CHAPTERS } from './src/content/vocabPlan';
 import { buildSayIndex, sayRecords } from './src/domain/say';
 import { APP_NAME, appDescription } from './src/appInfo';
 import { PROFILES } from './src/langs';
+import { courseCacheName, courseListPath, courseStamp, type CourseList } from './src/domain/course';
 
 // Данные о сборке: показываются в настройках и лежат в version.json для проверки обновлений.
 const pkg = JSON.parse(readFileSync(new URL('./package.json', import.meta.url), 'utf8')) as { version: string };
@@ -29,6 +30,23 @@ const APP_DESCRIPTION = appDescription(Object.values(PROFILES).filter((p) => p.r
 // Индекс уроков грамматики для карты: только язык, id, район, номер и название.
 // Сами уроки грузятся лениво, по чанку на язык и район.
 const CONTENT_DIR = join(import.meta.dirname, 'src', 'content');
+const LANG_KEYS = Object.keys(PROFILES);
+
+/**
+ * Язык модуля сборки (задача 20.4): контент `src/content/<язык>/`, портреты `src/assets/portraits/<язык>/`,
+ * индекс слов `virtual:word-index/<язык>`. Остальное общее.
+ */
+function langOfModule(id: string): string | null {
+  const m = id.replace(/\\/g, '/').match(/\/src\/(?:content|assets\/portraits)\/([^/]+)\/|^\0virtual:word-index\/([^/?]+)$/);
+  const lang = m?.[1] ?? m?.[2];
+  return lang && LANG_KEYS.includes(lang) ? lang : null;
+}
+
+/** Язык чанка: все его модули одного языка. Такой чанк кладётся в `assets/<язык>/` и не входит в precache. */
+function langOfChunk(ids: string[]): string | null {
+  const langs = new Set(ids.map(langOfModule));
+  return langs.size === 1 ? [...langs][0] : null;
+}
 const grammarDirs = () =>
   readdirSync(CONTENT_DIR, { withFileTypes: true })
     .filter((e) => e.isDirectory() && existsSync(join(CONTENT_DIR, e.name, 'grammar')))
@@ -193,6 +211,16 @@ export default defineConfig({
   build: {
     rolldownOptions: {
       output: {
+        // Контент языков — в своих папках (задача 20.4): `assets/<язык>/…`, кэш курса качается отдельно от оболочки.
+        chunkFileNames: (chunk) => {
+          // Заглушка динамического импорта модуля из группы (`core-<язык>`, уроки района) своих модулей не имеет.
+          const lang = langOfChunk(chunk.moduleIds.length ? chunk.moduleIds : [chunk.facadeModuleId ?? '']);
+          return lang ? `assets/${lang}/[name]-[hash].js` : 'assets/[name]-[hash].js';
+        },
+        assetFileNames: (asset) => {
+          const lang = langOfChunk(asset.originalFileNames.map((f) => `/${f}`));
+          return lang && asset.originalFileNames.length ? `assets/${lang}/[name]-[hash][extname]` : 'assets/[name]-[hash][extname]';
+        },
         // Зависимости меняются реже кода приложения: отдельный чанк лучше кэшируется.
         codeSplitting: {
           groups: [
@@ -291,6 +319,24 @@ export default defineConfig({
       },
     },
     {
+      // Списки файлов курсов (задача 20.4): `course/<язык>-<метка>.json`, по ним страница и service worker
+      // докачивают курс в его кэш. Сборка печатает размер каждого курса рядом с размером precache (оболочки).
+      name: 'course-files',
+      generateBundle(_, bundle) {
+        const stamp = courseStamp(BUILD.builtAt);
+        const lines: string[] = [];
+        for (const lang of LANG_KEYS) {
+          const files = Object.values(bundle).filter((f) => f.fileName.startsWith(`assets/${lang}/`));
+          if (!files.length) continue;
+          const bytes = files.reduce((n, f) => n + (f.type === 'chunk' ? Buffer.byteLength(f.code) : typeof f.source === 'string' ? Buffer.byteLength(f.source) : f.source.byteLength), 0);
+          const list: CourseList = { lang, stamp, files: files.map((f) => f.fileName).sort(), bytes };
+          this.emitFile({ type: 'asset', fileName: courseListPath(lang, stamp), source: JSON.stringify(list) });
+          lines.push(`  ${lang}: ${files.length} файлов, ${(bytes / 1024).toFixed(0)} KiB`);
+        }
+        if (lines.length) this.info(`Курсы (кэш курса, не в precache):\n${lines.join('\n')}`);
+      },
+    },
+    {
       name: 'version-json',
       generateBundle() {
         this.emitFile({ type: 'asset', fileName: 'version.json', source: JSON.stringify(BUILD) });
@@ -322,11 +368,13 @@ export default defineConfig({
         // Весь контент (слова, уроки) лежит в JS-чанках, так что после первой загрузки всё работает офлайн.
         globPatterns: ['**/*.{js,css,html,svg,png,webp,webmanifest,woff2}'],
         // Большие иконки нужны только при установке приложения (с сетью): в precache их не держим.
-        globIgnores: ['icons/icon-512.png', 'icons/maskable-512.png'],
+        // Контент языков (задача 20.4) не в precache: курс качается в свой кэш (`src/lib/course.ts`, `course-sw.js`).
+        globIgnores: ['icons/icon-512.png', 'icons/maskable-512.png', ...LANG_KEYS.map((l) => `assets/${l}/**`)],
         navigateFallback: 'index.html',
         cleanupOutdatedCaches: true,
         // Напоминания (задача 10.4): обработчик periodicsync и нажатия на уведомление.
-        importScripts: ['reminder-sw.js'],
+        // Курс (задача 20.4): при установке новой версии докачать файлы курса, пока работает прежняя.
+        importScripts: ['reminder-sw.js', 'course-sw.js'],
         // Музыка (public/music, около мегабайта на тему) не в precache: качается при первом запросе и остаётся в кэше.
         runtimeCaching: [
           {
@@ -334,6 +382,12 @@ export default defineConfig({
             handler: 'CacheFirst',
             options: { cacheName: 'eslacity-music', expiration: { maxEntries: 12 } },
           },
+          // Файлы курса: из его кэша, а чего там нет — из сети с записью в кэш.
+          ...LANG_KEYS.map((lang) => ({
+            urlPattern: new RegExp(`/assets/${lang}/`),
+            handler: 'CacheFirst' as const,
+            options: { cacheName: courseCacheName(lang), matchOptions: { ignoreVary: true } },
+          })),
         ],
       },
     }),

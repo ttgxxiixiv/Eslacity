@@ -11,7 +11,8 @@ import { KEEPER_TITLE, SAGE_TITLE } from '../domain/chapters';
 import { isVaultOpen, journeySummary } from '../domain/elixir';
 import { KEEPER_DAYS, KEEPER_THRESHOLD, keeperStreak } from '../domain/keeper';
 import { plural } from '../domain/medals';
-import { LANG, LANGS, RELEASED_LANGS, switchLang } from '../lang';
+import { LANG, LANGS, RELEASED_LANGS } from '../lang';
+import { openCourseLang, useCourse } from '../lib/course';
 import { useNow } from '../lib/useNow';
 import { NpcPortrait } from '../components/NpcPortrait';
 import { heroText } from '../store/settings';
@@ -249,6 +250,7 @@ function Strength() {
 /** Предложение начать другой язык: его путь начинается заново, «Мудрец» этого языка будет виден в профиле. */
 function SecondLanguage() {
   const others = RELEASED_LANGS.filter((l) => l !== LANG);
+  const notice = useCourse((s) => s.notice);
   return (
     <section className="rounded-2xl bg-white p-4 shadow-sm" data-testid="second-lang">
       <div className="font-bold">Второй язык</div>
@@ -256,10 +258,15 @@ function SecondLanguage() {
         В другом городе свои жители, свои загадки и свой Сфинкс. Прогресс этого языка сохранится, а титул «{SAGE_TITLE}» будет виден в профиле.
       </p>
       {others.map((l) => (
-        <Button key={l} className="mt-3 w-full" onClick={() => switchLang(l)} data-testid={`start-${l}`}>
+        <Button key={l} className="mt-3 w-full" onClick={() => openCourseLang(l)} data-testid={`start-${l}`}>
           {LANGS[l].flag} {LANGS[l].name}
         </Button>
       ))}
+      {notice && (
+        <p className="mt-2 text-sm text-wood" role="status" data-testid="course-notice">
+          {notice}
+        </p>
+      )}
     </section>
   );
 }

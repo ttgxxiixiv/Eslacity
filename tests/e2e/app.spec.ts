@@ -302,7 +302,10 @@ for (const lang of LANGS) {
     test('офлайн после первой загрузки', async ({ page, context }) => {
       await openApp(page, lang);
       await page.evaluate(() => navigator.serviceWorker.ready.then(() => true));
-      await page.waitForTimeout(500);
+      // Контент курса не в precache (задача 20.4): ждём, пока приложение докачает его в свой кэш.
+      await page.goto('./#/settings/language');
+      await expect(page.getByTestId('course-status')).toHaveAttribute('data-state', 'ready', { timeout: 30_000 });
+      await page.goto('./#/');
       await context.setOffline(true);
       await page.reload();
       await expect(page.getByTestId('continue')).toBeVisible();

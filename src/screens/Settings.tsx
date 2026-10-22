@@ -5,7 +5,8 @@ import { ReviewForecast } from '../components/ReviewForecast';
 import { useEffect, useState, type ReactNode } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { currentVoice, hasLangVoice, languageVoices, onVoicesChanged, speak, speakHero, ttsSupported, voiceFor } from '../audio/tts';
-import { L, LANG, LANGS, RELEASED_LANGS, switchLang } from '../lang';
+import { L, LANG, LANGS, RELEASED_LANGS } from '../lang';
+import { openCourseLang, useCourse } from '../lib/course';
 import { resetProgress } from '../store/bootstrap';
 import { importBackup, parseBackup } from '../db/backup';
 import { backupDue, daysSinceBackup } from '../domain/backupPlan';
@@ -347,6 +348,35 @@ function VoiceSection() {
   );
 }
 
+/** Кэш курса (задача 20.4): скачан ли курс для игры без сети. */
+function CourseStatus() {
+  const { state, done, total, notice } = useCourse();
+  const text =
+    state === 'ready'
+      ? 'Курс скачан: играть можно и без интернета.'
+      : state === 'downloading'
+        ? `Курс скачивается для игры без интернета: ${done} из ${total} файлов.`
+        : state === 'offline'
+          ? 'Курс скачается, когда появится интернет.'
+          : state === 'checking'
+            ? 'Проверяю, скачан ли курс…'
+            : null;
+  return (
+    <>
+      {text && (
+        <p className="mt-2 text-sm text-stone-600" data-testid="course-status" data-state={state}>
+          {text}
+        </p>
+      )}
+      {notice && (
+        <p className="mt-2 rounded-xl bg-amber-50 px-3 py-2 text-sm text-wood" role="status" data-testid="course-notice">
+          {notice}
+        </p>
+      )}
+    </>
+  );
+}
+
 function LanguageSection() {
   return (
     <section className="rounded-3xl bg-white p-4 shadow-sm">
@@ -357,7 +387,7 @@ function LanguageSection() {
             key={id}
             type="button"
             aria-pressed={id === LANG}
-            onClick={() => switchLang(id)}
+            onClick={() => openCourseLang(id)}
             className={`press flex items-center justify-center gap-2 rounded-xl border-2 py-2.5 font-semibold ${
               id === LANG ? 'border-brand bg-orange-50 text-brand' : 'border-stone-200'
             }`}
@@ -371,6 +401,7 @@ function LanguageSection() {
         {L.variety} У каждого языка свой город, слова, монеты и стрик. При переключении приложение перезапустится, прогресс
         другого языка сохранится.
       </p>
+      <CourseStatus />
     </section>
   );
 }

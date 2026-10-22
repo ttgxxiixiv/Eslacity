@@ -12,7 +12,8 @@ import eyeTr from '../assets/nav/eye-tr.webp';
 import eyeTrGold from '../assets/nav/eye-tr-gold.webp';
 import eyePt from '../assets/nav/eye-pt.webp';
 import eyePtGold from '../assets/nav/eye-pt-gold.webp';
-import { LANG, LANGS, RELEASED_LANGS, switchLang, type Lang } from '../lang';
+import { LANG, LANGS, RELEASED_LANGS, type Lang } from '../lang';
+import { openCourseLang, useCourse } from '../lib/course';
 import { useSphinx } from '../store/sphinx';
 
 // Нижнее меню — рисованный ряд из четырёх каменных ячеек (`nav-strip.webp`) и медальон с глазом в гнезде над ними.
@@ -58,6 +59,7 @@ export function NavBar() {
   const eye = eyeOf(gold);
   const d = 2 * EYE.r * EYE_SCALE;
   const [open, setOpen] = useState(false);
+  const notice = useCourse((s) => s.notice);
   // Меню языка закрывается при переходе на другой экран и по Escape.
   useEffect(() => {
     setOpen(false);
@@ -118,7 +120,7 @@ export function NavBar() {
                   type="button"
                   role="menuitemradio"
                   aria-checked={id === LANG}
-                  onClick={() => (id === LANG ? setOpen(false) : switchLang(id))}
+                  onClick={() => (id === LANG ? setOpen(false) : openCourseLang(id))}
                   className={`press flex w-full items-center gap-3 rounded-xl px-2 py-1.5 text-left font-semibold ${
                     id === LANG ? 'bg-stone-100 text-wood' : 'text-wood'
                   }`}
@@ -130,6 +132,11 @@ export function NavBar() {
                   {id === LANG && <span className="shrink-0 text-sm text-stone-500">сейчас</span>}
                 </button>
               ))}
+              {notice && (
+                <p className="px-2 pt-1 pb-0.5 text-sm text-wood" role="status" data-testid="course-notice">
+                  {notice}
+                </p>
+              )}
             </div>
           )}
           {TABS.map((t, i) => {
