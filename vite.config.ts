@@ -8,6 +8,8 @@ import { join } from 'node:path';
 import { glossIndex, parseLemmas, tokens } from './scripts/vocab-lib';
 import { CHAPTERS } from './src/content/vocabPlan';
 import { buildSayIndex, sayRecords } from './src/domain/say';
+import { APP_NAME, appDescription } from './src/appInfo';
+import { PROFILES } from './src/langs';
 
 // Данные о сборке: показываются в настройках и лежат в version.json для проверки обновлений.
 const pkg = JSON.parse(readFileSync(new URL('./package.json', import.meta.url), 'utf8')) as { version: string };
@@ -20,6 +22,9 @@ function gitCommit(): string {
   }
 }
 const BUILD = { version: pkg.version, commit: gitCommit(), builtAt: new Date().toISOString() };
+
+// Описание приложения — по открытым курсам (задача 20.1): то же в манифесте и в <meta name="description">.
+const APP_DESCRIPTION = appDescription(Object.values(PROFILES).filter((p) => p.released).map((p) => p.name));
 
 // Индекс уроков грамматики для карты: только язык, id, район, номер и название.
 // Сами уроки грузятся лениво, по чанку на язык и район.
@@ -207,6 +212,10 @@ export default defineConfig({
   },
   plugins: [
     react(),
+    {
+      name: 'app-description',
+      transformIndexHtml: (html) => html.replace('%APP_DESCRIPTION%', APP_DESCRIPTION),
+    },
     tailwindcss(),
     {
       name: 'scene-gloss',
@@ -285,9 +294,9 @@ export default defineConfig({
       injectRegister: false,
       includeAssets: ['favicon-32.png', 'favicon-16.png', 'icons/apple-touch-icon.png'],
       manifest: {
-        name: 'Eslacity — испанский в городе',
+        name: APP_NAME,
         short_name: 'Eslacity',
-        description: 'Испанский для русскоговорящих: строй город, учи слова и грамматику',
+        description: APP_DESCRIPTION,
         lang: 'ru',
         start_url: './',
         scope: './',

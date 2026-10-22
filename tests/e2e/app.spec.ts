@@ -90,6 +90,16 @@ test('меню языка у медальона: список открытых �
   await expect(page.getByText('всего 300 XP')).toBeVisible();
 });
 
+test('имя и описание приложения — про все открытые курсы, а не только испанский (задача 20.1)', async ({ page }) => {
+  await openApp(page, 'es');
+  const description = (await page.locator('meta[name="description"]').getAttribute('content')) ?? '';
+  for (const name of ['испанский', 'итальянский', 'английский', 'турецкий', 'португальский']) expect(description.toLowerCase()).toContain(name);
+  const href = await page.locator('link[rel="manifest"]').getAttribute('href');
+  const manifest = await (await page.request.get(new URL(href!, page.url()).toString())).json();
+  expect(manifest.name).toBe('Eslacity — языки в городе');
+  expect(manifest.description).toBe(description);
+});
+
 for (const lang of LANGS) {
   test.describe(lang, () => {
     test('верхняя панель: серый огонёк до цели дня, полоска уровня под дорогой дня', async ({ page }) => {
