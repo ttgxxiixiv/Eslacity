@@ -134,6 +134,7 @@ function partialStoryChecks(
     ...rumorDiaryChecks(lang, npcs, [...scenes.flatMap((f) => f.data.scenes ?? []), ...(threadFile?.data.scenes ?? [])], coverage),
     ...letterChecks(readFile<LettersFile>(lang, 'letters.json'), residents, coverage),
     ...sphinxChecks(lang, npcs, coverage),
+    ...heroGenderChecks(lang, npcs, coverage, words, scrolls, (text) => uncoveredWords(text, 1, lexicon, forms, lang)),
   ];
 }
 
@@ -207,10 +208,8 @@ function partialFestivalChecks(
 }
 
 /** Книги Летописца закрытого курса (английский с 17.9): у каждой уже начатой главы все четыре текста. */
-function bookChecks(lang: Lang, coverage: (text: string, level: number) => ReturnType<typeof textCoverage>): Issue[] {
-  const dir = join(root, lang, 'books');
-  if (!existsSync(dir)) return [];
-  const books = readJson<BookFile>(dir);
+function bookChecks(lang: Lang, coverage: (text: string, level: number) => ReturnType<typeof textCoverage>, books = readJson<BookFile>(join(root, lang, 'books'))): Issue[] {
+  if (!books.length) return [];
   return validateBooks(books, { chapters: books.map((f) => f.data.chapter), coverage, gender: LANGS[lang].gender });
 }
 
@@ -236,8 +235,8 @@ function prologueChecks(
   words: { data: LocationWords }[],
   scrolls: { data: ScrollFile }[],
   uncovered: (text: string) => string[],
+  prologue = readFile<PrologueFile>(lang, 'prologue.json'),
 ): Issue[] {
-  const prologue = readFile<PrologueFile>(lang, 'prologue.json');
   if (!prologue) return [];
   return validatePrologue(prologue, {
     words: new Map([...words.flatMap((f) => f.data.words), ...scrolls.flatMap((f) => f.data.words)].map((w) => [w.id, w])),
@@ -246,8 +245,12 @@ function prologueChecks(
 }
 
 /** Сфинкс закрытого курса (английский с 17.8): те же проверки, что у открытого, если файл уже есть. */
-function sphinxChecks(lang: Lang, npcs: NpcsFile | undefined, coverage: (text: string, level: number) => ReturnType<typeof textCoverage>): Issue[] {
-  const sphinx = readFile<SphinxFile>(lang, 'sphinx.json');
+function sphinxChecks(
+  lang: Lang,
+  npcs: NpcsFile | undefined,
+  coverage: (text: string, level: number) => ReturnType<typeof textCoverage>,
+  sphinx = readFile<SphinxFile>(lang, 'sphinx.json'),
+): Issue[] {
   if (!sphinx) return [];
   const chronicler = readFile<Chronicler>(lang, 'chronicler.json');
   return validateSphinx(sphinx, {
@@ -257,6 +260,37 @@ function sphinxChecks(lang: Lang, npcs: NpcsFile | undefined, coverage: (text: s
       ...(chronicler ? { [chronicler.id]: chronicler.voice.pitch } : {}),
     },
   });
+}
+
+/**
+ * Род путницы в Сфинксе, Хранилище, прологе и книгах (задача 20.2): формы `fem` без ошибок, и те же проверки
+ * ещё раз на тексте в роде путницы, как у сцен и миссий.
+ */
+function heroGenderChecks(
+  lang: Lang,
+  npcs: NpcsFile | undefined,
+  coverage: (text: string, level: number) => ReturnType<typeof textCoverage>,
+  words: { data: LocationWords }[],
+  scrolls: { data: ScrollFile }[],
+  uncovered: (text: string) => string[],
+): Issue[] {
+  const sphinx = readFile<SphinxFile>(lang, 'sphinx.json');
+  const prologue = readFile<PrologueFile>(lang, 'prologue.json');
+  const books = readJson<BookFile>(join(root, lang, 'books'));
+  const forms: [string, unknown][] = [
+    ...(sphinx ? [['sphinx.json', sphinx] as [string, unknown]] : []),
+    ...(prologue ? [['prologue.json', prologue] as [string, unknown]] : []),
+    ...books.map((f) => [`books/${f.name}`, f.data] as [string, unknown]),
+  ];
+  const female = [
+    ...(sphinx ? sphinxChecks(lang, npcs, coverage, forGender(sphinx, 'f')) : []),
+    ...(prologue ? prologueChecks(lang, words, scrolls, uncovered, forGender(prologue, 'f')) : []),
+    ...bookChecks(lang, coverage, books.map((f) => ({ name: f.name, data: forGender(f.data, 'f') }))),
+  ];
+  return [
+    ...forms.flatMap(([where, data]) => femIssues(data, where).map((msg) => ({ level: 'error' as const, where, msg }))),
+    ...female.filter((i) => !i.msg.includes('из gloss нет')).map((i) => ({ ...i, where: `${i.where} (путница)` })),
+  ];
 }
 
 /** Письма и записки закрытого курса (английский с 17.8): как у открытого, и ещё раз в роде путницы. */
@@ -528,7 +562,6 @@ for (const lang of langs) {
     ['npcs.json', npcs],
     ['chronicler.json', chronicler],
     ['guardians.json', guardians],
-    ['sphinx.json', sphinx],
     ['letters.json', letters],
     ...festivals.map((f) => [`festivals/${f.name}`, f.data] as [string, unknown]),
   ];
@@ -536,6 +569,7 @@ for (const lang of langs) {
   issues.push(
     ...tag(femCheck),
     ...tag(femForms),
+    ...tag(heroGenderChecks(lang, npcs, (text, level) => textCoverage(text, level, lexicon, forms, lang), words, scrolls, (text) => uncoveredWords(text, 1, lexicon, forms, lang))),
     ...tag(missionIssues),
     ...tag(storyIssues),
     ...tag(rumorIssues),

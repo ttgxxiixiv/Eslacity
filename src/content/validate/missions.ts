@@ -123,7 +123,7 @@ export function validateMissions(files: { name: string; data: LocationMissions }
  */
 export function validatePrologue(
   data: PrologueFile | undefined,
-  checks: { words: Map<string, { es: string }>; uncovered?: (text: string) => string[] },
+  checks: { words: Map<string, { es: string; alt?: string[] }>; uncovered?: (text: string) => string[] },
 ): Issue[] {
   const where = 'prologue.json';
   if (!data) return [{ level: 'error', where, msg: 'нет пролога' }];
@@ -137,7 +137,7 @@ export function validatePrologue(
   for (const id of data.words ?? []) {
     const w = checks.words.get(id);
     if (!w) err(`нет слова ${id}`);
-    else forms.add(plain(w.es));
+    else for (const f of [w.es, ...(w.alt ?? [])]) forms.add(plain(f));
   }
   const lines = [...(data.gate ?? []), ...(data.road ?? []), ...(data.finale ?? [])];
   for (const [i, l] of lines.entries()) {

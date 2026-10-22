@@ -81,6 +81,8 @@ export interface Fem {
   es?: string;
   ru?: string;
   sample?: string;
+  /** Варианты ответа целиком (пролог: «Obrigado» → «Obrigada»), столько же, сколько исходных. */
+  options?: string[];
 }
 
 /**
@@ -113,7 +115,12 @@ export function femIssues(value: unknown, where = ''): string[] {
       if (!keys.length) out.push(`${path}: пустой fem`);
       for (const k of keys) {
         const f = o.fem[k];
-        if (!['es', 'ru', 'sample'].includes(k)) out.push(`${path}: в fem лишнее поле ${k}`);
+        if (k === 'options') {
+          const src = o.options;
+          if (!Array.isArray(src)) out.push(`${path}: fem.options без исходных вариантов`);
+          else if (!Array.isArray(f) || f.length !== src.length || f.some((x) => typeof x !== 'string' || !x.trim())) out.push(`${path}: fem.options не той длины или с пустым вариантом`);
+          else if (f.every((x, i) => x === src[i])) out.push(`${path}: fem.options совпадает с исходными`);
+        } else if (!['es', 'ru', 'sample'].includes(k)) out.push(`${path}: в fem лишнее поле ${k}`);
         else if (typeof o[k] !== 'string') out.push(`${path}: fem.${k} без исходного текста`);
         else if (typeof f !== 'string' || !f.trim()) out.push(`${path}: пустой fem.${k}`);
         else if (f === o[k]) out.push(`${path}: fem.${k} совпадает с исходным`);

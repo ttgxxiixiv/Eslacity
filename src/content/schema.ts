@@ -209,6 +209,8 @@ export interface PrologueLine {
   who: 'gatekeeper' | 'resident' | 'hero';
   es: string;
   ru: string;
+  /** Женская форма реплики (задача 20.2). */
+  fem?: Fem;
 }
 
 /** Ответ героя жителю: варианты — три слова пролога, верный `answer`; на чужой вариант житель отвечает `wrong`. */
@@ -217,6 +219,8 @@ export interface PrologueAsk {
   options: string[];
   answer: number;
   wrong: Example;
+  /** Варианты в роде путницы (задача 20.2): «Obrigada» вместо «Obrigado». */
+  fem?: Pick<Fem, 'options'>;
 }
 
 export interface PrologueFile {
@@ -647,7 +651,7 @@ export interface BookWord extends Word {
 export interface Book {
   id: string;
   title: { es: string; ru: string };
-  paragraphs: { es: string; ru: string }[];
+  paragraphs: { es: string; ru: string; fem?: Fem }[];
   questions: SceneQuestion[];
   /** Перевод слов не из словаря курса и не из словарика книг (имена и редкие формы). */
   gloss?: Record<string, string>;

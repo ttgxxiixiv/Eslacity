@@ -1,3 +1,4 @@
+import { byHero } from '../store/settings';
 import { loaders as contentLoaders } from './registry';
 import type { BookFile } from './schema';
 
@@ -9,5 +10,5 @@ export const BOOK_FILE_CHAPTERS = [...loaders.keys()].sort((a, b) => a - b);
 
 export async function loadBooks(chapter: number): Promise<BookFile | null> {
   const load = loaders.get(chapter);
-  return load ? load() : null;
+  return load ? byHero(await load()) : null;
 }

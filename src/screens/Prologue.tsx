@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { speakAs, speakHero } from '../audio/tts';
 import { HeroPortrait } from '../components/HeroPortrait';
@@ -17,7 +17,7 @@ import { LANG } from '../lang';
 import { usePlacement } from '../store/placement';
 import { useProgress } from '../store/progress';
 import { usePrologue } from '../store/prologue';
-import { heroText, useSettings } from '../store/settings';
+import { byHero, heroText, useSettings } from '../store/settings';
 
 /**
  * Пролог (задача 13.2): путник у ворот, Привратник учит трём словам и ведёт к кафе, житель кафе ждёт три ответа
@@ -214,7 +214,8 @@ function MissionStep({ onDone }: { onDone: () => void }) {
   const [i, setI] = useState(0);
   const [wrong, setWrong] = useState<PrologueAsk['wrong'] | null>(null);
   const [right, setRight] = useState(false);
-  const ask = PROLOGUE.mission[i];
+  // Варианты ответа в роде путника (задача 20.2): «Obrigada» у путницы.
+  const ask = useMemo(() => byHero(PROLOGUE.mission[i]), [i]);
   useEffect(() => {
     if (npc) speakAs(heroText(ask.say).es, npc);
   }, [ask, npc]);

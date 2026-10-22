@@ -85,4 +85,13 @@ describe('женские формы контента', () => {
       'x/e: пустой fem',
     ]);
   });
+
+  it('варианты ответа: у путницы заменяются целиком, проверка длины и совпадения', () => {
+    const ask = { options: ['Olá!', 'Obrigado'], answer: 1, fem: { options: ['Olá!', 'Obrigada'] } };
+    expect(forGender(ask, 'f')).toEqual({ options: ['Olá!', 'Obrigada'], answer: 1 });
+    expect(femIssues(ask, 'x')).toEqual([]);
+    expect(femIssues({ options: ['A', 'B'], fem: { options: ['A'] } }, 'x')).toEqual(['x: fem.options не той длины или с пустым вариантом']);
+    expect(femIssues({ options: ['A', 'B'], fem: { options: ['A', 'B'] } }, 'x')).toEqual(['x: fem.options совпадает с исходными']);
+    expect(femIssues({ es: 'A', fem: { options: ['B'] } }, 'x')).toEqual(['x: fem.options без исходных вариантов']);
+  });
 });

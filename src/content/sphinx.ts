@@ -1,3 +1,4 @@
+import { byHero } from '../store/settings';
 import { loader } from './registry';
 import type { SphinxFile } from './schema';
 
@@ -5,5 +6,6 @@ import type { SphinxFile } from './schema';
 const load = loader('sphinx');
 
 export async function loadSphinx(): Promise<SphinxFile | undefined> {
-  return load ? await load() : undefined;
+  // В роде путника (задача 20.2): монологи, тексты мудрости и реплики Хранилища с `fem`.
+  return load ? byHero(await load()) : undefined;
 }

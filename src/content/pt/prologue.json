@@ -22,7 +22,7 @@
   },
   "words": [
     "scroll1.ola",
-    "cafe.por-favor",
+    "cafe.obrigado",
     "scroll1.tchau"
   ],
   "gate": [
@@ -33,13 +33,20 @@
     },
     {
       "who": "gatekeeper",
-      "es": "Aqui todo mundo diz «olá», «por favor» e «tchau». Primeiro, essas três palavras.",
-      "ru": "Здесь все говорят «olá», «por favor» и «tchau». Сначала — эти три слова."
+      "es": "Aqui todo mundo diz «olá», «obrigado» e «tchau». Primeiro, essas três palavras.",
+      "ru": "Здесь все говорят «olá», «obrigado» и «tchau». Сначала — эти три слова.",
+      "fem": {
+        "es": "Aqui a gente diz «olá», «tchau» e, se é mulher, «obrigada». Primeiro, essas três palavras.",
+        "ru": "Здесь говорят «olá», «tchau», а женщина говорит «obrigada». Сначала — эти три слова."
+      }
     },
     {
       "who": "hero",
-      "es": "Olá! Por favor!",
-      "ru": "Здравствуйте! Пожалуйста!"
+      "es": "Olá! Obrigado!",
+      "ru": "Здравствуйте! Спасибо!",
+      "fem": {
+        "es": "Olá! Obrigada!"
+      }
     }
   ],
   "road": [
@@ -68,12 +75,19 @@
       "options": [
         "Olá!",
         "Tchau!",
-        "Por favor"
+        "Obrigado"
       ],
       "answer": 0,
       "wrong": {
         "es": "Como assim? Você acabou de chegar.",
         "ru": "Как это? Ты же только пришёл."
+      },
+      "fem": {
+        "options": [
+          "Olá!",
+          "Tchau!",
+          "Obrigada"
+        ]
       }
     },
     {
@@ -83,13 +97,20 @@
       },
       "options": [
         "Tchau!",
-        "Por favor",
+        "Obrigado",
         "Olá!"
       ],
       "answer": 1,
       "wrong": {
         "es": "Eu ofereço um café… e o que você diz?",
         "ru": "Я предлагаю кофе… и что ты скажешь?"
+      },
+      "fem": {
+        "options": [
+          "Tchau!",
+          "Obrigada",
+          "Olá!"
+        ]
       }
     },
     {
@@ -98,7 +119,7 @@
         "ru": "Ну, мне пора за работу. До скорого!"
       },
       "options": [
-        "Por favor",
+        "Obrigado",
         "Olá!",
         "Tchau!"
       ],
@@ -106,6 +127,13 @@
       "wrong": {
         "es": "Eu vou trabalhar. O que a gente diz?",
         "ru": "Я ухожу работать. Что говорят на прощание?"
+      },
+      "fem": {
+        "options": [
+          "Obrigada",
+          "Olá!",
+          "Tchau!"
+        ]
       }
     }
   ],
