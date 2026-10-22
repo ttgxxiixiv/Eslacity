@@ -76,3 +76,16 @@ export function shiftedPitch(pitch: number, wanted: VoiceGender, main: VoiceGend
   const p = pitch * (wanted === 'm' ? MALE_SHIFT : FEMALE_SHIFT);
   return Math.round(Math.min(2, Math.max(0.1, p)) * 100) / 100;
 }
+
+/** Основной голос курса: первый по списку профиля (`voices`), иначе любой голос языка по префиксу. */
+export function pickMain<V extends VoiceLike>(voices: V[], prefs: string[], prefix: string): V | null {
+  return prefs.map(norm).map((p) => voices.find((v) => norm(v.lang) === p)).find(Boolean) ?? voices.find((v) => norm(v.lang).startsWith(prefix)) ?? null;
+}
+
+/**
+ * Голос другого варианта языка (задача 20.5): язык голоса не из списка профиля (`voices`), совпал только префикс —
+ * pt-PT вместо pt-BR, en-US вместо en-GB. Говорить он будет, но с другим произношением.
+ */
+export function otherVariety(v: VoiceLike | null, prefs: string[]): boolean {
+  return !!v && !prefs.map(norm).includes(norm(v.lang));
+}

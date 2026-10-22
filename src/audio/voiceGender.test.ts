@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { MALE_SHIFT, FEMALE_SHIFT, pickGendered, shiftedPitch, voiceGender } from './voiceGender';
+import { MALE_SHIFT, FEMALE_SHIFT, otherVariety, pickGendered, pickMain, shiftedPitch, voiceGender } from './voiceGender';
 
 const v = (name: string, lang: string) => ({ name, lang });
 
@@ -55,5 +55,25 @@ describe('высота основного голоса вместо голоса
   it('высота остаётся в пределах, которые принимает браузер', () => {
     expect(shiftedPitch(1.8, 'f', 'm')).toBe(2);
     expect(shiftedPitch(0.1, 'm', 'f')).toBe(0.1);
+  });
+});
+
+describe('голос другого варианта языка (задача 20.5)', () => {
+  const pt = { name: 'pt-pt-x-jmn-local', lang: 'pt-PT' };
+  const br = { name: 'pt-br-x-afs-local', lang: 'pt_BR' };
+  const us = { name: 'Google US English', lang: 'en-US' };
+
+  it('основной голос — вариант курса, если он есть, иначе любой по префиксу', () => {
+    expect(pickMain([pt, br], ['pt-BR'], 'pt')).toBe(br);
+    expect(pickMain([pt], ['pt-BR'], 'pt')).toBe(pt);
+    expect(pickMain([us], ['en-GB'], 'en')).toBe(us);
+    expect(pickMain([us], ['tr-TR'], 'tr')).toBeNull();
+  });
+
+  it('предупреждение, когда совпал только префикс', () => {
+    expect(otherVariety(pt, ['pt-BR'])).toBe(true);
+    expect(otherVariety(us, ['en-GB'])).toBe(true);
+    expect(otherVariety(br, ['pt-BR'])).toBe(false);
+    expect(otherVariety(null, ['pt-BR'])).toBe(false);
   });
 });

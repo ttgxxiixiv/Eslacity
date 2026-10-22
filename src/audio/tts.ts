@@ -4,7 +4,7 @@ import { EMPTY_SAY, spokenText } from '../domain/say';
 import { useSettings } from '../store/settings';
 import { QueueStrategy, TextToSpeech } from '@capacitor-community/text-to-speech';
 import { NATIVE } from '../lib/native';
-import { pickGendered, shiftedPitch, voiceGender, type VoiceGender } from './voiceGender';
+import { otherVariety, pickGendered, pickMain, shiftedPitch, voiceGender, type VoiceGender } from './voiceGender';
 
 /** Голос: в браузере — SpeechSynthesisVoice, в приложении для Android — запись из списка движка TTS. */
 type Voice = { name: string; lang: string };
@@ -31,11 +31,7 @@ function preferredVoices(): string[] {
 
 function pickVoice(voices: Voice[] = speechSynthesis.getVoices()) {
   if (voices.length) voicesLoaded = true;
-  const prefs = preferredVoices().map(norm);
-  voice =
-    prefs.map((p) => voices.find((v) => norm(v.lang) === p)).find(Boolean) ??
-    voices.find((v) => norm(v.lang).startsWith(L.voicePrefix)) ??
-    null;
+  voice = pickMain(voices, preferredVoices(), L.voicePrefix);
   const pick = (g: VoiceGender) => pickGendered(voices, voice, preferredVoices(), L.voicePrefix, g);
   gendered = { m: pick('m'), f: pick('f') };
   langVoices = voices.filter((v) => norm(v.lang).startsWith(L.voicePrefix));
@@ -82,6 +78,12 @@ export function ttsSupported(): boolean {
 
 export function currentVoice(): Voice | null {
   return voice;
+}
+
+/** Голоса, которыми сейчас говорит курс (основной, мужской и женский), другого варианта языка (задача 20.5). */
+export function otherVarietyVoices(): Voice[] {
+  const used = [voice, genderVoice('m'), genderVoice('f')].filter((v): v is Voice => !!v);
+  return [...new Map(used.map((v) => [v.name, v])).values()].filter((v) => otherVariety(v, preferredVoices()));
 }
 
 // Ссылка на текущую фразу: иначе Chrome может собрать её сборщиком мусора и оборвать звук.

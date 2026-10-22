@@ -4,7 +4,7 @@ import { ReportsCard } from '../components/ReportsCard';
 import { ReviewForecast } from '../components/ReviewForecast';
 import { useEffect, useState, type ReactNode } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { currentVoice, hasLangVoice, languageVoices, onVoicesChanged, speak, speakHero, ttsSupported, voiceFor } from '../audio/tts';
+import { currentVoice, hasLangVoice, languageVoices, onVoicesChanged, otherVarietyVoices, speak, speakHero, ttsSupported, voiceFor } from '../audio/tts';
 import { L, LANG, LANGS, RELEASED_LANGS } from '../lang';
 import { openCourseLang, useCourse } from '../lib/course';
 import { resetProgress } from '../store/bootstrap';
@@ -253,6 +253,12 @@ function VoiceSection() {
   const listenOn = listenOffUntil <= Date.now();
   const pausedHour = !listenOn && listenOffUntil < Number.MAX_SAFE_INTEGER;
   const [voiceName, setVoiceName] = useState(() => currentVoice()?.name);
+  // Голос не того варианта языка (задача 20.5): пересчитывается при новом списке голосов и выборе голоса пола.
+  const [, setTick] = useState(0);
+  useEffect(() => {
+    return onVoicesChanged(() => setTick((t) => t + 1));
+  }, []);
+  const other = otherVarietyVoices();
   return (
     <section className="rounded-3xl bg-white p-4 shadow-sm">
       <h2 className="font-bold">Озвучка</h2>
@@ -318,7 +324,7 @@ function VoiceSection() {
                       <option value="">Подобрать самому</option>
                       {voices.map((v) => (
                         <option key={v.name} value={v.name}>
-                          {v.name}
+                          {v.name} ({v.lang})
                         </option>
                       ))}
                     </select>
@@ -342,6 +348,12 @@ function VoiceSection() {
           <p className="mt-2 text-sm text-stone-500">
             Голос: {voiceName ?? 'системный по умолчанию'}
           </p>
+          {other.length > 0 && (
+            <p className="mt-2 rounded-xl bg-amber-50 px-3 py-2 text-sm text-amber-800" data-testid="voice-variety">
+              {other.length === 1 ? 'Голос' : 'Голоса'} {other.map((v) => `«${v.name}» (${v.lang})`).join(', ')} {other.length === 1 ? 'говорит' : 'говорят'} на
+              другом варианте языка, а в курсе — {L.voices.join(' или ')}: произношение будет отличаться. {L.voiceHint}
+            </p>
+          )}
         </>
       )}
     </section>
