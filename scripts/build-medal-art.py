@@ -1,6 +1,6 @@
 """Медали (промты — `docs/design/medals-prompt.md`): оправы ступеней `docs/design/medal-frames.png`, эмблемы линий
 `docs/design/medal-emblems.png` и тайные медали `docs/design/medal-secrets.png`, праздники английского курса —
-`docs/design/medal-secrets-en.png`, турецкого — `docs/design/medal-secrets-tr.png`.
+`docs/design/medal-secrets-en.png`, турецкого — `docs/design/medal-secrets-tr.png`, португальского — `docs/design/medal-secrets-pt.png`.
 
 Листы нарисованы на пурпурном фоне (#FF00FF) сеткой: каждая медаль в своей ячейке (искры у книги и молнии — отдельные
 пятна, поэтому делим по ячейкам, а не по связным областям). Скрипт снимает фон и сохраняет в `src/assets/medals/`
@@ -28,6 +28,7 @@ SECRETS = ['saved-streak', 'flawless', 'midnight', 'labyrinth', 'sphinx', 'keepe
            'festival-sanfermin', 'festival-tomatina', 'festival-ferragosto', 'festival-carnevale']
 SECRETS_EN = ['festival-bonfire', 'festival-carnival']
 SECRETS_TR = ['festival-hidrellez', 'festival-nisan']
+SECRETS_PT = ['festival-junina', 'festival-carnaval']
 
 
 def keyed(path: Path):
@@ -104,6 +105,9 @@ def main():
         square(piece, by_height=True)[0].save(OUT / f'secret-{sid}.webp', 'WEBP', quality=80, method=6)
     # Праздники турецкого курса (2.207.0).
     for sid, piece in zip(SECRETS_TR, cells(DESIGN / 'medal-secrets-tr.png', 2, 1)):
+        square(piece, by_height=True)[0].save(OUT / f'secret-{sid}.webp', 'WEBP', quality=80, method=6)
+    # Праздники португальского курса (2.230.0).
+    for sid, piece in zip(SECRETS_PT, cells(DESIGN / 'medal-secrets-pt.png', 2, 1)):
         square(piece, by_height=True)[0].save(OUT / f'secret-{sid}.webp', 'WEBP', quality=80, method=6)
     print(json.dumps(frames))
 

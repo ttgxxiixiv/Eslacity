@@ -197,7 +197,7 @@ the top-left. Each medal must stay readable at 64x64 pixels on a phone.
 
 ## 3в. Праздничные медали португальского курса (с 2.229.0)
 
-Пока обе медали собирает из готовых временный `scripts/build-pt-festival-medals.py`. Лист генерировать с приложенным образцом `docs/design/medal-secrets-en.png`, чтобы оправа и масштаб совпали.
+С 2.230.0 обе медали рисованные, лист — `docs/design/medal-secrets-pt.png`, режет его `scripts/build-medal-art.py` (`SECRETS_PT`); до этого их собирал из готовых временный скрипт. Лист генерировать с приложенным образцом `docs/design/medal-secrets-en.png`, чтобы оправа и масштаб совпали.
 
 | Медаль | Праздник | Сцена в центре |
 |---|---|---|
@@ -224,7 +224,7 @@ Do not use magenta or bright pink anywhere in the medals. Consistent light from 
 readable at 64x64 pixels on a phone.
 ```
 
-После генерации: лист — в `docs/design/medal-secrets-pt.png`, в `scripts/build-medal-art.py` — `SECRETS_PT = ['festival-junina', 'festival-carnaval']` и нарезка, как у турецкого; временный `scripts/build-pt-festival-medals.py` удалить.
+Лист лежит в `docs/design/medal-secrets-pt.png`, в `scripts/build-medal-art.py` — `SECRETS_PT = ['festival-junina', 'festival-carnaval']` и нарезка, как у турецкого.
 
 ## После генерации
 

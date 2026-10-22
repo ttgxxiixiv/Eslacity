@@ -43,3 +43,5 @@ Heroes of the road, the final row of six, left to right:
 25. «Хранительница леса» — guardian of the whispering rainforest, brown skin, long dark hair woven with leaves and flowers, dark green robes. Eyes closed, listening to the trees, glowing fireflies. Background: ancient misty tropical forest with vines.
 26. «Мастер Бене» — the rune blacksmith who forges words, dark skin, short black hair, short beard, brown shirt and leather apron. Strong and cheerful, hammering glowing runes on an anvil. Background: forge with fire.
 ```
+
+С 2.230.0 лист готов: `docs/design/portraits-pt.jpg`, координаты рамок — `SHEETS['pt']` в `scripts/cut-portraits.py`, 26 портретов в `src/assets/portraits/pt/`.

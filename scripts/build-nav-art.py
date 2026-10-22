@@ -119,3 +119,5 @@ if __name__ == '__main__':
     eyes('nav-wow-eyes-en.png', ['eye-en', 'eye-en-gold'])
     # Турецкий (2.207.0) — тоже свой лист.
     eyes('nav-wow-eyes-tr.png', ['eye-tr', 'eye-tr-gold'])
+    # Португальский (2.230.0) — тоже свой лист.
+    eyes('nav-wow-eyes-pt.png', ['eye-pt', 'eye-pt-gold'])

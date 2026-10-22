@@ -10,6 +10,8 @@ import eyeEn from '../assets/nav/eye-en.webp';
 import eyeEnGold from '../assets/nav/eye-en-gold.webp';
 import eyeTr from '../assets/nav/eye-tr.webp';
 import eyeTrGold from '../assets/nav/eye-tr-gold.webp';
+import eyePt from '../assets/nav/eye-pt.webp';
+import eyePtGold from '../assets/nav/eye-pt-gold.webp';
 import { LANG, LANGS, RELEASED_LANGS, switchLang, type Lang } from '../lang';
 import { useSphinx } from '../store/sphinx';
 
@@ -31,6 +33,7 @@ const EYES: Partial<Record<Lang, { plain: string; gold: string }>> = {
   it: { plain: eyeIt, gold: eyeItGold },
   en: { plain: eyeEn, gold: eyeEnGold },
   tr: { plain: eyeTr, gold: eyeTrGold },
+  pt: { plain: eyePt, gold: eyePtGold },
 };
 /** Медальон языка; после Эликсира — золотой (задача 8.3). Курс без своего медальона берёт испанский. */
 const eyeFor = (lang: Lang, gold: boolean) => (EYES[lang] ?? EYES.es!)[gold ? 'gold' : 'plain'];

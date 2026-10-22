@@ -132,7 +132,7 @@ No text, no letters, no numbers, no shadow on the background. Do not use magenta
 
 ## Португальский курс: медальоны с глазом
 
-Лист из двух медальонов, как у английского и турецкого, генерировать с приложенным образцом `docs/design/nav-wow-eyes.png`. Пока своего медальона нет, португальский курс берёт испанский (`eyeOf`).
+С 2.230.0 медальоны готовы: `eye-pt.webp` и `eye-pt-gold.webp`, лист `docs/design/nav-wow-eyes-pt.png`. Лист из двух медальонов, как у английского и турецкого, генерировать с приложенным образцом `docs/design/nav-wow-eyes.png`.
 
 ```
 Sheet of 2 round UI medallions for a mobile fantasy RPG, in the hand-painted stylized art style of World of

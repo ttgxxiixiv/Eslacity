@@ -354,3 +354,11 @@ for (const [id, day] of [
     await expect(page.getByTestId('festival-medal')).toContainText('получена');
   });
 }
+
+test('pt: свой медальон в меню и рисованные портреты жителей', async ({ page }) => {
+  await openCourse(page, 'pt');
+  await page.goto('./#/grammar');
+  await expect(page.getByTestId('nav-eye')).toHaveAttribute('src', /eye-pt(?!-gold)/);
+  await page.goto(`./#/scene/${encodeURIComponent('sc:cafe.1')}`);
+  await expect(page.getByTestId('npc-art').first()).toHaveAttribute('src', /tonho/);
+});
