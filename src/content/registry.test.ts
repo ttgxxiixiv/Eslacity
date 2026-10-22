@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { eager, loader, loaders, parseContentPath, type EagerKind, type LazyKind } from './registry';
+import { loadCore, loader, loaders, parseContentPath, type EagerKind, type LazyKind } from './registry';
 
 const LAZY: LazyKind[] = ['words', 'scrolls', 'festivals', 'books', 'phrases', 'missions', 'scenes', 'grammar', 'sphinx', 'letters', 'rumors', 'verbs', 'pairs'];
 const EAGER: EagerKind[] = ['npcs', 'chronicler', 'guardians', 'diary', 'prologue'];
@@ -12,10 +12,11 @@ describe('реестр контента (задача 16.5)', () => {
     expect(parseContentPath('./es/scenes/cafe.json', 'words')).toBeNull();
   });
 
-  it('у каждого вида есть файлы обоих языков, ключи без языка и расширения', () => {
+  it('у каждого вида есть файлы обоих языков, ключи без языка и расширения', async () => {
     for (const lang of ['es', 'it'] as const) {
       for (const kind of LAZY) expect(loaders(kind, lang).size, `${lang}/${kind}`).toBeGreaterThan(0);
-      for (const kind of EAGER) expect(eager(kind, lang), `${lang}/${kind}`).toBeDefined();
+      const core = await loadCore(lang);
+      for (const kind of EAGER) expect(core[kind], `${lang}/${kind}`).toBeDefined();
       expect(loaders('words', lang).has('cafe')).toBe(true);
       expect([...loaders('scrolls', lang).keys()].sort()).toEqual(['1', '2', '3', '4', '5']);
       expect(loader('sphinx', '', lang)).toBeDefined();

@@ -27,19 +27,37 @@ const LAZY = {
   pairs: import.meta.glob<PairsFile>('./*/pairs.json', { import: 'default' }),
 };
 
-/** Маленькие файлы, нужные сразу (жители, Летописец, стражи, дневник для медалей, пролог): в основном чанке. */
-const EAGER = {
-  npcs: import.meta.glob<NpcsFile>('./*/npcs.json', { import: 'default', eager: true }),
-  chronicler: import.meta.glob<Chronicler>('./*/chronicler.json', { import: 'default', eager: true }),
-  guardians: import.meta.glob<GuardiansFile>('./*/guardians.json', { import: 'default', eager: true }),
-  diary: import.meta.glob<DiaryFile>('./*/diary.json', { import: 'default', eager: true }),
-  prologue: import.meta.glob<PrologueFile>('./*/prologue.json', { import: 'default', eager: true }),
+/**
+ * Маленькие файлы, нужные сразу (жители, Летописец, стражи, дневник для медалей, пролог). До 2.231.3 они лежали в
+ * основном чанке всех пяти языков сразу (около 210 КБ); теперь грузятся только файлы языка курса, одним чанком
+ * `core-<язык>` (группа в `vite.config.ts`), ожиданием на верхнем уровне: всё, что их берёт, получает их готовыми.
+ */
+const CORE = {
+  npcs: import.meta.glob<NpcsFile>('./*/npcs.json', { import: 'default' }),
+  chronicler: import.meta.glob<Chronicler>('./*/chronicler.json', { import: 'default' }),
+  guardians: import.meta.glob<GuardiansFile>('./*/guardians.json', { import: 'default' }),
+  diary: import.meta.glob<DiaryFile>('./*/diary.json', { import: 'default' }),
+  prologue: import.meta.glob<PrologueFile>('./*/prologue.json', { import: 'default' }),
 };
 
+/** Загрузить маленькие файлы курса на языке `lang`: вид → содержимое (файла может не быть). */
+export async function loadCore(lang: Lang): Promise<Partial<{ [K in EagerKind]: EagerOf<K> }>> {
+  const out: Partial<Record<EagerKind, unknown>> = {};
+  await Promise.all(
+    (Object.keys(CORE) as EagerKind[]).map(async (kind) => {
+      for (const [path, load] of Object.entries(CORE[kind])) {
+        const p = parseContentPath(path, kind);
+        if (p && p.lang === lang) out[kind] = await load();
+      }
+    }),
+  );
+  return out as Partial<{ [K in EagerKind]: EagerOf<K> }>;
+}
+
 export type LazyKind = keyof typeof LAZY;
-export type EagerKind = keyof typeof EAGER;
+export type EagerKind = keyof typeof CORE;
 type LazyOf<K extends LazyKind> = (typeof LAZY)[K][string] extends () => Promise<infer T> ? T : never;
-type EagerOf<K extends EagerKind> = (typeof EAGER)[K][string];
+type EagerOf<K extends EagerKind> = (typeof CORE)[K][string] extends () => Promise<infer T> ? T : never;
 export type Loader<T> = () => Promise<T>;
 
 /**
@@ -67,11 +85,9 @@ export function loaders<K extends LazyKind>(kind: K, lang: Lang = LANG): Map<str
 /** Загрузчик одного файла вида (по умолчанию одиночного: `sphinx.json`, `verbs.json`). */
 export const loader = <K extends LazyKind>(kind: K, key = '', lang: Lang = LANG): Loader<LazyOf<K>> | undefined => loaders(kind, lang).get(key);
 
-/** Файл вида, загруженный сразу, на языке курса. */
-export function eager<K extends EagerKind>(kind: K, lang: Lang = LANG): EagerOf<K> | undefined {
-  for (const [path, data] of Object.entries(EAGER[kind])) {
-    const p = parseContentPath(path, kind);
-    if (p && p.lang === lang) return data as EagerOf<K>;
-  }
-  return undefined;
+const COURSE = await loadCore(LANG);
+
+/** Файл вида из маленьких файлов курса, уже загруженный. */
+export function eager<K extends EagerKind>(kind: K): EagerOf<K> | undefined {
+  return COURSE[kind];
 }

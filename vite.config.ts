@@ -198,6 +198,14 @@ export default defineConfig({
           groups: [
             { name: 'vendor', test: /node_modules[\\/]/ },
             {
+              // Маленькие файлы курса (задача 20.3): один чанк на язык, грузится только язык курса.
+              name: (id) => {
+                const m = id.match(/content[\\/]([^\\/]+)[\\/](?:npcs|chronicler|guardians|diary|prologue)\.json$/);
+                return m ? `core-${m[1]}` : null;
+              },
+              test: /content[\\/][^\\/]+[\\/](?:npcs|chronicler|guardians|diary|prologue)\.json$/,
+            },
+            {
               // Один чанк на язык и район грамматики: grammar-es-a1, grammar-it-b11…
               name: (id) => {
                 const m = id.match(/content[\\/]([^\\/]+)[\\/]grammar[\\/]([^\\/]+)[\\/]/);
