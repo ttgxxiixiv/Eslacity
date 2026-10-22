@@ -27,7 +27,7 @@ for (const lang of LANGS) {
       expect(new Set(log.map((a) => a.kind))).toEqual(new Set(['mission-choose', 'mission-tiles', 'mission-type']));
     });
 
-    test('все споры контента: уступить и компромисс ведут к своим реакциям жителя', async ({ page }) => {
+    test('все споры контента: уступить и компромисс ведут к своим реакциям жителя', { tag: ['@content', `@${lang}`] }, async ({ page }) => {
       test.setTimeout(480_000);
       await openApp(page, lang);
       for (const place of placesWithDispute(lang).filter((p) => p !== 'cafe')) {

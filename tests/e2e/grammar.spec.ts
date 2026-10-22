@@ -15,7 +15,7 @@ for (const lang of LANGS) {
     for (const district of DISTRICTS) {
       const files = readdirSync(join(CONTENT, lang, 'grammar', district)).filter((f) => f.endsWith('.json')).map((f) => f.replace('.json', ''));
       for (const file of files) {
-        test(`урок ${district}.${file}: каждое задание, со сборкой и вводом формы, засчитывается`, async ({ page }) => {
+        test(`урок ${district}.${file}: каждое задание, со сборкой и вводом формы, засчитывается`, { tag: ['@content', `@${lang}`] }, async ({ page }) => {
           const lesson = loadLesson(lang, district, file);
           await openApp(page, lang);
           if (CHAPTER[district] > 1) {

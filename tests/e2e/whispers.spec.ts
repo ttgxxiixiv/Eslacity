@@ -140,7 +140,7 @@ for (const lang of LANGS) {
       await expect(page.getByTestId('whisper-text')).toHaveText(cafe.lines[1].es);
     });
 
-    test('все шёпоты контента: разные голоса, все ответы верные', async ({ page }) => {
+    test('все шёпоты контента: разные голоса, все ответы верные', { tag: ['@content', `@${lang}`] }, async ({ page }) => {
       test.setTimeout(240_000);
       expect(all).toHaveLength(20);
       await openApp(page, lang);

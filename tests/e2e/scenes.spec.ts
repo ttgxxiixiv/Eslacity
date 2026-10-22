@@ -53,7 +53,7 @@ for (const lang of LANGS) {
       await expect(page).toHaveURL(/#\/loc\/cafe$/);
     });
 
-    test('все сцены контента: реплики по порядку и все ответы верные', async ({ page }) => {
+    test('все сцены контента: реплики по порядку и все ответы верные', { tag: ['@content', `@${lang}`] }, async ({ page }) => {
       test.setTimeout(240_000);
       await openApp(page, lang);
       const all = readdirSync(join(CONTENT, lang, 'scenes'))

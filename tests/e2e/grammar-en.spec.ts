@@ -13,7 +13,7 @@ const CHAPTER: Record<string, number> = { a1: 1, a2: 2, b11: 3, b12: 3, b2: 4, c
 for (const district of readdirSync(ROOT)) {
   for (const file of readdirSync(join(ROOT, district)).filter((f) => f.endsWith('.json'))) {
     const lesson = JSON.parse(readFileSync(join(ROOT, district, file), 'utf8'));
-    test(`en: урок ${lesson.id}: каждое задание засчитывается`, async ({ page }) => {
+    test(`en: урок ${lesson.id}: каждое задание засчитывается`, { tag: ['@content', '@en'] }, async ({ page }) => {
       await openEnglish(page);
       await page.goto(`./#/grammar/${lesson.id}`);
       if (CHAPTER[district] > 1) {

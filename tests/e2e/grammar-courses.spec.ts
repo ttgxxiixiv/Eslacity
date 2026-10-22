@@ -16,7 +16,7 @@ for (const lang of COURSES) {
   for (const district of readdirSync(root)) {
     for (const file of readdirSync(join(root, district)).filter((f) => f.endsWith('.json'))) {
       const lesson = JSON.parse(readFileSync(join(root, district, file), 'utf8'));
-      test(`${lang}: урок ${lesson.id}: каждое задание засчитывается`, async ({ page }) => {
+      test(`${lang}: урок ${lesson.id}: каждое задание засчитывается`, { tag: ['@content', `@${lang}`] }, async ({ page }) => {
         await openCourse(page, lang);
         await page.goto(`./#/grammar/${lesson.id}`);
         if (CHAPTER[district] > 1) {

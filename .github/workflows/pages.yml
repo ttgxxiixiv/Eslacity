@@ -18,8 +18,13 @@ jobs:
   # Юнит-тесты и сборка один раз: dist уходит артефактом и шардам сквозных тестов, и на сайт (задача 16.3).
   build:
     runs-on: ubuntu-latest
+    outputs:
+      grep: ${{ steps.plan.outputs.grep }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          # История нужна плану сквозных тестов: что поменялось с прошлого push.
+          fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
           node-version: 22
@@ -28,20 +33,28 @@ jobs:
       - run: npm run lint
       - run: npm test
       - run: npm run build
+      # План сквозных тестов (задача 20.6): сравнение с версией на сайте — она прошла все тесты (прогон,
+      # отменённый следующим push, так не теряется). Только контент одних языков — все тесты без @content и обход
+      # этих языков; любое другое изменение или неизвестная база — полный прогон (пустой grep).
+      - id: plan
+        run: |
+          BASE=$(curl -fsS --max-time 20 https://ttgxxiixiv.github.io/Eslacity/version.json | node -p "JSON.parse(require('fs').readFileSync(0, 'utf8')).commit" || true)
+          echo "База: ${BASE:-нет}"
+          npx tsx scripts/e2e-plan.ts "$BASE" "${{ github.sha }}" >> "$GITHUB_OUTPUT"
       - uses: actions/upload-artifact@v4
         with:
           name: site
           path: dist
           retention-days: 1
 
-  # Сквозные тесты в браузере четырьмя шардами по собранному dist: деплой только если прошли все.
+  # Сквозные тесты в браузере восемью шардами по собранному dist: деплой только если прошли все.
   e2e:
     needs: build
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
-        shard: [1, 2, 3, 4]
+        shard: [1, 2, 3, 4, 5, 6, 7, 8]
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -54,7 +67,16 @@ jobs:
         with:
           name: site
           path: dist
-      - run: npx playwright test --shard=${{ matrix.shard }}/4
+      - name: Сквозные тесты
+        env:
+          E2E_GREP: ${{ needs.build.outputs.grep }}
+        run: |
+          if [ -n "$E2E_GREP" ]; then
+            echo "Выборочный прогон: $E2E_GREP"
+            npx playwright test --shard=${{ matrix.shard }}/8 --pass-with-no-tests --grep "$E2E_GREP"
+          else
+            npx playwright test --shard=${{ matrix.shard }}/8
+          fi
       - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}
         with:

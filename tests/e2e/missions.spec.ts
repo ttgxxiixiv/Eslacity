@@ -72,7 +72,7 @@ for (const lang of LANGS) {
       await expect(page.getByTestId('mission-link')).toContainText('✓ выполнена');
     });
 
-    test('все миссии контента проходятся выбором без ошибок', async ({ page }) => {
+    test('все миссии контента проходятся выбором без ошибок', { tag: ['@content', `@${lang}`] }, async ({ page }) => {
       // Сто миссий (пять глав по двадцать мест) идут около четырёх минут.
       test.setTimeout(360_000);
       await openApp(page, lang);

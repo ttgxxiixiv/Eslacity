@@ -89,13 +89,13 @@ async function playMission(page: Page, id: string, pick: Record<string, number> 
   await expect(page.getByTestId('mission-result'), id).toContainText(`Верных ответов: ${answers.length} из ${answers.length} (100%)`);
 }
 
-test('en: все сцены контента — реплики по порядку и все ответы верные', async ({ page }) => {
+test('en: все сцены контента — реплики по порядку и все ответы верные', { tag: ['@content', '@en'] }, async ({ page }) => {
   test.setTimeout(240_000);
   await openEnglish(page);
   for (const sc of scenes) await playScene(page, sc);
 });
 
-test('en: все сцены нити глав — Летописец, реплики по порядку и все ответы верные', async ({ page }) => {
+test('en: все сцены нити глав — Летописец, реплики по порядку и все ответы верные', { tag: ['@content', '@en'] }, async ({ page }) => {
   test.setTimeout(240_000);
   await openEnglish(page);
   const thread = read('scenes', 'thread.json') as { scenes: SceneData[]; notes: Record<string, unknown[]> };
@@ -140,7 +140,7 @@ test('en: пролог — ворота, три слова, кафе, обрыв
   await expect(page.getByTestId('review-card')).toBeVisible();
 });
 
-test('en: все миссии контента проходятся выбором без ошибок', async ({ page }) => {
+test('en: все миссии контента проходятся выбором без ошибок', { tag: ['@content', '@en'] }, async ({ page }) => {
   test.setTimeout(600_000);
   await openEnglish(page);
   for (const m of missions) await playMission(page, m.id);
@@ -163,7 +163,7 @@ test('en: развилка главы II — Молли в главе III всп
   expect(sc.lines.some((l) => l.if?.is === 'treat' && l.es.includes('like you wanted to treat me'))).toBe(true);
 });
 
-test('en: все шёпоты главы IV — реплики голосом, все ответы на понимание верные', async ({ page }) => {
+test('en: все шёпоты главы IV — реплики голосом, все ответы на понимание верные', { tag: ['@content', '@en'] }, async ({ page }) => {
   test.setTimeout(240_000);
   expect(whispers).toHaveLength(20);
   await openEnglish(page);
@@ -242,7 +242,7 @@ test('en: дневник путника — записи главы I откры
   await expect(page.locator(`[data-testid=diary-entry][data-id="${talk.id}"]`)).toHaveAttribute('data-open', 'true');
 });
 
-test('en: книги Летописца — все 20 текстов открыты по обрывкам, вопросы проходятся, слово книги — в мои слова', async ({ page }) => {
+test('en: книги Летописца — все 20 текстов открыты по обрывкам, вопросы проходятся, слово книги — в мои слова', { tag: ['@content', '@en'] }, async ({ page }) => {
   test.setTimeout(240_000);
   type BookData = { words: { id: string; es: string; ru: string; forms: string[] }[]; books: { id: string; title: { es: string }; questions: { q: string; options: string[]; answer: number }[] }[] };
   const places = files('words').map((f) => f.replace(/\.json$/, ''));

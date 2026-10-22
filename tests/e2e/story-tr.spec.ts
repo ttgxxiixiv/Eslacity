@@ -58,13 +58,13 @@ async function playMission(page: Page, id: string, pick: Record<string, number> 
   await expect(page.getByTestId('mission-result'), id).toContainText(`Верных ответов: ${answers.length} из ${answers.length} (100%)`);
 }
 
-test('tr: все сцены контента — реплики по порядку и все ответы верные', async ({ page }) => {
+test('tr: все сцены контента — реплики по порядку и все ответы верные', { tag: ['@content', '@tr'] }, async ({ page }) => {
   test.setTimeout(360_000);
   await openCourse(page, 'tr');
   for (const sc of scenes) await playScene(page, sc);
 });
 
-test('tr: все миссии контента проходятся выбором без ошибок', async ({ page }) => {
+test('tr: все миссии контента проходятся выбором без ошибок', { tag: ['@content', '@tr'] }, async ({ page }) => {
   test.setTimeout(600_000);
   await openCourse(page, 'tr');
   for (const m of missions) await playMission(page, m.id);
@@ -111,7 +111,7 @@ test('tr: развилка базара главы II — тётушка Фат�
   expect(sc.lines.some((l) => l.if?.is === 'garlic' && l.es.includes('sarımsak'))).toBe(true);
 });
 
-test('tr: все шёпоты главы IV — реплики голосом, все ответы на понимание верные', async ({ page }) => {
+test('tr: все шёпоты главы IV — реплики голосом, все ответы на понимание верные', { tag: ['@content', '@tr'] }, async ({ page }) => {
   test.setTimeout(240_000);
   expect(whispers).toHaveLength(20);
   await openCourse(page, 'tr');
@@ -213,7 +213,7 @@ test('tr: записки глав II–IV — образец каждой нах
 });
 
 
-test('tr: все сцены нити глав — Летописец, реплики по порядку и все ответы верные', async ({ page }) => {
+test('tr: все сцены нити глав — Летописец, реплики по порядку и все ответы верные', { tag: ['@content', '@tr'] }, async ({ page }) => {
   test.setTimeout(240_000);
   await openCourse(page, 'tr');
   const thread = read('scenes', 'thread.json') as { scenes: SceneData[]; notes: Record<string, unknown[]> };
@@ -283,7 +283,7 @@ test('tr: дневник путника — записи главы I откры
   await expect(page.locator(`[data-testid=diary-entry][data-id="${talk.id}"]`)).toHaveAttribute('data-open', 'true');
 });
 
-test('tr: книги Летописца — все 20 текстов открыты по обрывкам, вопросы проходятся, слово книги — в мои слова', async ({ page }) => {
+test('tr: книги Летописца — все 20 текстов открыты по обрывкам, вопросы проходятся, слово книги — в мои слова', { tag: ['@content', '@tr'] }, async ({ page }) => {
   test.setTimeout(240_000);
   type BookData = { words: { id: string; es: string; ru: string; forms: string[] }[]; books: { id: string; title: { es: string }; questions: { q: string; options: string[]; answer: number }[] }[] };
   const places = files('words').map((f) => f.replace(/\.json$/, ''));

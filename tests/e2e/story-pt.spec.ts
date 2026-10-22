@@ -57,13 +57,13 @@ async function playMission(page: Page, id: string, pick: Record<string, number> 
   await expect(page.getByTestId('mission-result'), id).toContainText(`Верных ответов: ${answers.length} из ${answers.length} (100%)`);
 }
 
-test('pt: все сцены контента — реплики по порядку и все ответы верные', async ({ page }) => {
+test('pt: все сцены контента — реплики по порядку и все ответы верные', { tag: ['@content', '@pt'] }, async ({ page }) => {
   test.setTimeout(720_000);
   await openCourse(page, 'pt');
   for (const sc of scenes) await playScene(page, sc);
 });
 
-test('pt: все миссии контента проходятся выбором без ошибок', async ({ page }) => {
+test('pt: все миссии контента проходятся выбором без ошибок', { tag: ['@content', '@pt'] }, async ({ page }) => {
   test.setTimeout(1_200_000);
   await openCourse(page, 'pt');
   for (const m of missions) await playMission(page, m.id);
@@ -112,7 +112,7 @@ test('pt: развилка рынка главы II — Дона Граса сп
 
 const whispers = allScenes.filter((sc) => sc.mode === 'overhear');
 
-test('pt: все шёпоты главы IV — реплики голосом, все ответы на понимание верные', async ({ page }) => {
+test('pt: все шёпоты главы IV — реплики голосом, все ответы на понимание верные', { tag: ['@content', '@pt'] }, async ({ page }) => {
   test.setTimeout(240_000);
   expect(whispers).toHaveLength(20);
   await openCourse(page, 'pt');
@@ -223,7 +223,7 @@ test('pt: записки глав II–IV — образец каждой нах
   }
 });
 
-test('pt: все сцены нити глав — Летописец, реплики по порядку и все ответы верные', async ({ page }) => {
+test('pt: все сцены нити глав — Летописец, реплики по порядку и все ответы верные', { tag: ['@content', '@pt'] }, async ({ page }) => {
   test.setTimeout(240_000);
   await openCourse(page, 'pt');
   const thread = read('scenes', 'thread.json') as { scenes: SceneData[]; notes: Record<string, unknown[]> };
@@ -293,7 +293,7 @@ test('pt: дневник путника — записи главы I откры
   await expect(page.locator(`[data-testid=diary-entry][data-id="${talk.id}"]`)).toHaveAttribute('data-open', 'true');
 });
 
-test('pt: книги Летописца — все 20 текстов открыты по обрывкам, вопросы проходятся, слово книги — в мои слова', async ({ page }) => {
+test('pt: книги Летописца — все 20 текстов открыты по обрывкам, вопросы проходятся, слово книги — в мои слова', { tag: ['@content', '@pt'] }, async ({ page }) => {
   test.setTimeout(240_000);
   type BookData = { words: { id: string; es: string; ru: string; forms: string[] }[]; books: { id: string; title: { es: string }; questions: { q: string; options: string[]; answer: number }[] }[] };
   const places = files('words').map((f) => f.replace(/\.json$/, ''));
