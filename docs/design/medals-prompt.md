@@ -195,6 +195,37 @@ the top-left. Each medal must stay readable at 64x64 pixels on a phone.
 
 После генерации: лист — в `docs/design/medal-secrets-tr.png`, в `scripts/build-medal-art.py` — `SECRETS_TR = ['festival-hidrellez', 'festival-nisan']` и нарезка, как у английского; временный `scripts/build-tr-festival-medals.py` удалить.
 
+## 3в. Праздничные медали португальского курса (с 2.229.0)
+
+Пока обе медали собирает из готовых временный `scripts/build-pt-festival-medals.py`. Лист генерировать с приложенным образцом `docs/design/medal-secrets-en.png`, чтобы оправа и масштаб совпали.
+
+| Медаль | Праздник | Сцена в центре |
+|---|---|---|
+| Июньский костёр | Festa Junina, Иванова ночь 23–24 июня | большой костёр, над ним гирлянда разноцветных бумажных флажков, соломенная шляпа у огня, ночное небо |
+| Зонтик фрево | бразильский Карнавал | маленький разноцветный зонтик фрево, вокруг конфетти и серпантин, солнечное небо |
+
+```
+Stylized hand-painted fantasy MMO achievement icon art, in the spirit of World of Warcraft feat-of-strength
+medals: bold chunky shapes, thick painterly brushwork, saturated colors, strong rim light, heavy ornate metal.
+No text, no letters, no numbers. Match the attached reference sheet exactly in frame, size and lighting.
+
+Draw 2 secret medals side by side, exactly the same size and shape, front view, on a plain solid magenta
+(#FF00FF) background with generous empty space between them. Every medal has the same frame: an eight-pointed
+star of dark blackened metal with gold edges, a round inner disc, and a short ribbon tail at the bottom in deep
+purple and gold stripes (deep purple, not pink). Only the scene in the inner disc changes:
+
+1. A big crackling bonfire of crossed logs with orange and golden flames and sparks, above it a string of small
+   triangular paper flags in red, yellow, blue and green crossing the disc, a woven straw hat lying by the fire,
+   a deep blue June night sky behind.
+2. A small round frevo umbrella held up high, its segments in bright red, yellow, green and blue with a golden
+   tip, colourful confetti dots and curling paper streamers flying around it, a clear sunny blue sky behind.
+
+Do not use magenta or bright pink anywhere in the medals. Consistent light from the top-left. Each medal must stay
+readable at 64x64 pixels on a phone.
+```
+
+После генерации: лист — в `docs/design/medal-secrets-pt.png`, в `scripts/build-medal-art.py` — `SECRETS_PT = ['festival-junina', 'festival-carnaval']` и нарезка, как у турецкого; временный `scripts/build-pt-festival-medals.py` удалить.
+
 ## После генерации
 
 - Проверить, что оправы одного размера и центр у всех пустой: эмблема ляжет в него кодом.

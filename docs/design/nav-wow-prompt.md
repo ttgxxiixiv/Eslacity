@@ -129,3 +129,28 @@ No text, no letters, no numbers, no shadow on the background. Do not use magenta
 ```
 
 После генерации: лист — в `docs/design/nav-wow-eyes-tr.png`, в `scripts/build-nav-art.py` — `eyes('nav-wow-eyes-tr.png', ['eye-tr', 'eye-tr-gold'])`, в `EYES` в `NavBar.tsx` — строка `tr`. Если полумесяц и звезда на 44 px сливаются в пятно, перегенерировать с более крупным полумесяцем.
+
+## Португальский курс: медальоны с глазом
+
+Лист из двух медальонов, как у английского и турецкого, генерировать с приложенным образцом `docs/design/nav-wow-eyes.png`. Пока своего медальона нет, португальский курс берёт испанский (`eyeOf`).
+
+```
+Sheet of 2 round UI medallions for a mobile fantasy RPG, in the hand-painted stylized art style of World of
+Warcraft: chunky shapes, saturated colors, painterly textures, strong rim light. Not pixel art. Match the attached
+reference sheet exactly in ring shape, rune style, eye size and lighting.
+
+The 2 medallions are in one row, exactly the same size and perfectly circular, on a plain solid magenta (#FF00FF)
+background with generous empty space between them. Each medallion is a thick ring of carved stone with small
+glowing runes around it, and in the centre a large reptilian dragon eye with a vertical slit pupil, looking
+straight at the viewer. The iris is a rich emerald green, and around the pupil sits a golden-yellow diamond
+(rhombus) shape, with a small deep-blue disc right behind the slit pupil, like the colours of the flag of Brazil,
+glowing softly. The eye has a strong silhouette that stays readable at 44x44 pixels.
+
+Left to right:
+1. Grey stone ring with pale turquoise glowing runes.
+2. The same eye, but the ring is polished gold with warm golden runes.
+
+No text, no letters, no numbers, no shadow on the background. Do not use magenta or bright pink in the medallions.
+```
+
+После генерации: лист — в `docs/design/nav-wow-eyes-pt.png`, в `scripts/build-nav-art.py` — `eyes('nav-wow-eyes-pt.png', ['eye-pt', 'eye-pt-gold'])`, в `EYES` в `NavBar.tsx` — строка `pt`. Если ромб и синий круг на 44 px сливаются в пятно, перегенерировать с более крупным ромбом.
