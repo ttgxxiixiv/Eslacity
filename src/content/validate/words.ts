@@ -255,7 +255,7 @@ export function validateScrolls(files: { name: string; data: ScrollFile }[], pla
       out.push({ level: 'error', where: name, msg: 'нет слов' });
       continue;
     }
-    if (data.words.length > plan.scroll) out.push({ level: 'error', where: name, msg: `${data.words.length} слов, по плану не больше ${plan.scroll}` });
+    if (data.words.length > plan.scrollMax) out.push({ level: 'error', where: name, msg: `${data.words.length} слов, больше потолка свитка ${plan.scrollMax}` });
     const prefix = `scroll${data.chapter}.`;
     // Свиток — один урок-пул: одинаковый перевод делает варианты ответа и «пары» неоднозначными.
     const ruSeen = new Map<string, string>();

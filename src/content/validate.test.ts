@@ -306,10 +306,10 @@ describe('validateScrolls', () => {
     const warns = validateScrolls(scroll([sw('mapa'), sw('plano', { ru: 'mapa' })]), []).filter((x) => x.level === 'warning');
     expect(warns.map((x) => x.msg).join()).toMatch(/тот же перевод «mapa», что у scroll1\.mapa/);
   });
-  it('слов больше плана — ошибка', () => {
-    const n = PLAN[0].scroll + 1;
+  it('слов больше потолка свитка — ошибка', () => {
+    const n = PLAN[0].scrollMax + 1;
     const many = Array.from({ length: n }, (_, i) => sw(`w${i}`));
-    expect(errs(many)).toMatch(new RegExp(`${n} слов, по плану не больше ${PLAN[0].scroll}`));
+    expect(errs(many)).toMatch(new RegExp(`${n} слов, больше потолка свитка ${PLAN[0].scrollMax}`));
   });
   it('настоящие свитки обоих языков проходят', () => {
     for (const lang of ['es', 'it'] as const) {

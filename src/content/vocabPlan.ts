@@ -15,14 +15,19 @@ export interface ChapterPlan {
   places: number;
   /** Слов в свитке земли. */
   scroll: number;
+  /**
+   * Потолок свитка для валидатора (задача 21.1): частые слова, которых в курсе не хватало, легли в свитки английского и
+   * португальского сверх плана. План и отметки глав на полосе словаря от этого не меняются.
+   */
+  scrollMax: number;
 }
 
 export const CHAPTERS: ChapterPlan[] = [
-  { chapter: 'I', cefr: 'A1', levels: [1, 2], places: 445, scroll: 87 },
-  { chapter: 'II', cefr: 'A2', levels: [3, 4], places: 474, scroll: 181 },
-  { chapter: 'III', cefr: 'B1', levels: [5], places: 600, scroll: 270 },
-  { chapter: 'IV', cefr: 'B2', levels: [6], places: 600, scroll: 250 },
-  { chapter: 'V', cefr: 'C1', levels: [7], places: 500, scroll: 150 },
+  { chapter: 'I', cefr: 'A1', levels: [1, 2], places: 445, scroll: 87, scrollMax: 87 },
+  { chapter: 'II', cefr: 'A2', levels: [3, 4], places: 474, scroll: 181, scrollMax: 201 },
+  { chapter: 'III', cefr: 'B1', levels: [5], places: 600, scroll: 270, scrollMax: 330 },
+  { chapter: 'IV', cefr: 'B2', levels: [6], places: 600, scroll: 250, scrollMax: 300 },
+  { chapter: 'V', cefr: 'C1', levels: [7], places: 500, scroll: 150, scrollMax: 150 },
 ];
 
 /** Всего слов по плану: 3557 (свитки I–IV выросли в задаче 7.11, II и III — в 12.1, I — в 13.2), запас над целью на повторы и замены. */

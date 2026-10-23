@@ -147,7 +147,12 @@ describe('слова глав I–III английского (задачи 17.3,
       for (const level of [5, 6, 7]) expect(data.words.filter((w) => w.level === level && !w.kind), `${name} уровень ${level}`).toHaveLength(PLACE_LEVEL_MAX[level]);
     }
     for (const { name, data } of words) expect(data.words.filter((w) => w.kind), `${name} выражения`).toHaveLength(PLACE_EXPRESSIONS);
-    expect(scrolls.map((s) => [s.data.chapter, s.data.words.length])).toEqual(CHAPTERS.map((c, i) => [i + 1, c.scroll]));
+    // Свитки не меньше плана; в свиток II в задаче 21.1 легли 20 частых слов сверх плана (потолок — scrollMax).
+    for (const s of scrolls) {
+      const plan = CHAPTERS[s.data.chapter - 1];
+      expect(s.data.words.length, `свиток ${s.data.chapter}`).toBeGreaterThanOrEqual(plan.scroll);
+      expect(s.data.words.length, `свиток ${s.data.chapter}`).toBeLessThanOrEqual(plan.scrollMax);
+    }
   });
 
   it('проходят проверку слов, свитков и одинаковых переводов без замечаний', () => {
