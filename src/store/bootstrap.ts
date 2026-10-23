@@ -1,4 +1,5 @@
 import { watchReminder } from '../lib/reminder';
+import type { CalSample } from '../domain/retention';
 import { watchSoundCues } from '../audio/cues';
 import { watchMusic } from '../audio/music';
 import { unlockAudio } from '../audio/context';
@@ -62,7 +63,7 @@ export async function bootstrap(): Promise<void> {
     await db.buildings.put(cafe);
   }
 
-  useProgress.getState().hydrate({ cards, days, xpTotal: (m.xpTotal as number) ?? 0, grammar });
+  useProgress.getState().hydrate({ cards, days, xpTotal: (m.xpTotal as number) ?? 0, grammar, calibration: m.calibration as CalSample[] | undefined });
   useCity.getState().hydrate({ coins: (m.coins as number) ?? 0, buildings });
   useSettings.getState().hydrate(m.settings as Partial<Settings> | undefined);
   useMotivation.getState().hydrate(m.motivation as Partial<MotivationData> | undefined);

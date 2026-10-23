@@ -1,7 +1,8 @@
 import { create } from 'zustand';
 import { db, emptyDay, type DayRow, type GrammarRow } from '../db/db';
 import { persist } from '../db/persist';
-import { dayKey, fromSm2, knownCard, newCard, review, type Grade, type SrsCard } from '../domain/srs';
+import { dayKey, dayNumber, fromSm2, knownCard, newCard, rescheduled, retrievability, review, type Grade, type SrsCard } from '../domain/srs';
+import { addSamples, RETENTION, type CalSample } from '../domain/retention';
 import { knownDays } from '../domain/placement';
 import { useMotivation } from './motivation';
 import { useSettings } from './settings';
@@ -18,7 +19,11 @@ interface ProgressState {
   /** Уровень, на который только что перешёл персонаж: для поздравления. */
   levelUp: number | null;
   grammar: Record<string, GrammarRow>;
-  hydrate(p: { cards: SrsCard[]; days: DayRow[]; xpTotal: number; grammar: GrammarRow[] }): void;
+  /** Плановые повторы для сверки с прогнозом FSRS (задача 21.2), `meta.calibration`. */
+  calibration: CalSample[];
+  hydrate(p: { cards: SrsCard[]; days: DayRow[]; xpTotal: number; grammar: GrammarRow[]; calibration?: CalSample[] }): void;
+  /** Другая запоминаемость (задача 21.2): сроки всех выученных карточек считаются заново. Возвращает, сколько сдвинулось. */
+  reschedule(retention: number): number;
   /** Отметить урок грамматики пройденным. Возвращает true, если пройден впервые. */
   completeGrammar(lessonId: string, score: number, now?: number): boolean;
   /** Проставить оценки SM-2. Новые слова получают карточку. */
@@ -46,8 +51,9 @@ export const useProgress = create<ProgressState>((set, get) => ({
   xpTotal: 0,
   levelUp: null,
   grammar: {},
+  calibration: [],
 
-  hydrate({ cards, days, xpTotal, grammar }) {
+  hydrate({ cards, days, xpTotal, grammar, calibration }) {
     const key = dayKey(Date.now());
     set({
       // Карточки из старых резервных копий приходят без полей FSRS: достраиваем при загрузке.
@@ -56,7 +62,22 @@ export const useProgress = create<ProgressState>((set, get) => ({
       days: Object.fromEntries(days.map((d) => [d.date, d])),
       xpTotal,
       grammar: Object.fromEntries(grammar.map((g) => [g.lessonId, g])),
+      calibration: Array.isArray(calibration) ? calibration : [],
     });
+  },
+
+  reschedule(retention) {
+    const cards = { ...get().cards };
+    const changed: SrsCard[] = [];
+    for (const [id, c] of Object.entries(cards)) {
+      const next = rescheduled(c, retention);
+      if (next === c) continue;
+      cards[id] = next;
+      changed.push(next);
+    }
+    set({ cards });
+    if (changed.length) persist(() => db.cards.bulkPut(changed));
+    return changed.length;
   },
 
   completeGrammar(lessonId, score, now = Date.now()) {
@@ -76,16 +97,25 @@ export const useProgress = create<ProgressState>((set, get) => ({
   applyGrades(grades, now = Date.now()) {
     const cards = { ...get().cards };
     const changed: SrsCard[] = [];
+    const samples: CalSample[] = [];
+    const retention = RETENTION[useSettings.getState().retention] ?? RETENTION.normal;
     let newWords = 0;
     for (const [id, q] of Object.entries(grades)) {
       const prev = cards[id];
       if (!prev) newWords++;
-      const next = review(prev ?? newCard(id, now), q, now);
+      // Плановый повтор выученной карточки: прогноз FSRS против ответа (задача 21.2).
+      else if (prev.stability > 0 && prev.reps > 0 && prev.due <= dayNumber(now)) samples.push([Math.round(retrievability(prev, now) * 1000), q >= 3 ? 1 : 0]);
+      const next = review(prev ?? newCard(id, now), q, now, retention);
       cards[id] = next;
       changed.push(next);
     }
     set({ cards });
     if (changed.length) persist(() => db.cards.bulkPut(changed));
+    if (samples.length) {
+      const calibration = addSamples(get().calibration, samples);
+      set({ calibration });
+      persist(() => db.meta.put({ key: 'calibration', value: calibration }));
+    }
     return { newWords };
   },
 

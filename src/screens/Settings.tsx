@@ -11,6 +11,7 @@ import { resetProgress } from '../store/bootstrap';
 import { importBackup, parseBackup } from '../db/backup';
 import { backupDue, daysSinceBackup } from '../domain/backupPlan';
 import { plural } from '../domain/medals';
+import { RETENTION, RETENTION_LABEL, RETENTION_MODES, retentionHint, type RetentionMode } from '../domain/retention';
 import { saveBackupNow, storagePersisted } from '../lib/backup';
 import { useBackup } from '../store/backup';
 import { TEXT_SCALE, TEXT_SIZE_LABEL, useSettings, type Settings, type TextSize } from '../store/settings';
@@ -181,6 +182,62 @@ function HeroSection() {
   );
 }
 
+const RETENTION_TEXT: Record<RetentionMode, string> = {
+  light: 'Слово возвращается почти вдвое реже, но к повтору помнится примерно 85 слов из 100.',
+  normal: 'К повтору помнится примерно 90 слов из 100.',
+  firm: 'Слово возвращается в два с половиной раза чаще, зато к повтору помнится примерно 95 слов из 100.',
+};
+
+/** Запоминаемость (задача 21.2): режим FSRS, пересчёт сроков и подсказка по сверке с ответами. */
+function RetentionCard() {
+  const retention = useSettings((s) => s.retention);
+  const calibration = useProgress((s) => s.calibration);
+  const [moved, setMoved] = useState<number | null>(null);
+  const choose = (mode: RetentionMode) => {
+    if (mode === retention) return;
+    useSettings.getState().update({ retention: mode });
+    setMoved(useProgress.getState().reschedule(RETENTION[mode]));
+  };
+  const hint = retentionHint(calibration, retention);
+  const pct = (x: number) => Math.round(x * 100);
+  return (
+    <section className="rounded-3xl bg-white p-4 shadow-sm" data-testid="retention">
+      <h2 className="font-bold">Запоминаемость</h2>
+      <div className="mt-3 grid grid-cols-3 gap-2">
+        {RETENTION_MODES.map((m) => (
+          <button
+            key={m}
+            type="button"
+            aria-pressed={retention === m}
+            onClick={() => choose(m)}
+            className={`press rounded-xl border-2 px-1 py-2.5 text-sm font-semibold ${retention === m ? 'border-brand bg-orange-50 text-brand' : 'border-stone-200'}`}
+            data-testid={`retention-${m}`}
+          >
+            {RETENTION_LABEL[m]}
+          </button>
+        ))}
+      </div>
+      <p className="mt-2 text-sm text-stone-600">{RETENTION_TEXT[retention]}</p>
+      {moved !== null && (
+        <p className="mt-1 text-sm text-stone-500" role="status" data-testid="retention-moved">
+          Сроки пересчитаны: {moved} {plural(moved, ['карточка', 'карточки', 'карточек'])}. Прогноз ниже уже с новыми сроками.
+        </p>
+      )}
+      {hint && (
+        <div className="mt-2 rounded-xl bg-amber-50 px-3 py-2 text-sm text-wood" data-testid="retention-hint" data-kind={hint.kind}>
+          За последние {hint.cal.n} повторов вы вспомнили {pct(hint.cal.actual)}% слов, а по расчёту выходило {pct(hint.cal.predicted)}%.{' '}
+          {hint.kind === 'better' ? 'Вы помните лучше расчёта: можно повторять реже.' : 'Вы забываете чаще расчёта: стоит повторять надёжнее.'}
+          {hint.suggest && (
+            <button type="button" onClick={() => choose(hint.suggest!)} className="press mt-2 block w-full rounded-lg bg-gold px-3 py-1.5 font-semibold text-wood" data-testid="retention-suggest">
+              Выбрать «{RETENTION_LABEL[hint.suggest]}»
+            </button>
+          )}
+        </div>
+      )}
+    </section>
+  );
+}
+
 function LearningSection() {
   const { dailyGoal, newPerDay, update } = useSettings();
   return (
@@ -228,6 +285,7 @@ function LearningSection() {
           Столько новых слов в день просят жители. Это мягкий лимит: учить дальше в городе можно всегда, просто «Продолжить» сначала позовёт на поручения.
         </p>
       </section>
+      <RetentionCard />
       <ReviewForecast />
 
       <section className="rounded-3xl bg-white p-4 shadow-sm">

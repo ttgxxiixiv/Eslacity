@@ -60,11 +60,21 @@ export function knownCard(wordId: string, now: number, days: number): SrsCard {
   };
 }
 
+/** Целевая вероятность вспомнить по умолчанию (режим «Обычно», задача 21.2). */
+export const DEFAULT_RETENTION = 0.9;
+
 /**
- * FSRS: целевая вероятность вспомнить 0.9, параметры по умолчанию. Повторение идёт по дням,
- * поэтому коротких шагов внутри дня нет: новое слово после урока возвращается не раньше завтра.
+ * FSRS с параметрами по умолчанию; целевую вероятность вспомнить выбирает игрок (задача 21.2), по планировщику на
+ * значение. Повторение идёт по дням, поэтому коротких шагов внутри дня нет: новое слово после урока возвращается
+ * не раньше завтра.
  */
-const scheduler = fsrs(generatorParameters({ request_retention: 0.9, enable_fuzz: false, enable_short_term: false }));
+const schedulers = new Map<number, ReturnType<typeof fsrs>>();
+function schedulerFor(retention: number) {
+  let s = schedulers.get(retention);
+  if (!s) schedulers.set(retention, (s = fsrs(generatorParameters({ request_retention: retention, enable_fuzz: false, enable_short_term: false }))));
+  return s;
+}
+const scheduler = schedulerFor(DEFAULT_RETENTION);
 
 /**
  * Перевод карточки SM-2 в FSRS (перенос базы и старых резервных копий): стабильность из интервала (не меньше 1),
@@ -108,8 +118,8 @@ function toFsrs(c: SrsCard): FsrsCard {
 }
 
 /** Один шаг повторения по FSRS. Срок — номер дня: сегодня плюс интервал, не меньше дня. */
-export function review(card: SrsCard, q: Grade, now: number): SrsCard {
-  const next = scheduler.next(toFsrs(fromSm2(card)), new Date(now), ratingOf(q)).card;
+export function review(card: SrsCard, q: Grade, now: number, retention = DEFAULT_RETENTION): SrsCard {
+  const next = schedulerFor(retention).next(toFsrs(fromSm2(card)), new Date(now), ratingOf(q)).card;
   const interval = Math.max(1, Math.round(next.scheduled_days));
   return {
     ...card,
@@ -122,6 +132,18 @@ export function review(card: SrsCard, q: Grade, now: number): SrsCard {
     due: dayNumber(now) + interval,
     lastReviewedAt: now,
   };
+}
+
+/**
+ * Срок карточки при другой запоминаемости (задача 21.2): интервал от последнего повтора по её стабильности, не меньше
+ * дня. Новые карточки не меняются. Сроки считаются заново и для просроченных: в режиме «реже» часть из них уходит вперёд.
+ */
+export function rescheduled(card: SrsCard, retention: number): SrsCard {
+  const c = fromSm2(card);
+  if (c.state === State.New || c.stability <= 0) return c;
+  const interval = Math.max(1, schedulerFor(retention).next_interval(c.stability, 0));
+  const due = dayNumber(c.lastReviewedAt) + interval;
+  return due === c.due ? c : { ...c, interval, due };
 }
 
 /** Вероятность вспомнить слово сейчас (0–1): для силы Эликсира и отчётов. У новой карточки — 0. */

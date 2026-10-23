@@ -2,6 +2,7 @@ import { create } from 'zustand';
 import { db } from '../db/db';
 import { persist } from '../db/persist';
 import { addressHero, forGender, type Fem } from '../domain/address';
+import type { RetentionMode } from '../domain/retention';
 import { LANG } from '../lang';
 
 export interface Settings {
@@ -27,6 +28,8 @@ export interface Settings {
   musicVolume: number;
   /** Размер текста (задача 14.3): корневой размер шрифта, от него считаются все размеры в rem. */
   textSize: TextSize;
+  /** Запоминаемость (задача 21.2): какую вероятность вспомнить держит FSRS — 0,85, 0,9 или 0,95. */
+  retention: RetentionMode;
 }
 
 export type TextSize = 'normal' | 'large' | 'xlarge';
@@ -36,7 +39,7 @@ export const TEXT_SCALE: Record<TextSize, number> = { normal: 100, large: 112.5,
 
 export const TEXT_SIZE_LABEL: Record<TextSize, string> = { normal: 'Обычный', large: 'Крупный', xlarge: 'Очень крупный' };
 
-export const DEFAULT_SETTINGS: Settings = { speechRate: 0.9, dailyGoal: 100, blitzBest: 0, listenOffUntil: 0, newPerDay: 10, heroGender: 'm', heroName: '', voiceM: '', voiceF: '', reminderOn: false, reminderTime: '19:00', sfxVolume: 0.6, musicVolume: 0.4, textSize: 'normal' };
+export const DEFAULT_SETTINGS: Settings = { speechRate: 0.9, dailyGoal: 100, blitzBest: 0, listenOffUntil: 0, newPerDay: 10, heroGender: 'm', heroName: '', voiceM: '', voiceF: '', reminderOn: false, reminderTime: '19:00', sfxVolume: 0.6, musicVolume: 0.4, textSize: 'normal', retention: 'normal' };
 
 interface SettingsState extends Settings {
   hydrate(s: Partial<Settings> | undefined): void;
@@ -52,9 +55,9 @@ export const useSettings = create<SettingsState>((set, get) => ({
   update(patch) {
     set(patch);
     if (patch.textSize) applyTextSize(patch.textSize);
-    const { speechRate, dailyGoal, blitzBest, listenOffUntil, newPerDay, heroGender, heroName, voiceM, voiceF, reminderOn, reminderTime, sfxVolume, musicVolume, textSize } = { ...get(), ...patch };
+    const { speechRate, dailyGoal, blitzBest, listenOffUntil, newPerDay, heroGender, heroName, voiceM, voiceF, reminderOn, reminderTime, sfxVolume, musicVolume, textSize, retention } = { ...get(), ...patch };
     persist(() =>
-      db.meta.put({ key: 'settings', value: { speechRate, dailyGoal, blitzBest, listenOffUntil, newPerDay, heroGender, heroName, voiceM, voiceF, reminderOn, reminderTime, sfxVolume, musicVolume, textSize } }),
+      db.meta.put({ key: 'settings', value: { speechRate, dailyGoal, blitzBest, listenOffUntil, newPerDay, heroGender, heroName, voiceM, voiceF, reminderOn, reminderTime, sfxVolume, musicVolume, textSize, retention } }),
     );
   },
 }));

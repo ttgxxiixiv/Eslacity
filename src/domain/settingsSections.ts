@@ -1,4 +1,5 @@
 import type { Settings } from '../store/settings';
+import { RETENTION_LABEL } from './retention';
 
 /**
  * Разделы настроек (задача 14.4): оглавление `/settings` и свой экран у каждого раздела `/settings/<id>`.
@@ -17,7 +18,7 @@ export const SETTINGS_SECTIONS: { id: SettingsSection; title: string; icon: stri
   { id: 'reports', title: 'Отчёты', icon: '📝' },
 ];
 
-type HintSettings = Pick<Settings, 'heroGender' | 'heroName' | 'dailyGoal' | 'newPerDay' | 'sfxVolume' | 'musicVolume' | 'speechRate' | 'reminderOn' | 'reminderTime'>;
+type HintSettings = Pick<Settings, 'heroGender' | 'heroName' | 'dailyGoal' | 'newPerDay' | 'sfxVolume' | 'musicVolume' | 'speechRate' | 'reminderOn' | 'reminderTime'> & Partial<Pick<Settings, 'retention'>>;
 
 const volume = (v: number) => (v > 0 ? `${Math.round(v * 100)}%` : 'выкл.');
 
@@ -27,7 +28,7 @@ export function settingsHint(id: SettingsSection, s: HintSettings, ctx: { lang: 
     case 'hero':
       return `${s.heroGender === 'f' ? 'Путница' : 'Путник'}, ${s.heroName ? `имя ${s.heroName}` : 'без имени'}`;
     case 'learning':
-      return `Цель ${s.dailyGoal} XP, новых слов в день: ${s.newPerDay}`;
+      return `Цель ${s.dailyGoal} XP, новых слов в день: ${s.newPerDay}${s.retention && s.retention !== 'normal' ? `, ${RETENTION_LABEL[s.retention].toLowerCase()}` : ''}`;
     case 'sound':
       return `Звуки ${volume(s.sfxVolume)}, музыка ${volume(s.musicVolume)}, скорость речи ${s.speechRate.toFixed(1)}`;
     case 'reminder':
