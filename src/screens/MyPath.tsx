@@ -13,6 +13,8 @@ import { plural } from '../domain/medals';
 import { MISTAKES_DAYS, MISTAKES_FLOOR, mistakesPlan, weakItems, type WeakItem } from '../domain/mistakes';
 import { minutesPerDay, PATH_SKILLS, PATH_WEAK, pathAccuracy, wordsByChapter } from '../domain/myPath';
 import { dayNumber } from '../domain/srs';
+import { chapterSkills, proofHint } from '../domain/skills';
+import { useSkillInput } from '../store/skills';
 import { ReviewForecast } from '../components/ReviewForecast';
 import { Button, Screen, TopBar } from '../components/ui';
 import { useErrands } from '../store/errands';
@@ -68,11 +70,47 @@ export function MyPathScreen() {
             <Minutes rows={rows} now={now} />
           </>
         )}
+        <CanDoCard />
         <ChapterWordsCard />
         <ReviewForecast />
         {rows && <WeakSpots rows={rows} now={now} />}
       </div>
     </Screen>
+  );
+}
+
+/** «Что я умею» (задача 21.3): умения открытых глав, отмеченные по доказательствам в игре. */
+function CanDoCard() {
+  const input = useSkillInput();
+  const opened = useJourney((s) => s.opened);
+  const chapters = CHAPTERS.filter((c) => c.id <= opened);
+  const placeName = (id: string) => LOCATION_BY_ID[id as keyof typeof LOCATION_BY_ID]?.ru ?? id;
+  return (
+    <section className="rounded-3xl bg-white p-4 shadow-sm" data-testid="path-can">
+      <h2 className="font-bold">Что я умею</h2>
+      <p className="mt-1 text-sm text-stone-500">Умения глав в духе шкалы CEFR. Умение отмечается, когда вы доказали его в игре.</p>
+      {chapters.map((c) => (
+        <div key={c.id} className="mt-3" data-testid="can-chapter" data-chapter={c.id}>
+          <div className="font-pixel text-sm text-wood">
+            Глава {c.roman} · {c.cefr}
+          </div>
+          <ul className="mt-1 flex flex-col gap-1.5">
+            {chapterSkills(c.id, input).map(({ skill, done }) => (
+              <li key={skill.id} className="flex items-start gap-2" data-testid="can-skill" data-skill={skill.id} data-done={done}>
+                <span aria-hidden className={`mt-0.5 shrink-0 ${done ? 'text-ok' : 'text-stone-500'}`}>
+                  {done ? '✓' : '○'}
+                </span>
+                <span className="min-w-0">
+                  <span className={done ? 'font-semibold' : 'text-stone-600'}>{skill.text}</span>
+                  {!done && <span className="block text-xs text-stone-500">{proofHint(skill.proof, placeName)}</span>}
+                  <span className="sr-only">{done ? ', освоено' : ', ещё нет'}</span>
+                </span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </section>
   );
 }
 

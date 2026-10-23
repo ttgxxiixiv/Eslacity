@@ -3,6 +3,8 @@ import { chapterById, completedChapters, sceneToShow, type ChapterId } from '../
 import { LandArt, LAND_IMAGES, Road } from './LandArt';
 import { currentJourney, useJourney } from '../store/journey';
 import { useProgress } from '../store/progress';
+import { chapterSkills } from '../domain/skills';
+import { useSkillInput } from '../store/skills';
 import { cellOf, cellPolygon, MAP_H, MAP_W } from './journeyArt';
 import { Button } from './ui';
 
@@ -41,6 +43,9 @@ function Scene({ chapter, journey }: { chapter: ChapterId; journey: ReturnType<t
   const ch = chapterById(chapter)!;
   const next = chapterById(chapter + 1);
   const art = LAND_IMAGES[chapter];
+  // Умения главы, уже доказанные в игре (задача 21.3).
+  const skillInput = useSkillInput();
+  const learned = useMemo(() => chapterSkills(chapter, skillInput).filter((x) => x.done).map((x) => x.skill), [chapter, skillInput]);
 
   useEffect(() => {
     if (phase === 'title') return;
@@ -107,6 +112,16 @@ function Scene({ chapter, journey }: { chapter: ChapterId; journey: ReturnType<t
           <div className="scene-fade mt-4 rounded-2xl border-2 border-gold bg-stone-50 p-4 text-center" data-testid="scene-title">
             <div className="text-sm text-stone-500">Карта главы {ch.roman} собрана. Новый титул</div>
             <div className="mt-1 font-pixel text-3xl text-wood">{ch.title}</div>
+            {learned.length > 0 && (
+              <div className="mt-3 text-left" data-testid="scene-skills">
+                <div className="text-sm font-semibold text-wood">Что вы теперь умеете:</div>
+                <ul className="mt-1 list-inside list-disc text-sm text-stone-600">
+                  {learned.map((s) => (
+                    <li key={s.id}>{s.text}</li>
+                  ))}
+                </ul>
+              </div>
+            )}
             {next ? (
               <p className="mt-2 text-sm text-stone-600">
                 Дорога ведёт дальше: открыта глава {next.roman}, {next.land}. Новые слова мест и район грамматики {next.districts.join(' и ')}.

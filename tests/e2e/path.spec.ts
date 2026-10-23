@@ -1,5 +1,5 @@
 import { expect, test, type Page } from '@playwright/test';
-import { DB, LANGS, loadWords, openApp, seedDueCards, type Lang } from './fixtures';
+import { DB, LANGS, loadWords, openApp, seedDueCards, seedMissionsDone, seedTrialsDone, type Lang } from './fixtures';
 
 /** Экран «Мой путь» (задача 14.5): точность по навыкам, минуты, слова по главам, прогноз и слабые места. */
 
@@ -59,5 +59,24 @@ for (const lang of LANGS) {
       await page.getByTestId('path-weak-fix').click();
       await expect(page).toHaveURL(/#\/mistakes$/);
     });
+  });
+}
+
+for (const lang of LANGS) {
+  test(`${lang}: «Что я умею» — умения главы отмечены по пройденным миссиям и стражу, у остальных подсказка`, async ({ page }) => {
+    await openApp(page, lang);
+    await seedMissionsDone(page, lang, ['ms:cafe.1']);
+    await seedTrialsDone(page, lang, ['gd:1']);
+    await page.reload();
+    await page.goto('./#/path');
+    const card = page.getByTestId('path-can');
+    // Открыта только глава I: четыре умения, два доказаны.
+    await expect(card.getByTestId('can-chapter')).toHaveCount(1);
+    await expect(card.getByTestId('can-skill')).toHaveCount(4);
+    await expect(card.locator('[data-skill="c1.order"]')).toHaveAttribute('data-done', 'true');
+    await expect(card.locator('[data-skill="c1.basic"]')).toHaveAttribute('data-done', 'true');
+    const shop = card.locator('[data-skill="c1.shop"]');
+    await expect(shop).toHaveAttribute('data-done', 'false');
+    await expect(shop).toContainText('Миссия: Рынок, глава I');
   });
 }

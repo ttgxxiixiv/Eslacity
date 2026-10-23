@@ -153,6 +153,9 @@ for (const lang of LANGS) {
       await expect(scene).toBeVisible();
       await expect(page.getByTestId('scene-title')).toContainText('Странник', { timeout: 8000 });
       await expect(page.getByTestId('scene-title')).toContainText('открыта глава II, Горный перевал');
+      // «Что я умею» (задача 21.3): все миссии и страж главы I пройдены — сцена называет четыре умения главы.
+      await expect(page.getByTestId('scene-skills').locator('li')).toHaveCount(4);
+      await expect(page.getByTestId('scene-skills')).toContainText('Могу заказать напиток, попросить воды и поблагодарить');
       await page.getByRole('button', { name: 'В путь' }).click();
       await expect(scene).toHaveCount(0);
       await expect.poll(() => readMeta<{ celebrated: number; openedChapter: number }>(page, lang, 'journey')).toMatchObject({ celebrated: 1, openedChapter: 2 });
