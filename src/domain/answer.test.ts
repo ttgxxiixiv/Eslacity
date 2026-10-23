@@ -166,6 +166,13 @@ describe('diagnose: почему неверно (задача 12.3)', () => {
     expect(diagnose('el café', ['el café'], {}, 'es')).toBeUndefined();
     expect(diagnose('  ', ['el café'], {}, 'es')).toBeUndefined();
   });
+  it('ловушка русского — когда другой причины нет (задача 21.4)', () => {
+    const trap = 'Mapa мужского рода.';
+    expect(diagnose('la carta', ['el mapa'], { trap }, 'es')).toEqual({ kind: 'trap', text: 'Ловушка русского: Mapa мужского рода.' });
+    expect(kind('la mapa', ['el mapa'], { trap }, 'es')).toBe('article');
+    expect(kind('el mapa', ['el mapa'], { trap }, 'es')).toBeUndefined();
+    expect(kind('la carta', ['el mapa'], {}, 'es')).toBeUndefined();
+  });
   it('артикль: не тот или пропущен (es, it)', () => {
     expect(diagnose('la problema', ['el problema'], {}, 'es')).toEqual({ kind: 'article', text: 'Не тот артикль: правильно «el problema».' });
     expect(kind('problema', ['el problema'], {}, 'es')).toBe('article');

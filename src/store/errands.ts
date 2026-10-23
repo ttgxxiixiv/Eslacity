@@ -7,6 +7,7 @@ import { persist } from '../db/persist';
 import { errandReward, planErrands, SCROLL_PLACE, type Errand } from '../domain/errands';
 import { rankIndex, RANKS, type Rank } from '../domain/reputation';
 import { dayNumber } from '../domain/srs';
+import { trapsDue } from '../domain/traps';
 import { useCity } from './city';
 import { useJourney } from './journey';
 import { useProgress } from './progress';
@@ -25,12 +26,14 @@ export interface ErrandsData {
   echo: number;
   /** День, когда пройден «Разбор ошибок» Летописца (задача 12.2): он бывает раз в день. */
   mistakes: number;
+  /** День, когда пройдены «Ловушки» Летописца (задача 21.4): они бывают раз в неделю. */
+  traps: number;
 }
 
 /** С этой главы одно поручение в день может стать «Эхом». */
 export const ECHO_CHAPTER = 5;
 
-const EMPTY: ErrandsData = { day: 0, active: [], last: {}, done: 0, rep: {}, echo: 0, mistakes: 0 };
+const EMPTY: ErrandsData = { day: 0, active: [], last: {}, done: 0, rep: {}, echo: 0, mistakes: 0, traps: 0 };
 
 interface ErrandsState extends ErrandsData {
   hydrate(d: Partial<ErrandsData> | undefined): void;
@@ -44,11 +47,26 @@ interface ErrandsState extends ErrandsData {
   addEcho(n: number): void;
   /** «Разбор ошибок» пройден: награда и репутация у Летописца, до завтра его нет. null — уже пройден сегодня. */
   completeMistakes(items: number, now?: number): { coins: number; rep: number; rankUp: Rank | null } | null;
+  /** «Ловушки» пройдены: награда и репутация у Летописца, следующие — через неделю. null — сейчас их нет. */
+  completeTraps(items: number, now?: number): { coins: number; rep: number; rankUp: Rank | null } | null;
 }
 
 function save(s: ErrandsData) {
-  const { day, active, last, done, rep, echo, mistakes } = s;
-  persist(() => db.meta.put({ key: 'errands', value: { day, active, last, done, rep, echo, mistakes } }));
+  const { day, active, last, done, rep, echo, mistakes, traps } = s;
+  persist(() => db.meta.put({ key: 'errands', value: { day, active, last, done, rep, echo, mistakes, traps } }));
+}
+
+/** Награда Летописца за «Разбор ошибок» или «Ловушки»: монеты, очко репутации, отметка дня в `mark`. */
+function chroniclerReward(mark: Partial<ErrandsData>, items: number): { coins: number; rep: number; rankUp: Rank | null } {
+  const s = useErrands.getState();
+  const reward = { coins: 10 + items * 2, rep: 1 };
+  const npc = npcFor(SCROLL_PLACE);
+  const before = npc ? (s.rep[npc.id] ?? 0) : 0;
+  useErrands.setState({ ...mark, done: s.done + 1, rep: npc ? { ...s.rep, [npc.id]: before + reward.rep } : s.rep });
+  useCity.getState().addCoins(reward.coins);
+  save(useErrands.getState());
+  const after = rankIndex(before + reward.rep);
+  return { ...reward, rankUp: npc && after > rankIndex(before) ? RANKS[after] : null };
 }
 
 export const useErrands = create<ErrandsState>((set, get) => ({
@@ -98,17 +116,15 @@ export const useErrands = create<ErrandsState>((set, get) => ({
   },
 
   completeMistakes(items, now = Date.now()) {
-    const s = get();
     const today = dayNumber(now);
-    if (s.mistakes === today) return null;
-    const reward = { coins: 10 + items * 2, rep: 1 };
-    const npc = npcFor(SCROLL_PLACE);
-    const before = npc ? (s.rep[npc.id] ?? 0) : 0;
-    set({ mistakes: today, done: s.done + 1, rep: npc ? { ...s.rep, [npc.id]: before + reward.rep } : s.rep });
-    useCity.getState().addCoins(reward.coins);
-    save(get());
-    const after = rankIndex(before + reward.rep);
-    return { ...reward, rankUp: npc && after > rankIndex(before) ? RANKS[after] : null };
+    if (get().mistakes === today) return null;
+    return chroniclerReward({ mistakes: today }, items);
+  },
+
+  completeTraps(items, now = Date.now()) {
+    const today = dayNumber(now);
+    if (!trapsDue(get().traps, today)) return null;
+    return chroniclerReward({ traps: today }, items);
   },
 
   complete(id) {

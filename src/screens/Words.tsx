@@ -67,6 +67,11 @@ export function WordsScreen() {
                       {w.usageNote}
                     </div>
                   )}
+                  {w.ruTrap && (
+                    <div className="text-xs text-bad" data-testid="ru-trap">
+                      Ловушка русского: {w.ruTrap}
+                    </div>
+                  )}
                 </div>
                 <div className="text-right text-xs text-stone-500">
                   <div>{dueText(c.due, today)}</div>

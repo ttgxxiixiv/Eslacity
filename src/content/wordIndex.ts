@@ -9,7 +9,7 @@ const LOADERS: Record<Lang, () => Promise<typeof import('virtual:word-index/es')
   tr: () => import('virtual:word-index/tr'),
   pt: () => import('virtual:word-index/pt'),
 };
-const { default: INDEX, EXPRESSIONS, MISSIONS, PAIRS, PHRASES, SCROLLS } = await LOADERS[LANG]();
+const { default: INDEX, EXPRESSIONS, MISSIONS, PAIRS, PHRASES, SCROLLS, TRAPS } = await LOADERS[LANG]();
 
 /** Место → уровень → id слов выбранного языка. Сами слова грузятся по местам (`loadLocation`). */
 export const WORD_LEVELS: Record<string, Record<number, string[]>> = Object.fromEntries(
@@ -33,3 +33,6 @@ export const EXPRESSION_PAIRS: Readonly<Record<string, string>> = PAIRS;
 
 /** id выражений уровня 7 выбранного языка. */
 export const EXPRESSION_IDS: ReadonlySet<string> = new Set(EXPRESSIONS);
+
+/** id слов с ловушкой для русскоговорящих (`ruTrap`, задача 21.4): поручение Летописца «Ловушки». */
+export const TRAP_IDS: readonly string[] = TRAPS;

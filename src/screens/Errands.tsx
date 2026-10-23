@@ -12,7 +12,9 @@ import { answersSince } from '../db/answers';
 import { dayNumber } from '../domain/srs';
 import { isPhraseId, isRuleId, isWordId, splitCards } from '../domain/itemId';
 import { plural } from '../domain/medals';
-import { dueCards } from '../domain/srs';
+import { dueCards, type SrsCard } from '../domain/srs';
+import { TRAPS_TEXT, trapsDue, trapsPlan } from '../domain/traps';
+import { TRAP_IDS } from '../content/wordIndex';
 import type { ReactNode } from 'react';
 import { L } from '../lang';
 import { useErrands } from '../store/errands';
@@ -47,6 +49,11 @@ function useMistakes(): MistakesPlan | null | undefined {
   return plan;
 }
 
+/** «Ловушки» на сейчас (задача 21.4): null — неделя ещё не прошла или выученных ловушек мало. */
+function trapsOpen(last: number, cards: Record<string, SrsCard>, now = Date.now()): MistakesPlan | null {
+  return trapsDue(last, dayNumber(now)) ? trapsPlan(TRAP_IDS, cards, now) : null;
+}
+
 const planSize = (p: MistakesPlan) => p.words.length + p.rules.length + p.phrases.length;
 
 /** Поручения жителей: ячейка «Повтор» нижнего меню ведёт сюда. */
@@ -56,6 +63,8 @@ export function ErrandsScreen() {
   const mistakes = useMistakes();
   const chronicler = npcFor(SCROLL_PLACE);
   const cards = useProgress((s) => s.cards);
+  const trapsDay = useErrands((s) => s.traps);
+  const traps = useMemo(() => trapsOpen(trapsDay, cards), [trapsDay, cards]);
   useEffect(() => {
     useErrands.getState().refresh();
   }, []);
@@ -77,6 +86,20 @@ export function ErrandsScreen() {
               <p className="mt-1 leading-snug">{errandText(MISTAKES_TEXT, planSize(mistakes))}</p>
               <div className="mt-1 text-xs text-stone-500 tabular-nums">
                 {planSize(mistakes)} {plural(planSize(mistakes), ['задание', 'задания', 'заданий'])} · раз в день
+              </div>
+            </div>
+          </Link>
+        )}
+        {traps && (
+          <Link to="/traps" className="press flex gap-3 rounded-2xl border-2 border-gold bg-amber-50 p-3 shadow-sm" data-testid="traps-card">
+            {chronicler && <NpcPortrait look={chronicler.look} size={72} />}
+            <div className="min-w-0 flex-1">
+              <div className="text-sm text-stone-500">
+                <span className="font-bold text-stone-800">{chronicler?.name}</span> · 🪤 Ловушки
+              </div>
+              <p className="mt-1 leading-snug">{errandText(TRAPS_TEXT, traps.words.length)}</p>
+              <div className="mt-1 text-xs text-stone-500 tabular-nums">
+                {traps.words.length} {plural(traps.words.length, ['слово', 'слова', 'слов'])} · раз в неделю
               </div>
             </div>
           </Link>
@@ -186,6 +209,60 @@ export function ErrandScreen() {
   );
 }
 
+/** Спасибо Летописца в итоге «Разбора ошибок» и «Ловушек». */
+function ChroniclerThanks({ reward, testId }: { reward: { coins: number; rep: number } | null; testId: string }) {
+  const chronicler = npcFor(SCROLL_PLACE);
+  return (
+    <div className="mt-4 flex items-end gap-3 rounded-2xl bg-white p-3 shadow-sm" data-testid={testId}>
+      {chronicler && <NpcPortrait look={chronicler.look} size={72} />}
+      <div className="flex-1 pb-1">
+        <div className="text-sm text-stone-500">{chronicler?.name}</div>
+        <div className="font-semibold">{L.thanks.es}</div>
+        <div className="text-sm text-stone-500">{L.thanks.ru}</div>
+        {reward && (
+          <div className="mt-1 text-sm font-semibold text-amber-700">
+            +{reward.coins} 🪙 · репутация +{reward.rep}
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
+/** «Ловушки» Летописца (задача 21.4): раз в неделю выученные слова с ловушкой русского, выбор и ввод вперемешку. */
+export function TrapsScreen() {
+  const nav = useNavigate();
+  // Слова фиксируются при входе: ответы меняют карточки, но не это поручение.
+  const [plan] = useState(() => trapsOpen(useErrands.getState().traps, useProgress.getState().cards));
+  const chronicler = npcFor(SCROLL_PLACE);
+  if (!plan) {
+    return (
+      <Screen>
+        <TopBar title="Ловушки" />
+        <p className="px-5 py-6 text-stone-600" data-testid="traps-none">
+          Ловушки уже проверены или выученных слов с ними пока мало. Летописец вернётся с ними через неделю.
+        </p>
+        <div className="px-5">
+          <Button className="w-full" onClick={() => nav('/errands', { replace: true })}>
+            К поручениям
+          </Button>
+        </div>
+      </Screen>
+    );
+  }
+  return (
+    <ReviewRun
+      title="Ловушки пройдены"
+      pick={() => plan}
+      onComplete={(): ReactNode => {
+        const reward = useErrands.getState().completeTraps(plan.words.length);
+        if (chronicler) speakAs(L.thanks.es, chronicler);
+        return <ChroniclerThanks reward={reward} testId="traps-thanks" />;
+      }}
+    />
+  );
+}
+
 /** «Разбор ошибок» Летописца (задача 12.2): слабые места из журнала в том виде задания, где ошибались. */
 export function MistakesScreen() {
   const nav = useNavigate();
@@ -218,21 +295,7 @@ export function MistakesScreen() {
       onComplete={(): ReactNode => {
         const reward = useErrands.getState().completeMistakes(planSize(snapshot));
         if (chronicler) speakAs(L.thanks.es, chronicler);
-        return (
-          <div className="mt-4 flex items-end gap-3 rounded-2xl bg-white p-3 shadow-sm" data-testid="mistakes-thanks">
-            {chronicler && <NpcPortrait look={chronicler.look} size={72} />}
-            <div className="flex-1 pb-1">
-              <div className="text-sm text-stone-500">{chronicler?.name}</div>
-              <div className="font-semibold">{L.thanks.es}</div>
-              <div className="text-sm text-stone-500">{L.thanks.ru}</div>
-              {reward && (
-                <div className="mt-1 text-sm font-semibold text-amber-700">
-                  +{reward.coins} 🪙 · репутация +{reward.rep}
-                </div>
-              )}
-            </div>
-          </div>
-        );
+        return <ChroniclerThanks reward={reward} testId="mistakes-thanks" />;
       }}
     />
   );

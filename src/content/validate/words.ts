@@ -50,6 +50,30 @@ function checkUsage(w: Word, at: string, out: Issue[]) {
   if (w.usage === 'vulgar' && empty(w.usageNote)) err('у грубого слова нет пояснения usageNote');
 }
 
+/** Длина пояснения ловушки: одна-две фразы, чтобы влезть в окно итога. */
+export const TRAP_MAX = 180;
+/** Ловушек на курс (задача 21.4). */
+export const TRAPS_MIN = 15;
+export const TRAPS_MAX = 25;
+
+/** Ловушка русского (задача 21.4): непустая, по-русски, коротко, с точкой в конце. */
+function checkTrap(w: Word, at: string, out: Issue[]) {
+  if (w.ruTrap === undefined) return;
+  const err = (msg: string) => out.push({ level: 'error', where: at, msg });
+  const t = w.ruTrap.trim();
+  if (!t) return err('пустое поле ruTrap');
+  if (!/[а-яё]/i.test(t)) err('ruTrap не по-русски');
+  if (t.length > TRAP_MAX) err(`ruTrap длиннее ${TRAP_MAX} знаков (${t.length})`);
+  if (!/[.!»)]$/.test(t)) err('ruTrap без точки в конце');
+}
+
+/** Ловушек на курс от `TRAPS_MIN` до `TRAPS_MAX`: столько хватает на недельное поручение и не размывает пометку. */
+export function validateTraps(words: Word[]): Issue[] {
+  const n = words.filter((w) => w.ruTrap !== undefined).length;
+  if (n >= TRAPS_MIN && n <= TRAPS_MAX) return [];
+  return [{ level: 'error', where: 'ruTrap', msg: `ловушек русского ${n}, нужно от ${TRAPS_MIN} до ${TRAPS_MAX}` }];
+}
+
 /** Пары выражений: ссылка на выражение этого языка, взаимная, регистры разные. */
 function checkPairs(all: Map<string, { w: Word; at: string }>, out: Issue[]) {
   for (const { w, at } of all.values()) {
@@ -78,6 +102,7 @@ export function checkWord(w: Word, at: string, lang: Lang, out: Issue[]) {
   if (![1, 2, 3, 4, 5, 6, 7].includes(w.level)) out.push({ level: 'error', where: at, msg: `уровень ${w.level}` });
   checkExpression(w, at, out);
   checkUsage(w, at, out);
+  checkTrap(w, at, out);
   if (!POS.has(w.pos)) out.push({ level: 'error', where: at, msg: `часть речи "${w.pos}"` });
   if (!CEFR.has(w.cefr)) out.push({ level: 'error', where: at, msg: `CEFR "${w.cefr}"` });
   if (empty(w.id) || empty(w.es)) return;

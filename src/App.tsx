@@ -51,6 +51,7 @@ const PrologueScreen = screen(() => import('./screens/Prologue'), 'PrologueScree
 const ErrandScreen = screen(() => import('./screens/Errands'), 'ErrandScreen');
 const ErrandsScreen = screen(() => import('./screens/Errands'), 'ErrandsScreen');
 const MistakesScreen = screen(() => import('./screens/Errands'), 'MistakesScreen');
+const TrapsScreen = screen(() => import('./screens/Errands'), 'TrapsScreen');
 const ChronicleScreen = screen(() => import('./screens/Chronicle'), 'ChronicleScreen');
 const BookScreen = screen(() => import('./screens/Books'), 'BookScreen');
 const LetterScreen = screen(() => import('./screens/Letter'), 'LetterScreen');
@@ -145,6 +146,7 @@ export default function App() {
         <Route path="/review" element={<ReviewScreen />} />
         <Route path="/errand/:id" element={<ErrandScreen />} />
         <Route path="/mistakes" element={<MistakesScreen />} />
+        <Route path="/traps" element={<TrapsScreen />} />
         <Route path="/chronicle" element={<ChronicleScreen />} />
         <Route path="/book/:id" element={<BookScreen />} />
         <Route path="/prologue" element={<PrologueScreen />} />

@@ -106,6 +106,18 @@ function expressionIndex() {
   }
   return out;
 }
+/** Слова с ловушкой для русскоговорящих (`ruTrap`, задача 21.4) в местах и свитках: из них поручение «Ловушки». */
+function trapIndex() {
+  const out: Record<string, string[]> = {};
+  for (const { lang, dir } of wordDirs()) {
+    const scrolls = join(CONTENT_DIR, lang, 'scrolls');
+    const files = [dir, ...(existsSync(scrolls) ? [scrolls] : [])].flatMap((d) => readdirSync(d).filter((x) => x.endsWith('.json')).map((f) => join(d, f)));
+    out[lang] = files
+      .flatMap((f) => (JSON.parse(readFileSync(f, 'utf8')) as { words: { id: string; ruTrap?: string }[] }).words)
+      .flatMap((w) => (w.ruTrap ? [w.id] : []));
+  }
+  return out;
+}
 function wordIndex() {
   const out: Record<string, Record<string, Record<number, string[]>>> = {};
   for (const { lang, dir } of wordDirs()) {
@@ -296,6 +308,7 @@ export default defineConfig({
           `export const EXPRESSIONS = ${of(expressionIndex(), [])};`,
           `export const SCROLLS = ${of(scrollIndex(), {})};`,
           `export const MISSIONS = ${of(missionIndex(), {})};`,
+          `export const TRAPS = ${of(trapIndex(), [])};`,
         ].join('\n');
       },
     },

@@ -25,6 +25,11 @@ export function Intro({ word, onNext }: { word: Word; onNext: () => void }) {
             </div>
           )}
           {word.note && <div className="mt-2 rounded-xl bg-amber-50 px-3 py-2 text-sm text-amber-900">{word.note}</div>}
+          {word.ruTrap && (
+            <div className="mt-2 rounded-xl bg-orange-50 px-3 py-2 text-sm text-stone-800" data-testid="ru-trap">
+              <span className="font-semibold text-bad">Ловушка русского:</span> {word.ruTrap}
+            </div>
+          )}
         </div>
         <SpeakButton text={word.es} size="lg" />
       </div>

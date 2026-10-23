@@ -38,4 +38,6 @@ declare module 'virtual:word-index/*' {
   export const SCROLLS: Record<number, string[]>;
   /** Место → главы, для которых есть сюжетная миссия. */
   export const MISSIONS: Record<string, number[]>;
+  /** id слов с ловушкой для русскоговорящих (`ruTrap`). */
+  export const TRAPS: string[];
 }

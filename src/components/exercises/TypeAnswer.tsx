@@ -62,10 +62,10 @@ export function TypeAnswer({ step, words, locked, onAnswer, onCantListen, exam =
     const r: CheckResult = hinted && checked.verdict === 'correct' ? { ...checked, verdict: 'almost' } : checked;
     setResult(r);
     const title = hinted && r.verdict === 'almost' ? 'С подсказкой' : r.verdict === 'almost' ? 'Почти' : undefined;
-    // Почему неверно (задача 12.3): другое слово урока, число существительного, артикль, ударение, опечатка.
+    // Почему неверно (задача 12.3): другое слово урока, число существительного, артикль, ударение, опечатка, ловушка русского.
     const others = Object.values(words).filter((w) => w.id !== word.id);
     const forms = word.plural ? [{ form: word.es, label: 'единственное число' }, { form: word.plural, label: 'множественное число' }] : [];
-    const why = checked.verdict === 'correct' ? undefined : diagnose(value, [word.es, ...(word.alt ?? [])], { others, forms });
+    const why = checked.verdict === 'correct' ? undefined : diagnose(value, [word.es, ...(word.alt ?? [])], { others, forms, trap: word.ruTrap });
     const note = hinted && r.verdict === 'almost' ? 'С подсказкой ответ засчитан как «почти».' : why?.text;
     onAnswer({ verdict: r.verdict }, { title, note, why: why?.kind, answer: checked.verdict === 'correct' ? word.es : r.expected });
   };

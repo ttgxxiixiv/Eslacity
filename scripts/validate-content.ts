@@ -1,6 +1,6 @@
 import { readdirSync, readFileSync, existsSync, statSync } from 'node:fs';
 import { join } from 'node:path';
-import { validateChronicler, validateGrammar, validateGuardians, validateLetters, validateNotes, validateMissions, validateNpcs, validatePhrases, validateScenes, validatePortraits, validateScrolls, validateSphinx, validateTranslations, validateVerbs, validatePairs, validateFestivals, validatePrologue, validateThread, validateBooks, validateRumors, validateDiary, validateStory, STORY_FORKS, validateWords, type Issue } from '../src/content/validate';
+import { validateChronicler, validateGrammar, validateGuardians, validateLetters, validateNotes, validateMissions, validateNpcs, validatePhrases, validateScenes, validatePortraits, validateScrolls, validateSphinx, validateTranslations, validateVerbs, validatePairs, validateFestivals, validatePrologue, validateThread, validateBooks, validateRumors, validateDiary, validateStory, STORY_FORKS, validateWords, validateTraps, type Issue } from '../src/content/validate';
 import type { Chronicler, GrammarLesson, GuardiansFile, LettersFile, SphinxFile, VerbsFile, PairsFile, FestivalFile, PrologueFile, RumorsFile, DiaryFile, Scene, LocationWords, LocationMissions, LocationPhrases, LocationScenes, NpcsFile, ScrollFile, ThreadFile, BookFile } from '../src/content/schema';
 import { THREAD_CHAPTERS, THREAD_NOTES_MIN } from '../src/domain/thread';
 import { BOOK_CHAPTERS } from '../src/domain/books';
@@ -588,6 +588,7 @@ for (const lang of langs) {
       }),
     ),
     ...tag(validateScrolls(scrolls, words, lang)),
+    ...tag(validateTraps([...words, ...scrolls].flatMap((f) => f.data.words ?? []))),
     ...tag(
       validateTranslations(
         [...words, ...festivals.map((f) => ({ name: `festivals/${f.name}`, data: { location: `fest-${f.data.id}` as LocationWords['location'], words: f.data.words ?? [] } }))],

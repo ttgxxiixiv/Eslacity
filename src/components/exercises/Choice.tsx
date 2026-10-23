@@ -1,3 +1,4 @@
+import { trapWhy } from '../../domain/answer';
 import { L } from '../../lang';
 import { useState } from 'react';
 import { SpeakButton } from '../ui';
@@ -18,7 +19,9 @@ export function Choice({ step, words, locked, onAnswer, onCantListen }: Exercise
     const o = step.options[i];
     const other = Object.values(words).find((w) => w.id !== word.id && (esToRu || listen ? w.ru === o : w.es === o));
     const note = other ? (esToRu || listen ? `«${o}» — это «${other.es}», другое слово.` : `«${o}» — это «${other.ru}», другое слово.`) : undefined;
-    onAnswer({ verdict: 'wrong' }, { note, why: other ? 'confused' : undefined });
+    // Иначе — ловушка русского у слова (задача 21.4), если она есть.
+    const trap = !other && word.ruTrap ? trapWhy(word.ruTrap) : undefined;
+    onAnswer({ verdict: 'wrong' }, { note: note ?? trap?.text, why: other ? 'confused' : trap?.kind });
   };
 
   return (

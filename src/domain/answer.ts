@@ -225,7 +225,7 @@ export function checkBuilt(tiles: string[], accepted: string[]): CheckResult {
 }
 
 /** Причина ошибки (задача 12.3): пишется в журнал ответов, по ней 12.2 собирает слабые места. */
-export type WhyKind = 'article' | 'accent' | 'confused' | 'form' | 'typo';
+export type WhyKind = 'article' | 'accent' | 'confused' | 'form' | 'typo' | 'trap';
 
 export interface Why {
   kind: WhyKind;
@@ -242,7 +242,12 @@ export interface DiagnoseContext {
   target?: string;
   /** Называть ли опечатку. В формах грамматики одна буква — уже другая форма (soy, sois), там её не называют. */
   typos?: boolean;
+  /** Ловушка русского у слова (`ruTrap`): называется, если другой причины нет. */
+  trap?: string;
 }
+
+/** Строка «Почему неверно» для ловушки русского (задача 21.4). */
+export const trapWhy = (trap: string): Why => ({ kind: 'trap', text: `Ловушка русского: ${trap}` });
 
 const ACCENTED = /[áéíóúàèìòù]/g;
 const accents = (s: string) => (s.match(ACCENTED) ?? []).length;
@@ -250,7 +255,8 @@ const accents = (s: string) => (s.match(ACCENTED) ?? []).length;
 /**
  * Почему ответ неверен. Причина называется, только если она точно такая: ответ отличается от верного
  * лишь артиклем, лишь ударениями, совпал с другим словом урока, с другой известной формой или отличается
- * одной буквой. Во всех остальных случаях — undefined, и строки в окне итога нет.
+ * одной буквой. Если ничего из этого нет, а у слова есть ловушка русского (`ctx.trap`), — она.
+ * Во всех остальных случаях — undefined, и строки в окне итога нет.
  */
 export function diagnose(input: string, accepted: string[], ctx: DiagnoseContext = {}, lang: Lang = LANG): Why | undefined {
   const got = normalize(input);
@@ -291,5 +297,6 @@ export function diagnose(input: string, accepted: string[], ctx: DiagnoseContext
   if (ctx.typos !== false && letters >= LESSON.typoMinLength && acc.some((a) => levenshtein(plainGot, stripAccents(a)) === 1)) {
     return { kind: 'typo', text: 'Опечатка в одной букве.' };
   }
+  if (ctx.trap) return trapWhy(ctx.trap);
   return undefined;
 }

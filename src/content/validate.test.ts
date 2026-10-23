@@ -4,7 +4,7 @@ import { CHAPTERS as PLAN, PLACE_EXPRESSIONS, PLACE_LEVEL_MAX } from './vocabPla
 import type { LocationWords, Word } from './schema';
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { validateChronicler, validateGrammar, validateGuardians, validateLetters, validateNotes, validateMissions, validateNpcs, validatePhrases, validatePortraits, validateBooks, validateScenes, validateScrolls, validateThread, validateTranslations, validateVerbs, validateWords } from './validate';
+import { validateChronicler, validateGrammar, validateGuardians, validateLetters, validateNotes, validateMissions, validateNpcs, validatePhrases, validatePortraits, validateBooks, validateScenes, validateScrolls, validateThread, validateTranslations, validateTraps, validateVerbs, validateWords, TRAP_MAX, TRAPS_MAX, TRAPS_MIN } from './validate';
 import { LOCATION_IDS, type Chronicler, type GrammarLesson, type GuardiansFile, type Letter, type LettersFile, type Note, type LocationMissions, type LocationPhrases, type LocationScenes, type Mission, type MissionAnswer, type NpcsFile, type Phrase, type Scene, type ScrollFile, type BookFile, type ThreadFile, type ThreadTrigger, type VerbsFile } from './schema';
 
 const base = (i: number, extra: Partial<Word> = {}): Word => ({
@@ -73,6 +73,18 @@ describe('validateWords, выражения уровня 7', () => {
     expect(check(c1(20, { usage: 'vulgar' }))).toEqual(['у грубого слова нет пояснения usageNote']);
     expect(check(c1(20, { usageNote: 'x' }))).toEqual(['usageNote без пометки usage']);
     expect(check(c1(20, { usage: 'dated', usageNote: ' ' }))).toEqual(['пустое пояснение usageNote']);
+  });
+  it('ловушка русского (задача 21.4)', () => {
+    expect(check(c1(20, { ruTrap: 'Familia — семья, а не фамилия.' }))).toEqual([]);
+    expect(check(c1(20, { ruTrap: ' ' }))).toEqual(['пустое поле ruTrap']);
+    expect(check(c1(20, { ruTrap: 'la familia.' }))).toEqual(['ruTrap не по-русски']);
+    expect(check(c1(20, { ruTrap: 'Без точки' }))).toEqual(['ruTrap без точки в конце']);
+    expect(check(c1(20, { ruTrap: `${'я'.repeat(TRAP_MAX)}.` }))).toEqual([`ruTrap длиннее ${TRAP_MAX} знаков (${TRAP_MAX + 1})`]);
+    const words = (n: number) => Array.from({ length: 30 }, (_, i) => base(i, i < n ? { ruTrap: 'Ловушка.' } : {}));
+    expect(validateTraps(words(TRAPS_MIN))).toEqual([]);
+    expect(validateTraps(words(TRAPS_MAX))).toEqual([]);
+    expect(validateTraps(words(TRAPS_MIN - 1)).map((x) => x.msg)).toEqual([`ловушек русского ${TRAPS_MIN - 1}, нужно от ${TRAPS_MIN} до ${TRAPS_MAX}`]);
+    expect(validateTraps(words(TRAPS_MAX + 1))).toHaveLength(1);
   });
   it('пара: есть, взаимная, другой регистр', () => {
     expect(check(expr('a', { pair: 'cafe.nope' }))).toEqual(['pair "cafe.nope": нет такого слова']);
