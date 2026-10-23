@@ -29,7 +29,8 @@ for (const lang of LANGS) {
       await expect(page.getByTestId('home-dock')).toBeVisible();
       await expect(page.getByTestId('backup-button')).toHaveCount(0);
       // Отсчёт недели начался с первого запуска.
-      expect((await readMeta<{ since?: number }>(page, lang, 'backup'))?.since).toBeGreaterThan(0);
+      // Запись в базу идёт после отрисовки: ждём её, а не читаем сразу.
+      await expect.poll(async () => (await readMeta<{ since?: number }>(page, lang, 'backup'))?.since ?? 0).toBeGreaterThan(0);
 
       await seedBackup(page, lang, { since: Date.now() - 8 * DAY });
       await page.getByTestId('backup-button').click();
@@ -57,7 +58,7 @@ for (const lang of LANGS) {
       await expect(page.getByTestId('backup-last')).toContainText('9 дней назад');
       await page.getByTestId('backup-snooze').click();
       await expect(page.getByTestId('backup-due')).toHaveCount(0);
-      expect((await readMeta<{ snoozed?: number }>(page, lang, 'backup'))?.snoozed).toBeGreaterThan(Date.now() - DAY);
+      await expect.poll(async () => (await readMeta<{ snoozed?: number }>(page, lang, 'backup'))?.snoozed ?? 0).toBeGreaterThan(Date.now() - DAY);
       await page.goto('./#/');
       await expect(page.getByTestId('home-dock')).toBeVisible();
       await expect(page.getByTestId('backup-button')).toHaveCount(0);
