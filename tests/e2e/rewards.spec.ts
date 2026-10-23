@@ -95,8 +95,11 @@ for (const lang of LANGS) {
       await page.getByTestId('blitz-listen').click();
       await expect(page.locator('button.min-h-14').first()).toBeVisible();
       await expect(page.getByTestId('blitz-word')).toHaveCount(0);
-      const said = await page.evaluate(() => (window as unknown as { __said: string[] }).__said.at(-1) ?? '');
-      expect(loadWords(lang).byEs.has(said)).toBe(true);
+      // Слово звучит чуть позже, чем появляются варианты: ждём, пока оно прозвучит (2.234.1: проверка без ожидания падала в CI).
+      const byEs = loadWords(lang).byEs;
+      await expect
+        .poll(async () => byEs.has(await page.evaluate(() => (window as unknown as { __said: string[] }).__said.at(-1) ?? '')))
+        .toBe(true);
       await page.getByRole('button', { name: 'Закончить' }).click();
       await expect(page.getByText('Ещё раз')).toBeVisible();
 
