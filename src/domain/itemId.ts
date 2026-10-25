@@ -25,8 +25,13 @@ export const PAIR_PREFIX = 'mp:';
 /** Минимальная пара Звонницы в журнале ответов (`mp:r-rr.0`): карточек у пар нет. */
 export const isPairId = (id: string): boolean => id.startsWith(PAIR_PREFIX);
 
-/** Карточка слова: не правило, не фраза, не форма глагола и не минимальная пара. */
-export const isWordId = (id: string): boolean => !isRuleId(id) && !isPhraseId(id) && !isVerbId(id) && !isPairId(id);
+export const LINE_PREFIX = 'sc:';
+
+/** Реплика разговора в журнале ответов (диктант, `sc:cafe.2#4`): карточек у реплик нет. */
+export const isLineId = (id: string): boolean => id.startsWith(LINE_PREFIX);
+
+/** Карточка слова: не правило, не фраза, не форма глагола, не минимальная пара и не реплика. */
+export const isWordId = (id: string): boolean => !isRuleId(id) && !isPhraseId(id) && !isVerbId(id) && !isPairId(id) && !isLineId(id);
 
 /** Место фразы: `ph:cafe.un-cafe` → `cafe`. */
 export const placeOfPhrase = (id: string): string => id.slice(PHRASE_CARD_PREFIX.length).split('.')[0];

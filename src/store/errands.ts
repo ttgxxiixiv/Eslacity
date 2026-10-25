@@ -8,6 +8,9 @@ import { errandReward, planErrands, SCROLL_PLACE, type Errand } from '../domain/
 import { rankIndex, RANKS, type Rank } from '../domain/reputation';
 import { dayNumber } from '../domain/srs';
 import { trapsDue } from '../domain/traps';
+import { DICTATION_CHAPTER } from '../domain/dictation';
+import { placeOfScene } from '../content/scenes';
+import { heardScenes } from './diary';
 import { useCity } from './city';
 import { useJourney } from './journey';
 import { useProgress } from './progress';
@@ -93,6 +96,7 @@ export const useErrands = create<ErrandsState>((set, get) => ({
       last: s.last,
       phrases: (loc) => npcFor(loc)?.errands.length ?? 1,
       pairs: useJourney.getState().opened >= ECHO_CHAPTER ? EXPRESSION_PAIRS : undefined,
+      dictation: useJourney.getState().opened >= DICTATION_CHAPTER ? (loc) => heardScenes().some((id) => placeOfScene(id) === loc) : undefined,
     });
     const last = { ...s.last };
     for (const e of active) if (e.day === today) last[e.location] = today;

@@ -1,9 +1,10 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { LOCATION_BY_ID } from '../content/locations';
 import { npcFor } from '../content/npcs';
 import type { LocationId } from '../content/schema';
 import { speakAs } from '../audio/tts';
+import { Dictation } from '../components/Dictation';
 import { NpcPortrait } from '../components/NpcPortrait';
 import { Button, Loading, Screen, TopBar } from '../components/ui';
 import { ECHO_TEXTS, errandReward, errandText, SCROLL_PLACE, type Errand } from '../domain/errands';
@@ -119,6 +120,11 @@ export function ErrandsScreen() {
               <div className="min-w-0 flex-1">
                 <div className="text-sm text-stone-500">
                   <span className="font-bold text-stone-800">{npc?.name}</span> · {place ? `${place.emoji} ${place.ru}` : '📜 свиток земли'}
+                  {e.dictation && (
+                    <span className="ml-1 rounded bg-sky-100 px-1.5 py-0.5 text-xs font-semibold text-sky-900" data-testid="dictation-tag">
+                      ✍️ Диктант
+                    </span>
+                  )}
                   {e.kind === 'echo' && (
                     <span className="ml-1 rounded bg-violet-100 px-1.5 py-0.5 text-xs font-semibold text-violet-800" data-testid="echo-tag">
                       🔁 Эхо
@@ -157,6 +163,8 @@ export function ErrandScreen() {
   const nav = useNavigate();
   // Поручение фиксируется при входе: после выполнения оно пропадает из списка, а итог должен остаться.
   const [snapshot] = useState(() => useErrands.getState().active.find((e) => e.id === id));
+  const [dictated, setDictated] = useState(false);
+  const dictationDone = useCallback(() => setDictated(true), []);
   if (!snapshot) {
     return (
       <Screen>
@@ -171,6 +179,8 @@ export function ErrandScreen() {
     );
   }
   const npc = npcFor(snapshot.location);
+  // С главы II поручение начинается с диктанта (задача 21.5): житель говорит реплику из своего разговора.
+  if (snapshot.dictation && !dictated) return <Dictation location={snapshot.location} seed={snapshot.id} onDone={dictationDone} />;
   return (
     <ReviewRun
       title="Поручение выполнено"

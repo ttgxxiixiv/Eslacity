@@ -156,3 +156,19 @@ describe('поручение «Эхо» (глава V)', () => {
     expect(errandText('{n} {выражений}', 2)).toBe('2 выражения');
   });
 });
+
+describe('диктант в поручении (задача 21.5)', () => {
+  it('только у поручений словами жителей с дослушанным разговором', () => {
+    const cards = [...place('cafe', 12, 10), ...place('market', 12, 10), ...place('park', 12, 10)];
+    const plan = planErrands(input(cards, { dictation: (loc) => loc !== 'park' }));
+    const by = Object.fromEntries(plan.map((e) => [e.location, e.dictation]));
+    expect(by).toEqual({ cafe: true, market: true, park: undefined });
+    expect(planErrands(input(cards)).some((e) => e.dictation)).toBe(false);
+  });
+  it('у правил учительницы диктанта нет', () => {
+    const cards = [...Array.from({ length: 10 }, (_, i) => card(`g:a1.01-x.${i}`, T)), ...place('cafe', 10, 10)];
+    const plan = planErrands(input(cards, { places: ['school', 'cafe'], dictation: () => true }));
+    expect(plan.find((e) => e.location === 'school')?.dictation).toBeUndefined();
+    expect(plan.find((e) => e.location === 'cafe')?.dictation).toBe(true);
+  });
+});

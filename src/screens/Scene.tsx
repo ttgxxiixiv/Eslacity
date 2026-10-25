@@ -21,12 +21,14 @@ import { threadSceneTitle } from './Chronicle';
 import { useDiary } from '../store/diary';
 import { useMotivation } from '../store/motivation';
 import { Button, Loading, Screen, TopBar } from '../components/ui';
+import { SLOW_RATE } from '../domain/dictation';
 
 /** Реплика голосом говорящего: житель — своим голосом, герой — голосом выбранного пола. */
-export function sayLine(line: SceneLine, place: string) {
+/** Реплика голосом говорящего; `pace` — темп, у «Медленнее» `SLOW_RATE`. */
+export function sayLine(line: SceneLine, place: string, pace = 1) {
   const npc = speakerOf(line.who, place);
-  if (npc) speakAs(addressed(line.es), npc);
-  else speakHero(line.es);
+  if (npc) speakAs(addressed(line.es), npc, pace);
+  else speakHero(line.es, pace);
 }
 
 /**
@@ -171,7 +173,11 @@ export function SceneTalk({ scene, place, lastLabel, onDone }: { scene: Scene; p
           <Button variant="secondary" onClick={() => line && sayLine(line, place)} data-testid="scene-again">
             🔊 Ещё раз
           </Button>
-          <Button variant="secondary" onClick={() => setShowRu(!showRu)} data-testid="scene-translate">
+          {/* Медленнее (задача 21.5): та же реплика в темпе 0,7. */}
+          <Button variant="secondary" onClick={() => line && sayLine(line, place, SLOW_RATE)} data-testid="scene-slow">
+            Медленнее
+          </Button>
+          <Button variant="secondary" className="col-span-2" onClick={() => setShowRu(!showRu)} data-testid="scene-translate">
             {showRu ? 'Скрыть перевод' : 'Перевод'}
           </Button>
         </div>

@@ -6,9 +6,10 @@ import type { DiarySources } from '../domain/diary';
 import { useMissions } from './missions';
 import { useRumors } from './rumors';
 import { useThread } from './thread';
+import { isLineId } from '../domain/itemId';
 
 export interface DiaryRecord {
-  /** Дослушанные разговоры `sc:`. */
+  /** Дослушанные разговоры `sc:`: открывают записи дневника, из них же реплики диктанта (задача 21.5). */
   scenes: string[];
 }
 
@@ -26,8 +27,8 @@ export const useDiary = create<DiaryState>((set, get) => ({
     set({ rec: { scenes: [...(d?.scenes ?? [])] } });
   },
   see(sceneId) {
-    // Записывать стоит только разговоры, которые что-то открывают: список не растёт без пользы.
-    if (get().rec.scenes.includes(sceneId) || !DIARY.some((e) => e.from === sceneId)) return;
+    // Записываются разговоры жителей (из них диктант) и всё, что открывает записи дневника; сцены нити — нет.
+    if (get().rec.scenes.includes(sceneId) || !(isLineId(sceneId) || DIARY.some((e) => e.from === sceneId))) return;
     const rec = { scenes: [...get().rec.scenes, sceneId] };
     set({ rec });
     persist(() => db.meta.put({ key: 'diary', value: rec }));
@@ -42,4 +43,9 @@ export function diarySources(): DiarySources {
     thread: new Set(Object.keys(useThread.getState().rec.seen)),
     rumors: new Set(useRumors.getState().rec.got),
   };
+}
+
+/** Дослушанные разговоры жителей. */
+export function heardScenes(): string[] {
+  return useDiary.getState().rec.scenes;
 }

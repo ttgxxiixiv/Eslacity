@@ -9,6 +9,8 @@ import { plural } from './medals';
  *
  * В главе V одно поручение в день может стать «Эхом» (задача 7.6): житель говорит выражение в одном регистре,
  * герой повторяет ту же мысль в другом. Карточки такого поручения — выражения места, у которых есть пара.
+ *
+ * С главы II поручение словами у жителя, чей разговор герой дослушал, начинается с диктанта (задача 21.5).
  */
 
 export const ERRANDS_PER_DAY = 3;
@@ -44,6 +46,8 @@ export interface Errand {
   /** Какая из формулировок жителя. */
   phrase: number;
   kind: 'words' | 'rules' | 'scroll' | 'echo';
+  /** Перед словами — диктант: житель говорит реплику из дослушанного разговора (задача 21.5). */
+  dictation?: boolean;
 }
 
 export interface ErrandCard {
@@ -68,10 +72,12 @@ export interface PlanInput {
    * Пары выражений (id → id пары). Передаются, когда открыта глава V: тогда одно из поручений может стать «Эхом».
    */
   pairs?: Readonly<Record<string, string>>;
+  /** У жителя места есть реплики для диктанта: с главы II его поручение словами начинается с диктанта. */
+  dictation?: (location: string) => boolean;
 }
 
 /** Детерминированное псевдослучайное число по строке: один и тот же план в течение дня. */
-function hash(s: string): number {
+export function hash(s: string): number {
   let h = 2166136261;
   for (let i = 0; i < s.length; i++) h = Math.imul(h ^ s.charCodeAt(i), 16777619);
   return (h >>> 0) / 4294967296;
@@ -115,7 +121,7 @@ export function errandItems(
  * новые добавляются до трёх от других жителей. Выбор: больше карточек ждёт — выше, дольше не было поручения —
  * выше (чередование), при равенстве — случайно, но одинаково весь день.
  */
-export function planErrands({ today, places, cards, active, last, phrases, pairs }: PlanInput): Errand[] {
+export function planErrands({ today, places, cards, active, last, phrases, pairs, dictation }: PlanInput): Errand[] {
   const exists = new Set(cards.map((c) => c.wordId));
   const kept = active
     .map((e) => ({ ...e, items: e.items.filter((id) => exists.has(id)) }))
@@ -159,6 +165,7 @@ export function planErrands({ today, places, cards, active, last, phrases, pairs
     items: c.items,
     phrase: Math.floor(hash(`${today}:${c.location}:p`) * Math.max(1, c.kind === 'echo' ? ECHO_TEXTS.length : phrases(c.location))),
     kind: c.kind,
+    ...(c.kind === 'words' && dictation?.(c.location) ? { dictation: true } : {}),
   }));
   return [...kept, ...fresh];
 }

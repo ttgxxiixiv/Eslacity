@@ -188,14 +188,17 @@ export interface Speaker {
   gender?: VoiceGender;
 }
 
-/** Реплика говорящего его голосом: скорость из настроек с его поправкой, голос его пола. */
-export function speakAs(text: string, who: Speaker): void {
-  speak(text, useSettings.getState().speechRate * who.voice.rate, who.voice.pitch, who.gender);
+/**
+ * Реплика говорящего его голосом: скорость из настроек с его поправкой, голос его пола.
+ * `pace` — множитель темпа: «Медленнее» в разговоре и диктанте (задача 21.5).
+ */
+export function speakAs(text: string, who: Speaker, pace = 1): void {
+  speak(text, useSettings.getState().speechRate * who.voice.rate * pace, who.voice.pitch, who.gender);
 }
 
 /** Реплика путника: голос пола, выбранного в настройках («Путник»). */
-export function speakHero(text: string): void {
-  speak(text, useSettings.getState().speechRate, 1, useSettings.getState().heroGender);
+export function speakHero(text: string, pace = 1): void {
+  speak(text, useSettings.getState().speechRate * pace, 1, useSettings.getState().heroGender);
 }
 
 /** Можно ли сейчас давать задания на слух. */
